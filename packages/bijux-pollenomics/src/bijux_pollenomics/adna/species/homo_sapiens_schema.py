@@ -2,7 +2,7 @@ from __future__ import annotations
 
 from collections.abc import Mapping, Sequence
 
-from ..core.bp_time import (
+from ...core.bp_time import (
     build_bp_interval_label,
     derive_bp_interval_from_mean_and_stddev,
     midpoint_bp_year,

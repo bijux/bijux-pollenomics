@@ -4,8 +4,8 @@ import csv
 import io
 from pathlib import Path
 
-from ..core.files import write_json, write_text
-from .catalogs import (
+from ...core.files import write_json, write_text
+from ..catalogs import (
     build_coordinate_caveat_surface,
     build_cross_species_archive_inventory,
     build_cross_species_bibliography,
@@ -19,17 +19,14 @@ from .catalogs import (
     render_coordinate_confidence_scale_markdown,
     render_csv_rows,
 )
-from .curation import build_species_curation_manifest
-from .ena import build_species_archive_projects, classify_archive_project_evidence
-from .governance import build_species_dataset_review
-from .integrity import build_archive_integrity_report
-from .layout import build_species_layout
-from .manifests import build_species_manifest
-from .normalization import build_species_normalization_bundle
-from .paths import adna_final_root, adna_governance_root
-from .reviews import build_species_project_manifest, build_species_review_dossier
-from .runtime import build_species_runtime_manifest
-from .sample_truth import (
+from ..curation import build_species_curation_manifest
+from ..governance import build_species_dataset_review
+from ..integrity import build_archive_integrity_report
+from ..layout import build_species_layout
+from ..manifests import build_species_manifest
+from ..normalization import build_species_normalization_bundle
+from ..paths import adna_final_root, adna_governance_root
+from ..projects.sample_truth import (
     build_animal_sample_aggregation_warnings,
     build_animal_sample_foundation_truth,
     build_animal_sample_product_contract,
@@ -37,13 +34,19 @@ from .sample_truth import (
     render_animal_sample_foundation_truth_markdown,
     render_animal_sample_product_contract_markdown,
 )
-from .source_library import materialize_source_library
-from .source_recovery import build_species_project_deficit_ledger
-from .source_snapshots import (
+from ..reviews import build_species_project_manifest, build_species_review_dossier
+from ..runtime import build_species_runtime_manifest
+from ..sources.ena import (
+    build_species_archive_projects,
+    classify_archive_project_evidence,
+)
+from ..sources.library import materialize_source_library
+from ..sources.recovery import build_species_project_deficit_ledger
+from ..sources.snapshots import (
     build_species_source_snapshots,
     resolve_archive_source_snapshot,
 )
-from .species import resolve_species_definition
+from .definitions import resolve_species_definition
 from .tracked_species import TRACKED_ADNA_SPECIES, tracked_species_slugs
 
 __all__ = [
@@ -1213,11 +1216,11 @@ def _materialize_cross_species_adna_artifacts(output_root: Path) -> None:
 
 
 def _materialize_final_adna_artifacts(output_root: Path, final_root: Path) -> None:
-    from ..reporting.adna.atlas_evidence_rows import (
+    from ...reporting.adna.atlas_evidence_rows import (
         build_tracked_animal_atlas_evidence_rows,
     )
-    from ..reporting.adna.country_outputs import build_country_animal_output_bundle
-    from .catalogs import (
+    from ...reporting.adna.country_outputs import build_country_animal_output_bundle
+    from ..catalogs import (
         build_animal_atlas_candidate_accountability,
         render_animal_atlas_candidate_accountability_markdown,
     )

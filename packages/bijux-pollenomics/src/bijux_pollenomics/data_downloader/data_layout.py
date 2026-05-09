@@ -9,7 +9,8 @@ from ..adna.paths import (
     ADNA_SOURCE_LIBRARY_DIR,
     ADNA_SPECIES_DIR,
 )
-from ..adna.tracked_species import TRACKED_ADNA_SPECIES, tracked_species_slugs
+from ..adna.species.tracked_data import tracked_species_slugs
+from ..adna.species.tracked_species import TRACKED_ADNA_SPECIES
 from ..config import DEFAULT_AADR_VERSION, DEFAULT_DATA_ROOT
 from ..core.files import write_text
 

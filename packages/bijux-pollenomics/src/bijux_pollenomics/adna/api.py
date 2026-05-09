@@ -1,16 +1,5 @@
 """Compatibility exports for the repository-owned aDNA workflow surface."""
 
-from .accessions import (
-    AdnaAccessionReference,
-    resolve_accession_lineage,
-    resolve_accession_reference,
-)
-from .bovines import (
-    BovineCombinedClaimRule,
-    BovineSpeciesSupportRow,
-    BovineSupportProgram,
-    build_bovine_support_program,
-)
 from .catalogs import (
     build_coordinate_caveat_surface,
     build_cross_species_archive_inventory,
@@ -23,11 +12,6 @@ from .catalogs import (
     build_species_freshness_table,
     build_unresolved_site_ledger,
 )
-from .coordinate_provenance import (
-    build_species_coordinate_provenance_rows,
-    resolve_project_context_coordinate_provenance,
-    resolve_project_coordinate_provenance,
-)
 from .curation import (
     ADNA_COVERAGE_POSTURES,
     ADNA_CURATION_CLASSES,
@@ -37,19 +21,6 @@ from .curation import (
     AdnaSpeciesCurationManifest,
     build_domestication_coverage_report,
     build_species_curation_manifest,
-)
-from .ena import (
-    ADNA_ENA_RESULT_KINDS,
-    ADNA_PROJECT_EVIDENCE_STRENGTHS,
-    AdnaArchiveProject,
-    AdnaEnaQuery,
-    AdnaEnaRecord,
-    AdnaPaperLinkage,
-    build_archive_project_catalog,
-    build_ena_filereport_url,
-    build_species_archive_projects,
-    classify_archive_project_evidence,
-    parse_ena_filereport_tsv,
 )
 from .governance import (
     ADNA_ASSIGNMENT_RULES,
@@ -61,26 +32,6 @@ from .governance import (
     build_species_dataset_review,
     classify_species_assignment_rule,
     classify_species_product_role,
-)
-from .homo_sapiens import (
-    build_homo_sapiens_runtime_manifest,
-    build_homo_sapiens_runtime_manifest_for_version_dir,
-    discover_homo_sapiens_anno_files,
-    iter_homo_sapiens_samples_from_anno,
-    load_homo_sapiens_country_samples,
-    load_homo_sapiens_samples,
-)
-from .homo_sapiens_genotypes import (
-    HomoSapiensGenotypeArtifact,
-    HomoSapiensGenotypeContract,
-    build_homo_sapiens_genotype_contract,
-)
-from .homo_sapiens_schema import (
-    resolve_homo_sapiens_schema,
-    sample_time_interval,
-    sample_time_label,
-    sample_time_mean,
-    schema_value,
 )
 from .integrity import (
     AdnaArchiveDuplicate,
@@ -120,27 +71,31 @@ from .normalization import (
     normalize_explicit_bp_window,
     normalize_species_anchor,
 )
-from .project_sample_chronology import (
+from .projects import (
     ADNA_CHRONOLOGY_NORMALIZATION_STATUSES,
     ADNA_CHRONOLOGY_STRENGTHS,
+    ADNA_LOCALITY_CLASSES,
     build_cross_project_sample_chronology_audit,
     build_project_chronology_completeness_rows,
-    build_project_sample_chronology_review_rows,
-    build_project_sample_chronology_rows,
-    build_sample_chronology_ambiguity_ledger,
-    build_sample_chronology_review_rows,
-    build_species_chronology_completeness_rows,
-)
-from .project_sample_locality_evidence import (
-    ADNA_LOCALITY_CLASSES,
     build_project_locality_completeness_rows,
     build_project_locality_substitution_ledger,
     build_project_locality_worksheet_rows,
+    build_project_sample_chronology_review_rows,
+    build_project_sample_chronology_rows,
     build_project_sample_locality_evidence_rows,
+    build_sample_chronology_ambiguity_ledger,
+    build_sample_chronology_review_rows,
     build_sample_locality_conflict_ledger,
     build_sample_locality_manual_curation_workflow_rows,
     build_site_name_normalization_dictionary_rows,
+    build_species_chronology_completeness_rows,
+    build_species_coordinate_provenance_rows,
     build_species_locality_completeness_rows,
+    build_species_site_evidence_rows,
+    resolve_project_context_coordinate_provenance,
+    resolve_project_context_site_evidence,
+    resolve_project_coordinate_provenance,
+    resolve_project_site_evidence,
 )
 from .rebuild import (
     AdnaArtifactPlanEntry,
@@ -166,23 +121,50 @@ from .runtime import (
     build_species_runtime_manifest,
     load_species_samples,
 )
-from .site_evidence import (
-    build_species_site_evidence_rows,
-    resolve_project_context_site_evidence,
-    resolve_project_site_evidence,
-)
-from .source_snapshots import (
+from .sources import (
+    ADNA_ENA_RESULT_KINDS,
+    ADNA_PROJECT_EVIDENCE_STRENGTHS,
     ADNA_SOURCE_CAPTURE_BASES,
+    AdnaAccessionReference,
+    AdnaArchiveProject,
     AdnaArchiveSourceSnapshot,
+    AdnaEnaQuery,
+    AdnaEnaRecord,
+    AdnaPaperLinkage,
+    build_archive_project_catalog,
+    build_ena_filereport_url,
+    build_species_archive_projects,
     build_species_source_snapshots,
+    classify_archive_project_evidence,
+    parse_ena_filereport_tsv,
+    resolve_accession_lineage,
+    resolve_accession_reference,
     resolve_archive_source_snapshot,
 )
 from .species import (
     ADNA_MODALITIES,
     ADNA_SUPPORT_STATUSES,
     AdnaSpeciesDefinition,
+    BovineCombinedClaimRule,
+    BovineSpeciesSupportRow,
+    BovineSupportProgram,
+    HomoSapiensGenotypeArtifact,
+    HomoSapiensGenotypeContract,
+    build_bovine_support_program,
+    build_homo_sapiens_genotype_contract,
+    build_homo_sapiens_runtime_manifest,
+    build_homo_sapiens_runtime_manifest_for_version_dir,
     build_species_support_matrix,
+    discover_homo_sapiens_anno_files,
+    iter_homo_sapiens_samples_from_anno,
+    load_homo_sapiens_country_samples,
+    load_homo_sapiens_samples,
+    resolve_homo_sapiens_schema,
     resolve_species_definition,
+    sample_time_interval,
+    sample_time_label,
+    sample_time_mean,
+    schema_value,
 )
 
 __all__ = [

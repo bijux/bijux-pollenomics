@@ -3,7 +3,7 @@ from __future__ import annotations
 from dataclasses import dataclass
 from typing import Final
 
-from .species import resolve_species_definition
+from ..species.definitions import resolve_species_definition
 
 __all__ = [
     "ADNA_ACCESSION_SCOPES",

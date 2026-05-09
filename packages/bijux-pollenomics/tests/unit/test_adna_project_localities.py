@@ -2,7 +2,7 @@ from __future__ import annotations
 
 import unittest
 
-from bijux_pollenomics.adna.project_localities import (
+from bijux_pollenomics.adna.projects.localities import (
     build_species_project_locality_leads,
     resolve_project_locality_leads,
 )

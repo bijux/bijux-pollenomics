@@ -7,7 +7,7 @@ from .coordinate_provenance import (
     build_species_coordinate_provenance_rows,
     resolve_project_coordinate_provenance,
 )
-from .project_sample_sites import build_project_sample_site_rows
+from .sample_sites import build_project_sample_site_rows
 
 __all__ = [
     "AdnaProjectLocalityLead",
@@ -194,4 +194,4 @@ def _normalize_text(value: str) -> str:
 
 
 def _default_data_root() -> Path:
-    return Path(__file__).resolve().parents[5] / "data"
+    return Path(__file__).resolve().parents[6] / "data"

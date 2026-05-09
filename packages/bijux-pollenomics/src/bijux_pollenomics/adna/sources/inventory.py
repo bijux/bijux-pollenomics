@@ -3,9 +3,9 @@ from __future__ import annotations
 import json
 from pathlib import Path
 
-from ..core.files import write_json, write_text
-from .paths import ADNA_SOURCE_LIBRARY_DIR
-from .source_library import (
+from ...core.files import write_json, write_text
+from ..paths import ADNA_SOURCE_LIBRARY_DIR
+from .library import (
     _doi_slug,
     _reference_stash_records,
     _resolve_reference_stash_root,
@@ -13,7 +13,7 @@ from .source_library import (
     build_project_registry,
     build_project_source_bundles,
 )
-from .source_recovery import (
+from .recovery import (
     build_manual_curation_worklist,
     build_missing_source_queue,
     build_paper_expected_sample_yield_review,

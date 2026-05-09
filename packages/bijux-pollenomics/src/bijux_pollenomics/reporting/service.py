@@ -11,9 +11,9 @@ from ..adna import (
     resolve_species_definition,
     summarize_sample_localities,
 )
-from ..adna.source_library import build_project_registry, refresh_source_library
-from ..adna.tracked_data import materialize_tracked_species_adna
-from ..adna.tracked_species import TRACKED_ADNA_SPECIES
+from ..adna.sources.library import build_project_registry, refresh_source_library
+from ..adna.species.tracked_data import materialize_tracked_species_adna
+from ..adna.species.tracked_species import TRACKED_ADNA_SPECIES
 from ..config import DEFAULT_ATLAS_SLUG, DEFAULT_ATLAS_TITLE
 from .adna.atlas_evidence_rows import build_tracked_animal_atlas_evidence_rows
 from .bundles.atlas_bundle import publish_multi_country_map_bundle

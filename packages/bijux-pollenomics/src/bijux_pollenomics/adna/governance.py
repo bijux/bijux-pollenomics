@@ -4,13 +4,13 @@ from dataclasses import dataclass
 from datetime import date
 from typing import Final
 
-from .ena import (
+from .manifests import build_species_manifest
+from .sources.ena import (
     AdnaArchiveProject,
     build_species_archive_projects,
     classify_archive_project_evidence,
 )
-from .manifests import build_species_manifest
-from .species import AdnaSpeciesDefinition, resolve_species_definition
+from .species.definitions import AdnaSpeciesDefinition, resolve_species_definition
 
 __all__ = [
     "ADNA_ASSIGNMENT_RULES",

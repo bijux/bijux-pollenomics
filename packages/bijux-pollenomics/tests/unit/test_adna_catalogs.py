@@ -24,7 +24,9 @@ from bijux_pollenomics.adna.catalogs import (
     render_coordinate_confidence_scale_markdown,
     render_public_animal_output_audit_markdown,
 )
-from bijux_pollenomics.adna.tracked_data import materialize_tracked_species_adna
+from bijux_pollenomics.adna.species.tracked_data import (
+    materialize_tracked_species_adna,
+)
 
 pytestmark = pytest.mark.generated_artifacts
 

@@ -16,7 +16,7 @@ from .models import (
     AdnaLocalitySummary,
     AdnaSampleRecord,
 )
-from .species import resolve_species_definition
+from .species.definitions import resolve_species_definition
 
 __all__ = ["build_locality_identity", "summarize_sample_localities"]
 

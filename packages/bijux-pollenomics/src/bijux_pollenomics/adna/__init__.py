@@ -148,7 +148,7 @@ from .api import (
     schema_value,
     summarize_sample_localities,
 )
-from .sample_truth import (
+from .projects.sample_truth import (
     build_animal_sample_aggregation_warnings,
     build_animal_sample_foundation_truth,
     build_animal_sample_product_contract,

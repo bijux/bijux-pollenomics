@@ -14,7 +14,9 @@ from bijux_pollenomics.adna import (
     build_project_locality_count_drift,
     build_species_sample_count_drift,
 )
-from bijux_pollenomics.adna.tracked_data import materialize_tracked_species_adna
+from bijux_pollenomics.adna.species.tracked_data import (
+    materialize_tracked_species_adna,
+)
 
 pytestmark = pytest.mark.generated_artifacts
 

@@ -4,7 +4,7 @@ from __future__ import annotations
 
 from pathlib import Path
 
-from .species import resolve_species_definition
+from .species.definitions import resolve_species_definition
 
 __all__ = [
     "ADNA_FINAL_DIR",

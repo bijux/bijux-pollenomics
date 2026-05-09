@@ -6,8 +6,8 @@ import unittest
 
 import pytest
 
-from bijux_pollenomics.adna import sample_master as sample_master_module
-from bijux_pollenomics.adna.sample_master import (
+from bijux_pollenomics.adna.projects import sample_master as sample_master_module
+from bijux_pollenomics.adna.projects.sample_master import (
     build_cross_project_sample_master_completeness,
     build_project_sample_master,
     build_project_sample_master_rows,

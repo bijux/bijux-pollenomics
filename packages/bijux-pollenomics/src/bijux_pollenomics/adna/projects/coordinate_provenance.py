@@ -2,9 +2,9 @@ from __future__ import annotations
 
 from pathlib import Path
 
-from .models import AdnaCoordinateProvenanceRecord
+from ..models import AdnaCoordinateProvenanceRecord
+from ..sources.library import build_project_registry
 from .sample_master import build_project_sample_master_rows
-from .source_library import build_project_registry
 
 __all__ = [
     "build_species_coordinate_provenance_rows",
@@ -366,7 +366,7 @@ def build_species_coordinate_provenance_rows(
 
 
 def _default_data_root() -> Path:
-    return Path(__file__).resolve().parents[5] / "data"
+    return Path(__file__).resolve().parents[6] / "data"
 
 
 def _project_paper_lookup(project_accession: str) -> tuple[str, str]:
