@@ -739,18 +739,18 @@ class RepositoryContractRegressionTests(unittest.TestCase):
             / "docs"
             / "02-bijux-pollenomics-data"
             / "outputs"
-            / "nordic-atlas.md"
+            / "geographic-evidence-surfaces.md"
         ).read_text(encoding="utf-8")
         atlas_inputs_page = (
             REPO_ROOT
             / "docs"
             / "02-bijux-pollenomics-data"
             / "outputs"
-            / "nordic-atlas-inputs.md"
+            / "geographic-input-surfaces.md"
         ).read_text(encoding="utf-8")
 
         self.assertIn("02-bijux-pollenomics-data/", docs_index)
-        self.assertIn("report/nordic-atlas/nordic-atlas_map.html", docs_index)
+        self.assertIn("report/world/world_map.html", docs_index)
         self.assertIn("data/adna/governance/animal_sample_foundation_truth.json", sample_page)
         self.assertIn("data/adna/species/ovis_aries/normalized/sample_records.json", sample_page)
         self.assertIn("data/adna/species/ovis_aries/normalized/site_evidence.json", site_page)
@@ -809,13 +809,13 @@ class RepositoryContractRegressionTests(unittest.TestCase):
         self.assertIn("../../report/repository_truth_posture.md", published_reports)
         self.assertIn("../../report/repository_source_family_matrix.md", published_reports)
         self.assertIn("output-surface-classes.md", outputs_index)
-        self.assertIn("nordic-atlas-point-publication.md", outputs_index)
-        self.assertIn("nordic-atlas-filters-and-popups.md", outputs_index)
-        self.assertIn("nordic-atlas-limits-and-honesty.md", outputs_index)
+        self.assertIn("geographic-point-publication.md", outputs_index)
+        self.assertIn("geographic-filters-and-inspection.md", outputs_index)
+        self.assertIn("geographic-limits-and-honesty.md", outputs_index)
         self.assertIn("../../report/repository_atlas_input_audit.md", atlas_inputs_page)
         self.assertIn("../../report/repository_cross_domain_evidence_matrix.md", atlas_inputs_page)
-        self.assertIn("../../report/sweden/sweden_animal_adna_v66_samples.md", published_reports)
-        self.assertIn("../../report/sweden/README.md", published_reports)
+        self.assertIn("../../report/countries/sweden/sweden_animal_adna_v66_samples.md", published_reports)
+        self.assertIn("../../report/countries/sweden/README.md", published_reports)
         self.assertIn("animal_atlas_candidate_accountability.md", atlas_outputs)
 
     def test_public_docs_do_not_ship_reference_grade_phrase(self) -> None:
@@ -1428,7 +1428,7 @@ class RepositoryContractRegressionTests(unittest.TestCase):
             / "docs"
             / "02-bijux-pollenomics-data"
             / "outputs"
-            / "nordic-atlas.md"
+            / "geographic-evidence-surfaces.md"
         ).read_text(encoding="utf-8")
         report_layout = (
             REPO_ROOT
@@ -1460,7 +1460,7 @@ class RepositoryContractRegressionTests(unittest.TestCase):
         ).read_text(encoding="utf-8")
 
         self.assertIn(
-            "Published report bundles live under `docs/report/<country-slug>/`",
+            "Published report bundles now live under one governed geography tree:",
             published_artifacts,
         )
         self.assertIn(
@@ -1472,10 +1472,10 @@ class RepositoryContractRegressionTests(unittest.TestCase):
             atlas_outputs,
         )
         self.assertIn(
-            "country bundles under `docs/report/<country-slug>/`", report_layout
+            "country bundles under `docs/report/countries/<country-slug>/`", report_layout
         )
         self.assertIn(
-            "the shared atlas under `docs/report/nordic-atlas/`", report_layout
+            "the world surface under `docs/report/world/` and regional surfaces under `docs/report/regions/`", report_layout
         )
         self.assertIn(
             "repository truth reviews",
