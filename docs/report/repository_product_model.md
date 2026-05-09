@@ -10,7 +10,7 @@
 | --- | --- | --- | --- |
 | `world` | `governing_parent_surface` | `data/`, `docs/report/world/` | the broadest public surface and the parent evidence view for all narrower scopes |
 | `europe_plus` | `regional_filter` | `docs/report/regions/europe-plus/` | the stable European bridge between world coverage and Nordic specialization |
-| `nordic` | `dense_regional_specialization` | `docs/report/regions/nordic/`, `docs/05-nordic-evidence-atlas/` | the narrow regional surface where contextual overlays become intentionally denser |
+| `nordic` | `dense_regional_specialization` | `docs/report/regions/nordic/`, `docs/public/nordic-atlas/` | the narrow regional surface where contextual overlays become intentionally denser |
 | `country` | `derived_country_bundle` | `docs/report/countries/<country-slug>/` | reader-facing country bundles derived from the same upstream evidence and scope rules |
 
 ## Shared Runtime Stages

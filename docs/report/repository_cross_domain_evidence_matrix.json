@@ -16,10 +16,10 @@
         "neotoma_site_count": 200
       },
       "docs_paths": [
-        "docs/02-bijux-pollenomics-data/sources/landclim.md",
-        "docs/02-bijux-pollenomics-data/sources/neotoma.md",
-        "docs/02-bijux-pollenomics-data/outputs/normalized-landclim.md",
-        "docs/02-bijux-pollenomics-data/outputs/normalized-neotoma.md"
+        "docs/public/pollenomics-data/sources/landclim.md",
+        "docs/public/pollenomics-data/sources/neotoma.md",
+        "docs/public/pollenomics-data/outputs/normalized-landclim.md",
+        "docs/public/pollenomics-data/outputs/normalized-neotoma.md"
       ],
       "published_paths": [
         "docs/report/regions/nordic/nordic_pollen_site_sequences.geojson",
@@ -42,10 +42,10 @@
         "raa_density_cell_count": 106
       },
       "docs_paths": [
-        "docs/02-bijux-pollenomics-data/sources/sead.md",
-        "docs/02-bijux-pollenomics-data/sources/raa.md",
-        "docs/02-bijux-pollenomics-data/outputs/normalized-sead.md",
-        "docs/02-bijux-pollenomics-data/outputs/normalized-raa.md"
+        "docs/public/pollenomics-data/sources/sead.md",
+        "docs/public/pollenomics-data/sources/raa.md",
+        "docs/public/pollenomics-data/outputs/normalized-sead.md",
+        "docs/public/pollenomics-data/outputs/normalized-raa.md"
       ],
       "published_paths": [
         "docs/report/regions/nordic/nordic_environmental_sites.geojson",
@@ -65,8 +65,8 @@
         "country_feature_count": 4
       },
       "docs_paths": [
-        "docs/02-bijux-pollenomics-data/sources/boundaries.md",
-        "docs/02-bijux-pollenomics-data/outputs/normalized-boundaries.md"
+        "docs/public/pollenomics-data/sources/boundaries.md",
+        "docs/public/pollenomics-data/outputs/normalized-boundaries.md"
       ],
       "published_paths": [
         "docs/report/regions/nordic/nordic_country_boundaries.geojson"
@@ -82,13 +82,13 @@
         "fieldwork"
       ],
       "tracked_metrics": {
-        "fieldwork_page_count": 2
+        "fieldwork_page_count": 0
       },
       "docs_paths": [
-        "docs/04-fieldwork/index.md"
+        "docs/public/fieldwork/index.md"
       ],
       "published_paths": [
-        "docs/04-fieldwork/lyngsjon-lake-fieldwork/index.md"
+        "docs/public/fieldwork/lyngsjon-lake-fieldwork/index.md"
       ],
       "coverage_posture": "narrow_honest_surface",
       "current_gap": "fieldwork is deliberately narrow and should stay explicit rather than being implied by atlas presence"
@@ -106,9 +106,9 @@
         "unresolved_map_rows": 21
       },
       "docs_paths": [
-        "docs/02-bijux-pollenomics-data/sources/animal-source-intake.md",
-        "docs/02-bijux-pollenomics-data/evidence/sample-records.md",
-        "docs/02-bijux-pollenomics-data/evidence/chronology.md"
+        "docs/public/pollenomics-data/sources/animal-source-intake.md",
+        "docs/public/pollenomics-data/evidence/sample-records.md",
+        "docs/public/pollenomics-data/evidence/chronology.md"
       ],
       "published_paths": [
         "docs/report/animal_sample_database_review.md",
@@ -130,9 +130,9 @@
         "animal_point_count": 234
       },
       "docs_paths": [
-        "docs/02-bijux-pollenomics-data/outputs/published-reports.md",
-        "docs/02-bijux-pollenomics-data/outputs/geographic-evidence-surfaces.md",
-        "docs/02-bijux-pollenomics-data/outputs/output-surface-classes.md"
+        "docs/public/pollenomics-data/outputs/published-reports.md",
+        "docs/public/pollenomics-data/outputs/geographic-evidence-surfaces.md",
+        "docs/public/pollenomics-data/outputs/output-surface-classes.md"
       ],
       "published_paths": [
         "docs/report/countries/sweden/README.md",

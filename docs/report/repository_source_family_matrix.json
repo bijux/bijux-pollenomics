@@ -11,7 +11,7 @@
         "data/adna/governance/source_library/project_source_evidence_matrix.json"
       ],
       "docs_paths": [
-        "docs/02-bijux-pollenomics-data/sources/animal-source-intake.md"
+        "docs/public/pollenomics-data/sources/animal-source-intake.md"
       ],
       "visible_count": 18,
       "acquisition_posture": "repo_capture_matches_visible_staging",
@@ -25,7 +25,7 @@
         "data/aadr/v66/"
       ],
       "docs_paths": [
-        "docs/02-bijux-pollenomics-data/sources/aadr.md"
+        "docs/public/pollenomics-data/sources/aadr.md"
       ],
       "visible_count": 3,
       "acquisition_posture": "tracked_query_surface",
@@ -39,7 +39,7 @@
         "data/landclim/normalized/"
       ],
       "docs_paths": [
-        "docs/02-bijux-pollenomics-data/sources/landclim.md"
+        "docs/public/pollenomics-data/sources/landclim.md"
       ],
       "visible_count": 580,
       "acquisition_posture": "tracked_context_layer",
@@ -53,7 +53,7 @@
         "data/neotoma/normalized/"
       ],
       "docs_paths": [
-        "docs/02-bijux-pollenomics-data/sources/neotoma.md"
+        "docs/public/pollenomics-data/sources/neotoma.md"
       ],
       "visible_count": 200,
       "acquisition_posture": "tracked_context_layer",
@@ -67,7 +67,7 @@
         "data/sead/normalized/"
       ],
       "docs_paths": [
-        "docs/02-bijux-pollenomics-data/sources/sead.md"
+        "docs/public/pollenomics-data/sources/sead.md"
       ],
       "visible_count": 2195,
       "acquisition_posture": "tracked_context_layer",
@@ -81,7 +81,7 @@
         "data/raa/normalized/"
       ],
       "docs_paths": [
-        "docs/02-bijux-pollenomics-data/sources/raa.md"
+        "docs/public/pollenomics-data/sources/raa.md"
       ],
       "visible_count": 761917,
       "acquisition_posture": "tracked_context_layer",
@@ -95,7 +95,7 @@
         "data/boundaries/normalized/"
       ],
       "docs_paths": [
-        "docs/02-bijux-pollenomics-data/sources/boundaries.md"
+        "docs/public/pollenomics-data/sources/boundaries.md"
       ],
       "visible_count": 4,
       "acquisition_posture": "tracked_boundary_frame",
@@ -106,12 +106,12 @@
       "display_name": "Fieldwork evidence",
       "role": "contextual_domain",
       "artifact_paths": [
-        "docs/04-fieldwork/"
+        "docs/public/fieldwork/"
       ],
       "docs_paths": [
-        "docs/04-fieldwork/index.md"
+        "docs/public/fieldwork/index.md"
       ],
-      "visible_count": 2,
+      "visible_count": 0,
       "acquisition_posture": "narrow_documented_surface",
       "main_gap": "Fieldwork remains intentionally narrow and should stay explicit instead of being implied by other maps"
     }

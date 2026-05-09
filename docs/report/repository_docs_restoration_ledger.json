@@ -15,476 +15,476 @@
     {
       "legacy_path": "docs/01-bijux-pollenomics/architecture/architecture-risks.md",
       "decision": "merged",
-      "current_path": "docs/01-bijux-pollenomics/architecture/runtime-system-model.md",
+      "current_path": "docs/public/pollenomics/architecture/runtime-system-model.md",
       "status": "verified_replacement",
       "notes": "architecture coverage is now consolidated into one runtime system model page instead of several thin fragments"
     },
     {
       "legacy_path": "docs/01-bijux-pollenomics/architecture/code-navigation.md",
       "decision": "merged",
-      "current_path": "docs/01-bijux-pollenomics/architecture/runtime-system-model.md",
+      "current_path": "docs/public/pollenomics/architecture/runtime-system-model.md",
       "status": "verified_replacement",
       "notes": "architecture coverage is now consolidated into one runtime system model page instead of several thin fragments"
     },
     {
       "legacy_path": "docs/01-bijux-pollenomics/architecture/dependency-direction.md",
       "decision": "merged",
-      "current_path": "docs/01-bijux-pollenomics/architecture/runtime-system-model.md",
+      "current_path": "docs/public/pollenomics/architecture/runtime-system-model.md",
       "status": "verified_replacement",
       "notes": "architecture coverage is now consolidated into one runtime system model page instead of several thin fragments"
     },
     {
       "legacy_path": "docs/01-bijux-pollenomics/architecture/error-model.md",
       "decision": "merged",
-      "current_path": "docs/01-bijux-pollenomics/architecture/runtime-system-model.md",
+      "current_path": "docs/public/pollenomics/architecture/runtime-system-model.md",
       "status": "verified_replacement",
       "notes": "architecture coverage is now consolidated into one runtime system model page instead of several thin fragments"
     },
     {
       "legacy_path": "docs/01-bijux-pollenomics/architecture/execution-model.md",
       "decision": "merged",
-      "current_path": "docs/01-bijux-pollenomics/architecture/runtime-system-model.md",
+      "current_path": "docs/public/pollenomics/architecture/runtime-system-model.md",
       "status": "verified_replacement",
       "notes": "architecture coverage is now consolidated into one runtime system model page instead of several thin fragments"
     },
     {
       "legacy_path": "docs/01-bijux-pollenomics/architecture/extensibility-model.md",
       "decision": "merged",
-      "current_path": "docs/01-bijux-pollenomics/architecture/runtime-system-model.md",
+      "current_path": "docs/public/pollenomics/architecture/runtime-system-model.md",
       "status": "verified_replacement",
       "notes": "architecture coverage is now consolidated into one runtime system model page instead of several thin fragments"
     },
     {
       "legacy_path": "docs/01-bijux-pollenomics/architecture/integration-seams.md",
       "decision": "merged",
-      "current_path": "docs/01-bijux-pollenomics/architecture/runtime-system-model.md",
+      "current_path": "docs/public/pollenomics/architecture/runtime-system-model.md",
       "status": "verified_replacement",
       "notes": "architecture coverage is now consolidated into one runtime system model page instead of several thin fragments"
     },
     {
       "legacy_path": "docs/01-bijux-pollenomics/architecture/state-and-persistence.md",
       "decision": "merged",
-      "current_path": "docs/01-bijux-pollenomics/architecture/runtime-system-model.md",
+      "current_path": "docs/public/pollenomics/architecture/runtime-system-model.md",
       "status": "verified_replacement",
       "notes": "architecture coverage is now consolidated into one runtime system model page instead of several thin fragments"
     },
     {
       "legacy_path": "docs/01-bijux-pollenomics/foundation/capability-map.md",
       "decision": "merged",
-      "current_path": "docs/01-bijux-pollenomics/foundation/runtime-scope-and-ownership.md",
+      "current_path": "docs/public/pollenomics/foundation/runtime-scope-and-ownership.md",
       "status": "verified_replacement",
       "notes": "foundation topics now live in one ownership-and-scope page that keeps package purpose, language, and boundaries together"
     },
     {
       "legacy_path": "docs/01-bijux-pollenomics/foundation/change-principles.md",
       "decision": "merged",
-      "current_path": "docs/01-bijux-pollenomics/foundation/runtime-scope-and-ownership.md",
+      "current_path": "docs/public/pollenomics/foundation/runtime-scope-and-ownership.md",
       "status": "verified_replacement",
       "notes": "foundation topics now live in one ownership-and-scope page that keeps package purpose, language, and boundaries together"
     },
     {
       "legacy_path": "docs/01-bijux-pollenomics/foundation/dependencies-and-adjacencies.md",
       "decision": "merged",
-      "current_path": "docs/01-bijux-pollenomics/foundation/runtime-scope-and-ownership.md",
+      "current_path": "docs/public/pollenomics/foundation/runtime-scope-and-ownership.md",
       "status": "verified_replacement",
       "notes": "foundation topics now live in one ownership-and-scope page that keeps package purpose, language, and boundaries together"
     },
     {
       "legacy_path": "docs/01-bijux-pollenomics/foundation/domain-language.md",
       "decision": "merged",
-      "current_path": "docs/01-bijux-pollenomics/foundation/runtime-scope-and-ownership.md",
+      "current_path": "docs/public/pollenomics/foundation/runtime-scope-and-ownership.md",
       "status": "verified_replacement",
       "notes": "foundation topics now live in one ownership-and-scope page that keeps package purpose, language, and boundaries together"
     },
     {
       "legacy_path": "docs/01-bijux-pollenomics/foundation/lifecycle-overview.md",
       "decision": "merged",
-      "current_path": "docs/01-bijux-pollenomics/foundation/runtime-scope-and-ownership.md",
+      "current_path": "docs/public/pollenomics/foundation/runtime-scope-and-ownership.md",
       "status": "verified_replacement",
       "notes": "foundation topics now live in one ownership-and-scope page that keeps package purpose, language, and boundaries together"
     },
     {
       "legacy_path": "docs/01-bijux-pollenomics/foundation/ownership-boundary.md",
       "decision": "merged",
-      "current_path": "docs/01-bijux-pollenomics/foundation/runtime-scope-and-ownership.md",
+      "current_path": "docs/public/pollenomics/foundation/runtime-scope-and-ownership.md",
       "status": "verified_replacement",
       "notes": "foundation topics now live in one ownership-and-scope page that keeps package purpose, language, and boundaries together"
     },
     {
       "legacy_path": "docs/01-bijux-pollenomics/foundation/ownership-map.md",
       "decision": "merged",
-      "current_path": "docs/01-bijux-pollenomics/foundation/runtime-scope-and-ownership.md",
+      "current_path": "docs/public/pollenomics/foundation/runtime-scope-and-ownership.md",
       "status": "verified_replacement",
       "notes": "foundation topics now live in one ownership-and-scope page that keeps package purpose, language, and boundaries together"
     },
     {
       "legacy_path": "docs/01-bijux-pollenomics/foundation/package-overview.md",
       "decision": "merged",
-      "current_path": "docs/01-bijux-pollenomics/foundation/runtime-scope-and-ownership.md",
+      "current_path": "docs/public/pollenomics/foundation/runtime-scope-and-ownership.md",
       "status": "verified_replacement",
       "notes": "foundation topics now live in one ownership-and-scope page that keeps package purpose, language, and boundaries together"
     },
     {
       "legacy_path": "docs/01-bijux-pollenomics/foundation/scope-and-non-goals.md",
       "decision": "merged",
-      "current_path": "docs/01-bijux-pollenomics/foundation/runtime-scope-and-ownership.md",
+      "current_path": "docs/public/pollenomics/foundation/runtime-scope-and-ownership.md",
       "status": "verified_replacement",
       "notes": "foundation topics now live in one ownership-and-scope page that keeps package purpose, language, and boundaries together"
     },
     {
       "legacy_path": "docs/01-bijux-pollenomics/foundation/surface-map.md",
       "decision": "merged",
-      "current_path": "docs/01-bijux-pollenomics/foundation/runtime-scope-and-ownership.md",
+      "current_path": "docs/public/pollenomics/foundation/runtime-scope-and-ownership.md",
       "status": "verified_replacement",
       "notes": "foundation topics now live in one ownership-and-scope page that keeps package purpose, language, and boundaries together"
     },
     {
       "legacy_path": "docs/01-bijux-pollenomics/interfaces/api-surface.md",
       "decision": "restored",
-      "current_path": "docs/01-bijux-pollenomics/interfaces/api-surface.md",
+      "current_path": "docs/public/pollenomics/interfaces/api-surface.md",
       "status": "verified_replacement",
       "notes": "the API boundary page is restored directly because it remains a durable contract surface"
     },
     {
       "legacy_path": "docs/01-bijux-pollenomics/interfaces/compatibility-commitments.md",
       "decision": "merged",
-      "current_path": "docs/01-bijux-pollenomics/interfaces/api-surface.md",
+      "current_path": "docs/public/pollenomics/interfaces/api-surface.md",
       "status": "verified_replacement",
       "notes": "compatibility and public-import expectations are merged into the restored API surface page"
     },
     {
       "legacy_path": "docs/01-bijux-pollenomics/interfaces/public-imports.md",
       "decision": "merged",
-      "current_path": "docs/01-bijux-pollenomics/interfaces/api-surface.md",
+      "current_path": "docs/public/pollenomics/interfaces/api-surface.md",
       "status": "verified_replacement",
       "notes": "compatibility and public-import expectations are merged into the restored API surface page"
     },
     {
       "legacy_path": "docs/01-bijux-pollenomics/interfaces/configuration-surface.md",
       "decision": "merged",
-      "current_path": "docs/01-bijux-pollenomics/interfaces/cli-surface.md",
+      "current_path": "docs/public/pollenomics/interfaces/cli-surface.md",
       "status": "verified_replacement",
       "notes": "configuration defaults remain part of the CLI contract page because operators encounter them through command usage"
     },
     {
       "legacy_path": "docs/01-bijux-pollenomics/interfaces/data-contracts.md",
       "decision": "restored",
-      "current_path": "docs/01-bijux-pollenomics/interfaces/data-contracts.md",
+      "current_path": "docs/public/pollenomics/interfaces/data-contracts.md",
       "status": "verified_replacement",
       "notes": "data contracts are restored directly because they remain a durable reader-facing contract surface"
     },
     {
       "legacy_path": "docs/01-bijux-pollenomics/interfaces/entrypoints-and-examples.md",
       "decision": "restored",
-      "current_path": "docs/01-bijux-pollenomics/interfaces/entrypoints-and-examples.md",
+      "current_path": "docs/public/pollenomics/interfaces/entrypoints-and-examples.md",
       "status": "verified_replacement",
       "notes": "entrypoint examples are restored directly because the repository root already promises them"
     },
     {
       "legacy_path": "docs/01-bijux-pollenomics/interfaces/operator-workflows.md",
       "decision": "restored",
-      "current_path": "docs/01-bijux-pollenomics/interfaces/operator-workflows.md",
+      "current_path": "docs/public/pollenomics/interfaces/operator-workflows.md",
       "status": "verified_replacement",
       "notes": "operator workflows are restored directly because they remain a durable distinction between verify, refresh, and publish"
     },
     {
       "legacy_path": "docs/01-bijux-pollenomics/operations/common-workflows.md",
       "decision": "restored",
-      "current_path": "docs/01-bijux-pollenomics/operations/common-workflows.md",
+      "current_path": "docs/public/pollenomics/operations/common-workflows.md",
       "status": "verified_replacement",
       "notes": "common workflows are restored directly because the repository needs a concrete rebuild sequence page"
     },
     {
       "legacy_path": "docs/01-bijux-pollenomics/operations/deployment-boundaries.md",
       "decision": "merged",
-      "current_path": "docs/01-bijux-pollenomics/operations/operational-boundaries.md",
+      "current_path": "docs/public/pollenomics/operations/operational-boundaries.md",
       "status": "verified_replacement",
       "notes": "operational edge cases are merged into one page so local development, release, safety, and diagnostics stay readable together"
     },
     {
       "legacy_path": "docs/01-bijux-pollenomics/operations/local-development.md",
       "decision": "merged",
-      "current_path": "docs/01-bijux-pollenomics/operations/operational-boundaries.md",
+      "current_path": "docs/public/pollenomics/operations/operational-boundaries.md",
       "status": "verified_replacement",
       "notes": "operational edge cases are merged into one page so local development, release, safety, and diagnostics stay readable together"
     },
     {
       "legacy_path": "docs/01-bijux-pollenomics/operations/observability-and-diagnostics.md",
       "decision": "merged",
-      "current_path": "docs/01-bijux-pollenomics/operations/operational-boundaries.md",
+      "current_path": "docs/public/pollenomics/operations/operational-boundaries.md",
       "status": "verified_replacement",
       "notes": "operational edge cases are merged into one page so local development, release, safety, and diagnostics stay readable together"
     },
     {
       "legacy_path": "docs/01-bijux-pollenomics/operations/performance-and-scaling.md",
       "decision": "merged",
-      "current_path": "docs/01-bijux-pollenomics/operations/operational-boundaries.md",
+      "current_path": "docs/public/pollenomics/operations/operational-boundaries.md",
       "status": "verified_replacement",
       "notes": "operational edge cases are merged into one page so local development, release, safety, and diagnostics stay readable together"
     },
     {
       "legacy_path": "docs/01-bijux-pollenomics/operations/release-and-versioning.md",
       "decision": "merged",
-      "current_path": "docs/01-bijux-pollenomics/operations/operational-boundaries.md",
+      "current_path": "docs/public/pollenomics/operations/operational-boundaries.md",
       "status": "verified_replacement",
       "notes": "operational edge cases are merged into one page so local development, release, safety, and diagnostics stay readable together"
     },
     {
       "legacy_path": "docs/01-bijux-pollenomics/operations/security-and-safety.md",
       "decision": "merged",
-      "current_path": "docs/01-bijux-pollenomics/operations/operational-boundaries.md",
+      "current_path": "docs/public/pollenomics/operations/operational-boundaries.md",
       "status": "verified_replacement",
       "notes": "operational edge cases are merged into one page so local development, release, safety, and diagnostics stay readable together"
     },
     {
       "legacy_path": "docs/01-bijux-pollenomics/operations/failure-recovery.md",
       "decision": "restored",
-      "current_path": "docs/01-bijux-pollenomics/operations/failure-recovery.md",
+      "current_path": "docs/public/pollenomics/operations/failure-recovery.md",
       "status": "verified_replacement",
       "notes": "failure recovery is restored directly because it remains a distinct operational task"
     },
     {
       "legacy_path": "docs/01-bijux-pollenomics/quality/change-validation.md",
       "decision": "restored",
-      "current_path": "docs/01-bijux-pollenomics/quality/change-validation.md",
+      "current_path": "docs/public/pollenomics/quality/change-validation.md",
       "status": "verified_replacement",
       "notes": "change validation is restored directly because it is the clearest location for the docs breadth rule"
     },
     {
       "legacy_path": "docs/01-bijux-pollenomics/quality/definition-of-done.md",
       "decision": "merged",
-      "current_path": "docs/01-bijux-pollenomics/quality/runtime-invariants-and-limits.md",
+      "current_path": "docs/public/pollenomics/quality/runtime-invariants-and-limits.md",
       "status": "verified_replacement",
       "notes": "definition, invariant, limitation, and risk material now lives in one durable runtime limits page"
     },
     {
       "legacy_path": "docs/01-bijux-pollenomics/quality/dependency-governance.md",
       "decision": "merged",
-      "current_path": "docs/01-bijux-pollenomics/quality/runtime-invariants-and-limits.md",
+      "current_path": "docs/public/pollenomics/quality/runtime-invariants-and-limits.md",
       "status": "verified_replacement",
       "notes": "definition, invariant, limitation, and risk material now lives in one durable runtime limits page"
     },
     {
       "legacy_path": "docs/01-bijux-pollenomics/quality/invariants.md",
       "decision": "merged",
-      "current_path": "docs/01-bijux-pollenomics/quality/runtime-invariants-and-limits.md",
+      "current_path": "docs/public/pollenomics/quality/runtime-invariants-and-limits.md",
       "status": "verified_replacement",
       "notes": "definition, invariant, limitation, and risk material now lives in one durable runtime limits page"
     },
     {
       "legacy_path": "docs/01-bijux-pollenomics/quality/known-limitations.md",
       "decision": "merged",
-      "current_path": "docs/01-bijux-pollenomics/quality/runtime-invariants-and-limits.md",
+      "current_path": "docs/public/pollenomics/quality/runtime-invariants-and-limits.md",
       "status": "verified_replacement",
       "notes": "definition, invariant, limitation, and risk material now lives in one durable runtime limits page"
     },
     {
       "legacy_path": "docs/01-bijux-pollenomics/quality/risk-register.md",
       "decision": "merged",
-      "current_path": "docs/01-bijux-pollenomics/quality/runtime-invariants-and-limits.md",
+      "current_path": "docs/public/pollenomics/quality/runtime-invariants-and-limits.md",
       "status": "verified_replacement",
       "notes": "definition, invariant, limitation, and risk material now lives in one durable runtime limits page"
     },
     {
       "legacy_path": "docs/01-bijux-pollenomics/quality/documentation-standards.md",
       "decision": "merged",
-      "current_path": "docs/01-bijux-pollenomics/quality/change-validation.md",
+      "current_path": "docs/public/pollenomics/quality/change-validation.md",
       "status": "verified_replacement",
       "notes": "documentation standards now live with validation because breadth loss is enforced as a quality rule"
     },
     {
       "legacy_path": "docs/01-bijux-pollenomics/quality/review-checklist.md",
       "decision": "restored",
-      "current_path": "docs/01-bijux-pollenomics/quality/review-checklist.md",
+      "current_path": "docs/public/pollenomics/quality/review-checklist.md",
       "status": "verified_replacement",
       "notes": "review checklist is restored directly because it remains a useful maintainer-facing stop list"
     },
     {
       "legacy_path": "docs/02-bijux-pollenomics-data/foundation/coordinate-policy.md",
       "decision": "merged",
-      "current_path": "docs/02-bijux-pollenomics-data/overview/provenance-and-publication-linkage.md",
+      "current_path": "docs/public/pollenomics-data/overview/provenance-and-publication-linkage.md",
       "status": "verified_replacement",
       "notes": "provenance, coordinate, and publication linkage topics now live under the current overview model"
     },
     {
       "legacy_path": "docs/02-bijux-pollenomics-data/foundation/provenance-model.md",
       "decision": "merged",
-      "current_path": "docs/02-bijux-pollenomics-data/overview/provenance-and-publication-linkage.md",
+      "current_path": "docs/public/pollenomics-data/overview/provenance-and-publication-linkage.md",
       "status": "verified_replacement",
       "notes": "provenance, coordinate, and publication linkage topics now live under the current overview model"
     },
     {
       "legacy_path": "docs/02-bijux-pollenomics-data/foundation/publication-linkage.md",
       "decision": "merged",
-      "current_path": "docs/02-bijux-pollenomics-data/overview/provenance-and-publication-linkage.md",
+      "current_path": "docs/public/pollenomics-data/overview/provenance-and-publication-linkage.md",
       "status": "verified_replacement",
       "notes": "provenance, coordinate, and publication linkage topics now live under the current overview model"
     },
     {
       "legacy_path": "docs/02-bijux-pollenomics-data/foundation/data-system-overview.md",
       "decision": "merged",
-      "current_path": "docs/02-bijux-pollenomics-data/overview/data-system-overview.md",
+      "current_path": "docs/public/pollenomics-data/overview/data-system-overview.md",
       "status": "verified_replacement",
       "notes": "the old foundation overview is replaced by the current data-system overview page"
     },
     {
       "legacy_path": "docs/02-bijux-pollenomics-data/foundation/directory-layout.md",
       "decision": "merged",
-      "current_path": "docs/02-bijux-pollenomics-data/overview/data-directory-layout.md",
+      "current_path": "docs/public/pollenomics-data/overview/data-directory-layout.md",
       "status": "verified_replacement",
       "notes": "the old directory layout page now lives under the current overview layout page"
     },
     {
       "legacy_path": "docs/02-bijux-pollenomics-data/foundation/index.md",
       "decision": "retired_with_replacement",
-      "current_path": "docs/02-bijux-pollenomics-data/overview/index.md",
+      "current_path": "docs/public/pollenomics-data/overview/index.md",
       "status": "verified_replacement",
       "notes": "the old foundation subtree was retired in favor of the overview subtree, with explicit replacement links"
     },
     {
       "legacy_path": "docs/02-bijux-pollenomics-data/foundation/migration-issues.md",
       "decision": "merged",
-      "current_path": "docs/02-bijux-pollenomics-data/overview/source-selection-and-refresh.md",
+      "current_path": "docs/public/pollenomics-data/overview/source-selection-and-refresh.md",
       "status": "verified_replacement",
       "notes": "selection rules, lifecycle, and migration pressure now live together in one current overview page"
     },
     {
       "legacy_path": "docs/02-bijux-pollenomics-data/foundation/source-selection-rules.md",
       "decision": "merged",
-      "current_path": "docs/02-bijux-pollenomics-data/overview/source-selection-and-refresh.md",
+      "current_path": "docs/public/pollenomics-data/overview/source-selection-and-refresh.md",
       "status": "verified_replacement",
       "notes": "selection rules, lifecycle, and migration pressure now live together in one current overview page"
     },
     {
       "legacy_path": "docs/02-bijux-pollenomics-data/foundation/update-lifecycle.md",
       "decision": "merged",
-      "current_path": "docs/02-bijux-pollenomics-data/overview/source-selection-and-refresh.md",
+      "current_path": "docs/public/pollenomics-data/overview/source-selection-and-refresh.md",
       "status": "verified_replacement",
       "notes": "selection rules, lifecycle, and migration pressure now live together in one current overview page"
     },
     {
       "legacy_path": "docs/02-bijux-pollenomics-data/foundation/naming-conventions.md",
       "decision": "merged",
-      "current_path": "docs/02-bijux-pollenomics-data/overview/coverage-and-naming.md",
+      "current_path": "docs/public/pollenomics-data/overview/coverage-and-naming.md",
       "status": "verified_replacement",
       "notes": "naming conventions are merged into the current coverage-and-naming page"
     },
     {
       "legacy_path": "docs/03-bijux-pollenomics-maintain/bijux-pollenomics-dev/module-map.md",
       "decision": "merged",
-      "current_path": "docs/03-bijux-pollenomics-maintain/bijux-pollenomics-dev/repository-governance.md",
+      "current_path": "docs/internal/pollenomics-dev/repository-governance.md",
       "status": "verified_replacement",
       "notes": "maintainer package governance topics now live in one repository-governance page"
     },
     {
       "legacy_path": "docs/03-bijux-pollenomics-maintain/bijux-pollenomics-dev/package-overview.md",
       "decision": "merged",
-      "current_path": "docs/03-bijux-pollenomics-maintain/bijux-pollenomics-dev/repository-governance.md",
+      "current_path": "docs/internal/pollenomics-dev/repository-governance.md",
       "status": "verified_replacement",
       "notes": "maintainer package governance topics now live in one repository-governance page"
     },
     {
       "legacy_path": "docs/03-bijux-pollenomics-maintain/bijux-pollenomics-dev/schema-governance.md",
       "decision": "merged",
-      "current_path": "docs/03-bijux-pollenomics-maintain/bijux-pollenomics-dev/repository-governance.md",
+      "current_path": "docs/internal/pollenomics-dev/repository-governance.md",
       "status": "verified_replacement",
       "notes": "maintainer package governance topics now live in one repository-governance page"
     },
     {
       "legacy_path": "docs/03-bijux-pollenomics-maintain/bijux-pollenomics-dev/scope-and-non-goals.md",
       "decision": "merged",
-      "current_path": "docs/03-bijux-pollenomics-maintain/bijux-pollenomics-dev/repository-governance.md",
+      "current_path": "docs/internal/pollenomics-dev/repository-governance.md",
       "status": "verified_replacement",
       "notes": "maintainer package governance topics now live in one repository-governance page"
     },
     {
       "legacy_path": "docs/03-bijux-pollenomics-maintain/bijux-pollenomics-dev/security-gates.md",
       "decision": "merged",
-      "current_path": "docs/03-bijux-pollenomics-maintain/bijux-pollenomics-dev/repository-governance.md",
+      "current_path": "docs/internal/pollenomics-dev/repository-governance.md",
       "status": "verified_replacement",
       "notes": "maintainer package governance topics now live in one repository-governance page"
     },
     {
       "legacy_path": "docs/03-bijux-pollenomics-maintain/gh-workflows/release-publication.md",
       "decision": "merged",
-      "current_path": "docs/03-bijux-pollenomics-maintain/gh-workflows/verification-and-release.md",
+      "current_path": "docs/internal/maintain/gh-workflows/verification-and-release.md",
       "status": "verified_replacement",
       "notes": "workflow verification, release, and reusable-automation guidance now lives in one page"
     },
     {
       "legacy_path": "docs/03-bijux-pollenomics-maintain/gh-workflows/reusable-workflows.md",
       "decision": "merged",
-      "current_path": "docs/03-bijux-pollenomics-maintain/gh-workflows/verification-and-release.md",
+      "current_path": "docs/internal/maintain/gh-workflows/verification-and-release.md",
       "status": "verified_replacement",
       "notes": "workflow verification, release, and reusable-automation guidance now lives in one page"
     },
     {
       "legacy_path": "docs/03-bijux-pollenomics-maintain/gh-workflows/verify.md",
       "decision": "merged",
-      "current_path": "docs/03-bijux-pollenomics-maintain/gh-workflows/verification-and-release.md",
+      "current_path": "docs/internal/maintain/gh-workflows/verification-and-release.md",
       "status": "verified_replacement",
       "notes": "workflow verification, release, and reusable-automation guidance now lives in one page"
     },
     {
       "legacy_path": "docs/03-bijux-pollenomics-maintain/makes/authoring-rules.md",
       "decision": "merged",
-      "current_path": "docs/03-bijux-pollenomics-maintain/makes/make-system-contracts.md",
+      "current_path": "docs/internal/maintain/makes/make-system-contracts.md",
       "status": "verified_replacement",
       "notes": "Make authoring, dispatch, release, and root-entrypoint guidance now lives in one stable contracts page"
     },
     {
       "legacy_path": "docs/03-bijux-pollenomics-maintain/makes/ci-targets.md",
       "decision": "merged",
-      "current_path": "docs/03-bijux-pollenomics-maintain/makes/make-system-contracts.md",
+      "current_path": "docs/internal/maintain/makes/make-system-contracts.md",
       "status": "verified_replacement",
       "notes": "Make authoring, dispatch, release, and root-entrypoint guidance now lives in one stable contracts page"
     },
     {
       "legacy_path": "docs/03-bijux-pollenomics-maintain/makes/environment-model.md",
       "decision": "merged",
-      "current_path": "docs/03-bijux-pollenomics-maintain/makes/make-system-contracts.md",
+      "current_path": "docs/internal/maintain/makes/make-system-contracts.md",
       "status": "verified_replacement",
       "notes": "Make authoring, dispatch, release, and root-entrypoint guidance now lives in one stable contracts page"
     },
     {
       "legacy_path": "docs/03-bijux-pollenomics-maintain/makes/make-system-overview.md",
       "decision": "merged",
-      "current_path": "docs/03-bijux-pollenomics-maintain/makes/make-system-contracts.md",
+      "current_path": "docs/internal/maintain/makes/make-system-contracts.md",
       "status": "verified_replacement",
       "notes": "Make authoring, dispatch, release, and root-entrypoint guidance now lives in one stable contracts page"
     },
     {
       "legacy_path": "docs/03-bijux-pollenomics-maintain/makes/package-contracts.md",
       "decision": "merged",
-      "current_path": "docs/03-bijux-pollenomics-maintain/makes/make-system-contracts.md",
+      "current_path": "docs/internal/maintain/makes/make-system-contracts.md",
       "status": "verified_replacement",
       "notes": "Make authoring, dispatch, release, and root-entrypoint guidance now lives in one stable contracts page"
     },
     {
       "legacy_path": "docs/03-bijux-pollenomics-maintain/makes/package-dispatch.md",
       "decision": "merged",
-      "current_path": "docs/03-bijux-pollenomics-maintain/makes/make-system-contracts.md",
+      "current_path": "docs/internal/maintain/makes/make-system-contracts.md",
       "status": "verified_replacement",
       "notes": "Make authoring, dispatch, release, and root-entrypoint guidance now lives in one stable contracts page"
     },
     {
       "legacy_path": "docs/03-bijux-pollenomics-maintain/makes/release-surfaces.md",
       "decision": "merged",
-      "current_path": "docs/03-bijux-pollenomics-maintain/makes/make-system-contracts.md",
+      "current_path": "docs/internal/maintain/makes/make-system-contracts.md",
       "status": "verified_replacement",
       "notes": "Make authoring, dispatch, release, and root-entrypoint guidance now lives in one stable contracts page"
     },
     {
       "legacy_path": "docs/03-bijux-pollenomics-maintain/makes/repository-layout.md",
       "decision": "merged",
-      "current_path": "docs/03-bijux-pollenomics-maintain/makes/make-system-contracts.md",
+      "current_path": "docs/internal/maintain/makes/make-system-contracts.md",
       "status": "verified_replacement",
       "notes": "Make authoring, dispatch, release, and root-entrypoint guidance now lives in one stable contracts page"
     },
     {
       "legacy_path": "docs/03-bijux-pollenomics-maintain/makes/root-entrypoints.md",
       "decision": "merged",
-      "current_path": "docs/03-bijux-pollenomics-maintain/makes/make-system-contracts.md",
+      "current_path": "docs/internal/maintain/makes/make-system-contracts.md",
       "status": "verified_replacement",
       "notes": "Make authoring, dispatch, release, and root-entrypoint guidance now lives in one stable contracts page"
     }

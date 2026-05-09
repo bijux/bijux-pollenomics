@@ -163,7 +163,9 @@ def build_published_geography_plan(
             label=country,
             slug=slugify(country),
             countries=(country,),
-            parent_key=geographic_parent_scope(country, has_europe_plus=bool(europe_plus_countries)),
+            parent_key=geographic_parent_scope(
+                country, has_europe_plus=bool(europe_plus_countries)
+            ),
             output_dir_parts=(*PUBLISHED_REPORT_COUNTRY_DIR, slugify(country)),
             map_title=f"{country} Evidence View",
         )
@@ -313,9 +315,7 @@ of broader scopes instead of silently drifting into separate artifact families.
 
 def render_geography_onboarding_contract_markdown(payload: dict[str, object]) -> str:
     """Render the country-onboarding contract."""
-    required_rows = "\n".join(
-        f"- `{item}`" for item in payload["required_surfaces"]
-    )
+    required_rows = "\n".join(f"- `{item}`" for item in payload["required_surfaces"])
     code_rows = "\n".join(f"- {item}" for item in payload["code_contracts"])
     data_rows = "\n".join(f"- {item}" for item in payload["data_contracts"])
     docs_rows = "\n".join(f"- {item}" for item in payload["docs_contracts"])
@@ -358,11 +358,11 @@ or custom scope code.
 - Published country roster: `packages/bijux-pollenomics/src/bijux_pollenomics/config.py`
 - Geography scope plan: `packages/bijux-pollenomics/src/bijux_pollenomics/reporting/geography.py`
 - Country bundle generation: `packages/bijux-pollenomics/src/bijux_pollenomics/reporting/service.py`
-- Reader-facing playbook: `Future-Country Onboarding Playbook` at `docs/03-bijux-pollenomics-maintain/bijux-pollenomics-dev/future-country-onboarding-playbook.md`
+- Reader-facing playbook: `Future-Country Onboarding Playbook` at `docs/internal/pollenomics-dev/future-country-onboarding-playbook.md`
 
 ## Example
 
-The contract is satisfied when adding `{payload['example_country']}` only requires the country to be
+The contract is satisfied when adding `{payload["example_country"]}` only requires the country to be
 present in the published country roster and the underlying data, while the
 world, Europe-plus, and country outputs all derive automatically from the same
 scope rules.

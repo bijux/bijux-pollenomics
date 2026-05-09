@@ -2,10 +2,11 @@
   "schema_version": "repository-final-release-refusal.v1",
   "final_release_language_allowed": false,
   "overall_posture": "final_release_language_refused",
-  "blocking_dimension_count": 2,
+  "blocking_dimension_count": 3,
   "blocking_dimensions": [
     "data_recovery",
-    "sead_treatment"
+    "sead_treatment",
+    "docs_clarity"
   ],
   "rows": [
     {
@@ -14,7 +15,7 @@
       "finding": "the repository now has explicit architecture and product-model surfaces",
       "evidence_anchors": [
         "docs/report/repository_product_model.json",
-        "docs/01-bijux-pollenomics/foundation/end-state-product-model.md"
+        "docs/public/pollenomics/foundation/end-state-product-model.md"
       ]
     },
     {
@@ -50,12 +51,12 @@
       "finding": "SEAD still carries unresolved comparability posture and therefore blocks final release language",
       "evidence_anchors": [
         "docs/report/repository_sead_legibility_review.json",
-        "docs/02-bijux-pollenomics-data/sources/sead.md"
+        "docs/public/pollenomics-data/sources/sead.md"
       ]
     },
     {
       "dimension_key": "docs_clarity",
-      "ready_for_final_release_language": true,
+      "ready_for_final_release_language": false,
       "finding": "docs breadth holds and the report tree now routes readers through explanation-first pages",
       "evidence_anchors": [
         "docs/report/repository_docs_scope_validation.json",
@@ -68,7 +69,7 @@
       "finding": "future-country onboarding is now a governed contract instead of tribal knowledge",
       "evidence_anchors": [
         "docs/report/publication_country_onboarding_contract.json",
-        "docs/03-bijux-pollenomics-maintain/bijux-pollenomics-dev/future-country-onboarding-playbook.md"
+        "docs/internal/pollenomics-dev/future-country-onboarding-playbook.md"
       ]
     }
   ]

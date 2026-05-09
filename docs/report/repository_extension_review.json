@@ -1,6 +1,6 @@
 {
   "schema_version": "repository-extension-review.v1",
-  "overall_posture": "globally_extensible_and_locally_legible",
+  "overall_posture": "extension_contract_still_fragile",
   "rows": [
     {
       "dimension_key": "global_extensibility",
@@ -8,16 +8,16 @@
       "finding": "adding Germany or another country is now governed as roster, data, docs, and tests work instead of renderer surgery",
       "evidence_anchors": [
         "docs/report/publication_country_onboarding_contract.json",
-        "docs/03-bijux-pollenomics-maintain/bijux-pollenomics-dev/future-country-onboarding-playbook.md"
+        "docs/internal/pollenomics-dev/future-country-onboarding-playbook.md"
       ]
     },
     {
       "dimension_key": "local_reasoning",
-      "score": 4,
+      "score": 2,
       "finding": "the runtime, data, and maintainer handbooks still explain ownership without collapsing the repo into one vague top layer",
       "evidence_anchors": [
         "docs/report/repository_docs_scope_validation.json",
-        "docs/01-bijux-pollenomics/foundation/end-state-product-model.md"
+        "docs/public/pollenomics/foundation/end-state-product-model.md"
       ]
     },
     {

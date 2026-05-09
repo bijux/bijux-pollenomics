@@ -1,6 +1,6 @@
 {
   "schema_version": "repository-docs-recovery-review.v1",
-  "overall_posture": "moving_toward_elegant_correctness",
+  "overall_posture": "recovery_still_fragile",
   "evidence_anchors": [
     "docs/report/repository_docs_restoration_ledger.json",
     "docs/report/repository_docs_scope_validation.json",
@@ -15,17 +15,17 @@
     },
     {
       "dimension_key": "navigation_breadth",
-      "score": 4,
+      "score": 1,
       "finding": "runtime, data, and maintainer landings link their restored breadth surfaces directly"
     },
     {
       "dimension_key": "credible_presentation",
-      "score": 4,
+      "score": 2,
       "finding": "repository truth, claim, and docs breadth surfaces now fail overclaims rather than narrating optimism"
     },
     {
       "dimension_key": "cross_domain_visibility",
-      "score": 4,
+      "score": 2,
       "finding": "non-aDNA source families remain directly explainable beside the thinner animal recovery surface"
     }
   ]
