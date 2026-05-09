@@ -167,6 +167,15 @@ class ContextDataTests(unittest.TestCase):
         self.assertEqual(records[0].time_start_bp, 200)
         self.assertEqual(records[0].time_end_bp, 800)
         self.assertEqual(records[0].time_mean_bp, 500)
+        self.assertIsNotNone(records[0].temporal_semantics)
+        self.assertEqual(
+            records[0].temporal_semantics["comparability_posture"],
+            "numeric_interval",
+        )
+        self.assertEqual(
+            records[0].temporal_semantics["temporal_window_label"],
+            "Recent and historical (0-1000 BP)",
+        )
 
     def test_fetch_sead_site_rows_adds_linked_inventory_counts(self) -> None:
         seen_orders: list[tuple[str, ...]] = []
@@ -217,20 +226,82 @@ class ContextDataTests(unittest.TestCase):
             if url.endswith("/tbl_analysis_dating_ranges"):
                 return [
                     {
+                        "analysis_dating_range_id": 34,
                         "analysis_value_id": 35,
                         "low_value": 200,
                         "high_value": 800,
                         "age_type_id": 2,
+                        "dating_uncertainty_id": 70,
+                        "low_qualifier": "",
+                        "high_qualifier": "",
+                        "low_is_uncertain": False,
+                        "high_is_uncertain": False,
                     }
                 ]
             if url.endswith("/tbl_age_types"):
-                return [{"age_type_id": 2, "age_type": "calibrated years BP"}]
+                return [
+                    {
+                        "age_type_id": 2,
+                        "age_type": "calibrated years BP",
+                        "description": "calendar years before present",
+                    }
+                ]
             if url.endswith("/tbl_relative_dates"):
-                return [{"relative_date_id": 45, "analysis_entity_id": 30}]
+                return [
+                    {
+                        "relative_date_id": 45,
+                        "analysis_entity_id": 30,
+                        "relative_age_id": 80,
+                        "dating_uncertainty_id": 70,
+                        "method_id": 90,
+                        "notes": "Quaternary context",
+                    }
+                ]
+            if url.endswith("/tbl_relative_ages"):
+                return [
+                    {
+                        "relative_age_id": 80,
+                        "relative_age_name": "Quaternary",
+                        "description": "Geologic period",
+                        "abbreviation": "Q",
+                        "cal_age_older": 2700000,
+                        "cal_age_younger": 12000,
+                        "c14_age_older": None,
+                        "c14_age_younger": None,
+                    }
+                ]
+            if url.endswith("/tbl_dating_uncertainty"):
+                return [
+                    {
+                        "dating_uncertainty_id": 70,
+                        "uncertainty": "site aggregate",
+                        "description": "multiple rows merged into one site span",
+                    }
+                ]
+            if url.endswith("/tbl_methods"):
+                return [
+                    {
+                        "method_id": 90,
+                        "method_name": "Archaeological period calendar years",
+                        "method_abbrev_or_alt_name": "",
+                        "description": "Contextual site period",
+                    }
+                ]
             if url.endswith("/tbl_datasets"):
-                return [{"dataset_id": 40, "dataset_name": "Pollen counts"}]
+                return [{"dataset_id": 40, "dataset_name": "Pollen counts", "biblio_id": 60}]
             if url.endswith("/tbl_site_references"):
                 return [{"site_reference_id": 50, "site_id": 6468, "biblio_id": 60}]
+            if url.endswith("/tbl_biblio"):
+                return [
+                    {
+                        "biblio_id": 60,
+                        "title": "Pollen counts from Fjalkinge",
+                        "full_reference": "Example reference",
+                        "year": 2024,
+                        "doi": "10.1234/example",
+                        "url": "https://example.test/reference",
+                    }
+                ]
             raise AssertionError(f"Unexpected SEAD request: {url} params={params}")
 
         with patch(
@@ -249,6 +320,10 @@ class ContextDataTests(unittest.TestCase):
         self.assertEqual(rows[0]["dating_range_count"], 1)
         self.assertEqual(rows[0]["time_start_bp"], 200)
         self.assertEqual(rows[0]["time_end_bp"], 800)
+        self.assertEqual(rows[0]["temporal_summary"]["relative_period_count"], 1)
+        self.assertEqual(rows[0]["temporal_summary"]["bibliography_count"], 2)
+        self.assertEqual(rows[0]["relative_period_rows"][0]["normalized_period_label"], "quaternary")
+        self.assertEqual(rows[0]["dating_range_rows"][0]["uncertainty_label"], "site aggregate")
         self.assertIn(("site_id",), seen_orders)
         self.assertIn(("site_id", "sample_group_id"), seen_orders)
         self.assertIn(("physical_sample_id", "analysis_entity_id"), seen_orders)
@@ -342,6 +417,12 @@ class ContextDataTests(unittest.TestCase):
             time_end_bp=700,
             time_mean_bp=350,
             time_label="0-700 BP",
+            temporal_semantics={
+                "schema_version": "temporal-semantics.v1",
+                "comparability_posture": "numeric_interval",
+                "temporal_window_key": "recent_historical",
+                "temporal_window_label": "Recent and historical (0-1000 BP)",
+            },
         )
 
         with tempfile.TemporaryDirectory() as tmp:
@@ -361,11 +442,16 @@ class ContextDataTests(unittest.TestCase):
         self.assertIn("time_end_bp", csv_text)
         self.assertIn("time_mean_bp", csv_text)
         self.assertIn("time_label", csv_text)
+        self.assertIn("temporal_semantics_json", csv_text)
         properties = cast(dict[str, object], geojson_features[0]["properties"])
         self.assertEqual(properties["time_start_bp"], 0)
         self.assertEqual(properties["time_end_bp"], 700)
         self.assertEqual(properties["time_mean_bp"], 350)
         self.assertEqual(properties["time_label"], "0-700 BP")
+        self.assertEqual(
+            properties["temporal_semantics"]["temporal_window_label"],
+            "Recent and historical (0-1000 BP)",
+        )
 
     def test_external_point_layers_enable_time_filter_when_temporal_properties_exist(
         self,
@@ -397,6 +483,10 @@ class ContextDataTests(unittest.TestCase):
         self.assertEqual(layer_features[0]["time_end_bp"], 700)
         self.assertEqual(layer_features[0]["time_mean_bp"], 350)
         self.assertEqual(layer_features[0]["time_label"], "0-700 BP")
+        self.assertEqual(
+            layer_features[0]["temporal_window_label"],
+            "Recent and historical (0-1000 BP)",
+        )
 
     def test_external_polygon_layers_enable_time_filter_when_temporal_properties_exist(
         self,
