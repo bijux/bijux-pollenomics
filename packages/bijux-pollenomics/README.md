@@ -24,8 +24,8 @@ bundles that summarize those reviewable files.
 [![bijux-pollenomics](https://img.shields.io/badge/bijux--pollenomics-ghcr-181717?logo=github)](https://github.com/bijux/bijux-pollenomics/pkgs/container/bijux-pollenomics%2Fbijux-pollenomics)
 [![pollenomics](https://img.shields.io/badge/pollenomics-ghcr-181717?logo=github)](https://github.com/bijux/bijux-pollenomics/pkgs/container/bijux-pollenomics%2Fpollenomics)
 
-[![bijux-pollenomics docs](https://img.shields.io/badge/docs-bijux--pollenomics-2563EB?logo=materialformkdocs&logoColor=white)](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/)
-[![pollenomics docs](https://img.shields.io/badge/docs-pollenomics-2563EB?logo=materialformkdocs&logoColor=white)](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/)
+[![bijux-pollenomics docs](https://img.shields.io/badge/docs-bijux--pollenomics-2563EB?logo=materialformkdocs&logoColor=white)](https://bijux.io/bijux-pollenomics/public/pollenomics/)
+[![pollenomics docs](https://img.shields.io/badge/docs-pollenomics-2563EB?logo=materialformkdocs&logoColor=white)](https://bijux.io/bijux-pollenomics/public/pollenomics/)
 <!-- bijux-pollenomics-badges:generated:end -->
 
 ## Audience
@@ -49,7 +49,7 @@ bijux-pollenomics --help
 ## Read Next
 
 - public guide: <https://bijux.io/bijux-pollenomics/public/>
-- runtime handbook: <https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/>
-- animal ancient DNA evidence: <https://bijux.io/bijux-pollenomics/02-bijux-pollenomics-data/overview/animal-ancient-dna-evidence/>
-- Nordic atlas: <https://bijux.io/bijux-pollenomics/05-nordic-evidence-atlas/>
+- runtime handbook: <https://bijux.io/bijux-pollenomics/public/pollenomics/>
+- animal ancient DNA evidence: <https://bijux.io/bijux-pollenomics/public/pollenomics-data/overview/animal-ancient-dna-evidence/>
+- Nordic atlas: <https://bijux.io/bijux-pollenomics/public/nordic-atlas/>
 - package boundaries: [`src/bijux_pollenomics/package_boundaries.md`](src/bijux_pollenomics/package_boundaries.md)

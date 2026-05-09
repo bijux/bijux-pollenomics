@@ -61,81 +61,69 @@ not_in_nav: |
 
 nav:
   - Home: index.md
-  - Public Guide: public/index.md
-  - Product Guide:
-      - Product Guide: 01-bijux-pollenomics/index.md
-      - What This Repository Is For: 01-bijux-pollenomics/foundation/index.md
-      - Repository Scope and Limits: 01-bijux-pollenomics/foundation/repository-scope-and-limits.md
-      - Pollenomics Engine Roadmap: 01-bijux-pollenomics/foundation/pollenomics-engine-roadmap.md
-      - How Evidence Becomes Outputs: 01-bijux-pollenomics/architecture/index.md
-      - Package Split: 01-bijux-pollenomics/architecture/package-split.md
-      - Commands and Contracts: 01-bijux-pollenomics/interfaces/index.md
-      - CLI Surface: 01-bijux-pollenomics/interfaces/cli-surface.md
-      - Artifact Contracts: 01-bijux-pollenomics/interfaces/artifact-contracts.md
-      - Install and Rebuild: 01-bijux-pollenomics/operations/index.md
-      - Installation and Setup: 01-bijux-pollenomics/operations/installation-and-setup.md
-      - Checks and Current Limits: 01-bijux-pollenomics/quality/index.md
-      - Public Language Guide: 01-bijux-pollenomics/quality/public-language-guide.md
-      - Test Strategy: 01-bijux-pollenomics/quality/test-strategy.md
-  - Data Reference:
-      - Data Reference: 02-bijux-pollenomics-data/index.md
-      - Overview: 02-bijux-pollenomics-data/overview/index.md
-      - Data System Overview: 02-bijux-pollenomics-data/overview/data-system-overview.md
-      - Data Architecture Handbook: 02-bijux-pollenomics-data/overview/data-architecture-handbook.md
-      - Pollenomics Publication Model: 02-bijux-pollenomics-data/overview/pollenomics-publication-model.md
-      - Cross-Domain Evidence Matrix: 02-bijux-pollenomics-data/overview/cross-domain-evidence-matrix.md
-      - Animal Ancient DNA Evidence: 02-bijux-pollenomics-data/overview/animal-ancient-dna-evidence.md
-      - Data Directory Layout: 02-bijux-pollenomics-data/overview/data-directory-layout.md
-      - Sources: 02-bijux-pollenomics-data/sources/index.md
-      - Source Comparison: 02-bijux-pollenomics-data/sources/source-comparison.md
-      - Source Family Matrix: 02-bijux-pollenomics-data/sources/source-family-matrix.md
-      - Refresh Policy: 02-bijux-pollenomics-data/sources/refresh-policy.md
-      - Shared Normalization: 02-bijux-pollenomics-data/sources/shared-normalization.md
-      - Non-aDNA Explainer Recovery: 02-bijux-pollenomics-data/sources/non-adna-explainer-recovery.md
-      - Animal Source Intake: 02-bijux-pollenomics-data/sources/animal-source-intake.md
-      - SEAD Handbook: 02-bijux-pollenomics-data/sources/sead-handbook.md
-      - AADR: 02-bijux-pollenomics-data/sources/aadr.md
-      - Boundaries: 02-bijux-pollenomics-data/sources/boundaries.md
-      - LandClim: 02-bijux-pollenomics-data/sources/landclim.md
-      - Neotoma: 02-bijux-pollenomics-data/sources/neotoma.md
-      - RAÄ: 02-bijux-pollenomics-data/sources/raa.md
-      - SEAD: 02-bijux-pollenomics-data/sources/sead.md
-      - Evidence: 02-bijux-pollenomics-data/evidence/index.md
-      - Sample Records: 02-bijux-pollenomics-data/evidence/sample-records.md
-      - Localities: 02-bijux-pollenomics-data/evidence/localities.md
-      - Chronology: 02-bijux-pollenomics-data/evidence/chronology.md
-      - Temporal Semantics: 02-bijux-pollenomics-data/evidence/temporal-semantics.md
-      - Coordinates: 02-bijux-pollenomics-data/evidence/coordinates.md
-      - Tracked Outputs and Published Surfaces: 02-bijux-pollenomics-data/outputs/index.md
-      - Output Surface Classes: 02-bijux-pollenomics-data/outputs/output-surface-classes.md
-      - Collection Summary: 02-bijux-pollenomics-data/outputs/collection-summary.md
-      - Published Reports: 02-bijux-pollenomics-data/outputs/published-reports.md
-      - Report Portal: report/index.md
-      - How To Read Reports: report/how-to-read.md
-      - Geographic Evidence Surfaces: 02-bijux-pollenomics-data/outputs/geographic-evidence-surfaces.md
-      - Geographic Input Surfaces: 02-bijux-pollenomics-data/outputs/geographic-input-surfaces.md
-      - Geographic Point Publication: 02-bijux-pollenomics-data/outputs/geographic-point-publication.md
-      - Geographic Filters and Inspection: 02-bijux-pollenomics-data/outputs/geographic-filters-and-inspection.md
-      - Geographic Limits and Honesty: 02-bijux-pollenomics-data/outputs/geographic-limits-and-honesty.md
-      - Normalized AADR Outputs: 02-bijux-pollenomics-data/outputs/normalized-aadr.md
-      - Normalized Boundary Outputs: 02-bijux-pollenomics-data/outputs/normalized-boundaries.md
-      - Normalized LandClim Outputs: 02-bijux-pollenomics-data/outputs/normalized-landclim.md
-      - Normalized Neotoma Outputs: 02-bijux-pollenomics-data/outputs/normalized-neotoma.md
-      - Normalized RAÄ Outputs: 02-bijux-pollenomics-data/outputs/normalized-raa.md
-      - Normalized SEAD Outputs: 02-bijux-pollenomics-data/outputs/normalized-sead.md
-  - Internal Guide: internal/index.md
-  - Maintainer:
-      - Maintainer: 03-bijux-pollenomics-maintain/index.md
-      - bijux-pollenomics-dev: 03-bijux-pollenomics-maintain/bijux-pollenomics-dev/index.md
-      - Operating Guidelines: 03-bijux-pollenomics-maintain/bijux-pollenomics-dev/operating-guidelines.md
-      - Quality Gates: 03-bijux-pollenomics-maintain/bijux-pollenomics-dev/quality-gates.md
-      - Documentation Integrity: 03-bijux-pollenomics-maintain/bijux-pollenomics-dev/documentation-integrity.md
-      - Release Support: 03-bijux-pollenomics-maintain/bijux-pollenomics-dev/release-support.md
-      - Make and Local Commands: 03-bijux-pollenomics-maintain/makes/index.md
-      - GitHub Workflows: 03-bijux-pollenomics-maintain/gh-workflows/index.md
-      - Docs Deployment: 03-bijux-pollenomics-maintain/gh-workflows/deploy-docs.md
-  - Fieldwork:
-      - Fieldwork: 04-fieldwork/index.md
-      - Lyngsjön Lake Fieldwork: 04-fieldwork/lyngsjon-lake-fieldwork/index.md
-  - Nordic Evidence Atlas:
-      - Nordic Evidence Atlas: 05-nordic-evidence-atlas/index.md
+  - Public:
+      - Overview: public/index.md
+      - Pollenomics:
+          - Overview: public/pollenomics/index.md
+          - What This Repository Is For: public/pollenomics/foundation/index.md
+          - Repository Scope and Limits: public/pollenomics/foundation/repository-scope-and-limits.md
+          - Pollenomics Engine Roadmap: public/pollenomics/foundation/pollenomics-engine-roadmap.md
+          - How Evidence Becomes Outputs: public/pollenomics/architecture/index.md
+          - Package Split: public/pollenomics/architecture/package-split.md
+          - Commands and Contracts: public/pollenomics/interfaces/index.md
+          - CLI Surface: public/pollenomics/interfaces/cli-surface.md
+          - Artifact Contracts: public/pollenomics/interfaces/artifact-contracts.md
+          - Install and Rebuild: public/pollenomics/operations/index.md
+          - Installation and Setup: public/pollenomics/operations/installation-and-setup.md
+          - Checks and Current Limits: public/pollenomics/quality/index.md
+          - Public Language Guide: public/pollenomics/quality/public-language-guide.md
+          - Test Strategy: public/pollenomics/quality/test-strategy.md
+      - Pollenomics Data:
+          - Overview: public/pollenomics-data/index.md
+          - Overview Hub: public/pollenomics-data/overview/index.md
+          - Data System Overview: public/pollenomics-data/overview/data-system-overview.md
+          - Data Architecture Handbook: public/pollenomics-data/overview/data-architecture-handbook.md
+          - Pollenomics Publication Model: public/pollenomics-data/overview/pollenomics-publication-model.md
+          - Cross-Domain Evidence Matrix: public/pollenomics-data/overview/cross-domain-evidence-matrix.md
+          - Animal Ancient DNA Evidence: public/pollenomics-data/overview/animal-ancient-dna-evidence.md
+          - Data Directory Layout: public/pollenomics-data/overview/data-directory-layout.md
+          - Sources: public/pollenomics-data/sources/index.md
+          - Source Comparison: public/pollenomics-data/sources/source-comparison.md
+          - Source Family Matrix: public/pollenomics-data/sources/source-family-matrix.md
+          - Refresh Policy: public/pollenomics-data/sources/refresh-policy.md
+          - Shared Normalization: public/pollenomics-data/sources/shared-normalization.md
+          - Non-aDNA Explainer Recovery: public/pollenomics-data/sources/non-adna-explainer-recovery.md
+          - Animal Source Intake: public/pollenomics-data/sources/animal-source-intake.md
+          - SEAD Handbook: public/pollenomics-data/sources/sead-handbook.md
+          - AADR: public/pollenomics-data/sources/aadr.md
+          - Boundaries: public/pollenomics-data/sources/boundaries.md
+          - LandClim: public/pollenomics-data/sources/landclim.md
+          - Neotoma: public/pollenomics-data/sources/neotoma.md
+          - RAÄ: public/pollenomics-data/sources/raa.md
+          - SEAD: public/pollenomics-data/sources/sead.md
+          - Evidence: public/pollenomics-data/evidence/index.md
+          - Sample Records: public/pollenomics-data/evidence/sample-records.md
+          - Localities: public/pollenomics-data/evidence/localities.md
+          - Chronology: public/pollenomics-data/evidence/chronology.md
+          - Temporal Semantics: public/pollenomics-data/evidence/temporal-semantics.md
+          - Coordinates: public/pollenomics-data/evidence/coordinates.md
+          - Tracked Outputs and Published Surfaces: public/pollenomics-data/outputs/index.md
+          - Output Surface Classes: public/pollenomics-data/outputs/output-surface-classes.md
+          - Collection Summary: public/pollenomics-data/outputs/collection-summary.md
+          - Published Reports: public/pollenomics-data/outputs/published-reports.md
+          - Geographic Evidence Surfaces: public/pollenomics-data/outputs/geographic-evidence-surfaces.md
+          - Geographic Input Surfaces: public/pollenomics-data/outputs/geographic-input-surfaces.md
+          - Geographic Point Publication: public/pollenomics-data/outputs/geographic-point-publication.md
+          - Geographic Filters and Inspection: public/pollenomics-data/outputs/geographic-filters-and-inspection.md
+          - Geographic Limits and Honesty: public/pollenomics-data/outputs/geographic-limits-and-honesty.md
+          - Normalized AADR Outputs: public/pollenomics-data/outputs/normalized-aadr.md
+          - Normalized Boundary Outputs: public/pollenomics-data/outputs/normalized-boundaries.md
+          - Normalized LandClim Outputs: public/pollenomics-data/outputs/normalized-landclim.md
+          - Normalized Neotoma Outputs: public/pollenomics-data/outputs/normalized-neotoma.md
+          - Normalized RAÄ Outputs: public/pollenomics-data/outputs/normalized-raa.md
+          - Normalized SEAD Outputs: public/pollenomics-data/outputs/normalized-sead.md
+      - Fieldwork:
+          - Overview: public/fieldwork/index.md
+          - Lyngsjön Lake Fieldwork: public/fieldwork/lyngsjon-lake-fieldwork/index.md
+      - Nordic Atlas:
+          - Overview: public/nordic-atlas/index.md
