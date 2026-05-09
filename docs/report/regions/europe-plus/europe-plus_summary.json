@@ -1,0 +1,182 @@
+{
+  "schema_version": "geographic-evidence-surface-summary.v1",
+  "title": "Europe-plus Evidence Surface",
+  "slug": "europe-plus",
+  "version": "v66",
+  "generated_on": "2026-05-09",
+  "scope_key": "europe_plus",
+  "scope_label": "Europe-plus",
+  "scope_kind": "region",
+  "parent_scope_key": "world",
+  "countries": [
+    "Sweden",
+    "Norway",
+    "Finland",
+    "Denmark"
+  ],
+  "country_sample_counts": {
+    "Sweden": 416,
+    "Norway": 130,
+    "Finland": 32,
+    "Denmark": 653
+  },
+  "total_unique_samples": 1231,
+  "output_dir": "/Users/bijan/bijux/bijux-pollenomics/docs/report/regions/europe-plus",
+  "artifacts": {
+    "bundle_manifest": "europe-plus_bundle.json",
+    "readme": "README.md",
+    "map_html": "europe-plus_map.html",
+    "samples_geojson": "europe-plus_samples.geojson",
+    "evidence_surface_json": "europe-plus_evidence_surface.json",
+    "evidence_surface_markdown": "europe-plus_evidence_surface.md",
+    "scientific_review_json": "europe-plus_scientific_review.json",
+    "scientific_review_markdown": "europe-plus_scientific_review.md",
+    "summary_json": "europe-plus_summary.json",
+    "extra_files": [
+      {
+        "label": "LandClim pollen site GeoJSON",
+        "filename": "nordic_pollen_site_sequences.geojson"
+      },
+      {
+        "label": "Neotoma pollen GeoJSON",
+        "filename": "nordic_pollen_sites.geojson"
+      },
+      {
+        "label": "SEAD site GeoJSON",
+        "filename": "nordic_environmental_sites.geojson"
+      },
+      {
+        "label": "Nordic country boundaries",
+        "filename": "nordic_country_boundaries.geojson"
+      },
+      {
+        "label": "LandClim REVEALS grid GeoJSON",
+        "filename": "nordic_reveals_grid_cells.geojson"
+      },
+      {
+        "label": "RA\u00c4 archaeology layer metadata",
+        "filename": "sweden_archaeology_layer.json"
+      },
+      {
+        "label": "RA\u00c4 archaeology density",
+        "filename": "sweden_archaeology_density.geojson"
+      },
+      {
+        "label": "Animal locality GeoJSON",
+        "filename": "europe-plus_animal_localities.geojson"
+      },
+      {
+        "label": "Domesticated-core animal locality GeoJSON",
+        "filename": "europe-plus_domesticated_animal_localities.geojson"
+      },
+      {
+        "label": "Comparator animal locality GeoJSON",
+        "filename": "europe-plus_comparator_animal_localities.geojson"
+      },
+      {
+        "label": "Animal atlas evidence CSV",
+        "filename": "europe-plus_animal_atlas_evidence.csv"
+      },
+      {
+        "label": "Animal atlas evidence JSON",
+        "filename": "europe-plus_animal_atlas_evidence.json"
+      },
+      {
+        "label": "Animal point traceability JSON",
+        "filename": "europe-plus_animal_point_traceability.json"
+      },
+      {
+        "label": "Candidate site ranking CSV",
+        "filename": "europe-plus_candidate_sites.csv"
+      },
+      {
+        "label": "Candidate site ranking JSON",
+        "filename": "europe-plus_candidate_sites.json"
+      },
+      {
+        "label": "Candidate site ranking markdown",
+        "filename": "europe-plus_candidate_sites.md"
+      },
+      {
+        "label": "Candidate site sensitivity JSON",
+        "filename": "europe-plus_candidate_site_sensitivity.json"
+      },
+      {
+        "label": "Candidate site sensitivity markdown",
+        "filename": "europe-plus_candidate_site_sensitivity.md"
+      },
+      {
+        "label": "Candidate ranking engine manifest",
+        "filename": "europe-plus_candidate_ranking_engine_manifest.json"
+      },
+      {
+        "label": "Atlas evidence surface JSON",
+        "filename": "europe-plus_evidence_surface.json"
+      },
+      {
+        "label": "Atlas evidence surface markdown",
+        "filename": "europe-plus_evidence_surface.md"
+      },
+      {
+        "label": "Atlas scientific review JSON",
+        "filename": "europe-plus_scientific_review.json"
+      },
+      {
+        "label": "Atlas scientific review markdown",
+        "filename": "europe-plus_scientific_review.md"
+      }
+    ],
+    "animal_localities_geojson": "europe-plus_animal_localities.geojson",
+    "domesticated_animal_localities_geojson": "europe-plus_domesticated_animal_localities.geojson",
+    "comparator_animal_localities_geojson": "europe-plus_comparator_animal_localities.geojson",
+    "animal_atlas_evidence_csv": "europe-plus_animal_atlas_evidence.csv",
+    "animal_atlas_evidence_json": "europe-plus_animal_atlas_evidence.json",
+    "animal_point_traceability_json": "europe-plus_animal_point_traceability.json"
+  },
+  "animal_atlas": {
+    "total_locality_points": 2,
+    "direct_coordinate_feature_count": 2,
+    "named_site_geocoded_feature_count": 0,
+    "weaker_geography_feature_count": 0,
+    "total_species": 1,
+    "domesticated_species_count": 1,
+    "comparator_species_count": 0,
+    "layer_groups": [
+      "Domesticated-core animal evidence",
+      "Comparator animal evidence"
+    ],
+    "filter_surfaces": [
+      "Species focus",
+      "Animal scope",
+      "Coordinate confidence",
+      "Chronology bucket",
+      "Nordic animal leads only"
+    ],
+    "ui_surfaces": [
+      "Animal evidence summary panel",
+      "Citation-aware animal popups",
+      "Species and confidence legend sections"
+    ],
+    "chronology_buckets": [
+      "1001-3000 BP",
+      "3001-6000 BP"
+    ],
+    "coordinate_confidence_counts": {
+      "exact": 2
+    },
+    "visible_caveats": [
+      "Approximate or inferred coordinates remain visible with explicit warnings.",
+      "Comparator-only evidence remains visible without being counted as domesticated-core support.",
+      "Weak or rejected support classes remain labeled in point popups instead of being silently hidden.",
+      "Nordic relevance can remain regional rather than one exact named country."
+    ],
+    "species_layers": [
+      {
+        "latin_name": "Equus caballus",
+        "common_name": "horse",
+        "animal_scope": "domesticated_core",
+        "locality_count": 2
+      }
+    ]
+  }
+}

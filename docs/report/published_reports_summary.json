@@ -1,30 +1,65 @@
 {
   "version": "v66",
-  "generated_on": "2026-05-08",
+  "generated_on": "2026-05-09",
   "countries": [
     "Sweden",
     "Norway",
     "Finland",
     "Denmark"
   ],
-  "shared_map_dir": "/Users/bijan/bijux/bijux-pollenomics/docs/report/nordic-atlas",
+  "shared_map_dir": "/Users/bijan/bijux/bijux-pollenomics/docs/report/world",
   "country_output_dirs": [
-    "/Users/bijan/bijux/bijux-pollenomics/docs/report/sweden",
-    "/Users/bijan/bijux/bijux-pollenomics/docs/report/norway",
-    "/Users/bijan/bijux/bijux-pollenomics/docs/report/finland",
-    "/Users/bijan/bijux/bijux-pollenomics/docs/report/denmark"
+    "/Users/bijan/bijux/bijux-pollenomics/docs/report/countries/sweden",
+    "/Users/bijan/bijux/bijux-pollenomics/docs/report/countries/norway",
+    "/Users/bijan/bijux/bijux-pollenomics/docs/report/countries/finland",
+    "/Users/bijan/bijux/bijux-pollenomics/docs/report/countries/denmark"
   ],
   "summary_path": "/Users/bijan/bijux/bijux-pollenomics/docs/report/published_reports_summary.json",
+  "regional_output_dirs": [
+    "/Users/bijan/bijux/bijux-pollenomics/docs/report/regions/europe-plus",
+    "/Users/bijan/bijux/bijux-pollenomics/docs/report/regions/nordic"
+  ],
+  "country_output_root": "/Users/bijan/bijux/bijux-pollenomics/docs/report/countries",
   "schema_version": "published-reports-summary.v1",
   "artifacts": {
-    "shared_bundle": {
-      "slug": "nordic-atlas",
-      "directory": "/Users/bijan/bijux/bijux-pollenomics/docs/report/nordic-atlas",
-      "bundle_manifest": "nordic-atlas_bundle.json",
-      "summary_json": "nordic-atlas_summary.json"
+    "world_bundle": {
+      "slug": "world",
+      "directory": "/Users/bijan/bijux/bijux-pollenomics/docs/report/world",
+      "bundle_manifest": "world_bundle.json",
+      "summary_json": "world_summary.json"
+    },
+    "regional_bundles": {
+      "europe-plus": {
+        "directory": "/Users/bijan/bijux/bijux-pollenomics/docs/report/regions/europe-plus",
+        "slug": "europe-plus",
+        "title": "Europe-plus Evidence Surface",
+        "countries": [
+          "Sweden",
+          "Norway",
+          "Finland",
+          "Denmark"
+        ]
+      },
+      "nordic": {
+        "directory": "/Users/bijan/bijux/bijux-pollenomics/docs/report/regions/nordic",
+        "slug": "nordic",
+        "title": "Nordic Evidence Surface",
+        "countries": [
+          "Sweden",
+          "Norway",
+          "Finland",
+          "Denmark"
+        ]
+      }
     },
     "animal_output_audit_json": "animal_output_audit.json",
     "animal_output_audit_markdown": "animal_output_audit.md",
+    "publication_geography_registry_json": "publication_geography_registry.json",
+    "publication_geography_registry_markdown": "publication_geography_registry.md",
+    "publication_geography_subset_validation_json": "publication_geography_subset_validation.json",
+    "publication_geography_subset_validation_markdown": "publication_geography_subset_validation.md",
+    "publication_country_onboarding_contract_json": "publication_country_onboarding_contract.json",
+    "publication_country_onboarding_contract_markdown": "publication_country_onboarding_contract.md",
     "public_animal_reporting": {
       "animal_country_species_coverage_json": "animal_country_species_coverage.json",
       "animal_country_species_coverage_markdown": "animal_country_species_coverage.md",
@@ -68,6 +103,9 @@
       "repository_source_explainer_audit_json": "repository_source_explainer_audit.json",
       "repository_atlas_input_audit_json": "repository_atlas_input_audit.json",
       "repository_cross_domain_evidence_matrix_json": "repository_cross_domain_evidence_matrix.json",
+      "repository_docs_restoration_ledger_json": "repository_docs_restoration_ledger.json",
+      "repository_docs_scope_validation_json": "repository_docs_scope_validation.json",
+      "repository_docs_recovery_review_json": "repository_docs_recovery_review.json",
       "repository_source_acquisition_queue_json": "repository_source_acquisition_queue.json",
       "repository_governance_artifact_review_json": "repository_governance_artifact_review.json",
       "repository_claim_audit_json": "repository_claim_audit.json",
@@ -78,6 +116,9 @@
       "repository_source_explainer_audit_markdown": "repository_source_explainer_audit.md",
       "repository_atlas_input_audit_markdown": "repository_atlas_input_audit.md",
       "repository_cross_domain_evidence_matrix_markdown": "repository_cross_domain_evidence_matrix.md",
+      "repository_docs_restoration_ledger_markdown": "repository_docs_restoration_ledger.md",
+      "repository_docs_scope_validation_markdown": "repository_docs_scope_validation.md",
+      "repository_docs_recovery_review_markdown": "repository_docs_recovery_review.md",
       "repository_source_acquisition_queue_markdown": "repository_source_acquisition_queue.md",
       "repository_governance_artifact_review_markdown": "repository_governance_artifact_review.md",
       "repository_claim_audit_markdown": "repository_claim_audit.md",
@@ -85,24 +126,87 @@
     },
     "country_bundles": {
       "sweden": {
-        "directory": "/Users/bijan/bijux/bijux-pollenomics/docs/report/sweden",
+        "directory": "/Users/bijan/bijux/bijux-pollenomics/docs/report/countries/sweden",
         "bundle_manifest": "sweden_aadr_v66_bundle.json",
-        "summary_json": "sweden_aadr_v66_summary.json"
+        "summary_json": "sweden_aadr_v66_summary.json",
+        "parent_scope": "nordic"
       },
       "norway": {
-        "directory": "/Users/bijan/bijux/bijux-pollenomics/docs/report/norway",
+        "directory": "/Users/bijan/bijux/bijux-pollenomics/docs/report/countries/norway",
         "bundle_manifest": "norway_aadr_v66_bundle.json",
-        "summary_json": "norway_aadr_v66_summary.json"
+        "summary_json": "norway_aadr_v66_summary.json",
+        "parent_scope": "nordic"
       },
       "finland": {
-        "directory": "/Users/bijan/bijux/bijux-pollenomics/docs/report/finland",
+        "directory": "/Users/bijan/bijux/bijux-pollenomics/docs/report/countries/finland",
         "bundle_manifest": "finland_aadr_v66_bundle.json",
-        "summary_json": "finland_aadr_v66_summary.json"
+        "summary_json": "finland_aadr_v66_summary.json",
+        "parent_scope": "nordic"
       },
       "denmark": {
-        "directory": "/Users/bijan/bijux/bijux-pollenomics/docs/report/denmark",
+        "directory": "/Users/bijan/bijux/bijux-pollenomics/docs/report/countries/denmark",
         "bundle_manifest": "denmark_aadr_v66_bundle.json",
-        "summary_json": "denmark_aadr_v66_summary.json"
+        "summary_json": "denmark_aadr_v66_summary.json",
+        "parent_scope": "nordic"
+      }
+    }
+  },
+  "geography_bundles": {
+    "world": {
+      "directory": "/Users/bijan/bijux/bijux-pollenomics/docs/report/world",
+      "slug": "world",
+      "title": "World Evidence Surface",
+      "countries": [
+        "Sweden",
+        "Norway",
+        "Finland",
+        "Denmark"
+      ]
+    },
+    "regions": {
+      "europe-plus": {
+        "directory": "/Users/bijan/bijux/bijux-pollenomics/docs/report/regions/europe-plus",
+        "slug": "europe-plus",
+        "title": "Europe-plus Evidence Surface",
+        "countries": [
+          "Sweden",
+          "Norway",
+          "Finland",
+          "Denmark"
+        ]
+      },
+      "nordic": {
+        "directory": "/Users/bijan/bijux/bijux-pollenomics/docs/report/regions/nordic",
+        "slug": "nordic",
+        "title": "Nordic Evidence Surface",
+        "countries": [
+          "Sweden",
+          "Norway",
+          "Finland",
+          "Denmark"
+        ]
+      }
+    },
+    "countries": {
+      "sweden": {
+        "directory": "/Users/bijan/bijux/bijux-pollenomics/docs/report/countries/sweden",
+        "country": "Sweden",
+        "parent_scope": "nordic"
+      },
+      "norway": {
+        "directory": "/Users/bijan/bijux/bijux-pollenomics/docs/report/countries/norway",
+        "country": "Norway",
+        "parent_scope": "nordic"
+      },
+      "finland": {
+        "directory": "/Users/bijan/bijux/bijux-pollenomics/docs/report/countries/finland",
+        "country": "Finland",
+        "parent_scope": "nordic"
+      },
+      "denmark": {
+        "directory": "/Users/bijan/bijux/bijux-pollenomics/docs/report/countries/denmark",
+        "country": "Denmark",
+        "parent_scope": "nordic"
       }
     }
   }

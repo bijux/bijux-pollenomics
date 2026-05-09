@@ -1,0 +1,3927 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              12.0,
+              55.0
+            ],
+            [
+              13.0,
+              55.0
+            ],
+            [
+              13.0,
+              56.0
+            ],
+            [
+              12.0,
+              56.0
+            ],
+            [
+              12.0,
+              55.0
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "layer_key": "raa-archaeology",
+        "layer_label": "RAÄ archaeology density",
+        "country": "Sweden",
+        "count": 1226,
+        "count_label": "1,226"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              13.0,
+              55.0
+            ],
+            [
+              14.0,
+              55.0
+            ],
+            [
+              14.0,
+              56.0
+            ],
+            [
+              13.0,
+              56.0
+            ],
+            [
+              13.0,
+              55.0
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "layer_key": "raa-archaeology",
+        "layer_label": "RAÄ archaeology density",
+        "country": "Sweden",
+        "count": 6654,
+        "count_label": "6,654"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              14.0,
+              55.0
+            ],
+            [
+              15.0,
+              55.0
+            ],
+            [
+              15.0,
+              56.0
+            ],
+            [
+              14.0,
+              56.0
+            ],
+            [
+              14.0,
+              55.0
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "layer_key": "raa-archaeology",
+        "layer_label": "RAÄ archaeology density",
+        "country": "Sweden",
+        "count": 3205,
+        "count_label": "3,205"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              12.0,
+              56.0
+            ],
+            [
+              13.0,
+              56.0
+            ],
+            [
+              13.0,
+              57.0
+            ],
+            [
+              12.0,
+              57.0
+            ],
+            [
+              12.0,
+              56.0
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "layer_key": "raa-archaeology",
+        "layer_label": "RAÄ archaeology density",
+        "country": "Sweden",
+        "count": 6333,
+        "count_label": "6,333"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              13.0,
+              56.0
+            ],
+            [
+              14.0,
+              56.0
+            ],
+            [
+              14.0,
+              57.0
+            ],
+            [
+              13.0,
+              57.0
+            ],
+            [
+              13.0,
+              56.0
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "layer_key": "raa-archaeology",
+        "layer_label": "RAÄ archaeology density",
+        "country": "Sweden",
+        "count": 8912,
+        "count_label": "8,912"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              14.0,
+              56.0
+            ],
+            [
+              15.0,
+              56.0
+            ],
+            [
+              15.0,
+              57.0
+            ],
+            [
+              14.0,
+              57.0
+            ],
+            [
+              14.0,
+              56.0
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "layer_key": "raa-archaeology",
+        "layer_label": "RAÄ archaeology density",
+        "country": "Sweden",
+        "count": 10817,
+        "count_label": "10,817"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              15.0,
+              56.0
+            ],
+            [
+              16.0,
+              56.0
+            ],
+            [
+              16.0,
+              57.0
+            ],
+            [
+              15.0,
+              57.0
+            ],
+            [
+              15.0,
+              56.0
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "layer_key": "raa-archaeology",
+        "layer_label": "RAÄ archaeology density",
+        "country": "Sweden",
+        "count": 5849,
+        "count_label": "5,849"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              16.0,
+              56.0
+            ],
+            [
+              17.0,
+              56.0
+            ],
+            [
+              17.0,
+              57.0
+            ],
+            [
+              16.0,
+              57.0
+            ],
+            [
+              16.0,
+              56.0
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "layer_key": "raa-archaeology",
+        "layer_label": "RAÄ archaeology density",
+        "country": "Sweden",
+        "count": 6159,
+        "count_label": "6,159"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              11.0,
+              57.0
+            ],
+            [
+              12.0,
+              57.0
+            ],
+            [
+              12.0,
+              58.0
+            ],
+            [
+              11.0,
+              58.0
+            ],
+            [
+              11.0,
+              57.0
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "layer_key": "raa-archaeology",
+        "layer_label": "RAÄ archaeology density",
+        "country": "Sweden",
+        "count": 5005,
+        "count_label": "5,005"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              12.0,
+              57.0
+            ],
+            [
+              13.0,
+              57.0
+            ],
+            [
+              13.0,
+              58.0
+            ],
+            [
+              12.0,
+              58.0
+            ],
+            [
+              12.0,
+              57.0
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "layer_key": "raa-archaeology",
+        "layer_label": "RAÄ archaeology density",
+        "country": "Sweden",
+        "count": 8569,
+        "count_label": "8,569"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              13.0,
+              57.0
+            ],
+            [
+              14.0,
+              57.0
+            ],
+            [
+              14.0,
+              58.0
+            ],
+            [
+              13.0,
+              58.0
+            ],
+            [
+              13.0,
+              57.0
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "layer_key": "raa-archaeology",
+        "layer_label": "RAÄ archaeology density",
+        "country": "Sweden",
+        "count": 8587,
+        "count_label": "8,587"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              14.0,
+              57.0
+            ],
+            [
+              15.0,
+              57.0
+            ],
+            [
+              15.0,
+              58.0
+            ],
+            [
+              14.0,
+              58.0
+            ],
+            [
+              14.0,
+              57.0
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "layer_key": "raa-archaeology",
+        "layer_label": "RAÄ archaeology density",
+        "country": "Sweden",
+        "count": 8067,
+        "count_label": "8,067"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              15.0,
+              57.0
+            ],
+            [
+              16.0,
+              57.0
+            ],
+            [
+              16.0,
+              58.0
+            ],
+            [
+              15.0,
+              58.0
+            ],
+            [
+              15.0,
+              57.0
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "layer_key": "raa-archaeology",
+        "layer_label": "RAÄ archaeology density",
+        "country": "Sweden",
+        "count": 4004,
+        "count_label": "4,004"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              16.0,
+              57.0
+            ],
+            [
+              17.0,
+              57.0
+            ],
+            [
+              17.0,
+              58.0
+            ],
+            [
+              16.0,
+              58.0
+            ],
+            [
+              16.0,
+              57.0
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "layer_key": "raa-archaeology",
+        "layer_label": "RAÄ archaeology density",
+        "country": "Sweden",
+        "count": 8480,
+        "count_label": "8,480"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              18.0,
+              57.0
+            ],
+            [
+              19.0,
+              57.0
+            ],
+            [
+              19.0,
+              58.0
+            ],
+            [
+              18.0,
+              58.0
+            ],
+            [
+              18.0,
+              57.0
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "layer_key": "raa-archaeology",
+        "layer_label": "RAÄ archaeology density",
+        "country": "Sweden",
+        "count": 13558,
+        "count_label": "13,558"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              11.0,
+              58.0
+            ],
+            [
+              12.0,
+              58.0
+            ],
+            [
+              12.0,
+              59.0
+            ],
+            [
+              11.0,
+              59.0
+            ],
+            [
+              11.0,
+              58.0
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "layer_key": "raa-archaeology",
+        "layer_label": "RAÄ archaeology density",
+        "country": "Sweden",
+        "count": 16773,
+        "count_label": "16,773"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              12.0,
+              58.0
+            ],
+            [
+              13.0,
+              58.0
+            ],
+            [
+              13.0,
+              59.0
+            ],
+            [
+              12.0,
+              59.0
+            ],
+            [
+              12.0,
+              58.0
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "layer_key": "raa-archaeology",
+        "layer_label": "RAÄ archaeology density",
+        "country": "Sweden",
+        "count": 7321,
+        "count_label": "7,321"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              13.0,
+              58.0
+            ],
+            [
+              14.0,
+              58.0
+            ],
+            [
+              14.0,
+              59.0
+            ],
+            [
+              13.0,
+              59.0
+            ],
+            [
+              13.0,
+              58.0
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "layer_key": "raa-archaeology",
+        "layer_label": "RAÄ archaeology density",
+        "country": "Sweden",
+        "count": 10501,
+        "count_label": "10,501"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              14.0,
+              58.0
+            ],
+            [
+              15.0,
+              58.0
+            ],
+            [
+              15.0,
+              59.0
+            ],
+            [
+              14.0,
+              59.0
+            ],
+            [
+              14.0,
+              58.0
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "layer_key": "raa-archaeology",
+        "layer_label": "RAÄ archaeology density",
+        "country": "Sweden",
+        "count": 3815,
+        "count_label": "3,815"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              15.0,
+              58.0
+            ],
+            [
+              16.0,
+              58.0
+            ],
+            [
+              16.0,
+              59.0
+            ],
+            [
+              15.0,
+              59.0
+            ],
+            [
+              15.0,
+              58.0
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "layer_key": "raa-archaeology",
+        "layer_label": "RAÄ archaeology density",
+        "country": "Sweden",
+        "count": 9863,
+        "count_label": "9,863"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              16.0,
+              58.0
+            ],
+            [
+              17.0,
+              58.0
+            ],
+            [
+              17.0,
+              59.0
+            ],
+            [
+              16.0,
+              59.0
+            ],
+            [
+              16.0,
+              58.0
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "layer_key": "raa-archaeology",
+        "layer_label": "RAÄ archaeology density",
+        "country": "Sweden",
+        "count": 12413,
+        "count_label": "12,413"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              17.0,
+              58.0
+            ],
+            [
+              18.0,
+              58.0
+            ],
+            [
+              18.0,
+              59.0
+            ],
+            [
+              17.0,
+              59.0
+            ],
+            [
+              17.0,
+              58.0
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "layer_key": "raa-archaeology",
+        "layer_label": "RAÄ archaeology density",
+        "country": "Sweden",
+        "count": 4303,
+        "count_label": "4,303"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              11.0,
+              59.0
+            ],
+            [
+              12.0,
+              59.0
+            ],
+            [
+              12.0,
+              60.0
+            ],
+            [
+              11.0,
+              60.0
+            ],
+            [
+              11.0,
+              59.0
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "layer_key": "raa-archaeology",
+        "layer_label": "RAÄ archaeology density",
+        "country": "Sweden",
+        "count": 1520,
+        "count_label": "1,520"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              12.0,
+              59.0
+            ],
+            [
+              13.0,
+              59.0
+            ],
+            [
+              13.0,
+              60.0
+            ],
+            [
+              12.0,
+              60.0
+            ],
+            [
+              12.0,
+              59.0
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "layer_key": "raa-archaeology",
+        "layer_label": "RAÄ archaeology density",
+        "country": "Sweden",
+        "count": 3762,
+        "count_label": "3,762"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              13.0,
+              59.0
+            ],
+            [
+              14.0,
+              59.0
+            ],
+            [
+              14.0,
+              60.0
+            ],
+            [
+              13.0,
+              60.0
+            ],
+            [
+              13.0,
+              59.0
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "layer_key": "raa-archaeology",
+        "layer_label": "RAÄ archaeology density",
+        "country": "Sweden",
+        "count": 3490,
+        "count_label": "3,490"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              14.0,
+              59.0
+            ],
+            [
+              15.0,
+              59.0
+            ],
+            [
+              15.0,
+              60.0
+            ],
+            [
+              14.0,
+              60.0
+            ],
+            [
+              14.0,
+              59.0
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "layer_key": "raa-archaeology",
+        "layer_label": "RAÄ archaeology density",
+        "country": "Sweden",
+        "count": 2617,
+        "count_label": "2,617"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              15.0,
+              59.0
+            ],
+            [
+              16.0,
+              59.0
+            ],
+            [
+              16.0,
+              60.0
+            ],
+            [
+              15.0,
+              60.0
+            ],
+            [
+              15.0,
+              59.0
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "layer_key": "raa-archaeology",
+        "layer_label": "RAÄ archaeology density",
+        "country": "Sweden",
+        "count": 3873,
+        "count_label": "3,873"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              16.0,
+              59.0
+            ],
+            [
+              17.0,
+              59.0
+            ],
+            [
+              17.0,
+              60.0
+            ],
+            [
+              16.0,
+              60.0
+            ],
+            [
+              16.0,
+              59.0
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "layer_key": "raa-archaeology",
+        "layer_label": "RAÄ archaeology density",
+        "country": "Sweden",
+        "count": 15126,
+        "count_label": "15,126"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              17.0,
+              59.0
+            ],
+            [
+              18.0,
+              59.0
+            ],
+            [
+              18.0,
+              60.0
+            ],
+            [
+              17.0,
+              60.0
+            ],
+            [
+              17.0,
+              59.0
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "layer_key": "raa-archaeology",
+        "layer_label": "RAÄ archaeology density",
+        "country": "Sweden",
+        "count": 27450,
+        "count_label": "27,450"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              18.0,
+              59.0
+            ],
+            [
+              19.0,
+              59.0
+            ],
+            [
+              19.0,
+              60.0
+            ],
+            [
+              18.0,
+              60.0
+            ],
+            [
+              18.0,
+              59.0
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "layer_key": "raa-archaeology",
+        "layer_label": "RAÄ archaeology density",
+        "country": "Sweden",
+        "count": 10763,
+        "count_label": "10,763"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              12.0,
+              60.0
+            ],
+            [
+              13.0,
+              60.0
+            ],
+            [
+              13.0,
+              61.0
+            ],
+            [
+              12.0,
+              61.0
+            ],
+            [
+              12.0,
+              60.0
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "layer_key": "raa-archaeology",
+        "layer_label": "RAÄ archaeology density",
+        "country": "Sweden",
+        "count": 2929,
+        "count_label": "2,929"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              13.0,
+              60.0
+            ],
+            [
+              14.0,
+              60.0
+            ],
+            [
+              14.0,
+              61.0
+            ],
+            [
+              13.0,
+              61.0
+            ],
+            [
+              13.0,
+              60.0
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "layer_key": "raa-archaeology",
+        "layer_label": "RAÄ archaeology density",
+        "country": "Sweden",
+        "count": 5468,
+        "count_label": "5,468"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              14.0,
+              60.0
+            ],
+            [
+              15.0,
+              60.0
+            ],
+            [
+              15.0,
+              61.0
+            ],
+            [
+              14.0,
+              61.0
+            ],
+            [
+              14.0,
+              60.0
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "layer_key": "raa-archaeology",
+        "layer_label": "RAÄ archaeology density",
+        "country": "Sweden",
+        "count": 1731,
+        "count_label": "1,731"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              15.0,
+              60.0
+            ],
+            [
+              16.0,
+              60.0
+            ],
+            [
+              16.0,
+              61.0
+            ],
+            [
+              15.0,
+              61.0
+            ],
+            [
+              15.0,
+              60.0
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "layer_key": "raa-archaeology",
+        "layer_label": "RAÄ archaeology density",
+        "country": "Sweden",
+        "count": 3988,
+        "count_label": "3,988"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              16.0,
+              60.0
+            ],
+            [
+              17.0,
+              60.0
+            ],
+            [
+              17.0,
+              61.0
+            ],
+            [
+              16.0,
+              61.0
+            ],
+            [
+              16.0,
+              60.0
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "layer_key": "raa-archaeology",
+        "layer_label": "RAÄ archaeology density",
+        "country": "Sweden",
+        "count": 4239,
+        "count_label": "4,239"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              17.0,
+              60.0
+            ],
+            [
+              18.0,
+              60.0
+            ],
+            [
+              18.0,
+              61.0
+            ],
+            [
+              17.0,
+              61.0
+            ],
+            [
+              17.0,
+              60.0
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "layer_key": "raa-archaeology",
+        "layer_label": "RAÄ archaeology density",
+        "country": "Sweden",
+        "count": 5060,
+        "count_label": "5,060"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              18.0,
+              60.0
+            ],
+            [
+              19.0,
+              60.0
+            ],
+            [
+              19.0,
+              61.0
+            ],
+            [
+              18.0,
+              61.0
+            ],
+            [
+              18.0,
+              60.0
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "layer_key": "raa-archaeology",
+        "layer_label": "RAÄ archaeology density",
+        "country": "Sweden",
+        "count": 3238,
+        "count_label": "3,238"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              12.0,
+              61.0
+            ],
+            [
+              13.0,
+              61.0
+            ],
+            [
+              13.0,
+              62.0
+            ],
+            [
+              12.0,
+              62.0
+            ],
+            [
+              12.0,
+              61.0
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "layer_key": "raa-archaeology",
+        "layer_label": "RAÄ archaeology density",
+        "country": "Sweden",
+        "count": 235,
+        "count_label": "235"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              13.0,
+              61.0
+            ],
+            [
+              14.0,
+              61.0
+            ],
+            [
+              14.0,
+              62.0
+            ],
+            [
+              13.0,
+              62.0
+            ],
+            [
+              13.0,
+              61.0
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "layer_key": "raa-archaeology",
+        "layer_label": "RAÄ archaeology density",
+        "country": "Sweden",
+        "count": 634,
+        "count_label": "634"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              14.0,
+              61.0
+            ],
+            [
+              15.0,
+              61.0
+            ],
+            [
+              15.0,
+              62.0
+            ],
+            [
+              14.0,
+              62.0
+            ],
+            [
+              14.0,
+              61.0
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "layer_key": "raa-archaeology",
+        "layer_label": "RAÄ archaeology density",
+        "country": "Sweden",
+        "count": 1202,
+        "count_label": "1,202"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              15.0,
+              61.0
+            ],
+            [
+              16.0,
+              61.0
+            ],
+            [
+              16.0,
+              62.0
+            ],
+            [
+              15.0,
+              62.0
+            ],
+            [
+              15.0,
+              61.0
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "layer_key": "raa-archaeology",
+        "layer_label": "RAÄ archaeology density",
+        "country": "Sweden",
+        "count": 1607,
+        "count_label": "1,607"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              16.0,
+              61.0
+            ],
+            [
+              17.0,
+              61.0
+            ],
+            [
+              17.0,
+              62.0
+            ],
+            [
+              16.0,
+              62.0
+            ],
+            [
+              16.0,
+              61.0
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "layer_key": "raa-archaeology",
+        "layer_label": "RAÄ archaeology density",
+        "country": "Sweden",
+        "count": 3464,
+        "count_label": "3,464"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              17.0,
+              61.0
+            ],
+            [
+              18.0,
+              61.0
+            ],
+            [
+              18.0,
+              62.0
+            ],
+            [
+              17.0,
+              62.0
+            ],
+            [
+              17.0,
+              61.0
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "layer_key": "raa-archaeology",
+        "layer_label": "RAÄ archaeology density",
+        "country": "Sweden",
+        "count": 2270,
+        "count_label": "2,270"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              12.0,
+              62.0
+            ],
+            [
+              13.0,
+              62.0
+            ],
+            [
+              13.0,
+              63.0
+            ],
+            [
+              12.0,
+              63.0
+            ],
+            [
+              12.0,
+              62.0
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "layer_key": "raa-archaeology",
+        "layer_label": "RAÄ archaeology density",
+        "country": "Sweden",
+        "count": 2243,
+        "count_label": "2,243"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              13.0,
+              62.0
+            ],
+            [
+              14.0,
+              62.0
+            ],
+            [
+              14.0,
+              63.0
+            ],
+            [
+              13.0,
+              63.0
+            ],
+            [
+              13.0,
+              62.0
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "layer_key": "raa-archaeology",
+        "layer_label": "RAÄ archaeology density",
+        "country": "Sweden",
+        "count": 618,
+        "count_label": "618"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              14.0,
+              62.0
+            ],
+            [
+              15.0,
+              62.0
+            ],
+            [
+              15.0,
+              63.0
+            ],
+            [
+              14.0,
+              63.0
+            ],
+            [
+              14.0,
+              62.0
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "layer_key": "raa-archaeology",
+        "layer_label": "RAÄ archaeology density",
+        "country": "Sweden",
+        "count": 1940,
+        "count_label": "1,940"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              15.0,
+              62.0
+            ],
+            [
+              16.0,
+              62.0
+            ],
+            [
+              16.0,
+              63.0
+            ],
+            [
+              15.0,
+              63.0
+            ],
+            [
+              15.0,
+              62.0
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "layer_key": "raa-archaeology",
+        "layer_label": "RAÄ archaeology density",
+        "country": "Sweden",
+        "count": 1173,
+        "count_label": "1,173"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              16.0,
+              62.0
+            ],
+            [
+              17.0,
+              62.0
+            ],
+            [
+              17.0,
+              63.0
+            ],
+            [
+              16.0,
+              63.0
+            ],
+            [
+              16.0,
+              62.0
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "layer_key": "raa-archaeology",
+        "layer_label": "RAÄ archaeology density",
+        "country": "Sweden",
+        "count": 1674,
+        "count_label": "1,674"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              17.0,
+              62.0
+            ],
+            [
+              18.0,
+              62.0
+            ],
+            [
+              18.0,
+              63.0
+            ],
+            [
+              17.0,
+              63.0
+            ],
+            [
+              17.0,
+              62.0
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "layer_key": "raa-archaeology",
+        "layer_label": "RAÄ archaeology density",
+        "country": "Sweden",
+        "count": 3577,
+        "count_label": "3,577"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              18.0,
+              62.0
+            ],
+            [
+              19.0,
+              62.0
+            ],
+            [
+              19.0,
+              63.0
+            ],
+            [
+              18.0,
+              63.0
+            ],
+            [
+              18.0,
+              62.0
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "layer_key": "raa-archaeology",
+        "layer_label": "RAÄ archaeology density",
+        "country": "Sweden",
+        "count": 692,
+        "count_label": "692"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              12.0,
+              63.0
+            ],
+            [
+              13.0,
+              63.0
+            ],
+            [
+              13.0,
+              64.0
+            ],
+            [
+              12.0,
+              64.0
+            ],
+            [
+              12.0,
+              63.0
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "layer_key": "raa-archaeology",
+        "layer_label": "RAÄ archaeology density",
+        "country": "Sweden",
+        "count": 912,
+        "count_label": "912"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              13.0,
+              63.0
+            ],
+            [
+              14.0,
+              63.0
+            ],
+            [
+              14.0,
+              64.0
+            ],
+            [
+              13.0,
+              64.0
+            ],
+            [
+              13.0,
+              63.0
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "layer_key": "raa-archaeology",
+        "layer_label": "RAÄ archaeology density",
+        "country": "Sweden",
+        "count": 1147,
+        "count_label": "1,147"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              14.0,
+              63.0
+            ],
+            [
+              15.0,
+              63.0
+            ],
+            [
+              15.0,
+              64.0
+            ],
+            [
+              14.0,
+              64.0
+            ],
+            [
+              14.0,
+              63.0
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "layer_key": "raa-archaeology",
+        "layer_label": "RAÄ archaeology density",
+        "country": "Sweden",
+        "count": 3868,
+        "count_label": "3,868"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              15.0,
+              63.0
+            ],
+            [
+              16.0,
+              63.0
+            ],
+            [
+              16.0,
+              64.0
+            ],
+            [
+              15.0,
+              64.0
+            ],
+            [
+              15.0,
+              63.0
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "layer_key": "raa-archaeology",
+        "layer_label": "RAÄ archaeology density",
+        "country": "Sweden",
+        "count": 1538,
+        "count_label": "1,538"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              16.0,
+              63.0
+            ],
+            [
+              17.0,
+              63.0
+            ],
+            [
+              17.0,
+              64.0
+            ],
+            [
+              16.0,
+              64.0
+            ],
+            [
+              16.0,
+              63.0
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "layer_key": "raa-archaeology",
+        "layer_label": "RAÄ archaeology density",
+        "country": "Sweden",
+        "count": 1855,
+        "count_label": "1,855"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              17.0,
+              63.0
+            ],
+            [
+              18.0,
+              63.0
+            ],
+            [
+              18.0,
+              64.0
+            ],
+            [
+              17.0,
+              64.0
+            ],
+            [
+              17.0,
+              63.0
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "layer_key": "raa-archaeology",
+        "layer_label": "RAÄ archaeology density",
+        "country": "Sweden",
+        "count": 2199,
+        "count_label": "2,199"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              18.0,
+              63.0
+            ],
+            [
+              19.0,
+              63.0
+            ],
+            [
+              19.0,
+              64.0
+            ],
+            [
+              18.0,
+              64.0
+            ],
+            [
+              18.0,
+              63.0
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "layer_key": "raa-archaeology",
+        "layer_label": "RAÄ archaeology density",
+        "country": "Sweden",
+        "count": 1672,
+        "count_label": "1,672"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              19.0,
+              63.0
+            ],
+            [
+              20.0,
+              63.0
+            ],
+            [
+              20.0,
+              64.0
+            ],
+            [
+              19.0,
+              64.0
+            ],
+            [
+              19.0,
+              63.0
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "layer_key": "raa-archaeology",
+        "layer_label": "RAÄ archaeology density",
+        "country": "Sweden",
+        "count": 954,
+        "count_label": "954"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              20.0,
+              63.0
+            ],
+            [
+              21.0,
+              63.0
+            ],
+            [
+              21.0,
+              64.0
+            ],
+            [
+              20.0,
+              64.0
+            ],
+            [
+              20.0,
+              63.0
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "layer_key": "raa-archaeology",
+        "layer_label": "RAÄ archaeology density",
+        "country": "Sweden",
+        "count": 663,
+        "count_label": "663"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              12.0,
+              64.0
+            ],
+            [
+              13.0,
+              64.0
+            ],
+            [
+              13.0,
+              65.0
+            ],
+            [
+              12.0,
+              65.0
+            ],
+            [
+              12.0,
+              64.0
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "layer_key": "raa-archaeology",
+        "layer_label": "RAÄ archaeology density",
+        "country": "Sweden",
+        "count": 4,
+        "count_label": "4"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              13.0,
+              64.0
+            ],
+            [
+              14.0,
+              64.0
+            ],
+            [
+              14.0,
+              65.0
+            ],
+            [
+              13.0,
+              65.0
+            ],
+            [
+              13.0,
+              64.0
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "layer_key": "raa-archaeology",
+        "layer_label": "RAÄ archaeology density",
+        "country": "Sweden",
+        "count": 104,
+        "count_label": "104"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              14.0,
+              64.0
+            ],
+            [
+              15.0,
+              64.0
+            ],
+            [
+              15.0,
+              65.0
+            ],
+            [
+              14.0,
+              65.0
+            ],
+            [
+              14.0,
+              64.0
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "layer_key": "raa-archaeology",
+        "layer_label": "RAÄ archaeology density",
+        "country": "Sweden",
+        "count": 216,
+        "count_label": "216"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              15.0,
+              64.0
+            ],
+            [
+              16.0,
+              64.0
+            ],
+            [
+              16.0,
+              65.0
+            ],
+            [
+              15.0,
+              65.0
+            ],
+            [
+              15.0,
+              64.0
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "layer_key": "raa-archaeology",
+        "layer_label": "RAÄ archaeology density",
+        "country": "Sweden",
+        "count": 465,
+        "count_label": "465"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              16.0,
+              64.0
+            ],
+            [
+              17.0,
+              64.0
+            ],
+            [
+              17.0,
+              65.0
+            ],
+            [
+              16.0,
+              65.0
+            ],
+            [
+              16.0,
+              64.0
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "layer_key": "raa-archaeology",
+        "layer_label": "RAÄ archaeology density",
+        "country": "Sweden",
+        "count": 1031,
+        "count_label": "1,031"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              17.0,
+              64.0
+            ],
+            [
+              18.0,
+              64.0
+            ],
+            [
+              18.0,
+              65.0
+            ],
+            [
+              17.0,
+              65.0
+            ],
+            [
+              17.0,
+              64.0
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "layer_key": "raa-archaeology",
+        "layer_label": "RAÄ archaeology density",
+        "country": "Sweden",
+        "count": 730,
+        "count_label": "730"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              18.0,
+              64.0
+            ],
+            [
+              19.0,
+              64.0
+            ],
+            [
+              19.0,
+              65.0
+            ],
+            [
+              18.0,
+              65.0
+            ],
+            [
+              18.0,
+              64.0
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "layer_key": "raa-archaeology",
+        "layer_label": "RAÄ archaeology density",
+        "country": "Sweden",
+        "count": 1242,
+        "count_label": "1,242"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              19.0,
+              64.0
+            ],
+            [
+              20.0,
+              64.0
+            ],
+            [
+              20.0,
+              65.0
+            ],
+            [
+              19.0,
+              65.0
+            ],
+            [
+              19.0,
+              64.0
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "layer_key": "raa-archaeology",
+        "layer_label": "RAÄ archaeology density",
+        "country": "Sweden",
+        "count": 1153,
+        "count_label": "1,153"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              20.0,
+              64.0
+            ],
+            [
+              21.0,
+              64.0
+            ],
+            [
+              21.0,
+              65.0
+            ],
+            [
+              20.0,
+              65.0
+            ],
+            [
+              20.0,
+              64.0
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "layer_key": "raa-archaeology",
+        "layer_label": "RAÄ archaeology density",
+        "country": "Sweden",
+        "count": 1860,
+        "count_label": "1,860"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              21.0,
+              64.0
+            ],
+            [
+              22.0,
+              64.0
+            ],
+            [
+              22.0,
+              65.0
+            ],
+            [
+              21.0,
+              65.0
+            ],
+            [
+              21.0,
+              64.0
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "layer_key": "raa-archaeology",
+        "layer_label": "RAÄ archaeology density",
+        "country": "Sweden",
+        "count": 1413,
+        "count_label": "1,413"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              14.0,
+              65.0
+            ],
+            [
+              15.0,
+              65.0
+            ],
+            [
+              15.0,
+              66.0
+            ],
+            [
+              14.0,
+              66.0
+            ],
+            [
+              14.0,
+              65.0
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "layer_key": "raa-archaeology",
+        "layer_label": "RAÄ archaeology density",
+        "country": "Sweden",
+        "count": 870,
+        "count_label": "870"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              15.0,
+              65.0
+            ],
+            [
+              16.0,
+              65.0
+            ],
+            [
+              16.0,
+              66.0
+            ],
+            [
+              15.0,
+              66.0
+            ],
+            [
+              15.0,
+              65.0
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "layer_key": "raa-archaeology",
+        "layer_label": "RAÄ archaeology density",
+        "country": "Sweden",
+        "count": 766,
+        "count_label": "766"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              16.0,
+              65.0
+            ],
+            [
+              17.0,
+              65.0
+            ],
+            [
+              17.0,
+              66.0
+            ],
+            [
+              16.0,
+              66.0
+            ],
+            [
+              16.0,
+              65.0
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "layer_key": "raa-archaeology",
+        "layer_label": "RAÄ archaeology density",
+        "country": "Sweden",
+        "count": 331,
+        "count_label": "331"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              17.0,
+              65.0
+            ],
+            [
+              18.0,
+              65.0
+            ],
+            [
+              18.0,
+              66.0
+            ],
+            [
+              17.0,
+              66.0
+            ],
+            [
+              17.0,
+              65.0
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "layer_key": "raa-archaeology",
+        "layer_label": "RAÄ archaeology density",
+        "country": "Sweden",
+        "count": 749,
+        "count_label": "749"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              18.0,
+              65.0
+            ],
+            [
+              19.0,
+              65.0
+            ],
+            [
+              19.0,
+              66.0
+            ],
+            [
+              18.0,
+              66.0
+            ],
+            [
+              18.0,
+              65.0
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "layer_key": "raa-archaeology",
+        "layer_label": "RAÄ archaeology density",
+        "country": "Sweden",
+        "count": 1168,
+        "count_label": "1,168"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              19.0,
+              65.0
+            ],
+            [
+              20.0,
+              65.0
+            ],
+            [
+              20.0,
+              66.0
+            ],
+            [
+              19.0,
+              66.0
+            ],
+            [
+              19.0,
+              65.0
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "layer_key": "raa-archaeology",
+        "layer_label": "RAÄ archaeology density",
+        "country": "Sweden",
+        "count": 1623,
+        "count_label": "1,623"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              20.0,
+              65.0
+            ],
+            [
+              21.0,
+              65.0
+            ],
+            [
+              21.0,
+              66.0
+            ],
+            [
+              20.0,
+              66.0
+            ],
+            [
+              20.0,
+              65.0
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "layer_key": "raa-archaeology",
+        "layer_label": "RAÄ archaeology density",
+        "country": "Sweden",
+        "count": 1818,
+        "count_label": "1,818"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              21.0,
+              65.0
+            ],
+            [
+              22.0,
+              65.0
+            ],
+            [
+              22.0,
+              66.0
+            ],
+            [
+              21.0,
+              66.0
+            ],
+            [
+              21.0,
+              65.0
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "layer_key": "raa-archaeology",
+        "layer_label": "RAÄ archaeology density",
+        "country": "Sweden",
+        "count": 1647,
+        "count_label": "1,647"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              22.0,
+              65.0
+            ],
+            [
+              23.0,
+              65.0
+            ],
+            [
+              23.0,
+              66.0
+            ],
+            [
+              22.0,
+              66.0
+            ],
+            [
+              22.0,
+              65.0
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "layer_key": "raa-archaeology",
+        "layer_label": "RAÄ archaeology density",
+        "country": "Sweden",
+        "count": 654,
+        "count_label": "654"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              23.0,
+              65.0
+            ],
+            [
+              24.0,
+              65.0
+            ],
+            [
+              24.0,
+              66.0
+            ],
+            [
+              23.0,
+              66.0
+            ],
+            [
+              23.0,
+              65.0
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "layer_key": "raa-archaeology",
+        "layer_label": "RAÄ archaeology density",
+        "country": "Sweden",
+        "count": 635,
+        "count_label": "635"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              24.0,
+              65.0
+            ],
+            [
+              25.0,
+              65.0
+            ],
+            [
+              25.0,
+              66.0
+            ],
+            [
+              24.0,
+              66.0
+            ],
+            [
+              24.0,
+              65.0
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "layer_key": "raa-archaeology",
+        "layer_label": "RAÄ archaeology density",
+        "country": "Sweden",
+        "count": 125,
+        "count_label": "125"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              14.0,
+              66.0
+            ],
+            [
+              15.0,
+              66.0
+            ],
+            [
+              15.0,
+              67.0
+            ],
+            [
+              14.0,
+              67.0
+            ],
+            [
+              14.0,
+              66.0
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "layer_key": "raa-archaeology",
+        "layer_label": "RAÄ archaeology density",
+        "country": "Sweden",
+        "count": 74,
+        "count_label": "74"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              15.0,
+              66.0
+            ],
+            [
+              16.0,
+              66.0
+            ],
+            [
+              16.0,
+              67.0
+            ],
+            [
+              15.0,
+              67.0
+            ],
+            [
+              15.0,
+              66.0
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "layer_key": "raa-archaeology",
+        "layer_label": "RAÄ archaeology density",
+        "country": "Sweden",
+        "count": 559,
+        "count_label": "559"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              16.0,
+              66.0
+            ],
+            [
+              17.0,
+              66.0
+            ],
+            [
+              17.0,
+              67.0
+            ],
+            [
+              16.0,
+              67.0
+            ],
+            [
+              16.0,
+              66.0
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "layer_key": "raa-archaeology",
+        "layer_label": "RAÄ archaeology density",
+        "country": "Sweden",
+        "count": 710,
+        "count_label": "710"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              17.0,
+              66.0
+            ],
+            [
+              18.0,
+              66.0
+            ],
+            [
+              18.0,
+              67.0
+            ],
+            [
+              17.0,
+              67.0
+            ],
+            [
+              17.0,
+              66.0
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "layer_key": "raa-archaeology",
+        "layer_label": "RAÄ archaeology density",
+        "country": "Sweden",
+        "count": 1226,
+        "count_label": "1,226"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              18.0,
+              66.0
+            ],
+            [
+              19.0,
+              66.0
+            ],
+            [
+              19.0,
+              67.0
+            ],
+            [
+              18.0,
+              67.0
+            ],
+            [
+              18.0,
+              66.0
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "layer_key": "raa-archaeology",
+        "layer_label": "RAÄ archaeology density",
+        "country": "Sweden",
+        "count": 1913,
+        "count_label": "1,913"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              19.0,
+              66.0
+            ],
+            [
+              20.0,
+              66.0
+            ],
+            [
+              20.0,
+              67.0
+            ],
+            [
+              19.0,
+              67.0
+            ],
+            [
+              19.0,
+              66.0
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "layer_key": "raa-archaeology",
+        "layer_label": "RAÄ archaeology density",
+        "country": "Sweden",
+        "count": 1338,
+        "count_label": "1,338"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              20.0,
+              66.0
+            ],
+            [
+              21.0,
+              66.0
+            ],
+            [
+              21.0,
+              67.0
+            ],
+            [
+              20.0,
+              67.0
+            ],
+            [
+              20.0,
+              66.0
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "layer_key": "raa-archaeology",
+        "layer_label": "RAÄ archaeology density",
+        "country": "Sweden",
+        "count": 946,
+        "count_label": "946"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              21.0,
+              66.0
+            ],
+            [
+              22.0,
+              66.0
+            ],
+            [
+              22.0,
+              67.0
+            ],
+            [
+              21.0,
+              67.0
+            ],
+            [
+              21.0,
+              66.0
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "layer_key": "raa-archaeology",
+        "layer_label": "RAÄ archaeology density",
+        "country": "Sweden",
+        "count": 574,
+        "count_label": "574"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              22.0,
+              66.0
+            ],
+            [
+              23.0,
+              66.0
+            ],
+            [
+              23.0,
+              67.0
+            ],
+            [
+              22.0,
+              67.0
+            ],
+            [
+              22.0,
+              66.0
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "layer_key": "raa-archaeology",
+        "layer_label": "RAÄ archaeology density",
+        "country": "Sweden",
+        "count": 1472,
+        "count_label": "1,472"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              23.0,
+              66.0
+            ],
+            [
+              24.0,
+              66.0
+            ],
+            [
+              24.0,
+              67.0
+            ],
+            [
+              23.0,
+              67.0
+            ],
+            [
+              23.0,
+              66.0
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "layer_key": "raa-archaeology",
+        "layer_label": "RAÄ archaeology density",
+        "country": "Sweden",
+        "count": 984,
+        "count_label": "984"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              24.0,
+              66.0
+            ],
+            [
+              25.0,
+              66.0
+            ],
+            [
+              25.0,
+              67.0
+            ],
+            [
+              24.0,
+              67.0
+            ],
+            [
+              24.0,
+              66.0
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "layer_key": "raa-archaeology",
+        "layer_label": "RAÄ archaeology density",
+        "country": "Sweden",
+        "count": 128,
+        "count_label": "128"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              16.0,
+              67.0
+            ],
+            [
+              17.0,
+              67.0
+            ],
+            [
+              17.0,
+              68.0
+            ],
+            [
+              16.0,
+              68.0
+            ],
+            [
+              16.0,
+              67.0
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "layer_key": "raa-archaeology",
+        "layer_label": "RAÄ archaeology density",
+        "country": "Sweden",
+        "count": 915,
+        "count_label": "915"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              17.0,
+              67.0
+            ],
+            [
+              18.0,
+              67.0
+            ],
+            [
+              18.0,
+              68.0
+            ],
+            [
+              17.0,
+              68.0
+            ],
+            [
+              17.0,
+              67.0
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "layer_key": "raa-archaeology",
+        "layer_label": "RAÄ archaeology density",
+        "country": "Sweden",
+        "count": 1068,
+        "count_label": "1,068"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              18.0,
+              67.0
+            ],
+            [
+              19.0,
+              67.0
+            ],
+            [
+              19.0,
+              68.0
+            ],
+            [
+              18.0,
+              68.0
+            ],
+            [
+              18.0,
+              67.0
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "layer_key": "raa-archaeology",
+        "layer_label": "RAÄ archaeology density",
+        "country": "Sweden",
+        "count": 1336,
+        "count_label": "1,336"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              19.0,
+              67.0
+            ],
+            [
+              20.0,
+              67.0
+            ],
+            [
+              20.0,
+              68.0
+            ],
+            [
+              19.0,
+              68.0
+            ],
+            [
+              19.0,
+              67.0
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "layer_key": "raa-archaeology",
+        "layer_label": "RAÄ archaeology density",
+        "country": "Sweden",
+        "count": 880,
+        "count_label": "880"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              20.0,
+              67.0
+            ],
+            [
+              21.0,
+              67.0
+            ],
+            [
+              21.0,
+              68.0
+            ],
+            [
+              20.0,
+              68.0
+            ],
+            [
+              20.0,
+              67.0
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "layer_key": "raa-archaeology",
+        "layer_label": "RAÄ archaeology density",
+        "country": "Sweden",
+        "count": 965,
+        "count_label": "965"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              21.0,
+              67.0
+            ],
+            [
+              22.0,
+              67.0
+            ],
+            [
+              22.0,
+              68.0
+            ],
+            [
+              21.0,
+              68.0
+            ],
+            [
+              21.0,
+              67.0
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "layer_key": "raa-archaeology",
+        "layer_label": "RAÄ archaeology density",
+        "country": "Sweden",
+        "count": 1142,
+        "count_label": "1,142"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              22.0,
+              67.0
+            ],
+            [
+              23.0,
+              67.0
+            ],
+            [
+              23.0,
+              68.0
+            ],
+            [
+              22.0,
+              68.0
+            ],
+            [
+              22.0,
+              67.0
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "layer_key": "raa-archaeology",
+        "layer_label": "RAÄ archaeology density",
+        "country": "Sweden",
+        "count": 803,
+        "count_label": "803"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              23.0,
+              67.0
+            ],
+            [
+              24.0,
+              67.0
+            ],
+            [
+              24.0,
+              68.0
+            ],
+            [
+              23.0,
+              68.0
+            ],
+            [
+              23.0,
+              67.0
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "layer_key": "raa-archaeology",
+        "layer_label": "RAÄ archaeology density",
+        "country": "Sweden",
+        "count": 491,
+        "count_label": "491"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              17.0,
+              68.0
+            ],
+            [
+              18.0,
+              68.0
+            ],
+            [
+              18.0,
+              69.0
+            ],
+            [
+              17.0,
+              69.0
+            ],
+            [
+              17.0,
+              68.0
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "layer_key": "raa-archaeology",
+        "layer_label": "RAÄ archaeology density",
+        "country": "Sweden",
+        "count": 8,
+        "count_label": "8"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              18.0,
+              68.0
+            ],
+            [
+              19.0,
+              68.0
+            ],
+            [
+              19.0,
+              69.0
+            ],
+            [
+              18.0,
+              69.0
+            ],
+            [
+              18.0,
+              68.0
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "layer_key": "raa-archaeology",
+        "layer_label": "RAÄ archaeology density",
+        "country": "Sweden",
+        "count": 214,
+        "count_label": "214"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              19.0,
+              68.0
+            ],
+            [
+              20.0,
+              68.0
+            ],
+            [
+              20.0,
+              69.0
+            ],
+            [
+              19.0,
+              69.0
+            ],
+            [
+              19.0,
+              68.0
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "layer_key": "raa-archaeology",
+        "layer_label": "RAÄ archaeology density",
+        "country": "Sweden",
+        "count": 127,
+        "count_label": "127"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              20.0,
+              68.0
+            ],
+            [
+              21.0,
+              68.0
+            ],
+            [
+              21.0,
+              69.0
+            ],
+            [
+              20.0,
+              69.0
+            ],
+            [
+              20.0,
+              68.0
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "layer_key": "raa-archaeology",
+        "layer_label": "RAÄ archaeology density",
+        "country": "Sweden",
+        "count": 389,
+        "count_label": "389"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              21.0,
+              68.0
+            ],
+            [
+              22.0,
+              68.0
+            ],
+            [
+              22.0,
+              69.0
+            ],
+            [
+              21.0,
+              69.0
+            ],
+            [
+              21.0,
+              68.0
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "layer_key": "raa-archaeology",
+        "layer_label": "RAÄ archaeology density",
+        "country": "Sweden",
+        "count": 323,
+        "count_label": "323"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              22.0,
+              68.0
+            ],
+            [
+              23.0,
+              68.0
+            ],
+            [
+              23.0,
+              69.0
+            ],
+            [
+              22.0,
+              69.0
+            ],
+            [
+              22.0,
+              68.0
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "layer_key": "raa-archaeology",
+        "layer_label": "RAÄ archaeology density",
+        "country": "Sweden",
+        "count": 331,
+        "count_label": "331"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              23.0,
+              68.0
+            ],
+            [
+              24.0,
+              68.0
+            ],
+            [
+              24.0,
+              69.0
+            ],
+            [
+              23.0,
+              69.0
+            ],
+            [
+              23.0,
+              68.0
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "layer_key": "raa-archaeology",
+        "layer_label": "RAÄ archaeology density",
+        "country": "Sweden",
+        "count": 87,
+        "count_label": "87"
+      }
+    }
+  ]
+}
