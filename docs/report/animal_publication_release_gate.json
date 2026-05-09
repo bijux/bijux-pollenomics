@@ -10,6 +10,13 @@
       "findings": []
     },
     {
+      "check_id": "project_recovery_guard_still_blocks_overclaim",
+      "passed": true,
+      "description": "The intake recovery guard still blocks stronger publication claims until project-level under-recovery is brought under control.",
+      "finding_count": 0,
+      "findings": []
+    },
+    {
       "check_id": "project_locality_outputs_do_not_flatten_sample_site_disagreement",
       "passed": true,
       "description": "Animal publication does not flatten multi-site sample evidence into one project-level locality claim.",
