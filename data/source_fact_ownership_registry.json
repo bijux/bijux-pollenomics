@@ -109,7 +109,7 @@
       "governing_surface_path": "data/adna/final/atlas/animal_atlas_point_candidates.json",
       "supporting_surface_paths": [
         "docs/report/animal_output_honesty_review.json",
-        "docs/report/nordic-atlas/animal_points.geojson"
+        "docs/report/world/world_animal_localities.geojson"
       ],
       "reason": "Atlas candidate rows govern region-level publication inputs before public map bundles reinterpret them."
     },
@@ -117,10 +117,10 @@
       "fact_key": "country_publication_bundles",
       "display_name": "Country publication bundles",
       "evidence_scope": "country",
-      "governing_surface_path": "docs/report/<country_slug>/<country_slug>_aadr_<version>_bundle.json",
+      "governing_surface_path": "docs/report/countries/<country_slug>/<country_slug>_aadr_<version>_bundle.json",
       "supporting_surface_paths": [
         "docs/report/published_reports_summary.json",
-        "docs/report/<country_slug>/README.md"
+        "docs/report/countries/<country_slug>/README.md"
       ],
       "reason": "Country bundles govern public country deliveries; summaries and readmes only explain the same artifact set."
     },
@@ -131,7 +131,7 @@
       "governing_surface_path": "data/landclim/normalized/nordic_pollen_site_sequences.geojson",
       "supporting_surface_paths": [
         "data/landclim/normalized/landclim_summary.json",
-        "docs/report/nordic-atlas/nordic_pollen_sites.geojson"
+        "docs/report/regions/nordic/nordic_pollen_sites.geojson"
       ],
       "reason": "The normalized LandClim sequence surface is the governing pollen-context layer for site-level use."
     },
@@ -142,7 +142,7 @@
       "governing_surface_path": "data/neotoma/normalized/nordic_pollen_sites.geojson",
       "supporting_surface_paths": [
         "data/neotoma/raw/neotoma_pollen_dataset_inventory.json",
-        "docs/report/nordic-atlas/nordic_environmental_sites.geojson"
+        "docs/report/regions/nordic/nordic_environmental_sites.geojson"
       ],
       "reason": "The normalized Neotoma site layer governs what survives into publication-grade pollen context."
     },
@@ -172,7 +172,7 @@
       "evidence_scope": "source_family",
       "governing_surface_path": "data/boundaries/normalized/nordic_country_boundaries.geojson",
       "supporting_surface_paths": [
-        "docs/report/nordic-atlas/nordic_country_boundaries.geojson"
+        "docs/report/regions/nordic/nordic_country_boundaries.geojson"
       ],
       "reason": "Normalized boundary geometry governs region and country framing across every published map."
     }

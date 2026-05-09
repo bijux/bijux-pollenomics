@@ -30,16 +30,14 @@
       "primary_question": "Which tracked Neotoma pollen records survive normalization and remain visible in atlas-ready context layers?",
       "raw_status": "present",
       "normalized_status": "present",
-      "reviewed_status": "missing",
+      "reviewed_status": "present",
       "published_status": "present",
-      "provenance_depth": "normalized_without_review_layer",
-      "publication_posture": "normalized_but_thin",
+      "provenance_depth": "review_ready",
+      "publication_posture": "published_with_review_support",
       "coverage_metrics": {
         "neotoma_point_count": 200
       },
-      "blocking_reasons": [
-        "missing_review_surface"
-      ]
+      "blocking_reasons": []
     },
     {
       "source_key": "sead",
@@ -49,16 +47,14 @@
       "primary_question": "Which SEAD records are captured, normalized, and still safe to use as contextual archaeology layers?",
       "raw_status": "present",
       "normalized_status": "present",
-      "reviewed_status": "missing",
+      "reviewed_status": "present",
       "published_status": "present",
-      "provenance_depth": "normalized_without_review_layer",
-      "publication_posture": "normalized_but_thin",
+      "provenance_depth": "review_ready",
+      "publication_posture": "published_with_review_support",
       "coverage_metrics": {
         "sead_point_count": 2069
       },
-      "blocking_reasons": [
-        "missing_review_surface"
-      ]
+      "blocking_reasons": []
     },
     {
       "source_key": "raa",
@@ -68,17 +64,15 @@
       "primary_question": "Which Sweden-scoped archaeology context layers are captured and published from RAÄ?",
       "raw_status": "present",
       "normalized_status": "present",
-      "reviewed_status": "missing",
+      "reviewed_status": "present",
       "published_status": "present",
-      "provenance_depth": "normalized_without_review_layer",
-      "publication_posture": "normalized_but_thin",
+      "provenance_depth": "review_ready",
+      "publication_posture": "published_with_review_support",
       "coverage_metrics": {
         "raa_total_site_count": 761917,
         "raa_heritage_site_count": 318265
       },
-      "blocking_reasons": [
-        "missing_review_surface"
-      ]
+      "blocking_reasons": []
     },
     {
       "source_key": "boundaries",
@@ -88,16 +82,14 @@
       "primary_question": "Which tracked framing geometries constrain interpretation of country and atlas outputs?",
       "raw_status": "present",
       "normalized_status": "present",
-      "reviewed_status": "missing",
+      "reviewed_status": "present",
       "published_status": "present",
-      "provenance_depth": "normalized_without_review_layer",
-      "publication_posture": "normalized_but_thin",
+      "provenance_depth": "review_ready",
+      "publication_posture": "published_with_review_support",
       "coverage_metrics": {
         "boundary_country_count": 4
       },
-      "blocking_reasons": [
-        "missing_review_surface"
-      ]
+      "blocking_reasons": []
     },
     {
       "source_key": "aadr",

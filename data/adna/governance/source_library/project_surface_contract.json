@@ -58,6 +58,14 @@
         "sample_chronology_evidence.csv"
       ],
       "purpose": "publish per-sample chronology evidence packets"
+    },
+    {
+      "artifact_key": "chronology_provenance",
+      "required_files": [
+        "sample_chronology_provenance.json",
+        "sample_chronology_provenance.csv"
+      ],
+      "purpose": "publish per-sample chronology provenance packets with wording, source locator, normalization rule, and uncertainty posture"
     }
   ]
 }
