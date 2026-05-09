@@ -9,11 +9,11 @@ last_reviewed: 2026-05-07
 
 # Pollenomics Engine Roadmap
 
-The current repository is a tracked evidence system with one world surface and
-country bundles. That is a legitimate starting point, but it is not the end
-state. The end state is a pollenomics runtime that can compare pollen,
-archaeological context, and ancient DNA evidence without losing provenance or
-claim discipline.
+The current repository is a tracked evidence system with one world surface,
+regional filters, and country bundles. That is a legitimate starting point, but
+it is not the end state. The end state is a pollenomics runtime that can
+compare pollen, archaeological context, and ancient DNA evidence without losing
+provenance or claim discipline.
 
 ## Current Stage
 
@@ -22,7 +22,7 @@ Today the repository can:
 - collect tracked evidence from AADR metadata, LandClim, Neotoma, SEAD, RAÄ,
   boundaries, and fieldwork records
 - normalize those sources into reviewed files under `data/`
-- publish country bundles and one world and regional geography tree under `docs/report/`
+- publish one world-to-country geography tree under `docs/report/`
 - expose the current weakness of the animal aDNA recovery state instead of
   pretending that thin atlas output already proves broad coverage
 
@@ -36,6 +36,15 @@ The next stage is to turn thin or uneven surfaces into explicit recovery work:
   flattening those differences into one score
 - pollenomics-first explanation must stay broader than the current aDNA
   recovery slice
+- world, Europe-plus, Nordic, and country publication must keep sharing one
+  product model so future-country growth does not fragment the code or docs
+
+## Current Refusal Boundary
+
+The roadmap is ambitious, but the repository still refuses final release
+language. Animal recovery depth and SEAD comparability remain materially weaker
+than the stronger architecture, geography, and docs surfaces. The roadmap is
+useful only if that refusal stays explicit while the weaker dimensions catch up.
 
 ## Boundary
 
