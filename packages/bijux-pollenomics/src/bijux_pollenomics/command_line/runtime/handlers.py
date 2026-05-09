@@ -3,7 +3,7 @@ from __future__ import annotations
 import argparse
 import json
 
-from ...adna import (
+from ...adna.api import (
     build_archive_integrity_report,
     build_archive_project_catalog,
     build_domestication_coverage_report,

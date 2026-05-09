@@ -49,6 +49,7 @@ __all__ = list(_EXPORTS)
 
 
 def __getattr__(name: str) -> object:
+    """Resolve one project-owned export lazily from its owning submodule."""
     module_name = _EXPORTS.get(name)
     if module_name is None:
         raise AttributeError(f"module {__name__!r} has no attribute {name!r}")
@@ -59,4 +60,5 @@ def __getattr__(name: str) -> object:
 
 
 def __dir__() -> list[str]:
+    """Expose the stable project-owned public export names."""
     return sorted(__all__)
