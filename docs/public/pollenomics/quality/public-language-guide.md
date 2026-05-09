@@ -18,6 +18,19 @@ Public language matters here because wording can inflate a weak surface without
 changing a single data file. The repository therefore treats naming and phrasing
 as part of the evidence contract, not as a cosmetic afterthought.
 
+Use this page when your question is:
+
+- why does the repository use one word and reject another
+- which terms signal real review strength and which would overclaim
+- how should I describe these outputs without making them sound broader than
+  they are
+
+## Core Rule
+
+Public wording should help a reader judge evidence strength more clearly, not
+less clearly. If a phrase makes a weak surface sound mature, general, or final,
+it is the wrong phrase even when it sounds elegant.
+
 ## Information Roles
 
 - `review`: reader-facing judgment about whether one bounded surface is trusted
@@ -33,6 +46,10 @@ as part of the evidence contract, not as a cosmetic afterthought.
 - `workflow`: governed human review sequence for curation or release
 - `queue`: ordered recovery pressure for still-blocked work
 
+These roles matter because different surfaces do different jobs. A reader
+should not have to guess whether a page is making a claim, exposing a caveat,
+or only recording a diagnostic.
+
 ## Avoid These Words
 
 - `viewer`: it describes a tool posture, not an evidence responsibility
@@ -42,6 +59,13 @@ as part of the evidence contract, not as a cosmetic afterthought.
 
 These banned patterns are not about style preference alone. They are blocked
 because they often hide the real question a surface answers.
+
+## What Good Public Wording Sounds Like
+
+- it names the surface responsibility directly
+- it names uncertainty instead of smoothing it away
+- it distinguishes context, evidence, framing, and caveat roles
+- it helps a reader know what to trust and what to inspect next
 
 ## Provenance Wording
 
@@ -66,3 +90,9 @@ because they often hide the real question a surface answers.
 - keep the strongest readiness language behind the release gate
 - when evidence is partial, say `partial`, `thin`, `blocked`, or `contextual`
   rather than hiding that status in softer wording
+
+## Reader Shortcut
+
+If a term sounds broader, cleaner, or more triumphant than the underlying
+evidence really is, stop and translate it into the more exact role it is trying
+to describe.
