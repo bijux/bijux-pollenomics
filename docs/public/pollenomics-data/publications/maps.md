@@ -9,24 +9,33 @@ last_reviewed: 2026-05-09
 
 # Maps
 
-Geographic evidence surfaces are the shared world and regional map bundles that
-bring several evidence families into one visible geography.
+Maps are the fastest way to understand what the repository currently shows
+across world, regional, and country geography. They put several evidence
+families into one visible space so a reader can orient before dropping into a
+narrower audit.
+
+That speed is useful, but it creates risk. A map can look more settled than the
+evidence behind it really is. This page exists so a reader can use the map
+confidently without mistaking visibility for proof.
 
 ## What Maps Are For
 
-- show broad geographic patterns before a reader drops into one narrower bundle
+- show broad geographic pattern before one point or one country becomes the
+  whole story
 - keep scope changes explicit across world, Europe-plus, Nordic, and country
   views
-- help readers compare publication scopes without pretending every layer means
-  the same thing
-- carry visible contracts for layers, caveats, and filtering posture
+- let readers compare evidence, context, and framing layers without pretending
+  they all mean the same thing
+- make visible which public surfaces are exploratory and which ones deserve a
+  narrower follow-up
 
 ## What Maps Can Answer Well
 
 - where the repository currently publishes broad contextual coverage
-- how a world, regional, or country view differs by scope
+- how one geography differs from another by scope
 - whether a visible layer is acting as evidence, context, or framing
-- where to go next when a point or layer needs a narrower audit
+- where the next narrower public explanation lives when one point or layer
+  needs an audit
 
 ## What Maps Do Not Answer By Themselves
 
@@ -34,23 +43,44 @@ These surfaces do not replace the narrower governing evidence files behind
 their visible points. They are presentation surfaces with explicit contracts,
 not a license to outrank sample, locality, chronology, or coordinate review.
 
+## Start With The Right Question
+
+- use the map first when the question is spatial:
+  where are the visible clusters, gaps, and scope changes
+- leave the map quickly when the question becomes evidential:
+  why is this point here, why is that point missing, or how strong is this
+  chronology or locality claim
+- treat scope labels as part of the meaning:
+  world, Europe-plus, Nordic, and country pages are not interchangeable views
+  of the same claim
+
 ## How To Use A Map Responsibly
 
-1. use the map for orientation, scope comparison, and visible pattern reading
-2. use the linked contracts and traceability pages when one point or layer
-   matters enough to audit
-3. move back to evidence and review surfaces before making a stronger claim
-
-If a map seems cleaner or more confident than the evidence beneath it, trust
-the narrower evidence chain, not the visual polish.
+1. read the visible geography first: which scope, which layers, which caveats
+2. decide whether the question is about pattern, inclusion, or confidence
+3. move to traceability or review pages before making a stronger claim about
+   any individual point
+4. trust the narrower evidence chain if the map looks cleaner than the record
+   behind it
 
 ## Typical Reader Questions
 
 - why is this layer visible at world scope but not at country scope
 - is this point direct evidence, contextual support, or framing only
-- which visible surfaces are broad enough for exploration but too weak for a
-  final claim
-- where do I check the caveats behind this map before I reuse it
+- why does one regional view look denser than another
+- which visible surfaces are good for orientation but too weak for a final claim
+- where should I check the caveats before I reuse this map publicly
+
+## Follow-Up Routes
+
+- use [point rules](point-rules.md) when the question is why a point is allowed
+  to appear at all
+- use [filters and popups](filters-and-popups.md) when the question is about
+  scope behavior or visible labels
+- use [map inputs](map-inputs.md) when the question is which tracked files fed
+  the published map
+- use [limits](limits.md) when the question is about weakness, blockage, or
+  refusal
 
 ## Live Audit Anchors
 

@@ -9,14 +9,13 @@ last_reviewed: 2026-05-09
 
 # Map Inputs
 
-Geographic input surfaces are the tracked files that feed the public map and
-report bundles. They matter because a public map is only as honest as the
-inputs it is allowed to draw from.
+Map inputs are the files that decide what the public maps are allowed to show.
+They matter because a visible atlas is only as honest as the evidence,
+boundaries, and review surfaces that feed it.
 
-Readers usually meet the atlas from the front: a point is visible, a filter is
-active, and a popup tells a compact story. This page explains the reverse
-direction. If a reader wants to challenge what the map shows, these are the
-surfaces that make that challenge possible.
+Most readers meet the atlas from the front: a point is visible, a filter is
+active, and the story looks compact. This page explains what sits behind that
+surface so a reader can challenge the map without guessing.
 
 ## What Counts As A Map Input
 
@@ -34,7 +33,7 @@ That means a map input is not only a coordinate table. It is the wider set of
 files that controls what a point means, where it can appear, and how strongly
 it may be described.
 
-## Why Readers Should Care
+## Why This Matters To A Reader
 
 If a map point is challenged, the answer should not stop at the rendered HTML.
 Readers should be able to trace the visible surface back to the input layer,
@@ -50,20 +49,20 @@ then further back to the evidence files and source families that produced it.
 - where to look when a visible point seems broader, sharper, or more confident
   than expected
 
-## How To Use The Input Chain
+## How To Trace A Surprise On The Map
 
-If a map raises a question, a useful reading order is:
+Use this route when a map raises a question:
 
-1. start with [maps](maps.md) to identify the visible surface being challenged
-2. move to [point rules](point-rules.md) to understand what publication rules
-   had to be met
-3. inspect the review and audit artifacts linked below to see which files fed
-   the visible bundle
-4. move back into the [evidence](../evidence/index.md) and [sources](../sources/index.md)
-   sections if the real challenge is about chronology, locality, or source
-   provenance rather than map rendering
+1. identify the visible surface in [maps](maps.md)
+2. check [point rules](point-rules.md) if the question is why one point exists
+3. check [filters and popups](filters-and-popups.md) if the question is why the
+   point behaves differently across scopes
+4. inspect the audit anchors below to see which tracked files fed that public
+   output
+5. move back into [evidence](../evidence/index.md) or [sources](../sources/index.md)
+   when the real disagreement is about chronology, locality, or provenance
 
-## What These Inputs Protect Against
+## What This Input Chain Protects Against
 
 The input chain exists to stop the atlas from becoming a black box. It protects
 against:
@@ -73,6 +72,13 @@ against:
   scoped inputs
 - context layers being read as sample-backed proof
 - newly published regions looking stronger than the underlying inputs justify
+
+## What A Reader Should Learn From This Page
+
+- a map is governed by several file families, not one magic export
+- geography inclusion is a decision, not a visual accident
+- context layers and sample-backed evidence have different responsibilities
+- visible change does not automatically mean stronger evidence
 
 ## Direct Input Audits
 
