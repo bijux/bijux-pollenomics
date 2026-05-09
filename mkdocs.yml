@@ -201,7 +201,5 @@ nav:
           - Normalized SEAD Outputs: public/pollenomics-data/outputs/normalized-sead.md
   - Fieldwork:
       - Overview: public/fieldwork/index.md
-      - Lyngsjön Lake Fieldwork:
-          - Overview: public/fieldwork/lyngsjon-lake-fieldwork/index.md
-  - Nordic Atlas:
-      - Overview: public/nordic-atlas/index.md
+      - Lyngsjön Lake Fieldwork: public/fieldwork/lyngsjon-lake-fieldwork/index.md
+  - Nordic Atlas: public/nordic-atlas/index.md

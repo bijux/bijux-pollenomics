@@ -90,7 +90,17 @@ class RepositoryContractRegressionTests(unittest.TestCase):
 
         fieldwork = nav_entry("Fieldwork")
         self.assertEqual(fieldwork[0], {"Overview": "public/fieldwork/index.md"})
-        self.assertEqual(next(iter(fieldwork[1].keys())), "Lyngsjön Lake Fieldwork")
+        self.assertEqual(
+            fieldwork[1],
+            {
+                "Lyngsjön Lake Fieldwork": "public/fieldwork/lyngsjon-lake-fieldwork/index.md"
+            },
+        )
+
+        self.assertEqual(
+            next(item["Nordic Atlas"] for item in nav if "Nordic Atlas" in item),
+            "public/nordic-atlas/index.md",
+        )
 
     def test_shared_mkdocs_excludes_badge_template_from_public_docs_graph(self) -> None:
         config = yaml.unsafe_load(
