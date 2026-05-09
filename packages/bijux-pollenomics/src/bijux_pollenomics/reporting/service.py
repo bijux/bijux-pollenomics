@@ -23,20 +23,20 @@ from .bundles.map_inputs import load_multi_country_map_inputs
 from .bundles.paths import build_atlas_bundle_paths
 from .bundles.published_reports import publish_published_reports_tree
 from .bundles.staging import publish_into_staging_dir
-from .geography import GeographicScope
 from .bundles.summary_builders import (
     build_country_report_summary,
     build_multi_country_map_summary,
     build_published_reports_summary,
 )
 from .context import build_context_layers
-from .geography import infer_publication_scope
+from .geography import GeographicScope, infer_publication_scope
 from .models import (
     AnimalFoundationRefreshReport,
     CountryReport,
     MultiCountryMapReport,
     PublishedReportsReport,
 )
+from .presentation.text import slugify
 from .rendering import (
     build_samples_geojson,
     copy_map_assets,
@@ -49,7 +49,6 @@ from .rendering import (
     write_samples_geojson,
     write_summary_json,
 )
-from .presentation.text import slugify
 
 
 def generate_country_report(
@@ -137,12 +136,13 @@ def generate_multi_country_map(
         if geography_scope is not None
         else infer_publication_scope(normalized_countries)
     )
+    manifest = build_homo_sapiens_runtime_manifest_for_version_dir(version_dir)
 
     map_inputs = load_multi_country_map_inputs(
         version_dir=version_dir,
         countries=normalized_countries,
         load_country_samples_fn=lambda **kwargs: load_species_samples(
-            build_homo_sapiens_runtime_manifest_for_version_dir(kwargs["version_dir"]),
+            manifest,
             query=AdnaSampleQuery(political_entity=kwargs["country"]),
         ),
     )

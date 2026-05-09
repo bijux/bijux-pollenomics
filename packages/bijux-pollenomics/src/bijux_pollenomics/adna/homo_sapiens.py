@@ -3,6 +3,8 @@ from __future__ import annotations
 from collections import Counter
 from collections.abc import Iterable, Mapping
 import csv
+from dataclasses import dataclass
+from functools import lru_cache
 import json
 from pathlib import Path
 
@@ -86,7 +88,9 @@ def build_homo_sapiens_runtime_manifest_for_version_dir(
     """Build a Homo sapiens runtime manifest from one concrete version directory."""
     version_dir = Path(version_dir)
     if not version_dir.name:
-        raise ValueError("A version directory is required for Homo sapiens runtime loading")
+        raise ValueError(
+            "A version directory is required for Homo sapiens runtime loading"
+        )
     species_manifest = build_species_manifest("Homo sapiens")
     release_manifest = version_dir / "release_manifest.json"
     return AdnaSpeciesRuntimeManifest(
@@ -136,28 +140,26 @@ def load_homo_sapiens_samples(
         )
     bundle = _single_human_bundle(manifest)
     normalized_query = query.normalized() if query is not None else AdnaSampleQuery()
+    if _is_country_only_query(normalized_query):
+        country_records = _cached_country_records(_release_cache_key(bundle))
+        cached_records = country_records.get(
+            normalized_query.political_entity.casefold(),
+            _EMPTY_COUNTRY_RECORDS,
+        )
+        return list(cached_records.samples), Counter(dict(cached_records.dataset_counts))
     combined: dict[str, AdnaSampleRecord] = {}
     dataset_counts: Counter[str] = Counter()
 
-    for anno_path in discover_homo_sapiens_anno_files(Path(bundle.tracked_root)):
-        dataset_name = anno_path.parent.name
-        for sample in iter_homo_sapiens_samples_from_anno(
-            anno_path,
-            dataset_name=dataset_name,
-            source_release=bundle.source_release,
-            source_family=bundle.source_family,
-            record_modality=bundle.record_modality,
-            review_strength=bundle.review_strength,
-            provenance_quality=bundle.provenance_quality,
-        ):
-            if not _sample_matches_query(sample, normalized_query):
-                continue
+    for sample in _cached_release_samples(_release_cache_key(bundle)):
+        if not _sample_matches_query(sample, normalized_query):
+            continue
+        for dataset_name in sample.datasets:
             dataset_counts[dataset_name] += 1
-            existing = combined.get(sample.genetic_id)
-            if existing is None:
-                combined[sample.genetic_id] = sample
-                continue
-            combined[sample.genetic_id] = merge_duplicate_samples(existing, sample)
+        existing = combined.get(sample.genetic_id)
+        if existing is None:
+            combined[sample.genetic_id] = sample
+            continue
+        combined[sample.genetic_id] = merge_duplicate_samples(existing, sample)
 
     samples = sorted(
         combined.values(),
@@ -176,6 +178,75 @@ def discover_homo_sapiens_anno_files(release_dir: Path) -> list[Path]:
     if not files:
         raise FileNotFoundError(f"No .anno files found under {release_dir}")
     return files
+
+
+@lru_cache(maxsize=32)
+def _cached_release_samples(
+    cache_key: tuple[str, str, str, str, str, tuple[tuple[str, int, int], ...]]
+) -> tuple[AdnaSampleRecord, ...]:
+    (
+        source_release,
+        source_family,
+        record_modality,
+        review_strength,
+        provenance_quality,
+        file_rows,
+    ) = cache_key
+    records: list[AdnaSampleRecord] = []
+    for file_path, _, _ in file_rows:
+        anno_path = Path(file_path)
+        records.extend(
+            iter_homo_sapiens_samples_from_anno(
+                anno_path,
+                dataset_name=anno_path.parent.name,
+                source_release=source_release,
+                source_family=source_family,
+                record_modality=record_modality,
+                review_strength=review_strength,
+                provenance_quality=provenance_quality,
+            )
+        )
+    return tuple(records)
+
+
+@lru_cache(maxsize=32)
+def _cached_country_records(
+    cache_key: tuple[str, str, str, str, str, tuple[tuple[str, int, int], ...]]
+) -> dict[str, "_CountryRecords"]:
+    grouped_samples: dict[str, dict[str, AdnaSampleRecord]] = {}
+    grouped_dataset_counts: dict[str, Counter[str]] = {}
+    for sample in _cached_release_samples(cache_key):
+        political_entity = _clean_text(sample.political_entity)
+        if not political_entity:
+            continue
+        country_key = political_entity.casefold()
+        grouped_dataset_counts.setdefault(country_key, Counter())
+        grouped_samples.setdefault(country_key, {})
+        for dataset_name in sample.datasets:
+            grouped_dataset_counts[country_key][dataset_name] += 1
+        existing = grouped_samples[country_key].get(sample.genetic_id)
+        if existing is None:
+            grouped_samples[country_key][sample.genetic_id] = sample
+            continue
+        grouped_samples[country_key][sample.genetic_id] = merge_duplicate_samples(
+            existing, sample
+        )
+    return {
+        country_key: _CountryRecords(
+            samples=tuple(
+                sorted(
+                    sample_rows.values(),
+                    key=lambda sample: (
+                        sample.locality.casefold(),
+                        sample.master_id.casefold(),
+                        sample.genetic_id.casefold(),
+                    ),
+                )
+            ),
+            dataset_counts=tuple(sorted(grouped_dataset_counts[country_key].items())),
+        )
+        for country_key, sample_rows in grouped_samples.items()
+    }
 
 
 def iter_homo_sapiens_samples_from_anno(
@@ -255,7 +326,9 @@ def iter_homo_sapiens_samples_from_anno(
                 full_date=_clean_text(schema_value(row, schema, "full_date")),
                 chronology=AdnaChronology(
                     original_text=sample_time_label(row, schema),
-                    time_start_bp=time_interval[0] if time_interval is not None else None,
+                    time_start_bp=time_interval[0]
+                    if time_interval is not None
+                    else None,
                     time_end_bp=time_interval[1] if time_interval is not None else None,
                     time_mean_bp=sample_time_mean(row, schema),
                     date_stddev_bp=_clean_text(
@@ -294,7 +367,9 @@ def merge_duplicate_samples(
         master_id=_pick_value(existing.master_id, sample.master_id),
         group_id=_pick_value(existing.group_id, sample.group_id),
         locality=_pick_value(existing.locality, sample.locality),
-        political_entity=_pick_value(existing.political_entity, sample.political_entity),
+        political_entity=_pick_value(
+            existing.political_entity, sample.political_entity
+        ),
         coordinates=AdnaCoordinate(
             latitude=existing.latitude,
             longitude=existing.longitude,
@@ -371,20 +446,71 @@ def _release_dataset_names(
 
 def _single_human_bundle(manifest: AdnaSpeciesRuntimeManifest) -> AdnaSourceBundle:
     if len(manifest.source_bundles) != 1:
-        raise ValueError("Homo sapiens runtime manifest must expose exactly one source bundle")
+        raise ValueError(
+            "Homo sapiens runtime manifest must expose exactly one source bundle"
+        )
     return manifest.source_bundles[0]
 
 
+@dataclass(frozen=True)
+class _CountryRecords:
+    samples: tuple[AdnaSampleRecord, ...]
+    dataset_counts: tuple[tuple[str, int], ...]
+
+
+_EMPTY_COUNTRY_RECORDS = _CountryRecords(samples=(), dataset_counts=())
+
+
+def _release_cache_key(
+    bundle: AdnaSourceBundle,
+) -> tuple[str, str, str, str, str, tuple[tuple[str, int, int], ...]]:
+    release_dir = Path(bundle.tracked_root)
+    file_rows = tuple(
+        (str(path), path.stat().st_mtime_ns, path.stat().st_size)
+        for path in discover_homo_sapiens_anno_files(release_dir)
+    )
+    return (
+        bundle.source_release,
+        bundle.source_family,
+        bundle.record_modality,
+        bundle.review_strength,
+        bundle.provenance_quality,
+        file_rows,
+    )
+
+
+def _is_country_only_query(query: AdnaSampleQuery) -> bool:
+    return bool(query.political_entity) and not any(
+        (
+            query.locality_token,
+            query.dataset_names,
+            query.modalities,
+            query.provenance_qualities,
+            query.review_strengths,
+            query.time_start_bp is not None,
+            query.time_end_bp is not None,
+        )
+    )
+
+
 def _sample_matches_query(sample: AdnaSampleRecord, query: AdnaSampleQuery) -> bool:
-    if query.political_entity and sample.political_entity.casefold() != query.political_entity.casefold():
+    if (
+        query.political_entity
+        and sample.political_entity.casefold() != query.political_entity.casefold()
+    ):
         return False
     if query.locality_token and sample.locality_token != query.locality_token:
         return False
-    if query.dataset_names and not set(sample.datasets).intersection(query.dataset_names):
+    if query.dataset_names and not set(sample.datasets).intersection(
+        query.dataset_names
+    ):
         return False
     if query.modalities and sample.record_modality not in query.modalities:
         return False
-    if query.provenance_qualities and sample.provenance_quality not in query.provenance_qualities:
+    if (
+        query.provenance_qualities
+        and sample.provenance_quality not in query.provenance_qualities
+    ):
         return False
     if query.review_strengths and sample.review_strength not in query.review_strengths:
         return False
@@ -433,7 +559,9 @@ def _dating_basis(
     schema: Mapping[str, str | None],
     time_interval: tuple[int, int] | None,
 ) -> str:
-    if time_interval is not None and _clean_text(schema_value(row, schema, "date_stddev_bp")):
+    if time_interval is not None and _clean_text(
+        schema_value(row, schema, "date_stddev_bp")
+    ):
         return "bp_mean_and_stddev"
     if time_interval is not None:
         return "bp_window"
