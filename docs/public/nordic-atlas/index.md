@@ -28,10 +28,10 @@ instead of a parallel documentation tree.
 ## Open The Atlas
 
 <div class="bijux-quicklinks">
-  <a class="md-button" href="https://bijux.io/bijux-pollenomics/report/">Open the report portal</a>
-  <a class="md-button md-button--primary" href="https://bijux.io/bijux-pollenomics/report/regions/nordic/nordic_map.html">Open the Nordic evidence surface</a>
-  <a class="md-button" href="https://bijux.io/bijux-pollenomics/report/world/world_map.html">Open the world parent surface</a>
-  <a class="md-button" href="https://bijux.io/bijux-pollenomics/report/regions/europe-plus/europe-plus_map.html">Open the Europe-plus surface</a>
+  <a class="md-button" href="../../report/">Open the report portal</a>
+  <a class="md-button md-button--primary" href="../../report/regions/nordic/nordic_map.html">Open the Nordic evidence surface</a>
+  <a class="md-button" href="../../report/world/world_map.html">Open the world parent surface</a>
+  <a class="md-button" href="../../report/regions/europe-plus/europe-plus_map.html">Open the Europe-plus surface</a>
   <a class="md-button" href="../pollenomics-data/outputs/geographic-point-publication/">How animal points are built</a>
   <a class="md-button" href="../pollenomics-data/outputs/geographic-filters-and-inspection/">How filters and popups work</a>
   <a class="md-button" href="../pollenomics-data/outputs/geographic-limits-and-honesty/">Current limits and audits</a>
@@ -43,7 +43,7 @@ instead of a parallel documentation tree.
 </div>
 
 <div class="bijux-map-frame">
-  <iframe src="https://bijux.io/bijux-pollenomics/report/regions/nordic/nordic_map.html" title="Nordic Evidence Atlas"></iframe>
+  <iframe src="../../report/regions/nordic/nordic_map.html" title="Nordic Evidence Atlas"></iframe>
 </div>
 
 ## Direct Evidence Anchors

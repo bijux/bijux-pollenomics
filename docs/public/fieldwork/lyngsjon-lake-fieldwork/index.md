@@ -73,17 +73,17 @@ the landscape.
 - Nordic evidence surface: `docs/report/regions/nordic/nordic_map.html`
 - world parent surface: `docs/report/world/world_map.html`
 
-[Open the Nordic evidence surface](https://bijux.io/bijux-pollenomics/report/regions/nordic/nordic_map.html){ .md-button .md-button--primary }
-[Open the world parent surface](https://bijux.io/bijux-pollenomics/report/world/world_map.html){ .md-button }
-[Open the field video](https://bijux.io/bijux-pollenomics/gallery/2026-02-26-data-collection.mp4){ .md-button }
-[Open the field photo](https://bijux.io/bijux-pollenomics/gallery/2026-02-26-data-collection.JPG){ .md-button }
+<a class="md-button md-button--primary" href="../../../report/regions/nordic/nordic_map.html">Open the Nordic evidence surface</a>
+<a class="md-button" href="../../../report/world/world_map.html">Open the world parent surface</a>
+<a class="md-button" href="../../../gallery/2026-02-26-data-collection.mp4">Open the field video</a>
+<a class="md-button" href="../../../gallery/2026-02-26-data-collection.JPG">Open the field photo</a>
 
 ![Field sampling at Lyngsjön Lake on 2026-02-26.](../../../gallery/2026-02-26-data-collection.JPG){ loading=lazy }
 
 <figure class="bijux-media-card">
   <video controls preload="metadata" muted playsinline>
-    <source src="../../gallery/2026-02-26-data-collection.mp4" type="video/mp4">
-    <a href="../../gallery/2026-02-26-data-collection.mp4">Open the field video.</a>
+    <source src="../../../gallery/2026-02-26-data-collection.mp4" type="video/mp4">
+    <a href="../../../gallery/2026-02-26-data-collection.mp4">Open the field video.</a>
   </video>
   <figcaption>Field documentation from Lyngsjön Lake during winter sampling on 2026-02-26. Playback starts muted so the visit can be inspected without forcing audio.</figcaption>
 </figure>
