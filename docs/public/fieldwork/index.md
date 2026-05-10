@@ -4,15 +4,15 @@ audience: mixed
 type: index
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-05-09
+last_reviewed: 2026-05-10
 ---
 
 # Fieldwork
 
-Fieldwork is the repository's direct visit surface. It exists for readers who
-want to see one thing clearly: that at least some mapped interpretation in the
-public atlas is anchored to a real place, on a real day, with repository-owned
-media that can be inspected directly.
+Fieldwork is the repository's direct visit surface. It shows, in the most
+concrete possible way, that at least some mapped interpretation in the public
+atlas is anchored to a real place, on a real day, with repository-owned media
+that can be inspected directly.
 
 In `bijux-pollenomics`, fieldwork is not the whole scientific argument. Pollen
 context, environmental archaeology, boundaries, and ancient DNA still do most
@@ -34,10 +34,10 @@ flowchart TB
     media --> reader
 ```
 
-This section should feel like a narrow but trustworthy bridge. A reader should
-be able to move from a visible atlas point to a documented visit record, and
-from that visit record to the photo and video captured on the day. If that
-route is vague, fieldwork stops being evidence and becomes decoration.
+This section should work as a narrow but trustworthy bridge. You should be able
+to move from a visible atlas point to a documented visit record, and from that
+visit record to the photo and video captured on the day. If that route is
+vague, fieldwork stops being evidence and becomes decoration.
 
 ## Start Here
 
@@ -54,10 +54,10 @@ route is vague, fieldwork stops being evidence and becomes decoration.
 
 - [Lyngsjön Lake Fieldwork](./lyngsjon-lake-fieldwork/index.md)
 
-## Why This Surface Exists
+## Why This Surface Matters
 
-The fieldwork surface exists because readers should not be asked to trust a map
-point blindly. In some cases, the repository can show not only the processed
+The fieldwork surface matters because a map point should not be trusted
+blindly. In some cases, the repository can show not only the processed
 evidence layers around a place, but also the fact that the team stood there,
 documented the visit, and treated that location as a serious candidate for
 cross-evidence work.
@@ -67,10 +67,10 @@ the Nordic evidence space where pollen context, archaeology, and ancient DNA
 are all unusually relevant together. That does not mean the area proves
 everything by itself. It means it is a rational place to begin: rich enough to
 connect multiple evidence families, focused enough to document carefully, and
-concrete enough for readers to inspect as an actual landscape rather than an
+concrete enough to inspect as an actual landscape rather than an
 abstract atlas label.
 
-## What A Reader Can Learn Here
+## What You Can Learn Here
 
 - whether a published fieldwork point refers to a real documented visit
 - which date, location, and media support that visit record
