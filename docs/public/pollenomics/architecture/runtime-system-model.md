@@ -4,19 +4,18 @@ audience: reader
 type: explanation
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-05-08
+last_reviewed: 2026-05-10
 ---
 
 # Runtime System Model
 
 The runtime is easiest to understand as one controlled evidence pipeline. A
-reader or operator calls a CLI entrypoint, the command surface resolves one
-owned action, collection and evidence code rewrite tracked files under `data/`,
-and the publication system turns that state into country bundles, atlas layers,
-and review surfaces under `docs/report/`.
+CLI entrypoint resolves one owned action, collection and evidence code rewrite
+tracked files under `data/`, and the publication system turns that state into
+country bundles, atlas layers, and review surfaces under `docs/report/`.
 
-The important part is not the number of steps. The important part is that each
-step has a clear responsibility and a visible output.
+The important part is not the number of steps. It is that each step has a
+clear responsibility and a visible output.
 
 ## Execution Path
 
@@ -92,7 +91,7 @@ The runtime should fail early when one of these boundaries breaks:
 
 The runtime grows by adding durable source-family or publication boundaries,
 not by hiding new work inside generic helper buckets. New behavior should name
-its domain and governing output clearly enough that a reader can follow it from
+its domain and governing output clearly enough that you can follow it from
 command to tracked file to published surface.
 
 ## Code Navigation

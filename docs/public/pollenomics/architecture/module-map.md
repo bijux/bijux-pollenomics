@@ -4,18 +4,17 @@ audience: reader
 type: explanation
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-05-07
+last_reviewed: 2026-05-10
 ---
 
 # Module Map
 
-The module tree should teach responsibility by meaning, not by local lore. A
-reader should be able to use this page to answer one concrete question: if a
-visible surface changes, which part of the repository is supposed to explain,
-govern, or rebuild it?
+The module tree should teach responsibility by meaning, not by local lore. The
+practical question is simple: if a visible surface changes, which part of the
+repository is supposed to explain, govern, or rebuild it?
 
-This page is not a directory dump. It is a responsibility map for people who
-need to move from a question to the right owner quickly.
+This page is not a directory dump. It is a responsibility map for moving from
+one question to the right owner quickly.
 
 ## Lifecycle Owners
 
@@ -37,8 +36,8 @@ need to move from a question to the right owner quickly.
 - `core/` remains intentionally small: files, text, geojson, HTTP, time, and
   geo-distance primitives
 
-Those boundaries matter because public outputs are only trustworthy when a
-reader can trace them back through a stable ownership path.
+Those boundaries matter because public outputs are only trustworthy when they
+can be traced back through a stable ownership path.
 
 ## Fast Route By Question
 
@@ -75,14 +74,14 @@ bundles, or repository-truth reviews, the path should continue into
 - `bijux-pollenomics-dev` is maintainer tooling, not a home for runtime
   scientific logic
 
-## Reading Order
+## How To Use This Page
 
 Use this page in this order when you need orientation:
 
-1. start from the reader question, not from the directory name
+1. start from the public question, not from the directory name
 2. locate the lifecycle owner that governs that question
 3. only then drill into the narrower modules and files underneath that owner
 
-If a page forces readers to guess whether they need `reporting/`, `adna/`,
+If a page forces you to guess whether you need `reporting/`, `adna/`,
 `data_downloader/`, or `foundation/`, the module map is not doing its job well
 enough.

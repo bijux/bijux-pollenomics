@@ -4,26 +4,25 @@ audience: reader
 type: explanation
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-05-09
+last_reviewed: 2026-05-10
 ---
 
 # Commands and Contracts
 
 The public runtime surface is intentionally smaller than the full internal
-module tree. For most readers it comes down to three things:
+module tree. In practice it comes down to three things:
 
 - the commands that rebuild tracked evidence and public outputs
 - the artifact families those commands are allowed to write
 - the stable Python or CLI entrypoints that outside users can rely on
 
-This section explains those contracts without assuming that the reader already
-knows internal helper modules. It is here so a reader can tell which parts of
-the runtime are meant to be durable and which parts are only implementation
-detail.
+This section explains those contracts without assuming you already know the
+internal helper modules. It separates the durable runtime promises from the
+implementation detail behind them.
 
 ## Start Here
 
-- open [CLI surface](cli-surface.md) for the named commands readers are
+- open [CLI surface](cli-surface.md) for the named commands people are
   expected to use
 - open [entrypoints and examples](entrypoints-and-examples.md) for the shortest
   supported command paths

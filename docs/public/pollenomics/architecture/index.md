@@ -4,22 +4,23 @@ audience: reader
 type: explanation
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-05-09
+last_reviewed: 2026-05-10
 ---
 
 # How Evidence Becomes Outputs
 
-This section explains the public lifecycle from source material to visible
-output. The only reason architecture belongs on a public surface is that
-readers eventually need to answer hard practical questions:
+This section explains how source material becomes visible output. It belongs on
+the public surface because practical questions quickly turn into architecture
+questions:
 
 - how did this report, map point, or bundle get here
 - which part of the system governs it
 - where should I look when a visible output seems stronger or weaker than I
   expected
 
-The architecture is therefore presented as a reading aid, not as an internal
-tour of module names.
+The goal here is not to tour internal names. It is to make the publication
+flow understandable enough that you can trace one public output back to the
+part of the runtime that governs it.
 
 ## Flow
 
@@ -55,7 +56,7 @@ flowchart LR
 - publication writes country, regional, and world-facing outputs
 - checks fail when those layers drift apart or start implying too much
 
-## What This Section Should Help You Understand
+## What This Section Helps Explain
 
 - why a visible output is never the whole story by itself
 - why source intake, evidence normalization, review, and publication must stay
@@ -75,7 +76,7 @@ flowchart LR
 - `foundation/` owns repository-truth, release posture, and architecture
   contracts
 
-## Read This Section If You Need To Know
+## Use This Section When You Need To Know
 
 - how commands line up with tracked source material
 - where evidence becomes reviewable before it becomes public output
