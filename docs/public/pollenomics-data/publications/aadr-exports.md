@@ -4,21 +4,21 @@ audience: reader
 type: explanation
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-05-09
+last_reviewed: 2026-05-10
 ---
 
 # AADR Exports
 
-These outputs are the repository-owned human ancient DNA surfaces derived from
-the AADR release material. They provide the human side of the broader mixed
-evidence publication model.
+AADR exports are the public human ancient DNA surfaces derived from the AADR
+release material. They provide the human side of the repository's broader
+mixed-evidence publication model.
 
-AADR matters because the repository does not only publish pollenomics context
+They matter because the repository does not only publish pollenomics context
 and animal recovery work. It also needs a human ancient DNA layer that helps
 readers place those other surfaces in a broader release-based historical
 setting.
 
-## What Questions These Exports Help Answer
+## What A Reader Can Learn From AADR
 
 - what human ancient DNA context is visible beside pollen, archaeology, and
   animal evidence
@@ -38,17 +38,7 @@ AADR exports add:
 - a way to keep the public product from reading as if animals, pollen, and
   archaeology exist in isolation from the human side of the historical record
 
-## Where To Inspect It
-
-- `data/aadr/v66/` is the governing versioned repository path for these AADR
-  outputs
-- this page explains how that human ancient DNA release material becomes a
-  public comparison surface without replacing local animal review
-
-That makes the product more intellectually honest. Readers can ask how several
-evidence families line up, not just how one family behaves on its own.
-
-## What They Do Not Prove
+## What It Does Not Do
 
 AADR exports should not be read as if they:
 
@@ -59,16 +49,19 @@ AADR exports should not be read as if they:
 - collapse the difference between release-based human context and narrower
   project-by-project animal recovery work
 
-## When A Reader Should Open This Page
+## Why Versioned Human Context Matters
 
-Open this page when:
+Versioning matters here because human ancient DNA releases change over time. A
+public product that reuses human context should be able to show which release
+is behind that surface rather than treating the human layer as an untracked
+background.
 
-- you want to know how the human ancient DNA family fits into the public
-  product
-- you are comparing the repository's human and animal evidence postures
-- you want to understand how a broader release family can support regional
-  interpretation without replacing local review
+## If You Need The Repository-Owned Records
 
-Then continue to [reports](reports.md), [maps](maps.md), or
-[AADR source guidance](../sources/aadr.md) depending on whether the question is
-about the visible publication or the source family itself.
+The versioned family path lives under:
+
+- `data/aadr/v66/`
+
+If your question is about the visible publication, continue to [reports](reports.md)
+or [maps](maps.md). If your question is about the family itself, continue to
+[AADR source guidance](../sources/aadr.md).
