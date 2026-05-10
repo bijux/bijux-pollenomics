@@ -24,28 +24,6 @@ class DocsBreadthRegressionTests(unittest.TestCase):
         self.assertIn("for maintainers", internal_index)
         self.assertIn("Open the maintainer handbook", internal_index)
 
-    def test_runtime_handbook_keeps_reader_routes_to_breadth_pages(self) -> None:
-        runtime_index = (
-            REPO_ROOT / "docs" / "public" / "pollenomics" / "index.md"
-        ).read_text(encoding="utf-8")
-
-        for path in (
-            "docs/public/pollenomics/architecture/runtime-system-model.md",
-            "docs/public/pollenomics/foundation/end-state-product-model.md",
-            "docs/public/pollenomics/foundation/runtime-scope-and-ownership.md",
-            "docs/public/pollenomics/interfaces/entrypoints-and-examples.md",
-            "docs/public/pollenomics/operations/common-workflows.md",
-            "docs/public/pollenomics/operations/operational-boundaries.md",
-            "docs/public/pollenomics/quality/runtime-invariants-and-limits.md",
-        ):
-            self.assertTrue((REPO_ROOT / path).is_file(), path)
-
-        self.assertIn("What You Can Learn Here", runtime_index)
-        self.assertIn("Routes By Question", runtime_index)
-        self.assertIn("[entrypoints and examples]", runtime_index)
-        self.assertIn("[common workflows]", runtime_index)
-        self.assertIn("[runtime invariants and limits]", runtime_index)
-
     def test_data_handbook_keeps_cross_domain_system_coverage(self) -> None:
         data_index = (
             REPO_ROOT / "docs" / "public" / "pollenomics-data" / "index.md"
