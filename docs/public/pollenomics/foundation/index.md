@@ -77,7 +77,8 @@ the code ownership that makes the product rebuildable.
 - the runtime owns collection, normalization, and publication behavior
 - the data handbook owns source provenance and tracked file meaning
 - the atlas handbook owns how visible map surfaces should be interpreted
-- the maintainer handbook owns release, docs-shell, and repository-health rules
+- the maintainer handbook owns release, documentation shell, and
+  repository-health rules
 
 ## Where To Go Next
 

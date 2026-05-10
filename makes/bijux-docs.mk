@@ -5,16 +5,10 @@ BIJUX_DOCS_SYNC_SCRIPT ?= .bijux/shared/bijux-docs/tooling/scripts/sync_bijux_do
 BIJUX_DOCS_SOT_GUARD ?= .bijux/shared/bijux-docs/tooling/scripts/verify_bijux_docs_source_of_truth.sh
 BIJUX_DOCS_CONTRACT_GUARD ?= .bijux/shared/bijux-docs/tooling/quality/validate_bijux_docs_contract.py
 
-.PHONY: bijux-docs-sync bijux-docs-apply-repo-overrides bijux-docs-check shell-sync shell-check
+.PHONY: bijux-docs-sync bijux-docs-check shell-sync shell-check
 
 bijux-docs-sync: ## Synchronize shared Bijux docs shell into docs assets
 	@bash "$(BIJUX_DOCS_SYNC_SCRIPT)"
-
-bijux-docs-apply-repo-overrides: ## Apply repository-owned docs shell overrides after shared sync
-	@if [ -d "configs/docs-shell/partials" ]; then \
-		mkdir -p "docs/overrides/partials"; \
-		cp configs/docs-shell/partials/* docs/overrides/partials/; \
-	fi
 
 bijux-docs-check: ## Validate Bijux docs shell contract and drift checks
 	@"$(PYTHON_BIN)" "$(BIJUX_DOCS_CONTRACT_GUARD)" .

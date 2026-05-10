@@ -2025,15 +2025,22 @@ class RepositoryContractRegressionTests(unittest.TestCase):
             fieldwork_detail_text,
         )
 
-    def test_nav_override_keeps_section_overview_sidebar_available(self) -> None:
+    def test_shared_nav_keeps_section_overview_sidebar_available(self) -> None:
         nav_override = (
-            REPO_ROOT / "configs" / "docs-shell" / "partials" / "nav.html"
+            REPO_ROOT / "docs" / "overrides" / "partials" / "nav.html"
+        ).read_text(encoding="utf-8")
+        shared_nav = (
+            REPO_ROOT / ".bijux" / "shared" / "bijux-docs" / "partials" / "nav.html"
         ).read_text(encoding="utf-8")
         root_make = (REPO_ROOT / "makes" / "root.mk").read_text(encoding="utf-8")
+        docs_make = (REPO_ROOT / "makes" / "bijux-docs.mk").read_text(encoding="utf-8")
 
+        self.assertFalse((REPO_ROOT / "configs" / "docs-shell").exists())
         self.assertIn("current_page.parent.children", nav_override)
         self.assertNotIn("landing_home_page", nav_override)
-        self.assertIn("bijux-docs-apply-repo-overrides", root_make)
+        self.assertEqual(nav_override, shared_nav)
+        self.assertNotIn("bijux-docs-apply-repo-overrides", root_make)
+        self.assertNotIn("bijux-docs-apply-repo-overrides", docs_make)
 
     def test_github_workflows_cover_repository_checks_and_docs_deploy(self) -> None:
         ci_workflow = (REPO_ROOT / ".github" / "workflows" / "ci.yml").read_text(
