@@ -4,21 +4,22 @@ audience: reader
 type: explanation
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-05-09
+last_reviewed: 2026-05-10
 ---
 
 # LandClim Exports
 
-These outputs are the repository-owned pollen context surfaces derived from
-LandClim. They feed the pollenomics side of the public maps and report
-surfaces.
+LandClim exports are the public pollen-context surfaces derived from LandClim.
+They help the repository show environmental setting, vegetation context, and
+broader landscape pattern around the places that later appear in maps and
+reports.
 
-LandClim matters because it helps the public product answer a broader landscape
-question than ancient DNA alone can answer. It gives environmental setting,
-pollen continuity, and vegetation context around the geographies where readers
-later see atlas views or country bundles.
+That matters because ancient DNA alone cannot answer every landscape question a
+reader will naturally have. A country or regional view may contain only a thin
+set of sample-backed points while still sitting inside a much richer
+environmental context. LandClim helps make that context visible.
 
-## What Questions These Exports Help Answer
+## What A Reader Can Learn From LandClim
 
 - what kind of pollen context surrounds a published geography
 - whether a visible map or report is grounded in broader environmental context
@@ -30,21 +31,14 @@ later see atlas views or country bundles.
 
 ## What LandClim Adds To The Public Product
 
-These exports are useful when a reader wants more than a list of sites or
-sample rows. They help the repository show:
+LandClim is most useful when a reader wants more than a list of sites or sample
+rows. It helps the repository show:
 
 - broader environmental framing
 - pollenomics-first interpretation instead of DNA-only storytelling
 - continuity across regions where point density alone would be too thin
 
-## Where To Inspect It
-
-- `data/landclim/normalized/` is the governing repository path for these
-  LandClim-derived contextual outputs
-- this page explains how that normalized pollen context becomes visible in
-  public-facing reports and maps
-
-## What They Do Not Prove
+## What It Does Not Do
 
 LandClim exports are contextual surfaces, not direct proof of one specific
 sample-backed event. They should not be read as if they:
@@ -54,16 +48,19 @@ sample-backed event. They should not be read as if they:
 - make a weak animal evidence surface suddenly strong just because the pollen
   background is rich
 
-## When A Reader Should Open This Page
+## How These Exports Appear In Public Outputs
 
-Open this page when:
+When LandClim is visible in a map or report, it is there to help a reader
+understand environmental setting rather than to settle a sample-level dispute.
+It keeps the public product pollenomics-first without pretending that context
+and direct evidence are the same kind of claim.
 
-- a map looks environmentally rich but you want to know which pollen family is
-  supplying that context
-- you want to understand how pollenomics remains central to the project
-- you need to separate background environmental framing from direct ancient DNA
-  evidence
+## If You Need The Repository-Owned Records
 
-Then move to [maps](maps.md), [reports](reports.md), or
-[landclim source guidance](../sources/landclim.md) depending on whether the
-question is about the visible product or the source family itself.
+The normalized family outputs live under:
+
+- `data/landclim/normalized/`
+
+If your question is about the visible publication, continue to [maps](maps.md)
+or [reports](reports.md). If your question is about the family itself, continue
+to [LandClim source guidance](../sources/landclim.md).
