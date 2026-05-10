@@ -12,9 +12,9 @@ last_reviewed: 2026-05-10
 This page explains why a record is allowed to appear as a point on the public
 map.
 
-Readers often ask the most important atlas question in a very simple form:
-"why is this point allowed to exist?" The answer should never be "because the
-map generator put it there." The answer has to come from stable evidence rules.
+The most important atlas question is often the simplest one: "why is this
+point allowed to exist?" The answer should never be "because the map generator
+put it there." The answer has to come from stable evidence rules.
 
 ## What Must Be True Before A Point Publishes
 
@@ -31,8 +31,8 @@ desire to fill a geography with more points.
 - the repository decided the record can be shown under explicit conditions
 - the point cleared a chain of identity, locality, chronology, and coordinate
   checks
-- the public product can point the reader back to the narrower evidence if the
-  claim is challenged
+- the public product can point back to the narrower evidence if the claim is
+  challenged
 
 ## What A Published Point Does Not Mean
 

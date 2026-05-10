@@ -13,9 +13,9 @@ Map inputs are the files that decide what the public maps are allowed to show.
 They matter because a visible atlas is only as honest as the evidence,
 boundaries, and review surfaces that feed it.
 
-Most readers meet the atlas from the front: a point is visible, a filter is
+Most people meet the atlas from the front: a point is visible, a filter is
 active, and the story looks compact. This page explains what sits behind that
-surface so a reader can challenge the map without guessing.
+surface so you can challenge the map without guessing.
 
 ## What Counts As A Map Input
 
@@ -33,11 +33,11 @@ That means a map input is not only a coordinate table. It is the wider set of
 files that controls what a point means, where it can appear, and how strongly
 it may be described.
 
-## Why This Matters To A Reader
+## Why This Matters
 
 If a map point is challenged, the answer should not stop at the rendered HTML.
-Readers should be able to trace the visible surface back to the input layer,
-then further back to the evidence files and source families that produced it.
+You should be able to trace the visible surface back to the input layer, then
+further back to the evidence files and source families that produced it.
 
 ## What Questions This Page Helps Answer
 
@@ -73,7 +73,7 @@ against:
 - context layers being read as sample-backed proof
 - newly published regions looking stronger than the underlying inputs justify
 
-## What A Reader Should Learn From This Page
+## What This Page Should Make Clear
 
 - a map is governed by several file families, not one magic export
 - geography inclusion is a decision, not a visual accident
