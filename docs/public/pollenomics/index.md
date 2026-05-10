@@ -4,22 +4,21 @@ audience: reader
 type: index
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-05-09
+last_reviewed: 2026-05-10
 ---
 
 # Bijux Pollenomics Product Guide
 
 `bijux-pollenomics` is the product guide for the repository's public evidence.
-It is the public guide to the repository as a product, not just as a codebase,
-so a reader can understand what the repository publishes today, why those outputs
-exist, how far they can be trusted, and where to go next without needing to read the source code first.
+It explains what the repository publishes today, why those outputs exist, how
+far they can be trusted, and where to go next without needing to read the source code first.
 
 The central idea is simple. This repository rebuilds one governed evidence
-system, then publishes several reader-facing cuts from that same state. Pollen
+system, then publishes several public-facing cuts from that same state. Pollen
 context, environmental archaeology, boundary framing, fieldwork records, and
 animal ancient-DNA recovery all live in one repository, but they do not all
-carry the same scientific weight. The guide exists to keep those differences
-clear.
+carry the same scientific weight. This guide explains those differences
+directly instead of leaving them buried in the file tree.
 
 Use this handbook when your first question is not "which module owns this,"
 but:
@@ -45,7 +44,7 @@ but:
   chain, or the rebuild workflow behind it
 - tell which surfaces are mature public context and which remain partial or
   recovery-heavy
-- move from a big reader question to the right page quickly instead of
+- move from a big public question to the right page quickly instead of
   wandering through internal terminology
 
 ## Publication Loop
@@ -55,14 +54,14 @@ flowchart TB
     sources["tracked source families"]
     normalization["normalization and review"]
     outputs["country bundles, report portal, and atlas surfaces"]
-    readers["reader checks traceability and limits"]
+    readers["public user checks traceability and limits"]
 
     sources --> normalization
     normalization --> outputs
     outputs --> readers
 ```
 
-## What Readers Usually Want To Know First
+## What Most People Need First
 
 - what the repository already publishes with confidence:
   pollen context, environmental archaeology context, boundary framing, and
@@ -125,13 +124,13 @@ them in their own terms:
 
 - the product shape of the runtime
 - the architecture that turns governed evidence into governed outputs
-- the public command and file contracts a reader can inspect
+- the public command and file contracts you can inspect
 - the operational route for rebuilding and checking the repository
 - the quality rules that keep visible output language honest
 
 ## What This Guide Does Not Promise
 
-- that the reader already knows the repository layout
+- that you already know the repository layout
 - that every visible output has the same scientific strength
 - that the current animal ancient-DNA slice already equals a finished
   pollenomics engine

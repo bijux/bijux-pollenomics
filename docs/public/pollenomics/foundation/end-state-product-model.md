@@ -4,18 +4,18 @@ audience: mixed
 type: explanation
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-05-09
+last_reviewed: 2026-05-10
 ---
 
 # End-State Product Model
 
-`bijux-pollenomics` has one intended product shape. It is not supposed to be a
-Nordic site with a few accidental side branches, and it is not supposed to be a
+`bijux-pollenomics` has one intended product shape. It is not meant to be a
+Nordic site with a few accidental side branches, and it is not meant to be a
 stack of country bundles pretending to be a global system. The durable goal is
 one repository that collects evidence broadly once, then publishes narrower
 views from that same governed state.
 
-This page exists for readers who need the strategic answer:
+This page explains the strategic answer:
 
 - why the repository is organized around world, regional, and country surfaces
 - how those surfaces relate to one another
@@ -31,7 +31,7 @@ This page exists for readers who need the strategic answer:
   specialization
 - `Nordic` is the dense regional surface where the repository currently places
   its richest contextual overlays
-- `country` bundles are narrower reader-facing descendants of the same evidence
+- `country` bundles are narrower public descendants of the same evidence
   state
 
 ## Why This Shape Matters
@@ -53,17 +53,17 @@ The runtime must keep one repeatable loop:
 The important point is that these outputs are not separate editorial products.
 They are different public cuts through one repository-owned evidence model.
 
-## Reader Consequence
+## How To Use The Product Shape
 
 - start with `world` when the question is broad and comparative
 - drop to `Europe-plus` when the Nordic slice needs a wider European frame
 - use `Nordic` when regional density and contextual layering matter most
 - use country bundles when the question is explicitly local
 
-The reader should never have to guess whether these are separate products. They
-are filtered views of one product.
+You should not have to guess whether these are separate products. They are
+filtered views of one product.
 
-## Reuse Consequence
+## What This Means For Reuse
 
 If your geography is not yet published as a first-class atlas surface, this
 model still tells you how to read the repository:
@@ -78,7 +78,7 @@ That is the real value of the end-state model. It keeps expansion disciplined
 enough that new publication surfaces can be added without rewriting what the
 repository is.
 
-## Expansion Consequence
+## What This Means For Expansion
 
 Adding `Germany` or another future country must be boring:
 

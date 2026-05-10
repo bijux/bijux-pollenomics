@@ -4,7 +4,7 @@ audience: mixed
 type: explanation
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-05-07
+last_reviewed: 2026-05-10
 ---
 
 # Pollenomics Engine Roadmap
@@ -15,10 +15,10 @@ evidence families into one governed output tree. The longer-term ambition is
 broader: compare pollen, archaeological context, and ancient-DNA evidence in a
 way that keeps provenance visible and refuses overclaiming.
 
-This page is here so readers do not confuse those two things. The current
+The point of this page is to keep those two things distinct. The current
 system is legitimate. The larger engine is still ahead.
 
-## Current Stage
+## What Exists Now
 
 Today the repository can:
 
@@ -32,7 +32,7 @@ Today the repository can:
 That is enough to produce useful, reviewable outputs. It is not enough to claim
 that every evidence family is equally deep or equally mature.
 
-## Next Stage
+## What Still Needs To Deepen
 
 The next stage is to turn thin or uneven surfaces into explicit recovery work:
 
@@ -45,18 +45,18 @@ The next stage is to turn thin or uneven surfaces into explicit recovery work:
 - world, Europe-plus, Nordic, and country publication must keep sharing one
   product model so future-country growth does not fragment the code or docs
 
-In other words, the roadmap is not just "collect more files." It is about
-making weaker parts of the system more defensible without breaking the parts
-that are already reviewable.
+The roadmap is not just "collect more files." It is about making weaker parts
+of the system more defensible without breaking the parts that are already
+reviewable.
 
-## Current Refusal Boundary
+## What The Repository Still Refuses To Claim
 
 The roadmap is ambitious, but the repository still refuses final release
 language. Animal recovery depth and SEAD comparability remain materially weaker
 than the stronger architecture, geography, and docs surfaces. The roadmap is
 useful only if that refusal stays explicit while the weaker dimensions catch up.
 
-## Boundary
+## The Boundary
 
-This roadmap is useful only while it prevents the repository from claiming that
+This roadmap matters only while it prevents the repository from claiming that
 future engine work already exists in the current publication surface.
