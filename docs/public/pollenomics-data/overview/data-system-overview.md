@@ -4,14 +4,14 @@ audience: reader
 type: explanation
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-05-09
+last_reviewed: 2026-05-10
 ---
 
 # Data System Overview
 
 The data system in `bijux-pollenomics` is designed to keep different kinds of
-evidence visible instead of merging everything into one vague export. Readers
-should be able to tell whether they are looking at pollen context,
+evidence visible instead of merging everything into one vague export. You
+should be able to tell whether you are looking at pollen context,
 archaeological context, boundary framing, fieldwork documentation, public
 review surfaces, or ancient DNA sample evidence.
 
@@ -34,11 +34,11 @@ flowchart TB
     normalization --> publication
 ```
 
-That structure matters because the repository serves two audiences at once.
-Some readers want to inspect governed evidence directly. Others want the public
-answer first and only later decide whether they need to drill deeper. The
-repository needs both, but it should not force either audience to decode an
-internal file tree before understanding what the system is doing.
+That structure matters because the repository has to support two kinds of use.
+Sometimes you want the public answer first. Sometimes you want to inspect the
+governing evidence directly. The system needs to support both without forcing
+you to decode an internal file tree before understanding what the repository is
+doing.
 
 ## What This Overview Should Clarify
 
@@ -74,23 +74,31 @@ internal file tree before understanding what the system is doing.
 
 ## Main Repository Surfaces
 
-- `data/` keeps repository-owned source material, normalized records, and review artifacts.
-- `docs/report/` keeps the generated country bundles, atlas assets, and public review surfaces.
-- `docs/public/pollenomics-data/` explains how those tracked files fit together.
-- `data/source_family_contracts.json` and `data/source_family_evidence_stage_matrix.json` keep the stage model explicit instead of forcing readers to infer it from directory names.
-- `data/source_fact_ownership_registry.json` names the governing surface for recurring concepts such as project inventory, sample identity, and atlas candidates.
+- `data/` keeps repository-owned source material, normalized records, and
+  review artifacts.
+- `docs/report/` keeps the generated country bundles, atlas assets, and public
+  review surfaces.
+- `docs/public/pollenomics-data/` explains how those tracked files fit
+  together.
+- `data/source_family_contracts.json` and
+  `data/source_family_evidence_stage_matrix.json` keep the stage model explicit
+  instead of forcing you to infer it from directory names.
+- `data/source_fact_ownership_registry.json` names the governing surface for
+  recurring concepts such as project inventory, sample identity, and atlas
+  candidates.
 
-## Why Readers Should Care About The Separation
+## Why The Separation Matters
 
 - a source page tells you what entered the repository and why
 - an evidence page tells you what claim is currently being governed
 - a review surface tells you what is blocked, thin, or refused
-- a publication surface tells you what readers are allowed to see publicly
+- a publication surface tells you what the repository is prepared to show
+  publicly
 
 If those roles blur together, the site becomes easy to browse but hard to
 trust.
 
-## Reading Pressure
+## Where To Go Next
 
 - [Data architecture handbook](data-architecture-handbook.md) explains the raw -> normalized -> review -> publication model in one place.
 - [Pollenomics publication model](pollenomics-publication-model.md) explains how these families should publish together without pretending they are equally mature.
