@@ -1220,7 +1220,12 @@ class RepositoryContractRegressionTests(unittest.TestCase):
             / "reports.md"
         ).read_text(encoding="utf-8")
         outputs_index = (
-            REPO_ROOT / "docs" / "public" / "pollenomics-data" / "publications" / "index.md"
+            REPO_ROOT
+            / "docs"
+            / "public"
+            / "pollenomics-data"
+            / "publications"
+            / "index.md"
         ).read_text(encoding="utf-8")
         atlas_outputs = (
             REPO_ROOT
@@ -1627,11 +1632,7 @@ class RepositoryContractRegressionTests(unittest.TestCase):
         self,
     ) -> None:
         boundary_doc = (
-            REPO_ROOT
-            / "packages"
-            / "bijux-pollenomics"
-            / "docs"
-            / "boundaries.md"
+            REPO_ROOT / "packages" / "bijux-pollenomics" / "docs" / "boundaries.md"
         ).read_text(encoding="utf-8")
 
         self.assertIn("# Runtime Package Boundaries", boundary_doc)
