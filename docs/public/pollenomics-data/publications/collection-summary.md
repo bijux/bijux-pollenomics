@@ -4,29 +4,28 @@ audience: reader
 type: explanation
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-05-09
+last_reviewed: 2026-05-10
 ---
 
 # Collection Summary
 
-The collection summary is the compact ledger that says what the repository
+The collection summary is the compact ledger that shows what the repository
 currently holds after data preparation and refresh.
 
-It is useful because readers often see the public website after a map, report,
-or country bundle has already been generated. At that stage it is easy to miss
-that the public product sits on top of a collection pipeline that changes over
-time. The collection summary exists so that growth, imbalance, and refresh
-state remain visible instead of disappearing behind polished pages.
+Readers often meet the public product after a map, report, or country bundle
+has already been generated. At that stage it is easy to miss that the visible
+site sits on top of a collection pipeline that changes over time. This page
+keeps that movement visible instead of letting polished pages hide it.
 
 ## What Questions It Answers
 
 - which source families were refreshed recently
 - how much material is currently staged by family
 - whether a visible change probably came from source collection rather than
-  only from docs or presentation logic
+  only from docs or presentation work
 - whether one family is much stronger or broader than another
-- whether a reader should expect a newly published geography to reflect major
-  new intake or only a new public route through older material
+- whether a newly published geography reflects major new intake or only a new
+  public route through older material
 
 ## Where To Inspect It
 
@@ -37,16 +36,16 @@ state remain visible instead of disappearing behind polished pages.
 
 ## Why Readers Should Care
 
-The summary is not only a maintainer ledger. It helps answer audience questions
-that naturally arise when using the repository:
+This is not only a maintainer ledger. It helps answer reader questions that
+naturally arise when using the repository:
 
-- is this project growing, or only being repackaged
+- is this project growing, or only being repackaged?
 - does the public product rest on broad evidence or on one especially strong
-  family
+  family?
 - when a new map or report appears, did the underlying collection actually
-  change
+  change?
 - which families still look thin enough that they should be interpreted with
-  extra caution
+  extra caution?
 
 ## How To Use It Well
 
