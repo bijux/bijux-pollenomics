@@ -15,11 +15,11 @@ broader landscape pattern around the places that later appear in maps and
 reports.
 
 That matters because ancient DNA alone cannot answer every landscape question a
-reader will naturally have. A country or regional view may contain only a thin
+public user will naturally have. A country or regional view may contain only a thin
 set of sample-backed points while still sitting inside a much richer
 environmental context. LandClim helps make that context visible.
 
-## What A Reader Can Learn From LandClim
+## What LandClim Makes Clear
 
 - what kind of pollen context surrounds a published geography
 - whether a visible map or report is grounded in broader environmental context
@@ -31,7 +31,7 @@ environmental context. LandClim helps make that context visible.
 
 ## What LandClim Adds To The Public Product
 
-LandClim is most useful when a reader wants more than a list of sites or sample
+LandClim is most useful when you want more than a list of sites or sample
 rows. It helps the repository show:
 
 - broader environmental framing
@@ -50,7 +50,7 @@ sample-backed event. They should not be read as if they:
 
 ## How These Exports Appear In Public Outputs
 
-When LandClim is visible in a map or report, it is there to help a reader
+When LandClim is visible in a map or report, it is there to help you
 understand environmental setting rather than to settle a sample-level dispute.
 It keeps the public product pollenomics-first without pretending that context
 and direct evidence are the same kind of claim.
