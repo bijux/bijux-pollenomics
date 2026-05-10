@@ -92,7 +92,7 @@ than description:
 - [Nordic point traceability](../../../report/regions/nordic/nordic_point_traceability.md)
 - [repository source family matrix](../../../report/repository_source_family_matrix.md)
 
-## Reader Rule
+## The Scope Rule
 
 The report tree is meant to make scope easier to understand, not easier to
 overclaim. If a narrow report sounds more certain than the wider evidence
