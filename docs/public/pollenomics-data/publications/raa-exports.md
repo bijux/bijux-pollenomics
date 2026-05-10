@@ -4,21 +4,22 @@ audience: reader
 type: explanation
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-05-09
+last_reviewed: 2026-05-10
 ---
 
 # RAÄ Exports
 
-These outputs are the repository-owned Sweden-focused archaeology context
-surfaces derived from RAÄ. They strengthen regional and country interpretation
-where Swedish archaeology detail is especially relevant.
+RAÄ exports are the public Sweden-focused archaeology context surfaces derived
+from RAÄ. Their strength is not universality. Their strength is local detail
+where Swedish archaeology context is especially rich.
 
-RAÄ matters because the Nordic and Swedish slices of the repository are among
+They matter because the Nordic and Swedish slices of the repository are among
 the places where archaeology naming, density, and local framing can materially
-change how a reader interprets nearby evidence. These exports turn that
-Sweden-specific richness into a public context surface.
+change how nearby evidence is read. RAÄ turns that Sweden-specific richness
+into a public context surface without pretending that it applies equally
+everywhere.
 
-## What Questions These Exports Help Answer
+## What A Reader Can Learn From RAÄ
 
 - what Swedish archaeology context helps explain a Nordic or Sweden-focused
   output
@@ -38,18 +39,7 @@ RAÄ exports add:
 - a way to keep high-detail Swedish context visible without mislabeling it as a
   universal regional property
 
-## Where To Inspect It
-
-- `data/raa/normalized/` is the governing repository path for these
-  Sweden-scoped contextual outputs
-- this page explains how that normalized RAÄ material becomes visible without
-  turning Sweden-specific detail into a generic regional claim
-
-This matters for honest interpretation. A strong Swedish context layer can make
-one geography easier to read, but it should also make the limits of other
-geographies more visible by contrast.
-
-## What They Do Not Prove
+## What It Does Not Do
 
 RAÄ exports are still contextual surfaces. They should not be read as if they:
 
@@ -57,16 +47,18 @@ RAÄ exports are still contextual surfaces. They should not be read as if they:
 - settle exact chronology or coordinate disputes
 - mean that all Nordic regions share the same level of archaeology context
 
-## When A Reader Should Open This Page
+## Why Their Local Strength Matters
 
-Open this page when:
+A strong Swedish context layer can make one geography easier to read, but it
+should also make the limits of other geographies more visible by contrast. That
+is part of honest interpretation, not a weakness in the product.
 
-- a Sweden or Nordic output seems unusually detailed and you want to know why
-- you want to separate Sweden-specific archaeology context from broader
-  cross-regional archaeology support
-- you want to understand how local context can strengthen a region without
-  changing the evidence standards for direct sample-backed claims
+## If You Need The Repository-Owned Records
 
-Then continue to [maps](maps.md), [reports](reports.md), or
-[RAÄ source guidance](../sources/raa.md) depending on whether the question is
-about the visible publication or the source family itself.
+The normalized family outputs live under:
+
+- `data/raa/normalized/`
+
+If your question is about the visible publication, continue to [maps](maps.md)
+or [reports](reports.md). If your question is about the family itself, continue
+to [RAÄ source guidance](../sources/raa.md).
