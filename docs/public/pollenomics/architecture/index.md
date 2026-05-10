@@ -82,7 +82,7 @@ flowchart LR
 - where evidence becomes reviewable before it becomes public output
 - which parts of the repository own review versus rendering
 - where to look if an output changes unexpectedly
-- how to trace a reader-facing surface back to its governing evidence and rules
+- how to trace a public-facing surface back to its governing evidence and rules
 
 ## Expanded Pages
 

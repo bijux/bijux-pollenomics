@@ -4,7 +4,7 @@ audience: reader
 type: explanation
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-05-08
+last_reviewed: 2026-05-10
 ---
 
 # Artifact Contracts
@@ -14,7 +14,7 @@ in and reviewed like code.
 
 That means the public outputs are not optional decoration around the runtime.
 They are part of what the runtime is for. If the runtime writes a bundle, map,
-or audit surface, a reader should be able to inspect that artifact directly and
+or audit surface, you should be able to inspect that artifact directly and
 understand what family it belongs to.
 
 ## Main Artifact Families
@@ -27,7 +27,7 @@ understand what family it belongs to.
 - atlas candidate ranking sidecars that summarize locality proximity against
   tracked context layers
 
-## Direct Reader Anchors
+## Direct Inspection Anchors
 
 - [world map](../../../report/world/world_map.html)
 - [world animal evidence rows](../../../report/world/world_animal_atlas_evidence.json)

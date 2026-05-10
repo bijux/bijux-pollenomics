@@ -4,7 +4,7 @@ audience: mixed
 type: explanation
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-05-09
+last_reviewed: 2026-05-10
 ---
 
 # Repository Scope and Limits
@@ -18,9 +18,10 @@ fieldwork documentation, and animal ancient DNA. It is narrow because those
 families are not yet equally mature, and because the repository still refuses
 to pretend that visible output automatically means complete scientific support.
 
-The runtime belongs here because readers need one accountable rebuild path for
-those outputs. The runtime does not justify itself by being complicated. It
-justifies itself by making changes easier to trace, inspect, and challenge.
+The runtime belongs here because the repository needs one accountable rebuild
+path for those outputs. The runtime does not justify itself by being
+complicated. It justifies itself by making changes easier to trace, inspect,
+and challenge.
 
 ## Scope Model
 

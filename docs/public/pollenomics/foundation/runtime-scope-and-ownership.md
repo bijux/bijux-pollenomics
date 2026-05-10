@@ -4,7 +4,7 @@ audience: reader
 type: explanation
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-05-08
+last_reviewed: 2026-05-10
 ---
 
 # Runtime Scope and Ownership
@@ -47,7 +47,7 @@ The runtime owns:
 The runtime does not own:
 
 - repository-health policy that belongs in `bijux-pollenomics-dev`
-- reader-facing provenance interpretation that belongs in
+- public provenance interpretation that belongs in
   `public/pollenomics-data`
 - atlas interpretation guidance that belongs in `public/nordic-atlas`
 - broader paper-grade pollenomics analysis that has not been implemented yet
@@ -82,10 +82,10 @@ flat story.
 - keep pollenomics breadth visible while weaker aDNA recovery continues
 - block stronger publication language when evidence depth is not there
 
-## Why This Matters For Readers
+## Why This Matters
 
 If the ownership line gets blurry, the public guide stops being trustworthy.
-Readers can no longer tell whether a claim is coming from tracked evidence,
+It becomes harder to tell whether a claim is coming from tracked evidence,
 presentation logic, or maintainer policy. A clear runtime boundary is what lets
 the repository say, with some precision, which part of the system produced a
 given output and which part merely explains it.
