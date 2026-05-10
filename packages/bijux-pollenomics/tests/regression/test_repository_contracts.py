@@ -2025,7 +2025,9 @@ class RepositoryContractRegressionTests(unittest.TestCase):
             fieldwork_detail_text,
         )
 
-    def test_shared_nav_hides_scoped_sidebar_on_section_overview_homepages(self) -> None:
+    def test_shared_nav_hides_scoped_sidebar_on_section_overview_homepages(
+        self,
+    ) -> None:
         nav_override = (
             REPO_ROOT / "docs" / "overrides" / "partials" / "nav.html"
         ).read_text(encoding="utf-8")
