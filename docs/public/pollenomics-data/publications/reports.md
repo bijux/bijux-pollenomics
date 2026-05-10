@@ -4,18 +4,20 @@ audience: reader
 type: explanation
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-05-09
+last_reviewed: 2026-05-10
 ---
 
 # Reports
 
-Report bundles are the main written surfaces of the public product. They are
-where the repository explains what is visible at world, regional, and country
-scope without forcing the reader to assemble the story from raw files.
+Reports are the main written surfaces of the public product. They are where the
+repository gives a guided answer at world, regional, or country scope without
+forcing a reader to reconstruct the story from raw files.
 
-Published report bundles now live under one governed geography tree:
+If you want the clearest narrative answer this repository can currently give,
+start here. Reports are the place where scope, evidence, caveats, and public
+wording are brought together on purpose.
 
-The report tree is organized by geography on purpose:
+## How The Report Tree Is Organized
 
 - `docs/report/index.md` is the public entry point
 - `docs/report/world/` is the broadest shared answer
@@ -23,8 +25,8 @@ The report tree is organized by geography on purpose:
   intermediate regional views
 - `docs/report/countries/<country-slug>/` holds the narrowest country bundles
 
-That shape matters because a country page should feel like a narrower answer
-inside one larger evidence system, not like a disconnected mini-product.
+That structure matters because a country report should feel like a narrower
+answer inside one larger evidence system, not like a disconnected mini-product.
 
 ## Where To Start
 
@@ -46,7 +48,7 @@ inside one larger evidence system, not like a disconnected mini-product.
   or [repository truth posture](../../../report/repository_truth_posture.md) if
   you need the public caveat surfaces beside the narrative bundle
 
-## What Each Report Scope Is Good For
+## What Each Scope Is Good For
 
 - world answers:
   what the repository can already publish across the widest geography without
@@ -58,19 +60,19 @@ inside one larger evidence system, not like a disconnected mini-product.
   what one national bundle looks like once the scope is narrowed and the reader
   wants the most locally usable public package
 
-## How To Choose A Report Without Getting Lost
+## How To Choose The Right Report
 
 - start broad unless you already know the question is country-bound
 - treat the world page as the posture-setting surface, not as a replacement for
   regional or country nuance
-- move from world to region when the geography matters more than the broad
+- move from world to region when geography matters more than the broad
   mixed-evidence overview
 - move from region to country when local detail, citations, or national framing
   is the real goal
 - move sideways into review pages when the visible bundle looks stronger than
   the evidence probably deserves
 
-## What Reports Are Expected To Contain
+## What A Good Report Should Give You
 
 - a scoped narrative that says what this geography currently shows
 - visible limits and caveats rather than hidden optimism

@@ -4,22 +4,22 @@ audience: reader
 type: explanation
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-05-09
+last_reviewed: 2026-05-10
 ---
 
 # Publication Types
 
-Not every publication in `bijux-pollenomics` answers the same kind of question.
-Some pages and files are meant to show evidence to readers directly. Others are
-meant to explain limits, expose review pressure, or keep the visible product
-honest.
+Not every page in this repository is trying to do the same job. Some pages are
+meant to answer a reader's question directly. Others exist to explain limits,
+surface review pressure, or keep a polished output from being mistaken for the
+whole truth.
 
-This page exists so a reader can classify a surface before trusting it. The
-important question is not "is this polished," but "what job does this page or
-file actually own?"
+This page helps readers classify a surface before trusting it. The key question
+is not "does this look finished?" The key question is "what job does this page
+actually own?"
 
-That distinction matters because a polished page can still serve a very narrow
-role. A reader should not have to guess whether a surface is:
+That distinction matters because a polished page can still serve a narrow role.
+A reader should not have to guess whether a surface is:
 
 - meant to answer a real historical or geographic question
 - meant to explain context around that question
@@ -29,18 +29,16 @@ role. A reader should not have to guess whether a surface is:
 
 ## Why Classification Matters
 
-Without that distinction, the site looks more complete and more uniform than it
-really is. That is exactly the kind of confusion this documentation is supposed
-to prevent.
+Without that distinction, a site can look more complete and more uniform than
+it really is. This page exists to prevent that confusion before it starts.
 
-## The Four Main Publication Roles
+## The Four Main Roles
 
 ### Evidence Surfaces
 
-Evidence surfaces are the reader-facing products that summarize what the
-repository is currently prepared to show publicly. Examples include the
-[reports](reports.md) and [maps](maps.md) pages and the generated bundles they
-describe.
+Evidence surfaces are the public-facing products that summarize what the
+repository is currently prepared to show. Examples include [reports](reports.md),
+[maps](maps.md), and the generated bundles they describe.
 
 Use them when the question is:
 
@@ -48,13 +46,14 @@ Use them when the question is:
 - which signals are already mature enough to be visible publicly
 - how one public view relates to another, such as world, Nordic, or country
 
-Do not treat them as stronger than the source and evidence chain behind them.
+They are the best place to start when you want the visible answer, but they are
+not stronger than the evidence chain behind them.
 
 ### Context Surfaces
 
-Context surfaces strengthen interpretation without pretending to be the same as
-sample-backed evidence. The exported pollen, archaeology, and boundary
-explainers belong here.
+Context surfaces strengthen interpretation without pretending to be direct
+sample-backed proof. The exported pollen, archaeology, boundary, and human
+context explainers belong here.
 
 Use them when the question is:
 
@@ -95,7 +94,7 @@ Use them when the question is:
 - if you want to know what had to be true before publication was allowed, use a
   contract surface
 
-## How To Read The Publication Tree
+## A Practical Reading Order
 
 A good reading order is:
 
@@ -110,6 +109,6 @@ A good reading order is:
 
 ## The Main Reader Rule
 
-When a page looks elegant, ask what job it actually owns. In this repository,
-clarity depends on keeping evidence surfaces, context surfaces, review surfaces,
-and contract surfaces visibly separate.
+When a page looks polished, ask what job it actually owns. In this repository,
+clarity depends on keeping evidence surfaces, context surfaces, review
+surfaces, and contract surfaces visibly separate.
