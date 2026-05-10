@@ -4,14 +4,14 @@ audience: reader
 type: explanation
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-05-08
+last_reviewed: 2026-05-10
 ---
 
 # Runtime Invariants and Limits
 
 This page states the public ground rules of the repository: what must stay true
-even while weaker evidence families are still being recovered, and what a
-reader should not infer from the current outputs.
+even while weaker evidence families are still being recovered, and what should
+not be inferred from the current outputs.
 
 It is deliberately short because these are the rules that should remain clear
 even when the rest of the handbook becomes more detailed.
@@ -26,7 +26,7 @@ even when the rest of the handbook becomes more detailed.
 These invariants are not implementation preference. They are the conditions
 that keep the public product reviewable.
 
-## What These Invariants Mean For A Reader
+## What These Invariants Mean In Practice
 
 - a visible output should always trace back to a stable repository-owned path
 - one source family should not disappear into a generic mixed bucket
@@ -40,7 +40,7 @@ that keep the public product reviewable.
 A change is not done when files merely exist. It is done when the changed
 boundary is reviewable, linked, and validated at the right layer.
 
-For a public reader, that means:
+For the public product, that means:
 
 - the changed surface can be inspected
 - the next narrower explanation still exists
@@ -52,7 +52,7 @@ For a public reader, that means:
 Prefer explicit runtime contracts and stable checked-in files over hidden
 side effects or opaque rebuild steps.
 
-That matters because a reader should not need maintainer folklore to understand
+That matters because people should not need maintainer folklore to understand
 how a claim became visible.
 
 ## Known Limits

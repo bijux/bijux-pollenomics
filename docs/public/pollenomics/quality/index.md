@@ -4,14 +4,14 @@ audience: reader
 type: explanation
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-05-09
+last_reviewed: 2026-05-10
 ---
 
 # Checks And Current Limits
 
-This section answers the most important public question in the repository:
-how much trust should a reader place in the current outputs, and where should
-that trust stop.
+This section answers the most important public question in the repository: how
+much trust should someone place in the current outputs, and where should that
+trust stop.
 
 That question matters because `bijux-pollenomics` publishes visible maps,
 reports, and evidence summaries that can look more complete than the weakest
@@ -50,7 +50,7 @@ Use this section when the question is not "where is the code," but:
   [repository truth posture](../../../report/repository_truth_posture.md), and
   [repository claim audit](../../../report/repository_claim_audit.md)
 
-## What This Section Helps A Reader Decide
+## What This Section Helps You Decide
 
 - whether a visible output is mainly exploratory, reviewable, or strong enough
   for a narrower claim
