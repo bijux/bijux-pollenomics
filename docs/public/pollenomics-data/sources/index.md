@@ -78,6 +78,7 @@ Most readers will not need to open tracked files directly. If you do, the
 high-signal cross-family records are:
 
 - `data/collection_summary.json`
+- `data/adna/governance/source_library/project_source_evidence_matrix.json`
 - `data/adna/governance/source_library/project_registry.json`
 - `data/adna/governance/source_library/paper_registry.json`
 - `data/adna/governance/source_library/source_intake_audit.json`
