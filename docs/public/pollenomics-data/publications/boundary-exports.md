@@ -14,11 +14,11 @@ boundaries. Their job is to make geographic filtering, scope limits, and map
 interpretation legible.
 
 They matter because the public product would become misleading very quickly
-without a disciplined geography layer. Readers need to know what "Nordic,"
-"country," or "world" actually means on the map, and they need to know that
+without a disciplined geography layer. You need to know what "Nordic,"
+"country," or "world" actually means on the map, and you need to know that
 those scopes are applied consistently rather than by visual guesswork.
 
-## What A Reader Can Learn From Boundary Exports
+## What Boundary Exports Make Clear
 
 - what geography a public map or report scope is actually using
 - why one visible point appears in one scope but not another
@@ -32,7 +32,7 @@ Boundary exports add:
 
 - explicit country and region framing
 - stable geography filters across report and atlas surfaces
-- a common scope language for readers, auditors, and maintainers
+- a common scope language for public users, auditors, and maintainers
 
 ## What They Do Not Do
 
@@ -48,7 +48,7 @@ honest, not to add historical proof.
 
 ## Why This Page Matters Publicly
 
-Without explicit framing, a reader could not tell whether an absent point
+Without explicit framing, you could not tell whether an absent point
 reflects weak evidence, a scope rule, or a rendering mistake. That is why this
 page belongs on the public surface.
 

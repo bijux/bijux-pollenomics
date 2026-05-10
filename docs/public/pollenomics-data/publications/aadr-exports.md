@@ -15,10 +15,9 @@ mixed-evidence publication model.
 
 They matter because the repository does not only publish pollenomics context
 and animal recovery work. It also needs a human ancient DNA layer that helps
-readers place those other surfaces in a broader release-based historical
-setting.
+place those other surfaces in a broader release-based historical setting.
 
-## What A Reader Can Learn From AADR
+## What AADR Makes Clear
 
 - what human ancient DNA context is visible beside pollen, archaeology, and
   animal evidence

@@ -13,11 +13,11 @@ Neotoma exports are the public paleoecological context surfaces derived from
 Neotoma. Their main public value is breadth: they keep the environmental side
 of the product from leaning too heavily on one pollen family alone.
 
-That matters because a reader should be able to ask whether a visible geography
+That matters because you should be able to ask whether a visible geography
 reflects a wider paleoecological pattern or only one especially strong source
 stream. Neotoma helps the repository answer that question more honestly.
 
-## What A Reader Can Learn From Neotoma
+## What Neotoma Makes Clear
 
 - what environmental context is visible beyond the LandClim slice
 - whether a published geography reflects agreement across more than one pollen
@@ -47,7 +47,7 @@ be read as if they:
 
 ## Why This Matters Beyond One Region
 
-This is especially important for readers who want to reuse the codebase or the
+This is especially important for people who want to reuse the codebase or the
 publication model in other regions. A reusable product needs multi-family
 context logic, not one lucky dataset.
 

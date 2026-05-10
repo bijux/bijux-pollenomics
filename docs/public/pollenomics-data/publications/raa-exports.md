@@ -19,7 +19,7 @@ change how nearby evidence is read. RAÄ turns that Sweden-specific richness
 into a public context surface without pretending that it applies equally
 everywhere.
 
-## What A Reader Can Learn From RAÄ
+## What RAÄ Makes Clear
 
 - what Swedish archaeology context helps explain a Nordic or Sweden-focused
   output

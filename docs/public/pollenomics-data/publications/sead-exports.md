@@ -13,17 +13,17 @@ SEAD exports are the public environmental-archaeology context surfaces derived
 from SEAD. They help the product explain broader archaeology setting without
 confusing that setting with direct sample-backed evidence.
 
-They matter because readers often need archaeology context that is broader than
+They matter because people often need archaeology context that is broader than
 one country and broader than one excavation-like reading. SEAD helps the
 repository show the kind of wider human landscape that surrounds a geography
 without pretending that context and direct evidence are the same thing.
 
-## What A Reader Can Learn From SEAD
+## What SEAD Makes Clear
 
 - what wider archaeology context surrounds a visible geography
 - whether a public interpretation is grounded only in pollen and ancient DNA or
   also in broader archaeology context
-- how a reader should think about archaeology patterns outside the narrowest
+- how to think about archaeology patterns outside the narrowest
   country frame
 - why a public region can be interesting even when direct sample density is not
   yet strong everywhere
@@ -46,11 +46,11 @@ SEAD exports are contextual publications. They should not be read as if they:
 - make a thin ancient DNA surface strong simply by surrounding it with richer
   archaeology context
 
-## How These Exports Change The Reader's Question
+## How These Exports Broaden The Question
 
-When SEAD is visible, the reader can ask a better question than "is there one
-sample here?" They can also ask "what kind of surrounding archaeology context
-does this place sit inside?"
+When SEAD is visible, you can ask a better question than "is there one sample
+here?" You can also ask "what kind of surrounding archaeology context does
+this place sit inside?"
 
 ## If You Need The Repository-Owned Records
 
