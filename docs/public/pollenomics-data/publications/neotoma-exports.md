@@ -4,21 +4,20 @@ audience: reader
 type: explanation
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-05-09
+last_reviewed: 2026-05-10
 ---
 
 # Neotoma Exports
 
-These outputs are the repository-owned paleoecological context surfaces derived
-from Neotoma. They broaden the environmental side of the public product beyond
-one pollen source family.
+Neotoma exports are the public paleoecological context surfaces derived from
+Neotoma. Their main public value is breadth: they keep the environmental side
+of the product from leaning too heavily on one pollen family alone.
 
-Neotoma is valuable because it prevents the public product from leaning too
-heavily on a single pollen family. It broadens the environmental comparison
-space and helps readers see whether one visible geography reflects a wider
-paleoecological pattern or only one especially strong source stream.
+That matters because a reader should be able to ask whether a visible geography
+reflects a wider paleoecological pattern or only one especially strong source
+stream. Neotoma helps the repository answer that question more honestly.
 
-## What Questions These Exports Help Answer
+## What A Reader Can Learn From Neotoma
 
 - what environmental context is visible beyond the LandClim slice
 - whether a published geography reflects agreement across more than one pollen
@@ -30,24 +29,13 @@ paleoecological pattern or only one especially strong source stream.
 
 ## What Neotoma Adds To The Public Product
 
-Neotoma exports strengthen the public product by adding:
+Neotoma strengthens the public product by adding:
 
 - another pollenomics context family for comparison
 - wider paleoecological framing across geography
 - a check against overconfidence built from one source family alone
 
-## Where To Inspect It
-
-- `data/neotoma/normalized/` is the governing repository path for these
-  Neotoma-derived contextual outputs
-- this page explains how that normalized Neotoma material becomes public
-  comparison context
-
-This is especially important for readers who want to reuse the codebase or the
-publication model in other regions. A reusable product needs multi-family
-context logic, not one lucky dataset.
-
-## What They Do Not Prove
+## What It Does Not Do
 
 These exports are not a substitute for sample-level evidence. They should not
 be read as if they:
@@ -57,16 +45,18 @@ be read as if they:
 - erase the difference between environmental context and direct sample-backed
   claims
 
-## When A Reader Should Open This Page
+## Why This Matters Beyond One Region
 
-Open this page when:
+This is especially important for readers who want to reuse the codebase or the
+publication model in other regions. A reusable product needs multi-family
+context logic, not one lucky dataset.
 
-- you want to understand why the public product uses more than one pollen
-  context family
-- you want to compare visible environmental framing across regions
-- a public geography looks stronger than expected and you want to know whether
-  Neotoma is part of that strength
+## If You Need The Repository-Owned Records
 
-Then continue to [maps](maps.md), [reports](reports.md), or
-[neotoma source guidance](../sources/neotoma.md) depending on whether the
-question is about the visible publication or the underlying source family.
+The normalized family outputs live under:
+
+- `data/neotoma/normalized/`
+
+If your question is about the visible publication, continue to [maps](maps.md)
+or [reports](reports.md). If your question is about the family itself, continue
+to [Neotoma source guidance](../sources/neotoma.md).
