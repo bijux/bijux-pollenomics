@@ -4,15 +4,14 @@ audience: reader
 type: explanation
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-05-09
+last_reviewed: 2026-05-10
 ---
 
 # Data Architecture Handbook
 
-This page explains the repository data system in plain English. The goal is to
-make the tree readable without forcing readers to guess which file is raw
-capture, which file is a normalized evidence surface, and which file is only a
-published view.
+This page explains how the repository tree is organized so you can tell which
+files capture upstream material, which ones govern evidence, which ones review
+it, and which ones publish it.
 
 ## The Four Stages
 
@@ -23,10 +22,9 @@ Every tracked source family should be readable through four durable stages:
 3. review: the repository states what is thin, blocked, conflicted, or safe
 4. publication: the repository emits public bundles, atlas inputs, or map layers
 
-Readers do not need to memorize those names, but they do need to understand
-the difference between them. A report page is not the same thing as a
-governing evidence file, and a raw supplement is not the same thing as a
-reviewed sample record.
+You do not need to memorize those names, but you do need the distinction. A
+report page is not the same thing as a governing evidence file, and a raw
+supplement is not the same thing as a reviewed sample record.
 
 The machine-readable checkpoints for those stages live in:
 
@@ -47,7 +45,7 @@ The machine-readable checkpoints for those stages live in:
 | AADR | `data/aadr/` | `data/adna/species/homo_sapiens/normalized/` | `data/adna/species/homo_sapiens/review/` | `docs/report/<country>/` |
 | Animal ancient DNA | `data/adna/governance/source_library/` | `data/adna/species/<latin_name>/normalized/` | `data/adna/governance/` | `data/adna/final/` and `docs/report/` |
 
-## Where Truth Lives
+## Where Key Facts Are Owned
 
 The repository repeats some concepts across recovery, normalization, and
 publication surfaces. That is unavoidable. What matters is that one governing
@@ -66,9 +64,9 @@ surface owns each recurring fact.
 The full registry is in `data/source_fact_ownership_registry.json`.
 
 That registry matters because the same sample or locality can appear in several
-downstream places. Readers need one stable answer to a simple question: which
-file should win when two outputs seem to say the same thing at different
-levels of detail?
+downstream places. What matters is having one stable answer to a simple
+question: which file should win when two outputs appear to say the same thing
+at different levels of detail?
 
 ## Why The Governance Tree Exists
 
@@ -83,8 +81,8 @@ The repository states that split directly in
 
 ## File Contracts
 
-The repository publishes one file-contract standard so readers can predict
-where recurring artifact scopes live:
+The repository publishes one file-contract standard so the recurring artifact
+scopes stay predictable:
 
 - project source bundles
 - paper supporting-material manifests
@@ -97,7 +95,7 @@ That contract is published in `data/evidence_artifact_contracts.json`, and the
 shared animal project subtree contract is published in
 `data/adna/governance/source_library/project_surface_contract.json`.
 
-## Reader Shortcut
+## When This Page Is Most Useful
 
 Use this page when the repository feels sprawling and the immediate question is
 not about one species or one map, but about where evidence becomes reviewable

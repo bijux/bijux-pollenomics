@@ -4,15 +4,16 @@ audience: reader
 type: explanation
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-05-09
+last_reviewed: 2026-05-10
 ---
 
 # Coverage and Naming
 
-This page explains two recurring sources of confusion in mixed evidence
-repositories: breadth and naming.
+Two kinds of confusion keep returning in mixed-evidence repositories: how much
+coverage a surface really has, and what a file or output name makes people
+assume. This page explains both in plain terms.
 
-## What This Page Should Resolve
+## What This Page Helps Clarify
 
 - what "coverage" means in this repository and what it does not mean
 - how naming helps readers tell evidence, review, and publication surfaces
@@ -20,11 +21,11 @@ repositories: breadth and naming.
 - why a polished label can still be dishonest if it implies more than the
   underlying evidence supports
 
-## Coverage Rule
+## What Coverage Means Here
 
-Coverage in `bijux-pollenomics` does not mean that every domain is equally
-complete. The repository has wider coverage in some families than others, and
-the documentation should say that plainly.
+Coverage in `bijux-pollenomics` does not mean every domain is equally complete.
+Some evidence families are broader and steadier than others, and the
+documentation should say that plainly.
 
 Examples:
 
@@ -32,15 +33,14 @@ Examples:
 - archaeology context is meaningful but still uneven across geography and source families
 - animal ancient DNA remains a recovery-heavy program, so public confidence must stay closer to the weakest supporting evidence
 
-The coverage rule is simple: describe breadth and completeness in the same
-proportion that the evidence actually supports them.
+The rule is simple: describe breadth and completeness in the same proportion
+that the evidence actually supports them.
 
-## Naming Rules
+## Why Naming Matters
 
-Names matter because the repository contains raw inputs, normalized evidence,
-review surfaces, and public outputs side by side. If names are vague, readers
-cannot tell which file is authoritative and which file is only a presentation
-surface.
+The repository keeps raw inputs, normalized evidence, review surfaces, and
+public outputs side by side. If names are vague, it becomes hard to tell which
+file is authoritative and which one is only a presentation surface.
 
 The naming approach in this project tries to keep those roles visible:
 
@@ -49,12 +49,12 @@ The naming approach in this project tries to keep those roles visible:
 - review names describe what is being challenged or checked
 - publication names describe what is shown to readers
 
-Naming rules are therefore part of public honesty, not just repository
-tidiness. If a name makes a weak surface sound final or broad, the name is
-wrong for this product.
+Naming is therefore part of public honesty, not just repository tidiness. If a
+name makes a weak surface sound final or broad, the name is wrong for this
+product.
 
-## Reader Rule
+## A Practical Check
 
 If a file name sounds broad but the content is narrow, the page or file should
-say so directly. Honest naming is part of public clarity, not just internal
-cleanliness.
+say so directly. Good naming prevents a surface from sounding stronger or more
+complete than it really is.

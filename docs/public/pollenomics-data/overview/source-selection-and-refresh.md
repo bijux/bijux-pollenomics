@@ -4,15 +4,17 @@ audience: reader
 type: explanation
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-05-09
+last_reviewed: 2026-05-10
 ---
 
 # Source Selection and Refresh
 
-This page explains why the repository does not treat every upstream dataset,
-paper, or supplement as equally ready for public use the moment it is found.
+Not every upstream dataset, paper, or supplement becomes public evidence the
+moment it is found. This page explains how the repository decides what to
+track, what to deepen, and when a refresh changes the public story rather than
+only the counts.
 
-## What This Page Should Answer
+## What This Page Helps Explain
 
 - why some source families are tracked deeply while others stay thinner
 - why a refresh can change public wording instead of only changing counts
@@ -20,12 +22,12 @@ paper, or supplement as equally ready for public use the moment it is found.
   sample-backed claim
 - how selection, refresh, and review pressure fit together
 
-## Selection Rules
+## How Sources Are Chosen
 
-Source selection is the process of deciding which inputs are worth tracking at
-all. That decision depends on fit, coverage, recoverability, and whether the
-material can realistically support the kinds of public claims the repository
-wants to make.
+Source selection is the decision about which inputs are worth carrying into the
+tracked system at all. That decision depends on fit, coverage, recoverability,
+and whether the material can honestly support the kinds of public claims this
+repository wants to make.
 
 For example:
 
@@ -33,16 +35,16 @@ For example:
 - an archive project may be valuable because its samples matter historically
 - a paper may still be too thin for public animal mapping if its supplement does not support recoverable sample rows
 
-Selection rules matter because this repository is not trying to collect
-everything indiscriminately. It is trying to build a governed evidence system
-that can explain why one source deserves public attention and another stays
-background or blocked.
+Selection matters because this repository is not trying to collect everything
+indiscriminately. It is trying to build an evidence system that can explain
+why one source deserves public attention while another remains background,
+partial, or blocked.
 
-## Refresh Lifecycle
+## What A Refresh Can Change
 
 Refresh is not just a mechanical re-download. In this repository, a refresh is
 an evidence event. It can change counts, improve locality support, expose new
-blockers, or force the public outputs to narrow their wording.
+blockers, or force public outputs to narrow their wording.
 
 That is why refresh work is paired with:
 
@@ -50,16 +52,17 @@ That is why refresh work is paired with:
 - review surfaces that say what changed
 - release gates that prevent public overstatement
 
-## Migration Pressure
+## Why Uneven Refresh Matters
 
-Refresh work also creates migration pressure. When stronger source families
-move faster than weaker ones, the repository has to decide whether it is still
-honest to talk about broad system maturity. The answer is often "not yet," and
-that refusal is a feature, not a defect.
+Refresh work also creates unevenness. Some source families move faster than
+others, and that changes what the repository is allowed to say about overall
+coverage. When the weaker parts of the system have not caught up, broader
+confidence has to stay limited. That refusal is part of the honesty model, not
+an embarrassment to hide.
 
-## Reader Guidance
+## Use This Page When You Need To Know
 
-Read this page when your question is one of these:
+This page is most useful when your question is one of these:
 
 - why is this source family in the repository at all
 - why has one source family been refreshed more aggressively than another

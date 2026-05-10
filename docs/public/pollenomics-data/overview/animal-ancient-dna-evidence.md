@@ -4,7 +4,7 @@ audience: reader
 type: explanation
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-05-09
+last_reviewed: 2026-05-10
 ---
 
 # Animal Ancient DNA Evidence
@@ -43,11 +43,11 @@ from a distance than it really is. A species can appear in a report, a map, or
 coverage summary long before every supporting sample row has clean locality and
 chronology support.
 
-This page exists to slow that down. It explains that animal evidence is not a
-single file family or one project list. It is a recovery chain that has to
-hold together from source capture to public publication.
+The important point is that animal evidence is not one file family or one
+project list. It is a recovery chain that has to hold together from source
+capture to public publication.
 
-## What Readers Should Expect
+## What A Strong Animal Record Should Answer
 
 A strong animal row in this repository should make the following questions
 answerable:
@@ -61,9 +61,9 @@ answerable:
 | Why is a point mapped or blocked? | coordinate provenance | `data/adna/species/ovis_aries/normalized/coordinate_provenance.json` |
 | Where does the public row appear? | country reports and geography outputs | [`docs/report/world/world_animal_atlas_evidence.json`](../../../report/world/world_animal_atlas_evidence.json) |
 
-## One Concrete Reading Path
+## One Practical Reading Path
 
-If a reader wants to check one animal point carefully, the shortest path is:
+If you want to check one animal point carefully, the shortest path is:
 
 1. identify the sample row in `data/adna/species/<latin_name>/normalized/sample_records.json`
 2. confirm the named place in `data/adna/species/<latin_name>/normalized/site_evidence.json`
@@ -71,7 +71,7 @@ If a reader wants to check one animal point carefully, the shortest path is:
 4. confirm the mapping basis in `data/adna/species/<latin_name>/normalized/coordinate_provenance.json`
 5. confirm the published row in the relevant country bundle or atlas evidence file
 
-## What This Evidence Model Rejects
+## What This Evidence Model Refuses
 
 - treating a project list as if it were already a sample table
 - treating a broad locality label as if it were an exact excavation point
