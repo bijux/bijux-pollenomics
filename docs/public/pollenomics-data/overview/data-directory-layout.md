@@ -4,18 +4,18 @@ audience: reader
 type: explanation
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-05-09
+last_reviewed: 2026-05-10
 ---
 
 # Data Directory Layout
 
-This page explains the shape of the main repository-owned data tree for readers
+This page explains the shape of the main repository-owned data tree for people
 who need a file-system map after they already understand the product model.
 
 ## How To Read The Tree
 
-The directory layout makes most sense when you read it by role, not by
-alphabetical path order:
+The layout makes the most sense when you read it by role, not by alphabetical
+path order:
 
 - `data/` holds source capture, normalization, and review material
 - `docs/report/` holds generated public bundles and review packets
@@ -34,11 +34,11 @@ alphabetical path order:
 | `data/boundaries/` | country and region framing geometry | filtering and scope clarity |
 | `docs/report/` | generated world, regional, and country publication bundles | public-facing outputs |
 
-## Curated Animal aDNA Roots
+## The Animal aDNA Tree
 
 The `data/adna/` tree is where species-centered animal ancient DNA recovery
-becomes inspectable. It is split so a reader can tell the difference between
-governance work, species-level normalized evidence, and the final atlas-facing
+becomes inspectable. It is split so you can tell the difference between
+governance work, species-level normalized evidence, and final atlas-facing
 publication inputs.
 
 - `data/adna/final/` holds the atlas- and publication-facing outputs derived
@@ -54,13 +54,13 @@ publication inputs.
 - `data/adna/species/equus_asinus/` tracks donkey recovery and review files.
 - `data/adna/species/felis_catus/` tracks cat recovery and review files.
 
-Those curated species roots matter because the repository does not treat animal
-ancient DNA as one flat pile of records. Each species keeps its own recovery,
-review, and publication posture visible.
+Those species roots matter because the repository does not treat animal ancient
+DNA as one flat pile of records. Each species keeps its own recovery, review,
+and publication posture visible.
 
-## Reader Rule
+## How To Use This Page
 
-If your question is about meaning, start with the handbook pages first. If your
-question is about exact file locations, use this page after that. The tree is
-much easier to understand once the roles of source, evidence, review, and
-publication are already clear.
+Start with the handbook pages when your question is about meaning. Use this
+page when your question is about exact file locations. The tree becomes much
+easier to read once the roles of source, evidence, review, and publication are
+already clear.

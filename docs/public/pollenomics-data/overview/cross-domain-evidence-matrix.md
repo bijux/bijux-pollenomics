@@ -4,23 +4,33 @@ audience: reader
 type: explanation
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-05-09
+last_reviewed: 2026-05-10
 ---
 
 # Cross-Domain Evidence Matrix
 
-This page exists to answer one broad question: how balanced is the repository
-across its major evidence families?
+This page answers one broad question: how balanced is the repository across its
+major evidence families?
 
-That question is important because mixed-domain products can look impressive on
-a map while actually leaning too hard on one family and under-delivering on
-another. A domain matrix makes that imbalance visible.
+That question matters because mixed-domain products can look impressive on a map
+while actually leaning too hard on one family and under-delivering on another.
+This matrix keeps that imbalance visible.
 
-## What The Matrix Tries To Prevent
+## What The Matrix Helps You See
+
+- whether the repository is leaning too hard on one family
+- where environmental context is broad but sample-backed evidence is still thin
+- where archaeology support improves interpretation without replacing direct
+  evidence
+- where a polished public surface may still rest on uneven domain maturity
+
+## What The Matrix Guards Against
 
 - treating pollen context as if it automatically proves ancient DNA claims
-- treating archaeology context as if it automatically carries sample-level precision
-- treating a thin animal evidence program as if it were already complete because it appears in the same interface
+- treating archaeology context as if it automatically carries sample-level
+  precision
+- treating a thin animal evidence program as if it were already complete
+  because it appears in the same interface
 
 ## How To Read It
 
