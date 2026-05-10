@@ -4,19 +4,18 @@ audience: reader
 type: explanation
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-05-09
+last_reviewed: 2026-05-10
 ---
 
 # Coordinates
 
 Coordinates are a provenance layer, not a substitute for locality evidence.
-This page is where the repository shows whether a mapped point came from direct
-coordinates, named-site geocoding, broader projection logic, or a decision not
-to map the row at all.
+This page shows whether a mapped point came from direct coordinates, named-site
+geocoding, broader projection logic, or a decision not to map the row at all.
 
-That distinction matters because the map is often the first thing a reader
-sees. If the coordinate basis is unclear, the point can look more exact than
-the evidence behind it really is.
+That distinction matters because the map is often the first thing people see.
+If the coordinate basis is unclear, the point can look more exact than the
+evidence behind it really is.
 
 ## How Place Names Become Map Points
 
@@ -26,7 +25,7 @@ the evidence behind it really is.
 - region-only or unresolved locality claims stay blocked from exact publication
 - the atlas and country bundles should surface those weaker postures honestly
 
-## What Readers Should Be Able To Tell
+## What You Should Be Able To Tell
 
 - whether a point is based on direct coordinates or on a narrower geocoding
   step
@@ -36,7 +35,7 @@ the evidence behind it really is.
 - whether a public map point should be read as exact placement, cautious
   placement, or only broad regional context
 
-## Reader Rule
+## The Key Rule
 
 Coordinates only count as publishable evidence when the provenance row still
 shows the basis, confidence, rationale, and sample linkage that produced the

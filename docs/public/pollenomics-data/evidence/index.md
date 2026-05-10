@@ -4,18 +4,18 @@ audience: reader
 type: explanation
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-05-09
+last_reviewed: 2026-05-10
 ---
 
 # Evidence
 
-This section explains how visible animal ancient DNA claims become reviewable
-evidence inside the repository.
+This section explains how an animal ancient DNA claim becomes evidence that can
+actually be checked inside the repository.
 
-The public-facing question is usually simple: why is this sample, locality,
-date, or point shown here at all. The answer is not stored in one file. It is
-spread across sample records, locality evidence, chronology review, and
-coordinate provenance.
+The public question is usually simple: why is this sample, locality, date, or
+point shown here at all. The answer is not stored in one file. It is spread
+across sample records, locality evidence, chronology review, and coordinate
+provenance.
 
 Use this section when your question sounds like one of these:
 
@@ -60,7 +60,7 @@ flowchart LR
 - whether the current public output is direct evidence, cautious projection, or
   still too weak for exact publication
 
-## How To Read The Evidence Chain
+## A Practical Reading Order
 
 - start with sample records when the identity or project lineage is unclear
 - move to localities when the place claim seems too broad or too confident
@@ -68,10 +68,10 @@ flowchart LR
   probably was
 - move to coordinates when the map precision itself is the question
 
-The important public rule is that the visible point is not the beginning of the
+The important rule is that the visible point is not the beginning of the
 argument. It is the downstream result of these narrower evidence decisions.
 
-## Reader Rule
+## The Key Principle
 
 No visible point or country row should outrank the evidence chain behind it.
 If a record appears publicly, the sample, locality, date, and coordinate basis

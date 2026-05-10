@@ -4,7 +4,7 @@ audience: reader
 type: explanation
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-05-09
+last_reviewed: 2026-05-10
 ---
 
 # Chronology
@@ -12,9 +12,9 @@ last_reviewed: 2026-05-09
 Chronology evidence explains what date claim the repository is prepared to
 carry forward for a sample or site.
 
-This page exists because time language is easy to over-read. A record can look
-cleanly dated in a public table even when the underlying support is a range, a
-textual period label, a derived estimate, or something still unresolved.
+Time language is easy to over-read. A record can look cleanly dated in a public
+table even when the underlying support is a range, a textual period label, a
+derived estimate, or something still unresolved.
 
 ## What Chronology Review Has To Decide
 
@@ -23,7 +23,7 @@ textual period label, a derived estimate, or something still unresolved.
 - whether the public-facing label is more precise than the evidence actually
   supports
 
-## What Readers Should Be Able To Learn
+## What You Should Be Able To Learn
 
 - whether the date claim is direct or reconstructed
 - whether the public label preserves or hides uncertainty
@@ -34,10 +34,10 @@ textual period label, a derived estimate, or something still unresolved.
 ## Why Chronology Needs Its Own Page
 
 Historical datasets often mix exact dates, ranges, textual eras, and inferred
-period language. If those are flattened into one display field, readers lose
-the ability to tell strong dating support from weak approximation.
+period language. If those are flattened into one display field, it becomes
+hard to tell strong dating support from weak approximation.
 
-This page exists to keep that distinction visible.
+This page keeps that distinction visible.
 
 ## Why Public Date Language Needs Restraint
 
