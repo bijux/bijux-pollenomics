@@ -4,7 +4,7 @@ audience: reader
 type: explanation
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-05-08
+last_reviewed: 2026-05-10
 ---
 
 # Failure Recovery
@@ -12,11 +12,10 @@ last_reviewed: 2026-05-08
 When a rebuild fails, recover by boundary rather than rerunning the whole
 repository blindly.
 
-This page exists because broad reruns often hide the real problem. A useful
-recovery path narrows the failing boundary first, then expands only when the
-cause is understood.
+Broad reruns often hide the real problem. A useful recovery path narrows the
+failing boundary first, then expands only when the cause is understood.
 
-## Failure Questions
+## First Questions
 
 - did command parsing fail before any tracked state changed?
 - did collection or normalization fail inside one source family?
