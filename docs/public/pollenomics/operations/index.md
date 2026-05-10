@@ -4,20 +4,20 @@ audience: reader
 type: explanation
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-05-09
+last_reviewed: 2026-05-10
 ---
 
 # Install And Rebuild
 
-This section exists for the shortest honest rebuild path: install the checked
+This section gives the shortest honest rebuild path: install the checked
 environment, run the CLI, and verify that tracked outputs still match the code.
 
-It is written for readers and operators who want the practical path first, not
-for maintainers looking for workflow internals.
+It is written for people who want the practical path first, not for maintainers
+looking for workflow internals.
 
-The main purpose is not to make every workflow look easy. It is to make the
-supported paths understandable: what you run, what it changes, and where you
-should stop when your question has been answered.
+The goal is not to make every workflow look easy. It is to make the supported
+paths understandable: what you run, what it changes, and where you should stop
+when your question has been answered.
 
 ## Start Here
 

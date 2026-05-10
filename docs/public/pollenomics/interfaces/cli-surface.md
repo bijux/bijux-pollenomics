@@ -4,7 +4,7 @@ audience: reader
 type: explanation
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-05-07
+last_reviewed: 2026-05-10
 ---
 
 # CLI Surface
@@ -12,10 +12,10 @@ last_reviewed: 2026-05-07
 The CLI is the primary runtime interface because it rewrites tracked repository
 state.
 
-For most readers, this is the most important runtime surface. It is the place
-where intent becomes action: collect data, inspect evidence, publish reports,
-or print a governed review. This page should therefore read like a public
-command contract, not like a dump of internal helper names.
+For most users, this is the most important runtime surface. It is where intent
+becomes action: collect data, inspect evidence, publish reports, or print a
+governed review. The point is to make the public command contract explicit, not
+to dump internal helper names.
 
 ## CLI Model
 
@@ -72,9 +72,10 @@ reviewable command surface explicit.
 - `source-support` prints source-family support status and country coverage
 - `validate-collection-summary` validates one collected summary payload without rerunning source collection
 
-The commands that matter most for readers are `collect-data`, `report-country`,
-`report-multi-country-map`, and `publish-reports`. The rest are evidence and
-contract inspection commands that explain how one species surface is shaped.
+The commands that matter most for most users are `collect-data`,
+`report-country`, `report-multi-country-map`, and `publish-reports`. The rest
+are evidence and contract inspection commands that explain how one species
+surface is shaped.
 
 ## Shared Options
 

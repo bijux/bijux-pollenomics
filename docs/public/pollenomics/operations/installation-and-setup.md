@@ -4,15 +4,15 @@ audience: reader
 type: explanation
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-05-07
+last_reviewed: 2026-05-10
 ---
 
 # Installation and Setup
 
 The supported setup path is repository-first.
 
-That means the repository checkout itself is the supported environment. The
-goal is not to chase every possible Python invocation. The goal is to reach the
+That means the repository checkout itself is the supported environment. The aim
+is not to chase every possible Python invocation. The aim is to reach the
 known-good command path quickly and then stay on it.
 
 ## Setup Model

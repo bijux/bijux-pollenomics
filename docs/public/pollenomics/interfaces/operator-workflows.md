@@ -4,7 +4,7 @@ audience: reader
 type: explanation
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-05-08
+last_reviewed: 2026-05-10
 ---
 
 # Operator Workflows
@@ -14,8 +14,8 @@ tracked data, or publish downstream outputs. Mixing those without saying which
 one you are doing is how review gets muddy.
 
 This page translates the command surface into practical intent. The goal is not
-to list every command again. The goal is to help a reader choose the right
-class of workflow before they start rewriting tracked state.
+to list every command again. It is to help you choose the right class of
+workflow before you start rewriting tracked state.
 
 ## The Three Questions
 

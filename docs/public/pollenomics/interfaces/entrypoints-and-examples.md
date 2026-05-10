@@ -4,7 +4,7 @@ audience: reader
 type: reference
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-05-08
+last_reviewed: 2026-05-10
 ---
 
 # Entrypoints and Examples
@@ -12,9 +12,9 @@ last_reviewed: 2026-05-08
 Use the installed console script, not `python -m`, when you want the canonical
 runtime surface.
 
-This page exists for the shortest supported command paths. It should help a new
-reader or operator get to a known-good route quickly, without having to rebuild
-the whole repository just to discover the right entrypoint.
+This page gives the shortest supported command paths. It should help someone
+reach a known-good route quickly, without having to rebuild the whole
+repository just to discover the right entrypoint.
 
 ## Start With Intent, Not With Commands
 
