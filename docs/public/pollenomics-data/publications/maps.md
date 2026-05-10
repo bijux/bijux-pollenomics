@@ -4,19 +4,19 @@ audience: reader
 type: explanation
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-05-09
+last_reviewed: 2026-05-10
 ---
 
 # Maps
 
 Maps are the fastest way to understand what the repository currently shows
-across world, regional, and country geography. They put several evidence
-families into one visible space so a reader can orient before dropping into a
-narrower audit.
+across world, regional, and country geography. They place several evidence
+families into one visible space so a reader can orient before moving into a
+narrower check.
 
 That speed is useful, but it creates risk. A map can look more settled than the
-evidence behind it really is. This page exists so a reader can use the map
-confidently without mistaking visibility for proof.
+evidence behind it really is. This page exists to help readers get the benefit
+of the map without mistaking visibility for proof.
 
 ## What Maps Are For
 
@@ -26,8 +26,8 @@ confidently without mistaking visibility for proof.
   views
 - let readers compare evidence, context, and framing layers without pretending
   they all mean the same thing
-- make visible which public surfaces are exploratory and which ones deserve a
-  narrower follow-up
+- show which visible answers are mainly for orientation and which need a
+  narrower follow-up before reuse
 
 ## What Maps Can Answer Well
 
@@ -37,24 +37,24 @@ confidently without mistaking visibility for proof.
 - where the next narrower public explanation lives when one point or layer
   needs an audit
 
-## What Maps Do Not Answer By Themselves
+## What Maps Cannot Settle By Themselves
 
 These surfaces do not replace the narrower governing evidence files behind
 their visible points. They are presentation surfaces with explicit contracts,
 not a license to outrank sample, locality, chronology, or coordinate review.
 
-## Start With The Right Question
+## How To Start Well
 
 - use the map first when the question is spatial:
-  where are the visible clusters, gaps, and scope changes
+  where are the visible clusters, gaps, and scope changes?
 - leave the map quickly when the question becomes evidential:
   why is this point here, why is that point missing, or how strong is this
-  chronology or locality claim
+  chronology or locality claim?
 - treat scope labels as part of the meaning:
   world, Europe-plus, Nordic, and country pages are not interchangeable views
   of the same claim
 
-## How To Use A Map Responsibly
+## How To Read A Map Responsibly
 
 1. read the visible geography first: which scope, which layers, which caveats
 2. decide whether the question is about pattern, inclusion, or confidence
@@ -82,7 +82,7 @@ not a license to outrank sample, locality, chronology, or coordinate review.
 - use [limits](limits.md) when the question is about weakness, blockage, or
   refusal
 
-## Live Audit Anchors
+## Audit Anchors
 
 - [world map publication contract](../../../report/world/world_map_publication_contract.md)
 - [Nordic point traceability](../../../report/regions/nordic/nordic_point_traceability.md)
