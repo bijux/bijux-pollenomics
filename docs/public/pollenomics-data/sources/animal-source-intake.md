@@ -4,21 +4,33 @@ audience: reader
 type: explanation
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-05-09
+last_reviewed: 2026-05-10
 ---
 
 # Animal Source Intake
 
-The animal ancient DNA work in this repository starts long before a point
-appears on a map. It begins with project accessions, linked papers,
-supplementary material, and the sample-recovery work needed to turn those
-inputs into defensible locality and chronology evidence.
+Animal ancient DNA does not enter this repository as one clean public-ready
+table. It usually begins as a chain of archives, papers, supplementary files,
+partial sample lists, ambiguous locality wording, and uneven chronology detail.
 
-This page brings the intake chain together in one place so readers do not have
-to jump between separate project, paper, and supplement pages to understand the
-state of the data.
+This page exists so public readers can see that the map is the end of a review
+process, not the beginning of one. Before an animal sample becomes a visible
+point, the repository has to decide whether the project is in scope, whether
+the paper trail is complete, whether the supplementary material is usable, and
+whether the recovered sample can support locality and chronology claims
+honestly.
 
-## Intake Stages
+## Why Intake Is A Public Surface
+
+Readers often assume that a missing point means "no evidence exists" or that a
+visible point means "every underlying field was straightforward." Neither is
+safe to assume in animal ancient DNA work.
+
+The intake surface is public because it answers a more honest question: what
+had to be recovered, checked, and governed before the repository was willing to
+show this evidence as a public output?
+
+## What Intake Has To Establish
 
 | Stage | What it asks |
 | --- | --- |
@@ -31,21 +43,27 @@ state of the data.
 | Coordinate derivation | Which recovered samples already have mappable coordinate support? |
 | Publication readiness | Which projects are credible enough to move into public map and country surfaces? |
 
-## What This Page Answers
+This is not busywork around the science. It is the work that determines whether
+public scientific language can be trusted.
 
-- Which tracked projects still need paper capture
-- Which papers have archived supplementary material
-- Which projects already carry archive-native sample identifiers
-- Which projects already ship a reviewed project sample master
-- Which recovered sample rows already have direct site evidence and which still sit at project-level or region-level locality posture
-- Which recovered sample rows already have normalized chronology and which remain unresolved
-- Which tracked projects are blocked at paper capture, supplement ingestion, sample identity extraction, site extraction, or chronology extraction
-- Which manual curation work units are still blocking sample identity, exact site, chronology, or coordinate recovery
+## What A Reader Can Learn Here
 
-## Reader Anchors
+- which tracked projects still need paper capture
+- which papers already have archived supplementary material
+- which projects already carry archive-native sample identifiers
+- which projects already ship a reviewed sample master
+- which recovered sample rows already have direct site evidence and which still
+  remain at project-level or region-level posture
+- which recovered sample rows already have normalized chronology and which
+  remain unresolved
+- which projects are blocked at paper capture, supplement ingestion, sample
+  identity extraction, site extraction, or chronology extraction
+- which manual curation tasks still block sample identity, exact site,
+  chronology, or coordinate recovery
 
-The intake surface is wide because it covers source capture, not only public
-publication. Important governed files include:
+## Repository-Owned Records Behind Intake
+
+The intake chain is intentionally explicit. Important governed files include:
 
 - `data/adna/governance/source_library/tracked_project_and_paper_inventory.json`
 - `data/adna/governance/source_library/project_registry.json`
@@ -72,9 +90,17 @@ publication. Important governed files include:
 - `data/adna/governance/source_library/manual_curation_worklist.json`
 - `data/adna/governance/source_library/source_recovery_release_guard.json`
 
-## Why The Intake Surface Is Broader Than The Atlas
+These records make it possible to see where a project is still thin, where a
+sample can already support public claims, and where the repository has chosen
+to stay narrow rather than overstate confidence.
+
+## Why Intake Is Broader Than The Atlas
 
 Many projects matter to the repository before they are ready for map
 publication. That is not a failure. It is a sign that the repository keeps the
 recovery work visible instead of pretending incomplete evidence is already
 public-ready.
+
+If a reader wants to understand why the repository does not publish every
+tracked animal project as if it were equally mature, this is the page that
+explains the difference.
