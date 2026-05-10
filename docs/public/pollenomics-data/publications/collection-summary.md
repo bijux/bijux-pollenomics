@@ -12,7 +12,7 @@ last_reviewed: 2026-05-10
 The collection summary is the compact ledger that shows what the repository
 currently holds after data preparation and refresh.
 
-Readers often meet the public product after a map, report, or country bundle
+People often meet the public product after a map, report, or country bundle
 has already been generated. At that stage it is easy to miss that the visible
 site sits on top of a collection pipeline that changes over time. This page
 keeps that movement visible instead of letting polished pages hide it.
@@ -34,9 +34,9 @@ keeps that movement visible instead of letting polished pages hide it.
 - this page explains how that summary should be read as a refresh and breadth
   ledger rather than as a proof ledger
 
-## Why Readers Should Care
+## Why This Matters
 
-This is not only a maintainer ledger. It helps answer reader questions that
+This is not only a maintainer ledger. It helps answer public questions that
 naturally arise when using the repository:
 
 - is this project growing, or only being repackaged?
@@ -75,5 +75,5 @@ interpretive chain.
 
 ## Why It Belongs In The Handbook
 
-This summary helps readers understand that the public product sits on top of a
-tracked data collection pipeline. It is not only a docs site or a map bundle.
+This summary helps explain that the public product sits on top of a tracked
+data collection pipeline. It is not only a docs site or a map bundle.

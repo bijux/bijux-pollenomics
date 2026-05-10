@@ -9,19 +9,19 @@ last_reviewed: 2026-05-10
 
 # Filters and Popups
 
-Filters and popups are the map's first explanation layer. They should help a
-reader understand what they are seeing without making the atlas look simpler or
+Filters and popups are the map's first explanation layer. They should help you
+understand what you are seeing without making the atlas look simpler or
 stronger than it really is.
 
 That matters because the map changes by scope. World, Europe-plus, Nordic, and
 country views do not all show the same layers, and a popup is not allowed to
 quietly inflate a thin record into a confident story.
 
-## What A Reader Should Learn Quickly
+## What You Should Learn Quickly
 
 - which countries are active in one scope
 - which point layers remain visible after geography filtering
-- why Nordic-only context overlays disappear when a reader moves back to world
+- why Nordic-only context overlays disappear when you move back to world
   or Europe-plus
 - whether animal points belong to the world surface only or to narrower derived
   views
@@ -29,7 +29,7 @@ quietly inflate a thin record into a confident story.
   through a regional parent
 
 The point of these surfaces is not decoration. It is to keep geography
-selection auditable for readers who did not build the site.
+selection auditable even if you did not build the site.
 
 ## What Filters Are For
 
@@ -41,11 +41,10 @@ selection auditable for readers who did not build the site.
 
 ## What Popups Are For
 
-- tell the reader what kind of point or layer they are looking at
+- tell you what kind of point or layer you are looking at
 - expose the compact facts needed for orientation without replacing the deeper
   evidence page
-- point the reader toward the next narrower audit when the visible summary is
-  not enough
+- point toward the next narrower audit when the visible summary is not enough
 
 ## What These Surfaces Must Not Do
 
@@ -60,8 +59,7 @@ Leave the popup and move to a narrower page when:
 
 - a visible point looks more precise than expected
 - one layer disappears between scopes and the change matters
-- the reader needs chronology, locality, or provenance rather than a compact
-  label
+- you need chronology, locality, or provenance rather than a compact label
 - the public wording sounds stronger than the evidence probably allows
 
 ## Follow-Up Pages

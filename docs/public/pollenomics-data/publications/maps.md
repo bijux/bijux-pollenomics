@@ -11,12 +11,12 @@ last_reviewed: 2026-05-10
 
 Maps are the fastest way to understand what the repository currently shows
 across world, regional, and country geography. They place several evidence
-families into one visible space so a reader can orient before moving into a
+families into one visible space so you can orient before moving into a
 narrower check.
 
 That speed is useful, but it creates risk. A map can look more settled than the
-evidence behind it really is. This page exists to help readers get the benefit
-of the map without mistaking visibility for proof.
+evidence behind it really is. This page explains how to use the map without
+mistaking visibility for proof.
 
 ## What Maps Are For
 
@@ -24,7 +24,7 @@ of the map without mistaking visibility for proof.
   whole story
 - keep scope changes explicit across world, Europe-plus, Nordic, and country
   views
-- let readers compare evidence, context, and framing layers without pretending
+- let you compare evidence, context, and framing layers without pretending
   they all mean the same thing
 - show which visible answers are mainly for orientation and which need a
   narrower follow-up before reuse
@@ -63,7 +63,7 @@ not a license to outrank sample, locality, chronology, or coordinate review.
 4. trust the narrower evidence chain if the map looks cleaner than the record
    behind it
 
-## Typical Reader Questions
+## Common Questions
 
 - why is this layer visible at world scope but not at country scope
 - is this point direct evidence, contextual support, or framing only
