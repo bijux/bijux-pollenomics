@@ -4,20 +4,20 @@ audience: reader
 type: explanation
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-05-09
+last_reviewed: 2026-05-10
 ---
 
 # Filters and Popups
 
-Filters and popups are the reader's first explanation layer on the map. They
-should help a person understand what they are seeing without making the atlas
-look simpler or stronger than it really is.
+Filters and popups are the map's first explanation layer. They should help a
+reader understand what they are seeing without making the atlas look simpler or
+stronger than it really is.
 
 That matters because the map changes by scope. World, Europe-plus, Nordic, and
 country views do not all show the same layers, and a popup is not allowed to
 quietly inflate a thin record into a confident story.
 
-## What Readers Should Be Able To Learn Immediately
+## What A Reader Should Learn Quickly
 
 - which countries are active in one scope
 - which point layers remain visible after geography filtering
@@ -28,23 +28,23 @@ quietly inflate a thin record into a confident story.
 - whether a country bundle is derived from the world surface directly or
   through a regional parent
 
-The point of the inspection surface is not decoration. It is to keep geography
-selection auditable for readers who did not write the code.
+The point of these surfaces is not decoration. It is to keep geography
+selection auditable for readers who did not build the site.
 
 ## What Filters Are For
 
-- filters show which geography and layer choices are active
-- filters keep scope changes visible instead of making them feel like a hidden
+- show which geography and layer choices are active
+- keep scope changes visible instead of making them feel like a hidden
   frontend preference
-- filters stop a world, regional, and country map from pretending to be the
-  same view with different zoom levels
+- stop a world, regional, and country map from pretending to be the same view
+  with different zoom levels
 
 ## What Popups Are For
 
 - tell the reader what kind of point or layer they are looking at
 - expose the compact facts needed for orientation without replacing the deeper
   evidence page
-- send the reader toward the next narrower audit when the visible summary is
+- point the reader toward the next narrower audit when the visible summary is
   not enough
 
 ## What These Surfaces Must Not Do

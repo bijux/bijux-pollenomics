@@ -4,7 +4,7 @@ audience: reader
 type: explanation
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-05-09
+last_reviewed: 2026-05-10
 ---
 
 # Point Rules
@@ -26,7 +26,7 @@ map generator put it there." The answer has to come from stable evidence rules.
 Those rules keep the visible map tied to reviewable evidence rather than to the
 desire to fill a geography with more points.
 
-## What A Published Point Does Mean
+## What A Published Point Means
 
 - the repository decided the record can be shown under explicit conditions
 - the point cleared a chain of identity, locality, chronology, and coordinate
@@ -41,7 +41,7 @@ desire to fill a geography with more points.
 - that the map view is the best place to judge chronology or provenance
 - that an attractive point is safe to over-interpret
 
-## What Questions These Rules Answer
+## What Questions These Rules Help Answer
 
 - why one record becomes a visible point while another remains blocked
 - why some points are shown with stronger locality confidence than others
@@ -50,7 +50,7 @@ desire to fill a geography with more points.
 - which parts of the point are inferred from a chain of evidence rather than
   copied directly from one source table
 
-## How A Reader Should Use This Page
+## How To Use This Page
 
 Use this page together with:
 
