@@ -4,13 +4,28 @@ audience: reader
 type: explanation
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-05-09
+last_reviewed: 2026-05-10
 ---
 
 # Refresh Policy
 
-A refresh in this repository is not only a download step. It is an evidence
-change that can affect what the public outputs are allowed to say.
+A refresh in this repository is not just a download step. It is a change in the
+evidence environment, and that can change what the public product is allowed to
+say.
+
+That point matters because readers often see a newer map, a revised country
+bundle, or different counts and assume the change was cosmetic. Sometimes it is
+not. A refresh can widen coverage, expose weaker rows, change chronology
+posture, or force a previously broad claim to become narrower.
+
+## Why Refresh Is Public
+
+The repository does not treat upstream updates as silent maintenance. If the
+evidence changes, the public language must be willing to change with it.
+
+That is why refresh policy belongs on the public surface. Readers should be
+able to understand why a published output changed and why some updates make the
+repository more cautious rather than more expansive.
 
 ## What A Refresh Can Change
 
@@ -19,22 +34,27 @@ change that can affect what the public outputs are allowed to say.
 - chronology posture for previously thin rows
 - whether a map layer stays visible, becomes qualified, or needs to narrow
 
-## Where To Inspect It
+## What The Repository Refuses To Do
 
-- `data/collection_summary.json` is the checked-in public summary that shows
-  what the latest refresh changed
-- refresh is visible here because the repository treats refresh as an evidence
-  event, not as silent maintenance
+The repository does not silently absorb upstream change and keep repeating old
+claims as if nothing moved.
 
-## Why The Policy Is Public
+If a refresh improves the evidence, outputs can improve with it. If a refresh
+reveals weaker support than previously thought, the correct response is to
+narrow the public claim, not to preserve old wording for convenience.
 
-Readers need to know that the repository does not silently absorb upstream
-changes and keep the same public language regardless of what those changes did.
-If a refresh makes the evidence better, the outputs can improve. If it exposes
-new weakness, the outputs should narrow instead of coasting on old claims.
+## Where Readers Can Inspect It
 
-## Use This Page When
+The checked-in public summary lives at:
 
-- you want to know why a published report changed after a source update
-- you want to understand why refresh work is coupled to review and release checks
-- you want the conceptual reason for keeping refresh logic visible in a public handbook
+- `data/collection_summary.json`
+
+That file shows what the latest refresh changed and keeps source movement
+visible as part of the public evidence story.
+
+## When This Page Matters Most
+
+This page matters when a reader wants to know why a published report changed
+after a source update, why refresh work is coupled to review and release
+checks, or why the repository treats source movement as a governed evidence
+event instead of invisible background maintenance.
