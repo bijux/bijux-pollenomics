@@ -2025,7 +2025,7 @@ class RepositoryContractRegressionTests(unittest.TestCase):
             fieldwork_detail_text,
         )
 
-    def test_shared_nav_keeps_section_overview_sidebar_available(self) -> None:
+    def test_shared_nav_hides_scoped_sidebar_on_section_overview_homepages(self) -> None:
         nav_override = (
             REPO_ROOT / "docs" / "overrides" / "partials" / "nav.html"
         ).read_text(encoding="utf-8")
@@ -2037,7 +2037,7 @@ class RepositoryContractRegressionTests(unittest.TestCase):
 
         self.assertFalse((REPO_ROOT / "configs" / "docs-shell").exists())
         self.assertIn("current_page.parent.children", nav_override)
-        self.assertNotIn("landing_home_page", nav_override)
+        self.assertIn("landing_home_page", nav_override)
         self.assertEqual(nav_override, shared_nav)
         self.assertNotIn("bijux-docs-apply-repo-overrides", root_make)
         self.assertNotIn("bijux-docs-apply-repo-overrides", docs_make)
