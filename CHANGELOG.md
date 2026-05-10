@@ -10,9 +10,34 @@ change contributor and maintainer workflows across the repository.
 
 ## Unreleased
 
+### Added
+
+- Repository verification now includes a full local `test-all` path and a
+  repository-owned generated-artifact gate, keeping release-readiness checks
+  available outside CI.
+
 ### Changed
 
-- No unreleased changes yet.
+- Rebuilt the public handbook and generated report guidance around reader
+  questions, including the product guide, data guide, source explainers,
+  publication pages, report routes, and map-reading surfaces.
+- Expanded the checked-in evidence model from source intake through sample,
+  locality, chronology, coordinate, and publication review so atlas and report
+  outputs stay traceable to narrower governed records.
+- Clarified runtime, compatibility, and maintainer boundaries across the
+  repository, including moving package-boundary guidance into package-owned docs
+  and documenting the current report portal and publication contracts.
+
+### Fixed
+
+- Restored package legal-file handling for sdist smoke installs and aligned the
+  package include contract with the current package-local `LICENSE` and
+  `NOTICE` sources.
+- Brought public-route, atlas-filter, report-tree, and handbook contract tests
+  back into line with the current generated docs/report surfaces while removing
+  brittle wording-only assertions.
+- Hardened the OpenAPI and Redocly toolchain under `configs/` so the locally
+  reproducible npm advisory set is cleared under the current dependency chain.
 
 ## 0.1.6 - 2026-04-21
 
