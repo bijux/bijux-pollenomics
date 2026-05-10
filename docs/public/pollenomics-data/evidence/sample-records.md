@@ -4,7 +4,7 @@ audience: reader
 type: explanation
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-05-09
+last_reviewed: 2026-05-10
 ---
 
 # Sample Records
@@ -13,9 +13,9 @@ The sample record is the durable unit of the animal ancient DNA database.
 Projects, papers, supplements, locality decisions, chronology review, and map
 outputs all meet here.
 
-If a reader wants to know what the repository actually knows about one animal
-record, this is the first place to start. Everything else downstream depends on
-the sample being stable enough to carry forward.
+If you want to know what the repository actually knows about one animal record,
+this is the first place to start. Everything else downstream depends on the
+sample being stable enough to carry forward.
 
 ## What A Sample Record Should Answer
 
@@ -27,8 +27,8 @@ A serious sample record should answer these questions clearly:
 - what chronology claim survives review
 - which fields later drive country bundles and atlas outputs
 
-In other words, the sample record should tell a reader what this row is before
-any map, summary, or country bundle tries to tell a broader story about it.
+In other words, the sample record should tell you what this row is before any
+map, summary, or country bundle tries to tell a broader story about it.
 
 ## Why Projects Do Not Replace Samples
 
@@ -40,7 +40,7 @@ it is reviewed.
 The public map never outranks the sample database. If a point is visible, the
 sample record should already explain why.
 
-## What Readers Can Learn Here
+## What You Can Learn Here
 
 - whether the sample identity is stable or still ambiguous
 - whether the record belongs cleanly to one project and paper lineage
@@ -49,11 +49,11 @@ sample record should already explain why.
 - whether a public-facing output is standing on one coherent sample foundation
   or on something still under repair
 
-## Why This Page Matters Publicly
+## Why This Page Matters
 
-Many downstream misunderstandings start here. If the sample unit is vague, a
-reader can be misled before locality, chronology, or coordinates are even
-discussed.
+Many downstream misunderstandings start here. If the sample unit is vague, the
+rest of the evidence chain becomes unstable before locality, chronology, or
+coordinates are even discussed.
 
 That is why the repository keeps the sample record as the durable starting
 point instead of letting country bundles or atlas views become the primary
@@ -69,7 +69,7 @@ identity surface.
 - `data/adna/species/ovis_aries/normalized/sample_records.json`
 - `data/adna/governance/source_library/projects/PRJEB36540/sample_sites.json`
 
-## How To Use This Page Next
+## Where To Go Next
 
 - move to [localities](localities.md) if the next question is where the sample
   really belongs

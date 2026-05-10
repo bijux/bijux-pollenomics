@@ -4,7 +4,7 @@ audience: reader
 type: explanation
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-05-09
+last_reviewed: 2026-05-10
 ---
 
 # Temporal Semantics
@@ -21,10 +21,10 @@ The repository compares material from several domains:
 - pollen and archaeology context with their own dating conventions
 
 Those families do not describe time with one common grammar. Temporal semantics
-exists so the public outputs can compare them without pretending they are all
+exists so public outputs can compare them without pretending they are all
 equally precise.
 
-## What Readers Should Expect
+## What You Should Be Able To Tell
 
 This layer should make the following visible:
 

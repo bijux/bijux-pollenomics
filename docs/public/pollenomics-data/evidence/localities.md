@@ -4,7 +4,7 @@ audience: reader
 type: explanation
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-05-09
+last_reviewed: 2026-05-10
 ---
 
 # Localities
@@ -13,9 +13,9 @@ Locality evidence explains what place claim the repository is actually willing
 to make for a sample. That may sound obvious, but it is where many historical
 datasets become overstated if the documentation is sloppy.
 
-This page matters because a place label can look precise long before it is
-actually precise. A project name, a regional description, and a named site are
-not the same kind of locality claim.
+A place label can look precise long before it really is. A project name, a
+regional description, and a named site are not the same kind of locality
+claim.
 
 ## What Locality Review Is Trying To Prevent
 
@@ -24,7 +24,7 @@ not the same kind of locality claim.
 - carrying forward place names that are still ambiguous across supplements,
   archive metadata, and article text
 
-## What Readers Should Be Able To Learn
+## What You Should Be Able To Learn
 
 - whether a sample is tied to one named site
 - whether the place claim is broad, uncertain, or contested
@@ -40,7 +40,7 @@ A locality claim does more than name a place. It determines:
 - whether the repository is showing direct archaeological context or a more
   cautious geographic approximation
 
-## What A Reader Should Watch For
+## What To Watch For
 
 - a project or paper label being mistaken for one exact excavation site
 - a regional note being read as if it were enough for exact coordinates
