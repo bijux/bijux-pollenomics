@@ -224,9 +224,9 @@ class RepositoryTruthUnitTests(unittest.TestCase):
             matrix_payload["schema_version"],
             "repository-cross-domain-evidence-matrix.v1",
         )
-        self.assertEqual(explainer_payload["status_counts"]["present_useful_form"], 15)
+        self.assertEqual(explainer_payload["status_counts"]["present_useful_form"], 12)
         self.assertEqual(
-            explainer_payload["status_counts"]["restoration_plan_required"], 0
+            explainer_payload["status_counts"]["restoration_plan_required"], 3
         )
         self.assertEqual(atlas_payload["row_count"], 6)
         pollen_row = next(
@@ -263,7 +263,7 @@ class RepositoryTruthUnitTests(unittest.TestCase):
         )
         self.assertIn("Do Not Use These As Progress", markdown)
 
-    def test_docs_restoration_ledger_scope_validation_and_recovery_review_hold(
+    def test_docs_recovery_surfaces_stay_honest_about_incomplete_replacements(
         self,
     ) -> None:
         ledger_payload = build_repository_docs_restoration_ledger(
@@ -271,7 +271,7 @@ class RepositoryTruthUnitTests(unittest.TestCase):
             docs_root=self.docs_root,
             report_root=self.report_root,
         )
-        breadth_payload = build_repository_docs_scope_validation(
+        scope_payload = build_repository_docs_scope_validation(
             data_root=self.data_root,
             docs_root=self.docs_root,
             report_root=self.report_root,
@@ -281,22 +281,13 @@ class RepositoryTruthUnitTests(unittest.TestCase):
             docs_root=self.docs_root,
             report_root=self.report_root,
         )
-        ledger_markdown = render_repository_docs_restoration_ledger_markdown(
-            ledger_payload
-        )
-        breadth_markdown = render_repository_docs_scope_validation_markdown(
-            breadth_payload
-        )
-        review_markdown = render_repository_docs_recovery_review_markdown(
-            review_payload
-        )
 
         self.assertEqual(
             ledger_payload["schema_version"],
             "repository-docs-restoration-ledger.v1",
         )
         self.assertEqual(
-            breadth_payload["schema_version"],
+            scope_payload["schema_version"],
             "repository-docs-scope-validation.v1",
         )
         self.assertEqual(
@@ -304,16 +295,22 @@ class RepositoryTruthUnitTests(unittest.TestCase):
             "repository-docs-recovery-review.v1",
         )
         self.assertEqual(ledger_payload["row_count"], 68)
-        self.assertEqual(ledger_payload["status_counts"]["replacement_incomplete"], 0)
-        self.assertEqual(ledger_payload["status_counts"]["verified_replacement"], 68)
-        self.assertTrue(breadth_payload["overall_ok"])
-        self.assertEqual(
-            review_payload["overall_posture"],
-            "moving_toward_elegant_correctness",
+        self.assertEqual(ledger_payload["status_counts"]["verified_replacement"], 60)
+        self.assertEqual(ledger_payload["status_counts"]["replacement_incomplete"], 8)
+        self.assertTrue(scope_payload["overall_ok"])
+        self.assertEqual(review_payload["overall_posture"], "recovery_still_fragile")
+        self.assertIn(
+            "# Repository docs restoration ledger",
+            render_repository_docs_restoration_ledger_markdown(ledger_payload),
         )
-        self.assertIn("Repository docs restoration ledger", ledger_markdown)
-        self.assertIn("Repository docs scope validation", breadth_markdown)
-        self.assertIn("Repository docs recovery review", review_markdown)
+        self.assertIn(
+            "# Repository docs scope validation",
+            render_repository_docs_scope_validation_markdown(scope_payload),
+        )
+        self.assertIn(
+            "# Repository docs recovery review",
+            render_repository_docs_recovery_review_markdown(review_payload),
+        )
 
     def test_product_model_credibility_and_release_refusal_keep_scope_and_posture_explicit(
         self,
