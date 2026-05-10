@@ -4,7 +4,7 @@ audience: reader
 type: explanation
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-05-07
+last_reviewed: 2026-05-10
 ---
 
 # Test Strategy
@@ -13,8 +13,8 @@ last_reviewed: 2026-05-07
 source-specific transformations fail close to the defect.
 
 The purpose of the test strategy is not to make every change expensive. It is
-to make the right failure appear at the right layer, early enough that the
-reader can understand what broke.
+to make the right failure appear at the right layer, early enough that you can
+understand what broke.
 
 Use this page when your question is:
 
@@ -77,9 +77,9 @@ They do not automatically mean:
 - `tests/regression/`
 - `tests/e2e/test_cli.py`
 
-## Reader-Facing Implication
+## Public-Facing Implication
 
 The testing model is designed to keep failures close to the real question.
-That is good for maintainers, but it also matters for readers: when a surface
-is published, the repository should be able to say what kind of proof actually
+That is good for maintainers, but it also matters publicly: when a surface is
+published, the repository should be able to say what kind of proof actually
 stands behind it.

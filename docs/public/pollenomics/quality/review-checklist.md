@@ -4,7 +4,7 @@ audience: reader
 type: checklist
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-05-08
+last_reviewed: 2026-05-10
 ---
 
 # Review Checklist

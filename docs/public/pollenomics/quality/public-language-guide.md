@@ -4,7 +4,7 @@ audience: reader
 type: explanation
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-05-09
+last_reviewed: 2026-05-10
 ---
 
 # Public Language Guide
@@ -27,17 +27,17 @@ Use this page when your question is:
 
 ## Core Rule
 
-Public wording should help a reader judge evidence strength more clearly, not
+Public wording should help people judge evidence strength more clearly, not
 less clearly. If a phrase makes a weak surface sound mature, general, or final,
 it is the wrong phrase even when it sounds elegant.
 
 ## Information Roles
 
-- `review`: reader-facing judgment about whether one bounded surface is trusted
+- `review`: public judgment about whether one bounded surface is trusted
 - `validation`: pass or fail structural checks on a governed surface
 - `audit`: systematic inspection across many files, claims, or source families
 - `truth`: claim-calibration surface that keeps scope and weakness explicit
-- `summary`: aggregate orientation surface for readers or downstream tooling
+- `summary`: aggregate orientation surface for people or downstream tooling
 - `coverage`: how much of a bounded domain is currently represented
 - `readiness`: whether a publication surface currently clears its own bar
 - `honesty`: public caveat surface that keeps limits visible beside outputs
@@ -46,9 +46,9 @@ it is the wrong phrase even when it sounds elegant.
 - `workflow`: governed human review sequence for curation or release
 - `queue`: ordered recovery pressure for still-blocked work
 
-These roles matter because different surfaces do different jobs. A reader
-should not have to guess whether a page is making a claim, exposing a caveat,
-or only recording a diagnostic.
+These roles matter because different surfaces do different jobs. You should not
+have to guess whether a page is making a claim, exposing a caveat, or only
+recording a diagnostic.
 
 ## Avoid These Words
 
@@ -65,7 +65,7 @@ because they often hide the real question a surface answers.
 - it names the surface responsibility directly
 - it names uncertainty instead of smoothing it away
 - it distinguishes context, evidence, framing, and caveat roles
-- it helps a reader know what to trust and what to inspect next
+- it helps people know what to trust and what to inspect next
 
 ## Provenance Wording
 
@@ -91,7 +91,7 @@ because they often hide the real question a surface answers.
 - when evidence is partial, say `partial`, `thin`, `blocked`, or `contextual`
   rather than hiding that status in softer wording
 
-## Reader Shortcut
+## A Quick Check
 
 If a term sounds broader, cleaner, or more triumphant than the underlying
 evidence really is, stop and translate it into the more exact role it is trying

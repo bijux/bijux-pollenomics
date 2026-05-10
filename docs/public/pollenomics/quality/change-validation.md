@@ -4,19 +4,19 @@ audience: reader
 type: explanation
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-05-08
+last_reviewed: 2026-05-10
 ---
 
 # Change Validation
 
 Every runtime change should prove the boundary it touched.
 
-This page exists because not every change needs the same proof. A wording fix,
-a source-normalization rule, and a publication-output change do not carry the
-same risk. Good validation matches the boundary that changed.
+Not every change needs the same proof. A wording fix, a source-normalization
+rule, and a publication-output change do not carry the same risk. Good
+validation matches the boundary that changed.
 
-For a reader, the deeper point is simple: a serious repository should be able
-to say why it trusts one change and what kind of proof that trust is based on.
+The deeper point is simple: a serious repository should be able to say why it
+trusts one change and what kind of proof that trust is based on.
 
 ## Validation Layers
 
@@ -30,7 +30,7 @@ to say why it trusts one change and what kind of proof that trust is based on.
 
 - a local helper change should not need the same proof as a public output
   rewrite
-- a docs wording change is not "just docs" if it changes what readers are led
+- a docs wording change is not "just docs" if it changes what people are led
   to believe
 - a generated report change is incomplete if only the source code was checked
   and the generated destination was ignored
@@ -53,8 +53,8 @@ The larger point is that passing tests are not enough when a rewrite makes the
 public explanation thinner or more confusing. Public clarity is also part of
 the contract.
 
-## Reader Consequence
+## Public Consequence
 
 When the repository changes what it says in public, the validation burden is
 not only technical. The maintainers also owe proof that the new explanation is
-still broad enough, linked enough, and honest enough for a reader to rely on.
+still broad enough, linked enough, and honest enough to rely on.
