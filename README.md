@@ -25,14 +25,14 @@
 `bijux-pollenomics` rebuilds a checked-in pollenomics and environmental
 evidence repository with ancient DNA, archaeology, and atlas outputs as
 contextual layers. It collects tracked source data, normalizes it into
-reviewable files under `data/`, and publishes map, country, and documentation
-views from that same repository state.
+reviewable files under `data/`, and publishes maps, country bundles, report
+surfaces, and documentation from that same repository state.
 
-The durable product model is now explicit: `world` is the governing public
-surface, `Europe-plus` and `Nordic` are narrower filtered specializations, and
-country bundles are reader-facing descendants of that same governed evidence
-state. The repository is broader than the animal aDNA recovery slice, but it is
-not release-complete. Pollen, environmental, archaeological, boundary, and
+The durable product model is explicit: `world` is the governing public surface,
+`Europe-plus` and `Nordic` are narrower filtered specializations, and country
+bundles are downstream descendants of that same governed evidence state. The
+repository is broader than the animal aDNA recovery slice, but it is not
+release-complete. Pollen, environmental, archaeological, boundary, and
 fieldwork context are already first-class. The animal aDNA sample extraction
 and atlas publication path is still under recovery. Animal sample extraction
 remains the hardest credibility bottleneck and is governed as such.
@@ -44,23 +44,22 @@ same staged assets to the GitHub Release.
 
 ## Start Here
 
+- start with the website home: [Documentation home](https://bijux.io/bijux-pollenomics/)
+- review the product guide: [Product guide](https://bijux.io/bijux-pollenomics/public/pollenomics/)
 - inspect the report portal: [`docs/report/index.md`](docs/report/index.md)
 - inspect the broadest public surface: [`docs/report/world/world_map.html`](docs/report/world/world_map.html)
 - inspect the data system guide: [`docs/public/pollenomics-data/index.md`](docs/public/pollenomics-data/index.md)
 - inspect the end-state product model: [`docs/public/pollenomics/foundation/end-state-product-model.md`](docs/public/pollenomics/foundation/end-state-product-model.md)
 - inspect the release refusal surface: [`docs/report/repository_final_release_refusal.md`](docs/report/repository_final_release_refusal.md)
 - inspect the credibility dashboard: [`docs/report/repository_credibility_dashboard.md`](docs/report/repository_credibility_dashboard.md)
-- read the public docs home: [Documentation home](https://bijux.io/bijux-pollenomics/)
-- start with the documentation home: [Documentation home](https://bijux.io/bijux-pollenomics/)
-- review the product guide: [Product guide](https://bijux.io/bijux-pollenomics/public/pollenomics/)
 - inspect repository maintenance rules: [`docs/internal/index.md`](docs/internal/index.md)
 
 ## What This Repository Produces
 
-Today, the checked-in repository produces five durable outcomes:
+Today, the checked-in repository produces these durable outcomes:
 
-- a tracked `data/` tree with world-scale source-family ownership and normalized outputs
-- a reader-first report tree under `docs/report/` with world, regional, and country publication families
+- a tracked `data/` tree with source-family ownership and normalized outputs
+- a report tree under `docs/report/` with world, regional, and country publication families
 - governed world, Europe-plus, and Nordic map surfaces that share one publication contract
 - country bundles for Sweden, Norway, Finland, and Denmark that remain filtered descendants of the same broader evidence state
 - a MkDocs documentation site that builds into `artifacts/root/docs/site/`
@@ -196,7 +195,7 @@ Treat the top-level paths by ownership and review expectations:
 - `Makefile` is the main local interface for verification, rebuilds, docs, and packaging
 - `pyproject.toml` and `uv.lock` define and lock the Python environment
 - `data/` contains tracked source snapshots, normalized outputs, and the collection manifest
-- `docs/report/` contains the reader-facing publication tree, including world, regional, country, review, caveat, and maintainer truth surfaces
+- `docs/report/` contains the public publication tree, including world, regional, country, review, caveat, and maintainer truth surfaces
 - `docs/` contains the canonical narrative and reference documentation that explains the checked-in outputs
 - `packages/bijux-pollenomics/src/` contains the CLI, collectors, and report publishing logic
 - `packages/bijux-pollenomics/tests/` contains unit, regression, and end-to-end coverage
@@ -235,7 +234,6 @@ The canonical project documentation lives in `docs/` and is built with MkDocs.
 
 Useful entry points:
 
-- docs home: [`docs/index.md`](docs/index.md)
 - docs home: [`docs/index.md`](docs/index.md)
 - runtime package handbook: [`docs/public/pollenomics/index.md`](docs/public/pollenomics/index.md)
 - package operations guide: [`docs/public/pollenomics/operations/index.md`](docs/public/pollenomics/operations/index.md)

@@ -4,18 +4,18 @@ audience: reader
 type: index
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-05-07
+last_reviewed: 2026-05-10
 ---
 
 # Bijux Pollenomics
 
 `bijux-pollenomics` publishes public evidence surfaces about Nordic pollenomics,
 environmental context, archaeology, boundaries, fieldwork, and animal ancient
-DNA. This site only publishes the reader-facing documentation tree under
-`docs/public/`.
+DNA. This site focuses on the public explanation layer: what the repository
+publishes, what those outputs can support, and where their limits stay visible.
 
-Repository-only maintainer notes stay under `docs/internal/` and are not part
-of the public website navigation.
+Maintainer-only notes stay under `docs/internal/` and are not part of the
+public website navigation.
 
 <!-- bijux-pollenomics-badges:generated:start -->
 [![Python 3.11+](https://img.shields.io/badge/python-3.11%2B-3776AB?logo=python&logoColor=white)](https://pypi.org/project/bijux-pollenomics/)
@@ -59,7 +59,7 @@ flowchart TB
     samples["sample-backed ancient DNA context"]
     reports["country bundles and atlas evidence tables"]
     atlas["visible atlas point or country surface"]
-    review["reader checks traceability and limits"]
+    review["traceability and limits stay visible"]
 
     pollen --> reports
     context --> reports
@@ -76,8 +76,8 @@ flowchart TB
 - Nordic atlas guide: [public/nordic-atlas](public/nordic-atlas/index.md)
 - fieldwork record: [public/fieldwork](public/fieldwork/index.md)
 
-The public side should explain the repository without assuming that the reader
-already knows the codebase, package layout, or build system.
+The public side should explain the repository without assuming you already know
+the codebase, package layout, or build system.
 
 ## Fieldwork Record
 
@@ -109,10 +109,10 @@ or supplement evidence.
 ## Read By Question
 
 - what the runtime rebuilds: [public/pollenomics](public/pollenomics/index.md)
-- what this repository does and where its limits are:
+- what this repository publishes and where its limits are:
   [documentation home](index.md)
 - what the tracked data system and source families are:
   [public/pollenomics-data](public/pollenomics-data/index.md)
-- how the publication tree is organized for readers: [report portal](report/index.md)
+- how the publication tree is organized: [report portal](report/index.md)
 - how the map points, filters, and honesty surfaces work:
   [public/nordic-atlas](public/nordic-atlas/index.md)

@@ -4,7 +4,7 @@ audience: reader
 type: index
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-05-08
+last_reviewed: 2026-05-10
 ---
 
 # Nordic Evidence Atlas
@@ -14,7 +14,7 @@ not the primary evidence artifact. The checked-in pollen context,
 environmental archaeology context, boundary framing, fieldwork material,
 sample, site, chronology, and coordinate files remain the governing evidence
 surfaces, and the atlas should only summarize what those files already
-justify. It should help a reader answer four questions quickly:
+justify. Its job is to answer four questions quickly:
 
 - why a point is on the map
 - which filter settings can hide or reveal it
@@ -22,8 +22,8 @@ justify. It should help a reader answer four questions quickly:
 - whether the repository itself says the point is exact, geocoded, projected, or still blocked
 
 Detailed explanation pages for point construction, filtering, and atlas limits
-now live under the data handbook so the Nordic atlas remains a landing surface
-instead of a parallel documentation tree.
+now live under the data handbook so the Nordic atlas stays a clear landing
+surface instead of turning into a parallel handbook.
 
 ## Open The Atlas
 
