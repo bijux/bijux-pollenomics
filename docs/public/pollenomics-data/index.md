@@ -69,7 +69,10 @@ system:
 
 In practice, that means this section has to explain pollen context,
 environmental archaeology, boundary framing, human release material, and
-animal ancient DNA recovery as one joined evidence system.
+animal ancient DNA recovery as one joined evidence system. It is not only a
+set of side references; it is where pollen context, environmental archaeology,
+boundary framing, human release material, and animal ancient DNA recovery are
+made legible as one public evidence model.
 
 That mixed setting is useful, but it also means a vague explanation becomes
 misleading very quickly. If the site is unclear, it becomes hard to tell

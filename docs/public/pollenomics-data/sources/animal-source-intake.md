@@ -13,12 +13,11 @@ Animal ancient DNA does not enter this repository as one clean public-ready
 table. It usually begins as a chain of archives, papers, supplementary files,
 partial sample lists, ambiguous locality wording, and uneven chronology detail.
 
-This page exists so public readers can see that the map is the end of a review
-process, not the beginning of one. Before an animal sample becomes a visible
-point, the repository has to decide whether the project is in scope, whether
-the paper trail is complete, whether the supplementary material is usable, and
-whether the recovered sample can support locality and chronology claims
-honestly.
+The map is the end of a review process, not the beginning of one. Before an
+animal sample becomes a visible point, the repository has to decide whether
+the project is in scope, whether the paper trail is complete, whether the
+supplementary material is usable, and whether the recovered sample can support
+locality and chronology claims honestly.
 
 ## Why Intake Is A Public Surface
 
@@ -46,7 +45,7 @@ show this evidence as a public output?
 This is not busywork around the science. It is the work that determines whether
 public scientific language can be trusted.
 
-## What A Reader Can Learn Here
+## What You Can Learn Here
 
 - which tracked projects still need paper capture
 - which papers already have archived supplementary material
@@ -101,6 +100,6 @@ publication. That is not a failure. It is a sign that the repository keeps the
 recovery work visible instead of pretending incomplete evidence is already
 public-ready.
 
-If a reader wants to understand why the repository does not publish every
-tracked animal project as if it were equally mature, this is the page that
-explains the difference.
+If you want to understand why the repository does not publish every tracked
+animal project as if it were equally mature, this is the page that explains
+the difference.

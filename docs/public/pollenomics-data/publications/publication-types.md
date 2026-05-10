@@ -10,16 +10,16 @@ last_reviewed: 2026-05-10
 # Publication Types
 
 Not every page in this repository is trying to do the same job. Some pages are
-meant to answer a reader's question directly. Others exist to explain limits,
-surface review pressure, or keep a polished output from being mistaken for the
-whole truth.
+meant to answer a public question directly. Others explain limits, surface
+review pressure, or keep a polished output from being mistaken for the whole
+truth.
 
-This page helps readers classify a surface before trusting it. The key question
+This page helps classify a surface before trusting it. The key question
 is not "does this look finished?" The key question is "what job does this page
 actually own?"
 
 That distinction matters because a polished page can still serve a narrow role.
-A reader should not have to guess whether a surface is:
+You should not have to guess whether a surface is:
 
 - meant to answer a real historical or geographic question
 - meant to explain context around that question
@@ -30,7 +30,7 @@ A reader should not have to guess whether a surface is:
 ## Why Classification Matters
 
 Without that distinction, a site can look more complete and more uniform than
-it really is. This page exists to prevent that confusion before it starts.
+it really is. This page aims to prevent that confusion before it starts.
 
 ## The Four Main Roles
 
@@ -85,7 +85,7 @@ Use them when the question is:
 - how a maintainer or auditor can trace one public surface back to its
   governing evidence
 
-## Fast Rule For Readers
+## A Fast Rule Of Thumb
 
 - if you want the visible answer, start with an evidence surface
 - if you want background that helps interpret that answer, use a context surface
@@ -107,7 +107,7 @@ A good reading order is:
 4. move to the source-family export pages if you need to understand which kind
    of evidence contributed context rather than direct sample-backed claims
 
-## The Main Reader Rule
+## The Main Rule
 
 When a page looks polished, ask what job it actually owns. In this repository,
 clarity depends on keeping evidence surfaces, context surfaces, review

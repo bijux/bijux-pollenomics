@@ -9,10 +9,10 @@ last_reviewed: 2026-05-10
 
 # Non-aDNA Explainer Recovery
 
-This page exists because mixed repositories often drift toward the noisiest or
-most technically difficult domain. In this project, that is usually animal
-ancient DNA recovery. When that happens, the quieter source families can remain
-present in the tree while disappearing from the reader's understanding.
+Mixed repositories often drift toward the noisiest or most technically
+difficult domain. In this project, that is usually animal ancient DNA
+recovery. When that happens, the quieter source families can remain present in
+the tree while disappearing from public understanding.
 
 That is a documentation failure, not a small stylistic problem. If pollen,
 archaeology, boundary, and human-context pages are thinner than the animal
