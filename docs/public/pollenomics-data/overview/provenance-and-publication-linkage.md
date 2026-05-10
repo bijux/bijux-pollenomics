@@ -4,16 +4,17 @@ audience: reader
 type: explanation
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-05-09
+last_reviewed: 2026-05-10
 ---
 
 # Provenance and Publication Linkage
 
-This page explains the line between tracked evidence and public publication.
-The core principle is simple: every public-facing row, bundle, or map point
-should still be traceable back to a narrower governing surface.
+Public outputs in `bijux-pollenomics` are meant to be easy to use, but they
+are not meant to become free-floating claims. Every visible row, bundle, or
+map point should still lead back to the narrower file that owns the underlying
+evidence.
 
-## What Questions This Page Answers
+## What This Page Helps You Check
 
 - where a visible claim came from
 - what review path stood between raw input and public output
@@ -22,26 +23,26 @@ should still be traceable back to a narrower governing surface.
 - where to look when a report or point feels too broad for the evidence behind
   it
 
-## Provenance Model
+## The Provenance Chain
 
-In this repository, provenance is not only about where a file originally came
-from. It is also about what chain of review turned that input into something
-public. A visible point is meaningful only if readers can still inspect:
+Here, provenance is not only about where a file first came from. It is also
+about what happened between source capture and public publication. A visible
+point is only trustworthy when you can still inspect:
 
 - the source family that supplied the material
 - the normalized evidence file that owns the current claim
 - the review surface that qualified, blocked, or approved it
-- the published output that presents it to readers
+- the published output that presents it publicly
 
-The provenance model therefore keeps the reader-facing surface downstream of a
-governing evidence chain. Public polish is never allowed to become a substitute
-for narrower evidence ownership.
+The public surface therefore stays downstream of a governing evidence chain.
+Presentation can summarize the claim, but it never replaces the file that owns
+it.
 
 ## Coordinate Policy
 
-Coordinates need their own explicit rule because maps create false confidence
-very easily. A point on a polished map can look exact even when the underlying
-evidence is still approximate, inferred, or caveated.
+Coordinates need their own rule because maps create false confidence very
+quickly. A polished point can look exact even when the supporting geography is
+approximate, inferred, or still caveated.
 
 The coordinate policy in this repository is:
 
@@ -52,16 +53,16 @@ The coordinate policy in this repository is:
 - a map point cannot silently outrank the locality and provenance review that
   made it possible
 
-## Publication Linkage Rules
+## How Publication Stays Tied To Evidence
 
 - public reports must stay downstream of tracked evidence
 - summary views must not outrank the files that govern sample, locality, date, or coordinate claims
-- one public bundle should point readers toward the narrower evidence files that justify it
+- one public bundle should point toward the narrower evidence files that justify it
 - blocked or partial evidence should remain visibly qualified instead of being promoted by convenience
 
-Publication linkage is what makes a public surface usable without making it
-misleading. Readers can start from the visible output, but they must always be
-able to walk back into the narrower record that governs it.
+Publication linkage is what makes a public surface useful without making it
+misleading. You should be able to start from the visible output and walk back
+into the narrower record that governs it.
 
 ## Where To Inspect The Links
 
@@ -71,8 +72,8 @@ able to walk back into the narrower record that governs it.
 - `docs/report/regions/nordic/nordic_point_traceability.md`
 - `docs/report/countries/<country-slug>/*_bundle.json`
 
-## Why Readers Should Care
+## Why This Matters
 
-When provenance and publication linkage are clear, a newcomer can audit one
-claim without having to understand the whole repository first. That is the
-standard this handbook is aiming for.
+When provenance and publication linkage are clear, you do not have to
+understand the whole repository before checking one claim carefully. That is
+the standard these pages are trying to hold.
