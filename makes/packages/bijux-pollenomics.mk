@@ -1,5 +1,6 @@
 PACKAGE_KIND := repository-python
 PACKAGE_IMPORT_NAME := bijux_pollenomics
+PACKAGE_INSTALL_SPEC := .[dev]
 API_MODE := freeze
 PACKAGE_INSTALL_PYTHON_PACKAGES = "$(MONOREPO_ROOT)/packages/bijux-pollenomics-dev[dev]"
 LINT_DIRS = src tests
