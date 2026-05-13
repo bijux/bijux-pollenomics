@@ -1,0 +1,59 @@
+{
+  "schema_version": "animal-country-species-coverage.v1",
+  "rows": [
+    {
+      "country": "Denmark",
+      "species_latin_name": "Equus caballus",
+      "species_common_name": "horse",
+      "animal_scope": "domesticated_core",
+      "curated_project_count": 1,
+      "mapped_locality_count": 1,
+      "mapped_sample_count": 2,
+      "assignment_confidence": "exact_country",
+      "coordinate_posture": "exact;supplementary_table_coordinates",
+      "oldest_signal_bp": 4944,
+      "youngest_signal_bp": 4961,
+      "project_accessions": [
+        "PRJEB44430"
+      ],
+      "sample_row_count": 2,
+      "exact_coordinate_sample_count": 2,
+      "approximate_coordinate_sample_count": 0,
+      "sample_lineage_backed_sample_count": 2,
+      "site_evidence_backed_sample_count": 2,
+      "chronology_provenance_backed_sample_count": 2,
+      "coordinate_provenance_backed_sample_count": 2,
+      "caution_note": "sample support remains sparse",
+      "direct_coordinate_site_count": 2,
+      "geocoded_site_count": 0,
+      "unresolved_sample_count": 0
+    },
+    {
+      "country": "Sweden",
+      "species_latin_name": "Equus caballus",
+      "species_common_name": "horse",
+      "animal_scope": "domesticated_core",
+      "curated_project_count": 1,
+      "mapped_locality_count": 1,
+      "mapped_sample_count": 1,
+      "assignment_confidence": "exact_country",
+      "coordinate_posture": "exact;supplementary_table_coordinates",
+      "oldest_signal_bp": 1217,
+      "youngest_signal_bp": 1417,
+      "project_accessions": [
+        "PRJEB31613"
+      ],
+      "sample_row_count": 1,
+      "exact_coordinate_sample_count": 1,
+      "approximate_coordinate_sample_count": 0,
+      "sample_lineage_backed_sample_count": 1,
+      "site_evidence_backed_sample_count": 1,
+      "chronology_provenance_backed_sample_count": 1,
+      "coordinate_provenance_backed_sample_count": 1,
+      "caution_note": "sample support remains sparse",
+      "direct_coordinate_site_count": 1,
+      "geocoded_site_count": 0,
+      "unresolved_sample_count": 0
+    }
+  ]
+}

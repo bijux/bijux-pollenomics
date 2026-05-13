@@ -1,0 +1,8 @@
+{
+  "schema_version": "adna-source-library.v1",
+  "source_url": "https://www.ncbi.nlm.nih.gov/sra?term=SRS1407453",
+  "artifact_kind": "archive_metadata_html",
+  "content_type": "text/html; charset=UTF-8",
+  "byte_size": 55354,
+  "project_accession": "SRS1407453"
+}

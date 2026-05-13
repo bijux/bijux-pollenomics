@@ -1,0 +1,827 @@
+{
+  "schema_version": "animal-sample-foundation-truth.v1",
+  "summary": {
+    "tracked_species_count": 10,
+    "tracked_project_count": 40,
+    "sample_row_count": 894,
+    "fully_grounded_count": 502,
+    "partially_grounded_count": 256,
+    "blocked_missing_metadata_count": 29,
+    "blocked_missing_location_detail_count": 4,
+    "blocked_weak_chronology_count": 103
+  },
+  "species_rows": [
+    {
+      "species_latin_name": "Equus caballus",
+      "species_common_name": "horse",
+      "sample_row_count": 552,
+      "fully_grounded_count": 492,
+      "partially_grounded_count": 55,
+      "blocked_missing_metadata_count": 4,
+      "blocked_missing_location_detail_count": 0,
+      "blocked_weak_chronology_count": 1,
+      "project_count": 8,
+      "reported_curated_sample_count": 552,
+      "uses_project_level_sample_anchor": true
+    },
+    {
+      "species_latin_name": "Sus scrofa domesticus",
+      "species_common_name": "pig",
+      "sample_row_count": 4,
+      "fully_grounded_count": 0,
+      "partially_grounded_count": 1,
+      "blocked_missing_metadata_count": 3,
+      "blocked_missing_location_detail_count": 0,
+      "blocked_weak_chronology_count": 0,
+      "project_count": 4,
+      "reported_curated_sample_count": 4,
+      "uses_project_level_sample_anchor": true
+    },
+    {
+      "species_latin_name": "Ovis aries",
+      "species_common_name": "sheep",
+      "sample_row_count": 195,
+      "fully_grounded_count": 0,
+      "partially_grounded_count": 178,
+      "blocked_missing_metadata_count": 3,
+      "blocked_missing_location_detail_count": 1,
+      "blocked_weak_chronology_count": 13,
+      "project_count": 6,
+      "reported_curated_sample_count": 195,
+      "uses_project_level_sample_anchor": true
+    },
+    {
+      "species_latin_name": "Bos taurus",
+      "species_common_name": "cattle",
+      "sample_row_count": 13,
+      "fully_grounded_count": 0,
+      "partially_grounded_count": 0,
+      "blocked_missing_metadata_count": 11,
+      "blocked_missing_location_detail_count": 2,
+      "blocked_weak_chronology_count": 0,
+      "project_count": 3,
+      "reported_curated_sample_count": 13,
+      "uses_project_level_sample_anchor": true
+    },
+    {
+      "species_latin_name": "Capra hircus",
+      "species_common_name": "goat",
+      "sample_row_count": 82,
+      "fully_grounded_count": 9,
+      "partially_grounded_count": 0,
+      "blocked_missing_metadata_count": 0,
+      "blocked_missing_location_detail_count": 0,
+      "blocked_weak_chronology_count": 73,
+      "project_count": 3,
+      "reported_curated_sample_count": 82,
+      "uses_project_level_sample_anchor": false
+    },
+    {
+      "species_latin_name": "Canis lupus familiaris",
+      "species_common_name": "dog",
+      "sample_row_count": 4,
+      "fully_grounded_count": 0,
+      "partially_grounded_count": 1,
+      "blocked_missing_metadata_count": 0,
+      "blocked_missing_location_detail_count": 0,
+      "blocked_weak_chronology_count": 3,
+      "project_count": 3,
+      "reported_curated_sample_count": 4,
+      "uses_project_level_sample_anchor": true
+    },
+    {
+      "species_latin_name": "Felis catus",
+      "species_common_name": "cat",
+      "sample_row_count": 2,
+      "fully_grounded_count": 0,
+      "partially_grounded_count": 1,
+      "blocked_missing_metadata_count": 0,
+      "blocked_missing_location_detail_count": 1,
+      "blocked_weak_chronology_count": 0,
+      "project_count": 2,
+      "reported_curated_sample_count": 2,
+      "uses_project_level_sample_anchor": true
+    },
+    {
+      "species_latin_name": "Camelus dromedarius",
+      "species_common_name": "dromedary camel",
+      "sample_row_count": 14,
+      "fully_grounded_count": 1,
+      "partially_grounded_count": 0,
+      "blocked_missing_metadata_count": 0,
+      "blocked_missing_location_detail_count": 0,
+      "blocked_weak_chronology_count": 13,
+      "project_count": 2,
+      "reported_curated_sample_count": 14,
+      "uses_project_level_sample_anchor": true
+    },
+    {
+      "species_latin_name": "Rangifer tarandus",
+      "species_common_name": "reindeer",
+      "sample_row_count": 23,
+      "fully_grounded_count": 0,
+      "partially_grounded_count": 20,
+      "blocked_missing_metadata_count": 3,
+      "blocked_missing_location_detail_count": 0,
+      "blocked_weak_chronology_count": 0,
+      "project_count": 4,
+      "reported_curated_sample_count": 23,
+      "uses_project_level_sample_anchor": true
+    },
+    {
+      "species_latin_name": "Equus asinus",
+      "species_common_name": "donkey",
+      "sample_row_count": 5,
+      "fully_grounded_count": 0,
+      "partially_grounded_count": 0,
+      "blocked_missing_metadata_count": 5,
+      "blocked_missing_location_detail_count": 0,
+      "blocked_weak_chronology_count": 0,
+      "project_count": 5,
+      "reported_curated_sample_count": 5,
+      "uses_project_level_sample_anchor": true
+    }
+  ],
+  "project_rows": [
+    {
+      "species_latin_name": "Equus caballus",
+      "species_common_name": "horse",
+      "project_accession": "PRJEB10854",
+      "sample_row_count": 1,
+      "fully_grounded_count": 0,
+      "partially_grounded_count": 0,
+      "blocked_missing_metadata_count": 1,
+      "blocked_missing_location_detail_count": 0,
+      "blocked_weak_chronology_count": 0,
+      "sample_backed_site_count": 0,
+      "project_locality_summary_count": 0,
+      "uses_project_level_sample_anchor": true,
+      "sample_basis_values": [
+        "project_accession_anchor"
+      ]
+    },
+    {
+      "species_latin_name": "Equus caballus",
+      "species_common_name": "horse",
+      "project_accession": "PRJEB19970",
+      "sample_row_count": 14,
+      "fully_grounded_count": 0,
+      "partially_grounded_count": 13,
+      "blocked_missing_metadata_count": 0,
+      "blocked_missing_location_detail_count": 0,
+      "blocked_weak_chronology_count": 1,
+      "sample_backed_site_count": 4,
+      "project_locality_summary_count": 4,
+      "uses_project_level_sample_anchor": false,
+      "sample_basis_values": [
+        "supplementary_table_sample_label_anchor"
+      ]
+    },
+    {
+      "species_latin_name": "Equus caballus",
+      "species_common_name": "horse",
+      "project_accession": "PRJEB22390",
+      "sample_row_count": 42,
+      "fully_grounded_count": 0,
+      "partially_grounded_count": 42,
+      "blocked_missing_metadata_count": 0,
+      "blocked_missing_location_detail_count": 0,
+      "blocked_weak_chronology_count": 0,
+      "sample_backed_site_count": 27,
+      "project_locality_summary_count": 27,
+      "uses_project_level_sample_anchor": false,
+      "sample_basis_values": [
+        "supplementary_table_sample_label_anchor"
+      ]
+    },
+    {
+      "species_latin_name": "Equus caballus",
+      "species_common_name": "horse",
+      "project_accession": "PRJEB31613",
+      "sample_row_count": 244,
+      "fully_grounded_count": 244,
+      "partially_grounded_count": 0,
+      "blocked_missing_metadata_count": 0,
+      "blocked_missing_location_detail_count": 0,
+      "blocked_weak_chronology_count": 0,
+      "sample_backed_site_count": 95,
+      "project_locality_summary_count": 95,
+      "uses_project_level_sample_anchor": false,
+      "sample_basis_values": [
+        "supplementary_table_sample_label_anchor"
+      ]
+    },
+    {
+      "species_latin_name": "Equus caballus",
+      "species_common_name": "horse",
+      "project_accession": "PRJEB44430",
+      "sample_row_count": 248,
+      "fully_grounded_count": 248,
+      "partially_grounded_count": 0,
+      "blocked_missing_metadata_count": 0,
+      "blocked_missing_location_detail_count": 0,
+      "blocked_weak_chronology_count": 0,
+      "sample_backed_site_count": 114,
+      "project_locality_summary_count": 114,
+      "uses_project_level_sample_anchor": false,
+      "sample_basis_values": [
+        "supplementary_table_sample_label_anchor"
+      ]
+    },
+    {
+      "species_latin_name": "Equus caballus",
+      "species_common_name": "horse",
+      "project_accession": "PRJEB56293",
+      "sample_row_count": 1,
+      "fully_grounded_count": 0,
+      "partially_grounded_count": 0,
+      "blocked_missing_metadata_count": 1,
+      "blocked_missing_location_detail_count": 0,
+      "blocked_weak_chronology_count": 0,
+      "sample_backed_site_count": 0,
+      "project_locality_summary_count": 0,
+      "uses_project_level_sample_anchor": true,
+      "sample_basis_values": [
+        "project_accession_anchor"
+      ]
+    },
+    {
+      "species_latin_name": "Equus caballus",
+      "species_common_name": "horse",
+      "project_accession": "PRJEB7537",
+      "sample_row_count": 1,
+      "fully_grounded_count": 0,
+      "partially_grounded_count": 0,
+      "blocked_missing_metadata_count": 1,
+      "blocked_missing_location_detail_count": 0,
+      "blocked_weak_chronology_count": 0,
+      "sample_backed_site_count": 0,
+      "project_locality_summary_count": 0,
+      "uses_project_level_sample_anchor": true,
+      "sample_basis_values": [
+        "project_accession_anchor"
+      ]
+    },
+    {
+      "species_latin_name": "Equus caballus",
+      "species_common_name": "horse",
+      "project_accession": "PRJEB9799",
+      "sample_row_count": 1,
+      "fully_grounded_count": 0,
+      "partially_grounded_count": 0,
+      "blocked_missing_metadata_count": 1,
+      "blocked_missing_location_detail_count": 0,
+      "blocked_weak_chronology_count": 0,
+      "sample_backed_site_count": 0,
+      "project_locality_summary_count": 0,
+      "uses_project_level_sample_anchor": true,
+      "sample_basis_values": [
+        "project_accession_anchor"
+      ]
+    },
+    {
+      "species_latin_name": "Sus scrofa domesticus",
+      "species_common_name": "pig",
+      "project_accession": "PRJEB30282",
+      "sample_row_count": 1,
+      "fully_grounded_count": 0,
+      "partially_grounded_count": 1,
+      "blocked_missing_metadata_count": 0,
+      "blocked_missing_location_detail_count": 0,
+      "blocked_weak_chronology_count": 0,
+      "sample_backed_site_count": 1,
+      "project_locality_summary_count": 1,
+      "uses_project_level_sample_anchor": true,
+      "sample_basis_values": [
+        "project_accession_anchor"
+      ]
+    },
+    {
+      "species_latin_name": "Sus scrofa domesticus",
+      "species_common_name": "pig",
+      "project_accession": "PRJNA421430",
+      "sample_row_count": 1,
+      "fully_grounded_count": 0,
+      "partially_grounded_count": 0,
+      "blocked_missing_metadata_count": 1,
+      "blocked_missing_location_detail_count": 0,
+      "blocked_weak_chronology_count": 0,
+      "sample_backed_site_count": 0,
+      "project_locality_summary_count": 0,
+      "uses_project_level_sample_anchor": true,
+      "sample_basis_values": [
+        "project_accession_anchor"
+      ]
+    },
+    {
+      "species_latin_name": "Sus scrofa domesticus",
+      "species_common_name": "pig",
+      "project_accession": "PRJNA788987",
+      "sample_row_count": 1,
+      "fully_grounded_count": 0,
+      "partially_grounded_count": 0,
+      "blocked_missing_metadata_count": 1,
+      "blocked_missing_location_detail_count": 0,
+      "blocked_weak_chronology_count": 0,
+      "sample_backed_site_count": 0,
+      "project_locality_summary_count": 0,
+      "uses_project_level_sample_anchor": true,
+      "sample_basis_values": [
+        "project_accession_anchor"
+      ]
+    },
+    {
+      "species_latin_name": "Sus scrofa domesticus",
+      "species_common_name": "pig",
+      "project_accession": "PRJNA878488",
+      "sample_row_count": 1,
+      "fully_grounded_count": 0,
+      "partially_grounded_count": 0,
+      "blocked_missing_metadata_count": 1,
+      "blocked_missing_location_detail_count": 0,
+      "blocked_weak_chronology_count": 0,
+      "sample_backed_site_count": 0,
+      "project_locality_summary_count": 0,
+      "uses_project_level_sample_anchor": true,
+      "sample_basis_values": [
+        "project_accession_anchor"
+      ]
+    },
+    {
+      "species_latin_name": "Ovis aries",
+      "species_common_name": "sheep",
+      "project_accession": "PRJEB36540",
+      "sample_row_count": 190,
+      "fully_grounded_count": 0,
+      "partially_grounded_count": 177,
+      "blocked_missing_metadata_count": 0,
+      "blocked_missing_location_detail_count": 0,
+      "blocked_weak_chronology_count": 13,
+      "sample_backed_site_count": 6,
+      "project_locality_summary_count": 6,
+      "uses_project_level_sample_anchor": false,
+      "sample_basis_values": [
+        "supplementary_table_sample_label_anchor"
+      ]
+    },
+    {
+      "species_latin_name": "Ovis aries",
+      "species_common_name": "sheep",
+      "project_accession": "PRJEB41594",
+      "sample_row_count": 1,
+      "fully_grounded_count": 0,
+      "partially_grounded_count": 0,
+      "blocked_missing_metadata_count": 0,
+      "blocked_missing_location_detail_count": 1,
+      "blocked_weak_chronology_count": 0,
+      "sample_backed_site_count": 0,
+      "project_locality_summary_count": 0,
+      "uses_project_level_sample_anchor": true,
+      "sample_basis_values": [
+        "project_accession_anchor"
+      ]
+    },
+    {
+      "species_latin_name": "Ovis aries",
+      "species_common_name": "sheep",
+      "project_accession": "PRJEB59481",
+      "sample_row_count": 1,
+      "fully_grounded_count": 0,
+      "partially_grounded_count": 1,
+      "blocked_missing_metadata_count": 0,
+      "blocked_missing_location_detail_count": 0,
+      "blocked_weak_chronology_count": 0,
+      "sample_backed_site_count": 1,
+      "project_locality_summary_count": 1,
+      "uses_project_level_sample_anchor": true,
+      "sample_basis_values": [
+        "project_accession_anchor"
+      ]
+    },
+    {
+      "species_latin_name": "Ovis aries",
+      "species_common_name": "sheep",
+      "project_accession": "PRJEB61808",
+      "sample_row_count": 1,
+      "fully_grounded_count": 0,
+      "partially_grounded_count": 0,
+      "blocked_missing_metadata_count": 1,
+      "blocked_missing_location_detail_count": 0,
+      "blocked_weak_chronology_count": 0,
+      "sample_backed_site_count": 0,
+      "project_locality_summary_count": 0,
+      "uses_project_level_sample_anchor": true,
+      "sample_basis_values": [
+        "project_accession_anchor"
+      ]
+    },
+    {
+      "species_latin_name": "Ovis aries",
+      "species_common_name": "sheep",
+      "project_accession": "PRJEB69690",
+      "sample_row_count": 1,
+      "fully_grounded_count": 0,
+      "partially_grounded_count": 0,
+      "blocked_missing_metadata_count": 1,
+      "blocked_missing_location_detail_count": 0,
+      "blocked_weak_chronology_count": 0,
+      "sample_backed_site_count": 0,
+      "project_locality_summary_count": 0,
+      "uses_project_level_sample_anchor": true,
+      "sample_basis_values": [
+        "project_accession_anchor"
+      ]
+    },
+    {
+      "species_latin_name": "Ovis aries",
+      "species_common_name": "sheep",
+      "project_accession": "PRJEB81145",
+      "sample_row_count": 1,
+      "fully_grounded_count": 0,
+      "partially_grounded_count": 0,
+      "blocked_missing_metadata_count": 1,
+      "blocked_missing_location_detail_count": 0,
+      "blocked_weak_chronology_count": 0,
+      "sample_backed_site_count": 0,
+      "project_locality_summary_count": 0,
+      "uses_project_level_sample_anchor": true,
+      "sample_basis_values": [
+        "project_accession_anchor"
+      ]
+    },
+    {
+      "species_latin_name": "Bos taurus",
+      "species_common_name": "cattle",
+      "project_accession": "PRJEB31621",
+      "sample_row_count": 1,
+      "fully_grounded_count": 0,
+      "partially_grounded_count": 0,
+      "blocked_missing_metadata_count": 0,
+      "blocked_missing_location_detail_count": 1,
+      "blocked_weak_chronology_count": 0,
+      "sample_backed_site_count": 0,
+      "project_locality_summary_count": 0,
+      "uses_project_level_sample_anchor": true,
+      "sample_basis_values": [
+        "project_accession_anchor"
+      ]
+    },
+    {
+      "species_latin_name": "Bos taurus",
+      "species_common_name": "cattle",
+      "project_accession": "PRJEB75467",
+      "sample_row_count": 1,
+      "fully_grounded_count": 0,
+      "partially_grounded_count": 0,
+      "blocked_missing_metadata_count": 0,
+      "blocked_missing_location_detail_count": 1,
+      "blocked_weak_chronology_count": 0,
+      "sample_backed_site_count": 0,
+      "project_locality_summary_count": 0,
+      "uses_project_level_sample_anchor": true,
+      "sample_basis_values": [
+        "project_accession_anchor"
+      ]
+    },
+    {
+      "species_latin_name": "Bos taurus",
+      "species_common_name": "cattle",
+      "project_accession": "PRJNA705960",
+      "sample_row_count": 11,
+      "fully_grounded_count": 0,
+      "partially_grounded_count": 0,
+      "blocked_missing_metadata_count": 11,
+      "blocked_missing_location_detail_count": 0,
+      "blocked_weak_chronology_count": 0,
+      "sample_backed_site_count": 1,
+      "project_locality_summary_count": 1,
+      "uses_project_level_sample_anchor": false,
+      "sample_basis_values": [
+        "archive_project_sample_accession_anchor"
+      ]
+    },
+    {
+      "species_latin_name": "Capra hircus",
+      "species_common_name": "goat",
+      "project_accession": "PRJEB90141",
+      "sample_row_count": 4,
+      "fully_grounded_count": 4,
+      "partially_grounded_count": 0,
+      "blocked_missing_metadata_count": 0,
+      "blocked_missing_location_detail_count": 0,
+      "blocked_weak_chronology_count": 0,
+      "sample_backed_site_count": 4,
+      "project_locality_summary_count": 4,
+      "uses_project_level_sample_anchor": false,
+      "sample_basis_values": [
+        "supplementary_table_sample_label_anchor"
+      ]
+    },
+    {
+      "species_latin_name": "Capra hircus",
+      "species_common_name": "goat",
+      "project_accession": "PRJEB90261",
+      "sample_row_count": 73,
+      "fully_grounded_count": 0,
+      "partially_grounded_count": 0,
+      "blocked_missing_metadata_count": 0,
+      "blocked_missing_location_detail_count": 0,
+      "blocked_weak_chronology_count": 73,
+      "sample_backed_site_count": 22,
+      "project_locality_summary_count": 22,
+      "uses_project_level_sample_anchor": false,
+      "sample_basis_values": [
+        "supplementary_table_sample_label_anchor"
+      ]
+    },
+    {
+      "species_latin_name": "Capra hircus",
+      "species_common_name": "goat",
+      "project_accession": "PRJNA1328209",
+      "sample_row_count": 5,
+      "fully_grounded_count": 5,
+      "partially_grounded_count": 0,
+      "blocked_missing_metadata_count": 0,
+      "blocked_missing_location_detail_count": 0,
+      "blocked_weak_chronology_count": 0,
+      "sample_backed_site_count": 1,
+      "project_locality_summary_count": 1,
+      "uses_project_level_sample_anchor": false,
+      "sample_basis_values": [
+        "supplementary_table_sample_label_anchor"
+      ]
+    },
+    {
+      "species_latin_name": "Canis lupus familiaris",
+      "species_common_name": "dog",
+      "project_accession": "KX379528-KX379529",
+      "sample_row_count": 2,
+      "fully_grounded_count": 0,
+      "partially_grounded_count": 0,
+      "blocked_missing_metadata_count": 0,
+      "blocked_missing_location_detail_count": 0,
+      "blocked_weak_chronology_count": 2,
+      "sample_backed_site_count": 1,
+      "project_locality_summary_count": 1,
+      "uses_project_level_sample_anchor": true,
+      "sample_basis_values": [
+        "accession_range_anchor"
+      ]
+    },
+    {
+      "species_latin_name": "Canis lupus familiaris",
+      "species_common_name": "dog",
+      "project_accession": "SRS1407451",
+      "sample_row_count": 1,
+      "fully_grounded_count": 0,
+      "partially_grounded_count": 1,
+      "blocked_missing_metadata_count": 0,
+      "blocked_missing_location_detail_count": 0,
+      "blocked_weak_chronology_count": 0,
+      "sample_backed_site_count": 1,
+      "project_locality_summary_count": 1,
+      "uses_project_level_sample_anchor": false,
+      "sample_basis_values": [
+        "sample_accession_anchor"
+      ]
+    },
+    {
+      "species_latin_name": "Canis lupus familiaris",
+      "species_common_name": "dog",
+      "project_accession": "SRS1407453",
+      "sample_row_count": 1,
+      "fully_grounded_count": 0,
+      "partially_grounded_count": 0,
+      "blocked_missing_metadata_count": 0,
+      "blocked_missing_location_detail_count": 0,
+      "blocked_weak_chronology_count": 1,
+      "sample_backed_site_count": 1,
+      "project_locality_summary_count": 1,
+      "uses_project_level_sample_anchor": false,
+      "sample_basis_values": [
+        "sample_accession_anchor"
+      ]
+    },
+    {
+      "species_latin_name": "Felis catus",
+      "species_common_name": "cat",
+      "project_accession": "PRJEB81815",
+      "sample_row_count": 1,
+      "fully_grounded_count": 0,
+      "partially_grounded_count": 1,
+      "blocked_missing_metadata_count": 0,
+      "blocked_missing_location_detail_count": 0,
+      "blocked_weak_chronology_count": 0,
+      "sample_backed_site_count": 1,
+      "project_locality_summary_count": 1,
+      "uses_project_level_sample_anchor": true,
+      "sample_basis_values": [
+        "project_accession_anchor"
+      ]
+    },
+    {
+      "species_latin_name": "Felis catus",
+      "species_common_name": "cat",
+      "project_accession": "PRJNA1178732",
+      "sample_row_count": 1,
+      "fully_grounded_count": 0,
+      "partially_grounded_count": 0,
+      "blocked_missing_metadata_count": 0,
+      "blocked_missing_location_detail_count": 1,
+      "blocked_weak_chronology_count": 0,
+      "sample_backed_site_count": 0,
+      "project_locality_summary_count": 0,
+      "uses_project_level_sample_anchor": true,
+      "sample_basis_values": [
+        "project_accession_anchor"
+      ]
+    },
+    {
+      "species_latin_name": "Camelus dromedarius",
+      "species_common_name": "dromedary camel",
+      "project_accession": "KU605068-KU605080",
+      "sample_row_count": 13,
+      "fully_grounded_count": 0,
+      "partially_grounded_count": 0,
+      "blocked_missing_metadata_count": 0,
+      "blocked_missing_location_detail_count": 0,
+      "blocked_weak_chronology_count": 13,
+      "sample_backed_site_count": 1,
+      "project_locality_summary_count": 1,
+      "uses_project_level_sample_anchor": true,
+      "sample_basis_values": [
+        "accession_range_anchor"
+      ]
+    },
+    {
+      "species_latin_name": "Camelus dromedarius",
+      "species_common_name": "dromedary camel",
+      "project_accession": "SRP073444",
+      "sample_row_count": 1,
+      "fully_grounded_count": 1,
+      "partially_grounded_count": 0,
+      "blocked_missing_metadata_count": 0,
+      "blocked_missing_location_detail_count": 0,
+      "blocked_weak_chronology_count": 0,
+      "sample_backed_site_count": 1,
+      "project_locality_summary_count": 1,
+      "uses_project_level_sample_anchor": true,
+      "sample_basis_values": [
+        "project_accession_anchor"
+      ]
+    },
+    {
+      "species_latin_name": "Rangifer tarandus",
+      "species_common_name": "reindeer",
+      "project_accession": "PRJEB57293",
+      "sample_row_count": 1,
+      "fully_grounded_count": 0,
+      "partially_grounded_count": 0,
+      "blocked_missing_metadata_count": 1,
+      "blocked_missing_location_detail_count": 0,
+      "blocked_weak_chronology_count": 0,
+      "sample_backed_site_count": 0,
+      "project_locality_summary_count": 0,
+      "uses_project_level_sample_anchor": true,
+      "sample_basis_values": [
+        "project_accession_anchor"
+      ]
+    },
+    {
+      "species_latin_name": "Rangifer tarandus",
+      "species_common_name": "reindeer",
+      "project_accession": "PRJEB60484",
+      "sample_row_count": 20,
+      "fully_grounded_count": 0,
+      "partially_grounded_count": 20,
+      "blocked_missing_metadata_count": 0,
+      "blocked_missing_location_detail_count": 0,
+      "blocked_weak_chronology_count": 0,
+      "sample_backed_site_count": 1,
+      "project_locality_summary_count": 1,
+      "uses_project_level_sample_anchor": false,
+      "sample_basis_values": [
+        "archive_project_sample_accession_anchor"
+      ]
+    },
+    {
+      "species_latin_name": "Rangifer tarandus",
+      "species_common_name": "reindeer",
+      "project_accession": "PRJEB61721",
+      "sample_row_count": 1,
+      "fully_grounded_count": 0,
+      "partially_grounded_count": 0,
+      "blocked_missing_metadata_count": 1,
+      "blocked_missing_location_detail_count": 0,
+      "blocked_weak_chronology_count": 0,
+      "sample_backed_site_count": 0,
+      "project_locality_summary_count": 0,
+      "uses_project_level_sample_anchor": true,
+      "sample_basis_values": [
+        "project_accession_anchor"
+      ]
+    },
+    {
+      "species_latin_name": "Rangifer tarandus",
+      "species_common_name": "reindeer",
+      "project_accession": "PRJNA634908",
+      "sample_row_count": 1,
+      "fully_grounded_count": 0,
+      "partially_grounded_count": 0,
+      "blocked_missing_metadata_count": 1,
+      "blocked_missing_location_detail_count": 0,
+      "blocked_weak_chronology_count": 0,
+      "sample_backed_site_count": 0,
+      "project_locality_summary_count": 0,
+      "uses_project_level_sample_anchor": true,
+      "sample_basis_values": [
+        "project_accession_anchor"
+      ]
+    },
+    {
+      "species_latin_name": "Equus asinus",
+      "species_common_name": "donkey",
+      "project_accession": "PRJEB43564",
+      "sample_row_count": 1,
+      "fully_grounded_count": 0,
+      "partially_grounded_count": 0,
+      "blocked_missing_metadata_count": 1,
+      "blocked_missing_location_detail_count": 0,
+      "blocked_weak_chronology_count": 0,
+      "sample_backed_site_count": 0,
+      "project_locality_summary_count": 0,
+      "uses_project_level_sample_anchor": true,
+      "sample_basis_values": [
+        "project_accession_anchor"
+      ]
+    },
+    {
+      "species_latin_name": "Equus asinus",
+      "species_common_name": "donkey",
+      "project_accession": "PRJEB50952",
+      "sample_row_count": 1,
+      "fully_grounded_count": 0,
+      "partially_grounded_count": 0,
+      "blocked_missing_metadata_count": 1,
+      "blocked_missing_location_detail_count": 0,
+      "blocked_weak_chronology_count": 0,
+      "sample_backed_site_count": 0,
+      "project_locality_summary_count": 0,
+      "uses_project_level_sample_anchor": true,
+      "sample_basis_values": [
+        "project_accession_anchor"
+      ]
+    },
+    {
+      "species_latin_name": "Equus asinus",
+      "species_common_name": "donkey",
+      "project_accession": "PRJEB52590",
+      "sample_row_count": 1,
+      "fully_grounded_count": 0,
+      "partially_grounded_count": 0,
+      "blocked_missing_metadata_count": 1,
+      "blocked_missing_location_detail_count": 0,
+      "blocked_weak_chronology_count": 0,
+      "sample_backed_site_count": 0,
+      "project_locality_summary_count": 0,
+      "uses_project_level_sample_anchor": true,
+      "sample_basis_values": [
+        "project_accession_anchor"
+      ]
+    },
+    {
+      "species_latin_name": "Equus asinus",
+      "species_common_name": "donkey",
+      "project_accession": "PRJEB52849",
+      "sample_row_count": 1,
+      "fully_grounded_count": 0,
+      "partially_grounded_count": 0,
+      "blocked_missing_metadata_count": 1,
+      "blocked_missing_location_detail_count": 0,
+      "blocked_weak_chronology_count": 0,
+      "sample_backed_site_count": 1,
+      "project_locality_summary_count": 1,
+      "uses_project_level_sample_anchor": true,
+      "sample_basis_values": [
+        "project_accession_anchor"
+      ]
+    },
+    {
+      "species_latin_name": "Equus asinus",
+      "species_common_name": "donkey",
+      "project_accession": "PRJEB55549",
+      "sample_row_count": 1,
+      "fully_grounded_count": 0,
+      "partially_grounded_count": 0,
+      "blocked_missing_metadata_count": 1,
+      "blocked_missing_location_detail_count": 0,
+      "blocked_weak_chronology_count": 0,
+      "sample_backed_site_count": 0,
+      "project_locality_summary_count": 0,
+      "uses_project_level_sample_anchor": true,
+      "sample_basis_values": [
+        "project_accession_anchor"
+      ]
+    }
+  ]
+}

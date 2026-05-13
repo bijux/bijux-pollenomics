@@ -1,0 +1,102 @@
+{
+  "schema_version": "animal-species-project-recovery-deficits.v1",
+  "species_latin_name": "Equus asinus",
+  "counts": {
+    "project_count": 5,
+    "projects_with_sample_gap": 0,
+    "projects_with_site_gap": 0,
+    "projects_with_chronology_gap": 0,
+    "projects_blocked_before_publication": 5
+  },
+  "rows": [
+    {
+      "species_latin_name": "Equus asinus",
+      "project_accession": "PRJEB43564",
+      "paper_doi": "",
+      "final_sample_count": 0,
+      "expected_sample_count": null,
+      "minimum_expected_sample_count": null,
+      "minimum_gap_count": null,
+      "lacking_defensible_site_assignment_count": 0,
+      "missing_chronology_count": 0,
+      "chronology_conflict_count": 0,
+      "chronology_ambiguity_count": 0,
+      "coordinate_blocked_count": 0,
+      "publication_readiness_status": "blocked",
+      "major_deficit_reasons": [
+        "missing_primary_paper_linkage"
+      ]
+    },
+    {
+      "species_latin_name": "Equus asinus",
+      "project_accession": "PRJEB50952",
+      "paper_doi": "",
+      "final_sample_count": 0,
+      "expected_sample_count": null,
+      "minimum_expected_sample_count": null,
+      "minimum_gap_count": null,
+      "lacking_defensible_site_assignment_count": 0,
+      "missing_chronology_count": 0,
+      "chronology_conflict_count": 0,
+      "chronology_ambiguity_count": 0,
+      "coordinate_blocked_count": 0,
+      "publication_readiness_status": "blocked",
+      "major_deficit_reasons": [
+        "missing_primary_paper_linkage"
+      ]
+    },
+    {
+      "species_latin_name": "Equus asinus",
+      "project_accession": "PRJEB52590",
+      "paper_doi": "",
+      "final_sample_count": 0,
+      "expected_sample_count": null,
+      "minimum_expected_sample_count": null,
+      "minimum_gap_count": null,
+      "lacking_defensible_site_assignment_count": 0,
+      "missing_chronology_count": 0,
+      "chronology_conflict_count": 0,
+      "chronology_ambiguity_count": 0,
+      "coordinate_blocked_count": 0,
+      "publication_readiness_status": "blocked",
+      "major_deficit_reasons": [
+        "missing_primary_paper_linkage"
+      ]
+    },
+    {
+      "species_latin_name": "Equus asinus",
+      "project_accession": "PRJEB52849",
+      "paper_doi": "",
+      "final_sample_count": 0,
+      "expected_sample_count": null,
+      "minimum_expected_sample_count": null,
+      "minimum_gap_count": null,
+      "lacking_defensible_site_assignment_count": 0,
+      "missing_chronology_count": 0,
+      "chronology_conflict_count": 0,
+      "chronology_ambiguity_count": 0,
+      "coordinate_blocked_count": 1,
+      "publication_readiness_status": "blocked",
+      "major_deficit_reasons": [
+        "coordinate_precision_gap",
+        "missing_primary_paper_linkage"
+      ]
+    },
+    {
+      "species_latin_name": "Equus asinus",
+      "project_accession": "PRJEB55549",
+      "paper_doi": "",
+      "final_sample_count": 0,
+      "expected_sample_count": null,
+      "minimum_expected_sample_count": null,
+      "minimum_gap_count": null,
+      "lacking_defensible_site_assignment_count": 0,
+      "missing_chronology_count": 0,
+      "chronology_conflict_count": 0,
+      "chronology_ambiguity_count": 0,
+      "coordinate_blocked_count": 0,
+      "publication_readiness_status": "not_required",
+      "major_deficit_reasons": []
+    }
+  ]
+}

@@ -1,0 +1,67 @@
+{
+  "schema_version": "adna-locality-summary-export.v1",
+  "species_latin_name": "Sus scrofa domesticus",
+  "localities": [
+    {
+      "identity": {
+        "namespace": "sus_scrofa_domesticus:project_locality",
+        "stable_token": "sus_scrofa_domesticus:locality:prjeb30282:neareastandeuropepigdomesticationtransect:turkeyandeurope",
+        "locality_text": "Near East and Europe pig domestication transect",
+        "political_entity": "Turkey and Europe",
+        "source_anchor_tokens": [
+          "PRJEB30282",
+          "",
+          ""
+        ]
+      },
+      "species_latin_name": "Sus scrofa domesticus",
+      "species_common_name": "pig",
+      "source_family": "ENA",
+      "source_releases": [
+        "PRJEB30282"
+      ],
+      "record_modalities": [
+        "archive_reads"
+      ],
+      "review_strengths": [
+        "primary_paper_pinned"
+      ],
+      "provenance_qualities": [
+        "primary_paper_pinned"
+      ],
+      "locality": "Near East and Europe pig domestication transect",
+      "coordinates": {
+        "latitude": null,
+        "longitude": null,
+        "latitude_text": "",
+        "longitude_text": "",
+        "confidence": "withheld"
+      },
+      "sample_count": 1,
+      "sample_ids": [
+        "PRJEB30282"
+      ],
+      "datasets": [
+        "sus_scrofa_domesticus:project:PRJEB30282"
+      ],
+      "chronology": {
+        "original_text": "~10500-6000 BP pig turnover transect",
+        "time_start_bp": 6000,
+        "time_end_bp": 10500,
+        "time_mean_bp": 8250,
+        "date_stddev_bp": "",
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+        "evidence_class": "direct_radiocarbon_date",
+        "precision_posture": "contextual_interval"
+      },
+      "sample_namespace": "sus_scrofa_domesticus:sample_locality",
+      "project_accessions": [
+        "PRJEB30282"
+      ],
+      "original_location_text": "Near East and Europe pig domestication transect",
+      "nordic_inclusion": false,
+      "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
+      "interpretation_note": "Region-level pig turnover evidence is kept as non-mappable context until site rows exist."
+    }
+  ]
+}

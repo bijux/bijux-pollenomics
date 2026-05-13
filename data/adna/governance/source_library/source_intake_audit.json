@@ -1,0 +1,461 @@
+{
+  "schema_version": "adna-source-library.v1",
+  "sample_extractable_paper_count": 18,
+  "supplementary_manifested_paper_count": 18,
+  "supplement_zip_member_count": 11,
+  "blocker_counts": {
+    "missing_paper_capture_count": 13,
+    "missing_supplementary_capture_count": 0,
+    "missing_readable_tables_count": 13,
+    "missing_sample_identifier_count": 30
+  },
+  "sample_extractable_violations": [],
+  "rows": [
+    {
+      "project_accession": "PRJEB31621",
+      "species_latin_name": "Bos taurus",
+      "inventory_disposition": "tracked_intake_candidate",
+      "expected_sample_count": null,
+      "expected_sample_count_status": "not_yet_curated",
+      "sample_identifier_status": "manual_curation_required",
+      "blocker_categories": [
+        "missing_sample_identifiers"
+      ]
+    },
+    {
+      "project_accession": "PRJEB75467",
+      "species_latin_name": "Bos taurus",
+      "inventory_disposition": "tracked_intake_candidate",
+      "expected_sample_count": null,
+      "expected_sample_count_status": "not_yet_curated",
+      "sample_identifier_status": "paper_or_supplement_targets_curated",
+      "blocker_categories": [
+        "missing_sample_identifiers"
+      ]
+    },
+    {
+      "project_accession": "PRJNA705960",
+      "species_latin_name": "Bos taurus",
+      "inventory_disposition": "tracked_intake_candidate",
+      "expected_sample_count": null,
+      "expected_sample_count_status": "not_yet_curated",
+      "sample_identifier_status": "missing_primary_paper_linkage",
+      "blocker_categories": [
+        "missing_paper_capture",
+        "missing_sample_identifiers",
+        "missing_readable_tables"
+      ]
+    },
+    {
+      "project_accession": "KU605068-KU605080",
+      "species_latin_name": "Camelus dromedarius",
+      "inventory_disposition": "tracked_intake_candidate",
+      "expected_sample_count": 13,
+      "expected_sample_count_status": "known_from_archive_accession_scope",
+      "sample_identifier_status": "archive_native_identifiers_known",
+      "blocker_categories": []
+    },
+    {
+      "project_accession": "SRP073444",
+      "species_latin_name": "Camelus dromedarius",
+      "inventory_disposition": "tracked_intake_candidate",
+      "expected_sample_count": null,
+      "expected_sample_count_status": "not_yet_curated",
+      "sample_identifier_status": "paper_or_supplement_targets_curated",
+      "blocker_categories": [
+        "missing_sample_identifiers"
+      ]
+    },
+    {
+      "project_accession": "KX379528-KX379529",
+      "species_latin_name": "Canis lupus familiaris",
+      "inventory_disposition": "tracked_intake_candidate",
+      "expected_sample_count": 2,
+      "expected_sample_count_status": "known_from_archive_accession_scope",
+      "sample_identifier_status": "archive_native_identifiers_known",
+      "blocker_categories": []
+    },
+    {
+      "project_accession": "SRS1407451",
+      "species_latin_name": "Canis lupus familiaris",
+      "inventory_disposition": "tracked_intake_candidate",
+      "expected_sample_count": 1,
+      "expected_sample_count_status": "known_from_archive_accession_scope",
+      "sample_identifier_status": "archive_native_identifiers_known",
+      "blocker_categories": []
+    },
+    {
+      "project_accession": "SRS1407453",
+      "species_latin_name": "Canis lupus familiaris",
+      "inventory_disposition": "tracked_intake_candidate",
+      "expected_sample_count": 1,
+      "expected_sample_count_status": "known_from_archive_accession_scope",
+      "sample_identifier_status": "archive_native_identifiers_known",
+      "blocker_categories": []
+    },
+    {
+      "project_accession": "PRJEB90141",
+      "species_latin_name": "Capra hircus",
+      "inventory_disposition": "tracked_intake_candidate",
+      "expected_sample_count": null,
+      "expected_sample_count_status": "not_yet_curated",
+      "sample_identifier_status": "paper_or_supplement_targets_curated",
+      "blocker_categories": [
+        "missing_sample_identifiers"
+      ]
+    },
+    {
+      "project_accession": "PRJEB90261",
+      "species_latin_name": "Capra hircus",
+      "inventory_disposition": "tracked_intake_candidate",
+      "expected_sample_count": null,
+      "expected_sample_count_status": "not_yet_curated",
+      "sample_identifier_status": "paper_or_supplement_targets_curated",
+      "blocker_categories": [
+        "missing_sample_identifiers"
+      ]
+    },
+    {
+      "project_accession": "PRJNA1328209",
+      "species_latin_name": "Capra hircus",
+      "inventory_disposition": "tracked_intake_candidate",
+      "expected_sample_count": null,
+      "expected_sample_count_status": "not_yet_curated",
+      "sample_identifier_status": "paper_or_supplement_targets_curated",
+      "blocker_categories": [
+        "missing_sample_identifiers"
+      ]
+    },
+    {
+      "project_accession": "PRJEB43564",
+      "species_latin_name": "Equus asinus",
+      "inventory_disposition": "tracked_intake_candidate",
+      "expected_sample_count": null,
+      "expected_sample_count_status": "not_yet_curated",
+      "sample_identifier_status": "missing_primary_paper_linkage",
+      "blocker_categories": [
+        "missing_paper_capture",
+        "missing_sample_identifiers",
+        "missing_readable_tables"
+      ]
+    },
+    {
+      "project_accession": "PRJEB50952",
+      "species_latin_name": "Equus asinus",
+      "inventory_disposition": "tracked_intake_candidate",
+      "expected_sample_count": null,
+      "expected_sample_count_status": "not_yet_curated",
+      "sample_identifier_status": "missing_primary_paper_linkage",
+      "blocker_categories": [
+        "missing_paper_capture",
+        "missing_sample_identifiers",
+        "missing_readable_tables"
+      ]
+    },
+    {
+      "project_accession": "PRJEB52590",
+      "species_latin_name": "Equus asinus",
+      "inventory_disposition": "tracked_intake_candidate",
+      "expected_sample_count": null,
+      "expected_sample_count_status": "not_yet_curated",
+      "sample_identifier_status": "missing_primary_paper_linkage",
+      "blocker_categories": [
+        "missing_paper_capture",
+        "missing_sample_identifiers",
+        "missing_readable_tables"
+      ]
+    },
+    {
+      "project_accession": "PRJEB52849",
+      "species_latin_name": "Equus asinus",
+      "inventory_disposition": "tracked_intake_candidate",
+      "expected_sample_count": null,
+      "expected_sample_count_status": "not_yet_curated",
+      "sample_identifier_status": "missing_primary_paper_linkage",
+      "blocker_categories": [
+        "missing_paper_capture",
+        "missing_sample_identifiers",
+        "missing_readable_tables"
+      ]
+    },
+    {
+      "project_accession": "PRJEB55549",
+      "species_latin_name": "Equus asinus",
+      "inventory_disposition": "retained_rejected_reference",
+      "expected_sample_count": null,
+      "expected_sample_count_status": "not_yet_curated",
+      "sample_identifier_status": "not_yet_curated",
+      "blocker_categories": []
+    },
+    {
+      "project_accession": "PRJEB10854",
+      "species_latin_name": "Equus caballus",
+      "inventory_disposition": "tracked_intake_candidate",
+      "expected_sample_count": null,
+      "expected_sample_count_status": "not_yet_curated",
+      "sample_identifier_status": "missing_primary_paper_linkage",
+      "blocker_categories": [
+        "missing_paper_capture",
+        "missing_sample_identifiers",
+        "missing_readable_tables"
+      ]
+    },
+    {
+      "project_accession": "PRJEB19970",
+      "species_latin_name": "Equus caballus",
+      "inventory_disposition": "tracked_intake_candidate",
+      "expected_sample_count": null,
+      "expected_sample_count_status": "not_yet_curated",
+      "sample_identifier_status": "manual_curation_required",
+      "blocker_categories": [
+        "missing_sample_identifiers"
+      ]
+    },
+    {
+      "project_accession": "PRJEB22390",
+      "species_latin_name": "Equus caballus",
+      "inventory_disposition": "tracked_intake_candidate",
+      "expected_sample_count": null,
+      "expected_sample_count_status": "not_yet_curated",
+      "sample_identifier_status": "manual_curation_required",
+      "blocker_categories": [
+        "missing_sample_identifiers"
+      ]
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "species_latin_name": "Equus caballus",
+      "inventory_disposition": "tracked_intake_candidate",
+      "expected_sample_count": null,
+      "expected_sample_count_status": "not_yet_curated",
+      "sample_identifier_status": "paper_or_supplement_targets_curated",
+      "blocker_categories": [
+        "missing_sample_identifiers"
+      ]
+    },
+    {
+      "project_accession": "PRJEB44430",
+      "species_latin_name": "Equus caballus",
+      "inventory_disposition": "tracked_intake_candidate",
+      "expected_sample_count": null,
+      "expected_sample_count_status": "not_yet_curated",
+      "sample_identifier_status": "paper_or_supplement_targets_curated",
+      "blocker_categories": [
+        "missing_sample_identifiers"
+      ]
+    },
+    {
+      "project_accession": "PRJEB56293",
+      "species_latin_name": "Equus caballus",
+      "inventory_disposition": "tracked_intake_candidate",
+      "expected_sample_count": null,
+      "expected_sample_count_status": "not_yet_curated",
+      "sample_identifier_status": "missing_primary_paper_linkage",
+      "blocker_categories": [
+        "missing_paper_capture",
+        "missing_sample_identifiers",
+        "missing_readable_tables"
+      ]
+    },
+    {
+      "project_accession": "PRJEB7537",
+      "species_latin_name": "Equus caballus",
+      "inventory_disposition": "tracked_intake_candidate",
+      "expected_sample_count": null,
+      "expected_sample_count_status": "not_yet_curated",
+      "sample_identifier_status": "missing_primary_paper_linkage",
+      "blocker_categories": [
+        "missing_paper_capture",
+        "missing_sample_identifiers",
+        "missing_readable_tables"
+      ]
+    },
+    {
+      "project_accession": "PRJEB9799",
+      "species_latin_name": "Equus caballus",
+      "inventory_disposition": "retained_rejected_reference",
+      "expected_sample_count": null,
+      "expected_sample_count_status": "not_yet_curated",
+      "sample_identifier_status": "not_yet_curated",
+      "blocker_categories": []
+    },
+    {
+      "project_accession": "PRJEB81815",
+      "species_latin_name": "Felis catus",
+      "inventory_disposition": "tracked_intake_candidate",
+      "expected_sample_count": null,
+      "expected_sample_count_status": "not_yet_curated",
+      "sample_identifier_status": "paper_or_supplement_targets_curated",
+      "blocker_categories": [
+        "missing_sample_identifiers"
+      ]
+    },
+    {
+      "project_accession": "PRJNA1178732",
+      "species_latin_name": "Felis catus",
+      "inventory_disposition": "tracked_intake_candidate",
+      "expected_sample_count": null,
+      "expected_sample_count_status": "not_yet_curated",
+      "sample_identifier_status": "paper_or_supplement_targets_curated",
+      "blocker_categories": [
+        "missing_sample_identifiers"
+      ]
+    },
+    {
+      "project_accession": "PRJEB36540",
+      "species_latin_name": "Ovis aries",
+      "inventory_disposition": "tracked_intake_candidate",
+      "expected_sample_count": null,
+      "expected_sample_count_status": "not_yet_curated",
+      "sample_identifier_status": "paper_or_supplement_targets_curated",
+      "blocker_categories": [
+        "missing_sample_identifiers"
+      ]
+    },
+    {
+      "project_accession": "PRJEB41594",
+      "species_latin_name": "Ovis aries",
+      "inventory_disposition": "tracked_intake_candidate",
+      "expected_sample_count": null,
+      "expected_sample_count_status": "not_yet_curated",
+      "sample_identifier_status": "paper_or_supplement_targets_curated",
+      "blocker_categories": [
+        "missing_sample_identifiers"
+      ]
+    },
+    {
+      "project_accession": "PRJEB59481",
+      "species_latin_name": "Ovis aries",
+      "inventory_disposition": "tracked_intake_candidate",
+      "expected_sample_count": null,
+      "expected_sample_count_status": "not_yet_curated",
+      "sample_identifier_status": "paper_or_supplement_targets_curated",
+      "blocker_categories": [
+        "missing_sample_identifiers"
+      ]
+    },
+    {
+      "project_accession": "PRJEB61808",
+      "species_latin_name": "Ovis aries",
+      "inventory_disposition": "tracked_intake_candidate",
+      "expected_sample_count": null,
+      "expected_sample_count_status": "not_yet_curated",
+      "sample_identifier_status": "missing_primary_paper_linkage",
+      "blocker_categories": [
+        "missing_paper_capture",
+        "missing_sample_identifiers",
+        "missing_readable_tables"
+      ]
+    },
+    {
+      "project_accession": "PRJEB69690",
+      "species_latin_name": "Ovis aries",
+      "inventory_disposition": "tracked_intake_candidate",
+      "expected_sample_count": null,
+      "expected_sample_count_status": "not_yet_curated",
+      "sample_identifier_status": "missing_primary_paper_linkage",
+      "blocker_categories": [
+        "missing_paper_capture",
+        "missing_sample_identifiers",
+        "missing_readable_tables"
+      ]
+    },
+    {
+      "project_accession": "PRJEB81145",
+      "species_latin_name": "Ovis aries",
+      "inventory_disposition": "tracked_intake_candidate",
+      "expected_sample_count": null,
+      "expected_sample_count_status": "not_yet_curated",
+      "sample_identifier_status": "missing_primary_paper_linkage",
+      "blocker_categories": [
+        "missing_paper_capture",
+        "missing_sample_identifiers",
+        "missing_readable_tables"
+      ]
+    },
+    {
+      "project_accession": "PRJEB57293",
+      "species_latin_name": "Rangifer tarandus",
+      "inventory_disposition": "retained_rejected_reference",
+      "expected_sample_count": null,
+      "expected_sample_count_status": "not_yet_curated",
+      "sample_identifier_status": "not_yet_curated",
+      "blocker_categories": []
+    },
+    {
+      "project_accession": "PRJEB60484",
+      "species_latin_name": "Rangifer tarandus",
+      "inventory_disposition": "tracked_intake_candidate",
+      "expected_sample_count": null,
+      "expected_sample_count_status": "not_yet_curated",
+      "sample_identifier_status": "paper_or_supplement_targets_curated",
+      "blocker_categories": [
+        "missing_sample_identifiers"
+      ]
+    },
+    {
+      "project_accession": "PRJEB61721",
+      "species_latin_name": "Rangifer tarandus",
+      "inventory_disposition": "retained_rejected_reference",
+      "expected_sample_count": null,
+      "expected_sample_count_status": "not_yet_curated",
+      "sample_identifier_status": "not_yet_curated",
+      "blocker_categories": []
+    },
+    {
+      "project_accession": "PRJNA634908",
+      "species_latin_name": "Rangifer tarandus",
+      "inventory_disposition": "retained_rejected_reference",
+      "expected_sample_count": null,
+      "expected_sample_count_status": "not_yet_curated",
+      "sample_identifier_status": "not_yet_curated",
+      "blocker_categories": []
+    },
+    {
+      "project_accession": "PRJEB30282",
+      "species_latin_name": "Sus scrofa domesticus",
+      "inventory_disposition": "tracked_intake_candidate",
+      "expected_sample_count": null,
+      "expected_sample_count_status": "not_yet_curated",
+      "sample_identifier_status": "paper_or_supplement_targets_curated",
+      "blocker_categories": [
+        "missing_sample_identifiers"
+      ]
+    },
+    {
+      "project_accession": "PRJNA421430",
+      "species_latin_name": "Sus scrofa domesticus",
+      "inventory_disposition": "retained_rejected_reference",
+      "expected_sample_count": null,
+      "expected_sample_count_status": "not_yet_curated",
+      "sample_identifier_status": "not_yet_curated",
+      "blocker_categories": []
+    },
+    {
+      "project_accession": "PRJNA788987",
+      "species_latin_name": "Sus scrofa domesticus",
+      "inventory_disposition": "tracked_intake_candidate",
+      "expected_sample_count": null,
+      "expected_sample_count_status": "not_yet_curated",
+      "sample_identifier_status": "missing_primary_paper_linkage",
+      "blocker_categories": [
+        "missing_paper_capture",
+        "missing_sample_identifiers",
+        "missing_readable_tables"
+      ]
+    },
+    {
+      "project_accession": "PRJNA878488",
+      "species_latin_name": "Sus scrofa domesticus",
+      "inventory_disposition": "tracked_intake_candidate",
+      "expected_sample_count": null,
+      "expected_sample_count_status": "not_yet_curated",
+      "sample_identifier_status": "missing_primary_paper_linkage",
+      "blocker_categories": [
+        "missing_paper_capture",
+        "missing_sample_identifiers",
+        "missing_readable_tables"
+      ]
+    }
+  ]
+}

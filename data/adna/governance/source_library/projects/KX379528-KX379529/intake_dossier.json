@@ -1,0 +1,108 @@
+{
+  "schema_version": "animal-project-recovery-dossier.v1",
+  "project_accession": "KX379528-KX379529",
+  "species_latin_name": "Canis lupus familiaris",
+  "paper_doi": "10.1038/ncomms16082",
+  "archive_status": "paper_pinned_core",
+  "evidence_strength": "primary_paper_pinned",
+  "inventory_disposition": "tracked_intake_candidate",
+  "stage_statuses": {
+    "project_admission": "complete",
+    "paper_capture": "complete",
+    "supplement_capture": "not_required",
+    "sample_identity_recovery": "complete",
+    "site_recovery": "in_progress",
+    "chronology_recovery": "in_progress",
+    "coordinate_derivation": "blocked",
+    "publication_readiness": "blocked"
+  },
+  "blocking_stages": [
+    "coordinate_derivation",
+    "publication_readiness"
+  ],
+  "next_required_stage": "site_recovery",
+  "publication_readiness_status": "blocked",
+  "expected_sample_count": 2,
+  "expected_sample_count_status": "known_from_archive_accession_scope",
+  "expected_sample_count_provenance": "The tracked accession range implies a finite set of archive-native sample identifiers.",
+  "expected_sample_count_artifact_path": "data/adna/governance/source_library/projects/KX379528-KX379529/archive_metadata.html",
+  "minimum_expected_sample_count": 2,
+  "recovered_sample_count": 2,
+  "final_sample_count": 2,
+  "unresolved_sample_count": 0,
+  "minimum_gap_count": 0,
+  "recovery_gap_status": "recovered_to_exact_expected_count",
+  "implausibly_low_recovery": false,
+  "implausibly_low_recovery_reason": "",
+  "known_assets": [
+    "adna/governance/source_library/papers/10.1038-ncomms16082/supplementary/41467_2017_BFncomms16082_MOESM109_ESM.pdf",
+    "adna/governance/source_library/papers/10.1038-ncomms16082/supplementary/41467_2017_BFncomms16082_MOESM110_ESM.pdf",
+    "adna/governance/source_library/papers/10.1038-ncomms16082/article.html",
+    "adna/governance/source_library/papers/10.1038-ncomms16082/crossref.json",
+    "adna/governance/source_library/projects/KX379528-KX379529/archive_metadata.html",
+    "data/adna/governance/source_library/projects/KX379528-KX379529/sample_master.json",
+    "data/adna/governance/source_library/projects/KX379528-KX379529/sample_sites.json",
+    "data/adna/governance/source_library/projects/KX379528-KX379529/sample_chronology.json",
+    "data/adna/governance/source_library/projects/KX379528-KX379529/sample_locality_evidence.json"
+  ],
+  "missing_assets": [
+    "Some recovered sample rows still lack a defensible site assignment.",
+    "Some recovered sample rows still lack sample-level chronology."
+  ],
+  "expected_contributions": [
+    "sample_identities",
+    "taxonomic_context",
+    "site_evidence",
+    "coordinate_candidates",
+    "sample_chronology"
+  ],
+  "expected_contribution_surfaces": [
+    "data/adna/governance/source_library/projects/KX379528-KX379529/archive_metadata.html",
+    "data/adna/governance/source_library/papers/10.1038-ncomms16082/article.html",
+    "adna/governance/source_library/papers/10.1038-ncomms16082/supplementary/41467_2017_BFncomms16082_MOESM109_ESM.pdf",
+    "adna/governance/source_library/papers/10.1038-ncomms16082/supplementary/41467_2017_BFncomms16082_MOESM110_ESM.pdf"
+  ],
+  "contradictory_evidence": [
+    "Locality substitution review still blocks publication because project-level geography would flatten distinct sample evidence."
+  ],
+  "inferred_claims": [],
+  "manual_curation_work_units": [
+    {
+      "project_accession": "KX379528-KX379529",
+      "species_latin_name": "Canis lupus familiaris",
+      "work_unit_type": "chronology_recovery",
+      "work_unit_state": "pending_source_recovery",
+      "open_item_count": 4,
+      "rationale": "no_sample_owned_chronology_recovered; missing_sample_level_date_evidence",
+      "downstream_impact": "blocks chronology honesty and publication precision",
+      "recommended_source_surfaces": [
+        "data/adna/governance/source_library/projects/KX379528-KX379529/sample_chronology.json",
+        "data/adna/governance/source_library/projects/KX379528-KX379529/intake_dossier.json"
+      ]
+    },
+    {
+      "project_accession": "KX379528-KX379529",
+      "species_latin_name": "Canis lupus familiaris",
+      "work_unit_type": "locality_string_resolution",
+      "work_unit_state": "pending_manual_curation",
+      "open_item_count": 2,
+      "rationale": "unresolved",
+      "downstream_impact": "blocks coordinate derivation and exact locality publication",
+      "recommended_source_surfaces": []
+    },
+    {
+      "project_accession": "KX379528-KX379529",
+      "species_latin_name": "Canis lupus familiaris",
+      "work_unit_type": "site_resolution",
+      "work_unit_state": "pending_manual_curation",
+      "open_item_count": 2,
+      "rationale": "recovered_sample_rows_still_lack_any_location_claim",
+      "downstream_impact": "blocks exact site, coordinate, and publication recovery",
+      "recommended_source_surfaces": []
+    }
+  ],
+  "major_deficit_reasons": [
+    "site_assignment_gap",
+    "chronology_gap"
+  ]
+}

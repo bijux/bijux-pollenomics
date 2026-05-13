@@ -1,0 +1,116 @@
+{
+  "schema_version": "candidate-ranking-engine-manifest.v1",
+  "engine_name": "candidate_site_ranking",
+  "current_mode": "profiled_atlas_heuristic",
+  "bridge_statement": "The current engine ranks locality anchors with explicit evidence families and refusal behavior, but it remains an atlas-adjacent heuristic until stronger multi-evidence contracts are satisfied.",
+  "default_profile": "atlas_exploration",
+  "supported_profiles": [
+    {
+      "profile_name": "atlas_exploration",
+      "purpose": "Compare current locality anchors for descriptive atlas exploration without pretending the result is a fieldwork recommendation.",
+      "warning": "Exploratory atlas ordering remains heuristic and can elevate metadata-rich human localities over scientifically stronger multi-evidence candidates.",
+      "weights": {
+        "evidence_density": 0.35,
+        "chronology_alignment": 0.2,
+        "species_diversity": 0.1,
+        "contextual_support": 0.35
+      },
+      "missingness_penalty_scale": 0.75,
+      "max_missingness_penalty": 0.35,
+      "requires_direct_chronology": false,
+      "requires_temporal_context": false,
+      "requires_cross_species_evidence": false,
+      "requires_non_metadata_direct_evidence": false,
+      "minimum_temporal_overlap_points": 0
+    },
+    {
+      "profile_name": "chronology_first",
+      "purpose": "Stress chronology agreement over context density to expose which localities remain coherent under date-aware comparison.",
+      "warning": "Chronology-first ordering still depends on current metadata coverage and should not be treated as a recommendation surface.",
+      "weights": {
+        "evidence_density": 0.25,
+        "chronology_alignment": 0.45,
+        "species_diversity": 0.1,
+        "contextual_support": 0.2
+      },
+      "missingness_penalty_scale": 0.95,
+      "max_missingness_penalty": 0.4,
+      "requires_direct_chronology": true,
+      "requires_temporal_context": false,
+      "requires_cross_species_evidence": false,
+      "requires_non_metadata_direct_evidence": false,
+      "minimum_temporal_overlap_points": 0
+    },
+    {
+      "profile_name": "context_first",
+      "purpose": "Stress nearby cross-layer support over direct sample density to show how much the atlas depends on surrounding context.",
+      "warning": "Context-first ordering can reward busy neighborhoods even when direct ancient-DNA evidence is still thin.",
+      "weights": {
+        "evidence_density": 0.2,
+        "chronology_alignment": 0.15,
+        "species_diversity": 0.1,
+        "contextual_support": 0.55
+      },
+      "missingness_penalty_scale": 0.85,
+      "max_missingness_penalty": 0.4,
+      "requires_direct_chronology": false,
+      "requires_temporal_context": false,
+      "requires_cross_species_evidence": false,
+      "requires_non_metadata_direct_evidence": false,
+      "minimum_temporal_overlap_points": 0
+    },
+    {
+      "profile_name": "fieldwork_triage",
+      "purpose": "Hold candidates against a stricter pre-recommendation bar for future lake-selection workflows.",
+      "warning": "Fieldwork triage is stricter than atlas exploration and should be read as a refusal-prone readiness screen, not a final sampling plan.",
+      "weights": {
+        "evidence_density": 0.3,
+        "chronology_alignment": 0.3,
+        "species_diversity": 0.2,
+        "contextual_support": 0.2
+      },
+      "missingness_penalty_scale": 1.15,
+      "max_missingness_penalty": 0.55,
+      "requires_direct_chronology": true,
+      "requires_temporal_context": true,
+      "requires_cross_species_evidence": true,
+      "requires_non_metadata_direct_evidence": true,
+      "minimum_temporal_overlap_points": 1
+    }
+  ],
+  "current_artifacts": [
+    "candidate_sites_csv",
+    "candidate_sites_json",
+    "candidate_sites_markdown",
+    "candidate_site_sensitivity_json",
+    "candidate_site_sensitivity_markdown",
+    "candidate_ranking_engine_manifest_json",
+    "atlas_evidence_surface_json",
+    "atlas_evidence_surface_markdown",
+    "atlas_scientific_review_json",
+    "atlas_scientific_review_markdown"
+  ],
+  "recommendation_gate_statement": "No output counts as a sampling recommendation unless the `fieldwork_triage` profile clears cross-species, chronology, context-overlap, and non-metadata direct-evidence gates.",
+  "future_lake_selection_requirements": [
+    {
+      "requirement": "cross-species direct evidence at the same locality anchor",
+      "why_it_matters": "single-species metadata can describe presence but cannot support serious pollenomics inference on its own",
+      "currently_satisfied": false
+    },
+    {
+      "requirement": "non-metadata direct evidence such as archive reads or genotypes",
+      "why_it_matters": "field sampling should not be prioritized from metadata-only human locality inventories",
+      "currently_satisfied": false
+    },
+    {
+      "requirement": "chronology overlap between direct evidence and contextual layers",
+      "why_it_matters": "distance without temporal agreement can create false confidence",
+      "currently_satisfied": false
+    },
+    {
+      "requirement": "evidence contracts that reconcile human, animal, pollen, and archaeology layers",
+      "why_it_matters": "future site selection must combine evidence types without pretending they mean the same thing",
+      "currently_satisfied": false
+    }
+  ]
+}

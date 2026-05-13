@@ -1,0 +1,8 @@
+species_latin_name,recovered_sample_row_count,normalized_row_count,exact_sample_date_count,modeled_or_approximate_sample_date_count,contextual_date_count,broad_label_count,text_only_unparsed_count,unresolved_count,chronology_completeness_ratio
+Bos taurus,11,11,0,0,11,0,0,0,1.0
+Camelus dromedarius,13,0,0,0,0,0,0,13,0.0
+Canis lupus familiaris,4,1,0,0,1,0,0,3,0.25
+Capra hircus,82,82,9,73,0,0,73,0,1.0
+Equus caballus,548,548,539,1,8,0,1,0,1.0
+Ovis aries,190,190,167,13,10,0,13,0,1.0
+Rangifer tarandus,20,20,0,0,20,0,0,0,1.0

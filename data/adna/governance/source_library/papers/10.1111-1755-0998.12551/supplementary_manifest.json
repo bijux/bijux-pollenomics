@@ -1,0 +1,80 @@
+{
+  "schema_version": "adna-source-library.v1",
+  "rows": [
+    {
+      "row_kind": "archived_asset",
+      "paper_doi": "10.1111/1755-0998.12551",
+      "artifact_id": "10.1111-1755-0998.12551:article.html",
+      "artifact_kind": "article_html",
+      "label": "article source",
+      "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5324683/",
+      "local_path": "adna/governance/source_library/papers/10.1111-1755-0998.12551/article.html",
+      "fetch_status": "archived",
+      "content_type": "text/html; charset=utf-8",
+      "byte_size": 273976,
+      "member_name": "",
+      "member_local_path": "",
+      "inferred_purpose": "PMC full-text HTML is archived for the camel paper."
+    },
+    {
+      "row_kind": "archived_asset",
+      "paper_doi": "10.1111/1755-0998.12551",
+      "artifact_id": "10.1111-1755-0998.12551:crossref.json",
+      "artifact_kind": "paper_metadata_json",
+      "label": "crossref metadata",
+      "source_url": "https://api.crossref.org/works/10.1111/1755-0998.12551",
+      "local_path": "adna/governance/source_library/papers/10.1111-1755-0998.12551/crossref.json",
+      "fetch_status": "archived",
+      "content_type": "application/json",
+      "byte_size": 16232,
+      "member_name": "",
+      "member_local_path": "",
+      "inferred_purpose": "Crossref metadata snapshot preserves DOI and title even when publisher downloads are blocked."
+    },
+    {
+      "row_kind": "archived_asset",
+      "paper_doi": "10.1111/1755-0998.12551",
+      "artifact_id": "10.1111-1755-0998.12551:men12551-sup-0001-supinfo.docx",
+      "artifact_kind": "supplementary_pdf",
+      "label": "curated supplementary asset men12551-sup-0001-supinfo.docx",
+      "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5324683/",
+      "local_path": "adna/governance/source_library/papers/10.1111-1755-0998.12551/supplementary/men12551-sup-0001-supinfo.docx",
+      "fetch_status": "archived",
+      "content_type": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+      "byte_size": 170976839,
+      "member_name": "",
+      "member_local_path": "",
+      "inferred_purpose": "Original recovered supplement exceeded practical GitHub repository limits. Bijux stores a lightweight repository placeholder at this local path; recover the full source artifact from the cited source URL or governed local stash when needed."
+    },
+    {
+      "row_kind": "archived_asset",
+      "paper_doi": "10.1111/1755-0998.12551",
+      "artifact_id": "KU605068-KU605080:archive_metadata.html",
+      "artifact_kind": "archive_metadata_html",
+      "label": "archive metadata page",
+      "source_url": "https://www.ncbi.nlm.nih.gov/nuccore/KU605068",
+      "local_path": "adna/governance/source_library/projects/KU605068-KU605080/archive_metadata.html",
+      "fetch_status": "archived",
+      "content_type": "text/html; charset=UTF-8",
+      "byte_size": 90233,
+      "member_name": "",
+      "member_local_path": "",
+      "inferred_purpose": "Archive-facing metadata page captured for the tracked accession."
+    },
+    {
+      "row_kind": "archived_asset",
+      "paper_doi": "10.1111/1755-0998.12551",
+      "artifact_id": "SRP073444:archive_metadata.html",
+      "artifact_kind": "archive_metadata_html",
+      "label": "archive metadata page",
+      "source_url": "https://www.ncbi.nlm.nih.gov/sra?term=SRP073444",
+      "local_path": "adna/governance/source_library/projects/SRP073444/archive_metadata.html",
+      "fetch_status": "archived",
+      "content_type": "text/html; charset=UTF-8",
+      "byte_size": 85258,
+      "member_name": "",
+      "member_local_path": "",
+      "inferred_purpose": "Archive-facing metadata page captured for the tracked accession."
+    }
+  ]
+}

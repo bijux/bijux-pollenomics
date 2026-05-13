@@ -2,6 +2,23 @@
 
 All notable changes for `bijux-pollenomics-dev` are recorded here.
 
+## Unreleased
+
+### Changed
+
+- Updated maintainer-package docs to point at the current canonical
+  maintainer, runtime, public, and report-review routes used by repository
+  verification and release-support work.
+- Aligned maintainer-facing contract coverage with the current generated-artifact,
+  report-portal, and split release-support workflow model instead of older
+  monolithic handbook assumptions.
+
+### Fixed
+
+- Kept maintainer-package build and release verification aligned with the
+  restored package legal-file materialization contract used by package smoke
+  installs.
+
 ## 0.1.6 - 2026-04-21
 
 ### Changed

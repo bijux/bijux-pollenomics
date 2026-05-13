@@ -1,3 +1,5 @@
+"""Public pipeline helpers for collecting and staging context sources."""
+
 from .collection_reports import (
     build_data_collection_report,
     build_data_collection_summary,

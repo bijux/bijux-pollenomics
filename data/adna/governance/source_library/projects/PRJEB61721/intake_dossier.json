@@ -1,0 +1,52 @@
+{
+  "schema_version": "animal-project-recovery-dossier.v1",
+  "project_accession": "PRJEB61721",
+  "species_latin_name": "Rangifer tarandus",
+  "paper_doi": "",
+  "archive_status": "reject_or_out_of_scope",
+  "evidence_strength": "archive_only",
+  "inventory_disposition": "retained_rejected_reference",
+  "stage_statuses": {
+    "project_admission": "complete",
+    "paper_capture": "not_required",
+    "supplement_capture": "not_required",
+    "sample_identity_recovery": "not_required",
+    "site_recovery": "not_required",
+    "chronology_recovery": "not_required",
+    "coordinate_derivation": "not_required",
+    "publication_readiness": "not_required"
+  },
+  "blocking_stages": [],
+  "next_required_stage": null,
+  "publication_readiness_status": "not_required",
+  "expected_sample_count": null,
+  "expected_sample_count_status": "not_yet_curated",
+  "expected_sample_count_provenance": "Rejected or out-of-scope projects stay in the intake inventory but do not yet carry a curated sample-count claim.",
+  "expected_sample_count_artifact_path": "data/adna/governance/source_library/projects/PRJEB61721/archive_metadata.html",
+  "minimum_expected_sample_count": null,
+  "recovered_sample_count": 0,
+  "final_sample_count": 0,
+  "unresolved_sample_count": null,
+  "minimum_gap_count": null,
+  "recovery_gap_status": "out_of_scope_reference",
+  "implausibly_low_recovery": false,
+  "implausibly_low_recovery_reason": "",
+  "known_assets": [
+    "adna/governance/source_library/projects/PRJEB61721/archive_metadata.html",
+    "data/adna/governance/source_library/projects/PRJEB61721/sample_master.json",
+    "data/adna/governance/source_library/projects/PRJEB61721/sample_sites.json",
+    "data/adna/governance/source_library/projects/PRJEB61721/sample_chronology.json",
+    "data/adna/governance/source_library/projects/PRJEB61721/sample_locality_evidence.json"
+  ],
+  "missing_assets": [
+    "No final governed sample rows are published yet."
+  ],
+  "expected_contributions": [],
+  "expected_contribution_surfaces": [
+    "data/adna/governance/source_library/projects/PRJEB61721/archive_metadata.html"
+  ],
+  "contradictory_evidence": [],
+  "inferred_claims": [],
+  "manual_curation_work_units": [],
+  "major_deficit_reasons": []
+}

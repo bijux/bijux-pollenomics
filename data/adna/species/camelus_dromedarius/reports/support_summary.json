@@ -1,0 +1,1738 @@
+{
+  "species_manifest": {
+    "schema_version": "adna-species-manifest.v1",
+    "species": {
+      "latin_name": "Camelus dromedarius",
+      "slug": "camelus_dromedarius",
+      "common_name": "dromedary camel",
+      "support_status": "provisional",
+      "modalities": [
+        "archive_reads",
+        "mitogenome_only",
+        "paper_only"
+      ],
+      "source_families": [
+        "SRA",
+        "GenBank"
+      ],
+      "aliases": [
+        "camel",
+        "dromedary",
+        "dromedary camel"
+      ],
+      "notes": "Dromedary support is pinned to domestic-dromedary archive evidence. Comparator material from other camelids does not promote dromedary support automatically."
+    },
+    "root_slug": "camelus_dromedarius",
+    "data_root": "data/adna/species/camelus_dromedarius",
+    "normalized_sample_namespace": "camelus_dromedarius:normalized_sample",
+    "tracked_layout": [
+      "raw",
+      "normalized",
+      "manifests",
+      "reports",
+      "review"
+    ],
+    "scientific_scope": "Dromedary support is restricted to Camelus dromedarius evidence. Other camelid or broader comparator material does not promote dromedary support.",
+    "runtime_scope": "Current runtime normalization and reporting remain human AADR-first until species-specific collectors and archive bridges are implemented."
+  },
+  "dataset_review": {
+    "species": {
+      "latin_name": "Camelus dromedarius",
+      "slug": "camelus_dromedarius",
+      "common_name": "dromedary camel",
+      "support_status": "provisional",
+      "modalities": [
+        "archive_reads",
+        "mitogenome_only",
+        "paper_only"
+      ],
+      "source_families": [
+        "SRA",
+        "GenBank"
+      ],
+      "aliases": [
+        "camel",
+        "dromedary",
+        "dromedary camel"
+      ],
+      "notes": "Dromedary support is pinned to domestic-dromedary archive evidence. Comparator material from other camelids does not promote dromedary support automatically."
+    },
+    "product_role": "domesticated_core",
+    "assignment_rule": "single_species_core",
+    "dataset_bucket": "paper_pinned_core",
+    "archive_project_count": 2,
+    "core_project_count": 2,
+    "primary_paper_pin_count": 2,
+    "curated_support_project_count": 2,
+    "archive_required": true,
+    "primary_paper_required": true,
+    "manifest_schema_required": true,
+    "release_gate_satisfied": true,
+    "eligible_for_supported_status": true,
+    "blocking_reasons": []
+  },
+  "curation_manifest": {
+    "schema_version": "adna-species-curation-manifest.v1",
+    "species_manifest": {
+      "schema_version": "adna-species-manifest.v1",
+      "species": {
+        "latin_name": "Camelus dromedarius",
+        "slug": "camelus_dromedarius",
+        "common_name": "dromedary camel",
+        "support_status": "provisional",
+        "modalities": [
+          "archive_reads",
+          "mitogenome_only",
+          "paper_only"
+        ],
+        "source_families": [
+          "SRA",
+          "GenBank"
+        ],
+        "aliases": [
+          "camel",
+          "dromedary",
+          "dromedary camel"
+        ],
+        "notes": "Dromedary support is pinned to domestic-dromedary archive evidence. Comparator material from other camelids does not promote dromedary support automatically."
+      },
+      "root_slug": "camelus_dromedarius",
+      "data_root": "data/adna/species/camelus_dromedarius",
+      "normalized_sample_namespace": "camelus_dromedarius:normalized_sample",
+      "tracked_layout": [
+        "raw",
+        "normalized",
+        "manifests",
+        "reports",
+        "review"
+      ],
+      "scientific_scope": "Dromedary support is restricted to Camelus dromedarius evidence. Other camelid or broader comparator material does not promote dromedary support.",
+      "runtime_scope": "Current runtime normalization and reporting remain human AADR-first until species-specific collectors and archive bridges are implemented."
+    },
+    "curation_class": "paper_pinned_core",
+    "support_statement": "Paper-pinned core domestication support exists for this species. Curated projects are fit for governed comparative use, while pending projects still need stronger archive-paper linkage.",
+    "curated_projects": [
+      {
+        "project_accession": "KU605068-KU605080",
+        "source_family": "GenBank",
+        "accession_scope": "accession_range",
+        "archive_status": "paper_pinned_core",
+        "evidence_strength": "primary_paper_pinned",
+        "ancient_status": "ancient_confirmed",
+        "paper_title": "Combined hybridization capture and shotgun sequencing for ancient DNA analysis of extinct wild and domestic dromedary camel",
+        "paper_doi": "10.1111/1755-0998.12551",
+        "sequencing_target": "mitogenome",
+        "material_basis": "individual_bone_or_tooth",
+        "dating_basis": "historical_and_archaeological_context",
+        "geographic_basis": "site_level_localities",
+        "access_policy": "public_downloadable",
+        "public_release_date": null,
+        "domestication_scope": "domesticated_core",
+        "notes": "Dromedary mitogenome range named on the primary paper page. It supports Camelus dromedarius only, not other camelids.",
+        "nordic_relevance": "non_nordic",
+        "nordic_relevance_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
+        "last_checked_on": "2026-05-07"
+      },
+      {
+        "project_accession": "SRP073444",
+        "source_family": "SRA",
+        "accession_scope": "project",
+        "archive_status": "paper_pinned_core",
+        "evidence_strength": "primary_paper_pinned",
+        "ancient_status": "ancient_confirmed",
+        "paper_title": "Combined hybridization capture and shotgun sequencing for ancient DNA analysis of extinct wild and domestic dromedary camel",
+        "paper_doi": "10.1111/1755-0998.12551",
+        "sequencing_target": "capture_and_shotgun",
+        "material_basis": "individual_bone_or_tooth",
+        "dating_basis": "historical_and_archaeological_context",
+        "geographic_basis": "site_level_localities",
+        "access_policy": "public_downloadable",
+        "public_release_date": null,
+        "domestication_scope": "domesticated_core",
+        "notes": "Domestic-dromedary anchor. Comparator camelid evidence does not extend support to other camelid species automatically.",
+        "nordic_relevance": "non_nordic",
+        "nordic_relevance_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
+        "last_checked_on": "2026-05-07"
+      }
+    ],
+    "pending_projects": [],
+    "rejected_projects": []
+  },
+  "project_manifest": {
+    "schema_version": "adna-species-project-manifest.v1",
+    "species_latin_name": "Camelus dromedarius",
+    "projects": [
+      {
+        "project_accession": "KU605068-KU605080",
+        "source_family": "GenBank",
+        "accession_scope": "accession_range",
+        "archive_status": "paper_pinned_core",
+        "evidence_strength": "primary_paper_pinned",
+        "ancient_status": "ancient_confirmed",
+        "paper_title": "Combined hybridization capture and shotgun sequencing for ancient DNA analysis of extinct wild and domestic dromedary camel",
+        "paper_doi": "10.1111/1755-0998.12551",
+        "sequencing_target": "mitogenome",
+        "material_basis": "individual_bone_or_tooth",
+        "dating_basis": "historical_and_archaeological_context",
+        "geographic_basis": "site_level_localities",
+        "access_policy": "public_downloadable",
+        "public_release_date": null,
+        "domestication_scope": "domesticated_core",
+        "notes": "Dromedary mitogenome range named on the primary paper page. It supports Camelus dromedarius only, not other camelids.",
+        "nordic_relevance": "non_nordic",
+        "nordic_relevance_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
+        "last_checked_on": "2026-05-07"
+      },
+      {
+        "project_accession": "SRP073444",
+        "source_family": "SRA",
+        "accession_scope": "project",
+        "archive_status": "paper_pinned_core",
+        "evidence_strength": "primary_paper_pinned",
+        "ancient_status": "ancient_confirmed",
+        "paper_title": "Combined hybridization capture and shotgun sequencing for ancient DNA analysis of extinct wild and domestic dromedary camel",
+        "paper_doi": "10.1111/1755-0998.12551",
+        "sequencing_target": "capture_and_shotgun",
+        "material_basis": "individual_bone_or_tooth",
+        "dating_basis": "historical_and_archaeological_context",
+        "geographic_basis": "site_level_localities",
+        "access_policy": "public_downloadable",
+        "public_release_date": null,
+        "domestication_scope": "domesticated_core",
+        "notes": "Domestic-dromedary anchor. Comparator camelid evidence does not extend support to other camelid species automatically.",
+        "nordic_relevance": "non_nordic",
+        "nordic_relevance_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
+        "last_checked_on": "2026-05-07"
+      }
+    ]
+  },
+  "normalization_bundle": {
+    "schema_version": "adna-nonhuman-normalization-bundle.v1",
+    "species_manifest": {
+      "schema_version": "adna-species-manifest.v1",
+      "species": {
+        "latin_name": "Camelus dromedarius",
+        "slug": "camelus_dromedarius",
+        "common_name": "dromedary camel",
+        "support_status": "provisional",
+        "modalities": [
+          "archive_reads",
+          "mitogenome_only",
+          "paper_only"
+        ],
+        "source_families": [
+          "SRA",
+          "GenBank"
+        ],
+        "aliases": [
+          "camel",
+          "dromedary",
+          "dromedary camel"
+        ],
+        "notes": "Dromedary support is pinned to domestic-dromedary archive evidence. Comparator material from other camelids does not promote dromedary support automatically."
+      },
+      "root_slug": "camelus_dromedarius",
+      "data_root": "data/adna/species/camelus_dromedarius",
+      "normalized_sample_namespace": "camelus_dromedarius:normalized_sample",
+      "tracked_layout": [
+        "raw",
+        "normalized",
+        "manifests",
+        "reports",
+        "review"
+      ],
+      "scientific_scope": "Dromedary support is restricted to Camelus dromedarius evidence. Other camelid or broader comparator material does not promote dromedary support.",
+      "runtime_scope": "Current runtime normalization and reporting remain human AADR-first until species-specific collectors and archive bridges are implemented."
+    },
+    "sample_records": [
+      {
+        "identity": {
+          "namespace": "camelus_dromedarius:curated_sample",
+          "stable_token": "camelus_dromedarius:sample:ku605068-ku605080:ku605068",
+          "accession_lineage": [
+            "species:Camelus dromedarius",
+            "source:GenBank",
+            "project:KU605068-KU605080",
+            "sample:ku605068-ku605080:ku605068"
+          ]
+        },
+        "locality_identity": {
+          "namespace": "camelus_dromedarius:sample_locality",
+          "stable_token": "camelus_dromedarius:locality:ku605068-ku605080:unresolved",
+          "locality_text": "",
+          "political_entity": "",
+          "source_anchor_tokens": [
+            "KU605068-KU605080",
+            "accession_range_anchor"
+          ]
+        },
+        "species_latin_name": "Camelus dromedarius",
+        "species_common_name": "dromedary camel",
+        "source_family": "GenBank",
+        "source_release": "KU605068-KU605080",
+        "record_modality": "mitogenome_only",
+        "review_strength": "primary_paper_pinned",
+        "provenance_quality": "manual_curation_only",
+        "master_id": "ku605068-ku605080:ku605068",
+        "group_id": "KU605068-KU605080",
+        "locality": "",
+        "political_entity": "",
+        "coordinates": {
+          "latitude": null,
+          "longitude": null,
+          "latitude_text": "",
+          "longitude_text": "",
+          "confidence": "unknown"
+        },
+        "publication": "Combined hybridization capture and shotgun sequencing for ancient DNA analysis of extinct wild and domestic dromedary camel",
+        "year_first_published": "2017",
+        "full_date": "",
+        "chronology": {
+          "original_text": "",
+          "time_start_bp": null,
+          "time_end_bp": null,
+          "time_mean_bp": null,
+          "date_stddev_bp": "",
+          "dating_basis": "historical_and_archaeological_context",
+          "evidence_class": "unresolved",
+          "precision_posture": "unresolved"
+        },
+        "data_type": "archive_accession_range_context",
+        "molecular_sex": "",
+        "datasets": [
+          "camelus_dromedarius:project:KU605068-KU605080"
+        ],
+        "project_accession": "KU605068-KU605080",
+        "paper_doi": "10.1111/1755-0998.12551",
+        "paper_url": "https://doi.org/10.1111/1755-0998.12551",
+        "supplementary_source": "",
+        "inclusion_status": "site_curated",
+        "inclusion_note": "No location evidence has been extracted yet for this recovered sample row.",
+        "chronology_strength": "unresolved",
+        "chronology_normalization_status": "unresolved",
+        "chronology_provenance_path": "",
+        "chronology_provenance_kind": "",
+        "chronology_provenance_locator": "",
+        "chronology_provenance_text": "",
+        "chronology_conflict_note": "",
+        "sample_basis": "accession_range_anchor",
+        "archive_native_sample_id": "KU605068",
+        "paper_native_sample_label": "",
+        "supplementary_table_sample_label": "",
+        "sample_evidence_status": "archive_native",
+        "sample_lineage_path": "data/adna/governance/source_library/projects/KU605068-KU605080/archive_metadata.html",
+        "sample_lineage_locator": "accession:KU605068",
+        "sample_lineage_excerpt": "Archive-native accession KU605068 is tracked directly in the curated intake catalog.",
+        "sample_identity_resolution": "final",
+        "sample_ambiguity_note": ""
+      },
+      {
+        "identity": {
+          "namespace": "camelus_dromedarius:curated_sample",
+          "stable_token": "camelus_dromedarius:sample:ku605068-ku605080:ku605069",
+          "accession_lineage": [
+            "species:Camelus dromedarius",
+            "source:GenBank",
+            "project:KU605068-KU605080",
+            "sample:ku605068-ku605080:ku605069"
+          ]
+        },
+        "locality_identity": {
+          "namespace": "camelus_dromedarius:sample_locality",
+          "stable_token": "camelus_dromedarius:locality:ku605068-ku605080:unresolved",
+          "locality_text": "",
+          "political_entity": "",
+          "source_anchor_tokens": [
+            "KU605068-KU605080",
+            "accession_range_anchor"
+          ]
+        },
+        "species_latin_name": "Camelus dromedarius",
+        "species_common_name": "dromedary camel",
+        "source_family": "GenBank",
+        "source_release": "KU605068-KU605080",
+        "record_modality": "mitogenome_only",
+        "review_strength": "primary_paper_pinned",
+        "provenance_quality": "manual_curation_only",
+        "master_id": "ku605068-ku605080:ku605069",
+        "group_id": "KU605068-KU605080",
+        "locality": "",
+        "political_entity": "",
+        "coordinates": {
+          "latitude": null,
+          "longitude": null,
+          "latitude_text": "",
+          "longitude_text": "",
+          "confidence": "unknown"
+        },
+        "publication": "Combined hybridization capture and shotgun sequencing for ancient DNA analysis of extinct wild and domestic dromedary camel",
+        "year_first_published": "2017",
+        "full_date": "",
+        "chronology": {
+          "original_text": "",
+          "time_start_bp": null,
+          "time_end_bp": null,
+          "time_mean_bp": null,
+          "date_stddev_bp": "",
+          "dating_basis": "historical_and_archaeological_context",
+          "evidence_class": "unresolved",
+          "precision_posture": "unresolved"
+        },
+        "data_type": "archive_accession_range_context",
+        "molecular_sex": "",
+        "datasets": [
+          "camelus_dromedarius:project:KU605068-KU605080"
+        ],
+        "project_accession": "KU605068-KU605080",
+        "paper_doi": "10.1111/1755-0998.12551",
+        "paper_url": "https://doi.org/10.1111/1755-0998.12551",
+        "supplementary_source": "",
+        "inclusion_status": "site_curated",
+        "inclusion_note": "No location evidence has been extracted yet for this recovered sample row.",
+        "chronology_strength": "unresolved",
+        "chronology_normalization_status": "unresolved",
+        "chronology_provenance_path": "",
+        "chronology_provenance_kind": "",
+        "chronology_provenance_locator": "",
+        "chronology_provenance_text": "",
+        "chronology_conflict_note": "",
+        "sample_basis": "accession_range_anchor",
+        "archive_native_sample_id": "KU605069",
+        "paper_native_sample_label": "",
+        "supplementary_table_sample_label": "",
+        "sample_evidence_status": "archive_native",
+        "sample_lineage_path": "data/adna/governance/source_library/projects/KU605068-KU605080/archive_metadata.html",
+        "sample_lineage_locator": "accession:KU605069",
+        "sample_lineage_excerpt": "Archive-native accession KU605069 is tracked directly in the curated intake catalog.",
+        "sample_identity_resolution": "final",
+        "sample_ambiguity_note": ""
+      },
+      {
+        "identity": {
+          "namespace": "camelus_dromedarius:curated_sample",
+          "stable_token": "camelus_dromedarius:sample:ku605068-ku605080:ku605070",
+          "accession_lineage": [
+            "species:Camelus dromedarius",
+            "source:GenBank",
+            "project:KU605068-KU605080",
+            "sample:ku605068-ku605080:ku605070"
+          ]
+        },
+        "locality_identity": {
+          "namespace": "camelus_dromedarius:sample_locality",
+          "stable_token": "camelus_dromedarius:locality:ku605068-ku605080:unresolved",
+          "locality_text": "",
+          "political_entity": "",
+          "source_anchor_tokens": [
+            "KU605068-KU605080",
+            "accession_range_anchor"
+          ]
+        },
+        "species_latin_name": "Camelus dromedarius",
+        "species_common_name": "dromedary camel",
+        "source_family": "GenBank",
+        "source_release": "KU605068-KU605080",
+        "record_modality": "mitogenome_only",
+        "review_strength": "primary_paper_pinned",
+        "provenance_quality": "manual_curation_only",
+        "master_id": "ku605068-ku605080:ku605070",
+        "group_id": "KU605068-KU605080",
+        "locality": "",
+        "political_entity": "",
+        "coordinates": {
+          "latitude": null,
+          "longitude": null,
+          "latitude_text": "",
+          "longitude_text": "",
+          "confidence": "unknown"
+        },
+        "publication": "Combined hybridization capture and shotgun sequencing for ancient DNA analysis of extinct wild and domestic dromedary camel",
+        "year_first_published": "2017",
+        "full_date": "",
+        "chronology": {
+          "original_text": "",
+          "time_start_bp": null,
+          "time_end_bp": null,
+          "time_mean_bp": null,
+          "date_stddev_bp": "",
+          "dating_basis": "historical_and_archaeological_context",
+          "evidence_class": "unresolved",
+          "precision_posture": "unresolved"
+        },
+        "data_type": "archive_accession_range_context",
+        "molecular_sex": "",
+        "datasets": [
+          "camelus_dromedarius:project:KU605068-KU605080"
+        ],
+        "project_accession": "KU605068-KU605080",
+        "paper_doi": "10.1111/1755-0998.12551",
+        "paper_url": "https://doi.org/10.1111/1755-0998.12551",
+        "supplementary_source": "",
+        "inclusion_status": "site_curated",
+        "inclusion_note": "No location evidence has been extracted yet for this recovered sample row.",
+        "chronology_strength": "unresolved",
+        "chronology_normalization_status": "unresolved",
+        "chronology_provenance_path": "",
+        "chronology_provenance_kind": "",
+        "chronology_provenance_locator": "",
+        "chronology_provenance_text": "",
+        "chronology_conflict_note": "",
+        "sample_basis": "accession_range_anchor",
+        "archive_native_sample_id": "KU605070",
+        "paper_native_sample_label": "",
+        "supplementary_table_sample_label": "",
+        "sample_evidence_status": "archive_native",
+        "sample_lineage_path": "data/adna/governance/source_library/projects/KU605068-KU605080/archive_metadata.html",
+        "sample_lineage_locator": "accession:KU605070",
+        "sample_lineage_excerpt": "Archive-native accession KU605070 is tracked directly in the curated intake catalog.",
+        "sample_identity_resolution": "final",
+        "sample_ambiguity_note": ""
+      },
+      {
+        "identity": {
+          "namespace": "camelus_dromedarius:curated_sample",
+          "stable_token": "camelus_dromedarius:sample:ku605068-ku605080:ku605071",
+          "accession_lineage": [
+            "species:Camelus dromedarius",
+            "source:GenBank",
+            "project:KU605068-KU605080",
+            "sample:ku605068-ku605080:ku605071"
+          ]
+        },
+        "locality_identity": {
+          "namespace": "camelus_dromedarius:sample_locality",
+          "stable_token": "camelus_dromedarius:locality:ku605068-ku605080:unresolved",
+          "locality_text": "",
+          "political_entity": "",
+          "source_anchor_tokens": [
+            "KU605068-KU605080",
+            "accession_range_anchor"
+          ]
+        },
+        "species_latin_name": "Camelus dromedarius",
+        "species_common_name": "dromedary camel",
+        "source_family": "GenBank",
+        "source_release": "KU605068-KU605080",
+        "record_modality": "mitogenome_only",
+        "review_strength": "primary_paper_pinned",
+        "provenance_quality": "manual_curation_only",
+        "master_id": "ku605068-ku605080:ku605071",
+        "group_id": "KU605068-KU605080",
+        "locality": "",
+        "political_entity": "",
+        "coordinates": {
+          "latitude": null,
+          "longitude": null,
+          "latitude_text": "",
+          "longitude_text": "",
+          "confidence": "unknown"
+        },
+        "publication": "Combined hybridization capture and shotgun sequencing for ancient DNA analysis of extinct wild and domestic dromedary camel",
+        "year_first_published": "2017",
+        "full_date": "",
+        "chronology": {
+          "original_text": "",
+          "time_start_bp": null,
+          "time_end_bp": null,
+          "time_mean_bp": null,
+          "date_stddev_bp": "",
+          "dating_basis": "historical_and_archaeological_context",
+          "evidence_class": "unresolved",
+          "precision_posture": "unresolved"
+        },
+        "data_type": "archive_accession_range_context",
+        "molecular_sex": "",
+        "datasets": [
+          "camelus_dromedarius:project:KU605068-KU605080"
+        ],
+        "project_accession": "KU605068-KU605080",
+        "paper_doi": "10.1111/1755-0998.12551",
+        "paper_url": "https://doi.org/10.1111/1755-0998.12551",
+        "supplementary_source": "",
+        "inclusion_status": "site_curated",
+        "inclusion_note": "No location evidence has been extracted yet for this recovered sample row.",
+        "chronology_strength": "unresolved",
+        "chronology_normalization_status": "unresolved",
+        "chronology_provenance_path": "",
+        "chronology_provenance_kind": "",
+        "chronology_provenance_locator": "",
+        "chronology_provenance_text": "",
+        "chronology_conflict_note": "",
+        "sample_basis": "accession_range_anchor",
+        "archive_native_sample_id": "KU605071",
+        "paper_native_sample_label": "",
+        "supplementary_table_sample_label": "",
+        "sample_evidence_status": "archive_native",
+        "sample_lineage_path": "data/adna/governance/source_library/projects/KU605068-KU605080/archive_metadata.html",
+        "sample_lineage_locator": "accession:KU605071",
+        "sample_lineage_excerpt": "Archive-native accession KU605071 is tracked directly in the curated intake catalog.",
+        "sample_identity_resolution": "final",
+        "sample_ambiguity_note": ""
+      },
+      {
+        "identity": {
+          "namespace": "camelus_dromedarius:curated_sample",
+          "stable_token": "camelus_dromedarius:sample:ku605068-ku605080:ku605072",
+          "accession_lineage": [
+            "species:Camelus dromedarius",
+            "source:GenBank",
+            "project:KU605068-KU605080",
+            "sample:ku605068-ku605080:ku605072"
+          ]
+        },
+        "locality_identity": {
+          "namespace": "camelus_dromedarius:sample_locality",
+          "stable_token": "camelus_dromedarius:locality:ku605068-ku605080:unresolved",
+          "locality_text": "",
+          "political_entity": "",
+          "source_anchor_tokens": [
+            "KU605068-KU605080",
+            "accession_range_anchor"
+          ]
+        },
+        "species_latin_name": "Camelus dromedarius",
+        "species_common_name": "dromedary camel",
+        "source_family": "GenBank",
+        "source_release": "KU605068-KU605080",
+        "record_modality": "mitogenome_only",
+        "review_strength": "primary_paper_pinned",
+        "provenance_quality": "manual_curation_only",
+        "master_id": "ku605068-ku605080:ku605072",
+        "group_id": "KU605068-KU605080",
+        "locality": "",
+        "political_entity": "",
+        "coordinates": {
+          "latitude": null,
+          "longitude": null,
+          "latitude_text": "",
+          "longitude_text": "",
+          "confidence": "unknown"
+        },
+        "publication": "Combined hybridization capture and shotgun sequencing for ancient DNA analysis of extinct wild and domestic dromedary camel",
+        "year_first_published": "2017",
+        "full_date": "",
+        "chronology": {
+          "original_text": "",
+          "time_start_bp": null,
+          "time_end_bp": null,
+          "time_mean_bp": null,
+          "date_stddev_bp": "",
+          "dating_basis": "historical_and_archaeological_context",
+          "evidence_class": "unresolved",
+          "precision_posture": "unresolved"
+        },
+        "data_type": "archive_accession_range_context",
+        "molecular_sex": "",
+        "datasets": [
+          "camelus_dromedarius:project:KU605068-KU605080"
+        ],
+        "project_accession": "KU605068-KU605080",
+        "paper_doi": "10.1111/1755-0998.12551",
+        "paper_url": "https://doi.org/10.1111/1755-0998.12551",
+        "supplementary_source": "",
+        "inclusion_status": "site_curated",
+        "inclusion_note": "No location evidence has been extracted yet for this recovered sample row.",
+        "chronology_strength": "unresolved",
+        "chronology_normalization_status": "unresolved",
+        "chronology_provenance_path": "",
+        "chronology_provenance_kind": "",
+        "chronology_provenance_locator": "",
+        "chronology_provenance_text": "",
+        "chronology_conflict_note": "",
+        "sample_basis": "accession_range_anchor",
+        "archive_native_sample_id": "KU605072",
+        "paper_native_sample_label": "",
+        "supplementary_table_sample_label": "",
+        "sample_evidence_status": "archive_native",
+        "sample_lineage_path": "data/adna/governance/source_library/projects/KU605068-KU605080/archive_metadata.html",
+        "sample_lineage_locator": "accession:KU605072",
+        "sample_lineage_excerpt": "Archive-native accession KU605072 is tracked directly in the curated intake catalog.",
+        "sample_identity_resolution": "final",
+        "sample_ambiguity_note": ""
+      },
+      {
+        "identity": {
+          "namespace": "camelus_dromedarius:curated_sample",
+          "stable_token": "camelus_dromedarius:sample:ku605068-ku605080:ku605073",
+          "accession_lineage": [
+            "species:Camelus dromedarius",
+            "source:GenBank",
+            "project:KU605068-KU605080",
+            "sample:ku605068-ku605080:ku605073"
+          ]
+        },
+        "locality_identity": {
+          "namespace": "camelus_dromedarius:sample_locality",
+          "stable_token": "camelus_dromedarius:locality:ku605068-ku605080:unresolved",
+          "locality_text": "",
+          "political_entity": "",
+          "source_anchor_tokens": [
+            "KU605068-KU605080",
+            "accession_range_anchor"
+          ]
+        },
+        "species_latin_name": "Camelus dromedarius",
+        "species_common_name": "dromedary camel",
+        "source_family": "GenBank",
+        "source_release": "KU605068-KU605080",
+        "record_modality": "mitogenome_only",
+        "review_strength": "primary_paper_pinned",
+        "provenance_quality": "manual_curation_only",
+        "master_id": "ku605068-ku605080:ku605073",
+        "group_id": "KU605068-KU605080",
+        "locality": "",
+        "political_entity": "",
+        "coordinates": {
+          "latitude": null,
+          "longitude": null,
+          "latitude_text": "",
+          "longitude_text": "",
+          "confidence": "unknown"
+        },
+        "publication": "Combined hybridization capture and shotgun sequencing for ancient DNA analysis of extinct wild and domestic dromedary camel",
+        "year_first_published": "2017",
+        "full_date": "",
+        "chronology": {
+          "original_text": "",
+          "time_start_bp": null,
+          "time_end_bp": null,
+          "time_mean_bp": null,
+          "date_stddev_bp": "",
+          "dating_basis": "historical_and_archaeological_context",
+          "evidence_class": "unresolved",
+          "precision_posture": "unresolved"
+        },
+        "data_type": "archive_accession_range_context",
+        "molecular_sex": "",
+        "datasets": [
+          "camelus_dromedarius:project:KU605068-KU605080"
+        ],
+        "project_accession": "KU605068-KU605080",
+        "paper_doi": "10.1111/1755-0998.12551",
+        "paper_url": "https://doi.org/10.1111/1755-0998.12551",
+        "supplementary_source": "",
+        "inclusion_status": "site_curated",
+        "inclusion_note": "No location evidence has been extracted yet for this recovered sample row.",
+        "chronology_strength": "unresolved",
+        "chronology_normalization_status": "unresolved",
+        "chronology_provenance_path": "",
+        "chronology_provenance_kind": "",
+        "chronology_provenance_locator": "",
+        "chronology_provenance_text": "",
+        "chronology_conflict_note": "",
+        "sample_basis": "accession_range_anchor",
+        "archive_native_sample_id": "KU605073",
+        "paper_native_sample_label": "",
+        "supplementary_table_sample_label": "",
+        "sample_evidence_status": "archive_native",
+        "sample_lineage_path": "data/adna/governance/source_library/projects/KU605068-KU605080/archive_metadata.html",
+        "sample_lineage_locator": "accession:KU605073",
+        "sample_lineage_excerpt": "Archive-native accession KU605073 is tracked directly in the curated intake catalog.",
+        "sample_identity_resolution": "final",
+        "sample_ambiguity_note": ""
+      },
+      {
+        "identity": {
+          "namespace": "camelus_dromedarius:curated_sample",
+          "stable_token": "camelus_dromedarius:sample:ku605068-ku605080:ku605074",
+          "accession_lineage": [
+            "species:Camelus dromedarius",
+            "source:GenBank",
+            "project:KU605068-KU605080",
+            "sample:ku605068-ku605080:ku605074"
+          ]
+        },
+        "locality_identity": {
+          "namespace": "camelus_dromedarius:sample_locality",
+          "stable_token": "camelus_dromedarius:locality:ku605068-ku605080:unresolved",
+          "locality_text": "",
+          "political_entity": "",
+          "source_anchor_tokens": [
+            "KU605068-KU605080",
+            "accession_range_anchor"
+          ]
+        },
+        "species_latin_name": "Camelus dromedarius",
+        "species_common_name": "dromedary camel",
+        "source_family": "GenBank",
+        "source_release": "KU605068-KU605080",
+        "record_modality": "mitogenome_only",
+        "review_strength": "primary_paper_pinned",
+        "provenance_quality": "manual_curation_only",
+        "master_id": "ku605068-ku605080:ku605074",
+        "group_id": "KU605068-KU605080",
+        "locality": "",
+        "political_entity": "",
+        "coordinates": {
+          "latitude": null,
+          "longitude": null,
+          "latitude_text": "",
+          "longitude_text": "",
+          "confidence": "unknown"
+        },
+        "publication": "Combined hybridization capture and shotgun sequencing for ancient DNA analysis of extinct wild and domestic dromedary camel",
+        "year_first_published": "2017",
+        "full_date": "",
+        "chronology": {
+          "original_text": "",
+          "time_start_bp": null,
+          "time_end_bp": null,
+          "time_mean_bp": null,
+          "date_stddev_bp": "",
+          "dating_basis": "historical_and_archaeological_context",
+          "evidence_class": "unresolved",
+          "precision_posture": "unresolved"
+        },
+        "data_type": "archive_accession_range_context",
+        "molecular_sex": "",
+        "datasets": [
+          "camelus_dromedarius:project:KU605068-KU605080"
+        ],
+        "project_accession": "KU605068-KU605080",
+        "paper_doi": "10.1111/1755-0998.12551",
+        "paper_url": "https://doi.org/10.1111/1755-0998.12551",
+        "supplementary_source": "",
+        "inclusion_status": "site_curated",
+        "inclusion_note": "No location evidence has been extracted yet for this recovered sample row.",
+        "chronology_strength": "unresolved",
+        "chronology_normalization_status": "unresolved",
+        "chronology_provenance_path": "",
+        "chronology_provenance_kind": "",
+        "chronology_provenance_locator": "",
+        "chronology_provenance_text": "",
+        "chronology_conflict_note": "",
+        "sample_basis": "accession_range_anchor",
+        "archive_native_sample_id": "KU605074",
+        "paper_native_sample_label": "",
+        "supplementary_table_sample_label": "",
+        "sample_evidence_status": "archive_native",
+        "sample_lineage_path": "data/adna/governance/source_library/projects/KU605068-KU605080/archive_metadata.html",
+        "sample_lineage_locator": "accession:KU605074",
+        "sample_lineage_excerpt": "Archive-native accession KU605074 is tracked directly in the curated intake catalog.",
+        "sample_identity_resolution": "final",
+        "sample_ambiguity_note": ""
+      },
+      {
+        "identity": {
+          "namespace": "camelus_dromedarius:curated_sample",
+          "stable_token": "camelus_dromedarius:sample:ku605068-ku605080:ku605075",
+          "accession_lineage": [
+            "species:Camelus dromedarius",
+            "source:GenBank",
+            "project:KU605068-KU605080",
+            "sample:ku605068-ku605080:ku605075"
+          ]
+        },
+        "locality_identity": {
+          "namespace": "camelus_dromedarius:sample_locality",
+          "stable_token": "camelus_dromedarius:locality:ku605068-ku605080:unresolved",
+          "locality_text": "",
+          "political_entity": "",
+          "source_anchor_tokens": [
+            "KU605068-KU605080",
+            "accession_range_anchor"
+          ]
+        },
+        "species_latin_name": "Camelus dromedarius",
+        "species_common_name": "dromedary camel",
+        "source_family": "GenBank",
+        "source_release": "KU605068-KU605080",
+        "record_modality": "mitogenome_only",
+        "review_strength": "primary_paper_pinned",
+        "provenance_quality": "manual_curation_only",
+        "master_id": "ku605068-ku605080:ku605075",
+        "group_id": "KU605068-KU605080",
+        "locality": "",
+        "political_entity": "",
+        "coordinates": {
+          "latitude": null,
+          "longitude": null,
+          "latitude_text": "",
+          "longitude_text": "",
+          "confidence": "unknown"
+        },
+        "publication": "Combined hybridization capture and shotgun sequencing for ancient DNA analysis of extinct wild and domestic dromedary camel",
+        "year_first_published": "2017",
+        "full_date": "",
+        "chronology": {
+          "original_text": "",
+          "time_start_bp": null,
+          "time_end_bp": null,
+          "time_mean_bp": null,
+          "date_stddev_bp": "",
+          "dating_basis": "historical_and_archaeological_context",
+          "evidence_class": "unresolved",
+          "precision_posture": "unresolved"
+        },
+        "data_type": "archive_accession_range_context",
+        "molecular_sex": "",
+        "datasets": [
+          "camelus_dromedarius:project:KU605068-KU605080"
+        ],
+        "project_accession": "KU605068-KU605080",
+        "paper_doi": "10.1111/1755-0998.12551",
+        "paper_url": "https://doi.org/10.1111/1755-0998.12551",
+        "supplementary_source": "",
+        "inclusion_status": "site_curated",
+        "inclusion_note": "No location evidence has been extracted yet for this recovered sample row.",
+        "chronology_strength": "unresolved",
+        "chronology_normalization_status": "unresolved",
+        "chronology_provenance_path": "",
+        "chronology_provenance_kind": "",
+        "chronology_provenance_locator": "",
+        "chronology_provenance_text": "",
+        "chronology_conflict_note": "",
+        "sample_basis": "accession_range_anchor",
+        "archive_native_sample_id": "KU605075",
+        "paper_native_sample_label": "",
+        "supplementary_table_sample_label": "",
+        "sample_evidence_status": "archive_native",
+        "sample_lineage_path": "data/adna/governance/source_library/projects/KU605068-KU605080/archive_metadata.html",
+        "sample_lineage_locator": "accession:KU605075",
+        "sample_lineage_excerpt": "Archive-native accession KU605075 is tracked directly in the curated intake catalog.",
+        "sample_identity_resolution": "final",
+        "sample_ambiguity_note": ""
+      },
+      {
+        "identity": {
+          "namespace": "camelus_dromedarius:curated_sample",
+          "stable_token": "camelus_dromedarius:sample:ku605068-ku605080:ku605076",
+          "accession_lineage": [
+            "species:Camelus dromedarius",
+            "source:GenBank",
+            "project:KU605068-KU605080",
+            "sample:ku605068-ku605080:ku605076"
+          ]
+        },
+        "locality_identity": {
+          "namespace": "camelus_dromedarius:sample_locality",
+          "stable_token": "camelus_dromedarius:locality:ku605068-ku605080:unresolved",
+          "locality_text": "",
+          "political_entity": "",
+          "source_anchor_tokens": [
+            "KU605068-KU605080",
+            "accession_range_anchor"
+          ]
+        },
+        "species_latin_name": "Camelus dromedarius",
+        "species_common_name": "dromedary camel",
+        "source_family": "GenBank",
+        "source_release": "KU605068-KU605080",
+        "record_modality": "mitogenome_only",
+        "review_strength": "primary_paper_pinned",
+        "provenance_quality": "manual_curation_only",
+        "master_id": "ku605068-ku605080:ku605076",
+        "group_id": "KU605068-KU605080",
+        "locality": "",
+        "political_entity": "",
+        "coordinates": {
+          "latitude": null,
+          "longitude": null,
+          "latitude_text": "",
+          "longitude_text": "",
+          "confidence": "unknown"
+        },
+        "publication": "Combined hybridization capture and shotgun sequencing for ancient DNA analysis of extinct wild and domestic dromedary camel",
+        "year_first_published": "2017",
+        "full_date": "",
+        "chronology": {
+          "original_text": "",
+          "time_start_bp": null,
+          "time_end_bp": null,
+          "time_mean_bp": null,
+          "date_stddev_bp": "",
+          "dating_basis": "historical_and_archaeological_context",
+          "evidence_class": "unresolved",
+          "precision_posture": "unresolved"
+        },
+        "data_type": "archive_accession_range_context",
+        "molecular_sex": "",
+        "datasets": [
+          "camelus_dromedarius:project:KU605068-KU605080"
+        ],
+        "project_accession": "KU605068-KU605080",
+        "paper_doi": "10.1111/1755-0998.12551",
+        "paper_url": "https://doi.org/10.1111/1755-0998.12551",
+        "supplementary_source": "",
+        "inclusion_status": "site_curated",
+        "inclusion_note": "No location evidence has been extracted yet for this recovered sample row.",
+        "chronology_strength": "unresolved",
+        "chronology_normalization_status": "unresolved",
+        "chronology_provenance_path": "",
+        "chronology_provenance_kind": "",
+        "chronology_provenance_locator": "",
+        "chronology_provenance_text": "",
+        "chronology_conflict_note": "",
+        "sample_basis": "accession_range_anchor",
+        "archive_native_sample_id": "KU605076",
+        "paper_native_sample_label": "",
+        "supplementary_table_sample_label": "",
+        "sample_evidence_status": "archive_native",
+        "sample_lineage_path": "data/adna/governance/source_library/projects/KU605068-KU605080/archive_metadata.html",
+        "sample_lineage_locator": "accession:KU605076",
+        "sample_lineage_excerpt": "Archive-native accession KU605076 is tracked directly in the curated intake catalog.",
+        "sample_identity_resolution": "final",
+        "sample_ambiguity_note": ""
+      },
+      {
+        "identity": {
+          "namespace": "camelus_dromedarius:curated_sample",
+          "stable_token": "camelus_dromedarius:sample:ku605068-ku605080:ku605077",
+          "accession_lineage": [
+            "species:Camelus dromedarius",
+            "source:GenBank",
+            "project:KU605068-KU605080",
+            "sample:ku605068-ku605080:ku605077"
+          ]
+        },
+        "locality_identity": {
+          "namespace": "camelus_dromedarius:sample_locality",
+          "stable_token": "camelus_dromedarius:locality:ku605068-ku605080:unresolved",
+          "locality_text": "",
+          "political_entity": "",
+          "source_anchor_tokens": [
+            "KU605068-KU605080",
+            "accession_range_anchor"
+          ]
+        },
+        "species_latin_name": "Camelus dromedarius",
+        "species_common_name": "dromedary camel",
+        "source_family": "GenBank",
+        "source_release": "KU605068-KU605080",
+        "record_modality": "mitogenome_only",
+        "review_strength": "primary_paper_pinned",
+        "provenance_quality": "manual_curation_only",
+        "master_id": "ku605068-ku605080:ku605077",
+        "group_id": "KU605068-KU605080",
+        "locality": "",
+        "political_entity": "",
+        "coordinates": {
+          "latitude": null,
+          "longitude": null,
+          "latitude_text": "",
+          "longitude_text": "",
+          "confidence": "unknown"
+        },
+        "publication": "Combined hybridization capture and shotgun sequencing for ancient DNA analysis of extinct wild and domestic dromedary camel",
+        "year_first_published": "2017",
+        "full_date": "",
+        "chronology": {
+          "original_text": "",
+          "time_start_bp": null,
+          "time_end_bp": null,
+          "time_mean_bp": null,
+          "date_stddev_bp": "",
+          "dating_basis": "historical_and_archaeological_context",
+          "evidence_class": "unresolved",
+          "precision_posture": "unresolved"
+        },
+        "data_type": "archive_accession_range_context",
+        "molecular_sex": "",
+        "datasets": [
+          "camelus_dromedarius:project:KU605068-KU605080"
+        ],
+        "project_accession": "KU605068-KU605080",
+        "paper_doi": "10.1111/1755-0998.12551",
+        "paper_url": "https://doi.org/10.1111/1755-0998.12551",
+        "supplementary_source": "",
+        "inclusion_status": "site_curated",
+        "inclusion_note": "No location evidence has been extracted yet for this recovered sample row.",
+        "chronology_strength": "unresolved",
+        "chronology_normalization_status": "unresolved",
+        "chronology_provenance_path": "",
+        "chronology_provenance_kind": "",
+        "chronology_provenance_locator": "",
+        "chronology_provenance_text": "",
+        "chronology_conflict_note": "",
+        "sample_basis": "accession_range_anchor",
+        "archive_native_sample_id": "KU605077",
+        "paper_native_sample_label": "",
+        "supplementary_table_sample_label": "",
+        "sample_evidence_status": "archive_native",
+        "sample_lineage_path": "data/adna/governance/source_library/projects/KU605068-KU605080/archive_metadata.html",
+        "sample_lineage_locator": "accession:KU605077",
+        "sample_lineage_excerpt": "Archive-native accession KU605077 is tracked directly in the curated intake catalog.",
+        "sample_identity_resolution": "final",
+        "sample_ambiguity_note": ""
+      },
+      {
+        "identity": {
+          "namespace": "camelus_dromedarius:curated_sample",
+          "stable_token": "camelus_dromedarius:sample:ku605068-ku605080:ku605078",
+          "accession_lineage": [
+            "species:Camelus dromedarius",
+            "source:GenBank",
+            "project:KU605068-KU605080",
+            "sample:ku605068-ku605080:ku605078"
+          ]
+        },
+        "locality_identity": {
+          "namespace": "camelus_dromedarius:sample_locality",
+          "stable_token": "camelus_dromedarius:locality:ku605068-ku605080:unresolved",
+          "locality_text": "",
+          "political_entity": "",
+          "source_anchor_tokens": [
+            "KU605068-KU605080",
+            "accession_range_anchor"
+          ]
+        },
+        "species_latin_name": "Camelus dromedarius",
+        "species_common_name": "dromedary camel",
+        "source_family": "GenBank",
+        "source_release": "KU605068-KU605080",
+        "record_modality": "mitogenome_only",
+        "review_strength": "primary_paper_pinned",
+        "provenance_quality": "manual_curation_only",
+        "master_id": "ku605068-ku605080:ku605078",
+        "group_id": "KU605068-KU605080",
+        "locality": "",
+        "political_entity": "",
+        "coordinates": {
+          "latitude": null,
+          "longitude": null,
+          "latitude_text": "",
+          "longitude_text": "",
+          "confidence": "unknown"
+        },
+        "publication": "Combined hybridization capture and shotgun sequencing for ancient DNA analysis of extinct wild and domestic dromedary camel",
+        "year_first_published": "2017",
+        "full_date": "",
+        "chronology": {
+          "original_text": "",
+          "time_start_bp": null,
+          "time_end_bp": null,
+          "time_mean_bp": null,
+          "date_stddev_bp": "",
+          "dating_basis": "historical_and_archaeological_context",
+          "evidence_class": "unresolved",
+          "precision_posture": "unresolved"
+        },
+        "data_type": "archive_accession_range_context",
+        "molecular_sex": "",
+        "datasets": [
+          "camelus_dromedarius:project:KU605068-KU605080"
+        ],
+        "project_accession": "KU605068-KU605080",
+        "paper_doi": "10.1111/1755-0998.12551",
+        "paper_url": "https://doi.org/10.1111/1755-0998.12551",
+        "supplementary_source": "",
+        "inclusion_status": "site_curated",
+        "inclusion_note": "No location evidence has been extracted yet for this recovered sample row.",
+        "chronology_strength": "unresolved",
+        "chronology_normalization_status": "unresolved",
+        "chronology_provenance_path": "",
+        "chronology_provenance_kind": "",
+        "chronology_provenance_locator": "",
+        "chronology_provenance_text": "",
+        "chronology_conflict_note": "",
+        "sample_basis": "accession_range_anchor",
+        "archive_native_sample_id": "KU605078",
+        "paper_native_sample_label": "",
+        "supplementary_table_sample_label": "",
+        "sample_evidence_status": "archive_native",
+        "sample_lineage_path": "data/adna/governance/source_library/projects/KU605068-KU605080/archive_metadata.html",
+        "sample_lineage_locator": "accession:KU605078",
+        "sample_lineage_excerpt": "Archive-native accession KU605078 is tracked directly in the curated intake catalog.",
+        "sample_identity_resolution": "final",
+        "sample_ambiguity_note": ""
+      },
+      {
+        "identity": {
+          "namespace": "camelus_dromedarius:curated_sample",
+          "stable_token": "camelus_dromedarius:sample:ku605068-ku605080:ku605079",
+          "accession_lineage": [
+            "species:Camelus dromedarius",
+            "source:GenBank",
+            "project:KU605068-KU605080",
+            "sample:ku605068-ku605080:ku605079"
+          ]
+        },
+        "locality_identity": {
+          "namespace": "camelus_dromedarius:sample_locality",
+          "stable_token": "camelus_dromedarius:locality:ku605068-ku605080:unresolved",
+          "locality_text": "",
+          "political_entity": "",
+          "source_anchor_tokens": [
+            "KU605068-KU605080",
+            "accession_range_anchor"
+          ]
+        },
+        "species_latin_name": "Camelus dromedarius",
+        "species_common_name": "dromedary camel",
+        "source_family": "GenBank",
+        "source_release": "KU605068-KU605080",
+        "record_modality": "mitogenome_only",
+        "review_strength": "primary_paper_pinned",
+        "provenance_quality": "manual_curation_only",
+        "master_id": "ku605068-ku605080:ku605079",
+        "group_id": "KU605068-KU605080",
+        "locality": "",
+        "political_entity": "",
+        "coordinates": {
+          "latitude": null,
+          "longitude": null,
+          "latitude_text": "",
+          "longitude_text": "",
+          "confidence": "unknown"
+        },
+        "publication": "Combined hybridization capture and shotgun sequencing for ancient DNA analysis of extinct wild and domestic dromedary camel",
+        "year_first_published": "2017",
+        "full_date": "",
+        "chronology": {
+          "original_text": "",
+          "time_start_bp": null,
+          "time_end_bp": null,
+          "time_mean_bp": null,
+          "date_stddev_bp": "",
+          "dating_basis": "historical_and_archaeological_context",
+          "evidence_class": "unresolved",
+          "precision_posture": "unresolved"
+        },
+        "data_type": "archive_accession_range_context",
+        "molecular_sex": "",
+        "datasets": [
+          "camelus_dromedarius:project:KU605068-KU605080"
+        ],
+        "project_accession": "KU605068-KU605080",
+        "paper_doi": "10.1111/1755-0998.12551",
+        "paper_url": "https://doi.org/10.1111/1755-0998.12551",
+        "supplementary_source": "",
+        "inclusion_status": "site_curated",
+        "inclusion_note": "No location evidence has been extracted yet for this recovered sample row.",
+        "chronology_strength": "unresolved",
+        "chronology_normalization_status": "unresolved",
+        "chronology_provenance_path": "",
+        "chronology_provenance_kind": "",
+        "chronology_provenance_locator": "",
+        "chronology_provenance_text": "",
+        "chronology_conflict_note": "",
+        "sample_basis": "accession_range_anchor",
+        "archive_native_sample_id": "KU605079",
+        "paper_native_sample_label": "",
+        "supplementary_table_sample_label": "",
+        "sample_evidence_status": "archive_native",
+        "sample_lineage_path": "data/adna/governance/source_library/projects/KU605068-KU605080/archive_metadata.html",
+        "sample_lineage_locator": "accession:KU605079",
+        "sample_lineage_excerpt": "Archive-native accession KU605079 is tracked directly in the curated intake catalog.",
+        "sample_identity_resolution": "final",
+        "sample_ambiguity_note": ""
+      },
+      {
+        "identity": {
+          "namespace": "camelus_dromedarius:curated_sample",
+          "stable_token": "camelus_dromedarius:sample:ku605068-ku605080:ku605080",
+          "accession_lineage": [
+            "species:Camelus dromedarius",
+            "source:GenBank",
+            "project:KU605068-KU605080",
+            "sample:ku605068-ku605080:ku605080"
+          ]
+        },
+        "locality_identity": {
+          "namespace": "camelus_dromedarius:sample_locality",
+          "stable_token": "camelus_dromedarius:locality:ku605068-ku605080:unresolved",
+          "locality_text": "",
+          "political_entity": "",
+          "source_anchor_tokens": [
+            "KU605068-KU605080",
+            "accession_range_anchor"
+          ]
+        },
+        "species_latin_name": "Camelus dromedarius",
+        "species_common_name": "dromedary camel",
+        "source_family": "GenBank",
+        "source_release": "KU605068-KU605080",
+        "record_modality": "mitogenome_only",
+        "review_strength": "primary_paper_pinned",
+        "provenance_quality": "manual_curation_only",
+        "master_id": "ku605068-ku605080:ku605080",
+        "group_id": "KU605068-KU605080",
+        "locality": "",
+        "political_entity": "",
+        "coordinates": {
+          "latitude": null,
+          "longitude": null,
+          "latitude_text": "",
+          "longitude_text": "",
+          "confidence": "unknown"
+        },
+        "publication": "Combined hybridization capture and shotgun sequencing for ancient DNA analysis of extinct wild and domestic dromedary camel",
+        "year_first_published": "2017",
+        "full_date": "",
+        "chronology": {
+          "original_text": "",
+          "time_start_bp": null,
+          "time_end_bp": null,
+          "time_mean_bp": null,
+          "date_stddev_bp": "",
+          "dating_basis": "historical_and_archaeological_context",
+          "evidence_class": "unresolved",
+          "precision_posture": "unresolved"
+        },
+        "data_type": "archive_accession_range_context",
+        "molecular_sex": "",
+        "datasets": [
+          "camelus_dromedarius:project:KU605068-KU605080"
+        ],
+        "project_accession": "KU605068-KU605080",
+        "paper_doi": "10.1111/1755-0998.12551",
+        "paper_url": "https://doi.org/10.1111/1755-0998.12551",
+        "supplementary_source": "",
+        "inclusion_status": "site_curated",
+        "inclusion_note": "No location evidence has been extracted yet for this recovered sample row.",
+        "chronology_strength": "unresolved",
+        "chronology_normalization_status": "unresolved",
+        "chronology_provenance_path": "",
+        "chronology_provenance_kind": "",
+        "chronology_provenance_locator": "",
+        "chronology_provenance_text": "",
+        "chronology_conflict_note": "",
+        "sample_basis": "accession_range_anchor",
+        "archive_native_sample_id": "KU605080",
+        "paper_native_sample_label": "",
+        "supplementary_table_sample_label": "",
+        "sample_evidence_status": "archive_native",
+        "sample_lineage_path": "data/adna/governance/source_library/projects/KU605068-KU605080/archive_metadata.html",
+        "sample_lineage_locator": "accession:KU605080",
+        "sample_lineage_excerpt": "Archive-native accession KU605080 is tracked directly in the curated intake catalog.",
+        "sample_identity_resolution": "final",
+        "sample_ambiguity_note": ""
+      },
+      {
+        "identity": {
+          "namespace": "camelus_dromedarius:curated_sample",
+          "stable_token": "camelus_dromedarius:sample:srp073444",
+          "accession_lineage": [
+            "species:Camelus dromedarius",
+            "source:SRA",
+            "project:SRP073444",
+            "sample:SRP073444"
+          ]
+        },
+        "locality_identity": {
+          "namespace": "camelus_dromedarius:sample_locality",
+          "stable_token": "camelus_dromedarius:locality:srp073444:site1040nearwadihalfadromedarycontext:sudan",
+          "locality_text": "Site 1040 near Wadi Halfa dromedary context",
+          "political_entity": "Sudan",
+          "source_anchor_tokens": [
+            "SRP073444",
+            "project_accession_anchor"
+          ]
+        },
+        "species_latin_name": "Camelus dromedarius",
+        "species_common_name": "dromedary camel",
+        "source_family": "SRA",
+        "source_release": "SRP073444",
+        "record_modality": "archive_reads",
+        "review_strength": "primary_paper_pinned",
+        "provenance_quality": "manual_curation_only",
+        "master_id": "SRP073444",
+        "group_id": "SRP073444",
+        "locality": "Site 1040 near Wadi Halfa dromedary context",
+        "political_entity": "Sudan",
+        "coordinates": {
+          "latitude": 21.799142,
+          "longitude": 31.371316,
+          "latitude_text": "21.799142",
+          "longitude_text": "31.371316",
+          "confidence": "approximate"
+        },
+        "publication": "Combined hybridization capture and shotgun sequencing for ancient DNA analysis of extinct wild and domestic dromedary camel",
+        "year_first_published": "2017",
+        "full_date": "Historical and archaeological dromedary range context",
+        "chronology": {
+          "original_text": "Historical and archaeological dromedary range context",
+          "time_start_bp": 1400,
+          "time_end_bp": 3000,
+          "time_mean_bp": 2200,
+          "date_stddev_bp": "",
+          "dating_basis": "historical_and_archaeological_context",
+          "evidence_class": "historical_or_recent_date",
+          "precision_posture": "sample_precise_interval"
+        },
+        "data_type": "archive_project_context",
+        "molecular_sex": "",
+        "datasets": [
+          "camelus_dromedarius:project:SRP073444"
+        ],
+        "project_accession": "SRP073444",
+        "paper_doi": "10.1111/1755-0998.12551",
+        "paper_url": "https://doi.org/10.1111/1755-0998.12551",
+        "supplementary_source": "",
+        "inclusion_status": "site_curated",
+        "inclusion_note": "Camel now keeps one named-place resolution trail instead of only a broad Arabian/Levant centroid.",
+        "chronology_strength": "project_context_interval",
+        "chronology_normalization_status": "normalized_interval",
+        "chronology_provenance_path": "",
+        "chronology_provenance_kind": "",
+        "chronology_provenance_locator": "",
+        "chronology_provenance_text": "",
+        "chronology_conflict_note": "",
+        "sample_basis": "project_accession_anchor",
+        "archive_native_sample_id": "",
+        "paper_native_sample_label": "",
+        "supplementary_table_sample_label": "",
+        "sample_evidence_status": "not_yet_recoverable",
+        "sample_lineage_path": "",
+        "sample_lineage_locator": "",
+        "sample_lineage_excerpt": "",
+        "sample_identity_resolution": "provisional",
+        "sample_ambiguity_note": "No recoverable project sample-master row is published yet for this project."
+      }
+    ],
+    "coordinate_provenance_records": [
+      {
+        "project_accession": "SRP073444",
+        "species_latin_name": "Camelus dromedarius",
+        "species_common_name": "camel",
+        "site_label": "Site 1040 near Wadi Halfa dromedary context",
+        "original_place_text": "Site 1040 near Wadi Halfa",
+        "resolved_place_text": "Wadi Halfa",
+        "political_entity": "Sudan",
+        "source_artifact_path": "adna/governance/source_library/papers/10.1111-1755-0998.12551/article.html",
+        "source_locator": "introduction",
+        "coordinate_basis": "named_site_geocoding",
+        "mapping_posture": "mappable_point",
+        "latitude_text": "21.799142",
+        "longitude_text": "31.371316",
+        "geocoding_method": "manual_named_place_resolution",
+        "geocoder_or_gazetteer": "named-place resolution to Wadi Halfa city anchor",
+        "confidence_rationale": "The archived article names Site 1040 near Wadi Halfa explicitly. The current coordinate is an approximate city-level geocode for Wadi Halfa rather than a published excavation coordinate pair.",
+        "coordinate_confidence": "approximate",
+        "paper_doi": "10.1111/1755-0998.12551",
+        "paper_url": "https://doi.org/10.1111/1755-0998.12551",
+        "supplementary_source": "",
+        "chronology_text": "Historical and archaeological dromedary range context",
+        "time_start_bp": 1400,
+        "time_end_bp": 3000,
+        "dating_basis": "historical_attribution",
+        "comparator_context": false,
+        "domestication_context": "non_nordic_domestication_context",
+        "interpretation_note": "Camel now keeps one named-place resolution trail instead of only a broad Arabian/Levant centroid.",
+        "support_gap_note": ""
+      }
+    ],
+    "site_evidence_records": [
+      {
+        "project_accession": "SRP073444",
+        "species_latin_name": "Camelus dromedarius",
+        "species_common_name": "camel",
+        "site_label": "Arabian Peninsula and Levant dromedary context",
+        "political_entity": "Arabian Peninsula and Levant",
+        "source_artifact_path": "adna/governance/source_library/papers/10.1111-1755-0998.12551/article.html",
+        "source_artifact_kind": "article_html_body_quote",
+        "source_locator": "abstract and introduction",
+        "exact_source_text": "The remains of a single large-sized Late Pleistocene camel individual recovered from the Site 1040 near Wadi Halfa were first evaluated by Gautier.",
+        "source_support_status": "article_exact_quote",
+        "paper_doi": "10.1111/1755-0998.12551",
+        "paper_url": "https://doi.org/10.1111/1755-0998.12551",
+        "supplementary_source": "",
+        "coordinate_basis": "inferred_region_centroid",
+        "latitude_text": "25.00",
+        "longitude_text": "45.00",
+        "chronology_text": "Historical and archaeological dromedary range context",
+        "time_start_bp": 1400,
+        "time_end_bp": 3000,
+        "dating_basis": "historical_attribution",
+        "comparator_context": false,
+        "domestication_context": "non_nordic_domestication_context",
+        "interpretation_note": "The paper names an exact Wadi Halfa specimen, but the current repository still publishes camel only as broad non-Nordic context rather than a precise atlas-grade point.",
+        "support_gap_note": "The shipped point is still a broad contextual centroid even though the paper names Site 1040 near Wadi Halfa."
+      }
+    ],
+    "locality_records": [
+      {
+        "identity": {
+          "namespace": "camelus_dromedarius:project_locality",
+          "stable_token": "camelus_dromedarius:locality:ku605068-ku605080:unresolved",
+          "locality_text": "",
+          "political_entity": "",
+          "source_anchor_tokens": [
+            "KU605068-KU605080",
+            "",
+            ""
+          ]
+        },
+        "species_latin_name": "Camelus dromedarius",
+        "species_common_name": "dromedary camel",
+        "source_family": "GenBank",
+        "source_releases": [
+          "KU605068-KU605080"
+        ],
+        "record_modalities": [
+          "mitogenome_only"
+        ],
+        "review_strengths": [
+          "primary_paper_pinned"
+        ],
+        "provenance_qualities": [
+          "primary_paper_pinned"
+        ],
+        "locality": "",
+        "coordinates": {
+          "latitude": null,
+          "longitude": null,
+          "latitude_text": "",
+          "longitude_text": "",
+          "confidence": "unknown"
+        },
+        "sample_count": 13,
+        "sample_ids": [
+          "ku605068-ku605080:ku605068",
+          "ku605068-ku605080:ku605069",
+          "ku605068-ku605080:ku605070",
+          "ku605068-ku605080:ku605071",
+          "ku605068-ku605080:ku605072",
+          "ku605068-ku605080:ku605073",
+          "ku605068-ku605080:ku605074",
+          "ku605068-ku605080:ku605075",
+          "ku605068-ku605080:ku605076",
+          "ku605068-ku605080:ku605077",
+          "ku605068-ku605080:ku605078",
+          "ku605068-ku605080:ku605079",
+          "ku605068-ku605080:ku605080"
+        ],
+        "datasets": [
+          "camelus_dromedarius:project:KU605068-KU605080"
+        ],
+        "chronology": {
+          "original_text": "",
+          "time_start_bp": null,
+          "time_end_bp": null,
+          "time_mean_bp": null,
+          "date_stddev_bp": "",
+          "dating_basis": "historical_and_archaeological_context",
+          "evidence_class": "unresolved",
+          "precision_posture": "unresolved"
+        },
+        "sample_namespace": "camelus_dromedarius:sample_locality",
+        "project_accessions": [
+          "KU605068-KU605080"
+        ],
+        "original_location_text": "",
+        "nordic_inclusion": false,
+        "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
+        "interpretation_note": "No location evidence has been extracted yet for this recovered sample row."
+      },
+      {
+        "identity": {
+          "namespace": "camelus_dromedarius:project_locality",
+          "stable_token": "camelus_dromedarius:locality:srp073444:site1040nearwadihalfadromedarycontext:sudan",
+          "locality_text": "Site 1040 near Wadi Halfa dromedary context",
+          "political_entity": "Sudan",
+          "source_anchor_tokens": [
+            "SRP073444",
+            "21.799142",
+            "31.371316"
+          ]
+        },
+        "species_latin_name": "Camelus dromedarius",
+        "species_common_name": "dromedary camel",
+        "source_family": "SRA",
+        "source_releases": [
+          "SRP073444"
+        ],
+        "record_modalities": [
+          "archive_reads"
+        ],
+        "review_strengths": [
+          "primary_paper_pinned"
+        ],
+        "provenance_qualities": [
+          "primary_paper_pinned"
+        ],
+        "locality": "Site 1040 near Wadi Halfa dromedary context",
+        "coordinates": {
+          "latitude": 21.799142,
+          "longitude": 31.371316,
+          "latitude_text": "21.799142",
+          "longitude_text": "31.371316",
+          "confidence": "approximate"
+        },
+        "sample_count": 1,
+        "sample_ids": [
+          "SRP073444"
+        ],
+        "datasets": [
+          "camelus_dromedarius:project:SRP073444"
+        ],
+        "chronology": {
+          "original_text": "Historical and archaeological dromedary range context",
+          "time_start_bp": 1400,
+          "time_end_bp": 3000,
+          "time_mean_bp": 2200,
+          "date_stddev_bp": "",
+          "dating_basis": "historical_and_archaeological_context",
+          "evidence_class": "historical_or_recent_date",
+          "precision_posture": "contextual_interval"
+        },
+        "sample_namespace": "camelus_dromedarius:sample_locality",
+        "project_accessions": [
+          "SRP073444"
+        ],
+        "original_location_text": "Site 1040 near Wadi Halfa dromedary context",
+        "nordic_inclusion": false,
+        "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
+        "interpretation_note": "Camel now keeps one named-place resolution trail instead of only a broad Arabian/Levant centroid."
+      }
+    ],
+    "project_summaries": [
+      {
+        "schema_version": "adna-project-summary.v1",
+        "summary_token": "camelus_dromedarius:project:KU605068-KU605080",
+        "species_latin_name": "Camelus dromedarius",
+        "species_common_name": "dromedary camel",
+        "project_accession": "KU605068-KU605080",
+        "study_token": "study:10-1111-1755-0998-12551",
+        "source_family": "GenBank",
+        "source_release": "KU605068-KU605080",
+        "result_kind": "read_run",
+        "archive_status": "paper_pinned_core",
+        "evidence_strength": "primary_paper_pinned",
+        "review_strength": "primary_paper_pinned",
+        "support_class": "domesticated_core_curated",
+        "record_modality": "mitogenome_only",
+        "domestication_status": "domesticated_core",
+        "domestication_scope": "domesticated_core",
+        "comparator_status": false,
+        "normalized_breed_label": "dromedary-associated",
+        "sequencing_target": "mitogenome",
+        "material_basis": "individual_bone_or_tooth",
+        "chronology_basis": "historical_and_archaeological_context",
+        "dating_basis": "historical_and_archaeological_context",
+        "geographic_basis": "site_level_localities",
+        "coordinate_policy": "site_level_coordinates_expected",
+        "chronology_policy": "historical_interval_or_label_allowed",
+        "paper_title": "Combined hybridization capture and shotgun sequencing for ancient DNA analysis of extinct wild and domestic dromedary camel",
+        "paper_doi": "10.1111/1755-0998.12551",
+        "paper_url": "https://doi.org/10.1111/1755-0998.12551",
+        "nordic_relevance": "non_nordic",
+        "nordic_relevance_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
+        "interpretation_caveat": "Dromedary mitogenome range named on the primary paper page. It supports Camelus dromedarius only, not other camelids. This project stays in the evidence base for comparative context, not as shipped Nordic evidence.",
+        "notes": "Dromedary mitogenome range named on the primary paper page. It supports Camelus dromedarius only, not other camelids."
+      },
+      {
+        "schema_version": "adna-project-summary.v1",
+        "summary_token": "camelus_dromedarius:project:SRP073444",
+        "species_latin_name": "Camelus dromedarius",
+        "species_common_name": "dromedary camel",
+        "project_accession": "SRP073444",
+        "study_token": "study:10-1111-1755-0998-12551",
+        "source_family": "SRA",
+        "source_release": "SRP073444",
+        "result_kind": "read_run",
+        "archive_status": "paper_pinned_core",
+        "evidence_strength": "primary_paper_pinned",
+        "review_strength": "primary_paper_pinned",
+        "support_class": "domesticated_core_curated",
+        "record_modality": "archive_reads",
+        "domestication_status": "domesticated_core",
+        "domestication_scope": "domesticated_core",
+        "comparator_status": false,
+        "normalized_breed_label": "dromedary-associated",
+        "sequencing_target": "capture_and_shotgun",
+        "material_basis": "individual_bone_or_tooth",
+        "chronology_basis": "historical_and_archaeological_context",
+        "dating_basis": "historical_and_archaeological_context",
+        "geographic_basis": "site_level_localities",
+        "coordinate_policy": "site_level_coordinates_expected",
+        "chronology_policy": "historical_interval_or_label_allowed",
+        "paper_title": "Combined hybridization capture and shotgun sequencing for ancient DNA analysis of extinct wild and domestic dromedary camel",
+        "paper_doi": "10.1111/1755-0998.12551",
+        "paper_url": "https://doi.org/10.1111/1755-0998.12551",
+        "nordic_relevance": "non_nordic",
+        "nordic_relevance_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
+        "interpretation_caveat": "Domestic-dromedary anchor. Comparator camelid evidence does not extend support to other camelid species automatically. This project stays in the evidence base for comparative context, not as shipped Nordic evidence.",
+        "notes": "Domestic-dromedary anchor. Comparator camelid evidence does not extend support to other camelid species automatically."
+      }
+    ],
+    "study_summaries": [
+      {
+        "schema_version": "adna-study-summary.v1",
+        "summary_token": "study:10-1111-1755-0998-12551",
+        "species_latin_name": "Camelus dromedarius",
+        "species_common_name": "dromedary camel",
+        "project_accessions": [
+          "KU605068-KU605080",
+          "SRP073444"
+        ],
+        "source_families": [
+          "GenBank",
+          "SRA"
+        ],
+        "archive_statuses": [
+          "paper_pinned_core"
+        ],
+        "evidence_strengths": [
+          "primary_paper_pinned"
+        ],
+        "domestication_status": "domesticated_core",
+        "paper_title": "Combined hybridization capture and shotgun sequencing for ancient DNA analysis of extinct wild and domestic dromedary camel",
+        "paper_doi": "10.1111/1755-0998.12551",
+        "sequencing_targets": [
+          "capture_and_shotgun",
+          "mitogenome"
+        ],
+        "material_bases": [
+          "individual_bone_or_tooth"
+        ],
+        "dating_bases": [
+          "historical_and_archaeological_context"
+        ],
+        "geographic_bases": [
+          "site_level_localities"
+        ]
+      }
+    ],
+    "lineage_records": [
+      {
+        "schema_version": "adna-normalization-lineage.v1",
+        "output_record_kind": "project_summary",
+        "output_record_token": "camelus_dromedarius:project:KU605068-KU605080",
+        "source_artifact_path": "data/adna/species/camelus_dromedarius/raw/genbank/KU605068-KU605080.summary.tsv",
+        "source_accessions": [
+          "KU605068-KU605080"
+        ],
+        "lineage_tokens": [
+          "species:Camelus dromedarius",
+          "source_family:GenBank",
+          "project_accession:KU605068-KU605080",
+          "archive_status:paper_pinned_core"
+        ]
+      },
+      {
+        "schema_version": "adna-normalization-lineage.v1",
+        "output_record_kind": "project_summary",
+        "output_record_token": "camelus_dromedarius:project:SRP073444",
+        "source_artifact_path": "data/adna/species/camelus_dromedarius/raw/sra/SRP073444.filereport.tsv",
+        "source_accessions": [
+          "SRP073444"
+        ],
+        "lineage_tokens": [
+          "species:Camelus dromedarius",
+          "source_family:SRA",
+          "project_accession:SRP073444",
+          "archive_status:paper_pinned_core"
+        ]
+      },
+      {
+        "schema_version": "adna-normalization-lineage.v1",
+        "output_record_kind": "study_summary",
+        "output_record_token": "study:10-1111-1755-0998-12551",
+        "source_artifact_path": "data/adna/species/camelus_dromedarius/raw/genbank/KU605068-KU605080.summary.tsv",
+        "source_accessions": [
+          "KU605068-KU605080",
+          "SRP073444"
+        ],
+        "lineage_tokens": [
+          "species:Camelus dromedarius",
+          "study_token:study:10-1111-1755-0998-12551",
+          "project_accession:KU605068-KU605080",
+          "project_accession:SRP073444"
+        ]
+      }
+    ],
+    "refusals": [],
+    "normalization_scope": "Non-human normalization currently governs accession-backed sample master rows, project summaries, study summaries, and curated locality summaries. Site and chronology extraction still vary by accession and remain explicit in sample inclusion status rather than being silently flattened."
+  }
+}

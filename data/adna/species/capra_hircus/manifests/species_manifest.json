@@ -1,0 +1,35 @@
+{
+  "schema_version": "adna-species-manifest.v1",
+  "species": {
+    "latin_name": "Capra hircus",
+    "slug": "capra_hircus",
+    "common_name": "goat",
+    "support_status": "provisional",
+    "modalities": [
+      "archive_reads",
+      "paper_only"
+    ],
+    "source_families": [
+      "ENA",
+      "SRA",
+      "BioProject"
+    ],
+    "aliases": [
+      "goat",
+      "domestic goat"
+    ],
+    "notes": "Ancient goat projects are known but not yet part of the runtime publication loop."
+  },
+  "root_slug": "capra_hircus",
+  "data_root": "data/adna/species/capra_hircus",
+  "normalized_sample_namespace": "capra_hircus:normalized_sample",
+  "tracked_layout": [
+    "raw",
+    "normalized",
+    "manifests",
+    "reports",
+    "review"
+  ],
+  "scientific_scope": "Species-aware ancient-DNA intake and review boundary. Support status describes evidence readiness, not broad scientific sufficiency.",
+  "runtime_scope": "Current runtime normalization and reporting remain human AADR-first until species-specific collectors and archive bridges are implemented."
+}

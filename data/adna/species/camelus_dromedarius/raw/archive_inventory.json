@@ -1,0 +1,84 @@
+{
+  "projects": [
+    {
+      "species_latin_name": "Camelus dromedarius",
+      "project_accession": "SRP073444",
+      "result_kind": "read_run",
+      "metadata_url": "https://www.ncbi.nlm.nih.gov/sra?term=SRP073444",
+      "source_family": "SRA",
+      "accession_scope": "project",
+      "archive_status": "paper_pinned_core",
+      "notes": "Domestic-dromedary anchor. Comparator camelid evidence does not extend support to other camelid species automatically.",
+      "paper_linkage": {
+        "paper_title": "Combined hybridization capture and shotgun sequencing for ancient DNA analysis of extinct wild and domestic dromedary camel",
+        "doi": "10.1111/1755-0998.12551",
+        "pubmed_id": null,
+        "pmc_id": "PMC5324683",
+        "journal_title": "Molecular Ecology Resources",
+        "publication_year": 2017,
+        "reference_kind": "primary_paper",
+        "pinning_evidence": "Primary paper explicitly names SRA project SRP073444 for the dromedary study and distinguishes domestic-dromedary material from wider camelid context."
+      },
+      "ancient_status": "ancient_confirmed",
+      "sequencing_target": "capture_and_shotgun",
+      "material_basis": "individual_bone_or_tooth",
+      "dating_basis": "historical_and_archaeological_context",
+      "geographic_basis": "site_level_localities",
+      "access_policy": "public_downloadable",
+      "public_release_date": null,
+      "domestication_scope": "domesticated_core",
+      "evidence_strength": "primary_paper_pinned",
+      "source_snapshot": {
+        "project_accession": "SRP073444",
+        "source_family": "SRA",
+        "result_kind": "read_run",
+        "metadata_url": "https://www.ncbi.nlm.nih.gov/sra?term=SRP073444",
+        "source_title": "Camelus dromedarius Raw sequence reads",
+        "source_description": "DNA sequences from ancient domestic and wild dromedary camel",
+        "title_basis": "ena-secondary-study-search",
+        "description_basis": "ena-secondary-study-search",
+        "captured_on": "2026-05-07"
+      }
+    },
+    {
+      "species_latin_name": "Camelus dromedarius",
+      "project_accession": "KU605068-KU605080",
+      "result_kind": "read_run",
+      "metadata_url": "https://www.ncbi.nlm.nih.gov/nuccore/KU605068",
+      "source_family": "GenBank",
+      "accession_scope": "accession_range",
+      "archive_status": "paper_pinned_core",
+      "notes": "Dromedary mitogenome range named on the primary paper page. It supports Camelus dromedarius only, not other camelids.",
+      "paper_linkage": {
+        "paper_title": "Combined hybridization capture and shotgun sequencing for ancient DNA analysis of extinct wild and domestic dromedary camel",
+        "doi": "10.1111/1755-0998.12551",
+        "pubmed_id": null,
+        "pmc_id": "PMC5324683",
+        "journal_title": "Molecular Ecology Resources",
+        "publication_year": 2017,
+        "reference_kind": "primary_paper",
+        "pinning_evidence": "Primary paper explicitly names mitochondrial genome accession range KU605068-KU605080 for the dromedary study."
+      },
+      "ancient_status": "ancient_confirmed",
+      "sequencing_target": "mitogenome",
+      "material_basis": "individual_bone_or_tooth",
+      "dating_basis": "historical_and_archaeological_context",
+      "geographic_basis": "site_level_localities",
+      "access_policy": "public_downloadable",
+      "public_release_date": null,
+      "domestication_scope": "domesticated_core",
+      "evidence_strength": "primary_paper_pinned",
+      "source_snapshot": {
+        "project_accession": "KU605068-KU605080",
+        "source_family": "GenBank",
+        "result_kind": "read_run",
+        "metadata_url": "https://www.ncbi.nlm.nih.gov/nuccore/KU605068",
+        "source_title": "Camelus dromedarius isolate Palm152 mitochondrion, partial genome",
+        "source_description": "KU605068",
+        "title_basis": "ncbi-nuccore-summary",
+        "description_basis": "ncbi-nuccore-summary",
+        "captured_on": "2026-05-07"
+      }
+    }
+  ]
+}

@@ -1,0 +1,113 @@
+{
+  "schema_version": "animal-output-honesty.v1",
+  "totals": {
+    "tracked_sample_count": 894,
+    "mapped_sample_count": 555,
+    "blocked_sample_count": 339,
+    "unresolved_sample_count": 21,
+    "country_published_sample_count": 3,
+    "region_refused_count": 7
+  },
+  "rows": [
+    {
+      "species_latin_name": "Bos taurus",
+      "species_common_name": "cattle",
+      "tracked_sample_count": 13,
+      "mapped_sample_count": 0,
+      "blocked_sample_count": 13,
+      "unresolved_sample_count": 2,
+      "country_published_sample_count": 0,
+      "region_refused_count": 1
+    },
+    {
+      "species_latin_name": "Camelus dromedarius",
+      "species_common_name": "dromedary camel",
+      "tracked_sample_count": 14,
+      "mapped_sample_count": 1,
+      "blocked_sample_count": 13,
+      "unresolved_sample_count": 0,
+      "country_published_sample_count": 0,
+      "region_refused_count": 0
+    },
+    {
+      "species_latin_name": "Canis lupus familiaris",
+      "species_common_name": "dog",
+      "tracked_sample_count": 4,
+      "mapped_sample_count": 0,
+      "blocked_sample_count": 4,
+      "unresolved_sample_count": 0,
+      "country_published_sample_count": 0,
+      "region_refused_count": 1
+    },
+    {
+      "species_latin_name": "Capra hircus",
+      "species_common_name": "goat",
+      "tracked_sample_count": 82,
+      "mapped_sample_count": 65,
+      "blocked_sample_count": 17,
+      "unresolved_sample_count": 0,
+      "country_published_sample_count": 0,
+      "region_refused_count": 0
+    },
+    {
+      "species_latin_name": "Equus asinus",
+      "species_common_name": "donkey",
+      "tracked_sample_count": 5,
+      "mapped_sample_count": 0,
+      "blocked_sample_count": 5,
+      "unresolved_sample_count": 4,
+      "country_published_sample_count": 0,
+      "region_refused_count": 1
+    },
+    {
+      "species_latin_name": "Equus caballus",
+      "species_common_name": "horse",
+      "tracked_sample_count": 552,
+      "mapped_sample_count": 489,
+      "blocked_sample_count": 63,
+      "unresolved_sample_count": 4,
+      "country_published_sample_count": 3,
+      "region_refused_count": 0
+    },
+    {
+      "species_latin_name": "Felis catus",
+      "species_common_name": "cat",
+      "tracked_sample_count": 2,
+      "mapped_sample_count": 0,
+      "blocked_sample_count": 2,
+      "unresolved_sample_count": 1,
+      "country_published_sample_count": 0,
+      "region_refused_count": 1
+    },
+    {
+      "species_latin_name": "Ovis aries",
+      "species_common_name": "sheep",
+      "tracked_sample_count": 195,
+      "mapped_sample_count": 0,
+      "blocked_sample_count": 195,
+      "unresolved_sample_count": 4,
+      "country_published_sample_count": 0,
+      "region_refused_count": 1
+    },
+    {
+      "species_latin_name": "Rangifer tarandus",
+      "species_common_name": "reindeer",
+      "tracked_sample_count": 23,
+      "mapped_sample_count": 0,
+      "blocked_sample_count": 23,
+      "unresolved_sample_count": 3,
+      "country_published_sample_count": 0,
+      "region_refused_count": 1
+    },
+    {
+      "species_latin_name": "Sus scrofa domesticus",
+      "species_common_name": "pig",
+      "tracked_sample_count": 4,
+      "mapped_sample_count": 0,
+      "blocked_sample_count": 4,
+      "unresolved_sample_count": 3,
+      "country_published_sample_count": 0,
+      "region_refused_count": 1
+    }
+  ]
+}

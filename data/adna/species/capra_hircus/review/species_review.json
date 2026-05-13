@@ -1,0 +1,226 @@
+{
+  "schema_version": "adna-species-review-dossier.v1",
+  "species_manifest": {
+    "schema_version": "adna-species-manifest.v1",
+    "species": {
+      "latin_name": "Capra hircus",
+      "slug": "capra_hircus",
+      "common_name": "goat",
+      "support_status": "provisional",
+      "modalities": [
+        "archive_reads",
+        "paper_only"
+      ],
+      "source_families": [
+        "ENA",
+        "SRA",
+        "BioProject"
+      ],
+      "aliases": [
+        "goat",
+        "domestic goat"
+      ],
+      "notes": "Ancient goat projects are known but not yet part of the runtime publication loop."
+    },
+    "root_slug": "capra_hircus",
+    "data_root": "data/adna/species/capra_hircus",
+    "normalized_sample_namespace": "capra_hircus:normalized_sample",
+    "tracked_layout": [
+      "raw",
+      "normalized",
+      "manifests",
+      "reports",
+      "review"
+    ],
+    "scientific_scope": "Species-aware ancient-DNA intake and review boundary. Support status describes evidence readiness, not broad scientific sufficiency.",
+    "runtime_scope": "Current runtime normalization and reporting remain human AADR-first until species-specific collectors and archive bridges are implemented."
+  },
+  "dataset_review": {
+    "species": {
+      "latin_name": "Capra hircus",
+      "slug": "capra_hircus",
+      "common_name": "goat",
+      "support_status": "provisional",
+      "modalities": [
+        "archive_reads",
+        "paper_only"
+      ],
+      "source_families": [
+        "ENA",
+        "SRA",
+        "BioProject"
+      ],
+      "aliases": [
+        "goat",
+        "domestic goat"
+      ],
+      "notes": "Ancient goat projects are known but not yet part of the runtime publication loop."
+    },
+    "product_role": "domesticated_core",
+    "assignment_rule": "single_species_core",
+    "dataset_bucket": "paper_pinned_core",
+    "archive_project_count": 3,
+    "core_project_count": 3,
+    "primary_paper_pin_count": 3,
+    "curated_support_project_count": 3,
+    "archive_required": true,
+    "primary_paper_required": true,
+    "manifest_schema_required": true,
+    "release_gate_satisfied": true,
+    "eligible_for_supported_status": true,
+    "blocking_reasons": []
+  },
+  "project_manifest": {
+    "schema_version": "adna-species-project-manifest.v1",
+    "species_latin_name": "Capra hircus",
+    "projects": [
+      {
+        "project_accession": "PRJEB90141",
+        "source_family": "ENA",
+        "accession_scope": "project",
+        "archive_status": "paper_pinned_core",
+        "evidence_strength": "primary_paper_pinned",
+        "ancient_status": "ancient_confirmed",
+        "paper_title": "Inferring Domestic Goat Demographic History Through Ancient Genome Imputation",
+        "paper_doi": "10.1093/gbe/evaf181",
+        "sequencing_target": "shotgun_genome",
+        "material_basis": "individual_bone_or_tooth",
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+        "geographic_basis": "site_level_localities",
+        "access_policy": "public_downloadable",
+        "public_release_date": "2025-12-31",
+        "domestication_scope": "domesticated_core",
+        "notes": "Ancient goat demographic-history anchor from genome imputation study.",
+        "nordic_relevance": "non_nordic",
+        "nordic_relevance_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
+        "last_checked_on": "2026-05-07"
+      },
+      {
+        "project_accession": "PRJEB90261",
+        "source_family": "ENA",
+        "accession_scope": "project",
+        "archive_status": "paper_pinned_core",
+        "evidence_strength": "primary_paper_pinned",
+        "ancient_status": "ancient_confirmed",
+        "paper_title": "Paleogenomic evidence on the temporal continuity of indigenous goat exploitation in the Canary Islands",
+        "paper_doi": "10.1016/j.isci.2025.113771",
+        "sequencing_target": "shotgun_genome",
+        "material_basis": "individual_bone_or_tooth",
+        "dating_basis": "historical_and_archaeological_context",
+        "geographic_basis": "site_level_localities",
+        "access_policy": "public_downloadable",
+        "public_release_date": null,
+        "domestication_scope": "domesticated_core",
+        "notes": "Canary Islands goat temporal continuity anchor.",
+        "nordic_relevance": "non_nordic",
+        "nordic_relevance_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
+        "last_checked_on": "2026-05-07"
+      },
+      {
+        "project_accession": "PRJNA1328209",
+        "source_family": "ENA",
+        "accession_scope": "project",
+        "archive_status": "paper_pinned_core",
+        "evidence_strength": "primary_paper_pinned",
+        "ancient_status": "ancient_confirmed",
+        "paper_title": "Ancient genomes reveal the genetic history of domestic goats on the Qinghai-Xizang Plateau approximately 3,600 years ago",
+        "paper_doi": "10.24272/j.issn.2095-8137.2025.080",
+        "sequencing_target": "shotgun_genome",
+        "material_basis": "individual_bone_or_tooth",
+        "dating_basis": "archaeological_period_assignment",
+        "geographic_basis": "site_level_localities",
+        "access_policy": "public_downloadable",
+        "public_release_date": null,
+        "domestication_scope": "domesticated_core",
+        "notes": "Qinghai-Xizang Plateau goat population-history anchor.",
+        "nordic_relevance": "non_nordic",
+        "nordic_relevance_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
+        "last_checked_on": "2026-05-07"
+      }
+    ]
+  },
+  "project_reviews": [
+    {
+      "species_latin_name": "Capra hircus",
+      "project_accession": "PRJEB90141",
+      "source_family": "ENA",
+      "accession_scope": "project",
+      "archive_status": "paper_pinned_core",
+      "evidence_strength": "primary_paper_pinned",
+      "ancient_status": "ancient_confirmed",
+      "access_policy": "public_downloadable",
+      "public_release_date": "2025-12-31",
+      "domestication_scope": "domesticated_core",
+      "core_project": true,
+      "admissible_for_curated_support": true,
+      "blocking_reasons": []
+    },
+    {
+      "species_latin_name": "Capra hircus",
+      "project_accession": "PRJEB90261",
+      "source_family": "ENA",
+      "accession_scope": "project",
+      "archive_status": "paper_pinned_core",
+      "evidence_strength": "primary_paper_pinned",
+      "ancient_status": "ancient_confirmed",
+      "access_policy": "public_downloadable",
+      "public_release_date": null,
+      "domestication_scope": "domesticated_core",
+      "core_project": true,
+      "admissible_for_curated_support": true,
+      "blocking_reasons": []
+    },
+    {
+      "species_latin_name": "Capra hircus",
+      "project_accession": "PRJNA1328209",
+      "source_family": "ENA",
+      "accession_scope": "project",
+      "archive_status": "paper_pinned_core",
+      "evidence_strength": "primary_paper_pinned",
+      "ancient_status": "ancient_confirmed",
+      "access_policy": "public_downloadable",
+      "public_release_date": null,
+      "domestication_scope": "domesticated_core",
+      "core_project": true,
+      "admissible_for_curated_support": true,
+      "blocking_reasons": []
+    }
+  ],
+  "accepted_projects": [
+    {
+      "project_accession": "PRJEB90141",
+      "paper_title": "Inferring Domestic Goat Demographic History Through Ancient Genome Imputation",
+      "paper_doi": "10.1093/gbe/evaf181",
+      "archive_status": "paper_pinned_core",
+      "support_class": "accepted",
+      "reason": "admissible_for_curated_support",
+      "nordic_relevance": "non_nordic",
+      "nordic_relevance_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record."
+    },
+    {
+      "project_accession": "PRJEB90261",
+      "paper_title": "Paleogenomic evidence on the temporal continuity of indigenous goat exploitation in the Canary Islands",
+      "paper_doi": "10.1016/j.isci.2025.113771",
+      "archive_status": "paper_pinned_core",
+      "support_class": "accepted",
+      "reason": "admissible_for_curated_support",
+      "nordic_relevance": "non_nordic",
+      "nordic_relevance_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record."
+    },
+    {
+      "project_accession": "PRJNA1328209",
+      "paper_title": "Ancient genomes reveal the genetic history of domestic goats on the Qinghai-Xizang Plateau approximately 3,600 years ago",
+      "paper_doi": "10.24272/j.issn.2095-8137.2025.080",
+      "archive_status": "paper_pinned_core",
+      "support_class": "accepted",
+      "reason": "admissible_for_curated_support",
+      "nordic_relevance": "non_nordic",
+      "nordic_relevance_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record."
+    }
+  ],
+  "rejected_projects": [],
+  "too_weak_projects": [],
+  "comparator_projects": [],
+  "nordic_unmapped_leads": [],
+  "release_blockers": []
+}

@@ -1,3 +1,5 @@
+"""Summary builders for atlas, country, and published report bundles."""
+
 from .atlas import build_multi_country_bundle_manifest, build_multi_country_map_summary
 from .country import build_country_bundle_manifest, build_country_report_summary
 from .published import build_published_reports_summary

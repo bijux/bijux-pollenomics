@@ -21,7 +21,6 @@ from bijux_pollenomics.data_downloader.landclim import (
     resolve_landclim_marquer_asset_urls,
     resolve_landclim_tabular_asset_urls,
 )
-
 from tests.support.geography import NORDIC_TEST_BBOX, SWEDEN_BOUNDARIES
 from tests.support.workbooks import write_landclim_ii_zip, write_xlsx
 

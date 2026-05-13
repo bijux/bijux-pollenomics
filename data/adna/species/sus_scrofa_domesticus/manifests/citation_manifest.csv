@@ -1,0 +1,5 @@
+species_latin_name,project_accession,archive_status,evidence_strength,paper_title,paper_doi,pubmed_id,pmc_id,journal_title,publication_year,reference_kind,pinning_evidence
+Sus scrofa domesticus,PRJEB30282,paper_pinned_core,primary_paper_pinned,Ancient pigs reveal a near-complete genomic turnover following their introduction to Europe,10.1073/pnas.1901169116,,PMC6717267,Proceedings of the National Academy of Sciences,2019,primary_paper,Primary paper and PMC record explicitly anchor PRJEB30282 to the ancient pig turnover dataset.
+Sus scrofa domesticus,PRJNA788987,archive_verified_needs_paper_pinning,archive_only,,,,,,,,
+Sus scrofa domesticus,PRJNA878488,archive_verified_needs_paper_pinning,archive_only,,,,,,,,
+Sus scrofa domesticus,PRJNA421430,reject_or_out_of_scope,archive_only,,,,,,,,

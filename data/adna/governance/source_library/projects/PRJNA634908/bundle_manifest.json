@@ -1,0 +1,23 @@
+{
+  "project_accession": "PRJNA634908",
+  "species_latin_name": "Rangifer tarandus",
+  "archive_status": "reject_or_out_of_scope",
+  "evidence_strength": "archive_only",
+  "project_url": "https://www.ncbi.nlm.nih.gov/bioproject/PRJNA634908",
+  "paper_doi": null,
+  "paper_title": null,
+  "archive_metadata_sufficient": true,
+  "paper_required": false,
+  "supplement_required": false,
+  "paper_download_status": "missing",
+  "supplement_download_status": "missing",
+  "local_artifact_ids": [
+    "PRJNA634908:archive_metadata.html"
+  ],
+  "local_artifact_paths": [
+    "adna/governance/source_library/projects/PRJNA634908/archive_metadata.html"
+  ],
+  "blockers": [
+    "paper_linkage_not_curated"
+  ]
+}

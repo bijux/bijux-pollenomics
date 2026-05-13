@@ -1,0 +1,80 @@
+{
+  "schema_version": "adna-source-library.v1",
+  "rows": [
+    {
+      "row_kind": "archived_asset",
+      "paper_doi": "10.1126/science.aav1002",
+      "artifact_id": "10.1126-science.aav1002:article.html",
+      "artifact_kind": "article_html",
+      "label": "article source",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/31296769/",
+      "local_path": "adna/governance/source_library/papers/10.1126-science.aav1002/article.html",
+      "fetch_status": "archived",
+      "content_type": "text/html; charset=utf-8",
+      "byte_size": 202693,
+      "member_name": "",
+      "member_local_path": "",
+      "inferred_purpose": "PubMed landing page is archived because publisher automation is blocked."
+    },
+    {
+      "row_kind": "archived_asset",
+      "paper_doi": "10.1126/science.aav1002",
+      "artifact_id": "10.1126-science.aav1002:crossref.json",
+      "artifact_kind": "paper_metadata_json",
+      "label": "crossref metadata",
+      "source_url": "https://api.crossref.org/works/10.1126/science.aav1002",
+      "local_path": "adna/governance/source_library/papers/10.1126-science.aav1002/crossref.json",
+      "fetch_status": "archived",
+      "content_type": "application/json",
+      "byte_size": 47512,
+      "member_name": "",
+      "member_local_path": "",
+      "inferred_purpose": "Crossref metadata snapshot preserves DOI and title even when publisher downloads are blocked."
+    },
+    {
+      "row_kind": "archived_asset",
+      "paper_doi": "10.1126/science.aav1002",
+      "artifact_id": "10.1126-science.aav1002:pubmed.xml",
+      "artifact_kind": "paper_metadata_json",
+      "label": "pubmed abstract",
+      "source_url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&id=31296769&retmode=xml",
+      "local_path": "adna/governance/source_library/papers/10.1126-science.aav1002/pubmed.xml",
+      "fetch_status": "archived",
+      "content_type": "text/xml; charset=UTF-8",
+      "byte_size": 18863,
+      "member_name": "",
+      "member_local_path": "",
+      "inferred_purpose": "PubMed XML snapshot provides publisher-independent citation and abstract metadata."
+    },
+    {
+      "row_kind": "archived_asset",
+      "paper_doi": "10.1126/science.aav1002",
+      "artifact_id": "10.1126-science.aav1002:aav1002_verdugo_sm.pdf",
+      "artifact_kind": "supplementary_pdf",
+      "label": "curated supplementary asset aav1002_verdugo_sm.pdf",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/31296769/",
+      "local_path": "adna/governance/source_library/papers/10.1126-science.aav1002/supplementary/aav1002_verdugo_sm.pdf",
+      "fetch_status": "archived",
+      "content_type": "application/pdf",
+      "byte_size": 5901232,
+      "member_name": "",
+      "member_local_path": "",
+      "inferred_purpose": "Recovered from the local DOI-keyed supplement stash and copied into the governed source library."
+    },
+    {
+      "row_kind": "archived_asset",
+      "paper_doi": "10.1126/science.aav1002",
+      "artifact_id": "PRJEB31621:archive_metadata.html",
+      "artifact_kind": "archive_metadata_html",
+      "label": "archive metadata page",
+      "source_url": "https://www.ebi.ac.uk/ena/portal/api/filereport?accession=PRJEB31621&result=read_run&fields=study_accession,sample_accession,experiment_accession,run_accession,tax_id,scientific_name,library_layout,library_source,library_strategy,instrument_model,base_count,read_count,fastq_bytes,fastq_ftp,submitted_ftp,sra_ftp&format=tsv&download=true&limit=0",
+      "local_path": "adna/governance/source_library/projects/PRJEB31621/archive_metadata.html",
+      "fetch_status": "archived",
+      "content_type": "text/plain",
+      "byte_size": 99850,
+      "member_name": "",
+      "member_local_path": "",
+      "inferred_purpose": "Archive-facing metadata page captured for the tracked accession."
+    }
+  ]
+}

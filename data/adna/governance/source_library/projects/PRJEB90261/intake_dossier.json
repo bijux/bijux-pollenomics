@@ -1,0 +1,66 @@
+{
+  "schema_version": "animal-project-recovery-dossier.v1",
+  "project_accession": "PRJEB90261",
+  "species_latin_name": "Capra hircus",
+  "paper_doi": "10.1016/j.isci.2025.113771",
+  "archive_status": "paper_pinned_core",
+  "evidence_strength": "primary_paper_pinned",
+  "inventory_disposition": "tracked_intake_candidate",
+  "stage_statuses": {
+    "project_admission": "complete",
+    "paper_capture": "complete",
+    "supplement_capture": "not_required",
+    "sample_identity_recovery": "complete",
+    "site_recovery": "complete",
+    "chronology_recovery": "complete",
+    "coordinate_derivation": "complete",
+    "publication_readiness": "complete"
+  },
+  "blocking_stages": [],
+  "next_required_stage": null,
+  "publication_readiness_status": "complete",
+  "expected_sample_count": null,
+  "expected_sample_count_status": "not_yet_curated",
+  "expected_sample_count_provenance": "The project is paper-pinned, but the expected sample count still needs to be recovered from the listed article or supplementary targets.",
+  "expected_sample_count_artifact_path": "",
+  "minimum_expected_sample_count": 1,
+  "recovered_sample_count": 73,
+  "final_sample_count": 73,
+  "unresolved_sample_count": null,
+  "minimum_gap_count": 0,
+  "recovery_gap_status": "minimum_expected_floor_met",
+  "implausibly_low_recovery": false,
+  "implausibly_low_recovery_reason": "",
+  "known_assets": [
+    "adna/governance/source_library/papers/10.1016-j.isci.2025.113771/supplementary/1-s2.0-S2589004225020322-mmc1.pdf",
+    "adna/governance/source_library/papers/10.1016-j.isci.2025.113771/supplementary/1-s2.0-S2589004225020322-mmc2.xlsx",
+    "adna/governance/source_library/papers/10.1016-j.isci.2025.113771/supplementary/1-s2.0-S2589004225020322-mmc3.xlsx",
+    "adna/governance/source_library/papers/10.1016-j.isci.2025.113771/supplementary/1-s2.0-S2589004225020322-mmc4.xlsx",
+    "adna/governance/source_library/papers/10.1016-j.isci.2025.113771/article.html",
+    "adna/governance/source_library/papers/10.1016-j.isci.2025.113771/crossref.json",
+    "adna/governance/source_library/projects/PRJEB90261/archive_metadata.html",
+    "data/adna/governance/source_library/projects/PRJEB90261/sample_master.json",
+    "data/adna/governance/source_library/projects/PRJEB90261/sample_sites.json",
+    "data/adna/governance/source_library/projects/PRJEB90261/sample_chronology.json",
+    "data/adna/governance/source_library/projects/PRJEB90261/sample_locality_evidence.json"
+  ],
+  "missing_assets": [],
+  "expected_contributions": [
+    "sample_identities",
+    "taxonomic_context"
+  ],
+  "expected_contribution_surfaces": [
+    "data/adna/governance/source_library/projects/PRJEB90261/archive_metadata.html",
+    "data/adna/governance/source_library/papers/10.1016-j.isci.2025.113771/article.html",
+    "adna/governance/source_library/papers/10.1016-j.isci.2025.113771/supplementary/1-s2.0-S2589004225020322-mmc1.pdf",
+    "adna/governance/source_library/papers/10.1016-j.isci.2025.113771/supplementary/1-s2.0-S2589004225020322-mmc2.xlsx",
+    "adna/governance/source_library/papers/10.1016-j.isci.2025.113771/supplementary/1-s2.0-S2589004225020322-mmc3.xlsx",
+    "adna/governance/source_library/papers/10.1016-j.isci.2025.113771/supplementary/1-s2.0-S2589004225020322-mmc4.xlsx"
+  ],
+  "contradictory_evidence": [
+    "72 chronology row(s) still disagree between sample-owned and context-level evidence."
+  ],
+  "inferred_claims": [],
+  "manual_curation_work_units": [],
+  "major_deficit_reasons": []
+}

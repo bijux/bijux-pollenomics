@@ -1,0 +1,8 @@
+{
+  "schema_version": "adna-source-library.v1",
+  "source_url": "https://linkinghub.elsevier.com/retrieve/pii/S2589004225020322",
+  "artifact_kind": "article_html",
+  "content_type": "text/html;charset=UTF-8",
+  "byte_size": 3000,
+  "paper_doi": "10.1016/j.isci.2025.113771"
+}
