@@ -1,0 +1,140 @@
+{
+  "schema_version": "adna-locality-summary-export.v1",
+  "species_latin_name": "Camelus dromedarius",
+  "localities": [
+    {
+      "identity": {
+        "namespace": "camelus_dromedarius:project_locality",
+        "stable_token": "camelus_dromedarius:locality:ku605068-ku605080:unresolved",
+        "locality_text": "",
+        "political_entity": "",
+        "source_anchor_tokens": [
+          "KU605068-KU605080",
+          "",
+          ""
+        ]
+      },
+      "species_latin_name": "Camelus dromedarius",
+      "species_common_name": "dromedary camel",
+      "source_family": "GenBank",
+      "source_releases": [
+        "KU605068-KU605080"
+      ],
+      "record_modalities": [
+        "mitogenome_only"
+      ],
+      "review_strengths": [
+        "primary_paper_pinned"
+      ],
+      "provenance_qualities": [
+        "primary_paper_pinned"
+      ],
+      "locality": "",
+      "coordinates": {
+        "latitude": null,
+        "longitude": null,
+        "latitude_text": "",
+        "longitude_text": "",
+        "confidence": "unknown"
+      },
+      "sample_count": 13,
+      "sample_ids": [
+        "ku605068-ku605080:ku605068",
+        "ku605068-ku605080:ku605069",
+        "ku605068-ku605080:ku605070",
+        "ku605068-ku605080:ku605071",
+        "ku605068-ku605080:ku605072",
+        "ku605068-ku605080:ku605073",
+        "ku605068-ku605080:ku605074",
+        "ku605068-ku605080:ku605075",
+        "ku605068-ku605080:ku605076",
+        "ku605068-ku605080:ku605077",
+        "ku605068-ku605080:ku605078",
+        "ku605068-ku605080:ku605079",
+        "ku605068-ku605080:ku605080"
+      ],
+      "datasets": [
+        "camelus_dromedarius:project:KU605068-KU605080"
+      ],
+      "chronology": {
+        "original_text": "",
+        "time_start_bp": null,
+        "time_end_bp": null,
+        "time_mean_bp": null,
+        "date_stddev_bp": "",
+        "dating_basis": "historical_and_archaeological_context",
+        "evidence_class": "unresolved",
+        "precision_posture": "unresolved"
+      },
+      "sample_namespace": "camelus_dromedarius:sample_locality",
+      "project_accessions": [
+        "KU605068-KU605080"
+      ],
+      "original_location_text": "",
+      "nordic_inclusion": false,
+      "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
+      "interpretation_note": "No location evidence has been extracted yet for this recovered sample row."
+    },
+    {
+      "identity": {
+        "namespace": "camelus_dromedarius:project_locality",
+        "stable_token": "camelus_dromedarius:locality:srp073444:site1040nearwadihalfadromedarycontext:sudan",
+        "locality_text": "Site 1040 near Wadi Halfa dromedary context",
+        "political_entity": "Sudan",
+        "source_anchor_tokens": [
+          "SRP073444",
+          "21.799142",
+          "31.371316"
+        ]
+      },
+      "species_latin_name": "Camelus dromedarius",
+      "species_common_name": "dromedary camel",
+      "source_family": "SRA",
+      "source_releases": [
+        "SRP073444"
+      ],
+      "record_modalities": [
+        "archive_reads"
+      ],
+      "review_strengths": [
+        "primary_paper_pinned"
+      ],
+      "provenance_qualities": [
+        "primary_paper_pinned"
+      ],
+      "locality": "Site 1040 near Wadi Halfa dromedary context",
+      "coordinates": {
+        "latitude": 21.799142,
+        "longitude": 31.371316,
+        "latitude_text": "21.799142",
+        "longitude_text": "31.371316",
+        "confidence": "approximate"
+      },
+      "sample_count": 1,
+      "sample_ids": [
+        "SRP073444"
+      ],
+      "datasets": [
+        "camelus_dromedarius:project:SRP073444"
+      ],
+      "chronology": {
+        "original_text": "Historical and archaeological dromedary range context",
+        "time_start_bp": 1400,
+        "time_end_bp": 3000,
+        "time_mean_bp": 2200,
+        "date_stddev_bp": "",
+        "dating_basis": "historical_and_archaeological_context",
+        "evidence_class": "historical_or_recent_date",
+        "precision_posture": "contextual_interval"
+      },
+      "sample_namespace": "camelus_dromedarius:sample_locality",
+      "project_accessions": [
+        "SRP073444"
+      ],
+      "original_location_text": "Site 1040 near Wadi Halfa dromedary context",
+      "nordic_inclusion": false,
+      "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
+      "interpretation_note": "Camel now keeps one named-place resolution trail instead of only a broad Arabian/Levant centroid."
+    }
+  ]
+}

@@ -8,7 +8,7 @@ from ..core.files import write_json
 from ..core.geojson import feature_list
 from ..core.http import fetch_binary
 from .contracts import LANDCLIM_GRID_GEOJSON, LANDCLIM_SITE_CSV, LANDCLIM_SITE_GEOJSON
-from .shared.context_exports import (
+from .exports.context_points import (
     write_context_points_csv,
     write_context_points_geojson,
 )

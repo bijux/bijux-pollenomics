@@ -6,6 +6,8 @@ import tempfile
 import unittest
 from unittest.mock import patch
 
+import pytest
+
 from bijux_pollenomics.data_downloader.boundaries import (
     NATURAL_EARTH_ADMIN0_URL,
     NATURAL_EARTH_VERSION,
@@ -16,6 +18,8 @@ from bijux_pollenomics.data_downloader.collector import (
     collect_data,
     normalize_requested_sources,
 )
+
+pytestmark = pytest.mark.generated_artifacts
 
 
 class DataCollectorTests(unittest.TestCase):
@@ -83,6 +87,188 @@ class DataCollectorTests(unittest.TestCase):
                 country_boundaries={"Sweden": {"features": []}},
             )
             self.assertTrue((output_root / "README.md").exists())
+            self.assertTrue((output_root / "source_family_contracts.json").is_file())
+            self.assertTrue(
+                (output_root / "source_family_evidence_stage_matrix.json").is_file()
+            )
+            self.assertTrue(
+                (output_root / "source_fact_ownership_registry.json").is_file()
+            )
+            self.assertTrue(
+                (output_root / "evidence_artifact_contracts.json").is_file()
+            )
+            self.assertTrue(
+                (
+                    output_root / "adna" / "species" / "equus_caballus" / "review"
+                ).is_dir()
+            )
+            self.assertTrue(
+                (output_root / "adna" / "species" / "bos_taurus" / "manifests").is_dir()
+            )
+            self.assertTrue(
+                (
+                    output_root
+                    / "adna"
+                    / "species"
+                    / "equus_caballus"
+                    / "manifests"
+                    / "curation_manifest.json"
+                ).is_file()
+            )
+            self.assertTrue(
+                (
+                    output_root
+                    / "adna"
+                    / "species"
+                    / "equus_caballus"
+                    / "review"
+                    / "species_review.json"
+                ).is_file()
+            )
+            self.assertTrue(
+                (
+                    output_root
+                    / "adna"
+                    / "species"
+                    / "equus_caballus"
+                    / "raw"
+                    / "source_snapshot.json"
+                ).is_file()
+            )
+            self.assertTrue(
+                (
+                    output_root
+                    / "adna"
+                    / "species"
+                    / "equus_caballus"
+                    / "normalized"
+                    / "sample_records.json"
+                ).is_file()
+            )
+            self.assertTrue(
+                (
+                    output_root
+                    / "adna"
+                    / "species"
+                    / "equus_caballus"
+                    / "normalized"
+                    / "coordinate_provenance.json"
+                ).is_file()
+            )
+            self.assertTrue(
+                (
+                    output_root
+                    / "adna"
+                    / "species"
+                    / "equus_caballus"
+                    / "normalized"
+                    / "site_evidence.json"
+                ).is_file()
+            )
+            self.assertTrue(
+                (
+                    output_root
+                    / "adna"
+                    / "species"
+                    / "equus_caballus"
+                    / "normalized"
+                    / "project_summaries.json"
+                ).is_file()
+            )
+            self.assertTrue(
+                (
+                    output_root
+                    / "adna"
+                    / "species"
+                    / "equus_caballus"
+                    / "normalized"
+                    / "locality_summaries.json"
+                ).is_file()
+            )
+            self.assertTrue(
+                (
+                    output_root
+                    / "adna"
+                    / "governance"
+                    / "cross_species_bibliography.json"
+                ).is_file()
+            )
+            self.assertTrue(
+                (
+                    output_root
+                    / "adna"
+                    / "governance"
+                    / "cross_species_archive_inventory.csv"
+                ).is_file()
+            )
+            self.assertTrue(
+                (
+                    output_root
+                    / "adna"
+                    / "governance"
+                    / "cross_species_coverage_dashboard.json"
+                ).is_file()
+            )
+            self.assertTrue(
+                (
+                    output_root
+                    / "adna"
+                    / "governance"
+                    / "cross_species_map_readiness.json"
+                ).is_file()
+            )
+            self.assertTrue(
+                (
+                    output_root / "adna" / "governance" / "coordinate_caveat_surface.md"
+                ).is_file()
+            )
+            self.assertTrue(
+                (
+                    output_root
+                    / "adna"
+                    / "governance"
+                    / "coordinate_confidence_scale.md"
+                ).is_file()
+            )
+            self.assertTrue(
+                (
+                    output_root / "adna" / "governance" / "shipped_product_audit.json"
+                ).is_file()
+            )
+            self.assertTrue(
+                (
+                    output_root / "adna" / "governance" / "surface_role_registry.json"
+                ).is_file()
+            )
+            self.assertTrue(
+                (
+                    output_root
+                    / "adna"
+                    / "governance"
+                    / "source_library"
+                    / "project_registry.json"
+                ).is_file()
+            )
+            self.assertTrue(
+                (
+                    output_root
+                    / "adna"
+                    / "governance"
+                    / "source_library"
+                    / "project_surface_contract.json"
+                ).is_file()
+            )
+            self.assertTrue(
+                (
+                    output_root
+                    / "adna"
+                    / "governance"
+                    / "source_library"
+                    / "projects"
+                    / "PRJEB22390"
+                    / "bundle_manifest.json"
+                ).is_file()
+            )
             self.assertEqual(report.boundary_source, "network")
             self.assertTrue(report.summary_path.exists())
             self.assertIn("aadr", report.source_provenance)
@@ -93,6 +279,8 @@ class DataCollectorTests(unittest.TestCase):
                 report.source_replacement_rules["raa"].preserves_previous_on_failure
             )
             self.assertEqual(report.source_traceability["aadr"].source_version, "v62.0")
+            self.assertIn("source_family_contracts", report.contract_artifacts)
+            self.assertTrue(report.source_family_state_rows)
             self.assertTrue(
                 report.source_traceability["aadr"].dispute_token.startswith(
                     "aadr@v62.0:"
@@ -149,6 +337,19 @@ class DataCollectorTests(unittest.TestCase):
             collect_sead.assert_called_once()
             collect_raa.assert_called_once()
             self.assertEqual(report.boundary_source, "collected")
+            self.assertTrue(
+                (output_root / "adna" / "species" / "equus_asinus" / "raw").is_dir()
+            )
+            self.assertTrue(
+                (
+                    output_root
+                    / "adna"
+                    / "species"
+                    / "equus_asinus"
+                    / "raw"
+                    / "archive_inventory.json"
+                ).is_file()
+            )
 
     def test_collect_data_replaces_selected_source_directories(self) -> None:
         with tempfile.TemporaryDirectory() as tmp:
@@ -273,8 +474,10 @@ class DataCollectorTests(unittest.TestCase):
 
             readme_text = (output_root / "README.md").read_text(encoding="utf-8")
             self.assertIn(
-                "Tracked source data lives directly under `custom-data/`", readme_text
+                "Tracked source data and governed species-owned ancient-DNA views live directly",
+                readme_text,
             )
+            self.assertIn("under `custom-data/`", readme_text)
             self.assertIn("\ncustom-data\n", readme_text)
             self.assertIn("│   └── v62.0", readme_text)
             summary = json.loads(
@@ -288,6 +491,8 @@ class DataCollectorTests(unittest.TestCase):
                 summary["source_output_roots"]["aadr_version_dir"],
                 str(output_root / "aadr" / "v62.0"),
             )
+            self.assertIn("contract_artifacts", summary)
+            self.assertIn("source_family_state_rows", summary)
             self.assertIsNone(summary["boundary_source"])
             self.assertIn("source_metadata", summary)
             self.assertEqual(

@@ -1,0 +1,31 @@
+{
+  "schema_version": "animal-pollen-chronology-overlap.v1",
+  "rows": [
+    {
+      "country": "Sweden",
+      "species_latin_name": "Equus caballus",
+      "species_common_name": "horse",
+      "animal_scope": "domesticated_core",
+      "animal_locality_count": 1,
+      "pollen_record_count": 297,
+      "overlapping_pollen_records": 234,
+      "non_overlapping_pollen_records": 37,
+      "noncomparable_pollen_records": 26,
+      "assignment_confidence": "exact_country",
+      "overlap_status": "overlap_detected"
+    },
+    {
+      "country": "Denmark",
+      "species_latin_name": "Equus caballus",
+      "species_common_name": "horse",
+      "animal_scope": "domesticated_core",
+      "animal_locality_count": 1,
+      "pollen_record_count": 134,
+      "overlapping_pollen_records": 42,
+      "non_overlapping_pollen_records": 88,
+      "noncomparable_pollen_records": 4,
+      "assignment_confidence": "exact_country",
+      "overlap_status": "overlap_detected"
+    }
+  ]
+}

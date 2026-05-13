@@ -1,0 +1,5 @@
+species_latin_name,project_accession,archive_status,evidence_strength,paper_title,paper_doi,pubmed_id,pmc_id,journal_title,publication_year,reference_kind,pinning_evidence
+Rangifer tarandus,PRJEB60484,comparator_only,primary_paper_pinned,Ancient reindeer mitogenomes reveal island-hopping colonisation of the Arctic archipelagos,10.1038/s41598-024-54296-2,,PMC10876933,Scientific Reports,2024,primary_paper,Primary paper and PMC page connect PRJEB60484 to ancient Svalbard reindeer comparator data.
+Rangifer tarandus,PRJEB57293,reject_or_out_of_scope,archive_only,,,,,,,,
+Rangifer tarandus,PRJEB61721,reject_or_out_of_scope,archive_only,,,,,,,,
+Rangifer tarandus,PRJNA634908,reject_or_out_of_scope,archive_only,,,,,,,,

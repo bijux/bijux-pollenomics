@@ -15,6 +15,13 @@ DOCS_RENDER_SERVE_CONFIG := 0
 
 include $(ROOT_MAKEFILE_DIR)/bijux-py/repository/root.mk
 
+# Repository root keeps tracked symlink aliases for hypothesis and benchmark
+# state under artifacts/root/. Do not let root cleanup remove those links.
+ROOT_FORBIDDEN_ARTIFACTS := $(filter-out \
+	"$(CURDIR)/.hypothesis" \
+	"$(CURDIR)/.benchmarks", \
+	$(ROOT_FORBIDDEN_ARTIFACTS))
+
 include $(ROOT_MAKEFILE_DIR)/bijux-py/root/package-dispatch.mk
 include $(ROOT_MAKEFILE_DIR)/bijux-py/root/docs.mk
 include $(ROOT_MAKEFILE_DIR)/bijux-docs.mk
@@ -36,6 +43,9 @@ check: sync-license-assets lock-check lint test quality security docs build sbom
 
 sync-badges: root-check-env ## Render shared badge blocks into managed README surfaces
 	@$(DEV_RUN) -m bijux_pollenomics_dev.docs.badge_sync sync
+
+check-badges: root-check-env ## Verify README badge blocks match docs/badges.md
+	@$(DEV_RUN) -m bijux_pollenomics_dev.docs.badge_sync check
 
 sync-license-assets: root-check-env ## Sync package LICENSE and NOTICE links from root sources
 	@$(DEV_RUN) -m bijux_pollenomics_dev.release.license_assets sync

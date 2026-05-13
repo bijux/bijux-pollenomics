@@ -1,3 +1,5 @@
+"""AADR-backed reporting compatibility surface for sample lookups."""
+
 from __future__ import annotations
 
 from ..models import SchemaError

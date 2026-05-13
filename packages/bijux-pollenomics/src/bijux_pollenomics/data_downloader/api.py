@@ -1,3 +1,5 @@
+"""Public data-collection API for tracked context-source refreshes."""
+
 from pathlib import Path
 
 from .collection_summary_schema import (

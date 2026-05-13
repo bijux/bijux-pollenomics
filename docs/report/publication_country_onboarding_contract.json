@@ -1,0 +1,37 @@
+{
+  "schema_version": "publication-country-onboarding-contract.v1",
+  "example_country": "Germany",
+  "published_country_roster": [
+    "Sweden",
+    "Norway",
+    "Finland",
+    "Denmark"
+  ],
+  "required_surfaces": [
+    "published country roster entry",
+    "world geography bundle",
+    "Europe-plus geography bundle when applicable",
+    "country bundle under docs/report/countries/<country-slug>/",
+    "subset validation row proving world -> region -> country lineage"
+  ],
+  "code_contracts": [
+    "the country is admitted through the published country roster rather than through one-off renderer edits",
+    "world, Europe-plus, Nordic, and country scope derivation must continue to flow from build_published_geography_plan()",
+    "country output directories must continue to derive from docs/report/countries/<country-slug>/ without custom path branches"
+  ],
+  "data_contracts": [
+    "animal, human, and contextual rows must already resolve to the added country through governed political-entity filtering",
+    "world outputs remain the governing parent surface; new country outputs are filtered descendants, not locally curated forks",
+    "subset validation must prove that the new country bundle does not drift outside its parent regional or world evidence surface"
+  ],
+  "docs_contracts": [
+    "reader-facing report pages must continue to explain country bundles as narrower views of one broader product model",
+    "the country onboarding playbook and geography-output handbook must remain accurate after the roster expands",
+    "new country publication must not require a second report tree or scope-specific prose branch"
+  ],
+  "test_contracts": [
+    "publication geography tests must keep proving world, regional, and country lineage for the expanded roster",
+    "repository contract tests must keep requiring the onboarding contract and geography subset validation surfaces",
+    "docs breadth and report portal tests must keep the broader world-to-country explanation visible after the expansion"
+  ]
+}

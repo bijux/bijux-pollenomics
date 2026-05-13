@@ -1,3 +1,5 @@
+"""Shared style metadata for polygon context layers in published maps."""
+
 from __future__ import annotations
 
 POLYGON_LAYER_STYLES = {
@@ -11,7 +13,7 @@ POLYGON_LAYER_METADATA = {
     "landclim-reveals-grid": {
         "group": "environmental-context",
         "source_name": "LandClim",
-        "coverage_label": "Nordic 1° REVEALS grid cells compiled from published LandClim PANGAEA datasets.",
+        "coverage_label": "REVEALS grid cells compiled from published LandClim PANGAEA datasets.",
         "geometry_label": "Grid-cell polygons",
     },
 }

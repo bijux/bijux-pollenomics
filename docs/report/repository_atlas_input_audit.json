@@ -1,0 +1,134 @@
+{
+  "schema_version": "repository-atlas-input-audit.v1",
+  "row_count": 6,
+  "rows": [
+    {
+      "input_key": "landclim",
+      "display_name": "LandClim pollen context",
+      "domain_role": "primary_domain",
+      "source_paths": [
+        "data/landclim/raw/landclim_sources.json"
+      ],
+      "normalized_paths": [
+        "data/landclim/normalized/nordic_pollen_site_sequences.geojson",
+        "data/landclim/normalized/nordic_reveals_grid_cells.geojson"
+      ],
+      "published_paths": [
+        "docs/report/regions/nordic/nordic_pollen_site_sequences.geojson",
+        "docs/report/regions/nordic/nordic_reveals_grid_cells.geojson"
+      ],
+      "refresh_anchor": "data/landclim/normalized/landclim_summary.json",
+      "metrics": {
+        "site_count": 492,
+        "grid_cell_count": 88
+      },
+      "note": "LandClim is a first-class pollen context family, not generic map decoration."
+    },
+    {
+      "input_key": "neotoma",
+      "display_name": "Neotoma pollen context",
+      "domain_role": "primary_domain",
+      "source_paths": [
+        "data/neotoma/raw/neotoma_pollen_dataset_inventory.json"
+      ],
+      "normalized_paths": [
+        "data/neotoma/normalized/nordic_pollen_sites.geojson"
+      ],
+      "published_paths": [
+        "docs/report/regions/nordic/nordic_pollen_sites.geojson"
+      ],
+      "refresh_anchor": "data/neotoma/raw/neotoma_pollen_sites.json",
+      "metrics": {
+        "site_count": 200
+      },
+      "note": "Neotoma broadens the pollen story with its own site inventory and should remain distinct from LandClim."
+    },
+    {
+      "input_key": "sead",
+      "display_name": "SEAD archaeology context",
+      "domain_role": "contextual_domain",
+      "source_paths": [
+        "data/sead/raw/nordic_sites.json"
+      ],
+      "normalized_paths": [
+        "data/sead/normalized/nordic_environmental_sites.geojson"
+      ],
+      "published_paths": [
+        "docs/report/regions/nordic/nordic_environmental_sites.geojson"
+      ],
+      "refresh_anchor": "data/sead/raw/nordic_sites.json",
+      "metrics": {
+        "site_count": 2195
+      },
+      "note": "SEAD is broader environmental archaeology context and should stay visible as its own source family."
+    },
+    {
+      "input_key": "raa",
+      "display_name": "RA\u00c4 archaeology context",
+      "domain_role": "contextual_domain",
+      "source_paths": [
+        "data/raa/raw/arkreg_v1_0_wfs_capabilities.xml",
+        "data/raa/raw/fornsok_domains.json"
+      ],
+      "normalized_paths": [
+        "data/raa/normalized/sweden_archaeology_density.geojson",
+        "data/raa/normalized/sweden_archaeology_layer.json"
+      ],
+      "published_paths": [
+        "docs/report/regions/nordic/sweden_archaeology_density.geojson",
+        "docs/report/regions/nordic/sweden_archaeology_layer.json"
+      ],
+      "refresh_anchor": "data/raa/normalized/sweden_archaeology_layer.json",
+      "metrics": {
+        "published_site_count": 761917,
+        "density_cell_count": 106
+      },
+      "note": "RA\u00c4 is explicitly Sweden-scoped and should never be mistaken for Nordic-wide archaeology coverage."
+    },
+    {
+      "input_key": "boundaries",
+      "display_name": "Nordic boundary framing",
+      "domain_role": "framing_domain",
+      "source_paths": [
+        "data/boundaries/raw/denmark.geojson",
+        "data/boundaries/raw/finland.geojson",
+        "data/boundaries/raw/norway.geojson",
+        "data/boundaries/raw/sweden.geojson"
+      ],
+      "normalized_paths": [
+        "data/boundaries/normalized/nordic_country_boundaries.geojson"
+      ],
+      "published_paths": [
+        "docs/report/regions/nordic/nordic_country_boundaries.geojson"
+      ],
+      "refresh_anchor": "data/boundaries/normalized/nordic_country_boundaries.geojson",
+      "metrics": {
+        "country_feature_count": 4
+      },
+      "note": "Boundary geometry is framing, not scientific evidence, but it still changes how every mapped layer is interpreted."
+    },
+    {
+      "input_key": "animal_adna",
+      "display_name": "Animal aDNA publication surface",
+      "domain_role": "contextual_domain",
+      "source_paths": [
+        "data/adna/governance/source_library/project_source_evidence_matrix.json",
+        "data/adna/governance/cross_species_map_readiness.json"
+      ],
+      "normalized_paths": [
+        "data/adna/final/atlas/animal_atlas_point_candidates.json",
+        "data/adna/final/atlas/animal_atlas_point_candidates.csv"
+      ],
+      "published_paths": [
+        "docs/report/world/world_animal_atlas_evidence.json",
+        "docs/report/world/world_animal_point_traceability.json"
+      ],
+      "refresh_anchor": "docs/report/animal_sample_database_review.json",
+      "metrics": {
+        "published_point_count": 234,
+        "unresolved_row_count": 21
+      },
+      "note": "Animal aDNA is still a partial recovery program whose public map surface depends on sample-owned support reviews and release gates."
+    }
+  ]
+}

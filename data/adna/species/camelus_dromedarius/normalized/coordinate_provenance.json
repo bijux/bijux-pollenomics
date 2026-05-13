@@ -1,0 +1,36 @@
+{
+  "schema_version": "adna-coordinate-provenance-export.v1",
+  "species_latin_name": "Camelus dromedarius",
+  "coordinate_provenance": [
+    {
+      "project_accession": "SRP073444",
+      "species_latin_name": "Camelus dromedarius",
+      "species_common_name": "camel",
+      "site_label": "Site 1040 near Wadi Halfa dromedary context",
+      "original_place_text": "Site 1040 near Wadi Halfa",
+      "resolved_place_text": "Wadi Halfa",
+      "political_entity": "Sudan",
+      "source_artifact_path": "adna/governance/source_library/papers/10.1111-1755-0998.12551/article.html",
+      "source_locator": "introduction",
+      "coordinate_basis": "named_site_geocoding",
+      "mapping_posture": "mappable_point",
+      "latitude_text": "21.799142",
+      "longitude_text": "31.371316",
+      "geocoding_method": "manual_named_place_resolution",
+      "geocoder_or_gazetteer": "named-place resolution to Wadi Halfa city anchor",
+      "confidence_rationale": "The archived article names Site 1040 near Wadi Halfa explicitly. The current coordinate is an approximate city-level geocode for Wadi Halfa rather than a published excavation coordinate pair.",
+      "coordinate_confidence": "approximate",
+      "paper_doi": "10.1111/1755-0998.12551",
+      "paper_url": "https://doi.org/10.1111/1755-0998.12551",
+      "supplementary_source": "",
+      "chronology_text": "Historical and archaeological dromedary range context",
+      "time_start_bp": 1400,
+      "time_end_bp": 3000,
+      "dating_basis": "historical_attribution",
+      "comparator_context": false,
+      "domestication_context": "non_nordic_domestication_context",
+      "interpretation_note": "Camel now keeps one named-place resolution trail instead of only a broad Arabian/Levant centroid.",
+      "support_gap_note": ""
+    }
+  ]
+}

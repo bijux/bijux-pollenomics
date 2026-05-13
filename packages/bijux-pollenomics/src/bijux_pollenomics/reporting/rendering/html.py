@@ -1,3 +1,5 @@
+"""Compatibility export for the HTML map document renderer."""
+
 from __future__ import annotations
 
 from ..map_document import render_multi_country_map_html

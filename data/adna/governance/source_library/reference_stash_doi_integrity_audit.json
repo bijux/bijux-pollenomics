@@ -1,0 +1,119 @@
+{
+  "schema_version": "adna-source-inventory.v1",
+  "reference_stash_visible": true,
+  "paper_registry_doi_count": 18,
+  "reference_stash_doi_count": 18,
+  "all_stash_dois_tracked": true,
+  "missing_in_paper_registry": [],
+  "tracked_without_local_reference": [],
+  "rows": [
+    {
+      "stash_slug": "10.1016-j.cell.2019.03.049",
+      "paper_doi": "10.1016/j.cell.2019.03.049",
+      "represented_in_paper_registry": true,
+      "representation_status": "matched"
+    },
+    {
+      "stash_slug": "10.1016-j.isci.2025.113771",
+      "paper_doi": "10.1016/j.isci.2025.113771",
+      "represented_in_paper_registry": true,
+      "representation_status": "matched"
+    },
+    {
+      "stash_slug": "10.1016-j.xgen.2025.101099",
+      "paper_doi": "10.1016/j.xgen.2025.101099",
+      "represented_in_paper_registry": true,
+      "representation_status": "matched"
+    },
+    {
+      "stash_slug": "10.1038-ncomms16082",
+      "paper_doi": "10.1038/ncomms16082",
+      "represented_in_paper_registry": true,
+      "representation_status": "matched"
+    },
+    {
+      "stash_slug": "10.1038-s41562-021-01083-y",
+      "paper_doi": "10.1038/s41562-021-01083-y",
+      "represented_in_paper_registry": true,
+      "representation_status": "matched"
+    },
+    {
+      "stash_slug": "10.1038-s41586-021-04018-9",
+      "paper_doi": "10.1038/s41586-021-04018-9",
+      "represented_in_paper_registry": true,
+      "representation_status": "matched"
+    },
+    {
+      "stash_slug": "10.1038-s41586-024-08112-6",
+      "paper_doi": "10.1038/s41586-024-08112-6",
+      "represented_in_paper_registry": true,
+      "representation_status": "matched"
+    },
+    {
+      "stash_slug": "10.1038-s41598-024-54296-2",
+      "paper_doi": "10.1038/s41598-024-54296-2",
+      "represented_in_paper_registry": true,
+      "representation_status": "matched"
+    },
+    {
+      "stash_slug": "10.1038-s42003-021-02794-8",
+      "paper_doi": "10.1038/s42003-021-02794-8",
+      "represented_in_paper_registry": true,
+      "representation_status": "matched"
+    },
+    {
+      "stash_slug": "10.1073-pnas.1901169116",
+      "paper_doi": "10.1073/pnas.1901169116",
+      "represented_in_paper_registry": true,
+      "representation_status": "matched"
+    },
+    {
+      "stash_slug": "10.1093-gbe-evae114",
+      "paper_doi": "10.1093/gbe/evae114",
+      "represented_in_paper_registry": true,
+      "representation_status": "matched"
+    },
+    {
+      "stash_slug": "10.1093-gbe-evaf181",
+      "paper_doi": "10.1093/gbe/evaf181",
+      "represented_in_paper_registry": true,
+      "representation_status": "matched"
+    },
+    {
+      "stash_slug": "10.1111-1755-0998.12551",
+      "paper_doi": "10.1111/1755-0998.12551",
+      "represented_in_paper_registry": true,
+      "representation_status": "matched"
+    },
+    {
+      "stash_slug": "10.1126-science.aam5298",
+      "paper_doi": "10.1126/science.aam5298",
+      "represented_in_paper_registry": true,
+      "representation_status": "matched"
+    },
+    {
+      "stash_slug": "10.1126-science.aao3297",
+      "paper_doi": "10.1126/science.aao3297",
+      "represented_in_paper_registry": true,
+      "representation_status": "matched"
+    },
+    {
+      "stash_slug": "10.1126-science.aav1002",
+      "paper_doi": "10.1126/science.aav1002",
+      "represented_in_paper_registry": true,
+      "representation_status": "matched"
+    },
+    {
+      "stash_slug": "10.1126-science.adt2642",
+      "paper_doi": "10.1126/science.adt2642",
+      "represented_in_paper_registry": true,
+      "representation_status": "matched"
+    },
+    {
+      "stash_slug": "10.24272-j.issn.2095-8137.2025.080",
+      "paper_doi": "10.24272/j.issn.2095-8137.2025.080",
+      "represented_in_paper_registry": true,
+      "representation_status": "matched"
+    }
+  ]
+}

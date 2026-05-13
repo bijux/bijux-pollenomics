@@ -1,0 +1,133 @@
+{
+  "schema_version": "animal-sample-site-manual-curation-queue.v1",
+  "rows": [
+    {
+      "project_accession": "PRJNA705960",
+      "species_latin_name": "Bos taurus",
+      "queued_sample_count": 11,
+      "queue_reasons": [
+        "region_only_rows_require_finer_location_evidence"
+      ],
+      "sample_site_targets": [],
+      "expected_supplementary_artifacts": [],
+      "local_artifact_paths": [
+        "adna/governance/source_library/projects/PRJNA705960/archive_metadata.html"
+      ],
+      "recommended_next_surface": "adna/governance/source_library/projects/PRJNA705960/archive_metadata.html"
+    },
+    {
+      "project_accession": "SRS1407451",
+      "species_latin_name": "Canis lupus familiaris",
+      "queued_sample_count": 1,
+      "queue_reasons": [
+        "region_only_rows_require_finer_location_evidence"
+      ],
+      "sample_site_targets": [
+        "adna/governance/source_library/papers/10.1038-ncomms16082/supplementary/41467_2017_BFncomms16082_MOESM109_ESM.pdf",
+        "adna/governance/source_library/papers/10.1038-ncomms16082/supplementary/41467_2017_BFncomms16082_MOESM110_ESM.pdf"
+      ],
+      "expected_supplementary_artifacts": [
+        "adna/governance/source_library/papers/10.1038-ncomms16082/supplementary/41467_2017_BFncomms16082_MOESM109_ESM.pdf",
+        "adna/governance/source_library/papers/10.1038-ncomms16082/supplementary/41467_2017_BFncomms16082_MOESM110_ESM.pdf"
+      ],
+      "local_artifact_paths": [
+        "adna/governance/source_library/papers/10.1038-ncomms16082/supplementary/41467_2017_BFncomms16082_MOESM109_ESM.pdf",
+        "adna/governance/source_library/papers/10.1038-ncomms16082/supplementary/41467_2017_BFncomms16082_MOESM110_ESM.pdf",
+        "adna/governance/source_library/papers/10.1038-ncomms16082/article.html",
+        "adna/governance/source_library/papers/10.1038-ncomms16082/crossref.json",
+        "adna/governance/source_library/projects/SRS1407451/archive_metadata.html"
+      ],
+      "recommended_next_surface": "adna/governance/source_library/papers/10.1038-ncomms16082/supplementary/41467_2017_BFncomms16082_MOESM109_ESM.pdf"
+    },
+    {
+      "project_accession": "SRS1407453",
+      "species_latin_name": "Canis lupus familiaris",
+      "queued_sample_count": 1,
+      "queue_reasons": [
+        "recovered_sample_rows_still_lack_any_location_claim"
+      ],
+      "sample_site_targets": [
+        "adna/governance/source_library/papers/10.1038-ncomms16082/supplementary/41467_2017_BFncomms16082_MOESM109_ESM.pdf",
+        "adna/governance/source_library/papers/10.1038-ncomms16082/supplementary/41467_2017_BFncomms16082_MOESM110_ESM.pdf"
+      ],
+      "expected_supplementary_artifacts": [
+        "adna/governance/source_library/papers/10.1038-ncomms16082/supplementary/41467_2017_BFncomms16082_MOESM109_ESM.pdf",
+        "adna/governance/source_library/papers/10.1038-ncomms16082/supplementary/41467_2017_BFncomms16082_MOESM110_ESM.pdf"
+      ],
+      "local_artifact_paths": [
+        "adna/governance/source_library/papers/10.1038-ncomms16082/supplementary/41467_2017_BFncomms16082_MOESM109_ESM.pdf",
+        "adna/governance/source_library/papers/10.1038-ncomms16082/supplementary/41467_2017_BFncomms16082_MOESM110_ESM.pdf",
+        "adna/governance/source_library/papers/10.1038-ncomms16082/article.html",
+        "adna/governance/source_library/papers/10.1038-ncomms16082/crossref.json",
+        "adna/governance/source_library/projects/SRS1407453/archive_metadata.html"
+      ],
+      "recommended_next_surface": "adna/governance/source_library/papers/10.1038-ncomms16082/supplementary/41467_2017_BFncomms16082_MOESM109_ESM.pdf"
+    },
+    {
+      "project_accession": "KX379528-KX379529",
+      "species_latin_name": "Canis lupus familiaris",
+      "queued_sample_count": 2,
+      "queue_reasons": [
+        "recovered_sample_rows_still_lack_any_location_claim"
+      ],
+      "sample_site_targets": [
+        "adna/governance/source_library/papers/10.1038-ncomms16082/supplementary/41467_2017_BFncomms16082_MOESM109_ESM.pdf",
+        "adna/governance/source_library/papers/10.1038-ncomms16082/supplementary/41467_2017_BFncomms16082_MOESM110_ESM.pdf"
+      ],
+      "expected_supplementary_artifacts": [
+        "adna/governance/source_library/papers/10.1038-ncomms16082/supplementary/41467_2017_BFncomms16082_MOESM109_ESM.pdf",
+        "adna/governance/source_library/papers/10.1038-ncomms16082/supplementary/41467_2017_BFncomms16082_MOESM110_ESM.pdf"
+      ],
+      "local_artifact_paths": [
+        "adna/governance/source_library/papers/10.1038-ncomms16082/supplementary/41467_2017_BFncomms16082_MOESM109_ESM.pdf",
+        "adna/governance/source_library/papers/10.1038-ncomms16082/supplementary/41467_2017_BFncomms16082_MOESM110_ESM.pdf",
+        "adna/governance/source_library/papers/10.1038-ncomms16082/article.html",
+        "adna/governance/source_library/papers/10.1038-ncomms16082/crossref.json",
+        "adna/governance/source_library/projects/KX379528-KX379529/archive_metadata.html"
+      ],
+      "recommended_next_surface": "adna/governance/source_library/papers/10.1038-ncomms16082/supplementary/41467_2017_BFncomms16082_MOESM109_ESM.pdf"
+    },
+    {
+      "project_accession": "KU605068-KU605080",
+      "species_latin_name": "Camelus dromedarius",
+      "queued_sample_count": 13,
+      "queue_reasons": [
+        "recovered_sample_rows_still_lack_any_location_claim"
+      ],
+      "sample_site_targets": [
+        "adna/governance/source_library/papers/10.1111-1755-0998.12551/supplementary/men12551-sup-0001-supinfo.docx"
+      ],
+      "expected_supplementary_artifacts": [
+        "adna/governance/source_library/papers/10.1111-1755-0998.12551/supplementary/men12551-sup-0001-supinfo.docx"
+      ],
+      "local_artifact_paths": [
+        "adna/governance/source_library/papers/10.1111-1755-0998.12551/article.html",
+        "adna/governance/source_library/papers/10.1111-1755-0998.12551/crossref.json",
+        "adna/governance/source_library/papers/10.1111-1755-0998.12551/supplementary/men12551-sup-0001-supinfo.docx",
+        "adna/governance/source_library/projects/KU605068-KU605080/archive_metadata.html"
+      ],
+      "recommended_next_surface": "adna/governance/source_library/papers/10.1111-1755-0998.12551/supplementary/men12551-sup-0001-supinfo.docx"
+    },
+    {
+      "project_accession": "PRJEB60484",
+      "species_latin_name": "Rangifer tarandus",
+      "queued_sample_count": 20,
+      "queue_reasons": [
+        "region_only_rows_require_finer_location_evidence"
+      ],
+      "sample_site_targets": [
+        "adna/governance/source_library/papers/10.1038-s41598-024-54296-2/supplementary/41598_2024_64499_MOESM1_ESM.pdf"
+      ],
+      "expected_supplementary_artifacts": [
+        "adna/governance/source_library/papers/10.1038-s41598-024-54296-2/supplementary/41598_2024_64499_MOESM1_ESM.pdf"
+      ],
+      "local_artifact_paths": [
+        "adna/governance/source_library/papers/10.1038-s41598-024-54296-2/supplementary/41598_2024_64499_MOESM1_ESM.pdf",
+        "adna/governance/source_library/papers/10.1038-s41598-024-54296-2/article.html",
+        "adna/governance/source_library/papers/10.1038-s41598-024-54296-2/crossref.json",
+        "adna/governance/source_library/projects/PRJEB60484/archive_metadata.html"
+      ],
+      "recommended_next_surface": "adna/governance/source_library/papers/10.1038-s41598-024-54296-2/supplementary/41598_2024_64499_MOESM1_ESM.pdf"
+    }
+  ]
+}

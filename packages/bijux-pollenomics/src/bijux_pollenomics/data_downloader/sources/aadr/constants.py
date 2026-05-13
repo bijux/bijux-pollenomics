@@ -1,3 +1,5 @@
+"""Stable upstream constants for resolving AADR release assets."""
+
 from __future__ import annotations
 
 AADR_DATAVERSE_PERSISTENT_ID = "doi:10.7910/DVN/FFIDCW"

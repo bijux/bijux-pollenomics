@@ -12,7 +12,7 @@ def build_parser() -> argparse.ArgumentParser:
     """Build the canonical command-line parser."""
     parser = argparse.ArgumentParser(
         prog="bijux-pollenomics",
-        description="Generate Nordic country reports and the Nordic Evidence Atlas from tracked data sources.",
+        description="Generate world, regional, and country evidence reports from tracked data sources.",
     )
     parser.add_argument(
         "--version",

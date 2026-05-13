@@ -27,6 +27,22 @@ class CollectionSummarySchemaUnitTests(unittest.TestCase):
             "source_provenance": {"aadr": {"version": "v62.0"}},
             "source_replacement_rules": {"aadr": {"refresh_mode": "staging_swap"}},
             "source_traceability": {"aadr": {"source_version": "v62.0"}},
+            "contract_artifacts": {
+                "source_family_contracts": "data/source_family_contracts.json",
+                "source_family_evidence_stage_matrix": "data/source_family_evidence_stage_matrix.json",
+                "source_fact_ownership_registry": "data/source_fact_ownership_registry.json",
+                "evidence_artifact_contracts": "data/evidence_artifact_contracts.json",
+            },
+            "source_family_state_rows": [
+                {
+                    "source_key": "aadr",
+                    "raw_status": "present",
+                    "normalized_status": "present",
+                    "reviewed_status": "present",
+                    "published_status": "present",
+                    "coverage_metrics": {"aadr_file_count": 2},
+                }
+            ],
             "summary_path": "data/collection_summary.json",
         }
 
@@ -46,6 +62,22 @@ class CollectionSummarySchemaUnitTests(unittest.TestCase):
             "source_provenance": {"aadr": {"version": "v62.0"}},
             "source_replacement_rules": {"aadr": {"refresh_mode": "staging_swap"}},
             "source_traceability": {"aadr": {"source_version": "v62.0"}},
+            "contract_artifacts": {
+                "source_family_contracts": "data/source_family_contracts.json",
+                "source_family_evidence_stage_matrix": "data/source_family_evidence_stage_matrix.json",
+                "source_fact_ownership_registry": "data/source_fact_ownership_registry.json",
+                "evidence_artifact_contracts": "data/evidence_artifact_contracts.json",
+            },
+            "source_family_state_rows": [
+                {
+                    "source_key": "aadr",
+                    "raw_status": "present",
+                    "normalized_status": "present",
+                    "reviewed_status": "present",
+                    "published_status": "present",
+                    "coverage_metrics": {"aadr_file_count": 0},
+                }
+            ],
             "summary_path": "data/collection_summary.json",
         }
 
@@ -66,6 +98,22 @@ class CollectionSummarySchemaUnitTests(unittest.TestCase):
             "source_provenance": {"aadr": {"version": "v62.0"}},
             "source_replacement_rules": {"aadr": {"refresh_mode": "staging_swap"}},
             "source_traceability": {"aadr": {"source_version": "v62.0"}},
+            "contract_artifacts": {
+                "source_family_contracts": "data/source_family_contracts.json",
+                "source_family_evidence_stage_matrix": "data/source_family_evidence_stage_matrix.json",
+                "source_fact_ownership_registry": "data/source_fact_ownership_registry.json",
+                "evidence_artifact_contracts": "data/evidence_artifact_contracts.json",
+            },
+            "source_family_state_rows": [
+                {
+                    "source_key": "aadr",
+                    "raw_status": "present",
+                    "normalized_status": "present",
+                    "reviewed_status": "present",
+                    "published_status": "present",
+                    "coverage_metrics": {"aadr_file_count": 2},
+                }
+            ],
             "summary_path": "data/collection_summary.json",
         }
 

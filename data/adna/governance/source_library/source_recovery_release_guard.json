@@ -1,0 +1,55 @@
+{
+  "schema_version": "animal-source-recovery-release-guard.v1",
+  "passing": false,
+  "implausibly_low_recovery_project_count": 8,
+  "failing_projects": [
+    {
+      "project_accession": "PRJEB31621",
+      "species_latin_name": "Bos taurus",
+      "recovery_gap_status": "extractable_sources_but_no_governed_samples",
+      "implausibly_low_recovery_reason": "Readable paper or supplementary capture exists, but the governed sample master still publishes zero recovered rows."
+    },
+    {
+      "project_accession": "PRJEB75467",
+      "species_latin_name": "Bos taurus",
+      "recovery_gap_status": "extractable_sources_but_no_governed_samples",
+      "implausibly_low_recovery_reason": "Readable paper or supplementary capture exists, but the governed sample master still publishes zero recovered rows."
+    },
+    {
+      "project_accession": "SRP073444",
+      "species_latin_name": "Camelus dromedarius",
+      "recovery_gap_status": "extractable_sources_but_no_governed_samples",
+      "implausibly_low_recovery_reason": "Readable paper or supplementary capture exists, but the governed sample master still publishes zero recovered rows."
+    },
+    {
+      "project_accession": "PRJEB81815",
+      "species_latin_name": "Felis catus",
+      "recovery_gap_status": "extractable_sources_but_no_governed_samples",
+      "implausibly_low_recovery_reason": "Readable paper or supplementary capture exists, but the governed sample master still publishes zero recovered rows."
+    },
+    {
+      "project_accession": "PRJNA1178732",
+      "species_latin_name": "Felis catus",
+      "recovery_gap_status": "extractable_sources_but_no_governed_samples",
+      "implausibly_low_recovery_reason": "Readable paper or supplementary capture exists, but the governed sample master still publishes zero recovered rows."
+    },
+    {
+      "project_accession": "PRJEB41594",
+      "species_latin_name": "Ovis aries",
+      "recovery_gap_status": "extractable_sources_but_no_governed_samples",
+      "implausibly_low_recovery_reason": "Readable paper or supplementary capture exists, but the governed sample master still publishes zero recovered rows."
+    },
+    {
+      "project_accession": "PRJEB59481",
+      "species_latin_name": "Ovis aries",
+      "recovery_gap_status": "extractable_sources_but_no_governed_samples",
+      "implausibly_low_recovery_reason": "Readable paper or supplementary capture exists, but the governed sample master still publishes zero recovered rows."
+    },
+    {
+      "project_accession": "PRJEB30282",
+      "species_latin_name": "Sus scrofa domesticus",
+      "recovery_gap_status": "extractable_sources_but_no_governed_samples",
+      "implausibly_low_recovery_reason": "Readable paper or supplementary capture exists, but the governed sample master still publishes zero recovered rows."
+    }
+  ]
+}

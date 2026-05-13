@@ -1,0 +1,31 @@
+{
+  "schema_version": "sead-recovery-roadmap.v1",
+  "generated_on": "2026-05-09",
+  "row_count": 4,
+  "rows": [
+    {
+      "deliverable_key": "linked_temporal_capture",
+      "current_gap_count": 2195,
+      "goal": "Capture linked dating-range, relative-period, and uncertainty tables into checked-in raw SEAD inventory refreshes.",
+      "completion_signal": "Checked-in raw SEAD rows carry temporal linked tables often enough that the thin-site-inventory risk no longer dominates the review packet."
+    },
+    {
+      "deliverable_key": "reference_link_capture",
+      "current_gap_count": 2195,
+      "goal": "Preserve stable bibliography or DOI links wherever SEAD linked records expose them, so readers do not have to begin every review from the generic site page.",
+      "completion_signal": "The access review shows a meaningful shift away from site-page-only visibility."
+    },
+    {
+      "deliverable_key": "context_layer_republication",
+      "current_gap_count": 2195,
+      "goal": "Republish the normalized SEAD context layer with explicit temporal semantics, access posture, and context-only caveats on every feature.",
+      "completion_signal": "Normalized and published SEAD GeoJSON no longer trigger missing-temporal-semantics findings in report review surfaces."
+    },
+    {
+      "deliverable_key": "published_scope_refresh",
+      "current_gap_count": 2195,
+      "goal": "Refresh published world, Europe-plus, and Nordic report bundles so SEAD appears as a bounded archaeology context layer rather than a generic environmental blob.",
+      "completion_signal": "Published map and review bundles expose SEAD with stable caveats, access wording, and bounded contextual role labels."
+    }
+  ]
+}

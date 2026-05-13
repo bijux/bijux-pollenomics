@@ -28,4 +28,7 @@ sync-license-assets-package:
 	done
 .PHONY: sync-license-assets-package
 
+test-all: test
+.PHONY: test-all
+
 include $(abspath $(dir $(firstword $(MAKEFILE_LIST))))/../bijux-py/package.mk

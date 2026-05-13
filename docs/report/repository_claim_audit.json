@@ -1,0 +1,88 @@
+{
+  "schema_version": "repository-claim-audit.v1",
+  "audit_scope": "full_repository",
+  "overall_ok": false,
+  "counts": {
+    "tracked_paper_count": 18,
+    "papers_with_archived_supplements": 18,
+    "published_atlas_point_count": 234,
+    "published_country_bundle_count": 4,
+    "reference_stash_doi_count": 18,
+    "tracked_aadr_release_file_count": 3,
+    "papers_with_local_reference_supplements": 18,
+    "animal_sample_row_count": 894,
+    "animal_map_supported_rows": 236,
+    "animal_map_unresolved_rows": 21,
+    "animal_map_refused_rows": 7,
+    "tracked_landclim_site_count": 492,
+    "tracked_landclim_grid_cell_count": 88,
+    "tracked_neotoma_site_count": 200,
+    "tracked_sead_site_count": 2195,
+    "tracked_raa_published_site_count": 761917,
+    "tracked_raa_density_cell_count": 106,
+    "tracked_boundary_feature_count": 4,
+    "pollen_normalized_file_count": 6,
+    "archaeology_normalized_file_count": 4,
+    "boundary_raw_file_count": 4,
+    "boundary_normalized_file_count": 1,
+    "fieldwork_page_count": 0,
+    "source_explainer_count": 0,
+    "landing_page_count": 1,
+    "zero_collection_summary_surfaces": []
+  },
+  "checks": [
+    {
+      "check_id": "repository_landings_name_pollenomics_first",
+      "passed": false,
+      "description": "Repository landings describe pollenomics and environmental evidence before the thin animal recovery slice.",
+      "finding_count": 0,
+      "findings": []
+    },
+    {
+      "check_id": "source_family_pages_restore_non_adna_breadth",
+      "passed": false,
+      "description": "The docs tree keeps non-aDNA source families visible and directly linkable.",
+      "finding_count": 1,
+      "findings": [
+        "source_explainer_count_below_expected_floor"
+      ]
+    },
+    {
+      "check_id": "animal_sample_review_freezes_broad_readiness",
+      "passed": true,
+      "description": "The public animal sample review keeps the stronger Nordic sample-owned view separate from any broader region-agnostic readiness claim.",
+      "finding_count": 0,
+      "findings": []
+    },
+    {
+      "check_id": "animal_release_gate_blocks_strongest_claim",
+      "passed": true,
+      "description": "The current release gate still freezes the strongest public claim.",
+      "finding_count": 0,
+      "findings": []
+    },
+    {
+      "check_id": "thin_animal_surface_stays_visible",
+      "passed": true,
+      "description": "The public animal surfaces keep the current partial sample-owned posture visible instead of implying broad completion.",
+      "finding_count": 0,
+      "findings": []
+    },
+    {
+      "check_id": "docs_scope_validation_keeps_repository_story_wide_enough",
+      "passed": false,
+      "description": "The runtime, data, and maintainer handbooks stay broad enough to explain the repository without collapsing into one narrow storyline.",
+      "finding_count": 1,
+      "findings": [
+        "docs_scope_validation_failed"
+      ]
+    },
+    {
+      "check_id": "final_release_language_stays_refused",
+      "passed": true,
+      "description": "The repository still refuses final release wording until the hardest evidence dimensions are actually strong enough.",
+      "finding_count": 0,
+      "findings": []
+    }
+  ]
+}

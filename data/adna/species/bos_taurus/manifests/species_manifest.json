@@ -1,0 +1,36 @@
+{
+  "schema_version": "adna-species-manifest.v1",
+  "species": {
+    "latin_name": "Bos taurus",
+    "slug": "bos_taurus",
+    "common_name": "cattle",
+    "support_status": "provisional",
+    "modalities": [
+      "archive_reads",
+      "paper_only"
+    ],
+    "source_families": [
+      "ENA",
+      "SRA",
+      "BioProject"
+    ],
+    "aliases": [
+      "cattle",
+      "cow",
+      "domestic cattle"
+    ],
+    "notes": "Cattle support remains provisional until species-split and ancestry rules are made explicit in code."
+  },
+  "root_slug": "bos_taurus",
+  "data_root": "data/adna/species/bos_taurus",
+  "normalized_sample_namespace": "bos_taurus:normalized_sample",
+  "tracked_layout": [
+    "raw",
+    "normalized",
+    "manifests",
+    "reports",
+    "review"
+  ],
+  "scientific_scope": "Cattle support remains split-sensitive. Wild or progenitor context must not be flattened into domesticated-core cattle support.",
+  "runtime_scope": "Current runtime normalization and reporting remain human AADR-first until species-specific collectors and archive bridges are implemented."
+}

@@ -1,0 +1,2704 @@
+{
+  "species_manifest": {
+    "schema_version": "adna-species-manifest.v1",
+    "species": {
+      "latin_name": "Rangifer tarandus",
+      "slug": "rangifer_tarandus",
+      "common_name": "reindeer",
+      "support_status": "comparator_only",
+      "modalities": [
+        "archive_reads",
+        "paper_only"
+      ],
+      "source_families": [
+        "ENA",
+        "SRA",
+        "BioProject"
+      ],
+      "aliases": [
+        "reindeer"
+      ],
+      "notes": "Comparator support only. Reindeer remains visible for ancient cervid context, not for domesticated-core inference."
+    },
+    "root_slug": "rangifer_tarandus",
+    "data_root": "data/adna/species/rangifer_tarandus",
+    "normalized_sample_namespace": "rangifer_tarandus:normalized_sample",
+    "tracked_layout": [
+      "raw",
+      "normalized",
+      "manifests",
+      "reports",
+      "review"
+    ],
+    "scientific_scope": "Reindeer is comparator support only and must not be used as domesticated-core evidence.",
+    "runtime_scope": "Current runtime normalization and reporting remain human AADR-first until species-specific collectors and archive bridges are implemented."
+  },
+  "dataset_review": {
+    "species": {
+      "latin_name": "Rangifer tarandus",
+      "slug": "rangifer_tarandus",
+      "common_name": "reindeer",
+      "support_status": "comparator_only",
+      "modalities": [
+        "archive_reads",
+        "paper_only"
+      ],
+      "source_families": [
+        "ENA",
+        "SRA",
+        "BioProject"
+      ],
+      "aliases": [
+        "reindeer"
+      ],
+      "notes": "Comparator support only. Reindeer remains visible for ancient cervid context, not for domesticated-core inference."
+    },
+    "product_role": "comparator",
+    "assignment_rule": "single_species_comparator",
+    "dataset_bucket": "comparator_only",
+    "archive_project_count": 4,
+    "core_project_count": 0,
+    "primary_paper_pin_count": 1,
+    "curated_support_project_count": 0,
+    "archive_required": true,
+    "primary_paper_required": false,
+    "manifest_schema_required": true,
+    "release_gate_satisfied": true,
+    "eligible_for_supported_status": false,
+    "blocking_reasons": []
+  },
+  "curation_manifest": {
+    "schema_version": "adna-species-curation-manifest.v1",
+    "species_manifest": {
+      "schema_version": "adna-species-manifest.v1",
+      "species": {
+        "latin_name": "Rangifer tarandus",
+        "slug": "rangifer_tarandus",
+        "common_name": "reindeer",
+        "support_status": "comparator_only",
+        "modalities": [
+          "archive_reads",
+          "paper_only"
+        ],
+        "source_families": [
+          "ENA",
+          "SRA",
+          "BioProject"
+        ],
+        "aliases": [
+          "reindeer"
+        ],
+        "notes": "Comparator support only. Reindeer remains visible for ancient cervid context, not for domesticated-core inference."
+      },
+      "root_slug": "rangifer_tarandus",
+      "data_root": "data/adna/species/rangifer_tarandus",
+      "normalized_sample_namespace": "rangifer_tarandus:normalized_sample",
+      "tracked_layout": [
+        "raw",
+        "normalized",
+        "manifests",
+        "reports",
+        "review"
+      ],
+      "scientific_scope": "Reindeer is comparator support only and must not be used as domesticated-core evidence.",
+      "runtime_scope": "Current runtime normalization and reporting remain human AADR-first until species-specific collectors and archive bridges are implemented."
+    },
+    "curation_class": "comparator_only",
+    "support_statement": "Ancient material is curated only as comparator support and must not be flattened into domesticated-core inference.",
+    "curated_projects": [],
+    "pending_projects": [
+      {
+        "project_accession": "PRJEB60484",
+        "source_family": "ENA",
+        "accession_scope": "project",
+        "archive_status": "comparator_only",
+        "evidence_strength": "primary_paper_pinned",
+        "ancient_status": "ancient_comparator",
+        "paper_title": "Ancient reindeer mitogenomes reveal island-hopping colonisation of the Arctic archipelagos",
+        "paper_doi": "10.1038/s41598-024-54296-2",
+        "sequencing_target": "mitogenome",
+        "material_basis": "individual_bone_or_tooth",
+        "dating_basis": "historical_and_archaeological_context",
+        "geographic_basis": "site_level_localities",
+        "access_policy": "public_downloadable",
+        "public_release_date": null,
+        "domestication_scope": "ancient_comparator",
+        "notes": "Ancient reindeer comparator retained for Arctic cervid context and kept out of domesticated-core inference.",
+        "nordic_relevance": "nordic_relevant_unmapped",
+        "nordic_relevance_reason": "The ancient Svalbard reindeer comparator is a real Nordic lead, but it is still not promoted into shipped mapped animal locality outputs.",
+        "last_checked_on": "2026-05-07"
+      }
+    ],
+    "rejected_projects": [
+      {
+        "project_accession": "PRJEB57293",
+        "archive_status": "reject_or_out_of_scope",
+        "ancient_status": "modern_or_irrelevant",
+        "rejection_reason": "modern_or_irrelevant"
+      },
+      {
+        "project_accession": "PRJEB61721",
+        "archive_status": "reject_or_out_of_scope",
+        "ancient_status": "modern_or_irrelevant",
+        "rejection_reason": "modern_or_irrelevant"
+      },
+      {
+        "project_accession": "PRJNA634908",
+        "archive_status": "reject_or_out_of_scope",
+        "ancient_status": "modern_or_irrelevant",
+        "rejection_reason": "modern_or_irrelevant"
+      }
+    ]
+  },
+  "project_manifest": {
+    "schema_version": "adna-species-project-manifest.v1",
+    "species_latin_name": "Rangifer tarandus",
+    "projects": [
+      {
+        "project_accession": "PRJEB57293",
+        "source_family": "ENA",
+        "accession_scope": "project",
+        "archive_status": "reject_or_out_of_scope",
+        "evidence_strength": "archive_only",
+        "ancient_status": "modern_or_irrelevant",
+        "paper_title": null,
+        "paper_doi": null,
+        "sequencing_target": "mitogenome",
+        "material_basis": "modern_tissue",
+        "dating_basis": "modern_sampling",
+        "geographic_basis": "site_level_localities",
+        "access_policy": "public_downloadable",
+        "public_release_date": null,
+        "domestication_scope": "modern_or_irrelevant",
+        "notes": "Modern Svalbard reindeer comparator retained only as an explicit reject so modern context does not inflate ancient support.",
+        "nordic_relevance": "non_nordic",
+        "nordic_relevance_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
+        "last_checked_on": "2026-05-07"
+      },
+      {
+        "project_accession": "PRJEB60484",
+        "source_family": "ENA",
+        "accession_scope": "project",
+        "archive_status": "comparator_only",
+        "evidence_strength": "primary_paper_pinned",
+        "ancient_status": "ancient_comparator",
+        "paper_title": "Ancient reindeer mitogenomes reveal island-hopping colonisation of the Arctic archipelagos",
+        "paper_doi": "10.1038/s41598-024-54296-2",
+        "sequencing_target": "mitogenome",
+        "material_basis": "individual_bone_or_tooth",
+        "dating_basis": "historical_and_archaeological_context",
+        "geographic_basis": "site_level_localities",
+        "access_policy": "public_downloadable",
+        "public_release_date": null,
+        "domestication_scope": "ancient_comparator",
+        "notes": "Ancient reindeer comparator retained for Arctic cervid context and kept out of domesticated-core inference.",
+        "nordic_relevance": "nordic_relevant_unmapped",
+        "nordic_relevance_reason": "The ancient Svalbard reindeer comparator is a real Nordic lead, but it is still not promoted into shipped mapped animal locality outputs.",
+        "last_checked_on": "2026-05-07"
+      },
+      {
+        "project_accession": "PRJEB61721",
+        "source_family": "ENA",
+        "accession_scope": "project",
+        "archive_status": "reject_or_out_of_scope",
+        "evidence_strength": "archive_only",
+        "ancient_status": "modern_or_irrelevant",
+        "paper_title": null,
+        "paper_doi": null,
+        "sequencing_target": "mitogenome",
+        "material_basis": "modern_tissue",
+        "dating_basis": "modern_sampling",
+        "geographic_basis": "site_level_localities",
+        "access_policy": "public_downloadable",
+        "public_release_date": null,
+        "domestication_scope": "modern_or_irrelevant",
+        "notes": "Modern Svalbard reindeer comparator retained only as an explicit reject so modern context does not inflate ancient support.",
+        "nordic_relevance": "non_nordic",
+        "nordic_relevance_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
+        "last_checked_on": "2026-05-07"
+      },
+      {
+        "project_accession": "PRJNA634908",
+        "source_family": "BioProject",
+        "accession_scope": "project",
+        "archive_status": "reject_or_out_of_scope",
+        "evidence_strength": "archive_only",
+        "ancient_status": "modern_or_irrelevant",
+        "paper_title": null,
+        "paper_doi": null,
+        "sequencing_target": "mitogenome",
+        "material_basis": "modern_tissue",
+        "dating_basis": "modern_sampling",
+        "geographic_basis": "country_or_breed_panel",
+        "access_policy": "public_downloadable",
+        "public_release_date": null,
+        "domestication_scope": "modern_or_irrelevant",
+        "notes": "Modern caribou comparator retained only as an explicit reject so cross-cervid context does not masquerade as domesticated support.",
+        "nordic_relevance": "non_nordic",
+        "nordic_relevance_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
+        "last_checked_on": "2026-05-07"
+      }
+    ]
+  },
+  "normalization_bundle": {
+    "schema_version": "adna-nonhuman-normalization-bundle.v1",
+    "species_manifest": {
+      "schema_version": "adna-species-manifest.v1",
+      "species": {
+        "latin_name": "Rangifer tarandus",
+        "slug": "rangifer_tarandus",
+        "common_name": "reindeer",
+        "support_status": "comparator_only",
+        "modalities": [
+          "archive_reads",
+          "paper_only"
+        ],
+        "source_families": [
+          "ENA",
+          "SRA",
+          "BioProject"
+        ],
+        "aliases": [
+          "reindeer"
+        ],
+        "notes": "Comparator support only. Reindeer remains visible for ancient cervid context, not for domesticated-core inference."
+      },
+      "root_slug": "rangifer_tarandus",
+      "data_root": "data/adna/species/rangifer_tarandus",
+      "normalized_sample_namespace": "rangifer_tarandus:normalized_sample",
+      "tracked_layout": [
+        "raw",
+        "normalized",
+        "manifests",
+        "reports",
+        "review"
+      ],
+      "scientific_scope": "Reindeer is comparator support only and must not be used as domesticated-core evidence.",
+      "runtime_scope": "Current runtime normalization and reporting remain human AADR-first until species-specific collectors and archive bridges are implemented."
+    },
+    "sample_records": [
+      {
+        "identity": {
+          "namespace": "rangifer_tarandus:curated_sample",
+          "stable_token": "rangifer_tarandus:sample:prjeb57293",
+          "accession_lineage": [
+            "species:Rangifer tarandus",
+            "source:ENA",
+            "project:PRJEB57293",
+            "sample:PRJEB57293"
+          ]
+        },
+        "locality_identity": {
+          "namespace": "rangifer_tarandus:sample_locality",
+          "stable_token": "rangifer_tarandus:locality:prjeb57293:sitedetailnotyetextractedfromtrackedsourcesupport",
+          "locality_text": "site detail not yet extracted from tracked source support",
+          "political_entity": null,
+          "source_anchor_tokens": [
+            "PRJEB57293",
+            "project_accession_anchor"
+          ]
+        },
+        "species_latin_name": "Rangifer tarandus",
+        "species_common_name": "reindeer",
+        "source_family": "ENA",
+        "source_release": "PRJEB57293",
+        "record_modality": "mitogenome_only",
+        "review_strength": "comparator_only",
+        "provenance_quality": "manual_curation_only",
+        "master_id": "PRJEB57293",
+        "group_id": "PRJEB57293",
+        "locality": null,
+        "political_entity": null,
+        "coordinates": {
+          "latitude": null,
+          "longitude": null,
+          "latitude_text": "",
+          "longitude_text": "",
+          "confidence": "withheld"
+        },
+        "publication": "",
+        "year_first_published": "",
+        "full_date": "chronology not yet extracted from tracked source support",
+        "chronology": {
+          "original_text": "chronology not yet extracted from tracked source support",
+          "time_start_bp": null,
+          "time_end_bp": null,
+          "time_mean_bp": null,
+          "date_stddev_bp": "",
+          "dating_basis": "modern_sampling",
+          "evidence_class": "historical_or_recent_date",
+          "precision_posture": "sample_approximate_or_modeled"
+        },
+        "data_type": "archive_project_context",
+        "molecular_sex": "",
+        "datasets": [
+          "rangifer_tarandus:project:PRJEB57293"
+        ],
+        "project_accession": "PRJEB57293",
+        "paper_doi": "",
+        "paper_url": "",
+        "supplementary_source": "",
+        "inclusion_status": "sample_context_blocked",
+        "inclusion_note": "This sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support.",
+        "chronology_strength": "project_context_text_only",
+        "chronology_normalization_status": "text_only_unparsed",
+        "chronology_provenance_path": "",
+        "chronology_provenance_kind": "",
+        "chronology_provenance_locator": "",
+        "chronology_provenance_text": "",
+        "chronology_conflict_note": "",
+        "sample_basis": "project_accession_anchor",
+        "archive_native_sample_id": "",
+        "paper_native_sample_label": "",
+        "supplementary_table_sample_label": "",
+        "sample_evidence_status": "not_yet_recoverable",
+        "sample_lineage_path": "",
+        "sample_lineage_locator": "",
+        "sample_lineage_excerpt": "",
+        "sample_identity_resolution": "provisional",
+        "sample_ambiguity_note": "No recoverable project sample-master row is published yet for this project."
+      },
+      {
+        "identity": {
+          "namespace": "rangifer_tarandus:curated_sample",
+          "stable_token": "rangifer_tarandus:sample:prjeb60484:samea112757323",
+          "accession_lineage": [
+            "species:Rangifer tarandus",
+            "source:ENA",
+            "project:PRJEB60484",
+            "sample:prjeb60484:samea112757323"
+          ]
+        },
+        "locality_identity": {
+          "namespace": "rangifer_tarandus:sample_locality",
+          "stable_token": "rangifer_tarandus:locality:prjeb60484:svalbardancientreindeercontext:svalbard",
+          "locality_text": "Svalbard ancient reindeer context",
+          "political_entity": "Svalbard",
+          "source_anchor_tokens": [
+            "PRJEB60484",
+            "archive_project_sample_accession_anchor"
+          ]
+        },
+        "species_latin_name": "Rangifer tarandus",
+        "species_common_name": "reindeer",
+        "source_family": "ENA",
+        "source_release": "PRJEB60484",
+        "record_modality": "mitogenome_only",
+        "review_strength": "comparator_only",
+        "provenance_quality": "manual_curation_only",
+        "master_id": "prjeb60484:samea112757323",
+        "group_id": "PRJEB60484",
+        "locality": "Svalbard ancient reindeer context",
+        "political_entity": "Svalbard",
+        "coordinates": {
+          "latitude": null,
+          "longitude": null,
+          "latitude_text": "",
+          "longitude_text": "",
+          "confidence": "withheld"
+        },
+        "publication": "Ancient reindeer mitogenomes reveal island-hopping colonisation of the Arctic archipelagos",
+        "year_first_published": "2024",
+        "full_date": "Ancient Arctic archipelago reindeer context",
+        "chronology": {
+          "original_text": "Ancient Arctic archipelago reindeer context",
+          "time_start_bp": 500,
+          "time_end_bp": 2500,
+          "time_mean_bp": 1500,
+          "date_stddev_bp": "",
+          "dating_basis": "historical_and_archaeological_context",
+          "evidence_class": "historical_or_recent_date",
+          "precision_posture": "contextual_interval"
+        },
+        "data_type": "archive_project_context",
+        "molecular_sex": "",
+        "datasets": [
+          "rangifer_tarandus:project:PRJEB60484"
+        ],
+        "project_accession": "PRJEB60484",
+        "paper_doi": "10.1038/s41598-024-54296-2",
+        "paper_url": "https://doi.org/10.1038/s41598-024-54296-2",
+        "supplementary_source": "",
+        "inclusion_status": "comparator_site_curated",
+        "inclusion_note": "Current evidence stays at region or transect scale and must not masquerade as exact sample-site truth.",
+        "chronology_strength": "project_context_interval",
+        "chronology_normalization_status": "normalized_interval",
+        "chronology_provenance_path": "adna/governance/source_library/projects/PRJEB60484/archive_metadata.html",
+        "chronology_provenance_kind": "archive_metadata_description",
+        "chronology_provenance_locator": "source description snapshot",
+        "chronology_provenance_text": "The high-Arctic Svalbard reindeer (Rangifer tarandus platyrhynchus), endemic to the Svalbard archipelago, experienced a harvest-induced bottleneck that occurred throughout the 17th to 20th centuries.",
+        "chronology_conflict_note": "",
+        "sample_basis": "archive_project_sample_accession_anchor",
+        "archive_native_sample_id": "SAMEA112757323",
+        "paper_native_sample_label": "",
+        "supplementary_table_sample_label": "",
+        "sample_evidence_status": "archive_native",
+        "sample_lineage_path": "data/adna/governance/source_library/projects/PRJEB60484/archive_metadata.html",
+        "sample_lineage_locator": "sample_accession:SAMEA112757323",
+        "sample_lineage_excerpt": "Archive metadata preserves a distinct project-owned sample accession, but no richer sample-owned chronology row has been extracted yet.",
+        "sample_identity_resolution": "final",
+        "sample_ambiguity_note": ""
+      },
+      {
+        "identity": {
+          "namespace": "rangifer_tarandus:curated_sample",
+          "stable_token": "rangifer_tarandus:sample:prjeb60484:samea112757324",
+          "accession_lineage": [
+            "species:Rangifer tarandus",
+            "source:ENA",
+            "project:PRJEB60484",
+            "sample:prjeb60484:samea112757324"
+          ]
+        },
+        "locality_identity": {
+          "namespace": "rangifer_tarandus:sample_locality",
+          "stable_token": "rangifer_tarandus:locality:prjeb60484:svalbardancientreindeercontext:svalbard",
+          "locality_text": "Svalbard ancient reindeer context",
+          "political_entity": "Svalbard",
+          "source_anchor_tokens": [
+            "PRJEB60484",
+            "archive_project_sample_accession_anchor"
+          ]
+        },
+        "species_latin_name": "Rangifer tarandus",
+        "species_common_name": "reindeer",
+        "source_family": "ENA",
+        "source_release": "PRJEB60484",
+        "record_modality": "mitogenome_only",
+        "review_strength": "comparator_only",
+        "provenance_quality": "manual_curation_only",
+        "master_id": "prjeb60484:samea112757324",
+        "group_id": "PRJEB60484",
+        "locality": "Svalbard ancient reindeer context",
+        "political_entity": "Svalbard",
+        "coordinates": {
+          "latitude": null,
+          "longitude": null,
+          "latitude_text": "",
+          "longitude_text": "",
+          "confidence": "withheld"
+        },
+        "publication": "Ancient reindeer mitogenomes reveal island-hopping colonisation of the Arctic archipelagos",
+        "year_first_published": "2024",
+        "full_date": "Ancient Arctic archipelago reindeer context",
+        "chronology": {
+          "original_text": "Ancient Arctic archipelago reindeer context",
+          "time_start_bp": 500,
+          "time_end_bp": 2500,
+          "time_mean_bp": 1500,
+          "date_stddev_bp": "",
+          "dating_basis": "historical_and_archaeological_context",
+          "evidence_class": "historical_or_recent_date",
+          "precision_posture": "contextual_interval"
+        },
+        "data_type": "archive_project_context",
+        "molecular_sex": "",
+        "datasets": [
+          "rangifer_tarandus:project:PRJEB60484"
+        ],
+        "project_accession": "PRJEB60484",
+        "paper_doi": "10.1038/s41598-024-54296-2",
+        "paper_url": "https://doi.org/10.1038/s41598-024-54296-2",
+        "supplementary_source": "",
+        "inclusion_status": "comparator_site_curated",
+        "inclusion_note": "Current evidence stays at region or transect scale and must not masquerade as exact sample-site truth.",
+        "chronology_strength": "project_context_interval",
+        "chronology_normalization_status": "normalized_interval",
+        "chronology_provenance_path": "adna/governance/source_library/projects/PRJEB60484/archive_metadata.html",
+        "chronology_provenance_kind": "archive_metadata_description",
+        "chronology_provenance_locator": "source description snapshot",
+        "chronology_provenance_text": "The high-Arctic Svalbard reindeer (Rangifer tarandus platyrhynchus), endemic to the Svalbard archipelago, experienced a harvest-induced bottleneck that occurred throughout the 17th to 20th centuries.",
+        "chronology_conflict_note": "",
+        "sample_basis": "archive_project_sample_accession_anchor",
+        "archive_native_sample_id": "SAMEA112757324",
+        "paper_native_sample_label": "",
+        "supplementary_table_sample_label": "",
+        "sample_evidence_status": "archive_native",
+        "sample_lineage_path": "data/adna/governance/source_library/projects/PRJEB60484/archive_metadata.html",
+        "sample_lineage_locator": "sample_accession:SAMEA112757324",
+        "sample_lineage_excerpt": "Archive metadata preserves a distinct project-owned sample accession, but no richer sample-owned chronology row has been extracted yet.",
+        "sample_identity_resolution": "final",
+        "sample_ambiguity_note": ""
+      },
+      {
+        "identity": {
+          "namespace": "rangifer_tarandus:curated_sample",
+          "stable_token": "rangifer_tarandus:sample:prjeb60484:samea112757325",
+          "accession_lineage": [
+            "species:Rangifer tarandus",
+            "source:ENA",
+            "project:PRJEB60484",
+            "sample:prjeb60484:samea112757325"
+          ]
+        },
+        "locality_identity": {
+          "namespace": "rangifer_tarandus:sample_locality",
+          "stable_token": "rangifer_tarandus:locality:prjeb60484:svalbardancientreindeercontext:svalbard",
+          "locality_text": "Svalbard ancient reindeer context",
+          "political_entity": "Svalbard",
+          "source_anchor_tokens": [
+            "PRJEB60484",
+            "archive_project_sample_accession_anchor"
+          ]
+        },
+        "species_latin_name": "Rangifer tarandus",
+        "species_common_name": "reindeer",
+        "source_family": "ENA",
+        "source_release": "PRJEB60484",
+        "record_modality": "mitogenome_only",
+        "review_strength": "comparator_only",
+        "provenance_quality": "manual_curation_only",
+        "master_id": "prjeb60484:samea112757325",
+        "group_id": "PRJEB60484",
+        "locality": "Svalbard ancient reindeer context",
+        "political_entity": "Svalbard",
+        "coordinates": {
+          "latitude": null,
+          "longitude": null,
+          "latitude_text": "",
+          "longitude_text": "",
+          "confidence": "withheld"
+        },
+        "publication": "Ancient reindeer mitogenomes reveal island-hopping colonisation of the Arctic archipelagos",
+        "year_first_published": "2024",
+        "full_date": "Ancient Arctic archipelago reindeer context",
+        "chronology": {
+          "original_text": "Ancient Arctic archipelago reindeer context",
+          "time_start_bp": 500,
+          "time_end_bp": 2500,
+          "time_mean_bp": 1500,
+          "date_stddev_bp": "",
+          "dating_basis": "historical_and_archaeological_context",
+          "evidence_class": "historical_or_recent_date",
+          "precision_posture": "contextual_interval"
+        },
+        "data_type": "archive_project_context",
+        "molecular_sex": "",
+        "datasets": [
+          "rangifer_tarandus:project:PRJEB60484"
+        ],
+        "project_accession": "PRJEB60484",
+        "paper_doi": "10.1038/s41598-024-54296-2",
+        "paper_url": "https://doi.org/10.1038/s41598-024-54296-2",
+        "supplementary_source": "",
+        "inclusion_status": "comparator_site_curated",
+        "inclusion_note": "Current evidence stays at region or transect scale and must not masquerade as exact sample-site truth.",
+        "chronology_strength": "project_context_interval",
+        "chronology_normalization_status": "normalized_interval",
+        "chronology_provenance_path": "adna/governance/source_library/projects/PRJEB60484/archive_metadata.html",
+        "chronology_provenance_kind": "archive_metadata_description",
+        "chronology_provenance_locator": "source description snapshot",
+        "chronology_provenance_text": "The high-Arctic Svalbard reindeer (Rangifer tarandus platyrhynchus), endemic to the Svalbard archipelago, experienced a harvest-induced bottleneck that occurred throughout the 17th to 20th centuries.",
+        "chronology_conflict_note": "",
+        "sample_basis": "archive_project_sample_accession_anchor",
+        "archive_native_sample_id": "SAMEA112757325",
+        "paper_native_sample_label": "",
+        "supplementary_table_sample_label": "",
+        "sample_evidence_status": "archive_native",
+        "sample_lineage_path": "data/adna/governance/source_library/projects/PRJEB60484/archive_metadata.html",
+        "sample_lineage_locator": "sample_accession:SAMEA112757325",
+        "sample_lineage_excerpt": "Archive metadata preserves a distinct project-owned sample accession, but no richer sample-owned chronology row has been extracted yet.",
+        "sample_identity_resolution": "final",
+        "sample_ambiguity_note": ""
+      },
+      {
+        "identity": {
+          "namespace": "rangifer_tarandus:curated_sample",
+          "stable_token": "rangifer_tarandus:sample:prjeb60484:samea112757326",
+          "accession_lineage": [
+            "species:Rangifer tarandus",
+            "source:ENA",
+            "project:PRJEB60484",
+            "sample:prjeb60484:samea112757326"
+          ]
+        },
+        "locality_identity": {
+          "namespace": "rangifer_tarandus:sample_locality",
+          "stable_token": "rangifer_tarandus:locality:prjeb60484:svalbardancientreindeercontext:svalbard",
+          "locality_text": "Svalbard ancient reindeer context",
+          "political_entity": "Svalbard",
+          "source_anchor_tokens": [
+            "PRJEB60484",
+            "archive_project_sample_accession_anchor"
+          ]
+        },
+        "species_latin_name": "Rangifer tarandus",
+        "species_common_name": "reindeer",
+        "source_family": "ENA",
+        "source_release": "PRJEB60484",
+        "record_modality": "mitogenome_only",
+        "review_strength": "comparator_only",
+        "provenance_quality": "manual_curation_only",
+        "master_id": "prjeb60484:samea112757326",
+        "group_id": "PRJEB60484",
+        "locality": "Svalbard ancient reindeer context",
+        "political_entity": "Svalbard",
+        "coordinates": {
+          "latitude": null,
+          "longitude": null,
+          "latitude_text": "",
+          "longitude_text": "",
+          "confidence": "withheld"
+        },
+        "publication": "Ancient reindeer mitogenomes reveal island-hopping colonisation of the Arctic archipelagos",
+        "year_first_published": "2024",
+        "full_date": "Ancient Arctic archipelago reindeer context",
+        "chronology": {
+          "original_text": "Ancient Arctic archipelago reindeer context",
+          "time_start_bp": 500,
+          "time_end_bp": 2500,
+          "time_mean_bp": 1500,
+          "date_stddev_bp": "",
+          "dating_basis": "historical_and_archaeological_context",
+          "evidence_class": "historical_or_recent_date",
+          "precision_posture": "contextual_interval"
+        },
+        "data_type": "archive_project_context",
+        "molecular_sex": "",
+        "datasets": [
+          "rangifer_tarandus:project:PRJEB60484"
+        ],
+        "project_accession": "PRJEB60484",
+        "paper_doi": "10.1038/s41598-024-54296-2",
+        "paper_url": "https://doi.org/10.1038/s41598-024-54296-2",
+        "supplementary_source": "",
+        "inclusion_status": "comparator_site_curated",
+        "inclusion_note": "Current evidence stays at region or transect scale and must not masquerade as exact sample-site truth.",
+        "chronology_strength": "project_context_interval",
+        "chronology_normalization_status": "normalized_interval",
+        "chronology_provenance_path": "adna/governance/source_library/projects/PRJEB60484/archive_metadata.html",
+        "chronology_provenance_kind": "archive_metadata_description",
+        "chronology_provenance_locator": "source description snapshot",
+        "chronology_provenance_text": "The high-Arctic Svalbard reindeer (Rangifer tarandus platyrhynchus), endemic to the Svalbard archipelago, experienced a harvest-induced bottleneck that occurred throughout the 17th to 20th centuries.",
+        "chronology_conflict_note": "",
+        "sample_basis": "archive_project_sample_accession_anchor",
+        "archive_native_sample_id": "SAMEA112757326",
+        "paper_native_sample_label": "",
+        "supplementary_table_sample_label": "",
+        "sample_evidence_status": "archive_native",
+        "sample_lineage_path": "data/adna/governance/source_library/projects/PRJEB60484/archive_metadata.html",
+        "sample_lineage_locator": "sample_accession:SAMEA112757326",
+        "sample_lineage_excerpt": "Archive metadata preserves a distinct project-owned sample accession, but no richer sample-owned chronology row has been extracted yet.",
+        "sample_identity_resolution": "final",
+        "sample_ambiguity_note": ""
+      },
+      {
+        "identity": {
+          "namespace": "rangifer_tarandus:curated_sample",
+          "stable_token": "rangifer_tarandus:sample:prjeb60484:samea112757327",
+          "accession_lineage": [
+            "species:Rangifer tarandus",
+            "source:ENA",
+            "project:PRJEB60484",
+            "sample:prjeb60484:samea112757327"
+          ]
+        },
+        "locality_identity": {
+          "namespace": "rangifer_tarandus:sample_locality",
+          "stable_token": "rangifer_tarandus:locality:prjeb60484:svalbardancientreindeercontext:svalbard",
+          "locality_text": "Svalbard ancient reindeer context",
+          "political_entity": "Svalbard",
+          "source_anchor_tokens": [
+            "PRJEB60484",
+            "archive_project_sample_accession_anchor"
+          ]
+        },
+        "species_latin_name": "Rangifer tarandus",
+        "species_common_name": "reindeer",
+        "source_family": "ENA",
+        "source_release": "PRJEB60484",
+        "record_modality": "mitogenome_only",
+        "review_strength": "comparator_only",
+        "provenance_quality": "manual_curation_only",
+        "master_id": "prjeb60484:samea112757327",
+        "group_id": "PRJEB60484",
+        "locality": "Svalbard ancient reindeer context",
+        "political_entity": "Svalbard",
+        "coordinates": {
+          "latitude": null,
+          "longitude": null,
+          "latitude_text": "",
+          "longitude_text": "",
+          "confidence": "withheld"
+        },
+        "publication": "Ancient reindeer mitogenomes reveal island-hopping colonisation of the Arctic archipelagos",
+        "year_first_published": "2024",
+        "full_date": "Ancient Arctic archipelago reindeer context",
+        "chronology": {
+          "original_text": "Ancient Arctic archipelago reindeer context",
+          "time_start_bp": 500,
+          "time_end_bp": 2500,
+          "time_mean_bp": 1500,
+          "date_stddev_bp": "",
+          "dating_basis": "historical_and_archaeological_context",
+          "evidence_class": "historical_or_recent_date",
+          "precision_posture": "contextual_interval"
+        },
+        "data_type": "archive_project_context",
+        "molecular_sex": "",
+        "datasets": [
+          "rangifer_tarandus:project:PRJEB60484"
+        ],
+        "project_accession": "PRJEB60484",
+        "paper_doi": "10.1038/s41598-024-54296-2",
+        "paper_url": "https://doi.org/10.1038/s41598-024-54296-2",
+        "supplementary_source": "",
+        "inclusion_status": "comparator_site_curated",
+        "inclusion_note": "Current evidence stays at region or transect scale and must not masquerade as exact sample-site truth.",
+        "chronology_strength": "project_context_interval",
+        "chronology_normalization_status": "normalized_interval",
+        "chronology_provenance_path": "adna/governance/source_library/projects/PRJEB60484/archive_metadata.html",
+        "chronology_provenance_kind": "archive_metadata_description",
+        "chronology_provenance_locator": "source description snapshot",
+        "chronology_provenance_text": "The high-Arctic Svalbard reindeer (Rangifer tarandus platyrhynchus), endemic to the Svalbard archipelago, experienced a harvest-induced bottleneck that occurred throughout the 17th to 20th centuries.",
+        "chronology_conflict_note": "",
+        "sample_basis": "archive_project_sample_accession_anchor",
+        "archive_native_sample_id": "SAMEA112757327",
+        "paper_native_sample_label": "",
+        "supplementary_table_sample_label": "",
+        "sample_evidence_status": "archive_native",
+        "sample_lineage_path": "data/adna/governance/source_library/projects/PRJEB60484/archive_metadata.html",
+        "sample_lineage_locator": "sample_accession:SAMEA112757327",
+        "sample_lineage_excerpt": "Archive metadata preserves a distinct project-owned sample accession, but no richer sample-owned chronology row has been extracted yet.",
+        "sample_identity_resolution": "final",
+        "sample_ambiguity_note": ""
+      },
+      {
+        "identity": {
+          "namespace": "rangifer_tarandus:curated_sample",
+          "stable_token": "rangifer_tarandus:sample:prjeb60484:samea112757328",
+          "accession_lineage": [
+            "species:Rangifer tarandus",
+            "source:ENA",
+            "project:PRJEB60484",
+            "sample:prjeb60484:samea112757328"
+          ]
+        },
+        "locality_identity": {
+          "namespace": "rangifer_tarandus:sample_locality",
+          "stable_token": "rangifer_tarandus:locality:prjeb60484:svalbardancientreindeercontext:svalbard",
+          "locality_text": "Svalbard ancient reindeer context",
+          "political_entity": "Svalbard",
+          "source_anchor_tokens": [
+            "PRJEB60484",
+            "archive_project_sample_accession_anchor"
+          ]
+        },
+        "species_latin_name": "Rangifer tarandus",
+        "species_common_name": "reindeer",
+        "source_family": "ENA",
+        "source_release": "PRJEB60484",
+        "record_modality": "mitogenome_only",
+        "review_strength": "comparator_only",
+        "provenance_quality": "manual_curation_only",
+        "master_id": "prjeb60484:samea112757328",
+        "group_id": "PRJEB60484",
+        "locality": "Svalbard ancient reindeer context",
+        "political_entity": "Svalbard",
+        "coordinates": {
+          "latitude": null,
+          "longitude": null,
+          "latitude_text": "",
+          "longitude_text": "",
+          "confidence": "withheld"
+        },
+        "publication": "Ancient reindeer mitogenomes reveal island-hopping colonisation of the Arctic archipelagos",
+        "year_first_published": "2024",
+        "full_date": "Ancient Arctic archipelago reindeer context",
+        "chronology": {
+          "original_text": "Ancient Arctic archipelago reindeer context",
+          "time_start_bp": 500,
+          "time_end_bp": 2500,
+          "time_mean_bp": 1500,
+          "date_stddev_bp": "",
+          "dating_basis": "historical_and_archaeological_context",
+          "evidence_class": "historical_or_recent_date",
+          "precision_posture": "contextual_interval"
+        },
+        "data_type": "archive_project_context",
+        "molecular_sex": "",
+        "datasets": [
+          "rangifer_tarandus:project:PRJEB60484"
+        ],
+        "project_accession": "PRJEB60484",
+        "paper_doi": "10.1038/s41598-024-54296-2",
+        "paper_url": "https://doi.org/10.1038/s41598-024-54296-2",
+        "supplementary_source": "",
+        "inclusion_status": "comparator_site_curated",
+        "inclusion_note": "Current evidence stays at region or transect scale and must not masquerade as exact sample-site truth.",
+        "chronology_strength": "project_context_interval",
+        "chronology_normalization_status": "normalized_interval",
+        "chronology_provenance_path": "adna/governance/source_library/projects/PRJEB60484/archive_metadata.html",
+        "chronology_provenance_kind": "archive_metadata_description",
+        "chronology_provenance_locator": "source description snapshot",
+        "chronology_provenance_text": "The high-Arctic Svalbard reindeer (Rangifer tarandus platyrhynchus), endemic to the Svalbard archipelago, experienced a harvest-induced bottleneck that occurred throughout the 17th to 20th centuries.",
+        "chronology_conflict_note": "",
+        "sample_basis": "archive_project_sample_accession_anchor",
+        "archive_native_sample_id": "SAMEA112757328",
+        "paper_native_sample_label": "",
+        "supplementary_table_sample_label": "",
+        "sample_evidence_status": "archive_native",
+        "sample_lineage_path": "data/adna/governance/source_library/projects/PRJEB60484/archive_metadata.html",
+        "sample_lineage_locator": "sample_accession:SAMEA112757328",
+        "sample_lineage_excerpt": "Archive metadata preserves a distinct project-owned sample accession, but no richer sample-owned chronology row has been extracted yet.",
+        "sample_identity_resolution": "final",
+        "sample_ambiguity_note": ""
+      },
+      {
+        "identity": {
+          "namespace": "rangifer_tarandus:curated_sample",
+          "stable_token": "rangifer_tarandus:sample:prjeb60484:samea112757329",
+          "accession_lineage": [
+            "species:Rangifer tarandus",
+            "source:ENA",
+            "project:PRJEB60484",
+            "sample:prjeb60484:samea112757329"
+          ]
+        },
+        "locality_identity": {
+          "namespace": "rangifer_tarandus:sample_locality",
+          "stable_token": "rangifer_tarandus:locality:prjeb60484:svalbardancientreindeercontext:svalbard",
+          "locality_text": "Svalbard ancient reindeer context",
+          "political_entity": "Svalbard",
+          "source_anchor_tokens": [
+            "PRJEB60484",
+            "archive_project_sample_accession_anchor"
+          ]
+        },
+        "species_latin_name": "Rangifer tarandus",
+        "species_common_name": "reindeer",
+        "source_family": "ENA",
+        "source_release": "PRJEB60484",
+        "record_modality": "mitogenome_only",
+        "review_strength": "comparator_only",
+        "provenance_quality": "manual_curation_only",
+        "master_id": "prjeb60484:samea112757329",
+        "group_id": "PRJEB60484",
+        "locality": "Svalbard ancient reindeer context",
+        "political_entity": "Svalbard",
+        "coordinates": {
+          "latitude": null,
+          "longitude": null,
+          "latitude_text": "",
+          "longitude_text": "",
+          "confidence": "withheld"
+        },
+        "publication": "Ancient reindeer mitogenomes reveal island-hopping colonisation of the Arctic archipelagos",
+        "year_first_published": "2024",
+        "full_date": "Ancient Arctic archipelago reindeer context",
+        "chronology": {
+          "original_text": "Ancient Arctic archipelago reindeer context",
+          "time_start_bp": 500,
+          "time_end_bp": 2500,
+          "time_mean_bp": 1500,
+          "date_stddev_bp": "",
+          "dating_basis": "historical_and_archaeological_context",
+          "evidence_class": "historical_or_recent_date",
+          "precision_posture": "contextual_interval"
+        },
+        "data_type": "archive_project_context",
+        "molecular_sex": "",
+        "datasets": [
+          "rangifer_tarandus:project:PRJEB60484"
+        ],
+        "project_accession": "PRJEB60484",
+        "paper_doi": "10.1038/s41598-024-54296-2",
+        "paper_url": "https://doi.org/10.1038/s41598-024-54296-2",
+        "supplementary_source": "",
+        "inclusion_status": "comparator_site_curated",
+        "inclusion_note": "Current evidence stays at region or transect scale and must not masquerade as exact sample-site truth.",
+        "chronology_strength": "project_context_interval",
+        "chronology_normalization_status": "normalized_interval",
+        "chronology_provenance_path": "adna/governance/source_library/projects/PRJEB60484/archive_metadata.html",
+        "chronology_provenance_kind": "archive_metadata_description",
+        "chronology_provenance_locator": "source description snapshot",
+        "chronology_provenance_text": "The high-Arctic Svalbard reindeer (Rangifer tarandus platyrhynchus), endemic to the Svalbard archipelago, experienced a harvest-induced bottleneck that occurred throughout the 17th to 20th centuries.",
+        "chronology_conflict_note": "",
+        "sample_basis": "archive_project_sample_accession_anchor",
+        "archive_native_sample_id": "SAMEA112757329",
+        "paper_native_sample_label": "",
+        "supplementary_table_sample_label": "",
+        "sample_evidence_status": "archive_native",
+        "sample_lineage_path": "data/adna/governance/source_library/projects/PRJEB60484/archive_metadata.html",
+        "sample_lineage_locator": "sample_accession:SAMEA112757329",
+        "sample_lineage_excerpt": "Archive metadata preserves a distinct project-owned sample accession, but no richer sample-owned chronology row has been extracted yet.",
+        "sample_identity_resolution": "final",
+        "sample_ambiguity_note": ""
+      },
+      {
+        "identity": {
+          "namespace": "rangifer_tarandus:curated_sample",
+          "stable_token": "rangifer_tarandus:sample:prjeb60484:samea112757330",
+          "accession_lineage": [
+            "species:Rangifer tarandus",
+            "source:ENA",
+            "project:PRJEB60484",
+            "sample:prjeb60484:samea112757330"
+          ]
+        },
+        "locality_identity": {
+          "namespace": "rangifer_tarandus:sample_locality",
+          "stable_token": "rangifer_tarandus:locality:prjeb60484:svalbardancientreindeercontext:svalbard",
+          "locality_text": "Svalbard ancient reindeer context",
+          "political_entity": "Svalbard",
+          "source_anchor_tokens": [
+            "PRJEB60484",
+            "archive_project_sample_accession_anchor"
+          ]
+        },
+        "species_latin_name": "Rangifer tarandus",
+        "species_common_name": "reindeer",
+        "source_family": "ENA",
+        "source_release": "PRJEB60484",
+        "record_modality": "mitogenome_only",
+        "review_strength": "comparator_only",
+        "provenance_quality": "manual_curation_only",
+        "master_id": "prjeb60484:samea112757330",
+        "group_id": "PRJEB60484",
+        "locality": "Svalbard ancient reindeer context",
+        "political_entity": "Svalbard",
+        "coordinates": {
+          "latitude": null,
+          "longitude": null,
+          "latitude_text": "",
+          "longitude_text": "",
+          "confidence": "withheld"
+        },
+        "publication": "Ancient reindeer mitogenomes reveal island-hopping colonisation of the Arctic archipelagos",
+        "year_first_published": "2024",
+        "full_date": "Ancient Arctic archipelago reindeer context",
+        "chronology": {
+          "original_text": "Ancient Arctic archipelago reindeer context",
+          "time_start_bp": 500,
+          "time_end_bp": 2500,
+          "time_mean_bp": 1500,
+          "date_stddev_bp": "",
+          "dating_basis": "historical_and_archaeological_context",
+          "evidence_class": "historical_or_recent_date",
+          "precision_posture": "contextual_interval"
+        },
+        "data_type": "archive_project_context",
+        "molecular_sex": "",
+        "datasets": [
+          "rangifer_tarandus:project:PRJEB60484"
+        ],
+        "project_accession": "PRJEB60484",
+        "paper_doi": "10.1038/s41598-024-54296-2",
+        "paper_url": "https://doi.org/10.1038/s41598-024-54296-2",
+        "supplementary_source": "",
+        "inclusion_status": "comparator_site_curated",
+        "inclusion_note": "Current evidence stays at region or transect scale and must not masquerade as exact sample-site truth.",
+        "chronology_strength": "project_context_interval",
+        "chronology_normalization_status": "normalized_interval",
+        "chronology_provenance_path": "adna/governance/source_library/projects/PRJEB60484/archive_metadata.html",
+        "chronology_provenance_kind": "archive_metadata_description",
+        "chronology_provenance_locator": "source description snapshot",
+        "chronology_provenance_text": "The high-Arctic Svalbard reindeer (Rangifer tarandus platyrhynchus), endemic to the Svalbard archipelago, experienced a harvest-induced bottleneck that occurred throughout the 17th to 20th centuries.",
+        "chronology_conflict_note": "",
+        "sample_basis": "archive_project_sample_accession_anchor",
+        "archive_native_sample_id": "SAMEA112757330",
+        "paper_native_sample_label": "",
+        "supplementary_table_sample_label": "",
+        "sample_evidence_status": "archive_native",
+        "sample_lineage_path": "data/adna/governance/source_library/projects/PRJEB60484/archive_metadata.html",
+        "sample_lineage_locator": "sample_accession:SAMEA112757330",
+        "sample_lineage_excerpt": "Archive metadata preserves a distinct project-owned sample accession, but no richer sample-owned chronology row has been extracted yet.",
+        "sample_identity_resolution": "final",
+        "sample_ambiguity_note": ""
+      },
+      {
+        "identity": {
+          "namespace": "rangifer_tarandus:curated_sample",
+          "stable_token": "rangifer_tarandus:sample:prjeb60484:samea112757331",
+          "accession_lineage": [
+            "species:Rangifer tarandus",
+            "source:ENA",
+            "project:PRJEB60484",
+            "sample:prjeb60484:samea112757331"
+          ]
+        },
+        "locality_identity": {
+          "namespace": "rangifer_tarandus:sample_locality",
+          "stable_token": "rangifer_tarandus:locality:prjeb60484:svalbardancientreindeercontext:svalbard",
+          "locality_text": "Svalbard ancient reindeer context",
+          "political_entity": "Svalbard",
+          "source_anchor_tokens": [
+            "PRJEB60484",
+            "archive_project_sample_accession_anchor"
+          ]
+        },
+        "species_latin_name": "Rangifer tarandus",
+        "species_common_name": "reindeer",
+        "source_family": "ENA",
+        "source_release": "PRJEB60484",
+        "record_modality": "mitogenome_only",
+        "review_strength": "comparator_only",
+        "provenance_quality": "manual_curation_only",
+        "master_id": "prjeb60484:samea112757331",
+        "group_id": "PRJEB60484",
+        "locality": "Svalbard ancient reindeer context",
+        "political_entity": "Svalbard",
+        "coordinates": {
+          "latitude": null,
+          "longitude": null,
+          "latitude_text": "",
+          "longitude_text": "",
+          "confidence": "withheld"
+        },
+        "publication": "Ancient reindeer mitogenomes reveal island-hopping colonisation of the Arctic archipelagos",
+        "year_first_published": "2024",
+        "full_date": "Ancient Arctic archipelago reindeer context",
+        "chronology": {
+          "original_text": "Ancient Arctic archipelago reindeer context",
+          "time_start_bp": 500,
+          "time_end_bp": 2500,
+          "time_mean_bp": 1500,
+          "date_stddev_bp": "",
+          "dating_basis": "historical_and_archaeological_context",
+          "evidence_class": "historical_or_recent_date",
+          "precision_posture": "contextual_interval"
+        },
+        "data_type": "archive_project_context",
+        "molecular_sex": "",
+        "datasets": [
+          "rangifer_tarandus:project:PRJEB60484"
+        ],
+        "project_accession": "PRJEB60484",
+        "paper_doi": "10.1038/s41598-024-54296-2",
+        "paper_url": "https://doi.org/10.1038/s41598-024-54296-2",
+        "supplementary_source": "",
+        "inclusion_status": "comparator_site_curated",
+        "inclusion_note": "Current evidence stays at region or transect scale and must not masquerade as exact sample-site truth.",
+        "chronology_strength": "project_context_interval",
+        "chronology_normalization_status": "normalized_interval",
+        "chronology_provenance_path": "adna/governance/source_library/projects/PRJEB60484/archive_metadata.html",
+        "chronology_provenance_kind": "archive_metadata_description",
+        "chronology_provenance_locator": "source description snapshot",
+        "chronology_provenance_text": "The high-Arctic Svalbard reindeer (Rangifer tarandus platyrhynchus), endemic to the Svalbard archipelago, experienced a harvest-induced bottleneck that occurred throughout the 17th to 20th centuries.",
+        "chronology_conflict_note": "",
+        "sample_basis": "archive_project_sample_accession_anchor",
+        "archive_native_sample_id": "SAMEA112757331",
+        "paper_native_sample_label": "",
+        "supplementary_table_sample_label": "",
+        "sample_evidence_status": "archive_native",
+        "sample_lineage_path": "data/adna/governance/source_library/projects/PRJEB60484/archive_metadata.html",
+        "sample_lineage_locator": "sample_accession:SAMEA112757331",
+        "sample_lineage_excerpt": "Archive metadata preserves a distinct project-owned sample accession, but no richer sample-owned chronology row has been extracted yet.",
+        "sample_identity_resolution": "final",
+        "sample_ambiguity_note": ""
+      },
+      {
+        "identity": {
+          "namespace": "rangifer_tarandus:curated_sample",
+          "stable_token": "rangifer_tarandus:sample:prjeb60484:samea112757332",
+          "accession_lineage": [
+            "species:Rangifer tarandus",
+            "source:ENA",
+            "project:PRJEB60484",
+            "sample:prjeb60484:samea112757332"
+          ]
+        },
+        "locality_identity": {
+          "namespace": "rangifer_tarandus:sample_locality",
+          "stable_token": "rangifer_tarandus:locality:prjeb60484:svalbardancientreindeercontext:svalbard",
+          "locality_text": "Svalbard ancient reindeer context",
+          "political_entity": "Svalbard",
+          "source_anchor_tokens": [
+            "PRJEB60484",
+            "archive_project_sample_accession_anchor"
+          ]
+        },
+        "species_latin_name": "Rangifer tarandus",
+        "species_common_name": "reindeer",
+        "source_family": "ENA",
+        "source_release": "PRJEB60484",
+        "record_modality": "mitogenome_only",
+        "review_strength": "comparator_only",
+        "provenance_quality": "manual_curation_only",
+        "master_id": "prjeb60484:samea112757332",
+        "group_id": "PRJEB60484",
+        "locality": "Svalbard ancient reindeer context",
+        "political_entity": "Svalbard",
+        "coordinates": {
+          "latitude": null,
+          "longitude": null,
+          "latitude_text": "",
+          "longitude_text": "",
+          "confidence": "withheld"
+        },
+        "publication": "Ancient reindeer mitogenomes reveal island-hopping colonisation of the Arctic archipelagos",
+        "year_first_published": "2024",
+        "full_date": "Ancient Arctic archipelago reindeer context",
+        "chronology": {
+          "original_text": "Ancient Arctic archipelago reindeer context",
+          "time_start_bp": 500,
+          "time_end_bp": 2500,
+          "time_mean_bp": 1500,
+          "date_stddev_bp": "",
+          "dating_basis": "historical_and_archaeological_context",
+          "evidence_class": "historical_or_recent_date",
+          "precision_posture": "contextual_interval"
+        },
+        "data_type": "archive_project_context",
+        "molecular_sex": "",
+        "datasets": [
+          "rangifer_tarandus:project:PRJEB60484"
+        ],
+        "project_accession": "PRJEB60484",
+        "paper_doi": "10.1038/s41598-024-54296-2",
+        "paper_url": "https://doi.org/10.1038/s41598-024-54296-2",
+        "supplementary_source": "",
+        "inclusion_status": "comparator_site_curated",
+        "inclusion_note": "Current evidence stays at region or transect scale and must not masquerade as exact sample-site truth.",
+        "chronology_strength": "project_context_interval",
+        "chronology_normalization_status": "normalized_interval",
+        "chronology_provenance_path": "adna/governance/source_library/projects/PRJEB60484/archive_metadata.html",
+        "chronology_provenance_kind": "archive_metadata_description",
+        "chronology_provenance_locator": "source description snapshot",
+        "chronology_provenance_text": "The high-Arctic Svalbard reindeer (Rangifer tarandus platyrhynchus), endemic to the Svalbard archipelago, experienced a harvest-induced bottleneck that occurred throughout the 17th to 20th centuries.",
+        "chronology_conflict_note": "",
+        "sample_basis": "archive_project_sample_accession_anchor",
+        "archive_native_sample_id": "SAMEA112757332",
+        "paper_native_sample_label": "",
+        "supplementary_table_sample_label": "",
+        "sample_evidence_status": "archive_native",
+        "sample_lineage_path": "data/adna/governance/source_library/projects/PRJEB60484/archive_metadata.html",
+        "sample_lineage_locator": "sample_accession:SAMEA112757332",
+        "sample_lineage_excerpt": "Archive metadata preserves a distinct project-owned sample accession, but no richer sample-owned chronology row has been extracted yet.",
+        "sample_identity_resolution": "final",
+        "sample_ambiguity_note": ""
+      },
+      {
+        "identity": {
+          "namespace": "rangifer_tarandus:curated_sample",
+          "stable_token": "rangifer_tarandus:sample:prjeb60484:samea112757333",
+          "accession_lineage": [
+            "species:Rangifer tarandus",
+            "source:ENA",
+            "project:PRJEB60484",
+            "sample:prjeb60484:samea112757333"
+          ]
+        },
+        "locality_identity": {
+          "namespace": "rangifer_tarandus:sample_locality",
+          "stable_token": "rangifer_tarandus:locality:prjeb60484:svalbardancientreindeercontext:svalbard",
+          "locality_text": "Svalbard ancient reindeer context",
+          "political_entity": "Svalbard",
+          "source_anchor_tokens": [
+            "PRJEB60484",
+            "archive_project_sample_accession_anchor"
+          ]
+        },
+        "species_latin_name": "Rangifer tarandus",
+        "species_common_name": "reindeer",
+        "source_family": "ENA",
+        "source_release": "PRJEB60484",
+        "record_modality": "mitogenome_only",
+        "review_strength": "comparator_only",
+        "provenance_quality": "manual_curation_only",
+        "master_id": "prjeb60484:samea112757333",
+        "group_id": "PRJEB60484",
+        "locality": "Svalbard ancient reindeer context",
+        "political_entity": "Svalbard",
+        "coordinates": {
+          "latitude": null,
+          "longitude": null,
+          "latitude_text": "",
+          "longitude_text": "",
+          "confidence": "withheld"
+        },
+        "publication": "Ancient reindeer mitogenomes reveal island-hopping colonisation of the Arctic archipelagos",
+        "year_first_published": "2024",
+        "full_date": "Ancient Arctic archipelago reindeer context",
+        "chronology": {
+          "original_text": "Ancient Arctic archipelago reindeer context",
+          "time_start_bp": 500,
+          "time_end_bp": 2500,
+          "time_mean_bp": 1500,
+          "date_stddev_bp": "",
+          "dating_basis": "historical_and_archaeological_context",
+          "evidence_class": "historical_or_recent_date",
+          "precision_posture": "contextual_interval"
+        },
+        "data_type": "archive_project_context",
+        "molecular_sex": "",
+        "datasets": [
+          "rangifer_tarandus:project:PRJEB60484"
+        ],
+        "project_accession": "PRJEB60484",
+        "paper_doi": "10.1038/s41598-024-54296-2",
+        "paper_url": "https://doi.org/10.1038/s41598-024-54296-2",
+        "supplementary_source": "",
+        "inclusion_status": "comparator_site_curated",
+        "inclusion_note": "Current evidence stays at region or transect scale and must not masquerade as exact sample-site truth.",
+        "chronology_strength": "project_context_interval",
+        "chronology_normalization_status": "normalized_interval",
+        "chronology_provenance_path": "adna/governance/source_library/projects/PRJEB60484/archive_metadata.html",
+        "chronology_provenance_kind": "archive_metadata_description",
+        "chronology_provenance_locator": "source description snapshot",
+        "chronology_provenance_text": "The high-Arctic Svalbard reindeer (Rangifer tarandus platyrhynchus), endemic to the Svalbard archipelago, experienced a harvest-induced bottleneck that occurred throughout the 17th to 20th centuries.",
+        "chronology_conflict_note": "",
+        "sample_basis": "archive_project_sample_accession_anchor",
+        "archive_native_sample_id": "SAMEA112757333",
+        "paper_native_sample_label": "",
+        "supplementary_table_sample_label": "",
+        "sample_evidence_status": "archive_native",
+        "sample_lineage_path": "data/adna/governance/source_library/projects/PRJEB60484/archive_metadata.html",
+        "sample_lineage_locator": "sample_accession:SAMEA112757333",
+        "sample_lineage_excerpt": "Archive metadata preserves a distinct project-owned sample accession, but no richer sample-owned chronology row has been extracted yet.",
+        "sample_identity_resolution": "final",
+        "sample_ambiguity_note": ""
+      },
+      {
+        "identity": {
+          "namespace": "rangifer_tarandus:curated_sample",
+          "stable_token": "rangifer_tarandus:sample:prjeb60484:samea112757334",
+          "accession_lineage": [
+            "species:Rangifer tarandus",
+            "source:ENA",
+            "project:PRJEB60484",
+            "sample:prjeb60484:samea112757334"
+          ]
+        },
+        "locality_identity": {
+          "namespace": "rangifer_tarandus:sample_locality",
+          "stable_token": "rangifer_tarandus:locality:prjeb60484:svalbardancientreindeercontext:svalbard",
+          "locality_text": "Svalbard ancient reindeer context",
+          "political_entity": "Svalbard",
+          "source_anchor_tokens": [
+            "PRJEB60484",
+            "archive_project_sample_accession_anchor"
+          ]
+        },
+        "species_latin_name": "Rangifer tarandus",
+        "species_common_name": "reindeer",
+        "source_family": "ENA",
+        "source_release": "PRJEB60484",
+        "record_modality": "mitogenome_only",
+        "review_strength": "comparator_only",
+        "provenance_quality": "manual_curation_only",
+        "master_id": "prjeb60484:samea112757334",
+        "group_id": "PRJEB60484",
+        "locality": "Svalbard ancient reindeer context",
+        "political_entity": "Svalbard",
+        "coordinates": {
+          "latitude": null,
+          "longitude": null,
+          "latitude_text": "",
+          "longitude_text": "",
+          "confidence": "withheld"
+        },
+        "publication": "Ancient reindeer mitogenomes reveal island-hopping colonisation of the Arctic archipelagos",
+        "year_first_published": "2024",
+        "full_date": "Ancient Arctic archipelago reindeer context",
+        "chronology": {
+          "original_text": "Ancient Arctic archipelago reindeer context",
+          "time_start_bp": 500,
+          "time_end_bp": 2500,
+          "time_mean_bp": 1500,
+          "date_stddev_bp": "",
+          "dating_basis": "historical_and_archaeological_context",
+          "evidence_class": "historical_or_recent_date",
+          "precision_posture": "contextual_interval"
+        },
+        "data_type": "archive_project_context",
+        "molecular_sex": "",
+        "datasets": [
+          "rangifer_tarandus:project:PRJEB60484"
+        ],
+        "project_accession": "PRJEB60484",
+        "paper_doi": "10.1038/s41598-024-54296-2",
+        "paper_url": "https://doi.org/10.1038/s41598-024-54296-2",
+        "supplementary_source": "",
+        "inclusion_status": "comparator_site_curated",
+        "inclusion_note": "Current evidence stays at region or transect scale and must not masquerade as exact sample-site truth.",
+        "chronology_strength": "project_context_interval",
+        "chronology_normalization_status": "normalized_interval",
+        "chronology_provenance_path": "adna/governance/source_library/projects/PRJEB60484/archive_metadata.html",
+        "chronology_provenance_kind": "archive_metadata_description",
+        "chronology_provenance_locator": "source description snapshot",
+        "chronology_provenance_text": "The high-Arctic Svalbard reindeer (Rangifer tarandus platyrhynchus), endemic to the Svalbard archipelago, experienced a harvest-induced bottleneck that occurred throughout the 17th to 20th centuries.",
+        "chronology_conflict_note": "",
+        "sample_basis": "archive_project_sample_accession_anchor",
+        "archive_native_sample_id": "SAMEA112757334",
+        "paper_native_sample_label": "",
+        "supplementary_table_sample_label": "",
+        "sample_evidence_status": "archive_native",
+        "sample_lineage_path": "data/adna/governance/source_library/projects/PRJEB60484/archive_metadata.html",
+        "sample_lineage_locator": "sample_accession:SAMEA112757334",
+        "sample_lineage_excerpt": "Archive metadata preserves a distinct project-owned sample accession, but no richer sample-owned chronology row has been extracted yet.",
+        "sample_identity_resolution": "final",
+        "sample_ambiguity_note": ""
+      },
+      {
+        "identity": {
+          "namespace": "rangifer_tarandus:curated_sample",
+          "stable_token": "rangifer_tarandus:sample:prjeb60484:samea112757335",
+          "accession_lineage": [
+            "species:Rangifer tarandus",
+            "source:ENA",
+            "project:PRJEB60484",
+            "sample:prjeb60484:samea112757335"
+          ]
+        },
+        "locality_identity": {
+          "namespace": "rangifer_tarandus:sample_locality",
+          "stable_token": "rangifer_tarandus:locality:prjeb60484:svalbardancientreindeercontext:svalbard",
+          "locality_text": "Svalbard ancient reindeer context",
+          "political_entity": "Svalbard",
+          "source_anchor_tokens": [
+            "PRJEB60484",
+            "archive_project_sample_accession_anchor"
+          ]
+        },
+        "species_latin_name": "Rangifer tarandus",
+        "species_common_name": "reindeer",
+        "source_family": "ENA",
+        "source_release": "PRJEB60484",
+        "record_modality": "mitogenome_only",
+        "review_strength": "comparator_only",
+        "provenance_quality": "manual_curation_only",
+        "master_id": "prjeb60484:samea112757335",
+        "group_id": "PRJEB60484",
+        "locality": "Svalbard ancient reindeer context",
+        "political_entity": "Svalbard",
+        "coordinates": {
+          "latitude": null,
+          "longitude": null,
+          "latitude_text": "",
+          "longitude_text": "",
+          "confidence": "withheld"
+        },
+        "publication": "Ancient reindeer mitogenomes reveal island-hopping colonisation of the Arctic archipelagos",
+        "year_first_published": "2024",
+        "full_date": "Ancient Arctic archipelago reindeer context",
+        "chronology": {
+          "original_text": "Ancient Arctic archipelago reindeer context",
+          "time_start_bp": 500,
+          "time_end_bp": 2500,
+          "time_mean_bp": 1500,
+          "date_stddev_bp": "",
+          "dating_basis": "historical_and_archaeological_context",
+          "evidence_class": "historical_or_recent_date",
+          "precision_posture": "contextual_interval"
+        },
+        "data_type": "archive_project_context",
+        "molecular_sex": "",
+        "datasets": [
+          "rangifer_tarandus:project:PRJEB60484"
+        ],
+        "project_accession": "PRJEB60484",
+        "paper_doi": "10.1038/s41598-024-54296-2",
+        "paper_url": "https://doi.org/10.1038/s41598-024-54296-2",
+        "supplementary_source": "",
+        "inclusion_status": "comparator_site_curated",
+        "inclusion_note": "Current evidence stays at region or transect scale and must not masquerade as exact sample-site truth.",
+        "chronology_strength": "project_context_interval",
+        "chronology_normalization_status": "normalized_interval",
+        "chronology_provenance_path": "adna/governance/source_library/projects/PRJEB60484/archive_metadata.html",
+        "chronology_provenance_kind": "archive_metadata_description",
+        "chronology_provenance_locator": "source description snapshot",
+        "chronology_provenance_text": "The high-Arctic Svalbard reindeer (Rangifer tarandus platyrhynchus), endemic to the Svalbard archipelago, experienced a harvest-induced bottleneck that occurred throughout the 17th to 20th centuries.",
+        "chronology_conflict_note": "",
+        "sample_basis": "archive_project_sample_accession_anchor",
+        "archive_native_sample_id": "SAMEA112757335",
+        "paper_native_sample_label": "",
+        "supplementary_table_sample_label": "",
+        "sample_evidence_status": "archive_native",
+        "sample_lineage_path": "data/adna/governance/source_library/projects/PRJEB60484/archive_metadata.html",
+        "sample_lineage_locator": "sample_accession:SAMEA112757335",
+        "sample_lineage_excerpt": "Archive metadata preserves a distinct project-owned sample accession, but no richer sample-owned chronology row has been extracted yet.",
+        "sample_identity_resolution": "final",
+        "sample_ambiguity_note": ""
+      },
+      {
+        "identity": {
+          "namespace": "rangifer_tarandus:curated_sample",
+          "stable_token": "rangifer_tarandus:sample:prjeb60484:samea112757336",
+          "accession_lineage": [
+            "species:Rangifer tarandus",
+            "source:ENA",
+            "project:PRJEB60484",
+            "sample:prjeb60484:samea112757336"
+          ]
+        },
+        "locality_identity": {
+          "namespace": "rangifer_tarandus:sample_locality",
+          "stable_token": "rangifer_tarandus:locality:prjeb60484:svalbardancientreindeercontext:svalbard",
+          "locality_text": "Svalbard ancient reindeer context",
+          "political_entity": "Svalbard",
+          "source_anchor_tokens": [
+            "PRJEB60484",
+            "archive_project_sample_accession_anchor"
+          ]
+        },
+        "species_latin_name": "Rangifer tarandus",
+        "species_common_name": "reindeer",
+        "source_family": "ENA",
+        "source_release": "PRJEB60484",
+        "record_modality": "mitogenome_only",
+        "review_strength": "comparator_only",
+        "provenance_quality": "manual_curation_only",
+        "master_id": "prjeb60484:samea112757336",
+        "group_id": "PRJEB60484",
+        "locality": "Svalbard ancient reindeer context",
+        "political_entity": "Svalbard",
+        "coordinates": {
+          "latitude": null,
+          "longitude": null,
+          "latitude_text": "",
+          "longitude_text": "",
+          "confidence": "withheld"
+        },
+        "publication": "Ancient reindeer mitogenomes reveal island-hopping colonisation of the Arctic archipelagos",
+        "year_first_published": "2024",
+        "full_date": "Ancient Arctic archipelago reindeer context",
+        "chronology": {
+          "original_text": "Ancient Arctic archipelago reindeer context",
+          "time_start_bp": 500,
+          "time_end_bp": 2500,
+          "time_mean_bp": 1500,
+          "date_stddev_bp": "",
+          "dating_basis": "historical_and_archaeological_context",
+          "evidence_class": "historical_or_recent_date",
+          "precision_posture": "contextual_interval"
+        },
+        "data_type": "archive_project_context",
+        "molecular_sex": "",
+        "datasets": [
+          "rangifer_tarandus:project:PRJEB60484"
+        ],
+        "project_accession": "PRJEB60484",
+        "paper_doi": "10.1038/s41598-024-54296-2",
+        "paper_url": "https://doi.org/10.1038/s41598-024-54296-2",
+        "supplementary_source": "",
+        "inclusion_status": "comparator_site_curated",
+        "inclusion_note": "Current evidence stays at region or transect scale and must not masquerade as exact sample-site truth.",
+        "chronology_strength": "project_context_interval",
+        "chronology_normalization_status": "normalized_interval",
+        "chronology_provenance_path": "adna/governance/source_library/projects/PRJEB60484/archive_metadata.html",
+        "chronology_provenance_kind": "archive_metadata_description",
+        "chronology_provenance_locator": "source description snapshot",
+        "chronology_provenance_text": "The high-Arctic Svalbard reindeer (Rangifer tarandus platyrhynchus), endemic to the Svalbard archipelago, experienced a harvest-induced bottleneck that occurred throughout the 17th to 20th centuries.",
+        "chronology_conflict_note": "",
+        "sample_basis": "archive_project_sample_accession_anchor",
+        "archive_native_sample_id": "SAMEA112757336",
+        "paper_native_sample_label": "",
+        "supplementary_table_sample_label": "",
+        "sample_evidence_status": "archive_native",
+        "sample_lineage_path": "data/adna/governance/source_library/projects/PRJEB60484/archive_metadata.html",
+        "sample_lineage_locator": "sample_accession:SAMEA112757336",
+        "sample_lineage_excerpt": "Archive metadata preserves a distinct project-owned sample accession, but no richer sample-owned chronology row has been extracted yet.",
+        "sample_identity_resolution": "final",
+        "sample_ambiguity_note": ""
+      },
+      {
+        "identity": {
+          "namespace": "rangifer_tarandus:curated_sample",
+          "stable_token": "rangifer_tarandus:sample:prjeb60484:samea112757337",
+          "accession_lineage": [
+            "species:Rangifer tarandus",
+            "source:ENA",
+            "project:PRJEB60484",
+            "sample:prjeb60484:samea112757337"
+          ]
+        },
+        "locality_identity": {
+          "namespace": "rangifer_tarandus:sample_locality",
+          "stable_token": "rangifer_tarandus:locality:prjeb60484:svalbardancientreindeercontext:svalbard",
+          "locality_text": "Svalbard ancient reindeer context",
+          "political_entity": "Svalbard",
+          "source_anchor_tokens": [
+            "PRJEB60484",
+            "archive_project_sample_accession_anchor"
+          ]
+        },
+        "species_latin_name": "Rangifer tarandus",
+        "species_common_name": "reindeer",
+        "source_family": "ENA",
+        "source_release": "PRJEB60484",
+        "record_modality": "mitogenome_only",
+        "review_strength": "comparator_only",
+        "provenance_quality": "manual_curation_only",
+        "master_id": "prjeb60484:samea112757337",
+        "group_id": "PRJEB60484",
+        "locality": "Svalbard ancient reindeer context",
+        "political_entity": "Svalbard",
+        "coordinates": {
+          "latitude": null,
+          "longitude": null,
+          "latitude_text": "",
+          "longitude_text": "",
+          "confidence": "withheld"
+        },
+        "publication": "Ancient reindeer mitogenomes reveal island-hopping colonisation of the Arctic archipelagos",
+        "year_first_published": "2024",
+        "full_date": "Ancient Arctic archipelago reindeer context",
+        "chronology": {
+          "original_text": "Ancient Arctic archipelago reindeer context",
+          "time_start_bp": 500,
+          "time_end_bp": 2500,
+          "time_mean_bp": 1500,
+          "date_stddev_bp": "",
+          "dating_basis": "historical_and_archaeological_context",
+          "evidence_class": "historical_or_recent_date",
+          "precision_posture": "contextual_interval"
+        },
+        "data_type": "archive_project_context",
+        "molecular_sex": "",
+        "datasets": [
+          "rangifer_tarandus:project:PRJEB60484"
+        ],
+        "project_accession": "PRJEB60484",
+        "paper_doi": "10.1038/s41598-024-54296-2",
+        "paper_url": "https://doi.org/10.1038/s41598-024-54296-2",
+        "supplementary_source": "",
+        "inclusion_status": "comparator_site_curated",
+        "inclusion_note": "Current evidence stays at region or transect scale and must not masquerade as exact sample-site truth.",
+        "chronology_strength": "project_context_interval",
+        "chronology_normalization_status": "normalized_interval",
+        "chronology_provenance_path": "adna/governance/source_library/projects/PRJEB60484/archive_metadata.html",
+        "chronology_provenance_kind": "archive_metadata_description",
+        "chronology_provenance_locator": "source description snapshot",
+        "chronology_provenance_text": "The high-Arctic Svalbard reindeer (Rangifer tarandus platyrhynchus), endemic to the Svalbard archipelago, experienced a harvest-induced bottleneck that occurred throughout the 17th to 20th centuries.",
+        "chronology_conflict_note": "",
+        "sample_basis": "archive_project_sample_accession_anchor",
+        "archive_native_sample_id": "SAMEA112757337",
+        "paper_native_sample_label": "",
+        "supplementary_table_sample_label": "",
+        "sample_evidence_status": "archive_native",
+        "sample_lineage_path": "data/adna/governance/source_library/projects/PRJEB60484/archive_metadata.html",
+        "sample_lineage_locator": "sample_accession:SAMEA112757337",
+        "sample_lineage_excerpt": "Archive metadata preserves a distinct project-owned sample accession, but no richer sample-owned chronology row has been extracted yet.",
+        "sample_identity_resolution": "final",
+        "sample_ambiguity_note": ""
+      },
+      {
+        "identity": {
+          "namespace": "rangifer_tarandus:curated_sample",
+          "stable_token": "rangifer_tarandus:sample:prjeb60484:samea112757338",
+          "accession_lineage": [
+            "species:Rangifer tarandus",
+            "source:ENA",
+            "project:PRJEB60484",
+            "sample:prjeb60484:samea112757338"
+          ]
+        },
+        "locality_identity": {
+          "namespace": "rangifer_tarandus:sample_locality",
+          "stable_token": "rangifer_tarandus:locality:prjeb60484:svalbardancientreindeercontext:svalbard",
+          "locality_text": "Svalbard ancient reindeer context",
+          "political_entity": "Svalbard",
+          "source_anchor_tokens": [
+            "PRJEB60484",
+            "archive_project_sample_accession_anchor"
+          ]
+        },
+        "species_latin_name": "Rangifer tarandus",
+        "species_common_name": "reindeer",
+        "source_family": "ENA",
+        "source_release": "PRJEB60484",
+        "record_modality": "mitogenome_only",
+        "review_strength": "comparator_only",
+        "provenance_quality": "manual_curation_only",
+        "master_id": "prjeb60484:samea112757338",
+        "group_id": "PRJEB60484",
+        "locality": "Svalbard ancient reindeer context",
+        "political_entity": "Svalbard",
+        "coordinates": {
+          "latitude": null,
+          "longitude": null,
+          "latitude_text": "",
+          "longitude_text": "",
+          "confidence": "withheld"
+        },
+        "publication": "Ancient reindeer mitogenomes reveal island-hopping colonisation of the Arctic archipelagos",
+        "year_first_published": "2024",
+        "full_date": "Ancient Arctic archipelago reindeer context",
+        "chronology": {
+          "original_text": "Ancient Arctic archipelago reindeer context",
+          "time_start_bp": 500,
+          "time_end_bp": 2500,
+          "time_mean_bp": 1500,
+          "date_stddev_bp": "",
+          "dating_basis": "historical_and_archaeological_context",
+          "evidence_class": "historical_or_recent_date",
+          "precision_posture": "contextual_interval"
+        },
+        "data_type": "archive_project_context",
+        "molecular_sex": "",
+        "datasets": [
+          "rangifer_tarandus:project:PRJEB60484"
+        ],
+        "project_accession": "PRJEB60484",
+        "paper_doi": "10.1038/s41598-024-54296-2",
+        "paper_url": "https://doi.org/10.1038/s41598-024-54296-2",
+        "supplementary_source": "",
+        "inclusion_status": "comparator_site_curated",
+        "inclusion_note": "Current evidence stays at region or transect scale and must not masquerade as exact sample-site truth.",
+        "chronology_strength": "project_context_interval",
+        "chronology_normalization_status": "normalized_interval",
+        "chronology_provenance_path": "adna/governance/source_library/projects/PRJEB60484/archive_metadata.html",
+        "chronology_provenance_kind": "archive_metadata_description",
+        "chronology_provenance_locator": "source description snapshot",
+        "chronology_provenance_text": "The high-Arctic Svalbard reindeer (Rangifer tarandus platyrhynchus), endemic to the Svalbard archipelago, experienced a harvest-induced bottleneck that occurred throughout the 17th to 20th centuries.",
+        "chronology_conflict_note": "",
+        "sample_basis": "archive_project_sample_accession_anchor",
+        "archive_native_sample_id": "SAMEA112757338",
+        "paper_native_sample_label": "",
+        "supplementary_table_sample_label": "",
+        "sample_evidence_status": "archive_native",
+        "sample_lineage_path": "data/adna/governance/source_library/projects/PRJEB60484/archive_metadata.html",
+        "sample_lineage_locator": "sample_accession:SAMEA112757338",
+        "sample_lineage_excerpt": "Archive metadata preserves a distinct project-owned sample accession, but no richer sample-owned chronology row has been extracted yet.",
+        "sample_identity_resolution": "final",
+        "sample_ambiguity_note": ""
+      },
+      {
+        "identity": {
+          "namespace": "rangifer_tarandus:curated_sample",
+          "stable_token": "rangifer_tarandus:sample:prjeb60484:samea112757339",
+          "accession_lineage": [
+            "species:Rangifer tarandus",
+            "source:ENA",
+            "project:PRJEB60484",
+            "sample:prjeb60484:samea112757339"
+          ]
+        },
+        "locality_identity": {
+          "namespace": "rangifer_tarandus:sample_locality",
+          "stable_token": "rangifer_tarandus:locality:prjeb60484:svalbardancientreindeercontext:svalbard",
+          "locality_text": "Svalbard ancient reindeer context",
+          "political_entity": "Svalbard",
+          "source_anchor_tokens": [
+            "PRJEB60484",
+            "archive_project_sample_accession_anchor"
+          ]
+        },
+        "species_latin_name": "Rangifer tarandus",
+        "species_common_name": "reindeer",
+        "source_family": "ENA",
+        "source_release": "PRJEB60484",
+        "record_modality": "mitogenome_only",
+        "review_strength": "comparator_only",
+        "provenance_quality": "manual_curation_only",
+        "master_id": "prjeb60484:samea112757339",
+        "group_id": "PRJEB60484",
+        "locality": "Svalbard ancient reindeer context",
+        "political_entity": "Svalbard",
+        "coordinates": {
+          "latitude": null,
+          "longitude": null,
+          "latitude_text": "",
+          "longitude_text": "",
+          "confidence": "withheld"
+        },
+        "publication": "Ancient reindeer mitogenomes reveal island-hopping colonisation of the Arctic archipelagos",
+        "year_first_published": "2024",
+        "full_date": "Ancient Arctic archipelago reindeer context",
+        "chronology": {
+          "original_text": "Ancient Arctic archipelago reindeer context",
+          "time_start_bp": 500,
+          "time_end_bp": 2500,
+          "time_mean_bp": 1500,
+          "date_stddev_bp": "",
+          "dating_basis": "historical_and_archaeological_context",
+          "evidence_class": "historical_or_recent_date",
+          "precision_posture": "contextual_interval"
+        },
+        "data_type": "archive_project_context",
+        "molecular_sex": "",
+        "datasets": [
+          "rangifer_tarandus:project:PRJEB60484"
+        ],
+        "project_accession": "PRJEB60484",
+        "paper_doi": "10.1038/s41598-024-54296-2",
+        "paper_url": "https://doi.org/10.1038/s41598-024-54296-2",
+        "supplementary_source": "",
+        "inclusion_status": "comparator_site_curated",
+        "inclusion_note": "Current evidence stays at region or transect scale and must not masquerade as exact sample-site truth.",
+        "chronology_strength": "project_context_interval",
+        "chronology_normalization_status": "normalized_interval",
+        "chronology_provenance_path": "adna/governance/source_library/projects/PRJEB60484/archive_metadata.html",
+        "chronology_provenance_kind": "archive_metadata_description",
+        "chronology_provenance_locator": "source description snapshot",
+        "chronology_provenance_text": "The high-Arctic Svalbard reindeer (Rangifer tarandus platyrhynchus), endemic to the Svalbard archipelago, experienced a harvest-induced bottleneck that occurred throughout the 17th to 20th centuries.",
+        "chronology_conflict_note": "",
+        "sample_basis": "archive_project_sample_accession_anchor",
+        "archive_native_sample_id": "SAMEA112757339",
+        "paper_native_sample_label": "",
+        "supplementary_table_sample_label": "",
+        "sample_evidence_status": "archive_native",
+        "sample_lineage_path": "data/adna/governance/source_library/projects/PRJEB60484/archive_metadata.html",
+        "sample_lineage_locator": "sample_accession:SAMEA112757339",
+        "sample_lineage_excerpt": "Archive metadata preserves a distinct project-owned sample accession, but no richer sample-owned chronology row has been extracted yet.",
+        "sample_identity_resolution": "final",
+        "sample_ambiguity_note": ""
+      },
+      {
+        "identity": {
+          "namespace": "rangifer_tarandus:curated_sample",
+          "stable_token": "rangifer_tarandus:sample:prjeb60484:samea112757340",
+          "accession_lineage": [
+            "species:Rangifer tarandus",
+            "source:ENA",
+            "project:PRJEB60484",
+            "sample:prjeb60484:samea112757340"
+          ]
+        },
+        "locality_identity": {
+          "namespace": "rangifer_tarandus:sample_locality",
+          "stable_token": "rangifer_tarandus:locality:prjeb60484:svalbardancientreindeercontext:svalbard",
+          "locality_text": "Svalbard ancient reindeer context",
+          "political_entity": "Svalbard",
+          "source_anchor_tokens": [
+            "PRJEB60484",
+            "archive_project_sample_accession_anchor"
+          ]
+        },
+        "species_latin_name": "Rangifer tarandus",
+        "species_common_name": "reindeer",
+        "source_family": "ENA",
+        "source_release": "PRJEB60484",
+        "record_modality": "mitogenome_only",
+        "review_strength": "comparator_only",
+        "provenance_quality": "manual_curation_only",
+        "master_id": "prjeb60484:samea112757340",
+        "group_id": "PRJEB60484",
+        "locality": "Svalbard ancient reindeer context",
+        "political_entity": "Svalbard",
+        "coordinates": {
+          "latitude": null,
+          "longitude": null,
+          "latitude_text": "",
+          "longitude_text": "",
+          "confidence": "withheld"
+        },
+        "publication": "Ancient reindeer mitogenomes reveal island-hopping colonisation of the Arctic archipelagos",
+        "year_first_published": "2024",
+        "full_date": "Ancient Arctic archipelago reindeer context",
+        "chronology": {
+          "original_text": "Ancient Arctic archipelago reindeer context",
+          "time_start_bp": 500,
+          "time_end_bp": 2500,
+          "time_mean_bp": 1500,
+          "date_stddev_bp": "",
+          "dating_basis": "historical_and_archaeological_context",
+          "evidence_class": "historical_or_recent_date",
+          "precision_posture": "contextual_interval"
+        },
+        "data_type": "archive_project_context",
+        "molecular_sex": "",
+        "datasets": [
+          "rangifer_tarandus:project:PRJEB60484"
+        ],
+        "project_accession": "PRJEB60484",
+        "paper_doi": "10.1038/s41598-024-54296-2",
+        "paper_url": "https://doi.org/10.1038/s41598-024-54296-2",
+        "supplementary_source": "",
+        "inclusion_status": "comparator_site_curated",
+        "inclusion_note": "Current evidence stays at region or transect scale and must not masquerade as exact sample-site truth.",
+        "chronology_strength": "project_context_interval",
+        "chronology_normalization_status": "normalized_interval",
+        "chronology_provenance_path": "adna/governance/source_library/projects/PRJEB60484/archive_metadata.html",
+        "chronology_provenance_kind": "archive_metadata_description",
+        "chronology_provenance_locator": "source description snapshot",
+        "chronology_provenance_text": "The high-Arctic Svalbard reindeer (Rangifer tarandus platyrhynchus), endemic to the Svalbard archipelago, experienced a harvest-induced bottleneck that occurred throughout the 17th to 20th centuries.",
+        "chronology_conflict_note": "",
+        "sample_basis": "archive_project_sample_accession_anchor",
+        "archive_native_sample_id": "SAMEA112757340",
+        "paper_native_sample_label": "",
+        "supplementary_table_sample_label": "",
+        "sample_evidence_status": "archive_native",
+        "sample_lineage_path": "data/adna/governance/source_library/projects/PRJEB60484/archive_metadata.html",
+        "sample_lineage_locator": "sample_accession:SAMEA112757340",
+        "sample_lineage_excerpt": "Archive metadata preserves a distinct project-owned sample accession, but no richer sample-owned chronology row has been extracted yet.",
+        "sample_identity_resolution": "final",
+        "sample_ambiguity_note": ""
+      },
+      {
+        "identity": {
+          "namespace": "rangifer_tarandus:curated_sample",
+          "stable_token": "rangifer_tarandus:sample:prjeb60484:samea114857470",
+          "accession_lineage": [
+            "species:Rangifer tarandus",
+            "source:ENA",
+            "project:PRJEB60484",
+            "sample:prjeb60484:samea114857470"
+          ]
+        },
+        "locality_identity": {
+          "namespace": "rangifer_tarandus:sample_locality",
+          "stable_token": "rangifer_tarandus:locality:prjeb60484:svalbardancientreindeercontext:svalbard",
+          "locality_text": "Svalbard ancient reindeer context",
+          "political_entity": "Svalbard",
+          "source_anchor_tokens": [
+            "PRJEB60484",
+            "archive_project_sample_accession_anchor"
+          ]
+        },
+        "species_latin_name": "Rangifer tarandus",
+        "species_common_name": "reindeer",
+        "source_family": "ENA",
+        "source_release": "PRJEB60484",
+        "record_modality": "mitogenome_only",
+        "review_strength": "comparator_only",
+        "provenance_quality": "manual_curation_only",
+        "master_id": "prjeb60484:samea114857470",
+        "group_id": "PRJEB60484",
+        "locality": "Svalbard ancient reindeer context",
+        "political_entity": "Svalbard",
+        "coordinates": {
+          "latitude": null,
+          "longitude": null,
+          "latitude_text": "",
+          "longitude_text": "",
+          "confidence": "withheld"
+        },
+        "publication": "Ancient reindeer mitogenomes reveal island-hopping colonisation of the Arctic archipelagos",
+        "year_first_published": "2024",
+        "full_date": "Ancient Arctic archipelago reindeer context",
+        "chronology": {
+          "original_text": "Ancient Arctic archipelago reindeer context",
+          "time_start_bp": 500,
+          "time_end_bp": 2500,
+          "time_mean_bp": 1500,
+          "date_stddev_bp": "",
+          "dating_basis": "historical_and_archaeological_context",
+          "evidence_class": "historical_or_recent_date",
+          "precision_posture": "contextual_interval"
+        },
+        "data_type": "archive_project_context",
+        "molecular_sex": "",
+        "datasets": [
+          "rangifer_tarandus:project:PRJEB60484"
+        ],
+        "project_accession": "PRJEB60484",
+        "paper_doi": "10.1038/s41598-024-54296-2",
+        "paper_url": "https://doi.org/10.1038/s41598-024-54296-2",
+        "supplementary_source": "",
+        "inclusion_status": "comparator_site_curated",
+        "inclusion_note": "Current evidence stays at region or transect scale and must not masquerade as exact sample-site truth.",
+        "chronology_strength": "project_context_interval",
+        "chronology_normalization_status": "normalized_interval",
+        "chronology_provenance_path": "adna/governance/source_library/projects/PRJEB60484/archive_metadata.html",
+        "chronology_provenance_kind": "archive_metadata_description",
+        "chronology_provenance_locator": "source description snapshot",
+        "chronology_provenance_text": "The high-Arctic Svalbard reindeer (Rangifer tarandus platyrhynchus), endemic to the Svalbard archipelago, experienced a harvest-induced bottleneck that occurred throughout the 17th to 20th centuries.",
+        "chronology_conflict_note": "",
+        "sample_basis": "archive_project_sample_accession_anchor",
+        "archive_native_sample_id": "SAMEA114857470",
+        "paper_native_sample_label": "",
+        "supplementary_table_sample_label": "",
+        "sample_evidence_status": "archive_native",
+        "sample_lineage_path": "data/adna/governance/source_library/projects/PRJEB60484/archive_metadata.html",
+        "sample_lineage_locator": "sample_accession:SAMEA114857470",
+        "sample_lineage_excerpt": "Archive metadata preserves a distinct project-owned sample accession, but no richer sample-owned chronology row has been extracted yet.",
+        "sample_identity_resolution": "final",
+        "sample_ambiguity_note": ""
+      },
+      {
+        "identity": {
+          "namespace": "rangifer_tarandus:curated_sample",
+          "stable_token": "rangifer_tarandus:sample:prjeb60484:samea114857471",
+          "accession_lineage": [
+            "species:Rangifer tarandus",
+            "source:ENA",
+            "project:PRJEB60484",
+            "sample:prjeb60484:samea114857471"
+          ]
+        },
+        "locality_identity": {
+          "namespace": "rangifer_tarandus:sample_locality",
+          "stable_token": "rangifer_tarandus:locality:prjeb60484:svalbardancientreindeercontext:svalbard",
+          "locality_text": "Svalbard ancient reindeer context",
+          "political_entity": "Svalbard",
+          "source_anchor_tokens": [
+            "PRJEB60484",
+            "archive_project_sample_accession_anchor"
+          ]
+        },
+        "species_latin_name": "Rangifer tarandus",
+        "species_common_name": "reindeer",
+        "source_family": "ENA",
+        "source_release": "PRJEB60484",
+        "record_modality": "mitogenome_only",
+        "review_strength": "comparator_only",
+        "provenance_quality": "manual_curation_only",
+        "master_id": "prjeb60484:samea114857471",
+        "group_id": "PRJEB60484",
+        "locality": "Svalbard ancient reindeer context",
+        "political_entity": "Svalbard",
+        "coordinates": {
+          "latitude": null,
+          "longitude": null,
+          "latitude_text": "",
+          "longitude_text": "",
+          "confidence": "withheld"
+        },
+        "publication": "Ancient reindeer mitogenomes reveal island-hopping colonisation of the Arctic archipelagos",
+        "year_first_published": "2024",
+        "full_date": "Ancient Arctic archipelago reindeer context",
+        "chronology": {
+          "original_text": "Ancient Arctic archipelago reindeer context",
+          "time_start_bp": 500,
+          "time_end_bp": 2500,
+          "time_mean_bp": 1500,
+          "date_stddev_bp": "",
+          "dating_basis": "historical_and_archaeological_context",
+          "evidence_class": "historical_or_recent_date",
+          "precision_posture": "contextual_interval"
+        },
+        "data_type": "archive_project_context",
+        "molecular_sex": "",
+        "datasets": [
+          "rangifer_tarandus:project:PRJEB60484"
+        ],
+        "project_accession": "PRJEB60484",
+        "paper_doi": "10.1038/s41598-024-54296-2",
+        "paper_url": "https://doi.org/10.1038/s41598-024-54296-2",
+        "supplementary_source": "",
+        "inclusion_status": "comparator_site_curated",
+        "inclusion_note": "Current evidence stays at region or transect scale and must not masquerade as exact sample-site truth.",
+        "chronology_strength": "project_context_interval",
+        "chronology_normalization_status": "normalized_interval",
+        "chronology_provenance_path": "adna/governance/source_library/projects/PRJEB60484/archive_metadata.html",
+        "chronology_provenance_kind": "archive_metadata_description",
+        "chronology_provenance_locator": "source description snapshot",
+        "chronology_provenance_text": "The high-Arctic Svalbard reindeer (Rangifer tarandus platyrhynchus), endemic to the Svalbard archipelago, experienced a harvest-induced bottleneck that occurred throughout the 17th to 20th centuries.",
+        "chronology_conflict_note": "",
+        "sample_basis": "archive_project_sample_accession_anchor",
+        "archive_native_sample_id": "SAMEA114857471",
+        "paper_native_sample_label": "",
+        "supplementary_table_sample_label": "",
+        "sample_evidence_status": "archive_native",
+        "sample_lineage_path": "data/adna/governance/source_library/projects/PRJEB60484/archive_metadata.html",
+        "sample_lineage_locator": "sample_accession:SAMEA114857471",
+        "sample_lineage_excerpt": "Archive metadata preserves a distinct project-owned sample accession, but no richer sample-owned chronology row has been extracted yet.",
+        "sample_identity_resolution": "final",
+        "sample_ambiguity_note": ""
+      },
+      {
+        "identity": {
+          "namespace": "rangifer_tarandus:curated_sample",
+          "stable_token": "rangifer_tarandus:sample:prjeb61721",
+          "accession_lineage": [
+            "species:Rangifer tarandus",
+            "source:ENA",
+            "project:PRJEB61721",
+            "sample:PRJEB61721"
+          ]
+        },
+        "locality_identity": {
+          "namespace": "rangifer_tarandus:sample_locality",
+          "stable_token": "rangifer_tarandus:locality:prjeb61721:sitedetailnotyetextractedfromtrackedsourcesupport",
+          "locality_text": "site detail not yet extracted from tracked source support",
+          "political_entity": null,
+          "source_anchor_tokens": [
+            "PRJEB61721",
+            "project_accession_anchor"
+          ]
+        },
+        "species_latin_name": "Rangifer tarandus",
+        "species_common_name": "reindeer",
+        "source_family": "ENA",
+        "source_release": "PRJEB61721",
+        "record_modality": "mitogenome_only",
+        "review_strength": "comparator_only",
+        "provenance_quality": "manual_curation_only",
+        "master_id": "PRJEB61721",
+        "group_id": "PRJEB61721",
+        "locality": null,
+        "political_entity": null,
+        "coordinates": {
+          "latitude": null,
+          "longitude": null,
+          "latitude_text": "",
+          "longitude_text": "",
+          "confidence": "withheld"
+        },
+        "publication": "",
+        "year_first_published": "",
+        "full_date": "chronology not yet extracted from tracked source support",
+        "chronology": {
+          "original_text": "chronology not yet extracted from tracked source support",
+          "time_start_bp": null,
+          "time_end_bp": null,
+          "time_mean_bp": null,
+          "date_stddev_bp": "",
+          "dating_basis": "modern_sampling",
+          "evidence_class": "historical_or_recent_date",
+          "precision_posture": "sample_approximate_or_modeled"
+        },
+        "data_type": "archive_project_context",
+        "molecular_sex": "",
+        "datasets": [
+          "rangifer_tarandus:project:PRJEB61721"
+        ],
+        "project_accession": "PRJEB61721",
+        "paper_doi": "",
+        "paper_url": "",
+        "supplementary_source": "",
+        "inclusion_status": "sample_context_blocked",
+        "inclusion_note": "This sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support.",
+        "chronology_strength": "project_context_text_only",
+        "chronology_normalization_status": "text_only_unparsed",
+        "chronology_provenance_path": "",
+        "chronology_provenance_kind": "",
+        "chronology_provenance_locator": "",
+        "chronology_provenance_text": "",
+        "chronology_conflict_note": "",
+        "sample_basis": "project_accession_anchor",
+        "archive_native_sample_id": "",
+        "paper_native_sample_label": "",
+        "supplementary_table_sample_label": "",
+        "sample_evidence_status": "not_yet_recoverable",
+        "sample_lineage_path": "",
+        "sample_lineage_locator": "",
+        "sample_lineage_excerpt": "",
+        "sample_identity_resolution": "provisional",
+        "sample_ambiguity_note": "No recoverable project sample-master row is published yet for this project."
+      },
+      {
+        "identity": {
+          "namespace": "rangifer_tarandus:curated_sample",
+          "stable_token": "rangifer_tarandus:sample:prjna634908",
+          "accession_lineage": [
+            "species:Rangifer tarandus",
+            "source:BioProject",
+            "project:PRJNA634908",
+            "sample:PRJNA634908"
+          ]
+        },
+        "locality_identity": {
+          "namespace": "rangifer_tarandus:sample_locality",
+          "stable_token": "rangifer_tarandus:locality:prjna634908:sitedetailnotyetextractedfromtrackedsourcesupport",
+          "locality_text": "site detail not yet extracted from tracked source support",
+          "political_entity": null,
+          "source_anchor_tokens": [
+            "PRJNA634908",
+            "project_accession_anchor"
+          ]
+        },
+        "species_latin_name": "Rangifer tarandus",
+        "species_common_name": "reindeer",
+        "source_family": "BioProject",
+        "source_release": "PRJNA634908",
+        "record_modality": "mitogenome_only",
+        "review_strength": "comparator_only",
+        "provenance_quality": "manual_curation_only",
+        "master_id": "PRJNA634908",
+        "group_id": "PRJNA634908",
+        "locality": null,
+        "political_entity": null,
+        "coordinates": {
+          "latitude": null,
+          "longitude": null,
+          "latitude_text": "",
+          "longitude_text": "",
+          "confidence": "withheld"
+        },
+        "publication": "",
+        "year_first_published": "",
+        "full_date": "chronology not yet extracted from tracked source support",
+        "chronology": {
+          "original_text": "chronology not yet extracted from tracked source support",
+          "time_start_bp": null,
+          "time_end_bp": null,
+          "time_mean_bp": null,
+          "date_stddev_bp": "",
+          "dating_basis": "modern_sampling",
+          "evidence_class": "historical_or_recent_date",
+          "precision_posture": "sample_approximate_or_modeled"
+        },
+        "data_type": "archive_project_context",
+        "molecular_sex": "",
+        "datasets": [
+          "rangifer_tarandus:project:PRJNA634908"
+        ],
+        "project_accession": "PRJNA634908",
+        "paper_doi": "",
+        "paper_url": "",
+        "supplementary_source": "",
+        "inclusion_status": "sample_context_blocked",
+        "inclusion_note": "This sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support.",
+        "chronology_strength": "project_context_text_only",
+        "chronology_normalization_status": "text_only_unparsed",
+        "chronology_provenance_path": "",
+        "chronology_provenance_kind": "",
+        "chronology_provenance_locator": "",
+        "chronology_provenance_text": "",
+        "chronology_conflict_note": "",
+        "sample_basis": "project_accession_anchor",
+        "archive_native_sample_id": "",
+        "paper_native_sample_label": "",
+        "supplementary_table_sample_label": "",
+        "sample_evidence_status": "not_yet_recoverable",
+        "sample_lineage_path": "",
+        "sample_lineage_locator": "",
+        "sample_lineage_excerpt": "",
+        "sample_identity_resolution": "provisional",
+        "sample_ambiguity_note": "No recoverable project sample-master row is published yet for this project."
+      }
+    ],
+    "coordinate_provenance_records": [
+      {
+        "project_accession": "PRJEB60484",
+        "species_latin_name": "Rangifer tarandus",
+        "species_common_name": "reindeer",
+        "site_label": "Svalbard ancient reindeer context",
+        "original_place_text": "Svalbard archipelago reindeer context",
+        "resolved_place_text": "Svalbard archipelago",
+        "political_entity": "Svalbard",
+        "source_artifact_path": "adna/governance/source_library/projects/PRJEB60484/archive_metadata.html",
+        "source_locator": "source description snapshot",
+        "coordinate_basis": "region_centroid_fallback",
+        "mapping_posture": "refused_region_only",
+        "latitude_text": "",
+        "longitude_text": "",
+        "geocoding_method": "archipelago_scale_retention",
+        "geocoder_or_gazetteer": "not applied because the current lead is archipelago-wide",
+        "confidence_rationale": "The local archive supports Svalbard archipelago context rather than one named reindeer site, so the row stays refused from point mapping.",
+        "coordinate_confidence": "withheld",
+        "paper_doi": "10.1038/s41598-024-54296-2",
+        "paper_url": "https://doi.org/10.1038/s41598-024-54296-2",
+        "supplementary_source": "",
+        "chronology_text": "Ancient Arctic archipelago reindeer context",
+        "time_start_bp": 500,
+        "time_end_bp": 2500,
+        "dating_basis": "archaeological_period",
+        "comparator_context": true,
+        "domestication_context": "comparator_context",
+        "interpretation_note": "Reindeer remains Nordic-relevant comparator evidence but not a point-ready excavation lead.",
+        "support_gap_note": ""
+      }
+    ],
+    "site_evidence_records": [
+      {
+        "project_accession": "PRJEB60484",
+        "species_latin_name": "Rangifer tarandus",
+        "species_common_name": "reindeer",
+        "site_label": "Svalbard ancient reindeer context",
+        "political_entity": "Svalbard",
+        "source_artifact_path": "adna/governance/source_library/projects/PRJEB60484/archive_metadata.html",
+        "source_artifact_kind": "archive_metadata_description",
+        "source_locator": "source description snapshot",
+        "exact_source_text": "The high-Arctic Svalbard reindeer (Rangifer tarandus platyrhynchus), endemic to the Svalbard archipelago, experienced a harvest-induced bottleneck that occurred throughout the 17th to 20th centuries.",
+        "source_support_status": "archive_description_quote",
+        "paper_doi": "10.1038/s41598-024-54296-2",
+        "paper_url": "https://doi.org/10.1038/s41598-024-54296-2",
+        "supplementary_source": "",
+        "coordinate_basis": "site_level_localities",
+        "latitude_text": "78.22",
+        "longitude_text": "15.65",
+        "chronology_text": "Ancient Arctic archipelago reindeer context",
+        "time_start_bp": 500,
+        "time_end_bp": 2500,
+        "dating_basis": "archaeological_period",
+        "comparator_context": true,
+        "domestication_context": "comparator_context",
+        "interpretation_note": "This is Nordic-relevant comparator evidence, not domesticated-core support.",
+        "support_gap_note": ""
+      }
+    ],
+    "locality_records": [
+      {
+        "identity": {
+          "namespace": "rangifer_tarandus:project_locality",
+          "stable_token": "rangifer_tarandus:locality:prjeb60484:svalbardancientreindeercontext:svalbard",
+          "locality_text": "Svalbard ancient reindeer context",
+          "political_entity": "Svalbard",
+          "source_anchor_tokens": [
+            "PRJEB60484",
+            "",
+            ""
+          ]
+        },
+        "species_latin_name": "Rangifer tarandus",
+        "species_common_name": "reindeer",
+        "source_family": "ENA",
+        "source_releases": [
+          "PRJEB60484"
+        ],
+        "record_modalities": [
+          "mitogenome_only"
+        ],
+        "review_strengths": [
+          "comparator_only"
+        ],
+        "provenance_qualities": [
+          "primary_paper_pinned"
+        ],
+        "locality": "Svalbard ancient reindeer context",
+        "coordinates": {
+          "latitude": null,
+          "longitude": null,
+          "latitude_text": "",
+          "longitude_text": "",
+          "confidence": "withheld"
+        },
+        "sample_count": 20,
+        "sample_ids": [
+          "prjeb60484:samea112757323",
+          "prjeb60484:samea112757324",
+          "prjeb60484:samea112757325",
+          "prjeb60484:samea112757326",
+          "prjeb60484:samea112757327",
+          "prjeb60484:samea112757328",
+          "prjeb60484:samea112757329",
+          "prjeb60484:samea112757330",
+          "prjeb60484:samea112757331",
+          "prjeb60484:samea112757332",
+          "prjeb60484:samea112757333",
+          "prjeb60484:samea112757334",
+          "prjeb60484:samea112757335",
+          "prjeb60484:samea112757336",
+          "prjeb60484:samea112757337",
+          "prjeb60484:samea112757338",
+          "prjeb60484:samea112757339",
+          "prjeb60484:samea112757340",
+          "prjeb60484:samea114857470",
+          "prjeb60484:samea114857471"
+        ],
+        "datasets": [
+          "rangifer_tarandus:project:PRJEB60484"
+        ],
+        "chronology": {
+          "original_text": "500-2500 BP",
+          "time_start_bp": 500,
+          "time_end_bp": 2500,
+          "time_mean_bp": 1500,
+          "date_stddev_bp": "",
+          "dating_basis": "historical_and_archaeological_context",
+          "evidence_class": "historical_or_recent_date",
+          "precision_posture": "contextual_interval"
+        },
+        "sample_namespace": "rangifer_tarandus:sample_locality",
+        "project_accessions": [
+          "PRJEB60484"
+        ],
+        "original_location_text": "Svalbard ancient reindeer context",
+        "nordic_inclusion": true,
+        "nordic_inclusion_reason": "This locality falls inside the Nordic publication footprint through direct Svalbard evidence.",
+        "interpretation_note": "Current evidence stays at region or transect scale and must not masquerade as exact sample-site truth."
+      }
+    ],
+    "project_summaries": [
+      {
+        "schema_version": "adna-project-summary.v1",
+        "summary_token": "rangifer_tarandus:project:PRJEB57293",
+        "species_latin_name": "Rangifer tarandus",
+        "species_common_name": "reindeer",
+        "project_accession": "PRJEB57293",
+        "study_token": "study:project:prjeb57293",
+        "source_family": "ENA",
+        "source_release": "PRJEB57293",
+        "result_kind": "read_run",
+        "archive_status": "reject_or_out_of_scope",
+        "evidence_strength": "archive_only",
+        "review_strength": "comparator_only",
+        "support_class": "rejected_or_out_of_scope",
+        "record_modality": "mitogenome_only",
+        "domestication_status": "comparator_only",
+        "domestication_scope": "modern_or_irrelevant",
+        "comparator_status": true,
+        "normalized_breed_label": null,
+        "sequencing_target": "mitogenome",
+        "material_basis": "modern_tissue",
+        "chronology_basis": "modern_sampling",
+        "dating_basis": "modern_sampling",
+        "geographic_basis": "site_level_localities",
+        "coordinate_policy": "site_level_coordinates_expected",
+        "chronology_policy": "manual_chronology_review_required",
+        "paper_title": null,
+        "paper_doi": null,
+        "paper_url": null,
+        "nordic_relevance": "non_nordic",
+        "nordic_relevance_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
+        "interpretation_caveat": "Modern Svalbard reindeer comparator retained only as an explicit reject so modern context does not inflate ancient support. Keep this row visible as a reject so archive presence does not masquerade as curated support. This project stays in the evidence base for comparative context, not as shipped Nordic evidence.",
+        "notes": "Modern Svalbard reindeer comparator retained only as an explicit reject so modern context does not inflate ancient support."
+      },
+      {
+        "schema_version": "adna-project-summary.v1",
+        "summary_token": "rangifer_tarandus:project:PRJEB60484",
+        "species_latin_name": "Rangifer tarandus",
+        "species_common_name": "reindeer",
+        "project_accession": "PRJEB60484",
+        "study_token": "study:10-1038-s41598-024-54296-2",
+        "source_family": "ENA",
+        "source_release": "PRJEB60484",
+        "result_kind": "read_run",
+        "archive_status": "comparator_only",
+        "evidence_strength": "primary_paper_pinned",
+        "review_strength": "comparator_only",
+        "support_class": "comparator_only",
+        "record_modality": "mitogenome_only",
+        "domestication_status": "comparator_only",
+        "domestication_scope": "ancient_comparator",
+        "comparator_status": true,
+        "normalized_breed_label": null,
+        "sequencing_target": "mitogenome",
+        "material_basis": "individual_bone_or_tooth",
+        "chronology_basis": "historical_and_archaeological_context",
+        "dating_basis": "historical_and_archaeological_context",
+        "geographic_basis": "site_level_localities",
+        "coordinate_policy": "site_level_coordinates_expected",
+        "chronology_policy": "historical_interval_or_label_allowed",
+        "paper_title": "Ancient reindeer mitogenomes reveal island-hopping colonisation of the Arctic archipelagos",
+        "paper_doi": "10.1038/s41598-024-54296-2",
+        "paper_url": "https://doi.org/10.1038/s41598-024-54296-2",
+        "nordic_relevance": "nordic_relevant_unmapped",
+        "nordic_relevance_reason": "The ancient Svalbard reindeer comparator is a real Nordic lead, but it is still not promoted into shipped mapped animal locality outputs.",
+        "interpretation_caveat": "Ancient reindeer comparator retained for Arctic cervid context and kept out of domesticated-core inference. Use this only as comparator context and do not count it toward domesticated-core support. Nordic-relevant lead remains unmapped in the shipped public atlas.",
+        "notes": "Ancient reindeer comparator retained for Arctic cervid context and kept out of domesticated-core inference."
+      },
+      {
+        "schema_version": "adna-project-summary.v1",
+        "summary_token": "rangifer_tarandus:project:PRJEB61721",
+        "species_latin_name": "Rangifer tarandus",
+        "species_common_name": "reindeer",
+        "project_accession": "PRJEB61721",
+        "study_token": "study:project:prjeb61721",
+        "source_family": "ENA",
+        "source_release": "PRJEB61721",
+        "result_kind": "read_run",
+        "archive_status": "reject_or_out_of_scope",
+        "evidence_strength": "archive_only",
+        "review_strength": "comparator_only",
+        "support_class": "rejected_or_out_of_scope",
+        "record_modality": "mitogenome_only",
+        "domestication_status": "comparator_only",
+        "domestication_scope": "modern_or_irrelevant",
+        "comparator_status": true,
+        "normalized_breed_label": null,
+        "sequencing_target": "mitogenome",
+        "material_basis": "modern_tissue",
+        "chronology_basis": "modern_sampling",
+        "dating_basis": "modern_sampling",
+        "geographic_basis": "site_level_localities",
+        "coordinate_policy": "site_level_coordinates_expected",
+        "chronology_policy": "manual_chronology_review_required",
+        "paper_title": null,
+        "paper_doi": null,
+        "paper_url": null,
+        "nordic_relevance": "non_nordic",
+        "nordic_relevance_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
+        "interpretation_caveat": "Modern Svalbard reindeer comparator retained only as an explicit reject so modern context does not inflate ancient support. Keep this row visible as a reject so archive presence does not masquerade as curated support. This project stays in the evidence base for comparative context, not as shipped Nordic evidence.",
+        "notes": "Modern Svalbard reindeer comparator retained only as an explicit reject so modern context does not inflate ancient support."
+      },
+      {
+        "schema_version": "adna-project-summary.v1",
+        "summary_token": "rangifer_tarandus:project:PRJNA634908",
+        "species_latin_name": "Rangifer tarandus",
+        "species_common_name": "reindeer",
+        "project_accession": "PRJNA634908",
+        "study_token": "study:project:prjna634908",
+        "source_family": "BioProject",
+        "source_release": "PRJNA634908",
+        "result_kind": "read_run",
+        "archive_status": "reject_or_out_of_scope",
+        "evidence_strength": "archive_only",
+        "review_strength": "comparator_only",
+        "support_class": "rejected_or_out_of_scope",
+        "record_modality": "mitogenome_only",
+        "domestication_status": "comparator_only",
+        "domestication_scope": "modern_or_irrelevant",
+        "comparator_status": true,
+        "normalized_breed_label": null,
+        "sequencing_target": "mitogenome",
+        "material_basis": "modern_tissue",
+        "chronology_basis": "modern_sampling",
+        "dating_basis": "modern_sampling",
+        "geographic_basis": "country_or_breed_panel",
+        "coordinate_policy": "manual_coordinate_review_required",
+        "chronology_policy": "manual_chronology_review_required",
+        "paper_title": null,
+        "paper_doi": null,
+        "paper_url": null,
+        "nordic_relevance": "non_nordic",
+        "nordic_relevance_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
+        "interpretation_caveat": "Modern caribou comparator retained only as an explicit reject so cross-cervid context does not masquerade as domesticated support. Keep this row visible as a reject so archive presence does not masquerade as curated support. This project stays in the evidence base for comparative context, not as shipped Nordic evidence.",
+        "notes": "Modern caribou comparator retained only as an explicit reject so cross-cervid context does not masquerade as domesticated support."
+      }
+    ],
+    "study_summaries": [
+      {
+        "schema_version": "adna-study-summary.v1",
+        "summary_token": "study:10-1038-s41598-024-54296-2",
+        "species_latin_name": "Rangifer tarandus",
+        "species_common_name": "reindeer",
+        "project_accessions": [
+          "PRJEB60484"
+        ],
+        "source_families": [
+          "ENA"
+        ],
+        "archive_statuses": [
+          "comparator_only"
+        ],
+        "evidence_strengths": [
+          "primary_paper_pinned"
+        ],
+        "domestication_status": "comparator_only",
+        "paper_title": "Ancient reindeer mitogenomes reveal island-hopping colonisation of the Arctic archipelagos",
+        "paper_doi": "10.1038/s41598-024-54296-2",
+        "sequencing_targets": [
+          "mitogenome"
+        ],
+        "material_bases": [
+          "individual_bone_or_tooth"
+        ],
+        "dating_bases": [
+          "historical_and_archaeological_context"
+        ],
+        "geographic_bases": [
+          "site_level_localities"
+        ]
+      },
+      {
+        "schema_version": "adna-study-summary.v1",
+        "summary_token": "study:project:prjeb57293",
+        "species_latin_name": "Rangifer tarandus",
+        "species_common_name": "reindeer",
+        "project_accessions": [
+          "PRJEB57293"
+        ],
+        "source_families": [
+          "ENA"
+        ],
+        "archive_statuses": [
+          "reject_or_out_of_scope"
+        ],
+        "evidence_strengths": [
+          "archive_only"
+        ],
+        "domestication_status": "comparator_only",
+        "paper_title": null,
+        "paper_doi": null,
+        "sequencing_targets": [
+          "mitogenome"
+        ],
+        "material_bases": [
+          "modern_tissue"
+        ],
+        "dating_bases": [
+          "modern_sampling"
+        ],
+        "geographic_bases": [
+          "site_level_localities"
+        ]
+      },
+      {
+        "schema_version": "adna-study-summary.v1",
+        "summary_token": "study:project:prjeb61721",
+        "species_latin_name": "Rangifer tarandus",
+        "species_common_name": "reindeer",
+        "project_accessions": [
+          "PRJEB61721"
+        ],
+        "source_families": [
+          "ENA"
+        ],
+        "archive_statuses": [
+          "reject_or_out_of_scope"
+        ],
+        "evidence_strengths": [
+          "archive_only"
+        ],
+        "domestication_status": "comparator_only",
+        "paper_title": null,
+        "paper_doi": null,
+        "sequencing_targets": [
+          "mitogenome"
+        ],
+        "material_bases": [
+          "modern_tissue"
+        ],
+        "dating_bases": [
+          "modern_sampling"
+        ],
+        "geographic_bases": [
+          "site_level_localities"
+        ]
+      },
+      {
+        "schema_version": "adna-study-summary.v1",
+        "summary_token": "study:project:prjna634908",
+        "species_latin_name": "Rangifer tarandus",
+        "species_common_name": "reindeer",
+        "project_accessions": [
+          "PRJNA634908"
+        ],
+        "source_families": [
+          "BioProject"
+        ],
+        "archive_statuses": [
+          "reject_or_out_of_scope"
+        ],
+        "evidence_strengths": [
+          "archive_only"
+        ],
+        "domestication_status": "comparator_only",
+        "paper_title": null,
+        "paper_doi": null,
+        "sequencing_targets": [
+          "mitogenome"
+        ],
+        "material_bases": [
+          "modern_tissue"
+        ],
+        "dating_bases": [
+          "modern_sampling"
+        ],
+        "geographic_bases": [
+          "country_or_breed_panel"
+        ]
+      }
+    ],
+    "lineage_records": [
+      {
+        "schema_version": "adna-normalization-lineage.v1",
+        "output_record_kind": "project_summary",
+        "output_record_token": "rangifer_tarandus:project:PRJEB57293",
+        "source_artifact_path": "data/adna/species/rangifer_tarandus/raw/ena/PRJEB57293.filereport.tsv",
+        "source_accessions": [
+          "PRJEB57293"
+        ],
+        "lineage_tokens": [
+          "species:Rangifer tarandus",
+          "source_family:ENA",
+          "project_accession:PRJEB57293",
+          "archive_status:reject_or_out_of_scope"
+        ]
+      },
+      {
+        "schema_version": "adna-normalization-lineage.v1",
+        "output_record_kind": "project_summary",
+        "output_record_token": "rangifer_tarandus:project:PRJEB60484",
+        "source_artifact_path": "data/adna/species/rangifer_tarandus/raw/ena/PRJEB60484.filereport.tsv",
+        "source_accessions": [
+          "PRJEB60484"
+        ],
+        "lineage_tokens": [
+          "species:Rangifer tarandus",
+          "source_family:ENA",
+          "project_accession:PRJEB60484",
+          "archive_status:comparator_only"
+        ]
+      },
+      {
+        "schema_version": "adna-normalization-lineage.v1",
+        "output_record_kind": "project_summary",
+        "output_record_token": "rangifer_tarandus:project:PRJEB61721",
+        "source_artifact_path": "data/adna/species/rangifer_tarandus/raw/ena/PRJEB61721.filereport.tsv",
+        "source_accessions": [
+          "PRJEB61721"
+        ],
+        "lineage_tokens": [
+          "species:Rangifer tarandus",
+          "source_family:ENA",
+          "project_accession:PRJEB61721",
+          "archive_status:reject_or_out_of_scope"
+        ]
+      },
+      {
+        "schema_version": "adna-normalization-lineage.v1",
+        "output_record_kind": "project_summary",
+        "output_record_token": "rangifer_tarandus:project:PRJNA634908",
+        "source_artifact_path": "data/adna/species/rangifer_tarandus/raw/bioproject/PRJNA634908.filereport.tsv",
+        "source_accessions": [
+          "PRJNA634908"
+        ],
+        "lineage_tokens": [
+          "species:Rangifer tarandus",
+          "source_family:BioProject",
+          "project_accession:PRJNA634908",
+          "archive_status:reject_or_out_of_scope"
+        ]
+      },
+      {
+        "schema_version": "adna-normalization-lineage.v1",
+        "output_record_kind": "study_summary",
+        "output_record_token": "study:10-1038-s41598-024-54296-2",
+        "source_artifact_path": "data/adna/species/rangifer_tarandus/raw/ena/PRJEB60484.filereport.tsv",
+        "source_accessions": [
+          "PRJEB60484"
+        ],
+        "lineage_tokens": [
+          "species:Rangifer tarandus",
+          "study_token:study:10-1038-s41598-024-54296-2",
+          "project_accession:PRJEB60484"
+        ]
+      },
+      {
+        "schema_version": "adna-normalization-lineage.v1",
+        "output_record_kind": "study_summary",
+        "output_record_token": "study:project:prjeb57293",
+        "source_artifact_path": "data/adna/species/rangifer_tarandus/raw/ena/PRJEB57293.filereport.tsv",
+        "source_accessions": [
+          "PRJEB57293"
+        ],
+        "lineage_tokens": [
+          "species:Rangifer tarandus",
+          "study_token:study:project:prjeb57293",
+          "project_accession:PRJEB57293"
+        ]
+      },
+      {
+        "schema_version": "adna-normalization-lineage.v1",
+        "output_record_kind": "study_summary",
+        "output_record_token": "study:project:prjeb61721",
+        "source_artifact_path": "data/adna/species/rangifer_tarandus/raw/ena/PRJEB61721.filereport.tsv",
+        "source_accessions": [
+          "PRJEB61721"
+        ],
+        "lineage_tokens": [
+          "species:Rangifer tarandus",
+          "study_token:study:project:prjeb61721",
+          "project_accession:PRJEB61721"
+        ]
+      },
+      {
+        "schema_version": "adna-normalization-lineage.v1",
+        "output_record_kind": "study_summary",
+        "output_record_token": "study:project:prjna634908",
+        "source_artifact_path": "data/adna/species/rangifer_tarandus/raw/bioproject/PRJNA634908.filereport.tsv",
+        "source_accessions": [
+          "PRJNA634908"
+        ],
+        "lineage_tokens": [
+          "species:Rangifer tarandus",
+          "study_token:study:project:prjna634908",
+          "project_accession:PRJNA634908"
+        ]
+      }
+    ],
+    "refusals": [
+      {
+        "schema_version": "adna-normalization-refusal.v1",
+        "species_latin_name": "Rangifer tarandus",
+        "source_token": "PRJEB57293",
+        "record_kind": "locality_records",
+        "reason": "locality_lead_not_yet_curated",
+        "detail": "This project already ships project-level interpretation, but a defensible locality lead has not yet been curated into the species-owned locality artifact."
+      },
+      {
+        "schema_version": "adna-normalization-refusal.v1",
+        "species_latin_name": "Rangifer tarandus",
+        "source_token": "PRJEB61721",
+        "record_kind": "locality_records",
+        "reason": "locality_lead_not_yet_curated",
+        "detail": "This project already ships project-level interpretation, but a defensible locality lead has not yet been curated into the species-owned locality artifact."
+      },
+      {
+        "schema_version": "adna-normalization-refusal.v1",
+        "species_latin_name": "Rangifer tarandus",
+        "source_token": "PRJNA634908",
+        "record_kind": "locality_records",
+        "reason": "locality_lead_not_yet_curated",
+        "detail": "This project already ships project-level interpretation, but a defensible locality lead has not yet been curated into the species-owned locality artifact."
+      }
+    ],
+    "normalization_scope": "Non-human normalization currently governs accession-backed sample master rows, project summaries, study summaries, and curated locality summaries. Site and chronology extraction still vary by accession and remain explicit in sample inclusion status rather than being silently flattened."
+  }
+}

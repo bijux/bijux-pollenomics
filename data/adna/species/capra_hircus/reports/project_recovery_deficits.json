@@ -1,0 +1,61 @@
+{
+  "schema_version": "animal-species-project-recovery-deficits.v1",
+  "species_latin_name": "Capra hircus",
+  "counts": {
+    "project_count": 3,
+    "projects_with_sample_gap": 0,
+    "projects_with_site_gap": 0,
+    "projects_with_chronology_gap": 0,
+    "projects_blocked_before_publication": 0
+  },
+  "rows": [
+    {
+      "species_latin_name": "Capra hircus",
+      "project_accession": "PRJEB90141",
+      "paper_doi": "10.1093/gbe/evaf181",
+      "final_sample_count": 4,
+      "expected_sample_count": null,
+      "minimum_expected_sample_count": 1,
+      "minimum_gap_count": 0,
+      "lacking_defensible_site_assignment_count": 0,
+      "missing_chronology_count": 0,
+      "chronology_conflict_count": 3,
+      "chronology_ambiguity_count": 3,
+      "coordinate_blocked_count": 0,
+      "publication_readiness_status": "complete",
+      "major_deficit_reasons": []
+    },
+    {
+      "species_latin_name": "Capra hircus",
+      "project_accession": "PRJEB90261",
+      "paper_doi": "10.1016/j.isci.2025.113771",
+      "final_sample_count": 73,
+      "expected_sample_count": null,
+      "minimum_expected_sample_count": 1,
+      "minimum_gap_count": 0,
+      "lacking_defensible_site_assignment_count": 0,
+      "missing_chronology_count": 0,
+      "chronology_conflict_count": 72,
+      "chronology_ambiguity_count": 73,
+      "coordinate_blocked_count": 0,
+      "publication_readiness_status": "complete",
+      "major_deficit_reasons": []
+    },
+    {
+      "species_latin_name": "Capra hircus",
+      "project_accession": "PRJNA1328209",
+      "paper_doi": "10.24272/j.issn.2095-8137.2025.080",
+      "final_sample_count": 5,
+      "expected_sample_count": null,
+      "minimum_expected_sample_count": 1,
+      "minimum_gap_count": 0,
+      "lacking_defensible_site_assignment_count": 0,
+      "missing_chronology_count": 0,
+      "chronology_conflict_count": 0,
+      "chronology_ambiguity_count": 0,
+      "coordinate_blocked_count": 0,
+      "publication_readiness_status": "complete",
+      "major_deficit_reasons": []
+    }
+  ]
+}

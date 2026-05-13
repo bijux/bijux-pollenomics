@@ -1,0 +1,1104 @@
+{
+  "schema_version": "animal-project-publication-gap-review.v1",
+  "source_audit": {
+    "schema_version": "adna-source-library.v1",
+    "archive_sufficient_count": 6,
+    "paper_dependent_count": 34,
+    "supplement_dependent_count": 1,
+    "blocked_count": 19,
+    "rows": [
+      {
+        "project_accession": "KU605068-KU605080",
+        "species_latin_name": "Camelus dromedarius",
+        "archive_status": "paper_pinned_core",
+        "archive_metadata_sufficient": false,
+        "paper_required": true,
+        "supplement_required": false,
+        "paper_download_status": "archived",
+        "supplement_download_status": "archived",
+        "blockers": []
+      },
+      {
+        "project_accession": "KX379528-KX379529",
+        "species_latin_name": "Canis lupus familiaris",
+        "archive_status": "paper_pinned_core",
+        "archive_metadata_sufficient": false,
+        "paper_required": true,
+        "supplement_required": false,
+        "paper_download_status": "archived",
+        "supplement_download_status": "archived",
+        "blockers": []
+      },
+      {
+        "project_accession": "PRJEB10854",
+        "species_latin_name": "Equus caballus",
+        "archive_status": "archive_verified_needs_paper_pinning",
+        "archive_metadata_sufficient": false,
+        "paper_required": true,
+        "supplement_required": false,
+        "paper_download_status": "missing",
+        "supplement_download_status": "missing",
+        "blockers": [
+          "missing_local_paper_evidence",
+          "paper_linkage_not_curated"
+        ]
+      },
+      {
+        "project_accession": "PRJEB19970",
+        "species_latin_name": "Equus caballus",
+        "archive_status": "paper_pinned_core",
+        "archive_metadata_sufficient": false,
+        "paper_required": true,
+        "supplement_required": false,
+        "paper_download_status": "archived",
+        "supplement_download_status": "archived",
+        "blockers": []
+      },
+      {
+        "project_accession": "PRJEB22390",
+        "species_latin_name": "Equus caballus",
+        "archive_status": "paper_pinned_core",
+        "archive_metadata_sufficient": false,
+        "paper_required": true,
+        "supplement_required": false,
+        "paper_download_status": "archived",
+        "supplement_download_status": "archived",
+        "blockers": []
+      },
+      {
+        "project_accession": "PRJEB30282",
+        "species_latin_name": "Sus scrofa domesticus",
+        "archive_status": "paper_pinned_core",
+        "archive_metadata_sufficient": false,
+        "paper_required": true,
+        "supplement_required": false,
+        "paper_download_status": "archived",
+        "supplement_download_status": "archived",
+        "blockers": []
+      },
+      {
+        "project_accession": "PRJEB31613",
+        "species_latin_name": "Equus caballus",
+        "archive_status": "paper_pinned_core",
+        "archive_metadata_sufficient": false,
+        "paper_required": true,
+        "supplement_required": false,
+        "paper_download_status": "archived",
+        "supplement_download_status": "archived",
+        "blockers": []
+      },
+      {
+        "project_accession": "PRJEB31621",
+        "species_latin_name": "Bos taurus",
+        "archive_status": "paper_pinned_core",
+        "archive_metadata_sufficient": false,
+        "paper_required": true,
+        "supplement_required": false,
+        "paper_download_status": "archived",
+        "supplement_download_status": "archived",
+        "blockers": []
+      },
+      {
+        "project_accession": "PRJEB36540",
+        "species_latin_name": "Ovis aries",
+        "archive_status": "paper_pinned_core",
+        "archive_metadata_sufficient": false,
+        "paper_required": true,
+        "supplement_required": true,
+        "paper_download_status": "archived",
+        "supplement_download_status": "archived",
+        "blockers": []
+      },
+      {
+        "project_accession": "PRJEB41594",
+        "species_latin_name": "Ovis aries",
+        "archive_status": "paper_pinned_core",
+        "archive_metadata_sufficient": false,
+        "paper_required": true,
+        "supplement_required": false,
+        "paper_download_status": "archived",
+        "supplement_download_status": "archived",
+        "blockers": []
+      },
+      {
+        "project_accession": "PRJEB43564",
+        "species_latin_name": "Equus asinus",
+        "archive_status": "comparator_only",
+        "archive_metadata_sufficient": false,
+        "paper_required": true,
+        "supplement_required": false,
+        "paper_download_status": "missing",
+        "supplement_download_status": "missing",
+        "blockers": [
+          "missing_local_paper_evidence",
+          "paper_linkage_not_curated"
+        ]
+      },
+      {
+        "project_accession": "PRJEB44430",
+        "species_latin_name": "Equus caballus",
+        "archive_status": "paper_pinned_core",
+        "archive_metadata_sufficient": false,
+        "paper_required": true,
+        "supplement_required": false,
+        "paper_download_status": "archived",
+        "supplement_download_status": "archived",
+        "blockers": []
+      },
+      {
+        "project_accession": "PRJEB50952",
+        "species_latin_name": "Equus asinus",
+        "archive_status": "comparator_only",
+        "archive_metadata_sufficient": false,
+        "paper_required": true,
+        "supplement_required": false,
+        "paper_download_status": "missing",
+        "supplement_download_status": "missing",
+        "blockers": [
+          "missing_local_paper_evidence",
+          "paper_linkage_not_curated"
+        ]
+      },
+      {
+        "project_accession": "PRJEB52590",
+        "species_latin_name": "Equus asinus",
+        "archive_status": "comparator_only",
+        "archive_metadata_sufficient": false,
+        "paper_required": true,
+        "supplement_required": false,
+        "paper_download_status": "missing",
+        "supplement_download_status": "missing",
+        "blockers": [
+          "missing_local_paper_evidence",
+          "paper_linkage_not_curated"
+        ]
+      },
+      {
+        "project_accession": "PRJEB52849",
+        "species_latin_name": "Equus asinus",
+        "archive_status": "comparator_only",
+        "archive_metadata_sufficient": false,
+        "paper_required": true,
+        "supplement_required": false,
+        "paper_download_status": "missing",
+        "supplement_download_status": "missing",
+        "blockers": [
+          "missing_local_paper_evidence",
+          "paper_linkage_not_curated"
+        ]
+      },
+      {
+        "project_accession": "PRJEB55549",
+        "species_latin_name": "Equus asinus",
+        "archive_status": "reject_or_out_of_scope",
+        "archive_metadata_sufficient": true,
+        "paper_required": false,
+        "supplement_required": false,
+        "paper_download_status": "missing",
+        "supplement_download_status": "missing",
+        "blockers": [
+          "paper_linkage_not_curated"
+        ]
+      },
+      {
+        "project_accession": "PRJEB56293",
+        "species_latin_name": "Equus caballus",
+        "archive_status": "archive_verified_needs_paper_pinning",
+        "archive_metadata_sufficient": false,
+        "paper_required": true,
+        "supplement_required": false,
+        "paper_download_status": "missing",
+        "supplement_download_status": "missing",
+        "blockers": [
+          "missing_local_paper_evidence",
+          "paper_linkage_not_curated"
+        ]
+      },
+      {
+        "project_accession": "PRJEB57293",
+        "species_latin_name": "Rangifer tarandus",
+        "archive_status": "reject_or_out_of_scope",
+        "archive_metadata_sufficient": true,
+        "paper_required": false,
+        "supplement_required": false,
+        "paper_download_status": "missing",
+        "supplement_download_status": "missing",
+        "blockers": [
+          "paper_linkage_not_curated"
+        ]
+      },
+      {
+        "project_accession": "PRJEB59481",
+        "species_latin_name": "Ovis aries",
+        "archive_status": "paper_pinned_core",
+        "archive_metadata_sufficient": false,
+        "paper_required": true,
+        "supplement_required": false,
+        "paper_download_status": "archived",
+        "supplement_download_status": "archived",
+        "blockers": []
+      },
+      {
+        "project_accession": "PRJEB60484",
+        "species_latin_name": "Rangifer tarandus",
+        "archive_status": "comparator_only",
+        "archive_metadata_sufficient": false,
+        "paper_required": true,
+        "supplement_required": false,
+        "paper_download_status": "archived",
+        "supplement_download_status": "archived",
+        "blockers": []
+      },
+      {
+        "project_accession": "PRJEB61721",
+        "species_latin_name": "Rangifer tarandus",
+        "archive_status": "reject_or_out_of_scope",
+        "archive_metadata_sufficient": true,
+        "paper_required": false,
+        "supplement_required": false,
+        "paper_download_status": "missing",
+        "supplement_download_status": "missing",
+        "blockers": [
+          "paper_linkage_not_curated"
+        ]
+      },
+      {
+        "project_accession": "PRJEB61808",
+        "species_latin_name": "Ovis aries",
+        "archive_status": "archive_verified_needs_paper_pinning",
+        "archive_metadata_sufficient": false,
+        "paper_required": true,
+        "supplement_required": false,
+        "paper_download_status": "missing",
+        "supplement_download_status": "missing",
+        "blockers": [
+          "missing_local_paper_evidence",
+          "paper_linkage_not_curated"
+        ]
+      },
+      {
+        "project_accession": "PRJEB69690",
+        "species_latin_name": "Ovis aries",
+        "archive_status": "archive_verified_needs_paper_pinning",
+        "archive_metadata_sufficient": false,
+        "paper_required": true,
+        "supplement_required": false,
+        "paper_download_status": "missing",
+        "supplement_download_status": "missing",
+        "blockers": [
+          "missing_local_paper_evidence",
+          "paper_linkage_not_curated"
+        ]
+      },
+      {
+        "project_accession": "PRJEB7537",
+        "species_latin_name": "Equus caballus",
+        "archive_status": "archive_verified_needs_paper_pinning",
+        "archive_metadata_sufficient": false,
+        "paper_required": true,
+        "supplement_required": false,
+        "paper_download_status": "missing",
+        "supplement_download_status": "missing",
+        "blockers": [
+          "missing_local_paper_evidence",
+          "paper_linkage_not_curated"
+        ]
+      },
+      {
+        "project_accession": "PRJEB75467",
+        "species_latin_name": "Bos taurus",
+        "archive_status": "paper_pinned_core",
+        "archive_metadata_sufficient": false,
+        "paper_required": true,
+        "supplement_required": false,
+        "paper_download_status": "archived",
+        "supplement_download_status": "archived",
+        "blockers": []
+      },
+      {
+        "project_accession": "PRJEB81145",
+        "species_latin_name": "Ovis aries",
+        "archive_status": "archive_verified_needs_paper_pinning",
+        "archive_metadata_sufficient": false,
+        "paper_required": true,
+        "supplement_required": false,
+        "paper_download_status": "missing",
+        "supplement_download_status": "missing",
+        "blockers": [
+          "missing_local_paper_evidence",
+          "paper_linkage_not_curated"
+        ]
+      },
+      {
+        "project_accession": "PRJEB81815",
+        "species_latin_name": "Felis catus",
+        "archive_status": "paper_pinned_core",
+        "archive_metadata_sufficient": false,
+        "paper_required": true,
+        "supplement_required": false,
+        "paper_download_status": "archived",
+        "supplement_download_status": "archived",
+        "blockers": []
+      },
+      {
+        "project_accession": "PRJEB90141",
+        "species_latin_name": "Capra hircus",
+        "archive_status": "paper_pinned_core",
+        "archive_metadata_sufficient": false,
+        "paper_required": true,
+        "supplement_required": false,
+        "paper_download_status": "archived",
+        "supplement_download_status": "archived",
+        "blockers": []
+      },
+      {
+        "project_accession": "PRJEB90261",
+        "species_latin_name": "Capra hircus",
+        "archive_status": "paper_pinned_core",
+        "archive_metadata_sufficient": false,
+        "paper_required": true,
+        "supplement_required": false,
+        "paper_download_status": "archived",
+        "supplement_download_status": "archived",
+        "blockers": []
+      },
+      {
+        "project_accession": "PRJEB9799",
+        "species_latin_name": "Equus caballus",
+        "archive_status": "reject_or_out_of_scope",
+        "archive_metadata_sufficient": true,
+        "paper_required": false,
+        "supplement_required": false,
+        "paper_download_status": "missing",
+        "supplement_download_status": "missing",
+        "blockers": [
+          "paper_linkage_not_curated"
+        ]
+      },
+      {
+        "project_accession": "PRJNA1178732",
+        "species_latin_name": "Felis catus",
+        "archive_status": "paper_pinned_core",
+        "archive_metadata_sufficient": false,
+        "paper_required": true,
+        "supplement_required": false,
+        "paper_download_status": "archived",
+        "supplement_download_status": "archived",
+        "blockers": []
+      },
+      {
+        "project_accession": "PRJNA1328209",
+        "species_latin_name": "Capra hircus",
+        "archive_status": "paper_pinned_core",
+        "archive_metadata_sufficient": false,
+        "paper_required": true,
+        "supplement_required": false,
+        "paper_download_status": "archived",
+        "supplement_download_status": "archived",
+        "blockers": []
+      },
+      {
+        "project_accession": "PRJNA421430",
+        "species_latin_name": "Sus scrofa domesticus",
+        "archive_status": "reject_or_out_of_scope",
+        "archive_metadata_sufficient": true,
+        "paper_required": false,
+        "supplement_required": false,
+        "paper_download_status": "missing",
+        "supplement_download_status": "missing",
+        "blockers": [
+          "paper_linkage_not_curated"
+        ]
+      },
+      {
+        "project_accession": "PRJNA634908",
+        "species_latin_name": "Rangifer tarandus",
+        "archive_status": "reject_or_out_of_scope",
+        "archive_metadata_sufficient": true,
+        "paper_required": false,
+        "supplement_required": false,
+        "paper_download_status": "missing",
+        "supplement_download_status": "missing",
+        "blockers": [
+          "paper_linkage_not_curated"
+        ]
+      },
+      {
+        "project_accession": "PRJNA705960",
+        "species_latin_name": "Bos taurus",
+        "archive_status": "archive_verified_needs_paper_pinning",
+        "archive_metadata_sufficient": false,
+        "paper_required": true,
+        "supplement_required": false,
+        "paper_download_status": "missing",
+        "supplement_download_status": "missing",
+        "blockers": [
+          "missing_local_paper_evidence",
+          "paper_linkage_not_curated"
+        ]
+      },
+      {
+        "project_accession": "PRJNA788987",
+        "species_latin_name": "Sus scrofa domesticus",
+        "archive_status": "archive_verified_needs_paper_pinning",
+        "archive_metadata_sufficient": false,
+        "paper_required": true,
+        "supplement_required": false,
+        "paper_download_status": "missing",
+        "supplement_download_status": "missing",
+        "blockers": [
+          "missing_local_paper_evidence",
+          "paper_linkage_not_curated"
+        ]
+      },
+      {
+        "project_accession": "PRJNA878488",
+        "species_latin_name": "Sus scrofa domesticus",
+        "archive_status": "archive_verified_needs_paper_pinning",
+        "archive_metadata_sufficient": false,
+        "paper_required": true,
+        "supplement_required": false,
+        "paper_download_status": "missing",
+        "supplement_download_status": "missing",
+        "blockers": [
+          "missing_local_paper_evidence",
+          "paper_linkage_not_curated"
+        ]
+      },
+      {
+        "project_accession": "SRP073444",
+        "species_latin_name": "Camelus dromedarius",
+        "archive_status": "paper_pinned_core",
+        "archive_metadata_sufficient": false,
+        "paper_required": true,
+        "supplement_required": false,
+        "paper_download_status": "archived",
+        "supplement_download_status": "archived",
+        "blockers": []
+      },
+      {
+        "project_accession": "SRS1407451",
+        "species_latin_name": "Canis lupus familiaris",
+        "archive_status": "paper_pinned_core",
+        "archive_metadata_sufficient": false,
+        "paper_required": true,
+        "supplement_required": false,
+        "paper_download_status": "archived",
+        "supplement_download_status": "archived",
+        "blockers": []
+      },
+      {
+        "project_accession": "SRS1407453",
+        "species_latin_name": "Canis lupus familiaris",
+        "archive_status": "paper_pinned_core",
+        "archive_metadata_sufficient": false,
+        "paper_required": true,
+        "supplement_required": false,
+        "paper_download_status": "archived",
+        "supplement_download_status": "archived",
+        "blockers": []
+      }
+    ]
+  },
+  "row_count": 34,
+  "rows": [
+    {
+      "project_accession": "PRJEB31621",
+      "species_latin_name": "Bos taurus",
+      "paper_doi": "10.1126/science.aav1002",
+      "project_url": "https://www.ebi.ac.uk/ena/portal/api/filereport?accession=PRJEB31621&result=read_run&fields=study_accession,sample_accession,experiment_accession,run_accession,tax_id,scientific_name,library_layout,library_source,library_strategy,instrument_model,base_count,read_count,fastq_bytes,fastq_ftp,submitted_ftp,sra_ftp&format=tsv&download=true&limit=0",
+      "archive_status": "paper_pinned_core",
+      "evidence_strength": "primary_paper_pinned",
+      "ingestion_status": "paper_source_archived",
+      "paper_download_status": "archived",
+      "supplement_download_status": "archived",
+      "unresolved_sample_count": 1,
+      "region_only_site_count": 0,
+      "blockers": [
+        "sample_context_blocked"
+      ],
+      "absence_stage": "site_extraction"
+    },
+    {
+      "project_accession": "PRJEB75467",
+      "species_latin_name": "Bos taurus",
+      "paper_doi": "10.1038/s41586-024-08112-6",
+      "project_url": "https://www.ebi.ac.uk/ena/portal/api/filereport?accession=PRJEB75467&result=read_run&fields=study_accession,sample_accession,experiment_accession,run_accession,tax_id,scientific_name,library_layout,library_source,library_strategy,instrument_model,base_count,read_count,fastq_bytes,fastq_ftp,submitted_ftp,sra_ftp&format=tsv&download=true&limit=0",
+      "archive_status": "paper_pinned_core",
+      "evidence_strength": "primary_paper_pinned",
+      "ingestion_status": "paper_source_archived",
+      "paper_download_status": "archived",
+      "supplement_download_status": "archived",
+      "unresolved_sample_count": 1,
+      "region_only_site_count": 0,
+      "blockers": [
+        "sample_context_blocked"
+      ],
+      "absence_stage": "site_extraction"
+    },
+    {
+      "project_accession": "PRJNA705960",
+      "species_latin_name": "Bos taurus",
+      "paper_doi": null,
+      "project_url": "https://www.ebi.ac.uk/ena/portal/api/filereport?accession=PRJNA705960&result=read_run&fields=study_accession,sample_accession,experiment_accession,run_accession,tax_id,scientific_name,library_layout,library_source,library_strategy,instrument_model,base_count,read_count,fastq_bytes,fastq_ftp,submitted_ftp,sra_ftp&format=tsv&download=true&limit=0",
+      "archive_status": "archive_verified_needs_paper_pinning",
+      "evidence_strength": "archive_only",
+      "ingestion_status": "blocked",
+      "paper_download_status": "missing",
+      "supplement_download_status": "missing",
+      "unresolved_sample_count": 0,
+      "region_only_site_count": 1,
+      "blockers": [
+        "missing_local_paper_evidence",
+        "paper_linkage_not_curated",
+        "region_only_geography"
+      ],
+      "absence_stage": "paper_or_metadata_capture"
+    },
+    {
+      "project_accession": "KU605068-KU605080",
+      "species_latin_name": "Camelus dromedarius",
+      "paper_doi": "10.1111/1755-0998.12551",
+      "project_url": "https://www.ncbi.nlm.nih.gov/nuccore/KU605068",
+      "archive_status": "paper_pinned_core",
+      "evidence_strength": "primary_paper_pinned",
+      "ingestion_status": "paper_source_archived",
+      "paper_download_status": "archived",
+      "supplement_download_status": "archived",
+      "unresolved_sample_count": 0,
+      "region_only_site_count": 0,
+      "blockers": [],
+      "absence_stage": "not_point_publishable"
+    },
+    {
+      "project_accession": "KX379528-KX379529",
+      "species_latin_name": "Canis lupus familiaris",
+      "paper_doi": "10.1038/ncomms16082",
+      "project_url": "https://www.ncbi.nlm.nih.gov/nuccore/KX379528",
+      "archive_status": "paper_pinned_core",
+      "evidence_strength": "primary_paper_pinned",
+      "ingestion_status": "paper_source_archived",
+      "paper_download_status": "archived",
+      "supplement_download_status": "archived",
+      "unresolved_sample_count": 0,
+      "region_only_site_count": 0,
+      "blockers": [],
+      "absence_stage": "not_point_publishable"
+    },
+    {
+      "project_accession": "SRS1407451",
+      "species_latin_name": "Canis lupus familiaris",
+      "paper_doi": "10.1038/ncomms16082",
+      "project_url": "https://www.ncbi.nlm.nih.gov/sra?term=SRS1407451",
+      "archive_status": "paper_pinned_core",
+      "evidence_strength": "primary_paper_pinned",
+      "ingestion_status": "paper_source_archived",
+      "paper_download_status": "archived",
+      "supplement_download_status": "archived",
+      "unresolved_sample_count": 0,
+      "region_only_site_count": 1,
+      "blockers": [
+        "region_only_geography"
+      ],
+      "absence_stage": "coordinate_resolution"
+    },
+    {
+      "project_accession": "SRS1407453",
+      "species_latin_name": "Canis lupus familiaris",
+      "paper_doi": "10.1038/ncomms16082",
+      "project_url": "https://www.ncbi.nlm.nih.gov/sra?term=SRS1407453",
+      "archive_status": "paper_pinned_core",
+      "evidence_strength": "primary_paper_pinned",
+      "ingestion_status": "paper_source_archived",
+      "paper_download_status": "archived",
+      "supplement_download_status": "archived",
+      "unresolved_sample_count": 0,
+      "region_only_site_count": 0,
+      "blockers": [],
+      "absence_stage": "not_point_publishable"
+    },
+    {
+      "project_accession": "PRJEB43564",
+      "species_latin_name": "Equus asinus",
+      "paper_doi": null,
+      "project_url": "https://www.ebi.ac.uk/ena/portal/api/filereport?accession=PRJEB43564&result=read_run&fields=study_accession,sample_accession,experiment_accession,run_accession,tax_id,scientific_name,library_layout,library_source,library_strategy,instrument_model,base_count,read_count,fastq_bytes,fastq_ftp,submitted_ftp,sra_ftp&format=tsv&download=true&limit=0",
+      "archive_status": "comparator_only",
+      "evidence_strength": "archive_only",
+      "ingestion_status": "blocked",
+      "paper_download_status": "missing",
+      "supplement_download_status": "missing",
+      "unresolved_sample_count": 1,
+      "region_only_site_count": 0,
+      "blockers": [
+        "missing_local_paper_evidence",
+        "paper_linkage_not_curated",
+        "sample_context_blocked"
+      ],
+      "absence_stage": "paper_or_metadata_capture"
+    },
+    {
+      "project_accession": "PRJEB50952",
+      "species_latin_name": "Equus asinus",
+      "paper_doi": null,
+      "project_url": "https://www.ebi.ac.uk/ena/portal/api/filereport?accession=PRJEB50952&result=read_run&fields=study_accession,sample_accession,experiment_accession,run_accession,tax_id,scientific_name,library_layout,library_source,library_strategy,instrument_model,base_count,read_count,fastq_bytes,fastq_ftp,submitted_ftp,sra_ftp&format=tsv&download=true&limit=0",
+      "archive_status": "comparator_only",
+      "evidence_strength": "archive_only",
+      "ingestion_status": "blocked",
+      "paper_download_status": "missing",
+      "supplement_download_status": "missing",
+      "unresolved_sample_count": 1,
+      "region_only_site_count": 0,
+      "blockers": [
+        "missing_local_paper_evidence",
+        "paper_linkage_not_curated",
+        "sample_context_blocked"
+      ],
+      "absence_stage": "paper_or_metadata_capture"
+    },
+    {
+      "project_accession": "PRJEB52590",
+      "species_latin_name": "Equus asinus",
+      "paper_doi": null,
+      "project_url": "https://www.ebi.ac.uk/ena/portal/api/filereport?accession=PRJEB52590&result=read_run&fields=study_accession,sample_accession,experiment_accession,run_accession,tax_id,scientific_name,library_layout,library_source,library_strategy,instrument_model,base_count,read_count,fastq_bytes,fastq_ftp,submitted_ftp,sra_ftp&format=tsv&download=true&limit=0",
+      "archive_status": "comparator_only",
+      "evidence_strength": "archive_only",
+      "ingestion_status": "blocked",
+      "paper_download_status": "missing",
+      "supplement_download_status": "missing",
+      "unresolved_sample_count": 1,
+      "region_only_site_count": 0,
+      "blockers": [
+        "missing_local_paper_evidence",
+        "paper_linkage_not_curated",
+        "sample_context_blocked"
+      ],
+      "absence_stage": "paper_or_metadata_capture"
+    },
+    {
+      "project_accession": "PRJEB52849",
+      "species_latin_name": "Equus asinus",
+      "paper_doi": null,
+      "project_url": "https://www.ebi.ac.uk/ena/portal/api/filereport?accession=PRJEB52849&result=read_run&fields=study_accession,sample_accession,experiment_accession,run_accession,tax_id,scientific_name,library_layout,library_source,library_strategy,instrument_model,base_count,read_count,fastq_bytes,fastq_ftp,submitted_ftp,sra_ftp&format=tsv&download=true&limit=0",
+      "archive_status": "comparator_only",
+      "evidence_strength": "archive_only",
+      "ingestion_status": "blocked",
+      "paper_download_status": "missing",
+      "supplement_download_status": "missing",
+      "unresolved_sample_count": 0,
+      "region_only_site_count": 1,
+      "blockers": [
+        "missing_local_paper_evidence",
+        "paper_linkage_not_curated",
+        "region_only_geography"
+      ],
+      "absence_stage": "paper_or_metadata_capture"
+    },
+    {
+      "project_accession": "PRJEB55549",
+      "species_latin_name": "Equus asinus",
+      "paper_doi": null,
+      "project_url": "https://www.ebi.ac.uk/ena/portal/api/filereport?accession=PRJEB55549&result=analysis&fields=study_accession,sample_accession,experiment_accession,analysis_accession,analysis_type,tax_id,scientific_name,submitted_ftp,bam_ftp&format=tsv&download=true&limit=0",
+      "archive_status": "reject_or_out_of_scope",
+      "evidence_strength": "archive_only",
+      "ingestion_status": "blocked",
+      "paper_download_status": "missing",
+      "supplement_download_status": "missing",
+      "unresolved_sample_count": 1,
+      "region_only_site_count": 0,
+      "blockers": [
+        "paper_linkage_not_curated",
+        "sample_context_blocked"
+      ],
+      "absence_stage": "paper_or_metadata_capture"
+    },
+    {
+      "project_accession": "PRJEB10854",
+      "species_latin_name": "Equus caballus",
+      "paper_doi": null,
+      "project_url": "https://www.ebi.ac.uk/ena/portal/api/filereport?accession=PRJEB10854&result=read_run&fields=study_accession,sample_accession,experiment_accession,run_accession,tax_id,scientific_name,library_layout,library_source,library_strategy,instrument_model,base_count,read_count,fastq_bytes,fastq_ftp,submitted_ftp,sra_ftp&format=tsv&download=true&limit=0",
+      "archive_status": "archive_verified_needs_paper_pinning",
+      "evidence_strength": "archive_only",
+      "ingestion_status": "blocked",
+      "paper_download_status": "missing",
+      "supplement_download_status": "missing",
+      "unresolved_sample_count": 1,
+      "region_only_site_count": 0,
+      "blockers": [
+        "missing_local_paper_evidence",
+        "paper_linkage_not_curated",
+        "sample_context_blocked"
+      ],
+      "absence_stage": "paper_or_metadata_capture"
+    },
+    {
+      "project_accession": "PRJEB19970",
+      "species_latin_name": "Equus caballus",
+      "paper_doi": "10.1126/science.aam5298",
+      "project_url": "https://www.ebi.ac.uk/ena/portal/api/filereport?accession=PRJEB19970&result=read_run&fields=study_accession,sample_accession,experiment_accession,run_accession,tax_id,scientific_name,library_layout,library_source,library_strategy,instrument_model,base_count,read_count,fastq_bytes,fastq_ftp,submitted_ftp,sra_ftp&format=tsv&download=true&limit=0",
+      "archive_status": "paper_pinned_core",
+      "evidence_strength": "primary_paper_pinned",
+      "ingestion_status": "paper_source_archived",
+      "paper_download_status": "archived",
+      "supplement_download_status": "archived",
+      "unresolved_sample_count": 0,
+      "region_only_site_count": 0,
+      "blockers": [],
+      "absence_stage": "not_point_publishable"
+    },
+    {
+      "project_accession": "PRJEB22390",
+      "species_latin_name": "Equus caballus",
+      "paper_doi": "10.1126/science.aao3297",
+      "project_url": "https://www.ebi.ac.uk/ena/portal/api/filereport?accession=PRJEB22390&result=read_run&fields=study_accession,sample_accession,experiment_accession,run_accession,tax_id,scientific_name,library_layout,library_source,library_strategy,instrument_model,base_count,read_count,fastq_bytes,fastq_ftp,submitted_ftp,sra_ftp&format=tsv&download=true&limit=0",
+      "archive_status": "paper_pinned_core",
+      "evidence_strength": "primary_paper_pinned",
+      "ingestion_status": "paper_source_archived",
+      "paper_download_status": "archived",
+      "supplement_download_status": "archived",
+      "unresolved_sample_count": 0,
+      "region_only_site_count": 0,
+      "blockers": [],
+      "absence_stage": "not_point_publishable"
+    },
+    {
+      "project_accession": "PRJEB56293",
+      "species_latin_name": "Equus caballus",
+      "paper_doi": null,
+      "project_url": "https://www.ebi.ac.uk/ena/portal/api/filereport?accession=PRJEB56293&result=read_run&fields=study_accession,sample_accession,experiment_accession,run_accession,tax_id,scientific_name,library_layout,library_source,library_strategy,instrument_model,base_count,read_count,fastq_bytes,fastq_ftp,submitted_ftp,sra_ftp&format=tsv&download=true&limit=0",
+      "archive_status": "archive_verified_needs_paper_pinning",
+      "evidence_strength": "archive_only",
+      "ingestion_status": "blocked",
+      "paper_download_status": "missing",
+      "supplement_download_status": "missing",
+      "unresolved_sample_count": 1,
+      "region_only_site_count": 0,
+      "blockers": [
+        "missing_local_paper_evidence",
+        "paper_linkage_not_curated",
+        "sample_context_blocked"
+      ],
+      "absence_stage": "paper_or_metadata_capture"
+    },
+    {
+      "project_accession": "PRJEB7537",
+      "species_latin_name": "Equus caballus",
+      "paper_doi": null,
+      "project_url": "https://www.ebi.ac.uk/ena/portal/api/filereport?accession=PRJEB7537&result=read_run&fields=study_accession,sample_accession,experiment_accession,run_accession,tax_id,scientific_name,library_layout,library_source,library_strategy,instrument_model,base_count,read_count,fastq_bytes,fastq_ftp,submitted_ftp,sra_ftp&format=tsv&download=true&limit=0",
+      "archive_status": "archive_verified_needs_paper_pinning",
+      "evidence_strength": "archive_only",
+      "ingestion_status": "blocked",
+      "paper_download_status": "missing",
+      "supplement_download_status": "missing",
+      "unresolved_sample_count": 1,
+      "region_only_site_count": 0,
+      "blockers": [
+        "missing_local_paper_evidence",
+        "paper_linkage_not_curated",
+        "sample_context_blocked"
+      ],
+      "absence_stage": "paper_or_metadata_capture"
+    },
+    {
+      "project_accession": "PRJEB9799",
+      "species_latin_name": "Equus caballus",
+      "paper_doi": null,
+      "project_url": "https://www.ebi.ac.uk/ena/portal/api/filereport?accession=PRJEB9799&result=read_run&fields=study_accession,sample_accession,experiment_accession,run_accession,tax_id,scientific_name,library_layout,library_source,library_strategy,instrument_model,base_count,read_count,fastq_bytes,fastq_ftp,submitted_ftp,sra_ftp&format=tsv&download=true&limit=0",
+      "archive_status": "reject_or_out_of_scope",
+      "evidence_strength": "archive_only",
+      "ingestion_status": "blocked",
+      "paper_download_status": "missing",
+      "supplement_download_status": "missing",
+      "unresolved_sample_count": 1,
+      "region_only_site_count": 0,
+      "blockers": [
+        "paper_linkage_not_curated",
+        "sample_context_blocked"
+      ],
+      "absence_stage": "paper_or_metadata_capture"
+    },
+    {
+      "project_accession": "PRJEB81815",
+      "species_latin_name": "Felis catus",
+      "paper_doi": "10.1126/science.adt2642",
+      "project_url": "https://www.ebi.ac.uk/ena/portal/api/filereport?accession=PRJEB81815&result=read_run&fields=study_accession,sample_accession,experiment_accession,run_accession,tax_id,scientific_name,library_layout,library_source,library_strategy,instrument_model,base_count,read_count,fastq_bytes,fastq_ftp,submitted_ftp,sra_ftp&format=tsv&download=true&limit=0",
+      "archive_status": "paper_pinned_core",
+      "evidence_strength": "primary_paper_pinned",
+      "ingestion_status": "paper_source_archived",
+      "paper_download_status": "archived",
+      "supplement_download_status": "archived",
+      "unresolved_sample_count": 0,
+      "region_only_site_count": 1,
+      "blockers": [
+        "region_only_geography"
+      ],
+      "absence_stage": "coordinate_resolution"
+    },
+    {
+      "project_accession": "PRJNA1178732",
+      "species_latin_name": "Felis catus",
+      "paper_doi": "10.1016/j.xgen.2025.101099",
+      "project_url": "https://www.ncbi.nlm.nih.gov/bioproject/PRJNA1178732",
+      "archive_status": "paper_pinned_core",
+      "evidence_strength": "primary_paper_pinned",
+      "ingestion_status": "paper_source_archived",
+      "paper_download_status": "archived",
+      "supplement_download_status": "archived",
+      "unresolved_sample_count": 1,
+      "region_only_site_count": 0,
+      "blockers": [
+        "sample_context_blocked"
+      ],
+      "absence_stage": "site_extraction"
+    },
+    {
+      "project_accession": "PRJEB36540",
+      "species_latin_name": "Ovis aries",
+      "paper_doi": "10.1038/s42003-021-02794-8",
+      "project_url": "https://www.ebi.ac.uk/ena/portal/api/filereport?accession=PRJEB36540&result=read_run&fields=study_accession,sample_accession,experiment_accession,run_accession,tax_id,scientific_name,library_layout,library_source,library_strategy,instrument_model,base_count,read_count,fastq_bytes,fastq_ftp,submitted_ftp,sra_ftp&format=tsv&download=true&limit=0",
+      "archive_status": "paper_pinned_core",
+      "evidence_strength": "primary_paper_pinned",
+      "ingestion_status": "paper_and_supplement_archived",
+      "paper_download_status": "archived",
+      "supplement_download_status": "archived",
+      "unresolved_sample_count": 0,
+      "region_only_site_count": 0,
+      "blockers": [],
+      "absence_stage": "not_point_publishable"
+    },
+    {
+      "project_accession": "PRJEB41594",
+      "species_latin_name": "Ovis aries",
+      "paper_doi": "10.1038/s41562-021-01083-y",
+      "project_url": "https://www.ebi.ac.uk/ena/portal/api/filereport?accession=PRJEB41594&result=read_run&fields=study_accession,sample_accession,experiment_accession,run_accession,tax_id,scientific_name,library_layout,library_source,library_strategy,instrument_model,base_count,read_count,fastq_bytes,fastq_ftp,submitted_ftp,sra_ftp&format=tsv&download=true&limit=0",
+      "archive_status": "paper_pinned_core",
+      "evidence_strength": "primary_paper_pinned",
+      "ingestion_status": "paper_source_archived",
+      "paper_download_status": "archived",
+      "supplement_download_status": "archived",
+      "unresolved_sample_count": 1,
+      "region_only_site_count": 0,
+      "blockers": [
+        "sample_context_blocked"
+      ],
+      "absence_stage": "site_extraction"
+    },
+    {
+      "project_accession": "PRJEB59481",
+      "species_latin_name": "Ovis aries",
+      "paper_doi": "10.1093/gbe/evae114",
+      "project_url": "https://www.ebi.ac.uk/ena/portal/api/filereport?accession=PRJEB59481&result=read_run&fields=study_accession,sample_accession,experiment_accession,run_accession,tax_id,scientific_name,library_layout,library_source,library_strategy,instrument_model,base_count,read_count,fastq_bytes,fastq_ftp,submitted_ftp,sra_ftp&format=tsv&download=true&limit=0",
+      "archive_status": "paper_pinned_core",
+      "evidence_strength": "primary_paper_pinned",
+      "ingestion_status": "paper_source_archived",
+      "paper_download_status": "archived",
+      "supplement_download_status": "archived",
+      "unresolved_sample_count": 0,
+      "region_only_site_count": 1,
+      "blockers": [
+        "region_only_geography"
+      ],
+      "absence_stage": "coordinate_resolution"
+    },
+    {
+      "project_accession": "PRJEB61808",
+      "species_latin_name": "Ovis aries",
+      "paper_doi": null,
+      "project_url": "https://www.ebi.ac.uk/ena/portal/api/filereport?accession=PRJEB61808&result=read_run&fields=study_accession,sample_accession,experiment_accession,run_accession,tax_id,scientific_name,library_layout,library_source,library_strategy,instrument_model,base_count,read_count,fastq_bytes,fastq_ftp,submitted_ftp,sra_ftp&format=tsv&download=true&limit=0",
+      "archive_status": "archive_verified_needs_paper_pinning",
+      "evidence_strength": "archive_only",
+      "ingestion_status": "blocked",
+      "paper_download_status": "missing",
+      "supplement_download_status": "missing",
+      "unresolved_sample_count": 1,
+      "region_only_site_count": 0,
+      "blockers": [
+        "missing_local_paper_evidence",
+        "paper_linkage_not_curated",
+        "sample_context_blocked"
+      ],
+      "absence_stage": "paper_or_metadata_capture"
+    },
+    {
+      "project_accession": "PRJEB69690",
+      "species_latin_name": "Ovis aries",
+      "paper_doi": null,
+      "project_url": "https://www.ebi.ac.uk/ena/portal/api/filereport?accession=PRJEB69690&result=read_run&fields=study_accession,sample_accession,experiment_accession,run_accession,tax_id,scientific_name,library_layout,library_source,library_strategy,instrument_model,base_count,read_count,fastq_bytes,fastq_ftp,submitted_ftp,sra_ftp&format=tsv&download=true&limit=0",
+      "archive_status": "archive_verified_needs_paper_pinning",
+      "evidence_strength": "archive_only",
+      "ingestion_status": "blocked",
+      "paper_download_status": "missing",
+      "supplement_download_status": "missing",
+      "unresolved_sample_count": 1,
+      "region_only_site_count": 0,
+      "blockers": [
+        "missing_local_paper_evidence",
+        "paper_linkage_not_curated",
+        "sample_context_blocked"
+      ],
+      "absence_stage": "paper_or_metadata_capture"
+    },
+    {
+      "project_accession": "PRJEB81145",
+      "species_latin_name": "Ovis aries",
+      "paper_doi": null,
+      "project_url": "https://www.ebi.ac.uk/ena/portal/api/filereport?accession=PRJEB81145&result=read_run&fields=study_accession,sample_accession,experiment_accession,run_accession,tax_id,scientific_name,library_layout,library_source,library_strategy,instrument_model,base_count,read_count,fastq_bytes,fastq_ftp,submitted_ftp,sra_ftp&format=tsv&download=true&limit=0",
+      "archive_status": "archive_verified_needs_paper_pinning",
+      "evidence_strength": "archive_only",
+      "ingestion_status": "blocked",
+      "paper_download_status": "missing",
+      "supplement_download_status": "missing",
+      "unresolved_sample_count": 1,
+      "region_only_site_count": 0,
+      "blockers": [
+        "missing_local_paper_evidence",
+        "paper_linkage_not_curated",
+        "sample_context_blocked"
+      ],
+      "absence_stage": "paper_or_metadata_capture"
+    },
+    {
+      "project_accession": "PRJEB57293",
+      "species_latin_name": "Rangifer tarandus",
+      "paper_doi": null,
+      "project_url": "https://www.ebi.ac.uk/ena/portal/api/filereport?accession=PRJEB57293&result=read_run&fields=study_accession,sample_accession,experiment_accession,run_accession,tax_id,scientific_name,library_layout,library_source,library_strategy,instrument_model,base_count,read_count,fastq_bytes,fastq_ftp,submitted_ftp,sra_ftp&format=tsv&download=true&limit=0",
+      "archive_status": "reject_or_out_of_scope",
+      "evidence_strength": "archive_only",
+      "ingestion_status": "blocked",
+      "paper_download_status": "missing",
+      "supplement_download_status": "missing",
+      "unresolved_sample_count": 1,
+      "region_only_site_count": 0,
+      "blockers": [
+        "paper_linkage_not_curated",
+        "sample_context_blocked"
+      ],
+      "absence_stage": "paper_or_metadata_capture"
+    },
+    {
+      "project_accession": "PRJEB60484",
+      "species_latin_name": "Rangifer tarandus",
+      "paper_doi": "10.1038/s41598-024-54296-2",
+      "project_url": "https://www.ebi.ac.uk/ena/portal/api/filereport?accession=PRJEB60484&result=read_run&fields=study_accession,sample_accession,experiment_accession,run_accession,tax_id,scientific_name,library_layout,library_source,library_strategy,instrument_model,base_count,read_count,fastq_bytes,fastq_ftp,submitted_ftp,sra_ftp&format=tsv&download=true&limit=0",
+      "archive_status": "comparator_only",
+      "evidence_strength": "primary_paper_pinned",
+      "ingestion_status": "paper_source_archived",
+      "paper_download_status": "archived",
+      "supplement_download_status": "archived",
+      "unresolved_sample_count": 0,
+      "region_only_site_count": 1,
+      "blockers": [
+        "region_only_geography"
+      ],
+      "absence_stage": "coordinate_resolution"
+    },
+    {
+      "project_accession": "PRJEB61721",
+      "species_latin_name": "Rangifer tarandus",
+      "paper_doi": null,
+      "project_url": "https://www.ebi.ac.uk/ena/portal/api/filereport?accession=PRJEB61721&result=read_run&fields=study_accession,sample_accession,experiment_accession,run_accession,tax_id,scientific_name,library_layout,library_source,library_strategy,instrument_model,base_count,read_count,fastq_bytes,fastq_ftp,submitted_ftp,sra_ftp&format=tsv&download=true&limit=0",
+      "archive_status": "reject_or_out_of_scope",
+      "evidence_strength": "archive_only",
+      "ingestion_status": "blocked",
+      "paper_download_status": "missing",
+      "supplement_download_status": "missing",
+      "unresolved_sample_count": 1,
+      "region_only_site_count": 0,
+      "blockers": [
+        "paper_linkage_not_curated",
+        "sample_context_blocked"
+      ],
+      "absence_stage": "paper_or_metadata_capture"
+    },
+    {
+      "project_accession": "PRJNA634908",
+      "species_latin_name": "Rangifer tarandus",
+      "paper_doi": null,
+      "project_url": "https://www.ncbi.nlm.nih.gov/bioproject/PRJNA634908",
+      "archive_status": "reject_or_out_of_scope",
+      "evidence_strength": "archive_only",
+      "ingestion_status": "blocked",
+      "paper_download_status": "missing",
+      "supplement_download_status": "missing",
+      "unresolved_sample_count": 1,
+      "region_only_site_count": 0,
+      "blockers": [
+        "paper_linkage_not_curated",
+        "sample_context_blocked"
+      ],
+      "absence_stage": "paper_or_metadata_capture"
+    },
+    {
+      "project_accession": "PRJEB30282",
+      "species_latin_name": "Sus scrofa domesticus",
+      "paper_doi": "10.1073/pnas.1901169116",
+      "project_url": "https://www.ebi.ac.uk/ena/portal/api/filereport?accession=PRJEB30282&result=read_run&fields=study_accession,sample_accession,experiment_accession,run_accession,tax_id,scientific_name,library_layout,library_source,library_strategy,instrument_model,base_count,read_count,fastq_bytes,fastq_ftp,submitted_ftp,sra_ftp&format=tsv&download=true&limit=0",
+      "archive_status": "paper_pinned_core",
+      "evidence_strength": "primary_paper_pinned",
+      "ingestion_status": "paper_source_archived",
+      "paper_download_status": "archived",
+      "supplement_download_status": "archived",
+      "unresolved_sample_count": 0,
+      "region_only_site_count": 1,
+      "blockers": [
+        "region_only_geography"
+      ],
+      "absence_stage": "coordinate_resolution"
+    },
+    {
+      "project_accession": "PRJNA421430",
+      "species_latin_name": "Sus scrofa domesticus",
+      "paper_doi": null,
+      "project_url": "https://www.ebi.ac.uk/ena/portal/api/filereport?accession=PRJNA421430&result=read_run&fields=study_accession,sample_accession,experiment_accession,run_accession,tax_id,scientific_name,library_layout,library_source,library_strategy,instrument_model,base_count,read_count,fastq_bytes,fastq_ftp,submitted_ftp,sra_ftp&format=tsv&download=true&limit=0",
+      "archive_status": "reject_or_out_of_scope",
+      "evidence_strength": "archive_only",
+      "ingestion_status": "blocked",
+      "paper_download_status": "missing",
+      "supplement_download_status": "missing",
+      "unresolved_sample_count": 1,
+      "region_only_site_count": 0,
+      "blockers": [
+        "paper_linkage_not_curated",
+        "sample_context_blocked"
+      ],
+      "absence_stage": "paper_or_metadata_capture"
+    },
+    {
+      "project_accession": "PRJNA788987",
+      "species_latin_name": "Sus scrofa domesticus",
+      "paper_doi": null,
+      "project_url": "https://www.ebi.ac.uk/ena/portal/api/filereport?accession=PRJNA788987&result=read_run&fields=study_accession,sample_accession,experiment_accession,run_accession,tax_id,scientific_name,library_layout,library_source,library_strategy,instrument_model,base_count,read_count,fastq_bytes,fastq_ftp,submitted_ftp,sra_ftp&format=tsv&download=true&limit=0",
+      "archive_status": "archive_verified_needs_paper_pinning",
+      "evidence_strength": "archive_only",
+      "ingestion_status": "blocked",
+      "paper_download_status": "missing",
+      "supplement_download_status": "missing",
+      "unresolved_sample_count": 1,
+      "region_only_site_count": 0,
+      "blockers": [
+        "missing_local_paper_evidence",
+        "paper_linkage_not_curated",
+        "sample_context_blocked"
+      ],
+      "absence_stage": "paper_or_metadata_capture"
+    },
+    {
+      "project_accession": "PRJNA878488",
+      "species_latin_name": "Sus scrofa domesticus",
+      "paper_doi": null,
+      "project_url": "https://www.ebi.ac.uk/ena/portal/api/filereport?accession=PRJNA878488&result=read_run&fields=study_accession,sample_accession,experiment_accession,run_accession,tax_id,scientific_name,library_layout,library_source,library_strategy,instrument_model,base_count,read_count,fastq_bytes,fastq_ftp,submitted_ftp,sra_ftp&format=tsv&download=true&limit=0",
+      "archive_status": "archive_verified_needs_paper_pinning",
+      "evidence_strength": "archive_only",
+      "ingestion_status": "blocked",
+      "paper_download_status": "missing",
+      "supplement_download_status": "missing",
+      "unresolved_sample_count": 1,
+      "region_only_site_count": 0,
+      "blockers": [
+        "missing_local_paper_evidence",
+        "paper_linkage_not_curated",
+        "sample_context_blocked"
+      ],
+      "absence_stage": "paper_or_metadata_capture"
+    }
+  ]
+}

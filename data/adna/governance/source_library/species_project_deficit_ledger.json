@@ -1,0 +1,789 @@
+{
+  "schema_version": "animal-species-project-deficit-ledger.v1",
+  "row_count": 40,
+  "species_counts": {
+    "Bos taurus": {
+      "project_count": 3,
+      "projects_with_sample_gap": 2,
+      "projects_with_site_gap": 1,
+      "projects_with_chronology_gap": 0,
+      "projects_blocked_before_publication": 3
+    },
+    "Camelus dromedarius": {
+      "project_count": 2,
+      "projects_with_sample_gap": 1,
+      "projects_with_site_gap": 1,
+      "projects_with_chronology_gap": 1,
+      "projects_blocked_before_publication": 2
+    },
+    "Canis lupus familiaris": {
+      "project_count": 3,
+      "projects_with_sample_gap": 0,
+      "projects_with_site_gap": 3,
+      "projects_with_chronology_gap": 2,
+      "projects_blocked_before_publication": 3
+    },
+    "Capra hircus": {
+      "project_count": 3,
+      "projects_with_sample_gap": 0,
+      "projects_with_site_gap": 0,
+      "projects_with_chronology_gap": 0,
+      "projects_blocked_before_publication": 0
+    },
+    "Equus asinus": {
+      "project_count": 5,
+      "projects_with_sample_gap": 0,
+      "projects_with_site_gap": 0,
+      "projects_with_chronology_gap": 0,
+      "projects_blocked_before_publication": 5
+    },
+    "Equus caballus": {
+      "project_count": 8,
+      "projects_with_sample_gap": 0,
+      "projects_with_site_gap": 0,
+      "projects_with_chronology_gap": 0,
+      "projects_blocked_before_publication": 4
+    },
+    "Felis catus": {
+      "project_count": 2,
+      "projects_with_sample_gap": 2,
+      "projects_with_site_gap": 0,
+      "projects_with_chronology_gap": 0,
+      "projects_blocked_before_publication": 2
+    },
+    "Ovis aries": {
+      "project_count": 6,
+      "projects_with_sample_gap": 2,
+      "projects_with_site_gap": 0,
+      "projects_with_chronology_gap": 0,
+      "projects_blocked_before_publication": 5
+    },
+    "Rangifer tarandus": {
+      "project_count": 4,
+      "projects_with_sample_gap": 0,
+      "projects_with_site_gap": 1,
+      "projects_with_chronology_gap": 0,
+      "projects_blocked_before_publication": 4
+    },
+    "Sus scrofa domesticus": {
+      "project_count": 4,
+      "projects_with_sample_gap": 1,
+      "projects_with_site_gap": 0,
+      "projects_with_chronology_gap": 0,
+      "projects_blocked_before_publication": 4
+    }
+  },
+  "rows": [
+    {
+      "species_latin_name": "Bos taurus",
+      "project_accession": "PRJEB31621",
+      "paper_doi": "10.1126/science.aav1002",
+      "final_sample_count": 0,
+      "expected_sample_count": null,
+      "minimum_expected_sample_count": 1,
+      "minimum_gap_count": 1,
+      "lacking_defensible_site_assignment_count": 0,
+      "missing_chronology_count": 0,
+      "chronology_conflict_count": 0,
+      "chronology_ambiguity_count": 0,
+      "coordinate_blocked_count": 0,
+      "publication_readiness_status": "blocked",
+      "major_deficit_reasons": [
+        "implausibly_low_sample_recovery",
+        "sample_recovery_gap"
+      ]
+    },
+    {
+      "species_latin_name": "Bos taurus",
+      "project_accession": "PRJEB75467",
+      "paper_doi": "10.1038/s41586-024-08112-6",
+      "final_sample_count": 0,
+      "expected_sample_count": null,
+      "minimum_expected_sample_count": 1,
+      "minimum_gap_count": 1,
+      "lacking_defensible_site_assignment_count": 0,
+      "missing_chronology_count": 0,
+      "chronology_conflict_count": 0,
+      "chronology_ambiguity_count": 0,
+      "coordinate_blocked_count": 0,
+      "publication_readiness_status": "blocked",
+      "major_deficit_reasons": [
+        "implausibly_low_sample_recovery",
+        "sample_recovery_gap"
+      ]
+    },
+    {
+      "species_latin_name": "Bos taurus",
+      "project_accession": "PRJNA705960",
+      "paper_doi": "",
+      "final_sample_count": 11,
+      "expected_sample_count": null,
+      "minimum_expected_sample_count": 11,
+      "minimum_gap_count": 0,
+      "lacking_defensible_site_assignment_count": 11,
+      "missing_chronology_count": 0,
+      "chronology_conflict_count": 0,
+      "chronology_ambiguity_count": 11,
+      "coordinate_blocked_count": 12,
+      "publication_readiness_status": "blocked",
+      "major_deficit_reasons": [
+        "site_assignment_gap",
+        "coordinate_precision_gap",
+        "missing_primary_paper_linkage"
+      ]
+    },
+    {
+      "species_latin_name": "Camelus dromedarius",
+      "project_accession": "KU605068-KU605080",
+      "paper_doi": "10.1111/1755-0998.12551",
+      "final_sample_count": 13,
+      "expected_sample_count": 13,
+      "minimum_expected_sample_count": 13,
+      "minimum_gap_count": 0,
+      "lacking_defensible_site_assignment_count": 13,
+      "missing_chronology_count": 13,
+      "chronology_conflict_count": 0,
+      "chronology_ambiguity_count": 13,
+      "coordinate_blocked_count": 0,
+      "publication_readiness_status": "blocked",
+      "major_deficit_reasons": [
+        "site_assignment_gap",
+        "chronology_gap"
+      ]
+    },
+    {
+      "species_latin_name": "Camelus dromedarius",
+      "project_accession": "SRP073444",
+      "paper_doi": "10.1111/1755-0998.12551",
+      "final_sample_count": 0,
+      "expected_sample_count": null,
+      "minimum_expected_sample_count": 1,
+      "minimum_gap_count": 1,
+      "lacking_defensible_site_assignment_count": 0,
+      "missing_chronology_count": 0,
+      "chronology_conflict_count": 0,
+      "chronology_ambiguity_count": 0,
+      "coordinate_blocked_count": 0,
+      "publication_readiness_status": "blocked",
+      "major_deficit_reasons": [
+        "implausibly_low_sample_recovery",
+        "sample_recovery_gap"
+      ]
+    },
+    {
+      "species_latin_name": "Canis lupus familiaris",
+      "project_accession": "KX379528-KX379529",
+      "paper_doi": "10.1038/ncomms16082",
+      "final_sample_count": 2,
+      "expected_sample_count": 2,
+      "minimum_expected_sample_count": 2,
+      "minimum_gap_count": 0,
+      "lacking_defensible_site_assignment_count": 2,
+      "missing_chronology_count": 2,
+      "chronology_conflict_count": 0,
+      "chronology_ambiguity_count": 2,
+      "coordinate_blocked_count": 0,
+      "publication_readiness_status": "blocked",
+      "major_deficit_reasons": [
+        "site_assignment_gap",
+        "chronology_gap"
+      ]
+    },
+    {
+      "species_latin_name": "Canis lupus familiaris",
+      "project_accession": "SRS1407451",
+      "paper_doi": "10.1038/ncomms16082",
+      "final_sample_count": 1,
+      "expected_sample_count": 1,
+      "minimum_expected_sample_count": 1,
+      "minimum_gap_count": 0,
+      "lacking_defensible_site_assignment_count": 1,
+      "missing_chronology_count": 0,
+      "chronology_conflict_count": 0,
+      "chronology_ambiguity_count": 1,
+      "coordinate_blocked_count": 2,
+      "publication_readiness_status": "blocked",
+      "major_deficit_reasons": [
+        "site_assignment_gap",
+        "coordinate_precision_gap"
+      ]
+    },
+    {
+      "species_latin_name": "Canis lupus familiaris",
+      "project_accession": "SRS1407453",
+      "paper_doi": "10.1038/ncomms16082",
+      "final_sample_count": 1,
+      "expected_sample_count": 1,
+      "minimum_expected_sample_count": 1,
+      "minimum_gap_count": 0,
+      "lacking_defensible_site_assignment_count": 1,
+      "missing_chronology_count": 1,
+      "chronology_conflict_count": 0,
+      "chronology_ambiguity_count": 1,
+      "coordinate_blocked_count": 0,
+      "publication_readiness_status": "blocked",
+      "major_deficit_reasons": [
+        "site_assignment_gap",
+        "chronology_gap"
+      ]
+    },
+    {
+      "species_latin_name": "Capra hircus",
+      "project_accession": "PRJEB90141",
+      "paper_doi": "10.1093/gbe/evaf181",
+      "final_sample_count": 4,
+      "expected_sample_count": null,
+      "minimum_expected_sample_count": 1,
+      "minimum_gap_count": 0,
+      "lacking_defensible_site_assignment_count": 0,
+      "missing_chronology_count": 0,
+      "chronology_conflict_count": 3,
+      "chronology_ambiguity_count": 3,
+      "coordinate_blocked_count": 0,
+      "publication_readiness_status": "complete",
+      "major_deficit_reasons": []
+    },
+    {
+      "species_latin_name": "Capra hircus",
+      "project_accession": "PRJEB90261",
+      "paper_doi": "10.1016/j.isci.2025.113771",
+      "final_sample_count": 73,
+      "expected_sample_count": null,
+      "minimum_expected_sample_count": 1,
+      "minimum_gap_count": 0,
+      "lacking_defensible_site_assignment_count": 0,
+      "missing_chronology_count": 0,
+      "chronology_conflict_count": 72,
+      "chronology_ambiguity_count": 73,
+      "coordinate_blocked_count": 0,
+      "publication_readiness_status": "complete",
+      "major_deficit_reasons": []
+    },
+    {
+      "species_latin_name": "Capra hircus",
+      "project_accession": "PRJNA1328209",
+      "paper_doi": "10.24272/j.issn.2095-8137.2025.080",
+      "final_sample_count": 5,
+      "expected_sample_count": null,
+      "minimum_expected_sample_count": 1,
+      "minimum_gap_count": 0,
+      "lacking_defensible_site_assignment_count": 0,
+      "missing_chronology_count": 0,
+      "chronology_conflict_count": 0,
+      "chronology_ambiguity_count": 0,
+      "coordinate_blocked_count": 0,
+      "publication_readiness_status": "complete",
+      "major_deficit_reasons": []
+    },
+    {
+      "species_latin_name": "Equus asinus",
+      "project_accession": "PRJEB43564",
+      "paper_doi": "",
+      "final_sample_count": 0,
+      "expected_sample_count": null,
+      "minimum_expected_sample_count": null,
+      "minimum_gap_count": null,
+      "lacking_defensible_site_assignment_count": 0,
+      "missing_chronology_count": 0,
+      "chronology_conflict_count": 0,
+      "chronology_ambiguity_count": 0,
+      "coordinate_blocked_count": 0,
+      "publication_readiness_status": "blocked",
+      "major_deficit_reasons": [
+        "missing_primary_paper_linkage"
+      ]
+    },
+    {
+      "species_latin_name": "Equus asinus",
+      "project_accession": "PRJEB50952",
+      "paper_doi": "",
+      "final_sample_count": 0,
+      "expected_sample_count": null,
+      "minimum_expected_sample_count": null,
+      "minimum_gap_count": null,
+      "lacking_defensible_site_assignment_count": 0,
+      "missing_chronology_count": 0,
+      "chronology_conflict_count": 0,
+      "chronology_ambiguity_count": 0,
+      "coordinate_blocked_count": 0,
+      "publication_readiness_status": "blocked",
+      "major_deficit_reasons": [
+        "missing_primary_paper_linkage"
+      ]
+    },
+    {
+      "species_latin_name": "Equus asinus",
+      "project_accession": "PRJEB52590",
+      "paper_doi": "",
+      "final_sample_count": 0,
+      "expected_sample_count": null,
+      "minimum_expected_sample_count": null,
+      "minimum_gap_count": null,
+      "lacking_defensible_site_assignment_count": 0,
+      "missing_chronology_count": 0,
+      "chronology_conflict_count": 0,
+      "chronology_ambiguity_count": 0,
+      "coordinate_blocked_count": 0,
+      "publication_readiness_status": "blocked",
+      "major_deficit_reasons": [
+        "missing_primary_paper_linkage"
+      ]
+    },
+    {
+      "species_latin_name": "Equus asinus",
+      "project_accession": "PRJEB52849",
+      "paper_doi": "",
+      "final_sample_count": 0,
+      "expected_sample_count": null,
+      "minimum_expected_sample_count": null,
+      "minimum_gap_count": null,
+      "lacking_defensible_site_assignment_count": 0,
+      "missing_chronology_count": 0,
+      "chronology_conflict_count": 0,
+      "chronology_ambiguity_count": 0,
+      "coordinate_blocked_count": 1,
+      "publication_readiness_status": "blocked",
+      "major_deficit_reasons": [
+        "coordinate_precision_gap",
+        "missing_primary_paper_linkage"
+      ]
+    },
+    {
+      "species_latin_name": "Equus asinus",
+      "project_accession": "PRJEB55549",
+      "paper_doi": "",
+      "final_sample_count": 0,
+      "expected_sample_count": null,
+      "minimum_expected_sample_count": null,
+      "minimum_gap_count": null,
+      "lacking_defensible_site_assignment_count": 0,
+      "missing_chronology_count": 0,
+      "chronology_conflict_count": 0,
+      "chronology_ambiguity_count": 0,
+      "coordinate_blocked_count": 0,
+      "publication_readiness_status": "not_required",
+      "major_deficit_reasons": []
+    },
+    {
+      "species_latin_name": "Equus caballus",
+      "project_accession": "PRJEB10854",
+      "paper_doi": "",
+      "final_sample_count": 0,
+      "expected_sample_count": null,
+      "minimum_expected_sample_count": null,
+      "minimum_gap_count": null,
+      "lacking_defensible_site_assignment_count": 0,
+      "missing_chronology_count": 0,
+      "chronology_conflict_count": 0,
+      "chronology_ambiguity_count": 0,
+      "coordinate_blocked_count": 0,
+      "publication_readiness_status": "blocked",
+      "major_deficit_reasons": [
+        "missing_primary_paper_linkage"
+      ]
+    },
+    {
+      "species_latin_name": "Equus caballus",
+      "project_accession": "PRJEB19970",
+      "paper_doi": "10.1126/science.aam5298",
+      "final_sample_count": 14,
+      "expected_sample_count": null,
+      "minimum_expected_sample_count": 1,
+      "minimum_gap_count": 0,
+      "lacking_defensible_site_assignment_count": 0,
+      "missing_chronology_count": 0,
+      "chronology_conflict_count": 12,
+      "chronology_ambiguity_count": 12,
+      "coordinate_blocked_count": 0,
+      "publication_readiness_status": "complete",
+      "major_deficit_reasons": []
+    },
+    {
+      "species_latin_name": "Equus caballus",
+      "project_accession": "PRJEB22390",
+      "paper_doi": "10.1126/science.aao3297",
+      "final_sample_count": 42,
+      "expected_sample_count": null,
+      "minimum_expected_sample_count": 1,
+      "minimum_gap_count": 0,
+      "lacking_defensible_site_assignment_count": 0,
+      "missing_chronology_count": 0,
+      "chronology_conflict_count": 41,
+      "chronology_ambiguity_count": 41,
+      "coordinate_blocked_count": 0,
+      "publication_readiness_status": "complete",
+      "major_deficit_reasons": []
+    },
+    {
+      "species_latin_name": "Equus caballus",
+      "project_accession": "PRJEB31613",
+      "paper_doi": "10.1016/j.cell.2019.03.049",
+      "final_sample_count": 244,
+      "expected_sample_count": null,
+      "minimum_expected_sample_count": 1,
+      "minimum_gap_count": 0,
+      "lacking_defensible_site_assignment_count": 0,
+      "missing_chronology_count": 0,
+      "chronology_conflict_count": 235,
+      "chronology_ambiguity_count": 243,
+      "coordinate_blocked_count": 0,
+      "publication_readiness_status": "complete",
+      "major_deficit_reasons": []
+    },
+    {
+      "species_latin_name": "Equus caballus",
+      "project_accession": "PRJEB44430",
+      "paper_doi": "10.1038/s41586-021-04018-9",
+      "final_sample_count": 248,
+      "expected_sample_count": null,
+      "minimum_expected_sample_count": 1,
+      "minimum_gap_count": 0,
+      "lacking_defensible_site_assignment_count": 0,
+      "missing_chronology_count": 0,
+      "chronology_conflict_count": 247,
+      "chronology_ambiguity_count": 247,
+      "coordinate_blocked_count": 0,
+      "publication_readiness_status": "complete",
+      "major_deficit_reasons": []
+    },
+    {
+      "species_latin_name": "Equus caballus",
+      "project_accession": "PRJEB56293",
+      "paper_doi": "",
+      "final_sample_count": 0,
+      "expected_sample_count": null,
+      "minimum_expected_sample_count": null,
+      "minimum_gap_count": null,
+      "lacking_defensible_site_assignment_count": 0,
+      "missing_chronology_count": 0,
+      "chronology_conflict_count": 0,
+      "chronology_ambiguity_count": 0,
+      "coordinate_blocked_count": 0,
+      "publication_readiness_status": "blocked",
+      "major_deficit_reasons": [
+        "missing_primary_paper_linkage"
+      ]
+    },
+    {
+      "species_latin_name": "Equus caballus",
+      "project_accession": "PRJEB7537",
+      "paper_doi": "",
+      "final_sample_count": 0,
+      "expected_sample_count": null,
+      "minimum_expected_sample_count": null,
+      "minimum_gap_count": null,
+      "lacking_defensible_site_assignment_count": 0,
+      "missing_chronology_count": 0,
+      "chronology_conflict_count": 0,
+      "chronology_ambiguity_count": 0,
+      "coordinate_blocked_count": 0,
+      "publication_readiness_status": "blocked",
+      "major_deficit_reasons": [
+        "missing_primary_paper_linkage"
+      ]
+    },
+    {
+      "species_latin_name": "Equus caballus",
+      "project_accession": "PRJEB9799",
+      "paper_doi": "",
+      "final_sample_count": 0,
+      "expected_sample_count": null,
+      "minimum_expected_sample_count": null,
+      "minimum_gap_count": null,
+      "lacking_defensible_site_assignment_count": 0,
+      "missing_chronology_count": 0,
+      "chronology_conflict_count": 0,
+      "chronology_ambiguity_count": 0,
+      "coordinate_blocked_count": 0,
+      "publication_readiness_status": "not_required",
+      "major_deficit_reasons": []
+    },
+    {
+      "species_latin_name": "Felis catus",
+      "project_accession": "PRJEB81815",
+      "paper_doi": "10.1126/science.adt2642",
+      "final_sample_count": 0,
+      "expected_sample_count": null,
+      "minimum_expected_sample_count": 1,
+      "minimum_gap_count": 1,
+      "lacking_defensible_site_assignment_count": 0,
+      "missing_chronology_count": 0,
+      "chronology_conflict_count": 0,
+      "chronology_ambiguity_count": 0,
+      "coordinate_blocked_count": 1,
+      "publication_readiness_status": "blocked",
+      "major_deficit_reasons": [
+        "implausibly_low_sample_recovery",
+        "sample_recovery_gap",
+        "coordinate_precision_gap"
+      ]
+    },
+    {
+      "species_latin_name": "Felis catus",
+      "project_accession": "PRJNA1178732",
+      "paper_doi": "10.1016/j.xgen.2025.101099",
+      "final_sample_count": 0,
+      "expected_sample_count": null,
+      "minimum_expected_sample_count": 1,
+      "minimum_gap_count": 1,
+      "lacking_defensible_site_assignment_count": 0,
+      "missing_chronology_count": 0,
+      "chronology_conflict_count": 0,
+      "chronology_ambiguity_count": 0,
+      "coordinate_blocked_count": 0,
+      "publication_readiness_status": "blocked",
+      "major_deficit_reasons": [
+        "implausibly_low_sample_recovery",
+        "sample_recovery_gap"
+      ]
+    },
+    {
+      "species_latin_name": "Ovis aries",
+      "project_accession": "PRJEB36540",
+      "paper_doi": "10.1038/s42003-021-02794-8",
+      "final_sample_count": 190,
+      "expected_sample_count": null,
+      "minimum_expected_sample_count": 1,
+      "minimum_gap_count": 0,
+      "lacking_defensible_site_assignment_count": 0,
+      "missing_chronology_count": 0,
+      "chronology_conflict_count": 161,
+      "chronology_ambiguity_count": 171,
+      "coordinate_blocked_count": 0,
+      "publication_readiness_status": "complete",
+      "major_deficit_reasons": []
+    },
+    {
+      "species_latin_name": "Ovis aries",
+      "project_accession": "PRJEB41594",
+      "paper_doi": "10.1038/s41562-021-01083-y",
+      "final_sample_count": 0,
+      "expected_sample_count": null,
+      "minimum_expected_sample_count": 1,
+      "minimum_gap_count": 1,
+      "lacking_defensible_site_assignment_count": 0,
+      "missing_chronology_count": 0,
+      "chronology_conflict_count": 0,
+      "chronology_ambiguity_count": 0,
+      "coordinate_blocked_count": 0,
+      "publication_readiness_status": "blocked",
+      "major_deficit_reasons": [
+        "implausibly_low_sample_recovery",
+        "sample_recovery_gap"
+      ]
+    },
+    {
+      "species_latin_name": "Ovis aries",
+      "project_accession": "PRJEB59481",
+      "paper_doi": "10.1093/gbe/evae114",
+      "final_sample_count": 0,
+      "expected_sample_count": null,
+      "minimum_expected_sample_count": 1,
+      "minimum_gap_count": 1,
+      "lacking_defensible_site_assignment_count": 0,
+      "missing_chronology_count": 0,
+      "chronology_conflict_count": 0,
+      "chronology_ambiguity_count": 0,
+      "coordinate_blocked_count": 1,
+      "publication_readiness_status": "blocked",
+      "major_deficit_reasons": [
+        "implausibly_low_sample_recovery",
+        "sample_recovery_gap",
+        "coordinate_precision_gap"
+      ]
+    },
+    {
+      "species_latin_name": "Ovis aries",
+      "project_accession": "PRJEB61808",
+      "paper_doi": "",
+      "final_sample_count": 0,
+      "expected_sample_count": null,
+      "minimum_expected_sample_count": null,
+      "minimum_gap_count": null,
+      "lacking_defensible_site_assignment_count": 0,
+      "missing_chronology_count": 0,
+      "chronology_conflict_count": 0,
+      "chronology_ambiguity_count": 0,
+      "coordinate_blocked_count": 0,
+      "publication_readiness_status": "blocked",
+      "major_deficit_reasons": [
+        "missing_primary_paper_linkage"
+      ]
+    },
+    {
+      "species_latin_name": "Ovis aries",
+      "project_accession": "PRJEB69690",
+      "paper_doi": "",
+      "final_sample_count": 0,
+      "expected_sample_count": null,
+      "minimum_expected_sample_count": null,
+      "minimum_gap_count": null,
+      "lacking_defensible_site_assignment_count": 0,
+      "missing_chronology_count": 0,
+      "chronology_conflict_count": 0,
+      "chronology_ambiguity_count": 0,
+      "coordinate_blocked_count": 0,
+      "publication_readiness_status": "blocked",
+      "major_deficit_reasons": [
+        "missing_primary_paper_linkage"
+      ]
+    },
+    {
+      "species_latin_name": "Ovis aries",
+      "project_accession": "PRJEB81145",
+      "paper_doi": "",
+      "final_sample_count": 0,
+      "expected_sample_count": null,
+      "minimum_expected_sample_count": null,
+      "minimum_gap_count": null,
+      "lacking_defensible_site_assignment_count": 0,
+      "missing_chronology_count": 0,
+      "chronology_conflict_count": 0,
+      "chronology_ambiguity_count": 0,
+      "coordinate_blocked_count": 0,
+      "publication_readiness_status": "blocked",
+      "major_deficit_reasons": [
+        "missing_primary_paper_linkage"
+      ]
+    },
+    {
+      "species_latin_name": "Rangifer tarandus",
+      "project_accession": "PRJEB57293",
+      "paper_doi": "",
+      "final_sample_count": 0,
+      "expected_sample_count": null,
+      "minimum_expected_sample_count": null,
+      "minimum_gap_count": null,
+      "lacking_defensible_site_assignment_count": 0,
+      "missing_chronology_count": 0,
+      "chronology_conflict_count": 0,
+      "chronology_ambiguity_count": 0,
+      "coordinate_blocked_count": 0,
+      "publication_readiness_status": "not_required",
+      "major_deficit_reasons": []
+    },
+    {
+      "species_latin_name": "Rangifer tarandus",
+      "project_accession": "PRJEB60484",
+      "paper_doi": "10.1038/s41598-024-54296-2",
+      "final_sample_count": 20,
+      "expected_sample_count": null,
+      "minimum_expected_sample_count": 1,
+      "minimum_gap_count": 0,
+      "lacking_defensible_site_assignment_count": 20,
+      "missing_chronology_count": 0,
+      "chronology_conflict_count": 0,
+      "chronology_ambiguity_count": 20,
+      "coordinate_blocked_count": 21,
+      "publication_readiness_status": "blocked",
+      "major_deficit_reasons": [
+        "site_assignment_gap",
+        "coordinate_precision_gap"
+      ]
+    },
+    {
+      "species_latin_name": "Rangifer tarandus",
+      "project_accession": "PRJEB61721",
+      "paper_doi": "",
+      "final_sample_count": 0,
+      "expected_sample_count": null,
+      "minimum_expected_sample_count": null,
+      "minimum_gap_count": null,
+      "lacking_defensible_site_assignment_count": 0,
+      "missing_chronology_count": 0,
+      "chronology_conflict_count": 0,
+      "chronology_ambiguity_count": 0,
+      "coordinate_blocked_count": 0,
+      "publication_readiness_status": "not_required",
+      "major_deficit_reasons": []
+    },
+    {
+      "species_latin_name": "Rangifer tarandus",
+      "project_accession": "PRJNA634908",
+      "paper_doi": "",
+      "final_sample_count": 0,
+      "expected_sample_count": null,
+      "minimum_expected_sample_count": null,
+      "minimum_gap_count": null,
+      "lacking_defensible_site_assignment_count": 0,
+      "missing_chronology_count": 0,
+      "chronology_conflict_count": 0,
+      "chronology_ambiguity_count": 0,
+      "coordinate_blocked_count": 0,
+      "publication_readiness_status": "not_required",
+      "major_deficit_reasons": []
+    },
+    {
+      "species_latin_name": "Sus scrofa domesticus",
+      "project_accession": "PRJEB30282",
+      "paper_doi": "10.1073/pnas.1901169116",
+      "final_sample_count": 0,
+      "expected_sample_count": null,
+      "minimum_expected_sample_count": 1,
+      "minimum_gap_count": 1,
+      "lacking_defensible_site_assignment_count": 0,
+      "missing_chronology_count": 0,
+      "chronology_conflict_count": 0,
+      "chronology_ambiguity_count": 0,
+      "coordinate_blocked_count": 1,
+      "publication_readiness_status": "blocked",
+      "major_deficit_reasons": [
+        "implausibly_low_sample_recovery",
+        "sample_recovery_gap",
+        "coordinate_precision_gap"
+      ]
+    },
+    {
+      "species_latin_name": "Sus scrofa domesticus",
+      "project_accession": "PRJNA421430",
+      "paper_doi": "",
+      "final_sample_count": 0,
+      "expected_sample_count": null,
+      "minimum_expected_sample_count": null,
+      "minimum_gap_count": null,
+      "lacking_defensible_site_assignment_count": 0,
+      "missing_chronology_count": 0,
+      "chronology_conflict_count": 0,
+      "chronology_ambiguity_count": 0,
+      "coordinate_blocked_count": 0,
+      "publication_readiness_status": "not_required",
+      "major_deficit_reasons": []
+    },
+    {
+      "species_latin_name": "Sus scrofa domesticus",
+      "project_accession": "PRJNA788987",
+      "paper_doi": "",
+      "final_sample_count": 0,
+      "expected_sample_count": null,
+      "minimum_expected_sample_count": null,
+      "minimum_gap_count": null,
+      "lacking_defensible_site_assignment_count": 0,
+      "missing_chronology_count": 0,
+      "chronology_conflict_count": 0,
+      "chronology_ambiguity_count": 0,
+      "coordinate_blocked_count": 0,
+      "publication_readiness_status": "blocked",
+      "major_deficit_reasons": [
+        "missing_primary_paper_linkage"
+      ]
+    },
+    {
+      "species_latin_name": "Sus scrofa domesticus",
+      "project_accession": "PRJNA878488",
+      "paper_doi": "",
+      "final_sample_count": 0,
+      "expected_sample_count": null,
+      "minimum_expected_sample_count": null,
+      "minimum_gap_count": null,
+      "lacking_defensible_site_assignment_count": 0,
+      "missing_chronology_count": 0,
+      "chronology_conflict_count": 0,
+      "chronology_ambiguity_count": 0,
+      "coordinate_blocked_count": 0,
+      "publication_readiness_status": "blocked",
+      "major_deficit_reasons": [
+        "missing_primary_paper_linkage"
+      ]
+    }
+  ]
+}

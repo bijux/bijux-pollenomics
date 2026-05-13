@@ -5,6 +5,10 @@ dev_addr: 127.0.0.1:8000
 validation:
   omitted_files: ignore
 
+exclude_docs: |
+  badges.md
+  internal/**
+
 theme:
   name: material
   language: en
@@ -57,54 +61,6 @@ theme:
 plugins:
   - search
   - autorefs
-  - redirects:
-      redirect_maps:
-        foundation/index.md: 01-bijux-pollenomics/foundation/index.md
-        foundation/product-overview.md: 01-bijux-pollenomics/foundation/package-overview.md
-        foundation/repository-scope.md: 01-bijux-pollenomics/foundation/repository-fit.md
-        foundation/scope-and-non-goals.md: 01-bijux-pollenomics/foundation/scope-and-non-goals.md
-        foundation/map-first-product-model.md: 01-bijux-pollenomics/foundation/capability-map.md
-        architecture/index.md: 01-bijux-pollenomics/architecture/index.md
-        architecture/system-overview.md: 01-bijux-pollenomics/architecture/module-map.md
-        architecture/data-collection-flow.md: 01-bijux-pollenomics/architecture/execution-model.md
-        architecture/publication-flow.md: 01-bijux-pollenomics/architecture/integration-seams.md
-        architecture/codebase-layout-and-ownership.md: 01-bijux-pollenomics/architecture/code-navigation.md
-        engineering/index.md: 01-bijux-pollenomics/quality/index.md
-        engineering/local-workflow.md: 01-bijux-pollenomics/operations/local-development.md
-        engineering/automation-workflows.md: 01-bijux-pollenomics/operations/common-workflows.md
-        engineering/testing-and-evidence.md: 01-bijux-pollenomics/quality/test-strategy.md
-        engineering/change-review-checklist.md: 01-bijux-pollenomics/quality/review-checklist.md
-        engineering/documentation-standards.md: 01-bijux-pollenomics/quality/documentation-standards.md
-        workflows/index.md: 01-bijux-pollenomics/operations/index.md
-        workflows/install-and-verify.md: 01-bijux-pollenomics/operations/installation-and-setup.md
-        workflows/rebuild-data-tree.md: 01-bijux-pollenomics/operations/common-workflows.md
-        workflows/publish-report-artifacts.md: 01-bijux-pollenomics/operations/common-workflows.md
-        workflows/troubleshoot-local-setup.md: 01-bijux-pollenomics/operations/failure-recovery.md
-        data-sources/index.md: 02-bijux-pollenomics-data/sources/index.md
-        data-sources/source-comparison.md: 02-bijux-pollenomics-data/sources/source-comparison.md
-        data-sources/provenance-and-refresh-policy.md: 02-bijux-pollenomics-data/foundation/provenance-model.md
-        data-sources/aadr.md: 02-bijux-pollenomics-data/sources/aadr.md
-        data-sources/boundaries.md: 02-bijux-pollenomics-data/sources/boundaries.md
-        data-sources/landclim.md: 02-bijux-pollenomics-data/sources/landclim.md
-        data-sources/neotoma.md: 02-bijux-pollenomics-data/sources/neotoma.md
-        data-sources/raa.md: 02-bijux-pollenomics-data/sources/raa.md
-        data-sources/sead.md: 02-bijux-pollenomics-data/sources/sead.md
-        outputs/index.md: 02-bijux-pollenomics-data/outputs/index.md
-        outputs/nordic-evidence-atlas.md: 02-bijux-pollenomics-data/outputs/nordic-atlas.md
-        outputs/country-reports.md: 02-bijux-pollenomics-data/outputs/published-reports.md
-        outputs/artifact-lifecycle.md: 02-bijux-pollenomics-data/outputs/collection-summary.md
-        outputs/published-artifacts.md: 02-bijux-pollenomics-data/outputs/published-reports.md
-        outputs/lyngsjon-lake-fieldwork.md: 04-fieldwork/lyngsjon-lake-fieldwork/index.md
-        02-bijux-pollenomics-data/fieldwork/index.md: 04-fieldwork/index.md
-        02-bijux-pollenomics-data/fieldwork/lyngsjon-lake-fieldwork.md: 04-fieldwork/lyngsjon-lake-fieldwork/index.md
-        reference/index.md: 01-bijux-pollenomics/interfaces/index.md
-        reference/command-reference.md: 01-bijux-pollenomics/interfaces/entrypoints-and-examples.md
-        reference/configuration-defaults.md: 01-bijux-pollenomics/interfaces/configuration-surface.md
-        reference/data-layout.md: 02-bijux-pollenomics-data/foundation/directory-layout.md
-        reference/report-layout.md: 02-bijux-pollenomics-data/outputs/published-reports.md
-        reference/glossary.md: 01-bijux-pollenomics/foundation/domain-language.md
-        bijux-pollenomics/api-and-schema-governance.md: 01-bijux-pollenomics/interfaces/api-surface.md
-        bijux-pollenomics/apis.md: 01-bijux-pollenomics/interfaces/api-surface.md
   - git-revision-date-localized:
       enable_creation_date: false
       fallback_to_build_date: true
@@ -139,8 +95,7 @@ markdown_extensions:
 extra:
   homepage: https://bijux.io/
   bijux:
-    repository: bijux-pollenomics
-    docs_package: bijux-pollenomics-dev
+    repository: bijux
     nav_mode: default
     theme_key: bijux:theme
   social:
