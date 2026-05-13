@@ -1,0 +1,8 @@
+{
+  "schema_version": "adna-source-library.v1",
+  "source_url": "https://www.ncbi.nlm.nih.gov/nuccore/KU605068",
+  "artifact_kind": "archive_metadata_html",
+  "content_type": "text/html; charset=UTF-8",
+  "byte_size": 90233,
+  "project_accession": "KU605068-KU605080"
+}

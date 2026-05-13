@@ -1,0 +1,91 @@
+{
+  "schema_version": "adna-cross-species-map-readiness.v1",
+  "rows": [
+    {
+      "species_latin_name": "Equus caballus",
+      "species_common_name": "horse",
+      "direct_coordinate_backed": 207,
+      "indirectly_geocoded": 1,
+      "unresolved": 4,
+      "refused_from_mapping": 0
+    },
+    {
+      "species_latin_name": "Sus scrofa domesticus",
+      "species_common_name": "pig",
+      "direct_coordinate_backed": 0,
+      "indirectly_geocoded": 0,
+      "unresolved": 3,
+      "refused_from_mapping": 1
+    },
+    {
+      "species_latin_name": "Ovis aries",
+      "species_common_name": "sheep",
+      "direct_coordinate_backed": 0,
+      "indirectly_geocoded": 0,
+      "unresolved": 4,
+      "refused_from_mapping": 1
+    },
+    {
+      "species_latin_name": "Bos taurus",
+      "species_common_name": "cattle",
+      "direct_coordinate_backed": 0,
+      "indirectly_geocoded": 0,
+      "unresolved": 2,
+      "refused_from_mapping": 1
+    },
+    {
+      "species_latin_name": "Capra hircus",
+      "species_common_name": "goat",
+      "direct_coordinate_backed": 27,
+      "indirectly_geocoded": 0,
+      "unresolved": 0,
+      "refused_from_mapping": 0
+    },
+    {
+      "species_latin_name": "Canis lupus familiaris",
+      "species_common_name": "dog",
+      "direct_coordinate_backed": 0,
+      "indirectly_geocoded": 0,
+      "unresolved": 0,
+      "refused_from_mapping": 1
+    },
+    {
+      "species_latin_name": "Felis catus",
+      "species_common_name": "cat",
+      "direct_coordinate_backed": 0,
+      "indirectly_geocoded": 0,
+      "unresolved": 1,
+      "refused_from_mapping": 1
+    },
+    {
+      "species_latin_name": "Camelus dromedarius",
+      "species_common_name": "dromedary camel",
+      "direct_coordinate_backed": 0,
+      "indirectly_geocoded": 1,
+      "unresolved": 0,
+      "refused_from_mapping": 0
+    },
+    {
+      "species_latin_name": "Rangifer tarandus",
+      "species_common_name": "reindeer",
+      "direct_coordinate_backed": 0,
+      "indirectly_geocoded": 0,
+      "unresolved": 3,
+      "refused_from_mapping": 1
+    },
+    {
+      "species_latin_name": "Equus asinus",
+      "species_common_name": "donkey",
+      "direct_coordinate_backed": 0,
+      "indirectly_geocoded": 0,
+      "unresolved": 4,
+      "refused_from_mapping": 1
+    }
+  ],
+  "totals": {
+    "direct_coordinate_backed": 234,
+    "indirectly_geocoded": 2,
+    "unresolved": 21,
+    "refused_from_mapping": 7
+  }
+}

@@ -13,7 +13,7 @@ def build_country_boundary_layer(geojson: JsonObject) -> dict[str, object]:
         "description": "Administrative outlines used for country filtering and visual framing.",
         "group": "orientation",
         "source_name": "Natural Earth country boundaries",
-        "coverage_label": "Nordic country outlines used for framing and map filtering.",
+        "coverage_label": "Published country outlines used for framing and scope-aware map filtering.",
         "geometry_label": "Polygon outlines",
         "default_enabled": True,
         "kind": "country-boundaries",

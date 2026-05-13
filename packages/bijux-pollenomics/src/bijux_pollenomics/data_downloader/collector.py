@@ -3,6 +3,7 @@ from __future__ import annotations
 from collections.abc import Callable, Iterable
 from pathlib import Path
 
+from ..adna.species.tracked_data import materialize_tracked_species_adna
 from ..config import DEFAULT_AADR_VERSION
 from .boundaries import (
     collect_boundaries_data,
@@ -12,6 +13,8 @@ from .boundaries import (
 from .data_layout import (
     AVAILABLE_SOURCES,
     build_source_output_roots,
+    ensure_curated_species_adna_layout,
+    ensure_homo_sapiens_adna_layout,
     write_data_directory_readme,
 )
 from .landclim import collect_landclim_data
@@ -23,6 +26,7 @@ from .pipeline.collection_reports import (
     initialize_source_counts,
 )
 from .pipeline.context_collection import collect_context_source
+from .pipeline.contract_surface_writer import write_data_contract_surfaces
 from .pipeline.requested_sources import normalize_requested_sources
 from .pipeline.source_registry import CONTEXT_SOURCE_SPECS
 from .pipeline.staging import build_staging_output_dir, collect_into_staging_dir
@@ -143,7 +147,12 @@ def collect_data(
     output_root.mkdir(parents=True, exist_ok=True)
     for source_dir in AVAILABLE_SOURCES:
         (output_root / source_dir).mkdir(parents=True, exist_ok=True)
+    ensure_homo_sapiens_adna_layout(output_root)
+    ensure_curated_species_adna_layout(output_root)
+    materialize_tracked_species_adna(output_root)
     write_data_directory_readme(output_root, version=version)
+    write_data_contract_surfaces(summary)
+    write_collection_summary(summary)
     validate_source_layout_contract(build_source_layout_contract(output_root))
     validate_source_snapshot(
         output_root=output_root,
@@ -152,7 +161,6 @@ def collect_data(
         source_metadata=source_metadata,
         boundary_source=boundary_source,
     )
-    write_collection_summary(summary)
 
     return build_data_collection_report(summary)
 

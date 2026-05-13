@@ -1,0 +1,119 @@
+{
+  "schema_version": "animal-date-evidence-gap-queue.v1",
+  "rows": [
+    {
+      "project_accession": "KU605068-KU605080",
+      "species_latin_name": "Camelus dromedarius",
+      "recovered_sample_row_count": 13,
+      "sample_owned_date_row_count": 0,
+      "exact_sample_date_count": 0,
+      "modeled_or_approximate_sample_date_count": 0,
+      "contextual_date_count": 0,
+      "broad_label_count": 0,
+      "missing_date_count": 13,
+      "gap_reasons": [
+        "no_sample_owned_chronology_recovered",
+        "missing_sample_level_date_evidence"
+      ]
+    },
+    {
+      "project_accession": "KX379528-KX379529",
+      "species_latin_name": "Canis lupus familiaris",
+      "recovered_sample_row_count": 2,
+      "sample_owned_date_row_count": 0,
+      "exact_sample_date_count": 0,
+      "modeled_or_approximate_sample_date_count": 0,
+      "contextual_date_count": 0,
+      "broad_label_count": 0,
+      "missing_date_count": 2,
+      "gap_reasons": [
+        "no_sample_owned_chronology_recovered",
+        "missing_sample_level_date_evidence"
+      ]
+    },
+    {
+      "project_accession": "SRS1407453",
+      "species_latin_name": "Canis lupus familiaris",
+      "recovered_sample_row_count": 1,
+      "sample_owned_date_row_count": 0,
+      "exact_sample_date_count": 0,
+      "modeled_or_approximate_sample_date_count": 0,
+      "contextual_date_count": 0,
+      "broad_label_count": 0,
+      "missing_date_count": 1,
+      "gap_reasons": [
+        "no_sample_owned_chronology_recovered",
+        "missing_sample_level_date_evidence"
+      ]
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "species_latin_name": "Equus caballus",
+      "recovered_sample_row_count": 244,
+      "sample_owned_date_row_count": 236,
+      "exact_sample_date_count": 236,
+      "modeled_or_approximate_sample_date_count": 0,
+      "contextual_date_count": 8,
+      "broad_label_count": 0,
+      "missing_date_count": 0,
+      "gap_reasons": []
+    },
+    {
+      "project_accession": "PRJEB36540",
+      "species_latin_name": "Ovis aries",
+      "recovered_sample_row_count": 190,
+      "sample_owned_date_row_count": 180,
+      "exact_sample_date_count": 167,
+      "modeled_or_approximate_sample_date_count": 13,
+      "contextual_date_count": 10,
+      "broad_label_count": 0,
+      "missing_date_count": 0,
+      "gap_reasons": []
+    },
+    {
+      "project_accession": "PRJEB60484",
+      "species_latin_name": "Rangifer tarandus",
+      "recovered_sample_row_count": 20,
+      "sample_owned_date_row_count": 0,
+      "exact_sample_date_count": 0,
+      "modeled_or_approximate_sample_date_count": 0,
+      "contextual_date_count": 20,
+      "broad_label_count": 0,
+      "missing_date_count": 0,
+      "gap_reasons": [
+        "no_sample_owned_chronology_recovered",
+        "project_context_dates_still_dominate"
+      ]
+    },
+    {
+      "project_accession": "PRJNA705960",
+      "species_latin_name": "Bos taurus",
+      "recovered_sample_row_count": 11,
+      "sample_owned_date_row_count": 0,
+      "exact_sample_date_count": 0,
+      "modeled_or_approximate_sample_date_count": 0,
+      "contextual_date_count": 11,
+      "broad_label_count": 0,
+      "missing_date_count": 0,
+      "gap_reasons": [
+        "no_sample_owned_chronology_recovered",
+        "project_context_dates_still_dominate"
+      ]
+    },
+    {
+      "project_accession": "SRS1407451",
+      "species_latin_name": "Canis lupus familiaris",
+      "recovered_sample_row_count": 1,
+      "sample_owned_date_row_count": 0,
+      "exact_sample_date_count": 0,
+      "modeled_or_approximate_sample_date_count": 0,
+      "contextual_date_count": 1,
+      "broad_label_count": 0,
+      "missing_date_count": 0,
+      "gap_reasons": [
+        "no_sample_owned_chronology_recovered",
+        "project_context_dates_still_dominate"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,4 @@
+project_accession,source_family,result_kind,metadata_url,source_title,source_description,title_basis,description_basis,captured_on
+SRS1407451,SRA,read_run,https://www.ncbi.nlm.nih.gov/sra?term=SRS1407451,Ancient European dog genomes reveal continuity since the Early Neolithic,Ancient dog CTC sample explicitly named on the primary paper page.,primary_paper_sample_accession_fallback,curated_scope_note_fallback,2026-05-07
+SRS1407453,SRA,read_run,https://www.ncbi.nlm.nih.gov/sra?term=SRS1407453,Ancient European dog genomes reveal continuity since the Early Neolithic,Ancient dog HXH sample explicitly named on the primary paper page.,primary_paper_sample_accession_fallback,curated_scope_note_fallback,2026-05-07
+KX379528-KX379529,GenBank,read_run,https://www.ncbi.nlm.nih.gov/nuccore/KX379528,"Canis lupus familiaris isolate CTCdog mitochondrion, complete genome",KX379528,ncbi-nuccore-summary,ncbi-nuccore-summary,2026-05-07

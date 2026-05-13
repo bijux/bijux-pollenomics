@@ -1,0 +1,448 @@
+{
+  "schema_version": "animal-paper-expected-sample-yield-review.v1",
+  "row_count": 18,
+  "counts": {
+    "paper_rows_with_implausibly_low_recovery": 8,
+    "paper_rows_with_unknown_expected_totals": 17
+  },
+  "rows": [
+    {
+      "paper_doi": "10.1016/j.cell.2019.03.049",
+      "paper_title": "Tracking Five Millennia of Horse Management with Extensive Ancient Genome Time Series",
+      "project_accessions": [
+        "PRJEB31613"
+      ],
+      "sample_extractability": "supplement_extractable",
+      "article_download_status": "archived",
+      "supplementary_download_status": "archived",
+      "supplement_parse_status": "repository_supplement_archived",
+      "recovered_final_sample_count": 244,
+      "exact_expected_sample_count_total": 0,
+      "projects_with_unknown_expected_total": 1,
+      "projects_with_implausibly_low_recovery": 0,
+      "yield_recovery_posture": "expected_total_still_partially_unbounded",
+      "expected_contribution_surfaces": [
+        "adna/governance/source_library/papers/10.1016-j.cell.2019.03.049/supplementary/1-s2.0-S0092867419303848-mmc1.xlsx",
+        "adna/governance/source_library/papers/10.1016-j.cell.2019.03.049/supplementary/1-s2.0-S0092867419303848-mmc2.xlsx",
+        "adna/governance/source_library/papers/10.1016-j.cell.2019.03.049/supplementary/1-s2.0-S0092867419303848-mmc3.xlsx",
+        "adna/governance/source_library/papers/10.1016-j.cell.2019.03.049/supplementary/1-s2.0-S0092867419303848-mmc4.xlsx",
+        "adna/governance/source_library/papers/10.1016-j.cell.2019.03.049/supplementary/1-s2.0-S0092867419303848-mmc5.xlsx",
+        "adna/governance/source_library/papers/10.1016-j.cell.2019.03.049/supplementary/1-s2.0-S0092867419303848-mmc6.xlsx",
+        "adna/governance/source_library/papers/10.1016-j.cell.2019.03.049/supplementary/1-s2.0-S0092867419303848-mmc7.xlsx",
+        "data/adna/governance/source_library/papers/10.1016-j.cell.2019.03.049/article.html",
+        "data/adna/governance/source_library/projects/PRJEB31613/archive_metadata.html"
+      ]
+    },
+    {
+      "paper_doi": "10.1016/j.isci.2025.113771",
+      "paper_title": "Paleogenomic evidence on the temporal continuity of indigenous goat exploitation in the Canary Islands",
+      "project_accessions": [
+        "PRJEB90261"
+      ],
+      "sample_extractability": "supplement_extractable",
+      "article_download_status": "archived",
+      "supplementary_download_status": "archived",
+      "supplement_parse_status": "repository_supplement_archived",
+      "recovered_final_sample_count": 73,
+      "exact_expected_sample_count_total": 0,
+      "projects_with_unknown_expected_total": 1,
+      "projects_with_implausibly_low_recovery": 0,
+      "yield_recovery_posture": "expected_total_still_partially_unbounded",
+      "expected_contribution_surfaces": [
+        "adna/governance/source_library/papers/10.1016-j.isci.2025.113771/supplementary/1-s2.0-S2589004225020322-mmc1.pdf",
+        "adna/governance/source_library/papers/10.1016-j.isci.2025.113771/supplementary/1-s2.0-S2589004225020322-mmc2.xlsx",
+        "adna/governance/source_library/papers/10.1016-j.isci.2025.113771/supplementary/1-s2.0-S2589004225020322-mmc3.xlsx",
+        "adna/governance/source_library/papers/10.1016-j.isci.2025.113771/supplementary/1-s2.0-S2589004225020322-mmc4.xlsx",
+        "data/adna/governance/source_library/papers/10.1016-j.isci.2025.113771/article.html",
+        "data/adna/governance/source_library/projects/PRJEB90261/archive_metadata.html"
+      ]
+    },
+    {
+      "paper_doi": "10.1016/j.xgen.2025.101099",
+      "paper_title": "The late arrival of domestic cats in China via the Silk Road after 3,500 years of human-leopard cat commensalism",
+      "project_accessions": [
+        "PRJNA1178732"
+      ],
+      "sample_extractability": "supplement_extractable",
+      "article_download_status": "archived",
+      "supplementary_download_status": "archived",
+      "supplement_parse_status": "repository_supplement_archived",
+      "recovered_final_sample_count": 0,
+      "exact_expected_sample_count_total": 0,
+      "projects_with_unknown_expected_total": 1,
+      "projects_with_implausibly_low_recovery": 1,
+      "yield_recovery_posture": "implausibly_low_project_recovery_present",
+      "expected_contribution_surfaces": [
+        "adna/governance/source_library/papers/10.1016-j.xgen.2025.101099/supplementary/1-s2.0-S2666979X25003556-mmc1.pdf",
+        "adna/governance/source_library/papers/10.1016-j.xgen.2025.101099/supplementary/1-s2.0-S2666979X25003556-mmc2.pdf",
+        "adna/governance/source_library/papers/10.1016-j.xgen.2025.101099/supplementary/1-s2.0-S2666979X25003556-mmc3.xlsx",
+        "adna/governance/source_library/papers/10.1016-j.xgen.2025.101099/supplementary/1-s2.0-S2666979X25003556-mmc4.xlsx",
+        "adna/governance/source_library/papers/10.1016-j.xgen.2025.101099/supplementary/1-s2.0-S2666979X25003556-mmc5.xlsx",
+        "adna/governance/source_library/papers/10.1016-j.xgen.2025.101099/supplementary/1-s2.0-S2666979X25003556-mmc6.xlsx",
+        "adna/governance/source_library/papers/10.1016-j.xgen.2025.101099/supplementary/1-s2.0-S2666979X25003556-mmc7.xlsx",
+        "adna/governance/source_library/papers/10.1016-j.xgen.2025.101099/supplementary/1-s2.0-S2666979X25003556-mmc8.pdf",
+        "data/adna/governance/source_library/papers/10.1016-j.xgen.2025.101099/article.html",
+        "data/adna/governance/source_library/projects/PRJNA1178732/archive_metadata.html"
+      ]
+    },
+    {
+      "paper_doi": "10.1038/ncomms16082",
+      "paper_title": "Ancient European dog genomes reveal continuity since the Early Neolithic",
+      "project_accessions": [
+        "KX379528-KX379529",
+        "SRS1407451",
+        "SRS1407453"
+      ],
+      "sample_extractability": "supplement_extractable",
+      "article_download_status": "archived",
+      "supplementary_download_status": "archived",
+      "supplement_parse_status": "repository_supplement_archived",
+      "recovered_final_sample_count": 4,
+      "exact_expected_sample_count_total": 4,
+      "projects_with_unknown_expected_total": 0,
+      "projects_with_implausibly_low_recovery": 0,
+      "yield_recovery_posture": "exact_expected_counts_curated",
+      "expected_contribution_surfaces": [
+        "adna/governance/source_library/papers/10.1038-ncomms16082/supplementary/41467_2017_BFncomms16082_MOESM109_ESM.pdf",
+        "adna/governance/source_library/papers/10.1038-ncomms16082/supplementary/41467_2017_BFncomms16082_MOESM110_ESM.pdf",
+        "data/adna/governance/source_library/papers/10.1038-ncomms16082/article.html",
+        "data/adna/governance/source_library/projects/KX379528-KX379529/archive_metadata.html",
+        "data/adna/governance/source_library/projects/SRS1407451/archive_metadata.html",
+        "data/adna/governance/source_library/projects/SRS1407453/archive_metadata.html"
+      ]
+    },
+    {
+      "paper_doi": "10.1038/s41562-021-01083-y",
+      "paper_title": "Evidence for early dispersal of domestic sheep into Central Asia",
+      "project_accessions": [
+        "PRJEB41594"
+      ],
+      "sample_extractability": "supplement_extractable",
+      "article_download_status": "archived",
+      "supplementary_download_status": "archived",
+      "supplement_parse_status": "repository_supplement_archived",
+      "recovered_final_sample_count": 0,
+      "exact_expected_sample_count_total": 0,
+      "projects_with_unknown_expected_total": 1,
+      "projects_with_implausibly_low_recovery": 1,
+      "yield_recovery_posture": "implausibly_low_project_recovery_present",
+      "expected_contribution_surfaces": [
+        "adna/governance/source_library/papers/10.1038-s41562-021-01083-y/supplementary/41562_2021_1083_MOESM1_ESM.pdf",
+        "adna/governance/source_library/papers/10.1038-s41562-021-01083-y/supplementary/41562_2021_1083_MOESM2_ESM.pdf",
+        "adna/governance/source_library/papers/10.1038-s41562-021-01083-y/supplementary/41562_2021_1083_MOESM3_ESM.pdf",
+        "adna/governance/source_library/papers/10.1038-s41562-021-01083-y/supplementary/41562_2021_1083_MOESM4_ESM.xlsx",
+        "data/adna/governance/source_library/papers/10.1038-s41562-021-01083-y/article.html",
+        "data/adna/governance/source_library/projects/PRJEB41594/archive_metadata.html"
+      ]
+    },
+    {
+      "paper_doi": "10.1038/s41586-021-04018-9",
+      "paper_title": "The origins and spread of domestic horses from the Western Eurasian steppes",
+      "project_accessions": [
+        "PRJEB44430"
+      ],
+      "sample_extractability": "supplement_extractable",
+      "article_download_status": "archived",
+      "supplementary_download_status": "archived",
+      "supplement_parse_status": "repository_supplement_archived",
+      "recovered_final_sample_count": 248,
+      "exact_expected_sample_count_total": 0,
+      "projects_with_unknown_expected_total": 1,
+      "projects_with_implausibly_low_recovery": 0,
+      "yield_recovery_posture": "expected_total_still_partially_unbounded",
+      "expected_contribution_surfaces": [
+        "adna/governance/source_library/papers/10.1038-s41586-021-04018-9/supplementary/41586_2021_4018_MOESM1_ESM.pdf",
+        "adna/governance/source_library/papers/10.1038-s41586-021-04018-9/supplementary/41586_2021_4018_MOESM2_ESM.pdf",
+        "adna/governance/source_library/papers/10.1038-s41586-021-04018-9/supplementary/41586_2021_4018_MOESM3_ESM.pdf",
+        "adna/governance/source_library/papers/10.1038-s41586-021-04018-9/supplementary/41586_2021_4018_MOESM4_ESM.jpg",
+        "adna/governance/source_library/papers/10.1038-s41586-021-04018-9/supplementary/41586_2021_4018_MOESM5_ESM.xlsx",
+        "data/adna/governance/source_library/papers/10.1038-s41586-021-04018-9/article.html",
+        "data/adna/governance/source_library/projects/PRJEB44430/archive_metadata.html"
+      ]
+    },
+    {
+      "paper_doi": "10.1038/s41586-024-08112-6",
+      "paper_title": "The genomic natural history of the aurochs",
+      "project_accessions": [
+        "PRJEB75467"
+      ],
+      "sample_extractability": "supplement_extractable",
+      "article_download_status": "archived",
+      "supplementary_download_status": "archived",
+      "supplement_parse_status": "repository_supplement_archived",
+      "recovered_final_sample_count": 0,
+      "exact_expected_sample_count_total": 0,
+      "projects_with_unknown_expected_total": 1,
+      "projects_with_implausibly_low_recovery": 1,
+      "yield_recovery_posture": "implausibly_low_project_recovery_present",
+      "expected_contribution_surfaces": [
+        "adna/governance/source_library/papers/10.1038-s41586-024-08112-6/supplementary/41586_2024_8112_MOESM1_ESM.pdf",
+        "adna/governance/source_library/papers/10.1038-s41586-024-08112-6/supplementary/41586_2024_8112_MOESM2_ESM.pdf",
+        "adna/governance/source_library/papers/10.1038-s41586-024-08112-6/supplementary/41586_2024_8112_MOESM3_ESM.xlsx",
+        "adna/governance/source_library/papers/10.1038-s41586-024-08112-6/supplementary/41586_2024_8112_MOESM4_ESM.pdf",
+        "data/adna/governance/source_library/papers/10.1038-s41586-024-08112-6/article.html",
+        "data/adna/governance/source_library/projects/PRJEB75467/archive_metadata.html"
+      ]
+    },
+    {
+      "paper_doi": "10.1038/s41598-024-54296-2",
+      "paper_title": "Ancient reindeer mitogenomes reveal island-hopping colonisation of the Arctic archipelagos",
+      "project_accessions": [
+        "PRJEB60484"
+      ],
+      "sample_extractability": "supplement_extractable",
+      "article_download_status": "archived",
+      "supplementary_download_status": "archived",
+      "supplement_parse_status": "repository_supplement_archived",
+      "recovered_final_sample_count": 20,
+      "exact_expected_sample_count_total": 0,
+      "projects_with_unknown_expected_total": 1,
+      "projects_with_implausibly_low_recovery": 0,
+      "yield_recovery_posture": "expected_total_still_partially_unbounded",
+      "expected_contribution_surfaces": [
+        "adna/governance/source_library/papers/10.1038-s41598-024-54296-2/supplementary/41598_2024_64499_MOESM1_ESM.pdf",
+        "data/adna/governance/source_library/papers/10.1038-s41598-024-54296-2/article.html",
+        "data/adna/governance/source_library/projects/PRJEB60484/archive_metadata.html"
+      ]
+    },
+    {
+      "paper_doi": "10.1038/s42003-021-02794-8",
+      "paper_title": "Archaeogenetic analysis of Neolithic sheep from Anatolia suggests a complex demographic history since domestication",
+      "project_accessions": [
+        "PRJEB36540"
+      ],
+      "sample_extractability": "supplement_extractable",
+      "article_download_status": "archived",
+      "supplementary_download_status": "archived",
+      "supplement_parse_status": "zip_member_inventory_published",
+      "recovered_final_sample_count": 190,
+      "exact_expected_sample_count_total": 0,
+      "projects_with_unknown_expected_total": 1,
+      "projects_with_implausibly_low_recovery": 0,
+      "yield_recovery_posture": "expected_total_still_partially_unbounded",
+      "expected_contribution_surfaces": [
+        "data/adna/governance/source_library/papers/10.1038-s42003-021-02794-8/article.pdf",
+        "data/adna/governance/source_library/papers/10.1038-s42003-021-02794-8/supplementary/42003_2021_2794_MOESM1_ESM.pdf",
+        "data/adna/governance/source_library/papers/10.1038-s42003-021-02794-8/supplementary/42003_2021_2794_MOESM2_ESM.pdf",
+        "data/adna/governance/source_library/papers/10.1038-s42003-021-02794-8/supplementary/42003_2021_2794_MOESM3_ESM.pdf",
+        "data/adna/governance/source_library/papers/10.1038-s42003-021-02794-8/supplementary/42003_2021_2794_MOESM4_ESM.zip",
+        "data/adna/governance/source_library/papers/10.1038-s42003-021-02794-8/supplementary/42003_2021_2794_MOESM5_ESM.pdf",
+        "data/adna/governance/source_library/projects/PRJEB36540/archive_metadata.html"
+      ]
+    },
+    {
+      "paper_doi": "10.1073/pnas.1901169116",
+      "paper_title": "Ancient pigs reveal a near-complete genomic turnover following their introduction to Europe",
+      "project_accessions": [
+        "PRJEB30282"
+      ],
+      "sample_extractability": "supplement_extractable",
+      "article_download_status": "archived",
+      "supplementary_download_status": "archived",
+      "supplement_parse_status": "repository_supplement_archived",
+      "recovered_final_sample_count": 0,
+      "exact_expected_sample_count_total": 0,
+      "projects_with_unknown_expected_total": 1,
+      "projects_with_implausibly_low_recovery": 1,
+      "yield_recovery_posture": "implausibly_low_project_recovery_present",
+      "expected_contribution_surfaces": [
+        "adna/governance/source_library/papers/10.1073-pnas.1901169116/supplementary/pnas.1901169116.sapp.pdf",
+        "adna/governance/source_library/papers/10.1073-pnas.1901169116/supplementary/pnas.1901169116.sd01.xlsx",
+        "adna/governance/source_library/papers/10.1073-pnas.1901169116/supplementary/pnas.1901169116.sd02.xlsx",
+        "data/adna/governance/source_library/papers/10.1073-pnas.1901169116/article.html",
+        "data/adna/governance/source_library/projects/PRJEB30282/archive_metadata.html"
+      ]
+    },
+    {
+      "paper_doi": "10.1093/gbe/evae114",
+      "paper_title": "Ancient Sheep Genomes Reveal Four Millennia of North European Short-Tailed Sheep in the Baltic Sea Region",
+      "project_accessions": [
+        "PRJEB59481"
+      ],
+      "sample_extractability": "supplement_extractable",
+      "article_download_status": "partial",
+      "supplementary_download_status": "archived",
+      "supplement_parse_status": "repository_supplement_archived",
+      "recovered_final_sample_count": 0,
+      "exact_expected_sample_count_total": 0,
+      "projects_with_unknown_expected_total": 1,
+      "projects_with_implausibly_low_recovery": 1,
+      "yield_recovery_posture": "implausibly_low_project_recovery_present",
+      "expected_contribution_surfaces": [
+        "adna/governance/source_library/papers/10.1093-gbe-evae114/supplementary/Supplementary Figures Baltic Sheep.pdf",
+        "adna/governance/source_library/papers/10.1093-gbe-evae114/supplementary/SupplementaryTables_Revision2.xlsx",
+        "data/adna/governance/source_library/papers/10.1093-gbe-evae114/article.html",
+        "data/adna/governance/source_library/projects/PRJEB59481/archive_metadata.html"
+      ]
+    },
+    {
+      "paper_doi": "10.1093/gbe/evaf181",
+      "paper_title": "Inferring Domestic Goat Demographic History Through Ancient Genome Imputation",
+      "project_accessions": [
+        "PRJEB90141"
+      ],
+      "sample_extractability": "supplement_extractable",
+      "article_download_status": "partial",
+      "supplementary_download_status": "archived",
+      "supplement_parse_status": "repository_supplement_archived",
+      "recovered_final_sample_count": 4,
+      "exact_expected_sample_count_total": 0,
+      "projects_with_unknown_expected_total": 1,
+      "projects_with_implausibly_low_recovery": 0,
+      "yield_recovery_posture": "expected_total_still_partially_unbounded",
+      "expected_contribution_surfaces": [
+        "adna/governance/source_library/papers/10.1093-gbe-evaf181/supplementary/GBE_Supplementary_Tables_S1-18_Goat_imputation.xlsx",
+        "adna/governance/source_library/papers/10.1093-gbe-evaf181/supplementary/GBE_review_Supplementary_Figures_S1-41_NotesS1-7_Goat_Imputation-compressed.pdf",
+        "data/adna/governance/source_library/papers/10.1093-gbe-evaf181/article.html",
+        "data/adna/governance/source_library/projects/PRJEB90141/archive_metadata.html"
+      ]
+    },
+    {
+      "paper_doi": "10.1111/1755-0998.12551",
+      "paper_title": "Combined hybridization capture and shotgun sequencing for ancient DNA analysis of extinct wild and domestic dromedary camel",
+      "project_accessions": [
+        "KU605068-KU605080",
+        "SRP073444"
+      ],
+      "sample_extractability": "supplement_extractable",
+      "article_download_status": "archived",
+      "supplementary_download_status": "archived",
+      "supplement_parse_status": "repository_supplement_archived",
+      "recovered_final_sample_count": 13,
+      "exact_expected_sample_count_total": 13,
+      "projects_with_unknown_expected_total": 1,
+      "projects_with_implausibly_low_recovery": 1,
+      "yield_recovery_posture": "implausibly_low_project_recovery_present",
+      "expected_contribution_surfaces": [
+        "adna/governance/source_library/papers/10.1111-1755-0998.12551/supplementary/men12551-sup-0001-supinfo.docx",
+        "data/adna/governance/source_library/papers/10.1111-1755-0998.12551/article.html",
+        "data/adna/governance/source_library/projects/KU605068-KU605080/archive_metadata.html",
+        "data/adna/governance/source_library/projects/SRP073444/archive_metadata.html"
+      ]
+    },
+    {
+      "paper_doi": "10.1126/science.aam5298",
+      "paper_title": "Ancient genomic changes associated with domestication of the horse",
+      "project_accessions": [
+        "PRJEB19970"
+      ],
+      "sample_extractability": "supplement_extractable",
+      "article_download_status": "archived",
+      "supplementary_download_status": "archived",
+      "supplement_parse_status": "repository_supplement_archived",
+      "recovered_final_sample_count": 14,
+      "exact_expected_sample_count_total": 0,
+      "projects_with_unknown_expected_total": 1,
+      "projects_with_implausibly_low_recovery": 0,
+      "yield_recovery_posture": "expected_total_still_partially_unbounded",
+      "expected_contribution_surfaces": [
+        "adna/governance/source_library/papers/10.1126-science.aam5298/supplementary/aam5298_librado.sm.pdf",
+        "adna/governance/source_library/papers/10.1126-science.aam5298/supplementary/tables27.xlsx",
+        "adna/governance/source_library/papers/10.1126-science.aam5298/supplementary/tables28.xlsx",
+        "adna/governance/source_library/papers/10.1126-science.aam5298/supplementary/tables29.xlsx",
+        "adna/governance/source_library/papers/10.1126-science.aam5298/supplementary/tables30.xlsx",
+        "adna/governance/source_library/papers/10.1126-science.aam5298/supplementary/tables31.xlsx",
+        "data/adna/governance/source_library/papers/10.1126-science.aam5298/article.html",
+        "data/adna/governance/source_library/projects/PRJEB19970/archive_metadata.html"
+      ]
+    },
+    {
+      "paper_doi": "10.1126/science.aao3297",
+      "paper_title": "Ancient genomes revisit the ancestry of domestic and Przewalski's horses",
+      "project_accessions": [
+        "PRJEB22390"
+      ],
+      "sample_extractability": "supplement_extractable",
+      "article_download_status": "archived",
+      "supplementary_download_status": "archived",
+      "supplement_parse_status": "repository_supplement_archived",
+      "recovered_final_sample_count": 42,
+      "exact_expected_sample_count_total": 0,
+      "projects_with_unknown_expected_total": 1,
+      "projects_with_implausibly_low_recovery": 0,
+      "yield_recovery_posture": "expected_total_still_partially_unbounded",
+      "expected_contribution_surfaces": [
+        "adna/governance/source_library/papers/10.1126-science.aao3297/supplementary/aao3297_gaunitz_sm.pdf",
+        "adna/governance/source_library/papers/10.1126-science.aao3297/supplementary/aao3297_tables10.xls",
+        "adna/governance/source_library/papers/10.1126-science.aao3297/supplementary/aao3297_tables11.xlsx",
+        "adna/governance/source_library/papers/10.1126-science.aao3297/supplementary/aao3297_tables12.xlsx",
+        "adna/governance/source_library/papers/10.1126-science.aao3297/supplementary/aao3297_tables13.xlsx",
+        "adna/governance/source_library/papers/10.1126-science.aao3297/supplementary/aao3297_tables14.xlsx",
+        "adna/governance/source_library/papers/10.1126-science.aao3297/supplementary/aao3297_tables15.xlsx",
+        "adna/governance/source_library/papers/10.1126-science.aao3297/supplementary/aao3297_tables16.xls",
+        "adna/governance/source_library/papers/10.1126-science.aao3297/supplementary/aao3297_tables17.xlsx",
+        "adna/governance/source_library/papers/10.1126-science.aao3297/supplementary/aao3297_tables18.xlsx",
+        "adna/governance/source_library/papers/10.1126-science.aao3297/supplementary/aao3297_tables8.xlsx",
+        "adna/governance/source_library/papers/10.1126-science.aao3297/supplementary/aao3297_tables9.xlsx",
+        "data/adna/governance/source_library/papers/10.1126-science.aao3297/article.html",
+        "data/adna/governance/source_library/projects/PRJEB22390/archive_metadata.html"
+      ]
+    },
+    {
+      "paper_doi": "10.1126/science.aav1002",
+      "paper_title": "Ancient cattle genomics, origins, and rapid turnover in the Fertile Crescent",
+      "project_accessions": [
+        "PRJEB31621"
+      ],
+      "sample_extractability": "supplement_extractable",
+      "article_download_status": "archived",
+      "supplementary_download_status": "archived",
+      "supplement_parse_status": "repository_supplement_archived",
+      "recovered_final_sample_count": 0,
+      "exact_expected_sample_count_total": 0,
+      "projects_with_unknown_expected_total": 1,
+      "projects_with_implausibly_low_recovery": 1,
+      "yield_recovery_posture": "implausibly_low_project_recovery_present",
+      "expected_contribution_surfaces": [
+        "adna/governance/source_library/papers/10.1126-science.aav1002/supplementary/aav1002_verdugo_sm.pdf",
+        "data/adna/governance/source_library/papers/10.1126-science.aav1002/article.html",
+        "data/adna/governance/source_library/projects/PRJEB31621/archive_metadata.html"
+      ]
+    },
+    {
+      "paper_doi": "10.1126/science.adt2642",
+      "paper_title": "The dispersal of domestic cats from North Africa to Europe around 2000 years ago",
+      "project_accessions": [
+        "PRJEB81815"
+      ],
+      "sample_extractability": "supplement_extractable",
+      "article_download_status": "archived",
+      "supplementary_download_status": "archived",
+      "supplement_parse_status": "zip_member_inventory_published",
+      "recovered_final_sample_count": 0,
+      "exact_expected_sample_count_total": 0,
+      "projects_with_unknown_expected_total": 1,
+      "projects_with_implausibly_low_recovery": 1,
+      "yield_recovery_posture": "implausibly_low_project_recovery_present",
+      "expected_contribution_surfaces": [
+        "adna/governance/source_library/papers/10.1126-science.adt2642/supplementary/science.adt2642_mdar_reproducibility_checklist.pdf",
+        "adna/governance/source_library/papers/10.1126-science.adt2642/supplementary/science.adt2642_sm.pdf",
+        "adna/governance/source_library/papers/10.1126-science.adt2642/supplementary/science.adt2642_tables s1_to_s8.zip",
+        "data/adna/governance/source_library/papers/10.1126-science.adt2642/article.html",
+        "data/adna/governance/source_library/projects/PRJEB81815/archive_metadata.html"
+      ]
+    },
+    {
+      "paper_doi": "10.24272/j.issn.2095-8137.2025.080",
+      "paper_title": "Ancient genomes reveal the genetic history of domestic goats on the Qinghai-Xizang Plateau approximately 3,600 years ago",
+      "project_accessions": [
+        "PRJNA1328209"
+      ],
+      "sample_extractability": "supplement_extractable",
+      "article_download_status": "archived",
+      "supplementary_download_status": "archived",
+      "supplement_parse_status": "repository_supplement_archived",
+      "recovered_final_sample_count": 5,
+      "exact_expected_sample_count_total": 0,
+      "projects_with_unknown_expected_total": 1,
+      "projects_with_implausibly_low_recovery": 0,
+      "yield_recovery_posture": "expected_total_still_partially_unbounded",
+      "expected_contribution_surfaces": [
+        "adna/governance/source_library/papers/10.24272-j.issn.2095-8137.2025.080/supplementary/Supplementary_tables.xlsx",
+        "adna/governance/source_library/papers/10.24272-j.issn.2095-8137.2025.080/supplementary/ZR-2025-080-Supplementary Materials.pdf",
+        "data/adna/governance/source_library/papers/10.24272-j.issn.2095-8137.2025.080/article.html",
+        "data/adna/governance/source_library/projects/PRJNA1328209/archive_metadata.html"
+      ]
+    }
+  ]
+}

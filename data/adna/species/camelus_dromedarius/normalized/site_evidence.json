@@ -1,0 +1,32 @@
+{
+  "schema_version": "adna-site-evidence-export.v1",
+  "species_latin_name": "Camelus dromedarius",
+  "site_evidence": [
+    {
+      "project_accession": "SRP073444",
+      "species_latin_name": "Camelus dromedarius",
+      "species_common_name": "camel",
+      "site_label": "Arabian Peninsula and Levant dromedary context",
+      "political_entity": "Arabian Peninsula and Levant",
+      "source_artifact_path": "adna/governance/source_library/papers/10.1111-1755-0998.12551/article.html",
+      "source_artifact_kind": "article_html_body_quote",
+      "source_locator": "abstract and introduction",
+      "exact_source_text": "The remains of a single large-sized Late Pleistocene camel individual recovered from the Site 1040 near Wadi Halfa were first evaluated by Gautier.",
+      "source_support_status": "article_exact_quote",
+      "paper_doi": "10.1111/1755-0998.12551",
+      "paper_url": "https://doi.org/10.1111/1755-0998.12551",
+      "supplementary_source": "",
+      "coordinate_basis": "inferred_region_centroid",
+      "latitude_text": "25.00",
+      "longitude_text": "45.00",
+      "chronology_text": "Historical and archaeological dromedary range context",
+      "time_start_bp": 1400,
+      "time_end_bp": 3000,
+      "dating_basis": "historical_attribution",
+      "comparator_context": false,
+      "domestication_context": "non_nordic_domestication_context",
+      "interpretation_note": "The paper names an exact Wadi Halfa specimen, but the current repository still publishes camel only as broad non-Nordic context rather than a precise atlas-grade point.",
+      "support_gap_note": "The shipped point is still a broad contextual centroid even though the paper names Site 1040 near Wadi Halfa."
+    }
+  ]
+}

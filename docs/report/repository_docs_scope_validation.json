@@ -1,0 +1,44 @@
+{
+  "schema_version": "repository-docs-scope-validation.v1",
+  "rule": "no docs rewrite may destroy breadth in 01, 02, or 03 unless an equally informative replacement is already present and linked",
+  "overall_ok": false,
+  "rows": [
+    {
+      "section_key": "runtime_handbook",
+      "display_name": "Runtime handbook",
+      "landing_path": "docs/public/pollenomics/index.md",
+      "required_page_count": 12,
+      "missing_pages": [],
+      "missing_links": [
+        "interfaces/entrypoints-and-examples/",
+        "operations/common-workflows/",
+        "quality/change-validation.md"
+      ],
+      "missing_topic_snippets": [
+        "Breadth Restored",
+        "runtime scope and ownership"
+      ],
+      "overall_ok": false
+    },
+    {
+      "section_key": "data_handbook",
+      "display_name": "Data handbook",
+      "landing_path": "docs/public/pollenomics-data/index.md",
+      "required_page_count": 15,
+      "missing_pages": [],
+      "missing_links": [],
+      "missing_topic_snippets": [],
+      "overall_ok": true
+    },
+    {
+      "section_key": "maintainer_handbook",
+      "display_name": "Maintainer handbook",
+      "landing_path": "docs/internal/maintain/index.md",
+      "required_page_count": 5,
+      "missing_pages": [],
+      "missing_links": [],
+      "missing_topic_snippets": [],
+      "overall_ok": true
+    }
+  ]
+}

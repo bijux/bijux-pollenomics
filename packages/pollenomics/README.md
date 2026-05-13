@@ -1,12 +1,17 @@
 # pollenomics
 
+Alias distribution for `bijux-pollenomics`.
+
+Install this package if you want the shorter package name and CLI command while
+running the same pollenomics-first runtime behavior as `bijux-pollenomics`.
+
 <!-- bijux-pollenomics-badges:generated:start -->
 [![Python 3.11+](https://img.shields.io/badge/python-3.11%2B-3776AB?logo=python&logoColor=white)](https://pypi.org/project/pollenomics/)
 [![License: Apache-2.0](https://img.shields.io/badge/license-Apache--2.0-0F766E)](https://github.com/bijux/bijux-pollenomics/blob/main/LICENSE)
-[![Verify](https://github.com/bijux/bijux-pollenomics/workflows/repo%20/%20verify/badge.svg)](https://github.com/bijux/bijux-pollenomics/actions/workflows/verify.yml?query=branch%3Amain)
-[![Release PyPI](https://github.com/bijux/bijux-pollenomics/workflows/release-pypi/badge.svg)](https://github.com/bijux/bijux-pollenomics/actions/workflows/release-pypi.yml)
-[![Release GHCR](https://github.com/bijux/bijux-pollenomics/workflows/release-ghcr/badge.svg)](https://github.com/bijux/bijux-pollenomics/actions/workflows/release-ghcr.yml)
-[![Release GitHub](https://github.com/bijux/bijux-pollenomics/workflows/release-github/badge.svg)](https://github.com/bijux/bijux-pollenomics/actions/workflows/release-github.yml)
+[![Verify](https://github.com/bijux/bijux-pollenomics/actions/workflows/verify.yml/badge.svg?branch=main)](https://github.com/bijux/bijux-pollenomics/actions/workflows/verify.yml?query=branch%3Amain)
+[![Release PyPI](https://img.shields.io/badge/release-pypi%20workflow-2563EB?logo=githubactions&logoColor=white)](https://github.com/bijux/bijux-pollenomics/actions/workflows/release-pypi.yml)
+[![Release GHCR](https://img.shields.io/badge/release-ghcr%20workflow-2563EB?logo=githubactions&logoColor=white)](https://github.com/bijux/bijux-pollenomics/actions/workflows/release-ghcr.yml)
+[![Release GitHub](https://img.shields.io/badge/release-github%20workflow-2563EB?logo=githubactions&logoColor=white)](https://github.com/bijux/bijux-pollenomics/actions/workflows/release-github.yml)
 [![Docs](https://github.com/bijux/bijux-pollenomics/actions/workflows/deploy-docs.yml/badge.svg)](https://github.com/bijux/bijux-pollenomics/actions/workflows/deploy-docs.yml)
 
 [![pollenomics](https://img.shields.io/pypi/v/pollenomics?label=pollenomics&logo=pypi)](https://pypi.org/project/pollenomics/)
@@ -15,14 +20,9 @@
 [![pollenomics](https://img.shields.io/badge/pollenomics-ghcr-181717?logo=github)](https://github.com/bijux/bijux-pollenomics/pkgs/container/bijux-pollenomics%2Fpollenomics)
 [![bijux-pollenomics](https://img.shields.io/badge/bijux--pollenomics-ghcr-181717?logo=github)](https://github.com/bijux/bijux-pollenomics/pkgs/container/bijux-pollenomics%2Fbijux-pollenomics)
 
-[![pollenomics docs](https://img.shields.io/badge/docs-pollenomics-2563EB?logo=materialformkdocs&logoColor=white)](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/)
-[![bijux-pollenomics docs](https://img.shields.io/badge/docs-bijux--pollenomics-2563EB?logo=materialformkdocs&logoColor=white)](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/)
+[![pollenomics docs](https://img.shields.io/badge/docs-pollenomics-2563EB?logo=materialformkdocs&logoColor=white)](https://bijux.io/bijux-pollenomics/public/pollenomics/)
+[![bijux-pollenomics docs](https://img.shields.io/badge/docs-bijux--pollenomics-2563EB?logo=materialformkdocs&logoColor=white)](https://bijux.io/bijux-pollenomics/public/pollenomics/)
 <!-- bijux-pollenomics-badges:generated:end -->
-
-Compatibility and alias distribution for `bijux-pollenomics`.
-
-Install this package if you want the shorter package name and CLI command while
-running the same runtime behavior as `bijux-pollenomics`.
 
 ## Install
 
@@ -31,16 +31,30 @@ python3.11 -m pip install pollenomics
 pollenomics --help
 ```
 
-## Compatibility
+## What It Does
 
-- Runtime implementation is provided by `bijux-pollenomics`
-- Public Python API is re-exported under the `pollenomics` module
-- CLI command `pollenomics` dispatches through the same command handlers as
-  `bijux-pollenomics`
+- re-exports the public Python API from `bijux-pollenomics`
+- resolves runtime submodules such as `pollenomics.command_line` and
+  `pollenomics.reporting.models` to the same canonical runtime modules used by
+  `bijux_pollenomics`
+- dispatches the same CLI handlers through the shorter `pollenomics` command
+- stays subordinate to the canonical runtime package
+- avoids becoming a second home for scientific logic or publication behavior
 
-## Read this next
+## Compatibility Contract
 
-- runtime package docs: [Runtime package docs](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/)
-- source directory: [pollenomics source directory](https://github.com/bijux/bijux-pollenomics/tree/main/packages/pollenomics)
-- changelog: [pollenomics changelog](https://github.com/bijux/bijux-pollenomics/blob/main/packages/pollenomics/CHANGELOG.md)
-- security policy: [Security policy](https://github.com/bijux/bijux-pollenomics/blob/main/SECURITY.md)
+If this works:
+
+```python
+from bijux_pollenomics.command_line import build_parser
+```
+
+the alias package is expected to support the same import through:
+
+```python
+from pollenomics.command_line import build_parser
+```
+
+The only intentional local difference is the compatibility CLI wrapper in
+`pollenomics.cli`, which keeps the executable name and top-level parser program
+label as `pollenomics`.

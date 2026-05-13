@@ -46,6 +46,7 @@ def build_fieldwork_point_layer(output_dir: Path) -> dict[str, object] | None:
         "applies_country_filter": True,
         "applies_time_filter": False,
         "circle_enabled": True,
+        "traceability_reference": "docs/04-fieldwork/lyngsjon-lake-fieldwork/",
         "style": {
             "fill": "#1d4ed8",
             "stroke": "#1e3a8a",

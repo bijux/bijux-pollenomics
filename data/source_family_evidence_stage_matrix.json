@@ -1,0 +1,129 @@
+{
+  "schema_version": "source-family-evidence-stage-matrix.v1",
+  "row_count": 7,
+  "rows": [
+    {
+      "source_key": "landclim",
+      "display_name": "LandClim pollen context",
+      "domain_group": "pollen_context",
+      "evidence_role": "primary_context",
+      "primary_question": "Which tracked LandClim pollen-site records exist and survive normalization into map-ready context layers?",
+      "raw_status": "present",
+      "normalized_status": "present",
+      "reviewed_status": "present",
+      "published_status": "present",
+      "provenance_depth": "review_ready",
+      "publication_posture": "published_with_review_support",
+      "coverage_metrics": {
+        "landclim_site_count": 492,
+        "landclim_grid_cell_count": 88
+      },
+      "blocking_reasons": []
+    },
+    {
+      "source_key": "neotoma",
+      "display_name": "Neotoma pollen context",
+      "domain_group": "pollen_context",
+      "evidence_role": "primary_context",
+      "primary_question": "Which tracked Neotoma pollen records survive normalization and remain visible in atlas-ready context layers?",
+      "raw_status": "present",
+      "normalized_status": "present",
+      "reviewed_status": "present",
+      "published_status": "present",
+      "provenance_depth": "review_ready",
+      "publication_posture": "published_with_review_support",
+      "coverage_metrics": {
+        "neotoma_point_count": 200
+      },
+      "blocking_reasons": []
+    },
+    {
+      "source_key": "sead",
+      "display_name": "SEAD archaeology context",
+      "domain_group": "archaeology_context",
+      "evidence_role": "contextual_domain",
+      "primary_question": "Which SEAD records are captured, normalized, and still safe to use as contextual archaeology layers?",
+      "raw_status": "present",
+      "normalized_status": "present",
+      "reviewed_status": "present",
+      "published_status": "present",
+      "provenance_depth": "review_ready",
+      "publication_posture": "published_with_review_support",
+      "coverage_metrics": {
+        "sead_point_count": 2172
+      },
+      "blocking_reasons": []
+    },
+    {
+      "source_key": "raa",
+      "display_name": "RAÄ archaeology context",
+      "domain_group": "archaeology_context",
+      "evidence_role": "contextual_domain",
+      "primary_question": "Which Sweden-scoped archaeology context layers are captured and published from RAÄ?",
+      "raw_status": "present",
+      "normalized_status": "present",
+      "reviewed_status": "present",
+      "published_status": "present",
+      "provenance_depth": "review_ready",
+      "publication_posture": "published_with_review_support",
+      "coverage_metrics": {
+        "raa_total_site_count": 761917,
+        "raa_heritage_site_count": 318265
+      },
+      "blocking_reasons": []
+    },
+    {
+      "source_key": "boundaries",
+      "display_name": "Boundary framing",
+      "domain_group": "framing_context",
+      "evidence_role": "framing_domain",
+      "primary_question": "Which tracked framing geometries constrain interpretation of country and atlas outputs?",
+      "raw_status": "present",
+      "normalized_status": "present",
+      "reviewed_status": "present",
+      "published_status": "present",
+      "provenance_depth": "review_ready",
+      "publication_posture": "published_with_review_support",
+      "coverage_metrics": {
+        "boundary_country_count": 4
+      },
+      "blocking_reasons": []
+    },
+    {
+      "source_key": "aadr",
+      "display_name": "AADR human ancient DNA",
+      "domain_group": "human_ancient_dna",
+      "evidence_role": "direct_evidence_domain",
+      "primary_question": "Which tracked human ancient-DNA inputs and normalized records exist under the governed AADR program?",
+      "raw_status": "present",
+      "normalized_status": "present",
+      "reviewed_status": "present",
+      "published_status": "present",
+      "provenance_depth": "review_ready",
+      "publication_posture": "published_with_review_support",
+      "coverage_metrics": {
+        "aadr_file_count": 3
+      },
+      "blocking_reasons": []
+    },
+    {
+      "source_key": "animal_adna",
+      "display_name": "Animal ancient DNA recovery",
+      "domain_group": "animal_ancient_dna",
+      "evidence_role": "sample_owned_evidence_domain",
+      "primary_question": "Which animal ancient-DNA records are only captured, which are normalized, and which are safe for public publication?",
+      "raw_status": "present",
+      "normalized_status": "present",
+      "reviewed_status": "present",
+      "published_status": "present",
+      "provenance_depth": "review_ready",
+      "publication_posture": "published_with_review_support",
+      "coverage_metrics": {
+        "animal_species_count": 10,
+        "animal_project_count": 40,
+        "animal_sample_count": 0
+      },
+      "blocking_reasons": []
+    }
+  ]
+}

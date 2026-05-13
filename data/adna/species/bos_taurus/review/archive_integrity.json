@@ -1,0 +1,15 @@
+{
+  "schema_version": "adna-archive-integrity-report.v1",
+  "duplicates": [],
+  "access_findings": [],
+  "species_mismatches": [],
+  "domestication_scope_mismatches": [
+    {
+      "curated_species_latin_name": "Bos taurus",
+      "project_accession": "PRJEB75467",
+      "domestication_scope": "wild_or_progenitor_context",
+      "archive_status": "paper_pinned_core",
+      "notes": "Aurochs genomic natural-history context for cattle domestication."
+    }
+  ]
+}

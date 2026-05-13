@@ -2,6 +2,23 @@
 
 All notable changes for `pollenomics` are recorded here.
 
+## Unreleased
+
+### Changed
+
+- Added explicit forwarding submodules for `command_line` and `reporting` so
+  the compatibility distribution exposes durable import targets instead of
+  relying only on package-level alias indirection.
+- Updated compatibility-package docs and contract coverage to describe the
+  import boundary and the same pollenomics-first runtime behavior shipped by
+  `bijux-pollenomics`.
+
+### Fixed
+
+- Kept the compatibility distribution aligned with the current package legal-file
+  materialization contract used by release smoke installs and package build
+  verification.
+
 ## 0.1.6 - 2026-04-21
 
 ### Changed

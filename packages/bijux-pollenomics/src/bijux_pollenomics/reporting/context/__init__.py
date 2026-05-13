@@ -1,3 +1,5 @@
+"""Context-layer staging and validation surface for map publication."""
+
 from .artifacts import stage_context_point_layers, stage_context_polygon_layers
 from .layers import build_context_layers
 from .points import (

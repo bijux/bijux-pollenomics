@@ -1,0 +1,691 @@
+{
+  "schema_version": "adna-source-inventory.v1",
+  "row_count": 40,
+  "counts": {
+    "projects_with_site_expectation": 8,
+    "projects_with_chronology_expectation": 8,
+    "projects_with_identifier_expectation": 27
+  },
+  "rows": [
+    {
+      "project_accession": "PRJEB31621",
+      "species_latin_name": "Bos taurus",
+      "paper_doi": "10.1126/science.aav1002",
+      "inventory_disposition": "tracked_intake_candidate",
+      "evidence_acquisition_state": "repository_supplement_captured_needs_extraction",
+      "expected_contributions": [
+        "sample_identifiers",
+        "taxonomic_context",
+        "site_names",
+        "coordinate_resolution_candidate",
+        "chronology"
+      ],
+      "expected_sample_count_status": "not_yet_curated",
+      "sample_identifier_status": "manual_curation_required",
+      "current_anchor_files": [
+        "data/adna/governance/source_library/projects/PRJEB31621/bundle_manifest.json",
+        "data/adna/governance/source_library/projects/PRJEB31621/intake_dossier.json",
+        "data/adna/governance/source_library/papers/10.1126-science.aav1002/supplementary_manifest.json"
+      ]
+    },
+    {
+      "project_accession": "PRJEB75467",
+      "species_latin_name": "Bos taurus",
+      "paper_doi": "10.1038/s41586-024-08112-6",
+      "inventory_disposition": "tracked_intake_candidate",
+      "evidence_acquisition_state": "repository_supplement_captured_needs_extraction",
+      "expected_contributions": [
+        "sample_identifiers",
+        "taxonomic_context",
+        "site_names",
+        "coordinate_resolution_candidate",
+        "chronology"
+      ],
+      "expected_sample_count_status": "not_yet_curated",
+      "sample_identifier_status": "paper_or_supplement_targets_curated",
+      "current_anchor_files": [
+        "data/adna/governance/source_library/projects/PRJEB75467/bundle_manifest.json",
+        "data/adna/governance/source_library/projects/PRJEB75467/intake_dossier.json",
+        "data/adna/governance/source_library/papers/10.1038-s41586-024-08112-6/supplementary_manifest.json"
+      ]
+    },
+    {
+      "project_accession": "PRJNA705960",
+      "species_latin_name": "Bos taurus",
+      "paper_doi": "",
+      "inventory_disposition": "tracked_intake_candidate",
+      "evidence_acquisition_state": "paper_linkage_not_curated",
+      "expected_contributions": [],
+      "expected_sample_count_status": "not_yet_curated",
+      "sample_identifier_status": "missing_primary_paper_linkage",
+      "current_anchor_files": [
+        "data/adna/governance/source_library/projects/PRJNA705960/bundle_manifest.json",
+        "data/adna/governance/source_library/projects/PRJNA705960/intake_dossier.json"
+      ]
+    },
+    {
+      "project_accession": "KU605068-KU605080",
+      "species_latin_name": "Camelus dromedarius",
+      "paper_doi": "10.1111/1755-0998.12551",
+      "inventory_disposition": "tracked_intake_candidate",
+      "evidence_acquisition_state": "sample_tables_published",
+      "expected_contributions": [
+        "sample_identifiers",
+        "taxonomic_context"
+      ],
+      "expected_sample_count_status": "known_from_archive_accession_scope",
+      "sample_identifier_status": "archive_native_identifiers_known",
+      "current_anchor_files": [
+        "data/adna/governance/source_library/projects/KU605068-KU605080/bundle_manifest.json",
+        "data/adna/governance/source_library/projects/KU605068-KU605080/intake_dossier.json",
+        "data/adna/governance/source_library/papers/10.1111-1755-0998.12551/supplementary_manifest.json"
+      ]
+    },
+    {
+      "project_accession": "SRP073444",
+      "species_latin_name": "Camelus dromedarius",
+      "paper_doi": "10.1111/1755-0998.12551",
+      "inventory_disposition": "tracked_intake_candidate",
+      "evidence_acquisition_state": "repository_supplement_captured_needs_extraction",
+      "expected_contributions": [
+        "sample_identifiers",
+        "taxonomic_context",
+        "site_names",
+        "coordinate_resolution_candidate",
+        "chronology"
+      ],
+      "expected_sample_count_status": "not_yet_curated",
+      "sample_identifier_status": "paper_or_supplement_targets_curated",
+      "current_anchor_files": [
+        "data/adna/governance/source_library/projects/SRP073444/bundle_manifest.json",
+        "data/adna/governance/source_library/projects/SRP073444/intake_dossier.json",
+        "data/adna/governance/source_library/papers/10.1111-1755-0998.12551/supplementary_manifest.json"
+      ]
+    },
+    {
+      "project_accession": "KX379528-KX379529",
+      "species_latin_name": "Canis lupus familiaris",
+      "paper_doi": "10.1038/ncomms16082",
+      "inventory_disposition": "tracked_intake_candidate",
+      "evidence_acquisition_state": "sample_tables_published",
+      "expected_contributions": [
+        "sample_identifiers",
+        "taxonomic_context"
+      ],
+      "expected_sample_count_status": "known_from_archive_accession_scope",
+      "sample_identifier_status": "archive_native_identifiers_known",
+      "current_anchor_files": [
+        "data/adna/governance/source_library/projects/KX379528-KX379529/bundle_manifest.json",
+        "data/adna/governance/source_library/projects/KX379528-KX379529/intake_dossier.json",
+        "data/adna/governance/source_library/papers/10.1038-ncomms16082/supplementary_manifest.json"
+      ]
+    },
+    {
+      "project_accession": "SRS1407451",
+      "species_latin_name": "Canis lupus familiaris",
+      "paper_doi": "10.1038/ncomms16082",
+      "inventory_disposition": "tracked_intake_candidate",
+      "evidence_acquisition_state": "sample_tables_published",
+      "expected_contributions": [
+        "sample_identifiers",
+        "taxonomic_context"
+      ],
+      "expected_sample_count_status": "known_from_archive_accession_scope",
+      "sample_identifier_status": "archive_native_identifiers_known",
+      "current_anchor_files": [
+        "data/adna/governance/source_library/projects/SRS1407451/bundle_manifest.json",
+        "data/adna/governance/source_library/projects/SRS1407451/intake_dossier.json",
+        "data/adna/governance/source_library/papers/10.1038-ncomms16082/supplementary_manifest.json"
+      ]
+    },
+    {
+      "project_accession": "SRS1407453",
+      "species_latin_name": "Canis lupus familiaris",
+      "paper_doi": "10.1038/ncomms16082",
+      "inventory_disposition": "tracked_intake_candidate",
+      "evidence_acquisition_state": "sample_tables_published",
+      "expected_contributions": [
+        "sample_identifiers",
+        "taxonomic_context"
+      ],
+      "expected_sample_count_status": "known_from_archive_accession_scope",
+      "sample_identifier_status": "archive_native_identifiers_known",
+      "current_anchor_files": [
+        "data/adna/governance/source_library/projects/SRS1407453/bundle_manifest.json",
+        "data/adna/governance/source_library/projects/SRS1407453/intake_dossier.json",
+        "data/adna/governance/source_library/papers/10.1038-ncomms16082/supplementary_manifest.json"
+      ]
+    },
+    {
+      "project_accession": "PRJEB90141",
+      "species_latin_name": "Capra hircus",
+      "paper_doi": "10.1093/gbe/evaf181",
+      "inventory_disposition": "tracked_intake_candidate",
+      "evidence_acquisition_state": "sample_tables_published",
+      "expected_contributions": [
+        "sample_identifiers",
+        "taxonomic_context"
+      ],
+      "expected_sample_count_status": "not_yet_curated",
+      "sample_identifier_status": "paper_or_supplement_targets_curated",
+      "current_anchor_files": [
+        "data/adna/governance/source_library/projects/PRJEB90141/bundle_manifest.json",
+        "data/adna/governance/source_library/projects/PRJEB90141/intake_dossier.json",
+        "data/adna/governance/source_library/papers/10.1093-gbe-evaf181/supplementary_manifest.json"
+      ]
+    },
+    {
+      "project_accession": "PRJEB90261",
+      "species_latin_name": "Capra hircus",
+      "paper_doi": "10.1016/j.isci.2025.113771",
+      "inventory_disposition": "tracked_intake_candidate",
+      "evidence_acquisition_state": "sample_tables_published",
+      "expected_contributions": [
+        "sample_identifiers",
+        "taxonomic_context"
+      ],
+      "expected_sample_count_status": "not_yet_curated",
+      "sample_identifier_status": "paper_or_supplement_targets_curated",
+      "current_anchor_files": [
+        "data/adna/governance/source_library/projects/PRJEB90261/bundle_manifest.json",
+        "data/adna/governance/source_library/projects/PRJEB90261/intake_dossier.json",
+        "data/adna/governance/source_library/papers/10.1016-j.isci.2025.113771/supplementary_manifest.json"
+      ]
+    },
+    {
+      "project_accession": "PRJNA1328209",
+      "species_latin_name": "Capra hircus",
+      "paper_doi": "10.24272/j.issn.2095-8137.2025.080",
+      "inventory_disposition": "tracked_intake_candidate",
+      "evidence_acquisition_state": "sample_tables_published",
+      "expected_contributions": [
+        "sample_identifiers",
+        "taxonomic_context"
+      ],
+      "expected_sample_count_status": "not_yet_curated",
+      "sample_identifier_status": "paper_or_supplement_targets_curated",
+      "current_anchor_files": [
+        "data/adna/governance/source_library/projects/PRJNA1328209/bundle_manifest.json",
+        "data/adna/governance/source_library/projects/PRJNA1328209/intake_dossier.json",
+        "data/adna/governance/source_library/papers/10.24272-j.issn.2095-8137.2025.080/supplementary_manifest.json"
+      ]
+    },
+    {
+      "project_accession": "PRJEB43564",
+      "species_latin_name": "Equus asinus",
+      "paper_doi": "",
+      "inventory_disposition": "tracked_intake_candidate",
+      "evidence_acquisition_state": "paper_linkage_not_curated",
+      "expected_contributions": [],
+      "expected_sample_count_status": "not_yet_curated",
+      "sample_identifier_status": "missing_primary_paper_linkage",
+      "current_anchor_files": [
+        "data/adna/governance/source_library/projects/PRJEB43564/bundle_manifest.json",
+        "data/adna/governance/source_library/projects/PRJEB43564/intake_dossier.json"
+      ]
+    },
+    {
+      "project_accession": "PRJEB50952",
+      "species_latin_name": "Equus asinus",
+      "paper_doi": "",
+      "inventory_disposition": "tracked_intake_candidate",
+      "evidence_acquisition_state": "paper_linkage_not_curated",
+      "expected_contributions": [],
+      "expected_sample_count_status": "not_yet_curated",
+      "sample_identifier_status": "missing_primary_paper_linkage",
+      "current_anchor_files": [
+        "data/adna/governance/source_library/projects/PRJEB50952/bundle_manifest.json",
+        "data/adna/governance/source_library/projects/PRJEB50952/intake_dossier.json"
+      ]
+    },
+    {
+      "project_accession": "PRJEB52590",
+      "species_latin_name": "Equus asinus",
+      "paper_doi": "",
+      "inventory_disposition": "tracked_intake_candidate",
+      "evidence_acquisition_state": "paper_linkage_not_curated",
+      "expected_contributions": [],
+      "expected_sample_count_status": "not_yet_curated",
+      "sample_identifier_status": "missing_primary_paper_linkage",
+      "current_anchor_files": [
+        "data/adna/governance/source_library/projects/PRJEB52590/bundle_manifest.json",
+        "data/adna/governance/source_library/projects/PRJEB52590/intake_dossier.json"
+      ]
+    },
+    {
+      "project_accession": "PRJEB52849",
+      "species_latin_name": "Equus asinus",
+      "paper_doi": "",
+      "inventory_disposition": "tracked_intake_candidate",
+      "evidence_acquisition_state": "paper_linkage_not_curated",
+      "expected_contributions": [],
+      "expected_sample_count_status": "not_yet_curated",
+      "sample_identifier_status": "missing_primary_paper_linkage",
+      "current_anchor_files": [
+        "data/adna/governance/source_library/projects/PRJEB52849/bundle_manifest.json",
+        "data/adna/governance/source_library/projects/PRJEB52849/intake_dossier.json"
+      ]
+    },
+    {
+      "project_accession": "PRJEB55549",
+      "species_latin_name": "Equus asinus",
+      "paper_doi": "",
+      "inventory_disposition": "retained_rejected_reference",
+      "evidence_acquisition_state": "scope_rejected",
+      "expected_contributions": [
+        "sample_identifiers"
+      ],
+      "expected_sample_count_status": "not_yet_curated",
+      "sample_identifier_status": "not_yet_curated",
+      "current_anchor_files": [
+        "data/adna/governance/source_library/projects/PRJEB55549/bundle_manifest.json",
+        "data/adna/governance/source_library/projects/PRJEB55549/intake_dossier.json"
+      ]
+    },
+    {
+      "project_accession": "PRJEB10854",
+      "species_latin_name": "Equus caballus",
+      "paper_doi": "",
+      "inventory_disposition": "tracked_intake_candidate",
+      "evidence_acquisition_state": "paper_linkage_not_curated",
+      "expected_contributions": [],
+      "expected_sample_count_status": "not_yet_curated",
+      "sample_identifier_status": "missing_primary_paper_linkage",
+      "current_anchor_files": [
+        "data/adna/governance/source_library/projects/PRJEB10854/bundle_manifest.json",
+        "data/adna/governance/source_library/projects/PRJEB10854/intake_dossier.json"
+      ]
+    },
+    {
+      "project_accession": "PRJEB19970",
+      "species_latin_name": "Equus caballus",
+      "paper_doi": "10.1126/science.aam5298",
+      "inventory_disposition": "tracked_intake_candidate",
+      "evidence_acquisition_state": "sample_tables_published",
+      "expected_contributions": [
+        "sample_identifiers",
+        "taxonomic_context"
+      ],
+      "expected_sample_count_status": "not_yet_curated",
+      "sample_identifier_status": "manual_curation_required",
+      "current_anchor_files": [
+        "data/adna/governance/source_library/projects/PRJEB19970/bundle_manifest.json",
+        "data/adna/governance/source_library/projects/PRJEB19970/intake_dossier.json",
+        "data/adna/governance/source_library/papers/10.1126-science.aam5298/supplementary_manifest.json"
+      ]
+    },
+    {
+      "project_accession": "PRJEB22390",
+      "species_latin_name": "Equus caballus",
+      "paper_doi": "10.1126/science.aao3297",
+      "inventory_disposition": "tracked_intake_candidate",
+      "evidence_acquisition_state": "sample_tables_published",
+      "expected_contributions": [
+        "sample_identifiers",
+        "taxonomic_context"
+      ],
+      "expected_sample_count_status": "not_yet_curated",
+      "sample_identifier_status": "manual_curation_required",
+      "current_anchor_files": [
+        "data/adna/governance/source_library/projects/PRJEB22390/bundle_manifest.json",
+        "data/adna/governance/source_library/projects/PRJEB22390/intake_dossier.json",
+        "data/adna/governance/source_library/papers/10.1126-science.aao3297/supplementary_manifest.json"
+      ]
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "species_latin_name": "Equus caballus",
+      "paper_doi": "10.1016/j.cell.2019.03.049",
+      "inventory_disposition": "tracked_intake_candidate",
+      "evidence_acquisition_state": "sample_tables_published",
+      "expected_contributions": [
+        "sample_identifiers",
+        "taxonomic_context"
+      ],
+      "expected_sample_count_status": "not_yet_curated",
+      "sample_identifier_status": "paper_or_supplement_targets_curated",
+      "current_anchor_files": [
+        "data/adna/governance/source_library/projects/PRJEB31613/bundle_manifest.json",
+        "data/adna/governance/source_library/projects/PRJEB31613/intake_dossier.json",
+        "data/adna/governance/source_library/papers/10.1016-j.cell.2019.03.049/supplementary_manifest.json"
+      ]
+    },
+    {
+      "project_accession": "PRJEB44430",
+      "species_latin_name": "Equus caballus",
+      "paper_doi": "10.1038/s41586-021-04018-9",
+      "inventory_disposition": "tracked_intake_candidate",
+      "evidence_acquisition_state": "sample_tables_published",
+      "expected_contributions": [
+        "sample_identifiers",
+        "taxonomic_context"
+      ],
+      "expected_sample_count_status": "not_yet_curated",
+      "sample_identifier_status": "paper_or_supplement_targets_curated",
+      "current_anchor_files": [
+        "data/adna/governance/source_library/projects/PRJEB44430/bundle_manifest.json",
+        "data/adna/governance/source_library/projects/PRJEB44430/intake_dossier.json",
+        "data/adna/governance/source_library/papers/10.1038-s41586-021-04018-9/supplementary_manifest.json"
+      ]
+    },
+    {
+      "project_accession": "PRJEB56293",
+      "species_latin_name": "Equus caballus",
+      "paper_doi": "",
+      "inventory_disposition": "tracked_intake_candidate",
+      "evidence_acquisition_state": "paper_linkage_not_curated",
+      "expected_contributions": [],
+      "expected_sample_count_status": "not_yet_curated",
+      "sample_identifier_status": "missing_primary_paper_linkage",
+      "current_anchor_files": [
+        "data/adna/governance/source_library/projects/PRJEB56293/bundle_manifest.json",
+        "data/adna/governance/source_library/projects/PRJEB56293/intake_dossier.json"
+      ]
+    },
+    {
+      "project_accession": "PRJEB7537",
+      "species_latin_name": "Equus caballus",
+      "paper_doi": "",
+      "inventory_disposition": "tracked_intake_candidate",
+      "evidence_acquisition_state": "paper_linkage_not_curated",
+      "expected_contributions": [],
+      "expected_sample_count_status": "not_yet_curated",
+      "sample_identifier_status": "missing_primary_paper_linkage",
+      "current_anchor_files": [
+        "data/adna/governance/source_library/projects/PRJEB7537/bundle_manifest.json",
+        "data/adna/governance/source_library/projects/PRJEB7537/intake_dossier.json"
+      ]
+    },
+    {
+      "project_accession": "PRJEB9799",
+      "species_latin_name": "Equus caballus",
+      "paper_doi": "",
+      "inventory_disposition": "retained_rejected_reference",
+      "evidence_acquisition_state": "scope_rejected",
+      "expected_contributions": [
+        "sample_identifiers"
+      ],
+      "expected_sample_count_status": "not_yet_curated",
+      "sample_identifier_status": "not_yet_curated",
+      "current_anchor_files": [
+        "data/adna/governance/source_library/projects/PRJEB9799/bundle_manifest.json",
+        "data/adna/governance/source_library/projects/PRJEB9799/intake_dossier.json"
+      ]
+    },
+    {
+      "project_accession": "PRJEB81815",
+      "species_latin_name": "Felis catus",
+      "paper_doi": "10.1126/science.adt2642",
+      "inventory_disposition": "tracked_intake_candidate",
+      "evidence_acquisition_state": "repository_supplement_captured_needs_extraction",
+      "expected_contributions": [
+        "sample_identifiers",
+        "taxonomic_context",
+        "site_names",
+        "coordinate_resolution_candidate",
+        "chronology"
+      ],
+      "expected_sample_count_status": "not_yet_curated",
+      "sample_identifier_status": "paper_or_supplement_targets_curated",
+      "current_anchor_files": [
+        "data/adna/governance/source_library/projects/PRJEB81815/bundle_manifest.json",
+        "data/adna/governance/source_library/projects/PRJEB81815/intake_dossier.json",
+        "data/adna/governance/source_library/papers/10.1126-science.adt2642/supplementary_manifest.json"
+      ]
+    },
+    {
+      "project_accession": "PRJNA1178732",
+      "species_latin_name": "Felis catus",
+      "paper_doi": "10.1016/j.xgen.2025.101099",
+      "inventory_disposition": "tracked_intake_candidate",
+      "evidence_acquisition_state": "repository_supplement_captured_needs_extraction",
+      "expected_contributions": [
+        "sample_identifiers",
+        "taxonomic_context",
+        "site_names",
+        "coordinate_resolution_candidate",
+        "chronology"
+      ],
+      "expected_sample_count_status": "not_yet_curated",
+      "sample_identifier_status": "paper_or_supplement_targets_curated",
+      "current_anchor_files": [
+        "data/adna/governance/source_library/projects/PRJNA1178732/bundle_manifest.json",
+        "data/adna/governance/source_library/projects/PRJNA1178732/intake_dossier.json",
+        "data/adna/governance/source_library/papers/10.1016-j.xgen.2025.101099/supplementary_manifest.json"
+      ]
+    },
+    {
+      "project_accession": "PRJEB36540",
+      "species_latin_name": "Ovis aries",
+      "paper_doi": "10.1038/s42003-021-02794-8",
+      "inventory_disposition": "tracked_intake_candidate",
+      "evidence_acquisition_state": "sample_tables_published",
+      "expected_contributions": [
+        "sample_identifiers",
+        "taxonomic_context"
+      ],
+      "expected_sample_count_status": "not_yet_curated",
+      "sample_identifier_status": "paper_or_supplement_targets_curated",
+      "current_anchor_files": [
+        "data/adna/governance/source_library/projects/PRJEB36540/bundle_manifest.json",
+        "data/adna/governance/source_library/projects/PRJEB36540/intake_dossier.json",
+        "data/adna/governance/source_library/papers/10.1038-s42003-021-02794-8/supplementary_manifest.json"
+      ]
+    },
+    {
+      "project_accession": "PRJEB41594",
+      "species_latin_name": "Ovis aries",
+      "paper_doi": "10.1038/s41562-021-01083-y",
+      "inventory_disposition": "tracked_intake_candidate",
+      "evidence_acquisition_state": "repository_supplement_captured_needs_extraction",
+      "expected_contributions": [
+        "sample_identifiers",
+        "taxonomic_context",
+        "site_names",
+        "coordinate_resolution_candidate",
+        "chronology"
+      ],
+      "expected_sample_count_status": "not_yet_curated",
+      "sample_identifier_status": "paper_or_supplement_targets_curated",
+      "current_anchor_files": [
+        "data/adna/governance/source_library/projects/PRJEB41594/bundle_manifest.json",
+        "data/adna/governance/source_library/projects/PRJEB41594/intake_dossier.json",
+        "data/adna/governance/source_library/papers/10.1038-s41562-021-01083-y/supplementary_manifest.json"
+      ]
+    },
+    {
+      "project_accession": "PRJEB59481",
+      "species_latin_name": "Ovis aries",
+      "paper_doi": "10.1093/gbe/evae114",
+      "inventory_disposition": "tracked_intake_candidate",
+      "evidence_acquisition_state": "repository_supplement_captured_needs_extraction",
+      "expected_contributions": [
+        "sample_identifiers",
+        "taxonomic_context",
+        "site_names",
+        "coordinate_resolution_candidate",
+        "chronology"
+      ],
+      "expected_sample_count_status": "not_yet_curated",
+      "sample_identifier_status": "paper_or_supplement_targets_curated",
+      "current_anchor_files": [
+        "data/adna/governance/source_library/projects/PRJEB59481/bundle_manifest.json",
+        "data/adna/governance/source_library/projects/PRJEB59481/intake_dossier.json",
+        "data/adna/governance/source_library/papers/10.1093-gbe-evae114/supplementary_manifest.json"
+      ]
+    },
+    {
+      "project_accession": "PRJEB61808",
+      "species_latin_name": "Ovis aries",
+      "paper_doi": "",
+      "inventory_disposition": "tracked_intake_candidate",
+      "evidence_acquisition_state": "paper_linkage_not_curated",
+      "expected_contributions": [],
+      "expected_sample_count_status": "not_yet_curated",
+      "sample_identifier_status": "missing_primary_paper_linkage",
+      "current_anchor_files": [
+        "data/adna/governance/source_library/projects/PRJEB61808/bundle_manifest.json",
+        "data/adna/governance/source_library/projects/PRJEB61808/intake_dossier.json"
+      ]
+    },
+    {
+      "project_accession": "PRJEB69690",
+      "species_latin_name": "Ovis aries",
+      "paper_doi": "",
+      "inventory_disposition": "tracked_intake_candidate",
+      "evidence_acquisition_state": "paper_linkage_not_curated",
+      "expected_contributions": [],
+      "expected_sample_count_status": "not_yet_curated",
+      "sample_identifier_status": "missing_primary_paper_linkage",
+      "current_anchor_files": [
+        "data/adna/governance/source_library/projects/PRJEB69690/bundle_manifest.json",
+        "data/adna/governance/source_library/projects/PRJEB69690/intake_dossier.json"
+      ]
+    },
+    {
+      "project_accession": "PRJEB81145",
+      "species_latin_name": "Ovis aries",
+      "paper_doi": "",
+      "inventory_disposition": "tracked_intake_candidate",
+      "evidence_acquisition_state": "paper_linkage_not_curated",
+      "expected_contributions": [],
+      "expected_sample_count_status": "not_yet_curated",
+      "sample_identifier_status": "missing_primary_paper_linkage",
+      "current_anchor_files": [
+        "data/adna/governance/source_library/projects/PRJEB81145/bundle_manifest.json",
+        "data/adna/governance/source_library/projects/PRJEB81145/intake_dossier.json"
+      ]
+    },
+    {
+      "project_accession": "PRJEB57293",
+      "species_latin_name": "Rangifer tarandus",
+      "paper_doi": "",
+      "inventory_disposition": "retained_rejected_reference",
+      "evidence_acquisition_state": "scope_rejected",
+      "expected_contributions": [
+        "sample_identifiers"
+      ],
+      "expected_sample_count_status": "not_yet_curated",
+      "sample_identifier_status": "not_yet_curated",
+      "current_anchor_files": [
+        "data/adna/governance/source_library/projects/PRJEB57293/bundle_manifest.json",
+        "data/adna/governance/source_library/projects/PRJEB57293/intake_dossier.json"
+      ]
+    },
+    {
+      "project_accession": "PRJEB60484",
+      "species_latin_name": "Rangifer tarandus",
+      "paper_doi": "10.1038/s41598-024-54296-2",
+      "inventory_disposition": "tracked_intake_candidate",
+      "evidence_acquisition_state": "sample_tables_published",
+      "expected_contributions": [
+        "sample_identifiers",
+        "taxonomic_context"
+      ],
+      "expected_sample_count_status": "not_yet_curated",
+      "sample_identifier_status": "paper_or_supplement_targets_curated",
+      "current_anchor_files": [
+        "data/adna/governance/source_library/projects/PRJEB60484/bundle_manifest.json",
+        "data/adna/governance/source_library/projects/PRJEB60484/intake_dossier.json",
+        "data/adna/governance/source_library/papers/10.1038-s41598-024-54296-2/supplementary_manifest.json"
+      ]
+    },
+    {
+      "project_accession": "PRJEB61721",
+      "species_latin_name": "Rangifer tarandus",
+      "paper_doi": "",
+      "inventory_disposition": "retained_rejected_reference",
+      "evidence_acquisition_state": "scope_rejected",
+      "expected_contributions": [
+        "sample_identifiers"
+      ],
+      "expected_sample_count_status": "not_yet_curated",
+      "sample_identifier_status": "not_yet_curated",
+      "current_anchor_files": [
+        "data/adna/governance/source_library/projects/PRJEB61721/bundle_manifest.json",
+        "data/adna/governance/source_library/projects/PRJEB61721/intake_dossier.json"
+      ]
+    },
+    {
+      "project_accession": "PRJNA634908",
+      "species_latin_name": "Rangifer tarandus",
+      "paper_doi": "",
+      "inventory_disposition": "retained_rejected_reference",
+      "evidence_acquisition_state": "scope_rejected",
+      "expected_contributions": [
+        "sample_identifiers"
+      ],
+      "expected_sample_count_status": "not_yet_curated",
+      "sample_identifier_status": "not_yet_curated",
+      "current_anchor_files": [
+        "data/adna/governance/source_library/projects/PRJNA634908/bundle_manifest.json",
+        "data/adna/governance/source_library/projects/PRJNA634908/intake_dossier.json"
+      ]
+    },
+    {
+      "project_accession": "PRJEB30282",
+      "species_latin_name": "Sus scrofa domesticus",
+      "paper_doi": "10.1073/pnas.1901169116",
+      "inventory_disposition": "tracked_intake_candidate",
+      "evidence_acquisition_state": "repository_supplement_captured_needs_extraction",
+      "expected_contributions": [
+        "sample_identifiers",
+        "taxonomic_context",
+        "site_names",
+        "coordinate_resolution_candidate",
+        "chronology"
+      ],
+      "expected_sample_count_status": "not_yet_curated",
+      "sample_identifier_status": "paper_or_supplement_targets_curated",
+      "current_anchor_files": [
+        "data/adna/governance/source_library/projects/PRJEB30282/bundle_manifest.json",
+        "data/adna/governance/source_library/projects/PRJEB30282/intake_dossier.json",
+        "data/adna/governance/source_library/papers/10.1073-pnas.1901169116/supplementary_manifest.json"
+      ]
+    },
+    {
+      "project_accession": "PRJNA421430",
+      "species_latin_name": "Sus scrofa domesticus",
+      "paper_doi": "",
+      "inventory_disposition": "retained_rejected_reference",
+      "evidence_acquisition_state": "scope_rejected",
+      "expected_contributions": [
+        "sample_identifiers"
+      ],
+      "expected_sample_count_status": "not_yet_curated",
+      "sample_identifier_status": "not_yet_curated",
+      "current_anchor_files": [
+        "data/adna/governance/source_library/projects/PRJNA421430/bundle_manifest.json",
+        "data/adna/governance/source_library/projects/PRJNA421430/intake_dossier.json"
+      ]
+    },
+    {
+      "project_accession": "PRJNA788987",
+      "species_latin_name": "Sus scrofa domesticus",
+      "paper_doi": "",
+      "inventory_disposition": "tracked_intake_candidate",
+      "evidence_acquisition_state": "paper_linkage_not_curated",
+      "expected_contributions": [],
+      "expected_sample_count_status": "not_yet_curated",
+      "sample_identifier_status": "missing_primary_paper_linkage",
+      "current_anchor_files": [
+        "data/adna/governance/source_library/projects/PRJNA788987/bundle_manifest.json",
+        "data/adna/governance/source_library/projects/PRJNA788987/intake_dossier.json"
+      ]
+    },
+    {
+      "project_accession": "PRJNA878488",
+      "species_latin_name": "Sus scrofa domesticus",
+      "paper_doi": "",
+      "inventory_disposition": "tracked_intake_candidate",
+      "evidence_acquisition_state": "paper_linkage_not_curated",
+      "expected_contributions": [],
+      "expected_sample_count_status": "not_yet_curated",
+      "sample_identifier_status": "missing_primary_paper_linkage",
+      "current_anchor_files": [
+        "data/adna/governance/source_library/projects/PRJNA878488/bundle_manifest.json",
+        "data/adna/governance/source_library/projects/PRJNA878488/intake_dossier.json"
+      ]
+    }
+  ]
+}

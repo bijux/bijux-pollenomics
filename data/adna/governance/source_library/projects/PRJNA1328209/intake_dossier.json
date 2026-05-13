@@ -1,0 +1,63 @@
+{
+  "schema_version": "animal-project-recovery-dossier.v1",
+  "project_accession": "PRJNA1328209",
+  "species_latin_name": "Capra hircus",
+  "paper_doi": "10.24272/j.issn.2095-8137.2025.080",
+  "archive_status": "paper_pinned_core",
+  "evidence_strength": "primary_paper_pinned",
+  "inventory_disposition": "tracked_intake_candidate",
+  "stage_statuses": {
+    "project_admission": "complete",
+    "paper_capture": "complete",
+    "supplement_capture": "not_required",
+    "sample_identity_recovery": "complete",
+    "site_recovery": "complete",
+    "chronology_recovery": "complete",
+    "coordinate_derivation": "complete",
+    "publication_readiness": "complete"
+  },
+  "blocking_stages": [],
+  "next_required_stage": null,
+  "publication_readiness_status": "complete",
+  "expected_sample_count": null,
+  "expected_sample_count_status": "not_yet_curated",
+  "expected_sample_count_provenance": "The project is paper-pinned, but the expected sample count still needs to be recovered from the listed article or supplementary targets.",
+  "expected_sample_count_artifact_path": "",
+  "minimum_expected_sample_count": 1,
+  "recovered_sample_count": 5,
+  "final_sample_count": 5,
+  "unresolved_sample_count": null,
+  "minimum_gap_count": 0,
+  "recovery_gap_status": "minimum_expected_floor_met",
+  "implausibly_low_recovery": false,
+  "implausibly_low_recovery_reason": "",
+  "known_assets": [
+    "adna/governance/source_library/papers/10.24272-j.issn.2095-8137.2025.080/supplementary/Supplementary_tables.xlsx",
+    "adna/governance/source_library/papers/10.24272-j.issn.2095-8137.2025.080/supplementary/ZR-2025-080-Supplementary Materials.pdf",
+    "adna/governance/source_library/papers/10.24272-j.issn.2095-8137.2025.080/article.html",
+    "adna/governance/source_library/papers/10.24272-j.issn.2095-8137.2025.080/crossref.json",
+    "adna/governance/source_library/papers/10.24272-j.issn.2095-8137.2025.080/pubmed.xml",
+    "adna/governance/source_library/projects/PRJNA1328209/archive_metadata.html",
+    "data/adna/governance/source_library/projects/PRJNA1328209/sample_master.json",
+    "data/adna/governance/source_library/projects/PRJNA1328209/sample_sites.json",
+    "data/adna/governance/source_library/projects/PRJNA1328209/sample_chronology.json",
+    "data/adna/governance/source_library/projects/PRJNA1328209/sample_locality_evidence.json"
+  ],
+  "missing_assets": [],
+  "expected_contributions": [
+    "sample_identities",
+    "taxonomic_context"
+  ],
+  "expected_contribution_surfaces": [
+    "data/adna/governance/source_library/projects/PRJNA1328209/archive_metadata.html",
+    "data/adna/governance/source_library/papers/10.24272-j.issn.2095-8137.2025.080/article.html",
+    "adna/governance/source_library/papers/10.24272-j.issn.2095-8137.2025.080/supplementary/Supplementary_tables.xlsx",
+    "adna/governance/source_library/papers/10.24272-j.issn.2095-8137.2025.080/supplementary/ZR-2025-080-Supplementary Materials.pdf"
+  ],
+  "contradictory_evidence": [
+    "Locality substitution review still blocks publication because project-level geography would flatten distinct sample evidence."
+  ],
+  "inferred_claims": [],
+  "manual_curation_work_units": [],
+  "major_deficit_reasons": []
+}

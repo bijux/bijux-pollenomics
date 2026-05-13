@@ -8,10 +8,13 @@ import re
 REPO_ROOT = Path(__file__).resolve().parents[3]
 DEV_SRC = REPO_ROOT / "packages" / "bijux-pollenomics-dev" / "src"
 FORBIDDEN_RUNTIME_IMPORTS = (
+    "bijux_pollenomics.adna",
     "bijux_pollenomics.analysis",
-    "bijux_pollenomics.reporting",
-    "bijux_pollenomics.data_downloader",
     "bijux_pollenomics.command_line",
+    "bijux_pollenomics.data_downloader",
+    "bijux_pollenomics.evidence",
+    "bijux_pollenomics.foundation",
+    "bijux_pollenomics.reporting",
 )
 
 

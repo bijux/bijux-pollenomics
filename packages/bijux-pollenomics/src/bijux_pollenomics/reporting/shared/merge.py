@@ -1,9 +1,5 @@
-from __future__ import annotations
+"""Compatibility export for shared reporting value selection."""
 
-
-def pick_value(left: str, right: str) -> str:
-    """Keep the first non-empty value when merging duplicate sample rows."""
-    return left if left else right
-
+from ..assembly.value_selection import pick_value
 
 __all__ = ["pick_value"]

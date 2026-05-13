@@ -1,0 +1,91 @@
+{
+  "schema_version": "publication-geography-registry.v1",
+  "scopes": [
+    {
+      "key": "world",
+      "kind": "world",
+      "label": "World",
+      "parent_key": null,
+      "directory": "world",
+      "country_count": 4,
+      "countries": [
+        "Sweden",
+        "Norway",
+        "Finland",
+        "Denmark"
+      ]
+    },
+    {
+      "key": "europe_plus",
+      "kind": "region",
+      "label": "Europe-plus",
+      "parent_key": "world",
+      "directory": "regions/europe-plus",
+      "country_count": 4,
+      "countries": [
+        "Sweden",
+        "Norway",
+        "Finland",
+        "Denmark"
+      ]
+    },
+    {
+      "key": "nordic",
+      "kind": "region",
+      "label": "Nordic",
+      "parent_key": "europe_plus",
+      "directory": "regions/nordic",
+      "country_count": 4,
+      "countries": [
+        "Sweden",
+        "Norway",
+        "Finland",
+        "Denmark"
+      ]
+    },
+    {
+      "key": "country:sweden",
+      "kind": "country",
+      "label": "Sweden",
+      "parent_key": "nordic",
+      "directory": "countries/sweden",
+      "country_count": 1,
+      "countries": [
+        "Sweden"
+      ]
+    },
+    {
+      "key": "country:norway",
+      "kind": "country",
+      "label": "Norway",
+      "parent_key": "nordic",
+      "directory": "countries/norway",
+      "country_count": 1,
+      "countries": [
+        "Norway"
+      ]
+    },
+    {
+      "key": "country:finland",
+      "kind": "country",
+      "label": "Finland",
+      "parent_key": "nordic",
+      "directory": "countries/finland",
+      "country_count": 1,
+      "countries": [
+        "Finland"
+      ]
+    },
+    {
+      "key": "country:denmark",
+      "kind": "country",
+      "label": "Denmark",
+      "parent_key": "nordic",
+      "directory": "countries/denmark",
+      "country_count": 1,
+      "countries": [
+        "Denmark"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,215 @@
+{
+  "schema_version": "adna-unresolved-site-ledger.v1",
+  "rows": [
+    {
+      "species_latin_name": "Bos taurus",
+      "species_common_name": "cattle",
+      "project_accession": "PRJEB31621",
+      "stable_sample_id": "bos_taurus:sample:prjeb31621",
+      "site_label": "site detail not yet extracted from tracked source support",
+      "paper_doi": "10.1126/science.aav1002",
+      "supplementary_source": "",
+      "inclusion_note": "This sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support."
+    },
+    {
+      "species_latin_name": "Bos taurus",
+      "species_common_name": "cattle",
+      "project_accession": "PRJEB75467",
+      "stable_sample_id": "bos_taurus:sample:prjeb75467",
+      "site_label": "site detail not yet extracted from tracked source support",
+      "paper_doi": "10.1038/s41586-024-08112-6",
+      "supplementary_source": "",
+      "inclusion_note": "This sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support."
+    },
+    {
+      "species_latin_name": "Equus asinus",
+      "species_common_name": "donkey",
+      "project_accession": "PRJEB43564",
+      "stable_sample_id": "equus_asinus:sample:prjeb43564",
+      "site_label": "site detail not yet extracted from tracked source support",
+      "paper_doi": "",
+      "supplementary_source": "",
+      "inclusion_note": "This sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support."
+    },
+    {
+      "species_latin_name": "Equus asinus",
+      "species_common_name": "donkey",
+      "project_accession": "PRJEB50952",
+      "stable_sample_id": "equus_asinus:sample:prjeb50952",
+      "site_label": "site detail not yet extracted from tracked source support",
+      "paper_doi": "",
+      "supplementary_source": "",
+      "inclusion_note": "This sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support."
+    },
+    {
+      "species_latin_name": "Equus asinus",
+      "species_common_name": "donkey",
+      "project_accession": "PRJEB52590",
+      "stable_sample_id": "equus_asinus:sample:prjeb52590",
+      "site_label": "site detail not yet extracted from tracked source support",
+      "paper_doi": "",
+      "supplementary_source": "",
+      "inclusion_note": "This sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support."
+    },
+    {
+      "species_latin_name": "Equus asinus",
+      "species_common_name": "donkey",
+      "project_accession": "PRJEB55549",
+      "stable_sample_id": "equus_asinus:sample:prjeb55549",
+      "site_label": "site detail not yet extracted from tracked source support",
+      "paper_doi": "",
+      "supplementary_source": "",
+      "inclusion_note": "This sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support."
+    },
+    {
+      "species_latin_name": "Equus caballus",
+      "species_common_name": "horse",
+      "project_accession": "PRJEB10854",
+      "stable_sample_id": "equus_caballus:sample:prjeb10854",
+      "site_label": "site detail not yet extracted from tracked source support",
+      "paper_doi": "",
+      "supplementary_source": "",
+      "inclusion_note": "This sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support."
+    },
+    {
+      "species_latin_name": "Equus caballus",
+      "species_common_name": "horse",
+      "project_accession": "PRJEB56293",
+      "stable_sample_id": "equus_caballus:sample:prjeb56293",
+      "site_label": "site detail not yet extracted from tracked source support",
+      "paper_doi": "",
+      "supplementary_source": "",
+      "inclusion_note": "This sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support."
+    },
+    {
+      "species_latin_name": "Equus caballus",
+      "species_common_name": "horse",
+      "project_accession": "PRJEB7537",
+      "stable_sample_id": "equus_caballus:sample:prjeb7537",
+      "site_label": "site detail not yet extracted from tracked source support",
+      "paper_doi": "",
+      "supplementary_source": "",
+      "inclusion_note": "This sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support."
+    },
+    {
+      "species_latin_name": "Equus caballus",
+      "species_common_name": "horse",
+      "project_accession": "PRJEB9799",
+      "stable_sample_id": "equus_caballus:sample:prjeb9799",
+      "site_label": "site detail not yet extracted from tracked source support",
+      "paper_doi": "",
+      "supplementary_source": "",
+      "inclusion_note": "This sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support."
+    },
+    {
+      "species_latin_name": "Felis catus",
+      "species_common_name": "cat",
+      "project_accession": "PRJNA1178732",
+      "stable_sample_id": "felis_catus:sample:prjna1178732",
+      "site_label": "site detail not yet extracted from tracked source support",
+      "paper_doi": "10.1016/j.xgen.2025.101099",
+      "supplementary_source": "",
+      "inclusion_note": "This sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support."
+    },
+    {
+      "species_latin_name": "Ovis aries",
+      "species_common_name": "sheep",
+      "project_accession": "PRJEB41594",
+      "stable_sample_id": "ovis_aries:sample:prjeb41594",
+      "site_label": "site detail not yet extracted from tracked source support",
+      "paper_doi": "10.1038/s41562-021-01083-y",
+      "supplementary_source": "",
+      "inclusion_note": "This sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support."
+    },
+    {
+      "species_latin_name": "Ovis aries",
+      "species_common_name": "sheep",
+      "project_accession": "PRJEB61808",
+      "stable_sample_id": "ovis_aries:sample:prjeb61808",
+      "site_label": "site detail not yet extracted from tracked source support",
+      "paper_doi": "",
+      "supplementary_source": "",
+      "inclusion_note": "This sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support."
+    },
+    {
+      "species_latin_name": "Ovis aries",
+      "species_common_name": "sheep",
+      "project_accession": "PRJEB69690",
+      "stable_sample_id": "ovis_aries:sample:prjeb69690",
+      "site_label": "site detail not yet extracted from tracked source support",
+      "paper_doi": "",
+      "supplementary_source": "",
+      "inclusion_note": "This sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support."
+    },
+    {
+      "species_latin_name": "Ovis aries",
+      "species_common_name": "sheep",
+      "project_accession": "PRJEB81145",
+      "stable_sample_id": "ovis_aries:sample:prjeb81145",
+      "site_label": "site detail not yet extracted from tracked source support",
+      "paper_doi": "",
+      "supplementary_source": "",
+      "inclusion_note": "This sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support."
+    },
+    {
+      "species_latin_name": "Rangifer tarandus",
+      "species_common_name": "reindeer",
+      "project_accession": "PRJEB57293",
+      "stable_sample_id": "rangifer_tarandus:sample:prjeb57293",
+      "site_label": "site detail not yet extracted from tracked source support",
+      "paper_doi": "",
+      "supplementary_source": "",
+      "inclusion_note": "This sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support."
+    },
+    {
+      "species_latin_name": "Rangifer tarandus",
+      "species_common_name": "reindeer",
+      "project_accession": "PRJEB61721",
+      "stable_sample_id": "rangifer_tarandus:sample:prjeb61721",
+      "site_label": "site detail not yet extracted from tracked source support",
+      "paper_doi": "",
+      "supplementary_source": "",
+      "inclusion_note": "This sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support."
+    },
+    {
+      "species_latin_name": "Rangifer tarandus",
+      "species_common_name": "reindeer",
+      "project_accession": "PRJNA634908",
+      "stable_sample_id": "rangifer_tarandus:sample:prjna634908",
+      "site_label": "site detail not yet extracted from tracked source support",
+      "paper_doi": "",
+      "supplementary_source": "",
+      "inclusion_note": "This sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support."
+    },
+    {
+      "species_latin_name": "Sus scrofa domesticus",
+      "species_common_name": "pig",
+      "project_accession": "PRJNA421430",
+      "stable_sample_id": "sus_scrofa_domesticus:sample:prjna421430",
+      "site_label": "site detail not yet extracted from tracked source support",
+      "paper_doi": "",
+      "supplementary_source": "",
+      "inclusion_note": "This sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support."
+    },
+    {
+      "species_latin_name": "Sus scrofa domesticus",
+      "species_common_name": "pig",
+      "project_accession": "PRJNA788987",
+      "stable_sample_id": "sus_scrofa_domesticus:sample:prjna788987",
+      "site_label": "site detail not yet extracted from tracked source support",
+      "paper_doi": "",
+      "supplementary_source": "",
+      "inclusion_note": "This sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support."
+    },
+    {
+      "species_latin_name": "Sus scrofa domesticus",
+      "species_common_name": "pig",
+      "project_accession": "PRJNA878488",
+      "stable_sample_id": "sus_scrofa_domesticus:sample:prjna878488",
+      "site_label": "site detail not yet extracted from tracked source support",
+      "paper_doi": "",
+      "supplementary_source": "",
+      "inclusion_note": "This sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support."
+    }
+  ]
+}

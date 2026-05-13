@@ -1,0 +1,13 @@
+{
+  "schema_version": "adna-source-library.v1",
+  "source_url": "https://academic.oup.com/gbe/article/doi/10.1093/gbe/evaf181/8317779",
+  "artifact_kind": "supplementary_table",
+  "content_type": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+  "byte_size": 2557869,
+  "paper_doi": "10.1093/gbe/evaf181",
+  "project_accessions": [
+    "PRJEB90141"
+  ],
+  "artifact_label": "curated supplementary asset GBE_Supplementary_Tables_S1-18_Goat_imputation.xlsx",
+  "source_note": "Recovered from the local DOI-keyed supplement stash and copied into the governed source library."
+}

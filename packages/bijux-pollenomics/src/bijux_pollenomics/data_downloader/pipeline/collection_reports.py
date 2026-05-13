@@ -3,6 +3,7 @@ from __future__ import annotations
 from datetime import date
 from pathlib import Path
 
+from ..data_contracts import build_contract_artifact_paths
 from ..models import (
     DataCollectionReport,
     DataCollectionSummary,
@@ -11,6 +12,7 @@ from ..models import (
     SourceReplacementRule,
     SourceTraceabilityRecord,
 )
+from ..source_family_contracts import build_source_family_state_rows
 
 __all__ = [
     "build_data_collection_report",
@@ -59,6 +61,10 @@ def build_data_collection_summary(
         source_provenance=source_provenance,
         source_replacement_rules=source_replacement_rules,
         source_traceability=source_traceability,
+        contract_artifacts=build_contract_artifact_paths(output_root),
+        source_family_state_rows=build_source_family_state_rows(
+            output_root, counts=counts
+        ),
         boundary_source=boundary_source,
         aadr_file_count=counts["aadr_file_count"],
         landclim_site_count=counts["landclim_site_count"],
@@ -86,6 +92,8 @@ def build_data_collection_report(
         source_provenance=summary.source_provenance,
         source_replacement_rules=summary.source_replacement_rules,
         source_traceability=summary.source_traceability,
+        contract_artifacts=summary.contract_artifacts,
+        source_family_state_rows=summary.source_family_state_rows,
         aadr_file_count=summary.aadr_file_count,
         landclim_site_count=summary.landclim_site_count,
         landclim_grid_cell_count=summary.landclim_grid_cell_count,

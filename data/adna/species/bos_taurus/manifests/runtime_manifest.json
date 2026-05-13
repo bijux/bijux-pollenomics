@@ -1,0 +1,82 @@
+{
+  "schema_version": "adna-runtime-manifest.v1",
+  "species_manifest": {
+    "schema_version": "adna-species-manifest.v1",
+    "species": {
+      "latin_name": "Bos taurus",
+      "slug": "bos_taurus",
+      "common_name": "cattle",
+      "support_status": "provisional",
+      "modalities": [
+        "archive_reads",
+        "paper_only"
+      ],
+      "source_families": [
+        "ENA",
+        "SRA",
+        "BioProject"
+      ],
+      "aliases": [
+        "cattle",
+        "cow",
+        "domestic cattle"
+      ],
+      "notes": "Cattle support remains provisional until species-split and ancestry rules are made explicit in code."
+    },
+    "root_slug": "bos_taurus",
+    "data_root": "data/adna/species/bos_taurus",
+    "normalized_sample_namespace": "bos_taurus:normalized_sample",
+    "tracked_layout": [
+      "raw",
+      "normalized",
+      "manifests",
+      "reports",
+      "review"
+    ],
+    "scientific_scope": "Cattle support remains split-sensitive. Wild or progenitor context must not be flattened into domesticated-core cattle support.",
+    "runtime_scope": "Current runtime normalization and reporting remain human AADR-first until species-specific collectors and archive bridges are implemented."
+  },
+  "source_bundles": [
+    {
+      "source_family": "ENA",
+      "source_release": "PRJEB31621",
+      "bundle_kind": "paper_pinned_core_project",
+      "tracked_root": "data/adna/species/bos_taurus/raw/ena",
+      "release_manifest_path": "data/adna/species/bos_taurus/manifests/curation_manifest.json",
+      "dataset_names": [
+        "PRJEB31621"
+      ],
+      "record_modality": "archive_reads",
+      "review_strength": "primary_paper_pinned",
+      "provenance_quality": "archive_project_catalog"
+    },
+    {
+      "source_family": "ENA",
+      "source_release": "PRJEB75467",
+      "bundle_kind": "paper_pinned_core_project",
+      "tracked_root": "data/adna/species/bos_taurus/raw/ena",
+      "release_manifest_path": "data/adna/species/bos_taurus/manifests/curation_manifest.json",
+      "dataset_names": [
+        "PRJEB75467"
+      ],
+      "record_modality": "archive_reads",
+      "review_strength": "primary_paper_pinned",
+      "provenance_quality": "archive_project_catalog"
+    },
+    {
+      "source_family": "ENA",
+      "source_release": "PRJNA705960",
+      "bundle_kind": "pending_archive_project",
+      "tracked_root": "data/adna/species/bos_taurus/raw/ena",
+      "release_manifest_path": "data/adna/species/bos_taurus/manifests/curation_manifest.json",
+      "dataset_names": [
+        "PRJNA705960"
+      ],
+      "record_modality": "archive_reads",
+      "review_strength": "archive_verified_needs_paper_pinning",
+      "provenance_quality": "archive_project_catalog"
+    }
+  ],
+  "analysis_boundary": "Paper-pinned core domestication support exists for this species. Curated projects are fit for governed comparative use, while pending projects still need stronger archive-paper linkage. Normalized runtime ingestion is not yet fully implemented for this species; curated accession-backed sample loading is available, while site extraction and richer runtime ingestion remain incomplete.",
+  "runtime_ready": false
+}

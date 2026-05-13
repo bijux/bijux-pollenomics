@@ -1,3 +1,5 @@
+"""Boundary-source helpers for published country polygons and archives."""
+
 from .archive import (
     BoundariesDataReport,
     build_combined_country_boundaries,

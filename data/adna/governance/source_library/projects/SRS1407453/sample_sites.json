@@ -1,0 +1,35 @@
+{
+  "schema_version": "animal-project-sample-sites.v1",
+  "project_accession": "SRS1407453",
+  "species_latin_name": "Canis lupus familiaris",
+  "row_count": 1,
+  "rows": [
+    {
+      "species_latin_name": "Canis lupus familiaris",
+      "species_common_name": "dog",
+      "project_accession": "SRS1407453",
+      "repo_stable_sample_id": "srs1407453:srs1407453",
+      "preferred_sample_label": "SRS1407453",
+      "sample_basis": "sample_accession_anchor",
+      "sample_evidence_status": "archive_native",
+      "sample_identity_resolution": "final",
+      "sample_ambiguity_note": "",
+      "locality_text": "",
+      "locality_resolution_status": "unresolved",
+      "location_evidence_artifact_path": "",
+      "location_evidence_artifact_kind": "",
+      "location_evidence_locator": "",
+      "location_evidence_text": "",
+      "site_name": "",
+      "municipality_name": "",
+      "region_name": "",
+      "country_name": "",
+      "broader_geography": "",
+      "coordinate_basis": "",
+      "coordinate_mapping_posture": "",
+      "coordinate_confidence": "",
+      "chronology_text": "",
+      "review_note": "No location evidence has been extracted yet for this recovered sample row."
+    }
+  ]
+}

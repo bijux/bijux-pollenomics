@@ -1,0 +1,11 @@
+species_latin_name,project_count,inventory_last_checked_on,paper_last_checked_on,has_nordic_unmapped_lead
+Bos taurus,3,2026-05-07,2026-05-07,false
+Camelus dromedarius,2,2026-05-07,2026-05-07,false
+Canis lupus familiaris,3,2026-05-07,2026-05-07,false
+Capra hircus,3,2026-05-07,2026-05-07,false
+Equus asinus,5,2026-05-07,2026-05-07,false
+Equus caballus,8,2026-05-07,2026-05-07,false
+Felis catus,2,2026-05-07,2026-05-07,false
+Ovis aries,6,2026-05-07,2026-05-07,true
+Rangifer tarandus,4,2026-05-07,2026-05-07,true
+Sus scrofa domesticus,4,2026-05-07,2026-05-07,false

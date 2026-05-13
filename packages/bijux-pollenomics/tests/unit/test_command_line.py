@@ -162,6 +162,287 @@ class CommandLineUnitTests(unittest.TestCase):
         self.assertEqual(exit_code, 11)
         handler.assert_called_once_with(args)
 
+    def test_build_parser_supports_refresh_data_contract_surfaces_command(
+        self,
+    ) -> None:
+        parser = build_parser()
+        args = parser.parse_args(["refresh-data-contract-surfaces"])
+
+        self.assertEqual(args.command, "refresh-data-contract-surfaces")
+        self.assertEqual(args.data_root, Path("data"))
+        self.assertEqual(args.version, "v66")
+
+    def test_run_command_routes_refresh_data_contract_surfaces_through_registry(
+        self,
+    ) -> None:
+        parser = build_parser()
+        args = parser.parse_args(["refresh-data-contract-surfaces"])
+
+        with patch(
+            "bijux_pollenomics.command_line.runtime.dispatch.run_refresh_data_contract_surfaces",
+            return_value=12,
+        ) as handler:
+            exit_code = run_command(args, parser=parser)
+
+        self.assertEqual(exit_code, 12)
+        handler.assert_called_once_with(args)
+
+    def test_build_parser_supports_refresh_animal_adna_foundation_command(self) -> None:
+        parser = build_parser()
+        args = parser.parse_args(["refresh-animal-adna-foundation"])
+
+        self.assertEqual(args.command, "refresh-animal-adna-foundation")
+        self.assertEqual(args.version, "v66")
+        self.assertEqual(args.species, [])
+
+    def test_run_command_routes_refresh_animal_adna_foundation_through_registry(
+        self,
+    ) -> None:
+        parser = build_parser()
+        args = parser.parse_args(["refresh-animal-adna-foundation"])
+
+        with patch(
+            "bijux_pollenomics.command_line.runtime.dispatch.run_refresh_animal_adna_foundation",
+            return_value=13,
+        ) as handler:
+            exit_code = run_command(args, parser=parser)
+
+        self.assertEqual(exit_code, 13)
+        handler.assert_called_once_with(args)
+
+    def test_build_parser_supports_adna_species_command(self) -> None:
+        parser = build_parser()
+        args = parser.parse_args(["adna-species"])
+
+        self.assertEqual(args.command, "adna-species")
+        self.assertFalse(args.json)
+
+    def test_run_command_routes_adna_species_through_registry(self) -> None:
+        parser = build_parser()
+        args = parser.parse_args(["adna-species"])
+
+        with patch(
+            "bijux_pollenomics.command_line.runtime.dispatch.run_adna_species",
+            return_value=13,
+        ) as handler:
+            exit_code = run_command(args, parser=parser)
+
+        self.assertEqual(exit_code, 13)
+        handler.assert_called_once_with(args)
+
+    def test_build_parser_supports_adna_archive_projects_command(self) -> None:
+        parser = build_parser()
+        args = parser.parse_args(["adna-archive-projects", "--species", "horse"])
+
+        self.assertEqual(args.command, "adna-archive-projects")
+        self.assertEqual(args.species, "horse")
+        self.assertFalse(args.json)
+
+    def test_run_command_routes_adna_archive_projects_through_registry(self) -> None:
+        parser = build_parser()
+        args = parser.parse_args(["adna-archive-projects"])
+
+        with patch(
+            "bijux_pollenomics.command_line.runtime.dispatch.run_adna_archive_projects",
+            return_value=15,
+        ) as handler:
+            exit_code = run_command(args, parser=parser)
+
+        self.assertEqual(exit_code, 15)
+        handler.assert_called_once_with(args)
+
+    def test_build_parser_supports_adna_artifact_plan_command(self) -> None:
+        parser = build_parser()
+        args = parser.parse_args(["adna-artifact-plan", "--species", "horse"])
+
+        self.assertEqual(args.command, "adna-artifact-plan")
+        self.assertEqual(args.species, "horse")
+        self.assertFalse(args.json)
+
+    def test_run_command_routes_adna_artifact_plan_through_registry(self) -> None:
+        parser = build_parser()
+        args = parser.parse_args(["adna-artifact-plan", "--species", "horse"])
+
+        with patch(
+            "bijux_pollenomics.command_line.runtime.dispatch.run_adna_artifact_plan",
+            return_value=17,
+        ) as handler:
+            exit_code = run_command(args, parser=parser)
+
+        self.assertEqual(exit_code, 17)
+        handler.assert_called_once_with(args)
+
+    def test_build_parser_supports_adna_curation_manifest_command(self) -> None:
+        parser = build_parser()
+        args = parser.parse_args(["adna-curation-manifest", "--species", "horse"])
+
+        self.assertEqual(args.command, "adna-curation-manifest")
+        self.assertEqual(args.species, "horse")
+        self.assertFalse(args.json)
+
+    def test_run_command_routes_adna_curation_manifest_through_registry(self) -> None:
+        parser = build_parser()
+        args = parser.parse_args(["adna-curation-manifest", "--species", "horse"])
+
+        with patch(
+            "bijux_pollenomics.command_line.runtime.dispatch.run_adna_curation_manifest",
+            return_value=16,
+        ) as handler:
+            exit_code = run_command(args, parser=parser)
+
+        self.assertEqual(exit_code, 16)
+        handler.assert_called_once_with(args)
+
+    def test_build_parser_supports_adna_release_readiness_command(self) -> None:
+        parser = build_parser()
+        args = parser.parse_args(["adna-release-readiness", "--species", "dog"])
+
+        self.assertEqual(args.command, "adna-release-readiness")
+        self.assertEqual(args.species, "dog")
+        self.assertFalse(args.json)
+
+    def test_run_command_routes_adna_release_readiness_through_registry(self) -> None:
+        parser = build_parser()
+        args = parser.parse_args(["adna-release-readiness", "--species", "dog"])
+
+        with patch(
+            "bijux_pollenomics.command_line.runtime.dispatch.run_adna_release_readiness",
+            return_value=19,
+        ) as handler:
+            exit_code = run_command(args, parser=parser)
+
+        self.assertEqual(exit_code, 19)
+        handler.assert_called_once_with(args)
+
+    def test_build_parser_supports_adna_release_bar_command(self) -> None:
+        parser = build_parser()
+        args = parser.parse_args(["adna-release-bar"])
+
+        self.assertEqual(args.command, "adna-release-bar")
+        self.assertFalse(args.json)
+
+    def test_run_command_routes_adna_release_bar_through_registry(self) -> None:
+        parser = build_parser()
+        args = parser.parse_args(["adna-release-bar"])
+
+        with patch(
+            "bijux_pollenomics.command_line.runtime.dispatch.run_adna_release_bar",
+            return_value=23,
+        ) as handler:
+            exit_code = run_command(args, parser=parser)
+
+        self.assertEqual(exit_code, 23)
+        handler.assert_called_once_with(args)
+
+    def test_build_parser_supports_adna_normalization_bundle_command(self) -> None:
+        parser = build_parser()
+        args = parser.parse_args(["adna-normalization-bundle", "--species", "horse"])
+
+        self.assertEqual(args.command, "adna-normalization-bundle")
+        self.assertEqual(args.species, "horse")
+        self.assertFalse(args.json)
+
+    def test_run_command_routes_adna_normalization_bundle_through_registry(
+        self,
+    ) -> None:
+        parser = build_parser()
+        args = parser.parse_args(["adna-normalization-bundle", "--species", "horse"])
+
+        with patch(
+            "bijux_pollenomics.command_line.runtime.dispatch.run_adna_normalization_bundle",
+            return_value=18,
+        ) as handler:
+            exit_code = run_command(args, parser=parser)
+
+        self.assertEqual(exit_code, 18)
+        handler.assert_called_once_with(args)
+
+    def test_build_parser_supports_adna_domestication_coverage_command(self) -> None:
+        parser = build_parser()
+        args = parser.parse_args(["adna-domestication-coverage"])
+
+        self.assertEqual(args.command, "adna-domestication-coverage")
+        self.assertFalse(args.json)
+
+    def test_run_command_routes_adna_domestication_coverage_through_registry(
+        self,
+    ) -> None:
+        parser = build_parser()
+        args = parser.parse_args(["adna-domestication-coverage"])
+
+        with patch(
+            "bijux_pollenomics.command_line.runtime.dispatch.run_adna_domestication_coverage",
+            return_value=18,
+        ) as handler:
+            exit_code = run_command(args, parser=parser)
+
+        self.assertEqual(exit_code, 18)
+        handler.assert_called_once_with(args)
+
+    def test_build_parser_supports_adna_layout_command(self) -> None:
+        parser = build_parser()
+        args = parser.parse_args(["adna-layout", "--species", "horse"])
+
+        self.assertEqual(args.command, "adna-layout")
+        self.assertEqual(args.species, "horse")
+        self.assertFalse(args.json)
+
+    def test_build_parser_supports_adna_runtime_manifest_command(self) -> None:
+        parser = build_parser()
+        args = parser.parse_args(["adna-runtime-manifest", "--species", "Homo sapiens"])
+
+        self.assertEqual(args.command, "adna-runtime-manifest")
+        self.assertEqual(args.species, "Homo sapiens")
+        self.assertEqual(args.version, "v66")
+        self.assertFalse(args.json)
+
+    def test_run_command_routes_adna_layout_through_registry(self) -> None:
+        parser = build_parser()
+        args = parser.parse_args(["adna-layout", "--species", "horse"])
+
+        with patch(
+            "bijux_pollenomics.command_line.runtime.dispatch.run_adna_layout",
+            return_value=17,
+        ) as handler:
+            exit_code = run_command(args, parser=parser)
+
+        self.assertEqual(exit_code, 17)
+        handler.assert_called_once_with(args)
+
+    def test_run_command_routes_adna_runtime_manifest_through_registry(self) -> None:
+        parser = build_parser()
+        args = parser.parse_args(["adna-runtime-manifest", "--species", "horse"])
+
+        with patch(
+            "bijux_pollenomics.command_line.runtime.dispatch.run_adna_runtime_manifest",
+            return_value=19,
+        ) as handler:
+            exit_code = run_command(args, parser=parser)
+
+        self.assertEqual(exit_code, 19)
+        handler.assert_called_once_with(args)
+
+    def test_build_parser_supports_adna_species_review_command(self) -> None:
+        parser = build_parser()
+        args = parser.parse_args(["adna-species-review", "--species", "horse"])
+
+        self.assertEqual(args.command, "adna-species-review")
+        self.assertEqual(args.species, "horse")
+        self.assertFalse(args.json)
+
+    def test_run_command_routes_adna_species_review_through_registry(self) -> None:
+        parser = build_parser()
+        args = parser.parse_args(["adna-species-review", "--species", "horse"])
+
+        with patch(
+            "bijux_pollenomics.command_line.runtime.dispatch.run_adna_species_review",
+            return_value=19,
+        ) as handler:
+            exit_code = run_command(args, parser=parser)
+
+        self.assertEqual(exit_code, 19)
+        handler.assert_called_once_with(args)
+
     def test_package_version_matches_pyproject(self) -> None:
         package_root = Path(__file__).resolve().parents[2]
         pyproject_text = package_root.joinpath("pyproject.toml").read_text(

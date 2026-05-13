@@ -1,0 +1,9 @@
+species_latin_name,project_accession,archive_status,evidence_strength,paper_title,paper_doi,pubmed_id,pmc_id,journal_title,publication_year,reference_kind,pinning_evidence
+Equus caballus,PRJEB22390,paper_pinned_core,primary_paper_pinned,Ancient genomes revisit the ancestry of domestic and Przewalski's horses,10.1126/science.aao3297,29472442,,Science,2018,primary_paper,Primary paper and PubMed record explicitly anchor PRJEB22390 to the horse ancestry study.
+Equus caballus,PRJEB44430,paper_pinned_core,primary_paper_pinned,The origins and spread of domestic horses from the Western Eurasian steppes,10.1038/s41586-021-04018-9,,,Nature,2021,primary_paper,Primary paper data-availability material anchors the ENA project to the domestication study.
+Equus caballus,PRJEB31613,paper_pinned_core,primary_paper_pinned,Tracking Five Millennia of Horse Management with Extensive Ancient Genome Time Series,10.1016/j.cell.2019.03.049,,PMC6547883,Cell,2019,primary_paper,Primary paper and PMC record explicitly connect the project to ancient horse management genomes.
+Equus caballus,PRJEB19970,paper_pinned_core,primary_paper_pinned,Ancient genomic changes associated with domestication of the horse,10.1126/science.aam5298,28450643,,Science,2017,primary_paper,Primary paper and PubMed record explicitly anchor PRJEB19970 to early domestic horse genomes.
+Equus caballus,PRJEB56293,archive_verified_needs_paper_pinning,archive_only,,,,,,,,
+Equus caballus,PRJEB7537,archive_verified_needs_paper_pinning,archive_only,,,,,,,,
+Equus caballus,PRJEB10854,archive_verified_needs_paper_pinning,archive_only,,,,,,,,
+Equus caballus,PRJEB9799,reject_or_out_of_scope,archive_only,,,,,,,,

@@ -1,3 +1,5 @@
+"""Bundle publication helpers for staged atlas and country deliverables."""
+
 from .atlas_bundle import publish_multi_country_map_bundle
 from .country_bundle import publish_country_report_bundle
 from .country_selection import normalize_requested_countries

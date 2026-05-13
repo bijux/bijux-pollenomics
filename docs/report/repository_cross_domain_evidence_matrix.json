@@ -1,0 +1,145 @@
+{
+  "schema_version": "repository-cross-domain-evidence-matrix.v1",
+  "row_count": 6,
+  "rows": [
+    {
+      "domain_key": "pollen_context",
+      "display_name": "Pollen context",
+      "domain_role": "primary_domain",
+      "source_families": [
+        "landclim",
+        "neotoma"
+      ],
+      "tracked_metrics": {
+        "landclim_site_count": 492,
+        "landclim_grid_cell_count": 88,
+        "neotoma_site_count": 200
+      },
+      "docs_paths": [
+        "docs/public/pollenomics-data/sources/landclim.md",
+        "docs/public/pollenomics-data/sources/neotoma.md",
+        "docs/public/pollenomics-data/publications/landclim-exports.md",
+        "docs/public/pollenomics-data/publications/neotoma-exports.md"
+      ],
+      "published_paths": [
+        "docs/report/regions/nordic/nordic_pollen_site_sequences.geojson",
+        "docs/report/regions/nordic/nordic_pollen_sites.geojson"
+      ],
+      "coverage_posture": "first_class_context_family",
+      "current_gap": "pollen context is strong as tracked context, but it still needs more pollenomics-first synthesis than the current atlas-facing slices provide"
+    },
+    {
+      "domain_key": "archaeology_context",
+      "display_name": "Archaeology context",
+      "domain_role": "contextual_domain",
+      "source_families": [
+        "sead",
+        "raa"
+      ],
+      "tracked_metrics": {
+        "sead_site_count": 2195,
+        "raa_published_site_count": 761917,
+        "raa_density_cell_count": 106
+      },
+      "docs_paths": [
+        "docs/public/pollenomics-data/sources/sead.md",
+        "docs/public/pollenomics-data/sources/raa.md",
+        "docs/public/pollenomics-data/publications/sead-exports.md",
+        "docs/public/pollenomics-data/publications/raa-exports.md"
+      ],
+      "published_paths": [
+        "docs/report/regions/nordic/nordic_environmental_sites.geojson",
+        "docs/report/regions/nordic/sweden_archaeology_density.geojson"
+      ],
+      "coverage_posture": "explicit_context_family",
+      "current_gap": "archaeology context is broad but intentionally contextual; readers should not confuse it with direct pollen or sample evidence"
+    },
+    {
+      "domain_key": "boundary_framing",
+      "display_name": "Boundary framing",
+      "domain_role": "framing_domain",
+      "source_families": [
+        "boundaries"
+      ],
+      "tracked_metrics": {
+        "country_feature_count": 4
+      },
+      "docs_paths": [
+        "docs/public/pollenomics-data/sources/boundaries.md",
+        "docs/public/pollenomics-data/publications/boundary-exports.md"
+      ],
+      "published_paths": [
+        "docs/report/regions/nordic/nordic_country_boundaries.geojson"
+      ],
+      "coverage_posture": "strong_framing_surface",
+      "current_gap": "boundary geometry is robust framing, but it should never be mistaken for scientific balance on its own"
+    },
+    {
+      "domain_key": "fieldwork_record",
+      "display_name": "Fieldwork record",
+      "domain_role": "contextual_domain",
+      "source_families": [
+        "fieldwork"
+      ],
+      "tracked_metrics": {
+        "fieldwork_page_count": 0
+      },
+      "docs_paths": [
+        "docs/public/fieldwork/index.md"
+      ],
+      "published_paths": [
+        "docs/public/fieldwork/lyngsjon-lake-fieldwork/index.md"
+      ],
+      "coverage_posture": "narrow_honest_surface",
+      "current_gap": "fieldwork is deliberately narrow and should stay explicit rather than being implied by atlas presence"
+    },
+    {
+      "domain_key": "animal_adna_context",
+      "display_name": "Animal aDNA context",
+      "domain_role": "contextual_domain",
+      "source_families": [
+        "animal_adna"
+      ],
+      "tracked_metrics": {
+        "tracked_paper_count": 18,
+        "published_atlas_point_count": 234,
+        "unresolved_map_rows": 21
+      },
+      "docs_paths": [
+        "docs/public/pollenomics-data/sources/animal-source-intake.md",
+        "docs/public/pollenomics-data/evidence/sample-records.md",
+        "docs/public/pollenomics-data/evidence/chronology.md"
+      ],
+      "published_paths": [
+        "docs/report/animal_sample_database_review.md",
+        "docs/report/world/world_animal_atlas_evidence.json"
+      ],
+      "coverage_posture": "partial_sample_owned_surface",
+      "current_gap": "animal aDNA is real and now traceable, but it is still a thinner and more recovery-bound surface than the repository's context families"
+    },
+    {
+      "domain_key": "publication_outputs",
+      "display_name": "Publication outputs",
+      "domain_role": "downstream_surface",
+      "source_families": [
+        "country_reports",
+        "nordic_atlas"
+      ],
+      "tracked_metrics": {
+        "country_bundle_count": 4,
+        "animal_point_count": 234
+      },
+      "docs_paths": [
+        "docs/public/pollenomics-data/publications/reports.md",
+        "docs/public/pollenomics-data/publications/maps.md",
+        "docs/public/pollenomics-data/publications/publication-types.md"
+      ],
+      "published_paths": [
+        "docs/report/countries/sweden/README.md",
+        "docs/report/world/world_map.html"
+      ],
+      "coverage_posture": "downstream_not_governing",
+      "current_gap": "reports and atlas bundles summarize upstream evidence; they do not prove balanced coverage by themselves"
+    }
+  ]
+}

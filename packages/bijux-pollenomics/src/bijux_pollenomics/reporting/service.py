@@ -4,8 +4,18 @@ from collections.abc import Iterable
 from datetime import date
 from pathlib import Path
 
+from ..adna import (
+    AdnaSampleQuery,
+    build_homo_sapiens_runtime_manifest_for_version_dir,
+    load_species_samples,
+    resolve_species_definition,
+    summarize_sample_localities,
+)
+from ..adna.sources.library import build_project_registry, refresh_source_library
+from ..adna.species.tracked_data import materialize_tracked_species_adna
+from ..adna.species.tracked_species import TRACKED_ADNA_SPECIES
 from ..config import DEFAULT_ATLAS_SLUG, DEFAULT_ATLAS_TITLE
-from .aadr import load_country_samples, summarize_localities
+from .adna.atlas_evidence_rows import build_tracked_animal_atlas_evidence_rows
 from .bundles.atlas_bundle import publish_multi_country_map_bundle
 from .bundles.country_bundle import publish_country_report_bundle
 from .bundles.country_selection import normalize_requested_countries
@@ -19,7 +29,14 @@ from .bundles.summary_builders import (
     build_published_reports_summary,
 )
 from .context import build_context_layers
-from .models import CountryReport, MultiCountryMapReport, PublishedReportsReport
+from .geography import GeographicScope, infer_publication_scope
+from .models import (
+    AnimalFoundationRefreshReport,
+    CountryReport,
+    MultiCountryMapReport,
+    PublishedReportsReport,
+)
+from .presentation.text import slugify
 from .rendering import (
     build_samples_geojson,
     copy_map_assets,
@@ -32,7 +49,6 @@ from .rendering import (
     write_samples_geojson,
     write_summary_json,
 )
-from .shared.text import slugify
 
 
 def generate_country_report(
@@ -41,6 +57,7 @@ def generate_country_report(
     output_dir: Path,
     map_reference: tuple[str, str] | None = None,
     published_output_dir: Path | None = None,
+    context_root: Path | None = None,
 ) -> CountryReport:
     """Read all AADR anno files for a version, filter by country, and write report artifacts."""
     version_dir = Path(version_dir)
@@ -52,10 +69,12 @@ def generate_country_report(
     if not normalized_country:
         raise ValueError("Country is required to build a country report")
 
-    samples, dataset_counts = load_country_samples(
-        version_dir=version_dir, country=normalized_country
+    manifest = build_homo_sapiens_runtime_manifest_for_version_dir(version_dir)
+    samples, dataset_counts = load_species_samples(
+        manifest,
+        query=AdnaSampleQuery(political_entity=normalized_country),
     )
-    localities = summarize_localities(samples)
+    localities = summarize_sample_localities(samples)
     version = version_dir.name
     report = CountryReport(
         country=normalized_country,
@@ -83,6 +102,7 @@ def generate_country_report(
             write_samples_csv_fn=write_samples_csv,
             write_samples_geojson_fn=write_samples_geojson,
             write_summary_json_fn=write_summary_json,
+            context_root=context_root,
         )
 
     publish_into_staging_dir(output_dir, publish_country_bundle)
@@ -97,6 +117,7 @@ def generate_multi_country_map(
     slug: str,
     context_root: Path | None = None,
     published_output_dir: Path | None = None,
+    geography_scope: GeographicScope | None = None,
 ) -> MultiCountryMapReport:
     """Write a shared interactive map for multiple countries with country toggles."""
     version_dir = Path(version_dir)
@@ -110,11 +131,20 @@ def generate_multi_country_map(
         raise ValueError(
             "At least one country is required to build a multi-country map"
         )
+    effective_geography_scope = (
+        geography_scope
+        if geography_scope is not None
+        else infer_publication_scope(normalized_countries)
+    )
+    manifest = build_homo_sapiens_runtime_manifest_for_version_dir(version_dir)
 
     map_inputs = load_multi_country_map_inputs(
         version_dir=version_dir,
         countries=normalized_countries,
-        load_country_samples_fn=load_country_samples,
+        load_country_samples_fn=lambda **kwargs: load_species_samples(
+            manifest,
+            query=AdnaSampleQuery(political_entity=kwargs["country"]),
+        ),
     )
     version = version_dir.name
     generated_on = str(date.today())
@@ -127,6 +157,10 @@ def generate_multi_country_map(
         country_sample_counts=map_inputs.country_sample_counts,
         total_unique_samples=len(map_inputs.all_samples),
         output_dir=published_output_dir,
+        scope_key=effective_geography_scope.key,
+        scope_label=effective_geography_scope.label,
+        scope_kind=effective_geography_scope.kind,
+        parent_scope_key=effective_geography_scope.parent_key,
     )
 
     def publish_map_bundle(staging_output_dir: Path) -> None:
@@ -140,6 +174,7 @@ def generate_multi_country_map(
             country_sample_counts=map_inputs.country_sample_counts,
             all_samples=map_inputs.all_samples,
             context_root=context_root,
+            geography_scope=effective_geography_scope,
             asset_base_path="./_map_assets",
             build_atlas_bundle_paths_fn=build_atlas_bundle_paths,
             build_context_layers_fn=build_context_layers,
@@ -189,4 +224,56 @@ def generate_published_reports(
             slugify_fn=slugify,
             write_summary_json_fn=write_summary_json,
         ),
+    )
+
+
+def refresh_animal_adna_foundation(
+    *,
+    data_root: Path,
+    aadr_root: Path,
+    report_root: Path,
+    countries: Iterable[str],
+    version: str,
+    context_root: Path | None = None,
+    species_names: Iterable[str] = TRACKED_ADNA_SPECIES,
+    source_downloader=None,
+) -> AnimalFoundationRefreshReport:
+    """Refresh tracked animal source capture, normalized data roots, and published report outputs."""
+    data_root = Path(data_root)
+    aadr_root = Path(aadr_root)
+    report_root = Path(report_root)
+    normalized_species = tuple(species_names)
+    refresh_kwargs = {}
+    if source_downloader is not None:
+        refresh_kwargs["downloader"] = source_downloader
+    refresh_source_library(data_root, **refresh_kwargs)
+    materialize_tracked_species_adna(data_root, species_names=normalized_species)
+    generate_published_reports(
+        version_dir=aadr_root / version,
+        countries=countries,
+        output_root=report_root,
+        title=DEFAULT_ATLAS_TITLE,
+        slug=DEFAULT_ATLAS_SLUG,
+        context_root=context_root if context_root is not None else data_root,
+    )
+    atlas_rows = build_tracked_animal_atlas_evidence_rows(data_root)
+    refreshed_species_latin_names = tuple(
+        resolve_species_definition(name).latin_name for name in normalized_species
+    )
+    refreshed_projects = tuple(
+        sorted(
+            row.project_accession
+            for row in build_project_registry(data_root)
+            if row.species_latin_name in refreshed_species_latin_names
+        )
+    )
+    return AnimalFoundationRefreshReport(
+        schema_version="animal-foundation-refresh.v1",
+        refreshed_species_latin_names=refreshed_species_latin_names,
+        refreshed_project_accessions=refreshed_projects,
+        source_library_project_count=len(build_project_registry(data_root)),
+        atlas_evidence_row_count=len(atlas_rows),
+        version=version,
+        data_root=data_root,
+        report_root=report_root,
     )

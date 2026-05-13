@@ -1,0 +1,40 @@
+{
+  "schema_version": "animal-project-sample-master.v1",
+  "project_accession": "SRS1407451",
+  "species_latin_name": "Canis lupus familiaris",
+  "species_common_name": "dog",
+  "expected_sample_count": 1,
+  "expected_sample_count_status": "known_from_archive_accession_scope",
+  "expected_sample_count_provenance": "The tracked accession itself is one sample-scoped archive identifier.",
+  "expected_sample_count_artifact_path": "data/adna/governance/source_library/projects/SRS1407451/archive_metadata.html",
+  "recovered_sample_count": 1,
+  "unresolved_sample_count": 0,
+  "final_sample_count": 1,
+  "ambiguity_row_count": 0,
+  "sample_identifier_status": "archive_native_identifiers_known",
+  "extraction_plan": "Use the archive-native sample accession as the anchor row, then recover site and chronology support from the linked paper or supplementary material.",
+  "rows": [
+    {
+      "species_latin_name": "Canis lupus familiaris",
+      "species_common_name": "dog",
+      "project_accession": "SRS1407451",
+      "repo_stable_sample_id": "srs1407451:srs1407451",
+      "archive_native_sample_id": "SRS1407451",
+      "paper_native_sample_label": "",
+      "supplementary_table_sample_label": "",
+      "preferred_sample_label": "SRS1407451",
+      "sample_basis": "sample_accession_anchor",
+      "sample_evidence_status": "archive_native",
+      "sample_lineage_path": "data/adna/governance/source_library/projects/SRS1407451/archive_metadata.html",
+      "sample_lineage_locator": "accession:SRS1407451",
+      "sample_lineage_excerpt": "Archive-native accession SRS1407451 is tracked directly in the curated intake catalog.",
+      "sample_identity_resolution": "final",
+      "sample_ambiguity_note": "",
+      "locality_text": "",
+      "political_entity": "",
+      "latitude_text": "",
+      "longitude_text": "",
+      "chronology_text": ""
+    }
+  ]
+}
