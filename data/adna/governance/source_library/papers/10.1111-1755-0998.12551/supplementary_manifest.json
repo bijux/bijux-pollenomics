@@ -44,7 +44,7 @@
       "byte_size": 170976839,
       "member_name": "",
       "member_local_path": "",
-      "inferred_purpose": "Recovered from the local DOI-keyed supplement stash and copied into the governed source library."
+      "inferred_purpose": "Original recovered supplement exceeded practical GitHub repository limits. Bijux stores a lightweight repository placeholder at this local path; recover the full source artifact from the cited source URL or governed local stash when needed."
     },
     {
       "row_kind": "archived_asset",
