@@ -1,0 +1,8 @@
+{
+  "schema_version": "animal-atlas-locality-collection.v1",
+  "type": "FeatureCollection",
+  "layer_key": "comparator-animal-localities",
+  "layer_label": "Comparator animal aDNA atlas evidence",
+  "subtitle": "Comparator animal atlas evidence rows included in the atlas bundle.",
+  "features": []
+}

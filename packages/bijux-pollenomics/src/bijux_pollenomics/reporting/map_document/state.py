@@ -3,6 +3,7 @@ from __future__ import annotations
 from dataclasses import dataclass
 
 from ...core.geojson import JsonObject, as_mapping, feature_list
+from ..map_publication import MapScopePolicy
 
 
 @dataclass(frozen=True)
@@ -36,11 +37,12 @@ def collect_feature_time_candidates(
 
 def build_map_document_state(
     *,
+    policy: MapScopePolicy,
     point_layers: list[JsonObject],
     polygon_layers: list[JsonObject],
 ) -> MapDocumentState:
     """Build the shared derived state needed by the standalone map document."""
-    initial_diameter_km = 20
+    initial_diameter_km = policy.initial_diameter_km
     time_candidates: set[int] = set()
     map_points = [feature for layer in point_layers for feature in feature_list(layer)]
     for layer in point_layers:
@@ -86,14 +88,30 @@ def build_map_document_state(
             if isinstance(longitude, (int, float, str))
         ]
         if latitude_values and longitude_values:
-            bounds = [
+            data_bounds = [
                 [min(latitude_values), min(longitude_values)],
                 [max(latitude_values), max(longitude_values)],
             ]
+            bounds = [
+                [
+                    min(data_bounds[0][0], policy.minimum_bounds[0][0]),
+                    min(data_bounds[0][1], policy.minimum_bounds[0][1]),
+                ],
+                [
+                    max(data_bounds[1][0], policy.minimum_bounds[1][0]),
+                    max(data_bounds[1][1], policy.minimum_bounds[1][1]),
+                ],
+            ]
         else:
-            bounds = [[54.0, 4.0], [72.0, 35.0]]
+            bounds = [
+                [policy.minimum_bounds[0][0], policy.minimum_bounds[0][1]],
+                [policy.minimum_bounds[1][0], policy.minimum_bounds[1][1]],
+            ]
     else:
-        bounds = [[54.0, 4.0], [72.0, 35.0]]
+        bounds = [
+            [policy.minimum_bounds[0][0], policy.minimum_bounds[0][1]],
+            [policy.minimum_bounds[1][0], policy.minimum_bounds[1][1]],
+        ]
     return MapDocumentState(
         bounds=bounds,
         has_time_data=has_time_data,

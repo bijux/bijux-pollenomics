@@ -26,7 +26,7 @@ dependencies = [
 ]
 
 [project.urls]
-Documentation = "https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/"
+Documentation = "https://bijux.io/bijux-pollenomics/public/pollenomics/"
 Repository = "https://github.com/bijux/bijux-pollenomics"
 Issues = "https://github.com/bijux/bijux-pollenomics/issues"
 Changelog = "https://github.com/bijux/bijux-pollenomics/blob/main/packages/pollenomics/CHANGELOG.md"
@@ -69,7 +69,15 @@ include = [
     "CHANGELOG.md",
     "src/pollenomics/**",
 ]
-force-include = { "LICENSE" = "LICENSE", "NOTICE" = "NOTICE" }
+
+[tool.hatch.build.targets.sdist]
+exclude = ["LICENSE", "NOTICE"]
+include = [
+    "README.md",
+    "CHANGELOG.md",
+    "src/pollenomics/**",
+]
+force-include = { "../../LICENSE" = "LICENSE", "../../NOTICE" = "NOTICE" }
 
 [tool.hatch.build.targets.wheel]
 packages = ["src/pollenomics"]

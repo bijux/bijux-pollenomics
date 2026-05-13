@@ -1,0 +1,28 @@
+{
+  "schema_version": "adna-species-source-snapshot.v1",
+  "species_latin_name": "Camelus dromedarius",
+  "projects": [
+    {
+      "project_accession": "SRP073444",
+      "source_family": "SRA",
+      "result_kind": "read_run",
+      "metadata_url": "https://www.ncbi.nlm.nih.gov/sra?term=SRP073444",
+      "source_title": "Camelus dromedarius Raw sequence reads",
+      "source_description": "DNA sequences from ancient domestic and wild dromedary camel",
+      "title_basis": "ena-secondary-study-search",
+      "description_basis": "ena-secondary-study-search",
+      "captured_on": "2026-05-07"
+    },
+    {
+      "project_accession": "KU605068-KU605080",
+      "source_family": "GenBank",
+      "result_kind": "read_run",
+      "metadata_url": "https://www.ncbi.nlm.nih.gov/nuccore/KU605068",
+      "source_title": "Camelus dromedarius isolate Palm152 mitochondrion, partial genome",
+      "source_description": "KU605068",
+      "title_basis": "ncbi-nuccore-summary",
+      "description_basis": "ncbi-nuccore-summary",
+      "captured_on": "2026-05-07"
+    }
+  ]
+}

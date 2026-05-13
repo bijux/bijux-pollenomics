@@ -1,0 +1,36 @@
+{
+  "schema_version": "adna-coordinate-provenance-export.v1",
+  "species_latin_name": "Canis lupus familiaris",
+  "coordinate_provenance": [
+    {
+      "project_accession": "SRS1407451",
+      "species_latin_name": "Canis lupus familiaris",
+      "species_common_name": "dog",
+      "site_label": "Ancient European dog CTC sample context",
+      "original_place_text": "Herxheim and Cherry Tree Cave ancient dog contexts",
+      "resolved_place_text": "Central Europe multi-site dog context",
+      "political_entity": "Central Europe",
+      "source_artifact_path": "adna/governance/source_library/papers/10.1038-ncomms16082/article.html",
+      "source_locator": "results text",
+      "coordinate_basis": "region_centroid_fallback",
+      "mapping_posture": "refused_region_only",
+      "latitude_text": "",
+      "longitude_text": "",
+      "geocoding_method": "multi_site_aggregation_retention",
+      "geocoder_or_gazetteer": "not applied because the current row still aggregates more than one named site",
+      "confidence_rationale": "The archived source names multiple dog sites, but the current shipped row still aggregates them, so central-Europe coordinates are refused rather than published as if they were one site.",
+      "coordinate_confidence": "withheld",
+      "paper_doi": "10.1038/ncomms16082",
+      "paper_url": "https://doi.org/10.1038/ncomms16082",
+      "supplementary_source": "",
+      "chronology_text": "Ancient European dog genomic context",
+      "time_start_bp": 4500,
+      "time_end_bp": 7000,
+      "dating_basis": "archaeological_period",
+      "comparator_context": false,
+      "domestication_context": "domesticated_core",
+      "interpretation_note": "Dog stays sample-context-rich but point-refused until the repo splits the multi-site context into exact site rows.",
+      "support_gap_note": "Cherry Tree Cave and Herxheim are named, but the current accession-backed row still collapses them into one aggregate context."
+    }
+  ]
+}

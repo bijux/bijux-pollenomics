@@ -21,6 +21,8 @@ _REQUIRED_TOP_LEVEL_KEYS = (
     "source_provenance",
     "source_replacement_rules",
     "source_traceability",
+    "contract_artifacts",
+    "source_family_state_rows",
     "summary_path",
 )
 
@@ -44,6 +46,30 @@ def validate_collection_summary_payload(payload: Mapping[str, object]) -> None:
     _validate_mapping(payload, "source_provenance")
     _validate_mapping(payload, "source_replacement_rules")
     _validate_mapping(payload, "source_traceability")
+    _validate_mapping(payload, "contract_artifacts")
+
+    source_family_state_rows = payload["source_family_state_rows"]
+    if not isinstance(source_family_state_rows, list):
+        raise ValueError(
+            "collection summary field `source_family_state_rows` must be a list"
+        )
+    for row in source_family_state_rows:
+        if not isinstance(row, Mapping):
+            raise ValueError(
+                "collection summary contains invalid source-family state row"
+            )
+        for key in (
+            "source_key",
+            "raw_status",
+            "normalized_status",
+            "reviewed_status",
+            "published_status",
+            "coverage_metrics",
+        ):
+            if key not in row:
+                raise ValueError(
+                    f"collection summary source-family state row missing field: {key}"
+                )
 
     source_output_roots = cast(Mapping[str, object], payload["source_output_roots"])
     source_metadata = cast(Mapping[str, object], payload["source_metadata"])
@@ -53,6 +79,7 @@ def validate_collection_summary_payload(payload: Mapping[str, object]) -> None:
         Mapping[str, object], payload["source_replacement_rules"]
     )
     source_traceability = cast(Mapping[str, object], payload["source_traceability"])
+    contract_artifacts = cast(Mapping[str, object], payload["contract_artifacts"])
 
     for source in collected_sources:
         if source not in source_output_roots:
@@ -76,6 +103,17 @@ def validate_collection_summary_payload(payload: Mapping[str, object]) -> None:
         if source not in source_traceability:
             raise ValueError(
                 f"collection summary missing traceability record for source: {source}"
+            )
+
+    for artifact_key in (
+        "source_family_contracts",
+        "source_family_evidence_stage_matrix",
+        "source_fact_ownership_registry",
+        "evidence_artifact_contracts",
+    ):
+        if artifact_key not in contract_artifacts:
+            raise ValueError(
+                f"collection summary missing contract artifact path: {artifact_key}"
             )
 
 

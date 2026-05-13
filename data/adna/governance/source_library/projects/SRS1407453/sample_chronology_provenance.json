@@ -1,0 +1,50 @@
+{
+  "schema_version": "animal-project-sample-chronology-provenance.v1",
+  "project_accession": "SRS1407453",
+  "species_latin_name": "Canis lupus familiaris",
+  "row_count": 1,
+  "rows": [
+    {
+      "species_latin_name": "Canis lupus familiaris",
+      "species_common_name": "dog",
+      "project_accession": "SRS1407453",
+      "repo_stable_sample_id": "srs1407453:srs1407453",
+      "preferred_sample_label": "SRS1407453",
+      "published_wording": "",
+      "source_wording_excerpt": "",
+      "provenance_surface": "",
+      "provenance_kind": "",
+      "provenance_locator": "",
+      "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+      "evidence_class": "unresolved",
+      "precision_posture": "unresolved",
+      "normalization_status": "unresolved",
+      "normalization_rule": "keep the row unresolved until stronger chronology evidence exists",
+      "uncertainty_note": "No chronology claim has been recovered yet for this sample row.",
+      "time_start_bp": null,
+      "time_end_bp": null,
+      "time_mean_bp": null,
+      "temporal_semantics": {
+        "schema_version": "temporal-semantics.v1",
+        "source_family": "animal_adna",
+        "evidence_class": "unresolved",
+        "precision_posture": "unresolved",
+        "comparability_posture": "unresolved",
+        "summary_label": "Unresolved time semantics",
+        "temporal_window_key": "unresolved",
+        "temporal_window_label": "Unresolved time window",
+        "time_start_bp": null,
+        "time_end_bp": null,
+        "time_mean_bp": null,
+        "duration_years": null,
+        "comparison_note": "No chronology claim has been recovered yet for this sample row.",
+        "provenance_path": "",
+        "provenance_locator": "",
+        "provenance_excerpt": "",
+        "original_labels": [],
+        "normalized_labels": [],
+        "uncertainty_notes": []
+      }
+    }
+  ]
+}

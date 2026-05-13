@@ -1,0 +1,17 @@
+{
+  "schema_version": "animal-project-sample-master.v1",
+  "project_accession": "PRJEB52849",
+  "species_latin_name": "Equus asinus",
+  "species_common_name": "donkey",
+  "expected_sample_count": null,
+  "expected_sample_count_status": "not_yet_curated",
+  "expected_sample_count_provenance": "No trustworthy expected sample count is published yet because the current archive or paper capture is still too weak.",
+  "expected_sample_count_artifact_path": "data/adna/governance/source_library/projects/PRJEB52849/archive_metadata.html",
+  "recovered_sample_count": 0,
+  "unresolved_sample_count": null,
+  "final_sample_count": 0,
+  "ambiguity_row_count": 0,
+  "sample_identifier_status": "missing_primary_paper_linkage",
+  "extraction_plan": "Strengthen the paper and supplementary capture first, then recover sample identifiers from the strongest readable table or appendix surface.",
+  "rows": []
+}

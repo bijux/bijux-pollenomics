@@ -1,0 +1,21 @@
+{
+  "schema_version": "repository-scientific-progress-audit.v1",
+  "overall_progress_posture": "data_recovery_required",
+  "progress_measures": [
+    "paper-by-paper supplement coverage",
+    "sample-owned locality and chronology support depth",
+    "mappable animal rows with traceable site and coordinate evidence",
+    "non-aDNA source-family explanation breadth"
+  ],
+  "anti_measures": [
+    "checked-in JSON file count",
+    "country bundle count without sample-depth context",
+    "atlas bundle existence without mapped evidence depth"
+  ],
+  "findings": [
+    "all 18 tracked papers now ship archived supplementary material, but sample-owned extraction still lags behind supplement recovery",
+    "the shipped animal atlas still exposes only 234 published animal point rows",
+    "21 animal rows remain unresolved for mapping and 7 are refused from mapping",
+    "collection_summary keeps non-aDNA counts visible"
+  ]
+}

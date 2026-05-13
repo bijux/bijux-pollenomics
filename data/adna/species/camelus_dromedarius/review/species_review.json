@@ -1,0 +1,182 @@
+{
+  "schema_version": "adna-species-review-dossier.v1",
+  "species_manifest": {
+    "schema_version": "adna-species-manifest.v1",
+    "species": {
+      "latin_name": "Camelus dromedarius",
+      "slug": "camelus_dromedarius",
+      "common_name": "dromedary camel",
+      "support_status": "provisional",
+      "modalities": [
+        "archive_reads",
+        "mitogenome_only",
+        "paper_only"
+      ],
+      "source_families": [
+        "SRA",
+        "GenBank"
+      ],
+      "aliases": [
+        "camel",
+        "dromedary",
+        "dromedary camel"
+      ],
+      "notes": "Dromedary support is pinned to domestic-dromedary archive evidence. Comparator material from other camelids does not promote dromedary support automatically."
+    },
+    "root_slug": "camelus_dromedarius",
+    "data_root": "data/adna/species/camelus_dromedarius",
+    "normalized_sample_namespace": "camelus_dromedarius:normalized_sample",
+    "tracked_layout": [
+      "raw",
+      "normalized",
+      "manifests",
+      "reports",
+      "review"
+    ],
+    "scientific_scope": "Dromedary support is restricted to Camelus dromedarius evidence. Other camelid or broader comparator material does not promote dromedary support.",
+    "runtime_scope": "Current runtime normalization and reporting remain human AADR-first until species-specific collectors and archive bridges are implemented."
+  },
+  "dataset_review": {
+    "species": {
+      "latin_name": "Camelus dromedarius",
+      "slug": "camelus_dromedarius",
+      "common_name": "dromedary camel",
+      "support_status": "provisional",
+      "modalities": [
+        "archive_reads",
+        "mitogenome_only",
+        "paper_only"
+      ],
+      "source_families": [
+        "SRA",
+        "GenBank"
+      ],
+      "aliases": [
+        "camel",
+        "dromedary",
+        "dromedary camel"
+      ],
+      "notes": "Dromedary support is pinned to domestic-dromedary archive evidence. Comparator material from other camelids does not promote dromedary support automatically."
+    },
+    "product_role": "domesticated_core",
+    "assignment_rule": "single_species_core",
+    "dataset_bucket": "paper_pinned_core",
+    "archive_project_count": 2,
+    "core_project_count": 2,
+    "primary_paper_pin_count": 2,
+    "curated_support_project_count": 2,
+    "archive_required": true,
+    "primary_paper_required": true,
+    "manifest_schema_required": true,
+    "release_gate_satisfied": true,
+    "eligible_for_supported_status": true,
+    "blocking_reasons": []
+  },
+  "project_manifest": {
+    "schema_version": "adna-species-project-manifest.v1",
+    "species_latin_name": "Camelus dromedarius",
+    "projects": [
+      {
+        "project_accession": "KU605068-KU605080",
+        "source_family": "GenBank",
+        "accession_scope": "accession_range",
+        "archive_status": "paper_pinned_core",
+        "evidence_strength": "primary_paper_pinned",
+        "ancient_status": "ancient_confirmed",
+        "paper_title": "Combined hybridization capture and shotgun sequencing for ancient DNA analysis of extinct wild and domestic dromedary camel",
+        "paper_doi": "10.1111/1755-0998.12551",
+        "sequencing_target": "mitogenome",
+        "material_basis": "individual_bone_or_tooth",
+        "dating_basis": "historical_and_archaeological_context",
+        "geographic_basis": "site_level_localities",
+        "access_policy": "public_downloadable",
+        "public_release_date": null,
+        "domestication_scope": "domesticated_core",
+        "notes": "Dromedary mitogenome range named on the primary paper page. It supports Camelus dromedarius only, not other camelids.",
+        "nordic_relevance": "non_nordic",
+        "nordic_relevance_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
+        "last_checked_on": "2026-05-07"
+      },
+      {
+        "project_accession": "SRP073444",
+        "source_family": "SRA",
+        "accession_scope": "project",
+        "archive_status": "paper_pinned_core",
+        "evidence_strength": "primary_paper_pinned",
+        "ancient_status": "ancient_confirmed",
+        "paper_title": "Combined hybridization capture and shotgun sequencing for ancient DNA analysis of extinct wild and domestic dromedary camel",
+        "paper_doi": "10.1111/1755-0998.12551",
+        "sequencing_target": "capture_and_shotgun",
+        "material_basis": "individual_bone_or_tooth",
+        "dating_basis": "historical_and_archaeological_context",
+        "geographic_basis": "site_level_localities",
+        "access_policy": "public_downloadable",
+        "public_release_date": null,
+        "domestication_scope": "domesticated_core",
+        "notes": "Domestic-dromedary anchor. Comparator camelid evidence does not extend support to other camelid species automatically.",
+        "nordic_relevance": "non_nordic",
+        "nordic_relevance_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
+        "last_checked_on": "2026-05-07"
+      }
+    ]
+  },
+  "project_reviews": [
+    {
+      "species_latin_name": "Camelus dromedarius",
+      "project_accession": "SRP073444",
+      "source_family": "SRA",
+      "accession_scope": "project",
+      "archive_status": "paper_pinned_core",
+      "evidence_strength": "primary_paper_pinned",
+      "ancient_status": "ancient_confirmed",
+      "access_policy": "public_downloadable",
+      "public_release_date": null,
+      "domestication_scope": "domesticated_core",
+      "core_project": true,
+      "admissible_for_curated_support": true,
+      "blocking_reasons": []
+    },
+    {
+      "species_latin_name": "Camelus dromedarius",
+      "project_accession": "KU605068-KU605080",
+      "source_family": "GenBank",
+      "accession_scope": "accession_range",
+      "archive_status": "paper_pinned_core",
+      "evidence_strength": "primary_paper_pinned",
+      "ancient_status": "ancient_confirmed",
+      "access_policy": "public_downloadable",
+      "public_release_date": null,
+      "domestication_scope": "domesticated_core",
+      "core_project": true,
+      "admissible_for_curated_support": true,
+      "blocking_reasons": []
+    }
+  ],
+  "accepted_projects": [
+    {
+      "project_accession": "KU605068-KU605080",
+      "paper_title": "Combined hybridization capture and shotgun sequencing for ancient DNA analysis of extinct wild and domestic dromedary camel",
+      "paper_doi": "10.1111/1755-0998.12551",
+      "archive_status": "paper_pinned_core",
+      "support_class": "accepted",
+      "reason": "admissible_for_curated_support",
+      "nordic_relevance": "non_nordic",
+      "nordic_relevance_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record."
+    },
+    {
+      "project_accession": "SRP073444",
+      "paper_title": "Combined hybridization capture and shotgun sequencing for ancient DNA analysis of extinct wild and domestic dromedary camel",
+      "paper_doi": "10.1111/1755-0998.12551",
+      "archive_status": "paper_pinned_core",
+      "support_class": "accepted",
+      "reason": "admissible_for_curated_support",
+      "nordic_relevance": "non_nordic",
+      "nordic_relevance_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record."
+    }
+  ],
+  "rejected_projects": [],
+  "too_weak_projects": [],
+  "comparator_projects": [],
+  "nordic_unmapped_leads": [],
+  "release_blockers": []
+}

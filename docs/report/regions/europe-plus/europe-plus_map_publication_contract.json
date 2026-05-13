@@ -1,0 +1,99 @@
+{
+  "schema_version": "map-publication-contract.v1",
+  "title": "Europe-plus Evidence Surface",
+  "scope_key": "europe_plus",
+  "scope_label": "Europe-plus",
+  "scope_kind": "region",
+  "parent_scope_key": "world",
+  "countries": [
+    "Sweden",
+    "Norway",
+    "Finland",
+    "Denmark"
+  ],
+  "default_basemap": "light",
+  "initial_diameter_km": 30,
+  "minimum_bounds": [
+    [
+      34.0,
+      -16.0
+    ],
+    [
+      72.0,
+      42.0
+    ]
+  ],
+  "scope_summary": "Europe-plus is a governed regional filter view. It keeps only Europe-plus countries from the broader publication surface and still withholds Nordic-only overlays that would overstate regional context coverage.",
+  "bounds_summary": "The opening extent centers the European frame while keeping enough margin for future expansion into non-Nordic Europe-plus countries.",
+  "engine_summary": "One shared map document engine serves every published scope. Scope differences must be encoded in governed bounds, layer eligibility, default basemap, and reader caveats rather than hidden in separate renderer forks.",
+  "filter_surfaces": [
+    "Country filters",
+    "Layer toggles",
+    "Search",
+    "Time window",
+    "Distance circles",
+    "Basemap switch"
+  ],
+  "legend_sections": [
+    "Human evidence markers",
+    "Animal evidence markers when present",
+    "Context overlay symbols",
+    "Density ramp when archaeology density is visible"
+  ],
+  "visible_caveats": [
+    "Europe-plus is derived from the world publication surface by governed country filtering, not by a second evidence pipeline.",
+    "Nordic-only pollen, archaeology, and fieldwork overlays remain absent here on purpose.",
+    "Future non-Nordic Europe-plus additions should arrive by country onboarding, not by custom one-off bundle logic."
+  ],
+  "artifacts": {
+    "map_html": "europe-plus_map.html",
+    "summary_json": "europe-plus_summary.json",
+    "point_traceability_json": "europe-plus_point_traceability.json"
+  },
+  "role_counts": {
+    "shared_world_scale_layer": 2,
+    "region_filtered_layer": 1,
+    "scope_specific_overlay": 0
+  },
+  "layer_rows": [
+    {
+      "key": "aadr",
+      "label": "AADR-v66 aDNA samples",
+      "source_name": "Allen Ancient DNA Resource",
+      "coverage_label": "Country assignment follows the AADR political entity field.",
+      "count": 1231,
+      "publication_role": "shared_world_scale_layer",
+      "scope_visibility": "scope_owned",
+      "default_enabled": true,
+      "applies_country_filter": true,
+      "applies_time_filter": true,
+      "scope_caveat": "Shared evidence layer across every governed scope."
+    },
+    {
+      "key": "animal-equus-caballus",
+      "label": "Horse aDNA site evidence",
+      "source_name": "Tracked animal aDNA localities",
+      "coverage_label": "Mapped animal features staged from traceable evidence rows built from species-owned sample, site, coordinate, and citation surfaces.",
+      "count": 2,
+      "publication_role": "shared_world_scale_layer",
+      "scope_visibility": "shared_default",
+      "default_enabled": true,
+      "applies_country_filter": false,
+      "applies_time_filter": true,
+      "scope_caveat": "Shared evidence layer across every governed scope."
+    },
+    {
+      "key": "country-boundaries",
+      "label": "Country boundaries",
+      "source_name": "Natural Earth country boundaries",
+      "coverage_label": "Published country outlines used for framing and scope-aware map filtering.",
+      "count": 4,
+      "publication_role": "region_filtered_layer",
+      "scope_visibility": "scope_owned",
+      "default_enabled": true,
+      "applies_country_filter": true,
+      "applies_time_filter": false,
+      "scope_caveat": "Derived filter framing layer that follows the active scope country roster."
+    }
+  ]
+}

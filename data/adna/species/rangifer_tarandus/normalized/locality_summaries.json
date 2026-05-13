@@ -1,0 +1,86 @@
+{
+  "schema_version": "adna-locality-summary-export.v1",
+  "species_latin_name": "Rangifer tarandus",
+  "localities": [
+    {
+      "identity": {
+        "namespace": "rangifer_tarandus:project_locality",
+        "stable_token": "rangifer_tarandus:locality:prjeb60484:svalbardancientreindeercontext:svalbard",
+        "locality_text": "Svalbard ancient reindeer context",
+        "political_entity": "Svalbard",
+        "source_anchor_tokens": [
+          "PRJEB60484",
+          "",
+          ""
+        ]
+      },
+      "species_latin_name": "Rangifer tarandus",
+      "species_common_name": "reindeer",
+      "source_family": "ENA",
+      "source_releases": [
+        "PRJEB60484"
+      ],
+      "record_modalities": [
+        "mitogenome_only"
+      ],
+      "review_strengths": [
+        "comparator_only"
+      ],
+      "provenance_qualities": [
+        "primary_paper_pinned"
+      ],
+      "locality": "Svalbard ancient reindeer context",
+      "coordinates": {
+        "latitude": null,
+        "longitude": null,
+        "latitude_text": "",
+        "longitude_text": "",
+        "confidence": "withheld"
+      },
+      "sample_count": 20,
+      "sample_ids": [
+        "prjeb60484:samea112757323",
+        "prjeb60484:samea112757324",
+        "prjeb60484:samea112757325",
+        "prjeb60484:samea112757326",
+        "prjeb60484:samea112757327",
+        "prjeb60484:samea112757328",
+        "prjeb60484:samea112757329",
+        "prjeb60484:samea112757330",
+        "prjeb60484:samea112757331",
+        "prjeb60484:samea112757332",
+        "prjeb60484:samea112757333",
+        "prjeb60484:samea112757334",
+        "prjeb60484:samea112757335",
+        "prjeb60484:samea112757336",
+        "prjeb60484:samea112757337",
+        "prjeb60484:samea112757338",
+        "prjeb60484:samea112757339",
+        "prjeb60484:samea112757340",
+        "prjeb60484:samea114857470",
+        "prjeb60484:samea114857471"
+      ],
+      "datasets": [
+        "rangifer_tarandus:project:PRJEB60484"
+      ],
+      "chronology": {
+        "original_text": "500-2500 BP",
+        "time_start_bp": 500,
+        "time_end_bp": 2500,
+        "time_mean_bp": 1500,
+        "date_stddev_bp": "",
+        "dating_basis": "historical_and_archaeological_context",
+        "evidence_class": "historical_or_recent_date",
+        "precision_posture": "contextual_interval"
+      },
+      "sample_namespace": "rangifer_tarandus:sample_locality",
+      "project_accessions": [
+        "PRJEB60484"
+      ],
+      "original_location_text": "Svalbard ancient reindeer context",
+      "nordic_inclusion": true,
+      "nordic_inclusion_reason": "This locality falls inside the Nordic publication footprint through direct Svalbard evidence.",
+      "interpretation_note": "Current evidence stays at region or transect scale and must not masquerade as exact sample-site truth."
+    }
+  ]
+}

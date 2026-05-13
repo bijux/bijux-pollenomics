@@ -1,0 +1,94 @@
+{
+  "schema_version": "animal-publication-release-gate.v1",
+  "overall_ok": false,
+  "checks": [
+    {
+      "check_id": "published_points_keep_required_traceability",
+      "passed": true,
+      "description": "Every published animal point keeps sample, site, coordinate, and citation support.",
+      "finding_count": 0,
+      "findings": []
+    },
+    {
+      "check_id": "project_recovery_guard_still_blocks_overclaim",
+      "passed": true,
+      "description": "The intake recovery guard still blocks stronger publication claims until project-level under-recovery is brought under control.",
+      "finding_count": 0,
+      "findings": []
+    },
+    {
+      "check_id": "project_locality_outputs_do_not_flatten_sample_site_disagreement",
+      "passed": true,
+      "description": "Animal publication does not flatten multi-site sample evidence into one project-level locality claim.",
+      "finding_count": 0,
+      "findings": []
+    },
+    {
+      "check_id": "blocked_sample_site_rows_do_not_publish_as_exact_sites_or_atlas_points",
+      "passed": true,
+      "description": "Sample rows without defensible sample-owned site assignment do not leak into exact site rows or atlas points.",
+      "finding_count": 0,
+      "findings": []
+    },
+    {
+      "check_id": "unresolved_sample_chronology_does_not_publish_in_country_or_atlas_outputs",
+      "passed": true,
+      "description": "Published country and atlas outputs do not carry unresolved or conflicting sample chronology rows.",
+      "finding_count": 0,
+      "findings": []
+    },
+    {
+      "check_id": "project_level_locality_substitution_projects_do_not_publish_country_or_atlas_rows",
+      "passed": true,
+      "description": "Projects whose locality evidence still collapses all samples into one blocked context do not leak into country or atlas publication.",
+      "finding_count": 0,
+      "findings": []
+    },
+    {
+      "check_id": "broad_or_contextual_chronology_does_not_publish_numeric_windows",
+      "passed": true,
+      "description": "Public country and atlas outputs do not expose numeric chronology windows when the underlying chronology posture is broad, contextual, or approximate.",
+      "finding_count": 0,
+      "findings": []
+    },
+    {
+      "check_id": "temporal_semantics_keep_contextual_rows_from_looking_numeric",
+      "passed": false,
+      "description": "Published animal and context GeoJSON layers must carry temporal semantics and must not expose contextual-only rows as numeric comparisons.",
+      "finding_count": 2545,
+      "findings": [
+        "animal-atlas-feature:equus-caballus-locality-prjeb44430-ginnerup-denmark: missing temporal semantics in europe-plus_animal_localities.geojson",
+        "animal-atlas-feature:equus-caballus-locality-prjeb31613-uppsala-sweden: missing temporal semantics in europe-plus_animal_localities.geojson",
+        "animal-atlas-feature:equus-caballus-locality-prjeb44430-ginnerup-denmark: missing temporal semantics in europe-plus_domesticated_animal_localities.geojson",
+        "animal-atlas-feature:equus-caballus-locality-prjeb31613-uppsala-sweden: missing temporal semantics in europe-plus_domesticated_animal_localities.geojson",
+        "animal-atlas-feature:equus-caballus-locality-prjeb44430-ginnerup-denmark: missing temporal semantics in nordic_animal_localities.geojson",
+        "animal-atlas-feature:equus-caballus-locality-prjeb31613-uppsala-sweden: missing temporal semantics in nordic_animal_localities.geojson",
+        "animal-atlas-feature:equus-caballus-locality-prjeb44430-ginnerup-denmark: missing temporal semantics in nordic_domesticated_animal_localities.geojson",
+        "animal-atlas-feature:equus-caballus-locality-prjeb31613-uppsala-sweden: missing temporal semantics in nordic_domesticated_animal_localities.geojson",
+        "animal-atlas-feature:camelus-dromedarius-locality-srp073444-site1040nearwadihalfadromedarycontext-sudan: missing temporal semantics in world_animal_localities.geojson",
+        "animal-atlas-feature:capra-hircus-locality-prjeb90141-acemhyk-aksarayplainturkey: missing temporal semantics in world_animal_localities.geojson"
+      ]
+    },
+    {
+      "check_id": "docs_do_not_overclaim_all_species_map_readiness",
+      "passed": true,
+      "description": "Public docs do not claim all-species animal map readiness while blocking ledgers remain.",
+      "finding_count": 0,
+      "findings": []
+    },
+    {
+      "check_id": "docs_do_not_claim_reference_grade_without_support",
+      "passed": true,
+      "description": "Public docs do not claim the strongest posture before the sample database, evidence reviews, and map outputs all support it.",
+      "finding_count": 0,
+      "findings": []
+    }
+  ],
+  "reference_grade_claim_allowed": false,
+  "reference_grade_support_ready": false,
+  "reference_grade_support_requirements": {
+    "sample_database_artifacts_present": true,
+    "sample_evidence_reviews_present": true,
+    "map_outputs_present": true
+  }
+}

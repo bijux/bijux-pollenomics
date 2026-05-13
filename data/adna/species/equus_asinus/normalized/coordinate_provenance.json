@@ -1,0 +1,36 @@
+{
+  "schema_version": "adna-coordinate-provenance-export.v1",
+  "species_latin_name": "Equus asinus",
+  "coordinate_provenance": [
+    {
+      "project_accession": "PRJEB52849",
+      "species_latin_name": "Equus asinus",
+      "species_common_name": "donkey",
+      "site_label": "North African donkey domestication and spread transect",
+      "original_place_text": "Africa to Europe and Asia donkey spread context",
+      "resolved_place_text": "North Africa and Levant dispersal extent",
+      "political_entity": "North Africa and Levant",
+      "source_artifact_path": "adna/governance/source_library/projects/PRJEB52849/archive_metadata.html",
+      "source_locator": "source description snapshot",
+      "coordinate_basis": "region_centroid_fallback",
+      "mapping_posture": "refused_region_only",
+      "latitude_text": "",
+      "longitude_text": "",
+      "geocoding_method": "manual_dispersal_extent_retention",
+      "geocoder_or_gazetteer": "not applied because the current lead is a broad spread transect",
+      "confidence_rationale": "The local archive description supports Africa-to-Eurasia spread, not one donkey site with defensible point geometry.",
+      "coordinate_confidence": "withheld",
+      "paper_doi": "",
+      "paper_url": "",
+      "supplementary_source": "",
+      "chronology_text": "~5000-2500 BCE donkey domestication and spread context",
+      "time_start_bp": 4450,
+      "time_end_bp": 6950,
+      "dating_basis": "archaeological_period",
+      "comparator_context": true,
+      "domestication_context": "comparator_context",
+      "interpretation_note": "Donkey remains broad comparator domestication context rather than point-ready evidence.",
+      "support_gap_note": "No local paper is pinned yet for this project, so the current coordinate posture cannot go beyond refused regional context."
+    }
+  ]
+}

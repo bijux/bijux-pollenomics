@@ -1,3 +1,5 @@
+"""LANDCLIM source collectors for grid and site evidence."""
+
 from .catalog import (
     LANDCLIM_DATASET_METADATA,
     LandClimRawAssets,

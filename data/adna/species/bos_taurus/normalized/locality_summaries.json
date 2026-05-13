@@ -1,0 +1,77 @@
+{
+  "schema_version": "adna-locality-summary-export.v1",
+  "species_latin_name": "Bos taurus",
+  "localities": [
+    {
+      "identity": {
+        "namespace": "bos_taurus:project_locality",
+        "stable_token": "bos_taurus:locality:prjna705960:galicianmountaincavecattlecontext:galiciaspain",
+        "locality_text": "Galician mountain cave cattle context",
+        "political_entity": "Galicia, Spain",
+        "source_anchor_tokens": [
+          "PRJNA705960",
+          "",
+          ""
+        ]
+      },
+      "species_latin_name": "Bos taurus",
+      "species_common_name": "cattle",
+      "source_family": "ENA",
+      "source_releases": [
+        "PRJNA705960"
+      ],
+      "record_modalities": [
+        "mitogenome_only"
+      ],
+      "review_strengths": [
+        "archive_verified_needs_paper_pinning"
+      ],
+      "provenance_qualities": [
+        "archive_only"
+      ],
+      "locality": "Galician mountain cave cattle context",
+      "coordinates": {
+        "latitude": null,
+        "longitude": null,
+        "latitude_text": "",
+        "longitude_text": "",
+        "confidence": "withheld"
+      },
+      "sample_count": 11,
+      "sample_ids": [
+        "prjna705960:samn18106827",
+        "prjna705960:samn18106828",
+        "prjna705960:samn18106829",
+        "prjna705960:samn18106830",
+        "prjna705960:samn18106831",
+        "prjna705960:samn18106832",
+        "prjna705960:samn18106833",
+        "prjna705960:samn18106834",
+        "prjna705960:samn18106835",
+        "prjna705960:samn18106836",
+        "prjna705960:samn18106837"
+      ],
+      "datasets": [
+        "bos_taurus:project:PRJNA705960"
+      ],
+      "chronology": {
+        "original_text": "1500-7000 BP",
+        "time_start_bp": 1500,
+        "time_end_bp": 7000,
+        "time_mean_bp": 4250,
+        "date_stddev_bp": "",
+        "dating_basis": "archaeological_period_assignment",
+        "evidence_class": "archaeological_context_date",
+        "precision_posture": "contextual_interval"
+      },
+      "sample_namespace": "bos_taurus:sample_locality",
+      "project_accessions": [
+        "PRJNA705960"
+      ],
+      "original_location_text": "Galician mountain cave cattle context",
+      "nordic_inclusion": false,
+      "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
+      "interpretation_note": "Current evidence stays at region or transect scale and must not masquerade as exact sample-site truth."
+    }
+  ]
+}

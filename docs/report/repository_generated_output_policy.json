@@ -1,0 +1,238 @@
+{
+  "schema_version": "repository-generated-output-policy.v1",
+  "rule": "no generated root output may be published unless its audience, information role, root location, and coexistence rule are explicit in code, docs, and tests",
+  "row_count": 21,
+  "rows": [
+    {
+      "stem": "repository_truth_posture",
+      "json_path": "docs/report/repository_truth_posture.json",
+      "markdown_path": "docs/report/repository_truth_posture.md",
+      "audience": "maintainer_diagnostic",
+      "information_role": "root truth posture",
+      "root_location": "docs/report",
+      "coexistence_rule": "coexists with deeper review surfaces and summarizes their shared release posture",
+      "docs_anchor": "docs/report/maintenance/index.md",
+      "test_anchor": "packages/bijux-pollenomics/tests/unit/test_repository_truth.py"
+    },
+    {
+      "stem": "repository_product_model",
+      "json_path": "docs/report/repository_product_model.json",
+      "markdown_path": "docs/report/repository_product_model.md",
+      "audience": "maintainer_diagnostic",
+      "information_role": "end-state product model",
+      "root_location": "docs/report",
+      "coexistence_rule": "coexists with the runtime and data handbooks as the report-root statement of world-to-country product shape",
+      "docs_anchor": "docs/01-bijux-pollenomics/foundation/end-state-product-model.md",
+      "test_anchor": "packages/bijux-pollenomics/tests/unit/test_repository_truth.py"
+    },
+    {
+      "stem": "repository_credibility_dashboard",
+      "json_path": "docs/report/repository_credibility_dashboard.json",
+      "markdown_path": "docs/report/repository_credibility_dashboard.md",
+      "audience": "maintainer_diagnostic",
+      "information_role": "cross-domain credibility dashboard",
+      "root_location": "docs/report",
+      "coexistence_rule": "coexists with detailed audits and compresses them into release-facing dimension scores",
+      "docs_anchor": "docs/internal/pollenomics-dev/release-support.md",
+      "test_anchor": "packages/bijux-pollenomics/tests/unit/test_repository_truth.py"
+    },
+    {
+      "stem": "repository_recovery_review",
+      "json_path": "docs/report/repository_recovery_review.json",
+      "markdown_path": "docs/report/repository_recovery_review.md",
+      "audience": "maintainer_diagnostic",
+      "information_role": "repository recovery review",
+      "root_location": "docs/report",
+      "coexistence_rule": "coexists with truth posture and provides per-surface scoring rather than one summary sentence",
+      "docs_anchor": "docs/report/maintenance/index.md",
+      "test_anchor": "packages/bijux-pollenomics/tests/unit/test_repository_truth.py"
+    },
+    {
+      "stem": "repository_output_sustainability_review",
+      "json_path": "docs/report/repository_output_sustainability_review.json",
+      "markdown_path": "docs/report/repository_output_sustainability_review.md",
+      "audience": "maintainer_diagnostic",
+      "information_role": "generated-output sustainability review",
+      "root_location": "docs/report",
+      "coexistence_rule": "coexists with the generated-output policy and names where the repository is still paying complexity tax",
+      "docs_anchor": "docs/internal/pollenomics-dev/release-support.md",
+      "test_anchor": "packages/bijux-pollenomics/tests/unit/test_repository_truth.py"
+    },
+    {
+      "stem": "repository_extension_review",
+      "json_path": "docs/report/repository_extension_review.json",
+      "markdown_path": "docs/report/repository_extension_review.md",
+      "audience": "maintainer_diagnostic",
+      "information_role": "extensibility and interpretability review",
+      "root_location": "docs/report",
+      "coexistence_rule": "coexists with the country onboarding contract and checks whether new work improves global extensibility without making local reasoning worse",
+      "docs_anchor": "docs/internal/pollenomics-dev/future-country-onboarding-playbook.md",
+      "test_anchor": "packages/bijux-pollenomics/tests/unit/test_repository_truth.py"
+    },
+    {
+      "stem": "repository_source_family_matrix",
+      "json_path": "docs/report/repository_source_family_matrix.json",
+      "markdown_path": "docs/report/repository_source_family_matrix.md",
+      "audience": "maintainer_diagnostic",
+      "information_role": "source-family coverage matrix",
+      "root_location": "docs/report",
+      "coexistence_rule": "coexists with source explainers and the cross-domain matrix as the fastest source-family inventory view",
+      "docs_anchor": "docs/report/maintenance/index.md",
+      "test_anchor": "packages/bijux-pollenomics/tests/unit/test_repository_truth.py"
+    },
+    {
+      "stem": "repository_source_explainer_audit",
+      "json_path": "docs/report/repository_source_explainer_audit.json",
+      "markdown_path": "docs/report/repository_source_explainer_audit.md",
+      "audience": "maintainer_diagnostic",
+      "information_role": "source explainer audit",
+      "root_location": "docs/report",
+      "coexistence_rule": "coexists with source-family coverage and guards the reader-facing handbook against cross-domain blind spots",
+      "docs_anchor": "docs/report/maintenance/index.md",
+      "test_anchor": "packages/bijux-pollenomics/tests/unit/test_repository_truth.py"
+    },
+    {
+      "stem": "repository_atlas_input_audit",
+      "json_path": "docs/report/repository_atlas_input_audit.json",
+      "markdown_path": "docs/report/repository_atlas_input_audit.md",
+      "audience": "maintainer_diagnostic",
+      "information_role": "atlas input audit",
+      "root_location": "docs/report",
+      "coexistence_rule": "coexists with cross-domain evidence review and keeps map-facing inputs accountable by source family",
+      "docs_anchor": "docs/report/maintenance/index.md",
+      "test_anchor": "packages/bijux-pollenomics/tests/unit/test_repository_truth.py"
+    },
+    {
+      "stem": "repository_cross_domain_evidence_matrix",
+      "json_path": "docs/report/repository_cross_domain_evidence_matrix.json",
+      "markdown_path": "docs/report/repository_cross_domain_evidence_matrix.md",
+      "audience": "maintainer_diagnostic",
+      "information_role": "cross-domain evidence matrix",
+      "root_location": "docs/report",
+      "coexistence_rule": "coexists with source-family audits and explains how pollen, archaeology, boundary, fieldwork, and animal evidence differ in role",
+      "docs_anchor": "docs/report/maintenance/index.md",
+      "test_anchor": "packages/bijux-pollenomics/tests/unit/test_repository_truth.py"
+    },
+    {
+      "stem": "repository_docs_restoration_ledger",
+      "json_path": "docs/report/repository_docs_restoration_ledger.json",
+      "markdown_path": "docs/report/repository_docs_restoration_ledger.md",
+      "audience": "maintainer_diagnostic",
+      "information_role": "docs restoration ledger",
+      "root_location": "docs/report",
+      "coexistence_rule": "coexists with scope validation and records how handbook breadth was restored or merged",
+      "docs_anchor": "docs/report/maintenance/index.md",
+      "test_anchor": "packages/bijux-pollenomics/tests/unit/test_repository_truth.py"
+    },
+    {
+      "stem": "repository_docs_scope_validation",
+      "json_path": "docs/report/repository_docs_scope_validation.json",
+      "markdown_path": "docs/report/repository_docs_scope_validation.md",
+      "audience": "maintainer_diagnostic",
+      "information_role": "docs breadth validation",
+      "root_location": "docs/report",
+      "coexistence_rule": "coexists with docs recovery review and fails narrow rewrites before they harden",
+      "docs_anchor": "docs/report/maintenance/index.md",
+      "test_anchor": "packages/bijux-pollenomics/tests/unit/test_repository_truth.py"
+    },
+    {
+      "stem": "repository_docs_recovery_review",
+      "json_path": "docs/report/repository_docs_recovery_review.json",
+      "markdown_path": "docs/report/repository_docs_recovery_review.md",
+      "audience": "maintainer_diagnostic",
+      "information_role": "docs recovery review",
+      "root_location": "docs/report",
+      "coexistence_rule": "coexists with docs restoration and scope validation as the maintainer-facing summary of docs integrity",
+      "docs_anchor": "docs/report/maintenance/index.md",
+      "test_anchor": "packages/bijux-pollenomics/tests/unit/test_repository_truth.py"
+    },
+    {
+      "stem": "repository_source_acquisition_queue",
+      "json_path": "docs/report/repository_source_acquisition_queue.json",
+      "markdown_path": "docs/report/repository_source_acquisition_queue.md",
+      "audience": "maintainer_diagnostic",
+      "information_role": "source acquisition queue",
+      "root_location": "docs/report",
+      "coexistence_rule": "coexists with recovery and progress reviews as the explicit next-source pressure list",
+      "docs_anchor": "docs/report/maintenance/index.md",
+      "test_anchor": "packages/bijux-pollenomics/tests/unit/test_repository_truth.py"
+    },
+    {
+      "stem": "repository_governance_artifact_review",
+      "json_path": "docs/report/repository_governance_artifact_review.json",
+      "markdown_path": "docs/report/repository_governance_artifact_review.md",
+      "audience": "maintainer_diagnostic",
+      "information_role": "governance artifact review",
+      "root_location": "docs/report",
+      "coexistence_rule": "coexists with output sustainability review and records which legacy report surfaces should be kept, reframed, or retired",
+      "docs_anchor": "docs/report/maintenance/index.md",
+      "test_anchor": "packages/bijux-pollenomics/tests/unit/test_repository_truth.py"
+    },
+    {
+      "stem": "repository_claim_audit",
+      "json_path": "docs/report/repository_claim_audit.json",
+      "markdown_path": "docs/report/repository_claim_audit.md",
+      "audience": "maintainer_diagnostic",
+      "information_role": "claim audit",
+      "root_location": "docs/report",
+      "coexistence_rule": "coexists with release refusal and prevents broader public language from outrunning governed evidence",
+      "docs_anchor": "docs/internal/pollenomics-dev/release-support.md",
+      "test_anchor": "packages/bijux-pollenomics/tests/unit/test_repository_truth.py"
+    },
+    {
+      "stem": "repository_brutal_honesty_review",
+      "json_path": "docs/report/repository_brutal_honesty_review.json",
+      "markdown_path": "docs/report/repository_brutal_honesty_review.md",
+      "audience": "maintainer_diagnostic",
+      "information_role": "brutal honesty review",
+      "root_location": "docs/report",
+      "coexistence_rule": "coexists with the credibility dashboard and compresses the harsher qualitative release questions into one recurring review",
+      "docs_anchor": "docs/internal/pollenomics-dev/release-support.md",
+      "test_anchor": "packages/bijux-pollenomics/tests/unit/test_repository_truth.py"
+    },
+    {
+      "stem": "repository_final_release_refusal",
+      "json_path": "docs/report/repository_final_release_refusal.json",
+      "markdown_path": "docs/report/repository_final_release_refusal.md",
+      "audience": "maintainer_diagnostic",
+      "information_role": "final release refusal",
+      "root_location": "docs/report",
+      "coexistence_rule": "coexists with animal release gates and names the repository-wide reasons final release language is still refused",
+      "docs_anchor": "docs/internal/pollenomics-dev/release-support.md",
+      "test_anchor": "packages/bijux-pollenomics/tests/unit/test_repository_truth.py"
+    },
+    {
+      "stem": "repository_scientific_progress_audit",
+      "json_path": "docs/report/repository_scientific_progress_audit.json",
+      "markdown_path": "docs/report/repository_scientific_progress_audit.md",
+      "audience": "maintainer_diagnostic",
+      "information_role": "scientific progress audit",
+      "root_location": "docs/report",
+      "coexistence_rule": "coexists with recovery reviews and rejects raw artifact growth as a progress story",
+      "docs_anchor": "docs/report/maintenance/index.md",
+      "test_anchor": "packages/bijux-pollenomics/tests/unit/test_repository_truth.py"
+    },
+    {
+      "stem": "repository_sead_legibility_review",
+      "json_path": "docs/report/repository_sead_legibility_review.json",
+      "markdown_path": "docs/report/repository_sead_legibility_review.md",
+      "audience": "scientific_review_surface",
+      "information_role": "SEAD legibility review",
+      "root_location": "docs/report",
+      "coexistence_rule": "coexists with source-family and temporal reviews as the SEAD-specific honesty surface",
+      "docs_anchor": "docs/02-bijux-pollenomics-data/sources/sead.md",
+      "test_anchor": "packages/bijux-pollenomics/tests/unit/test_context_data.py"
+    },
+    {
+      "stem": "repository_generated_output_policy",
+      "json_path": "docs/report/repository_generated_output_policy.json",
+      "markdown_path": "docs/report/repository_generated_output_policy.md",
+      "audience": "maintainer_diagnostic",
+      "information_role": "generated-output publication policy",
+      "root_location": "docs/report",
+      "coexistence_rule": "coexists with the report portal and repository truth reviews as the rule that governs new root outputs",
+      "docs_anchor": "docs/internal/pollenomics-dev/release-support.md",
+      "test_anchor": "packages/bijux-pollenomics/tests/unit/test_repository_truth.py"
+    }
+  ]
+}

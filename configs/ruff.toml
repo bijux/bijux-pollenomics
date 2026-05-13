@@ -1,11 +1,14 @@
 target-version = "py311"
 line-length = 88
 respect-gitignore = true
+cache-dir = "artifacts/root/ruff-cache"
 src = [
   "packages/bijux-pollenomics/src",
   "packages/bijux-pollenomics/tests",
   "packages/bijux-pollenomics-dev/src",
   "packages/bijux-pollenomics-dev/tests",
+  "packages/pollenomics/src",
+  "packages/pollenomics/tests",
 ]
 exclude = [
   ".git",
@@ -37,6 +40,12 @@ ignore = ["E501", "E203"]
 
 [lint.isort]
 force-sort-within-sections = true
+known-first-party = [
+  "bijux_pollenomics",
+  "bijux_pollenomics_dev",
+  "pollenomics",
+  "tests",
+]
 
 [lint.mccabe]
 max-complexity = 10

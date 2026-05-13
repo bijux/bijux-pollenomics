@@ -1,0 +1,319 @@
+{
+  "schema_version": "geographic-evidence-surface-summary.v1",
+  "title": "World Evidence Surface",
+  "slug": "world",
+  "version": "v66",
+  "generated_on": "2026-05-09",
+  "scope_key": "world",
+  "scope_label": "World",
+  "scope_kind": "world",
+  "parent_scope_key": null,
+  "countries": [
+    "Sweden",
+    "Norway",
+    "Finland",
+    "Denmark"
+  ],
+  "country_sample_counts": {
+    "Sweden": 416,
+    "Norway": 130,
+    "Finland": 32,
+    "Denmark": 653
+  },
+  "total_unique_samples": 1231,
+  "output_dir": "/Users/bijan/bijux/bijux-pollenomics/docs/report/world",
+  "artifacts": {
+    "bundle_manifest": "world_bundle.json",
+    "readme": "README.md",
+    "map_html": "world_map.html",
+    "samples_geojson": "world_samples.geojson",
+    "map_publication_contract_json": "world_map_publication_contract.json",
+    "map_publication_contract_markdown": "world_map_publication_contract.md",
+    "point_traceability_json": "world_point_traceability.json",
+    "point_traceability_markdown": "world_point_traceability.md",
+    "evidence_surface_json": "world_evidence_surface.json",
+    "evidence_surface_markdown": "world_evidence_surface.md",
+    "scientific_review_json": "world_scientific_review.json",
+    "scientific_review_markdown": "world_scientific_review.md",
+    "summary_json": "world_summary.json",
+    "extra_files": [
+      {
+        "label": "Nordic country boundaries",
+        "filename": "nordic_country_boundaries.geojson"
+      },
+      {
+        "label": "Animal locality GeoJSON",
+        "filename": "world_animal_localities.geojson"
+      },
+      {
+        "label": "Domesticated-core animal locality GeoJSON",
+        "filename": "world_domesticated_animal_localities.geojson"
+      },
+      {
+        "label": "Comparator animal locality GeoJSON",
+        "filename": "world_comparator_animal_localities.geojson"
+      },
+      {
+        "label": "Animal atlas evidence CSV",
+        "filename": "world_animal_atlas_evidence.csv"
+      },
+      {
+        "label": "Animal atlas evidence JSON",
+        "filename": "world_animal_atlas_evidence.json"
+      },
+      {
+        "label": "Animal point traceability JSON",
+        "filename": "world_animal_point_traceability.json"
+      },
+      {
+        "label": "Map publication contract JSON",
+        "filename": "world_map_publication_contract.json"
+      },
+      {
+        "label": "Map publication contract markdown",
+        "filename": "world_map_publication_contract.md"
+      },
+      {
+        "label": "Point traceability JSON",
+        "filename": "world_point_traceability.json"
+      },
+      {
+        "label": "Point traceability markdown",
+        "filename": "world_point_traceability.md"
+      },
+      {
+        "label": "Candidate site ranking CSV",
+        "filename": "world_candidate_sites.csv"
+      },
+      {
+        "label": "Candidate site ranking JSON",
+        "filename": "world_candidate_sites.json"
+      },
+      {
+        "label": "Candidate site ranking markdown",
+        "filename": "world_candidate_sites.md"
+      },
+      {
+        "label": "Candidate site sensitivity JSON",
+        "filename": "world_candidate_site_sensitivity.json"
+      },
+      {
+        "label": "Candidate site sensitivity markdown",
+        "filename": "world_candidate_site_sensitivity.md"
+      },
+      {
+        "label": "Candidate ranking engine manifest",
+        "filename": "world_candidate_ranking_engine_manifest.json"
+      },
+      {
+        "label": "Atlas evidence surface JSON",
+        "filename": "world_evidence_surface.json"
+      },
+      {
+        "label": "Atlas evidence surface markdown",
+        "filename": "world_evidence_surface.md"
+      },
+      {
+        "label": "Atlas scientific review JSON",
+        "filename": "world_scientific_review.json"
+      },
+      {
+        "label": "Atlas scientific review markdown",
+        "filename": "world_scientific_review.md"
+      }
+    ],
+    "animal_localities_geojson": "world_animal_localities.geojson",
+    "domesticated_animal_localities_geojson": "world_domesticated_animal_localities.geojson",
+    "comparator_animal_localities_geojson": "world_comparator_animal_localities.geojson",
+    "animal_atlas_evidence_csv": "world_animal_atlas_evidence.csv",
+    "animal_atlas_evidence_json": "world_animal_atlas_evidence.json",
+    "animal_point_traceability_json": "world_animal_point_traceability.json"
+  },
+  "map_publication_contract": {
+    "schema_version": "map-publication-contract.v1",
+    "title": "World Evidence Surface",
+    "scope_key": "world",
+    "scope_label": "World",
+    "scope_kind": "world",
+    "parent_scope_key": null,
+    "countries": [
+      "Sweden",
+      "Norway",
+      "Finland",
+      "Denmark"
+    ],
+    "default_basemap": "voyager",
+    "initial_diameter_km": 40,
+    "minimum_bounds": [
+      [
+        -20.0,
+        -165.0
+      ],
+      [
+        82.0,
+        180.0
+      ]
+    ],
+    "scope_summary": "World is the governing publication surface. It keeps every published country inside one shared map and excludes Nordic-only context overlays that would look more complete than they really are at broader scale.",
+    "bounds_summary": "The opening extent keeps a broad trans-Atlantic and Eurasian frame so the root publication surface reads as a parent scope rather than a Nordic detail page with a bigger title.",
+    "engine_summary": "One shared map document engine serves every published scope. Scope differences must be encoded in governed bounds, layer eligibility, default basemap, and reader caveats rather than hidden in separate renderer forks.",
+    "filter_surfaces": [
+      "Country filters",
+      "Layer toggles",
+      "Search",
+      "Time window",
+      "Distance circles",
+      "Basemap switch"
+    ],
+    "legend_sections": [
+      "Human evidence markers",
+      "Animal evidence markers when present",
+      "Context overlay symbols",
+      "Density ramp when archaeology density is visible"
+    ],
+    "visible_caveats": [
+      "World is the parent publication scope, not a claim that worldwide contextual coverage is already complete.",
+      "Nordic environmental and archaeology overlays are withheld here until broader equivalents exist.",
+      "Country counts still describe Homo sapiens AADR rows even when animal layers are also visible."
+    ],
+    "artifacts": {
+      "map_html": "world_map.html",
+      "summary_json": "world_summary.json",
+      "point_traceability_json": "world_point_traceability.json"
+    },
+    "role_counts": {
+      "shared_world_scale_layer": 4,
+      "region_filtered_layer": 1,
+      "scope_specific_overlay": 0
+    },
+    "layer_rows": [
+      {
+        "key": "aadr",
+        "label": "AADR-v66 aDNA samples",
+        "source_name": "Allen Ancient DNA Resource",
+        "coverage_label": "Country assignment follows the AADR political entity field.",
+        "count": 1231,
+        "publication_role": "shared_world_scale_layer",
+        "scope_visibility": "scope_owned",
+        "default_enabled": true,
+        "applies_country_filter": true,
+        "applies_time_filter": true,
+        "scope_caveat": "Shared evidence layer across every governed scope."
+      },
+      {
+        "key": "animal-camelus-dromedarius",
+        "label": "Dromedary Camel aDNA site evidence",
+        "source_name": "Tracked animal aDNA localities",
+        "coverage_label": "Mapped animal features staged from traceable evidence rows built from species-owned sample, site, coordinate, and citation surfaces.",
+        "count": 1,
+        "publication_role": "shared_world_scale_layer",
+        "scope_visibility": "shared_default",
+        "default_enabled": true,
+        "applies_country_filter": false,
+        "applies_time_filter": false,
+        "scope_caveat": "Shared evidence layer across every governed scope."
+      },
+      {
+        "key": "animal-capra-hircus",
+        "label": "Goat aDNA site evidence",
+        "source_name": "Tracked animal aDNA localities",
+        "coverage_label": "Mapped animal features staged from traceable evidence rows built from species-owned sample, site, coordinate, and citation surfaces.",
+        "count": 26,
+        "publication_role": "shared_world_scale_layer",
+        "scope_visibility": "shared_default",
+        "default_enabled": true,
+        "applies_country_filter": false,
+        "applies_time_filter": true,
+        "scope_caveat": "Shared evidence layer across every governed scope."
+      },
+      {
+        "key": "animal-equus-caballus",
+        "label": "Horse aDNA site evidence",
+        "source_name": "Tracked animal aDNA localities",
+        "coverage_label": "Mapped animal features staged from traceable evidence rows built from species-owned sample, site, coordinate, and citation surfaces.",
+        "count": 207,
+        "publication_role": "shared_world_scale_layer",
+        "scope_visibility": "shared_default",
+        "default_enabled": true,
+        "applies_country_filter": false,
+        "applies_time_filter": true,
+        "scope_caveat": "Shared evidence layer across every governed scope."
+      },
+      {
+        "key": "country-boundaries",
+        "label": "Country boundaries",
+        "source_name": "Natural Earth country boundaries",
+        "coverage_label": "Published country outlines used for framing and scope-aware map filtering.",
+        "count": 4,
+        "publication_role": "region_filtered_layer",
+        "scope_visibility": "scope_owned",
+        "default_enabled": true,
+        "applies_country_filter": true,
+        "applies_time_filter": false,
+        "scope_caveat": "Derived filter framing layer that follows the active scope country roster."
+      }
+    ]
+  },
+  "animal_atlas": {
+    "total_locality_points": 234,
+    "direct_coordinate_feature_count": 233,
+    "named_site_geocoded_feature_count": 1,
+    "weaker_geography_feature_count": 0,
+    "total_species": 3,
+    "domesticated_species_count": 3,
+    "comparator_species_count": 0,
+    "layer_groups": [
+      "Domesticated-core animal evidence",
+      "Comparator animal evidence"
+    ],
+    "filter_surfaces": [
+      "Species focus",
+      "Animal scope",
+      "Coordinate confidence",
+      "Chronology bucket",
+      "Nordic animal leads only"
+    ],
+    "ui_surfaces": [
+      "Animal evidence summary panel",
+      "Citation-aware animal popups",
+      "Species and confidence legend sections"
+    ],
+    "chronology_buckets": [
+      "0-1000 BP",
+      "1001-3000 BP",
+      "3001-6000 BP",
+      "6001+ BP",
+      "undated"
+    ],
+    "coordinate_confidence_counts": {
+      "approximate": 1,
+      "exact": 233
+    },
+    "visible_caveats": [
+      "Approximate or inferred coordinates remain visible with explicit warnings.",
+      "Comparator-only evidence remains visible without being counted as domesticated-core support.",
+      "Weak or rejected support classes remain labeled in point popups instead of being silently hidden.",
+      "Nordic relevance can remain regional rather than one exact named country."
+    ],
+    "species_layers": [
+      {
+        "latin_name": "Camelus dromedarius",
+        "common_name": "dromedary camel",
+        "animal_scope": "domesticated_core",
+        "locality_count": 1
+      },
+      {
+        "latin_name": "Capra hircus",
+        "common_name": "goat",
+        "animal_scope": "domesticated_core",
+        "locality_count": 26
+      },
+      {
+        "latin_name": "Equus caballus",
+        "common_name": "horse",
+        "animal_scope": "domesticated_core",
+        "locality_count": 207
+      }
+    ]
+  }
+}

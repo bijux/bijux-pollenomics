@@ -1,0 +1,62 @@
+{
+  "schema_version": "animal-project-recovery-dossier.v1",
+  "project_accession": "PRJEB52590",
+  "species_latin_name": "Equus asinus",
+  "paper_doi": "",
+  "archive_status": "comparator_only",
+  "evidence_strength": "archive_only",
+  "inventory_disposition": "tracked_intake_candidate",
+  "stage_statuses": {
+    "project_admission": "complete",
+    "paper_capture": "blocked",
+    "supplement_capture": "not_required",
+    "sample_identity_recovery": "in_progress",
+    "site_recovery": "blocked",
+    "chronology_recovery": "blocked",
+    "coordinate_derivation": "blocked",
+    "publication_readiness": "blocked"
+  },
+  "blocking_stages": [
+    "paper_capture",
+    "site_recovery",
+    "chronology_recovery",
+    "coordinate_derivation",
+    "publication_readiness"
+  ],
+  "next_required_stage": "paper_capture",
+  "publication_readiness_status": "blocked",
+  "expected_sample_count": null,
+  "expected_sample_count_status": "not_yet_curated",
+  "expected_sample_count_provenance": "No trustworthy expected sample count is published yet because the current archive or paper capture is still too weak.",
+  "expected_sample_count_artifact_path": "data/adna/governance/source_library/projects/PRJEB52590/archive_metadata.html",
+  "minimum_expected_sample_count": null,
+  "recovered_sample_count": 0,
+  "final_sample_count": 0,
+  "unresolved_sample_count": null,
+  "minimum_gap_count": null,
+  "recovery_gap_status": "extractable_sources_but_no_governed_samples",
+  "implausibly_low_recovery": false,
+  "implausibly_low_recovery_reason": "",
+  "known_assets": [
+    "adna/governance/source_library/projects/PRJEB52590/archive_metadata.html",
+    "data/adna/governance/source_library/projects/PRJEB52590/sample_master.json",
+    "data/adna/governance/source_library/projects/PRJEB52590/sample_sites.json",
+    "data/adna/governance/source_library/projects/PRJEB52590/sample_chronology.json",
+    "data/adna/governance/source_library/projects/PRJEB52590/sample_locality_evidence.json"
+  ],
+  "missing_assets": [
+    "Readable repository paper capture is still missing.",
+    "No final governed sample rows are published yet.",
+    "The tracked project still lacks a pinned primary paper linkage."
+  ],
+  "expected_contributions": [],
+  "expected_contribution_surfaces": [
+    "data/adna/governance/source_library/projects/PRJEB52590/archive_metadata.html"
+  ],
+  "contradictory_evidence": [],
+  "inferred_claims": [],
+  "manual_curation_work_units": [],
+  "major_deficit_reasons": [
+    "missing_primary_paper_linkage"
+  ]
+}

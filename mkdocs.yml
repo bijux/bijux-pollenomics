@@ -51,6 +51,77 @@ extra:
         label: Masterclass
         url: https://bijux.io/bijux-masterclass/
 
+plugins:
+  - search
+  - autorefs
+  - redirects:
+      redirect_maps:
+        foundation/index.md: public/pollenomics/foundation/index.md
+        foundation/product-overview.md: public/pollenomics/foundation/index.md
+        foundation/repository-scope.md: public/pollenomics/foundation/repository-scope-and-limits.md
+        foundation/scope-and-non-goals.md: public/pollenomics/foundation/repository-scope-and-limits.md
+        foundation/map-first-product-model.md: public/pollenomics/foundation/index.md
+        architecture/index.md: public/pollenomics/architecture/index.md
+        architecture/system-overview.md: public/pollenomics/architecture/module-map.md
+        architecture/data-collection-flow.md: public/pollenomics/architecture/index.md
+        architecture/publication-flow.md: public/pollenomics/architecture/index.md
+        architecture/codebase-layout-and-ownership.md: public/pollenomics/architecture/module-map.md
+        engineering/index.md: public/pollenomics/quality/index.md
+        engineering/local-workflow.md: public/pollenomics/operations/index.md
+        engineering/automation-workflows.md: public/pollenomics/operations/index.md
+        engineering/testing-and-evidence.md: public/pollenomics/quality/test-strategy.md
+        engineering/change-review-checklist.md: public/pollenomics/quality/index.md
+        engineering/documentation-standards.md: public/pollenomics/quality/index.md
+        workflows/index.md: public/pollenomics/operations/index.md
+        workflows/install-and-verify.md: public/pollenomics/operations/installation-and-setup.md
+        workflows/rebuild-data-tree.md: public/pollenomics/operations/index.md
+        workflows/publish-report-artifacts.md: public/pollenomics/operations/index.md
+        workflows/troubleshoot-local-setup.md: public/pollenomics/operations/index.md
+        data-sources/index.md: public/pollenomics-data/sources/index.md
+        data-sources/source-comparison.md: public/pollenomics-data/sources/source-comparison.md
+        data-sources/provenance-and-refresh-policy.md: public/pollenomics-data/evidence/index.md
+        data-sources/aadr.md: public/pollenomics-data/sources/aadr.md
+        data-sources/boundaries.md: public/pollenomics-data/sources/boundaries.md
+        data-sources/landclim.md: public/pollenomics-data/sources/landclim.md
+        data-sources/neotoma.md: public/pollenomics-data/sources/neotoma.md
+        data-sources/raa.md: public/pollenomics-data/sources/raa.md
+        data-sources/sead.md: public/pollenomics-data/sources/sead.md
+        outputs/index.md: public/pollenomics-data/publications/index.md
+        outputs/nordic-evidence-atlas.md: public/pollenomics-data/publications/maps.md
+        outputs/country-reports.md: public/pollenomics-data/publications/reports.md
+        outputs/artifact-lifecycle.md: public/pollenomics-data/publications/index.md
+        outputs/published-artifacts.md: public/pollenomics-data/publications/reports.md
+        outputs/lyngsjon-lake-fieldwork.md: public/fieldwork/lyngsjon-lake-fieldwork/index.md
+        02-bijux-pollenomics-data/fieldwork/index.md: public/fieldwork/index.md
+        02-bijux-pollenomics-data/fieldwork/lyngsjon-lake-fieldwork.md: public/fieldwork/lyngsjon-lake-fieldwork/index.md
+        public/index.md: index.md
+        reference/index.md: public/pollenomics/interfaces/index.md
+        reference/command-reference.md: public/pollenomics/interfaces/cli-surface.md
+        reference/configuration-defaults.md: public/pollenomics/interfaces/index.md
+        reference/data-layout.md: public/pollenomics-data/overview/data-directory-layout.md
+        reference/report-layout.md: public/pollenomics-data/publications/reports.md
+        public/pollenomics-data/outputs/index.md: public/pollenomics-data/publications/index.md
+        public/pollenomics-data/outputs/output-surface-classes.md: public/pollenomics-data/publications/publication-types.md
+        public/pollenomics-data/outputs/collection-summary.md: public/pollenomics-data/publications/collection-summary.md
+        public/pollenomics-data/outputs/published-reports.md: public/pollenomics-data/publications/reports.md
+        public/pollenomics-data/outputs/geographic-evidence-surfaces.md: public/pollenomics-data/publications/maps.md
+        public/pollenomics-data/outputs/geographic-input-surfaces.md: public/pollenomics-data/publications/map-inputs.md
+        public/pollenomics-data/outputs/geographic-point-publication.md: public/pollenomics-data/publications/point-rules.md
+        public/pollenomics-data/outputs/geographic-filters-and-inspection.md: public/pollenomics-data/publications/filters-and-popups.md
+        public/pollenomics-data/outputs/geographic-limits-and-honesty.md: public/pollenomics-data/publications/limits.md
+        public/pollenomics-data/outputs/normalized-aadr.md: public/pollenomics-data/publications/aadr-exports.md
+        public/pollenomics-data/outputs/normalized-boundaries.md: public/pollenomics-data/publications/boundary-exports.md
+        public/pollenomics-data/outputs/normalized-landclim.md: public/pollenomics-data/publications/landclim-exports.md
+        public/pollenomics-data/outputs/normalized-neotoma.md: public/pollenomics-data/publications/neotoma-exports.md
+        public/pollenomics-data/outputs/normalized-raa.md: public/pollenomics-data/publications/raa-exports.md
+        public/pollenomics-data/outputs/normalized-sead.md: public/pollenomics-data/publications/sead-exports.md
+        reference/glossary.md: public/pollenomics/foundation/index.md
+        bijux-pollenomics/api-and-schema-governance.md: public/pollenomics/interfaces/index.md
+        bijux-pollenomics/apis.md: public/pollenomics/interfaces/index.md
+  - git-revision-date-localized:
+      enable_creation_date: false
+      fallback_to_build_date: true
+
 not_in_nav: |
   assets/**
   report/**/*.csv
@@ -61,131 +132,89 @@ not_in_nav: |
 
 nav:
   - Home: index.md
-  - Repository:
-      - Repository: 01-bijux-pollenomics/index.md
+  - Pollenomics:
+      - Overview: public/pollenomics/index.md
       - Foundation:
-          - Foundation: 01-bijux-pollenomics/foundation/index.md
-          - Package Overview: 01-bijux-pollenomics/foundation/package-overview.md
-          - Scope and Non-Goals: 01-bijux-pollenomics/foundation/scope-and-non-goals.md
-          - Ownership Boundary: 01-bijux-pollenomics/foundation/ownership-boundary.md
-          - Repository Fit: 01-bijux-pollenomics/foundation/repository-fit.md
-          - Capability Map: 01-bijux-pollenomics/foundation/capability-map.md
-          - Domain Language: 01-bijux-pollenomics/foundation/domain-language.md
-          - Lifecycle Overview: 01-bijux-pollenomics/foundation/lifecycle-overview.md
-          - Dependencies and Adjacencies: 01-bijux-pollenomics/foundation/dependencies-and-adjacencies.md
-          - Change Principles: 01-bijux-pollenomics/foundation/change-principles.md
+          - Overview: public/pollenomics/foundation/index.md
+          - Repository Scope and Limits: public/pollenomics/foundation/repository-scope-and-limits.md
+          - End-State Product Model: public/pollenomics/foundation/end-state-product-model.md
+          - Pollenomics Engine Roadmap: public/pollenomics/foundation/pollenomics-engine-roadmap.md
+          - Runtime Scope and Ownership: public/pollenomics/foundation/runtime-scope-and-ownership.md
       - Architecture:
-          - Architecture: 01-bijux-pollenomics/architecture/index.md
-          - Module Map: 01-bijux-pollenomics/architecture/module-map.md
-          - Dependency Direction: 01-bijux-pollenomics/architecture/dependency-direction.md
-          - Execution Model: 01-bijux-pollenomics/architecture/execution-model.md
-          - State and Persistence: 01-bijux-pollenomics/architecture/state-and-persistence.md
-          - Integration Seams: 01-bijux-pollenomics/architecture/integration-seams.md
-          - Error Model: 01-bijux-pollenomics/architecture/error-model.md
-          - Extensibility Model: 01-bijux-pollenomics/architecture/extensibility-model.md
-          - Code Navigation: 01-bijux-pollenomics/architecture/code-navigation.md
-          - Architecture Risks: 01-bijux-pollenomics/architecture/architecture-risks.md
+          - Overview: public/pollenomics/architecture/index.md
+          - Runtime System Model: public/pollenomics/architecture/runtime-system-model.md
+          - Module Map: public/pollenomics/architecture/module-map.md
+          - Package Split: public/pollenomics/architecture/package-split.md
       - Interfaces:
-          - Interfaces: 01-bijux-pollenomics/interfaces/index.md
-          - CLI Surface: 01-bijux-pollenomics/interfaces/cli-surface.md
-          - API Surface: 01-bijux-pollenomics/interfaces/api-surface.md
-          - Configuration Surface: 01-bijux-pollenomics/interfaces/configuration-surface.md
-          - Data Contracts: 01-bijux-pollenomics/interfaces/data-contracts.md
-          - Artifact Contracts: 01-bijux-pollenomics/interfaces/artifact-contracts.md
-          - Entrypoints and Examples: 01-bijux-pollenomics/interfaces/entrypoints-and-examples.md
-          - Operator Workflows: 01-bijux-pollenomics/interfaces/operator-workflows.md
-          - Public Imports: 01-bijux-pollenomics/interfaces/public-imports.md
-          - Compatibility Commitments: 01-bijux-pollenomics/interfaces/compatibility-commitments.md
+          - Overview: public/pollenomics/interfaces/index.md
+          - CLI Surface: public/pollenomics/interfaces/cli-surface.md
+          - API Surface: public/pollenomics/interfaces/api-surface.md
+          - Artifact Contracts: public/pollenomics/interfaces/artifact-contracts.md
+          - Data Contracts: public/pollenomics/interfaces/data-contracts.md
+          - Entrypoints and Examples: public/pollenomics/interfaces/entrypoints-and-examples.md
+          - Operator Workflows: public/pollenomics/interfaces/operator-workflows.md
       - Operations:
-          - Operations: 01-bijux-pollenomics/operations/index.md
-          - Installation and Setup: 01-bijux-pollenomics/operations/installation-and-setup.md
-          - Local Development: 01-bijux-pollenomics/operations/local-development.md
-          - Common Workflows: 01-bijux-pollenomics/operations/common-workflows.md
-          - Observability and Diagnostics: 01-bijux-pollenomics/operations/observability-and-diagnostics.md
-          - Performance and Scaling: 01-bijux-pollenomics/operations/performance-and-scaling.md
-          - Failure Recovery: 01-bijux-pollenomics/operations/failure-recovery.md
-          - Release and Versioning: 01-bijux-pollenomics/operations/release-and-versioning.md
-          - Security and Safety: 01-bijux-pollenomics/operations/security-and-safety.md
-          - Deployment Boundaries: 01-bijux-pollenomics/operations/deployment-boundaries.md
+          - Overview: public/pollenomics/operations/index.md
+          - Installation and Setup: public/pollenomics/operations/installation-and-setup.md
+          - Common Workflows: public/pollenomics/operations/common-workflows.md
+          - Failure Recovery: public/pollenomics/operations/failure-recovery.md
+          - Operational Boundaries: public/pollenomics/operations/operational-boundaries.md
       - Quality:
-          - Quality: 01-bijux-pollenomics/quality/index.md
-          - Test Strategy: 01-bijux-pollenomics/quality/test-strategy.md
-          - Invariants: 01-bijux-pollenomics/quality/invariants.md
-          - Review Checklist: 01-bijux-pollenomics/quality/review-checklist.md
-          - Documentation Standards: 01-bijux-pollenomics/quality/documentation-standards.md
-          - Definition of Done: 01-bijux-pollenomics/quality/definition-of-done.md
-          - Dependency Governance: 01-bijux-pollenomics/quality/dependency-governance.md
-          - Change Validation: 01-bijux-pollenomics/quality/change-validation.md
-          - Known Limitations: 01-bijux-pollenomics/quality/known-limitations.md
-          - Risk Register: 01-bijux-pollenomics/quality/risk-register.md
-  - Data Reference:
-      - Data Reference: 02-bijux-pollenomics-data/index.md
-      - Foundation:
-          - Foundation: 02-bijux-pollenomics-data/foundation/index.md
-          - Data System Overview: 02-bijux-pollenomics-data/foundation/data-system-overview.md
-          - Directory Layout: 02-bijux-pollenomics-data/foundation/directory-layout.md
-          - Source Selection Rules: 02-bijux-pollenomics-data/foundation/source-selection-rules.md
-          - Update Lifecycle: 02-bijux-pollenomics-data/foundation/update-lifecycle.md
-          - Provenance Model: 02-bijux-pollenomics-data/foundation/provenance-model.md
-          - Naming Conventions: 02-bijux-pollenomics-data/foundation/naming-conventions.md
-          - Coordinate Policy: 02-bijux-pollenomics-data/foundation/coordinate-policy.md
-          - Publication Linkage: 02-bijux-pollenomics-data/foundation/publication-linkage.md
-          - Migration Issues: 02-bijux-pollenomics-data/foundation/migration-issues.md
+          - Overview: public/pollenomics/quality/index.md
+          - Test Strategy: public/pollenomics/quality/test-strategy.md
+          - Change Validation: public/pollenomics/quality/change-validation.md
+          - Review Checklist: public/pollenomics/quality/review-checklist.md
+          - Public Language Guide: public/pollenomics/quality/public-language-guide.md
+          - Runtime Invariants and Limits: public/pollenomics/quality/runtime-invariants-and-limits.md
+  - Data:
+      - Overview: public/pollenomics-data/index.md
+      - System:
+          - Overview: public/pollenomics-data/overview/index.md
+          - System Overview: public/pollenomics-data/overview/data-system-overview.md
+          - Architecture: public/pollenomics-data/overview/data-architecture-handbook.md
+          - Publication Model: public/pollenomics-data/overview/pollenomics-publication-model.md
+          - Evidence Matrix: public/pollenomics-data/overview/cross-domain-evidence-matrix.md
+          - Animal aDNA: public/pollenomics-data/overview/animal-ancient-dna-evidence.md
+          - Directory Layout: public/pollenomics-data/overview/data-directory-layout.md
       - Sources:
-          - Sources: 02-bijux-pollenomics-data/sources/index.md
-          - AADR: 02-bijux-pollenomics-data/sources/aadr.md
-          - Boundaries: 02-bijux-pollenomics-data/sources/boundaries.md
-          - LandClim: 02-bijux-pollenomics-data/sources/landclim.md
-          - Neotoma: 02-bijux-pollenomics-data/sources/neotoma.md
-          - RAÄ: 02-bijux-pollenomics-data/sources/raa.md
-          - SEAD: 02-bijux-pollenomics-data/sources/sead.md
-          - Shared Normalization: 02-bijux-pollenomics-data/sources/shared-normalization.md
-          - Source Comparison: 02-bijux-pollenomics-data/sources/source-comparison.md
-          - Refresh Policy: 02-bijux-pollenomics-data/sources/refresh-policy.md
-      - Outputs:
-          - Outputs: 02-bijux-pollenomics-data/outputs/index.md
-          - Collection Summary: 02-bijux-pollenomics-data/outputs/collection-summary.md
-          - Normalized AADR Outputs: 02-bijux-pollenomics-data/outputs/normalized-aadr.md
-          - Normalized Boundary Outputs: 02-bijux-pollenomics-data/outputs/normalized-boundaries.md
-          - Normalized LandClim Outputs: 02-bijux-pollenomics-data/outputs/normalized-landclim.md
-          - Normalized Neotoma Outputs: 02-bijux-pollenomics-data/outputs/normalized-neotoma.md
-          - Normalized RAÄ Outputs: 02-bijux-pollenomics-data/outputs/normalized-raa.md
-          - Normalized SEAD Outputs: 02-bijux-pollenomics-data/outputs/normalized-sead.md
-          - Published Reports: 02-bijux-pollenomics-data/outputs/published-reports.md
-          - Nordic Atlas Outputs: 02-bijux-pollenomics-data/outputs/nordic-atlas.md
-  - Maintainer:
-      - Maintainer: 03-bijux-pollenomics-maintain/index.md
-      - bijux-pollenomics-dev:
-          - bijux-pollenomics-dev: 03-bijux-pollenomics-maintain/bijux-pollenomics-dev/index.md
-          - Package Overview: 03-bijux-pollenomics-maintain/bijux-pollenomics-dev/package-overview.md
-          - Scope and Non-Goals: 03-bijux-pollenomics-maintain/bijux-pollenomics-dev/scope-and-non-goals.md
-          - Module Map: 03-bijux-pollenomics-maintain/bijux-pollenomics-dev/module-map.md
-          - Operating Guidelines: 03-bijux-pollenomics-maintain/bijux-pollenomics-dev/operating-guidelines.md
-          - Quality Gates: 03-bijux-pollenomics-maintain/bijux-pollenomics-dev/quality-gates.md
-          - Security Gates: 03-bijux-pollenomics-maintain/bijux-pollenomics-dev/security-gates.md
-          - Schema Governance: 03-bijux-pollenomics-maintain/bijux-pollenomics-dev/schema-governance.md
-          - Release Support: 03-bijux-pollenomics-maintain/bijux-pollenomics-dev/release-support.md
-          - Badge Catalog: badges.md
-          - Documentation Integrity: 03-bijux-pollenomics-maintain/bijux-pollenomics-dev/documentation-integrity.md
-      - makes:
-          - makes: 03-bijux-pollenomics-maintain/makes/index.md
-          - Make System Overview: 03-bijux-pollenomics-maintain/makes/make-system-overview.md
-          - Repository Layout: 03-bijux-pollenomics-maintain/makes/repository-layout.md
-          - Root Entrypoints: 03-bijux-pollenomics-maintain/makes/root-entrypoints.md
-          - Package Dispatch: 03-bijux-pollenomics-maintain/makes/package-dispatch.md
-          - Package Contracts: 03-bijux-pollenomics-maintain/makes/package-contracts.md
-          - Release Surfaces: 03-bijux-pollenomics-maintain/makes/release-surfaces.md
-          - CI Targets: 03-bijux-pollenomics-maintain/makes/ci-targets.md
-          - Environment Model: 03-bijux-pollenomics-maintain/makes/environment-model.md
-          - Authoring Rules: 03-bijux-pollenomics-maintain/makes/authoring-rules.md
-      - gh-workflows:
-          - gh-workflows: 03-bijux-pollenomics-maintain/gh-workflows/index.md
-          - verify: 03-bijux-pollenomics-maintain/gh-workflows/verify.md
-          - release-publication: 03-bijux-pollenomics-maintain/gh-workflows/release-publication.md
-          - deploy-docs: 03-bijux-pollenomics-maintain/gh-workflows/deploy-docs.md
-          - reusable-workflows: 03-bijux-pollenomics-maintain/gh-workflows/reusable-workflows.md
+          - Overview: public/pollenomics-data/sources/index.md
+          - Source Comparison: public/pollenomics-data/sources/source-comparison.md
+          - Source Family Matrix: public/pollenomics-data/sources/source-family-matrix.md
+          - Refresh Policy: public/pollenomics-data/sources/refresh-policy.md
+          - Shared Normalization: public/pollenomics-data/sources/shared-normalization.md
+          - Non-aDNA Explainer Recovery: public/pollenomics-data/sources/non-adna-explainer-recovery.md
+          - Animal Source Intake: public/pollenomics-data/sources/animal-source-intake.md
+          - SEAD Handbook: public/pollenomics-data/sources/sead-handbook.md
+          - AADR: public/pollenomics-data/sources/aadr.md
+          - Boundaries: public/pollenomics-data/sources/boundaries.md
+          - LandClim: public/pollenomics-data/sources/landclim.md
+          - Neotoma: public/pollenomics-data/sources/neotoma.md
+          - RAÄ: public/pollenomics-data/sources/raa.md
+          - SEAD: public/pollenomics-data/sources/sead.md
+      - Evidence:
+          - Overview: public/pollenomics-data/evidence/index.md
+          - Sample Records: public/pollenomics-data/evidence/sample-records.md
+          - Localities: public/pollenomics-data/evidence/localities.md
+          - Chronology: public/pollenomics-data/evidence/chronology.md
+          - Temporal Semantics: public/pollenomics-data/evidence/temporal-semantics.md
+          - Coordinates: public/pollenomics-data/evidence/coordinates.md
+      - Publications:
+          - Overview: public/pollenomics-data/publications/index.md
+          - Publication Types: public/pollenomics-data/publications/publication-types.md
+          - Collection Summary: public/pollenomics-data/publications/collection-summary.md
+          - Reports: public/pollenomics-data/publications/reports.md
+          - Maps: public/pollenomics-data/publications/maps.md
+          - Map Inputs: public/pollenomics-data/publications/map-inputs.md
+          - Point Rules: public/pollenomics-data/publications/point-rules.md
+          - Filters and Popups: public/pollenomics-data/publications/filters-and-popups.md
+          - Limits: public/pollenomics-data/publications/limits.md
+          - AADR Exports: public/pollenomics-data/publications/aadr-exports.md
+          - Boundary Exports: public/pollenomics-data/publications/boundary-exports.md
+          - LandClim Exports: public/pollenomics-data/publications/landclim-exports.md
+          - Neotoma Exports: public/pollenomics-data/publications/neotoma-exports.md
+          - RAÄ Exports: public/pollenomics-data/publications/raa-exports.md
+          - SEAD Exports: public/pollenomics-data/publications/sead-exports.md
   - Fieldwork:
-      - Fieldwork: 04-fieldwork/index.md
-      - Lyngsjön Lake Fieldwork: 04-fieldwork/lyngsjon-lake-fieldwork/index.md
-  - Nordic Evidence Atlas:
-      - Nordic Evidence Atlas: 05-nordic-evidence-atlas/index.md
+      - Overview: public/fieldwork/index.md
+      - Lyngsjön Lake Fieldwork: public/fieldwork/lyngsjon-lake-fieldwork/index.md
+  - Nordic Atlas: public/nordic-atlas/index.md

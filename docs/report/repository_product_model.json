@@ -1,0 +1,65 @@
+{
+  "schema_version": "repository-product-model.v1",
+  "product_name": "bijux-pollenomics",
+  "governing_model": "world_parent_with_filtered_regional_and_country_derivatives",
+  "mission": "collect world-scale tracked evidence families once, keep Europe-plus and Nordic as governed filtered specializations, and publish country bundles as narrower views of the same accountable repository state",
+  "scope_lineage": [
+    {
+      "scope_key": "world",
+      "role": "governing_parent_surface",
+      "owned_paths": [
+        "data/",
+        "docs/report/world/"
+      ],
+      "meaning": "the broadest public surface and the parent evidence view for all narrower scopes"
+    },
+    {
+      "scope_key": "europe_plus",
+      "role": "regional_filter",
+      "owned_paths": [
+        "docs/report/regions/europe-plus/"
+      ],
+      "meaning": "the stable European bridge between world coverage and Nordic specialization"
+    },
+    {
+      "scope_key": "nordic",
+      "role": "dense_regional_specialization",
+      "owned_paths": [
+        "docs/report/regions/nordic/",
+        "docs/public/nordic-atlas/"
+      ],
+      "meaning": "the narrow regional surface where contextual overlays become intentionally denser"
+    },
+    {
+      "scope_key": "country",
+      "role": "derived_country_bundle",
+      "owned_paths": [
+        "docs/report/countries/<country-slug>/"
+      ],
+      "meaning": "reader-facing country bundles derived from the same upstream evidence and scope rules"
+    }
+  ],
+  "shared_runtime_stages": [
+    "collect source-family data into tracked raw trees",
+    "normalize source-family evidence into reviewable files under data/",
+    "review recovery depth, chronology meaning, and publication caveats",
+    "publish world, regional, and country outputs from one governed state"
+  ],
+  "drift_rules": [
+    "world is the governing parent surface; narrower scopes may filter it but may not fork separate truth rules",
+    "Europe-plus exists as a stable region definition rather than as an ad hoc pre-Nordic convenience layer",
+    "Nordic specialization may increase contextual density, but it may not invent a second publication model",
+    "country bundles answer geography-first reader questions and must remain derivations of one broader evidence state"
+  ],
+  "current_state_counts": {
+    "published_country_bundle_count": 4,
+    "published_world_animal_points": 234,
+    "source_explainer_count": 0
+  },
+  "evidence_anchors": [
+    "docs/report/publication_geography_registry.json",
+    "docs/report/publication_geography_subset_validation.json",
+    "docs/report/publication_country_onboarding_contract.json",
+    "docs/public/pollenomics/foundation/end-state-product-model.md"
+  ]
+}

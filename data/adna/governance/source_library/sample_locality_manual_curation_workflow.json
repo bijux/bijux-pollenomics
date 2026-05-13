@@ -1,0 +1,152 @@
+{
+  "schema_version": "animal-sample-locality-manual-curation-workflow.v1",
+  "rows": [
+    {
+      "project_accession": "KU605068-KU605080",
+      "species_latin_name": "Camelus dromedarius",
+      "decision_status": "pending_manual_curation",
+      "locality_resolution_status": "unresolved",
+      "unresolved_place_string": "",
+      "candidate_matches": [],
+      "final_decision": "",
+      "decision_rationale": "",
+      "queued_sample_count": 13,
+      "queued_sample_ids": [
+        "ku605068-ku605080:ku605068",
+        "ku605068-ku605080:ku605069",
+        "ku605068-ku605080:ku605070",
+        "ku605068-ku605080:ku605071",
+        "ku605068-ku605080:ku605072",
+        "ku605068-ku605080:ku605073",
+        "ku605068-ku605080:ku605074",
+        "ku605068-ku605080:ku605075",
+        "ku605068-ku605080:ku605076",
+        "ku605068-ku605080:ku605077",
+        "ku605068-ku605080:ku605078",
+        "ku605068-ku605080:ku605079",
+        "ku605068-ku605080:ku605080"
+      ],
+      "recommended_source_surfaces": []
+    },
+    {
+      "project_accession": "KX379528-KX379529",
+      "species_latin_name": "Canis lupus familiaris",
+      "decision_status": "pending_manual_curation",
+      "locality_resolution_status": "unresolved",
+      "unresolved_place_string": "",
+      "candidate_matches": [],
+      "final_decision": "",
+      "decision_rationale": "",
+      "queued_sample_count": 2,
+      "queued_sample_ids": [
+        "kx379528-kx379529:kx379528",
+        "kx379528-kx379529:kx379529"
+      ],
+      "recommended_source_surfaces": []
+    },
+    {
+      "project_accession": "PRJEB60484",
+      "species_latin_name": "Rangifer tarandus",
+      "decision_status": "pending_manual_curation",
+      "locality_resolution_status": "region_only",
+      "unresolved_place_string": "Svalbard ancient reindeer context",
+      "candidate_matches": [
+        "Svalbard ancient reindeer context"
+      ],
+      "final_decision": "",
+      "decision_rationale": "",
+      "queued_sample_count": 20,
+      "queued_sample_ids": [
+        "prjeb60484:samea112757323",
+        "prjeb60484:samea112757324",
+        "prjeb60484:samea112757325",
+        "prjeb60484:samea112757326",
+        "prjeb60484:samea112757327",
+        "prjeb60484:samea112757328",
+        "prjeb60484:samea112757329",
+        "prjeb60484:samea112757330",
+        "prjeb60484:samea112757331",
+        "prjeb60484:samea112757332",
+        "prjeb60484:samea112757333",
+        "prjeb60484:samea112757334",
+        "prjeb60484:samea112757335",
+        "prjeb60484:samea112757336",
+        "prjeb60484:samea112757337",
+        "prjeb60484:samea112757338",
+        "prjeb60484:samea112757339",
+        "prjeb60484:samea112757340",
+        "prjeb60484:samea114857470",
+        "prjeb60484:samea114857471"
+      ],
+      "recommended_source_surfaces": [
+        "archive_metadata",
+        "coordinate_resolution"
+      ]
+    },
+    {
+      "project_accession": "PRJNA705960",
+      "species_latin_name": "Bos taurus",
+      "decision_status": "pending_manual_curation",
+      "locality_resolution_status": "region_only",
+      "unresolved_place_string": "Galician mountain cave cattle context",
+      "candidate_matches": [
+        "Galician mountain cave cattle context"
+      ],
+      "final_decision": "",
+      "decision_rationale": "",
+      "queued_sample_count": 11,
+      "queued_sample_ids": [
+        "prjna705960:samn18106827",
+        "prjna705960:samn18106828",
+        "prjna705960:samn18106829",
+        "prjna705960:samn18106830",
+        "prjna705960:samn18106831",
+        "prjna705960:samn18106832",
+        "prjna705960:samn18106833",
+        "prjna705960:samn18106834",
+        "prjna705960:samn18106835",
+        "prjna705960:samn18106836",
+        "prjna705960:samn18106837"
+      ],
+      "recommended_source_surfaces": [
+        "archive_metadata",
+        "coordinate_resolution"
+      ]
+    },
+    {
+      "project_accession": "SRS1407451",
+      "species_latin_name": "Canis lupus familiaris",
+      "decision_status": "pending_manual_curation",
+      "locality_resolution_status": "region_only",
+      "unresolved_place_string": "Ancient European dog CTC sample context",
+      "candidate_matches": [
+        "Ancient European dog CTC sample context"
+      ],
+      "final_decision": "",
+      "decision_rationale": "",
+      "queued_sample_count": 1,
+      "queued_sample_ids": [
+        "srs1407451:srs1407451"
+      ],
+      "recommended_source_surfaces": [
+        "article_text",
+        "coordinate_resolution"
+      ]
+    },
+    {
+      "project_accession": "SRS1407453",
+      "species_latin_name": "Canis lupus familiaris",
+      "decision_status": "pending_manual_curation",
+      "locality_resolution_status": "unresolved",
+      "unresolved_place_string": "",
+      "candidate_matches": [],
+      "final_decision": "",
+      "decision_rationale": "",
+      "queued_sample_count": 1,
+      "queued_sample_ids": [
+        "srs1407453:srs1407453"
+      ],
+      "recommended_source_surfaces": []
+    }
+  ]
+}

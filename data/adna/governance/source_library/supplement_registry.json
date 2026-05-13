@@ -1,0 +1,874 @@
+{
+  "schema_version": "adna-source-library.v1",
+  "rows": [
+    {
+      "artifact_id": "10.1016-j.cell.2019.03.049:1-s2.0-S0092867419303848-mmc1.xlsx",
+      "paper_doi": "10.1016/j.cell.2019.03.049",
+      "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6547883/",
+      "local_path": "adna/governance/source_library/papers/10.1016-j.cell.2019.03.049/supplementary/1-s2.0-S0092867419303848-mmc1.xlsx",
+      "artifact_kind": "supplementary_table",
+      "fetch_status": "archived",
+      "project_accessions": [
+        "PRJEB31613"
+      ],
+      "purpose": "sample_or_site_support"
+    },
+    {
+      "artifact_id": "10.1016-j.cell.2019.03.049:1-s2.0-S0092867419303848-mmc2.xlsx",
+      "paper_doi": "10.1016/j.cell.2019.03.049",
+      "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6547883/",
+      "local_path": "adna/governance/source_library/papers/10.1016-j.cell.2019.03.049/supplementary/1-s2.0-S0092867419303848-mmc2.xlsx",
+      "artifact_kind": "supplementary_table",
+      "fetch_status": "archived",
+      "project_accessions": [
+        "PRJEB31613"
+      ],
+      "purpose": "sample_or_site_support"
+    },
+    {
+      "artifact_id": "10.1016-j.cell.2019.03.049:1-s2.0-S0092867419303848-mmc3.xlsx",
+      "paper_doi": "10.1016/j.cell.2019.03.049",
+      "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6547883/",
+      "local_path": "adna/governance/source_library/papers/10.1016-j.cell.2019.03.049/supplementary/1-s2.0-S0092867419303848-mmc3.xlsx",
+      "artifact_kind": "supplementary_table",
+      "fetch_status": "archived",
+      "project_accessions": [
+        "PRJEB31613"
+      ],
+      "purpose": "sample_or_site_support"
+    },
+    {
+      "artifact_id": "10.1016-j.cell.2019.03.049:1-s2.0-S0092867419303848-mmc4.xlsx",
+      "paper_doi": "10.1016/j.cell.2019.03.049",
+      "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6547883/",
+      "local_path": "adna/governance/source_library/papers/10.1016-j.cell.2019.03.049/supplementary/1-s2.0-S0092867419303848-mmc4.xlsx",
+      "artifact_kind": "supplementary_table",
+      "fetch_status": "archived",
+      "project_accessions": [
+        "PRJEB31613"
+      ],
+      "purpose": "sample_or_site_support"
+    },
+    {
+      "artifact_id": "10.1016-j.cell.2019.03.049:1-s2.0-S0092867419303848-mmc5.xlsx",
+      "paper_doi": "10.1016/j.cell.2019.03.049",
+      "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6547883/",
+      "local_path": "adna/governance/source_library/papers/10.1016-j.cell.2019.03.049/supplementary/1-s2.0-S0092867419303848-mmc5.xlsx",
+      "artifact_kind": "supplementary_table",
+      "fetch_status": "archived",
+      "project_accessions": [
+        "PRJEB31613"
+      ],
+      "purpose": "sample_or_site_support"
+    },
+    {
+      "artifact_id": "10.1016-j.cell.2019.03.049:1-s2.0-S0092867419303848-mmc6.xlsx",
+      "paper_doi": "10.1016/j.cell.2019.03.049",
+      "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6547883/",
+      "local_path": "adna/governance/source_library/papers/10.1016-j.cell.2019.03.049/supplementary/1-s2.0-S0092867419303848-mmc6.xlsx",
+      "artifact_kind": "supplementary_table",
+      "fetch_status": "archived",
+      "project_accessions": [
+        "PRJEB31613"
+      ],
+      "purpose": "sample_or_site_support"
+    },
+    {
+      "artifact_id": "10.1016-j.cell.2019.03.049:1-s2.0-S0092867419303848-mmc7.xlsx",
+      "paper_doi": "10.1016/j.cell.2019.03.049",
+      "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6547883/",
+      "local_path": "adna/governance/source_library/papers/10.1016-j.cell.2019.03.049/supplementary/1-s2.0-S0092867419303848-mmc7.xlsx",
+      "artifact_kind": "supplementary_table",
+      "fetch_status": "archived",
+      "project_accessions": [
+        "PRJEB31613"
+      ],
+      "purpose": "sample_or_site_support"
+    },
+    {
+      "artifact_id": "10.1016-j.isci.2025.113771:1-s2.0-S2589004225020322-mmc1.pdf",
+      "paper_doi": "10.1016/j.isci.2025.113771",
+      "source_url": "https://linkinghub.elsevier.com/retrieve/pii/S2589004225020322",
+      "local_path": "adna/governance/source_library/papers/10.1016-j.isci.2025.113771/supplementary/1-s2.0-S2589004225020322-mmc1.pdf",
+      "artifact_kind": "supplementary_pdf",
+      "fetch_status": "archived",
+      "project_accessions": [
+        "PRJEB90261"
+      ],
+      "purpose": "sample_or_site_support"
+    },
+    {
+      "artifact_id": "10.1016-j.isci.2025.113771:1-s2.0-S2589004225020322-mmc2.xlsx",
+      "paper_doi": "10.1016/j.isci.2025.113771",
+      "source_url": "https://linkinghub.elsevier.com/retrieve/pii/S2589004225020322",
+      "local_path": "adna/governance/source_library/papers/10.1016-j.isci.2025.113771/supplementary/1-s2.0-S2589004225020322-mmc2.xlsx",
+      "artifact_kind": "supplementary_table",
+      "fetch_status": "archived",
+      "project_accessions": [
+        "PRJEB90261"
+      ],
+      "purpose": "sample_or_site_support"
+    },
+    {
+      "artifact_id": "10.1016-j.isci.2025.113771:1-s2.0-S2589004225020322-mmc3.xlsx",
+      "paper_doi": "10.1016/j.isci.2025.113771",
+      "source_url": "https://linkinghub.elsevier.com/retrieve/pii/S2589004225020322",
+      "local_path": "adna/governance/source_library/papers/10.1016-j.isci.2025.113771/supplementary/1-s2.0-S2589004225020322-mmc3.xlsx",
+      "artifact_kind": "supplementary_table",
+      "fetch_status": "archived",
+      "project_accessions": [
+        "PRJEB90261"
+      ],
+      "purpose": "sample_or_site_support"
+    },
+    {
+      "artifact_id": "10.1016-j.isci.2025.113771:1-s2.0-S2589004225020322-mmc4.xlsx",
+      "paper_doi": "10.1016/j.isci.2025.113771",
+      "source_url": "https://linkinghub.elsevier.com/retrieve/pii/S2589004225020322",
+      "local_path": "adna/governance/source_library/papers/10.1016-j.isci.2025.113771/supplementary/1-s2.0-S2589004225020322-mmc4.xlsx",
+      "artifact_kind": "supplementary_table",
+      "fetch_status": "archived",
+      "project_accessions": [
+        "PRJEB90261"
+      ],
+      "purpose": "sample_or_site_support"
+    },
+    {
+      "artifact_id": "10.1016-j.xgen.2025.101099:1-s2.0-S2666979X25003556-mmc1.pdf",
+      "paper_doi": "10.1016/j.xgen.2025.101099",
+      "source_url": "https://linkinghub.elsevier.com/retrieve/pii/S2666979X25003556",
+      "local_path": "adna/governance/source_library/papers/10.1016-j.xgen.2025.101099/supplementary/1-s2.0-S2666979X25003556-mmc1.pdf",
+      "artifact_kind": "supplementary_pdf",
+      "fetch_status": "archived",
+      "project_accessions": [
+        "PRJNA1178732"
+      ],
+      "purpose": "sample_or_site_support"
+    },
+    {
+      "artifact_id": "10.1016-j.xgen.2025.101099:1-s2.0-S2666979X25003556-mmc2.pdf",
+      "paper_doi": "10.1016/j.xgen.2025.101099",
+      "source_url": "https://linkinghub.elsevier.com/retrieve/pii/S2666979X25003556",
+      "local_path": "adna/governance/source_library/papers/10.1016-j.xgen.2025.101099/supplementary/1-s2.0-S2666979X25003556-mmc2.pdf",
+      "artifact_kind": "supplementary_pdf",
+      "fetch_status": "archived",
+      "project_accessions": [
+        "PRJNA1178732"
+      ],
+      "purpose": "sample_or_site_support"
+    },
+    {
+      "artifact_id": "10.1016-j.xgen.2025.101099:1-s2.0-S2666979X25003556-mmc3.xlsx",
+      "paper_doi": "10.1016/j.xgen.2025.101099",
+      "source_url": "https://linkinghub.elsevier.com/retrieve/pii/S2666979X25003556",
+      "local_path": "adna/governance/source_library/papers/10.1016-j.xgen.2025.101099/supplementary/1-s2.0-S2666979X25003556-mmc3.xlsx",
+      "artifact_kind": "supplementary_table",
+      "fetch_status": "archived",
+      "project_accessions": [
+        "PRJNA1178732"
+      ],
+      "purpose": "sample_or_site_support"
+    },
+    {
+      "artifact_id": "10.1016-j.xgen.2025.101099:1-s2.0-S2666979X25003556-mmc4.xlsx",
+      "paper_doi": "10.1016/j.xgen.2025.101099",
+      "source_url": "https://linkinghub.elsevier.com/retrieve/pii/S2666979X25003556",
+      "local_path": "adna/governance/source_library/papers/10.1016-j.xgen.2025.101099/supplementary/1-s2.0-S2666979X25003556-mmc4.xlsx",
+      "artifact_kind": "supplementary_table",
+      "fetch_status": "archived",
+      "project_accessions": [
+        "PRJNA1178732"
+      ],
+      "purpose": "sample_or_site_support"
+    },
+    {
+      "artifact_id": "10.1016-j.xgen.2025.101099:1-s2.0-S2666979X25003556-mmc5.xlsx",
+      "paper_doi": "10.1016/j.xgen.2025.101099",
+      "source_url": "https://linkinghub.elsevier.com/retrieve/pii/S2666979X25003556",
+      "local_path": "adna/governance/source_library/papers/10.1016-j.xgen.2025.101099/supplementary/1-s2.0-S2666979X25003556-mmc5.xlsx",
+      "artifact_kind": "supplementary_table",
+      "fetch_status": "archived",
+      "project_accessions": [
+        "PRJNA1178732"
+      ],
+      "purpose": "sample_or_site_support"
+    },
+    {
+      "artifact_id": "10.1016-j.xgen.2025.101099:1-s2.0-S2666979X25003556-mmc6.xlsx",
+      "paper_doi": "10.1016/j.xgen.2025.101099",
+      "source_url": "https://linkinghub.elsevier.com/retrieve/pii/S2666979X25003556",
+      "local_path": "adna/governance/source_library/papers/10.1016-j.xgen.2025.101099/supplementary/1-s2.0-S2666979X25003556-mmc6.xlsx",
+      "artifact_kind": "supplementary_table",
+      "fetch_status": "archived",
+      "project_accessions": [
+        "PRJNA1178732"
+      ],
+      "purpose": "sample_or_site_support"
+    },
+    {
+      "artifact_id": "10.1016-j.xgen.2025.101099:1-s2.0-S2666979X25003556-mmc7.xlsx",
+      "paper_doi": "10.1016/j.xgen.2025.101099",
+      "source_url": "https://linkinghub.elsevier.com/retrieve/pii/S2666979X25003556",
+      "local_path": "adna/governance/source_library/papers/10.1016-j.xgen.2025.101099/supplementary/1-s2.0-S2666979X25003556-mmc7.xlsx",
+      "artifact_kind": "supplementary_table",
+      "fetch_status": "archived",
+      "project_accessions": [
+        "PRJNA1178732"
+      ],
+      "purpose": "sample_or_site_support"
+    },
+    {
+      "artifact_id": "10.1016-j.xgen.2025.101099:1-s2.0-S2666979X25003556-mmc8.pdf",
+      "paper_doi": "10.1016/j.xgen.2025.101099",
+      "source_url": "https://linkinghub.elsevier.com/retrieve/pii/S2666979X25003556",
+      "local_path": "adna/governance/source_library/papers/10.1016-j.xgen.2025.101099/supplementary/1-s2.0-S2666979X25003556-mmc8.pdf",
+      "artifact_kind": "supplementary_pdf",
+      "fetch_status": "archived",
+      "project_accessions": [
+        "PRJNA1178732"
+      ],
+      "purpose": "sample_or_site_support"
+    },
+    {
+      "artifact_id": "10.1038-ncomms16082:41467_2017_BFncomms16082_MOESM109_ESM.pdf",
+      "paper_doi": "10.1038/ncomms16082",
+      "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5520058/",
+      "local_path": "adna/governance/source_library/papers/10.1038-ncomms16082/supplementary/41467_2017_BFncomms16082_MOESM109_ESM.pdf",
+      "artifact_kind": "supplementary_pdf",
+      "fetch_status": "archived",
+      "project_accessions": [
+        "KX379528-KX379529",
+        "SRS1407451",
+        "SRS1407453"
+      ],
+      "purpose": "sample_or_site_support"
+    },
+    {
+      "artifact_id": "10.1038-ncomms16082:41467_2017_BFncomms16082_MOESM110_ESM.pdf",
+      "paper_doi": "10.1038/ncomms16082",
+      "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5520058/",
+      "local_path": "adna/governance/source_library/papers/10.1038-ncomms16082/supplementary/41467_2017_BFncomms16082_MOESM110_ESM.pdf",
+      "artifact_kind": "supplementary_pdf",
+      "fetch_status": "archived",
+      "project_accessions": [
+        "KX379528-KX379529",
+        "SRS1407451",
+        "SRS1407453"
+      ],
+      "purpose": "sample_or_site_support"
+    },
+    {
+      "artifact_id": "10.1038-s41562-021-01083-y:41562_2021_1083_MOESM1_ESM.pdf",
+      "paper_doi": "10.1038/s41562-021-01083-y",
+      "source_url": "https://www.nature.com/articles/s41562-021-01083-y",
+      "local_path": "adna/governance/source_library/papers/10.1038-s41562-021-01083-y/supplementary/41562_2021_1083_MOESM1_ESM.pdf",
+      "artifact_kind": "supplementary_pdf",
+      "fetch_status": "archived",
+      "project_accessions": [
+        "PRJEB41594"
+      ],
+      "purpose": "sample_or_site_support"
+    },
+    {
+      "artifact_id": "10.1038-s41562-021-01083-y:41562_2021_1083_MOESM2_ESM.pdf",
+      "paper_doi": "10.1038/s41562-021-01083-y",
+      "source_url": "https://www.nature.com/articles/s41562-021-01083-y",
+      "local_path": "adna/governance/source_library/papers/10.1038-s41562-021-01083-y/supplementary/41562_2021_1083_MOESM2_ESM.pdf",
+      "artifact_kind": "supplementary_pdf",
+      "fetch_status": "archived",
+      "project_accessions": [
+        "PRJEB41594"
+      ],
+      "purpose": "sample_or_site_support"
+    },
+    {
+      "artifact_id": "10.1038-s41562-021-01083-y:41562_2021_1083_MOESM3_ESM.pdf",
+      "paper_doi": "10.1038/s41562-021-01083-y",
+      "source_url": "https://www.nature.com/articles/s41562-021-01083-y",
+      "local_path": "adna/governance/source_library/papers/10.1038-s41562-021-01083-y/supplementary/41562_2021_1083_MOESM3_ESM.pdf",
+      "artifact_kind": "supplementary_pdf",
+      "fetch_status": "archived",
+      "project_accessions": [
+        "PRJEB41594"
+      ],
+      "purpose": "sample_or_site_support"
+    },
+    {
+      "artifact_id": "10.1038-s41562-021-01083-y:41562_2021_1083_MOESM4_ESM.xlsx",
+      "paper_doi": "10.1038/s41562-021-01083-y",
+      "source_url": "https://www.nature.com/articles/s41562-021-01083-y",
+      "local_path": "adna/governance/source_library/papers/10.1038-s41562-021-01083-y/supplementary/41562_2021_1083_MOESM4_ESM.xlsx",
+      "artifact_kind": "supplementary_table",
+      "fetch_status": "archived",
+      "project_accessions": [
+        "PRJEB41594"
+      ],
+      "purpose": "sample_or_site_support"
+    },
+    {
+      "artifact_id": "10.1038-s41586-021-04018-9:41586_2021_4018_MOESM1_ESM.pdf",
+      "paper_doi": "10.1038/s41586-021-04018-9",
+      "source_url": "https://www.nature.com/articles/s41586-021-04018-9",
+      "local_path": "adna/governance/source_library/papers/10.1038-s41586-021-04018-9/supplementary/41586_2021_4018_MOESM1_ESM.pdf",
+      "artifact_kind": "supplementary_pdf",
+      "fetch_status": "archived",
+      "project_accessions": [
+        "PRJEB44430"
+      ],
+      "purpose": "sample_or_site_support"
+    },
+    {
+      "artifact_id": "10.1038-s41586-021-04018-9:41586_2021_4018_MOESM2_ESM.pdf",
+      "paper_doi": "10.1038/s41586-021-04018-9",
+      "source_url": "https://www.nature.com/articles/s41586-021-04018-9",
+      "local_path": "adna/governance/source_library/papers/10.1038-s41586-021-04018-9/supplementary/41586_2021_4018_MOESM2_ESM.pdf",
+      "artifact_kind": "supplementary_pdf",
+      "fetch_status": "archived",
+      "project_accessions": [
+        "PRJEB44430"
+      ],
+      "purpose": "sample_or_site_support"
+    },
+    {
+      "artifact_id": "10.1038-s41586-021-04018-9:41586_2021_4018_MOESM3_ESM.pdf",
+      "paper_doi": "10.1038/s41586-021-04018-9",
+      "source_url": "https://www.nature.com/articles/s41586-021-04018-9",
+      "local_path": "adna/governance/source_library/papers/10.1038-s41586-021-04018-9/supplementary/41586_2021_4018_MOESM3_ESM.pdf",
+      "artifact_kind": "supplementary_pdf",
+      "fetch_status": "archived",
+      "project_accessions": [
+        "PRJEB44430"
+      ],
+      "purpose": "sample_or_site_support"
+    },
+    {
+      "artifact_id": "10.1038-s41586-021-04018-9:41586_2021_4018_MOESM4_ESM.jpg",
+      "paper_doi": "10.1038/s41586-021-04018-9",
+      "source_url": "https://www.nature.com/articles/s41586-021-04018-9",
+      "local_path": "adna/governance/source_library/papers/10.1038-s41586-021-04018-9/supplementary/41586_2021_4018_MOESM4_ESM.jpg",
+      "artifact_kind": "supplementary_image",
+      "fetch_status": "archived",
+      "project_accessions": [
+        "PRJEB44430"
+      ],
+      "purpose": "sample_or_site_support"
+    },
+    {
+      "artifact_id": "10.1038-s41586-021-04018-9:41586_2021_4018_MOESM5_ESM.xlsx",
+      "paper_doi": "10.1038/s41586-021-04018-9",
+      "source_url": "https://www.nature.com/articles/s41586-021-04018-9",
+      "local_path": "adna/governance/source_library/papers/10.1038-s41586-021-04018-9/supplementary/41586_2021_4018_MOESM5_ESM.xlsx",
+      "artifact_kind": "supplementary_table",
+      "fetch_status": "archived",
+      "project_accessions": [
+        "PRJEB44430"
+      ],
+      "purpose": "sample_or_site_support"
+    },
+    {
+      "artifact_id": "10.1038-s41586-024-08112-6:41586_2024_8112_MOESM1_ESM.pdf",
+      "paper_doi": "10.1038/s41586-024-08112-6",
+      "source_url": "https://www.nature.com/articles/s41586-024-08112-6",
+      "local_path": "adna/governance/source_library/papers/10.1038-s41586-024-08112-6/supplementary/41586_2024_8112_MOESM1_ESM.pdf",
+      "artifact_kind": "supplementary_pdf",
+      "fetch_status": "archived",
+      "project_accessions": [
+        "PRJEB75467"
+      ],
+      "purpose": "sample_or_site_support"
+    },
+    {
+      "artifact_id": "10.1038-s41586-024-08112-6:41586_2024_8112_MOESM2_ESM.pdf",
+      "paper_doi": "10.1038/s41586-024-08112-6",
+      "source_url": "https://www.nature.com/articles/s41586-024-08112-6",
+      "local_path": "adna/governance/source_library/papers/10.1038-s41586-024-08112-6/supplementary/41586_2024_8112_MOESM2_ESM.pdf",
+      "artifact_kind": "supplementary_pdf",
+      "fetch_status": "archived",
+      "project_accessions": [
+        "PRJEB75467"
+      ],
+      "purpose": "sample_or_site_support"
+    },
+    {
+      "artifact_id": "10.1038-s41586-024-08112-6:41586_2024_8112_MOESM3_ESM.xlsx",
+      "paper_doi": "10.1038/s41586-024-08112-6",
+      "source_url": "https://www.nature.com/articles/s41586-024-08112-6",
+      "local_path": "adna/governance/source_library/papers/10.1038-s41586-024-08112-6/supplementary/41586_2024_8112_MOESM3_ESM.xlsx",
+      "artifact_kind": "supplementary_table",
+      "fetch_status": "archived",
+      "project_accessions": [
+        "PRJEB75467"
+      ],
+      "purpose": "sample_or_site_support"
+    },
+    {
+      "artifact_id": "10.1038-s41586-024-08112-6:41586_2024_8112_MOESM4_ESM.pdf",
+      "paper_doi": "10.1038/s41586-024-08112-6",
+      "source_url": "https://www.nature.com/articles/s41586-024-08112-6",
+      "local_path": "adna/governance/source_library/papers/10.1038-s41586-024-08112-6/supplementary/41586_2024_8112_MOESM4_ESM.pdf",
+      "artifact_kind": "supplementary_pdf",
+      "fetch_status": "archived",
+      "project_accessions": [
+        "PRJEB75467"
+      ],
+      "purpose": "sample_or_site_support"
+    },
+    {
+      "artifact_id": "10.1038-s41598-024-54296-2:41598_2024_64499_MOESM1_ESM.pdf",
+      "paper_doi": "10.1038/s41598-024-54296-2",
+      "source_url": "https://www.nature.com/articles/s41598-024-54296-2",
+      "local_path": "adna/governance/source_library/papers/10.1038-s41598-024-54296-2/supplementary/41598_2024_64499_MOESM1_ESM.pdf",
+      "artifact_kind": "supplementary_pdf",
+      "fetch_status": "archived",
+      "project_accessions": [
+        "PRJEB60484"
+      ],
+      "purpose": "sample_or_site_support"
+    },
+    {
+      "artifact_id": "10.1038-s42003-021-02794-8:42003_2021_2794_MOESM1_ESM.pdf",
+      "paper_doi": "10.1038/s42003-021-02794-8",
+      "source_url": "https://static-content.springer.com/esm/art%3A10.1038%2Fs42003-021-02794-8/MediaObjects/42003_2021_2794_MOESM1_ESM.pdf",
+      "local_path": "adna/governance/source_library/papers/10.1038-s42003-021-02794-8/supplementary/42003_2021_2794_MOESM1_ESM.pdf",
+      "artifact_kind": "supplementary_pdf",
+      "fetch_status": "archived",
+      "project_accessions": [
+        "PRJEB36540"
+      ],
+      "purpose": "sample_or_site_support"
+    },
+    {
+      "artifact_id": "10.1038-s42003-021-02794-8:42003_2021_2794_MOESM2_ESM.pdf",
+      "paper_doi": "10.1038/s42003-021-02794-8",
+      "source_url": "https://static-content.springer.com/esm/art%3A10.1038%2Fs42003-021-02794-8/MediaObjects/42003_2021_2794_MOESM2_ESM.pdf",
+      "local_path": "adna/governance/source_library/papers/10.1038-s42003-021-02794-8/supplementary/42003_2021_2794_MOESM2_ESM.pdf",
+      "artifact_kind": "supplementary_pdf",
+      "fetch_status": "archived",
+      "project_accessions": [
+        "PRJEB36540"
+      ],
+      "purpose": "sample_or_site_support"
+    },
+    {
+      "artifact_id": "10.1038-s42003-021-02794-8:42003_2021_2794_MOESM3_ESM.pdf",
+      "paper_doi": "10.1038/s42003-021-02794-8",
+      "source_url": "https://static-content.springer.com/esm/art%3A10.1038%2Fs42003-021-02794-8/MediaObjects/42003_2021_2794_MOESM3_ESM.pdf",
+      "local_path": "adna/governance/source_library/papers/10.1038-s42003-021-02794-8/supplementary/42003_2021_2794_MOESM3_ESM.pdf",
+      "artifact_kind": "supplementary_pdf",
+      "fetch_status": "archived",
+      "project_accessions": [
+        "PRJEB36540"
+      ],
+      "purpose": "sample_or_site_support"
+    },
+    {
+      "artifact_id": "10.1038-s42003-021-02794-8:42003_2021_2794_MOESM4_ESM.zip",
+      "paper_doi": "10.1038/s42003-021-02794-8",
+      "source_url": "https://static-content.springer.com/esm/art%3A10.1038%2Fs42003-021-02794-8/MediaObjects/42003_2021_2794_MOESM4_ESM.zip",
+      "local_path": "adna/governance/source_library/papers/10.1038-s42003-021-02794-8/supplementary/42003_2021_2794_MOESM4_ESM.zip",
+      "artifact_kind": "supplementary_zip",
+      "fetch_status": "archived",
+      "project_accessions": [
+        "PRJEB36540"
+      ],
+      "purpose": "sample_or_site_support"
+    },
+    {
+      "artifact_id": "10.1038-s42003-021-02794-8:42003_2021_2794_MOESM5_ESM.pdf",
+      "paper_doi": "10.1038/s42003-021-02794-8",
+      "source_url": "https://static-content.springer.com/esm/art%3A10.1038%2Fs42003-021-02794-8/MediaObjects/42003_2021_2794_MOESM5_ESM.pdf",
+      "local_path": "adna/governance/source_library/papers/10.1038-s42003-021-02794-8/supplementary/42003_2021_2794_MOESM5_ESM.pdf",
+      "artifact_kind": "supplementary_pdf",
+      "fetch_status": "archived",
+      "project_accessions": [
+        "PRJEB36540"
+      ],
+      "purpose": "sample_or_site_support"
+    },
+    {
+      "artifact_id": "10.1073-pnas.1901169116:pnas.1901169116.sapp.pdf",
+      "paper_doi": "10.1073/pnas.1901169116",
+      "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6717267/",
+      "local_path": "adna/governance/source_library/papers/10.1073-pnas.1901169116/supplementary/pnas.1901169116.sapp.pdf",
+      "artifact_kind": "supplementary_pdf",
+      "fetch_status": "archived",
+      "project_accessions": [
+        "PRJEB30282"
+      ],
+      "purpose": "sample_or_site_support"
+    },
+    {
+      "artifact_id": "10.1073-pnas.1901169116:pnas.1901169116.sd01.xlsx",
+      "paper_doi": "10.1073/pnas.1901169116",
+      "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6717267/",
+      "local_path": "adna/governance/source_library/papers/10.1073-pnas.1901169116/supplementary/pnas.1901169116.sd01.xlsx",
+      "artifact_kind": "supplementary_table",
+      "fetch_status": "archived",
+      "project_accessions": [
+        "PRJEB30282"
+      ],
+      "purpose": "sample_or_site_support"
+    },
+    {
+      "artifact_id": "10.1073-pnas.1901169116:pnas.1901169116.sd02.xlsx",
+      "paper_doi": "10.1073/pnas.1901169116",
+      "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6717267/",
+      "local_path": "adna/governance/source_library/papers/10.1073-pnas.1901169116/supplementary/pnas.1901169116.sd02.xlsx",
+      "artifact_kind": "supplementary_table",
+      "fetch_status": "archived",
+      "project_accessions": [
+        "PRJEB30282"
+      ],
+      "purpose": "sample_or_site_support"
+    },
+    {
+      "artifact_id": "10.1093-gbe-evae114:Supplementary Figures Baltic Sheep.pdf",
+      "paper_doi": "10.1093/gbe/evae114",
+      "source_url": "https://academic.oup.com/gbe/article/doi/10.1093/gbe/evae114/7682331",
+      "local_path": "adna/governance/source_library/papers/10.1093-gbe-evae114/supplementary/Supplementary Figures Baltic Sheep.pdf",
+      "artifact_kind": "supplementary_pdf",
+      "fetch_status": "archived",
+      "project_accessions": [
+        "PRJEB59481"
+      ],
+      "purpose": "sample_or_site_support"
+    },
+    {
+      "artifact_id": "10.1093-gbe-evae114:SupplementaryTables_Revision2.xlsx",
+      "paper_doi": "10.1093/gbe/evae114",
+      "source_url": "https://academic.oup.com/gbe/article/doi/10.1093/gbe/evae114/7682331",
+      "local_path": "adna/governance/source_library/papers/10.1093-gbe-evae114/supplementary/SupplementaryTables_Revision2.xlsx",
+      "artifact_kind": "supplementary_table",
+      "fetch_status": "archived",
+      "project_accessions": [
+        "PRJEB59481"
+      ],
+      "purpose": "sample_or_site_support"
+    },
+    {
+      "artifact_id": "10.1093-gbe-evaf181:GBE_Supplementary_Tables_S1-18_Goat_imputation.xlsx",
+      "paper_doi": "10.1093/gbe/evaf181",
+      "source_url": "https://academic.oup.com/gbe/article/doi/10.1093/gbe/evaf181/8317779",
+      "local_path": "adna/governance/source_library/papers/10.1093-gbe-evaf181/supplementary/GBE_Supplementary_Tables_S1-18_Goat_imputation.xlsx",
+      "artifact_kind": "supplementary_table",
+      "fetch_status": "archived",
+      "project_accessions": [
+        "PRJEB90141"
+      ],
+      "purpose": "sample_or_site_support"
+    },
+    {
+      "artifact_id": "10.1093-gbe-evaf181:GBE_review_Supplementary_Figures_S1-41_NotesS1-7_Goat_Imputation-compressed.pdf",
+      "paper_doi": "10.1093/gbe/evaf181",
+      "source_url": "https://academic.oup.com/gbe/article/doi/10.1093/gbe/evaf181/8317779",
+      "local_path": "adna/governance/source_library/papers/10.1093-gbe-evaf181/supplementary/GBE_review_Supplementary_Figures_S1-41_NotesS1-7_Goat_Imputation-compressed.pdf",
+      "artifact_kind": "supplementary_pdf",
+      "fetch_status": "archived",
+      "project_accessions": [
+        "PRJEB90141"
+      ],
+      "purpose": "sample_or_site_support"
+    },
+    {
+      "artifact_id": "10.1111-1755-0998.12551:men12551-sup-0001-supinfo.docx",
+      "paper_doi": "10.1111/1755-0998.12551",
+      "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5324683/",
+      "local_path": "adna/governance/source_library/papers/10.1111-1755-0998.12551/supplementary/men12551-sup-0001-supinfo.docx",
+      "artifact_kind": "supplementary_pdf",
+      "fetch_status": "archived",
+      "project_accessions": [
+        "KU605068-KU605080",
+        "SRP073444"
+      ],
+      "purpose": "sample_or_site_support"
+    },
+    {
+      "artifact_id": "10.1126-science.aam5298:aam5298_librado.sm.pdf",
+      "paper_doi": "10.1126/science.aam5298",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/28450643/",
+      "local_path": "adna/governance/source_library/papers/10.1126-science.aam5298/supplementary/aam5298_librado.sm.pdf",
+      "artifact_kind": "supplementary_pdf",
+      "fetch_status": "archived",
+      "project_accessions": [
+        "PRJEB19970"
+      ],
+      "purpose": "sample_or_site_support"
+    },
+    {
+      "artifact_id": "10.1126-science.aam5298:tables27.xlsx",
+      "paper_doi": "10.1126/science.aam5298",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/28450643/",
+      "local_path": "adna/governance/source_library/papers/10.1126-science.aam5298/supplementary/tables27.xlsx",
+      "artifact_kind": "supplementary_table",
+      "fetch_status": "archived",
+      "project_accessions": [
+        "PRJEB19970"
+      ],
+      "purpose": "sample_or_site_support"
+    },
+    {
+      "artifact_id": "10.1126-science.aam5298:tables28.xlsx",
+      "paper_doi": "10.1126/science.aam5298",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/28450643/",
+      "local_path": "adna/governance/source_library/papers/10.1126-science.aam5298/supplementary/tables28.xlsx",
+      "artifact_kind": "supplementary_table",
+      "fetch_status": "archived",
+      "project_accessions": [
+        "PRJEB19970"
+      ],
+      "purpose": "sample_or_site_support"
+    },
+    {
+      "artifact_id": "10.1126-science.aam5298:tables29.xlsx",
+      "paper_doi": "10.1126/science.aam5298",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/28450643/",
+      "local_path": "adna/governance/source_library/papers/10.1126-science.aam5298/supplementary/tables29.xlsx",
+      "artifact_kind": "supplementary_table",
+      "fetch_status": "archived",
+      "project_accessions": [
+        "PRJEB19970"
+      ],
+      "purpose": "sample_or_site_support"
+    },
+    {
+      "artifact_id": "10.1126-science.aam5298:tables30.xlsx",
+      "paper_doi": "10.1126/science.aam5298",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/28450643/",
+      "local_path": "adna/governance/source_library/papers/10.1126-science.aam5298/supplementary/tables30.xlsx",
+      "artifact_kind": "supplementary_table",
+      "fetch_status": "archived",
+      "project_accessions": [
+        "PRJEB19970"
+      ],
+      "purpose": "sample_or_site_support"
+    },
+    {
+      "artifact_id": "10.1126-science.aam5298:tables31.xlsx",
+      "paper_doi": "10.1126/science.aam5298",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/28450643/",
+      "local_path": "adna/governance/source_library/papers/10.1126-science.aam5298/supplementary/tables31.xlsx",
+      "artifact_kind": "supplementary_table",
+      "fetch_status": "archived",
+      "project_accessions": [
+        "PRJEB19970"
+      ],
+      "purpose": "sample_or_site_support"
+    },
+    {
+      "artifact_id": "10.1126-science.aao3297:aao3297_gaunitz_sm.pdf",
+      "paper_doi": "10.1126/science.aao3297",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/29472442/",
+      "local_path": "adna/governance/source_library/papers/10.1126-science.aao3297/supplementary/aao3297_gaunitz_sm.pdf",
+      "artifact_kind": "supplementary_pdf",
+      "fetch_status": "archived",
+      "project_accessions": [
+        "PRJEB22390"
+      ],
+      "purpose": "sample_or_site_support"
+    },
+    {
+      "artifact_id": "10.1126-science.aao3297:aao3297_tables10.xls",
+      "paper_doi": "10.1126/science.aao3297",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/29472442/",
+      "local_path": "adna/governance/source_library/papers/10.1126-science.aao3297/supplementary/aao3297_tables10.xls",
+      "artifact_kind": "supplementary_table",
+      "fetch_status": "archived",
+      "project_accessions": [
+        "PRJEB22390"
+      ],
+      "purpose": "sample_or_site_support"
+    },
+    {
+      "artifact_id": "10.1126-science.aao3297:aao3297_tables11.xlsx",
+      "paper_doi": "10.1126/science.aao3297",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/29472442/",
+      "local_path": "adna/governance/source_library/papers/10.1126-science.aao3297/supplementary/aao3297_tables11.xlsx",
+      "artifact_kind": "supplementary_table",
+      "fetch_status": "archived",
+      "project_accessions": [
+        "PRJEB22390"
+      ],
+      "purpose": "sample_or_site_support"
+    },
+    {
+      "artifact_id": "10.1126-science.aao3297:aao3297_tables12.xlsx",
+      "paper_doi": "10.1126/science.aao3297",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/29472442/",
+      "local_path": "adna/governance/source_library/papers/10.1126-science.aao3297/supplementary/aao3297_tables12.xlsx",
+      "artifact_kind": "supplementary_table",
+      "fetch_status": "archived",
+      "project_accessions": [
+        "PRJEB22390"
+      ],
+      "purpose": "sample_or_site_support"
+    },
+    {
+      "artifact_id": "10.1126-science.aao3297:aao3297_tables13.xlsx",
+      "paper_doi": "10.1126/science.aao3297",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/29472442/",
+      "local_path": "adna/governance/source_library/papers/10.1126-science.aao3297/supplementary/aao3297_tables13.xlsx",
+      "artifact_kind": "supplementary_table",
+      "fetch_status": "archived",
+      "project_accessions": [
+        "PRJEB22390"
+      ],
+      "purpose": "sample_or_site_support"
+    },
+    {
+      "artifact_id": "10.1126-science.aao3297:aao3297_tables14.xlsx",
+      "paper_doi": "10.1126/science.aao3297",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/29472442/",
+      "local_path": "adna/governance/source_library/papers/10.1126-science.aao3297/supplementary/aao3297_tables14.xlsx",
+      "artifact_kind": "supplementary_table",
+      "fetch_status": "archived",
+      "project_accessions": [
+        "PRJEB22390"
+      ],
+      "purpose": "sample_or_site_support"
+    },
+    {
+      "artifact_id": "10.1126-science.aao3297:aao3297_tables15.xlsx",
+      "paper_doi": "10.1126/science.aao3297",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/29472442/",
+      "local_path": "adna/governance/source_library/papers/10.1126-science.aao3297/supplementary/aao3297_tables15.xlsx",
+      "artifact_kind": "supplementary_table",
+      "fetch_status": "archived",
+      "project_accessions": [
+        "PRJEB22390"
+      ],
+      "purpose": "sample_or_site_support"
+    },
+    {
+      "artifact_id": "10.1126-science.aao3297:aao3297_tables16.xls",
+      "paper_doi": "10.1126/science.aao3297",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/29472442/",
+      "local_path": "adna/governance/source_library/papers/10.1126-science.aao3297/supplementary/aao3297_tables16.xls",
+      "artifact_kind": "supplementary_table",
+      "fetch_status": "archived",
+      "project_accessions": [
+        "PRJEB22390"
+      ],
+      "purpose": "sample_or_site_support"
+    },
+    {
+      "artifact_id": "10.1126-science.aao3297:aao3297_tables17.xlsx",
+      "paper_doi": "10.1126/science.aao3297",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/29472442/",
+      "local_path": "adna/governance/source_library/papers/10.1126-science.aao3297/supplementary/aao3297_tables17.xlsx",
+      "artifact_kind": "supplementary_table",
+      "fetch_status": "archived",
+      "project_accessions": [
+        "PRJEB22390"
+      ],
+      "purpose": "sample_or_site_support"
+    },
+    {
+      "artifact_id": "10.1126-science.aao3297:aao3297_tables18.xlsx",
+      "paper_doi": "10.1126/science.aao3297",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/29472442/",
+      "local_path": "adna/governance/source_library/papers/10.1126-science.aao3297/supplementary/aao3297_tables18.xlsx",
+      "artifact_kind": "supplementary_table",
+      "fetch_status": "archived",
+      "project_accessions": [
+        "PRJEB22390"
+      ],
+      "purpose": "sample_or_site_support"
+    },
+    {
+      "artifact_id": "10.1126-science.aao3297:aao3297_tables8.xlsx",
+      "paper_doi": "10.1126/science.aao3297",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/29472442/",
+      "local_path": "adna/governance/source_library/papers/10.1126-science.aao3297/supplementary/aao3297_tables8.xlsx",
+      "artifact_kind": "supplementary_table",
+      "fetch_status": "archived",
+      "project_accessions": [
+        "PRJEB22390"
+      ],
+      "purpose": "sample_or_site_support"
+    },
+    {
+      "artifact_id": "10.1126-science.aao3297:aao3297_tables9.xlsx",
+      "paper_doi": "10.1126/science.aao3297",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/29472442/",
+      "local_path": "adna/governance/source_library/papers/10.1126-science.aao3297/supplementary/aao3297_tables9.xlsx",
+      "artifact_kind": "supplementary_table",
+      "fetch_status": "archived",
+      "project_accessions": [
+        "PRJEB22390"
+      ],
+      "purpose": "sample_or_site_support"
+    },
+    {
+      "artifact_id": "10.1126-science.aav1002:aav1002_verdugo_sm.pdf",
+      "paper_doi": "10.1126/science.aav1002",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/31296769/",
+      "local_path": "adna/governance/source_library/papers/10.1126-science.aav1002/supplementary/aav1002_verdugo_sm.pdf",
+      "artifact_kind": "supplementary_pdf",
+      "fetch_status": "archived",
+      "project_accessions": [
+        "PRJEB31621"
+      ],
+      "purpose": "sample_or_site_support"
+    },
+    {
+      "artifact_id": "10.1126-science.adt2642:science.adt2642_mdar_reproducibility_checklist.pdf",
+      "paper_doi": "10.1126/science.adt2642",
+      "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7618505/",
+      "local_path": "adna/governance/source_library/papers/10.1126-science.adt2642/supplementary/science.adt2642_mdar_reproducibility_checklist.pdf",
+      "artifact_kind": "supplementary_pdf",
+      "fetch_status": "archived",
+      "project_accessions": [
+        "PRJEB81815"
+      ],
+      "purpose": "sample_or_site_support"
+    },
+    {
+      "artifact_id": "10.1126-science.adt2642:science.adt2642_sm.pdf",
+      "paper_doi": "10.1126/science.adt2642",
+      "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7618505/",
+      "local_path": "adna/governance/source_library/papers/10.1126-science.adt2642/supplementary/science.adt2642_sm.pdf",
+      "artifact_kind": "supplementary_pdf",
+      "fetch_status": "archived",
+      "project_accessions": [
+        "PRJEB81815"
+      ],
+      "purpose": "sample_or_site_support"
+    },
+    {
+      "artifact_id": "10.1126-science.adt2642:science.adt2642_tables s1_to_s8.zip",
+      "paper_doi": "10.1126/science.adt2642",
+      "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7618505/",
+      "local_path": "adna/governance/source_library/papers/10.1126-science.adt2642/supplementary/science.adt2642_tables s1_to_s8.zip",
+      "artifact_kind": "supplementary_zip",
+      "fetch_status": "archived",
+      "project_accessions": [
+        "PRJEB81815"
+      ],
+      "purpose": "sample_or_site_support"
+    },
+    {
+      "artifact_id": "10.24272-j.issn.2095-8137.2025.080:Supplementary_tables.xlsx",
+      "paper_doi": "10.24272/j.issn.2095-8137.2025.080",
+      "source_url": "https://www.zoores.ac.cn/en/article/doi/10.24272/j.issn.2095-8137.2025.080",
+      "local_path": "adna/governance/source_library/papers/10.24272-j.issn.2095-8137.2025.080/supplementary/Supplementary_tables.xlsx",
+      "artifact_kind": "supplementary_table",
+      "fetch_status": "archived",
+      "project_accessions": [
+        "PRJNA1328209"
+      ],
+      "purpose": "sample_or_site_support"
+    },
+    {
+      "artifact_id": "10.24272-j.issn.2095-8137.2025.080:ZR-2025-080-Supplementary Materials.pdf",
+      "paper_doi": "10.24272/j.issn.2095-8137.2025.080",
+      "source_url": "https://www.zoores.ac.cn/en/article/doi/10.24272/j.issn.2095-8137.2025.080",
+      "local_path": "adna/governance/source_library/papers/10.24272-j.issn.2095-8137.2025.080/supplementary/ZR-2025-080-Supplementary Materials.pdf",
+      "artifact_kind": "supplementary_pdf",
+      "fetch_status": "archived",
+      "project_accessions": [
+        "PRJNA1328209"
+      ],
+      "purpose": "sample_or_site_support"
+    }
+  ]
+}

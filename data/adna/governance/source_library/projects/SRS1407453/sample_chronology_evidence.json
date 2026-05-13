@@ -1,0 +1,34 @@
+{
+  "schema_version": "animal-project-sample-chronology-evidence.v1",
+  "project_accession": "SRS1407453",
+  "species_latin_name": "Canis lupus familiaris",
+  "row_count": 1,
+  "rows": [
+    {
+      "species_latin_name": "Canis lupus familiaris",
+      "species_common_name": "dog",
+      "project_accession": "SRS1407453",
+      "repo_stable_sample_id": "srs1407453:srs1407453",
+      "preferred_sample_label": "SRS1407453",
+      "sample_basis": "sample_accession_anchor",
+      "sample_evidence_status": "archive_native",
+      "sample_identity_resolution": "final",
+      "sample_ambiguity_note": "",
+      "chronology_text": "",
+      "chronology_strength": "unresolved",
+      "chronology_evidence_class": "unresolved",
+      "chronology_precision_posture": "unresolved",
+      "chronology_provenance_path": "",
+      "chronology_provenance_kind": "",
+      "chronology_provenance_locator": "",
+      "chronology_provenance_text": "",
+      "chronology_normalization_status": "unresolved",
+      "time_start_bp": null,
+      "time_end_bp": null,
+      "time_mean_bp": null,
+      "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+      "chronology_conflict_note": "",
+      "review_note": "No chronology claim has been recovered yet for this sample row."
+    }
+  ]
+}

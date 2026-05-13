@@ -1,0 +1,13 @@
+{
+  "schema_version": "adna-source-library.v1",
+  "source_url": "https://www.nature.com/articles/s41586-021-04018-9",
+  "artifact_kind": "supplementary_pdf",
+  "content_type": "application/pdf",
+  "byte_size": 127789,
+  "paper_doi": "10.1038/s41586-021-04018-9",
+  "project_accessions": [
+    "PRJEB44430"
+  ],
+  "artifact_label": "curated supplementary asset 41586_2021_4018_MOESM2_ESM.pdf",
+  "source_note": "Recovered from the local DOI-keyed supplement stash and copied into the governed source library."
+}

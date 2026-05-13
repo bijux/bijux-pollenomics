@@ -1,0 +1,10 @@
+# Denmark animal aDNA sample rows
+
+This table lists the exact curated animal sample rows that currently feed the
+`Denmark` country surface. Each row keeps the exact sample, site,
+chronology, and coordinate evidence locator that justifies publication.
+
+| Species | Sample record | Project accession | Locality | Assignment posture | Coordinate posture | Sample evidence | Site evidence | Chronology evidence | Coordinate evidence | Citation |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Equus caballus | equus_caballus:sample:prjeb44430:samea9533224 | PRJEB44430 | Ginnerup | exact_country | supplementary_table_coordinates / exact | data/adna/governance/source_library/papers/10.1038-s41586-021-04018-9/supplementary/41586_2021_4018_MOESM5_ESM.xlsx#SI Table 1!row252 | data/adna/governance/source_library/papers/10.1038-s41586-021-04018-9/supplementary/41586_2021_4018_MOESM5_ESM.xlsx#SI Table 1!row252 | data/adna/governance/source_library/papers/10.1038-s41586-021-04018-9/supplementary/41586_2021_4018_MOESM5_ESM.xlsx#SI Table 1!row252 | data/adna/governance/source_library/papers/10.1038-s41586-021-04018-9/supplementary/41586_2021_4018_MOESM5_ESM.xlsx#SI Table 1!row252 | [10.1038/s41586-021-04018-9](https://doi.org/10.1038/s41586-021-04018-9) |
+| Equus caballus | equus_caballus:sample:prjeb44430:samea9533225 | PRJEB44430 | Ginnerup | exact_country | supplementary_table_coordinates / exact | data/adna/governance/source_library/papers/10.1038-s41586-021-04018-9/supplementary/41586_2021_4018_MOESM5_ESM.xlsx#SI Table 1!row253 | data/adna/governance/source_library/papers/10.1038-s41586-021-04018-9/supplementary/41586_2021_4018_MOESM5_ESM.xlsx#SI Table 1!row252 | data/adna/governance/source_library/papers/10.1038-s41586-021-04018-9/supplementary/41586_2021_4018_MOESM5_ESM.xlsx#SI Table 1!row253 | data/adna/governance/source_library/papers/10.1038-s41586-021-04018-9/supplementary/41586_2021_4018_MOESM5_ESM.xlsx#SI Table 1!row252 | [10.1038/s41586-021-04018-9](https://doi.org/10.1038/s41586-021-04018-9) |

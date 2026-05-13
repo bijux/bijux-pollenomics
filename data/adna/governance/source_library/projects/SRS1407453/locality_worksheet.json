@@ -1,0 +1,28 @@
+{
+  "schema_version": "animal-project-locality-worksheet.v1",
+  "project_accession": "SRS1407453",
+  "species_latin_name": "Canis lupus familiaris",
+  "row_count": 1,
+  "rows": [
+    {
+      "project_accession": "SRS1407453",
+      "species_latin_name": "Canis lupus familiaris",
+      "source_surface": "supplementary_table",
+      "source_claim_scope": "sample_owned_locality",
+      "supporting_sample_count": 1,
+      "original_locality_text": "",
+      "resolved_locality_text": "",
+      "locality_class": "unresolved",
+      "site_name": "",
+      "municipality_name": "",
+      "region_name": "",
+      "country_name": "",
+      "broader_geography": "",
+      "geocoding_safe_token": "",
+      "source_artifact_path": "",
+      "source_artifact_kind": "",
+      "source_locator": "",
+      "source_excerpt": ""
+    }
+  ]
+}

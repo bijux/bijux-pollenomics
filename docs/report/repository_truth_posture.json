@@ -1,0 +1,80 @@
+{
+  "schema_version": "repository-truth-posture.v1",
+  "repository": "bijux-pollenomics",
+  "primary_domains": [
+    "pollen_context",
+    "environmental_context"
+  ],
+  "contextual_domains": [
+    "archaeology_context",
+    "boundary_framing",
+    "fieldwork_record",
+    "ancient_dna_context",
+    "publication_outputs"
+  ],
+  "incomplete_programs": [
+    "animal_sample_site_extraction",
+    "animal_sample_chronology_extraction",
+    "animal_coordinate_resolution",
+    "supplement_capture_recovery",
+    "atlas_depth_recovery"
+  ],
+  "counts": {
+    "tracked_paper_count": 18,
+    "papers_with_archived_supplements": 18,
+    "published_atlas_point_count": 234,
+    "published_country_bundle_count": 4,
+    "reference_stash_doi_count": 18,
+    "tracked_aadr_release_file_count": 3,
+    "papers_with_local_reference_supplements": 18,
+    "animal_sample_row_count": 894,
+    "animal_map_supported_rows": 236,
+    "animal_map_unresolved_rows": 21,
+    "animal_map_refused_rows": 7,
+    "tracked_landclim_site_count": 492,
+    "tracked_landclim_grid_cell_count": 88,
+    "tracked_neotoma_site_count": 200,
+    "tracked_sead_site_count": 2195,
+    "tracked_raa_published_site_count": 761917,
+    "tracked_raa_density_cell_count": 106,
+    "tracked_boundary_feature_count": 4,
+    "pollen_normalized_file_count": 6,
+    "archaeology_normalized_file_count": 4,
+    "boundary_raw_file_count": 4,
+    "boundary_normalized_file_count": 1,
+    "fieldwork_page_count": 0,
+    "source_explainer_count": 0,
+    "landing_page_count": 1,
+    "zero_collection_summary_surfaces": []
+  },
+  "recovery_priorities": [
+    "archive missing supplementary material and convert it into sample-owned locality and chronology evidence",
+    "rebuild animal locality extraction so sample rows do not collapse into project-level or region-level geography",
+    "rebuild chronology extraction so atlas and country outputs stop depending on broad or unresolved sample dates",
+    "keep pollen, environmental, archaeology, and boundary explanation first-class while animal aDNA recovery continues"
+  ],
+  "claim_freeze_reasons": [
+    "tracked animal geography still leaves unresolved or refused rows outside the published surface"
+  ],
+  "do_not_repeat": [
+    "do not treat checked-in JSON file count as scientific progress",
+    "do not let public atlas presence stand in for sample-owned locality and chronology evidence",
+    "do not narrow the repository mission to one thin recovery slice",
+    "do not present internal publication accounting as if it were evidence depth",
+    "do not call weak or partial animal aDNA coverage region-agnostic or broadly ready"
+  ],
+  "recovery_review_overview": {
+    "overall_recovery_posture": "recovery_required",
+    "average_dimension_scores": {
+      "data_completeness": 2.86,
+      "provenance_clarity": 2.86,
+      "documentation_clarity": 3.57,
+      "output_honesty": 3.43
+    }
+  },
+  "governance_review_summary": {
+    "keep": 5,
+    "reframe": 3,
+    "retire": 1
+  }
+}

@@ -6,7 +6,27 @@ All notable changes for `bijux-pollenomics` are recorded here.
 
 ### Changed
 
-- No unreleased changes yet.
+- Reworked the runtime package around stricter `adna` ownership boundaries,
+  richer species/governance evidence manifests, and sample-first publication
+  contracts spanning intake, locality, chronology, coordinates, maps, and
+  reports.
+- Rewrote the package-owned public handbook surfaces in reader language so
+  command contracts, evidence routes, atlas limits, and publication paths are
+  understandable without reading the source tree first.
+- Moved the package boundary guide into `packages/bijux-pollenomics/docs/`,
+  keeping boundary documentation inside the package-owned docs surface instead
+  of under `src/`.
+
+### Fixed
+
+- Typed lazy `adna` exports consistently so the runtime import surface is less
+  ambiguous to static analysis and package consumers.
+- Restored package legal-file materialization and the package-local sdist
+  include contract so build smoke installs keep working from isolated package
+  artifacts.
+- Replaced brittle wording-pinned handbook assertions with narrower structural
+  and contract coverage so runtime docs checks track durable behavior instead of
+  transient phrasing.
 
 ## 0.1.6 - 2026-04-21
 

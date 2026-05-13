@@ -1,0 +1,283 @@
+{
+  "schema_version": "geographic-evidence-surface-manifest.v1",
+  "bundle_type": "geographic_evidence_surface",
+  "title": "Europe-plus Evidence Surface",
+  "slug": "europe-plus",
+  "version": "v66",
+  "generated_on": "2026-05-09",
+  "scope_key": "europe_plus",
+  "scope_label": "Europe-plus",
+  "scope_kind": "region",
+  "parent_scope_key": "world",
+  "countries": [
+    "Sweden",
+    "Norway",
+    "Finland",
+    "Denmark"
+  ],
+  "country_sample_counts": {
+    "Sweden": 416,
+    "Norway": 130,
+    "Finland": 32,
+    "Denmark": 653
+  },
+  "total_unique_samples": 1231,
+  "output_dir": "/Users/bijan/bijux/bijux-pollenomics/docs/report/regions/europe-plus",
+  "artifacts": {
+    "readme": "README.md",
+    "map_html": "europe-plus_map.html",
+    "samples_geojson": "europe-plus_samples.geojson",
+    "map_publication_contract_json": "europe-plus_map_publication_contract.json",
+    "map_publication_contract_markdown": "europe-plus_map_publication_contract.md",
+    "point_traceability_json": "europe-plus_point_traceability.json",
+    "point_traceability_markdown": "europe-plus_point_traceability.md",
+    "candidate_sites_csv": "europe-plus_candidate_sites.csv",
+    "candidate_sites_json": "europe-plus_candidate_sites.json",
+    "candidate_sites_markdown": "europe-plus_candidate_sites.md",
+    "candidate_site_sensitivity_json": "europe-plus_candidate_site_sensitivity.json",
+    "candidate_site_sensitivity_markdown": "europe-plus_candidate_site_sensitivity.md",
+    "candidate_ranking_engine_manifest": "europe-plus_candidate_ranking_engine_manifest.json",
+    "evidence_surface_json": "europe-plus_evidence_surface.json",
+    "evidence_surface_markdown": "europe-plus_evidence_surface.md",
+    "scientific_review_json": "europe-plus_scientific_review.json",
+    "scientific_review_markdown": "europe-plus_scientific_review.md",
+    "summary_json": "europe-plus_summary.json",
+    "extra_files": [
+      {
+        "label": "Nordic country boundaries",
+        "filename": "nordic_country_boundaries.geojson"
+      },
+      {
+        "label": "Animal locality GeoJSON",
+        "filename": "europe-plus_animal_localities.geojson"
+      },
+      {
+        "label": "Domesticated-core animal locality GeoJSON",
+        "filename": "europe-plus_domesticated_animal_localities.geojson"
+      },
+      {
+        "label": "Comparator animal locality GeoJSON",
+        "filename": "europe-plus_comparator_animal_localities.geojson"
+      },
+      {
+        "label": "Animal atlas evidence CSV",
+        "filename": "europe-plus_animal_atlas_evidence.csv"
+      },
+      {
+        "label": "Animal atlas evidence JSON",
+        "filename": "europe-plus_animal_atlas_evidence.json"
+      },
+      {
+        "label": "Animal point traceability JSON",
+        "filename": "europe-plus_animal_point_traceability.json"
+      },
+      {
+        "label": "Map publication contract JSON",
+        "filename": "europe-plus_map_publication_contract.json"
+      },
+      {
+        "label": "Map publication contract markdown",
+        "filename": "europe-plus_map_publication_contract.md"
+      },
+      {
+        "label": "Point traceability JSON",
+        "filename": "europe-plus_point_traceability.json"
+      },
+      {
+        "label": "Point traceability markdown",
+        "filename": "europe-plus_point_traceability.md"
+      },
+      {
+        "label": "Candidate site ranking CSV",
+        "filename": "europe-plus_candidate_sites.csv"
+      },
+      {
+        "label": "Candidate site ranking JSON",
+        "filename": "europe-plus_candidate_sites.json"
+      },
+      {
+        "label": "Candidate site ranking markdown",
+        "filename": "europe-plus_candidate_sites.md"
+      },
+      {
+        "label": "Candidate site sensitivity JSON",
+        "filename": "europe-plus_candidate_site_sensitivity.json"
+      },
+      {
+        "label": "Candidate site sensitivity markdown",
+        "filename": "europe-plus_candidate_site_sensitivity.md"
+      },
+      {
+        "label": "Candidate ranking engine manifest",
+        "filename": "europe-plus_candidate_ranking_engine_manifest.json"
+      },
+      {
+        "label": "Atlas evidence surface JSON",
+        "filename": "europe-plus_evidence_surface.json"
+      },
+      {
+        "label": "Atlas evidence surface markdown",
+        "filename": "europe-plus_evidence_surface.md"
+      },
+      {
+        "label": "Atlas scientific review JSON",
+        "filename": "europe-plus_scientific_review.json"
+      },
+      {
+        "label": "Atlas scientific review markdown",
+        "filename": "europe-plus_scientific_review.md"
+      }
+    ],
+    "animal_localities_geojson": "europe-plus_animal_localities.geojson",
+    "domesticated_animal_localities_geojson": "europe-plus_domesticated_animal_localities.geojson",
+    "comparator_animal_localities_geojson": "europe-plus_comparator_animal_localities.geojson",
+    "animal_atlas_evidence_csv": "europe-plus_animal_atlas_evidence.csv",
+    "animal_atlas_evidence_json": "europe-plus_animal_atlas_evidence.json",
+    "animal_point_traceability_json": "europe-plus_animal_point_traceability.json"
+  },
+  "map_publication_contract": {
+    "schema_version": "map-publication-contract.v1",
+    "title": "Europe-plus Evidence Surface",
+    "scope_key": "europe_plus",
+    "scope_label": "Europe-plus",
+    "scope_kind": "region",
+    "parent_scope_key": "world",
+    "countries": [
+      "Sweden",
+      "Norway",
+      "Finland",
+      "Denmark"
+    ],
+    "default_basemap": "light",
+    "initial_diameter_km": 30,
+    "minimum_bounds": [
+      [
+        34.0,
+        -16.0
+      ],
+      [
+        72.0,
+        42.0
+      ]
+    ],
+    "scope_summary": "Europe-plus is a governed regional filter view. It keeps only Europe-plus countries from the broader publication surface and still withholds Nordic-only overlays that would overstate regional context coverage.",
+    "bounds_summary": "The opening extent centers the European frame while keeping enough margin for future expansion into non-Nordic Europe-plus countries.",
+    "engine_summary": "One shared map document engine serves every published scope. Scope differences must be encoded in governed bounds, layer eligibility, default basemap, and reader caveats rather than hidden in separate renderer forks.",
+    "filter_surfaces": [
+      "Country filters",
+      "Layer toggles",
+      "Search",
+      "Time window",
+      "Distance circles",
+      "Basemap switch"
+    ],
+    "legend_sections": [
+      "Human evidence markers",
+      "Animal evidence markers when present",
+      "Context overlay symbols",
+      "Density ramp when archaeology density is visible"
+    ],
+    "visible_caveats": [
+      "Europe-plus is derived from the world publication surface by governed country filtering, not by a second evidence pipeline.",
+      "Nordic-only pollen, archaeology, and fieldwork overlays remain absent here on purpose.",
+      "Future non-Nordic Europe-plus additions should arrive by country onboarding, not by custom one-off bundle logic."
+    ],
+    "artifacts": {
+      "map_html": "europe-plus_map.html",
+      "summary_json": "europe-plus_summary.json",
+      "point_traceability_json": "europe-plus_point_traceability.json"
+    },
+    "role_counts": {
+      "shared_world_scale_layer": 2,
+      "region_filtered_layer": 1,
+      "scope_specific_overlay": 0
+    },
+    "layer_rows": [
+      {
+        "key": "aadr",
+        "label": "AADR-v66 aDNA samples",
+        "source_name": "Allen Ancient DNA Resource",
+        "coverage_label": "Country assignment follows the AADR political entity field.",
+        "count": 1231,
+        "publication_role": "shared_world_scale_layer",
+        "scope_visibility": "scope_owned",
+        "default_enabled": true,
+        "applies_country_filter": true,
+        "applies_time_filter": true,
+        "scope_caveat": "Shared evidence layer across every governed scope."
+      },
+      {
+        "key": "animal-equus-caballus",
+        "label": "Horse aDNA site evidence",
+        "source_name": "Tracked animal aDNA localities",
+        "coverage_label": "Mapped animal features staged from traceable evidence rows built from species-owned sample, site, coordinate, and citation surfaces.",
+        "count": 2,
+        "publication_role": "shared_world_scale_layer",
+        "scope_visibility": "shared_default",
+        "default_enabled": true,
+        "applies_country_filter": false,
+        "applies_time_filter": true,
+        "scope_caveat": "Shared evidence layer across every governed scope."
+      },
+      {
+        "key": "country-boundaries",
+        "label": "Country boundaries",
+        "source_name": "Natural Earth country boundaries",
+        "coverage_label": "Published country outlines used for framing and scope-aware map filtering.",
+        "count": 4,
+        "publication_role": "region_filtered_layer",
+        "scope_visibility": "scope_owned",
+        "default_enabled": true,
+        "applies_country_filter": true,
+        "applies_time_filter": false,
+        "scope_caveat": "Derived filter framing layer that follows the active scope country roster."
+      }
+    ]
+  },
+  "animal_atlas": {
+    "total_locality_points": 2,
+    "direct_coordinate_feature_count": 2,
+    "named_site_geocoded_feature_count": 0,
+    "weaker_geography_feature_count": 0,
+    "total_species": 1,
+    "domesticated_species_count": 1,
+    "comparator_species_count": 0,
+    "layer_groups": [
+      "Domesticated-core animal evidence",
+      "Comparator animal evidence"
+    ],
+    "filter_surfaces": [
+      "Species focus",
+      "Animal scope",
+      "Coordinate confidence",
+      "Chronology bucket",
+      "Nordic animal leads only"
+    ],
+    "ui_surfaces": [
+      "Animal evidence summary panel",
+      "Citation-aware animal popups",
+      "Species and confidence legend sections"
+    ],
+    "chronology_buckets": [
+      "1001-3000 BP",
+      "3001-6000 BP"
+    ],
+    "coordinate_confidence_counts": {
+      "exact": 2
+    },
+    "visible_caveats": [
+      "Approximate or inferred coordinates remain visible with explicit warnings.",
+      "Comparator-only evidence remains visible without being counted as domesticated-core support.",
+      "Weak or rejected support classes remain labeled in point popups instead of being silently hidden.",
+      "Nordic relevance can remain regional rather than one exact named country."
+    ],
+    "species_layers": [
+      {
+        "latin_name": "Equus caballus",
+        "common_name": "horse",
+        "animal_scope": "domesticated_core",
+        "locality_count": 2
+      }
+    ]
+  }
+}

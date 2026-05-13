@@ -1,0 +1,3 @@
+project_accession,source_family,result_kind,metadata_url,source_title,source_description,title_basis,description_basis,captured_on
+SRP073444,SRA,read_run,https://www.ncbi.nlm.nih.gov/sra?term=SRP073444,Camelus dromedarius Raw sequence reads,DNA sequences from ancient domestic and wild dromedary camel,ena-secondary-study-search,ena-secondary-study-search,2026-05-07
+KU605068-KU605080,GenBank,read_run,https://www.ncbi.nlm.nih.gov/nuccore/KU605068,"Camelus dromedarius isolate Palm152 mitochondrion, partial genome",KU605068,ncbi-nuccore-summary,ncbi-nuccore-summary,2026-05-07

@@ -1,0 +1,410 @@
+{
+  "schema_version": "adna-source-inventory.v1",
+  "tracked_project_count": 40,
+  "counts": {
+    "core_sample_intake_candidate": 34,
+    "out_of_scope_reference": 6
+  },
+  "rows": [
+    {
+      "project_accession": "PRJEB31621",
+      "species_latin_name": "Bos taurus",
+      "source_family": "ENA",
+      "archive_status": "paper_pinned_core",
+      "evidence_strength": "primary_paper_pinned",
+      "inventory_disposition": "tracked_intake_candidate",
+      "scope_fit_status": "core_sample_intake_candidate",
+      "scope_note": "Retained as a direct sample-intake candidate for the governed animal evidence database."
+    },
+    {
+      "project_accession": "PRJEB75467",
+      "species_latin_name": "Bos taurus",
+      "source_family": "ENA",
+      "archive_status": "paper_pinned_core",
+      "evidence_strength": "primary_paper_pinned",
+      "inventory_disposition": "tracked_intake_candidate",
+      "scope_fit_status": "core_sample_intake_candidate",
+      "scope_note": "Retained as a direct sample-intake candidate for the governed animal evidence database."
+    },
+    {
+      "project_accession": "PRJNA705960",
+      "species_latin_name": "Bos taurus",
+      "source_family": "ENA",
+      "archive_status": "archive_verified_needs_paper_pinning",
+      "evidence_strength": "archive_only",
+      "inventory_disposition": "tracked_intake_candidate",
+      "scope_fit_status": "core_sample_intake_candidate",
+      "scope_note": "Retained as a direct sample-intake candidate for the governed animal evidence database."
+    },
+    {
+      "project_accession": "KU605068-KU605080",
+      "species_latin_name": "Camelus dromedarius",
+      "source_family": "GenBank",
+      "archive_status": "paper_pinned_core",
+      "evidence_strength": "primary_paper_pinned",
+      "inventory_disposition": "tracked_intake_candidate",
+      "scope_fit_status": "core_sample_intake_candidate",
+      "scope_note": "Retained as a direct sample-intake candidate for the governed animal evidence database."
+    },
+    {
+      "project_accession": "SRP073444",
+      "species_latin_name": "Camelus dromedarius",
+      "source_family": "SRA",
+      "archive_status": "paper_pinned_core",
+      "evidence_strength": "primary_paper_pinned",
+      "inventory_disposition": "tracked_intake_candidate",
+      "scope_fit_status": "core_sample_intake_candidate",
+      "scope_note": "Retained as a direct sample-intake candidate for the governed animal evidence database."
+    },
+    {
+      "project_accession": "KX379528-KX379529",
+      "species_latin_name": "Canis lupus familiaris",
+      "source_family": "GenBank",
+      "archive_status": "paper_pinned_core",
+      "evidence_strength": "primary_paper_pinned",
+      "inventory_disposition": "tracked_intake_candidate",
+      "scope_fit_status": "core_sample_intake_candidate",
+      "scope_note": "Retained as a direct sample-intake candidate for the governed animal evidence database."
+    },
+    {
+      "project_accession": "SRS1407451",
+      "species_latin_name": "Canis lupus familiaris",
+      "source_family": "SRA",
+      "archive_status": "paper_pinned_core",
+      "evidence_strength": "primary_paper_pinned",
+      "inventory_disposition": "tracked_intake_candidate",
+      "scope_fit_status": "core_sample_intake_candidate",
+      "scope_note": "Retained as a direct sample-intake candidate for the governed animal evidence database."
+    },
+    {
+      "project_accession": "SRS1407453",
+      "species_latin_name": "Canis lupus familiaris",
+      "source_family": "SRA",
+      "archive_status": "paper_pinned_core",
+      "evidence_strength": "primary_paper_pinned",
+      "inventory_disposition": "tracked_intake_candidate",
+      "scope_fit_status": "core_sample_intake_candidate",
+      "scope_note": "Retained as a direct sample-intake candidate for the governed animal evidence database."
+    },
+    {
+      "project_accession": "PRJEB90141",
+      "species_latin_name": "Capra hircus",
+      "source_family": "ENA",
+      "archive_status": "paper_pinned_core",
+      "evidence_strength": "primary_paper_pinned",
+      "inventory_disposition": "tracked_intake_candidate",
+      "scope_fit_status": "core_sample_intake_candidate",
+      "scope_note": "Retained as a direct sample-intake candidate for the governed animal evidence database."
+    },
+    {
+      "project_accession": "PRJEB90261",
+      "species_latin_name": "Capra hircus",
+      "source_family": "ENA",
+      "archive_status": "paper_pinned_core",
+      "evidence_strength": "primary_paper_pinned",
+      "inventory_disposition": "tracked_intake_candidate",
+      "scope_fit_status": "core_sample_intake_candidate",
+      "scope_note": "Retained as a direct sample-intake candidate for the governed animal evidence database."
+    },
+    {
+      "project_accession": "PRJNA1328209",
+      "species_latin_name": "Capra hircus",
+      "source_family": "ENA",
+      "archive_status": "paper_pinned_core",
+      "evidence_strength": "primary_paper_pinned",
+      "inventory_disposition": "tracked_intake_candidate",
+      "scope_fit_status": "core_sample_intake_candidate",
+      "scope_note": "Retained as a direct sample-intake candidate for the governed animal evidence database."
+    },
+    {
+      "project_accession": "PRJEB43564",
+      "species_latin_name": "Equus asinus",
+      "source_family": "ENA",
+      "archive_status": "comparator_only",
+      "evidence_strength": "archive_only",
+      "inventory_disposition": "tracked_intake_candidate",
+      "scope_fit_status": "core_sample_intake_candidate",
+      "scope_note": "Retained as a direct sample-intake candidate for the governed animal evidence database."
+    },
+    {
+      "project_accession": "PRJEB50952",
+      "species_latin_name": "Equus asinus",
+      "source_family": "ENA",
+      "archive_status": "comparator_only",
+      "evidence_strength": "archive_only",
+      "inventory_disposition": "tracked_intake_candidate",
+      "scope_fit_status": "core_sample_intake_candidate",
+      "scope_note": "Retained as a direct sample-intake candidate for the governed animal evidence database."
+    },
+    {
+      "project_accession": "PRJEB52590",
+      "species_latin_name": "Equus asinus",
+      "source_family": "ENA",
+      "archive_status": "comparator_only",
+      "evidence_strength": "archive_only",
+      "inventory_disposition": "tracked_intake_candidate",
+      "scope_fit_status": "core_sample_intake_candidate",
+      "scope_note": "Retained as a direct sample-intake candidate for the governed animal evidence database."
+    },
+    {
+      "project_accession": "PRJEB52849",
+      "species_latin_name": "Equus asinus",
+      "source_family": "ENA",
+      "archive_status": "comparator_only",
+      "evidence_strength": "archive_only",
+      "inventory_disposition": "tracked_intake_candidate",
+      "scope_fit_status": "core_sample_intake_candidate",
+      "scope_note": "Retained as a direct sample-intake candidate for the governed animal evidence database."
+    },
+    {
+      "project_accession": "PRJEB55549",
+      "species_latin_name": "Equus asinus",
+      "source_family": "ENA",
+      "archive_status": "reject_or_out_of_scope",
+      "evidence_strength": "archive_only",
+      "inventory_disposition": "retained_rejected_reference",
+      "scope_fit_status": "out_of_scope_reference",
+      "scope_note": "Analysis-level donkey entry; not promoted into direct curated support."
+    },
+    {
+      "project_accession": "PRJEB10854",
+      "species_latin_name": "Equus caballus",
+      "source_family": "ENA",
+      "archive_status": "archive_verified_needs_paper_pinning",
+      "evidence_strength": "archive_only",
+      "inventory_disposition": "tracked_intake_candidate",
+      "scope_fit_status": "core_sample_intake_candidate",
+      "scope_note": "Retained as a direct sample-intake candidate for the governed animal evidence database."
+    },
+    {
+      "project_accession": "PRJEB19970",
+      "species_latin_name": "Equus caballus",
+      "source_family": "ENA",
+      "archive_status": "paper_pinned_core",
+      "evidence_strength": "primary_paper_pinned",
+      "inventory_disposition": "tracked_intake_candidate",
+      "scope_fit_status": "core_sample_intake_candidate",
+      "scope_note": "Retained as a direct sample-intake candidate for the governed animal evidence database."
+    },
+    {
+      "project_accession": "PRJEB22390",
+      "species_latin_name": "Equus caballus",
+      "source_family": "ENA",
+      "archive_status": "paper_pinned_core",
+      "evidence_strength": "primary_paper_pinned",
+      "inventory_disposition": "tracked_intake_candidate",
+      "scope_fit_status": "core_sample_intake_candidate",
+      "scope_note": "Retained as a direct sample-intake candidate for the governed animal evidence database."
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "species_latin_name": "Equus caballus",
+      "source_family": "ENA",
+      "archive_status": "paper_pinned_core",
+      "evidence_strength": "primary_paper_pinned",
+      "inventory_disposition": "tracked_intake_candidate",
+      "scope_fit_status": "core_sample_intake_candidate",
+      "scope_note": "Retained as a direct sample-intake candidate for the governed animal evidence database."
+    },
+    {
+      "project_accession": "PRJEB44430",
+      "species_latin_name": "Equus caballus",
+      "source_family": "ENA",
+      "archive_status": "paper_pinned_core",
+      "evidence_strength": "primary_paper_pinned",
+      "inventory_disposition": "tracked_intake_candidate",
+      "scope_fit_status": "core_sample_intake_candidate",
+      "scope_note": "Retained as a direct sample-intake candidate for the governed animal evidence database."
+    },
+    {
+      "project_accession": "PRJEB56293",
+      "species_latin_name": "Equus caballus",
+      "source_family": "ENA",
+      "archive_status": "archive_verified_needs_paper_pinning",
+      "evidence_strength": "archive_only",
+      "inventory_disposition": "tracked_intake_candidate",
+      "scope_fit_status": "core_sample_intake_candidate",
+      "scope_note": "Retained as a direct sample-intake candidate for the governed animal evidence database."
+    },
+    {
+      "project_accession": "PRJEB7537",
+      "species_latin_name": "Equus caballus",
+      "source_family": "ENA",
+      "archive_status": "archive_verified_needs_paper_pinning",
+      "evidence_strength": "archive_only",
+      "inventory_disposition": "tracked_intake_candidate",
+      "scope_fit_status": "core_sample_intake_candidate",
+      "scope_note": "Retained as a direct sample-intake candidate for the governed animal evidence database."
+    },
+    {
+      "project_accession": "PRJEB9799",
+      "species_latin_name": "Equus caballus",
+      "source_family": "ENA",
+      "archive_status": "reject_or_out_of_scope",
+      "evidence_strength": "archive_only",
+      "inventory_disposition": "retained_rejected_reference",
+      "scope_fit_status": "out_of_scope_reference",
+      "scope_note": "Modern horse breed genomics from the source note set; not ancient domestication support."
+    },
+    {
+      "project_accession": "PRJEB81815",
+      "species_latin_name": "Felis catus",
+      "source_family": "ENA",
+      "archive_status": "paper_pinned_core",
+      "evidence_strength": "primary_paper_pinned",
+      "inventory_disposition": "tracked_intake_candidate",
+      "scope_fit_status": "core_sample_intake_candidate",
+      "scope_note": "Retained as a direct sample-intake candidate for the governed animal evidence database."
+    },
+    {
+      "project_accession": "PRJNA1178732",
+      "species_latin_name": "Felis catus",
+      "source_family": "BioProject",
+      "archive_status": "paper_pinned_core",
+      "evidence_strength": "primary_paper_pinned",
+      "inventory_disposition": "tracked_intake_candidate",
+      "scope_fit_status": "core_sample_intake_candidate",
+      "scope_note": "Retained as a direct sample-intake candidate for the governed animal evidence database."
+    },
+    {
+      "project_accession": "PRJEB36540",
+      "species_latin_name": "Ovis aries",
+      "source_family": "ENA",
+      "archive_status": "paper_pinned_core",
+      "evidence_strength": "primary_paper_pinned",
+      "inventory_disposition": "tracked_intake_candidate",
+      "scope_fit_status": "core_sample_intake_candidate",
+      "scope_note": "Retained as a direct sample-intake candidate for the governed animal evidence database."
+    },
+    {
+      "project_accession": "PRJEB41594",
+      "species_latin_name": "Ovis aries",
+      "source_family": "ENA",
+      "archive_status": "paper_pinned_core",
+      "evidence_strength": "primary_paper_pinned",
+      "inventory_disposition": "tracked_intake_candidate",
+      "scope_fit_status": "core_sample_intake_candidate",
+      "scope_note": "Retained as a direct sample-intake candidate for the governed animal evidence database."
+    },
+    {
+      "project_accession": "PRJEB59481",
+      "species_latin_name": "Ovis aries",
+      "source_family": "ENA",
+      "archive_status": "paper_pinned_core",
+      "evidence_strength": "primary_paper_pinned",
+      "inventory_disposition": "tracked_intake_candidate",
+      "scope_fit_status": "core_sample_intake_candidate",
+      "scope_note": "Retained as a direct sample-intake candidate for the governed animal evidence database."
+    },
+    {
+      "project_accession": "PRJEB61808",
+      "species_latin_name": "Ovis aries",
+      "source_family": "ENA",
+      "archive_status": "archive_verified_needs_paper_pinning",
+      "evidence_strength": "archive_only",
+      "inventory_disposition": "tracked_intake_candidate",
+      "scope_fit_status": "core_sample_intake_candidate",
+      "scope_note": "Retained as a direct sample-intake candidate for the governed animal evidence database."
+    },
+    {
+      "project_accession": "PRJEB69690",
+      "species_latin_name": "Ovis aries",
+      "source_family": "ENA",
+      "archive_status": "archive_verified_needs_paper_pinning",
+      "evidence_strength": "archive_only",
+      "inventory_disposition": "tracked_intake_candidate",
+      "scope_fit_status": "core_sample_intake_candidate",
+      "scope_note": "Retained as a direct sample-intake candidate for the governed animal evidence database."
+    },
+    {
+      "project_accession": "PRJEB81145",
+      "species_latin_name": "Ovis aries",
+      "source_family": "ENA",
+      "archive_status": "archive_verified_needs_paper_pinning",
+      "evidence_strength": "archive_only",
+      "inventory_disposition": "tracked_intake_candidate",
+      "scope_fit_status": "core_sample_intake_candidate",
+      "scope_note": "Retained as a direct sample-intake candidate for the governed animal evidence database."
+    },
+    {
+      "project_accession": "PRJEB57293",
+      "species_latin_name": "Rangifer tarandus",
+      "source_family": "ENA",
+      "archive_status": "reject_or_out_of_scope",
+      "evidence_strength": "archive_only",
+      "inventory_disposition": "retained_rejected_reference",
+      "scope_fit_status": "out_of_scope_reference",
+      "scope_note": "Modern Svalbard reindeer comparator retained only as an explicit reject so modern context does not inflate ancient support."
+    },
+    {
+      "project_accession": "PRJEB60484",
+      "species_latin_name": "Rangifer tarandus",
+      "source_family": "ENA",
+      "archive_status": "comparator_only",
+      "evidence_strength": "primary_paper_pinned",
+      "inventory_disposition": "tracked_intake_candidate",
+      "scope_fit_status": "core_sample_intake_candidate",
+      "scope_note": "Retained as a direct sample-intake candidate for the governed animal evidence database."
+    },
+    {
+      "project_accession": "PRJEB61721",
+      "species_latin_name": "Rangifer tarandus",
+      "source_family": "ENA",
+      "archive_status": "reject_or_out_of_scope",
+      "evidence_strength": "archive_only",
+      "inventory_disposition": "retained_rejected_reference",
+      "scope_fit_status": "out_of_scope_reference",
+      "scope_note": "Modern Svalbard reindeer comparator retained only as an explicit reject so modern context does not inflate ancient support."
+    },
+    {
+      "project_accession": "PRJNA634908",
+      "species_latin_name": "Rangifer tarandus",
+      "source_family": "BioProject",
+      "archive_status": "reject_or_out_of_scope",
+      "evidence_strength": "archive_only",
+      "inventory_disposition": "retained_rejected_reference",
+      "scope_fit_status": "out_of_scope_reference",
+      "scope_note": "Modern caribou comparator retained only as an explicit reject so cross-cervid context does not masquerade as domesticated support."
+    },
+    {
+      "project_accession": "PRJEB30282",
+      "species_latin_name": "Sus scrofa domesticus",
+      "source_family": "ENA",
+      "archive_status": "paper_pinned_core",
+      "evidence_strength": "primary_paper_pinned",
+      "inventory_disposition": "tracked_intake_candidate",
+      "scope_fit_status": "core_sample_intake_candidate",
+      "scope_note": "Retained as a direct sample-intake candidate for the governed animal evidence database."
+    },
+    {
+      "project_accession": "PRJNA421430",
+      "species_latin_name": "Sus scrofa domesticus",
+      "source_family": "ENA",
+      "archive_status": "reject_or_out_of_scope",
+      "evidence_strength": "archive_only",
+      "inventory_disposition": "retained_rejected_reference",
+      "scope_fit_status": "out_of_scope_reference",
+      "scope_note": "Method and modern tissue context from the source note set; not curated ancient pig support."
+    },
+    {
+      "project_accession": "PRJNA788987",
+      "species_latin_name": "Sus scrofa domesticus",
+      "source_family": "ENA",
+      "archive_status": "archive_verified_needs_paper_pinning",
+      "evidence_strength": "archive_only",
+      "inventory_disposition": "tracked_intake_candidate",
+      "scope_fit_status": "core_sample_intake_candidate",
+      "scope_note": "Retained as a direct sample-intake candidate for the governed animal evidence database."
+    },
+    {
+      "project_accession": "PRJNA878488",
+      "species_latin_name": "Sus scrofa domesticus",
+      "source_family": "ENA",
+      "archive_status": "archive_verified_needs_paper_pinning",
+      "evidence_strength": "archive_only",
+      "inventory_disposition": "tracked_intake_candidate",
+      "scope_fit_status": "core_sample_intake_candidate",
+      "scope_note": "Retained as a direct sample-intake candidate for the governed animal evidence database."
+    }
+  ]
+}

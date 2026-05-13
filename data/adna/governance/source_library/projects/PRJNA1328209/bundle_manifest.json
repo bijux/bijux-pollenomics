@@ -1,0 +1,31 @@
+{
+  "project_accession": "PRJNA1328209",
+  "species_latin_name": "Capra hircus",
+  "archive_status": "paper_pinned_core",
+  "evidence_strength": "primary_paper_pinned",
+  "project_url": "https://www.ebi.ac.uk/ena/portal/api/filereport?accession=PRJNA1328209&result=read_run&fields=study_accession,sample_accession,experiment_accession,run_accession,tax_id,scientific_name,library_layout,library_source,library_strategy,instrument_model,base_count,read_count,fastq_bytes,fastq_ftp,submitted_ftp,sra_ftp&format=tsv&download=true&limit=0",
+  "paper_doi": "10.24272/j.issn.2095-8137.2025.080",
+  "paper_title": "Ancient genomes reveal the genetic history of domestic goats on the Qinghai-Xizang Plateau approximately 3,600 years ago",
+  "archive_metadata_sufficient": false,
+  "paper_required": true,
+  "supplement_required": false,
+  "paper_download_status": "archived",
+  "supplement_download_status": "archived",
+  "local_artifact_ids": [
+    "10.24272-j.issn.2095-8137.2025.080:Supplementary_tables.xlsx",
+    "10.24272-j.issn.2095-8137.2025.080:ZR-2025-080-Supplementary Materials.pdf",
+    "10.24272-j.issn.2095-8137.2025.080:article.html",
+    "10.24272-j.issn.2095-8137.2025.080:crossref.json",
+    "10.24272-j.issn.2095-8137.2025.080:pubmed.xml",
+    "PRJNA1328209:archive_metadata.html"
+  ],
+  "local_artifact_paths": [
+    "adna/governance/source_library/papers/10.24272-j.issn.2095-8137.2025.080/supplementary/Supplementary_tables.xlsx",
+    "adna/governance/source_library/papers/10.24272-j.issn.2095-8137.2025.080/supplementary/ZR-2025-080-Supplementary Materials.pdf",
+    "adna/governance/source_library/papers/10.24272-j.issn.2095-8137.2025.080/article.html",
+    "adna/governance/source_library/papers/10.24272-j.issn.2095-8137.2025.080/crossref.json",
+    "adna/governance/source_library/papers/10.24272-j.issn.2095-8137.2025.080/pubmed.xml",
+    "adna/governance/source_library/projects/PRJNA1328209/archive_metadata.html"
+  ],
+  "blockers": []
+}

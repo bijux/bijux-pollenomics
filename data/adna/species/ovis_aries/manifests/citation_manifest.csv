@@ -1,0 +1,7 @@
+species_latin_name,project_accession,archive_status,evidence_strength,paper_title,paper_doi,pubmed_id,pmc_id,journal_title,publication_year,reference_kind,pinning_evidence
+Ovis aries,PRJEB36540,paper_pinned_core,primary_paper_pinned,Archaeogenetic analysis of Neolithic sheep from Anatolia suggests a complex demographic history since domestication,10.1038/s42003-021-02794-8,,,Communications Biology,2021,primary_paper,Primary paper anchors PRJEB36540 to the Neolithic sheep dataset.
+Ovis aries,PRJEB41594,paper_pinned_core,primary_paper_pinned,Evidence for early dispersal of domestic sheep into Central Asia,10.1038/s41562-021-01083-y,,,Nature Human Behaviour,2021,primary_paper,Primary paper anchors PRJEB41594 to the early domestic sheep dispersal study.
+Ovis aries,PRJEB59481,paper_pinned_core,primary_paper_pinned,Ancient Sheep Genomes Reveal Four Millennia of North European Short-Tailed Sheep in the Baltic Sea Region,10.1093/gbe/evae114,,PMC11162877,Genome Biology and Evolution,2024,primary_paper,Primary paper explicitly names PRJEB59481 in the data availability statement.
+Ovis aries,PRJEB61808,archive_verified_needs_paper_pinning,archive_only,,,,,,,,
+Ovis aries,PRJEB69690,archive_verified_needs_paper_pinning,archive_only,,,,,,,,
+Ovis aries,PRJEB81145,archive_verified_needs_paper_pinning,archive_only,,,,,,,,

@@ -1,0 +1,47 @@
+{
+  "schema_version": "publication-geography-subset-validation.v1",
+  "rows": [
+    {
+      "scope": "Europe-plus",
+      "parent_scope": "World",
+      "country_subset_ok": true,
+      "animal_subset_ok": true,
+      "human_subset_ok": true
+    },
+    {
+      "scope": "Nordic",
+      "parent_scope": "Europe-plus",
+      "country_subset_ok": true,
+      "animal_subset_ok": true,
+      "human_subset_ok": true
+    },
+    {
+      "scope": "Sweden",
+      "parent_scope": "Nordic",
+      "country_subset_ok": true,
+      "animal_subset_ok": false,
+      "human_subset_ok": true
+    },
+    {
+      "scope": "Norway",
+      "parent_scope": "Nordic",
+      "country_subset_ok": true,
+      "animal_subset_ok": true,
+      "human_subset_ok": true
+    },
+    {
+      "scope": "Finland",
+      "parent_scope": "Nordic",
+      "country_subset_ok": true,
+      "animal_subset_ok": true,
+      "human_subset_ok": true
+    },
+    {
+      "scope": "Denmark",
+      "parent_scope": "Nordic",
+      "country_subset_ok": true,
+      "animal_subset_ok": false,
+      "human_subset_ok": true
+    }
+  ]
+}
