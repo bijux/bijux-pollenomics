@@ -27,6 +27,12 @@ change contributor and maintainer workflows across the repository.
 - Clarified runtime, compatibility, and maintainer boundaries across the
   repository, including moving package-boundary guidance into package-owned docs
   and documenting the current report portal and publication contracts.
+- Refreshed shared GitHub governance, workflow inventory, and managed checksum
+  surfaces from `bijux-std` `cd832f6db5c882e8e90cdb55a7708c78fca7fc01`,
+  keeping consumer standards metadata aligned for release preparation.
+- Widened the repository `mypy` bound and refreshed locked Python tooling so
+  the current verification stack resolves cleanly under the release-prep
+  environment.
 
 ### Fixed
 
@@ -38,6 +44,11 @@ change contributor and maintainer workflows across the repository.
   brittle wording-only assertions.
 - Hardened the OpenAPI and Redocly toolchain under `configs/` so the locally
   reproducible npm advisory set is cleared under the current dependency chain.
+- Package CI verification lanes now install runtime `dev` extras before
+  validation, removing environment skew between tox, local package gates, and
+  GitHub Actions.
+- Restored repository truth, docs navigation, and governance-format contract
+  checks after the recent public-handbook and shared-shell updates.
 
 ## 0.1.6 - 2026-04-21
 
