@@ -17,14 +17,14 @@ TEST_PATHS_UNIT := tests/unit
 TEST_PATHS_E2E := tests/e2e
 TEST_PATHS_REGRESSION := tests/regression
 TEST_GENERATED_ARTIFACTS_PATH := tests
-TEST_MAIN_ARGS := -m "not generated_artifacts"
+TEST_MAIN_ARGS := -m "not slow and not generated_artifacts"
 TEST_UNIT_DIR_ARGS := -m "not slow and not generated_artifacts" --maxfail=1 -q
 TEST_UNIT_FALLBACK_ARGS := -k "not e2e and not integration and not functional" -m "not slow and not generated_artifacts" --maxfail=1 -q
-TEST_E2E_ARGS := -m "not generated_artifacts" --maxfail=1 -q
+TEST_E2E_ARGS := -m "not slow and not generated_artifacts" --maxfail=1 -q
 # The regression lane is already path-scoped to tests/regression. Adding a
 # regression marker filter silently deselects the whole suite because these
 # tests are organized by directory rather than marker.
-TEST_REGRESSION_ARGS := -m "not generated_artifacts" --maxfail=1 -q
+TEST_REGRESSION_ARGS := -m "not slow and not generated_artifacts" --maxfail=1 -q
 TEST_GENERATED_ARTIFACTS_ARGS := -m "generated_artifacts" --maxfail=1 -q
 # The checked-in regression suite is entirely governed generated-artifact work.
 # Keep the fast CI lane on unit and e2e checks, and leave heavy artifact
@@ -104,11 +104,21 @@ test-generated-artifacts:
 	$(call clean_paths,$(TEST_CLEAN_PATHS))
 .PHONY: test-generated-artifacts
 
+test-all: TEST_MAIN_ARGS =
+test-all: PYTEST_ADDOPTS_EXTRA = -o timeout=0
 test-all:
 	@$(SELF_MAKE) test
 	@$(SELF_MAKE) test-generated-artifacts
 	@echo "✔ Full test categories completed"
 .PHONY: test-all
+
+test-all-plus-run-time: TEST_MAIN_ARGS =
+test-all-plus-run-time: PYTEST_ADDOPTS_EXTRA = -o timeout=0 --durations=0 --durations-min=0
+test-all-plus-run-time:
+	@$(SELF_MAKE) test
+	@$(SELF_MAKE) test-generated-artifacts
+	@echo "✔ Full test categories completed"
+.PHONY: test-all-plus-run-time
 
 test-full: test-all
 .PHONY: test-full
