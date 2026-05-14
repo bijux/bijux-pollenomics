@@ -12,6 +12,9 @@ UV_SYNC := UV_PROJECT_ENVIRONMENT="$(ROOT_CHECK_VENV)" $(UV) sync --frozen --gro
 CLI := $(ROOT_CHECK_VENV)/bin/bijux-pollenomics
 DEV_RUN = PYTHONPATH="$(CURDIR)/packages/bijux-pollenomics-dev/src$${PYTHONPATH:+:$$PYTHONPATH}" "$(ROOT_CHECK_PYTHON)"
 DOCS_RENDER_SERVE_CONFIG := 0
+ROOT_PACKAGE_TARGETS += test-all-plus-run-time
+ROOT_TARGET_GROUPS_test-all-plus-run-time ?= check
+ROOT_TARGET_SHARED_ENV_test-all-plus-run-time ?= 1
 
 include $(ROOT_MAKEFILE_DIR)/bijux-py/repository/root.mk
 
@@ -23,6 +26,8 @@ ROOT_FORBIDDEN_ARTIFACTS := $(filter-out \
 	$(ROOT_FORBIDDEN_ARTIFACTS))
 
 include $(ROOT_MAKEFILE_DIR)/bijux-py/root/package-dispatch.mk
+ROOT_TARGET_PACKAGES_test-all := $(CHECK_PACKAGES)
+ROOT_TARGET_PACKAGES_test-all-plus-run-time := $(CHECK_PACKAGES)
 include $(ROOT_MAKEFILE_DIR)/bijux-py/root/docs.mk
 include $(ROOT_MAKEFILE_DIR)/bijux-docs.mk
 include $(ROOT_MAKEFILE_DIR)/bijux-std.mk
@@ -35,11 +40,13 @@ DOCS_CHECK_PREPARE_TARGETS := bijux-docs-sync docs-prepare-source
 DOCS_SERVE_PREPARE_TARGETS := bijux-docs-sync docs-render-serve-config
 
 .PHONY: \
-	help list list-all install lock lock-check lint quality security test docs docs-check docs-serve api build sbom clean all \
+	help list list-all install lock lock-check lint quality security test test-all test-all-plus-run-time docs docs-check docs-serve api build sbom clean all \
 	check app-state data-prep reports package-check package-smoke package-source-smoke package-verify sync-badges sync-license-assets \
 	clean-root-artifacts root-check-env check-shared-bijux-py
 
 check: sync-license-assets lock-check lint test quality security docs build sbom api ## Run the full repository verification flow
+test-all: ## Run every repository test surface, including slow, evaluation, and real-local tests
+test-all-plus-run-time: ## Run every repository test surface and report per-test durations
 
 sync-badges: root-check-env ## Render shared badge blocks into managed README surfaces
 	@$(DEV_RUN) -m bijux_pollenomics_dev.docs.badge_sync sync
