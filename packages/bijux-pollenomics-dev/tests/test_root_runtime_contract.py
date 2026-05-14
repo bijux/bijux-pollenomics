@@ -35,3 +35,11 @@ def test_root_make_declares_shared_maintainer_commands() -> None:
     assert "check:" in root_make
     assert "sync-badges:" in root_make
     assert "check-badges:" in root_make
+
+
+def test_core_package_make_installs_runtime_dev_extras_for_ci_tests() -> None:
+    core_make = (REPO_ROOT / "makes" / "packages" / "bijux-pollenomics.mk").read_text(
+        encoding="utf-8"
+    )
+
+    assert "PACKAGE_INSTALL_SPEC := .[dev]" in core_make
