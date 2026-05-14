@@ -16,6 +16,9 @@ All notable changes for `bijux-pollenomics` are recorded here.
 - Moved the package boundary guide into `packages/bijux-pollenomics/docs/`,
   keeping boundary documentation inside the package-owned docs surface instead
   of under `src/`.
+- Refreshed runtime-package verification dependencies and widened the allowed
+  `mypy` range used by repo-managed `dev` installs during release-prep
+  validation.
 
 ### Fixed
 
@@ -27,6 +30,10 @@ All notable changes for `bijux-pollenomics` are recorded here.
 - Replaced brittle wording-pinned handbook assertions with narrower structural
   and contract coverage so runtime docs checks track durable behavior instead of
   transient phrasing.
+- Runtime package CI/test lanes now install `.[dev]` before validation,
+  preventing missing-tooling failures in repository contract and lint gates.
+- Restored runtime-adjacent repository truth and docs contract assertions after
+  recent shared-shell and handbook route changes.
 
 ## 0.1.6 - 2026-04-21
 

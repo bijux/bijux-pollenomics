@@ -12,12 +12,19 @@ All notable changes for `bijux-pollenomics-dev` are recorded here.
 - Aligned maintainer-facing contract coverage with the current generated-artifact,
   report-portal, and split release-support workflow model instead of older
   monolithic handbook assumptions.
+- Refreshed maintainer-package verification tooling with the widened `mypy`
+  bound and current locked Python toolchain used by repository release checks.
+- Synced maintainer-facing shared governance, workflow inventory, and
+  check-script surfaces to `bijux-std`
+  `cd832f6db5c882e8e90cdb55a7708c78fca7fc01`.
 
 ### Fixed
 
 - Kept maintainer-package build and release verification aligned with the
   restored package legal-file materialization contract used by package smoke
   installs.
+- Maintainer-facing package gates now rely on runtime test lanes that install
+  `.[dev]` before validation, reducing false-negative release-support failures.
 
 ## 0.1.6 - 2026-04-21
 
