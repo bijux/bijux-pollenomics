@@ -1,17 +1,17 @@
 {
   "schema_version": "report-surface-registry.v1",
-  "surface_count": 266,
+  "surface_count": 269,
   "family_counts": {
     "caveats": 9,
     "maintenance": 49,
     "maps": 75,
     "portal": 2,
     "reviews": 33,
-    "scopes": 98
+    "scopes": 101
   },
   "audience_counts": {
     "maintainer_diagnostic": 51,
-    "public_reading_surface": 107,
+    "public_reading_surface": 110,
     "scientific_review_surface": 108
   },
   "geography_counts": {
@@ -21,7 +21,7 @@
     "nordic": 42,
     "norway": 14,
     "report_root": 96,
-    "sweden": 14,
+    "sweden": 17,
     "world": 36
   },
   "rows": [
@@ -1150,6 +1150,42 @@
       "format": "md",
       "geography": "sweden",
       "caution_level": "medium",
+      "explanation": "Governed report artifact.",
+      "reader_route": "scope_bundle"
+    },
+    {
+      "repository_path": "docs/report/countries/sweden/sweden_lake_evidence_richness_v66.json",
+      "family": "scopes",
+      "family_label": "Scope-filtered outputs",
+      "audience": "public_reading_surface",
+      "audience_label": "Public reading surface",
+      "format": "json",
+      "geography": "sweden",
+      "caution_level": "high",
+      "explanation": "Governed report artifact.",
+      "reader_route": "scope_bundle"
+    },
+    {
+      "repository_path": "docs/report/countries/sweden/sweden_lake_evidence_richness_v66.md",
+      "family": "scopes",
+      "family_label": "Scope-filtered outputs",
+      "audience": "public_reading_surface",
+      "audience_label": "Public reading surface",
+      "format": "md",
+      "geography": "sweden",
+      "caution_level": "high",
+      "explanation": "Governed report artifact.",
+      "reader_route": "scope_bundle"
+    },
+    {
+      "repository_path": "docs/report/countries/sweden/sweden_lake_evidence_richness_v66_bands.csv",
+      "family": "scopes",
+      "family_label": "Scope-filtered outputs",
+      "audience": "public_reading_surface",
+      "audience_label": "Public reading surface",
+      "format": "csv",
+      "geography": "sweden",
+      "caution_level": "high",
       "explanation": "Governed report artifact.",
       "reader_route": "scope_bundle"
     },
