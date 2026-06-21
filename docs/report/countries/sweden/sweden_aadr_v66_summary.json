@@ -2,7 +2,7 @@
   "schema_version": "country-report-summary.v1",
   "country": "Sweden",
   "version": "v66",
-  "generated_on": "2026-05-09",
+  "generated_on": "2026-06-22",
   "total_unique_samples": 416,
   "total_unique_localities": 77,
   "dataset_row_counts": {
@@ -32,5 +32,10 @@
       "citations_markdown": "sweden_animal_adna_v66_citations.md",
       "warnings_markdown": "sweden_animal_adna_v66_warnings.md"
     }
+  },
+  "lake_evidence_richness": {
+    "json": "sweden_lake_evidence_richness_v66.json",
+    "bands_csv": "sweden_lake_evidence_richness_v66_bands.csv",
+    "markdown": "sweden_lake_evidence_richness_v66.md"
   }
 }
