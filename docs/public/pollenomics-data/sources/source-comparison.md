@@ -30,6 +30,7 @@ finished for neighboring projects.
 | geographic scope, filtering, and public framing | [Boundaries](boundaries.md) | country and regional interpretation | these layers frame evidence; they are not evidence on their own |
 | human ancient DNA release context | [AADR](aadr.md) | release-based human aDNA comparison | it is a distinct human program, not a substitute for animal recovery review |
 | non-human ancient DNA project recovery and sample extraction | [Animal source intake](animal-source-intake.md) | showing what had to be recovered before publication | many intake records matter before they are ready for map publication |
+| taxonomy, metadata, and multi-repository palaeoecology alignment | [PalaeOpen](palaeopen.md) | network-level interoperability and collaboration planning | it is an infrastructure network, not a direct evidence family |
 
 ## What Changes From One Family To Another
 
@@ -43,6 +44,9 @@ What varies most is not only the content. The trust model changes as well.
 - AADR is strongest when you want a broad human aDNA context layer.
 - Animal intake is strongest when you want to understand recovery status,
   blockers, and what is truly sample-backed for non-human aDNA.
+- PalaeOpen is strongest when you want to think about interoperability,
+  harmonization, and broader palaeoecological collaboration rather than one
+  checked-in evidence layer.
 
 That is why the same public atlas can contain several kinds of layers without
 pretending they all speak with one voice.

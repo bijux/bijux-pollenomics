@@ -30,6 +30,12 @@ It is especially useful for:
 - public interpretation that needs cultural setting as well as biological or
   environmental evidence
 
+For Sweden-specific lake work, SEAD is one of the fastest ways to see whether a
+promising pollen basin also sits inside a richer environmental-archaeology
+landscape. That matters when the repository is comparing many possible lakes
+and needs to distinguish "good pollen signal" from "good pollen signal plus
+surrounding archaeological context."
+
 ## What SEAD Does Not Do
 
 SEAD is contextual support. It should not be read as direct proof of a single
@@ -57,6 +63,20 @@ That means SEAD is usually the better first source when the question is broad
 archaeology context across places, while RAÄ is often the better first source
 when the question is specifically about Swedish detail.
 
+## Why SEAD Is A Real Collaboration Fit
+
+SEAD is not only a dataset. It is also a Swedish environmental-archaeology
+infrastructure with broader Nordic and European reach. That makes it a strong
+fit when the repository needs to:
+
+- improve archaeology context around Sweden lake candidates
+- compare Swedish basins against wider Scandinavian and European context
+- strengthen metadata, reference links, and temporal legibility around tracked
+  archaeology records
+
+That fit is why the repository treats SEAD as a durable source family rather
+than as one more map decoration.
+
 ## How It Appears In Public Outputs
 
 SEAD helps the atlas and country outputs avoid reading as if ancient DNA and
@@ -69,6 +89,11 @@ contextual role.
 The family-owned normalized outputs live under:
 
 - `data/sead/normalized/`
+
+The current public source and infrastructure entry points live at:
+
+- `https://www.sead.se/`
+- `https://browser.sead.se/`
 
 If you want the deeper interpretation model behind this family, continue to the
 [SEAD handbook](sead-handbook.md).
