@@ -185,9 +185,10 @@ class RepositoryTruthUnitTests(unittest.TestCase):
             queue_payload["schema_version"], "repository-source-acquisition-queue.v1"
         )
         self.assertEqual(matrix_payload["row_count"], 8)
-        self.assertGreaterEqual(queue_payload["row_count"], 1)
+        self.assertGreaterEqual(queue_payload["row_count"], 2)
         self.assertIn("Animal aDNA papers and supplements", matrix_markdown)
         self.assertIn("animal_adna", queue_markdown)
+        self.assertIn("sead", queue_markdown)
 
     def test_source_explainer_atlas_input_and_cross_domain_packets_keep_pollen_first(
         self,

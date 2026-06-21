@@ -1301,7 +1301,17 @@ def build_repository_source_acquisition_queue(
             "required_outcome": "use the archived paper supplements to publish sample-owned identity, locality, chronology, and coordinate evidence",
             "evidence_anchor": "data/adna/governance/source_library/project_source_evidence_matrix.json",
         }
-    rows = [animal_gap_row]
+    rows = [
+        animal_gap_row,
+        {
+            "queue_key": "sead_temporal_reference_capture",
+            "source_family": "sead",
+            "priority": "medium",
+            "current_gap": "checked-in SEAD context is visible, but linked temporal and bibliography capture still lags the repository's archaeology-context use",
+            "required_outcome": "capture SEAD-linked dating and reference fields so Sweden lake context and broader archaeology interpretation can be reviewed without starting from the generic site page",
+            "evidence_anchor": "docs/report/repository_sead_legibility_review.json",
+        },
+    ]
     surface_to_source = {
         "landclim_site_count": "landclim",
         "landclim_grid_cell_count": "landclim",
