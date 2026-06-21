@@ -23,6 +23,7 @@ from bijux_pollenomics.foundation import (
     build_repository_recovery_review,
     build_repository_scientific_progress_audit,
     build_repository_source_acquisition_queue,
+    build_repository_source_ecosystem_review,
     build_repository_source_explainer_audit,
     build_repository_source_family_matrix,
     build_repository_truth_posture,
@@ -42,6 +43,7 @@ from bijux_pollenomics.foundation import (
     render_repository_recovery_review_markdown,
     render_repository_scientific_progress_audit_markdown,
     render_repository_source_acquisition_queue_markdown,
+    render_repository_source_ecosystem_review_markdown,
     render_repository_source_explainer_audit_markdown,
     render_repository_source_family_matrix_markdown,
     render_repository_truth_posture_markdown,
@@ -224,7 +226,7 @@ class RepositoryTruthUnitTests(unittest.TestCase):
             matrix_payload["schema_version"],
             "repository-cross-domain-evidence-matrix.v1",
         )
-        self.assertEqual(explainer_payload["status_counts"]["present_useful_form"], 12)
+        self.assertEqual(explainer_payload["status_counts"]["present_useful_form"], 13)
         self.assertEqual(
             explainer_payload["status_counts"]["restoration_plan_required"], 3
         )
@@ -239,6 +241,31 @@ class RepositoryTruthUnitTests(unittest.TestCase):
         self.assertIn("Repository source explainer audit", explainer_markdown)
         self.assertIn("Repository atlas input audit", atlas_markdown)
         self.assertIn("Repository cross-domain evidence matrix", matrix_markdown)
+
+    def test_source_ecosystem_review_keeps_sead_and_palaeopen_roles_distinct(
+        self,
+    ) -> None:
+        payload = build_repository_source_ecosystem_review(
+            data_root=self.data_root,
+            docs_root=self.docs_root,
+            report_root=self.report_root,
+        )
+        markdown = render_repository_source_ecosystem_review_markdown(payload)
+
+        self.assertEqual(
+            payload["schema_version"], "repository-source-ecosystem-review.v1"
+        )
+        self.assertEqual(payload["row_count"], 2)
+        sead_row = next(
+            row for row in payload["rows"] if row["ecosystem_key"] == "sead"
+        )
+        palaeopen_row = next(
+            row for row in payload["rows"] if row["ecosystem_key"] == "palaeopen"
+        )
+        self.assertEqual(sead_row["ecosystem_role"], "direct_source_infrastructure")
+        self.assertEqual(palaeopen_row["ecosystem_role"], "open_data_network")
+        self.assertIn("Repository source ecosystem review", markdown)
+        self.assertIn("PalaeOpen", markdown)
 
     def test_scientific_progress_audit_prefers_evidence_depth_over_file_count(
         self,
@@ -433,6 +460,7 @@ class RepositoryTruthUnitTests(unittest.TestCase):
             self.assertIn("repository_claim_audit_markdown", artifacts)
             self.assertIn("repository_source_family_matrix_json", artifacts)
             self.assertIn("repository_source_explainer_audit_markdown", artifacts)
+            self.assertIn("repository_source_ecosystem_review_markdown", artifacts)
             self.assertIn("repository_atlas_input_audit_json", artifacts)
             self.assertIn("repository_cross_domain_evidence_matrix_markdown", artifacts)
             self.assertIn("repository_docs_restoration_ledger_json", artifacts)
@@ -463,6 +491,9 @@ class RepositoryTruthUnitTests(unittest.TestCase):
             )
             self.assertTrue(
                 (output_root / "repository_source_explainer_audit.md").is_file()
+            )
+            self.assertTrue(
+                (output_root / "repository_source_ecosystem_review.json").is_file()
             )
             self.assertTrue(
                 (output_root / "repository_atlas_input_audit.json").is_file()

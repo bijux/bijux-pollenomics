@@ -9,8 +9,8 @@ last_reviewed: 2026-06-22
 
 # PalaeOpen
 
-PalaeOpen is not one more evidence source inside this repository. It is a
-European palaeoecological network for open data, metadata harmonization, and
+PalaeOpen is not a direct source inside this repository. It is a European
+palaeoecological network for open data, metadata harmonization, and
 cross-repository collaboration.
 
 That distinction matters. If SEAD, Neotoma, LandClim, or AADR tell the

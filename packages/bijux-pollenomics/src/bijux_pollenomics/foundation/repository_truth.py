@@ -19,6 +19,7 @@ __all__ = [
     "build_repository_product_model",
     "build_repository_recovery_review",
     "build_repository_source_acquisition_queue",
+    "build_repository_source_ecosystem_review",
     "build_repository_source_explainer_audit",
     "build_repository_source_family_matrix",
     "build_repository_scientific_progress_audit",
@@ -38,6 +39,7 @@ __all__ = [
     "render_repository_product_model_markdown",
     "render_repository_recovery_review_markdown",
     "render_repository_source_acquisition_queue_markdown",
+    "render_repository_source_ecosystem_review_markdown",
     "render_repository_source_explainer_audit_markdown",
     "render_repository_source_family_matrix_markdown",
     "render_repository_scientific_progress_audit_markdown",
@@ -630,6 +632,13 @@ def build_repository_source_explainer_audit(
             None,
         ),
         (
+            "infrastructure_network",
+            "PalaeOpen network explainer",
+            "docs/public/pollenomics-data/sources/palaeopen.md",
+            ["metadata harmonization", "not a direct source"],
+            "restore the PalaeOpen page so collaboration and interoperability work does not get mislabeled as direct evidence capture",
+        ),
+        (
             "recovery_rule",
             "Refresh policy explainer",
             "docs/public/pollenomics-data/sources/refresh-policy.md",
@@ -745,6 +754,114 @@ def render_repository_source_explainer_audit_markdown(
             f"| `{row['page_path']}` | `{row['surface_kind']}` | `{row['status']}` | {row['notes']} |"
         )
     return "\n".join(lines) + "\n"
+
+
+def build_repository_source_ecosystem_review(
+    *,
+    data_root: Path,
+    docs_root: Path,
+    report_root: Path,
+) -> dict[str, object]:
+    """Describe high-value source ecosystems that shape repository reuse."""
+    _ = data_root
+    _ = docs_root
+    _ = report_root
+    rows = [
+        {
+            "ecosystem_key": "sead",
+            "display_name": "SEAD",
+            "ecosystem_role": "direct_source_infrastructure",
+            "fit_posture": "high_value_direct_context_partner",
+            "repository_role": (
+                "environmental archaeology context with strong Sweden, "
+                "Scandinavia, and wider European relevance"
+            ),
+            "official_entry_points": [
+                "https://www.sead.se/",
+                "https://browser.sead.se/",
+                "https://www.umu.se/en/staff/philip-buckland/",
+            ],
+            "strengths": [
+                "direct environmental-archaeology source infrastructure rather than a loose index",
+                "good fit for Sweden lake context enrichment because repository rankings already use SEAD site density",
+                "supports broader archaeology interpretation beyond a Sweden-only registry",
+            ],
+            "limits": [
+                "context layer, not sample-owned proof of lake identity, chronology, or coordinates",
+                "repository capture still needs stronger temporal links and reference-link preservation",
+            ],
+            "recommended_repository_actions": [
+                "capture stronger linked temporal and bibliography fields in checked-in SEAD refreshes",
+                "use SEAD-rich top Sweden lake candidates as review anchors for context validation and ambiguity checks",
+            ],
+        },
+        {
+            "ecosystem_key": "palaeopen",
+            "display_name": "PalaeOpen",
+            "ecosystem_role": "open_data_network",
+            "fit_posture": "high_value_interoperability_network",
+            "repository_role": (
+                "metadata, taxonomy, and multi-repository palaeoecology alignment "
+                "for cross-proxy lake comparison"
+            ),
+            "official_entry_points": [
+                "https://palaeopen.github.io/",
+                "https://palaeopen.github.io/About/about.html",
+                "https://palaeopen.github.io/join_us.html",
+            ],
+            "strengths": [
+                "explicitly targets open palaeoecological data, taxonomy harmonization, and metadata alignment",
+                "bridges terrestrial and aquatic palaeoecology, which matches lake-centered comparison work",
+                "useful for turning Sweden lake ranking outputs into broader interoperable comparison surfaces",
+            ],
+            "limits": [
+                "not a direct evidence family and should not be described as one",
+                "does not replace local source capture from SEAD, Neotoma, LandClim, or ancient DNA programs",
+            ],
+            "recommended_repository_actions": [
+                "use top-ranked multi-proxy Sweden lakes as concrete interoperability examples rather than vague collaboration claims",
+                "align lake registry fields, source-name variants, and cross-proxy terminology with wider palaeoecological metadata practice",
+            ],
+        },
+    ]
+    return {
+        "schema_version": "repository-source-ecosystem-review.v1",
+        "row_count": len(rows),
+        "rows": rows,
+    }
+
+
+def render_repository_source_ecosystem_review_markdown(
+    payload: dict[str, object],
+) -> str:
+    lines = [
+        "# Repository source ecosystem review",
+        "",
+        "This packet names upstream source ecosystems that matter to repository",
+        "growth even when they are not all direct checked-in evidence families.",
+        "",
+        f"- Ecosystem rows: `{payload['row_count']}`",
+        "",
+        "| Ecosystem | Role | Fit posture | Repository role |",
+        "| --- | --- | --- | --- |",
+    ]
+    for row in payload["rows"]:
+        lines.append(
+            f"| {row['display_name']} | `{row['ecosystem_role']}` | "
+            f"`{row['fit_posture']}` | {row['repository_role']} |"
+        )
+    lines.extend(["", "## Recommended Actions", ""])
+    for row in payload["rows"]:
+        lines.append(f"### {row['display_name']}")
+        lines.append("")
+        lines.append(
+            "- Official entry points: "
+            + ", ".join(f"`{value}`" for value in row["official_entry_points"])
+        )
+        for action in row["recommended_repository_actions"]:
+            lines.append(f"- {action}")
+        lines.append("")
+    return "\n".join(lines).rstrip() + "\n"
 
 
 def build_repository_source_family_matrix(
