@@ -1,10 +1,10 @@
 {
   "schema_version": "geographic-evidence-surface-manifest.v1",
   "bundle_type": "geographic_evidence_surface",
-  "title": "Nordic Evidence Atlas",
+  "title": "Nordic Evidence Surface",
   "slug": "nordic",
   "version": "v66",
-  "generated_on": "2026-05-09",
+  "generated_on": "2026-06-22",
   "scope_key": "nordic",
   "scope_label": "Nordic",
   "scope_kind": "region",
@@ -22,7 +22,7 @@
     "Denmark": 653
   },
   "total_unique_samples": 1231,
-  "output_dir": "artifacts/root/nordic-refresh",
+  "output_dir": "docs/report/regions/nordic",
   "artifacts": {
     "readme": "README.md",
     "map_html": "nordic_map.html",
@@ -145,7 +145,7 @@
   },
   "map_publication_contract": {
     "schema_version": "map-publication-contract.v1",
-    "title": "Nordic Evidence Atlas",
+    "title": "Nordic Evidence Surface",
     "scope_key": "nordic",
     "scope_label": "Nordic",
     "scope_kind": "region",
@@ -206,7 +206,7 @@
     "role_counts": {
       "shared_world_scale_layer": 2,
       "region_filtered_layer": 1,
-      "scope_specific_overlay": 5
+      "scope_specific_overlay": 6
     },
     "layer_rows": [
       {
@@ -221,6 +221,19 @@
         "applies_country_filter": true,
         "applies_time_filter": true,
         "scope_caveat": "Shared evidence layer across every governed scope."
+      },
+      {
+        "key": "fieldwork-documentation",
+        "label": "Fieldwork documentation",
+        "source_name": "Bijux fieldwork",
+        "coverage_label": "Observed sampling location documented on 2026-02-26 at Lyngsj\u00f6n Lake.",
+        "count": 1,
+        "publication_role": "scope_specific_overlay",
+        "scope_visibility": "scope_owned",
+        "default_enabled": true,
+        "applies_country_filter": true,
+        "applies_time_filter": false,
+        "scope_caveat": "This overlay is visible only in Nordic scope because its source family is still Nordic-specific."
       },
       {
         "key": "landclim-sites",

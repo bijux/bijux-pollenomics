@@ -3,7 +3,7 @@
   "title": "Europe-plus Evidence Surface",
   "slug": "europe-plus",
   "version": "v66",
-  "generated_on": "2026-05-09",
+  "generated_on": "2026-06-22",
   "scope_key": "europe_plus",
   "scope_label": "Europe-plus",
   "scope_kind": "region",
@@ -21,7 +21,7 @@
     "Denmark": 653
   },
   "total_unique_samples": 1231,
-  "output_dir": "/Users/bijan/bijux/bijux-pollenomics/docs/report/regions/europe-plus",
+  "output_dir": "docs/report/regions/europe-plus",
   "artifacts": {
     "bundle_manifest": "europe-plus_bundle.json",
     "readme": "README.md",
@@ -64,22 +64,6 @@
       {
         "label": "Animal point traceability JSON",
         "filename": "europe-plus_animal_point_traceability.json"
-      },
-      {
-        "label": "Map publication contract JSON",
-        "filename": "europe-plus_map_publication_contract.json"
-      },
-      {
-        "label": "Map publication contract markdown",
-        "filename": "europe-plus_map_publication_contract.md"
-      },
-      {
-        "label": "Point traceability JSON",
-        "filename": "europe-plus_point_traceability.json"
-      },
-      {
-        "label": "Point traceability markdown",
-        "filename": "europe-plus_point_traceability.md"
       },
       {
         "label": "Candidate site ranking CSV",
@@ -209,7 +193,7 @@
         "publication_role": "shared_world_scale_layer",
         "scope_visibility": "shared_default",
         "default_enabled": true,
-        "applies_country_filter": false,
+        "applies_country_filter": true,
         "applies_time_filter": true,
         "scope_caveat": "Shared evidence layer across every governed scope."
       },
@@ -244,7 +228,7 @@
       "Species focus",
       "Animal scope",
       "Coordinate confidence",
-      "Chronology bucket",
+      "Temporal window",
       "Nordic animal leads only"
     ],
     "ui_surfaces": [
@@ -252,9 +236,9 @@
       "Citation-aware animal popups",
       "Species and confidence legend sections"
     ],
-    "chronology_buckets": [
-      "1001-3000 BP",
-      "3001-6000 BP"
+    "temporal_windows": [
+      "Late Holocene (1001-3000 BP)",
+      "Mid-Holocene (3001-6000 BP)"
     ],
     "coordinate_confidence_counts": {
       "exact": 2

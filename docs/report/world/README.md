@@ -1,6 +1,6 @@
 # World Evidence Surface
 
-This shared interactive map bundle was generated on `2026-05-09` from Homo
+This shared interactive map bundle was generated on `2026-06-22` from Homo
 sapiens AADR `v66` plus any governed contextual and animal surfaces that
 the active scope contract allows.
 
@@ -94,7 +94,7 @@ World is the governing publication surface. It keeps every published country ins
 - Species focus
 - Animal scope
 - Coordinate confidence
-- Chronology bucket
+- Temporal window
 - Nordic animal leads only
 
 ### Animal Inspection Surfaces
@@ -124,3 +124,4 @@ World is the governing publication surface. It keeps every published country ins
 | dromedary camel | Camelus dromedarius | domesticated_core | 1 |
 | goat | Capra hircus | domesticated_core | 26 |
 | horse | Equus caballus | domesticated_core | 207 |
+

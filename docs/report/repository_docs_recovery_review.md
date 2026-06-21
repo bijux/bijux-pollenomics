@@ -4,10 +4,10 @@
 
 | Dimension | Score | Finding |
 | --- | ---: | --- |
-| `restoration_completeness` | 4 | 68 of 68 missing handbook pages now have verified replacements |
-| `navigation_breadth` | 1 | runtime, data, and maintainer landings link their restored breadth surfaces directly |
-| `credible_presentation` | 2 | repository truth, claim, and docs breadth surfaces now fail overclaims rather than narrating optimism |
-| `cross_domain_visibility` | 2 | non-aDNA source families remain directly explainable beside the thinner animal recovery surface |
+| `restoration_completeness` | 2 | 60 of 68 missing handbook pages now have verified replacements |
+| `navigation_breadth` | 4 | runtime, data, and maintainer landings link their restored breadth surfaces directly |
+| `credible_presentation` | 4 | repository truth, claim, and docs breadth surfaces now fail overclaims rather than narrating optimism |
+| `cross_domain_visibility` | 4 | non-aDNA source families remain directly explainable beside the thinner animal recovery surface |
 
 ## Evidence Anchors
 

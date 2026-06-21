@@ -54,7 +54,7 @@
   "current_state_counts": {
     "published_country_bundle_count": 4,
     "published_world_animal_points": 234,
-    "source_explainer_count": 0
+    "source_explainer_count": 13
   },
   "evidence_anchors": [
     "docs/report/publication_geography_registry.json",

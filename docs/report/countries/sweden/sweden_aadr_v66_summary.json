@@ -41,5 +41,10 @@
     "geojson": "sweden_lake_evidence_richness_v66.geojson",
     "map_html": "sweden_lake_evidence_richness_v66_map.html",
     "markdown": "sweden_lake_evidence_richness_v66.md"
+  },
+  "lake_fieldwork_preparation": {
+    "json": "sweden_lake_fieldwork_preparation_v66.json",
+    "csv": "sweden_lake_fieldwork_preparation_v66.csv",
+    "markdown": "sweden_lake_fieldwork_preparation_v66.md"
   }
 }

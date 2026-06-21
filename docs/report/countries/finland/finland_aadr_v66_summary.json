@@ -2,14 +2,14 @@
   "schema_version": "country-report-summary.v1",
   "country": "Finland",
   "version": "v66",
-  "generated_on": "2026-05-09",
+  "generated_on": "2026-06-22",
   "total_unique_samples": 32,
   "total_unique_localities": 6,
   "dataset_row_counts": {
     "1240k": 23,
     "ho": 32
   },
-  "output_dir": "/Users/bijan/bijux/bijux-pollenomics/docs/report/countries/finland",
+  "output_dir": "docs/report/countries/finland",
   "artifacts": {
     "bundle_manifest": "finland_aadr_v66_bundle.json",
     "readme": "README.md",

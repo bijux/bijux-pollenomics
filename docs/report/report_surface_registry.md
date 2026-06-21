@@ -4,25 +4,25 @@ This registry classifies the current `docs/report/` tree by family, audience,
 scope, and explanation role so the publication system can be navigated as one
 coherent report surface instead of a loose artifact dump.
 
-- Surface count: `269`
+- Surface count: `288`
 
 ## Family Counts
 
 | Family | Count |
 | --- | ---: |
 | Scientific caveats | 9 |
-| Maintainer truth surfaces | 49 |
+| Maintainer truth surfaces | 51 |
 | Map surfaces | 75 |
 | Portal guidance | 2 |
 | Evidence reviews | 33 |
-| Scope-filtered outputs | 101 |
+| Scope-filtered outputs | 118 |
 
 ## Audience Counts
 
 | Audience | Count |
 | --- | ---: |
-| Maintainer diagnostic | 51 |
-| Public reading surface | 110 |
+| Maintainer diagnostic | 53 |
+| Public reading surface | 127 |
 | Scientific review surface | 108 |
 
 ## Classified Surfaces
@@ -110,6 +110,16 @@ coherent report surface instead of a loose artifact dump.
 | `docs/report/countries/norway/norway_animal_adna_v66_summary.json` | Scope-filtered outputs | Public reading surface | `norway` | `json` | Scope summary surface for direct inspection or downstream filtering. |
 | `docs/report/countries/norway/norway_animal_adna_v66_warnings.md` | Scope-filtered outputs | Public reading surface | `norway` | `md` | Governed report artifact. |
 | `docs/report/countries/sweden/README.md` | Scope-filtered outputs | Public reading surface | `sweden` | `md` | Reader-facing entry page for one scope bundle. |
+| `docs/report/countries/sweden/_map_assets/leaflet/images/layers-2x.png` | Scope-filtered outputs | Public reading surface | `sweden` | `png` | Governed report artifact. |
+| `docs/report/countries/sweden/_map_assets/leaflet/images/layers.png` | Scope-filtered outputs | Public reading surface | `sweden` | `png` | Governed report artifact. |
+| `docs/report/countries/sweden/_map_assets/leaflet/images/marker-icon-2x.png` | Scope-filtered outputs | Public reading surface | `sweden` | `png` | Governed report artifact. |
+| `docs/report/countries/sweden/_map_assets/leaflet/images/marker-icon.png` | Scope-filtered outputs | Public reading surface | `sweden` | `png` | Governed report artifact. |
+| `docs/report/countries/sweden/_map_assets/leaflet/images/marker-shadow.png` | Scope-filtered outputs | Public reading surface | `sweden` | `png` | Governed report artifact. |
+| `docs/report/countries/sweden/_map_assets/leaflet/leaflet.css` | Scope-filtered outputs | Public reading surface | `sweden` | `css` | Governed report artifact. |
+| `docs/report/countries/sweden/_map_assets/leaflet/leaflet.js` | Scope-filtered outputs | Public reading surface | `sweden` | `js` | Governed report artifact. |
+| `docs/report/countries/sweden/_map_assets/markercluster/MarkerCluster.Default.css` | Scope-filtered outputs | Public reading surface | `sweden` | `css` | Governed report artifact. |
+| `docs/report/countries/sweden/_map_assets/markercluster/MarkerCluster.css` | Scope-filtered outputs | Public reading surface | `sweden` | `css` | Governed report artifact. |
+| `docs/report/countries/sweden/_map_assets/markercluster/leaflet.markercluster.js` | Scope-filtered outputs | Public reading surface | `sweden` | `js` | Governed report artifact. |
 | `docs/report/countries/sweden/sweden_aadr_v66_bundle.json` | Scope-filtered outputs | Public reading surface | `sweden` | `json` | Governed report artifact. |
 | `docs/report/countries/sweden/sweden_aadr_v66_localities.csv` | Scope-filtered outputs | Public reading surface | `sweden` | `csv` | Governed report artifact. |
 | `docs/report/countries/sweden/sweden_aadr_v66_samples.csv` | Scope-filtered outputs | Public reading surface | `sweden` | `csv` | Scope-filtered sample or locality export. |
@@ -123,9 +133,16 @@ coherent report surface instead of a loose artifact dump.
 | `docs/report/countries/sweden/sweden_animal_adna_v66_species.csv` | Scope-filtered outputs | Public reading surface | `sweden` | `csv` | Governed report artifact. |
 | `docs/report/countries/sweden/sweden_animal_adna_v66_summary.json` | Scope-filtered outputs | Public reading surface | `sweden` | `json` | Scope summary surface for direct inspection or downstream filtering. |
 | `docs/report/countries/sweden/sweden_animal_adna_v66_warnings.md` | Scope-filtered outputs | Public reading surface | `sweden` | `md` | Governed report artifact. |
+| `docs/report/countries/sweden/sweden_lake_evidence_richness_v66.geojson` | Scope-filtered outputs | Public reading surface | `sweden` | `geojson` | Governed report artifact. |
 | `docs/report/countries/sweden/sweden_lake_evidence_richness_v66.json` | Scope-filtered outputs | Public reading surface | `sweden` | `json` | Governed report artifact. |
 | `docs/report/countries/sweden/sweden_lake_evidence_richness_v66.md` | Scope-filtered outputs | Public reading surface | `sweden` | `md` | Governed report artifact. |
 | `docs/report/countries/sweden/sweden_lake_evidence_richness_v66_bands.csv` | Scope-filtered outputs | Public reading surface | `sweden` | `csv` | Governed report artifact. |
+| `docs/report/countries/sweden/sweden_lake_evidence_richness_v66_map.html` | Scope-filtered outputs | Public reading surface | `sweden` | `html` | Governed report artifact. |
+| `docs/report/countries/sweden/sweden_lake_evidence_richness_v66_registry.csv` | Scope-filtered outputs | Public reading surface | `sweden` | `csv` | Governed report artifact. |
+| `docs/report/countries/sweden/sweden_lake_evidence_richness_v66_scenarios.csv` | Scope-filtered outputs | Public reading surface | `sweden` | `csv` | Governed report artifact. |
+| `docs/report/countries/sweden/sweden_lake_fieldwork_preparation_v66.csv` | Scope-filtered outputs | Public reading surface | `sweden` | `csv` | Governed report artifact. |
+| `docs/report/countries/sweden/sweden_lake_fieldwork_preparation_v66.json` | Scope-filtered outputs | Public reading surface | `sweden` | `json` | Governed report artifact. |
+| `docs/report/countries/sweden/sweden_lake_fieldwork_preparation_v66.md` | Scope-filtered outputs | Public reading surface | `sweden` | `md` | Governed report artifact. |
 | `docs/report/nordic_farming_history_scenario.json` | Evidence reviews | Scientific review surface | `report_root` | `json` | Scientific review surface for animal evidence, chronology, or recovery posture. |
 | `docs/report/nordic_farming_history_scenario.md` | Evidence reviews | Scientific review surface | `report_root` | `md` | Scientific review surface for animal evidence, chronology, or recovery posture. |
 | `docs/report/publication_country_onboarding_contract.json` | Maintainer truth surfaces | Maintainer diagnostic | `report_root` | `json` | Maintainer-facing truth or governance surface. |
@@ -249,6 +266,8 @@ coherent report surface instead of a loose artifact dump.
 | `docs/report/repository_sead_legibility_review.md` | Maintainer truth surfaces | Maintainer diagnostic | `report_root` | `md` | Maintainer-facing truth or governance surface. |
 | `docs/report/repository_source_acquisition_queue.json` | Maintainer truth surfaces | Maintainer diagnostic | `report_root` | `json` | Maintainer-facing truth or governance surface. |
 | `docs/report/repository_source_acquisition_queue.md` | Maintainer truth surfaces | Maintainer diagnostic | `report_root` | `md` | Maintainer-facing truth or governance surface. |
+| `docs/report/repository_source_ecosystem_review.json` | Maintainer truth surfaces | Maintainer diagnostic | `report_root` | `json` | Maintainer-facing truth or governance surface. |
+| `docs/report/repository_source_ecosystem_review.md` | Maintainer truth surfaces | Maintainer diagnostic | `report_root` | `md` | Maintainer-facing truth or governance surface. |
 | `docs/report/repository_source_explainer_audit.json` | Maintainer truth surfaces | Maintainer diagnostic | `report_root` | `json` | Maintainer-facing truth or governance surface. |
 | `docs/report/repository_source_explainer_audit.md` | Maintainer truth surfaces | Maintainer diagnostic | `report_root` | `md` | Maintainer-facing truth or governance surface. |
 | `docs/report/repository_source_family_matrix.json` | Maintainer truth surfaces | Maintainer diagnostic | `report_root` | `json` | Maintainer-facing truth or governance surface. |

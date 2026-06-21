@@ -4,7 +4,7 @@
   "title": "World Evidence Surface",
   "slug": "world",
   "version": "v66",
-  "generated_on": "2026-05-09",
+  "generated_on": "2026-06-22",
   "scope_key": "world",
   "scope_label": "World",
   "scope_kind": "world",
@@ -22,7 +22,7 @@
     "Denmark": 653
   },
   "total_unique_samples": 1231,
-  "output_dir": "/Users/bijan/bijux/bijux-pollenomics/docs/report/world",
+  "output_dir": "docs/report/world",
   "artifacts": {
     "readme": "README.md",
     "map_html": "world_map.html",
@@ -70,22 +70,6 @@
       {
         "label": "Animal point traceability JSON",
         "filename": "world_animal_point_traceability.json"
-      },
-      {
-        "label": "Map publication contract JSON",
-        "filename": "world_map_publication_contract.json"
-      },
-      {
-        "label": "Map publication contract markdown",
-        "filename": "world_map_publication_contract.md"
-      },
-      {
-        "label": "Point traceability JSON",
-        "filename": "world_point_traceability.json"
-      },
-      {
-        "label": "Point traceability markdown",
-        "filename": "world_point_traceability.md"
       },
       {
         "label": "Candidate site ranking CSV",
@@ -215,7 +199,7 @@
         "publication_role": "shared_world_scale_layer",
         "scope_visibility": "shared_default",
         "default_enabled": true,
-        "applies_country_filter": false,
+        "applies_country_filter": true,
         "applies_time_filter": false,
         "scope_caveat": "Shared evidence layer across every governed scope."
       },
@@ -228,7 +212,7 @@
         "publication_role": "shared_world_scale_layer",
         "scope_visibility": "shared_default",
         "default_enabled": true,
-        "applies_country_filter": false,
+        "applies_country_filter": true,
         "applies_time_filter": true,
         "scope_caveat": "Shared evidence layer across every governed scope."
       },
@@ -241,7 +225,7 @@
         "publication_role": "shared_world_scale_layer",
         "scope_visibility": "shared_default",
         "default_enabled": true,
-        "applies_country_filter": false,
+        "applies_country_filter": true,
         "applies_time_filter": true,
         "scope_caveat": "Shared evidence layer across every governed scope."
       },
@@ -276,7 +260,7 @@
       "Species focus",
       "Animal scope",
       "Coordinate confidence",
-      "Chronology bucket",
+      "Temporal window",
       "Nordic animal leads only"
     ],
     "ui_surfaces": [
@@ -284,12 +268,12 @@
       "Citation-aware animal popups",
       "Species and confidence legend sections"
     ],
-    "chronology_buckets": [
-      "0-1000 BP",
-      "1001-3000 BP",
-      "3001-6000 BP",
-      "6001+ BP",
-      "undated"
+    "temporal_windows": [
+      "Early Holocene and older (6001+ BP)",
+      "Late Holocene (1001-3000 BP)",
+      "Mid-Holocene (3001-6000 BP)",
+      "Recent and historical (0-1000 BP)",
+      "Unresolved time window"
     ],
     "coordinate_confidence_counts": {
       "approximate": 1,

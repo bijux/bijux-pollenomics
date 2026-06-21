@@ -82,7 +82,7 @@
         "fieldwork"
       ],
       "tracked_metrics": {
-        "fieldwork_page_count": 0
+        "fieldwork_page_count": 2
       },
       "docs_paths": [
         "docs/public/fieldwork/index.md"

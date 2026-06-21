@@ -1,12 +1,13 @@
 {
   "schema_version": "map-point-traceability.v1",
-  "title": "Nordic Evidence Atlas",
+  "title": "Nordic Evidence Surface",
   "scope_key": "nordic",
   "scope_label": "Nordic",
-  "row_count": 4097,
+  "row_count": 4098,
   "layer_counts": {
     "aadr": 1231,
     "animal-equus-caballus": 2,
+    "fieldwork-documentation": 1,
     "landclim-sites": 492,
     "neotoma-pollen": 200,
     "sead-sites": 2172
@@ -20936,6 +20937,23 @@
       "country": "Denmark",
       "source_url": "",
       "species_latin_name": "Homo sapiens",
+      "animal_scope": "",
+      "coordinate_confidence": ""
+    },
+    {
+      "scope_key": "nordic",
+      "scope_label": "Nordic",
+      "layer_key": "fieldwork-documentation",
+      "layer_label": "Fieldwork documentation",
+      "group": "environmental-context",
+      "source_name": "Bijux fieldwork",
+      "source_artifact": "",
+      "source_reference": "docs/04-fieldwork/lyngsjon-lake-fieldwork/",
+      "record_id": "Lyngsj\u00f6n Lake field sampling",
+      "title": "Lyngsj\u00f6n Lake field sampling",
+      "country": "Sweden",
+      "source_url": "",
+      "species_latin_name": "",
       "animal_scope": "",
       "coordinate_confidence": ""
     },

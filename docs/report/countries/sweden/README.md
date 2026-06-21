@@ -25,6 +25,7 @@ The report deduplicates samples by `genetic_id` across datasets. Dataset row cou
 
 ## Output Files
 
+- Shared interactive map: <a href="../../regions/nordic/nordic_map.html">Nordic Evidence Surface</a>
 - Full sample inventory: [`sweden_aadr_v66_samples.csv`](./sweden_aadr_v66_samples.csv)
 - Locality summary: [`sweden_aadr_v66_localities.csv`](./sweden_aadr_v66_localities.csv)
 - Map-ready GeoJSON: [`sweden_aadr_v66_samples.geojson`](./sweden_aadr_v66_samples.geojson)
@@ -89,4 +90,12 @@ The report deduplicates samples by `genetic_id` across datasets. Dataset row cou
 - Sweden lake evidence GeoJSON: [`sweden_lake_evidence_richness_v66.geojson`](./sweden_lake_evidence_richness_v66.geojson)
 - Sweden lake evidence map: [`sweden_lake_evidence_richness_v66_map.html`](./sweden_lake_evidence_richness_v66_map.html)
 - Sweden lake evidence markdown: [`sweden_lake_evidence_richness_v66.md`](./sweden_lake_evidence_richness_v66.md)
+
+
+
+## Lake Fieldwork Preparation
+
+- Sweden lake fieldwork preparation JSON: [`sweden_lake_fieldwork_preparation_v66.json`](./sweden_lake_fieldwork_preparation_v66.json)
+- Sweden lake fieldwork preparation CSV: [`sweden_lake_fieldwork_preparation_v66.csv`](./sweden_lake_fieldwork_preparation_v66.csv)
+- Sweden lake fieldwork preparation markdown: [`sweden_lake_fieldwork_preparation_v66.md`](./sweden_lake_fieldwork_preparation_v66.md)
 

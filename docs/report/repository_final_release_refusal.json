@@ -6,7 +6,7 @@
   "blocking_dimensions": [
     "data_recovery",
     "sead_treatment",
-    "docs_clarity"
+    "geographic_extensibility"
   ],
   "rows": [
     {
@@ -56,7 +56,7 @@
     },
     {
       "dimension_key": "docs_clarity",
-      "ready_for_final_release_language": false,
+      "ready_for_final_release_language": true,
       "finding": "docs breadth holds and the report tree now routes readers through explanation-first pages",
       "evidence_anchors": [
         "docs/report/repository_docs_scope_validation.json",
@@ -65,7 +65,7 @@
     },
     {
       "dimension_key": "geographic_extensibility",
-      "ready_for_final_release_language": true,
+      "ready_for_final_release_language": false,
       "finding": "future-country onboarding is now a governed contract instead of tribal knowledge",
       "evidence_anchors": [
         "docs/report/publication_country_onboarding_contract.json",

@@ -1,6 +1,6 @@
-# Nordic Evidence Atlas
+# Nordic Evidence Surface
 
-This shared interactive map bundle was generated on `2026-05-09` from Homo
+This shared interactive map bundle was generated on `2026-06-22` from Homo
 sapiens AADR `v66` plus any governed contextual and animal surfaces that
 the active scope contract allows.
 
@@ -62,6 +62,7 @@ Nordic is the regional detail surface. It keeps the shared human and animal evid
 | Layer | Publication role | Coverage posture | Visible records |
 | --- | --- | --- | ---: |
 | AADR-v66 aDNA samples | `shared_world_scale_layer` | Country assignment follows the AADR political entity field. | `1231` |
+| Fieldwork documentation | `scope_specific_overlay` | Observed sampling location documented on 2026-02-26 at Lyngsjön Lake. | `1` |
 | LandClim pollen sites | `scope_specific_overlay` | Pollen sequences staged from the LandClim normalization bundle. | `492` |
 | Neotoma pollen sites | `scope_specific_overlay` | Pollen and paleoecology sites staged from the Neotoma normalization bundle. | `200` |
 | SEAD sites | `scope_specific_overlay` | Environmental archaeology sites staged from the SEAD normalization bundle. | `2172` |

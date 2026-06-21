@@ -7,7 +7,7 @@ that publishes it, in reader or maintainer documentation, and in tests that
 will fail if the contract drifts.
 
 - Rule: no generated root output may be published unless its audience, information role, root location, and coexistence rule are explicit in code, docs, and tests
-- Governed outputs: `21`
+- Governed outputs: `22`
 
 ## Governed Root Outputs
 
@@ -21,6 +21,7 @@ will fail if the contract drifts.
 | `repository_extension_review` | `maintainer_diagnostic` | extensibility and interpretability review | `docs/report` | coexists with the country onboarding contract and checks whether new work improves global extensibility without making local reasoning worse | `docs/internal/pollenomics-dev/future-country-onboarding-playbook.md` | `packages/bijux-pollenomics/tests/unit/test_repository_truth.py` |
 | `repository_source_family_matrix` | `maintainer_diagnostic` | source-family coverage matrix | `docs/report` | coexists with source explainers and the cross-domain matrix as the fastest source-family inventory view | `docs/report/maintenance/index.md` | `packages/bijux-pollenomics/tests/unit/test_repository_truth.py` |
 | `repository_source_explainer_audit` | `maintainer_diagnostic` | source explainer audit | `docs/report` | coexists with source-family coverage and guards the reader-facing handbook against cross-domain blind spots | `docs/report/maintenance/index.md` | `packages/bijux-pollenomics/tests/unit/test_repository_truth.py` |
+| `repository_source_ecosystem_review` | `maintainer_diagnostic` | source ecosystem review | `docs/report` | coexists with source-family and acquisition surfaces as the boundary between direct source ownership and wider interoperability networks | `docs/public/pollenomics-data/sources/palaeopen.md` | `packages/bijux-pollenomics/tests/unit/test_repository_truth.py` |
 | `repository_atlas_input_audit` | `maintainer_diagnostic` | atlas input audit | `docs/report` | coexists with cross-domain evidence review and keeps map-facing inputs accountable by source family | `docs/report/maintenance/index.md` | `packages/bijux-pollenomics/tests/unit/test_repository_truth.py` |
 | `repository_cross_domain_evidence_matrix` | `maintainer_diagnostic` | cross-domain evidence matrix | `docs/report` | coexists with source-family audits and explains how pollen, archaeology, boundary, fieldwork, and animal evidence differ in role | `docs/report/maintenance/index.md` | `packages/bijux-pollenomics/tests/unit/test_repository_truth.py` |
 | `repository_docs_restoration_ledger` | `maintainer_diagnostic` | docs restoration ledger | `docs/report` | coexists with scope validation and records how handbook breadth was restored or merged | `docs/report/maintenance/index.md` | `packages/bijux-pollenomics/tests/unit/test_repository_truth.py` |

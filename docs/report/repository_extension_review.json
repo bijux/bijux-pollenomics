@@ -4,7 +4,7 @@
   "rows": [
     {
       "dimension_key": "global_extensibility",
-      "score": 4,
+      "score": 2,
       "finding": "adding Germany or another country is now governed as roster, data, docs, and tests work instead of renderer surgery",
       "evidence_anchors": [
         "docs/report/publication_country_onboarding_contract.json",
@@ -13,7 +13,7 @@
     },
     {
       "dimension_key": "local_reasoning",
-      "score": 2,
+      "score": 4,
       "finding": "the runtime, data, and maintainer handbooks still explain ownership without collapsing the repo into one vague top layer",
       "evidence_anchors": [
         "docs/report/repository_docs_scope_validation.json",
@@ -22,7 +22,7 @@
     },
     {
       "dimension_key": "scientific_misread_resistance",
-      "score": 4,
+      "score": 2,
       "finding": "release-facing wording is now anchored to explicit refusal criteria instead of optimistic prose alone",
       "evidence_anchors": [
         "docs/report/repository_final_release_refusal.json",

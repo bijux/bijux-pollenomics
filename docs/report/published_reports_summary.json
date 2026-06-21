@@ -1,36 +1,36 @@
 {
   "version": "v66",
-  "generated_on": "2026-05-09",
+  "generated_on": "2026-06-22",
   "countries": [
     "Sweden",
     "Norway",
     "Finland",
     "Denmark"
   ],
-  "shared_map_dir": "/Users/bijan/bijux/bijux-pollenomics/docs/report/world",
+  "shared_map_dir": "docs/report/world",
   "country_output_dirs": [
-    "/Users/bijan/bijux/bijux-pollenomics/docs/report/countries/sweden",
-    "/Users/bijan/bijux/bijux-pollenomics/docs/report/countries/norway",
-    "/Users/bijan/bijux/bijux-pollenomics/docs/report/countries/finland",
-    "/Users/bijan/bijux/bijux-pollenomics/docs/report/countries/denmark"
+    "docs/report/countries/sweden",
+    "docs/report/countries/norway",
+    "docs/report/countries/finland",
+    "docs/report/countries/denmark"
   ],
-  "summary_path": "/Users/bijan/bijux/bijux-pollenomics/docs/report/published_reports_summary.json",
+  "summary_path": "docs/report/published_reports_summary.json",
   "regional_output_dirs": [
-    "/Users/bijan/bijux/bijux-pollenomics/docs/report/regions/europe-plus",
-    "/Users/bijan/bijux/bijux-pollenomics/docs/report/regions/nordic"
+    "docs/report/regions/europe-plus",
+    "docs/report/regions/nordic"
   ],
-  "country_output_root": "/Users/bijan/bijux/bijux-pollenomics/docs/report/countries",
+  "country_output_root": "docs/report/countries",
   "schema_version": "published-reports-summary.v1",
   "artifacts": {
     "world_bundle": {
       "slug": "world",
-      "directory": "/Users/bijan/bijux/bijux-pollenomics/docs/report/world",
+      "directory": "docs/report/world",
       "bundle_manifest": "world_bundle.json",
       "summary_json": "world_summary.json"
     },
     "regional_bundles": {
       "europe-plus": {
-        "directory": "/Users/bijan/bijux/bijux-pollenomics/docs/report/regions/europe-plus",
+        "directory": "docs/report/regions/europe-plus",
         "slug": "europe-plus",
         "title": "Europe-plus Evidence Surface",
         "countries": [
@@ -41,7 +41,7 @@
         ]
       },
       "nordic": {
-        "directory": "/Users/bijan/bijux/bijux-pollenomics/docs/report/regions/nordic",
+        "directory": "docs/report/regions/nordic",
         "slug": "nordic",
         "title": "Nordic Evidence Surface",
         "countries": [
@@ -84,6 +84,8 @@
       "animal_project_publication_gap_review_json": "animal_project_publication_gap_review.json",
       "animal_foundation_review_json": "animal_foundation_review.json",
       "animal_sample_chronology_review_json": "animal_sample_chronology_review.json",
+      "animal_temporal_comparison_review_json": "animal_temporal_comparison_review.json",
+      "animal_intake_recovery_review_json": "animal_intake_recovery_review.json",
       "animal_sample_database_review_json": "animal_sample_database_review.json",
       "animal_publication_release_gate_json": "animal_publication_release_gate.json",
       "animal_foundation_validation_markdown": "animal_foundation_validation.md",
@@ -93,14 +95,21 @@
       "animal_project_publication_gap_review_markdown": "animal_project_publication_gap_review.md",
       "animal_foundation_review_markdown": "animal_foundation_review.md",
       "animal_sample_chronology_review_markdown": "animal_sample_chronology_review.md",
+      "animal_temporal_comparison_review_markdown": "animal_temporal_comparison_review.md",
+      "animal_intake_recovery_review_markdown": "animal_intake_recovery_review.md",
       "animal_sample_database_review_markdown": "animal_sample_database_review.md",
       "animal_publication_release_gate_markdown": "animal_publication_release_gate.md"
     },
     "repository_truth": {
       "repository_truth_posture_json": "repository_truth_posture.json",
+      "repository_product_model_json": "repository_product_model.json",
+      "repository_credibility_dashboard_json": "repository_credibility_dashboard.json",
       "repository_recovery_review_json": "repository_recovery_review.json",
+      "repository_output_sustainability_review_json": "repository_output_sustainability_review.json",
+      "repository_extension_review_json": "repository_extension_review.json",
       "repository_source_family_matrix_json": "repository_source_family_matrix.json",
       "repository_source_explainer_audit_json": "repository_source_explainer_audit.json",
+      "repository_source_ecosystem_review_json": "repository_source_ecosystem_review.json",
       "repository_atlas_input_audit_json": "repository_atlas_input_audit.json",
       "repository_cross_domain_evidence_matrix_json": "repository_cross_domain_evidence_matrix.json",
       "repository_docs_restoration_ledger_json": "repository_docs_restoration_ledger.json",
@@ -109,11 +118,20 @@
       "repository_source_acquisition_queue_json": "repository_source_acquisition_queue.json",
       "repository_governance_artifact_review_json": "repository_governance_artifact_review.json",
       "repository_claim_audit_json": "repository_claim_audit.json",
+      "repository_brutal_honesty_review_json": "repository_brutal_honesty_review.json",
+      "repository_final_release_refusal_json": "repository_final_release_refusal.json",
       "repository_scientific_progress_audit_json": "repository_scientific_progress_audit.json",
+      "repository_sead_legibility_review_json": "repository_sead_legibility_review.json",
+      "repository_generated_output_policy_json": "repository_generated_output_policy.json",
       "repository_truth_posture_markdown": "repository_truth_posture.md",
+      "repository_product_model_markdown": "repository_product_model.md",
+      "repository_credibility_dashboard_markdown": "repository_credibility_dashboard.md",
       "repository_recovery_review_markdown": "repository_recovery_review.md",
+      "repository_output_sustainability_review_markdown": "repository_output_sustainability_review.md",
+      "repository_extension_review_markdown": "repository_extension_review.md",
       "repository_source_family_matrix_markdown": "repository_source_family_matrix.md",
       "repository_source_explainer_audit_markdown": "repository_source_explainer_audit.md",
+      "repository_source_ecosystem_review_markdown": "repository_source_ecosystem_review.md",
       "repository_atlas_input_audit_markdown": "repository_atlas_input_audit.md",
       "repository_cross_domain_evidence_matrix_markdown": "repository_cross_domain_evidence_matrix.md",
       "repository_docs_restoration_ledger_markdown": "repository_docs_restoration_ledger.md",
@@ -122,29 +140,33 @@
       "repository_source_acquisition_queue_markdown": "repository_source_acquisition_queue.md",
       "repository_governance_artifact_review_markdown": "repository_governance_artifact_review.md",
       "repository_claim_audit_markdown": "repository_claim_audit.md",
-      "repository_scientific_progress_audit_markdown": "repository_scientific_progress_audit.md"
+      "repository_brutal_honesty_review_markdown": "repository_brutal_honesty_review.md",
+      "repository_final_release_refusal_markdown": "repository_final_release_refusal.md",
+      "repository_scientific_progress_audit_markdown": "repository_scientific_progress_audit.md",
+      "repository_sead_legibility_review_markdown": "repository_sead_legibility_review.md",
+      "repository_generated_output_policy_markdown": "repository_generated_output_policy.md"
     },
     "country_bundles": {
       "sweden": {
-        "directory": "/Users/bijan/bijux/bijux-pollenomics/docs/report/countries/sweden",
+        "directory": "docs/report/countries/sweden",
         "bundle_manifest": "sweden_aadr_v66_bundle.json",
         "summary_json": "sweden_aadr_v66_summary.json",
         "parent_scope": "nordic"
       },
       "norway": {
-        "directory": "/Users/bijan/bijux/bijux-pollenomics/docs/report/countries/norway",
+        "directory": "docs/report/countries/norway",
         "bundle_manifest": "norway_aadr_v66_bundle.json",
         "summary_json": "norway_aadr_v66_summary.json",
         "parent_scope": "nordic"
       },
       "finland": {
-        "directory": "/Users/bijan/bijux/bijux-pollenomics/docs/report/countries/finland",
+        "directory": "docs/report/countries/finland",
         "bundle_manifest": "finland_aadr_v66_bundle.json",
         "summary_json": "finland_aadr_v66_summary.json",
         "parent_scope": "nordic"
       },
       "denmark": {
-        "directory": "/Users/bijan/bijux/bijux-pollenomics/docs/report/countries/denmark",
+        "directory": "docs/report/countries/denmark",
         "bundle_manifest": "denmark_aadr_v66_bundle.json",
         "summary_json": "denmark_aadr_v66_summary.json",
         "parent_scope": "nordic"
@@ -153,7 +175,7 @@
   },
   "geography_bundles": {
     "world": {
-      "directory": "/Users/bijan/bijux/bijux-pollenomics/docs/report/world",
+      "directory": "docs/report/world",
       "slug": "world",
       "title": "World Evidence Surface",
       "countries": [
@@ -165,7 +187,7 @@
     },
     "regions": {
       "europe-plus": {
-        "directory": "/Users/bijan/bijux/bijux-pollenomics/docs/report/regions/europe-plus",
+        "directory": "docs/report/regions/europe-plus",
         "slug": "europe-plus",
         "title": "Europe-plus Evidence Surface",
         "countries": [
@@ -176,7 +198,7 @@
         ]
       },
       "nordic": {
-        "directory": "/Users/bijan/bijux/bijux-pollenomics/docs/report/regions/nordic",
+        "directory": "docs/report/regions/nordic",
         "slug": "nordic",
         "title": "Nordic Evidence Surface",
         "countries": [
@@ -189,22 +211,22 @@
     },
     "countries": {
       "sweden": {
-        "directory": "/Users/bijan/bijux/bijux-pollenomics/docs/report/countries/sweden",
+        "directory": "docs/report/countries/sweden",
         "country": "Sweden",
         "parent_scope": "nordic"
       },
       "norway": {
-        "directory": "/Users/bijan/bijux/bijux-pollenomics/docs/report/countries/norway",
+        "directory": "docs/report/countries/norway",
         "country": "Norway",
         "parent_scope": "nordic"
       },
       "finland": {
-        "directory": "/Users/bijan/bijux/bijux-pollenomics/docs/report/countries/finland",
+        "directory": "docs/report/countries/finland",
         "country": "Finland",
         "parent_scope": "nordic"
       },
       "denmark": {
-        "directory": "/Users/bijan/bijux/bijux-pollenomics/docs/report/countries/denmark",
+        "directory": "docs/report/countries/denmark",
         "country": "Denmark",
         "parent_scope": "nordic"
       }

@@ -1,0 +1,604 @@
+{
+  "schema_version": "sweden-lake-fieldwork-preparation.v1",
+  "country": "Sweden",
+  "row_count": 20,
+  "methodology": {
+    "scope": "top-ranked Sweden lake candidates only",
+    "identity_rule": "identity resolution remains required when duplicate names, source coordinate spread, or source name variants remain visible",
+    "sead_context_rule": "SEAD 20 km context fit is high at >=20 sites, medium at >=5 sites, else low",
+    "palaeopen_alignment_rule": "PalaeOpen alignment fit is high when the lake already carries >=2 direct pollen sources and >=4 evidence families within 20 km",
+    "warning": "This is a fieldwork-preparation surface, not a final sampling recommendation."
+  },
+  "rows": [
+    {
+      "aggregate_rank": 1,
+      "lake_label": "Bj\u00e4resj\u00f6sj\u00f6n (55.4569, 13.7515)",
+      "latitude": 55.456876,
+      "longitude": 13.751457,
+      "aggregate_score": 0.517,
+      "preparation_posture": "identity_resolution_required",
+      "identity_posture": "registry_cross_check_required",
+      "sead_context_posture": "high",
+      "palaeopen_alignment_posture": "high",
+      "scenario_ranks": {
+        "10km": 1,
+        "20km": 1,
+        "30km": 3,
+        "40km": 5,
+        "50km": 4
+      },
+      "direct_pollen_source_count": 2,
+      "time_aware_direct_pollen_records": 4,
+      "evidence_families_20km": 4,
+      "sead_sites_20km": 42,
+      "human_localities_20km": 2,
+      "domesticated_animal_localities_50km": 0,
+      "ambiguity_flags": [
+        "source_coordinate_spread"
+      ],
+      "required_actions": [
+        "reconcile source coordinates against the basin description and lake outline",
+        "inspect linked SEAD records before narrowing the archaeology-context interpretation",
+        "prepare interoperable metadata notes for wider palaeoecological comparison"
+      ]
+    },
+    {
+      "aggregate_rank": 2,
+      "lake_label": "Bj\u00e4rsj\u00f6holmssj\u00f6n (55.4532, 13.7741)",
+      "latitude": 55.453212,
+      "longitude": 13.774091,
+      "aggregate_score": 0.5122,
+      "preparation_posture": "identity_resolution_required",
+      "identity_posture": "registry_cross_check_required",
+      "sead_context_posture": "high",
+      "palaeopen_alignment_posture": "high",
+      "scenario_ranks": {
+        "10km": 3,
+        "20km": 2,
+        "30km": 6,
+        "40km": 6,
+        "50km": 5
+      },
+      "direct_pollen_source_count": 2,
+      "time_aware_direct_pollen_records": 4,
+      "evidence_families_20km": 4,
+      "sead_sites_20km": 42,
+      "human_localities_20km": 2,
+      "domesticated_animal_localities_50km": 0,
+      "ambiguity_flags": [
+        "source_coordinate_spread"
+      ],
+      "required_actions": [
+        "reconcile source coordinates against the basin description and lake outline",
+        "inspect linked SEAD records before narrowing the archaeology-context interpretation",
+        "prepare interoperable metadata notes for wider palaeoecological comparison"
+      ]
+    },
+    {
+      "aggregate_rank": 3,
+      "lake_label": "Krageholmssj\u00f6n",
+      "latitude": 55.500195,
+      "longitude": 13.73623,
+      "aggregate_score": 0.5072,
+      "preparation_posture": "fieldwork_preparation_ready",
+      "identity_posture": "registry_clear",
+      "sead_context_posture": "high",
+      "palaeopen_alignment_posture": "high",
+      "scenario_ranks": {
+        "10km": 4,
+        "20km": 4,
+        "30km": 4,
+        "40km": 4,
+        "50km": 2
+      },
+      "direct_pollen_source_count": 2,
+      "time_aware_direct_pollen_records": 4,
+      "evidence_families_20km": 4,
+      "sead_sites_20km": 37,
+      "human_localities_20km": 1,
+      "domesticated_animal_localities_50km": 0,
+      "ambiguity_flags": [],
+      "required_actions": [
+        "inspect linked SEAD records before narrowing the archaeology-context interpretation",
+        "prepare interoperable metadata notes for wider palaeoecological comparison"
+      ]
+    },
+    {
+      "aggregate_rank": 4,
+      "lake_label": "Bussj\u00f6sj\u00f6n",
+      "latitude": 55.466668,
+      "longitude": 13.816668,
+      "aggregate_score": 0.5032,
+      "preparation_posture": "fieldwork_preparation_ready",
+      "identity_posture": "registry_clear",
+      "sead_context_posture": "high",
+      "palaeopen_alignment_posture": "high",
+      "scenario_ranks": {
+        "10km": 2,
+        "20km": 3,
+        "30km": 5,
+        "40km": 7,
+        "50km": 8
+      },
+      "direct_pollen_source_count": 2,
+      "time_aware_direct_pollen_records": 4,
+      "evidence_families_20km": 4,
+      "sead_sites_20km": 38,
+      "human_localities_20km": 1,
+      "domesticated_animal_localities_50km": 0,
+      "ambiguity_flags": [],
+      "required_actions": [
+        "inspect linked SEAD records before narrowing the archaeology-context interpretation",
+        "prepare interoperable metadata notes for wider palaeoecological comparison"
+      ]
+    },
+    {
+      "aggregate_rank": 5,
+      "lake_label": "B\u00f6kesj\u00f6n",
+      "latitude": 55.575557,
+      "longitude": 13.4375,
+      "aggregate_score": 0.4689,
+      "preparation_posture": "evidence_screen_only",
+      "identity_posture": "registry_clear",
+      "sead_context_posture": "high",
+      "palaeopen_alignment_posture": "low",
+      "scenario_ranks": {
+        "10km": 22,
+        "20km": 7,
+        "30km": 1,
+        "40km": 1,
+        "50km": 1
+      },
+      "direct_pollen_source_count": 2,
+      "time_aware_direct_pollen_records": 4,
+      "evidence_families_20km": 2,
+      "sead_sites_20km": 38,
+      "human_localities_20km": 0,
+      "domesticated_animal_localities_50km": 0,
+      "ambiguity_flags": [],
+      "required_actions": [
+        "inspect linked SEAD records before narrowing the archaeology-context interpretation"
+      ]
+    },
+    {
+      "aggregate_rank": 6,
+      "lake_label": "Bj\u00e4rsjon",
+      "latitude": 58.33456,
+      "longitude": 13.656065,
+      "aggregate_score": 0.4638,
+      "preparation_posture": "context_review_ready",
+      "identity_posture": "registry_clear",
+      "sead_context_posture": "medium",
+      "palaeopen_alignment_posture": "low",
+      "scenario_ranks": {
+        "10km": 5,
+        "20km": 5,
+        "30km": 2,
+        "40km": 3,
+        "50km": 10
+      },
+      "direct_pollen_source_count": 1,
+      "time_aware_direct_pollen_records": 0,
+      "evidence_families_20km": 4,
+      "sead_sites_20km": 15,
+      "human_localities_20km": 5,
+      "domesticated_animal_localities_50km": 0,
+      "ambiguity_flags": [],
+      "required_actions": [
+        "inspect linked SEAD records before narrowing the archaeology-context interpretation"
+      ]
+    },
+    {
+      "aggregate_rank": 7,
+      "lake_label": "\u00c5sbotorpsj\u00f6n",
+      "latitude": 58.40981,
+      "longitude": 13.81996,
+      "aggregate_score": 0.3823,
+      "preparation_posture": "context_review_ready",
+      "identity_posture": "registry_clear",
+      "sead_context_posture": "low",
+      "palaeopen_alignment_posture": "low",
+      "scenario_ranks": {
+        "10km": 60,
+        "20km": 8,
+        "30km": 7,
+        "40km": 2,
+        "50km": 6
+      },
+      "direct_pollen_source_count": 1,
+      "time_aware_direct_pollen_records": 1,
+      "evidence_families_20km": 4,
+      "sead_sites_20km": 4,
+      "human_localities_20km": 2,
+      "domesticated_animal_localities_50km": 0,
+      "ambiguity_flags": [],
+      "required_actions": []
+    },
+    {
+      "aggregate_rank": 8,
+      "lake_label": "Flarken (58.5568, 13.6732)",
+      "latitude": 58.55679,
+      "longitude": 13.67319,
+      "aggregate_score": 0.3688,
+      "preparation_posture": "identity_resolution_required",
+      "identity_posture": "duplicate_name_resolution_required",
+      "sead_context_posture": "medium",
+      "palaeopen_alignment_posture": "low",
+      "scenario_ranks": {
+        "10km": 47,
+        "20km": 6,
+        "30km": 15,
+        "40km": 22,
+        "50km": 9
+      },
+      "direct_pollen_source_count": 1,
+      "time_aware_direct_pollen_records": 1,
+      "evidence_families_20km": 4,
+      "sead_sites_20km": 18,
+      "human_localities_20km": 2,
+      "domesticated_animal_localities_50km": 0,
+      "ambiguity_flags": [
+        "duplicate_sweden_name"
+      ],
+      "required_actions": [
+        "confirm the exact Swedish lake registry match before field planning",
+        "inspect linked SEAD records before narrowing the archaeology-context interpretation"
+      ]
+    },
+    {
+      "aggregate_rank": 9,
+      "lake_label": "Trummen",
+      "latitude": 56.86575,
+      "longitude": 14.83238,
+      "aggregate_score": 0.3624,
+      "preparation_posture": "evidence_screen_only",
+      "identity_posture": "registry_clear",
+      "sead_context_posture": "medium",
+      "palaeopen_alignment_posture": "low",
+      "scenario_ranks": {
+        "10km": 33,
+        "20km": 15,
+        "30km": 8,
+        "40km": 8,
+        "50km": 13
+      },
+      "direct_pollen_source_count": 2,
+      "time_aware_direct_pollen_records": 3,
+      "evidence_families_20km": 2,
+      "sead_sites_20km": 8,
+      "human_localities_20km": 0,
+      "domesticated_animal_localities_50km": 0,
+      "ambiguity_flags": [],
+      "required_actions": [
+        "inspect linked SEAD records before narrowing the archaeology-context interpretation"
+      ]
+    },
+    {
+      "aggregate_rank": 10,
+      "lake_label": "Flinkasj\u00f6n",
+      "latitude": 56.25148,
+      "longitude": 13.247777,
+      "aggregate_score": 0.3606,
+      "preparation_posture": "context_review_ready",
+      "identity_posture": "registry_clear",
+      "sead_context_posture": "medium",
+      "palaeopen_alignment_posture": "medium",
+      "scenario_ranks": {
+        "10km": 13,
+        "20km": 13,
+        "30km": 12,
+        "40km": 17,
+        "50km": 14
+      },
+      "direct_pollen_source_count": 2,
+      "time_aware_direct_pollen_records": 3,
+      "evidence_families_20km": 3,
+      "sead_sites_20km": 6,
+      "human_localities_20km": 0,
+      "domesticated_animal_localities_50km": 0,
+      "ambiguity_flags": [],
+      "required_actions": [
+        "inspect linked SEAD records before narrowing the archaeology-context interpretation"
+      ]
+    },
+    {
+      "aggregate_rank": 11,
+      "lake_label": "Lillsj\u00f6n (57.0833, 12.5333)",
+      "latitude": 57.08333,
+      "longitude": 12.53333,
+      "aggregate_score": 0.3603,
+      "preparation_posture": "identity_resolution_required",
+      "identity_posture": "duplicate_name_resolution_required",
+      "sead_context_posture": "medium",
+      "palaeopen_alignment_posture": "low",
+      "scenario_ranks": {
+        "10km": 11,
+        "20km": 9,
+        "30km": 10,
+        "40km": 24,
+        "50km": 39
+      },
+      "direct_pollen_source_count": 1,
+      "time_aware_direct_pollen_records": 1,
+      "evidence_families_20km": 3,
+      "sead_sites_20km": 19,
+      "human_localities_20km": 0,
+      "domesticated_animal_localities_50km": 0,
+      "ambiguity_flags": [
+        "duplicate_sweden_name"
+      ],
+      "required_actions": [
+        "confirm the exact Swedish lake registry match before field planning",
+        "inspect linked SEAD records before narrowing the archaeology-context interpretation"
+      ]
+    },
+    {
+      "aggregate_rank": 12,
+      "lake_label": "Samb\u00f6sj\u00f6n (57.1333, 12.4167)",
+      "latitude": 57.133333,
+      "longitude": 12.416667,
+      "aggregate_score": 0.3568,
+      "preparation_posture": "identity_resolution_required",
+      "identity_posture": "duplicate_name_resolution_required",
+      "sead_context_posture": "medium",
+      "palaeopen_alignment_posture": "low",
+      "scenario_ranks": {
+        "10km": 7,
+        "20km": 11,
+        "30km": 17,
+        "40km": 20,
+        "50km": 35
+      },
+      "direct_pollen_source_count": 1,
+      "time_aware_direct_pollen_records": 2,
+      "evidence_families_20km": 3,
+      "sead_sites_20km": 10,
+      "human_localities_20km": 0,
+      "domesticated_animal_localities_50km": 0,
+      "ambiguity_flags": [
+        "duplicate_sweden_name"
+      ],
+      "required_actions": [
+        "confirm the exact Swedish lake registry match before field planning",
+        "inspect linked SEAD records before narrowing the archaeology-context interpretation"
+      ]
+    },
+    {
+      "aggregate_rank": 13,
+      "lake_label": "Aveg\u00f6l",
+      "latitude": 57.684722,
+      "longitude": 14.49861,
+      "aggregate_score": 0.3568,
+      "preparation_posture": "context_review_ready",
+      "identity_posture": "registry_clear",
+      "sead_context_posture": "medium",
+      "palaeopen_alignment_posture": "medium",
+      "scenario_ranks": {
+        "10km": 12,
+        "20km": 27,
+        "30km": 9,
+        "40km": 15,
+        "50km": 15
+      },
+      "direct_pollen_source_count": 2,
+      "time_aware_direct_pollen_records": 4,
+      "evidence_families_20km": 3,
+      "sead_sites_20km": 5,
+      "human_localities_20km": 0,
+      "domesticated_animal_localities_50km": 0,
+      "ambiguity_flags": [],
+      "required_actions": [
+        "inspect linked SEAD records before narrowing the archaeology-context interpretation"
+      ]
+    },
+    {
+      "aggregate_rank": 14,
+      "lake_label": "V\u00e4rsj\u00f6 Utmark",
+      "latitude": 56.316668,
+      "longitude": 13.433332,
+      "aggregate_score": 0.3548,
+      "preparation_posture": "context_review_ready",
+      "identity_posture": "registry_clear",
+      "sead_context_posture": "medium",
+      "palaeopen_alignment_posture": "medium",
+      "scenario_ranks": {
+        "10km": 9,
+        "20km": 23,
+        "30km": 21,
+        "40km": 12,
+        "50km": 17
+      },
+      "direct_pollen_source_count": 2,
+      "time_aware_direct_pollen_records": 3,
+      "evidence_families_20km": 3,
+      "sead_sites_20km": 7,
+      "human_localities_20km": 0,
+      "domesticated_animal_localities_50km": 0,
+      "ambiguity_flags": [],
+      "required_actions": [
+        "inspect linked SEAD records before narrowing the archaeology-context interpretation"
+      ]
+    },
+    {
+      "aggregate_rank": 15,
+      "lake_label": "Storasj\u00f6 (56.9333, 15.2667)",
+      "latitude": 56.933332,
+      "longitude": 15.266668,
+      "aggregate_score": 0.3516,
+      "preparation_posture": "identity_resolution_required",
+      "identity_posture": "duplicate_name_resolution_required",
+      "sead_context_posture": "medium",
+      "palaeopen_alignment_posture": "medium",
+      "scenario_ranks": {
+        "10km": 18,
+        "20km": 10,
+        "30km": 13,
+        "40km": 29,
+        "50km": 19
+      },
+      "direct_pollen_source_count": 2,
+      "time_aware_direct_pollen_records": 2,
+      "evidence_families_20km": 3,
+      "sead_sites_20km": 5,
+      "human_localities_20km": 0,
+      "domesticated_animal_localities_50km": 0,
+      "ambiguity_flags": [
+        "duplicate_sweden_name"
+      ],
+      "required_actions": [
+        "confirm the exact Swedish lake registry match before field planning",
+        "inspect linked SEAD records before narrowing the archaeology-context interpretation"
+      ]
+    },
+    {
+      "aggregate_rank": 16,
+      "lake_label": "Flarken (58.5833, 13.6667)",
+      "latitude": 58.583333,
+      "longitude": 13.666667,
+      "aggregate_score": 0.3511,
+      "preparation_posture": "identity_resolution_required",
+      "identity_posture": "duplicate_name_resolution_required",
+      "sead_context_posture": "medium",
+      "palaeopen_alignment_posture": "low",
+      "scenario_ranks": {
+        "10km": 40,
+        "20km": 25,
+        "30km": 11,
+        "40km": 18,
+        "50km": 7
+      },
+      "direct_pollen_source_count": 1,
+      "time_aware_direct_pollen_records": 2,
+      "evidence_families_20km": 3,
+      "sead_sites_20km": 18,
+      "human_localities_20km": 0,
+      "domesticated_animal_localities_50km": 0,
+      "ambiguity_flags": [
+        "duplicate_sweden_name"
+      ],
+      "required_actions": [
+        "confirm the exact Swedish lake registry match before field planning",
+        "inspect linked SEAD records before narrowing the archaeology-context interpretation"
+      ]
+    },
+    {
+      "aggregate_rank": 17,
+      "lake_label": "Sigvalde Tr\u00e4sk",
+      "latitude": 57.34248,
+      "longitude": 18.52596,
+      "aggregate_score": 0.3483,
+      "preparation_posture": "context_review_ready",
+      "identity_posture": "registry_clear",
+      "sead_context_posture": "high",
+      "palaeopen_alignment_posture": "low",
+      "scenario_ranks": {
+        "10km": 23,
+        "20km": 16,
+        "30km": 14,
+        "40km": 14,
+        "50km": 24
+      },
+      "direct_pollen_source_count": 1,
+      "time_aware_direct_pollen_records": 0,
+      "evidence_families_20km": 3,
+      "sead_sites_20km": 23,
+      "human_localities_20km": 4,
+      "domesticated_animal_localities_50km": 0,
+      "ambiguity_flags": [],
+      "required_actions": [
+        "inspect linked SEAD records before narrowing the archaeology-context interpretation"
+      ]
+    },
+    {
+      "aggregate_rank": 18,
+      "lake_label": "Holtj\u00e4rnen",
+      "latitude": 60.650472,
+      "longitude": 14.91913,
+      "aggregate_score": 0.3451,
+      "preparation_posture": "evidence_screen_only",
+      "identity_posture": "registry_clear",
+      "sead_context_posture": "high",
+      "palaeopen_alignment_posture": "low",
+      "scenario_ranks": {
+        "10km": 8,
+        "20km": 14,
+        "30km": 42,
+        "40km": 21,
+        "50km": 21
+      },
+      "direct_pollen_source_count": 2,
+      "time_aware_direct_pollen_records": 4,
+      "evidence_families_20km": 2,
+      "sead_sites_20km": 28,
+      "human_localities_20km": 0,
+      "domesticated_animal_localities_50km": 0,
+      "ambiguity_flags": [],
+      "required_actions": [
+        "inspect linked SEAD records before narrowing the archaeology-context interpretation"
+      ]
+    },
+    {
+      "aggregate_rank": 19,
+      "lake_label": "F\u00e4rskesj\u00f6n (56.1629, 15.8636)",
+      "latitude": 56.162869,
+      "longitude": 15.863578,
+      "aggregate_score": 0.341,
+      "preparation_posture": "identity_resolution_required",
+      "identity_posture": "registry_cross_check_required",
+      "sead_context_posture": "medium",
+      "palaeopen_alignment_posture": "medium",
+      "scenario_ranks": {
+        "10km": 6,
+        "20km": 19,
+        "30km": 38,
+        "40km": 36,
+        "50km": 29
+      },
+      "direct_pollen_source_count": 2,
+      "time_aware_direct_pollen_records": 2,
+      "evidence_families_20km": 3,
+      "sead_sites_20km": 9,
+      "human_localities_20km": 0,
+      "domesticated_animal_localities_50km": 0,
+      "ambiguity_flags": [
+        "source_coordinate_spread"
+      ],
+      "required_actions": [
+        "reconcile source coordinates against the basin description and lake outline",
+        "inspect linked SEAD records before narrowing the archaeology-context interpretation"
+      ]
+    },
+    {
+      "aggregate_rank": 20,
+      "lake_label": "Kansj\u00f6n (57.6351, 14.5336)",
+      "latitude": 57.635137,
+      "longitude": 14.533645,
+      "aggregate_score": 0.3403,
+      "preparation_posture": "identity_resolution_required",
+      "identity_posture": "registry_cross_check_required",
+      "sead_context_posture": "low",
+      "palaeopen_alignment_posture": "medium",
+      "scenario_ranks": {
+        "10km": 19,
+        "20km": 26,
+        "30km": 16,
+        "40km": 23,
+        "50km": 22
+      },
+      "direct_pollen_source_count": 2,
+      "time_aware_direct_pollen_records": 3,
+      "evidence_families_20km": 3,
+      "sead_sites_20km": 3,
+      "human_localities_20km": 0,
+      "domesticated_animal_localities_50km": 0,
+      "ambiguity_flags": [
+        "source_coordinate_spread",
+        "source_name_variants"
+      ],
+      "required_actions": [
+        "reconcile source coordinates against the basin description and lake outline",
+        "normalize source name variants against the lake registry and tracked source records"
+      ]
+    }
+  ]
+}

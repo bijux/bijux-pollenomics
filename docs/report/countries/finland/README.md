@@ -1,6 +1,6 @@
 # Finland Homo sapiens aDNA v66 Report
 
-This bundle was generated from Homo sapiens ancient-DNA release metadata published in AADR `v66` on `2026-05-09`.
+This bundle was generated from Homo sapiens ancient-DNA release metadata published in AADR `v66` on `2026-06-22`.
 It inventories only Homo sapiens aDNA sample rows that match the `Finland` country filter. Environmental and archaeology context layers are published in the shared map bundle, not duplicated here.
 
 ## Summary
@@ -49,4 +49,6 @@ The report deduplicates samples by `genetic_id` across datasets. Dataset row cou
 No tracked non-human animal locality lead is currently assignable to `Finland`
 with the current repository rules, so this country bundle ships only the human AADR
 surface for now.
+
+
 
