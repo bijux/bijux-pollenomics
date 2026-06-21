@@ -23,6 +23,7 @@ def render_summary_markdown(
     summary_json_name: str,
     map_reference: tuple[str, str] | None,
     animal_section_markdown: str = "",
+    lake_section_markdown: str = "",
 ) -> str:
     """Render the country summary README."""
     policy = build_country_report_policy(report)
@@ -97,6 +98,7 @@ Locality rows now preserve the combined BP coverage of the samples they aggregat
 | --- | ---: | ---: | ---: | --- | --- |
 {top_locality_lines}
 {animal_section_markdown}
+{lake_section_markdown}
 """
 
 

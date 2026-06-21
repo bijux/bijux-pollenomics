@@ -32,6 +32,9 @@ class CountryBundlePaths:
     animal_localities_geojson_path: Path
     animal_citations_markdown_path: Path
     animal_warnings_markdown_path: Path
+    lake_evidence_richness_json_path: Path
+    lake_evidence_richness_bands_csv_path: Path
+    lake_evidence_richness_markdown_path: Path
 
 
 @dataclass(frozen=True)
@@ -99,6 +102,12 @@ def build_country_bundle_paths(
         / f"{country_slug}_animal_adna_{version}_citations.md",
         animal_warnings_markdown_path=output_dir
         / f"{country_slug}_animal_adna_{version}_warnings.md",
+        lake_evidence_richness_json_path=output_dir
+        / f"{country_slug}_lake_evidence_richness_{version}.json",
+        lake_evidence_richness_bands_csv_path=output_dir
+        / f"{country_slug}_lake_evidence_richness_{version}_bands.csv",
+        lake_evidence_richness_markdown_path=output_dir
+        / f"{country_slug}_lake_evidence_richness_{version}.md",
     )
 
 
