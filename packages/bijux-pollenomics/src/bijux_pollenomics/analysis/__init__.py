@@ -6,6 +6,14 @@ from .engine_manifest import (
     build_ranking_engine_manifest,
 )
 from .harmonization import HarmonizationRule, default_harmonization_rules
+from .lake_evidence_richness import (
+    DEFAULT_LAKE_EVIDENCE_RADII_KM,
+    LakeEvidenceBandScore,
+    LakeEvidenceCandidate,
+    LakeEvidenceRichnessAssessment,
+    LakeEvidenceRichnessReport,
+    build_sweden_lake_evidence_richness_report,
+)
 from .ranking import (
     CandidateSensitivityReport,
     CandidateSensitivityRow,
@@ -17,9 +25,13 @@ from .ranking import (
 from .review import (
     render_candidate_site_markdown,
     render_candidate_site_sensitivity_markdown,
+    render_lake_evidence_richness_markdown,
+    render_lake_evidence_richness_section,
     write_candidate_site_sensitivity_json,
     write_candidate_sites_csv,
     write_candidate_sites_json,
+    write_lake_evidence_richness_band_csv,
+    write_lake_evidence_richness_json,
 )
 from .site_candidates import (
     CandidateRankingProfile,
@@ -35,19 +47,27 @@ __all__ = [
     "CandidateRankingProfile",
     "CandidateSensitivityReport",
     "CandidateSensitivityRow",
+    "DEFAULT_LAKE_EVIDENCE_RADII_KM",
     "HarmonizationRule",
     "LakeSelectionRequirement",
+    "LakeEvidenceBandScore",
+    "LakeEvidenceCandidate",
+    "LakeEvidenceRichnessAssessment",
+    "LakeEvidenceRichnessReport",
     "RankingEngineManifest",
     "build_candidate_context",
     "build_ranking_engine_manifest",
     "build_ranking_profiles",
     "build_ranking_sensitivity_report",
+    "build_sweden_lake_evidence_richness_report",
     "default_harmonization_rules",
     "CandidateSiteContext",
     "CandidateSiteScore",
     "rank_localities",
     "render_candidate_site_markdown",
     "render_candidate_site_sensitivity_markdown",
+    "render_lake_evidence_richness_markdown",
+    "render_lake_evidence_richness_section",
     "resolve_ranking_profile",
     "ScoringWeights",
     "score_candidate_site",
@@ -55,4 +75,6 @@ __all__ = [
     "write_candidate_site_sensitivity_json",
     "write_candidate_sites_csv",
     "write_candidate_sites_json",
+    "write_lake_evidence_richness_band_csv",
+    "write_lake_evidence_richness_json",
 ]
