@@ -5,10 +5,14 @@ from pathlib import Path
 
 from ...analysis import (
     build_sweden_lake_evidence_richness_report,
+    write_lake_evidence_richness_geojson,
     render_lake_evidence_richness_markdown,
     render_lake_evidence_richness_section,
     write_lake_evidence_richness_band_csv,
     write_lake_evidence_richness_json,
+    write_lake_evidence_richness_map_html,
+    write_lake_evidence_richness_registry_csv,
+    write_lake_evidence_richness_scenario_csv,
 )
 from ..adna.country_outputs import (
     build_country_animal_output_bundle,
@@ -113,9 +117,27 @@ def publish_country_report_bundle(
             bundle_paths.lake_evidence_richness_json_path,
             lake_report,
         )
+        write_lake_evidence_richness_registry_csv(
+            bundle_paths.lake_evidence_richness_registry_csv_path,
+            lake_report,
+        )
+        write_lake_evidence_richness_scenario_csv(
+            bundle_paths.lake_evidence_richness_scenarios_csv_path,
+            lake_report,
+        )
         write_lake_evidence_richness_band_csv(
             bundle_paths.lake_evidence_richness_bands_csv_path,
             lake_report,
+        )
+        write_lake_evidence_richness_geojson(
+            bundle_paths.lake_evidence_richness_geojson_path,
+            lake_report,
+        )
+        write_lake_evidence_richness_map_html(
+            bundle_paths.lake_evidence_richness_map_html_path,
+            lake_report,
+            version=version,
+            generated_on=report.generated_on,
         )
         bundle_paths.lake_evidence_richness_markdown_path.write_text(
             render_lake_evidence_richness_markdown(lake_report),
@@ -123,7 +145,11 @@ def publish_country_report_bundle(
         )
         lake_section_markdown = render_lake_evidence_richness_section(
             json_name=bundle_paths.lake_evidence_richness_json_path.name,
+            registry_csv_name=bundle_paths.lake_evidence_richness_registry_csv_path.name,
+            scenario_csv_name=bundle_paths.lake_evidence_richness_scenarios_csv_path.name,
             band_csv_name=bundle_paths.lake_evidence_richness_bands_csv_path.name,
+            geojson_name=bundle_paths.lake_evidence_richness_geojson_path.name,
+            map_html_name=bundle_paths.lake_evidence_richness_map_html_path.name,
             markdown_name=bundle_paths.lake_evidence_richness_markdown_path.name,
         )
     write_summary_json_fn(

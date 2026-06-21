@@ -85,8 +85,24 @@ class CountryReportTests(unittest.TestCase):
             "sweden_lake_evidence_richness_v62.0.json",
         )
         self.assertEqual(
+            country_paths.lake_evidence_richness_registry_csv_path.name,
+            "sweden_lake_evidence_richness_v62.0_registry.csv",
+        )
+        self.assertEqual(
+            country_paths.lake_evidence_richness_scenarios_csv_path.name,
+            "sweden_lake_evidence_richness_v62.0_scenarios.csv",
+        )
+        self.assertEqual(
             country_paths.lake_evidence_richness_bands_csv_path.name,
             "sweden_lake_evidence_richness_v62.0_bands.csv",
+        )
+        self.assertEqual(
+            country_paths.lake_evidence_richness_geojson_path.name,
+            "sweden_lake_evidence_richness_v62.0.geojson",
+        )
+        self.assertEqual(
+            country_paths.lake_evidence_richness_map_html_path.name,
+            "sweden_lake_evidence_richness_v62.0_map.html",
         )
         self.assertEqual(
             country_paths.lake_evidence_richness_markdown_path.name,
@@ -446,15 +462,32 @@ class CountryReportTests(unittest.TestCase):
                 (output / "sweden_lake_evidence_richness_v62.0.json").exists()
             )
             self.assertTrue(
+                (output / "sweden_lake_evidence_richness_v62.0_registry.csv").exists()
+            )
+            self.assertTrue(
+                (output / "sweden_lake_evidence_richness_v62.0_scenarios.csv").exists()
+            )
+            self.assertTrue(
                 (output / "sweden_lake_evidence_richness_v62.0_bands.csv").exists()
+            )
+            self.assertTrue(
+                (output / "sweden_lake_evidence_richness_v62.0.geojson").exists()
+            )
+            self.assertTrue(
+                (output / "sweden_lake_evidence_richness_v62.0_map.html").exists()
             )
             self.assertTrue(
                 (output / "sweden_lake_evidence_richness_v62.0.md").exists()
             )
+            self.assertTrue((output / "_map_assets" / "leaflet" / "leaflet.js").exists())
             readme_text = (output / "README.md").read_text(encoding="utf-8")
             self.assertIn("## Lake Evidence Richness", readme_text)
             self.assertIn(
                 "sweden_lake_evidence_richness_v62.0.json",
+                readme_text,
+            )
+            self.assertIn(
+                "sweden_lake_evidence_richness_v62.0_map.html",
                 readme_text,
             )
 

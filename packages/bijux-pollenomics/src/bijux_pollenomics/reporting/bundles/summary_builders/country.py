@@ -50,7 +50,11 @@ def build_country_report_summary(
     if bundle_paths.lake_evidence_richness_json_path.exists():
         payload["lake_evidence_richness"] = {
             "json": bundle_paths.lake_evidence_richness_json_path.name,
+            "registry_csv": bundle_paths.lake_evidence_richness_registry_csv_path.name,
+            "scenarios_csv": bundle_paths.lake_evidence_richness_scenarios_csv_path.name,
             "bands_csv": bundle_paths.lake_evidence_richness_bands_csv_path.name,
+            "geojson": bundle_paths.lake_evidence_richness_geojson_path.name,
+            "map_html": bundle_paths.lake_evidence_richness_map_html_path.name,
             "markdown": bundle_paths.lake_evidence_richness_markdown_path.name,
         }
     return payload
@@ -92,7 +96,11 @@ def build_country_bundle_manifest(
     if bundle_paths.lake_evidence_richness_json_path.exists():
         payload["lake_evidence_richness"] = {
             "json": bundle_paths.lake_evidence_richness_json_path.name,
+            "registry_csv": bundle_paths.lake_evidence_richness_registry_csv_path.name,
+            "scenarios_csv": bundle_paths.lake_evidence_richness_scenarios_csv_path.name,
             "bands_csv": bundle_paths.lake_evidence_richness_bands_csv_path.name,
+            "geojson": bundle_paths.lake_evidence_richness_geojson_path.name,
+            "map_html": bundle_paths.lake_evidence_richness_map_html_path.name,
             "markdown": bundle_paths.lake_evidence_richness_markdown_path.name,
         }
     return payload
