@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+from collections import Counter
 from collections.abc import Iterable, Sequence
 from dataclasses import dataclass
 import json
@@ -23,6 +24,16 @@ DEFAULT_LAKE_EVIDENCE_RADII_KM = (10, 20, 30, 40, 50)
 _AGGREGATE_RADIUS_WEIGHTS = {10: 0.30, 20: 0.25, 30: 0.20, 40: 0.15, 50: 0.10}
 _LAKE_NAME_TERMS = ("lake", "sjo", "sjon", "tjarn", "trask", "gol")
 _WETLAND_TERMS = ("mosse", "mossen", "bog", "fen", "peat", "myr", "karr", "karret")
+_POSITION_NOTE_PATTERNS = (
+    re.compile(r"another lake also called", re.IGNORECASE),
+    re.compile(r"position is not clear", re.IGNORECASE),
+    re.compile(r"could also be the likely site", re.IGNORECASE),
+    re.compile(r"another possibility", re.IGNORECASE),
+    re.compile(r"assume that the site is", re.IGNORECASE),
+)
+_GENERIC_LAKE_TOKENS = {"lake"}
+_LAKE_MATCH_DISTANCE_KM = 2.0
+_COORDINATE_SPREAD_FLAG_KM = 0.75
 
 
 @dataclass(frozen=True)
@@ -30,7 +41,9 @@ class LakeEvidenceCandidate:
     """One Sweden lake candidate derived from pollen-basin context."""
 
     lake_name: str
+    lake_label: str
     lake_token: str
+    name_key: str
     latitude: float
     longitude: float
     basin_posture: str
@@ -39,12 +52,19 @@ class LakeEvidenceCandidate:
     time_aware_direct_pollen_records: int
     pollen_sources: tuple[str, ...]
     supporting_pollen_names: tuple[str, ...]
+    supporting_source_records: tuple[str, ...]
+    duplicate_name_count: int
+    coordinate_spread_km: float
+    ambiguity_flags: tuple[str, ...]
+    ambiguity_note: str
     direct_pollen_signal: float
 
     def as_dict(self) -> dict[str, object]:
         return {
             "lake_name": self.lake_name,
+            "lake_label": self.lake_label,
             "lake_token": self.lake_token,
+            "name_key": self.name_key,
             "latitude": round(self.latitude, 6),
             "longitude": round(self.longitude, 6),
             "basin_posture": self.basin_posture,
@@ -53,6 +73,11 @@ class LakeEvidenceCandidate:
             "time_aware_direct_pollen_records": self.time_aware_direct_pollen_records,
             "pollen_sources": list(self.pollen_sources),
             "supporting_pollen_names": list(self.supporting_pollen_names),
+            "supporting_source_records": list(self.supporting_source_records),
+            "duplicate_name_count": self.duplicate_name_count,
+            "coordinate_spread_km": self.coordinate_spread_km,
+            "ambiguity_flags": list(self.ambiguity_flags),
+            "ambiguity_note": self.ambiguity_note,
             "direct_pollen_signal": self.direct_pollen_signal,
         }
 
@@ -157,6 +182,15 @@ class _DensityCell:
     count: int
 
 
+@dataclass(frozen=True)
+class _LakeSourcePoint:
+    point: ContextPointRecord
+    name_key: str
+    cleaned_name: str
+    source_record: str
+    position_note: str | None
+
+
 def build_sweden_lake_evidence_richness_report(
     *,
     context_root: Path,
@@ -167,7 +201,11 @@ def build_sweden_lake_evidence_richness_report(
     """Rank Sweden lake candidates by surrounding pollen, archaeology, and aDNA richness."""
     normalized_radii = tuple(sorted({int(radius) for radius in radii_km if int(radius) > 0}))
     pollen_points = _load_sweden_pollen_points(Path(context_root))
-    candidates = _derive_lake_candidates(pollen_points)
+    neotoma_position_notes = _load_sweden_neotoma_position_notes(Path(context_root))
+    candidates = _derive_lake_candidates(
+        pollen_points,
+        neotoma_position_notes=neotoma_position_notes,
+    )
     human_points = _extract_human_points(human_localities)
     animal_points = _extract_animal_points(animal_localities)
     sead_points = _load_sweden_context_points(
@@ -177,6 +215,8 @@ def build_sweden_lake_evidence_richness_report(
     raa_cells = _load_sweden_density_cells(
         Path(context_root) / "raa" / "normalized" / "sweden_archaeology_density.geojson"
     )
+    if not candidates:
+        return _build_empty_report(normalized_radii)
 
     raw_scores: dict[str, dict[int, dict[str, int]]] = {
         candidate.lake_token: {
@@ -307,14 +347,10 @@ def build_sweden_lake_evidence_richness_report(
                     radius_km=radius,
                 ).total_score,
                 -row["aggregate_score"],  # type: ignore[arg-type]
-                row["candidate"].lake_name,  # type: ignore[index]
+                row["candidate"].lake_label,  # type: ignore[index]
             ),
         )
         for rank, row in enumerate(ordered, start=1):
-            current_score = _band_score_for_radius(
-                row["band_scores"],  # type: ignore[arg-type]
-                radius_km=radius,
-            )
             updated_scores = []
             for score in row["band_scores"]:  # type: ignore[assignment]
                 if score.radius_km == radius:
@@ -350,7 +386,7 @@ def build_sweden_lake_evidence_richness_report(
                 row["band_scores"],  # type: ignore[arg-type]
                 radius_km=normalized_radii[0],
             ).total_score,
-            row["candidate"].lake_name,  # type: ignore[index]
+            row["candidate"].lake_label,  # type: ignore[index]
         ),
     )
     assessments = tuple(
@@ -363,39 +399,11 @@ def build_sweden_lake_evidence_richness_report(
         for rank, row in enumerate(ordered_candidates, start=1)
     )
     return LakeEvidenceRichnessReport(
-        schema_version="sweden-lake-evidence-richness.v1",
+        schema_version="sweden-lake-evidence-richness.v2",
         country="Sweden",
         radii_km=normalized_radii,
         candidate_count=len(assessments),
-        methodology={
-            "candidate_derivation": (
-                "Candidates come from Sweden-scoped Neotoma and LandClim pollen "
-                "points whose names or site descriptions identify lake-like basins. "
-                "Wetland and ambiguous basins stay out of this ranking."
-            ),
-            "distance_bands": list(normalized_radii),
-            "aggregate_radius_weights": {
-                str(radius): _AGGREGATE_RADIUS_WEIGHTS.get(radius, 0.0)
-                for radius in normalized_radii
-            },
-            "score_components": {
-                "direct_pollen_signal": 0.2,
-                "nearby_pollen_signal": 0.1,
-                "archaeology_signal": 0.25,
-                "human_adna_signal": 0.2,
-                "domesticated_animal_signal": 0.15,
-                "evidence_diversity_signal": 0.1,
-            },
-            "archaeology_note": (
-                "SEAD contributes site-level point counts. RAÄ contributes coarse "
-                "1-degree density cells, so the RAÄ term captures archaeology "
-                "richness around the lake rather than precise site-by-site distance."
-            ),
-            "animal_note": (
-                "Domesticated animal aDNA remains sparse in the current Sweden bundle. "
-                "The ranking keeps that sparsity visible instead of inflating it."
-            ),
-        },
+        methodology=_build_methodology(normalized_radii),
         assessments=assessments,
     )
 
@@ -458,6 +466,8 @@ def _load_sweden_context_points(
     *,
     country: str,
 ) -> tuple[ContextPointRecord, ...]:
+    if not path.exists():
+        return ()
     payload = json.loads(path.read_text(encoding="utf-8"))
     features = payload.get("features", [])
     records: list[ContextPointRecord] = []
@@ -520,6 +530,8 @@ def _load_sweden_context_points(
 
 
 def _load_sweden_density_cells(path: Path) -> tuple[_DensityCell, ...]:
+    if not path.exists():
+        return ()
     payload = json.loads(path.read_text(encoding="utf-8"))
     cells: list[_DensityCell] = []
     for feature in payload.get("features", []):
@@ -567,59 +579,80 @@ def _load_sweden_density_cells(path: Path) -> tuple[_DensityCell, ...]:
     return tuple(cells)
 
 
+def _load_sweden_neotoma_position_notes(context_root: Path) -> dict[str, str]:
+    path = context_root / "neotoma" / "raw" / "neotoma_pollen_sites.json"
+    if not path.exists():
+        return {}
+    payload = json.loads(path.read_text(encoding="utf-8"))
+    rows = payload.get("rows", [])
+    if not isinstance(rows, list):
+        return {}
+    notes: dict[str, str] = {}
+    for row in rows:
+        if not isinstance(row, dict):
+            continue
+        site_id = str(row.get("siteid", "")).strip()
+        note = _normalize_note_text(str(row.get("notes", "")))
+        if site_id and note and _note_signals_position_uncertainty(note):
+            notes[site_id] = note
+    return notes
+
+
 def _derive_lake_candidates(
     pollen_points: Iterable[ContextPointRecord],
+    *,
+    neotoma_position_notes: dict[str, str],
 ) -> tuple[LakeEvidenceCandidate, ...]:
-    clusters: list[dict[str, object]] = []
+    lake_points: list[_LakeSourcePoint] = []
     for point in pollen_points:
         basin_posture = _resolve_basin_posture(point.name, point.description)
         if basin_posture != "lake_basin":
             continue
-        name_token = _normalize_text(point.name)
-        matched_cluster: dict[str, object] | None = None
-        for cluster in clusters:
-            distance_km = haversine_km(
-                latitude_a=point.latitude,
-                longitude_a=point.longitude,
-                latitude_b=cluster["latitude"],  # type: ignore[arg-type]
-                longitude_b=cluster["longitude"],  # type: ignore[arg-type]
+        name_key = _lake_name_key(point.name)
+        if not name_key:
+            continue
+        position_note = (
+            neotoma_position_notes.get(point.record_id)
+            if point.layer_key == "neotoma-pollen"
+            else None
+        )
+        lake_points.append(
+            _LakeSourcePoint(
+                point=point,
+                name_key=name_key,
+                cleaned_name=_clean_lake_name_display(point.name),
+                source_record=f"{point.layer_key}:{point.record_id}",
+                position_note=position_note,
             )
-            if distance_km <= 1.5 or (
-                name_token == cluster["name_token"] and distance_km <= 5.0
-            ):
-                matched_cluster = cluster
-                break
-        if matched_cluster is None:
-            clusters.append(
+        )
+
+    components = _build_lake_components(lake_points)
+    provisional_candidates: list[dict[str, object]] = []
+    for component in components:
+        points = tuple(component)
+        canonical_name = _choose_canonical_lake_name(points)
+        average_latitude = round(
+            sum(source_point.point.latitude for source_point in points) / len(points), 6
+        )
+        average_longitude = round(
+            sum(source_point.point.longitude for source_point in points) / len(points), 6
+        )
+        pollen_sources = tuple(sorted({source_point.point.layer_key for source_point in points}))
+        supporting_names = tuple(sorted({source_point.cleaned_name for source_point in points}))
+        supporting_source_records = tuple(
+            sorted({source_point.source_record for source_point in points})
+        )
+        coordinate_spread_km = round(_max_pair_distance(points), 4)
+        ambiguity_flags = list(_base_ambiguity_flags(points, coordinate_spread_km))
+        position_notes = tuple(
+            sorted(
                 {
-                    "latitude": point.latitude,
-                    "longitude": point.longitude,
-                    "name_token": name_token,
-                    "canonical_name": point.name,
-                    "canonical_source": point.layer_key,
-                    "basin_posture": basin_posture,
-                    "points": [point],
+                    source_point.position_note
+                    for source_point in points
+                    if source_point.position_note
                 }
             )
-            continue
-        matched_cluster["points"].append(point)  # type: ignore[index]
-        if _prefer_pollen_name(
-            candidate_name=point.name,
-            candidate_source=point.layer_key,
-            current_name=matched_cluster["canonical_name"],  # type: ignore[arg-type]
-            current_source=matched_cluster["canonical_source"],  # type: ignore[arg-type]
-        ):
-            matched_cluster["canonical_name"] = point.name
-            matched_cluster["canonical_source"] = point.layer_key
-
-    candidates: list[LakeEvidenceCandidate] = []
-    for cluster in clusters:
-        points = tuple(cluster["points"])  # type: ignore[arg-type]
-        canonical_name = str(cluster["canonical_name"])
-        average_latitude = sum(point.latitude for point in points) / len(points)
-        average_longitude = sum(point.longitude for point in points) / len(points)
-        pollen_sources = tuple(sorted({point.layer_key for point in points}))
-        supporting_names = tuple(sorted({point.name for point in points}))
+        )
         direct_pollen_signal = round(
             _weighted_average(
                 (
@@ -631,7 +664,7 @@ def _derive_lake_candidates(
                     0.25,
                 ),
                 (
-                    _time_aware_ratio(points),
+                    _time_aware_ratio(tuple(source_point.point for source_point in points)),
                     0.2,
                 ),
                 (
@@ -641,30 +674,208 @@ def _derive_lake_candidates(
             ),
             4,
         )
-        candidates.append(
-            LakeEvidenceCandidate(
-                lake_name=canonical_name,
-                lake_token=_build_lake_token(
+        provisional_candidates.append(
+            {
+                "lake_name": canonical_name,
+                "name_key": _lake_name_key(canonical_name),
+                "lake_token": _build_lake_token(
                     canonical_name,
                     latitude=average_latitude,
                     longitude=average_longitude,
                 ),
-                latitude=average_latitude,
-                longitude=average_longitude,
-                basin_posture=str(cluster["basin_posture"]),
-                direct_pollen_source_count=len(pollen_sources),
-                direct_pollen_record_count=len(points),
-                time_aware_direct_pollen_records=sum(
+                "latitude": average_latitude,
+                "longitude": average_longitude,
+                "basin_posture": "lake_basin",
+                "direct_pollen_source_count": len(pollen_sources),
+                "direct_pollen_record_count": len(points),
+                "time_aware_direct_pollen_records": sum(
                     1
-                    for point in points
-                    if point.time_start_bp is not None and point.time_end_bp is not None
+                    for source_point in points
+                    if source_point.point.time_start_bp is not None
+                    and source_point.point.time_end_bp is not None
                 ),
-                pollen_sources=pollen_sources,
-                supporting_pollen_names=supporting_names,
-                direct_pollen_signal=direct_pollen_signal,
+                "pollen_sources": pollen_sources,
+                "supporting_pollen_names": supporting_names,
+                "supporting_source_records": supporting_source_records,
+                "coordinate_spread_km": coordinate_spread_km,
+                "ambiguity_flags": ambiguity_flags,
+                "position_notes": position_notes,
+                "direct_pollen_signal": direct_pollen_signal,
+            }
+        )
+
+    duplicate_name_counts = Counter(
+        candidate["name_key"] for candidate in provisional_candidates if candidate["name_key"]
+    )
+    candidates: list[LakeEvidenceCandidate] = []
+    for candidate in provisional_candidates:
+        ambiguity_flags = list(candidate["ambiguity_flags"])
+        duplicate_name_count = duplicate_name_counts[candidate["name_key"]]
+        if duplicate_name_count > 1 and "duplicate_sweden_name" not in ambiguity_flags:
+            ambiguity_flags.append("duplicate_sweden_name")
+        ambiguity_flags = sorted(set(ambiguity_flags))
+        lake_name = str(candidate["lake_name"])
+        latitude = float(candidate["latitude"])
+        longitude = float(candidate["longitude"])
+        candidates.append(
+            LakeEvidenceCandidate(
+                lake_name=lake_name,
+                lake_label=_build_lake_label(
+                    lake_name,
+                    latitude=latitude,
+                    longitude=longitude,
+                    duplicate_name_count=duplicate_name_count,
+                    ambiguity_flags=tuple(ambiguity_flags),
+                ),
+                lake_token=str(candidate["lake_token"]),
+                name_key=str(candidate["name_key"]),
+                latitude=latitude,
+                longitude=longitude,
+                basin_posture=str(candidate["basin_posture"]),
+                direct_pollen_source_count=int(candidate["direct_pollen_source_count"]),
+                direct_pollen_record_count=int(candidate["direct_pollen_record_count"]),
+                time_aware_direct_pollen_records=int(
+                    candidate["time_aware_direct_pollen_records"]
+                ),
+                pollen_sources=tuple(candidate["pollen_sources"]),  # type: ignore[arg-type]
+                supporting_pollen_names=tuple(
+                    candidate["supporting_pollen_names"]  # type: ignore[arg-type]
+                ),
+                supporting_source_records=tuple(
+                    candidate["supporting_source_records"]  # type: ignore[arg-type]
+                ),
+                duplicate_name_count=duplicate_name_count,
+                coordinate_spread_km=float(candidate["coordinate_spread_km"]),
+                ambiguity_flags=tuple(ambiguity_flags),
+                ambiguity_note=_build_ambiguity_note(
+                    duplicate_name_count=duplicate_name_count,
+                    coordinate_spread_km=float(candidate["coordinate_spread_km"]),
+                    ambiguity_flags=tuple(ambiguity_flags),
+                    position_notes=tuple(candidate["position_notes"]),  # type: ignore[arg-type]
+                ),
+                direct_pollen_signal=float(candidate["direct_pollen_signal"]),
             )
         )
-    return tuple(sorted(candidates, key=lambda candidate: candidate.lake_name))
+    return tuple(sorted(candidates, key=lambda candidate: candidate.lake_label))
+
+
+def _build_lake_components(
+    lake_points: Sequence[_LakeSourcePoint],
+) -> tuple[tuple[_LakeSourcePoint, ...], ...]:
+    components: list[tuple[_LakeSourcePoint, ...]] = []
+    visited: set[int] = set()
+    adjacency = {
+        index: {
+            other_index
+            for other_index in range(len(lake_points))
+            if other_index != index
+            and _lake_points_match(lake_points[index], lake_points[other_index])
+        }
+        for index in range(len(lake_points))
+    }
+    for index in range(len(lake_points)):
+        if index in visited:
+            continue
+        stack = [index]
+        component_indexes: list[int] = []
+        while stack:
+            current = stack.pop()
+            if current in visited:
+                continue
+            visited.add(current)
+            component_indexes.append(current)
+            stack.extend(adjacency[current] - visited)
+        components.append(
+            tuple(
+                sorted(
+                    (lake_points[item] for item in component_indexes),
+                    key=lambda source_point: (
+                        source_point.cleaned_name,
+                        source_point.point.layer_key,
+                        source_point.point.record_id,
+                    ),
+                )
+            )
+        )
+    return tuple(components)
+
+
+def _lake_points_match(left: _LakeSourcePoint, right: _LakeSourcePoint) -> bool:
+    if left.name_key != right.name_key:
+        return False
+    return (
+        haversine_km(
+            latitude_a=left.point.latitude,
+            longitude_a=left.point.longitude,
+            latitude_b=right.point.latitude,
+            longitude_b=right.point.longitude,
+        )
+        <= _LAKE_MATCH_DISTANCE_KM
+    )
+
+
+def _choose_canonical_lake_name(points: Sequence[_LakeSourcePoint]) -> str:
+    cleaned_counts = Counter(source_point.cleaned_name for source_point in points)
+    best = max(
+        points,
+        key=lambda source_point: (
+            _name_has_non_ascii(source_point.cleaned_name),
+            cleaned_counts[source_point.cleaned_name],
+            _lake_name_source_priority(source_point.point.layer_key),
+            len(source_point.cleaned_name),
+            source_point.cleaned_name,
+        ),
+    )
+    return best.cleaned_name
+
+
+def _base_ambiguity_flags(
+    points: Sequence[_LakeSourcePoint], coordinate_spread_km: float
+) -> tuple[str, ...]:
+    flags: set[str] = set()
+    if len({source_point.cleaned_name for source_point in points}) > 1:
+        flags.add("source_name_variants")
+    if coordinate_spread_km >= _COORDINATE_SPREAD_FLAG_KM:
+        flags.add("source_coordinate_spread")
+    if any(source_point.position_note for source_point in points):
+        flags.add("source_position_note")
+    return tuple(sorted(flags))
+
+
+def _build_lake_label(
+    lake_name: str,
+    *,
+    latitude: float,
+    longitude: float,
+    duplicate_name_count: int,
+    ambiguity_flags: tuple[str, ...],
+) -> str:
+    if duplicate_name_count > 1 or ambiguity_flags:
+        return f"{lake_name} ({latitude:.4f}, {longitude:.4f})"
+    return lake_name
+
+
+def _build_ambiguity_note(
+    *,
+    duplicate_name_count: int,
+    coordinate_spread_km: float,
+    ambiguity_flags: tuple[str, ...],
+    position_notes: tuple[str, ...],
+) -> str:
+    parts: list[str] = []
+    if "duplicate_sweden_name" in ambiguity_flags:
+        parts.append(
+            f"{duplicate_name_count} Sweden candidates share this cleaned lake name."
+        )
+    if "source_coordinate_spread" in ambiguity_flags:
+        parts.append(
+            f"Source coordinates span {coordinate_spread_km:.2f} km inside this candidate."
+        )
+    if "source_name_variants" in ambiguity_flags:
+        parts.append("Source records use more than one lake name form for this candidate.")
+    if "source_position_note" in ambiguity_flags and position_notes:
+        parts.append(position_notes[0])
+    return " ".join(parts)
 
 
 def _build_raw_band_metrics(
@@ -781,25 +992,60 @@ def _resolve_basin_posture(name: str, description: str) -> str:
     return "ambiguous_basin"
 
 
-def _prefer_pollen_name(
-    *,
-    candidate_name: str,
-    candidate_source: str,
-    current_name: str,
-    current_source: str,
-) -> bool:
-    if current_source != "neotoma-pollen" and candidate_source == "neotoma-pollen":
-        return True
-    if current_source == candidate_source and len(candidate_name) > len(current_name):
-        return True
-    return False
-
-
 def _build_lake_token(name: str, *, latitude: float, longitude: float) -> str:
     return (
-        f"sweden_lake:{_normalize_text(name)}:"
+        f"sweden_lake:{_lake_name_key(name)}:"
         f"{round(latitude, 4)}:{round(longitude, 4)}"
     )
+
+
+def _lake_name_key(value: str) -> str:
+    tokens = _tokenize_lake_name(value)
+    while tokens and (tokens[0] in _GENERIC_LAKE_TOKENS or len(tokens[0]) == 1):
+        tokens = tokens[1:]
+    return "".join(tokens)
+
+
+def _tokenize_lake_name(value: str) -> list[str]:
+    normalized = unicodedata.normalize("NFKD", value).encode("ascii", "ignore").decode(
+        "ascii"
+    )
+    return [token for token in re.findall(r"[a-z0-9]+", normalized.casefold()) if token]
+
+
+def _clean_lake_name_display(value: str) -> str:
+    cleaned = re.sub(r"^\s*lake\s+", "", value, flags=re.IGNORECASE)
+    cleaned = re.sub(r"^\s*[A-Za-zÅÄÖåäö]\.\s+", "", cleaned)
+    cleaned = re.sub(r"\s+", " ", cleaned).strip(" -")
+    return cleaned or value.strip()
+
+
+def _lake_name_source_priority(layer_key: str) -> int:
+    priorities = {
+        "landclim-sites": 3,
+        "neotoma-pollen": 2,
+    }
+    return priorities.get(layer_key, 0)
+
+
+def _name_has_non_ascii(value: str) -> int:
+    return 1 if any(ord(character) > 127 for character in value) else 0
+
+
+def _max_pair_distance(points: Sequence[_LakeSourcePoint]) -> float:
+    maximum = 0.0
+    for left_index, left in enumerate(points):
+        for right in points[left_index + 1 :]:
+            maximum = max(
+                maximum,
+                haversine_km(
+                    latitude_a=left.point.latitude,
+                    longitude_a=left.point.longitude,
+                    latitude_b=right.point.latitude,
+                    longitude_b=right.point.longitude,
+                ),
+            )
+    return maximum
 
 
 def _normalize_text(value: str) -> str:
@@ -808,6 +1054,14 @@ def _normalize_text(value: str) -> str:
     )
     compact = re.sub(r"[^a-z0-9]+", "", normalized.casefold())
     return compact
+
+
+def _normalize_note_text(value: str) -> str:
+    return re.sub(r"\s+", " ", value.replace("\r", " ").replace("\n", " ")).strip()
+
+
+def _note_signals_position_uncertainty(note: str) -> bool:
+    return any(pattern.search(note) for pattern in _POSITION_NOTE_PATTERNS)
 
 
 def _time_aware_ratio(points: Sequence[ContextPointRecord]) -> float:
@@ -878,3 +1132,59 @@ def _optional_int(value: object) -> int | None:
     if isinstance(value, int):
         return value
     return None
+
+
+def _build_empty_report(radii_km: tuple[int, ...]) -> LakeEvidenceRichnessReport:
+    return LakeEvidenceRichnessReport(
+        schema_version="sweden-lake-evidence-richness.v2",
+        country="Sweden",
+        radii_km=radii_km,
+        methodology=_build_methodology(radii_km),
+        candidate_count=0,
+        assessments=(),
+    )
+
+
+def _build_methodology(radii_km: tuple[int, ...]) -> dict[str, object]:
+    return {
+        "candidate_derivation": (
+            "Candidates come from Sweden-scoped Neotoma and LandClim pollen "
+            "points whose names or site descriptions identify lake-like basins. "
+            "Points merge only when their cleaned lake names match and their "
+            "coordinates stay within 2 km, so nearby but differently named lakes "
+            "remain distinct. Duplicate names, coordinate spread, and source "
+            "position notes remain explicit as ambiguity diagnostics."
+        ),
+        "distance_bands": list(radii_km),
+        "aggregate_radius_weights": {
+            str(radius): _AGGREGATE_RADIUS_WEIGHTS.get(radius, 0.0)
+            for radius in radii_km
+        },
+        "score_components": {
+            "direct_pollen_signal": 0.2,
+            "nearby_pollen_signal": 0.1,
+            "archaeology_signal": 0.25,
+            "human_adna_signal": 0.2,
+            "domesticated_animal_signal": 0.15,
+            "evidence_diversity_signal": 0.1,
+        },
+        "identity_diagnostics": {
+            "coordinate_spread_flag_km": _COORDINATE_SPREAD_FLAG_KM,
+            "name_match_distance_km": _LAKE_MATCH_DISTANCE_KM,
+            "ambiguity_flags": [
+                "duplicate_sweden_name",
+                "source_coordinate_spread",
+                "source_name_variants",
+                "source_position_note",
+            ],
+        },
+        "archaeology_note": (
+            "SEAD contributes site-level point counts. RAÄ contributes coarse "
+            "1-degree density cells, so the RAÄ term captures archaeology "
+            "richness around the lake rather than precise site-by-site distance."
+        ),
+        "animal_note": (
+            "Domesticated animal aDNA remains sparse in the current Sweden bundle. "
+            "The ranking keeps that sparsity visible instead of inflating it."
+        ),
+    }

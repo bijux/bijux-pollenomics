@@ -23,15 +23,21 @@ from .ranking import (
     temporal_overlap,
 )
 from .review import (
+    build_lake_evidence_richness_geojson,
     render_candidate_site_markdown,
     render_candidate_site_sensitivity_markdown,
+    render_lake_evidence_richness_map_html,
     render_lake_evidence_richness_markdown,
     render_lake_evidence_richness_section,
     write_candidate_site_sensitivity_json,
     write_candidate_sites_csv,
     write_candidate_sites_json,
     write_lake_evidence_richness_band_csv,
+    write_lake_evidence_richness_geojson,
     write_lake_evidence_richness_json,
+    write_lake_evidence_richness_map_html,
+    write_lake_evidence_richness_registry_csv,
+    write_lake_evidence_richness_scenario_csv,
 )
 from .site_candidates import (
     CandidateRankingProfile,
@@ -56,6 +62,7 @@ __all__ = [
     "LakeEvidenceRichnessReport",
     "RankingEngineManifest",
     "build_candidate_context",
+    "build_lake_evidence_richness_geojson",
     "build_ranking_engine_manifest",
     "build_ranking_profiles",
     "build_ranking_sensitivity_report",
@@ -66,6 +73,7 @@ __all__ = [
     "rank_localities",
     "render_candidate_site_markdown",
     "render_candidate_site_sensitivity_markdown",
+    "render_lake_evidence_richness_map_html",
     "render_lake_evidence_richness_markdown",
     "render_lake_evidence_richness_section",
     "resolve_ranking_profile",
@@ -76,5 +84,9 @@ __all__ = [
     "write_candidate_sites_csv",
     "write_candidate_sites_json",
     "write_lake_evidence_richness_band_csv",
+    "write_lake_evidence_richness_geojson",
     "write_lake_evidence_richness_json",
+    "write_lake_evidence_richness_map_html",
+    "write_lake_evidence_richness_registry_csv",
+    "write_lake_evidence_richness_scenario_csv",
 ]

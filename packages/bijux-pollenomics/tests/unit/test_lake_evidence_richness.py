@@ -13,9 +13,13 @@ from bijux_pollenomics.adna import (
 )
 from bijux_pollenomics.analysis import (
     build_sweden_lake_evidence_richness_report,
+    build_lake_evidence_richness_geojson,
     render_lake_evidence_richness_markdown,
     write_lake_evidence_richness_band_csv,
+    write_lake_evidence_richness_geojson,
     write_lake_evidence_richness_json,
+    write_lake_evidence_richness_registry_csv,
+    write_lake_evidence_richness_scenario_csv,
 )
 
 
@@ -302,11 +306,11 @@ def test_build_sweden_lake_evidence_richness_report_ranks_multi_signal_lakes() -
             ),
         )
 
-        assert report.schema_version == "sweden-lake-evidence-richness.v1"
+        assert report.schema_version == "sweden-lake-evidence-richness.v2"
         assert report.candidate_count == 2
         assert [assessment.candidate.lake_name for assessment in report.assessments] == [
-            "Lake Alpha",
-            "Lake Gamma",
+            "Alpha",
+            "Gamma",
         ]
         top = report.assessments[0]
         assert top.candidate.direct_pollen_source_count == 2
@@ -315,6 +319,167 @@ def test_build_sweden_lake_evidence_richness_report_ranks_multi_signal_lakes() -
         assert top.band_scores[0].domesticated_animal_locality_count == 1
         assert top.band_scores[0].sead_site_count == 2
         assert top.band_scores[0].raa_density_site_count == 1200
+        assert top.candidate.lake_label == "Alpha"
+        assert top.candidate.ambiguity_flags == ()
+
+
+def test_lake_candidates_do_not_merge_different_nearby_lakes() -> None:
+    with tempfile.TemporaryDirectory() as tmp:
+        root = Path(tmp)
+        _write_json(
+            root / "neotoma" / "normalized" / "nordic_pollen_sites.geojson",
+            {
+                "type": "FeatureCollection",
+                "features": [
+                    _point_feature(
+                        source="Neotoma",
+                        layer_key="neotoma-pollen",
+                        layer_label="Neotoma pollen sites",
+                        category="Pollen",
+                        country="Sweden",
+                        record_id="n1",
+                        name="Bjäresjösjön",
+                        latitude=55.4560,
+                        longitude=13.7560,
+                        description="Lake basin with chronology.",
+                    ),
+                    _point_feature(
+                        source="Neotoma",
+                        layer_key="neotoma-pollen",
+                        layer_label="Neotoma pollen sites",
+                        category="Pollen",
+                        country="Sweden",
+                        record_id="n2",
+                        name="Bjärsjöholmssjön",
+                        latitude=55.4520,
+                        longitude=13.7818,
+                        description="Nearby but distinct lake basin.",
+                    ),
+                ],
+            },
+        )
+        _write_json(
+            root / "landclim" / "normalized" / "nordic_pollen_site_sequences.geojson",
+            {"type": "FeatureCollection", "features": []},
+        )
+        _write_json(
+            root / "sead" / "normalized" / "nordic_environmental_sites.geojson",
+            {"type": "FeatureCollection", "features": []},
+        )
+        _write_json(
+            root / "raa" / "normalized" / "sweden_archaeology_density.geojson",
+            {"type": "FeatureCollection", "features": []},
+        )
+
+        report = build_sweden_lake_evidence_richness_report(
+            context_root=root,
+            human_localities=(),
+            animal_localities=(),
+        )
+
+        assert report.candidate_count == 2
+        assert {assessment.candidate.lake_name for assessment in report.assessments} == {
+            "Bjäresjösjön",
+            "Bjärsjöholmssjön",
+        }
+
+
+def test_lake_candidates_flag_duplicate_names_and_source_position_notes() -> None:
+    with tempfile.TemporaryDirectory() as tmp:
+        root = Path(tmp)
+        _write_json(
+            root / "neotoma" / "normalized" / "nordic_pollen_sites.geojson",
+            {
+                "type": "FeatureCollection",
+                "features": [
+                    _point_feature(
+                        source="Neotoma",
+                        layer_key="neotoma-pollen",
+                        layer_label="Neotoma pollen sites",
+                        category="Pollen",
+                        country="Sweden",
+                        record_id="3288",
+                        name="M. Lommesjön",
+                        latitude=56.2000,
+                        longitude=13.1000,
+                        description="Lake basin with uncertain publication position.",
+                    ),
+                    _point_feature(
+                        source="Neotoma",
+                        layer_key="neotoma-pollen",
+                        layer_label="Neotoma pollen sites",
+                        category="Pollen",
+                        country="Sweden",
+                        record_id="31818",
+                        name="Lillsjön",
+                        latitude=57.93223,
+                        longitude=16.38903,
+                        description="Lake basin in Småland.",
+                    ),
+                    _point_feature(
+                        source="Neotoma",
+                        layer_key="neotoma-pollen",
+                        layer_label="Neotoma pollen sites",
+                        category="Pollen",
+                        country="Sweden",
+                        record_id="3238",
+                        name="Lillsjön",
+                        latitude=57.08333,
+                        longitude=12.53333,
+                        description="Lake basin in Halland.",
+                    ),
+                ],
+            },
+        )
+        _write_json(
+            root / "neotoma" / "raw" / "neotoma_pollen_sites.json",
+            {
+                "generated_on": "2026-06-22",
+                "source": "Neotoma",
+                "datasettype": "pollen",
+                "site_count": 1,
+                "dataset_count": 1,
+                "rows": [
+                    {
+                        "siteid": 3288,
+                        "sitename": "M. Lommesjön",
+                        "notes": (
+                            "We assume that the site is Lake Lommesjön. "
+                            "However, another lake also called Lommesjön is found "
+                            "approx. 1 km NE and the position is not clear in the publication."
+                        ),
+                    }
+                ],
+            },
+        )
+        _write_json(
+            root / "landclim" / "normalized" / "nordic_pollen_site_sequences.geojson",
+            {"type": "FeatureCollection", "features": []},
+        )
+        _write_json(
+            root / "sead" / "normalized" / "nordic_environmental_sites.geojson",
+            {"type": "FeatureCollection", "features": []},
+        )
+        _write_json(
+            root / "raa" / "normalized" / "sweden_archaeology_density.geojson",
+            {"type": "FeatureCollection", "features": []},
+        )
+
+        report = build_sweden_lake_evidence_richness_report(
+            context_root=root,
+            human_localities=(),
+            animal_localities=(),
+        )
+
+        labels = {assessment.candidate.lake_label for assessment in report.assessments}
+        assert any(label.startswith("Lillsjön (") for label in labels)
+        lommesjon = next(
+            assessment.candidate
+            for assessment in report.assessments
+            if assessment.candidate.lake_name == "Lommesjön"
+        )
+        assert "source_position_note" in lommesjon.ambiguity_flags
+        assert "position is not clear" in lommesjon.ambiguity_note
 
 
 def test_lake_evidence_richness_packets_write_reviewable_outputs() -> None:
@@ -359,16 +524,89 @@ def test_lake_evidence_richness_packets_write_reviewable_outputs() -> None:
             animal_localities=(),
         )
         json_path = root / "lake_evidence.json"
-        csv_path = root / "lake_evidence.csv"
+        band_csv_path = root / "lake_evidence_bands.csv"
+        registry_csv_path = root / "lake_evidence_registry.csv"
+        scenario_csv_path = root / "lake_evidence_scenarios.csv"
+        geojson_path = root / "lake_evidence.geojson"
         markdown = render_lake_evidence_richness_markdown(report)
         write_lake_evidence_richness_json(json_path, report)
-        write_lake_evidence_richness_band_csv(csv_path, report)
+        write_lake_evidence_richness_band_csv(band_csv_path, report)
+        write_lake_evidence_richness_registry_csv(registry_csv_path, report)
+        write_lake_evidence_richness_scenario_csv(scenario_csv_path, report)
+        write_lake_evidence_richness_geojson(geojson_path, report)
 
         payload = json.loads(json_path.read_text(encoding="utf-8"))
-        with csv_path.open(encoding="utf-8", newline="") as handle:
-            rows = list(csv.DictReader(handle))
+        with band_csv_path.open(encoding="utf-8", newline="") as handle:
+            band_rows = list(csv.DictReader(handle))
+        with registry_csv_path.open(encoding="utf-8", newline="") as handle:
+            registry_rows = list(csv.DictReader(handle))
+        with scenario_csv_path.open(encoding="utf-8", newline="") as handle:
+            scenario_rows = list(csv.DictReader(handle))
+        geojson = json.loads(geojson_path.read_text(encoding="utf-8"))
 
         assert payload["candidate_count"] == 1
-        assert len(rows) == len(report.radii_km)
+        assert len(band_rows) == len(report.radii_km)
+        assert len(registry_rows) == 1
+        assert len(scenario_rows) == len(report.radii_km) + 1
+        assert geojson["type"] == "FeatureCollection"
+        assert geojson["features"][0]["properties"]["name"] == "Alpha"
         assert markdown.startswith("# Sweden lake evidence richness")
         assert "## 10 km Ranking" in markdown
+
+
+def test_lake_evidence_geojson_matches_report_candidate_count() -> None:
+    with tempfile.TemporaryDirectory() as tmp:
+        root = Path(tmp)
+        _write_json(
+            root / "neotoma" / "normalized" / "nordic_pollen_sites.geojson",
+            {
+                "type": "FeatureCollection",
+                "features": [
+                    _point_feature(
+                        source="Neotoma",
+                        layer_key="neotoma-pollen",
+                        layer_label="Neotoma pollen sites",
+                        category="Pollen",
+                        country="Sweden",
+                        record_id="n1",
+                        name="Lake Alpha",
+                        latitude=57.0,
+                        longitude=14.0,
+                        description="Lake basin with deep sequence.",
+                    ),
+                    _point_feature(
+                        source="Neotoma",
+                        layer_key="neotoma-pollen",
+                        layer_label="Neotoma pollen sites",
+                        category="Pollen",
+                        country="Sweden",
+                        record_id="n2",
+                        name="Lake Beta",
+                        latitude=58.0,
+                        longitude=15.0,
+                        description="Lake basin with deep sequence.",
+                    ),
+                ],
+            },
+        )
+        _write_json(
+            root / "landclim" / "normalized" / "nordic_pollen_site_sequences.geojson",
+            {"type": "FeatureCollection", "features": []},
+        )
+        _write_json(
+            root / "sead" / "normalized" / "nordic_environmental_sites.geojson",
+            {"type": "FeatureCollection", "features": []},
+        )
+        _write_json(
+            root / "raa" / "normalized" / "sweden_archaeology_density.geojson",
+            {"type": "FeatureCollection", "features": []},
+        )
+
+        report = build_sweden_lake_evidence_richness_report(
+            context_root=root,
+            human_localities=(),
+            animal_localities=(),
+        )
+        geojson = build_lake_evidence_richness_geojson(report)
+
+        assert len(geojson["features"]) == report.candidate_count
