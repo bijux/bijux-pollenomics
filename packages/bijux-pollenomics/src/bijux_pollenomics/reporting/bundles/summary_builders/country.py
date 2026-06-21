@@ -57,6 +57,12 @@ def build_country_report_summary(
             "map_html": bundle_paths.lake_evidence_richness_map_html_path.name,
             "markdown": bundle_paths.lake_evidence_richness_markdown_path.name,
         }
+    if bundle_paths.lake_fieldwork_preparation_json_path.exists():
+        payload["lake_fieldwork_preparation"] = {
+            "json": bundle_paths.lake_fieldwork_preparation_json_path.name,
+            "csv": bundle_paths.lake_fieldwork_preparation_csv_path.name,
+            "markdown": bundle_paths.lake_fieldwork_preparation_markdown_path.name,
+        }
     return payload
 
 
@@ -102,6 +108,12 @@ def build_country_bundle_manifest(
             "geojson": bundle_paths.lake_evidence_richness_geojson_path.name,
             "map_html": bundle_paths.lake_evidence_richness_map_html_path.name,
             "markdown": bundle_paths.lake_evidence_richness_markdown_path.name,
+        }
+    if bundle_paths.lake_fieldwork_preparation_json_path.exists():
+        payload["lake_fieldwork_preparation"] = {
+            "json": bundle_paths.lake_fieldwork_preparation_json_path.name,
+            "csv": bundle_paths.lake_fieldwork_preparation_csv_path.name,
+            "markdown": bundle_paths.lake_fieldwork_preparation_markdown_path.name,
         }
     return payload
 

@@ -4,7 +4,12 @@ from collections.abc import Callable, Iterable
 from pathlib import Path
 
 from ...analysis import (
+    build_lake_fieldwork_preparation_payload,
     build_sweden_lake_evidence_richness_report,
+    render_lake_fieldwork_preparation_markdown,
+    render_lake_fieldwork_preparation_section,
+    write_lake_fieldwork_preparation_csv,
+    write_lake_fieldwork_preparation_json,
     write_lake_evidence_richness_geojson,
     render_lake_evidence_richness_markdown,
     render_lake_evidence_richness_section,
@@ -60,6 +65,7 @@ def publish_country_report_bundle(
     write_samples_geojson_fn(bundle_paths.samples_geojson_path, report.samples)
     animal_section_markdown = ""
     lake_section_markdown = ""
+    lake_fieldwork_section_markdown = ""
     animal_localities: tuple[dict[str, object], ...] = ()
     if context_root is not None:
         animal_bundle = build_country_animal_output_bundle(
@@ -143,6 +149,19 @@ def publish_country_report_bundle(
             render_lake_evidence_richness_markdown(lake_report),
             encoding="utf-8",
         )
+        write_lake_fieldwork_preparation_json(
+            bundle_paths.lake_fieldwork_preparation_json_path,
+            lake_report,
+        )
+        write_lake_fieldwork_preparation_csv(
+            bundle_paths.lake_fieldwork_preparation_csv_path,
+            lake_report,
+        )
+        lake_fieldwork_payload = build_lake_fieldwork_preparation_payload(lake_report)
+        bundle_paths.lake_fieldwork_preparation_markdown_path.write_text(
+            render_lake_fieldwork_preparation_markdown(lake_fieldwork_payload),
+            encoding="utf-8",
+        )
         lake_section_markdown = render_lake_evidence_richness_section(
             json_name=bundle_paths.lake_evidence_richness_json_path.name,
             registry_csv_name=bundle_paths.lake_evidence_richness_registry_csv_path.name,
@@ -151,6 +170,11 @@ def publish_country_report_bundle(
             geojson_name=bundle_paths.lake_evidence_richness_geojson_path.name,
             map_html_name=bundle_paths.lake_evidence_richness_map_html_path.name,
             markdown_name=bundle_paths.lake_evidence_richness_markdown_path.name,
+        )
+        lake_fieldwork_section_markdown = render_lake_fieldwork_preparation_section(
+            json_name=bundle_paths.lake_fieldwork_preparation_json_path.name,
+            csv_name=bundle_paths.lake_fieldwork_preparation_csv_path.name,
+            markdown_name=bundle_paths.lake_fieldwork_preparation_markdown_path.name,
         )
     write_summary_json_fn(
         bundle_paths.bundle_manifest_path,
@@ -174,6 +198,7 @@ def publish_country_report_bundle(
             map_reference=map_reference,
             animal_section_markdown=animal_section_markdown,
             lake_section_markdown=lake_section_markdown,
+            lake_fieldwork_section_markdown=lake_fieldwork_section_markdown,
         ),
         encoding="utf-8",
     )
