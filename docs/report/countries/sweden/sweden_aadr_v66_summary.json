@@ -9,7 +9,7 @@
     "1240k": 416,
     "ho": 416
   },
-  "output_dir": "/Users/bijan/bijux/bijux-pollenomics/docs/report/countries/sweden",
+  "output_dir": "docs/report/countries/sweden",
   "artifacts": {
     "bundle_manifest": "sweden_aadr_v66_bundle.json",
     "readme": "README.md",
@@ -35,7 +35,11 @@
   },
   "lake_evidence_richness": {
     "json": "sweden_lake_evidence_richness_v66.json",
+    "registry_csv": "sweden_lake_evidence_richness_v66_registry.csv",
+    "scenarios_csv": "sweden_lake_evidence_richness_v66_scenarios.csv",
     "bands_csv": "sweden_lake_evidence_richness_v66_bands.csv",
+    "geojson": "sweden_lake_evidence_richness_v66.geojson",
+    "map_html": "sweden_lake_evidence_richness_v66_map.html",
     "markdown": "sweden_lake_evidence_richness_v66.md"
   }
 }

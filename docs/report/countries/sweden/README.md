@@ -25,7 +25,6 @@ The report deduplicates samples by `genetic_id` across datasets. Dataset row cou
 
 ## Output Files
 
-- Shared interactive map: <a href="../../regions/nordic/nordic_map.html">Nordic Evidence Surface</a>
 - Full sample inventory: [`sweden_aadr_v66_samples.csv`](./sweden_aadr_v66_samples.csv)
 - Locality summary: [`sweden_aadr_v66_localities.csv`](./sweden_aadr_v66_localities.csv)
 - Map-ready GeoJSON: [`sweden_aadr_v66_samples.geojson`](./sweden_aadr_v66_samples.geojson)
@@ -84,6 +83,10 @@ The report deduplicates samples by `genetic_id` across datasets. Dataset row cou
 ## Lake Evidence Richness
 
 - Sweden lake evidence richness JSON: [`sweden_lake_evidence_richness_v66.json`](./sweden_lake_evidence_richness_v66.json)
-- Sweden lake evidence richness distance-band CSV: [`sweden_lake_evidence_richness_v66_bands.csv`](./sweden_lake_evidence_richness_v66_bands.csv)
-- Sweden lake evidence richness markdown: [`sweden_lake_evidence_richness_v66.md`](./sweden_lake_evidence_richness_v66.md)
+- Sweden lake evidence registry CSV: [`sweden_lake_evidence_richness_v66_registry.csv`](./sweden_lake_evidence_richness_v66_registry.csv)
+- Sweden lake evidence scenario CSV: [`sweden_lake_evidence_richness_v66_scenarios.csv`](./sweden_lake_evidence_richness_v66_scenarios.csv)
+- Sweden lake evidence distance-band CSV: [`sweden_lake_evidence_richness_v66_bands.csv`](./sweden_lake_evidence_richness_v66_bands.csv)
+- Sweden lake evidence GeoJSON: [`sweden_lake_evidence_richness_v66.geojson`](./sweden_lake_evidence_richness_v66.geojson)
+- Sweden lake evidence map: [`sweden_lake_evidence_richness_v66_map.html`](./sweden_lake_evidence_richness_v66_map.html)
+- Sweden lake evidence markdown: [`sweden_lake_evidence_richness_v66.md`](./sweden_lake_evidence_richness_v66.md)
 
