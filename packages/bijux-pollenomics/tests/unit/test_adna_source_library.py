@@ -9,6 +9,7 @@ from unittest.mock import patch
 import zipfile
 
 from bijux_pollenomics.adna.sources import library as source_library_module
+from bijux_pollenomics.adna.source_artifact_storage import read_source_artifact_text
 from bijux_pollenomics.adna.sources.inventory import (
     build_reference_stash_doi_integrity_audit,
     build_reference_stash_reconciliation,
@@ -544,6 +545,50 @@ class AdnaSourceLibraryUnitTests(unittest.TestCase):
             )
             self.assertEqual(intake_audit["sample_extractable_violations"], [])
             self.assertTrue(release_guard["passing"])
+            article_path = (
+                output_root
+                / "adna"
+                / "governance"
+                / "source_library"
+                / "papers"
+                / "10.1038-s41562-021-01083-y"
+                / "article.html"
+            )
+            archive_path = (
+                output_root
+                / "adna"
+                / "governance"
+                / "source_library"
+                / "projects"
+                / "PRJEB36540"
+                / "archive_metadata.html"
+            )
+            article_metadata_path = article_path.with_suffix(
+                article_path.suffix + ".metadata.json"
+            )
+            archive_metadata_path = archive_path.with_suffix(
+                archive_path.suffix + ".metadata.json"
+            )
+            self.assertFalse(article_path.is_file())
+            self.assertTrue(article_path.with_name("article.html.gz").is_file())
+            self.assertFalse(archive_path.is_file())
+            self.assertTrue(
+                archive_path.with_name("archive_metadata.html.gz").is_file()
+            )
+            self.assertEqual(
+                read_source_artifact_text(article_path),
+                "<html><body>ok</body></html>",
+            )
+            self.assertEqual(
+                read_source_artifact_text(archive_path),
+                "<html><body>ok</body></html>",
+            )
+            article_metadata = json.loads(article_metadata_path.read_text("utf-8"))
+            archive_metadata = json.loads(archive_metadata_path.read_text("utf-8"))
+            self.assertEqual(article_metadata["content_encoding"], "gzip")
+            self.assertTrue(article_metadata["storage_path"].endswith(".html.gz"))
+            self.assertEqual(archive_metadata["content_encoding"], "gzip")
+            self.assertTrue(archive_metadata["storage_path"].endswith(".html.gz"))
 
             bundle_path = (
                 output_root

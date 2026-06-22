@@ -15,6 +15,11 @@ from ...core.files import write_json, write_text
 from ...core.http import validate_http_url
 from ..governance_contracts import materialize_adna_governance_contracts
 from ..paths import ADNA_SOURCE_LIBRARY_DIR, adna_source_library_root
+from ..source_artifact_storage import (
+    resolve_source_artifact_path,
+    source_artifact_exists,
+    write_source_artifact_bytes,
+)
 from .ena import build_archive_project_catalog
 
 __all__ = [
@@ -1237,8 +1242,8 @@ def build_source_intake_audit(output_root: Path) -> dict[str, object]:
 
 def _resolve_data_relative_path(output_root: Path, path: str) -> Path:
     if path.startswith("data/"):
-        return output_root / path.removeprefix("data/")
-    return output_root / path
+        return resolve_source_artifact_path(output_root / path.removeprefix("data/"))
+    return resolve_source_artifact_path(output_root / path)
 
 
 def build_source_intake_release_guard(output_root: Path) -> dict[str, object]:
@@ -1288,7 +1293,7 @@ def refresh_source_library(
             pass
         else:
             archive_path = project_dir / "archive_metadata.html"
-            archive_path.write_bytes(payload)
+            stored_path = write_source_artifact_bytes(archive_path, payload)
             write_json(
                 archive_path.with_suffix(archive_path.suffix + ".metadata.json"),
                 {
@@ -1297,6 +1302,11 @@ def refresh_source_library(
                     "artifact_kind": "archive_metadata_html",
                     "content_type": content_type,
                     "byte_size": len(payload),
+                    "storage_byte_size": stored_path.stat().st_size,
+                    "storage_path": str(stored_path.relative_to(output_root)),
+                    "content_encoding": (
+                        "gzip" if stored_path.suffix == ".gz" else None
+                    ),
                     "project_accession": project.project_accession,
                 },
             )
@@ -1309,13 +1319,16 @@ def refresh_source_library(
                 payload, content_type = downloader(asset.source_url)
             except (HTTPError, URLError, TimeoutError, ValueError):
                 continue
-            local_path.write_bytes(payload)
+            stored_path = write_source_artifact_bytes(local_path, payload)
             metadata = {
                 "schema_version": SOURCE_LIBRARY_SCHEMA_VERSION,
                 "source_url": asset.source_url,
                 "artifact_kind": asset.artifact_kind,
                 "content_type": content_type,
                 "byte_size": len(payload),
+                "storage_byte_size": stored_path.stat().st_size,
+                "storage_path": str(stored_path.relative_to(output_root)),
+                "content_encoding": "gzip" if stored_path.suffix == ".gz" else None,
                 "paper_doi": doi,
             }
             write_json(
@@ -1680,9 +1693,9 @@ def _iter_materialized_artifacts(output_root: Path) -> tuple[AdnaSourceArtifact,
             fetch_status = "archived"
             content_type = payload.get("content_type")
             byte_size = payload.get("byte_size")
-        elif local_path.is_file():
+        elif source_artifact_exists(local_path):
             fetch_status = "archived"
-            byte_size = local_path.stat().st_size
+            byte_size = resolve_source_artifact_path(local_path).stat().st_size
         rows.append(
             AdnaSourceArtifact(
                 artifact_id=f"{project.project_accession}:archive_metadata.html",
@@ -1721,9 +1734,9 @@ def _iter_materialized_artifacts(output_root: Path) -> tuple[AdnaSourceArtifact,
                 fetch_status = "archived"
                 content_type = payload.get("content_type")
                 byte_size = payload.get("byte_size")
-            elif local_path.is_file():
+            elif source_artifact_exists(local_path):
                 fetch_status = "archived"
-                byte_size = local_path.stat().st_size
+                byte_size = resolve_source_artifact_path(local_path).stat().st_size
             rows.append(
                 AdnaSourceArtifact(
                     artifact_id=_artifact_id(doi, local_path.name),
@@ -1756,7 +1769,9 @@ def _iter_materialized_artifacts(output_root: Path) -> tuple[AdnaSourceArtifact,
                 label=str(payload.get("artifact_label", artifact_path.name)),
                 source_url=str(payload.get("source_url", "")),
                 local_path=str(artifact_path.relative_to(output_root)),
-                fetch_status="archived" if artifact_path.is_file() else "missing",
+                fetch_status="archived"
+                if source_artifact_exists(artifact_path)
+                else "missing",
                 remote_note=str(payload.get("source_note", "")),
                 project_accessions=tuple(
                     str(item) for item in payload.get("project_accessions", [])
