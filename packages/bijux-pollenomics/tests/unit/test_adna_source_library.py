@@ -23,8 +23,10 @@ from bijux_pollenomics.adna.sources.library import (
     build_paper_registry,
     build_project_registry,
     build_project_source_bundles,
+    build_source_artifact_index,
     build_source_intake_audit,
     build_source_intake_release_guard,
+    build_source_storage_audit,
     build_supplement_registry,
     build_supplement_zip_member_registry,
     materialize_source_library,
@@ -155,6 +157,15 @@ class AdnaSourceLibraryUnitTests(unittest.TestCase):
                     / "adna"
                     / "governance"
                     / "source_library"
+                    / "source_artifact_index.json"
+                ).is_file()
+            )
+            self.assertTrue(
+                (
+                    output_root
+                    / "adna"
+                    / "governance"
+                    / "source_library"
                     / "source_intake_audit.json"
                 ).is_file()
             )
@@ -165,6 +176,24 @@ class AdnaSourceLibraryUnitTests(unittest.TestCase):
                     / "governance"
                     / "source_library"
                     / "source_intake_release_guard.json"
+                ).is_file()
+            )
+            self.assertTrue(
+                (
+                    output_root
+                    / "adna"
+                    / "governance"
+                    / "source_library"
+                    / "source_storage_audit.json"
+                ).is_file()
+            )
+            self.assertTrue(
+                (
+                    output_root
+                    / "adna"
+                    / "governance"
+                    / "source_library"
+                    / "source_storage_audit.md"
                 ).is_file()
             )
             self.assertTrue(
@@ -545,6 +574,8 @@ class AdnaSourceLibraryUnitTests(unittest.TestCase):
             )
             self.assertEqual(intake_audit["sample_extractable_violations"], [])
             self.assertTrue(release_guard["passing"])
+            source_artifact_index = build_source_artifact_index(output_root)
+            storage_audit = build_source_storage_audit(output_root)
             article_path = (
                 output_root
                 / "adna"
@@ -589,6 +620,15 @@ class AdnaSourceLibraryUnitTests(unittest.TestCase):
             self.assertTrue(article_metadata["storage_path"].endswith(".html.gz"))
             self.assertEqual(archive_metadata["content_encoding"], "gzip")
             self.assertTrue(archive_metadata["storage_path"].endswith(".html.gz"))
+            article_artifact = next(
+                item
+                for item in source_artifact_index
+                if item.local_path.endswith("10.1038-s41562-021-01083-y/article.html")
+            )
+            self.assertEqual(article_artifact.content_encoding, "gzip")
+            self.assertTrue(str(article_artifact.storage_path).endswith(".html.gz"))
+            self.assertGreater(storage_audit["compressed_html_artifact_count"], 0)
+            self.assertEqual(storage_audit["uncompressed_html_artifact_count"], 0)
 
             bundle_path = (
                 output_root

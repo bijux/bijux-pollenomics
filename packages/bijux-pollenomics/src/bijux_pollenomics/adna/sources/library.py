@@ -38,6 +38,7 @@ __all__ = [
     "build_source_artifact_index",
     "build_supplement_registry",
     "build_supplement_zip_member_registry",
+    "build_source_storage_audit",
     "materialize_source_library",
     "refresh_source_library",
 ]
@@ -58,6 +59,9 @@ class AdnaSourceArtifact:
     paper_doi: str | None = None
     content_type: str | None = None
     byte_size: int | None = None
+    storage_path: str | None = None
+    storage_byte_size: int | None = None
+    content_encoding: str | None = None
 
     def as_dict(self) -> dict[str, object]:
         return {
@@ -72,6 +76,9 @@ class AdnaSourceArtifact:
             "paper_doi": self.paper_doi,
             "content_type": self.content_type,
             "byte_size": self.byte_size,
+            "storage_path": self.storage_path,
+            "storage_byte_size": self.storage_byte_size,
+            "content_encoding": self.content_encoding,
         }
 
 
@@ -333,6 +340,62 @@ def _clear_source_library_caches() -> None:
 def build_source_artifact_index(output_root: Path) -> tuple[AdnaSourceArtifact, ...]:
     """Return the tracked source artifact index from the local archive tree."""
     return _build_source_artifact_index_cached(_source_library_cache_key(output_root))
+
+
+def build_source_storage_audit(output_root: Path) -> dict[str, object]:
+    """Return storage posture for tracked local source artifacts."""
+    artifacts = build_source_artifact_index(output_root)
+    archived_artifacts = tuple(
+        artifact for artifact in artifacts if artifact.fetch_status == "archived"
+    )
+    html_artifacts = tuple(
+        artifact
+        for artifact in archived_artifacts
+        if artifact.local_path.endswith(".html")
+    )
+    compressed_html_artifacts = tuple(
+        artifact
+        for artifact in html_artifacts
+        if artifact.content_encoding == "gzip"
+        or str(artifact.storage_path or "").endswith(".html.gz")
+    )
+    rows = []
+    for artifact in html_artifacts:
+        rows.append(
+            {
+                "artifact_id": artifact.artifact_id,
+                "artifact_kind": artifact.artifact_kind,
+                "paper_doi": artifact.paper_doi,
+                "local_path": artifact.local_path,
+                "storage_path": artifact.storage_path or artifact.local_path,
+                "content_encoding": artifact.content_encoding or "identity",
+                "byte_size": artifact.byte_size,
+                "storage_byte_size": artifact.storage_byte_size,
+                "project_accessions": list(artifact.project_accessions),
+            }
+        )
+    rows.sort(key=lambda item: (str(item["paper_doi"] or ""), str(item["artifact_id"])))
+    return {
+        "schema_version": SOURCE_LIBRARY_SCHEMA_VERSION,
+        "archived_artifact_count": len(archived_artifacts),
+        "archived_html_artifact_count": len(html_artifacts),
+        "compressed_html_artifact_count": len(compressed_html_artifacts),
+        "uncompressed_html_artifact_count": len(html_artifacts)
+        - len(compressed_html_artifacts),
+        "archived_payload_byte_count": sum(
+            artifact.byte_size or 0 for artifact in archived_artifacts
+        ),
+        "archived_storage_byte_count": sum(
+            artifact.storage_byte_size or artifact.byte_size or 0
+            for artifact in archived_artifacts
+        ),
+        "html_payload_byte_count": sum(artifact.byte_size or 0 for artifact in html_artifacts),
+        "html_storage_byte_count": sum(
+            artifact.storage_byte_size or artifact.byte_size or 0
+            for artifact in html_artifacts
+        ),
+        "rows": rows,
+    }
 
 
 def _build_source_artifact_index_uncached(
@@ -1353,6 +1416,8 @@ def materialize_source_library(output_root: Path) -> None:
     blockers = build_missing_source_blockers(output_root)
     intake_audit = build_source_intake_audit(output_root)
     intake_release_guard = build_source_intake_release_guard(output_root)
+    source_artifact_index = build_source_artifact_index(output_root)
+    source_storage_audit = build_source_storage_audit(output_root)
 
     write_json(
         source_root / "project_registry.json",
@@ -1398,10 +1463,26 @@ def materialize_source_library(output_root: Path) -> None:
         source_root / "supplement_zip_member_registry.csv",
         _render_csv(list(supplement_zip_member_registry)),
     )
+    write_json(
+        source_root / "source_artifact_index.json",
+        {
+            "schema_version": SOURCE_LIBRARY_SCHEMA_VERSION,
+            "rows": [row.as_dict() for row in source_artifact_index],
+        },
+    )
+    write_text(
+        source_root / "source_artifact_index.csv",
+        _render_csv([row.as_dict() for row in source_artifact_index]),
+    )
     write_json(source_root / "source_audit.json", source_audit)
     write_json(source_root / "source_blockers.json", blockers)
     write_json(source_root / "source_intake_audit.json", intake_audit)
     write_json(source_root / "source_intake_release_guard.json", intake_release_guard)
+    write_json(source_root / "source_storage_audit.json", source_storage_audit)
+    write_text(
+        source_root / "source_storage_audit.md",
+        _render_source_storage_audit(source_storage_audit),
+    )
     write_json(
         source_root / "tracked_project_and_paper_inventory.json",
         {
@@ -1490,6 +1571,42 @@ def _render_curation_note(bundle: AdnaSourceBundleManifest) -> str:
         + blockers
         + "\n"
     )
+
+
+def _render_source_storage_audit(audit: dict[str, object]) -> str:
+    rows = list(audit.get("rows", []))
+    lines = [
+        "# Source storage audit",
+        "",
+        f"- Archived artifacts: `{audit['archived_artifact_count']}`",
+        f"- Archived HTML artifacts: `{audit['archived_html_artifact_count']}`",
+        f"- Compressed HTML artifacts: `{audit['compressed_html_artifact_count']}`",
+        f"- Uncompressed HTML artifacts: `{audit['uncompressed_html_artifact_count']}`",
+        f"- Archived payload bytes: `{audit['archived_payload_byte_count']}`",
+        f"- Archived storage bytes: `{audit['archived_storage_byte_count']}`",
+        f"- HTML payload bytes: `{audit['html_payload_byte_count']}`",
+        f"- HTML storage bytes: `{audit['html_storage_byte_count']}`",
+        "",
+    ]
+    if not rows:
+        lines.append("No archived HTML source artifacts are currently published.")
+        lines.append("")
+        return "\n".join(lines)
+    lines.extend(
+        [
+            "| Artifact id | Kind | Local path | Storage path | Encoding | Payload bytes | Storage bytes |",
+            "| --- | --- | --- | --- | --- | ---: | ---: |",
+        ]
+    )
+    for row in rows:
+        lines.append(
+            f"| {row['artifact_id']} | {row['artifact_kind']} | "
+            f"`{row['local_path']}` | `{row['storage_path']}` | "
+            f"`{row['content_encoding']}` | {row['byte_size'] or 0} | "
+            f"{row['storage_byte_size'] or row['byte_size'] or 0} |"
+        )
+    lines.append("")
+    return "\n".join(lines)
 
 
 def _project_intake_dossier(
@@ -1688,14 +1805,24 @@ def _iter_materialized_artifacts(output_root: Path) -> tuple[AdnaSourceArtifact,
         fetch_status = "missing"
         content_type = None
         byte_size = None
+        storage_path = None
+        storage_byte_size = None
+        content_encoding = None
         if metadata_path.is_file():
             payload = json.loads(metadata_path.read_text(encoding="utf-8"))
             fetch_status = "archived"
             content_type = payload.get("content_type")
             byte_size = payload.get("byte_size")
+            storage_path = payload.get("storage_path")
+            storage_byte_size = payload.get("storage_byte_size")
+            content_encoding = payload.get("content_encoding")
         elif source_artifact_exists(local_path):
             fetch_status = "archived"
-            byte_size = resolve_source_artifact_path(local_path).stat().st_size
+            stored_path = resolve_source_artifact_path(local_path)
+            byte_size = stored_path.stat().st_size
+            storage_path = str(stored_path.relative_to(output_root))
+            storage_byte_size = stored_path.stat().st_size
+            content_encoding = "gzip" if stored_path.suffix == ".gz" else None
         rows.append(
             AdnaSourceArtifact(
                 artifact_id=f"{project.project_accession}:archive_metadata.html",
@@ -1711,6 +1838,9 @@ def _iter_materialized_artifacts(output_root: Path) -> tuple[AdnaSourceArtifact,
                 else project.paper_linkage.doi,
                 content_type=content_type,
                 byte_size=byte_size,
+                storage_path=storage_path,
+                storage_byte_size=storage_byte_size,
+                content_encoding=content_encoding,
             )
         )
         seen_artifact_ids.add(f"{project.project_accession}:archive_metadata.html")
@@ -1729,14 +1859,24 @@ def _iter_materialized_artifacts(output_root: Path) -> tuple[AdnaSourceArtifact,
             fetch_status = "missing"
             content_type = None
             byte_size = None
+            storage_path = None
+            storage_byte_size = None
+            content_encoding = None
             if metadata_path.is_file():
                 payload = json.loads(metadata_path.read_text(encoding="utf-8"))
                 fetch_status = "archived"
                 content_type = payload.get("content_type")
                 byte_size = payload.get("byte_size")
+                storage_path = payload.get("storage_path")
+                storage_byte_size = payload.get("storage_byte_size")
+                content_encoding = payload.get("content_encoding")
             elif source_artifact_exists(local_path):
                 fetch_status = "archived"
-                byte_size = resolve_source_artifact_path(local_path).stat().st_size
+                stored_path = resolve_source_artifact_path(local_path)
+                byte_size = stored_path.stat().st_size
+                storage_path = str(stored_path.relative_to(output_root))
+                storage_byte_size = stored_path.stat().st_size
+                content_encoding = "gzip" if stored_path.suffix == ".gz" else None
             rows.append(
                 AdnaSourceArtifact(
                     artifact_id=_artifact_id(doi, local_path.name),
@@ -1750,6 +1890,9 @@ def _iter_materialized_artifacts(output_root: Path) -> tuple[AdnaSourceArtifact,
                     paper_doi=doi,
                     content_type=content_type,
                     byte_size=byte_size,
+                    storage_path=storage_path,
+                    storage_byte_size=storage_byte_size,
+                    content_encoding=content_encoding,
                 )
             )
             seen_artifact_ids.add(_artifact_id(doi, local_path.name))
@@ -1779,6 +1922,13 @@ def _iter_materialized_artifacts(output_root: Path) -> tuple[AdnaSourceArtifact,
                 paper_doi=paper_doi,
                 content_type=payload.get("content_type"),
                 byte_size=payload.get("byte_size"),
+                storage_path=str(
+                    resolve_source_artifact_path(artifact_path).relative_to(output_root)
+                )
+                if source_artifact_exists(artifact_path)
+                else None,
+                storage_byte_size=payload.get("storage_byte_size"),
+                content_encoding=payload.get("content_encoding"),
             )
         )
         seen_artifact_ids.add(artifact_id)
