@@ -9,7 +9,7 @@
     "1240k": 653,
     "ho": 653
   },
-  "output_dir": "docs/report/countries/denmark",
+  "output_dir": "/Users/bijan/bijux/bijux-pollenomics/docs/report/countries/denmark",
   "artifacts": {
     "bundle_manifest": "denmark_aadr_v66_bundle.json",
     "readme": "README.md",

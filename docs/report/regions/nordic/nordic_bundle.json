@@ -22,7 +22,7 @@
     "Denmark": 653
   },
   "total_unique_samples": 1231,
-  "output_dir": "docs/report/regions/nordic",
+  "output_dir": "/Users/bijan/bijux/bijux-pollenomics/docs/report/regions/nordic",
   "artifacts": {
     "readme": "README.md",
     "map_html": "nordic_map.html",

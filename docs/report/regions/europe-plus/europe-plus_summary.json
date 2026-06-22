@@ -21,7 +21,7 @@
     "Denmark": 653
   },
   "total_unique_samples": 1231,
-  "output_dir": "docs/report/regions/europe-plus",
+  "output_dir": "/Users/bijan/bijux/bijux-pollenomics/docs/report/regions/europe-plus",
   "artifacts": {
     "bundle_manifest": "europe-plus_bundle.json",
     "readme": "README.md",

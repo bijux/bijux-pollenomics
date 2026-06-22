@@ -22,7 +22,7 @@
     "Denmark": 653
   },
   "total_unique_samples": 1231,
-  "output_dir": "docs/report/world",
+  "output_dir": "/Users/bijan/bijux/bijux-pollenomics/docs/report/world",
   "artifacts": {
     "readme": "README.md",
     "map_html": "world_map.html",

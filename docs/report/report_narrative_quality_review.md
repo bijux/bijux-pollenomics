@@ -27,7 +27,7 @@ link farms or coded operator notes.
 | `docs/report/animal_foundation_validation.md` | `structured_reference` | 0 | 0 | 0 | 9 | 1 | Page is table-heavy, but it behaves like a reference surface rather than a loose link dump. |
 | `docs/report/animal_human_chronology_overlap.md` | `structured_reference` | 0 | 0 | 0 | 4 | 1 | Page is table-heavy, but it behaves like a reference surface rather than a loose link dump. |
 | `docs/report/animal_intake_recovery_review.md` | `reader_ready` | 3 | 0 | 13 | 22 | 4 | Page explains its purpose before or alongside artifact links. |
-| `docs/report/animal_output_audit.md` | `reader_ready` | 2 | 0 | 2 | 12 | 2 | Page explains its purpose before or alongside artifact links. |
+| `docs/report/animal_output_audit.md` | `reader_ready` | 2 | 0 | 3 | 12 | 2 | Page explains its purpose before or alongside artifact links. |
 | `docs/report/animal_output_honesty.md` | `structured_reference` | 0 | 0 | 0 | 12 | 1 | Page is table-heavy, but it behaves like a reference surface rather than a loose link dump. |
 | `docs/report/animal_point_evidence_review.md` | `reader_ready` | 234 | 0 | 469 | 0 | 235 | Page explains its purpose before or alongside artifact links. |
 | `docs/report/animal_pollen_chronology_overlap.md` | `structured_reference` | 0 | 0 | 0 | 4 | 1 | Page is table-heavy, but it behaves like a reference surface rather than a loose link dump. |
@@ -57,8 +57,8 @@ link farms or coded operator notes.
 | `docs/report/countries/sweden/sweden_animal_adna_v66_citations.md` | `thin_structure` | 1 | 0 | 0 | 3 | 1 | Page explains itself but still needs stronger internal wayfinding. |
 | `docs/report/countries/sweden/sweden_animal_adna_v66_samples.md` | `thin_structure` | 1 | 0 | 0 | 3 | 1 | Page explains itself but still needs stronger internal wayfinding. |
 | `docs/report/countries/sweden/sweden_animal_adna_v66_warnings.md` | `thin_structure` | 1 | 0 | 0 | 0 | 1 | Page explains itself but still needs stronger internal wayfinding. |
-| `docs/report/countries/sweden/sweden_lake_evidence_richness_v66.md` | `reader_ready` | 2 | 0 | 4 | 132 | 8 | Page explains its purpose before or alongside artifact links. |
-| `docs/report/countries/sweden/sweden_lake_fieldwork_preparation_v66.md` | `reader_ready` | 2 | 0 | 5 | 22 | 3 | Page explains its purpose before or alongside artifact links. |
+| `docs/report/countries/sweden/sweden_lake_evidence_richness_v66.md` | `reader_ready` | 2 | 0 | 5 | 154 | 9 | Page explains its purpose before or alongside artifact links. |
+| `docs/report/countries/sweden/sweden_lake_fieldwork_preparation_v66.md` | `reader_ready` | 2 | 0 | 6 | 22 | 3 | Page explains its purpose before or alongside artifact links. |
 | `docs/report/nordic_farming_history_scenario.md` | `reader_ready` | 3 | 0 | 8 | 0 | 4 | Page explains its purpose before or alongside artifact links. |
 | `docs/report/publication_country_onboarding_contract.md` | `reader_ready` | 7 | 0 | 16 | 0 | 9 | Page explains its purpose before or alongside artifact links. |
 | `docs/report/publication_geography_registry.md` | `reader_ready` | 2 | 0 | 0 | 9 | 3 | Page explains its purpose before or alongside artifact links. |
