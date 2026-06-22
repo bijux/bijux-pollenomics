@@ -10,7 +10,7 @@
   ],
   "candidate_count": 80,
   "methodology": {
-    "candidate_derivation": "Candidates come from Sweden-scoped Neotoma and LandClim pollen points whose names or site descriptions identify lake-like basins. Points merge only when their cleaned lake names match and their coordinates stay within 2 km, so nearby but differently named lakes remain distinct. Duplicate names, coordinate spread, and source position notes remain explicit as ambiguity diagnostics.",
+    "candidate_derivation": "Candidates come from Sweden-scoped Neotoma and LandClim pollen points whose names or site descriptions identify lake-like basins. Points merge only when their cleaned lake names match and their coordinates stay within 2 km, so nearby but differently named lakes remain distinct. Each candidate keeps one source-backed representative coordinate chosen from the supporting points instead of a synthetic arithmetic centroid. Duplicate names, coordinate spread, and source position notes remain explicit as ambiguity diagnostics.",
     "distance_bands": [
       10,
       20,
@@ -36,6 +36,10 @@
     "identity_diagnostics": {
       "coordinate_spread_flag_km": 0.75,
       "name_match_distance_km": 2.0,
+      "coordinate_resolution_methods": [
+        "shared_source_coordinate",
+        "source_coordinate_medoid"
+      ],
       "ambiguity_flags": [
         "duplicate_sweden_name",
         "source_coordinate_spread",
@@ -50,11 +54,11 @@
     {
       "candidate": {
         "lake_name": "Bj\u00e4resj\u00f6sj\u00f6n",
-        "lake_label": "Bj\u00e4resj\u00f6sj\u00f6n (55.4569, 13.7515)",
-        "lake_token": "sweden_lake:bjaresjosjon:55.4569:13.7515",
+        "lake_label": "Bj\u00e4resj\u00f6sj\u00f6n (55.459167, 13.751944)",
+        "lake_token": "sweden_lake:bjaresjosjon:55.459167:13.751944",
         "name_key": "bjaresjosjon",
-        "latitude": 55.456876,
-        "longitude": 13.751457,
+        "latitude": 55.459167,
+        "longitude": 13.751944,
         "basin_posture": "lake_basin",
         "direct_pollen_source_count": 2,
         "direct_pollen_record_count": 4,
@@ -72,6 +76,45 @@
           "landclim-sites:937075:BJARE",
           "neotoma-pollen:28871"
         ],
+        "supporting_source_points": [
+          {
+            "source_record": "landclim-sites:897303:Bj\u00e4resj\u00f6sj\u00f6n:55.459167:13.751944",
+            "source_name": "Bj\u00e4resj\u00f6sj\u00f6n",
+            "source_layer_key": "landclim-sites",
+            "latitude": 55.459167,
+            "longitude": 13.751944,
+            "source_url": "https://doi.org/10.1594/PANGAEA.897303"
+          },
+          {
+            "source_record": "landclim-sites:900966:GC18:Bj\u00e4resj\u00f6sj\u00f6n",
+            "source_name": "Bj\u00e4resj\u00f6sj\u00f6n",
+            "source_layer_key": "landclim-sites",
+            "latitude": 55.459167,
+            "longitude": 13.751944,
+            "source_url": "https://doi.org/10.1594/PANGAEA.900966"
+          },
+          {
+            "source_record": "landclim-sites:937075:BJARE",
+            "source_name": "Bj\u00e4resj\u00f6sj\u00f6n",
+            "source_layer_key": "landclim-sites",
+            "latitude": 55.45,
+            "longitude": 13.75,
+            "source_url": "https://doi.org/10.1594/PANGAEA.937075"
+          },
+          {
+            "source_record": "neotoma-pollen:28871",
+            "source_name": "Bj\u00e4resj\u00f6sj\u00f6n",
+            "source_layer_key": "neotoma-pollen",
+            "latitude": 55.45917,
+            "longitude": 13.75194,
+            "source_url": "https://apps.neotomadb.org/explorer/#/record/site/28871"
+          }
+        ],
+        "representative_source_record": "landclim-sites:897303:Bj\u00e4resj\u00f6sj\u00f6n:55.459167:13.751944",
+        "representative_source_layer_key": "landclim-sites",
+        "representative_source_name": "Bj\u00e4resj\u00f6sj\u00f6n",
+        "representative_source_url": "https://doi.org/10.1594/PANGAEA.897303",
+        "coordinate_resolution_method": "source_coordinate_medoid",
         "duplicate_name_count": 1,
         "coordinate_spread_km": 1.027,
         "ambiguity_flags": [
@@ -166,20 +209,20 @@
         {
           "radius_km": 50,
           "band_rank": 4,
-          "total_score": 0.5614,
+          "total_score": 0.5621,
           "nearby_pollen_lake_count": 4,
           "human_adna_locality_count": 12,
           "human_adna_sample_count": 30,
           "domesticated_animal_locality_count": 0,
           "domesticated_animal_sample_count": 0,
-          "sead_site_count": 152,
+          "sead_site_count": 153,
           "raa_density_site_count": 11085,
           "evidence_family_count": 4,
           "signals": {
             "nearby_pollen": 0.4444,
             "human_adna": 0.5198,
             "domesticated_animal_adna": 0.0,
-            "archaeology": 0.5318,
+            "archaeology": 0.5348,
             "evidence_diversity": 0.8
           }
         }
@@ -188,11 +231,11 @@
     {
       "candidate": {
         "lake_name": "Bj\u00e4rsj\u00f6holmssj\u00f6n",
-        "lake_label": "Bj\u00e4rsj\u00f6holmssj\u00f6n (55.4532, 13.7741)",
-        "lake_token": "sweden_lake:bjarsjoholmssjon:55.4532:13.7741",
+        "lake_label": "Bj\u00e4rsj\u00f6holmssj\u00f6n (55.454444, 13.766389)",
+        "lake_token": "sweden_lake:bjarsjoholmssjon:55.454444:13.766389",
         "name_key": "bjarsjoholmssjon",
-        "latitude": 55.453212,
-        "longitude": 13.774091,
+        "latitude": 55.454444,
+        "longitude": 13.766389,
         "basin_posture": "lake_basin",
         "direct_pollen_source_count": 2,
         "direct_pollen_record_count": 4,
@@ -210,6 +253,45 @@
           "landclim-sites:937075:BJARS",
           "neotoma-pollen:3017"
         ],
+        "supporting_source_points": [
+          {
+            "source_record": "landclim-sites:897303:Bj\u00e4rsj\u00f6holmssj\u00f6n:55.454444:13.766389",
+            "source_name": "Bj\u00e4rsj\u00f6holmssj\u00f6n",
+            "source_layer_key": "landclim-sites",
+            "latitude": 55.454444,
+            "longitude": 13.766389,
+            "source_url": "https://doi.org/10.1594/PANGAEA.897303"
+          },
+          {
+            "source_record": "landclim-sites:900966:GC18:Bj\u00e4rsj\u00f6holmssj\u00f6n",
+            "source_name": "Bj\u00e4rsj\u00f6holmssj\u00f6n",
+            "source_layer_key": "landclim-sites",
+            "latitude": 55.454444,
+            "longitude": 13.766389,
+            "source_url": "https://doi.org/10.1594/PANGAEA.900966"
+          },
+          {
+            "source_record": "landclim-sites:937075:BJARS",
+            "source_name": "Bj\u00e4rsj\u00f6holmssj\u00f6n",
+            "source_layer_key": "landclim-sites",
+            "latitude": 55.45,
+            "longitude": 13.783333,
+            "source_url": "https://doi.org/10.1594/PANGAEA.937075"
+          },
+          {
+            "source_record": "neotoma-pollen:3017",
+            "source_name": "Bj\u00e4rsj\u00f6holmssj\u00f6n",
+            "source_layer_key": "neotoma-pollen",
+            "latitude": 55.45396,
+            "longitude": 13.780255,
+            "source_url": "https://apps.neotomadb.org/explorer/#/record/site/3017"
+          }
+        ],
+        "representative_source_record": "landclim-sites:897303:Bj\u00e4rsj\u00f6holmssj\u00f6n:55.454444:13.766389",
+        "representative_source_layer_key": "landclim-sites",
+        "representative_source_name": "Bj\u00e4rsj\u00f6holmssj\u00f6n",
+        "representative_source_url": "https://doi.org/10.1594/PANGAEA.897303",
+        "coordinate_resolution_method": "source_coordinate_medoid",
         "duplicate_name_count": 1,
         "coordinate_spread_km": 1.1772,
         "ambiguity_flags": [
@@ -219,25 +301,25 @@
         "direct_pollen_signal": 1.0
       },
       "aggregate_rank": 2,
-      "aggregate_score": 0.5122,
+      "aggregate_score": 0.5157,
       "band_scores": [
         {
           "radius_km": 10,
-          "band_rank": 3,
-          "total_score": 0.5043,
+          "band_rank": 2,
+          "total_score": 0.5122,
           "nearby_pollen_lake_count": 3,
           "human_adna_locality_count": 0,
           "human_adna_sample_count": 0,
           "domesticated_animal_locality_count": 0,
           "domesticated_animal_sample_count": 0,
-          "sead_site_count": 18,
+          "sead_site_count": 19,
           "raa_density_site_count": 6654,
           "evidence_family_count": 3,
           "signals": {
             "nearby_pollen": 0.75,
             "human_adna": 0.0,
             "domesticated_animal_adna": 0.0,
-            "archaeology": 0.6771,
+            "archaeology": 0.7087,
             "evidence_diversity": 0.6
           }
         },
@@ -263,61 +345,61 @@
         },
         {
           "radius_km": 30,
-          "band_rank": 6,
-          "total_score": 0.4784,
+          "band_rank": 4,
+          "total_score": 0.4809,
           "nearby_pollen_lake_count": 4,
           "human_adna_locality_count": 3,
           "human_adna_sample_count": 4,
           "domesticated_animal_locality_count": 0,
           "domesticated_animal_sample_count": 0,
-          "sead_site_count": 62,
+          "sead_site_count": 64,
           "raa_density_site_count": 9859,
           "evidence_family_count": 4,
           "signals": {
             "nearby_pollen": 0.6667,
             "human_adna": 0.1366,
             "domesticated_animal_adna": 0.0,
-            "archaeology": 0.4177,
+            "archaeology": 0.4275,
             "evidence_diversity": 0.8
           }
         },
         {
           "radius_km": 40,
           "band_rank": 6,
-          "total_score": 0.457,
+          "total_score": 0.4606,
           "nearby_pollen_lake_count": 4,
           "human_adna_locality_count": 3,
           "human_adna_sample_count": 4,
           "domesticated_animal_locality_count": 0,
           "domesticated_animal_sample_count": 0,
-          "sead_site_count": 92,
+          "sead_site_count": 96,
           "raa_density_site_count": 9859,
           "evidence_family_count": 4,
           "signals": {
             "nearby_pollen": 0.5,
             "human_adna": 0.1178,
             "domesticated_animal_adna": 0.0,
-            "archaeology": 0.4138,
+            "archaeology": 0.4281,
             "evidence_diversity": 0.8
           }
         },
         {
           "radius_km": 50,
           "band_rank": 5,
-          "total_score": 0.5554,
+          "total_score": 0.5569,
           "nearby_pollen_lake_count": 4,
           "human_adna_locality_count": 12,
           "human_adna_sample_count": 30,
           "domesticated_animal_locality_count": 0,
           "domesticated_animal_sample_count": 0,
-          "sead_site_count": 144,
+          "sead_site_count": 146,
           "raa_density_site_count": 11085,
           "evidence_family_count": 4,
           "signals": {
             "nearby_pollen": 0.4444,
             "human_adna": 0.5198,
             "domesticated_animal_adna": 0.0,
-            "archaeology": 0.508,
+            "archaeology": 0.514,
             "evidence_diversity": 0.8
           }
         }
@@ -327,10 +409,10 @@
       "candidate": {
         "lake_name": "Krageholmssj\u00f6n",
         "lake_label": "Krageholmssj\u00f6n",
-        "lake_token": "sweden_lake:krageholmssjon:55.5002:13.7362",
+        "lake_token": "sweden_lake:krageholmssjon:55.5:13.733333",
         "name_key": "krageholmssjon",
-        "latitude": 55.500195,
-        "longitude": 13.73623,
+        "latitude": 55.5,
+        "longitude": 13.733333,
         "basin_posture": "lake_basin",
         "direct_pollen_source_count": 2,
         "direct_pollen_record_count": 4,
@@ -348,6 +430,45 @@
           "landclim-sites:937075:KRA",
           "neotoma-pollen:3204"
         ],
+        "supporting_source_points": [
+          {
+            "source_record": "landclim-sites:897303:Krageholmssj\u00f6n:55.500000:13.733333",
+            "source_name": "Krageholmssj\u00f6n",
+            "source_layer_key": "landclim-sites",
+            "latitude": 55.5,
+            "longitude": 13.733333,
+            "source_url": "https://doi.org/10.1594/PANGAEA.897303"
+          },
+          {
+            "source_record": "landclim-sites:900966:GC18:Krageholmssj\u00f6n",
+            "source_name": "Krageholmssj\u00f6n",
+            "source_layer_key": "landclim-sites",
+            "latitude": 55.5,
+            "longitude": 13.733333,
+            "source_url": "https://doi.org/10.1594/PANGAEA.900966"
+          },
+          {
+            "source_record": "landclim-sites:937075:KRA",
+            "source_name": "Krageholmssj\u00f6n",
+            "source_layer_key": "landclim-sites",
+            "latitude": 55.5,
+            "longitude": 13.733333,
+            "source_url": "https://doi.org/10.1594/PANGAEA.937075"
+          },
+          {
+            "source_record": "neotoma-pollen:3204",
+            "source_name": "Krageholmssj\u00f6n",
+            "source_layer_key": "neotoma-pollen",
+            "latitude": 55.50078,
+            "longitude": 13.74492,
+            "source_url": "https://apps.neotomadb.org/explorer/#/record/site/3204"
+          }
+        ],
+        "representative_source_record": "landclim-sites:897303:Krageholmssj\u00f6n:55.500000:13.733333",
+        "representative_source_layer_key": "landclim-sites",
+        "representative_source_name": "Krageholmssj\u00f6n",
+        "representative_source_url": "https://doi.org/10.1594/PANGAEA.897303",
+        "coordinate_resolution_method": "source_coordinate_medoid",
         "duplicate_name_count": 1,
         "coordinate_spread_km": 0.7349,
         "ambiguity_flags": [],
@@ -355,7 +476,7 @@
         "direct_pollen_signal": 1.0
       },
       "aggregate_rank": 3,
-      "aggregate_score": 0.5072,
+      "aggregate_score": 0.5076,
       "band_scores": [
         {
           "radius_km": 10,
@@ -399,7 +520,7 @@
         },
         {
           "radius_km": 30,
-          "band_rank": 4,
+          "band_rank": 5,
           "total_score": 0.4809,
           "nearby_pollen_lake_count": 4,
           "human_adna_locality_count": 3,
@@ -420,40 +541,40 @@
         {
           "radius_km": 40,
           "band_rank": 4,
-          "total_score": 0.4695,
+          "total_score": 0.4713,
           "nearby_pollen_lake_count": 4,
           "human_adna_locality_count": 3,
           "human_adna_sample_count": 4,
           "domesticated_animal_locality_count": 0,
           "domesticated_animal_sample_count": 0,
-          "sead_site_count": 106,
+          "sead_site_count": 108,
           "raa_density_site_count": 9859,
           "evidence_family_count": 4,
           "signals": {
             "nearby_pollen": 0.5,
             "human_adna": 0.1178,
             "domesticated_animal_adna": 0.0,
-            "archaeology": 0.4638,
+            "archaeology": 0.471,
             "evidence_diversity": 0.8
           }
         },
         {
           "radius_km": 50,
           "band_rank": 2,
-          "total_score": 0.5748,
+          "total_score": 0.5763,
           "nearby_pollen_lake_count": 4,
           "human_adna_locality_count": 12,
           "human_adna_sample_count": 30,
           "domesticated_animal_locality_count": 0,
           "domesticated_animal_sample_count": 0,
-          "sead_site_count": 170,
+          "sead_site_count": 172,
           "raa_density_site_count": 11085,
           "evidence_family_count": 4,
           "signals": {
             "nearby_pollen": 0.4444,
             "human_adna": 0.5198,
             "domesticated_animal_adna": 0.0,
-            "archaeology": 0.5856,
+            "archaeology": 0.5915,
             "evidence_diversity": 0.8
           }
         }
@@ -463,10 +584,10 @@
       "candidate": {
         "lake_name": "Bussj\u00f6sj\u00f6n",
         "lake_label": "Bussj\u00f6sj\u00f6n",
-        "lake_token": "sweden_lake:bussjosjon:55.4667:13.8167",
+        "lake_token": "sweden_lake:bussjosjon:55.466667:13.816667",
         "name_key": "bussjosjon",
-        "latitude": 55.466668,
-        "longitude": 13.816668,
+        "latitude": 55.466667,
+        "longitude": 13.816667,
         "basin_posture": "lake_basin",
         "direct_pollen_source_count": 2,
         "direct_pollen_record_count": 4,
@@ -484,6 +605,45 @@
           "landclim-sites:937075:BUS",
           "neotoma-pollen:28869"
         ],
+        "supporting_source_points": [
+          {
+            "source_record": "landclim-sites:897303:Bussj\u00f6sj\u00f6n:55.466667:13.816667",
+            "source_name": "Bussj\u00f6sj\u00f6n",
+            "source_layer_key": "landclim-sites",
+            "latitude": 55.466667,
+            "longitude": 13.816667,
+            "source_url": "https://doi.org/10.1594/PANGAEA.897303"
+          },
+          {
+            "source_record": "landclim-sites:900966:GC18:Bussj\u00f6sj\u00f6n",
+            "source_name": "Bussj\u00f6sj\u00f6n",
+            "source_layer_key": "landclim-sites",
+            "latitude": 55.466667,
+            "longitude": 13.816667,
+            "source_url": "https://doi.org/10.1594/PANGAEA.900966"
+          },
+          {
+            "source_record": "landclim-sites:937075:BUS",
+            "source_name": "Bussj\u00f6sj\u00f6n",
+            "source_layer_key": "landclim-sites",
+            "latitude": 55.466667,
+            "longitude": 13.816667,
+            "source_url": "https://doi.org/10.1594/PANGAEA.937075"
+          },
+          {
+            "source_record": "neotoma-pollen:28869",
+            "source_name": "Bussj\u00f6sj\u00f6n",
+            "source_layer_key": "neotoma-pollen",
+            "latitude": 55.46667,
+            "longitude": 13.81667,
+            "source_url": "https://apps.neotomadb.org/explorer/#/record/site/28869"
+          }
+        ],
+        "representative_source_record": "landclim-sites:897303:Bussj\u00f6sj\u00f6n:55.466667:13.816667",
+        "representative_source_layer_key": "landclim-sites",
+        "representative_source_name": "Bussj\u00f6sj\u00f6n",
+        "representative_source_url": "https://doi.org/10.1594/PANGAEA.897303",
+        "coordinate_resolution_method": "source_coordinate_medoid",
         "duplicate_name_count": 1,
         "coordinate_spread_km": 0.0004,
         "ambiguity_flags": [],
@@ -495,7 +655,7 @@
       "band_scores": [
         {
           "radius_km": 10,
-          "band_rank": 2,
+          "band_rank": 3,
           "total_score": 0.5122,
           "nearby_pollen_lake_count": 3,
           "human_adna_locality_count": 0,
@@ -535,7 +695,7 @@
         },
         {
           "radius_km": 30,
-          "band_rank": 5,
+          "band_rank": 6,
           "total_score": 0.4796,
           "nearby_pollen_lake_count": 4,
           "human_adna_locality_count": 3,
@@ -599,9 +759,9 @@
       "candidate": {
         "lake_name": "B\u00f6kesj\u00f6n",
         "lake_label": "B\u00f6kesj\u00f6n",
-        "lake_token": "sweden_lake:bokesjon:55.5756:13.4375",
+        "lake_token": "sweden_lake:bokesjon:55.575556:13.4375",
         "name_key": "bokesjon",
-        "latitude": 55.575557,
+        "latitude": 55.575556,
         "longitude": 13.4375,
         "basin_posture": "lake_basin",
         "direct_pollen_source_count": 2,
@@ -620,6 +780,45 @@
           "landclim-sites:937075:BOKE",
           "neotoma-pollen:28872"
         ],
+        "supporting_source_points": [
+          {
+            "source_record": "landclim-sites:897303:B\u00f6kesj\u00f6n:55.575556:13.437500",
+            "source_name": "B\u00f6kesj\u00f6n",
+            "source_layer_key": "landclim-sites",
+            "latitude": 55.575556,
+            "longitude": 13.4375,
+            "source_url": "https://doi.org/10.1594/PANGAEA.897303"
+          },
+          {
+            "source_record": "landclim-sites:900966:GC18:B\u00f6kesj\u00f6n",
+            "source_name": "B\u00f6kesj\u00f6n",
+            "source_layer_key": "landclim-sites",
+            "latitude": 55.575556,
+            "longitude": 13.4375,
+            "source_url": "https://doi.org/10.1594/PANGAEA.900966"
+          },
+          {
+            "source_record": "landclim-sites:937075:BOKE",
+            "source_name": "B\u00f6kesj\u00f6n",
+            "source_layer_key": "landclim-sites",
+            "latitude": 55.575556,
+            "longitude": 13.4375,
+            "source_url": "https://doi.org/10.1594/PANGAEA.937075"
+          },
+          {
+            "source_record": "neotoma-pollen:28872",
+            "source_name": "B\u00f6kesj\u00f6n",
+            "source_layer_key": "neotoma-pollen",
+            "latitude": 55.57556,
+            "longitude": 13.4375,
+            "source_url": "https://apps.neotomadb.org/explorer/#/record/site/28872"
+          }
+        ],
+        "representative_source_record": "landclim-sites:897303:B\u00f6kesj\u00f6n:55.575556:13.437500",
+        "representative_source_layer_key": "landclim-sites",
+        "representative_source_name": "B\u00f6kesj\u00f6n",
+        "representative_source_url": "https://doi.org/10.1594/PANGAEA.897303",
+        "coordinate_resolution_method": "source_coordinate_medoid",
         "duplicate_name_count": 1,
         "coordinate_spread_km": 0.0005,
         "ambiguity_flags": [],
@@ -735,7 +934,7 @@
       "candidate": {
         "lake_name": "Bj\u00e4rsjon",
         "lake_label": "Bj\u00e4rsjon",
-        "lake_token": "sweden_lake:bjarsjon:58.3346:13.6561",
+        "lake_token": "sweden_lake:bjarsjon:58.33456:13.656065",
         "name_key": "bjarsjon",
         "latitude": 58.33456,
         "longitude": 13.656065,
@@ -752,6 +951,21 @@
         "supporting_source_records": [
           "neotoma-pollen:3018"
         ],
+        "supporting_source_points": [
+          {
+            "source_record": "neotoma-pollen:3018",
+            "source_name": "Bj\u00e4rsjon",
+            "source_layer_key": "neotoma-pollen",
+            "latitude": 58.33456,
+            "longitude": 13.656065,
+            "source_url": "https://apps.neotomadb.org/explorer/#/record/site/3018"
+          }
+        ],
+        "representative_source_record": "neotoma-pollen:3018",
+        "representative_source_layer_key": "neotoma-pollen",
+        "representative_source_name": "Bj\u00e4rsjon",
+        "representative_source_url": "https://apps.neotomadb.org/explorer/#/record/site/3018",
+        "coordinate_resolution_method": "shared_source_coordinate",
         "duplicate_name_count": 1,
         "coordinate_spread_km": 0.0,
         "ambiguity_flags": [],
@@ -867,7 +1081,7 @@
       "candidate": {
         "lake_name": "\u00c5sbotorpsj\u00f6n",
         "lake_label": "\u00c5sbotorpsj\u00f6n",
-        "lake_token": "sweden_lake:asbotorpsjon:58.4098:13.82",
+        "lake_token": "sweden_lake:asbotorpsjon:58.40981:13.81996",
         "name_key": "asbotorpsjon",
         "latitude": 58.40981,
         "longitude": 13.81996,
@@ -884,6 +1098,21 @@
         "supporting_source_records": [
           "neotoma-pollen:2986"
         ],
+        "supporting_source_points": [
+          {
+            "source_record": "neotoma-pollen:2986",
+            "source_name": "\u00c5sbotorpsj\u00f6n",
+            "source_layer_key": "neotoma-pollen",
+            "latitude": 58.40981,
+            "longitude": 13.81996,
+            "source_url": "https://apps.neotomadb.org/explorer/#/record/site/2986"
+          }
+        ],
+        "representative_source_record": "neotoma-pollen:2986",
+        "representative_source_layer_key": "neotoma-pollen",
+        "representative_source_name": "\u00c5sbotorpsj\u00f6n",
+        "representative_source_url": "https://apps.neotomadb.org/explorer/#/record/site/2986",
+        "coordinate_resolution_method": "shared_source_coordinate",
         "duplicate_name_count": 1,
         "coordinate_spread_km": 0.0,
         "ambiguity_flags": [],
@@ -998,8 +1227,8 @@
     {
       "candidate": {
         "lake_name": "Flarken",
-        "lake_label": "Flarken (58.5568, 13.6732)",
-        "lake_token": "sweden_lake:flarken:58.5568:13.6732",
+        "lake_label": "Flarken (58.556790, 13.673190)",
+        "lake_token": "sweden_lake:flarken:58.55679:13.67319",
         "name_key": "flarken",
         "latitude": 58.55679,
         "longitude": 13.67319,
@@ -1016,6 +1245,21 @@
         "supporting_source_records": [
           "neotoma-pollen:3107"
         ],
+        "supporting_source_points": [
+          {
+            "source_record": "neotoma-pollen:3107",
+            "source_name": "Flarken",
+            "source_layer_key": "neotoma-pollen",
+            "latitude": 58.55679,
+            "longitude": 13.67319,
+            "source_url": "https://apps.neotomadb.org/explorer/#/record/site/3107"
+          }
+        ],
+        "representative_source_record": "neotoma-pollen:3107",
+        "representative_source_layer_key": "neotoma-pollen",
+        "representative_source_name": "Flarken",
+        "representative_source_url": "https://apps.neotomadb.org/explorer/#/record/site/3107",
+        "coordinate_resolution_method": "shared_source_coordinate",
         "duplicate_name_count": 2,
         "coordinate_spread_km": 0.0,
         "ambiguity_flags": [
@@ -1133,10 +1377,10 @@
       "candidate": {
         "lake_name": "Trummen",
         "lake_label": "Trummen",
-        "lake_token": "sweden_lake:trummen:56.8657:14.8324",
+        "lake_token": "sweden_lake:trummen:56.866667:14.833333",
         "name_key": "trummen",
-        "latitude": 56.86575,
-        "longitude": 14.83238,
+        "latitude": 56.866667,
+        "longitude": 14.833333,
         "basin_posture": "lake_basin",
         "direct_pollen_source_count": 2,
         "direct_pollen_record_count": 4,
@@ -1154,6 +1398,45 @@
           "landclim-sites:937075:TRU",
           "neotoma-pollen:3477"
         ],
+        "supporting_source_points": [
+          {
+            "source_record": "landclim-sites:897303:Lake Trummen:56.866667:14.833333",
+            "source_name": "Trummen",
+            "source_layer_key": "landclim-sites",
+            "latitude": 56.866667,
+            "longitude": 14.833333,
+            "source_url": "https://doi.org/10.1594/PANGAEA.897303"
+          },
+          {
+            "source_record": "landclim-sites:900966:GC20:Lake Trummen",
+            "source_name": "Trummen",
+            "source_layer_key": "landclim-sites",
+            "latitude": 56.866667,
+            "longitude": 14.833333,
+            "source_url": "https://doi.org/10.1594/PANGAEA.900966"
+          },
+          {
+            "source_record": "landclim-sites:937075:TRU",
+            "source_name": "Trummen",
+            "source_layer_key": "landclim-sites",
+            "latitude": 56.866667,
+            "longitude": 14.833333,
+            "source_url": "https://doi.org/10.1594/PANGAEA.937075"
+          },
+          {
+            "source_record": "neotoma-pollen:3477",
+            "source_name": "Trummen",
+            "source_layer_key": "neotoma-pollen",
+            "latitude": 56.863,
+            "longitude": 14.82952,
+            "source_url": "https://apps.neotomadb.org/explorer/#/record/site/3477"
+          }
+        ],
+        "representative_source_record": "landclim-sites:897303:Lake Trummen:56.866667:14.833333",
+        "representative_source_layer_key": "landclim-sites",
+        "representative_source_name": "Trummen",
+        "representative_source_url": "https://doi.org/10.1594/PANGAEA.897303",
+        "coordinate_resolution_method": "source_coordinate_medoid",
         "duplicate_name_count": 1,
         "coordinate_spread_km": 0.469,
         "ambiguity_flags": [],
@@ -1165,7 +1448,7 @@
       "band_scores": [
         {
           "radius_km": 10,
-          "band_rank": 33,
+          "band_rank": 34,
           "total_score": 0.29,
           "nearby_pollen_lake_count": 0,
           "human_adna_locality_count": 0,
@@ -1185,7 +1468,7 @@
         },
         {
           "radius_km": 20,
-          "band_rank": 15,
+          "band_rank": 14,
           "total_score": 0.3586,
           "nearby_pollen_lake_count": 0,
           "human_adna_locality_count": 0,
@@ -1269,10 +1552,10 @@
       "candidate": {
         "lake_name": "Flinkasj\u00f6n",
         "lake_label": "Flinkasj\u00f6n",
-        "lake_token": "sweden_lake:flinkasjon:56.2515:13.2478",
+        "lake_token": "sweden_lake:flinkasjon:56.25:13.25",
         "name_key": "flinkasjon",
-        "latitude": 56.25148,
-        "longitude": 13.247777,
+        "latitude": 56.25,
+        "longitude": 13.25,
         "basin_posture": "lake_basin",
         "direct_pollen_source_count": 2,
         "direct_pollen_record_count": 3,
@@ -1289,6 +1572,37 @@
           "landclim-sites:937075:FLINK",
           "neotoma-pollen:28889"
         ],
+        "supporting_source_points": [
+          {
+            "source_record": "landclim-sites:897303:Flinkasj\u00f6n:56.250000:13.250000",
+            "source_name": "Flinkasj\u00f6n",
+            "source_layer_key": "landclim-sites",
+            "latitude": 56.25,
+            "longitude": 13.25,
+            "source_url": "https://doi.org/10.1594/PANGAEA.897303"
+          },
+          {
+            "source_record": "landclim-sites:937075:FLINK",
+            "source_name": "Flinkasj\u00f6n",
+            "source_layer_key": "landclim-sites",
+            "latitude": 56.25,
+            "longitude": 13.25,
+            "source_url": "https://doi.org/10.1594/PANGAEA.937075"
+          },
+          {
+            "source_record": "neotoma-pollen:28889",
+            "source_name": "Flinkasj\u00f6n",
+            "source_layer_key": "neotoma-pollen",
+            "latitude": 56.25444,
+            "longitude": 13.24333,
+            "source_url": "https://apps.neotomadb.org/explorer/#/record/site/28889"
+          }
+        ],
+        "representative_source_record": "landclim-sites:897303:Flinkasj\u00f6n:56.250000:13.250000",
+        "representative_source_layer_key": "landclim-sites",
+        "representative_source_name": "Flinkasj\u00f6n",
+        "representative_source_url": "https://doi.org/10.1594/PANGAEA.897303",
+        "coordinate_resolution_method": "source_coordinate_medoid",
         "duplicate_name_count": 1,
         "coordinate_spread_km": 0.643,
         "ambiguity_flags": [],
@@ -1296,7 +1610,7 @@
         "direct_pollen_signal": 0.9375
       },
       "aggregate_rank": 10,
-      "aggregate_score": 0.3606,
+      "aggregate_score": 0.3614,
       "band_scores": [
         {
           "radius_km": 10,
@@ -1321,20 +1635,20 @@
         {
           "radius_km": 20,
           "band_rank": 13,
-          "total_score": 0.362,
+          "total_score": 0.3655,
           "nearby_pollen_lake_count": 2,
           "human_adna_locality_count": 0,
           "human_adna_sample_count": 0,
           "domesticated_animal_locality_count": 0,
           "domesticated_animal_sample_count": 0,
-          "sead_site_count": 6,
+          "sead_site_count": 7,
           "raa_density_site_count": 15245,
           "evidence_family_count": 3,
           "signals": {
             "nearby_pollen": 0.4,
             "human_adna": 0.0,
             "domesticated_animal_adna": 0.0,
-            "archaeology": 0.2979,
+            "archaeology": 0.3122,
             "evidence_diversity": 0.6
           }
         },
@@ -1403,8 +1717,8 @@
     {
       "candidate": {
         "lake_name": "Lillsj\u00f6n",
-        "lake_label": "Lillsj\u00f6n (57.0833, 12.5333)",
-        "lake_token": "sweden_lake:lillsjon:57.0833:12.5333",
+        "lake_label": "Lillsj\u00f6n (57.083330, 12.533330)",
+        "lake_token": "sweden_lake:lillsjon:57.08333:12.53333",
         "name_key": "lillsjon",
         "latitude": 57.08333,
         "longitude": 12.53333,
@@ -1421,6 +1735,21 @@
         "supporting_source_records": [
           "neotoma-pollen:3238"
         ],
+        "supporting_source_points": [
+          {
+            "source_record": "neotoma-pollen:3238",
+            "source_name": "Lillsj\u00f6n",
+            "source_layer_key": "neotoma-pollen",
+            "latitude": 57.08333,
+            "longitude": 12.53333,
+            "source_url": "https://apps.neotomadb.org/explorer/#/record/site/3238"
+          }
+        ],
+        "representative_source_record": "neotoma-pollen:3238",
+        "representative_source_layer_key": "neotoma-pollen",
+        "representative_source_name": "Lillsj\u00f6n",
+        "representative_source_url": "https://apps.neotomadb.org/explorer/#/record/site/3238",
+        "coordinate_resolution_method": "shared_source_coordinate",
         "duplicate_name_count": 2,
         "coordinate_spread_km": 0.0,
         "ambiguity_flags": [
@@ -1434,7 +1763,7 @@
       "band_scores": [
         {
           "radius_km": 10,
-          "band_rank": 11,
+          "band_rank": 10,
           "total_score": 0.3299,
           "nearby_pollen_lake_count": 2,
           "human_adna_locality_count": 0,
@@ -1537,8 +1866,8 @@
     {
       "candidate": {
         "lake_name": "Samb\u00f6sj\u00f6n",
-        "lake_label": "Samb\u00f6sj\u00f6n (57.1333, 12.4167)",
-        "lake_token": "sweden_lake:sambosjon:57.1333:12.4167",
+        "lake_label": "Samb\u00f6sj\u00f6n (57.133333, 12.416667)",
+        "lake_token": "sweden_lake:sambosjon:57.133333:12.416667",
         "name_key": "sambosjon",
         "latitude": 57.133333,
         "longitude": 12.416667,
@@ -1556,6 +1885,29 @@
           "landclim-sites:897303:Lake Samb\u00f6sj\u00f6n:57.133333:12.416667",
           "landclim-sites:937075:SAM"
         ],
+        "supporting_source_points": [
+          {
+            "source_record": "landclim-sites:897303:Lake Samb\u00f6sj\u00f6n:57.133333:12.416667",
+            "source_name": "Samb\u00f6sj\u00f6n",
+            "source_layer_key": "landclim-sites",
+            "latitude": 57.133333,
+            "longitude": 12.416667,
+            "source_url": "https://doi.org/10.1594/PANGAEA.897303"
+          },
+          {
+            "source_record": "landclim-sites:937075:SAM",
+            "source_name": "Samb\u00f6sj\u00f6n",
+            "source_layer_key": "landclim-sites",
+            "latitude": 57.133333,
+            "longitude": 12.416667,
+            "source_url": "https://doi.org/10.1594/PANGAEA.937075"
+          }
+        ],
+        "representative_source_record": "landclim-sites:897303:Lake Samb\u00f6sj\u00f6n:57.133333:12.416667",
+        "representative_source_layer_key": "landclim-sites",
+        "representative_source_name": "Samb\u00f6sj\u00f6n",
+        "representative_source_url": "https://doi.org/10.1594/PANGAEA.897303",
+        "coordinate_resolution_method": "shared_source_coordinate",
         "duplicate_name_count": 2,
         "coordinate_spread_km": 0.0,
         "ambiguity_flags": [
@@ -1673,10 +2025,10 @@
       "candidate": {
         "lake_name": "Aveg\u00f6l",
         "lake_label": "Aveg\u00f6l",
-        "lake_token": "sweden_lake:avegol:57.6847:14.4986",
+        "lake_token": "sweden_lake:avegol:57.683333:14.5",
         "name_key": "avegol",
-        "latitude": 57.684722,
-        "longitude": 14.49861,
+        "latitude": 57.683333,
+        "longitude": 14.5,
         "basin_posture": "lake_basin",
         "direct_pollen_source_count": 2,
         "direct_pollen_record_count": 4,
@@ -1694,6 +2046,45 @@
           "landclim-sites:937075:AVEG",
           "neotoma-pollen:28887"
         ],
+        "supporting_source_points": [
+          {
+            "source_record": "landclim-sites:897303:Aveg\u00f6l:57.683333:14.500000",
+            "source_name": "Aveg\u00f6l",
+            "source_layer_key": "landclim-sites",
+            "latitude": 57.683333,
+            "longitude": 14.5,
+            "source_url": "https://doi.org/10.1594/PANGAEA.897303"
+          },
+          {
+            "source_record": "landclim-sites:900966:GC21:Aveg\u00f6l",
+            "source_name": "Aveg\u00f6l",
+            "source_layer_key": "landclim-sites",
+            "latitude": 57.683333,
+            "longitude": 14.5,
+            "source_url": "https://doi.org/10.1594/PANGAEA.900966"
+          },
+          {
+            "source_record": "landclim-sites:937075:AVEG",
+            "source_name": "Aveg\u00f6l",
+            "source_layer_key": "landclim-sites",
+            "latitude": 57.683333,
+            "longitude": 14.5,
+            "source_url": "https://doi.org/10.1594/PANGAEA.937075"
+          },
+          {
+            "source_record": "neotoma-pollen:28887",
+            "source_name": "Aveg\u00f6l",
+            "source_layer_key": "neotoma-pollen",
+            "latitude": 57.68889,
+            "longitude": 14.49444,
+            "source_url": "https://apps.neotomadb.org/explorer/#/record/site/28887"
+          }
+        ],
+        "representative_source_record": "landclim-sites:897303:Aveg\u00f6l:57.683333:14.500000",
+        "representative_source_layer_key": "landclim-sites",
+        "representative_source_name": "Aveg\u00f6l",
+        "representative_source_url": "https://doi.org/10.1594/PANGAEA.897303",
+        "coordinate_resolution_method": "source_coordinate_medoid",
         "duplicate_name_count": 1,
         "coordinate_spread_km": 0.7007,
         "ambiguity_flags": [],
@@ -1701,7 +2092,7 @@
         "direct_pollen_signal": 1.0
       },
       "aggregate_rank": 13,
-      "aggregate_score": 0.3568,
+      "aggregate_score": 0.3567,
       "band_scores": [
         {
           "radius_km": 10,
@@ -1786,20 +2177,20 @@
         {
           "radius_km": 50,
           "band_rank": 15,
-          "total_score": 0.4067,
+          "total_score": 0.406,
           "nearby_pollen_lake_count": 2,
           "human_adna_locality_count": 0,
           "human_adna_sample_count": 0,
           "domesticated_animal_locality_count": 0,
           "domesticated_animal_sample_count": 0,
-          "sead_site_count": 61,
+          "sead_site_count": 60,
           "raa_density_site_count": 44837,
           "evidence_family_count": 3,
           "signals": {
             "nearby_pollen": 0.2222,
             "human_adna": 0.0,
             "domesticated_animal_adna": 0.0,
-            "archaeology": 0.4981,
+            "archaeology": 0.4951,
             "evidence_diversity": 0.6
           }
         }
@@ -1809,10 +2200,10 @@
       "candidate": {
         "lake_name": "V\u00e4rsj\u00f6 Utmark",
         "lake_label": "V\u00e4rsj\u00f6 Utmark",
-        "lake_token": "sweden_lake:varsjoutmark:56.3167:13.4333",
+        "lake_token": "sweden_lake:varsjoutmark:56.316667:13.433333",
         "name_key": "varsjoutmark",
-        "latitude": 56.316668,
-        "longitude": 13.433332,
+        "latitude": 56.316667,
+        "longitude": 13.433333,
         "basin_posture": "lake_basin",
         "direct_pollen_source_count": 2,
         "direct_pollen_record_count": 3,
@@ -1829,6 +2220,37 @@
           "landclim-sites:937075:VUTM",
           "neotoma-pollen:28888"
         ],
+        "supporting_source_points": [
+          {
+            "source_record": "landclim-sites:897303:V\u00e4rsj\u00f6 Utmark:56.316667:13.433333",
+            "source_name": "V\u00e4rsj\u00f6 Utmark",
+            "source_layer_key": "landclim-sites",
+            "latitude": 56.316667,
+            "longitude": 13.433333,
+            "source_url": "https://doi.org/10.1594/PANGAEA.897303"
+          },
+          {
+            "source_record": "landclim-sites:937075:VUTM",
+            "source_name": "V\u00e4rsj\u00f6 Utmark",
+            "source_layer_key": "landclim-sites",
+            "latitude": 56.316667,
+            "longitude": 13.433333,
+            "source_url": "https://doi.org/10.1594/PANGAEA.937075"
+          },
+          {
+            "source_record": "neotoma-pollen:28888",
+            "source_name": "V\u00e4rsj\u00f6 Utmark",
+            "source_layer_key": "neotoma-pollen",
+            "latitude": 56.31667,
+            "longitude": 13.43333,
+            "source_url": "https://apps.neotomadb.org/explorer/#/record/site/28888"
+          }
+        ],
+        "representative_source_record": "landclim-sites:937075:VUTM",
+        "representative_source_layer_key": "landclim-sites",
+        "representative_source_name": "V\u00e4rsj\u00f6 Utmark",
+        "representative_source_url": "https://doi.org/10.1594/PANGAEA.937075",
+        "coordinate_resolution_method": "source_coordinate_medoid",
         "duplicate_name_count": 1,
         "coordinate_spread_km": 0.0004,
         "ambiguity_flags": [],
@@ -1943,11 +2365,11 @@
     {
       "candidate": {
         "lake_name": "Storasj\u00f6",
-        "lake_label": "Storasj\u00f6 (56.9333, 15.2667)",
-        "lake_token": "sweden_lake:storasjo:56.9333:15.2667",
+        "lake_label": "Storasj\u00f6 (56.933333, 15.266667)",
+        "lake_token": "sweden_lake:storasjo:56.933333:15.266667",
         "name_key": "storasjo",
-        "latitude": 56.933332,
-        "longitude": 15.266668,
+        "latitude": 56.933333,
+        "longitude": 15.266667,
         "basin_posture": "lake_basin",
         "direct_pollen_source_count": 2,
         "direct_pollen_record_count": 2,
@@ -1963,6 +2385,29 @@
           "landclim-sites:897303:Storasj\u00f6:56.933333:15.266667",
           "neotoma-pollen:28874"
         ],
+        "supporting_source_points": [
+          {
+            "source_record": "landclim-sites:897303:Storasj\u00f6:56.933333:15.266667",
+            "source_name": "Storasj\u00f6",
+            "source_layer_key": "landclim-sites",
+            "latitude": 56.933333,
+            "longitude": 15.266667,
+            "source_url": "https://doi.org/10.1594/PANGAEA.897303"
+          },
+          {
+            "source_record": "neotoma-pollen:28874",
+            "source_name": "Storasj\u00f6",
+            "source_layer_key": "neotoma-pollen",
+            "latitude": 56.93333,
+            "longitude": 15.26667,
+            "source_url": "https://apps.neotomadb.org/explorer/#/record/site/28874"
+          }
+        ],
+        "representative_source_record": "landclim-sites:897303:Storasj\u00f6:56.933333:15.266667",
+        "representative_source_layer_key": "landclim-sites",
+        "representative_source_name": "Storasj\u00f6",
+        "representative_source_url": "https://doi.org/10.1594/PANGAEA.897303",
+        "coordinate_resolution_method": "source_coordinate_medoid",
         "duplicate_name_count": 2,
         "coordinate_spread_km": 0.0004,
         "ambiguity_flags": [
@@ -2056,7 +2501,7 @@
         },
         {
           "radius_km": 50,
-          "band_rank": 19,
+          "band_rank": 20,
           "total_score": 0.3939,
           "nearby_pollen_lake_count": 5,
           "human_adna_locality_count": 0,
@@ -2079,8 +2524,8 @@
     {
       "candidate": {
         "lake_name": "Flarken",
-        "lake_label": "Flarken (58.5833, 13.6667)",
-        "lake_token": "sweden_lake:flarken:58.5833:13.6667",
+        "lake_label": "Flarken (58.583333, 13.666667)",
+        "lake_token": "sweden_lake:flarken:58.583333:13.666667",
         "name_key": "flarken",
         "latitude": 58.583333,
         "longitude": 13.666667,
@@ -2098,6 +2543,29 @@
           "landclim-sites:897303:Lake Flarken:58.583333:13.666667",
           "landclim-sites:937075:FLA"
         ],
+        "supporting_source_points": [
+          {
+            "source_record": "landclim-sites:897303:Lake Flarken:58.583333:13.666667",
+            "source_name": "Flarken",
+            "source_layer_key": "landclim-sites",
+            "latitude": 58.583333,
+            "longitude": 13.666667,
+            "source_url": "https://doi.org/10.1594/PANGAEA.897303"
+          },
+          {
+            "source_record": "landclim-sites:937075:FLA",
+            "source_name": "Flarken",
+            "source_layer_key": "landclim-sites",
+            "latitude": 58.583333,
+            "longitude": 13.666667,
+            "source_url": "https://doi.org/10.1594/PANGAEA.937075"
+          }
+        ],
+        "representative_source_record": "landclim-sites:897303:Lake Flarken:58.583333:13.666667",
+        "representative_source_layer_key": "landclim-sites",
+        "representative_source_name": "Flarken",
+        "representative_source_url": "https://doi.org/10.1594/PANGAEA.897303",
+        "coordinate_resolution_method": "shared_source_coordinate",
         "duplicate_name_count": 2,
         "coordinate_spread_km": 0.0,
         "ambiguity_flags": [
@@ -2215,7 +2683,7 @@
       "candidate": {
         "lake_name": "Sigvalde Tr\u00e4sk",
         "lake_label": "Sigvalde Tr\u00e4sk",
-        "lake_token": "sweden_lake:sigvaldetrask:57.3425:18.526",
+        "lake_token": "sweden_lake:sigvaldetrask:57.34248:18.52596",
         "name_key": "sigvaldetrask",
         "latitude": 57.34248,
         "longitude": 18.52596,
@@ -2232,6 +2700,21 @@
         "supporting_source_records": [
           "neotoma-pollen:3411"
         ],
+        "supporting_source_points": [
+          {
+            "source_record": "neotoma-pollen:3411",
+            "source_name": "Sigvalde Tr\u00e4sk",
+            "source_layer_key": "neotoma-pollen",
+            "latitude": 57.34248,
+            "longitude": 18.52596,
+            "source_url": "https://apps.neotomadb.org/explorer/#/record/site/3411"
+          }
+        ],
+        "representative_source_record": "neotoma-pollen:3411",
+        "representative_source_layer_key": "neotoma-pollen",
+        "representative_source_name": "Sigvalde Tr\u00e4sk",
+        "representative_source_url": "https://apps.neotomadb.org/explorer/#/record/site/3411",
+        "coordinate_resolution_method": "shared_source_coordinate",
         "duplicate_name_count": 1,
         "coordinate_spread_km": 0.0,
         "ambiguity_flags": [],
@@ -2263,7 +2746,7 @@
         },
         {
           "radius_km": 20,
-          "band_rank": 16,
+          "band_rank": 15,
           "total_score": 0.357,
           "nearby_pollen_lake_count": 0,
           "human_adna_locality_count": 4,
@@ -2347,10 +2830,10 @@
       "candidate": {
         "lake_name": "Holtj\u00e4rnen",
         "lake_label": "Holtj\u00e4rnen",
-        "lake_token": "sweden_lake:holtjarnen:60.6505:14.9191",
+        "lake_token": "sweden_lake:holtjarnen:60.65:14.916667",
         "name_key": "holtjarnen",
-        "latitude": 60.650472,
-        "longitude": 14.91913,
+        "latitude": 60.65,
+        "longitude": 14.916667,
         "basin_posture": "lake_basin",
         "direct_pollen_source_count": 2,
         "direct_pollen_record_count": 4,
@@ -2368,6 +2851,45 @@
           "landclim-sites:937075:HOL",
           "neotoma-pollen:14040"
         ],
+        "supporting_source_points": [
+          {
+            "source_record": "landclim-sites:897303:Holtj\u00e4rnen:60.650000:14.916667",
+            "source_name": "Holtj\u00e4rnen",
+            "source_layer_key": "landclim-sites",
+            "latitude": 60.65,
+            "longitude": 14.916667,
+            "source_url": "https://doi.org/10.1594/PANGAEA.897303"
+          },
+          {
+            "source_record": "landclim-sites:900966:GC27:Holtj\u00e4rnen",
+            "source_name": "Holtj\u00e4rnen",
+            "source_layer_key": "landclim-sites",
+            "latitude": 60.65,
+            "longitude": 14.916667,
+            "source_url": "https://doi.org/10.1594/PANGAEA.900966"
+          },
+          {
+            "source_record": "landclim-sites:937075:HOL",
+            "source_name": "Holtj\u00e4rnen",
+            "source_layer_key": "landclim-sites",
+            "latitude": 60.65,
+            "longitude": 14.916667,
+            "source_url": "https://doi.org/10.1594/PANGAEA.937075"
+          },
+          {
+            "source_record": "neotoma-pollen:14040",
+            "source_name": "Holtj\u00e4rnen",
+            "source_layer_key": "neotoma-pollen",
+            "latitude": 60.65189,
+            "longitude": 14.92652,
+            "source_url": "https://apps.neotomadb.org/explorer/#/record/site/14040"
+          }
+        ],
+        "representative_source_record": "landclim-sites:897303:Holtj\u00e4rnen:60.650000:14.916667",
+        "representative_source_layer_key": "landclim-sites",
+        "representative_source_name": "Holtj\u00e4rnen",
+        "representative_source_url": "https://doi.org/10.1594/PANGAEA.897303",
+        "coordinate_resolution_method": "source_coordinate_medoid",
         "duplicate_name_count": 1,
         "coordinate_spread_km": 0.5766,
         "ambiguity_flags": [],
@@ -2375,7 +2897,7 @@
         "direct_pollen_signal": 1.0
       },
       "aggregate_rank": 18,
-      "aggregate_score": 0.3451,
+      "aggregate_score": 0.3434,
       "band_scores": [
         {
           "radius_km": 10,
@@ -2399,21 +2921,21 @@
         },
         {
           "radius_km": 20,
-          "band_rank": 14,
-          "total_score": 0.3599,
+          "band_rank": 18,
+          "total_score": 0.3492,
           "nearby_pollen_lake_count": 0,
           "human_adna_locality_count": 0,
           "human_adna_sample_count": 0,
           "domesticated_animal_locality_count": 0,
           "domesticated_animal_sample_count": 0,
-          "sead_site_count": 28,
+          "sead_site_count": 25,
           "raa_density_site_count": 5719,
           "evidence_family_count": 2,
           "signals": {
             "nearby_pollen": 0.0,
             "human_adna": 0.0,
             "domesticated_animal_adna": 0.0,
-            "archaeology": 0.4796,
+            "archaeology": 0.4367,
             "evidence_diversity": 0.4
           }
         },
@@ -2459,21 +2981,21 @@
         },
         {
           "radius_km": 50,
-          "band_rank": 21,
-          "total_score": 0.3879,
+          "band_rank": 19,
+          "total_score": 0.3975,
           "nearby_pollen_lake_count": 0,
           "human_adna_locality_count": 0,
           "human_adna_sample_count": 0,
           "domesticated_animal_locality_count": 0,
           "domesticated_animal_sample_count": 0,
           "sead_site_count": 178,
-          "raa_density_site_count": 8528,
+          "raa_density_site_count": 13996,
           "evidence_family_count": 2,
           "signals": {
             "nearby_pollen": 0.0,
             "human_adna": 0.0,
             "domesticated_animal_adna": 0.0,
-            "archaeology": 0.5915,
+            "archaeology": 0.63,
             "evidence_diversity": 0.4
           }
         }
@@ -2482,11 +3004,11 @@
     {
       "candidate": {
         "lake_name": "F\u00e4rskesj\u00f6n",
-        "lake_label": "F\u00e4rskesj\u00f6n (56.1629, 15.8636)",
-        "lake_token": "sweden_lake:farskesjon:56.1629:15.8636",
+        "lake_label": "F\u00e4rskesj\u00f6n (56.166667, 15.866667)",
+        "lake_token": "sweden_lake:farskesjon:56.166667:15.866667",
         "name_key": "farskesjon",
-        "latitude": 56.162869,
-        "longitude": 15.863578,
+        "latitude": 56.166667,
+        "longitude": 15.866667,
         "basin_posture": "lake_basin",
         "direct_pollen_source_count": 2,
         "direct_pollen_record_count": 2,
@@ -2502,6 +3024,29 @@
           "landclim-sites:937075:FARSK",
           "neotoma-pollen:3102"
         ],
+        "supporting_source_points": [
+          {
+            "source_record": "landclim-sites:937075:FARSK",
+            "source_name": "F\u00e4rskesj\u00f6n",
+            "source_layer_key": "landclim-sites",
+            "latitude": 56.166667,
+            "longitude": 15.866667,
+            "source_url": "https://doi.org/10.1594/PANGAEA.937075"
+          },
+          {
+            "source_record": "neotoma-pollen:3102",
+            "source_name": "F\u00e4rskesj\u00f6n",
+            "source_layer_key": "neotoma-pollen",
+            "latitude": 56.15907,
+            "longitude": 15.86049,
+            "source_url": "https://apps.neotomadb.org/explorer/#/record/site/3102"
+          }
+        ],
+        "representative_source_record": "landclim-sites:937075:FARSK",
+        "representative_source_layer_key": "landclim-sites",
+        "representative_source_name": "F\u00e4rskesj\u00f6n",
+        "representative_source_url": "https://doi.org/10.1594/PANGAEA.937075",
+        "coordinate_resolution_method": "source_coordinate_medoid",
         "duplicate_name_count": 1,
         "coordinate_spread_km": 0.9273,
         "ambiguity_flags": [
@@ -2618,11 +3163,11 @@
     {
       "candidate": {
         "lake_name": "Kansj\u00f6n",
-        "lake_label": "Kansj\u00f6n (57.6351, 14.5336)",
-        "lake_token": "sweden_lake:kansjon:57.6351:14.5336",
+        "lake_label": "Kansj\u00f6n (57.633333, 14.533333)",
+        "lake_token": "sweden_lake:kansjon:57.633333:14.533333",
         "name_key": "kansjon",
-        "latitude": 57.635137,
-        "longitude": 14.533645,
+        "latitude": 57.633333,
+        "longitude": 14.533333,
         "basin_posture": "lake_basin",
         "direct_pollen_source_count": 2,
         "direct_pollen_record_count": 4,
@@ -2641,6 +3186,45 @@
           "landclim-sites:937075:KAN",
           "neotoma-pollen:1401"
         ],
+        "supporting_source_points": [
+          {
+            "source_record": "landclim-sites:897303:Kansjon:57.633333:14.533333",
+            "source_name": "Kansjon",
+            "source_layer_key": "landclim-sites",
+            "latitude": 57.633333,
+            "longitude": 14.533333,
+            "source_url": "https://doi.org/10.1594/PANGAEA.897303"
+          },
+          {
+            "source_record": "landclim-sites:900966:GC21:Kansjon",
+            "source_name": "Kansjon",
+            "source_layer_key": "landclim-sites",
+            "latitude": 57.633333,
+            "longitude": 14.533333,
+            "source_url": "https://doi.org/10.1594/PANGAEA.900966"
+          },
+          {
+            "source_record": "landclim-sites:937075:KAN",
+            "source_name": "Kansjon",
+            "source_layer_key": "landclim-sites",
+            "latitude": 57.633333,
+            "longitude": 14.533333,
+            "source_url": "https://doi.org/10.1594/PANGAEA.937075"
+          },
+          {
+            "source_record": "neotoma-pollen:1401",
+            "source_name": "Kansj\u00f6n",
+            "source_layer_key": "neotoma-pollen",
+            "latitude": 57.64055,
+            "longitude": 14.53458,
+            "source_url": "https://apps.neotomadb.org/explorer/#/record/site/1401"
+          }
+        ],
+        "representative_source_record": "landclim-sites:897303:Kansjon:57.633333:14.533333",
+        "representative_source_layer_key": "landclim-sites",
+        "representative_source_name": "Kansjon",
+        "representative_source_url": "https://doi.org/10.1594/PANGAEA.897303",
+        "coordinate_resolution_method": "source_coordinate_medoid",
         "duplicate_name_count": 1,
         "coordinate_spread_km": 0.8059,
         "ambiguity_flags": [
@@ -2651,7 +3235,7 @@
         "direct_pollen_signal": 0.95
       },
       "aggregate_rank": 20,
-      "aggregate_score": 0.3403,
+      "aggregate_score": 0.3402,
       "band_scores": [
         {
           "radius_km": 10,
@@ -2735,21 +3319,21 @@
         },
         {
           "radius_km": 50,
-          "band_rank": 22,
-          "total_score": 0.3871,
+          "band_rank": 23,
+          "total_score": 0.3856,
           "nearby_pollen_lake_count": 3,
           "human_adna_locality_count": 0,
           "human_adna_sample_count": 0,
           "domesticated_animal_locality_count": 0,
           "domesticated_animal_sample_count": 0,
-          "sead_site_count": 58,
+          "sead_site_count": 56,
           "raa_density_site_count": 34336,
           "evidence_family_count": 3,
           "signals": {
             "nearby_pollen": 0.3333,
             "human_adna": 0.0,
             "domesticated_animal_adna": 0.0,
-            "archaeology": 0.4152,
+            "archaeology": 0.4092,
             "evidence_diversity": 0.6
           }
         }
@@ -2758,8 +3342,8 @@
     {
       "candidate": {
         "lake_name": "S\u00e4mbosj\u00f6n",
-        "lake_label": "S\u00e4mbosj\u00f6n (57.1631, 12.4143)",
-        "lake_token": "sweden_lake:sambosjon:57.1631:12.4143",
+        "lake_label": "S\u00e4mbosj\u00f6n (57.163130, 12.414260)",
+        "lake_token": "sweden_lake:sambosjon:57.16313:12.41426",
         "name_key": "sambosjon",
         "latitude": 57.16313,
         "longitude": 12.41426,
@@ -2776,6 +3360,21 @@
         "supporting_source_records": [
           "neotoma-pollen:3398"
         ],
+        "supporting_source_points": [
+          {
+            "source_record": "neotoma-pollen:3398",
+            "source_name": "S\u00e4mbosj\u00f6n",
+            "source_layer_key": "neotoma-pollen",
+            "latitude": 57.16313,
+            "longitude": 12.41426,
+            "source_url": "https://apps.neotomadb.org/explorer/#/record/site/3398"
+          }
+        ],
+        "representative_source_record": "neotoma-pollen:3398",
+        "representative_source_layer_key": "neotoma-pollen",
+        "representative_source_name": "S\u00e4mbosj\u00f6n",
+        "representative_source_url": "https://apps.neotomadb.org/explorer/#/record/site/3398",
+        "coordinate_resolution_method": "shared_source_coordinate",
         "duplicate_name_count": 2,
         "coordinate_spread_km": 0.0,
         "ambiguity_flags": [
@@ -2893,10 +3492,10 @@
       "candidate": {
         "lake_name": "\u00c5bodasj\u00f6n",
         "lake_label": "\u00c5bodasj\u00f6n",
-        "lake_token": "sweden_lake:abodasjon:57.0856:14.4786",
+        "lake_token": "sweden_lake:abodasjon:57.085556:14.478611",
         "name_key": "abodasjon",
-        "latitude": 57.08557,
-        "longitude": 14.478641,
+        "latitude": 57.085556,
+        "longitude": 14.478611,
         "basin_posture": "lake_basin",
         "direct_pollen_source_count": 1,
         "direct_pollen_record_count": 3,
@@ -2912,6 +3511,37 @@
           "landclim-sites:900966:GC21:\u00c5bodasj\u00f6n",
           "landclim-sites:937075:\u00c5bodasj\u00f6n"
         ],
+        "supporting_source_points": [
+          {
+            "source_record": "landclim-sites:897303:\u00c5bodasj\u00f6n:57.085556:14.478611",
+            "source_name": "\u00c5bodasj\u00f6n",
+            "source_layer_key": "landclim-sites",
+            "latitude": 57.085556,
+            "longitude": 14.478611,
+            "source_url": "https://doi.org/10.1594/PANGAEA.897303"
+          },
+          {
+            "source_record": "landclim-sites:900966:GC21:\u00c5bodasj\u00f6n",
+            "source_name": "\u00c5bodasj\u00f6n",
+            "source_layer_key": "landclim-sites",
+            "latitude": 57.085556,
+            "longitude": 14.478611,
+            "source_url": "https://doi.org/10.1594/PANGAEA.900966"
+          },
+          {
+            "source_record": "landclim-sites:937075:\u00c5bodasj\u00f6n",
+            "source_name": "\u00c5bodasj\u00f6n",
+            "source_layer_key": "landclim-sites",
+            "latitude": 57.0856,
+            "longitude": 14.4787,
+            "source_url": "https://doi.org/10.1594/PANGAEA.937075"
+          }
+        ],
+        "representative_source_record": "landclim-sites:897303:\u00c5bodasj\u00f6n:57.085556:14.478611",
+        "representative_source_layer_key": "landclim-sites",
+        "representative_source_name": "\u00c5bodasj\u00f6n",
+        "representative_source_url": "https://doi.org/10.1594/PANGAEA.897303",
+        "coordinate_resolution_method": "source_coordinate_medoid",
         "duplicate_name_count": 1,
         "coordinate_spread_km": 0.0073,
         "ambiguity_flags": [],
@@ -3027,7 +3657,7 @@
       "candidate": {
         "lake_name": "Sk\u00e4rsg\u00f6larna",
         "lake_label": "Sk\u00e4rsg\u00f6larna",
-        "lake_token": "sweden_lake:skarsgolarna:57.0167:16.1167",
+        "lake_token": "sweden_lake:skarsgolarna:57.016667:16.116667",
         "name_key": "skarsgolarna",
         "latitude": 57.016667,
         "longitude": 16.116667,
@@ -3045,6 +3675,29 @@
           "landclim-sites:897303:Sk\u00e4rsg\u00f6larna:57.016667:16.116667",
           "landclim-sites:937075:SKAR"
         ],
+        "supporting_source_points": [
+          {
+            "source_record": "landclim-sites:897303:Sk\u00e4rsg\u00f6larna:57.016667:16.116667",
+            "source_name": "Sk\u00e4rsg\u00f6larna",
+            "source_layer_key": "landclim-sites",
+            "latitude": 57.016667,
+            "longitude": 16.116667,
+            "source_url": "https://doi.org/10.1594/PANGAEA.897303"
+          },
+          {
+            "source_record": "landclim-sites:937075:SKAR",
+            "source_name": "Sk\u00e4rsg\u00f6larna",
+            "source_layer_key": "landclim-sites",
+            "latitude": 57.016667,
+            "longitude": 16.116667,
+            "source_url": "https://doi.org/10.1594/PANGAEA.937075"
+          }
+        ],
+        "representative_source_record": "landclim-sites:897303:Sk\u00e4rsg\u00f6larna:57.016667:16.116667",
+        "representative_source_layer_key": "landclim-sites",
+        "representative_source_name": "Sk\u00e4rsg\u00f6larna",
+        "representative_source_url": "https://doi.org/10.1594/PANGAEA.897303",
+        "coordinate_resolution_method": "shared_source_coordinate",
         "duplicate_name_count": 1,
         "coordinate_spread_km": 0.0,
         "ambiguity_flags": [],
@@ -3076,7 +3729,7 @@
         },
         {
           "radius_km": 20,
-          "band_rank": 18,
+          "band_rank": 17,
           "total_score": 0.3524,
           "nearby_pollen_lake_count": 3,
           "human_adna_locality_count": 0,
@@ -3136,7 +3789,7 @@
         },
         {
           "radius_km": 50,
-          "band_rank": 20,
+          "band_rank": 21,
           "total_score": 0.3899,
           "nearby_pollen_lake_count": 4,
           "human_adna_locality_count": 2,
@@ -3159,8 +3812,8 @@
     {
       "candidate": {
         "lake_name": "Storasj\u00f6",
-        "lake_label": "Storasj\u00f6 (56.9167, 15.2833)",
-        "lake_token": "sweden_lake:storasjo:56.9167:15.2833",
+        "lake_label": "Storasj\u00f6 (56.916667, 15.283333)",
+        "lake_token": "sweden_lake:storasjo:56.916667:15.283333",
         "name_key": "storasjo",
         "latitude": 56.916667,
         "longitude": 15.283333,
@@ -3179,6 +3832,37 @@
           "landclim-sites:937075:STOR",
           "landclim-sites:937075:STORA"
         ],
+        "supporting_source_points": [
+          {
+            "source_record": "landclim-sites:897303:Storasj\u00f6:56.916667:15.283333",
+            "source_name": "Storasj\u00f6",
+            "source_layer_key": "landclim-sites",
+            "latitude": 56.916667,
+            "longitude": 15.283333,
+            "source_url": "https://doi.org/10.1594/PANGAEA.897303"
+          },
+          {
+            "source_record": "landclim-sites:937075:STOR",
+            "source_name": "Storasj\u00f6",
+            "source_layer_key": "landclim-sites",
+            "latitude": 56.916667,
+            "longitude": 15.283333,
+            "source_url": "https://doi.org/10.1594/PANGAEA.937075"
+          },
+          {
+            "source_record": "landclim-sites:937075:STORA",
+            "source_name": "Storasj\u00f6",
+            "source_layer_key": "landclim-sites",
+            "latitude": 56.916667,
+            "longitude": 15.283333,
+            "source_url": "https://doi.org/10.1594/PANGAEA.937075"
+          }
+        ],
+        "representative_source_record": "landclim-sites:937075:STOR",
+        "representative_source_layer_key": "landclim-sites",
+        "representative_source_name": "Storasj\u00f6",
+        "representative_source_url": "https://doi.org/10.1594/PANGAEA.937075",
+        "coordinate_resolution_method": "shared_source_coordinate",
         "duplicate_name_count": 2,
         "coordinate_spread_km": 0.0,
         "ambiguity_flags": [
@@ -3296,10 +3980,10 @@
       "candidate": {
         "lake_name": "Lindhultsg\u00f6l",
         "lake_label": "Lindhultsg\u00f6l",
-        "lake_token": "sweden_lake:lindhultsgol:57.1436:14.4661",
+        "lake_token": "sweden_lake:lindhultsgol:57.143611:14.466111",
         "name_key": "lindhultsgol",
-        "latitude": 57.143607,
-        "longitude": 14.466107,
+        "latitude": 57.143611,
+        "longitude": 14.466111,
         "basin_posture": "lake_basin",
         "direct_pollen_source_count": 1,
         "direct_pollen_record_count": 3,
@@ -3315,6 +3999,37 @@
           "landclim-sites:900966:GC21:Lindhultsg\u00f6l",
           "landclim-sites:937075:Lindhult"
         ],
+        "supporting_source_points": [
+          {
+            "source_record": "landclim-sites:897303:Lindhultsg\u00f6l:57.143611:14.466111",
+            "source_name": "Lindhultsg\u00f6l",
+            "source_layer_key": "landclim-sites",
+            "latitude": 57.143611,
+            "longitude": 14.466111,
+            "source_url": "https://doi.org/10.1594/PANGAEA.897303"
+          },
+          {
+            "source_record": "landclim-sites:900966:GC21:Lindhultsg\u00f6l",
+            "source_name": "Lindhultsg\u00f6l",
+            "source_layer_key": "landclim-sites",
+            "latitude": 57.143611,
+            "longitude": 14.466111,
+            "source_url": "https://doi.org/10.1594/PANGAEA.900966"
+          },
+          {
+            "source_record": "landclim-sites:937075:Lindhult",
+            "source_name": "Lindhultsg\u00f6l",
+            "source_layer_key": "landclim-sites",
+            "latitude": 57.1436,
+            "longitude": 14.4661,
+            "source_url": "https://doi.org/10.1594/PANGAEA.937075"
+          }
+        ],
+        "representative_source_record": "landclim-sites:897303:Lindhultsg\u00f6l:57.143611:14.466111",
+        "representative_source_layer_key": "landclim-sites",
+        "representative_source_name": "Lindhultsg\u00f6l",
+        "representative_source_url": "https://doi.org/10.1594/PANGAEA.897303",
+        "coordinate_resolution_method": "source_coordinate_medoid",
         "duplicate_name_count": 1,
         "coordinate_spread_km": 0.0014,
         "ambiguity_flags": [],
@@ -3406,7 +4121,7 @@
         },
         {
           "radius_km": 50,
-          "band_rank": 23,
+          "band_rank": 22,
           "total_score": 0.3867,
           "nearby_pollen_lake_count": 4,
           "human_adna_locality_count": 1,
@@ -3430,7 +4145,7 @@
       "candidate": {
         "lake_name": "Ljungsj\u00f6n",
         "lake_label": "Ljungsj\u00f6n",
-        "lake_token": "sweden_lake:ljungsjon:57.7343:13.3327",
+        "lake_token": "sweden_lake:ljungsjon:57.73429:13.33269",
         "name_key": "ljungsjon",
         "latitude": 57.73429,
         "longitude": 13.33269,
@@ -3447,6 +4162,21 @@
         "supporting_source_records": [
           "neotoma-pollen:3240"
         ],
+        "supporting_source_points": [
+          {
+            "source_record": "neotoma-pollen:3240",
+            "source_name": "Ljungsj\u00f6n",
+            "source_layer_key": "neotoma-pollen",
+            "latitude": 57.73429,
+            "longitude": 13.33269,
+            "source_url": "https://apps.neotomadb.org/explorer/#/record/site/3240"
+          }
+        ],
+        "representative_source_record": "neotoma-pollen:3240",
+        "representative_source_layer_key": "neotoma-pollen",
+        "representative_source_name": "Ljungsj\u00f6n",
+        "representative_source_url": "https://apps.neotomadb.org/explorer/#/record/site/3240",
+        "coordinate_resolution_method": "shared_source_coordinate",
         "duplicate_name_count": 1,
         "coordinate_spread_km": 0.0,
         "ambiguity_flags": [],
@@ -3562,7 +4292,7 @@
       "candidate": {
         "lake_name": "Halsj\u00f6n II",
         "lake_label": "Halsj\u00f6n II",
-        "lake_token": "sweden_lake:halsjonii:56.2333:15.3167",
+        "lake_token": "sweden_lake:halsjonii:56.23333:15.31667",
         "name_key": "halsjonii",
         "latitude": 56.23333,
         "longitude": 15.31667,
@@ -3579,6 +4309,21 @@
         "supporting_source_records": [
           "neotoma-pollen:3141"
         ],
+        "supporting_source_points": [
+          {
+            "source_record": "neotoma-pollen:3141",
+            "source_name": "Halsj\u00f6n II",
+            "source_layer_key": "neotoma-pollen",
+            "latitude": 56.23333,
+            "longitude": 15.31667,
+            "source_url": "https://apps.neotomadb.org/explorer/#/record/site/3141"
+          }
+        ],
+        "representative_source_record": "neotoma-pollen:3141",
+        "representative_source_layer_key": "neotoma-pollen",
+        "representative_source_name": "Halsj\u00f6n II",
+        "representative_source_url": "https://apps.neotomadb.org/explorer/#/record/site/3141",
+        "coordinate_resolution_method": "shared_source_coordinate",
         "duplicate_name_count": 1,
         "coordinate_spread_km": 0.0,
         "ambiguity_flags": [],
@@ -3694,7 +4439,7 @@
       "candidate": {
         "lake_name": "Bergakyllen",
         "lake_label": "Bergakyllen",
-        "lake_token": "sweden_lake:bergakyllen:57.1837:16.1453",
+        "lake_token": "sweden_lake:bergakyllen:57.18367:16.14528",
         "name_key": "bergakyllen",
         "latitude": 57.18367,
         "longitude": 16.14528,
@@ -3711,6 +4456,21 @@
         "supporting_source_records": [
           "neotoma-pollen:3009"
         ],
+        "supporting_source_points": [
+          {
+            "source_record": "neotoma-pollen:3009",
+            "source_name": "Bergakyllen",
+            "source_layer_key": "neotoma-pollen",
+            "latitude": 57.18367,
+            "longitude": 16.14528,
+            "source_url": "https://apps.neotomadb.org/explorer/#/record/site/3009"
+          }
+        ],
+        "representative_source_record": "neotoma-pollen:3009",
+        "representative_source_layer_key": "neotoma-pollen",
+        "representative_source_name": "Bergakyllen",
+        "representative_source_url": "https://apps.neotomadb.org/explorer/#/record/site/3009",
+        "coordinate_resolution_method": "shared_source_coordinate",
         "duplicate_name_count": 1,
         "coordinate_spread_km": 0.0,
         "ambiguity_flags": [],
@@ -3826,7 +4586,7 @@
       "candidate": {
         "lake_name": "Skvarran",
         "lake_label": "Skvarran",
-        "lake_token": "sweden_lake:skvarran:57.1894:16.1527",
+        "lake_token": "sweden_lake:skvarran:57.1894:16.15266",
         "name_key": "skvarran",
         "latitude": 57.1894,
         "longitude": 16.15266,
@@ -3843,6 +4603,21 @@
         "supporting_source_records": [
           "neotoma-pollen:3419"
         ],
+        "supporting_source_points": [
+          {
+            "source_record": "neotoma-pollen:3419",
+            "source_name": "Skvarran",
+            "source_layer_key": "neotoma-pollen",
+            "latitude": 57.1894,
+            "longitude": 16.15266,
+            "source_url": "https://apps.neotomadb.org/explorer/#/record/site/3419"
+          }
+        ],
+        "representative_source_record": "neotoma-pollen:3419",
+        "representative_source_layer_key": "neotoma-pollen",
+        "representative_source_name": "Skvarran",
+        "representative_source_url": "https://apps.neotomadb.org/explorer/#/record/site/3419",
+        "coordinate_resolution_method": "shared_source_coordinate",
         "duplicate_name_count": 1,
         "coordinate_spread_km": 0.0,
         "ambiguity_flags": [],
@@ -3957,11 +4732,11 @@
     {
       "candidate": {
         "lake_name": "Vuolep Njakajaure",
-        "lake_label": "Vuolep Njakajaure (68.3361, 18.7602)",
-        "lake_token": "sweden_lake:vuolepnjakajaure:68.3361:18.7602",
+        "lake_label": "Vuolep Njakajaure (68.333333, 18.750000)",
+        "lake_token": "sweden_lake:vuolepnjakajaure:68.333333:18.75",
         "name_key": "vuolepnjakajaure",
-        "latitude": 68.336112,
-        "longitude": 18.760187,
+        "latitude": 68.333333,
+        "longitude": 18.75,
         "basin_posture": "lake_basin",
         "direct_pollen_source_count": 2,
         "direct_pollen_record_count": 3,
@@ -3978,6 +4753,37 @@
           "landclim-sites:937075:VoNj",
           "neotoma-pollen:28859"
         ],
+        "supporting_source_points": [
+          {
+            "source_record": "landclim-sites:897303:Lake Vuolep Njakajaure:68.333333:18.750000",
+            "source_name": "Vuolep Njakajaure",
+            "source_layer_key": "landclim-sites",
+            "latitude": 68.333333,
+            "longitude": 18.75,
+            "source_url": "https://doi.org/10.1594/PANGAEA.897303"
+          },
+          {
+            "source_record": "landclim-sites:937075:VoNj",
+            "source_name": "Vuolep Njakajaure",
+            "source_layer_key": "landclim-sites",
+            "latitude": 68.333333,
+            "longitude": 18.75,
+            "source_url": "https://doi.org/10.1594/PANGAEA.937075"
+          },
+          {
+            "source_record": "neotoma-pollen:28859",
+            "source_name": "Vuolep Njakajaure",
+            "source_layer_key": "neotoma-pollen",
+            "latitude": 68.34167,
+            "longitude": 18.78056,
+            "source_url": "https://apps.neotomadb.org/explorer/#/record/site/28859"
+          }
+        ],
+        "representative_source_record": "landclim-sites:897303:Lake Vuolep Njakajaure:68.333333:18.750000",
+        "representative_source_layer_key": "landclim-sites",
+        "representative_source_name": "Vuolep Njakajaure",
+        "representative_source_url": "https://doi.org/10.1594/PANGAEA.897303",
+        "coordinate_resolution_method": "source_coordinate_medoid",
         "duplicate_name_count": 1,
         "coordinate_spread_km": 1.5598,
         "ambiguity_flags": [
@@ -3987,25 +4793,25 @@
         "direct_pollen_signal": 0.8042
       },
       "aggregate_rank": 30,
-      "aggregate_score": 0.3135,
+      "aggregate_score": 0.3134,
       "band_scores": [
         {
           "radius_km": 10,
-          "band_rank": 10,
-          "total_score": 0.3301,
+          "band_rank": 11,
+          "total_score": 0.3296,
           "nearby_pollen_lake_count": 4,
           "human_adna_locality_count": 0,
           "human_adna_sample_count": 0,
           "domesticated_animal_locality_count": 0,
           "domesticated_animal_sample_count": 0,
           "sead_site_count": 1,
-          "raa_density_site_count": 341,
+          "raa_density_site_count": 214,
           "evidence_family_count": 3,
           "signals": {
             "nearby_pollen": 1.0,
             "human_adna": 0.0,
             "domesticated_animal_adna": 0.0,
-            "archaeology": 0.0371,
+            "archaeology": 0.035,
             "evidence_diversity": 0.6
           }
         },
@@ -4095,7 +4901,7 @@
       "candidate": {
         "lake_name": "Galtsj\u00f6n",
         "lake_label": "Galtsj\u00f6n",
-        "lake_token": "sweden_lake:galtsjon:56.2188:15.2101",
+        "lake_token": "sweden_lake:galtsjon:56.21884:15.21014",
         "name_key": "galtsjon",
         "latitude": 56.21884,
         "longitude": 15.21014,
@@ -4112,6 +4918,21 @@
         "supporting_source_records": [
           "neotoma-pollen:3120"
         ],
+        "supporting_source_points": [
+          {
+            "source_record": "neotoma-pollen:3120",
+            "source_name": "Galtsj\u00f6n",
+            "source_layer_key": "neotoma-pollen",
+            "latitude": 56.21884,
+            "longitude": 15.21014,
+            "source_url": "https://apps.neotomadb.org/explorer/#/record/site/3120"
+          }
+        ],
+        "representative_source_record": "neotoma-pollen:3120",
+        "representative_source_layer_key": "neotoma-pollen",
+        "representative_source_name": "Galtsj\u00f6n",
+        "representative_source_url": "https://apps.neotomadb.org/explorer/#/record/site/3120",
+        "coordinate_resolution_method": "shared_source_coordinate",
         "duplicate_name_count": 1,
         "coordinate_spread_km": 0.0,
         "ambiguity_flags": [],
@@ -4227,7 +5048,7 @@
       "candidate": {
         "lake_name": "\u00d6stra Ringarp",
         "lake_label": "\u00d6stra Ringarp",
-        "lake_token": "sweden_lake:ostraringarp:56.2642:13.3186",
+        "lake_token": "sweden_lake:ostraringarp:56.26417:13.31861",
         "name_key": "ostraringarp",
         "latitude": 56.26417,
         "longitude": 13.31861,
@@ -4244,6 +5065,21 @@
         "supporting_source_records": [
           "neotoma-pollen:28886"
         ],
+        "supporting_source_points": [
+          {
+            "source_record": "neotoma-pollen:28886",
+            "source_name": "\u00d6stra Ringarp",
+            "source_layer_key": "neotoma-pollen",
+            "latitude": 56.26417,
+            "longitude": 13.31861,
+            "source_url": "https://apps.neotomadb.org/explorer/#/record/site/28886"
+          }
+        ],
+        "representative_source_record": "neotoma-pollen:28886",
+        "representative_source_layer_key": "neotoma-pollen",
+        "representative_source_name": "\u00d6stra Ringarp",
+        "representative_source_url": "https://apps.neotomadb.org/explorer/#/record/site/28886",
+        "coordinate_resolution_method": "shared_source_coordinate",
         "duplicate_name_count": 1,
         "coordinate_spread_km": 0.0,
         "ambiguity_flags": [],
@@ -4359,7 +5195,7 @@
       "candidate": {
         "lake_name": "Kroksj\u00f6n",
         "lake_label": "Kroksj\u00f6n",
-        "lake_token": "sweden_lake:kroksjon:56.2735:15.0084",
+        "lake_token": "sweden_lake:kroksjon:56.27346:15.00843",
         "name_key": "kroksjon",
         "latitude": 56.27346,
         "longitude": 15.00843,
@@ -4376,6 +5212,21 @@
         "supporting_source_records": [
           "neotoma-pollen:3206"
         ],
+        "supporting_source_points": [
+          {
+            "source_record": "neotoma-pollen:3206",
+            "source_name": "Kroksj\u00f6n",
+            "source_layer_key": "neotoma-pollen",
+            "latitude": 56.27346,
+            "longitude": 15.00843,
+            "source_url": "https://apps.neotomadb.org/explorer/#/record/site/3206"
+          }
+        ],
+        "representative_source_record": "neotoma-pollen:3206",
+        "representative_source_layer_key": "neotoma-pollen",
+        "representative_source_name": "Kroksj\u00f6n",
+        "representative_source_url": "https://apps.neotomadb.org/explorer/#/record/site/3206",
+        "coordinate_resolution_method": "shared_source_coordinate",
         "duplicate_name_count": 1,
         "coordinate_spread_km": 0.0,
         "ambiguity_flags": [],
@@ -4491,7 +5342,7 @@
       "candidate": {
         "lake_name": "Siggaboda",
         "lake_label": "Siggaboda",
-        "lake_token": "sweden_lake:siggaboda:56.4667:14.5667",
+        "lake_token": "sweden_lake:siggaboda:56.46667:14.56667",
         "name_key": "siggaboda",
         "latitude": 56.46667,
         "longitude": 14.56667,
@@ -4508,6 +5359,21 @@
         "supporting_source_records": [
           "neotoma-pollen:28890"
         ],
+        "supporting_source_points": [
+          {
+            "source_record": "neotoma-pollen:28890",
+            "source_name": "Siggaboda",
+            "source_layer_key": "neotoma-pollen",
+            "latitude": 56.46667,
+            "longitude": 14.56667,
+            "source_url": "https://apps.neotomadb.org/explorer/#/record/site/28890"
+          }
+        ],
+        "representative_source_record": "neotoma-pollen:28890",
+        "representative_source_layer_key": "neotoma-pollen",
+        "representative_source_name": "Siggaboda",
+        "representative_source_url": "https://apps.neotomadb.org/explorer/#/record/site/28890",
+        "coordinate_resolution_method": "shared_source_coordinate",
         "duplicate_name_count": 1,
         "coordinate_spread_km": 0.0,
         "ambiguity_flags": [],
@@ -4640,6 +5506,21 @@
         "supporting_source_records": [
           "neotoma-pollen:3140"
         ],
+        "supporting_source_points": [
+          {
+            "source_record": "neotoma-pollen:3140",
+            "source_name": "H\u00e4lsegyl",
+            "source_layer_key": "neotoma-pollen",
+            "latitude": 56.5436,
+            "longitude": 14.6097,
+            "source_url": "https://apps.neotomadb.org/explorer/#/record/site/3140"
+          }
+        ],
+        "representative_source_record": "neotoma-pollen:3140",
+        "representative_source_layer_key": "neotoma-pollen",
+        "representative_source_name": "H\u00e4lsegyl",
+        "representative_source_url": "https://apps.neotomadb.org/explorer/#/record/site/3140",
+        "coordinate_resolution_method": "shared_source_coordinate",
         "duplicate_name_count": 1,
         "coordinate_spread_km": 0.0,
         "ambiguity_flags": [],
@@ -4755,7 +5636,7 @@
       "candidate": {
         "lake_name": "Kalven",
         "lake_label": "Kalven",
-        "lake_token": "sweden_lake:kalven:56.5352:14.5557",
+        "lake_token": "sweden_lake:kalven:56.53516:14.55571",
         "name_key": "kalven",
         "latitude": 56.53516,
         "longitude": 14.55571,
@@ -4772,6 +5653,21 @@
         "supporting_source_records": [
           "neotoma-pollen:3179"
         ],
+        "supporting_source_points": [
+          {
+            "source_record": "neotoma-pollen:3179",
+            "source_name": "Kalven",
+            "source_layer_key": "neotoma-pollen",
+            "latitude": 56.53516,
+            "longitude": 14.55571,
+            "source_url": "https://apps.neotomadb.org/explorer/#/record/site/3179"
+          }
+        ],
+        "representative_source_record": "neotoma-pollen:3179",
+        "representative_source_layer_key": "neotoma-pollen",
+        "representative_source_name": "Kalven",
+        "representative_source_url": "https://apps.neotomadb.org/explorer/#/record/site/3179",
+        "coordinate_resolution_method": "shared_source_coordinate",
         "duplicate_name_count": 1,
         "coordinate_spread_km": 0.0,
         "ambiguity_flags": [],
@@ -4783,7 +5679,7 @@
       "band_scores": [
         {
           "radius_km": 10,
-          "band_rank": 34,
+          "band_rank": 35,
           "total_score": 0.2895,
           "nearby_pollen_lake_count": 2,
           "human_adna_locality_count": 0,
@@ -4886,8 +5782,8 @@
     {
       "candidate": {
         "lake_name": "Badsj\u00f6n",
-        "lake_label": "Badsj\u00f6n (68.3333, 18.7500)",
-        "lake_token": "sweden_lake:badsjon:68.3333:18.75",
+        "lake_label": "Badsj\u00f6n (68.333333, 18.750000)",
+        "lake_token": "sweden_lake:badsjon:68.333333:18.75",
         "name_key": "badsjon",
         "latitude": 68.333333,
         "longitude": 18.75,
@@ -4906,6 +5802,37 @@
           "landclim-sites:900966:GC33:Badsj\u00f6n",
           "landclim-sites:937075:BAD"
         ],
+        "supporting_source_points": [
+          {
+            "source_record": "landclim-sites:897303:Lake Badsj\u00f6n:68.333333:18.750000",
+            "source_name": "Badsj\u00f6n",
+            "source_layer_key": "landclim-sites",
+            "latitude": 68.333333,
+            "longitude": 18.75,
+            "source_url": "https://doi.org/10.1594/PANGAEA.897303"
+          },
+          {
+            "source_record": "landclim-sites:900966:GC33:Badsj\u00f6n",
+            "source_name": "Badsj\u00f6n",
+            "source_layer_key": "landclim-sites",
+            "latitude": 68.333333,
+            "longitude": 18.75,
+            "source_url": "https://doi.org/10.1594/PANGAEA.900966"
+          },
+          {
+            "source_record": "landclim-sites:937075:BAD",
+            "source_name": "Badsj\u00f6n",
+            "source_layer_key": "landclim-sites",
+            "latitude": 68.333333,
+            "longitude": 18.75,
+            "source_url": "https://doi.org/10.1594/PANGAEA.937075"
+          }
+        ],
+        "representative_source_record": "landclim-sites:897303:Lake Badsj\u00f6n:68.333333:18.750000",
+        "representative_source_layer_key": "landclim-sites",
+        "representative_source_name": "Badsj\u00f6n",
+        "representative_source_url": "https://doi.org/10.1594/PANGAEA.897303",
+        "coordinate_resolution_method": "shared_source_coordinate",
         "duplicate_name_count": 2,
         "coordinate_spread_km": 0.0,
         "ambiguity_flags": [
@@ -5023,7 +5950,7 @@
       "candidate": {
         "lake_name": "Ran Viken",
         "lake_label": "Ran Viken",
-        "lake_token": "sweden_lake:ranviken:56.2814:14.2906",
+        "lake_token": "sweden_lake:ranviken:56.28145:14.29056",
         "name_key": "ranviken",
         "latitude": 56.28145,
         "longitude": 14.29056,
@@ -5040,6 +5967,21 @@
         "supporting_source_records": [
           "neotoma-pollen:3370"
         ],
+        "supporting_source_points": [
+          {
+            "source_record": "neotoma-pollen:3370",
+            "source_name": "Ran Viken",
+            "source_layer_key": "neotoma-pollen",
+            "latitude": 56.28145,
+            "longitude": 14.29056,
+            "source_url": "https://apps.neotomadb.org/explorer/#/record/site/3370"
+          }
+        ],
+        "representative_source_record": "neotoma-pollen:3370",
+        "representative_source_layer_key": "neotoma-pollen",
+        "representative_source_name": "Ran Viken",
+        "representative_source_url": "https://apps.neotomadb.org/explorer/#/record/site/3370",
+        "coordinate_resolution_method": "shared_source_coordinate",
         "duplicate_name_count": 1,
         "coordinate_spread_km": 0.0,
         "ambiguity_flags": [],
@@ -5155,7 +6097,7 @@
       "candidate": {
         "lake_name": "V\u00e4stragylet",
         "lake_label": "V\u00e4stragylet",
-        "lake_token": "sweden_lake:vastragylet:56.35:14.8833",
+        "lake_token": "sweden_lake:vastragylet:56.35:14.88333",
         "name_key": "vastragylet",
         "latitude": 56.35,
         "longitude": 14.88333,
@@ -5172,6 +6114,21 @@
         "supporting_source_records": [
           "neotoma-pollen:28852"
         ],
+        "supporting_source_points": [
+          {
+            "source_record": "neotoma-pollen:28852",
+            "source_name": "V\u00e4stragylet",
+            "source_layer_key": "neotoma-pollen",
+            "latitude": 56.35,
+            "longitude": 14.88333,
+            "source_url": "https://apps.neotomadb.org/explorer/#/record/site/28852"
+          }
+        ],
+        "representative_source_record": "neotoma-pollen:28852",
+        "representative_source_layer_key": "neotoma-pollen",
+        "representative_source_name": "V\u00e4stragylet",
+        "representative_source_url": "https://apps.neotomadb.org/explorer/#/record/site/28852",
+        "coordinate_resolution_method": "shared_source_coordinate",
         "duplicate_name_count": 1,
         "coordinate_spread_km": 0.0,
         "ambiguity_flags": [],
@@ -5286,11 +6243,11 @@
     {
       "candidate": {
         "lake_name": "Gilltj\u00e4rnen",
-        "lake_label": "Gilltj\u00e4rnen (60.0833, 15.8333)",
-        "lake_token": "sweden_lake:gilltjarnen:60.0833:15.8333",
+        "lake_label": "Gilltj\u00e4rnen (60.083333, 15.833333)",
+        "lake_token": "sweden_lake:gilltjarnen:60.083333:15.833333",
         "name_key": "gilltjarnen",
-        "latitude": 60.083332,
-        "longitude": 15.833332,
+        "latitude": 60.083333,
+        "longitude": 15.833333,
         "basin_posture": "lake_basin",
         "direct_pollen_source_count": 2,
         "direct_pollen_record_count": 2,
@@ -5306,6 +6263,29 @@
           "landclim-sites:897303:Gilltj\u00e4rnen:60.083333:15.833333",
           "neotoma-pollen:28866"
         ],
+        "supporting_source_points": [
+          {
+            "source_record": "landclim-sites:897303:Gilltj\u00e4rnen:60.083333:15.833333",
+            "source_name": "Gilltj\u00e4rnen",
+            "source_layer_key": "landclim-sites",
+            "latitude": 60.083333,
+            "longitude": 15.833333,
+            "source_url": "https://doi.org/10.1594/PANGAEA.897303"
+          },
+          {
+            "source_record": "neotoma-pollen:28866",
+            "source_name": "Gilltj\u00e4rnen",
+            "source_layer_key": "neotoma-pollen",
+            "latitude": 60.08333,
+            "longitude": 15.83333,
+            "source_url": "https://apps.neotomadb.org/explorer/#/record/site/28866"
+          }
+        ],
+        "representative_source_record": "landclim-sites:897303:Gilltj\u00e4rnen:60.083333:15.833333",
+        "representative_source_layer_key": "landclim-sites",
+        "representative_source_name": "Gilltj\u00e4rnen",
+        "representative_source_url": "https://doi.org/10.1594/PANGAEA.897303",
+        "coordinate_resolution_method": "source_coordinate_medoid",
         "duplicate_name_count": 2,
         "coordinate_spread_km": 0.0004,
         "ambiguity_flags": [
@@ -5423,7 +6403,7 @@
       "candidate": {
         "lake_name": "Madtj\u00e4rn",
         "lake_label": "Madtj\u00e4rn",
-        "lake_token": "sweden_lake:madtjarn:58.5959:12.1746",
+        "lake_token": "sweden_lake:madtjarn:58.5959:12.17463",
         "name_key": "madtjarn",
         "latitude": 58.5959,
         "longitude": 12.17463,
@@ -5440,6 +6420,21 @@
         "supporting_source_records": [
           "neotoma-pollen:3317"
         ],
+        "supporting_source_points": [
+          {
+            "source_record": "neotoma-pollen:3317",
+            "source_name": "Madtj\u00e4rn",
+            "source_layer_key": "neotoma-pollen",
+            "latitude": 58.5959,
+            "longitude": 12.17463,
+            "source_url": "https://apps.neotomadb.org/explorer/#/record/site/3317"
+          }
+        ],
+        "representative_source_record": "neotoma-pollen:3317",
+        "representative_source_layer_key": "neotoma-pollen",
+        "representative_source_name": "Madtj\u00e4rn",
+        "representative_source_url": "https://apps.neotomadb.org/explorer/#/record/site/3317",
+        "coordinate_resolution_method": "shared_source_coordinate",
         "duplicate_name_count": 1,
         "coordinate_spread_km": 0.0,
         "ambiguity_flags": [],
@@ -5555,7 +6550,7 @@
       "candidate": {
         "lake_name": "Ving\u00f6len",
         "lake_label": "Ving\u00f6len",
-        "lake_token": "sweden_lake:vingolen:57.1337:15.9377",
+        "lake_token": "sweden_lake:vingolen:57.13371:15.93773",
         "name_key": "vingolen",
         "latitude": 57.13371,
         "longitude": 15.93773,
@@ -5572,6 +6567,21 @@
         "supporting_source_records": [
           "neotoma-pollen:3493"
         ],
+        "supporting_source_points": [
+          {
+            "source_record": "neotoma-pollen:3493",
+            "source_name": "Ving\u00f6len",
+            "source_layer_key": "neotoma-pollen",
+            "latitude": 57.13371,
+            "longitude": 15.93773,
+            "source_url": "https://apps.neotomadb.org/explorer/#/record/site/3493"
+          }
+        ],
+        "representative_source_record": "neotoma-pollen:3493",
+        "representative_source_layer_key": "neotoma-pollen",
+        "representative_source_name": "Ving\u00f6len",
+        "representative_source_url": "https://apps.neotomadb.org/explorer/#/record/site/3493",
+        "coordinate_resolution_method": "shared_source_coordinate",
         "duplicate_name_count": 1,
         "coordinate_spread_km": 0.0,
         "ambiguity_flags": [],
@@ -5603,7 +6613,7 @@
         },
         {
           "radius_km": 20,
-          "band_rank": 17,
+          "band_rank": 16,
           "total_score": 0.3563,
           "nearby_pollen_lake_count": 4,
           "human_adna_locality_count": 0,
@@ -5687,7 +6697,7 @@
       "candidate": {
         "lake_name": "Mullsj\u00f6n",
         "lake_label": "Mullsj\u00f6n",
-        "lake_token": "sweden_lake:mullsjon:58.3176:14.2114",
+        "lake_token": "sweden_lake:mullsjon:58.31761:14.21136",
         "name_key": "mullsjon",
         "latitude": 58.31761,
         "longitude": 14.21136,
@@ -5704,6 +6714,21 @@
         "supporting_source_records": [
           "neotoma-pollen:3303"
         ],
+        "supporting_source_points": [
+          {
+            "source_record": "neotoma-pollen:3303",
+            "source_name": "Mullsj\u00f6n",
+            "source_layer_key": "neotoma-pollen",
+            "latitude": 58.31761,
+            "longitude": 14.21136,
+            "source_url": "https://apps.neotomadb.org/explorer/#/record/site/3303"
+          }
+        ],
+        "representative_source_record": "neotoma-pollen:3303",
+        "representative_source_layer_key": "neotoma-pollen",
+        "representative_source_name": "Mullsj\u00f6n",
+        "representative_source_url": "https://apps.neotomadb.org/explorer/#/record/site/3303",
+        "coordinate_resolution_method": "shared_source_coordinate",
         "duplicate_name_count": 1,
         "coordinate_spread_km": 0.0,
         "ambiguity_flags": [],
@@ -5819,7 +6844,7 @@
       "candidate": {
         "lake_name": "Mj\u00e4llsj\u00f6n",
         "lake_label": "Mj\u00e4llsj\u00f6n",
-        "lake_token": "sweden_lake:mjallsjon:57.097:12.5738",
+        "lake_token": "sweden_lake:mjallsjon:57.09696:12.57381",
         "name_key": "mjallsjon",
         "latitude": 57.09696,
         "longitude": 12.57381,
@@ -5836,6 +6861,21 @@
         "supporting_source_records": [
           "neotoma-pollen:3287"
         ],
+        "supporting_source_points": [
+          {
+            "source_record": "neotoma-pollen:3287",
+            "source_name": "Mj\u00e4llsj\u00f6n",
+            "source_layer_key": "neotoma-pollen",
+            "latitude": 57.09696,
+            "longitude": 12.57381,
+            "source_url": "https://apps.neotomadb.org/explorer/#/record/site/3287"
+          }
+        ],
+        "representative_source_record": "neotoma-pollen:3287",
+        "representative_source_layer_key": "neotoma-pollen",
+        "representative_source_name": "Mj\u00e4llsj\u00f6n",
+        "representative_source_url": "https://apps.neotomadb.org/explorer/#/record/site/3287",
+        "coordinate_resolution_method": "shared_source_coordinate",
         "duplicate_name_count": 1,
         "coordinate_spread_km": 0.0,
         "ambiguity_flags": [],
@@ -5951,7 +6991,7 @@
       "candidate": {
         "lake_name": "F\u00e4rshesj\u00f6n",
         "lake_label": "F\u00e4rshesj\u00f6n",
-        "lake_token": "sweden_lake:farshesjon:56.1667:15.8667",
+        "lake_token": "sweden_lake:farshesjon:56.166667:15.866667",
         "name_key": "farshesjon",
         "latitude": 56.166667,
         "longitude": 15.866667,
@@ -5968,6 +7008,21 @@
         "supporting_source_records": [
           "landclim-sites:897303:F\u00e4rshesj\u00f6n:56.166667:15.866667"
         ],
+        "supporting_source_points": [
+          {
+            "source_record": "landclim-sites:897303:F\u00e4rshesj\u00f6n:56.166667:15.866667",
+            "source_name": "F\u00e4rshesj\u00f6n",
+            "source_layer_key": "landclim-sites",
+            "latitude": 56.166667,
+            "longitude": 15.866667,
+            "source_url": "https://doi.org/10.1594/PANGAEA.897303"
+          }
+        ],
+        "representative_source_record": "landclim-sites:897303:F\u00e4rshesj\u00f6n:56.166667:15.866667",
+        "representative_source_layer_key": "landclim-sites",
+        "representative_source_name": "F\u00e4rshesj\u00f6n",
+        "representative_source_url": "https://doi.org/10.1594/PANGAEA.897303",
+        "coordinate_resolution_method": "shared_source_coordinate",
         "duplicate_name_count": 1,
         "coordinate_spread_km": 0.0,
         "ambiguity_flags": [],
@@ -6083,7 +7138,7 @@
       "candidate": {
         "lake_name": "F\u00e4rskesj\u00f6n (core 2014)",
         "lake_label": "F\u00e4rskesj\u00f6n (core 2014)",
-        "lake_token": "sweden_lake:farskesjoncore2014:56.1667:15.8667",
+        "lake_token": "sweden_lake:farskesjoncore2014:56.166667:15.866667",
         "name_key": "farskesjoncore2014",
         "latitude": 56.166667,
         "longitude": 15.866667,
@@ -6100,6 +7155,21 @@
         "supporting_source_records": [
           "landclim-sites:937075:Farske"
         ],
+        "supporting_source_points": [
+          {
+            "source_record": "landclim-sites:937075:Farske",
+            "source_name": "F\u00e4rskesj\u00f6n (core 2014)",
+            "source_layer_key": "landclim-sites",
+            "latitude": 56.166667,
+            "longitude": 15.866667,
+            "source_url": "https://doi.org/10.1594/PANGAEA.937075"
+          }
+        ],
+        "representative_source_record": "landclim-sites:937075:Farske",
+        "representative_source_layer_key": "landclim-sites",
+        "representative_source_name": "F\u00e4rskesj\u00f6n (core 2014)",
+        "representative_source_url": "https://doi.org/10.1594/PANGAEA.937075",
+        "coordinate_resolution_method": "shared_source_coordinate",
         "duplicate_name_count": 1,
         "coordinate_spread_km": 0.0,
         "ambiguity_flags": [],
@@ -6215,7 +7285,7 @@
       "candidate": {
         "lake_name": "Tibetanus",
         "lake_label": "Tibetanus",
-        "lake_token": "sweden_lake:tibetanus:68.3333:18.7",
+        "lake_token": "sweden_lake:tibetanus:68.333333:18.7",
         "name_key": "tibetanus",
         "latitude": 68.333333,
         "longitude": 18.7,
@@ -6233,6 +7303,29 @@
           "landclim-sites:897303:Lake Tibetanus:68.333333:18.700000",
           "landclim-sites:937075:TIB"
         ],
+        "supporting_source_points": [
+          {
+            "source_record": "landclim-sites:897303:Lake Tibetanus:68.333333:18.700000",
+            "source_name": "Tibetanus",
+            "source_layer_key": "landclim-sites",
+            "latitude": 68.333333,
+            "longitude": 18.7,
+            "source_url": "https://doi.org/10.1594/PANGAEA.897303"
+          },
+          {
+            "source_record": "landclim-sites:937075:TIB",
+            "source_name": "Tibetanus",
+            "source_layer_key": "landclim-sites",
+            "latitude": 68.333333,
+            "longitude": 18.7,
+            "source_url": "https://doi.org/10.1594/PANGAEA.937075"
+          }
+        ],
+        "representative_source_record": "landclim-sites:897303:Lake Tibetanus:68.333333:18.700000",
+        "representative_source_layer_key": "landclim-sites",
+        "representative_source_name": "Tibetanus",
+        "representative_source_url": "https://doi.org/10.1594/PANGAEA.897303",
+        "coordinate_resolution_method": "shared_source_coordinate",
         "duplicate_name_count": 1,
         "coordinate_spread_km": 0.0,
         "ambiguity_flags": [],
@@ -6348,10 +7441,10 @@
       "candidate": {
         "lake_name": "Ljustj\u00e4rnen",
         "lake_label": "Ljustj\u00e4rnen",
-        "lake_token": "sweden_lake:ljustjarnen:59.7607:14.4876",
+        "lake_token": "sweden_lake:ljustjarnen:59.761111:14.490278",
         "name_key": "ljustjarnen",
-        "latitude": 59.760741,
-        "longitude": 14.487592,
+        "latitude": 59.761111,
+        "longitude": 14.490278,
         "basin_posture": "lake_basin",
         "direct_pollen_source_count": 2,
         "direct_pollen_record_count": 3,
@@ -6368,6 +7461,37 @@
           "landclim-sites:937075:LJU",
           "neotoma-pollen:28853"
         ],
+        "supporting_source_points": [
+          {
+            "source_record": "landclim-sites:897303:Ljustj\u00e4rnen:59.761111:14.490278",
+            "source_name": "Ljustj\u00e4rnen",
+            "source_layer_key": "landclim-sites",
+            "latitude": 59.761111,
+            "longitude": 14.490278,
+            "source_url": "https://doi.org/10.1594/PANGAEA.897303"
+          },
+          {
+            "source_record": "landclim-sites:937075:LJU",
+            "source_name": "Ljustj\u00e4rnen",
+            "source_layer_key": "landclim-sites",
+            "latitude": 59.761111,
+            "longitude": 14.490278,
+            "source_url": "https://doi.org/10.1594/PANGAEA.937075"
+          },
+          {
+            "source_record": "neotoma-pollen:28853",
+            "source_name": "Ljustj\u00e4rnen",
+            "source_layer_key": "neotoma-pollen",
+            "latitude": 59.76,
+            "longitude": 14.48222,
+            "source_url": "https://apps.neotomadb.org/explorer/#/record/site/28853"
+          }
+        ],
+        "representative_source_record": "landclim-sites:897303:Ljustj\u00e4rnen:59.761111:14.490278",
+        "representative_source_layer_key": "landclim-sites",
+        "representative_source_name": "Ljustj\u00e4rnen",
+        "representative_source_url": "https://doi.org/10.1594/PANGAEA.897303",
+        "coordinate_resolution_method": "source_coordinate_medoid",
         "duplicate_name_count": 1,
         "coordinate_spread_km": 0.4678,
         "ambiguity_flags": [],
@@ -6481,9 +7605,177 @@
     },
     {
       "candidate": {
+        "lake_name": "Kassj\u00f6n",
+        "lake_label": "Kassj\u00f6n (63.916667, 20.016667)",
+        "lake_token": "sweden_lake:kassjon:63.916667:20.016667",
+        "name_key": "kassjon",
+        "latitude": 63.916667,
+        "longitude": 20.016667,
+        "basin_posture": "lake_basin",
+        "direct_pollen_source_count": 2,
+        "direct_pollen_record_count": 3,
+        "time_aware_direct_pollen_records": 3,
+        "pollen_sources": [
+          "landclim-sites",
+          "neotoma-pollen"
+        ],
+        "supporting_pollen_names": [
+          "Kassj\u00f6n"
+        ],
+        "supporting_source_records": [
+          "landclim-sites:897303:Kassj\u00f6n:63.916667:20.016667",
+          "landclim-sites:937075:KAS",
+          "neotoma-pollen:3185"
+        ],
+        "supporting_source_points": [
+          {
+            "source_record": "landclim-sites:897303:Kassj\u00f6n:63.916667:20.016667",
+            "source_name": "Kassj\u00f6n",
+            "source_layer_key": "landclim-sites",
+            "latitude": 63.916667,
+            "longitude": 20.016667,
+            "source_url": "https://doi.org/10.1594/PANGAEA.897303"
+          },
+          {
+            "source_record": "landclim-sites:937075:KAS",
+            "source_name": "Kassj\u00f6n",
+            "source_layer_key": "landclim-sites",
+            "latitude": 63.916667,
+            "longitude": 20.016667,
+            "source_url": "https://doi.org/10.1594/PANGAEA.937075"
+          },
+          {
+            "source_record": "neotoma-pollen:3185",
+            "source_name": "Kassj\u00f6n",
+            "source_layer_key": "neotoma-pollen",
+            "latitude": 63.92548,
+            "longitude": 20.00963,
+            "source_url": "https://apps.neotomadb.org/explorer/#/record/site/3185"
+          }
+        ],
+        "representative_source_record": "landclim-sites:937075:KAS",
+        "representative_source_layer_key": "landclim-sites",
+        "representative_source_name": "Kassj\u00f6n",
+        "representative_source_url": "https://doi.org/10.1594/PANGAEA.937075",
+        "coordinate_resolution_method": "source_coordinate_medoid",
+        "duplicate_name_count": 1,
+        "coordinate_spread_km": 1.0386,
+        "ambiguity_flags": [
+          "source_coordinate_spread"
+        ],
+        "ambiguity_note": "Source coordinates span 1.04 km inside this candidate.",
+        "direct_pollen_signal": 0.9375
+      },
+      "aggregate_rank": 49,
+      "aggregate_score": 0.2896,
+      "band_scores": [
+        {
+          "radius_km": 10,
+          "band_rank": 33,
+          "total_score": 0.2938,
+          "nearby_pollen_lake_count": 0,
+          "human_adna_locality_count": 0,
+          "human_adna_sample_count": 0,
+          "domesticated_animal_locality_count": 0,
+          "domesticated_animal_sample_count": 0,
+          "sead_site_count": 6,
+          "raa_density_site_count": 4630,
+          "evidence_family_count": 2,
+          "signals": {
+            "nearby_pollen": 0.0,
+            "human_adna": 0.0,
+            "domesticated_animal_adna": 0.0,
+            "archaeology": 0.2651,
+            "evidence_diversity": 0.4
+          }
+        },
+        {
+          "radius_km": 20,
+          "band_rank": 44,
+          "total_score": 0.2972,
+          "nearby_pollen_lake_count": 0,
+          "human_adna_locality_count": 0,
+          "human_adna_sample_count": 0,
+          "domesticated_animal_locality_count": 0,
+          "domesticated_animal_sample_count": 0,
+          "sead_site_count": 15,
+          "raa_density_site_count": 4630,
+          "evidence_family_count": 2,
+          "signals": {
+            "nearby_pollen": 0.0,
+            "human_adna": 0.0,
+            "domesticated_animal_adna": 0.0,
+            "archaeology": 0.2787,
+            "evidence_diversity": 0.4
+          }
+        },
+        {
+          "radius_km": 30,
+          "band_rank": 56,
+          "total_score": 0.2776,
+          "nearby_pollen_lake_count": 0,
+          "human_adna_locality_count": 0,
+          "human_adna_sample_count": 0,
+          "domesticated_animal_locality_count": 0,
+          "domesticated_animal_sample_count": 0,
+          "sead_site_count": 30,
+          "raa_density_site_count": 4630,
+          "evidence_family_count": 2,
+          "signals": {
+            "nearby_pollen": 0.0,
+            "human_adna": 0.0,
+            "domesticated_animal_adna": 0.0,
+            "archaeology": 0.2005,
+            "evidence_diversity": 0.4
+          }
+        },
+        {
+          "radius_km": 40,
+          "band_rank": 67,
+          "total_score": 0.2732,
+          "nearby_pollen_lake_count": 0,
+          "human_adna_locality_count": 0,
+          "human_adna_sample_count": 0,
+          "domesticated_animal_locality_count": 0,
+          "domesticated_animal_sample_count": 0,
+          "sead_site_count": 40,
+          "raa_density_site_count": 4630,
+          "evidence_family_count": 2,
+          "signals": {
+            "nearby_pollen": 0.0,
+            "human_adna": 0.0,
+            "domesticated_animal_adna": 0.0,
+            "archaeology": 0.1829,
+            "evidence_diversity": 0.4
+          }
+        },
+        {
+          "radius_km": 50,
+          "band_rank": 55,
+          "total_score": 0.3065,
+          "nearby_pollen_lake_count": 1,
+          "human_adna_locality_count": 0,
+          "human_adna_sample_count": 0,
+          "domesticated_animal_locality_count": 0,
+          "domesticated_animal_sample_count": 0,
+          "sead_site_count": 46,
+          "raa_density_site_count": 7715,
+          "evidence_family_count": 3,
+          "signals": {
+            "nearby_pollen": 0.1111,
+            "human_adna": 0.0,
+            "domesticated_animal_adna": 0.0,
+            "archaeology": 0.1917,
+            "evidence_diversity": 0.6
+          }
+        }
+      ]
+    },
+    {
+      "candidate": {
         "lake_name": "Spj\u00e4llsj\u00f6n",
         "lake_label": "Spj\u00e4llsj\u00f6n",
-        "lake_token": "sweden_lake:spjallsjon:56.6836:14.5926",
+        "lake_token": "sweden_lake:spjallsjon:56.68361:14.59256",
         "name_key": "spjallsjon",
         "latitude": 56.68361,
         "longitude": 14.59256,
@@ -6500,13 +7792,28 @@
         "supporting_source_records": [
           "neotoma-pollen:3435"
         ],
+        "supporting_source_points": [
+          {
+            "source_record": "neotoma-pollen:3435",
+            "source_name": "Spj\u00e4llsj\u00f6n",
+            "source_layer_key": "neotoma-pollen",
+            "latitude": 56.68361,
+            "longitude": 14.59256,
+            "source_url": "https://apps.neotomadb.org/explorer/#/record/site/3435"
+          }
+        ],
+        "representative_source_record": "neotoma-pollen:3435",
+        "representative_source_layer_key": "neotoma-pollen",
+        "representative_source_name": "Spj\u00e4llsj\u00f6n",
+        "representative_source_url": "https://apps.neotomadb.org/explorer/#/record/site/3435",
+        "coordinate_resolution_method": "shared_source_coordinate",
         "duplicate_name_count": 1,
         "coordinate_spread_km": 0.0,
         "ambiguity_flags": [],
         "ambiguity_note": "",
         "direct_pollen_signal": 0.6375
       },
-      "aggregate_rank": 49,
+      "aggregate_rank": 50,
       "aggregate_score": 0.2874,
       "band_scores": [
         {
@@ -6613,146 +7920,9 @@
     },
     {
       "candidate": {
-        "lake_name": "Kassj\u00f6n",
-        "lake_label": "Kassj\u00f6n (63.9196, 20.0143)",
-        "lake_token": "sweden_lake:kassjon:63.9196:20.0143",
-        "name_key": "kassjon",
-        "latitude": 63.919605,
-        "longitude": 20.014321,
-        "basin_posture": "lake_basin",
-        "direct_pollen_source_count": 2,
-        "direct_pollen_record_count": 3,
-        "time_aware_direct_pollen_records": 3,
-        "pollen_sources": [
-          "landclim-sites",
-          "neotoma-pollen"
-        ],
-        "supporting_pollen_names": [
-          "Kassj\u00f6n"
-        ],
-        "supporting_source_records": [
-          "landclim-sites:897303:Kassj\u00f6n:63.916667:20.016667",
-          "landclim-sites:937075:KAS",
-          "neotoma-pollen:3185"
-        ],
-        "duplicate_name_count": 1,
-        "coordinate_spread_km": 1.0386,
-        "ambiguity_flags": [
-          "source_coordinate_spread"
-        ],
-        "ambiguity_note": "Source coordinates span 1.04 km inside this candidate.",
-        "direct_pollen_signal": 0.9375
-      },
-      "aggregate_rank": 50,
-      "aggregate_score": 0.2872,
-      "band_scores": [
-        {
-          "radius_km": 10,
-          "band_rank": 35,
-          "total_score": 0.2859,
-          "nearby_pollen_lake_count": 0,
-          "human_adna_locality_count": 0,
-          "human_adna_sample_count": 0,
-          "domesticated_animal_locality_count": 0,
-          "domesticated_animal_sample_count": 0,
-          "sead_site_count": 5,
-          "raa_density_site_count": 4630,
-          "evidence_family_count": 2,
-          "signals": {
-            "nearby_pollen": 0.0,
-            "human_adna": 0.0,
-            "domesticated_animal_adna": 0.0,
-            "archaeology": 0.2335,
-            "evidence_diversity": 0.4
-          }
-        },
-        {
-          "radius_km": 20,
-          "band_rank": 44,
-          "total_score": 0.2972,
-          "nearby_pollen_lake_count": 0,
-          "human_adna_locality_count": 0,
-          "human_adna_sample_count": 0,
-          "domesticated_animal_locality_count": 0,
-          "domesticated_animal_sample_count": 0,
-          "sead_site_count": 15,
-          "raa_density_site_count": 4630,
-          "evidence_family_count": 2,
-          "signals": {
-            "nearby_pollen": 0.0,
-            "human_adna": 0.0,
-            "domesticated_animal_adna": 0.0,
-            "archaeology": 0.2787,
-            "evidence_diversity": 0.4
-          }
-        },
-        {
-          "radius_km": 30,
-          "band_rank": 56,
-          "total_score": 0.2776,
-          "nearby_pollen_lake_count": 0,
-          "human_adna_locality_count": 0,
-          "human_adna_sample_count": 0,
-          "domesticated_animal_locality_count": 0,
-          "domesticated_animal_sample_count": 0,
-          "sead_site_count": 30,
-          "raa_density_site_count": 4630,
-          "evidence_family_count": 2,
-          "signals": {
-            "nearby_pollen": 0.0,
-            "human_adna": 0.0,
-            "domesticated_animal_adna": 0.0,
-            "archaeology": 0.2005,
-            "evidence_diversity": 0.4
-          }
-        },
-        {
-          "radius_km": 40,
-          "band_rank": 67,
-          "total_score": 0.2732,
-          "nearby_pollen_lake_count": 0,
-          "human_adna_locality_count": 0,
-          "human_adna_sample_count": 0,
-          "domesticated_animal_locality_count": 0,
-          "domesticated_animal_sample_count": 0,
-          "sead_site_count": 40,
-          "raa_density_site_count": 4630,
-          "evidence_family_count": 2,
-          "signals": {
-            "nearby_pollen": 0.0,
-            "human_adna": 0.0,
-            "domesticated_animal_adna": 0.0,
-            "archaeology": 0.1829,
-            "evidence_diversity": 0.4
-          }
-        },
-        {
-          "radius_km": 50,
-          "band_rank": 55,
-          "total_score": 0.3065,
-          "nearby_pollen_lake_count": 1,
-          "human_adna_locality_count": 0,
-          "human_adna_sample_count": 0,
-          "domesticated_animal_locality_count": 0,
-          "domesticated_animal_sample_count": 0,
-          "sead_site_count": 46,
-          "raa_density_site_count": 7715,
-          "evidence_family_count": 3,
-          "signals": {
-            "nearby_pollen": 0.1111,
-            "human_adna": 0.0,
-            "domesticated_animal_adna": 0.0,
-            "archaeology": 0.1917,
-            "evidence_diversity": 0.6
-          }
-        }
-      ]
-    },
-    {
-      "candidate": {
         "lake_name": "Lillsj\u00f6n",
-        "lake_label": "Lillsj\u00f6n (57.9322, 16.3890)",
-        "lake_token": "sweden_lake:lillsjon:57.9322:16.389",
+        "lake_label": "Lillsj\u00f6n (57.932230, 16.389030)",
+        "lake_token": "sweden_lake:lillsjon:57.93223:16.38903",
         "name_key": "lillsjon",
         "latitude": 57.93223,
         "longitude": 16.38903,
@@ -6769,6 +7939,21 @@
         "supporting_source_records": [
           "neotoma-pollen:31818"
         ],
+        "supporting_source_points": [
+          {
+            "source_record": "neotoma-pollen:31818",
+            "source_name": "Lillsj\u00f6n",
+            "source_layer_key": "neotoma-pollen",
+            "latitude": 57.93223,
+            "longitude": 16.38903,
+            "source_url": "https://apps.neotomadb.org/explorer/#/record/site/31818"
+          }
+        ],
+        "representative_source_record": "neotoma-pollen:31818",
+        "representative_source_layer_key": "neotoma-pollen",
+        "representative_source_name": "Lillsj\u00f6n",
+        "representative_source_url": "https://apps.neotomadb.org/explorer/#/record/site/31818",
+        "coordinate_resolution_method": "shared_source_coordinate",
         "duplicate_name_count": 2,
         "coordinate_spread_km": 0.0,
         "ambiguity_flags": [
@@ -6886,7 +8071,7 @@
       "candidate": {
         "lake_name": "Deromesj\u00f6n",
         "lake_label": "Deromesj\u00f6n",
-        "lake_token": "sweden_lake:deromesjon:57.2092:12.3533",
+        "lake_token": "sweden_lake:deromesjon:57.20915:12.3533",
         "name_key": "deromesjon",
         "latitude": 57.20915,
         "longitude": 12.3533,
@@ -6903,6 +8088,21 @@
         "supporting_source_records": [
           "neotoma-pollen:3081"
         ],
+        "supporting_source_points": [
+          {
+            "source_record": "neotoma-pollen:3081",
+            "source_name": "Deromesj\u00f6n",
+            "source_layer_key": "neotoma-pollen",
+            "latitude": 57.20915,
+            "longitude": 12.3533,
+            "source_url": "https://apps.neotomadb.org/explorer/#/record/site/3081"
+          }
+        ],
+        "representative_source_record": "neotoma-pollen:3081",
+        "representative_source_layer_key": "neotoma-pollen",
+        "representative_source_name": "Deromesj\u00f6n",
+        "representative_source_url": "https://apps.neotomadb.org/explorer/#/record/site/3081",
+        "coordinate_resolution_method": "shared_source_coordinate",
         "duplicate_name_count": 1,
         "coordinate_spread_km": 0.0,
         "ambiguity_flags": [],
@@ -7018,7 +8218,7 @@
       "candidate": {
         "lake_name": "Domsj\u00f6n",
         "lake_label": "Domsj\u00f6n",
-        "lake_token": "sweden_lake:domsjon:58.3113:12.4243",
+        "lake_token": "sweden_lake:domsjon:58.31129:12.42425",
         "name_key": "domsjon",
         "latitude": 58.31129,
         "longitude": 12.42425,
@@ -7035,6 +8235,21 @@
         "supporting_source_records": [
           "neotoma-pollen:14458"
         ],
+        "supporting_source_points": [
+          {
+            "source_record": "neotoma-pollen:14458",
+            "source_name": "Domsj\u00f6n",
+            "source_layer_key": "neotoma-pollen",
+            "latitude": 58.31129,
+            "longitude": 12.42425,
+            "source_url": "https://apps.neotomadb.org/explorer/#/record/site/14458"
+          }
+        ],
+        "representative_source_record": "neotoma-pollen:14458",
+        "representative_source_layer_key": "neotoma-pollen",
+        "representative_source_name": "Domsj\u00f6n",
+        "representative_source_url": "https://apps.neotomadb.org/explorer/#/record/site/14458",
+        "coordinate_resolution_method": "shared_source_coordinate",
         "duplicate_name_count": 1,
         "coordinate_spread_km": 0.0,
         "ambiguity_flags": [],
@@ -7149,8 +8364,8 @@
     {
       "candidate": {
         "lake_name": "Badsj\u00f6n",
-        "lake_label": "Badsj\u00f6n (68.3447, 18.7967)",
-        "lake_token": "sweden_lake:badsjon:68.3447:18.7967",
+        "lake_label": "Badsj\u00f6n (68.344720, 18.796670)",
+        "lake_token": "sweden_lake:badsjon:68.34472:18.79667",
         "name_key": "badsjon",
         "latitude": 68.34472,
         "longitude": 18.79667,
@@ -7167,6 +8382,21 @@
         "supporting_source_records": [
           "neotoma-pollen:28144"
         ],
+        "supporting_source_points": [
+          {
+            "source_record": "neotoma-pollen:28144",
+            "source_name": "Badsj\u00f6n",
+            "source_layer_key": "neotoma-pollen",
+            "latitude": 68.34472,
+            "longitude": 18.79667,
+            "source_url": "https://apps.neotomadb.org/explorer/#/record/site/28144"
+          }
+        ],
+        "representative_source_record": "neotoma-pollen:28144",
+        "representative_source_layer_key": "neotoma-pollen",
+        "representative_source_name": "Badsj\u00f6n",
+        "representative_source_url": "https://apps.neotomadb.org/explorer/#/record/site/28144",
+        "coordinate_resolution_method": "shared_source_coordinate",
         "duplicate_name_count": 2,
         "coordinate_spread_km": 0.0,
         "ambiguity_flags": [
@@ -7284,7 +8514,7 @@
       "candidate": {
         "lake_name": "Tibenatus",
         "lake_label": "Tibenatus",
-        "lake_token": "sweden_lake:tibenatus:68.3358:18.6931",
+        "lake_token": "sweden_lake:tibenatus:68.33583:18.69306",
         "name_key": "tibenatus",
         "latitude": 68.33583,
         "longitude": 18.69306,
@@ -7301,6 +8531,21 @@
         "supporting_source_records": [
           "neotoma-pollen:28860"
         ],
+        "supporting_source_points": [
+          {
+            "source_record": "neotoma-pollen:28860",
+            "source_name": "Tibenatus",
+            "source_layer_key": "neotoma-pollen",
+            "latitude": 68.33583,
+            "longitude": 18.69306,
+            "source_url": "https://apps.neotomadb.org/explorer/#/record/site/28860"
+          }
+        ],
+        "representative_source_record": "neotoma-pollen:28860",
+        "representative_source_layer_key": "neotoma-pollen",
+        "representative_source_name": "Tibenatus",
+        "representative_source_url": "https://apps.neotomadb.org/explorer/#/record/site/28860",
+        "coordinate_resolution_method": "shared_source_coordinate",
         "duplicate_name_count": 1,
         "coordinate_spread_km": 0.0,
         "ambiguity_flags": [],
@@ -7415,8 +8660,8 @@
     {
       "candidate": {
         "lake_name": "Lommesj\u00f6n",
-        "lake_label": "Lommesj\u00f6n (58.5794, 12.1373)",
-        "lake_token": "sweden_lake:lommesjon:58.5794:12.1373",
+        "lake_label": "Lommesj\u00f6n (58.579410, 12.137340)",
+        "lake_token": "sweden_lake:lommesjon:58.57941:12.13734",
         "name_key": "lommesjon",
         "latitude": 58.57941,
         "longitude": 12.13734,
@@ -7433,6 +8678,21 @@
         "supporting_source_records": [
           "neotoma-pollen:3288"
         ],
+        "supporting_source_points": [
+          {
+            "source_record": "neotoma-pollen:3288",
+            "source_name": "Lommesj\u00f6n",
+            "source_layer_key": "neotoma-pollen",
+            "latitude": 58.57941,
+            "longitude": 12.13734,
+            "source_url": "https://apps.neotomadb.org/explorer/#/record/site/3288"
+          }
+        ],
+        "representative_source_record": "neotoma-pollen:3288",
+        "representative_source_layer_key": "neotoma-pollen",
+        "representative_source_name": "Lommesj\u00f6n",
+        "representative_source_url": "https://apps.neotomadb.org/explorer/#/record/site/3288",
+        "coordinate_resolution_method": "shared_source_coordinate",
         "duplicate_name_count": 1,
         "coordinate_spread_km": 0.0,
         "ambiguity_flags": [
@@ -7550,9 +8810,9 @@
       "candidate": {
         "lake_name": "Kroktj\u00e4rnen",
         "lake_label": "Kroktj\u00e4rnen",
-        "lake_token": "sweden_lake:kroktjarnen:66.2333:20.85",
+        "lake_token": "sweden_lake:kroktjarnen:66.233333:20.85",
         "name_key": "kroktjarnen",
-        "latitude": 66.233332,
+        "latitude": 66.233333,
         "longitude": 20.85,
         "basin_posture": "lake_basin",
         "direct_pollen_source_count": 2,
@@ -7570,6 +8830,37 @@
           "landclim-sites:937075:KRO",
           "neotoma-pollen:28865"
         ],
+        "supporting_source_points": [
+          {
+            "source_record": "landclim-sites:897303:Kroktj\u00e4rnen:66.233333:20.850000",
+            "source_name": "Kroktj\u00e4rnen",
+            "source_layer_key": "landclim-sites",
+            "latitude": 66.233333,
+            "longitude": 20.85,
+            "source_url": "https://doi.org/10.1594/PANGAEA.897303"
+          },
+          {
+            "source_record": "landclim-sites:937075:KRO",
+            "source_name": "Kroktj\u00e4rnen",
+            "source_layer_key": "landclim-sites",
+            "latitude": 66.233333,
+            "longitude": 20.85,
+            "source_url": "https://doi.org/10.1594/PANGAEA.937075"
+          },
+          {
+            "source_record": "neotoma-pollen:28865",
+            "source_name": "Kroktj\u00e4rnen",
+            "source_layer_key": "neotoma-pollen",
+            "latitude": 66.23333,
+            "longitude": 20.85,
+            "source_url": "https://apps.neotomadb.org/explorer/#/record/site/28865"
+          }
+        ],
+        "representative_source_record": "landclim-sites:937075:KRO",
+        "representative_source_layer_key": "landclim-sites",
+        "representative_source_name": "Kroktj\u00e4rnen",
+        "representative_source_url": "https://doi.org/10.1594/PANGAEA.937075",
+        "coordinate_resolution_method": "source_coordinate_medoid",
         "duplicate_name_count": 1,
         "coordinate_spread_km": 0.0004,
         "ambiguity_flags": [],
@@ -7685,10 +8976,10 @@
       "candidate": {
         "lake_name": "Lilla Gloppsj\u00f6n",
         "lake_label": "Lilla Gloppsj\u00f6n",
-        "lake_token": "sweden_lake:lillagloppsjon:59.8031:14.6256",
+        "lake_token": "sweden_lake:lillagloppsjon:59.804444:14.627778",
         "name_key": "lillagloppsjon",
-        "latitude": 59.803057,
-        "longitude": 14.625554,
+        "latitude": 59.804444,
+        "longitude": 14.627778,
         "basin_posture": "lake_basin",
         "direct_pollen_source_count": 2,
         "direct_pollen_record_count": 2,
@@ -7704,6 +8995,29 @@
           "landclim-sites:937075:LGLOPPSJ",
           "neotoma-pollen:3234"
         ],
+        "supporting_source_points": [
+          {
+            "source_record": "landclim-sites:937075:LGLOPPSJ",
+            "source_name": "Lilla Gloppsj\u00f6n",
+            "source_layer_key": "landclim-sites",
+            "latitude": 59.804444,
+            "longitude": 14.627778,
+            "source_url": "https://doi.org/10.1594/PANGAEA.937075"
+          },
+          {
+            "source_record": "neotoma-pollen:3234",
+            "source_name": "Lilla Gloppsj\u00f6n",
+            "source_layer_key": "neotoma-pollen",
+            "latitude": 59.80167,
+            "longitude": 14.62333,
+            "source_url": "https://apps.neotomadb.org/explorer/#/record/site/3234"
+          }
+        ],
+        "representative_source_record": "landclim-sites:937075:LGLOPPSJ",
+        "representative_source_layer_key": "landclim-sites",
+        "representative_source_name": "Lilla Gloppsj\u00f6n",
+        "representative_source_url": "https://doi.org/10.1594/PANGAEA.937075",
+        "coordinate_resolution_method": "source_coordinate_medoid",
         "duplicate_name_count": 1,
         "coordinate_spread_km": 0.3963,
         "ambiguity_flags": [],
@@ -7711,7 +9025,7 @@
         "direct_pollen_signal": 0.875
       },
       "aggregate_rank": 58,
-      "aggregate_score": 0.2753,
+      "aggregate_score": 0.2752,
       "band_scores": [
         {
           "radius_km": 10,
@@ -7776,20 +9090,20 @@
         {
           "radius_km": 40,
           "band_rank": 60,
-          "total_score": 0.285,
+          "total_score": 0.2841,
           "nearby_pollen_lake_count": 1,
           "human_adna_locality_count": 0,
           "human_adna_sample_count": 0,
           "domesticated_animal_locality_count": 0,
           "domesticated_animal_sample_count": 0,
-          "sead_site_count": 4,
+          "sead_site_count": 3,
           "raa_density_site_count": 15699,
           "evidence_family_count": 3,
           "signals": {
             "nearby_pollen": 0.125,
             "human_adna": 0.0,
             "domesticated_animal_adna": 0.0,
-            "archaeology": 0.15,
+            "archaeology": 0.1465,
             "evidence_diversity": 0.6
           }
         },
@@ -7819,7 +9133,7 @@
       "candidate": {
         "lake_name": "Fjallsj\u00f6n 1",
         "lake_label": "Fjallsj\u00f6n 1",
-        "lake_token": "sweden_lake:fjallsjon1:57.7515:12.8576",
+        "lake_token": "sweden_lake:fjallsjon1:57.75152:12.85762",
         "name_key": "fjallsjon1",
         "latitude": 57.75152,
         "longitude": 12.85762,
@@ -7836,6 +9150,21 @@
         "supporting_source_records": [
           "neotoma-pollen:3104"
         ],
+        "supporting_source_points": [
+          {
+            "source_record": "neotoma-pollen:3104",
+            "source_name": "Fjallsj\u00f6n 1",
+            "source_layer_key": "neotoma-pollen",
+            "latitude": 57.75152,
+            "longitude": 12.85762,
+            "source_url": "https://apps.neotomadb.org/explorer/#/record/site/3104"
+          }
+        ],
+        "representative_source_record": "neotoma-pollen:3104",
+        "representative_source_layer_key": "neotoma-pollen",
+        "representative_source_name": "Fjallsj\u00f6n 1",
+        "representative_source_url": "https://apps.neotomadb.org/explorer/#/record/site/3104",
+        "coordinate_resolution_method": "shared_source_coordinate",
         "duplicate_name_count": 1,
         "coordinate_spread_km": 0.0,
         "ambiguity_flags": [],
@@ -7951,7 +9280,7 @@
       "candidate": {
         "lake_name": "Odensj\u00f6n",
         "lake_label": "Odensj\u00f6n",
-        "lake_token": "sweden_lake:odensjon:56.0039:13.2757",
+        "lake_token": "sweden_lake:odensjon:56.00394:13.27565",
         "name_key": "odensjon",
         "latitude": 56.00394,
         "longitude": 13.27565,
@@ -7968,6 +9297,21 @@
         "supporting_source_records": [
           "neotoma-pollen:3326"
         ],
+        "supporting_source_points": [
+          {
+            "source_record": "neotoma-pollen:3326",
+            "source_name": "Odensj\u00f6n",
+            "source_layer_key": "neotoma-pollen",
+            "latitude": 56.00394,
+            "longitude": 13.27565,
+            "source_url": "https://apps.neotomadb.org/explorer/#/record/site/3326"
+          }
+        ],
+        "representative_source_record": "neotoma-pollen:3326",
+        "representative_source_layer_key": "neotoma-pollen",
+        "representative_source_name": "Odensj\u00f6n",
+        "representative_source_url": "https://apps.neotomadb.org/explorer/#/record/site/3326",
+        "coordinate_resolution_method": "shared_source_coordinate",
         "duplicate_name_count": 1,
         "coordinate_spread_km": 0.0,
         "ambiguity_flags": [],
@@ -8083,7 +9427,7 @@
       "candidate": {
         "lake_name": "S\u00e4nnen",
         "lake_label": "S\u00e4nnen",
-        "lake_token": "sweden_lake:sannen:56.3215:15.3705",
+        "lake_token": "sweden_lake:sannen:56.321475:15.37054",
         "name_key": "sannen",
         "latitude": 56.321475,
         "longitude": 15.37054,
@@ -8100,6 +9444,21 @@
         "supporting_source_records": [
           "neotoma-pollen:22656"
         ],
+        "supporting_source_points": [
+          {
+            "source_record": "neotoma-pollen:22656",
+            "source_name": "S\u00e4nnen",
+            "source_layer_key": "neotoma-pollen",
+            "latitude": 56.321475,
+            "longitude": 15.37054,
+            "source_url": "https://apps.neotomadb.org/explorer/#/record/site/22656"
+          }
+        ],
+        "representative_source_record": "neotoma-pollen:22656",
+        "representative_source_layer_key": "neotoma-pollen",
+        "representative_source_name": "S\u00e4nnen",
+        "representative_source_url": "https://apps.neotomadb.org/explorer/#/record/site/22656",
+        "coordinate_resolution_method": "shared_source_coordinate",
         "duplicate_name_count": 1,
         "coordinate_spread_km": 0.0,
         "ambiguity_flags": [],
@@ -8214,8 +9573,8 @@
     {
       "candidate": {
         "lake_name": "Klotj\u00e4rnen",
-        "lake_label": "Klotj\u00e4rnen (61.8167, 16.5333)",
-        "lake_token": "sweden_lake:klotjarnen:61.8167:16.5333",
+        "lake_label": "Klotj\u00e4rnen (61.816667, 16.533333)",
+        "lake_token": "sweden_lake:klotjarnen:61.816667:16.533333",
         "name_key": "klotjarnen",
         "latitude": 61.816667,
         "longitude": 16.533333,
@@ -8233,6 +9592,29 @@
           "landclim-sites:897303:Klotj\u00e4rnen:61.816667:16.533333",
           "landclim-sites:937075:KLO"
         ],
+        "supporting_source_points": [
+          {
+            "source_record": "landclim-sites:897303:Klotj\u00e4rnen:61.816667:16.533333",
+            "source_name": "Klotj\u00e4rnen",
+            "source_layer_key": "landclim-sites",
+            "latitude": 61.816667,
+            "longitude": 16.533333,
+            "source_url": "https://doi.org/10.1594/PANGAEA.897303"
+          },
+          {
+            "source_record": "landclim-sites:937075:KLO",
+            "source_name": "Klotj\u00e4rnen",
+            "source_layer_key": "landclim-sites",
+            "latitude": 61.816667,
+            "longitude": 16.533333,
+            "source_url": "https://doi.org/10.1594/PANGAEA.937075"
+          }
+        ],
+        "representative_source_record": "landclim-sites:897303:Klotj\u00e4rnen:61.816667:16.533333",
+        "representative_source_layer_key": "landclim-sites",
+        "representative_source_name": "Klotj\u00e4rnen",
+        "representative_source_url": "https://doi.org/10.1594/PANGAEA.897303",
+        "coordinate_resolution_method": "shared_source_coordinate",
         "duplicate_name_count": 2,
         "coordinate_spread_km": 0.0,
         "ambiguity_flags": [
@@ -8350,7 +9732,7 @@
       "candidate": {
         "lake_name": "Aborreg\u00f6l",
         "lake_label": "Aborreg\u00f6l",
-        "lake_token": "sweden_lake:aborregol:57.2004:16.1558",
+        "lake_token": "sweden_lake:aborregol:57.20045:16.15584",
         "name_key": "aborregol",
         "latitude": 57.20045,
         "longitude": 16.15584,
@@ -8367,6 +9749,21 @@
         "supporting_source_records": [
           "neotoma-pollen:2961"
         ],
+        "supporting_source_points": [
+          {
+            "source_record": "neotoma-pollen:2961",
+            "source_name": "Aborreg\u00f6l",
+            "source_layer_key": "neotoma-pollen",
+            "latitude": 57.20045,
+            "longitude": 16.15584,
+            "source_url": "https://apps.neotomadb.org/explorer/#/record/site/2961"
+          }
+        ],
+        "representative_source_record": "neotoma-pollen:2961",
+        "representative_source_layer_key": "neotoma-pollen",
+        "representative_source_name": "Aborreg\u00f6l",
+        "representative_source_url": "https://apps.neotomadb.org/explorer/#/record/site/2961",
+        "coordinate_resolution_method": "shared_source_coordinate",
         "duplicate_name_count": 1,
         "coordinate_spread_km": 0.0,
         "ambiguity_flags": [],
@@ -8482,7 +9879,7 @@
       "candidate": {
         "lake_name": "Lilla Sj\u00f6",
         "lake_label": "Lilla Sj\u00f6",
-        "lake_token": "sweden_lake:lillasjo:56.2814:13.9249",
+        "lake_token": "sweden_lake:lillasjo:56.28143:13.92491",
         "name_key": "lillasjo",
         "latitude": 56.28143,
         "longitude": 13.92491,
@@ -8499,6 +9896,21 @@
         "supporting_source_records": [
           "neotoma-pollen:3237"
         ],
+        "supporting_source_points": [
+          {
+            "source_record": "neotoma-pollen:3237",
+            "source_name": "Lilla Sj\u00f6",
+            "source_layer_key": "neotoma-pollen",
+            "latitude": 56.28143,
+            "longitude": 13.92491,
+            "source_url": "https://apps.neotomadb.org/explorer/#/record/site/3237"
+          }
+        ],
+        "representative_source_record": "neotoma-pollen:3237",
+        "representative_source_layer_key": "neotoma-pollen",
+        "representative_source_name": "Lilla Sj\u00f6",
+        "representative_source_url": "https://apps.neotomadb.org/explorer/#/record/site/3237",
+        "coordinate_resolution_method": "shared_source_coordinate",
         "duplicate_name_count": 1,
         "coordinate_spread_km": 0.0,
         "ambiguity_flags": [],
@@ -8613,8 +10025,8 @@
     {
       "candidate": {
         "lake_name": "Klotj\u00e4rnen",
-        "lake_label": "Klotj\u00e4rnen (61.8212, 16.4047)",
-        "lake_token": "sweden_lake:klotjarnen:61.8212:16.4047",
+        "lake_label": "Klotj\u00e4rnen (61.821250, 16.404720)",
+        "lake_token": "sweden_lake:klotjarnen:61.82125:16.40472",
         "name_key": "klotjarnen",
         "latitude": 61.82125,
         "longitude": 16.40472,
@@ -8631,6 +10043,21 @@
         "supporting_source_records": [
           "neotoma-pollen:13336"
         ],
+        "supporting_source_points": [
+          {
+            "source_record": "neotoma-pollen:13336",
+            "source_name": "Klotj\u00e4rnen",
+            "source_layer_key": "neotoma-pollen",
+            "latitude": 61.82125,
+            "longitude": 16.40472,
+            "source_url": "https://apps.neotomadb.org/explorer/#/record/site/13336"
+          }
+        ],
+        "representative_source_record": "neotoma-pollen:13336",
+        "representative_source_layer_key": "neotoma-pollen",
+        "representative_source_name": "Klotj\u00e4rnen",
+        "representative_source_url": "https://apps.neotomadb.org/explorer/#/record/site/13336",
+        "coordinate_resolution_method": "shared_source_coordinate",
         "duplicate_name_count": 2,
         "coordinate_spread_km": 0.0,
         "ambiguity_flags": [
@@ -8748,7 +10175,7 @@
       "candidate": {
         "lake_name": "\u00d6ag\u00f6l",
         "lake_label": "\u00d6ag\u00f6l",
-        "lake_token": "sweden_lake:oagol:57.2094:14.8008",
+        "lake_token": "sweden_lake:oagol:57.20944:14.80083",
         "name_key": "oagol",
         "latitude": 57.20944,
         "longitude": 14.80083,
@@ -8765,6 +10192,21 @@
         "supporting_source_records": [
           "neotoma-pollen:30418"
         ],
+        "supporting_source_points": [
+          {
+            "source_record": "neotoma-pollen:30418",
+            "source_name": "\u00d6ag\u00f6l",
+            "source_layer_key": "neotoma-pollen",
+            "latitude": 57.20944,
+            "longitude": 14.80083,
+            "source_url": "https://apps.neotomadb.org/explorer/#/record/site/30418"
+          }
+        ],
+        "representative_source_record": "neotoma-pollen:30418",
+        "representative_source_layer_key": "neotoma-pollen",
+        "representative_source_name": "\u00d6ag\u00f6l",
+        "representative_source_url": "https://apps.neotomadb.org/explorer/#/record/site/30418",
+        "coordinate_resolution_method": "shared_source_coordinate",
         "duplicate_name_count": 1,
         "coordinate_spread_km": 0.0,
         "ambiguity_flags": [],
@@ -8880,7 +10322,7 @@
       "candidate": {
         "lake_name": "\u00c5kerhultag\u00f6l [Tomtabaken]",
         "lake_label": "\u00c5kerhultag\u00f6l [Tomtabaken]",
-        "lake_token": "sweden_lake:akerhultagoltomtabaken:57.4833:14.4667",
+        "lake_token": "sweden_lake:akerhultagoltomtabaken:57.48333:14.46667",
         "name_key": "akerhultagoltomtabaken",
         "latitude": 57.48333,
         "longitude": 14.46667,
@@ -8897,6 +10339,21 @@
         "supporting_source_records": [
           "neotoma-pollen:3470"
         ],
+        "supporting_source_points": [
+          {
+            "source_record": "neotoma-pollen:3470",
+            "source_name": "\u00c5kerhultag\u00f6l [Tomtabaken]",
+            "source_layer_key": "neotoma-pollen",
+            "latitude": 57.48333,
+            "longitude": 14.46667,
+            "source_url": "https://apps.neotomadb.org/explorer/#/record/site/3470"
+          }
+        ],
+        "representative_source_record": "neotoma-pollen:3470",
+        "representative_source_layer_key": "neotoma-pollen",
+        "representative_source_name": "\u00c5kerhultag\u00f6l [Tomtabaken]",
+        "representative_source_url": "https://apps.neotomadb.org/explorer/#/record/site/3470",
+        "coordinate_resolution_method": "shared_source_coordinate",
         "duplicate_name_count": 1,
         "coordinate_spread_km": 0.0,
         "ambiguity_flags": [],
@@ -9012,7 +10469,7 @@
       "candidate": {
         "lake_name": "\u00d6vre Draketj\u00e4rn",
         "lake_label": "\u00d6vre Draketj\u00e4rn",
-        "lake_token": "sweden_lake:ovredraketjarn:58.6:12.1833",
+        "lake_token": "sweden_lake:ovredraketjarn:58.6:12.18333",
         "name_key": "ovredraketjarn",
         "latitude": 58.6,
         "longitude": 12.18333,
@@ -9029,6 +10486,21 @@
         "supporting_source_records": [
           "neotoma-pollen:3334"
         ],
+        "supporting_source_points": [
+          {
+            "source_record": "neotoma-pollen:3334",
+            "source_name": "\u00d6vre Draketj\u00e4rn",
+            "source_layer_key": "neotoma-pollen",
+            "latitude": 58.6,
+            "longitude": 12.18333,
+            "source_url": "https://apps.neotomadb.org/explorer/#/record/site/3334"
+          }
+        ],
+        "representative_source_record": "neotoma-pollen:3334",
+        "representative_source_layer_key": "neotoma-pollen",
+        "representative_source_name": "\u00d6vre Draketj\u00e4rn",
+        "representative_source_url": "https://apps.neotomadb.org/explorer/#/record/site/3334",
+        "coordinate_resolution_method": "shared_source_coordinate",
         "duplicate_name_count": 1,
         "coordinate_spread_km": 0.0,
         "ambiguity_flags": [],
@@ -9144,7 +10616,7 @@
       "candidate": {
         "lake_name": "Bj\u00f6rksj\u00f6damm",
         "lake_label": "Bj\u00f6rksj\u00f6damm",
-        "lake_token": "sweden_lake:bjorksjodamm:57.709:12.3464",
+        "lake_token": "sweden_lake:bjorksjodamm:57.709:12.34641",
         "name_key": "bjorksjodamm",
         "latitude": 57.709,
         "longitude": 12.34641,
@@ -9161,6 +10633,21 @@
         "supporting_source_records": [
           "neotoma-pollen:3020"
         ],
+        "supporting_source_points": [
+          {
+            "source_record": "neotoma-pollen:3020",
+            "source_name": "Bj\u00f6rksj\u00f6damm",
+            "source_layer_key": "neotoma-pollen",
+            "latitude": 57.709,
+            "longitude": 12.34641,
+            "source_url": "https://apps.neotomadb.org/explorer/#/record/site/3020"
+          }
+        ],
+        "representative_source_record": "neotoma-pollen:3020",
+        "representative_source_layer_key": "neotoma-pollen",
+        "representative_source_name": "Bj\u00f6rksj\u00f6damm",
+        "representative_source_url": "https://apps.neotomadb.org/explorer/#/record/site/3020",
+        "coordinate_resolution_method": "shared_source_coordinate",
         "duplicate_name_count": 1,
         "coordinate_spread_km": 0.0,
         "ambiguity_flags": [],
@@ -9276,9 +10763,9 @@
       "candidate": {
         "lake_name": "Abborrtj\u00e4rnen",
         "lake_label": "Abborrtj\u00e4rnen",
-        "lake_token": "sweden_lake:abborrtjarnen:63.8833:14.45",
+        "lake_token": "sweden_lake:abborrtjarnen:63.883333:14.45",
         "name_key": "abborrtjarnen",
-        "latitude": 63.883332,
+        "latitude": 63.883333,
         "longitude": 14.45,
         "basin_posture": "lake_basin",
         "direct_pollen_source_count": 2,
@@ -9296,6 +10783,37 @@
           "landclim-sites:937075:ABB",
           "neotoma-pollen:13338"
         ],
+        "supporting_source_points": [
+          {
+            "source_record": "landclim-sites:897303:Abborrtj\u00e4rnen:63.883333:14.450000",
+            "source_name": "Abborrtj\u00e4rnen",
+            "source_layer_key": "landclim-sites",
+            "latitude": 63.883333,
+            "longitude": 14.45,
+            "source_url": "https://doi.org/10.1594/PANGAEA.897303"
+          },
+          {
+            "source_record": "landclim-sites:937075:ABB",
+            "source_name": "Abborrtj\u00e4rnen",
+            "source_layer_key": "landclim-sites",
+            "latitude": 63.883333,
+            "longitude": 14.45,
+            "source_url": "https://doi.org/10.1594/PANGAEA.937075"
+          },
+          {
+            "source_record": "neotoma-pollen:13338",
+            "source_name": "Abborrtj\u00e4rnen",
+            "source_layer_key": "neotoma-pollen",
+            "latitude": 63.88333,
+            "longitude": 14.45,
+            "source_url": "https://apps.neotomadb.org/explorer/#/record/site/13338"
+          }
+        ],
+        "representative_source_record": "landclim-sites:937075:ABB",
+        "representative_source_layer_key": "landclim-sites",
+        "representative_source_name": "Abborrtj\u00e4rnen",
+        "representative_source_url": "https://doi.org/10.1594/PANGAEA.937075",
+        "coordinate_resolution_method": "source_coordinate_medoid",
         "duplicate_name_count": 1,
         "coordinate_spread_km": 0.0004,
         "ambiguity_flags": [],
@@ -9411,7 +10929,7 @@
       "candidate": {
         "lake_name": "Vuoskkuj\u00e1vri",
         "lake_label": "Vuoskkuj\u00e1vri",
-        "lake_token": "sweden_lake:vuoskkujavri:68.3456:19.1",
+        "lake_token": "sweden_lake:vuoskkujavri:68.34556:19.1",
         "name_key": "vuoskkujavri",
         "latitude": 68.34556,
         "longitude": 19.1,
@@ -9428,6 +10946,21 @@
         "supporting_source_records": [
           "neotoma-pollen:26117"
         ],
+        "supporting_source_points": [
+          {
+            "source_record": "neotoma-pollen:26117",
+            "source_name": "Vuoskkuj\u00e1vri",
+            "source_layer_key": "neotoma-pollen",
+            "latitude": 68.34556,
+            "longitude": 19.1,
+            "source_url": "https://apps.neotomadb.org/explorer/#/record/site/26117"
+          }
+        ],
+        "representative_source_record": "neotoma-pollen:26117",
+        "representative_source_layer_key": "neotoma-pollen",
+        "representative_source_name": "Vuoskkuj\u00e1vri",
+        "representative_source_url": "https://apps.neotomadb.org/explorer/#/record/site/26117",
+        "coordinate_resolution_method": "shared_source_coordinate",
         "duplicate_name_count": 1,
         "coordinate_spread_km": 0.0,
         "ambiguity_flags": [],
@@ -9543,7 +11076,7 @@
       "candidate": {
         "lake_name": "Bergsj\u00f6n",
         "lake_label": "Bergsj\u00f6n",
-        "lake_token": "sweden_lake:bergsjon:58.3136:12.4386",
+        "lake_token": "sweden_lake:bergsjon:58.313555:12.438565",
         "name_key": "bergsjon",
         "latitude": 58.313555,
         "longitude": 12.438565,
@@ -9560,6 +11093,21 @@
         "supporting_source_records": [
           "neotoma-pollen:14054"
         ],
+        "supporting_source_points": [
+          {
+            "source_record": "neotoma-pollen:14054",
+            "source_name": "Bergsj\u00f6n",
+            "source_layer_key": "neotoma-pollen",
+            "latitude": 58.313555,
+            "longitude": 12.438565,
+            "source_url": "https://apps.neotomadb.org/explorer/#/record/site/14054"
+          }
+        ],
+        "representative_source_record": "neotoma-pollen:14054",
+        "representative_source_layer_key": "neotoma-pollen",
+        "representative_source_name": "Bergsj\u00f6n",
+        "representative_source_url": "https://apps.neotomadb.org/explorer/#/record/site/14054",
+        "coordinate_resolution_method": "shared_source_coordinate",
         "duplicate_name_count": 1,
         "coordinate_spread_km": 0.0,
         "ambiguity_flags": [],
@@ -9675,9 +11223,9 @@
       "candidate": {
         "lake_name": "Svartk\u00e4lstj\u00e4rn",
         "lake_label": "Svartk\u00e4lstj\u00e4rn",
-        "lake_token": "sweden_lake:svartkalstjarn:64.2667:19.55",
+        "lake_token": "sweden_lake:svartkalstjarn:64.266667:19.55",
         "name_key": "svartkalstjarn",
-        "latitude": 64.266668,
+        "latitude": 64.266667,
         "longitude": 19.55,
         "basin_posture": "lake_basin",
         "direct_pollen_source_count": 2,
@@ -9695,6 +11243,37 @@
           "landclim-sites:937075:SVA",
           "neotoma-pollen:28856"
         ],
+        "supporting_source_points": [
+          {
+            "source_record": "landclim-sites:897303:Svartk\u00e4lstj\u00e4rn:64.266667:19.550000",
+            "source_name": "Svartk\u00e4lstj\u00e4rn",
+            "source_layer_key": "landclim-sites",
+            "latitude": 64.266667,
+            "longitude": 19.55,
+            "source_url": "https://doi.org/10.1594/PANGAEA.897303"
+          },
+          {
+            "source_record": "landclim-sites:937075:SVA",
+            "source_name": "Svartk\u00e4lstj\u00e4rn",
+            "source_layer_key": "landclim-sites",
+            "latitude": 64.266667,
+            "longitude": 19.55,
+            "source_url": "https://doi.org/10.1594/PANGAEA.937075"
+          },
+          {
+            "source_record": "neotoma-pollen:28856",
+            "source_name": "Svartk\u00e4lstj\u00e4rn",
+            "source_layer_key": "neotoma-pollen",
+            "latitude": 64.26667,
+            "longitude": 19.55,
+            "source_url": "https://apps.neotomadb.org/explorer/#/record/site/28856"
+          }
+        ],
+        "representative_source_record": "landclim-sites:937075:SVA",
+        "representative_source_layer_key": "landclim-sites",
+        "representative_source_name": "Svartk\u00e4lstj\u00e4rn",
+        "representative_source_url": "https://doi.org/10.1594/PANGAEA.937075",
+        "coordinate_resolution_method": "source_coordinate_medoid",
         "duplicate_name_count": 1,
         "coordinate_spread_km": 0.0004,
         "ambiguity_flags": [],
@@ -9827,6 +11406,21 @@
         "supporting_source_records": [
           "landclim-sites:937075:Storsjon"
         ],
+        "supporting_source_points": [
+          {
+            "source_record": "landclim-sites:937075:Storsjon",
+            "source_name": "Storsj\u00f6n",
+            "source_layer_key": "landclim-sites",
+            "latitude": 57.707,
+            "longitude": 16.223,
+            "source_url": "https://doi.org/10.1594/PANGAEA.937075"
+          }
+        ],
+        "representative_source_record": "landclim-sites:937075:Storsjon",
+        "representative_source_layer_key": "landclim-sites",
+        "representative_source_name": "Storsj\u00f6n",
+        "representative_source_url": "https://doi.org/10.1594/PANGAEA.937075",
+        "coordinate_resolution_method": "shared_source_coordinate",
         "duplicate_name_count": 1,
         "coordinate_spread_km": 0.0,
         "ambiguity_flags": [],
@@ -9942,10 +11536,10 @@
       "candidate": {
         "lake_name": "Stentj\u00e4rn",
         "lake_label": "Stentj\u00e4rn",
-        "lake_token": "sweden_lake:stentjarn:63.1:12.242",
+        "lake_token": "sweden_lake:stentjarn:63.1:12.241944",
         "name_key": "stentjarn",
         "latitude": 63.1,
-        "longitude": 12.241961,
+        "longitude": 12.241944,
         "basin_posture": "lake_basin",
         "direct_pollen_source_count": 2,
         "direct_pollen_record_count": 3,
@@ -9962,6 +11556,37 @@
           "landclim-sites:937075:STEN",
           "neotoma-pollen:28855"
         ],
+        "supporting_source_points": [
+          {
+            "source_record": "landclim-sites:900966:GC31:Stentj\u00e4rn",
+            "source_name": "Stentj\u00e4rn",
+            "source_layer_key": "landclim-sites",
+            "latitude": 63.1,
+            "longitude": 12.241944,
+            "source_url": "https://doi.org/10.1594/PANGAEA.900966"
+          },
+          {
+            "source_record": "landclim-sites:937075:STEN",
+            "source_name": "Stentj\u00e4rn",
+            "source_layer_key": "landclim-sites",
+            "latitude": 63.1,
+            "longitude": 12.242,
+            "source_url": "https://doi.org/10.1594/PANGAEA.937075"
+          },
+          {
+            "source_record": "neotoma-pollen:28855",
+            "source_name": "Stentj\u00e4rn",
+            "source_layer_key": "neotoma-pollen",
+            "latitude": 63.1,
+            "longitude": 12.24194,
+            "source_url": "https://apps.neotomadb.org/explorer/#/record/site/28855"
+          }
+        ],
+        "representative_source_record": "landclim-sites:900966:GC31:Stentj\u00e4rn",
+        "representative_source_layer_key": "landclim-sites",
+        "representative_source_name": "Stentj\u00e4rn",
+        "representative_source_url": "https://doi.org/10.1594/PANGAEA.900966",
+        "coordinate_resolution_method": "source_coordinate_medoid",
         "duplicate_name_count": 1,
         "coordinate_spread_km": 0.003,
         "ambiguity_flags": [],
@@ -10076,8 +11701,8 @@
     {
       "candidate": {
         "lake_name": "Gilltj\u00e4rnen",
-        "lake_label": "Gilltj\u00e4rnen (60.0833, 15.0833)",
-        "lake_token": "sweden_lake:gilltjarnen:60.0833:15.0833",
+        "lake_label": "Gilltj\u00e4rnen (60.083333, 15.083333)",
+        "lake_token": "sweden_lake:gilltjarnen:60.083333:15.083333",
         "name_key": "gilltjarnen",
         "latitude": 60.083333,
         "longitude": 15.083333,
@@ -10094,6 +11719,21 @@
         "supporting_source_records": [
           "landclim-sites:937075:GIL"
         ],
+        "supporting_source_points": [
+          {
+            "source_record": "landclim-sites:937075:GIL",
+            "source_name": "Gilltj\u00e4rnen",
+            "source_layer_key": "landclim-sites",
+            "latitude": 60.083333,
+            "longitude": 15.083333,
+            "source_url": "https://doi.org/10.1594/PANGAEA.937075"
+          }
+        ],
+        "representative_source_record": "landclim-sites:937075:GIL",
+        "representative_source_layer_key": "landclim-sites",
+        "representative_source_name": "Gilltj\u00e4rnen",
+        "representative_source_url": "https://doi.org/10.1594/PANGAEA.937075",
+        "coordinate_resolution_method": "shared_source_coordinate",
         "duplicate_name_count": 2,
         "coordinate_spread_km": 0.0,
         "ambiguity_flags": [
@@ -10211,7 +11851,7 @@
       "candidate": {
         "lake_name": "Sandsj\u00f6n",
         "lake_label": "Sandsj\u00f6n",
-        "lake_token": "sweden_lake:sandsjon:56.7695:13.4007",
+        "lake_token": "sweden_lake:sandsjon:56.769515:13.400745",
         "name_key": "sandsjon",
         "latitude": 56.769515,
         "longitude": 13.400745,
@@ -10228,6 +11868,21 @@
         "supporting_source_records": [
           "neotoma-pollen:14455"
         ],
+        "supporting_source_points": [
+          {
+            "source_record": "neotoma-pollen:14455",
+            "source_name": "Sandsj\u00f6n",
+            "source_layer_key": "neotoma-pollen",
+            "latitude": 56.769515,
+            "longitude": 13.400745,
+            "source_url": "https://apps.neotomadb.org/explorer/#/record/site/14455"
+          }
+        ],
+        "representative_source_record": "neotoma-pollen:14455",
+        "representative_source_layer_key": "neotoma-pollen",
+        "representative_source_name": "Sandsj\u00f6n",
+        "representative_source_url": "https://apps.neotomadb.org/explorer/#/record/site/14455",
+        "coordinate_resolution_method": "shared_source_coordinate",
         "duplicate_name_count": 1,
         "coordinate_spread_km": 0.0,
         "ambiguity_flags": [],
@@ -10343,7 +11998,7 @@
       "candidate": {
         "lake_name": "Krontj\u00e4rnen",
         "lake_label": "Krontj\u00e4rnen",
-        "lake_token": "sweden_lake:krontjarnen:66.2347:20.8425",
+        "lake_token": "sweden_lake:krontjarnen:66.23468:20.84254",
         "name_key": "krontjarnen",
         "latitude": 66.23468,
         "longitude": 20.84254,
@@ -10360,6 +12015,21 @@
         "supporting_source_records": [
           "neotoma-pollen:3207"
         ],
+        "supporting_source_points": [
+          {
+            "source_record": "neotoma-pollen:3207",
+            "source_name": "Krontj\u00e4rnen",
+            "source_layer_key": "neotoma-pollen",
+            "latitude": 66.23468,
+            "longitude": 20.84254,
+            "source_url": "https://apps.neotomadb.org/explorer/#/record/site/3207"
+          }
+        ],
+        "representative_source_record": "neotoma-pollen:3207",
+        "representative_source_layer_key": "neotoma-pollen",
+        "representative_source_name": "Krontj\u00e4rnen",
+        "representative_source_url": "https://apps.neotomadb.org/explorer/#/record/site/3207",
+        "coordinate_resolution_method": "shared_source_coordinate",
         "duplicate_name_count": 1,
         "coordinate_spread_km": 0.0,
         "ambiguity_flags": [],
@@ -10475,7 +12145,7 @@
       "candidate": {
         "lake_name": "Alanen Laanij\u00e4rvi",
         "lake_label": "Alanen Laanij\u00e4rvi",
-        "lake_token": "sweden_lake:alanenlaanijarvi:67.9661:20.4603",
+        "lake_token": "sweden_lake:alanenlaanijarvi:67.96611:20.46028",
         "name_key": "alanenlaanijarvi",
         "latitude": 67.96611,
         "longitude": 20.46028,
@@ -10492,6 +12162,21 @@
         "supporting_source_records": [
           "neotoma-pollen:26119"
         ],
+        "supporting_source_points": [
+          {
+            "source_record": "neotoma-pollen:26119",
+            "source_name": "Alanen Laanij\u00e4rvi",
+            "source_layer_key": "neotoma-pollen",
+            "latitude": 67.96611,
+            "longitude": 20.46028,
+            "source_url": "https://apps.neotomadb.org/explorer/#/record/site/26119"
+          }
+        ],
+        "representative_source_record": "neotoma-pollen:26119",
+        "representative_source_layer_key": "neotoma-pollen",
+        "representative_source_name": "Alanen Laanij\u00e4rvi",
+        "representative_source_url": "https://apps.neotomadb.org/explorer/#/record/site/26119",
+        "coordinate_resolution_method": "shared_source_coordinate",
         "duplicate_name_count": 1,
         "coordinate_spread_km": 0.0,
         "ambiguity_flags": [],
@@ -10607,7 +12292,7 @@
       "candidate": {
         "lake_name": "Styggtj\u00e4rnen",
         "lake_label": "Styggtj\u00e4rnen",
-        "lake_token": "sweden_lake:styggtjarnen:62.3243:13.5579",
+        "lake_token": "sweden_lake:styggtjarnen:62.324285:13.557865",
         "name_key": "styggtjarnen",
         "latitude": 62.324285,
         "longitude": 13.557865,
@@ -10624,6 +12309,21 @@
         "supporting_source_records": [
           "neotoma-pollen:13335"
         ],
+        "supporting_source_points": [
+          {
+            "source_record": "neotoma-pollen:13335",
+            "source_name": "Styggtj\u00e4rnen",
+            "source_layer_key": "neotoma-pollen",
+            "latitude": 62.324285,
+            "longitude": 13.557865,
+            "source_url": "https://apps.neotomadb.org/explorer/#/record/site/13335"
+          }
+        ],
+        "representative_source_record": "neotoma-pollen:13335",
+        "representative_source_layer_key": "neotoma-pollen",
+        "representative_source_name": "Styggtj\u00e4rnen",
+        "representative_source_url": "https://apps.neotomadb.org/explorer/#/record/site/13335",
+        "coordinate_resolution_method": "shared_source_coordinate",
         "duplicate_name_count": 1,
         "coordinate_spread_km": 0.0,
         "ambiguity_flags": [],
