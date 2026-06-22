@@ -13,11 +13,17 @@ Coordinates resolve to representative points drawn from official SMHI SVAR lake 
 - Human aDNA weighting: human aDNA contributes 0.59 of each band score, direct pollen contributes 0.14, nearby pollen contributes 0.07, and archaeology contributes 0.07
 - Ranking decision rule: Aggregate and band ranks sort first by human aDNA locality and sample coverage, then by direct pollen support, then by broader pollen and archaeology context, with sampling fit and blended score used as later tie-breakers.
 - Temporal alignment rule: Neotoma pollen and SEAD archaeology remain lake-anchored context layers, but their stronger chronology contribution comes only from records with numeric BP intervals that overlap nearby human locality windows.
-- Source temporal coverage: Neotoma 81/99 numeric-interval records, LandClim 0/198 numeric-interval records, SEAD 0/2007 numeric-interval records
+- Source temporal coverage: Neotoma 81/99 numeric-interval records (partial chronology coverage), LandClim 0/198 numeric-interval records (spatial inventory only), SEAD 0/2007 numeric-interval records (spatial inventory only)
 - Sampling note: Lake suitability remains separate from evidence density. Very small basins stay visible but score lower, while registry names that clearly point to wetlands, pits, ponds, or engineered water bodies do not enter the ranked shortlist.
 - Archaeology note: SEAD contributes site-level point counts and gains stronger weight when those site spans are numerically comparable and overlap nearby human locality windows. RAÄ contributes coarse density cells, so the archaeology term still measures surrounding evidence richness rather than exact site-to-lake proximity.
 - Pollen note: Direct pollen signal reflects lake-basin pollen records placed on or very near the official lake. Nearby pollen signal then adds broader pollen context within the active distance band, with extra credit when those pollen records carry comparable chronology that overlaps nearby human localities.
 - Animal note: Domesticated animal aDNA remains a secondary contextual signal. Human aDNA is the decisive ranking term, direct pollen is the next tie-break, and archaeology resolves ties among similarly sampled lakes.
+
+## Interpretation guardrails
+
+- Human aDNA remains the gatekeeper layer: lakes without at least one nearby human locality inside 50 km do not stay in the ranked candidate set.
+- Spatial context is not the same as chronology support: source layers with zero numeric intervals remain visible for surrounding evidence density, but they do not contribute chronology-overlap strength.
+- Partial chronology remains explicit: Neotoma records with BP intervals can strengthen time-aware comparisons, while unresolved or label-only records stay visible without being promoted to same-period evidence.
 
 ## Aggregate Ranking
 
