@@ -1,5 +1,5 @@
 {
-  "schema_version": "neotoma-temporal-review.v1",
+  "schema_version": "neotoma-temporal-review.v2",
   "generated_on": "2026-06-22",
   "row_count": 200,
   "comparability_posture_counts": {
@@ -12,7 +12,12 @@
     "site_count_with_age_ranges": 175,
     "site_count_with_bp_age_ranges": 175,
     "site_count_with_chronologies": 0,
-    "site_count_without_bp_age_ranges": 25
+    "site_count_with_bp_age_ranges_but_no_chronology_rows": 175,
+    "site_count_with_bp_age_ranges_and_chronology_rows": 0,
+    "site_count_with_non_bp_age_ranges_only": 0,
+    "site_count_with_no_age_ranges": 25,
+    "site_count_without_bp_age_ranges": 25,
+    "chronology_capture_posture": "bp_site_spans_without_chronology_rows"
   },
   "rows": [
     {
@@ -26,8 +31,17 @@
       "collection_unit_count": 1,
       "sample_count": 61,
       "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
       "supported_age_range_count": 2,
       "all_age_range_count": 2,
+      "bp_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
       "comparison_note": "Neotoma age coverage is present, but not in a BP form that this repository compares numerically."
     },
     {
@@ -41,8 +55,17 @@
       "collection_unit_count": 1,
       "sample_count": 72,
       "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
       "supported_age_range_count": 2,
       "all_age_range_count": 2,
+      "bp_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
       "comparison_note": "Neotoma age coverage is present, but not in a BP form that this repository compares numerically."
     },
     {
@@ -56,8 +79,15 @@
       "collection_unit_count": 1,
       "sample_count": 42,
       "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
       "supported_age_range_count": 1,
       "all_age_range_count": 1,
+      "bp_age_range_units": [
+        "Calibrated radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Calibrated radiocarbon years BP"
+      ],
       "comparison_note": "Neotoma age coverage is present, but not in a BP form that this repository compares numerically."
     },
     {
@@ -71,8 +101,15 @@
       "collection_unit_count": 1,
       "sample_count": 35,
       "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
       "supported_age_range_count": 1,
       "all_age_range_count": 1,
+      "bp_age_range_units": [
+        "Calibrated radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Calibrated radiocarbon years BP"
+      ],
       "comparison_note": "Neotoma age coverage is present, but not in a BP form that this repository compares numerically."
     },
     {
@@ -86,8 +123,15 @@
       "collection_unit_count": 1,
       "sample_count": 30,
       "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
       "supported_age_range_count": 1,
       "all_age_range_count": 1,
+      "bp_age_range_units": [
+        "Calendar years BP"
+      ],
+      "all_age_range_units": [
+        "Calendar years BP"
+      ],
       "comparison_note": "Neotoma age coverage is present, but not in a BP form that this repository compares numerically."
     },
     {
@@ -101,8 +145,15 @@
       "collection_unit_count": 1,
       "sample_count": 107,
       "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
       "supported_age_range_count": 1,
       "all_age_range_count": 1,
+      "bp_age_range_units": [
+        "Calibrated radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Calibrated radiocarbon years BP"
+      ],
       "comparison_note": "Neotoma publishes BP age coverage here, but the interval remains a site-level pollen context span rather than a sample-owned event date."
     },
     {
@@ -116,8 +167,15 @@
       "collection_unit_count": 1,
       "sample_count": 102,
       "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
       "supported_age_range_count": 1,
       "all_age_range_count": 1,
+      "bp_age_range_units": [
+        "Radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Radiocarbon years BP"
+      ],
       "comparison_note": "Neotoma publishes BP age coverage here, but the interval remains a site-level pollen context span rather than a sample-owned event date."
     },
     {
@@ -131,8 +189,15 @@
       "collection_unit_count": 1,
       "sample_count": 41,
       "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
       "supported_age_range_count": 1,
       "all_age_range_count": 1,
+      "bp_age_range_units": [
+        "Radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Radiocarbon years BP"
+      ],
       "comparison_note": "Neotoma publishes BP age coverage here, but the interval remains a site-level pollen context span rather than a sample-owned event date."
     },
     {
@@ -146,8 +211,15 @@
       "collection_unit_count": 1,
       "sample_count": 56,
       "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
       "supported_age_range_count": 1,
       "all_age_range_count": 1,
+      "bp_age_range_units": [
+        "Calibrated radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Calibrated radiocarbon years BP"
+      ],
       "comparison_note": "Neotoma publishes BP age coverage here, but the interval remains a site-level pollen context span rather than a sample-owned event date."
     },
     {
@@ -161,8 +233,15 @@
       "collection_unit_count": 1,
       "sample_count": 63,
       "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
       "supported_age_range_count": 1,
       "all_age_range_count": 1,
+      "bp_age_range_units": [
+        "Calibrated radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Calibrated radiocarbon years BP"
+      ],
       "comparison_note": "Neotoma publishes BP age coverage here, but the interval remains a site-level pollen context span rather than a sample-owned event date."
     },
     {
@@ -176,8 +255,15 @@
       "collection_unit_count": 1,
       "sample_count": 69,
       "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
       "supported_age_range_count": 1,
       "all_age_range_count": 1,
+      "bp_age_range_units": [
+        "Calibrated radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Calibrated radiocarbon years BP"
+      ],
       "comparison_note": "Neotoma publishes BP age coverage here, but the interval remains a site-level pollen context span rather than a sample-owned event date."
     },
     {
@@ -191,8 +277,15 @@
       "collection_unit_count": 1,
       "sample_count": 52,
       "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
       "supported_age_range_count": 1,
       "all_age_range_count": 1,
+      "bp_age_range_units": [
+        "Calibrated radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Calibrated radiocarbon years BP"
+      ],
       "comparison_note": "Neotoma publishes BP age coverage here, but the interval remains a site-level pollen context span rather than a sample-owned event date."
     },
     {
@@ -206,8 +299,15 @@
       "collection_unit_count": 1,
       "sample_count": 48,
       "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
       "supported_age_range_count": 1,
       "all_age_range_count": 1,
+      "bp_age_range_units": [
+        "Radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Radiocarbon years BP"
+      ],
       "comparison_note": "Neotoma publishes BP age coverage here, but the interval remains a site-level pollen context span rather than a sample-owned event date."
     },
     {
@@ -221,8 +321,15 @@
       "collection_unit_count": 1,
       "sample_count": 69,
       "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
       "supported_age_range_count": 1,
       "all_age_range_count": 1,
+      "bp_age_range_units": [
+        "Calendar years BP"
+      ],
+      "all_age_range_units": [
+        "Calendar years BP"
+      ],
       "comparison_note": "Neotoma publishes BP age coverage here, but the interval remains a site-level pollen context span rather than a sample-owned event date."
     },
     {
@@ -236,8 +343,15 @@
       "collection_unit_count": 1,
       "sample_count": 108,
       "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
       "supported_age_range_count": 1,
       "all_age_range_count": 1,
+      "bp_age_range_units": [
+        "Calibrated radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Calibrated radiocarbon years BP"
+      ],
       "comparison_note": "Neotoma publishes BP age coverage here, but the interval remains a site-level pollen context span rather than a sample-owned event date."
     },
     {
@@ -251,8 +365,15 @@
       "collection_unit_count": 1,
       "sample_count": 109,
       "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
       "supported_age_range_count": 1,
       "all_age_range_count": 1,
+      "bp_age_range_units": [
+        "Calibrated radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Calibrated radiocarbon years BP"
+      ],
       "comparison_note": "Neotoma publishes BP age coverage here, but the interval remains a site-level pollen context span rather than a sample-owned event date."
     },
     {
@@ -266,8 +387,15 @@
       "collection_unit_count": 1,
       "sample_count": 86,
       "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
       "supported_age_range_count": 1,
       "all_age_range_count": 1,
+      "bp_age_range_units": [
+        "Calibrated radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Calibrated radiocarbon years BP"
+      ],
       "comparison_note": "Neotoma publishes BP age coverage here, but the interval remains a site-level pollen context span rather than a sample-owned event date."
     },
     {
@@ -281,8 +409,15 @@
       "collection_unit_count": 1,
       "sample_count": 101,
       "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
       "supported_age_range_count": 1,
       "all_age_range_count": 1,
+      "bp_age_range_units": [
+        "Calibrated radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Calibrated radiocarbon years BP"
+      ],
       "comparison_note": "Neotoma publishes BP age coverage here, but the interval remains a site-level pollen context span rather than a sample-owned event date."
     },
     {
@@ -296,8 +431,15 @@
       "collection_unit_count": 1,
       "sample_count": 48,
       "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
       "supported_age_range_count": 1,
       "all_age_range_count": 1,
+      "bp_age_range_units": [
+        "Calibrated radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Calibrated radiocarbon years BP"
+      ],
       "comparison_note": "Neotoma publishes BP age coverage here, but the interval remains a site-level pollen context span rather than a sample-owned event date."
     },
     {
@@ -311,8 +453,15 @@
       "collection_unit_count": 1,
       "sample_count": 23,
       "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
       "supported_age_range_count": 1,
       "all_age_range_count": 1,
+      "bp_age_range_units": [
+        "Radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Radiocarbon years BP"
+      ],
       "comparison_note": "Neotoma publishes BP age coverage here, but the interval remains a site-level pollen context span rather than a sample-owned event date."
     },
     {
@@ -326,8 +475,15 @@
       "collection_unit_count": 1,
       "sample_count": 12,
       "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
       "supported_age_range_count": 1,
       "all_age_range_count": 1,
+      "bp_age_range_units": [
+        "Calibrated radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Calibrated radiocarbon years BP"
+      ],
       "comparison_note": "Neotoma publishes BP age coverage here, but the interval remains a site-level pollen context span rather than a sample-owned event date."
     },
     {
@@ -341,8 +497,15 @@
       "collection_unit_count": 1,
       "sample_count": 101,
       "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
       "supported_age_range_count": 1,
       "all_age_range_count": 1,
+      "bp_age_range_units": [
+        "Calibrated radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Calibrated radiocarbon years BP"
+      ],
       "comparison_note": "Neotoma publishes BP age coverage here, but the interval remains a site-level pollen context span rather than a sample-owned event date."
     },
     {
@@ -356,8 +519,15 @@
       "collection_unit_count": 1,
       "sample_count": 71,
       "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
       "supported_age_range_count": 1,
       "all_age_range_count": 1,
+      "bp_age_range_units": [
+        "Radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Radiocarbon years BP"
+      ],
       "comparison_note": "Neotoma publishes BP age coverage here, but the interval remains a site-level pollen context span rather than a sample-owned event date."
     },
     {
@@ -371,8 +541,15 @@
       "collection_unit_count": 1,
       "sample_count": 111,
       "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
       "supported_age_range_count": 1,
       "all_age_range_count": 1,
+      "bp_age_range_units": [
+        "Calibrated radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Calibrated radiocarbon years BP"
+      ],
       "comparison_note": "Neotoma publishes BP age coverage here, but the interval remains a site-level pollen context span rather than a sample-owned event date."
     },
     {
@@ -386,8 +563,15 @@
       "collection_unit_count": 1,
       "sample_count": 16,
       "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
       "supported_age_range_count": 1,
       "all_age_range_count": 1,
+      "bp_age_range_units": [
+        "Radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Radiocarbon years BP"
+      ],
       "comparison_note": "Neotoma publishes BP age coverage here, but the interval remains a site-level pollen context span rather than a sample-owned event date."
     },
     {
@@ -401,8 +585,15 @@
       "collection_unit_count": 1,
       "sample_count": 65,
       "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
       "supported_age_range_count": 1,
       "all_age_range_count": 1,
+      "bp_age_range_units": [
+        "Varve years BP"
+      ],
+      "all_age_range_units": [
+        "Varve years BP"
+      ],
       "comparison_note": "Neotoma publishes BP age coverage here, but the interval remains a site-level pollen context span rather than a sample-owned event date."
     },
     {
@@ -416,8 +607,15 @@
       "collection_unit_count": 1,
       "sample_count": 64,
       "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
       "supported_age_range_count": 1,
       "all_age_range_count": 1,
+      "bp_age_range_units": [
+        "Calibrated radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Calibrated radiocarbon years BP"
+      ],
       "comparison_note": "Neotoma publishes BP age coverage here, but the interval remains a site-level pollen context span rather than a sample-owned event date."
     },
     {
@@ -431,8 +629,15 @@
       "collection_unit_count": 1,
       "sample_count": 63,
       "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
       "supported_age_range_count": 1,
       "all_age_range_count": 1,
+      "bp_age_range_units": [
+        "Calibrated radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Calibrated radiocarbon years BP"
+      ],
       "comparison_note": "Neotoma publishes BP age coverage here, but the interval remains a site-level pollen context span rather than a sample-owned event date."
     },
     {
@@ -446,8 +651,15 @@
       "collection_unit_count": 1,
       "sample_count": 45,
       "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
       "supported_age_range_count": 1,
       "all_age_range_count": 1,
+      "bp_age_range_units": [
+        "Calibrated radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Calibrated radiocarbon years BP"
+      ],
       "comparison_note": "Neotoma publishes BP age coverage here, but the interval remains a site-level pollen context span rather than a sample-owned event date."
     },
     {
@@ -461,8 +673,15 @@
       "collection_unit_count": 1,
       "sample_count": 55,
       "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
       "supported_age_range_count": 1,
       "all_age_range_count": 1,
+      "bp_age_range_units": [
+        "Calibrated radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Calibrated radiocarbon years BP"
+      ],
       "comparison_note": "Neotoma publishes BP age coverage here, but the interval remains a site-level pollen context span rather than a sample-owned event date."
     },
     {
@@ -476,8 +695,15 @@
       "collection_unit_count": 1,
       "sample_count": 53,
       "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
       "supported_age_range_count": 1,
       "all_age_range_count": 1,
+      "bp_age_range_units": [
+        "Radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Radiocarbon years BP"
+      ],
       "comparison_note": "Neotoma publishes BP age coverage here, but the interval remains a site-level pollen context span rather than a sample-owned event date."
     },
     {
@@ -491,8 +717,15 @@
       "collection_unit_count": 1,
       "sample_count": 60,
       "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
       "supported_age_range_count": 1,
       "all_age_range_count": 1,
+      "bp_age_range_units": [
+        "Calibrated radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Calibrated radiocarbon years BP"
+      ],
       "comparison_note": "Neotoma publishes BP age coverage here, but the interval remains a site-level pollen context span rather than a sample-owned event date."
     },
     {
@@ -506,8 +739,15 @@
       "collection_unit_count": 1,
       "sample_count": 70,
       "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
       "supported_age_range_count": 1,
       "all_age_range_count": 1,
+      "bp_age_range_units": [
+        "Calibrated radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Calibrated radiocarbon years BP"
+      ],
       "comparison_note": "Neotoma publishes BP age coverage here, but the interval remains a site-level pollen context span rather than a sample-owned event date."
     },
     {
@@ -521,8 +761,15 @@
       "collection_unit_count": 1,
       "sample_count": 48,
       "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
       "supported_age_range_count": 1,
       "all_age_range_count": 1,
+      "bp_age_range_units": [
+        "Calibrated radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Calibrated radiocarbon years BP"
+      ],
       "comparison_note": "Neotoma publishes BP age coverage here, but the interval remains a site-level pollen context span rather than a sample-owned event date."
     },
     {
@@ -536,8 +783,15 @@
       "collection_unit_count": 1,
       "sample_count": 15,
       "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
       "supported_age_range_count": 1,
       "all_age_range_count": 1,
+      "bp_age_range_units": [
+        "Radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Radiocarbon years BP"
+      ],
       "comparison_note": "Neotoma publishes BP age coverage here, but the interval remains a site-level pollen context span rather than a sample-owned event date."
     },
     {
@@ -551,8 +805,15 @@
       "collection_unit_count": 1,
       "sample_count": 45,
       "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
       "supported_age_range_count": 1,
       "all_age_range_count": 1,
+      "bp_age_range_units": [
+        "Calibrated radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Calibrated radiocarbon years BP"
+      ],
       "comparison_note": "Neotoma publishes BP age coverage here, but the interval remains a site-level pollen context span rather than a sample-owned event date."
     },
     {
@@ -566,8 +827,15 @@
       "collection_unit_count": 1,
       "sample_count": 93,
       "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
       "supported_age_range_count": 1,
       "all_age_range_count": 1,
+      "bp_age_range_units": [
+        "Calibrated radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Calibrated radiocarbon years BP"
+      ],
       "comparison_note": "Neotoma publishes BP age coverage here, but the interval remains a site-level pollen context span rather than a sample-owned event date."
     },
     {
@@ -581,8 +849,15 @@
       "collection_unit_count": 1,
       "sample_count": 32,
       "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
       "supported_age_range_count": 1,
       "all_age_range_count": 1,
+      "bp_age_range_units": [
+        "Calibrated radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Calibrated radiocarbon years BP"
+      ],
       "comparison_note": "Neotoma publishes BP age coverage here, but the interval remains a site-level pollen context span rather than a sample-owned event date."
     },
     {
@@ -596,8 +871,15 @@
       "collection_unit_count": 1,
       "sample_count": 32,
       "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
       "supported_age_range_count": 1,
       "all_age_range_count": 1,
+      "bp_age_range_units": [
+        "Varve years BP"
+      ],
+      "all_age_range_units": [
+        "Varve years BP"
+      ],
       "comparison_note": "Neotoma publishes BP age coverage here, but the interval remains a site-level pollen context span rather than a sample-owned event date."
     },
     {
@@ -611,8 +893,15 @@
       "collection_unit_count": 2,
       "sample_count": 17,
       "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
       "supported_age_range_count": 1,
       "all_age_range_count": 1,
+      "bp_age_range_units": [
+        "Calibrated radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Calibrated radiocarbon years BP"
+      ],
       "comparison_note": "Neotoma publishes BP age coverage here, but the interval remains a site-level pollen context span rather than a sample-owned event date."
     },
     {
@@ -626,8 +915,15 @@
       "collection_unit_count": 1,
       "sample_count": 73,
       "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
       "supported_age_range_count": 1,
       "all_age_range_count": 1,
+      "bp_age_range_units": [
+        "Calendar years BP"
+      ],
+      "all_age_range_units": [
+        "Calendar years BP"
+      ],
       "comparison_note": "Neotoma publishes BP age coverage here, but the interval remains a site-level pollen context span rather than a sample-owned event date."
     },
     {
@@ -641,8 +937,15 @@
       "collection_unit_count": 1,
       "sample_count": 86,
       "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
       "supported_age_range_count": 1,
       "all_age_range_count": 1,
+      "bp_age_range_units": [
+        "Calendar years BP"
+      ],
+      "all_age_range_units": [
+        "Calendar years BP"
+      ],
       "comparison_note": "Neotoma publishes BP age coverage here, but the interval remains a site-level pollen context span rather than a sample-owned event date."
     },
     {
@@ -656,8 +959,15 @@
       "collection_unit_count": 1,
       "sample_count": 28,
       "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
       "supported_age_range_count": 1,
       "all_age_range_count": 1,
+      "bp_age_range_units": [
+        "Calibrated radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Calibrated radiocarbon years BP"
+      ],
       "comparison_note": "Neotoma publishes BP age coverage here, but the interval remains a site-level pollen context span rather than a sample-owned event date."
     },
     {
@@ -671,8 +981,15 @@
       "collection_unit_count": 1,
       "sample_count": 72,
       "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
       "supported_age_range_count": 1,
       "all_age_range_count": 1,
+      "bp_age_range_units": [
+        "Calibrated radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Calibrated radiocarbon years BP"
+      ],
       "comparison_note": "Neotoma publishes BP age coverage here, but the interval remains a site-level pollen context span rather than a sample-owned event date."
     },
     {
@@ -686,8 +1003,15 @@
       "collection_unit_count": 1,
       "sample_count": 83,
       "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
       "supported_age_range_count": 1,
       "all_age_range_count": 1,
+      "bp_age_range_units": [
+        "Calibrated radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Calibrated radiocarbon years BP"
+      ],
       "comparison_note": "Neotoma publishes BP age coverage here, but the interval remains a site-level pollen context span rather than a sample-owned event date."
     },
     {
@@ -701,8 +1025,15 @@
       "collection_unit_count": 1,
       "sample_count": 34,
       "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
       "supported_age_range_count": 1,
       "all_age_range_count": 1,
+      "bp_age_range_units": [
+        "Radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Radiocarbon years BP"
+      ],
       "comparison_note": "Neotoma publishes BP age coverage here, but the interval remains a site-level pollen context span rather than a sample-owned event date."
     },
     {
@@ -716,8 +1047,15 @@
       "collection_unit_count": 1,
       "sample_count": 89,
       "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
       "supported_age_range_count": 1,
       "all_age_range_count": 1,
+      "bp_age_range_units": [
+        "Radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Radiocarbon years BP"
+      ],
       "comparison_note": "Neotoma publishes BP age coverage here, but the interval remains a site-level pollen context span rather than a sample-owned event date."
     },
     {
@@ -731,8 +1069,15 @@
       "collection_unit_count": 1,
       "sample_count": 117,
       "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
       "supported_age_range_count": 1,
       "all_age_range_count": 1,
+      "bp_age_range_units": [
+        "Calibrated radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Calibrated radiocarbon years BP"
+      ],
       "comparison_note": "Neotoma publishes BP age coverage here, but the interval remains a site-level pollen context span rather than a sample-owned event date."
     },
     {
@@ -746,8 +1091,15 @@
       "collection_unit_count": 1,
       "sample_count": 69,
       "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
       "supported_age_range_count": 1,
       "all_age_range_count": 1,
+      "bp_age_range_units": [
+        "Calibrated radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Calibrated radiocarbon years BP"
+      ],
       "comparison_note": "Neotoma publishes BP age coverage here, but the interval remains a site-level pollen context span rather than a sample-owned event date."
     },
     {
@@ -761,8 +1113,15 @@
       "collection_unit_count": 1,
       "sample_count": 217,
       "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
       "supported_age_range_count": 1,
       "all_age_range_count": 1,
+      "bp_age_range_units": [
+        "Calendar years BP"
+      ],
+      "all_age_range_units": [
+        "Calendar years BP"
+      ],
       "comparison_note": "Neotoma publishes BP age coverage here, but the interval remains a site-level pollen context span rather than a sample-owned event date."
     },
     {
@@ -776,8 +1135,15 @@
       "collection_unit_count": 1,
       "sample_count": 44,
       "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
       "supported_age_range_count": 1,
       "all_age_range_count": 1,
+      "bp_age_range_units": [
+        "Calibrated radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Calibrated radiocarbon years BP"
+      ],
       "comparison_note": "Neotoma publishes BP age coverage here, but the interval remains a site-level pollen context span rather than a sample-owned event date."
     },
     {
@@ -791,8 +1157,15 @@
       "collection_unit_count": 2,
       "sample_count": 32,
       "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
       "supported_age_range_count": 1,
       "all_age_range_count": 1,
+      "bp_age_range_units": [
+        "Calibrated radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Calibrated radiocarbon years BP"
+      ],
       "comparison_note": "Neotoma publishes BP age coverage here, but the interval remains a site-level pollen context span rather than a sample-owned event date."
     },
     {
@@ -806,8 +1179,15 @@
       "collection_unit_count": 1,
       "sample_count": 77,
       "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
       "supported_age_range_count": 1,
       "all_age_range_count": 1,
+      "bp_age_range_units": [
+        "Calibrated radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Calibrated radiocarbon years BP"
+      ],
       "comparison_note": "Neotoma publishes BP age coverage here, but the interval remains a site-level pollen context span rather than a sample-owned event date."
     },
     {
@@ -821,8 +1201,15 @@
       "collection_unit_count": 1,
       "sample_count": 84,
       "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
       "supported_age_range_count": 1,
       "all_age_range_count": 1,
+      "bp_age_range_units": [
+        "Calibrated radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Calibrated radiocarbon years BP"
+      ],
       "comparison_note": "Neotoma publishes BP age coverage here, but the interval remains a site-level pollen context span rather than a sample-owned event date."
     },
     {
@@ -836,8 +1223,15 @@
       "collection_unit_count": 1,
       "sample_count": 84,
       "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
       "supported_age_range_count": 1,
       "all_age_range_count": 1,
+      "bp_age_range_units": [
+        "Calibrated radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Calibrated radiocarbon years BP"
+      ],
       "comparison_note": "Neotoma publishes BP age coverage here, but the interval remains a site-level pollen context span rather than a sample-owned event date."
     },
     {
@@ -851,8 +1245,15 @@
       "collection_unit_count": 1,
       "sample_count": 154,
       "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
       "supported_age_range_count": 1,
       "all_age_range_count": 1,
+      "bp_age_range_units": [
+        "Calibrated radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Calibrated radiocarbon years BP"
+      ],
       "comparison_note": "Neotoma publishes BP age coverage here, but the interval remains a site-level pollen context span rather than a sample-owned event date."
     },
     {
@@ -866,8 +1267,15 @@
       "collection_unit_count": 1,
       "sample_count": 74,
       "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
       "supported_age_range_count": 1,
       "all_age_range_count": 1,
+      "bp_age_range_units": [
+        "Calibrated radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Calibrated radiocarbon years BP"
+      ],
       "comparison_note": "Neotoma publishes BP age coverage here, but the interval remains a site-level pollen context span rather than a sample-owned event date."
     },
     {
@@ -881,8 +1289,15 @@
       "collection_unit_count": 1,
       "sample_count": 78,
       "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
       "supported_age_range_count": 1,
       "all_age_range_count": 1,
+      "bp_age_range_units": [
+        "Calibrated radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Calibrated radiocarbon years BP"
+      ],
       "comparison_note": "Neotoma publishes BP age coverage here, but the interval remains a site-level pollen context span rather than a sample-owned event date."
     },
     {
@@ -896,8 +1311,15 @@
       "collection_unit_count": 1,
       "sample_count": 82,
       "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
       "supported_age_range_count": 1,
       "all_age_range_count": 1,
+      "bp_age_range_units": [
+        "Calibrated radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Calibrated radiocarbon years BP"
+      ],
       "comparison_note": "Neotoma publishes BP age coverage here, but the interval remains a site-level pollen context span rather than a sample-owned event date."
     },
     {
@@ -911,8 +1333,15 @@
       "collection_unit_count": 1,
       "sample_count": 32,
       "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
       "supported_age_range_count": 1,
       "all_age_range_count": 1,
+      "bp_age_range_units": [
+        "Calibrated radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Calibrated radiocarbon years BP"
+      ],
       "comparison_note": "Neotoma publishes BP age coverage here, but the interval remains a site-level pollen context span rather than a sample-owned event date."
     },
     {
@@ -926,8 +1355,15 @@
       "collection_unit_count": 1,
       "sample_count": 46,
       "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
       "supported_age_range_count": 1,
       "all_age_range_count": 1,
+      "bp_age_range_units": [
+        "Calibrated radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Calibrated radiocarbon years BP"
+      ],
       "comparison_note": "Neotoma publishes BP age coverage here, but the interval remains a site-level pollen context span rather than a sample-owned event date."
     },
     {
@@ -941,8 +1377,15 @@
       "collection_unit_count": 1,
       "sample_count": 40,
       "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
       "supported_age_range_count": 1,
       "all_age_range_count": 1,
+      "bp_age_range_units": [
+        "Calibrated radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Calibrated radiocarbon years BP"
+      ],
       "comparison_note": "Neotoma publishes BP age coverage here, but the interval remains a site-level pollen context span rather than a sample-owned event date."
     },
     {
@@ -956,8 +1399,15 @@
       "collection_unit_count": 1,
       "sample_count": 71,
       "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
       "supported_age_range_count": 1,
       "all_age_range_count": 1,
+      "bp_age_range_units": [
+        "Calibrated radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Calibrated radiocarbon years BP"
+      ],
       "comparison_note": "Neotoma publishes BP age coverage here, but the interval remains a site-level pollen context span rather than a sample-owned event date."
     },
     {
@@ -971,8 +1421,15 @@
       "collection_unit_count": 1,
       "sample_count": 80,
       "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
       "supported_age_range_count": 1,
       "all_age_range_count": 1,
+      "bp_age_range_units": [
+        "Calibrated radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Calibrated radiocarbon years BP"
+      ],
       "comparison_note": "Neotoma publishes BP age coverage here, but the interval remains a site-level pollen context span rather than a sample-owned event date."
     },
     {
@@ -986,8 +1443,15 @@
       "collection_unit_count": 1,
       "sample_count": 39,
       "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
       "supported_age_range_count": 1,
       "all_age_range_count": 1,
+      "bp_age_range_units": [
+        "Calibrated radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Calibrated radiocarbon years BP"
+      ],
       "comparison_note": "Neotoma publishes BP age coverage here, but the interval remains a site-level pollen context span rather than a sample-owned event date."
     },
     {
@@ -1001,8 +1465,15 @@
       "collection_unit_count": 1,
       "sample_count": 43,
       "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
       "supported_age_range_count": 1,
       "all_age_range_count": 1,
+      "bp_age_range_units": [
+        "Calibrated radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Calibrated radiocarbon years BP"
+      ],
       "comparison_note": "Neotoma publishes BP age coverage here, but the interval remains a site-level pollen context span rather than a sample-owned event date."
     },
     {
@@ -1016,8 +1487,15 @@
       "collection_unit_count": 1,
       "sample_count": 57,
       "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
       "supported_age_range_count": 1,
       "all_age_range_count": 1,
+      "bp_age_range_units": [
+        "Calibrated radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Calibrated radiocarbon years BP"
+      ],
       "comparison_note": "Neotoma publishes BP age coverage here, but the interval remains a site-level pollen context span rather than a sample-owned event date."
     },
     {
@@ -1031,8 +1509,15 @@
       "collection_unit_count": 1,
       "sample_count": 28,
       "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
       "supported_age_range_count": 1,
       "all_age_range_count": 1,
+      "bp_age_range_units": [
+        "Calibrated radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Calibrated radiocarbon years BP"
+      ],
       "comparison_note": "Neotoma publishes BP age coverage here, but the interval remains a site-level pollen context span rather than a sample-owned event date."
     },
     {
@@ -1046,8 +1531,17 @@
       "collection_unit_count": 1,
       "sample_count": 55,
       "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
       "supported_age_range_count": 2,
       "all_age_range_count": 2,
+      "bp_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
       "comparison_note": "Neotoma coverage merges more than one BP age-range convention for this site, so the interval remains comparable but should be treated as a site-level summary span."
     },
     {
@@ -1061,8 +1555,17 @@
       "collection_unit_count": 1,
       "sample_count": 135,
       "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
       "supported_age_range_count": 2,
       "all_age_range_count": 2,
+      "bp_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
       "comparison_note": "Neotoma coverage merges more than one BP age-range convention for this site, so the interval remains comparable but should be treated as a site-level summary span."
     },
     {
@@ -1076,8 +1579,17 @@
       "collection_unit_count": 1,
       "sample_count": 46,
       "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
       "supported_age_range_count": 2,
       "all_age_range_count": 2,
+      "bp_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
       "comparison_note": "Neotoma coverage merges more than one BP age-range convention for this site, so the interval remains comparable but should be treated as a site-level summary span."
     },
     {
@@ -1091,8 +1603,17 @@
       "collection_unit_count": 1,
       "sample_count": 34,
       "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
       "supported_age_range_count": 2,
       "all_age_range_count": 2,
+      "bp_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
       "comparison_note": "Neotoma coverage merges more than one BP age-range convention for this site, so the interval remains comparable but should be treated as a site-level summary span."
     },
     {
@@ -1106,8 +1627,17 @@
       "collection_unit_count": 1,
       "sample_count": 56,
       "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
       "supported_age_range_count": 2,
       "all_age_range_count": 2,
+      "bp_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
       "comparison_note": "Neotoma coverage merges more than one BP age-range convention for this site, so the interval remains comparable but should be treated as a site-level summary span."
     },
     {
@@ -1121,8 +1651,17 @@
       "collection_unit_count": 1,
       "sample_count": 28,
       "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
       "supported_age_range_count": 2,
       "all_age_range_count": 2,
+      "bp_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
       "comparison_note": "Neotoma coverage merges more than one BP age-range convention for this site, so the interval remains comparable but should be treated as a site-level summary span."
     },
     {
@@ -1136,8 +1675,17 @@
       "collection_unit_count": 1,
       "sample_count": 66,
       "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
       "supported_age_range_count": 2,
       "all_age_range_count": 2,
+      "bp_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
       "comparison_note": "Neotoma coverage merges more than one BP age-range convention for this site, so the interval remains comparable but should be treated as a site-level summary span."
     },
     {
@@ -1151,8 +1699,17 @@
       "collection_unit_count": 1,
       "sample_count": 118,
       "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
       "supported_age_range_count": 2,
       "all_age_range_count": 2,
+      "bp_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
       "comparison_note": "Neotoma coverage merges more than one BP age-range convention for this site, so the interval remains comparable but should be treated as a site-level summary span."
     },
     {
@@ -1166,8 +1723,17 @@
       "collection_unit_count": 1,
       "sample_count": 38,
       "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
       "supported_age_range_count": 2,
       "all_age_range_count": 2,
+      "bp_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
       "comparison_note": "Neotoma coverage merges more than one BP age-range convention for this site, so the interval remains comparable but should be treated as a site-level summary span."
     },
     {
@@ -1181,8 +1747,17 @@
       "collection_unit_count": 1,
       "sample_count": 63,
       "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
       "supported_age_range_count": 2,
       "all_age_range_count": 2,
+      "bp_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
       "comparison_note": "Neotoma coverage merges more than one BP age-range convention for this site, so the interval remains comparable but should be treated as a site-level summary span."
     },
     {
@@ -1196,8 +1771,17 @@
       "collection_unit_count": 1,
       "sample_count": 18,
       "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
       "supported_age_range_count": 2,
       "all_age_range_count": 2,
+      "bp_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
       "comparison_note": "Neotoma coverage merges more than one BP age-range convention for this site, so the interval remains comparable but should be treated as a site-level summary span."
     },
     {
@@ -1211,8 +1795,17 @@
       "collection_unit_count": 1,
       "sample_count": 37,
       "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
       "supported_age_range_count": 2,
       "all_age_range_count": 2,
+      "bp_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
       "comparison_note": "Neotoma coverage merges more than one BP age-range convention for this site, so the interval remains comparable but should be treated as a site-level summary span."
     },
     {
@@ -1226,8 +1819,17 @@
       "collection_unit_count": 1,
       "sample_count": 84,
       "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
       "supported_age_range_count": 2,
       "all_age_range_count": 2,
+      "bp_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
       "comparison_note": "Neotoma coverage merges more than one BP age-range convention for this site, so the interval remains comparable but should be treated as a site-level summary span."
     },
     {
@@ -1241,8 +1843,17 @@
       "collection_unit_count": 1,
       "sample_count": 40,
       "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
       "supported_age_range_count": 2,
       "all_age_range_count": 2,
+      "bp_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
       "comparison_note": "Neotoma coverage merges more than one BP age-range convention for this site, so the interval remains comparable but should be treated as a site-level summary span."
     },
     {
@@ -1256,8 +1867,17 @@
       "collection_unit_count": 1,
       "sample_count": 124,
       "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
       "supported_age_range_count": 2,
       "all_age_range_count": 2,
+      "bp_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
       "comparison_note": "Neotoma coverage merges more than one BP age-range convention for this site, so the interval remains comparable but should be treated as a site-level summary span."
     },
     {
@@ -1271,8 +1891,17 @@
       "collection_unit_count": 1,
       "sample_count": 69,
       "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
       "supported_age_range_count": 2,
       "all_age_range_count": 2,
+      "bp_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
       "comparison_note": "Neotoma coverage merges more than one BP age-range convention for this site, so the interval remains comparable but should be treated as a site-level summary span."
     },
     {
@@ -1286,8 +1915,17 @@
       "collection_unit_count": 1,
       "sample_count": 28,
       "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
       "supported_age_range_count": 2,
       "all_age_range_count": 2,
+      "bp_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
       "comparison_note": "Neotoma coverage merges more than one BP age-range convention for this site, so the interval remains comparable but should be treated as a site-level summary span."
     },
     {
@@ -1301,8 +1939,17 @@
       "collection_unit_count": 1,
       "sample_count": 37,
       "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
       "supported_age_range_count": 2,
       "all_age_range_count": 2,
+      "bp_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
       "comparison_note": "Neotoma coverage merges more than one BP age-range convention for this site, so the interval remains comparable but should be treated as a site-level summary span."
     },
     {
@@ -1316,8 +1963,17 @@
       "collection_unit_count": 1,
       "sample_count": 26,
       "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
       "supported_age_range_count": 2,
       "all_age_range_count": 2,
+      "bp_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
       "comparison_note": "Neotoma coverage merges more than one BP age-range convention for this site, so the interval remains comparable but should be treated as a site-level summary span."
     },
     {
@@ -1331,8 +1987,17 @@
       "collection_unit_count": 1,
       "sample_count": 67,
       "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
       "supported_age_range_count": 2,
       "all_age_range_count": 2,
+      "bp_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
       "comparison_note": "Neotoma coverage merges more than one BP age-range convention for this site, so the interval remains comparable but should be treated as a site-level summary span."
     },
     {
@@ -1346,8 +2011,17 @@
       "collection_unit_count": 1,
       "sample_count": 32,
       "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
       "supported_age_range_count": 2,
       "all_age_range_count": 2,
+      "bp_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
       "comparison_note": "Neotoma coverage merges more than one BP age-range convention for this site, so the interval remains comparable but should be treated as a site-level summary span."
     },
     {
@@ -1361,8 +2035,17 @@
       "collection_unit_count": 1,
       "sample_count": 64,
       "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
       "supported_age_range_count": 2,
       "all_age_range_count": 2,
+      "bp_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
       "comparison_note": "Neotoma coverage merges more than one BP age-range convention for this site, so the interval remains comparable but should be treated as a site-level summary span."
     },
     {
@@ -1376,8 +2059,17 @@
       "collection_unit_count": 1,
       "sample_count": 48,
       "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
       "supported_age_range_count": 2,
       "all_age_range_count": 2,
+      "bp_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
       "comparison_note": "Neotoma coverage merges more than one BP age-range convention for this site, so the interval remains comparable but should be treated as a site-level summary span."
     },
     {
@@ -1391,8 +2083,17 @@
       "collection_unit_count": 1,
       "sample_count": 31,
       "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
       "supported_age_range_count": 2,
       "all_age_range_count": 2,
+      "bp_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
       "comparison_note": "Neotoma coverage merges more than one BP age-range convention for this site, so the interval remains comparable but should be treated as a site-level summary span."
     },
     {
@@ -1406,8 +2107,17 @@
       "collection_unit_count": 1,
       "sample_count": 128,
       "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
       "supported_age_range_count": 2,
       "all_age_range_count": 2,
+      "bp_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
       "comparison_note": "Neotoma coverage merges more than one BP age-range convention for this site, so the interval remains comparable but should be treated as a site-level summary span."
     },
     {
@@ -1421,8 +2131,17 @@
       "collection_unit_count": 1,
       "sample_count": 18,
       "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
       "supported_age_range_count": 2,
       "all_age_range_count": 2,
+      "bp_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
       "comparison_note": "Neotoma coverage merges more than one BP age-range convention for this site, so the interval remains comparable but should be treated as a site-level summary span."
     },
     {
@@ -1436,8 +2155,17 @@
       "collection_unit_count": 1,
       "sample_count": 74,
       "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
       "supported_age_range_count": 2,
       "all_age_range_count": 2,
+      "bp_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
       "comparison_note": "Neotoma coverage merges more than one BP age-range convention for this site, so the interval remains comparable but should be treated as a site-level summary span."
     },
     {
@@ -1451,8 +2179,17 @@
       "collection_unit_count": 1,
       "sample_count": 45,
       "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
       "supported_age_range_count": 2,
       "all_age_range_count": 2,
+      "bp_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
       "comparison_note": "Neotoma coverage merges more than one BP age-range convention for this site, so the interval remains comparable but should be treated as a site-level summary span."
     },
     {
@@ -1466,8 +2203,17 @@
       "collection_unit_count": 1,
       "sample_count": 70,
       "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
       "supported_age_range_count": 2,
       "all_age_range_count": 2,
+      "bp_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
       "comparison_note": "Neotoma coverage merges more than one BP age-range convention for this site, so the interval remains comparable but should be treated as a site-level summary span."
     },
     {
@@ -1481,8 +2227,17 @@
       "collection_unit_count": 1,
       "sample_count": 78,
       "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
       "supported_age_range_count": 2,
       "all_age_range_count": 2,
+      "bp_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
       "comparison_note": "Neotoma coverage merges more than one BP age-range convention for this site, so the interval remains comparable but should be treated as a site-level summary span."
     },
     {
@@ -1496,8 +2251,17 @@
       "collection_unit_count": 1,
       "sample_count": 77,
       "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
       "supported_age_range_count": 2,
       "all_age_range_count": 2,
+      "bp_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
       "comparison_note": "Neotoma coverage merges more than one BP age-range convention for this site, so the interval remains comparable but should be treated as a site-level summary span."
     },
     {
@@ -1511,8 +2275,17 @@
       "collection_unit_count": 1,
       "sample_count": 133,
       "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
       "supported_age_range_count": 2,
       "all_age_range_count": 2,
+      "bp_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
       "comparison_note": "Neotoma coverage merges more than one BP age-range convention for this site, so the interval remains comparable but should be treated as a site-level summary span."
     },
     {
@@ -1526,8 +2299,17 @@
       "collection_unit_count": 1,
       "sample_count": 94,
       "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
       "supported_age_range_count": 2,
       "all_age_range_count": 2,
+      "bp_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
       "comparison_note": "Neotoma coverage merges more than one BP age-range convention for this site, so the interval remains comparable but should be treated as a site-level summary span."
     },
     {
@@ -1541,8 +2323,17 @@
       "collection_unit_count": 1,
       "sample_count": 13,
       "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
       "supported_age_range_count": 2,
       "all_age_range_count": 2,
+      "bp_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
       "comparison_note": "Neotoma coverage merges more than one BP age-range convention for this site, so the interval remains comparable but should be treated as a site-level summary span."
     },
     {
@@ -1556,8 +2347,17 @@
       "collection_unit_count": 1,
       "sample_count": 59,
       "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
       "supported_age_range_count": 2,
       "all_age_range_count": 2,
+      "bp_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
       "comparison_note": "Neotoma coverage merges more than one BP age-range convention for this site, so the interval remains comparable but should be treated as a site-level summary span."
     },
     {
@@ -1571,8 +2371,17 @@
       "collection_unit_count": 1,
       "sample_count": 38,
       "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
       "supported_age_range_count": 2,
       "all_age_range_count": 2,
+      "bp_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
       "comparison_note": "Neotoma coverage merges more than one BP age-range convention for this site, so the interval remains comparable but should be treated as a site-level summary span."
     },
     {
@@ -1586,8 +2395,17 @@
       "collection_unit_count": 1,
       "sample_count": 37,
       "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
       "supported_age_range_count": 2,
       "all_age_range_count": 2,
+      "bp_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
       "comparison_note": "Neotoma coverage merges more than one BP age-range convention for this site, so the interval remains comparable but should be treated as a site-level summary span."
     },
     {
@@ -1601,8 +2419,17 @@
       "collection_unit_count": 1,
       "sample_count": 54,
       "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
       "supported_age_range_count": 2,
       "all_age_range_count": 2,
+      "bp_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
       "comparison_note": "Neotoma coverage merges more than one BP age-range convention for this site, so the interval remains comparable but should be treated as a site-level summary span."
     },
     {
@@ -1616,8 +2443,17 @@
       "collection_unit_count": 1,
       "sample_count": 16,
       "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
       "supported_age_range_count": 2,
       "all_age_range_count": 2,
+      "bp_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
       "comparison_note": "Neotoma coverage merges more than one BP age-range convention for this site, so the interval remains comparable but should be treated as a site-level summary span."
     },
     {
@@ -1631,8 +2467,17 @@
       "collection_unit_count": 1,
       "sample_count": 29,
       "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
       "supported_age_range_count": 2,
       "all_age_range_count": 2,
+      "bp_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
       "comparison_note": "Neotoma coverage merges more than one BP age-range convention for this site, so the interval remains comparable but should be treated as a site-level summary span."
     },
     {
@@ -1646,8 +2491,17 @@
       "collection_unit_count": 1,
       "sample_count": 45,
       "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
       "supported_age_range_count": 2,
       "all_age_range_count": 2,
+      "bp_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
       "comparison_note": "Neotoma coverage merges more than one BP age-range convention for this site, so the interval remains comparable but should be treated as a site-level summary span."
     },
     {
@@ -1661,8 +2515,17 @@
       "collection_unit_count": 1,
       "sample_count": 78,
       "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
       "supported_age_range_count": 2,
       "all_age_range_count": 2,
+      "bp_age_range_units": [
+        "Calendar years BP",
+        "Radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Calendar years BP",
+        "Radiocarbon years BP"
+      ],
       "comparison_note": "Neotoma coverage merges more than one BP age-range convention for this site, so the interval remains comparable but should be treated as a site-level summary span."
     },
     {
@@ -1676,8 +2539,17 @@
       "collection_unit_count": 1,
       "sample_count": 70,
       "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
       "supported_age_range_count": 2,
       "all_age_range_count": 2,
+      "bp_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
       "comparison_note": "Neotoma coverage merges more than one BP age-range convention for this site, so the interval remains comparable but should be treated as a site-level summary span."
     },
     {
@@ -1691,8 +2563,17 @@
       "collection_unit_count": 1,
       "sample_count": 53,
       "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
       "supported_age_range_count": 2,
       "all_age_range_count": 2,
+      "bp_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
       "comparison_note": "Neotoma coverage merges more than one BP age-range convention for this site, so the interval remains comparable but should be treated as a site-level summary span."
     },
     {
@@ -1706,8 +2587,17 @@
       "collection_unit_count": 1,
       "sample_count": 17,
       "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
       "supported_age_range_count": 2,
       "all_age_range_count": 2,
+      "bp_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
       "comparison_note": "Neotoma coverage merges more than one BP age-range convention for this site, so the interval remains comparable but should be treated as a site-level summary span."
     },
     {
@@ -1721,8 +2611,17 @@
       "collection_unit_count": 2,
       "sample_count": 206,
       "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
       "supported_age_range_count": 2,
       "all_age_range_count": 2,
+      "bp_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
       "comparison_note": "Neotoma coverage merges more than one BP age-range convention for this site, so the interval remains comparable but should be treated as a site-level summary span."
     },
     {
@@ -1736,8 +2635,17 @@
       "collection_unit_count": 1,
       "sample_count": 112,
       "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
       "supported_age_range_count": 2,
       "all_age_range_count": 2,
+      "bp_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
       "comparison_note": "Neotoma coverage merges more than one BP age-range convention for this site, so the interval remains comparable but should be treated as a site-level summary span."
     },
     {
@@ -1751,8 +2659,17 @@
       "collection_unit_count": 1,
       "sample_count": 150,
       "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
       "supported_age_range_count": 2,
       "all_age_range_count": 2,
+      "bp_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
       "comparison_note": "Neotoma coverage merges more than one BP age-range convention for this site, so the interval remains comparable but should be treated as a site-level summary span."
     },
     {
@@ -1766,8 +2683,17 @@
       "collection_unit_count": 1,
       "sample_count": 114,
       "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
       "supported_age_range_count": 2,
       "all_age_range_count": 2,
+      "bp_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
       "comparison_note": "Neotoma coverage merges more than one BP age-range convention for this site, so the interval remains comparable but should be treated as a site-level summary span."
     },
     {
@@ -1781,8 +2707,17 @@
       "collection_unit_count": 1,
       "sample_count": 148,
       "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
       "supported_age_range_count": 2,
       "all_age_range_count": 2,
+      "bp_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
       "comparison_note": "Neotoma coverage merges more than one BP age-range convention for this site, so the interval remains comparable but should be treated as a site-level summary span."
     },
     {
@@ -1796,8 +2731,17 @@
       "collection_unit_count": 1,
       "sample_count": 93,
       "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
       "supported_age_range_count": 2,
       "all_age_range_count": 2,
+      "bp_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
       "comparison_note": "Neotoma coverage merges more than one BP age-range convention for this site, so the interval remains comparable but should be treated as a site-level summary span."
     },
     {
@@ -1811,8 +2755,17 @@
       "collection_unit_count": 1,
       "sample_count": 20,
       "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
       "supported_age_range_count": 2,
       "all_age_range_count": 2,
+      "bp_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
       "comparison_note": "Neotoma coverage merges more than one BP age-range convention for this site, so the interval remains comparable but should be treated as a site-level summary span."
     },
     {
@@ -1826,8 +2779,17 @@
       "collection_unit_count": 1,
       "sample_count": 100,
       "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
       "supported_age_range_count": 2,
       "all_age_range_count": 2,
+      "bp_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
       "comparison_note": "Neotoma coverage merges more than one BP age-range convention for this site, so the interval remains comparable but should be treated as a site-level summary span."
     },
     {
@@ -1841,8 +2803,17 @@
       "collection_unit_count": 1,
       "sample_count": 236,
       "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
       "supported_age_range_count": 2,
       "all_age_range_count": 2,
+      "bp_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
       "comparison_note": "Neotoma coverage merges more than one BP age-range convention for this site, so the interval remains comparable but should be treated as a site-level summary span."
     },
     {
@@ -1856,8 +2827,17 @@
       "collection_unit_count": 2,
       "sample_count": 92,
       "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
       "supported_age_range_count": 2,
       "all_age_range_count": 2,
+      "bp_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
       "comparison_note": "Neotoma coverage merges more than one BP age-range convention for this site, so the interval remains comparable but should be treated as a site-level summary span."
     },
     {
@@ -1871,8 +2851,17 @@
       "collection_unit_count": 1,
       "sample_count": 111,
       "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
       "supported_age_range_count": 2,
       "all_age_range_count": 2,
+      "bp_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
       "comparison_note": "Neotoma coverage merges more than one BP age-range convention for this site, so the interval remains comparable but should be treated as a site-level summary span."
     },
     {
@@ -1886,8 +2875,17 @@
       "collection_unit_count": 1,
       "sample_count": 98,
       "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
       "supported_age_range_count": 2,
       "all_age_range_count": 2,
+      "bp_age_range_units": [
+        "Calendar years BP",
+        "Calibrated radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Calendar years BP",
+        "Calibrated radiocarbon years BP"
+      ],
       "comparison_note": "Neotoma coverage merges more than one BP age-range convention for this site, so the interval remains comparable but should be treated as a site-level summary span."
     },
     {
@@ -1901,8 +2899,17 @@
       "collection_unit_count": 1,
       "sample_count": 146,
       "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
       "supported_age_range_count": 2,
       "all_age_range_count": 2,
+      "bp_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
       "comparison_note": "Neotoma coverage merges more than one BP age-range convention for this site, so the interval remains comparable but should be treated as a site-level summary span."
     },
     {
@@ -1916,8 +2923,17 @@
       "collection_unit_count": 1,
       "sample_count": 28,
       "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
       "supported_age_range_count": 2,
       "all_age_range_count": 2,
+      "bp_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
       "comparison_note": "Neotoma coverage merges more than one BP age-range convention for this site, so the interval remains comparable but should be treated as a site-level summary span."
     },
     {
@@ -1931,8 +2947,17 @@
       "collection_unit_count": 1,
       "sample_count": 86,
       "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
       "supported_age_range_count": 2,
       "all_age_range_count": 2,
+      "bp_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
       "comparison_note": "Neotoma coverage merges more than one BP age-range convention for this site, so the interval remains comparable but should be treated as a site-level summary span."
     },
     {
@@ -1946,8 +2971,17 @@
       "collection_unit_count": 1,
       "sample_count": 88,
       "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
       "supported_age_range_count": 2,
       "all_age_range_count": 2,
+      "bp_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
       "comparison_note": "Neotoma coverage merges more than one BP age-range convention for this site, so the interval remains comparable but should be treated as a site-level summary span."
     },
     {
@@ -1961,8 +2995,17 @@
       "collection_unit_count": 1,
       "sample_count": 16,
       "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
       "supported_age_range_count": 2,
       "all_age_range_count": 2,
+      "bp_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
       "comparison_note": "Neotoma coverage merges more than one BP age-range convention for this site, so the interval remains comparable but should be treated as a site-level summary span."
     },
     {
@@ -1976,8 +3019,17 @@
       "collection_unit_count": 1,
       "sample_count": 51,
       "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
       "supported_age_range_count": 2,
       "all_age_range_count": 2,
+      "bp_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
       "comparison_note": "Neotoma coverage merges more than one BP age-range convention for this site, so the interval remains comparable but should be treated as a site-level summary span."
     },
     {
@@ -1991,8 +3043,17 @@
       "collection_unit_count": 1,
       "sample_count": 51,
       "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
       "supported_age_range_count": 2,
       "all_age_range_count": 2,
+      "bp_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
       "comparison_note": "Neotoma coverage merges more than one BP age-range convention for this site, so the interval remains comparable but should be treated as a site-level summary span."
     },
     {
@@ -2006,8 +3067,17 @@
       "collection_unit_count": 1,
       "sample_count": 14,
       "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
       "supported_age_range_count": 2,
       "all_age_range_count": 2,
+      "bp_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
       "comparison_note": "Neotoma coverage merges more than one BP age-range convention for this site, so the interval remains comparable but should be treated as a site-level summary span."
     },
     {
@@ -2021,8 +3091,17 @@
       "collection_unit_count": 1,
       "sample_count": 103,
       "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
       "supported_age_range_count": 2,
       "all_age_range_count": 2,
+      "bp_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
       "comparison_note": "Neotoma coverage merges more than one BP age-range convention for this site, so the interval remains comparable but should be treated as a site-level summary span."
     },
     {
@@ -2036,8 +3115,17 @@
       "collection_unit_count": 1,
       "sample_count": 30,
       "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
       "supported_age_range_count": 2,
       "all_age_range_count": 2,
+      "bp_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
       "comparison_note": "Neotoma coverage merges more than one BP age-range convention for this site, so the interval remains comparable but should be treated as a site-level summary span."
     },
     {
@@ -2051,8 +3139,17 @@
       "collection_unit_count": 1,
       "sample_count": 29,
       "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
       "supported_age_range_count": 2,
       "all_age_range_count": 2,
+      "bp_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
       "comparison_note": "Neotoma coverage merges more than one BP age-range convention for this site, so the interval remains comparable but should be treated as a site-level summary span."
     },
     {
@@ -2066,8 +3163,17 @@
       "collection_unit_count": 1,
       "sample_count": 131,
       "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
       "supported_age_range_count": 2,
       "all_age_range_count": 2,
+      "bp_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
       "comparison_note": "Neotoma coverage merges more than one BP age-range convention for this site, so the interval remains comparable but should be treated as a site-level summary span."
     },
     {
@@ -2081,8 +3187,17 @@
       "collection_unit_count": 1,
       "sample_count": 13,
       "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
       "supported_age_range_count": 2,
       "all_age_range_count": 2,
+      "bp_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
       "comparison_note": "Neotoma coverage merges more than one BP age-range convention for this site, so the interval remains comparable but should be treated as a site-level summary span."
     },
     {
@@ -2096,8 +3211,17 @@
       "collection_unit_count": 1,
       "sample_count": 78,
       "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
       "supported_age_range_count": 2,
       "all_age_range_count": 2,
+      "bp_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
       "comparison_note": "Neotoma coverage merges more than one BP age-range convention for this site, so the interval remains comparable but should be treated as a site-level summary span."
     },
     {
@@ -2111,8 +3235,17 @@
       "collection_unit_count": 1,
       "sample_count": 67,
       "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
       "supported_age_range_count": 2,
       "all_age_range_count": 2,
+      "bp_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
       "comparison_note": "Neotoma coverage merges more than one BP age-range convention for this site, so the interval remains comparable but should be treated as a site-level summary span."
     },
     {
@@ -2126,8 +3259,17 @@
       "collection_unit_count": 1,
       "sample_count": 56,
       "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
       "supported_age_range_count": 2,
       "all_age_range_count": 2,
+      "bp_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
       "comparison_note": "Neotoma coverage merges more than one BP age-range convention for this site, so the interval remains comparable but should be treated as a site-level summary span."
     },
     {
@@ -2141,8 +3283,17 @@
       "collection_unit_count": 1,
       "sample_count": 56,
       "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
       "supported_age_range_count": 2,
       "all_age_range_count": 2,
+      "bp_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
       "comparison_note": "Neotoma coverage merges more than one BP age-range convention for this site, so the interval remains comparable but should be treated as a site-level summary span."
     },
     {
@@ -2156,8 +3307,17 @@
       "collection_unit_count": 1,
       "sample_count": 63,
       "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
       "supported_age_range_count": 2,
       "all_age_range_count": 2,
+      "bp_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
       "comparison_note": "Neotoma coverage merges more than one BP age-range convention for this site, so the interval remains comparable but should be treated as a site-level summary span."
     },
     {
@@ -2171,8 +3331,17 @@
       "collection_unit_count": 1,
       "sample_count": 55,
       "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
       "supported_age_range_count": 2,
       "all_age_range_count": 2,
+      "bp_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
       "comparison_note": "Neotoma coverage merges more than one BP age-range convention for this site, so the interval remains comparable but should be treated as a site-level summary span."
     },
     {
@@ -2186,8 +3355,17 @@
       "collection_unit_count": 1,
       "sample_count": 141,
       "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
       "supported_age_range_count": 2,
       "all_age_range_count": 2,
+      "bp_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
       "comparison_note": "Neotoma coverage merges more than one BP age-range convention for this site, so the interval remains comparable but should be treated as a site-level summary span."
     },
     {
@@ -2201,8 +3379,17 @@
       "collection_unit_count": 1,
       "sample_count": 92,
       "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
       "supported_age_range_count": 2,
       "all_age_range_count": 2,
+      "bp_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
       "comparison_note": "Neotoma coverage merges more than one BP age-range convention for this site, so the interval remains comparable but should be treated as a site-level summary span."
     },
     {
@@ -2216,8 +3403,17 @@
       "collection_unit_count": 1,
       "sample_count": 18,
       "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
       "supported_age_range_count": 2,
       "all_age_range_count": 2,
+      "bp_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
       "comparison_note": "Neotoma coverage merges more than one BP age-range convention for this site, so the interval remains comparable but should be treated as a site-level summary span."
     },
     {
@@ -2231,8 +3427,17 @@
       "collection_unit_count": 1,
       "sample_count": 73,
       "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
       "supported_age_range_count": 2,
       "all_age_range_count": 2,
+      "bp_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
       "comparison_note": "Neotoma coverage merges more than one BP age-range convention for this site, so the interval remains comparable but should be treated as a site-level summary span."
     },
     {
@@ -2246,8 +3451,17 @@
       "collection_unit_count": 1,
       "sample_count": 32,
       "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
       "supported_age_range_count": 2,
       "all_age_range_count": 2,
+      "bp_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
       "comparison_note": "Neotoma coverage merges more than one BP age-range convention for this site, so the interval remains comparable but should be treated as a site-level summary span."
     },
     {
@@ -2261,8 +3475,17 @@
       "collection_unit_count": 1,
       "sample_count": 68,
       "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
       "supported_age_range_count": 2,
       "all_age_range_count": 2,
+      "bp_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
       "comparison_note": "Neotoma coverage merges more than one BP age-range convention for this site, so the interval remains comparable but should be treated as a site-level summary span."
     },
     {
@@ -2276,8 +3499,17 @@
       "collection_unit_count": 1,
       "sample_count": 45,
       "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
       "supported_age_range_count": 2,
       "all_age_range_count": 2,
+      "bp_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
       "comparison_note": "Neotoma coverage merges more than one BP age-range convention for this site, so the interval remains comparable but should be treated as a site-level summary span."
     },
     {
@@ -2291,8 +3523,17 @@
       "collection_unit_count": 1,
       "sample_count": 91,
       "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
       "supported_age_range_count": 2,
       "all_age_range_count": 2,
+      "bp_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
       "comparison_note": "Neotoma coverage merges more than one BP age-range convention for this site, so the interval remains comparable but should be treated as a site-level summary span."
     },
     {
@@ -2306,8 +3547,17 @@
       "collection_unit_count": 1,
       "sample_count": 59,
       "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
       "supported_age_range_count": 2,
       "all_age_range_count": 2,
+      "bp_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
       "comparison_note": "Neotoma coverage merges more than one BP age-range convention for this site, so the interval remains comparable but should be treated as a site-level summary span."
     },
     {
@@ -2321,8 +3571,17 @@
       "collection_unit_count": 1,
       "sample_count": 19,
       "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
       "supported_age_range_count": 2,
       "all_age_range_count": 2,
+      "bp_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
       "comparison_note": "Neotoma coverage merges more than one BP age-range convention for this site, so the interval remains comparable but should be treated as a site-level summary span."
     },
     {
@@ -2336,8 +3595,17 @@
       "collection_unit_count": 1,
       "sample_count": 31,
       "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
       "supported_age_range_count": 2,
       "all_age_range_count": 2,
+      "bp_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
       "comparison_note": "Neotoma coverage merges more than one BP age-range convention for this site, so the interval remains comparable but should be treated as a site-level summary span."
     },
     {
@@ -2351,8 +3619,17 @@
       "collection_unit_count": 1,
       "sample_count": 39,
       "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
       "supported_age_range_count": 2,
       "all_age_range_count": 2,
+      "bp_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
       "comparison_note": "Neotoma coverage merges more than one BP age-range convention for this site, so the interval remains comparable but should be treated as a site-level summary span."
     },
     {
@@ -2366,8 +3643,17 @@
       "collection_unit_count": 1,
       "sample_count": 82,
       "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
       "supported_age_range_count": 2,
       "all_age_range_count": 2,
+      "bp_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
       "comparison_note": "Neotoma coverage merges more than one BP age-range convention for this site, so the interval remains comparable but should be treated as a site-level summary span."
     },
     {
@@ -2381,8 +3667,17 @@
       "collection_unit_count": 1,
       "sample_count": 34,
       "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
       "supported_age_range_count": 2,
       "all_age_range_count": 2,
+      "bp_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
       "comparison_note": "Neotoma coverage merges more than one BP age-range convention for this site, so the interval remains comparable but should be treated as a site-level summary span."
     },
     {
@@ -2396,8 +3691,17 @@
       "collection_unit_count": 1,
       "sample_count": 75,
       "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
       "supported_age_range_count": 2,
       "all_age_range_count": 2,
+      "bp_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
       "comparison_note": "Neotoma coverage merges more than one BP age-range convention for this site, so the interval remains comparable but should be treated as a site-level summary span."
     },
     {
@@ -2411,8 +3715,17 @@
       "collection_unit_count": 1,
       "sample_count": 81,
       "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
       "supported_age_range_count": 2,
       "all_age_range_count": 2,
+      "bp_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
       "comparison_note": "Neotoma coverage merges more than one BP age-range convention for this site, so the interval remains comparable but should be treated as a site-level summary span."
     },
     {
@@ -2426,8 +3739,17 @@
       "collection_unit_count": 1,
       "sample_count": 24,
       "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
       "supported_age_range_count": 2,
       "all_age_range_count": 2,
+      "bp_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
       "comparison_note": "Neotoma coverage merges more than one BP age-range convention for this site, so the interval remains comparable but should be treated as a site-level summary span."
     },
     {
@@ -2441,8 +3763,17 @@
       "collection_unit_count": 1,
       "sample_count": 89,
       "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
       "supported_age_range_count": 2,
       "all_age_range_count": 2,
+      "bp_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
       "comparison_note": "Neotoma coverage merges more than one BP age-range convention for this site, so the interval remains comparable but should be treated as a site-level summary span."
     },
     {
@@ -2456,8 +3787,17 @@
       "collection_unit_count": 1,
       "sample_count": 40,
       "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
       "supported_age_range_count": 2,
       "all_age_range_count": 2,
+      "bp_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
       "comparison_note": "Neotoma coverage merges more than one BP age-range convention for this site, so the interval remains comparable but should be treated as a site-level summary span."
     },
     {
@@ -2471,8 +3811,17 @@
       "collection_unit_count": 1,
       "sample_count": 161,
       "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
       "supported_age_range_count": 2,
       "all_age_range_count": 2,
+      "bp_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
       "comparison_note": "Neotoma coverage merges more than one BP age-range convention for this site, so the interval remains comparable but should be treated as a site-level summary span."
     },
     {
@@ -2486,8 +3835,17 @@
       "collection_unit_count": 1,
       "sample_count": 53,
       "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
       "supported_age_range_count": 2,
       "all_age_range_count": 2,
+      "bp_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
       "comparison_note": "Neotoma coverage merges more than one BP age-range convention for this site, so the interval remains comparable but should be treated as a site-level summary span."
     },
     {
@@ -2501,8 +3859,17 @@
       "collection_unit_count": 1,
       "sample_count": 34,
       "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
       "supported_age_range_count": 2,
       "all_age_range_count": 2,
+      "bp_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
       "comparison_note": "Neotoma coverage merges more than one BP age-range convention for this site, so the interval remains comparable but should be treated as a site-level summary span."
     },
     {
@@ -2516,8 +3883,17 @@
       "collection_unit_count": 1,
       "sample_count": 60,
       "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
       "supported_age_range_count": 2,
       "all_age_range_count": 2,
+      "bp_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
       "comparison_note": "Neotoma coverage merges more than one BP age-range convention for this site, so the interval remains comparable but should be treated as a site-level summary span."
     },
     {
@@ -2531,8 +3907,17 @@
       "collection_unit_count": 2,
       "sample_count": 112,
       "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
       "supported_age_range_count": 2,
       "all_age_range_count": 2,
+      "bp_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
       "comparison_note": "Neotoma coverage merges more than one BP age-range convention for this site, so the interval remains comparable but should be treated as a site-level summary span."
     },
     {
@@ -2546,8 +3931,17 @@
       "collection_unit_count": 1,
       "sample_count": 99,
       "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
       "supported_age_range_count": 2,
       "all_age_range_count": 2,
+      "bp_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
       "comparison_note": "Neotoma coverage merges more than one BP age-range convention for this site, so the interval remains comparable but should be treated as a site-level summary span."
     },
     {
@@ -2561,8 +3955,17 @@
       "collection_unit_count": 1,
       "sample_count": 32,
       "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
       "supported_age_range_count": 2,
       "all_age_range_count": 2,
+      "bp_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
       "comparison_note": "Neotoma coverage merges more than one BP age-range convention for this site, so the interval remains comparable but should be treated as a site-level summary span."
     },
     {
@@ -2576,8 +3979,17 @@
       "collection_unit_count": 1,
       "sample_count": 67,
       "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
       "supported_age_range_count": 2,
       "all_age_range_count": 2,
+      "bp_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
       "comparison_note": "Neotoma coverage merges more than one BP age-range convention for this site, so the interval remains comparable but should be treated as a site-level summary span."
     },
     {
@@ -2591,8 +4003,17 @@
       "collection_unit_count": 1,
       "sample_count": 51,
       "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
       "supported_age_range_count": 2,
       "all_age_range_count": 2,
+      "bp_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
       "comparison_note": "Neotoma coverage merges more than one BP age-range convention for this site, so the interval remains comparable but should be treated as a site-level summary span."
     },
     {
@@ -2606,8 +4027,17 @@
       "collection_unit_count": 1,
       "sample_count": 43,
       "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
       "supported_age_range_count": 2,
       "all_age_range_count": 2,
+      "bp_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
       "comparison_note": "Neotoma coverage merges more than one BP age-range convention for this site, so the interval remains comparable but should be treated as a site-level summary span."
     },
     {
@@ -2621,8 +4051,17 @@
       "collection_unit_count": 1,
       "sample_count": 35,
       "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
       "supported_age_range_count": 2,
       "all_age_range_count": 2,
+      "bp_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
       "comparison_note": "Neotoma coverage merges more than one BP age-range convention for this site, so the interval remains comparable but should be treated as a site-level summary span."
     },
     {
@@ -2636,8 +4075,17 @@
       "collection_unit_count": 1,
       "sample_count": 55,
       "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
       "supported_age_range_count": 2,
       "all_age_range_count": 2,
+      "bp_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
       "comparison_note": "Neotoma coverage merges more than one BP age-range convention for this site, so the interval remains comparable but should be treated as a site-level summary span."
     },
     {
@@ -2651,8 +4099,11 @@
       "collection_unit_count": 1,
       "sample_count": 20,
       "chronology_count": 0,
+      "bp_support_posture": "no_age_ranges",
       "supported_age_range_count": 0,
       "all_age_range_count": 0,
+      "bp_age_range_units": [],
+      "all_age_range_units": [],
       "comparison_note": "Neotoma did not publish enough age-range detail here to support temporal comparison."
     },
     {
@@ -2666,8 +4117,11 @@
       "collection_unit_count": 1,
       "sample_count": 27,
       "chronology_count": 0,
+      "bp_support_posture": "no_age_ranges",
       "supported_age_range_count": 0,
       "all_age_range_count": 0,
+      "bp_age_range_units": [],
+      "all_age_range_units": [],
       "comparison_note": "Neotoma did not publish enough age-range detail here to support temporal comparison."
     },
     {
@@ -2681,8 +4135,11 @@
       "collection_unit_count": 1,
       "sample_count": 16,
       "chronology_count": 0,
+      "bp_support_posture": "no_age_ranges",
       "supported_age_range_count": 0,
       "all_age_range_count": 0,
+      "bp_age_range_units": [],
+      "all_age_range_units": [],
       "comparison_note": "Neotoma did not publish enough age-range detail here to support temporal comparison."
     },
     {
@@ -2696,8 +4153,11 @@
       "collection_unit_count": 1,
       "sample_count": 50,
       "chronology_count": 0,
+      "bp_support_posture": "no_age_ranges",
       "supported_age_range_count": 0,
       "all_age_range_count": 0,
+      "bp_age_range_units": [],
+      "all_age_range_units": [],
       "comparison_note": "Neotoma did not publish enough age-range detail here to support temporal comparison."
     },
     {
@@ -2711,8 +4171,11 @@
       "collection_unit_count": 1,
       "sample_count": 35,
       "chronology_count": 0,
+      "bp_support_posture": "no_age_ranges",
       "supported_age_range_count": 0,
       "all_age_range_count": 0,
+      "bp_age_range_units": [],
+      "all_age_range_units": [],
       "comparison_note": "Neotoma did not publish enough age-range detail here to support temporal comparison."
     },
     {
@@ -2726,8 +4189,11 @@
       "collection_unit_count": 1,
       "sample_count": 32,
       "chronology_count": 0,
+      "bp_support_posture": "no_age_ranges",
       "supported_age_range_count": 0,
       "all_age_range_count": 0,
+      "bp_age_range_units": [],
+      "all_age_range_units": [],
       "comparison_note": "Neotoma did not publish enough age-range detail here to support temporal comparison."
     },
     {
@@ -2741,8 +4207,11 @@
       "collection_unit_count": 1,
       "sample_count": 6,
       "chronology_count": 0,
+      "bp_support_posture": "no_age_ranges",
       "supported_age_range_count": 0,
       "all_age_range_count": 0,
+      "bp_age_range_units": [],
+      "all_age_range_units": [],
       "comparison_note": "Neotoma did not publish enough age-range detail here to support temporal comparison."
     },
     {
@@ -2756,8 +4225,11 @@
       "collection_unit_count": 1,
       "sample_count": 38,
       "chronology_count": 0,
+      "bp_support_posture": "no_age_ranges",
       "supported_age_range_count": 0,
       "all_age_range_count": 0,
+      "bp_age_range_units": [],
+      "all_age_range_units": [],
       "comparison_note": "Neotoma did not publish enough age-range detail here to support temporal comparison."
     },
     {
@@ -2771,8 +4243,11 @@
       "collection_unit_count": 1,
       "sample_count": 66,
       "chronology_count": 0,
+      "bp_support_posture": "no_age_ranges",
       "supported_age_range_count": 0,
       "all_age_range_count": 0,
+      "bp_age_range_units": [],
+      "all_age_range_units": [],
       "comparison_note": "Neotoma did not publish enough age-range detail here to support temporal comparison."
     },
     {
@@ -2786,8 +4261,11 @@
       "collection_unit_count": 1,
       "sample_count": 65,
       "chronology_count": 0,
+      "bp_support_posture": "no_age_ranges",
       "supported_age_range_count": 0,
       "all_age_range_count": 0,
+      "bp_age_range_units": [],
+      "all_age_range_units": [],
       "comparison_note": "Neotoma did not publish enough age-range detail here to support temporal comparison."
     },
     {
@@ -2801,8 +4279,11 @@
       "collection_unit_count": 1,
       "sample_count": 60,
       "chronology_count": 0,
+      "bp_support_posture": "no_age_ranges",
       "supported_age_range_count": 0,
       "all_age_range_count": 0,
+      "bp_age_range_units": [],
+      "all_age_range_units": [],
       "comparison_note": "Neotoma did not publish enough age-range detail here to support temporal comparison."
     },
     {
@@ -2816,8 +4297,11 @@
       "collection_unit_count": 1,
       "sample_count": 12,
       "chronology_count": 0,
+      "bp_support_posture": "no_age_ranges",
       "supported_age_range_count": 0,
       "all_age_range_count": 0,
+      "bp_age_range_units": [],
+      "all_age_range_units": [],
       "comparison_note": "Neotoma did not publish enough age-range detail here to support temporal comparison."
     },
     {
@@ -2831,8 +4315,11 @@
       "collection_unit_count": 1,
       "sample_count": 20,
       "chronology_count": 0,
+      "bp_support_posture": "no_age_ranges",
       "supported_age_range_count": 0,
       "all_age_range_count": 0,
+      "bp_age_range_units": [],
+      "all_age_range_units": [],
       "comparison_note": "Neotoma did not publish enough age-range detail here to support temporal comparison."
     },
     {
@@ -2846,8 +4333,11 @@
       "collection_unit_count": 1,
       "sample_count": 16,
       "chronology_count": 0,
+      "bp_support_posture": "no_age_ranges",
       "supported_age_range_count": 0,
       "all_age_range_count": 0,
+      "bp_age_range_units": [],
+      "all_age_range_units": [],
       "comparison_note": "Neotoma did not publish enough age-range detail here to support temporal comparison."
     },
     {
@@ -2861,8 +4351,11 @@
       "collection_unit_count": 1,
       "sample_count": 11,
       "chronology_count": 0,
+      "bp_support_posture": "no_age_ranges",
       "supported_age_range_count": 0,
       "all_age_range_count": 0,
+      "bp_age_range_units": [],
+      "all_age_range_units": [],
       "comparison_note": "Neotoma did not publish enough age-range detail here to support temporal comparison."
     },
     {
@@ -2876,8 +4369,11 @@
       "collection_unit_count": 1,
       "sample_count": 24,
       "chronology_count": 0,
+      "bp_support_posture": "no_age_ranges",
       "supported_age_range_count": 0,
       "all_age_range_count": 0,
+      "bp_age_range_units": [],
+      "all_age_range_units": [],
       "comparison_note": "Neotoma did not publish enough age-range detail here to support temporal comparison."
     },
     {
@@ -2891,8 +4387,11 @@
       "collection_unit_count": 1,
       "sample_count": 127,
       "chronology_count": 0,
+      "bp_support_posture": "no_age_ranges",
       "supported_age_range_count": 0,
       "all_age_range_count": 0,
+      "bp_age_range_units": [],
+      "all_age_range_units": [],
       "comparison_note": "Neotoma did not publish enough age-range detail here to support temporal comparison."
     },
     {
@@ -2906,8 +4405,11 @@
       "collection_unit_count": 1,
       "sample_count": 32,
       "chronology_count": 0,
+      "bp_support_posture": "no_age_ranges",
       "supported_age_range_count": 0,
       "all_age_range_count": 0,
+      "bp_age_range_units": [],
+      "all_age_range_units": [],
       "comparison_note": "Neotoma did not publish enough age-range detail here to support temporal comparison."
     },
     {
@@ -2921,8 +4423,11 @@
       "collection_unit_count": 1,
       "sample_count": 16,
       "chronology_count": 0,
+      "bp_support_posture": "no_age_ranges",
       "supported_age_range_count": 0,
       "all_age_range_count": 0,
+      "bp_age_range_units": [],
+      "all_age_range_units": [],
       "comparison_note": "Neotoma did not publish enough age-range detail here to support temporal comparison."
     },
     {
@@ -2936,8 +4441,11 @@
       "collection_unit_count": 1,
       "sample_count": 22,
       "chronology_count": 0,
+      "bp_support_posture": "no_age_ranges",
       "supported_age_range_count": 0,
       "all_age_range_count": 0,
+      "bp_age_range_units": [],
+      "all_age_range_units": [],
       "comparison_note": "Neotoma did not publish enough age-range detail here to support temporal comparison."
     },
     {
@@ -2951,8 +4459,11 @@
       "collection_unit_count": 1,
       "sample_count": 39,
       "chronology_count": 0,
+      "bp_support_posture": "no_age_ranges",
       "supported_age_range_count": 0,
       "all_age_range_count": 0,
+      "bp_age_range_units": [],
+      "all_age_range_units": [],
       "comparison_note": "Neotoma did not publish enough age-range detail here to support temporal comparison."
     },
     {
@@ -2966,8 +4477,11 @@
       "collection_unit_count": 1,
       "sample_count": 30,
       "chronology_count": 0,
+      "bp_support_posture": "no_age_ranges",
       "supported_age_range_count": 0,
       "all_age_range_count": 0,
+      "bp_age_range_units": [],
+      "all_age_range_units": [],
       "comparison_note": "Neotoma did not publish enough age-range detail here to support temporal comparison."
     },
     {
@@ -2981,8 +4495,11 @@
       "collection_unit_count": 2,
       "sample_count": 44,
       "chronology_count": 0,
+      "bp_support_posture": "no_age_ranges",
       "supported_age_range_count": 0,
       "all_age_range_count": 0,
+      "bp_age_range_units": [],
+      "all_age_range_units": [],
       "comparison_note": "Neotoma did not publish enough age-range detail here to support temporal comparison."
     },
     {
@@ -2996,8 +4513,11 @@
       "collection_unit_count": 1,
       "sample_count": 13,
       "chronology_count": 0,
+      "bp_support_posture": "no_age_ranges",
       "supported_age_range_count": 0,
       "all_age_range_count": 0,
+      "bp_age_range_units": [],
+      "all_age_range_units": [],
       "comparison_note": "Neotoma did not publish enough age-range detail here to support temporal comparison."
     },
     {
@@ -3011,8 +4531,11 @@
       "collection_unit_count": 1,
       "sample_count": 18,
       "chronology_count": 0,
+      "bp_support_posture": "no_age_ranges",
       "supported_age_range_count": 0,
       "all_age_range_count": 0,
+      "bp_age_range_units": [],
+      "all_age_range_units": [],
       "comparison_note": "Neotoma did not publish enough age-range detail here to support temporal comparison."
     }
   ]
