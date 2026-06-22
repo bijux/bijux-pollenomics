@@ -25,16 +25,17 @@ def build_lake_fieldwork_preparation_payload(
     top_n: int = 20,
 ) -> dict[str, object]:
     """Build a refusal-prone Sweden lake fieldwork-preparation packet."""
+    ordered_assessments = _fieldwork_ordered_assessments(report)[:top_n]
     rows = [
-        _build_fieldwork_preparation_row(assessment)
-        for assessment in report.assessments[:top_n]
+        _build_fieldwork_preparation_row(assessment, fieldwork_rank=index)
+        for index, assessment in enumerate(ordered_assessments, start=1)
     ]
     return {
         "schema_version": "sweden-lake-fieldwork-preparation.v1",
         "country": report.country,
         "row_count": len(rows),
         "methodology": {
-            "scope": "top-ranked Sweden lake candidates only",
+            "scope": "fieldwork-priority Sweden lake candidates only",
             "identity_rule": (
                 "identity resolution remains required when duplicate names, "
                 "non-official registry names, source coordinate spread, or "
@@ -49,6 +50,11 @@ def build_lake_fieldwork_preparation_payload(
                 "scenario consistency is high when a lake appears in at least four "
                 "top-20 scenario lists across aggregate and 10-50 km bands, medium "
                 "at two to three lists, else low"
+            ),
+            "fieldwork_ordering_rule": (
+                "sampling-lake candidates outrank compact and small-review basins "
+                "when building the fieldwork shortlist; aggregate evidence score "
+                "remains visible for traceability"
             ),
             "sead_context_rule": "SEAD 20 km context fit is high at >=20 sites, medium at >=5 sites, else low",
             "palaeopen_alignment_rule": (
@@ -89,6 +95,8 @@ def write_lake_fieldwork_preparation_csv(
     """Write one CSV row per reviewed Sweden lake candidate."""
     payload = build_lake_fieldwork_preparation_payload(report, top_n=top_n)
     fieldnames = (
+        "fieldwork_rank",
+        "fieldwork_shortlist_score",
         "aggregate_rank",
         "lake_label",
         "latitude",
@@ -130,6 +138,8 @@ def write_lake_fieldwork_preparation_csv(
         for row in payload["rows"]:
             writer.writerow(
                 {
+                    "fieldwork_rank": row["fieldwork_rank"],
+                    "fieldwork_shortlist_score": row["fieldwork_shortlist_score"],
                     "aggregate_rank": row["aggregate_rank"],
                     "lake_label": row["lake_label"],
                     "latitude": row["latitude"],
@@ -181,8 +191,9 @@ def render_lake_fieldwork_preparation_markdown(
     rows = (
         "\n".join(
             (
-                f"| {row['aggregate_rank']} | {row['lake_label']} | "
+                f"| {row['fieldwork_rank']} | {row['aggregate_rank']} | {row['lake_label']} | "
                 f"[{row['latitude']:.6f}, {row['longitude']:.6f}]({row['google_maps_url']}) | "
+                f"{row['fieldwork_shortlist_score']:.4f} | "
                 f"{row['preparation_posture']} | {row['identity_posture']} | "
                 f"{row['sampling_posture']} | {row['sampling_fit']:.4f} | "
                 f"{row['scenario_consistency_posture']} | "
@@ -208,14 +219,15 @@ used.
 - Identity rule: {payload["methodology"]["identity_rule"]}
 - Sampling rule: {payload["methodology"]["sampling_rule"]}
 - Scenario consistency rule: {payload["methodology"]["scenario_consistency_rule"]}
+- Fieldwork ordering rule: {payload["methodology"]["fieldwork_ordering_rule"]}
 - SEAD context rule: {payload["methodology"]["sead_context_rule"]}
 - PalaeOpen alignment rule: {payload["methodology"]["palaeopen_alignment_rule"]}
 - Warning: {payload["methodology"]["warning"]}
 
 ## Top Lake Preparation Rows
 
-| Aggregate rank | Lake | Coordinates | Preparation posture | Identity posture | Sampling posture | Sampling fit | Scenario consistency | SEAD context | PalaeOpen alignment | Evidence families within 20 km | Top-20 scenario presence | 20 km rank | Required actions |
-| ---: | --- | --- | --- | --- | --- | ---: | --- | --- | --- | ---: | ---: | ---: | --- |
+| Fieldwork rank | Aggregate rank | Lake | Coordinates | Fieldwork shortlist score | Preparation posture | Identity posture | Sampling posture | Sampling fit | Scenario consistency | SEAD context | PalaeOpen alignment | Evidence families within 20 km | Top-20 scenario presence | 20 km rank | Required actions |
+| ---: | ---: | --- | --- | ---: | --- | --- | --- | ---: | --- | --- | --- | ---: | ---: | ---: | --- |
 {rows}
 """
 
@@ -239,6 +251,8 @@ def render_lake_fieldwork_preparation_section(
 
 def _build_fieldwork_preparation_row(
     assessment: LakeEvidenceRichnessAssessment,
+    *,
+    fieldwork_rank: int,
 ) -> dict[str, object]:
     candidate = assessment.candidate
     band_20 = _band_score(assessment, 20)
@@ -276,6 +290,8 @@ def _build_fieldwork_preparation_row(
         scenario_consistency_posture=scenario_consistency_posture,
     )
     return {
+        "fieldwork_rank": fieldwork_rank,
+        "fieldwork_shortlist_score": _fieldwork_shortlist_score(assessment),
         "aggregate_rank": assessment.aggregate_rank,
         "lake_label": candidate.lake_label,
         "latitude": candidate.latitude,
@@ -459,3 +475,48 @@ def _scenario_consistency_posture(top20_presence_count: int) -> str:
 
 def _google_maps_url(latitude: float, longitude: float) -> str:
     return f"https://www.google.com/maps/search/?api=1&query={latitude:.6f},{longitude:.6f}"
+
+
+def _fieldwork_ordered_assessments(
+    report: LakeEvidenceRichnessReport,
+) -> list[LakeEvidenceRichnessAssessment]:
+    return sorted(
+        report.assessments,
+        key=lambda assessment: (
+            _sampling_priority_rank(
+                assessment.candidate.lake_sampling_posture or "sampling_not_scored"
+            ),
+            -_fieldwork_shortlist_score(assessment),
+            assessment.aggregate_rank,
+            assessment.candidate.lake_label,
+        ),
+    )
+
+
+def _sampling_priority_rank(sampling_posture: str) -> int:
+    return {
+        "sampling_lake_candidate": 0,
+        "compact_lake_candidate": 1,
+        "small_lake_review": 2,
+        "sampling_not_scored": 3,
+    }.get(sampling_posture, 4)
+
+
+def _fieldwork_shortlist_score(
+    assessment: LakeEvidenceRichnessAssessment,
+) -> float:
+    candidate = assessment.candidate
+    band_20 = _band_score(assessment, 20)
+    posture_bonus = {
+        "sampling_lake_candidate": 0.05,
+        "compact_lake_candidate": 0.0,
+        "small_lake_review": -0.08,
+    }.get(candidate.lake_sampling_posture, -0.02)
+    return round(
+        assessment.aggregate_score * 0.62
+        + candidate.lake_sampling_fit * 0.23
+        + min(1.0, candidate.direct_pollen_source_count / 2.0) * 0.1
+        + min(1.0, band_20.evidence_family_count / 4.0) * 0.05
+        + posture_bonus,
+        4,
+    )

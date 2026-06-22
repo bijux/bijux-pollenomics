@@ -258,6 +258,9 @@ def test_lake_fieldwork_preparation_payload_keeps_identity_and_interoperability_
 
     assert payload["schema_version"] == "sweden-lake-fieldwork-preparation.v1"
     assert payload["row_count"] == 2
+    assert payload["rows"][0]["fieldwork_rank"] == 1
+    assert payload["rows"][1]["fieldwork_rank"] == 2
+    assert payload["rows"][0]["fieldwork_shortlist_score"] > 0.0
     assert payload["rows"][0]["preparation_posture"] == "fieldwork_preparation_ready"
     assert payload["rows"][0]["palaeopen_alignment_posture"] == "high"
     assert payload["rows"][0]["scenario_consistency_posture"] == "high"
@@ -270,6 +273,9 @@ def test_lake_fieldwork_preparation_payload_keeps_identity_and_interoperability_
         payload["rows"][1]["identity_posture"] == "duplicate_name_resolution_required"
     )
     assert payload["rows"][1]["preparation_posture"] == "identity_resolution_required"
+    assert "Fieldwork ordering rule" in markdown
+    assert "Fieldwork rank" in markdown
+    assert "Fieldwork shortlist score" in markdown
     assert "Sweden lake fieldwork preparation" in markdown
     assert "Sampling rule" in markdown
     assert "Scenario consistency rule" in markdown
@@ -292,6 +298,8 @@ def test_lake_fieldwork_preparation_writers_emit_reviewable_files() -> None:
         with csv_path.open(encoding="utf-8", newline="") as handle:
             rows = list(csv.DictReader(handle))
 
+        assert rows[0]["fieldwork_rank"] == "1"
+        assert float(rows[0]["fieldwork_shortlist_score"]) > 0.0
         assert rows[0]["preparation_posture"] == "fieldwork_preparation_ready"
         assert rows[0]["scenario_consistency_posture"] == "high"
         assert (
@@ -338,7 +346,11 @@ def test_lake_fieldwork_preparation_flags_small_lake_sampling_review() -> None:
     )
 
     payload = build_lake_fieldwork_preparation_payload(flagged_report)
-    row = payload["rows"][0]
+    row = next(
+        candidate_row
+        for candidate_row in payload["rows"]
+        if candidate_row["lake_label"] == "Lake Clear"
+    )
 
     assert row["sampling_posture"] == "small_lake_review"
     assert row["preparation_posture"] == "sampling_fit_review_required"
@@ -346,3 +358,48 @@ def test_lake_fieldwork_preparation_flags_small_lake_sampling_review() -> None:
         "verify basin depth, access, and sediment suitability before treating this small lake as a field target"
         in row["required_actions"]
     )
+
+
+def test_lake_fieldwork_preparation_prioritizes_sampling_candidates_over_small_lakes() -> (
+    None
+):
+    report = _report()
+    small_review_candidate = replace(
+        report.assessments[0].candidate,
+        lake_label="Small Review Lake",
+        lake_sampling_posture="small_lake_review",
+        lake_sampling_fit=0.39,
+        lake_area_km2=0.02,
+    )
+    small_review_assessment = replace(
+        report.assessments[0],
+        candidate=small_review_candidate,
+        aggregate_rank=1,
+        aggregate_score=0.84,
+    )
+    sampling_candidate = replace(
+        report.assessments[1].candidate,
+        lake_label="Sampling Candidate Lake",
+        ambiguity_flags=(),
+        lake_sampling_posture="sampling_lake_candidate",
+        lake_sampling_fit=0.96,
+    )
+    sampling_assessment = replace(
+        report.assessments[1],
+        candidate=sampling_candidate,
+        aggregate_rank=2,
+        aggregate_score=0.71,
+    )
+    ranked_report = replace(
+        report,
+        assessments=(small_review_assessment, sampling_assessment),
+    )
+
+    payload = build_lake_fieldwork_preparation_payload(ranked_report)
+
+    assert payload["rows"][0]["lake_label"] == "Sampling Candidate Lake"
+    assert payload["rows"][0]["fieldwork_rank"] == 1
+    assert payload["rows"][0]["aggregate_rank"] == 2
+    assert payload["rows"][1]["lake_label"] == "Small Review Lake"
+    assert payload["rows"][1]["fieldwork_rank"] == 2
+    assert payload["rows"][1]["aggregate_rank"] == 1
