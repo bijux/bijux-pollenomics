@@ -177,7 +177,7 @@ def _report() -> LakeEvidenceRichnessReport:
     ambiguous = LakeEvidenceRichnessAssessment(
         candidate=_candidate(
             lake_name="Lake Shared",
-            lake_label="Lake Shared (57.5000, 15.5000)",
+            lake_label="Lake Shared (57.500000, 15.500000)",
             latitude=57.5,
             longitude=15.5,
             ambiguity_flags=("duplicate_sweden_name", "source_coordinate_spread"),

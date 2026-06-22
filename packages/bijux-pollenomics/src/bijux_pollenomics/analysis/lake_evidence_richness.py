@@ -980,7 +980,7 @@ def _build_lake_label(
     ambiguity_flags: tuple[str, ...],
 ) -> str:
     if duplicate_name_count > 1 or ambiguity_flags:
-        return f"{lake_name} ({latitude:.4f}, {longitude:.4f})"
+        return f"{lake_name} ({latitude:.6f}, {longitude:.6f})"
     return lake_name
 
 
@@ -1124,7 +1124,7 @@ def _resolve_basin_posture(name: str, description: str) -> str:
 def _build_lake_token(name: str, *, latitude: float, longitude: float) -> str:
     return (
         f"sweden_lake:{_lake_name_key(name)}:"
-        f"{round(latitude, 4)}:{round(longitude, 4)}"
+        f"{round(latitude, 6)}:{round(longitude, 6)}"
     )
 
 
