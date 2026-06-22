@@ -2537,7 +2537,7 @@ def _temporal_coverage_summary(
     numeric_interval_records = sum(
         1
         for point in materialized_points
-        if temporal_semantics_has_numeric_interval(point.temporal_semantics)
+        if _context_point_has_numeric_interval(point)
     )
     return {
         "record_count": total_records,
@@ -2626,14 +2626,6 @@ def _merge_source_spatiotemporal_posture(
     caveats = payload.get("caveats")
     if isinstance(caveats, list) and caveats:
         summary["caveats"] = [str(item).strip() for item in caveats if str(item).strip()]
-    record_count = int(payload.get("record_count", 0) or 0)
-    numeric_interval_record_count = int(payload.get("numeric_interval_record_count", 0) or 0)
-    if record_count and int(summary.get("record_count", 0) or 0) == 0:
-        summary["record_count"] = record_count
-    if numeric_interval_record_count and int(
-        summary.get("numeric_interval_record_count", 0) or 0
-    ) == 0:
-        summary["numeric_interval_record_count"] = numeric_interval_record_count
     if source_family == "landclim" and "capture_posture" not in summary:
         summary["capture_posture"] = "numeric_site_sequence_intervals"
 

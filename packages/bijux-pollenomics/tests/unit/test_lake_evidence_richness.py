@@ -1314,6 +1314,70 @@ def test_lake_evidence_richness_packets_write_reviewable_outputs() -> None:
         assert registry_rows[0]["representative_source_record"] == "neotoma-pollen:n1"
 
 
+def test_source_spatiotemporal_registry_does_not_override_scoped_counts() -> None:
+    with tempfile.TemporaryDirectory() as tmp:
+        root = Path(tmp)
+        _write_json(
+            root / "landclim" / "normalized" / "nordic_pollen_site_sequences.geojson",
+            {
+                "type": "FeatureCollection",
+                "features": [
+                    _point_feature(
+                        source="LandClim",
+                        layer_key="landclim-sites",
+                        layer_label="LandClim pollen sites",
+                        category="Pollen",
+                        country="Sweden",
+                        record_id="l1",
+                        name="Lake Beta",
+                        latitude=58.0,
+                        longitude=15.0,
+                        description="Sequence-backed lake context.",
+                    ),
+                ],
+            },
+        )
+        _write_json(
+            root / "neotoma" / "normalized" / "nordic_pollen_sites.geojson",
+            {"type": "FeatureCollection", "features": []},
+        )
+        _write_json(
+            root / "sead" / "normalized" / "nordic_environmental_sites.geojson",
+            {"type": "FeatureCollection", "features": []},
+        )
+        _write_json(
+            root / "source_spatiotemporal_posture_registry.json",
+            {
+                "rows": [
+                    {
+                        "source_key": "landclim",
+                        "temporal_support_note": (
+                            "Checked-in LandClim sequence points carry numeric BP "
+                            "windows in the normalized repository layer."
+                        ),
+                        "distance_scoring_note": (
+                            "Use LandClim to strengthen pollen context around lakes."
+                        ),
+                        "record_count": 99,
+                        "numeric_interval_record_count": 88,
+                    }
+                ]
+            },
+        )
+
+        report = build_sweden_lake_evidence_richness_report(
+            context_root=root,
+            human_localities=(),
+            animal_localities=(),
+        )
+
+        landclim_summary = report.methodology["source_temporal_coverage"][
+            "landclim_pollen"
+        ]
+        assert landclim_summary["record_count"] == 1
+        assert landclim_summary["numeric_interval_record_count"] == 1
+
+
 def test_lake_evidence_geojson_matches_report_candidate_count() -> None:
     with tempfile.TemporaryDirectory() as tmp:
         root = Path(tmp)
