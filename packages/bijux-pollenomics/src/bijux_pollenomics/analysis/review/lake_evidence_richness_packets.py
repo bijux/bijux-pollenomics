@@ -41,8 +41,7 @@ def build_lake_evidence_richness_geojson(
     return {
         "type": "FeatureCollection",
         "features": [
-            _build_candidate_feature(assessment)
-            for assessment in report.assessments
+            _build_candidate_feature(assessment) for assessment in report.assessments
         ],
     }
 
@@ -343,21 +342,24 @@ def render_lake_evidence_richness_markdown(
 ) -> str:
     """Render the Sweden lake evidence richness report as markdown."""
     scenario_metrics = _scenario_metric_map(report)
-    overall_rows = "\n".join(
-        (
-            f"| {assessment.aggregate_rank} | {assessment.candidate.lake_label} | "
-            f"{_render_coordinate_link(assessment.candidate.latitude, assessment.candidate.longitude)} | "
-            f"{assessment.aggregate_score:.4f} | "
-            f"{scenario_metrics[assessment.candidate.lake_token]['scenario_top20_presence_count']}/"
-            f"{scenario_metrics[assessment.candidate.lake_token]['scenario_count']} | "
-            f"{_render_ambiguity_cell(assessment.candidate.ambiguity_flags)} | "
-            f"{', '.join(assessment.candidate.pollen_sources)} | "
-            f"{_band_score(assessment, 20).human_adna_locality_count} | "
-            f"{_band_score(assessment, 20).sead_site_count} | "
-            f"{_band_score(assessment, 50).domesticated_animal_locality_count} |"
+    overall_rows = (
+        "\n".join(
+            (
+                f"| {assessment.aggregate_rank} | {assessment.candidate.lake_label} | "
+                f"{_render_coordinate_link(assessment.candidate.latitude, assessment.candidate.longitude)} | "
+                f"{assessment.aggregate_score:.4f} | "
+                f"{scenario_metrics[assessment.candidate.lake_token]['scenario_top20_presence_count']}/"
+                f"{scenario_metrics[assessment.candidate.lake_token]['scenario_count']} | "
+                f"{_render_ambiguity_cell(assessment.candidate.ambiguity_flags)} | "
+                f"{', '.join(assessment.candidate.pollen_sources)} | "
+                f"{_band_score(assessment, 20).human_adna_locality_count} | "
+                f"{_band_score(assessment, 20).sead_site_count} | "
+                f"{_band_score(assessment, 50).domesticated_animal_locality_count} |"
+            )
+            for assessment in report.assessments[:20]
         )
-        for assessment in report.assessments[:20]
-    ) or "| - | No lake candidates | - | 0.0000 | 0/0 | - | - | 0 | 0 | 0 |"
+        or "| - | No lake candidates | - | 0.0000 | 0/0 | - | - | 0 | 0 | 0 |"
+    )
     consensus_section = _render_consensus_table(report)
     band_sections = "\n\n".join(
         _render_band_table(report, radius_km=radius) for radius in report.radii_km
@@ -458,23 +460,26 @@ def _render_band_table(report: LakeEvidenceRichnessReport, *, radius_km: int) ->
         report.assessments,
         key=lambda assessment: _band_score(assessment, radius_km).band_rank,
     )[:20]
-    rows = "\n".join(
-        (
-            f"| {_band_score(assessment, radius_km).band_rank} | "
-            f"{assessment.candidate.lake_label} | "
-            f"{_render_coordinate_link(assessment.candidate.latitude, assessment.candidate.longitude)} | "
-            f"{_band_score(assessment, radius_km).total_score:.4f} | "
-            f"{_render_ambiguity_cell(assessment.candidate.ambiguity_flags)} | "
-            f"{_band_score(assessment, radius_km).human_adna_locality_count} | "
-            f"{_band_score(assessment, radius_km).human_adna_sample_count} | "
-            f"{_band_score(assessment, radius_km).domesticated_animal_locality_count} | "
-            f"{_band_score(assessment, radius_km).sead_site_count} | "
-            f"{_band_score(assessment, radius_km).raa_density_site_count} | "
-            f"{_band_score(assessment, radius_km).nearby_pollen_lake_count} | "
-            f"{_band_score(assessment, radius_km).evidence_family_count} |"
+    rows = (
+        "\n".join(
+            (
+                f"| {_band_score(assessment, radius_km).band_rank} | "
+                f"{assessment.candidate.lake_label} | "
+                f"{_render_coordinate_link(assessment.candidate.latitude, assessment.candidate.longitude)} | "
+                f"{_band_score(assessment, radius_km).total_score:.4f} | "
+                f"{_render_ambiguity_cell(assessment.candidate.ambiguity_flags)} | "
+                f"{_band_score(assessment, radius_km).human_adna_locality_count} | "
+                f"{_band_score(assessment, radius_km).human_adna_sample_count} | "
+                f"{_band_score(assessment, radius_km).domesticated_animal_locality_count} | "
+                f"{_band_score(assessment, radius_km).sead_site_count} | "
+                f"{_band_score(assessment, radius_km).raa_density_site_count} | "
+                f"{_band_score(assessment, radius_km).nearby_pollen_lake_count} | "
+                f"{_band_score(assessment, radius_km).evidence_family_count} |"
+            )
+            for assessment in ordered
         )
-        for assessment in ordered
-    ) or "| - | No lake candidates | - | 0.0000 | - | 0 | 0 | 0 | 0 | 0 | 0 | 0 |"
+        or "| - | No lake candidates | - | 0.0000 | - | 0 | 0 | 0 | 0 | 0 | 0 | 0 |"
+    )
     return f"""## {radius_km} km Ranking
 
 | Rank | Lake | Coordinates | Score | Identity diagnostics | Human localities | Human samples | Domesticated animal localities | SEAD sites | RAÄ density count | Nearby pollen lakes | Evidence families |
@@ -645,7 +650,9 @@ def _map_scenarios(report: LakeEvidenceRichnessReport) -> list[dict[str, object]
         {
             "key": "lake-evidence-aggregate",
             "label": "Aggregate top 20",
-            "rows": sorted(report.assessments, key=lambda item: item.aggregate_rank)[:20],
+            "rows": sorted(report.assessments, key=lambda item: item.aggregate_rank)[
+                :20
+            ],
             "rank_getter": lambda assessment: assessment.aggregate_rank,
             "score_getter": lambda assessment: assessment.aggregate_score,
             "scenario_label": "Aggregate",
@@ -657,11 +664,12 @@ def _map_scenarios(report: LakeEvidenceRichnessReport) -> list[dict[str, object]
             "key": "lake-evidence-consensus",
             "label": "Consensus top 20",
             "rows": consensus_rows,
-            "rank_getter": lambda assessment, rows=consensus_rows: rows.index(assessment)
-            + 1,
-            "score_getter": lambda assessment, report=report: _scenario_metric_map(report)[
-                assessment.candidate.lake_token
-            ]["scenario_top20_presence_count"],
+            "rank_getter": lambda assessment, rows=consensus_rows: (
+                rows.index(assessment) + 1
+            ),
+            "score_getter": lambda assessment, report=report: _scenario_metric_map(
+                report
+            )[assessment.candidate.lake_token]["scenario_top20_presence_count"],
             "scenario_label": "Consensus",
         }
     )
@@ -674,12 +682,12 @@ def _map_scenarios(report: LakeEvidenceRichnessReport) -> list[dict[str, object]
                     report.assessments,
                     key=lambda item: _band_score(item, radius).band_rank,
                 )[:20],
-                "rank_getter": lambda assessment, radius=radius: _band_score(
-                    assessment, radius
-                ).band_rank,
-                "score_getter": lambda assessment, radius=radius: _band_score(
-                    assessment, radius
-                ).total_score,
+                "rank_getter": lambda assessment, radius=radius: (
+                    _band_score(assessment, radius).band_rank
+                ),
+                "score_getter": lambda assessment, radius=radius: (
+                    _band_score(assessment, radius).total_score
+                ),
                 "scenario_label": f"{radius} km",
             }
         )
@@ -809,7 +817,9 @@ def _candidate_media_links(candidate) -> list[dict[str, str]]:
     return links
 
 
-def _scenario_metric_map(report: LakeEvidenceRichnessReport) -> dict[str, dict[str, object]]:
+def _scenario_metric_map(
+    report: LakeEvidenceRichnessReport,
+) -> dict[str, dict[str, object]]:
     scenario_orders: list[tuple[str, list]] = [
         ("aggregate", sorted(report.assessments, key=lambda item: item.aggregate_rank))
     ]
@@ -829,7 +839,10 @@ def _scenario_metric_map(report: LakeEvidenceRichnessReport) -> dict[str, dict[s
         top20_labels: list[str] = []
         for label, ordered in scenario_orders:
             for rank, candidate_assessment in enumerate(ordered, start=1):
-                if candidate_assessment.candidate.lake_token != assessment.candidate.lake_token:
+                if (
+                    candidate_assessment.candidate.lake_token
+                    != assessment.candidate.lake_token
+                ):
                     continue
                 ranks.append(rank)
                 if rank <= 20:
@@ -869,19 +882,22 @@ def _consensus_rows(report: LakeEvidenceRichnessReport) -> list:
 def _render_consensus_table(report: LakeEvidenceRichnessReport) -> str:
     scenario_metrics = _scenario_metric_map(report)
     ordered = _consensus_rows(report)[:20]
-    rows = "\n".join(
-        (
-            f"| {index} | {assessment.candidate.lake_label} | "
-            f"{_render_coordinate_link(assessment.candidate.latitude, assessment.candidate.longitude)} | "
-            f"{scenario_metrics[assessment.candidate.lake_token]['scenario_top20_presence_count']}/"
-            f"{scenario_metrics[assessment.candidate.lake_token]['scenario_count']} | "
-            f"{scenario_metrics[assessment.candidate.lake_token]['scenario_best_rank']} | "
-            f"{scenario_metrics[assessment.candidate.lake_token]['scenario_mean_rank']:.2f} | "
-            f"{assessment.aggregate_rank} | "
-            f"{assessment.candidate.coordinate_resolution_method} |"
+    rows = (
+        "\n".join(
+            (
+                f"| {index} | {assessment.candidate.lake_label} | "
+                f"{_render_coordinate_link(assessment.candidate.latitude, assessment.candidate.longitude)} | "
+                f"{scenario_metrics[assessment.candidate.lake_token]['scenario_top20_presence_count']}/"
+                f"{scenario_metrics[assessment.candidate.lake_token]['scenario_count']} | "
+                f"{scenario_metrics[assessment.candidate.lake_token]['scenario_best_rank']} | "
+                f"{scenario_metrics[assessment.candidate.lake_token]['scenario_mean_rank']:.2f} | "
+                f"{assessment.aggregate_rank} | "
+                f"{assessment.candidate.coordinate_resolution_method} |"
+            )
+            for index, assessment in enumerate(ordered, start=1)
         )
-        for index, assessment in enumerate(ordered, start=1)
-    ) or "| - | No lake candidates | - | 0/0 | - | - | - | - |"
+        or "| - | No lake candidates | - | 0/0 | - | - | - | - |"
+    )
     return f"""## Scenario Consensus
 
 | Consensus rank | Lake | Coordinates | Top-20 scenario presence | Best scenario rank | Mean scenario rank | Aggregate rank | Coordinate method |

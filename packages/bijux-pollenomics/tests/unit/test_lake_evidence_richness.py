@@ -12,8 +12,8 @@ from bijux_pollenomics.adna import (
     AdnaLocalitySummary,
 )
 from bijux_pollenomics.analysis import (
-    build_sweden_lake_evidence_richness_report,
     build_lake_evidence_richness_geojson,
+    build_sweden_lake_evidence_richness_report,
     render_lake_evidence_richness_markdown,
     write_lake_evidence_richness_band_csv,
     write_lake_evidence_richness_geojson,
@@ -308,7 +308,9 @@ def test_build_sweden_lake_evidence_richness_report_ranks_multi_signal_lakes() -
 
         assert report.schema_version == "sweden-lake-evidence-richness.v2"
         assert report.candidate_count == 2
-        assert [assessment.candidate.lake_name for assessment in report.assessments] == [
+        assert [
+            assessment.candidate.lake_name for assessment in report.assessments
+        ] == [
             "Alpha",
             "Gamma",
         ]
@@ -382,7 +384,9 @@ def test_lake_candidates_do_not_merge_different_nearby_lakes() -> None:
         )
 
         assert report.candidate_count == 2
-        assert {assessment.candidate.lake_name for assessment in report.assessments} == {
+        assert {
+            assessment.candidate.lake_name for assessment in report.assessments
+        } == {
             "Bjäresjösjön",
             "Bjärsjöholmssjön",
         }
@@ -524,7 +528,9 @@ def test_lake_evidence_richness_packets_write_reviewable_outputs() -> None:
 
         report = build_sweden_lake_evidence_richness_report(
             context_root=root,
-            human_localities=(_locality("Alpha human cluster", 57.02, 14.02, sample_count=3),),
+            human_localities=(
+                _locality("Alpha human cluster", 57.02, 14.02, sample_count=3),
+            ),
             animal_localities=(),
         )
         json_path = root / "lake_evidence.json"
@@ -556,7 +562,10 @@ def test_lake_evidence_richness_packets_write_reviewable_outputs() -> None:
         assert geojson["features"][0]["properties"]["name"] == "Alpha"
         assert markdown.startswith("# Sweden lake evidence richness")
         assert "## 10 km Ranking" in markdown
-        assert "https://www.google.com/maps/search/?api=1&query=57.000000,14.000000" in markdown
+        assert (
+            "https://www.google.com/maps/search/?api=1&query=57.000000,14.000000"
+            in markdown
+        )
         assert registry_rows[0]["google_maps_url"].startswith(
             "https://www.google.com/maps/search/"
         )

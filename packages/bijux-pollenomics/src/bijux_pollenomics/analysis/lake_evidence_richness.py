@@ -236,7 +236,9 @@ def build_sweden_lake_evidence_richness_report(
     radii_km: Sequence[int] = DEFAULT_LAKE_EVIDENCE_RADII_KM,
 ) -> LakeEvidenceRichnessReport:
     """Rank Sweden lake candidates by surrounding pollen, archaeology, and aDNA richness."""
-    normalized_radii = tuple(sorted({int(radius) for radius in radii_km if int(radius) > 0}))
+    normalized_radii = tuple(
+        sorted({int(radius) for radius in radii_km if int(radius) > 0})
+    )
     pollen_points = _load_sweden_pollen_points(Path(context_root))
     neotoma_position_notes = _load_sweden_neotoma_position_notes(Path(context_root))
     candidates = _derive_lake_candidates(
@@ -246,7 +248,10 @@ def build_sweden_lake_evidence_richness_report(
     human_points = _extract_human_points(human_localities)
     animal_points = _extract_animal_points(animal_localities)
     sead_points = _load_sweden_context_points(
-        Path(context_root) / "sead" / "normalized" / "nordic_environmental_sites.geojson",
+        Path(context_root)
+        / "sead"
+        / "normalized"
+        / "nordic_environmental_sites.geojson",
         country="Sweden",
     )
     raa_cells = _load_sweden_density_cells(
@@ -318,7 +323,9 @@ def build_sweden_lake_evidence_richness_report(
             )
             archaeology_signal = _weighted_average(
                 (
-                    _normalized_ratio(raw["sead_site_count"], maxima["sead_site_count"]),
+                    _normalized_ratio(
+                        raw["sead_site_count"], maxima["sead_site_count"]
+                    ),
                     0.6,
                 ),
                 (
@@ -347,8 +354,12 @@ def build_sweden_lake_evidence_richness_report(
                     nearby_pollen_lake_count=raw["nearby_pollen_lake_count"],
                     human_adna_locality_count=raw["human_adna_locality_count"],
                     human_adna_sample_count=raw["human_adna_sample_count"],
-                    domesticated_animal_locality_count=raw["domesticated_animal_locality_count"],
-                    domesticated_animal_sample_count=raw["domesticated_animal_sample_count"],
+                    domesticated_animal_locality_count=raw[
+                        "domesticated_animal_locality_count"
+                    ],
+                    domesticated_animal_sample_count=raw[
+                        "domesticated_animal_sample_count"
+                    ],
                     sead_site_count=raw["sead_site_count"],
                     raa_density_site_count=raw["raa_density_site_count"],
                     evidence_family_count=raw["evidence_family_count"],
@@ -361,8 +372,7 @@ def build_sweden_lake_evidence_richness_report(
             )
         aggregate_score = round(
             sum(
-                score.total_score
-                * _AGGREGATE_RADIUS_WEIGHTS.get(score.radius_km, 0.0)
+                score.total_score * _AGGREGATE_RADIUS_WEIGHTS.get(score.radius_km, 0.0)
                 for score in band_scores
             ),
             4,
@@ -490,7 +500,10 @@ def _extract_animal_points(
 def _load_sweden_pollen_points(context_root: Path) -> tuple[ContextPointRecord, ...]:
     paths = (
         context_root / "neotoma" / "normalized" / "nordic_pollen_sites.geojson",
-        context_root / "landclim" / "normalized" / "nordic_pollen_site_sequences.geojson",
+        context_root
+        / "landclim"
+        / "normalized"
+        / "nordic_pollen_site_sequences.geojson",
     )
     records: list[ContextPointRecord] = []
     for path in paths:
@@ -671,8 +684,12 @@ def _derive_lake_candidates(
         representative_source_point = _choose_representative_source_point(points)
         representative_latitude = round(representative_source_point.point.latitude, 6)
         representative_longitude = round(representative_source_point.point.longitude, 6)
-        pollen_sources = tuple(sorted({source_point.point.layer_key for source_point in points}))
-        supporting_names = tuple(sorted({source_point.cleaned_name for source_point in points}))
+        pollen_sources = tuple(
+            sorted({source_point.point.layer_key for source_point in points})
+        )
+        supporting_names = tuple(
+            sorted({source_point.cleaned_name for source_point in points})
+        )
         supporting_source_records = tuple(
             sorted({source_point.source_record for source_point in points})
         )
@@ -718,7 +735,9 @@ def _derive_lake_candidates(
                     0.25,
                 ),
                 (
-                    _time_aware_ratio(tuple(source_point.point for source_point in points)),
+                    _time_aware_ratio(
+                        tuple(source_point.point for source_point in points)
+                    ),
                     0.2,
                 ),
                 (
@@ -765,7 +784,9 @@ def _derive_lake_candidates(
         )
 
     duplicate_name_counts = Counter(
-        candidate["name_key"] for candidate in provisional_candidates if candidate["name_key"]
+        candidate["name_key"]
+        for candidate in provisional_candidates
+        if candidate["name_key"]
     )
     candidates: list[LakeEvidenceCandidate] = []
     for candidate in provisional_candidates:
@@ -807,13 +828,17 @@ def _derive_lake_candidates(
                 supporting_source_points=tuple(
                     candidate["supporting_source_points"]  # type: ignore[arg-type]
                 ),
-                representative_source_record=str(candidate["representative_source_record"]),
+                representative_source_record=str(
+                    candidate["representative_source_record"]
+                ),
                 representative_source_layer_key=str(
                     candidate["representative_source_layer_key"]
                 ),
                 representative_source_name=str(candidate["representative_source_name"]),
                 representative_source_url=str(candidate["representative_source_url"]),
-                coordinate_resolution_method=str(candidate["coordinate_resolution_method"]),
+                coordinate_resolution_method=str(
+                    candidate["coordinate_resolution_method"]
+                ),
                 duplicate_name_count=duplicate_name_count,
                 coordinate_spread_km=float(candidate["coordinate_spread_km"]),
                 ambiguity_flags=tuple(ambiguity_flags),
@@ -1001,7 +1026,9 @@ def _build_ambiguity_note(
             f"Source coordinates span {coordinate_spread_km:.2f} km inside this candidate."
         )
     if "source_name_variants" in ambiguity_flags:
-        parts.append("Source records use more than one lake name form for this candidate.")
+        parts.append(
+            "Source records use more than one lake name form for this candidate."
+        )
     if "source_position_note" in ambiguity_flags and position_notes:
         parts.append(position_notes[0])
     return " ".join(parts)
@@ -1104,9 +1131,7 @@ def _build_band_maxima(
         "raa_density_site_count",
     )
     return {
-        key: max(
-            raw_scores[lake_token][radius_km][key] for lake_token in raw_scores
-        )
+        key: max(raw_scores[lake_token][radius_km][key] for lake_token in raw_scores)
         for key in keys
     }
 
@@ -1114,17 +1139,22 @@ def _build_band_maxima(
 def _resolve_basin_posture(name: str, description: str) -> str:
     normalized_name = _normalize_text(name)
     normalized_description = _normalize_text(description)
-    if any(term in normalized_name or term in normalized_description for term in _LAKE_NAME_TERMS):
+    if any(
+        term in normalized_name or term in normalized_description
+        for term in _LAKE_NAME_TERMS
+    ):
         return "lake_basin"
-    if any(term in normalized_name or term in normalized_description for term in _WETLAND_TERMS):
+    if any(
+        term in normalized_name or term in normalized_description
+        for term in _WETLAND_TERMS
+    ):
         return "wetland_basin"
     return "ambiguous_basin"
 
 
 def _build_lake_token(name: str, *, latitude: float, longitude: float) -> str:
     return (
-        f"sweden_lake:{_lake_name_key(name)}:"
-        f"{round(latitude, 6)}:{round(longitude, 6)}"
+        f"sweden_lake:{_lake_name_key(name)}:{round(latitude, 6)}:{round(longitude, 6)}"
     )
 
 
@@ -1136,8 +1166,8 @@ def _lake_name_key(value: str) -> str:
 
 
 def _tokenize_lake_name(value: str) -> list[str]:
-    normalized = unicodedata.normalize("NFKD", value).encode("ascii", "ignore").decode(
-        "ascii"
+    normalized = (
+        unicodedata.normalize("NFKD", value).encode("ascii", "ignore").decode("ascii")
     )
     return [token for token in re.findall(r"[a-z0-9]+", normalized.casefold()) if token]
 
@@ -1178,11 +1208,10 @@ def _max_pair_distance(points: Sequence[_LakeSourcePoint]) -> float:
 
 
 def _normalize_text(value: str) -> str:
-    normalized = unicodedata.normalize("NFKD", value).encode("ascii", "ignore").decode(
-        "ascii"
+    normalized = (
+        unicodedata.normalize("NFKD", value).encode("ascii", "ignore").decode("ascii")
     )
-    compact = re.sub(r"[^a-z0-9]+", "", normalized.casefold())
-    return compact
+    return re.sub(r"[^a-z0-9]+", "", normalized.casefold())
 
 
 def _normalize_note_text(value: str) -> str:
@@ -1197,7 +1226,9 @@ def _time_aware_ratio(points: Sequence[ContextPointRecord]) -> float:
     if not points:
         return 0.0
     time_aware = sum(
-        1 for point in points if point.time_start_bp is not None and point.time_end_bp is not None
+        1
+        for point in points
+        if point.time_start_bp is not None and point.time_end_bp is not None
     )
     return round(time_aware / len(points), 4)
 

@@ -443,11 +443,17 @@ class CountryReportTests(unittest.TestCase):
                 {"type": "FeatureCollection", "features": []},
             )
             self.write_json(
-                context_root / "sead" / "normalized" / "nordic_environmental_sites.geojson",
+                context_root
+                / "sead"
+                / "normalized"
+                / "nordic_environmental_sites.geojson",
                 {"type": "FeatureCollection", "features": []},
             )
             self.write_json(
-                context_root / "raa" / "normalized" / "sweden_archaeology_density.geojson",
+                context_root
+                / "raa"
+                / "normalized"
+                / "sweden_archaeology_density.geojson",
                 {"type": "FeatureCollection", "features": []},
             )
 
@@ -479,7 +485,9 @@ class CountryReportTests(unittest.TestCase):
             self.assertTrue(
                 (output / "sweden_lake_evidence_richness_v62.0.md").exists()
             )
-            self.assertTrue((output / "_map_assets" / "leaflet" / "leaflet.js").exists())
+            self.assertTrue(
+                (output / "_map_assets" / "leaflet" / "leaflet.js").exists()
+            )
             readme_text = (output / "README.md").read_text(encoding="utf-8")
             self.assertIn("## Lake Evidence Richness", readme_text)
             self.assertIn(

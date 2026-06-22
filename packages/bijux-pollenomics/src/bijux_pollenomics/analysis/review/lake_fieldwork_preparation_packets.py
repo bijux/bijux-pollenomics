@@ -126,9 +126,7 @@ def write_lake_fieldwork_preparation_csv(
                     "aggregate_score": row["aggregate_score"],
                     "preparation_posture": row["preparation_posture"],
                     "identity_posture": row["identity_posture"],
-                    "scenario_consistency_posture": row[
-                        "scenario_consistency_posture"
-                    ],
+                    "scenario_consistency_posture": row["scenario_consistency_posture"],
                     "sead_context_posture": row["sead_context_posture"],
                     "palaeopen_alignment_posture": row["palaeopen_alignment_posture"],
                     "scenario_top20_presence_count": row[
@@ -142,12 +140,8 @@ def write_lake_fieldwork_preparation_csv(
                     "rank_40km": row["scenario_ranks"]["40km"],
                     "rank_50km": row["scenario_ranks"]["50km"],
                     "google_maps_url": row["google_maps_url"],
-                    "representative_source_record": row[
-                        "representative_source_record"
-                    ],
-                    "coordinate_resolution_method": row[
-                        "coordinate_resolution_method"
-                    ],
+                    "representative_source_record": row["representative_source_record"],
+                    "coordinate_resolution_method": row["coordinate_resolution_method"],
                     "direct_pollen_source_count": row["direct_pollen_source_count"],
                     "time_aware_direct_pollen_records": row[
                         "time_aware_direct_pollen_records"
@@ -344,8 +338,7 @@ def _preparation_posture(
         return "identity_resolution_required"
     if (
         scenario_consistency_posture == "high"
-        and
-        direct_pollen_source_count >= 2
+        and direct_pollen_source_count >= 2
         and evidence_family_count >= 4
         and sead_site_count >= 10
     ):
