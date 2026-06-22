@@ -49,6 +49,11 @@ SOURCE_IDENTITIES: dict[str, SourceIdentity] = {
         display_name="SEAD",
         evidence_family="environmental_archaeology_context",
     ),
+    "svar": SourceIdentity(
+        key="svar",
+        display_name="SMHI SVAR",
+        evidence_family="hydrography_context",
+    ),
 }
 
 

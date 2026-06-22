@@ -6,6 +6,7 @@ from ..landclim import collect_landclim_data
 from ..neotoma import collect_neotoma_data
 from ..raa import collect_raa_data
 from ..sead import collect_sead_data
+from ..svar import collect_svar_data
 
 ContextCollectFunction = Callable[..., object]
 
@@ -14,6 +15,7 @@ CONTEXT_COLLECT_FUNCTIONS: dict[str, ContextCollectFunction] = {
     "neotoma": collect_neotoma_data,
     "raa": collect_raa_data,
     "sead": collect_sead_data,
+    "svar": collect_svar_data,
 }
 
 

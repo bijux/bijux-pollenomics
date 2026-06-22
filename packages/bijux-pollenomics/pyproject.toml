@@ -23,6 +23,7 @@ classifiers = [
 ]
 dependencies = [
     "defusedxml>=0.7.1",
+    "pyproj>=3.7.1",
 ]
 
 [project.urls]

@@ -33,6 +33,7 @@ from .pipeline.staging import build_staging_output_dir, collect_into_staging_dir
 from .pipeline.summary_writer import write_collection_summary
 from .raa import collect_raa_data
 from .sead import collect_sead_data
+from .svar import collect_svar_data
 from .source_hashes import build_source_hashes
 from .source_layout_contract import (
     build_source_layout_contract,
@@ -172,6 +173,7 @@ def resolve_context_collect_function(name: str) -> Callable[..., object]:
         "neotoma": collect_neotoma_data,
         "raa": collect_raa_data,
         "sead": collect_sead_data,
+        "svar": collect_svar_data,
     }
     try:
         return functions[name]

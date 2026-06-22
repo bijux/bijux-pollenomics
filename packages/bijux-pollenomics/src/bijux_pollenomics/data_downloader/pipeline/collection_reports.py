@@ -31,6 +31,7 @@ def initialize_source_counts() -> dict[str, int]:
         "sead_point_count": 0,
         "raa_total_site_count": 0,
         "raa_heritage_site_count": 0,
+        "svar_lake_count": 0,
     }
 
 
@@ -73,6 +74,7 @@ def build_data_collection_summary(
         sead_point_count=counts["sead_point_count"],
         raa_total_site_count=counts["raa_total_site_count"],
         raa_heritage_site_count=counts["raa_heritage_site_count"],
+        svar_lake_count=counts["svar_lake_count"],
         summary_path=summary_path,
     )
 
@@ -101,6 +103,7 @@ def build_data_collection_report(
         sead_point_count=summary.sead_point_count,
         raa_total_site_count=summary.raa_total_site_count,
         raa_heritage_site_count=summary.raa_heritage_site_count,
+        svar_lake_count=summary.svar_lake_count,
         boundary_source=summary.boundary_source,
         summary_path=summary.summary_path,
     )

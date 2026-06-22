@@ -14,7 +14,7 @@ from ..adna.species.tracked_species import TRACKED_ADNA_SPECIES
 from ..config import DEFAULT_AADR_VERSION, DEFAULT_DATA_ROOT
 from ..core.files import write_text
 
-AVAILABLE_SOURCES = ("aadr", "boundaries", "landclim", "neotoma", "raa", "sead")
+AVAILABLE_SOURCES = ("aadr", "boundaries", "landclim", "neotoma", "raa", "sead", "svar")
 DATA_SOURCE_INDEX = "../docs/02-bijux-pollenomics-data/sources/index.md"
 DATA_LAYOUT_INDEX = (
     "../docs/02-bijux-pollenomics-data/overview/data-directory-layout.md"

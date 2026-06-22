@@ -98,6 +98,7 @@ class ContextDataReport:
     sead_point_count: int
     raa_total_site_count: int
     raa_heritage_site_count: int
+    svar_lake_count: int
 
 
 @dataclass(frozen=True)
@@ -124,6 +125,7 @@ class DataCollectionSummary:
     sead_point_count: int
     raa_total_site_count: int
     raa_heritage_site_count: int
+    svar_lake_count: int
     summary_path: Path
 
 
@@ -150,5 +152,6 @@ class DataCollectionReport:
     sead_point_count: int
     raa_total_site_count: int
     raa_heritage_site_count: int
+    svar_lake_count: int
     boundary_source: str | None
     summary_path: Path

@@ -13,6 +13,7 @@ _SOURCE_LICENSES: dict[str, str] = {
     "neotoma": "source-specific terms",
     "raa": "open data terms",
     "sead": "source-specific terms",
+    "svar": "open data terms",
 }
 
 
