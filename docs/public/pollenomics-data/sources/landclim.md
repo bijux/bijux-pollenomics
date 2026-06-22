@@ -4,7 +4,7 @@ audience: reader
 type: explanation
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-05-10
+last_reviewed: 2026-06-22
 ---
 
 # LandClim
@@ -32,6 +32,24 @@ It is especially useful for:
 In public products, LandClim often improves legibility by showing that the
 repository is not only about where biological samples were found. It also
 cares about what kind of environment those samples belong to.
+
+## Temporal Posture In This Repository
+
+The checked-in LandClim layer is spatially and temporally stronger than a
+pure map overlay, but it is still context rather than direct sample evidence.
+
+In the current repository state:
+
+- the normalized site-sequence layer carries numeric BP windows for most
+  checked-in sequence points
+- those windows help keep lake comparison grounded in explicit pollen context
+  rather than timeless map decoration
+- the family still acts as supporting pollenomics context, not as direct human
+  or archaeological proof
+
+The shared machine-readable posture for this family lives in:
+
+- `data/source_spatiotemporal_posture_registry.json`
 
 ## What LandClim Does Not Do
 
@@ -72,6 +90,7 @@ to stay visible beside archaeology and ancient DNA.
 The family-owned normalized outputs live under:
 
 - `data/landclim/normalized/`
+- `data/source_spatiotemporal_posture_registry.json`
 
 That path matters if you are checking what the public products were built from.
 Most readers should understand LandClim's role first, then inspect the tracked

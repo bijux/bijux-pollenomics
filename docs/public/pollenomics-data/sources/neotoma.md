@@ -4,7 +4,7 @@ audience: reader
 type: explanation
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-05-10
+last_reviewed: 2026-06-22
 ---
 
 # Neotoma
@@ -49,6 +49,10 @@ In the current repository state:
 That distinction is deliberate. The repository does not promote every Neotoma
 point into "same-period support" unless a numeric interval is actually present
 in the checked-in record state.
+
+The shared machine-readable posture for this family lives in:
+
+- `data/source_spatiotemporal_posture_registry.json`
 
 ## What Neotoma Does Not Do
 
@@ -102,5 +106,7 @@ inflating it into stronger temporal support.
 The family-owned normalized outputs live under:
 
 - `data/neotoma/normalized/`
+- `data/neotoma/review/temporal_review.json`
+- `data/source_spatiotemporal_posture_registry.json`
 
 That is the repository path behind Neotoma-derived public layers and summaries.

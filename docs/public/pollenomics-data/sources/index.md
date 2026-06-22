@@ -4,7 +4,7 @@ audience: reader
 type: explanation
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-05-10
+last_reviewed: 2026-06-22
 ---
 
 # Sources
@@ -68,6 +68,7 @@ Then move into the family pages only after you know what kind of source you are
 reading about. The short family pages explain the public meaning of each
 source. The longer process pages explain the harder cross-cutting ideas such as
 [Refresh policy](refresh-policy.md), [Shared normalization](shared-normalization.md),
+the shared [Spatiotemporal posture](spatiotemporal-posture.md),
 the animal recovery chain, and where infrastructure networks such as
 [PalaeOpen](palaeopen.md) help without becoming evidence on their own.
 
@@ -92,6 +93,7 @@ Most readers will not need to open tracked files directly. If you do, the
 high-signal cross-family records are:
 
 - `data/collection_summary.json`
+- `data/source_spatiotemporal_posture_registry.json`
 - `data/adna/governance/source_library/project_source_evidence_matrix.json`
 - `data/adna/governance/source_library/project_registry.json`
 - `data/adna/governance/source_library/paper_registry.json`

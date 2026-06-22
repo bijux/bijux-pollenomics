@@ -4,7 +4,7 @@ audience: reader
 type: explanation
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-05-10
+last_reviewed: 2026-06-22
 ---
 
 # SEAD
@@ -54,6 +54,10 @@ In the current repository state:
 This is an honesty rule, not a downgrade. SEAD remains valuable, but the
 repository does not collapse "archaeology nearby" into "archaeology from the
 same period" unless the checked-in record state supports that claim.
+
+The shared machine-readable posture for this family lives in:
+
+- `data/source_spatiotemporal_posture_registry.json`
 
 ## What SEAD Does Not Do
 
@@ -121,6 +125,8 @@ In the Sweden lake evidence surfaces, SEAD does three narrower jobs:
 The family-owned normalized outputs live under:
 
 - `data/sead/normalized/`
+- `data/sead/review/temporal_review.json`
+- `data/source_spatiotemporal_posture_registry.json`
 
 The current public source and infrastructure entry points live at:
 
