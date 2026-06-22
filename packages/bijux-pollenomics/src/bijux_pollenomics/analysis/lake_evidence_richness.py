@@ -681,13 +681,16 @@ def _build_svar_lake_report(
         ordered = sorted(
             candidate_rows,
             key=lambda row: (
+                -_band_score_for_radius(
+                    row["band_scores"],  # type: ignore[arg-type]
+                    radius_km=radius,
+                ).total_score,
                 *_svar_band_priority_key(
                     row["candidate"],  # type: ignore[arg-type]
                     _band_score_for_radius(
                         row["band_scores"],  # type: ignore[arg-type]
                         radius_km=radius,
                     ),
-                    aggregate_score=row["aggregate_score"],  # type: ignore[arg-type]
                 ),
             ),
         )
@@ -722,10 +725,10 @@ def _build_svar_lake_report(
     ordered_candidates = sorted(
         candidate_rows,
         key=lambda row: (
+            -row["aggregate_score"],  # type: ignore[arg-type]
             *_svar_aggregate_priority_key(
                 row["candidate"],  # type: ignore[arg-type]
                 row["band_scores"],  # type: ignore[arg-type]
-                aggregate_score=row["aggregate_score"],  # type: ignore[arg-type]
             ),
         ),
     )
@@ -1993,8 +1996,6 @@ def _sampling_priority_rank(sampling_posture: str) -> int:
 def _svar_band_priority_key(
     candidate: LakeEvidenceCandidate,
     band_score: LakeEvidenceBandScore,
-    *,
-    aggregate_score: float,
 ) -> tuple[object, ...]:
     return (
         -band_score.human_adna_locality_count,
@@ -2008,8 +2009,6 @@ def _svar_band_priority_key(
             candidate.lake_sampling_posture or "sampling_not_scored"
         ),
         -candidate.lake_sampling_fit,
-        -band_score.total_score,
-        -aggregate_score,
         candidate.lake_label,
     )
 
@@ -2017,8 +2016,6 @@ def _svar_band_priority_key(
 def _svar_aggregate_priority_key(
     candidate: LakeEvidenceCandidate,
     band_scores: Sequence[LakeEvidenceBandScore],
-    *,
-    aggregate_score: float,
 ) -> tuple[object, ...]:
     return (
         -_weighted_band_metric(band_scores, "human_adna_locality_count"),
@@ -2033,7 +2030,6 @@ def _svar_aggregate_priority_key(
             candidate.lake_sampling_posture or "sampling_not_scored"
         ),
         -candidate.lake_sampling_fit,
-        -aggregate_score,
         candidate.lake_label,
     )
 
