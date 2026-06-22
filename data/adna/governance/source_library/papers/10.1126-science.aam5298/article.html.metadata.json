@@ -4,5 +4,8 @@
   "artifact_kind": "article_html",
   "content_type": "text/html; charset=utf-8",
   "byte_size": 190166,
-  "paper_doi": "10.1126/science.aam5298"
+  "paper_doi": "10.1126/science.aam5298",
+  "storage_byte_size": 27605,
+  "storage_path": "adna/governance/source_library/papers/10.1126-science.aam5298/article.html.gz",
+  "content_encoding": "gzip"
 }

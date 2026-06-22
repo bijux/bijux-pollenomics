@@ -4,5 +4,8 @@
   "artifact_kind": "article_html",
   "content_type": "text/html; charset=utf-8",
   "byte_size": 551817,
-  "paper_doi": "10.1016/j.cell.2019.03.049"
+  "paper_doi": "10.1016/j.cell.2019.03.049",
+  "storage_byte_size": 125470,
+  "storage_path": "adna/governance/source_library/papers/10.1016-j.cell.2019.03.049/article.html.gz",
+  "content_encoding": "gzip"
 }

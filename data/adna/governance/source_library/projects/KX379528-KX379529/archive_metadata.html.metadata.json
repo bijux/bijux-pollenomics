@@ -4,5 +4,8 @@
   "artifact_kind": "archive_metadata_html",
   "content_type": "text/html; charset=UTF-8",
   "byte_size": 89882,
-  "project_accession": "KX379528-KX379529"
+  "project_accession": "KX379528-KX379529",
+  "storage_byte_size": 16790,
+  "storage_path": "adna/governance/source_library/projects/KX379528-KX379529/archive_metadata.html.gz",
+  "content_encoding": "gzip"
 }

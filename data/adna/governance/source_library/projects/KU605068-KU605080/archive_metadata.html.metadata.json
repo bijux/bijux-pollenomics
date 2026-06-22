@@ -4,5 +4,8 @@
   "artifact_kind": "archive_metadata_html",
   "content_type": "text/html; charset=UTF-8",
   "byte_size": 90233,
-  "project_accession": "KU605068-KU605080"
+  "project_accession": "KU605068-KU605080",
+  "storage_byte_size": 16846,
+  "storage_path": "adna/governance/source_library/projects/KU605068-KU605080/archive_metadata.html.gz",
+  "content_encoding": "gzip"
 }

@@ -4,5 +4,8 @@
   "artifact_kind": "archive_metadata_html",
   "content_type": "text/plain",
   "byte_size": 742490,
-  "project_accession": "PRJEB44430"
+  "project_accession": "PRJEB44430",
+  "storage_byte_size": 101069,
+  "storage_path": "adna/governance/source_library/projects/PRJEB44430/archive_metadata.html.gz",
+  "content_encoding": "gzip"
 }
