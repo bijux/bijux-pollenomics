@@ -1,0 +1,4 @@
+# Governed upstream HTML captures support provenance, but they should not define the
+# repository language profile on GitHub.
+data/adna/governance/source_library/papers/**/article.html linguist-vendored
+data/adna/governance/source_library/projects/**/archive_metadata.html linguist-vendored
