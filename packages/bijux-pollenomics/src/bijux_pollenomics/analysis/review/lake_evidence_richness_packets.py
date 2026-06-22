@@ -1180,21 +1180,28 @@ def _scenario_metric_map(
                 ),
             )
         )
+    scenario_rank_maps = [
+        (
+            label,
+            {
+                candidate_assessment.candidate.lake_token: rank
+                for rank, candidate_assessment in enumerate(ordered, start=1)
+            },
+        )
+        for label, ordered in scenario_orders
+    ]
     metrics: dict[str, dict[str, object]] = {}
     for assessment in report.assessments:
         ranks: list[int] = []
         top20_labels: list[str] = []
-        for label, ordered in scenario_orders:
-            for rank, candidate_assessment in enumerate(ordered, start=1):
-                if (
-                    candidate_assessment.candidate.lake_token
-                    != assessment.candidate.lake_token
-                ):
-                    continue
-                ranks.append(rank)
-                if rank <= 20:
-                    top20_labels.append(label)
-                break
+        lake_token = assessment.candidate.lake_token
+        for label, rank_map in scenario_rank_maps:
+            rank = rank_map.get(lake_token)
+            if rank is None:
+                continue
+            ranks.append(rank)
+            if rank <= 20:
+                top20_labels.append(label)
         metrics[assessment.candidate.lake_token] = {
             "scenario_count": len(scenario_orders),
             "scenario_top20_presence_count": len(top20_labels),
