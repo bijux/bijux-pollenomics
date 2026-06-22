@@ -202,9 +202,15 @@ def _parse_svar_properties(
     lake: ET.Element,
     geometry: dict[str, object],
 ) -> dict[str, object]:
-    register_name = lake.findtext("ms:Register/ms:SNAMN", default="", namespaces=_NAMESPACES)
-    water_name = lake.findtext("ms:VYNAMN", default="", namespaces=_NAMESPACES)
-    fallback_name = lake.findtext("ms:LW_PopNamn", default="", namespaces=_NAMESPACES)
+    register_name = _normalize_svar_text(
+        lake.findtext("ms:Register/ms:SNAMN", default="", namespaces=_NAMESPACES)
+    )
+    water_name = _normalize_svar_text(
+        lake.findtext("ms:VYNAMN", default="", namespaces=_NAMESPACES)
+    )
+    fallback_name = _normalize_svar_text(
+        lake.findtext("ms:LW_PopNamn", default="", namespaces=_NAMESPACES)
+    )
     lake_name = next(
         (
             value.strip()
@@ -226,7 +232,9 @@ def _parse_svar_properties(
         "fallback_name": fallback_name.strip(),
         "sjoid": lake.findtext("ms:SJOID", default="", namespaces=_NAMESPACES),
         "sj_uuid": lake.findtext("ms:SJ_UUID", default="", namespaces=_NAMESPACES),
-        "sj_vatten_id": lake.findtext("ms:SJVattenID", default="", namespaces=_NAMESPACES),
+        "sj_vatten_id": lake.findtext(
+            "ms:SJVattenID", default="", namespaces=_NAMESPACES
+        ),
         "district": lake.findtext("ms:DISTRICT", default="", namespaces=_NAMESPACES),
         "water_surface_elevation_m": _optional_float(
             lake.findtext("ms:VYHOJD", default="", namespaces=_NAMESPACES)
@@ -240,6 +248,21 @@ def _parse_svar_properties(
         ),
         "geometry_type": str(geometry.get("type", "")),
     }
+
+
+def _normalize_svar_text(raw: str) -> str:
+    value = raw.strip()
+    if not value:
+        return ""
+    if "Ã" not in value and "Â" not in value:
+        return value
+    for source_encoding in ("cp1252", "latin-1"):
+        try:
+            repaired = value.encode(source_encoding).decode("utf-8")
+        except UnicodeError:
+            continue
+        return repaired.strip() or value
+    return value
 
 
 def _optional_float(raw: str) -> float | None:

@@ -56,6 +56,10 @@ def build_repository_source_counts(output_root: Path) -> dict[str, int]:
             counts["raa_heritage_site_count"] = int(
                 counts_payload.get("fornlamning", 0)
             )
+    svar_summary = output_root / "svar" / "normalized" / "svar_summary.json"
+    if svar_summary.is_file():
+        payload = json.loads(svar_summary.read_text(encoding="utf-8"))
+        counts["svar_lake_count"] = int(payload.get("lake_count", 0))
     return counts
 
 

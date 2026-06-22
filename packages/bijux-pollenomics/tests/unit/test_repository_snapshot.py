@@ -53,6 +53,11 @@ class RepositorySnapshotUnitTests(unittest.TestCase):
                 json.dumps({"counts": {"all_published_sites": 11, "fornlamning": 5}}),
                 encoding="utf-8",
             )
+            (output_root / "svar" / "normalized").mkdir(parents=True, exist_ok=True)
+            (output_root / "svar" / "normalized" / "svar_summary.json").write_text(
+                json.dumps({"lake_count": 40565}),
+                encoding="utf-8",
+            )
 
             counts = build_repository_source_counts(output_root)
 
@@ -63,6 +68,7 @@ class RepositorySnapshotUnitTests(unittest.TestCase):
         self.assertEqual(counts["sead_point_count"], 3)
         self.assertEqual(counts["raa_total_site_count"], 11)
         self.assertEqual(counts["raa_heritage_site_count"], 5)
+        self.assertEqual(counts["svar_lake_count"], 40565)
 
     def test_build_repository_collection_summary_adds_contract_artifacts(self) -> None:
         with tempfile.TemporaryDirectory() as tmp:
@@ -84,6 +90,9 @@ class RepositorySnapshotUnitTests(unittest.TestCase):
                 "raa/normalized/sweden_archaeology_layer.json",
                 "sead/raw/nordic_sites.json",
                 "sead/normalized/nordic_environmental_sites.geojson",
+                "svar/raw/svar_lake_registry_manifest.json",
+                "svar/normalized/svar_summary.json",
+                "svar/normalized/sweden_lake_registry.geojson",
                 "adna/governance/source_library/project_registry.json",
                 "adna/governance/animal_sample_foundation_truth.json",
                 "adna/species/homo_sapiens/normalized/placeholder.json",
@@ -105,6 +114,11 @@ class RepositorySnapshotUnitTests(unittest.TestCase):
                         json.dumps(
                             {"counts": {"all_published_sites": 1, "fornlamning": 1}}
                         ),
+                        encoding="utf-8",
+                    )
+                elif path.name == "svar_summary.json":
+                    path.write_text(
+                        json.dumps({"lake_count": 40565}),
                         encoding="utf-8",
                     )
                 else:
