@@ -5,6 +5,12 @@ import json
 from pathlib import Path
 from statistics import mean
 
+from .lake_fieldwork_priority import (
+    band_score,
+    fieldwork_rows,
+    fieldwork_shortlist_score,
+    human_context_posture,
+)
 from ..lake_evidence_richness import (
     LakeEvidenceRichnessAssessment,
     LakeEvidenceRichnessReport,
@@ -25,13 +31,13 @@ def build_lake_fieldwork_preparation_payload(
     top_n: int = 20,
 ) -> dict[str, object]:
     """Build a refusal-prone Sweden lake fieldwork-preparation packet."""
-    ordered_assessments = _fieldwork_ordered_assessments(report)[:top_n]
+    ordered_assessments = fieldwork_rows(report, top_n=top_n)
     rows = [
         _build_fieldwork_preparation_row(assessment, fieldwork_rank=index)
         for index, assessment in enumerate(ordered_assessments, start=1)
     ]
     return {
-        "schema_version": "sweden-lake-fieldwork-preparation.v1",
+        "schema_version": "sweden-lake-fieldwork-preparation.v2",
         "country": report.country,
         "row_count": len(rows),
         "methodology": {
@@ -46,15 +52,21 @@ def build_lake_fieldwork_preparation_payload(
                 "basins remain review-first and engineered or wetland-style names "
                 "never read as ordinary lake targets"
             ),
+            "human_context_rule": (
+                "near-lake human aDNA remains decisive for fieldwork ordering: "
+                "10 km support is strongest, 20 km support remains shortlist-grade, "
+                "and lakes with human support only beyond 20 km stay review-first "
+                "even when their broader context is rich"
+            ),
             "scenario_consistency_rule": (
                 "scenario consistency is high when a lake appears in at least four "
                 "top-20 scenario lists across aggregate and 10-50 km bands, medium "
                 "at two to three lists, else low"
             ),
             "fieldwork_ordering_rule": (
-                "sampling-lake candidates outrank compact and small-review basins "
-                "when building the fieldwork shortlist; aggregate evidence score "
-                "remains visible for traceability"
+                "fieldwork ordering sorts first by near-lake human aDNA posture, "
+                "then by sampling posture, then by a human-weighted shortlist score; "
+                "aggregate evidence score remains visible for traceability"
             ),
             "sead_context_rule": "SEAD 20 km context fit is high at >=20 sites, medium at >=5 sites, else low",
             "palaeopen_alignment_rule": (
@@ -107,6 +119,7 @@ def write_lake_fieldwork_preparation_csv(
         "sampling_posture",
         "sampling_fit",
         "lake_area_km2",
+        "human_context_posture",
         "scenario_consistency_posture",
         "sead_context_posture",
         "palaeopen_alignment_posture",
@@ -127,7 +140,10 @@ def write_lake_fieldwork_preparation_csv(
         "time_aware_direct_pollen_records",
         "evidence_families_20km",
         "sead_sites_20km",
+        "human_localities_10km",
+        "human_samples_10km",
         "human_localities_20km",
+        "human_samples_20km",
         "domesticated_animal_localities_50km",
         "ambiguity_flags",
         "required_actions",
@@ -150,6 +166,7 @@ def write_lake_fieldwork_preparation_csv(
                     "sampling_posture": row["sampling_posture"],
                     "sampling_fit": row["sampling_fit"],
                     "lake_area_km2": row["lake_area_km2"],
+                    "human_context_posture": row["human_context_posture"],
                     "scenario_consistency_posture": row["scenario_consistency_posture"],
                     "sead_context_posture": row["sead_context_posture"],
                     "palaeopen_alignment_posture": row["palaeopen_alignment_posture"],
@@ -174,7 +191,10 @@ def write_lake_fieldwork_preparation_csv(
                     ],
                     "evidence_families_20km": row["evidence_families_20km"],
                     "sead_sites_20km": row["sead_sites_20km"],
+                    "human_localities_10km": row["human_localities_10km"],
+                    "human_samples_10km": row["human_samples_10km"],
                     "human_localities_20km": row["human_localities_20km"],
+                    "human_samples_20km": row["human_samples_20km"],
                     "domesticated_animal_localities_50km": row[
                         "domesticated_animal_localities_50km"
                     ],
@@ -197,7 +217,8 @@ def render_lake_fieldwork_preparation_markdown(
                 f"{row['lake_name_status'] or 'not_available'} | "
                 f"{row['fieldwork_shortlist_score']:.4f} | "
                 f"{row['preparation_posture']} | {row['identity_posture']} | "
-                f"{row['sampling_posture']} | {row['sampling_fit']:.4f} | "
+                f"{row['sampling_posture']} | {row['human_context_posture']} | "
+                f"{row['sampling_fit']:.4f} | "
                 f"{row['scenario_consistency_posture']} | "
                 f"{row['sead_context_posture']} | {row['palaeopen_alignment_posture']} | "
                 f"{row['evidence_families_20km']} | {row['scenario_top20_presence_count']} | "
@@ -206,7 +227,7 @@ def render_lake_fieldwork_preparation_markdown(
             )
             for row in payload["rows"]
         )
-        or "| - | - | No reviewed lakes | - | not_available | not_available | - | - | - | - | - | - | 0 | 0 | - | none |"
+        or "| - | - | No reviewed lakes | - | not_available | not_available | - | - | - | - | - | - | - | - | - | 0 | 0 | - | none |"
     )
     return f"""# Sweden lake fieldwork preparation
 
@@ -220,6 +241,7 @@ used.
 - Scope: {payload["methodology"]["scope"]}
 - Identity rule: {payload["methodology"]["identity_rule"]}
 - Sampling rule: {payload["methodology"]["sampling_rule"]}
+- Human context rule: {payload["methodology"]["human_context_rule"]}
 - Scenario consistency rule: {payload["methodology"]["scenario_consistency_rule"]}
 - Fieldwork ordering rule: {payload["methodology"]["fieldwork_ordering_rule"]}
 - SEAD context rule: {payload["methodology"]["sead_context_rule"]}
@@ -228,8 +250,8 @@ used.
 
 ## Top Lake Preparation Rows
 
-| Fieldwork rank | Aggregate rank | Lake | Coordinates | Lake registry id | Name status | Fieldwork shortlist score | Preparation posture | Identity posture | Sampling posture | Sampling fit | Scenario consistency | SEAD context | PalaeOpen alignment | Evidence families within 20 km | Top-20 scenario presence | 20 km rank | Required actions |
-| ---: | ---: | --- | --- | --- | --- | ---: | --- | --- | --- | ---: | --- | --- | --- | ---: | ---: | ---: | --- |
+| Fieldwork rank | Aggregate rank | Lake | Coordinates | Lake registry id | Name status | Fieldwork shortlist score | Preparation posture | Identity posture | Sampling posture | Human context | Sampling fit | Scenario consistency | SEAD context | PalaeOpen alignment | Evidence families within 20 km | Top-20 scenario presence | 20 km rank | Required actions |
+| ---: | ---: | --- | --- | --- | --- | ---: | --- | --- | --- | --- | ---: | --- | --- | --- | ---: | ---: | ---: | --- |
 {rows}
 """
 
@@ -257,9 +279,11 @@ def _build_fieldwork_preparation_row(
     fieldwork_rank: int,
 ) -> dict[str, object]:
     candidate = assessment.candidate
-    band_20 = _band_score(assessment, 20)
-    band_50 = _band_score(assessment, 50)
+    band_10 = band_score(assessment, 10)
+    band_20 = band_score(assessment, 20)
+    band_50 = band_score(assessment, 50)
     identity_posture = _identity_posture(candidate.ambiguity_flags)
+    lake_human_context_posture = human_context_posture(assessment)
     scenario_ranks = {
         f"{score.radius_km}km": score.band_rank for score in assessment.band_scores
     }
@@ -285,6 +309,7 @@ def _build_fieldwork_preparation_row(
         ambiguity_flags=candidate.ambiguity_flags,
         sampling_posture=sampling_posture,
         sampling_fit=candidate.lake_sampling_fit,
+        human_context_posture=lake_human_context_posture,
         direct_pollen_source_count=candidate.direct_pollen_source_count,
         evidence_family_count=band_20.evidence_family_count,
         sead_site_count=band_20.sead_site_count,
@@ -293,7 +318,7 @@ def _build_fieldwork_preparation_row(
     )
     return {
         "fieldwork_rank": fieldwork_rank,
-        "fieldwork_shortlist_score": _fieldwork_shortlist_score(assessment),
+        "fieldwork_shortlist_score": fieldwork_shortlist_score(assessment),
         "aggregate_rank": assessment.aggregate_rank,
         "lake_label": candidate.lake_label,
         "latitude": candidate.latitude,
@@ -303,6 +328,7 @@ def _build_fieldwork_preparation_row(
         "preparation_posture": preparation_posture,
         "identity_posture": identity_posture,
         "sampling_posture": sampling_posture,
+        "human_context_posture": lake_human_context_posture,
         "sampling_fit": candidate.lake_sampling_fit,
         "lake_area_km2": candidate.lake_area_km2,
         "scenario_consistency_posture": scenario_consistency_posture,
@@ -320,25 +346,22 @@ def _build_fieldwork_preparation_row(
         "time_aware_direct_pollen_records": candidate.time_aware_direct_pollen_records,
         "evidence_families_20km": band_20.evidence_family_count,
         "sead_sites_20km": band_20.sead_site_count,
+        "human_localities_10km": band_10.human_adna_locality_count,
+        "human_samples_10km": band_10.human_adna_sample_count,
         "human_localities_20km": band_20.human_adna_locality_count,
+        "human_samples_20km": band_20.human_adna_sample_count,
         "domesticated_animal_localities_50km": band_50.domesticated_animal_locality_count,
         "ambiguity_flags": list(candidate.ambiguity_flags),
         "required_actions": _required_actions(
             ambiguity_flags=candidate.ambiguity_flags,
             sampling_posture=sampling_posture,
+            human_context_posture=lake_human_context_posture,
             scenario_consistency_posture=scenario_consistency_posture,
             sead_context_posture=sead_context_posture,
             palaeopen_alignment_posture=palaeopen_alignment_posture,
             preparation_posture=preparation_posture,
         ),
     }
-
-
-def _band_score(assessment: LakeEvidenceRichnessAssessment, radius_km: int):
-    for score in assessment.band_scores:
-        if score.radius_km == radius_km:
-            return score
-    raise ValueError(f"Missing band score for radius {radius_km}")
 
 
 def _identity_posture(ambiguity_flags: tuple[str, ...]) -> str:
@@ -377,6 +400,7 @@ def _preparation_posture(
     ambiguity_flags: tuple[str, ...],
     sampling_posture: str,
     sampling_fit: float,
+    human_context_posture: str,
     direct_pollen_source_count: int,
     evidence_family_count: int,
     sead_site_count: int,
@@ -387,15 +411,23 @@ def _preparation_posture(
         return "identity_resolution_required"
     if sampling_posture == "small_lake_review" or sampling_fit < 0.5:
         return "sampling_fit_review_required"
+    if human_context_posture in {
+        "extended_human_adna_context",
+        "outer_human_adna_context",
+        "human_adna_context_absent",
+    }:
+        return "human_context_review_required"
     if (
-        scenario_consistency_posture == "high"
+        human_context_posture in {"core_human_adna_context", "near_human_adna_context"}
+        and scenario_consistency_posture == "high"
         and direct_pollen_source_count >= 2
         and evidence_family_count >= 4
         and sead_site_count >= 10
     ):
         return "fieldwork_preparation_ready"
     if (
-        direct_pollen_source_count >= 2
+        human_context_posture in {"core_human_adna_context", "near_human_adna_context"}
+        and direct_pollen_source_count >= 2
         and scenario_consistency_posture in {"high", "medium"}
         and evidence_family_count >= 4
     ):
@@ -411,6 +443,7 @@ def _required_actions(
     *,
     ambiguity_flags: tuple[str, ...],
     sampling_posture: str,
+    human_context_posture: str,
     scenario_consistency_posture: str,
     sead_context_posture: str,
     palaeopen_alignment_posture: str,
@@ -437,6 +470,17 @@ def _required_actions(
     if sampling_posture == "small_lake_review":
         actions.append(
             "verify basin depth, access, and sediment suitability before treating this small lake as a field target"
+        )
+    if human_context_posture in {
+        "extended_human_adna_context",
+        "outer_human_adna_context",
+    }:
+        actions.append(
+            "treat this lake as context-rich but aDNA-distant until a nearer human aDNA locality supports field planning"
+        )
+    if human_context_posture == "human_adna_context_absent":
+        actions.append(
+            "do not promote this lake for field planning until human aDNA support is present in the checked-in context"
         )
     if scenario_consistency_posture == "low":
         actions.append(
@@ -477,48 +521,3 @@ def _scenario_consistency_posture(top20_presence_count: int) -> str:
 
 def _google_maps_url(latitude: float, longitude: float) -> str:
     return f"https://www.google.com/maps/search/?api=1&query={latitude:.6f},{longitude:.6f}"
-
-
-def _fieldwork_ordered_assessments(
-    report: LakeEvidenceRichnessReport,
-) -> list[LakeEvidenceRichnessAssessment]:
-    return sorted(
-        report.assessments,
-        key=lambda assessment: (
-            _sampling_priority_rank(
-                assessment.candidate.lake_sampling_posture or "sampling_not_scored"
-            ),
-            -_fieldwork_shortlist_score(assessment),
-            assessment.aggregate_rank,
-            assessment.candidate.lake_label,
-        ),
-    )
-
-
-def _sampling_priority_rank(sampling_posture: str) -> int:
-    return {
-        "sampling_lake_candidate": 0,
-        "compact_lake_candidate": 1,
-        "small_lake_review": 2,
-        "sampling_not_scored": 3,
-    }.get(sampling_posture, 4)
-
-
-def _fieldwork_shortlist_score(
-    assessment: LakeEvidenceRichnessAssessment,
-) -> float:
-    candidate = assessment.candidate
-    band_20 = _band_score(assessment, 20)
-    posture_bonus = {
-        "sampling_lake_candidate": 0.05,
-        "compact_lake_candidate": 0.0,
-        "small_lake_review": -0.08,
-    }.get(candidate.lake_sampling_posture, -0.02)
-    return round(
-        assessment.aggregate_score * 0.62
-        + candidate.lake_sampling_fit * 0.23
-        + min(1.0, candidate.direct_pollen_source_count / 2.0) * 0.1
-        + min(1.0, band_20.evidence_family_count / 4.0) * 0.05
-        + posture_bonus,
-        4,
-    )

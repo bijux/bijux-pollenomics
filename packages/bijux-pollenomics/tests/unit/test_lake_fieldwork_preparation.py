@@ -263,7 +263,7 @@ def test_lake_fieldwork_preparation_payload_keeps_identity_and_interoperability_
         markdown_name="sweden_lake_fieldwork_preparation_v66.md",
     )
 
-    assert payload["schema_version"] == "sweden-lake-fieldwork-preparation.v1"
+    assert payload["schema_version"] == "sweden-lake-fieldwork-preparation.v2"
     assert payload["row_count"] == 2
     assert payload["rows"][0]["fieldwork_rank"] == 1
     assert payload["rows"][1]["fieldwork_rank"] == 2
@@ -271,6 +271,7 @@ def test_lake_fieldwork_preparation_payload_keeps_identity_and_interoperability_
     assert payload["rows"][0]["lake_registry_id"] == "test-lake-clear"
     assert payload["rows"][0]["lake_name_status"] == "official_register_name"
     assert payload["rows"][0]["preparation_posture"] == "fieldwork_preparation_ready"
+    assert payload["rows"][0]["human_context_posture"] == "core_human_adna_context"
     assert payload["rows"][0]["palaeopen_alignment_posture"] == "high"
     assert payload["rows"][0]["scenario_consistency_posture"] == "high"
     assert payload["rows"][0]["scenario_top20_presence_count"] == 6
@@ -289,6 +290,7 @@ def test_lake_fieldwork_preparation_payload_keeps_identity_and_interoperability_
     assert "official_register_name" in markdown
     assert "Sweden lake fieldwork preparation" in markdown
     assert "Sampling rule" in markdown
+    assert "Human context rule" in markdown
     assert "Scenario consistency rule" in markdown
     assert "Lake Fieldwork Preparation" in section
 
@@ -313,6 +315,7 @@ def test_lake_fieldwork_preparation_writers_emit_reviewable_files() -> None:
         assert float(rows[0]["fieldwork_shortlist_score"]) > 0.0
         assert rows[0]["lake_registry_id"] == "test-lake-clear"
         assert rows[0]["preparation_posture"] == "fieldwork_preparation_ready"
+        assert rows[0]["human_context_posture"] == "core_human_adna_context"
         assert rows[0]["scenario_consistency_posture"] == "high"
         assert (
             "confirm the exact Swedish lake registry match before field planning"
@@ -415,3 +418,93 @@ def test_lake_fieldwork_preparation_prioritizes_sampling_candidates_over_small_l
     assert payload["rows"][1]["lake_label"] == "Small Review Lake"
     assert payload["rows"][1]["fieldwork_rank"] == 2
     assert payload["rows"][1]["aggregate_rank"] == 1
+
+
+def test_lake_fieldwork_preparation_keeps_distant_human_context_review_first() -> None:
+    report = _report()
+    distant_human_bands = (
+        _band(
+            10,
+            band_rank=1,
+            total_score=0.64,
+            sead_site_count=18,
+            evidence_family_count=4,
+            human_adna_locality_count=0,
+        ),
+        _band(
+            20,
+            band_rank=1,
+            total_score=0.66,
+            sead_site_count=24,
+            evidence_family_count=4,
+            human_adna_locality_count=0,
+        ),
+        _band(
+            30,
+            band_rank=1,
+            total_score=0.68,
+            sead_site_count=31,
+            evidence_family_count=4,
+            human_adna_locality_count=1,
+        ),
+        _band(
+            40,
+            band_rank=1,
+            total_score=0.65,
+            sead_site_count=35,
+            evidence_family_count=4,
+            human_adna_locality_count=1,
+        ),
+        _band(
+            50,
+            band_rank=1,
+            total_score=0.63,
+            sead_site_count=38,
+            evidence_family_count=4,
+            human_adna_locality_count=1,
+        ),
+    )
+    distant_candidate = replace(
+        report.assessments[0].candidate,
+        lake_label="Distant Human Lake",
+        lake_sampling_posture="sampling_lake_candidate",
+        lake_sampling_fit=1.0,
+    )
+    distant_assessment = replace(
+        report.assessments[0],
+        candidate=distant_candidate,
+        aggregate_rank=1,
+        aggregate_score=0.78,
+        band_scores=distant_human_bands,
+    )
+    near_candidate = replace(
+        report.assessments[1].candidate,
+        lake_label="Near Human Lake",
+        ambiguity_flags=(),
+        duplicate_name_count=1,
+        ambiguity_note="",
+        lake_sampling_posture="sampling_lake_candidate",
+        lake_sampling_fit=0.92,
+    )
+    near_assessment = replace(
+        report.assessments[1],
+        candidate=near_candidate,
+        aggregate_rank=2,
+        aggregate_score=0.67,
+    )
+    prioritized_report = replace(
+        report,
+        assessments=(distant_assessment, near_assessment),
+    )
+
+    payload = build_lake_fieldwork_preparation_payload(prioritized_report)
+
+    assert payload["rows"][0]["lake_label"] == "Near Human Lake"
+    assert payload["rows"][0]["human_context_posture"] == "near_human_adna_context"
+    assert payload["rows"][1]["lake_label"] == "Distant Human Lake"
+    assert payload["rows"][1]["human_context_posture"] == "extended_human_adna_context"
+    assert payload["rows"][1]["preparation_posture"] == "human_context_review_required"
+    assert (
+        "treat this lake as context-rich but aDNA-distant until a nearer human aDNA locality supports field planning"
+        in payload["rows"][1]["required_actions"]
+    )

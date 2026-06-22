@@ -10,6 +10,12 @@ from ...reporting.context.points import build_external_point_layer
 from ...reporting.map_document import render_multi_country_map_html
 from ...reporting.map_publication import resolve_map_scope_policy
 from ...reporting.rendering.artifacts import copy_map_assets
+from .lake_fieldwork_priority import (
+    band_score as fieldwork_band_score,
+    fieldwork_rows,
+    fieldwork_shortlist_score,
+    human_context_posture,
+)
 from ..lake_evidence_richness import LakeEvidenceRichnessReport
 
 __all__ = [
@@ -1238,17 +1244,7 @@ def _scenario_metric_map(
 
 
 def _fieldwork_rows(report: LakeEvidenceRichnessReport) -> list:
-    return sorted(
-        report.assessments,
-        key=lambda assessment: (
-            _sampling_priority_rank(
-                assessment.candidate.lake_sampling_posture or "sampling_not_scored"
-            ),
-            -_fieldwork_shortlist_score(assessment),
-            assessment.aggregate_rank,
-            assessment.candidate.lake_label,
-        ),
-    )[:20]
+    return fieldwork_rows(report, top_n=20)
 
 
 def _fieldwork_rank_map(report: LakeEvidenceRichnessReport) -> dict[str, int]:
@@ -1259,30 +1255,7 @@ def _fieldwork_rank_map(report: LakeEvidenceRichnessReport) -> dict[str, int]:
 
 
 def _fieldwork_shortlist_score(assessment) -> float:
-    candidate = assessment.candidate
-    band_20 = _band_score(assessment, 20)
-    posture_bonus = {
-        "sampling_lake_candidate": 0.05,
-        "compact_lake_candidate": 0.0,
-        "small_lake_review": -0.08,
-    }.get(candidate.lake_sampling_posture, -0.02)
-    return round(
-        assessment.aggregate_score * 0.62
-        + candidate.lake_sampling_fit * 0.23
-        + min(1.0, candidate.direct_pollen_source_count / 2.0) * 0.1
-        + min(1.0, band_20.evidence_family_count / 4.0) * 0.05
-        + posture_bonus,
-        4,
-    )
-
-
-def _sampling_priority_rank(sampling_posture: str) -> int:
-    return {
-        "sampling_lake_candidate": 0,
-        "compact_lake_candidate": 1,
-        "small_lake_review": 2,
-        "sampling_not_scored": 3,
-    }.get(sampling_posture, 4)
+    return fieldwork_shortlist_score(assessment)
 
 
 def _consensus_rows(report: LakeEvidenceRichnessReport) -> list:
@@ -1345,19 +1318,20 @@ def _render_fieldwork_shortlist_table(report: LakeEvidenceRichnessReport) -> str
                 f"{assessment.candidate.lake_name_status or 'not_available'} | "
                 f"{_fieldwork_shortlist_score(assessment):.4f} | "
                 f"{assessment.candidate.lake_sampling_posture or 'not_scored'} | "
+                f"{human_context_posture(assessment)} | "
                 f"{assessment.candidate.lake_sampling_fit:.4f} | "
                 f"{_render_lake_area(assessment.candidate)} | "
-                f"{_band_score(assessment, 20).human_adna_locality_count} | "
-                f"{_band_score(assessment, 20).evidence_family_count} |"
+                f"{fieldwork_band_score(assessment, 20).human_adna_locality_count} | "
+                f"{fieldwork_band_score(assessment, 20).evidence_family_count} |"
             )
             for assessment in _fieldwork_rows(report)
         )
-        or "| - | No lake candidates | - | not_available | not_available | 0.0000 | - | 0.0000 | - | 0 | 0 |"
+        or "| - | No lake candidates | - | not_available | not_available | 0.0000 | - | - | 0.0000 | - | 0 | 0 |"
     )
     return f"""## Fieldwork Shortlist
 
-| Fieldwork rank | Lake | Coordinates | Lake registry id | Name status | Shortlist score | Sampling posture | Sampling fit | Area km² | Human localities within 20 km | Evidence families within 20 km |
-| ---: | --- | --- | --- | --- | ---: | --- | ---: | ---: | ---: | ---: |
+| Fieldwork rank | Lake | Coordinates | Lake registry id | Name status | Shortlist score | Sampling posture | Human context | Sampling fit | Area km² | Human localities within 20 km | Evidence families within 20 km |
+| ---: | --- | --- | --- | --- | ---: | --- | --- | ---: | ---: | ---: | ---: |
 {rows}"""
 
 
