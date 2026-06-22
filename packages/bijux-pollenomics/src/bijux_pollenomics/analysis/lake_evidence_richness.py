@@ -8,7 +8,7 @@ from pathlib import Path
 import re
 import unicodedata
 
-from ..core import haversine_km
+from ..core import haversine_km, temporal_semantics_has_numeric_interval
 from ..data_downloader.models import ContextPointRecord
 from ..data_downloader.spatial.representative_points import (
     geometry_to_representative_point,
@@ -159,11 +159,15 @@ class LakeEvidenceBandScore:
     band_rank: int
     total_score: float
     nearby_pollen_lake_count: int
+    time_aware_pollen_site_count: int
+    human_overlap_pollen_site_count: int
     human_adna_locality_count: int
     human_adna_sample_count: int
     domesticated_animal_locality_count: int
     domesticated_animal_sample_count: int
     sead_site_count: int
+    time_aware_sead_site_count: int
+    human_overlap_sead_site_count: int
     raa_density_site_count: int
     evidence_family_count: int
     nearby_pollen_signal: float
@@ -178,11 +182,15 @@ class LakeEvidenceBandScore:
             "band_rank": self.band_rank,
             "total_score": self.total_score,
             "nearby_pollen_lake_count": self.nearby_pollen_lake_count,
+            "time_aware_pollen_site_count": self.time_aware_pollen_site_count,
+            "human_overlap_pollen_site_count": self.human_overlap_pollen_site_count,
             "human_adna_locality_count": self.human_adna_locality_count,
             "human_adna_sample_count": self.human_adna_sample_count,
             "domesticated_animal_locality_count": self.domesticated_animal_locality_count,
             "domesticated_animal_sample_count": self.domesticated_animal_sample_count,
             "sead_site_count": self.sead_site_count,
+            "time_aware_sead_site_count": self.time_aware_sead_site_count,
+            "human_overlap_sead_site_count": self.human_overlap_sead_site_count,
             "raa_density_site_count": self.raa_density_site_count,
             "evidence_family_count": self.evidence_family_count,
             "signals": {
@@ -240,6 +248,9 @@ class _PointEvidence:
     latitude: float
     longitude: float
     sample_count: int = 1
+    time_start_bp: int | None = None
+    time_end_bp: int | None = None
+    time_mean_bp: int | None = None
 
 
 @dataclass(frozen=True)
@@ -353,6 +364,30 @@ def build_sweden_lake_evidence_richness_report(
                 raw["nearby_pollen_lake_count"],
                 maxima["nearby_pollen_lake_count"],
             )
+            if raw["nearby_pollen_lake_count"] > 0:
+                nearby_pollen_signal = _weighted_average(
+                    (nearby_pollen_signal, 0.6),
+                    (
+                        _normalized_ratio(
+                            raw["time_aware_pollen_site_count"],
+                            max(
+                                raw["nearby_pollen_lake_count"],
+                                maxima["time_aware_pollen_site_count"],
+                            ),
+                        ),
+                        0.2,
+                    ),
+                    (
+                        _normalized_ratio(
+                            raw["human_overlap_pollen_site_count"],
+                            max(
+                                raw["nearby_pollen_lake_count"],
+                                maxima["human_overlap_pollen_site_count"],
+                            ),
+                        ),
+                        0.2,
+                    ),
+                )
             human_signal = _weighted_average(
                 (
                     _normalized_ratio(
@@ -390,14 +425,34 @@ def build_sweden_lake_evidence_richness_report(
                     _normalized_ratio(
                         raw["sead_site_count"], maxima["sead_site_count"]
                     ),
-                    0.6,
+                    0.4,
+                ),
+                (
+                    _normalized_ratio(
+                        raw["time_aware_sead_site_count"],
+                        max(
+                            raw["sead_site_count"],
+                            maxima["time_aware_sead_site_count"],
+                        ),
+                    ),
+                    0.2,
+                ),
+                (
+                    _normalized_ratio(
+                        raw["human_overlap_sead_site_count"],
+                        max(
+                            raw["sead_site_count"],
+                            maxima["human_overlap_sead_site_count"],
+                        ),
+                    ),
+                    0.2,
                 ),
                 (
                     _normalized_ratio(
                         raw["raa_density_site_count"],
                         maxima["raa_density_site_count"],
                     ),
-                    0.4,
+                    0.2,
                 ),
             )
             diversity_signal = round(raw["evidence_family_count"] / 5.0, 4)
@@ -416,6 +471,10 @@ def build_sweden_lake_evidence_richness_report(
                     band_rank=0,
                     total_score=total_score,
                     nearby_pollen_lake_count=raw["nearby_pollen_lake_count"],
+                    time_aware_pollen_site_count=raw["time_aware_pollen_site_count"],
+                    human_overlap_pollen_site_count=raw[
+                        "human_overlap_pollen_site_count"
+                    ],
                     human_adna_locality_count=raw["human_adna_locality_count"],
                     human_adna_sample_count=raw["human_adna_sample_count"],
                     domesticated_animal_locality_count=raw[
@@ -425,6 +484,10 @@ def build_sweden_lake_evidence_richness_report(
                         "domesticated_animal_sample_count"
                     ],
                     sead_site_count=raw["sead_site_count"],
+                    time_aware_sead_site_count=raw["time_aware_sead_site_count"],
+                    human_overlap_sead_site_count=raw[
+                        "human_overlap_sead_site_count"
+                    ],
                     raa_density_site_count=raw["raa_density_site_count"],
                     evidence_family_count=raw["evidence_family_count"],
                     nearby_pollen_signal=nearby_pollen_signal,
@@ -471,11 +534,15 @@ def build_sweden_lake_evidence_richness_report(
                             band_rank=rank,
                             total_score=score.total_score,
                             nearby_pollen_lake_count=score.nearby_pollen_lake_count,
+                            time_aware_pollen_site_count=score.time_aware_pollen_site_count,
+                            human_overlap_pollen_site_count=score.human_overlap_pollen_site_count,
                             human_adna_locality_count=score.human_adna_locality_count,
                             human_adna_sample_count=score.human_adna_sample_count,
                             domesticated_animal_locality_count=score.domesticated_animal_locality_count,
                             domesticated_animal_sample_count=score.domesticated_animal_sample_count,
                             sead_site_count=score.sead_site_count,
+                            time_aware_sead_site_count=score.time_aware_sead_site_count,
+                            human_overlap_sead_site_count=score.human_overlap_sead_site_count,
                             raa_density_site_count=score.raa_density_site_count,
                             evidence_family_count=score.evidence_family_count,
                             nearby_pollen_signal=score.nearby_pollen_signal,
@@ -571,6 +638,30 @@ def _build_svar_lake_report(
                 raw["nearby_pollen_lake_count"],
                 maxima["nearby_pollen_lake_count"],
             )
+            if raw["nearby_pollen_lake_count"] > 0:
+                nearby_pollen_signal = _weighted_average(
+                    (nearby_pollen_signal, 0.6),
+                    (
+                        _normalized_ratio(
+                            raw["time_aware_pollen_site_count"],
+                            max(
+                                raw["nearby_pollen_lake_count"],
+                                maxima["time_aware_pollen_site_count"],
+                            ),
+                        ),
+                        0.2,
+                    ),
+                    (
+                        _normalized_ratio(
+                            raw["human_overlap_pollen_site_count"],
+                            max(
+                                raw["nearby_pollen_lake_count"],
+                                maxima["human_overlap_pollen_site_count"],
+                            ),
+                        ),
+                        0.2,
+                    ),
+                )
             human_signal = _weighted_average(
                 (
                     _normalized_ratio(
@@ -608,14 +699,34 @@ def _build_svar_lake_report(
                     _normalized_ratio(
                         raw["sead_site_count"], maxima["sead_site_count"]
                     ),
-                    0.6,
+                    0.4,
+                ),
+                (
+                    _normalized_ratio(
+                        raw["time_aware_sead_site_count"],
+                        max(
+                            raw["sead_site_count"],
+                            maxima["time_aware_sead_site_count"],
+                        ),
+                    ),
+                    0.2,
+                ),
+                (
+                    _normalized_ratio(
+                        raw["human_overlap_sead_site_count"],
+                        max(
+                            raw["sead_site_count"],
+                            maxima["human_overlap_sead_site_count"],
+                        ),
+                    ),
+                    0.2,
                 ),
                 (
                     _normalized_ratio(
                         raw["raa_density_site_count"],
                         maxima["raa_density_site_count"],
                     ),
-                    0.4,
+                    0.2,
                 ),
             )
             diversity_signal = round(raw["evidence_family_count"] / 5.0, 4)
@@ -643,6 +754,10 @@ def _build_svar_lake_report(
                     band_rank=0,
                     total_score=total_score,
                     nearby_pollen_lake_count=raw["nearby_pollen_lake_count"],
+                    time_aware_pollen_site_count=raw["time_aware_pollen_site_count"],
+                    human_overlap_pollen_site_count=raw[
+                        "human_overlap_pollen_site_count"
+                    ],
                     human_adna_locality_count=raw["human_adna_locality_count"],
                     human_adna_sample_count=raw["human_adna_sample_count"],
                     domesticated_animal_locality_count=raw[
@@ -652,6 +767,10 @@ def _build_svar_lake_report(
                         "domesticated_animal_sample_count"
                     ],
                     sead_site_count=raw["sead_site_count"],
+                    time_aware_sead_site_count=raw["time_aware_sead_site_count"],
+                    human_overlap_sead_site_count=raw[
+                        "human_overlap_sead_site_count"
+                    ],
                     raa_density_site_count=raw["raa_density_site_count"],
                     evidence_family_count=raw["evidence_family_count"],
                     nearby_pollen_signal=nearby_pollen_signal,
@@ -704,11 +823,15 @@ def _build_svar_lake_report(
                             band_rank=rank,
                             total_score=score.total_score,
                             nearby_pollen_lake_count=score.nearby_pollen_lake_count,
+                            time_aware_pollen_site_count=score.time_aware_pollen_site_count,
+                            human_overlap_pollen_site_count=score.human_overlap_pollen_site_count,
                             human_adna_locality_count=score.human_adna_locality_count,
                             human_adna_sample_count=score.human_adna_sample_count,
                             domesticated_animal_locality_count=score.domesticated_animal_locality_count,
                             domesticated_animal_sample_count=score.domesticated_animal_sample_count,
                             sead_site_count=score.sead_site_count,
+                            time_aware_sead_site_count=score.time_aware_sead_site_count,
+                            human_overlap_sead_site_count=score.human_overlap_sead_site_count,
                             raa_density_site_count=score.raa_density_site_count,
                             evidence_family_count=score.evidence_family_count,
                             nearby_pollen_signal=score.nearby_pollen_signal,
@@ -769,6 +892,9 @@ def _extract_human_points(localities: Iterable[object]) -> tuple[_PointEvidence,
                 latitude=float(latitude),
                 longitude=float(longitude),
                 sample_count=int(sample_count) if isinstance(sample_count, int) else 0,
+                time_start_bp=_optional_int(getattr(locality, "time_start_bp", None)),
+                time_end_bp=_optional_int(getattr(locality, "time_end_bp", None)),
+                time_mean_bp=_optional_int(getattr(locality, "time_mean_bp", None)),
             )
         )
     return tuple(rows)
@@ -791,6 +917,9 @@ def _extract_animal_points(
                 latitude=float(latitude),
                 longitude=float(longitude),
                 sample_count=int(sample_count) if isinstance(sample_count, int) else 0,
+                time_start_bp=_optional_int(locality.get("time_start_bp")),
+                time_end_bp=_optional_int(locality.get("time_end_bp")),
+                time_mean_bp=_optional_int(locality.get("time_mean_bp")),
             )
         )
     return tuple(rows)
@@ -1326,11 +1455,29 @@ def _derive_svar_lake_candidates(
             lake_area_km2=lake.lake_area_km2,
             lake_sampling_posture=lake_sampling_posture,
         )
+        nearby_human_points = tuple(
+            point
+            for point in human_points
+            if haversine_km(
+                latitude_a=lake.latitude,
+                longitude_a=lake.longitude,
+                latitude_b=point.latitude,
+                longitude_b=point.longitude,
+            )
+            <= 50
+        )
         direct_pollen_signal = round(
             _weighted_average(
-                (min(1.0, len(pollen_sources) / 2.0), 0.35),
-                (min(1.0, len(direct_pollen_points) / 4.0), 0.35),
-                (_time_aware_ratio(direct_pollen_points), 0.2),
+                (min(1.0, len(pollen_sources) / 2.0), 0.3),
+                (min(1.0, len(direct_pollen_points) / 4.0), 0.25),
+                (_time_aware_ratio(direct_pollen_points), 0.15),
+                (
+                    _human_context_overlap_ratio(
+                        direct_pollen_points,
+                        nearby_human_points,
+                    ),
+                    0.2,
+                ),
                 (1.0 if direct_pollen_points else 0.0, 0.1),
             ),
             4,
@@ -1724,6 +1871,17 @@ def _build_raw_band_metrics(
     radius_km: int,
     pollen_points: Sequence[ContextPointRecord] | None = None,
 ) -> dict[str, int]:
+    nearby_human_points = tuple(
+        point
+        for point in human_points
+        if haversine_km(
+            latitude_a=candidate.latitude,
+            longitude_a=candidate.longitude,
+            latitude_b=point.latitude,
+            longitude_b=point.longitude,
+        )
+        <= radius_km
+    )
     if pollen_points is None:
         nearby_pollen_lake_count = sum(
             1
@@ -1731,9 +1889,11 @@ def _build_raw_band_metrics(
             if other.lake_token != candidate.lake_token
             and _distance_between_candidates(candidate, other) <= radius_km
         )
+        time_aware_pollen_site_count = 0
+        human_overlap_pollen_site_count = 0
     else:
-        nearby_pollen_lake_count = sum(
-            1
+        nearby_pollen_points = tuple(
+            point
             for point in pollen_points
             if haversine_km(
                 latitude_a=candidate.latitude,
@@ -1743,20 +1903,22 @@ def _build_raw_band_metrics(
             )
             <= radius_km
         )
+        nearby_pollen_lake_count = len(nearby_pollen_points)
+        time_aware_pollen_site_count = sum(
+            1
+            for point in nearby_pollen_points
+            if _context_point_has_numeric_interval(point)
+        )
+        human_overlap_pollen_site_count = sum(
+            1
+            for point in nearby_pollen_points
+            if _context_point_overlaps_any_human(point, nearby_human_points)
+        )
     human_locality_count = 0
     human_sample_count = 0
-    for point in human_points:
-        if (
-            haversine_km(
-                latitude_a=candidate.latitude,
-                longitude_a=candidate.longitude,
-                latitude_b=point.latitude,
-                longitude_b=point.longitude,
-            )
-            <= radius_km
-        ):
-            human_locality_count += 1
-            human_sample_count += point.sample_count
+    for point in nearby_human_points:
+        human_locality_count += 1
+        human_sample_count += point.sample_count
     animal_locality_count = 0
     animal_sample_count = 0
     for point in animal_points:
@@ -1771,8 +1933,8 @@ def _build_raw_band_metrics(
         ):
             animal_locality_count += 1
             animal_sample_count += point.sample_count
-    sead_site_count = sum(
-        1
+    nearby_sead_points = tuple(
+        point
         for point in sead_points
         if haversine_km(
             latitude_a=candidate.latitude,
@@ -1781,6 +1943,15 @@ def _build_raw_band_metrics(
             longitude_b=point.longitude,
         )
         <= radius_km
+    )
+    sead_site_count = len(nearby_sead_points)
+    time_aware_sead_site_count = sum(
+        1 for point in nearby_sead_points if _context_point_has_numeric_interval(point)
+    )
+    human_overlap_sead_site_count = sum(
+        1
+        for point in nearby_sead_points
+        if _context_point_overlaps_any_human(point, nearby_human_points)
     )
     raa_density_site_count = sum(
         cell.count
@@ -1799,11 +1970,15 @@ def _build_raw_band_metrics(
     )
     return {
         "nearby_pollen_lake_count": nearby_pollen_lake_count,
+        "time_aware_pollen_site_count": time_aware_pollen_site_count,
+        "human_overlap_pollen_site_count": human_overlap_pollen_site_count,
         "human_adna_locality_count": human_locality_count,
         "human_adna_sample_count": human_sample_count,
         "domesticated_animal_locality_count": animal_locality_count,
         "domesticated_animal_sample_count": animal_sample_count,
         "sead_site_count": sead_site_count,
+        "time_aware_sead_site_count": time_aware_sead_site_count,
+        "human_overlap_sead_site_count": human_overlap_sead_site_count,
         "raa_density_site_count": raa_density_site_count,
         "evidence_family_count": evidence_family_count,
     }
@@ -1816,11 +1991,15 @@ def _build_band_maxima(
 ) -> dict[str, int]:
     keys = (
         "nearby_pollen_lake_count",
+        "time_aware_pollen_site_count",
+        "human_overlap_pollen_site_count",
         "human_adna_locality_count",
         "human_adna_sample_count",
         "domesticated_animal_locality_count",
         "domesticated_animal_sample_count",
         "sead_site_count",
+        "time_aware_sead_site_count",
+        "human_overlap_sead_site_count",
         "raa_density_site_count",
     )
     return {
@@ -1921,9 +2100,65 @@ def _time_aware_ratio(points: Sequence[ContextPointRecord]) -> float:
     time_aware = sum(
         1
         for point in points
-        if point.time_start_bp is not None and point.time_end_bp is not None
+        if _context_point_has_numeric_interval(point)
     )
     return round(time_aware / len(points), 4)
+
+
+def _context_point_has_numeric_interval(point: ContextPointRecord) -> bool:
+    if temporal_semantics_has_numeric_interval(point.temporal_semantics):
+        return True
+    return point.time_start_bp is not None and point.time_end_bp is not None
+
+
+def _human_context_overlap_ratio(
+    points: Sequence[ContextPointRecord],
+    human_points: Sequence[_PointEvidence],
+) -> float:
+    if not points:
+        return 0.0
+    overlaps = sum(
+        1 for point in points if _context_point_overlaps_any_human(point, human_points)
+    )
+    return round(overlaps / len(points), 4)
+
+
+def _context_point_overlaps_any_human(
+    point: ContextPointRecord,
+    human_points: Sequence[_PointEvidence],
+) -> bool:
+    if not _context_point_has_numeric_interval(point):
+        return False
+    if point.time_start_bp is None or point.time_end_bp is None:
+        return False
+    return any(
+        _intervals_overlap(
+            point.time_start_bp,
+            point.time_end_bp,
+            human_point.time_start_bp,
+            human_point.time_end_bp,
+        )
+        for human_point in human_points
+        if human_point.time_start_bp is not None and human_point.time_end_bp is not None
+    )
+
+
+def _intervals_overlap(
+    start_a: int | None,
+    end_a: int | None,
+    start_b: int | None,
+    end_b: int | None,
+) -> bool:
+    if (
+        start_a is None
+        or end_a is None
+        or start_b is None
+        or end_b is None
+    ):
+        return False
+    left_start, left_end = sorted((start_a, end_a))
+    right_start, right_end = sorted((start_b, end_b))
+    return not (left_end < right_start or left_start > right_end)
 
 
 def _distance_between_candidates(
@@ -2118,6 +2353,12 @@ def _build_methodology(
                 "pollen and archaeology context, with sampling fit and blended score "
                 "used as later tie-breakers."
             ),
+            "temporal_alignment_rule": (
+                "Neotoma pollen and SEAD archaeology remain lake-anchored context "
+                "layers, but their stronger chronology contribution comes only from "
+                "records with numeric BP intervals that overlap nearby human locality "
+                "windows."
+            ),
             "identity_diagnostics": {
                 "coordinate_spread_flag_km": _COORDINATE_SPREAD_FLAG_KM,
                 "name_match_distance_km": _LAKE_MATCH_DISTANCE_KM,
@@ -2131,8 +2372,10 @@ def _build_methodology(
             },
             "pollen_note": (
                 "Direct pollen signal reflects lake-basin pollen records placed on "
-                "or very near the official lake, while nearby pollen signal captures "
-                "additional pollen context within the active distance band."
+                "or very near the official lake. Nearby pollen signal then adds "
+                "broader pollen context within the active distance band, with extra "
+                "credit when those pollen records carry comparable chronology that "
+                "overlaps nearby human localities."
             ),
             "sampling_note": (
                 "Lake suitability remains separate from evidence density. Very small "
@@ -2141,9 +2384,11 @@ def _build_methodology(
                 "do not enter the ranked shortlist."
             ),
             "archaeology_note": (
-                "SEAD contributes site-level point counts. RAÄ contributes coarse "
-                "density cells, so the archaeology term measures surrounding "
-                "evidence richness rather than exact site-to-lake proximity."
+                "SEAD contributes site-level point counts and gains stronger weight "
+                "when those site spans are numerically comparable and overlap nearby "
+                "human locality windows. RAÄ contributes coarse density cells, so the "
+                "archaeology term still measures surrounding evidence richness rather "
+                "than exact site-to-lake proximity."
             ),
             "animal_note": (
                 "Domesticated animal aDNA remains a secondary contextual signal. "

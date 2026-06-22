@@ -105,11 +105,15 @@ def write_lake_evidence_richness_band_csv(
         "band_rank",
         "band_score",
         "nearby_pollen_lake_count",
+        "time_aware_pollen_site_count",
+        "human_overlap_pollen_site_count",
         "human_adna_locality_count",
         "human_adna_sample_count",
         "domesticated_animal_locality_count",
         "domesticated_animal_sample_count",
         "sead_site_count",
+        "time_aware_sead_site_count",
+        "human_overlap_sead_site_count",
         "raa_density_site_count",
         "evidence_family_count",
         "nearby_pollen_signal",
@@ -181,11 +185,15 @@ def write_lake_evidence_richness_band_csv(
                         "band_rank": band.band_rank,
                         "band_score": band.total_score,
                         "nearby_pollen_lake_count": band.nearby_pollen_lake_count,
+                        "time_aware_pollen_site_count": band.time_aware_pollen_site_count,
+                        "human_overlap_pollen_site_count": band.human_overlap_pollen_site_count,
                         "human_adna_locality_count": band.human_adna_locality_count,
                         "human_adna_sample_count": band.human_adna_sample_count,
                         "domesticated_animal_locality_count": band.domesticated_animal_locality_count,
                         "domesticated_animal_sample_count": band.domesticated_animal_sample_count,
                         "sead_site_count": band.sead_site_count,
+                        "time_aware_sead_site_count": band.time_aware_sead_site_count,
+                        "human_overlap_sead_site_count": band.human_overlap_sead_site_count,
                         "raa_density_site_count": band.raa_density_site_count,
                         "evidence_family_count": band.evidence_family_count,
                         "nearby_pollen_signal": band.nearby_pollen_signal,
@@ -422,6 +430,7 @@ This report ranks Sweden lake candidates by the richness of tracked pollen, arch
 - Coordinate targeting: {_render_coordinate_targeting(report)}
 - Human aDNA weighting: {_render_human_weighting(report)}
 - Ranking decision rule: {_render_ranking_decision_rule(report)}
+- Temporal alignment rule: {_render_temporal_alignment_rule(report)}
 - Sampling note: {_render_optional_methodology_note(report, "sampling_note")}
 - Archaeology note: {report.methodology["archaeology_note"]}
 - Pollen note: {_render_optional_methodology_note(report, "pollen_note")}
@@ -754,6 +763,26 @@ def _candidate_popup_rows(assessment) -> list[dict[str, str]]:
             "value": ", ".join(candidate.pollen_sources) or "None",
         },
         {
+            "label": "Direct pollen with numeric chronology",
+            "value": str(candidate.time_aware_direct_pollen_records),
+        },
+        {
+            "label": "20 km pollen with numeric chronology",
+            "value": str(_band_score(assessment, 20).time_aware_pollen_site_count),
+        },
+        {
+            "label": "20 km pollen overlapping nearby human chronology",
+            "value": str(_band_score(assessment, 20).human_overlap_pollen_site_count),
+        },
+        {
+            "label": "20 km SEAD with numeric chronology",
+            "value": str(_band_score(assessment, 20).time_aware_sead_site_count),
+        },
+        {
+            "label": "20 km SEAD overlapping nearby human chronology",
+            "value": str(_band_score(assessment, 20).human_overlap_sead_site_count),
+        },
+        {
             "label": "Duplicate Sweden names",
             "value": str(candidate.duplicate_name_count),
         },
@@ -1048,6 +1077,16 @@ def _render_ranking_decision_rule(report: LakeEvidenceRichnessReport) -> str:
     return (
         "aggregate and band ranks use one blended score without an explicit "
         "decision chain"
+    )
+
+
+def _render_temporal_alignment_rule(report: LakeEvidenceRichnessReport) -> str:
+    rule = report.methodology.get("temporal_alignment_rule")
+    if isinstance(rule, str) and rule:
+        return rule
+    return (
+        "time-aware chronology remains visible where available, but the ranking does "
+        "not currently promote chronology overlap as a separate rule"
     )
 
 
