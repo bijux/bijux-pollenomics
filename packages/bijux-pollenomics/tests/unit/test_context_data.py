@@ -531,6 +531,14 @@ class ContextDataTests(unittest.TestCase):
             0,
         )
         self.assertEqual(
+            temporal_review["inventory_summary"]["site_inventory_only_row_count"],
+            1,
+        )
+        self.assertEqual(
+            temporal_review["rows"][0]["raw_capture_posture"],
+            "site_inventory_only",
+        )
+        self.assertEqual(
             raw_payload["inventory_summary"]["temporal_capture_posture"],
             "site_inventory_only",
         )

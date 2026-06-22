@@ -877,7 +877,27 @@ class NeotomaDataTests(unittest.TestCase):
             temporal_review["coverage_summary"]["site_count_with_bp_age_ranges"], 1
         )
         self.assertEqual(
+            temporal_review["coverage_summary"][
+                "site_count_with_bp_age_ranges_but_no_chronology_rows"
+            ],
+            0,
+        )
+        self.assertEqual(
+            temporal_review["coverage_summary"][
+                "site_count_with_bp_age_ranges_and_chronology_rows"
+            ],
+            1,
+        )
+        self.assertEqual(
+            temporal_review["coverage_summary"]["chronology_capture_posture"],
+            "bp_site_spans_with_some_chronology_rows",
+        )
+        self.assertEqual(
             temporal_review["coverage_summary"]["site_count_without_bp_age_ranges"], 0
+        )
+        self.assertEqual(
+            temporal_review["rows"][0]["bp_support_posture"],
+            "bp_age_ranges_with_chronology_rows",
         )
 
 

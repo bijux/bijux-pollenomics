@@ -311,6 +311,7 @@ def build_sweden_lake_evidence_richness_report(
     )
     source_temporal_coverage = _build_context_temporal_coverage_summary(
         pollen_points,
+        context_root=Path(context_root),
         sead_points=sead_points,
     )
     raa_cells = _load_sweden_density_cells(
@@ -2483,20 +2484,36 @@ def _build_methodology(
 def _build_context_temporal_coverage_summary(
     pollen_points: Sequence[ContextPointRecord],
     *,
+    context_root: Path,
     sead_points: Sequence[ContextPointRecord],
 ) -> dict[str, object]:
+    neotoma_summary = _temporal_coverage_summary(
+        point
+        for point in pollen_points
+        if point.layer_key == "neotoma-pollen" or point.source == "Neotoma"
+    )
+    landclim_summary = _temporal_coverage_summary(
+        point
+        for point in pollen_points
+        if point.layer_key == "landclim-sites" or point.source == "LandClim"
+    )
+    sead_summary = _temporal_coverage_summary(sead_points)
+    _merge_source_temporal_review(
+        neotoma_summary,
+        _load_review_payload(context_root / "neotoma" / "review" / "temporal_review.json"),
+        source_family="neotoma",
+    )
+    _merge_source_temporal_review(
+        sead_summary,
+        _load_review_payload(context_root / "sead" / "review" / "temporal_review.json"),
+        source_family="sead",
+    )
+    if not landclim_summary.get("capture_posture"):
+        landclim_summary["capture_posture"] = "spatial_inventory_only"
     return {
-        "neotoma_pollen": _temporal_coverage_summary(
-            point
-            for point in pollen_points
-            if point.layer_key == "neotoma-pollen" or point.source == "Neotoma"
-        ),
-        "landclim_pollen": _temporal_coverage_summary(
-            point
-            for point in pollen_points
-            if point.layer_key == "landclim-sites" or point.source == "LandClim"
-        ),
-        "sead_archaeology": _temporal_coverage_summary(sead_points),
+        "neotoma_pollen": neotoma_summary,
+        "landclim_pollen": landclim_summary,
+        "sead_archaeology": sead_summary,
     }
 
 
@@ -2519,3 +2536,44 @@ def _temporal_coverage_summary(
         if total_records
         else 0.0,
     }
+
+
+def _merge_source_temporal_review(
+    summary: dict[str, object],
+    payload: dict[str, object],
+    *,
+    source_family: str,
+) -> None:
+    if source_family == "neotoma":
+        coverage_summary = payload.get("coverage_summary", {})
+        if not isinstance(coverage_summary, dict):
+            return
+        capture_posture = str(
+            coverage_summary.get("chronology_capture_posture", "")
+        ).strip()
+        if capture_posture:
+            summary["capture_posture"] = capture_posture
+        summary["bp_age_range_record_count"] = int(
+            coverage_summary.get("site_count_with_bp_age_ranges", 0) or 0
+        )
+        summary["chronology_row_record_count"] = int(
+            coverage_summary.get("site_count_with_chronologies", 0) or 0
+        )
+        return
+    if source_family == "sead":
+        inventory_summary = payload.get("inventory_summary", {})
+        if not isinstance(inventory_summary, dict):
+            return
+        capture_posture = str(inventory_summary.get("temporal_capture_posture", "")).strip()
+        if capture_posture:
+            summary["capture_posture"] = capture_posture
+        summary["site_inventory_only_record_count"] = int(
+            inventory_summary.get("site_inventory_only_row_count", 0) or 0
+        )
+
+
+def _load_review_payload(path: Path) -> dict[str, object]:
+    if not path.is_file():
+        return {}
+    payload = json.loads(path.read_text(encoding="utf-8"))
+    return payload if isinstance(payload, dict) else {}

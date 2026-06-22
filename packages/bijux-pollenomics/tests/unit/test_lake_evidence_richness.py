@@ -1239,8 +1239,20 @@ def test_lake_evidence_richness_packets_write_reviewable_outputs() -> None:
             {"type": "FeatureCollection", "features": []},
         )
         _write_json(
+            root / "neotoma" / "review" / "temporal_review.json",
+            {
+                "coverage_summary": {
+                    "chronology_capture_posture": "bp_site_spans_without_chronology_rows"
+                }
+            },
+        )
+        _write_json(
             root / "sead" / "normalized" / "nordic_environmental_sites.geojson",
             {"type": "FeatureCollection", "features": []},
+        )
+        _write_json(
+            root / "sead" / "review" / "temporal_review.json",
+            {"inventory_summary": {"temporal_capture_posture": "site_inventory_only"}},
         )
         _write_json(
             root / "raa" / "normalized" / "sweden_archaeology_density.geojson",
@@ -1289,7 +1301,8 @@ def test_lake_evidence_richness_packets_write_reviewable_outputs() -> None:
         assert "## 10 km Ranking" in markdown
         assert "Lake registry id" in markdown
         assert "not_available" in markdown
-        assert "spatial inventory only" in markdown
+        assert "no checked-in records" in markdown
+        assert "chronology rows absent in checked-in raw capture" in markdown
         assert (
             "https://www.google.com/maps/search/?api=1&query=57.000000,14.000000"
             in markdown

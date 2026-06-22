@@ -1132,16 +1132,40 @@ def _render_source_temporal_coverage(report: LakeEvidenceRichnessReport) -> str:
             continue
         total = int(item.get("record_count", 0) or 0)
         numeric = int(item.get("numeric_interval_record_count", 0) or 0)
-        if total == 0:
-            posture = "no checked-in records"
-        elif numeric == 0:
-            posture = "spatial inventory only"
-        elif numeric == total:
-            posture = "full numeric chronology coverage"
-        else:
-            posture = "partial chronology coverage"
-        rendered.append(f"{labels[key]} {numeric}/{total} numeric-interval records ({posture})")
+        posture = _render_source_temporal_posture(key=key, item=item)
+        rendered.append(
+            f"{labels[key]} {numeric}/{total} numeric-interval records ({posture})"
+        )
     return ", ".join(rendered) if rendered else "no source temporal coverage summary"
+
+
+def _render_source_temporal_posture(*, key: str, item: dict[str, object]) -> str:
+    total = int(item.get("record_count", 0) or 0)
+    numeric = int(item.get("numeric_interval_record_count", 0) or 0)
+    capture_posture = str(item.get("capture_posture", "")).strip()
+    if total == 0:
+        return "no checked-in records"
+    if key == "neotoma_pollen":
+        if capture_posture == "bp_site_spans_without_chronology_rows":
+            return "BP site spans available; chronology rows absent in checked-in raw capture"
+        if numeric == total:
+            return "full numeric chronology coverage"
+        if numeric > 0:
+            return "partial chronology coverage"
+        return "spatial inventory only"
+    if key == "sead_archaeology":
+        if capture_posture == "site_inventory_only":
+            return "site inventory only in checked-in raw capture"
+        if numeric == 0:
+            return "spatial inventory only"
+        if numeric == total:
+            return "full numeric chronology coverage"
+        return "partial chronology coverage"
+    if numeric == 0:
+        return "spatial inventory only"
+    if numeric == total:
+        return "full numeric chronology coverage"
+    return "partial chronology coverage"
 
 
 def _candidate_media_links(candidate) -> list[dict[str, str]]:
