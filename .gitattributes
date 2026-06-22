@@ -4,3 +4,9 @@ data/adna/governance/source_library/papers/**/article.html linguist-vendored
 data/adna/governance/source_library/papers/**/article.html.gz linguist-vendored
 data/adna/governance/source_library/projects/**/archive_metadata.html linguist-vendored
 data/adna/governance/source_library/projects/**/archive_metadata.html.gz linguist-vendored
+
+# Shared partials come from synchronized docs infrastructure, not repository-owned HTML work.
+.bijux/shared/bijux-docs/partials/*.html linguist-vendored
+
+# Report HTML surfaces are generated runtime outputs and should not dominate language stats.
+docs/report/**/*.html linguist-generated
