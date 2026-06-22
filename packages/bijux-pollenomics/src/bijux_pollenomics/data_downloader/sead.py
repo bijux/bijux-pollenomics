@@ -11,7 +11,7 @@ from .exports.context_points import (
     write_context_points_csv,
     write_context_points_geojson,
 )
-from .sources.boundaries.store import validate_boundary_collection
+from .shared import load_repository_country_boundaries
 from .sources.sead.archive import write_sead_site_archive
 from .sources.sead.fetch import (
     build_sead_in_filter as build_sead_in_filter_value,
@@ -179,7 +179,7 @@ def materialize_sead_repository_surfaces(data_root: Path) -> SeadDataReport:
     if not isinstance(raw_rows, list):
         raise ValueError(f"SEAD raw inventory must contain a row list: {raw_path}")
     rows = [row for row in raw_rows if isinstance(row, dict)]
-    country_boundaries = _load_repository_country_boundaries(data_root)
+    country_boundaries = load_repository_country_boundaries(data_root)
     records = normalize_sead_rows(rows, country_boundaries=country_boundaries)
     normalized_csv_path = SEAD_POINT_CSV.path_under(data_root)
     normalized_geojson_path = SEAD_POINT_GEOJSON.path_under(data_root)
@@ -194,30 +194,6 @@ def materialize_sead_repository_surfaces(data_root: Path) -> SeadDataReport:
         normalized_csv_path=normalized_csv_path,
         normalized_geojson_path=normalized_geojson_path,
     )
-
-
-def _load_repository_country_boundaries(
-    data_root: Path,
-) -> dict[str, dict[str, object]]:
-    raw_root = Path(data_root) / "boundaries" / "raw"
-    boundary_specs = {
-        "Denmark": "DNK",
-        "Finland": "FIN",
-        "Norway": "NOR",
-        "Sweden": "SWE",
-    }
-    boundaries: dict[str, dict[str, object]] = {}
-    for country, country_code in boundary_specs.items():
-        slug = country.casefold()
-        path = raw_root / f"{slug}.geojson"
-        payload = json.loads(path.read_text(encoding="utf-8"))
-        boundaries[country] = validate_boundary_collection(
-            payload,
-            path=path,
-            country=country,
-            country_code=country_code,
-        )
-    return boundaries
 
 
 __all__ = [
