@@ -37,7 +37,13 @@ def build_lake_fieldwork_preparation_payload(
             "scope": "top-ranked Sweden lake candidates only",
             "identity_rule": (
                 "identity resolution remains required when duplicate names, "
-                "source coordinate spread, or source name variants remain visible"
+                "non-official registry names, source coordinate spread, or "
+                "source name variants remain visible"
+            ),
+            "sampling_rule": (
+                "sampling fit stays separate from evidence density so very small "
+                "basins remain review-first and engineered or wetland-style names "
+                "never read as ordinary lake targets"
             ),
             "scenario_consistency_rule": (
                 "scenario consistency is high when a lake appears in at least four "
@@ -90,6 +96,9 @@ def write_lake_fieldwork_preparation_csv(
         "aggregate_score",
         "preparation_posture",
         "identity_posture",
+        "sampling_posture",
+        "sampling_fit",
+        "lake_area_km2",
         "scenario_consistency_posture",
         "sead_context_posture",
         "palaeopen_alignment_posture",
@@ -103,6 +112,8 @@ def write_lake_fieldwork_preparation_csv(
         "rank_50km",
         "google_maps_url",
         "representative_source_record",
+        "lake_registry_id",
+        "lake_name_status",
         "coordinate_resolution_method",
         "direct_pollen_source_count",
         "time_aware_direct_pollen_records",
@@ -126,6 +137,9 @@ def write_lake_fieldwork_preparation_csv(
                     "aggregate_score": row["aggregate_score"],
                     "preparation_posture": row["preparation_posture"],
                     "identity_posture": row["identity_posture"],
+                    "sampling_posture": row["sampling_posture"],
+                    "sampling_fit": row["sampling_fit"],
+                    "lake_area_km2": row["lake_area_km2"],
                     "scenario_consistency_posture": row["scenario_consistency_posture"],
                     "sead_context_posture": row["sead_context_posture"],
                     "palaeopen_alignment_posture": row["palaeopen_alignment_posture"],
@@ -141,6 +155,8 @@ def write_lake_fieldwork_preparation_csv(
                     "rank_50km": row["scenario_ranks"]["50km"],
                     "google_maps_url": row["google_maps_url"],
                     "representative_source_record": row["representative_source_record"],
+                    "lake_registry_id": row["lake_registry_id"],
+                    "lake_name_status": row["lake_name_status"],
                     "coordinate_resolution_method": row["coordinate_resolution_method"],
                     "direct_pollen_source_count": row["direct_pollen_source_count"],
                     "time_aware_direct_pollen_records": row[
@@ -168,6 +184,7 @@ def render_lake_fieldwork_preparation_markdown(
                 f"| {row['aggregate_rank']} | {row['lake_label']} | "
                 f"[{row['latitude']:.6f}, {row['longitude']:.6f}]({row['google_maps_url']}) | "
                 f"{row['preparation_posture']} | {row['identity_posture']} | "
+                f"{row['sampling_posture']} | {row['sampling_fit']:.4f} | "
                 f"{row['scenario_consistency_posture']} | "
                 f"{row['sead_context_posture']} | {row['palaeopen_alignment_posture']} | "
                 f"{row['evidence_families_20km']} | {row['scenario_top20_presence_count']} | "
@@ -189,6 +206,7 @@ used.
 
 - Scope: {payload["methodology"]["scope"]}
 - Identity rule: {payload["methodology"]["identity_rule"]}
+- Sampling rule: {payload["methodology"]["sampling_rule"]}
 - Scenario consistency rule: {payload["methodology"]["scenario_consistency_rule"]}
 - SEAD context rule: {payload["methodology"]["sead_context_rule"]}
 - PalaeOpen alignment rule: {payload["methodology"]["palaeopen_alignment_rule"]}
@@ -196,8 +214,8 @@ used.
 
 ## Top Lake Preparation Rows
 
-| Aggregate rank | Lake | Coordinates | Preparation posture | Identity posture | Scenario consistency | SEAD context | PalaeOpen alignment | Evidence families within 20 km | Top-20 scenario presence | 20 km rank | Required actions |
-| ---: | --- | --- | --- | --- | --- | --- | --- | ---: | ---: | ---: | --- |
+| Aggregate rank | Lake | Coordinates | Preparation posture | Identity posture | Sampling posture | Sampling fit | Scenario consistency | SEAD context | PalaeOpen alignment | Evidence families within 20 km | Top-20 scenario presence | 20 km rank | Required actions |
+| ---: | --- | --- | --- | --- | --- | ---: | --- | --- | --- | ---: | ---: | ---: | --- |
 {rows}
 """
 
@@ -238,6 +256,7 @@ def _build_fieldwork_preparation_row(
         mean((assessment.aggregate_rank, *scenario_ranks.values())),
         2,
     )
+    sampling_posture = candidate.lake_sampling_posture or "sampling_not_scored"
     scenario_consistency_posture = _scenario_consistency_posture(
         scenario_top20_presence_count
     )
@@ -248,6 +267,8 @@ def _build_fieldwork_preparation_row(
     )
     preparation_posture = _preparation_posture(
         ambiguity_flags=candidate.ambiguity_flags,
+        sampling_posture=sampling_posture,
+        sampling_fit=candidate.lake_sampling_fit,
         direct_pollen_source_count=candidate.direct_pollen_source_count,
         evidence_family_count=band_20.evidence_family_count,
         sead_site_count=band_20.sead_site_count,
@@ -263,6 +284,9 @@ def _build_fieldwork_preparation_row(
         "aggregate_score": assessment.aggregate_score,
         "preparation_posture": preparation_posture,
         "identity_posture": identity_posture,
+        "sampling_posture": sampling_posture,
+        "sampling_fit": candidate.lake_sampling_fit,
+        "lake_area_km2": candidate.lake_area_km2,
         "scenario_consistency_posture": scenario_consistency_posture,
         "sead_context_posture": sead_context_posture,
         "palaeopen_alignment_posture": palaeopen_alignment_posture,
@@ -271,6 +295,8 @@ def _build_fieldwork_preparation_row(
         "scenario_best_rank": scenario_best_rank,
         "scenario_mean_rank": scenario_mean_rank,
         "representative_source_record": candidate.representative_source_record,
+        "lake_registry_id": candidate.lake_registry_id,
+        "lake_name_status": candidate.lake_name_status,
         "coordinate_resolution_method": candidate.coordinate_resolution_method,
         "direct_pollen_source_count": candidate.direct_pollen_source_count,
         "time_aware_direct_pollen_records": candidate.time_aware_direct_pollen_records,
@@ -281,6 +307,7 @@ def _build_fieldwork_preparation_row(
         "ambiguity_flags": list(candidate.ambiguity_flags),
         "required_actions": _required_actions(
             ambiguity_flags=candidate.ambiguity_flags,
+            sampling_posture=sampling_posture,
             scenario_consistency_posture=scenario_consistency_posture,
             sead_context_posture=sead_context_posture,
             palaeopen_alignment_posture=palaeopen_alignment_posture,
@@ -300,6 +327,8 @@ def _identity_posture(ambiguity_flags: tuple[str, ...]) -> str:
     flags = set(ambiguity_flags)
     if "duplicate_sweden_name" in flags:
         return "duplicate_name_resolution_required"
+    if "non_official_registry_name" in flags:
+        return "registry_name_review_required"
     if "source_coordinate_spread" in flags or "source_name_variants" in flags:
         return "registry_cross_check_required"
     return "registry_clear"
@@ -328,6 +357,8 @@ def _palaeopen_alignment_posture(
 def _preparation_posture(
     *,
     ambiguity_flags: tuple[str, ...],
+    sampling_posture: str,
+    sampling_fit: float,
     direct_pollen_source_count: int,
     evidence_family_count: int,
     sead_site_count: int,
@@ -336,6 +367,8 @@ def _preparation_posture(
 ) -> str:
     if ambiguity_flags:
         return "identity_resolution_required"
+    if sampling_posture == "small_lake_review" or sampling_fit < 0.5:
+        return "sampling_fit_review_required"
     if (
         scenario_consistency_posture == "high"
         and direct_pollen_source_count >= 2
@@ -359,6 +392,7 @@ def _preparation_posture(
 def _required_actions(
     *,
     ambiguity_flags: tuple[str, ...],
+    sampling_posture: str,
     scenario_consistency_posture: str,
     sead_context_posture: str,
     palaeopen_alignment_posture: str,
@@ -377,6 +411,14 @@ def _required_actions(
     if "source_name_variants" in flags:
         actions.append(
             "normalize source name variants against the lake registry and tracked source records"
+        )
+    if "non_official_registry_name" in flags:
+        actions.append(
+            "confirm the official Swedish lake registry name before field planning"
+        )
+    if sampling_posture == "small_lake_review":
+        actions.append(
+            "verify basin depth, access, and sediment suitability before treating this small lake as a field target"
         )
     if scenario_consistency_posture == "low":
         actions.append(

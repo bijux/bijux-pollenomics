@@ -29,6 +29,18 @@ _AGGREGATE_RADIUS_WEIGHTS = {10: 0.30, 20: 0.25, 30: 0.20, 40: 0.15, 50: 0.10}
 _SVAR_AGGREGATE_RADIUS_WEIGHTS = {10: 0.35, 20: 0.27, 30: 0.18, 40: 0.12, 50: 0.08}
 _LAKE_NAME_TERMS = ("lake", "sjo", "sjon", "tjarn", "trask", "gol")
 _WETLAND_TERMS = ("mosse", "mossen", "bog", "fen", "peat", "myr", "karr", "karret")
+_ENGINEERED_WATER_TERMS = (
+    "damm",
+    "dammen",
+    "dammar",
+    "dammarna",
+    "magasin",
+    "magasinering",
+    "brott",
+    "brottet",
+    "kalkbrott",
+    "renings",
+)
 _POSITION_NOTE_PATTERNS = (
     re.compile(r"another lake also called", re.IGNORECASE),
     re.compile(r"position is not clear", re.IGNORECASE),
@@ -96,6 +108,9 @@ class LakeEvidenceCandidate:
     lake_water_identity: str = ""
     lake_name_status: str = ""
     lake_area_km2: float | None = None
+    lake_sampling_posture: str = ""
+    lake_sampling_fit: float = 0.0
+    lake_sampling_notes: tuple[str, ...] = ()
 
     def as_dict(self) -> dict[str, object]:
         return {
@@ -130,6 +145,9 @@ class LakeEvidenceCandidate:
             "lake_water_identity": self.lake_water_identity,
             "lake_name_status": self.lake_name_status,
             "lake_area_km2": self.lake_area_km2,
+            "lake_sampling_posture": self.lake_sampling_posture,
+            "lake_sampling_fit": self.lake_sampling_fit,
+            "lake_sampling_notes": list(self.lake_sampling_notes),
         }
 
 
@@ -606,11 +624,12 @@ def _build_svar_lake_report(
                 (nearby_pollen_signal, 0.35),
             )
             total_score = round(
-                human_signal * 0.55
+                human_signal * 0.52
                 + pollen_signal * 0.22
-                + archaeology_signal * 0.1
-                + animal_signal * 0.07
-                + diversity_signal * 0.06,
+                + archaeology_signal * 0.09
+                + animal_signal * 0.06
+                + diversity_signal * 0.03
+                + candidate.lake_sampling_fit * 0.08,
                 4,
             )
             band_scores.append(
@@ -662,6 +681,7 @@ def _build_svar_lake_report(
                     radius_km=radius,
                 ).total_score,
                 -row["aggregate_score"],  # type: ignore[arg-type]
+                -row["candidate"].lake_sampling_fit,  # type: ignore[index]
                 row["candidate"].lake_label,  # type: ignore[index]
             ),
         )
@@ -701,6 +721,7 @@ def _build_svar_lake_report(
                 row["band_scores"],  # type: ignore[arg-type]
                 radius_km=radii_km[0],
             ).human_signal,
+            -row["candidate"].lake_sampling_fit,  # type: ignore[index]
             row["candidate"].lake_label,  # type: ignore[index]
         ),
     )
@@ -1207,6 +1228,17 @@ def _derive_svar_lake_candidates(
     )
     provisional_candidates: list[dict[str, object]] = []
     for lake in svar_lakes:
+        if lake.lake_name_status in {"fallback_waterwebb_label", "unnamed"}:
+            continue
+        lake_sampling_posture, lake_sampling_notes = _classify_sampling_lake(
+            lake.lake_name,
+            lake_area_km2=lake.lake_area_km2,
+        )
+        if lake_sampling_posture in {
+            "engineered_waterbody_excluded",
+            "wetland_context_excluded",
+        }:
+            continue
         nearest_human_distance = min(
             (
                 haversine_km(
@@ -1278,8 +1310,15 @@ def _derive_svar_lake_candidates(
             ]
         )
         ambiguity_flags: list[str] = []
-        if lake.lake_name_status and lake.lake_name_status != "official_register_name":
+        if lake.lake_name_status and lake.lake_name_status not in {
+            "official_register_name",
+            "water_surface_name",
+        }:
             ambiguity_flags.append("non_official_registry_name")
+        lake_sampling_fit = _lake_sampling_fit(
+            lake_area_km2=lake.lake_area_km2,
+            lake_sampling_posture=lake_sampling_posture,
+        )
         direct_pollen_signal = round(
             _weighted_average(
                 (min(1.0, len(pollen_sources) / 2.0), 0.35),
@@ -1328,6 +1367,9 @@ def _derive_svar_lake_candidates(
                 "lake_water_identity": lake.lake_water_identity,
                 "lake_name_status": lake.lake_name_status,
                 "lake_area_km2": lake.lake_area_km2,
+                "lake_sampling_posture": lake_sampling_posture,
+                "lake_sampling_fit": lake_sampling_fit,
+                "lake_sampling_notes": lake_sampling_notes,
             }
         )
 
@@ -1405,6 +1447,11 @@ def _derive_svar_lake_candidates(
                 lake_area_km2=float(candidate["lake_area_km2"])
                 if isinstance(candidate["lake_area_km2"], (int, float))
                 else None,
+                lake_sampling_posture=str(candidate["lake_sampling_posture"]),
+                lake_sampling_fit=float(candidate["lake_sampling_fit"]),
+                lake_sampling_notes=tuple(
+                    candidate["lake_sampling_notes"]  # type: ignore[arg-type]
+                ),
             )
         )
     return tuple(sorted(candidates, key=lambda candidate: candidate.lake_label))
@@ -1594,6 +1641,69 @@ def _build_ambiguity_note(
     if "source_position_note" in ambiguity_flags and position_notes:
         parts.append(position_notes[0])
     return " ".join(parts)
+
+
+def _classify_sampling_lake(
+    lake_name: str,
+    *,
+    lake_area_km2: float | None,
+) -> tuple[str, tuple[str, ...]]:
+    normalized_name = _normalize_text(lake_name)
+    has_lake_term = any(term in normalized_name for term in _LAKE_NAME_TERMS)
+    has_wetland_term = any(term in normalized_name for term in _WETLAND_TERMS)
+    has_engineered_term = any(term in normalized_name for term in _ENGINEERED_WATER_TERMS)
+    notes: list[str] = []
+    if has_wetland_term and not has_lake_term:
+        notes.append("registry name points to a wetland-style basin rather than a lake")
+        return ("wetland_context_excluded", tuple(notes))
+    if has_engineered_term and not has_lake_term:
+        notes.append(
+            "registry name points to an engineered water body rather than a natural lake"
+        )
+        return ("engineered_waterbody_excluded", tuple(notes))
+    if lake_area_km2 is not None and lake_area_km2 < 0.05:
+        notes.append(
+            "very small mapped water surface; treat as a micro-basin until field validation confirms suitability"
+        )
+        return ("small_lake_review", tuple(notes))
+    if lake_area_km2 is not None and lake_area_km2 < 0.15:
+        notes.append(
+            "small mapped water surface; prefer checking basin depth and access before field planning"
+        )
+        return ("compact_lake_candidate", tuple(notes))
+    return ("sampling_lake_candidate", tuple(notes))
+
+
+def _lake_sampling_fit(
+    *,
+    lake_area_km2: float | None,
+    lake_sampling_posture: str,
+) -> float:
+    if lake_sampling_posture in {
+        "engineered_waterbody_excluded",
+        "wetland_context_excluded",
+    }:
+        return 0.0
+    if lake_area_km2 is None:
+        area_score = 0.7
+    elif lake_area_km2 < 0.03:
+        area_score = 0.15
+    elif lake_area_km2 < 0.05:
+        area_score = 0.3
+    elif lake_area_km2 < 0.15:
+        area_score = 0.55
+    elif lake_area_km2 < 0.5:
+        area_score = 0.78
+    elif lake_area_km2 < 20:
+        area_score = 1.0
+    else:
+        area_score = 0.9
+    posture_score = {
+        "small_lake_review": 0.45,
+        "compact_lake_candidate": 0.75,
+        "sampling_lake_candidate": 1.0,
+    }.get(lake_sampling_posture, 0.6)
+    return round(_weighted_average((area_score, 0.6), (posture_score, 0.4)), 4)
 
 
 def _build_raw_band_metrics(
@@ -1913,7 +2023,9 @@ def _build_methodology(
                 "SMHI SVAR. Each candidate uses a representative point derived "
                 "from the official lake polygon instead of a pollen-point centroid. "
                 "Only lakes with at least one human aDNA locality within 50 km "
-                "remain in the ranked set."
+                "remain in the ranked set. Registry names that clearly describe "
+                "engineered water bodies or wetlands instead of sampling lakes are "
+                "kept out of the shortlist."
             ),
             "distance_bands": list(radii_km),
             "aggregate_radius_weights": {
@@ -1921,11 +2033,12 @@ def _build_methodology(
                 for radius in radii_km
             },
             "score_components": {
-                "human_adna_signal": 0.55,
+                "human_adna_signal": 0.52,
+                "lake_sampling_fit": 0.08,
                 "pollen_signal": 0.22,
-                "archaeology_signal": 0.1,
-                "domesticated_animal_signal": 0.07,
-                "evidence_diversity_signal": 0.06,
+                "archaeology_signal": 0.09,
+                "domesticated_animal_signal": 0.06,
+                "evidence_diversity_signal": 0.03,
             },
             "identity_diagnostics": {
                 "coordinate_spread_flag_km": _COORDINATE_SPREAD_FLAG_KM,
@@ -1942,6 +2055,12 @@ def _build_methodology(
                 "Direct pollen signal reflects lake-basin pollen records placed on "
                 "or very near the official lake, while nearby pollen signal captures "
                 "additional pollen context within the active distance band."
+            ),
+            "sampling_note": (
+                "Lake suitability remains separate from evidence density. Very small "
+                "basins stay visible but score lower, while registry names that "
+                "clearly point to wetlands, pits, ponds, or engineered water bodies "
+                "do not enter the ranked shortlist."
             ),
             "archaeology_note": (
                 "SEAD contributes site-level point counts. RAÄ contributes coarse "

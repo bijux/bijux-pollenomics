@@ -547,8 +547,85 @@ def test_build_sweden_lake_evidence_richness_report_prefers_svar_lakes() -> None
         assert top.candidate.lake_water_identity == "water-1001"
         assert top.candidate.lake_name_status == "official_register_name"
         assert top.candidate.lake_area_km2 == 2.3
+        assert top.candidate.lake_sampling_posture == "sampling_lake_candidate"
+        assert top.candidate.lake_sampling_fit == 1.0
         assert top.aggregate_score > report.assessments[1].aggregate_score
-        assert report.methodology["score_components"]["human_adna_signal"] == 0.55
+        assert report.methodology["score_components"]["human_adna_signal"] == 0.52
+
+        registry_csv_path = root / "sweden_lake_evidence_registry.csv"
+        geojson_path = root / "sweden_lake_evidence.geojson"
+        write_lake_evidence_richness_registry_csv(registry_csv_path, report)
+        write_lake_evidence_richness_geojson(geojson_path, report)
+
+        with registry_csv_path.open(encoding="utf-8", newline="") as handle:
+            registry_rows = list(csv.DictReader(handle))
+        geojson = json.loads(geojson_path.read_text(encoding="utf-8"))
+
+        assert registry_rows[0]["lake_registry_id"] == "1001"
+        assert registry_rows[0]["lake_name_status"] == "official_register_name"
+        assert registry_rows[0]["lake_sampling_posture"] == "sampling_lake_candidate"
+        assert registry_rows[0]["lake_sampling_fit"] == "1.0"
+        popup_rows = {
+            row["label"]: row["value"]
+            for row in geojson["features"][0]["properties"]["popup_rows"]
+        }
+        assert popup_rows["Lake registry id"] == "1001"
+        assert popup_rows["Lake name status"] == "official_register_name"
+        assert popup_rows["Sampling posture"] == "sampling_lake_candidate"
+
+
+def test_svar_lake_candidates_exclude_engineered_and_wetland_names() -> None:
+    with tempfile.TemporaryDirectory() as tmp:
+        root = Path(tmp)
+        _write_json(
+            root / "svar" / "normalized" / "sweden_lake_registry.geojson",
+            {
+                "type": "FeatureCollection",
+                "features": [
+                    _svar_polygon_feature(
+                        record_id="3001",
+                        name="Hornsjön",
+                        latitude=57.0,
+                        longitude=14.0,
+                        area_km2=1.4,
+                    ),
+                    _svar_polygon_feature(
+                        record_id="3002",
+                        name="Kvarndammen",
+                        latitude=57.02,
+                        longitude=14.02,
+                        area_km2=0.08,
+                    ),
+                    _svar_polygon_feature(
+                        record_id="3003",
+                        name="Frösslundamossen",
+                        latitude=57.04,
+                        longitude=14.04,
+                        area_km2=0.12,
+                    ),
+                ],
+            },
+        )
+        for relative_path in (
+            root / "neotoma" / "normalized" / "nordic_pollen_sites.geojson",
+            root / "landclim" / "normalized" / "nordic_pollen_site_sequences.geojson",
+            root / "sead" / "normalized" / "nordic_environmental_sites.geojson",
+            root / "raa" / "normalized" / "sweden_archaeology_density.geojson",
+        ):
+            _write_json(relative_path, {"type": "FeatureCollection", "features": []})
+
+        report = build_sweden_lake_evidence_richness_report(
+            context_root=root,
+            human_localities=(
+                _locality("Hornsjön cluster", 57.01, 14.01, sample_count=4),
+            ),
+            animal_localities=(),
+        )
+
+        assert report.candidate_count == 1
+        assert [assessment.candidate.lake_name for assessment in report.assessments] == [
+            "Hornsjön"
+        ]
 
 
 def test_svar_lake_candidates_flag_duplicate_registry_names() -> None:
@@ -604,14 +681,13 @@ def test_svar_lake_candidates_flag_duplicate_registry_names() -> None:
         assert report.candidate_count == 2
         labels = [assessment.candidate.lake_label for assessment in report.assessments]
         assert all(label.startswith("Lillsjön (") for label in labels)
-        fallback_named = next(
+        duplicate_named = next(
             assessment.candidate
             for assessment in report.assessments
             if assessment.candidate.lake_registry_id == "2002"
         )
-        assert "duplicate_sweden_name" in fallback_named.ambiguity_flags
-        assert "non_official_registry_name" in fallback_named.ambiguity_flags
-        assert "non-register registry label" in fallback_named.ambiguity_note
+        assert "duplicate_sweden_name" in duplicate_named.ambiguity_flags
+        assert "non_official_registry_name" not in duplicate_named.ambiguity_flags
 
 
 def test_lake_candidates_do_not_merge_different_nearby_lakes() -> None:
@@ -842,7 +918,10 @@ def test_lake_evidence_richness_packets_write_reviewable_outputs() -> None:
         assert payload["candidate_count"] == 1
         assert len(band_rows) == len(report.radii_km)
         assert len(registry_rows) == 1
-        assert len(scenario_rows) == len(report.radii_km) + 1
+        assert len(scenario_rows) == len(report.radii_km) + 2
+        assert any(
+            row["scenario_key"] == "fieldwork_shortlist" for row in scenario_rows
+        )
         assert geojson["type"] == "FeatureCollection"
         assert geojson["features"][0]["properties"]["name"] == "Alpha"
         assert markdown.startswith("# Sweden lake evidence richness")

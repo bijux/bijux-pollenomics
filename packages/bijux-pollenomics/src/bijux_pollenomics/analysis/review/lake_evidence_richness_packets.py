@@ -80,6 +80,14 @@ def write_lake_evidence_richness_band_csv(
         "coordinate_spread_km",
         "ambiguity_flags",
         "ambiguity_note",
+        "lake_registry_id",
+        "lake_registry_uuid",
+        "lake_water_identity",
+        "lake_name_status",
+        "lake_area_km2",
+        "lake_sampling_posture",
+        "lake_sampling_fit",
+        "lake_sampling_notes",
         "supporting_source_records",
         "supporting_source_points",
         "aggregate_rank",
@@ -137,6 +145,16 @@ def write_lake_evidence_richness_band_csv(
                         "coordinate_spread_km": candidate.coordinate_spread_km,
                         "ambiguity_flags": "; ".join(candidate.ambiguity_flags),
                         "ambiguity_note": candidate.ambiguity_note,
+                        "lake_registry_id": candidate.lake_registry_id,
+                        "lake_registry_uuid": candidate.lake_registry_uuid,
+                        "lake_water_identity": candidate.lake_water_identity,
+                        "lake_name_status": candidate.lake_name_status,
+                        "lake_area_km2": candidate.lake_area_km2,
+                        "lake_sampling_posture": candidate.lake_sampling_posture,
+                        "lake_sampling_fit": candidate.lake_sampling_fit,
+                        "lake_sampling_notes": "; ".join(
+                            candidate.lake_sampling_notes
+                        ),
                         "supporting_source_records": "; ".join(
                             candidate.supporting_source_records
                         ),
@@ -209,6 +227,14 @@ def write_lake_evidence_richness_registry_csv(
         "coordinate_spread_km",
         "ambiguity_flags",
         "ambiguity_note",
+        "lake_registry_id",
+        "lake_registry_uuid",
+        "lake_water_identity",
+        "lake_name_status",
+        "lake_area_km2",
+        "lake_sampling_posture",
+        "lake_sampling_fit",
+        "lake_sampling_notes",
         "pollen_sources",
         "supporting_pollen_names",
         "supporting_source_records",
@@ -255,6 +281,14 @@ def write_lake_evidence_richness_registry_csv(
                     "coordinate_spread_km": candidate.coordinate_spread_km,
                     "ambiguity_flags": "; ".join(candidate.ambiguity_flags),
                     "ambiguity_note": candidate.ambiguity_note,
+                    "lake_registry_id": candidate.lake_registry_id,
+                    "lake_registry_uuid": candidate.lake_registry_uuid,
+                    "lake_water_identity": candidate.lake_water_identity,
+                    "lake_name_status": candidate.lake_name_status,
+                    "lake_area_km2": candidate.lake_area_km2,
+                    "lake_sampling_posture": candidate.lake_sampling_posture,
+                    "lake_sampling_fit": candidate.lake_sampling_fit,
+                    "lake_sampling_notes": "; ".join(candidate.lake_sampling_notes),
                     "pollen_sources": "; ".join(candidate.pollen_sources),
                     "supporting_pollen_names": "; ".join(
                         candidate.supporting_pollen_names
@@ -295,6 +329,12 @@ def write_lake_evidence_richness_scenario_csv(
         "aggregate_score",
         "scenario_top20_presence_count",
         "scenario_top20_labels",
+        "lake_registry_id",
+        "lake_name_status",
+        "lake_area_km2",
+        "lake_sampling_posture",
+        "lake_sampling_fit",
+        "lake_sampling_notes",
         "duplicate_name_count",
         "coordinate_spread_km",
         "ambiguity_flags",
@@ -342,6 +382,7 @@ def render_lake_evidence_richness_markdown(
 ) -> str:
     """Render the Sweden lake evidence richness report as markdown."""
     scenario_metrics = _scenario_metric_map(report)
+    registry_backed = _is_registry_backed_report(report)
     overall_rows = (
         "\n".join(
             (
@@ -351,7 +392,7 @@ def render_lake_evidence_richness_markdown(
                 f"{scenario_metrics[assessment.candidate.lake_token]['scenario_top20_presence_count']}/"
                 f"{scenario_metrics[assessment.candidate.lake_token]['scenario_count']} | "
                 f"{_render_ambiguity_cell(assessment.candidate.ambiguity_flags)} | "
-                f"{', '.join(assessment.candidate.pollen_sources)} | "
+                f"{', '.join(assessment.candidate.pollen_sources) or 'none'} | "
                 f"{_band_score(assessment, 20).human_adna_locality_count} | "
                 f"{_band_score(assessment, 20).sead_site_count} | "
                 f"{_band_score(assessment, 50).domesticated_animal_locality_count} |"
@@ -361,20 +402,26 @@ def render_lake_evidence_richness_markdown(
         or "| - | No lake candidates | - | 0.0000 | 0/0 | - | - | 0 | 0 | 0 |"
     )
     consensus_section = _render_consensus_table(report)
+    fieldwork_section = _render_fieldwork_shortlist_table(report)
     band_sections = "\n\n".join(
         _render_band_table(report, radius_km=radius) for radius in report.radii_km
     )
     return f"""# Sweden lake evidence richness
 
-This report ranks Sweden lake candidates by the richness of tracked pollen, archaeology, human aDNA, and domesticated-animal aDNA evidence around each lake. The ranking keeps lake identity diagnostics visible so duplicate names, source coordinate spread, and explicit source-position warnings are not hidden inside one synthetic lake label. Coordinates now resolve to one representative source-backed point per lake candidate so map checks land on a published source point rather than a synthetic centroid.
+This report ranks Sweden lake candidates by the richness of tracked pollen, archaeology, human aDNA, and domesticated-animal aDNA evidence around each lake. The ranking keeps lake identity diagnostics visible so duplicate names and registry naming cautions are not hidden inside one synthetic lake label.
+
+{_lake_ranking_summary_paragraph(registry_backed)}
 
 ## Methodology
 
 - Candidate derivation: {report.methodology["candidate_derivation"]}
 - Distance bands: {", ".join(f"{radius} km" for radius in report.radii_km)}
-- Identity diagnostics: cleaned-name matching within {report.methodology["identity_diagnostics"]["name_match_distance_km"]} km, coordinate-spread flag at {report.methodology["identity_diagnostics"]["coordinate_spread_flag_km"]} km, and explicit source-position notes when raw source notes say the lake position is uncertain.
-- Coordinate targeting: each lake keeps one representative source-backed point chosen from its supporting pollen records using the method recorded in the registry CSV and JSON payload.
+- Identity diagnostics: {_render_identity_methodology(report)}
+- Coordinate targeting: {_render_coordinate_targeting(report)}
+- Human aDNA weighting: {_render_human_weighting(report)}
+- Sampling note: {_render_optional_methodology_note(report, "sampling_note")}
 - Archaeology note: {report.methodology["archaeology_note"]}
+- Pollen note: {_render_optional_methodology_note(report, "pollen_note")}
 - Animal note: {report.methodology["animal_note"]}
 
 ## Aggregate Ranking
@@ -384,6 +431,8 @@ This report ranks Sweden lake candidates by the richness of tracked pollen, arch
 {overall_rows}
 
 {consensus_section}
+
+{fieldwork_section}
 
 {band_sections}
 """
@@ -527,6 +576,12 @@ def _scenario_rows(report: LakeEvidenceRichnessReport) -> list[dict[str, object]
                 "scenario_top20_labels": "; ".join(
                     scenario_metric["scenario_top20_labels"]
                 ),
+                "lake_registry_id": candidate.lake_registry_id,
+                "lake_name_status": candidate.lake_name_status,
+                "lake_area_km2": candidate.lake_area_km2,
+                "lake_sampling_posture": candidate.lake_sampling_posture,
+                "lake_sampling_fit": candidate.lake_sampling_fit,
+                "lake_sampling_notes": "; ".join(candidate.lake_sampling_notes),
                 "duplicate_name_count": candidate.duplicate_name_count,
                 "coordinate_spread_km": candidate.coordinate_spread_km,
                 "ambiguity_flags": "; ".join(candidate.ambiguity_flags),
@@ -565,12 +620,57 @@ def _scenario_rows(report: LakeEvidenceRichnessReport) -> list[dict[str, object]
                     "scenario_top20_labels": "; ".join(
                         scenario_metric["scenario_top20_labels"]
                     ),
+                    "lake_registry_id": candidate.lake_registry_id,
+                    "lake_name_status": candidate.lake_name_status,
+                    "lake_area_km2": candidate.lake_area_km2,
+                    "lake_sampling_posture": candidate.lake_sampling_posture,
+                    "lake_sampling_fit": candidate.lake_sampling_fit,
+                    "lake_sampling_notes": "; ".join(candidate.lake_sampling_notes),
                     "duplicate_name_count": candidate.duplicate_name_count,
                     "coordinate_spread_km": candidate.coordinate_spread_km,
                     "ambiguity_flags": "; ".join(candidate.ambiguity_flags),
                     "ambiguity_note": candidate.ambiguity_note,
                 }
             )
+    fieldwork_rank_map = _fieldwork_rank_map(report)
+    for assessment in _fieldwork_rows(report):
+        candidate = assessment.candidate
+        scenario_metric = scenario_metrics[candidate.lake_token]
+        rows.append(
+            {
+                "scenario_key": "fieldwork_shortlist",
+                "scenario_label": "Fieldwork shortlist",
+                "radius_km": "",
+                "rank": fieldwork_rank_map[candidate.lake_token],
+                "score": _fieldwork_shortlist_score(assessment),
+                "lake_name": candidate.lake_name,
+                "lake_label": candidate.lake_label,
+                "lake_token": candidate.lake_token,
+                "latitude": round(candidate.latitude, 6),
+                "longitude": round(candidate.longitude, 6),
+                "google_maps_url": _google_maps_url(
+                    candidate.latitude, candidate.longitude
+                ),
+                "aggregate_rank": assessment.aggregate_rank,
+                "aggregate_score": assessment.aggregate_score,
+                "scenario_top20_presence_count": scenario_metric[
+                    "scenario_top20_presence_count"
+                ],
+                "scenario_top20_labels": "; ".join(
+                    scenario_metric["scenario_top20_labels"]
+                ),
+                "lake_registry_id": candidate.lake_registry_id,
+                "lake_name_status": candidate.lake_name_status,
+                "lake_area_km2": candidate.lake_area_km2,
+                "lake_sampling_posture": candidate.lake_sampling_posture,
+                "lake_sampling_fit": candidate.lake_sampling_fit,
+                "lake_sampling_notes": "; ".join(candidate.lake_sampling_notes),
+                "duplicate_name_count": candidate.duplicate_name_count,
+                "coordinate_spread_km": candidate.coordinate_spread_km,
+                "ambiguity_flags": "; ".join(candidate.ambiguity_flags),
+                "ambiguity_note": candidate.ambiguity_note,
+            }
+        )
     return rows
 
 
@@ -593,7 +693,7 @@ def _build_candidate_feature(assessment) -> dict[str, object]:
             "geometry_type": "Point",
             "subtitle": "Sweden lake evidence candidate",
             "description": candidate.ambiguity_note
-            or "Lake candidate derived from Sweden pollen context.",
+            or _candidate_description(candidate),
             "source_url": candidate.representative_source_url,
             "record_count": 1,
             "media_links": _candidate_media_links(candidate),
@@ -621,6 +721,30 @@ def _candidate_popup_rows(assessment) -> list[dict[str, str]]:
                 f"{candidate.representative_source_record} "
                 f"({candidate.representative_source_name})"
             ),
+        },
+        {
+            "label": "Lake registry id",
+            "value": candidate.lake_registry_id or "Not available",
+        },
+        {
+            "label": "Lake name status",
+            "value": candidate.lake_name_status or "Not available",
+        },
+        {
+            "label": "Lake area",
+            "value": (
+                f"{candidate.lake_area_km2:.3f} km²"
+                if candidate.lake_area_km2 is not None
+                else "Not available"
+            ),
+        },
+        {
+            "label": "Sampling posture",
+            "value": candidate.lake_sampling_posture or "Not available",
+        },
+        {
+            "label": "Sampling fit",
+            "value": f"{candidate.lake_sampling_fit:.4f}",
         },
         {
             "label": "Pollen sources",
@@ -673,6 +797,20 @@ def _map_scenarios(report: LakeEvidenceRichnessReport) -> list[dict[str, object]
             "scenario_label": "Consensus",
         }
     )
+    fieldwork_rows = _fieldwork_rows(report)
+    fieldwork_rank_map = _fieldwork_rank_map(report)
+    scenarios.append(
+        {
+            "key": "lake-evidence-fieldwork",
+            "label": "Fieldwork shortlist",
+            "rows": fieldwork_rows,
+            "rank_getter": lambda assessment, rank_map=fieldwork_rank_map: rank_map[
+                assessment.candidate.lake_token
+            ],
+            "score_getter": lambda assessment: _fieldwork_shortlist_score(assessment),
+            "scenario_label": "Fieldwork shortlist",
+        }
+    )
     for radius in report.radii_km:
         scenarios.append(
             {
@@ -722,7 +860,7 @@ def _build_scenario_feature_collection(
                     "geometry_type": "Point",
                     "subtitle": "Lake evidence ranking scenario",
                     "description": candidate.ambiguity_note
-                    or "Lake candidate ranked for the active scenario.",
+                    or _candidate_description(candidate),
                     "source_url": candidate.representative_source_url,
                     "record_count": 1,
                     "media_links": _candidate_media_links(candidate),
@@ -750,6 +888,27 @@ def _build_scenario_feature_collection(
                         {
                             "label": "Representative source",
                             "value": candidate.representative_source_record,
+                        },
+                        {
+                            "label": "Lake registry id",
+                            "value": candidate.lake_registry_id or "Not available",
+                        },
+                        {
+                            "label": "Lake area",
+                            "value": (
+                                f"{candidate.lake_area_km2:.3f} km²"
+                                if candidate.lake_area_km2 is not None
+                                else "Not available"
+                            ),
+                        },
+                        {
+                            "label": "Sampling posture",
+                            "value": candidate.lake_sampling_posture
+                            or "Not available",
+                        },
+                        {
+                            "label": "Sampling fit",
+                            "value": f"{candidate.lake_sampling_fit:.4f}",
                         },
                         {
                             "label": "Identity diagnostics",
@@ -798,6 +957,96 @@ def _render_source_point_cell(source_point) -> str:
     )
 
 
+def _render_lake_area(candidate) -> str:
+    if candidate.lake_area_km2 is None:
+        return "Not available"
+    return f"{candidate.lake_area_km2:.3f}"
+
+
+def _candidate_description(candidate) -> str:
+    if candidate.representative_source_record.startswith("svar-lakes:"):
+        return "Lake candidate anchored to the official Sweden lake registry."
+    return "Lake candidate derived from Sweden pollen context."
+
+
+def _is_registry_backed_report(report: LakeEvidenceRichnessReport) -> bool:
+    methods = report.methodology.get("identity_diagnostics", {}).get(
+        "coordinate_resolution_methods", []
+    )
+    if not isinstance(methods, list):
+        return False
+    return "svar_polygon_representative_point" in methods
+
+
+def _lake_ranking_summary_paragraph(registry_backed: bool) -> str:
+    if registry_backed:
+        return (
+            "Coordinates resolve to representative points drawn from official "
+            "SMHI SVAR lake polygons, so map checks land on the lake itself "
+            "rather than on a synthetic centroid or on one supporting pollen record."
+        )
+    return (
+        "Coordinates resolve to one representative source-backed point per lake "
+        "candidate so map checks land on a published source point rather than a "
+        "synthetic centroid."
+    )
+
+
+def _render_identity_methodology(report: LakeEvidenceRichnessReport) -> str:
+    diagnostics = report.methodology.get("identity_diagnostics", {})
+    if _is_registry_backed_report(report):
+        return (
+            "duplicate Sweden lake names stay explicit, and registry names that do not "
+            "come from the official register field remain flagged for review"
+        )
+    return (
+        f"cleaned-name matching within {diagnostics['name_match_distance_km']} km, "
+        f"coordinate-spread flag at {diagnostics['coordinate_spread_flag_km']} km, "
+        "and explicit source-position notes when raw source notes say the lake "
+        "position is uncertain"
+    )
+
+
+def _render_coordinate_targeting(report: LakeEvidenceRichnessReport) -> str:
+    if _is_registry_backed_report(report):
+        return (
+            "each lake keeps one representative point derived from the official "
+            "lake polygon, with registry identifiers and name status carried into "
+            "the CSV, JSON, and map popups"
+        )
+    return (
+        "each lake keeps one representative source-backed point chosen from its "
+        "supporting pollen records using the method recorded in the registry CSV "
+        "and JSON payload"
+    )
+
+
+def _render_human_weighting(report: LakeEvidenceRichnessReport) -> str:
+    score_components = report.methodology.get("score_components", {})
+    if "human_adna_signal" in score_components and "pollen_signal" in score_components:
+        return (
+            f"human aDNA contributes {score_components['human_adna_signal']:.2f} of each "
+            f"band score, pollen contributes {score_components['pollen_signal']:.2f}, "
+            f"and archaeology contributes {score_components['archaeology_signal']:.2f}"
+        )
+    return "human aDNA is balanced with pollen and archaeology rather than acting as the decisive term"
+
+
+def _render_optional_methodology_note(
+    report: LakeEvidenceRichnessReport,
+    key: str,
+) -> str:
+    value = report.methodology.get(key)
+    if isinstance(value, str) and value:
+        return value
+    if key == "pollen_note":
+        return (
+            "Direct pollen signal reflects the quality of the lake-linked pollen "
+            "records rather than a synthetic lake average."
+        )
+    return ""
+
+
 def _candidate_media_links(candidate) -> list[dict[str, str]]:
     links = [
         {
@@ -823,6 +1072,7 @@ def _scenario_metric_map(
     scenario_orders: list[tuple[str, list]] = [
         ("aggregate", sorted(report.assessments, key=lambda item: item.aggregate_rank))
     ]
+    scenario_orders.append(("fieldwork shortlist", _fieldwork_rows(report)))
     for radius in report.radii_km:
         scenario_orders.append(
             (
@@ -857,6 +1107,36 @@ def _scenario_metric_map(
             "scenario_mean_rank": round(mean(ranks), 2) if ranks else None,
         }
     return metrics
+
+
+def _fieldwork_rows(report: LakeEvidenceRichnessReport) -> list:
+    return sorted(
+        report.assessments,
+        key=lambda assessment: (
+            -_fieldwork_shortlist_score(assessment),
+            assessment.aggregate_rank,
+            assessment.candidate.lake_label,
+        ),
+    )[:20]
+
+
+def _fieldwork_rank_map(report: LakeEvidenceRichnessReport) -> dict[str, int]:
+    return {
+        assessment.candidate.lake_token: rank
+        for rank, assessment in enumerate(_fieldwork_rows(report), start=1)
+    }
+
+
+def _fieldwork_shortlist_score(assessment) -> float:
+    candidate = assessment.candidate
+    band_20 = _band_score(assessment, 20)
+    return round(
+        assessment.aggregate_score * 0.75
+        + candidate.lake_sampling_fit * 0.15
+        + min(1.0, candidate.direct_pollen_source_count / 2.0) * 0.05
+        + min(1.0, band_20.evidence_family_count / 4.0) * 0.05,
+        4,
+    )
 
 
 def _consensus_rows(report: LakeEvidenceRichnessReport) -> list:
@@ -902,6 +1182,32 @@ def _render_consensus_table(report: LakeEvidenceRichnessReport) -> str:
 
 | Consensus rank | Lake | Coordinates | Top-20 scenario presence | Best scenario rank | Mean scenario rank | Aggregate rank | Coordinate method |
 | ---: | --- | --- | ---: | ---: | ---: | ---: | --- |
+{rows}"""
+
+
+def _render_fieldwork_shortlist_table(report: LakeEvidenceRichnessReport) -> str:
+    fieldwork_rank_map = _fieldwork_rank_map(report)
+    rows = (
+        "\n".join(
+            (
+                f"| {fieldwork_rank_map[assessment.candidate.lake_token]} | "
+                f"{assessment.candidate.lake_label} | "
+                f"{_render_coordinate_link(assessment.candidate.latitude, assessment.candidate.longitude)} | "
+                f"{_fieldwork_shortlist_score(assessment):.4f} | "
+                f"{assessment.candidate.lake_sampling_posture or 'not_scored'} | "
+                f"{assessment.candidate.lake_sampling_fit:.4f} | "
+                f"{_render_lake_area(assessment.candidate)} | "
+                f"{_band_score(assessment, 20).human_adna_locality_count} | "
+                f"{_band_score(assessment, 20).evidence_family_count} |"
+            )
+            for assessment in _fieldwork_rows(report)
+        )
+        or "| - | No lake candidates | - | 0.0000 | - | 0.0000 | - | 0 | 0 |"
+    )
+    return f"""## Fieldwork Shortlist
+
+| Fieldwork rank | Lake | Coordinates | Shortlist score | Sampling posture | Sampling fit | Area km² | Human localities within 20 km | Evidence families within 20 km |
+| ---: | --- | --- | ---: | --- | ---: | ---: | ---: | ---: |
 {rows}"""
 
 

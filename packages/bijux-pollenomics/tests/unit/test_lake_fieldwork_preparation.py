@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import csv
+from dataclasses import replace
 import json
 from pathlib import Path
 import tempfile
@@ -46,6 +47,9 @@ def _candidate(
     longitude: float,
     ambiguity_flags: tuple[str, ...],
     direct_pollen_source_count: int,
+    lake_sampling_posture: str = "sampling_lake_candidate",
+    lake_sampling_fit: float = 1.0,
+    lake_area_km2: float | None = 1.6,
 ) -> LakeEvidenceCandidate:
     return LakeEvidenceCandidate(
         lake_name=lake_name,
@@ -86,6 +90,9 @@ def _candidate(
         ambiguity_flags=ambiguity_flags,
         ambiguity_note="identity review required" if ambiguity_flags else "",
         direct_pollen_signal=0.8,
+        lake_area_km2=lake_area_km2,
+        lake_sampling_posture=lake_sampling_posture,
+        lake_sampling_fit=lake_sampling_fit,
     )
 
 
@@ -255,6 +262,7 @@ def test_lake_fieldwork_preparation_payload_keeps_identity_and_interoperability_
     assert payload["rows"][0]["palaeopen_alignment_posture"] == "high"
     assert payload["rows"][0]["scenario_consistency_posture"] == "high"
     assert payload["rows"][0]["scenario_top20_presence_count"] == 6
+    assert payload["rows"][0]["sampling_posture"] == "sampling_lake_candidate"
     assert payload["rows"][0]["google_maps_url"].startswith(
         "https://www.google.com/maps/search/"
     )
@@ -263,6 +271,7 @@ def test_lake_fieldwork_preparation_payload_keeps_identity_and_interoperability_
     )
     assert payload["rows"][1]["preparation_posture"] == "identity_resolution_required"
     assert "Sweden lake fieldwork preparation" in markdown
+    assert "Sampling rule" in markdown
     assert "Scenario consistency rule" in markdown
     assert "Lake Fieldwork Preparation" in section
 
@@ -289,3 +298,51 @@ def test_lake_fieldwork_preparation_writers_emit_reviewable_files() -> None:
             "confirm the exact Swedish lake registry match before field planning"
             in rows[1]["required_actions"]
         )
+
+
+def test_lake_fieldwork_preparation_flags_non_official_registry_names() -> None:
+    report = _report()
+    flagged_candidate = replace(
+        report.assessments[1].candidate,
+        ambiguity_flags=("non_official_registry_name",),
+        lake_name_status="water_surface_name",
+    )
+    flagged_assessment = replace(report.assessments[1], candidate=flagged_candidate)
+    flagged_report = replace(
+        report,
+        assessments=(report.assessments[0], flagged_assessment),
+    )
+
+    payload = build_lake_fieldwork_preparation_payload(flagged_report)
+    row = payload["rows"][1]
+
+    assert row["identity_posture"] == "registry_name_review_required"
+    assert (
+        "confirm the official Swedish lake registry name before field planning"
+        in row["required_actions"]
+    )
+
+
+def test_lake_fieldwork_preparation_flags_small_lake_sampling_review() -> None:
+    report = _report()
+    flagged_candidate = replace(
+        report.assessments[0].candidate,
+        lake_sampling_posture="small_lake_review",
+        lake_sampling_fit=0.42,
+        lake_area_km2=0.03,
+    )
+    flagged_assessment = replace(report.assessments[0], candidate=flagged_candidate)
+    flagged_report = replace(
+        report,
+        assessments=(flagged_assessment, report.assessments[1]),
+    )
+
+    payload = build_lake_fieldwork_preparation_payload(flagged_report)
+    row = payload["rows"][0]
+
+    assert row["sampling_posture"] == "small_lake_review"
+    assert row["preparation_posture"] == "sampling_fit_review_required"
+    assert (
+        "verify basin depth, access, and sediment suitability before treating this small lake as a field target"
+        in row["required_actions"]
+    )
