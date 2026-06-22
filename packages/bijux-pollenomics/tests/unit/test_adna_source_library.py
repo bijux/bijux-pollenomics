@@ -9,7 +9,10 @@ from unittest.mock import patch
 import zipfile
 
 from bijux_pollenomics.adna.sources import library as source_library_module
-from bijux_pollenomics.adna.source_artifact_storage import read_source_artifact_text
+from bijux_pollenomics.adna.source_artifact_storage import (
+    migrate_html_source_artifact,
+    read_source_artifact_text,
+)
 from bijux_pollenomics.adna.sources.inventory import (
     build_reference_stash_doi_integrity_audit,
     build_reference_stash_reconciliation,
@@ -35,6 +38,61 @@ from bijux_pollenomics.adna.sources.library import (
 
 
 class AdnaSourceLibraryUnitTests(unittest.TestCase):
+    def test_migrate_html_source_artifact_compresses_existing_capture(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            output_root = Path(tmp) / "data"
+            article_path = (
+                output_root
+                / "adna"
+                / "governance"
+                / "source_library"
+                / "papers"
+                / "10.1000-example"
+                / "article.html"
+            )
+            metadata_path = article_path.with_suffix(
+                article_path.suffix + ".metadata.json"
+            )
+            article_path.parent.mkdir(parents=True, exist_ok=True)
+            article_path.write_text("<html><body>ok</body></html>", encoding="utf-8")
+            metadata_path.write_text(
+                json.dumps(
+                    {
+                        "schema_version": "adna-source-library.v1",
+                        "source_url": "https://example.test/article",
+                        "artifact_kind": "article_html",
+                        "content_type": "text/html; charset=utf-8",
+                        "byte_size": 0,
+                        "paper_doi": "10.1000/example",
+                    }
+                ),
+                encoding="utf-8",
+            )
+
+            stored_path = migrate_html_source_artifact(
+                article_path,
+                output_root=output_root,
+            )
+            self.assertFalse(article_path.is_file())
+            self.assertEqual(stored_path.name, "article.html.gz")
+            self.assertTrue(stored_path.is_file())
+            self.assertEqual(
+                read_source_artifact_text(article_path),
+                "<html><body>ok</body></html>",
+            )
+            metadata = json.loads(metadata_path.read_text(encoding="utf-8"))
+            self.assertEqual(
+                metadata["byte_size"], len(b"<html><body>ok</body></html>")
+            )
+            self.assertEqual(metadata["content_encoding"], "gzip")
+            self.assertEqual(
+                metadata["storage_path"],
+                "adna/governance/source_library/papers/10.1000-example/article.html.gz",
+            )
+            self.assertEqual(
+                metadata["storage_byte_size"], stored_path.stat().st_size
+            )
+
     def test_source_artifact_index_cache_can_be_cleared_between_reads(self) -> None:
         with tempfile.TemporaryDirectory() as tmp:
             output_root = Path(tmp) / "data"
