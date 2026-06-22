@@ -309,6 +309,10 @@ def build_sweden_lake_evidence_richness_report(
         / "nordic_environmental_sites.geojson",
         country="Sweden",
     )
+    source_temporal_coverage = _build_context_temporal_coverage_summary(
+        pollen_points,
+        sead_points=sead_points,
+    )
     raa_cells = _load_sweden_density_cells(
         Path(context_root) / "raa" / "normalized" / "sweden_archaeology_density.geojson"
     )
@@ -325,6 +329,7 @@ def build_sweden_lake_evidence_richness_report(
             animal_points=animal_points,
             sead_points=sead_points,
             raa_cells=raa_cells,
+            source_temporal_coverage=source_temporal_coverage,
         )
     candidates = _derive_lake_candidates(
         pollen_points,
@@ -332,7 +337,9 @@ def build_sweden_lake_evidence_richness_report(
     )
     if not candidates:
         return _build_empty_report(
-            normalized_radii, candidate_source="pollen_candidate_points"
+            normalized_radii,
+            candidate_source="pollen_candidate_points",
+            source_temporal_coverage=source_temporal_coverage,
         )
 
     raw_scores: dict[str, dict[int, dict[str, int]]] = {
@@ -581,7 +588,10 @@ def build_sweden_lake_evidence_richness_report(
         country="Sweden",
         radii_km=normalized_radii,
         candidate_count=len(assessments),
-        methodology=_build_methodology(normalized_radii),
+        methodology=_build_methodology(
+            normalized_radii,
+            source_temporal_coverage=source_temporal_coverage,
+        ),
         assessments=assessments,
     )
 
@@ -596,10 +606,15 @@ def _build_svar_lake_report(
     animal_points: Sequence[_PointEvidence],
     sead_points: Sequence[ContextPointRecord],
     raa_cells: Sequence[_DensityCell],
+    source_temporal_coverage: dict[str, object] | None = None,
 ) -> LakeEvidenceRichnessReport:
     svar_lakes = _load_sweden_svar_lakes(svar_lake_path)
     if not svar_lakes or not human_points:
-        return _build_empty_report(radii_km, candidate_source="svar_lake_registry")
+        return _build_empty_report(
+            radii_km,
+            candidate_source="svar_lake_registry",
+            source_temporal_coverage=source_temporal_coverage,
+        )
     candidates = _derive_svar_lake_candidates(
         svar_lakes,
         pollen_points=pollen_points,
@@ -607,7 +622,11 @@ def _build_svar_lake_report(
         human_points=human_points,
     )
     if not candidates:
-        return _build_empty_report(radii_km, candidate_source="svar_lake_registry")
+        return _build_empty_report(
+            radii_km,
+            candidate_source="svar_lake_registry",
+            source_temporal_coverage=source_temporal_coverage,
+        )
 
     raw_scores: dict[str, dict[int, dict[str, int]]] = {
         candidate.lake_token: {
@@ -872,6 +891,7 @@ def _build_svar_lake_report(
         methodology=_build_methodology(
             radii_km,
             candidate_source="svar_lake_registry",
+            source_temporal_coverage=source_temporal_coverage,
         ),
         assessments=assessments,
     )
@@ -2306,12 +2326,17 @@ def _build_empty_report(
     radii_km: tuple[int, ...],
     *,
     candidate_source: str = "pollen_candidate_points",
+    source_temporal_coverage: dict[str, object] | None = None,
 ) -> LakeEvidenceRichnessReport:
     return LakeEvidenceRichnessReport(
         schema_version="sweden-lake-evidence-richness.v2",
         country="Sweden",
         radii_km=radii_km,
-        methodology=_build_methodology(radii_km, candidate_source=candidate_source),
+        methodology=_build_methodology(
+            radii_km,
+            candidate_source=candidate_source,
+            source_temporal_coverage=source_temporal_coverage,
+        ),
         candidate_count=0,
         assessments=(),
     )
@@ -2321,9 +2346,10 @@ def _build_methodology(
     radii_km: tuple[int, ...],
     *,
     candidate_source: str = "pollen_candidate_points",
+    source_temporal_coverage: dict[str, object] | None = None,
 ) -> dict[str, object]:
     if candidate_source == "svar_lake_registry":
-        return {
+        payload = {
             "candidate_derivation": (
                 "Candidates come from the Sweden lake registry published through "
                 "SMHI SVAR. Each candidate uses a representative point derived "
@@ -2397,7 +2423,10 @@ def _build_methodology(
                 "sampled lakes."
             ),
         }
-    return {
+        if source_temporal_coverage:
+            payload["source_temporal_coverage"] = source_temporal_coverage
+        return payload
+    payload = {
         "candidate_derivation": (
             "Candidates come from Sweden-scoped Neotoma and LandClim pollen "
             "points whose names or site descriptions identify lake-like basins. "
@@ -2445,4 +2474,48 @@ def _build_methodology(
             "Domesticated animal aDNA remains sparse in the current Sweden bundle. "
             "The ranking keeps that sparsity visible instead of inflating it."
         ),
+    }
+    if source_temporal_coverage:
+        payload["source_temporal_coverage"] = source_temporal_coverage
+    return payload
+
+
+def _build_context_temporal_coverage_summary(
+    pollen_points: Sequence[ContextPointRecord],
+    *,
+    sead_points: Sequence[ContextPointRecord],
+) -> dict[str, object]:
+    return {
+        "neotoma_pollen": _temporal_coverage_summary(
+            point
+            for point in pollen_points
+            if point.layer_key == "neotoma-pollen" or point.source == "Neotoma"
+        ),
+        "landclim_pollen": _temporal_coverage_summary(
+            point
+            for point in pollen_points
+            if point.layer_key == "landclim-sites" or point.source == "LandClim"
+        ),
+        "sead_archaeology": _temporal_coverage_summary(sead_points),
+    }
+
+
+def _temporal_coverage_summary(
+    points: Iterable[ContextPointRecord],
+) -> dict[str, object]:
+    materialized_points = tuple(points)
+    total_records = len(materialized_points)
+    numeric_interval_records = sum(
+        1
+        for point in materialized_points
+        if temporal_semantics_has_numeric_interval(point.temporal_semantics)
+    )
+    return {
+        "record_count": total_records,
+        "numeric_interval_record_count": numeric_interval_records,
+        "numeric_interval_share": round(
+            numeric_interval_records / total_records, 4
+        )
+        if total_records
+        else 0.0,
     }

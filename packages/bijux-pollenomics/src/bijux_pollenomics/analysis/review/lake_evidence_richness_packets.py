@@ -431,6 +431,7 @@ This report ranks Sweden lake candidates by the richness of tracked pollen, arch
 - Human aDNA weighting: {_render_human_weighting(report)}
 - Ranking decision rule: {_render_ranking_decision_rule(report)}
 - Temporal alignment rule: {_render_temporal_alignment_rule(report)}
+- Source temporal coverage: {_render_source_temporal_coverage(report)}
 - Sampling note: {_render_optional_methodology_note(report, "sampling_note")}
 - Archaeology note: {report.methodology["archaeology_note"]}
 - Pollen note: {_render_optional_methodology_note(report, "pollen_note")}
@@ -1103,6 +1104,29 @@ def _render_optional_methodology_note(
             "records rather than a synthetic lake average."
         )
     return ""
+
+
+def _render_source_temporal_coverage(report: LakeEvidenceRichnessReport) -> str:
+    payload = report.methodology.get("source_temporal_coverage")
+    if not isinstance(payload, dict):
+        return (
+            "checked-in context layers do not publish one explicit source-by-source "
+            "temporal coverage summary yet"
+        )
+    labels = {
+        "neotoma_pollen": "Neotoma",
+        "landclim_pollen": "LandClim",
+        "sead_archaeology": "SEAD",
+    }
+    rendered = []
+    for key in ("neotoma_pollen", "landclim_pollen", "sead_archaeology"):
+        item = payload.get(key)
+        if not isinstance(item, dict):
+            continue
+        total = int(item.get("record_count", 0) or 0)
+        numeric = int(item.get("numeric_interval_record_count", 0) or 0)
+        rendered.append(f"{labels[key]} {numeric}/{total} numeric-interval records")
+    return ", ".join(rendered) if rendered else "no source temporal coverage summary"
 
 
 def _candidate_media_links(candidate) -> list[dict[str, str]]:
