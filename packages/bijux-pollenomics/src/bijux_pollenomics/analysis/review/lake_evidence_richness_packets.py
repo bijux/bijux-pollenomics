@@ -421,6 +421,7 @@ This report ranks Sweden lake candidates by the richness of tracked pollen, arch
 - Identity diagnostics: {_render_identity_methodology(report)}
 - Coordinate targeting: {_render_coordinate_targeting(report)}
 - Human aDNA weighting: {_render_human_weighting(report)}
+- Ranking decision rule: {_render_ranking_decision_rule(report)}
 - Sampling note: {_render_optional_methodology_note(report, "sampling_note")}
 - Archaeology note: {report.methodology["archaeology_note"]}
 - Pollen note: {_render_optional_methodology_note(report, "pollen_note")}
@@ -1026,13 +1027,28 @@ def _render_coordinate_targeting(report: LakeEvidenceRichnessReport) -> str:
 
 def _render_human_weighting(report: LakeEvidenceRichnessReport) -> str:
     score_components = report.methodology.get("score_components", {})
-    if "human_adna_signal" in score_components and "pollen_signal" in score_components:
+    if (
+        "human_adna_signal" in score_components
+        and "direct_pollen_signal" in score_components
+        and "nearby_pollen_signal" in score_components
+    ):
         return (
             f"human aDNA contributes {score_components['human_adna_signal']:.2f} of each "
-            f"band score, pollen contributes {score_components['pollen_signal']:.2f}, "
+            f"band score, direct pollen contributes {score_components['direct_pollen_signal']:.2f}, "
+            f"nearby pollen contributes {score_components['nearby_pollen_signal']:.2f}, "
             f"and archaeology contributes {score_components['archaeology_signal']:.2f}"
         )
     return "human aDNA is balanced with pollen and archaeology rather than acting as the decisive term"
+
+
+def _render_ranking_decision_rule(report: LakeEvidenceRichnessReport) -> str:
+    rule = report.methodology.get("ranking_decision_rule")
+    if isinstance(rule, str) and rule:
+        return rule
+    return (
+        "aggregate and band ranks use one blended score without an explicit "
+        "decision chain"
+    )
 
 
 def _render_optional_methodology_note(
@@ -1116,6 +1132,9 @@ def _fieldwork_rows(report: LakeEvidenceRichnessReport) -> list:
     return sorted(
         report.assessments,
         key=lambda assessment: (
+            _sampling_priority_rank(
+                assessment.candidate.lake_sampling_posture or "sampling_not_scored"
+            ),
             -_fieldwork_shortlist_score(assessment),
             assessment.aggregate_rank,
             assessment.candidate.lake_label,
@@ -1133,13 +1152,28 @@ def _fieldwork_rank_map(report: LakeEvidenceRichnessReport) -> dict[str, int]:
 def _fieldwork_shortlist_score(assessment) -> float:
     candidate = assessment.candidate
     band_20 = _band_score(assessment, 20)
+    posture_bonus = {
+        "sampling_lake_candidate": 0.05,
+        "compact_lake_candidate": 0.0,
+        "small_lake_review": -0.08,
+    }.get(candidate.lake_sampling_posture, -0.02)
     return round(
-        assessment.aggregate_score * 0.75
-        + candidate.lake_sampling_fit * 0.15
-        + min(1.0, candidate.direct_pollen_source_count / 2.0) * 0.05
-        + min(1.0, band_20.evidence_family_count / 4.0) * 0.05,
+        assessment.aggregate_score * 0.62
+        + candidate.lake_sampling_fit * 0.23
+        + min(1.0, candidate.direct_pollen_source_count / 2.0) * 0.1
+        + min(1.0, band_20.evidence_family_count / 4.0) * 0.05
+        + posture_bonus,
         4,
     )
+
+
+def _sampling_priority_rank(sampling_posture: str) -> int:
+    return {
+        "sampling_lake_candidate": 0,
+        "compact_lake_candidate": 1,
+        "small_lake_review": 2,
+        "sampling_not_scored": 3,
+    }.get(sampling_posture, 4)
 
 
 def _consensus_rows(report: LakeEvidenceRichnessReport) -> list:

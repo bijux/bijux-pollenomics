@@ -619,17 +619,22 @@ def _build_svar_lake_report(
                 ),
             )
             diversity_signal = round(raw["evidence_family_count"] / 5.0, 4)
-            pollen_signal = _weighted_average(
+            direct_pollen_source_signal = min(
+                1.0,
+                candidate.direct_pollen_source_count / 2.0,
+            )
+            direct_pollen_signal = _weighted_average(
                 (candidate.direct_pollen_signal, 0.65),
-                (nearby_pollen_signal, 0.35),
+                (direct_pollen_source_signal, 0.35),
             )
             total_score = round(
-                human_signal * 0.52
-                + pollen_signal * 0.22
-                + archaeology_signal * 0.09
-                + animal_signal * 0.06
-                + diversity_signal * 0.03
-                + candidate.lake_sampling_fit * 0.08,
+                human_signal * 0.59
+                + direct_pollen_signal * 0.14
+                + nearby_pollen_signal * 0.07
+                + archaeology_signal * 0.07
+                + animal_signal * 0.04
+                + diversity_signal * 0.02
+                + candidate.lake_sampling_fit * 0.07,
                 4,
             )
             band_scores.append(
@@ -676,13 +681,14 @@ def _build_svar_lake_report(
         ordered = sorted(
             candidate_rows,
             key=lambda row: (
-                -_band_score_for_radius(
-                    row["band_scores"],  # type: ignore[arg-type]
-                    radius_km=radius,
-                ).total_score,
-                -row["aggregate_score"],  # type: ignore[arg-type]
-                -row["candidate"].lake_sampling_fit,  # type: ignore[index]
-                row["candidate"].lake_label,  # type: ignore[index]
+                *_svar_band_priority_key(
+                    row["candidate"],  # type: ignore[arg-type]
+                    _band_score_for_radius(
+                        row["band_scores"],  # type: ignore[arg-type]
+                        radius_km=radius,
+                    ),
+                    aggregate_score=row["aggregate_score"],  # type: ignore[arg-type]
+                ),
             ),
         )
         for rank, row in enumerate(ordered, start=1):
@@ -716,13 +722,11 @@ def _build_svar_lake_report(
     ordered_candidates = sorted(
         candidate_rows,
         key=lambda row: (
-            -row["aggregate_score"],  # type: ignore[arg-type]
-            -_band_score_for_radius(
+            *_svar_aggregate_priority_key(
+                row["candidate"],  # type: ignore[arg-type]
                 row["band_scores"],  # type: ignore[arg-type]
-                radius_km=radii_km[0],
-            ).human_signal,
-            -row["candidate"].lake_sampling_fit,  # type: ignore[index]
-            row["candidate"].lake_label,  # type: ignore[index]
+                aggregate_score=row["aggregate_score"],  # type: ignore[arg-type]
+            ),
         ),
     )
     assessments = tuple(
@@ -1963,6 +1967,77 @@ def _weighted_average(*pairs: tuple[float, float]) -> float:
     return round(numerator / denominator, 4)
 
 
+def _weighted_band_metric(
+    band_scores: Sequence[LakeEvidenceBandScore],
+    metric_name: str,
+) -> float:
+    return round(
+        sum(
+            float(getattr(score, metric_name))
+            * _SVAR_AGGREGATE_RADIUS_WEIGHTS.get(score.radius_km, 0.0)
+            for score in band_scores
+        ),
+        4,
+    )
+
+
+def _sampling_priority_rank(sampling_posture: str) -> int:
+    return {
+        "sampling_lake_candidate": 0,
+        "compact_lake_candidate": 1,
+        "small_lake_review": 2,
+        "sampling_not_scored": 3,
+    }.get(sampling_posture, 4)
+
+
+def _svar_band_priority_key(
+    candidate: LakeEvidenceCandidate,
+    band_score: LakeEvidenceBandScore,
+    *,
+    aggregate_score: float,
+) -> tuple[object, ...]:
+    return (
+        -band_score.human_adna_locality_count,
+        -band_score.human_adna_sample_count,
+        -candidate.direct_pollen_source_count,
+        -candidate.time_aware_direct_pollen_records,
+        -band_score.evidence_family_count,
+        -band_score.sead_site_count,
+        -band_score.raa_density_site_count,
+        _sampling_priority_rank(
+            candidate.lake_sampling_posture or "sampling_not_scored"
+        ),
+        -candidate.lake_sampling_fit,
+        -band_score.total_score,
+        -aggregate_score,
+        candidate.lake_label,
+    )
+
+
+def _svar_aggregate_priority_key(
+    candidate: LakeEvidenceCandidate,
+    band_scores: Sequence[LakeEvidenceBandScore],
+    *,
+    aggregate_score: float,
+) -> tuple[object, ...]:
+    return (
+        -_weighted_band_metric(band_scores, "human_adna_locality_count"),
+        -_weighted_band_metric(band_scores, "human_adna_sample_count"),
+        -candidate.direct_pollen_source_count,
+        -candidate.time_aware_direct_pollen_records,
+        -_weighted_band_metric(band_scores, "evidence_family_count"),
+        -_weighted_band_metric(band_scores, "nearby_pollen_lake_count"),
+        -_weighted_band_metric(band_scores, "sead_site_count"),
+        -_weighted_band_metric(band_scores, "raa_density_site_count"),
+        _sampling_priority_rank(
+            candidate.lake_sampling_posture or "sampling_not_scored"
+        ),
+        -candidate.lake_sampling_fit,
+        -aggregate_score,
+        candidate.lake_label,
+    )
+
+
 def _band_score_for_radius(
     band_scores: Sequence[LakeEvidenceBandScore],
     *,
@@ -2033,13 +2108,20 @@ def _build_methodology(
                 for radius in radii_km
             },
             "score_components": {
-                "human_adna_signal": 0.52,
-                "lake_sampling_fit": 0.08,
-                "pollen_signal": 0.22,
-                "archaeology_signal": 0.09,
-                "domesticated_animal_signal": 0.06,
-                "evidence_diversity_signal": 0.03,
+                "human_adna_signal": 0.59,
+                "direct_pollen_signal": 0.14,
+                "nearby_pollen_signal": 0.07,
+                "lake_sampling_fit": 0.07,
+                "archaeology_signal": 0.07,
+                "domesticated_animal_signal": 0.04,
+                "evidence_diversity_signal": 0.02,
             },
+            "ranking_decision_rule": (
+                "Aggregate and band ranks sort first by human aDNA locality and "
+                "sample coverage, then by direct pollen support, then by broader "
+                "pollen and archaeology context, with sampling fit and blended score "
+                "used as later tie-breakers."
+            ),
             "identity_diagnostics": {
                 "coordinate_spread_flag_km": _COORDINATE_SPREAD_FLAG_KM,
                 "name_match_distance_km": _LAKE_MATCH_DISTANCE_KM,
@@ -2069,8 +2151,9 @@ def _build_methodology(
             ),
             "animal_note": (
                 "Domesticated animal aDNA remains a secondary contextual signal. "
-                "Human aDNA is the decisive ranking term, pollen is secondary, "
-                "and archaeology resolves ties among similarly sampled lakes."
+                "Human aDNA is the decisive ranking term, direct pollen is the "
+                "next tie-break, and archaeology resolves ties among similarly "
+                "sampled lakes."
             ),
         }
     return {
