@@ -37,6 +37,7 @@ def write_data_contract_surfaces(summary: DataCollectionSummary) -> None:
                 "sead_point_count": summary.sead_point_count,
                 "raa_total_site_count": summary.raa_total_site_count,
                 "raa_heritage_site_count": summary.raa_heritage_site_count,
+                "svar_lake_count": summary.svar_lake_count,
             },
         ),
     )
