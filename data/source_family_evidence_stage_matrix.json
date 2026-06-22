@@ -1,6 +1,6 @@
 {
   "schema_version": "source-family-evidence-stage-matrix.v1",
-  "row_count": 7,
+  "row_count": 8,
   "rows": [
     {
       "source_key": "landclim",
@@ -86,6 +86,23 @@
       "publication_posture": "published_with_review_support",
       "coverage_metrics": {
         "boundary_country_count": 4
+      },
+      "blocking_reasons": []
+    },
+    {
+      "source_key": "svar",
+      "display_name": "SMHI SVAR lake registry",
+      "domain_group": "hydrography_context",
+      "evidence_role": "sampling_domain",
+      "primary_question": "Which official Sweden lake-register geometries and stable lake identities are available for sampling-oriented ranking?",
+      "raw_status": "present",
+      "normalized_status": "present",
+      "reviewed_status": "present",
+      "published_status": "present",
+      "provenance_depth": "review_ready",
+      "publication_posture": "published_with_review_support",
+      "coverage_metrics": {
+        "svar_lake_count": 40565
       },
       "blocking_reasons": []
     },

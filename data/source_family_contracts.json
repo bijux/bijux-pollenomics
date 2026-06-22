@@ -1,6 +1,6 @@
 {
   "schema_version": "source-family-contracts.v1",
-  "row_count": 7,
+  "row_count": 8,
   "rows": [
     {
       "source_key": "landclim",
@@ -424,6 +424,90 @@
           "purpose": "published boundary layers used in map framing",
           "example_artifacts": [
             "docs/report/regions/nordic/nordic_country_boundaries.geojson"
+          ]
+        }
+      }
+    },
+    {
+      "source_key": "svar",
+      "display_name": "SMHI SVAR lake registry",
+      "domain_group": "hydrography_context",
+      "evidence_role": "sampling_domain",
+      "primary_question": "Which official Sweden lake-register geometries and stable lake identities are available for sampling-oriented ranking?",
+      "raw_layer": {
+        "layer_key": "raw",
+        "repository_path": "data/svar/raw",
+        "required": true,
+        "purpose": "tracked SMHI SVAR WFS capture metadata and source manifest",
+        "example_artifacts": [
+          "data/svar/raw/svar_lake_registry_manifest.json"
+        ]
+      },
+      "normalized_layer": {
+        "layer_key": "normalized",
+        "repository_path": "data/svar/normalized",
+        "required": true,
+        "purpose": "tracked normalized Sweden lake registry with stable lake identities and geometry",
+        "example_artifacts": [
+          "data/svar/normalized/sweden_lake_registry.geojson"
+        ]
+      },
+      "reviewed_layer": {
+        "layer_key": "reviewed",
+        "repository_path": "data/source_family_evidence_stage_matrix.json",
+        "required": true,
+        "purpose": "cross-family review of lake-registry freshness, coverage, and publication posture",
+        "example_artifacts": [
+          "data/source_family_evidence_stage_matrix.json"
+        ]
+      },
+      "published_layer": {
+        "layer_key": "published",
+        "repository_path": "docs/report/countries/sweden",
+        "required": true,
+        "purpose": "published Sweden lake ranking and fieldwork surfaces derived from the official lake registry",
+        "example_artifacts": [
+          "docs/report/countries/sweden/sweden_lake_evidence_richness_v66.geojson"
+        ]
+      },
+      "coverage_metric_keys": [
+        "svar_lake_count"
+      ],
+      "layer_contracts": {
+        "raw": {
+          "layer_key": "raw",
+          "repository_path": "data/svar/raw",
+          "required": true,
+          "purpose": "tracked SMHI SVAR WFS capture metadata and source manifest",
+          "example_artifacts": [
+            "data/svar/raw/svar_lake_registry_manifest.json"
+          ]
+        },
+        "normalized": {
+          "layer_key": "normalized",
+          "repository_path": "data/svar/normalized",
+          "required": true,
+          "purpose": "tracked normalized Sweden lake registry with stable lake identities and geometry",
+          "example_artifacts": [
+            "data/svar/normalized/sweden_lake_registry.geojson"
+          ]
+        },
+        "reviewed": {
+          "layer_key": "reviewed",
+          "repository_path": "data/source_family_evidence_stage_matrix.json",
+          "required": true,
+          "purpose": "cross-family review of lake-registry freshness, coverage, and publication posture",
+          "example_artifacts": [
+            "data/source_family_evidence_stage_matrix.json"
+          ]
+        },
+        "published": {
+          "layer_key": "published",
+          "repository_path": "docs/report/countries/sweden",
+          "required": true,
+          "purpose": "published Sweden lake ranking and fieldwork surfaces derived from the official lake registry",
+          "example_artifacts": [
+            "docs/report/countries/sweden/sweden_lake_evidence_richness_v66.geojson"
           ]
         }
       }
