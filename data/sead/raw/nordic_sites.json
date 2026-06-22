@@ -21954,5 +21954,31 @@
       "site_description": null,
       "site_uuid": "d38dca2c-b87c-44ec-9568-be32642371e5"
     }
+  ],
+  "inventory_summary": {
+    "row_count": 2195,
+    "sample_row_count": 0,
+    "dataset_row_count": 0,
+    "bibliography_row_count": 0,
+    "dating_range_row_count": 0,
+    "relative_period_row_count": 0,
+    "numeric_interval_row_count": 0,
+    "temporal_capture_posture": "site_inventory_only"
+  },
+  "source_tables": [
+    "tbl_sites",
+    "tbl_sample_groups",
+    "tbl_physical_samples",
+    "tbl_analysis_entities",
+    "tbl_analysis_values",
+    "tbl_analysis_dating_ranges",
+    "tbl_age_types",
+    "tbl_relative_dates",
+    "tbl_relative_ages",
+    "tbl_dating_uncertainty",
+    "tbl_methods",
+    "tbl_datasets",
+    "tbl_site_references",
+    "tbl_biblio"
   ]
 }

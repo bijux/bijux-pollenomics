@@ -4,6 +4,11 @@ This review keeps SEAD honest about site-level time semantics. It distinguishes 
 
 - Reviewed sites: `2195`
 - unresolved: `2195`
+- Raw capture posture: `site_inventory_only`
+- Rows with numeric intervals: `0`
+- Rows with linked dating ranges: `0`
+- Rows with linked relative periods: `0`
+- Rows with bibliography links: `0`
 
 | Site | Country | Comparability posture | Time summary | Normalized period labels | Uncertainty notes |
 | --- | --- | --- | --- | --- | --- |

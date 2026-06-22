@@ -69,11 +69,13 @@ def build_neotoma_temporal_review(
             str(row["site_id"]),
         )
     )
+    coverage_summary = _coverage_summary(rows)
     return {
         "schema_version": "neotoma-temporal-review.v1",
         "generated_on": str(date.today()),
         "row_count": len(review_rows),
         "comparability_posture_counts": posture_counts,
+        "coverage_summary": coverage_summary,
         "rows": review_rows,
     }
 
@@ -107,10 +109,23 @@ def render_neotoma_temporal_review_markdown(payload: dict[str, object]) -> str:
     counts = payload.get("comparability_posture_counts", {})
     if not isinstance(counts, dict):
         counts = {}
+    coverage_summary = payload.get("coverage_summary", {})
+    if not isinstance(coverage_summary, dict):
+        coverage_summary = {}
     summary = (
         "\n".join(f"- {key}: `{value}`" for key, value in sorted(counts.items()))
         or "- unresolved: `0`"
     )
+    coverage_lines = ""
+    if coverage_summary:
+        coverage_lines = "\n".join(
+            [
+                f"- Sites with age ranges: `{coverage_summary.get('site_count_with_age_ranges', 0)}`",
+                f"- Sites with BP age ranges: `{coverage_summary.get('site_count_with_bp_age_ranges', 0)}`",
+                f"- Sites with chronology rows: `{coverage_summary.get('site_count_with_chronologies', 0)}`",
+                f"- Sites without publishable BP windows: `{coverage_summary.get('site_count_without_bp_age_ranges', 0)}`",
+            ]
+        )
     table_rows = "\n".join(
         (
             f"| {row.get('site_name', 'Unknown')} (`{row.get('site_id', '')}`) | "
@@ -130,6 +145,7 @@ This review keeps Neotoma pollen sites honest about chronology comparability. It
 
 - Reviewed sites: `{payload.get("row_count", 0)}`
 {summary}
+{coverage_lines}
 
 | Site | Country | Comparability posture | Time summary | Supported BP age ranges | Chronologies |
 | --- | --- | --- | --- | ---: | ---: |
@@ -173,3 +189,29 @@ def _parse_int_or_default(value: object) -> int:
         return int(text)
     except ValueError:
         return 0
+
+
+def _coverage_summary(rows: list[dict[str, object]]) -> dict[str, int]:
+    def _age_ranges(row: dict[str, object]) -> list[dict[str, object]]:
+        age_ranges = row.get("age_ranges")
+        if not isinstance(age_ranges, list):
+            return []
+        return [age_range for age_range in age_ranges if isinstance(age_range, dict)]
+
+    def _has_bp_age_range(row: dict[str, object]) -> bool:
+        return any(
+            "bp" in str(age_range.get("units", "")).strip().casefold()
+            for age_range in _age_ranges(row)
+        )
+
+    site_count_with_age_ranges = sum(1 for row in rows if _age_ranges(row))
+    site_count_with_bp_age_ranges = sum(1 for row in rows if _has_bp_age_range(row))
+    site_count_with_chronologies = sum(
+        1 for row in rows if _parse_int_or_default(row.get("chronology_count")) > 0
+    )
+    return {
+        "site_count_with_age_ranges": site_count_with_age_ranges,
+        "site_count_with_bp_age_ranges": site_count_with_bp_age_ranges,
+        "site_count_with_chronologies": site_count_with_chronologies,
+        "site_count_without_bp_age_ranges": len(rows) - site_count_with_bp_age_ranges,
+    }

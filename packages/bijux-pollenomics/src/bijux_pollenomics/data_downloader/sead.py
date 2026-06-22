@@ -5,6 +5,7 @@ from dataclasses import dataclass
 import json
 from pathlib import Path
 
+from ..core.files import write_json
 from ..core.http import fetch_json
 from .contracts import SEAD_POINT_CSV, SEAD_POINT_GEOJSON
 from .exports.context_points import (
@@ -179,6 +180,30 @@ def materialize_sead_repository_surfaces(data_root: Path) -> SeadDataReport:
     if not isinstance(raw_rows, list):
         raise ValueError(f"SEAD raw inventory must contain a row list: {raw_path}")
     rows = [row for row in raw_rows if isinstance(row, dict)]
+    inventory_summary = payload.get("inventory_summary")
+    if not isinstance(inventory_summary, dict):
+        inventory_summary = _build_repository_inventory_summary(rows)
+        payload["inventory_summary"] = inventory_summary
+        payload.setdefault(
+            "source_tables",
+            [
+                "tbl_sites",
+                "tbl_sample_groups",
+                "tbl_physical_samples",
+                "tbl_analysis_entities",
+                "tbl_analysis_values",
+                "tbl_analysis_dating_ranges",
+                "tbl_age_types",
+                "tbl_relative_dates",
+                "tbl_relative_ages",
+                "tbl_dating_uncertainty",
+                "tbl_methods",
+                "tbl_datasets",
+                "tbl_site_references",
+                "tbl_biblio",
+            ],
+        )
+        write_json(raw_path, payload)
     country_boundaries = load_repository_country_boundaries(data_root)
     records = normalize_sead_rows(rows, country_boundaries=country_boundaries)
     normalized_csv_path = SEAD_POINT_CSV.path_under(data_root)
@@ -194,6 +219,51 @@ def materialize_sead_repository_surfaces(data_root: Path) -> SeadDataReport:
         normalized_csv_path=normalized_csv_path,
         normalized_geojson_path=normalized_geojson_path,
     )
+
+
+def _build_repository_inventory_summary(
+    rows: list[dict[str, object]],
+) -> dict[str, int | str]:
+    def _list_count(key: str) -> int:
+        return sum(
+            1
+            for row in rows
+            if isinstance(row.get(key), list) and len(row.get(key, [])) > 0
+        )
+
+    numeric_interval_row_count = sum(
+        1
+        for row in rows
+        if isinstance(row.get("time_start_bp"), int)
+        and isinstance(row.get("time_end_bp"), int)
+    )
+    dating_range_row_count = _list_count("dating_range_rows")
+    relative_period_row_count = _list_count("relative_period_rows")
+    bibliography_row_count = _list_count("bibliography_rows")
+    sample_row_count = _list_count("sample_rows")
+    dataset_row_count = _list_count("dataset_rows")
+    temporal_capture_posture = (
+        "linked_inventory_available"
+        if any(
+            count > 0
+            for count in (
+                dating_range_row_count,
+                relative_period_row_count,
+                numeric_interval_row_count,
+            )
+        )
+        else "site_inventory_only"
+    )
+    return {
+        "row_count": len(rows),
+        "sample_row_count": sample_row_count,
+        "dataset_row_count": dataset_row_count,
+        "bibliography_row_count": bibliography_row_count,
+        "dating_range_row_count": dating_range_row_count,
+        "relative_period_row_count": relative_period_row_count,
+        "numeric_interval_row_count": numeric_interval_row_count,
+        "temporal_capture_posture": temporal_capture_posture,
+    }
 
 
 __all__ = [

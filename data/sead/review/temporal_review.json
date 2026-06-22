@@ -1,9 +1,16 @@
 {
   "schema_version": "sead-temporal-review.v1",
-  "generated_on": "2026-05-09",
+  "generated_on": "2026-06-22",
   "row_count": 2195,
   "comparability_posture_counts": {
     "unresolved": 2195
+  },
+  "inventory_summary": {
+    "numeric_interval_row_count": 0,
+    "dating_range_row_count": 0,
+    "relative_period_row_count": 0,
+    "bibliography_row_count": 0,
+    "temporal_capture_posture": "site_inventory_only"
   },
   "rows": [
     {

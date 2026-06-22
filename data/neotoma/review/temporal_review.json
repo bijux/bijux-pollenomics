@@ -8,6 +8,12 @@
     "numeric_interval": 63,
     "contextual_label_only": 5
   },
+  "coverage_summary": {
+    "site_count_with_age_ranges": 175,
+    "site_count_with_bp_age_ranges": 175,
+    "site_count_with_chronologies": 0,
+    "site_count_without_bp_age_ranges": 25
+  },
   "rows": [
     {
       "site_id": "13391",

@@ -873,6 +873,12 @@ class NeotomaDataTests(unittest.TestCase):
         self.assertEqual(
             temporal_review["comparability_posture_counts"]["numeric_interval"], 1
         )
+        self.assertEqual(
+            temporal_review["coverage_summary"]["site_count_with_bp_age_ranges"], 1
+        )
+        self.assertEqual(
+            temporal_review["coverage_summary"]["site_count_without_bp_age_ranges"], 0
+        )
 
 
 if __name__ == "__main__":

@@ -81,11 +81,13 @@ def build_sead_temporal_review(
             str(row["site_id"]),
         )
     )
+    inventory_summary = _inventory_summary(rows)
     return {
         "schema_version": "sead-temporal-review.v1",
         "generated_on": str(date.today()),
         "row_count": len(review_rows),
         "comparability_posture_counts": posture_counts,
+        "inventory_summary": inventory_summary,
         "rows": review_rows,
     }
 
@@ -331,6 +333,9 @@ def write_sead_review_outputs(
 
 def render_sead_temporal_review_markdown(payload: dict[str, object]) -> str:
     rows = payload["rows"]
+    inventory_summary = payload.get("inventory_summary", {})
+    if not isinstance(inventory_summary, dict):
+        inventory_summary = {}
     lines = [
         "# SEAD temporal review",
         "",
@@ -342,6 +347,16 @@ def render_sead_temporal_review_markdown(payload: dict[str, object]) -> str:
     if isinstance(posture_counts, dict):
         for key in sorted(posture_counts):
             lines.append(f"- {key.replace('_', ' ')}: `{posture_counts[key]}`")
+    if inventory_summary:
+        lines.extend(
+            [
+                f"- Raw capture posture: `{inventory_summary.get('temporal_capture_posture', 'unknown')}`",
+                f"- Rows with numeric intervals: `{inventory_summary.get('numeric_interval_row_count', 0)}`",
+                f"- Rows with linked dating ranges: `{inventory_summary.get('dating_range_row_count', 0)}`",
+                f"- Rows with linked relative periods: `{inventory_summary.get('relative_period_row_count', 0)}`",
+                f"- Rows with bibliography links: `{inventory_summary.get('bibliography_row_count', 0)}`",
+            ]
+        )
     lines.extend(
         [
             "",
@@ -548,3 +563,41 @@ def _review_note_for(
     if duration_posture == "duration_span_visible":
         return "This row carries a visible site span, but the span still belongs to archaeology context rather than a sample-owned event."
     return "This row is publishable only as contextual archaeology support with its stated caveats."
+
+
+def _inventory_summary(rows: list[dict[str, object]]) -> dict[str, int | str]:
+    def _rows_with_list(key: str) -> int:
+        return sum(
+            1
+            for row in rows
+            if isinstance(row.get(key), list) and len(row.get(key, [])) > 0
+        )
+
+    numeric_interval_row_count = sum(
+        1
+        for row in rows
+        if isinstance(row.get("time_start_bp"), int)
+        and isinstance(row.get("time_end_bp"), int)
+    )
+    dating_range_row_count = _rows_with_list("dating_range_rows")
+    relative_period_row_count = _rows_with_list("relative_period_rows")
+    bibliography_row_count = _rows_with_list("bibliography_rows")
+    temporal_capture_posture = (
+        "linked_inventory_available"
+        if any(
+            count > 0
+            for count in (
+                numeric_interval_row_count,
+                dating_range_row_count,
+                relative_period_row_count,
+            )
+        )
+        else "site_inventory_only"
+    )
+    return {
+        "numeric_interval_row_count": numeric_interval_row_count,
+        "dating_range_row_count": dating_range_row_count,
+        "relative_period_row_count": relative_period_row_count,
+        "bibliography_row_count": bibliography_row_count,
+        "temporal_capture_posture": temporal_capture_posture,
+    }

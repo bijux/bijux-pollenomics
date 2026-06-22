@@ -7,6 +7,10 @@ This review keeps Neotoma pollen sites honest about chronology comparability. It
 - numeric_interval: `63`
 - numeric_interval_with_caveat: `107`
 - unresolved: `25`
+- Sites with age ranges: `175`
+- Sites with BP age ranges: `175`
+- Sites with chronology rows: `0`
+- Sites without publishable BP windows: `25`
 
 | Site | Country | Comparability posture | Time summary | Supported BP age ranges | Chronologies |
 | --- | --- | --- | --- | ---: | ---: |
