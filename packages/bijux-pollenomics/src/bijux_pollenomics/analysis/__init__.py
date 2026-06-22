@@ -12,6 +12,7 @@ from .lake_evidence_richness import (
     LakeEvidenceCandidate,
     LakeEvidenceRichnessAssessment,
     LakeEvidenceRichnessReport,
+    LakeEvidenceSourceAnchor,
     build_sweden_lake_evidence_richness_report,
 )
 from .ranking import (
@@ -65,6 +66,7 @@ __all__ = [
     "LakeEvidenceCandidate",
     "LakeEvidenceRichnessAssessment",
     "LakeEvidenceRichnessReport",
+    "LakeEvidenceSourceAnchor",
     "RankingEngineManifest",
     "build_candidate_context",
     "build_lake_fieldwork_preparation_payload",

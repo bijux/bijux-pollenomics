@@ -10,12 +10,32 @@ from bijux_pollenomics.analysis import (
     LakeEvidenceCandidate,
     LakeEvidenceRichnessAssessment,
     LakeEvidenceRichnessReport,
+    LakeEvidenceSourceAnchor,
     build_lake_fieldwork_preparation_payload,
     render_lake_fieldwork_preparation_markdown,
     render_lake_fieldwork_preparation_section,
     write_lake_fieldwork_preparation_csv,
     write_lake_fieldwork_preparation_json,
 )
+
+
+def _source_point(
+    *,
+    source_record: str,
+    source_name: str,
+    source_layer_key: str,
+    latitude: float,
+    longitude: float,
+    source_url: str = "https://example.test/source",
+) -> LakeEvidenceSourceAnchor:
+    return LakeEvidenceSourceAnchor(
+        source_record=source_record,
+        source_name=source_name,
+        source_layer_key=source_layer_key,
+        latitude=latitude,
+        longitude=longitude,
+        source_url=source_url,
+    )
 
 
 def _candidate(
@@ -45,6 +65,20 @@ def _candidate(
         supporting_source_records=("landclim-sites:l1", "neotoma-pollen:n1")[
             :direct_pollen_source_count
         ],
+        supporting_source_points=(
+            _source_point(
+                source_record="landclim-sites:l1",
+                source_name=lake_name,
+                source_layer_key="landclim-sites",
+                latitude=latitude,
+                longitude=longitude,
+            ),
+        ),
+        representative_source_record="landclim-sites:l1",
+        representative_source_layer_key="landclim-sites",
+        representative_source_name=lake_name,
+        representative_source_url="https://example.test/source",
+        coordinate_resolution_method="shared_source_coordinate",
         duplicate_name_count=2 if "duplicate_sweden_name" in ambiguity_flags else 1,
         coordinate_spread_km=0.9
         if "source_coordinate_spread" in ambiguity_flags

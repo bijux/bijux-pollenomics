@@ -321,6 +321,10 @@ def test_build_sweden_lake_evidence_richness_report_ranks_multi_signal_lakes() -
         assert top.band_scores[0].raa_density_site_count == 1200
         assert top.candidate.lake_label == "Alpha"
         assert top.candidate.ambiguity_flags == ()
+        assert top.candidate.coordinate_resolution_method == "source_coordinate_medoid"
+        assert top.candidate.latitude == 57.0005
+        assert top.candidate.longitude == 14.0005
+        assert top.candidate.representative_source_record == "landclim-sites:l1"
 
 
 def test_lake_candidates_do_not_merge_different_nearby_lakes() -> None:
@@ -552,6 +556,11 @@ def test_lake_evidence_richness_packets_write_reviewable_outputs() -> None:
         assert geojson["features"][0]["properties"]["name"] == "Alpha"
         assert markdown.startswith("# Sweden lake evidence richness")
         assert "## 10 km Ranking" in markdown
+        assert "https://www.google.com/maps/search/?api=1&query=57.000000,14.000000" in markdown
+        assert registry_rows[0]["google_maps_url"].startswith(
+            "https://www.google.com/maps/search/"
+        )
+        assert registry_rows[0]["representative_source_record"] == "neotoma-pollen:n1"
 
 
 def test_lake_evidence_geojson_matches_report_candidate_count() -> None:

@@ -17,6 +17,7 @@ __all__ = [
     "LakeEvidenceCandidate",
     "LakeEvidenceRichnessAssessment",
     "LakeEvidenceRichnessReport",
+    "LakeEvidenceSourceAnchor",
     "build_sweden_lake_evidence_richness_report",
 ]
 
@@ -37,6 +38,28 @@ _COORDINATE_SPREAD_FLAG_KM = 0.75
 
 
 @dataclass(frozen=True)
+class LakeEvidenceSourceAnchor:
+    """One source-backed coordinate that supports a lake candidate."""
+
+    source_record: str
+    source_name: str
+    source_layer_key: str
+    latitude: float
+    longitude: float
+    source_url: str
+
+    def as_dict(self) -> dict[str, object]:
+        return {
+            "source_record": self.source_record,
+            "source_name": self.source_name,
+            "source_layer_key": self.source_layer_key,
+            "latitude": round(self.latitude, 6),
+            "longitude": round(self.longitude, 6),
+            "source_url": self.source_url,
+        }
+
+
+@dataclass(frozen=True)
 class LakeEvidenceCandidate:
     """One Sweden lake candidate derived from pollen-basin context."""
 
@@ -53,6 +76,12 @@ class LakeEvidenceCandidate:
     pollen_sources: tuple[str, ...]
     supporting_pollen_names: tuple[str, ...]
     supporting_source_records: tuple[str, ...]
+    supporting_source_points: tuple[LakeEvidenceSourceAnchor, ...]
+    representative_source_record: str
+    representative_source_layer_key: str
+    representative_source_name: str
+    representative_source_url: str
+    coordinate_resolution_method: str
     duplicate_name_count: int
     coordinate_spread_km: float
     ambiguity_flags: tuple[str, ...]
@@ -74,6 +103,14 @@ class LakeEvidenceCandidate:
             "pollen_sources": list(self.pollen_sources),
             "supporting_pollen_names": list(self.supporting_pollen_names),
             "supporting_source_records": list(self.supporting_source_records),
+            "supporting_source_points": [
+                source_point.as_dict() for source_point in self.supporting_source_points
+            ],
+            "representative_source_record": self.representative_source_record,
+            "representative_source_layer_key": self.representative_source_layer_key,
+            "representative_source_name": self.representative_source_name,
+            "representative_source_url": self.representative_source_url,
+            "coordinate_resolution_method": self.coordinate_resolution_method,
             "duplicate_name_count": self.duplicate_name_count,
             "coordinate_spread_km": self.coordinate_spread_km,
             "ambiguity_flags": list(self.ambiguity_flags),
@@ -631,16 +668,33 @@ def _derive_lake_candidates(
     for component in components:
         points = tuple(component)
         canonical_name = _choose_canonical_lake_name(points)
-        average_latitude = round(
-            sum(source_point.point.latitude for source_point in points) / len(points), 6
-        )
-        average_longitude = round(
-            sum(source_point.point.longitude for source_point in points) / len(points), 6
-        )
+        representative_source_point = _choose_representative_source_point(points)
+        representative_latitude = round(representative_source_point.point.latitude, 6)
+        representative_longitude = round(representative_source_point.point.longitude, 6)
         pollen_sources = tuple(sorted({source_point.point.layer_key for source_point in points}))
         supporting_names = tuple(sorted({source_point.cleaned_name for source_point in points}))
         supporting_source_records = tuple(
             sorted({source_point.source_record for source_point in points})
+        )
+        supporting_source_points = tuple(
+            sorted(
+                (
+                    LakeEvidenceSourceAnchor(
+                        source_record=source_point.source_record,
+                        source_name=source_point.cleaned_name,
+                        source_layer_key=source_point.point.layer_key,
+                        latitude=source_point.point.latitude,
+                        longitude=source_point.point.longitude,
+                        source_url=source_point.point.source_url,
+                    )
+                    for source_point in points
+                ),
+                key=lambda source_point: (
+                    source_point.source_name,
+                    source_point.source_layer_key,
+                    source_point.source_record,
+                ),
+            )
         )
         coordinate_spread_km = round(_max_pair_distance(points), 4)
         ambiguity_flags = list(_base_ambiguity_flags(points, coordinate_spread_km))
@@ -680,11 +734,11 @@ def _derive_lake_candidates(
                 "name_key": _lake_name_key(canonical_name),
                 "lake_token": _build_lake_token(
                     canonical_name,
-                    latitude=average_latitude,
-                    longitude=average_longitude,
+                    latitude=representative_latitude,
+                    longitude=representative_longitude,
                 ),
-                "latitude": average_latitude,
-                "longitude": average_longitude,
+                "latitude": representative_latitude,
+                "longitude": representative_longitude,
                 "basin_posture": "lake_basin",
                 "direct_pollen_source_count": len(pollen_sources),
                 "direct_pollen_record_count": len(points),
@@ -697,6 +751,12 @@ def _derive_lake_candidates(
                 "pollen_sources": pollen_sources,
                 "supporting_pollen_names": supporting_names,
                 "supporting_source_records": supporting_source_records,
+                "supporting_source_points": supporting_source_points,
+                "representative_source_record": representative_source_point.source_record,
+                "representative_source_layer_key": representative_source_point.point.layer_key,
+                "representative_source_name": representative_source_point.cleaned_name,
+                "representative_source_url": representative_source_point.point.source_url,
+                "coordinate_resolution_method": _coordinate_resolution_method(points),
                 "coordinate_spread_km": coordinate_spread_km,
                 "ambiguity_flags": ambiguity_flags,
                 "position_notes": position_notes,
@@ -744,6 +804,16 @@ def _derive_lake_candidates(
                 supporting_source_records=tuple(
                     candidate["supporting_source_records"]  # type: ignore[arg-type]
                 ),
+                supporting_source_points=tuple(
+                    candidate["supporting_source_points"]  # type: ignore[arg-type]
+                ),
+                representative_source_record=str(candidate["representative_source_record"]),
+                representative_source_layer_key=str(
+                    candidate["representative_source_layer_key"]
+                ),
+                representative_source_name=str(candidate["representative_source_name"]),
+                representative_source_url=str(candidate["representative_source_url"]),
+                coordinate_resolution_method=str(candidate["coordinate_resolution_method"]),
                 duplicate_name_count=duplicate_name_count,
                 coordinate_spread_km=float(candidate["coordinate_spread_km"]),
                 ambiguity_flags=tuple(ambiguity_flags),
@@ -827,6 +897,65 @@ def _choose_canonical_lake_name(points: Sequence[_LakeSourcePoint]) -> str:
         ),
     )
     return best.cleaned_name
+
+
+def _choose_representative_source_point(
+    points: Sequence[_LakeSourcePoint],
+) -> _LakeSourcePoint:
+    coordinate_counts = Counter(
+        (
+            round(source_point.point.latitude, 6),
+            round(source_point.point.longitude, 6),
+        )
+        for source_point in points
+    )
+    return min(
+        points,
+        key=lambda source_point: (
+            -coordinate_counts[
+                (
+                    round(source_point.point.latitude, 6),
+                    round(source_point.point.longitude, 6),
+                )
+            ],
+            _total_distance_to_component(source_point, points),
+            -_lake_name_source_priority(source_point.point.layer_key),
+            -_name_has_non_ascii(source_point.cleaned_name),
+            source_point.cleaned_name,
+            source_point.source_record,
+        ),
+    )
+
+
+def _total_distance_to_component(
+    anchor: _LakeSourcePoint,
+    points: Sequence[_LakeSourcePoint],
+) -> float:
+    return round(
+        sum(
+            haversine_km(
+                latitude_a=anchor.point.latitude,
+                longitude_a=anchor.point.longitude,
+                latitude_b=other.point.latitude,
+                longitude_b=other.point.longitude,
+            )
+            for other in points
+        ),
+        6,
+    )
+
+
+def _coordinate_resolution_method(points: Sequence[_LakeSourcePoint]) -> str:
+    unique_coordinates = {
+        (
+            round(source_point.point.latitude, 6),
+            round(source_point.point.longitude, 6),
+        )
+        for source_point in points
+    }
+    if len(unique_coordinates) == 1:
+        return "shared_source_coordinate"
+    return "source_coordinate_medoid"
 
 
 def _base_ambiguity_flags(
@@ -1152,8 +1281,11 @@ def _build_methodology(radii_km: tuple[int, ...]) -> dict[str, object]:
             "points whose names or site descriptions identify lake-like basins. "
             "Points merge only when their cleaned lake names match and their "
             "coordinates stay within 2 km, so nearby but differently named lakes "
-            "remain distinct. Duplicate names, coordinate spread, and source "
-            "position notes remain explicit as ambiguity diagnostics."
+            "remain distinct. Each candidate keeps one source-backed "
+            "representative coordinate chosen from the supporting points instead "
+            "of a synthetic arithmetic centroid. Duplicate names, coordinate "
+            "spread, and source position notes remain explicit as ambiguity "
+            "diagnostics."
         ),
         "distance_bands": list(radii_km),
         "aggregate_radius_weights": {
@@ -1171,6 +1303,10 @@ def _build_methodology(radii_km: tuple[int, ...]) -> dict[str, object]:
         "identity_diagnostics": {
             "coordinate_spread_flag_km": _COORDINATE_SPREAD_FLAG_KM,
             "name_match_distance_km": _LAKE_MATCH_DISTANCE_KM,
+            "coordinate_resolution_methods": [
+                "shared_source_coordinate",
+                "source_coordinate_medoid",
+            ],
             "ambiguity_flags": [
                 "duplicate_sweden_name",
                 "source_coordinate_spread",
