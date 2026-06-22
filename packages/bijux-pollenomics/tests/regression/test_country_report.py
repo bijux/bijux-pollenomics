@@ -498,6 +498,10 @@ class CountryReportTests(unittest.TestCase):
                 "sweden_lake_evidence_richness_v62.0_map.html",
                 readme_text,
             )
+            self.assertIn(
+                "zero-interval context layers remain spatial evidence only",
+                readme_text,
+            )
 
     def test_generate_country_report_can_link_to_shared_map(self) -> None:
         with tempfile.TemporaryDirectory() as tmp:

@@ -437,6 +437,12 @@ This report ranks Sweden lake candidates by the richness of tracked pollen, arch
 - Pollen note: {_render_optional_methodology_note(report, "pollen_note")}
 - Animal note: {report.methodology["animal_note"]}
 
+## Interpretation guardrails
+
+- Human aDNA remains the gatekeeper layer: lakes without at least one nearby human locality inside 50 km do not stay in the ranked candidate set.
+- Spatial context is not the same as chronology support: source layers with zero numeric intervals remain visible for surrounding evidence density, but they do not contribute chronology-overlap strength.
+- Partial chronology remains explicit: Neotoma records with BP intervals can strengthen time-aware comparisons, while unresolved or label-only records stay visible without being promoted to same-period evidence.
+
 ## Aggregate Ranking
 
 | Rank | Lake | Coordinates | Lake registry id | Name status | Aggregate score | Top-20 scenario presence | Identity diagnostics | Pollen sources | Human localities within 20 km | SEAD sites within 20 km | Domesticated animal localities within 50 km |
@@ -514,6 +520,7 @@ def render_lake_evidence_richness_section(
 - Sweden lake evidence GeoJSON: [`{geojson_name}`](./{geojson_name})
 - Sweden lake evidence map: [`{map_html_name}`](./{map_html_name})
 - Sweden lake evidence markdown: [`{markdown_name}`](./{markdown_name})
+- Chronology caveat: the linked markdown report keeps source-by-source temporal guardrails explicit; zero-interval context layers remain spatial evidence only.
 """
 
 
@@ -1125,7 +1132,15 @@ def _render_source_temporal_coverage(report: LakeEvidenceRichnessReport) -> str:
             continue
         total = int(item.get("record_count", 0) or 0)
         numeric = int(item.get("numeric_interval_record_count", 0) or 0)
-        rendered.append(f"{labels[key]} {numeric}/{total} numeric-interval records")
+        if total == 0:
+            posture = "no checked-in records"
+        elif numeric == 0:
+            posture = "spatial inventory only"
+        elif numeric == total:
+            posture = "full numeric chronology coverage"
+        else:
+            posture = "partial chronology coverage"
+        rendered.append(f"{labels[key]} {numeric}/{total} numeric-interval records ({posture})")
     return ", ".join(rendered) if rendered else "no source temporal coverage summary"
 
 
