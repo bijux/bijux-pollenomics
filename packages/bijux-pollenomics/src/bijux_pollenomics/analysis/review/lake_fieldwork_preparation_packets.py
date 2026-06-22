@@ -3,6 +3,7 @@ from __future__ import annotations
 import csv
 import json
 from pathlib import Path
+from statistics import mean
 
 from ..lake_evidence_richness import (
     LakeEvidenceRichnessAssessment,
@@ -37,6 +38,11 @@ def build_lake_fieldwork_preparation_payload(
             "identity_rule": (
                 "identity resolution remains required when duplicate names, "
                 "source coordinate spread, or source name variants remain visible"
+            ),
+            "scenario_consistency_rule": (
+                "scenario consistency is high when a lake appears in at least four "
+                "top-20 scenario lists across aggregate and 10-50 km bands, medium "
+                "at two to three lists, else low"
             ),
             "sead_context_rule": "SEAD 20 km context fit is high at >=20 sites, medium at >=5 sites, else low",
             "palaeopen_alignment_rule": (
@@ -84,13 +90,20 @@ def write_lake_fieldwork_preparation_csv(
         "aggregate_score",
         "preparation_posture",
         "identity_posture",
+        "scenario_consistency_posture",
         "sead_context_posture",
         "palaeopen_alignment_posture",
+        "scenario_top20_presence_count",
+        "scenario_best_rank",
+        "scenario_mean_rank",
         "rank_10km",
         "rank_20km",
         "rank_30km",
         "rank_40km",
         "rank_50km",
+        "google_maps_url",
+        "representative_source_record",
+        "coordinate_resolution_method",
         "direct_pollen_source_count",
         "time_aware_direct_pollen_records",
         "evidence_families_20km",
@@ -113,13 +126,28 @@ def write_lake_fieldwork_preparation_csv(
                     "aggregate_score": row["aggregate_score"],
                     "preparation_posture": row["preparation_posture"],
                     "identity_posture": row["identity_posture"],
+                    "scenario_consistency_posture": row[
+                        "scenario_consistency_posture"
+                    ],
                     "sead_context_posture": row["sead_context_posture"],
                     "palaeopen_alignment_posture": row["palaeopen_alignment_posture"],
+                    "scenario_top20_presence_count": row[
+                        "scenario_top20_presence_count"
+                    ],
+                    "scenario_best_rank": row["scenario_best_rank"],
+                    "scenario_mean_rank": row["scenario_mean_rank"],
                     "rank_10km": row["scenario_ranks"]["10km"],
                     "rank_20km": row["scenario_ranks"]["20km"],
                     "rank_30km": row["scenario_ranks"]["30km"],
                     "rank_40km": row["scenario_ranks"]["40km"],
                     "rank_50km": row["scenario_ranks"]["50km"],
+                    "google_maps_url": row["google_maps_url"],
+                    "representative_source_record": row[
+                        "representative_source_record"
+                    ],
+                    "coordinate_resolution_method": row[
+                        "coordinate_resolution_method"
+                    ],
                     "direct_pollen_source_count": row["direct_pollen_source_count"],
                     "time_aware_direct_pollen_records": row[
                         "time_aware_direct_pollen_records"
@@ -144,15 +172,17 @@ def render_lake_fieldwork_preparation_markdown(
         "\n".join(
             (
                 f"| {row['aggregate_rank']} | {row['lake_label']} | "
-                f"{row['latitude']:.4f}, {row['longitude']:.4f} | "
+                f"[{row['latitude']:.6f}, {row['longitude']:.6f}]({row['google_maps_url']}) | "
                 f"{row['preparation_posture']} | {row['identity_posture']} | "
+                f"{row['scenario_consistency_posture']} | "
                 f"{row['sead_context_posture']} | {row['palaeopen_alignment_posture']} | "
-                f"{row['evidence_families_20km']} | {row['scenario_ranks']['20km']} | "
+                f"{row['evidence_families_20km']} | {row['scenario_top20_presence_count']} | "
+                f"{row['scenario_ranks']['20km']} | "
                 f"{', '.join(row['required_actions']) or 'none'} |"
             )
             for row in payload["rows"]
         )
-        or "| - | No reviewed lakes | - | - | - | - | - | 0 | - | none |"
+        or "| - | No reviewed lakes | - | - | - | - | - | - | 0 | 0 | - | none |"
     )
     return f"""# Sweden lake fieldwork preparation
 
@@ -165,14 +195,15 @@ used.
 
 - Scope: {payload["methodology"]["scope"]}
 - Identity rule: {payload["methodology"]["identity_rule"]}
+- Scenario consistency rule: {payload["methodology"]["scenario_consistency_rule"]}
 - SEAD context rule: {payload["methodology"]["sead_context_rule"]}
 - PalaeOpen alignment rule: {payload["methodology"]["palaeopen_alignment_rule"]}
 - Warning: {payload["methodology"]["warning"]}
 
 ## Top Lake Preparation Rows
 
-| Aggregate rank | Lake | Coordinates | Preparation posture | Identity posture | SEAD context | PalaeOpen alignment | Evidence families within 20 km | 20 km rank | Required actions |
-| ---: | --- | --- | --- | --- | --- | --- | ---: | ---: | --- |
+| Aggregate rank | Lake | Coordinates | Preparation posture | Identity posture | Scenario consistency | SEAD context | PalaeOpen alignment | Evidence families within 20 km | Top-20 scenario presence | 20 km rank | Required actions |
+| ---: | --- | --- | --- | --- | --- | --- | --- | ---: | ---: | ---: | --- |
 {rows}
 """
 
@@ -201,6 +232,21 @@ def _build_fieldwork_preparation_row(
     band_20 = _band_score(assessment, 20)
     band_50 = _band_score(assessment, 50)
     identity_posture = _identity_posture(candidate.ambiguity_flags)
+    scenario_ranks = {
+        f"{score.radius_km}km": score.band_rank for score in assessment.band_scores
+    }
+    scenario_top20_presence_count = _scenario_top20_presence_count(
+        aggregate_rank=assessment.aggregate_rank,
+        scenario_ranks=scenario_ranks,
+    )
+    scenario_best_rank = min((assessment.aggregate_rank, *scenario_ranks.values()))
+    scenario_mean_rank = round(
+        mean((assessment.aggregate_rank, *scenario_ranks.values())),
+        2,
+    )
+    scenario_consistency_posture = _scenario_consistency_posture(
+        scenario_top20_presence_count
+    )
     sead_context_posture = _sead_context_posture(band_20.sead_site_count)
     palaeopen_alignment_posture = _palaeopen_alignment_posture(
         direct_pollen_source_count=candidate.direct_pollen_source_count,
@@ -212,20 +258,26 @@ def _build_fieldwork_preparation_row(
         evidence_family_count=band_20.evidence_family_count,
         sead_site_count=band_20.sead_site_count,
         human_locality_count=band_20.human_adna_locality_count,
+        scenario_consistency_posture=scenario_consistency_posture,
     )
     return {
         "aggregate_rank": assessment.aggregate_rank,
         "lake_label": candidate.lake_label,
         "latitude": candidate.latitude,
         "longitude": candidate.longitude,
+        "google_maps_url": _google_maps_url(candidate.latitude, candidate.longitude),
         "aggregate_score": assessment.aggregate_score,
         "preparation_posture": preparation_posture,
         "identity_posture": identity_posture,
+        "scenario_consistency_posture": scenario_consistency_posture,
         "sead_context_posture": sead_context_posture,
         "palaeopen_alignment_posture": palaeopen_alignment_posture,
-        "scenario_ranks": {
-            f"{score.radius_km}km": score.band_rank for score in assessment.band_scores
-        },
+        "scenario_ranks": scenario_ranks,
+        "scenario_top20_presence_count": scenario_top20_presence_count,
+        "scenario_best_rank": scenario_best_rank,
+        "scenario_mean_rank": scenario_mean_rank,
+        "representative_source_record": candidate.representative_source_record,
+        "coordinate_resolution_method": candidate.coordinate_resolution_method,
         "direct_pollen_source_count": candidate.direct_pollen_source_count,
         "time_aware_direct_pollen_records": candidate.time_aware_direct_pollen_records,
         "evidence_families_20km": band_20.evidence_family_count,
@@ -235,6 +287,7 @@ def _build_fieldwork_preparation_row(
         "ambiguity_flags": list(candidate.ambiguity_flags),
         "required_actions": _required_actions(
             ambiguity_flags=candidate.ambiguity_flags,
+            scenario_consistency_posture=scenario_consistency_posture,
             sead_context_posture=sead_context_posture,
             palaeopen_alignment_posture=palaeopen_alignment_posture,
             preparation_posture=preparation_posture,
@@ -285,15 +338,24 @@ def _preparation_posture(
     evidence_family_count: int,
     sead_site_count: int,
     human_locality_count: int,
+    scenario_consistency_posture: str,
 ) -> str:
     if ambiguity_flags:
         return "identity_resolution_required"
     if (
+        scenario_consistency_posture == "high"
+        and
         direct_pollen_source_count >= 2
         and evidence_family_count >= 4
         and sead_site_count >= 10
     ):
         return "fieldwork_preparation_ready"
+    if (
+        direct_pollen_source_count >= 2
+        and scenario_consistency_posture in {"high", "medium"}
+        and evidence_family_count >= 4
+    ):
+        return "context_review_ready"
     if evidence_family_count >= 3 and (
         sead_site_count >= 1 or human_locality_count >= 1
     ):
@@ -304,6 +366,7 @@ def _preparation_posture(
 def _required_actions(
     *,
     ambiguity_flags: tuple[str, ...],
+    scenario_consistency_posture: str,
     sead_context_posture: str,
     palaeopen_alignment_posture: str,
     preparation_posture: str,
@@ -322,6 +385,10 @@ def _required_actions(
         actions.append(
             "normalize source name variants against the lake registry and tracked source records"
         )
+    if scenario_consistency_posture == "low":
+        actions.append(
+            "stress-test this candidate against alternative distance-band scenarios before field planning"
+        )
     if sead_context_posture in {"high", "medium"}:
         actions.append(
             "inspect linked SEAD records before narrowing the archaeology-context interpretation"
@@ -335,3 +402,25 @@ def _required_actions(
             "prepare a site-specific fieldwork review with access, coring, and basin constraints"
         )
     return actions
+
+
+def _scenario_top20_presence_count(
+    *,
+    aggregate_rank: int,
+    scenario_ranks: dict[str, int],
+) -> int:
+    return int(aggregate_rank <= 20) + sum(
+        1 for rank in scenario_ranks.values() if rank <= 20
+    )
+
+
+def _scenario_consistency_posture(top20_presence_count: int) -> str:
+    if top20_presence_count >= 4:
+        return "high"
+    if top20_presence_count >= 2:
+        return "medium"
+    return "low"
+
+
+def _google_maps_url(latitude: float, longitude: float) -> str:
+    return f"https://www.google.com/maps/search/?api=1&query={latitude:.6f},{longitude:.6f}"

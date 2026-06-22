@@ -253,11 +253,17 @@ def test_lake_fieldwork_preparation_payload_keeps_identity_and_interoperability_
     assert payload["row_count"] == 2
     assert payload["rows"][0]["preparation_posture"] == "fieldwork_preparation_ready"
     assert payload["rows"][0]["palaeopen_alignment_posture"] == "high"
+    assert payload["rows"][0]["scenario_consistency_posture"] == "high"
+    assert payload["rows"][0]["scenario_top20_presence_count"] == 6
+    assert payload["rows"][0]["google_maps_url"].startswith(
+        "https://www.google.com/maps/search/"
+    )
     assert (
         payload["rows"][1]["identity_posture"] == "duplicate_name_resolution_required"
     )
     assert payload["rows"][1]["preparation_posture"] == "identity_resolution_required"
     assert "Sweden lake fieldwork preparation" in markdown
+    assert "Scenario consistency rule" in markdown
     assert "Lake Fieldwork Preparation" in section
 
 
@@ -278,6 +284,7 @@ def test_lake_fieldwork_preparation_writers_emit_reviewable_files() -> None:
             rows = list(csv.DictReader(handle))
 
         assert rows[0]["preparation_posture"] == "fieldwork_preparation_ready"
+        assert rows[0]["scenario_consistency_posture"] == "high"
         assert (
             "confirm the exact Swedish lake registry match before field planning"
             in rows[1]["required_actions"]
