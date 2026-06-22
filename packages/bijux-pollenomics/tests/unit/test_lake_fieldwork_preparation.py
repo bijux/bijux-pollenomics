@@ -90,6 +90,9 @@ def _candidate(
         ambiguity_flags=ambiguity_flags,
         ambiguity_note="identity review required" if ambiguity_flags else "",
         direct_pollen_signal=0.8,
+        lake_registry_id=f"test-{lake_name.casefold().replace(' ', '-')}",
+        lake_water_identity=f"water-{lake_name.casefold().replace(' ', '-')}",
+        lake_name_status="official_register_name",
         lake_area_km2=lake_area_km2,
         lake_sampling_posture=lake_sampling_posture,
         lake_sampling_fit=lake_sampling_fit,
@@ -261,6 +264,8 @@ def test_lake_fieldwork_preparation_payload_keeps_identity_and_interoperability_
     assert payload["rows"][0]["fieldwork_rank"] == 1
     assert payload["rows"][1]["fieldwork_rank"] == 2
     assert payload["rows"][0]["fieldwork_shortlist_score"] > 0.0
+    assert payload["rows"][0]["lake_registry_id"] == "test-lake-clear"
+    assert payload["rows"][0]["lake_name_status"] == "official_register_name"
     assert payload["rows"][0]["preparation_posture"] == "fieldwork_preparation_ready"
     assert payload["rows"][0]["palaeopen_alignment_posture"] == "high"
     assert payload["rows"][0]["scenario_consistency_posture"] == "high"
@@ -276,6 +281,8 @@ def test_lake_fieldwork_preparation_payload_keeps_identity_and_interoperability_
     assert "Fieldwork ordering rule" in markdown
     assert "Fieldwork rank" in markdown
     assert "Fieldwork shortlist score" in markdown
+    assert "Lake registry id" in markdown
+    assert "official_register_name" in markdown
     assert "Sweden lake fieldwork preparation" in markdown
     assert "Sampling rule" in markdown
     assert "Scenario consistency rule" in markdown
@@ -300,6 +307,7 @@ def test_lake_fieldwork_preparation_writers_emit_reviewable_files() -> None:
 
         assert rows[0]["fieldwork_rank"] == "1"
         assert float(rows[0]["fieldwork_shortlist_score"]) > 0.0
+        assert rows[0]["lake_registry_id"] == "test-lake-clear"
         assert rows[0]["preparation_posture"] == "fieldwork_preparation_ready"
         assert rows[0]["scenario_consistency_posture"] == "high"
         assert (

@@ -388,6 +388,8 @@ def render_lake_evidence_richness_markdown(
             (
                 f"| {assessment.aggregate_rank} | {assessment.candidate.lake_label} | "
                 f"{_render_coordinate_link(assessment.candidate.latitude, assessment.candidate.longitude)} | "
+                f"{_render_lake_identity_cell(assessment.candidate.lake_registry_id)} | "
+                f"{assessment.candidate.lake_name_status or 'not_available'} | "
                 f"{assessment.aggregate_score:.4f} | "
                 f"{scenario_metrics[assessment.candidate.lake_token]['scenario_top20_presence_count']}/"
                 f"{scenario_metrics[assessment.candidate.lake_token]['scenario_count']} | "
@@ -399,7 +401,7 @@ def render_lake_evidence_richness_markdown(
             )
             for assessment in report.assessments[:20]
         )
-        or "| - | No lake candidates | - | 0.0000 | 0/0 | - | - | 0 | 0 | 0 |"
+        or "| - | No lake candidates | - | not_available | not_available | 0.0000 | 0/0 | - | - | 0 | 0 | 0 |"
     )
     consensus_section = _render_consensus_table(report)
     fieldwork_section = _render_fieldwork_shortlist_table(report)
@@ -426,8 +428,8 @@ This report ranks Sweden lake candidates by the richness of tracked pollen, arch
 
 ## Aggregate Ranking
 
-| Rank | Lake | Coordinates | Aggregate score | Top-20 scenario presence | Identity diagnostics | Pollen sources | Human localities within 20 km | SEAD sites within 20 km | Domesticated animal localities within 50 km |
-| ---: | --- | --- | ---: | ---: | --- | --- | ---: | ---: | ---: |
+| Rank | Lake | Coordinates | Lake registry id | Name status | Aggregate score | Top-20 scenario presence | Identity diagnostics | Pollen sources | Human localities within 20 km | SEAD sites within 20 km | Domesticated animal localities within 50 km |
+| ---: | --- | --- | --- | --- | ---: | ---: | --- | --- | ---: | ---: | ---: |
 {overall_rows}
 
 {consensus_section}
@@ -1168,6 +1170,8 @@ def _render_consensus_table(report: LakeEvidenceRichnessReport) -> str:
             (
                 f"| {index} | {assessment.candidate.lake_label} | "
                 f"{_render_coordinate_link(assessment.candidate.latitude, assessment.candidate.longitude)} | "
+                f"{_render_lake_identity_cell(assessment.candidate.lake_registry_id)} | "
+                f"{assessment.candidate.lake_name_status or 'not_available'} | "
                 f"{scenario_metrics[assessment.candidate.lake_token]['scenario_top20_presence_count']}/"
                 f"{scenario_metrics[assessment.candidate.lake_token]['scenario_count']} | "
                 f"{scenario_metrics[assessment.candidate.lake_token]['scenario_best_rank']} | "
@@ -1177,12 +1181,12 @@ def _render_consensus_table(report: LakeEvidenceRichnessReport) -> str:
             )
             for index, assessment in enumerate(ordered, start=1)
         )
-        or "| - | No lake candidates | - | 0/0 | - | - | - | - |"
+        or "| - | No lake candidates | - | not_available | not_available | 0/0 | - | - | - | - |"
     )
     return f"""## Scenario Consensus
 
-| Consensus rank | Lake | Coordinates | Top-20 scenario presence | Best scenario rank | Mean scenario rank | Aggregate rank | Coordinate method |
-| ---: | --- | --- | ---: | ---: | ---: | ---: | --- |
+| Consensus rank | Lake | Coordinates | Lake registry id | Name status | Top-20 scenario presence | Best scenario rank | Mean scenario rank | Aggregate rank | Coordinate method |
+| ---: | --- | --- | --- | --- | ---: | ---: | ---: | ---: | --- |
 {rows}"""
 
 
@@ -1194,6 +1198,8 @@ def _render_fieldwork_shortlist_table(report: LakeEvidenceRichnessReport) -> str
                 f"| {fieldwork_rank_map[assessment.candidate.lake_token]} | "
                 f"{assessment.candidate.lake_label} | "
                 f"{_render_coordinate_link(assessment.candidate.latitude, assessment.candidate.longitude)} | "
+                f"{_render_lake_identity_cell(assessment.candidate.lake_registry_id)} | "
+                f"{assessment.candidate.lake_name_status or 'not_available'} | "
                 f"{_fieldwork_shortlist_score(assessment):.4f} | "
                 f"{assessment.candidate.lake_sampling_posture or 'not_scored'} | "
                 f"{assessment.candidate.lake_sampling_fit:.4f} | "
@@ -1203,13 +1209,17 @@ def _render_fieldwork_shortlist_table(report: LakeEvidenceRichnessReport) -> str
             )
             for assessment in _fieldwork_rows(report)
         )
-        or "| - | No lake candidates | - | 0.0000 | - | 0.0000 | - | 0 | 0 |"
+        or "| - | No lake candidates | - | not_available | not_available | 0.0000 | - | 0.0000 | - | 0 | 0 |"
     )
     return f"""## Fieldwork Shortlist
 
-| Fieldwork rank | Lake | Coordinates | Shortlist score | Sampling posture | Sampling fit | Area km² | Human localities within 20 km | Evidence families within 20 km |
-| ---: | --- | --- | ---: | --- | ---: | ---: | ---: | ---: |
+| Fieldwork rank | Lake | Coordinates | Lake registry id | Name status | Shortlist score | Sampling posture | Sampling fit | Area km² | Human localities within 20 km | Evidence families within 20 km |
+| ---: | --- | --- | --- | --- | ---: | --- | ---: | ---: | ---: | ---: |
 {rows}"""
+
+
+def _render_lake_identity_cell(lake_registry_id: str) -> str:
+    return lake_registry_id or "not_available"
 
 
 def _render_empty_lake_map_html(*, version: str, generated_on: str) -> str:

@@ -926,6 +926,8 @@ def test_lake_evidence_richness_packets_write_reviewable_outputs() -> None:
         assert geojson["features"][0]["properties"]["name"] == "Alpha"
         assert markdown.startswith("# Sweden lake evidence richness")
         assert "## 10 km Ranking" in markdown
+        assert "Lake registry id" in markdown
+        assert "not_available" in markdown
         assert (
             "https://www.google.com/maps/search/?api=1&query=57.000000,14.000000"
             in markdown
@@ -933,6 +935,7 @@ def test_lake_evidence_richness_packets_write_reviewable_outputs() -> None:
         assert registry_rows[0]["google_maps_url"].startswith(
             "https://www.google.com/maps/search/"
         )
+        assert registry_rows[0]["lake_registry_id"] == ""
         assert registry_rows[0]["representative_source_record"] == "neotoma-pollen:n1"
 
 

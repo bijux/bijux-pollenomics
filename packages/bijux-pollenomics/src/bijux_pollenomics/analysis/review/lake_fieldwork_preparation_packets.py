@@ -193,6 +193,8 @@ def render_lake_fieldwork_preparation_markdown(
             (
                 f"| {row['fieldwork_rank']} | {row['aggregate_rank']} | {row['lake_label']} | "
                 f"[{row['latitude']:.6f}, {row['longitude']:.6f}]({row['google_maps_url']}) | "
+                f"{row['lake_registry_id'] or 'not_available'} | "
+                f"{row['lake_name_status'] or 'not_available'} | "
                 f"{row['fieldwork_shortlist_score']:.4f} | "
                 f"{row['preparation_posture']} | {row['identity_posture']} | "
                 f"{row['sampling_posture']} | {row['sampling_fit']:.4f} | "
@@ -204,7 +206,7 @@ def render_lake_fieldwork_preparation_markdown(
             )
             for row in payload["rows"]
         )
-        or "| - | No reviewed lakes | - | - | - | - | - | - | 0 | 0 | - | none |"
+        or "| - | - | No reviewed lakes | - | not_available | not_available | - | - | - | - | - | - | 0 | 0 | - | none |"
     )
     return f"""# Sweden lake fieldwork preparation
 
@@ -226,8 +228,8 @@ used.
 
 ## Top Lake Preparation Rows
 
-| Fieldwork rank | Aggregate rank | Lake | Coordinates | Fieldwork shortlist score | Preparation posture | Identity posture | Sampling posture | Sampling fit | Scenario consistency | SEAD context | PalaeOpen alignment | Evidence families within 20 km | Top-20 scenario presence | 20 km rank | Required actions |
-| ---: | ---: | --- | --- | ---: | --- | --- | --- | ---: | --- | --- | --- | ---: | ---: | ---: | --- |
+| Fieldwork rank | Aggregate rank | Lake | Coordinates | Lake registry id | Name status | Fieldwork shortlist score | Preparation posture | Identity posture | Sampling posture | Sampling fit | Scenario consistency | SEAD context | PalaeOpen alignment | Evidence families within 20 km | Top-20 scenario presence | 20 km rank | Required actions |
+| ---: | ---: | --- | --- | --- | --- | ---: | --- | --- | --- | ---: | --- | --- | --- | ---: | ---: | ---: | --- |
 {rows}
 """
 
