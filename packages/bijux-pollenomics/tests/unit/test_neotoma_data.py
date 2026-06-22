@@ -676,6 +676,15 @@ class NeotomaDataTests(unittest.TestCase):
         self.assertEqual(
             records[0].time_label, "0-3600 Calibrated radiocarbon years BP"
         )
+        self.assertIsNotNone(records[0].temporal_semantics)
+        self.assertEqual(
+            records[0].temporal_semantics["comparability_posture"],
+            "numeric_interval_with_caveat",
+        )
+        self.assertEqual(
+            records[0].temporal_semantics["temporal_window_label"],
+            "Late Holocene (1001-3000 BP)",
+        )
 
     def test_collect_neotoma_data_writes_download_coverage_summary(self) -> None:
         inventory_rows = [
