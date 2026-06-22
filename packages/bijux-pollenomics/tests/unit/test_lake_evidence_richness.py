@@ -139,6 +139,53 @@ def _raa_feature(
     }
 
 
+def _svar_polygon_feature(
+    *,
+    record_id: str,
+    name: str,
+    latitude: float,
+    longitude: float,
+    lake_name_status: str = "official_register_name",
+    area_km2: float = 1.5,
+) -> dict[str, object]:
+    offset = 0.01
+    return {
+        "type": "Feature",
+        "geometry": {
+            "type": "Polygon",
+            "coordinates": [
+                [
+                    [longitude - offset, latitude - offset],
+                    [longitude + offset, latitude - offset],
+                    [longitude + offset, latitude + offset],
+                    [longitude - offset, latitude + offset],
+                    [longitude - offset, latitude - offset],
+                ]
+            ],
+        },
+        "properties": {
+            "source": "SMHI SVAR",
+            "layer_key": "svar-lakes",
+            "layer_label": "SMHI SVAR lake registry",
+            "category": "Lake registry",
+            "country": "SE",
+            "record_id": record_id,
+            "name": name,
+            "register_name": name,
+            "water_name": "",
+            "fallback_name": "",
+            "sjoid": record_id,
+            "sj_uuid": f"uuid-{record_id}",
+            "sj_vatten_id": f"water-{record_id}",
+            "district": "test-district",
+            "area_km2": area_km2,
+            "lake_name_status": lake_name_status,
+            "source_url": f"https://example.test/svar/{record_id}",
+            "geometry_type": "Polygon",
+        },
+    }
+
+
 def _write_json(path: Path, payload: dict[str, object]) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text(json.dumps(payload, indent=2), encoding="utf-8")
@@ -327,6 +374,244 @@ def test_build_sweden_lake_evidence_richness_report_ranks_multi_signal_lakes() -
         assert top.candidate.latitude == 57.0005
         assert top.candidate.longitude == 14.0005
         assert top.candidate.representative_source_record == "landclim-sites:l1"
+
+
+def test_build_sweden_lake_evidence_richness_report_prefers_svar_lakes() -> None:
+    with tempfile.TemporaryDirectory() as tmp:
+        root = Path(tmp)
+        _write_json(
+            root / "svar" / "normalized" / "sweden_lake_registry.geojson",
+            {
+                "type": "FeatureCollection",
+                "features": [
+                    _svar_polygon_feature(
+                        record_id="1001",
+                        name="Lake Alpha",
+                        latitude=57.0,
+                        longitude=14.0,
+                        area_km2=2.3,
+                    ),
+                    _svar_polygon_feature(
+                        record_id="1002",
+                        name="Lake Gamma",
+                        latitude=60.0,
+                        longitude=16.0,
+                        area_km2=1.1,
+                    ),
+                    _svar_polygon_feature(
+                        record_id="1003",
+                        name="Lake Delta",
+                        latitude=63.0,
+                        longitude=19.0,
+                        area_km2=0.8,
+                    ),
+                ],
+            },
+        )
+        _write_json(
+            root / "neotoma" / "normalized" / "nordic_pollen_sites.geojson",
+            {
+                "type": "FeatureCollection",
+                "features": [
+                    _point_feature(
+                        source="Neotoma",
+                        layer_key="neotoma-pollen",
+                        layer_label="Neotoma pollen sites",
+                        category="Pollen",
+                        country="Sweden",
+                        record_id="n1",
+                        name="Lake Alpha",
+                        latitude=57.0005,
+                        longitude=14.0005,
+                        description="Lake basin with deep sequence.",
+                    ),
+                    _point_feature(
+                        source="Neotoma",
+                        layer_key="neotoma-pollen",
+                        layer_label="Neotoma pollen sites",
+                        category="Pollen",
+                        country="Sweden",
+                        record_id="n2",
+                        name="Lake Gamma",
+                        latitude=60.0005,
+                        longitude=16.0004,
+                        description="Lake basin with chronology.",
+                    ),
+                    _point_feature(
+                        source="Neotoma",
+                        layer_key="neotoma-pollen",
+                        layer_label="Neotoma pollen sites",
+                        category="Pollen",
+                        country="Sweden",
+                        record_id="n3",
+                        name="Lake Delta",
+                        latitude=63.0003,
+                        longitude=19.0002,
+                        description="Lake basin with chronology.",
+                    ),
+                ],
+            },
+        )
+        _write_json(
+            root / "landclim" / "normalized" / "nordic_pollen_site_sequences.geojson",
+            {"type": "FeatureCollection", "features": []},
+        )
+        _write_json(
+            root / "sead" / "normalized" / "nordic_environmental_sites.geojson",
+            {
+                "type": "FeatureCollection",
+                "features": [
+                    _point_feature(
+                        source="SEAD",
+                        layer_key="sead-sites",
+                        layer_label="SEAD sites",
+                        category="Environmental archaeology",
+                        country="Sweden",
+                        record_id="s1",
+                        name="Alpha archaeology",
+                        latitude=57.03,
+                        longitude=14.01,
+                        description="Nearby archaeology.",
+                    ),
+                    _point_feature(
+                        source="SEAD",
+                        layer_key="sead-sites",
+                        layer_label="SEAD sites",
+                        category="Environmental archaeology",
+                        country="Sweden",
+                        record_id="s2",
+                        name="Gamma archaeology",
+                        latitude=60.12,
+                        longitude=16.08,
+                        description="More distant archaeology.",
+                    ),
+                ],
+            },
+        )
+        _write_json(
+            root / "raa" / "normalized" / "sweden_archaeology_density.geojson",
+            {
+                "type": "FeatureCollection",
+                "features": [
+                    _raa_feature(
+                        min_longitude=13.5,
+                        min_latitude=56.5,
+                        max_longitude=14.5,
+                        max_latitude=57.5,
+                        count=1200,
+                    ),
+                    _raa_feature(
+                        min_longitude=15.5,
+                        min_latitude=59.5,
+                        max_longitude=16.5,
+                        max_latitude=60.5,
+                        count=300,
+                    ),
+                ],
+            },
+        )
+
+        report = build_sweden_lake_evidence_richness_report(
+            context_root=root,
+            human_localities=(
+                _locality("Alpha human cluster", 57.02, 14.02, sample_count=8),
+                _locality("Gamma human cluster", 60.12, 16.04, sample_count=2),
+            ),
+            animal_localities=(
+                {
+                    "locality": "Alpha horse",
+                    "latitude": 57.05,
+                    "longitude": 14.04,
+                    "sample_count": 1,
+                },
+            ),
+        )
+
+        assert report.candidate_count == 2
+        assert [
+            assessment.candidate.lake_name for assessment in report.assessments
+        ] == [
+            "Alpha",
+            "Gamma",
+        ]
+        top = report.assessments[0]
+        assert top.candidate.representative_source_record == "svar-lakes:1001"
+        assert (
+            top.candidate.coordinate_resolution_method
+            == "svar_polygon_representative_point"
+        )
+        assert top.candidate.latitude == 57.0
+        assert top.candidate.longitude == 14.0
+        assert top.candidate.lake_registry_id == "1001"
+        assert top.candidate.lake_registry_uuid == "uuid-1001"
+        assert top.candidate.lake_water_identity == "water-1001"
+        assert top.candidate.lake_name_status == "official_register_name"
+        assert top.candidate.lake_area_km2 == 2.3
+        assert top.aggregate_score > report.assessments[1].aggregate_score
+        assert report.methodology["score_components"]["human_adna_signal"] == 0.55
+
+
+def test_svar_lake_candidates_flag_duplicate_registry_names() -> None:
+    with tempfile.TemporaryDirectory() as tmp:
+        root = Path(tmp)
+        _write_json(
+            root / "svar" / "normalized" / "sweden_lake_registry.geojson",
+            {
+                "type": "FeatureCollection",
+                "features": [
+                    _svar_polygon_feature(
+                        record_id="2001",
+                        name="Lillsjön",
+                        latitude=57.93223,
+                        longitude=16.38903,
+                    ),
+                    _svar_polygon_feature(
+                        record_id="2002",
+                        name="Lillsjön",
+                        latitude=57.08333,
+                        longitude=12.53333,
+                        lake_name_status="water_surface_name",
+                    ),
+                ],
+            },
+        )
+        _write_json(
+            root / "neotoma" / "normalized" / "nordic_pollen_sites.geojson",
+            {"type": "FeatureCollection", "features": []},
+        )
+        _write_json(
+            root / "landclim" / "normalized" / "nordic_pollen_site_sequences.geojson",
+            {"type": "FeatureCollection", "features": []},
+        )
+        _write_json(
+            root / "sead" / "normalized" / "nordic_environmental_sites.geojson",
+            {"type": "FeatureCollection", "features": []},
+        )
+        _write_json(
+            root / "raa" / "normalized" / "sweden_archaeology_density.geojson",
+            {"type": "FeatureCollection", "features": []},
+        )
+
+        report = build_sweden_lake_evidence_richness_report(
+            context_root=root,
+            human_localities=(
+                _locality("Lillsjön east cluster", 57.94, 16.39, sample_count=2),
+                _locality("Lillsjön west cluster", 57.09, 12.54, sample_count=1),
+            ),
+            animal_localities=(),
+        )
+
+        assert report.candidate_count == 2
+        labels = [assessment.candidate.lake_label for assessment in report.assessments]
+        assert all(label.startswith("Lillsjön (") for label in labels)
+        fallback_named = next(
+            assessment.candidate
+            for assessment in report.assessments
+            if assessment.candidate.lake_registry_id == "2002"
+        )
+        assert "duplicate_sweden_name" in fallback_named.ambiguity_flags
+        assert "non_official_registry_name" in fallback_named.ambiguity_flags
+        assert "non-register registry label" in fallback_named.ambiguity_note
 
 
 def test_lake_candidates_do_not_merge_different_nearby_lakes() -> None:
