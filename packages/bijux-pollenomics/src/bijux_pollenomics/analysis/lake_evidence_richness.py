@@ -2487,6 +2487,9 @@ def _build_context_temporal_coverage_summary(
     context_root: Path,
     sead_points: Sequence[ContextPointRecord],
 ) -> dict[str, object]:
+    posture_lookup = _load_source_spatiotemporal_posture_lookup(
+        context_root / "source_spatiotemporal_posture_registry.json"
+    )
     neotoma_summary = _temporal_coverage_summary(
         point
         for point in pollen_points
@@ -2507,6 +2510,15 @@ def _build_context_temporal_coverage_summary(
         sead_summary,
         _load_review_payload(context_root / "sead" / "review" / "temporal_review.json"),
         source_family="sead",
+    )
+    _merge_source_spatiotemporal_posture(
+        neotoma_summary, posture_lookup.get("neotoma"), source_family="neotoma"
+    )
+    _merge_source_spatiotemporal_posture(
+        landclim_summary, posture_lookup.get("landclim"), source_family="landclim"
+    )
+    _merge_source_spatiotemporal_posture(
+        sead_summary, posture_lookup.get("sead"), source_family="sead"
     )
     if not landclim_summary.get("capture_posture"):
         landclim_summary["capture_posture"] = "spatial_inventory_only"
@@ -2570,6 +2582,60 @@ def _merge_source_temporal_review(
         summary["site_inventory_only_record_count"] = int(
             inventory_summary.get("site_inventory_only_row_count", 0) or 0
         )
+
+
+def _load_source_spatiotemporal_posture_lookup(
+    path: Path,
+) -> dict[str, dict[str, object]]:
+    payload = _load_review_payload(path)
+    rows = payload.get("rows")
+    if not isinstance(rows, list):
+        return {}
+    lookup: dict[str, dict[str, object]] = {}
+    for row in rows:
+        if not isinstance(row, dict):
+            continue
+        source_key = str(row.get("source_key", "")).strip()
+        if source_key:
+            lookup[source_key] = row
+    return lookup
+
+
+def _merge_source_spatiotemporal_posture(
+    summary: dict[str, object],
+    payload: dict[str, object] | None,
+    *,
+    source_family: str,
+) -> None:
+    if not isinstance(payload, dict):
+        return
+    for field in (
+        "spatial_representation",
+        "temporal_support_posture",
+        "temporal_support_note",
+        "temporal_scope",
+        "distance_scoring_posture",
+        "distance_scoring_note",
+    ):
+        value = str(payload.get(field, "")).strip()
+        if value:
+            summary[field] = value
+    detail_metrics = payload.get("detail_metrics")
+    if isinstance(detail_metrics, dict):
+        summary["detail_metrics"] = detail_metrics
+    caveats = payload.get("caveats")
+    if isinstance(caveats, list) and caveats:
+        summary["caveats"] = [str(item).strip() for item in caveats if str(item).strip()]
+    record_count = int(payload.get("record_count", 0) or 0)
+    numeric_interval_record_count = int(payload.get("numeric_interval_record_count", 0) or 0)
+    if record_count and int(summary.get("record_count", 0) or 0) == 0:
+        summary["record_count"] = record_count
+    if numeric_interval_record_count and int(
+        summary.get("numeric_interval_record_count", 0) or 0
+    ) == 0:
+        summary["numeric_interval_record_count"] = numeric_interval_record_count
+    if source_family == "landclim" and "capture_posture" not in summary:
+        summary["capture_posture"] = "numeric_site_sequence_intervals"
 
 
 def _load_review_payload(path: Path) -> dict[str, object]:

@@ -30,6 +30,7 @@ class CollectionSummarySchemaUnitTests(unittest.TestCase):
             "contract_artifacts": {
                 "source_family_contracts": "data/source_family_contracts.json",
                 "source_family_evidence_stage_matrix": "data/source_family_evidence_stage_matrix.json",
+                "source_spatiotemporal_posture_registry": "data/source_spatiotemporal_posture_registry.json",
                 "source_fact_ownership_registry": "data/source_fact_ownership_registry.json",
                 "evidence_artifact_contracts": "data/evidence_artifact_contracts.json",
             },
@@ -65,6 +66,7 @@ class CollectionSummarySchemaUnitTests(unittest.TestCase):
             "contract_artifacts": {
                 "source_family_contracts": "data/source_family_contracts.json",
                 "source_family_evidence_stage_matrix": "data/source_family_evidence_stage_matrix.json",
+                "source_spatiotemporal_posture_registry": "data/source_spatiotemporal_posture_registry.json",
                 "source_fact_ownership_registry": "data/source_fact_ownership_registry.json",
                 "evidence_artifact_contracts": "data/evidence_artifact_contracts.json",
             },
@@ -101,6 +103,7 @@ class CollectionSummarySchemaUnitTests(unittest.TestCase):
             "contract_artifacts": {
                 "source_family_contracts": "data/source_family_contracts.json",
                 "source_family_evidence_stage_matrix": "data/source_family_evidence_stage_matrix.json",
+                "source_spatiotemporal_posture_registry": "data/source_spatiotemporal_posture_registry.json",
                 "source_fact_ownership_registry": "data/source_fact_ownership_registry.json",
                 "evidence_artifact_contracts": "data/evidence_artifact_contracts.json",
             },

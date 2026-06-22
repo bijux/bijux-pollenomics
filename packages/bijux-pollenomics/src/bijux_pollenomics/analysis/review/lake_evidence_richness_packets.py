@@ -1149,26 +1149,36 @@ def _render_source_temporal_posture(*, key: str, item: dict[str, object]) -> str
     total = int(item.get("record_count", 0) or 0)
     numeric = int(item.get("numeric_interval_record_count", 0) or 0)
     capture_posture = str(item.get("capture_posture", "")).strip()
+    temporal_support_note = str(item.get("temporal_support_note", "")).strip()
+    distance_scoring_note = str(item.get("distance_scoring_note", "")).strip()
     if total == 0:
         return "no checked-in records"
     if key == "neotoma_pollen":
         if capture_posture == "bp_site_spans_without_chronology_rows":
-            return "BP site spans available; chronology rows absent in checked-in raw capture"
+            base = "BP site spans available; chronology rows absent in checked-in raw capture"
+            if distance_scoring_note:
+                return f"{base}; {distance_scoring_note[0].lower()}{distance_scoring_note[1:]}"
+            return base
         if numeric == total:
             return "full numeric chronology coverage"
         if numeric > 0:
             return "partial chronology coverage"
         return "spatial inventory only"
+    if key == "landclim_pollen" and temporal_support_note:
+        return temporal_support_note
     if key == "sead_archaeology":
         if capture_posture == "site_inventory_only":
-            return "site inventory only in checked-in raw capture"
+            base = "site inventory only in checked-in raw capture"
+            if distance_scoring_note:
+                return f"{base}; {distance_scoring_note[0].lower()}{distance_scoring_note[1:]}"
+            return base
         if numeric == 0:
-            return "spatial inventory only"
+            return temporal_support_note or "spatial inventory only"
         if numeric == total:
             return "full numeric chronology coverage"
         return "partial chronology coverage"
     if numeric == 0:
-        return "spatial inventory only"
+        return temporal_support_note or "spatial inventory only"
     if numeric == total:
         return "full numeric chronology coverage"
     return "partial chronology coverage"

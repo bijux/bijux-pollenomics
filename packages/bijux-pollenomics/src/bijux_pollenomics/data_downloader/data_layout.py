@@ -75,6 +75,7 @@ forcing readers to infer it from directory names alone:
 
 - `source_family_contracts.json`
 - `source_family_evidence_stage_matrix.json`
+- `source_spatiotemporal_posture_registry.json`
 - `source_fact_ownership_registry.json`
 - `evidence_artifact_contracts.json`
 

@@ -1,0 +1,150 @@
+{
+  "schema_version": "source-spatiotemporal-posture-registry.v1",
+  "row_count": 6,
+  "rows": [
+    {
+      "source_key": "landclim",
+      "display_name": "LandClim pollen context",
+      "governing_surface_path": "data/landclim/normalized/nordic_pollen_site_sequences.geojson",
+      "review_surface_paths": [
+        "data/landclim/normalized/landclim_summary.json",
+        "data/source_family_evidence_stage_matrix.json"
+      ],
+      "spatial_representation": "site-sequence point inventory",
+      "temporal_support_posture": "numeric_site_sequence_intervals",
+      "temporal_support_note": "Checked-in LandClim sequence points carry numeric BP windows in the normalized repository layer.",
+      "temporal_scope": "site-sequence context",
+      "distance_scoring_posture": "supporting_pollen_context",
+      "distance_scoring_note": "Use LandClim to strengthen pollen context around lakes; do not treat it as direct human or archaeological evidence.",
+      "record_count": 492,
+      "numeric_interval_record_count": 482,
+      "detail_metrics": {
+        "site_sequence_record_count": 492,
+        "numeric_interval_record_count": 482
+      },
+      "caveats": [
+        "The registry reflects normalized site-sequence intervals rather than a separate chronology packet inventory."
+      ]
+    },
+    {
+      "source_key": "neotoma",
+      "display_name": "Neotoma pollen context",
+      "governing_surface_path": "data/neotoma/normalized/nordic_pollen_sites.geojson",
+      "review_surface_paths": [
+        "data/neotoma/review/temporal_review.json"
+      ],
+      "spatial_representation": "site point inventory",
+      "temporal_support_posture": "bp_site_spans_without_chronology_rows",
+      "temporal_support_note": "Checked-in Neotoma points can carry numeric BP site spans, but chronology support remains uneven and must be read from the review packet.",
+      "temporal_scope": "site-span pollen context",
+      "distance_scoring_posture": "supporting_pollen_context",
+      "distance_scoring_note": "Use Neotoma to compare pollen context around lakes; only promote it into chronology-aware support when a numeric interval is actually present.",
+      "record_count": 200,
+      "numeric_interval_record_count": 175,
+      "detail_metrics": {
+        "site_count_with_bp_age_ranges": 175,
+        "site_count_with_chronology_rows": 0,
+        "site_count_without_bp_age_ranges": 25
+      },
+      "caveats": [
+        "Numeric BP site spans are available, but the checked-in raw capture does not currently include chronology rows for the same Sweden-facing site family.",
+        "Some checked-in Neotoma sites remain spatial context only because they do not carry publishable BP age ranges."
+      ]
+    },
+    {
+      "source_key": "sead",
+      "display_name": "SEAD archaeology context",
+      "governing_surface_path": "data/sead/normalized/nordic_environmental_sites.geojson",
+      "review_surface_paths": [
+        "data/sead/review/temporal_review.json",
+        "data/sead/review/evidence_legibility_review.json",
+        "data/sead/review/access_model.json"
+      ],
+      "spatial_representation": "site point inventory",
+      "temporal_support_posture": "site_inventory_only",
+      "temporal_support_note": "Checked-in SEAD points are useful archaeology context, but the repository must not read them as uniformly time-resolved evidence.",
+      "temporal_scope": "archaeology-context inventory",
+      "distance_scoring_posture": "contextual_archaeology_only",
+      "distance_scoring_note": "Use SEAD to measure archaeology context around lakes; do not treat it as same-period support unless numeric intervals are explicitly present.",
+      "record_count": 2172,
+      "numeric_interval_record_count": 0,
+      "detail_metrics": {
+        "site_inventory_only_row_count": 2195,
+        "dating_range_row_count": 0,
+        "relative_period_row_count": 0
+      },
+      "caveats": [
+        "The checked-in SEAD state is a site inventory and contextual point layer, not a repository-wide chronology-support layer.",
+        "The current Sweden-facing SEAD capture does not yet preserve linked relative-period or dating-range tables in checked-in raw form."
+      ]
+    },
+    {
+      "source_key": "raa",
+      "display_name": "RAA archaeology context",
+      "governing_surface_path": "data/raa/normalized/sweden_archaeology_layer.json",
+      "review_surface_paths": [
+        "data/source_family_evidence_stage_matrix.json"
+      ],
+      "spatial_representation": "coarse archaeology density surface",
+      "temporal_support_posture": "spatial_density_without_time",
+      "temporal_support_note": "Checked-in RAA outputs summarize Swedish archaeology density and site counts without repository-owned time windows.",
+      "temporal_scope": "sweden archaeology density context",
+      "distance_scoring_posture": "coarse_archaeology_context_only",
+      "distance_scoring_note": "Use RAA to compare Swedish archaeology richness around lakes, not to infer exact site-by-site time alignment.",
+      "record_count": 761917,
+      "numeric_interval_record_count": 0,
+      "detail_metrics": {
+        "all_published_sites": 761917,
+        "fornlamning_count": 318265
+      },
+      "caveats": [
+        "The normalized repository surface is density-oriented rather than a direct local-distance inventory of every upstream site row."
+      ]
+    },
+    {
+      "source_key": "svar",
+      "display_name": "SMHI SVAR lake registry",
+      "governing_surface_path": "data/svar/normalized/sweden_lake_registry.geojson",
+      "review_surface_paths": [
+        "data/svar/normalized/svar_summary.json",
+        "data/source_family_evidence_stage_matrix.json"
+      ],
+      "spatial_representation": "candidate lake registry",
+      "temporal_support_posture": "no_time_dimension",
+      "temporal_support_note": "SVAR contributes the lake anchors themselves rather than dated evidence around those lakes.",
+      "temporal_scope": "lake-anchor registry",
+      "distance_scoring_posture": "candidate_lake_anchor",
+      "distance_scoring_note": "Use SVAR as the authoritative Sweden lake candidate surface before nearby evidence is counted.",
+      "record_count": 40565,
+      "numeric_interval_record_count": 0,
+      "detail_metrics": {
+        "lake_count": 40565
+      },
+      "caveats": [
+        "SVAR governs lake identity and location, not chronology or surrounding evidence completeness."
+      ]
+    },
+    {
+      "source_key": "boundaries",
+      "display_name": "Boundary framing",
+      "governing_surface_path": "data/boundaries/normalized/nordic_country_boundaries.geojson",
+      "review_surface_paths": [
+        "data/source_family_evidence_stage_matrix.json"
+      ],
+      "spatial_representation": "country framing polygons",
+      "temporal_support_posture": "no_time_dimension",
+      "temporal_support_note": "Boundary layers frame geography only and do not contribute time-resolved evidence.",
+      "temporal_scope": "geographic framing only",
+      "distance_scoring_posture": "framing_only",
+      "distance_scoring_note": "Use boundary geometry to constrain reporting scope, not to increase lake evidence scores.",
+      "record_count": 4,
+      "numeric_interval_record_count": 0,
+      "detail_metrics": {
+        "polygon_count": 4
+      },
+      "caveats": [
+        "Boundary framing should never be misread as biological, archaeological, or chronological evidence."
+      ]
+    }
+  ]
+}

@@ -41,6 +41,9 @@ def build_contract_artifact_paths(output_root: Path) -> dict[str, str]:
         "source_family_evidence_stage_matrix": str(
             output_root / "source_family_evidence_stage_matrix.json"
         ),
+        "source_spatiotemporal_posture_registry": str(
+            output_root / "source_spatiotemporal_posture_registry.json"
+        ),
         "source_fact_ownership_registry": str(
             output_root / "source_fact_ownership_registry.json"
         ),

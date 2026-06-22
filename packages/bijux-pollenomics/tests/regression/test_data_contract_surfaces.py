@@ -56,6 +56,27 @@ class DataContractSurfaceRegressionTests(unittest.TestCase):
         self.assertEqual(contract_keys, matrix_keys)
         self.assertEqual(contract_payload["row_count"], matrix_payload["row_count"])
 
+    def test_checked_in_spatiotemporal_registry_keeps_source_limits_explicit(
+        self,
+    ) -> None:
+        posture_payload = json.loads(
+            (
+                REPO_ROOT / "data" / "source_spatiotemporal_posture_registry.json"
+            ).read_text(encoding="utf-8")
+        )
+        rows = {row["source_key"]: row for row in posture_payload["rows"]}
+
+        self.assertEqual(
+            posture_payload["schema_version"],
+            "source-spatiotemporal-posture-registry.v1",
+        )
+        self.assertEqual(rows["neotoma"]["temporal_support_posture"], "bp_site_spans_without_chronology_rows")
+        self.assertEqual(rows["sead"]["temporal_support_posture"], "site_inventory_only")
+        self.assertEqual(
+            rows["svar"]["distance_scoring_posture"],
+            "candidate_lake_anchor",
+        )
+
     def test_fact_and_artifact_contract_registries_keep_durable_keys(self) -> None:
         fact_payload = json.loads(
             (REPO_ROOT / "data" / "source_fact_ownership_registry.json").read_text(

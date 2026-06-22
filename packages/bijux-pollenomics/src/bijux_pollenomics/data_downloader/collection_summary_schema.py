@@ -108,6 +108,7 @@ def validate_collection_summary_payload(payload: Mapping[str, object]) -> None:
     for artifact_key in (
         "source_family_contracts",
         "source_family_evidence_stage_matrix",
+        "source_spatiotemporal_posture_registry",
         "source_fact_ownership_registry",
         "evidence_artifact_contracts",
     ):
