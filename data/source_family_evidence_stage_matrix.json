@@ -56,10 +56,10 @@
     },
     {
       "source_key": "raa",
-      "display_name": "RAÄ archaeology context",
+      "display_name": "RA\u00c4 archaeology context",
       "domain_group": "archaeology_context",
       "evidence_role": "contextual_domain",
-      "primary_question": "Which Sweden-scoped archaeology context layers are captured and published from RAÄ?",
+      "primary_question": "Which Sweden-scoped archaeology context layers are captured and published from RA\u00c4?",
       "raw_status": "present",
       "normalized_status": "present",
       "reviewed_status": "present",

@@ -115,11 +115,11 @@
       },
       "reviewed_layer": {
         "layer_key": "reviewed",
-        "repository_path": "data/source_family_evidence_stage_matrix.json",
+        "repository_path": "data/neotoma/review",
         "required": true,
-        "purpose": "cross-family review of freshness, coverage, and publication posture",
+        "purpose": "site-level temporal comparability review for Neotoma pollen context",
         "example_artifacts": [
-          "data/source_family_evidence_stage_matrix.json"
+          "data/neotoma/review/temporal_review.json"
         ]
       },
       "published_layer": {
@@ -155,11 +155,11 @@
         },
         "reviewed": {
           "layer_key": "reviewed",
-          "repository_path": "data/source_family_evidence_stage_matrix.json",
+          "repository_path": "data/neotoma/review",
           "required": true,
-          "purpose": "cross-family review of freshness, coverage, and publication posture",
+          "purpose": "site-level temporal comparability review for Neotoma pollen context",
           "example_artifacts": [
-            "data/source_family_evidence_stage_matrix.json"
+            "data/neotoma/review/temporal_review.json"
           ]
         },
         "published": {
@@ -261,15 +261,15 @@
     },
     {
       "source_key": "raa",
-      "display_name": "RAÄ archaeology context",
+      "display_name": "RA\u00c4 archaeology context",
       "domain_group": "archaeology_context",
       "evidence_role": "contextual_domain",
-      "primary_question": "Which Sweden-scoped archaeology context layers are captured and published from RAÄ?",
+      "primary_question": "Which Sweden-scoped archaeology context layers are captured and published from RA\u00c4?",
       "raw_layer": {
         "layer_key": "raw",
         "repository_path": "data/raa/raw",
         "required": true,
-        "purpose": "tracked RAÄ source capture",
+        "purpose": "tracked RA\u00c4 source capture",
         "example_artifacts": [
           "data/raa/raw/fornsok_domains.json"
         ]
@@ -310,7 +310,7 @@
           "layer_key": "raw",
           "repository_path": "data/raa/raw",
           "required": true,
-          "purpose": "tracked RAÄ source capture",
+          "purpose": "tracked RA\u00c4 source capture",
           "example_artifacts": [
             "data/raa/raw/fornsok_domains.json"
           ]
