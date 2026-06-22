@@ -46,9 +46,9 @@ class DocsBreadthRegressionTests(unittest.TestCase):
             self.assertTrue((REPO_ROOT / path).is_file(), path)
 
         self.assertIn("Restored System Coverage", data_index)
-        self.assertIn("overview/provenance-and-publication-linkage/", data_index)
-        self.assertIn("overview/source-selection-and-refresh/", data_index)
-        self.assertIn("overview/coverage-and-naming/", data_index)
+        self.assertIn("overview/provenance-and-publication-linkage.md", data_index)
+        self.assertIn("overview/source-selection-and-refresh.md", data_index)
+        self.assertIn("overview/coverage-and-naming.md", data_index)
         self.assertIn("Restored Foundation Topics", overview_index)
 
     def test_maintainer_handbook_restores_repository_health_breadth(self) -> None:
