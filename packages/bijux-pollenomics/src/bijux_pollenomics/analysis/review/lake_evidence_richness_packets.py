@@ -770,6 +770,7 @@ def _candidate_popup_rows(assessment) -> list[dict[str, str]]:
 
 
 def _map_scenarios(report: LakeEvidenceRichnessReport) -> list[dict[str, object]]:
+    scenario_metrics = _scenario_metric_map(report)
     scenarios: list[dict[str, object]] = [
         {
             "key": "lake-evidence-aggregate",
@@ -791,9 +792,9 @@ def _map_scenarios(report: LakeEvidenceRichnessReport) -> list[dict[str, object]
             "rank_getter": lambda assessment, rows=consensus_rows: (
                 rows.index(assessment) + 1
             ),
-            "score_getter": lambda assessment, report=report: _scenario_metric_map(
-                report
-            )[assessment.candidate.lake_token]["scenario_top20_presence_count"],
+            "score_getter": lambda assessment, metrics=scenario_metrics: metrics[
+                assessment.candidate.lake_token
+            ]["scenario_top20_presence_count"],
             "scenario_label": "Consensus",
         }
     )
