@@ -16,9 +16,7 @@ from ..core.files import write_text
 
 AVAILABLE_SOURCES = ("aadr", "boundaries", "landclim", "neotoma", "raa", "sead", "svar")
 DATA_SOURCE_INDEX = "../docs/public/pollenomics-data/sources/index.md"
-DATA_LAYOUT_INDEX = (
-    "../docs/public/pollenomics-data/overview/data-directory-layout.md"
-)
+DATA_LAYOUT_INDEX = "../docs/public/pollenomics-data/overview/data-directory-layout.md"
 HOMO_SAPIENS_ADNA_SYMLINK_TARGET = "../../../../aadr"
 ADNA_LAYOUT_DIRS = ("raw", "normalized", "manifests", "reports", "review")
 

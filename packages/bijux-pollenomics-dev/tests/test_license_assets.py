@@ -7,7 +7,10 @@ import sys
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "src"))
 
-from bijux_pollenomics_dev.release.license_assets import managed_assets, synchronize_license_assets
+from bijux_pollenomics_dev.release.license_assets import (
+    managed_assets,
+    synchronize_license_assets,
+)
 
 
 def test_managed_assets_cover_every_workspace_package() -> None:
