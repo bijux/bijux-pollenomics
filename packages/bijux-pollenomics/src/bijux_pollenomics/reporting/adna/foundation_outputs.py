@@ -715,7 +715,7 @@ def build_animal_sample_chronology_review(
         "direct_links": {
             "sample_chronology_review": "data/adna/governance/source_library/sample_chronology_review.json",
             "sample_chronology_provenance_review": "data/adna/governance/source_library/sample_chronology_provenance_review.json",
-            "temporal_semantics_docs": "docs/02-bijux-pollenomics-data/evidence/temporal-semantics.md",
+            "temporal_semantics_docs": "docs/public/pollenomics-data/evidence/temporal-semantics.md",
         },
         "rows": rows,
     }

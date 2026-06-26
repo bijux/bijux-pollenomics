@@ -69,11 +69,11 @@ class DataLayoutUnitTests(unittest.TestCase):
         )
         self.assertIn("`adna/final/`", readme)
         self.assertIn(
-            f"[`docs/02-bijux-pollenomics-data/sources/index.md`]({DATA_SOURCE_INDEX})",
+            f"[`docs/public/pollenomics-data/sources/index.md`]({DATA_SOURCE_INDEX})",
             readme,
         )
         self.assertIn(
-            "[`docs/02-bijux-pollenomics-data/overview/data-directory-layout.md`]"
+            "[`docs/public/pollenomics-data/overview/data-directory-layout.md`]"
             f"({DATA_LAYOUT_INDEX})",
             readme,
         )
