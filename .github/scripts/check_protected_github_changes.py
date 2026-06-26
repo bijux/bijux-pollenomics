@@ -3,7 +3,6 @@ from __future__ import annotations
 
 import argparse
 import json
-import subprocess
 from pathlib import Path
 
 ROOT = Path.cwd()
@@ -47,12 +46,6 @@ ALLOWED_CONTROL_PATHS = {
     "shared/shared-dir-sha256.txt",
 }
 
-REPO_OWNED_WORKFLOW_PREFIX = ".github/workflows/"
-SHARED_MANAGED_WORKFLOWS = {
-    ".github/workflows/automerge-pr.yml",
-    ".github/workflows/bijux-std.yml",
-}
-
 
 def load_manifest() -> dict:
     if not MANIFEST_PATH.exists():
@@ -80,45 +73,6 @@ def protected_paths() -> set[str]:
     return BASE_PROTECTED_PATHS.union(workflow_paths_from_manifest())
 
 
-def load_diff_lines(path: str) -> list[str]:
-    commands = [
-        ["git", "diff", "--unified=0", "--no-color", "origin/main...HEAD", "--", path],
-        ["git", "diff", "--unified=0", "--no-color", "--", path],
-    ]
-    for command in commands:
-        result = subprocess.run(command, capture_output=True, text=True, check=False)
-        if result.returncode == 0:
-            return result.stdout.splitlines()
-    return []
-
-
-def is_action_pin_change(line: str) -> bool:
-    stripped = line.strip()
-    if not stripped.startswith("uses: "):
-        return False
-    return "@" in stripped
-
-
-def allows_repo_owned_workflow_pin_refresh(protected_changed: list[str]) -> bool:
-    workflow_paths = [path for path in protected_changed if path.startswith(REPO_OWNED_WORKFLOW_PREFIX)]
-    if not workflow_paths:
-        return False
-    if any(path in SHARED_MANAGED_WORKFLOWS for path in workflow_paths):
-        return False
-    if any(path not in workflow_paths for path in protected_changed):
-        return False
-
-    for path in workflow_paths:
-        for line in load_diff_lines(path):
-            if line.startswith(("diff ", "index ", "---", "+++", "@@")):
-                continue
-            if not line.startswith(("+", "-")):
-                continue
-            if not is_action_pin_change(line[1:]):
-                return False
-    return True
-
-
 def main() -> int:
     parser = argparse.ArgumentParser(description="Validate protected .github changes")
     parser.add_argument("--changed-file", action="append", default=[], help="Changed file path (repeatable)")
@@ -139,8 +93,6 @@ def main() -> int:
 
     controls_changed = sorted(path for path in changed if path in ALLOWED_CONTROL_PATHS)
     if controls_changed:
-        return 0
-    if allows_repo_owned_workflow_pin_refresh(protected_changed):
         return 0
 
     print("Protected .github files changed without approved generator/sync controls:")
