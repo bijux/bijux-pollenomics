@@ -33,13 +33,14 @@ data
 ├── landclim
 ├── neotoma
 ├── raa
-└── sead
+├── sead
+└── svar
 ```
 
-Detailed acquisition commands, source explanations, and storage rationale are documented in the canonical public docs pages:
+Detailed acquisition commands, source explanations, and storage rationale are documented in the canonical docs pages:
 
-- [`docs/public/pollenomics-data/sources/index.md`](../docs/public/pollenomics-data/sources/index.md)
-- [`docs/public/pollenomics-data/overview/data-directory-layout.md`](../docs/public/pollenomics-data/overview/data-directory-layout.md)
+- [`docs/02-bijux-pollenomics-data/sources/index.md`](../docs/02-bijux-pollenomics-data/sources/index.md)
+- [`docs/02-bijux-pollenomics-data/overview/data-directory-layout.md`](../docs/02-bijux-pollenomics-data/overview/data-directory-layout.md)
 
 The collector also writes `collection_summary.json` so the current data tree can be inspected with machine-readable counts, source output roots, and provenance metadata.
 

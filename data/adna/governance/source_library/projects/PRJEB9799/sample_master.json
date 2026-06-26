@@ -12,6 +12,6 @@
   "final_sample_count": 0,
   "ambiguity_row_count": 0,
   "sample_identifier_status": "not_yet_curated",
-  "extraction_plan": "Retain the project in the tracked inventory with an explicit rejection reason so future readers can see why it does not feed the animal sample database.",
+  "extraction_plan": "",
   "rows": []
 }

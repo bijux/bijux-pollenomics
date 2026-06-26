@@ -97,12 +97,7 @@
       "open_item_count": 20,
       "rationale": "region_only_rows_require_finer_location_evidence",
       "downstream_impact": "blocks exact site, coordinate, and publication recovery",
-      "recommended_source_surfaces": [
-        "adna/governance/source_library/papers/10.1038-s41598-024-54296-2/supplementary/41598_2024_64499_MOESM1_ESM.pdf",
-        "adna/governance/source_library/papers/10.1038-s41598-024-54296-2/article.html",
-        "adna/governance/source_library/papers/10.1038-s41598-024-54296-2/crossref.json",
-        "adna/governance/source_library/projects/PRJEB60484/archive_metadata.html"
-      ]
+      "recommended_source_surfaces": []
     }
   ],
   "major_deficit_reasons": [

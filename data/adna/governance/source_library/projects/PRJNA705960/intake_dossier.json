@@ -93,9 +93,7 @@
       "open_item_count": 11,
       "rationale": "region_only_rows_require_finer_location_evidence",
       "downstream_impact": "blocks exact site, coordinate, and publication recovery",
-      "recommended_source_surfaces": [
-        "adna/governance/source_library/projects/PRJNA705960/archive_metadata.html"
-      ]
+      "recommended_source_surfaces": []
     }
   ],
   "major_deficit_reasons": [

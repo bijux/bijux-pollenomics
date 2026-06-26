@@ -97,13 +97,7 @@
       "open_item_count": 1,
       "rationale": "region_only_rows_require_finer_location_evidence",
       "downstream_impact": "blocks exact site, coordinate, and publication recovery",
-      "recommended_source_surfaces": [
-        "adna/governance/source_library/papers/10.1038-ncomms16082/supplementary/41467_2017_BFncomms16082_MOESM109_ESM.pdf",
-        "adna/governance/source_library/papers/10.1038-ncomms16082/supplementary/41467_2017_BFncomms16082_MOESM110_ESM.pdf",
-        "adna/governance/source_library/papers/10.1038-ncomms16082/article.html",
-        "adna/governance/source_library/papers/10.1038-ncomms16082/crossref.json",
-        "adna/governance/source_library/projects/SRS1407451/archive_metadata.html"
-      ]
+      "recommended_source_surfaces": []
     }
   ],
   "major_deficit_reasons": [

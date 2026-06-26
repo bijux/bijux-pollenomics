@@ -12,7 +12,7 @@
   "final_sample_count": 20,
   "ambiguity_row_count": 0,
   "sample_identifier_status": "paper_or_supplement_targets_curated",
-  "extraction_plan": "Extract the project sample master from the curated article or supplementary targets and then reconcile sample identifiers against any archive-native labels.",
+  "extraction_plan": "",
   "rows": [
     {
       "species_latin_name": "Rangifer tarandus",
