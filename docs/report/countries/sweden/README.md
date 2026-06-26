@@ -1,6 +1,6 @@
 # Sweden Homo sapiens aDNA v66 Report
 
-This bundle was generated from Homo sapiens ancient-DNA release metadata published in AADR `v66` on `2026-05-09`.
+This bundle was generated from Homo sapiens ancient-DNA release metadata published in AADR `v66` on `2026-06-22`.
 It inventories only Homo sapiens aDNA sample rows that match the `Sweden` country filter. Environmental and archaeology context layers are published in the shared map bundle, not duplicated here.
 
 ## Summary
@@ -78,4 +78,25 @@ The report deduplicates samples by `genetic_id` across datasets. Dataset row cou
 | Common name | Latin name | Animal scope | Locality rows | Assignment posture | Caution |
 | --- | --- | --- | ---: | --- | --- |
 | horse | Equus caballus | domesticated_core | 1 | exact_country | sample support remains sparse |
+
+
+
+## Lake Evidence Richness
+
+- Sweden lake evidence richness JSON: [`sweden_lake_evidence_richness_v66.json`](./sweden_lake_evidence_richness_v66.json)
+- Sweden lake evidence registry CSV: [`sweden_lake_evidence_richness_v66_registry.csv`](./sweden_lake_evidence_richness_v66_registry.csv)
+- Sweden lake evidence scenario CSV: [`sweden_lake_evidence_richness_v66_scenarios.csv`](./sweden_lake_evidence_richness_v66_scenarios.csv)
+- Sweden lake evidence distance-band CSV: [`sweden_lake_evidence_richness_v66_bands.csv`](./sweden_lake_evidence_richness_v66_bands.csv)
+- Sweden lake evidence GeoJSON: [`sweden_lake_evidence_richness_v66.geojson`](./sweden_lake_evidence_richness_v66.geojson)
+- Sweden lake evidence map: [`sweden_lake_evidence_richness_v66_map.html`](./sweden_lake_evidence_richness_v66_map.html)
+- Sweden lake evidence markdown: [`sweden_lake_evidence_richness_v66.md`](./sweden_lake_evidence_richness_v66.md)
+- Chronology caveat: the linked markdown report keeps source-by-source temporal guardrails explicit; zero-interval context layers remain spatial evidence only.
+
+
+
+## Lake Fieldwork Preparation
+
+- Sweden lake fieldwork preparation JSON: [`sweden_lake_fieldwork_preparation_v66.json`](./sweden_lake_fieldwork_preparation_v66.json)
+- Sweden lake fieldwork preparation CSV: [`sweden_lake_fieldwork_preparation_v66.csv`](./sweden_lake_fieldwork_preparation_v66.csv)
+- Sweden lake fieldwork preparation markdown: [`sweden_lake_fieldwork_preparation_v66.md`](./sweden_lake_fieldwork_preparation_v66.md)
 

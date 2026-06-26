@@ -23,6 +23,7 @@ from ...foundation import (
     build_repository_recovery_review,
     build_repository_scientific_progress_audit,
     build_repository_source_acquisition_queue,
+    build_repository_source_ecosystem_review,
     build_repository_source_explainer_audit,
     build_repository_source_family_matrix,
     build_repository_truth_posture,
@@ -42,6 +43,7 @@ from ...foundation import (
     render_repository_recovery_review_markdown,
     render_repository_scientific_progress_audit_markdown,
     render_repository_source_acquisition_queue_markdown,
+    render_repository_source_ecosystem_review_markdown,
     render_repository_source_explainer_audit_markdown,
     render_repository_source_family_matrix_markdown,
     render_repository_truth_posture_markdown,
@@ -215,6 +217,20 @@ def _build_repository_output_specs(
             test_anchor="packages/bijux-pollenomics/tests/unit/test_repository_truth.py",
         ),
         _repository_output_spec(
+            stem="repository_source_ecosystem_review",
+            payload=build_repository_source_ecosystem_review(
+                data_root=data_root,
+                docs_root=docs_root,
+                report_root=report_root,
+            ),
+            render_markdown=render_repository_source_ecosystem_review_markdown,
+            audience="maintainer_diagnostic",
+            information_role="source ecosystem review",
+            coexistence_rule="coexists with source-family and acquisition surfaces as the boundary between direct source ownership and wider interoperability networks",
+            docs_anchor="docs/public/pollenomics-data/sources/palaeopen.md",
+            test_anchor="packages/bijux-pollenomics/tests/unit/test_repository_truth.py",
+        ),
+        _repository_output_spec(
             stem="repository_atlas_input_audit",
             payload=build_repository_atlas_input_audit(
                 data_root=data_root,
@@ -374,7 +390,7 @@ def _build_repository_output_specs(
             audience="scientific_review_surface",
             information_role="SEAD legibility review",
             coexistence_rule="coexists with source-family and temporal reviews as the SEAD-specific honesty surface",
-            docs_anchor="docs/02-bijux-pollenomics-data/sources/sead.md",
+            docs_anchor="docs/public/pollenomics-data/sources/sead.md",
             test_anchor="packages/bijux-pollenomics/tests/unit/test_context_data.py",
         ),
     ]

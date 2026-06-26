@@ -14,11 +14,9 @@ from ..adna.species.tracked_species import TRACKED_ADNA_SPECIES
 from ..config import DEFAULT_AADR_VERSION, DEFAULT_DATA_ROOT
 from ..core.files import write_text
 
-AVAILABLE_SOURCES = ("aadr", "boundaries", "landclim", "neotoma", "raa", "sead")
-DATA_SOURCE_INDEX = "../docs/02-bijux-pollenomics-data/sources/index.md"
-DATA_LAYOUT_INDEX = (
-    "../docs/02-bijux-pollenomics-data/overview/data-directory-layout.md"
-)
+AVAILABLE_SOURCES = ("aadr", "boundaries", "landclim", "neotoma", "raa", "sead", "svar")
+DATA_SOURCE_INDEX = "../docs/public/pollenomics-data/sources/index.md"
+DATA_LAYOUT_INDEX = "../docs/public/pollenomics-data/overview/data-directory-layout.md"
 HOMO_SAPIENS_ADNA_SYMLINK_TARGET = "../../../../aadr"
 ADNA_LAYOUT_DIRS = ("raw", "normalized", "manifests", "reports", "review")
 
@@ -65,8 +63,8 @@ under `{root_name}/`:
 
 Detailed acquisition commands, source explanations, and storage rationale are documented in the canonical docs pages:
 
-- [`docs/02-bijux-pollenomics-data/sources/index.md`]({DATA_SOURCE_INDEX})
-- [`docs/02-bijux-pollenomics-data/overview/data-directory-layout.md`]({DATA_LAYOUT_INDEX})
+- [`docs/public/pollenomics-data/sources/index.md`]({DATA_SOURCE_INDEX})
+- [`docs/public/pollenomics-data/overview/data-directory-layout.md`]({DATA_LAYOUT_INDEX})
 
 The collector also writes `collection_summary.json` so the current data tree can be inspected with machine-readable counts, source output roots, and provenance metadata.
 
@@ -75,6 +73,7 @@ forcing readers to infer it from directory names alone:
 
 - `source_family_contracts.json`
 - `source_family_evidence_stage_matrix.json`
+- `source_spatiotemporal_posture_registry.json`
 - `source_fact_ownership_registry.json`
 - `evidence_artifact_contracts.json`
 

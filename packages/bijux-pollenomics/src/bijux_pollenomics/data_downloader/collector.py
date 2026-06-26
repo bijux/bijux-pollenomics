@@ -45,6 +45,7 @@ from .source_traceability import build_source_traceability_records
 from .source_validation import validate_source_snapshot
 from .sources.aadr import download_aadr_anno_files
 from .sources.boundaries import resolve_country_boundaries
+from .svar import collect_svar_data
 
 __all__ = [
     "AVAILABLE_SOURCES",
@@ -172,6 +173,7 @@ def resolve_context_collect_function(name: str) -> Callable[..., object]:
         "neotoma": collect_neotoma_data,
         "raa": collect_raa_data,
         "sead": collect_sead_data,
+        "svar": collect_svar_data,
     }
     try:
         return functions[name]

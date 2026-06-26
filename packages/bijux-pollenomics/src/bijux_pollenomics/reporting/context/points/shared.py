@@ -28,6 +28,42 @@ POINT_LAYER_STYLES = {
         "circleStroke": "rgba(15, 118, 110, 0.42)",
         "circleFill": "rgba(20, 184, 166, 0.10)",
     },
+    "lake-evidence-aggregate": {
+        "fill": "#9a3412",
+        "stroke": "#7c2d12",
+        "circleStroke": "rgba(154, 52, 18, 0.42)",
+        "circleFill": "rgba(251, 146, 60, 0.12)",
+    },
+    "lake-evidence-10km": {
+        "fill": "#166534",
+        "stroke": "#14532d",
+        "circleStroke": "rgba(22, 101, 52, 0.42)",
+        "circleFill": "rgba(74, 222, 128, 0.10)",
+    },
+    "lake-evidence-20km": {
+        "fill": "#0369a1",
+        "stroke": "#0c4a6e",
+        "circleStroke": "rgba(3, 105, 161, 0.42)",
+        "circleFill": "rgba(56, 189, 248, 0.12)",
+    },
+    "lake-evidence-30km": {
+        "fill": "#6d28d9",
+        "stroke": "#4c1d95",
+        "circleStroke": "rgba(109, 40, 217, 0.42)",
+        "circleFill": "rgba(167, 139, 250, 0.12)",
+    },
+    "lake-evidence-40km": {
+        "fill": "#be185d",
+        "stroke": "#831843",
+        "circleStroke": "rgba(190, 24, 93, 0.42)",
+        "circleFill": "rgba(244, 114, 182, 0.12)",
+    },
+    "lake-evidence-50km": {
+        "fill": "#854d0e",
+        "stroke": "#713f12",
+        "circleStroke": "rgba(133, 77, 14, 0.42)",
+        "circleFill": "rgba(250, 204, 21, 0.10)",
+    },
 }
 
 POINT_LAYER_METADATA = {
@@ -48,6 +84,42 @@ POINT_LAYER_METADATA = {
         "source_name": "SEAD",
         "coverage_label": "Environmental archaeology sites staged from the SEAD normalization bundle.",
         "geometry_label": "Point records",
+    },
+    "lake-evidence-aggregate": {
+        "group": "candidate-ranking",
+        "source_name": "Sweden lake evidence",
+        "coverage_label": "Top 20 Sweden lake candidates in the aggregate evidence ranking.",
+        "geometry_label": "Point candidates",
+    },
+    "lake-evidence-10km": {
+        "group": "candidate-ranking",
+        "source_name": "Sweden lake evidence",
+        "coverage_label": "Top 20 Sweden lake candidates in the 10 km evidence scenario.",
+        "geometry_label": "Point candidates",
+    },
+    "lake-evidence-20km": {
+        "group": "candidate-ranking",
+        "source_name": "Sweden lake evidence",
+        "coverage_label": "Top 20 Sweden lake candidates in the 20 km evidence scenario.",
+        "geometry_label": "Point candidates",
+    },
+    "lake-evidence-30km": {
+        "group": "candidate-ranking",
+        "source_name": "Sweden lake evidence",
+        "coverage_label": "Top 20 Sweden lake candidates in the 30 km evidence scenario.",
+        "geometry_label": "Point candidates",
+    },
+    "lake-evidence-40km": {
+        "group": "candidate-ranking",
+        "source_name": "Sweden lake evidence",
+        "coverage_label": "Top 20 Sweden lake candidates in the 40 km evidence scenario.",
+        "geometry_label": "Point candidates",
+    },
+    "lake-evidence-50km": {
+        "group": "candidate-ranking",
+        "source_name": "Sweden lake evidence",
+        "coverage_label": "Top 20 Sweden lake candidates in the 50 km evidence scenario.",
+        "geometry_label": "Point candidates",
     },
 }
 

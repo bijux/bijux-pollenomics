@@ -1,7 +1,7 @@
 {
   "schema_version": "repository-generated-output-policy.v1",
   "rule": "no generated root output may be published unless its audience, information role, root location, and coexistence rule are explicit in code, docs, and tests",
-  "row_count": 21,
+  "row_count": 22,
   "rows": [
     {
       "stem": "repository_truth_posture",
@@ -89,6 +89,17 @@
       "root_location": "docs/report",
       "coexistence_rule": "coexists with source-family coverage and guards the reader-facing handbook against cross-domain blind spots",
       "docs_anchor": "docs/report/maintenance/index.md",
+      "test_anchor": "packages/bijux-pollenomics/tests/unit/test_repository_truth.py"
+    },
+    {
+      "stem": "repository_source_ecosystem_review",
+      "json_path": "docs/report/repository_source_ecosystem_review.json",
+      "markdown_path": "docs/report/repository_source_ecosystem_review.md",
+      "audience": "maintainer_diagnostic",
+      "information_role": "source ecosystem review",
+      "root_location": "docs/report",
+      "coexistence_rule": "coexists with source-family and acquisition surfaces as the boundary between direct source ownership and wider interoperability networks",
+      "docs_anchor": "docs/public/pollenomics-data/sources/palaeopen.md",
       "test_anchor": "packages/bijux-pollenomics/tests/unit/test_repository_truth.py"
     },
     {
@@ -220,7 +231,7 @@
       "information_role": "SEAD legibility review",
       "root_location": "docs/report",
       "coexistence_rule": "coexists with source-family and temporal reviews as the SEAD-specific honesty surface",
-      "docs_anchor": "docs/02-bijux-pollenomics-data/sources/sead.md",
+      "docs_anchor": "docs/public/pollenomics-data/sources/sead.md",
       "test_anchor": "packages/bijux-pollenomics/tests/unit/test_context_data.py"
     },
     {

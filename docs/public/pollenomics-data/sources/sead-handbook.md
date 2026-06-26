@@ -41,6 +41,8 @@ Good use of SEAD keeps it in the role it is actually strong at:
 - expanding archaeology context around places and regions
 - supporting interpretation across more than one local registry
 - helping readers read a map as landscape evidence rather than as isolated dots
+- helping Sweden lake triage stay honest by showing where a candidate basin sits
+  inside stronger or weaker archaeology surroundings
 
 Good use does not ask SEAD to act like sample-level proof. That would weaken
 the public product, not strengthen it.
@@ -58,6 +60,36 @@ SEAD can strengthen an interpretation, but it does not by itself establish:
 - species assignment
 
 Those claims still belong to narrower evidence files and review surfaces.
+
+## How SEAD Helps Sweden Lake Planning
+
+The Sweden lake ranking does not use SEAD to pretend that one archaeology point
+proves one lake. It uses SEAD more carefully.
+
+SEAD helps the repository ask:
+
+- which pollen basins sit in archaeology-rich surroundings
+- which top-ranked lakes remain strong even when archaeology context is part of
+  the score
+- where a promising basin may deserve deeper upstream inspection before field
+  planning goes further
+
+That is a better use of SEAD than treating it as a direct lake register.
+
+## Why Collaboration Around SEAD Makes Sense
+
+SEAD is managed as a research infrastructure at Umeå University and is closely
+aligned with the kind of cross-proxy environmental archaeology reasoning this
+repository already needs.
+
+That makes collaboration useful for work such as:
+
+- clarifying Swedish lake-linked archaeology context where local interpretation
+  is still thin
+- improving stable links from checked-in repository capture back to upstream
+  SEAD references
+- checking whether repository-normalized context stays faithful to how SEAD
+  structures proxy-rich archaeology records
 
 ## Repository-Owned Review Surfaces
 

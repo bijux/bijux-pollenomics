@@ -11,7 +11,8 @@ from bijux_pollenomics.data_downloader.pipeline import (
 class SourceRegistryUnitTests(unittest.TestCase):
     def test_context_source_specs_keep_expected_sources(self) -> None:
         self.assertEqual(
-            tuple(CONTEXT_SOURCE_SPECS), ("landclim", "neotoma", "raa", "sead")
+            tuple(CONTEXT_SOURCE_SPECS),
+            ("landclim", "neotoma", "raa", "sead", "svar"),
         )
         self.assertTrue(CONTEXT_SOURCE_SPECS["landclim"].requires_bbox)
         self.assertFalse(CONTEXT_SOURCE_SPECS["raa"].requires_bbox)

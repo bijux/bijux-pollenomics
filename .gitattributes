@@ -1,0 +1,17 @@
+# Governed upstream HTML captures support provenance, but they should not define the
+# repository language profile on GitHub.
+data/adna/governance/source_library/papers/**/article.html linguist-vendored
+data/adna/governance/source_library/papers/**/article.html.gz linguist-vendored
+data/adna/governance/source_library/projects/**/archive_metadata.html linguist-vendored
+data/adna/governance/source_library/projects/**/archive_metadata.html.gz linguist-vendored
+
+# Shared partials come from synchronized docs infrastructure, not repository-owned HTML work.
+.bijux/shared/bijux-docs/partials/*.html linguist-vendored
+docs/overrides/partials/*.html linguist-vendored
+
+# Report HTML surfaces are generated runtime outputs and should not dominate language stats.
+docs/report/**/*.html linguist-generated
+docs/report/world/world_map.html linguist-generated
+docs/report/regions/europe-plus/europe-plus_map.html linguist-generated
+docs/report/regions/nordic/nordic_map.html linguist-generated
+docs/report/countries/sweden/sweden_lake_evidence_richness_v66_map.html linguist-generated

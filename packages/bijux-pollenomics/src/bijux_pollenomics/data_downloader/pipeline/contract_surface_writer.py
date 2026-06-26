@@ -13,6 +13,9 @@ from ..source_family_contracts import (
     build_source_family_contract_payload,
     build_source_family_state_matrix_payload,
 )
+from ..source_spatiotemporal_posture import (
+    build_source_spatiotemporal_posture_payload,
+)
 
 __all__ = ["write_data_contract_surfaces"]
 
@@ -37,8 +40,13 @@ def write_data_contract_surfaces(summary: DataCollectionSummary) -> None:
                 "sead_point_count": summary.sead_point_count,
                 "raa_total_site_count": summary.raa_total_site_count,
                 "raa_heritage_site_count": summary.raa_heritage_site_count,
+                "svar_lake_count": summary.svar_lake_count,
             },
         ),
+    )
+    write_json(
+        Path(contract_artifacts["source_spatiotemporal_posture_registry"]),
+        build_source_spatiotemporal_posture_payload(output_root),
     )
     write_json(
         Path(contract_artifacts["source_fact_ownership_registry"]),

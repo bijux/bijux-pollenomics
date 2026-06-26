@@ -55,6 +55,12 @@ CONTEXT_SOURCE_SPECS = {
         requires_bbox=True,
         count_attributes=(("sead_point_count", "point_count"),),
     ),
+    "svar": ContextSourceSpec(
+        name="svar",
+        output_dir_name="svar",
+        requires_bbox=False,
+        count_attributes=(("svar_lake_count", "lake_count"),),
+    ),
 }
 
 

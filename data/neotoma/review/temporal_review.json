@@ -1,0 +1,4542 @@
+{
+  "schema_version": "neotoma-temporal-review.v2",
+  "generated_on": "2026-06-22",
+  "row_count": 200,
+  "comparability_posture_counts": {
+    "numeric_interval_with_caveat": 107,
+    "unresolved": 25,
+    "numeric_interval": 63,
+    "contextual_label_only": 5
+  },
+  "coverage_summary": {
+    "site_count_with_age_ranges": 175,
+    "site_count_with_bp_age_ranges": 175,
+    "site_count_with_chronologies": 0,
+    "site_count_with_bp_age_ranges_but_no_chronology_rows": 175,
+    "site_count_with_bp_age_ranges_and_chronology_rows": 0,
+    "site_count_with_non_bp_age_ranges_only": 0,
+    "site_count_with_no_age_ranges": 25,
+    "site_count_without_bp_age_ranges": 25,
+    "chronology_capture_posture": "bp_site_spans_without_chronology_rows"
+  },
+  "rows": [
+    {
+      "site_id": "13391",
+      "site_name": "Brurskardtjørni",
+      "country": "Norway",
+      "comparability_posture": "contextual_label_only",
+      "temporal_window_label": "Unresolved time window",
+      "summary_label": "12278 Calibrated radiocarbon years BP",
+      "dataset_count": 1,
+      "collection_unit_count": 1,
+      "sample_count": 61,
+      "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
+      "supported_age_range_count": 2,
+      "all_age_range_count": 2,
+      "bp_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "comparison_note": "Neotoma age coverage is present, but not in a BP form that this repository compares numerically."
+    },
+    {
+      "site_id": "13388",
+      "site_name": "Dalmutladdo",
+      "country": "Norway",
+      "comparability_posture": "contextual_label_only",
+      "temporal_window_label": "Unresolved time window",
+      "summary_label": "10541 Calibrated radiocarbon years BP",
+      "dataset_count": 1,
+      "collection_unit_count": 1,
+      "sample_count": 72,
+      "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
+      "supported_age_range_count": 2,
+      "all_age_range_count": 2,
+      "bp_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "comparison_note": "Neotoma age coverage is present, but not in a BP form that this repository compares numerically."
+    },
+    {
+      "site_id": "28859",
+      "site_name": "Lake Vuolep Njakajaure",
+      "country": "Sweden",
+      "comparability_posture": "contextual_label_only",
+      "temporal_window_label": "Unresolved time window",
+      "summary_label": "9060 Calibrated radiocarbon years BP",
+      "dataset_count": 1,
+      "collection_unit_count": 1,
+      "sample_count": 42,
+      "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
+      "supported_age_range_count": 1,
+      "all_age_range_count": 1,
+      "bp_age_range_units": [
+        "Calibrated radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Calibrated radiocarbon years BP"
+      ],
+      "comparison_note": "Neotoma age coverage is present, but not in a BP form that this repository compares numerically."
+    },
+    {
+      "site_id": "28451",
+      "site_name": "Lervahå bog",
+      "country": "Norway",
+      "comparability_posture": "contextual_label_only",
+      "temporal_window_label": "Unresolved time window",
+      "summary_label": "11795 Calibrated radiocarbon years BP",
+      "dataset_count": 1,
+      "collection_unit_count": 1,
+      "sample_count": 35,
+      "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
+      "supported_age_range_count": 1,
+      "all_age_range_count": 1,
+      "bp_age_range_units": [
+        "Calibrated radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Calibrated radiocarbon years BP"
+      ],
+      "comparison_note": "Neotoma age coverage is present, but not in a BP form that this repository compares numerically."
+    },
+    {
+      "site_id": "28457",
+      "site_name": "Reinskaret bog",
+      "country": "Norway",
+      "comparability_posture": "contextual_label_only",
+      "temporal_window_label": "Unresolved time window",
+      "summary_label": "8601 Calendar years BP",
+      "dataset_count": 1,
+      "collection_unit_count": 1,
+      "sample_count": 30,
+      "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
+      "supported_age_range_count": 1,
+      "all_age_range_count": 1,
+      "bp_age_range_units": [
+        "Calendar years BP"
+      ],
+      "all_age_range_units": [
+        "Calendar years BP"
+      ],
+      "comparison_note": "Neotoma age coverage is present, but not in a BP form that this repository compares numerically."
+    },
+    {
+      "site_id": "13338",
+      "site_name": "Abborrtjärnen",
+      "country": "Sweden",
+      "comparability_posture": "numeric_interval",
+      "temporal_window_label": "Mid-Holocene (3001-6000 BP)",
+      "summary_label": "0-9815 Calibrated radiocarbon years BP",
+      "dataset_count": 1,
+      "collection_unit_count": 1,
+      "sample_count": 107,
+      "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
+      "supported_age_range_count": 1,
+      "all_age_range_count": 1,
+      "bp_age_range_units": [
+        "Calibrated radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Calibrated radiocarbon years BP"
+      ],
+      "comparison_note": "Neotoma publishes BP age coverage here, but the interval remains a site-level pollen context span rather than a sample-owned event date."
+    },
+    {
+      "site_id": "26170",
+      "site_name": "Austerkjøsen",
+      "country": "Norway",
+      "comparability_posture": "numeric_interval",
+      "temporal_window_label": "Early Holocene and older (6001+ BP)",
+      "summary_label": "19-12458 Radiocarbon years BP",
+      "dataset_count": 2,
+      "collection_unit_count": 1,
+      "sample_count": 102,
+      "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
+      "supported_age_range_count": 1,
+      "all_age_range_count": 1,
+      "bp_age_range_units": [
+        "Radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Radiocarbon years BP"
+      ],
+      "comparison_note": "Neotoma publishes BP age coverage here, but the interval remains a site-level pollen context span rather than a sample-owned event date."
+    },
+    {
+      "site_id": "13389",
+      "site_name": "Barheivatn",
+      "country": "Norway",
+      "comparability_posture": "numeric_interval",
+      "temporal_window_label": "Mid-Holocene (3001-6000 BP)",
+      "summary_label": "79-9592 Radiocarbon years BP",
+      "dataset_count": 1,
+      "collection_unit_count": 1,
+      "sample_count": 41,
+      "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
+      "supported_age_range_count": 1,
+      "all_age_range_count": 1,
+      "bp_age_range_units": [
+        "Radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Radiocarbon years BP"
+      ],
+      "comparison_note": "Neotoma publishes BP age coverage here, but the interval remains a site-level pollen context span rather than a sample-owned event date."
+    },
+    {
+      "site_id": "28811",
+      "site_name": "Bjärabygget",
+      "country": "Sweden",
+      "comparability_posture": "numeric_interval",
+      "temporal_window_label": "Late Holocene (1001-3000 BP)",
+      "summary_label": "0-2226 Calibrated radiocarbon years BP",
+      "dataset_count": 1,
+      "collection_unit_count": 1,
+      "sample_count": 56,
+      "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
+      "supported_age_range_count": 1,
+      "all_age_range_count": 1,
+      "bp_age_range_units": [
+        "Calibrated radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Calibrated radiocarbon years BP"
+      ],
+      "comparison_note": "Neotoma publishes BP age coverage here, but the interval remains a site-level pollen context span rather than a sample-owned event date."
+    },
+    {
+      "site_id": "33300",
+      "site_name": "Brattheivatnet",
+      "country": "Norway",
+      "comparability_posture": "numeric_interval",
+      "temporal_window_label": "Early Holocene and older (6001+ BP)",
+      "summary_label": "7210-15418 Calibrated radiocarbon years BP",
+      "dataset_count": 1,
+      "collection_unit_count": 1,
+      "sample_count": 63,
+      "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
+      "supported_age_range_count": 1,
+      "all_age_range_count": 1,
+      "bp_age_range_units": [
+        "Calibrated radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Calibrated radiocarbon years BP"
+      ],
+      "comparison_note": "Neotoma publishes BP age coverage here, but the interval remains a site-level pollen context span rather than a sample-owned event date."
+    },
+    {
+      "site_id": "28869",
+      "site_name": "Bussjösjön",
+      "country": "Sweden",
+      "comparability_posture": "numeric_interval",
+      "temporal_window_label": "Mid-Holocene (3001-6000 BP)",
+      "summary_label": "0-9262 Calibrated radiocarbon years BP",
+      "dataset_count": 1,
+      "collection_unit_count": 1,
+      "sample_count": 69,
+      "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
+      "supported_age_range_count": 1,
+      "all_age_range_count": 1,
+      "bp_age_range_units": [
+        "Calibrated radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Calibrated radiocarbon years BP"
+      ],
+      "comparison_note": "Neotoma publishes BP age coverage here, but the interval remains a site-level pollen context span rather than a sample-owned event date."
+    },
+    {
+      "site_id": "28872",
+      "site_name": "Bökesjön",
+      "country": "Sweden",
+      "comparability_posture": "numeric_interval",
+      "temporal_window_label": "Late Holocene (1001-3000 BP)",
+      "summary_label": "0-5605 Calibrated radiocarbon years BP",
+      "dataset_count": 1,
+      "collection_unit_count": 1,
+      "sample_count": 52,
+      "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
+      "supported_age_range_count": 1,
+      "all_age_range_count": 1,
+      "bp_age_range_units": [
+        "Calibrated radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Calibrated radiocarbon years BP"
+      ],
+      "comparison_note": "Neotoma publishes BP age coverage here, but the interval remains a site-level pollen context span rather than a sample-owned event date."
+    },
+    {
+      "site_id": "13381",
+      "site_name": "Donvold",
+      "country": "Norway",
+      "comparability_posture": "numeric_interval",
+      "temporal_window_label": "Mid-Holocene (3001-6000 BP)",
+      "summary_label": "41-8367 Radiocarbon years BP",
+      "dataset_count": 1,
+      "collection_unit_count": 1,
+      "sample_count": 48,
+      "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
+      "supported_age_range_count": 1,
+      "all_age_range_count": 1,
+      "bp_age_range_units": [
+        "Radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Radiocarbon years BP"
+      ],
+      "comparison_note": "Neotoma publishes BP age coverage here, but the interval remains a site-level pollen context span rather than a sample-owned event date."
+    },
+    {
+      "site_id": "28455",
+      "site_name": "Eigebakken bog",
+      "country": "Norway",
+      "comparability_posture": "numeric_interval",
+      "temporal_window_label": "Early Holocene and older (6001+ BP)",
+      "summary_label": "9577-14440 Calendar years BP",
+      "dataset_count": 1,
+      "collection_unit_count": 1,
+      "sample_count": 69,
+      "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
+      "supported_age_range_count": 1,
+      "all_age_range_count": 1,
+      "bp_age_range_units": [
+        "Calendar years BP"
+      ],
+      "all_age_range_units": [
+        "Calendar years BP"
+      ],
+      "comparison_note": "Neotoma publishes BP age coverage here, but the interval remains a site-level pollen context span rather than a sample-owned event date."
+    },
+    {
+      "site_id": "28868",
+      "site_name": "Exhult",
+      "country": "Sweden",
+      "comparability_posture": "numeric_interval",
+      "temporal_window_label": "Mid-Holocene (3001-6000 BP)",
+      "summary_label": "0-7058 Calibrated radiocarbon years BP",
+      "dataset_count": 1,
+      "collection_unit_count": 1,
+      "sample_count": 108,
+      "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
+      "supported_age_range_count": 1,
+      "all_age_range_count": 1,
+      "bp_age_range_units": [
+        "Calibrated radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Calibrated radiocarbon years BP"
+      ],
+      "comparison_note": "Neotoma publishes BP age coverage here, but the interval remains a site-level pollen context span rather than a sample-owned event date."
+    },
+    {
+      "site_id": "28889",
+      "site_name": "Flinkasjön",
+      "country": "Sweden",
+      "comparability_posture": "numeric_interval",
+      "temporal_window_label": "Early Holocene and older (6001+ BP)",
+      "summary_label": "0-12010 Calibrated radiocarbon years BP",
+      "dataset_count": 1,
+      "collection_unit_count": 1,
+      "sample_count": 109,
+      "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
+      "supported_age_range_count": 1,
+      "all_age_range_count": 1,
+      "bp_age_range_units": [
+        "Calibrated radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Calibrated radiocarbon years BP"
+      ],
+      "comparison_note": "Neotoma publishes BP age coverage here, but the interval remains a site-level pollen context span rather than a sample-owned event date."
+    },
+    {
+      "site_id": "28870",
+      "site_name": "Fårarps Mosse",
+      "country": "Sweden",
+      "comparability_posture": "numeric_interval",
+      "temporal_window_label": "Mid-Holocene (3001-6000 BP)",
+      "summary_label": "328-8491 Calibrated radiocarbon years BP",
+      "dataset_count": 1,
+      "collection_unit_count": 1,
+      "sample_count": 86,
+      "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
+      "supported_age_range_count": 1,
+      "all_age_range_count": 1,
+      "bp_age_range_units": [
+        "Calibrated radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Calibrated radiocarbon years BP"
+      ],
+      "comparison_note": "Neotoma publishes BP age coverage here, but the interval remains a site-level pollen context span rather than a sample-owned event date."
+    },
+    {
+      "site_id": "28866",
+      "site_name": "Gilltjärnen",
+      "country": "Sweden",
+      "comparability_posture": "numeric_interval",
+      "temporal_window_label": "Mid-Holocene (3001-6000 BP)",
+      "summary_label": "0-11100 Calibrated radiocarbon years BP",
+      "dataset_count": 1,
+      "collection_unit_count": 1,
+      "sample_count": 101,
+      "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
+      "supported_age_range_count": 1,
+      "all_age_range_count": 1,
+      "bp_age_range_units": [
+        "Calibrated radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Calibrated radiocarbon years BP"
+      ],
+      "comparison_note": "Neotoma publishes BP age coverage here, but the interval remains a site-level pollen context span rather than a sample-owned event date."
+    },
+    {
+      "site_id": "28812",
+      "site_name": "Grisavad",
+      "country": "Sweden",
+      "comparability_posture": "numeric_interval",
+      "temporal_window_label": "Late Holocene (1001-3000 BP)",
+      "summary_label": "0-3157 Calibrated radiocarbon years BP",
+      "dataset_count": 1,
+      "collection_unit_count": 1,
+      "sample_count": 48,
+      "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
+      "supported_age_range_count": 1,
+      "all_age_range_count": 1,
+      "bp_age_range_units": [
+        "Calibrated radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Calibrated radiocarbon years BP"
+      ],
+      "comparison_note": "Neotoma publishes BP age coverage here, but the interval remains a site-level pollen context span rather than a sample-owned event date."
+    },
+    {
+      "site_id": "3141",
+      "site_name": "Halsjön II",
+      "country": "Sweden",
+      "comparability_posture": "numeric_interval",
+      "temporal_window_label": "Early Holocene and older (6001+ BP)",
+      "summary_label": "9106-12231 Radiocarbon years BP",
+      "dataset_count": 1,
+      "collection_unit_count": 1,
+      "sample_count": 23,
+      "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
+      "supported_age_range_count": 1,
+      "all_age_range_count": 1,
+      "bp_age_range_units": [
+        "Radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Radiocarbon years BP"
+      ],
+      "comparison_note": "Neotoma publishes BP age coverage here, but the interval remains a site-level pollen context span rather than a sample-owned event date."
+    },
+    {
+      "site_id": "28459",
+      "site_name": "Hemma",
+      "country": "Norway",
+      "comparability_posture": "numeric_interval",
+      "temporal_window_label": "Early Holocene and older (6001+ BP)",
+      "summary_label": "6361-10439 Calibrated radiocarbon years BP",
+      "dataset_count": 1,
+      "collection_unit_count": 1,
+      "sample_count": 12,
+      "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
+      "supported_age_range_count": 1,
+      "all_age_range_count": 1,
+      "bp_age_range_units": [
+        "Calibrated radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Calibrated radiocarbon years BP"
+      ],
+      "comparison_note": "Neotoma publishes BP age coverage here, but the interval remains a site-level pollen context span rather than a sample-owned event date."
+    },
+    {
+      "site_id": "14040",
+      "site_name": "Holtjärnen",
+      "country": "Sweden",
+      "comparability_posture": "numeric_interval",
+      "temporal_window_label": "Mid-Holocene (3001-6000 BP)",
+      "summary_label": "0-11942 Calibrated radiocarbon years BP",
+      "dataset_count": 1,
+      "collection_unit_count": 1,
+      "sample_count": 101,
+      "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
+      "supported_age_range_count": 1,
+      "all_age_range_count": 1,
+      "bp_age_range_units": [
+        "Calibrated radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Calibrated radiocarbon years BP"
+      ],
+      "comparison_note": "Neotoma publishes BP age coverage here, but the interval remains a site-level pollen context span rather than a sample-owned event date."
+    },
+    {
+      "site_id": "3138",
+      "site_name": "Håkulls Mosse",
+      "country": "Sweden",
+      "comparability_posture": "numeric_interval",
+      "temporal_window_label": "Early Holocene and older (6001+ BP)",
+      "summary_label": "9129-13337 Radiocarbon years BP",
+      "dataset_count": 1,
+      "collection_unit_count": 1,
+      "sample_count": 71,
+      "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
+      "supported_age_range_count": 1,
+      "all_age_range_count": 1,
+      "bp_age_range_units": [
+        "Radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Radiocarbon years BP"
+      ],
+      "comparison_note": "Neotoma publishes BP age coverage here, but the interval remains a site-level pollen context span rather than a sample-owned event date."
+    },
+    {
+      "site_id": "13336",
+      "site_name": "Klotjärnen",
+      "country": "Sweden",
+      "comparability_posture": "numeric_interval",
+      "temporal_window_label": "Mid-Holocene (3001-6000 BP)",
+      "summary_label": "0-10072 Calibrated radiocarbon years BP",
+      "dataset_count": 1,
+      "collection_unit_count": 1,
+      "sample_count": 111,
+      "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
+      "supported_age_range_count": 1,
+      "all_age_range_count": 1,
+      "bp_age_range_units": [
+        "Calibrated radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Calibrated radiocarbon years BP"
+      ],
+      "comparison_note": "Neotoma publishes BP age coverage here, but the interval remains a site-level pollen context span rather than a sample-owned event date."
+    },
+    {
+      "site_id": "3206",
+      "site_name": "Kroksjön",
+      "country": "Sweden",
+      "comparability_posture": "numeric_interval",
+      "temporal_window_label": "Early Holocene and older (6001+ BP)",
+      "summary_label": "10273-13434 Radiocarbon years BP",
+      "dataset_count": 1,
+      "collection_unit_count": 1,
+      "sample_count": 16,
+      "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
+      "supported_age_range_count": 1,
+      "all_age_range_count": 1,
+      "bp_age_range_units": [
+        "Radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Radiocarbon years BP"
+      ],
+      "comparison_note": "Neotoma publishes BP age coverage here, but the interval remains a site-level pollen context span rather than a sample-owned event date."
+    },
+    {
+      "site_id": "28865",
+      "site_name": "Kroktjärnen",
+      "country": "Sweden",
+      "comparability_posture": "numeric_interval",
+      "temporal_window_label": "Late Holocene (1001-3000 BP)",
+      "summary_label": "0-3601 Varve years BP",
+      "dataset_count": 1,
+      "collection_unit_count": 1,
+      "sample_count": 65,
+      "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
+      "supported_age_range_count": 1,
+      "all_age_range_count": 1,
+      "bp_age_range_units": [
+        "Varve years BP"
+      ],
+      "all_age_range_units": [
+        "Varve years BP"
+      ],
+      "comparison_note": "Neotoma publishes BP age coverage here, but the interval remains a site-level pollen context span rather than a sample-owned event date."
+    },
+    {
+      "site_id": "28861",
+      "site_name": "Kullaberg",
+      "country": "Sweden",
+      "comparability_posture": "numeric_interval",
+      "temporal_window_label": "Late Holocene (1001-3000 BP)",
+      "summary_label": "0-5460 Calibrated radiocarbon years BP",
+      "dataset_count": 1,
+      "collection_unit_count": 1,
+      "sample_count": 64,
+      "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
+      "supported_age_range_count": 1,
+      "all_age_range_count": 1,
+      "bp_age_range_units": [
+        "Calibrated radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Calibrated radiocarbon years BP"
+      ],
+      "comparison_note": "Neotoma publishes BP age coverage here, but the interval remains a site-level pollen context span rather than a sample-owned event date."
+    },
+    {
+      "site_id": "28887",
+      "site_name": "Lake Avegöl",
+      "country": "Sweden",
+      "comparability_posture": "numeric_interval",
+      "temporal_window_label": "Mid-Holocene (3001-6000 BP)",
+      "summary_label": "0-7312 Calibrated radiocarbon years BP",
+      "dataset_count": 1,
+      "collection_unit_count": 1,
+      "sample_count": 63,
+      "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
+      "supported_age_range_count": 1,
+      "all_age_range_count": 1,
+      "bp_age_range_units": [
+        "Calibrated radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Calibrated radiocarbon years BP"
+      ],
+      "comparison_note": "Neotoma publishes BP age coverage here, but the interval remains a site-level pollen context span rather than a sample-owned event date."
+    },
+    {
+      "site_id": "28144",
+      "site_name": "Lake Badsjön",
+      "country": "Sweden",
+      "comparability_posture": "numeric_interval",
+      "temporal_window_label": "Mid-Holocene (3001-6000 BP)",
+      "summary_label": "14-10259 Calibrated radiocarbon years BP",
+      "dataset_count": 1,
+      "collection_unit_count": 1,
+      "sample_count": 45,
+      "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
+      "supported_age_range_count": 1,
+      "all_age_range_count": 1,
+      "bp_age_range_units": [
+        "Calibrated radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Calibrated radiocarbon years BP"
+      ],
+      "comparison_note": "Neotoma publishes BP age coverage here, but the interval remains a site-level pollen context span rather than a sample-owned event date."
+    },
+    {
+      "site_id": "28431",
+      "site_name": "Lake Heimtjønna",
+      "country": "Norway",
+      "comparability_posture": "numeric_interval",
+      "temporal_window_label": "Early Holocene and older (6001+ BP)",
+      "summary_label": "149-14500 Calibrated radiocarbon years BP",
+      "dataset_count": 1,
+      "collection_unit_count": 1,
+      "sample_count": 55,
+      "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
+      "supported_age_range_count": 1,
+      "all_age_range_count": 1,
+      "bp_age_range_units": [
+        "Calibrated radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Calibrated radiocarbon years BP"
+      ],
+      "comparison_note": "Neotoma publishes BP age coverage here, but the interval remains a site-level pollen context span rather than a sample-owned event date."
+    },
+    {
+      "site_id": "13387",
+      "site_name": "Lake Hopseidet",
+      "country": "Norway",
+      "comparability_posture": "numeric_interval",
+      "temporal_window_label": "Mid-Holocene (3001-6000 BP)",
+      "summary_label": "0-10554 Radiocarbon years BP",
+      "dataset_count": 1,
+      "collection_unit_count": 1,
+      "sample_count": 53,
+      "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
+      "supported_age_range_count": 1,
+      "all_age_range_count": 1,
+      "bp_age_range_units": [
+        "Radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Radiocarbon years BP"
+      ],
+      "comparison_note": "Neotoma publishes BP age coverage here, but the interval remains a site-level pollen context span rather than a sample-owned event date."
+    },
+    {
+      "site_id": "28855",
+      "site_name": "Lake Stentjärn",
+      "country": "Sweden",
+      "comparability_posture": "numeric_interval",
+      "temporal_window_label": "Mid-Holocene (3001-6000 BP)",
+      "summary_label": "0-10502 Calibrated radiocarbon years BP",
+      "dataset_count": 2,
+      "collection_unit_count": 1,
+      "sample_count": 60,
+      "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
+      "supported_age_range_count": 1,
+      "all_age_range_count": 1,
+      "bp_age_range_units": [
+        "Calibrated radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Calibrated radiocarbon years BP"
+      ],
+      "comparison_note": "Neotoma publishes BP age coverage here, but the interval remains a site-level pollen context span rather than a sample-owned event date."
+    },
+    {
+      "site_id": "28440",
+      "site_name": "Lake Store Finnsjøen",
+      "country": "Norway",
+      "comparability_posture": "numeric_interval",
+      "temporal_window_label": "Early Holocene and older (6001+ BP)",
+      "summary_label": "1054-12933 Calibrated radiocarbon years BP",
+      "dataset_count": 1,
+      "collection_unit_count": 1,
+      "sample_count": 70,
+      "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
+      "supported_age_range_count": 1,
+      "all_age_range_count": 1,
+      "bp_age_range_units": [
+        "Calibrated radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Calibrated radiocarbon years BP"
+      ],
+      "comparison_note": "Neotoma publishes BP age coverage here, but the interval remains a site-level pollen context span rather than a sample-owned event date."
+    },
+    {
+      "site_id": "28856",
+      "site_name": "Lake Svartkälstjärn",
+      "country": "Sweden",
+      "comparability_posture": "numeric_interval",
+      "temporal_window_label": "Mid-Holocene (3001-6000 BP)",
+      "summary_label": "0-10013 Calibrated radiocarbon years BP",
+      "dataset_count": 1,
+      "collection_unit_count": 1,
+      "sample_count": 48,
+      "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
+      "supported_age_range_count": 1,
+      "all_age_range_count": 1,
+      "bp_age_range_units": [
+        "Calibrated radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Calibrated radiocarbon years BP"
+      ],
+      "comparison_note": "Neotoma publishes BP age coverage here, but the interval remains a site-level pollen context span rather than a sample-owned event date."
+    },
+    {
+      "site_id": "22656",
+      "site_name": "Lake Sännen",
+      "country": "Sweden",
+      "comparability_posture": "numeric_interval",
+      "temporal_window_label": "Early Holocene and older (6001+ BP)",
+      "summary_label": "10417-12476 Radiocarbon years BP",
+      "dataset_count": 1,
+      "collection_unit_count": 1,
+      "sample_count": 15,
+      "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
+      "supported_age_range_count": 1,
+      "all_age_range_count": 1,
+      "bp_age_range_units": [
+        "Radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Radiocarbon years BP"
+      ],
+      "comparison_note": "Neotoma publishes BP age coverage here, but the interval remains a site-level pollen context span rather than a sample-owned event date."
+    },
+    {
+      "site_id": "28860",
+      "site_name": "Lake Tibenatus",
+      "country": "Sweden",
+      "comparability_posture": "numeric_interval",
+      "temporal_window_label": "Mid-Holocene (3001-6000 BP)",
+      "summary_label": "34-10606 Calibrated radiocarbon years BP",
+      "dataset_count": 1,
+      "collection_unit_count": 1,
+      "sample_count": 45,
+      "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
+      "supported_age_range_count": 1,
+      "all_age_range_count": 1,
+      "bp_age_range_units": [
+        "Calibrated radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Calibrated radiocarbon years BP"
+      ],
+      "comparison_note": "Neotoma publishes BP age coverage here, but the interval remains a site-level pollen context span rather than a sample-owned event date."
+    },
+    {
+      "site_id": "28412",
+      "site_name": "Lake Topptjønna",
+      "country": "Norway",
+      "comparability_posture": "numeric_interval",
+      "temporal_window_label": "Early Holocene and older (6001+ BP)",
+      "summary_label": "6000-15401 Calibrated radiocarbon years BP",
+      "dataset_count": 1,
+      "collection_unit_count": 1,
+      "sample_count": 93,
+      "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
+      "supported_age_range_count": 1,
+      "all_age_range_count": 1,
+      "bp_age_range_units": [
+        "Calibrated radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Calibrated radiocarbon years BP"
+      ],
+      "comparison_note": "Neotoma publishes BP age coverage here, but the interval remains a site-level pollen context span rather than a sample-owned event date."
+    },
+    {
+      "site_id": "30418",
+      "site_name": "Lake Öagöl",
+      "country": "Sweden",
+      "comparability_posture": "numeric_interval",
+      "temporal_window_label": "Recent and historical (0-1000 BP)",
+      "summary_label": "0-1471 Calibrated radiocarbon years BP",
+      "dataset_count": 1,
+      "collection_unit_count": 1,
+      "sample_count": 32,
+      "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
+      "supported_age_range_count": 1,
+      "all_age_range_count": 1,
+      "bp_age_range_units": [
+        "Calibrated radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Calibrated radiocarbon years BP"
+      ],
+      "comparison_note": "Neotoma publishes BP age coverage here, but the interval remains a site-level pollen context span rather than a sample-owned event date."
+    },
+    {
+      "site_id": "28077",
+      "site_name": "Lehmilampi",
+      "country": "Finland",
+      "comparability_posture": "numeric_interval",
+      "temporal_window_label": "Late Holocene (1001-3000 BP)",
+      "summary_label": "28-5344 Varve years BP",
+      "dataset_count": 1,
+      "collection_unit_count": 1,
+      "sample_count": 32,
+      "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
+      "supported_age_range_count": 1,
+      "all_age_range_count": 1,
+      "bp_age_range_units": [
+        "Varve years BP"
+      ],
+      "all_age_range_units": [
+        "Varve years BP"
+      ],
+      "comparison_note": "Neotoma publishes BP age coverage here, but the interval remains a site-level pollen context span rather than a sample-owned event date."
+    },
+    {
+      "site_id": "25958",
+      "site_name": "Lerbäcker Moor",
+      "country": "Sweden",
+      "comparability_posture": "numeric_interval",
+      "temporal_window_label": "Mid-Holocene (3001-6000 BP)",
+      "summary_label": "81-10345 Calibrated radiocarbon years BP",
+      "dataset_count": 2,
+      "collection_unit_count": 2,
+      "sample_count": 17,
+      "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
+      "supported_age_range_count": 1,
+      "all_age_range_count": 1,
+      "bp_age_range_units": [
+        "Calibrated radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Calibrated radiocarbon years BP"
+      ],
+      "comparison_note": "Neotoma publishes BP age coverage here, but the interval remains a site-level pollen context span rather than a sample-owned event date."
+    },
+    {
+      "site_id": "28452",
+      "site_name": "Liastemmen bog",
+      "country": "Norway",
+      "comparability_posture": "numeric_interval",
+      "temporal_window_label": "Early Holocene and older (6001+ BP)",
+      "summary_label": "9500-14351 Calendar years BP",
+      "dataset_count": 1,
+      "collection_unit_count": 1,
+      "sample_count": 73,
+      "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
+      "supported_age_range_count": 1,
+      "all_age_range_count": 1,
+      "bp_age_range_units": [
+        "Calendar years BP"
+      ],
+      "all_age_range_units": [
+        "Calendar years BP"
+      ],
+      "comparison_note": "Neotoma publishes BP age coverage here, but the interval remains a site-level pollen context span rather than a sample-owned event date."
+    },
+    {
+      "site_id": "31818",
+      "site_name": "Lillsjön",
+      "country": "Sweden",
+      "comparability_posture": "numeric_interval",
+      "temporal_window_label": "Late Holocene (1001-3000 BP)",
+      "summary_label": "0-3129 Calendar years BP",
+      "dataset_count": 1,
+      "collection_unit_count": 1,
+      "sample_count": 86,
+      "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
+      "supported_age_range_count": 1,
+      "all_age_range_count": 1,
+      "bp_age_range_units": [
+        "Calendar years BP"
+      ],
+      "all_age_range_units": [
+        "Calendar years BP"
+      ],
+      "comparison_note": "Neotoma publishes BP age coverage here, but the interval remains a site-level pollen context span rather than a sample-owned event date."
+    },
+    {
+      "site_id": "29383",
+      "site_name": "Lina myr",
+      "country": "Sweden",
+      "comparability_posture": "numeric_interval",
+      "temporal_window_label": "Early Holocene and older (6001+ BP)",
+      "summary_label": "2117-10416 Calibrated radiocarbon years BP",
+      "dataset_count": 1,
+      "collection_unit_count": 1,
+      "sample_count": 28,
+      "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
+      "supported_age_range_count": 1,
+      "all_age_range_count": 1,
+      "bp_age_range_units": [
+        "Calibrated radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Calibrated radiocarbon years BP"
+      ],
+      "comparison_note": "Neotoma publishes BP age coverage here, but the interval remains a site-level pollen context span rather than a sample-owned event date."
+    },
+    {
+      "site_id": "13476",
+      "site_name": "Liten Cap’pesjav’ri",
+      "country": "Norway",
+      "comparability_posture": "numeric_interval",
+      "temporal_window_label": "Early Holocene and older (6001+ BP)",
+      "summary_label": "69-13908 Calibrated radiocarbon years BP",
+      "dataset_count": 1,
+      "collection_unit_count": 1,
+      "sample_count": 72,
+      "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
+      "supported_age_range_count": 1,
+      "all_age_range_count": 1,
+      "bp_age_range_units": [
+        "Calibrated radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Calibrated radiocarbon years BP"
+      ],
+      "comparison_note": "Neotoma publishes BP age coverage here, but the interval remains a site-level pollen context span rather than a sample-owned event date."
+    },
+    {
+      "site_id": "33301",
+      "site_name": "Lusvatnet",
+      "country": "Norway",
+      "comparability_posture": "numeric_interval",
+      "temporal_window_label": "Early Holocene and older (6001+ BP)",
+      "summary_label": "7136-13705 Calibrated radiocarbon years BP",
+      "dataset_count": 1,
+      "collection_unit_count": 1,
+      "sample_count": 83,
+      "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
+      "supported_age_range_count": 1,
+      "all_age_range_count": 1,
+      "bp_age_range_units": [
+        "Calibrated radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Calibrated radiocarbon years BP"
+      ],
+      "comparison_note": "Neotoma publishes BP age coverage here, but the interval remains a site-level pollen context span rather than a sample-owned event date."
+    },
+    {
+      "site_id": "3277",
+      "site_name": "Masehjavri",
+      "country": "Finland",
+      "comparability_posture": "numeric_interval",
+      "temporal_window_label": "Early Holocene and older (6001+ BP)",
+      "summary_label": "1680-11020 Radiocarbon years BP",
+      "dataset_count": 1,
+      "collection_unit_count": 1,
+      "sample_count": 34,
+      "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
+      "supported_age_range_count": 1,
+      "all_age_range_count": 1,
+      "bp_age_range_units": [
+        "Radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Radiocarbon years BP"
+      ],
+      "comparison_note": "Neotoma publishes BP age coverage here, but the interval remains a site-level pollen context span rather than a sample-owned event date."
+    },
+    {
+      "site_id": "3279",
+      "site_name": "Mayralampi",
+      "country": "Finland",
+      "comparability_posture": "numeric_interval",
+      "temporal_window_label": "Mid-Holocene (3001-6000 BP)",
+      "summary_label": "60-8503 Radiocarbon years BP",
+      "dataset_count": 1,
+      "collection_unit_count": 1,
+      "sample_count": 89,
+      "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
+      "supported_age_range_count": 1,
+      "all_age_range_count": 1,
+      "bp_age_range_units": [
+        "Radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Radiocarbon years BP"
+      ],
+      "comparison_note": "Neotoma publishes BP age coverage here, but the interval remains a site-level pollen context span rather than a sample-owned event date."
+    },
+    {
+      "site_id": "13478",
+      "site_name": "Over Gunnarsfjorden",
+      "country": "Norway",
+      "comparability_posture": "numeric_interval",
+      "temporal_window_label": "Mid-Holocene (3001-6000 BP)",
+      "summary_label": "0-10201 Calibrated radiocarbon years BP",
+      "dataset_count": 1,
+      "collection_unit_count": 1,
+      "sample_count": 117,
+      "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
+      "supported_age_range_count": 1,
+      "all_age_range_count": 1,
+      "bp_age_range_units": [
+        "Calibrated radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Calibrated radiocarbon years BP"
+      ],
+      "comparison_note": "Neotoma publishes BP age coverage here, but the interval remains a site-level pollen context span rather than a sample-owned event date."
+    },
+    {
+      "site_id": "13481",
+      "site_name": "Over Kobbkrokvatnet",
+      "country": "Norway",
+      "comparability_posture": "numeric_interval",
+      "temporal_window_label": "Early Holocene and older (6001+ BP)",
+      "summary_label": "42-13492 Calibrated radiocarbon years BP",
+      "dataset_count": 1,
+      "collection_unit_count": 1,
+      "sample_count": 69,
+      "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
+      "supported_age_range_count": 1,
+      "all_age_range_count": 1,
+      "bp_age_range_units": [
+        "Calibrated radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Calibrated radiocarbon years BP"
+      ],
+      "comparison_note": "Neotoma publishes BP age coverage here, but the interval remains a site-level pollen context span rather than a sample-owned event date."
+    },
+    {
+      "site_id": "30965",
+      "site_name": "Palomaa",
+      "country": "Finland",
+      "comparability_posture": "numeric_interval",
+      "temporal_window_label": "Recent and historical (0-1000 BP)",
+      "summary_label": "0-878 Calendar years BP",
+      "dataset_count": 1,
+      "collection_unit_count": 1,
+      "sample_count": 217,
+      "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
+      "supported_age_range_count": 1,
+      "all_age_range_count": 1,
+      "bp_age_range_units": [
+        "Calendar years BP"
+      ],
+      "all_age_range_units": [
+        "Calendar years BP"
+      ],
+      "comparison_note": "Neotoma publishes BP age coverage here, but the interval remains a site-level pollen context span rather than a sample-owned event date."
+    },
+    {
+      "site_id": "28858",
+      "site_name": "Rogberga",
+      "country": "Sweden",
+      "comparability_posture": "numeric_interval",
+      "temporal_window_label": "Late Holocene (1001-3000 BP)",
+      "summary_label": "0-5965 Calibrated radiocarbon years BP",
+      "dataset_count": 1,
+      "collection_unit_count": 1,
+      "sample_count": 44,
+      "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
+      "supported_age_range_count": 1,
+      "all_age_range_count": 1,
+      "bp_age_range_units": [
+        "Calibrated radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Calibrated radiocarbon years BP"
+      ],
+      "comparison_note": "Neotoma publishes BP age coverage here, but the interval remains a site-level pollen context span rather than a sample-owned event date."
+    },
+    {
+      "site_id": "25895",
+      "site_name": "Rönneholms Mosse",
+      "country": "Sweden",
+      "comparability_posture": "numeric_interval",
+      "temporal_window_label": "Mid-Holocene (3001-6000 BP)",
+      "summary_label": "357-6214 Calibrated radiocarbon years BP",
+      "dataset_count": 2,
+      "collection_unit_count": 2,
+      "sample_count": 32,
+      "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
+      "supported_age_range_count": 1,
+      "all_age_range_count": 1,
+      "bp_age_range_units": [
+        "Calibrated radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Calibrated radiocarbon years BP"
+      ],
+      "comparison_note": "Neotoma publishes BP age coverage here, but the interval remains a site-level pollen context span rather than a sample-owned event date."
+    },
+    {
+      "site_id": "28873",
+      "site_name": "Stavsåkra",
+      "country": "Sweden",
+      "comparability_posture": "numeric_interval",
+      "temporal_window_label": "Mid-Holocene (3001-6000 BP)",
+      "summary_label": "70-10585 Calibrated radiocarbon years BP",
+      "dataset_count": 1,
+      "collection_unit_count": 1,
+      "sample_count": 77,
+      "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
+      "supported_age_range_count": 1,
+      "all_age_range_count": 1,
+      "bp_age_range_units": [
+        "Calibrated radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Calibrated radiocarbon years BP"
+      ],
+      "comparison_note": "Neotoma publishes BP age coverage here, but the interval remains a site-level pollen context span rather than a sample-owned event date."
+    },
+    {
+      "site_id": "28885",
+      "site_name": "Stobydeltat",
+      "country": "Sweden",
+      "comparability_posture": "numeric_interval",
+      "temporal_window_label": "Early Holocene and older (6001+ BP)",
+      "summary_label": "58-11950 Calibrated radiocarbon years BP",
+      "dataset_count": 1,
+      "collection_unit_count": 1,
+      "sample_count": 84,
+      "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
+      "supported_age_range_count": 1,
+      "all_age_range_count": 1,
+      "bp_age_range_units": [
+        "Calibrated radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Calibrated radiocarbon years BP"
+      ],
+      "comparison_note": "Neotoma publishes BP age coverage here, but the interval remains a site-level pollen context span rather than a sample-owned event date."
+    },
+    {
+      "site_id": "28864",
+      "site_name": "Stor-flen",
+      "country": "Sweden",
+      "comparability_posture": "numeric_interval",
+      "temporal_window_label": "Mid-Holocene (3001-6000 BP)",
+      "summary_label": "101-9463 Calibrated radiocarbon years BP",
+      "dataset_count": 1,
+      "collection_unit_count": 1,
+      "sample_count": 84,
+      "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
+      "supported_age_range_count": 1,
+      "all_age_range_count": 1,
+      "bp_age_range_units": [
+        "Calibrated radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Calibrated radiocarbon years BP"
+      ],
+      "comparison_note": "Neotoma publishes BP age coverage here, but the interval remains a site-level pollen context span rather than a sample-owned event date."
+    },
+    {
+      "site_id": "28874",
+      "site_name": "Storasjö",
+      "country": "Sweden",
+      "comparability_posture": "numeric_interval",
+      "temporal_window_label": "Mid-Holocene (3001-6000 BP)",
+      "summary_label": "65-10874 Calibrated radiocarbon years BP",
+      "dataset_count": 2,
+      "collection_unit_count": 1,
+      "sample_count": 154,
+      "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
+      "supported_age_range_count": 1,
+      "all_age_range_count": 1,
+      "bp_age_range_units": [
+        "Calibrated radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Calibrated radiocarbon years BP"
+      ],
+      "comparison_note": "Neotoma publishes BP age coverage here, but the interval remains a site-level pollen context span rather than a sample-owned event date."
+    },
+    {
+      "site_id": "28854",
+      "site_name": "Storsnasen",
+      "country": "Sweden",
+      "comparability_posture": "numeric_interval",
+      "temporal_window_label": "Mid-Holocene (3001-6000 BP)",
+      "summary_label": "161-9690 Calibrated radiocarbon years BP",
+      "dataset_count": 1,
+      "collection_unit_count": 1,
+      "sample_count": 74,
+      "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
+      "supported_age_range_count": 1,
+      "all_age_range_count": 1,
+      "bp_age_range_units": [
+        "Calibrated radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Calibrated radiocarbon years BP"
+      ],
+      "comparison_note": "Neotoma publishes BP age coverage here, but the interval remains a site-level pollen context span rather than a sample-owned event date."
+    },
+    {
+      "site_id": "13335",
+      "site_name": "Styggtjärnen",
+      "country": "Sweden",
+      "comparability_posture": "numeric_interval",
+      "temporal_window_label": "Mid-Holocene (3001-6000 BP)",
+      "summary_label": "0-9575 Calibrated radiocarbon years BP",
+      "dataset_count": 1,
+      "collection_unit_count": 1,
+      "sample_count": 78,
+      "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
+      "supported_age_range_count": 1,
+      "all_age_range_count": 1,
+      "bp_age_range_units": [
+        "Calibrated radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Calibrated radiocarbon years BP"
+      ],
+      "comparison_note": "Neotoma publishes BP age coverage here, but the interval remains a site-level pollen context span rather than a sample-owned event date."
+    },
+    {
+      "site_id": "33292",
+      "site_name": "Svanåvatnet",
+      "country": "Norway",
+      "comparability_posture": "numeric_interval",
+      "temporal_window_label": "Mid-Holocene (3001-6000 BP)",
+      "summary_label": "0-8721 Calibrated radiocarbon years BP",
+      "dataset_count": 1,
+      "collection_unit_count": 1,
+      "sample_count": 82,
+      "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
+      "supported_age_range_count": 1,
+      "all_age_range_count": 1,
+      "bp_age_range_units": [
+        "Calibrated radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Calibrated radiocarbon years BP"
+      ],
+      "comparison_note": "Neotoma publishes BP age coverage here, but the interval remains a site-level pollen context span rather than a sample-owned event date."
+    },
+    {
+      "site_id": "13395",
+      "site_name": "Trondheimsfjord",
+      "country": "Norway",
+      "comparability_posture": "numeric_interval",
+      "temporal_window_label": "Early Holocene and older (6001+ BP)",
+      "summary_label": "5600-8608 Calibrated radiocarbon years BP",
+      "dataset_count": 1,
+      "collection_unit_count": 1,
+      "sample_count": 32,
+      "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
+      "supported_age_range_count": 1,
+      "all_age_range_count": 1,
+      "bp_age_range_units": [
+        "Calibrated radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Calibrated radiocarbon years BP"
+      ],
+      "comparison_note": "Neotoma publishes BP age coverage here, but the interval remains a site-level pollen context span rather than a sample-owned event date."
+    },
+    {
+      "site_id": "28863",
+      "site_name": "Trygåsen (II)",
+      "country": "Sweden",
+      "comparability_posture": "numeric_interval",
+      "temporal_window_label": "Mid-Holocene (3001-6000 BP)",
+      "summary_label": "0-8090 Calibrated radiocarbon years BP",
+      "dataset_count": 1,
+      "collection_unit_count": 1,
+      "sample_count": 46,
+      "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
+      "supported_age_range_count": 1,
+      "all_age_range_count": 1,
+      "bp_age_range_units": [
+        "Calibrated radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Calibrated radiocarbon years BP"
+      ],
+      "comparison_note": "Neotoma publishes BP age coverage here, but the interval remains a site-level pollen context span rather than a sample-owned event date."
+    },
+    {
+      "site_id": "28857",
+      "site_name": "Trälhultet",
+      "country": "Sweden",
+      "comparability_posture": "numeric_interval",
+      "temporal_window_label": "Late Holocene (1001-3000 BP)",
+      "summary_label": "0-2948 Calibrated radiocarbon years BP",
+      "dataset_count": 1,
+      "collection_unit_count": 1,
+      "sample_count": 40,
+      "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
+      "supported_age_range_count": 1,
+      "all_age_range_count": 1,
+      "bp_age_range_units": [
+        "Calibrated radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Calibrated radiocarbon years BP"
+      ],
+      "comparison_note": "Neotoma publishes BP age coverage here, but the interval remains a site-level pollen context span rather than a sample-owned event date."
+    },
+    {
+      "site_id": "28813",
+      "site_name": "Uddared",
+      "country": "Sweden",
+      "comparability_posture": "numeric_interval",
+      "temporal_window_label": "Late Holocene (1001-3000 BP)",
+      "summary_label": "0-4996 Calibrated radiocarbon years BP",
+      "dataset_count": 1,
+      "collection_unit_count": 1,
+      "sample_count": 71,
+      "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
+      "supported_age_range_count": 1,
+      "all_age_range_count": 1,
+      "bp_age_range_units": [
+        "Calibrated radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Calibrated radiocarbon years BP"
+      ],
+      "comparison_note": "Neotoma publishes BP age coverage here, but the interval remains a site-level pollen context span rather than a sample-owned event date."
+    },
+    {
+      "site_id": "26118",
+      "site_name": "Vuolep Allasasjaure",
+      "country": "Norway",
+      "comparability_posture": "numeric_interval",
+      "temporal_window_label": "Mid-Holocene (3001-6000 BP)",
+      "summary_label": "0-9044 Calibrated radiocarbon years BP",
+      "dataset_count": 1,
+      "collection_unit_count": 1,
+      "sample_count": 80,
+      "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
+      "supported_age_range_count": 1,
+      "all_age_range_count": 1,
+      "bp_age_range_units": [
+        "Calibrated radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Calibrated radiocarbon years BP"
+      ],
+      "comparison_note": "Neotoma publishes BP age coverage here, but the interval remains a site-level pollen context span rather than a sample-owned event date."
+    },
+    {
+      "site_id": "28888",
+      "site_name": "Värsjö Utmark",
+      "country": "Sweden",
+      "comparability_posture": "numeric_interval",
+      "temporal_window_label": "Late Holocene (1001-3000 BP)",
+      "summary_label": "0-2160 Calibrated radiocarbon years BP",
+      "dataset_count": 1,
+      "collection_unit_count": 1,
+      "sample_count": 39,
+      "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
+      "supported_age_range_count": 1,
+      "all_age_range_count": 1,
+      "bp_age_range_units": [
+        "Calibrated radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Calibrated radiocarbon years BP"
+      ],
+      "comparison_note": "Neotoma publishes BP age coverage here, but the interval remains a site-level pollen context span rather than a sample-owned event date."
+    },
+    {
+      "site_id": "28852",
+      "site_name": "Västragylet",
+      "country": "Sweden",
+      "comparability_posture": "numeric_interval",
+      "temporal_window_label": "Mid-Holocene (3001-6000 BP)",
+      "summary_label": "0-7706 Calibrated radiocarbon years BP",
+      "dataset_count": 1,
+      "collection_unit_count": 1,
+      "sample_count": 43,
+      "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
+      "supported_age_range_count": 1,
+      "all_age_range_count": 1,
+      "bp_age_range_units": [
+        "Calibrated radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Calibrated radiocarbon years BP"
+      ],
+      "comparison_note": "Neotoma publishes BP age coverage here, but the interval remains a site-level pollen context span rather than a sample-owned event date."
+    },
+    {
+      "site_id": "28886",
+      "site_name": "Östra Ringarp",
+      "country": "Sweden",
+      "comparability_posture": "numeric_interval",
+      "temporal_window_label": "Mid-Holocene (3001-6000 BP)",
+      "summary_label": "0-6945 Calibrated radiocarbon years BP",
+      "dataset_count": 1,
+      "collection_unit_count": 1,
+      "sample_count": 57,
+      "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
+      "supported_age_range_count": 1,
+      "all_age_range_count": 1,
+      "bp_age_range_units": [
+        "Calibrated radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Calibrated radiocarbon years BP"
+      ],
+      "comparison_note": "Neotoma publishes BP age coverage here, but the interval remains a site-level pollen context span rather than a sample-owned event date."
+    },
+    {
+      "site_id": "28862",
+      "site_name": "Övre myren från Skallskog",
+      "country": "Sweden",
+      "comparability_posture": "numeric_interval",
+      "temporal_window_label": "Recent and historical (0-1000 BP)",
+      "summary_label": "56-1943 Calibrated radiocarbon years BP",
+      "dataset_count": 1,
+      "collection_unit_count": 1,
+      "sample_count": 28,
+      "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
+      "supported_age_range_count": 1,
+      "all_age_range_count": 1,
+      "bp_age_range_units": [
+        "Calibrated radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Calibrated radiocarbon years BP"
+      ],
+      "comparison_note": "Neotoma publishes BP age coverage here, but the interval remains a site-level pollen context span rather than a sample-owned event date."
+    },
+    {
+      "site_id": "26128",
+      "site_name": "Afstj¢rna",
+      "country": "Norway",
+      "comparability_posture": "numeric_interval_with_caveat",
+      "temporal_window_label": "Early Holocene and older (6001+ BP)",
+      "summary_label": "0-13398 Calibrated radiocarbon years BP",
+      "dataset_count": 1,
+      "collection_unit_count": 1,
+      "sample_count": 55,
+      "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
+      "supported_age_range_count": 2,
+      "all_age_range_count": 2,
+      "bp_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "comparison_note": "Neotoma coverage merges more than one BP age-range convention for this site, so the interval remains comparable but should be treated as a site-level summary span."
+    },
+    {
+      "site_id": "12",
+      "site_name": "Ageröds Mosse",
+      "country": "Sweden",
+      "comparability_posture": "numeric_interval_with_caveat",
+      "temporal_window_label": "Mid-Holocene (3001-6000 BP)",
+      "summary_label": "0-11004 Calibrated radiocarbon years BP",
+      "dataset_count": 1,
+      "collection_unit_count": 1,
+      "sample_count": 135,
+      "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
+      "supported_age_range_count": 2,
+      "all_age_range_count": 2,
+      "bp_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "comparison_note": "Neotoma coverage merges more than one BP age-range convention for this site, so the interval remains comparable but should be treated as a site-level summary span."
+    },
+    {
+      "site_id": "2966",
+      "site_name": "Aholammi",
+      "country": "Finland",
+      "comparability_posture": "numeric_interval_with_caveat",
+      "temporal_window_label": "Early Holocene and older (6001+ BP)",
+      "summary_label": "840-13135 Calibrated radiocarbon years BP",
+      "dataset_count": 1,
+      "collection_unit_count": 1,
+      "sample_count": 46,
+      "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
+      "supported_age_range_count": 2,
+      "all_age_range_count": 2,
+      "bp_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "comparison_note": "Neotoma coverage merges more than one BP age-range convention for this site, so the interval remains comparable but should be treated as a site-level summary span."
+    },
+    {
+      "site_id": "20",
+      "site_name": "Akuvaara",
+      "country": "Finland",
+      "comparability_posture": "numeric_interval_with_caveat",
+      "temporal_window_label": "Mid-Holocene (3001-6000 BP)",
+      "summary_label": "0-11118 Calibrated radiocarbon years BP",
+      "dataset_count": 1,
+      "collection_unit_count": 1,
+      "sample_count": 34,
+      "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
+      "supported_age_range_count": 2,
+      "all_age_range_count": 2,
+      "bp_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "comparison_note": "Neotoma coverage merges more than one BP age-range convention for this site, so the interval remains comparable but should be treated as a site-level summary span."
+    },
+    {
+      "site_id": "26119",
+      "site_name": "Alanen Laanijärvi",
+      "country": "Sweden",
+      "comparability_posture": "numeric_interval_with_caveat",
+      "temporal_window_label": "Mid-Holocene (3001-6000 BP)",
+      "summary_label": "9-8834 Calibrated radiocarbon years BP",
+      "dataset_count": 1,
+      "collection_unit_count": 1,
+      "sample_count": 56,
+      "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
+      "supported_age_range_count": 2,
+      "all_age_range_count": 2,
+      "bp_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "comparison_note": "Neotoma coverage merges more than one BP age-range convention for this site, so the interval remains comparable but should be treated as a site-level summary span."
+    },
+    {
+      "site_id": "3009",
+      "site_name": "Bergakyllen",
+      "country": "Sweden",
+      "comparability_posture": "numeric_interval_with_caveat",
+      "temporal_window_label": "Early Holocene and older (6001+ BP)",
+      "summary_label": "8464-22911 Calibrated radiocarbon years BP",
+      "dataset_count": 1,
+      "collection_unit_count": 1,
+      "sample_count": 28,
+      "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
+      "supported_age_range_count": 2,
+      "all_age_range_count": 2,
+      "bp_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "comparison_note": "Neotoma coverage merges more than one BP age-range convention for this site, so the interval remains comparable but should be treated as a site-level summary span."
+    },
+    {
+      "site_id": "28871",
+      "site_name": "Bjäresjösjön",
+      "country": "Sweden",
+      "comparability_posture": "numeric_interval_with_caveat",
+      "temporal_window_label": "Late Holocene (1001-3000 BP)",
+      "summary_label": "0-2803 Calibrated radiocarbon years BP",
+      "dataset_count": 1,
+      "collection_unit_count": 1,
+      "sample_count": 66,
+      "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
+      "supported_age_range_count": 2,
+      "all_age_range_count": 2,
+      "bp_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "comparison_note": "Neotoma coverage merges more than one BP age-range convention for this site, so the interval remains comparable but should be treated as a site-level summary span."
+    },
+    {
+      "site_id": "3017",
+      "site_name": "Bjärsjöholmssjön",
+      "country": "Sweden",
+      "comparability_posture": "numeric_interval_with_caveat",
+      "temporal_window_label": "Mid-Holocene (3001-6000 BP)",
+      "summary_label": "0-8814 Calibrated radiocarbon years BP",
+      "dataset_count": 1,
+      "collection_unit_count": 1,
+      "sample_count": 118,
+      "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
+      "supported_age_range_count": 2,
+      "all_age_range_count": 2,
+      "bp_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "comparison_note": "Neotoma coverage merges more than one BP age-range convention for this site, so the interval remains comparable but should be treated as a site-level summary span."
+    },
+    {
+      "site_id": "3020",
+      "site_name": "Björksjödamm",
+      "country": "Sweden",
+      "comparability_posture": "numeric_interval_with_caveat",
+      "temporal_window_label": "Early Holocene and older (6001+ BP)",
+      "summary_label": "9386-15480 Calibrated radiocarbon years BP",
+      "dataset_count": 1,
+      "collection_unit_count": 1,
+      "sample_count": 38,
+      "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
+      "supported_age_range_count": 2,
+      "all_age_range_count": 2,
+      "bp_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "comparison_note": "Neotoma coverage merges more than one BP age-range convention for this site, so the interval remains comparable but should be treated as a site-level summary span."
+    },
+    {
+      "site_id": "26169",
+      "site_name": "Bjørnfjelltjørn",
+      "country": "Norway",
+      "comparability_posture": "numeric_interval_with_caveat",
+      "temporal_window_label": "Mid-Holocene (3001-6000 BP)",
+      "summary_label": "0-11515 Calibrated radiocarbon years BP",
+      "dataset_count": 1,
+      "collection_unit_count": 1,
+      "sample_count": 63,
+      "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
+      "supported_age_range_count": 2,
+      "all_age_range_count": 2,
+      "bp_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "comparison_note": "Neotoma coverage merges more than one BP age-range convention for this site, so the interval remains comparable but should be treated as a site-level summary span."
+    },
+    {
+      "site_id": "3025",
+      "site_name": "Blomoy",
+      "country": "Norway",
+      "comparability_posture": "numeric_interval_with_caveat",
+      "temporal_window_label": "Early Holocene and older (6001+ BP)",
+      "summary_label": "810-14948 Calibrated radiocarbon years BP",
+      "dataset_count": 1,
+      "collection_unit_count": 1,
+      "sample_count": 18,
+      "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
+      "supported_age_range_count": 2,
+      "all_age_range_count": 2,
+      "bp_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "comparison_note": "Neotoma coverage merges more than one BP age-range convention for this site, so the interval remains comparable but should be treated as a site-level summary span."
+    },
+    {
+      "site_id": "3022",
+      "site_name": "Blåvasstjønn",
+      "country": "Norway",
+      "comparability_posture": "numeric_interval_with_caveat",
+      "temporal_window_label": "Mid-Holocene (3001-6000 BP)",
+      "summary_label": "0-10793 Calibrated radiocarbon years BP",
+      "dataset_count": 1,
+      "collection_unit_count": 1,
+      "sample_count": 37,
+      "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
+      "supported_age_range_count": 2,
+      "all_age_range_count": 2,
+      "bp_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "comparison_note": "Neotoma coverage merges more than one BP age-range convention for this site, so the interval remains comparable but should be treated as a site-level summary span."
+    },
+    {
+      "site_id": "28892",
+      "site_name": "Bocksten site A",
+      "country": "Sweden",
+      "comparability_posture": "numeric_interval_with_caveat",
+      "temporal_window_label": "Late Holocene (1001-3000 BP)",
+      "summary_label": "0-2514 Calibrated radiocarbon years BP",
+      "dataset_count": 1,
+      "collection_unit_count": 1,
+      "sample_count": 84,
+      "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
+      "supported_age_range_count": 2,
+      "all_age_range_count": 2,
+      "bp_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "comparison_note": "Neotoma coverage merges more than one BP age-range convention for this site, so the interval remains comparable but should be treated as a site-level summary span."
+    },
+    {
+      "site_id": "310",
+      "site_name": "Bruvatnet [Rovvejávri]",
+      "country": "Norway",
+      "comparability_posture": "numeric_interval_with_caveat",
+      "temporal_window_label": "Early Holocene and older (6001+ BP)",
+      "summary_label": "315-14441 Calibrated radiocarbon years BP",
+      "dataset_count": 1,
+      "collection_unit_count": 1,
+      "sample_count": 40,
+      "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
+      "supported_age_range_count": 2,
+      "all_age_range_count": 2,
+      "bp_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "comparison_note": "Neotoma coverage merges more than one BP age-range convention for this site, so the interval remains comparable but should be treated as a site-level summary span."
+    },
+    {
+      "site_id": "3077",
+      "site_name": "Dags Mosse",
+      "country": "Sweden",
+      "comparability_posture": "numeric_interval_with_caveat",
+      "temporal_window_label": "Mid-Holocene (3001-6000 BP)",
+      "summary_label": "0-8922 Calibrated radiocarbon years BP",
+      "dataset_count": 1,
+      "collection_unit_count": 1,
+      "sample_count": 124,
+      "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
+      "supported_age_range_count": 2,
+      "all_age_range_count": 2,
+      "bp_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "comparison_note": "Neotoma coverage merges more than one BP age-range convention for this site, so the interval remains comparable but should be treated as a site-level summary span."
+    },
+    {
+      "site_id": "26219",
+      "site_name": "Dalane",
+      "country": "Norway",
+      "comparability_posture": "numeric_interval_with_caveat",
+      "temporal_window_label": "Early Holocene and older (6001+ BP)",
+      "summary_label": "0-20995 Calibrated radiocarbon years BP",
+      "dataset_count": 1,
+      "collection_unit_count": 1,
+      "sample_count": 69,
+      "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
+      "supported_age_range_count": 2,
+      "all_age_range_count": 2,
+      "bp_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "comparison_note": "Neotoma coverage merges more than one BP age-range convention for this site, so the interval remains comparable but should be treated as a site-level summary span."
+    },
+    {
+      "site_id": "14458",
+      "site_name": "Domsjön",
+      "country": "Sweden",
+      "comparability_posture": "numeric_interval_with_caveat",
+      "temporal_window_label": "Early Holocene and older (6001+ BP)",
+      "summary_label": "10053-13646 Calibrated radiocarbon years BP",
+      "dataset_count": 1,
+      "collection_unit_count": 1,
+      "sample_count": 28,
+      "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
+      "supported_age_range_count": 2,
+      "all_age_range_count": 2,
+      "bp_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "comparison_note": "Neotoma coverage merges more than one BP age-range convention for this site, so the interval remains comparable but should be treated as a site-level summary span."
+    },
+    {
+      "site_id": "700",
+      "site_name": "Domsvatnet",
+      "country": "Norway",
+      "comparability_posture": "numeric_interval_with_caveat",
+      "temporal_window_label": "Mid-Holocene (3001-6000 BP)",
+      "summary_label": "161-11704 Calibrated radiocarbon years BP",
+      "dataset_count": 1,
+      "collection_unit_count": 1,
+      "sample_count": 37,
+      "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
+      "supported_age_range_count": 2,
+      "all_age_range_count": 2,
+      "bp_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "comparison_note": "Neotoma coverage merges more than one BP age-range convention for this site, so the interval remains comparable but should be treated as a site-level summary span."
+    },
+    {
+      "site_id": "3104",
+      "site_name": "Fjallsjön 1",
+      "country": "Sweden",
+      "comparability_posture": "numeric_interval_with_caveat",
+      "temporal_window_label": "Early Holocene and older (6001+ BP)",
+      "summary_label": "9780-14893 Calibrated radiocarbon years BP",
+      "dataset_count": 1,
+      "collection_unit_count": 1,
+      "sample_count": 26,
+      "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
+      "supported_age_range_count": 2,
+      "all_age_range_count": 2,
+      "bp_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "comparison_note": "Neotoma coverage merges more than one BP age-range convention for this site, so the interval remains comparable but should be treated as a site-level summary span."
+    },
+    {
+      "site_id": "3105",
+      "site_name": "Fjällnas",
+      "country": "Sweden",
+      "comparability_posture": "numeric_interval_with_caveat",
+      "temporal_window_label": "Late Holocene (1001-3000 BP)",
+      "summary_label": "0-5845 Calibrated radiocarbon years BP",
+      "dataset_count": 1,
+      "collection_unit_count": 1,
+      "sample_count": 67,
+      "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
+      "supported_age_range_count": 2,
+      "all_age_range_count": 2,
+      "bp_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "comparison_note": "Neotoma coverage merges more than one BP age-range convention for this site, so the interval remains comparable but should be treated as a site-level summary span."
+    },
+    {
+      "site_id": "3106",
+      "site_name": "Flaatevatn",
+      "country": "Norway",
+      "comparability_posture": "numeric_interval_with_caveat",
+      "temporal_window_label": "Mid-Holocene (3001-6000 BP)",
+      "summary_label": "751-11141 Calibrated radiocarbon years BP",
+      "dataset_count": 1,
+      "collection_unit_count": 1,
+      "sample_count": 32,
+      "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
+      "supported_age_range_count": 2,
+      "all_age_range_count": 2,
+      "bp_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "comparison_note": "Neotoma coverage merges more than one BP age-range convention for this site, so the interval remains comparable but should be treated as a site-level summary span."
+    },
+    {
+      "site_id": "28867",
+      "site_name": "Flahult",
+      "country": "Sweden",
+      "comparability_posture": "numeric_interval_with_caveat",
+      "temporal_window_label": "Late Holocene (1001-3000 BP)",
+      "summary_label": "0-5611 Calibrated radiocarbon years BP",
+      "dataset_count": 1,
+      "collection_unit_count": 1,
+      "sample_count": 64,
+      "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
+      "supported_age_range_count": 2,
+      "all_age_range_count": 2,
+      "bp_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "comparison_note": "Neotoma coverage merges more than one BP age-range convention for this site, so the interval remains comparable but should be treated as a site-level summary span."
+    },
+    {
+      "site_id": "26214",
+      "site_name": "Flotatjønn",
+      "country": "Norway",
+      "comparability_posture": "numeric_interval_with_caveat",
+      "temporal_window_label": "Mid-Holocene (3001-6000 BP)",
+      "summary_label": "0-10468 Calibrated radiocarbon years BP",
+      "dataset_count": 1,
+      "collection_unit_count": 1,
+      "sample_count": 48,
+      "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
+      "supported_age_range_count": 2,
+      "all_age_range_count": 2,
+      "bp_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "comparison_note": "Neotoma coverage merges more than one BP age-range convention for this site, so the interval remains comparable but should be treated as a site-level summary span."
+    },
+    {
+      "site_id": "3115",
+      "site_name": "Frengstadsetra",
+      "country": "Norway",
+      "comparability_posture": "numeric_interval_with_caveat",
+      "temporal_window_label": "Early Holocene and older (6001+ BP)",
+      "summary_label": "1579-13830 Calibrated radiocarbon years BP",
+      "dataset_count": 1,
+      "collection_unit_count": 1,
+      "sample_count": 31,
+      "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
+      "supported_age_range_count": 2,
+      "all_age_range_count": 2,
+      "bp_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "comparison_note": "Neotoma coverage merges more than one BP age-range convention for this site, so the interval remains comparable but should be treated as a site-level summary span."
+    },
+    {
+      "site_id": "3102",
+      "site_name": "Färskesjön",
+      "country": "Sweden",
+      "comparability_posture": "numeric_interval_with_caveat",
+      "temporal_window_label": "Early Holocene and older (6001+ BP)",
+      "summary_label": "66-12730 Calibrated radiocarbon years BP",
+      "dataset_count": 1,
+      "collection_unit_count": 1,
+      "sample_count": 128,
+      "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
+      "supported_age_range_count": 2,
+      "all_age_range_count": 2,
+      "bp_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "comparison_note": "Neotoma coverage merges more than one BP age-range convention for this site, so the interval remains comparable but should be treated as a site-level summary span."
+    },
+    {
+      "site_id": "3120",
+      "site_name": "Galtsjön",
+      "country": "Sweden",
+      "comparability_posture": "numeric_interval_with_caveat",
+      "temporal_window_label": "Early Holocene and older (6001+ BP)",
+      "summary_label": "9909-13952 Calibrated radiocarbon years BP",
+      "dataset_count": 1,
+      "collection_unit_count": 1,
+      "sample_count": 18,
+      "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
+      "supported_age_range_count": 2,
+      "all_age_range_count": 2,
+      "bp_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "comparison_note": "Neotoma coverage merges more than one BP age-range convention for this site, so the interval remains comparable but should be treated as a site-level summary span."
+    },
+    {
+      "site_id": "26168",
+      "site_name": "Gammelheimenvatnet",
+      "country": "Norway",
+      "comparability_posture": "numeric_interval_with_caveat",
+      "temporal_window_label": "Mid-Holocene (3001-6000 BP)",
+      "summary_label": "0-10328 Calibrated radiocarbon years BP",
+      "dataset_count": 1,
+      "collection_unit_count": 1,
+      "sample_count": 74,
+      "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
+      "supported_age_range_count": 2,
+      "all_age_range_count": 2,
+      "bp_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "comparison_note": "Neotoma coverage merges more than one BP age-range convention for this site, so the interval remains comparable but should be treated as a site-level summary span."
+    },
+    {
+      "site_id": "947",
+      "site_name": "Grasvatn",
+      "country": "Norway",
+      "comparability_posture": "numeric_interval_with_caveat",
+      "temporal_window_label": "Early Holocene and older (6001+ BP)",
+      "summary_label": "871-12861 Calibrated radiocarbon years BP",
+      "dataset_count": 1,
+      "collection_unit_count": 1,
+      "sample_count": 45,
+      "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
+      "supported_age_range_count": 2,
+      "all_age_range_count": 2,
+      "bp_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "comparison_note": "Neotoma coverage merges more than one BP age-range convention for this site, so the interval remains comparable but should be treated as a site-level summary span."
+    },
+    {
+      "site_id": "26220",
+      "site_name": "Grauthelleren",
+      "country": "Norway",
+      "comparability_posture": "numeric_interval_with_caveat",
+      "temporal_window_label": "Early Holocene and older (6001+ BP)",
+      "summary_label": "0-17946 Calibrated radiocarbon years BP",
+      "dataset_count": 1,
+      "collection_unit_count": 1,
+      "sample_count": 70,
+      "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
+      "supported_age_range_count": 2,
+      "all_age_range_count": 2,
+      "bp_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "comparison_note": "Neotoma coverage merges more than one BP age-range convention for this site, so the interval remains comparable but should be treated as a site-level summary span."
+    },
+    {
+      "site_id": "26217",
+      "site_name": "Grostjørna",
+      "country": "Norway",
+      "comparability_posture": "numeric_interval_with_caveat",
+      "temporal_window_label": "Early Holocene and older (6001+ BP)",
+      "summary_label": "0-13301 Calibrated radiocarbon years BP",
+      "dataset_count": 1,
+      "collection_unit_count": 1,
+      "sample_count": 78,
+      "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
+      "supported_age_range_count": 2,
+      "all_age_range_count": 2,
+      "bp_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "comparison_note": "Neotoma coverage merges more than one BP age-range convention for this site, so the interval remains comparable but should be treated as a site-level summary span."
+    },
+    {
+      "site_id": "26210",
+      "site_name": "Haugtjernet",
+      "country": "Norway",
+      "comparability_posture": "numeric_interval_with_caveat",
+      "temporal_window_label": "Mid-Holocene (3001-6000 BP)",
+      "summary_label": "0-10911 Calibrated radiocarbon years BP",
+      "dataset_count": 1,
+      "collection_unit_count": 1,
+      "sample_count": 77,
+      "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
+      "supported_age_range_count": 2,
+      "all_age_range_count": 2,
+      "bp_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "comparison_note": "Neotoma coverage merges more than one BP age-range convention for this site, so the interval remains comparable but should be treated as a site-level summary span."
+    },
+    {
+      "site_id": "3145",
+      "site_name": "Hirvilampi",
+      "country": "Finland",
+      "comparability_posture": "numeric_interval_with_caveat",
+      "temporal_window_label": "Early Holocene and older (6001+ BP)",
+      "summary_label": "459-12964 Calibrated radiocarbon years BP",
+      "dataset_count": 1,
+      "collection_unit_count": 1,
+      "sample_count": 133,
+      "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
+      "supported_age_range_count": 2,
+      "all_age_range_count": 2,
+      "bp_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "comparison_note": "Neotoma coverage merges more than one BP age-range convention for this site, so the interval remains comparable but should be treated as a site-level summary span."
+    },
+    {
+      "site_id": "26216",
+      "site_name": "Holebudalen",
+      "country": "Norway",
+      "comparability_posture": "numeric_interval_with_caveat",
+      "temporal_window_label": "Mid-Holocene (3001-6000 BP)",
+      "summary_label": "0-11115 Calibrated radiocarbon years BP",
+      "dataset_count": 1,
+      "collection_unit_count": 1,
+      "sample_count": 94,
+      "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
+      "supported_age_range_count": 2,
+      "all_age_range_count": 2,
+      "bp_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "comparison_note": "Neotoma coverage merges more than one BP age-range convention for this site, so the interval remains comparable but should be treated as a site-level summary span."
+    },
+    {
+      "site_id": "3140",
+      "site_name": "Hälsegyl",
+      "country": "Sweden",
+      "comparability_posture": "numeric_interval_with_caveat",
+      "temporal_window_label": "Early Holocene and older (6001+ BP)",
+      "summary_label": "11877-16858 Calibrated radiocarbon years BP",
+      "dataset_count": 1,
+      "collection_unit_count": 1,
+      "sample_count": 13,
+      "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
+      "supported_age_range_count": 2,
+      "all_age_range_count": 2,
+      "bp_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "comparison_note": "Neotoma coverage merges more than one BP age-range convention for this site, so the interval remains comparable but should be treated as a site-level summary span."
+    },
+    {
+      "site_id": "26221",
+      "site_name": "Isbenttjønn",
+      "country": "Norway",
+      "comparability_posture": "numeric_interval_with_caveat",
+      "temporal_window_label": "Mid-Holocene (3001-6000 BP)",
+      "summary_label": "0-10530 Calibrated radiocarbon years BP",
+      "dataset_count": 1,
+      "collection_unit_count": 1,
+      "sample_count": 59,
+      "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
+      "supported_age_range_count": 2,
+      "all_age_range_count": 2,
+      "bp_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "comparison_note": "Neotoma coverage merges more than one BP age-range convention for this site, so the interval remains comparable but should be treated as a site-level summary span."
+    },
+    {
+      "site_id": "3165",
+      "site_name": "Isokärret",
+      "country": "Finland",
+      "comparability_posture": "numeric_interval_with_caveat",
+      "temporal_window_label": "Late Holocene (1001-3000 BP)",
+      "summary_label": "0-4667 Calibrated radiocarbon years BP",
+      "dataset_count": 1,
+      "collection_unit_count": 1,
+      "sample_count": 38,
+      "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
+      "supported_age_range_count": 2,
+      "all_age_range_count": 2,
+      "bp_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "comparison_note": "Neotoma coverage merges more than one BP age-range convention for this site, so the interval remains comparable but should be treated as a site-level summary span."
+    },
+    {
+      "site_id": "3177",
+      "site_name": "Kaarkotinlampi",
+      "country": "Finland",
+      "comparability_posture": "numeric_interval_with_caveat",
+      "temporal_window_label": "Mid-Holocene (3001-6000 BP)",
+      "summary_label": "0-11127 Calibrated radiocarbon years BP",
+      "dataset_count": 1,
+      "collection_unit_count": 1,
+      "sample_count": 37,
+      "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
+      "supported_age_range_count": 2,
+      "all_age_range_count": 2,
+      "bp_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "comparison_note": "Neotoma coverage merges more than one BP age-range convention for this site, so the interval remains comparable but should be treated as a site-level summary span."
+    },
+    {
+      "site_id": "3178",
+      "site_name": "Kaartlamminsuo",
+      "country": "Finland",
+      "comparability_posture": "numeric_interval_with_caveat",
+      "temporal_window_label": "Late Holocene (1001-3000 BP)",
+      "summary_label": "105-5344 Calibrated radiocarbon years BP",
+      "dataset_count": 1,
+      "collection_unit_count": 1,
+      "sample_count": 54,
+      "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
+      "supported_age_range_count": 2,
+      "all_age_range_count": 2,
+      "bp_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "comparison_note": "Neotoma coverage merges more than one BP age-range convention for this site, so the interval remains comparable but should be treated as a site-level summary span."
+    },
+    {
+      "site_id": "3179",
+      "site_name": "Kalven",
+      "country": "Sweden",
+      "comparability_posture": "numeric_interval_with_caveat",
+      "temporal_window_label": "Early Holocene and older (6001+ BP)",
+      "summary_label": "10488-14456 Calibrated radiocarbon years BP",
+      "dataset_count": 1,
+      "collection_unit_count": 1,
+      "sample_count": 16,
+      "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
+      "supported_age_range_count": 2,
+      "all_age_range_count": 2,
+      "bp_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "comparison_note": "Neotoma coverage merges more than one BP age-range convention for this site, so the interval remains comparable but should be treated as a site-level summary span."
+    },
+    {
+      "site_id": "3180",
+      "site_name": "Kangerjoki",
+      "country": "Finland",
+      "comparability_posture": "numeric_interval_with_caveat",
+      "temporal_window_label": "Mid-Holocene (3001-6000 BP)",
+      "summary_label": "0-9887 Calibrated radiocarbon years BP",
+      "dataset_count": 1,
+      "collection_unit_count": 1,
+      "sample_count": 29,
+      "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
+      "supported_age_range_count": 2,
+      "all_age_range_count": 2,
+      "bp_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "comparison_note": "Neotoma coverage merges more than one BP age-range convention for this site, so the interval remains comparable but should be treated as a site-level summary span."
+    },
+    {
+      "site_id": "1401",
+      "site_name": "Kansjön",
+      "country": "Sweden",
+      "comparability_posture": "numeric_interval_with_caveat",
+      "temporal_window_label": "Early Holocene and older (6001+ BP)",
+      "summary_label": "18-16752 Calibrated radiocarbon years BP",
+      "dataset_count": 1,
+      "collection_unit_count": 1,
+      "sample_count": 45,
+      "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
+      "supported_age_range_count": 2,
+      "all_age_range_count": 2,
+      "bp_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "comparison_note": "Neotoma coverage merges more than one BP age-range convention for this site, so the interval remains comparable but should be treated as a site-level summary span."
+    },
+    {
+      "site_id": "3185",
+      "site_name": "Kassjön",
+      "country": "Sweden",
+      "comparability_posture": "numeric_interval_with_caveat",
+      "temporal_window_label": "Mid-Holocene (3001-6000 BP)",
+      "summary_label": "0-6434 Calendar years BP",
+      "dataset_count": 1,
+      "collection_unit_count": 1,
+      "sample_count": 78,
+      "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
+      "supported_age_range_count": 2,
+      "all_age_range_count": 2,
+      "bp_age_range_units": [
+        "Calendar years BP",
+        "Radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Calendar years BP",
+        "Radiocarbon years BP"
+      ],
+      "comparison_note": "Neotoma coverage merges more than one BP age-range convention for this site, so the interval remains comparable but should be treated as a site-level summary span."
+    },
+    {
+      "site_id": "26211",
+      "site_name": "Kinnshaugen",
+      "country": "Norway",
+      "comparability_posture": "numeric_interval_with_caveat",
+      "temporal_window_label": "Early Holocene and older (6001+ BP)",
+      "summary_label": "0-14980 Calibrated radiocarbon years BP",
+      "dataset_count": 1,
+      "collection_unit_count": 1,
+      "sample_count": 70,
+      "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
+      "supported_age_range_count": 2,
+      "all_age_range_count": 2,
+      "bp_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "comparison_note": "Neotoma coverage merges more than one BP age-range convention for this site, so the interval remains comparable but should be treated as a site-level summary span."
+    },
+    {
+      "site_id": "3195",
+      "site_name": "Kirkkosaari",
+      "country": "Finland",
+      "comparability_posture": "numeric_interval_with_caveat",
+      "temporal_window_label": "Mid-Holocene (3001-6000 BP)",
+      "summary_label": "0-6118 Calibrated radiocarbon years BP",
+      "dataset_count": 1,
+      "collection_unit_count": 1,
+      "sample_count": 53,
+      "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
+      "supported_age_range_count": 2,
+      "all_age_range_count": 2,
+      "bp_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "comparison_note": "Neotoma coverage merges more than one BP age-range convention for this site, so the interval remains comparable but should be treated as a site-level summary span."
+    },
+    {
+      "site_id": "3196",
+      "site_name": "Kittilä",
+      "country": "Finland",
+      "comparability_posture": "numeric_interval_with_caveat",
+      "temporal_window_label": "Recent and historical (0-1000 BP)",
+      "summary_label": "0-1459 Calibrated radiocarbon years BP",
+      "dataset_count": 1,
+      "collection_unit_count": 1,
+      "sample_count": 17,
+      "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
+      "supported_age_range_count": 2,
+      "all_age_range_count": 2,
+      "bp_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "comparison_note": "Neotoma coverage merges more than one BP age-range convention for this site, so the interval remains comparable but should be treated as a site-level summary span."
+    },
+    {
+      "site_id": "3204",
+      "site_name": "Krageholmssjön",
+      "country": "Sweden",
+      "comparability_posture": "numeric_interval_with_caveat",
+      "temporal_window_label": "Early Holocene and older (6001+ BP)",
+      "summary_label": "0-12209 Calibrated radiocarbon years BP",
+      "dataset_count": 2,
+      "collection_unit_count": 2,
+      "sample_count": 206,
+      "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
+      "supported_age_range_count": 2,
+      "all_age_range_count": 2,
+      "bp_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "comparison_note": "Neotoma coverage merges more than one BP age-range convention for this site, so the interval remains comparable but should be treated as a site-level summary span."
+    },
+    {
+      "site_id": "3210",
+      "site_name": "Kuivajarvi",
+      "country": "Finland",
+      "comparability_posture": "numeric_interval_with_caveat",
+      "temporal_window_label": "Mid-Holocene (3001-6000 BP)",
+      "summary_label": "0-10426 Calibrated radiocarbon years BP",
+      "dataset_count": 1,
+      "collection_unit_count": 1,
+      "sample_count": 112,
+      "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
+      "supported_age_range_count": 2,
+      "all_age_range_count": 2,
+      "bp_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "comparison_note": "Neotoma coverage merges more than one BP age-range convention for this site, so the interval remains comparable but should be treated as a site-level summary span."
+    },
+    {
+      "site_id": "28072",
+      "site_name": "Laihalampi",
+      "country": "Finland",
+      "comparability_posture": "numeric_interval_with_caveat",
+      "temporal_window_label": "Mid-Holocene (3001-6000 BP)",
+      "summary_label": "11000 Calibrated radiocarbon years BP",
+      "dataset_count": 1,
+      "collection_unit_count": 1,
+      "sample_count": 150,
+      "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
+      "supported_age_range_count": 2,
+      "all_age_range_count": 2,
+      "bp_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "comparison_note": "Neotoma coverage merges more than one BP age-range convention for this site, so the interval remains comparable but should be treated as a site-level summary span."
+    },
+    {
+      "site_id": "3107",
+      "site_name": "Lake Flarken",
+      "country": "Sweden",
+      "comparability_posture": "numeric_interval_with_caveat",
+      "temporal_window_label": "Early Holocene and older (6001+ BP)",
+      "summary_label": "113-12471 Calibrated radiocarbon years BP",
+      "dataset_count": 1,
+      "collection_unit_count": 1,
+      "sample_count": 114,
+      "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
+      "supported_age_range_count": 2,
+      "all_age_range_count": 2,
+      "bp_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "comparison_note": "Neotoma coverage merges more than one BP age-range convention for this site, so the interval remains comparable but should be treated as a site-level summary span."
+    },
+    {
+      "site_id": "13383",
+      "site_name": "Lake Flåfattjønna",
+      "country": "Norway",
+      "comparability_posture": "numeric_interval_with_caveat",
+      "temporal_window_label": "Early Holocene and older (6001+ BP)",
+      "summary_label": "0-16000 Calibrated radiocarbon years BP",
+      "dataset_count": 1,
+      "collection_unit_count": 1,
+      "sample_count": 148,
+      "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
+      "supported_age_range_count": 2,
+      "all_age_range_count": 2,
+      "bp_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "comparison_note": "Neotoma coverage merges more than one BP age-range convention for this site, so the interval remains comparable but should be treated as a site-level summary span."
+    },
+    {
+      "site_id": "13384",
+      "site_name": "Lake Ifjord",
+      "country": "Norway",
+      "comparability_posture": "numeric_interval_with_caveat",
+      "temporal_window_label": "Early Holocene and older (6001+ BP)",
+      "summary_label": "0-12826 Calibrated radiocarbon years BP",
+      "dataset_count": 1,
+      "collection_unit_count": 1,
+      "sample_count": 93,
+      "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
+      "supported_age_range_count": 2,
+      "all_age_range_count": 2,
+      "bp_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "comparison_note": "Neotoma coverage merges more than one BP age-range convention for this site, so the interval remains comparable but should be treated as a site-level summary span."
+    },
+    {
+      "site_id": "3303",
+      "site_name": "Lake Mullsjön",
+      "country": "Sweden",
+      "comparability_posture": "numeric_interval_with_caveat",
+      "temporal_window_label": "Early Holocene and older (6001+ BP)",
+      "summary_label": "9526-17322 Calibrated radiocarbon years BP",
+      "dataset_count": 1,
+      "collection_unit_count": 1,
+      "sample_count": 20,
+      "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
+      "supported_age_range_count": 2,
+      "all_age_range_count": 2,
+      "bp_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "comparison_note": "Neotoma coverage merges more than one BP age-range convention for this site, so the interval remains comparable but should be treated as a site-level summary span."
+    },
+    {
+      "site_id": "24041",
+      "site_name": "Lake Skaidejavri",
+      "country": "Finland",
+      "comparability_posture": "numeric_interval_with_caveat",
+      "temporal_window_label": "Mid-Holocene (3001-6000 BP)",
+      "summary_label": "0-10977 Calibrated radiocarbon years BP",
+      "dataset_count": 1,
+      "collection_unit_count": 1,
+      "sample_count": 100,
+      "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
+      "supported_age_range_count": 2,
+      "all_age_range_count": 2,
+      "bp_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "comparison_note": "Neotoma coverage merges more than one BP age-range convention for this site, so the interval remains comparable but should be treated as a site-level summary span."
+    },
+    {
+      "site_id": "28157",
+      "site_name": "Lake Skogstjern",
+      "country": "Norway",
+      "comparability_posture": "numeric_interval_with_caveat",
+      "temporal_window_label": "Mid-Holocene (3001-6000 BP)",
+      "summary_label": "36-10509 Calibrated radiocarbon years BP",
+      "dataset_count": 1,
+      "collection_unit_count": 1,
+      "sample_count": 236,
+      "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
+      "supported_age_range_count": 2,
+      "all_age_range_count": 2,
+      "bp_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "comparison_note": "Neotoma coverage merges more than one BP age-range convention for this site, so the interval remains comparable but should be treated as a site-level summary span."
+    },
+    {
+      "site_id": "3432",
+      "site_name": "Lake Solsø",
+      "country": "Denmark",
+      "comparability_posture": "numeric_interval_with_caveat",
+      "temporal_window_label": "Early Holocene and older (6001+ BP)",
+      "summary_label": "0-13410 Calibrated radiocarbon years BP",
+      "dataset_count": 2,
+      "collection_unit_count": 2,
+      "sample_count": 92,
+      "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
+      "supported_age_range_count": 2,
+      "all_age_range_count": 2,
+      "bp_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "comparison_note": "Neotoma coverage merges more than one BP age-range convention for this site, so the interval remains comparable but should be treated as a site-level summary span."
+    },
+    {
+      "site_id": "3398",
+      "site_name": "Lake Sämbosjön",
+      "country": "Sweden",
+      "comparability_posture": "numeric_interval_with_caveat",
+      "temporal_window_label": "Early Holocene and older (6001+ BP)",
+      "summary_label": "813-11498 Calibrated radiocarbon years BP",
+      "dataset_count": 1,
+      "collection_unit_count": 1,
+      "sample_count": 111,
+      "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
+      "supported_age_range_count": 2,
+      "all_age_range_count": 2,
+      "bp_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "comparison_note": "Neotoma coverage merges more than one BP age-range convention for this site, so the interval remains comparable but should be treated as a site-level summary span."
+    },
+    {
+      "site_id": "3477",
+      "site_name": "Lake Trummen",
+      "country": "Sweden",
+      "comparability_posture": "numeric_interval_with_caveat",
+      "temporal_window_label": "Early Holocene and older (6001+ BP)",
+      "summary_label": "1150-10208 Calendar years BP",
+      "dataset_count": 1,
+      "collection_unit_count": 1,
+      "sample_count": 98,
+      "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
+      "supported_age_range_count": 2,
+      "all_age_range_count": 2,
+      "bp_age_range_units": [
+        "Calendar years BP",
+        "Calibrated radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Calendar years BP",
+        "Calibrated radiocarbon years BP"
+      ],
+      "comparison_note": "Neotoma coverage merges more than one BP age-range convention for this site, so the interval remains comparable but should be treated as a site-level summary span."
+    },
+    {
+      "site_id": "15733",
+      "site_name": "Lake Tsuolbmajavri",
+      "country": "Finland",
+      "comparability_posture": "numeric_interval_with_caveat",
+      "temporal_window_label": "Mid-Holocene (3001-6000 BP)",
+      "summary_label": "16-10424 Calibrated radiocarbon years BP",
+      "dataset_count": 1,
+      "collection_unit_count": 1,
+      "sample_count": 146,
+      "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
+      "supported_age_range_count": 2,
+      "all_age_range_count": 2,
+      "bp_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "comparison_note": "Neotoma coverage merges more than one BP age-range convention for this site, so the interval remains comparable but should be treated as a site-level summary span."
+    },
+    {
+      "site_id": "3221",
+      "site_name": "Lalaxkärret",
+      "country": "Finland",
+      "comparability_posture": "numeric_interval_with_caveat",
+      "temporal_window_label": "Late Holocene (1001-3000 BP)",
+      "summary_label": "15-4429 Calibrated radiocarbon years BP",
+      "dataset_count": 1,
+      "collection_unit_count": 1,
+      "sample_count": 28,
+      "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
+      "supported_age_range_count": 2,
+      "all_age_range_count": 2,
+      "bp_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "comparison_note": "Neotoma coverage merges more than one BP age-range convention for this site, so the interval remains comparable but should be treated as a site-level summary span."
+    },
+    {
+      "site_id": "3234",
+      "site_name": "Lilla Gloppsjön",
+      "country": "Sweden",
+      "comparability_posture": "numeric_interval_with_caveat",
+      "temporal_window_label": "Mid-Holocene (3001-6000 BP)",
+      "summary_label": "0-11510 Calibrated radiocarbon years BP",
+      "dataset_count": 1,
+      "collection_unit_count": 1,
+      "sample_count": 86,
+      "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
+      "supported_age_range_count": 2,
+      "all_age_range_count": 2,
+      "bp_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "comparison_note": "Neotoma coverage merges more than one BP age-range convention for this site, so the interval remains comparable but should be treated as a site-level summary span."
+    },
+    {
+      "site_id": "26215",
+      "site_name": "Lille Kjelavatn",
+      "country": "Norway",
+      "comparability_posture": "numeric_interval_with_caveat",
+      "temporal_window_label": "Mid-Holocene (3001-6000 BP)",
+      "summary_label": "0-8802 Calibrated radiocarbon years BP",
+      "dataset_count": 1,
+      "collection_unit_count": 1,
+      "sample_count": 88,
+      "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
+      "supported_age_range_count": 2,
+      "all_age_range_count": 2,
+      "bp_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "comparison_note": "Neotoma coverage merges more than one BP age-range convention for this site, so the interval remains comparable but should be treated as a site-level summary span."
+    },
+    {
+      "site_id": "3238",
+      "site_name": "Lillsjön",
+      "country": "Sweden",
+      "comparability_posture": "numeric_interval_with_caveat",
+      "temporal_window_label": "Early Holocene and older (6001+ BP)",
+      "summary_label": "10365-15307 Calibrated radiocarbon years BP",
+      "dataset_count": 1,
+      "collection_unit_count": 1,
+      "sample_count": 16,
+      "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
+      "supported_age_range_count": 2,
+      "all_age_range_count": 2,
+      "bp_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "comparison_note": "Neotoma coverage merges more than one BP age-range convention for this site, so the interval remains comparable but should be treated as a site-level summary span."
+    },
+    {
+      "site_id": "26213",
+      "site_name": "Lisletjønn",
+      "country": "Norway",
+      "comparability_posture": "numeric_interval_with_caveat",
+      "temporal_window_label": "Mid-Holocene (3001-6000 BP)",
+      "summary_label": "0-10413 Calibrated radiocarbon years BP",
+      "dataset_count": 1,
+      "collection_unit_count": 1,
+      "sample_count": 51,
+      "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
+      "supported_age_range_count": 2,
+      "all_age_range_count": 2,
+      "bp_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "comparison_note": "Neotoma coverage merges more than one BP age-range convention for this site, so the interval remains comparable but should be treated as a site-level summary span."
+    },
+    {
+      "site_id": "26167",
+      "site_name": "Litlvatnet",
+      "country": "Norway",
+      "comparability_posture": "numeric_interval_with_caveat",
+      "temporal_window_label": "Early Holocene and older (6001+ BP)",
+      "summary_label": "0-12528 Calibrated radiocarbon years BP",
+      "dataset_count": 1,
+      "collection_unit_count": 1,
+      "sample_count": 51,
+      "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
+      "supported_age_range_count": 2,
+      "all_age_range_count": 2,
+      "bp_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "comparison_note": "Neotoma coverage merges more than one BP age-range convention for this site, so the interval remains comparable but should be treated as a site-level summary span."
+    },
+    {
+      "site_id": "3240",
+      "site_name": "Ljungsjön",
+      "country": "Sweden",
+      "comparability_posture": "numeric_interval_with_caveat",
+      "temporal_window_label": "Early Holocene and older (6001+ BP)",
+      "summary_label": "12630-15342 Calibrated radiocarbon years BP",
+      "dataset_count": 1,
+      "collection_unit_count": 1,
+      "sample_count": 14,
+      "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
+      "supported_age_range_count": 2,
+      "all_age_range_count": 2,
+      "bp_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "comparison_note": "Neotoma coverage merges more than one BP age-range convention for this site, so the interval remains comparable but should be treated as a site-level summary span."
+    },
+    {
+      "site_id": "28853",
+      "site_name": "Ljustjärnen",
+      "country": "Sweden",
+      "comparability_posture": "numeric_interval_with_caveat",
+      "temporal_window_label": "Mid-Holocene (3001-6000 BP)",
+      "summary_label": "377-10734 Calibrated radiocarbon years BP",
+      "dataset_count": 1,
+      "collection_unit_count": 1,
+      "sample_count": 103,
+      "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
+      "supported_age_range_count": 2,
+      "all_age_range_count": 2,
+      "bp_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "comparison_note": "Neotoma coverage merges more than one BP age-range convention for this site, so the interval remains comparable but should be treated as a site-level summary span."
+    },
+    {
+      "site_id": "22660",
+      "site_name": "Logylet",
+      "country": "Sweden",
+      "comparability_posture": "numeric_interval_with_caveat",
+      "temporal_window_label": "Early Holocene and older (6001+ BP)",
+      "summary_label": "10719-15262 Calibrated radiocarbon years BP",
+      "dataset_count": 1,
+      "collection_unit_count": 1,
+      "sample_count": 30,
+      "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
+      "supported_age_range_count": 2,
+      "all_age_range_count": 2,
+      "bp_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "comparison_note": "Neotoma coverage merges more than one BP age-range convention for this site, so the interval remains comparable but should be treated as a site-level summary span."
+    },
+    {
+      "site_id": "3264",
+      "site_name": "Maanselänsuo",
+      "country": "Finland",
+      "comparability_posture": "numeric_interval_with_caveat",
+      "temporal_window_label": "Mid-Holocene (3001-6000 BP)",
+      "summary_label": "0-11564 Calibrated radiocarbon years BP",
+      "dataset_count": 1,
+      "collection_unit_count": 1,
+      "sample_count": 29,
+      "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
+      "supported_age_range_count": 2,
+      "all_age_range_count": 2,
+      "bp_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "comparison_note": "Neotoma coverage merges more than one BP age-range convention for this site, so the interval remains comparable but should be treated as a site-level summary span."
+    },
+    {
+      "site_id": "15711",
+      "site_name": "Mabo Moss",
+      "country": "Sweden",
+      "comparability_posture": "numeric_interval_with_caveat",
+      "temporal_window_label": "Early Holocene and older (6001+ BP)",
+      "summary_label": "246-17309 Calibrated radiocarbon years BP",
+      "dataset_count": 1,
+      "collection_unit_count": 1,
+      "sample_count": 131,
+      "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
+      "supported_age_range_count": 2,
+      "all_age_range_count": 2,
+      "bp_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "comparison_note": "Neotoma coverage merges more than one BP age-range convention for this site, so the interval remains comparable but should be treated as a site-level summary span."
+    },
+    {
+      "site_id": "3317",
+      "site_name": "Madtjärn",
+      "country": "Sweden",
+      "comparability_posture": "numeric_interval_with_caveat",
+      "temporal_window_label": "Early Holocene and older (6001+ BP)",
+      "summary_label": "8396-14502 Calibrated radiocarbon years BP",
+      "dataset_count": 1,
+      "collection_unit_count": 1,
+      "sample_count": 13,
+      "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
+      "supported_age_range_count": 2,
+      "all_age_range_count": 2,
+      "bp_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "comparison_note": "Neotoma coverage merges more than one BP age-range convention for this site, so the interval remains comparable but should be treated as a site-level summary span."
+    },
+    {
+      "site_id": "28891",
+      "site_name": "Mattarp",
+      "country": "Sweden",
+      "comparability_posture": "numeric_interval_with_caveat",
+      "temporal_window_label": "Mid-Holocene (3001-6000 BP)",
+      "summary_label": "0-7577 Calibrated radiocarbon years BP",
+      "dataset_count": 1,
+      "collection_unit_count": 1,
+      "sample_count": 78,
+      "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
+      "supported_age_range_count": 2,
+      "all_age_range_count": 2,
+      "bp_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "comparison_note": "Neotoma coverage merges more than one BP age-range convention for this site, so the interval remains comparable but should be treated as a site-level summary span."
+    },
+    {
+      "site_id": "26123",
+      "site_name": "Morttjern",
+      "country": "Norway",
+      "comparability_posture": "numeric_interval_with_caveat",
+      "temporal_window_label": "Mid-Holocene (3001-6000 BP)",
+      "summary_label": "0-11765 Calibrated radiocarbon years BP",
+      "dataset_count": 1,
+      "collection_unit_count": 1,
+      "sample_count": 67,
+      "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
+      "supported_age_range_count": 2,
+      "all_age_range_count": 2,
+      "bp_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "comparison_note": "Neotoma coverage merges more than one BP age-range convention for this site, so the interval remains comparable but should be treated as a site-level summary span."
+    },
+    {
+      "site_id": "3299",
+      "site_name": "Mossen",
+      "country": "Finland",
+      "comparability_posture": "numeric_interval_with_caveat",
+      "temporal_window_label": "Late Holocene (1001-3000 BP)",
+      "summary_label": "40-2477 Calibrated radiocarbon years BP",
+      "dataset_count": 1,
+      "collection_unit_count": 1,
+      "sample_count": 56,
+      "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
+      "supported_age_range_count": 2,
+      "all_age_range_count": 2,
+      "bp_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "comparison_note": "Neotoma coverage merges more than one BP age-range convention for this site, so the interval remains comparable but should be treated as a site-level summary span."
+    },
+    {
+      "site_id": "3302",
+      "site_name": "Mukkavaara",
+      "country": "Finland",
+      "comparability_posture": "numeric_interval_with_caveat",
+      "temporal_window_label": "Early Holocene and older (6001+ BP)",
+      "summary_label": "0-12398 Calibrated radiocarbon years BP",
+      "dataset_count": 1,
+      "collection_unit_count": 1,
+      "sample_count": 56,
+      "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
+      "supported_age_range_count": 2,
+      "all_age_range_count": 2,
+      "bp_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "comparison_note": "Neotoma coverage merges more than one BP age-range convention for this site, so the interval remains comparable but should be treated as a site-level summary span."
+    },
+    {
+      "site_id": "25998",
+      "site_name": "Myrvatnet",
+      "country": "Norway",
+      "comparability_posture": "numeric_interval_with_caveat",
+      "temporal_window_label": "Early Holocene and older (6001+ BP)",
+      "summary_label": "0-13364 Calibrated radiocarbon years BP",
+      "dataset_count": 1,
+      "collection_unit_count": 1,
+      "sample_count": 63,
+      "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
+      "supported_age_range_count": 2,
+      "all_age_range_count": 2,
+      "bp_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "comparison_note": "Neotoma coverage merges more than one BP age-range convention for this site, so the interval remains comparable but should be treated as a site-level summary span."
+    },
+    {
+      "site_id": "26129",
+      "site_name": "Måsåtjørnet",
+      "country": "Norway",
+      "comparability_posture": "numeric_interval_with_caveat",
+      "temporal_window_label": "Early Holocene and older (6001+ BP)",
+      "summary_label": "0-13549 Calibrated radiocarbon years BP",
+      "dataset_count": 1,
+      "collection_unit_count": 1,
+      "sample_count": 55,
+      "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
+      "supported_age_range_count": 2,
+      "all_age_range_count": 2,
+      "bp_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "comparison_note": "Neotoma coverage merges more than one BP age-range convention for this site, so the interval remains comparable but should be treated as a site-level summary span."
+    },
+    {
+      "site_id": "3370",
+      "site_name": "Ran Viken",
+      "country": "Sweden",
+      "comparability_posture": "numeric_interval_with_caveat",
+      "temporal_window_label": "Mid-Holocene (3001-6000 BP)",
+      "summary_label": "18-11980 Calibrated radiocarbon years BP",
+      "dataset_count": 1,
+      "collection_unit_count": 1,
+      "sample_count": 141,
+      "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
+      "supported_age_range_count": 2,
+      "all_age_range_count": 2,
+      "bp_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "comparison_note": "Neotoma coverage merges more than one BP age-range convention for this site, so the interval remains comparable but should be treated as a site-level summary span."
+    },
+    {
+      "site_id": "26218",
+      "site_name": "Reiersdalvann",
+      "country": "Norway",
+      "comparability_posture": "numeric_interval_with_caveat",
+      "temporal_window_label": "Mid-Holocene (3001-6000 BP)",
+      "summary_label": "0-11695 Calibrated radiocarbon years BP",
+      "dataset_count": 1,
+      "collection_unit_count": 1,
+      "sample_count": 92,
+      "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
+      "supported_age_range_count": 2,
+      "all_age_range_count": 2,
+      "bp_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "comparison_note": "Neotoma coverage merges more than one BP age-range convention for this site, so the interval remains comparable but should be treated as a site-level summary span."
+    },
+    {
+      "site_id": "3388",
+      "site_name": "Rukatunturi",
+      "country": "Finland",
+      "comparability_posture": "numeric_interval_with_caveat",
+      "temporal_window_label": "Mid-Holocene (3001-6000 BP)",
+      "summary_label": "0-6090 Calibrated radiocarbon years BP",
+      "dataset_count": 1,
+      "collection_unit_count": 1,
+      "sample_count": 18,
+      "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
+      "supported_age_range_count": 2,
+      "all_age_range_count": 2,
+      "bp_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "comparison_note": "Neotoma coverage merges more than one BP age-range convention for this site, so the interval remains comparable but should be treated as a site-level summary span."
+    },
+    {
+      "site_id": "3389",
+      "site_name": "Ryönänsuo",
+      "country": "Finland",
+      "comparability_posture": "numeric_interval_with_caveat",
+      "temporal_window_label": "Mid-Holocene (3001-6000 BP)",
+      "summary_label": "172-11001 Calibrated radiocarbon years BP",
+      "dataset_count": 1,
+      "collection_unit_count": 1,
+      "sample_count": 73,
+      "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
+      "supported_age_range_count": 2,
+      "all_age_range_count": 2,
+      "bp_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "comparison_note": "Neotoma coverage merges more than one BP age-range convention for this site, so the interval remains comparable but should be treated as a site-level summary span."
+    },
+    {
+      "site_id": "3372",
+      "site_name": "Råttuvarri",
+      "country": "Norway",
+      "comparability_posture": "numeric_interval_with_caveat",
+      "temporal_window_label": "Early Holocene and older (6001+ BP)",
+      "summary_label": "76-12335 Calibrated radiocarbon years BP",
+      "dataset_count": 1,
+      "collection_unit_count": 1,
+      "sample_count": 32,
+      "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
+      "supported_age_range_count": 2,
+      "all_age_range_count": 2,
+      "bp_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "comparison_note": "Neotoma coverage merges more than one BP age-range convention for this site, so the interval remains comparable but should be treated as a site-level summary span."
+    },
+    {
+      "site_id": "26127",
+      "site_name": "Råtåsj¢en",
+      "country": "Norway",
+      "comparability_posture": "numeric_interval_with_caveat",
+      "temporal_window_label": "Mid-Holocene (3001-6000 BP)",
+      "summary_label": "0-11553 Calibrated radiocarbon years BP",
+      "dataset_count": 1,
+      "collection_unit_count": 1,
+      "sample_count": 68,
+      "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
+      "supported_age_range_count": 2,
+      "all_age_range_count": 2,
+      "bp_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "comparison_note": "Neotoma coverage merges more than one BP age-range convention for this site, so the interval remains comparable but should be treated as a site-level summary span."
+    },
+    {
+      "site_id": "13396",
+      "site_name": "Sandvikvatn",
+      "country": "Norway",
+      "comparability_posture": "numeric_interval_with_caveat",
+      "temporal_window_label": "Early Holocene and older (6001+ BP)",
+      "summary_label": "1725-10624 Calibrated radiocarbon years BP",
+      "dataset_count": 1,
+      "collection_unit_count": 1,
+      "sample_count": 45,
+      "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
+      "supported_age_range_count": 2,
+      "all_age_range_count": 2,
+      "bp_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "comparison_note": "Neotoma coverage merges more than one BP age-range convention for this site, so the interval remains comparable but should be treated as a site-level summary span."
+    },
+    {
+      "site_id": "28890",
+      "site_name": "Siggaboda",
+      "country": "Sweden",
+      "comparability_posture": "numeric_interval_with_caveat",
+      "temporal_window_label": "Late Holocene (1001-3000 BP)",
+      "summary_label": "0-2846 Calibrated radiocarbon years BP",
+      "dataset_count": 1,
+      "collection_unit_count": 1,
+      "sample_count": 91,
+      "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
+      "supported_age_range_count": 2,
+      "all_age_range_count": 2,
+      "bp_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "comparison_note": "Neotoma coverage merges more than one BP age-range convention for this site, so the interval remains comparable but should be treated as a site-level summary span."
+    },
+    {
+      "site_id": "3412",
+      "site_name": "Siikasuo",
+      "country": "Finland",
+      "comparability_posture": "numeric_interval_with_caveat",
+      "temporal_window_label": "Late Holocene (1001-3000 BP)",
+      "summary_label": "0-5248 Calibrated radiocarbon years BP",
+      "dataset_count": 1,
+      "collection_unit_count": 1,
+      "sample_count": 59,
+      "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
+      "supported_age_range_count": 2,
+      "all_age_range_count": 2,
+      "bp_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "comparison_note": "Neotoma coverage merges more than one BP age-range convention for this site, so the interval remains comparable but should be treated as a site-level summary span."
+    },
+    {
+      "site_id": "3414",
+      "site_name": "Sipola",
+      "country": "Finland",
+      "comparability_posture": "numeric_interval_with_caveat",
+      "temporal_window_label": "Recent and historical (0-1000 BP)",
+      "summary_label": "0-781 Calibrated radiocarbon years BP",
+      "dataset_count": 1,
+      "collection_unit_count": 1,
+      "sample_count": 19,
+      "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
+      "supported_age_range_count": 2,
+      "all_age_range_count": 2,
+      "bp_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "comparison_note": "Neotoma coverage merges more than one BP age-range convention for this site, so the interval remains comparable but should be treated as a site-level summary span."
+    },
+    {
+      "site_id": "3419",
+      "site_name": "Skvarran",
+      "country": "Sweden",
+      "comparability_posture": "numeric_interval_with_caveat",
+      "temporal_window_label": "Early Holocene and older (6001+ BP)",
+      "summary_label": "9807-19190 Calibrated radiocarbon years BP",
+      "dataset_count": 1,
+      "collection_unit_count": 1,
+      "sample_count": 31,
+      "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
+      "supported_age_range_count": 2,
+      "all_age_range_count": 2,
+      "bp_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "comparison_note": "Neotoma coverage merges more than one BP age-range convention for this site, so the interval remains comparable but should be treated as a site-level summary span."
+    },
+    {
+      "site_id": "3435",
+      "site_name": "Spjällsjön",
+      "country": "Sweden",
+      "comparability_posture": "numeric_interval_with_caveat",
+      "temporal_window_label": "Early Holocene and older (6001+ BP)",
+      "summary_label": "9680-17151 Calibrated radiocarbon years BP",
+      "dataset_count": 1,
+      "collection_unit_count": 1,
+      "sample_count": 39,
+      "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
+      "supported_age_range_count": 2,
+      "all_age_range_count": 2,
+      "bp_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "comparison_note": "Neotoma coverage merges more than one BP age-range convention for this site, so the interval remains comparable but should be treated as a site-level summary span."
+    },
+    {
+      "site_id": "26124",
+      "site_name": "Storsandvatnet",
+      "country": "Norway",
+      "comparability_posture": "numeric_interval_with_caveat",
+      "temporal_window_label": "Early Holocene and older (6001+ BP)",
+      "summary_label": "0-14180 Calibrated radiocarbon years BP",
+      "dataset_count": 1,
+      "collection_unit_count": 1,
+      "sample_count": 82,
+      "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
+      "supported_age_range_count": 2,
+      "all_age_range_count": 2,
+      "bp_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "comparison_note": "Neotoma coverage merges more than one BP age-range convention for this site, so the interval remains comparable but should be treated as a site-level summary span."
+    },
+    {
+      "site_id": "3451",
+      "site_name": "Suovalampi",
+      "country": "Finland",
+      "comparability_posture": "numeric_interval_with_caveat",
+      "temporal_window_label": "Mid-Holocene (3001-6000 BP)",
+      "summary_label": "662-11183 Calibrated radiocarbon years BP",
+      "dataset_count": 1,
+      "collection_unit_count": 1,
+      "sample_count": 34,
+      "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
+      "supported_age_range_count": 2,
+      "all_age_range_count": 2,
+      "bp_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "comparison_note": "Neotoma coverage merges more than one BP age-range convention for this site, so the interval remains comparable but should be treated as a site-level summary span."
+    },
+    {
+      "site_id": "26125",
+      "site_name": "Svartvatnet",
+      "country": "Norway",
+      "comparability_posture": "numeric_interval_with_caveat",
+      "temporal_window_label": "Early Holocene and older (6001+ BP)",
+      "summary_label": "0-16189 Calibrated radiocarbon years BP",
+      "dataset_count": 1,
+      "collection_unit_count": 1,
+      "sample_count": 75,
+      "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
+      "supported_age_range_count": 2,
+      "all_age_range_count": 2,
+      "bp_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "comparison_note": "Neotoma coverage merges more than one BP age-range convention for this site, so the interval remains comparable but should be treated as a site-level summary span."
+    },
+    {
+      "site_id": "3455",
+      "site_name": "Syrjälänsuo",
+      "country": "Finland",
+      "comparability_posture": "numeric_interval_with_caveat",
+      "temporal_window_label": "Mid-Holocene (3001-6000 BP)",
+      "summary_label": "0-11369 Calibrated radiocarbon years BP",
+      "dataset_count": 1,
+      "collection_unit_count": 1,
+      "sample_count": 81,
+      "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
+      "supported_age_range_count": 2,
+      "all_age_range_count": 2,
+      "bp_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "comparison_note": "Neotoma coverage merges more than one BP age-range convention for this site, so the interval remains comparable but should be treated as a site-level summary span."
+    },
+    {
+      "site_id": "3400",
+      "site_name": "Särkikangas",
+      "country": "Finland",
+      "comparability_posture": "numeric_interval_with_caveat",
+      "temporal_window_label": "Mid-Holocene (3001-6000 BP)",
+      "summary_label": "0-6943 Calibrated radiocarbon years BP",
+      "dataset_count": 1,
+      "collection_unit_count": 1,
+      "sample_count": 24,
+      "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
+      "supported_age_range_count": 2,
+      "all_age_range_count": 2,
+      "bp_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "comparison_note": "Neotoma coverage merges more than one BP age-range convention for this site, so the interval remains comparable but should be treated as a site-level summary span."
+    },
+    {
+      "site_id": "26126",
+      "site_name": "Tiåvatnet",
+      "country": "Norway",
+      "comparability_posture": "numeric_interval_with_caveat",
+      "temporal_window_label": "Early Holocene and older (6001+ BP)",
+      "summary_label": "0-12925 Calibrated radiocarbon years BP",
+      "dataset_count": 1,
+      "collection_unit_count": 1,
+      "sample_count": 89,
+      "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
+      "supported_age_range_count": 2,
+      "all_age_range_count": 2,
+      "bp_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "comparison_note": "Neotoma coverage merges more than one BP age-range convention for this site, so the interval remains comparable but should be treated as a site-level summary span."
+    },
+    {
+      "site_id": "3472",
+      "site_name": "Toppeladugärd",
+      "country": "Sweden",
+      "comparability_posture": "numeric_interval_with_caveat",
+      "temporal_window_label": "Early Holocene and older (6001+ BP)",
+      "summary_label": "10172-13273 Calibrated radiocarbon years BP",
+      "dataset_count": 1,
+      "collection_unit_count": 1,
+      "sample_count": 40,
+      "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
+      "supported_age_range_count": 2,
+      "all_age_range_count": 2,
+      "bp_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "comparison_note": "Neotoma coverage merges more than one BP age-range convention for this site, so the interval remains comparable but should be treated as a site-level summary span."
+    },
+    {
+      "site_id": "28074",
+      "site_name": "Toskaljarvi",
+      "country": "Finland",
+      "comparability_posture": "numeric_interval_with_caveat",
+      "temporal_window_label": "Mid-Holocene (3001-6000 BP)",
+      "summary_label": "0-9584 Calibrated radiocarbon years BP",
+      "dataset_count": 1,
+      "collection_unit_count": 1,
+      "sample_count": 161,
+      "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
+      "supported_age_range_count": 2,
+      "all_age_range_count": 2,
+      "bp_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "comparison_note": "Neotoma coverage merges more than one BP age-range convention for this site, so the interval remains comparable but should be treated as a site-level summary span."
+    },
+    {
+      "site_id": "13390",
+      "site_name": "Trettetjørn",
+      "country": "Norway",
+      "comparability_posture": "numeric_interval_with_caveat",
+      "temporal_window_label": "Mid-Holocene (3001-6000 BP)",
+      "summary_label": "13292 Calibrated radiocarbon years BP",
+      "dataset_count": 1,
+      "collection_unit_count": 1,
+      "sample_count": 53,
+      "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
+      "supported_age_range_count": 2,
+      "all_age_range_count": 2,
+      "bp_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "comparison_note": "Neotoma coverage merges more than one BP age-range convention for this site, so the interval remains comparable but should be treated as a site-level summary span."
+    },
+    {
+      "site_id": "3475",
+      "site_name": "Trollvatnet",
+      "country": "Norway",
+      "comparability_posture": "numeric_interval_with_caveat",
+      "temporal_window_label": "Early Holocene and older (6001+ BP)",
+      "summary_label": "2250-13762 Calibrated radiocarbon years BP",
+      "dataset_count": 1,
+      "collection_unit_count": 1,
+      "sample_count": 34,
+      "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
+      "supported_age_range_count": 2,
+      "all_age_range_count": 2,
+      "bp_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "comparison_note": "Neotoma coverage merges more than one BP age-range convention for this site, so the interval remains comparable but should be treated as a site-level summary span."
+    },
+    {
+      "site_id": "3479",
+      "site_name": "Tullerinsuo",
+      "country": "Finland",
+      "comparability_posture": "numeric_interval_with_caveat",
+      "temporal_window_label": "Late Holocene (1001-3000 BP)",
+      "summary_label": "0-3547 Calibrated radiocarbon years BP",
+      "dataset_count": 1,
+      "collection_unit_count": 1,
+      "sample_count": 60,
+      "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
+      "supported_age_range_count": 2,
+      "all_age_range_count": 2,
+      "bp_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "comparison_note": "Neotoma coverage merges more than one BP age-range convention for this site, so the interval remains comparable but should be treated as a site-level summary span."
+    },
+    {
+      "site_id": "3365",
+      "site_name": "Vasikkasuo",
+      "country": "Finland",
+      "comparability_posture": "numeric_interval_with_caveat",
+      "temporal_window_label": "Mid-Holocene (3001-6000 BP)",
+      "summary_label": "0-11143 Calibrated radiocarbon years BP",
+      "dataset_count": 2,
+      "collection_unit_count": 2,
+      "sample_count": 112,
+      "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
+      "supported_age_range_count": 2,
+      "all_age_range_count": 2,
+      "bp_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "comparison_note": "Neotoma coverage merges more than one BP age-range convention for this site, so the interval remains comparable but should be treated as a site-level summary span."
+    },
+    {
+      "site_id": "13392",
+      "site_name": "Vestre Øykjamyrtjørn",
+      "country": "Norway",
+      "comparability_posture": "numeric_interval_with_caveat",
+      "temporal_window_label": "Early Holocene and older (6001+ BP)",
+      "summary_label": "0-13615 Calibrated radiocarbon years BP",
+      "dataset_count": 1,
+      "collection_unit_count": 1,
+      "sample_count": 99,
+      "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
+      "supported_age_range_count": 2,
+      "all_age_range_count": 2,
+      "bp_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "comparison_note": "Neotoma coverage merges more than one BP age-range convention for this site, so the interval remains comparable but should be treated as a site-level summary span."
+    },
+    {
+      "site_id": "3493",
+      "site_name": "Vingölen",
+      "country": "Sweden",
+      "comparability_posture": "numeric_interval_with_caveat",
+      "temporal_window_label": "Early Holocene and older (6001+ BP)",
+      "summary_label": "8803-13786 Calibrated radiocarbon years BP",
+      "dataset_count": 1,
+      "collection_unit_count": 1,
+      "sample_count": 32,
+      "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
+      "supported_age_range_count": 2,
+      "all_age_range_count": 2,
+      "bp_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "comparison_note": "Neotoma coverage merges more than one BP age-range convention for this site, so the interval remains comparable but should be treated as a site-level summary span."
+    },
+    {
+      "site_id": "26117",
+      "site_name": "Vuoskkujávri",
+      "country": "Sweden",
+      "comparability_posture": "numeric_interval_with_caveat",
+      "temporal_window_label": "Mid-Holocene (3001-6000 BP)",
+      "summary_label": "0-10233 Calibrated radiocarbon years BP",
+      "dataset_count": 1,
+      "collection_unit_count": 1,
+      "sample_count": 67,
+      "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
+      "supported_age_range_count": 2,
+      "all_age_range_count": 2,
+      "bp_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "comparison_note": "Neotoma coverage merges more than one BP age-range convention for this site, so the interval remains comparable but should be treated as a site-level summary span."
+    },
+    {
+      "site_id": "3513",
+      "site_name": "Ylimysneva",
+      "country": "Finland",
+      "comparability_posture": "numeric_interval_with_caveat",
+      "temporal_window_label": "Mid-Holocene (3001-6000 BP)",
+      "summary_label": "0-9955 Calibrated radiocarbon years BP",
+      "dataset_count": 1,
+      "collection_unit_count": 1,
+      "sample_count": 51,
+      "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
+      "supported_age_range_count": 2,
+      "all_age_range_count": 2,
+      "bp_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "comparison_note": "Neotoma coverage merges more than one BP age-range convention for this site, so the interval remains comparable but should be treated as a site-level summary span."
+    },
+    {
+      "site_id": "3470",
+      "site_name": "Åkerhultagöl [Tomtabaken]",
+      "country": "Sweden",
+      "comparability_posture": "numeric_interval_with_caveat",
+      "temporal_window_label": "Early Holocene and older (6001+ BP)",
+      "summary_label": "6834-17638 Calibrated radiocarbon years BP",
+      "dataset_count": 1,
+      "collection_unit_count": 1,
+      "sample_count": 43,
+      "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
+      "supported_age_range_count": 2,
+      "all_age_range_count": 2,
+      "bp_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "comparison_note": "Neotoma coverage merges more than one BP age-range convention for this site, so the interval remains comparable but should be treated as a site-level summary span."
+    },
+    {
+      "site_id": "2986",
+      "site_name": "Åsbotorpsjön",
+      "country": "Sweden",
+      "comparability_posture": "numeric_interval_with_caveat",
+      "temporal_window_label": "Early Holocene and older (6001+ BP)",
+      "summary_label": "9417-12748 Calibrated radiocarbon years BP",
+      "dataset_count": 1,
+      "collection_unit_count": 1,
+      "sample_count": 35,
+      "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
+      "supported_age_range_count": 2,
+      "all_age_range_count": 2,
+      "bp_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "comparison_note": "Neotoma coverage merges more than one BP age-range convention for this site, so the interval remains comparable but should be treated as a site-level summary span."
+    },
+    {
+      "site_id": "26212",
+      "site_name": "Øygardstjønn",
+      "country": "Norway",
+      "comparability_posture": "numeric_interval_with_caveat",
+      "temporal_window_label": "Early Holocene and older (6001+ BP)",
+      "summary_label": "0-12091 Calibrated radiocarbon years BP",
+      "dataset_count": 1,
+      "collection_unit_count": 1,
+      "sample_count": 55,
+      "chronology_count": 0,
+      "bp_support_posture": "bp_age_ranges_without_chronology_rows",
+      "supported_age_range_count": 2,
+      "all_age_range_count": 2,
+      "bp_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "all_age_range_units": [
+        "Calibrated radiocarbon years BP",
+        "Radiocarbon years BP"
+      ],
+      "comparison_note": "Neotoma coverage merges more than one BP age-range convention for this site, so the interval remains comparable but should be treated as a site-level summary span."
+    },
+    {
+      "site_id": "2961",
+      "site_name": "Aborregöl",
+      "country": "Sweden",
+      "comparability_posture": "unresolved",
+      "temporal_window_label": "Unresolved time window",
+      "summary_label": "Unresolved time semantics",
+      "dataset_count": 1,
+      "collection_unit_count": 1,
+      "sample_count": 20,
+      "chronology_count": 0,
+      "bp_support_posture": "no_age_ranges",
+      "supported_age_range_count": 0,
+      "all_age_range_count": 0,
+      "bp_age_range_units": [],
+      "all_age_range_units": [],
+      "comparison_note": "Neotoma did not publish enough age-range detail here to support temporal comparison."
+    },
+    {
+      "site_id": "2987",
+      "site_name": "Atteköps Mosse",
+      "country": "Sweden",
+      "comparability_posture": "unresolved",
+      "temporal_window_label": "Unresolved time window",
+      "summary_label": "Unresolved time semantics",
+      "dataset_count": 1,
+      "collection_unit_count": 1,
+      "sample_count": 27,
+      "chronology_count": 0,
+      "bp_support_posture": "no_age_ranges",
+      "supported_age_range_count": 0,
+      "all_age_range_count": 0,
+      "bp_age_range_units": [],
+      "all_age_range_units": [],
+      "comparison_note": "Neotoma did not publish enough age-range detail here to support temporal comparison."
+    },
+    {
+      "site_id": "14054",
+      "site_name": "Bergsjön",
+      "country": "Sweden",
+      "comparability_posture": "unresolved",
+      "temporal_window_label": "Unresolved time window",
+      "summary_label": "Unresolved time semantics",
+      "dataset_count": 1,
+      "collection_unit_count": 1,
+      "sample_count": 16,
+      "chronology_count": 0,
+      "bp_support_posture": "no_age_ranges",
+      "supported_age_range_count": 0,
+      "all_age_range_count": 0,
+      "bp_age_range_units": [],
+      "all_age_range_units": [],
+      "comparison_note": "Neotoma did not publish enough age-range detail here to support temporal comparison."
+    },
+    {
+      "site_id": "3018",
+      "site_name": "Bjärsjon",
+      "country": "Sweden",
+      "comparability_posture": "unresolved",
+      "temporal_window_label": "Unresolved time window",
+      "summary_label": "Unresolved time semantics",
+      "dataset_count": 1,
+      "collection_unit_count": 1,
+      "sample_count": 50,
+      "chronology_count": 0,
+      "bp_support_posture": "no_age_ranges",
+      "supported_age_range_count": 0,
+      "all_age_range_count": 0,
+      "bp_age_range_units": [],
+      "all_age_range_units": [],
+      "comparison_note": "Neotoma did not publish enough age-range detail here to support temporal comparison."
+    },
+    {
+      "site_id": "3019",
+      "site_name": "Björkeröds Mosse",
+      "country": "Sweden",
+      "comparability_posture": "unresolved",
+      "temporal_window_label": "Unresolved time window",
+      "summary_label": "Unresolved time semantics",
+      "dataset_count": 1,
+      "collection_unit_count": 1,
+      "sample_count": 35,
+      "chronology_count": 0,
+      "bp_support_posture": "no_age_ranges",
+      "supported_age_range_count": 0,
+      "all_age_range_count": 0,
+      "bp_age_range_units": [],
+      "all_age_range_units": [],
+      "comparison_note": "Neotoma did not publish enough age-range detail here to support temporal comparison."
+    },
+    {
+      "site_id": "3081",
+      "site_name": "Deromesjön",
+      "country": "Sweden",
+      "comparability_posture": "unresolved",
+      "temporal_window_label": "Unresolved time window",
+      "summary_label": "Unresolved time semantics",
+      "dataset_count": 1,
+      "collection_unit_count": 1,
+      "sample_count": 32,
+      "chronology_count": 0,
+      "bp_support_posture": "no_age_ranges",
+      "supported_age_range_count": 0,
+      "all_age_range_count": 0,
+      "bp_age_range_units": [],
+      "all_age_range_units": [],
+      "comparison_note": "Neotoma did not publish enough age-range detail here to support temporal comparison."
+    },
+    {
+      "site_id": "28409",
+      "site_name": "Djupdalsbekken",
+      "country": "Norway",
+      "comparability_posture": "unresolved",
+      "temporal_window_label": "Unresolved time window",
+      "summary_label": "Unresolved time semantics",
+      "dataset_count": 1,
+      "collection_unit_count": 1,
+      "sample_count": 6,
+      "chronology_count": 0,
+      "bp_support_posture": "no_age_ranges",
+      "supported_age_range_count": 0,
+      "all_age_range_count": 0,
+      "bp_age_range_units": [],
+      "all_age_range_units": [],
+      "comparison_note": "Neotoma did not publish enough age-range detail here to support temporal comparison."
+    },
+    {
+      "site_id": "27349",
+      "site_name": "Harreskov",
+      "country": "Denmark",
+      "comparability_posture": "unresolved",
+      "temporal_window_label": "Unresolved time window",
+      "summary_label": "Unresolved time semantics",
+      "dataset_count": 1,
+      "collection_unit_count": 1,
+      "sample_count": 38,
+      "chronology_count": 0,
+      "bp_support_posture": "no_age_ranges",
+      "supported_age_range_count": 0,
+      "all_age_range_count": 0,
+      "bp_age_range_units": [],
+      "all_age_range_units": [],
+      "comparison_note": "Neotoma did not publish enough age-range detail here to support temporal comparison."
+    },
+    {
+      "site_id": "23293",
+      "site_name": "Hollerup",
+      "country": "Denmark",
+      "comparability_posture": "unresolved",
+      "temporal_window_label": "Unresolved time window",
+      "summary_label": "Unresolved time semantics",
+      "dataset_count": 1,
+      "collection_unit_count": 1,
+      "sample_count": 66,
+      "chronology_count": 0,
+      "bp_support_posture": "no_age_ranges",
+      "supported_age_range_count": 0,
+      "all_age_range_count": 0,
+      "bp_age_range_units": [],
+      "all_age_range_units": [],
+      "comparison_note": "Neotoma did not publish enough age-range detail here to support temporal comparison."
+    },
+    {
+      "site_id": "3207",
+      "site_name": "Krontjärnen",
+      "country": "Sweden",
+      "comparability_posture": "unresolved",
+      "temporal_window_label": "Unresolved time window",
+      "summary_label": "Unresolved time semantics",
+      "dataset_count": 1,
+      "collection_unit_count": 1,
+      "sample_count": 65,
+      "chronology_count": 0,
+      "bp_support_posture": "no_age_ranges",
+      "supported_age_range_count": 0,
+      "all_age_range_count": 0,
+      "bp_age_range_units": [],
+      "all_age_range_units": [],
+      "comparison_note": "Neotoma did not publish enough age-range detail here to support temporal comparison."
+    },
+    {
+      "site_id": "28411",
+      "site_name": "Lake Ristjønna",
+      "country": "Norway",
+      "comparability_posture": "unresolved",
+      "temporal_window_label": "Unresolved time window",
+      "summary_label": "Unresolved time semantics",
+      "dataset_count": 1,
+      "collection_unit_count": 1,
+      "sample_count": 60,
+      "chronology_count": 0,
+      "bp_support_posture": "no_age_ranges",
+      "supported_age_range_count": 0,
+      "all_age_range_count": 0,
+      "bp_age_range_units": [],
+      "all_age_range_units": [],
+      "comparison_note": "Neotoma did not publish enough age-range detail here to support temporal comparison."
+    },
+    {
+      "site_id": "3237",
+      "site_name": "Lilla Sjö",
+      "country": "Sweden",
+      "comparability_posture": "unresolved",
+      "temporal_window_label": "Unresolved time window",
+      "summary_label": "Unresolved time semantics",
+      "dataset_count": 1,
+      "collection_unit_count": 1,
+      "sample_count": 12,
+      "chronology_count": 0,
+      "bp_support_posture": "no_age_ranges",
+      "supported_age_range_count": 0,
+      "all_age_range_count": 0,
+      "bp_age_range_units": [],
+      "all_age_range_units": [],
+      "comparison_note": "Neotoma did not publish enough age-range detail here to support temporal comparison."
+    },
+    {
+      "site_id": "3288",
+      "site_name": "M. Lommesjön",
+      "country": "Sweden",
+      "comparability_posture": "unresolved",
+      "temporal_window_label": "Unresolved time window",
+      "summary_label": "Unresolved time semantics",
+      "dataset_count": 1,
+      "collection_unit_count": 1,
+      "sample_count": 20,
+      "chronology_count": 0,
+      "bp_support_posture": "no_age_ranges",
+      "supported_age_range_count": 0,
+      "all_age_range_count": 0,
+      "bp_age_range_units": [],
+      "all_age_range_units": [],
+      "comparison_note": "Neotoma did not publish enough age-range detail here to support temporal comparison."
+    },
+    {
+      "site_id": "3287",
+      "site_name": "Mjällsjön",
+      "country": "Sweden",
+      "comparability_posture": "unresolved",
+      "temporal_window_label": "Unresolved time window",
+      "summary_label": "Unresolved time semantics",
+      "dataset_count": 1,
+      "collection_unit_count": 1,
+      "sample_count": 16,
+      "chronology_count": 0,
+      "bp_support_posture": "no_age_ranges",
+      "supported_age_range_count": 0,
+      "all_age_range_count": 0,
+      "bp_age_range_units": [],
+      "all_age_range_units": [],
+      "comparison_note": "Neotoma did not publish enough age-range detail here to support temporal comparison."
+    },
+    {
+      "site_id": "3311",
+      "site_name": "Nedre Draketjärn",
+      "country": "Norway",
+      "comparability_posture": "unresolved",
+      "temporal_window_label": "Unresolved time window",
+      "summary_label": "Unresolved time semantics",
+      "dataset_count": 1,
+      "collection_unit_count": 1,
+      "sample_count": 11,
+      "chronology_count": 0,
+      "bp_support_posture": "no_age_ranges",
+      "supported_age_range_count": 0,
+      "all_age_range_count": 0,
+      "bp_age_range_units": [],
+      "all_age_range_units": [],
+      "comparison_note": "Neotoma did not publish enough age-range detail here to support temporal comparison."
+    },
+    {
+      "site_id": "3326",
+      "site_name": "Odensjön",
+      "country": "Sweden",
+      "comparability_posture": "unresolved",
+      "temporal_window_label": "Unresolved time window",
+      "summary_label": "Unresolved time semantics",
+      "dataset_count": 1,
+      "collection_unit_count": 1,
+      "sample_count": 24,
+      "chronology_count": 0,
+      "bp_support_posture": "no_age_ranges",
+      "supported_age_range_count": 0,
+      "all_age_range_count": 0,
+      "bp_age_range_units": [],
+      "all_age_range_units": [],
+      "comparison_note": "Neotoma did not publish enough age-range detail here to support temporal comparison."
+    },
+    {
+      "site_id": "14455",
+      "site_name": "Sandsjön",
+      "country": "Sweden",
+      "comparability_posture": "unresolved",
+      "temporal_window_label": "Unresolved time window",
+      "summary_label": "Unresolved time semantics",
+      "dataset_count": 1,
+      "collection_unit_count": 1,
+      "sample_count": 127,
+      "chronology_count": 0,
+      "bp_support_posture": "no_age_ranges",
+      "supported_age_range_count": 0,
+      "all_age_range_count": 0,
+      "bp_age_range_units": [],
+      "all_age_range_units": [],
+      "comparison_note": "Neotoma did not publish enough age-range detail here to support temporal comparison."
+    },
+    {
+      "site_id": "3411",
+      "site_name": "Sigvalde Träsk",
+      "country": "Sweden",
+      "comparability_posture": "unresolved",
+      "temporal_window_label": "Unresolved time window",
+      "summary_label": "Unresolved time semantics",
+      "dataset_count": 1,
+      "collection_unit_count": 1,
+      "sample_count": 32,
+      "chronology_count": 0,
+      "bp_support_posture": "no_age_ranges",
+      "supported_age_range_count": 0,
+      "all_age_range_count": 0,
+      "bp_age_range_units": [],
+      "all_age_range_units": [],
+      "comparison_note": "Neotoma did not publish enough age-range detail here to support temporal comparison."
+    },
+    {
+      "site_id": "3421",
+      "site_name": "Slatten",
+      "country": "Sweden",
+      "comparability_posture": "unresolved",
+      "temporal_window_label": "Unresolved time window",
+      "summary_label": "Unresolved time semantics",
+      "dataset_count": 1,
+      "collection_unit_count": 1,
+      "sample_count": 16,
+      "chronology_count": 0,
+      "bp_support_posture": "no_age_ranges",
+      "supported_age_range_count": 0,
+      "all_age_range_count": 0,
+      "bp_age_range_units": [],
+      "all_age_range_units": [],
+      "comparison_note": "Neotoma did not publish enough age-range detail here to support temporal comparison."
+    },
+    {
+      "site_id": "3440",
+      "site_name": "Stangsmyr",
+      "country": "Sweden",
+      "comparability_posture": "unresolved",
+      "temporal_window_label": "Unresolved time window",
+      "summary_label": "Unresolved time semantics",
+      "dataset_count": 1,
+      "collection_unit_count": 1,
+      "sample_count": 22,
+      "chronology_count": 0,
+      "bp_support_posture": "no_age_ranges",
+      "supported_age_range_count": 0,
+      "all_age_range_count": 0,
+      "bp_age_range_units": [],
+      "all_age_range_units": [],
+      "comparison_note": "Neotoma did not publish enough age-range detail here to support temporal comparison."
+    },
+    {
+      "site_id": "14265",
+      "site_name": "Trelde Klint",
+      "country": "Denmark",
+      "comparability_posture": "unresolved",
+      "temporal_window_label": "Unresolved time window",
+      "summary_label": "Unresolved time semantics",
+      "dataset_count": 1,
+      "collection_unit_count": 1,
+      "sample_count": 39,
+      "chronology_count": 0,
+      "bp_support_posture": "no_age_ranges",
+      "supported_age_range_count": 0,
+      "all_age_range_count": 0,
+      "bp_age_range_units": [],
+      "all_age_range_units": [],
+      "comparison_note": "Neotoma did not publish enough age-range detail here to support temporal comparison."
+    },
+    {
+      "site_id": "3487",
+      "site_name": "Valtavaaranlampi",
+      "country": "Finland",
+      "comparability_posture": "unresolved",
+      "temporal_window_label": "Unresolved time window",
+      "summary_label": "Unresolved time semantics",
+      "dataset_count": 1,
+      "collection_unit_count": 1,
+      "sample_count": 30,
+      "chronology_count": 0,
+      "bp_support_posture": "no_age_ranges",
+      "supported_age_range_count": 0,
+      "all_age_range_count": 0,
+      "bp_age_range_units": [],
+      "all_age_range_units": [],
+      "comparison_note": "Neotoma did not publish enough age-range detail here to support temporal comparison."
+    },
+    {
+      "site_id": "3491",
+      "site_name": "Vejlby",
+      "country": "Denmark",
+      "comparability_posture": "unresolved",
+      "temporal_window_label": "Unresolved time window",
+      "summary_label": "Unresolved time semantics",
+      "dataset_count": 2,
+      "collection_unit_count": 2,
+      "sample_count": 44,
+      "chronology_count": 0,
+      "bp_support_posture": "no_age_ranges",
+      "supported_age_range_count": 0,
+      "all_age_range_count": 0,
+      "bp_age_range_units": [],
+      "all_age_range_units": [],
+      "comparison_note": "Neotoma did not publish enough age-range detail here to support temporal comparison."
+    },
+    {
+      "site_id": "3495",
+      "site_name": "Vitavattsgyl",
+      "country": "Sweden",
+      "comparability_posture": "unresolved",
+      "temporal_window_label": "Unresolved time window",
+      "summary_label": "Unresolved time semantics",
+      "dataset_count": 1,
+      "collection_unit_count": 1,
+      "sample_count": 13,
+      "chronology_count": 0,
+      "bp_support_posture": "no_age_ranges",
+      "supported_age_range_count": 0,
+      "all_age_range_count": 0,
+      "bp_age_range_units": [],
+      "all_age_range_units": [],
+      "comparison_note": "Neotoma did not publish enough age-range detail here to support temporal comparison."
+    },
+    {
+      "site_id": "3334",
+      "site_name": "Övre Draketjärn",
+      "country": "Sweden",
+      "comparability_posture": "unresolved",
+      "temporal_window_label": "Unresolved time window",
+      "summary_label": "Unresolved time semantics",
+      "dataset_count": 1,
+      "collection_unit_count": 1,
+      "sample_count": 18,
+      "chronology_count": 0,
+      "bp_support_posture": "no_age_ranges",
+      "supported_age_range_count": 0,
+      "all_age_range_count": 0,
+      "bp_age_range_units": [],
+      "all_age_range_units": [],
+      "comparison_note": "Neotoma did not publish enough age-range detail here to support temporal comparison."
+    }
+  ]
+}

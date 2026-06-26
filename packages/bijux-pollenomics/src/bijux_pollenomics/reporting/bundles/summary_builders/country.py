@@ -47,6 +47,22 @@ def build_country_report_summary(
                 "warnings_markdown": bundle_paths.animal_warnings_markdown_path.name,
             },
         }
+    if bundle_paths.lake_evidence_richness_json_path.exists():
+        payload["lake_evidence_richness"] = {
+            "json": bundle_paths.lake_evidence_richness_json_path.name,
+            "registry_csv": bundle_paths.lake_evidence_richness_registry_csv_path.name,
+            "scenarios_csv": bundle_paths.lake_evidence_richness_scenarios_csv_path.name,
+            "bands_csv": bundle_paths.lake_evidence_richness_bands_csv_path.name,
+            "geojson": bundle_paths.lake_evidence_richness_geojson_path.name,
+            "map_html": bundle_paths.lake_evidence_richness_map_html_path.name,
+            "markdown": bundle_paths.lake_evidence_richness_markdown_path.name,
+        }
+    if bundle_paths.lake_fieldwork_preparation_json_path.exists():
+        payload["lake_fieldwork_preparation"] = {
+            "json": bundle_paths.lake_fieldwork_preparation_json_path.name,
+            "csv": bundle_paths.lake_fieldwork_preparation_csv_path.name,
+            "markdown": bundle_paths.lake_fieldwork_preparation_markdown_path.name,
+        }
     return payload
 
 
@@ -82,6 +98,22 @@ def build_country_bundle_manifest(
             "localities_geojson": bundle_paths.animal_localities_geojson_path.name,
             "citations_markdown": bundle_paths.animal_citations_markdown_path.name,
             "warnings_markdown": bundle_paths.animal_warnings_markdown_path.name,
+        }
+    if bundle_paths.lake_evidence_richness_json_path.exists():
+        payload["lake_evidence_richness"] = {
+            "json": bundle_paths.lake_evidence_richness_json_path.name,
+            "registry_csv": bundle_paths.lake_evidence_richness_registry_csv_path.name,
+            "scenarios_csv": bundle_paths.lake_evidence_richness_scenarios_csv_path.name,
+            "bands_csv": bundle_paths.lake_evidence_richness_bands_csv_path.name,
+            "geojson": bundle_paths.lake_evidence_richness_geojson_path.name,
+            "map_html": bundle_paths.lake_evidence_richness_map_html_path.name,
+            "markdown": bundle_paths.lake_evidence_richness_markdown_path.name,
+        }
+    if bundle_paths.lake_fieldwork_preparation_json_path.exists():
+        payload["lake_fieldwork_preparation"] = {
+            "json": bundle_paths.lake_fieldwork_preparation_json_path.name,
+            "csv": bundle_paths.lake_fieldwork_preparation_csv_path.name,
+            "markdown": bundle_paths.lake_fieldwork_preparation_markdown_path.name,
         }
     return payload
 

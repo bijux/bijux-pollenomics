@@ -1,6 +1,6 @@
 {
   "schema_version": "repository-source-acquisition-queue.v1",
-  "row_count": 1,
+  "row_count": 2,
   "rows": [
     {
       "queue_key": "animal_adna_sample_extraction",
@@ -9,6 +9,14 @@
       "current_gap": "repository supplement capture now matches visible local staging, but sample, site, and chronology extraction still lags",
       "required_outcome": "use the archived paper supplements to publish sample-owned identity, locality, chronology, and coordinate evidence",
       "evidence_anchor": "data/adna/governance/source_library/project_source_evidence_matrix.json"
+    },
+    {
+      "queue_key": "sead_temporal_reference_capture",
+      "source_family": "sead",
+      "priority": "medium",
+      "current_gap": "checked-in SEAD context is visible, but linked temporal and bibliography capture still lags the repository's archaeology-context use",
+      "required_outcome": "capture SEAD-linked dating and reference fields so Sweden lake context and broader archaeology interpretation can be reviewed without starting from the generic site page",
+      "evidence_anchor": "docs/report/repository_sead_legibility_review.json"
     }
   ]
 }

@@ -93,6 +93,22 @@ These records make it possible to see where a project is still thin, where a
 sample can already support public claims, and where the repository has chosen
 to stay narrow rather than overstate confidence.
 
+## Governed Capture Storage
+
+Tracked paper pages and archive metadata pages remain part of the governed
+source library, but they no longer need to live as large raw HTML blobs in the
+working tree.
+
+- the logical evidence paths still resolve as `article.html` or
+  `archive_metadata.html`
+- the stored repository payload can be compressed as `.html.gz`
+- the companion metadata records the physical `storage_path`,
+  `storage_byte_size`, and `content_encoding`
+
+That split keeps citations and provenance locators stable for repository code
+while making the checked-in source library lighter and less likely to drown the
+repository language mix in vendored HTML.
+
 ## Why Intake Is Broader Than The Atlas
 
 Many projects matter to the repository before they are ready for map

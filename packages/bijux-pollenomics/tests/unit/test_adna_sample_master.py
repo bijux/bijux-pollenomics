@@ -1,7 +1,9 @@
 from __future__ import annotations
 
 from collections import Counter
+import gzip
 from pathlib import Path
+import tempfile
 import unittest
 
 import pytest
@@ -183,6 +185,40 @@ class AdnaSampleMasterUnitTests(unittest.TestCase):
         )
         self.assertEqual(horse_counts, Counter({14: 1, 42: 1, 244: 1, 248: 1}))
         self.assertEqual(ambiguity_rows, ())
+
+    def test_archive_accession_readers_accept_compressed_archive_metadata(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            output_root = Path(tmp) / "data"
+            archive_dir = (
+                output_root
+                / "adna"
+                / "governance"
+                / "source_library"
+                / "projects"
+                / "PRJTEST"
+            )
+            archive_dir.mkdir(parents=True, exist_ok=True)
+            with gzip.open(
+                archive_dir / "archive_metadata.html.gz", "wt", encoding="utf-8"
+            ) as handle:
+                handle.write(
+                    "sample_accession\tsubmitted_ftp\n"
+                    "SAMEA1\tftp://example.org/Alpha_E1.fastq.gz\n"
+                    "SAMEA2\tftp://example.org/Beta_i1.fastq.gz\n"
+                )
+
+            accessions = sample_master_module._project_scope_archive_sample_accessions(
+                output_root,
+                "PRJTEST",
+            )
+            lookup = sample_master_module._build_archive_sample_accession_lookup(
+                output_root,
+                "PRJTEST",
+            )
+
+        self.assertEqual(accessions, ("SAMEA1", "SAMEA2"))
+        self.assertEqual(lookup["alpha"], "SAMEA1")
+        self.assertEqual(lookup["beta"], "SAMEA2")
 
 
 if __name__ == "__main__":

@@ -111,9 +111,9 @@ evidence stays the same.
 
 ## Restored System Coverage
 
-- [provenance and publication linkage](overview/provenance-and-publication-linkage/)
-- [source selection and refresh](overview/source-selection-and-refresh/)
-- [coverage and naming](overview/coverage-and-naming/)
+- [provenance and publication linkage](overview/provenance-and-publication-linkage.md)
+- [source selection and refresh](overview/source-selection-and-refresh.md)
+- [coverage and naming](overview/coverage-and-naming.md)
 
 ## Source-Family Comparison
 

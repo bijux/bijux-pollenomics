@@ -73,6 +73,11 @@ RAA_DENSITY_GEOJSON = DataArtifactContract(
     label="RAÄ archaeology density",
     relative_parts=("normalized", "sweden_archaeology_density.geojson"),
 )
+SVAR_LAKE_GEOJSON = DataArtifactContract(
+    source="svar",
+    label="SMHI SVAR Sweden lake registry",
+    relative_parts=("normalized", "sweden_lake_registry.geojson"),
+)
 
 ATLAS_POINT_ARTIFACTS = (
     LANDCLIM_SITE_GEOJSON,

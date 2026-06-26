@@ -37,12 +37,14 @@ def build_sead_temporal_review(
             str(semantics.get("comparability_posture", "")).strip() or "unresolved"
         )
         posture_counts[posture] = posture_counts.get(posture, 0) + 1
+        raw_capture_posture = _sead_row_capture_posture(row)
         review_rows.append(
             {
                 "site_id": site_id,
                 "site_name": str(row.get("site_name", "")).strip(),
                 "country": str(record.country if record is not None else "").strip(),
                 "comparability_posture": posture,
+                "raw_capture_posture": raw_capture_posture,
                 "temporal_window_label": str(
                     semantics.get("temporal_window_label", "")
                 ).strip(),
@@ -81,11 +83,13 @@ def build_sead_temporal_review(
             str(row["site_id"]),
         )
     )
+    inventory_summary = _inventory_summary(rows)
     return {
-        "schema_version": "sead-temporal-review.v1",
+        "schema_version": "sead-temporal-review.v2",
         "generated_on": str(date.today()),
         "row_count": len(review_rows),
         "comparability_posture_counts": posture_counts,
+        "inventory_summary": inventory_summary,
         "rows": review_rows,
     }
 
@@ -331,10 +335,13 @@ def write_sead_review_outputs(
 
 def render_sead_temporal_review_markdown(payload: dict[str, object]) -> str:
     rows = payload["rows"]
+    inventory_summary = payload.get("inventory_summary", {})
+    if not isinstance(inventory_summary, dict):
+        inventory_summary = {}
     lines = [
         "# SEAD temporal review",
         "",
-        "This review keeps SEAD honest about site-level time semantics. It distinguishes numeric site spans, mixed site spans plus cultural labels, and label-only rows that should not be read like sample-owned dates.",
+        "This review keeps SEAD honest about site-level time semantics. It distinguishes numeric site spans, mixed site spans plus cultural labels, and label-only rows that should not be read like sample-owned dates. When the checked-in raw capture only preserves site inventory rows, that absence of linked temporal tables stays explicit here instead of being implied away.",
         "",
         f"- Reviewed sites: `{payload['row_count']}`",
     ]
@@ -342,17 +349,29 @@ def render_sead_temporal_review_markdown(payload: dict[str, object]) -> str:
     if isinstance(posture_counts, dict):
         for key in sorted(posture_counts):
             lines.append(f"- {key.replace('_', ' ')}: `{posture_counts[key]}`")
+    if inventory_summary:
+        lines.extend(
+            [
+                f"- Raw capture posture: `{inventory_summary.get('temporal_capture_posture', 'unknown')}`",
+                f"- Rows with numeric intervals: `{inventory_summary.get('numeric_interval_row_count', 0)}`",
+                f"- Rows with linked dating ranges: `{inventory_summary.get('dating_range_row_count', 0)}`",
+                f"- Rows with linked relative periods: `{inventory_summary.get('relative_period_row_count', 0)}`",
+                f"- Rows with bibliography links: `{inventory_summary.get('bibliography_row_count', 0)}`",
+                f"- Rows with site inventory only: `{inventory_summary.get('site_inventory_only_row_count', 0)}`",
+            ]
+        )
     lines.extend(
         [
             "",
-            "| Site | Country | Comparability posture | Time summary | Normalized period labels | Uncertainty notes |",
-            "| --- | --- | --- | --- | --- | --- |",
+            "| Site | Country | Comparability posture | Raw capture posture | Time summary | Normalized period labels | Uncertainty notes |",
+            "| --- | --- | --- | --- | --- | --- | --- |",
         ]
     )
     for row in rows:
         lines.append(
             f"| {row['site_name']} (`{row['site_id']}`) | {row['country']} | "
-            f"{row['comparability_posture']} | {row['summary_label']} | "
+            f"{row['comparability_posture']} | {row['raw_capture_posture']} | "
+            f"{row['summary_label']} | "
             f"{', '.join(row['normalized_period_labels']) or 'None'} | "
             f"{' | '.join(row['uncertainty_notes']) or 'None'} |"
         )
@@ -548,3 +567,62 @@ def _review_note_for(
     if duration_posture == "duration_span_visible":
         return "This row carries a visible site span, but the span still belongs to archaeology context rather than a sample-owned event."
     return "This row is publishable only as contextual archaeology support with its stated caveats."
+
+
+def _inventory_summary(rows: list[dict[str, object]]) -> dict[str, int | str]:
+    def _rows_with_list(key: str) -> int:
+        return sum(
+            1
+            for row in rows
+            if isinstance(row.get(key), list) and len(row.get(key, [])) > 0
+        )
+
+    numeric_interval_row_count = sum(
+        1
+        for row in rows
+        if isinstance(row.get("time_start_bp"), int)
+        and isinstance(row.get("time_end_bp"), int)
+    )
+    dating_range_row_count = _rows_with_list("dating_range_rows")
+    relative_period_row_count = _rows_with_list("relative_period_rows")
+    bibliography_row_count = _rows_with_list("bibliography_rows")
+    site_inventory_only_row_count = sum(
+        1 for row in rows if _sead_row_capture_posture(row) == "site_inventory_only"
+    )
+    temporal_capture_posture = (
+        "linked_inventory_available"
+        if any(
+            count > 0
+            for count in (
+                numeric_interval_row_count,
+                dating_range_row_count,
+                relative_period_row_count,
+            )
+        )
+        else "site_inventory_only"
+    )
+    return {
+        "numeric_interval_row_count": numeric_interval_row_count,
+        "dating_range_row_count": dating_range_row_count,
+        "relative_period_row_count": relative_period_row_count,
+        "bibliography_row_count": bibliography_row_count,
+        "site_inventory_only_row_count": site_inventory_only_row_count,
+        "temporal_capture_posture": temporal_capture_posture,
+    }
+
+
+def _sead_row_capture_posture(row: dict[str, object]) -> str:
+    has_dating_ranges = isinstance(row.get("dating_range_rows"), list) and bool(
+        row.get("dating_range_rows")
+    )
+    has_relative_periods = isinstance(row.get("relative_period_rows"), list) and bool(
+        row.get("relative_period_rows")
+    )
+    has_bibliography = isinstance(row.get("bibliography_rows"), list) and bool(
+        row.get("bibliography_rows")
+    )
+    if has_dating_ranges or has_relative_periods:
+        return "linked_temporal_rows_captured"
+    if has_bibliography:
+        return "bibliography_only"
+    return "site_inventory_only"

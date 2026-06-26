@@ -4,7 +4,7 @@ audience: reader
 type: explanation
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-05-10
+last_reviewed: 2026-06-22
 ---
 
 # Artifact Contracts
@@ -23,6 +23,8 @@ understand what family it belongs to.
 - the world surface under `docs/report/world/` and regional surfaces under `docs/report/regions/`
 - root-level report artifacts under `docs/report/` that summarize public animal
   coverage, chronology overlap, first appearance, and scenario posture
+- country-scoped analytic sidecars that keep derived ranking methods visible
+  beside the owning bundle, such as Sweden lake evidence richness outputs
 - report summaries and map payloads produced by the reporting package
 - atlas candidate ranking sidecars that summarize locality proximity against
   tracked context layers
@@ -32,6 +34,8 @@ understand what family it belongs to.
 - [world map](../../../report/world/world_map.html)
 - [world animal evidence rows](../../../report/world/world_animal_atlas_evidence.json)
 - [Sweden country bundle](../../../report/countries/sweden/README.md)
+- [Sweden lake evidence richness markdown](../../../report/countries/sweden/sweden_lake_evidence_richness_v66.md)
+- [Sweden lake evidence richness JSON](../../../report/countries/sweden/sweden_lake_evidence_richness_v66.json)
 - [animal atlas readiness](../../../report/animal_atlas_readiness.md)
 - [animal country coverage](../../../report/animal_country_species_coverage.md)
 - [animal output honesty](../../../report/animal_output_honesty.md)
@@ -44,6 +48,8 @@ understand what family it belongs to.
 
 - `reporting/bundles/paths.py` defines the named path families for country and atlas bundles
 - country bundles include `README.md`, sample tables, species tables, locality GeoJSON, citations, warnings, and summary JSON outputs
+- Sweden country bundles also publish lake evidence richness JSON, markdown,
+  and distance-band CSV outputs under the same governed country root
 - the world surface includes the map HTML document, animal evidence rows, point traceability, and summary JSON outputs
 - root-level report artifacts include `animal_output_audit.*`, `animal_output_honesty.*`, `animal_atlas_readiness.*`, `animal_atlas_exclusion_report.*`, `animal_country_species_coverage.*`, repository truth reviews, chronology overlap artifacts, and scenario posture artifacts
 

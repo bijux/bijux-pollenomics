@@ -497,6 +497,16 @@ class ContextDataTests(unittest.TestCase):
                     encoding="utf-8"
                 )
             )
+            temporal_review = json.loads(
+                (data_root / "sead" / "review" / "temporal_review.json").read_text(
+                    encoding="utf-8"
+                )
+            )
+            raw_payload = json.loads(
+                (data_root / "sead" / "raw" / "nordic_sites.json").read_text(
+                    encoding="utf-8"
+                )
+            )
 
         self.assertEqual(report.point_count, 1)
         self.assertEqual(feature["properties"]["country"], "Sweden")
@@ -511,6 +521,26 @@ class ContextDataTests(unittest.TestCase):
         self.assertEqual(
             access_model["access_visibility_counts"]["site_page_only"],
             1,
+        )
+        self.assertEqual(
+            temporal_review["inventory_summary"]["temporal_capture_posture"],
+            "site_inventory_only",
+        )
+        self.assertEqual(
+            temporal_review["inventory_summary"]["dating_range_row_count"],
+            0,
+        )
+        self.assertEqual(
+            temporal_review["inventory_summary"]["site_inventory_only_row_count"],
+            1,
+        )
+        self.assertEqual(
+            temporal_review["rows"][0]["raw_capture_posture"],
+            "site_inventory_only",
+        )
+        self.assertEqual(
+            raw_payload["inventory_summary"]["temporal_capture_posture"],
+            "site_inventory_only",
         )
 
     def test_context_point_exports_preserve_temporal_fields(self) -> None:

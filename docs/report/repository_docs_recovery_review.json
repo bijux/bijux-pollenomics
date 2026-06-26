@@ -10,22 +10,22 @@
   "rows": [
     {
       "dimension_key": "restoration_completeness",
-      "score": 4,
-      "finding": "68 of 68 missing handbook pages now have verified replacements"
+      "score": 2,
+      "finding": "60 of 68 missing handbook pages now have verified replacements"
     },
     {
       "dimension_key": "navigation_breadth",
-      "score": 1,
+      "score": 4,
       "finding": "runtime, data, and maintainer landings link their restored breadth surfaces directly"
     },
     {
       "dimension_key": "credible_presentation",
-      "score": 2,
+      "score": 4,
       "finding": "repository truth, claim, and docs breadth surfaces now fail overclaims rather than narrating optimism"
     },
     {
       "dimension_key": "cross_domain_visibility",
-      "score": 2,
+      "score": 4,
       "finding": "non-aDNA source families remain directly explainable beside the thinner animal recovery surface"
     }
   ]

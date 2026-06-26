@@ -54,7 +54,7 @@ def collect_context_data(output_root: Path) -> ContextDataReport:
     """Collect the tracked context sources into the project data tree."""
     report = collect_data(
         output_root=Path(output_root),
-        sources=("boundaries", "landclim", "neotoma", "sead", "raa"),
+        sources=("boundaries", "landclim", "neotoma", "sead", "raa", "svar"),
     )
     return ContextDataReport(
         generated_on=report.generated_on,
@@ -65,4 +65,5 @@ def collect_context_data(output_root: Path) -> ContextDataReport:
         sead_point_count=report.sead_point_count,
         raa_total_site_count=report.raa_total_site_count,
         raa_heritage_site_count=report.raa_heritage_site_count,
+        svar_lake_count=report.svar_lake_count,
     )

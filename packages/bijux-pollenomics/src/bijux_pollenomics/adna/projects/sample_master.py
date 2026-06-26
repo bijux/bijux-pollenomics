@@ -9,6 +9,10 @@ import zipfile
 
 from defusedxml import ElementTree as ET  # type: ignore[import-untyped]
 
+from ..source_artifact_storage import (
+    read_source_artifact_text,
+    resolve_source_artifact_path,
+)
 from ..sources.ena import build_archive_project_catalog
 from ..sources.library import (
     ADNA_SOURCE_LIBRARY_DIR,
@@ -1446,18 +1450,17 @@ def _project_scope_archive_sample_accessions(
     output_root: Path,
     project_accession: str,
 ) -> tuple[str, ...]:
-    archive_path = (
-        Path(output_root)
-        / "adna"
-        / "governance"
-        / "source_library"
-        / "projects"
-        / project_accession
-        / "archive_metadata.html"
+    archive_path = _resolve_data_relative_path(
+        Path(output_root),
+        f"adna/governance/source_library/projects/{project_accession}/archive_metadata.html",
     )
     if not archive_path.is_file():
         return ()
-    rows = archive_path.read_text(encoding="utf-8", errors="ignore").splitlines()
+    rows = read_source_artifact_text(
+        archive_path,
+        encoding="utf-8",
+        errors="ignore",
+    ).splitlines()
     if not rows:
         return ()
     header = rows[0].split("\t")
@@ -1479,18 +1482,17 @@ def _build_archive_sample_accession_lookup(
     output_root: Path,
     project_accession: str,
 ) -> dict[str, str]:
-    archive_path = (
-        Path(output_root)
-        / "adna"
-        / "governance"
-        / "source_library"
-        / "projects"
-        / project_accession
-        / "archive_metadata.html"
+    archive_path = _resolve_data_relative_path(
+        Path(output_root),
+        f"adna/governance/source_library/projects/{project_accession}/archive_metadata.html",
     )
     if not archive_path.is_file():
         return {}
-    rows = archive_path.read_text(encoding="utf-8", errors="ignore").splitlines()
+    rows = read_source_artifact_text(
+        archive_path,
+        encoding="utf-8",
+        errors="ignore",
+    ).splitlines()
     if not rows:
         return {}
     header = rows[0].split("\t")
@@ -1779,8 +1781,8 @@ def _paper_row_by_project(
 
 def _resolve_data_relative_path(output_root: Path, path: str) -> Path:
     if path.startswith("data/"):
-        return output_root / path.removeprefix("data/")
-    return output_root / path
+        return resolve_source_artifact_path(output_root / path.removeprefix("data/"))
+    return resolve_source_artifact_path(output_root / path)
 
 
 def _render_sample_identity_ambiguity_markdown(rows: list[dict[str, object]]) -> str:

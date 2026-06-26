@@ -12,7 +12,7 @@ class SourceIdentityUnitTests(unittest.TestCase):
     def test_source_identity_registry_covers_tracked_sources(self) -> None:
         self.assertEqual(
             tuple(SOURCE_IDENTITIES),
-            ("aadr", "boundaries", "landclim", "neotoma", "raa", "sead"),
+            ("aadr", "boundaries", "landclim", "neotoma", "raa", "sead", "svar"),
         )
         self.assertEqual(SOURCE_IDENTITIES["raa"].display_name, "RAÄ")
 

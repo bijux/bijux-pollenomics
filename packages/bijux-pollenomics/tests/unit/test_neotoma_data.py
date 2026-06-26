@@ -18,6 +18,7 @@ from bijux_pollenomics.data_downloader.neotoma import (
     fetch_neotoma_dataset_download_rows,
     fetch_neotoma_dataset_inventory_rows,
     fetch_neotoma_pollen_rows,
+    materialize_neotoma_repository_surfaces,
     normalize_neotoma_rows,
 )
 
@@ -676,6 +677,15 @@ class NeotomaDataTests(unittest.TestCase):
         self.assertEqual(
             records[0].time_label, "0-3600 Calibrated radiocarbon years BP"
         )
+        self.assertIsNotNone(records[0].temporal_semantics)
+        self.assertEqual(
+            records[0].temporal_semantics["comparability_posture"],
+            "numeric_interval_with_caveat",
+        )
+        self.assertEqual(
+            records[0].temporal_semantics["temporal_window_label"],
+            "Late Holocene (1001-3000 BP)",
+        )
 
     def test_collect_neotoma_data_writes_download_coverage_summary(self) -> None:
         inventory_rows = [
@@ -741,26 +751,154 @@ class NeotomaDataTests(unittest.TestCase):
                     / "manifest.json"
                 ).read_text(encoding="utf-8")
             )
-            part_payload = json.loads(
-                (
-                    output_root
-                    / "raw"
-                    / "neotoma_pollen_dataset_downloads"
-                    / "part-001.json"
-                ).read_text(encoding="utf-8")
-            )
-
         self.assertEqual(manifest_payload["requested_dataset_ids"], [201])
         self.assertEqual(manifest_payload["downloaded_dataset_ids"], [201])
         self.assertEqual(
             manifest_payload["archive_dir"], "raw/neotoma_pollen_dataset_downloads"
         )
-        self.assertEqual(manifest_payload["part_count"], 1)
+
+    def test_materialize_neotoma_repository_surfaces_writes_temporal_review(
+        self,
+    ) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            data_root = Path(tmp) / "data"
+            raw_root = data_root / "neotoma" / "raw"
+            raw_root.mkdir(parents=True, exist_ok=True)
+            (data_root / "boundaries" / "raw").mkdir(parents=True, exist_ok=True)
+            (raw_root / "neotoma_pollen_sites.json").write_text(
+                json.dumps(
+                    {
+                        "generated_on": "2026-06-22",
+                        "source": "Neotoma",
+                        "datasettype": "pollen",
+                        "rows": [
+                            {
+                                "siteid": 20,
+                                "sitename": "Ageröds Mosse",
+                                "sitedescription": "Forested bog.",
+                                "geography": '{"type":"Point","coordinates":[13.6,55.9]}',
+                                "dataset_count": 1,
+                                "sample_count": 3,
+                                "chronology_count": 1,
+                                "age_ranges": [
+                                    {
+                                        "units": "Calibrated radiocarbon years BP",
+                                        "ageold": 3600,
+                                        "ageyoung": -20,
+                                    }
+                                ],
+                                "collectionunits": [{"datasets": []}],
+                            }
+                        ],
+                    }
+                ),
+                encoding="utf-8",
+            )
+            sweden_boundary = {
+                "type": "FeatureCollection",
+                "features": [
+                    {
+                        "type": "Feature",
+                        "geometry": {
+                            "type": "Polygon",
+                            "coordinates": [
+                                [
+                                    [10.0, 55.0],
+                                    [25.0, 55.0],
+                                    [25.0, 70.0],
+                                    [10.0, 70.0],
+                                    [10.0, 55.0],
+                                ]
+                            ],
+                        },
+                        "properties": {"ADM0_A3": "SWE"},
+                    }
+                ],
+            }
+            placeholder_boundary = {
+                "type": "FeatureCollection",
+                "features": [
+                    {
+                        "type": "Feature",
+                        "geometry": {
+                            "type": "Polygon",
+                            "coordinates": [
+                                [
+                                    [0.0, 0.0],
+                                    [1.0, 0.0],
+                                    [1.0, 1.0],
+                                    [0.0, 1.0],
+                                    [0.0, 0.0],
+                                ]
+                            ],
+                        },
+                        "properties": {"ADM0_A3": "DNK"},
+                    }
+                ],
+            }
+            (data_root / "boundaries" / "raw" / "sweden.geojson").write_text(
+                json.dumps(sweden_boundary),
+                encoding="utf-8",
+            )
+            for country, code in (
+                ("denmark", "DNK"),
+                ("norway", "NOR"),
+                ("finland", "FIN"),
+            ):
+                payload = json.loads(json.dumps(placeholder_boundary))
+                payload["features"][0]["properties"]["ADM0_A3"] = code
+                (data_root / "boundaries" / "raw" / f"{country}.geojson").write_text(
+                    json.dumps(payload),
+                    encoding="utf-8",
+                )
+
+            report = materialize_neotoma_repository_surfaces(data_root)
+
+            normalized_payload = json.loads(
+                report.normalized_geojson_path.read_text(encoding="utf-8")
+            )
+            temporal_review = json.loads(
+                (data_root / "neotoma" / "review" / "temporal_review.json").read_text(
+                    encoding="utf-8"
+                )
+            )
+
+        self.assertEqual(report.point_count, 1)
+        feature = normalized_payload["features"][0]
+        self.assertEqual(feature["properties"]["country"], "Sweden")
         self.assertEqual(
-            [part["filename"] for part in manifest_payload["parts"]], ["part-001.json"]
+            feature["properties"]["temporal_semantics"]["comparability_posture"],
+            "numeric_interval",
         )
-        self.assertEqual(part_payload["downloaded_dataset_ids"], [201])
-        self.assertEqual(part_payload["row_count"], 1)
+        self.assertEqual(
+            temporal_review["comparability_posture_counts"]["numeric_interval"], 1
+        )
+        self.assertEqual(
+            temporal_review["coverage_summary"]["site_count_with_bp_age_ranges"], 1
+        )
+        self.assertEqual(
+            temporal_review["coverage_summary"][
+                "site_count_with_bp_age_ranges_but_no_chronology_rows"
+            ],
+            0,
+        )
+        self.assertEqual(
+            temporal_review["coverage_summary"][
+                "site_count_with_bp_age_ranges_and_chronology_rows"
+            ],
+            1,
+        )
+        self.assertEqual(
+            temporal_review["coverage_summary"]["chronology_capture_posture"],
+            "bp_site_spans_with_some_chronology_rows",
+        )
+        self.assertEqual(
+            temporal_review["coverage_summary"]["site_count_without_bp_age_ranges"], 0
+        )
+        self.assertEqual(
+            temporal_review["rows"][0]["bp_support_posture"],
+            "bp_age_ranges_with_chronology_rows",
+        )
 
 
 if __name__ == "__main__":

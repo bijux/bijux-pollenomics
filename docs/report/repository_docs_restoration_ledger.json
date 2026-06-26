@@ -8,8 +8,8 @@
     "retired_with_replacement": 1
   },
   "status_counts": {
-    "verified_replacement": 68,
-    "replacement_incomplete": 0
+    "verified_replacement": 60,
+    "replacement_incomplete": 8
   },
   "rows": [
     {
@@ -240,8 +240,8 @@
       "legacy_path": "docs/01-bijux-pollenomics/operations/failure-recovery.md",
       "decision": "restored",
       "current_path": "docs/public/pollenomics/operations/failure-recovery.md",
-      "status": "verified_replacement",
-      "notes": "failure recovery is restored directly because it remains a distinct operational task"
+      "status": "replacement_incomplete",
+      "notes": "failure recovery is restored directly because it remains a distinct operational task; missing anchors: `Failure Questions`"
     },
     {
       "legacy_path": "docs/01-bijux-pollenomics/quality/change-validation.md",
@@ -303,22 +303,22 @@
       "legacy_path": "docs/02-bijux-pollenomics-data/foundation/coordinate-policy.md",
       "decision": "merged",
       "current_path": "docs/public/pollenomics-data/overview/provenance-and-publication-linkage.md",
-      "status": "verified_replacement",
-      "notes": "provenance, coordinate, and publication linkage topics now live under the current overview model"
+      "status": "replacement_incomplete",
+      "notes": "provenance, coordinate, and publication linkage topics now live under the current overview model; missing anchors: `Provenance Model`"
     },
     {
       "legacy_path": "docs/02-bijux-pollenomics-data/foundation/provenance-model.md",
       "decision": "merged",
       "current_path": "docs/public/pollenomics-data/overview/provenance-and-publication-linkage.md",
-      "status": "verified_replacement",
-      "notes": "provenance, coordinate, and publication linkage topics now live under the current overview model"
+      "status": "replacement_incomplete",
+      "notes": "provenance, coordinate, and publication linkage topics now live under the current overview model; missing anchors: `Provenance Model`"
     },
     {
       "legacy_path": "docs/02-bijux-pollenomics-data/foundation/publication-linkage.md",
       "decision": "merged",
       "current_path": "docs/public/pollenomics-data/overview/provenance-and-publication-linkage.md",
-      "status": "verified_replacement",
-      "notes": "provenance, coordinate, and publication linkage topics now live under the current overview model"
+      "status": "replacement_incomplete",
+      "notes": "provenance, coordinate, and publication linkage topics now live under the current overview model; missing anchors: `Provenance Model`"
     },
     {
       "legacy_path": "docs/02-bijux-pollenomics-data/foundation/data-system-overview.md",
@@ -345,29 +345,29 @@
       "legacy_path": "docs/02-bijux-pollenomics-data/foundation/migration-issues.md",
       "decision": "merged",
       "current_path": "docs/public/pollenomics-data/overview/source-selection-and-refresh.md",
-      "status": "verified_replacement",
-      "notes": "selection rules, lifecycle, and migration pressure now live together in one current overview page"
+      "status": "replacement_incomplete",
+      "notes": "selection rules, lifecycle, and migration pressure now live together in one current overview page; missing anchors: `Selection Rules`, `Refresh Lifecycle`, `Migration Pressure`"
     },
     {
       "legacy_path": "docs/02-bijux-pollenomics-data/foundation/source-selection-rules.md",
       "decision": "merged",
       "current_path": "docs/public/pollenomics-data/overview/source-selection-and-refresh.md",
-      "status": "verified_replacement",
-      "notes": "selection rules, lifecycle, and migration pressure now live together in one current overview page"
+      "status": "replacement_incomplete",
+      "notes": "selection rules, lifecycle, and migration pressure now live together in one current overview page; missing anchors: `Selection Rules`, `Refresh Lifecycle`, `Migration Pressure`"
     },
     {
       "legacy_path": "docs/02-bijux-pollenomics-data/foundation/update-lifecycle.md",
       "decision": "merged",
       "current_path": "docs/public/pollenomics-data/overview/source-selection-and-refresh.md",
-      "status": "verified_replacement",
-      "notes": "selection rules, lifecycle, and migration pressure now live together in one current overview page"
+      "status": "replacement_incomplete",
+      "notes": "selection rules, lifecycle, and migration pressure now live together in one current overview page; missing anchors: `Selection Rules`, `Refresh Lifecycle`, `Migration Pressure`"
     },
     {
       "legacy_path": "docs/02-bijux-pollenomics-data/foundation/naming-conventions.md",
       "decision": "merged",
       "current_path": "docs/public/pollenomics-data/overview/coverage-and-naming.md",
-      "status": "verified_replacement",
-      "notes": "naming conventions are merged into the current coverage-and-naming page"
+      "status": "replacement_incomplete",
+      "notes": "naming conventions are merged into the current coverage-and-naming page; missing anchors: `Naming Rules`, `Coverage Rule`"
     },
     {
       "legacy_path": "docs/03-bijux-pollenomics-maintain/bijux-pollenomics-dev/module-map.md",

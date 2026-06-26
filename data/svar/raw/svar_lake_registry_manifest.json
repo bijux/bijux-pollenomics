@@ -1,0 +1,10 @@
+{
+  "generated_on": "2026-06-22",
+  "source": "SMHI SVAR",
+  "source_url": "https://vattenwebb.smhi.se/svarwebb/",
+  "wfs_url": "https://vattenwebb.smhi.se/svarwebb/svar.map",
+  "typename": "lakes",
+  "page_size": 250,
+  "matched_lake_count": 40565,
+  "normalized_lake_count": 40565
+}

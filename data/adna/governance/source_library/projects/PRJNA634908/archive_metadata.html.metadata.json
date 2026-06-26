@@ -4,5 +4,8 @@
   "artifact_kind": "archive_metadata_html",
   "content_type": "text/html; charset=UTF-8",
   "byte_size": 56901,
-  "project_accession": "PRJNA634908"
+  "project_accession": "PRJNA634908",
+  "storage_byte_size": 13698,
+  "storage_path": "adna/governance/source_library/projects/PRJNA634908/archive_metadata.html.gz",
+  "content_encoding": "gzip"
 }

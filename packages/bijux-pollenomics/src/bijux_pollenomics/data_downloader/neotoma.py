@@ -4,6 +4,7 @@ from collections.abc import Iterable, Mapping
 import copy
 from dataclasses import dataclass
 from datetime import date
+import json
 from pathlib import Path
 
 from ..core.files import write_json
@@ -14,6 +15,7 @@ from .exports.context_points import (
     write_context_points_csv,
     write_context_points_geojson,
 )
+from .shared import load_repository_country_boundaries
 from .sources.neotoma.archive import (
     build_neotoma_download_archive_parts as build_neotoma_download_archive_parts_from_archive,
 )
@@ -53,6 +55,7 @@ from .sources.neotoma.normalization import (
     classify_neotoma_site_country,
     normalize_neotoma_rows,
 )
+from .sources.neotoma.review import write_neotoma_review_outputs
 
 # Neotoma bbox searches drop valid Nordic sites when paginated in smaller chunks.
 # Keep the inventory query large enough to fit in one response under current coverage.
@@ -323,7 +326,39 @@ def collect_neotoma_data(
     normalized_geojson_path = NEOTOMA_POINT_GEOJSON.source_path_under(output_root)
     write_context_points_csv(normalized_csv_path, records)
     write_context_points_geojson(normalized_geojson_path, records)
+    write_neotoma_review_outputs(output_root, rows=rows, records=records)
 
+    return NeotomaDataReport(
+        output_dir=output_root,
+        point_count=len(records),
+        raw_path=raw_path,
+        normalized_csv_path=normalized_csv_path,
+        normalized_geojson_path=normalized_geojson_path,
+    )
+
+
+def materialize_neotoma_repository_surfaces(data_root: Path) -> NeotomaDataReport:
+    """Refresh normalized and review Neotoma surfaces from the checked-in raw inventory."""
+    data_root = Path(data_root)
+    output_root = data_root / "neotoma"
+    raw_path = output_root / "raw" / "neotoma_pollen_sites.json"
+    payload = json.loads(raw_path.read_text(encoding="utf-8"))
+    raw_rows = payload.get("rows", [])
+    if not isinstance(raw_rows, list):
+        raise ValueError(f"Neotoma raw inventory must contain a row list: {raw_path}")
+    rows = [row for row in raw_rows if isinstance(row, dict)]
+    country_boundaries = load_repository_country_boundaries(data_root)
+    records = normalize_neotoma_rows(
+        rows,
+        bbox=(4.0, 54.0, 35.0, 72.0),
+        country_boundaries=country_boundaries,
+    )
+    normalized_csv_path = NEOTOMA_POINT_CSV.path_under(data_root)
+    normalized_geojson_path = NEOTOMA_POINT_GEOJSON.path_under(data_root)
+    normalized_csv_path.parent.mkdir(parents=True, exist_ok=True)
+    write_context_points_csv(normalized_csv_path, records)
+    write_context_points_geojson(normalized_geojson_path, records)
+    write_neotoma_review_outputs(output_root, rows=rows, records=records)
     return NeotomaDataReport(
         output_dir=output_root,
         point_count=len(records),
@@ -360,6 +395,7 @@ __all__ = [
     "fetch_neotoma_dataset_inventory_rows",
     "fetch_neotoma_pollen_rows",
     "filter_neotoma_dataset_inventory_rows",
+    "materialize_neotoma_repository_surfaces",
     "neotoma_download_dataset_id",
     "normalize_neotoma_rows",
     "validate_neotoma_download_coverage",

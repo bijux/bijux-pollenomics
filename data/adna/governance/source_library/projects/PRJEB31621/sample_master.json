@@ -12,6 +12,6 @@
   "final_sample_count": 0,
   "ambiguity_row_count": 0,
   "sample_identifier_status": "manual_curation_required",
-  "extraction_plan": "Strengthen the paper and supplementary capture first, then recover sample identifiers from the strongest readable table or appendix surface.",
+  "extraction_plan": "",
   "rows": []
 }

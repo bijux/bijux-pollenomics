@@ -33,10 +33,11 @@ data
 ├── landclim
 ├── neotoma
 ├── raa
-└── sead
+├── sead
+└── svar
 ```
 
-Detailed acquisition commands, source explanations, and storage rationale are documented in the canonical public docs pages:
+Detailed acquisition commands, source explanations, and storage rationale are documented in the canonical docs pages:
 
 - [`docs/public/pollenomics-data/sources/index.md`](../docs/public/pollenomics-data/sources/index.md)
 - [`docs/public/pollenomics-data/overview/data-directory-layout.md`](../docs/public/pollenomics-data/overview/data-directory-layout.md)

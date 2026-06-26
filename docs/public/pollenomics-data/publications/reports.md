@@ -4,7 +4,7 @@ audience: reader
 type: explanation
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-05-10
+last_reviewed: 2026-06-22
 ---
 
 # Reports
@@ -40,6 +40,9 @@ answer inside one larger evidence system, not like a disconnected mini-product.
   if your question is specifically Nordic
 - open a country bundle such as [Sweden](../../../report/countries/sweden/README.md)
   only when the question is genuinely country-specific
+- open a country-scoped analytic surface such as [Sweden lake evidence richness](../../../report/countries/sweden/sweden_lake_evidence_richness_v66.md)
+  when the question is about ranked context density around one country's
+  candidate basins rather than the broader country narrative alone
 - open a direct sample-level bundle such as [Sweden animal aDNA v66 samples](../../../report/countries/sweden/sweden_animal_adna_v66_samples.md)
   when the question is about the currently published country sample surface,
   not only the narrative landing page
@@ -59,6 +62,9 @@ answer inside one larger evidence system, not like a disconnected mini-product.
 - country answers:
   what one national bundle looks like once the scope is narrowed and the reader
   wants the most locally usable public package
+- country analytic sidecars:
+  what one country publishes when a derived ranking or scored context table
+  needs to stay inspectable beside the bundle rather than hidden inside prose
 
 ## How To Choose The Right Report
 
@@ -77,6 +83,8 @@ answer inside one larger evidence system, not like a disconnected mini-product.
 - a scoped narrative that says what this geography currently shows
 - visible limits and caveats rather than hidden optimism
 - links to maps, reviews, and supporting public evidence
+- direct analytic outputs when the scope includes ranked or scored evidence
+  rather than only a narrative landing page
 - stable paths so readers can revisit the same scope later without guessing
   where it moved
 

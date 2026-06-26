@@ -1,6 +1,6 @@
 # Europe-plus Evidence Surface
 
-This shared interactive map bundle was generated on `2026-05-09` from Homo
+This shared interactive map bundle was generated on `2026-06-22` from Homo
 sapiens AADR `v66` plus any governed contextual and animal surfaces that
 the active scope contract allows.
 
@@ -92,7 +92,7 @@ Europe-plus is a governed regional filter view. It keeps only Europe-plus countr
 - Species focus
 - Animal scope
 - Coordinate confidence
-- Chronology bucket
+- Temporal window
 - Nordic animal leads only
 
 ### Animal Inspection Surfaces
@@ -119,3 +119,4 @@ Europe-plus is a governed regional filter view. It keeps only Europe-plus countr
 | Common name | Latin name | Animal scope | Mapped locality points |
 | --- | --- | --- | ---: |
 | horse | Equus caballus | domesticated_core | 2 |
+

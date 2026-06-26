@@ -1,6 +1,6 @@
 # Denmark Homo sapiens aDNA v66 Sample Inventory
 
-Generated on `2026-05-09`. Total Homo sapiens aDNA samples: `653`.
+Generated on `2026-06-22`. Total Homo sapiens aDNA samples: `653`.
 
 | Genetic ID | Master ID | Group ID | Locality | Latitude | Longitude | Publication | Full Date | Data Type | Sex | Datasets |
 | --- | --- | --- | --- | ---: | ---: | --- | --- | --- | --- | --- |

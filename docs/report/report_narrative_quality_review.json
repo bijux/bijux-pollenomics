@@ -1,8 +1,8 @@
 {
   "schema_version": "report-narrative-quality-review.v1",
-  "page_count": 92,
+  "page_count": 95,
   "quality_posture_counts": {
-    "reader_ready": 44,
+    "reader_ready": 47,
     "structured_reference": 22,
     "thin_structure": 26
   },
@@ -189,9 +189,9 @@
     },
     {
       "repository_path": "docs/report/animal_temporal_comparison_review.md",
-      "prose_paragraph_count": 3,
+      "prose_paragraph_count": 2,
       "link_bullet_count": 0,
-      "bullet_sentence_count": 2548,
+      "bullet_sentence_count": 4,
       "heading_count": 3,
       "table_line_count": 4,
       "quality_posture": "reader_ready",
@@ -349,10 +349,10 @@
     },
     {
       "repository_path": "docs/report/countries/sweden/README.md",
-      "prose_paragraph_count": 7,
+      "prose_paragraph_count": 9,
       "link_bullet_count": 0,
-      "bullet_sentence_count": 21,
-      "heading_count": 8,
+      "bullet_sentence_count": 31,
+      "heading_count": 10,
       "table_line_count": 24,
       "quality_posture": "reader_ready",
       "note": "Page explains its purpose before or alongside artifact links."
@@ -396,6 +396,26 @@
       "table_line_count": 0,
       "quality_posture": "thin_structure",
       "note": "Page explains itself but still needs stronger internal wayfinding."
+    },
+    {
+      "repository_path": "docs/report/countries/sweden/sweden_lake_evidence_richness_v66.md",
+      "prose_paragraph_count": 2,
+      "link_bullet_count": 0,
+      "bullet_sentence_count": 5,
+      "heading_count": 9,
+      "table_line_count": 154,
+      "quality_posture": "reader_ready",
+      "note": "Page explains its purpose before or alongside artifact links."
+    },
+    {
+      "repository_path": "docs/report/countries/sweden/sweden_lake_fieldwork_preparation_v66.md",
+      "prose_paragraph_count": 2,
+      "link_bullet_count": 0,
+      "bullet_sentence_count": 6,
+      "heading_count": 3,
+      "table_line_count": 22,
+      "quality_posture": "reader_ready",
+      "note": "Page explains its purpose before or alongside artifact links."
     },
     {
       "repository_path": "docs/report/nordic_farming_history_scenario.md",
@@ -683,7 +703,7 @@
       "link_bullet_count": 0,
       "bullet_sentence_count": 1,
       "heading_count": 2,
-      "table_line_count": 23,
+      "table_line_count": 24,
       "quality_posture": "reader_ready",
       "note": "Page explains its purpose before or alongside artifact links."
     },
@@ -753,9 +773,19 @@
       "link_bullet_count": 0,
       "bullet_sentence_count": 0,
       "heading_count": 1,
-      "table_line_count": 3,
+      "table_line_count": 4,
       "quality_posture": "thin_structure",
       "note": "Page explains itself but still needs stronger internal wayfinding."
+    },
+    {
+      "repository_path": "docs/report/repository_source_ecosystem_review.md",
+      "prose_paragraph_count": 3,
+      "link_bullet_count": 0,
+      "bullet_sentence_count": 6,
+      "heading_count": 4,
+      "table_line_count": 4,
+      "quality_posture": "reader_ready",
+      "note": "Page explains its purpose before or alongside artifact links."
     },
     {
       "repository_path": "docs/report/repository_source_explainer_audit.md",
@@ -763,7 +793,7 @@
       "link_bullet_count": 0,
       "bullet_sentence_count": 1,
       "heading_count": 1,
-      "table_line_count": 17,
+      "table_line_count": 18,
       "quality_posture": "thin_structure",
       "note": "Page explains itself but still needs stronger internal wayfinding."
     },

@@ -1,5 +1,5 @@
 {
-  "generated_on": "2026-05-09",
+  "generated_on": "2026-06-22",
   "output_root": "data",
   "version": "v66",
   "collected_sources": [
@@ -8,7 +8,8 @@
     "landclim",
     "neotoma",
     "raa",
-    "sead"
+    "sead",
+    "svar"
   ],
   "source_output_roots": {
     "aadr": "data/aadr",
@@ -17,49 +18,57 @@
     "landclim": "data/landclim",
     "neotoma": "data/neotoma",
     "raa": "data/raa",
-    "sead": "data/sead"
+    "sead": "data/sead",
+    "svar": "data/svar"
   },
   "source_metadata": {
     "aadr": {
       "source": "aadr",
       "version": "v66",
       "license": "source-specific terms",
-      "retrieved_on": "2026-05-09",
+      "retrieved_on": "2026-06-22",
       "acquisition_method": "collector_pipeline"
     },
     "boundaries": {
       "source": "boundaries",
       "version": "v66",
       "license": "public geodata terms",
-      "retrieved_on": "2026-05-09",
+      "retrieved_on": "2026-06-22",
       "acquisition_method": "collector_pipeline"
     },
     "landclim": {
       "source": "landclim",
       "version": "v66",
       "license": "source-specific terms",
-      "retrieved_on": "2026-05-09",
+      "retrieved_on": "2026-06-22",
       "acquisition_method": "collector_pipeline"
     },
     "neotoma": {
       "source": "neotoma",
       "version": "v66",
       "license": "source-specific terms",
-      "retrieved_on": "2026-05-09",
+      "retrieved_on": "2026-06-22",
       "acquisition_method": "collector_pipeline"
     },
     "raa": {
       "source": "raa",
       "version": "v66",
       "license": "open data terms",
-      "retrieved_on": "2026-05-09",
+      "retrieved_on": "2026-06-22",
       "acquisition_method": "collector_pipeline"
     },
     "sead": {
       "source": "sead",
       "version": "v66",
       "license": "source-specific terms",
-      "retrieved_on": "2026-05-09",
+      "retrieved_on": "2026-06-22",
+      "acquisition_method": "collector_pipeline"
+    },
+    "svar": {
+      "source": "svar",
+      "version": "v66",
+      "license": "open data terms",
+      "retrieved_on": "2026-06-22",
       "acquisition_method": "collector_pipeline"
     }
   },
@@ -87,6 +96,10 @@
     "sead": {
       "snapshot_sha256": "9291c8174ecec421be46509aa9d6caf99e556f245d619c627981eb527ccad76d",
       "normalized_sha256": "b5e4265b22f0e1e210bc2b8ada3996ba89ce00da9fa087a38aab795a6e2f00a2"
+    },
+    "svar": {
+      "snapshot_sha256": "c76b8e617cad9242d95dd1373e745b4329b6dc1b0b027af92ab54af91a1fc8bf",
+      "normalized_sha256": "f9cfb1c5bcbb37bfb69327700545c9c4379b5e2169c09249c90d7c39da467334"
     }
   },
   "source_provenance": {
@@ -96,7 +109,7 @@
       "evidence_family": "ancient_dna_context",
       "version": "v66",
       "license": "source-specific terms",
-      "retrieved_on": "2026-05-09",
+      "retrieved_on": "2026-06-22",
       "acquisition_method": "collector_pipeline",
       "snapshot_root": "data/aadr",
       "normalized_root": "data/aadr/normalized",
@@ -109,7 +122,7 @@
       "evidence_family": "geospatial_boundary_context",
       "version": "v66",
       "license": "public geodata terms",
-      "retrieved_on": "2026-05-09",
+      "retrieved_on": "2026-06-22",
       "acquisition_method": "collector_pipeline",
       "snapshot_root": "data/boundaries",
       "normalized_root": "data/boundaries/normalized",
@@ -122,7 +135,7 @@
       "evidence_family": "pollen_paleoclimate_context",
       "version": "v66",
       "license": "source-specific terms",
-      "retrieved_on": "2026-05-09",
+      "retrieved_on": "2026-06-22",
       "acquisition_method": "collector_pipeline",
       "snapshot_root": "data/landclim",
       "normalized_root": "data/landclim/normalized",
@@ -135,7 +148,7 @@
       "evidence_family": "pollen_context",
       "version": "v66",
       "license": "source-specific terms",
-      "retrieved_on": "2026-05-09",
+      "retrieved_on": "2026-06-22",
       "acquisition_method": "collector_pipeline",
       "snapshot_root": "data/neotoma",
       "normalized_root": "data/neotoma/normalized",
@@ -148,7 +161,7 @@
       "evidence_family": "archaeology_context",
       "version": "v66",
       "license": "open data terms",
-      "retrieved_on": "2026-05-09",
+      "retrieved_on": "2026-06-22",
       "acquisition_method": "collector_pipeline",
       "snapshot_root": "data/raa",
       "normalized_root": "data/raa/normalized",
@@ -161,12 +174,25 @@
       "evidence_family": "environmental_archaeology_context",
       "version": "v66",
       "license": "source-specific terms",
-      "retrieved_on": "2026-05-09",
+      "retrieved_on": "2026-06-22",
       "acquisition_method": "collector_pipeline",
       "snapshot_root": "data/sead",
       "normalized_root": "data/sead/normalized",
       "snapshot_sha256": "9291c8174ecec421be46509aa9d6caf99e556f245d619c627981eb527ccad76d",
       "normalized_sha256": "b5e4265b22f0e1e210bc2b8ada3996ba89ce00da9fa087a38aab795a6e2f00a2"
+    },
+    "svar": {
+      "source": "svar",
+      "display_name": "SMHI SVAR",
+      "evidence_family": "hydrography_context",
+      "version": "v66",
+      "license": "open data terms",
+      "retrieved_on": "2026-06-22",
+      "acquisition_method": "collector_pipeline",
+      "snapshot_root": "data/svar",
+      "normalized_root": "data/svar/normalized",
+      "snapshot_sha256": "c76b8e617cad9242d95dd1373e745b4329b6dc1b0b027af92ab54af91a1fc8bf",
+      "normalized_sha256": "f9cfb1c5bcbb37bfb69327700545c9c4379b5e2169c09249c90d7c39da467334"
     }
   },
   "source_replacement_rules": {
@@ -215,6 +241,14 @@
       "refresh_mode": "staging_swap",
       "final_output_root": "data/sead",
       "staging_output_root": "data/.sead.tmp",
+      "destructive_refresh": true,
+      "preserves_previous_on_failure": true
+    },
+    "svar": {
+      "source": "svar",
+      "refresh_mode": "staging_swap",
+      "final_output_root": "data/svar",
+      "staging_output_root": "data/.svar.tmp",
       "destructive_refresh": true,
       "preserves_previous_on_failure": true
     }
@@ -267,11 +301,20 @@
       "snapshot_sha256": "9291c8174ecec421be46509aa9d6caf99e556f245d619c627981eb527ccad76d",
       "normalized_sha256": "b5e4265b22f0e1e210bc2b8ada3996ba89ce00da9fa087a38aab795a6e2f00a2",
       "dispute_token": "sead@v66:9291c8174ece"
+    },
+    "svar": {
+      "source": "svar",
+      "source_identity": "svar",
+      "source_version": "v66",
+      "snapshot_sha256": "c76b8e617cad9242d95dd1373e745b4329b6dc1b0b027af92ab54af91a1fc8bf",
+      "normalized_sha256": "f9cfb1c5bcbb37bfb69327700545c9c4379b5e2169c09249c90d7c39da467334",
+      "dispute_token": "svar@v66:c76b8e617cad"
     }
   },
   "contract_artifacts": {
     "source_family_contracts": "data/source_family_contracts.json",
     "source_family_evidence_stage_matrix": "data/source_family_evidence_stage_matrix.json",
+    "source_spatiotemporal_posture_registry": "data/source_spatiotemporal_posture_registry.json",
     "source_fact_ownership_registry": "data/source_fact_ownership_registry.json",
     "evidence_artifact_contracts": "data/evidence_artifact_contracts.json",
     "adna_governance_role_registry": "data/adna/governance/surface_role_registry.json",
@@ -366,6 +409,23 @@
       "blocking_reasons": []
     },
     {
+      "source_key": "svar",
+      "display_name": "SMHI SVAR lake registry",
+      "domain_group": "hydrography_context",
+      "evidence_role": "sampling_domain",
+      "primary_question": "Which official Sweden lake-register geometries and stable lake identities are available for sampling-oriented ranking?",
+      "raw_status": "present",
+      "normalized_status": "present",
+      "reviewed_status": "present",
+      "published_status": "present",
+      "provenance_depth": "review_ready",
+      "publication_posture": "published_with_review_support",
+      "coverage_metrics": {
+        "svar_lake_count": 40565
+      },
+      "blocking_reasons": []
+    },
+    {
       "source_key": "aadr",
       "display_name": "AADR human ancient DNA",
       "domain_group": "human_ancient_dna",
@@ -410,5 +470,6 @@
   "sead_point_count": 2172,
   "raa_total_site_count": 761917,
   "raa_heritage_site_count": 318265,
+  "svar_lake_count": 40565,
   "summary_path": "data/collection_summary.json"
 }

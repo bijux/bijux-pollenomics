@@ -40,7 +40,7 @@ def validate_source_snapshot(
 
     requires_boundaries = any(
         source in selected_sources
-        for source in ("boundaries", "landclim", "neotoma", "sead", "raa")
+        for source in ("boundaries", "landclim", "neotoma", "sead", "raa", "svar")
     )
     if requires_boundaries and boundary_source is None:
         raise ValueError(

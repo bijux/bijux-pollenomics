@@ -130,10 +130,10 @@ def build_source_family_contracts() -> tuple[SourceFamilyContract, ...]:
             ),
             reviewed_layer=SourceFamilyLayerContract(
                 layer_key="reviewed",
-                repository_path="data/source_family_evidence_stage_matrix.json",
+                repository_path="data/neotoma/review",
                 required=True,
-                purpose="cross-family review of freshness, coverage, and publication posture",
-                example_artifacts=("data/source_family_evidence_stage_matrix.json",),
+                purpose="site-level temporal comparability review for Neotoma pollen context",
+                example_artifacts=("data/neotoma/review/temporal_review.json",),
             ),
             published_layer=SourceFamilyLayerContract(
                 layer_key="published",
@@ -277,6 +277,49 @@ def build_source_family_contracts() -> tuple[SourceFamilyContract, ...]:
                 ),
             ),
             coverage_metric_keys=("boundary_country_count",),
+        ),
+        SourceFamilyContract(
+            source_key="svar",
+            display_name="SMHI SVAR lake registry",
+            domain_group="hydrography_context",
+            evidence_role="sampling_domain",
+            primary_question=(
+                "Which official Sweden lake-register geometries and stable lake "
+                "identities are available for sampling-oriented ranking?"
+            ),
+            raw_layer=SourceFamilyLayerContract(
+                layer_key="raw",
+                repository_path="data/svar/raw",
+                required=True,
+                purpose="tracked SMHI SVAR WFS capture metadata and source manifest",
+                example_artifacts=("data/svar/raw/svar_lake_registry_manifest.json",),
+            ),
+            normalized_layer=SourceFamilyLayerContract(
+                layer_key="normalized",
+                repository_path="data/svar/normalized",
+                required=True,
+                purpose="tracked normalized Sweden lake registry with stable lake identities and geometry",
+                example_artifacts=(
+                    "data/svar/normalized/sweden_lake_registry.geojson",
+                ),
+            ),
+            reviewed_layer=SourceFamilyLayerContract(
+                layer_key="reviewed",
+                repository_path="data/source_family_evidence_stage_matrix.json",
+                required=True,
+                purpose="cross-family review of lake-registry freshness, coverage, and publication posture",
+                example_artifacts=("data/source_family_evidence_stage_matrix.json",),
+            ),
+            published_layer=SourceFamilyLayerContract(
+                layer_key="published",
+                repository_path="docs/report/countries/sweden",
+                required=True,
+                purpose="published Sweden lake ranking and fieldwork surfaces derived from the official lake registry",
+                example_artifacts=(
+                    "docs/report/countries/sweden/sweden_lake_evidence_richness_v66.geojson",
+                ),
+            ),
+            coverage_metric_keys=("svar_lake_count",),
         ),
         SourceFamilyContract(
             source_key="aadr",
@@ -570,6 +613,8 @@ def _coverage_metrics(
         }
     if source_key == "aadr":
         return {"aadr_file_count": int(counts.get("aadr_file_count", 0))}
+    if source_key == "svar":
+        return {"svar_lake_count": int(counts.get("svar_lake_count", 0))}
     if source_key == "animal_adna":
         return _animal_adna_metrics(output_root)
     return {}

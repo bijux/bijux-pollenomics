@@ -78,7 +78,7 @@
       "publication_role": "shared_world_scale_layer",
       "scope_visibility": "shared_default",
       "default_enabled": true,
-      "applies_country_filter": false,
+      "applies_country_filter": true,
       "applies_time_filter": false,
       "scope_caveat": "Shared evidence layer across every governed scope."
     },
@@ -91,7 +91,7 @@
       "publication_role": "shared_world_scale_layer",
       "scope_visibility": "shared_default",
       "default_enabled": true,
-      "applies_country_filter": false,
+      "applies_country_filter": true,
       "applies_time_filter": true,
       "scope_caveat": "Shared evidence layer across every governed scope."
     },
@@ -104,7 +104,7 @@
       "publication_role": "shared_world_scale_layer",
       "scope_visibility": "shared_default",
       "default_enabled": true,
-      "applies_country_filter": false,
+      "applies_country_filter": true,
       "applies_time_filter": true,
       "scope_caveat": "Shared evidence layer across every governed scope."
     },

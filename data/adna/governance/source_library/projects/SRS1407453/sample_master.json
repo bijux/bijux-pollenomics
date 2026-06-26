@@ -12,7 +12,7 @@
   "final_sample_count": 1,
   "ambiguity_row_count": 0,
   "sample_identifier_status": "archive_native_identifiers_known",
-  "extraction_plan": "Use the archive-native sample accession as the anchor row, then recover site and chronology support from the linked paper or supplementary material.",
+  "extraction_plan": "",
   "rows": [
     {
       "species_latin_name": "Canis lupus familiaris",

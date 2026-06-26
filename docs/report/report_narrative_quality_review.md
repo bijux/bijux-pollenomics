@@ -4,13 +4,13 @@ This review checks whether the report-facing Markdown surfaces explain
 themselves in prose or structured reference form instead of behaving like bare
 link farms or coded operator notes.
 
-- Reviewed markdown pages: `92`
+- Reviewed markdown pages: `95`
 
 ## Quality Postures
 
 | Posture | Count |
 | --- | ---: |
-| `reader_ready` | 44 |
+| `reader_ready` | 47 |
 | `structured_reference` | 22 |
 | `thin_structure` | 26 |
 
@@ -36,7 +36,7 @@ link farms or coded operator notes.
 | `docs/report/animal_sample_chronology_review.md` | `reader_ready` | 1 | 0 | 3 | 870 | 2 | Page explains its purpose before or alongside artifact links. |
 | `docs/report/animal_sample_database_review.md` | `reader_ready` | 5 | 0 | 51 | 0 | 6 | Page explains its purpose before or alongside artifact links. |
 | `docs/report/animal_scientific_caveat_ledger.md` | `thin_structure` | 1 | 0 | 2 | 0 | 1 | Page explains itself but still needs stronger internal wayfinding. |
-| `docs/report/animal_temporal_comparison_review.md` | `reader_ready` | 3 | 0 | 2548 | 4 | 3 | Page explains its purpose before or alongside artifact links. |
+| `docs/report/animal_temporal_comparison_review.md` | `reader_ready` | 2 | 0 | 4 | 4 | 3 | Page explains its purpose before or alongside artifact links. |
 | `docs/report/countries/denmark/README.md` | `reader_ready` | 7 | 0 | 21 | 24 | 8 | Page explains its purpose before or alongside artifact links. |
 | `docs/report/countries/denmark/denmark_aadr_v66_samples.md` | `structured_reference` | 0 | 0 | 0 | 655 | 1 | Page is table-heavy, but it behaves like a reference surface rather than a loose link dump. |
 | `docs/report/countries/denmark/denmark_animal_adna_v66_citations.md` | `thin_structure` | 1 | 0 | 0 | 3 | 1 | Page explains itself but still needs stronger internal wayfinding. |
@@ -52,11 +52,13 @@ link farms or coded operator notes.
 | `docs/report/countries/norway/norway_animal_adna_v66_citations.md` | `thin_structure` | 1 | 0 | 0 | 3 | 1 | Page explains itself but still needs stronger internal wayfinding. |
 | `docs/report/countries/norway/norway_animal_adna_v66_samples.md` | `thin_structure` | 1 | 0 | 0 | 3 | 1 | Page explains itself but still needs stronger internal wayfinding. |
 | `docs/report/countries/norway/norway_animal_adna_v66_warnings.md` | `thin_structure` | 1 | 0 | 0 | 0 | 1 | Page explains itself but still needs stronger internal wayfinding. |
-| `docs/report/countries/sweden/README.md` | `reader_ready` | 7 | 0 | 21 | 24 | 8 | Page explains its purpose before or alongside artifact links. |
+| `docs/report/countries/sweden/README.md` | `reader_ready` | 9 | 0 | 31 | 24 | 10 | Page explains its purpose before or alongside artifact links. |
 | `docs/report/countries/sweden/sweden_aadr_v66_samples.md` | `structured_reference` | 0 | 0 | 0 | 418 | 1 | Page is table-heavy, but it behaves like a reference surface rather than a loose link dump. |
 | `docs/report/countries/sweden/sweden_animal_adna_v66_citations.md` | `thin_structure` | 1 | 0 | 0 | 3 | 1 | Page explains itself but still needs stronger internal wayfinding. |
 | `docs/report/countries/sweden/sweden_animal_adna_v66_samples.md` | `thin_structure` | 1 | 0 | 0 | 3 | 1 | Page explains itself but still needs stronger internal wayfinding. |
 | `docs/report/countries/sweden/sweden_animal_adna_v66_warnings.md` | `thin_structure` | 1 | 0 | 0 | 0 | 1 | Page explains itself but still needs stronger internal wayfinding. |
+| `docs/report/countries/sweden/sweden_lake_evidence_richness_v66.md` | `reader_ready` | 2 | 0 | 5 | 154 | 9 | Page explains its purpose before or alongside artifact links. |
+| `docs/report/countries/sweden/sweden_lake_fieldwork_preparation_v66.md` | `reader_ready` | 2 | 0 | 6 | 22 | 3 | Page explains its purpose before or alongside artifact links. |
 | `docs/report/nordic_farming_history_scenario.md` | `reader_ready` | 3 | 0 | 8 | 0 | 4 | Page explains its purpose before or alongside artifact links. |
 | `docs/report/publication_country_onboarding_contract.md` | `reader_ready` | 7 | 0 | 16 | 0 | 9 | Page explains its purpose before or alongside artifact links. |
 | `docs/report/publication_geography_registry.md` | `reader_ready` | 2 | 0 | 0 | 9 | 3 | Page explains its purpose before or alongside artifact links. |
@@ -85,15 +87,16 @@ link farms or coded operator notes.
 | `docs/report/repository_docs_scope_validation.md` | `thin_structure` | 1 | 0 | 1 | 5 | 1 | Page explains itself but still needs stronger internal wayfinding. |
 | `docs/report/repository_extension_review.md` | `structured_reference` | 0 | 0 | 1 | 5 | 1 | Page is table-heavy, but it behaves like a reference surface rather than a loose link dump. |
 | `docs/report/repository_final_release_refusal.md` | `thin_structure` | 1 | 0 | 2 | 9 | 1 | Page explains itself but still needs stronger internal wayfinding. |
-| `docs/report/repository_generated_output_policy.md` | `reader_ready` | 2 | 0 | 1 | 23 | 2 | Page explains its purpose before or alongside artifact links. |
+| `docs/report/repository_generated_output_policy.md` | `reader_ready` | 2 | 0 | 1 | 24 | 2 | Page explains its purpose before or alongside artifact links. |
 | `docs/report/repository_governance_artifact_review.md` | `structured_reference` | 0 | 0 | 0 | 11 | 1 | Page is table-heavy, but it behaves like a reference surface rather than a loose link dump. |
 | `docs/report/repository_output_sustainability_review.md` | `reader_ready` | 1 | 0 | 1 | 6 | 2 | Page explains its purpose before or alongside artifact links. |
 | `docs/report/repository_product_model.md` | `reader_ready` | 3 | 0 | 10 | 6 | 4 | Page explains its purpose before or alongside artifact links. |
 | `docs/report/repository_recovery_review.md` | `structured_reference` | 0 | 0 | 1 | 9 | 1 | Page is table-heavy, but it behaves like a reference surface rather than a loose link dump. |
 | `docs/report/repository_scientific_progress_audit.md` | `reader_ready` | 3 | 0 | 11 | 0 | 4 | Page explains its purpose before or alongside artifact links. |
 | `docs/report/repository_sead_legibility_review.md` | `reader_ready` | 3 | 0 | 8 | 6 | 6 | Page explains its purpose before or alongside artifact links. |
-| `docs/report/repository_source_acquisition_queue.md` | `thin_structure` | 1 | 0 | 0 | 3 | 1 | Page explains itself but still needs stronger internal wayfinding. |
-| `docs/report/repository_source_explainer_audit.md` | `thin_structure` | 1 | 0 | 1 | 17 | 1 | Page explains itself but still needs stronger internal wayfinding. |
+| `docs/report/repository_source_acquisition_queue.md` | `thin_structure` | 1 | 0 | 0 | 4 | 1 | Page explains itself but still needs stronger internal wayfinding. |
+| `docs/report/repository_source_ecosystem_review.md` | `reader_ready` | 3 | 0 | 6 | 4 | 4 | Page explains its purpose before or alongside artifact links. |
+| `docs/report/repository_source_explainer_audit.md` | `thin_structure` | 1 | 0 | 1 | 18 | 1 | Page explains itself but still needs stronger internal wayfinding. |
 | `docs/report/repository_source_family_matrix.md` | `structured_reference` | 0 | 0 | 0 | 10 | 1 | Page is table-heavy, but it behaves like a reference surface rather than a loose link dump. |
 | `docs/report/repository_truth_posture.md` | `reader_ready` | 5 | 0 | 17 | 0 | 5 | Page explains its purpose before or alongside artifact links. |
 | `docs/report/world/README.md` | `reader_ready` | 8 | 0 | 43 | 22 | 14 | Page explains its purpose before or alongside artifact links. |

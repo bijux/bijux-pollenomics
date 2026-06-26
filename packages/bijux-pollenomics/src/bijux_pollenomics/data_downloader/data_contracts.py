@@ -41,6 +41,9 @@ def build_contract_artifact_paths(output_root: Path) -> dict[str, str]:
         "source_family_evidence_stage_matrix": str(
             output_root / "source_family_evidence_stage_matrix.json"
         ),
+        "source_spatiotemporal_posture_registry": str(
+            output_root / "source_spatiotemporal_posture_registry.json"
+        ),
         "source_fact_ownership_registry": str(
             output_root / "source_fact_ownership_registry.json"
         ),
@@ -203,6 +206,7 @@ def build_source_fact_ownership_payload() -> dict[str, object]:
             governing_surface_path="data/neotoma/normalized/nordic_pollen_sites.geojson",
             supporting_surface_paths=(
                 "data/neotoma/raw/neotoma_pollen_dataset_inventory.json",
+                "data/neotoma/review/temporal_review.json",
                 "docs/report/regions/nordic/nordic_pollen_sites.geojson",
             ),
             reason="The normalized Neotoma site layer governs what survives into publication-grade pollen context.",

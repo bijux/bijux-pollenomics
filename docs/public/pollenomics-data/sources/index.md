@@ -4,7 +4,7 @@ audience: reader
 type: explanation
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-05-10
+last_reviewed: 2026-06-22
 ---
 
 # Sources
@@ -45,6 +45,16 @@ public language, before you have to think about repository layout.
 | [AADR](aadr.md) | human ancient DNA release context | human aDNA comparison beside pollen and archaeology |
 | [Animal source intake](animal-source-intake.md) | project, paper, supplement, and sample recovery for non-human aDNA | understanding what had to be recovered before animal aDNA can be published |
 
+## Infrastructure And Collaboration Networks
+
+Not every important upstream relationship is a direct source family. Some are
+better understood as infrastructure or collaboration networks that help make
+the source families more reusable, comparable, and easier to align.
+
+| Network | What it mainly contributes | Best first use |
+| --- | --- | --- |
+| [PalaeOpen](palaeopen.md) | cross-repository palaeoecological metadata and collaboration alignment | checking where broader terrestrial and aquatic interoperability work can improve this repository without pretending the network is direct evidence |
+
 ## How To Use These Pages
 
 Start with [Source comparison](source-comparison.md) if you want the quickest
@@ -58,7 +68,9 @@ Then move into the family pages only after you know what kind of source you are
 reading about. The short family pages explain the public meaning of each
 source. The longer process pages explain the harder cross-cutting ideas such as
 [Refresh policy](refresh-policy.md), [Shared normalization](shared-normalization.md),
-and the animal recovery chain.
+the shared [Spatiotemporal posture](spatiotemporal-posture.md),
+the animal recovery chain, and where infrastructure networks such as
+[PalaeOpen](palaeopen.md) help without becoming evidence on their own.
 
 ## What Readers Should Take Away
 
@@ -71,6 +83,9 @@ and the animal recovery chain.
   maturity and different review burdens.
 - Public outputs are downstream products. They are not the same thing as the
   source material that supports them.
+- Collaboration networks can improve interoperability and reuse without
+  changing the rule that direct evidence must still come from tracked source
+  families.
 
 ## If You Need The Underlying Repository-Owned Records
 
@@ -78,6 +93,7 @@ Most readers will not need to open tracked files directly. If you do, the
 high-signal cross-family records are:
 
 - `data/collection_summary.json`
+- `data/source_spatiotemporal_posture_registry.json`
 - `data/adna/governance/source_library/project_source_evidence_matrix.json`
 - `data/adna/governance/source_library/project_registry.json`
 - `data/adna/governance/source_library/paper_registry.json`

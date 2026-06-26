@@ -1,5 +1,5 @@
 [build-system]
-requires = ["hatchling>=1.27.0,<1.30", "hatch-vcs>=0.4.0,<1.0"]
+requires = ["hatchling>=1.27.0,<1.31", "hatch-vcs>=0.4.0,<1.0"]
 build-backend = "hatchling.build"
 
 [project]
@@ -50,17 +50,19 @@ dev = [
 include = [
     "README.md",
     "CHANGELOG.md",
+    "LICENSE",
+    "NOTICE",
     "src/bijux_pollenomics_dev/**",
 ]
 
 [tool.hatch.build.targets.sdist]
-exclude = ["LICENSE", "NOTICE"]
 include = [
     "README.md",
     "CHANGELOG.md",
+    "LICENSE",
+    "NOTICE",
     "src/bijux_pollenomics_dev/**",
 ]
-force-include = { "../../LICENSE" = "LICENSE", "../../NOTICE" = "NOTICE" }
 
 [tool.hatch.build.targets.wheel]
 packages = ["src/bijux_pollenomics_dev"]

@@ -1,17 +1,17 @@
 {
   "schema_version": "repository-source-explainer-audit.v1",
-  "row_count": 15,
+  "row_count": 16,
   "status_counts": {
-    "present_useful_form": 15,
-    "restoration_plan_required": 0
+    "present_useful_form": 13,
+    "restoration_plan_required": 3
   },
   "rows": [
     {
       "surface_kind": "source_family",
       "display_name": "LandClim source explainer",
       "page_path": "docs/public/pollenomics-data/sources/landclim.md",
-      "status": "present_useful_form",
-      "notes": "page exists and keeps the expected source or output anchors visible"
+      "status": "restoration_plan_required",
+      "notes": "missing expected anchors: `pollen context`"
     },
     {
       "surface_kind": "source_family",
@@ -38,13 +38,20 @@
       "surface_kind": "source_family",
       "display_name": "Boundary source explainer",
       "page_path": "docs/public/pollenomics-data/sources/boundaries.md",
-      "status": "present_useful_form",
-      "notes": "page exists and keeps the expected source or output anchors visible"
+      "status": "restoration_plan_required",
+      "notes": "missing expected anchors: `country filtering`"
     },
     {
       "surface_kind": "source_family",
       "display_name": "AADR source explainer",
       "page_path": "docs/public/pollenomics-data/sources/aadr.md",
+      "status": "present_useful_form",
+      "notes": "page exists and keeps the expected source or output anchors visible"
+    },
+    {
+      "surface_kind": "infrastructure_network",
+      "display_name": "PalaeOpen network explainer",
+      "page_path": "docs/public/pollenomics-data/sources/palaeopen.md",
       "status": "present_useful_form",
       "notes": "page exists and keeps the expected source or output anchors visible"
     },
@@ -59,8 +66,8 @@
       "surface_kind": "recovery_rule",
       "display_name": "Shared normalization explainer",
       "page_path": "docs/public/pollenomics-data/sources/shared-normalization.md",
-      "status": "present_useful_form",
-      "notes": "page exists and keeps the expected source or output anchors visible"
+      "status": "restoration_plan_required",
+      "notes": "missing expected anchors: `docs/report/world/`"
     },
     {
       "surface_kind": "output_family",

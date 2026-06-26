@@ -142,6 +142,7 @@
       "governing_surface_path": "data/neotoma/normalized/nordic_pollen_sites.geojson",
       "supporting_surface_paths": [
         "data/neotoma/raw/neotoma_pollen_dataset_inventory.json",
+        "data/neotoma/review/temporal_review.json",
         "docs/report/regions/nordic/nordic_pollen_sites.geojson"
       ],
       "reason": "The normalized Neotoma site layer governs what survives into publication-grade pollen context."
@@ -160,13 +161,13 @@
     },
     {
       "fact_key": "raa_archaeology_context",
-      "display_name": "RAÄ archaeology context",
+      "display_name": "RA\u00c4 archaeology context",
       "evidence_scope": "source_family",
       "governing_surface_path": "data/raa/normalized/sweden_archaeology_layer.json",
       "supporting_surface_paths": [
         "data/raa/normalized/sweden_archaeology_density.geojson"
       ],
-      "reason": "The normalized RAÄ layer governs Swedish archaeology context before density rendering publishes it."
+      "reason": "The normalized RA\u00c4 layer governs Swedish archaeology context before density rendering publishes it."
     },
     {
       "fact_key": "country_boundary_framing",

@@ -36,6 +36,7 @@ class DataContractSurfaceUnitTests(unittest.TestCase):
                 "neotoma",
                 "raa",
                 "sead",
+                "svar",
             },
         )
 
