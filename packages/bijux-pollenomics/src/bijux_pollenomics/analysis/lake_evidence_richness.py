@@ -493,9 +493,7 @@ def build_sweden_lake_evidence_richness_report(
                     ],
                     sead_site_count=raw["sead_site_count"],
                     time_aware_sead_site_count=raw["time_aware_sead_site_count"],
-                    human_overlap_sead_site_count=raw[
-                        "human_overlap_sead_site_count"
-                    ],
+                    human_overlap_sead_site_count=raw["human_overlap_sead_site_count"],
                     raa_density_site_count=raw["raa_density_site_count"],
                     evidence_family_count=raw["evidence_family_count"],
                     nearby_pollen_signal=nearby_pollen_signal,
@@ -788,9 +786,7 @@ def _build_svar_lake_report(
                     ],
                     sead_site_count=raw["sead_site_count"],
                     time_aware_sead_site_count=raw["time_aware_sead_site_count"],
-                    human_overlap_sead_site_count=raw[
-                        "human_overlap_sead_site_count"
-                    ],
+                    human_overlap_sead_site_count=raw["human_overlap_sead_site_count"],
                     raa_density_site_count=raw["raa_density_site_count"],
                     evidence_family_count=raw["evidence_family_count"],
                     nearby_pollen_signal=nearby_pollen_signal,
@@ -1434,37 +1430,35 @@ def _derive_svar_lake_candidates(
                 }
             )
         )
-        supporting_source_points = tuple(
-            [
-                LakeEvidenceSourceAnchor(
-                    source_record=(
-                        f"svar-lakes:{lake.lake_registry_id or lake.lake_registry_uuid or lake.lake_token}"
-                    ),
-                    source_name=lake.lake_name,
-                    source_layer_key="svar-lakes",
-                    latitude=lake.latitude,
-                    longitude=lake.longitude,
-                    source_url=lake.source_url,
+        supporting_source_points = (
+            LakeEvidenceSourceAnchor(
+                source_record=(
+                    f"svar-lakes:{lake.lake_registry_id or lake.lake_registry_uuid or lake.lake_token}"
                 ),
-                *sorted(
-                    (
-                        LakeEvidenceSourceAnchor(
-                            source_record=f"{point.layer_key}:{point.record_id}",
-                            source_name=_clean_lake_name_display(point.name),
-                            source_layer_key=point.layer_key,
-                            latitude=point.latitude,
-                            longitude=point.longitude,
-                            source_url=point.source_url,
-                        )
-                        for point in direct_pollen_points
-                    ),
-                    key=lambda source_point: (
-                        source_point.source_name,
-                        source_point.source_layer_key,
-                        source_point.source_record,
-                    ),
+                source_name=lake.lake_name,
+                source_layer_key="svar-lakes",
+                latitude=lake.latitude,
+                longitude=lake.longitude,
+                source_url=lake.source_url,
+            ),
+            *sorted(
+                (
+                    LakeEvidenceSourceAnchor(
+                        source_record=f"{point.layer_key}:{point.record_id}",
+                        source_name=_clean_lake_name_display(point.name),
+                        source_layer_key=point.layer_key,
+                        latitude=point.latitude,
+                        longitude=point.longitude,
+                        source_url=point.source_url,
+                    )
+                    for point in direct_pollen_points
                 ),
-            ]
+                key=lambda source_point: (
+                    source_point.source_name,
+                    source_point.source_layer_key,
+                    source_point.source_record,
+                ),
+            ),
         )
         ambiguity_flags: list[str] = []
         if lake.lake_name_status and lake.lake_name_status not in {
@@ -1826,7 +1820,9 @@ def _classify_sampling_lake(
     normalized_name = _normalize_text(lake_name)
     has_lake_term = any(term in normalized_name for term in _LAKE_NAME_TERMS)
     has_wetland_term = any(term in normalized_name for term in _WETLAND_TERMS)
-    has_engineered_term = any(term in normalized_name for term in _ENGINEERED_WATER_TERMS)
+    has_engineered_term = any(
+        term in normalized_name for term in _ENGINEERED_WATER_TERMS
+    )
     notes: list[str] = []
     if has_wetland_term and not has_lake_term:
         notes.append("registry name points to a wetland-style basin rather than a lake")
@@ -2119,9 +2115,7 @@ def _time_aware_ratio(points: Sequence[ContextPointRecord]) -> float:
     if not points:
         return 0.0
     time_aware = sum(
-        1
-        for point in points
-        if _context_point_has_numeric_interval(point)
+        1 for point in points if _context_point_has_numeric_interval(point)
     )
     return round(time_aware / len(points), 4)
 
@@ -2170,12 +2164,7 @@ def _intervals_overlap(
     start_b: int | None,
     end_b: int | None,
 ) -> bool:
-    if (
-        start_a is None
-        or end_a is None
-        or start_b is None
-        or end_b is None
-    ):
+    if start_a is None or end_a is None or start_b is None or end_b is None:
         return False
     left_start, left_end = sorted((start_a, end_a))
     right_start, right_end = sorted((start_b, end_b))
@@ -2503,7 +2492,9 @@ def _build_context_temporal_coverage_summary(
     sead_summary = _temporal_coverage_summary(sead_points)
     _merge_source_temporal_review(
         neotoma_summary,
-        _load_review_payload(context_root / "neotoma" / "review" / "temporal_review.json"),
+        _load_review_payload(
+            context_root / "neotoma" / "review" / "temporal_review.json"
+        ),
         source_family="neotoma",
     )
     _merge_source_temporal_review(
@@ -2535,16 +2526,12 @@ def _temporal_coverage_summary(
     materialized_points = tuple(points)
     total_records = len(materialized_points)
     numeric_interval_records = sum(
-        1
-        for point in materialized_points
-        if _context_point_has_numeric_interval(point)
+        1 for point in materialized_points if _context_point_has_numeric_interval(point)
     )
     return {
         "record_count": total_records,
         "numeric_interval_record_count": numeric_interval_records,
-        "numeric_interval_share": round(
-            numeric_interval_records / total_records, 4
-        )
+        "numeric_interval_share": round(numeric_interval_records / total_records, 4)
         if total_records
         else 0.0,
     }
@@ -2576,7 +2563,9 @@ def _merge_source_temporal_review(
         inventory_summary = payload.get("inventory_summary", {})
         if not isinstance(inventory_summary, dict):
             return
-        capture_posture = str(inventory_summary.get("temporal_capture_posture", "")).strip()
+        capture_posture = str(
+            inventory_summary.get("temporal_capture_posture", "")
+        ).strip()
         if capture_posture:
             summary["capture_posture"] = capture_posture
         summary["site_inventory_only_record_count"] = int(
@@ -2625,7 +2614,9 @@ def _merge_source_spatiotemporal_posture(
         summary["detail_metrics"] = detail_metrics
     caveats = payload.get("caveats")
     if isinstance(caveats, list) and caveats:
-        summary["caveats"] = [str(item).strip() for item in caveats if str(item).strip()]
+        summary["caveats"] = [
+            str(item).strip() for item in caveats if str(item).strip()
+        ]
     if source_family == "landclim" and "capture_posture" not in summary:
         summary["capture_posture"] = "numeric_site_sequence_intervals"
 
