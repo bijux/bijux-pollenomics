@@ -106,8 +106,10 @@ class CliTests(unittest.TestCase):
         self.assertEqual(result.returncode, 0)
         self.assertIn("Accepted values:", result.stdout)
         self.assertIn(
-            "all, aadr, boundaries, landclim, neotoma, raa, sead.", result.stdout
+            "all, aadr, boundaries, landclim, neotoma, raa, sead,",
+            result.stdout,
         )
+        self.assertIn("svar.", result.stdout)
 
     def test_parser_defaults_follow_project_settings(self) -> None:
         parser = build_parser()
