@@ -5,12 +5,12 @@ from pathlib import Path
 import tempfile
 import unittest
 
+from bijux_pollenomics.data_downloader.pipeline.contract_surface_writer import (
+    write_data_contract_surfaces,
+)
 from bijux_pollenomics.data_downloader.repository_snapshot import (
     build_repository_collection_summary,
     build_repository_source_counts,
-)
-from bijux_pollenomics.data_downloader.pipeline.contract_surface_writer import (
-    write_data_contract_surfaces,
 )
 
 
@@ -147,7 +147,9 @@ class RepositorySnapshotUnitTests(unittest.TestCase):
             summary = build_repository_collection_summary(output_root, version="v66")
 
         self.assertIn("source_family_contracts", summary.contract_artifacts)
-        self.assertIn("source_spatiotemporal_posture_registry", summary.contract_artifacts)
+        self.assertIn(
+            "source_spatiotemporal_posture_registry", summary.contract_artifacts
+        )
         self.assertTrue(summary.source_family_state_rows)
 
     def test_write_data_contract_surfaces_keeps_svar_coverage_metrics(self) -> None:
@@ -230,9 +232,9 @@ class RepositorySnapshotUnitTests(unittest.TestCase):
                 )
             )
             posture_registry = json.loads(
-                (
-                    output_root / "source_spatiotemporal_posture_registry.json"
-                ).read_text(encoding="utf-8")
+                (output_root / "source_spatiotemporal_posture_registry.json").read_text(
+                    encoding="utf-8"
+                )
             )
             svar_row = next(
                 row for row in matrix["rows"] if row["source_key"] == "svar"

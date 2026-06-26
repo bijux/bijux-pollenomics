@@ -1,10 +1,10 @@
 from __future__ import annotations
 
 from collections import Counter
+import gzip
 from pathlib import Path
 import tempfile
 import unittest
-import gzip
 
 import pytest
 
@@ -198,7 +198,9 @@ class AdnaSampleMasterUnitTests(unittest.TestCase):
                 / "PRJTEST"
             )
             archive_dir.mkdir(parents=True, exist_ok=True)
-            with gzip.open(archive_dir / "archive_metadata.html.gz", "wt", encoding="utf-8") as handle:
+            with gzip.open(
+                archive_dir / "archive_metadata.html.gz", "wt", encoding="utf-8"
+            ) as handle:
                 handle.write(
                     "sample_accession\tsubmitted_ftp\n"
                     "SAMEA1\tftp://example.org/Alpha_E1.fastq.gz\n"

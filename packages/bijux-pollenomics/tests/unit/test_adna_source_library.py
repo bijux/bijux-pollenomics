@@ -8,11 +8,11 @@ import unittest
 from unittest.mock import patch
 import zipfile
 
-from bijux_pollenomics.adna.sources import library as source_library_module
 from bijux_pollenomics.adna.source_artifact_storage import (
     migrate_html_source_artifact,
     read_source_artifact_text,
 )
+from bijux_pollenomics.adna.sources import library as source_library_module
 from bijux_pollenomics.adna.sources.inventory import (
     build_reference_stash_doi_integrity_audit,
     build_reference_stash_reconciliation,
@@ -89,9 +89,7 @@ class AdnaSourceLibraryUnitTests(unittest.TestCase):
                 metadata["storage_path"],
                 "adna/governance/source_library/papers/10.1000-example/article.html.gz",
             )
-            self.assertEqual(
-                metadata["storage_byte_size"], stored_path.stat().st_size
-            )
+            self.assertEqual(metadata["storage_byte_size"], stored_path.stat().st_size)
 
     def test_source_artifact_index_cache_can_be_cleared_between_reads(self) -> None:
         with tempfile.TemporaryDirectory() as tmp:

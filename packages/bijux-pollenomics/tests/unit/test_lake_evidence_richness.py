@@ -983,9 +983,9 @@ def test_svar_lake_candidates_exclude_engineered_and_wetland_names() -> None:
         )
 
         assert report.candidate_count == 1
-        assert [assessment.candidate.lake_name for assessment in report.assessments] == [
-            "Hornsjön"
-        ]
+        assert [
+            assessment.candidate.lake_name for assessment in report.assessments
+        ] == ["Hornsjön"]
 
 
 def test_svar_lake_candidates_flag_duplicate_registry_names() -> None:

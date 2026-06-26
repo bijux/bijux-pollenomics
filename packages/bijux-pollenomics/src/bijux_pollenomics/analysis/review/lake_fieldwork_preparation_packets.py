@@ -5,15 +5,15 @@ import json
 from pathlib import Path
 from statistics import mean
 
+from ..lake_evidence_richness import (
+    LakeEvidenceRichnessAssessment,
+    LakeEvidenceRichnessReport,
+)
 from .lake_fieldwork_priority import (
     band_score,
     fieldwork_rows,
     fieldwork_shortlist_score,
     human_context_posture,
-)
-from ..lake_evidence_richness import (
-    LakeEvidenceRichnessAssessment,
-    LakeEvidenceRichnessReport,
 )
 
 __all__ = [

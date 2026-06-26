@@ -389,7 +389,9 @@ def build_source_storage_audit(output_root: Path) -> dict[str, object]:
             artifact.storage_byte_size or artifact.byte_size or 0
             for artifact in archived_artifacts
         ),
-        "html_payload_byte_count": sum(artifact.byte_size or 0 for artifact in html_artifacts),
+        "html_payload_byte_count": sum(
+            artifact.byte_size or 0 for artifact in html_artifacts
+        ),
         "html_storage_byte_count": sum(
             artifact.storage_byte_size or artifact.byte_size or 0
             for artifact in html_artifacts

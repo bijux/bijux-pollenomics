@@ -33,7 +33,6 @@ from .pipeline.staging import build_staging_output_dir, collect_into_staging_dir
 from .pipeline.summary_writer import write_collection_summary
 from .raa import collect_raa_data
 from .sead import collect_sead_data
-from .svar import collect_svar_data
 from .source_hashes import build_source_hashes
 from .source_layout_contract import (
     build_source_layout_contract,
@@ -46,6 +45,7 @@ from .source_traceability import build_source_traceability_records
 from .source_validation import validate_source_snapshot
 from .sources.aadr import download_aadr_anno_files
 from .sources.boundaries import resolve_country_boundaries
+from .svar import collect_svar_data
 
 __all__ = [
     "AVAILABLE_SOURCES",

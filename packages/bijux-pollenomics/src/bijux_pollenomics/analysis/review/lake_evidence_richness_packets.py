@@ -10,13 +10,15 @@ from ...reporting.context.points import build_external_point_layer
 from ...reporting.map_document import render_multi_country_map_html
 from ...reporting.map_publication import resolve_map_scope_policy
 from ...reporting.rendering.artifacts import copy_map_assets
+from ..lake_evidence_richness import LakeEvidenceRichnessReport
 from .lake_fieldwork_priority import (
     band_score as fieldwork_band_score,
+)
+from .lake_fieldwork_priority import (
     fieldwork_rows,
     fieldwork_shortlist_score,
     human_context_posture,
 )
-from ..lake_evidence_richness import LakeEvidenceRichnessReport
 
 __all__ = [
     "build_lake_evidence_richness_geojson",
@@ -162,9 +164,7 @@ def write_lake_evidence_richness_band_csv(
                         "lake_area_km2": candidate.lake_area_km2,
                         "lake_sampling_posture": candidate.lake_sampling_posture,
                         "lake_sampling_fit": candidate.lake_sampling_fit,
-                        "lake_sampling_notes": "; ".join(
-                            candidate.lake_sampling_notes
-                        ),
+                        "lake_sampling_notes": "; ".join(candidate.lake_sampling_notes),
                         "supporting_source_records": "; ".join(
                             candidate.supporting_source_records
                         ),
@@ -950,8 +950,7 @@ def _build_scenario_feature_collection(
                         },
                         {
                             "label": "Sampling posture",
-                            "value": candidate.lake_sampling_posture
-                            or "Not available",
+                            "value": candidate.lake_sampling_posture or "Not available",
                         },
                         {
                             "label": "Sampling fit",

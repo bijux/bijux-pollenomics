@@ -210,10 +210,14 @@ def _coverage_summary(rows: list[dict[str, object]]) -> dict[str, int | str]:
         1 for row in rows if _parse_int_or_default(row.get("chronology_count")) > 0
     )
     site_count_with_bp_age_ranges_but_no_chronology_rows = sum(
-        1 for row in rows if _bp_support_posture(row) == "bp_age_ranges_without_chronology_rows"
+        1
+        for row in rows
+        if _bp_support_posture(row) == "bp_age_ranges_without_chronology_rows"
     )
     site_count_with_bp_age_ranges_and_chronology_rows = sum(
-        1 for row in rows if _bp_support_posture(row) == "bp_age_ranges_with_chronology_rows"
+        1
+        for row in rows
+        if _bp_support_posture(row) == "bp_age_ranges_with_chronology_rows"
     )
     site_count_with_non_bp_age_ranges_only = sum(
         1 for row in rows if _bp_support_posture(row) == "non_bp_age_ranges_only"

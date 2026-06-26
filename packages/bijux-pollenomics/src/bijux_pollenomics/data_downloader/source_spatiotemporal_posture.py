@@ -89,19 +89,20 @@ def _build_landclim_row(output_root: Path) -> SourceSpatiotemporalPostureRecord:
 
 
 def _build_neotoma_row(output_root: Path) -> SourceSpatiotemporalPostureRecord:
-    review_payload = _load_json(output_root / "neotoma" / "review" / "temporal_review.json")
+    review_payload = _load_json(
+        output_root / "neotoma" / "review" / "temporal_review.json"
+    )
     normalized_payload = _load_json(
         output_root / "neotoma" / "normalized" / "nordic_pollen_sites.geojson"
     )
     coverage_summary = _dict(review_payload.get("coverage_summary"))
     feature_count = len(_geojson_features(normalized_payload))
-    bp_age_range_count = _int(
-        coverage_summary.get("site_count_with_bp_age_ranges", 0)
-    )
+    bp_age_range_count = _int(coverage_summary.get("site_count_with_bp_age_ranges", 0))
     chronology_count = _int(coverage_summary.get("site_count_with_chronologies", 0))
-    chronology_capture_posture = str(
-        coverage_summary.get("chronology_capture_posture", "")
-    ).strip() or "unresolved"
+    chronology_capture_posture = (
+        str(coverage_summary.get("chronology_capture_posture", "")).strip()
+        or "unresolved"
+    )
     caveats = []
     if chronology_capture_posture == "bp_site_spans_without_chronology_rows":
         caveats.append(
@@ -140,15 +141,18 @@ def _build_neotoma_row(output_root: Path) -> SourceSpatiotemporalPostureRecord:
 
 
 def _build_sead_row(output_root: Path) -> SourceSpatiotemporalPostureRecord:
-    review_payload = _load_json(output_root / "sead" / "review" / "temporal_review.json")
+    review_payload = _load_json(
+        output_root / "sead" / "review" / "temporal_review.json"
+    )
     normalized_payload = _load_json(
         output_root / "sead" / "normalized" / "nordic_environmental_sites.geojson"
     )
     inventory_summary = _dict(review_payload.get("inventory_summary"))
     feature_count = len(_geojson_features(normalized_payload))
-    temporal_capture_posture = str(
-        inventory_summary.get("temporal_capture_posture", "")
-    ).strip() or "unresolved"
+    temporal_capture_posture = (
+        str(inventory_summary.get("temporal_capture_posture", "")).strip()
+        or "unresolved"
+    )
     caveats = []
     if temporal_capture_posture == "site_inventory_only":
         caveats.append(
@@ -197,7 +201,9 @@ def _build_sead_row(output_root: Path) -> SourceSpatiotemporalPostureRecord:
 
 
 def _build_raa_row(output_root: Path) -> SourceSpatiotemporalPostureRecord:
-    payload = _load_json(output_root / "raa" / "normalized" / "sweden_archaeology_layer.json")
+    payload = _load_json(
+        output_root / "raa" / "normalized" / "sweden_archaeology_layer.json"
+    )
     counts = _dict(payload.get("counts"))
     all_published_sites = _int(counts.get("all_published_sites", 0))
     return SourceSpatiotemporalPostureRecord(
@@ -228,7 +234,9 @@ def _build_raa_row(output_root: Path) -> SourceSpatiotemporalPostureRecord:
 
 
 def _build_svar_row(output_root: Path) -> SourceSpatiotemporalPostureRecord:
-    payload = _load_json(output_root / "svar" / "normalized" / "sweden_lake_registry.geojson")
+    payload = _load_json(
+        output_root / "svar" / "normalized" / "sweden_lake_registry.geojson"
+    )
     feature_count = len(_geojson_features(payload))
     return SourceSpatiotemporalPostureRecord(
         source_key="svar",

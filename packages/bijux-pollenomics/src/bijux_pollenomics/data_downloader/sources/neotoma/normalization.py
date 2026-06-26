@@ -656,7 +656,9 @@ def _build_neotoma_temporal_semantics(
     supported_ranges = [
         age_range
         for age_range in age_ranges
-        if neotoma_age_range_units_supported(clean_optional_text(age_range.get("units")))
+        if neotoma_age_range_units_supported(
+            clean_optional_text(age_range.get("units"))
+        )
     ]
     supported_units = tuple(
         clean_optional_text(age_range.get("units"))

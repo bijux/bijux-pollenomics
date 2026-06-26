@@ -70,8 +70,13 @@ class DataContractSurfaceRegressionTests(unittest.TestCase):
             posture_payload["schema_version"],
             "source-spatiotemporal-posture-registry.v1",
         )
-        self.assertEqual(rows["neotoma"]["temporal_support_posture"], "bp_site_spans_without_chronology_rows")
-        self.assertEqual(rows["sead"]["temporal_support_posture"], "site_inventory_only")
+        self.assertEqual(
+            rows["neotoma"]["temporal_support_posture"],
+            "bp_site_spans_without_chronology_rows",
+        )
+        self.assertEqual(
+            rows["sead"]["temporal_support_posture"], "site_inventory_only"
+        )
         self.assertEqual(
             rows["svar"]["distance_scoring_posture"],
             "candidate_lake_anchor",
