@@ -1030,10 +1030,8 @@ class RepositoryContractRegressionTests(unittest.TestCase):
         self.assertIn('members = ["packages/*"]', root_pyproject_text)
         self.assertIn('docs_package = "bijux-pollenomics-dev"', root_pyproject_text)
         self.assertIn('license = { text = "Apache-2.0" }', package_pyproject_text)
-        self.assertIn(
-            'force-include = { "LICENSE" = "LICENSE", "NOTICE" = "NOTICE" }',
-            package_pyproject_text,
-        )
+        self.assertIn('"LICENSE",', package_pyproject_text)
+        self.assertIn('"NOTICE",', package_pyproject_text)
         self.assertIn(
             '{ name = "Bijan Mousavi", email = "bijan@bijux.io" }',
             package_pyproject_text,

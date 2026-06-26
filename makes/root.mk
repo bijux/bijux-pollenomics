@@ -54,7 +54,7 @@ sync-badges: root-check-env ## Render shared badge blocks into managed README su
 check-badges: root-check-env ## Verify README badge blocks match docs/badges.md
 	@$(DEV_RUN) -m bijux_pollenomics_dev.docs.badge_sync check
 
-sync-license-assets: root-check-env ## Sync package LICENSE and NOTICE links from root sources
+sync-license-assets: root-check-env ## Sync package LICENSE and NOTICE files from root sources
 	@$(DEV_RUN) -m bijux_pollenomics_dev.release.license_assets sync
 
 data-prep: root-check-env ## Refresh tracked source data under data/

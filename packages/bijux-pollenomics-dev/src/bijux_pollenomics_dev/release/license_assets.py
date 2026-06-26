@@ -5,6 +5,7 @@ from __future__ import annotations
 import argparse
 from dataclasses import dataclass
 from pathlib import Path
+import shutil
 import tomllib
 from typing import Any, cast
 
@@ -47,21 +48,15 @@ def managed_assets(root: Path = REPO_ROOT) -> tuple[ManagedAsset, ...]:
     return tuple(assets)
 
 
-def _expected_target(asset: ManagedAsset, root: Path = REPO_ROOT) -> Path:
-    """Return the expected symlink target relative to the package root."""
-    del root
-    return ROOT_LEGAL_ARTIFACTS[asset.target.name]
-
-
-def _link_matches(asset: ManagedAsset) -> bool:
-    """Return whether the package asset already links to the root source."""
-    if not asset.target.is_symlink():
+def _asset_matches(asset: ManagedAsset) -> bool:
+    """Return whether the managed package file matches the root source bytes."""
+    if asset.target.is_symlink() or not asset.target.is_file():
         return False
-    return asset.target.readlink() == _expected_target(asset)
+    return asset.target.read_bytes() == asset.source.read_bytes()
 
 
 def _remove_existing_target(target: Path) -> None:
-    """Remove a stale managed target before relinking it."""
+    """Remove a stale managed target before rematerializing it."""
     if target.is_symlink() or target.is_file():
         target.unlink()
         return
@@ -75,13 +70,13 @@ def synchronize_license_assets(*, check: bool = False) -> list[Path]:
     """Sync root license assets into package directories or report drift."""
     changed: list[Path] = []
     for asset in managed_assets():
-        if _link_matches(asset):
+        if _asset_matches(asset):
             continue
         changed.append(asset.target)
         if not check:
             asset.target.parent.mkdir(parents=True, exist_ok=True)
             _remove_existing_target(asset.target)
-            asset.target.symlink_to(_expected_target(asset))
+            shutil.copyfile(asset.source, asset.target)
     return changed
 
 

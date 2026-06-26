@@ -50,17 +50,19 @@ dev = [
 include = [
     "README.md",
     "CHANGELOG.md",
+    "LICENSE",
+    "NOTICE",
     "src/bijux_pollenomics_dev/**",
 ]
 
 [tool.hatch.build.targets.sdist]
-exclude = ["LICENSE", "NOTICE"]
 include = [
     "README.md",
     "CHANGELOG.md",
+    "LICENSE",
+    "NOTICE",
     "src/bijux_pollenomics_dev/**",
 ]
-force-include = { "../../LICENSE" = "LICENSE", "../../NOTICE" = "NOTICE" }
 
 [tool.hatch.build.targets.wheel]
 packages = ["src/bijux_pollenomics_dev"]
