@@ -22,22 +22,18 @@
 [![pollenomics docs](https://img.shields.io/badge/docs-pollenomics-2563EB?logo=materialformkdocs&logoColor=white)](https://bijux.io/bijux-pollenomics/public/pollenomics/)
 <!-- bijux-pollenomics-badges:generated:end -->
 
-`bijux-pollenomics` rebuilds one checked-in pollenomics and environmental
-evidence repository into reviewable data files, report bundles, and public map
-surfaces. It collects tracked source data, normalizes it into evidence-bearing
-files under `data/`, and publishes world, regional, and country outputs from
-that same repository state.
+`bijux-pollenomics` rebuilds one checked-in evidence repository into reviewable
+data files, report bundles, and public map surfaces. It collects tracked source
+data, normalizes it into governed files under `data/`, and publishes world,
+regional, and country outputs from that same repository state.
 
-The product model is explicit: `world` is the broadest public surface,
-`Europe-plus` and `Nordic` are narrower filtered descendants, and country
-bundles are local cuts through the same evidence system. Pollen, environmental,
-archaeological, boundary, fieldwork, and human aDNA context are already
-first-class. Animal aDNA sample extraction and the strongest claims that depend
-on it are still under recovery, and the repository keeps that limit visible
-instead of hiding it behind map polish.
-The animal aDNA sample extraction and atlas publication path is still under
-recovery, and that bottleneck is still described plainly in the checked-in
-truth surfaces.
+The public model is one evidence system with several views. `world` is the
+broadest surface, `Europe-plus` and `Nordic` are narrower descendants, and the
+country bundles are local cuts through that same evidence tree. Pollen,
+environmental, archaeological, boundary, fieldwork, and human aDNA context are
+already strong public surfaces. Animal aDNA sample extraction is improving, but
+it is still the weakest part of the repository, and the docs keep that limit
+visible instead of pretending the atlas is more complete than it is.
 
 This repository publishes `2` packages. Each release tag builds one staged
 bundle, uploads the Python distribution to PyPI, publishes the release bundle
@@ -46,16 +42,15 @@ same staged assets to the GitHub Release.
 
 ## What You Can Do Today
 
-- inspect the broadest public evidence surface through the world map and report
-  portal
-- review narrower Nordic and country surfaces without losing the trail back to
-  tracked evidence files
+- inspect the world map and report portal to see the broadest public surface
+- move from Nordic and country views back to the tracked evidence files that
+  justify them
 - rebuild the checked-in `data/` and `docs/report/` state from repository
-  commands
-- inspect the Sweden lake ranking packet, fieldwork shortlist, and the new
-  optional Nordic atlas lake overlays
-- validate the repository locally without rewriting tracked outputs when your
-  intent is only verification
+  commands when you need a fresh local copy
+- inspect the Sweden lake ranking packet, fieldwork shortlist, and optional
+  Nordic atlas lake overlays
+- verify the repository locally without rewriting tracked outputs when your
+  goal is review rather than regeneration
 
 ## Start Here
 
@@ -83,6 +78,18 @@ Today, the checked-in repository produces these durable outcomes:
 - country bundles for Sweden, Norway, Finland, and Denmark that remain filtered descendants of the same broader evidence state
 - a MkDocs documentation site that builds into `artifacts/root/docs/site/`
 - maintainer truth surfaces that refuse final release language while animal recovery and SEAD comparability remain materially weaker than the rest of the product
+
+## Which Package To Install
+
+Choose the package by ownership, not by name length:
+
+- install `bijux-pollenomics` when you want the canonical runtime, CLI, and
+  Python entrypoints that own collection, normalization, reporting, and atlas
+  generation
+- install `pollenomics` when you want the shorter package name and CLI command
+  but still expect the same runtime behavior under the hood
+- use `bijux-pollenomics-dev` only for maintainer checks, docs integrity, and
+  release-support workflows inside this repository
 
 ## Package Map
 
@@ -133,7 +140,7 @@ The repository is therefore moving in this order:
 - next, add workflow stages that can compare pollen, archaeological, and
   ancient-DNA context without collapsing their provenance differences
 - then, grow that workflow into the broader pollenomics engine needed for the
-  planned POLLENOMIC's paper series
+  planned POLLENOMIC paper series
 
 ## Working With Commands
 

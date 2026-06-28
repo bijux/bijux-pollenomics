@@ -4,13 +4,14 @@ Runtime package for rebuilding the checked-in `bijux-pollenomics`
 pollenomics, environmental, archaeology, boundary, fieldwork, and ancient-DNA
 evidence surfaces plus their downstream map/report products.
 
-Use this package if you want the canonical CLI and Python entrypoints that own
-tracked source collection, animal aDNA intake, sample extraction, chronology
-and coordinate normalization, evidence review, and the atlas plus country
-bundles that summarize those reviewable files.
+Use this package when you want the canonical CLI and Python entrypoints that
+own tracked source collection, animal aDNA intake, sample extraction,
+chronology and coordinate normalization, evidence review, and the atlas plus
+country bundles that summarize those reviewable files.
 
-It is the package to install when you want the real runtime owner, not just a
-shorter compatibility name.
+This is the runtime owner. If you want the real package that performs the work,
+install this one. If you only want a shorter command name that forwards into
+the same runtime, install `pollenomics` instead.
 
 <!-- bijux-pollenomics-badges:generated:start -->
 [![Python 3.11+](https://img.shields.io/badge/python-3.11%2B-3776AB?logo=python&logoColor=white)](https://pypi.org/project/bijux-pollenomics/)
@@ -42,6 +43,14 @@ shorter compatibility name.
 - contributors who need one clear owner for command handling, collection,
   normalization, review, and publication
 
+## Choose This Package When
+
+- you want the canonical `bijux-pollenomics` CLI
+- you need the real Python runtime package instead of a compatibility alias
+- you are rebuilding tracked data or checked-in report outputs
+- you want the package that owns Sweden lake ranking, atlas overlays, and
+  report publication behavior
+
 ## What This Package Gives You
 
 - the canonical `bijux-pollenomics` CLI
@@ -59,7 +68,8 @@ bijux-pollenomics --help
 ```
 
 If you only want the shorter `pollenomics` package name and command, install
-the compatibility alias package instead. It forwards into this runtime.
+the compatibility alias package instead. It forwards into this runtime and does
+not own separate scientific logic.
 
 ## Read Next
 

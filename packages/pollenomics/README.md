@@ -3,8 +3,8 @@
 Alias distribution for `bijux-pollenomics`.
 
 Install this package if you want the shorter package name and CLI command while
-running the same pollenomics-first runtime behavior, the same report builders,
-and the same atlas logic as `bijux-pollenomics`.
+running the same runtime behavior, report builders, and atlas logic as
+`bijux-pollenomics`.
 
 <!-- bijux-pollenomics-badges:generated:start -->
 [![Python 3.11+](https://img.shields.io/badge/python-3.11%2B-3776AB?logo=python&logoColor=white)](https://pypi.org/project/pollenomics/)
@@ -32,6 +32,10 @@ python3.11 -m pip install pollenomics
 pollenomics --help
 ```
 
+Choose `pollenomics` when ergonomics matter more than package ownership. Choose
+`bijux-pollenomics` when you want the canonical runtime name in your
+environment, packaging metadata, or downstream documentation.
+
 ## What It Does
 
 - re-exports the public Python API from `bijux-pollenomics`
@@ -42,12 +46,23 @@ pollenomics --help
 - stays subordinate to the canonical runtime package
 - avoids becoming a second home for scientific logic or publication behavior
 
+## Choose This Package When
+
+- you want the shorter `pollenomics` command
+- you want shorter import paths such as `pollenomics.reporting`
+- you still expect the same runtime behavior as `bijux-pollenomics`
+
 ## What It Does Not Do
 
 - it does not own a separate runtime
 - it does not ship different scientific logic
 - it does not fork the Sweden lake ranking, atlas, or report publication paths
 - it does not replace `bijux-pollenomics` as the canonical package owner
+
+If you are deciding which package should appear in documentation, release
+notes, or system-level ownership discussions, prefer `bijux-pollenomics`. This
+package exists for compatibility and convenience, not to become a second
+canonical surface.
 
 ## Compatibility Contract
 

@@ -11,6 +11,10 @@ boundaries live in the runtime package.
 Use this package when the real question is "is the repository healthy enough to
 ship or review?" rather than "how does the scientific runtime work?"
 
+Install it only when you are working on repository checks, release support, or
+documentation integrity. Regular users of the runtime should not need this
+package.
+
 <!-- bijux-pollenomics-badges:generated:start -->
 [![Python 3.11+](https://img.shields.io/badge/python-3.11%2B-3776AB?logo=python&logoColor=white)](https://github.com/bijux/bijux-pollenomics)
 [![License: Apache-2.0](https://img.shields.io/badge/license-Apache--2.0-0F766E)](https://github.com/bijux/bijux-pollenomics/blob/main/LICENSE)
@@ -25,6 +29,14 @@ ship or review?" rather than "how does the scientific runtime work?"
 
 - maintainers working in the monorepo
 - contributors changing docs, release checks, badge sync, or repository truth logic
+
+## Choose This Package When
+
+- you are checking whether the repository is ready to review or release
+- you are working on docs integrity, release tooling, or repository truth
+  checks
+- you need maintainer-facing helpers without pulling scientific ownership into
+  a maintainer package
 
 ## What This Package Owns
 
