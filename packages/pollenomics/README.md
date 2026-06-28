@@ -3,7 +3,8 @@
 Alias distribution for `bijux-pollenomics`.
 
 Install this package if you want the shorter package name and CLI command while
-running the same pollenomics-first runtime behavior as `bijux-pollenomics`.
+running the same pollenomics-first runtime behavior, the same report builders,
+and the same atlas logic as `bijux-pollenomics`.
 
 <!-- bijux-pollenomics-badges:generated:start -->
 [![Python 3.11+](https://img.shields.io/badge/python-3.11%2B-3776AB?logo=python&logoColor=white)](https://pypi.org/project/pollenomics/)
@@ -41,6 +42,13 @@ pollenomics --help
 - stays subordinate to the canonical runtime package
 - avoids becoming a second home for scientific logic or publication behavior
 
+## What It Does Not Do
+
+- it does not own a separate runtime
+- it does not ship different scientific logic
+- it does not fork the Sweden lake ranking, atlas, or report publication paths
+- it does not replace `bijux-pollenomics` as the canonical package owner
+
 ## Compatibility Contract
 
 If this works:
@@ -58,3 +66,13 @@ from pollenomics.command_line import build_parser
 The only intentional local difference is the compatibility CLI wrapper in
 `pollenomics.cli`, which keeps the executable name and top-level parser program
 label as `pollenomics`.
+
+In practical terms, this means the same release line should let users choose
+either of these:
+
+```python
+from bijux_pollenomics.reporting import publish_reports
+from pollenomics.reporting import publish_reports
+```
+
+and get the same runtime behavior.

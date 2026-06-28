@@ -9,6 +9,9 @@ tracked source collection, animal aDNA intake, sample extraction, chronology
 and coordinate normalization, evidence review, and the atlas plus country
 bundles that summarize those reviewable files.
 
+It is the package to install when you want the real runtime owner, not just a
+shorter compatibility name.
+
 <!-- bijux-pollenomics-badges:generated:start -->
 [![Python 3.11+](https://img.shields.io/badge/python-3.11%2B-3776AB?logo=python&logoColor=white)](https://pypi.org/project/bijux-pollenomics/)
 [![License: Apache-2.0](https://img.shields.io/badge/license-Apache--2.0-0F766E)](https://github.com/bijux/bijux-pollenomics/blob/main/LICENSE)
@@ -39,6 +42,15 @@ bundles that summarize those reviewable files.
 - contributors who need one clear owner for command handling, collection,
   normalization, review, and publication
 
+## What This Package Gives You
+
+- the canonical `bijux-pollenomics` CLI
+- the Python entrypoints that collect and normalize tracked source data
+- the report and atlas publication logic used by the checked-in repository
+- the Sweden lake ranking and Nordic atlas overlay surfaces now published from
+  the same runtime
+- one package-owned boundary document for where runtime logic should live
+
 ## Install
 
 ```bash
@@ -46,10 +58,14 @@ python3.11 -m pip install bijux-pollenomics
 bijux-pollenomics --help
 ```
 
+If you only want the shorter `pollenomics` package name and command, install
+the compatibility alias package instead. It forwards into this runtime.
+
 ## Read Next
 
 - documentation home: <https://bijux.io/bijux-pollenomics/>
 - runtime handbook: <https://bijux.io/bijux-pollenomics/public/pollenomics/>
 - animal ancient DNA evidence: <https://bijux.io/bijux-pollenomics/public/pollenomics-data/overview/animal-ancient-dna-evidence/>
 - Nordic atlas: <https://bijux.io/bijux-pollenomics/public/nordic-atlas/>
+- Sweden lake priorities: <https://bijux.io/bijux-pollenomics/public/nordic-atlas/sweden-lake-priorities/>
 - package boundaries: [`docs/boundaries.md`](docs/boundaries.md)

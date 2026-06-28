@@ -4,7 +4,7 @@ audience: reader
 type: index
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-05-10
+last_reviewed: 2026-06-28
 ---
 
 # Bijux Pollenomics Product Guide
@@ -19,6 +19,11 @@ context, environmental archaeology, boundary framing, fieldwork records, and
 animal ancient-DNA recovery all live in one repository, but they do not all
 carry the same scientific weight. This guide explains those differences
 directly instead of leaving them buried in the file tree.
+
+That same model now includes the Sweden lake evidence program. The lake packet
+is not a side spreadsheet pasted beside the atlas. It is another published cut
+through the repository evidence state, with its own ranking logic, shortlist
+rules, and honesty boundaries.
 
 Use this handbook when your first question is not "which module owns this,"
 but:
@@ -66,6 +71,9 @@ flowchart TB
 - what the repository already publishes with confidence:
   pollen context, environmental archaeology context, boundary framing, and
   governed report bundles
+- what the Sweden lake packet adds:
+  candidate prioritization, scenario comparison, and a fieldwork shortlist
+  without pretending those rankings replace field limnology
 - what remains visibly partial:
   animal ancient-DNA recovery and the claims that depend on deeper sample
   extraction
@@ -103,6 +111,8 @@ flowchart TB
 - how do I judge whether a surface is reviewable, publishable, or still too
   weak for a stronger claim:
   [runtime invariants and limits](quality/runtime-invariants-and-limits.md)
+- how do I understand the Sweden lake packet and the optional Nordic overlays:
+  [Sweden lake priorities](../nordic-atlas/sweden-lake-priorities/index.md)
 - where do the public data explanations live if I care more about evidence than
   code:
   [data handbook](../pollenomics-data/index.md)
@@ -127,6 +137,8 @@ them in their own terms:
 - the public command and file contracts you can inspect
 - the operational route for rebuilding and checking the repository
 - the quality rules that keep visible output language honest
+- the places where ranking, atlas, and fieldwork outputs are informative but
+  still narrower than a finished scientific inference engine
 
 ## What This Guide Does Not Promise
 

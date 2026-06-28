@@ -4,7 +4,7 @@ audience: reader
 type: index
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-05-10
+last_reviewed: 2026-06-28
 ---
 
 # bijux-pollenomics-data
@@ -54,6 +54,11 @@ The point of this handbook is to keep those stages readable. You should not
 have to reverse-engineer the difference between a source paper, a normalized
 evidence file, a locality decision, and a public map point.
 
+That also applies to the Sweden lake program. If a reader sees a ranked lake,
+they should be able to tell whether that row comes from source intake,
+evidence review, publication scoring, or a fieldwork-oriented shortlist rather
+than guessing from a map label alone.
+
 ## What Makes This Repository Unusual
 
 Most data projects speak about one family of evidence at a time. This
@@ -83,12 +88,18 @@ Boundary framing has to stay explicit for the same reason: borders and scope
 layers change what a public map can honestly imply even when the underlying
 evidence stays the same.
 
+Chronology posture, coordinate precision, and sampling posture have to stay
+explicit as well. Without them, a visually polished public surface can look far
+more conclusive than the underlying evidence actually is.
+
 ## What You Can Use This Handbook For
 
 - deciding whether a public map or report is enough for your question
 - finding the narrower evidence surface behind a public output
 - understanding why one source family supports broad use while another stays
   caveated
+- understanding how the Sweden lake ranking packet is derived and what it does
+  not claim
 - learning how the same evidence system could support future publication for
   other countries or regions without inventing a second product model
 

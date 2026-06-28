@@ -4,15 +4,16 @@ audience: reader
 type: index
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-05-10
+last_reviewed: 2026-06-28
 ---
 
 # Bijux Pollenomics
 
 `bijux-pollenomics` publishes public evidence surfaces about Nordic pollenomics,
-environmental context, archaeology, boundaries, fieldwork, and animal ancient
-DNA. This site focuses on the public explanation layer: what the repository
-publishes, what those outputs can support, and where their limits stay visible.
+environmental context, archaeology, boundaries, fieldwork, and ancient-DNA
+recovery. This site is the public explanation layer: what the
+repository publishes today, what those outputs can answer, and where their
+limits stay visible.
 
 Maintainer-only notes stay under `docs/internal/` and are not part of the
 public website navigation.
@@ -68,6 +69,24 @@ flowchart TB
     atlas --> review
 ```
 
+## What Is Strong Today
+
+- the repository already publishes tracked pollen, archaeology, boundary, and
+  fieldwork context as reviewable files plus public report surfaces
+- world, Europe-plus, Nordic, and country bundles are one publication family,
+  not disconnected products
+- the Sweden lake ranking packet and optional Nordic lake overlays now make
+  lake prioritization visible without hiding the underlying evidence packet
+
+## What Is Still Constrained
+
+- animal aDNA extraction and the strongest claims that depend on deeper sample
+  recovery remain less mature than the rest of the repository
+- visible map proximity still does not substitute for chronology review, source
+  posture, or field verification
+- lake ranking surfaces are decision-support outputs, not bathymetry or coring
+  plans
+
 ## Public Surface
 
 - product guide: [public/pollenomics](public/pollenomics/index.md)
@@ -77,7 +96,8 @@ flowchart TB
 - fieldwork record: [public/fieldwork](public/fieldwork/index.md)
 
 The public side should explain the repository without assuming you already know
-the codebase, package layout, or build system.
+the codebase, package layout, or build system. If a page only makes sense to a
+maintainer who already knows the tree, it is the wrong public page.
 
 ## Fieldwork Record
 
