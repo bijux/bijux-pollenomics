@@ -1,4 +1,4 @@
-# Nordic Evidence Surface Map Publication Contract
+# Nordic Evidence Atlas Map Publication Contract
 
 Nordic is the regional detail surface. It keeps the shared human and animal evidence layers, then adds Nordic-only environmental, archaeology, boundary, and fieldwork overlays that remain interpretable at this scale.
 
@@ -26,6 +26,14 @@ The opening extent stays tight on Nordic countries so lake, site, and archaeolog
 | Neotoma pollen sites | `scope_specific_overlay` | Neotoma | Pollen and paleoecology sites staged from the Neotoma normalization bundle. | `200` |
 | SEAD sites | `scope_specific_overlay` | SEAD | Environmental archaeology sites staged from the SEAD normalization bundle. | `2172` |
 | Horse aDNA site evidence | `shared_world_scale_layer` | Tracked animal aDNA localities | Mapped animal features staged from traceable evidence rows built from species-owned sample, site, coordinate, and citation surfaces. | `2` |
+| Sweden lake aggregate top 40 | `scope_specific_overlay` | Sweden lake evidence | Optional Nordic atlas overlay for the top 40 Sweden lakes in the aggregate evidence ranking. | `40` |
+| Sweden lake consensus top 40 | `scope_specific_overlay` | Sweden lake evidence | Optional Nordic atlas overlay for the top 40 Sweden lakes that recur across scenario rankings. | `40` |
+| Sweden lake fieldwork shortlist | `scope_specific_overlay` | Sweden lake evidence | Optional Nordic atlas overlay for the published Sweden fieldwork shortlist. | `20` |
+| Sweden lake 10 km top 40 | `scope_specific_overlay` | Sweden lake evidence | Optional Nordic atlas overlay for the top 40 Sweden lakes in the 10 km evidence scenario. | `40` |
+| Sweden lake 20 km top 40 | `scope_specific_overlay` | Sweden lake evidence | Optional Nordic atlas overlay for the top 40 Sweden lakes in the 20 km evidence scenario. | `40` |
+| Sweden lake 30 km top 40 | `scope_specific_overlay` | Sweden lake evidence | Optional Nordic atlas overlay for the top 40 Sweden lakes in the 30 km evidence scenario. | `40` |
+| Sweden lake 40 km top 40 | `scope_specific_overlay` | Sweden lake evidence | Optional Nordic atlas overlay for the top 40 Sweden lakes in the 40 km evidence scenario. | `40` |
+| Sweden lake 50 km top 40 | `scope_specific_overlay` | Sweden lake evidence | Optional Nordic atlas overlay for the top 40 Sweden lakes in the 50 km evidence scenario. | `40` |
 | Country boundaries | `region_filtered_layer` | Natural Earth country boundaries | Published country outlines used for framing and scope-aware map filtering. | `4` |
 | LandClim REVEALS grid cells | `scope_specific_overlay` | LandClim | REVEALS grid cells compiled from published LandClim PANGAEA datasets. | `88` |
 | RAÄ archaeology density | `scope_specific_overlay` | RAÄ Fornsök | Sweden only. Density cells summarize `Fornlämning` counts. | `106` |

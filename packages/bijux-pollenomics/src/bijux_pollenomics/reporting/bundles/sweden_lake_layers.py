@@ -30,8 +30,8 @@ _LAYER_METADATA = {
         "Consensus",
     ),
     "fieldwork_shortlist": (
-        "sweden-lake-fieldwork-top40",
-        "Sweden lake fieldwork top 40",
+        "sweden-lake-fieldwork-shortlist",
+        "Sweden lake fieldwork shortlist",
         "Fieldwork shortlist",
     ),
     "radius_10km": (
@@ -76,8 +76,16 @@ def build_sweden_lake_atlas_layers(
     )
     if scenario_csv_path is None:
         return []
+    registry_csv_path = _find_sweden_registry_csv(
+        version=version,
+        staging_output_dir=staging_output_dir,
+        published_output_dir=published_output_dir,
+    )
 
-    grouped_rows = _load_grouped_scenario_rows(scenario_csv_path)
+    grouped_rows = _load_grouped_scenario_rows(
+        scenario_csv_path,
+        registry_csv_path=registry_csv_path,
+    )
     traceability_reference = _build_traceability_reference(
         version=version,
         staging_output_dir=staging_output_dir,
@@ -161,6 +169,8 @@ def _build_traceability_reference(
 
 def _load_grouped_scenario_rows(
     scenario_csv_path: Path,
+    *,
+    registry_csv_path: Path | None,
 ) -> dict[str, list[dict[str, str]]]:
     grouped_rows = {key: [] for key in _SCENARIO_KEYS}
     with scenario_csv_path.open(newline="", encoding="utf-8") as handle:
@@ -172,7 +182,61 @@ def _load_grouped_scenario_rows(
             grouped_rows[scenario_key].append(row)
     for rows in grouped_rows.values():
         rows.sort(key=lambda row: int(row["rank"]))
+    if registry_csv_path is not None:
+        grouped_rows["consensus"] = _load_consensus_rows(registry_csv_path)
     return grouped_rows
+
+
+def _find_sweden_registry_csv(
+    *,
+    version: str,
+    staging_output_dir: Path,
+    published_output_dir: Path,
+) -> Path | None:
+    filename = f"sweden_lake_evidence_richness_{version}_registry.csv"
+    search_roots = (
+        staging_output_dir,
+        *staging_output_dir.parents,
+        published_output_dir,
+        *published_output_dir.parents,
+    )
+    seen: set[Path] = set()
+    for root in search_roots:
+        candidate = Path(root)
+        if candidate in seen:
+            continue
+        seen.add(candidate)
+        for scoped_path in (
+            candidate / "countries" / "sweden" / filename,
+            candidate / "report" / "countries" / "sweden" / filename,
+        ):
+            if scoped_path.is_file():
+                return scoped_path
+    return None
+
+
+def _load_consensus_rows(registry_csv_path: Path) -> list[dict[str, str]]:
+    rows: list[dict[str, str]] = []
+    with registry_csv_path.open(newline="", encoding="utf-8") as handle:
+        rows.extend(csv.DictReader(handle))
+    rows.sort(
+        key=lambda row: (
+            -int(row["scenario_top20_presence_count"]),
+            float(row["scenario_mean_rank"] or 10_000),
+            int(row["aggregate_rank"]),
+            row["lake_label"],
+        )
+    )
+    consensus_rows: list[dict[str, str]] = []
+    for rank, row in enumerate(rows[:40], start=1):
+        consensus_row = dict(row)
+        consensus_row["scenario_key"] = "consensus"
+        consensus_row["scenario_label"] = "Consensus"
+        consensus_row["radius_km"] = ""
+        consensus_row["rank"] = str(rank)
+        consensus_row["score"] = row["scenario_top20_presence_count"]
+        consensus_rows.append(consensus_row)
+    return consensus_rows
 
 
 def _build_feature_collection(

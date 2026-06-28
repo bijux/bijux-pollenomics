@@ -76,7 +76,7 @@ POINT_LAYER_STYLES = {
         "circleStroke": "rgba(124, 58, 237, 0.42)",
         "circleFill": "rgba(196, 181, 253, 0.12)",
     },
-    "sweden-lake-fieldwork-top40": {
+    "sweden-lake-fieldwork-shortlist": {
         "fill": "#be123c",
         "stroke": "#881337",
         "circleStroke": "rgba(190, 18, 60, 0.42)",
@@ -181,10 +181,10 @@ POINT_LAYER_METADATA = {
         "coverage_label": "Optional Nordic atlas overlay for the top 40 Sweden lakes that recur across scenario rankings.",
         "geometry_label": "Point candidates",
     },
-    "sweden-lake-fieldwork-top40": {
+    "sweden-lake-fieldwork-shortlist": {
         "group": "candidate-ranking",
         "source_name": "Sweden lake evidence",
-        "coverage_label": "Optional Nordic atlas overlay for the top 40 Sweden lakes in the fieldwork-readiness shortlist.",
+        "coverage_label": "Optional Nordic atlas overlay for the published Sweden fieldwork shortlist.",
         "geometry_label": "Point candidates",
     },
     "sweden-lake-10km-top40": {

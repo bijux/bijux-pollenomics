@@ -217,4 +217,6 @@ nav:
   - Fieldwork:
       - Overview: public/fieldwork/index.md
       - Lyngsjön Lake Fieldwork: public/fieldwork/lyngsjon-lake-fieldwork/index.md
-  - Nordic Atlas: public/nordic-atlas/index.md
+  - Nordic Atlas:
+      - Overview: public/nordic-atlas/index.md
+      - Sweden Lake Priorities: public/nordic-atlas/sweden-lake-priorities/index.md

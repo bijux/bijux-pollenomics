@@ -4,7 +4,7 @@ audience: reader
 type: index
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-05-10
+last_reviewed: 2026-06-28
 ---
 
 # Nordic Evidence Atlas
@@ -25,6 +25,10 @@ Detailed explanation pages for point construction, filtering, and atlas limits
 now live under the data handbook so the Nordic atlas stays a clear landing
 surface instead of turning into a parallel handbook.
 
+The atlas also ships optional Sweden lake ranking overlays. They stay off by
+default because they are downstream ranking interpretations over the Sweden
+lake packet, not the base pollen, archaeology, or animal evidence layers.
+
 ## Open The Atlas
 
 <div class="bijux-quicklinks">
@@ -32,6 +36,7 @@ surface instead of turning into a parallel handbook.
   <a class="md-button md-button--primary" href="../../report/regions/nordic/nordic_map.html">Open the Nordic evidence surface</a>
   <a class="md-button" href="../../report/world/world_map.html">Open the world parent surface</a>
   <a class="md-button" href="../../report/regions/europe-plus/europe-plus_map.html">Open the Europe-plus surface</a>
+  <a class="md-button" href="./sweden-lake-priorities/">Sweden lake ranking logic</a>
   <a class="md-button" href="../pollenomics-data/publications/point-rules/">How animal points are built</a>
   <a class="md-button" href="../pollenomics-data/publications/filters-and-popups/">How filters and popups work</a>
   <a class="md-button" href="../pollenomics-data/publications/limits/">Current limits and audits</a>
@@ -56,6 +61,7 @@ surface instead of turning into a parallel handbook.
 - [shipped Nordic atlas map](../../report/regions/nordic/nordic_map.html)
 - [Nordic map publication contract](../../report/regions/nordic/nordic_map_publication_contract.md)
 - [Nordic point traceability](../../report/regions/nordic/nordic_point_traceability.md)
+- [Sweden lake priorities and ranking logic](./sweden-lake-priorities/index.md)
 - [Nordic animal atlas evidence rows](../../report/regions/nordic/nordic_animal_atlas_evidence.json)
 - [Nordic animal point traceability](../../report/regions/nordic/nordic_animal_point_traceability.json)
 - [world parent surface](../../report/world/README.md)

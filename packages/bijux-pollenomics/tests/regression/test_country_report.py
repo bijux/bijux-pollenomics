@@ -1533,7 +1533,7 @@ class CountryReportTests(unittest.TestCase):
             for label in (
                 "Sweden lake aggregate top 40",
                 "Sweden lake consensus top 40",
-                "Sweden lake fieldwork top 40",
+                "Sweden lake fieldwork shortlist",
                 "Sweden lake 10 km top 40",
                 "Sweden lake 20 km top 40",
                 "Sweden lake 30 km top 40",

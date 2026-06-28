@@ -97,9 +97,13 @@ class RepositoryContractRegressionTests(unittest.TestCase):
             },
         )
 
+        nordic_atlas = nav_entry("Nordic Atlas")
+        self.assertEqual(nordic_atlas[0], {"Overview": "public/nordic-atlas/index.md"})
         self.assertEqual(
-            next(item["Nordic Atlas"] for item in nav if "Nordic Atlas" in item),
-            "public/nordic-atlas/index.md",
+            nordic_atlas[1],
+            {
+                "Sweden Lake Priorities": "public/nordic-atlas/sweden-lake-priorities/index.md"
+            },
         )
 
     def test_shared_mkdocs_excludes_badge_template_from_public_docs_graph(self) -> None:
