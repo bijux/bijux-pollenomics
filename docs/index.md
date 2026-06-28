@@ -9,11 +9,11 @@ last_reviewed: 2026-06-28
 
 # Bijux Pollenomics
 
-`bijux-pollenomics` publishes public evidence surfaces about Nordic pollenomics,
-environmental context, archaeology, boundaries, fieldwork, and ancient-DNA
-recovery. This site is the public explanation layer: what the
-repository publishes today, what those outputs can answer, and where their
-limits stay visible.
+`bijux-pollenomics` publishes public evidence surfaces about Nordic
+pollenomics, environmental context, archaeology, boundaries, fieldwork, and
+ancient-DNA recovery. This site explains what the repository publishes today,
+what those outputs can answer, and where the limits still are before you lean
+on a report, ranking, or map view.
 
 Maintainer-only notes stay under `docs/internal/` and are not part of the
 public website navigation.
@@ -51,7 +51,7 @@ public website navigation.
   <a class="md-button" href="public/fieldwork/">Open the fieldwork record</a>
 </div>
 
-Read the site in this order:
+If you are new to the project, read the site in this order:
 
 ```mermaid
 flowchart TB
@@ -87,13 +87,18 @@ flowchart TB
 - lake ranking surfaces are decision-support outputs, not bathymetry or coring
   plans
 
-## Public Surface
+## Choose A Route
 
-- product guide: [public/pollenomics](public/pollenomics/index.md)
-- data guide: [public/pollenomics-data](public/pollenomics-data/index.md)
-- report portal: [report/index.md](report/index.md)
-- Nordic atlas guide: [public/nordic-atlas](public/nordic-atlas/index.md)
-- fieldwork record: [public/fieldwork](public/fieldwork/index.md)
+- use the [product guide](public/pollenomics/index.md) when you need the
+  overall answer: what the repository is for and how the outputs fit together
+- use the [data guide](public/pollenomics-data/index.md) when you need the
+  evidence answer: what is in scope, how it is governed, and what remains weak
+- use the [report portal](report/index.md) when you want the checked-in public
+  outputs first
+- use the [Nordic atlas guide](public/nordic-atlas/index.md) when you need map
+  behavior, filters, point posture, and overlay caveats
+- use the [fieldwork record](public/fieldwork/index.md) when you want one real
+  visited location instead of a generalized public summary
 
 The public side should explain the repository without assuming you already know
 the codebase, package layout, or build system. If a page only makes sense to a
@@ -128,11 +133,11 @@ or supplement evidence.
 
 ## Read By Question
 
-- what the runtime rebuilds: [public/pollenomics](public/pollenomics/index.md)
+- what the runtime rebuilds: [product guide](public/pollenomics/index.md)
 - what this repository publishes and where its limits are:
   [documentation home](index.md)
 - what the tracked data system and source families are:
-  [public/pollenomics-data](public/pollenomics-data/index.md)
+  [data guide](public/pollenomics-data/index.md)
 - how the publication tree is organized: [report portal](report/index.md)
 - how the map points, filters, and honesty surfaces work:
-  [public/nordic-atlas](public/nordic-atlas/index.md)
+  [Nordic atlas guide](public/nordic-atlas/index.md)

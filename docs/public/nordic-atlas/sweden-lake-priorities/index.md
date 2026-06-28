@@ -16,6 +16,10 @@ surface, not a base evidence surface. The governing packet still lives in the
 Sweden report tree, and the atlas overlay should only help readers inspect the
 same ranked packet in geographic context.
 
+Use this page when you need to understand what the Sweden lake overlays are
+actually ranking, what they are not ranking, and how far those scores should be
+trusted before field planning.
+
 ## What The Overlay Shows
 
 The public Sweden lake packet currently ranks **6,763** registry-backed lake
@@ -74,6 +78,17 @@ The consensus overlay is different from the aggregate overlay. It lifts lakes
 that recur across multiple scenario top slices, then breaks ties by the mean
 scenario rank and finally by aggregate rank.
 
+## What These Scores Do Not Include
+
+The public ranking is useful, but it is deliberately narrower than a full site
+selection workflow. It does not currently ship:
+
+- governed bathymetry or coring-depth surfaces
+- shoreline access, permits, or landowner logistics
+- a field-confirmed judgment that one lake is already ready for sampling
+- a claim that the highest-scoring row is the best scientific target under all
+  practical constraints
+
 ## What Lake Properties Are Public
 
 Each mapped lake row currently ships these reader-facing properties:
@@ -126,6 +141,11 @@ below instead of treating this table as the entire packet.
   changes as the search window expands.
 - Use the fieldwork shortlist when you want the current public set that already
   leans toward sampling practicality and reduced identity ambiguity.
+
+When a lake looks promising on the map, the next step should be the report
+packet, not a stronger claim. The atlas helps you inspect the ranking in
+geographic context; the governing evidence still lives in the Sweden report
+artifacts linked below.
 
 ## Governing References
 

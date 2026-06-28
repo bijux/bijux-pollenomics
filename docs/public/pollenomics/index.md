@@ -11,7 +11,8 @@ last_reviewed: 2026-06-28
 
 `bijux-pollenomics` is the product guide for the repository's public evidence.
 It explains what the repository publishes today, why those outputs exist, how
-far they can be trusted, and where to go next without needing to read the source code first.
+far they can be trusted, and where to go next without reading the source code
+first.
 
 The central idea is simple. This repository rebuilds one governed evidence
 system, then publishes several public-facing cuts from that same state. Pollen
@@ -25,13 +26,16 @@ is not a side spreadsheet pasted beside the atlas. It is another published cut
 through the repository evidence state, with its own ranking logic, shortlist
 rules, and honesty boundaries.
 
-Use this handbook when your first question is not "which module owns this,"
-but:
+Use this handbook when your first question is:
 
 - what this repository is actually for
 - what I can use from it right now
 - what kind of question each output can answer
 - what the current limits are before I rely on a public map, report, or data file
+
+Do not use this handbook when you need maintainer-only release policy, internal
+governance, or package-check implementation details. Those belong in the
+repository's internal docs, not on the public product surface.
 
 <div class="bijux-quicklinks">
   <a class="md-button md-button--primary" href="../../index.md">Open the documentation home</a>
@@ -117,18 +121,17 @@ flowchart TB
   code:
   [data handbook](../pollenomics-data/index.md)
 
-## Breadth Routes
+## Evidence Routes
 
-If your question is really about the evidence families behind the product, the
-runtime handbook should send you directly to the public data pages that explain
-them in their own terms:
+If your question is really about the evidence families behind the product, move
+from this handbook into the public data pages that explain them directly:
 
-- `docs/public/pollenomics-data/sources/landclim.md`
-- `docs/public/pollenomics-data/sources/neotoma.md`
-- `docs/public/pollenomics-data/sources/sead.md`
-- `docs/public/pollenomics-data/sources/raa.md`
-- `docs/public/pollenomics-data/sources/boundaries.md`
-- `docs/public/pollenomics-data/sources/aadr.md`
+- [LandClim](../pollenomics-data/sources/landclim.md)
+- [Neotoma](../pollenomics-data/sources/neotoma.md)
+- [SEAD](../pollenomics-data/sources/sead.md)
+- [RAA](../pollenomics-data/sources/raa.md)
+- [Boundaries](../pollenomics-data/sources/boundaries.md)
+- [AADR](../pollenomics-data/sources/aadr.md)
 
 ## What This Guide Covers
 

@@ -14,7 +14,10 @@ not the primary evidence artifact. The checked-in pollen context,
 environmental archaeology context, boundary framing, fieldwork material,
 sample, site, chronology, and coordinate files remain the governing evidence
 surfaces, and the atlas should only summarize what those files already
-justify. Its job is to answer four questions quickly:
+justify. Use it when you need a fast geographic view and then want to drop back
+to the evidence behind a point.
+
+Its job is to answer four questions quickly:
 
 - why a point is on the map
 - which filter settings can hide or reveal it
@@ -28,6 +31,22 @@ surface instead of turning into a parallel handbook.
 The atlas also ships optional Sweden lake ranking overlays. They stay off by
 default because they are downstream ranking interpretations over the Sweden
 lake packet, not the base pollen, archaeology, or animal evidence layers.
+
+## Use This Atlas For
+
+- seeing where the current governed public points appear geographically
+- checking why a point is visible and which filters change that visibility
+- moving from a point, popup, or overlay back to a report row or narrower
+  evidence surface
+- comparing the Nordic surface with its world and Europe-plus parent views
+
+## Do Not Use This Atlas For
+
+- treating proximity alone as scientific proof
+- assuming every visible point has the same chronology strength or coordinate
+  precision
+- replacing the report packet when the exact evidence posture matters
+- treating Sweden lake overlays as field-ready coring plans
 
 ## Open The Atlas
 
