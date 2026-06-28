@@ -64,8 +64,8 @@ same staged assets to the GitHub Release.
   [`docs/public/nordic-atlas/sweden-lake-priorities/index.md`](docs/public/nordic-atlas/sweden-lake-priorities/index.md)
 - inspect the data system guide: [`docs/public/pollenomics-data/index.md`](docs/public/pollenomics-data/index.md)
 - inspect the end-state product model: [`docs/public/pollenomics/foundation/end-state-product-model.md`](docs/public/pollenomics/foundation/end-state-product-model.md)
-- inspect the release refusal surface: [`docs/report/repository_final_release_refusal.md`](docs/report/repository_final_release_refusal.md)
-- inspect the credibility dashboard: [`docs/report/repository_credibility_dashboard.md`](docs/report/repository_credibility_dashboard.md)
+- inspect the release-readiness caveats: [`docs/report/repository_final_release_refusal.md`](docs/report/repository_final_release_refusal.md)
+- inspect the evidence credibility dashboard: [`docs/report/repository_credibility_dashboard.md`](docs/report/repository_credibility_dashboard.md)
 - inspect repository maintenance rules: [`docs/internal/index.md`](docs/internal/index.md)
 
 ## What This Repository Produces
@@ -77,7 +77,9 @@ Today, the checked-in repository produces these durable outcomes:
 - governed world, Europe-plus, and Nordic map surfaces that share one publication contract
 - country bundles for Sweden, Norway, Finland, and Denmark that remain filtered descendants of the same broader evidence state
 - a MkDocs documentation site that builds into `artifacts/root/docs/site/`
-- maintainer truth surfaces that refuse final release language while animal recovery and SEAD comparability remain materially weaker than the rest of the product
+- maintainer-facing review surfaces that keep final-release claims blocked
+  while animal recovery and SEAD comparability remain materially weaker than
+  the rest of the product
 
 ## Which Package To Install
 
@@ -224,7 +226,9 @@ Treat the top-level paths by ownership and review expectations:
 - `Makefile` is the main local interface for verification, rebuilds, docs, and packaging
 - `pyproject.toml` and `uv.lock` define and lock the Python environment
 - `data/` contains tracked source snapshots, normalized outputs, and the collection manifest
-- `docs/report/` contains the public publication tree, including world, regional, country, review, caveat, and maintainer truth surfaces
+- `docs/report/` contains the public publication tree, including world,
+  regional, country, review, caveat, and maintainer-facing release-readiness
+  surfaces
 - `docs/` contains the canonical narrative and reference documentation that explains the checked-in outputs
 - `packages/bijux-pollenomics/src/` contains the CLI, collectors, and report publishing logic
 - `packages/bijux-pollenomics/tests/` contains unit, regression, and end-to-end coverage
@@ -247,7 +251,7 @@ The main checked-in publication artifacts are:
 - published report manifest: [`docs/report/published_reports_summary.json`](docs/report/published_reports_summary.json)
 - data collection manifest: [`data/collection_summary.json`](data/collection_summary.json)
 - country bundles under `docs/report/countries/`
-- release refusal surface: [`docs/report/repository_final_release_refusal.md`](docs/report/repository_final_release_refusal.md)
+- release-readiness caveats: [`docs/report/repository_final_release_refusal.md`](docs/report/repository_final_release_refusal.md)
 
 Important output limits:
 

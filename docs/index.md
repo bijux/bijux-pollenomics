@@ -4,7 +4,7 @@ audience: reader
 type: index
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-06-28
+last_reviewed: 2026-06-29
 ---
 
 # Bijux Pollenomics
@@ -100,9 +100,9 @@ flowchart TB
 - use the [fieldwork record](public/fieldwork/index.md) when you want one real
   visited location instead of a generalized public summary
 
-The public side should explain the repository without assuming you already know
-the codebase, package layout, or build system. If a page only makes sense to a
-maintainer who already knows the tree, it is the wrong public page.
+These routes are written for readers first. You should be able to understand
+what the repository publishes, why a map or ranking exists, and where the
+limits still are without reading the source tree first.
 
 ## Fieldwork Record
 

@@ -9,9 +9,10 @@ own tracked source collection, animal aDNA intake, sample extraction,
 chronology and coordinate normalization, evidence review, and the atlas plus
 country bundles that summarize those reviewable files.
 
-This is the runtime owner. If you want the real package that performs the work,
-install this one. If you only want a shorter command name that forwards into
-the same runtime, install `pollenomics` instead.
+This is the canonical runtime package. Install it when you want the package
+that owns the actual collection, review, reporting, and atlas behavior. If you
+only want a shorter command name that forwards into the same runtime, install
+`pollenomics` instead.
 
 <!-- bijux-pollenomics-badges:generated:start -->
 [![Python 3.11+](https://img.shields.io/badge/python-3.11%2B-3776AB?logo=python&logoColor=white)](https://pypi.org/project/bijux-pollenomics/)
