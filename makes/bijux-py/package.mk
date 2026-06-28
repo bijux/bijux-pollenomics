@@ -157,8 +157,6 @@ setup: ## Materialize package artifact alias links
 .PHONY: setup
 
 ifeq ($(PACKAGE_DEFINE_VENV),1)
-# setup materializes the artifact alias directory ahead of environment creation,
-# so the interpreter file is the reliable readiness target for the venv.
 $(VENV_PYTHON): | setup
 	@echo "$(PACKAGE_VENV_CREATE_MESSAGE)"
 	@$(UV) venv --python "$(PYTHON)" "$(VENV)"
