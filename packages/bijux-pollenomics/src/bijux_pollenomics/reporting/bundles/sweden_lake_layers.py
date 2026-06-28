@@ -278,7 +278,10 @@ def _build_feature_collection(
                     "popup_rows": [
                         {"label": "Scenario", "value": scenario_label},
                         {"label": "Scenario rank", "value": row["rank"]},
-                        {"label": "Scenario score", "value": _format_score(row["score"])},
+                        {
+                            "label": "Scenario score",
+                            "value": _format_score(row["score"]),
+                        },
                         {
                             "label": "Aggregate rank",
                             "value": row.get("aggregate_rank", "").strip()
