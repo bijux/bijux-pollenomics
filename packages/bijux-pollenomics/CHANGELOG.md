@@ -21,9 +21,9 @@ All notable changes for `bijux-pollenomics` are recorded here.
   richer species/governance evidence manifests, and sample-first publication
   contracts spanning intake, locality, chronology, coordinates, maps, and
   reports.
-- Rewrote the package-owned public handbook surfaces in reader language so
-  command contracts, evidence routes, atlas limits, and publication paths are
-  understandable without reading the source tree first.
+- Rewrote the package-owned public handbook and README surfaces in reader
+  language so command contracts, evidence routes, atlas limits, and
+  publication paths are understandable without reading the source tree first.
 - Added explicit public explanation for the Sweden lake packet and its atlas
   overlays so ranking, shortlist, and fieldwork posture are documented as
   runtime-owned behavior rather than implicit generated output.

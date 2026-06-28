@@ -17,6 +17,9 @@ All notable changes for `bijux-pollenomics-dev` are recorded here.
 - Added maintainer-facing coverage for the new Sweden lake public packet and
   Nordic atlas overlay routes so documentation integrity checks follow the
   expanded public surface.
+- Refined the maintainer-package README so repository-health, docs-integrity,
+  and release-support responsibilities are easier to distinguish from runtime
+  scientific ownership.
 - Refreshed maintainer-package verification tooling with the widened `mypy`
   bound and current locked Python toolchain used by repository release checks.
 - Synced maintainer-facing shared governance, workflow inventory, and

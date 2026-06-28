@@ -26,10 +26,10 @@ change contributor and maintainer workflows across the repository.
 
 ### Changed
 
-- Rebuilt the public handbook and generated report guidance around reader
-  questions, including the product guide, data guide, source explainers,
-  publication pages, report routes, map-reading surfaces, and the new Sweden
-  lake priority explainer.
+- Reworked the public entry surfaces around reader questions instead of
+  repository jargon, including the product guide, data guide, source
+  explainers, publication pages, report routes, map-reading surfaces, and the
+  Sweden lake priority explainer.
 - Expanded the checked-in evidence model from source intake through sample,
   locality, chronology, coordinate, and publication review so atlas and report
   outputs stay traceable to narrower governed records.
@@ -39,6 +39,10 @@ change contributor and maintainer workflows across the repository.
 - Clarified runtime, compatibility, and maintainer boundaries across the
   repository, including moving package-boundary guidance into package-owned docs
   and documenting the current report portal and publication contracts.
+- Refined root and package release-facing documentation so users can tell which
+  package owns the runtime, which one is only a compatibility alias, and which
+  routes explain the Sweden lake and Nordic atlas outputs without reading the
+  source tree first.
 - Refreshed shared GitHub governance, workflow inventory, and managed checksum
   surfaces from `bijux-std` `cd832f6db5c882e8e90cdb55a7708c78fca7fc01`,
   keeping consumer standards metadata aligned for release preparation.

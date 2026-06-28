@@ -17,6 +17,9 @@ All notable changes for `pollenomics` are recorded here.
 - Updated compatibility-package docs and contract coverage to describe the
   import boundary and the same pollenomics-first runtime behavior shipped by
   `bijux-pollenomics`.
+- Refined the compatibility-package README so users can tell when `pollenomics`
+  is the right install choice and when they should prefer the canonical
+  `bijux-pollenomics` runtime package.
 - Compatibility-package release verification now follows the refreshed
   repository tooling locks and shared-standards baseline used for current
   release preparation.
