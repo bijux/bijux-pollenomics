@@ -1,7 +1,7 @@
 from __future__ import annotations
 
-from collections.abc import Callable, Iterable
 import json
+from collections.abc import Callable, Iterable
 from pathlib import Path
 
 from ...analysis import (
@@ -36,9 +36,9 @@ from ..map_publication import (
     resolve_map_scope_policy,
 )
 from ..models import MultiCountryMapReport, SampleRecord
-from .sweden_lake_layers import build_sweden_lake_atlas_layers
 from .paths import AtlasBundlePaths
 from .summary_builders.atlas import build_multi_country_bundle_manifest
+from .sweden_lake_layers import build_sweden_lake_atlas_layers
 
 __all__ = ["publish_multi_country_map_bundle"]
 
