@@ -10,7 +10,7 @@ change contributor and maintainer workflows across the repository.
 
 ## Unreleased
 
-## 0.1.7 - 2026-06-28
+## 0.1.7 - 2026-06-29
 
 ### Added
 
