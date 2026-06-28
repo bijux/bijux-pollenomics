@@ -45,9 +45,7 @@ def test_core_package_make_installs_runtime_dev_extras_for_ci_tests() -> None:
     assert "PACKAGE_INSTALL_SPEC := .[dev]" in core_make
 
 
-def test_shared_package_make_uses_virtualenv_interpreter_as_readiness_target() -> (
-    None
-):
+def test_shared_package_make_uses_virtualenv_interpreter_as_readiness_target() -> None:
     shared_package_make = (REPO_ROOT / "makes" / "bijux-py" / "package.mk").read_text(
         encoding="utf-8"
     )
@@ -60,9 +58,9 @@ def test_shared_package_make_uses_virtualenv_interpreter_as_readiness_target() -
     sbom_make = (REPO_ROOT / "makes" / "bijux-py" / "ci" / "sbom.mk").read_text(
         encoding="utf-8"
     )
-    api_make = (
-        REPO_ROOT / "makes" / "bijux-py" / "api-contract.mk"
-    ).read_text(encoding="utf-8")
+    api_make = (REPO_ROOT / "makes" / "bijux-py" / "api-contract.mk").read_text(
+        encoding="utf-8"
+    )
 
     assert "$(VENV_PYTHON): | setup" in shared_package_make
     assert "$(PACKAGE_INSTALL_STAMP): $(VENV_PYTHON)" in shared_package_make
