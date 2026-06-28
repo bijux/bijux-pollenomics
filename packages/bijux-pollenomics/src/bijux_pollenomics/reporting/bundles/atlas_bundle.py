@@ -36,6 +36,7 @@ from ..map_publication import (
     resolve_map_scope_policy,
 )
 from ..models import MultiCountryMapReport, SampleRecord
+from .sweden_lake_layers import build_sweden_lake_atlas_layers
 from .paths import AtlasBundlePaths
 from .summary_builders.atlas import build_multi_country_bundle_manifest
 
@@ -103,6 +104,13 @@ def publish_multi_country_map_bundle(
             named_site_geocoded_feature_count=animal_bundle.coordinate_review.named_site_geocoded_feature_count,
             weaker_geography_feature_count=animal_bundle.coordinate_review.weaker_geography_feature_count,
         )
+    point_layers.extend(
+        build_sweden_lake_atlas_layers(
+            version=version,
+            staging_output_dir=staging_output_dir,
+            published_output_dir=report.output_dir,
+        )
+    )
     _attach_traceability_surfaces(point_layers, bundle_paths)
     animal_atlas_summary = _build_animal_atlas_summary(
         point_layers,

@@ -64,6 +64,54 @@ POINT_LAYER_STYLES = {
         "circleStroke": "rgba(133, 77, 14, 0.42)",
         "circleFill": "rgba(250, 204, 21, 0.10)",
     },
+    "sweden-lake-aggregate-top40": {
+        "fill": "#9a3412",
+        "stroke": "#7c2d12",
+        "circleStroke": "rgba(154, 52, 18, 0.42)",
+        "circleFill": "rgba(251, 146, 60, 0.12)",
+    },
+    "sweden-lake-consensus-top40": {
+        "fill": "#7c3aed",
+        "stroke": "#5b21b6",
+        "circleStroke": "rgba(124, 58, 237, 0.42)",
+        "circleFill": "rgba(196, 181, 253, 0.12)",
+    },
+    "sweden-lake-fieldwork-top40": {
+        "fill": "#be123c",
+        "stroke": "#881337",
+        "circleStroke": "rgba(190, 18, 60, 0.42)",
+        "circleFill": "rgba(251, 113, 133, 0.12)",
+    },
+    "sweden-lake-10km-top40": {
+        "fill": "#166534",
+        "stroke": "#14532d",
+        "circleStroke": "rgba(22, 101, 52, 0.42)",
+        "circleFill": "rgba(74, 222, 128, 0.10)",
+    },
+    "sweden-lake-20km-top40": {
+        "fill": "#0369a1",
+        "stroke": "#0c4a6e",
+        "circleStroke": "rgba(3, 105, 161, 0.42)",
+        "circleFill": "rgba(56, 189, 248, 0.12)",
+    },
+    "sweden-lake-30km-top40": {
+        "fill": "#6d28d9",
+        "stroke": "#4c1d95",
+        "circleStroke": "rgba(109, 40, 217, 0.42)",
+        "circleFill": "rgba(167, 139, 250, 0.12)",
+    },
+    "sweden-lake-40km-top40": {
+        "fill": "#be185d",
+        "stroke": "#831843",
+        "circleStroke": "rgba(190, 24, 93, 0.42)",
+        "circleFill": "rgba(244, 114, 182, 0.12)",
+    },
+    "sweden-lake-50km-top40": {
+        "fill": "#854d0e",
+        "stroke": "#713f12",
+        "circleStroke": "rgba(133, 77, 14, 0.42)",
+        "circleFill": "rgba(250, 204, 21, 0.10)",
+    },
 }
 
 POINT_LAYER_METADATA = {
@@ -119,6 +167,54 @@ POINT_LAYER_METADATA = {
         "group": "candidate-ranking",
         "source_name": "Sweden lake evidence",
         "coverage_label": "Top 20 Sweden lake candidates in the 50 km evidence scenario.",
+        "geometry_label": "Point candidates",
+    },
+    "sweden-lake-aggregate-top40": {
+        "group": "candidate-ranking",
+        "source_name": "Sweden lake evidence",
+        "coverage_label": "Optional Nordic atlas overlay for the top 40 Sweden lakes in the aggregate evidence ranking.",
+        "geometry_label": "Point candidates",
+    },
+    "sweden-lake-consensus-top40": {
+        "group": "candidate-ranking",
+        "source_name": "Sweden lake evidence",
+        "coverage_label": "Optional Nordic atlas overlay for the top 40 Sweden lakes that recur across scenario rankings.",
+        "geometry_label": "Point candidates",
+    },
+    "sweden-lake-fieldwork-top40": {
+        "group": "candidate-ranking",
+        "source_name": "Sweden lake evidence",
+        "coverage_label": "Optional Nordic atlas overlay for the top 40 Sweden lakes in the fieldwork-readiness shortlist.",
+        "geometry_label": "Point candidates",
+    },
+    "sweden-lake-10km-top40": {
+        "group": "candidate-ranking",
+        "source_name": "Sweden lake evidence",
+        "coverage_label": "Optional Nordic atlas overlay for the top 40 Sweden lakes in the 10 km evidence scenario.",
+        "geometry_label": "Point candidates",
+    },
+    "sweden-lake-20km-top40": {
+        "group": "candidate-ranking",
+        "source_name": "Sweden lake evidence",
+        "coverage_label": "Optional Nordic atlas overlay for the top 40 Sweden lakes in the 20 km evidence scenario.",
+        "geometry_label": "Point candidates",
+    },
+    "sweden-lake-30km-top40": {
+        "group": "candidate-ranking",
+        "source_name": "Sweden lake evidence",
+        "coverage_label": "Optional Nordic atlas overlay for the top 40 Sweden lakes in the 30 km evidence scenario.",
+        "geometry_label": "Point candidates",
+    },
+    "sweden-lake-40km-top40": {
+        "group": "candidate-ranking",
+        "source_name": "Sweden lake evidence",
+        "coverage_label": "Optional Nordic atlas overlay for the top 40 Sweden lakes in the 40 km evidence scenario.",
+        "geometry_label": "Point candidates",
+    },
+    "sweden-lake-50km-top40": {
+        "group": "candidate-ranking",
+        "source_name": "Sweden lake evidence",
+        "coverage_label": "Optional Nordic atlas overlay for the top 40 Sweden lakes in the 50 km evidence scenario.",
         "geometry_label": "Point candidates",
     },
 }
