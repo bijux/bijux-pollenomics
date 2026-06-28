@@ -4,10 +4,15 @@ Runtime package for rebuilding the checked-in `bijux-pollenomics`
 pollenomics, environmental, archaeology, boundary, fieldwork, and ancient-DNA
 evidence surfaces plus their downstream map/report products.
 
-Use this package if you want the canonical CLI and Python entrypoints that own
-tracked source collection, animal aDNA intake, sample extraction, chronology
-and coordinate normalization, evidence review, and the atlas plus country
-bundles that summarize those reviewable files.
+Use this package when you want the canonical CLI and Python entrypoints that
+own tracked source collection, animal aDNA intake, sample extraction,
+chronology and coordinate normalization, evidence review, and the atlas plus
+country bundles that summarize those reviewable files.
+
+This is the canonical runtime package. Install it when you want the package
+that owns the actual collection, review, reporting, and atlas behavior. If you
+only want a shorter command name that forwards into the same runtime, install
+`pollenomics` instead.
 
 <!-- bijux-pollenomics-badges:generated:start -->
 [![Python 3.11+](https://img.shields.io/badge/python-3.11%2B-3776AB?logo=python&logoColor=white)](https://pypi.org/project/bijux-pollenomics/)
@@ -39,6 +44,23 @@ bundles that summarize those reviewable files.
 - contributors who need one clear owner for command handling, collection,
   normalization, review, and publication
 
+## Choose This Package When
+
+- you want the canonical `bijux-pollenomics` CLI
+- you need the real Python runtime package instead of a compatibility alias
+- you are rebuilding tracked data or checked-in report outputs
+- you want the package that owns Sweden lake ranking, atlas overlays, and
+  report publication behavior
+
+## What This Package Gives You
+
+- the canonical `bijux-pollenomics` CLI
+- the Python entrypoints that collect and normalize tracked source data
+- the report and atlas publication logic used by the checked-in repository
+- the Sweden lake ranking and Nordic atlas overlay surfaces now published from
+  the same runtime
+- one package-owned boundary document for where runtime logic should live
+
 ## Install
 
 ```bash
@@ -46,10 +68,15 @@ python3.11 -m pip install bijux-pollenomics
 bijux-pollenomics --help
 ```
 
+If you only want the shorter `pollenomics` package name and command, install
+the compatibility alias package instead. It forwards into this runtime and does
+not own separate scientific logic.
+
 ## Read Next
 
 - documentation home: <https://bijux.io/bijux-pollenomics/>
 - runtime handbook: <https://bijux.io/bijux-pollenomics/public/pollenomics/>
 - animal ancient DNA evidence: <https://bijux.io/bijux-pollenomics/public/pollenomics-data/overview/animal-ancient-dna-evidence/>
 - Nordic atlas: <https://bijux.io/bijux-pollenomics/public/nordic-atlas/>
+- Sweden lake priorities: <https://bijux.io/bijux-pollenomics/public/nordic-atlas/sweden-lake-priorities/>
 - package boundaries: [`docs/boundaries.md`](docs/boundaries.md)

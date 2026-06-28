@@ -4,14 +4,15 @@ audience: reader
 type: index
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-05-10
+last_reviewed: 2026-06-28
 ---
 
 # Bijux Pollenomics Product Guide
 
 `bijux-pollenomics` is the product guide for the repository's public evidence.
 It explains what the repository publishes today, why those outputs exist, how
-far they can be trusted, and where to go next without needing to read the source code first.
+far they can be trusted, and where to go next without reading the source code
+first.
 
 The central idea is simple. This repository rebuilds one governed evidence
 system, then publishes several public-facing cuts from that same state. Pollen
@@ -20,13 +21,21 @@ animal ancient-DNA recovery all live in one repository, but they do not all
 carry the same scientific weight. This guide explains those differences
 directly instead of leaving them buried in the file tree.
 
-Use this handbook when your first question is not "which module owns this,"
-but:
+That same model now includes the Sweden lake evidence program. The lake packet
+is not a side spreadsheet pasted beside the atlas. It is another published cut
+through the repository evidence state, with its own ranking logic, shortlist
+rules, and honesty boundaries.
+
+Use this handbook when your first question is:
 
 - what this repository is actually for
 - what I can use from it right now
 - what kind of question each output can answer
 - what the current limits are before I rely on a public map, report, or data file
+
+Do not use this handbook when you need maintainer-only release policy, internal
+governance, or package-check implementation details. Those belong in the
+repository's internal docs, not on the public product surface.
 
 <div class="bijux-quicklinks">
   <a class="md-button md-button--primary" href="../../index.md">Open the documentation home</a>
@@ -66,6 +75,9 @@ flowchart TB
 - what the repository already publishes with confidence:
   pollen context, environmental archaeology context, boundary framing, and
   governed report bundles
+- what the Sweden lake packet adds:
+  candidate prioritization, scenario comparison, and a fieldwork shortlist
+  without pretending those rankings replace field limnology
 - what remains visibly partial:
   animal ancient-DNA recovery and the claims that depend on deeper sample
   extraction
@@ -103,22 +115,23 @@ flowchart TB
 - how do I judge whether a surface is reviewable, publishable, or still too
   weak for a stronger claim:
   [runtime invariants and limits](quality/runtime-invariants-and-limits.md)
+- how do I understand the Sweden lake packet and the optional Nordic overlays:
+  [Sweden lake priorities](../nordic-atlas/sweden-lake-priorities/index.md)
 - where do the public data explanations live if I care more about evidence than
   code:
   [data handbook](../pollenomics-data/index.md)
 
-## Breadth Routes
+## Evidence Routes
 
-If your question is really about the evidence families behind the product, the
-runtime handbook should send you directly to the public data pages that explain
-them in their own terms:
+If your question is really about the evidence families behind the product, move
+from this handbook into the public data pages that explain them directly:
 
-- `docs/public/pollenomics-data/sources/landclim.md`
-- `docs/public/pollenomics-data/sources/neotoma.md`
-- `docs/public/pollenomics-data/sources/sead.md`
-- `docs/public/pollenomics-data/sources/raa.md`
-- `docs/public/pollenomics-data/sources/boundaries.md`
-- `docs/public/pollenomics-data/sources/aadr.md`
+- [LandClim](../pollenomics-data/sources/landclim.md)
+- [Neotoma](../pollenomics-data/sources/neotoma.md)
+- [SEAD](../pollenomics-data/sources/sead.md)
+- [RAA](../pollenomics-data/sources/raa.md)
+- [Boundaries](../pollenomics-data/sources/boundaries.md)
+- [AADR](../pollenomics-data/sources/aadr.md)
 
 ## What This Guide Covers
 
@@ -127,6 +140,8 @@ them in their own terms:
 - the public command and file contracts you can inspect
 - the operational route for rebuilding and checking the repository
 - the quality rules that keep visible output language honest
+- the places where ranking, atlas, and fieldwork outputs are informative but
+  still narrower than a finished scientific inference engine
 
 ## What This Guide Does Not Promise
 

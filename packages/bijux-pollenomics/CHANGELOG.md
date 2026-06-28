@@ -4,15 +4,29 @@ All notable changes for `bijux-pollenomics` are recorded here.
 
 ## Unreleased
 
+## 0.1.7 - 2026-06-29
+
+### Added
+
+- Published the Sweden lake evidence program through the runtime package,
+  including ranked registry outputs, chronology-aware scenario scoring, and a
+  fieldwork shortlist derived from the same tracked evidence loop.
+- Added optional Sweden lake overlays to the Nordic atlas publication path so
+  aggregate, consensus, radius-based, and shortlist surfaces can be inspected
+  directly in the shared map.
+
 ### Changed
 
 - Reworked the runtime package around stricter `adna` ownership boundaries,
   richer species/governance evidence manifests, and sample-first publication
   contracts spanning intake, locality, chronology, coordinates, maps, and
   reports.
-- Rewrote the package-owned public handbook surfaces in reader language so
-  command contracts, evidence routes, atlas limits, and publication paths are
-  understandable without reading the source tree first.
+- Rewrote the package-owned public handbook and README surfaces in reader
+  language so command contracts, evidence routes, atlas limits, and
+  publication paths are understandable without reading the source tree first.
+- Added explicit public explanation for the Sweden lake packet and its atlas
+  overlays so ranking, shortlist, and fieldwork posture are documented as
+  runtime-owned behavior rather than implicit generated output.
 - Moved the package boundary guide into `packages/bijux-pollenomics/docs/`,
   keeping boundary documentation inside the package-owned docs surface instead
   of under `src/`.
@@ -27,6 +41,8 @@ All notable changes for `bijux-pollenomics` are recorded here.
 - Restored package legal-file materialization and the package-local sdist
   include contract so build smoke installs keep working from isolated package
   artifacts.
+- Typed and exposed lazy runtime and compatibility-facing exports more
+  consistently so package consumers can rely on clearer import ownership.
 - Replaced brittle wording-pinned handbook assertions with narrower structural
   and contract coverage so runtime docs checks track durable behavior instead of
   transient phrasing.

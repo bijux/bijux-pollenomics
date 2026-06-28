@@ -124,3 +124,30 @@ class DocsBreadthRegressionTests(unittest.TestCase):
             path = report_root / name
             self.assertTrue(path.is_file(), name)
             self.assertIn(heading, path.read_text(encoding="utf-8"))
+
+    def test_nordic_atlas_keeps_sweden_lake_explainer_in_a_nested_public_page(
+        self,
+    ) -> None:
+        atlas_index = (
+            REPO_ROOT / "docs" / "public" / "nordic-atlas" / "index.md"
+        ).read_text(encoding="utf-8")
+        lake_page = (
+            REPO_ROOT
+            / "docs"
+            / "public"
+            / "nordic-atlas"
+            / "sweden-lake-priorities"
+            / "index.md"
+        ).read_text(encoding="utf-8")
+
+        self.assertIn("./sweden-lake-priorities/", atlas_index)
+        self.assertIn("optional Sweden lake ranking overlays", atlas_index)
+        self.assertIn(
+            "The public Sweden lake packet currently ranks **6,763**",
+            lake_page,
+        )
+        self.assertIn("fieldwork shortlist top 20", lake_page)
+        self.assertIn(
+            "The current public packet does **not**\nship governed depth, width, bathymetry",
+            lake_page,
+        )

@@ -135,7 +135,7 @@
       "species_scope": [],
       "layer_role": "mapped_context",
       "mapped": true,
-      "feature_count": 2867,
+      "feature_count": 3167,
       "evidence_posture": "non_adna_context",
       "provenance_posture": "normalized_context_layers",
       "popup_contract": [
@@ -165,7 +165,15 @@
         "fieldwork-documentation",
         "landclim-sites",
         "neotoma-pollen",
-        "sead-sites"
+        "sead-sites",
+        "sweden-lake-10km-top40",
+        "sweden-lake-20km-top40",
+        "sweden-lake-30km-top40",
+        "sweden-lake-40km-top40",
+        "sweden-lake-50km-top40",
+        "sweden-lake-aggregate-top40",
+        "sweden-lake-consensus-top40",
+        "sweden-lake-fieldwork-shortlist"
       ],
       "blocking_reasons": [],
       "rationale": [
@@ -191,7 +199,15 @@
         "fieldwork-documentation",
         "landclim-sites",
         "neotoma-pollen",
-        "sead-sites"
+        "sead-sites",
+        "sweden-lake-10km-top40",
+        "sweden-lake-20km-top40",
+        "sweden-lake-30km-top40",
+        "sweden-lake-40km-top40",
+        "sweden-lake-50km-top40",
+        "sweden-lake-aggregate-top40",
+        "sweden-lake-consensus-top40",
+        "sweden-lake-fieldwork-shortlist"
       ],
       "blocking_reasons": [],
       "rationale": [
@@ -216,7 +232,15 @@
         "fieldwork-documentation",
         "landclim-sites",
         "neotoma-pollen",
-        "sead-sites"
+        "sead-sites",
+        "sweden-lake-10km-top40",
+        "sweden-lake-20km-top40",
+        "sweden-lake-30km-top40",
+        "sweden-lake-40km-top40",
+        "sweden-lake-50km-top40",
+        "sweden-lake-aggregate-top40",
+        "sweden-lake-consensus-top40",
+        "sweden-lake-fieldwork-shortlist"
       ],
       "blocking_reasons": [
         "missing_archive_projects",
@@ -245,7 +269,15 @@
         "fieldwork-documentation",
         "landclim-sites",
         "neotoma-pollen",
-        "sead-sites"
+        "sead-sites",
+        "sweden-lake-10km-top40",
+        "sweden-lake-20km-top40",
+        "sweden-lake-30km-top40",
+        "sweden-lake-40km-top40",
+        "sweden-lake-50km-top40",
+        "sweden-lake-aggregate-top40",
+        "sweden-lake-consensus-top40",
+        "sweden-lake-fieldwork-shortlist"
       ],
       "blocking_reasons": [
         "missing_primary_paper_pins",
@@ -277,7 +309,15 @@
         "fieldwork-documentation",
         "landclim-sites",
         "neotoma-pollen",
-        "sead-sites"
+        "sead-sites",
+        "sweden-lake-10km-top40",
+        "sweden-lake-20km-top40",
+        "sweden-lake-30km-top40",
+        "sweden-lake-40km-top40",
+        "sweden-lake-50km-top40",
+        "sweden-lake-aggregate-top40",
+        "sweden-lake-consensus-top40",
+        "sweden-lake-fieldwork-shortlist"
       ],
       "blocking_reasons": [],
       "rationale": [
@@ -302,7 +342,15 @@
         "fieldwork-documentation",
         "landclim-sites",
         "neotoma-pollen",
-        "sead-sites"
+        "sead-sites",
+        "sweden-lake-10km-top40",
+        "sweden-lake-20km-top40",
+        "sweden-lake-30km-top40",
+        "sweden-lake-40km-top40",
+        "sweden-lake-50km-top40",
+        "sweden-lake-aggregate-top40",
+        "sweden-lake-consensus-top40",
+        "sweden-lake-fieldwork-shortlist"
       ],
       "blocking_reasons": [],
       "rationale": [
@@ -327,7 +375,15 @@
         "fieldwork-documentation",
         "landclim-sites",
         "neotoma-pollen",
-        "sead-sites"
+        "sead-sites",
+        "sweden-lake-10km-top40",
+        "sweden-lake-20km-top40",
+        "sweden-lake-30km-top40",
+        "sweden-lake-40km-top40",
+        "sweden-lake-50km-top40",
+        "sweden-lake-aggregate-top40",
+        "sweden-lake-consensus-top40",
+        "sweden-lake-fieldwork-shortlist"
       ],
       "blocking_reasons": [],
       "rationale": [
@@ -352,7 +408,15 @@
         "fieldwork-documentation",
         "landclim-sites",
         "neotoma-pollen",
-        "sead-sites"
+        "sead-sites",
+        "sweden-lake-10km-top40",
+        "sweden-lake-20km-top40",
+        "sweden-lake-30km-top40",
+        "sweden-lake-40km-top40",
+        "sweden-lake-50km-top40",
+        "sweden-lake-aggregate-top40",
+        "sweden-lake-consensus-top40",
+        "sweden-lake-fieldwork-shortlist"
       ],
       "blocking_reasons": [],
       "rationale": [
@@ -377,7 +441,15 @@
         "fieldwork-documentation",
         "landclim-sites",
         "neotoma-pollen",
-        "sead-sites"
+        "sead-sites",
+        "sweden-lake-10km-top40",
+        "sweden-lake-20km-top40",
+        "sweden-lake-30km-top40",
+        "sweden-lake-40km-top40",
+        "sweden-lake-50km-top40",
+        "sweden-lake-aggregate-top40",
+        "sweden-lake-consensus-top40",
+        "sweden-lake-fieldwork-shortlist"
       ],
       "blocking_reasons": [
         "missing_primary_paper_pins",
@@ -406,7 +478,15 @@
         "fieldwork-documentation",
         "landclim-sites",
         "neotoma-pollen",
-        "sead-sites"
+        "sead-sites",
+        "sweden-lake-10km-top40",
+        "sweden-lake-20km-top40",
+        "sweden-lake-30km-top40",
+        "sweden-lake-40km-top40",
+        "sweden-lake-50km-top40",
+        "sweden-lake-aggregate-top40",
+        "sweden-lake-consensus-top40",
+        "sweden-lake-fieldwork-shortlist"
       ],
       "blocking_reasons": [],
       "rationale": [
@@ -431,7 +511,15 @@
         "fieldwork-documentation",
         "landclim-sites",
         "neotoma-pollen",
-        "sead-sites"
+        "sead-sites",
+        "sweden-lake-10km-top40",
+        "sweden-lake-20km-top40",
+        "sweden-lake-30km-top40",
+        "sweden-lake-40km-top40",
+        "sweden-lake-50km-top40",
+        "sweden-lake-aggregate-top40",
+        "sweden-lake-consensus-top40",
+        "sweden-lake-fieldwork-shortlist"
       ],
       "blocking_reasons": [],
       "rationale": [
@@ -456,7 +544,15 @@
         "fieldwork-documentation",
         "landclim-sites",
         "neotoma-pollen",
-        "sead-sites"
+        "sead-sites",
+        "sweden-lake-10km-top40",
+        "sweden-lake-20km-top40",
+        "sweden-lake-30km-top40",
+        "sweden-lake-40km-top40",
+        "sweden-lake-50km-top40",
+        "sweden-lake-aggregate-top40",
+        "sweden-lake-consensus-top40",
+        "sweden-lake-fieldwork-shortlist"
       ],
       "blocking_reasons": [],
       "rationale": [
@@ -481,7 +577,15 @@
         "fieldwork-documentation",
         "landclim-sites",
         "neotoma-pollen",
-        "sead-sites"
+        "sead-sites",
+        "sweden-lake-10km-top40",
+        "sweden-lake-20km-top40",
+        "sweden-lake-30km-top40",
+        "sweden-lake-40km-top40",
+        "sweden-lake-50km-top40",
+        "sweden-lake-aggregate-top40",
+        "sweden-lake-consensus-top40",
+        "sweden-lake-fieldwork-shortlist"
       ],
       "blocking_reasons": [],
       "rationale": [
@@ -506,7 +610,15 @@
         "fieldwork-documentation",
         "landclim-sites",
         "neotoma-pollen",
-        "sead-sites"
+        "sead-sites",
+        "sweden-lake-10km-top40",
+        "sweden-lake-20km-top40",
+        "sweden-lake-30km-top40",
+        "sweden-lake-40km-top40",
+        "sweden-lake-50km-top40",
+        "sweden-lake-aggregate-top40",
+        "sweden-lake-consensus-top40",
+        "sweden-lake-fieldwork-shortlist"
       ],
       "blocking_reasons": [
         "missing_primary_paper_pins",
@@ -535,7 +647,15 @@
         "fieldwork-documentation",
         "landclim-sites",
         "neotoma-pollen",
-        "sead-sites"
+        "sead-sites",
+        "sweden-lake-10km-top40",
+        "sweden-lake-20km-top40",
+        "sweden-lake-30km-top40",
+        "sweden-lake-40km-top40",
+        "sweden-lake-50km-top40",
+        "sweden-lake-aggregate-top40",
+        "sweden-lake-consensus-top40",
+        "sweden-lake-fieldwork-shortlist"
       ],
       "blocking_reasons": [],
       "rationale": [
@@ -560,7 +680,15 @@
         "fieldwork-documentation",
         "landclim-sites",
         "neotoma-pollen",
-        "sead-sites"
+        "sead-sites",
+        "sweden-lake-10km-top40",
+        "sweden-lake-20km-top40",
+        "sweden-lake-30km-top40",
+        "sweden-lake-40km-top40",
+        "sweden-lake-50km-top40",
+        "sweden-lake-aggregate-top40",
+        "sweden-lake-consensus-top40",
+        "sweden-lake-fieldwork-shortlist"
       ],
       "blocking_reasons": [
         "missing_primary_paper_pins",

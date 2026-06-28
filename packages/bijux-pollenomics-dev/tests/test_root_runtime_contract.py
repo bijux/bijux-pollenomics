@@ -43,3 +43,32 @@ def test_core_package_make_installs_runtime_dev_extras_for_ci_tests() -> None:
     )
 
     assert "PACKAGE_INSTALL_SPEC := .[dev]" in core_make
+
+
+def test_shared_package_make_uses_virtualenv_interpreter_as_readiness_target() -> None:
+    shared_package_make = (REPO_ROOT / "makes" / "bijux-py" / "package.mk").read_text(
+        encoding="utf-8"
+    )
+    build_make = (REPO_ROOT / "makes" / "bijux-py" / "ci" / "build.mk").read_text(
+        encoding="utf-8"
+    )
+    lint_make = (REPO_ROOT / "makes" / "bijux-py" / "ci" / "lint.mk").read_text(
+        encoding="utf-8"
+    )
+    sbom_make = (REPO_ROOT / "makes" / "bijux-py" / "ci" / "sbom.mk").read_text(
+        encoding="utf-8"
+    )
+    api_make = (REPO_ROOT / "makes" / "bijux-py" / "api-contract.mk").read_text(
+        encoding="utf-8"
+    )
+
+    assert "$(VENV_PYTHON): | setup" in shared_package_make
+    assert "$(PACKAGE_INSTALL_STAMP): $(VENV_PYTHON)" in shared_package_make
+    assert "install: $(VENV_PYTHON)" in shared_package_make
+    assert "ensure-venv: $(VENV_PYTHON)" in shared_package_make
+    assert "build-tools: | $(VENV_PYTHON)" in build_make
+    assert "fmt-artifacts: | $(VENV_PYTHON)" in lint_make
+    assert "lint-artifacts: | $(VENV_PYTHON)" in lint_make
+    assert "sbom-tooling: | $(VENV_PYTHON)" in sbom_make
+    assert "api-install: | $(VENV_PYTHON)" in api_make
+    assert "api-test: | $(VENV_PYTHON)" in api_make

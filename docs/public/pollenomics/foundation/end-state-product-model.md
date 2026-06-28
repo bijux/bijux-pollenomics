@@ -4,7 +4,7 @@ audience: mixed
 type: explanation
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-05-10
+last_reviewed: 2026-06-28
 ---
 
 # End-State Product Model
@@ -14,6 +14,11 @@ Nordic site with a few accidental side branches, and it is not meant to be a
 stack of country bundles pretending to be a global system. The durable goal is
 one repository that collects evidence broadly once, then publishes narrower
 views from that same governed state.
+
+That model matters now because the repository has started to publish richer
+specialized packets, such as the Sweden lake ranking surfaces. Those additions
+should strengthen the same product model, not create a parallel mini-product
+with its own rules and language.
 
 This page explains the strategic answer:
 
@@ -33,6 +38,8 @@ This page explains the strategic answer:
   its richest contextual overlays
 - `country` bundles are narrower public descendants of the same evidence
   state
+- specialized packets such as Sweden lake ranking remain attached to those
+  same surfaces instead of becoming a disconnected publication family
 
 ## Why This Shape Matters
 
@@ -49,6 +56,10 @@ The runtime must keep one repeatable loop:
 2. normalize source-family evidence into reviewable files
 3. review recovery depth, chronology meaning, and publication caveats
 4. publish world, regional, and country outputs from that same governed state
+
+When the repository publishes a shortlist, ranking, or overlay, that output
+still has to fit this loop. It should remain traceable to tracked inputs,
+reviewable logic, and scoped public honesty surfaces.
 
 The important point is that these outputs are not separate editorial products.
 They are different public cuts through one repository-owned evidence model.
@@ -87,6 +98,10 @@ Adding `Germany` or another future country must be boring:
 - its country bundle is emitted into `docs/report/countries/<country-slug>/`
 - the broader world and Europe-plus surfaces continue to derive automatically
 - docs and tests remain about the same product model instead of branching
+
+The same rule applies to future special packets. Adding another lake program,
+fieldwork shortlist, or regional ranking should feel like a disciplined
+extension of one evidence system, not like the birth of a second product.
 
 That is why the country onboarding contract and playbook matter. They are not
 extra ceremony. They are proof that growth is part of the product design rather

@@ -4,7 +4,7 @@ audience: reader
 type: index
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-05-10
+last_reviewed: 2026-06-28
 ---
 
 # bijux-pollenomics-data
@@ -54,11 +54,15 @@ The point of this handbook is to keep those stages readable. You should not
 have to reverse-engineer the difference between a source paper, a normalized
 evidence file, a locality decision, and a public map point.
 
+That also applies to the Sweden lake program. If a reader sees a ranked lake,
+they should be able to tell whether that row comes from source intake,
+evidence review, publication scoring, or a fieldwork-oriented shortlist rather
+than guessing from a map label alone.
+
 ## What Makes This Repository Unusual
 
-Most data projects speak about one family of evidence at a time. This
-repository does not. It brings several different families into one public
-system:
+Most data projects explain one evidence family at a time. This repository does
+not. It brings several different families into one public system:
 
 - pollen context from large environmental databases
 - archaeology context from environmental and heritage sources
@@ -67,21 +71,18 @@ system:
 - animal ancient DNA recovery work that is still being strengthened project by
   project
 
-In practice, that means this section has to explain pollen context,
-environmental archaeology, boundary framing, human release material, and
-animal ancient DNA recovery as one joined evidence system. It is not only a
-set of side references; it is where pollen context, environmental archaeology,
-boundary framing, human release material, and animal ancient DNA recovery are
-made legible as one public evidence model.
+In practice, that means this section has to explain how those families work
+together without pretending they all mean the same thing. A pollen context row,
+a heritage context row, a human aDNA locality, and an animal recovery record
+can all appear in one publication family while still carrying different
+scientific weight.
 
-That mixed setting is useful, but it also means a vague explanation becomes
-misleading very quickly. If the site is unclear, it becomes hard to tell
-whether you are looking at mature evidence, supporting context, or work that is
-still under recovery.
-
-Boundary framing has to stay explicit for the same reason: borders and scope
-layers change what a public map can honestly imply even when the underlying
-evidence stays the same.
+That mixed setting is useful, but it becomes misleading fast if the explanation
+is vague. Readers need to know whether they are looking at mature evidence,
+supporting context, or work that is still under recovery. They also need
+boundary framing, chronology posture, coordinate precision, and sampling
+posture to stay explicit, because those details change what a public map can
+honestly imply.
 
 ## What You Can Use This Handbook For
 
@@ -89,6 +90,8 @@ evidence stays the same.
 - finding the narrower evidence surface behind a public output
 - understanding why one source family supports broad use while another stays
   caveated
+- understanding how the Sweden lake ranking packet is derived and what it does
+  not claim
 - learning how the same evidence system could support future publication for
   other countries or regions without inventing a second product model
 

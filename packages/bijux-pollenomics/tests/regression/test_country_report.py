@@ -1445,6 +1445,109 @@ class CountryReportTests(unittest.TestCase):
             self.assertTrue((output / "sweden_archaeology_density.geojson").exists())
             self.assertTrue((output / "nordic_country_boundaries.geojson").exists())
 
+    def test_generate_multi_country_map_can_publish_optional_sweden_lake_layers(
+        self,
+    ) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp) / "v62.0"
+            output = Path(tmp) / "docs" / "report" / "regions" / "nordic"
+            scenario_csv = (
+                Path(tmp)
+                / "docs"
+                / "report"
+                / "countries"
+                / "sweden"
+                / "sweden_lake_evidence_richness_v62.0_scenarios.csv"
+            )
+            lake_markdown = (
+                Path(tmp)
+                / "docs"
+                / "report"
+                / "countries"
+                / "sweden"
+                / "sweden_lake_evidence_richness_v62.0.md"
+            )
+            self.write_anno(
+                root / "ho" / "v62.0_HO_public.anno",
+                [
+                    "SE1\tSE1\tSweden_Group\tLake Alpha\tSweden\t57.02\t14.02\tPaperA\t2022\t500 BCE\t2450\tHO\tF",
+                ],
+            )
+            self.write_csv(
+                scenario_csv,
+                fieldnames=[
+                    "scenario_key",
+                    "scenario_label",
+                    "radius_km",
+                    "rank",
+                    "score",
+                    "lake_name",
+                    "lake_label",
+                    "lake_token",
+                    "latitude",
+                    "longitude",
+                    "google_maps_url",
+                    "aggregate_rank",
+                    "aggregate_score",
+                    "scenario_top20_presence_count",
+                    "scenario_top20_labels",
+                    "lake_registry_id",
+                    "lake_name_status",
+                    "lake_area_km2",
+                    "lake_sampling_posture",
+                    "lake_sampling_fit",
+                    "lake_sampling_notes",
+                    "duplicate_name_count",
+                    "coordinate_spread_km",
+                    "ambiguity_flags",
+                    "ambiguity_note",
+                ],
+                rows=[
+                    self.lake_scenario_row("aggregate", "Aggregate", "1"),
+                    self.lake_scenario_row("consensus", "Consensus", "1"),
+                    self.lake_scenario_row(
+                        "fieldwork_shortlist", "Fieldwork shortlist", "1"
+                    ),
+                    self.lake_scenario_row("radius_10km", "10 km", "1"),
+                    self.lake_scenario_row("radius_20km", "20 km", "1"),
+                    self.lake_scenario_row("radius_30km", "30 km", "1"),
+                    self.lake_scenario_row("radius_40km", "40 km", "1"),
+                    self.lake_scenario_row("radius_50km", "50 km", "1"),
+                ],
+            )
+            lake_markdown.parent.mkdir(parents=True, exist_ok=True)
+            lake_markdown.write_text(
+                "# Sweden lake evidence richness\n",
+                encoding="utf-8",
+            )
+
+            generate_multi_country_map(
+                version_dir=root,
+                countries=["Sweden"],
+                output_dir=output,
+                title="Nordic Evidence Atlas",
+                slug="nordic-atlas",
+            )
+
+            map_html = (output / "nordic-atlas_map.html").read_text(encoding="utf-8")
+            for label in (
+                "Sweden lake aggregate top 40",
+                "Sweden lake consensus top 40",
+                "Sweden lake fieldwork shortlist",
+                "Sweden lake 10 km top 40",
+                "Sweden lake 20 km top 40",
+                "Sweden lake 30 km top 40",
+                "Sweden lake 40 km top 40",
+                "Sweden lake 50 km top 40",
+            ):
+                self.assertIn(label, map_html)
+            self.assertIn('"default_enabled": false', map_html)
+            self.assertIn("Optional Sweden lake ranking overlay", map_html)
+            self.assertIn(
+                "sweden_lake_evidence_richness_v62.0_scenarios.csv",
+                map_html,
+            )
+
     def test_generate_multi_country_map_uses_context_layer_dates_for_time_window(
         self,
     ) -> None:
@@ -2175,6 +2278,19 @@ class CountryReportTests(unittest.TestCase):
         path.parent.mkdir(parents=True, exist_ok=True)
         path.write_text(json.dumps(payload), encoding="utf-8")
 
+    def write_csv(
+        self,
+        path: Path,
+        *,
+        fieldnames: list[str],
+        rows: list[dict[str, str]],
+    ) -> None:
+        path.parent.mkdir(parents=True, exist_ok=True)
+        with path.open("w", newline="", encoding="utf-8") as handle:
+            writer = csv.DictWriter(handle, fieldnames=fieldnames, lineterminator="\n")
+            writer.writeheader()
+            writer.writerows(rows)
+
     def write_tracked_animal_species(
         self,
         species_root: Path,
@@ -2539,6 +2655,43 @@ class CountryReportTests(unittest.TestCase):
             molecular_sex="F",
             datasets=datasets,
         )
+
+    def lake_scenario_row(
+        self,
+        scenario_key: str,
+        scenario_label: str,
+        rank: str,
+    ) -> dict[str, str]:
+        radius = ""
+        if scenario_key.startswith("radius_"):
+            radius = scenario_key.removeprefix("radius_").removesuffix("km")
+        return {
+            "scenario_key": scenario_key,
+            "scenario_label": scenario_label,
+            "radius_km": radius,
+            "rank": rank,
+            "score": "0.8123",
+            "lake_name": "Lake Alpha",
+            "lake_label": "Lake Alpha",
+            "lake_token": f"lake-alpha-{scenario_key}",
+            "latitude": "57.020000",
+            "longitude": "14.020000",
+            "google_maps_url": "https://www.google.com/maps/search/?api=1&query=57.020000,14.020000",
+            "aggregate_rank": "3",
+            "aggregate_score": "0.7441",
+            "scenario_top20_presence_count": "6",
+            "scenario_top20_labels": "aggregate; consensus; fieldwork shortlist",
+            "lake_registry_id": "lake-registry-1",
+            "lake_name_status": "water_surface_name",
+            "lake_area_km2": "2.750",
+            "lake_sampling_posture": "sampling_lake_candidate",
+            "lake_sampling_fit": "0.9100",
+            "lake_sampling_notes": "Prefer bathymetry and access checks before fieldwork.",
+            "duplicate_name_count": "0",
+            "coordinate_spread_km": "0.0000",
+            "ambiguity_flags": "",
+            "ambiguity_note": "",
+        }
 
 
 if __name__ == "__main__":

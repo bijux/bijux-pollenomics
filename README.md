@@ -22,25 +22,35 @@
 [![pollenomics docs](https://img.shields.io/badge/docs-pollenomics-2563EB?logo=materialformkdocs&logoColor=white)](https://bijux.io/bijux-pollenomics/public/pollenomics/)
 <!-- bijux-pollenomics-badges:generated:end -->
 
-`bijux-pollenomics` rebuilds a checked-in pollenomics and environmental
-evidence repository with ancient DNA, archaeology, and atlas outputs as
-contextual layers. It collects tracked source data, normalizes it into
-reviewable files under `data/`, and publishes maps, country bundles, report
-surfaces, and documentation from that same repository state.
+`bijux-pollenomics` rebuilds one checked-in evidence repository into reviewable
+data files, report bundles, and public map surfaces. It collects tracked source
+data, normalizes it into governed files under `data/`, and publishes world,
+regional, and country outputs from that same repository state.
 
-The durable product model is explicit: `world` is the governing public surface,
-`Europe-plus` and `Nordic` are narrower filtered specializations, and country
-bundles are downstream descendants of that same governed evidence state. The
-repository is broader than the animal aDNA recovery slice, but it is not
-release-complete. Pollen, environmental, archaeological, boundary, and
-fieldwork context are already first-class. The animal aDNA sample extraction
-and atlas publication path is still under recovery. Animal sample extraction
-remains the hardest credibility bottleneck and is governed as such.
+The public model is one evidence system with several views. `world` is the
+broadest surface, `Europe-plus` and `Nordic` are narrower descendants, and the
+country bundles are local cuts through that same evidence tree. Pollen,
+environmental, archaeological, boundary, fieldwork, and human aDNA context are
+already strong public surfaces. Animal aDNA sample extraction is improving, but
+it is still the weakest part of the repository, and the docs keep that limit
+visible instead of pretending the atlas is more complete than it is.
 
 This repository publishes `2` packages. Each release tag builds one staged
 bundle, uploads the Python distribution to PyPI, publishes the release bundle
 to its exact GHCR package page under the `bijux` account, and attaches the
 same staged assets to the GitHub Release.
+
+## What You Can Do Today
+
+- inspect the world map and report portal to see the broadest public surface
+- move from Nordic and country views back to the tracked evidence files that
+  justify them
+- rebuild the checked-in `data/` and `docs/report/` state from repository
+  commands when you need a fresh local copy
+- inspect the Sweden lake ranking packet, fieldwork shortlist, and optional
+  Nordic atlas lake overlays
+- verify the repository locally without rewriting tracked outputs when your
+  goal is review rather than regeneration
 
 ## Start Here
 
@@ -48,10 +58,14 @@ same staged assets to the GitHub Release.
 - review the product guide: [Product guide](https://bijux.io/bijux-pollenomics/public/pollenomics/)
 - inspect the report portal: [`docs/report/index.md`](docs/report/index.md)
 - inspect the broadest public surface: [`docs/report/world/world_map.html`](docs/report/world/world_map.html)
+- inspect the Nordic atlas and Sweden lake overlay guide:
+  [`docs/public/nordic-atlas/index.md`](docs/public/nordic-atlas/index.md)
+- inspect the Sweden lake ranking explainer:
+  [`docs/public/nordic-atlas/sweden-lake-priorities/index.md`](docs/public/nordic-atlas/sweden-lake-priorities/index.md)
 - inspect the data system guide: [`docs/public/pollenomics-data/index.md`](docs/public/pollenomics-data/index.md)
 - inspect the end-state product model: [`docs/public/pollenomics/foundation/end-state-product-model.md`](docs/public/pollenomics/foundation/end-state-product-model.md)
-- inspect the release refusal surface: [`docs/report/repository_final_release_refusal.md`](docs/report/repository_final_release_refusal.md)
-- inspect the credibility dashboard: [`docs/report/repository_credibility_dashboard.md`](docs/report/repository_credibility_dashboard.md)
+- inspect the release-readiness caveats: [`docs/report/repository_final_release_refusal.md`](docs/report/repository_final_release_refusal.md)
+- inspect the evidence credibility dashboard: [`docs/report/repository_credibility_dashboard.md`](docs/report/repository_credibility_dashboard.md)
 - inspect repository maintenance rules: [`docs/internal/index.md`](docs/internal/index.md)
 
 ## What This Repository Produces
@@ -63,7 +77,21 @@ Today, the checked-in repository produces these durable outcomes:
 - governed world, Europe-plus, and Nordic map surfaces that share one publication contract
 - country bundles for Sweden, Norway, Finland, and Denmark that remain filtered descendants of the same broader evidence state
 - a MkDocs documentation site that builds into `artifacts/root/docs/site/`
-- maintainer truth surfaces that refuse final release language while animal recovery and SEAD comparability remain materially weaker than the rest of the product
+- maintainer-facing review surfaces that keep final-release claims blocked
+  while animal recovery and SEAD comparability remain materially weaker than
+  the rest of the product
+
+## Which Package To Install
+
+Choose the package by ownership, not by name length:
+
+- install `bijux-pollenomics` when you want the canonical runtime, CLI, and
+  Python entrypoints that own collection, normalization, reporting, and atlas
+  generation
+- install `pollenomics` when you want the shorter package name and CLI command
+  but still expect the same runtime behavior under the hood
+- use `bijux-pollenomics-dev` only for maintainer checks, docs integrity, and
+  release-support workflows inside this repository
 
 ## Package Map
 
@@ -85,9 +113,10 @@ What exists today:
 - boundaries, LandClim, Neotoma, SEAD, and RAÄ are collected into tracked `data/` subtrees
 - world, regional, and country report bundles are rebuilt from local commands and checked in
 - the maps are publication artifacts for inspection, not analysis engines
-- candidate-site ranking artifacts can be emitted from the checked-in atlas
-  context layers, but they remain heuristic atlas outputs rather than a
-  scientific scoring engine
+- Sweden lake ranking artifacts and shortlist overlays can be emitted from the
+  checked-in atlas context and published report packet, but they remain
+  decision-support outputs rather than a substitute for field verification or a
+  finished scientific scoring engine
 
 What does not exist today:
 
@@ -100,11 +129,11 @@ What does not exist today:
 
 ## Engine Direction
 
-The next durable step is to turn this checked-in evidence publisher into a real
-pollenomics runtime without fragmenting the current world-to-country publication
-model. That means keeping the current checked-in public surfaces while adding
-evidence-aware ranking, reproducible workflow stages, and explicit contracts
-for multi-evidence analysis.
+The next durable step is to keep the current checked-in publication system
+useful while expanding the evidence logic behind it. That means preserving the
+world-to-country publication model, strengthening sample-backed ancient-DNA
+recovery, and adding evidence-aware ranking stages without pretending the map
+surfaces are already a finished pollenomics engine.
 
 The repository is therefore moving in this order:
 
@@ -113,7 +142,7 @@ The repository is therefore moving in this order:
 - next, add workflow stages that can compare pollen, archaeological, and
   ancient-DNA context without collapsing their provenance differences
 - then, grow that workflow into the broader pollenomics engine needed for the
-  planned POLLENOMIC's paper series
+  planned POLLENOMIC paper series
 
 ## Working With Commands
 
@@ -131,7 +160,9 @@ State-changing targets:
 - `make reports` rewrites tracked publication outputs under `docs/report/`
 - `make app-state` runs the full rebuild path and rewrites tracked data, tracked reports, and the local docs build
 
-If your goal is only to validate the repository, stop at the verification targets and do not start with `make app-state`.
+If your goal is only to validate the repository, stop at the verification
+targets. Do not start with `make app-state` unless you intentionally want to
+rewrite tracked repository outputs.
 
 ## Quick Start
 
@@ -195,7 +226,9 @@ Treat the top-level paths by ownership and review expectations:
 - `Makefile` is the main local interface for verification, rebuilds, docs, and packaging
 - `pyproject.toml` and `uv.lock` define and lock the Python environment
 - `data/` contains tracked source snapshots, normalized outputs, and the collection manifest
-- `docs/report/` contains the public publication tree, including world, regional, country, review, caveat, and maintainer truth surfaces
+- `docs/report/` contains the public publication tree, including world,
+  regional, country, review, caveat, and maintainer-facing release-readiness
+  surfaces
 - `docs/` contains the canonical narrative and reference documentation that explains the checked-in outputs
 - `packages/bijux-pollenomics/src/` contains the CLI, collectors, and report publishing logic
 - `packages/bijux-pollenomics/tests/` contains unit, regression, and end-to-end coverage
@@ -218,7 +251,7 @@ The main checked-in publication artifacts are:
 - published report manifest: [`docs/report/published_reports_summary.json`](docs/report/published_reports_summary.json)
 - data collection manifest: [`data/collection_summary.json`](data/collection_summary.json)
 - country bundles under `docs/report/countries/`
-- release refusal surface: [`docs/report/repository_final_release_refusal.md`](docs/report/repository_final_release_refusal.md)
+- release-readiness caveats: [`docs/report/repository_final_release_refusal.md`](docs/report/repository_final_release_refusal.md)
 
 Important output limits:
 

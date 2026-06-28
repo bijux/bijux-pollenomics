@@ -4,14 +4,22 @@ All notable changes for `pollenomics` are recorded here.
 
 ## Unreleased
 
+## 0.1.7 - 2026-06-29
+
 ### Changed
 
+- The compatibility distribution now forwards the Sweden lake atlas and report
+  surfaces through the same runtime as `bijux-pollenomics`, keeping the shorter
+  package name aligned with the current release behavior.
 - Added explicit forwarding submodules for `command_line` and `reporting` so
   the compatibility distribution exposes durable import targets instead of
   relying only on package-level alias indirection.
 - Updated compatibility-package docs and contract coverage to describe the
   import boundary and the same pollenomics-first runtime behavior shipped by
   `bijux-pollenomics`.
+- Refined the compatibility-package README so users can tell when `pollenomics`
+  is the right install choice and when they should prefer the canonical
+  `bijux-pollenomics` runtime package.
 - Compatibility-package release verification now follows the refreshed
   repository tooling locks and shared-standards baseline used for current
   release preparation.
@@ -21,6 +29,8 @@ All notable changes for `pollenomics` are recorded here.
 - Kept the compatibility distribution aligned with the current package legal-file
   materialization contract used by release smoke installs and package build
   verification.
+- Clarified the compatibility contract so alias imports and CLI entrypoints are
+  documented as true forwarding surfaces, not migration-only guidance.
 
 ## 0.1.6 - 2026-04-21
 

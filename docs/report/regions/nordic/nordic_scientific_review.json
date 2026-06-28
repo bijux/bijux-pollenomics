@@ -821,6 +821,78 @@
       "rationale": "Human locality chronology can be compared directly with time-aware context points."
     },
     {
+      "species_latin_name": "Homo sapiens",
+      "context_layer_key": "sweden-lake-10km-top40",
+      "overlap_status": "locality_level_overlap_available",
+      "overlapping_direct_localities": 0,
+      "non_overlapping_direct_localities": 447,
+      "noncomparable_records": 0,
+      "rationale": "Human locality chronology can be compared directly with time-aware context points."
+    },
+    {
+      "species_latin_name": "Homo sapiens",
+      "context_layer_key": "sweden-lake-20km-top40",
+      "overlap_status": "locality_level_overlap_available",
+      "overlapping_direct_localities": 0,
+      "non_overlapping_direct_localities": 447,
+      "noncomparable_records": 0,
+      "rationale": "Human locality chronology can be compared directly with time-aware context points."
+    },
+    {
+      "species_latin_name": "Homo sapiens",
+      "context_layer_key": "sweden-lake-30km-top40",
+      "overlap_status": "locality_level_overlap_available",
+      "overlapping_direct_localities": 0,
+      "non_overlapping_direct_localities": 447,
+      "noncomparable_records": 0,
+      "rationale": "Human locality chronology can be compared directly with time-aware context points."
+    },
+    {
+      "species_latin_name": "Homo sapiens",
+      "context_layer_key": "sweden-lake-40km-top40",
+      "overlap_status": "locality_level_overlap_available",
+      "overlapping_direct_localities": 0,
+      "non_overlapping_direct_localities": 447,
+      "noncomparable_records": 0,
+      "rationale": "Human locality chronology can be compared directly with time-aware context points."
+    },
+    {
+      "species_latin_name": "Homo sapiens",
+      "context_layer_key": "sweden-lake-50km-top40",
+      "overlap_status": "locality_level_overlap_available",
+      "overlapping_direct_localities": 0,
+      "non_overlapping_direct_localities": 447,
+      "noncomparable_records": 0,
+      "rationale": "Human locality chronology can be compared directly with time-aware context points."
+    },
+    {
+      "species_latin_name": "Homo sapiens",
+      "context_layer_key": "sweden-lake-aggregate-top40",
+      "overlap_status": "locality_level_overlap_available",
+      "overlapping_direct_localities": 0,
+      "non_overlapping_direct_localities": 447,
+      "noncomparable_records": 0,
+      "rationale": "Human locality chronology can be compared directly with time-aware context points."
+    },
+    {
+      "species_latin_name": "Homo sapiens",
+      "context_layer_key": "sweden-lake-consensus-top40",
+      "overlap_status": "locality_level_overlap_available",
+      "overlapping_direct_localities": 0,
+      "non_overlapping_direct_localities": 447,
+      "noncomparable_records": 0,
+      "rationale": "Human locality chronology can be compared directly with time-aware context points."
+    },
+    {
+      "species_latin_name": "Homo sapiens",
+      "context_layer_key": "sweden-lake-fieldwork-shortlist",
+      "overlap_status": "locality_level_overlap_available",
+      "overlapping_direct_localities": 0,
+      "non_overlapping_direct_localities": 447,
+      "noncomparable_records": 0,
+      "rationale": "Human locality chronology can be compared directly with time-aware context points."
+    },
+    {
       "species_latin_name": "Anas platyrhynchos domesticus",
       "context_layer_key": "animal-equus-caballus",
       "overlap_status": "not_comparable_project_level_only",
@@ -859,6 +931,78 @@
     {
       "species_latin_name": "Anas platyrhynchos domesticus",
       "context_layer_key": "sead-sites",
+      "overlap_status": "not_comparable_project_level_only",
+      "overlapping_direct_localities": 0,
+      "non_overlapping_direct_localities": 0,
+      "noncomparable_records": 1,
+      "rationale": "Non-human chronology is still project-level and cannot be aligned to atlas localities honestly."
+    },
+    {
+      "species_latin_name": "Anas platyrhynchos domesticus",
+      "context_layer_key": "sweden-lake-10km-top40",
+      "overlap_status": "not_comparable_project_level_only",
+      "overlapping_direct_localities": 0,
+      "non_overlapping_direct_localities": 0,
+      "noncomparable_records": 1,
+      "rationale": "Non-human chronology is still project-level and cannot be aligned to atlas localities honestly."
+    },
+    {
+      "species_latin_name": "Anas platyrhynchos domesticus",
+      "context_layer_key": "sweden-lake-20km-top40",
+      "overlap_status": "not_comparable_project_level_only",
+      "overlapping_direct_localities": 0,
+      "non_overlapping_direct_localities": 0,
+      "noncomparable_records": 1,
+      "rationale": "Non-human chronology is still project-level and cannot be aligned to atlas localities honestly."
+    },
+    {
+      "species_latin_name": "Anas platyrhynchos domesticus",
+      "context_layer_key": "sweden-lake-30km-top40",
+      "overlap_status": "not_comparable_project_level_only",
+      "overlapping_direct_localities": 0,
+      "non_overlapping_direct_localities": 0,
+      "noncomparable_records": 1,
+      "rationale": "Non-human chronology is still project-level and cannot be aligned to atlas localities honestly."
+    },
+    {
+      "species_latin_name": "Anas platyrhynchos domesticus",
+      "context_layer_key": "sweden-lake-40km-top40",
+      "overlap_status": "not_comparable_project_level_only",
+      "overlapping_direct_localities": 0,
+      "non_overlapping_direct_localities": 0,
+      "noncomparable_records": 1,
+      "rationale": "Non-human chronology is still project-level and cannot be aligned to atlas localities honestly."
+    },
+    {
+      "species_latin_name": "Anas platyrhynchos domesticus",
+      "context_layer_key": "sweden-lake-50km-top40",
+      "overlap_status": "not_comparable_project_level_only",
+      "overlapping_direct_localities": 0,
+      "non_overlapping_direct_localities": 0,
+      "noncomparable_records": 1,
+      "rationale": "Non-human chronology is still project-level and cannot be aligned to atlas localities honestly."
+    },
+    {
+      "species_latin_name": "Anas platyrhynchos domesticus",
+      "context_layer_key": "sweden-lake-aggregate-top40",
+      "overlap_status": "not_comparable_project_level_only",
+      "overlapping_direct_localities": 0,
+      "non_overlapping_direct_localities": 0,
+      "noncomparable_records": 1,
+      "rationale": "Non-human chronology is still project-level and cannot be aligned to atlas localities honestly."
+    },
+    {
+      "species_latin_name": "Anas platyrhynchos domesticus",
+      "context_layer_key": "sweden-lake-consensus-top40",
+      "overlap_status": "not_comparable_project_level_only",
+      "overlapping_direct_localities": 0,
+      "non_overlapping_direct_localities": 0,
+      "noncomparable_records": 1,
+      "rationale": "Non-human chronology is still project-level and cannot be aligned to atlas localities honestly."
+    },
+    {
+      "species_latin_name": "Anas platyrhynchos domesticus",
+      "context_layer_key": "sweden-lake-fieldwork-shortlist",
       "overlap_status": "not_comparable_project_level_only",
       "overlapping_direct_localities": 0,
       "non_overlapping_direct_localities": 0,
@@ -911,6 +1055,78 @@
       "rationale": "Non-human chronology is still project-level and cannot be aligned to atlas localities honestly."
     },
     {
+      "species_latin_name": "Bos indicus",
+      "context_layer_key": "sweden-lake-10km-top40",
+      "overlap_status": "not_comparable_project_level_only",
+      "overlapping_direct_localities": 0,
+      "non_overlapping_direct_localities": 0,
+      "noncomparable_records": 1,
+      "rationale": "Non-human chronology is still project-level and cannot be aligned to atlas localities honestly."
+    },
+    {
+      "species_latin_name": "Bos indicus",
+      "context_layer_key": "sweden-lake-20km-top40",
+      "overlap_status": "not_comparable_project_level_only",
+      "overlapping_direct_localities": 0,
+      "non_overlapping_direct_localities": 0,
+      "noncomparable_records": 1,
+      "rationale": "Non-human chronology is still project-level and cannot be aligned to atlas localities honestly."
+    },
+    {
+      "species_latin_name": "Bos indicus",
+      "context_layer_key": "sweden-lake-30km-top40",
+      "overlap_status": "not_comparable_project_level_only",
+      "overlapping_direct_localities": 0,
+      "non_overlapping_direct_localities": 0,
+      "noncomparable_records": 1,
+      "rationale": "Non-human chronology is still project-level and cannot be aligned to atlas localities honestly."
+    },
+    {
+      "species_latin_name": "Bos indicus",
+      "context_layer_key": "sweden-lake-40km-top40",
+      "overlap_status": "not_comparable_project_level_only",
+      "overlapping_direct_localities": 0,
+      "non_overlapping_direct_localities": 0,
+      "noncomparable_records": 1,
+      "rationale": "Non-human chronology is still project-level and cannot be aligned to atlas localities honestly."
+    },
+    {
+      "species_latin_name": "Bos indicus",
+      "context_layer_key": "sweden-lake-50km-top40",
+      "overlap_status": "not_comparable_project_level_only",
+      "overlapping_direct_localities": 0,
+      "non_overlapping_direct_localities": 0,
+      "noncomparable_records": 1,
+      "rationale": "Non-human chronology is still project-level and cannot be aligned to atlas localities honestly."
+    },
+    {
+      "species_latin_name": "Bos indicus",
+      "context_layer_key": "sweden-lake-aggregate-top40",
+      "overlap_status": "not_comparable_project_level_only",
+      "overlapping_direct_localities": 0,
+      "non_overlapping_direct_localities": 0,
+      "noncomparable_records": 1,
+      "rationale": "Non-human chronology is still project-level and cannot be aligned to atlas localities honestly."
+    },
+    {
+      "species_latin_name": "Bos indicus",
+      "context_layer_key": "sweden-lake-consensus-top40",
+      "overlap_status": "not_comparable_project_level_only",
+      "overlapping_direct_localities": 0,
+      "non_overlapping_direct_localities": 0,
+      "noncomparable_records": 1,
+      "rationale": "Non-human chronology is still project-level and cannot be aligned to atlas localities honestly."
+    },
+    {
+      "species_latin_name": "Bos indicus",
+      "context_layer_key": "sweden-lake-fieldwork-shortlist",
+      "overlap_status": "not_comparable_project_level_only",
+      "overlapping_direct_localities": 0,
+      "non_overlapping_direct_localities": 0,
+      "noncomparable_records": 1,
+      "rationale": "Non-human chronology is still project-level and cannot be aligned to atlas localities honestly."
+    },
+    {
       "species_latin_name": "Bos taurus",
       "context_layer_key": "animal-equus-caballus",
       "overlap_status": "not_comparable_project_level_only",
@@ -949,6 +1165,78 @@
     {
       "species_latin_name": "Bos taurus",
       "context_layer_key": "sead-sites",
+      "overlap_status": "not_comparable_project_level_only",
+      "overlapping_direct_localities": 0,
+      "non_overlapping_direct_localities": 0,
+      "noncomparable_records": 1,
+      "rationale": "Non-human chronology is still project-level and cannot be aligned to atlas localities honestly."
+    },
+    {
+      "species_latin_name": "Bos taurus",
+      "context_layer_key": "sweden-lake-10km-top40",
+      "overlap_status": "not_comparable_project_level_only",
+      "overlapping_direct_localities": 0,
+      "non_overlapping_direct_localities": 0,
+      "noncomparable_records": 1,
+      "rationale": "Non-human chronology is still project-level and cannot be aligned to atlas localities honestly."
+    },
+    {
+      "species_latin_name": "Bos taurus",
+      "context_layer_key": "sweden-lake-20km-top40",
+      "overlap_status": "not_comparable_project_level_only",
+      "overlapping_direct_localities": 0,
+      "non_overlapping_direct_localities": 0,
+      "noncomparable_records": 1,
+      "rationale": "Non-human chronology is still project-level and cannot be aligned to atlas localities honestly."
+    },
+    {
+      "species_latin_name": "Bos taurus",
+      "context_layer_key": "sweden-lake-30km-top40",
+      "overlap_status": "not_comparable_project_level_only",
+      "overlapping_direct_localities": 0,
+      "non_overlapping_direct_localities": 0,
+      "noncomparable_records": 1,
+      "rationale": "Non-human chronology is still project-level and cannot be aligned to atlas localities honestly."
+    },
+    {
+      "species_latin_name": "Bos taurus",
+      "context_layer_key": "sweden-lake-40km-top40",
+      "overlap_status": "not_comparable_project_level_only",
+      "overlapping_direct_localities": 0,
+      "non_overlapping_direct_localities": 0,
+      "noncomparable_records": 1,
+      "rationale": "Non-human chronology is still project-level and cannot be aligned to atlas localities honestly."
+    },
+    {
+      "species_latin_name": "Bos taurus",
+      "context_layer_key": "sweden-lake-50km-top40",
+      "overlap_status": "not_comparable_project_level_only",
+      "overlapping_direct_localities": 0,
+      "non_overlapping_direct_localities": 0,
+      "noncomparable_records": 1,
+      "rationale": "Non-human chronology is still project-level and cannot be aligned to atlas localities honestly."
+    },
+    {
+      "species_latin_name": "Bos taurus",
+      "context_layer_key": "sweden-lake-aggregate-top40",
+      "overlap_status": "not_comparable_project_level_only",
+      "overlapping_direct_localities": 0,
+      "non_overlapping_direct_localities": 0,
+      "noncomparable_records": 1,
+      "rationale": "Non-human chronology is still project-level and cannot be aligned to atlas localities honestly."
+    },
+    {
+      "species_latin_name": "Bos taurus",
+      "context_layer_key": "sweden-lake-consensus-top40",
+      "overlap_status": "not_comparable_project_level_only",
+      "overlapping_direct_localities": 0,
+      "non_overlapping_direct_localities": 0,
+      "noncomparable_records": 1,
+      "rationale": "Non-human chronology is still project-level and cannot be aligned to atlas localities honestly."
+    },
+    {
+      "species_latin_name": "Bos taurus",
+      "context_layer_key": "sweden-lake-fieldwork-shortlist",
       "overlap_status": "not_comparable_project_level_only",
       "overlapping_direct_localities": 0,
       "non_overlapping_direct_localities": 0,
@@ -1001,6 +1289,78 @@
       "rationale": "Non-human chronology is still project-level and cannot be aligned to atlas localities honestly."
     },
     {
+      "species_latin_name": "Camelus dromedarius",
+      "context_layer_key": "sweden-lake-10km-top40",
+      "overlap_status": "not_comparable_project_level_only",
+      "overlapping_direct_localities": 0,
+      "non_overlapping_direct_localities": 0,
+      "noncomparable_records": 2,
+      "rationale": "Non-human chronology is still project-level and cannot be aligned to atlas localities honestly."
+    },
+    {
+      "species_latin_name": "Camelus dromedarius",
+      "context_layer_key": "sweden-lake-20km-top40",
+      "overlap_status": "not_comparable_project_level_only",
+      "overlapping_direct_localities": 0,
+      "non_overlapping_direct_localities": 0,
+      "noncomparable_records": 2,
+      "rationale": "Non-human chronology is still project-level and cannot be aligned to atlas localities honestly."
+    },
+    {
+      "species_latin_name": "Camelus dromedarius",
+      "context_layer_key": "sweden-lake-30km-top40",
+      "overlap_status": "not_comparable_project_level_only",
+      "overlapping_direct_localities": 0,
+      "non_overlapping_direct_localities": 0,
+      "noncomparable_records": 2,
+      "rationale": "Non-human chronology is still project-level and cannot be aligned to atlas localities honestly."
+    },
+    {
+      "species_latin_name": "Camelus dromedarius",
+      "context_layer_key": "sweden-lake-40km-top40",
+      "overlap_status": "not_comparable_project_level_only",
+      "overlapping_direct_localities": 0,
+      "non_overlapping_direct_localities": 0,
+      "noncomparable_records": 2,
+      "rationale": "Non-human chronology is still project-level and cannot be aligned to atlas localities honestly."
+    },
+    {
+      "species_latin_name": "Camelus dromedarius",
+      "context_layer_key": "sweden-lake-50km-top40",
+      "overlap_status": "not_comparable_project_level_only",
+      "overlapping_direct_localities": 0,
+      "non_overlapping_direct_localities": 0,
+      "noncomparable_records": 2,
+      "rationale": "Non-human chronology is still project-level and cannot be aligned to atlas localities honestly."
+    },
+    {
+      "species_latin_name": "Camelus dromedarius",
+      "context_layer_key": "sweden-lake-aggregate-top40",
+      "overlap_status": "not_comparable_project_level_only",
+      "overlapping_direct_localities": 0,
+      "non_overlapping_direct_localities": 0,
+      "noncomparable_records": 2,
+      "rationale": "Non-human chronology is still project-level and cannot be aligned to atlas localities honestly."
+    },
+    {
+      "species_latin_name": "Camelus dromedarius",
+      "context_layer_key": "sweden-lake-consensus-top40",
+      "overlap_status": "not_comparable_project_level_only",
+      "overlapping_direct_localities": 0,
+      "non_overlapping_direct_localities": 0,
+      "noncomparable_records": 2,
+      "rationale": "Non-human chronology is still project-level and cannot be aligned to atlas localities honestly."
+    },
+    {
+      "species_latin_name": "Camelus dromedarius",
+      "context_layer_key": "sweden-lake-fieldwork-shortlist",
+      "overlap_status": "not_comparable_project_level_only",
+      "overlapping_direct_localities": 0,
+      "non_overlapping_direct_localities": 0,
+      "noncomparable_records": 2,
+      "rationale": "Non-human chronology is still project-level and cannot be aligned to atlas localities honestly."
+    },
+    {
       "species_latin_name": "Canis lupus familiaris",
       "context_layer_key": "animal-equus-caballus",
       "overlap_status": "not_comparable_project_level_only",
@@ -1046,6 +1406,78 @@
       "rationale": "Non-human chronology is still project-level and cannot be aligned to atlas localities honestly."
     },
     {
+      "species_latin_name": "Canis lupus familiaris",
+      "context_layer_key": "sweden-lake-10km-top40",
+      "overlap_status": "not_comparable_project_level_only",
+      "overlapping_direct_localities": 0,
+      "non_overlapping_direct_localities": 0,
+      "noncomparable_records": 3,
+      "rationale": "Non-human chronology is still project-level and cannot be aligned to atlas localities honestly."
+    },
+    {
+      "species_latin_name": "Canis lupus familiaris",
+      "context_layer_key": "sweden-lake-20km-top40",
+      "overlap_status": "not_comparable_project_level_only",
+      "overlapping_direct_localities": 0,
+      "non_overlapping_direct_localities": 0,
+      "noncomparable_records": 3,
+      "rationale": "Non-human chronology is still project-level and cannot be aligned to atlas localities honestly."
+    },
+    {
+      "species_latin_name": "Canis lupus familiaris",
+      "context_layer_key": "sweden-lake-30km-top40",
+      "overlap_status": "not_comparable_project_level_only",
+      "overlapping_direct_localities": 0,
+      "non_overlapping_direct_localities": 0,
+      "noncomparable_records": 3,
+      "rationale": "Non-human chronology is still project-level and cannot be aligned to atlas localities honestly."
+    },
+    {
+      "species_latin_name": "Canis lupus familiaris",
+      "context_layer_key": "sweden-lake-40km-top40",
+      "overlap_status": "not_comparable_project_level_only",
+      "overlapping_direct_localities": 0,
+      "non_overlapping_direct_localities": 0,
+      "noncomparable_records": 3,
+      "rationale": "Non-human chronology is still project-level and cannot be aligned to atlas localities honestly."
+    },
+    {
+      "species_latin_name": "Canis lupus familiaris",
+      "context_layer_key": "sweden-lake-50km-top40",
+      "overlap_status": "not_comparable_project_level_only",
+      "overlapping_direct_localities": 0,
+      "non_overlapping_direct_localities": 0,
+      "noncomparable_records": 3,
+      "rationale": "Non-human chronology is still project-level and cannot be aligned to atlas localities honestly."
+    },
+    {
+      "species_latin_name": "Canis lupus familiaris",
+      "context_layer_key": "sweden-lake-aggregate-top40",
+      "overlap_status": "not_comparable_project_level_only",
+      "overlapping_direct_localities": 0,
+      "non_overlapping_direct_localities": 0,
+      "noncomparable_records": 3,
+      "rationale": "Non-human chronology is still project-level and cannot be aligned to atlas localities honestly."
+    },
+    {
+      "species_latin_name": "Canis lupus familiaris",
+      "context_layer_key": "sweden-lake-consensus-top40",
+      "overlap_status": "not_comparable_project_level_only",
+      "overlapping_direct_localities": 0,
+      "non_overlapping_direct_localities": 0,
+      "noncomparable_records": 3,
+      "rationale": "Non-human chronology is still project-level and cannot be aligned to atlas localities honestly."
+    },
+    {
+      "species_latin_name": "Canis lupus familiaris",
+      "context_layer_key": "sweden-lake-fieldwork-shortlist",
+      "overlap_status": "not_comparable_project_level_only",
+      "overlapping_direct_localities": 0,
+      "non_overlapping_direct_localities": 0,
+      "noncomparable_records": 3,
+      "rationale": "Non-human chronology is still project-level and cannot be aligned to atlas localities honestly."
+    },
+    {
       "species_latin_name": "Capra hircus",
       "context_layer_key": "animal-equus-caballus",
       "overlap_status": "not_comparable_project_level_only",
@@ -1091,6 +1523,78 @@
       "rationale": "Non-human chronology is still project-level and cannot be aligned to atlas localities honestly."
     },
     {
+      "species_latin_name": "Capra hircus",
+      "context_layer_key": "sweden-lake-10km-top40",
+      "overlap_status": "not_comparable_project_level_only",
+      "overlapping_direct_localities": 0,
+      "non_overlapping_direct_localities": 0,
+      "noncomparable_records": 3,
+      "rationale": "Non-human chronology is still project-level and cannot be aligned to atlas localities honestly."
+    },
+    {
+      "species_latin_name": "Capra hircus",
+      "context_layer_key": "sweden-lake-20km-top40",
+      "overlap_status": "not_comparable_project_level_only",
+      "overlapping_direct_localities": 0,
+      "non_overlapping_direct_localities": 0,
+      "noncomparable_records": 3,
+      "rationale": "Non-human chronology is still project-level and cannot be aligned to atlas localities honestly."
+    },
+    {
+      "species_latin_name": "Capra hircus",
+      "context_layer_key": "sweden-lake-30km-top40",
+      "overlap_status": "not_comparable_project_level_only",
+      "overlapping_direct_localities": 0,
+      "non_overlapping_direct_localities": 0,
+      "noncomparable_records": 3,
+      "rationale": "Non-human chronology is still project-level and cannot be aligned to atlas localities honestly."
+    },
+    {
+      "species_latin_name": "Capra hircus",
+      "context_layer_key": "sweden-lake-40km-top40",
+      "overlap_status": "not_comparable_project_level_only",
+      "overlapping_direct_localities": 0,
+      "non_overlapping_direct_localities": 0,
+      "noncomparable_records": 3,
+      "rationale": "Non-human chronology is still project-level and cannot be aligned to atlas localities honestly."
+    },
+    {
+      "species_latin_name": "Capra hircus",
+      "context_layer_key": "sweden-lake-50km-top40",
+      "overlap_status": "not_comparable_project_level_only",
+      "overlapping_direct_localities": 0,
+      "non_overlapping_direct_localities": 0,
+      "noncomparable_records": 3,
+      "rationale": "Non-human chronology is still project-level and cannot be aligned to atlas localities honestly."
+    },
+    {
+      "species_latin_name": "Capra hircus",
+      "context_layer_key": "sweden-lake-aggregate-top40",
+      "overlap_status": "not_comparable_project_level_only",
+      "overlapping_direct_localities": 0,
+      "non_overlapping_direct_localities": 0,
+      "noncomparable_records": 3,
+      "rationale": "Non-human chronology is still project-level and cannot be aligned to atlas localities honestly."
+    },
+    {
+      "species_latin_name": "Capra hircus",
+      "context_layer_key": "sweden-lake-consensus-top40",
+      "overlap_status": "not_comparable_project_level_only",
+      "overlapping_direct_localities": 0,
+      "non_overlapping_direct_localities": 0,
+      "noncomparable_records": 3,
+      "rationale": "Non-human chronology is still project-level and cannot be aligned to atlas localities honestly."
+    },
+    {
+      "species_latin_name": "Capra hircus",
+      "context_layer_key": "sweden-lake-fieldwork-shortlist",
+      "overlap_status": "not_comparable_project_level_only",
+      "overlapping_direct_localities": 0,
+      "non_overlapping_direct_localities": 0,
+      "noncomparable_records": 3,
+      "rationale": "Non-human chronology is still project-level and cannot be aligned to atlas localities honestly."
+    },
+    {
       "species_latin_name": "Equus asinus",
       "context_layer_key": "animal-equus-caballus",
       "overlap_status": "not_comparable_project_level_only",
@@ -1129,6 +1633,78 @@
     {
       "species_latin_name": "Equus asinus",
       "context_layer_key": "sead-sites",
+      "overlap_status": "not_comparable_project_level_only",
+      "overlapping_direct_localities": 0,
+      "non_overlapping_direct_localities": 0,
+      "noncomparable_records": 1,
+      "rationale": "Non-human chronology is still project-level and cannot be aligned to atlas localities honestly."
+    },
+    {
+      "species_latin_name": "Equus asinus",
+      "context_layer_key": "sweden-lake-10km-top40",
+      "overlap_status": "not_comparable_project_level_only",
+      "overlapping_direct_localities": 0,
+      "non_overlapping_direct_localities": 0,
+      "noncomparable_records": 1,
+      "rationale": "Non-human chronology is still project-level and cannot be aligned to atlas localities honestly."
+    },
+    {
+      "species_latin_name": "Equus asinus",
+      "context_layer_key": "sweden-lake-20km-top40",
+      "overlap_status": "not_comparable_project_level_only",
+      "overlapping_direct_localities": 0,
+      "non_overlapping_direct_localities": 0,
+      "noncomparable_records": 1,
+      "rationale": "Non-human chronology is still project-level and cannot be aligned to atlas localities honestly."
+    },
+    {
+      "species_latin_name": "Equus asinus",
+      "context_layer_key": "sweden-lake-30km-top40",
+      "overlap_status": "not_comparable_project_level_only",
+      "overlapping_direct_localities": 0,
+      "non_overlapping_direct_localities": 0,
+      "noncomparable_records": 1,
+      "rationale": "Non-human chronology is still project-level and cannot be aligned to atlas localities honestly."
+    },
+    {
+      "species_latin_name": "Equus asinus",
+      "context_layer_key": "sweden-lake-40km-top40",
+      "overlap_status": "not_comparable_project_level_only",
+      "overlapping_direct_localities": 0,
+      "non_overlapping_direct_localities": 0,
+      "noncomparable_records": 1,
+      "rationale": "Non-human chronology is still project-level and cannot be aligned to atlas localities honestly."
+    },
+    {
+      "species_latin_name": "Equus asinus",
+      "context_layer_key": "sweden-lake-50km-top40",
+      "overlap_status": "not_comparable_project_level_only",
+      "overlapping_direct_localities": 0,
+      "non_overlapping_direct_localities": 0,
+      "noncomparable_records": 1,
+      "rationale": "Non-human chronology is still project-level and cannot be aligned to atlas localities honestly."
+    },
+    {
+      "species_latin_name": "Equus asinus",
+      "context_layer_key": "sweden-lake-aggregate-top40",
+      "overlap_status": "not_comparable_project_level_only",
+      "overlapping_direct_localities": 0,
+      "non_overlapping_direct_localities": 0,
+      "noncomparable_records": 1,
+      "rationale": "Non-human chronology is still project-level and cannot be aligned to atlas localities honestly."
+    },
+    {
+      "species_latin_name": "Equus asinus",
+      "context_layer_key": "sweden-lake-consensus-top40",
+      "overlap_status": "not_comparable_project_level_only",
+      "overlapping_direct_localities": 0,
+      "non_overlapping_direct_localities": 0,
+      "noncomparable_records": 1,
+      "rationale": "Non-human chronology is still project-level and cannot be aligned to atlas localities honestly."
+    },
+    {
+      "species_latin_name": "Equus asinus",
+      "context_layer_key": "sweden-lake-fieldwork-shortlist",
       "overlap_status": "not_comparable_project_level_only",
       "overlapping_direct_localities": 0,
       "non_overlapping_direct_localities": 0,
@@ -1181,6 +1757,78 @@
       "rationale": "Mapped animal locality leads can be compared with context layers, but only with their stated chronology and precision caveats."
     },
     {
+      "species_latin_name": "Equus caballus",
+      "context_layer_key": "sweden-lake-10km-top40",
+      "overlap_status": "mapped_locality_overlap_with_caution",
+      "overlapping_direct_localities": 0,
+      "non_overlapping_direct_localities": 2,
+      "noncomparable_records": 0,
+      "rationale": "Mapped animal locality leads can be compared with context layers, but only with their stated chronology and precision caveats."
+    },
+    {
+      "species_latin_name": "Equus caballus",
+      "context_layer_key": "sweden-lake-20km-top40",
+      "overlap_status": "mapped_locality_overlap_with_caution",
+      "overlapping_direct_localities": 0,
+      "non_overlapping_direct_localities": 2,
+      "noncomparable_records": 0,
+      "rationale": "Mapped animal locality leads can be compared with context layers, but only with their stated chronology and precision caveats."
+    },
+    {
+      "species_latin_name": "Equus caballus",
+      "context_layer_key": "sweden-lake-30km-top40",
+      "overlap_status": "mapped_locality_overlap_with_caution",
+      "overlapping_direct_localities": 0,
+      "non_overlapping_direct_localities": 2,
+      "noncomparable_records": 0,
+      "rationale": "Mapped animal locality leads can be compared with context layers, but only with their stated chronology and precision caveats."
+    },
+    {
+      "species_latin_name": "Equus caballus",
+      "context_layer_key": "sweden-lake-40km-top40",
+      "overlap_status": "mapped_locality_overlap_with_caution",
+      "overlapping_direct_localities": 0,
+      "non_overlapping_direct_localities": 2,
+      "noncomparable_records": 0,
+      "rationale": "Mapped animal locality leads can be compared with context layers, but only with their stated chronology and precision caveats."
+    },
+    {
+      "species_latin_name": "Equus caballus",
+      "context_layer_key": "sweden-lake-50km-top40",
+      "overlap_status": "mapped_locality_overlap_with_caution",
+      "overlapping_direct_localities": 0,
+      "non_overlapping_direct_localities": 2,
+      "noncomparable_records": 0,
+      "rationale": "Mapped animal locality leads can be compared with context layers, but only with their stated chronology and precision caveats."
+    },
+    {
+      "species_latin_name": "Equus caballus",
+      "context_layer_key": "sweden-lake-aggregate-top40",
+      "overlap_status": "mapped_locality_overlap_with_caution",
+      "overlapping_direct_localities": 0,
+      "non_overlapping_direct_localities": 2,
+      "noncomparable_records": 0,
+      "rationale": "Mapped animal locality leads can be compared with context layers, but only with their stated chronology and precision caveats."
+    },
+    {
+      "species_latin_name": "Equus caballus",
+      "context_layer_key": "sweden-lake-consensus-top40",
+      "overlap_status": "mapped_locality_overlap_with_caution",
+      "overlapping_direct_localities": 0,
+      "non_overlapping_direct_localities": 2,
+      "noncomparable_records": 0,
+      "rationale": "Mapped animal locality leads can be compared with context layers, but only with their stated chronology and precision caveats."
+    },
+    {
+      "species_latin_name": "Equus caballus",
+      "context_layer_key": "sweden-lake-fieldwork-shortlist",
+      "overlap_status": "mapped_locality_overlap_with_caution",
+      "overlapping_direct_localities": 0,
+      "non_overlapping_direct_localities": 2,
+      "noncomparable_records": 0,
+      "rationale": "Mapped animal locality leads can be compared with context layers, but only with their stated chronology and precision caveats."
+    },
+    {
       "species_latin_name": "Felis catus",
       "context_layer_key": "animal-equus-caballus",
       "overlap_status": "not_comparable_project_level_only",
@@ -1219,6 +1867,78 @@
     {
       "species_latin_name": "Felis catus",
       "context_layer_key": "sead-sites",
+      "overlap_status": "not_comparable_project_level_only",
+      "overlapping_direct_localities": 0,
+      "non_overlapping_direct_localities": 0,
+      "noncomparable_records": 2,
+      "rationale": "Non-human chronology is still project-level and cannot be aligned to atlas localities honestly."
+    },
+    {
+      "species_latin_name": "Felis catus",
+      "context_layer_key": "sweden-lake-10km-top40",
+      "overlap_status": "not_comparable_project_level_only",
+      "overlapping_direct_localities": 0,
+      "non_overlapping_direct_localities": 0,
+      "noncomparable_records": 2,
+      "rationale": "Non-human chronology is still project-level and cannot be aligned to atlas localities honestly."
+    },
+    {
+      "species_latin_name": "Felis catus",
+      "context_layer_key": "sweden-lake-20km-top40",
+      "overlap_status": "not_comparable_project_level_only",
+      "overlapping_direct_localities": 0,
+      "non_overlapping_direct_localities": 0,
+      "noncomparable_records": 2,
+      "rationale": "Non-human chronology is still project-level and cannot be aligned to atlas localities honestly."
+    },
+    {
+      "species_latin_name": "Felis catus",
+      "context_layer_key": "sweden-lake-30km-top40",
+      "overlap_status": "not_comparable_project_level_only",
+      "overlapping_direct_localities": 0,
+      "non_overlapping_direct_localities": 0,
+      "noncomparable_records": 2,
+      "rationale": "Non-human chronology is still project-level and cannot be aligned to atlas localities honestly."
+    },
+    {
+      "species_latin_name": "Felis catus",
+      "context_layer_key": "sweden-lake-40km-top40",
+      "overlap_status": "not_comparable_project_level_only",
+      "overlapping_direct_localities": 0,
+      "non_overlapping_direct_localities": 0,
+      "noncomparable_records": 2,
+      "rationale": "Non-human chronology is still project-level and cannot be aligned to atlas localities honestly."
+    },
+    {
+      "species_latin_name": "Felis catus",
+      "context_layer_key": "sweden-lake-50km-top40",
+      "overlap_status": "not_comparable_project_level_only",
+      "overlapping_direct_localities": 0,
+      "non_overlapping_direct_localities": 0,
+      "noncomparable_records": 2,
+      "rationale": "Non-human chronology is still project-level and cannot be aligned to atlas localities honestly."
+    },
+    {
+      "species_latin_name": "Felis catus",
+      "context_layer_key": "sweden-lake-aggregate-top40",
+      "overlap_status": "not_comparable_project_level_only",
+      "overlapping_direct_localities": 0,
+      "non_overlapping_direct_localities": 0,
+      "noncomparable_records": 2,
+      "rationale": "Non-human chronology is still project-level and cannot be aligned to atlas localities honestly."
+    },
+    {
+      "species_latin_name": "Felis catus",
+      "context_layer_key": "sweden-lake-consensus-top40",
+      "overlap_status": "not_comparable_project_level_only",
+      "overlapping_direct_localities": 0,
+      "non_overlapping_direct_localities": 0,
+      "noncomparable_records": 2,
+      "rationale": "Non-human chronology is still project-level and cannot be aligned to atlas localities honestly."
+    },
+    {
+      "species_latin_name": "Felis catus",
+      "context_layer_key": "sweden-lake-fieldwork-shortlist",
       "overlap_status": "not_comparable_project_level_only",
       "overlapping_direct_localities": 0,
       "non_overlapping_direct_localities": 0,
@@ -1271,6 +1991,78 @@
       "rationale": "Non-human chronology is still project-level and cannot be aligned to atlas localities honestly."
     },
     {
+      "species_latin_name": "Gallus gallus domesticus",
+      "context_layer_key": "sweden-lake-10km-top40",
+      "overlap_status": "not_comparable_project_level_only",
+      "overlapping_direct_localities": 0,
+      "non_overlapping_direct_localities": 0,
+      "noncomparable_records": 1,
+      "rationale": "Non-human chronology is still project-level and cannot be aligned to atlas localities honestly."
+    },
+    {
+      "species_latin_name": "Gallus gallus domesticus",
+      "context_layer_key": "sweden-lake-20km-top40",
+      "overlap_status": "not_comparable_project_level_only",
+      "overlapping_direct_localities": 0,
+      "non_overlapping_direct_localities": 0,
+      "noncomparable_records": 1,
+      "rationale": "Non-human chronology is still project-level and cannot be aligned to atlas localities honestly."
+    },
+    {
+      "species_latin_name": "Gallus gallus domesticus",
+      "context_layer_key": "sweden-lake-30km-top40",
+      "overlap_status": "not_comparable_project_level_only",
+      "overlapping_direct_localities": 0,
+      "non_overlapping_direct_localities": 0,
+      "noncomparable_records": 1,
+      "rationale": "Non-human chronology is still project-level and cannot be aligned to atlas localities honestly."
+    },
+    {
+      "species_latin_name": "Gallus gallus domesticus",
+      "context_layer_key": "sweden-lake-40km-top40",
+      "overlap_status": "not_comparable_project_level_only",
+      "overlapping_direct_localities": 0,
+      "non_overlapping_direct_localities": 0,
+      "noncomparable_records": 1,
+      "rationale": "Non-human chronology is still project-level and cannot be aligned to atlas localities honestly."
+    },
+    {
+      "species_latin_name": "Gallus gallus domesticus",
+      "context_layer_key": "sweden-lake-50km-top40",
+      "overlap_status": "not_comparable_project_level_only",
+      "overlapping_direct_localities": 0,
+      "non_overlapping_direct_localities": 0,
+      "noncomparable_records": 1,
+      "rationale": "Non-human chronology is still project-level and cannot be aligned to atlas localities honestly."
+    },
+    {
+      "species_latin_name": "Gallus gallus domesticus",
+      "context_layer_key": "sweden-lake-aggregate-top40",
+      "overlap_status": "not_comparable_project_level_only",
+      "overlapping_direct_localities": 0,
+      "non_overlapping_direct_localities": 0,
+      "noncomparable_records": 1,
+      "rationale": "Non-human chronology is still project-level and cannot be aligned to atlas localities honestly."
+    },
+    {
+      "species_latin_name": "Gallus gallus domesticus",
+      "context_layer_key": "sweden-lake-consensus-top40",
+      "overlap_status": "not_comparable_project_level_only",
+      "overlapping_direct_localities": 0,
+      "non_overlapping_direct_localities": 0,
+      "noncomparable_records": 1,
+      "rationale": "Non-human chronology is still project-level and cannot be aligned to atlas localities honestly."
+    },
+    {
+      "species_latin_name": "Gallus gallus domesticus",
+      "context_layer_key": "sweden-lake-fieldwork-shortlist",
+      "overlap_status": "not_comparable_project_level_only",
+      "overlapping_direct_localities": 0,
+      "non_overlapping_direct_localities": 0,
+      "noncomparable_records": 1,
+      "rationale": "Non-human chronology is still project-level and cannot be aligned to atlas localities honestly."
+    },
+    {
       "species_latin_name": "Meleagris gallopavo",
       "context_layer_key": "animal-equus-caballus",
       "overlap_status": "not_comparable_project_level_only",
@@ -1309,6 +2101,78 @@
     {
       "species_latin_name": "Meleagris gallopavo",
       "context_layer_key": "sead-sites",
+      "overlap_status": "not_comparable_project_level_only",
+      "overlapping_direct_localities": 0,
+      "non_overlapping_direct_localities": 0,
+      "noncomparable_records": 1,
+      "rationale": "Non-human chronology is still project-level and cannot be aligned to atlas localities honestly."
+    },
+    {
+      "species_latin_name": "Meleagris gallopavo",
+      "context_layer_key": "sweden-lake-10km-top40",
+      "overlap_status": "not_comparable_project_level_only",
+      "overlapping_direct_localities": 0,
+      "non_overlapping_direct_localities": 0,
+      "noncomparable_records": 1,
+      "rationale": "Non-human chronology is still project-level and cannot be aligned to atlas localities honestly."
+    },
+    {
+      "species_latin_name": "Meleagris gallopavo",
+      "context_layer_key": "sweden-lake-20km-top40",
+      "overlap_status": "not_comparable_project_level_only",
+      "overlapping_direct_localities": 0,
+      "non_overlapping_direct_localities": 0,
+      "noncomparable_records": 1,
+      "rationale": "Non-human chronology is still project-level and cannot be aligned to atlas localities honestly."
+    },
+    {
+      "species_latin_name": "Meleagris gallopavo",
+      "context_layer_key": "sweden-lake-30km-top40",
+      "overlap_status": "not_comparable_project_level_only",
+      "overlapping_direct_localities": 0,
+      "non_overlapping_direct_localities": 0,
+      "noncomparable_records": 1,
+      "rationale": "Non-human chronology is still project-level and cannot be aligned to atlas localities honestly."
+    },
+    {
+      "species_latin_name": "Meleagris gallopavo",
+      "context_layer_key": "sweden-lake-40km-top40",
+      "overlap_status": "not_comparable_project_level_only",
+      "overlapping_direct_localities": 0,
+      "non_overlapping_direct_localities": 0,
+      "noncomparable_records": 1,
+      "rationale": "Non-human chronology is still project-level and cannot be aligned to atlas localities honestly."
+    },
+    {
+      "species_latin_name": "Meleagris gallopavo",
+      "context_layer_key": "sweden-lake-50km-top40",
+      "overlap_status": "not_comparable_project_level_only",
+      "overlapping_direct_localities": 0,
+      "non_overlapping_direct_localities": 0,
+      "noncomparable_records": 1,
+      "rationale": "Non-human chronology is still project-level and cannot be aligned to atlas localities honestly."
+    },
+    {
+      "species_latin_name": "Meleagris gallopavo",
+      "context_layer_key": "sweden-lake-aggregate-top40",
+      "overlap_status": "not_comparable_project_level_only",
+      "overlapping_direct_localities": 0,
+      "non_overlapping_direct_localities": 0,
+      "noncomparable_records": 1,
+      "rationale": "Non-human chronology is still project-level and cannot be aligned to atlas localities honestly."
+    },
+    {
+      "species_latin_name": "Meleagris gallopavo",
+      "context_layer_key": "sweden-lake-consensus-top40",
+      "overlap_status": "not_comparable_project_level_only",
+      "overlapping_direct_localities": 0,
+      "non_overlapping_direct_localities": 0,
+      "noncomparable_records": 1,
+      "rationale": "Non-human chronology is still project-level and cannot be aligned to atlas localities honestly."
+    },
+    {
+      "species_latin_name": "Meleagris gallopavo",
+      "context_layer_key": "sweden-lake-fieldwork-shortlist",
       "overlap_status": "not_comparable_project_level_only",
       "overlapping_direct_localities": 0,
       "non_overlapping_direct_localities": 0,
@@ -1361,6 +2225,78 @@
       "rationale": "Non-human chronology is still project-level and cannot be aligned to atlas localities honestly."
     },
     {
+      "species_latin_name": "Oryctolagus cuniculus",
+      "context_layer_key": "sweden-lake-10km-top40",
+      "overlap_status": "not_comparable_project_level_only",
+      "overlapping_direct_localities": 0,
+      "non_overlapping_direct_localities": 0,
+      "noncomparable_records": 1,
+      "rationale": "Non-human chronology is still project-level and cannot be aligned to atlas localities honestly."
+    },
+    {
+      "species_latin_name": "Oryctolagus cuniculus",
+      "context_layer_key": "sweden-lake-20km-top40",
+      "overlap_status": "not_comparable_project_level_only",
+      "overlapping_direct_localities": 0,
+      "non_overlapping_direct_localities": 0,
+      "noncomparable_records": 1,
+      "rationale": "Non-human chronology is still project-level and cannot be aligned to atlas localities honestly."
+    },
+    {
+      "species_latin_name": "Oryctolagus cuniculus",
+      "context_layer_key": "sweden-lake-30km-top40",
+      "overlap_status": "not_comparable_project_level_only",
+      "overlapping_direct_localities": 0,
+      "non_overlapping_direct_localities": 0,
+      "noncomparable_records": 1,
+      "rationale": "Non-human chronology is still project-level and cannot be aligned to atlas localities honestly."
+    },
+    {
+      "species_latin_name": "Oryctolagus cuniculus",
+      "context_layer_key": "sweden-lake-40km-top40",
+      "overlap_status": "not_comparable_project_level_only",
+      "overlapping_direct_localities": 0,
+      "non_overlapping_direct_localities": 0,
+      "noncomparable_records": 1,
+      "rationale": "Non-human chronology is still project-level and cannot be aligned to atlas localities honestly."
+    },
+    {
+      "species_latin_name": "Oryctolagus cuniculus",
+      "context_layer_key": "sweden-lake-50km-top40",
+      "overlap_status": "not_comparable_project_level_only",
+      "overlapping_direct_localities": 0,
+      "non_overlapping_direct_localities": 0,
+      "noncomparable_records": 1,
+      "rationale": "Non-human chronology is still project-level and cannot be aligned to atlas localities honestly."
+    },
+    {
+      "species_latin_name": "Oryctolagus cuniculus",
+      "context_layer_key": "sweden-lake-aggregate-top40",
+      "overlap_status": "not_comparable_project_level_only",
+      "overlapping_direct_localities": 0,
+      "non_overlapping_direct_localities": 0,
+      "noncomparable_records": 1,
+      "rationale": "Non-human chronology is still project-level and cannot be aligned to atlas localities honestly."
+    },
+    {
+      "species_latin_name": "Oryctolagus cuniculus",
+      "context_layer_key": "sweden-lake-consensus-top40",
+      "overlap_status": "not_comparable_project_level_only",
+      "overlapping_direct_localities": 0,
+      "non_overlapping_direct_localities": 0,
+      "noncomparable_records": 1,
+      "rationale": "Non-human chronology is still project-level and cannot be aligned to atlas localities honestly."
+    },
+    {
+      "species_latin_name": "Oryctolagus cuniculus",
+      "context_layer_key": "sweden-lake-fieldwork-shortlist",
+      "overlap_status": "not_comparable_project_level_only",
+      "overlapping_direct_localities": 0,
+      "non_overlapping_direct_localities": 0,
+      "noncomparable_records": 1,
+      "rationale": "Non-human chronology is still project-level and cannot be aligned to atlas localities honestly."
+    },
+    {
       "species_latin_name": "Ovis aries",
       "context_layer_key": "animal-equus-caballus",
       "overlap_status": "not_comparable_project_level_only",
@@ -1406,6 +2342,78 @@
       "rationale": "Non-human chronology is still project-level and cannot be aligned to atlas localities honestly."
     },
     {
+      "species_latin_name": "Ovis aries",
+      "context_layer_key": "sweden-lake-10km-top40",
+      "overlap_status": "not_comparable_project_level_only",
+      "overlapping_direct_localities": 0,
+      "non_overlapping_direct_localities": 0,
+      "noncomparable_records": 3,
+      "rationale": "Non-human chronology is still project-level and cannot be aligned to atlas localities honestly."
+    },
+    {
+      "species_latin_name": "Ovis aries",
+      "context_layer_key": "sweden-lake-20km-top40",
+      "overlap_status": "not_comparable_project_level_only",
+      "overlapping_direct_localities": 0,
+      "non_overlapping_direct_localities": 0,
+      "noncomparable_records": 3,
+      "rationale": "Non-human chronology is still project-level and cannot be aligned to atlas localities honestly."
+    },
+    {
+      "species_latin_name": "Ovis aries",
+      "context_layer_key": "sweden-lake-30km-top40",
+      "overlap_status": "not_comparable_project_level_only",
+      "overlapping_direct_localities": 0,
+      "non_overlapping_direct_localities": 0,
+      "noncomparable_records": 3,
+      "rationale": "Non-human chronology is still project-level and cannot be aligned to atlas localities honestly."
+    },
+    {
+      "species_latin_name": "Ovis aries",
+      "context_layer_key": "sweden-lake-40km-top40",
+      "overlap_status": "not_comparable_project_level_only",
+      "overlapping_direct_localities": 0,
+      "non_overlapping_direct_localities": 0,
+      "noncomparable_records": 3,
+      "rationale": "Non-human chronology is still project-level and cannot be aligned to atlas localities honestly."
+    },
+    {
+      "species_latin_name": "Ovis aries",
+      "context_layer_key": "sweden-lake-50km-top40",
+      "overlap_status": "not_comparable_project_level_only",
+      "overlapping_direct_localities": 0,
+      "non_overlapping_direct_localities": 0,
+      "noncomparable_records": 3,
+      "rationale": "Non-human chronology is still project-level and cannot be aligned to atlas localities honestly."
+    },
+    {
+      "species_latin_name": "Ovis aries",
+      "context_layer_key": "sweden-lake-aggregate-top40",
+      "overlap_status": "not_comparable_project_level_only",
+      "overlapping_direct_localities": 0,
+      "non_overlapping_direct_localities": 0,
+      "noncomparable_records": 3,
+      "rationale": "Non-human chronology is still project-level and cannot be aligned to atlas localities honestly."
+    },
+    {
+      "species_latin_name": "Ovis aries",
+      "context_layer_key": "sweden-lake-consensus-top40",
+      "overlap_status": "not_comparable_project_level_only",
+      "overlapping_direct_localities": 0,
+      "non_overlapping_direct_localities": 0,
+      "noncomparable_records": 3,
+      "rationale": "Non-human chronology is still project-level and cannot be aligned to atlas localities honestly."
+    },
+    {
+      "species_latin_name": "Ovis aries",
+      "context_layer_key": "sweden-lake-fieldwork-shortlist",
+      "overlap_status": "not_comparable_project_level_only",
+      "overlapping_direct_localities": 0,
+      "non_overlapping_direct_localities": 0,
+      "noncomparable_records": 3,
+      "rationale": "Non-human chronology is still project-level and cannot be aligned to atlas localities honestly."
+    },
+    {
       "species_latin_name": "Rangifer tarandus",
       "context_layer_key": "animal-equus-caballus",
       "overlap_status": "not_comparable_project_level_only",
@@ -1451,6 +2459,78 @@
       "rationale": "Non-human chronology is still project-level and cannot be aligned to atlas localities honestly."
     },
     {
+      "species_latin_name": "Rangifer tarandus",
+      "context_layer_key": "sweden-lake-10km-top40",
+      "overlap_status": "not_comparable_project_level_only",
+      "overlapping_direct_localities": 0,
+      "non_overlapping_direct_localities": 0,
+      "noncomparable_records": 1,
+      "rationale": "Non-human chronology is still project-level and cannot be aligned to atlas localities honestly."
+    },
+    {
+      "species_latin_name": "Rangifer tarandus",
+      "context_layer_key": "sweden-lake-20km-top40",
+      "overlap_status": "not_comparable_project_level_only",
+      "overlapping_direct_localities": 0,
+      "non_overlapping_direct_localities": 0,
+      "noncomparable_records": 1,
+      "rationale": "Non-human chronology is still project-level and cannot be aligned to atlas localities honestly."
+    },
+    {
+      "species_latin_name": "Rangifer tarandus",
+      "context_layer_key": "sweden-lake-30km-top40",
+      "overlap_status": "not_comparable_project_level_only",
+      "overlapping_direct_localities": 0,
+      "non_overlapping_direct_localities": 0,
+      "noncomparable_records": 1,
+      "rationale": "Non-human chronology is still project-level and cannot be aligned to atlas localities honestly."
+    },
+    {
+      "species_latin_name": "Rangifer tarandus",
+      "context_layer_key": "sweden-lake-40km-top40",
+      "overlap_status": "not_comparable_project_level_only",
+      "overlapping_direct_localities": 0,
+      "non_overlapping_direct_localities": 0,
+      "noncomparable_records": 1,
+      "rationale": "Non-human chronology is still project-level and cannot be aligned to atlas localities honestly."
+    },
+    {
+      "species_latin_name": "Rangifer tarandus",
+      "context_layer_key": "sweden-lake-50km-top40",
+      "overlap_status": "not_comparable_project_level_only",
+      "overlapping_direct_localities": 0,
+      "non_overlapping_direct_localities": 0,
+      "noncomparable_records": 1,
+      "rationale": "Non-human chronology is still project-level and cannot be aligned to atlas localities honestly."
+    },
+    {
+      "species_latin_name": "Rangifer tarandus",
+      "context_layer_key": "sweden-lake-aggregate-top40",
+      "overlap_status": "not_comparable_project_level_only",
+      "overlapping_direct_localities": 0,
+      "non_overlapping_direct_localities": 0,
+      "noncomparable_records": 1,
+      "rationale": "Non-human chronology is still project-level and cannot be aligned to atlas localities honestly."
+    },
+    {
+      "species_latin_name": "Rangifer tarandus",
+      "context_layer_key": "sweden-lake-consensus-top40",
+      "overlap_status": "not_comparable_project_level_only",
+      "overlapping_direct_localities": 0,
+      "non_overlapping_direct_localities": 0,
+      "noncomparable_records": 1,
+      "rationale": "Non-human chronology is still project-level and cannot be aligned to atlas localities honestly."
+    },
+    {
+      "species_latin_name": "Rangifer tarandus",
+      "context_layer_key": "sweden-lake-fieldwork-shortlist",
+      "overlap_status": "not_comparable_project_level_only",
+      "overlapping_direct_localities": 0,
+      "non_overlapping_direct_localities": 0,
+      "noncomparable_records": 1,
+      "rationale": "Non-human chronology is still project-level and cannot be aligned to atlas localities honestly."
+    },
+    {
       "species_latin_name": "Sus scrofa domesticus",
       "context_layer_key": "animal-equus-caballus",
       "overlap_status": "not_comparable_project_level_only",
@@ -1489,6 +2569,78 @@
     {
       "species_latin_name": "Sus scrofa domesticus",
       "context_layer_key": "sead-sites",
+      "overlap_status": "not_comparable_project_level_only",
+      "overlapping_direct_localities": 0,
+      "non_overlapping_direct_localities": 0,
+      "noncomparable_records": 1,
+      "rationale": "Non-human chronology is still project-level and cannot be aligned to atlas localities honestly."
+    },
+    {
+      "species_latin_name": "Sus scrofa domesticus",
+      "context_layer_key": "sweden-lake-10km-top40",
+      "overlap_status": "not_comparable_project_level_only",
+      "overlapping_direct_localities": 0,
+      "non_overlapping_direct_localities": 0,
+      "noncomparable_records": 1,
+      "rationale": "Non-human chronology is still project-level and cannot be aligned to atlas localities honestly."
+    },
+    {
+      "species_latin_name": "Sus scrofa domesticus",
+      "context_layer_key": "sweden-lake-20km-top40",
+      "overlap_status": "not_comparable_project_level_only",
+      "overlapping_direct_localities": 0,
+      "non_overlapping_direct_localities": 0,
+      "noncomparable_records": 1,
+      "rationale": "Non-human chronology is still project-level and cannot be aligned to atlas localities honestly."
+    },
+    {
+      "species_latin_name": "Sus scrofa domesticus",
+      "context_layer_key": "sweden-lake-30km-top40",
+      "overlap_status": "not_comparable_project_level_only",
+      "overlapping_direct_localities": 0,
+      "non_overlapping_direct_localities": 0,
+      "noncomparable_records": 1,
+      "rationale": "Non-human chronology is still project-level and cannot be aligned to atlas localities honestly."
+    },
+    {
+      "species_latin_name": "Sus scrofa domesticus",
+      "context_layer_key": "sweden-lake-40km-top40",
+      "overlap_status": "not_comparable_project_level_only",
+      "overlapping_direct_localities": 0,
+      "non_overlapping_direct_localities": 0,
+      "noncomparable_records": 1,
+      "rationale": "Non-human chronology is still project-level and cannot be aligned to atlas localities honestly."
+    },
+    {
+      "species_latin_name": "Sus scrofa domesticus",
+      "context_layer_key": "sweden-lake-50km-top40",
+      "overlap_status": "not_comparable_project_level_only",
+      "overlapping_direct_localities": 0,
+      "non_overlapping_direct_localities": 0,
+      "noncomparable_records": 1,
+      "rationale": "Non-human chronology is still project-level and cannot be aligned to atlas localities honestly."
+    },
+    {
+      "species_latin_name": "Sus scrofa domesticus",
+      "context_layer_key": "sweden-lake-aggregate-top40",
+      "overlap_status": "not_comparable_project_level_only",
+      "overlapping_direct_localities": 0,
+      "non_overlapping_direct_localities": 0,
+      "noncomparable_records": 1,
+      "rationale": "Non-human chronology is still project-level and cannot be aligned to atlas localities honestly."
+    },
+    {
+      "species_latin_name": "Sus scrofa domesticus",
+      "context_layer_key": "sweden-lake-consensus-top40",
+      "overlap_status": "not_comparable_project_level_only",
+      "overlapping_direct_localities": 0,
+      "non_overlapping_direct_localities": 0,
+      "noncomparable_records": 1,
+      "rationale": "Non-human chronology is still project-level and cannot be aligned to atlas localities honestly."
+    },
+    {
+      "species_latin_name": "Sus scrofa domesticus",
+      "context_layer_key": "sweden-lake-fieldwork-shortlist",
       "overlap_status": "not_comparable_project_level_only",
       "overlapping_direct_localities": 0,
       "non_overlapping_direct_localities": 0,
