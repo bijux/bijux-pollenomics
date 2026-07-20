@@ -11,7 +11,7 @@
     "@redocly/cli": "^2.37.0"
   },
   "overrides": {
-    "axios": "^1.16.0",
+    "axios": "^1.18.1",
     "basic-ftp": "^5.3.1",
     "brace-expansion": "^5.0.6",
     "fast-uri": "^3.1.2",
