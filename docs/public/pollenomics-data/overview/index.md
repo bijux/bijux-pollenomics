@@ -157,6 +157,8 @@ impossible to trace back to the physical or analytical unit.
 | Which evidence dimensions are strong, contextual, or incomplete? | [Cross-domain evidence matrix](cross-domain-evidence-matrix.md) |
 | Why does animal aDNA require project- and sample-level recovery? | [Animal ancient-DNA evidence](animal-ancient-dna-evidence.md) |
 | Where do the governing artifacts live? | [Data directory layout](data-directory-layout.md) |
+| How are claims admitted, qualified, or refused? | [Evidence curation](../curation/index.md) |
+| How are conflicts and missing support recovered? | [Conflicts and recovery](../curation/conflicts-and-recovery.md) |
 
 ## Read By Question
 
@@ -186,4 +188,5 @@ preserves those differences through source roles, temporal semantics,
 coordinate posture, layer labeling, and visible caveats.
 
 For claim-level inspection, continue to [Sources](../sources/index.md),
-[Evidence](../evidence/index.md), or [Publications](../publications/index.md).
+[Curation](../curation/index.md), [Evidence](../evidence/index.md), or
+[Publications](../publications/index.md).

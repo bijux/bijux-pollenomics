@@ -23,6 +23,7 @@ sample-owned evidence from papers, supplements, and project archives.
 <div class="bijux-quicklinks">
   <a class="md-button md-button--primary" href="overview/">Understand the data system</a>
   <a class="md-button" href="sources/">Inspect source families</a>
+  <a class="md-button" href="curation/">Understand evidence curation</a>
   <a class="md-button" href="evidence/">Follow the evidence chain</a>
   <a class="md-button" href="publications/">Interpret publications</a>
   <a class="md-button" href="overview/cross-domain-evidence-matrix/">Compare evidence maturity</a>
@@ -292,6 +293,8 @@ flowchart TB
 
 - Start with [Sources](sources/index.md) to evaluate origin, acquisition,
   license, version, refresh behavior, and intended use.
+- Start with [Curation](curation/index.md) to evaluate fact ownership,
+  admission, conflicts, qualifications, and recovery outcomes.
 - Start with [Evidence](evidence/index.md) to evaluate sample identity,
   locality, chronology, coordinates, and scientific qualification.
 - Start with [Publications](publications/index.md) to interpret maps, reports,
@@ -318,6 +321,9 @@ stronger release claim.
 - [Publication model](overview/pollenomics-publication-model.md)
 - [Provenance and publication linkage](overview/provenance-and-publication-linkage.md)
 - [Source selection and refresh](overview/source-selection-and-refresh.md)
+- [Evidence curation](curation/index.md)
+- [Record admission](curation/record-admission.md)
+- [Conflicts and recovery](curation/conflicts-and-recovery.md)
 - [Coverage and naming](overview/coverage-and-naming.md)
 - [Cross-domain evidence matrix](overview/cross-domain-evidence-matrix.md)
 - [Animal ancient-DNA evidence](overview/animal-ancient-dna-evidence.md)
