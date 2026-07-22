@@ -1,75 +1,64 @@
 ---
-title: Overview
+title: Data System
 audience: reader
 type: explanation
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-05-10
+last_reviewed: 2026-07-22
 ---
 
-# Overview
+# Data System
 
-This section explains the overall data model before the handbook dives into
-individual source families, evidence files, or report outputs.
+Pollenomics is a multi-domain evidence system with a single publication
+lineage. Pollen, archaeology, hydrography, boundaries, human ancient DNA,
+animal ancient DNA, and field observations retain separate scientific roles
+while contributing to governed geographic publications.
 
-`bijux-pollenomics` is not a single-dataset repository. It combines pollen
-context, archaeology context, boundary framing, fieldwork records, human
-ancient DNA, and animal ancient DNA recovery work. Those families do not have
-the same strengths, the same gaps, or the same publication maturity. This
-overview is here to make that mixed system understandable before you move into
-the details.
+## Evidence Lifecycle
 
-## What This Overview Helps You Understand
+```mermaid
+flowchart LR
+    Select["select and identify source"] --> Capture["capture versioned material"]
+    Capture --> Normalize["normalize without strengthening"]
+    Normalize --> Review["review fitness and uncertainty"]
+    Review --> Publish["publish admitted evidence"]
+    Publish --> Audit["audit lineage and limits"]
+```
 
-- how the tracked data system is organized
-- how the repository moves from source capture to public publication
-- how pollenomics-first publishing works across several evidence families
-- why animal ancient DNA needs more recovery and review steps than pollen context
-- where the main repository-owned data directories live
-- how this handbook separates source pages, evidence pages, and output pages
+The lifecycle is represented in machine-readable contracts and checked-in
+artifacts. It supports forward questions—what can be published from this
+source?—and reverse questions—what evidence supports this visible result?
 
-## Start Here
+## System References
 
-- [Data system overview](data-system-overview.md)
-- [Data architecture handbook](data-architecture-handbook.md)
-- [Pollenomics publication model](pollenomics-publication-model.md)
-- [Provenance and publication linkage](provenance-and-publication-linkage.md)
-- [Source selection and refresh](source-selection-and-refresh.md)
-- [Coverage and naming](coverage-and-naming.md)
-- [Cross-domain evidence matrix](cross-domain-evidence-matrix.md)
-- [Animal ancient DNA evidence](animal-ancient-dna-evidence.md)
-- [Data directory layout](data-directory-layout.md)
+| Question | Reference |
+| --- | --- |
+| How do all evidence families and tracked roots fit together? | [Data system overview](data-system-overview.md) |
+| Which file governs a fact repeated across outputs? | [Data architecture handbook](data-architecture-handbook.md) |
+| How do unlike domains appear together without becoming equivalent? | [Pollenomics publication model](pollenomics-publication-model.md) |
+| How does a publication resolve to provenance? | [Provenance and publication linkage](provenance-and-publication-linkage.md) |
+| Why was a source selected and what happens during refresh? | [Source selection and refresh](source-selection-and-refresh.md) |
+| How are coverage and durable identifiers represented? | [Coverage and naming](coverage-and-naming.md) |
+| Which evidence dimensions are strong, contextual, or incomplete? | [Cross-domain evidence matrix](cross-domain-evidence-matrix.md) |
+| Why does animal aDNA require project- and sample-level recovery? | [Animal ancient-DNA evidence](animal-ancient-dna-evidence.md) |
+| Where do the governing artifacts live? | [Data directory layout](data-directory-layout.md) |
 
-## A Good Reading Order
+## Authority Boundaries
 
-1. Start with the [data system overview](data-system-overview.md) to see the full evidence landscape.
-2. Read the [data architecture handbook](data-architecture-handbook.md) when the question is where truth lives and how stages differ.
-3. Read the [pollenomics publication model](pollenomics-publication-model.md) when the question is how these domains are supposed to appear together publicly.
-4. Open the [cross-domain evidence matrix](cross-domain-evidence-matrix.md) when the real question is balance, not one file family.
-5. Read [animal ancient DNA evidence](animal-ancient-dna-evidence.md) when the question is about sample-backed animal records and their extra recovery burden.
-6. Open [data directory layout](data-directory-layout.md) when you need the file-tree view behind those explanations.
+- Source captures govern acquired identity and provenance.
+- Normalized records govern repository-owned representation.
+- Review surfaces govern scientific fitness, uncertainty, and refusal.
+- Publication manifests govern the selected output and its members.
+- A downstream report never becomes the authority for an upstream sample,
+  locality, chronology, coordinate, or source claim.
 
-## Why This Overview Matters
+## Cross-Domain Interpretation
 
-Without this framing, the repository can look more chaotic than it really is.
-That usually happens when a generated report, a source audit, and a normalized
-evidence file sit side by side without a clear explanation of why each exists
-or which one governs the claim.
+The system does not reduce all evidence to one measure. A temporal interval,
+pollen sequence, archaeology record, lake polygon, administrative boundary,
+and ancient-DNA sample carry different units and uncertainty. Publication
+preserves those differences through source roles, temporal semantics,
+coordinate posture, layer labeling, and visible caveats.
 
-This overview keeps three boundaries explicit:
-
-- source pages explain what enters the repository
-- evidence pages explain how one claim becomes reviewable
-- output pages explain what the public-facing bundles show
-
-Those boundaries are simple, but they make the rest of the handbook much easier
-to read.
-
-## Restored Foundation Topics
-
-- provenance model and publication linkage now live in
-  [provenance and publication linkage](provenance-and-publication-linkage.md)
-- source selection rules, update lifecycle, and rewrite pressure now live in
-  [source selection and refresh](source-selection-and-refresh.md)
-- naming conventions, breadth expectations, and layout pressure now live in
-  [coverage and naming](coverage-and-naming.md)
+For claim-level inspection, continue to [Sources](../sources/index.md),
+[Evidence](../evidence/index.md), or [Publications](../publications/index.md).

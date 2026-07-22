@@ -11,20 +11,24 @@ pytestmark = pytest.mark.generated_artifacts
 
 
 class DocsBreadthRegressionTests(unittest.TestCase):
-    def test_docs_home_routes_readers_before_repo_details(self) -> None:
+    def test_docs_home_leads_with_public_evidence_routes(self) -> None:
         docs_index = (REPO_ROOT / "docs" / "index.md").read_text(encoding="utf-8")
         internal_index = (REPO_ROOT / "docs" / "internal" / "index.md").read_text(
             encoding="utf-8"
         )
 
-        self.assertIn("public evidence surfaces about Nordic pollenomics", docs_index)
+        self.assertIn(
+            "connects curated evidence to public maps and reports", docs_index
+        )
+        self.assertIn("From Source To Public Claim", docs_index)
+        self.assertIn("Evidence Surfaces", docs_index)
         self.assertIn("Open the product guide", docs_index)
         self.assertIn("Open the report portal", docs_index)
         self.assertNotIn("Open the public guide", docs_index)
         self.assertIn("for maintainers", internal_index)
         self.assertIn("Open the maintainer handbook", internal_index)
 
-    def test_data_handbook_keeps_cross_domain_system_coverage(self) -> None:
+    def test_data_handbook_covers_cross_domain_system(self) -> None:
         data_index = (
             REPO_ROOT / "docs" / "public" / "pollenomics-data" / "index.md"
         ).read_text(encoding="utf-8")
@@ -45,13 +49,15 @@ class DocsBreadthRegressionTests(unittest.TestCase):
         ):
             self.assertTrue((REPO_ROOT / path).is_file(), path)
 
-        self.assertIn("Restored System Coverage", data_index)
+        self.assertIn("Database Architecture", data_index)
+        self.assertIn("Curation Is Evidence Work", data_index)
         self.assertIn("overview/provenance-and-publication-linkage.md", data_index)
         self.assertIn("overview/source-selection-and-refresh.md", data_index)
         self.assertIn("overview/coverage-and-naming.md", data_index)
-        self.assertIn("Restored Foundation Topics", overview_index)
+        self.assertIn("Evidence Lifecycle", overview_index)
+        self.assertIn("Authority Boundaries", overview_index)
 
-    def test_maintainer_handbook_restores_repository_health_breadth(self) -> None:
+    def test_maintainer_handbook_covers_repository_health(self) -> None:
         maintain_index = (
             REPO_ROOT / "docs" / "internal" / "maintain" / "index.md"
         ).read_text(encoding="utf-8")
@@ -69,7 +75,7 @@ class DocsBreadthRegressionTests(unittest.TestCase):
         self.assertIn("command-routing boundary", maintain_index)
         self.assertIn("workflow verification and release map", maintain_index)
 
-    def test_report_root_ships_docs_recovery_packets(self) -> None:
+    def test_report_root_preserves_documentation_accountability(self) -> None:
         report_root = REPO_ROOT / "docs" / "report"
         for name, heading in (
             (
