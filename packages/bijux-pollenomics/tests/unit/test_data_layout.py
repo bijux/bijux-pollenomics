@@ -140,6 +140,11 @@ class DataLayoutUnitTests(unittest.TestCase):
 
             horse_root = output_root / "adna" / "species" / "equus_caballus"
             self.assertTrue((horse_root / "README.md").is_file())
+            horse_readme = (horse_root / "README.md").read_text(encoding="utf-8")
+            self.assertIn("# Horse Evidence View", horse_readme)
+            self.assertIn("## Current Curation Snapshot", horse_readme)
+            self.assertIn("## Inspect The Evidence", horse_readme)
+            self.assertIn("## Evidence Boundary", horse_readme)
             self.assertTrue((horse_root / "raw" / "archive_inventory.json").is_file())
             self.assertTrue((horse_root / "raw" / "archive_inventory.csv").is_file())
             self.assertTrue((horse_root / "raw" / "source_snapshot.json").is_file())

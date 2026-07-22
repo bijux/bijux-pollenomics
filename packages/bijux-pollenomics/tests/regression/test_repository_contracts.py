@@ -923,6 +923,11 @@ class RepositoryContractRegressionTests(unittest.TestCase):
         self.assertIn("- Unresolved sample rows:", readme_text)
         self.assertIn("- Mapped Nordic rows:", readme_text)
         self.assertIn("- Tracked intake projects:", readme_text)
+        self.assertIn("## Interpret The Posture", readme_text)
+        self.assertIn("## Inspect The Evidence", readme_text)
+        self.assertIn("## Directory Contract", readme_text)
+        self.assertIn("## Evidence Boundary", readme_text)
+        self.assertIn("```mermaid", readme_text)
 
     def test_public_data_docs_keep_the_evidence_chain_directly_linked(self) -> None:
         inventory_page = (

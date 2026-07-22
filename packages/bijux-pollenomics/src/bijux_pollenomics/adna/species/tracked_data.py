@@ -888,31 +888,118 @@ def _render_species_root_readme(output_root: Path, species_name: str) -> str:
     deficit_payload = _species_project_recovery_deficits_payload(
         output_root, species_name
     )
-    return (
-        f"# {species.common_name}\n\n"
-        f"- Latin name: `{species.latin_name}`\n"
-        f"- Product role: `{review.product_role}`\n"
-        f"- Dataset bucket: `{review.dataset_bucket}`\n"
-        f"- Curation class: `{curation.curation_class}`\n"
-        f"- Curated sample rows: `{len(sample_rows)}`\n"
-        f"- Curated projects: `{len(curation.curated_projects)}`\n"
-        f"- Curated site rows: `{len(site_rows)}`\n"
-        f"- Direct-coordinate rows: `{direct_coordinate_count}`\n"
-        f"- Geocoded rows: `{geocoded_count}`\n"
-        f"- Unresolved sample rows: `{unresolved_count}`\n"
-        f"- Mapped Nordic rows: `{mapped_nordic_count}`\n"
-        f"- Tracked intake projects: `{review.archive_project_count}`\n"
-        f"- Projects with sample recovery gaps: `{deficit_payload['counts']['projects_with_sample_gap']}`\n"
-        f"- Projects with site-recovery gaps: `{deficit_payload['counts']['projects_with_site_gap']}`\n"
-        f"- Projects with chronology gaps: `{deficit_payload['counts']['projects_with_chronology_gap']}`\n"
-        f"- Projects blocked before publication review: `{deficit_payload['counts']['projects_blocked_before_publication']}`\n"
-        f"- Pending projects: `{len(curation.pending_projects)}`\n"
-        f"- Rejected projects: `{len(curation.rejected_projects)}`\n\n"
-        "This species root is a tracked repository surface. `raw/` keeps archive "
-        "inventory artifacts and source wording snapshots, `normalized/` keeps sample-level, site-level, chronology, coordinate-provenance, project-summary, and locality-summary outputs, "
-        "`manifests/` keeps species and citation manifests, `reports/` keeps support "
-        "summaries, and `review/` keeps reader-facing review dossiers.\n"
+    lines = [
+        f"# {species.common_name.title()} Evidence View",
+        "",
+        f"`{species.latin_name}` is a species-owned projection over project, paper,",
+        "supplement, sample, locality, chronology, and coordinate evidence. This",
+        "directory makes the current curation posture inspectable; it is not an",
+        "independent source database and does not transfer fact ownership away from",
+        "the project evidence under `../../governance/source_library/`.",
+        "",
+        "```mermaid",
+        "flowchart LR",
+        '    Source["paper, project, and supplement"] --> Sample["project-owned sample"]',
+        '    Sample --> View["species-normalized evidence"]',
+        '    View --> Review["species review and recovery deficits"]',
+        '    Review --> Decision{"product-specific admission"}',
+        '    Decision -->|supported| Member["atlas or report member"]',
+        '    Decision -->|insufficient| Gap["qualified, excluded, or recovery state"]',
+        "```",
+        "",
+        "## Current Curation Snapshot",
+        "",
+        f"- Latin name: `{species.latin_name}`",
+        f"- Product role: `{review.product_role}`",
+        f"- Dataset bucket: `{review.dataset_bucket}`",
+        f"- Curation class: `{curation.curation_class}`",
+        f"- Curated sample rows: `{len(sample_rows)}`",
+        f"- Curated projects: `{len(curation.curated_projects)}`",
+        f"- Curated site rows: `{len(site_rows)}`",
+        f"- Direct-coordinate rows: `{direct_coordinate_count}`",
+        f"- Geocoded rows: `{geocoded_count}`",
+        f"- Unresolved sample rows: `{unresolved_count}`",
+        f"- Mapped Nordic rows: `{mapped_nordic_count}`",
+        f"- Tracked intake projects: `{review.archive_project_count}`",
+        f"- Projects with sample recovery gaps: `{deficit_payload['counts']['projects_with_sample_gap']}`",
+        f"- Projects with site-recovery gaps: `{deficit_payload['counts']['projects_with_site_gap']}`",
+        f"- Projects with chronology gaps: `{deficit_payload['counts']['projects_with_chronology_gap']}`",
+        f"- Projects blocked before publication review: `{deficit_payload['counts']['projects_blocked_before_publication']}`",
+        f"- Pending projects: `{len(curation.pending_projects)}`",
+        f"- Rejected projects: `{len(curation.rejected_projects)}`",
+        "",
+        "These values describe different observation units. Sample, project, site,",
+        "coordinate, and publication counts are not one attrition funnel and must not",
+        "be divided into a collection-wide completeness percentage.",
+        "",
+        "## Interpret The Posture",
+        "",
+        "| Signal | Meaning |",
+        "| --- | --- |",
+        f"| product role `{review.product_role}` | the intended contribution of this taxon to governed products |",
+        f"| dataset bucket `{review.dataset_bucket}` | the present evidence grouping, not a biological category |",
+        f"| curation class `{curation.curation_class}` | the evidence rule used to classify project support |",
+        f"| release gate `{str(review.release_gate_satisfied).lower()}` | whether the current species review satisfies its declared release conditions |",
+        f"| supported-status eligibility `{str(review.eligible_for_supported_status).lower()}` | whether current evidence permits the stronger supported posture |",
+        "",
+        "The species release gate evaluates the declared role and review contract. It",
+        "does not assert that every tracked project is recovered or publication-ready;",
+        "project deficits and product admission remain separate decisions.",
+        "",
+        curation.support_statement,
+        "",
+        "### Current Blocking Reasons",
+        "",
+    ]
+    if review.blocking_reasons:
+        lines.extend(f"- `{reason}`" for reason in review.blocking_reasons)
+    else:
+        lines.append("- none under the current species review")
+    lines.extend(
+        [
+            "",
+            "A clear blocker is retained evidence, not a failed attempt at presentation.",
+            "It identifies the project, sample, locality, chronology, or source-recovery",
+            "boundary that must change before a stronger species or publication claim.",
+            "",
+            "## Inspect The Evidence",
+            "",
+            "| Question | Governing surface |",
+            "| --- | --- |",
+            "| Which source projects and artifacts are represented? | `raw/archive_inventory.json` and `raw/source_snapshot.json` |",
+            "| Which stable samples are recovered? | `normalized/sample_records.json` |",
+            "| How are samples related to sites? | `normalized/site_evidence.json` |",
+            "| What supports each mapped coordinate? | `normalized/coordinate_provenance.json` |",
+            "| Which locality units are available? | `normalized/locality_summaries.json` |",
+            "| Which curation and runtime revision produced the view? | `manifests/curation_manifest.json` and `manifests/runtime_manifest.json` |",
+            "| What remains incomplete by project? | `reports/project_recovery_deficits.md` |",
+            "| Why is the present posture accepted or blocked? | `review/species_review.md` |",
+            "",
+            "Start from the claim being inspected, recover its stable sample and project",
+            "identity, then follow locality, chronology, coordinate, and admission evidence",
+            "independently. A repeated value in a species view remains subordinate to the",
+            "project-owned fact identified by its lineage.",
+            "",
+            "## Directory Contract",
+            "",
+            "| Directory | Responsibility |",
+            "| --- | --- |",
+            "| `raw/` | archive inventory and source wording snapshots |",
+            "| `normalized/` | sample, site, coordinate, project, and locality projections |",
+            "| `manifests/` | species, citation, curation, normalization, project, and runtime identities |",
+            "| `reports/` | support summaries and project recovery deficits |",
+            "| `review/` | release blockers, project rows, and archive-integrity evidence |",
+            "",
+            "## Evidence Boundary",
+            "",
+            "Species grouping does not prove project completeness, sample independence,",
+            "exact locality, comparable chronology, Nordic membership, or publication",
+            "fitness. Those claims require their own governing records and product rules.",
+            "Rows that remain unresolved, pending, rejected, or blocked stay visible so",
+            "the mapped subset cannot masquerade as the recovered collection.",
+        ]
     )
+    return "\n".join(lines) + "\n"
 
 
 def _render_support_summary_markdown(output_root: Path, species_name: str) -> str:
