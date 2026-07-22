@@ -4,59 +4,75 @@ audience: reader
 type: explanation
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-05-10
+last_reviewed: 2026-07-22
 ---
 
 # Neotoma Exports
 
-Neotoma exports are the public paleoecological context surfaces derived from
-Neotoma. Their main public value is breadth: they keep the environmental side
-of the product from leaning too heavily on one pollen family alone.
+Neotoma exports provide Nordic pollen-site context from the Neotoma
+Paleoecology Database. The normalized layer combines stable site identity,
+location, collection summaries, source links, and explicit temporal semantics
+without converting site-level age coverage into sample-event chronology.
 
-That matters because you should be able to ask whether a visible geography
-reflects a wider paleoecological pattern or only one especially strong source
-stream. Neotoma helps the repository answer that question more honestly.
+## Current Governed Surface
 
-## What Neotoma Makes Clear
+The point layer contains **200 Nordic sites**. Its temporal review separates
+the sites as follows:
 
-- what environmental context is visible beyond the LandClim slice
-- whether a published geography reflects agreement across more than one pollen
-  family
-- how the repository keeps its pollenomics framing broader than one source
-  collection
-- why a region may gain interpretive depth even when sample-backed evidence is
-  still incomplete
+| Posture | Sites | Permitted reading |
+| --- | ---: | --- |
+| numeric interval | 63 | site-level BP coverage can participate in numeric interval comparison |
+| numeric interval with caveat | 107 | numeric comparison retains a material qualification |
+| contextual label only | 5 | display and group as temporal context, not numeric overlap |
+| unresolved | 25 | no temporal comparison |
 
-## What Neotoma Adds To The Public Product
+In total, 175 sites carry BP age-range information, but the five
+contextual-only sites are not promoted into numeric comparability. None of the
+200 sites has captured chronology rows in the current repository state. The
+available bounds are site-level pollen coverage spans, not sample-owned dates.
 
-Neotoma strengthens the public product by adding:
+```mermaid
+flowchart LR
+    Sites["200 Neotoma sites"] --> Ranges["175 with BP age ranges"]
+    Sites --> Unresolved["25 unresolved"]
+    Ranges --> Numeric["63 numeric intervals"]
+    Ranges --> Caveated["107 numeric intervals with caveats"]
+    Ranges --> Contextual["5 contextual labels only"]
+    Numeric --> Layer["qualified pollen context"]
+    Caveated --> Layer
+    Contextual --> Layer
+```
 
-- another pollenomics context family for comparison
-- wider paleoecological framing across geography
-- a check against overconfidence built from one source family alone
+## Artifacts And Identity
 
-## What It Does Not Do
+- `nordic_pollen_sites.csv` is the tabular normalized surface;
+- `nordic_pollen_sites.geojson` is the mapped point surface; and
+- `review/temporal_review.{json,csv,md}` exposes the temporal classification
+  and its denominators.
 
-These exports are not a substitute for sample-level evidence. They should not
-be read as if they:
+`record_id` retains Neotoma site identity. Site name or coordinates are not
+safe substitutes: names can recur, coordinates can be revised, and one site
+can contain multiple collection units, datasets, samples, or taxa.
 
-- settle chronology or locality questions for ancient DNA rows
-- make all visible regions equally mature
-- erase the difference between environmental context and direct sample-backed
-  claims
+## Temporal Contract
 
-## Why This Matters Beyond One Region
+`time_start_bp`, `time_end_bp`, and `time_mean_bp` summarize site coverage only
+when the review supports them. The accompanying temporal-semantics object names
+evidence class, precision, comparability posture, window, provenance locator,
+and comparison note.
 
-This is especially important for people who want to reuse the codebase or the
-publication model in other regions. A reusable product needs multi-family
-context logic, not one lucky dataset.
+An interval overlap with a human or animal aDNA row means their declared
+windows intersect. It does not prove that pollen deposition and the dated
+individual represent the same event, locality process, or causal relationship.
 
-## If You Need The Repository-Owned Records
+## Reuse Contract
 
-The normalized family outputs live under:
+Carry the site identifier, source URL, geometry, collection counts, original
+age-unit labels, normalized bounds, temporal posture, caveats, and review
+version together. State whether an analysis uses all 200 sites, the 175 sites
+with BP ranges, the 170 numerically comparable sites, or only the 63
+non-caveated numeric intervals.
 
-- `data/neotoma/normalized/`
-
-If your question is about the visible publication, continue to [maps](maps.md)
-or [reports](reports.md). If your question is about the family itself, continue
-to [Neotoma source guidance](../sources/neotoma.md).
+Continue to [Neotoma source guidance](../sources/neotoma.md) for acquisition
+and source semantics, [maps](maps.md) for spatial comparison, and
+[chronology guidance](../evidence/chronology.md) for cross-family time claims.
