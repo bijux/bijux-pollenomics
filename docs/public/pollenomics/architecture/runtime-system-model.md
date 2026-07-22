@@ -179,6 +179,22 @@ exclusion needed to explain why a candidate did not become a claim. Retrying
 cannot convert the third class into success unless its governing evidence or
 product contract changes.
 
+### Repeatability Is Not Semantic Equivalence
+
+A command can run twice without crashing and still produce a materially
+different database. Evaluate repetition at three levels:
+
+| Level | Required equality |
+| --- | --- |
+| operational repeatability | identical invocation can reacquire or rebuild under the declared external conditions |
+| structural repeatability | schemas, manifests, required companions, and write boundaries remain valid |
+| semantic equivalence | stable objects, fact meaning, relations, decisions, populations, and caveats remain equivalent |
+
+Byte differences can be semantically neutral when packaging or retrieval
+metadata changes, while byte-identical copied values can be semantically stale
+after their governing decision changes. Idempotent-looking output is therefore
+not acceptance evidence; compare identities and meaning at the owner boundary.
+
 ## Operation Evidence Packet
 
 A consequential run is reconstructable from more than its exit code. Preserve

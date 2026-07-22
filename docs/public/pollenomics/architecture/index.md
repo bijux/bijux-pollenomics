@@ -89,6 +89,27 @@ understand authority. A reader can identify the governing contract from the
 artifact tree, and an operator can trace the module responsible for producing
 it.
 
+### Producer Ownership And Fact Ownership Are Different
+
+The module that writes a file is not necessarily the owner of every fact it
+serializes. Publication code writes country bundles, but evidence records own
+sample identity, place, and time; boundary contracts own containment inputs;
+and the product manifest owns membership.
+
+```mermaid
+flowchart LR
+    Producer["producer owns the write"] --> Artifact["structured product artifact"]
+    Source["source owner"] --> Artifact
+    Evidence["evidence fact owners"] --> Artifact
+    Decision["admission owner"] --> Artifact
+    Manifest["product membership owner"] --> Artifact
+```
+
+Review a disputed value through fact ownership, and review an incorrectly
+materialized file through producer ownership. Correcting the renderer cannot
+resolve a chronology conflict; correcting a sample record does not by itself
+regenerate every consuming product.
+
 ## Governing Invariants
 
 - Commands may coordinate owners but do not contain scientific business logic.

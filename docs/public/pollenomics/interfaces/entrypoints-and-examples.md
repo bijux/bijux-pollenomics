@@ -86,6 +86,24 @@ Copying selected evaluation files into governed roots is not promotion. A
 governed replacement must use the owning workflow and review the complete
 causal diff.
 
+### Compare An Evaluation With Governed State
+
+Before deciding whether an isolated run should become repository state,
+compare it with the current governed baseline:
+
+| Comparison | Evidence to inspect |
+| --- | --- |
+| source identity | release, retrieval context, member inventory, content digests, and access posture |
+| governed objects | added, removed, retained, merged, split, and superseded stable IDs |
+| meaning | units, nulls, roles, precision, time basis, geometry basis, and relations |
+| review | conflicts, qualifications, refusals, and recovery conditions |
+| populations | captured, eligible, reviewed, admitted, excluded, and published denominators |
+| products | manifest membership, caveats, structured members, and rendered descendants |
+
+If the comparison cannot attribute a product change to source, evidence,
+decision, boundary, or product-rule input, keep the evaluation isolated. A
+visually plausible map is not enough to replace governed state.
+
 ## Atlas And Country Surfaces
 
 ```bash
