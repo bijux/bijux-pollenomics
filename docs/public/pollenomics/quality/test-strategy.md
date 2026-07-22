@@ -56,6 +56,51 @@ completeness.
 The decisive question is therefore not simply whether verification passed. It
 is whether the proof that passed governs the claim being made.
 
+## Worked Verification Paths
+
+### A mapped SEAD site
+
+A reader can begin with one feature in the Nordic bundle and verify, in order:
+
+1. the feature is named by the regional manifest;
+2. its stable site identity resolves to the normalized SEAD record;
+3. its country assignment explains regional admission;
+4. the source page preserves the SEAD identity and current source limitations;
+5. the layer role remains environmental-archaeology context.
+
+That chain verifies membership, geography, identity, and role. It does not
+establish a dated event because the current SEAD capture lacks dating, period,
+and bibliography rows.
+
+### An animal atlas point
+
+An animal point has a longer path: product membership, point traceability,
+admission decision, sample master, sample-to-site relation, locality evidence,
+chronology evidence, coordinate provenance, paper and supplement identity, and
+archive project. Verification must follow the links used by the visible
+claim. A valid project link cannot substitute for a missing sample locality;
+a valid site cannot substitute for sample chronology.
+
+### A source-family count
+
+The collection summary can verify that a family was captured and record its
+count. A publication manifest can verify how many members entered one product.
+Those counts use different populations. Comparing them is meaningful only
+after the record unit, geography, and admission rule are named.
+
+## Verification Evidence Hierarchy
+
+| Public statement | Minimum evidence that should be recoverable |
+| --- | --- |
+| “1,231 AADR samples are in the Nordic bundle” | bundle manifest, sample identities, four-country selection, and `v66` release lineage |
+| “200 Neotoma sites provide pollen context” | normalized site identities, source linkage, temporal review, and primary-context role |
+| “23 SEAD rows are not mapped” | reviewed inventory denominator and explicit missing-country state |
+| “two animal localities are published in the Nordic product” | two admitted feature identities plus sample, locality, chronology, coordinate, and source links |
+| “one fieldwork location is shown” | observation record, site identity, coordinates, date, contributor, and sampling-context role |
+
+The hierarchy is claim-specific. It does not award one repository-wide
+confidence score or treat a longer provenance path as inherently stronger.
+
 ## Failure And Refusal
 
 Verification failures preserve information. Depending on the boundary, the

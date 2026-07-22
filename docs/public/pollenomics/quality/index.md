@@ -10,9 +10,9 @@ last_reviewed: 2026-07-22
 # Verification And Limits
 
 Quality is the agreement between source lineage, evidence meaning, runtime
-behavior, publication membership, and public language. A green test suite can
-show that encoded contracts hold; it cannot make incomplete evidence complete
-or convert a contextual layer into direct support.
+behavior, publication membership, and public language. Successful software
+verification can show that encoded contracts hold; it cannot make incomplete
+evidence complete or convert a contextual layer into direct support.
 
 ## Quality Model
 
@@ -58,6 +58,41 @@ A visible output may be:
 
 Refusal is a quality outcome when publication would otherwise overstate the
 evidence.
+
+## Evaluate A Public Result
+
+A trustworthy result lets a reader answer five questions without inferring
+from presentation alone:
+
+1. **What is counted?** Identify the observation unit: sample, site, sequence,
+   grid cell, locality, project, or publication.
+2. **Which population is counted?** Separate captured, normalized, reviewed,
+   eligible, admitted, and published records.
+3. **What role does the layer play?** Direct evidence, primary context,
+   contextual domain, sampling context, and geographic framing support
+   different claims.
+4. **How precise are place and time?** A visible point or date label must not
+   be read more precisely than its provenance permits.
+5. **Where are non-members explained?** Scope exclusions, unresolved evidence,
+   source gaps, and scientific refusals should remain visible.
+
+For example, the Nordic bundle contains 2,172 mapped SEAD sites while its
+reviewed inventory contains 2,195 rows. The difference is accounted for by 23
+rows without country assignment. That is stronger quality evidence than
+calling either number the unqualified “SEAD total.”
+
+## Quality Is Not Uniformity
+
+The source families do not become equally complete or directly comparable by
+passing through one runtime. Quality means preserving their differences:
+
+| Family example | Legitimate quality claim | Overstatement |
+| --- | --- | --- |
+| AADR | release and panel identity are pinned for selected sample rows | the country filter is representative of past populations |
+| LandClim or Neotoma | pollen context retains source and temporal posture | every site measures the same time interval or method |
+| SEAD or RAÄ | archaeological context is mapped within declared coverage | contextual density directly explains aDNA or pollen observations |
+| animal aDNA | admitted points retain sample, locality, chronology, and coordinate lineage | all samples expected from every tracked project were recovered |
+| boundaries | the product scope is geographically explicit | polygons provide scientific evidence about the features they contain |
 
 ## Governing References
 

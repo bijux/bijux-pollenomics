@@ -86,3 +86,47 @@ Terms describing quality travel with their object and scope: *sample locality
 unresolved*, *Nordic product publishable*, or *project recovery partial*.
 Words such as *complete*, *ready*, *validated*, and *representative* require an
 explicit denominator or contract.
+
+## Rewrite Ambiguous Claims
+
+| Avoid | Prefer | Why |
+| --- | --- | --- |
+| “The database has 1,231 Nordic records.” | “The current Nordic bundle admits 1,231 AADR human-sample rows from Sweden, Norway, Finland, and Denmark.” | names product, family, unit, and geography |
+| “SEAD coverage is complete.” | “The reviewed SEAD inventory has 2,195 rows; 2,172 have country assignment and are mapped in the Nordic bundle.” | exposes denominator and non-members |
+| “The animal dataset is validated.” | “The named animal product passes its admission and traceability contracts; project recovery remains uneven.” | distinguishes product validity from source completeness |
+| “Pollen explains the archaeological pattern.” | “LandClim and Neotoma provide primary pollen context for comparison with archaeological layers.” | preserves evidence role and avoids causal promotion |
+| “Coordinates are exact.” | “The published coordinate uses source-supplied site precision recorded in coordinate provenance.” | anchors precision to its source |
+| “No samples exist for this project.” | “No defensible sample rows have been recovered from the currently captured project material.” | distinguishes absence of evidence from evidence of absence |
+| “The map proves a regional signal.” | “The mapped layers suggest a regional pattern under the declared scope and observation units.” | bounds inference and preserves alternatives |
+
+## State Denominators Explicitly
+
+Coverage language is incomplete without its denominator. Useful forms include:
+
+- `published members / eligible reviewed records` for product admission;
+- `recovered samples / expected samples` for source recovery, only when the
+  expected count is itself supported;
+- `geocoded records / reviewed records` for spatial representation;
+- `records with sample-owned chronology / recovered sample records` for
+  temporal evidence; and
+- `represented countries / declared product countries` for geographic scope.
+
+When the denominator is unknown, say so. “All recovered rows were reviewed” is
+valid if true; it must not be shortened to “recovery is complete.”
+
+## Describe Absence Carefully
+
+Absence can arise from scope, acquisition, extraction, linkage, evidence
+quality, or admission. Use the narrowest statement supported by the governing
+record:
+
+| Recorded state | Defensible wording |
+| --- | --- |
+| outside product geography | excluded from this geographic product |
+| known source, unavailable supplement | sample recovery blocked by unavailable supporting material |
+| readable source, no defensible sample rows yet | sample extraction incomplete |
+| sample known, locality unresolved | retained in evidence; exact-point publication refused |
+| eligible record rejected by a product rule | excluded from the named product with the recorded reason |
+| no captured evidence for the object | not represented in the current evidence base |
+
+None of these states, by itself, supports “the object does not exist.”
