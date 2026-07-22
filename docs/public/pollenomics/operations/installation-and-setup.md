@@ -105,6 +105,35 @@ local evidence or report changes that the revision alone cannot identify. A
 clean status is not mandatory, but unexplained pre-existing changes make a
 later causal diff ambiguous.
 
+### Retain A Setup Receipt
+
+A reproducible result needs both execution identity and evidence identity.
+Retain the following values before a governed write:
+
+| Identity | Minimum record | Why it matters |
+| --- | --- | --- |
+| runtime | distribution name and `--version` output | identifies the behavior that interpreted the inputs |
+| interpreter | Python version | bounds the supported execution environment |
+| dependency graph | `uv.lock` identity for repository work | distinguishes an editable workspace from an unrecorded environment |
+| checkout | repository revision and relevant working-tree status | identifies tracked inputs and exposes local changes |
+| evidence | source release, collection summary, or input manifest | identifies the scientific population being read |
+| write scope | explicit data, context, AADR, and output roots used by the operation | identifies which complete tree the command was allowed to replace |
+
+```mermaid
+flowchart LR
+    Runtime["runtime and interpreter"] --> Receipt["setup receipt"]
+    Lock["dependency identity"] --> Receipt
+    Checkout["revision and local status"] --> Receipt
+    Evidence["input release and manifests"] --> Receipt
+    Roots["explicit read and write roots"] --> Receipt
+    Receipt --> Operation["reproducible governed operation"]
+```
+
+The receipt is intentionally asymmetric. A released wheel can identify
+runtime behavior without identifying any evidence snapshot; a repository
+revision can identify tracked evidence without proving which installed runtime
+was invoked. Record both whenever a result may be reviewed or regenerated.
+
 ## Understand Relative Roots
 
 Default data and report roots are relative to the current working directory:

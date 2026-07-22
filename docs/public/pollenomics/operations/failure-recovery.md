@@ -113,6 +113,32 @@ breaks the atomic boundary and can leave a manifest describing members that do
 not exist. Repair the owner or input, then let the narrow operation rebuild and
 validate its complete candidate state.
 
+## Prove Recovery At The Owned Boundary
+
+Recovery is complete only when the owned tree is coherent and its authority
+resolves. The disappearance of an error message is not sufficient.
+
+| Recovered boundary | Minimum proof | Remaining downstream obligation |
+| --- | --- | --- |
+| source-family collection | collection summary resolves the expected family, source identity, hashes, and member counts | re-evaluate normalization, review, and publication effects |
+| normalized evidence | normalized members, family summary, exclusions, and source links agree | recompute affected review and comparison contracts |
+| review or contract surface | every governed member has the intended posture and denominators reconcile | re-evaluate publication admission |
+| publication bundle | manifest membership resolves and CSV, JSON, GeoJSON, Markdown, and HTML agree on scope | inspect links, warnings, and presentation parity |
+| scientific refusal | qualification or exclusion remains attached to the member and requested claim | no stronger downstream claim may bypass the refusal |
+
+```mermaid
+flowchart LR
+    Correction["owner or input corrected"] --> NarrowRun["narrow operation succeeds"]
+    NarrowRun --> Authority["manifest and members resolve"]
+    Authority --> Semantic["identities, counts, and meaning reviewed"]
+    Semantic --> Downstream["dependent boundaries re-evaluated"]
+    Downstream --> Recovered["recovery established"]
+```
+
+If the authority resolves but the semantic population cannot be explained,
+the system is operational again but the evidence change is not accepted. Keep
+those states distinct in the operation ledger.
+
 For tracked `data/` and `docs/report/` state, the repository revision and clean
 baseline are the normal recovery authority. Local uncommitted evidence changes
 must be preserved separately before restoration; otherwise recovery can erase

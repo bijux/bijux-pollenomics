@@ -85,6 +85,12 @@ bijux-pollenomics source-support
 bijux-pollenomics adna-species
 ```
 
+The remaining examples use `bijux-pollenomics` for readability. In a source
+checkout, invoke the executable from `artifacts/root/check-venv/bin/` so the
+operation uses the lock-resolved editable workspace established during setup.
+An executable found elsewhere on `PATH` may be a valid installation while
+still being the wrong runtime for a repository-state replacement.
+
 These surfaces distinguish implemented capability, source-family support,
 species posture, and repository ownership. They are orientation records, not a
 substitute for the evidence behind one published feature.
@@ -133,6 +139,32 @@ captured payload, normalized record identities, schema and relationship
 findings, coverage deltas, removals, changed precision, and downstream
 admission effects. A hash change without a normalized change may be packaging;
 a stable row count may still conceal member replacement or semantic change.
+
+## Propagate Invalidation Forward
+
+An accepted change invalidates the downstream decisions that depend on it. It
+does not automatically invalidate upstream evidence or authorize recollection.
+
+```mermaid
+flowchart LR
+    Capture["source capture"] --> Normalize["normalization"]
+    Normalize --> Review["review and contracts"]
+    Review --> Publish["publication membership"]
+    Publish --> Render["rendered products"]
+```
+
+| Changed boundary | Re-evaluate | Do not assume |
+| --- | --- | --- |
+| capture identity or payload | normalization, review, contracts, publication, and rendering | equal byte size or row count means equal evidence |
+| normalization rule or member identity | review, comparison contracts, publication, and rendering | the source must be recollected |
+| review or admission policy | product membership, warnings, exclusions, and rendering | normalized evidence changed |
+| publication scope or membership | every format in the affected bundle | capture or normalization changed |
+| rendering only | presentation parity and links | scientific membership needs rebuilding |
+
+Follow the dependency direction and stop when the semantic diff no longer
+propagates. This keeps a typography correction from becoming an evidence
+refresh and prevents a source change from being accepted after only the final
+HTML looks plausible.
 
 ## Recompute Data Contracts
 
