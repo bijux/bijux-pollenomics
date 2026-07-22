@@ -95,6 +95,31 @@ For a spatial-only comparison, say explicitly that the site contributes pollen
 context without a numeric chronology claim. This prevents the 175 sites with
 captured spans from making the full 200-site layer appear uniformly dated.
 
+### Four Governed Outcomes
+
+The checked-in review contains concrete examples of every temporal posture:
+
+| Site | Review outcome | Why |
+| --- | --- | --- |
+| `13338` Abborrtjärnen | `numeric_interval` | one calibrated BP site span, `0–9815 BP`, is available |
+| `12` Ageröds Mosse | `numeric_interval_with_caveat` | the site summary combines calibrated and uncalibrated radiocarbon BP conventions |
+| `28859` Lake Vuolep Njakajaure | `contextual_label_only` | age coverage is visible, but the normalized record does not support repository numeric comparison |
+| `2961` Aborregöl | `unresolved` | no age-range detail is available in the captured site review |
+
+```mermaid
+flowchart TD
+    Member["Neotoma site member"] --> Row["site temporal-review row"]
+    Row --> Direct["Abborrtjärnen: numeric interval"]
+    Row --> Caveat["Ageröds Mosse: mixed BP conventions"]
+    Row --> Context["Vuolep Njakajaure: label only"]
+    Row --> Unknown["Aborregöl: unresolved"]
+```
+
+These are not successive quality grades through which every site should move.
+They are claim-specific outcomes derived from the captured evidence. A site
+may remain useful spatial context even when numeric comparison is refused, and
+a broad numeric span does not substitute for the missing chronology rows.
+
 ## Relationship To LandClim
 
 Both families provide primary pollen context, but their normalized units and

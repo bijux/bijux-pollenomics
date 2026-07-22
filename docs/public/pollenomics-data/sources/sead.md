@@ -106,6 +106,30 @@ a review boundary that requires member-level explanation. Likewise, the lack
 of linked chronology is a source-recovery limitation, not permission to assign
 dates from nearby records or broad archaeological expectations.
 
+### Account For The 23-Row Difference
+
+The current normalized layer requires a coordinate to classify inside one of
+the four publication-country boundary geometries. All 23 captured rows absent
+from the normalized layer retain coordinates but do not satisfy that country
+membership predicate. The set includes records east or south of the four
+country scope, such as Troitski, Hedeby, Riga, and Stralsund, as well as island
+or edge cases such as Tjärnan, Syllöda, Otterböte, and Kastelholm.
+
+```mermaid
+flowchart LR
+    Capture["2,195 captured site identities"] --> Coordinates{"usable coordinates?"}
+    Coordinates -->|yes| Country{"inside one publication-country geometry?"}
+    Country -->|yes| Normalized["2,172 normalized Nordic points"]
+    Country -->|no| Outside["23 captured, non-member rows"]
+    Outside --> Audit["identity and coordinates retained for audit"]
+```
+
+The difference is therefore a scope-membership result in this snapshot, not
+deduplication and not evidence deletion. A future boundary or country-scope
+change must reevaluate those 23 identities; it must not silently append them
+or rewrite their coordinates. Report both captured and normalized totals
+whenever the distinction affects a coverage claim.
+
 ## Relationship To RAÄ
 
 SEAD provides wider environmental-archaeology context. RAÄ provides denser

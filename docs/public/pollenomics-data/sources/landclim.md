@@ -102,6 +102,35 @@ A reusable claim retains the feature kind, source identity, normalized member
 identifier, spatial basis, temporal posture, and publication scope. “LandClim
 point” is not specific enough to preserve those distinctions.
 
+### Worked Sequence And Grid Trace
+
+`Aal Præstesø` demonstrates the site-sequence path. Its stable normalized
+member ID is `897303:Aal Præstesø:55.637778:8.257222`; the record points to
+PANGAEA dataset `897303`, classifies the site in Denmark, and carries a
+`100–350 BP` interval. Those fields support a bounded pollen-context claim for
+that sequence. They do not make the interval a date for every archaeological
+or biological record near the site.
+
+The REVEALS cell `10.000000,55.000000,11.000000,56.000000` demonstrates the
+model path. It is a polygon spanning one degree, combines 25 declared time
+windows from LandClim I and II inputs, and summarizes a window range from
+`0–100 BP` through `11200–11700 BP`. Its midpoint is useful for navigation,
+but the cell remains modeled areal context across many windows—not a pollen
+observation at the polygon center and not one continuous sample interval.
+
+```mermaid
+flowchart LR
+    Aal["Aal Præstesø sequence"] --> SiteInterval["100–350 BP site context"]
+    Grid["10°E–11°E, 55°N–56°N cell"] --> Windows["25 modeled windows"]
+    SiteInterval --> Compare["qualified comparison"]
+    Windows --> Compare
+    Compare -. does not merge .-> Observation["single observation identity"]
+```
+
+This pair exposes a crucial denominator rule: one normalized sequence member,
+one grid cell, 25 model windows, and the source observations behind them are
+different units. A comparison must name which unit it counts.
+
 ## Relationship To Other Families
 
 | Compared with | LandClim contributes | Other family contributes |
