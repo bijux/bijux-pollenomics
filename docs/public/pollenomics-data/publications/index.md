@@ -132,6 +132,40 @@ evidence rows support the claim; review surfaces preserve qualifications; and
 the rendering helps the reader see the result. Reversing that order risks
 treating visual prominence as scientific authority.
 
+## Worked Bundle: World v66
+
+The checked-in world manifest makes the reading order concrete:
+
+| Surface | Governed fact | Reader decision |
+| --- | --- | --- |
+| `world_bundle.json` | `scope_key: world`, version `v66`, generated `2026-06-22` | select the product identity before opening a rendering |
+| `world_map_publication_contract.json` | five declared layer rows and their filter behavior | determine which roles are eligible at world scope |
+| `world_point_traceability.json` | visible feature-to-evidence relations | resolve a marker to its governing row |
+| `world_scientific_review.json` | qualifications and comparison limits | constrain interpretation |
+| `world_map.html` | interactive rendering of the governed members | explore after scope and role are known |
+
+The map contract currently declares 1,231 AADR features, one dromedary context
+feature, 26 goat features, 207 horse features, and four boundary features.
+Those counts are not one population: they mix human samples, differently
+qualified animal evidence features, and geographic framing. The manifest binds
+them into one product without making their observation units equivalent.
+
+```mermaid
+flowchart LR
+    Bundle["world_bundle.json / v66"] --> Contract["world map contract"]
+    Contract --> AADR["1,231 human sample features"]
+    Contract --> Animal["234 animal evidence features"]
+    Contract --> Boundaries["4 framing features"]
+    AADR --> Trace["point traceability"]
+    Animal --> Trace
+    Trace --> Review["scientific review"]
+    Review --> Map["world_map.html"]
+```
+
+A valid world citation names `world`, `v66`, the relevant member identity, and
+its governing evidence role. “Visible on the world map” is not enough to
+distinguish a human sample, animal context feature, or boundary polygon.
+
 ## Publication Gates
 
 Animal publication checks currently enforce that:

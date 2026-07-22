@@ -60,6 +60,31 @@ World, regional, and country maps are related publications with explicit
 lineage. Selecting a country inside an existing product is not equivalent to
 opening that country's governed bundle unless the manifest and contract say so.
 
+### The World Contract Shows Which Filters Apply
+
+Filter eligibility is declared per layer. In the current world contract:
+
+| Layer | Country filter | Time filter | Why |
+| --- | --- | --- | --- |
+| AADR | yes | yes | release rows carry country and admitted temporal fields |
+| goat | yes | yes | admitted goat features carry scope and numeric time posture |
+| horse | yes | yes | admitted horse features carry scope and numeric time posture |
+| dromedary context | yes | no | the single feature is project-anchored context and must not enter numeric time filtering |
+| boundaries | yes | no | polygons frame scope and carry no scientific chronology |
+
+A disabled time filter is not missing interface work when the layer contract
+forbids numeric temporal selection. Enabling it by substituting contextual
+dates would change the evidence claim, not merely improve interaction.
+
+```mermaid
+flowchart LR
+    Contract["layer contract"] --> Eligible{"filter declared?"}
+    Eligible -->|yes| Control["control changes visible admitted members"]
+    Eligible -->|no| Disabled["control absent or inactive for layer"]
+    Control --> Trace["selection remains traceable"]
+    Disabled --> Caveat["reason remains visible"]
+```
+
 ### Five States Behind A Missing Marker
 
 | State | Meaning | Where to resolve it |
@@ -93,6 +118,18 @@ from a broader project or nearby contextual feature.
 
 A compact popup may omit nonessential descriptive fields. It must not omit a
 qualification whose absence would materially strengthen the apparent claim.
+
+### Popup Claims For Mixed Animal Identity
+
+The goat feature for Direkli1-2 can name a final sample identifier,
+supplementary-table coordinate, and sample-owned chronology. The Wadi Halfa
+dromedary feature cannot use the same template: its identity is provisional,
+its coordinate is an approximate named-place geocode, and its sample row is not
+yet recoverable.
+
+The two features may share marker styling, but their popups must not share an
+unqualified “sample” assertion. Presentation that erases this difference
+would make the dromedary point appear stronger than its traceability record.
 
 ## Interpretive Guardrails
 

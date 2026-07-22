@@ -81,6 +81,37 @@ The companion material is part of the claim, not optional background. It
 prevents a visual observation from silently becoming a stronger scientific
 assertion.
 
+## Four Features In One Product
+
+The world surface demonstrates why publication type belongs to each member:
+
+| Visible feature | Publication type | Supported claim | Required restraint |
+| --- | --- | --- | --- |
+| AADR `RISE175.SG` | direct evidence | one release-resolved human sample belongs to its scoped bundle | two panel memberships do not mean two people |
+| goat `Direkli1-2` | direct sample evidence | one final sample has supplement-backed identity, place, coordinate, and chronology | project accession does not collapse the other three project samples into this row |
+| Wadi Halfa dromedary | qualified project context | one paper-backed named-place context feature is spatially admitted | do not describe it as a recovered sample or apply numeric time filtering |
+| RAÄ cell `17-18°E, 59-60°N` | contextual aggregate | 27,450 selected registry records fall in the declared cell | do not turn the polygon or count into synthetic sites |
+| Sweden boundary | framing | the polygon participates in geographic scope selection | do not treat it as scientific evidence or historical affiliation |
+
+This table is also an authority order. When a generic layer label or popup
+conflicts with the narrower traceability posture, the narrower evidence record
+controls the claim. A shared map is an assembly surface, not a permission to
+standardize unlike evidence into one sentence.
+
+### Claim Construction
+
+```mermaid
+flowchart LR
+    Member["named publication member"] --> Type["evidence role and observation unit"]
+    Type --> Support["governing evidence and qualification"]
+    Support --> Scope["bundle version and geography"]
+    Scope --> Statement["bounded reusable statement"]
+```
+
+A reusable statement is complete only when all four parts are known. If the
+observation unit or qualification is missing, the reader may identify a symbol
+but cannot yet identify the scientific claim.
+
 ## Preserve The Governing Surface
 
 - For a sample-level assertion, retain the evidence or traceability row and
