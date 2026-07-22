@@ -74,6 +74,31 @@ A check failure must be corrected at the boundary that owns the disputed fact
 or behavior. The maintainer package reports and enforces the mismatch; it does
 not create a parallel scientific contract.
 
+## What A Passing Check Proves
+
+| Passing check | Supported conclusion | Unsupported conclusion |
+| --- | --- | --- |
+| API freeze | declared schema, pinned rendering, and digest agree | an HTTP service is deployed or scientifically complete |
+| documentation integrity | required routes, links, language boundaries, and contracts agree | every scientific statement is true for every source |
+| package identity | names, versions, badges, and release surfaces are internally aligned | a release has been published successfully |
+| repository truth | inspected claims match the governed inputs encoded by that check | missing evidence has become available |
+| release guard | the declared release prerequisites passed | unresolved scientific limits no longer matter outside those prerequisites |
+
+Checks establish bounded repository evidence. Their names and results should
+be reported with the governing revision and inputs; “all checks passed” is too
+broad when only one contract was inspected.
+
+## Generated State Rule
+
+When a finding concerns a generated report, checksum, badge block, or frozen
+API representation, correct the authoritative producer or input and regenerate
+the owned surface. Hand-editing the symptom can make one file look current
+while leaving the next regeneration guaranteed to restore the defect.
+
+Before accepting regenerated output, inspect both the governing input diff and
+the generated diff. A generator that succeeds mechanically can still encode
+an unsupported claim or an unexpectedly broad write boundary.
+
 ## Route Findings To The Owner
 
 | Finding | Correct owner | Typical durable correction |

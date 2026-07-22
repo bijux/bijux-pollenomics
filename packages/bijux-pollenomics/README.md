@@ -173,6 +173,35 @@ scope = build_product_scope()
 ownership = build_ownership_map()
 ```
 
+## Integrate Without Losing Evidence
+
+Choose the highest stable boundary that preserves the meaning your consumer
+needs:
+
+| Consumer need | Supported boundary | Evidence that must travel |
+| --- | --- | --- |
+| run an operator workflow | canonical CLI | command, explicit roots, exit status, and resulting manifest |
+| compose collection or publication | top-level Python facade | typed result plus the complete written bundle |
+| reuse source-family records | normalized data and family contract | stable record ID, source identity, version, semantics, and precision |
+| reuse a publication subset | product manifest and structured members | parent bundle, selection rule, member IDs, warnings, and exclusions |
+| inspect one visible feature | traceability surface | governing evidence ID, source lineage, role, place, time, and caveat |
+
+The report object returned by a Python call summarizes the completed operation;
+it does not replace the manifest and evidence records written by that
+operation. Likewise, geometry and a label are not a sufficient export of a
+publication member. Consumers that discard source identity, precision, role,
+or qualification also discard the basis for the claim.
+
+```mermaid
+flowchart LR
+    Call["CLI or Python call"] --> Result["typed operation result"]
+    Call --> Bundle["complete owned bundle"]
+    Bundle --> Manifest["scope and membership"]
+    Bundle --> Evidence["rows and traceability"]
+    Bundle --> Limits["warnings and exclusions"]
+    Result -. "summarizes" .-> Bundle
+```
+
 ## Evidence guarantees
 
 The runtime enforces the distinctions that make the published products
@@ -208,6 +237,11 @@ At minimum, retain the stable evidence identifier, source family, governing
 record identity, coordinate and temporal posture, publication geography,
 bundle version, and material caveats. Exporting geometry and a display label
 alone discards the information that makes the result reviewable.
+
+An integration should fail closed when a required member, governing record, or
+contract cannot be resolved. Substituting a display label, nearby coordinate,
+or copied narrative value creates a new unsupported interpretation rather than
+recovering the missing link.
 
 ## Canonical and short names
 

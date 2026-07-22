@@ -148,6 +148,36 @@ Bug reports should include both the installed `pollenomics` version and the
 resolved `bijux-pollenomics` version. The pair identifies the forwarding
 contract and the implementation that actually produced the behavior.
 
+## Diagnose A Compatibility Mismatch
+
+Confirm distribution versions, import ownership, and command resolution before
+attributing a difference to scientific behavior:
+
+```bash
+python3.11 -m pip show pollenomics bijux-pollenomics
+python3.11 -c 'import pollenomics; print(pollenomics.__version__)'
+python3.11 -c 'import bijux_pollenomics; print(bijux_pollenomics.__version__)'
+pollenomics --version
+bijux-pollenomics --version
+```
+
+Then compare the same read-only command through both executables:
+
+```bash
+pollenomics product-scope
+bijux-pollenomics product-scope
+```
+
+A mismatch can come from an incompatible installed pair, a different
+executable on `PATH`, or broken forwarding. It must not be normalized away by
+maintaining separate expected outputs for the two names. Resolve the installed
+identity or alias boundary; the canonical runtime remains the only owner of
+the result.
+
+Applications should constrain releases through normal dependency metadata and
+use one import prefix consistently. Serialized data and report contracts use
+canonical runtime meaning regardless of which prefix invoked them.
+
 ## Boundaries
 
 The alias does not fork:
