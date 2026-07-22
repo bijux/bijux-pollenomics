@@ -64,6 +64,38 @@ The trust boundary is explicit:
 A map or report is therefore an index into governed evidence, not a substitute
 for it.
 
+## What A Published Record Contains
+
+A public feature is a compound claim. Its visual geometry is only one member
+of the record; identity, source lineage, temporal posture, spatial precision,
+product scope, and admission outcome travel with it.
+
+| Claim component | Governing evidence | Typical failure mode |
+| --- | --- | --- |
+| identity | stable source, project, sample, site, or registry identifier | conflated or duplicated records |
+| origin | source version, retrieval metadata, artifact locator, and content hash | a citation without recoverable source material |
+| place | reported locality, site relationship, coordinate basis, and precision | a broad place rendered as an exact point |
+| time | source wording, normalized interval, dating basis, and comparability | contextual time presented as a sample date |
+| role | direct evidence, context, decision support, or framing | co-located layers treated as equivalent proof |
+| publication | geography, product version, gate result, and visible caveat | presentation silently strengthening upstream evidence |
+
+```mermaid
+flowchart LR
+    Feature["published feature ID"] --> Membership["bundle membership"]
+    Membership --> Evidence["evidence row"]
+    Evidence --> Identity["stable record identity"]
+    Evidence --> Place["locality and coordinate posture"]
+    Evidence --> Time["chronology posture"]
+    Identity --> Origin["project, paper, source artifact"]
+    Place --> Origin
+    Time --> Origin
+```
+
+This decomposition is why the repository contains more than map-ready tables.
+The curation database records rejected precision, unresolved evidence,
+conflicting claims, and source-recovery gaps so publication can remain smaller
+than collection without becoming opaque.
+
 This repository publishes `2` packages. Each release tag builds one staged
 bundle, uploads the Python distribution to PyPI, publishes the release bundle
 to its exact GHCR package page under the `bijux` account, and attaches the
@@ -76,6 +108,8 @@ same staged assets to the GitHub Release.
   and source-family contracts
 - inspect how sample identity, locality, chronology, coordinate precision, and
   source recovery are curated before animal aDNA reaches publication
+- compare admitted records with exclusion, ambiguity, and recovery ledgers so
+  absence from a map is not mistaken for absence from the source record
 - rebuild the checked-in `data/` and `docs/report/` state from repository
   commands when you need a fresh local copy
 - inspect the Sweden lake ranking packet, fieldwork shortlist, and optional
@@ -107,6 +141,8 @@ Today, the checked-in repository produces these durable outcomes:
 - a report tree under `docs/report/` with world, regional, and country publication families
 - governed world, Europe-plus, and Nordic map surfaces that share one publication contract
 - country bundles for Sweden, Norway, Finland, and Denmark that remain filtered descendants of the same broader evidence state
+- point-traceability, subset-validation, scientific-review, and exclusion
+  surfaces beside the visual publications they qualify
 - a MkDocs documentation site that builds into `artifacts/root/docs/site/`
 - maintainer-facing review surfaces that keep final-release claims blocked
   while animal recovery and SEAD comparability remain materially weaker than

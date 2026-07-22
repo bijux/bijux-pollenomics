@@ -121,23 +121,20 @@ Choose the route that matches the claim you need to evaluate. Publications
 provide orientation; evidence and source pages provide the narrower support
 needed for scientific or operational decisions.
 
-## Fieldwork Record
+## Current Publication Family
 
-The fieldwork section is intentionally narrow. It anchors one mapped point to a
-real visit without pretending that field media replaces curated sample, paper,
-or supplement evidence.
+| Publication | Use it for | Read beside it |
+| --- | --- | --- |
+| [World evidence surface](report/world/README.md) | broadest shared evidence posture | [world publication contract](report/world/world_map_publication_contract.md) |
+| [Europe-plus](report/regions/europe-plus/README.md) | regional selection beyond one country | [Europe-plus traceability](report/regions/europe-plus/europe-plus_point_traceability.md) |
+| [Nordic](report/regions/nordic/README.md) | shared Nordic evidence and country comparison | [Nordic scientific review](report/regions/nordic/nordic_scientific_review.md) |
+| [Country bundles](report/scopes/index.md) | national samples, citations, warnings, and context | [geography subset validation](report/publication_geography_subset_validation.md) |
+| [Sweden lake priorities](public/nordic-atlas/sweden-lake-priorities/index.md) | candidate ranking and sensitivity | [fieldwork preparation](report/countries/sweden/sweden_lake_fieldwork_preparation_v66.md) |
+| [Lyngsjön fieldwork](public/fieldwork/lyngsjon-lake-fieldwork/index.md) | one dated site visit and its situated observations | [fieldwork evidence boundary](public/fieldwork/index.md) |
 
-<div class="bijux-quicklinks">
-  <a class="md-button md-button--primary" href="https://bijux.io/bijux-pollenomics/public/fieldwork/lyngsjon-lake-fieldwork/">Open the fieldwork page</a>
-  <a class="md-button" href="gallery/2026-02-26-data-collection.mp4">Open the field video</a>
-</div>
-
-<div class="bijux-media-grid">
-  <figure class="bijux-media-card">
-    <img src="gallery/2026-02-26-data-collection.JPG" alt="Field sampling at Lyngsjön Lake on 2026-02-26." loading="lazy">
-    <figcaption>Lyngsjön Lake, southwest of Kristianstad, during winter field collection on 2026-02-26.</figcaption>
-  </figure>
-</div>
+A publication should be read with the artifact that exposes its membership,
+traceability, review, or refusal. The narrative gives orientation; the
+companion surface establishes why the visible subset and its caveats exist.
 
 ## What The Repository Does Not Claim
 
