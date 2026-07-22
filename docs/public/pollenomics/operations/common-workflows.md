@@ -110,6 +110,22 @@ counts, removals, and review findings as one causal change. A successful
 download establishes acquisition; it does not establish unchanged meaning or
 publication readiness.
 
+For an upstream source whose payload or normalization behavior may have
+changed, build an isolated candidate first:
+
+```bash
+bijux-pollenomics collect-data neotoma \
+  --output-root artifacts/neotoma-collection-candidate
+bijux-pollenomics validate-collection-summary \
+  --summary-path artifacts/neotoma-collection-candidate/collection_summary.json
+```
+
+The candidate can establish acquisition and contract behavior without
+replacing `data/neotoma/`. It cannot be copied piecemeal into the governed
+tree. After review, rerun the same bounded collection against `data/` so the
+runtime performs its complete owned replacement and regenerates the root
+summary consistently.
+
 ### Data Refresh Review
 
 Review the refresh in causal order: source identity and retrieval context,
@@ -169,6 +185,12 @@ tree. A correct country list with the wrong root pair is still the wrong
 publication. Prefer explicit roots in retained commands even when they match
 the defaults.
 
+Publication can likewise be rehearsed beneath `artifacts/` with the real
+governed inputs. Review the candidate manifest and structured membership before
+running the governed publication. A candidate path is diagnostic state: cite
+the accepted `docs/report/` product, not the rehearsal, after the governed
+replacement and review succeed.
+
 ### Publication Review
 
 Begin with the publication summary and each affected bundle manifest. Compare
@@ -208,3 +230,8 @@ semantic diff cannot show whether scientific meaning changed.
 is appropriate only when all of those changes are intentional. If a stage
 fails, later stages cannot be assumed current; use [failure
 recovery](failure-recovery.md) to identify the last coherent boundary.
+
+The combined command is sequential rather than a repository-wide transaction.
+An earlier source-family replacement can succeed even when a later publication
+or documentation build fails. Review and recover each owned boundary by its
+manifest and diff instead of assuming the entire checkout rolled back.

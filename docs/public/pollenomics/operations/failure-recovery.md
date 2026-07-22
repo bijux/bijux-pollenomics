@@ -35,9 +35,22 @@ stateDiagram-v2
     Governed --> [*]
 ```
 
-Collectors and publishers use staging so a failed boundary can preserve the
-previous governed tree. Confirm that preservation explicitly; do not infer it
-from a single successful log line.
+Collectors and publishers build in a sibling staging directory. Failure during
+candidate construction removes that candidate and preserves the previous
+governed tree. Final replacement is not backed by an automatic rollback copy:
+the implementation removes the previous directory before renaming the
+candidate. Confirm the final filesystem and manifest explicitly; do not infer
+preservation from a single log line.
+
+```mermaid
+flowchart LR
+    PriorTree["prior owned tree"] --> CandidateTree["sibling candidate"]
+    CandidateTree -->|build fails| Cleanup["remove candidate; prior remains"]
+    CandidateTree -->|build succeeds| Remove["remove prior tree"]
+    Remove --> Rename["rename candidate to final path"]
+    Rename -->|succeeds| CurrentTree["new owned tree"]
+    Rename -->|fails| Restore["recover verified prior state"]
+```
 
 ## Failure Questions
 
@@ -52,6 +65,11 @@ Answer these questions before retrying:
    scientific refusal?
 6. What is the narrowest operation that can demonstrate recovery?
 
+The distinction between candidate failure and replacement failure is
+operationally decisive. The first normally leaves the prior tree intact. The
+second may leave the final path absent and requires restoration before any
+downstream product can be trusted.
+
 This separates a retryable transport failure from a source-semantic change or
 an evidence gap. The same symptom—such as a missing output—can require a very
 different response at each boundary.
@@ -63,8 +81,10 @@ different response at each boundary.
 3. Inspect tracked changes only within the operation's declared write root.
 4. Compare the current tree with the last coherent manifest, hashes, counts,
    and membership.
-5. Correct the owning source, contract, evidence decision, or publication rule.
-6. Rerun the narrow operation and review its complete output before expanding
+5. If the final owned path is missing or incomplete, restore the last verified
+   tracked state before retrying; do not assemble it from candidate fragments.
+6. Correct the owning source, contract, evidence decision, or publication rule.
+7. Rerun the narrow operation and review its complete output before expanding
    scope.
 
 ## Recovery Route
@@ -90,6 +110,13 @@ Do not manually splice a subset of staged files into a governed tree. That
 breaks the atomic boundary and can leave a manifest describing members that do
 not exist. Repair the owner or input, then let the narrow operation rebuild and
 validate its complete candidate state.
+
+For tracked `data/` and `docs/report/` state, the repository revision and clean
+baseline are the normal recovery authority. Local uncommitted evidence changes
+must be preserved separately before restoration; otherwise recovery can erase
+work that was never represented by the last commit. A backup is trustworthy
+only when its manifest and member identities resolve, not merely because the
+directory exists.
 
 ## Scientific Failure Modes
 

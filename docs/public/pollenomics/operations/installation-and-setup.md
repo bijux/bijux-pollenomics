@@ -42,6 +42,12 @@ An installed wheel can expose every runtime interface while having no local
 data release or publication tree. Package identity and evidence identity must
 therefore be recorded separately.
 
+The package metadata describes the current runtime as alpha software. Treat
+the command and Python contracts as versioned integration surfaces, while
+treating the checked-in data and publications as separately versioned evidence
+products. Upgrading the wheel does not upgrade a captured source tree, and
+copying a newer data tree does not establish which runtime produced it.
+
 ## Reproduce The Repository Environment
 
 The source checkout requires Python 3.11, `uv`, `uv.lock`, and all three
@@ -147,6 +153,11 @@ readiness records, and publication manifests.
 Do not use collection or publication as an installation check. The read-only
 `--version`, `product-scope`, and `source-support` commands establish that the
 runtime is installed without changing scientific state.
+
+For a write-path rehearsal, direct the complete owned result to a new path
+under `artifacts/` and inspect its manifests there. Do not point a rehearsal at
+`data/` or `docs/report/`: publication and collection writers own their
+destinations as replaceable trees, not as append-only folders.
 
 ## Troubleshooting Setup
 
