@@ -15,16 +15,17 @@ gates. Public reports are derived views over that curated state, not an
 independent database.
 
 The current executable product is an atlas builder and evidence-publication
-runtime. It collects and normalizes named sources, curates evidence, reviews
-claim fitness, produces heuristic decision support, and publishes governed
-report families. A general multi-evidence harmonization and interpretation
-engine remains project direction rather than implemented capability.
+runtime. It collects named sources, materializes family-specific preparation
+stages, curates evidence, reviews claim fitness where a review contract is
+present, produces heuristic decision support, and publishes governed report
+families. A general multi-evidence harmonization and interpretation engine
+remains project direction rather than implemented capability.
 
 ```mermaid
 flowchart LR
-    Current["current atlas-builder runtime"] --> Collect["collect and normalize"]
-    Current --> Curate["curate and review"]
-    Current --> Publish["rank and publish"]
+    Database["governed evidence database"] --> Current["current atlas-builder runtime"]
+    Current --> Publish["scoped publication products"]
+    Publish -. "member trace" .-> Database
     Planned["planned engine direction"] -. not current .-> Harmonize["general harmonization"]
     Planned -. not current .-> Interpret["evidence-aware interpretation"]
     Planned -. not current .-> Replay["workflow replay and diff"]
@@ -61,6 +62,20 @@ than being promoted through a visually clean atlas.
 [![bijux-pollenomics docs](https://img.shields.io/badge/docs-bijux--pollenomics-2563EB?logo=materialformkdocs&logoColor=white)](https://bijux.io/bijux-pollenomics/public/pollenomics/)
 [![pollenomics docs](https://img.shields.io/badge/docs-pollenomics-2563EB?logo=materialformkdocs&logoColor=white)](https://bijux.io/bijux-pollenomics/public/pollenomics/)
 <!-- bijux-pollenomics-badges:generated:end -->
+
+## Three Product Surfaces
+
+| Surface | Durable value | Trust boundary |
+| --- | --- | --- |
+| governed evidence database | captured identities, extracted observations, normalized meaning, relationships, conflicts, review outcomes, exclusions, and recovery gaps | a retained record is not automatically eligible for a public claim |
+| producer runtime | explicit state transitions, validation, admission, ranking, and publication behavior | successful execution does not certify missing lifecycle stages or scientific fitness |
+| publication products | manifested membership, geography, evidence roles, caveats, maps, and reports | a descendant cannot strengthen its governing evidence or prove complete recovery |
+
+The three surfaces are versioned and inspected together, but they answer
+different questions. The wheel supplies the producer runtime; a governed data
+root supplies evidence state; a product manifest identifies one published
+result. Reproducibility requires all three identities rather than a package
+version or screenshot alone.
 
 ## Choose A Starting Point
 
@@ -195,6 +210,7 @@ The current repository state is substantial but deliberately uneven:
 | SEAD | 2,195 reviewed inventory rows and 2,172 mapped Nordic features | archaeology context without numeric intervals in the current capture |
 | RAÄ | 761,917 published sites | Sweden-specific heritage density context |
 | SVAR | 40,565 lakes | candidate-lake identity and hydrographic framing |
+| animal sample foundation | 894 rows across 10 species and 40 projects | grounding and blocker classifications for curated source rows |
 | animal aDNA curation | 868 recovered samples across 40 projects | recovered identity rows, not proof of complete project recovery |
 | animal publication | 234 reviewed point-evidence rows | the admitted spatial subset; 233 use supplementary coordinates and one uses qualified named-site geocoding |
 
@@ -220,9 +236,11 @@ flowchart LR
     Qualified -->|unsupported| Refusal["explicit refusal"]
 ```
 
-The difference between 868 recovered animal samples and 234 published point
-rows is not unexplained loss. It is the visible effect of evidence ownership,
-spatial resolution, temporal posture, source recovery, and product admission.
+The 894 foundation rows, 868 recovered sample-master identities, and 234
+published point rows are not one attrition funnel. They are separately
+governed populations with different observation units and purposes. The
+foundation tracks grounding and blockers, the sample master tracks recovered
+identity, and the point contract tracks publication admission.
 
 ## Current Integrity Disclosures
 

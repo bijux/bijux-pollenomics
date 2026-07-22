@@ -12,7 +12,9 @@ last_reviewed: 2026-07-22
 `bijux-pollenomics` connects curated evidence to public maps and reports about
 pollen, palaeoenvironmental context, archaeology, hydrography, fieldwork, and
 ancient DNA. Every publication belongs to a traceable chain: source capture,
-normalization, evidence review, release qualification, and derived output.
+the family-specific preparation stages that are materially present, claim
+fitness, product membership, and derived output. A published descendant does
+not prove that a missing normalized or review artifact exists.
 
 Evidence is traversable in both directions. A map or country report resolves
 backward through product membership, curation, governed facts, and captured
@@ -49,7 +51,7 @@ direction.
 
 | Available now | Not a current runtime claim |
 | --- | --- |
-| named source collection and family-aware normalization | general cross-domain harmonization |
+| named source collection and family-specific preparation evidence | general cross-domain harmonization |
 | evidence curation, ambiguity, conflict, recovery, and refusal records | automatic reconciliation of unlike observation units |
 | heuristic candidate ranking with declared inputs and sensitivity | general scientific inference or causal interpretation |
 | manifested world, regional, country, atlas, and lake products | workflow-wide replay and semantic diff execution |
@@ -57,6 +59,28 @@ direction.
 This boundary is executable through `product-scope` and `surface-map`. A
 planned surface remains outside the product until it has an owned interface,
 state transition, governed result, and fitness contract.
+
+### Read The Product As Three Surfaces
+
+```mermaid
+flowchart LR
+    Sources["datasets, papers, archives, and APIs"] --> Database["governed evidence database"]
+    Database --> Runtime["producer runtime"]
+    Runtime --> Products["scoped publication products"]
+    Products -. "trace membership" .-> Database
+```
+
+| Surface | Reader question |
+| --- | --- |
+| governed evidence database | what was captured, prepared, related, disputed, excluded, or left unresolved? |
+| producer runtime | which owned transformation, decision, or validation produced this state? |
+| publication products | which eligible members support this declared geography, role, and claim? |
+
+The evidence database is not backstage implementation detail. It preserves
+the negative and unresolved state that keeps the public layer honest. The
+runtime is not the database packaged into a wheel, and a publication is not a
+complete export of either. Trust comes from resolving a product member through
+the runtime decision to its governing evidence and source.
 
 ## Start Here
 
