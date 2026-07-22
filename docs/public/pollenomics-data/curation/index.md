@@ -94,6 +94,21 @@ A database that retains only successful joins cannot explain its own
 denominator. The unresolved, refused, deferred, and outside-scope populations
 are part of the curated state, not editorial debris.
 
+### Curation Preserves Five Conservation Rules
+
+| Rule | Conserved information |
+| --- | --- |
+| source conservation | captured wording, native identifiers, locators, and nulls survive interpretation |
+| identity conservation | merges, splits, aliases, and unresolved candidates remain traceable to prior identities |
+| scope conservation | project, sample, site, context, and product claims stay at the level supported by evidence |
+| population conservation | admitted members and every class of known non-member reconcile to the governed denominator |
+| decision conservation | prior outcomes, qualifications, conflicts, and recovery conditions remain explainable after revision |
+
+Curation may add a typed interpretation or select a governing claim, but it
+cannot create source evidence, raise precision, erase a candidate, or transfer
+a fact to a narrower object without a recorded evidentiary operation. These
+rules make preparation scientifically reviewable rather than merely tidy.
+
 ### Curation Does Not Overwrite The Source Row
 
 The captured value, repository interpretation, and product decision remain

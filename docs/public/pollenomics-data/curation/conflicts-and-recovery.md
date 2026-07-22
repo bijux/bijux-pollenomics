@@ -140,6 +140,23 @@ Finding a plausible value on the web is not completion. The value becomes
 governed evidence only when its identity, source, locator, ownership, meaning,
 and downstream impact are recorded.
 
+### A Recovery Attempt Does Not Change The Gap By Itself
+
+Acquisition outcome and scientific recovery posture are separate states:
+
+| Attempt outcome | Scientific interpretation |
+| --- | --- |
+| service unavailable or authentication refused | recovery blocked; the governed gap remains unchanged |
+| response succeeds but contains no identified target member | searched scope yielded no recoverable member; absence is bounded to that request and revision |
+| artifact recovered but target relation is ambiguous | material acquired; claim remains unresolved pending identity evidence |
+| value recovered without a stable locator | candidate information only; not governed evidence |
+| named artifact and discriminating relation recovered | reevaluate the affected claim and descendants; do not auto-admit |
+
+Repeated failure cannot turn a gap into source absence, and successful
+transport cannot turn a plausible value into a resolved claim. The recovery
+record retains the request identity and outcome separately from the decision
+it was intended to change.
+
 ## Recovery Priority
 
 Recovery order is driven by scientific impact and resolvability, not by which

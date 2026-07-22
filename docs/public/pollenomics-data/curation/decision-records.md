@@ -80,6 +80,23 @@ Supersession changes which decision governs a named use; it does not delete the
 prior evidence or outcome. This makes a later admission explainable without
 making the earlier exclusion look like an undocumented error.
 
+### A Decision Can Become Stale Without Becoming False
+
+When an input identity changes, the prior decision remains a valid historical
+record for its revision but no longer governs the new state. Invalidation and
+supersession therefore answer different questions:
+
+| Event | Prior decision | Required next state |
+| --- | --- | --- |
+| evidence or relation changes | retained, marked outside the current read set | reevaluate the same proposed use |
+| product rule or geography changes | retained for the prior product identity | create a decision under the new rule and scope |
+| stronger evidence confirms the same outcome | retained and superseded with an explained no-membership-change result | propagate the new evidence revision |
+| changed evidence reverses the outcome | retained with affected descendants | superseding decision plus member-level reconciliation |
+
+This distinction prevents a stale admission from silently surviving a changed
+coordinate or rule, while preserving the evidence needed to reproduce an
+older publication.
+
 ## One Object Can Carry Several Decisions
 
 The Wadi Halfa dromedary context illustrates why decisions remain scoped:

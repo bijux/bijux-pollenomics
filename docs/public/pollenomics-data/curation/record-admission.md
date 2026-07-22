@@ -82,6 +82,26 @@ This separation prevents an out-of-country sample from being described as
 weak evidence and prevents an eligible-but-missing feature from being hidden
 as a scientific refusal. Recovery belongs to the gate that actually failed.
 
+### Admission Is Not Monotonic
+
+Newer or more detailed evidence can strengthen, preserve, narrow, or reverse
+an admission. A source refresh may expose that two labels identify one sample,
+that a coordinate was project-level rather than sample-owned, or that a date
+uses an incompatible basis. More data is not guaranteed to produce more
+members.
+
+| Evidence change | Possible admission effect |
+| --- | --- |
+| recovered sample-bearing supplement | context member may become sample-backed after independent dimension review |
+| identity merge | two apparent candidates may become one governed object and one member |
+| weaker coordinate provenance discovered | exact point may become approximate or be withheld |
+| chronology basis corrected | spatial member may remain while temporal-comparison eligibility is removed |
+| product boundary revision | evidence decision may remain valid while membership moves outside scope |
+
+Acceptance review therefore compares identities, roles, precision, and
+non-members as well as totals. A reduction can be the correct outcome of a
+stronger database.
+
 ## Decision Identity
 
 An admission decision is identified by the candidate, product, product
