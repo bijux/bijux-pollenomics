@@ -121,6 +121,45 @@ The funnel is claim-specific rather than a universal quality score. A sample
 excluded from exact point publication can remain valid for identity,
 project-level inventory, regional context, or future source recovery.
 
+## The Database Preserves Negative Information
+
+A trustworthy evidence database must retain more than admitted rows. Bijux
+Pollenomics preserves the states that explain why an apparently plausible
+claim was qualified, deferred, or refused:
+
+| Record family | Question it answers | Why it matters |
+| --- | --- | --- |
+| ambiguity ledger | which candidate identities could not be reconciled? | prevents convenient label matching from becoming identity |
+| conflict ledger | which captured claims disagree, and which authority governs? | prevents normalization from erasing source disagreement |
+| substitution ledger | where does broader project context stand in for missing sample evidence? | keeps inherited context from appearing sample-owned |
+| recovery queue | which source, table, locator, or field is still needed? | turns missingness into an actionable evidence requirement |
+| exclusion and refusal surface | why did a known record fail one publication contract? | distinguishes unsupported representation from source absence |
+| sensitivity output | how stable is a ranking under declared alternatives? | prevents one ordinal result from masquerading as certainty |
+
+```mermaid
+flowchart LR
+    Candidate["captured or derived candidate"] --> Review{"claim-specific review"}
+    Review -->|supported| Admit["admitted member"]
+    Review -->|qualified| Caveat["qualified member"]
+    Review -->|conflicting| Conflict["conflict or ambiguity ledger"]
+    Review -->|missing evidence| Recovery["recovery queue"]
+    Review -->|unsupported| Refusal["exclusion or refusal"]
+    Admit --> Account["accounted product population"]
+    Caveat --> Account
+    Conflict --> Account
+    Recovery --> Account
+    Refusal --> Account
+```
+
+The accounted population is therefore larger than the visible subset. A
+publication is trustworthy when every expected candidate can be resolved to a
+member, a qualification, an exclusion, an unresolved identity, or a declared
+recovery gap—and when those outcomes retain their governing evidence.
+
+This is also why a smaller public atlas can represent deeper work than a
+larger unqualified map. Refusal is not discarded effort; it is the stored
+result of applying an evidence contract.
+
 ## Follow The Question, Not The Rendering
 
 | Question | First surface | Governing follow-up |
