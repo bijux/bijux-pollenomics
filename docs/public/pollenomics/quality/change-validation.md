@@ -62,6 +62,29 @@ Validation should therefore stop at the first failed layer and preserve its
 finding. Passing later presentation checks cannot compensate for an upstream
 identity or evidence failure.
 
+## Breadth Rule
+
+Documentation breadth is semantic coverage, not page count. A change preserves
+breadth only when a reader can still discover the same governing boundaries,
+understand their meaning, operate them safely, and trace the evidence promised
+by the public interface. Combining pages is valid when the resulting page
+retains those capabilities; leaving a title or redirect without the governing
+content is not.
+
+| Documentation change | Acceptance evidence |
+| --- | --- |
+| page renamed or moved | navigation, inbound links, stable subject, and governing anchors resolve at the new path |
+| pages merged | every distinct contract, procedure, limit, and proof path remains findable in the merged surface |
+| page retired | a named replacement answers the same reader question, or the public capability is explicitly withdrawn |
+| command or data contract changed | reference, examples, defaults, mutation boundary, and failure semantics agree with runtime behavior |
+| evidence family changed | source role, lifecycle materialization, authority path, coverage, and publication consequences remain explained |
+| generated report changed | its handwritten entry point still explains meaning, authority, interpretation limits, and how to inspect the governed state |
+
+A passing link check proves reachability; it does not prove breadth. Review the
+reader questions lost or gained, the authority paths affected, and the claims
+that would become impossible to audit. A smaller documentation tree is an
+improvement only when it removes duplication without removing meaning.
+
 ## Counts Are Not Explanations
 
 An increased count may reflect recovered evidence, broader scope, repaired

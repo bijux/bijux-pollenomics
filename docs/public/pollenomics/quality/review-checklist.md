@@ -85,6 +85,31 @@ Counts, labels, roles, geography, and precision should agree across those
 surfaces. A disagreement is not resolved by preferring the most polished view;
 it is an unresolved publication defect.
 
+## Review Checklist
+
+Use the checklist against one exact claim and product identity. A blank item is
+not implicit approval; it is either evidence to recover or a reason to narrow
+the verdict.
+
+| Check | Pass condition | Stop condition |
+| --- | --- | --- |
+| object | stable governed identity and observation unit resolve | label conflates samples, sites, projects, papers, or product members |
+| source | versioned source member, retrieval context, and native key resolve | citation cannot be connected to the acquired object |
+| role | direct, contextual, decision-support, and framing roles are explicit | co-location or presentation is doing evidential work |
+| place | locality owner, coordinate basis, precision, and conflicts resolve | display geometry is more precise than governing evidence |
+| time | chronology owner, reported wording, dating basis, and normalized posture resolve | contextual time is presented as sample-owned time |
+| relation | every cross-record link names its basis and cardinality | a name or coordinate match silently creates identity |
+| decision | product, eligible population, rule, disposition, and reason resolve | normalized presence is treated as admission |
+| product | manifest, scope, member identity, caveat, and structured views agree | rendered output cannot be reconciled with its manifest |
+| independence | supporting observations have distinct governing lineages | duplicated descendants are counted as corroboration |
+| absence | capture, normalization, review, admission, publication, and view boundaries are distinguished | non-visibility is described as evidence absence |
+
+Record the first failed governing link and every dependent statement it
+weakens. Continue far enough to identify affected descendants, but do not use
+downstream agreement to overrule the failed owner. The review packet is
+complete when another reader can reproduce the verdict from stable identities
+without relying on the current visual presentation.
+
 ## Challenge The Claim Before Accepting It
 
 Positive traceability is necessary but can still conceal an overclaim. Apply
