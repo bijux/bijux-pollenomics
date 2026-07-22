@@ -4,118 +4,109 @@ audience: reader
 type: explanation
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-05-10
+last_reviewed: 2026-07-22
 ---
 
-# Animal Source Intake
+# Animal source intake
 
-Animal ancient DNA does not enter this repository as one clean public-ready
-table. It usually begins as a chain of archives, papers, supplementary files,
-partial sample lists, ambiguous locality wording, and uneven chronology detail.
+An animal ancient-DNA point begins with a project accession, a paper, and often
+several supplementary files—not with a finished map row. Bijux Pollenomics
+preserves that recovery chain so a published sample can be traced to the
+artifact and passage that support its identity, locality, and chronology.
 
-The map is the end of a review process, not the beginning of one. Before an
-animal sample becomes a visible point, the repository has to decide whether
-the project is in scope, whether the paper trail is complete, whether the
-supplementary material is usable, and whether the recovered sample can support
-locality and chronology claims honestly.
+The tracked collection is therefore broader than the atlas. A project may be
+important enough to curate while still lacking the evidence needed to place a
+sample on a map. Its absence from a map means *not yet admissible at that
+resolution*, not *no evidence exists*.
 
-## Why Intake Is A Public Surface
+## From project to publishable sample
 
-Readers often assume that a missing point means "no evidence exists" or that a
-visible point means "every underlying field was straightforward." Neither is
-safe to assume in animal ancient DNA work.
+```mermaid
+flowchart LR
+    A[Archive project] --> B[Paper linkage]
+    B --> C[Article and supplement capture]
+    C --> D[Sample-row recovery]
+    D --> E[Stable sample identity]
+    E --> F[Locality evidence]
+    E --> G[Chronology evidence]
+    F --> H[Coordinate review]
+    G --> I[Temporal normalization]
+    H --> J{Publication rules pass?}
+    I --> J
+    J -->|yes| K[Atlas and country layers]
+    J -->|no| L[Tracked curation record]
+```
 
-The intake surface is public because it answers a more honest question: what
-had to be recovered, checked, and governed before the repository was willing to
-show this evidence as a public output?
+Each transition has its own evidence requirement. A readable paper does not
+prove that its sample table was recovered; a recovered sample label does not
+prove an exact site; and a named site does not justify coordinates unless the
+coordinate source and resolution are explicit.
 
-## What Intake Has To Establish
+## What is captured
 
-| Stage | What it asks |
-| --- | --- |
-| Project intake | Which archive accessions are in scope? |
-| Paper linkage | Which papers anchor those projects? |
-| Supplement capture | Which sample tables or appendices are available? |
-| Sample recovery | Which sample rows can be recovered with defensible lineage? |
-| Locality recovery | Which recovered samples already have usable site evidence? |
-| Chronology recovery | Which recovered samples already have usable date evidence? |
-| Coordinate derivation | Which recovered samples already have mappable coordinate support? |
-| Publication readiness | Which projects are credible enough to move into public map and country surfaces? |
+| Evidence unit | Preserved information | Why it matters |
+| --- | --- | --- |
+| Project | archive accession, species scope, project URL, intake status | keeps archive identity separate from later interpretation |
+| Paper | DOI, canonical URL, title, journal, year, linked projects | establishes the publication anchor |
+| Source artifact | source URL, logical path, storage path, content type, size, fetch status | identifies the exact acquired object |
+| Supplement | file family, archive member, parse status, linked paper | exposes whether the usable sample evidence was actually recovered |
+| Sample | source-native label, stable repository identifier, source locator and excerpt | prevents project-level evidence from being presented as sample-level evidence |
+| Locality | reported place text, site assignment, resolution, provenance, conflicts | controls how precisely a sample may be mapped |
+| Chronology | reported date text, normalized interval, basis, precision, provenance | controls whether temporal comparison is defensible |
 
-This is not busywork around the science. It is the work that determines whether
-public scientific language can be trusted.
+HTML article and archive captures may be stored as compressed `.html.gz`
+payloads. Their logical `article.html` or `archive_metadata.html` identity stays
+stable, while companion metadata records the physical path, byte size, and
+encoding. Storage optimization therefore does not break provenance locators.
 
-## What You Can Learn Here
+## Recovery states are evidence, too
 
-- which tracked projects still need paper capture
-- which papers already have archived supplementary material
-- which projects already carry archive-native sample identifiers
-- which projects already ship a reviewed sample master
-- which recovered sample rows already have direct site evidence and which still
-  remain at project-level or region-level posture
-- which recovered sample rows already have normalized chronology and which
-  remain unresolved
-- which projects are blocked at paper capture, supplement ingestion, sample
-  identity extraction, site extraction, or chronology extraction
-- which manual curation tasks still block sample identity, exact site,
-  chronology, or coordinate recovery
+The intake registry distinguishes incomplete acquisition from incomplete
+extraction. These conditions have different remedies and different scientific
+meaning:
 
-## Repository-Owned Records Behind Intake
+- **paper capture blocked** — the publication anchor is not readable locally;
+- **supplement capture blocked** — the paper is known, but its sample-bearing
+  files are unavailable;
+- **sample extraction blocked** — readable material exists, but defensible
+  sample rows have not been recovered;
+- **locality or chronology unresolved** — the sample exists, but a public
+  spatial or temporal claim would exceed its evidence;
+- **publication ready** — sample identity and the fields used by the output
+  satisfy the applicable admission rules.
 
-The intake chain is intentionally explicit. Important governed files include:
+Expected sample counts are also provenance-bearing claims. When the available
+paper or archive surface is too weak, the registry keeps the count unknown
+rather than turning an estimate into an apparent fact.
 
-- `data/adna/governance/source_library/tracked_project_and_paper_inventory.json`
-- `data/adna/governance/source_library/project_registry.json`
-- `data/adna/governance/source_library/paper_registry.json`
-- `data/adna/governance/source_library/supplement_acquisition_checklist.json`
-- `data/adna/governance/source_library/supplement_file_family_audit.json`
-- `data/adna/governance/source_library/source_intake_audit.json`
-- `data/adna/governance/source_library/project_recovery_stage_review.json`
-- `data/adna/governance/source_library/project_sample_master_completeness.json`
-- `data/adna/species/<species-slug>/normalized/sample_master.json`
-- `data/adna/governance/source_library/project_sample_site_review.json`
-- `data/adna/species/<species-slug>/normalized/sample_sites.json`
-- `data/adna/species/<species-slug>/review/locality_worksheet.json`
-- `data/adna/species/<species-slug>/review/sample_locality_evidence.json`
-- `data/adna/governance/source_library/project_sample_chronology_review.json`
-- `data/adna/species/<species-slug>/normalized/sample_chronology.json`
-- `data/adna/governance/source_library/sample_identity_ambiguity_ledger.json`
-- `data/adna/governance/source_library/sample_locality_conflict_ledger.json`
-- `data/adna/governance/source_library/sample_chronology_ambiguity_ledger.json`
-- `data/adna/governance/source_library/site_name_normalization_dictionary.json`
-- `data/adna/governance/source_library/reference_stash_reconciliation.json`
-- `data/adna/governance/source_library/source_blocker_review.json`
-- `data/adna/governance/source_library/project_expected_sample_yield_review.json`
-- `data/adna/governance/source_library/manual_curation_worklist.json`
-- `data/adna/governance/source_library/source_recovery_release_guard.json`
+## How to audit a sample
 
-These records make it possible to see where a project is still thin, where a
-sample can already support public claims, and where the repository has chosen
-to stay narrow rather than overstate confidence.
+Start with the project registry under
+`data/adna/governance/source_library/project_registry.json`, then follow the
+project's `source_bundle_path`. The bundle connects project and paper records
+to captured artifacts and supplements. A recovered sample continues into the
+species-owned surfaces under `data/adna/species/<species-slug>/`:
 
-## Governed Capture Storage
+1. `normalized/sample_master.json` establishes the stable sample identity and
+   source lineage;
+2. `review/sample_locality_evidence.json` records the reported place evidence
+   and any unresolved conflict;
+3. `normalized/sample_sites.json` records the admitted spatial representation;
+4. `normalized/sample_chronology.json` records chronology only when the source
+   supports a defensible temporal representation.
 
-Tracked paper pages and archive metadata pages remain part of the governed
-source library, but they no longer need to live as large raw HTML blobs in the
-working tree.
+Cross-project audits expose missing captures, ambiguous identities, locality
+conflicts, chronology gaps, and manual-curation work without promoting those
+records into public points.
 
-- the logical evidence paths still resolve as `article.html` or
-  `archive_metadata.html`
-- the stored repository payload can be compressed as `.html.gz`
-- the companion metadata records the physical `storage_path`,
-  `storage_byte_size`, and `content_encoding`
+## Reading a visible point correctly
 
-That split keeps citations and provenance locators stable for repository code
-while making the checked-in source library lighter and less likely to drown the
-repository language mix in vendored HTML.
+A visible point means that the repository can defend the sample at the
+published spatial and temporal resolution. It does not mean every source field
+was exact, that all samples from the project were recovered, or that every
+tracked project reached the same maturity.
 
-## Why Intake Is Broader Than The Atlas
-
-Many projects matter to the repository before they are ready for map
-publication. That is not a failure. It is a sign that the repository keeps the
-recovery work visible instead of pretending incomplete evidence is already
-public-ready.
-
-If you want to understand why the repository does not publish every tracked
-animal project as if it were equally mature, this is the page that explains
-the difference.
+For the field-level contracts, continue with [sample records](../evidence/sample-records.md),
+[locality evidence](../evidence/localities.md), and
+[chronology evidence](../evidence/chronology.md). The final map admission rules
+are documented in [point publication rules](../publications/point-rules.md).
