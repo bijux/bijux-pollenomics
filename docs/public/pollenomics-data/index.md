@@ -97,6 +97,38 @@ flowchart TB
     View --> Member["product-specific publication member"]
 ```
 
+## One Sample, Several Independent Claims
+
+Animal evidence makes the database design concrete. One sample identity can
+link to a project and paper while its locality, chronology, coordinate, and
+publication claims succeed or fail independently.
+
+```mermaid
+flowchart TB
+    Sample["stable sample identity"] --> Project["project accession"]
+    Sample --> Paper["paper and supplement locator"]
+    Sample --> Locality["reported locality and site link"]
+    Sample --> Chronology["reported time and normalized interval"]
+    Locality --> Coordinate["coordinate basis and precision"]
+    Locality --> Admission{"product-specific admission"}
+    Chronology --> Admission
+    Coordinate --> Admission
+    Admission -->|admit| Member["published member"]
+    Admission -->|qualify| Qualified["qualified member"]
+    Admission -->|exclude| Excluded["reasoned exclusion"]
+```
+
+This shape prevents partial evidence from masquerading as a complete sample.
+A paper can establish project context without establishing sample chronology;
+a named region can support a locality statement without supporting an exact
+point; and a sample can remain scientifically relevant while being excluded
+from one map contract.
+
+For non-animal families, the governing unit changes—site, sequence, grid cell,
+heritage record, lake, boundary, or AADR row—but the rule remains: preserve the
+source-native object, declare normalized meaning, and make product admission a
+separate decision.
+
 ## Curation Decisions Remain Queryable
 
 | Decision class | Preserved distinction | Why publication depends on it |

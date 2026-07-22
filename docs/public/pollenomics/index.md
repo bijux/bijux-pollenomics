@@ -51,6 +51,30 @@ This division prevents a polished output from becoming its own authority. The
 publication layer can select, summarize, and render evidence; it cannot invent
 support that the curated state does not contain.
 
+## A Publication Is A Claim Graph
+
+A report directory is not a bag of equivalent files. The manifest defines the
+product and its members; structured rows carry reusable values; traceability
+connects members to evidence; warnings and exclusions constrain
+interpretation; and HTML or Markdown renders that state for people.
+
+```mermaid
+flowchart TB
+    Manifest["product manifest<br/>scope + version + members"] --> Rows["JSON, CSV, and GeoJSON"]
+    Manifest --> Trace["member-to-evidence traceability"]
+    Manifest --> Warnings["warnings and exclusions"]
+    Rows --> View["map, table, and narrative"]
+    Trace --> View
+    Warnings --> View
+    Trace --> Evidence["governing evidence records"]
+    Evidence --> Source["captured source identity"]
+```
+
+The graph matters in both directions. A reader can challenge a visible member
+by tracing it upstream. A curator can assess the publication impact of a
+changed source or decision by following descendants. A copied map or table
+without its manifest and qualifications is therefore an incomplete product.
+
 ## What Is Available
 
 - a source collection pipeline for AADR, boundaries, LandClim, Neotoma, RAÄ,
@@ -111,6 +135,11 @@ project-level inventory, regional context, or future source recovery.
 The first surface locates the answer; the follow-up establishes its authority.
 A map is usually the fastest index, while the evidence database is the stronger
 surface for a claim about one record.
+
+Absence follows the same rule. A record may be absent because it lies outside
+the product geography, lacks claim-specific evidence, remains unresolved, was
+excluded by policy, or was never recovered from the source. Only the relevant
+scope, exclusion, and recovery records distinguish those meanings.
 
 ## Evidence Strength Is Explicit
 

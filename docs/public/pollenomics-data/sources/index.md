@@ -26,6 +26,24 @@ where it applies, how it was acquired, and which claims it can support.
 | [AADR](aadr.md) | human ancient-DNA evidence | release-versioned sample metadata | current scope excludes genotype processing |
 | [Animal source intake](animal-source-intake.md) | sample-owned animal aDNA evidence | project, paper, supplement, sample, locality, and chronology recovery | source completeness varies by project and sample |
 
+## Choose By Question And Observation Unit
+
+The most convenient layer is not necessarily the right evidence. Select a
+family by the object it observes and the claim it is allowed to support.
+
+| Intended question | Appropriate starting family | Observation unit | Required qualification |
+| --- | --- | --- | --- |
+| What pollen or vegetation context is represented? | LandClim or Neotoma | sequence, site, or model grid | state whether the value is observed or modelled and retain its time basis |
+| What archaeological context is registered nearby? | SEAD or RAÄ | environmental-archaeology site or Swedish heritage record | preserve national reach, registration bias, and chronology limits |
+| Which geography contains a record? | boundaries | administrative polygon | use only for framing or selection, never evidential weight |
+| Which registered lake is being considered? | SVAR | water-body registry record | distinguish registry identity from sampling suitability |
+| Which human aDNA metadata record is represented? | AADR | release-versioned sample row | retain release and metadata precision; genotype analysis is separate |
+| Which animal specimen supports a claim? | animal source library | project-owned sample with paper lineage | require sample-owned place, time, and coordinate evidence for exact publication |
+
+If no family observes the required unit, combining nearby layers does not
+repair the gap. The valid outcome is a contextual statement, a recovery item,
+or a refusal.
+
 ## Source Identity
 
 Every collected family is bound to repository evidence that includes:
@@ -65,6 +83,23 @@ for recovery without being presented as a collected evidence family.
 Refresh does not repeat admission blindly. A new release can change schema,
 licence terms, endpoints, coverage, or semantics; those changes require review
 even when the source name remains stable.
+
+## Change Propagation
+
+```mermaid
+flowchart LR
+    Release["new release or recovered artifact"] --> Capture["capture identity and diff"]
+    Capture --> Normalize["member and semantic diff"]
+    Normalize --> Review["coverage, conflict, and precision review"]
+    Review --> Decision["admission impact"]
+    Decision --> Product["affected product membership"]
+    Decision --> None["no public change, with reason"]
+```
+
+The last branch is important: collection and curation are products even when a
+record remains outside public scope. A refresh is trustworthy when its lack of
+publication impact is explained, not merely when regenerated maps happen to
+look unchanged.
 
 ## Direct Evidence, Context, And Framing
 
