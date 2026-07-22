@@ -4,33 +4,52 @@ audience: reader
 type: explanation
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-05-10
+last_reviewed: 2026-07-22
 ---
 
-# Install And Rebuild
+# Install, Verify, And Rebuild
 
-This section gives the shortest honest rebuild path: install the checked
-environment, run the CLI, and verify that tracked outputs still match the code.
+Repository operations fall into three classes: inspection, validation, and
+state replacement. Choosing the class before choosing the command prevents a
+review request from accidentally becoming a data or publication rebuild.
 
-It is written for people who want the practical path first, not for maintainers
-looking for workflow internals.
+```mermaid
+flowchart LR
+    Need{"What outcome is needed?"}
+    Need -->|understand state| Inspect["inspect capability and evidence"]
+    Need -->|prove current state| Validate["run focused validation"]
+    Need -->|refresh governed state| Rebuild["replace data or publications"]
+    Inspect --> NoWrite["no tracked writes"]
+    Validate --> Diagnostics["diagnostics and status"]
+    Rebuild --> Diff["review tracked diffs"]
+```
 
-The goal is not to make every workflow look easy. It is to make the supported
-paths understandable: what you run, what it changes, and where you should stop
-when your question has been answered.
+## Operation Classes
 
-## Start Here
+| Class | Typical operations | Expected effect |
+| --- | --- | --- |
+| inspection | `product-scope`, `ownership-map`, `source-support`, `adna-species` | prints current contracts or evidence posture |
+| validation | lock checks, focused tests, strict documentation build, collection-summary validation | reports drift or defects without source refresh |
+| data refresh | `collect-data`, animal foundation refresh, contract-surface refresh | replaces governed files under `data/` and related review surfaces |
+| publication rebuild | country, multi-country, and complete report publication | replaces derived products under `docs/report/` |
 
-- start with [installation and setup](installation-and-setup.md) if you need a
-  working local environment
-- use [common workflows](common-workflows.md) if you want the shortest path for
-  verification, data refresh, publication review, or full rebuild
-- use [failure recovery](failure-recovery.md) when a rebuild has already failed
-  and you need the narrowest honest recovery path
-- use [operational boundaries](operational-boundaries.md) when you want to know
-  what local operations are supported and what the runtime still refuses to
-  imply
-- use [CLI surface](../interfaces/cli-surface.md) if you need the command set
-  itself
-- use [test strategy](../quality/test-strategy.md) if you need to choose the
-  right validation layer for the change you made
+Data and report rebuilds are intentionally state-changing. They may require
+network access, take longer than focused checks, and produce large tracked
+diffs. A rebuild is appropriate when refreshed governed output is the desired
+result—not as a default proof that unrelated code or prose is correct.
+
+## Supported Routes
+
+| Outcome | Route |
+| --- | --- |
+| create the locked local environment | [Installation and setup](installation-and-setup.md) |
+| choose the narrowest inspect, validate, refresh, or publication path | [Common workflows](common-workflows.md) |
+| recover from an interrupted or failed operation | [Failure recovery](failure-recovery.md) |
+| distinguish supported automation from scientific inference | [Operational boundaries](operational-boundaries.md) |
+| inspect exact subcommands and write effects | [CLI surface](../interfaces/cli-surface.md) |
+| select validation proportional to the changed surface | [Test strategy](../quality/test-strategy.md) |
+
+Every state-changing operation ends with the same obligation: inspect the
+resulting files as evidence or publication changes, then run the checks that
+govern that surface. Successful execution is necessary; a coherent and honest
+diff is the acceptance criterion.
