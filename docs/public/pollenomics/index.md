@@ -7,7 +7,7 @@ owner: bijux-pollenomics-docs
 last_reviewed: 2026-07-22
 ---
 
-# Bijux Pollenomics
+# Bijux Pollenomics Product Guide
 
 `bijux-pollenomics` is an atlas builder and evidence-publication runtime. It
 turns heterogeneous scientific and spatial sources into versioned, reviewable
@@ -35,6 +35,40 @@ merely represented in a design or roadmap.
   <a class="md-button" href="operations/">Install and rebuild</a>
   <a class="md-button" href="quality/">Understand guarantees and limits</a>
 </div>
+
+## Choose The Governing Surface
+
+Start with the question whose answer will be reused. The runtime system model
+explains execution and persistence; repository scope and limits define the
+claim ceiling; interfaces define callable behavior; and quality pages explain
+which proof matches a change. No single page substitutes for the evidence
+record or product manifest that owns a scientific result.
+
+| Question | Start here | Authority reached next |
+| --- | --- | --- |
+| What does the runtime execute, read, and write? | [runtime system model](architecture/runtime-system-model.md) | owning module, command contract, and bounded filesystem roots |
+| Which capabilities and claims belong to this repository? | [repository scope and limits](foundation/repository-scope-and-limits.md) | machine-readable product scope and evidence-family contracts |
+| Which package or layer owns a decision? | [runtime scope and ownership](foundation/runtime-scope-and-ownership.md) | package facade, governed record, or publication contract |
+| How can an operator or integration invoke the system? | [interfaces](interfaces/index.md) | CLI, Python, data, and artifact contracts |
+| How should a source refresh or product build be executed? | [operations](operations/index.md) | explicit input and output roots plus retained manifests |
+| What evidence is sufficient for a change or claim? | [quality](quality/index.md) | focused checks, scientific review, and visible limitations |
+
+```mermaid
+flowchart LR
+    Question["reader question"] --> Owner{"governing surface"}
+    Owner --> Runtime["runtime contract"]
+    Owner --> Evidence["evidence owner"]
+    Owner --> Product["product manifest"]
+    Runtime --> Proof["focused behavioral proof"]
+    Evidence --> Proof
+    Product --> Proof
+```
+
+Follow the route until it reaches an authority, not merely another summary.
+For a visible atlas member, that normally means a product manifest, member
+identity, admission decision, governed fact, and source locator. For runtime
+behavior, it means the public interface, implementation owner, and focused
+test or emitted contract.
 
 ## One Repository, Four Responsibilities
 

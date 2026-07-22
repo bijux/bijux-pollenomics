@@ -30,6 +30,42 @@ sample-owned evidence from papers, supplements, and project archives.
   <a class="md-button" href="overview/cross-domain-evidence-matrix/">Compare evidence maturity</a>
 </div>
 
+## Evidence System Coverage
+
+The handbook follows the database in the same direction that a claim is
+created, challenged, and corrected. Its overview pages define authority before
+the family pages introduce source-specific details:
+
+| Reader question | Governing route | What the route establishes |
+| --- | --- | --- |
+| How does a source claim become a product member? | [provenance and publication linkage](overview/provenance-and-publication-linkage.md) | source, claim, decision, membership, and correction lineage |
+| Why was a source selected, and what changes on refresh? | [source selection and refresh](overview/source-selection-and-refresh.md) | admission criteria, capture identity, replacement behavior, and impact review |
+| What do names and counts cover? | [coverage and naming](overview/coverage-and-naming.md) | observation unit, population, scope, revision, and stable naming rules |
+| Which family owns a scientific or framing role? | [source families](sources/index.md) | pollen context, archaeology context, lake identity, boundary framing, and aDNA roles |
+| How is a record admitted, qualified, or refused? | [curation](curation/index.md) | fact ownership, conflict posture, decision reason, and recovery condition |
+| How should a visible output be interpreted? | [publications](publications/index.md) | manifested membership, evidence role, geography, warnings, and limits |
+
+```mermaid
+flowchart LR
+    Source["source family"] --> Capture["versioned capture"]
+    Capture --> Record["governed record"]
+    Record --> Decision["curation decision"]
+    Decision --> Member["product member"]
+    Member --> Interpretation["bounded public interpretation"]
+    Interpretation -. challenge .-> Record
+```
+
+Pollen context and boundary framing illustrate why the roles remain explicit.
+A pollen sequence contributes palaeoenvironmental evidence; a country polygon
+constrains a geographic product. Co-occurrence in a viewport does not make the
+polygon scientific evidence or make the pollen sequence a political
+classification.
+
+Source comparison begins only after those roles, observation units, temporal
+postures, and spatial precisions are declared. It asks whether two governed
+populations support the same comparison operation; it does not flatten unlike
+families into a common row merely because their coordinates can be plotted.
+
 ## Database Architecture
 
 ```mermaid

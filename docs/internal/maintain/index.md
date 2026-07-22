@@ -13,6 +13,36 @@ Repository maintenance begins with ownership, not with a convenient command.
 Choose the surface that has authority to make the intended change, constrain
 its writes, review its consequences, and retain proof at the same boundary.
 
+## Repository Governance
+
+The maintainer surface separates three forms of ownership. The
+[repository-governance overview](../pollenomics-dev/repository-governance.md)
+defines the package and schema owners that may change policy. The
+[Make contracts](makes/make-system-contracts.md) define the command-routing
+boundary between convenient targets and their real producers. The
+[verification and release map](gh-workflows/verification-and-release.md)
+defines which workflow proves repository state and which workflow may publish
+an already-qualified artifact.
+
+```mermaid
+flowchart LR
+    Intent["maintenance intent"] --> Governance["repository governance"]
+    Governance --> Routing["command routing"]
+    Routing --> Producer["owning producer"]
+    Producer --> Verification["focused verification"]
+    Verification --> Release["release evidence when applicable"]
+```
+
+| Boundary | Governs | Does not govern |
+| --- | --- | --- |
+| repository governance | package ownership, schemas, repository policy, and release stops | scientific facts owned by source and curation records |
+| command routing | delegation, prerequisites, explicit roots, and generated destinations | acceptance of the resulting scientific meaning |
+| verification | agreement for a named contract at a named revision | authority to broaden an unsupported claim |
+| release | artifact identity and cross-surface publication | retroactive qualification of data or documentation |
+
+Use this chain before selecting a command. It prevents a broad target from
+becoming the apparent owner of every file it happens to touch.
+
 ## Classify The Change
 
 | Change | Authoritative input | Expected governed descendants | Primary proof |

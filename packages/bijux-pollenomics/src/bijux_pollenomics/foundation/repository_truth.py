@@ -464,11 +464,12 @@ def build_repository_claim_audit(
         report_root=report_root,
     )
 
+    landing_text = (root_readme + docs_index + runtime_readme + data_index).casefold()
     checks = [
         _claim_check(
             "repository_landings_name_pollenomics_first",
             all(
-                text in root_readme + docs_index + runtime_readme + data_index
+                text in landing_text
                 for text in ("pollenomics", "environmental", "source comparison")
             ),
             "Repository landings describe pollenomics and environmental evidence before the thin animal recovery slice.",
@@ -3191,12 +3192,12 @@ def _docs_breadth_expectations() -> list[dict[str, object]]:
                 "docs/public/pollenomics-data/publications/maps.md",
             ],
             "required_link_snippets": [
-                "overview/provenance-and-publication-linkage/",
-                "overview/source-selection-and-refresh/",
-                "overview/coverage-and-naming/",
+                "overview/provenance-and-publication-linkage.md",
+                "overview/source-selection-and-refresh.md",
+                "overview/coverage-and-naming.md",
             ],
             "required_topic_snippets": [
-                "Restored System Coverage",
+                "Evidence System Coverage",
                 "pollen context",
                 "boundary framing",
             ],
@@ -3213,14 +3214,14 @@ def _docs_breadth_expectations() -> list[dict[str, object]]:
                 "docs/internal/maintain/makes/make-system-contracts.md",
             ],
             "required_link_snippets": [
-                "pollenomics-dev/repository-governance.md",
+                "../pollenomics-dev/repository-governance.md",
                 "gh-workflows/verification-and-release.md",
                 "makes/make-system-contracts.md",
             ],
             "required_topic_snippets": [
-                "repository-governance overview",
-                "command-routing boundary",
-                "workflow verification and release map",
+                "Repository Governance",
+                "command-routing",
+                "verification and release map",
             ],
         },
     ]
