@@ -99,6 +99,33 @@ This distinction is especially important for animal aDNA:
 - atlas-candidate records govern geographic admission; and
 - report bundles govern presentation of the admitted subset.
 
+## Join Contracts
+
+Every cross-surface join is itself a claim. The database admits joins through
+stable identities and recorded relations, never through visual similarity or
+proximity alone.
+
+| Join | Required key or relation | Unsafe substitute |
+| --- | --- | --- |
+| source row to normalized record | source-family identity plus release-native key | row order or display label |
+| archive sample to paper sample | accession lineage plus recovered sample-label evidence | similar specimen name |
+| sample to locality | sample-owned site link or documented substitution | project country or nearest named place |
+| sample to chronology | sample-owned chronology evidence and locator | paper year or project-wide interval |
+| locality to coordinate | coordinate provenance tied to the locality claim | map search result without retained basis |
+| evidence record to publication member | stable evidence ID plus explicit admission decision | matching coordinates or title text |
+
+```mermaid
+flowchart LR
+    Left["record in one authority"] --> Relation["stable key + evidence locator"]
+    Relation --> Right["record in another authority"]
+    Relation --> Review["ambiguity, conflict, or substitution posture"]
+```
+
+When a key is absent or one-to-many, the unresolved relation remains visible.
+Choosing the nearest coordinate, the first label match, or a project-wide
+value would make the normalized database appear complete by creating evidence
+that the source never supplied.
+
 ## Review Outcomes
 
 A review can admit, qualify, block, or defer a record. These outcomes preserve

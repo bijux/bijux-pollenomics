@@ -101,6 +101,31 @@ The transaction never infers success from pipeline completion. A technically
 successful capture can still end in refusal when scientific ownership,
 precision, or comparability is inadequate.
 
+## Cardinality Is Scientific Meaning
+
+Project `PRJEB90141` contributes four recovered goat sample identities in the
+current curated species view. They resolve to four localities—Direkli Cave,
+Blagotin-Poljna, Sang-e Chakhmaq, and Acemhöyük—and retain four sample-owned
+chronology intervals. The project accession connects the records; it does not
+collapse them into one project point or one project date.
+
+```mermaid
+flowchart TD
+    Project["PRJEB90141"] --> Direkli["SAMEA4453841<br/>Direkli Cave"]
+    Project --> Blagotin["SAMEA4588077<br/>Blagotin-Poljna"]
+    Project --> Sange["SAMEA4591758<br/>Sang-e Chakhmaq"]
+    Project --> Acem["SAMEA4591761<br/>Acemhöyük"]
+    Direkli --> DTime["13169–13316 BP"]
+    Blagotin --> BTime["7840–8030 BP"]
+    Sange --> STime["7939–8170 BP"]
+    Acem --> ATime["3833–3984 BP"]
+```
+
+This one-to-many relation is not implementation detail. A project-level join
+would assign the wrong place or time to at least three samples; a locality
+aggregation that discarded sample membership would make the published point
+impossible to trace back to the physical or analytical unit.
+
 ## System References
 
 | Question | Reference |

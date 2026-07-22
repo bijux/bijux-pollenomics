@@ -135,6 +135,26 @@ heritage record, lake, boundary, or AADR row—but the rule remains: preserve th
 source-native object, declare normalized meaning, and make product admission a
 separate decision.
 
+### Independent Claims In One Accepted Record
+
+The accepted world feature for goat sample `APOR012` shows why the database
+does not reduce evidence quality to one flag:
+
+| Dimension | Governed state |
+| --- | --- |
+| identity | final sample identity `capra_hircus:sample:prjeb90261:apor012` from supplementary Table S2, row 76 |
+| locality | sample-owned `El Portalón`, linked to Burgos |
+| coordinates | directly supplied `42.2853, -3.8335`, with exact coordinate posture |
+| chronology | source text `86-237 cal CE (sample)` retained as text-only, unparsed chronology |
+| conflict | sample wording is recorded as disagreeing with the broader project chronology wording |
+| publication | spatially accepted in the world animal surface; numeric BP comparison remains unavailable |
+
+The coordinate and chronology decisions are deliberately different. Exact
+source coordinates support an exact point, while the chronology remains
+non-numeric because its expression and dating basis do not satisfy the numeric
+normalization contract. Accepting the point does not silently promote its time
+claim.
+
 ## Curation Decisions Remain Queryable
 
 | Decision class | Preserved distinction | Why publication depends on it |
