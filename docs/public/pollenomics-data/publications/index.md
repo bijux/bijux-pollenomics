@@ -75,6 +75,21 @@ members, review surfaces, and renderings resolve to the same identity. A
 standalone HTML map can remain useful for exploration, but it is not a complete
 scientific publication.
 
+### Member Decisions Travel With The Bundle
+
+| Decision field | What it prevents |
+| --- | --- |
+| stable member identifier | confusing the same label across sources, scopes, or versions |
+| source-family role | treating context, framing, and direct evidence as interchangeable |
+| admission or exclusion reason | reading absence as proof that the source has no record |
+| spatial basis and precision | inferring survey precision from marker placement |
+| temporal posture | converting broad, contextual, or unresolved time into a numeric comparison |
+| parent and child membership | double counting one record across nested geographic products |
+
+These decisions are part of the publication even when a rendering does not
+display every field. A map may shorten them for legibility; the evidence and
+traceability members retain them for audit and reuse.
+
 ## Bundle Authority Order
 
 When publication artifacts disagree, resolve the claim through the narrowest
@@ -161,3 +176,7 @@ posture, coordinate basis, bundle version, and applicable caveats.
 A reusable citation package therefore contains the product identity and the
 narrowest evidence member that supports the statement. If that member cannot
 be named, the statement is not yet traceable enough for scientific reuse.
+
+For a count, also retain the observation unit, numerator, eligible population,
+exclusions, and scope. “234 points” is a product-membership statement; it is
+not a recovery rate until a defensible denominator and recovery rule are named.

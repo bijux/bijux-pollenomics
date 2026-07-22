@@ -45,6 +45,20 @@ caveats. The HTML map renders the contract; it is not the contract itself.
 | decision support | ranked or scored candidate geometry | ranking model, inputs, and sensitivity output |
 | framing | boundary or viewport | none as scientific evidence; framing carries no evidence weight |
 
+### Check Compatibility Before Comparing Layers
+
+| Dimension | Compatibility question | If the answer is no |
+| --- | --- | --- |
+| observation unit | are both features sites, samples, modeled cells, registry records, or another declared unit? | describe the layers separately |
+| evidence role | are both direct evidence, or is one contextual or framing information? | do not assign equal evidentiary weight |
+| spatial support | do point, polygon, grid, and approximate-location semantics support the proposed relation? | qualify or refuse the spatial comparison |
+| temporal support | do both records have compatible admitted time postures? | restrict the result to spatial context |
+| population | are capture scope, filters, and exclusions known for both layers? | do not interpret density or emptiness as abundance or absence |
+
+The browser can make incompatible features look visually commensurate because
+all geometry shares one viewport. Compatibility is established from the layer
+contracts and evidence fields, not from symbol size, color, or proximity.
+
 ## Geographic Subsets
 
 World, Europe-plus, Nordic, and country maps form a subset lineage. Narrowing
@@ -99,6 +113,11 @@ and visible warnings.
 Record filters separately from product membership. “Hidden by the reader” and
 “excluded by the publication contract” are different states and lead to
 different scientific interpretations.
+
+For a reproducible view, record the bundle version, scope, active layers,
+filter values, selected identifiers, basemap, viewport, and export time. Those
+details reproduce presentation. The product manifest and evidence rows remain
+necessary to reproduce membership and scientific meaning.
 
 Audit anchors include the
 [world map publication contract](../../../report/world/world_map_publication_contract.md),

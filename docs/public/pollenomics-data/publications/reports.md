@@ -45,6 +45,25 @@ establish collection completeness.
 | scientific review | evaluate evidential strength and unresolved risk |
 | warnings and exclusions | account for records that did not publish |
 
+### Read Every Count As A Defined Population
+
+A report number is interpretable only when its observation unit and eligible
+population are explicit. Keep these five parts together:
+
+| Part | Question |
+| --- | --- |
+| observation unit | are rows projects, samples, sites, source records, map features, or lakes? |
+| numerator | which governed members satisfy the stated condition? |
+| denominator | which members were eligible to satisfy it? |
+| exclusions | which captured or tracked members were refused, unresolved, or outside scope? |
+| version and geography | which publication state and selection produced the count? |
+
+This distinction matters throughout the report tree. A tracked-project count
+cannot be divided into an admitted-point count without a declared relationship;
+a country member count cannot stand for source prevalence; and an admitted
+subset cannot establish recovery completeness when the expected population is
+unknown.
+
 ```mermaid
 flowchart TB
     World["world bundle"] --> Europe["Europe-plus bundle"]
@@ -110,6 +129,10 @@ confirm each child's subset relationship, and then group by evidence role and
 temporal posture. A country count describes membership in that country
 product; summing country counts is valid only when the manifests establish
 disjoint membership for the observation unit being counted.
+
+When scopes overlap, use a set operation over stable member identifiers and
+report the intersection. Do not infer independence from separate report files
+or separate map layers.
 
 ## Review And Refusal Companions
 
