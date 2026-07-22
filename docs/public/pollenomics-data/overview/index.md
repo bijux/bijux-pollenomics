@@ -144,6 +144,27 @@ would assign the wrong place or time to at least three samples; a locality
 aggregation that discarded sample membership would make the published point
 impossible to trace back to the physical or analytical unit.
 
+## Evidence Foundation Topics
+
+The database foundation is the set of rules that keeps a source fact
+recoverable while it moves toward a public claim. These topics govern that
+foundation:
+
+| Topic | Governing question | Continue with |
+| --- | --- | --- |
+| provenance | Which acquired object, version, native key, and transformation support this record? | [Provenance and publication linkage](provenance-and-publication-linkage.md) |
+| source selection | Why is this source suitable for its declared evidence role, and what would disqualify it? | [Source selection and refresh](source-selection-and-refresh.md) |
+| refresh lifecycle | Which stages are materially rebuilt, validated, and reviewed when upstream state changes? | [Source selection and refresh](source-selection-and-refresh.md) |
+| coverage | Which observation unit, lifecycle stage, scope, and denominator does a completeness statement describe? | [Coverage and naming](coverage-and-naming.md) |
+| naming | Which durable identity owns the object, and which labels are only presentation or aliases? | [Coverage and naming](coverage-and-naming.md) |
+| fact ownership | Which record governs a value repeated across normalized, reviewed, and published surfaces? | [Data architecture handbook](data-architecture-handbook.md) |
+| publication lineage | Which decision and manifest connect governed evidence to a visible member? | [Provenance and publication linkage](provenance-and-publication-linkage.md) |
+
+These rules keep database preparation visible as evidence work. They prevent a
+normalized export from being mistaken for a capture, a map coordinate from
+becoming locality authority, and a successful rebuild from being described as
+scientific completeness.
+
 ## System References
 
 | Question | Reference |

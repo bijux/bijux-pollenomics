@@ -3026,7 +3026,7 @@ def _docs_restoration_expectations() -> list[dict[str, object]]:
             decision="retired_with_replacement",
             current_path="docs/public/pollenomics-data/overview/index.md",
             required_snippets=[
-                "Restored Foundation Topics",
+                "Evidence Foundation Topics",
                 "Provenance and publication linkage",
             ],
             rationale="the old foundation subtree was retired in favor of the overview subtree, with explicit replacement links",

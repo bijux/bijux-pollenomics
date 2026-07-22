@@ -41,6 +41,19 @@ elements separate exposes where apparent abundance becomes an evidence
 bottleneck—for example, many captured rows but few supported numeric
 chronologies, or many governed samples but few exact-point admissions.
 
+## Coverage Rule
+
+Every coverage statement names five things: the observation unit, governing
+scope, source version, lifecycle stage, and denominator basis. If any of the
+five is unknown, report the known counts and the unresolved denominator rather
+than converting uncertainty into a percentage.
+
+Coverage is evaluated at the boundary claimed. Capture coverage cannot stand
+in for extraction coverage; extraction cannot stand in for supported
+localities or chronologies; and product membership cannot stand in for source
+completeness. Cross-family totals remain separate unless a comparison contract
+defines a common observation unit and eligible population.
+
 ## Denominator Contract
 
 Every coverage statement should resolve this tuple:
@@ -82,7 +95,23 @@ The denominator includes known exclusions and unresolved records when they
 belong to the evaluated population. Reporting only admitted rows turns a
 fitness result into a circular success rate.
 
-## Naming Encodes Authority
+## Naming Rules
+
+Names identify ownership and scope; they must not imply evidence that the
+artifact does not contain. Apply these rules to governed records and published
+descendants:
+
+- use stable repository identifiers for joins and retain source-native keys;
+- include family, geography, species, version, scenario, or evidence posture
+  when it changes the population a reader would infer;
+- keep display names and aliases as properties rather than identity;
+- reserve lifecycle terms for stages that are materially present;
+- treat `final` as final for one declared contract, never as universal
+  scientific finality;
+- name refusals, gaps, conflicts, and exclusions by the decision they record,
+  not as undifferentiated errors.
+
+### Lifecycle Names Encode Authority
 
 | Name component | Meaning |
 | --- | --- |
