@@ -1253,20 +1253,23 @@ class RepositoryContractRegressionTests(unittest.TestCase):
         self.assertIn("report/", docs_index)
         self.assertIn("public/nordic-atlas/", docs_index)
         self.assertIn(
-            "data/adna/governance/animal_sample_foundation_truth.json", sample_page
+            "data/adna/governance/source_library/project_sample_master_completeness.json",
+            sample_page,
         )
         self.assertIn(
-            "data/adna/species/ovis_aries/normalized/sample_records.json", sample_page
+            "data/adna/species/<latin_name>/normalized/sample_records.json",
+            sample_page,
         )
         self.assertIn(
-            "data/adna/species/ovis_aries/normalized/site_evidence.json", site_page
+            "data/adna/species/<species-slug>/normalized/sample_sites.json",
+            site_page,
         )
         self.assertIn(
             "data/adna/governance/source_library/project_sample_chronology_review.json",
             chronology_page,
         )
         self.assertIn(
-            "sample_chronology_provenance_review.json",
+            "sample_chronology_precision_audit.json",
             chronology_page,
         )
         self.assertIn(
@@ -1274,7 +1277,7 @@ class RepositoryContractRegressionTests(unittest.TestCase):
             temporal_semantics_page,
         )
         self.assertIn(
-            "data/sead/review/evidence_legibility_review.json",
+            "data/source_spatiotemporal_posture_registry.json",
             temporal_semantics_page,
         )
         self.assertIn(
@@ -1286,11 +1289,11 @@ class RepositoryContractRegressionTests(unittest.TestCase):
             sead_handbook_page,
         )
         self.assertIn(
-            "data/adna/species/ovis_aries/normalized/coordinate_provenance.json",
+            "data/adna/species/<species-slug>/normalized/coordinate_provenance.json",
             coordinate_page,
         )
         self.assertIn(
-            "../../report/animal_point_evidence_review.md",
+            "../../report/animal_atlas_exclusion_report.md",
             atlas_index,
         )
         self.assertIn(
@@ -1302,7 +1305,7 @@ class RepositoryContractRegressionTests(unittest.TestCase):
             atlas_index,
         )
         self.assertIn(
-            "data/adna/governance/source_library/project_source_evidence_matrix.json",
+            "data/collection_summary.json",
             source_index,
         )
         self.assertIn(
@@ -1338,29 +1341,14 @@ class RepositoryContractRegressionTests(unittest.TestCase):
         )
         self.assertIn("cross-domain evidence matrix", publication_model_page.lower())
         self.assertIn(
-            "data/adna/governance/source_library/reference_stash_reconciliation.json",
+            "data/adna/governance/source_library/project_registry.json",
             inventory_page,
         )
-        self.assertIn(
-            "data/adna/governance/source_library/source_blocker_review.json",
-            inventory_page,
-        )
-        self.assertIn(
-            "data/adna/governance/source_library/project_recovery_stage_review.json",
-            inventory_page,
-        )
-        self.assertIn(
-            "data/adna/governance/source_library/project_expected_sample_yield_review.json",
-            inventory_page,
-        )
-        self.assertIn(
-            "data/adna/governance/source_library/manual_curation_worklist.json",
-            inventory_page,
-        )
-        self.assertIn(
-            "data/adna/governance/source_library/source_recovery_release_guard.json",
-            inventory_page,
-        )
+        self.assertIn("source_bundle_path", inventory_page)
+        self.assertIn("data/adna/species/<species-slug>/", inventory_page)
+        self.assertIn("normalized/sample_master.json", inventory_page)
+        self.assertIn("review/sample_locality_evidence.json", inventory_page)
+        self.assertIn("normalized/sample_chronology.json", inventory_page)
         self.assertIn(
             "../../../report/repository_source_explainer_audit.md",
             source_recovery_page,
