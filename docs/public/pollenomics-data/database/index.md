@@ -1,0 +1,91 @@
+---
+title: Evidence Database
+audience: reader
+type: explanation
+status: canonical
+owner: bijux-pollenomics-docs
+last_reviewed: 2026-07-22
+---
+
+# Evidence Database
+
+Pollenomics is built on a version-controlled evidence database. The database
+retains source captures, governed identities, normalized facts, scientific
+decisions, unresolved states, and publication membership. Maps and reports
+are projections over that state; they are not the authority from which source
+or sample facts are recovered.
+
+## What The Database Governs
+
+| Concern | Governed representation | Why it matters |
+| --- | --- | --- |
+| source identity | family, owner, release or accession, acquisition, licence posture, and content identity | establishes which upstream material was used |
+| object identity | stable keys for releases, projects, papers, samples, sites, claims, and products | prevents names and row positions from becoming joins |
+| fact ownership | one declared authority for each recurring fact | makes disagreement resolvable |
+| evidence relations | typed links between objects with provenance and cardinality | keeps a plausible association from becoming an asserted identity |
+| curation state | accepted, qualified, conflicted, unresolved, excluded, deferred, or outside scope | preserves negative and partial evidence |
+| publication membership | product, version, scope, member identity, role, and admission decision | explains why an object appears in a public result |
+
+The database is file-backed rather than service-backed. JSON, CSV, GeoJSON,
+source artifacts, review ledgers, and manifests carry different parts of the
+model. Their authority comes from explicit contracts and relations, not from
+their file format.
+
+## Evidence Lifecycle
+
+```mermaid
+flowchart LR
+    Capture["versioned source capture"] --> Object["governed objects and source-native facts"]
+    Object --> Normalize["normalized claims and typed relations"]
+    Normalize --> Review["curation decisions and review state"]
+    Review --> Admission{"product-specific admission"}
+    Admission -->|admit or qualify| Projection["manifested publication projection"]
+    Admission -->|exclude or defer| Negative["retained negative evidence"]
+```
+
+Movement through the lifecycle does not transfer authority. A normalized
+sample remains subordinate to its project-owned sample evidence. A published
+point remains subordinate to the locality and coordinate claims that made it
+eligible. An exclusion remains part of the database even though it is absent
+from the visible projection.
+
+## Database Contracts
+
+Three registries make the file-backed model inspectable:
+
+| Contract | Governs |
+| --- | --- |
+| `data/source_family_contracts.json` | source roles and captured, normalized, reviewed, and published roots |
+| `data/source_fact_ownership_registry.json` | the authority for recurring source, sample, locality, chronology, species, and publication facts |
+| `data/evidence_artifact_contracts.json` | required project, paper, sample, site, atlas, and country artifact sets |
+
+`data/collection_summary.json` binds the current collected source versions,
+retrieval state, hashes, and replacement rules. The evidence-stage matrix
+reports lifecycle presence and counts, but its presence labels do not grant
+uniform scientific readiness to every member.
+
+## Read The Database In Two Directions
+
+```mermaid
+flowchart LR
+    Upstream["upstream identity"] --> Captured["captured artifact"]
+    Captured --> Authority["governing evidence authority"]
+    Authority --> Decision["curation and admission decision"]
+    Decision --> Member["published member"]
+    Member -. "audit backward" .-> Decision
+    Decision -. "impact forward" .-> Member
+```
+
+Backward traversal answers what supports a visible claim. Forward traversal
+answers which products depend on a corrected source or evidence fact. Both
+directions must preserve object type, role, version, and qualification.
+
+## Continue By Question
+
+| Question | Contract |
+| --- | --- |
+| Which objects exist and how may they relate? | [Object and relation model](object-and-relation-model.md) |
+| What does a database state mean at one revision? | [Revision and state model](revision-and-state-model.md) |
+| How does upstream material enter the database? | [Source families](../sources/index.md) |
+| How are claims evaluated and conflicts retained? | [Curation](../curation/index.md) and [evidence chain](../evidence/index.md) |
+| How does governed state become a map, table, or report? | [Publications](../publications/index.md) |

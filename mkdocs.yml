@@ -181,6 +181,10 @@ nav:
           - Evidence Matrix: public/pollenomics-data/overview/cross-domain-evidence-matrix.md
           - Animal aDNA: public/pollenomics-data/overview/animal-ancient-dna-evidence.md
           - Directory Layout: public/pollenomics-data/overview/data-directory-layout.md
+      - Database:
+          - Overview: public/pollenomics-data/database/index.md
+          - Object and Relation Model: public/pollenomics-data/database/object-and-relation-model.md
+          - Revision and State Model: public/pollenomics-data/database/revision-and-state-model.md
       - Sources:
           - Overview: public/pollenomics-data/sources/index.md
           - Source Comparison: public/pollenomics-data/sources/source-comparison.md
