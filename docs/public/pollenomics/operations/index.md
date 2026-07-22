@@ -42,6 +42,34 @@ or validation when the question can be answered from current state. Use a
 writer only when acquiring evidence or materializing a product is the intended
 outcome.
 
+## State-Change Contract
+
+A state-changing operation is accepted as a complete owned replacement, not as
+a collection of individually plausible files:
+
+```mermaid
+stateDiagram-v2
+    [*] --> Prior: coherent governed state
+    Prior --> Candidate: build in owned staging
+    Candidate --> Rejected: acquisition or validation fails
+    Rejected --> Prior: retain prior state
+    Candidate --> Committed: candidate contract passes
+    Committed --> Reviewed: manifest and semantic diff accepted
+    Reviewed --> [*]
+```
+
+| Boundary | Required evidence |
+| --- | --- |
+| prior | resolvable manifest or complete owned tree at a known revision |
+| candidate | explicit input identity, scope, destination, and diagnostics |
+| commit | complete replacement whose manifest resolves every governed member |
+| review | identity, meaning, precision, membership, warning, and exclusion diff |
+
+Do not copy a few successful candidate files into a governed tree after a
+failed operation. That can pair a new member with an old manifest or leave a
+derived product ahead of its evidence. Recover at the failed owner and rebuild
+the narrow complete boundary.
+
 ## Supported Routes
 
 | Outcome | Route |

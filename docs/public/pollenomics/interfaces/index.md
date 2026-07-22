@@ -51,6 +51,30 @@ existing contract. Collection and publication commands write files. A
 successful process status means the requested operation completed; it does not
 turn missing evidence into a positive scientific claim.
 
+## Read A Result At Four Levels
+
+CLI output and Python return values are only the first layer of a governed
+operation. Interpret a result in this order:
+
+| Level | Question | Evidence to retain |
+| --- | --- | --- |
+| invocation | what was requested? | interface, arguments, configuration, roots, and installed version |
+| execution | did the software complete? | process status or typed result plus diagnostics |
+| state | what was read or written? | input identity, output manifest, stable member IDs, and semantic diff |
+| fitness | what may be claimed from it? | admission, qualification, refusal, warnings, and unresolved recovery work |
+
+```mermaid
+flowchart LR
+    Invocation["invocation"] --> Execution["execution outcome"]
+    Execution --> State["governed state and diff"]
+    State --> Fitness["scientific and product fitness"]
+```
+
+An execution can succeed while fitness remains qualified or refused. A caller
+that keeps only standard output loses product membership; a caller that keeps
+only generated files loses the request and software outcome that produced
+them.
+
 ## Stable Result Shapes
 
 - inspection commands support either a compact table or `--json` when the

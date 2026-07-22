@@ -82,7 +82,8 @@ refresh is unnecessary:
 
 ```bash
 bijux-pollenomics collect-data neotoma --output-root data
-bijux-pollenomics validate-collection-summary data/collection_summary.json
+bijux-pollenomics validate-collection-summary \
+  --summary-path data/collection_summary.json
 ```
 
 Review the capture, normalized records, retrieval metadata, source hashes,
@@ -155,6 +156,26 @@ A rendering-only change is safe to describe as such only when structured
 membership and meaning are unchanged. A zero-diff publication is still useful
 evidence when it shows that a source or curation change did not cross the
 product contract.
+
+## Retain An Operation Ledger
+
+For any accepted state change, retain a compact ledger beside the review
+evidence. It should be sufficient to explain the result without reconstructing
+the terminal session:
+
+| Ledger field | Record |
+| --- | --- |
+| operation | command or Python entry point, arguments, configuration, and runtime version |
+| scope | selected source families, species, geographies, and explicit roots |
+| prior identity | repository revision, source release, or prior manifest used as the baseline |
+| resulting identity | collection summary, product manifest, and stable output members |
+| causal diff | changed source identity, records, semantics, precision, policy, membership, or rendering |
+| disposition | accepted, qualified, refused, or recovery-bound records and the reason for each class |
+| verification | narrow checks performed against the resulting owned boundary |
+
+The ledger is an index into governed evidence, not a replacement for it. A row
+count without member identities cannot show replacement; a file hash without a
+semantic diff cannot show whether scientific meaning changed.
 
 ## Rebuild All Governed State
 
