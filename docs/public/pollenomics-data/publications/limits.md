@@ -37,6 +37,7 @@ The current governed state makes several limits measurable:
 
 | Surface | Current signal | Consequence |
 | --- | --- | --- |
+| Animal foundation preparation | 894 rows: 502 fully grounded, 256 partially grounded, 29 blocked by metadata, four by location detail, and 103 by chronology | preparation depth is measurable, but grounding posture is not sample identity or point eligibility |
 | Animal sample recovery | 868 recovered rows across 40 projects; only four projects have a trustworthy expected count | recovered rows are auditable, but collection completeness is usually unknown |
 | Animal locality | 820 direct sample-site assignments; 32 region-only; 16 unresolved | 48 samples cannot be described as exact sample sites |
 | Animal publication points | 234 accepted point-evidence rows; 233 final sample-backed features and one provisional project-context feature | the point subset is traceable but identity and spatial support are mixed |
@@ -47,6 +48,12 @@ The current governed state makes several limits measurable:
 These numbers are a snapshot of the governed artifacts, not permanent project
 constants. The applicable manifests and review surfaces remain authoritative
 when the data state changes.
+
+The animal counts cannot be placed into one percentage without changing their
+meaning. The 894-row foundation classifies preparation, the 868-row sample
+master governs recovered identities, and the 234-row point surface governs
+product membership. A publication limit must name which population is blocked
+and which stronger claim the blocker prevents.
 
 ## Limits By Dimension
 
@@ -182,6 +189,19 @@ For cross-domain interpretation, report proximity and temporal compatibility
 as separate findings. Co-location is not contemporaneity; contemporaneity is
 not causation; contextual archaeology or pollen is not direct evidence about a
 particular human or animal sample.
+
+### Match A Limit To The Intended Reuse
+
+| Intended reuse | Limit that must travel with it |
+| --- | --- |
+| recovered-sample analysis | project denominator coverage, identity posture, and exclusion of project-context members |
+| point or distance analysis | locality ownership, coordinate basis, precision, withheld geography, and boundary sensitivity |
+| chronology-aware comparison | source wording, numeric eligibility, dating basis, precision, and incomparable records |
+| source-coverage statement | discovery and capture population, access failures, expected denominator, and recovery state |
+| map screenshot or extract | product version, scope, active filters, member identities, roles, caveats, and exclusion context |
+
+A generic citation to “the atlas” cannot carry these limits. The reusable unit
+is the bounded claim plus its evidence and qualification packet.
 
 The generated
 [`repository_final_release_refusal`](../../../report/repository_final_release_refusal.md)

@@ -83,6 +83,35 @@ The browser can make incompatible features look visually commensurate because
 all geometry shares one viewport. Compatibility is established from the layer
 contracts and evidence fields, not from symbol size, color, or proximity.
 
+### Build A Comparison Receipt
+
+When two map features motivate a scientific question, record the comparison
+before interpreting the visual pattern:
+
+| Receipt member | Feature A | Feature B | Shared rule |
+| --- | --- | --- | --- |
+| product and member identity | stable scoped identity | stable scoped identity | same bundle or declared cross-product relation |
+| observation unit | sample, site, sequence, cell, lake, or event | corresponding typed unit | no implicit conversion between units |
+| evidence role | direct, context, framing, decision support | corresponding role | interpretation respects the weaker role |
+| spatial posture | geometry owner, basis, precision, CRS | corresponding spatial evidence | distance or containment method plus uncertainty |
+| temporal posture | basis, bounds, precision, comparability | corresponding temporal evidence | explicit overlap or non-comparability rule |
+| source coverage | captured and admitted population | corresponding population | absence and density limits retained |
+
+```mermaid
+flowchart TD
+    Pair["two visible features"] --> Units{"units and roles compatible?"}
+    Units -->|no| Separate["describe as separate layers"]
+    Units -->|yes| Space{"spatial support compatible?"}
+    Space -->|no| Separate
+    Space -->|yes| Time{"temporal support compatible?"}
+    Time -->|no| Context["spatial context only"]
+    Time -->|yes| Compare["bounded spatiotemporal comparison"]
+```
+
+The result remains descriptive unless a separately governed analytical
+contract supports a stronger inference. A complete receipt can establish
+co-location and compatible time; it does not establish interaction or cause.
+
 ## Geographic Subsets
 
 World, Europe-plus, Nordic, and country maps form a subset lineage. Narrowing
@@ -174,6 +203,11 @@ and visible warnings.
 Record filters separately from product membership. “Hidden by the reader” and
 “excluded by the publication contract” are different states and lead to
 different scientific interpretations.
+
+An export receipt should also record whether filtered-out members had
+incomparable or missing values. A time-filtered count that silently drops
+text-only chronology answers “members with comparable numeric time in this
+window,” not “all evidence in this period.”
 
 For a reproducible view, record the bundle version, scope, active layers,
 filter values, selected identifiers, basemap, viewport, and export time. Those

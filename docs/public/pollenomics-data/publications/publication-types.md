@@ -153,6 +153,30 @@ publication for scope and the member evidence for the fact. This keeps a future
 reader from having to guess whether the claim came from the product contract,
 the source record, or narrative interpretation.
 
+### Publication Member Identity Is Composite
+
+A feature token alone does not identify a reusable publication claim. The
+claim is fixed by the product, version, scope, member, role, and governing
+evidence posture together:
+
+```text
+publication claim = product + version + scope + member + role + evidence posture
+```
+
+| Identity member | Prevents |
+| --- | --- |
+| product and version | treating historical or independently regenerated membership as current |
+| geographic or purpose scope | promoting a country or ranking result into a broader product |
+| stable member identity | relying on row order, popup label, or symbol position |
+| observation unit and role | counting context, framing, aggregates, and direct evidence as equivalent rows |
+| governing evidence identity | allowing the projection to become authority for source facts |
+| qualification and admission posture | reusing a visible member at stronger precision or certainty |
+
+This receipt is especially important for the 234-member animal point surface:
+233 members are final sample-backed evidence and one is qualified
+project-context evidence. Dropping role or posture preserves the count while
+destroying the scientific distinction.
+
 ## Scope And Version Are Part Of Meaning
 
 World, Europe-plus, Nordic, and country products are related subsets, not
