@@ -4,44 +4,108 @@ audience: reader
 type: explanation
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-05-10
+last_reviewed: 2026-07-22
 ---
 
-# Temporal Semantics
+# Temporal semantics
 
-Temporal semantics is the layer that keeps chronology readable across source
-families that express time in different ways.
+Temporal semantics is the common contract used to compare time across direct
+ancient-DNA evidence, pollen context, and archaeology context. It keeps a
+numeric interval, a caveated estimate, a textual period, and an unresolved date
+from becoming equivalent simply because they appear in the same atlas.
 
-## Why This Layer Exists
+## The comparison contract
 
-The repository compares material from several domains:
+Every temporal payload answers four distinct questions:
 
-- release-based human ancient DNA
-- animal ancient DNA recovered from papers and supplements
-- pollen and archaeology context with their own dating conventions
+| Field | Question answered |
+| --- | --- |
+| `evidence_class` | What kind of dating support exists? |
+| `precision_posture` | How precise is that support for this record? |
+| `comparability_posture` | May this record participate in numeric comparison? |
+| `temporal_window_key` | Which broad display window contains its midpoint? |
 
-Those families do not describe time with one common grammar. Temporal semantics
-exists so public outputs can compare them without pretending they are all
-equally precise.
+The payload also preserves the summary label, BP bounds and midpoint,
+duration, source path and locator, original and normalized labels, comparison
+note, and uncertainty notes. A display window never replaces the source
+interval.
 
-## What You Should Be Able To Tell
+## Comparability postures
 
-This layer should make the following visible:
+| Posture | Meaning | Permitted use |
+| --- | --- | --- |
+| `numeric_interval` | numeric bounds with direct, sufficiently precise support | interval filtering and overlap comparison |
+| `numeric_interval_with_caveat` | numeric bounds exist, but modeling or contextual ownership limits them | comparison only with the caveat attached |
+| `contextual_label_only` | time is expressed as a period or textual label | orientation and display, not numeric overlap |
+| `mixed_interval_and_context` | an aggregate combines numeric and contextual time support | aggregate comparison with explicit mixed-support warning |
+| `unresolved` | no trustworthy comparable time representation | exclusion from temporal scoring |
 
-- whether a time claim is exact, ranged, broad, or text-derived
-- whether two records are reasonably comparable
-- whether a public label is being simplified for readability
-- where uncertainty has been preserved instead of erased
+Numeric fields alone do not authorize comparison. The posture must also be one
+of the numeric classes; this prevents a parsed number from overruling its
+evidence class.
 
-## Why It Matters In Public Outputs
+## From source date to atlas comparison
 
-Map filters and summary labels can make a dataset look more coherent than it
-really is. Temporal semantics is one of the mechanisms that prevents that
-illusion by keeping uncertainty attached to the claim.
+```mermaid
+flowchart LR
+    A[Source date or period] --> B[Family-specific interpretation]
+    B --> C[Evidence class]
+    B --> D[Precision posture]
+    C --> E[Comparability posture]
+    D --> E
+    E --> F{Comparable numeric interval?}
+    F -->|yes| G[BP interval and overlap]
+    F -->|caveated| H[BP interval with warning]
+    F -->|no| I[Context label or unresolved]
+    G --> J[Temporal window for navigation]
+    H --> J
+    I --> K[Excluded from numeric scoring]
+```
 
-## Direct Files Behind This Surface
+Broad navigation windows are assigned from a numeric midpoint:
 
-- `data/sead/review/temporal_review.json`
-- `data/sead/review/evidence_legibility_review.json`
-- `data/sead/review/access_model.json`
-- `data/sead/review/recovery_roadmap.json`
+- recent and historical: 0–1000 BP;
+- Late Holocene: 1001–3000 BP;
+- Mid-Holocene: 3001–6000 BP;
+- Early Holocene and older: 6001+ BP;
+- unresolved when no numeric midpoint exists.
+
+These bins make filtering understandable; they do not claim that records in
+the same bin are contemporaneous.
+
+## Source-family differences remain visible
+
+The checked-in collection currently carries different temporal capability by
+source family:
+
+- **LandClim** site sequences usually carry numeric BP windows and can
+  contribute pollen context to time-aware comparison;
+- **Neotoma** includes many numeric site spans, but the review surface records
+  uneven chronology-row capture and sites without BP ranges;
+- **SEAD** currently functions as a site-inventory context layer in the
+  Sweden-facing capture and must not be treated as uniformly time-resolved;
+- **RAÄ** contributes spatial archaeology density without repository-owned time
+  windows;
+- **SVAR** and boundary layers provide lake identity and geographic framing,
+  not dated evidence;
+- **human and animal aDNA** can contribute sample-owned intervals when their
+  chronology lineage and precision support it.
+
+Spatial proximity therefore does not guarantee temporal overlap. Ranking can
+count a nearby record as time-aware only when both the candidate evidence and
+the context point have numeric bounds; unresolved or context-only time cannot
+increase an overlap count.
+
+## Auditing cross-source time
+
+`data/source_spatiotemporal_posture_registry.json` gives the governing path,
+record count, numeric-interval count, scoring posture, and caveats for each
+context source. Family-specific reviews remain authoritative for coverage
+details, including `data/neotoma/review/temporal_review.json` and
+`data/sead/review/temporal_review.json`.
+
+For direct animal evidence, follow
+`data/adna/species/<species-slug>/normalized/sample_chronology.json` back to its
+provenance record. See [chronology evidence](chronology.md) for sample-level
+classification and [spatiotemporal posture](../sources/spatiotemporal-posture.md)
+for the source-family comparison boundary.

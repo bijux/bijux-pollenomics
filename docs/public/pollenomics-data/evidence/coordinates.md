@@ -4,68 +4,108 @@ audience: reader
 type: explanation
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-05-10
+last_reviewed: 2026-07-22
 ---
 
-# Coordinates
+# Coordinate provenance
 
-Coordinates are a provenance layer, not a substitute for locality evidence.
-This page shows whether a mapped point came from direct coordinates, named-site
-geocoding, broader projection logic, or a decision not to map the row at all.
+A coordinate is a spatial interpretation of locality evidence. It may be
+reported directly with a sample, resolved from an explicit named site, or
+withheld because the source supports only a region. Bijux Pollenomics records
+which of those paths produced—or refused—a point.
 
-That distinction matters because the map is often the first thing people see.
-If the coordinate basis is unclear, the point can look more exact than the
-evidence behind it really is.
+This matters because every marker is visually exact. Without provenance, a
+regional study extent and a source-published excavation coordinate would look
+equally precise on a map.
 
-## How Place Names Become Map Points
+## From locality to mapping posture
 
-- direct coordinates can publish as direct points when the provenance row is
-  complete
-- named-site geocoding stays marked as weaker geography
-- region-only or unresolved locality claims stay blocked from exact publication
-- the atlas and country bundles should surface those weaker postures honestly
+```mermaid
+flowchart TD
+    A[Reviewed sample locality] --> B{Source supplies coordinates?}
+    B -->|yes| C[Preserve source pair and locator]
+    B -->|no| D{One explicit named site?}
+    D -->|yes| E[Named-site resolution with method]
+    D -->|no| F{Region, transect, or multiple sites?}
+    F -->|yes| G[Refuse point mapping]
+    F -->|no| H[Keep geography unresolved]
+    C --> I[Coordinate provenance record]
+    E --> I
+    I --> J{Basis and linkage complete?}
+    J -->|yes| K[mappable_point]
+    J -->|no| H
+    G --> L[Non-point context]
+    H --> L
+```
 
-## What You Should Be Able To Tell
+A region centroid is not a compromise point. It is a different geographic
+claim and remains refused from point publication. Likewise, a source that names
+multiple caves or a transregional dispersal route cannot be represented by one
+marker until sample-to-site evidence separates the component locations.
 
-- whether a point is based on direct coordinates or on a narrower geocoding
-  step
-- whether the visible precision matches the supporting locality evidence
-- whether a record stayed blocked because the repository refused to fake exact
-  geography
-- whether a public map point should be read as exact placement, cautious
-  placement, or only broad regional context
+## Confidence is not just decimal precision
 
-## The Key Rule
+| Confidence | Coordinate basis | Public interpretation |
+| --- | --- | --- |
+| `exact` | direct published coordinates or an explicit archive pair | source-backed point at the reported resolution |
+| `approximate` | one explicit named place resolved through a documented method | cautious named-site point; not a source-supplied pair |
+| `inferred` | indirect derivation | retained for non-public context, not point publication |
+| `withheld` | region-only, aggregate, or unresolved geography | no public point |
+| `unknown` | basis has not been normalized | no claim of coordinate precision |
 
-Coordinates only count as publishable evidence when the provenance row still
-shows the basis, confidence, rationale, and sample linkage that produced the
-visible point.
+`exact` describes provenance, not archaeological certainty to an arbitrary
+number of decimal places. `approximate` is allowed only when the named place is
+explicit and the resolution method remains visible. A mapping posture of
+`mappable_point` is still required for either confidence class to publish.
 
-## Why This Layer Protects The Public Product
+## The coordinate record
 
-Without coordinate provenance, a map point can silently become the strongest
-thing in the repository even when it should not be. This layer prevents that by
-keeping the public point tied to:
+Each animal coordinate-provenance row preserves:
 
-- the locality decision that made mapping possible
-- the rationale for the coordinate itself
-- the confidence and caveat posture that still belongs to the point
+- project accession, species, and site label;
+- original and resolved place text;
+- source artifact path and locator;
+- coordinate basis and mapping posture;
+- latitude and longitude as source-preserving text;
+- resolution method and gazetteer or curated anchor;
+- confidence class and rationale;
+- paper or supplement linkage;
+- associated chronology and interpretation notes;
+- an explicit support-gap note when point publication is refused.
 
-## Direct Files
+For samples whose own supplementary rows contain coordinates, the sample
+lineage supplies the coordinate basis directly. For broader project leads,
+coordinate provenance remains a separate reviewed record so a project-level
+anchor cannot silently become sample-level geography.
 
-- `data/adna/species/ovis_aries/normalized/coordinate_provenance.json`
-- `data/adna/governance/coordinate_caveat_surface.json`
-- `data/adna/governance/cross_species_map_readiness.json`
-- [`docs/report/animal_point_evidence_review.md`](../../../report/animal_point_evidence_review.md)
-- `data/adna/species/ovis_aries/normalized/site_evidence.json`
-- `data/adna/governance/unresolved_site_ledger.json`
-- `data/adna/governance/overbroad_site_ledger.json`
+## Why points are withheld
 
-## Where To Go Next
+Common refusal conditions include:
 
-- move to [localities](localities.md) if the coordinate question is really a
-  place-claim question
-- move to [sample records](sample-records.md) if the point may be attached to
-  the wrong sample lineage
-- move to [chronology](chronology.md) if the point is placed acceptably but the
-  time claim still feels too strong
+- only a country, basin, region, or cultural area is supported;
+- one recovered row still aggregates multiple named sites;
+- the paper describes a transect or dispersal extent rather than a sample site;
+- a site name is present but the sample-to-site linkage is unresolved;
+- an apparent coordinate lacks its source locator or resolution rationale.
+
+Withholding does not delete the evidence. The region or named places remain in
+the curation and review surfaces, where they can support broader context and
+identify the missing source work needed for a future point.
+
+## Auditing a mapped sample
+
+The species-owned record is
+`data/adna/species/<species-slug>/normalized/coordinate_provenance.json`.
+Compare its sample and locality linkage with `sample_sites.json`, then inspect
+the cross-species review surfaces:
+
+- `data/adna/governance/coordinate_caveat_surface.json` groups direct,
+  place-resolved, and still-weak geography;
+- `data/adna/governance/cross_species_map_readiness.json` reports publication
+  readiness across animal species;
+- `data/adna/governance/unresolved_site_ledger.json` and
+  `overbroad_site_ledger.json` expose geography that cannot support a point.
+
+Read [locality evidence](localities.md) when the underlying place claim is in
+question, and [point publication rules](../publications/point-rules.md) for the
+full admission boundary.
