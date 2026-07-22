@@ -14,6 +14,25 @@ label. A public row can involve source identity, record identity, place, time,
 coordinates, scientific role, and publication eligibility. Each claim keeps
 its own provenance and precision.
 
+This model serves two kinds of reader at once. A scientific reader can see
+what a plotted or summarized record means. An auditor can follow the same row
+back through its governing surface, source locator, transformation, caveat,
+and admission decision.
+
+## Trust model
+
+Four invariants govern the evidence chain:
+
+1. **Authority is scoped.** Project records govern project facts; sample
+   records govern sample facts; aggregates summarize but do not replace them.
+2. **Transformation cannot strengthen evidence.** Normalization may make a
+   supported claim comparable, but cannot invent finer place, time, or identity
+   resolution.
+3. **Joins require evidence.** Shared labels, proximity, and convenient project
+   context are not sufficient linkage on their own.
+4. **Refusal is data.** Unresolved, conflicted, blocked, and deferred outcomes
+   remain visible so published coverage is not mistaken for source coverage.
+
 ## Cross-Domain Evidence
 
 All source families preserve origin, version, normalization, review, and
@@ -51,6 +70,10 @@ flowchart LR
 Every arrow represents a claim that can fail independently. A stable sample
 identifier does not prove a site. A named site does not prove coordinates. A
 date attached to a project does not automatically belong to every sample.
+
+The final decision is product-specific. A row may be valid evidence for a
+regional count, qualified contextual layer, or curation inventory while still
+being ineligible for an exact point or time-aware comparison.
 
 ## Evidence Dimensions
 
@@ -105,6 +128,22 @@ coverage gaps and recovery work measurable.
 4. Inspect locality and chronology as separate claims.
 5. Compare coordinate precision with locality evidence.
 6. Read conflicts, caveats, exclusions, and release-gate outcomes.
+
+```mermaid
+flowchart TD
+    Public["public row or visual mark"] --> Posture["publication posture"]
+    Posture --> Normalized["normalized evidence record"]
+    Normalized --> Owner["governing fact owner"]
+    Owner --> Locator["source artifact and locator"]
+    Posture --> Decision["admission, qualification, or exclusion"]
+    Decision --> Review["review and conflict surfaces"]
+    Locator --> Source["archive, paper, supplement, or governed dataset"]
+```
+
+Start from the public artifact when checking a visible claim. Start from the
+governing fact owner when checking collection completeness or curation state.
+Those directions meet at the normalized evidence record, but they answer
+different questions.
 
 The relevant references are [sample records](sample-records.md),
 [localities](localities.md), [chronology](chronology.md), and

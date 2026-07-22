@@ -18,6 +18,21 @@ This matters because every marker is visually exact. Without provenance, a
 regional study extent and a source-published excavation coordinate would look
 equally precise on a map.
 
+## Current evidence posture
+
+The cross-species map-readiness review currently reports 234 direct
+coordinate-backed entries, two indirectly geocoded entries, 21 unresolved
+entries, and seven entries refused from mapping. These are readiness units in
+the governed species/site review, not a count of all recovered samples: many
+samples can share a reviewed locality, and samples without defensible linkage
+must not inherit it.
+
+The asymmetry across species is material. Horse accounts for 207 of the direct
+entries, goat for 27, while several other species currently have no direct
+coordinate-backed entry. The public collection should expose that unevenness
+rather than let the strongest species imply equal spatial resolution for all
+animal evidence.
+
 ## From locality to mapping posture
 
 ```mermaid
@@ -43,6 +58,10 @@ claim and remains refused from point publication. Likewise, a source that names
 multiple caves or a transregional dispersal route cannot be represented by one
 marker until sample-to-site evidence separates the component locations.
 
+Point eligibility is conjunctive: identity, locality linkage, coordinate
+basis, mapping posture, and product-specific rules must all pass. Confidence
+cannot compensate for a missing link earlier in the chain.
+
 ## Confidence is not just decimal precision
 
 | Confidence | Coordinate basis | Public interpretation |
@@ -57,6 +76,11 @@ marker until sample-to-site evidence separates the component locations.
 number of decimal places. `approximate` is allowed only when the named place is
 explicit and the resolution method remains visible. A mapping posture of
 `mappable_point` is still required for either confidence class to publish.
+
+The display should preserve that distinction. An approximate named-site
+resolution needs a visibly different interpretation from a source-published
+pair even if both use the same marker geometry. Decimal formatting must not
+suggest more precision than the source or resolution method supports.
 
 ## The coordinate record
 
@@ -91,6 +115,16 @@ Common refusal conditions include:
 Withholding does not delete the evidence. The region or named places remain in
 the curation and review surfaces, where they can support broader context and
 identify the missing source work needed for a future point.
+
+### Spatial representations by support
+
+| Supported claim | Defensible representation |
+| --- | --- |
+| source-backed sample or site coordinate | point, with basis and confidence available |
+| one explicit place resolved approximately | qualified point when product rules allow it |
+| region, basin, country, or transect | polygon, aggregate, label, or non-point context |
+| multiple unresolved candidate sites | review surface, never one synthesized point |
+| no defensible geography | explicit exclusion or unresolved count |
 
 ## Auditing a mapped sample
 

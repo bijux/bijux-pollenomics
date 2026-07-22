@@ -14,6 +14,10 @@ ancient-DNA evidence, pollen context, and archaeology context. It keeps a
 numeric interval, a caveated estimate, a textual period, and an unresolved date
 from becoming equivalent simply because they appear in the same atlas.
 
+The contract does not force every source into a shared chronology model. It
+provides a shared vocabulary for stating what each source can support and for
+refusing comparisons that would manufacture precision.
+
 ## The comparison contract
 
 Every temporal payload answers four distinct questions:
@@ -44,6 +48,23 @@ Numeric fields alone do not authorize comparison. The posture must also be one
 of the numeric classes; this prevents a parsed number from overruling its
 evidence class.
 
+## Capability in the checked-in collection
+
+| Source family | Records | Numeric intervals | Time-aware use |
+| --- | ---: | ---: | --- |
+| LandClim | 492 site sequences | 482 | supporting pollen context at the sequence interval |
+| Neotoma | 200 sites | 175 | supporting pollen context where a site span exists |
+| SEAD | 2,172 normalized sites | 0 | archaeology context only in the current capture |
+| RAÄ | 761,917 published sites in the density source | 0 | coarse spatial archaeology context |
+| SVAR | 40,565 lakes | 0 | candidate-lake identity and location |
+| boundaries | 4 polygons | 0 | geographic framing only |
+
+Record volume is not temporal capability. The largest contextual collection
+in the table has no repository-owned numeric intervals, while the smaller
+pollen collections carry varying degrees of time support. A score or visual
+summary must use the declared posture, not infer evidentiary weight from row
+count.
+
 ## From source date to atlas comparison
 
 ```mermaid
@@ -73,6 +94,12 @@ Broad navigation windows are assigned from a numeric midpoint:
 These bins make filtering understandable; they do not claim that records in
 the same bin are contemporaneous.
 
+Temporal overlap itself is interval-aware. Two numeric rows can overlap even
+when their midpoints fall on opposite sides of a navigation boundary, and two
+rows in the same broad window can remain thousands of years apart. The window
+key supports browsing; the source bounds and comparability posture govern
+analysis.
+
 ## Source-family differences remain visible
 
 The checked-in collection currently carries different temporal capability by
@@ -95,6 +122,17 @@ Spatial proximity therefore does not guarantee temporal overlap. Ranking can
 count a nearby record as time-aware only when both the candidate evidence and
 the context point have numeric bounds; unresolved or context-only time cannot
 increase an overlap count.
+
+```mermaid
+flowchart TD
+    Candidate["candidate with reviewed time semantics"] --> Pair{"context record nearby?"}
+    Pair -->|no| SpatialZero["no spatial support"]
+    Pair -->|yes| Comparable{"both postures numerically comparable?"}
+    Comparable -->|no| ContextOnly["spatial context only"]
+    Comparable -->|yes| Bounds{"BP intervals overlap?"}
+    Bounds -->|yes| TimeAware["time-aware contextual support"]
+    Bounds -->|no| SpatialOnly["spatial support outside temporal interval"]
+```
 
 ## Auditing cross-source time
 
