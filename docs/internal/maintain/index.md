@@ -22,6 +22,7 @@ its writes, review its consequences, and retain proof at the same boundary.
 | curation decision | claim owner, evidence locator, conflict or recovery record, and intended use | normalized views, eligibility, exclusions, and affected products | claim semantics, ownership, disposition, and descendant agreement |
 | animal evidence | project, sample, chronology, locality, coordinate, and review records | eligible point products and release posture | animal integrity and publication admission contracts |
 | atlas or fieldwork product | governed publication inputs and manifest | map layers, tables, warnings, and traceability views | member identities, exclusions, geography, scenario behavior, and product checks |
+| country publication | published roster, geography plan, and governed political-entity evidence | country bundle, subset validation, portal route, warnings, and reviews | [country publication onboarding](../pollenomics-dev/country-publication-onboarding.md) plus member-level lineage proof |
 | runtime interface | runtime implementation and canonical contract | examples and frozen interface representations | package tests plus compatibility and documentation review |
 | repository check | `bijux-pollenomics-dev` implementation and maintainer contract | local and workflow findings | maintainer-package tests and the affected repository contract |
 | release behavior | workflow definition and version contract | PyPI, GHCR, GitHub, or documentation publication evidence | workflow-specific validation and retained job result |

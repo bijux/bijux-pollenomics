@@ -129,9 +129,16 @@ class DocsBreadthRegressionTests(unittest.TestCase):
         maintain_index = (
             REPO_ROOT / "docs" / "internal" / "maintain" / "index.md"
         ).read_text(encoding="utf-8")
+        country_onboarding = (
+            REPO_ROOT
+            / "docs"
+            / "internal"
+            / "pollenomics-dev"
+            / "country-publication-onboarding.md"
+        ).read_text(encoding="utf-8")
 
         for path in (
-            "docs/internal/pollenomics-dev/future-country-onboarding-playbook.md",
+            "docs/internal/pollenomics-dev/country-publication-onboarding.md",
             "docs/internal/pollenomics-dev/repository-governance.md",
             "docs/internal/maintain/gh-workflows/verification-and-release.md",
             "docs/internal/maintain/makes/make-system-contracts.md",
@@ -142,6 +149,10 @@ class DocsBreadthRegressionTests(unittest.TestCase):
         self.assertIn("Governed State And Build State", maintain_index)
         self.assertIn("makes/make-system-contracts.md", maintain_index)
         self.assertIn("gh-workflows/verification-and-release.md", maintain_index)
+        self.assertIn("# Country Publication Onboarding", country_onboarding)
+        self.assertIn("## Evidence Readiness By Family", country_onboarding)
+        self.assertIn("## Subset And Meaning Validation", country_onboarding)
+        self.assertIn("```mermaid", country_onboarding)
 
     def test_report_root_preserves_documentation_accountability(self) -> None:
         report_root = REPO_ROOT / "docs" / "report"

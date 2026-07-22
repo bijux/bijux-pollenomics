@@ -185,7 +185,7 @@ def _build_repository_output_specs(
             audience="maintainer_diagnostic",
             information_role="extensibility and interpretability review",
             coexistence_rule="coexists with the country onboarding contract and checks whether new work improves global extensibility without making local reasoning worse",
-            docs_anchor="docs/internal/pollenomics-dev/future-country-onboarding-playbook.md",
+            docs_anchor="docs/internal/pollenomics-dev/country-publication-onboarding.md",
             test_anchor="packages/bijux-pollenomics/tests/unit/test_repository_truth.py",
         ),
         _repository_output_spec(

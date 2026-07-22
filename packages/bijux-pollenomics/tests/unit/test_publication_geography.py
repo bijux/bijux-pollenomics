@@ -75,7 +75,7 @@ class PublicationGeographyTests(unittest.TestCase):
         self.assertEqual(len(payload["data_contracts"]), 3)
         self.assertEqual(len(payload["docs_contracts"]), 3)
         self.assertEqual(len(payload["test_contracts"]), 3)
-        self.assertIn("Future-Country Onboarding Playbook", markdown)
+        self.assertIn("Country Publication Onboarding", markdown)
 
     def test_build_published_reports_summary_exposes_world_region_and_country_bundles(
         self,

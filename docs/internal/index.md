@@ -76,6 +76,7 @@ steps needed to use a supported interface.
 | run or extend a repository-health check | [`bijux-pollenomics-dev`](pollenomics-dev/index.md) |
 | choose focused proof for a changed contract | [Quality gates](pollenomics-dev/quality-gates.md) |
 | maintain reader navigation and claim boundaries | [Documentation integrity](pollenomics-dev/documentation-integrity.md) |
+| add a governed country publication | [Country publication onboarding](pollenomics-dev/country-publication-onboarding.md) |
 | understand Make target ownership | [Make system](maintain/makes/index.md) |
 | inspect automation and publication evidence | [GitHub workflows](maintain/gh-workflows/index.md) |
 

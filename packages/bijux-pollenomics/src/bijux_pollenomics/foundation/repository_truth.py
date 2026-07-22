@@ -2110,10 +2110,10 @@ def build_repository_extension_review(
             "score": 4
             if (report_root / "publication_country_onboarding_contract.json").exists()
             else 2,
-            "finding": "adding Germany or another country is now governed as roster, data, docs, and tests work instead of renderer surgery",
+            "finding": "adding Germany or another country is governed as roster, evidence, publication, documentation, and verification work instead of renderer surgery",
             "evidence_anchors": [
                 "docs/report/publication_country_onboarding_contract.json",
-                "docs/internal/pollenomics-dev/future-country-onboarding-playbook.md",
+                "docs/internal/pollenomics-dev/country-publication-onboarding.md",
             ],
         },
         {
@@ -2371,10 +2371,10 @@ def build_repository_final_release_refusal(
         _release_refusal_row(
             "geographic_extensibility",
             (report_root / "publication_country_onboarding_contract.json").exists(),
-            "future-country onboarding is now a governed contract instead of tribal knowledge",
+            "country publication onboarding is a governed contract instead of tribal knowledge",
             [
                 "docs/report/publication_country_onboarding_contract.json",
-                "docs/internal/pollenomics-dev/future-country-onboarding-playbook.md",
+                "docs/internal/pollenomics-dev/country-publication-onboarding.md",
             ],
         ),
     ]

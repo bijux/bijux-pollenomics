@@ -4,25 +4,25 @@
   "rows": [
     {
       "dimension_key": "global_extensibility",
-      "score": 2,
-      "finding": "adding Germany or another country is now governed as roster, data, docs, and tests work instead of renderer surgery",
+      "score": 4,
+      "finding": "adding Germany or another country is governed as roster, evidence, publication, documentation, and verification work instead of renderer surgery",
       "evidence_anchors": [
         "docs/report/publication_country_onboarding_contract.json",
-        "docs/internal/pollenomics-dev/future-country-onboarding-playbook.md"
+        "docs/internal/pollenomics-dev/country-publication-onboarding.md"
       ]
     },
     {
       "dimension_key": "local_reasoning",
-      "score": 4,
+      "score": 2,
       "finding": "the runtime, data, and maintainer handbooks still explain ownership without collapsing the repo into one vague top layer",
       "evidence_anchors": [
         "docs/report/repository_docs_scope_validation.json",
-        "docs/public/pollenomics/foundation/end-state-product-model.md"
+        "docs/public/pollenomics/foundation/publication-scope-model.md"
       ]
     },
     {
       "dimension_key": "scientific_misread_resistance",
-      "score": 2,
+      "score": 4,
       "finding": "release-facing wording is now anchored to explicit refusal criteria instead of optimistic prose alone",
       "evidence_anchors": [
         "docs/report/repository_final_release_refusal.json",
