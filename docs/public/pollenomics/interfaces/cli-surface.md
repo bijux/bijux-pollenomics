@@ -153,6 +153,20 @@ directory from a previous run is not evidence of partial success. Compare the
 governing manifest or summary identity before and after the invocation to
 determine which state remains authoritative.
 
+### Automation Must Read Two Statuses
+
+| Process status | Governed result status | Interpretation |
+| --- | --- | --- |
+| non-zero | no accepted new result | the operation contract did not complete; inspect diagnostics and retain the prior governed identity |
+| zero | admitted or ready | execution completed and the named result reports positive fitness for its declared boundary |
+| zero | qualified, excluded, blocked, or refused | execution completed by producing an accountable negative or restricted scientific result |
+| zero | no scientific status field | use the command-specific contract; an orientation response is not an admission decision |
+
+Automation that checks only `$?` can publish unsupported language. Automation
+that treats every refusal payload as a process failure loses a valid governed
+outcome. Record the process status, parse the command's documented result
+fields, and resolve the manifest or review identity before acting.
+
 ## Alias Command
 
 The `pollenomics` executable is supplied by the compatibility distribution and

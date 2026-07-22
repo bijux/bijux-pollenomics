@@ -93,6 +93,19 @@ If two bundle surfaces disagree, consumers should stop at the manifest and
 traceability boundary and report the inconsistency. Choosing whichever value
 looks more plausible would erase the evidence needed to repair the product.
 
+### Portable Derivatives Preserve The Claim Envelope
+
+| Derivative action | Minimum retained material |
+| --- | --- |
+| copy a complete bundle | bundle manifest, every referenced structured member, traceability, warnings, exclusions, and source product identity |
+| select a subset | parent identity, selection rule, retained stable member IDs, excluded population accounting, and inherited qualifications |
+| join with another family | both observation units, join keys and cardinality, unmatched populations, evidence roles, and temporal and spatial posture |
+| render a new view | governing structured inputs, labels, precision classes, warnings, and a link back to the manifest |
+
+Once this envelope is dropped, the derivative may still be useful as a
+visualization or exploratory table, but it cannot inherit the original
+product's membership, completeness, or claim strength by implication.
+
 ## A World Bundle Is A Connected Packet
 
 The checked-in world publication demonstrates the companion surfaces required

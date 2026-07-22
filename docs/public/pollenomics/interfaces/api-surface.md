@@ -156,6 +156,21 @@ result interpretation, evidence roles, artifact identity, and failure
 semantics. New optional fields may extend a structured record only when older
 consumers can continue to identify the record and its governing contract.
 
+Compatibility must be assessed separately for each affected dimension:
+
+| Dimension | Observable contract |
+| --- | --- |
+| invocation | callable name, arguments, defaults, accepted values, and exception or exit behavior |
+| result | return type, required fields, status meaning, and distinction between success and refusal |
+| persisted data | schema, stable identifiers, fact ownership, null and precision semantics, and joins |
+| publication | manifest identity, scope, membership, companion artifacts, warnings, and exclusions |
+| scientific posture | evidence role, admitted population, claim ceiling, and release language |
+
+A source-compatible function can still introduce an incompatible scientific
+change if it silently changes the admitted population or the meaning of a
+precision field. Conversely, adding an optional rendering can be compatible
+when the manifest, members, roles, and governing facts remain unchanged.
+
 A rename, removal, changed default scope, weakened refusal, or altered
 publication membership is not a cosmetic change. It requires an explicit
 compatibility decision and a migration path appropriate to the affected CLI,

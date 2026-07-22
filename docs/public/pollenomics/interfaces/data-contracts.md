@@ -53,6 +53,20 @@ Unknown and unresolved states remain data; they must not be replaced with a
 plausible value merely to satisfy a downstream schema. A derived product may
 narrow the source claim, but it may never strengthen it.
 
+### Validity Has Four Levels
+
+| Level | Establishes | Does not establish |
+| --- | --- | --- |
+| structural validity | required fields, types, enumerations, and declared relationships are present | that values retain source meaning |
+| semantic validity | units, nulls, precision, observation unit, and fact ownership follow the family contract | that related repository surfaces agree |
+| repository coherence | identities, decisions, manifests, counts, and descendants reconcile across governing edges | fitness for an undeclared question |
+| claim fitness | the named use and product contract admit the evidence with its qualifications | general correctness or representative sampling |
+
+Run the narrowest level that answers the question, but do not report a lower
+level as a higher one. A schema-valid coordinate can remain approximate; a
+coherent publication can remain unfit for a temporal comparison; and a record
+fit for inventory can remain excluded from exact-point publication.
+
 ## Contract, State, And Presentation
 
 Three file roles recur across formats and must not be collapsed:
