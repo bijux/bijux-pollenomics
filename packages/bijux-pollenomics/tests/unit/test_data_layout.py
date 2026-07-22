@@ -15,6 +15,7 @@ from bijux_pollenomics.data_downloader.data_layout import (
     ensure_curated_species_adna_layout,
     ensure_homo_sapiens_adna_layout,
     render_data_root_readme_for,
+    render_homo_sapiens_readme,
     write_data_directory_readme,
 )
 
@@ -102,6 +103,11 @@ class DataLayoutUnitTests(unittest.TestCase):
             raw_aadr = species_root / "raw" / "aadr"
             self.assertTrue(raw_aadr.is_symlink())
             self.assertEqual(raw_aadr.readlink().as_posix(), "../../../../aadr")
+            readme = (species_root / "README.md").read_text(encoding="utf-8")
+            self.assertEqual(readme, render_homo_sapiens_readme())
+            self.assertIn("## Current Material State", readme)
+            self.assertIn("## Evidence Boundary", readme)
+            self.assertIn("capture-only boundary", readme)
 
     def test_ensure_curated_species_adna_layout_creates_nonhuman_species_roots(
         self,
