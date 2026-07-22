@@ -108,6 +108,36 @@ the runtime decision to its governing evidence and source.
 | evaluate a lake-priority result | [Sweden lake priorities](public/nordic-atlas/sweden-lake-priorities/index.md) | lake registry ID, scenario, and model version | ranking meaning, stability, and missing field evidence |
 | inspect a direct visit | [fieldwork](public/fieldwork/index.md) | event ID, date, location, and media identity | situated observation and its claim boundary |
 
+### Choose By Uncertainty
+
+When the object is already visible but its meaning is uncertain, start at the
+boundary that owns the uncertainty:
+
+| Uncertainty | Resolve first | Do not infer from |
+| --- | --- | --- |
+| “What exactly is this marker?” | feature identity, evidence role, and bundle membership | icon, color, label, or popup density |
+| “Why is an expected record missing?” | capture scope, normalization membership, admission, product scope, and active filters | non-visibility alone |
+| “Can these two layers be compared?” | observation units, lineage independence, spatial support, and temporal posture | co-location in one viewport |
+| “What does this count measure?” | observation unit, eligible population, exclusions, scope, and governing authority | a headline total |
+| “Why did this result change?” | source, normalization, curation, admission, analysis, and rendering diffs in causal order | regeneration timestamp or changed appearance |
+| “Can this rank drive fieldwork?” | scenario, weights, sensitivity, missing field evidence, and decision owner | ordinal position alone |
+
+```mermaid
+flowchart TD
+    Uncertainty["uncertain public result"] --> Kind{"what is disputed?"}
+    Kind -->|identity or meaning| Evidence["governing evidence"]
+    Kind -->|visibility| Decision["scope and admission"]
+    Kind -->|comparison or count| Contract["typed population contract"]
+    Kind -->|change| Diff["causal semantic diff"]
+    Evidence --> Claim["bounded interpretation"]
+    Decision --> Claim
+    Contract --> Claim
+    Diff --> Claim
+```
+
+This route keeps the polished publication useful for discovery while moving a
+consequential interpretation to the narrowest authority that can support it.
+
 ## Find The Authority
 
 Reader-visible information often crosses several files, but each fact has one

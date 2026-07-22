@@ -63,6 +63,32 @@ than being promoted through a visually clean atlas.
 [![pollenomics docs](https://img.shields.io/badge/docs-pollenomics-2563EB?logo=materialformkdocs&logoColor=white)](https://bijux.io/bijux-pollenomics/public/pollenomics/)
 <!-- bijux-pollenomics-badges:generated:end -->
 
+## The Trust Envelope
+
+A reusable Pollenomics result carries four linked identities. If one is
+missing, the result may still orient a reader, but it is not yet a complete
+evidence claim.
+
+| Identity | What it fixes | Typical authority |
+| --- | --- | --- |
+| source identity | which release, paper, archive member, API response, or registry row entered the system | capture manifest, source record, DOI, accession, or native key |
+| evidence identity | which normalized or curated object owns the claimed fact | governed member, locality, chronology, coordinate, or relation record |
+| decision identity | which rule admitted, qualified, excluded, or refused that object for one use | review, conflict, readiness, ranking, or admission record |
+| product identity | which versioned scope contains the visible member | bundle manifest, stable feature ID, geography, and publication version |
+
+```mermaid
+flowchart LR
+    Source["source identity"] --> Evidence["evidence identity"]
+    Evidence --> Decision["decision identity"]
+    Decision --> Product["product identity"]
+    Product -. "traceable reuse" .-> Source
+```
+
+A package version identifies producer behavior, not the evidence snapshot. A
+data revision identifies governed state, not the product that selected from it.
+A screenshot identifies neither. Preserve the complete envelope for a map
+feature, count, comparison, exclusion, or ranking that will be reused.
+
 ## Three Product Surfaces
 
 | Surface | Durable value | Trust boundary |
