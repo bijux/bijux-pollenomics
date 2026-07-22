@@ -183,6 +183,7 @@ nav:
           - Directory Layout: public/pollenomics-data/overview/data-directory-layout.md
       - Database:
           - Overview: public/pollenomics-data/database/index.md
+          - Querying Governed Evidence: public/pollenomics-data/database/querying-evidence.md
           - Object and Relation Model: public/pollenomics-data/database/object-and-relation-model.md
           - Revision and State Model: public/pollenomics-data/database/revision-and-state-model.md
       - Sources:

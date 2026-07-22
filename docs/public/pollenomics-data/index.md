@@ -340,6 +340,7 @@ stronger release claim.
 ## Core References
 
 - [Evidence database](database/index.md)
+- [Querying governed evidence](database/querying-evidence.md)
 - [Object and relation model](database/object-and-relation-model.md)
 - [Revision and state model](database/revision-and-state-model.md)
 - [Data system overview](overview/data-system-overview.md)

@@ -42,6 +42,7 @@ class DocsBreadthRegressionTests(unittest.TestCase):
             "docs/public/pollenomics-data/overview/provenance-and-publication-linkage.md",
             "docs/public/pollenomics-data/overview/source-selection-and-refresh.md",
             "docs/public/pollenomics-data/overview/coverage-and-naming.md",
+            "docs/public/pollenomics-data/database/querying-evidence.md",
             "docs/public/pollenomics-data/sources/landclim.md",
             "docs/public/pollenomics-data/sources/neotoma.md",
             "docs/public/pollenomics-data/sources/sead.md",
@@ -53,6 +54,7 @@ class DocsBreadthRegressionTests(unittest.TestCase):
 
         self.assertIn("Database Architecture", data_index)
         self.assertIn("Curation Is Evidence Work", data_index)
+        self.assertIn("database/querying-evidence.md", data_index)
         self.assertIn("overview/provenance-and-publication-linkage.md", data_index)
         self.assertIn("overview/source-selection-and-refresh.md", data_index)
         self.assertIn("overview/coverage-and-naming.md", data_index)

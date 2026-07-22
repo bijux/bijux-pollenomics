@@ -190,6 +190,7 @@ directions must preserve object type, role, version, and qualification.
 
 | Question | Contract |
 | --- | --- |
+| How do I inspect checked-in records without rebuilding them? | [Querying governed evidence](querying-evidence.md) |
 | Which objects exist and how may they relate? | [Object and relation model](object-and-relation-model.md) |
 | What does a database state mean at one revision? | [Revision and state model](revision-and-state-model.md) |
 | How does upstream material enter the database? | [Source families](../sources/index.md) |
