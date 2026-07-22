@@ -18,7 +18,7 @@ The atlas is a comparison surface, not a claim that nearby records describe
 the same event. Geography, chronology, and evidence role must all support an
 interpretation before proximity becomes meaningful.
 
-## Evidence architecture
+## Evidence Architecture
 
 ```mermaid
 flowchart TB
@@ -96,7 +96,21 @@ roles, and admission contracts differ.
   <iframe src="../../report/regions/nordic/nordic_map.html" title="Nordic Evidence Atlas"></iframe>
 </div>
 
-## Reading a feature
+### Choose A Question Before A Layer
+
+| Reader question | Start with | Then verify |
+| --- | --- | --- |
+| Which admitted aDNA samples are in the Nordic scope? | human or animal direct-evidence layer | feature identity, scope membership, locality, chronology, and coordinate posture |
+| What pollen context surrounds a sample or lake? | LandClim or Neotoma | observation unit, distance rule, and compatible temporal fields |
+| What archaeology context is visible nearby? | SEAD or RAÄ | inventory semantics, temporal limits, and the difference between a point and a density cell |
+| Which lakes are evidence-rich under the declared model? | Sweden aggregate, consensus, or radius overlay | ranking surface, weights, scenario, lake identity, and required review action |
+| Why is an expected record missing? | traceability, exclusions, and recovery reviews | whether it is filtered, outside scope, refused, unresolved, or absent from capture |
+
+Starting with the question prevents layer availability from defining the
+analysis. The strongest-looking symbol is not necessarily the evidence role
+that can answer the question.
+
+## Reading A Feature
 
 Begin with its popup and follow the evidence role before interpreting the
 marker:
@@ -159,7 +173,7 @@ causation.
 | a layer disappears after a scope change | the feature is not visible in the active selection | parent/child manifest and inclusion reason |
 | an expected record is absent | no marker is present in this view | recovery, refusal, and scope surfaces |
 
-## Sweden lake overlays
+## Sweden Lake Overlays
 
 The optional lake layers rank SVAR registry lakes by nearby human aDNA, direct
 and nearby pollen, archaeology context, animal context, evidence diversity,
@@ -176,7 +190,7 @@ the model orders candidates; field review can accept, defer, or reject a
 candidate. A field decision never rewrites the evidence layers or retroactively
 changes the model score.
 
-## Contracts and traceability
+## Contracts And Traceability
 
 - [Nordic map publication contract](../../report/regions/nordic/nordic_map_publication_contract.md)
   defines the product scope and required layers.

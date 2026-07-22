@@ -7,7 +7,7 @@ owner: bijux-pollenomics-docs
 last_reviewed: 2026-07-22
 ---
 
-# Sweden lake priorities
+# Sweden Lake Priorities
 
 The Sweden lake priority surface ranks 6,763 SMHI SVAR registry lakes that
 have at least one human ancient-DNA locality within 50 km. It asks where the
@@ -21,7 +21,7 @@ names that clearly describe engineered water bodies or wetlands are excluded
 from the shortlist, while duplicate lake names and coordinate ambiguity remain
 visible as required review actions.
 
-## Candidate and scoring pipeline
+## Candidate And Scoring Pipeline
 
 ```mermaid
 flowchart LR
@@ -41,7 +41,7 @@ The public atlas exposes aggregate and consensus top-40 layers, top-40 layers
 for each radius, and a fieldwork-preparation top 20. The overlays are disabled
 by default because they are interpretations over the base evidence layers.
 
-## Evidence weights within a radius
+## Evidence Weights Within A Radius
 
 | Signal | Weight | Interpretation |
 | --- | ---: | --- |
@@ -63,7 +63,34 @@ locality windows. The current Sweden-facing SEAD capture is a site inventory
 without numeric chronology rows, so it contributes spatial archaeology context
 but not same-period evidence.
 
-## Combining distance bands
+### Score And Rank Are Separate Contracts
+
+For each radius, the displayed band score is the weighted sum of normalized
+signals:
+
+```text
+0.59 human aDNA
++ 0.14 direct pollen
++ 0.07 nearby pollen
++ 0.07 lake sampling fit
++ 0.07 archaeology
++ 0.04 domesticated-animal aDNA
++ 0.02 evidence diversity
+```
+
+The component weights sum to 1.00, but the score is not the first sort key.
+Band and aggregate ordering first compare human aDNA locality and sample
+coverage, then direct pollen support, then broader pollen and archaeology
+context. Sampling fit and the blended score resolve later ties. This preserves
+the model's stated priority instead of letting a dense contextual inventory
+outvote direct human evidence.
+
+Signals are normalized within the governed candidate population. A score is
+therefore comparable inside the named product version and scenario; it is not
+an absolute probability, a cross-version scientific measurement, or a field
+success estimate.
+
+## Combining Distance Bands
 
 | Radius | Aggregate weight |
 | ---: | ---: |
@@ -131,7 +158,7 @@ human-context, sampling, scenario-consistency, and identity-review contract.
 The unresolved name prevents the top fieldwork row from becoming a sampling
 instruction.
 
-## Reading candidate fields
+## Reading Candidate Fields
 
 Each ranked row preserves:
 
@@ -154,7 +181,7 @@ whether a candidate already has at least two direct pollen sources and four
 evidence families within 20 km. It adds no score, source record, network
 membership, or PalaeOpen endorsement.
 
-## Current aggregate leaders
+## Current Aggregate Leaders
 
 | Rank | Lake | Score | Area km² | Sampling posture |
 | ---: | --- | ---: | ---: | --- |
@@ -173,7 +200,7 @@ consistency, and identity risk. It also emits required actions such as resolving
 duplicate registry names or inspecting SEAD context before narrowing an
 interpretation.
 
-## Evidence still required before fieldwork
+## Evidence Still Required Before Fieldwork
 
 The public ranking does not contain governed bathymetry, basin depth, sediment
 preservation, shoreline access, permits, landowner logistics, or field-confirmed
@@ -208,7 +235,7 @@ manifest, sensitivity output, and fieldwork-preparation screen. Quoting a row
 without the engine manifest and scenario identity makes its rank impossible to
 reproduce or interpret after a source refresh.
 
-## Governing outputs
+## Governing Outputs
 
 - [Open the Nordic evidence atlas](../../../report/regions/nordic/nordic_map.html)
 - [Full evidence-richness report](../../../report/countries/sweden/sweden_lake_evidence_richness_v66.md)

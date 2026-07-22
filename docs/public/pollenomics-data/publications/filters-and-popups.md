@@ -7,7 +7,7 @@ owner: bijux-pollenomics-docs
 last_reviewed: 2026-07-22
 ---
 
-# Filters and popups
+# Filters And Popups
 
 Filters and popups are the map's first explanation layer. They reveal the
 active selection and summarize already admitted features; they do not decide
@@ -60,6 +60,20 @@ World, regional, and country maps are related publications with explicit
 lineage. Selecting a country inside an existing product is not equivalent to
 opening that country's governed bundle unless the manifest and contract say so.
 
+### Five States Behind A Missing Marker
+
+| State | Meaning | Where to resolve it |
+| --- | --- | --- |
+| hidden by active filter | the admitted member remains in the open bundle | filter state and layer controls |
+| outside the open scope | the record may belong to a parent, sibling, or other geographic product | parent and child manifests |
+| refused by admission | governed evidence exists but does not satisfy this product contract | refusal and exclusion surfaces |
+| unresolved in curation | source material exists but identity, place, time, or provenance is not settled | evidence review and conflict ledgers |
+| absent from capture | the repository has no governed row in the checked-in source state | source inventory and recovery review |
+
+These states are not interchangeable. Only the first is reversed by a browser
+control; the others require a different product or a change in governed
+evidence.
+
 ## Popup Contract
 
 A useful popup identifies the source family and evidence role, shows the stable
@@ -67,6 +81,18 @@ feature identity, preserves coordinate and temporal qualifications, states the
 active geographic scope, and provides a route to narrower evidence. Fields
 that are not supported remain absent or visibly qualified; they are not filled
 from a broader project or nearby contextual feature.
+
+| Popup element | Minimum meaning to preserve |
+| --- | --- |
+| identity | stable feature identifier and source-native or evidence identifier |
+| role | direct evidence, environmental context, archaeology context, decision support, or framing |
+| place | coordinate basis, confidence or geometry semantics, and locality label |
+| time | admitted interval, qualified context, or explicit unresolved posture |
+| scope | open product and the member's inclusion posture |
+| audit route | link or identifiers sufficient to locate the narrower evidence surface |
+
+A compact popup may omit nonessential descriptive fields. It must not omit a
+qualification whose absence would materially strengthen the apparent claim.
 
 ## Interpretive Guardrails
 
