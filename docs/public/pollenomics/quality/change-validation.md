@@ -1,60 +1,79 @@
 ---
-title: Change Validation
+title: Change Evidence
 audience: reader
 type: explanation
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-05-10
+last_reviewed: 2026-07-22
 ---
 
-# Change Validation
+# Change Evidence
 
-Every runtime change should prove the boundary it touched.
+A changed map, count, ranking, or review posture has a cause. Bijux
+Pollenomics separates changes in source material, curation, product scope,
+analysis, and rendering so a visible difference can be interpreted instead of
+treated as an unexplained new result.
 
-Not every change needs the same proof. A wording fix, a source-normalization
-rule, and a publication-output change do not carry the same risk. Good
-validation matches the boundary that changed.
+## Causal Chain
 
-The deeper point is simple: a serious repository should be able to say why it
-trusts one change and what kind of proof that trust is based on.
+```mermaid
+flowchart LR
+    Source["source capture"] --> Normalization["normalization"]
+    Normalization --> Curation["curation decision"]
+    Curation --> Admission["product admission"]
+    Admission --> Analysis["comparison or ranking"]
+    Analysis --> Rendering["presentation"]
+    Admission --> Rendering
+    Rendering --> Change["visible product change"]
+```
 
-## Validation Layers
+Several causes can affect one product, but they should remain distinguishable
+in its manifests, evidence rows, reviews, and generated diff.
 
-- unit tests for narrow logic and file-shape contracts
-- regression tests for repository-owned docs, outputs, and public file presence
-- command-level rebuilds when a change affects tracked `data/` or `docs/report/`
-- repository truth reviews when a change affects breadth, posture, or public
-  claim language
+## Change Classes
 
-## Match Proof To Risk
+| Class | Typical visible effect | Evidence needed to interpret it |
+| --- | --- | --- |
+| source | added, removed, or revised upstream records | version, retrieval context, hashes, license posture, and source diff |
+| normalization | changed identifiers, geometry, dates, or field representation | source-native value, normalization basis, and affected records |
+| curation | changed linkage, ambiguity resolution, evidence class, or precision | governing decision, reason, and prior posture |
+| admission | changed membership, qualification, or exclusion | named product rule, scope, and decision record |
+| analysis | changed rank, score, sensitivity, or comparison | method identity, inputs, scenarios, and stability evidence |
+| rendering | changed layout, labels, colors, or interaction | proof that structured membership and meaning stayed unchanged |
 
-- a local helper change should not need the same proof as a public output
-  rewrite
-- a docs wording change is not "just docs" if it changes what people are led
-  to believe
-- a generated report change is incomplete if only the source code was checked
-  and the generated destination was ignored
+## Counts Are Not Explanations
 
-## Minimum Rule
+An increased count may reflect recovered evidence, broader scope, repaired
+deduplication, or a weakened admission rule. A decreased count may reflect
+upstream removal, corrected identity, narrower scope, or failed collection.
+The number alone cannot identify which happened.
 
-If a change rewrites tracked outputs, validate both the generator and the
-generated destination before committing.
+Stable counts can also hide meaningful change: one member may replace another,
+coordinates may become less precise, chronology may be reclassified, or a
+direct-evidence row may become contextual.
 
-That rule matters because a repository like this publishes both code and
-checked-in public surfaces. One without the other is not enough proof.
+## Reading A Product Difference
 
-## Breadth Rule
+1. Identify the product and recorded scope.
+2. Compare bundle membership and feature identifiers.
+3. Separate additions, removals, and modified members.
+4. Follow modified members to their admission and governing evidence records.
+5. Compare source identity, curation reason, precision, role, warnings, and
+   exclusions.
+6. Treat rendering-only change as neutral only when structured meaning is
+   demonstrably unchanged.
 
-Docs work is not exempt. A docs rewrite fails review if it narrows `01`,
-`02`, or `03` without an equally informative replacement that is present and
-linked.
+## Interpretation Outcomes
 
-The larger point is that passing tests are not enough when a rewrite makes the
-public explanation thinner or more confusing. Public clarity is also part of
-the contract.
+| Outcome | Appropriate statement |
+| --- | --- |
+| stronger evidence recovered | the named records gained a stated source-backed property |
+| qualification introduced | the records remain visible under a narrower claim |
+| scope changed | membership changed because the product boundary changed |
+| analysis changed | ranking or comparison changed under a named method or scenario |
+| presentation changed only | the view changed while structured evidence and membership remained stable |
+| cause unresolved | do not interpret the visible difference as scientific change |
 
-## Public Consequence
-
-When the repository changes what it says in public, the validation burden is
-not only technical. The maintainers also owe proof that the new explanation is
-still broad enough, linked enough, and honest enough to rely on.
+Change evidence protects against a common error: describing every regenerated
+product as new scientific evidence. Regeneration is an operation; the causal
+record determines what, if anything, changed scientifically.

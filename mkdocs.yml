@@ -165,9 +165,9 @@ nav:
       - Quality:
           - Overview: public/pollenomics/quality/index.md
           - Verification Evidence: public/pollenomics/quality/test-strategy.md
-          - Change Validation: public/pollenomics/quality/change-validation.md
-          - Review Checklist: public/pollenomics/quality/review-checklist.md
-          - Public Language Guide: public/pollenomics/quality/public-language-guide.md
+          - Change Evidence: public/pollenomics/quality/change-validation.md
+          - Claim Review: public/pollenomics/quality/review-checklist.md
+          - Evidence Vocabulary: public/pollenomics/quality/public-language-guide.md
           - Runtime Invariants and Limits: public/pollenomics/quality/runtime-invariants-and-limits.md
   - Data:
       - Overview: public/pollenomics-data/index.md

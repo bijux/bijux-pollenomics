@@ -65,11 +65,12 @@ evidence.
   conditions that must remain true.
 - [Verification evidence](test-strategy.md) explains what each proof layer can
   and cannot establish for a public claim.
-- [Change validation](change-validation.md) defines proof proportional to a
-  changed surface.
-- [Public language](public-language-guide.md) constrains claims and caveats.
-- [Review checklist](review-checklist.md) connects runtime, evidence,
-  publication, and documentation review.
+- [Change evidence](change-validation.md) separates source, curation, scope,
+  analysis, and rendering causes behind a visible difference.
+- [Evidence vocabulary](public-language-guide.md) defines roles, postures,
+  strength verbs, and scope language.
+- [Claim review](review-checklist.md) traces a public statement through object,
+  role, precision, provenance, and admission.
 
 Current generated posture remains visible in the
 [animal atlas readiness](../../../report/animal_atlas_readiness.md),

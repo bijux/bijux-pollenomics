@@ -71,10 +71,12 @@ support and what remains outside its declared claim.
 
 - [Runtime invariants and limits](runtime-invariants-and-limits.md) state the
   conditions the supported system must preserve.
-- [Change validation](change-validation.md) explains how proof follows the
-  boundary that changed.
-- [Public language](public-language-guide.md) constrains the claim that may be
-  made from verified evidence.
+- [Change evidence](change-validation.md) distinguishes scientific, product,
+  analytical, and presentation causes behind a visible difference.
+- [Evidence vocabulary](public-language-guide.md) constrains the claim that may
+  be made from verified evidence.
+- [Claim review](review-checklist.md) provides a reader path from a public
+  statement to its governing source and decision.
 - [Animal atlas readiness](../../../report/animal_atlas_readiness.md) and the
   [animal exclusion report](../../../report/animal_atlas_exclusion_report.md)
   expose current publication readiness and refusal reasons.
