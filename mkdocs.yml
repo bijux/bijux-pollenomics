@@ -217,6 +217,7 @@ nav:
           - Coordinates: public/pollenomics-data/evidence/coordinates.md
       - Publications:
           - Overview: public/pollenomics-data/publications/index.md
+          - Geographic Publication Lineage: public/pollenomics-data/publications/geographic-lineage.md
           - Publication Types: public/pollenomics-data/publications/publication-types.md
           - Collection Summary: public/pollenomics-data/publications/collection-summary.md
           - Reports: public/pollenomics-data/publications/reports.md

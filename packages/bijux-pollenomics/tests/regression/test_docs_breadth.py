@@ -101,6 +101,30 @@ class DocsBreadthRegressionTests(unittest.TestCase):
         self.assertIn("```mermaid", decision_records)
         self.assertIn("decision-records.md", curation_index)
 
+    def test_geographic_lineage_preserves_parent_meaning(self) -> None:
+        lineage = (
+            REPO_ROOT
+            / "docs"
+            / "public"
+            / "pollenomics-data"
+            / "publications"
+            / "geographic-lineage.md"
+        ).read_text(encoding="utf-8")
+        publication_index = (
+            REPO_ROOT
+            / "docs"
+            / "public"
+            / "pollenomics-data"
+            / "publications"
+            / "index.md"
+        ).read_text(encoding="utf-8")
+
+        self.assertIn("# Geographic Publication Lineage", lineage)
+        self.assertIn("## Subset Validation", lineage)
+        self.assertIn("## Explain Absence From A Child Scope", lineage)
+        self.assertIn("```mermaid", lineage)
+        self.assertIn("geographic-lineage.md", publication_index)
+
     def test_maintainer_handbook_covers_repository_health(self) -> None:
         maintain_index = (
             REPO_ROOT / "docs" / "internal" / "maintain" / "index.md"

@@ -114,6 +114,8 @@ flowchart TB
 
 ## Choose By Question
 
+- Use [geographic publication lineage](geographic-lineage.md) to compare a
+  world, regional, or country member without losing its parent relation.
 - Use the [report portal](../../../report/index.md) to select a geography.
 - Use the [world surface](../../../report/world/README.md) for repository-wide
   posture and the broadest admitted view.

@@ -261,6 +261,8 @@ claims have separate evidence requirements.
 
 ## Choose A Publication
 
+- [Geographic publication lineage](geographic-lineage.md) explains how world,
+  regional, and country products preserve identity and subset meaning.
 - [Reports](reports.md) provide scope-oriented narrative and inventories.
 - [Maps](maps.md) provide visual exploration across evidence families.
 - [Map inputs](map-inputs.md) identify the source files behind visible layers.

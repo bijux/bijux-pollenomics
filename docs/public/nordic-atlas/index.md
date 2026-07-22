@@ -18,6 +18,12 @@ The atlas is a comparison surface, not a claim that nearby records describe
 the same event. Geography, chronology, and evidence role must all support an
 interpretation before proximity becomes meaningful.
 
+The Nordic product is a governed child of Europe-plus, which is itself a child
+of the world product. [Geographic publication
+lineage](../pollenomics-data/publications/geographic-lineage.md) explains which
+member properties must remain invariant and how to interpret absence from a
+narrower scope.
+
 ## Evidence Architecture
 
 ```mermaid
