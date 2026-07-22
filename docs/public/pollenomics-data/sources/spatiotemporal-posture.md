@@ -4,66 +4,79 @@ audience: reader
 type: explanation
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-06-22
+last_reviewed: 2026-07-22
 ---
 
 # Spatiotemporal Posture
 
-Not every checked-in source family is comparable in the same way through space
-and time.
+Spatial and temporal comparability are independent properties. Two records can
+occupy the same map cell while referring to different periods, observation
+units, and precision classes. Bijux Pollenomics records those differences
+before a source enters comparison, ranking, or publication.
 
-That is not a documentation problem. It is a real property of the tracked
-evidence. Some source families contribute lake anchors, some contribute point
-inventories, some contribute density context, and only some contribute numeric
-BP windows that can support chronology-aware comparison.
+The machine-readable authority is
+`data/source_spatiotemporal_posture_registry.json`. It declares each family's
+spatial role, temporal capability, ranking role, and current evidence basis.
 
-The repository keeps that distinction explicit in the machine-readable
-registry:
+## Family Posture
 
-- `data/source_spatiotemporal_posture_registry.json`
+| Family | Spatial posture | Temporal posture | Safe combined use | Required limit |
+| --- | --- | --- | --- | --- |
+| LandClim | site sequences and model-grid context | numeric BP windows where present | chronology-aware pollen and landscape context | observed sites and model grids remain distinct |
+| Neotoma | palaeoecological site points | numeric site spans for a subset; uneven resolution | site-level pollen comparison where intervals overlap | missing intervals cannot be inferred from nearby sites |
+| SEAD | environmental-archaeology site inventory | no uniform numeric intervals in the current capture | broad archaeology context | not same-period support without record-level chronology |
+| RAÄ | Swedish registry points and density representation | no repository-wide uniform interval | Swedish spatial archaeology context | density and registry effort do not measure historical abundance |
+| SVAR | registered lake and water-body geometry | present-day registry state | candidate identity, containment, and distance | no historical chronology or sampling-feasibility claim |
+| boundaries | administrative polygons | no scientific temporal claim | clipping, containment, and scope | no independent evidential weight |
+| AADR | sample points at declared metadata precision | sample interval or context where supplied | human aDNA comparison within release and precision | metadata posture is not genotype analysis |
+| animal aDNA | sample-owned or qualified site geometry | sample-owned chronology at declared precision | direct specimen evidence when admitted | project-level place or time cannot fill sample gaps |
 
-## Why This Registry Exists
+## Comparison Gate
 
-Without one shared posture surface, readers have to infer too much from file
-names or map symbols alone.
+```mermaid
+flowchart TB
+    Question["declared comparison question"] --> Units{"compatible observation units?"}
+    Units -->|no| Refuse["refuse or use as context only"]
+    Units -->|yes| Space{"compatible spatial basis and precision?"}
+    Space -->|no| Refuse
+    Space -->|yes| Time{"temporal overlap supported?"}
+    Time -->|no numeric requirement| Role["retain declared evidence roles"]
+    Time -->|yes| Role
+    Time -->|no| Refuse
+    Role --> Scope["apply geography, version, and inclusion rules"]
+    Scope --> Result["qualified comparison with member-level lineage"]
+```
 
-This registry answers a narrower set of questions directly:
+The gate is claim-specific. A family refused from chronology-aware scoring may
+still be valid for geographic framing or broad context. Conversely, numeric
+intervals do not authorize a direct biological relation when the families
+observe different objects.
 
-- is this family a lake anchor, a context point inventory, a density surface,
-  or framing geometry?
-- does the checked-in repository state carry numeric BP windows for this
-  family?
-- should this family affect chronology-aware ranking, broad context scoring,
-  or only candidate-lake identity?
+## Precision Rules
 
-## What It Says Right Now
+- Compare at the weakest supported spatial precision; do not turn a region or
+  approximate point into exact distance evidence.
+- Compare time only when interval basis, units, uncertainty, and overlap rule
+  are declared.
+- Preserve absent, contextual, and broad chronology as distinct from numeric
+  non-overlap.
+- Keep modelled, observed, registered, curated, and derived geometry roles
+  visible in the result.
+- Retain records excluded by the gate so the denominator and refusal remain
+  explainable.
 
-- LandClim carries numeric BP windows in the normalized site-sequence layer and
-  acts as supporting pollen context.
-- Neotoma carries uneven BP site-span support and must not be treated as if the
-  checked-in raw capture already includes chronology rows for every site.
-- SEAD remains contextual archaeology inventory in the checked-in state and
-  should not be promoted into same-period support unless explicit numeric
-  intervals are present.
-- RAÄ is rich Swedish archaeology context, but the repository-owned normalized
-  surface is density-oriented rather than one exact local-distance site
-  inventory.
-- SVAR governs candidate-lake identity and location, not chronology.
-- Boundary geometry constrains scope and framing only.
+## Reading A Lake Ranking
 
-## How To Use It
+SVAR can anchor lake identity and geometry. LandClim or Neotoma can contribute
+pollen context; SEAD and RAÄ can contribute archaeological context; admitted
+ancient-DNA records can contribute direct evidence for their specimens. The
+ranking manifest must state which sources participate, the distance bands,
+temporal rules, missingness treatment, and sensitivity scenarios.
 
-Use the registry before making or reading lake-ranking claims.
+A higher rank means the declared evidence model prioritized that lake relative
+to its candidate set. It does not establish coring feasibility, preservation,
+access, permits, or the scientific outcome of field sampling.
 
-If a source family is marked as context only, do not inflate it into direct
-same-period support. If a family is marked as a lake anchor only, do not count
-it as environmental or archaeological evidence. If a family carries numeric
-intervals unevenly, keep the unevenness visible instead of smoothing it away in
-the report.
-
-## Best Companion Pages
-
-- [LandClim](landclim.md)
-- [Neotoma](neotoma.md)
-- [SEAD](sead.md)
-- [Source family matrix](source-family-matrix.md)
+Continue with [source comparison](source-comparison.md), the [source-family
+matrix](source-family-matrix.md), and the [cross-domain evidence
+matrix](../overview/cross-domain-evidence-matrix.md).

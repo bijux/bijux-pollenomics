@@ -72,6 +72,40 @@ A family can be:
 - well captured but not publication-ready;
 - admitted to one product while excluded from another.
 
+## Evaluate Maturity By Claim
+
+Use the matrix as a set of independent questions rather than a ladder:
+
+| Axis | Question | Failure must remain visible as |
+| --- | --- | --- |
+| identity | Can each governed member be traced to one source-native object and release? | unresolved identity, collision, or missing locator |
+| acquisition | Were expected assets captured under recorded access and use conditions? | blocked asset, partial capture, or unknown denominator |
+| semantics | Does normalization preserve the family's observation unit and field meaning? | unsupported mapping, ambiguous value, or schema drift |
+| space | Is location represented at the precision supported by the source? | approximate, regional, substituted, withheld, or unresolved geometry |
+| time | Is chronology numeric, contextual, broad, absent, or inapplicable? | explicit temporal class and uncertainty |
+| role | Is the family direct evidence, primary context, contextual, sampling context, or framing? | refusal of role substitution |
+| publication | Which named product admits the record and under what qualification? | exclusion, deferral, warning, or empty membership |
+
+A family can be strong on one axis and weak on another without contradiction.
+For example, a stable national registry can have excellent identity and spatial
+coverage while carrying no uniform chronology suitable for same-period
+comparison.
+
+```mermaid
+flowchart LR
+    Family["source family"] --> Identity["identity and acquisition"]
+    Family --> Meaning["unit and semantics"]
+    Family --> Space["spatial support"]
+    Family --> Time["temporal support"]
+    Family --> Role["evidence role"]
+    Identity --> Fitness["claim-specific fitness"]
+    Meaning --> Fitness
+    Space --> Fitness
+    Time --> Fitness
+    Role --> Fitness
+    Fitness --> Product["qualified product decision"]
+```
+
 ## Current Review Surfaces
 
 - [source-family matrix data](../../../report/repository_source_family_matrix.json)

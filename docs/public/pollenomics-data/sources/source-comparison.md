@@ -57,6 +57,36 @@ causal relation, or equal evidence strength.
 | direct aDNA + context layers | interpretation of a governed sample within a wider landscape | transfer of context-layer precision to the sample |
 | evidence + boundaries | reproducible geographic selection and display | representativeness within the selected area |
 
+## Comparison Verdicts
+
+Every comparison should end in one of four explicit postures:
+
+| Verdict | Required condition | Defensible use |
+| --- | --- | --- |
+| aligned | observation units, roles, space, time, and scope support the declared relation | direct comparison within the recorded precision |
+| partially aligned | only named dimensions overlap | qualified comparison of those dimensions only |
+| contextual | one family informs interpretation but does not measure the target claim | context, prioritization, or hypothesis formation |
+| refused | the proposed bridge requires unsupported identity, precision, time, role, or denominator | preserve the gap and state what evidence is missing |
+
+The verdict applies to the proposed claim, not permanently to a source family.
+SEAD can be valid contextual archaeology for a lake analysis while being
+refused as same-period evidence when numeric intervals are absent. Boundaries
+can be aligned for geographic containment while remaining incapable of
+supporting biological association.
+
+## Example: Proximity Without Temporal Equivalence
+
+Suppose a pollen site, a heritage record, and an ancient-DNA sample fall within
+the same distance band of a registered lake. The geometry supports a declared
+proximity calculation. It does not establish that the observations are
+contemporaneous, that the heritage record relates to the specimen, or that the
+lake is a feasible coring target.
+
+A defensible result retains each member ID and evidence role, the distance
+rule, each spatial precision, the available temporal classes, and a contextual
+verdict. A single combined “evidence count” would discard the differences that
+make the comparison interpretable.
+
 ## Reuse Outside Current Products
 
 A source family is portable when its identity, acquisition, normalized
@@ -71,6 +101,11 @@ Before reuse, establish:
 - which temporal and spatial comparisons remain valid;
 - whether license and retrieval context permit the intended use;
 - which new review or publication gate is required.
+
+Reuse must also preserve negative evidence. Exclusions, unresolved identities,
+missing intervals, and jurisdictional limits cannot be dropped merely because
+the destination schema has no field for them. A schema that cannot retain the
+qualification cannot inherit the original claim strength.
 
 The [source-family matrix](source-family-matrix.md) records the repository-wide
 roles, while [shared normalization](shared-normalization.md) explains how
