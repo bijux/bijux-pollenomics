@@ -40,6 +40,30 @@ cells, Neotoma points, RAÄ heritage and total sites, SEAD points, and SVAR
 lakes. These counts identify the assembled state; their exact observation
 units and temporal semantics remain governed by the family contracts.
 
+### A Digest Can Identify Empty Content
+
+A content digest proves identity of the bytes or logical member stream that
+was hashed; it does not prove that the stream contains governed records. The
+current AADR `normalized_sha256` is
+`e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855`, the
+SHA-256 digest of an empty byte stream. The dedicated evidence-stage matrix
+accordingly reports the AADR normalized stage as missing.
+
+This is not a hash failure. It is a meaningful receipt for absence at that
+boundary and must not be described as a populated normalized dataset.
+
+| Digest observation | Additional evidence required before interpretation |
+| --- | --- |
+| digest changed | member-identity and semantic diff |
+| digest unchanged | proof that the same hashing scope and member ordering were used |
+| digest identifies empty content | expected-member accounting and an explicit missing or valid-empty decision |
+| digest is absent | acquisition or preparation outcome explaining why content identity is unavailable |
+
+A scientifically valid empty result is possible only when the expected source
+population, query or extraction scope, and zero-member outcome are themselves
+governed. Otherwise empty content is a missing preparation state, not evidence
+that the upstream population is empty.
+
 ### Collection Header, Not Record Catalogue
 
 The summary behaves as a collection-level transaction header. It identifies

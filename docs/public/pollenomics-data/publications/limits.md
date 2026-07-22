@@ -31,6 +31,35 @@ still prohibiting language that implies unrestricted precision. These two
 results are compatible: a conservative subset can be safely published before
 the underlying recovery program is complete.
 
+### Release Posture And Member Fitness Have Different Scope
+
+A release-level blocker does not invalidate every governed member, and a valid
+member does not clear a release-level blocker. The decision scopes remain
+separate:
+
+| Decision scope | Question | Example valid outcome |
+| --- | --- | --- |
+| claim | does this evidence support this place, time, identity, or relation? | exact coordinate accepted; numeric chronology refused |
+| member | may this governed object enter this named product? | qualified spatial member admitted |
+| family | is this source family prepared and reviewed for its declared role? | context publication allowed with missing stronger temporal capability |
+| bundle | are manifest, members, review, caveats, and rendering coherent? | bundle closed with explicit exclusions |
+| release | may the repository use final or unrestricted maturity language? | refused while recovery and SEAD treatment remain blocking |
+
+```mermaid
+flowchart LR
+    Claim["claim decisions"] --> Member["member fitness"]
+    Member --> Bundle["bundle closure"]
+    Family["family readiness"] --> Bundle
+    Bundle --> Release["release posture"]
+    Member -. "does not clear" .-> Release
+    Release -. "does not erase" .-> Member
+```
+
+This is why the 233 final sample-backed animal points remain usable under
+their product contracts while the repository refuses final-release language.
+Reuse cites the narrowest passing decision and carries every broader blocker
+that limits the proposed interpretation.
+
 ## Quantified Boundaries
 
 The current governed state makes several limits measurable:

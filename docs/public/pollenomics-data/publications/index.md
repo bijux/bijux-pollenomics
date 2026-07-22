@@ -111,6 +111,32 @@ flowchart LR
     Ready -->|no| Blocked["retained product with explicit blocker"]
 ```
 
+### Publication Freshness Is A Vector
+
+One generation date cannot describe the freshness of a cross-domain bundle.
+Each family can have a different capture date, evidence revision, and review
+posture, while the bundle has its own generation identity.
+
+| Freshness coordinate | Governing evidence | Change that advances it |
+| --- | --- | --- |
+| source freshness | family release, retrieval time, response identity, and digest | a newly identified and accepted capture |
+| preparation freshness | normalized member and transformation revision | accepted member or semantic reconciliation |
+| review freshness | claim decisions, conflicts, and fitness revision | reevaluation against current evidence and rules |
+| product freshness | manifest, contract, member inventory, and generated time | coherent bundle regeneration |
+
+```mermaid
+flowchart LR
+    Source["source freshness by family"] --> Preparation["preparation revision"]
+    Preparation --> Review["review revision"]
+    Review --> Product["product generation"]
+    Product -. "does not advance" .-> Source
+```
+
+Regenerating a map advances product freshness only. It does not make an old
+capture current or fill a missing review stage. A freshness statement names
+the coordinate relevant to the claim and exposes older or blocked coordinates
+that constrain reuse.
+
 ## Publication Bundle
 
 A geographic bundle can include:
