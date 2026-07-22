@@ -4,76 +4,100 @@ audience: reader
 type: explanation
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-05-10
+last_reviewed: 2026-07-22
 ---
 
 # Sample Records
 
-The sample record is the durable unit of the animal ancient DNA database.
-Projects, papers, supplements, locality decisions, chronology review, and map
-outputs all meet here.
+The durable unit of the animal ancient-DNA database is a repository-stable
+sample record. Papers describe studies, archive projects group deposits, and
+supplements contain tables; none of those scopes is automatically equivalent
+to one physical sample.
 
-If you want to know what the repository actually knows about one animal record,
-this is the first place to start. Everything else downstream depends on the
-sample being stable enough to carry forward.
+## Stable Identity
 
-## What A Sample Record Should Answer
+A project sample master assigns a repository-stable identifier and preserves
+the labels available from each source surface:
 
-A serious sample record should answer these questions clearly:
+- archive-native sample identifier;
+- paper-native sample label;
+- supplementary-table sample label;
+- preferred display label;
+- identity basis and resolution state; and
+- ambiguity note when the labels cannot be reconciled safely.
 
-- what the stable sample identity is
-- which project and paper lineage the row belongs to
-- what locality claim is currently supported
-- what chronology claim survives review
-- which fields later drive country bundles and atlas outputs
+The stable identifier is namespaced by project so identical human-readable
+labels in different projects do not collapse into one record.
 
-In other words, the sample record should tell you what this row is before any
-map, summary, or country bundle tries to tell a broader story about it.
+## Source Lineage
 
-## Why Projects Do Not Replace Samples
+```mermaid
+flowchart LR
+    Project["archive project"] --> Sample["repository-stable sample"]
+    Paper["paper DOI"] --> Sample
+    Supplement["supporting artifact"] --> Sample
+    Locator["sheet, row, table, or record locator"] --> Sample
+    Sample --> Site["sample-site record"]
+    Sample --> Date["sample chronology record"]
+    Site --> Species["species-normalized view"]
+    Date --> Species
+```
 
-One project accession can contain many samples, and those samples can belong to
-different archaeological sites or carry different dates. Treating a project as
-if it were already one place or one timeline would flatten the evidence before
-it is reviewed.
+A direct extraction records the source artifact, its kind, an internal locator,
+and a short source excerpt. This makes the transformation auditable without
+requiring a reader to infer which spreadsheet row produced the record.
 
-The public map never outranks the sample database. If a point is visible, the
-sample record should already explain why.
+## Project Completeness
 
-## What You Can Learn Here
+`project_sample_master_completeness.json` compares expected, recovered,
+unresolved, and final sample counts when a trustworthy expectation is
+available. It also records the provenance of the expected count and the
+project's sample-identifier status.
 
-- whether the sample identity is stable or still ambiguous
-- whether the record belongs cleanly to one project and paper lineage
-- whether later locality or chronology claims are being attached to the right
-  sample
-- whether a public-facing output is standing on one coherent sample foundation
-  or on something still under repair
+An unknown expected count is not rewritten as zero. It remains a curation state
+such as `not_yet_curated`, with a reason and the artifact needed to resolve it.
+This prevents a large recovered table from being mistaken for proven project
+completeness.
 
-## Why This Page Matters
+## Sample-Owned Claims
 
-Many downstream misunderstandings start here. If the sample unit is vague, the
-rest of the evidence chain becomes unstable before locality, chronology, or
-coordinates are even discussed.
+The sample master carries the source-facing identity and the raw locality and
+chronology text recovered with it. Narrower governed surfaces then evaluate
+those claims:
 
-That is why the repository keeps the sample record as the durable starting
-point instead of letting country bundles or atlas views become the primary
-identity surface.
+| Surface | Responsibility |
+| --- | --- |
+| `sample_master.json` | stable identity, labels, lineage, and extracted source text |
+| `sample_sites.json` | sample-to-site linkage and site hierarchy |
+| `sample_locality_evidence.json` | locality class, resolution, provenance, and mapping posture |
+| `sample_chronology_evidence.json` | chronology strength, class, precision, normalization, and provenance |
+| species `sample_records.json` | cross-project species view over governed sample evidence |
 
-## Direct Files
+Separating these surfaces prevents a correction to place or time from changing
+sample identity, and prevents species aggregation from becoming the authority
+for project-level extraction.
 
-- `data/adna/governance/animal_sample_foundation_truth.json`
-- `data/adna/governance/animal_sample_product_contract.json`
+## Ambiguity And Refusal
+
+A sample remains unresolved when source labels collide, lineage is missing, or
+several candidate rows cannot be distinguished. The ambiguity ledger retains
+the candidates and reason. Downstream publication must not resolve the problem
+by choosing the most convenient label.
+
+Likewise, a recovered sample can be valid while its locality, chronology, or
+coordinate evidence remains unfit for exact publication. Sample recovery and
+atlas admission are separate decisions.
+
+## Governing Records
+
+- `data/adna/governance/source_library/project_registry.json`
+- `data/adna/governance/source_library/paper_registry.json`
+- `data/adna/governance/source_library/projects/<project_accession>/sample_master.json`
+- `data/adna/governance/source_library/projects/<project_accession>/sample_sites.json`
 - `data/adna/governance/source_library/project_sample_master_completeness.json`
 - `data/adna/governance/source_library/sample_identity_ambiguity_ledger.json`
-- `data/adna/governance/source_library/projects/PRJEB36540/sample_master.json`
-- `data/adna/species/ovis_aries/normalized/sample_records.json`
-- `data/adna/governance/source_library/projects/PRJEB36540/sample_sites.json`
+- `data/adna/species/<latin_name>/normalized/sample_records.json`
 
-## Where To Go Next
-
-- move to [localities](localities.md) if the next question is where the sample
-  really belongs
-- move to [chronology](chronology.md) if the identity is clear but the dating
-  claim is not
-- move to [coordinates](coordinates.md) if the real dispute is why the sample
-  became a map point
+Continue with [localities](localities.md), [chronology](chronology.md), and
+[coordinates](coordinates.md) to evaluate the sample-owned claims that control
+publication.

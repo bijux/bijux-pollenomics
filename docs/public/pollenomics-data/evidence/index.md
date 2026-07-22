@@ -1,78 +1,91 @@
 ---
-title: Evidence
+title: Evidence Chain
 audience: reader
 type: explanation
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-05-10
+last_reviewed: 2026-07-22
 ---
 
-# Evidence
+# Evidence Chain
 
-This section explains how an animal ancient DNA claim becomes evidence that can
-actually be checked inside the repository.
+Evidence in Pollenomics is a linked set of claims, not a single confidence
+label. A public row can involve source identity, record identity, place, time,
+coordinates, scientific role, and publication eligibility. Each claim keeps
+its own provenance and precision.
 
-The public question is usually simple: why is this sample, locality, date, or
-point shown here at all. The answer is not stored in one file. It is spread
-across sample records, locality evidence, chronology review, and coordinate
-provenance.
+## Cross-Domain Evidence
 
-Use this section when your question sounds like one of these:
+All source families preserve origin, version, normalization, review, and
+publication posture. Their scientific evidence units remain different:
 
-- why is this point allowed to appear publicly
-- how strong is the place or date claim behind this record
-- where should I look when the map feels cleaner than the evidence probably is
-- what kind of support stands behind one country row or atlas point
+- pollen sources govern sites, sequences, samples, and modelled context;
+- archaeology sources govern sites and contextual records;
+- SVAR governs hydrographic registry records;
+- AADR governs release-versioned human ancient-DNA metadata;
+- animal aDNA governs project-, paper-, supplement-, sample-, and site-owned
+  evidence; and
+- boundaries govern geographic selection, never scientific support.
 
-## The Evidence Chain
+[Temporal semantics](temporal-semantics.md) explains how time claims from these
+families can be compared without pretending they have equal resolution.
+
+## Animal Sample Evidence
+
+Animal aDNA has the deepest explicit chain because a project accession or paper
+citation is not enough to justify a sample-level map point.
 
 ```mermaid
 flowchart LR
-    samples["sample records"]
-    localities["locality evidence"]
-    chronology["chronology review"]
-    coordinates["coordinate provenance"]
-    outputs["reports and atlas rows"]
-
-    samples --> localities
-    samples --> chronology
-    localities --> coordinates
-    chronology --> outputs
-    coordinates --> outputs
-    samples --> outputs
+    Source["paper, project, supplement"] --> Sample["stable sample identity"]
+    Sample --> Site["sample-to-site linkage"]
+    Site --> Locality["locality class and provenance"]
+    Sample --> Chronology["date claim and provenance"]
+    Locality --> Coordinates["coordinate basis and precision"]
+    Chronology --> Fitness{"scientific fitness"}
+    Coordinates --> Fitness
+    Fitness -->|admit or qualify| Point["atlas or country evidence row"]
+    Fitness -->|block or defer| Ledger["exclusion or recovery surface"]
 ```
 
-## Start Here
+Every arrow represents a claim that can fail independently. A stable sample
+identifier does not prove a site. A named site does not prove coordinates. A
+date attached to a project does not automatically belong to every sample.
 
-- [Sample records](sample-records.md) for sample identity and lineage
-- [Localities](localities.md) for site-level place claims
-- [Chronology](chronology.md) for date evidence and normalization status
-- [Temporal semantics](temporal-semantics.md) for cross-family comparison
-  posture and uncertainty
-- [Coordinates](coordinates.md) for why a row maps as a point or stays blocked
+## Evidence Dimensions
 
-## What This Section Helps You Judge
+| Dimension | Governing question | Failure if flattened |
+| --- | --- | --- |
+| Identity | Which physical or analytical sample does this row represent? | duplicate or conflated samples |
+| Lineage | Which project, paper, supplement, table, and source row support it? | unverifiable extraction |
+| Locality | Is the place sample-specific, site-specific, regional, substituted, or unresolved? | false geographic precision |
+| Chronology | Is the date direct, derived, interval-based, textual, or unresolved? | false temporal precision |
+| Coordinates | What created the point and with what confidence? | map marker outranks place evidence |
+| Fitness | Is the combined record eligible for the declared publication? | presentation silently strengthens evidence |
 
-- whether a visible record is strong because the evidence is strong or only
-  because the presentation is smooth
-- whether a challenge belongs at sample level, locality level, chronology
-  level, or coordinate level
-- whether the current public output is direct evidence, cautious projection, or
-  still too weak for exact publication
+## Evidence Outcomes
 
-## A Practical Reading Order
+- **direct** evidence resolves to a sample-owned source location such as a
+  supplementary table row;
+- **derived** evidence records the transformation and its assumptions;
+- **qualified** evidence is usable only with an explicit precision or source
+  caveat;
+- **conflicted** evidence preserves incompatible claims pending resolution;
+- **blocked** evidence fails a known publication requirement; and
+- **deferred** evidence awaits source recovery or manual curation.
 
-- start with sample records when the identity or project lineage is unclear
-- move to localities when the place claim seems too broad or too confident
-- move to chronology when the date language looks cleaner than the source
-  probably was
-- move to coordinates when the map precision itself is the question
+Blocked and deferred states remain part of the database. Their presence makes
+coverage gaps and recovery work measurable.
 
-The important rule is that the visible point is not the beginning of the
-argument. It is the downstream result of these narrower evidence decisions.
+## Inspect A Claim
 
-## The Key Principle
+1. Begin with the public evidence identifier and publication posture.
+2. Resolve the normalized record and governing fact owner.
+3. Inspect sample identity and source lineage.
+4. Inspect locality and chronology as separate claims.
+5. Compare coordinate precision with locality evidence.
+6. Read conflicts, caveats, exclusions, and release-gate outcomes.
 
-No visible point or country row should outrank the evidence chain behind it.
-If a record appears publicly, the sample, locality, date, and coordinate basis
-should still be traceable in the tracked files.
+The relevant references are [sample records](sample-records.md),
+[localities](localities.md), [chronology](chronology.md), and
+[coordinates](coordinates.md).
