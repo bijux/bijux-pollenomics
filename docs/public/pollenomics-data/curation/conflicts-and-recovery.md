@@ -14,6 +14,9 @@ hidden behind one convenient value. Bijux Pollenomics preserves competing
 claims, identifies their owners and scopes, and records the evidence required
 to resolve or safely bound the disagreement.
 
+The [domain language](../domain-language.md) distinguishes conflict,
+qualification, recovery condition, posture, scope, and fact ownership.
+
 ## Distinguish The Gap
 
 | State | Meaning | Appropriate response |
@@ -100,6 +103,25 @@ Recency alone is not a resolution rule. Neither are majority vote, non-null
 preference, greater numeric precision, or agreement with the current map.
 Those shortcuts can select a value, but they cannot establish that it belongs
 to the correct object or claim.
+
+### Conflict Resolution Receipt
+
+A resolved conflict remains auditable only when the resolution retains the
+comparison that justified it:
+
+| Receipt member | Required evidence |
+| --- | --- |
+| subject and dimension | one typed governed object and the exact fact under dispute |
+| candidate claims | every value, source wording, locator, scope, method, precision, and revision |
+| comparability finding | whether the candidates truly conflict or differ by identity, scope, role, method, or revision |
+| authority finding | declared fact owner and why it applies to this subject and use |
+| outcome | governing claim, scoped coexistence, qualification, or unresolved posture |
+| retained competitor | losing or non-governing claims remain queryable rather than disappearing |
+| descendant effect | decisions, memberships, counts, maps, and language re-evaluated from the outcome |
+
+If the retained record shows only the chosen value, the conflict has been
+hidden rather than resolved. If it shows both values without scope and owner,
+the disagreement has been stored but not interpreted.
 
 ## Recovery Is Evidence Acquisition
 

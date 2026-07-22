@@ -14,6 +14,9 @@ approval attached to a row. The same object can be admissible as spatial
 context, inadmissible for chronology-aware comparison, and outside the scope
 of a country product.
 
+The [domain language](../domain-language.md) defines eligible population,
+admission, qualification, exclusion, outside scope, and publication member.
+
 ## Admission Is Conjunctive
 
 ```mermaid
@@ -165,6 +168,37 @@ A total such as “234 published” is reproducible only when the 233
 sample-backed members and one project-context member remain separately
 addressable. Otherwise the same total can survive a silent change in evidence
 class.
+
+### Admission Reconciliation
+
+For one product and decision revision, every candidate in the declared
+population resolves to exactly one accountable outcome:
+
+```text
+candidate population
+= admitted
++ qualified
++ contextual
++ excluded
++ deferred
++ refused
++ outside scope
+```
+
+The categories are disjoint only within the same decision key. The same
+governed object may be admitted to one product, contextual in another, and
+outside the geography of a third.
+
+| Reconciliation check | Integrity condition |
+| --- | --- |
+| population closure | every expected candidate has one outcome and stable identity |
+| manifest closure | every admitted, qualified, or contextual member required by the product appears in the manifest |
+| non-member closure | exclusions, deferrals, refusals, and outside-scope objects remain addressable with reasons |
+| role closure | direct evidence, context, framing, and decision-support members retain distinct roles |
+| projection closure | JSON, CSV, GeoJSON, maps, tables, and narratives agree on member identity and qualification |
+
+An unaccounted candidate is not an implicit exclusion. It is a population or
+publication-integrity defect until the missing boundary is identified.
 
 ## Admission Result Contract
 

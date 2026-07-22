@@ -14,6 +14,9 @@ use. It connects source evidence to an outcome without overwriting the source,
 discarding an unresolved object, or granting the same fitness to every
 downstream product.
 
+The [domain language](../domain-language.md) defines claim posture, product
+admission, qualification, exclusion, and recovery condition.
+
 ## Evidence, Product, And Release Decisions Differ
 
 | Decision class | Governing question | Typical outcomes |
@@ -57,6 +60,25 @@ A reusable decision keeps the following members together:
 An outcome without its subject and rule is only a label. A reason without an
 evidence locator cannot be independently checked. A public member without the
 decision that admitted it cannot explain why similar candidates are absent.
+
+### Decision Identity And Supersession
+
+A decision is keyed by subject, claim or proposed use, scope, rule identity,
+and evidence revision. Decisions with different keys may coexist; a newer row
+does not supersede an older row merely because it was written later.
+
+| Relationship between decisions | Required treatment |
+| --- | --- |
+| same subject, different claim dimension | retain both; locality, chronology, identity, and role are independent |
+| same evidence, different product or geography | evaluate and retain separate admission decisions |
+| broad project context and narrow sample claim | retain both at natural scope; the narrow claim governs only its sample |
+| same key, stronger evidence, new revision | record explicit supersession, reason, prior outcome, and descendant impact |
+| same key, conflicting evidence, no justified owner | preserve both claims and move the decision to conflicted or unresolved |
+| evidence decision and release decision | keep separate; repository release posture cannot rewrite the underlying claim |
+
+Supersession changes which decision governs a named use; it does not delete the
+prior evidence or outcome. This makes a later admission explainable without
+making the earlier exclusion look like an undocumented error.
 
 ## One Object Can Carry Several Decisions
 

@@ -15,6 +15,9 @@ supports, how precise those facts are, and whether they are fit for one
 declared product. Normalization makes records structurally consistent;
 curation makes their scientific meaning and limits explicit.
 
+The [domain language](../domain-language.md) defines the claim, fact owner,
+posture, admission, qualification, and recovery terms used here.
+
 ## The Curation Boundary
 
 ```mermaid
@@ -164,6 +167,23 @@ The following questions therefore receive independent answers:
 Keeping those answers separate prevents a strong source-level reputation from
 overriding a weak sample-level relation. It also prevents one unresolved
 dimension from hiding evidence that remains useful at a narrower strength.
+
+### Dimension Decisions Remain Independent
+
+| Dimension | Typical owner | Decision that must not leak into it |
+| --- | --- | --- |
+| identity | project sample authority or source-native record | a precise coordinate cannot prove which sample it belongs to |
+| locality relation | sample-to-site evidence | project membership cannot make a project place sample-owned |
+| coordinate | coordinate-provenance claim tied to the governed locality | map geometry cannot upgrade an approximate or representative point |
+| chronology | sample, site, or context chronology claim at its natural scope | locality confidence cannot create a numeric interval |
+| taxonomy | governed taxonomic claim and its source locator | species-folder membership cannot resolve conflicting source taxonomy |
+| evidence role | source-family and product contract | co-location cannot turn context or framing into direct evidence |
+| product membership | product-specific admission decision | admission to one product cannot authorize another role or geography |
+
+A curation review may assemble these dimensions, but it does not trade strength
+between them unless a named product contract explicitly permits a qualified
+alternative. The resulting record is a vector of scoped decisions rather than
+one confidence score.
 
 ## Audit One Curated Claim
 
