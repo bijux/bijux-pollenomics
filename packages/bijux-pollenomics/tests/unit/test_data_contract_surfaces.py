@@ -16,6 +16,7 @@ from bijux_pollenomics.data_downloader.data_contracts import (
 )
 from bijux_pollenomics.data_downloader.source_family_contracts import (
     build_source_family_contract_payload,
+    build_source_family_contracts,
     build_source_family_state_matrix_payload,
 )
 
@@ -80,6 +81,44 @@ class DataContractSurfaceUnitTests(unittest.TestCase):
             "tmp",
             " ".join(key for key in contract_paths),
         )
+
+    def test_state_matrix_requires_named_artifacts_for_stage_evidence(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            output_root = Path(tmp) / "data"
+            normalized_root = output_root / "adna/species/homo_sapiens/normalized"
+            normalized_root.mkdir(parents=True)
+            (normalized_root / ".gitkeep").touch()
+            (output_root / "svar/normalized").mkdir(parents=True)
+            (output_root / "svar/normalized/svar_summary.json").write_text(
+                '{"lake_count": 1}',
+                encoding="utf-8",
+            )
+
+            payload = build_source_family_state_matrix_payload(
+                output_root,
+                counts={"aadr_file_count": 1, "svar_lake_count": 1},
+            )
+
+        rows = {row["source_key"]: row for row in payload["rows"]}
+        self.assertEqual(rows["aadr"]["normalized_status"], "missing")
+        self.assertEqual(rows["svar"]["normalized_status"], "missing")
+        self.assertIn(
+            "missing_normalized_outputs",
+            rows["svar"]["blocking_reasons"],
+        )
+
+    def test_state_matrix_does_not_use_its_own_output_as_review_evidence(self) -> None:
+        contracts = {
+            contract.source_key: contract
+            for contract in build_source_family_contracts()
+        }
+
+        for source_key in ("boundaries", "landclim", "raa", "svar"):
+            reviewed = contracts[source_key].reviewed_layer
+            self.assertNotIn(
+                "source_family_evidence_stage_matrix.json",
+                reviewed.example_artifacts,
+            )
 
     def test_fact_and_artifact_contract_payloads_choose_governing_surfaces(
         self,

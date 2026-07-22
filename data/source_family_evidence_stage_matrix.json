@@ -10,15 +10,17 @@
       "primary_question": "Which tracked LandClim pollen-site records exist and survive normalization into map-ready context layers?",
       "raw_status": "present",
       "normalized_status": "present",
-      "reviewed_status": "present",
+      "reviewed_status": "missing",
       "published_status": "present",
-      "provenance_depth": "review_ready",
-      "publication_posture": "published_with_review_support",
+      "provenance_depth": "normalized_without_review_layer",
+      "publication_posture": "normalized_but_thin",
       "coverage_metrics": {
         "landclim_site_count": 492,
         "landclim_grid_cell_count": 88
       },
-      "blocking_reasons": []
+      "blocking_reasons": [
+        "missing_review_surface"
+      ]
     },
     {
       "source_key": "neotoma",
@@ -56,21 +58,23 @@
     },
     {
       "source_key": "raa",
-      "display_name": "RA\u00c4 archaeology context",
+      "display_name": "RAÄ archaeology context",
       "domain_group": "archaeology_context",
       "evidence_role": "contextual_domain",
-      "primary_question": "Which Sweden-scoped archaeology context layers are captured and published from RA\u00c4?",
+      "primary_question": "Which Sweden-scoped archaeology context layers are captured and published from RAÄ?",
       "raw_status": "present",
       "normalized_status": "present",
-      "reviewed_status": "present",
+      "reviewed_status": "missing",
       "published_status": "present",
-      "provenance_depth": "review_ready",
-      "publication_posture": "published_with_review_support",
+      "provenance_depth": "normalized_without_review_layer",
+      "publication_posture": "normalized_but_thin",
       "coverage_metrics": {
         "raa_total_site_count": 761917,
         "raa_heritage_site_count": 318265
       },
-      "blocking_reasons": []
+      "blocking_reasons": [
+        "missing_review_surface"
+      ]
     },
     {
       "source_key": "boundaries",
@@ -80,14 +84,16 @@
       "primary_question": "Which tracked framing geometries constrain interpretation of country and atlas outputs?",
       "raw_status": "present",
       "normalized_status": "present",
-      "reviewed_status": "present",
+      "reviewed_status": "missing",
       "published_status": "present",
-      "provenance_depth": "review_ready",
-      "publication_posture": "published_with_review_support",
+      "provenance_depth": "normalized_without_review_layer",
+      "publication_posture": "normalized_but_thin",
       "coverage_metrics": {
         "boundary_country_count": 4
       },
-      "blocking_reasons": []
+      "blocking_reasons": [
+        "missing_review_surface"
+      ]
     },
     {
       "source_key": "svar",
@@ -96,15 +102,18 @@
       "evidence_role": "sampling_domain",
       "primary_question": "Which official Sweden lake-register geometries and stable lake identities are available for sampling-oriented ranking?",
       "raw_status": "present",
-      "normalized_status": "present",
-      "reviewed_status": "present",
+      "normalized_status": "missing",
+      "reviewed_status": "missing",
       "published_status": "present",
-      "provenance_depth": "review_ready",
-      "publication_posture": "published_with_review_support",
+      "provenance_depth": "captured_only",
+      "publication_posture": "not_publication_ready",
       "coverage_metrics": {
         "svar_lake_count": 40565
       },
-      "blocking_reasons": []
+      "blocking_reasons": [
+        "missing_normalized_outputs",
+        "missing_review_surface"
+      ]
     },
     {
       "source_key": "aadr",
@@ -113,15 +122,18 @@
       "evidence_role": "direct_evidence_domain",
       "primary_question": "Which tracked human ancient-DNA inputs and normalized records exist under the governed AADR program?",
       "raw_status": "present",
-      "normalized_status": "present",
-      "reviewed_status": "present",
+      "normalized_status": "missing",
+      "reviewed_status": "missing",
       "published_status": "present",
-      "provenance_depth": "review_ready",
-      "publication_posture": "published_with_review_support",
+      "provenance_depth": "captured_only",
+      "publication_posture": "not_publication_ready",
       "coverage_metrics": {
         "aadr_file_count": 3
       },
-      "blocking_reasons": []
+      "blocking_reasons": [
+        "missing_normalized_outputs",
+        "missing_review_surface"
+      ]
     },
     {
       "source_key": "animal_adna",

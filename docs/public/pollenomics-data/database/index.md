@@ -31,6 +31,21 @@ source artifacts, review ledgers, and manifests carry different parts of the
 model. Their authority comes from explicit contracts and relations, not from
 their file format.
 
+## Database Boundaries
+
+The database has three deliberately different surfaces:
+
+| Surface | Primary responsibility | Read it as |
+| --- | --- | --- |
+| source and normalized data under `data/` | captured bytes, source-native facts, normalized evidence, provenance, and review state | the governed evidence state |
+| publication data under `docs/report/` | versioned projections, manifests, accounting, and reader-facing products | a descendant of governed evidence |
+| public documentation under `docs/public/` | contracts, interpretation rules, limitations, and navigation | an explanation of the system, never a substitute for evidence |
+
+The boundary matters during correction. A statement in a guide cannot repair
+a missing normalized artifact. A map cannot become the authority for the
+sample or locality facts it displays. A governed JSON record does not become
+reader-facing merely because it is committed beside the website source.
+
 ## Evidence Lifecycle
 
 ```mermaid
@@ -63,6 +78,27 @@ Three registries make the file-backed model inspectable:
 retrieval state, hashes, and replacement rules. The evidence-stage matrix
 reports lifecycle presence and counts, but its presence labels do not grant
 uniform scientific readiness to every member.
+
+Stage presence is established by the concrete artifacts named in the source
+family contract. An empty directory, a `.gitkeep` file, a family summary, or
+the evidence-stage matrix itself cannot stand in for a missing normalized or
+review artifact. This makes absence machine-readable instead of allowing
+repository shape to imply work that has not been materialized.
+
+## Inspect A Database Claim
+
+For a claim in a table, map, or narrative, inspect in this order:
+
+1. identify the product and its manifested member;
+2. follow the member to the governed sample, site, source, or contextual object;
+3. locate the fact owner in `source_fact_ownership_registry.json`;
+4. inspect the supporting locator, method, precision, and review posture;
+5. read exclusions and unresolved competitors before interpreting coverage;
+6. confirm that the evidence and product belong to the same repository state.
+
+This order separates *what the product says* from *why the database permits it
+to say that*. It also exposes the exact boundary at which a result becomes
+qualified, conflicted, or non-reproducible.
 
 ## Read The Database In Two Directions
 

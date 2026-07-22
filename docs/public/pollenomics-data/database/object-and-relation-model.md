@@ -32,6 +32,29 @@ Identifiers remain typed even when an export places several of them in one
 row. A paper DOI does not identify a sample. A project accession does not
 identify a site. A map feature identifier does not become the sample key.
 
+## Identity, Evidence, And Projection Are Separate
+
+The same real-world subject can participate in several database objects
+without those objects collapsing into one record:
+
+```mermaid
+flowchart LR
+    Source["captured source row"] -->|supports| Sample["governed sample"]
+    Source -->|reports| LocalityClaim["locality claim"]
+    Source -->|reports| TimeClaim["chronology claim"]
+    Sample -->|has candidate| LocalityClaim
+    Sample -->|has candidate| TimeClaim
+    LocalityClaim -->|evaluated for| Point["product point member"]
+    TimeClaim -->|qualifies| Point
+    Point -->|belongs to| Product["versioned product"]
+```
+
+The sample owns its identity; the evidence surfaces own their reported facts;
+the curation decision owns which claim is accepted; and the product manifest
+owns membership. This separation permits one locality correction to propagate
+to every dependent product without rewriting the captured source or changing
+the sample key.
+
 ## Cardinality Is Scientific Meaning
 
 ```mermaid
@@ -100,3 +123,17 @@ regenerated when the authority changes.
 
 The correct result of an unsafe join is an unresolved or refused relation,
 not a fabricated key.
+
+## Relation Evidence Must Survive Export
+
+A compact export may denormalize labels and values for use, but it must retain
+enough information to recover the governed relation. At minimum that means the
+typed object keys, relation or claim key, evidence locator, method, posture,
+and relevant revision or product identity. If those fields are omitted, the
+export is a presentation extract: it may be convenient for display but cannot
+independently support the database claim.
+
+This distinction is especially important for GeoJSON. Geometry proves only
+that a feature can be drawn. The associated properties must still distinguish
+reported coordinates, representative points, derived centroids, and governed
+sample-locality evidence.

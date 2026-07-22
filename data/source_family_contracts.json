@@ -29,11 +29,11 @@
       },
       "reviewed_layer": {
         "layer_key": "reviewed",
-        "repository_path": "data/source_family_evidence_stage_matrix.json",
+        "repository_path": "data/landclim/review",
         "required": true,
-        "purpose": "cross-family review of freshness, coverage, and publication posture",
+        "purpose": "source-specific review of temporal support and normalization quality",
         "example_artifacts": [
-          "data/source_family_evidence_stage_matrix.json"
+          "data/landclim/review/spatiotemporal_review.json"
         ]
       },
       "published_layer": {
@@ -71,11 +71,11 @@
         },
         "reviewed": {
           "layer_key": "reviewed",
-          "repository_path": "data/source_family_evidence_stage_matrix.json",
+          "repository_path": "data/landclim/review",
           "required": true,
-          "purpose": "cross-family review of freshness, coverage, and publication posture",
+          "purpose": "source-specific review of temporal support and normalization quality",
           "example_artifacts": [
-            "data/source_family_evidence_stage_matrix.json"
+            "data/landclim/review/spatiotemporal_review.json"
           ]
         },
         "published": {
@@ -261,15 +261,15 @@
     },
     {
       "source_key": "raa",
-      "display_name": "RA\u00c4 archaeology context",
+      "display_name": "RAÄ archaeology context",
       "domain_group": "archaeology_context",
       "evidence_role": "contextual_domain",
-      "primary_question": "Which Sweden-scoped archaeology context layers are captured and published from RA\u00c4?",
+      "primary_question": "Which Sweden-scoped archaeology context layers are captured and published from RAÄ?",
       "raw_layer": {
         "layer_key": "raw",
         "repository_path": "data/raa/raw",
         "required": true,
-        "purpose": "tracked RA\u00c4 source capture",
+        "purpose": "tracked RAÄ source capture",
         "example_artifacts": [
           "data/raa/raw/fornsok_domains.json"
         ]
@@ -285,11 +285,11 @@
       },
       "reviewed_layer": {
         "layer_key": "reviewed",
-        "repository_path": "data/source_family_evidence_stage_matrix.json",
+        "repository_path": "data/raa/review",
         "required": true,
-        "purpose": "cross-family review of freshness, coverage, and publication posture",
+        "purpose": "source-specific review of temporal support and publication limits",
         "example_artifacts": [
-          "data/source_family_evidence_stage_matrix.json"
+          "data/raa/review/spatiotemporal_review.json"
         ]
       },
       "published_layer": {
@@ -310,7 +310,7 @@
           "layer_key": "raw",
           "repository_path": "data/raa/raw",
           "required": true,
-          "purpose": "tracked RA\u00c4 source capture",
+          "purpose": "tracked RAÄ source capture",
           "example_artifacts": [
             "data/raa/raw/fornsok_domains.json"
           ]
@@ -326,11 +326,11 @@
         },
         "reviewed": {
           "layer_key": "reviewed",
-          "repository_path": "data/source_family_evidence_stage_matrix.json",
+          "repository_path": "data/raa/review",
           "required": true,
-          "purpose": "cross-family review of freshness, coverage, and publication posture",
+          "purpose": "source-specific review of temporal support and publication limits",
           "example_artifacts": [
-            "data/source_family_evidence_stage_matrix.json"
+            "data/raa/review/spatiotemporal_review.json"
           ]
         },
         "published": {
@@ -370,11 +370,11 @@
       },
       "reviewed_layer": {
         "layer_key": "reviewed",
-        "repository_path": "data/source_family_evidence_stage_matrix.json",
+        "repository_path": "data/boundaries/review",
         "required": true,
-        "purpose": "cross-family review of framing coverage and publication posture",
+        "purpose": "source-specific review of geometry coverage and framing limits",
         "example_artifacts": [
-          "data/source_family_evidence_stage_matrix.json"
+          "data/boundaries/review/framing_review.json"
         ]
       },
       "published_layer": {
@@ -410,11 +410,11 @@
         },
         "reviewed": {
           "layer_key": "reviewed",
-          "repository_path": "data/source_family_evidence_stage_matrix.json",
+          "repository_path": "data/boundaries/review",
           "required": true,
-          "purpose": "cross-family review of framing coverage and publication posture",
+          "purpose": "source-specific review of geometry coverage and framing limits",
           "example_artifacts": [
-            "data/source_family_evidence_stage_matrix.json"
+            "data/boundaries/review/framing_review.json"
           ]
         },
         "published": {
@@ -454,11 +454,11 @@
       },
       "reviewed_layer": {
         "layer_key": "reviewed",
-        "repository_path": "data/source_family_evidence_stage_matrix.json",
+        "repository_path": "data/svar/review",
         "required": true,
-        "purpose": "cross-family review of lake-registry freshness, coverage, and publication posture",
+        "purpose": "source-specific review of lake-registry freshness and coverage",
         "example_artifacts": [
-          "data/source_family_evidence_stage_matrix.json"
+          "data/svar/review/lake_registry_review.json"
         ]
       },
       "published_layer": {
@@ -494,11 +494,11 @@
         },
         "reviewed": {
           "layer_key": "reviewed",
-          "repository_path": "data/source_family_evidence_stage_matrix.json",
+          "repository_path": "data/svar/review",
           "required": true,
-          "purpose": "cross-family review of lake-registry freshness, coverage, and publication posture",
+          "purpose": "source-specific review of lake-registry freshness and coverage",
           "example_artifacts": [
-            "data/source_family_evidence_stage_matrix.json"
+            "data/svar/review/lake_registry_review.json"
           ]
         },
         "published": {

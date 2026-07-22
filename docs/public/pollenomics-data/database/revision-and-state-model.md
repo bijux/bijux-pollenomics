@@ -26,6 +26,26 @@ A family can be present at every lifecycle stage while individual records are
 qualified, unresolved, or excluded. Stage presence reports infrastructure and
 coverage state; record-level decisions report scientific fitness.
 
+## How Stage Presence Is Proven
+
+`data/source_family_contracts.json` names the artifact or artifacts that prove
+each stage for each source family. The state evaluator requires those named
+artifacts to contain governed content.
+
+| Observation | Stage result | Reason |
+| --- | --- | --- |
+| contracted normalized GeoJSON exists and is non-empty | normalized may be `present` | the declared normalized evidence is materialized |
+| normalized directory contains only `.gitkeep` | normalized is `missing` | directory structure is not evidence |
+| a summary exists but the contracted member dataset does not | normalized is `missing` | counts cannot replace the governed records they summarize |
+| evidence-stage matrix exists but a source-specific review does not | reviewed is `missing` | a status report cannot certify its own review input |
+| a retained publication exists while an upstream stage is missing | published is `present`, readiness remains blocked | historical product existence and current reproducibility are different facts |
+
+This last condition is intentional. A published artifact is not deleted merely
+because the current database state exposes a missing prerequisite. Instead,
+the matrix preserves the publication surface, marks the missing stage, and
+sets a blocking posture. Readers can then distinguish retained output from a
+product that can be regenerated and defended from the current snapshot.
+
 ## Claim And Membership States
 
 | State | Meaning |
@@ -57,6 +77,21 @@ flowchart TD
 Updating a visible map without its manifest is a partial transaction. Updating
 a normalized fact without reevaluating dependent admissions is also partial,
 even if the map happens to remain visually unchanged.
+
+## Snapshot Invariants
+
+A coherent revision satisfies all of these invariants:
+
+- every repeated fact resolves to one declared authority;
+- every admitted member resolves backward to typed evidence and a decision;
+- every exclusion names a known object, rule, and product population;
+- stage labels are reproducible from contracted artifacts, not directory names;
+- public counts reconcile with manifests and their declared denominators;
+- generated descendants do not become authorities for their own inputs;
+- missing, conflicted, and unresolved states remain visible after refresh.
+
+Violation of an invariant is a database defect even when every Markdown page
+renders and every map opens.
 
 ## Version Identities
 
