@@ -39,6 +39,23 @@ The two persistent roots have different authority:
 `artifacts/` holds disposable local build output. A file there does not become
 publication evidence until a governed workflow admits it to a tracked surface.
 
+A third tracked root has a different job: `docs/` outside `docs/report/`
+explains the system to readers. Those handbook pages interpret contracts and
+published state; they are not generated evidence and cannot override a source,
+manifest, or review result. Keeping explanation, governed evidence, and derived
+publication distinct prevents a confident sentence from becoming an authority
+merely because it appears on the public site.
+
+```mermaid
+flowchart LR
+    Code["runtime owners"] --> Data["data/<br/>governed evidence state"]
+    Data --> Report["docs/report/<br/>derived publication state"]
+    Code --> Report
+    Data -. explained by .-> Guide["docs/<br/>reader explanation"]
+    Report -. explained by .-> Guide
+    Local["artifacts/<br/>local diagnostics"] -. not authoritative .-> Guide
+```
+
 ## Lifecycle Owners
 
 | Boundary | Responsibility | Representative outputs |
@@ -107,6 +124,14 @@ flowchart LR
 This separation makes two failures distinguishable: an operation can fail to
 execute, or evidence can execute successfully and still fail admission. The
 second outcome is a scientific refusal, not a runtime defect.
+
+Read-only inspection commands stop before state replacement. Commands such as
+`product-scope`, `surface-map`, `ownership-map`, and the animal review commands
+serialize existing contracts or governed state. Materializing commands such as
+`collect-data`, `refresh-data-contract-surfaces`, and `publish-reports` may
+change an owned tree and therefore require explicit roots and replacement
+semantics. The shared command registry gives both classes one discoverable
+entry point without pretending that they have the same impact.
 
 ## Trace A Published Point
 

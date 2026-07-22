@@ -29,6 +29,12 @@ evidence boundary is `src/bijux_pollenomics/adna/`.
 | `foundation/` | product scope, ownership, architecture, credibility, and release posture | runtime contracts and repository-level claim boundaries |
 | `core/` | mechanics shared without transferring domain ownership | time, GeoJSON, distance, HTTP, file, and text primitives |
 
+Three top-level modules are deliberate boundary adapters rather than new
+domains: `cli.py` exposes the console entry point, `config.py` centralizes
+default roots and product constants, and `publication_policy.py` exposes shared
+publication rules. Scientific behavior still belongs to the domain package
+that owns the decision.
+
 `command_line/` owns parsing, dispatch, and the durable command registry.
 Within acquisition, `data_downloader/pipeline/`, `data_downloader/sources/`,
 `data_downloader/intake/`, and `data_downloader/exports/` separate orchestration,
@@ -108,6 +114,13 @@ without embedding runtime science in repository tooling.
 
 A new responsibility belongs in the smallest domain that can name its input,
 decision, and governed result without becoming a generic helper bucket.
+
+The package split is also enforced by negative ownership. The maintainer
+package may inspect documentation, release, and repository contracts, but may
+not own source collection, species normalization, or atlas publication. The
+short-name distribution may delegate imports and commands, but may not fork
+scientific logic. These prohibitions keep tooling and compatibility from
+becoming shadow runtimes.
 
 ## Trace A Behavior
 

@@ -38,7 +38,9 @@ flowchart LR
 
 ## Execution Path
 
-Every command follows the same control shape even when its owned work differs:
+State-changing commands follow this control shape. Read-only inspectors use the
+same parse-and-dispatch boundary but return a contract or review without a
+staging or replacement step:
 
 ```mermaid
 sequenceDiagram
@@ -68,6 +70,23 @@ interpretation. The domain owner reads governed inputs, builds a candidate
 result, and validates the whole owned boundary before replacement. This is why
 an exit status describes the requested operation, while a manifest describes
 the scientific state that operation produced.
+
+```mermaid
+flowchart TD
+    Invocation["supported invocation"] --> Dispatch["parse and dispatch"]
+    Dispatch --> Class{"operation class"}
+    Class -->|inspection| Read["read governed state or static contract"]
+    Read --> Emit["table or JSON; no governed write"]
+    Class -->|materialization| Build["build candidate owned state"]
+    Build --> Validate["validate complete boundary"]
+    Validate --> Replace["replace declared governed root"]
+```
+
+This distinction matters for automation. `--json` makes an inspector
+machine-readable; it does not make it state-changing. Conversely, a command
+that returns a report object may still have written governed files. Determine
+impact from the command contract and explicit root arguments, not from output
+format.
 
 ## Authority Does Not Flow Backward
 
@@ -102,6 +121,12 @@ Only a complete operation may replace its owned governed tree. Collection and
 publication use staging so a failed operation can preserve the previous
 coherent state.
 
+The atomicity guarantee belongs to each owning operation, not to an imagined
+repository-wide transaction. A source refresh, animal foundation rebuild, and
+report publication are separate state transitions. If an operator chains them,
+the operation ledger must record which transitions completed and which prior
+tree remains authoritative after a later refusal.
+
 State does not move between these roots merely because two files have the
 same format. A JSON file under `artifacts/` is diagnostic output; a JSON file
 under a governed family tree becomes evidence only through its owning
@@ -121,6 +146,11 @@ ownership of that fact.
 Internal module paths are navigation aids, not automatically supported APIs.
 Integrators should cross a named seam at the highest boundary that preserves
 the evidence they need.
+
+The OpenAPI row is intentionally asymmetric: the schema is a compatibility
+artifact, while this package does not start an HTTP service. A client can use
+the frozen description to design or validate a future adapter, but cannot infer
+that an endpoint is deployed from the presence of `apis/`.
 
 ## Failure Semantics
 
