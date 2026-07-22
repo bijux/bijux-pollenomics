@@ -85,7 +85,14 @@ class RepositoryContractRegressionTests(unittest.TestCase):
         pollenomics_data = nav_entry("Data")
         self.assertEqual(
             [next(iter(item.keys())) for item in pollenomics_data[1:]],
-            ["System", "Sources", "Evidence", "Publications"],
+            [
+                "System",
+                "Database",
+                "Sources",
+                "Curation",
+                "Evidence",
+                "Publications",
+            ],
         )
 
         fieldwork = nav_entry("Fieldwork")
