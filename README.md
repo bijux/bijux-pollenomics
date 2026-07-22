@@ -352,7 +352,7 @@ authorize:
 
 | Surface | Supported use | Excluded inference or operation |
 | --- | --- | --- |
-| source-family database | capture, normalize, review, and publish governed source snapshots | exhaustive upstream coverage or silent refresh |
+| source-family database | capture named sources and materialize the family-specific normalization, review, and publication stages that are actually present | exhaustive upstream coverage, uniform lifecycle maturity, or silent refresh |
 | human ancient DNA | versioned AADR `.anno` metadata context | `.geno`, `.ind`, or `.snp` genotype processing |
 | animal ancient DNA | project, paper, supplement, sample, locality, chronology, coordinate, and admission curation | complete recovery of every tracked project or equal readiness across species |
 | evidence maps | inspect scoped direct evidence, context, framing, and exclusions | infer causation, contemporaneity, or analytical equivalence from proximity |
@@ -433,6 +433,35 @@ make docs
 Use `make app-state` when you want that same sequence as a single convenience target.
 
 Expect the rebuild path to take longer than lint and tests, to require network access, and to overwrite generated files that are intentionally checked in.
+
+#### Accept A Governed Rebuild
+
+A successful command is only the start of rebuild review. Accept the new
+snapshot when all affected authorities and descendants form one explainable
+transaction:
+
+| Review | Required evidence |
+| --- | --- |
+| acquisition | source versions, retrieval outcomes, content identities, licences, and explicit failures |
+| preparation | member-level identity, normalization, grounding, conflict, and blocker changes |
+| decisions | changed review, admission, qualification, exclusion, and recovery postures |
+| products | manifest additions, removals, modifications, counts, warnings, and subset lineage |
+| causality | every public change resolves to a source, rule, or presentation cause |
+| verification | focused semantic contracts and strict documentation rendering for the affected surfaces |
+
+```mermaid
+flowchart LR
+    Prior["coherent prior snapshot"] --> Rebuild["owned regeneration commands"]
+    Rebuild --> Diff["source, evidence, decision, and product diff"]
+    Diff --> Review{"causal state coherent?"}
+    Review -->|no| Refuse["do not accept partial replacement"]
+    Review -->|yes| Snapshot["coherent governed snapshot"]
+```
+
+Do not accept a rebuild by count equality alone. Stable totals can hide member
+replacement, weaker evidence class, changed coordinates, or lost exclusions.
+Do not repair one generated descendant by hand; correct the authority or
+producer and regenerate its owned surface.
 
 ## Common Workflows
 

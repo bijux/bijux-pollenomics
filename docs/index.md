@@ -210,6 +210,21 @@ the candidate population, identify the selection rule, and account for every
 non-member. A percentage that omitted the 23 retained records or called them
 failed normalization would describe a different—and incorrect—process.
 
+Animal preparation requires a different audit because three prominent counts
+belong to three contracts:
+
+| Count | Population | Defensible statement |
+| ---: | --- | --- |
+| 894 | sample-foundation preparation rows | grounding and blockers are classified across 10 species and 40 projects |
+| 868 | recovered project sample-master identities | these source rows resolve to final governed sample identities |
+| 234 | animal point-product members | 233 sample-backed points and one qualified project-context feature satisfy the current spatial contract |
+
+These are related evidence surfaces, not a numerator and denominator. The
+foundation includes 502 fully grounded and 256 partially grounded rows plus
+136 rows blocked by metadata, location detail, or chronology. The publication
+surface answers a narrower spatial question and includes one member that is
+explicitly not part of the recovered-sample population.
+
 ### Carry A Reusable Evidence Packet
 
 | Claim being reused | Minimum packet |
@@ -234,6 +249,7 @@ reconstructing undocumented context.
 | SEAD | 2,195 reviewed inventory rows; 2,172 mapped Nordic features; no numeric intervals | archaeology context, not same-period support |
 | RAÄ | density source covering 761,917 published Swedish sites | Sweden-specific spatial archaeology context |
 | SVAR | 40,565 candidate lakes | hydrographic identity and selection units, not scientific evidence weight |
+| animal sample foundation | 894 preparation rows | grounding and blocker posture, not sample or publication membership |
 | animal aDNA | 868 recovered sample rows across 40 projects | curated sample evidence with uneven project completeness |
 | animal atlas points | 234 reviewed rows | a conservative publication subset, not the size of the source collection |
 
