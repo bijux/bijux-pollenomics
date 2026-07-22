@@ -100,9 +100,36 @@ Contracts make absence interpretable. A missing required artifact is a
 structural failure; an empty governed field can be a legitimate evidence gap;
 and a blocked review is an explicit scientific outcome.
 
+## Database Properties
+
+The tracked database has four important properties:
+
+- **source-aware**: normalized records retain the upstream family, version or
+  retrieval state, and source identifiers needed to recover provenance;
+- **authority-aware**: recurring facts resolve to one governing surface rather
+  than whichever copy is closest to a renderer;
+- **precision-preserving**: missing, broad, inferred, and exact values remain
+  distinguishable across locality, chronology, coordinates, and taxonomy;
+- **publication-aware**: evidence fitness is evaluated against a named product
+  instead of one universal publishable flag.
+
+Collectors may replace a complete governed source-family tree after successful
+staging. Replacement changes repository state; it does not erase the need to
+review source versions, hashes, normalized diffs, and downstream publication
+effects together.
+
 ## Traceability Rule
 
 A public claim is complete only when it resolves through the publication
 manifest, admitted evidence row, governing normalized record, and source
 identity. A visually precise coordinate does not compensate for a missing link
 in that chain.
+
+```mermaid
+flowchart RL
+    Feature["published feature"] --> Membership["product membership"]
+    Membership --> Decision["admission decision"]
+    Decision --> Record["governing evidence record"]
+    Record --> Capture["source capture"]
+    Capture --> Identity["upstream identity"]
+```

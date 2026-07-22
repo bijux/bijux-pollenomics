@@ -31,6 +31,25 @@ A publication selects only the evidence appropriate to its declared purpose.
 The family contract states what each source can answer before publication code
 combines it with another layer.
 
+## Curation Is Evidence Work
+
+Curation does more than make fields consistent. It records which identity,
+place, time, coordinate, and source claim is supported strongly enough for a
+specific use.
+
+| Curation operation | Preserved evidence | Refused shortcut |
+| --- | --- | --- |
+| identity resolution | source-native identifier, repository identifier, aliases, and lineage | merging records because names look similar |
+| locality resolution | verbatim locality, resolved feature, country or region, method, and precision | copying a project-level place into every sample |
+| chronology normalization | source text, numeric interval where supported, dating basis, and caveat | deriving precise years from a broad cultural label |
+| coordinate review | supplied or resolved coordinates, basis, precision, and evidence owner | plotting a regional centroid as an exact sample point |
+| species normalization | source taxon, accepted view, assignment rule, and unresolved state | silently forcing ambiguous taxonomy into a target species |
+| publication admission | product, rule, decision, and exclusion reason | treating every normalized record as publishable |
+
+Null, ambiguous, blocked, and deferred values are part of the database. They
+identify the limit of current evidence and the recovery action that could
+change it.
+
 ## Tracked State
 
 ```mermaid
@@ -94,6 +113,14 @@ different meanings:
 
 Keeping blocked and deferred states visible prevents absence from being
 misread as proof that no relevant project or sample exists.
+
+## Conflict Resolution
+
+When two downstream surfaces disagree, the repository does not select the
+most convenient value. It resolves the claim at the authority named in the
+fact-ownership registry, records the decision or ambiguity there, and
+regenerates descendants. Publication files are never hand-corrected into a
+second source of truth.
 
 ## Related Surfaces
 
