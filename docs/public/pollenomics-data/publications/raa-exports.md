@@ -4,61 +4,77 @@ audience: reader
 type: explanation
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-05-10
+last_reviewed: 2026-07-22
 ---
 
 # RAÄ Exports
 
-RAÄ exports are the public Sweden-focused archaeology context surfaces derived
-from RAÄ. Their strength is not universality. Their strength is local detail
-where Swedish archaeology context is especially rich.
+RAÄ exports provide Sweden-specific archaeology context from
+Riksantikvarieämbetet/Fornsök Open Data. The public map uses an aggregated
+density layer so national context remains legible without rendering hundreds
+of thousands of point markers.
 
-They matter because the Nordic and Swedish slices of the repository are among
-the places where archaeology naming, density, and local framing can materially
-change how nearby evidence is read. RAÄ turns that Sweden-specific richness
-into a public context surface without pretending that it applies equally
-everywhere.
+## Current Governed Surface
 
-## What RAÄ Makes Clear
+`data/raa/normalized/sweden_archaeology_layer.json` records:
 
-- what Swedish archaeology context helps explain a Nordic or Sweden-focused
-  output
-- why some Swedish or Nordic surfaces read with more local detail than a
-  broader world surface
-- whether a visible interpretation is drawing on Sweden-specific archaeology
-  framing or only on broader regional context
-- how the repository handles local context without pretending that it applies
-  equally everywhere
+| Measure | Value |
+| --- | ---: |
+| all published sites represented by the source | 761,917 |
+| records classified `Fornlämning` | 318,265 |
+| `Fornlämning` or possible ancient remains | 416,913 |
+| one-degree density features rendered | 106 |
 
-## What RAÄ Adds To The Public Product
+The public density GeoJSON is
+`data/raa/normalized/sweden_archaeology_density.geojson`. Its cells summarize
+the `Fornlämning` selection for national-scale rendering. A density feature is
+therefore an aggregate display object, not an archaeological site and not a
+sample.
 
-RAÄ exports add:
+```mermaid
+flowchart LR
+    OpenData["published RAÄ site records"] --> Classify["heritage classification"]
+    Classify --> Select["Fornlämning selection"]
+    Select --> Aggregate["one-degree cell counts"]
+    Aggregate --> Context["Sweden archaeology density layer"]
+    Context --> Product["map and report context"]
+```
 
-- Sweden-scoped archaeological framing
-- denser local context for Nordic and Swedish readings
-- a way to keep high-detail Swedish context visible without mislabeling it as a
-  universal regional property
+## Three Counts, Three Meanings
 
-## What It Does Not Do
+The 761,917 total describes the broad published source population represented
+by the layer metadata. The 318,265 count describes the `Fornlämning` subset
+used for density rendering. The 106 count describes grid cells that carry
+aggregated map features. Comparing those numbers as though they shared an
+observation unit would confuse source records, selected records, and rendered
+geometry.
 
-RAÄ exports are still contextual surfaces. They should not be read as if they:
+## Supported Interpretation
 
-- replace direct sample evidence
-- settle exact chronology or coordinate disputes
-- mean that all Nordic regions share the same level of archaeology context
+The layer supports questions about the spatial density of published Swedish
+archaeology records under the declared classification and grid. It helps
+identify where admitted aDNA, pollen, or lake candidates sit relative to that
+registry context.
 
-## Why Their Local Strength Matters
+It does not establish:
 
-A strong Swedish context layer can make one geography easier to read, but it
-should also make the limits of other geographies more visible by contrast. That
-is part of honest interpretation, not a weakness in the product.
+- a sample-to-site relationship;
+- contemporaneity between a registry record and another layer;
+- historical abundance from modern registry density;
+- equivalent archaeology coverage outside Sweden; or
+- exact site chronology from a density cell.
 
-## If You Need The Repository-Owned Records
+The current normalized RAÄ layer carries **no numeric temporal intervals**.
+Spatial co-occurrence with a cell must therefore remain archaeology context,
+not a time-aligned event claim.
 
-The normalized family outputs live under:
+## Reuse Contract
 
-- `data/raa/normalized/`
+Carry the layer metadata, selection class, source population counts,
+one-degree grid definition, density GeoJSON, source identity, and non-numeric
+temporal posture together. Preserve cell counts as aggregates and do not
+expand a cell into synthetic site points.
 
-If your question is about the visible publication, continue to [maps](maps.md)
-or [reports](reports.md). If your question is about the family itself, continue
-to [RAÄ source guidance](../sources/raa.md).
+Continue to [RAÄ source guidance](../sources/raa.md) for source semantics,
+[maps](maps.md) for role-aware spatial reading, and
+[publication limits](limits.md) for comparison boundaries.

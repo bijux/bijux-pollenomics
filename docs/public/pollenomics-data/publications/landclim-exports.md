@@ -4,63 +4,75 @@ audience: reader
 type: explanation
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-05-10
+last_reviewed: 2026-07-22
 ---
 
 # LandClim Exports
 
-LandClim exports are the public pollen-context surfaces derived from LandClim.
-They help the repository show environmental setting, vegetation context, and
-broader landscape pattern around the places that later appear in maps and
-reports.
+LandClim exports provide Nordic pollen-sequence locations and REVEALS
+vegetation-reconstruction coverage. They are environmental context with their
+own observation units and time windows, not background decoration for an aDNA
+map.
 
-That matters because ancient DNA alone cannot answer every landscape question a
-public user will naturally have. A country or regional view may contain only a thin
-set of sample-backed points while still sitting inside a much richer
-environmental context. LandClim helps make that context visible.
+## Current Governed Surface
 
-## What LandClim Makes Clear
+The checked-in normalized state contains:
 
-- what kind of pollen context surrounds a published geography
-- whether a visible map or report is grounded in broader environmental context
-  or only in point-like evidence
-- how one region can be compared with another on the pollenomics side of the
-  product
-- why a public geography may still be informative even when direct sample-based
-  evidence remains uneven
+| Surface | Count | Observation unit |
+| --- | ---: | --- |
+| pollen site-sequence rows | 492 | dataset-specific site sequence |
+| rows with supported numeric time bounds | 482 | site sequence with numeric BP posture |
+| REVEALS grid cells | 88 | reconstructed vegetation coverage cell |
 
-## What LandClim Adds To The Public Product
+The normalized artifacts are:
 
-LandClim is most useful when you want more than a list of sites or sample
-rows. It helps the repository show:
+- `nordic_pollen_site_sequences.csv` for tabular reuse;
+- `nordic_pollen_site_sequences.geojson` for site locations;
+- `nordic_reveals_grid_cells.geojson` for reconstruction coverage; and
+- `landclim_summary.json` for layer identities and counts.
 
-- broader environmental framing
-- pollenomics-first interpretation instead of DNA-only storytelling
-- continuity across regions where point density alone would be too thin
+```mermaid
+flowchart LR
+    Datasets["PANGAEA LandClim datasets"] --> Sites["492 site-sequence rows"]
+    Datasets --> Grids["88 REVEALS grid cells"]
+    Sites --> Time["482 rows with numeric BP bounds"]
+    Sites --> Context["pollen-site context layer"]
+    Grids --> Context
+    Time --> Compare["qualified temporal comparison"]
+```
 
-## What It Does Not Do
+## Site Rows And Grid Cells Are Not Interchangeable
 
-LandClim exports are contextual surfaces, not direct proof of one specific
-sample-backed event. They should not be read as if they:
+A site row identifies one dataset-specific pollen sequence at a location and
+can carry its own time window, source URL, and sequence metadata. A grid cell
+summarizes published REVEALS coverage and can combine variables, datasets, and
+multiple time windows. One site can contribute to broader reconstruction
+context; that relationship does not make the site and cell the same record.
 
-- identify one individual or one site the way a sample record can
-- replace locality or chronology review for sample-backed evidence
-- make a weak animal evidence surface suddenly strong just because the pollen
-  background is rich
+Names can recur across LandClim datasets. Stable `record_id` values retain the
+dataset and location identity needed to avoid merging similarly named site
+sequences by display label alone.
 
-## How These Exports Appear In Public Outputs
+## Temporal Reading
 
-When LandClim is visible in a map or report, it is there to help you
-understand environmental setting rather than to settle a sample-level dispute.
-It keeps the public product pollenomics-first without pretending that context
-and direct evidence are the same kind of claim.
+Numeric `time_start_bp` and `time_end_bp` values support interval-aware
+filtering for the 482 qualified rows. They do not guarantee equal dating
+resolution, identical sampling intervals, or event-level contemporaneity with
+an aDNA sample. The remaining rows are not zero-dated; their numeric posture is
+unavailable under the normalized contract.
 
-## If You Need The Repository-Owned Records
+REVEALS grid cells can span many windows. Use their declared window coverage
+rather than collapsing a cell to a single date. A cell's broad reconstruction
+span must not be treated as a sample-owned chronology.
 
-The normalized family outputs live under:
+## Reuse Contract
 
-- `data/landclim/normalized/`
+Keep record identity, source DOI, geometry type, observation unit, dataset,
+time bounds and label, record count, and popup/source details with each row.
+When aggregating, keep site sequences separate from grid cells and state
+whether the denominator is 492 site rows, 482 numerically qualified rows, or
+88 coverage cells.
 
-If your question is about the visible publication, continue to [maps](maps.md)
-or [reports](reports.md). If your question is about the family itself, continue
-to [LandClim source guidance](../sources/landclim.md).
+Continue to [LandClim source guidance](../sources/landclim.md) for acquisition
+and normalization, [maps](maps.md) for layer interpretation, and
+[chronology guidance](../evidence/chronology.md) for cross-family time claims.
