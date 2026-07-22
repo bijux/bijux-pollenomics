@@ -70,6 +70,29 @@ point-evidence rows. All three quantities are valid only with their governing
 unit. The corrected metric no longer reports zero merely because it was
 reading a field name that the foundation summary does not own.
 
+### Read The Matrix As An Evaluated Snapshot
+
+The stage matrix is recomputed from the artifacts named by the family
+contracts. It reports what is materially present in the inspected repository
+state; it is not a history of every successful collection or publication.
+
+That distinction explains an otherwise surprising pattern: a family can show
+`published: present` while `normalized` or `reviewed` is missing. The product
+is a retained checked-in descendant, while the prerequisite named by the
+current contract is absent. The matrix refuses to infer the prerequisite from
+the descendant.
+
+| Matrix pattern | Defensible interpretation | Invalid inference |
+| --- | --- | --- |
+| raw present; normalized missing | capture exists, but the current normalized contract is not materialized | normalization must be valid because raw bytes exist |
+| normalized present; review missing | represented members exist without the required family review surface | every normalized member is publication-ready |
+| published present; prerequisite missing | a retained product exists but full rebuildability is not demonstrated | the prerequisite is implicitly present |
+| all stages present | every required stage has a materialized artifact | every member supports every scientific use |
+
+Historical continuity belongs in capture receipts, product manifests, and
+revision history. Current stage presence belongs here. Mixing those questions
+would turn retained outputs into evidence for missing preparation work.
+
 ## Authority Boundaries
 
 | Family class | May establish | Cannot establish alone |

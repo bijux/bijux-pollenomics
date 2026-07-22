@@ -133,6 +133,31 @@ specimens but not independent spatial observations. Two families can have
 different upstream owners yet remain dependent through a shared derived
 boundary or ranking input.
 
+### Aggregate Only After Choosing The Scientific Unit
+
+Aggregation can change the question before a cross-domain bridge is applied.
+A density cell, site total, species count, and sample count are not merely
+different display resolutions of the same population.
+
+```mermaid
+flowchart LR
+    Question["declared comparison question"] --> Unit["choose unit in each family"]
+    Unit --> Bridge["evaluate typed relation between units"]
+    Bridge --> Eligibility["retain supported and refused relations"]
+    Eligibility --> Aggregate["aggregate for the declared output"]
+```
+
+| Shortcut | Distortion introduced | Governed alternative |
+| --- | --- | --- |
+| join a sample directly to a RAÄ density cell | an aggregate is treated as an archaeological observation | retain the cell's member population and declare the spatial relation as contextual |
+| sum sample and site counts | physical or analytical units are mixed with spatial units | report each denominator separately or select one unit before counting |
+| aggregate time before checking comparability | broad and precise intervals can appear equivalent | classify and gate member intervals before summarizing |
+| count map symbols as independent evidence | repeated or aggregated presentations inflate support | resolve governing identities, then aggregate once at the chosen unit |
+
+When only aggregate source material is available, the result remains an
+aggregate-context relation. Disaggregation from a density surface or summary
+count into synthetic member evidence is not permitted.
+
 ## Null And Absence Semantics
 
 Missing values retain family-specific meaning. A missing SEAD interval means

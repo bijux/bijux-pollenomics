@@ -147,6 +147,26 @@ changes observation unit, schema meaning, licensing, geographic reach, or time
 semantics requires renewed interpretation before old publication assumptions
 can be reused.
 
+### Contract, Member Schema, And Review Have Different Authority
+
+The family contract is intentionally not a universal row schema. It identifies
+the family's role, primary question, lifecycle roots, expected artifacts, and
+coverage metrics. The materialized family records define source-native and
+normalized member fields; review records define claim fitness.
+
+| Surface | Owns | Example mistake when overextended |
+| --- | --- | --- |
+| family contract | family identity, role, lifecycle paths, required artifacts, and metric keys | treating a declared normalized path as proof that valid members exist |
+| captured member | upstream identity, native fields, retrieval context, and content locator | treating raw field presence as normalized meaning |
+| normalized member schema | repository identity, represented values, null semantics, and transformations | treating a normalized coordinate as publication admission |
+| review record | claim dimension, evidence basis, precision, conflict, and fitness | treating one product's decision as universal acceptance |
+| product manifest | scope, admitted members, roles, qualifications, and bundle identity | treating membership as source completeness |
+
+This separation lets the family contract remain stable while an upstream
+schema changes, and lets a record's scientific posture change without
+rewriting its captured identity. A consumer needs the contract and the member
+schema; neither can stand in for the other.
+
 ## Source Admission
 
 ```mermaid
