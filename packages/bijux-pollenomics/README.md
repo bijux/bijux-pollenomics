@@ -56,6 +56,21 @@ evidence, and checked-in products must be inspected together. A wheel version
 identifies behavior; a data revision identifies evidence state; a product
 manifest identifies publication membership.
 
+### Choose The Runtime Context Deliberately
+
+| Context | Available authority | Appropriate use |
+| --- | --- | --- |
+| installed wheel | executable behavior, public API, schemas, and product contracts | integration, capability inspection, or operation over explicitly supplied external state |
+| repository checkout | lock-resolved runtime plus tracked `data/` and `docs/report/` revisions | reproduce or challenge a checked-in evidence or publication claim |
+| isolated candidate roots | runtime plus copied or newly collected state beneath `artifacts/` | rehearse collection or publication without replacing governed state |
+
+These contexts can run identical Python code while answering different
+questions. An installed-wheel result cannot identify which repository evidence
+revision was intended. A checkout does not make every tracked product
+rebuildable when its lifecycle matrix declares missing preparation stages. A
+candidate proves only the state it contains until its identities and semantic
+diff are accepted into a governed root.
+
 ## Choose An Operation
 
 | Need | Read-only entry | Writer, when intended |

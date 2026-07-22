@@ -78,6 +78,28 @@ Keep these outcomes distinct:
 A finding should name its governed input, invariant, observed state, expected
 state, affected identities, revision, and non-destructive next inspection.
 
+### Route A Finding To One Owner
+
+```mermaid
+flowchart TD
+    Finding["maintainer finding"] --> Relation{"which declared relation disagrees?"}
+    Relation --> Authority["authority is wrong"]
+    Relation --> Producer["producer mis-materialized state"]
+    Relation --> Descendant["descendant is stale or edited"]
+    Relation --> Environment["contract could not be evaluated"]
+    Authority --> CorrectAuthority["correct the owning contract"]
+    Producer --> CorrectProducer["correct producer behavior"]
+    Descendant --> Regenerate["regenerate through the owner"]
+    Environment --> Blocked["report the exact rerun condition"]
+    CorrectAuthority --> Recheck["rerun the independent check"]
+    CorrectProducer --> Recheck
+    Regenerate --> Recheck
+```
+
+One failure may affect many files, but it still has one earliest incorrect
+boundary. The maintainer package reports that boundary; it does not gain
+permission to rewrite every observed descendant.
+
 ## Generated State
 
 When a finding concerns a report, checksum, badge block, legal copy, or frozen

@@ -39,6 +39,25 @@ The alias depends on a compatible `bijux-pollenomics` release. Installing it
 therefore installs the full canonical runtime rather than an independent or
 reduced implementation.
 
+### Version Pairing Is Directional
+
+The alias metadata declares the accepted canonical-runtime version range. The
+canonical runtime does not depend on the alias, and its version alone does not
+prove that a separately installed short-name package is compatible.
+
+```mermaid
+flowchart LR
+    AliasRelease["pollenomics release"] --> Constraint["declared canonical version range"]
+    Constraint --> RuntimeRelease["resolved bijux-pollenomics release"]
+    RuntimeRelease --> Behavior["canonical command and Python behavior"]
+    AliasRelease --> Entry["short command and import forwarding"]
+    Entry --> Behavior
+```
+
+Record both distribution versions when the short name appears in reproducible
+provenance. The runtime version owns scientific behavior; the alias version
+owns only the compatibility promise used to reach it.
+
 ## Choose The Distribution
 
 | Requirement | Distribution and entry surface |
