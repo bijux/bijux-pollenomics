@@ -59,6 +59,28 @@ Applications should not depend on the development distribution to reach
 runtime behavior. Integrations that use the alias should remain portable to
 the canonical package without a scientific or artifact change.
 
+## Installation And Dependency Direction
+
+```mermaid
+flowchart TB
+    App["consumer application"] --> Runtime["bijux-pollenomics"]
+    AliasConsumer["short-name consumer"] --> Alias["pollenomics"]
+    Alias --> Runtime
+    Maintainer["repository maintainer"] --> Dev["bijux-pollenomics-dev"]
+    Dev -. "validates repository contracts" .-> Runtime
+```
+
+Consumer applications depend on the canonical distribution, or on the alias
+when compatibility requires it. The canonical runtime never depends on the
+alias or the development toolkit. This direction prevents repository-only
+checks from becoming runtime requirements and prevents the compatibility
+identity from acquiring unique behavior.
+
+Installing both runtime names does not create two data stores. Governed roots
+are selected by the operation and repository contract, not by distribution
+spelling. An integration that observes different files, warnings, or
+admission decisions through the alias has found a defect.
+
 ## Boundary Invariants
 
 - one input state has one runtime interpretation;
@@ -66,3 +88,8 @@ the canonical package without a scientific or artifact change.
 - repository checks remain outside scientific execution;
 - public exports are explicit at the canonical facade;
 - compatibility code carries no unique evidence or publication state.
+
+Versioning must preserve those invariants across all three distributions. A
+new canonical capability may be exposed through the alias, and a new
+repository check may inspect it, but neither companion distribution can ship a
+scientific capability that the canonical runtime does not own.

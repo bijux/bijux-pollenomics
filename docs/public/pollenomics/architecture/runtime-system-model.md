@@ -36,6 +36,39 @@ flowchart LR
 | review | Is the record fit for one declared use and precision? | findings, qualifications, and exclusions |
 | publication | Which admitted members belong to one product scope? | manifests, bundles, traceability, and renderings |
 
+## Execution Path
+
+Every command follows the same control shape even when its owned work differs:
+
+```mermaid
+sequenceDiagram
+    actor Operator
+    participant CLI as command_line
+    participant Owner as domain owner
+    participant Stage as isolated staging
+    participant Contract as contract validation
+    participant State as governed state
+    Operator->>CLI: command and explicit roots
+    CLI->>CLI: parse and validate preconditions
+    CLI->>Owner: typed request
+    Owner->>Stage: build complete candidate state
+    Owner->>Contract: validate identity and relationships
+    alt contract accepted
+        Contract-->>Owner: acceptance
+        Owner->>State: replace owned tree
+        Owner-->>Operator: result and exit status
+    else contract refused
+        Contract-->>Owner: findings
+        Owner-->>Operator: refusal; prior state retained
+    end
+```
+
+Parsing and dispatch select an owner; they do not perform scientific
+interpretation. The domain owner reads governed inputs, builds a candidate
+result, and validates the whole owned boundary before replacement. This is why
+an exit status describes the requested operation, while a manifest describes
+the scientific state that operation produced.
+
 ## Authority Does Not Flow Backward
 
 Publication consumes scientific decisions but cannot redefine them. A map
@@ -69,6 +102,26 @@ Only a complete operation may replace its owned governed tree. Collection and
 publication use staging so a failed operation can preserve the previous
 coherent state.
 
+State does not move between these roots merely because two files have the
+same format. A JSON file under `artifacts/` is diagnostic output; a JSON file
+under a governed family tree becomes evidence only through its owning
+contract. Likewise, a rendered report may repeat a fact without acquiring
+ownership of that fact.
+
+## Integration Seams
+
+| Need | Supported seam | Stability source |
+| --- | --- | --- |
+| run a complete workflow | canonical command and its declared options | command registry, help, and exit behavior |
+| compose runtime behavior | top-level Python facade and named public modules | explicit exports and result types |
+| consume governed evidence | family contracts, stable identifiers, and normalized records | schemas, provenance, and ownership registry |
+| consume a publication | bundle manifest plus structured members | product scope, membership, warnings, and exclusions |
+| design an HTTP client | frozen OpenAPI v1 description | pinned schema and digest, not service availability |
+
+Internal module paths are navigation aids, not automatically supported APIs.
+Integrators should cross a named seam at the highest boundary that preserves
+the evidence they need.
+
 ## Failure Semantics
 
 | Failure | Meaning |
@@ -83,9 +136,22 @@ coherent state.
 Refusal is part of correct operation. The runtime is designed to preserve an
 explicit gap rather than create a plausible but unsupported value.
 
+Errors therefore fall into three observable classes: invalid requests return
+before governed writes; operational failures retain diagnostics and the last
+coherent owned tree; scientific refusals persist the qualification or
+exclusion needed to explain why a candidate did not become a claim. Retrying
+cannot convert the third class into success unless its governing evidence or
+product contract changes.
+
 ## Extension Rule
 
 New source families and products enter through named ownership boundaries.
 They must declare source identity, normalized semantics, evidence role,
 review criteria, write scope, and publication effect. A generic parser or
 renderer is not a sufficient architecture for a new scientific domain.
+
+Code navigation begins with the boundary that owns the decision:
+`command_line/` for dispatch, `data_downloader/` for acquisition,
+`adna/` for animal sample evidence, `evidence/` for fitness,
+`analysis/` for comparison, and `reporting/` for publication. Shared mechanics
+belong in `core/` only when they carry no source- or product-specific meaning.

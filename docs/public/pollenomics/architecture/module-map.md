@@ -64,6 +64,25 @@ it does not define evidence meaning. `core/` supplies reusable mechanics; it
 does not own source semantics. `reporting/` selects admitted evidence; it does
 not strengthen upstream precision.
 
+## Reading The Dependency Direction
+
+Dependencies point from coordination and products toward the owners they
+consume. They do not authorize a downstream module to rewrite upstream
+meaning. In particular:
+
+- `reporting/` may filter an evidence row for one product but cannot repair its
+  locality or chronology;
+- `analysis/` may score declared inputs but cannot silently change their
+  evidence roles;
+- `evidence/` may qualify normalized records but cannot invent source-native
+  identifiers;
+- `core/` may parse time or geometry but cannot choose the scientific
+  interpretation for a family.
+
+When a change appears to require the reverse direction, the missing concept
+usually belongs in the upstream owner or in an explicit contract shared at
+the boundary.
+
 ## Animal Evidence Path
 
 ```mermaid
@@ -89,3 +108,20 @@ without embedding runtime science in repository tooling.
 
 A new responsibility belongs in the smallest domain that can name its input,
 decision, and governed result without becoming a generic helper bucket.
+
+## Trace A Behavior
+
+Start from the observable surface and move inward:
+
+| Observation | First owner | Continue with |
+| --- | --- | --- |
+| command option or exit | `command_line/` | resolved handler, then the invoked domain API |
+| collected family file | `data_downloader/` | family source adapter, normalization, and export contract |
+| animal sample claim | `adna/` | project, paper, sample, locality, chronology, and coordinate evidence |
+| evidence qualification | `evidence/` | governing record and target product rule |
+| ranking or sensitivity result | `analysis/review/` | declared inputs, scenarios, and stability output |
+| bundle member or map feature | `reporting/` | manifest, admission decision, evidence row, and source identity |
+
+This route follows ownership instead of filename similarity. It is the safest
+way to distinguish a presentation defect from a curation or acquisition
+defect.
