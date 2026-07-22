@@ -120,6 +120,31 @@ class DataContractSurfaceUnitTests(unittest.TestCase):
                 reviewed.example_artifacts,
             )
 
+    def test_state_matrix_reports_animal_sample_foundation_rows(self) -> None:
+        with tempfile.TemporaryDirectory() as workspace_dir:
+            output_root = Path(workspace_dir) / "data"
+            truth_path = (
+                output_root
+                / "adna"
+                / "governance"
+                / "animal_sample_foundation_truth.json"
+            )
+            truth_path.parent.mkdir(parents=True)
+            truth_path.write_text(
+                '{"summary": {"sample_row_count": 37}}',
+                encoding="utf-8",
+            )
+
+            payload = build_source_family_state_matrix_payload(
+                output_root,
+                counts={},
+            )
+
+        animal_row = next(
+            row for row in payload["rows"] if row["source_key"] == "animal_adna"
+        )
+        self.assertEqual(animal_row["coverage_metrics"]["animal_sample_count"], 37)
+
     def test_fact_and_artifact_contract_payloads_choose_governing_surfaces(
         self,
     ) -> None:

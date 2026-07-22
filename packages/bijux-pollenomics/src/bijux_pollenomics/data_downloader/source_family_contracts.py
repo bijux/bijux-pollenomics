@@ -654,7 +654,7 @@ def _animal_adna_metrics(output_root: Path) -> dict[str, int]:
         payload = json.loads(truth_path.read_text(encoding="utf-8"))
         summary = payload.get("summary", {})
         if isinstance(summary, dict):
-            sample_count = int(summary.get("curated_sample_row_count", 0))
+            sample_count = int(summary.get("sample_row_count", 0))
     project_registry = source_library_root / "project_registry.json"
     if project_registry.is_file():
         payload = json.loads(project_registry.read_text(encoding="utf-8"))

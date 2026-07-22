@@ -44,30 +44,31 @@ flowchart LR
 ```
 
 Every family declares captured, normalized, reviewed, and published surfaces.
-Those surfaces may be family-owned directories or shared cross-family
-registries, but their responsibilities remain distinct.
+Each stage is proven by the exact materialized artifacts named in the family
+contract. A publication can remain committed when an earlier current-stage
+artifact is absent; the matrix preserves both facts rather than inferring the
+missing authority backward from its descendant.
 
 ### Checked-In Stage Metrics
 
-The evidence-stage matrix currently reports all eight families as present
-through publication. Its coverage metrics describe unlike populations and
-must be read with their units and review limits:
+The current stage matrix reports this materialized state:
 
-| Family | Checked-in metric | Material qualification |
-| --- | ---: | --- |
-| LandClim | 492 site sequences; 88 grid cells | observed sequence and model cell are different units |
-| Neotoma | 200 normalized points | 175 have BP spans, but no chronology rows are captured |
-| SEAD | 2,172 normalized points | the temporal review is inventory-only and unresolved for numeric comparison |
-| RAÄ | 761,917 registry records; 318,265 heritage records | published geography is a Sweden-only density projection |
-| boundaries | 4 country geometries | framing establishes membership, not scientific evidence |
-| SVAR | 40,565 registered lakes | registry membership does not establish sampling feasibility |
-| AADR | 3 captured release files in the stage metric | the governed release contains two annotation tables; file count is not sample count |
-| animal aDNA | 10 species; 40 projects; 0 samples in this cross-family metric | project breadth does not establish sample-backed publication coverage |
+| Family | Raw | Normalized | Reviewed | Published | Checked-in metric and interpretation |
+| --- | --- | --- | --- | --- | --- |
+| LandClim | present | present | missing | present | 492 sequences and 88 model cells; the source-specific review artifact is absent |
+| Neotoma | present | present | present | present | 200 normalized points; temporal capability remains member-specific |
+| SEAD | present | present | present | present | 2,172 normalized points; review supports a contextual, not uniformly dated, role |
+| RAÄ | present | present | missing | present | 761,917 registry and 318,265 heritage records; source-specific review is absent |
+| boundaries | present | present | missing | present | four country geometries frame membership without scientific weight |
+| SVAR | present | missing | missing | present | a 40,565-lake summary and retained products exist without the contracted normalized registry and review |
+| AADR | present | missing | missing | present | three v66 capture files and retained products exist without governed Homo sapiens normalized and review members |
+| animal aDNA | present | present | present | present | 10 species, 40 projects, and 894 species-owned sample-foundation rows are materialized |
 
-The last row is deliberately visible. A lifecycle surface can exist while its
-current cross-family sample denominator is zero. Presence is not a substitute
-for the sample, locality, chronology, coordinate, and admission evidence
-required by a specimen claim.
+The animal lifecycle count is the population of species-owned foundation rows,
+not the 868 recovered project sample-master identities or the 234 admitted
+point-evidence rows. All three quantities are valid only with their governing
+unit. The corrected metric no longer reports zero merely because it was
+reading a field name that the foundation summary does not own.
 
 ## Authority Boundaries
 
@@ -130,11 +131,12 @@ flowchart LR
     Dimensions --> Fitness
 ```
 
-Reading across one family shows whether its lifecycle is intact. Reading down
+Reading across one family shows which lifecycle evidence is materialized. Reading down
 one claim compares only the dimensions needed for that claim. Neither reading
 authorizes a global family ranking. LandClim can be mature for pollen context
-while AADR is mature for release-owned human metadata; their record counts and
-roles are not competing measures of quality.
+while AADR has a governed release capture but lacks its contracted normalized
+and review members; their record counts and roles are not competing measures
+of quality.
 
 This distinction also prevents lifecycle completion from being mistaken for
 scientific readiness. A family may have captured, normalized, reviewed, and

@@ -55,9 +55,12 @@ change it.
 ```mermaid
 flowchart TB
     subgraph Data["data/ — governing evidence state"]
-        Raw["raw source capture"] --> Normalized["normalized records"]
-        Normalized --> Review["review and governance surfaces"]
-        Review --> Final["admitted evidence inputs"]
+        Contract["source-family contract"] --> Raw["materialized raw evidence"]
+        Contract --> Normalized["materialized normalized evidence"]
+        Contract --> Review["materialized review evidence"]
+        Raw --> Normalized
+        Normalized --> Review
+        Review --> Final["admitted current evidence inputs"]
     end
     subgraph Reports["docs/report/ — derived publication state"]
         World["world"] --> Region["Europe-plus and Nordic"]
@@ -65,11 +68,34 @@ flowchart TB
         Region --> Lake["lake ranking and sensitivity"]
     end
     Final --> World
+    World -. "retained product does not prove missing authority" .-> Contract
+    Lake -. "retained product does not prove missing authority" .-> Contract
 ```
 
 The geography hierarchy is a selection hierarchy, not four independent
 databases. A country bundle cannot legitimately contain a stronger fact than
 its governing evidence or parent publication family.
+
+### Materialized State Is Not A Linear Badge
+
+The stage matrix evaluates each contracted artifact independently. In the
+current snapshot, Neotoma, SEAD, and animal aDNA have materialized evidence at
+all four stages. LandClim, RAÄ, and boundaries lack their contracted
+source-specific review artifacts. SVAR and AADR retain publications while
+their contracted normalized and review members are absent.
+
+This is why the lifecycle is stored as four statuses rather than one maturity
+label. `published` answers whether the publication artifact exists.
+`normalized` and `reviewed` answer whether the present repository can traverse
+the declared authorities that should support a rebuild. A missing earlier
+stage blocks the stronger rebuildability claim without deleting the retained
+product or pretending it never existed.
+
+Animal aDNA also demonstrates why metrics are typed. Its lifecycle row counts
+894 species-owned sample-foundation rows. Project recovery currently counts
+868 recovered sample-master identities, while point publication admits 234
+rows. These are foundation, recovery, and product populations—not three
+estimates of one interchangeable total.
 
 ## Source Identity And Refresh
 
