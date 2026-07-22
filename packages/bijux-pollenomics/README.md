@@ -138,6 +138,26 @@ first identify the publication member, then its disposition and governing
 record, and finally the captured source. Editing the rendered report would
 change presentation while leaving the authoritative decision untouched.
 
+### Curation State Is External To The Wheel
+
+The runtime implements curation and admission rules, but the wheel does not
+contain a universal curated database. An integration supplies the governed
+state and must preserve its authorities:
+
+| Supplied state | Governing responsibility | Unsafe substitution |
+| --- | --- | --- |
+| captured source family | source identity, release, retrieval context, and raw material | a normalized export without capture lineage |
+| project or paper bundle | accession or DOI identity, manifest, supporting materials, and blockers | article title or project label alone |
+| sample foundation | project-owned stable sample identity and source locator | species or publication label used as the sample authority |
+| locality, chronology, or coordinate claim | claim-specific evidence packet, precision, conflict, and review posture | one flattened “complete” record |
+| publication candidate | admission outcome, failed rules, caveats, and recovery condition | GeoJSON geometry treated as proof of eligibility |
+
+This boundary lets the same runtime evaluate a new governed data root without
+claiming that every filesystem tree has the repository's review quality. A
+caller is responsible for retaining the input identity and complete resulting
+bundle; the runtime is responsible for applying its declared contracts and
+failing visibly when required authority is missing.
+
 ## Runtime architecture
 
 ```mermaid
@@ -330,6 +350,11 @@ auditable:
 These guarantees constrain the published subset; they do not imply complete
 recovery across every source family or animal project.
 
+They also do not turn runtime types into scientific authorities. A valid
+Python object demonstrates conformance to an encoded structure. The captured
+locator, fact owner, review decision, and product manifest establish what the
+object means and why it may be used.
+
 ## Traceability contract
 
 ```mermaid
@@ -368,6 +393,7 @@ to the same modules; it does not carry a second implementation.
 - [documentation home](https://bijux.io/bijux-pollenomics/)
 - [runtime handbook](https://bijux.io/bijux-pollenomics/public/pollenomics/)
 - [data and evidence handbook](https://bijux.io/bijux-pollenomics/public/pollenomics-data/)
+- [evidence curation](https://bijux.io/bijux-pollenomics/public/pollenomics-data/curation/)
 - [Nordic Evidence Atlas](https://bijux.io/bijux-pollenomics/public/nordic-atlas/)
 - [Sweden lake priorities](https://bijux.io/bijux-pollenomics/public/nordic-atlas/sweden-lake-priorities/)
 - [package boundaries](docs/boundaries.md)

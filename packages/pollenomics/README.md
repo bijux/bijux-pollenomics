@@ -87,6 +87,11 @@ Choosing the short name does not create a lighter runtime. Installation still
 resolves the canonical distribution, and collection or publication commands
 retain the same write behavior, evidence rules, output contracts, and caveats.
 
+The same rule applies to curation. The alias does not own sample identity,
+fact ownership, locality or chronology decisions, conflict handling, recovery
+queues, or admission outcomes. Those remain canonical runtime and governed
+data contracts even when `pollenomics` is the requested command.
+
 The compatibility promise is deliberately narrow: naming convenience without
 scientific divergence. It covers forwarded imports, the short executable, and
 top-level public names. It does not create an independent data format, release
@@ -165,6 +170,36 @@ pollenomics publish-reports --help
 Use `bijux-pollenomics` in system architecture, release ownership, and durable
 integration documentation. Use `pollenomics` where a concise interactive name
 is preferable.
+
+## Change Names Without Changing Meaning
+
+Moving an integration between the short and canonical names is a namespace
+change, not a data migration:
+
+1. change the declared distribution dependency;
+2. change the executable or import prefix consistently;
+3. record both installed distribution versions during the transition;
+4. run the same read-only contract inspection through both names;
+5. verify that canonical manifests, schemas, member identities, and caveats
+   remain unchanged for identical governed inputs.
+
+Do not rewrite evidence identifiers, source-family names, schema versions,
+output roots, or provenance fields to contain the chosen package name. Those
+artifacts identify scientific and product state, not the convenience namespace
+used to enter the runtime.
+
+```mermaid
+flowchart LR
+    Before["canonical or short entry surface"] --> Inputs["same governed inputs"]
+    Inputs --> Runtime["canonical runtime"]
+    Runtime --> Outputs["same canonical artifact contracts"]
+    After["other entry surface"] --> Inputs
+```
+
+A differing governed result under the same compatible version pair and inputs
+is a compatibility defect. It must be investigated at executable resolution,
+import forwarding, configuration, or environment identity rather than accepted
+as alias-specific scientific behavior.
 
 ## Equivalent And Distinct Identity
 
@@ -295,3 +330,4 @@ surface.
 - [documentation home](https://bijux.io/bijux-pollenomics/)
 - [runtime handbook](https://bijux.io/bijux-pollenomics/public/pollenomics/)
 - [data and evidence handbook](https://bijux.io/bijux-pollenomics/public/pollenomics-data/)
+- [evidence curation](https://bijux.io/bijux-pollenomics/public/pollenomics-data/curation/)
