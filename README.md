@@ -47,7 +47,8 @@ than being promoted through a visually clean atlas.
 | You need to… | Start with… | Record first | What you will establish |
 | --- | --- | --- | --- |
 | understand the product and its boundaries | [documentation home](https://bijux.io/bijux-pollenomics/) | intended claim and observation unit | which claims and workflows the repository supports |
-| inspect source selection and curation | [data system guide](docs/public/pollenomics-data/index.md) | source family, release, and native record key | how captured material becomes governed evidence |
+| inspect source selection and capture | [data system guide](docs/public/pollenomics-data/index.md) | source family, release, and native record key | which upstream material became governed evidence |
+| inspect an admission, conflict, or recovery decision | [curation guide](docs/public/pollenomics-data/curation/index.md) | governed object, claim dimension, and proposed use | fact ownership, qualification, decision reason, and recovery condition |
 | examine a checked-in result | [report portal](docs/report/index.md) | bundle identity and manifest | product scope, members, and review surfaces |
 | interpret a visible marker | [Nordic atlas guide](docs/public/nordic-atlas/index.md) | feature ID and evidence role | admission posture, spatial and temporal precision, and lineage |
 | evaluate a candidate lake | [Sweden lake priorities](docs/public/nordic-atlas/sweden-lake-priorities/index.md) | lake registry ID and ranking scenario | ranking assumptions, stability, and fieldwork gaps |
@@ -76,7 +77,7 @@ The trust boundary is explicit:
 | --- | --- | --- |
 | source capture | acquired identity, retrieval context, and source bytes | repository interpretation |
 | normalized evidence | stable fields, identifiers, and source linkage | publication eligibility |
-| review | precision, conflicts, comparability, and refusal | source-native facts |
+| curation and review | fact ownership, precision, conflicts, comparability, admission, and refusal | source-native facts |
 | publication | admitted records, geography, labels, and visible caveats | upstream evidence truth |
 
 A map or report is therefore an index into governed evidence, not a substitute
@@ -250,6 +251,8 @@ Today, the checked-in repository produces these durable outcomes:
   contracts
 - an animal aDNA curation library with project dossiers, sample-level evidence,
   manual review queues, and explicit release guards
+- public curation contracts that explain record admission, conflicting claims,
+  recovery evidence, and the populations on both sides of publication gates
 - a report tree under `docs/report/` with world, regional, and country publication families
 - governed world, Europe-plus, and Nordic map surfaces that share one publication contract
 - country bundles for Sweden, Norway, Finland, and Denmark that remain filtered descendants of the same broader evidence state

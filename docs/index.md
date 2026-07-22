@@ -45,6 +45,7 @@ records forward to see what the repository is prepared to claim.
 <div class="bijux-quicklinks">
   <a class="md-button md-button--primary" href="public/pollenomics/">Open the product guide</a>
   <a class="md-button" href="public/pollenomics-data/">Open the data guide</a>
+  <a class="md-button" href="public/pollenomics-data/curation/">Inspect evidence curation</a>
   <a class="md-button" href="report/">Open the report portal</a>
   <a class="md-button" href="report/how-to-read/">How to read the report tree</a>
   <a class="md-button" href="public/nordic-atlas/">Open the atlas guide</a>
@@ -57,6 +58,7 @@ records forward to see what the repository is prepared to claim.
 | --- | --- | --- | --- |
 | understand what Bijux Pollenomics is | [product guide](public/pollenomics/index.md) | the claim and evidence family in question | product responsibilities, interfaces, and limits |
 | understand how the database earns trust | [data guide](public/pollenomics-data/index.md) | source-native unit and governed record identity | source, curation, evidence, and publication boundaries |
+| explain an admission, qualification, or refusal | [curation guide](public/pollenomics-data/curation/index.md) | object identity, claim dimension, and intended product | governing evidence, decision rule, outcome, and recovery condition |
 | inspect the published state | [report portal](report/index.md) | bundle manifest and member ID | maps, tables, reviews, refusals, and their shared scope |
 | evaluate one visible feature | [Nordic atlas](public/nordic-atlas/index.md) | feature ID, layer role, and point class | coordinate posture, time posture, admission, and traceability |
 | evaluate a lake-priority result | [Sweden lake priorities](public/nordic-atlas/sweden-lake-priorities/index.md) | lake registry ID, scenario, and model version | ranking meaning, stability, and missing field evidence |
@@ -99,8 +101,9 @@ diagnosis, not permission to select the value that looks most plausible.
 flowchart LR
     Source["source dataset, paper, or supplement"] --> Capture["versioned capture"]
     Capture --> Normalize["repository-owned records"]
-    Normalize --> Evidence["identity, place, time, and coordinate evidence"]
-    Evidence --> Gate{"publication gate"}
+    Normalize --> Evidence["identity, place, time, and coordinate claims"]
+    Evidence --> Curate["fact ownership, conflicts, and fitness"]
+    Curate --> Gate{"publication gate"}
     Gate -->|qualified| Reports["reports and atlas layers"]
     Gate -->|blocked| Review["visible caveat or recovery queue"]
     Reports --> Reader["inspectable public claim"]
@@ -214,7 +217,8 @@ and [fieldwork record](public/fieldwork/index.md) expose the governing detail.
 | Surface | What it preserves | Where to begin |
 | --- | --- | --- |
 | Source families | upstream identity, acquisition, version, license, and refresh posture | [Sources](public/pollenomics-data/sources/index.md) |
-| Curated evidence | normalized records plus locality, chronology, coordinate, and ambiguity decisions | [Evidence](public/pollenomics-data/evidence/index.md) |
+| Curation decisions | fact ownership, admission, conflicts, qualifications, refusals, and recovery conditions | [Curation](public/pollenomics-data/curation/index.md) |
+| Evidence dimensions | normalized records plus locality, chronology, coordinate, and temporal semantics | [Evidence](public/pollenomics-data/evidence/index.md) |
 | Publications | derived world, regional, country, and lake views | [Publications](public/pollenomics-data/publications/index.md) |
 | Atlas interpretation | layer meaning, point posture, filters, and visible limits | [Nordic atlas](public/nordic-atlas/index.md) |
 | Field observations | a dated, situated record from Lyngsjön Lake | [Fieldwork](public/fieldwork/index.md) |
