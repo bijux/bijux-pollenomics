@@ -61,6 +61,44 @@ when the data state changes.
 | AADR | use versioned public metadata | infer genotype processing or population-genetic analysis |
 | Country views | inspect filtered descendants of the shared atlas state | treat a country bundle as an independent complete database |
 
+## How Limits Propagate
+
+A derived surface cannot be more certain than the evidence and rules that
+produced it. Filtering, ranking, and rendering may narrow a question; they do
+not repair missing recovery, ambiguous identity, broad chronology, or weak
+coordinate support.
+
+```mermaid
+flowchart LR
+    Recovery["source recovery"] --> Identity["record identity"]
+    Identity --> Qualification["locality and chronology"]
+    Qualification --> Admission["publication admission"]
+    Admission --> Derived["map, report, or ranking"]
+    Derived --> Claim["reader claim"]
+```
+
+At each arrow, the downstream surface inherits the strongest applicable limit
+from upstream. A precise marker cannot improve an approximate coordinate; a
+country filter cannot make recovery complete; and a ranking cannot turn
+contextual proximity into causal evidence.
+
+## Claims The Release Does Not Support
+
+The current publications must not be used to claim that:
+
+- the collection is an exhaustive inventory of pollenomics evidence;
+- absence from a map establishes biological, archaeological, or historical
+  absence;
+- all visible points have equivalent locality or chronological precision;
+- proximity between evidence families establishes association,
+  contemporaneity, or causation;
+- a ranked lake has been field-validated or is ready for sampling; or
+- passing a publication gate establishes final-release completeness.
+
+These are claim boundaries, not defects hidden behind a generic disclaimer.
+Each boundary names the additional evidence or validation that a stronger
+interpretation would require.
+
 ## Visible Absence
 
 ```mermaid
@@ -82,6 +120,14 @@ Absence is therefore not one claim. “Not captured,” “captured but unresolv
 publication type” require different language and different next evidence. A
 responsible downstream analysis should retain the reason rather than replace
 all five with a single missing-value code.
+
+| Absence class | Defensible statement | Evidence needed to go further |
+| --- | --- | --- |
+| not captured | the governed collection has no captured record | source discovery and recovery |
+| captured but unresolved | a candidate record exists but lacks publishable qualification | identity, locality, chronology, or citation resolution |
+| reviewed and refused | the record failed a named publication rule | corrected evidence and a new review decision |
+| outside scope | the record was not selected for this product | inspect the parent or applicable geographic bundle |
+| unsupported role | this publication type cannot answer the question | use a surface with the required evidence role |
 
 ## Map Boundaries
 

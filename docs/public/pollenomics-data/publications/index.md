@@ -57,6 +57,24 @@ flowchart LR
 
 The map is one consumer of the bundle, not the bundle's authority.
 
+### Bundle identity
+
+A publication is identified by the combination of **version**, **geographic
+scope**, **member inventory**, and **governing contracts**. Two bundles with the
+same map title are not interchangeable when any of those fields differ.
+
+| Identity field | Question it answers | Why it must travel with reuse |
+| --- | --- | --- |
+| version | which governed data state was published? | later recovery or review can change admission |
+| scope | which geographic selection was applied? | a country result cannot stand for the Nordic or world collection |
+| member inventory | which tables, layers, reviews, and rankings belong together? | prevents artifacts from different runs being combined |
+| contract identity | which rules admitted and qualified records? | makes the visible subset reproducible |
+
+The bundle is complete for interpretation only when its manifest, evidence
+members, review surfaces, and renderings resolve to the same identity. A
+standalone HTML map can remain useful for exploration, but it is not a complete
+scientific publication.
+
 ## Bundle Authority Order
 
 When publication artifacts disagree, resolve the claim through the narrowest
@@ -81,6 +99,23 @@ flowchart TD
 A map label or narrative sentence cannot override a manifest member, evidence
 identifier, precision posture, or material warning. If the rendered surface
 disagrees, the rendering is stale or defective and must be corrected.
+
+## Read A Bundle In Order
+
+```mermaid
+flowchart LR
+    Identity["identify version and scope"] --> Inventory["verify bundle members"]
+    Inventory --> Contract["read admission contract"]
+    Contract --> Evidence["inspect evidence rows"]
+    Evidence --> Qualification["apply review and caveats"]
+    Qualification --> Rendering["interpret map or report"]
+```
+
+This order separates product discovery from claim evaluation. The manifest
+locates the right product; the contract explains why records are present; the
+evidence rows support the claim; review surfaces preserve qualifications; and
+the rendering helps the reader see the result. Reversing that order risks
+treating visual prominence as scientific authority.
 
 ## Publication Gates
 
@@ -122,3 +157,7 @@ Reuse the smallest surface that supports the claim. A map screenshot is enough
 to illustrate layout, but not to support a sample-level scientific assertion.
 For that, retain the evidence row, source lineage, locality and chronology
 posture, coordinate basis, bundle version, and applicable caveats.
+
+A reusable citation package therefore contains the product identity and the
+narrowest evidence member that supports the statement. If that member cannot
+be named, the statement is not yet traceable enough for scientific reuse.
