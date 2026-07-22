@@ -89,6 +89,7 @@ plugins:
         data-sources/neotoma.md: public/pollenomics-data/sources/neotoma.md
         data-sources/raa.md: public/pollenomics-data/sources/raa.md
         data-sources/sead.md: public/pollenomics-data/sources/sead.md
+        public/pollenomics-data/sources/non-adna-explainer-recovery.md: public/pollenomics-data/sources/cross-domain-source-roles.md
         outputs/index.md: public/pollenomics-data/publications/index.md
         outputs/nordic-evidence-atlas.md: public/pollenomics-data/publications/maps.md
         outputs/country-reports.md: public/pollenomics-data/publications/reports.md
@@ -185,7 +186,7 @@ nav:
           - Source Family Matrix: public/pollenomics-data/sources/source-family-matrix.md
           - Refresh Policy: public/pollenomics-data/sources/refresh-policy.md
           - Shared Normalization: public/pollenomics-data/sources/shared-normalization.md
-          - Non-aDNA Explainer Recovery: public/pollenomics-data/sources/non-adna-explainer-recovery.md
+          - Cross-Domain Source Roles: public/pollenomics-data/sources/cross-domain-source-roles.md
           - Animal Source Intake: public/pollenomics-data/sources/animal-source-intake.md
           - SEAD Handbook: public/pollenomics-data/sources/sead-handbook.md
           - AADR: public/pollenomics-data/sources/aadr.md

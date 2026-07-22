@@ -4,64 +4,82 @@ audience: reader
 type: explanation
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-05-10
+last_reviewed: 2026-07-22
 ---
 
 # Boundaries
 
-Boundary data is not scientific evidence, but it is still essential to the
-public product. It tells readers what a country filter means, how a regional
-bundle was framed, and whether a map is speaking about one political geography
-or another.
+The boundary family supplies the four country geometries used to define
+Sweden, Norway, Finland, Denmark, and their shared Nordic scope. It governs
+publication framing and membership tests; it contributes no scientific weight
+to a feature inside a polygon.
 
-Without that clarity, mixed evidence maps quickly become harder to trust. A
-reader may see a clean shape or a familiar country name without knowing exactly
-what scope the product is using.
+## Captured State
 
-## What Boundaries Add
+The collection summary identifies the boundary family as version `v66`,
+retrieved on `2026-06-22` through the collector pipeline under public geodata
+terms. It records separate SHA-256 digests for the captured and normalized
+state, plus a dispute token that identifies the exact snapshot used by
+publication.
 
-Boundary layers are strongest when readers need:
+The normalized artifact is
+`data/boundaries/normalized/nordic_country_boundaries.geojson`. It contains one
+MultiPolygon feature for each Nordic publication country:
 
-- clear country and regional framing
-- stable scope filters in atlas and country outputs
-- a public geography layer that makes comparison readable
+| Country | Governed use |
+| --- | --- |
+| Sweden | country selection and Nordic composition |
+| Norway | country selection and Nordic composition |
+| Finland | country selection and Nordic composition |
+| Denmark | country selection and Nordic composition |
 
-Their job is interpretive legibility. They help the repository say where it is
-talking about, not what scientific claim is true there.
+## Acquisition And Replacement
 
-## What Boundaries Do Not Claim
+```mermaid
+flowchart LR
+    Upstream["boundary source"] --> Staging["staged capture and normalization"]
+    Staging --> Validate["geometry and family contract checks"]
+    Validate --> Swap["governed data/boundaries state"]
+    Validate -->|failure| Preserve["previous governed state remains"]
+    Swap --> Registry["publication geography registry"]
+    Registry --> Products["Nordic and country products"]
+```
 
-Boundaries do not prove archaeological, pollen, or aDNA claims.
+Refresh uses a staging swap. The collector prepares a temporary family tree,
+validates it, and replaces `data/boundaries/` only after success. A failed
+refresh preserves the preceding governed state. This makes a geometry change
+reviewable as a collection change rather than an in-place mutation of a
+published product.
 
-They do not replace:
+## What A Boundary Decision Means
 
-- source evidence
-- sample review
-- chronology review
-- locality evidence
+A point selected into a country product intersects the geometry used by that
+product under its declared rule. The decision does not establish:
 
-They are framing infrastructure, not historical proof.
+- historical nationality or cultural affiliation;
+- locality precision beyond the point's own coordinate evidence;
+- temporal overlap with any record in the same country;
+- source completeness within the polygon; or
+- scientific support from the boundary itself.
 
-## Why A Public Reader Should Still Care
+Modern framing and historical evidence remain different claims. A broad or
+region-only locality cannot acquire exact country membership through an
+arbitrary representative point.
 
-Readers often notice framing only when it goes wrong. If country or regional
-filters are vague, then even strong evidence layers become harder to interpret.
+## Audit A Scope Change
 
-Good boundary documentation is therefore part of scientific honesty. It makes
-clear that geographic scope is chosen, governed, and visible, rather than
-quietly assumed.
+When a record enters or leaves a country bundle, compare three identities:
 
-## How It Appears In Public Outputs
+1. the evidence record and its coordinate provenance;
+2. the boundary collection version and normalized digest; and
+3. the product geography registry and selection rule.
 
-Boundary layers support world, regional, and country surfaces by giving them a
-stable geography model. They make scope-filtered outputs understandable and
-keep map framing distinct from the underlying evidence families.
+An unchanged evidence record with changed boundary membership is a framing
+change. An unchanged boundary with revised coordinates is an evidence change.
+An unchanged pair with different product membership is a scope or admission
+change. Keeping those causes separate prevents geographic filtering from
+masquerading as new scientific evidence.
 
-## If You Need The Repository-Owned Records
-
-The family-owned normalized outputs live under:
-
-- `data/boundaries/normalized/`
-
-That is the tracked path behind the framing layers used by the public maps and
-filters.
+Continue to [boundary exports](../publications/boundary-exports.md) for reuse,
+[maps](../publications/maps.md) for rendering, and
+[publication reports](../publications/reports.md) for scope lineage.

@@ -1214,13 +1214,13 @@ class RepositoryContractRegressionTests(unittest.TestCase):
             / "sources"
             / "animal-source-intake.md"
         ).read_text(encoding="utf-8")
-        source_recovery_page = (
+        cross_domain_roles_page = (
             REPO_ROOT
             / "docs"
             / "public"
             / "pollenomics-data"
             / "sources"
-            / "non-adna-explainer-recovery.md"
+            / "cross-domain-source-roles.md"
         ).read_text(encoding="utf-8")
         atlas_index = (
             REPO_ROOT / "docs" / "public" / "nordic-atlas" / "index.md"
@@ -1366,9 +1366,11 @@ class RepositoryContractRegressionTests(unittest.TestCase):
         self.assertIn("sample_locality_evidence.json", inventory_page)
         self.assertIn("sample_chronology_evidence.json", inventory_page)
         self.assertIn(
-            "../../../report/repository_source_explainer_audit.md",
-            source_recovery_page,
+            "observation unit",
+            cross_domain_roles_page,
         )
+        self.assertIn("temporal posture", cross_domain_roles_page)
+        self.assertIn("evidence roles", cross_domain_roles_page)
         self.assertIn(
             "../../../report/animal_sample_database_review.md",
             published_reports,
