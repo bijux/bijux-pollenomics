@@ -219,6 +219,16 @@ lineage before treating the two records as separate support.
 | Can this record be compared with a dated sample? | only sequence rows with compatible admitted intervals | both intervals, units, precision, and overlap rule |
 | Does nearby pollen prove association with an aDNA or archaeology feature? | neither LandClim surface alone | a separate association design and evidence would be required |
 
+### Review A Refresh By Observation Unit
+
+A LandClim refresh is not one undifferentiated layer diff. Review site
+sequences and REVEALS grid cells as separate populations. For sequences,
+compare source identity, site identity, coordinate, sequence extent, and time
+posture. For grid cells, compare cell identity, geometry, model meaning, and
+declared time slice. Only then assess changed publication membership and
+cross-family relations. A site-to-cell reassignment is a semantic change even
+when the rendered map looks unchanged.
+
 ## Governing Surfaces
 
 - `data/landclim/raw/landclim_sources.json` records source capture context;

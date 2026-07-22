@@ -217,6 +217,15 @@ the result is contextual agreement rather than independent corroboration.
 | Does a site's BP span constitute an age-depth model? | no | the span is site-level captured coverage, not sample chronology |
 | Is absence from the layer evidence of no palaeoecological record? | no | capture and normalization scope must be checked first |
 
+### Review A Refresh Across Identity Levels
+
+Compare dataset membership before site membership. A dataset can change its
+contributor, chronology coverage, or site relation without creating a new
+site; conversely, a newly captured dataset can add evidence to a site already
+present. The refresh receipt therefore accounts for release and dataset IDs,
+site IDs, dataset-to-site relations, admitted temporal rows, exclusions, and
+published site members. Equal site counts cannot prove equal pollen evidence.
+
 ## Governing Surfaces
 
 - `data/neotoma/raw/neotoma_pollen_dataset_inventory.json` records datasets;

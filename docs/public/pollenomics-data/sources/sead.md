@@ -203,6 +203,15 @@ single archaeology truth set.
 | Does a dense cluster represent greater past activity? | not directly | capture, investigation, preservation, and database-selection effects remain alternatives |
 | Where would deeper source recovery add the most value? | inventory, gap, and recovery-review surfaces together | the missing relation and the claim it would unlock |
 
+### Review A Refresh Against The Access Boundary
+
+SEAD refresh review first distinguishes a changed upstream inventory from a
+changed accessible projection. It then accounts for raw identities,
+normalization membership, the 23-row boundary, access-model changes, temporal
+eligibility, and published descendants. A member becoming accessible is not
+evidence that its missing chronology was recovered; access and scientific
+fitness are independent transitions with separate receipts.
+
 ## Governing Surfaces
 
 - `data/sead/raw/nordic_sites.json` records the captured inventory;

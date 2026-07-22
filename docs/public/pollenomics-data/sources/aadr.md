@@ -173,6 +173,16 @@ geographic comparison. It does not establish contemporaneity, association, or
 a shared archaeological context unless those dimensions are evaluated
 separately.
 
+### Review A Refresh As Population Reconciliation
+
+An AADR refresh reconciles release members, annotation rows, projected Homo
+sapiens records, and product members as distinct populations. The receipt
+accounts for stable and changed identities, aliases across `1240K` and `HO`,
+locality and chronology differences, projection refusals, country membership,
+and affected publications. It must explain both additions and removals. Equal
+release row counts do not establish equal people, equal projections, or equal
+country products.
+
 ## Governing Surfaces
 
 - `data/aadr/v66/release_manifest.json` governs persistent identity, upstream

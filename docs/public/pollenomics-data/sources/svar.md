@@ -135,6 +135,16 @@ recommendation.
 6. Treat bathymetry, sediment preservation, access, permits, and field safety
    as independent evidence required before a sampling decision.
 
+### Review A Refresh From Registry Identity Outward
+
+Start with SVAR IDs, UUIDs, source URLs, names, and water geometries. Then
+compare the representative-point method and only afterward recompute
+eligibility, distance bands, rankings, and fieldwork-preparation surfaces. A
+changed centroid can alter every proximity result without changing the lake
+identity. A changed rank can leave the registry record untouched. The refresh
+receipt names which boundary changed instead of attributing every difference
+to “the lake.”
+
 ## Governing Surfaces
 
 - `data/svar/raw/svar_lake_registry_manifest.json` governs capture identity and
