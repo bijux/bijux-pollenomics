@@ -60,6 +60,26 @@ Units and interval semantics also matter. A numeric label is not accepted for
 comparison merely because it contains “BP”; the review posture records whether
 the value is compatible with repository temporal rules.
 
+## Site-Level Temporal Admission
+
+Temporal eligibility is decided per normalized site, not inherited from the
+family name or the visual presence of a marker.
+
+```mermaid
+flowchart LR
+    Site["normalized Neotoma site"] --> Review["temporal review row"]
+    Review --> Class{"time posture"}
+    Class -->|numeric compatible| Interval["bounded comparison"]
+    Class -->|numeric caveated| Caveat["bounded comparison with caveat"]
+    Class -->|contextual or unresolved| Spatial["spatial context only"]
+```
+
+For a temporal comparison, retain the site identifier, numeric bounds, unit
+and basis, review class, caveat, and the other member's compatible interval.
+For a spatial-only comparison, say explicitly that the site contributes pollen
+context without a numeric chronology claim. This prevents the 175 sites with
+captured spans from making the full 200-site layer appear uniformly dated.
+
 ## Relationship To LandClim
 
 Both families provide primary pollen context, but their normalized units and

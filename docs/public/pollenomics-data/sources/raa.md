@@ -4,64 +4,83 @@ audience: reader
 type: explanation
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-05-10
+last_reviewed: 2026-07-22
 ---
 
 # RAÄ
 
-RAÄ gives the repository a dense Sweden-specific archaeology context family.
-Its strength is not universality. Its strength is precisely that it is local
-enough to add richer archaeological reading where Swedish coverage is strong.
+RAÄ supplies dense, Sweden-specific archaeology context from
+Riksantikvarieämbetet's published Fornsök/Open Data surfaces. The repository
+publishes a coarse density representation so national archaeological context
+can be compared without loading hundreds of thousands of individual markers.
+It is a contextual domain, not direct evidence for a nearby biological sample
+or a uniform Nordic archaeology layer.
 
-That makes RAÄ especially important in Nordic and Swedish interpretation, where
-local archaeology context can materially change how nearby biological or
-environmental evidence is understood.
+## Checked-In Evidence
 
-## What RAÄ Adds
+| Surface | Current scale | Meaning |
+| --- | ---: | --- |
+| all published sites represented by the source summary | 761,917 | national registry denominator behind the density product |
+| `Fornlämning` records | 318,265 | one governed source classification, not a count of dated events |
+| `Fornlämning` or possible records | 416,913 | broader classified subset retained by the normalized summary |
+| density cells | 106 | one-degree aggregation cells rendered for public context |
+| numeric temporal intervals | 0 | no repository-owned uniform chronology for same-period comparison |
 
-RAÄ is strongest when readers need:
+The 761,917 source records are not 761,917 independent, equally dated
+observations in the public map. The visible product is a 106-cell aggregation,
+and registry practice, classification, preservation, discovery, and reporting
+all shape the underlying count.
 
-- Sweden-scoped archaeology context
-- denser archaeological reading in Swedish and Nordic views
-- a local context family that can sharpen interpretation where coverage is rich
+```mermaid
+flowchart LR
+    Source["Fornsök and RAÄ Open Data"] --> Capture["capabilities, schema, and domains"]
+    Capture --> Summary["normalized national counts"]
+    Summary --> Density["106 coarse density cells"]
+    Density --> Product["Sweden archaeology context"]
+```
 
-In those places, RAÄ can make a map feel grounded rather than generic.
+## Read A Density Cell
 
-## What RAÄ Does Not Do
+A cell answers a bounded question: how many governed RAÄ records in the
+selected class fall within this aggregation area? It does not establish:
 
-RAÄ should not be stretched into a universal archaeology source.
+- a complete inventory of past activity;
+- uniform survey or registration effort;
+- chronology shared by records inside the cell;
+- association with a nearby pollen, lake, fieldwork, or aDNA feature; or
+- site-level distance from a feature to every contributing record.
 
-It does not replace:
+Cell size is part of the result. A one-degree aggregation supports broad
+national or regional context, not precise local-distance reasoning. Rendering
+the cell with a smooth color ramp does not increase spatial resolution.
 
-- SEAD's broader archaeology reach
-- pollen-derived environmental context
-- sample-level aDNA review
-- fieldwork or direct site evidence
+## Relationship To SEAD
 
-Its public value comes from being honest about local strength, not from
-pretending to cover every geography equally.
+| Dimension | RAÄ | SEAD |
+| --- | --- | --- |
+| reach | Sweden-specific | broader environmental-archaeology context |
+| current public geometry | coarse density cells | normalized site points |
+| temporal posture | density without uniform time | inventory points without captured numeric intervals |
+| strongest use | Swedish registry-density context | wider site-centered archaeology context |
+| invalid shortcut | generalize Swedish density to the Nordic region | infer same-period evidence from undated proximity |
 
-## How It Differs From SEAD
+The families are complementary and must not be merged into one archaeology
+denominator. Their observation units, geographic reach, spatial resolution,
+and capture depth differ.
 
-RAÄ is the more local family. SEAD is the broader archaeology-context family.
+## Governing Surfaces
 
-If your question is specifically about Swedish or nearby Nordic archaeological
-reading, RAÄ may be the best first source. If your question is about a wider
-archaeology context that needs to travel across places, SEAD is usually the
-better first stop.
+- `data/raa/raw/arkreg_v1_0_wfs_capabilities.xml` preserves service capability
+  context;
+- `data/raa/raw/publicerade_lamningar_centrumpunkt_schema.xml` preserves the
+  captured feature schema;
+- `data/raa/raw/fornsok_domains.json` preserves governed domain values;
+- `data/raa/normalized/sweden_archaeology_layer.json` governs counts, cell
+  size, classification, and source identity; and
+- `data/raa/normalized/sweden_archaeology_density.geojson` governs the visible
+  density geometry.
 
-Both are useful, but they should not be described as interchangeable.
-
-## How It Appears In Public Outputs
-
-RAÄ often matters most when a public view narrows to Sweden or to Nordic
-contexts where Swedish archaeological detail can legitimately support a richer
-reading than a broader source alone would provide.
-
-## If You Need The Repository-Owned Records
-
-The family-owned normalized outputs live under:
-
-- `data/raa/normalized/`
-
-That is the tracked source path behind RAÄ-derived context layers.
+Public maps inherit these scale and chronology limits. Continue to
+[RAÄ exports](../publications/raa-exports.md) for the publication role and
+[source comparison](source-comparison.md) before combining RAÄ with another
+family.

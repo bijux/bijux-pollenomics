@@ -65,6 +65,32 @@ flowchart LR
 The absence of numeric intervals is not repaired with inferred dates. SEAD can
 affect spatial decision support while receiving no chronology credit.
 
+## Interpret The Capture Gap
+
+The difference between inventory visibility and evidentiary depth is itself a
+governed result:
+
+| State | What is known | What remains unavailable |
+| --- | --- | --- |
+| captured inventory row | a source site identity entered the repository | linked dating, period, bibliography, and deeper record relations |
+| normalized site point | a spatial representation passed family normalization | uniform numeric chronology and record-level interpretive depth |
+| contextual publication member | the point is eligible for declared archaeology context | same-period support or direct association with nearby evidence |
+| omitted captured row | the upstream inventory included a row not present in the normalized point layer | the exact normalization, identity, or geometry issue must be inspected |
+
+```mermaid
+flowchart LR
+    Inventory["2,195 captured rows"] --> Normalize["2,172 normalized points"]
+    Normalize --> Context["spatial archaeology context"]
+    Inventory --> Gap["23-row normalization difference"]
+    Context --> Recovery["deeper chronology and bibliography recovery"]
+    Gap --> Recovery
+```
+
+The 23-row difference is not automatically an error or a valid deletion; it is
+a review boundary that requires member-level explanation. Likewise, the lack
+of linked chronology is a source-recovery limitation, not permission to assign
+dates from nearby records or broad archaeological expectations.
+
 ## Relationship To RAÄ
 
 SEAD provides wider environmental-archaeology context. RAÄ provides denser

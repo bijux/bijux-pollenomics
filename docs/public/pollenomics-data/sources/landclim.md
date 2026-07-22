@@ -62,6 +62,32 @@ The ten sequences without numeric intervals remain spatial pollen context.
 They are not assigned synthetic dates to make the family appear uniformly
 time-resolved.
 
+## Read A LandClim Member
+
+First identify which normalized unit is visible. A site sequence and a REVEALS
+grid cell can occupy the same map but require different interpretations.
+
+| Question | Site sequence | REVEALS grid cell |
+| --- | --- | --- |
+| what is represented? | a normalized pollen sequence at a source-linked site | modelled vegetation context for a grid area |
+| what does geometry mean? | the sequence site's governed point | the spatial support of the model cell, not an observation at its center |
+| what does time mean? | the sequence interval when numeric bounds are present | the model's declared temporal context |
+| what can be compared? | pollen context within compatible place and time precision | landscape-level model context under the grid contract |
+| what must not be inferred? | direct evidence for a nearby sample or event | a measured pollen sample at the rendered coordinate |
+
+```mermaid
+flowchart LR
+    Feature["visible LandClim feature"] --> Kind{"sequence or grid?"}
+    Kind -->|sequence| Site["site identity and BP posture"]
+    Kind -->|grid| Model["cell identity and model semantics"]
+    Site --> Claim["qualified pollen context"]
+    Model --> Claim
+```
+
+A reusable claim retains the feature kind, source identity, normalized member
+identifier, spatial basis, temporal posture, and publication scope. “LandClim
+point” is not specific enough to preserve those distinctions.
+
 ## Relationship To Other Families
 
 | Compared with | LandClim contributes | Other family contributes |
