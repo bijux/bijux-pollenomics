@@ -15,6 +15,11 @@ review or release it. Scientific interpretation remains in the public data,
 atlas, and fieldwork guides; runtime behavior remains with the runtime package
 and its governed contracts.
 
+Use the public [Pollenomics domain language](../public/pollenomics-data/domain-language.md)
+for object, claim, decision, member, posture, and projection terminology. The
+maintainer handbook adds ownership and change-control rules; it does not define
+a second scientific vocabulary.
+
 ## Reader And Maintainer Surfaces
 
 The MkDocs reader navigation contains the public handbook and governed
@@ -107,6 +112,25 @@ flowchart LR
 If the owner or write boundary cannot be named, the proposed operation is not
 yet bounded. If the proof cannot distinguish an intended semantic change from
 incidental regeneration, the acceptance contract is not yet strong enough.
+
+### Stop Before Mutation
+
+Do not invoke a writer while any of these conditions remains unresolved:
+
+| Stop condition | Required resolution |
+| --- | --- |
+| authoritative owner is unknown | trace the value or behavior to its governing contract, record, or producer |
+| worktree contains overlapping unexplained changes | separate ownership and intent before staging or regeneration |
+| input identity or revision is ambiguous | fix source, product, schema, and repository identities for the operation |
+| command write boundary is broader than the intended owner | select a narrower producer or explicitly account for every affected root |
+| required upstream stage is absent or self-certified | preserve the blocker and recover the named governed artifact first |
+| generated output disagrees with governed evidence | correct the owner or producer; do not edit the descendant to match expectations |
+| success would require weakening a check or claim | keep the failure visible and route it to the responsible owner |
+| external publication or deletion is implied but not part of the change contract | stop at local, reviewable state until that transition is separately authorized |
+
+Stopping is a correctness action when the next command would destroy evidence
+about the cause, mix unrelated work, or cross an undeclared state boundary.
+Continue with read-only inspection until the change contract becomes explicit.
 
 ## Authority Map
 

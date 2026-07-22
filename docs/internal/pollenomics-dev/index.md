@@ -15,6 +15,11 @@ documentation presentation, managed license assets, versions, and publication
 guards. Its outputs are findings about repository state, never scientific
 observations.
 
+The public [domain language](../../public/pollenomics-data/domain-language.md)
+continues to govern objects, claims, decisions, and publications. A maintainer
+finding observes whether those governed surfaces agree; it does not create a
+new evidence posture.
+
 Regular users install `bijux-pollenomics`. Maintainers use this package through
 repository tests and workflow commands when the question is whether declared
 repository contracts agree at a specific revision.
@@ -83,6 +88,21 @@ A useful finding reports the owner, observed state, expected invariant,
 affected identities, and a non-destructive next inspection. A proposed write
 belongs in the owning workflow, not in the checker merely because the checker
 found the problem.
+
+### Interpret Check Results Without Collapsing Causes
+
+| Result class | Meaning | Repository response |
+| --- | --- | --- |
+| contract satisfied | the selected invariant agrees for the named inputs and revision | retain bounded verification evidence; do not generalize to unchecked contracts |
+| contract violation | the check evaluated its inputs and found governed disagreement | route observed and expected state to the named owner |
+| invalid invocation | arguments, paths, or requested mode do not satisfy the command contract | correct invocation; make no claim about repository state |
+| unavailable environment | a tool, credential, service, or platform prerequisite prevented evaluation | preserve governed state and record the exact rerun condition |
+| publication refusal | the repository was evaluated correctly and evidence does not support the requested release claim | keep the refusal until its evidence owner changes and the guard is reevaluated |
+
+These outcomes must remain distinguishable in diagnostics and handoff. Treating
+an unavailable environment as a passing or failing scientific check, or a
+publication refusal as a tooling crash, removes the information needed to
+choose a safe next action.
 
 ## Use Check Mode Before Write Mode
 

@@ -13,6 +13,11 @@ Repository maintenance begins with ownership, not with a convenient command.
 Choose the surface that has authority to make the intended change, constrain
 its writes, review its consequences, and retain proof at the same boundary.
 
+Scientific objects and publication states use the public [domain
+language](../../public/pollenomics-data/domain-language.md); maintenance adds
+producer, write-boundary, verification, and release responsibilities without
+renaming those concepts.
+
 ## Repository Governance
 
 The maintainer surface separates three forms of ownership. The
@@ -123,6 +128,26 @@ flowchart TD
 Producer success is necessary but insufficient. A mechanically valid report
 can still contain the wrong geography, an unsupported admission, or a changed
 warning posture.
+
+### Generated-State Review Packet
+
+When a governed producer writes `data/`, `docs/report/`, an interface freeze,
+or another declared destination, retain this review packet:
+
+| Packet member | Required content |
+| --- | --- |
+| producer identity | exact command or module and the contract that authorizes its writes |
+| input identity | repository revision, source or product versions, configuration, and prior manifests |
+| write set | every changed root and whether each file is handwritten, generated, or removed |
+| identity diff | added, removed, retained, merged, split, and replaced governed members |
+| semantic diff | changed roles, facts, precision, relations, qualifications, decisions, and warnings |
+| population diff | eligible, admitted, non-member, and published denominators before and after |
+| unchanged dependents | consumers that could have changed but remained stable, with evidence |
+| verification | owner-specific checks, exit status, warnings, and intentionally omitted broader lanes |
+
+Aggregate counts and a successful exit are summaries of this packet, not
+substitutes for it. Review member identity before count, scientific meaning
+before rendering, and governing input before generated presentation.
 
 ### Close The Dependency Boundary
 
