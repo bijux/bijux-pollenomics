@@ -51,6 +51,12 @@ Four machine-readable contracts make this flow inspectable:
 - `data/evidence_artifact_contracts.json` defines recurring project, sample,
   regional, and country artifact shapes.
 
+The collector summary and the evidence-family contract answer different
+inventory questions. `data/collection_summary.json` pins seven
+collector-managed source trees. The evidence system contains eight contracted
+families because animal ancient DNA is curated through its own archive,
+literature, supplement, project, and sample authorities.
+
 ## Curation Is Evidence Work
 
 Normalization is not the final step. Records may require scientific and
@@ -150,6 +156,34 @@ a sample label, the sample authority changes first; locality, chronology,
 species, atlas, and country descendants are then regenerated and reviewed.
 Editing only the visible map row would leave the database internally
 contradictory.
+
+## Record Contract
+
+A governed evidence record is usable outside its original folder only when six
+relations remain resolvable:
+
+| Relation | What remains recoverable |
+| --- | --- |
+| identity | stable object identifier, object type, aliases, and source-native key |
+| origin | source family, release or accession, captured artifact, and locator |
+| ownership | the authority for every repeated scientific fact |
+| qualification | precision, uncertainty, conflict, and unresolved state |
+| admission | product, scope, role, membership outcome, and reason |
+| descendants | normalized views, review surfaces, and publications affected by correction |
+
+```mermaid
+flowchart TB
+    Record["governed record identity"] --> Origin["source and captured locator"]
+    Record --> Facts["owned scientific facts"]
+    Facts --> Review["qualification and conflict state"]
+    Review --> Admission["product-specific decision"]
+    Admission --> Descendants["report, map, and accountability members"]
+    Descendants -. correction impact .-> Record
+```
+
+A table can repeat owned fields for convenience, but repetition does not
+transfer authority. A portable extract therefore keeps these relations with
+the selected rows instead of treating column presence as provenance.
 
 ## Query By Claim, Not By Folder
 

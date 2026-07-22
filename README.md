@@ -162,8 +162,8 @@ The current repository state is substantial but deliberately uneven:
 | --- | ---: | --- |
 | source families | 7 | AADR, boundaries, LandClim, Neotoma, RAÄ, SEAD, and SVAR are separately captured and governed |
 | LandClim | 492 site sequences and 88 grid cells | primary pollen and vegetation context |
-| Neotoma | 200 sites | independent pollen context with uneven chronology support |
-| SEAD | 2,172 normalized sites | archaeology context without numeric intervals in the current capture |
+| Neotoma | 200 sites; 170 numerically comparable, 5 contextual-only, and 25 unresolved | independent pollen context with explicit temporal posture |
+| SEAD | 2,195 reviewed inventory rows and 2,172 mapped Nordic features | archaeology context without numeric intervals in the current capture |
 | RAÄ | 761,917 published sites | Sweden-specific heritage density context |
 | SVAR | 40,565 lakes | candidate-lake identity and hydrographic framing |
 | animal aDNA curation | 868 recovered samples across 40 projects | recovered identity rows, not proof of complete project recovery |
@@ -185,6 +185,36 @@ flowchart LR
 The difference between 868 recovered animal samples and 234 published point
 rows is not unexplained loss. It is the visible effect of evidence ownership,
 spatial resolution, temporal posture, source recovery, and product admission.
+
+## Collection, Curation, And Publication Denominators
+
+Three totals recur across the repository because they describe different
+populations:
+
+| Population | Current scope | Governing question |
+| --- | --- | --- |
+| collected source families | 7 families in `data/collection_summary.json` | which collector-managed source trees belong to the pinned collection state? |
+| contracted evidence families | 8 families, including animal ancient DNA | which scientific and framing families have declared evidence roles and lifecycle contracts? |
+| publication members | product-specific subsets | which governed records satisfy this geography and claim contract? |
+
+Animal ancient DNA is the eighth contracted family, but it is curated through
+project archives, papers, supplements, sample authorities, and species views
+rather than the seven-family collector summary. A product then admits only the
+members supported for its particular spatial, temporal, and evidential claim.
+
+This distinction prevents three common errors: reading collection breadth as
+publication completeness, reading recovered samples as map-ready points, and
+adding counts whose observation units differ.
+
+```mermaid
+flowchart LR
+    Collected["7 collector-managed families"] --> Contracts["family contracts and normalized state"]
+    Animal["animal source library and sample evidence"] --> Contracts
+    Contracts --> Eight["8 contracted evidence families"]
+    Eight --> Gate{"product-specific admission"}
+    Gate --> Members["scoped publication members"]
+    Gate --> Account["qualified, excluded, and unresolved records"]
+```
 
 ## What This Repository Produces
 

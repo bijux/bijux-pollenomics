@@ -130,8 +130,8 @@ continues from publication to evidence and then to the governing source.
 | Evidence family | Checked-in posture | Reader-safe interpretation |
 | --- | --- | --- |
 | LandClim | 492 site sequences; 482 carry numeric BP intervals | time-aware pollen context at the sequence level |
-| Neotoma | 200 sites; 175 carry numeric site spans | pollen context with explicit temporal caveats |
-| SEAD | 2,172 normalized sites; no numeric intervals in the current capture | archaeology context, not same-period support |
+| Neotoma | 200 sites; 170 are numerically comparable, 5 contextual-only, and 25 unresolved | pollen context with explicit temporal posture |
+| SEAD | 2,195 reviewed inventory rows; 2,172 mapped Nordic features; no numeric intervals | archaeology context, not same-period support |
 | RAÄ | density source covering 761,917 published Swedish sites | Sweden-specific spatial archaeology context |
 | SVAR | 40,565 candidate lakes | hydrographic identity and selection units, not scientific evidence weight |
 | animal aDNA | 868 recovered sample rows across 40 projects | curated sample evidence with uneven project completeness |
@@ -140,6 +140,19 @@ continues from publication to evidence and then to the governing source.
 The collection is intentionally larger than any one publication. Governed
 records may remain contextual, unresolved, excluded, or queued for recovery
 when their evidence cannot support the requested public representation.
+
+### Why The Site Names Seven And Eight Families
+
+The collection summary covers seven collector-managed families: AADR,
+boundaries, LandClim, Neotoma, RAÄ, SEAD, and SVAR. The data system describes
+eight contracted families because animal ancient DNA enters through a curated
+source library of archive projects, papers, supplements, samples, localities,
+chronology, and coordinates.
+
+Both counts are correct at their own boundary. Seven identifies the pinned
+collector state; eight identifies the full evidence system. Neither identifies
+the membership of a world, regional, country, or lake product, which is
+declared separately by its manifest and admission records.
 
 ## Evidence Surfaces
 
@@ -194,6 +207,24 @@ flowchart LR
 
 This order keeps the convenient surface useful without allowing it to outrank
 the evidence that gives the result meaning.
+
+## Read A Number As A Typed Claim
+
+Before comparing a count, percentage, date, distance, or rank, resolve five
+properties:
+
+| Property | Example |
+| --- | --- |
+| observation unit | project, sample, site, sequence, grid cell, lake, or publication feature |
+| population | captured, normalized, reviewed, admitted, excluded, or unresolved records |
+| scope | source release, species, geography, temporal window, and product |
+| evidence posture | direct, contextual, framing, decision support, or accountability |
+| authority | manifest, governed record, review ledger, or source artifact that owns the value |
+
+For example, 2,195 SEAD rows describe the reviewed source inventory, while
+2,172 describe mapped Nordic context features. The difference is meaningful
+and visible; it must not be silently presented as data loss or ignored in a
+coverage percentage.
 
 ## Current Publication Family
 
