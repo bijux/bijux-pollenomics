@@ -111,6 +111,28 @@ or chart that displays a mean must retain access to the original bounds,
 precision posture, evidence class, and comparison note so that an interval
 does not acquire false point precision.
 
+### Calendar Conversion Contract
+
+Numeric BP values use 1950 CE as the reference year. For chronology text that
+matches the supported BCE or CE forms, the current normalization applies:
+
+| Source expression | Numeric conversion |
+| --- | --- |
+| year BCE | `year + 1949` BP, accounting for the absence of year zero |
+| year CE | `max(0, 1950 - year)` BP |
+| BCE or CE range | convert both endpoints, then order the BP interval from younger to older |
+| explicit BP point or range | retain the BP value or ordered bounds |
+
+For example, `11367-11220 BCE` becomes `13169-13316 BP`: 11220 BCE is the
+younger bound and 11367 BCE is the older bound. The source wording remains
+stored beside the normalized interval.
+
+Calendar conversion is not radiocarbon calibration. It does not infer a
+laboratory uncertainty, choose a calibration curve, reinterpret an
+archaeological period, or prove that a source label is sample-owned. Words such
+as *calibrated*, *modeled*, *circa*, and *contextual* remain part of the dating
+basis and precision posture after numbers are available.
+
 ## Worked Chronology Trace
 
 The same sample used in the identity and locality guides,

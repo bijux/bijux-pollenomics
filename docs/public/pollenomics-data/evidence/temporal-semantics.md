@@ -72,6 +72,27 @@ flowchart LR
     Eligible -->|no| Refusal["explicit comparison refusal"]
 ```
 
+### Interval Arithmetic Contract
+
+Canonical BP intervals are ordered from the younger, lower BP bound to the
+older, higher BP bound. For eligible intervals `[a_start, a_end]` and
+`[b_start, b_end]`:
+
+| Derived value | Rule |
+| --- | --- |
+| overlap start | `max(a_start, b_start)` |
+| overlap end | `min(a_end, b_end)` |
+| overlap | overlap start is less than or equal to overlap end |
+| separation | the younger interval's older bound is below the older interval's younger bound |
+| midpoint | rounded mean of one interval's bounds; navigation only |
+| duration | older bound minus younger bound |
+
+Touching endpoints count as overlap at the represented precision. Reversed
+source bounds are normalized before comparison; missing bounds do not become
+zero-width intervals. The result inherits the weaker comparability posture of
+its inputs and retains both original intervals, because an overlap label alone
+cannot communicate width or uncertainty.
+
 ## Three-State Comparison Logic
 
 Temporal comparison has at least three outcomes, not a Boolean pair:

@@ -122,6 +122,37 @@ representation, but they must not change basis, confidence, or supported
 precision. A transformed pair remains the same governed spatial claim only
 when its lineage to the original pair is retained.
 
+### Axis, Range, And Reference-System Contract
+
+Coordinate serialization has two conventions that must not be confused:
+
+| Surface | Order |
+| --- | --- |
+| named record fields and human-readable tables | latitude, then longitude |
+| GeoJSON coordinate arrays | longitude, then latitude |
+
+The normalized animal pair is accepted only when both values are present,
+latitude lies within `-90..90`, and longitude lies within `-180..180`. The
+source text is retained beside the numeric representation so parsing and
+rounding remain inspectable.
+
+Reference-system conversion is a separate lineage event. For example, the
+SVAR collector transforms source geometry from EPSG:3006 to EPSG:4326 before
+publication. That operation changes coordinate representation, not lake
+identity, source geometry ownership, or sampling suitability. A reusable
+transformation therefore retains source CRS, target CRS, method, source
+geometry identity, and any rounding applied.
+
+```mermaid
+flowchart LR
+    Source["source pair or geometry<br/>source CRS"] --> Validate["axis and range validation"]
+    Validate --> Transform["declared CRS transformation"]
+    Transform --> Record["named latitude / longitude"]
+    Record --> GeoJSON["GeoJSON longitude, latitude"]
+    Source --> Lineage["basis, source text, and geometry identity"]
+    Lineage --> GeoJSON
+```
+
 ## Spatial Relations Are Derived Claims
 
 A distance, containment result, or nearest-neighbour label is not stored truth
