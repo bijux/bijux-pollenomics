@@ -126,6 +126,33 @@ source or claim record, then rebuilds normalized, review, admission, and
 publication descendants. This order prevents a map from disagreeing with the
 database that is supposed to explain it.
 
+### Recovery Changes A Decision Only Through Evidence
+
+A recovery item is not complete because a blank field now has a value. The
+new material must close the specific missing edge that blocked the claim.
+Consider a project-context point awaiting sample recovery:
+
+| State | Required record |
+| --- | --- |
+| before recovery | project and paper identity, place statement, provisional context member, failed sample-evidence condition |
+| recovered evidence | captured sample-bearing artifact with content identity and exact row locator |
+| identity decision | project-owned stable sample key plus source-native labels and ambiguity disposition |
+| claim review | sample-to-site, locality, chronology, and coordinate decisions evaluated independently |
+| product effect | prior context member retained in history; replacement, qualification, or continued refusal explained at member level |
+
+```mermaid
+flowchart LR
+    Gap["named missing relation"] --> Artifact["captured supporting evidence"]
+    Artifact --> Relation["governed object or relation"]
+    Relation --> Review["new claim-specific decision"]
+    Review --> Diff["member and accountability diff"]
+    Value["plausible value without lineage"] -. "cannot close" .-> Gap
+```
+
+The publication count may remain unchanged even when the evidence class
+changes. Recovery review therefore compares stable identities, roles,
+precision, and qualifications—not totals alone.
+
 ## Accept A Recovery
 
 A recovery is complete when the intended evidence boundary is coherent and

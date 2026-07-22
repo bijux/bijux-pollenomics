@@ -75,6 +75,33 @@ reused silently for a point map. It also prevents a previous admission from
 surviving a changed locality, chronology, boundary, or product rule merely
 because the candidate key stayed the same.
 
+### Admission Is A Query Result, Not A Record Flag
+
+The database does not carry one universal `publishable` property. Admission is
+the result of evaluating a typed object against a versioned product question:
+
+```text
+admission = evaluate(candidate, evidence revision, role, product, rule set)
+```
+
+For a Direkli Cave goat sample, the point-product query can pass because the
+sample identity, sample-to-site relation, supplied coordinates, chronology
+posture, and source locator are connected. The same object still requires a
+different decision for a numeric temporal comparison. For the Wadi Halfa
+dromedary context, the map query can return a qualified context member while a
+sample-backed query must refuse it because no final sample identity was
+recovered.
+
+| Query | Direkli sample | Wadi Halfa context |
+| --- | --- | --- |
+| may appear on the animal point surface? | admitted as sample-backed evidence | qualified as project context |
+| may count as a recovered sample? | yes, through the project sample master | no |
+| may be treated as source-supplied exact geometry? | only at the coordinate record's declared basis | no; named-place resolution is approximate |
+| may support numeric temporal comparison? | evaluate the sample chronology contract | unavailable without sample-owned chronology |
+
+This query model prevents a decision from leaking between roles. Visibility
+is not a reusable approval token.
+
 ## Product-Specific Fitness
 
 | Evidence posture | Point map | Numeric temporal comparison | Narrative context |
@@ -107,6 +134,12 @@ These counts need not be equal. The differences are informative only when
 each transition has explicit reasons and stable member identities. A published
 count without the reviewed and excluded populations cannot establish
 completeness.
+
+Population accounting also requires stable identities on the non-member side.
+A total such as “234 published” is reproducible only when the 233
+sample-backed members and one project-context member remain separately
+addressable. Otherwise the same total can survive a silent change in evidence
+class.
 
 ## Admission Result Contract
 

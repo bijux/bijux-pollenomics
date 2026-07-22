@@ -68,6 +68,28 @@ A database that retains only successful joins cannot explain its own
 denominator. The unresolved, refused, deferred, and outside-scope populations
 are part of the curated state, not editorial debris.
 
+### Curation Does Not Overwrite The Source Row
+
+The captured value, repository interpretation, and product decision remain
+separate records. That separation is visible in two animal cases:
+
+| Case | Captured evidence | Curated database state | Product consequence |
+| --- | --- | --- | --- |
+| Direkli Cave goat | supplementary workbook Table S2, row 2 names archive sample `SAMEA4453841`, locality, coordinates, and chronology | final project-owned sample identity with separate locality, coordinate, and chronology claims | admitted as a sample-backed point at the supported precision |
+| Wadi Halfa dromedary | paper-backed Site 1040 place context for project `SRP073444`; no recoverable sample-master row | provisional project-context identity and approximate named-place coordinate, with missing sample evidence retained | admitted only as a qualified context feature, not counted as a recovered sample |
+
+```mermaid
+flowchart LR
+    Capture["captured wording and locator"] --> Claim["typed evidence claim"]
+    Claim --> Decision["curation decision"]
+    Decision --> Projection["product-specific projection"]
+    Capture -. "preserved, never rewritten by" .-> Projection
+```
+
+Both cases produce useful public evidence, but they do not produce the same
+object or claim class. Flattening them into a common “curated point” row would
+erase the distinction that makes the 234-member animal surface defensible.
+
 ## Fact Ownership
 
 Facts often appear in several convenient exports. Repetition does not transfer
@@ -130,6 +152,13 @@ Start from either the source or the public member and recover the same chain:
 4. inspect normalization, precision, null, and conflict posture;
 5. inspect the product-specific admission decision and scope;
 6. confirm that warnings, exclusions, and recovery items remain reachable.
+
+For the final check, compare the public wording with the decision class. A
+sample-backed member may name the governed sample and source-supported point;
+a project-context member must retain its provisional identity and approximate
+spatial posture everywhere it appears. If presentation uses the stronger
+language for both, the defect is in the projection even when the underlying
+curation records are correct.
 
 Continue with [record admission](record-admission.md) for the product gate and
 [conflicts and recovery](conflicts-and-recovery.md) for unresolved evidence.
