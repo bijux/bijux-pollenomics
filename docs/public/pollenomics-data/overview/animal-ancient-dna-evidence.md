@@ -9,10 +9,12 @@ last_reviewed: 2026-07-22
 
 # Animal Ancient DNA Evidence
 
-Animal ancient-DNA publication begins with a source-backed sample, not a
-project title or species mention. Papers, archive projects, supplements,
+Animal ancient-DNA publication normally begins with a source-backed sample,
+not a project title or species mention. Papers, archive projects, supplements,
 sample tables, sites, chronology statements, and coordinates remain distinct
-evidence units until their relationships are explicitly curated.
+evidence units until their relationships are explicitly curated. The current
+point surface also contains one explicitly qualified project-anchored context
+feature; it must not be described as a recovered sample.
 
 ## Evidence Chain
 
@@ -78,6 +80,21 @@ supplementary-table coordinates and one uses documented named-site geocoding
 at approximate confidence. These are admitted evidence rows, not proof that
 every project, species, locality, or chronology has reached the same maturity.
 
+The same split applies to identity. The 233 supplementary-coordinate rows have
+final sample identity backed by directly extracted table rows. The remaining
+feature, the Wadi Halfa dromedary context for project `SRP073444`, has
+provisional project-anchored identity and `not_yet_recoverable` sample status.
+Its paper names Site 1040 near Wadi Halfa, and its published geometry is an
+approximate named-place resolution. The supported statement is therefore that
+the product carries a qualified dromedary context feature—not that a recovered
+sample row has exact excavation coordinates.
+
+| Point population | Rows | Identity and coordinate posture |
+| --- | ---: | --- |
+| directly extracted sample evidence | 233 | final sample identity and supplementary-table coordinates |
+| project-anchored dromedary context | 1 | provisional identity and approximate Wadi Halfa named-place geocode |
+| total admitted point-evidence rows | 234 | mixed evidence surface; preserve the class of each row |
+
 ### Evidence Depth Is Dimension-Specific
 
 | Dimension | What the repository can establish | Remaining boundary |
@@ -99,7 +116,10 @@ different states instead of averaging them into one quality label.
 flowchart LR
     Inventory["40 tracked projects"] --> Recovery["868 recovered sample rows"]
     Recovery --> Review["identity, locality, chronology, coordinate review"]
-    Review --> Points["234 admitted point-evidence rows"]
+    Review --> Samples["233 final sample-backed points"]
+    Inventory --> Context["1 qualified project-anchored context point"]
+    Samples --> Points["234 admitted point-evidence rows"]
+    Context --> Points
     Inventory --> Gaps["blocked, under-recovered, and unresolved projects"]
     Gaps --> Accountability["recovery review and refusal surfaces"]
 ```
@@ -137,6 +157,13 @@ present traceability and precision does not certify complete recovery of its
 project. The release posture records the narrower claim that the admitted
 subset satisfies its point contract while project-level recovery denominators,
 blocked sources, and unresolved evidence remain visible outside that subset.
+
+The Wadi Halfa context feature is the concrete reason publication type must
+travel with the row. It is spatially admitted under the current product but
+does not satisfy the stronger recovered-sample identity posture of the other
+233 rows. Analyses requiring sample-level independence or recovered sample
+denominators must exclude or separately classify it and account for that
+decision.
 
 Continue with [animal source intake](../sources/animal-source-intake.md),
 [sample records](../evidence/sample-records.md), [locality evidence](../evidence/localities.md),

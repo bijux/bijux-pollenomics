@@ -37,6 +37,27 @@ These measures are published together because no one of them is an honest
 summary of the collection. In particular, dividing the recovered sample total
 by the four exact-denominator projects would compare unrelated populations.
 
+### Intake And Point Populations Are Not The Same
+
+The current point-evidence surface combines two identity postures:
+
+| Population | Count | Intake basis | Permitted description |
+| --- | ---: | --- | --- |
+| final extracted samples with supplementary coordinates | 233 | directly extracted sample rows with final identity | sample-backed publication points |
+| Wadi Halfa dromedary context | 1 | project `SRP073444`, paper-pinned place statement, provisional sample identity | qualified project-anchored context point |
+
+The second row is not part of the 868 recovered sample population merely
+because it appears in the 234-row point review. Its stable token anchors the
+project context, while `sample_evidence_status: not_yet_recoverable` and
+`sample_identity_resolution: provisional` preserve the missing sample-level
+link.
+
+This distinction prevents two inverse errors: dropping useful paper-backed
+context because sample recovery is incomplete, and reporting that context as
+if a sample-bearing table had been recovered. A query that requires samples
+uses the first population. A map that accepts qualified project context may use
+both, but must expose the identity class.
+
 ## From project to publishable sample
 
 ```mermaid
@@ -59,6 +80,21 @@ Each transition has its own evidence requirement. A readable paper does not
 prove that its sample table was recovered; a recovered sample label does not
 prove an exact site; and a named site does not justify coordinates unless the
 coordinate source and resolution are explicit.
+
+For project `PRJEB90141`, supplementary workbook Table S2 supplies four final
+goat sample rows—Direkli1-2, Blagotin3, Semnan3, and Acem2—with distinct archive
+identifiers, localities, coordinates, and chronology. The project accession is
+shared; the sample claims are not. For `SRP073444`, the paper supplies a named
+Wadi Halfa context while a recoverable sample-master row remains absent. These
+two projects therefore follow different branches of the intake contract.
+
+```mermaid
+flowchart LR
+    Goat["PRJEB90141 + Table S2"] --> GoatRows["4 final extracted sample rows"]
+    GoatRows --> GoatPoints["sample-backed points"]
+    Camel["SRP073444 + paper place statement"] --> CamelGap["sample row not yet recoverable"]
+    CamelGap --> CamelPoint["qualified project-context point"]
+```
 
 ## Governed Intake Surfaces
 

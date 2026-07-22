@@ -69,6 +69,37 @@ but it does not settle locality or chronology conflicts in animal evidence,
 validate pollen chronology, or turn nearby archaeology context into a causal
 relationship.
 
+## Worked Member: RISE175.SG
+
+The Sweden `v66` bundle contains genetic ID `RISE175.SG` as one unique sample
+even though its accession lineage names both the `1240k` and `ho` panels.
+
+| Field | Governed value | Meaning |
+| --- | --- | --- |
+| genetic ID | `RISE175.SG` | release-owned member identity used across the export |
+| master ID | `9519` | additional AADR identity retained for resolution |
+| panels | `1240k`, `ho` | two source-panel memberships, not two people |
+| locality | Abekås I, Sweden | release metadata selected into the Sweden product |
+| geometry | `13.6, 55.397` | GeoJSON longitude then latitude |
+| source chronology | `1396-1131 calBCE (3025±30 BP, OxA-28998)` | original wording retained with the row |
+| normalized interval | `3113-3353 BP` | comparison representation derived from the declared mean and deviation basis |
+
+```mermaid
+flowchart LR
+    Release["AADR v66"] --> K1240["1240k member"]
+    Release --> HO["HO member"]
+    K1240 --> Identity["RISE175.SG / master 9519"]
+    HO --> Identity
+    Identity --> Sweden["one Sweden bundle sample"]
+    Sweden --> Feature["one GeoJSON feature"]
+```
+
+This is why panel row counts cannot be added as individual counts. The bundle
+reports 416 Sweden rows in each panel but 416 unique samples, because identity
+resolution collapses the two panel memberships at the product boundary. A
+downstream merge on coordinates or display labels would not preserve that
+decision.
+
 ## Audit Or Reuse A Row
 
 Carry the country bundle, sample identifier, panel and release identity,
