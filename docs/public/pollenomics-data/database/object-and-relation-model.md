@@ -190,6 +190,24 @@ regenerated when the authority changes.
 | pollen context | normalized family record | regional pollen layers and comparison packets |
 | country framing | normalized boundary geometry | country membership, counts, maps, and reports |
 
+### Relations Are Superseded, Not Rewritten In Place
+
+When stronger evidence changes a join, retain enough history to explain both
+the former and current relation. The stable endpoint identities may remain
+unchanged while predicate, evidence locator, precision, or posture changes.
+
+| Change | Stable element | Superseded element |
+| --- | --- | --- |
+| project context replaced by sample-owned locality | sample identity | locality relation, owner, and evidence locator |
+| approximate site anchor replaced by supplied coordinates | site and sample identities | coordinate relation, basis, precision, and point decision |
+| ambiguous sample label resolved | source artifact and candidate identities | ambiguity relation and selected identity decision |
+| product geography changes | governed evidence object | containment relation and product membership decision |
+
+Deleting the prior relation makes historical products and decisions
+unexplainable. Keeping two relations as simultaneously current creates a false
+conflict. Supersession names which relation is current, why it replaced the
+previous posture, and which descendant decisions require reevaluation.
+
 ## Join Safety
 
 | Candidate bridge | Safe only when | Refuse when |

@@ -66,6 +66,25 @@ Every answer is revision-bound. “Which record is this?” and “why is it abs
 can change when source identity, evidence, scope, or admission rules change,
 even when the display label remains stable.
 
+### A Database Answer Has Three Parts
+
+A defensible answer is not only a value. It combines a governed assertion, the
+evidence that supports or limits it, and the decision that authorizes the
+requested use:
+
+```mermaid
+flowchart LR
+    Assertion["typed assertion<br/>subject + dimension + value"] --> Evidence["evidence packet<br/>locator + method + precision"]
+    Evidence --> Decision["use decision<br/>rule + scope + posture"]
+    Decision --> Answer["revision-bound answer"]
+```
+
+For example, coordinates may be asserted and source-backed while sample
+lineage remains incomplete. The coordinate question can have a supported
+answer while the full-accountability question fails. Database queries must
+name the requested dimension and use; otherwise a true component can be
+mistaken for approval of the whole record.
+
 ### Files Are Projections Of A Typed Graph
 
 Directory position is useful for discovery, but the database model is the

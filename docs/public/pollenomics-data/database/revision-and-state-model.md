@@ -193,6 +193,27 @@ the manifest that identifies its product population. Reuse must either retain
 the coherent read set or explicitly describe the result as an unverified
 cross-revision comparison.
 
+### A Modified Worktree Is A Candidate Snapshot
+
+A commit names an immutable joined state. A worktree with modified governed
+files does not. It is a candidate whose coherence must be established across
+every affected authority and descendant before it can support the same claims
+as a repository revision.
+
+```mermaid
+stateDiagram-v2
+    [*] --> Revision: coherent committed snapshot
+    Revision --> Candidate: authority or descendant modified
+    Candidate --> Partial: dependents not reconciled
+    Candidate --> Verified: identities and populations reconcile
+    Partial --> Candidate: repair earliest incorrect boundary
+    Verified --> Revision: commit complete owned state
+```
+
+Record the base revision and changed governed roots when inspecting a
+candidate. A clean diff is not scientific proof, but an unnamed mixture of
+committed and modified state cannot provide a reproducible database identity.
+
 ## Change Classes
 
 | Change | Required review |

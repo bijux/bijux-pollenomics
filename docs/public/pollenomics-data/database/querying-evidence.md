@@ -142,6 +142,38 @@ flowchart LR
     Candidate --> Feature["world product member"]
 ```
 
+### Query A Visible Accountability Gap
+
+The current animal candidate population also contains a dromedary-camel member
+whose sample row, site evidence, chronology evidence, and coordinate
+provenance are present while sample lineage is not. Query the failed dimension
+directly rather than inferring completeness from visibility:
+
+```bash
+python3 - <<'PY'
+import json
+from pathlib import Path
+
+accountability = json.loads(
+    Path("data/adna/final/atlas/animal_atlas_candidate_accountability.json")
+    .read_text()
+)
+for row in accountability["rows"]:
+    if not row["fully_accountable"]:
+        print(row["evidence_row_id"])
+        print(f"  sample rows: {row['sample_rows_present']}")
+        print(f"  sample lineage: {row['sample_lineage_present']}")
+        print(f"  site evidence: {row['site_evidence_present']}")
+        print(f"  chronology evidence: {row['chronology_evidence_present']}")
+        print(f"  coordinate provenance: {row['coordinate_provenance_present']}")
+PY
+```
+
+The answer is a dimensioned failure, not an instruction to discard the other
+evidence or promote the missing relation. The row stays addressable so source
+recovery can repair exactly the lineage boundary and dependent decisions can
+then be reevaluated.
+
 ## Audit An Expected Non-Member
 
 Non-visibility is not one state. Begin with the expected identity and inspect
