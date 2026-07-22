@@ -1,7 +1,7 @@
 {
   "schema_version": "repository-credibility-dashboard.v1",
   "overall_posture": "credible_but_still_recovery_bound",
-  "average_score": 3.38,
+  "average_score": 3.75,
   "rows": [
     {
       "dimension_key": "architecture_clarity",
@@ -10,7 +10,7 @@
       "finding": "repository architecture and product-model surfaces now name the world-to-country publication model directly",
       "evidence_anchors": [
         "docs/report/repository_product_model.json",
-        "docs/public/pollenomics/foundation/end-state-product-model.md"
+        "docs/public/pollenomics/foundation/publication-scope-model.md"
       ]
     },
     {
@@ -26,8 +26,8 @@
     {
       "dimension_key": "source_family_coverage",
       "display_name": "Source-family coverage",
-      "score": 3,
-      "finding": "13 directly explainable source-family pages keep the repository broader than one aDNA recovery story",
+      "score": 4,
+      "finding": "15 directly explainable source-family pages keep the repository broader than one aDNA recovery story",
       "evidence_anchors": [
         "docs/report/repository_source_family_matrix.json",
         "docs/report/repository_source_explainer_audit.json"
@@ -56,7 +56,7 @@
     {
       "dimension_key": "geographic_extensibility",
       "display_name": "Geographic extensibility",
-      "score": 2,
+      "score": 4,
       "finding": "world, Europe-plus, Nordic, and country publication now share one lineage plus one onboarding contract",
       "evidence_anchors": [
         "docs/report/publication_geography_registry.json",

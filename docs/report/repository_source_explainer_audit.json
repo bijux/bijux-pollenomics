@@ -10,8 +10,8 @@
       "surface_kind": "source_family",
       "display_name": "LandClim source explainer",
       "page_path": "docs/public/pollenomics-data/sources/landclim.md",
-      "status": "restoration_plan_required",
-      "notes": "missing expected anchors: `pollen context`"
+      "status": "present_useful_form",
+      "notes": "page exists and keeps the expected source or output anchors visible"
     },
     {
       "surface_kind": "source_family",
@@ -38,8 +38,8 @@
       "surface_kind": "source_family",
       "display_name": "Boundary source explainer",
       "page_path": "docs/public/pollenomics-data/sources/boundaries.md",
-      "status": "restoration_plan_required",
-      "notes": "missing expected anchors: `country filtering`"
+      "status": "present_useful_form",
+      "notes": "page exists and keeps the expected source or output anchors visible"
     },
     {
       "surface_kind": "source_family",
@@ -66,8 +66,8 @@
       "surface_kind": "recovery_rule",
       "display_name": "Shared normalization explainer",
       "page_path": "docs/public/pollenomics-data/sources/shared-normalization.md",
-      "status": "restoration_plan_required",
-      "notes": "missing expected anchors: `docs/report/world/`"
+      "status": "present_useful_form",
+      "notes": "page exists and keeps the expected source or output anchors visible"
     },
     {
       "surface_kind": "output_family",
@@ -80,22 +80,22 @@
       "surface_kind": "output_family",
       "display_name": "Normalized Neotoma outputs explainer",
       "page_path": "docs/public/pollenomics-data/publications/neotoma-exports.md",
-      "status": "present_useful_form",
-      "notes": "page exists and keeps the expected source or output anchors visible"
+      "status": "restoration_plan_required",
+      "notes": "missing expected anchors: `data/neotoma/normalized/`"
     },
     {
       "surface_kind": "output_family",
       "display_name": "Normalized SEAD outputs explainer",
       "page_path": "docs/public/pollenomics-data/publications/sead-exports.md",
-      "status": "present_useful_form",
-      "notes": "page exists and keeps the expected source or output anchors visible"
+      "status": "restoration_plan_required",
+      "notes": "missing expected anchors: `data/sead/normalized/`"
     },
     {
       "surface_kind": "output_family",
       "display_name": "Normalized RA\u00c4 outputs explainer",
       "page_path": "docs/public/pollenomics-data/publications/raa-exports.md",
-      "status": "present_useful_form",
-      "notes": "page exists and keeps the expected source or output anchors visible"
+      "status": "restoration_plan_required",
+      "notes": "missing expected anchors: `Sweden-scoped`"
     },
     {
       "surface_kind": "output_family",

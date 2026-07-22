@@ -1,6 +1,6 @@
 {
   "schema_version": "repository-extension-review.v1",
-  "overall_posture": "extension_contract_still_fragile",
+  "overall_posture": "globally_extensible_and_locally_legible",
   "rows": [
     {
       "dimension_key": "global_extensibility",
@@ -13,7 +13,7 @@
     },
     {
       "dimension_key": "local_reasoning",
-      "score": 2,
+      "score": 4,
       "finding": "the runtime, data, and maintainer handbooks still explain ownership without collapsing the repo into one vague top layer",
       "evidence_anchors": [
         "docs/report/repository_docs_scope_validation.json",
