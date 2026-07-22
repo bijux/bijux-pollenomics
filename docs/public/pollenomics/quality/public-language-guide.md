@@ -4,95 +4,58 @@ audience: reader
 type: explanation
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-05-10
+last_reviewed: 2026-07-22
 ---
 
 # Public Language Guide
 
-`bijux-pollenomics` should read like a calm scientific product, not like an
-operator notebook and not like a status theater dashboard. This page defines
-the vocabulary used in code-owned report surfaces and in the handbook pages
-that explain them.
-
-Public language matters here because wording can inflate a weak surface without
-changing a single data file. The repository therefore treats naming and phrasing
-as part of the evidence contract, not as a cosmetic afterthought.
-
-Use this page when your question is:
-
-- why does the repository use one word and reject another
-- which terms signal real review strength and which would overclaim
-- how should I describe these outputs without making them sound broader than
-  they are
-
-## Core Rule
-
-Public wording should help people judge evidence strength more clearly, not
-less clearly. If a phrase makes a weak surface sound mature, general, or final,
-it is the wrong phrase even when it sounds elegant.
+Pollenomics uses a controlled evidence vocabulary so terms such as *coverage*,
+*validation*, *readiness*, and *publication* carry distinct meanings. The
+vocabulary describes the authority of a surface; it is not a maturity score.
 
 ## Information Roles
 
-- `review`: public judgment about whether one bounded surface is trusted
-- `validation`: pass or fail structural checks on a governed surface
-- `audit`: systematic inspection across many files, claims, or source families
-- `truth`: claim-calibration surface that keeps scope and weakness explicit
-- `summary`: aggregate orientation surface for people or downstream tooling
-- `coverage`: how much of a bounded domain is currently represented
-- `readiness`: whether a publication surface currently clears its own bar
-- `honesty`: public caveat surface that keeps limits visible beside outputs
-- `ledger`: accumulated exclusions, conflicts, or unresolved caveats
-- `matrix`: repeated comparison question across several domains or surfaces
-- `workflow`: governed human review sequence for curation or release
-- `queue`: ordered recovery pressure for still-blocked work
+| Term | Meaning in Pollenomics | Does not mean |
+| --- | --- | --- |
+| `review` | bounded evaluation of evidence or product posture | universal scientific endorsement |
+| `validation` | declared structural or relational checks passed | source completeness or historical truth |
+| `audit` | systematic inspection across a declared population of surfaces | automatic correction of findings |
+| `summary` | aggregate orientation over governed records | proof for every member row |
+| `coverage` | represented share of an explicit denominator | representative sampling unless demonstrated |
+| `readiness` | a named product currently clears its declared gate | final release or equal maturity across families |
+| `ledger` | accumulated conflicts, exclusions, substitutions, or caveats | a set of resolved items |
+| `matrix` | repeated dimensions compared across domains or products | one total confidence rank |
+| `queue` | ordered unresolved recovery or curation work | evidence already eligible for publication |
+| `publishable` | eligible for a specific product at stated precision | reference-grade or unrestricted reuse |
 
-These roles matter because different surfaces do different jobs. You should not
-have to guess whether a page is making a claim, exposing a caveat, or only
-recording a diagnostic.
+## Provenance Classes
 
-## Avoid These Words
+`sample-owned` means the evidence is tied to a recoverable sample row.
+`project-level` means it describes an archive project and cannot silently apply
+to every sample. `contextual` means the record supports interpretation without
+becoming direct evidence. `substituted` means a broader or alternative source
+was used under an explicit rule. `unresolved` means the repository cannot yet
+defend the requested representation.
 
-- `viewer`: it describes a tool posture, not an evidence responsibility
-- `packets`: it describes delivery format, not the question a surface answers
-- `scorecard`: it sounds managerial and hides what is actually being reviewed
-- polished labels that do not say what the page settles
+## Strength Verbs
 
-These banned patterns are not about style preference alone. They are blocked
-because they often hide the real question a surface answers.
+| Verb | Evidential posture |
+| --- | --- |
+| `records` | preserves a source statement or repository observation |
+| `supports` | provides evidence consistent with a bounded claim |
+| `anchors` | supplies identity, geography, or chronology used by a product |
+| `suggests` | indicates a qualified pattern with meaningful alternatives |
+| `blocks` | prevents admission under an explicit rule |
+| `proves` | reserved for a claim whose evidence and alternatives justify that strength |
 
-## What Good Public Wording Sounds Like
+## Scope Qualifiers
 
-- it names the surface responsibility directly
-- it names uncertainty instead of smoothing it away
-- it distinguishes context, evidence, framing, and caveat roles
-- it helps people know what to trust and what to inspect next
+`world`, `Europe-plus`, `Nordic`, and country names identify publication
+geographies. `country-filtered` identifies selection, not national
+representativeness. `comparator` identifies a record included for structured
+comparison and not necessarily for equal evidential weight.
 
-## Provenance Wording
-
-- say `sample-owned`, `project-level`, `supplementary-table`, or another exact
-  provenance class when it matters
-- name uncertainty directly instead of smoothing it into confident prose
-- prefer `supports`, `anchors`, `suggests`, `blocks`, and `remains unresolved`
-  over inflated verbs such as `proves` unless the surface genuinely does
-
-## Geographic Wording
-
-- distinguish `Nordic`, `country-filtered`, `Europe-plus`, and `comparator`
-  scopes explicitly
-- do not call a comparator-heavy or region-limited output `general` or
-  `region-agnostic`
-- name the filter boundary whenever a map or summary is scope-specific
-
-## Publication Wording
-
-- call a surface `publishable` only when the governed checks for that surface
-  actually pass
-- keep the strongest readiness language behind the release gate
-- when evidence is partial, say `partial`, `thin`, `blocked`, or `contextual`
-  rather than hiding that status in softer wording
-
-## A Quick Check
-
-If a term sounds broader, cleaner, or more triumphant than the underlying
-evidence really is, stop and translate it into the more exact role it is trying
-to describe.
+Terms describing evidence quality always travel with their object and scope:
+*sample chronology unresolved*, *Nordic product publishable*, or *project
+recovery partial*. Without that object and scope, words such as *complete*,
+*ready*, or *validated* are ambiguous.

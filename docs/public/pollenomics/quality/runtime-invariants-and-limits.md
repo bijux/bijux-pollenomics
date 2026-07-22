@@ -4,77 +4,69 @@ audience: reader
 type: explanation
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-05-10
+last_reviewed: 2026-07-22
 ---
 
 # Runtime Invariants and Limits
 
-This page states the public ground rules of the repository: what must stay true
-even while weaker evidence families are still being recovered, and what should
-not be inferred from the current outputs.
+The runtime preserves a small set of observable guarantees across collection,
+curation, analysis, and publication. These guarantees make a public record
+traceable even when its source family is incomplete or its scientific posture
+remains qualified.
 
-It is deliberately short because these are the rules that should remain clear
-even when the rest of the handbook becomes more detailed.
+## Observable Guarantees
 
-## Invariants
+| Guarantee | Observable consequence |
+| --- | --- |
+| source ownership | every record retains a source-family tree and identity |
+| lineage preservation | normalized and published records lead back to governed evidence |
+| explicit admission | publication follows review; file presence alone is insufficient |
+| semantic stability | narrower geographies preserve feature identity and role |
+| precision honesty | locality, chronology, and coordinates do not become more exact downstream |
+| accountable absence | blocked and excluded records remain visible in review or refusal surfaces |
+| reproducible scope | manifests bind products to inputs, version, geography, and product rules |
 
-- commands rewrite governed roots rather than ad hoc destinations
-- source-family ownership stays visible in tracked data layout
-- publication outputs remain downstream of tracked repository state
-- docs and review surfaces must not hide weak evidence posture
+```mermaid
+flowchart LR
+    Source["source identity"] --> Record["stable record identity"]
+    Record --> Review["reviewed place, time, and role"]
+    Review --> Decision{"admission"}
+    Decision -->|yes| Product["manifested public record"]
+    Decision -->|no| Refusal["accounted exclusion"]
+```
 
-These invariants are not implementation preference. They are the conditions
-that keep the public product reviewable.
+## Runtime Boundaries
 
-## What These Invariants Mean In Practice
+Collection can establish that material was retrieved and normalized. It cannot
+establish that every source row was recovered or is scientifically comparable.
+Validation can establish structural and relational invariants. It cannot prove
+that a historical interpretation is correct. Publication can establish that a
+record passed a product contract. It cannot make the underlying evidence more
+complete or precise.
 
-- a visible output should always trace back to a stable repository-owned path
-- one source family should not disappear into a generic mixed bucket
-- maps and reports should remain the downstream explanation, not the upstream
-  proof
-- caveats and refusal language should survive even when the interface becomes
-  cleaner
+## Current Scientific Limits
 
-## Definition Of Done
+- Animal ancient-DNA recovery remains uneven across projects, supplements,
+  species, localities, and chronology.
+- Atlas membership is a qualified publication decision, not a census of all
+  available or historically present evidence.
+- Source families have different observation units and temporal capability;
+  spatial co-location does not make them equivalent.
+- A broad geographic product may contain more records while providing less
+  local specificity than a country surface.
+- Rankings depend on declared inputs and models; they are decision support, not
+  field confirmation.
+- Source access, licensing, and unrecovered supporting material can limit what
+  is redistributed or admitted.
 
-A change is not done when files merely exist. It is done when the changed
-boundary is reviewable, linked, and validated at the right layer.
+## Interpreting A Passing Product
 
-For the public product, that means:
+A passing product demonstrates that its declared inputs, identities,
+relationships, geography, and publication rules were internally consistent at
+the recorded version. Stronger claims—complete recovery, representative
+sampling, exact historical abundance, reference-grade coordinates, or final
+scientific consensus—require evidence beyond that software contract.
 
-- the changed surface can be inspected
-- the next narrower explanation still exists
-- the wording still matches the available proof
-- the repository has not silently traded clarity for elegance
-
-## Dependency Governance
-
-Prefer explicit runtime contracts and stable checked-in files over hidden
-side effects or opaque rebuild steps.
-
-That matters because people should not need maintainer folklore to understand
-how a claim became visible.
-
-## Known Limits
-
-- animal aDNA remains a partial recovery surface
-- atlas presence is not the same as scientific completeness
-- docs breadth can regress if it is not tested explicitly
-
-## What The Current Outputs Still Cannot Honestly Claim
-
-- that the animal aDNA side is already a finished, evenly recovered evidence
-  engine
-- that all visible points carry the same locality and chronology strength
-- that broader geography automatically means deeper proof
-- that a cleaner handbook means the repository itself has become more complete
-
-## Risk Posture
-
-The main risk is elegant-looking narrowing: fewer pages, fewer links, and
-fewer explicit caveats while the repository still claims to explain the same
-evidence landscape.
-
-That is why the repository treats clarity as part of technical quality. A
-surface that sounds cleaner but says less is often a regression, not an
-improvement.
+See [operational boundaries](../operations/operational-boundaries.md),
+[publication types](../../pollenomics-data/publications/publication-types.md),
+and [publication limits](../../pollenomics-data/publications/limits.md).
