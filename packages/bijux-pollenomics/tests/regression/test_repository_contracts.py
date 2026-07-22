@@ -1261,7 +1261,7 @@ class RepositoryContractRegressionTests(unittest.TestCase):
             sample_page,
         )
         self.assertIn(
-            "data/adna/species/<species-slug>/normalized/sample_sites.json",
+            "data/adna/species/<species-slug>/normalized/site_evidence.json",
             site_page,
         )
         self.assertIn(
@@ -1346,9 +1346,13 @@ class RepositoryContractRegressionTests(unittest.TestCase):
         )
         self.assertIn("source_bundle_path", inventory_page)
         self.assertIn("data/adna/species/<species-slug>/", inventory_page)
-        self.assertIn("normalized/sample_master.json", inventory_page)
-        self.assertIn("review/sample_locality_evidence.json", inventory_page)
-        self.assertIn("normalized/sample_chronology.json", inventory_page)
+        self.assertIn(
+            "data/adna/governance/source_library/projects/<project-accession>/",
+            inventory_page,
+        )
+        self.assertIn("sample_master.json", inventory_page)
+        self.assertIn("sample_locality_evidence.json", inventory_page)
+        self.assertIn("sample_chronology_evidence.json", inventory_page)
         self.assertIn(
             "../../../report/repository_source_explainer_audit.md",
             source_recovery_page,

@@ -94,10 +94,11 @@ date must retain their different temporal semantics.
 
 ## Auditing chronology lineage
 
-Species-owned chronology is published under
-`data/adna/species/<species-slug>/normalized/sample_chronology.json`, with the
-supporting provenance review under the species `review/` directory. Collection
-audits expose coverage, precision, conflicts, and unrecovered dates:
+Chronology evidence remains project-owned under
+`data/adna/governance/source_library/projects/<project-accession>/`, including
+`sample_chronology.json`, `sample_chronology_evidence.json`, and
+`sample_chronology_provenance.json`. Cross-project audits expose coverage,
+precision, conflicts, and unrecovered dates:
 
 - `data/adna/governance/source_library/project_sample_chronology_review.json`;
 - `data/adna/governance/source_library/sample_chronology_precision_audit.json`;

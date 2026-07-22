@@ -104,8 +104,11 @@ context source. Family-specific reviews remain authoritative for coverage
 details, including `data/neotoma/review/temporal_review.json` and
 `data/sead/review/temporal_review.json`.
 
-For direct animal evidence, follow
-`data/adna/species/<species-slug>/normalized/sample_chronology.json` back to its
-provenance record. See [chronology evidence](chronology.md) for sample-level
-classification and [spatiotemporal posture](../sources/spatiotemporal-posture.md)
-for the source-family comparison boundary.
+For direct animal evidence, begin with the species-owned
+`normalized/sample_records.json`, use its project linkage to reach
+`data/adna/governance/source_library/projects/<project-accession>/`, and inspect
+the project's `sample_chronology_evidence.json` and
+`sample_chronology_provenance.json`. See [chronology evidence](chronology.md)
+for sample-level classification and
+[spatiotemporal posture](../sources/spatiotemporal-posture.md) for the
+source-family comparison boundary.

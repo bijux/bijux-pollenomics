@@ -84,16 +84,20 @@ rather than turning an estimate into an apparent fact.
 Start with the project registry under
 `data/adna/governance/source_library/project_registry.json`, then follow the
 project's `source_bundle_path`. The bundle connects project and paper records
-to captured artifacts and supplements. A recovered sample continues into the
-species-owned surfaces under `data/adna/species/<species-slug>/`:
+to captured artifacts and supplements. Project-owned recovery records under
+`data/adna/governance/source_library/projects/<project-accession>/` then
+preserve the source claims:
 
-1. `normalized/sample_master.json` establishes the stable sample identity and
-   source lineage;
-2. `review/sample_locality_evidence.json` records the reported place evidence
-   and any unresolved conflict;
-3. `normalized/sample_sites.json` records the admitted spatial representation;
-4. `normalized/sample_chronology.json` records chronology only when the source
-   supports a defensible temporal representation.
+1. `sample_master.json` establishes stable sample identity and source lineage;
+2. `sample_locality_evidence.json` and `sample_sites.json` preserve reported
+   locality, resolution, and site linkage;
+3. `sample_chronology_evidence.json` and
+   `sample_chronology_provenance.json` preserve temporal claims and their
+   source locators;
+4. the species-owned `normalized/` directory under
+   `data/adna/species/<species-slug>/` exposes `sample_records.json`,
+   `site_evidence.json`, and `coordinate_provenance.json` for downstream
+   products.
 
 Cross-project audits expose missing captures, ambiguous identities, locality
 conflicts, chronology gaps, and manual-curation work without promoting those

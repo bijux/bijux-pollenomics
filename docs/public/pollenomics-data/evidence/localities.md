@@ -95,10 +95,11 @@ missing source field needed to improve that posture.
 ## Auditing locality lineage
 
 For one species, begin with
-`data/adna/species/<species-slug>/normalized/sample_sites.json`. The row's
-artifact path and locator lead to the supporting source. Its evidence record is
-available in `review/sample_locality_evidence.json`; cross-project coverage and
-conflicts are summarized in:
+`data/adna/species/<species-slug>/normalized/site_evidence.json`. The row's
+project and sample linkage leads to the project-owned `sample_sites.json` and
+`sample_locality_evidence.json` under
+`data/adna/governance/source_library/projects/<project-accession>/`.
+Cross-project coverage and conflicts are summarized in:
 
 - `data/adna/governance/source_library/project_sample_site_review.json`;
 - `data/adna/governance/source_library/sample_locality_conflict_ledger.json`;
