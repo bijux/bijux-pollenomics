@@ -171,6 +171,37 @@ Do not satisfy a repository check by weakening the assertion when the
 underlying product contract is wrong. The finding is valuable precisely because
 it identifies a disagreement between declared and observed state.
 
+### Worked Finding: Passing Language Exceeds The Evidence Class
+
+Suppose a generated release gate reports that every animal point retains
+sample support, while the governed point review contains one member with
+`sample_identity_resolution: provisional` and
+`sample_evidence_status: not_yet_recoverable`.
+
+The maintainer package may prove that the generated gate and its checked-in
+inputs disagree in meaning. It must not relabel the provisional member as a
+final sample or weaken unrelated traceability checks.
+
+```mermaid
+flowchart LR
+    Review["governed point review"] --> Finding["provisional identity conflicts with broad gate wording"]
+    Gate["generated release gate"] --> Finding
+    Finding --> Runtime["release-gate producer and product contract"]
+    Runtime --> Regenerate["corrected generated gate"]
+    Regenerate --> Check["focused semantic and artifact verification"]
+```
+
+| Boundary | Correct action |
+| --- | --- |
+| evidence owner | preserve the provisional identity and source-recovery gap |
+| publication owner | decide whether project context remains an admitted product class |
+| gate producer | describe the admitted classes without calling every member a recovered sample |
+| documentation owner | expose the distinction, but do not become the gate authority |
+| maintainer check | detect future disagreement between these surfaces |
+
+This routing keeps a documentation correction from masking a generated-product
+defect and keeps a repository check from becoming a scientific curator.
+
 ## Report A Finding Precisely
 
 A maintainer finding is actionable when it records:

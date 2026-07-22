@@ -67,6 +67,33 @@ roots explicitly so a valid command cannot silently address the wrong tree.
 The repository is the reproducible reference environment when the checked-in
 evidence and publications are required together.
 
+### Installed Runtime Versus Repository Product
+
+An installation can expose the runtime correctly while having no evidence
+database in its working directory. Distinguish these states before diagnosing
+an empty result or invoking a writer:
+
+| Check | Establishes | Does not establish |
+| --- | --- | --- |
+| `bijux-pollenomics --version` | which executable resolved and which runtime version it reports | presence of governed data or reports |
+| `bijux-pollenomics product-scope` | compiled product and claim boundaries | maturity of the current repository evidence |
+| `bijux-pollenomics source-support --json` | source families understood by the runtime | that their captures exist under the current root |
+| `validate-collection-summary <path>` | one summary satisfies its structural contract | publication fitness of every collected record |
+| product manifest plus evidence rows | membership and traceability for one publication | complete source recovery or analytical eligibility |
+
+```mermaid
+flowchart LR
+    Wheel["installed wheel"] --> Runtime["commands and Python contracts"]
+    Evidence["explicit data root"] --> Operation["collection, review, or publication"]
+    Runtime --> Operation
+    Operation --> Manifest["governed result manifest"]
+    Manifest --> Claim["qualified product claim"]
+```
+
+The manifest—not process success alone—establishes what the operation
+materialized. The evidence and review members—not the manifest alone—establish
+what may be claimed from those members.
+
 ## Choose The Right Surface
 
 | Need | Start with | Why |

@@ -47,6 +47,34 @@ Libraries should normally depend on the canonical distribution. User-facing
 notebooks and command examples may prefer the short name when that convenience
 outweighs the extra distribution identity.
 
+### Record Both Distribution Identities
+
+When the short executable creates governed artifacts, the reproducibility
+record names both the entry surface and the implementation:
+
+```text
+entry distribution: pollenomics <installed-version>
+runtime distribution: bijux-pollenomics <installed-version>
+entry command: pollenomics <subcommand and arguments>
+governed inputs: explicit roots, versions, and configuration
+result identity: canonical manifest and member schemas
+```
+
+The first line explains which forwarding contract was requested. The second
+identifies the scientific implementation. The final two lines identify the
+state transition and its result. Replacing this packet with “ran pollenomics”
+loses the implementation version and cannot reproduce a publication.
+
+```mermaid
+flowchart LR
+    Alias["pollenomics distribution and command"] --> Canonical["bijux-pollenomics runtime version"]
+    Canonical --> Inputs["explicit governed inputs"]
+    Inputs --> Result["canonical manifest and schemas"]
+```
+
+Artifacts do not gain an alias-specific schema or source identity. The short
+name is part of invocation provenance; scientific meaning remains canonical.
+
 ## When The Short Name Helps
 
 Use `pollenomics` for concise interactive commands, notebooks, and applications
