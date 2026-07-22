@@ -9,127 +9,120 @@ last_reviewed: 2026-07-22
 
 # Data Architecture Handbook
 
-The database separates evidence by lifecycle and authority. Upstream bytes,
-normalized fields, scientific decisions, and public presentation are related,
-but no layer is allowed to impersonate another.
+Bijux Pollenomics uses a version-controlled evidence database. Its records are
+governed files whose history, schemas, identifiers, and publication effects
+can be inspected together. It is not a database service hidden behind the
+maps, and the maps are not the database.
 
-## Four Evidence Layers
+## Evidence Layers
 
-| Layer | Governing question | Typical contents |
-| --- | --- | --- |
-| Raw | What exactly was acquired? | source payload, version, retrieval metadata, license, and hash |
-| Normalized | How is the source represented consistently? | typed fields, stable identifiers, normalized dates, and geometry |
-| Reviewed | Is the record fit for a declared use? | conflicts, precision, coverage, caveats, exclusions, and release posture |
-| Published | What qualified evidence is exposed to readers? | report bundles, maps, tables, rankings, and public review surfaces |
+| Layer | Governing question | Typical contents | Authority limit |
+| --- | --- | --- | --- |
+| captured | What material entered the repository? | payloads, retrieval metadata, upstream identity, license, and hashes | does not imply correct interpretation |
+| normalized | How is source meaning represented consistently? | typed fields, stable identifiers, geometry, dates, and source-native values | does not imply publication fitness |
+| reviewed | What can this record support for a named use? | conflict, precision, coverage, substitution, caveat, and exclusion decisions | remains product- and claim-specific |
+| published | Which qualified records are exposed? | manifests, rows, maps, tables, rankings, warnings, and citations | cannot redefine upstream facts |
 
 ```mermaid
 flowchart LR
-    Raw -->|normalize without strengthening| Normalized
-    Normalized -->|evaluate fitness| Reviewed
-    Reviewed -->|select with declared posture| Published
-    Published -. never governs upstream facts .-> Reviewed
+    Captured["captured source"] --> Normalized["normalized evidence"]
+    Normalized --> Reviewed["reviewed posture"]
+    Reviewed --> Decision{"named product contract"}
+    Decision -->|admit| Published["published member"]
+    Decision -->|qualify| Published
+    Decision -->|exclude| Negative["exclusion or recovery evidence"]
+    Published -. "never governs upstream facts" .-> Reviewed
 ```
 
-## Family Topology
+## Three Contract Registries
 
-| Family | Raw | Normalized | Reviewed | Published |
-| --- | --- | --- | --- | --- |
-| LandClim | `data/landclim/raw/` | `data/landclim/normalized/` | cross-family stage matrix | world and regional pollen layers |
-| Neotoma | `data/neotoma/raw/` | `data/neotoma/normalized/` | `data/neotoma/review/` | world and regional pollen layers |
-| SEAD | `data/sead/raw/` | `data/sead/normalized/` | `data/sead/review/` | environmental archaeology layers |
-| RAÄ | `data/raa/raw/` | `data/raa/normalized/` | cross-family stage matrix | Sweden archaeology layers |
-| Boundaries | `data/boundaries/raw/` | `data/boundaries/normalized/` | cross-family stage matrix | geographic framing |
-| SVAR | `data/svar/raw/` | `data/svar/normalized/` | lake evidence and ranking reviews | Sweden lake packet and overlays |
-| AADR | `data/aadr/` | `data/adna/species/homo_sapiens/normalized/` | human species review | country and regional human aDNA layers |
-| Animal aDNA | project source library | species-normalized records | animal governance and scientific reviews | admitted atlas and country records |
+The database is made legible by three cross-cutting registries:
 
-The exact contract, example artifacts, and coverage metrics for each family are
-published in `data/source_family_contracts.json`.
+| Registry | Responsibility |
+| --- | --- |
+| `data/source_family_contracts.json` | declares each family's scientific role, lifecycle roots, example artifacts, and coverage metrics |
+| `data/source_fact_ownership_registry.json` | assigns recurring facts to one governing surface and lists downstream supporting copies |
+| `data/evidence_artifact_contracts.json` | defines project, paper, sample, species, atlas, and country artifact shapes |
 
-## Animal Evidence Topology
+These registries answer different questions. A source-family contract says
+what a family contributes. Fact ownership says where disagreement is resolved.
+An artifact contract says which files must exist for a complete evidence unit.
 
-Animal aDNA requires a richer topology because publication metadata, archive
-metadata, supplements, and sample evidence frequently have different owners.
+## Source-Family Topology
+
+| Family | Evidence role | Characteristic reviewed state | Public use |
+| --- | --- | --- | --- |
+| LandClim | primary pollen context | freshness, coverage, and publication posture | world and regional pollen layers |
+| Neotoma | primary pollen context | site-level temporal comparability | world and regional pollen layers |
+| SEAD | contextual archaeology | access, temporal, and normalization legibility | environmental archaeology context |
+| RAÄ | contextual archaeology | Sweden-specific coverage and spatial interpretation | Sweden archaeology context |
+| SVAR | sampling and hydrography | lake identity, coverage, and ranking inputs | Sweden lake products |
+| boundaries | geographic framing | scope and geometry fitness | world, regional, and country selection |
+| AADR | direct human aDNA | sample identity, chronology, and locality | human country and regional layers |
+| animal aDNA | direct animal aDNA | project, paper, supplement, sample, place, time, coordinate, and archive integrity | admitted animal atlas and country members |
+
+Role is preserved across shared products. An archaeology or boundary layer can
+frame direct evidence without inheriting its claim strength.
+
+## Animal Evidence Graph
+
+Animal evidence is modeled as linked authorities because one publication can
+cover multiple projects, one project can contain multiple sites, and one site
+can contain samples with different chronologies.
 
 ```mermaid
 flowchart TB
-    Paper["paper registry"] --> Project["project registry"]
-    Supplement["supporting-material manifest"] --> Project
-    Project --> Master["sample master"]
-    Master --> Site["sample-to-site linkage"]
+    Paper["paper registry"] --> Supplement["supporting-material manifest"]
+    Project["project registry"] --> Bundle["project source bundle"]
+    Supplement --> Bundle
+    Bundle --> Master["sample master"]
+    Master --> Site["sample-site relation"]
     Site --> Locality["locality evidence"]
     Master --> Chronology["chronology evidence"]
     Locality --> Species["species-normalized record"]
     Chronology --> Species
-    Species --> Candidate{"atlas admission"}
-    Candidate -->|admit or qualify| Atlas["atlas candidate"]
-    Candidate -->|block| Ledger["exclusion and recovery evidence"]
+    Species --> Admission["product admission"]
 ```
 
-The source library keeps a project accession distinct from a paper DOI and a
-sample identifier distinct from a site. This prevents a broad project locality
-or publication date from being copied into every sample row as if it were
-sample-specific evidence.
+The graph prevents project locality, publication date, or archive metadata
+from being copied into every sample as if it were sample-owned evidence.
 
-## Fact Ownership
+## Curation Decisions
 
-`data/source_fact_ownership_registry.json` resolves repeated facts to one
-governing surface. Representative authorities include:
+Curation is recorded whenever source material does not map mechanically to a
+claim. Typical decisions include:
 
-- project inventory: `project_registry.json`;
-- paper inventory: `paper_registry.json`;
-- sample identity: a project's `sample_master.json`;
-- sample-site linkage: a project's `sample_sites.json`;
-- locality claims: a project's `sample_locality_evidence.json`;
-- chronology claims: a project's `sample_chronology_evidence.json`;
-- species views: `species/<latin_name>/normalized/sample_records.json`; and
-- atlas admission: `final/atlas/animal_atlas_point_candidates.json`.
+- connecting an archive project to a paper and its supporting materials;
+- reconciling source-native and repository-owned sample identifiers;
+- choosing whether a place is sample-owned, site-owned, project-level, or
+  unresolved;
+- preserving reported chronology alongside its normalization basis and
+  precision;
+- classifying a coordinate as source-supplied, resolved, approximate,
+  substituted, region-only, or withheld;
+- admitting, qualifying, or excluding a record for one product.
 
-A downstream bundle may repeat these facts for use, but disagreement is
-resolved at the governing surface and then regenerated downstream.
+The decision must retain its evidence owner and reason. A normalized value
+without that context is easier to consume but harder to trust.
 
-## Artifact Contracts
+## Negative Evidence
 
-`data/evidence_artifact_contracts.json` defines recurring scopes for project
-source bundles, paper supporting-material manifests, sample foundations, site
-evidence, regional atlas bundles, and country publications. The per-project
-animal subtree is further specified by
-`data/adna/governance/source_library/project_surface_contract.json`.
+Absence has several meanings:
 
-Contracts make absence interpretable. A missing required artifact is a
-structural failure; an empty governed field can be a legitimate evidence gap;
-and a blocked review is an explicit scientific outcome.
+| State | Interpretation |
+| --- | --- |
+| required artifact missing | the evidence unit is structurally incomplete |
+| governed field empty | the source chain contains no defensible value |
+| unresolved | competing or insufficient support prevents a decision |
+| excluded | a known record fails a named product contract |
+| outside scope | the record may be valid but is not a member of this product |
 
-## Database Properties
+These states remain queryable. They are not collapsed into zero, false, or an
+invented value.
 
-The tracked database has four important properties:
+## Traceability Invariant
 
-- **source-aware**: normalized records retain the upstream family, version or
-  retrieval state, and source identifiers needed to recover provenance;
-- **authority-aware**: recurring facts resolve to one governing surface rather
-  than whichever copy is closest to a renderer;
-- **precision-preserving**: missing, broad, inferred, and exact values remain
-  distinguishable across locality, chronology, coordinates, and taxonomy;
-- **publication-aware**: evidence fitness is evaluated against a named product
-  instead of one universal publishable flag.
-
-Collectors may replace a complete governed source-family tree after successful
-staging. Replacement changes repository state; it does not erase the need to
-review source versions, hashes, normalized diffs, and downstream publication
-effects together.
-
-## Traceability Rule
-
-A public claim is complete only when it resolves through the publication
-manifest, admitted evidence row, governing normalized record, and source
-identity. A visually precise coordinate does not compensate for a missing link
-in that chain.
-
-```mermaid
-flowchart RL
-    Feature["published feature"] --> Membership["product membership"]
-    Membership --> Decision["admission decision"]
-    Decision --> Record["governing evidence record"]
-    Record --> Capture["source capture"]
-    Capture --> Identity["upstream identity"]
-```
+A public feature must resolve through product membership, admission decision,
+governing evidence record, captured source, and upstream identity. A product
+that cannot make that traversal is incomplete even when its visible geometry
+looks precise.

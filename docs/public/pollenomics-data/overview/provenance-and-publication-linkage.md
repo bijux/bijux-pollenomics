@@ -9,64 +9,92 @@ last_reviewed: 2026-07-22
 
 # Provenance And Publication Linkage
 
-Provenance is the complete path from upstream identity to public use. It
-includes acquisition, normalization, evidence decisions, publication
-membership, and the identifiers that connect those layers.
+Provenance connects a public claim to the identities and decisions that make
+it defensible. It includes more than a citation: acquisition context,
+normalization, evidence ownership, admission, product membership, and visible
+qualification must remain linked.
 
-## Traceability Chain
+## Claim Chain
 
 ```mermaid
 sequenceDiagram
-    participant P as Published feature
+    participant F as Published feature
     participant M as Product manifest
-    participant D as Admission decision
-    participant E as Evidence record
-    participant S as Source capture
-    P->>M: feature or member identifier
-    M->>D: scope and eligibility result
-    D->>E: governing record identifier
-    E->>S: source family, project, paper, sample, or dataset identity
-    S-->>P: retrieval context and known limits
+    participant A as Admission record
+    participant E as Evidence authority
+    participant C as Captured source
+    participant U as Upstream identity
+    F->>M: feature identifier
+    M->>A: member and scope decision
+    A->>E: governing evidence identifier
+    E->>C: source-family, project, paper, or sample link
+    C->>U: accession, DOI, dataset, version, or record identity
+    U-->>F: provenance and known limits
 ```
 
-Each transition answers a different question:
+| Link | Establishes | Does not establish |
+| --- | --- | --- |
+| feature → manifest | the object belongs to this product | fitness for every product |
+| manifest → admission | the scope, rule, and posture used | universal scientific acceptance |
+| admission → evidence | the record that owns the claim | that every copied field is authoritative |
+| evidence → capture | the acquired material used in curation | source completeness |
+| capture → upstream identity | recoverable external origin and retrieval context | permanent upstream availability |
 
-| Link | Question answered |
+## Identifiers Keep Their Meaning
+
+A dataset version, archive project accession, paper DOI, source sample label,
+repository sample identifier, site identifier, evidence-row identifier, and
+map-feature identifier describe different objects. Linkage relates them
+without forcing them into one synthetic identity.
+
+That distinction matters when:
+
+- one paper describes several archive projects;
+- one project contains multiple source samples;
+- a sample label is reused or formatted differently across supplements;
+- several samples share a site but not a chronology;
+- one evidence row appears in several geographic products;
+- a published feature is a comparator rather than direct evidence.
+
+## Fact Ownership
+
+Downstream products repeat useful fields, but each recurring fact has one
+governing surface. The fact-ownership registry records that authority and the
+surfaces that may carry derived copies. When copies disagree, correction
+starts at the authority and descendants are regenerated.
+
+Representative ownership boundaries include project inventory, paper
+inventory, sample identity, sample-site linkage, locality evidence,
+chronology evidence, species-normalized records, and atlas admission.
+
+## Spatial And Temporal Lineage
+
+A coordinate retains both value and basis. Source-supplied, named-site
+resolved, approximate, substituted, and region-only geography are different
+claims even when each can be encoded as geometry. Exact-point publication is
+refused when the evidence does not own that precision.
+
+Chronology retains reported text, normalized interval where supported,
+evidence class, precision, and source owner. Project dates and paper dates do
+not become sample chronology through proximity in the provenance graph.
+
+## Broken Links
+
+| Broken relation | Required outcome |
 | --- | --- |
-| feature → manifest | Did this object belong to the published product? |
-| manifest → decision | Which scope and rule admitted it? |
-| decision → evidence | Which record owns the scientific claim? |
-| evidence → capture | Which acquired source supports that record? |
+| feature absent from its manifest | publication integrity failure |
+| member without admission decision | product-contract failure |
+| admission without governing evidence | traceability failure and exclusion |
+| evidence without captured source identity | provenance failure and recovery work |
+| point without coordinate basis | exact-point refusal |
+| downstream fact disagreeing with authority | correct authority, then regenerate descendants |
 
-## Identifier Discipline
+## Audit One Claim
 
-A project accession, paper DOI, sample identifier, site identifier,
-evidence-row identifier, and map-feature identifier are not interchangeable.
-Linkage records their relationships without collapsing them into one synthetic
-key. This is especially important when one paper covers several projects, one
-project contains several sites, or one site contains several samples with
-different chronologies.
+Begin with a feature or table-row identifier in a world, regional, or country
+bundle. Confirm membership and evidence role, follow the evidence-row and
+sample identifiers, inspect locality and chronology authorities, then recover
+the source family, project, paper, supplement, dataset, or archive identity.
 
-## Coordinate Lineage
-
-A published coordinate retains its basis and evidence owner. Source-supplied,
-named-site resolved, approximate, substituted, and region-only geography
-support different uses. Region-only animal evidence is not promoted to an
-exact point, and a renderer cannot strengthen a coordinate that evidence review
-kept qualified.
-
-## Broken-Link Outcomes
-
-| Missing link | Required outcome |
-| --- | --- |
-| publication member has no admission decision | publication contract failure |
-| admission decision has no governing evidence record | traceability failure and exclusion |
-| evidence record lacks source identity | provenance failure and recovery work |
-| coordinate lacks basis or owner | exact-point refusal |
-| downstream copy disagrees with its authority | correct the governing record and regenerate descendants |
-
-The principal inspection surfaces are
-`data/source_fact_ownership_registry.json`,
-`data/evidence_artifact_contracts.json`, world and regional point-traceability
-reports, and country bundle manifests. Together they let a reader challenge one
-claim without treating the entire repository as an indivisible black box.
+The audit is complete only when the public wording remains within the weakest
+material link in that chain.

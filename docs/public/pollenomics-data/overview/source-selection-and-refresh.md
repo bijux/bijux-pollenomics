@@ -9,51 +9,86 @@ last_reviewed: 2026-07-22
 
 # Source Selection And Refresh
 
-A source enters the governed system because it can answer a declared question,
-its identity and use conditions can be preserved, and its records can be
-reviewed without inventing missing evidence. Discovery alone is not admission.
+A source enters Bijux Pollenomics because it answers a declared question and
+can retain identity, use conditions, semantics, and limits through curation.
+Discovery is not admission, and a successful refresh is not evidence that the
+source's meaning stayed unchanged.
 
-## Selection Criteria
+## Admission Criteria
 
 | Criterion | Required answer |
 | --- | --- |
-| scientific role | Is the source direct evidence, scientific context, geographic framing, or sampling context? |
-| provenance | Can version, retrieval, license, and source identity be recorded? |
-| recoverability | Can the relevant records, supplements, or API results be captured reproducibly? |
+| scientific role | Is the source direct evidence, context, sampling context, or geographic framing? |
+| identity | Can its dataset, release, accession, DOI, record, or other upstream identity be preserved? |
+| access and use | Can retrieval context, license posture, and relevant restrictions be recorded? |
+| recoverability | Can the required payload, table, supplement, or API response be captured reproducibly? |
 | semantics | Can place, time, taxonomy, and identifiers be represented without false precision? |
-| publication use | Which named products may consume the source, and under which limits? |
-| sustainability | Can refresh and failure behavior be maintained without private state? |
+| reviewability | Can ambiguity, missingness, conflict, and exclusions remain explicit? |
+| publication role | Which products may consume it, and under which precision and scope? |
+| sustainability | Can refresh and failure behavior be maintained without private untracked authority? |
 
-A scientifically relevant paper can remain tracked but unpublished when its
-sample-bearing supplement is missing. A boundary source can be widely
-published as framing while remaining explicitly non-evidentiary.
+A source may be scientifically important while remaining in recovery or
+context-only posture. Admission records that distinction instead of forcing a
+binary “available” label.
 
 ## Refresh Transaction
 
 ```mermaid
 flowchart LR
-    Select["declared source and version"] --> Stage["isolated capture and normalization"]
-    Stage --> Validate["identity, schema, and contract checks"]
-    Validate --> Compare["review hashes, counts, semantics, and coverage"]
-    Compare --> Replace{"accept refresh?"}
-    Replace -->|yes| Governed["replace complete governed source tree"]
-    Replace -->|no| Preserve["preserve prior tracked state"]
-    Governed --> Reassess["reassess reviews and publications"]
+    Declare["declared source and version"] --> Stage["isolated capture"]
+    Stage --> Normalize["family-aware normalization"]
+    Normalize --> Validate["identity and contract checks"]
+    Validate --> Compare["semantic and coverage comparison"]
+    Compare --> Decision{"accept complete family state?"}
+    Decision -->|yes| Replace["replace governed family tree"]
+    Decision -->|no| Preserve["preserve prior governed tree"]
+    Replace --> Reassess["reassess reviews and products"]
 ```
 
-Staging prevents a failed acquisition from leaving a partial tracked tree. It
-does not make a successful refresh scientifically neutral.
+Staging protects the prior coherent tree from partial acquisition. Acceptance
+requires more than a nonzero row count: expected assets, identity, hashes,
+schema, semantics, and family contract must agree.
 
-## Change Classification
+## Classify The Change
 
-| Change | Consequence |
+| Observed change | Required interpretation |
 | --- | --- |
-| byte-only or packaging change | verify normalized identity before claiming no evidence change |
-| new or removed records | review coverage, denominators, and publication membership |
-| changed locality or chronology | rerun fitness, conflict, and point-admission review |
-| changed source version or license posture | update provenance and assess continued publication eligibility |
-| newly recovered supplement | revisit sample identity, completeness, and downstream claims |
+| byte or packaging only | demonstrate unchanged normalized meaning before calling it neutral |
+| upstream version or retrieval route | update provenance and assess comparability |
+| new records | review denominators, coverage, conflicts, and product membership |
+| removed records | distinguish upstream removal, corrected duplication, scope change, and collection failure |
+| changed locality or chronology | rerun evidence fitness and point-admission review |
+| changed taxonomy or identifiers | review joins, species ownership, and downstream traceability |
+| changed license or access posture | reassess continued capture and publication eligibility |
+| newly recovered supplement | revisit sample identity, completeness, place, time, and affected products |
 
-Refresh cadence can differ across source families. Public breadth remains
-limited by the actual maturity of each family, not by the date of the most
-recent successful collector run.
+Deletion is evidence that requires a reason. A lower count cannot be accepted
+as harmless merely because the new files pass structural validation.
+
+## Propagation
+
+```mermaid
+flowchart TB
+    Source["source change"] --> Normalized["normalized diff"]
+    Normalized --> Review["review posture"]
+    Review --> Membership["publication membership"]
+    Membership --> Product["map, report, or table"]
+    Source --> Provenance["version, retrieval, license, hashes"]
+    Provenance --> Review
+```
+
+The absence of a downstream diff is itself a result to explain. It may mean
+the changed records remain outside product scope, were excluded by the same
+rule, or did not alter normalized meaning.
+
+## Demotion And Retirement
+
+A source can move to a narrower role when access, semantics, or maintenance no
+longer support its current use. Existing provenance and review history remain
+visible; public products are reassessed; and replacement sources do not
+silently inherit the retired source's authority.
+
+Refresh cadence therefore does not determine maturity. A recently collected
+context layer may support less than an older, well-curated direct-evidence
+record, and an unavailable supplement may remain the decisive gap in an
+otherwise current project.
