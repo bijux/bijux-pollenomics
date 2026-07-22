@@ -178,6 +178,24 @@ Checks establish bounded repository evidence. Their names and results should
 be reported with the governing revision and inputs; “all checks passed” is too
 broad when only one contract was inspected.
 
+### Promote A Check Result To Verification Evidence
+
+A check result becomes durable verification evidence only when its boundary is
+recoverable:
+
+| Required identity | Example meaning |
+| --- | --- |
+| governed input | exact schema, manifest, documentation tree, metadata, or generated surface inspected |
+| contract | invariant and owner against which the input was evaluated |
+| implementation | maintainer package version or repository revision containing the check |
+| execution scope | mode, arguments, roots, and intentionally excluded checks |
+| result | pass or bounded finding with deterministic affected identities |
+| artifact | retained output under `artifacts/` when terminal output alone is insufficient |
+
+A green status without this boundary is a signal, not a reusable proof. It
+cannot be generalized to unexecuted checks or to scientific claims outside the
+contract that the maintainer helper inspected.
+
 ### Lifecycle Findings Preserve Missing Stages
 
 A lifecycle check reports which family-stage artifacts are observable. It

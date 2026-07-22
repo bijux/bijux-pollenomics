@@ -292,6 +292,21 @@ implementation are different facts. A `pollenomics` wheel can forward
 correctly while an unexpected canonical version is installed, or the expected
 pair can be present while the shell resolves a different executable.
 
+### Prove Parity At The Right Boundary
+
+| Parity check | Compare | Failure means |
+| --- | --- | --- |
+| contract parity | read-only product, ownership, and source-support results | forwarding or version resolution differs |
+| invocation parity | parsed arguments, defaults, explicit roots, exit semantics, and diagnostics | the entry surfaces dispatch differently |
+| artifact parity | canonical schemas, manifest identities, members, caveats, and exclusions for identical inputs | scientific or publication behavior has forked |
+| environment identity | both distribution versions and resolved executable or module paths | the comparison did not exercise the intended installation |
+
+Artifact parity does not require alias-specific provenance fields. Record the
+short invocation at the operation boundary while keeping evidence identifiers,
+schemas, and product members canonical. A byte difference is reviewed by its
+semantic contract; byte equality alone does not prove the expected environment
+was invoked.
+
 ```mermaid
 flowchart TD
     Consumer["application or operator"] --> Choice{"requested name"}

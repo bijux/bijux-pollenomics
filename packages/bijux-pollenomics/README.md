@@ -288,6 +288,20 @@ An integration that retains only standard output cannot later prove product
 membership or scientific fitness. An integration that retains only generated
 files cannot explain the invocation and governed inputs that produced them.
 
+### Cite A Produced Claim At Four Levels
+
+| Citation level | Record | Supports |
+| --- | --- | --- |
+| producer | `bijux-pollenomics` distribution version and invoked API or command | which implementation behavior ran |
+| evidence state | explicit data root, repository revision or release, and input manifests | which governed scientific state was evaluated |
+| decision | stable object, rule set, role, and admission or refusal identity | why the claim received its posture |
+| product | bundle manifest, product version, scope, and member identity | where the claim was published |
+
+The producer citation cannot replace the evidence citation, and the product
+citation cannot replace the decision. A claim such as “this point was produced
+by version X” is operationally informative but scientifically incomplete until
+the governed member and its admission evidence are also identified.
+
 ## Command-line surface
 
 The CLI groups commands by durable responsibility:
