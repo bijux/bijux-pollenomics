@@ -125,6 +125,43 @@ An accepted refresh can legitimately produce no publication change. That
 outcome is meaningful when the record shows that changed source material did
 not alter normalized meaning or did not satisfy a product contract.
 
+### Refresh Proves Replacement, Not Equivalence
+
+Acceptance establishes that the candidate can replace the governed family
+state. Equivalence is a narrower conclusion that must be demonstrated for the
+dimension in which it is claimed. The same source label can identify different
+bytes; identical row counts can conceal member replacement; and unchanged
+members can acquire different locality, chronology, taxonomy, or use posture.
+
+A comparison packet separates those possibilities:
+
+| Comparison | Evidence | Conclusion it permits |
+| --- | --- | --- |
+| acquisition | upstream identity, release, retrieval route, response context, and digest | whether the captured object is the same object |
+| population | stable member identities plus added, removed, merged, and split sets | whether the governed population is equivalent |
+| semantics | field mappings, nulls, units, precision, and normalized value diffs | whether retained members mean the same thing |
+| authority | license, source role, fact ownership, and provenance-edge changes | whether the same uses remain defensible |
+| consequence | review, admission, manifest, exclusion, and presentation diffs | whether publication posture is unchanged |
+
+```mermaid
+flowchart LR
+    Candidate["candidate capture"] --> Identity{"same upstream identity?"}
+    Identity --> Members{"same member identities?"}
+    Members --> Meaning{"same normalized meaning?"}
+    Meaning --> Authority{"same authority and use posture?"}
+    Authority --> Consequence["explain publication consequences"]
+    Identity -. no .-> Reconcile["record replacement or refuse"]
+    Members -. no .-> Reconcile
+    Meaning -. no .-> Reassess["reassess evidence and products"]
+    Authority -. no .-> Reassess
+```
+
+An accepted refresh may therefore be non-equivalent and still correct: new
+members, repaired identities, or stronger evidence can justify replacement
+when their consequences are explicit. Conversely, matching checksums for a
+repackaged derivative do not establish semantic equivalence unless the
+derivation and governed member population are also reconciled.
+
 ## Classify The Change
 
 | Observed change | Required interpretation |

@@ -127,6 +127,40 @@ object. A sample can keep the same stable identity while its site relation is
 corrected; a coordinate can remain unchanged while its product membership
 changes under a revised scope.
 
+## Provenance Must Be Edge Complete
+
+A route through the graph is defensible only when every relation needed by the
+claim is itself evidenced. Complete records on either side of a missing edge
+do not repair that edge. A known sample and a well-described site, for example,
+do not establish that the sample belongs to the site unless the sample-site
+relation has a recoverable basis.
+
+Each material edge therefore answers five questions:
+
+| Question | Required answer |
+| --- | --- |
+| what is related? | typed predecessor and successor identities |
+| how are they related? | a named predicate with scientific meaning |
+| what supports the relation? | source locator, governed record, or declared derivation |
+| where does it apply? | evidence dimension, product scope, and precision posture |
+| which state governs? | decision or data revision, including supersession when applicable |
+
+```mermaid
+flowchart LR
+    Sample["sample identity"] -->|sample lineage| Project["project evidence"]
+    Sample -->|sample-site evidence| Site["site identity"]
+    Site -->|coordinate provenance| Point["published point"]
+    Sample -->|chronology evidence| Time["temporal claim"]
+    Missing["one unsupported edge"] -. prevents .-> Accountable["fully accountable claim"]
+```
+
+The checked-in animal-atlas accountability export makes this distinction
+visible. It contains 234 publication candidates and 233 fully accountable
+candidates. The Wadi Halfa dromedary candidate has a sample row, site evidence,
+chronology evidence, and coordinate provenance, but its sample-lineage edge is
+absent. The surrounding evidence remains useful; the candidate nevertheless
+cannot be described as fully traceable.
+
 ## Fact Ownership
 
 Downstream products repeat useful fields, but each recurring fact has one
