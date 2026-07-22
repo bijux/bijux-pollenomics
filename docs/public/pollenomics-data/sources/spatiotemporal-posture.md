@@ -65,6 +65,39 @@ observe different objects.
 - Retain records excluded by the gate so the denominator and refusal remain
   explainable.
 
+## Read Space And Time As Two Axes
+
+Spatial and temporal results should not be collapsed into one pass/fail flag:
+
+| Spatial result | Temporal result | Defensible posture |
+| --- | --- | --- |
+| aligned | aligned | qualified spatiotemporal comparison under the declared roles |
+| aligned | unavailable | spatial comparison or context only |
+| aligned | non-overlapping | spatially proximate but temporally separated under the declared intervals |
+| approximate or boundary-sensitive | aligned | qualified comparison with spatial sensitivity visible |
+| unavailable | aligned | temporal comparison without point distance or containment |
+| unavailable | unavailable | no spatiotemporal comparison; retain as non-comparable context if useful |
+
+“Unavailable” is not equivalent to “no.” Missing chronology does not establish
+temporal separation, and region-only geography does not establish spatial
+distance. This distinction prevents sparse sources from contributing false
+negative evidence.
+
+## Sensitivity At Decision Boundaries
+
+A record near a distance, interval, or polygon boundary may change class when
+precision, source version, or method changes. Such a result is
+boundary-sensitive and should be reviewed under plausible alternatives:
+
+- use the full supported chronology interval rather than only its mean;
+- compare exact and approximate endpoints separately;
+- retain the boundary snapshot used for containment;
+- rerun ranking when distance bands or missingness rules change; and
+- report whether the ordering is stable across the declared scenarios.
+
+Sensitivity does not weaken a result; it identifies which decisions depend on
+assumptions and which remain stable under reasonable variation.
+
 ## Reading A Lake Ranking
 
 SVAR can anchor lake identity and geometry. LandClim or Neotoma can contribute

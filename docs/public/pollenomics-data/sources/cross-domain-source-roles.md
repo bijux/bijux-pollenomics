@@ -59,6 +59,33 @@ Examples:
 - an SVAR lake can anchor a ranking unit, but nearby evidence remains owned by
   its original family.
 
+## Roles Do Not Escalate Through Combination
+
+Combining several contextual layers does not produce direct evidence. A
+derived product inherits the role of each contribution and may make only the
+claim supported by the declared bridge:
+
+```mermaid
+flowchart LR
+    Direct["direct sample evidence"] --> Product["combined product"]
+    Primary["primary pollen context"] --> Product
+    Context["archaeology context"] --> Product
+    Sampling["lake and fieldwork context"] --> Product
+    Framing["boundary framing"] --> Product
+    Product --> Reading["partitioned, role-preserving interpretation"]
+```
+
+| Combination outcome | Defensible statement | Overclaim |
+| --- | --- | --- |
+| direct sample near pollen site | a governed sample and pollen site meet the declared spatial rule | pollen explains the sample |
+| lake near dense registry cells | the lake lies near recorded archaeology context | the lake has high archaeological potential |
+| several context families agree spatially | multiple contextual layers are present under the same scope | independent confirmation of one historical event |
+| country boundary contains features | those features enter the declared geographic product | the country sample is representative |
+
+Independence must also be demonstrated rather than assumed. Two records derived
+from the same upstream source or one copied citation are not independent
+corroboration merely because they appear in separate layers.
+
 ## Null And Absence Semantics
 
 Missing values retain family-specific meaning. A missing SEAD interval means
@@ -82,6 +109,11 @@ A cross-domain extract carries source-family identity, stable record IDs,
 observation units, evidence roles, geometry and precision, temporal semantics,
 product membership, and caveats. Counts remain partitioned by unit and role;
 they are not summed into a synthetic total of “evidence.”
+
+Any derived row should retain the member identities on both sides of the
+bridge, the rule and parameters, the governing source versions, the result
+posture, and the reason for refusal when no result was produced. Otherwise the
+row can be displayed but cannot be independently re-evaluated.
 
 Continue to the [source-family matrix](source-family-matrix.md),
 [spatiotemporal posture](spatiotemporal-posture.md), and

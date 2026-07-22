@@ -57,6 +57,24 @@ causal relation, or equal evidence strength.
 | direct aDNA + context layers | interpretation of a governed sample within a wider landscape | transfer of context-layer precision to the sample |
 | evidence + boundaries | reproducible geographic selection and display | representativeness within the selected area |
 
+## Declare The Join
+
+Cross-source records do not share a universal key. The bridge itself is a
+derived claim and must name the rule that relates the members:
+
+| Bridge | What may be joined | Required qualification |
+| --- | --- | --- |
+| identity | two records proven to describe the same governed sample, site, project, or source member | aliases and labels are not sufficient keys |
+| containment | point or geometry inside a governed boundary snapshot | boundary version and endpoint precision remain visible |
+| proximity | two defensible geometries under a declared distance method and band | proximity is not association or contemporaneity |
+| temporal overlap | comparable point or interval claims in the same time basis | overlap is compatibility, not causation |
+| category match | normalized values under one declared vocabulary | normalization cannot erase source-specific meaning |
+| aggregate comparison | explicitly partitioned populations with compatible denominators | totals remain typed by observation unit and scope |
+
+Joining by display name, rounded coordinate, or row position is not a stable
+comparison. Those values can change without the governed identity changing—or
+remain unchanged while the scientific ownership differs.
+
 ## Comparison Verdicts
 
 Every comparison should end in one of four explicit postures:
@@ -117,6 +135,12 @@ A defensible result retains each member ID and evidence role, the distance
 rule, each spatial precision, the available temporal classes, and a contextual
 verdict. A single combined “evidence count” would discard the differences that
 make the comparison interpretable.
+
+The non-members matter as well. If 20 sites are eligible for a proximity test,
+three lack point-quality geometry, and two are outside the selected product,
+the result population is 15 tested sites—not an unexplained count of 15 nearby
+features. Eligibility, tested membership, matches, and exclusions are separate
+denominators.
 
 ## Reuse Outside Current Products
 
