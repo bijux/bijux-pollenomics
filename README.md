@@ -262,28 +262,22 @@ The `2` publishable packages in this repository are:
 
 ## Capability Boundaries
 
-The current repository scope is deliberately narrower than the full
-cross-evidence pollenomics runtime it is aiming toward.
+Capability statements describe checked-in contracts, not an intended future
+state. Each supported use therefore has an explicit inference it does not
+authorize:
 
-What exists today:
+| Surface | Supported use | Excluded inference or operation |
+| --- | --- | --- |
+| source-family database | capture, normalize, review, and publish governed source snapshots | exhaustive upstream coverage or silent refresh |
+| human ancient DNA | versioned AADR `.anno` metadata context | `.geno`, `.ind`, or `.snp` genotype processing |
+| animal ancient DNA | project, paper, supplement, sample, locality, chronology, coordinate, and admission curation | complete recovery of every tracked project or equal readiness across species |
+| evidence maps | inspect scoped direct evidence, context, framing, and exclusions | infer causation, contemporaneity, or analytical equivalence from proximity |
+| Sweden lake priorities | compare candidates under named evidence weights, radii, sensitivity, and preparation screens | automated sampling selection, coring feasibility, access, or permits |
+| Lyngsjön fieldwork | inspect a dated and situated direct-visit record | generalize one visit into regional lake suitability |
 
-- AADR is used from public `.anno` metadata files
-- boundaries, LandClim, Neotoma, SEAD, and RAÄ are collected into tracked `data/` subtrees
-- world, regional, and country report bundles are rebuilt from local commands and checked in
-- the maps are publication artifacts for inspection, not analysis engines
-- Sweden lake ranking artifacts and shortlist overlays can be emitted from the
-  checked-in atlas context and published report packet, but they remain
-  decision-support outputs rather than a substitute for field verification or a
-  finished scientific scoring engine
-
-What does not exist today:
-
-- AADR genotype processing from `.geno`, `.ind`, or `.snp`
-- lake-intersection analysis
-- full archaeological-site scoring across the complete evidence tree
-- automated sampling recommendations
-- integrated eDNA, aDNA, pollen, and archaeological co-analysis runtime
-- paper-grade statistical workflows for the planned POLLENOMIC's series
+These are product boundaries, not missing disclaimers. A workflow that needs
+an excluded inference must first introduce the governing evidence and review
+contract required to support it.
 
 ## Evidence Maturity
 

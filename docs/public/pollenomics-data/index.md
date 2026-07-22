@@ -157,6 +157,22 @@ species, atlas, and country descendants are then regenerated and reviewed.
 Editing only the visible map row would leave the database internally
 contradictory.
 
+### Corrections Propagate By Ownership
+
+| Correction | Change first | Re-evaluate downstream |
+| --- | --- | --- |
+| source release or retrieved bytes | capture identity, retrieval record, and hash | normalization, coverage, review, and every affected publication member |
+| sample identity or project membership | project-owned sample authority and ambiguity decision | species view, locality and chronology joins, atlas candidates, and scoped reports |
+| locality or coordinate evidence | claim owner and coordinate-provenance record | point admission, distance relations, country membership, and map geometry |
+| chronology evidence | source wording, normalized interval, basis, and conflict posture | temporal comparability, popup fields, contextual credit, and derived rankings |
+| source-family role or semantics | family contract and affected review records | legends, cross-domain comparisons, publication contracts, and narrative claims |
+| product scope or admission rule | publication contract and manifest logic | membership, exclusions, traceability, counts, maps, and reports |
+
+This propagation model is what makes the checked-in database more than a
+collection of exports. Corrections begin with the owner of the disputed fact;
+derived files are evidence of impact, not alternative places to patch the
+answer.
+
 ## Record Contract
 
 A governed evidence record is usable outside its original folder only when six

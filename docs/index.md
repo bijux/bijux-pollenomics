@@ -125,6 +125,21 @@ sample-level support before an exact point or chronology can be asserted.
 No single map popup answers all five questions. Consequential interpretation
 continues from publication to evidence and then to the governing source.
 
+### Carry A Reusable Evidence Packet
+
+| Claim being reused | Minimum packet |
+| --- | --- |
+| one published feature | product version and scope, stable member and evidence identifiers, source lineage, place and time posture, admission result, and caveats |
+| a count or coverage statement | observation unit, numerator, eligible population, exclusions, geography, source version, and governing manifest or review |
+| a cross-layer comparison | both feature identities, evidence roles, spatial support, temporal compatibility, comparison rule, and source-specific limits |
+| a lake priority | SVAR identity, ranking surface, scenario or aggregate definition, weights, source inputs, sensitivity evidence, and required field review |
+| an absence | expected identity, capture scope, product scope, filter state, recovery posture, and exclusion or refusal reason |
+
+A screenshot, ordinal rank, or narrative sentence can orient a reader, but it
+cannot replace this packet. Reuse is defensible when another reader can recover
+the product population, the governing evidence, and the qualification without
+reconstructing undocumented context.
+
 ## Collection At A Glance
 
 | Evidence family | Checked-in posture | Reader-safe interpretation |
