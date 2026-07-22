@@ -146,6 +146,39 @@ They are claim-specific outcomes derived from the captured evidence. A site
 may remain useful spatial context even when numeric comparison is refused, and
 a broad numeric span does not substitute for the missing chronology rows.
 
+### Preserve The Admission Denominator
+
+The 175 sites with a captured BP span are not the same population as sites
+admitted to numeric comparison. Admission is narrower:
+
+| Population | Count | Permitted use |
+| --- | ---: | --- |
+| captured site members | 200 | denominator for the governed Neotoma layer |
+| members with a captured BP span | 175 | evidence that some temporal description was captured |
+| admitted numeric intervals | 63 | bounded comparison under the recorded interval semantics |
+| admitted numeric intervals with caveats | 107 | bounded comparison only when the caveat travels with the result |
+| contextual labels only | 5 | spatial or descriptive context; no repository numeric comparison |
+| unresolved time posture | 25 | spatial context only |
+
+Thus, 170 members currently enter numeric comparison, not 175 and not 200.
+The five contextual-label members are the important boundary case: source age
+coverage is visible, but the normalized review refuses to promote it into a
+repository numeric interval.
+
+```mermaid
+flowchart LR
+    Layer["200 normalized sites"] --> Span["175 with captured BP spans"]
+    Layer --> Unresolved["25 unresolved"]
+    Span --> Numeric["170 admitted numeric intervals"]
+    Span --> Labels["5 contextual labels only"]
+    Numeric --> Plain["63 without added caveat"]
+    Numeric --> Caveated["107 with caveat"]
+```
+
+Every summary must name its denominator. “Most Neotoma sites are dated” hides
+the distinction between captured labels, admitted comparison intervals, and
+sample chronology that this review exists to preserve.
+
 ## Relationship To LandClim
 
 Both families provide primary pollen context, but their normalized units and
@@ -163,6 +196,12 @@ project and the European Pollen Database. Before describing agreement as
 corroboration, compare source dataset identity, contributor, site, sequence,
 and age coverage. Two publication layers can be separate repository families
 while still representing one upstream observation lineage.
+
+A direct LandClim–Neotoma comparison therefore pairs a LandClim site sequence
+with a Neotoma normalized site member and retains both temporal decisions. A
+REVEALS grid cell may provide model context for that pair, but it does not
+increase the count of site observations. If shared lineage cannot be excluded,
+the result is contextual agreement rather than independent corroboration.
 
 ## Choose Neotoma For The Question
 

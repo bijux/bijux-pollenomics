@@ -160,6 +160,36 @@ This pair exposes a crucial denominator rule: one normalized sequence member,
 one grid cell, 25 model windows, and the source observations behind them are
 different units. A comparison must name which unit it counts.
 
+### Compare Pollen Families Without Flattening Their Units
+
+A LandClim sequence can participate in a site-level comparison with a Neotoma
+member. A REVEALS cell cannot enter that comparison as though it were another
+site. It can only contribute a separate, areal model-context relation.
+
+| Comparison edge | Admissible statement | Required receipt |
+| --- | --- | --- |
+| LandClim sequence to Neotoma site | the two governed site-level members meet the declared spatial and, when admitted, temporal rules | both member IDs, geometry basis, distance rule, both temporal postures, and lineage-independence result |
+| LandClim sequence to REVEALS cell | the sequence lies within or relates to a declared model cell | sequence ID, cell ID, containment or distance rule, and compatible time-window rule |
+| REVEALS cell to Neotoma site | the site is interpreted against modeled landscape context | cell ID, site ID, spatial relation, model window, and site temporal posture |
+| any pollen member to aDNA or archaeology | pollen supplies environmental context around direct evidence | both identities, relation rule, time posture, and an explicit refusal of direct association |
+
+```mermaid
+flowchart TD
+    Left["LandClim member"] --> Kind{"member kind"}
+    Kind -->|site sequence| SiteEdge["site-level comparison edge"]
+    Kind -->|REVEALS cell| ModelEdge["model-context edge"]
+    Other["Neotoma, archaeology, or aDNA member"] --> SiteEdge
+    Other --> ModelEdge
+    SiteEdge --> Receipt["typed comparison receipt"]
+    ModelEdge --> Receipt
+    Receipt --> Claim["qualified cross-family claim"]
+```
+
+The comparison receipt, rather than a shared map coordinate, establishes what
+was compared. It also prevents one relationship from silently changing type:
+a point-in-polygon result is not a sequence match, and interval overlap is not
+evidence that two records derive from independent observations.
+
 ## Relationship To Other Families
 
 | Compared with | LandClim contributes | Other family contributes |
