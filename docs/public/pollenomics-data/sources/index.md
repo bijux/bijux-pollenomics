@@ -60,6 +60,25 @@ The current bindings are recorded in `data/collection_summary.json`. A hash
 identifies bytes; it does not certify scientific completeness, temporal
 comparability, or publication fitness.
 
+## Source Contract As Scientific Interface
+
+A family contract defines the stable boundary between an upstream ecosystem
+and every repository consumer. It is more than an acquisition recipe.
+
+| Contract dimension | Evidence retained | Promise to consumers |
+| --- | --- | --- |
+| identity | owner, dataset or archive identity, release, and source locator | records can be attributed to the intended upstream object |
+| observation unit | site, sequence, sample, registry record, polygon, or project relation | counts and joins preserve what was actually observed |
+| semantics | source-native fields, units, nulls, geometry, and time meaning | normalization does not silently strengthen the source |
+| acquisition | retrieval method, date, license posture, payload identity, and replacement rule | a capture can be reproduced or challenged |
+| role | direct evidence, primary context, contextual domain, sampling context, or framing | publication cannot promote context into direct proof |
+| fitness | coverage, precision, conflict, and product-specific review | consumers can distinguish captured data from admitted evidence |
+
+A source-name match is not enough to preserve this interface. A release that
+changes observation unit, schema meaning, licensing, geographic reach, or time
+semantics requires renewed interpretation before old publication assumptions
+can be reused.
+
 ## Source Admission
 
 ```mermaid

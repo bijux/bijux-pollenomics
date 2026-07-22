@@ -74,6 +74,37 @@ refused as same-period evidence when numeric intervals are absent. Boundaries
 can be aligned for geographic containment while remaining incapable of
 supporting biological association.
 
+## Comparison Packet
+
+A reusable comparison preserves the inputs and bridge that produced its
+verdict. At minimum, record:
+
+| Packet member | Why it is necessary |
+| --- | --- |
+| family and member identities | prevents display labels from becoming join keys |
+| source releases and product scope | fixes the populations being compared |
+| observation units and evidence roles | states what each member can establish |
+| spatial basis and precision | bounds distance, containment, and co-location claims |
+| temporal class, basis, and interval eligibility | separates numeric overlap from contextual time |
+| denominator and missingness posture | prevents visible counts from implying completeness |
+| comparison rule | makes the spatial, temporal, or categorical bridge explicit |
+| verdict and qualifications | preserves aligned, partial, contextual, or refused meaning |
+
+```mermaid
+flowchart LR
+    Members["identified source members"] --> Bridge["declared comparison rule"]
+    Space["spatial support"] --> Bridge
+    Time["temporal support"] --> Bridge
+    Roles["observation units and roles"] --> Bridge
+    Bridge --> Verdict["qualified verdict"]
+    Verdict --> Packet["portable comparison packet"]
+```
+
+Without the packet, a downstream table can retain the result while losing why
+the comparison was permitted. That is especially dangerous for derived counts
+or distance bands, which appear precise even when their members carry unlike
+coverage or time semantics.
+
 ## Example: Proximity Without Temporal Equivalence
 
 Suppose a pollen site, a heritage record, and an ancient-DNA sample fall within

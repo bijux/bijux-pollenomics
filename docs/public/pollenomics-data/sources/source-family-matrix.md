@@ -57,6 +57,29 @@ registries, but their responsibilities remain distinct.
 | sampling context | candidate selection and fieldwork reasoning | feasibility, preservation, permits, or scientific outcome |
 | geographic framing | membership in a declared spatial scope | scientific support for a member record |
 
+## Read Across A Family, Then Down A Claim
+
+The matrix supports two different readings:
+
+```mermaid
+flowchart LR
+    Family["one source family"] --> Lifecycle["capture through publication"]
+    Claim["one proposed claim"] --> Dimensions["identity, semantics, space, time, and role"]
+    Lifecycle --> Fitness["family readiness for this claim"]
+    Dimensions --> Fitness
+```
+
+Reading across one family shows whether its lifecycle is intact. Reading down
+one claim compares only the dimensions needed for that claim. Neither reading
+authorizes a global family ranking. LandClim can be mature for pollen context
+while AADR is mature for release-owned human metadata; their record counts and
+roles are not competing measures of quality.
+
+This distinction also prevents lifecycle completion from being mistaken for
+scientific readiness. A family may have captured, normalized, reviewed, and
+published artifacts while still carrying a material temporal or geographic
+qualification.
+
 ## Maturity Is Multidimensional
 
 Maturity cannot be reduced to one color or score. Review source identity,
