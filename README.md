@@ -1,5 +1,25 @@
 # bijux-pollenomics
 
+`bijux-pollenomics` is a curated evidence and publication system for pollen,
+palaeoenvironmental context, archaeology, hydrography, field observations, and
+ancient DNA. It preserves source identity, normalization rules, review state,
+and publication lineage in one checked-in repository so a visible map point can
+be traced back to the files and decisions that support it.
+
+The database is part of the product. Source-family contracts distinguish raw,
+normalized, reviewed, and published layers; fact-ownership records identify
+which artifact governs a repeated claim; and the animal aDNA source library
+preserves project dossiers, supporting-material inventories, sample identity,
+locality evidence, chronology evidence, ambiguity ledgers, and publication
+gates. Public reports are derived views over that curated state, not an
+independent database.
+
+World, Europe-plus, Nordic, and country outputs form one publication family.
+Pollen and environmental context are the strongest current surfaces. Animal
+aDNA remains deliberately conservative: records without adequate sample,
+locality, chronology, or coordinate support stay qualified or excluded rather
+than being promoted through a visually clean atlas.
+
 <!-- bijux-pollenomics-badges:generated:start -->
 [![Python 3.11+](https://img.shields.io/badge/python-3.11%2B-3776AB?logo=python&logoColor=white)](https://pypi.org/project/bijux-pollenomics/)
 [![License: Apache-2.0](https://img.shields.io/badge/license-Apache--2.0-0F766E)](https://github.com/bijux/bijux-pollenomics/blob/main/LICENSE)
@@ -22,25 +42,21 @@
 [![pollenomics docs](https://img.shields.io/badge/docs-pollenomics-2563EB?logo=materialformkdocs&logoColor=white)](https://bijux.io/bijux-pollenomics/public/pollenomics/)
 <!-- bijux-pollenomics-badges:generated:end -->
 
-`bijux-pollenomics` is a curated evidence and publication system for pollen,
-palaeoenvironmental context, archaeology, hydrography, field observations, and
-ancient DNA. It preserves source identity, normalization rules, review state,
-and publication lineage in one checked-in repository so a visible map point can
-be traced back to the files and decisions that support it.
+## Choose A Starting Point
 
-The database is part of the product. Source-family contracts distinguish raw,
-normalized, reviewed, and published layers; fact-ownership records identify
-which artifact governs a repeated claim; and the animal aDNA source library
-preserves project dossiers, supporting-material inventories, sample identity,
-locality evidence, chronology evidence, ambiguity ledgers, and publication
-gates. Public reports are derived views over that curated state, not an
-independent database.
+| You need to… | Start with… | What you will establish |
+| --- | --- | --- |
+| understand the product and its boundaries | [documentation home](https://bijux.io/bijux-pollenomics/) | which claims and workflows the repository supports |
+| inspect source selection and curation | [data system guide](docs/public/pollenomics-data/index.md) | how captured material becomes governed evidence |
+| examine a checked-in result | [report portal](docs/report/index.md) | product identity, scope, members, and review surfaces |
+| interpret a visible marker | [Nordic atlas guide](docs/public/nordic-atlas/index.md) | layer role, admission posture, precision, and lineage |
+| evaluate a candidate lake | [Sweden lake priorities](docs/public/nordic-atlas/sweden-lake-priorities/index.md) | ranking assumptions, stability, and fieldwork gaps |
+| explain a blocked claim | [release-readiness refusal](docs/report/repository_final_release_refusal.md) | which evidence dimension prevents stronger language |
+| operate repository-owned state | [maintainer handbook](docs/internal/maintain/index.md) | which commands validate or intentionally regenerate it |
 
-World, Europe-plus, Nordic, and country outputs form one publication family.
-Pollen and environmental context are the strongest current surfaces. Animal
-aDNA remains deliberately conservative: records without adequate sample,
-locality, chronology, or coordinate support stay qualified or excluded rather
-than being promoted through a visually clean atlas.
+Choose by question rather than by file type. A rendered map is the right
+starting point for orientation; a governing evidence record is the right
+ending point for a consequential claim.
 
 ```mermaid
 flowchart LR
@@ -169,18 +185,6 @@ flowchart LR
 The difference between 868 recovered animal samples and 234 published point
 rows is not unexplained loss. It is the visible effect of evidence ownership,
 spatial resolution, temporal posture, source recovery, and product admission.
-
-## Choose A Starting Point
-
-| Question | Start here |
-| --- | --- |
-| What is the product and what can it support? | [Documentation home](https://bijux.io/bijux-pollenomics/) |
-| Which source and evidence rules support a public claim? | [Data system guide](docs/public/pollenomics-data/index.md) |
-| What has actually been published? | [Report portal](docs/report/index.md) |
-| How should a visible map point be interpreted? | [Nordic atlas guide](docs/public/nordic-atlas/index.md) |
-| How were Sweden lake priorities derived? | [Sweden lake priorities](docs/public/nordic-atlas/sweden-lake-priorities/index.md) |
-| Which claims remain blocked or qualified? | [Release-readiness refusal](docs/report/repository_final_release_refusal.md) |
-| How is repository-owned state operated? | [Maintainer handbook](docs/internal/maintain/index.md) |
 
 ## What This Repository Produces
 

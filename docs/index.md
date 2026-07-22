@@ -51,6 +51,21 @@ records forward to see what the repository is prepared to claim.
   <a class="md-button" href="public/fieldwork/">Open the fieldwork record</a>
 </div>
 
+## Choose By Outcome
+
+| You want to… | Begin here | Leave with… |
+| --- | --- | --- |
+| understand what Bijux Pollenomics is | [product guide](public/pollenomics/index.md) | product responsibilities, interfaces, and limits |
+| understand how the database earns trust | [data guide](public/pollenomics-data/index.md) | source, curation, evidence, and publication boundaries |
+| inspect the published state | [report portal](report/index.md) | manifests, maps, tables, reviews, and refusals |
+| evaluate one visible feature | [Nordic atlas](public/nordic-atlas/index.md) | role, scope, coordinate posture, time posture, and traceability |
+| evaluate a lake-priority result | [Sweden lake priorities](public/nordic-atlas/sweden-lake-priorities/index.md) | model meaning, scenario stability, and missing field evidence |
+| inspect a direct visit | [fieldwork](public/fieldwork/index.md) | dated observation, media lineage, and claim boundary |
+
+The public site explains scientific and product meaning. Maintainer procedures
+remain in the [internal guide](internal/index.md), where they cannot be mistaken
+for evidence supporting a reader-facing claim.
+
 ## Find The Authority
 
 Reader-visible information often crosses several files, but each fact has one
@@ -165,22 +180,24 @@ that belongs to a project record, source-family dataset, or source artifact.
 | field observations | direct evidence for a specific visit | one visit does not generalize to site suitability |
 | Sweden lake priorities | reproducible decision-support ranking | bathymetry, access, permits, and field verification remain external requirements |
 
-## Choose A Route
+## Interpretation Order
 
-- use the [product guide](public/pollenomics/index.md) when you need the
-  overall answer: what the repository is for and how the outputs fit together
-- use the [data guide](public/pollenomics-data/index.md) when you need the
-  evidence answer: what is in scope, how it is governed, and what remains weak
-- use the [report portal](report/index.md) when you want the checked-in public
-  outputs first
-- use the [Nordic atlas guide](public/nordic-atlas/index.md) when you need map
-  behavior, filters, point posture, and overlay caveats
-- use the [fieldwork record](public/fieldwork/index.md) when you want one real
-  visited location instead of a generalized public summary
+Use a publication for orientation, its manifest for product identity, the
+evidence record for scientific qualification, and the captured source for
+origin. For an absent feature, begin with scope, exclusion, and recovery rather
+than assuming biological absence. For a derived ranking, retain the model and
+sensitivity evidence as well as the ordinal result.
 
-Choose the route that matches the claim you need to evaluate. Publications
-provide orientation; evidence and source pages provide the narrower support
-needed for scientific or operational decisions.
+```mermaid
+flowchart LR
+    View["map, report, or ranking"] --> Product["manifest and scope"]
+    Product --> Evidence["governing evidence record"]
+    Evidence --> Source["captured source identity"]
+    Evidence --> Limit["qualification or refusal"]
+```
+
+This order keeps the convenient surface useful without allowing it to outrank
+the evidence that gives the result meaning.
 
 ## Current Publication Family
 
