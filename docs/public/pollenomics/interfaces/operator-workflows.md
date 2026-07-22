@@ -4,80 +4,80 @@ audience: reader
 type: explanation
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-05-10
+last_reviewed: 2026-07-22
 ---
 
 # Operator Workflows
 
-The runtime has three honest operator workflows: verify the checkout, rebuild
-tracked data, or publish downstream outputs. Mixing those without saying which
-one you are doing is how review gets muddy.
+Operations are separated by authority boundary: inspect current state, validate
+a contract, collect evidence, refresh derived evidence surfaces, or publish a
+product. The boundary determines expected writes and the review required after
+the command finishes.
 
-This page translates the command surface into practical intent. The goal is not
-to list every command again. It is to help you choose the right class of
-workflow before you start rewriting tracked state.
+## Workflow Selection
 
-## The Three Questions
+```mermaid
+flowchart TD
+    Question{"What changed?"}
+    Question -->|nothing; inspect current state| Inspect["inspection command"]
+    Question -->|contract validity| Validate["narrow validator"]
+    Question -->|external or captured evidence| Collect["collect-data"]
+    Question -->|derived animal evidence| Foundation["animal foundation refresh"]
+    Question -->|public scope or presentation| Publish["publication command"]
+    Collect --> ReviewData["review source, normalized, summary, and hash diffs"]
+    Foundation --> ReviewEvidence["review identity, locality, chronology, coordinates"]
+    Publish --> ReviewProduct["review manifests, subsets, traceability, caveats"]
+```
 
-Before running anything, ask which question you are actually trying to answer:
+## Inspect Or Validate
 
-- is the checkout healthy
-- did the evidence tree change
-- what public output does the repository now publish
+Inspection commands are the safest starting point for source support, species
+membership, runtime manifests, and review posture. A narrow validator is
+preferable when the question concerns one contract such as
+`data/collection_summary.json`. Neither operation should rewrite evidence.
 
-Those three questions sound close together, but they create different diffs,
-different review burdens, and different kinds of public risk.
+## Collect Source Families
 
-## Verify Only
+`collect-data` may contact external sources and rewrite the selected family
+trees plus the collection summary. Review:
 
-- `make install`
-- `make lock-check`
-- `make lint`
-- `make test`
-- `make test-generated-artifacts`
-- `make test-all`
-- `make docs`
+- acquisition metadata, retrieval dates, licences, and source versions;
+- captured and normalized hashes;
+- record counts and source-specific review outputs;
+- deletions, renames, and unexpected changes outside the selected families.
 
-Use this path when you need proof that the checkout is healthy without
-rewriting tracked state.
+Collection success means the pipeline completed. It does not mean every source
+record is publication-ready.
 
-`make test` is the faster default check path. `make test-generated-artifacts`
-isolates the generated-publication contract lane. `make test-all` is the full
-local verification gate when nothing should be skipped.
+## Refresh Animal Evidence
 
-## Refresh Data
+The animal foundation workflow spans project capture, sample identity,
+locality, chronology, coordinate review, species normalization, and dependent
+publication. Use it only when that end-to-end boundary is intended. For one
+species or one review question, prefer species inspection and the narrower
+governed refresh surface.
 
-- `make data-prep`
-- inspect `data/collection_summary.json`
-- inspect source-family roots under `data/`
+Review project and paper linkages before species output, then review gap,
+conflict, substitution, and exclusion ledgers before accepting new visible
+points.
 
-Use this path when the goal is collection or normalization review.
+## Publish Products
 
-## Publish Outputs
+`publish-reports` reads the current governed data state and rebuilds public
+world, regional, country, review, and caveat outputs. Review:
 
-- `make reports`
-- inspect `docs/report/published_reports_summary.json`
-- inspect `docs/report/repository_truth_posture.md`
+- `docs/report/published_reports_summary.json` for product membership;
+- geography manifests and subset validation for scope integrity;
+- point traceability and source-family roles for semantic preservation;
+- `docs/report/repository_truth_posture.md` and refusal surfaces for limits.
 
-Use this path when the goal is country bundles, atlas layers, or public review
-surfaces.
+Publishing the same evidence under a new scope is a publication change, not a
+source refresh. Conversely, collecting new evidence without publishing leaves
+the public product unchanged.
 
-## How To Choose Cleanly
+## Completion Evidence
 
-- choose verify if you want confidence without changing the repository story
-- choose refresh if you expect upstream evidence movement
-- choose publish if the output question is public wording, report structure, or
-  visible atlas behavior
-- do not treat publish as a substitute for refresh; it only tells the truth
-  about whatever evidence state already exists
-
-## Why These Three Paths Stay Separate
-
-They answer different questions:
-
-- verify asks whether the checkout is healthy
-- refresh asks whether upstream evidence changed
-- publish asks what the repository now says in public
-
-Keeping those questions separate makes review faster and the resulting diffs
-more honest.
+An operation is complete when its expected root changed coherently, unrelated
+roots did not change, the narrow contract checks pass, and the resulting
+evidence or product diff has been reviewed. Logs in `artifacts/` support that
+review but do not become part of the scientific authority chain.

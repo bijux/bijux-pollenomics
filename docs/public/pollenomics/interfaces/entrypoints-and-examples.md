@@ -4,46 +4,49 @@ audience: reader
 type: reference
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-05-10
+last_reviewed: 2026-07-22
 ---
 
 # Entrypoints and Examples
 
-Use the installed console script, not `python -m`, when you want the canonical
-runtime surface.
+The installed `bijux-pollenomics` console script is the supported runtime
+entrypoint. Commands fall into inspection, validation, collection, evidence
+refresh, and publication classes. Choose the narrowest class that answers the
+question because only some classes rewrite governed state.
 
-This page gives the shortest supported command paths. It should help someone
-reach a known-good route quickly, without having to rebuild the whole
-repository just to discover the right entrypoint.
-
-## Start With Intent, Not With Commands
-
-Most confusion in this repository comes from choosing a workflow that is wider
-than the real question. Start with intent first:
-
-- verify when the question is "is this checkout healthy"
-- refresh when the question is "did the tracked evidence change"
-- publish when the question is "what public output does the repository now say"
-- inspect species-level animal work when the question is narrower than a full
-  public rebuild
-
-## Verification Entry Points
+## Discover The Interface
 
 ```bash
-make install
 artifacts/root/check-venv/bin/bijux-pollenomics --version
-make lock-check
-make lint
-make test
-make test-generated-artifacts
-make test-all
-make docs
+artifacts/root/check-venv/bin/bijux-pollenomics --help
+artifacts/root/check-venv/bin/bijux-pollenomics collect-data --help
 ```
 
-Use `make test-generated-artifacts` when the question is specifically about the
-governed docs, reports, and other generated-publication contracts. Use
-`make test-all` when you want the full local gate instead of the faster default
-test slice.
+The examples use the repository installation under
+`artifacts/root/check-venv/`. A regular environment can invoke the same console
+script as `bijux-pollenomics`.
+
+## Read-Only Inspection
+
+```bash
+artifacts/root/check-venv/bin/bijux-pollenomics source-support --json
+artifacts/root/check-venv/bin/bijux-pollenomics adna-species
+artifacts/root/check-venv/bin/bijux-pollenomics adna-species-review --species ovis_aries --json
+artifacts/root/check-venv/bin/bijux-pollenomics adna-runtime-manifest --species ovis_aries --json
+```
+
+These commands inspect registered source or species state. They do not perform
+a collection or publication refresh.
+
+## Validate A Collection Ledger
+
+```bash
+artifacts/root/check-venv/bin/bijux-pollenomics validate-collection-summary \
+  --summary-path data/collection_summary.json
+```
+
+Validation checks the existing summary and is the appropriate first response
+to a summary-contract question.
 
 ## Collection And Publication Examples
 
@@ -52,17 +55,10 @@ artifacts/root/check-venv/bin/bijux-pollenomics collect-data all --version v66 -
 artifacts/root/check-venv/bin/bijux-pollenomics publish-reports --aadr-root data/aadr --version v66 --context-root data --output-root docs/report
 ```
 
-These are the shortest canonical routes for rebuilding tracked source material
-and tracked public report outputs.
-
-## Narrow aDNA Surfaces
-
-```bash
-artifacts/root/check-venv/bin/bijux-pollenomics adna-archive-projects
-artifacts/root/check-venv/bin/bijux-pollenomics adna-domestication-coverage
-artifacts/root/check-venv/bin/bijux-pollenomics adna-species
-artifacts/root/check-venv/bin/bijux-pollenomics adna-species-review --species ovis_aries
-```
+`collect-data` writes source-family trees and the collection ledger under
+`data/`. `publish-reports` consumes the current governed data state and writes
+the world, regional, country, review, and caveat products under `docs/report/`.
+Publication does not recollect a source implicitly.
 
 ## Atlas And Country Surfaces
 
@@ -71,20 +67,20 @@ artifacts/root/check-venv/bin/bijux-pollenomics report-country Sweden --aadr-roo
 artifacts/root/check-venv/bin/bijux-pollenomics report-multi-country-map Sweden Norway Finland Denmark --aadr-root data/aadr --version v66 --context-root data --output-root docs/report
 ```
 
-## Which Route To Choose
+`report-country` writes one country bundle. `report-multi-country-map` writes a
+shared map for the named countries. They are narrower publication operations,
+not shortcuts around the same evidence requirements.
 
-- choose the verification route if you need confidence without rewriting
-  tracked repository state
-- choose `collect-data` if the goal is source refresh or normalization review
-- choose `publish-reports` if the goal is public report and atlas output review
-- choose the narrower aDNA commands if the question is species, archive, or
-  review specific
+## Mutation Boundaries
 
-## When To Stop
+| Command family | Reads | Writes |
+| --- | --- | --- |
+| `source-support`, `adna-*` inspection | current governed state | standard output |
+| `validate-collection-summary` | one summary file | standard output and exit status |
+| `collect-data` | external sources and collector configuration | `data/` |
+| `refresh-data-contract-surfaces` | current data tree | collection and contract summaries |
+| `publish-reports`, `report-*` | governed data and geography configuration | `docs/report/` |
 
-- stop after verification commands if the goal is only repository health
-- stop after `collect-data` if the goal is data refresh review
-- stop after `publish-reports` if the goal is publication-surface review
-
-That stop rule matters. Many problems in this repository come from running a
-much broader workflow than the question actually requires.
+Inspect the resulting diff after every state-changing command. A successful
+exit establishes command completion; the evidence and publication diffs still
+require review.

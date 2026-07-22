@@ -4,57 +4,63 @@ audience: reader
 type: reference
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-05-08
+last_reviewed: 2026-07-22
 ---
 
 # Data Contracts
 
-Most of the runtime contract is visible as files. If a command changes tracked
-state, it should do so in governed locations with stable names that a reader or
-reviewer can inspect.
-
-This page matters because the repository does not ask readers to trust runtime
-behavior in the abstract. It asks them to inspect stable files in stable roots.
+The command line reads and writes explicit repository surfaces. A path states
+whether an object is captured evidence, normalized evidence, reviewed state, a
+published product, an API description, or a local run artifact.
 
 ## Governing Roots
 
-- `data/` for tracked source and normalized evidence
-- `docs/report/` for tracked public report outputs
-- `apis/bijux-pollenomics/v1/` for the frozen API contract
-- `artifacts/` for transient local output
+| Root | Contract | Persistence |
+| --- | --- | --- |
+| `data/<family>/raw/` | captured or source-shaped material | governed input state |
+| `data/<family>/normalized/` | stable records for downstream use | governed derived state |
+| `data/<family>/review/` | coverage, conflict, and maturity findings | governed review state |
+| `data/adna/governance/` | project, paper, sample, and recovery authority | governed evidence state |
+| `docs/report/` | versioned public bundles and review publications | governed publication state |
+| `apis/bijux-pollenomics/v1/` | frozen OpenAPI schema and its digest | versioned interface contract |
+| `artifacts/` | logs, previews, and local verification products | transient; not publication authority |
 
-## What Each Root Means
+## Data Flow Invariants
 
-- `data/` is where source intake, normalized evidence, and review surfaces live
-- `docs/report/` is where generated public answers live
-- `apis/bijux-pollenomics/v1/` is where the frozen API description lives
-- `artifacts/` is for local run products that should not become part of the
-  checked-in evidence story
+```mermaid
+flowchart LR
+    Raw["raw or captured input"] --> Normalized["normalized records"]
+    Normalized --> Review["review and admission"]
+    Review -->|eligible| Reports["docs/report products"]
+    Review -->|ineligible| Refusal["gap or exclusion surface"]
+    API["v1 schema and hash"] -. "describes supported interface" .-> Normalized
+```
 
-## Contract Rules
+- Source-family trees retain ownership; a generic merged file cannot erase
+  source identity or semantics.
+- Normalized records retain stable identity and a route back to captured
+  evidence.
+- Review outputs distinguish missing, unresolved, conflicting, and excluded
+  states.
+- Publication is downstream of admission and remains reproducible from the
+  checked-in data state.
+- Generated output written outside a governed destination has no authority
+  until deliberately reviewed and admitted.
+- `schema.hash` binds the pinned v1 API description to its declared bytes;
+  changing the schema without changing the digest is contract drift.
 
-- source-family outputs keep their own subtrees rather than collapsing into one
-  generic data bucket
-- normalized files must remain reviewable without reverse-engineering command
-  internals
-- downstream publication files must be reproducible from tracked upstream data
-- docs pages may explain a contract, but they must not silently replace the
-  contract file itself
+## Machine-Readable Boundaries
 
-## Why These Roots Matter
+JSON carries manifests, reviews, summaries, and structured evidence. CSV
+provides tabular exchange where row semantics are stable. GeoJSON carries
+geographic features with source and role metadata. Markdown and HTML explain
+or render those products; they do not replace the structured authority behind
+an evidence claim.
 
-The file layout is part of the public explanation. A reviewer should be able to
-see, from the path alone, whether they are looking at source intake,
-normalized evidence, downstream publication, or transient local output.
-
-## How To Read The Layout
-
-- if a file is under `data/`, ask what evidence or review responsibility it owns
-- if a file is under `docs/report/`, ask what public claim it is making
-- if a file is under `artifacts/`, do not treat it as checked-in repository
-  truth
-- if a docs page claims a contract exists, verify the governing file path
-  rather than trusting the prose alone
+`validate-collection-summary` checks one collection ledger without recollecting
+sources. `refresh-data-contract-surfaces` derives contract summaries from the
+current data tree. These operations validate or derive structure; neither
+upgrades weak evidence into an admissible record.
 
 ## Anchor Files
 
