@@ -51,6 +51,24 @@ This division prevents a polished output from becoming its own authority. The
 publication layer can select, summarize, and render evidence; it cannot invent
 support that the curated state does not contain.
 
+## What The System Decides
+
+Bijux Pollenomics makes bounded, reviewable decisions at named surfaces. It
+does not turn every available field into a scientific conclusion.
+
+| Decision | Evidence considered | Result retained |
+| --- | --- | --- |
+| source admission | upstream identity, access, licence, version, and intended role | selected, recoverable, blocked, or outside scope |
+| record identity | source keys, labels, accessions, joins, and ambiguity evidence | stable identity, aliases, unresolved candidates, or refusal to merge |
+| claim precision | source wording, locality support, dating basis, coordinates, and provenance | supported precision, qualification, substitution, conflict, or unknown |
+| product admission | evidence role, geography, claim fitness, and publication contract | admitted member, qualified member, exclusion, or deferred recovery |
+| ranking posture | declared features, weights, scenarios, and sensitivity | decision-support order with stability and field-evidence requirements |
+
+The system does not decide that proximity implies association, that a registry
+lake is suitable for coring, that project context is sample evidence, or that
+an unresolved date can be made numeric. Those are precisely the shortcuts its
+curation and refusal records are designed to prevent.
+
 ## A Publication Is A Claim Graph
 
 A report directory is not a bag of equivalent files. The manifest defines the

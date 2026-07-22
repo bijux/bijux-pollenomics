@@ -117,42 +117,41 @@ bundle, uploads the Python distribution to PyPI, publishes the release bundle
 to its exact GHCR package page under the `bijux` account, and attaches the
 same staged assets to the GitHub Release.
 
-## Follow One Result End To End
+## Follow One Curated Record End To End
 
-Begin with the product manifest, not the rendered marker. For an admitted
-animal ancient-DNA point, the review route is:
+The world animal surface contains an accepted goat feature for Direkli Cave.
+Its published row is only the end of a longer, checked-in chain:
+
+| Layer | Governing identity or fact |
+| --- | --- |
+| publication | feature `animal-atlas-feature:capra-hircus-locality-prjeb90141-direklicave-taurusmountainsturkey` is accepted in the world animal evidence surface |
+| locality | `capra_hircus:locality:prjeb90141:direklicave:taurusmountainsturkey` owns Direkli Cave and its exact supplied coordinates |
+| sample | `capra_hircus:sample:prjeb90141:samea4453841` resolves archive sample `SAMEA4453841` and paper label `Direkli1-2` |
+| chronology | the sample-owned source text `11367-11220 BCE` is normalized to `13169-13316 BP` with a sample-precise interval posture |
+| provenance | Table S2, row 2 of the recovered PRJEB90141 supplementary workbook supplies label, place, coordinates, time, and accession lineage |
+| accountability | the candidate record confirms sample lineage, site evidence, chronology evidence, coordinate provenance, and locality agreement |
 
 ```mermaid
 flowchart LR
-    Product["world, region, or country bundle"] --> Member["published member ID"]
-    Member --> Candidate["animal atlas candidate"]
-    Candidate --> Sample["project-owned sample record"]
-    Sample --> Place["locality and coordinate evidence"]
-    Sample --> Time["chronology evidence"]
-    Sample --> Literature["paper and supporting material"]
-    Literature --> Capture["retrieved source artifact"]
-    Candidate --> Decision["admission, qualification, or exclusion"]
+    Workbook["supplementary workbook<br/>Table S2 row 2"] --> Sample["SAMEA4453841<br/>Direkli1-2"]
+    Sample --> Locality["Direkli Cave<br/>supplied coordinates"]
+    Sample --> Chronology["11367–11220 BCE<br/>13169–13316 BP"]
+    Locality --> Candidate["accountable animal candidate"]
+    Chronology --> Candidate
+    Candidate --> World["accepted world feature"]
 ```
 
-Each hop answers a different question. The bundle establishes product scope;
-the candidate establishes why the record may be plotted; the sample record
-owns identity; place and time records own supported precision; the literature
-chain establishes provenance; and the decision explains visibility. Skipping
-one hop creates familiar but unsafe shortcuts such as treating project
-geography as sample geography or a paper date as sample chronology.
+This trace is intentionally more specific than a citation. It proves which
+spreadsheet row owns the identity, spatial claim, and temporal claim; how those
+claims were normalized; and which product admitted the resulting feature. The
+same project also contains sample-owned chronology that conflicts with broader
+project wording, so the database preserves the narrower sample claim instead
+of flattening every project member to one date.
 
-The same method works in the opposite direction. Start with a changed source
-capture, compare normalized identities and curation decisions, then identify
-which publication memberships changed. A source refresh that produces no
-public diff is still an interpretable outcome when the contract explains why.
-
-| If you need to… | Begin with… | Then verify… |
-| --- | --- | --- |
-| understand a visible point | bundle manifest and member ID | evidence owner, source lineage, precision, and caveats |
-| explain an absent candidate | exclusion, ambiguity, and recovery surfaces | product scope and missing governing evidence |
-| compare evidence families | source-family roles and observation units | temporal and spatial bridge, denominator, and limits |
-| evaluate a lake priority | ranking manifest and sensitivity output | contextual inputs, field constraints, and refusal boundaries |
-| assess a source refresh | capture identity and normalized member diff | curation, coverage, and affected publication membership |
+For an absent or qualified record, follow the same route from the expected
+identity into exclusion, ambiguity, substitution, and recovery surfaces. A
+source refresh is reviewed in the opposite direction: capture, normalized
+identity, curation decision, then affected publication membership.
 
 ## Checked-In Evidence Snapshot
 

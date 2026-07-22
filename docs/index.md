@@ -125,6 +125,25 @@ sample-level support before an exact point or chronology can be asserted.
 No single map popup answers all five questions. Consequential interpretation
 continues from publication to evidence and then to the governing source.
 
+### A Count Audit In Practice
+
+The checked-in SEAD state contains 2,195 reviewed inventory rows and 2,172
+mapped Nordic features. The 23-row difference is not deduplication and not
+silent evidence loss: those records retain coordinates but do not fall within
+the four publication-country boundary geometries.
+
+```mermaid
+flowchart LR
+    Inventory["2,195 reviewed SEAD rows"] --> Boundary{"inside Denmark, Finland,<br/>Norway, or Sweden?"}
+    Boundary -->|yes| Mapped["2,172 mapped context features"]
+    Boundary -->|no| Outside["23 retained outside the product geography"]
+```
+
+This is how a number becomes trustworthy: define the observation unit, name
+the candidate population, identify the selection rule, and account for every
+non-member. A percentage that omitted the 23 retained records or called them
+failed normalization would describe a different—and incorrect—process.
+
 ### Carry A Reusable Evidence Packet
 
 | Claim being reused | Minimum packet |
