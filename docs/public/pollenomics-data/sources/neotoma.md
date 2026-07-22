@@ -28,6 +28,21 @@ Within the review, 63 records are numeric intervals, 107 are numeric intervals
 with caveats, 5 retain contextual labels only, and 25 remain unresolved. These
 categories are more informative than calling all 200 sites “dated.”
 
+### Curation Lineage
+
+| Boundary | Governing material | Decision preserved |
+| --- | --- | --- |
+| dataset acquisition | `raw/neotoma_pollen_dataset_downloads/manifest.json` and its captured parts | which downloaded responses belong to the snapshot |
+| dataset inventory | `raw/neotoma_pollen_dataset_inventory.json` | dataset identity and coverage represented by the capture |
+| site capture | `raw/neotoma_pollen_sites.json` | source site records before family normalization |
+| site normalization | `normalized/nordic_pollen_sites.geojson` | stable spatial members used by public products |
+| temporal review | `review/temporal_review.json` | numeric, caveated, contextual, or unresolved time posture per site |
+
+The download bundle is preserved separately from the normalized map layer so a
+reader can distinguish what the source returned from what the product admits.
+A normalized point is therefore inspectable as a transformation, not presented
+as an unexplained database export.
+
 ```mermaid
 flowchart LR
     Inventory["captured site and dataset inventory"] --> Site["normalized pollen site"]
@@ -90,6 +105,15 @@ strengths differ:
   dataset coverage;
 - neither family replaces the other;
 - neither becomes direct sample evidence when displayed beside aDNA.
+
+## Choose Neotoma For The Question
+
+| Question | Use | Retain with the claim |
+| --- | --- | --- |
+| Which captured palaeoecological sites provide pollen context? | normalized site members | site and dataset identity plus publication scope |
+| Can two records be compared in time? | the individual temporal-review row | bounds, units, review class, caveat, and comparison rule |
+| Does a site's BP span constitute an age-depth model? | no | the span is site-level captured coverage, not sample chronology |
+| Is absence from the layer evidence of no palaeoecological record? | no | capture and normalization scope must be checked first |
 
 ## Governing Surfaces
 

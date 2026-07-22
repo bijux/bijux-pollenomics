@@ -34,6 +34,21 @@ Every current legibility-review row is classified as inventory-only or
 unresolved for time, with high risk from the thin site-inventory capture and a
 publication posture of context with an explicit caveat.
 
+### Curation Lineage
+
+| Boundary | Governing material | Decision preserved |
+| --- | --- | --- |
+| inventory capture | `raw/nordic_sites.json` | the site identities and geometry available in the checked-in snapshot |
+| spatial normalization | `normalized/nordic_environmental_sites.geojson` | the 2,172 members eligible for contextual mapping |
+| access review | `review/access_model.json` | how the captured surface relates to deeper SEAD information |
+| temporal review | `review/temporal_review.json` | refusal of unsupported numeric comparison |
+| evidence legibility | `review/evidence_legibility_review.json` | why inventory visibility is not record-level interpretive depth |
+| recovery direction | `review/recovery_roadmap.json` | which missing relations would materially strengthen future claims |
+
+These surfaces turn a thin database capture into an auditable evidence state.
+They do not conceal the missing chronology and bibliography behind a successful
+normalization count.
+
 ```mermaid
 flowchart LR
     Capture["captured site inventory"] --> Normalize["normalized site points"]
@@ -98,6 +113,15 @@ Sweden-specific registry context. Their records may overlap spatially, but the
 families have different coverage, source systems, and normalization semantics.
 They should be compared as complementary context rather than merged into a
 single archaeology truth set.
+
+## Choose SEAD For The Question
+
+| Question | Use | Retain with the claim |
+| --- | --- | --- |
+| Which environmental-archaeology sites are spatially near this feature? | normalized site points under a declared distance rule | SEAD member identity, distance, and inventory-only posture |
+| Were nearby records contemporaneous? | not from the current capture | linked dating or period evidence must first be recovered and reviewed |
+| Does a dense cluster represent greater past activity? | not directly | capture, investigation, preservation, and database-selection effects remain alternatives |
+| Where would deeper source recovery add the most value? | inventory, gap, and recovery-review surfaces together | the missing relation and the claim it would unlock |
 
 ## Governing Surfaces
 

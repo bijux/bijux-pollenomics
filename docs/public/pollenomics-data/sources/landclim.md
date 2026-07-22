@@ -29,6 +29,20 @@ contract identifies `data/landclim/raw/` as captured material,
 `data/landclim/normalized/` as normalized evidence, the cross-family evidence
 stage matrix as review, and regional pollen layers as publication.
 
+### Curation Lineage
+
+| Boundary | Governing material | Decision preserved |
+| --- | --- | --- |
+| source capture | `raw/landclim_sources.json` and the checked-in workbooks or archive | which LandClim release material entered the repository |
+| sequence normalization | `normalized/nordic_pollen_site_sequences.geojson` | stable site geometry, source identity, and site-level temporal fields |
+| model normalization | `normalized/nordic_reveals_grid_cells.geojson` | REVEALS cells remain areal model context rather than site observations |
+| family summary | `normalized/landclim_summary.json` | denominators for sequence, interval, and grid-cell claims |
+| cross-family review | `data/source_spatiotemporal_posture_registry.json` | whether the family can participate in spatial or temporal comparison |
+
+The split between sequence and model normalization is a scientific boundary,
+not a storage convenience. It prevents a modeled grid value from acquiring the
+identity or evidentiary meaning of a sampled pollen sequence.
+
 ```mermaid
 flowchart LR
     Capture["source workbooks and archive"] --> Sites["normalized site sequences"]
@@ -100,6 +114,15 @@ point” is not specific enough to preserve those distinctions.
 Proximity between a LandClim record and another feature is a declared spatial
 relation. It does not establish shared chronology or causal association unless
 those dimensions are supported separately.
+
+## Choose LandClim For The Question
+
+| Question | Use | Retain with the claim |
+| --- | --- | --- |
+| What pollen sequence context exists near this place? | normalized site sequences | member identifier, distance rule, and sequence temporal posture |
+| What modeled vegetation context covers this area? | REVEALS grid cells | cell identifier, model semantics, and declared time context |
+| Can this record be compared with a dated sample? | only sequence rows with compatible admitted intervals | both intervals, units, precision, and overlap rule |
+| Does nearby pollen prove association with an aDNA or archaeology feature? | neither LandClim surface alone | a separate association design and evidence would be required |
 
 ## Governing Surfaces
 
