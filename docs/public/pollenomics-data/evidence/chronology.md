@@ -108,6 +108,23 @@ modeled sample dates, archaeological context dates, broad period labels, and
 historical or recent dates. Evidence class describes *what kind of support
 exists*; precision posture describes *how that support may be used*.
 
+### Ownership, Dating Basis, And Representation Are Independent
+
+Three axes are required to interpret a numeric chronology. Collapsing them
+into a single “dated” flag makes a sample-owned historical year look
+equivalent to a calibrated laboratory distribution.
+
+| Axis | Example states | Question answered |
+| --- | --- | --- |
+| claim ownership | sample, sample group, site context, project context | which governed object does the statement describe? |
+| dating basis | direct radiocarbon, modeled estimate, archaeological context, historical record | how was time established? |
+| representation | source text, BP point, interval, disjoint ranges, probability distribution | how is the supported time encoded? |
+
+Numeric representation does not upgrade ownership or dating basis. A
+project-owned interval remains project context after conversion to BP, and a
+sample-owned number remains qualified when its basis is modeled or otherwise
+approximate. Comparison rules select compatible states on all three axes.
+
 ## The Normalized Chronology Contract
 
 A chronology row preserves:

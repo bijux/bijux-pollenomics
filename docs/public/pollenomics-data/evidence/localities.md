@@ -139,6 +139,35 @@ boundary snapshot, and the containment method. Replacing a boundary can change
 country membership without changing the archaeological site or the source
 locality claim.
 
+### Place Resolution Is Versioned Evidence
+
+A historical or translated name can resolve differently as gazetteers,
+administrative boundaries, and site authorities change. A resolution receipt
+therefore records more than the selected modern label.
+
+| Receipt member | Why it matters |
+| --- | --- |
+| reported expression | preserves spelling, language, historical form, and source context |
+| candidate identities | exposes homonyms and alternatives considered |
+| selected feature | names the governed site or geographic object, not only its display label |
+| authority and version | identifies the gazetteer, site registry, or curated anchor used |
+| method and evidence | distinguishes exact identifier linkage, reviewed alias, and name-based inference |
+| decision posture | records accepted, approximate, ambiguous, conflicted, or unresolved resolution |
+
+```mermaid
+flowchart LR
+    Reported["reported historical place"] --> Candidates["versioned candidate set"]
+    Authority["gazetteer or site authority"] --> Candidates
+    Candidates --> Decision{"resolution decision"}
+    Decision --> Feature["governed place identity"]
+    Decision --> Ambiguous["retained alternatives"]
+    Feature --> Geometry["separate coordinate claim"]
+```
+
+A later gazetteer match can revise the resolved feature without rewriting the
+reported locality. It can also change coordinate and country-membership
+descendants while leaving sample identity untouched.
+
 ## Evidence Precedence
 
 ```mermaid

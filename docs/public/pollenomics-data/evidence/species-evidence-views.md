@@ -84,6 +84,32 @@ ineligible for domesticated-core interpretation. A species can have supported
 curated projects while retaining blocked, pending, rejected, or under-recovered
 projects. Preserve both statements.
 
+### Taxonomic Reassignment Does Not Rewrite Sample History
+
+The accepted taxon is a versioned claim about a governed sample, not the
+sample's identity. A revised taxonomy, synonym decision, or stronger molecular
+assignment can move a sample between species views while preserving its
+project namespace, source labels, locality, chronology, and evidence lineage.
+
+```mermaid
+flowchart LR
+    Sample["stable project-owned sample"] --> TaxonClaim["taxonomic claim + authority"]
+    TaxonClaim --> SpeciesView["accepted species projection"]
+    TaxonClaim --> Alternative["synonym, ambiguity, or competing assignment"]
+    SpeciesView --> Product["taxon-scoped product decision"]
+```
+
+| Change | Stable authority | Required reassessment |
+| --- | --- | --- |
+| display-name or synonym change | sample and source lineage | labels, taxonomy revision, and discovery views |
+| accepted species changes | sample identity | species projection, taxon counts, role, and every taxon-scoped product |
+| assignment becomes ambiguous | competing attributed claims | eligibility, aggregation, and public qualification |
+| project species expectation disagrees with sample evidence | sample-owned evidence and conflict record | project summaries and affected taxonomic decisions |
+
+Species totals are therefore revision-dependent projections. They cannot be
+used as permanent specimen counts without the accepted taxonomy revision and
+the included sample identities.
+
 ## Audit One Species Claim
 
 1. Name the proposed claim and its observation unit: source project, sample,

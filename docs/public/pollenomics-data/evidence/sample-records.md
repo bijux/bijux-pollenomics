@@ -113,6 +113,27 @@ claims to choose an identity and then citing the chosen identity as support
 for those same claims would be circular. Unresolved candidates remain in the
 ambiguity ledger until label or accession lineage distinguishes them.
 
+### “Sample” Can Name Different Evidence Units
+
+Source ecosystems use *sample* for specimens, subsamples, extracts, libraries,
+assays, and archive deposits. Those objects may have one-to-one, one-to-many,
+or many-to-one relations. A stable record therefore declares the level it
+identifies instead of assuming that every source identifier names the same
+physical unit.
+
+| Source identity level | Represents | Required relation when joined |
+| --- | --- | --- |
+| specimen or physical remain | the material recovered from a context | explicit relation to subsample, extract, or analysis |
+| subsample or tissue portion | material taken from a specimen | parent specimen and sampling relation |
+| extract or library | laboratory preparation | source material and preparation identity |
+| assay or analytical result | one measurement or sequencing event | library or material analyzed and method context |
+| archive accession | deposited digital or physical object | declared object type and equivalence evidence |
+
+Equal labels across these levels do not prove equality, and several analytical
+identifiers do not necessarily mean several specimens. Counts state their
+identity level; merge and split decisions retain the predecessor objects and
+the relation used to reconcile them.
+
 ## Relational Contract
 
 The sample identifier is the hub of the evidence model, not a container that

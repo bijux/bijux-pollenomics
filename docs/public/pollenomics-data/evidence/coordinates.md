@@ -100,6 +100,29 @@ still be project-owned; an exact arithmetic transform may preserve a broadly
 located observation; an approximate point can remain useful without becoming
 an exact excavation coordinate.
 
+### Decimal Places Are Not An Uncertainty Model
+
+Coordinate formatting describes numeric representation, not positional
+accuracy. Extra decimals can be introduced by reference-system conversion,
+centroid calculation, or serialization without adding source evidence.
+
+A quantitative spatial analysis uses an uncertainty envelope only when its
+basis is governed—for example, a reported accuracy, source precision, feature
+geometry, or reviewed resolution radius. Otherwise it retains a qualitative
+precision class and refuses calculations that require a numeric error bound.
+
+| Available support | Permitted uncertainty treatment |
+| --- | --- |
+| source supplies accuracy or uncertainty | retain the value, unit, confidence meaning, and locator |
+| governed polygon or feature geometry | use that geometry under its versioned authority |
+| reviewed named-place resolution radius | use the declared method and radius as qualified uncertainty |
+| only rounded or highly precise decimals | retain representation; do not infer metres of accuracy |
+| region-only locality | use region or non-point context; do not manufacture a point envelope |
+
+Threshold and containment results must state whether plausible uncertainty can
+change the classification. When no defensible envelope exists, the correct
+posture is qualitative or withheld, not zero uncertainty.
+
 ## Point Geometry Is Not The Observation
 
 A point is a representation chosen for a product. The underlying observation
