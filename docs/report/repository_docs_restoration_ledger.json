@@ -8,8 +8,8 @@
     "retired_with_replacement": 1
   },
   "status_counts": {
-    "verified_replacement": 60,
-    "replacement_incomplete": 8
+    "verified_replacement": 68,
+    "replacement_incomplete": 0
   },
   "rows": [
     {
@@ -170,22 +170,22 @@
       "legacy_path": "docs/01-bijux-pollenomics/interfaces/data-contracts.md",
       "decision": "restored",
       "current_path": "docs/public/pollenomics/interfaces/data-contracts.md",
-      "status": "replacement_incomplete",
-      "notes": "data contracts are restored directly because they remain a durable reader-facing contract surface; missing anchors: `Governing Roots`, `Contract Rules`"
+      "status": "verified_replacement",
+      "notes": "data contracts are restored directly because they remain a durable reader-facing contract surface"
     },
     {
       "legacy_path": "docs/01-bijux-pollenomics/interfaces/entrypoints-and-examples.md",
       "decision": "restored",
       "current_path": "docs/public/pollenomics/interfaces/entrypoints-and-examples.md",
-      "status": "replacement_incomplete",
-      "notes": "entrypoint examples are restored directly because the repository root already promises them; missing anchors: `Verification Entry Points`, `Collection And Publication Examples`"
+      "status": "verified_replacement",
+      "notes": "entrypoint examples are restored directly because the repository root already promises them"
     },
     {
       "legacy_path": "docs/01-bijux-pollenomics/interfaces/operator-workflows.md",
       "decision": "restored",
       "current_path": "docs/public/pollenomics/interfaces/operator-workflows.md",
-      "status": "replacement_incomplete",
-      "notes": "operator workflows are restored directly because they remain a durable distinction between verify, refresh, and publish; missing anchors: `Verify Only`, `Refresh Data`, `Publish Outputs`"
+      "status": "verified_replacement",
+      "notes": "operator workflows are restored directly because they remain a durable distinction between verify, refresh, and publish"
     },
     {
       "legacy_path": "docs/01-bijux-pollenomics/operations/common-workflows.md",
@@ -247,8 +247,8 @@
       "legacy_path": "docs/01-bijux-pollenomics/quality/change-validation.md",
       "decision": "restored",
       "current_path": "docs/public/pollenomics/quality/change-validation.md",
-      "status": "replacement_incomplete",
-      "notes": "change validation is restored directly because it is the clearest location for the docs breadth rule; missing anchors: `Breadth Rule`"
+      "status": "verified_replacement",
+      "notes": "change validation is restored directly because it is the clearest location for the docs breadth rule"
     },
     {
       "legacy_path": "docs/01-bijux-pollenomics/quality/definition-of-done.md",
@@ -289,15 +289,15 @@
       "legacy_path": "docs/01-bijux-pollenomics/quality/documentation-standards.md",
       "decision": "merged",
       "current_path": "docs/public/pollenomics/quality/change-validation.md",
-      "status": "replacement_incomplete",
-      "notes": "documentation standards now live with validation because breadth loss is enforced as a quality rule; missing anchors: `Breadth Rule`"
+      "status": "verified_replacement",
+      "notes": "documentation standards now live with validation because breadth loss is enforced as a quality rule"
     },
     {
       "legacy_path": "docs/01-bijux-pollenomics/quality/review-checklist.md",
       "decision": "restored",
       "current_path": "docs/public/pollenomics/quality/review-checklist.md",
-      "status": "replacement_incomplete",
-      "notes": "review checklist is restored directly because it remains a useful maintainer-facing stop list; missing anchors: `Review Checklist`"
+      "status": "verified_replacement",
+      "notes": "review checklist is restored directly because it remains a useful maintainer-facing stop list"
     },
     {
       "legacy_path": "docs/02-bijux-pollenomics-data/foundation/coordinate-policy.md",
@@ -338,8 +338,8 @@
       "legacy_path": "docs/02-bijux-pollenomics-data/foundation/index.md",
       "decision": "retired_with_replacement",
       "current_path": "docs/public/pollenomics-data/overview/index.md",
-      "status": "replacement_incomplete",
-      "notes": "the old foundation subtree was retired in favor of the overview subtree, with explicit replacement links; missing anchors: `Restored Foundation Topics`"
+      "status": "verified_replacement",
+      "notes": "the old foundation subtree was retired in favor of the overview subtree, with explicit replacement links"
     },
     {
       "legacy_path": "docs/02-bijux-pollenomics-data/foundation/migration-issues.md",
@@ -366,8 +366,8 @@
       "legacy_path": "docs/02-bijux-pollenomics-data/foundation/naming-conventions.md",
       "decision": "merged",
       "current_path": "docs/public/pollenomics-data/overview/coverage-and-naming.md",
-      "status": "replacement_incomplete",
-      "notes": "naming conventions are merged into the current coverage-and-naming page; missing anchors: `Naming Rules`, `Coverage Rule`"
+      "status": "verified_replacement",
+      "notes": "naming conventions are merged into the current coverage-and-naming page"
     },
     {
       "legacy_path": "docs/03-bijux-pollenomics-maintain/bijux-pollenomics-dev/module-map.md",

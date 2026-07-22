@@ -2,8 +2,8 @@
   "schema_version": "repository-source-explainer-audit.v1",
   "row_count": 16,
   "status_counts": {
-    "present_useful_form": 13,
-    "restoration_plan_required": 3
+    "present_useful_form": 16,
+    "restoration_plan_required": 0
   },
   "rows": [
     {
@@ -80,22 +80,22 @@
       "surface_kind": "output_family",
       "display_name": "Normalized Neotoma outputs explainer",
       "page_path": "docs/public/pollenomics-data/publications/neotoma-exports.md",
-      "status": "restoration_plan_required",
-      "notes": "missing expected anchors: `data/neotoma/normalized/`"
+      "status": "present_useful_form",
+      "notes": "page exists and keeps the expected source or output anchors visible"
     },
     {
       "surface_kind": "output_family",
       "display_name": "Normalized SEAD outputs explainer",
       "page_path": "docs/public/pollenomics-data/publications/sead-exports.md",
-      "status": "restoration_plan_required",
-      "notes": "missing expected anchors: `data/sead/normalized/`"
+      "status": "present_useful_form",
+      "notes": "page exists and keeps the expected source or output anchors visible"
     },
     {
       "surface_kind": "output_family",
       "display_name": "Normalized RA\u00c4 outputs explainer",
       "page_path": "docs/public/pollenomics-data/publications/raa-exports.md",
-      "status": "restoration_plan_required",
-      "notes": "missing expected anchors: `Sweden-scoped`"
+      "status": "present_useful_form",
+      "notes": "page exists and keeps the expected source or output anchors visible"
     },
     {
       "surface_kind": "output_family",

@@ -1,6 +1,6 @@
 {
   "schema_version": "repository-docs-recovery-review.v1",
-  "overall_posture": "recovery_still_fragile",
+  "overall_posture": "moving_toward_elegant_correctness",
   "evidence_anchors": [
     "docs/report/repository_docs_restoration_ledger.json",
     "docs/report/repository_docs_scope_validation.json",
@@ -10,8 +10,8 @@
   "rows": [
     {
       "dimension_key": "restoration_completeness",
-      "score": 2,
-      "finding": "60 of 68 missing handbook pages now have verified replacements"
+      "score": 4,
+      "finding": "68 of 68 missing handbook pages now have verified replacements"
     },
     {
       "dimension_key": "navigation_breadth",
