@@ -140,6 +140,18 @@ findings, coverage deltas, removals, changed precision, and downstream
 admission effects. A hash change without a normalized change may be packaging;
 a stable row count may still conceal member replacement or semantic change.
 
+Before promotion, write the candidate decision as a reconciliation:
+
+| Population | Account for |
+| --- | --- |
+| prior | stable members, changed members, and members no longer produced |
+| candidate | retained identities, additions, replacements, qualifications, and refusals |
+| downstream | review decisions and product members invalidated by each semantic change |
+
+Promotion is justified by that reconciliation, not by the candidate being
+newer. If any prior member is unaccounted for, retain the governed state and
+resolve the loss at the source-family owner.
+
 ## Propagate Invalidation Forward
 
 An accepted change invalidates the downstream decisions that depend on it. It

@@ -76,6 +76,20 @@ This separates a retryable transport failure from a source-semantic change or
 an evidence gap. The same symptom—such as a missing output—can require a very
 different response at each boundary.
 
+### Retry Only When The Cause Is Stable
+
+| Failure class | Retry condition | Unsafe response |
+| --- | --- | --- |
+| transient transport | upstream identity and request contract are unchanged, and retry policy permits it | accepting whichever response eventually arrives without comparing identity |
+| authentication or access | credentials or access posture are corrected and recorded | treating an empty or partial response as source absence |
+| upstream format change | the parser and source contract are deliberately revised and reviewed | repeated execution against the same incompatible payload |
+| governed-state inconsistency | the owning boundary and last coherent manifest are known | broad rebuild before isolating the inconsistent tree |
+| scientific refusal | stronger named evidence satisfies the recovery condition | changing thresholds or inventing values until the record passes |
+
+A retry is an execution choice, not an evidence decision. It must not change
+the meaning of absence, lower an admission rule, or erase the failed attempt
+from the retained operation evidence.
+
 ## Recovery Procedure
 
 1. Stop at the first failed boundary.

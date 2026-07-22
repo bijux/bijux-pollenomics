@@ -47,6 +47,20 @@ or validation when the question can be answered from current state. Use a
 writer only when acquiring evidence or materializing a product is the intended
 outcome.
 
+### Choose By The Authority That Must Change
+
+| Intended change | Owning operation | Evidence of acceptance |
+| --- | --- | --- |
+| understand current capability | inspection | returned contract at a named runtime and data revision |
+| reject or accept existing state | validation | diagnostics tied to the inspected manifest |
+| replace captured source-family state | collection | source identity, complete family manifest, and semantic diff |
+| recompute summaries over unchanged governed data | contract materialization | derived contracts reconcile with the same data revision |
+| replace product membership or renderings | publication | product manifest, member diff, warnings, and exclusions |
+
+Do not choose a broader command because it also happens to write the desired
+file. The operation must own the authority that is intended to change; all
+other affected files are descendants to review, not alternative write targets.
+
 ## State-Change Contract
 
 A state-changing operation is accepted as a complete owned replacement, not as
