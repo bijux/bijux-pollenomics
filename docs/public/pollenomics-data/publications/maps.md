@@ -30,6 +30,11 @@ The browser is a consumer. Its filters can hide admitted features but cannot
 admit new ones. Popup text can summarize a record but cannot replace its
 evidence row.
 
+The map publication contract makes that boundary inspectable. It declares the
+scope and parent scope, artifact membership, countries, roles, layer rows,
+legend sections, filter surfaces, bounds, initial view, basemap, and visible
+caveats. The HTML map renders the contract; it is not the contract itself.
+
 ## Reading Layers
 
 | Layer role | Safe interpretation | Required follow-up for a stronger claim |
@@ -47,6 +52,27 @@ scope must preserve feature identity and meaning. It may apply a stricter
 product rule, but it must not invent a child feature, strengthen coordinate
 precision, or reclassify context as direct evidence.
 
+Subset validation answers product lineage, not scientific coverage. A valid
+Nordic subset can still contain uneven source recovery by country, species, or
+period. The manifest establishes which governed members were selected; family
+coverage and exclusion surfaces explain the population from which selection
+occurred.
+
+## Spatial Relationships The Map Does Not Prove
+
+| Visual pattern | What is visible | What remains unproven |
+| --- | --- | --- |
+| two nearby points | co-location at the displayed precision | contemporaneity, interaction, or shared cause |
+| dense cluster | many admitted features in the rendered area | historical abundance or uniform sampling effort |
+| point inside a boundary | coordinate falls within current framing geometry | historical political affiliation |
+| lake near archaeology context | proximity under the current map projection | depositional linkage or field suitability |
+| empty area | no visible admitted feature under current filters | absence in the source, past landscape, or recovery queue |
+
+Temporal posture, coordinate confidence, source role, and product membership
+must be compatible before proximity becomes a defensible comparison. The map
+helps locate candidates for that comparison; it does not perform the
+evidential join by appearance.
+
 ## Auditing A Feature
 
 1. record the map scope, version, layer, and stable feature identifier;
@@ -60,6 +86,19 @@ A cluster supports a statement about the visible product, not necessarily
 sampling intensity or historical abundance. An empty area may mean no admitted
 record, incomplete source recovery, incompatible temporal support, or true
 source absence; the map alone cannot choose among those explanations.
+
+## Preserve Meaning When Exporting A View
+
+A screenshot preserves pixels but loses membership and provenance. A GeoJSON
+file preserves features but can still lose the parent scope, evidence roles,
+filter state, caveats, and exclusion context. A reusable map extract therefore
+travels with its publication contract, product manifest, selected feature
+identifiers, traceability, temporal semantics, coordinate-confidence fields,
+and visible warnings.
+
+Record filters separately from product membership. “Hidden by the reader” and
+“excluded by the publication contract” are different states and lead to
+different scientific interpretations.
 
 Audit anchors include the
 [world map publication contract](../../../report/world/world_map_publication_contract.md),

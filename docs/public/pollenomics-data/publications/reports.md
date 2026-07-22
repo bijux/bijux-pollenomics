@@ -26,6 +26,12 @@ Each child scope is a selection from a governed parent. Country bundles cannot
 introduce records that lack an upstream identity or silently change the meaning
 of a shared feature.
 
+The report tree has two complementary axes. Geographic bundles answer **where
+does this product apply?** Repository-wide reviews answer **how strong is the
+support, and what remains blocked?** A country landing page without its
+repository review companions can describe the visible subset but cannot
+establish collection completeness.
+
 ## Bundle Anatomy
 
 | Component | Responsibility |
@@ -66,6 +72,44 @@ flowchart TB
 - Use a sample table such as
   [Sweden animal aDNA samples](../../../report/countries/sweden/sweden_animal_adna_v66_samples.md)
   for the direct published rows rather than a narrative summary.
+
+## Read A Bundle In Authority Order
+
+```mermaid
+flowchart LR
+    Landing["landing narrative"] --> Manifest["bundle manifest"]
+    Manifest --> Members["structured member files"]
+    Members --> Trace["point and row traceability"]
+    Trace --> Evidence["governing evidence"]
+    Manifest --> Contract["map and product contract"]
+    Contract --> Caveats["warnings, exclusions, and reviews"]
+```
+
+1. The landing page states the question, scope, and principal results.
+2. The bundle manifest establishes product identity, parent scope, version,
+   countries, and artifact membership.
+3. JSON, CSV, and GeoJSON members carry the reusable records.
+4. Traceability surfaces connect visible identifiers to governed evidence.
+5. Contracts define roles, controls, bounds, and comparison semantics.
+6. Reviews and exclusions qualify both visible and absent evidence.
+
+Narrative is the orientation layer, not the final authority for a row-level
+claim. When two surfaces disagree, the stable member identity, governing
+evidence, and narrower qualification control; the disagreement itself becomes
+a publication-integrity finding.
+
+## Compare Scopes Without Double Counting
+
+World, Europe-plus, Nordic, and country products are nested selections, not
+independent observations. The same feature identifier can legitimately appear
+in several bundles. Combining those bundles by concatenation would duplicate
+evidence.
+
+For cross-scope comparison, compare member identifiers against the parent,
+confirm each child's subset relationship, and then group by evidence role and
+temporal posture. A country count describes membership in that country
+product; summing country counts is valid only when the manifests establish
+disjoint membership for the observation unit being counted.
 
 ## Review And Refusal Companions
 
