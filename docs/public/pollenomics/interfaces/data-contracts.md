@@ -9,62 +9,86 @@ last_reviewed: 2026-07-22
 
 # Data Contracts
 
-The command line reads and writes explicit repository surfaces. A path states
-whether an object is captured evidence, normalized evidence, reviewed state, a
-published product, an API description, or a local run artifact.
+The data system distinguishes acquisition, normalization, scientific review,
+publication, and transient execution. A record's location identifies its
+lifecycle stage; its schema and evidence role determine what may be claimed
+from it.
 
-## Governing Roots
+## Authority And Persistence
 
-| Root | Contract | Persistence |
-| --- | --- | --- |
-| `data/<family>/raw/` | captured or source-shaped material | governed input state |
-| `data/<family>/normalized/` | stable records for downstream use | governed derived state |
-| `data/<family>/review/` | coverage, conflict, and maturity findings | governed review state |
-| `data/adna/governance/` | project, paper, sample, and recovery authority | governed evidence state |
-| `docs/report/` | versioned public bundles and review publications | governed publication state |
-| `apis/bijux-pollenomics/v1/` | frozen OpenAPI schema and its digest | versioned interface contract |
-| `artifacts/` | logs, previews, and local verification products | transient; not publication authority |
+| Surface | Owns | Persistence | Does not establish |
+| --- | --- | --- | --- |
+| `data/<family>/raw/` | captured or source-shaped material and retrieval context | governed input | normalized comparability or publication fitness |
+| `data/<family>/normalized/` | repository-owned identifiers, fields, geometry, and time semantics | governed derived evidence | admission to every product |
+| `data/<family>/review/` | coverage, conflict, precision, and maturity findings | governed review evidence | universal scientific endorsement |
+| `data/adna/governance/` | project, paper, supplement, sample, recovery, and admission authority | governed evidence decisions | facts absent from the governing source chain |
+| `docs/report/` | versioned public membership, products, warnings, and exclusions | governed publication | authority over upstream scientific facts |
+| `apis/bijux-pollenomics/v1/` | future HTTP compatibility shapes | versioned interface contract | availability of a running service |
+| `artifacts/` | local logs, previews, environments, and verification output | transient | publication authority |
 
-## Data Flow Invariants
+## Evidence Flow
 
 ```mermaid
 flowchart LR
-    Raw["raw or captured input"] --> Normalized["normalized records"]
-    Normalized --> Review["review and admission"]
-    Review -->|eligible| Reports["docs/report products"]
-    Review -->|ineligible| Refusal["gap or exclusion surface"]
-    API["v1 schema and hash"] -. "describes supported interface" .-> Normalized
+    Capture["captured source"] --> Normalize["normalized record"]
+    Normalize --> Review["fitness and conflict review"]
+    Review --> Decision{"product contract"}
+    Decision -->|admit| Membership["publication membership"]
+    Decision -->|qualify| Qualified["qualified membership"]
+    Decision -->|exclude| Exclusion["reasoned exclusion"]
+    Membership --> Product["public product"]
+    Qualified --> Product
 ```
 
-- Source-family trees retain ownership; a generic merged file cannot erase
-  source identity or semantics.
-- Normalized records retain stable identity and a route back to captured
-  evidence.
-- Review outputs distinguish missing, unresolved, conflicting, and excluded
-  states.
-- Publication is downstream of admission and remains reproducible from the
-  checked-in data state.
-- Generated output written outside a governed destination has no authority
-  until deliberately reviewed and admitted.
-- `schema.hash` binds the pinned v1 API description to its declared bytes;
-  changing the schema without changing the digest is contract drift.
+Each transition must retain identifiers that lead backward. Publication may
+select, qualify, or exclude; it may not manufacture missing locality,
+chronology, taxonomy, or provenance.
 
-## Machine-Readable Boundaries
+## Cross-Family Invariants
 
-JSON carries manifests, reviews, summaries, and structured evidence. CSV
-provides tabular exchange where row semantics are stable. GeoJSON carries
-geographic features with source and role metadata. Markdown and HTML explain
-or render those products; they do not replace the structured authority behind
-an evidence claim.
+- source identity survives normalization and downstream copying;
+- missing, unresolved, approximate, substituted, and exact values remain
+  distinguishable;
+- direct evidence, contextual evidence, sampling context, and geographic
+  framing keep different roles;
+- normalized records remain addressable by stable repository-owned identity;
+- review decisions state their target product and reason;
+- publication membership is reproducible from governed repository state;
+- replacement of a source-family tree occurs only after complete staging and
+  contract validation.
 
-`validate-collection-summary` checks one collection ledger without recollecting
-sources. `refresh-data-contract-surfaces` derives contract summaries from the
-current data tree. These operations validate or derive structure; neither
-upgrades weak evidence into an admissible record.
+## Structured Formats
 
-## Anchor Files
+| Format | Typical responsibility |
+| --- | --- |
+| JSON | manifests, provenance, governance, reviews, summaries, and nested evidence |
+| CSV | stable tabular exchange and product members |
+| GeoJSON | spatial features with evidence role, identity, and traceability properties |
+| Markdown | citations, warnings, exclusions, interpretation, and human review |
+| HTML | interactive presentation over governed structured inputs |
 
-- `data/collection_summary.json`
-- `data/adna/governance/animal_sample_foundation_truth.json`
-- `docs/report/published_reports_summary.json`
-- `docs/report/repository_truth_posture.json`
+Markdown and HTML are explanatory or rendered surfaces. When a scientific
+fact appears in both narrative and structured output, the owning evidence
+record remains authoritative.
+
+## Contract Anchors
+
+- `data/collection_summary.json` records collected family status and hashes.
+- `data/source_family_contracts.json` declares family roles and expected
+  outputs.
+- `data/source_fact_ownership_registry.json` assigns recurring facts to one
+  governing surface.
+- `data/evidence_artifact_contracts.json` declares recurring evidence-product
+  shapes.
+- `data/adna/governance/animal_sample_foundation_truth.json` records animal
+  sample-foundation posture.
+- `docs/report/published_reports_summary.json` inventories public bundles.
+- `docs/report/repository_truth_posture.json` records cross-repository claim
+  posture.
+
+## Safe Reuse
+
+Reuse begins with the owning contract, not with a visually convenient file.
+Preserve identifiers, evidence roles, precision fields, and exclusions when
+subsetting or joining. If those fields cannot travel with a derived product,
+the derived product cannot inherit the original claim strength.
