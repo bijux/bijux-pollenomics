@@ -157,6 +157,23 @@ canonical distribution version identifies the implementation. Record both in
 reproducibility metadata when the short name is used to create governed
 artifacts.
 
+### Reproducibility record for the short name
+
+When `pollenomics` creates or refreshes governed artifacts, retain enough
+identity to reconstruct both the convenience boundary and the implementation:
+
+| Record | Why it matters |
+| --- | --- |
+| `pollenomics` distribution version | identifies the forwarding contract that was installed |
+| `bijux-pollenomics` distribution version | identifies the scientific implementation that ran |
+| requested executable or import prefix | explains how the consumer entered the runtime |
+| command arguments, configuration, and explicit roots | identifies the selected operation and filesystem state |
+| resulting canonical manifest and focused verification | identifies what was written and which contract was checked |
+
+Do not mint alias-specific schema names, provenance fields, or output roots to
+record this information. Invocation metadata may name the short surface;
+evidence records and publication members retain canonical runtime meaning.
+
 ## Single-Runtime Invariant
 
 For a supported installation, these statements are all true:

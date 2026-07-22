@@ -105,6 +105,32 @@ A check failure must be corrected at the boundary that owns the disputed fact
 or behavior. The maintainer package reports and enforces the mismatch; it does
 not create a parallel scientific contract.
 
+### Observation and decision stay separate
+
+Repository checks can compare declared state with observed state. They cannot
+decide a new pollen identity, chronology, coordinate, product membership, or
+scientific interpretation. That decision belongs to the evidence or runtime
+owner and must remain reviewable after the check is gone.
+
+| Responsibility | Owner | Durable output |
+| --- | --- | --- |
+| observe a mismatch | focused maintainer check | bounded finding with revision and inputs |
+| decide the correct scientific or product state | source, evidence, review, or publication boundary | governed record, rule, or disposition |
+| materialize an owned generated surface | the surface's generator | reproducible generated diff |
+| establish that the correction satisfies the contract | focused maintainer check | named verification result |
+
+```mermaid
+flowchart LR
+    Observe["check observes mismatch"] --> Decide["authoritative owner decides"]
+    Decide --> Materialize["owned producer materializes"]
+    Materialize --> Verify["check verifies the contract"]
+    Verify -. "new evidence requires a new decision" .-> Decide
+```
+
+This prevents a useful guard from becoming a hidden curation engine. If a
+check needs domain knowledge to choose the expected value, encode that choice
+in the owning domain contract and let the check verify the resulting relation.
+
 ## What A Passing Check Proves
 
 | Passing check | Supported conclusion | Unsupported conclusion |

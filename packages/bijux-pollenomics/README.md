@@ -83,6 +83,34 @@ Begin with the read-only surface when discovering an unfamiliar installation.
 Collection, foundation refresh, and report publication intentionally write
 governed artifacts and should receive explicit paths and review attention.
 
+## Evidence authority by layer
+
+The runtime coordinates the evidence system, but no single Python object is the
+whole database. Authority stays with the layer that can answer the relevant
+question:
+
+| Question | Authoritative layer | What the runtime may do |
+| --- | --- | --- |
+| what did an upstream source provide? | captured source artifact and retrieval metadata | decode it without rewriting the source claim |
+| which stable record does the project retain? | normalized or curated evidence record | validate identity, semantics, precision, and lineage |
+| why is the record admitted or refused? | review ledger and product contract | apply the declared rule and emit its disposition |
+| what belongs to this release? | publication manifest and member records | assemble the governed subset and its caveats |
+| how is a member presented? | generated report view linked to its member identity | render without inventing evidence or changing membership |
+
+```mermaid
+flowchart LR
+    Capture["captured source claim"] --> Record["normalized or curated record"]
+    Record --> Review["review disposition"]
+    Review --> Manifest["publication membership"]
+    Manifest --> View["reader-facing view"]
+    View -. "trace by stable identity" .-> Record
+```
+
+A consumer should resolve a surprising map point or count from right to left:
+first identify the publication member, then its disposition and governing
+record, and finally the captured source. Editing the rendered report would
+change presentation while leaving the authoritative decision untouched.
+
 ## Runtime architecture
 
 ```mermaid
