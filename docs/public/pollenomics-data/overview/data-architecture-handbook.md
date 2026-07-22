@@ -77,6 +77,20 @@ These invariants let the repository use ordinary versioned files while still
 behaving like an evidence database: ownership, lineage, constraints, and
 revision effects remain inspectable.
 
+## Database Model Boundaries
+
+The architecture separates three kinds of structure that are easy to conflate:
+
+| Structure | Defines | Does not define |
+| --- | --- | --- |
+| directory lifecycle | where captured, normalized, reviewed, and published artifacts belong | object identity or scientific joins |
+| object and relation model | typed identities, cardinality, fact ownership, and supported relations | fitness for a particular publication |
+| revision and state model | accepted database snapshot, claim states, supersession, and causal consistency | stronger evidence than the governing records contain |
+
+Directory proximity never grants authority. A review file beside normalized
+rows may evaluate them without owning their source facts; a `final/` input may
+be downstream-complete while remaining subordinate to its sample evidence.
+
 ## Revision Consistency
 
 A Git revision is the database snapshot. It is coherent only when authorities,
@@ -186,3 +200,9 @@ A public feature must resolve through product membership, admission decision,
 governing evidence record, captured source, and upstream identity. A product
 that cannot make that traversal is incomplete even when its visible geometry
 looks precise.
+
+Continue to the [evidence database](../database/index.md) for the unified
+contract, the [object and relation model](../database/object-and-relation-model.md)
+for identities and cardinality, and the
+[revision and state model](../database/revision-and-state-model.md) for coherent
+snapshots and change semantics.

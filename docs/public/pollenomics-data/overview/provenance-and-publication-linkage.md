@@ -79,6 +79,26 @@ That distinction matters when:
 - one evidence row appears in several geographic products;
 - a published feature is a comparator rather than direct evidence.
 
+### Relations Need Their Own Identity
+
+Two objects do not become traceable merely because both identifiers occur in
+one row. The relation between them retains a type, supporting locator or
+derivation, method, precision, posture, and revision.
+
+| Relation | Minimum provenance |
+| --- | --- |
+| paper describes project | paper identity, project accession, and captured association |
+| project contains sample | project-owned sample row and source-native label or accession |
+| sample belongs to site | sample-site evidence, locality class, and conflict posture |
+| claim supersedes claim | predecessor, successor, governing subject, decision reason, and revision |
+| point falls within country | coordinate claim, boundary snapshot, predicate, and product scope |
+| evidence enters product | governed evidence identity, admission rule, role, qualification, and manifest member |
+
+The relation identity makes a changed join distinguishable from a changed
+object. A sample can keep the same stable identity while its site relation is
+corrected; a coordinate can remain unchanged while its product membership
+changes under a revised scope.
+
 ## Fact Ownership
 
 Downstream products repeat useful fields, but each recurring fact has one
@@ -224,4 +244,6 @@ manifests:
 5. Which limitation changes how the object may be compared or mapped?
 
 If any answer depends only on a filename, prose memory, or an untyped copied
-value, the provenance chain is incomplete.
+value, the provenance chain is incomplete. The
+[object and relation model](../database/object-and-relation-model.md) defines
+the database identities that this provenance packet must preserve.
