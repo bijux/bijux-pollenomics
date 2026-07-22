@@ -114,83 +114,57 @@ different meanings:
 Keeping blocked and deferred states visible prevents absence from being
 misread as proof that no relevant project or sample exists.
 
-## Curation Transaction
+## Follow One Published Object
 
-A curation change is accepted as a linked evidence revision, not as an isolated
-cell edit. The narrowest owner changes first, and every dependent interpretation
-is then re-evaluated against its own contract.
-
-```mermaid
-flowchart LR
-    Proposal["new or corrected evidence"] --> Owner["narrowest fact owner"]
-    Owner --> Relations["identity and relationship checks"]
-    Relations --> Claims["place, time, taxonomy, and coordinate review"]
-    Claims --> Products["affected product admissions"]
-    Products --> Diff["reviewable semantic diff"]
-```
-
-The transaction is acceptable when:
-
-- the source-native value and the repository interpretation both remain
-  recoverable;
-- stable identity is preserved or an explicit merge or split is recorded;
-- stronger precision is introduced only with stronger owned evidence;
-- conflicting claims remain conflicts until their owner resolves them;
-- admission changes identify the rule and product they affect; and
-- unchanged publications remain explainable even when upstream files changed.
-
-These properties make revision history scientifically useful. A larger output
-or a cleaner row is not, by itself, evidence that curation improved.
-
-## How Evidence Changes Propagate
-
-A source refresh and a curation correction have different propagation paths.
-A refresh begins with new upstream material and may change capture hashes,
-normalized records, reviews, and publications. A curation correction begins at
-the narrowest governing evidence record and regenerates only the descendants
-that depend on it.
+The most reliable way to understand the database is to follow an object rather
+than a directory name. A published mark first resolves to its product bundle,
+then to the record that owns its scientific claim, and finally to captured
+source identity.
 
 ```mermaid
-flowchart TD
-    Change{"what changed?"}
-    Change -->|upstream source| Capture["replace family capture atomically"]
-    Change -->|curation decision| Authority["correct governing evidence record"]
-    Capture --> Normalize["rebuild family normalization"]
-    Normalize --> Review["recompute coverage and fitness"]
-    Authority --> Review
-    Review --> Impact{"publication membership changed?"}
-    Impact -->|yes| Rebuild["regenerate affected bundles and caveats"]
-    Impact -->|no| Retain["retain publication; update review lineage"]
-    Rebuild --> Validate["validate subsets, traceability, and claims"]
-    Retain --> Validate
+flowchart RL
+    Mark["map mark or export row"] --> Manifest["product manifest"]
+    Manifest --> Admission["membership and qualification"]
+    Admission --> Evidence["governing evidence record"]
+    Evidence --> Normalized["source-preserving normalized record"]
+    Normalized --> Capture["captured source and version"]
+    Capture --> Upstream["dataset, archive, paper, or supplement"]
 ```
 
-This dependency direction prevents derived products from feeding facts back
-into their authorities. It also makes a scientific refusal stable across
-regeneration: the refusal changes only when its underlying evidence or product
-contract changes.
+The chain differs by family. An AADR row resolves to a release manifest and
+annotation panel. A Neotoma point resolves to a site record and its temporal
+review. An animal point can cross a project registry, paper, supplement,
+sample master, site link, locality packet, chronology packet, coordinate
+provenance, and admission record. Those different chain lengths reflect the
+source material; they are not maturity scores.
 
-## Review The Diff By Meaning
+## Separate Three Populations
 
-| Changed surface | Primary review question |
-| --- | --- |
-| raw capture | is this the intended upstream identity, version, license, and complete payload? |
-| normalized data | did field meaning, record identity, null handling, geometry, or chronology change? |
-| governance or review | did evidence precision, conflict status, coverage, or admission posture change? |
-| final evidence input | did the admitted population change for a defensible reason? |
-| report bundle | do membership, traceability, labels, warnings, and visual layers agree with governed inputs? |
+Many apparent contradictions disappear when three populations are kept
+distinct:
 
-Large generated diffs are not self-explanatory. Record count, deletion, and
-hash changes must be interpreted at the layer that owns them before a cleaner
-map or larger table is considered an improvement.
+| Population | Question answered | Example |
+| --- | --- | --- |
+| captured | What material did the repository acquire? | two AADR annotation panels or 2,195 SEAD inventory rows |
+| normalized and reviewed | Which records have a stable repository representation and evidence posture? | 200 Neotoma site records with temporal review |
+| published | Which records satisfy one named product contract? | 2,172 mapped Nordic SEAD features or 2 Nordic animal localities |
 
-## Conflict Resolution
+A smaller published population can be the honest result of stronger review,
+geographic scope, or missing evidence. It must not be described as failed
+collection without inspecting the captured and reviewed populations.
 
-When two downstream surfaces disagree, the repository does not select the
-most convenient value. It resolves the claim at the authority named in the
-fact-ownership registry, records the decision or ambiguity there, and
-regenerates descendants. Publication files are never hand-corrected into a
-second source of truth.
+## Read Disagreement As Evidence
+
+When two surfaces disagree, first identify whether they count the same object
+and population. A source total, normalized total, and product total may all be
+correct. If the object and population are identical, follow the fact-ownership
+registry to the governing record and treat downstream copies as
+representations rather than competing authorities.
+
+Unresolved and conflicted states are informative. They tell a reader which
+join, precision, or source claim is missing and why a record was qualified,
+excluded, or deferred. Choosing the most convenient downstream value would
+erase that evidence.
 
 ## Related Surfaces
 

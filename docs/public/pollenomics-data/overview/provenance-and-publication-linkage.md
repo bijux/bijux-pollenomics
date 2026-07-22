@@ -109,14 +109,14 @@ not become sample chronology through proximity in the provenance graph.
 
 ## Broken Links
 
-| Broken relation | Required outcome |
+| Broken relation | Reader interpretation |
 | --- | --- |
-| feature absent from its manifest | publication integrity failure |
-| member without admission decision | product-contract failure |
-| admission without governing evidence | traceability failure and exclusion |
-| evidence without captured source identity | provenance failure and recovery work |
-| point without coordinate basis | exact-point refusal |
-| downstream fact disagreeing with authority | correct authority, then regenerate descendants |
+| feature absent from its manifest | the visible object has no proven membership in that product |
+| member without admission decision | the product does not explain why the object was selected |
+| admission without governing evidence | the scientific claim cannot be traced and must not be reused |
+| evidence without captured source identity | origin and source wording cannot be recovered |
+| point without coordinate basis | geometry does not justify exact-location interpretation |
+| downstream fact disagreeing with authority | use the governing record and treat the copied value as stale |
 
 ## Audit In Both Directions
 
@@ -132,10 +132,11 @@ flowchart LR
     Product -. rendered membership .-> Public
 ```
 
-Backward audit asks, “what supports this visible claim?” Forward impact review
-asks, “which claims may change if this source or curation decision changes?” A
-trustworthy publication system must support both traversals. Backward links
-make a result inspectable; forward links make correction and refresh safe.
+Backward reading asks, “what supports this visible claim?” Forward reading
+asks, “where does this governed record appear?” A trustworthy publication
+system supports both traversals. The first makes a result inspectable; the
+second reveals whether the same evidence is reused under different scopes or
+roles.
 
 ## Audit One Claim
 
@@ -166,9 +167,21 @@ material, approximately geocoded, substituted, or refused.
 
 The visible point is therefore the end of a decision chain, not the source of
 truth. Removing the feature from a map does not remove the sample from the
-evidence base. Correcting a source locality does not begin at the GeoJSON; it
-begins at the governing locality evidence and flows forward through admission
-and publication.
+evidence base. If the GeoJSON and locality packet disagree, the locality
+packet remains the authority and the visible geometry is stale.
+
+## Compare Three Provenance Shapes
+
+| Public object | Provenance shape | Material qualification |
+| --- | --- | --- |
+| AADR Nordic sample | Nordic bundle → AADR sample row → panel file → `v66` release manifest → Dataverse identity | panel membership and geographic selection do not create genotype analysis |
+| Neotoma pollen site | Nordic bundle → normalized site → temporal review → Neotoma site identity | site-level coverage span is not a sample-event date |
+| SEAD context point | Nordic bundle → normalized site → legibility and temporal review → SEAD site page | current inventory has no captured dating, period, or bibliography rows |
+| animal atlas point | scope bundle → point traceability → admission row → sample, site, locality, chronology, and coordinate evidence → project, paper, supplement, and archive identity | every link has independent precision and can qualify or refuse publication |
+
+The shapes are intentionally unlike. A short chain is not automatically weak,
+and a long chain is not automatically strong. Strength depends on whether the
+links needed for the proposed claim are present and proportionate.
 
 ## Portability Test
 

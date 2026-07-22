@@ -29,6 +29,33 @@ The lifecycle is represented in machine-readable contracts and checked-in
 artifacts. It supports forward questions—what can be published from this
 source?—and reverse questions—what evidence supports this visible result?
 
+## Current Governed Snapshot
+
+The checked-in `v66` collection summary identifies seven collector-managed
+families: AADR, boundaries, LandClim, Neotoma, RAÄ, SEAD, and SVAR. Animal
+ancient DNA is the eighth contracted family, but it follows a literature,
+archive-project, supplement, and sample curation path rather than the uniform
+collector path.
+
+The Nordic publication illustrates why these counts must remain separate:
+
+| Published surface | Current members | Meaning |
+| --- | ---: | --- |
+| AADR human aDNA | 1,231 samples | release-pinned human sample metadata selected for four Nordic countries |
+| LandClim | 492 site sequences | primary pollen and vegetation context |
+| Neotoma | 200 sites | palaeoecological site context with explicit time postures |
+| SEAD | 2,172 mapped sites | environmental-archaeology context; 23 additional reviewed rows lack country assignment |
+| animal aDNA | 2 Nordic localities | admitted animal points in this regional product, not the size of the global animal evidence base |
+| fieldwork | 1 documented location | a checked-in observation at Lyngsjön, not a regional sampling census |
+| REVEALS | 88 grid cells | modelled pollen context |
+| RAÄ | 106 density cells | Sweden-specific archaeology density context |
+| boundaries | 4 country polygons | geographic framing only |
+
+The rows are not additive measures of “total evidence.” They have different
+observation units, denominators, geographic reach, and evidential roles. The
+bundle manifest records membership; the source and evidence records determine
+what each member can support.
+
 ## Boundary Outputs
 
 | Boundary | Input question | Durable output |
@@ -87,6 +114,16 @@ precision, or comparability is inadequate.
 | Which evidence dimensions are strong, contextual, or incomplete? | [Cross-domain evidence matrix](cross-domain-evidence-matrix.md) |
 | Why does animal aDNA require project- and sample-level recovery? | [Animal ancient-DNA evidence](animal-ancient-dna-evidence.md) |
 | Where do the governing artifacts live? | [Data directory layout](data-directory-layout.md) |
+
+## Read By Question
+
+| Reader question | Begin with | Then inspect |
+| --- | --- | --- |
+| Why is a marker visible? | product manifest and point traceability | governing evidence row, admission posture, and source locator |
+| Why is a known record absent? | exclusions, refusals, and product scope | missing or conflicted identity, place, time, coordinate, or geography evidence |
+| What does a count measure? | artifact schema and denominator | source coverage, normalized population, and product membership separately |
+| Can two layers be compared? | evidence roles and observation units | spatial precision, temporal posture, scope, and comparison rule |
+| Can an export be reused elsewhere? | portable record identifiers and provenance | license, source version, qualifications, and destination assumptions |
 
 ## Authority Boundaries
 
