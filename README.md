@@ -151,6 +151,42 @@ relations, not independent sources of truth. Start with the
 [object and relation model](docs/public/pollenomics-data/database/object-and-relation-model.md)
 before joining records across families or reusing a publication extract.
 
+## Inspect Without Rebuilding
+
+A first inspection should be read-only. The checked-in contracts and products
+are sufficient to establish what the runtime claims, which source families it
+knows, and where one visible member obtains its authority:
+
+```bash
+uv run --project packages/bijux-pollenomics bijux-pollenomics product-scope --json
+uv run --project packages/bijux-pollenomics bijux-pollenomics surface-map --json
+uv run --project packages/bijux-pollenomics bijux-pollenomics source-support --json
+python3 -m json.tool docs/report/world/world_bundle.json | head -80
+```
+
+These commands answer different questions:
+
+| Inspection | Establishes | Does not establish |
+| --- | --- | --- |
+| product scope | implemented runtime boundary and explicitly planned capabilities | scientific fitness of the checked-in evidence |
+| surface map | runtime, data, publication, and repository ownership | whether every declared lifecycle stage is materialized |
+| source support | collector capability and declared geography | capture success, review maturity, or product membership |
+| world bundle | one publication identity and its governed members | upstream completeness or eligibility for another scope |
+
+```mermaid
+flowchart LR
+    Scope["runtime scope"] --> Question{"claim to inspect"}
+    Sources["source-family capability"] --> Question
+    Question --> Bundle["product manifest"]
+    Bundle --> Member["stable member identity"]
+    Member --> Evidence["governing evidence and decision"]
+```
+
+Continue from a manifest member into its traceability, review, and source
+records. Run `make data-prep`, `make reports`, or `make app-state` only when the
+intended operation is a governed rebuild and the resulting tracked diff will
+be reviewed as evidence state.
+
 ## What A Published Record Contains
 
 A public feature is a compound claim. Its visual geometry is only one member

@@ -138,6 +138,39 @@ flowchart TD
 This route keeps the polished publication useful for discovery while moving a
 consequential interpretation to the narrowest authority that can support it.
 
+## Take A Three-Minute Evidence Tour
+
+The shortest complete tour begins with one published object and ends at the
+captured material that supports it:
+
+1. Open the [report portal](report/index.md) and choose a geographic bundle.
+2. Read the bundle manifest before opening its map; record the version, scope,
+   and stable member identifier.
+3. Follow the member through the [publication model](public/pollenomics-data/publications/index.md)
+   to its evidence or traceability row and admission outcome.
+4. Resolve the row through the [evidence database](public/pollenomics-data/database/index.md)
+   to its fact owner, source-native identity, and captured locator.
+
+```mermaid
+flowchart LR
+    Portal["report portal"] --> Manifest["bundle identity"]
+    Manifest --> Member["stable member"]
+    Member --> Decision["admission and qualification"]
+    Decision --> Owner["fact owner"]
+    Owner --> Capture["source locator"]
+```
+
+The return path is equally important. A corrected source fact changes its
+owned evidence record first, then every dependent decision and publication is
+re-evaluated. If the trace stops at a popup, summary count, or narrative
+sentence, the audit is incomplete.
+
+For a concrete sample-level route, use the animal evidence records: begin with
+an atlas feature, resolve its accountability row, then inspect project-owned
+sample identity, locality, chronology, coordinate provenance, and supporting
+material. For a contextual source, begin with the published site or grid cell
+and preserve that source family's observation unit and temporal posture.
+
 ## Find The Authority
 
 Reader-visible information often crosses several files, but each fact has one
