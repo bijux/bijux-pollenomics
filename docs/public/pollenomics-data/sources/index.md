@@ -1,103 +1,97 @@
 ---
-title: Sources
+title: Source Families
 audience: reader
 type: explanation
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-06-22
+last_reviewed: 2026-07-22
 ---
 
-# Sources
+# Source Families
 
-This section explains where the repository's evidence comes from before that
-evidence is turned into maps, tables, and public summaries.
+Pollenomics combines eight contracted source families. Their records can share
+a publication, but the source contract preserves what each family measures,
+where it applies, how it was acquired, and which claims it can support.
 
-That matters because `bijux-pollenomics` is not built from one source family.
-It combines pollenomics records, archaeology context, geographic framing
-layers, human ancient DNA releases, and a separate animal ancient DNA intake
-program. Those materials can appear together in one public product, but they
-do not answer the same question and they should not be trusted for the same
-reason.
+## Contracted Sources
 
-## Why This Section Exists
+| Family | Evidence role | Suitable questions | Principal limit |
+| --- | --- | --- | --- |
+| [LandClim](landclim.md) | primary pollen context | pollen sequences and modelled vegetation context | model grids and observed sites have different semantics |
+| [Neotoma](neotoma.md) | primary pollen context | palaeoecological site and pollen comparison | temporal coverage and resolution vary by site |
+| [SEAD](sead.md) | environmental archaeology context | archaeological and environmental context | access, normalization, and chronology require explicit review |
+| [RAÄ](raa.md) | Swedish archaeology context | heritage and archaeological context in Sweden | national coverage cannot be generalized beyond Sweden |
+| [Boundaries](boundaries.md) | geographic framing | country selection, clipping, and map extent | boundaries are not scientific evidence |
+| SMHI SVAR | lake and hydrography context | registered Swedish waters and lake-oriented filtering | registry presence does not establish sampling suitability |
+| [AADR](aadr.md) | human ancient-DNA evidence | release-versioned sample metadata | current scope excludes genotype processing |
+| [Animal source intake](animal-source-intake.md) | sample-owned animal aDNA evidence | project, paper, supplement, sample, locality, and chronology recovery | source completeness varies by project and sample |
 
-Readers usually want a simple answer to one of these first questions:
+## Source Identity
 
-- what kind of evidence is this repository actually built from?
-- which source family should I trust for the question I care about?
-- why can some layers travel across many regions while others are local or
-  still incomplete?
-- what is the difference between a published map layer and the underlying
-  source work that made it possible?
+Every collected family is bound to repository evidence that includes:
 
-The pages in this section are here to answer those questions directly, in
-public language, before you have to think about repository layout.
+- a source key and display name;
+- selected version and retrieval date;
+- acquisition method and output root;
+- source-specific license posture;
+- hashes for captured and normalized content;
+- provenance linking the source to its repository representation; and
+- replacement rules describing how refreshes affect tracked data.
 
-## The Main Source Families
+The current bindings are recorded in `data/collection_summary.json`. A hash
+identifies bytes; it does not certify scientific completeness, temporal
+comparability, or publication fitness.
 
-| Family | What it mainly contributes | Best first use |
-| --- | --- | --- |
-| [LandClim](landclim.md) | pollen sequence and REVEALS context | environmental setting and broad vegetation interpretation |
-| [Neotoma](neotoma.md) | paleoecological pollen-site context | site-centered pollen comparison across geography |
-| [SEAD](sead.md) | environmental archaeology context | wider archaeological context beyond one national system |
-| [RAÄ](raa.md) | Sweden-specific archaeology context | dense Swedish and Nordic archaeological reading |
-| [Boundaries](boundaries.md) | country and region framing | filtering and geographic scope interpretation |
-| [AADR](aadr.md) | human ancient DNA release context | human aDNA comparison beside pollen and archaeology |
-| [Animal source intake](animal-source-intake.md) | project, paper, supplement, and sample recovery for non-human aDNA | understanding what had to be recovered before animal aDNA can be published |
+## Direct Evidence, Context, And Framing
 
-## Infrastructure And Collaboration Networks
+```mermaid
+flowchart TB
+    Direct["direct evidence\nAADR and sample-owned animal aDNA"]
+    Primary["primary pollen context\nLandClim and Neotoma"]
+    Context["contextual domains\nSEAD and RAÄ"]
+    Sampling["sampling context\nSVAR"]
+    Framing["geographic framing\nboundaries"]
+    Publication["cross-domain publication"]
+    Direct --> Publication
+    Primary --> Publication
+    Context --> Publication
+    Sampling --> Publication
+    Framing --> Publication
+```
 
-Not every important upstream relationship is a direct source family. Some are
-better understood as infrastructure or collaboration networks that help make
-the source families more reusable, comparable, and easier to align.
+Co-publication does not make these roles equivalent. For example, a boundary
+can determine whether a point appears in a country view, but it cannot validate
+the point's date or coordinate. A lake record can support candidate discovery,
+but not a coring recommendation without further evidence.
 
-| Network | What it mainly contributes | Best first use |
-| --- | --- | --- |
-| [PalaeOpen](palaeopen.md) | cross-repository palaeoecological metadata and collaboration alignment | checking where broader terrestrial and aquatic interoperability work can improve this repository without pretending the network is direct evidence |
+## Animal Source Recovery
 
-## How To Use These Pages
+Animal aDNA is not acquired as one uniform release. The source library links
+papers, archive projects, supplements, sample identifiers, sites, locality
+statements, and chronology claims while retaining their separate provenance.
 
-Start with [Source comparison](source-comparison.md) if you want the quickest
-answer to "which source family can answer my question?"
+A project can remain tracked even when it is not publishable. Missing
+supplements, ambiguous identifiers, unresolved localities, and conflicting
+dates enter recovery queues and review ledgers. This preserves the difference
+between “no evidence exists” and “the necessary evidence has not yet been
+recovered.”
 
-Open [Source family matrix](source-family-matrix.md) if you want to compare the
-whole repository at once: evidence type, geographic reach, publication role,
-and main limits.
+## Infrastructure Is Not Evidence
 
-Then move into the family pages only after you know what kind of source you are
-reading about. The short family pages explain the public meaning of each
-source. The longer process pages explain the harder cross-cutting ideas such as
-[Refresh policy](refresh-policy.md), [Shared normalization](shared-normalization.md),
-the shared [Spatiotemporal posture](spatiotemporal-posture.md),
-the animal recovery chain, and where infrastructure networks such as
-[PalaeOpen](palaeopen.md) help without becoming evidence on their own.
+[PalaeOpen](palaeopen.md) and similar collaboration or interoperability
+networks can help align metadata and reuse practices. They are not direct
+source families unless a specific governed dataset is acquired, versioned,
+licensed, and admitted through the source contract.
 
-## What Readers Should Take Away
+## Compare And Inspect
 
-- A mixed map is not a single kind of evidence.
-- Pollenomics remains core to the repository, not decorative context around an
-  ancient DNA story.
-- Archaeology and boundaries help interpretation, but they do not make direct
-  biological claims on their own.
-- Human aDNA and animal aDNA are separate source programs with different
-  maturity and different review burdens.
-- Public outputs are downstream products. They are not the same thing as the
-  source material that supports them.
-- Collaboration networks can improve interoperability and reuse without
-  changing the rule that direct evidence must still come from tracked source
-  families.
-
-## If You Need The Underlying Repository-Owned Records
-
-Most readers will not need to open tracked files directly. If you do, the
-high-signal cross-family records are:
-
-- `data/collection_summary.json`
-- `data/source_spatiotemporal_posture_registry.json`
-- `data/adna/governance/source_library/project_source_evidence_matrix.json`
-- `data/adna/governance/source_library/project_registry.json`
-- `data/adna/governance/source_library/paper_registry.json`
-- `data/adna/governance/source_library/source_intake_audit.json`
-- [source family matrix](source-family-matrix.md)
-
-Those records are useful after you understand the source families, not before.
+- [Source comparison](source-comparison.md) compares the questions each family
+  can answer.
+- [Source-family matrix](source-family-matrix.md) compares role, reach,
+  publication use, and limits.
+- [Refresh policy](refresh-policy.md) describes source replacement and review.
+- [Shared normalization](shared-normalization.md) describes common fields
+  without erasing source-specific semantics.
+- [Spatiotemporal posture](spatiotemporal-posture.md) compares place and time
+  meaning across domains.
+- [Evidence](../evidence/index.md) follows curated claims beyond acquisition.

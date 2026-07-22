@@ -1,60 +1,92 @@
 ---
-title: Refresh Policy
+title: Source Refresh Policy
 audience: reader
 type: explanation
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-05-10
+last_reviewed: 2026-07-22
 ---
 
-# Refresh Policy
+# Source Refresh Policy
 
-A refresh in this repository is not just a download step. It is a change in the
-evidence environment, and that can change what the public product is allowed to
-say.
+A source refresh changes the evidence state from which reports and maps are
+derived. It is therefore a governed replacement operation, not an invisible
+download or a promise that every count will increase.
 
-That point matters because readers often see a newer map, a revised country
-bundle, or different counts and assume the change was cosmetic. Sometimes it is
-not. A refresh can widen coverage, expose weaker rows, change chronology
-posture, or force a previously broad claim to become narrower.
+## Replacement Model
 
-## Why Refresh Is Public
+Collectors prepare each source in a source-specific staging root. The tracked
+root is replaced only after preparation succeeds.
 
-The repository does not treat upstream updates as silent maintenance. If the
-evidence changes, the public language must be willing to change with it.
+```mermaid
+stateDiagram-v2
+    [*] --> Acquire
+    Acquire --> Stage: source retrieved
+    Stage --> Validate: normalized outputs prepared
+    Validate --> Replace: identity and contracts pass
+    Validate --> Preserve: acquisition or validation fails
+    Replace --> Review
+    Preserve --> [*]: prior tracked root retained
+    Review --> Publish: evidence and publication checks pass
+    Review --> Refuse: drift or weaker support detected
+```
 
-That is why refresh policy belongs on the public surface. Readers should be
-able to understand why a published output changed and why some updates make the
-repository more cautious rather than more expansive.
+This model protects the previous tracked source tree from partial acquisition.
+It does not make a successful refresh automatically publishable; the new state
+must still pass scientific and publication review.
 
-## What A Refresh Can Change
+## Refresh Evidence
 
-- counts and coverage across a source family
-- locality quality for recovered animal samples
-- chronology posture for previously thin rows
-- whether a map layer stays visible, becomes qualified, or needs to narrow
+`data/collection_summary.json` records, per family:
 
-## What The Repository Refuses To Do
+- source and selected version;
+- retrieval date and acquisition method;
+- source and normalized output roots;
+- source-specific license posture;
+- captured and normalized SHA-256 identities;
+- provenance metadata;
+- staging and final replacement roots; and
+- whether a failed refresh preserves the prior output.
 
-The repository does not silently absorb upstream change and keep repeating old
-claims as if nothing moved.
+The summary binds the repository state to one acquisition event. It does not
+replace the narrower manifests or review surfaces owned by each family.
 
-If a refresh improves the evidence, outputs can improve with it. If a refresh
-reveals weaker support than previously thought, the correct response is to
-narrow the public claim, not to preserve old wording for convenience.
+## Required Review
 
-## Where Readers Can Inspect It
+A refresh can change more than counts. Review the following as one evidence
+change:
 
-The checked-in public summary lives at:
+1. source version, retrieval path, license, and content identity;
+2. schema and normalization differences;
+3. added, removed, merged, or reidentified records;
+4. locality, chronology, geometry, and precision changes;
+5. coverage metrics and source-family evidence posture;
+6. world, regional, country, and ranking diffs; and
+7. caveats, exclusions, and release-gate outcomes.
 
-- `data/collection_summary.json`
+A newer source may reveal that an older claim was too broad. Narrowing or
+refusing that claim is a successful refresh outcome when it more accurately
+represents the evidence.
 
-That file shows what the latest refresh changed and keeps source movement
-visible as part of the public evidence story.
+## Failure Classes
 
-## When This Page Matters Most
+| Failure | Meaning | Required response |
+| --- | --- | --- |
+| acquisition failure | the selected source could not be obtained completely | retain the previous root and record the failure |
+| identity drift | bytes or version differ from the expected source | investigate before normalization or publication |
+| schema drift | upstream structure no longer satisfies the collector contract | adapt and review normalization explicitly |
+| normalization loss | expected fields or records disappear during transformation | reject the staged root |
+| evidence regression | new records weaken locality, chronology, or source support | qualify or block affected publications |
+| publication drift | downstream bundles no longer agree with governed data | regenerate and revalidate the derived surfaces |
 
-This page matters when a reader wants to know why a published report changed
-after a source update, why refresh work is coupled to review and release
-checks, or why the repository treats source movement as a governed evidence
-event instead of invisible background maintenance.
+## Reproducibility Boundary
+
+The checked-in data tree is the reviewable result of a collection run, not a
+guarantee that an external service will return identical content forever.
+Reproducibility depends on preserved source identity, captured bytes where
+permitted, normalization code, configuration, and manifests—not on a live URL
+alone.
+
+`make data-prep` intentionally rewrites tracked source outputs. Read-only
+verification should use the repository's validation targets rather than
+starting a refresh.
