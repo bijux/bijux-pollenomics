@@ -111,6 +111,37 @@ must be compatible before proximity becomes a defensible comparison. The map
 helps locate candidates for that comparison; it does not perform the
 evidential join by appearance.
 
+## Visual Encoding Is A Transformation
+
+Marker size, color, opacity, clustering, layer order, and basemap style change
+what attracts attention. They do not change product membership or evidence
+strength unless the contract explicitly assigns them a governed meaning.
+
+| Visual effect | What to verify before interpreting it |
+| --- | --- |
+| larger or darker symbol | the field, scale, units, aggregation rule, and missing-value treatment |
+| cluster count | observation unit, clustering radius, zoom level, and whether members share identity |
+| heat or density surface | source population, cell or kernel method, normalization, and coverage bias |
+| overlapping markers | whether records share coordinates, represent one site, or are merely co-located |
+| layer hidden beneath another | membership in the manifest and current layer order |
+| apparent empty area | active filters, source coverage, exclusions, and geometry support |
+
+A basemap supplies orientation, not corroboration. Labels, roads, relief, and
+modern land use belong to the selected basemap state and must not be read as
+governed historical or palaeoenvironmental evidence.
+
+### Filter Order And Empty Results
+
+Filters operate over admitted product members. A time filter may exclude rows
+with numeric non-overlap, preserve or separately classify rows with unavailable
+chronology, and leave non-temporal framing untouched according to the contract.
+It must not silently interpret missing time as outside the selected period.
+
+When a filtered view is empty, distinguish four cases: no product members in
+scope, no members matching the declared condition, members without comparable
+fields, and members hidden by another active control. Those states support
+different conclusions and should not share one “no data” interpretation.
+
 ## Auditing A Feature
 
 1. record the map scope, version, layer, and stable feature identifier;
@@ -119,6 +150,12 @@ evidential join by appearance.
 4. follow source, sample, site, chronology, and coordinate identifiers to the
    governed data surface;
 5. check the exclusion output when an expected feature is absent.
+
+If a visible symbol represents an aggregate, continue from the symbol to its
+member or denominator surface before making a record-level statement. A cell
+with 27,450 registry records is one rendered aggregate and 27,450 selected
+source members; it is neither one archaeological site nor 27,450 independent
+historical events.
 
 A cluster supports a statement about the visible product, not necessarily
 sampling intensity or historical abundance. An empty area may mean no admitted

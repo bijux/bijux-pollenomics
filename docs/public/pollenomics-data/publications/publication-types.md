@@ -81,6 +81,24 @@ The companion material is part of the claim, not optional background. It
 prevents a visual observation from silently becoming a stronger scientific
 assertion.
 
+## Avoid Surface Mismatch
+
+Choose the surface at the same granularity as the statement. Publication
+errors often begin by citing a broad artifact for a narrow claim:
+
+| Statement being made | Governing surface | Mismatched substitute |
+| --- | --- | --- |
+| one sample has a named locality | sample evidence and locality trace | project overview or map popup |
+| one feature belongs to a product | bundle manifest and admission record | presence in a rendered viewport |
+| one source family has a published count | family-specific members and declared scope | total feature count across layers |
+| a lake has a model rank | ranking record, inputs, and sensitivity result | symbol order or narrative emphasis |
+| a record was refused | exclusion or recovery surface with its reason | absence from CSV or map |
+| a regional pattern is described | scoped member set plus coverage limits | screenshot alone |
+
+The broader artifact can orient the reader, but it cannot replace the narrower
+authority. Conversely, a row-level fact cannot establish that the product as a
+whole is complete or representative.
+
 ## Four Features In One Product
 
 The world surface demonstrates why publication type belongs to each member:
@@ -129,6 +147,11 @@ Exporting rows, taking a screenshot, or quoting a report does not transfer the
 bundle's contract automatically. Downstream work must carry the scope, version,
 role, identifiers, and material qualifications needed to reconstruct the
 claim.
+
+For citation, preserve both levels when the statement crosses them: cite the
+publication for scope and the member evidence for the fact. This keeps a future
+reader from having to guess whether the claim came from the product contract,
+the source record, or narrative interpretation.
 
 ## Scope And Version Are Part Of Meaning
 

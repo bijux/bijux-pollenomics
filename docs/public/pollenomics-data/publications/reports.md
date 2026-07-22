@@ -45,6 +45,24 @@ establish collection completeness.
 | scientific review | evaluate evidential strength and unresolved risk |
 | warnings and exclusions | account for records that did not publish |
 
+## Bundle Consistency
+
+The members are several representations of one governed publication state.
+They should agree on identity, scope, membership, roles, and qualifications:
+
+| Cross-member invariant | Failure signal |
+| --- | --- |
+| manifest names every governed bundle member | an unmanifested file or a manifest path that does not resolve |
+| structured exports agree on stable member identity | CSV, JSON, and GeoJSON contain unexplained member differences |
+| narrative counts reconcile to structured populations | prose total has no matching unit, denominator, or scope |
+| map roles agree with evidence roles | contextual or framing layer is described as direct evidence |
+| warnings and exclusions remain reachable | visible claim loses the caveat or non-member explanation that bounds it |
+| child scopes preserve parent meaning | country or regional output changes the identity, precision, or role of a shared member |
+
+A bundle can render successfully while violating one of these invariants.
+Publication review therefore checks agreement across members, not only whether
+each file is individually valid.
+
 ### Read Every Count As A Defined Population
 
 A report number is interpretable only when its observation unit and eligible
@@ -117,6 +135,25 @@ claim. When two surfaces disagree, the stable member identity, governing
 evidence, and narrower qualification control; the disagreement itself becomes
 a publication-integrity finding.
 
+## Cite A Reproducible Claim
+
+A report citation should identify enough state to recover the statement after
+the publication changes:
+
+| Citation component | Purpose |
+| --- | --- |
+| product and geographic scope | identifies which governed population was published |
+| version or repository revision | fixes the publication state |
+| stable member or aggregate identity | locates the exact observation or defined population |
+| source family and observation unit | prevents unlike rows from being conflated |
+| governing evidence or traceability surface | supports the row-level fact |
+| material caveat or exclusion context | preserves the boundary of the claim |
+
+For a count, retain the numerator definition and eligible denominator. For a
+map observation, retain the product member IDs rather than only coordinates or
+a screenshot. For a narrative conclusion, retain the analytical or review
+surface that supplies the reasoning.
+
 ## Review A Report Change
 
 Totals are the last comparison, not the first. Review a regenerated report in
@@ -137,7 +174,7 @@ flowchart LR
     Identity --> Cause["admission, scope, evidence, or recovery cause"]
     Cause --> Semantics["field and qualification diff"]
     Semantics --> Totals["count reconciliation"]
-    Totals --> Narrative["reader-facing claim review"]
+    Totals --> Narrative["public claim review"]
 ```
 
 A zero count delta does not prove semantic stability: one member can replace
