@@ -14,6 +14,12 @@ bundle and deploys that exact bundle. It runs only by manual dispatch or
 `workflow_call`; a merge to `main` does not trigger it directly in this
 repository.
 
+`deploy-docs.yml` builds the strict MkDocs site before any Pages artifact is
+accepted. The workflow follows the shared Bijux docs contract: repository
+targets own installation and rendering, while `mkdocs.shared.yml` supplies the
+strict validation, Material theme, plugins, Markdown extensions, shared
+assets, and client-side behavior consumed by the repository configuration.
+
 ## Deployment Contract
 
 ```mermaid

@@ -56,6 +56,32 @@ Do not make a failing check pass by deleting evidence, weakening a claim gate,
 ignoring a return code, or teaching the check to accept two conflicting
 authorities.
 
+## Check And Synchronize Deliberately
+
+Only badge blocks and package legal-asset copies currently expose maintainer
+synchronization modes. Their control flow is explicit:
+
+```mermaid
+flowchart LR
+    Authority["metadata, badge catalog, or root legal asset"] --> Check["check mode"]
+    Check --> Drift{"declared targets differ?"}
+    Drift -->|no| Proof["retain focused result"]
+    Drift -->|yes| Decide["verify authority and target set"]
+    Decide --> Sync["sync mode"]
+    Sync --> Review["inspect every written target"]
+    Review --> Recheck["check mode"]
+    Recheck --> Proof
+```
+
+Do not run synchronization as a generic repair. If the authority is wrong,
+synchronization distributes the wrong state consistently. Correct the owner
+first, then materialize its declared descendants.
+
+`trusted_process` is an execution primitive, not a scope grant. Callers must
+assemble arguments without shell expansion, set the working directory and
+output destination explicitly, propagate the exit status, and retain enough
+diagnostic context to identify the invoked tool.
+
 ## Verification Selection
 
 | Changed owner | First maintainer evidence |
@@ -73,7 +99,19 @@ check to claim coverage of an unrelated boundary.
 
 ## Handoff Record
 
-The maintainer record states the changed contract, commit boundaries, exact
-checks, skipped checks, remaining warnings, and whether governed state was
-rewritten. This makes verification evidence reconstructable without relying
-on delivery history or private context.
+The maintainer record makes verification reconstructable without private
+context:
+
+| Field | Required content |
+| --- | --- |
+| repository state | branch, base commit, head commit, and whether the worktree is clean |
+| changed authority | runtime, data, documentation, package, workflow, or release contract |
+| commit boundaries | ordered subjects and the durable intent of each |
+| verification | exact command, exit status, pass count, and material warnings |
+| omitted proof | broader lane not executed and the scope or cost reason |
+| mutations | governed roots, generated targets, or external state changed |
+| residual risk | known failure, incomplete evidence, warning, or deferred owner |
+
+Warnings remain visible even when they are expected. A skipped broad gate is
+not described as passing. A focused pass is reported only for the contract it
+actually exercised.

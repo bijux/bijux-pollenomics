@@ -39,6 +39,24 @@ flowchart TB
     Claims["language within evidence"] --> Integrity
 ```
 
+## Shared Site Contract
+
+`mkdocs.shared.yml` is the shared Bijux docs theme contract consumed by the
+repository MkDocs configuration. It governs strict validation, directory URLs,
+the Material theme, navigation behavior, search, Mermaid rendering, shared CSS,
+and shared JavaScript. Repository navigation and content remain locally owned.
+
+Repository strict MkDocs builds prove that the combined configuration can
+render; they do not prove that every governed asset is intentional. Confirm
+local assets named by the configuration, especially the logo, styles,
+JavaScript, and the browser icon set under `docs/assets/site-icons/`. The icon
+directory must retain the favicon and touch-icon files expected by browsers and
+deployment surfaces.
+
+Shared shell files are managed inputs. If their contract is wrong, correct the
+shared owner and refresh the repository copy through its governed route rather
+than hand-editing generated shared content.
+
 ## Review Procedure
 
 1. Identify the intended reader and the question the document answers.
@@ -52,6 +70,46 @@ flowchart TB
    durable concept.
 6. Run the narrowest relevant documentation contracts, then build MkDocs in
    strict mode.
+
+## Place Content By Decision Owner
+
+Use ownership, not sensitivity or technical depth, to choose a destination:
+
+```mermaid
+flowchart TD
+    Content{"what question does the content answer?"}
+    Content -->|what the evidence or product means| Public["docs/public/"]
+    Content -->|what a generated product currently contains| Report["docs/report/"]
+    Content -->|how a package is installed or integrated| Readme["package README"]
+    Content -->|how maintainers change or verify the repository| Internal["docs/internal/"]
+    Public --> Evidence["link to source, contract, or product evidence"]
+    Report --> Manifest["retain manifest and generation lineage"]
+    Internal --> Proof["name owner, command, result, and escalation rule"]
+```
+
+Public pages may contain exact CLI examples, schemas, paths, limitations, and
+audit routes. They should not contain commit instructions, branch hygiene,
+test-module selection, generated-diff acceptance, or narration about how the
+page ought to be written. Internal pages may describe those procedures, but
+must link scientific claims back to the public or governed evidence owner
+rather than becoming a competing authority.
+
+## Trace A Claim Across Documentation
+
+For each material claim, verify a complete route:
+
+| Link | Integrity question |
+| --- | --- |
+| landing to explanation | can the intended reader find the concept by its domain name? |
+| explanation to evidence reference | are object, role, denominator, place, time, and precision defined? |
+| evidence reference to governed artifact | does the path identify the authoritative source or record rather than a copied narrative? |
+| artifact to publication | do manifest, admission, and traceability explain visible membership? |
+| publication back to limits | can the reader discover exclusions, incomplete recovery, and unsupported claims? |
+
+A route is incomplete when it ends at prose that merely repeats a number.
+Counts must resolve to their population and observation unit; maps must resolve
+to membership and provenance; absence statements must resolve to scope,
+recovery, evidence, or admission state.
 
 ## Focused Verification
 
@@ -71,6 +129,10 @@ Use `make docs` for the repository-owned strict build, or direct MkDocs output
 to `artifacts/` during focused diagnosis. Do not regenerate data or reports to
 prove a narrative-only change.
 
+Keep runtime and maintainer-package test trees in separate pytest invocations.
+Both use a top-level `tests` package name, so mixing them in one process can
+produce collection errors that obscure the real documentation result.
+
 ## Acceptance Evidence
 
 An accepted documentation change records:
@@ -82,6 +144,6 @@ An accepted documentation change records:
 - any unexecuted broader gate and why it was unnecessary or deferred.
 
 Current cross-repository posture remains inspectable in the [repository truth
-posture](../../../report/repository_truth_posture.md), [repository claim
-audit](../../../report/repository_claim_audit.md), and [repository scientific
-progress audit](../../../report/repository_scientific_progress_audit.md).
+posture](../../report/repository_truth_posture.md), [repository claim
+audit](../../report/repository_claim_audit.md), and [repository scientific
+progress audit](../../report/repository_scientific_progress_audit.md).
