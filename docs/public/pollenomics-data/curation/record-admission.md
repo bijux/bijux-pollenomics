@@ -54,6 +54,27 @@ A bare Boolean cannot distinguish an evidence failure from an out-of-scope
 record. That distinction determines whether recovery, a different product, or
 no further action is appropriate.
 
+## Decision Identity
+
+An admission decision is identified by the candidate, product, product
+version, proposed role, and evaluated evidence state. Change any one of those
+inputs and the decision must be evaluated again.
+
+```mermaid
+flowchart LR
+    Candidate["candidate identity"] --> Decision["admission decision"]
+    Product["product + version"] --> Decision
+    Role["proposed evidence role"] --> Decision
+    Evidence["governing evidence revision"] --> Decision
+    Rules["named rule set"] --> Decision
+    Decision --> Membership["member or accounted non-member"]
+```
+
+This identity prevents a decision made for a narrative report from being
+reused silently for a point map. It also prevents a previous admission from
+surviving a changed locality, chronology, boundary, or product rule merely
+because the candidate key stayed the same.
+
 ## Product-Specific Fitness
 
 | Evidence posture | Point map | Numeric temporal comparison | Narrative context |
@@ -86,6 +107,21 @@ These counts need not be equal. The differences are informative only when
 each transition has explicit reasons and stable member identities. A published
 count without the reviewed and excluded populations cannot establish
 completeness.
+
+## Admission Result Contract
+
+| Result | Required accounting | Permitted interpretation |
+| --- | --- | --- |
+| admitted | passed rules, member identity, evidence role, and product membership | supports only the claim and strength declared by the product |
+| qualified | passed rules plus visible qualification and bounded strength | usable only while the qualification travels with the member |
+| contextual | context role, source scope, and separation from direct evidence | informs interpretation but does not support the target observation |
+| excluded | candidate identity, evaluated rule, and exclusion reason | known non-member of this product, not globally invalid evidence |
+| deferred | blocking evidence and explicit recovery condition | no admission until the condition is satisfied and reviewed |
+| refused | proposed claim and evidence boundary that makes it unsupported | the stronger claim must not be inferred from another product |
+
+Admission is complete only when the result is represented on both sides of the
+gate: admitted members in the manifest and known non-members in accountable
+exclusion, deferral, or refusal surfaces.
 
 ## Read An Admission Decision
 

@@ -56,6 +56,22 @@ A sample-owned date can govern that sample while a broader project interval
 remains valid context. The two claims need not be averaged or reduced to one
 unqualified field.
 
+## Resolve By Authority And Scope
+
+Conflict resolution follows evidence ownership before convenience:
+
+1. confirm that the claims concern the same governed subject and dimension;
+2. compare observation level, source locator, method, and precision;
+3. identify the declared fact owner and the scope in which each source speaks;
+4. determine whether the claims conflict or are compatible at different scopes;
+5. select a governing value only when the evidence contract justifies it;
+6. preserve every competitor and record the effect on dependent products.
+
+Recency alone is not a resolution rule. Neither are majority vote, non-null
+preference, greater numeric precision, or agreement with the current map.
+Those shortcuts can select a value, but they cannot establish that it belongs
+to the correct object or claim.
+
 ## Recovery Is Evidence Acquisition
 
 Recovery items name a scientific deficit, not merely an unfinished file:
@@ -72,6 +88,23 @@ Recovery items name a scientific deficit, not merely an unfinished file:
 Finding a plausible value on the web is not completion. The value becomes
 governed evidence only when its identity, source, locator, ownership, meaning,
 and downstream impact are recorded.
+
+## Recovery Priority
+
+Recovery order is driven by scientific impact and resolvability, not by which
+missing field is easiest to fill. A useful queue records:
+
+| Dimension | Question |
+| --- | --- |
+| affected authority | does the gap sit in a governing record or only a derived view? |
+| descendant reach | which comparisons, maps, counts, and reports can change? |
+| claim severity | does the gap risk false identity, false precision, or only reduced context? |
+| recoverability | is a named archive object, supplement, field, or relation available? |
+| decision stability | could recovery change admission, or only strengthen provenance? |
+| verification cost | which semantic and membership comparisons are required afterward? |
+
+This makes high-impact identity and relation failures visible even when a
+lower-impact metadata field would be faster to complete.
 
 ## Recovery Loop
 
@@ -105,6 +138,10 @@ the causal diff is explainable:
 5. every affected normalized and published member is identified;
 6. unchanged descendants are also explainable when the new evidence does not
    cross their product contract.
+
+Closing a recovery item does not delete its history. The prior state, recovered
+artifact, decision change, and affected descendants remain connected so a
+reader can explain both the earlier exclusion and the later admission.
 
 Continue with [record admission](record-admission.md) to interpret the revised
 decision, [animal source intake](../sources/animal-source-intake.md) for the

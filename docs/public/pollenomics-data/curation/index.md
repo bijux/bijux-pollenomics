@@ -49,6 +49,25 @@ identity; project sample masters govern samples; per-sample evidence packets
 govern locality and chronology claims; species views combine reviewed records;
 publication manifests govern product membership.
 
+## Curation Is Database Construction
+
+Curation does more than annotate imported rows. It constructs the joins and
+negative states that make the evidence database queryable without erasing the
+source model.
+
+| Construction decision | What must remain recoverable |
+| --- | --- |
+| resolve two labels to one sample | both source labels, their locators, the governed sample key, and the resolution basis |
+| split one source row into several claims | the shared source locator and the owner, scope, and precision of each claim |
+| connect a sample to a site | the typed relation, supporting evidence, and whether the relation is direct or curated |
+| decline to create a coordinate | the locality evidence examined and the reason precision would be fabricated |
+| admit a record to a product | the exact evidence state and rule set under which membership was granted |
+| retain a known non-member | candidate identity, failed or inapplicable rule, and product scope |
+
+A database that retains only successful joins cannot explain its own
+denominator. The unresolved, refused, deferred, and outside-scope populations
+are part of the curated state, not editorial debris.
+
 ## Fact Ownership
 
 Facts often appear in several convenient exports. Repetition does not transfer
@@ -83,6 +102,23 @@ through every descendant.
 Refusal is preserved evidence about the boundary of the database. It does not
 mean that the source object is false or irrelevant; it means that the proposed
 use is not currently justified.
+
+## Decision Granularity
+
+Decisions are attached to a claim and use, not to a source family or file.
+The following questions therefore receive independent answers:
+
+- Is the sample identity resolved?
+- Is its relation to a project or paper recoverable?
+- Does locality evidence support a named site, a broader region, or neither?
+- Is a coordinate reported, resolved from a name, representative, or derived?
+- Is chronology numeric, textual, contextual, conflicted, or absent?
+- May the object support the target claim, appear only as context, or remain a
+  known non-member?
+
+Keeping those answers separate prevents a strong source-level reputation from
+overriding a weak sample-level relation. It also prevents one unresolved
+dimension from hiding evidence that remains useful at a narrower strength.
 
 ## Audit One Curated Claim
 
