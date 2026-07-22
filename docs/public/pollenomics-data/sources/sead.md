@@ -4,134 +4,84 @@ audience: reader
 type: explanation
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-06-22
+last_reviewed: 2026-07-22
 ---
 
 # SEAD
 
-SEAD is one of the repository's main archaeology-context families. It helps
-readers ask a broader question than "where is the sample?" It helps ask, "what
-kind of archaeological setting surrounds this evidence?"
+SEAD supplies environmental-archaeology context. In the current checked-in
+state it is a spatial site inventory, not a uniformly time-resolved
+archaeology layer. Its value is substantial precisely when that contextual
+role and temporal limit remain explicit.
 
-That role matters because the public product is not only a collection of
-points. It is also an interpretation surface. SEAD gives the repository a way
-to place pollen and ancient DNA inside a wider environmental archaeology
-context.
+## Checked-In Evidence
 
-## What SEAD Adds
+The current temporal and legibility reviews cover 2,195 captured site rows:
 
-SEAD is strongest when readers need broader archaeological context that is not
-limited to one national registry.
+| Property | Count | Posture |
+| --- | ---: | --- |
+| site inventory rows | 2,195 | spatial archaeology context |
+| numeric temporal intervals | 0 | no numeric same-period comparison |
+| linked dating-range rows | 0 | dating foundation not captured here |
+| linked relative-period rows | 0 | period foundation not captured here |
+| bibliography rows | 0 | bibliography linkage not captured here |
 
-It is especially useful for:
+The normalized spatial layer contains 2,172 records. The difference between
+captured and normalized counts must remain visible; it is not evidence that
+the omitted records never existed.
 
-- environmental archaeology context around sites and regions
-- broader cross-regional comparison than a Sweden-only source can provide
-- public interpretation that needs cultural setting as well as biological or
-  environmental evidence
+Every current legibility-review row is classified as inventory-only or
+unresolved for time, with high risk from the thin site-inventory capture and a
+publication posture of context with an explicit caveat.
 
-For Sweden-specific lake work, SEAD is one of the fastest ways to see whether a
-promising pollen basin also sits inside a richer environmental-archaeology
-landscape. That matters when the repository is comparing many possible lakes
-and needs to distinguish "good pollen signal" from "good pollen signal plus
-surrounding archaeological context."
+```mermaid
+flowchart LR
+    Capture["captured site inventory"] --> Normalize["normalized site points"]
+    Normalize --> Temporal["temporal review"]
+    Normalize --> Legibility["evidence legibility review"]
+    Temporal --> Context["context-only publication posture"]
+    Legibility --> Context
+    Context --> Product["archaeology context layer"]
+```
 
-## Temporal Posture In This Repository
+## What SEAD Supports
 
-The checked-in SEAD surfaces should be read as archaeology context with uneven
-chronology capture, not as a uniformly time-expanded archaeological layer.
+- environmental-archaeology context around samples, pollen records, lakes,
+  and regions;
+- spatial density and proximity comparisons under declared distance bands;
+- cross-regional context beyond one national registry;
+- identification of places where deeper source recovery may be valuable;
+- landscape interpretation that keeps archaeology visible beside biological
+  and environmental evidence.
 
-In the current repository state:
+## What The Current Capture Does Not Support
 
-- the tracked Sweden-facing SEAD surface is primarily a site inventory
-- the checked-in raw capture does not yet supply numeric BP intervals across
-  the same inventory in a way that can be promoted wholesale into chronology
-  support
-- the lake-ranking workflow therefore uses SEAD chiefly for contextual density
-  and only gives stronger chronology credit where numeric intervals are
-  actually present
+- same-period claims between SEAD sites and nearby pollen or aDNA;
+- exact sample identity, locality, chronology, or species assignment;
+- duration or phase comparison across the captured inventory;
+- bibliography-backed interpretation for every normalized site;
+- treating site density as a direct measure of past activity or preservation.
 
-This is an honesty rule, not a downgrade. SEAD remains valuable, but the
-repository does not collapse "archaeology nearby" into "archaeology from the
-same period" unless the checked-in record state supports that claim.
+The absence of numeric intervals is not repaired with inferred dates. SEAD can
+affect spatial decision support while receiving no chronology credit.
 
-The shared machine-readable posture for this family lives in:
+## Relationship To RAÄ
 
-- `data/source_spatiotemporal_posture_registry.json`
+SEAD provides wider environmental-archaeology context. RAÄ provides denser
+Sweden-specific registry context. Their records may overlap spatially, but the
+families have different coverage, source systems, and normalization semantics.
+They should be compared as complementary context rather than merged into a
+single archaeology truth set.
 
-## What SEAD Does Not Do
+## Governing Surfaces
 
-SEAD is contextual support. It should not be read as direct proof of a single
-sample's identity, locality, chronology, or coordinates.
+- `data/sead/raw/nordic_sites.json` records the captured inventory;
+- `data/sead/normalized/nordic_environmental_sites.geojson` governs normalized
+  points;
+- `data/sead/review/access_model.json` records access posture;
+- `data/sead/review/evidence_legibility_review.json` records interpretability;
+- `data/sead/review/temporal_review.json` records temporal refusal;
+- `data/sead/review/recovery_roadmap.json` records recovery direction.
 
-It does not replace:
-
-- aDNA recovery and review
-- pollen-derived environmental context
-- country and regional framing layers
-- local Swedish detail from RAÄ where that source is richer
-
-It also does not mean that every SEAD-linked context point is temporally
-comparable with nearby pollen or ancient DNA. The repository keeps that limit
-explicit instead of smoothing it away.
-
-Its job is to deepen interpretation, not to erase the difference between
-context and direct evidence.
-
-## How It Differs From RAÄ
-
-SEAD and RAÄ are both archaeology families, but they do not have the same
-scope.
-
-SEAD is the broader archaeology-context family. RAÄ is intentionally
-Sweden-specific and often denser inside Swedish and Nordic reading.
-
-That means SEAD is usually the better first source when the question is broad
-archaeology context across places, while RAÄ is often the better first source
-when the question is specifically about Swedish detail.
-
-## Why SEAD Is A Real Collaboration Fit
-
-SEAD is not only a dataset. It is also a Swedish environmental-archaeology
-infrastructure with broader Nordic and European reach. That makes it a strong
-fit when the repository needs to:
-
-- improve archaeology context around Sweden lake candidates
-- compare Swedish basins against wider Scandinavian and European context
-- strengthen metadata, reference links, and temporal legibility around tracked
-  archaeology records
-
-That fit is why the repository treats SEAD as a durable source family rather
-than as one more map decoration.
-
-## How It Appears In Public Outputs
-
-SEAD helps the atlas and country outputs avoid reading as if ancient DNA and
-pollen were being interpreted in a cultural vacuum. It adds archaeology context
-that can travel beyond one local system, while still remaining honest about its
-contextual role.
-
-In the Sweden lake evidence surfaces, SEAD does three narrower jobs:
-
-- it counts surrounding archaeology-context records within explicit distance
-  bands
-- it helps distinguish lakes with similar pollen or aDNA support by the depth
-  of their wider archaeology setting
-- it strengthens chronology-aware comparisons only when checked-in numeric BP
-  intervals are actually available
-
-## If You Need The Repository-Owned Records
-
-The family-owned normalized outputs live under:
-
-- `data/sead/normalized/`
-- `data/sead/review/temporal_review.json`
-- `data/source_spatiotemporal_posture_registry.json`
-
-The current public source and infrastructure entry points live at:
-
-- `https://www.sead.se/`
-- `https://browser.sead.se/`
-
-If you want the deeper interpretation model behind this family, continue to the
-[SEAD handbook](sead-handbook.md).
+The [SEAD handbook](sead-handbook.md) expands the interpretation and
+collaboration context without changing these evidence limits.

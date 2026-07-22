@@ -4,94 +4,86 @@ audience: reader
 type: explanation
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-06-22
+last_reviewed: 2026-07-22
 ---
 
 # LandClim
 
-LandClim is one of the repository's main pollenomics families. It helps answer
-the question, "what kind of environmental setting surrounds the places we are
-mapping or discussing?"
+LandClim supplies primary pollen context through normalized site sequences and
+REVEALS grid cells. It supports landscape and vegetation interpretation around
+other evidence without becoming direct evidence for an archaeological feature
+or ancient-DNA sample.
 
-That makes it central to the public surface. Without LandClim, the repository
-would still have maps and sample points, but it would lose a large part of the
-vegetation and landscape context that keeps the work genuinely pollenomics-led.
+## Checked-In Evidence
 
-## What LandClim Adds
+The current governed summary records:
 
-LandClim is strongest when a reader needs broad pollen-derived context rather
-than a narrow claim about one sample or one archaeological feature.
+| Surface | Count | Meaning |
+| --- | ---: | --- |
+| normalized site sequences | 492 | pollen-context points retained after family-specific normalization |
+| sequences with numeric BP intervals | 482 | records eligible for bounded temporal comparison at site-sequence level |
+| REVEALS grid cells | 88 | modeled landscape context rather than sample observations |
 
-It is especially useful for:
+Counts describe the checked-in snapshot, not exhaustive coverage. The family
+contract identifies `data/landclim/raw/` as captured material,
+`data/landclim/normalized/` as normalized evidence, the cross-family evidence
+stage matrix as review, and regional pollen layers as publication.
 
-- environmental background around a region, country, or map view
-- broad vegetation interpretation
-- REVEALS-style context that helps readers see landscapes rather than isolated
-  evidence points
+```mermaid
+flowchart LR
+    Capture["source workbooks and archive"] --> Sites["normalized site sequences"]
+    Capture --> Grid["normalized REVEALS grid cells"]
+    Sites --> Time["site-sequence BP intervals"]
+    Sites --> Review["coverage and publication review"]
+    Grid --> Review
+    Time --> Review
+    Review --> Product["pollen-context layers"]
+```
 
-In public products, LandClim often improves legibility by showing that the
-repository is not only about where biological samples were found. It also
-cares about what kind of environment those samples belong to.
+## What LandClim Supports
 
-## Temporal Posture In This Repository
+- broad vegetation and palaeoenvironmental interpretation;
+- pollen context around lakes, samples, sites, and regions;
+- chronology-aware comparison where a normalized site-sequence interval is
+  present;
+- comparison between local sequence evidence and modeled landscape context;
+- reproducible Nordic pollen layers whose records retain family identity.
 
-The checked-in LandClim layer is spatially and temporally stronger than a
-pure map overlay, but it is still context rather than direct sample evidence.
+Site sequences and grid cells have different meanings. A grid cell summarizes
+modeled landscape context; it is not another observation at the cell center.
 
-In the current repository state:
+## Temporal Interpretation
 
-- the normalized site-sequence layer carries numeric BP windows for most
-  checked-in sequence points
-- those windows help keep lake comparison grounded in explicit pollen context
-  rather than timeless map decoration
-- the family still acts as supporting pollenomics context, not as direct human
-  or archaeological proof
+Numeric BP windows belong to normalized site-sequence records. They support
+comparison at the precision recorded by the sequence, not automatic alignment
+with every sample or event inside the same interval.
 
-The shared machine-readable posture for this family lives in:
+The ten sequences without numeric intervals remain spatial pollen context.
+They are not assigned synthetic dates to make the family appear uniformly
+time-resolved.
 
-- `data/source_spatiotemporal_posture_registry.json`
+## Relationship To Other Families
 
-## What LandClim Does Not Do
+| Compared with | LandClim contributes | Other family contributes |
+| --- | --- | --- |
+| Neotoma | broad sequence and REVEALS-oriented landscape context | site-centered palaeoecological comparison |
+| SEAD or RAÄ | environmental setting | archaeology context |
+| SVAR | pollen setting around candidate basins | lake and hydrographic identity |
+| aDNA | surrounding environmental context | direct sample-owned biological evidence |
 
-LandClim should not be mistaken for direct proof of a specific archaeological
-or aDNA claim.
+Proximity between a LandClim record and another feature is a declared spatial
+relation. It does not establish shared chronology or causal association unless
+those dimensions are supported separately.
 
-It does not replace:
+## Governing Surfaces
 
-- sample-level locality evidence
-- sample-level chronology evidence
-- species identification or archive review
-- archaeological interpretation from SEAD or RAÄ
+- `data/landclim/raw/landclim_sources.json` records source capture context;
+- `data/landclim/normalized/landclim_summary.json` records family counts;
+- `data/landclim/normalized/nordic_pollen_site_sequences.geojson` governs
+  normalized sequence points;
+- `data/landclim/normalized/nordic_reveals_grid_cells.geojson` governs grid
+  context;
+- `data/source_spatiotemporal_posture_registry.json` records comparison posture.
 
-Its value is contextual. It tells readers more about environmental setting than
-about one individual record's direct evidentiary chain.
-
-## How It Differs From Neotoma
-
-LandClim and Neotoma are both pollenomics families, but they are not copies of
-each other.
-
-LandClim is the stronger first stop when you want broad landscape framing or
-REVEALS-style context. Neotoma is often the better first stop when you want a
-more site-centered pollen comparison across geography.
-
-The important public rule is not to collapse them into one generic "pollen"
-layer. They overlap, but they do not speak in exactly the same way.
-
-## How It Appears In Public Outputs
-
-LandClim usually appears as context that helps readers interpret why a place or
-region matters environmentally. It can support atlas views, country views, and
-broader comparisons, especially where the repository needs vegetation context
-to stay visible beside archaeology and ancient DNA.
-
-## If You Need The Repository-Owned Records
-
-The family-owned normalized outputs live under:
-
-- `data/landclim/normalized/`
-- `data/source_spatiotemporal_posture_registry.json`
-
-That path matters if you are checking what the public products were built from.
-Most readers should understand LandClim's role first, then inspect the tracked
-records only if they need deeper provenance.
+Public renderings are derived from these surfaces and cannot strengthen their
+spatial or temporal claims.

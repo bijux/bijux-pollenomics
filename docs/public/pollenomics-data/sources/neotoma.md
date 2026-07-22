@@ -4,109 +4,82 @@ audience: reader
 type: explanation
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-06-22
+last_reviewed: 2026-07-22
 ---
 
 # Neotoma
 
-Neotoma is the repository's other major pollenomics family. If LandClim helps
-with broad environmental framing, Neotoma often helps with a more site-centered
-view of pollen context across geography.
+Neotoma supplies primary pollen context as normalized palaeoecological site
+records. It complements LandClim with a site-centered view, but temporal
+support varies by record and remains distinct from a captured chronology
+model.
 
-That distinction matters. Public readers should come away knowing that the
-repository does not rely on a single pollen source and call the job finished.
-It uses more than one pollenomics family because different pollen records help
-answer different kinds of questions.
+## Checked-In Evidence
 
-## What Neotoma Adds
+The current temporal review covers 200 normalized sites:
 
-Neotoma is strongest when a reader wants to understand pollen-site context in a
-way that can travel across a wider set of places.
+| Posture | Count | Interpretation |
+| --- | ---: | --- |
+| site has a numeric BP span | 175 | bounded site-level comparison is possible under the recorded caveat |
+| site lacks a BP span | 25 | spatial context only |
+| captured chronology rows | 0 | the snapshot does not provide a separate chronology-row foundation |
 
-It is especially useful for:
+Within the review, 63 records are numeric intervals, 107 are numeric intervals
+with caveats, 5 retain contextual labels only, and 25 remain unresolved. These
+categories are more informative than calling all 200 sites “dated.”
 
-- site-centered pollen comparison
-- broad paleoecological context around mapped places
-- keeping public interpretation from narrowing into archaeology and ancient DNA
-  alone
+```mermaid
+flowchart LR
+    Inventory["captured site and dataset inventory"] --> Site["normalized pollen site"]
+    Site --> Span{"numeric BP span present?"}
+    Span -->|yes| Bounded["bounded site-level comparison"]
+    Span -->|no| Spatial["spatial context only"]
+    Bounded --> Review["temporal comparability review"]
+    Spatial --> Review
+    Review --> Product["qualified pollen-context layer"]
+```
 
-Neotoma helps maintain the pollenomics identity of the repository even when
-other domains are more visually dramatic.
+## What Neotoma Supports
 
-## Temporal Posture In This Repository
+- site-centered pollen and palaeoenvironmental comparison;
+- cross-place context across the governed capture;
+- lake-linked or proximity-based pollen support under explicit spatial rules;
+- temporal comparison when the individual review row records a compatible
+  numeric BP interval;
+- public context layers that preserve site identity and temporal posture.
 
-The checked-in Neotoma surfaces should be read as chronologically uneven rather
-than as one fully time-expanded layer.
+## Chronology Limit
 
-In the current repository state:
+A site span summarizes captured age coverage. It is not equivalent to a
+chronology table, age-depth model, or sample-level date. The current snapshot
+contains no chronology rows for this Sweden-facing family, so a site with a BP
+span may support a bounded comparison while still carrying a chronology
+caveat.
 
-- some Sweden-facing Neotoma site records carry numeric BP site spans
-- the checked-in raw capture does not yet include chronology-row detail for the
-  same site family
-- the lake-ranking workflow therefore treats Neotoma as partly time-aware, not
-  uniformly chronology-complete
+Units and interval semantics also matter. A numeric label is not accepted for
+comparison merely because it contains “BP”; the review posture records whether
+the value is compatible with repository temporal rules.
 
-That distinction is deliberate. The repository does not promote every Neotoma
-point into "same-period support" unless a numeric interval is actually present
-in the checked-in record state.
+## Relationship To LandClim
 
-The shared machine-readable posture for this family lives in:
+Both families provide primary pollen context, but their normalized units and
+strengths differ:
 
-- `data/source_spatiotemporal_posture_registry.json`
+- LandClim combines site sequences with REVEALS grid context;
+- Neotoma centers the comparison on palaeoecological sites and their captured
+  dataset coverage;
+- neither family replaces the other;
+- neither becomes direct sample evidence when displayed beside aDNA.
 
-## What Neotoma Does Not Do
+## Governing Surfaces
 
-Neotoma is still a context family. It should not be treated as direct proof of
-one narrower claim.
+- `data/neotoma/raw/neotoma_pollen_dataset_inventory.json` records datasets;
+- `data/neotoma/raw/neotoma_pollen_sites.json` records captured sites;
+- `data/neotoma/normalized/nordic_pollen_sites.geojson` governs normalized
+  spatial records;
+- `data/neotoma/review/temporal_review.json` governs temporal posture;
+- `data/source_spatiotemporal_posture_registry.json` summarizes cross-family
+  comparison status.
 
-It does not replace:
-
-- direct sample review in the aDNA programs
-- archaeological interpretation from SEAD or RAÄ
-- boundary framing for country and regional filters
-- all other pollen context, including the broader REVEALS-oriented role of
-  LandClim
-
-It also does not let the repository pretend that all pollen context is equally
-resolved through time. Some site records can strengthen chronology-aware
-comparisons, while others remain spatial context only.
-
-## How It Differs From LandClim
-
-Readers often notice that both families speak about pollen and environmental
-context. The useful difference is in emphasis.
-
-LandClim is usually the better first source for broad environmental setting and
-REVEALS-style landscape interpretation. Neotoma is often the better first
-source for site-oriented pollen context and cross-place comparison.
-
-Both belong in the repository. Their coexistence is a strength, not a sign
-that the documentation failed to choose one.
-
-## How It Appears In Public Outputs
-
-Neotoma helps the public outputs show environmental context at a scale that
-stays useful across multiple geographies. It often works best as a companion
-layer that deepens place interpretation rather than acting as the sole basis
-for a claim.
-
-In the Sweden lake evidence surfaces, Neotoma contributes in two distinct ways:
-
-- as direct lake-linked pollen support when a record resolves to the same lake
-- as nearby pollen context around a candidate lake within explicit distance
-  bands
-
-When a checked-in Neotoma record carries a numeric BP interval, it can also
-strengthen chronology-aware comparisons against nearby human aDNA localities.
-When it does not, the repository keeps it visible as spatial evidence without
-inflating it into stronger temporal support.
-
-## If You Need The Repository-Owned Records
-
-The family-owned normalized outputs live under:
-
-- `data/neotoma/normalized/`
-- `data/neotoma/review/temporal_review.json`
-- `data/source_spatiotemporal_posture_registry.json`
-
-That is the repository path behind Neotoma-derived public layers and summaries.
+A published Neotoma point inherits the posture of its governing review row,
+not a stronger interpretation suggested by map precision.
