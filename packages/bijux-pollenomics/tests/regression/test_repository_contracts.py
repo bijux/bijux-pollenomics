@@ -1297,7 +1297,7 @@ class RepositoryContractRegressionTests(unittest.TestCase):
             sead_handbook_page,
         )
         self.assertIn(
-            "data/sead/review/recovery_roadmap.json",
+            "data/sead/review/recovery_requirements.json",
             sead_handbook_page,
         )
         self.assertIn(

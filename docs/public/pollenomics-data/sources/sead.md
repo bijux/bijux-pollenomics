@@ -43,11 +43,36 @@ publication posture of context with an explicit caveat.
 | access review | `review/access_model.json` | how the captured surface relates to deeper SEAD information |
 | temporal review | `review/temporal_review.json` | refusal of unsupported numeric comparison |
 | evidence legibility | `review/evidence_legibility_review.json` | why inventory visibility is not record-level interpretive depth |
-| recovery direction | `review/recovery_roadmap.json` | which missing relations would materially strengthen future claims |
+| recovery requirements | `review/recovery_requirements.json` | which missing relations would materially strengthen future claims and how their recovery is demonstrated |
 
 These surfaces turn a thin database capture into an auditable evidence state.
 They do not conceal the missing chronology and bibliography behind a successful
 normalization count.
+
+### Database Preparation Is Selective Materialization
+
+SEAD is relational upstream, while the current governed capture materializes a
+site inventory. The preparation contract therefore records not only the rows
+that exist, but the relations that were not captured. That distinction prevents
+an inventory-shaped export from being mistaken for the full source database.
+
+```mermaid
+flowchart LR
+    Site["site inventory row"] --> Identity["stable site identity"]
+    Site -. not captured .-> Dating["dating and relative-period relations"]
+    Site -. not captured .-> References["bibliography relations"]
+    Site -. not captured .-> Proxies["dataset and analysis relations"]
+    Identity --> Point["normalized contextual point"]
+    Dating --> Time["time-aware eligibility review"]
+    References --> Attribution["record-level source interpretation"]
+    Proxies --> Evidence["proxy-specific environmental claim"]
+```
+
+Only the solid path is currently governed for all captured members. The
+dashed relations describe evidence requirements, not implied empty tables.
+Recovering one relation strengthens only the claim dimension it owns: a
+bibliography link does not provide chronology, and a date does not establish
+which proxy or specimen produced it.
 
 ```mermaid
 flowchart LR
@@ -155,7 +180,13 @@ single archaeology truth set.
 - `data/sead/review/access_model.json` records access posture;
 - `data/sead/review/evidence_legibility_review.json` records interpretability;
 - `data/sead/review/temporal_review.json` records temporal refusal;
-- `data/sead/review/recovery_roadmap.json` records recovery direction.
+- `data/sead/review/recovery_requirements.json` records the evidence gaps,
+  required evidence, and satisfaction signals for stronger use.
+
+Together these files form a database-preparation receipt: captured population,
+normalized membership, access posture, temporal eligibility, interpretation
+risk, and the evidence required for stronger use remain independently
+inspectable.
 
 The [SEAD handbook](sead-handbook.md) expands the interpretation and
 collaboration context without changing these evidence limits.

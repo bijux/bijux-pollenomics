@@ -111,13 +111,28 @@ captured:
   temporal comparison;
 - `data/sead/review/evidence_legibility_review.json` records whether the
   captured representation is interpretable; and
-- `data/sead/review/recovery_roadmap.json` identifies evidence that would
-  materially strengthen future use.
+- `data/sead/review/recovery_requirements.json` identifies the evidence gaps,
+  required evidence, and satisfaction signals that would materially
+  strengthen future use.
 
 Recovery should target the missing claim dimension. A chronology question
 requires temporal evidence; a source-attribution question requires references;
 a proxy question requires the relevant upstream dataset relation. Adding more
 nearby points cannot substitute for any of them.
+
+### Claim-Led Relation Recovery
+
+| Proposed stronger claim | Relation that must be recovered | Minimum review before use |
+| --- | --- | --- |
+| a site overlaps a pollen or aDNA interval | dating range or relative-period evidence with basis and uncertainty | normalize time basis, retain source labels, and test interval eligibility |
+| a site interpretation is supported by named literature | bibliography relation and stable reference identity | verify the reference-to-site relation and preserve access posture |
+| a site contains a named environmental proxy | dataset, sample group, physical sample, analysis entity, and analysis value lineage | retain observation unit, method, taxon or proxy vocabulary, and units |
+| two rows describe the same archaeological place | governing identity evidence rather than name or coordinate similarity | record alias, merge, split, or unresolved collision posture |
+
+Relation recovery is member-specific. Finding a rich dossier for one site does
+not raise the maturity of the other inventory rows, and recovering one table
+does not authorize a join until the intervening keys and observation units are
+also governed.
 
 ## Related Evidence Contracts
 

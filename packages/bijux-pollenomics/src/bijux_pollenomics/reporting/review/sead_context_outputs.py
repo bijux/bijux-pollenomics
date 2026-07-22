@@ -18,8 +18,8 @@ def build_repository_sead_legibility_review(data_root: Path) -> dict[str, object
     access_model = _load_json_or_default(
         data_root / "sead" / "review" / "access_model.json"
     )
-    recovery_roadmap = _load_json_or_default(
-        data_root / "sead" / "review" / "recovery_roadmap.json"
+    recovery_requirements = _load_json_or_default(
+        data_root / "sead" / "review" / "recovery_requirements.json"
     )
     temporal_review = _load_json_or_default(
         data_root / "sead" / "review" / "temporal_review.json"
@@ -51,10 +51,10 @@ def build_repository_sead_legibility_review(data_root: Path) -> dict[str, object
             "normalized_output_page": "docs/public/pollenomics-data/publications/sead-exports.md",
             "access_model": "data/sead/review/access_model.json",
             "evidence_review": "data/sead/review/evidence_legibility_review.json",
-            "recovery_roadmap": "data/sead/review/recovery_roadmap.json",
+            "recovery_requirements": "data/sead/review/recovery_requirements.json",
         },
-        "roadmap_rows": list(recovery_roadmap.get("rows", []))
-        if isinstance(recovery_roadmap.get("rows"), list)
+        "requirement_rows": list(recovery_requirements.get("rows", []))
+        if isinstance(recovery_requirements.get("rows"), list)
         else [],
     }
 
@@ -110,17 +110,17 @@ def render_repository_sead_legibility_review_markdown(
     lines.extend(
         [
             "",
-            "## Recovery Roadmap",
+            "## Recovery Requirements",
             "",
-            "| Deliverable | Goal | Completion signal |",
+            "| Requirement | Required evidence | Satisfaction signal |",
             "| --- | --- | --- |",
         ]
     )
-    for row in payload.get("roadmap_rows", []):
+    for row in payload.get("requirement_rows", []):
         if not isinstance(row, dict):
             continue
         lines.append(
-            f"| {row.get('deliverable_key', '')} | {row.get('goal', '')} | {row.get('completion_signal', '')} |"
+            f"| {row.get('requirement_key', '')} | {row.get('required_evidence', '')} | {row.get('satisfaction_signal', '')} |"
         )
     lines.append("")
     return "\n".join(lines)

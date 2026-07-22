@@ -11,11 +11,11 @@ from .access import build_sead_site_access_model
 __all__ = [
     "build_sead_access_model_packet",
     "build_sead_evidence_legibility_review",
-    "build_sead_recovery_roadmap",
+    "build_sead_recovery_requirements",
     "build_sead_temporal_review",
     "render_sead_access_model_markdown",
     "render_sead_evidence_legibility_review_markdown",
-    "render_sead_recovery_roadmap_markdown",
+    "render_sead_recovery_requirements_markdown",
     "render_sead_temporal_review_markdown",
     "write_sead_review_outputs",
 ]
@@ -228,12 +228,12 @@ def build_sead_evidence_legibility_review(
     }
 
 
-def build_sead_recovery_roadmap(
+def build_sead_recovery_requirements(
     *,
     access_model_packet: dict[str, object],
     evidence_legibility_review: dict[str, object],
 ) -> dict[str, object]:
-    """Turn current SEAD legibility gaps into concrete recovery deliverables."""
+    """Turn current SEAD legibility gaps into governed evidence requirements."""
     high_risk_count = int(
         dict(evidence_legibility_review.get("normalization_risk_counts", {})).get(
             "high_thin_site_inventory", 0
@@ -246,32 +246,32 @@ def build_sead_recovery_roadmap(
     )
     rows = [
         {
-            "deliverable_key": "linked_temporal_capture",
-            "current_gap_count": high_risk_count,
-            "goal": "Capture linked dating-range, relative-period, and uncertainty tables into checked-in raw SEAD inventory refreshes.",
-            "completion_signal": "Checked-in raw SEAD rows carry temporal linked tables often enough that the thin-site-inventory risk no longer dominates the review packet.",
+            "requirement_key": "linked_temporal_capture",
+            "evidence_gap_count": high_risk_count,
+            "required_evidence": "Capture linked dating-range, relative-period, and uncertainty tables into checked-in raw SEAD inventory refreshes.",
+            "satisfaction_signal": "Checked-in raw SEAD rows carry temporal linked tables often enough that the thin-site-inventory risk no longer dominates the review packet.",
         },
         {
-            "deliverable_key": "reference_link_capture",
-            "current_gap_count": site_page_only_count,
-            "goal": "Preserve stable bibliography or DOI links wherever SEAD linked records expose them, so readers do not have to begin every review from the generic site page.",
-            "completion_signal": "The access review shows a meaningful shift away from site-page-only visibility.",
+            "requirement_key": "reference_link_capture",
+            "evidence_gap_count": site_page_only_count,
+            "required_evidence": "Preserve stable bibliography or DOI links wherever SEAD linked records expose them, so readers do not have to begin every review from the generic site page.",
+            "satisfaction_signal": "The access review shows a meaningful shift away from site-page-only visibility.",
         },
         {
-            "deliverable_key": "context_layer_republication",
-            "current_gap_count": int(evidence_legibility_review.get("row_count", 0)),
-            "goal": "Republish the normalized SEAD context layer with explicit temporal semantics, access posture, and context-only caveats on every feature.",
-            "completion_signal": "Normalized and published SEAD GeoJSON no longer trigger missing-temporal-semantics findings in report review surfaces.",
+            "requirement_key": "context_layer_republication",
+            "evidence_gap_count": int(evidence_legibility_review.get("row_count", 0)),
+            "required_evidence": "Republish the normalized SEAD context layer with explicit temporal semantics, access posture, and context-only caveats on every feature.",
+            "satisfaction_signal": "Normalized and published SEAD GeoJSON no longer trigger missing-temporal-semantics findings in report review surfaces.",
         },
         {
-            "deliverable_key": "published_scope_refresh",
-            "current_gap_count": int(evidence_legibility_review.get("row_count", 0)),
-            "goal": "Refresh published world, Europe-plus, and Nordic report bundles so SEAD appears as a bounded archaeology context layer rather than a generic environmental blob.",
-            "completion_signal": "Published map and review bundles expose SEAD with stable caveats, access wording, and bounded contextual role labels.",
+            "requirement_key": "published_scope_refresh",
+            "evidence_gap_count": int(evidence_legibility_review.get("row_count", 0)),
+            "required_evidence": "Refresh published world, Europe-plus, and Nordic report bundles so SEAD appears as a bounded archaeology context layer rather than a generic environmental blob.",
+            "satisfaction_signal": "Published map and review bundles expose SEAD with stable caveats, access wording, and bounded contextual role labels.",
         },
     ]
     return {
-        "schema_version": "sead-recovery-roadmap.v1",
+        "schema_version": "sead-recovery-requirements.v1",
         "generated_on": str(date.today()),
         "row_count": len(rows),
         "rows": rows,
@@ -291,7 +291,7 @@ def write_sead_review_outputs(
     temporal_review = build_sead_temporal_review(rows, records)
     access_model = build_sead_access_model_packet(rows)
     evidence_legibility_review = build_sead_evidence_legibility_review(rows, records)
-    recovery_roadmap = build_sead_recovery_roadmap(
+    recovery_requirements = build_sead_recovery_requirements(
         access_model_packet=access_model,
         evidence_legibility_review=evidence_legibility_review,
     )
@@ -316,10 +316,10 @@ def write_sead_review_outputs(
             _render_review_csv(evidence_legibility_review["rows"]),
         ),
         (
-            "recovery_roadmap",
-            recovery_roadmap,
-            render_sead_recovery_roadmap_markdown(recovery_roadmap),
-            _render_review_csv(recovery_roadmap["rows"]),
+            "recovery_requirements",
+            recovery_requirements,
+            render_sead_recovery_requirements_markdown(recovery_requirements),
+            _render_review_csv(recovery_requirements["rows"]),
         ),
     )
     artifact_paths: dict[str, str] = {}
@@ -470,19 +470,19 @@ def render_sead_evidence_legibility_review_markdown(payload: dict[str, object]) 
     return "\n".join(lines)
 
 
-def render_sead_recovery_roadmap_markdown(payload: dict[str, object]) -> str:
+def render_sead_recovery_requirements_markdown(payload: dict[str, object]) -> str:
     lines = [
-        "# SEAD recovery roadmap",
+        "# SEAD recovery requirements",
         "",
-        "This roadmap turns SEAD from a merely present source family into a scientifically legible and operationally trustworthy context program.",
+        "These requirements identify the evidence needed to make SEAD a scientifically legible and operationally trustworthy context program.",
         "",
-        "| Deliverable | Current gap count | Goal | Completion signal |",
+        "| Requirement | Evidence gap count | Required evidence | Satisfaction signal |",
         "| --- | ---: | --- | --- |",
     ]
     for row in payload["rows"]:
         lines.append(
-            f"| {row['deliverable_key']} | {row['current_gap_count']} | "
-            f"{row['goal']} | {row['completion_signal']} |"
+            f"| {row['requirement_key']} | {row['evidence_gap_count']} | "
+            f"{row['required_evidence']} | {row['satisfaction_signal']} |"
         )
     lines.append("")
     return "\n".join(lines)

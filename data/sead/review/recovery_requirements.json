@@ -1,27 +1,8 @@
 {
-  "schema_version": "repository-sead-legibility-review.v1",
-  "source_family": "sead",
-  "display_name": "SEAD archaeology context",
-  "current_posture": "contextual_archaeology_layer_with_explicit_temporal_and_access_limits",
-  "row_count": 2195,
-  "normalization_risk_counts": {
-    "high_thin_site_inventory": 2195
-  },
-  "access_visibility_counts": {
-    "site_page_only": 2195
-  },
-  "comparability_posture_counts": {
-    "unresolved": 2195
-  },
-  "direct_links": {
-    "source_page": "docs/public/pollenomics-data/sources/sead.md",
-    "handbook_page": "docs/public/pollenomics-data/sources/sead-handbook.md",
-    "normalized_output_page": "docs/public/pollenomics-data/publications/sead-exports.md",
-    "access_model": "data/sead/review/access_model.json",
-    "evidence_review": "data/sead/review/evidence_legibility_review.json",
-    "recovery_requirements": "data/sead/review/recovery_requirements.json"
-  },
-  "requirement_rows": [
+  "schema_version": "sead-recovery-requirements.v1",
+  "generated_on": "2026-05-09",
+  "row_count": 4,
+  "rows": [
     {
       "requirement_key": "linked_temporal_capture",
       "evidence_gap_count": 2195,
