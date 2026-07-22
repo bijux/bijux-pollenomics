@@ -44,6 +44,26 @@ levels that are often collapsed: a project is known; its paper is identified;
 its supporting material is recovered; and sample-owned locality and chronology
 are supported. Progress at one level does not imply completion of the next.
 
+## Selection Bias Remains Visible
+
+The collected families are a governed evidence portfolio, not proof that every
+relevant source ecosystem has been captured. Selection records therefore retain
+the denominator and bias introduced by access, jurisdiction, language,
+digitization, publication practice, and source-specific preservation.
+
+| Selection condition | Potential bias | Required qualification |
+| --- | --- | --- |
+| API or bulk access is available | easily retrievable sources may dominate | distinguish convenience from scientific priority |
+| one national registry is mature | national density can look regionally representative | keep jurisdiction explicit |
+| supplements are recoverable for some projects | recovered projects can look biologically dominant | report expected and recovered project/sample denominators |
+| chronology is numeric in one family | numeric records can outrank relevant contextual evidence | preserve temporal role instead of rewarding format alone |
+| stable coordinates are available | mappable evidence can displace important broad-area records | keep unresolved and non-point evidence visible |
+
+A new source is admitted because it fills a declared evidentiary role under a
+reviewable contract, not merely because it increases coverage or produces a
+denser map. Known alternatives and uncaptured ecosystems remain part of the
+selection boundary.
+
 ```mermaid
 flowchart LR
     Question["declared evidence question"] --> Candidate["candidate source"]

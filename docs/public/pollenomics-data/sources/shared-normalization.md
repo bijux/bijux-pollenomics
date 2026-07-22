@@ -50,6 +50,36 @@ preserved values need identity proof; parsed and normalized values need
 transformation proof; derived values need method and input proof; curated
 values need a decision record.
 
+## Lossless By Meaning
+
+Normalization is lossless when every repository value can be interpreted
+against the source statement that produced it, including deliberate absence.
+It does not require the normalized file to reproduce the upstream file byte for
+byte.
+
+For every transformed field, the evidence chain retains:
+
+1. the source member and field locator;
+2. the verbatim or source-native value when interpretation matters;
+3. the transformation class and named rule;
+4. the normalized value, unit, vocabulary, or geometry;
+5. the null, ambiguity, precision, or conflict state; and
+6. the review or curation owner when the result is not mechanical.
+
+```mermaid
+flowchart LR
+    Native["source-native value"] --> Rule["declared transformation"]
+    Rule --> Normalized["normalized value"]
+    Native --> Lineage["field lineage"]
+    Rule --> Lineage
+    Normalized --> Lineage
+    Lineage --> Review["meaning and fitness review"]
+```
+
+A normalized value without this chain is structurally convenient but
+scientifically brittle: readers cannot distinguish transcription, parsing,
+mapping, derivation, or expert judgment.
+
 ```mermaid
 flowchart TB
     subgraph Native["source-native meaning"]

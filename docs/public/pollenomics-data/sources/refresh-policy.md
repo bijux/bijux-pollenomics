@@ -68,6 +68,33 @@ A newer source may reveal that an older claim was too broad. Narrowing or
 refusing that claim is a successful refresh outcome when it more accurately
 represents the evidence.
 
+## Stable Identity, Revisable Interpretation
+
+A refresh may revise evidence without erasing continuity. The review separates
+properties that must remain traceable from properties that may legitimately
+change:
+
+| Must remain traceable | May change with evidence | Must never change silently |
+| --- | --- | --- |
+| source family and upstream identity | recovered member population | observation unit |
+| prior release and capture identity | source-native values in the new release | field meaning or unit |
+| stable repository identifiers or explicit identity events | normalized interpretation | evidence role |
+| prior curation and publication decisions | precision, conflict, and fitness posture | license and use posture |
+| previous product membership | admission to affected products | denominator definition |
+
+An upstream rename does not automatically justify a new repository identity,
+and an unchanged identifier does not prove unchanged meaning. Merges, splits,
+retirements, and semantic changes require explicit identity or contract events
+so old and new claims can be compared without guesswork.
+
+```mermaid
+flowchart LR
+    Prior["prior governed state"] --> Identity["identity continuity review"]
+    Refresh["new captured state"] --> Identity
+    Identity --> Meaning["semantic and evidence review"]
+    Meaning --> Revision["accepted revision with lineage"]
+```
+
 ## Compare Meaning Before Volume
 
 Review changes in this order:
