@@ -56,6 +56,20 @@ existing contract. Collection and publication commands write files. A
 successful process status means the requested operation completed; it does not
 turn missing evidence into a positive scientific claim.
 
+### Choose By State Impact
+
+| Intent | Operation class | Governed write | Appropriate evidence of completion |
+| --- | --- | --- | --- |
+| discover capability or current posture | inspection | none | emitted contract or review plus its input identity |
+| test an existing payload | validation | none | validation result for the named path and schema |
+| compare a candidate result | isolated materialization | only the explicitly isolated output root | candidate manifest and semantic comparison with governed state |
+| replace current evidence or products | governed materialization | the command's declared owned root | accepted manifest, complete causal diff, qualifications, and focused checks |
+
+Output format does not determine impact. JSON can be read-only inspection
+output or a governed artifact; a Python return object can summarize an
+operation that also replaced files. Determine impact from the operation
+contract and resolved roots before invocation.
+
 ## Public Surface Versus Internal Reachability
 
 Python makes many modules importable, and a repository checkout makes every

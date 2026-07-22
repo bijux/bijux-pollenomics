@@ -29,6 +29,35 @@ flowchart TD
     Publish --> ProductResult["manifests, subsets, traceability, and caveats"]
 ```
 
+## Establish The Boundary Before A Write
+
+Before a state-changing operation, record the boundary that will make its
+result interpretable:
+
+1. resolve every relative input and output root;
+2. record the runtime version, source or product version, and prior manifest;
+3. name the owner whose tree may be replaced and the descendants expected to
+   change;
+4. identify the admission, subset, traceability, and release checks that apply;
+5. decide which differences require scientific review rather than file-level
+   acceptance.
+
+```mermaid
+flowchart LR
+    Prior["prior manifest and governed roots"] --> Run["bounded operation"]
+    Inputs["runtime and input identities"] --> Run
+    Run --> Candidate["candidate manifest and effects"]
+    Candidate --> Compare["identity, meaning, population, and product diff"]
+    Compare --> Accept{"governing contracts pass?"}
+    Accept -->|yes| Current["current governed state"]
+    Accept -->|no| Retain["prior authority plus findings"]
+```
+
+This boundary matters even when staging protects an owned tree. Staging
+prevents a partial replacement within that tree; it does not decide whether a
+scientific change is acceptable or make separate data and publication writes
+one transaction.
+
 ## Verify Only
 
 Inspection commands are the safest starting point for source support, species

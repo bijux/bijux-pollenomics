@@ -72,6 +72,33 @@ selected data root. `publish-reports` consumes that explicit state and writes
 world, regional, country, review, and caveat products under the selected report
 root. Publication does not recollect a source implicitly.
 
+### Read A Publication Packet
+
+For the checked-in repository state, begin with the publication summary and a
+named bundle rather than opening HTML first:
+
+```bash
+jq '{schema_version, version, countries,
+     geography_bundle_count: (.geography_bundles | length),
+     artifact_count: (.artifacts | length)}' \
+  docs/report/published_reports_summary.json
+
+jq '{scope_key, scope_kind, countries, total_unique_samples,
+     animal_points: .animal_atlas.total_locality_points}' \
+  docs/report/world/world_bundle.json
+
+jq '{overall_ok, reference_grade_claim_allowed,
+     reference_grade_support_ready}' \
+  docs/report/animal_publication_release_gate.json
+```
+
+The summary identifies the publication family, the bundle identifies one
+scope and its populations, and the release gate constrains the language that
+may be used for that state. None replaces member-level traceability or the
+governing evidence record. A coherent bundle with a false release claim flag
+is an accountable product with restricted claim language, not a failed JSON
+read.
+
 ```mermaid
 flowchart LR
     Command["state-changing command"] --> Inputs["explicit input roots"]
