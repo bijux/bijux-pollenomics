@@ -35,6 +35,21 @@ Every reviewed row currently has `site_page_only` access visibility,
 layer is therefore useful context, but it is not a temporally aligned
 archaeology event surface.
 
+## Governed Artifacts
+
+| Artifact | Responsibility |
+| --- | --- |
+| `data/sead/normalized/nordic_environmental_sites.geojson` | the 2,172 mapped Nordic context features and their stable SEAD identities |
+| `data/sead/review/temporal_review.json` | machine-readable temporal classification, evidence posture, and denominators |
+| `data/sead/review/temporal_review.csv` | row-level review exchange surface |
+| `data/sead/review/temporal_review.md` | reader-facing explanation of the same governed review |
+
+The `data/sead/normalized/` tree is the family authority for repository-owned
+representation, while `data/sead/review/` owns its temporal, access, and
+legibility findings. Regional report copies are selected descendants. They
+cannot fill the current chronology and bibliography gaps or change an
+inventory row into an archaeological event.
+
 ```mermaid
 flowchart LR
     Inventory["2,195 captured site rows"] --> Review["inventory and legibility review"]

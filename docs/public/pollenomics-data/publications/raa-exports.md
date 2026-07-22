@@ -12,7 +12,9 @@ last_reviewed: 2026-07-22
 RAÄ exports provide Sweden-specific archaeology context from
 Riksantikvarieämbetet/Fornsök Open Data. The public map uses an aggregated
 density layer so national context remains legible without rendering hundreds
-of thousands of point markers.
+of thousands of point markers. This is a **Sweden-scoped** source and product
+surface; it supplies no equivalent registry coverage for the other Nordic
+countries.
 
 ## Current Governed Surface
 

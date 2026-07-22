@@ -45,10 +45,18 @@ flowchart LR
 
 ## Artifacts And Identity
 
-- `nordic_pollen_sites.csv` is the tabular normalized surface;
-- `nordic_pollen_sites.geojson` is the mapped point surface; and
-- `review/temporal_review.{json,csv,md}` exposes the temporal classification
-  and its denominators.
+- `data/neotoma/normalized/nordic_pollen_sites.csv` is the tabular normalized
+  surface;
+- `data/neotoma/normalized/nordic_pollen_sites.geojson` is the mapped point
+  surface; and
+- `data/neotoma/review/temporal_review.{json,csv,md}` exposes the temporal
+  classification and its denominators.
+
+The `data/neotoma/normalized/` tree owns the repository representation used by
+publication, while `data/neotoma/review/` owns its temporal fitness findings.
+Copies under `docs/report/` are product members governed by their bundle
+manifests; they do not replace the normalized site identity, temporal posture,
+or review denominator.
 
 `record_id` retains Neotoma site identity. Site name or coordinates are not
 safe substitutes: names can recur, coordinates can be revised, and one site
