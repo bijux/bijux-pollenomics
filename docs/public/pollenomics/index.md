@@ -9,8 +9,9 @@ last_reviewed: 2026-07-22
 
 # Bijux Pollenomics
 
-`bijux-pollenomics` turns heterogeneous scientific and spatial sources into a
-versioned, reviewable publication system. It collects source material, creates
+`bijux-pollenomics` is an atlas builder and evidence-publication runtime. It
+turns heterogeneous scientific and spatial sources into versioned, reviewable
+records and scoped publications. It collects source material, creates
 repository-owned evidence records, exposes uncertainty and conflicts, and
 publishes world, regional, country, and lake-oriented views from the same
 governed state.
@@ -20,6 +21,12 @@ archaeology, heritage records, hydrography, administrative boundaries, human
 ancient DNA, animal ancient DNA, and field observations may share a map, but
 they retain distinct provenance, temporal meaning, spatial precision, and
 publication rules.
+
+The current runtime is substantial, but its boundary is deliberate. It does
+not yet provide the broader multi-evidence harmonization and interpretation
+engine described by the project direction. Throughout this guide, “available”
+means backed by an executable interface and a governed result—not merely
+represented in a design or roadmap.
 
 <div class="bijux-quicklinks">
   <a class="md-button md-button--primary" href="../pollenomics-data/">Explore the evidence system</a>
@@ -108,6 +115,12 @@ without its manifest and qualifications is therefore an incomplete product.
   evidence packet and fieldwork shortlist
 - a typed Python API, the `bijux-pollenomics` command, and the compatible
   `pollenomics` command
+
+These surfaces establish a working atlas and publication system. They do not
+establish a general-purpose inference engine. The distinction can be tested
+directly with `bijux-pollenomics product-scope --json`: current capabilities
+are returned separately from unsupported claims, so downstream automation does
+not have to infer product status from prose.
 
 ## Governed State Today
 

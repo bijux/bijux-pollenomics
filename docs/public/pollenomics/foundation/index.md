@@ -9,12 +9,19 @@ last_reviewed: 2026-07-22
 
 # Product Boundary
 
-Bijux Pollenomics is an evidence publication system. It acquires heterogeneous
-scientific and geographic sources, preserves their identities and limitations,
-creates repository-owned evidence records, and derives scoped maps and reports
-from the admitted subset.
+Bijux Pollenomics is an atlas builder and evidence-publication system. It
+acquires heterogeneous scientific and geographic sources, preserves their
+identities and limitations, creates repository-owned evidence records, and
+derives scoped maps and reports from the admitted subset.
 
 The product is the accountable chain, not only the final visualization.
+
+The executable product-scope contract names the current mode
+`atlas_builder` and the project direction `future_engine`. That is a product
+boundary, not a disclaimer hidden at the edge of the documentation. Collection,
+curation, review, ranking, and publication are current runtime behavior;
+general multi-evidence harmonization and interpretation remain outside the
+implemented contract.
 
 The checked-in evidence state and publication state are deliberately
 different sizes. Collection preserves records that may be contextual,
@@ -154,6 +161,12 @@ defend a narrower result and can name the evidence that prevents stronger
 language. Refusal is likewise a product outcome when the runtime completed but
 the scientific contract did not pass.
 
+Capability state is also separate from roadmap state. An operational atlas
+publication remains operational even though a broader engine is planned. A
+planned engine surface does not become qualified merely because the repository
+already holds relevant evidence; it remains outside the current product until
+an owned interface, transformation, result, and fitness contract exist.
+
 ### Capability Evidence Packet
 
 A capability is demonstrated only when four surfaces agree:
@@ -171,10 +184,10 @@ outside scope because no governed inference contract owns that conclusion.
 
 ## Runtime Boundary
 
-`bijux-pollenomics` owns collection, normalization, evidence evaluation, and
-publication behavior. The tracked `data/` tree records repository-owned
-evidence state; `docs/report/` contains derived publications; validation guards
-the contract between them.
+`bijux-pollenomics` owns collection, normalization, evidence review, heuristic
+candidate ranking, and publication behavior. The tracked `data/` tree records
+repository-owned evidence state; `docs/report/` contains derived publications;
+validation guards the contract between them.
 
 The runtime does not turn geographic proximity into causation, process AADR
 genotypes, infer missing sample coordinates, or replace field verification.

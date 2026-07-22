@@ -10,9 +10,30 @@ last_reviewed: 2026-07-22
 # Repository Scope and Limits
 
 The repository is broader than a map application and narrower than an
-integrated scientific inference platform. Its implemented strength is governed
-acquisition, evidence curation, publication, and traceability across several
-uneven source families.
+integrated scientific inference platform. Its current product mode is an atlas
+builder backed by governed acquisition, evidence curation, review, heuristic
+ranking, publication, and traceability across several uneven source families.
+
+This boundary prevents two opposite errors. Calling the repository “only a
+map” ignores the database, refusal records, release reviews, and reproducible
+publication pipeline. Calling it a finished evidence engine promotes planned
+harmonization and interpretation work into a capability the runtime does not
+yet own.
+
+## Implemented Runtime And Project Direction
+
+| Surface | Status | Defensible statement |
+| --- | --- | --- |
+| source collection and normalization | implemented | the runtime captures named source families and writes governed raw and normalized state |
+| atlas and country publication | implemented | the runtime assembles scoped bundles, reports, and maps from admitted evidence |
+| candidate ranking | implemented with a heuristic claim ceiling | declared features and scenarios produce reviewable decision-support artifacts |
+| multi-evidence harmonization runtime | planned | no current public contract performs general cross-domain harmonization |
+| evidence-aware interpretation engine | planned | no current public contract produces general scientific interpretation or causal inference |
+| workflow replay and diff execution | planned | individual builds are reproducible, but a general replay-and-diff engine is not a current surface |
+
+The machine-readable authority for this distinction is the product and surface
+scope returned by the Python facade and the `product-scope` and `surface-map`
+commands. Reader-facing pages explain that contract; they do not expand it.
 
 ## Evidence Domains
 

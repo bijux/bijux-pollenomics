@@ -1,5 +1,5 @@
 ---
-title: Evidence Engine Capabilities
+title: Evidence Publication Capabilities
 audience: reader
 type: explanation
 status: canonical
@@ -7,12 +7,19 @@ owner: bijux-pollenomics-docs
 last_reviewed: 2026-07-22
 ---
 
-# Evidence Engine Capabilities
+# Evidence Publication Capabilities
 
-Bijux Pollenomics is an operational evidence publication engine with explicit
-limits. It collects source families, curates sample and context evidence,
-evaluates claim fitness, and publishes scoped products. It does not present
-uneven evidence maturity as a finished universal analysis system.
+Bijux Pollenomics currently operates as an atlas builder and evidence-
+publication runtime with explicit limits. It collects source families, curates
+sample and context evidence, reviews claim fitness, ranks declared candidates,
+and publishes scoped products. The broader harmonization and interpretation
+engine is a project direction, not a current runtime claim.
+
+That distinction does not reduce the implemented system to rendering. The
+current product owns material state transitions, evidence contracts, refusal
+paths, and public descendants. It does mean that readers should judge the
+runtime by those concrete capabilities instead of assigning it analyses that
+the public interfaces do not perform.
 
 ## Operational Capabilities
 
@@ -27,7 +34,8 @@ uneven evidence maturity as a finished universal analysis system.
 
 These capabilities produce checked-in structured artifacts, not only prose or
 screenshots. Each state-changing operation has an owned input boundary,
-manifested output, and review surface.
+manifested output, and review surface. They constitute an evidence-publication
+platform; they are not evidence that the planned general engine already exists.
 
 ## Qualified Capabilities
 
@@ -87,6 +95,20 @@ flowchart LR
     Fitness -->|insufficient| Refused["refusal and recovery evidence"]
 ```
 
+## Planned Engine Surfaces
+
+The public surface contract identifies three planned capabilities:
+
+| Planned surface | Missing current contract |
+| --- | --- |
+| multi-evidence harmonization runtime | no general observation-unit alignment, cross-family transformation, and governed harmonized output |
+| evidence-aware scoring and interpretation engine | no general inference contract connecting domain evidence to scientific interpretation |
+| workflow replay and diff execution | no public runtime that replays arbitrary governed stages and explains semantic differences between runs |
+
+Existing commands may inspect, rebuild, or compare particular governed
+surfaces. Those focused operations should not be generalized into these broader
+engine claims.
+
 ## Outside Current Scope
 
 No current contract supports:
@@ -105,8 +127,8 @@ geometry.
 
 ## Extension Contract
 
-A new source family or analytical capability becomes part of the engine only
-when it has:
+A new source family or analytical capability becomes part of the current
+product only when it has:
 
 1. stable upstream identity, version, licence, and acquisition lineage;
 2. a declared observation unit and normalized schema;
@@ -119,7 +141,7 @@ when it has:
 
 This contract allows the system to grow without describing intention as
 implementation. Until all eight relations exist, the proposed surface remains
-external or exploratory rather than a published engine capability.
+external, exploratory, or planned rather than a published runtime capability.
 
 Continue to [runtime scope and ownership](runtime-scope-and-ownership.md),
 [publication scope](publication-scope-model.md), and the
