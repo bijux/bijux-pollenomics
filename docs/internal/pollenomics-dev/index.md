@@ -71,6 +71,26 @@ claim is unsupported, change the evidence or retain the refusal. If a public
 page contains internal procedure, move the procedure here and leave the public
 page focused on reader use and interpretation.
 
+## Classify Before Correcting
+
+| Finding class | Typical signal | Correction boundary | Required retained evidence |
+| --- | --- | --- | --- |
+| stale representation | generated value disagrees with unchanged owner | owning generator and governed input | producer invocation and reviewed generated diff |
+| contract drift | implementation and declared interface disagree | runtime, package, or workflow contract owner | compatibility decision and focused proof |
+| scientific overclaim | public wording or admission outruns governing evidence | evidence, review, or publication owner | narrower claim, qualification, exclusion, or stronger source evidence |
+| route failure | canonical content exists but navigation or link is wrong | documentation structure | strict build and route-focused check |
+| missing authority | several copies exist without one governing owner | responsible domain contract | explicit ownership plus corrected descendants |
+| environmental failure | tool, dependency, service, or credentials prevent evaluation | operational boundary | exact failure, unchanged governed state, and rerun condition |
+
+Classification prevents a quick presentation edit from masking contract or
+scientific drift. It also prevents an unavailable external service from being
+misreported as evidence regression when the prior governed state remains
+coherent.
+
+A finding can cross classes. For example, an overclaim may expose both stale
+generated prose and a missing admission guard. Correct the scientific owner
+first, then regenerate and verify every derived representation.
+
 ## Handbook Routes
 
 | Question | Route |
@@ -94,3 +114,8 @@ Retain failures and warnings in the handoff. Unknown pytest marks, external
 tool warnings, intentionally skipped slow lanes, and active scientific release
 refusals are part of the verification record, even when the focused contract
 passes.
+
+Report verification with its boundary: command, selected inputs, pass or
+failure, warnings, and intentionally unexecuted broader lanes. Do not compress
+focused evidence into “CI is green,” and do not run expensive unrelated lanes
+to compensate for uncertainty about which contract changed.

@@ -78,6 +78,31 @@ while changing an unintended geography; a documentation build can pass while
 wording outruns evidence; a release workflow can be structurally valid while a
 scientific refusal remains active.
 
+## Review Handwritten And Generated State Separately
+
+```mermaid
+flowchart TB
+    Intent["owned change intent"] --> Handwritten["handwritten source or contract diff"]
+    Intent --> Generated["generated descendant diff"]
+    Handwritten --> Cause["review semantic cause"]
+    Generated --> Effect["review member-level effect"]
+    Cause --> Agreement{"cause explains every effect?"}
+    Effect --> Agreement
+    Agreement -->|no| Owner["return to producer or governing input"]
+    Agreement -->|yes| Proof["run focused contract"]
+```
+
+The handwritten side explains why behavior or evidence changed. The generated
+side shows the complete consequence under an owned producer. Review both even
+when they belong in the same final change set. A large generated diff is not
+self-justifying, and a small handwritten diff can legitimately have broad
+descendants only when the ownership and causal chain are explicit.
+
+For data and reports, compare member identities before totals. For navigation
+and badges, compare governing metadata before rendered presentation. For API
+freeze outputs, compare the canonical schema before its pinned representation
+and digest.
+
 ## Commit Boundary
 
 A coherent maintenance commit contains one durable intent, its necessary
@@ -96,3 +121,8 @@ Before committing:
 
 The commit subject names the durable surface and result. It does not encode the
 delivery sequence, temporary context, or an implementation diary.
+
+Do not combine a narrative clarification with unrelated data regeneration just
+because both happen to be documentation-visible. Reader prose, governed
+reports, and repository checks have different owners and review evidence; keep
+their commit boundaries independently reversible whenever correctness allows.

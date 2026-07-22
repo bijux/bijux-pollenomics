@@ -107,3 +107,24 @@ authority for a public record.
 Readers evaluating a scientific or publication claim should return to the
 [documentation home](../index.md) and follow the claim upstream through the
 data system.
+
+## Place Documentation By Consumer
+
+| Content | Durable location | Reason |
+| --- | --- | --- |
+| product meaning, scientific interpretation, and reader workflow | `docs/public/` | belongs in the published handbook and must stand without repository-maintenance context |
+| checked-in maps, tables, manifests, reviews, and refusal outputs | `docs/report/` | governed publication state produced from evidence and contracts |
+| maintainer command selection, generated-state handling, release evidence, and repository diagnostics | `docs/internal/` | useful to repository operators but not part of the reader's scientific explanation |
+| package installation, API ownership, and integration contract | package `README.md` and package docs | stays beside the distribution that owns the interface |
+| temporary logs, previews, and local verification output | `artifacts/` | diagnostic run state, not durable documentation or evidence authority |
+
+Public prose should explain what a result means, how it can be traced, and
+where its limits are. Internal prose may explain which check to run, how to
+regenerate an owned surface, and how to prepare release evidence. If one page
+tries to serve both audiences, split by ownership and link across the boundary
+with descriptive context.
+
+Generated reports remain public when readers need them to evaluate claims;
+their generation and review procedure remains internal. This distinction
+prevents an operational checklist from interrupting the scientific narrative
+without hiding the evidence it produces.
