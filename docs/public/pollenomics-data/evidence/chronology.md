@@ -252,6 +252,24 @@ Chronology diffs should therefore compare reported text, source locator,
 dating basis, bounds, evidence class, precision, and comparability—not only the
 final display label or mean.
 
+### Conversion And Comparison Are Separate Decisions
+
+Normalizing an expression into bounds answers how one source claim is
+represented. Admitting two claims to a comparison answers whether their
+bases, precision, evidence classes, and intended operation are compatible.
+Neither decision implies the other.
+
+| State | Allowed conclusion |
+| --- | --- |
+| source text only | quote and classify the expression; do not invent bounds |
+| normalized bounds, comparison not reviewed | display the interval with its basis; do not score overlap |
+| comparison admitted | apply only the declared overlap, distance, or window rule |
+| comparison refused | retain both chronology claims and the refusal reason |
+
+A change to calibration or conversion logic must re-evaluate comparison
+decisions even when the source wording is unchanged. A change to a comparison
+threshold need not rewrite the owned chronology claim.
+
 ## What Is Never Inferred
 
 The chronology pipeline does not assign conventional numeric bounds to a named

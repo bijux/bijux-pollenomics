@@ -298,6 +298,23 @@ records and completeness summaries support discovery and review. Readers can
 therefore trace a species-level row back to its project authority without
 treating the convenient aggregate as a new source of truth.
 
+### Identity Acceptance Does Not Complete The Sample
+
+An accepted identity answers only whether the physical or analytical unit is
+addressable. Its claim packet can still contain different outcomes:
+
+| Dimension | Independent accepted outcome |
+| --- | --- |
+| identity | stable sample ID with source labels and lineage |
+| locality | exact site, named place, broader region, substitution, or unresolved |
+| chronology | numeric interval, qualified estimate, context, text only, or unresolved |
+| coordinates | supplied pair, verified site anchor, approximate resolution, or withheld geometry |
+| publication | admitted, qualified, excluded, or deferred for one named product |
+
+Consumers must select on the dimensions required by their claim. Filtering for
+resolved identity alone is sufficient for an inventory, but not for an exact
+spatial or temporal analysis.
+
 ## Ambiguity And Refusal
 
 A sample remains unresolved when source labels collide, lineage is missing, or

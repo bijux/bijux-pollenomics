@@ -153,6 +153,29 @@ for unresolved sample identity; a direct date does not compensate for a
 project-only locality; strong evidence in one domain does not upgrade a
 contextual source in another.
 
+### Completeness Is A Claim Vector
+
+For any governed object, completeness is a vector of independently reviewable
+states rather than a percentage attached to the row:
+
+```mermaid
+flowchart LR
+    Object["governed object"] --> Identity["identity state"]
+    Object --> Place["locality state"]
+    Object --> Time["chronology state"]
+    Object --> Geometry["coordinate state"]
+    Object --> Lineage["lineage state"]
+    Identity --> Use{"requested use"}
+    Place --> Use
+    Time --> Use
+    Geometry --> Use
+    Lineage --> Use
+```
+
+The requested use selects which vector components are mandatory and which may
+remain qualified. This preserves useful partial evidence without letting a
+high-confidence component conceal an unresolved one.
+
 ## Evidence Capability Is A Query
 
 Evidence capability is evaluated for a particular object, claim, and use. It

@@ -289,6 +289,23 @@ An unchanged marker is not proof of an unchanged spatial claim. Basis,
 confidence, locality ownership, and boundary snapshot can change the meaning
 or eligibility of the same pair.
 
+### Geometry Admission And Relation Admission Differ
+
+A point may be defensible for locating an object yet unfit for a particular
+distance, containment, or association claim. The geometry decision governs
+the endpoint; the relation decision governs an operation over two endpoints.
+
+| Decision | Required packet | Result |
+| --- | --- | --- |
+| geometry admission | subject, locality owner, pair, CRS, basis, method, precision, and evidence locator | allowed representation of one object |
+| containment admission | geometry packet plus boundary identity, snapshot, and spatial predicate | qualified membership in one geography |
+| distance admission | two geometry packets plus distance method and uncertainty posture | qualified numeric relation |
+| association admission | admitted spatial relation plus independent temporal and evidence-role support | bounded cross-domain claim |
+
+Thus “has a point” is not a transferable permission. Each downstream spatial
+operation names its endpoints, method, evidence requirements, and refusal
+conditions.
+
 ## Why Points Are Withheld
 
 Common refusal conditions include:

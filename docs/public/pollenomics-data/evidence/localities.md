@@ -255,6 +255,24 @@ not become a sample observation through transformation alone.
 This distinction prevents a label correction from looking like a new sample
 and prevents a changed country assignment from passing as presentation-only.
 
+### Locality Has Two Outputs
+
+Every locality review produces a **place assertion** and a **spatial-use
+decision**. The first states what place the evidence supports and who owns that
+statement. The second states which representations and operations the place
+may enter. A stable place assertion can therefore coexist with a changed
+point-admission or country-membership decision after coordinates or boundaries
+change.
+
+| Output | Changes when | Does not change merely because |
+| --- | --- | --- |
+| place assertion | stronger source wording, identity resolution, or site relation changes | a new map is rendered |
+| spatial-use decision | coordinate basis, precision, product rule, or boundary snapshot changes | the place label is unchanged |
+
+Keeping both outputs prevents a publication rule from becoming locality
+evidence and prevents an accepted site name from automatically authorizing a
+point.
+
 ## Review Outcome
 
 A locality review ends with both an evidence statement and a spatial-use
