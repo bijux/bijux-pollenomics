@@ -60,6 +60,20 @@ flowchart LR
     Direction["planned engine direction"] -. "not current runtime" .-> Future["general harmonization and interpretation"]
 ```
 
+The installed distribution and the repository checkout answer different
+questions. The distribution supplies executable behavior; the checkout adds a
+particular governed evidence revision and its publication descendants.
+
+| Surface in hand | What can be established | What must be supplied separately |
+| --- | --- | --- |
+| installed `bijux-pollenomics` wheel | command and Python contracts, schemas, collectors, validation, and publication behavior | governed `data/` state and checked-in `docs/report/` products |
+| repository `data/` tree | captured, prepared, reviewed, excluded, and recovery state for one revision | the producer version and any selected publication membership |
+| repository `docs/report/` tree | manifested members, traceability, qualifications, and renderings for named products | upstream evidence authority and the runtime that produced the descendants |
+
+Consequently, “the current result” is never identified by a package version
+alone. A reproducible citation records the producer version, the evidence
+revision, and the product manifest or member identity.
+
 ## What Makes A Result Reusable
 
 A consequential result carries four linked identities:

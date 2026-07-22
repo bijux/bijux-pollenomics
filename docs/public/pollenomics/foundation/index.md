@@ -50,6 +50,19 @@ unresolved, excluded, or awaiting stronger source recovery. Publication exposes
 only the members admitted for a declared geography and use. That difference is
 an observable product decision, not undocumented filtering.
 
+The system therefore has three independent version coordinates:
+
+| Coordinate | Identifies | Must not be used as a substitute for |
+| --- | --- | --- |
+| producer version | the runtime behavior that interpreted inputs and wrote results | a particular evidence snapshot |
+| evidence revision | the coherent governed records and decisions available to the operation | product membership or release approval |
+| product identity | the manifest, scope, version, and selected members released together | upstream fact ownership |
+
+A durable result names all three. Re-running the same producer against a new
+evidence revision is repeatable execution, but it is not the same scientific
+result; republishing the same evidence under a different scope is a different
+product even when many members overlap.
+
 ```mermaid
 flowchart LR
     Upstream["datasets, APIs, papers, supplements"] --> Capture["versioned capture"]

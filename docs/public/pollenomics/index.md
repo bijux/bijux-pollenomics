@@ -42,6 +42,31 @@ merely represented in a design or roadmap.
   <a class="md-button" href="quality/">Understand guarantees and limits</a>
 </div>
 
+## Read Product Status On Three Axes
+
+Three independent questions prevent implemented software from being confused
+with checked-in evidence or release authority:
+
+| Axis | Governing question | Strongest valid answer |
+| --- | --- | --- |
+| executable capability | does a supported interface own the inputs, behavior, effects, and result? | the runtime can perform the named operation |
+| evidence state | does the selected repository revision contain the required identities, fields, lineage, and decisions? | the governed state supports the stated evidence posture |
+| publication fitness | does a named product contract admit the evidence and preserve its qualifications? | the manifested scope supports the stated release language |
+
+These axes do not inherit from one another. A collector can be operational
+while a source capture is absent. A complete governed record can remain
+outside a country product. A successfully generated bundle can still carry a
+release refusal. State all three when assessing readiness.
+
+```mermaid
+flowchart LR
+    Capability["executable capability"] --> Request["bounded request"]
+    Evidence["governed evidence state"] --> Request
+    Request --> Decision{"product fitness"}
+    Decision -->|admitted| Product["manifested product"]
+    Decision -->|not admitted| Account["qualification, exclusion, or refusal"]
+```
+
 ## Choose The Governing Surface
 
 Start with the question whose answer will be reused. The runtime system model
