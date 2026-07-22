@@ -67,6 +67,21 @@ support that the curated state does not contain.
 - a typed Python API, the `bijux-pollenomics` command, and the compatible
   `pollenomics` command
 
+## Follow The Question, Not The Rendering
+
+| Question | First surface | Governing follow-up |
+| --- | --- | --- |
+| Which records are publicly visible for a geography? | world, regional, or country report bundle | bundle manifest and subset validation |
+| Why does one animal point appear? | point traceability row | sample record, site evidence, chronology evidence, coordinate provenance, and source lineage |
+| Why is an expected point absent? | exclusion or warning surface | recovery queue, conflict ledger, substitution ledger, or release guard |
+| What environmental context surrounds a sample or lake? | source-family map layer | source contract and temporal semantics for that family |
+| Why does one lake rank above another? | ranking table | ranking manifest, feature inputs, and sensitivity analysis |
+| What changed after source collection? | collection summary | source metadata, snapshot hash, normalized hash, and family review |
+
+The first surface locates the answer; the follow-up establishes its authority.
+A map is usually the fastest index, while the evidence database is the stronger
+surface for a claim about one record.
+
 ## Evidence Strength Is Explicit
 
 The current evidence families do not have equal maturity. Pollen and several

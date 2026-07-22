@@ -51,6 +51,27 @@ publication evidence until a governed workflow admits it to a tracked surface.
 | `reporting/` | geography selection, bundle assembly, map documents, reports, and review publication | world, region, country, and lake outputs |
 | `foundation/` | architecture contracts, ownership, repository truth, release posture, and public claim language | release and credibility assessments |
 
+## Persisted Authority Surfaces
+
+Code ownership determines which operation creates a record. Persisted
+contracts determine which checked-in artifact governs it after the operation
+finishes.
+
+| Authority | Governing surface | Downstream consumers |
+| --- | --- | --- |
+| collected source state | `data/collection_summary.json` | source reviews, refresh comparison, publication inputs |
+| source-family meaning | `data/source_family_contracts.json` | data portal, maps, cross-domain reviews |
+| evidence-stage maturity | `data/source_family_evidence_stage_matrix.json` | coverage and publication-readiness reviews |
+| repeated fact ownership | `data/source_fact_ownership_registry.json` | reports and audits that repeat source or evidence facts |
+| recurring artifact shapes | `data/evidence_artifact_contracts.json` | project, sample, geography, and report validation |
+| public API shape | `apis/bijux-pollenomics/v1/pinned_openapi.json` and `schema.hash` | API consumers and compatibility checks |
+| publication membership | geography and product manifests under `docs/report/` | maps, tables, narrative reports, and subset validation |
+
+This division prevents implementation layout from becoming the only way to
+understand authority. A reader can identify the governing contract from the
+artifact tree, and an operator can trace the module responsible for producing
+it.
+
 ## Governing Invariants
 
 - Commands may coordinate owners but do not contain scientific business logic.

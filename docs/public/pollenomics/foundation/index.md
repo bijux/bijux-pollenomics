@@ -39,6 +39,40 @@ flowchart LR
 These responsibilities stay together because a polished output without its
 capture and review lineage cannot support a consequential scientific claim.
 
+## Product Guarantees
+
+The product boundary holds only when all of these relationships remain true:
+
+- every publication member has a stable identity within its source family;
+- normalization preserves source-native meaning and represents missing values
+  without invented precision;
+- evidence review records the basis for place, time, coordinates, and role;
+- product membership names geography, version, admission posture, and caveat;
+- child geographies remain defensible subsets of their governed parents; and
+- rejected or deferred records remain accountable outside the visible subset.
+
+```mermaid
+flowchart TD
+    Record["governed record"] --> Identity{"stable identity?"}
+    Identity -->|no| Refuse["refuse publication"]
+    Identity -->|yes| Semantics{"place, time, and role preserved?"}
+    Semantics -->|no| Refuse
+    Semantics -->|yes| Scope{"eligible for declared product?"}
+    Scope -->|no| Account["exclusion or recovery surface"]
+    Scope -->|yes| Member["manifested publication member"]
+```
+
+## Products And Non-Products
+
+| Surface | Product responsibility | Boundary |
+| --- | --- | --- |
+| curated data tree | evidence identity, lineage, semantics, and review state | not itself a public scientific conclusion |
+| atlas and reports | scoped publication and interpretation | not an independent evidence authority |
+| candidate ranking | reproducible decision support | not a sampling instruction or field result |
+| fieldwork record | evidence from one dated visit | not representative coverage of a lake or region |
+| recovery and refusal outputs | accountable incompleteness | not evidence of biological absence |
+| local build artifacts | diagnostics and previews | not governed repository state |
+
 ## Scientific Scope
 
 Pollen and environmental archaeology provide palaeoenvironmental context.
