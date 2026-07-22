@@ -13,6 +13,19 @@ Publications combine unlike evidence without declaring it equivalent. Every
 layer has a role, every product has a scope, and every visible feature remains
 downstream of an admission decision.
 
+The model deliberately separates three questions:
+
+1. **Is the source represented faithfully?** — acquisition, identifiers, and
+   normalization answer this.
+2. **Is the record fit for a declared use?** — evidence review and admission
+   answer this.
+3. **Is the product internally coherent?** — manifests, traceability, release
+   checks, and rendered outputs answer this.
+
+A positive answer at one boundary does not imply a positive answer at the
+next. This is why a normalized row can remain excluded, and why a coherent
+map can still carry an explicit non-reference-grade posture.
+
 ## Evidence Roles
 
 | Role | Examples | Supports | Does not support alone |
@@ -54,6 +67,37 @@ product:
 
 Filtering in a browser changes visibility after publication. It cannot admit
 an excluded record or alter its evidence role.
+
+## Product Contract
+
+Every publication resolves six elements:
+
+| Element | Reader-facing meaning |
+| --- | --- |
+| scope | geography, source families, species, and scenarios considered |
+| membership | stable identifiers actually included in the product |
+| roles | direct evidence, context, framing, decision support, or accountability |
+| semantics | spatial precision, temporal posture, units, and null meaning |
+| traceability | joins from visible objects back to governed evidence and sources |
+| release posture | checks passed, claims refused, and known limitations |
+
+The world bundle is the broad product assembly. Europe-plus, Nordic, country,
+and lake-decision products inherit its evidence semantics while applying
+narrower membership or a specialized decision contract. A descendant product
+can be more selective; it cannot silently strengthen its ancestors' facts.
+
+## Release Gates Preserve Honest Claims
+
+Release checks test the relationship between evidence and publication rather
+than declaring the underlying science complete. For animal evidence, the
+current gate confirms that published points retain required traceability,
+blocked sample-site and chronology rows do not leak into exact outputs, and
+contextual chronology is not rendered as numeric time. The same gate refuses
+a reference-grade claim because project recovery remains incomplete.
+
+That combination is intentional: a product can be valid for its declared
+membership and still decline a broader completeness claim. Passing integrity
+checks means the output says no more than its governed evidence supports.
 
 ## Reading Mixed-Domain Outputs
 

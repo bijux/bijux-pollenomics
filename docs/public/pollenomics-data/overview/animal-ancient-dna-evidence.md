@@ -63,6 +63,34 @@ stateDiagram-v2
 Tracked but deferred evidence is not equivalent to a negative scientific
 result. It records what is known about the source and what remains unavailable.
 
+## Current Evidence Depth
+
+The generated intake review currently tracks **40 archive projects** and
+**868 recovered sample rows**. Those figures describe two different
+populations: the project inventory and the extracted sample evidence. Only
+four projects have an exact expected-sample denominator, 22 have a defensible
+minimum floor, and eight are flagged for implausibly low recovery. The
+repository therefore does not present 868 as a complete census of the tracked
+projects.
+
+The point-evidence review contains **234 admitted rows**. Of these, 233 retain
+supplementary-table coordinates and one uses documented named-site geocoding
+at approximate confidence. These are admitted evidence rows, not proof that
+every project, species, locality, or chronology has reached the same maturity.
+
+```mermaid
+flowchart LR
+    Inventory["40 tracked projects"] --> Recovery["868 recovered sample rows"]
+    Recovery --> Review["identity, locality, chronology, coordinate review"]
+    Review --> Points["234 admitted point-evidence rows"]
+    Inventory --> Gaps["blocked, under-recovered, and unresolved projects"]
+    Gaps --> Accountability["recovery review and refusal surfaces"]
+```
+
+The generated reports make both branches visible. The published branch shows
+what satisfies the point contract; the accountability branch prevents the
+admitted subset from masquerading as collection completeness.
+
 ## Audit A Published Animal Point
 
 1. resolve its feature and evidence-row identifiers in the product traceability
@@ -84,6 +112,13 @@ A species-level presence, archive project, or paper citation cannot substitute
 for a recoverable sample row. A broad locality cannot become an exact point. A
 cultural period cannot acquire a synthetic numeric interval. A visible point
 cannot outrank its governing evidence.
+
+The point contract is also narrower than “animal evidence available.” A
+project can contribute paper, supplement, taxonomy, or broad locality evidence
+without contributing an atlas point. Conversely, a point admitted under its
+present traceability and precision does not certify complete recovery of its
+project. The release posture records that distinction explicitly and currently
+refuses the stronger reference-grade claim.
 
 Continue with [animal source intake](../sources/animal-source-intake.md),
 [sample records](../evidence/sample-records.md), [locality evidence](../evidence/localities.md),

@@ -19,6 +19,24 @@ important enough to curate while still lacking the evidence needed to place a
 sample on a map. Its absence from a map means *not yet admissible at that
 resolution*, not *no evidence exists*.
 
+## Collection Snapshot
+
+The current recovery review records:
+
+| Measure | Current value | Interpretation |
+| --- | ---: | --- |
+| tracked archive projects | 40 | declared project inventory, not sample count |
+| recovered final sample rows | 868 | extracted governed rows, not a complete source census |
+| projects with exact expected counts | 4 | projects for which exact recovery completeness can be measured |
+| projects with a minimum expected floor | 22 | projects for which recovery can be tested against a lower bound |
+| projects with implausibly low recovery | 8 | source or extraction work still blocks a stronger claim |
+| projects ready for publication review | 8 | projects that reached this lifecycle checkpoint |
+| blocked projects | 26 | tracked projects held before that checkpoint |
+
+These measures are published together because no one of them is an honest
+summary of the collection. In particular, dividing the recovered sample total
+by the four exact-denominator projects would compare unrelated populations.
+
 ## From project to publishable sample
 
 ```mermaid
@@ -114,6 +132,25 @@ samples reviewed” describes the extracted rows; it does not mean every sample
 expected from every paper or project was recovered. Where a trustworthy
 expected count is unavailable, completeness remains unknown even if every
 known row is curated.
+
+## Recovery And Publication Are Separate Ledgers
+
+The intake surfaces record whether source material was found, captured,
+parsed, and converted into stable sample evidence. Publication surfaces record
+whether a governed record satisfies a particular output contract. Keeping
+these decisions separate preserves important cases:
+
+| Recovery state | Publication consequence |
+| --- | --- |
+| source known, supplement unavailable | retain project and paper identity; do not invent sample rows |
+| supplement captured, sample table unextracted | expose recovery work; do not equate capture with sample coverage |
+| sample recovered, locality unresolved | retain the sample; refuse exact-point publication |
+| sample and site resolved, chronology contextual | publish only where the product accepts non-numeric temporal posture |
+| point admitted, project under-recovered | publish the supported member; retain the project-level completeness warning |
+
+This is the central collection rule: evidence already fit for a narrow product
+does not erase known recovery debt, and recovery debt does not erase the
+evidence that has been defensibly curated.
 
 ## How to audit a sample
 
