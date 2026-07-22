@@ -123,6 +123,34 @@ ending point for a consequential claim. Recording the identity in the third
 column prevents a later screenshot, filename, or count from becoming the only
 handle on the result.
 
+### Choose Proof That Matches The Claim
+
+The strength of a claim is bounded by the weakest governing link it depends
+on. Select the evidence packet before selecting the wording:
+
+| Claim | Minimum governing packet | Insufficient substitute |
+| --- | --- | --- |
+| a source record was acquired | source identity, version, retrieval context, and captured member | citation, filename, or download success alone |
+| two records describe the same entity | native identities, explicit relation, and reviewed resolution | matching labels or nearby coordinates |
+| a location is exact | locality evidence, coordinate provenance, precision posture, and conflict outcome | a plotted point or geocoder result |
+| a date belongs to a sample | sample-owned chronology, dating basis, normalized interval, and review posture | site context or publication-period summary |
+| a member belongs in a product | governed evidence, admission result, product scope, and manifest membership | presence in a normalized table |
+| one site outranks another | ranking inputs, method identity, scenario, sensitivity evidence, and manifest | a single displayed score |
+
+```mermaid
+flowchart LR
+    Claim["claim to make"] --> Dimension{"which facts does it require?"}
+    Dimension --> Owners["governing records for identity, place, time, and role"]
+    Owners --> Decision["review or admission decision"]
+    Decision --> Product["manifested product member"]
+    Product --> Wording["claim no stronger than the weakest link"]
+```
+
+A product can narrow a claim through qualification or exclusion, but it cannot
+repair missing source identity, manufacture sample-level precision, or turn a
+context layer into direct evidence. Follow every material dimension to its
+owner before treating the publication as reusable proof.
+
 ```mermaid
 flowchart LR
     Sources["versioned sources and papers"] --> Capture["tracked source capture"]

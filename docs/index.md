@@ -202,6 +202,40 @@ flowchart TB
 When two surfaces disagree, the owning record is the starting point for
 diagnosis, not permission to select the value that looks most plausible.
 
+### Resolve A Disagreement
+
+A disagreement is a lineage problem until the governing records show
+otherwise. Start from the published member, identify the fact in dispute, and
+walk to the layer that owns that fact. Derived copies help locate the break;
+they do not become authoritative because they are newer or easier to read.
+
+```mermaid
+flowchart LR
+    Difference["difference in a map, table, or narrative"] --> Member["identify product and member"]
+    Member --> Fact{"which fact differs?"}
+    Fact --> Owner["resolve the governing record"]
+    Owner --> Source["compare captured source evidence"]
+    Owner --> Decision["compare review and admission decision"]
+    Source --> Outcome{"owner correct?"}
+    Decision --> Outcome
+    Outcome -->|yes| Descendants["regenerate affected descendants"]
+    Outcome -->|no| Authority["correct the governing record and re-evaluate"]
+```
+
+| Disagreement | Start with | Then inspect |
+| --- | --- | --- |
+| product count | bundle manifest and eligible population | exclusions, qualifications, geography, and duplicate policy |
+| identity or label | source-native key and governed identity record | aliases, relations, and normalization rule |
+| coordinate | locality and coordinate evidence owner | source wording, supplied versus derived basis, precision, and conflicts |
+| chronology | sample or context chronology owner | dating basis, calibration, interval normalization, and comparability review |
+| country or region | geography registry and product scope | boundary version, spatial rule, and member geometry |
+| narrative wording | claim-language and release-readiness contract | evidence posture, refusal, and visible caveat |
+
+The public site is the reader-facing interpretation, generated reports are
+inspectable product state, and the governing record owns the underlying fact.
+A defensible correction changes the owner, re-runs its dependent decisions,
+and regenerates descendants; editing only a rendered page conceals the break.
+
 ## From Source To Public Claim
 
 ```mermaid

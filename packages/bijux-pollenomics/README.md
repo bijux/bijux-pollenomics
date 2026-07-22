@@ -121,6 +121,36 @@ Begin with the read-only surface when discovering an unfamiliar installation.
 Collection, foundation refresh, and report publication intentionally write
 governed artifacts and should receive explicit paths and review attention.
 
+### Integration Packet
+
+An integration result is reusable only when its runtime, evidence, decision,
+and product identities travel together. Preserve this packet at the boundary
+where another process, notebook, service, or repository takes custody:
+
+| Packet member | Required identity | Why it matters |
+| --- | --- | --- |
+| runtime | package name and exact version | identifies the behavior that interpreted the contracts |
+| roots | explicit source, data, context, AADR, and output paths used by the operation | prevents a valid command from being attributed to the wrong filesystem state |
+| source state | family, release or retrieval identity, and captured member | makes upstream material recoverable and distinguishable |
+| evidence state | governed object identifiers and data revision | preserves ownership of identity, place, time, taxonomy, and relations |
+| decision state | review or admission record, rule identity, and disposition | explains qualification, exclusion, or eligibility |
+| product state | manifest identity, scope, member identifier, and output hash | fixes the exact published subset received by the consumer |
+| verification | validators run and their result | distinguishes a produced artifact from a checked artifact |
+
+```mermaid
+flowchart LR
+    Runtime["runtime identity"] --> Operation["operation over explicit roots"]
+    Sources["source and evidence identities"] --> Operation
+    Operation --> Decision["review or admission record"]
+    Decision --> Manifest["product manifest and member IDs"]
+    Manifest --> Handoff["integration packet"]
+    Verification["verification result"] --> Handoff
+```
+
+A copied dataframe, GeoJSON file, or rendered report is a transport form, not
+the complete product. Consumers should reject or quarantine a handoff that
+cannot identify its governing evidence, decision state, and manifest member.
+
 ## Evidence authority by layer
 
 The runtime coordinates the evidence system, but no single Python object is the
