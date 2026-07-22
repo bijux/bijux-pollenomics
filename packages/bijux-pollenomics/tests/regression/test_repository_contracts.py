@@ -1109,7 +1109,7 @@ class RepositoryContractRegressionTests(unittest.TestCase):
         self.assertIn("title: Bijux Pollenomics", docs_index)
         self.assertIn("# Bijux Pollenomics", docs_index)
         self.assertNotIn("# Docs Index", docs_index)
-        self.assertIn("public evidence surfaces about Nordic pollenomics", docs_index)
+        self.assertIn("connects curated evidence to public maps and reports", docs_index)
         self.assertIn(
             "the repository is already the full cross-evidence pollenomics engine",
             docs_index,
@@ -1518,9 +1518,10 @@ class RepositoryContractRegressionTests(unittest.TestCase):
         self.assertIn("Open the product guide", docs_index)
         self.assertIn("Open the report portal", docs_index)
         self.assertIn("How to read the report tree", docs_index)
-        self.assertIn("public evidence surfaces about Nordic pollenomics", docs_index)
+        self.assertIn("How A Claim Earns Trust", docs_index)
+        self.assertIn("No single map popup answers all five questions", docs_index)
         self.assertNotIn("Open the internal guide", docs_index)
-        self.assertIn("source-family comparison", data_index)
+        self.assertIn("preserves the chain between an upstream source", data_index)
         self.assertIn(
             "[report portal](../../../report/index.md)",
             (
@@ -1533,7 +1534,7 @@ class RepositoryContractRegressionTests(unittest.TestCase):
             ).read_text(encoding="utf-8"),
         )
         self.assertIn(
-            "[report portal](../../report/index.md)",
+            'href="../../report/">Open the report portal</a>',
             (REPO_ROOT / "docs" / "public" / "nordic-atlas" / "index.md").read_text(
                 encoding="utf-8"
             ),

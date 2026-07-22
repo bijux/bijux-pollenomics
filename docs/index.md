@@ -70,6 +70,19 @@ geometry can frame a map without becoming scientific evidence; pollen and
 archaeology layers retain their own temporal semantics; and animal aDNA needs
 sample-level support before an exact point or chronology can be asserted.
 
+## How A Claim Earns Trust
+
+| Reader question | Evidence required |
+| --- | --- |
+| Is this the source record that was acquired? | source identity, version, retrieval context, and content lineage |
+| Does the normalized record preserve what the source actually said? | field mapping, durable identifiers, null handling, and transformation notes |
+| Is the location or date precise enough for this use? | locality, coordinate, chronology, and precision evidence owned by the record |
+| Why is the record visible—or absent? | publication rule, admission result, exclusion reason, and product scope |
+| Can the public claim be reproduced? | manifest membership, governed inputs, command contract, and checked-in output |
+
+No single map popup answers all five questions. Consequential interpretation
+continues from publication to evidence and then to the governing source.
+
 ## Evidence Surfaces
 
 | Surface | What it preserves | Where to begin |
@@ -80,23 +93,16 @@ sample-level support before an exact point or chronology can be asserted.
 | Atlas interpretation | layer meaning, point posture, filters, and visible limits | [Nordic atlas](public/nordic-atlas/index.md) |
 | Field observations | a dated, situated record from Lyngsjön Lake | [Fieldwork](public/fieldwork/index.md) |
 
-## What Is Strong Today
+## Evidence Maturity
 
-- the repository already publishes tracked pollen, archaeology, boundary, and
-  fieldwork context as reviewable files plus public report surfaces
-- world, Europe-plus, Nordic, and country bundles are one publication family,
-  not disconnected products
-- the Sweden lake ranking packet and optional Nordic lake overlays now make
-  lake prioritization visible without hiding the underlying evidence packet
-
-## What Is Still Constrained
-
-- animal aDNA extraction and the strongest claims that depend on deeper sample
-  recovery remain less mature than the rest of the repository
-- visible map proximity still does not substitute for chronology review, source
-  posture, or field verification
-- lake ranking surfaces are decision-support outputs, not bathymetry or coring
-  plans
+| Domain | Published role | Current limit |
+| --- | --- | --- |
+| pollen and environmental archaeology | scientific context in tracked reports and maps | source families retain different coverage and temporal resolution |
+| boundaries and hydrography | geographic framing, lake identity, and regional selection | framing does not add scientific support to a nearby record |
+| human ancient DNA | versioned AADR metadata context | genotype analysis is outside the runtime |
+| animal ancient DNA | sample-backed candidate evidence with visible review | incomplete recovery, broad locality, or weak chronology can block exact publication |
+| field observations | direct evidence for a specific visit | one visit does not generalize to site suitability |
+| Sweden lake priorities | reproducible decision-support ranking | bathymetry, access, permits, and field verification remain external requirements |
 
 ## Choose A Route
 
@@ -142,13 +148,22 @@ or supplement evidence.
 - that the current narrow animal aDNA atlas candidate surface means the repository is already scientifically broad
 - that the repository is already the full cross-evidence pollenomics engine
 
-## Read By Question
+## Reproduce Or Challenge A Result
 
-- what the runtime rebuilds: [product guide](public/pollenomics/index.md)
-- what this repository publishes and where its limits are:
-  [documentation home](index.md)
-- what the tracked data system and source families are:
-  [data guide](public/pollenomics-data/index.md)
-- how the publication tree is organized: [report portal](report/index.md)
-- how the map points, filters, and honesty surfaces work:
-  [Nordic atlas guide](public/nordic-atlas/index.md)
+The public guides explain meaning and limits. The checked-in report tree shows
+the derived result. Source and evidence pages expose the supporting lineage.
+When a claim is disputed, begin with the publication manifest and work
+upstream; when a source changes, begin with its capture contract and work
+forward.
+
+```mermaid
+flowchart LR
+    Question["claim under review"] --> Output["report or atlas member"]
+    Output --> Manifest["publication manifest"]
+    Manifest --> Evidence["owned evidence record"]
+    Evidence --> Source["captured source"]
+    Source --> Decision{"claim supported?"}
+    Decision -->|yes| Retain["retain with lineage"]
+    Decision -->|qualified| Caveat["publish qualification"]
+    Decision -->|no| Refuse["exclude with reason"]
+```

@@ -52,6 +52,18 @@ flowchart LR
     Trace -. challenge .-> Review
 ```
 
+The trust boundary is explicit:
+
+| Layer | Governs | Does not govern |
+| --- | --- | --- |
+| source capture | acquired identity, retrieval context, and source bytes | repository interpretation |
+| normalized evidence | stable fields, identifiers, and source linkage | publication eligibility |
+| review | precision, conflicts, comparability, and refusal | source-native facts |
+| publication | admitted records, geography, labels, and visible caveats | upstream evidence truth |
+
+A map or report is therefore an index into governed evidence, not a substitute
+for it.
+
 This repository publishes `2` packages. Each release tag builds one staged
 bundle, uploads the Python distribution to PyPI, publishes the release bundle
 to its exact GHCR package page under the `bijux` account, and attaches the
@@ -71,23 +83,17 @@ same staged assets to the GitHub Release.
 - verify the repository locally without rewriting tracked outputs when your
   goal is review rather than regeneration
 
-## Start Here
+## Choose A Starting Point
 
-- start with the website home: [Documentation home](https://bijux.io/bijux-pollenomics/)
-- review the product guide: [Product guide](https://bijux.io/bijux-pollenomics/public/pollenomics/)
-- inspect the report portal: [`docs/report/index.md`](docs/report/index.md)
-- inspect the broadest public surface: [`docs/report/world/world_map.html`](docs/report/world/world_map.html)
-- inspect the Nordic atlas and Sweden lake overlay guide:
-  [`docs/public/nordic-atlas/index.md`](docs/public/nordic-atlas/index.md)
-- inspect the Sweden lake ranking explainer:
-  [`docs/public/nordic-atlas/sweden-lake-priorities/index.md`](docs/public/nordic-atlas/sweden-lake-priorities/index.md)
-- inspect the data system guide: [`docs/public/pollenomics-data/index.md`](docs/public/pollenomics-data/index.md)
-- inspect the evidence chain: [`docs/public/pollenomics-data/evidence/index.md`](docs/public/pollenomics-data/evidence/index.md)
-- inspect source intake and refresh rules: [`docs/public/pollenomics-data/sources/index.md`](docs/public/pollenomics-data/sources/index.md)
-- inspect the end-state product model: [`docs/public/pollenomics/foundation/end-state-product-model.md`](docs/public/pollenomics/foundation/end-state-product-model.md)
-- inspect the release-readiness caveats: [`docs/report/repository_final_release_refusal.md`](docs/report/repository_final_release_refusal.md)
-- inspect the evidence credibility dashboard: [`docs/report/repository_credibility_dashboard.md`](docs/report/repository_credibility_dashboard.md)
-- inspect repository maintenance rules: [`docs/internal/index.md`](docs/internal/index.md)
+| Question | Start here |
+| --- | --- |
+| What is the product and what can it support? | [Documentation home](https://bijux.io/bijux-pollenomics/) |
+| Which source and evidence rules support a public claim? | [Data system guide](docs/public/pollenomics-data/index.md) |
+| What has actually been published? | [Report portal](docs/report/index.md) |
+| How should a visible map point be interpreted? | [Nordic atlas guide](docs/public/nordic-atlas/index.md) |
+| How were Sweden lake priorities derived? | [Sweden lake priorities](docs/public/nordic-atlas/sweden-lake-priorities/index.md) |
+| Which claims remain blocked or qualified? | [Release-readiness refusal](docs/report/repository_final_release_refusal.md) |
+| How is repository-owned state operated? | [Maintainer handbook](docs/internal/maintain/index.md) |
 
 ## What This Repository Produces
 
@@ -127,7 +133,7 @@ The `2` publishable packages in this repository are:
 | `bijux-pollenomics` | Runtime package for tracked data collection, report publication, and atlas generation | <a href="https://pypi.org/project/bijux-pollenomics/"><img alt="PyPI" src="https://img.shields.io/badge/pypi-3775A9?logo=pypi&logoColor=white" height="18"></a> <a href="https://bijux.io/bijux-pollenomics/public/pollenomics/"><img alt="Docs" src="https://img.shields.io/badge/docs-2563EB?logo=materialformkdocs&logoColor=white" height="18"></a> <a href="https://github.com/bijux/bijux-pollenomics/pkgs/container/bijux-pollenomics%2Fbijux-pollenomics"><img alt="GHCR" src="https://img.shields.io/badge/ghcr-181717?logo=github&logoColor=white" height="18"></a> <a href="https://github.com/bijux/bijux-pollenomics/tree/main/packages/bijux-pollenomics"><img alt="Source" src="https://img.shields.io/badge/source-181717?logo=github&logoColor=white" height="18"></a> |
 | `pollenomics` | Compatibility alias package that re-exports the runtime API and provides the `pollenomics` CLI command | <a href="https://pypi.org/project/pollenomics/"><img alt="PyPI" src="https://img.shields.io/badge/pypi-3775A9?logo=pypi&logoColor=white" height="18"></a> <a href="https://bijux.io/bijux-pollenomics/public/pollenomics/"><img alt="Docs" src="https://img.shields.io/badge/docs-2563EB?logo=materialformkdocs&logoColor=white" height="18"></a> <a href="https://github.com/bijux/bijux-pollenomics/pkgs/container/bijux-pollenomics%2Fpollenomics"><img alt="GHCR" src="https://img.shields.io/badge/ghcr-181717?logo=github&logoColor=white" height="18"></a> <a href="https://github.com/bijux/bijux-pollenomics/tree/main/packages/pollenomics"><img alt="Source" src="https://img.shields.io/badge/source-181717?logo=github&logoColor=white" height="18"></a> |
 
-## Current Scope
+## Capability Boundaries
 
 The current repository scope is deliberately narrower than the full
 cross-evidence pollenomics runtime it is aiming toward.
@@ -152,22 +158,22 @@ What does not exist today:
 - integrated eDNA, aDNA, pollen, and archaeological co-analysis runtime
 - paper-grade statistical workflows for the planned POLLENOMIC's series
 
-## Engine Direction
+## Evidence Maturity
 
-The next durable step is to keep the current checked-in publication system
-useful while expanding the evidence logic behind it. That means preserving the
-world-to-country publication model, strengthening sample-backed ancient-DNA
-recovery, and adding evidence-aware ranking stages without pretending the map
-surfaces are already a finished pollenomics engine.
+The publication architecture is broader than the maturity of every scientific
+layer. That difference is intentional and visible:
 
-The repository is therefore moving in this order:
+| Surface | Current posture |
+| --- | --- |
+| pollen and palaeoenvironmental context | established collection and publication routes |
+| boundaries and hydrography | geographic framing and lake-registry context, not independent scientific weight |
+| human ancient DNA | versioned AADR metadata context; genotype processing is out of scope |
+| animal ancient DNA | evidence-preserving recovery with conservative exact-point admission |
+| lake ranking | reproducible decision support that still requires bathymetry, access, permits, and field verification |
 
-- first, keep the world, Europe-plus, Nordic, and country publication system
-  coherent and extensible
-- next, add workflow stages that can compare pollen, archaeological, and
-  ancient-DNA context without collapsing their provenance differences
-- then, grow that workflow into the broader pollenomics engine needed for the
-  planned POLLENOMIC paper series
+Expansion is acceptable only when it retains source identity, domain-specific
+semantics, and reviewable refusal. A larger atlas with weaker evidence would be
+a regression.
 
 ## Working With Commands
 
@@ -288,9 +294,10 @@ Important output limits:
 
 ## Documentation
 
-The canonical project documentation lives in `docs/` and is built with MkDocs.
-
-Useful entry points:
+The MkDocs site separates public scientific and product explanations from
+operator material. Public pages explain sources, evidence, publications,
+maps, and fieldwork. Internal pages cover repository operation, validation,
+and release ownership.
 
 - docs home: [`docs/index.md`](docs/index.md)
 - runtime package handbook: [`docs/public/pollenomics/index.md`](docs/public/pollenomics/index.md)
