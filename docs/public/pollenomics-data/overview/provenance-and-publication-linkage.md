@@ -185,6 +185,23 @@ authoritative.
 | point without coordinate basis | geometry does not justify exact-location interpretation |
 | downstream fact disagreeing with authority | use the governing record and treat the copied value as stale |
 
+### Locate Provenance Debt
+
+An incomplete chain is repaired at the boundary where information first
+disappears:
+
+| Missing link | Evidence still available | Required recovery |
+| --- | --- | --- |
+| source debt | repository value or product member, but no upstream object and locator | recover capture identity, source expression, and acquisition context |
+| transformation debt | source object and descendant exist, but the mapping is unexplained | recover parser, normalization, unit, null, precision, and relation rules |
+| decision debt | governed evidence exists, but membership or qualification has no reason | recover claim dimension, proposed use, rule, disposition, and reviewer evidence |
+| product debt | decision exists, but a visible object has no manifest member identity | recover product, version, scope, member relation, and content identity |
+| presentation debt | manifested member exists, but the view drops a material caveat or role | correct the producer and regenerate the descendant |
+
+Do not compensate for upstream debt by adding confident prose downstream. A
+better caption cannot recover a missing source locator, and a manifest cannot
+explain an undocumented normalization decision.
+
 ## Audit In Both Directions
 
 ```mermaid

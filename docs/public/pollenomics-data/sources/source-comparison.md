@@ -134,6 +134,22 @@ Percentages name their denominator. “Five nearby sites” is incomplete when
 the reader cannot tell whether five of six eligible members or five of six
 hundred captured members were tested.
 
+### Distinguish Absence Before Comparing Counts
+
+An empty cell or missing match can encode different evidence states:
+
+| Absence class | Meaning | Treatment in a comparison |
+| --- | --- | --- |
+| absent upstream | the named release does not contain the object under the searched identity and scope | report source absence only after identity and scope are fixed |
+| not captured | the repository has not acquired the necessary upstream member | exclude from tested population and retain recovery requirement |
+| rejected during preparation | a source row was observed but could not satisfy parsing or normalization contracts | retain rejected-row reason and source denominator |
+| unresolved evidence | the governed object exists but identity, place, time, or relation is insufficient | defer the affected bridge; do not encode as zero |
+| outside product scope | the evidence is governed but not a member of the selected product | retain as a non-member, not missing source data |
+| valid non-match | eligible members were tested and did not satisfy the declared rule | count in tested population and report the negative result |
+
+Only the last row is a comparison result. The others describe source,
+preparation, evidence, or product state and must remain visible separately.
+
 ## Comparison Packet
 
 A reusable comparison preserves the inputs and bridge that produced its

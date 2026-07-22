@@ -244,6 +244,23 @@ record remains outside public scope. A refresh is trustworthy when its lack of
 publication impact is explained, not merely when regenerated maps happen to
 look unchanged.
 
+### Portfolio Breadth Is Not Claim Coverage
+
+Eight contracted families do not imply eight independent witnesses for every
+question. Coverage is evaluated per claim dimension and observation unit:
+
+| Proposed claim | Families that may contribute | Families that cannot fill the decisive gap |
+| --- | --- | --- |
+| pollen context around a locality | LandClim and Neotoma | boundaries can frame scope but cannot supply pollen evidence |
+| sample-owned animal chronology | animal literature and archive evidence | nearby SEAD, RAÄ, or AADR records cannot date the animal sample |
+| country publication membership | governed evidence geometry and boundaries | country labels cannot repair unresolved coordinate precision |
+| lake decision support | SVAR identity and geometry plus role-aware context layers | high context density cannot establish bathymetry, access, or coring suitability |
+| temporally aligned cross-domain comparison | families with compatible reviewed intervals | contextual labels and unresolved time cannot be promoted into numeric overlap |
+
+Count families only when the question is portfolio inventory. For scientific
+support, count independent governed observations that are eligible for the
+specific claim and retain each source role.
+
 ## Direct Evidence, Context, And Framing
 
 ```mermaid

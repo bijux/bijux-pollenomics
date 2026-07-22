@@ -141,6 +141,24 @@ not alter normalized meaning or did not satisfy a product contract.
 Deletion is evidence that requires a reason. A lower count cannot be accepted
 as harmless merely because the new files pass structural validation.
 
+### Refuse A Refresh When Meaning Cannot Be Reconciled
+
+Keep the last governed snapshot when a candidate refresh cannot answer any of
+these questions:
+
+| Unresolved condition | Why replacement is unsafe |
+| --- | --- |
+| upstream members cannot be matched to retained identities | additions, removals, merges, and splits cannot be distinguished |
+| schema change has no semantic mapping | field continuity, null meaning, units, or precision are unknown |
+| retrieval identity or terms are incomplete | origin, reproducibility, or permitted reuse cannot be established |
+| normalization succeeds only by dropping rejected rows silently | the source population and missingness denominator are lost |
+| review inputs changed but decisions were not re-evaluated | publication posture may refer to superseded evidence |
+| product membership changed without causal attribution | evidence, boundary, rule, and rendering changes are conflated |
+
+A refresh refusal is not a claim that the upstream release is defective. It
+means the repository cannot yet replace its governed state without losing an
+authority or explanatory link.
+
 ## Propagation
 
 ```mermaid
