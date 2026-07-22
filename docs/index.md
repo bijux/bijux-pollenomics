@@ -4,19 +4,19 @@ audience: reader
 type: index
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-06-29
+last_reviewed: 2026-07-22
 ---
 
 # Bijux Pollenomics
 
-`bijux-pollenomics` publishes public evidence surfaces about Nordic
-pollenomics, environmental context, archaeology, boundaries, fieldwork, and
-ancient-DNA recovery. This site explains what the repository publishes today,
-what those outputs can answer, and where the limits still are before you lean
-on a report, ranking, or map view.
+`bijux-pollenomics` connects curated evidence to public maps and reports about
+pollen, palaeoenvironmental context, archaeology, hydrography, fieldwork, and
+ancient DNA. Every publication belongs to a traceable chain: source capture,
+normalization, evidence review, release qualification, and derived output.
 
-Maintainer-only notes stay under `docs/internal/` and are not part of the
-public website navigation.
+The site is useful in both directions. Start with a map or country report to
+understand the published result, or start with a source family and follow its
+records forward to see what the repository is prepared to claim.
 
 <!-- bijux-pollenomics-badges:generated:start -->
 [![Python 3.11+](https://img.shields.io/badge/python-3.11%2B-3776AB?logo=python&logoColor=white)](https://pypi.org/project/bijux-pollenomics/)
@@ -51,23 +51,34 @@ public website navigation.
   <a class="md-button" href="public/fieldwork/">Open the fieldwork record</a>
 </div>
 
-If you are new to the project, read the site in this order:
+## From Source To Public Claim
 
 ```mermaid
-flowchart TB
-    pollen["pollen and environmental source families"]
-    context["archaeology, boundary, and fieldwork context"]
-    samples["sample-backed ancient DNA context"]
-    reports["country bundles and atlas evidence tables"]
-    atlas["visible atlas point or country surface"]
-    review["traceability and limits stay visible"]
-
-    pollen --> reports
-    context --> reports
-    samples --> reports
-    reports --> atlas
-    atlas --> review
+flowchart LR
+    Source["source dataset, paper, or supplement"] --> Capture["versioned capture"]
+    Capture --> Normalize["repository-owned records"]
+    Normalize --> Evidence["identity, place, time, and coordinate evidence"]
+    Evidence --> Gate{"publication gate"}
+    Gate -->|qualified| Reports["reports and atlas layers"]
+    Gate -->|blocked| Review["visible caveat or recovery queue"]
+    Reports --> Reader["inspectable public claim"]
 ```
+
+Source files are never promoted merely because they can be plotted. The
+publication gate evaluates the evidence appropriate to each family. Boundary
+geometry can frame a map without becoming scientific evidence; pollen and
+archaeology layers retain their own temporal semantics; and animal aDNA needs
+sample-level support before an exact point or chronology can be asserted.
+
+## Evidence Surfaces
+
+| Surface | What it preserves | Where to begin |
+| --- | --- | --- |
+| Source families | upstream identity, acquisition, version, license, and refresh posture | [Sources](public/pollenomics-data/sources/index.md) |
+| Curated evidence | normalized records plus locality, chronology, coordinate, and ambiguity decisions | [Evidence](public/pollenomics-data/evidence/index.md) |
+| Publications | derived world, regional, country, and lake views | [Publications](public/pollenomics-data/publications/index.md) |
+| Atlas interpretation | layer meaning, point posture, filters, and visible limits | [Nordic atlas](public/nordic-atlas/index.md) |
+| Field observations | a dated, situated record from Lyngsjön Lake | [Fieldwork](public/fieldwork/index.md) |
 
 ## What Is Strong Today
 
@@ -100,9 +111,9 @@ flowchart TB
 - use the [fieldwork record](public/fieldwork/index.md) when you want one real
   visited location instead of a generalized public summary
 
-These routes are written for readers first. You should be able to understand
-what the repository publishes, why a map or ranking exists, and where the
-limits still are without reading the source tree first.
+Choose the route that matches the claim you need to evaluate. Publications
+provide orientation; evidence and source pages provide the narrower support
+needed for scientific or operational decisions.
 
 ## Fieldwork Record
 

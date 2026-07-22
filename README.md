@@ -22,18 +22,35 @@
 [![pollenomics docs](https://img.shields.io/badge/docs-pollenomics-2563EB?logo=materialformkdocs&logoColor=white)](https://bijux.io/bijux-pollenomics/public/pollenomics/)
 <!-- bijux-pollenomics-badges:generated:end -->
 
-`bijux-pollenomics` rebuilds one checked-in evidence repository into reviewable
-data files, report bundles, and public map surfaces. It collects tracked source
-data, normalizes it into governed files under `data/`, and publishes world,
-regional, and country outputs from that same repository state.
+`bijux-pollenomics` is a curated evidence and publication system for pollen,
+palaeoenvironmental context, archaeology, hydrography, field observations, and
+ancient DNA. It preserves source identity, normalization rules, review state,
+and publication lineage in one checked-in repository so a visible map point can
+be traced back to the files and decisions that support it.
 
-The public model is one evidence system with several views. `world` is the
-broadest surface, `Europe-plus` and `Nordic` are narrower descendants, and the
-country bundles are local cuts through that same evidence tree. Pollen,
-environmental, archaeological, boundary, fieldwork, and human aDNA context are
-already strong public surfaces. Animal aDNA sample extraction is improving, but
-it is still the weakest part of the repository, and the docs keep that limit
-visible instead of pretending the atlas is more complete than it is.
+The database is part of the product. Source-family contracts distinguish raw,
+normalized, reviewed, and published layers; fact-ownership records identify
+which artifact governs a repeated claim; and the animal aDNA source library
+preserves project dossiers, supporting-material inventories, sample identity,
+locality evidence, chronology evidence, ambiguity ledgers, and publication
+gates. Public reports are derived views over that curated state, not an
+independent database.
+
+World, Europe-plus, Nordic, and country outputs form one publication family.
+Pollen and environmental context are the strongest current surfaces. Animal
+aDNA remains deliberately conservative: records without adequate sample,
+locality, chronology, or coordinate support stay qualified or excluded rather
+than being promoted through a visually clean atlas.
+
+```mermaid
+flowchart LR
+    Sources["versioned sources and papers"] --> Capture["tracked source capture"]
+    Capture --> Curate["normalization and evidence curation"]
+    Curate --> Review["conflicts, caveats, and release gates"]
+    Review --> Publish["world, regional, and country publications"]
+    Publish --> Trace["reader traceability"]
+    Trace -. challenge .-> Review
+```
 
 This repository publishes `2` packages. Each release tag builds one staged
 bundle, uploads the Python distribution to PyPI, publishes the release bundle
@@ -43,8 +60,10 @@ same staged assets to the GitHub Release.
 ## What You Can Do Today
 
 - inspect the world map and report portal to see the broadest public surface
-- move from Nordic and country views back to the tracked evidence files that
-  justify them
+- trace published points through manifests, evidence tables, review ledgers,
+  and source-family contracts
+- inspect how sample identity, locality, chronology, coordinate precision, and
+  source recovery are curated before animal aDNA reaches publication
 - rebuild the checked-in `data/` and `docs/report/` state from repository
   commands when you need a fresh local copy
 - inspect the Sweden lake ranking packet, fieldwork shortlist, and optional
@@ -63,6 +82,8 @@ same staged assets to the GitHub Release.
 - inspect the Sweden lake ranking explainer:
   [`docs/public/nordic-atlas/sweden-lake-priorities/index.md`](docs/public/nordic-atlas/sweden-lake-priorities/index.md)
 - inspect the data system guide: [`docs/public/pollenomics-data/index.md`](docs/public/pollenomics-data/index.md)
+- inspect the evidence chain: [`docs/public/pollenomics-data/evidence/index.md`](docs/public/pollenomics-data/evidence/index.md)
+- inspect source intake and refresh rules: [`docs/public/pollenomics-data/sources/index.md`](docs/public/pollenomics-data/sources/index.md)
 - inspect the end-state product model: [`docs/public/pollenomics/foundation/end-state-product-model.md`](docs/public/pollenomics/foundation/end-state-product-model.md)
 - inspect the release-readiness caveats: [`docs/report/repository_final_release_refusal.md`](docs/report/repository_final_release_refusal.md)
 - inspect the evidence credibility dashboard: [`docs/report/repository_credibility_dashboard.md`](docs/report/repository_credibility_dashboard.md)
@@ -73,6 +94,10 @@ same staged assets to the GitHub Release.
 Today, the checked-in repository produces these durable outcomes:
 
 - a tracked `data/` tree with source-family ownership and normalized outputs
+- machine-readable source-family, evidence-stage, artifact, and fact-ownership
+  contracts
+- an animal aDNA curation library with project dossiers, sample-level evidence,
+  manual review queues, and explicit release guards
 - a report tree under `docs/report/` with world, regional, and country publication families
 - governed world, Europe-plus, and Nordic map surfaces that share one publication contract
 - country bundles for Sweden, Norway, Finland, and Denmark that remain filtered descendants of the same broader evidence state
