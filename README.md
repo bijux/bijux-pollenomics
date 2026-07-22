@@ -44,19 +44,21 @@ than being promoted through a visually clean atlas.
 
 ## Choose A Starting Point
 
-| You need to… | Start with… | What you will establish |
-| --- | --- | --- |
-| understand the product and its boundaries | [documentation home](https://bijux.io/bijux-pollenomics/) | which claims and workflows the repository supports |
-| inspect source selection and curation | [data system guide](docs/public/pollenomics-data/index.md) | how captured material becomes governed evidence |
-| examine a checked-in result | [report portal](docs/report/index.md) | product identity, scope, members, and review surfaces |
-| interpret a visible marker | [Nordic atlas guide](docs/public/nordic-atlas/index.md) | layer role, admission posture, precision, and lineage |
-| evaluate a candidate lake | [Sweden lake priorities](docs/public/nordic-atlas/sweden-lake-priorities/index.md) | ranking assumptions, stability, and fieldwork gaps |
-| explain a blocked claim | [release-readiness refusal](docs/report/repository_final_release_refusal.md) | which evidence dimension prevents stronger language |
-| operate repository-owned state | [maintainer handbook](docs/internal/maintain/index.md) | which commands validate or intentionally regenerate it |
+| You need to… | Start with… | Record first | What you will establish |
+| --- | --- | --- | --- |
+| understand the product and its boundaries | [documentation home](https://bijux.io/bijux-pollenomics/) | intended claim and observation unit | which claims and workflows the repository supports |
+| inspect source selection and curation | [data system guide](docs/public/pollenomics-data/index.md) | source family, release, and native record key | how captured material becomes governed evidence |
+| examine a checked-in result | [report portal](docs/report/index.md) | bundle identity and manifest | product scope, members, and review surfaces |
+| interpret a visible marker | [Nordic atlas guide](docs/public/nordic-atlas/index.md) | feature ID and evidence role | admission posture, spatial and temporal precision, and lineage |
+| evaluate a candidate lake | [Sweden lake priorities](docs/public/nordic-atlas/sweden-lake-priorities/index.md) | lake registry ID and ranking scenario | ranking assumptions, stability, and fieldwork gaps |
+| explain a blocked claim | [release-readiness refusal](docs/report/repository_final_release_refusal.md) | refused claim and governing gate | which evidence dimension prevents stronger language |
+| operate repository-owned state | [maintainer handbook](docs/internal/maintain/index.md) | owner, explicit roots, and prior manifest | which commands validate or intentionally regenerate it |
 
 Choose by question rather than by file type. A rendered map is the right
 starting point for orientation; a governing evidence record is the right
-ending point for a consequential claim.
+ending point for a consequential claim. Recording the identity in the third
+column prevents a later screenshot, filename, or count from becoming the only
+handle on the result.
 
 ```mermaid
 flowchart LR

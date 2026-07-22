@@ -40,12 +40,12 @@ flowchart LR
     Audit -. contested claim .-> Evaluate
 ```
 
-| Responsibility | Durable result |
-| --- | --- |
-| Collection | source identity, retrieval metadata, content hashes, replacement rules, and tracked raw artifacts |
-| Curation | normalized records, sample and site linkage, chronology evidence, coordinate provenance, and source-family contracts |
-| Evaluation | ambiguity ledgers, scientific reviews, coverage metrics, sensitivity results, and release refusal reasons |
-| Publication | consistent world, Europe-plus, Nordic, country, lake, and fieldwork surfaces with traceable inputs |
+| Responsibility | Durable result | Boundary it cannot cross |
+| --- | --- | --- |
+| Collection | source identity, retrieval metadata, content hashes, replacement rules, and tracked raw artifacts | acquisition does not establish normalized meaning or fitness |
+| Curation | normalized records, sample and site linkage, chronology evidence, coordinate provenance, and source-family contracts | representation cannot strengthen source identity, place, or time |
+| Evaluation | ambiguity ledgers, scientific reviews, coverage metrics, sensitivity results, and release refusal reasons | one claim-specific review cannot grant fitness for every use |
+| Publication | consistent world, Europe-plus, Nordic, country, lake, and fieldwork surfaces with traceable inputs | selection and rendering cannot rewrite governed evidence |
 
 This division prevents a polished output from becoming its own authority. The
 publication layer can select, summarize, and render evidence; it cannot invent

@@ -53,14 +53,14 @@ records forward to see what the repository is prepared to claim.
 
 ## Choose By Outcome
 
-| You want to… | Begin here | Leave with… |
-| --- | --- | --- |
-| understand what Bijux Pollenomics is | [product guide](public/pollenomics/index.md) | product responsibilities, interfaces, and limits |
-| understand how the database earns trust | [data guide](public/pollenomics-data/index.md) | source, curation, evidence, and publication boundaries |
-| inspect the published state | [report portal](report/index.md) | manifests, maps, tables, reviews, and refusals |
-| evaluate one visible feature | [Nordic atlas](public/nordic-atlas/index.md) | role, scope, coordinate posture, time posture, and traceability |
-| evaluate a lake-priority result | [Sweden lake priorities](public/nordic-atlas/sweden-lake-priorities/index.md) | model meaning, scenario stability, and missing field evidence |
-| inspect a direct visit | [fieldwork](public/fieldwork/index.md) | dated observation, media lineage, and claim boundary |
+| You want to… | Begin here | Identify first | Leave with… |
+| --- | --- | --- | --- |
+| understand what Bijux Pollenomics is | [product guide](public/pollenomics/index.md) | the claim and evidence family in question | product responsibilities, interfaces, and limits |
+| understand how the database earns trust | [data guide](public/pollenomics-data/index.md) | source-native unit and governed record identity | source, curation, evidence, and publication boundaries |
+| inspect the published state | [report portal](report/index.md) | bundle manifest and member ID | maps, tables, reviews, refusals, and their shared scope |
+| evaluate one visible feature | [Nordic atlas](public/nordic-atlas/index.md) | feature ID, layer role, and point class | coordinate posture, time posture, admission, and traceability |
+| evaluate a lake-priority result | [Sweden lake priorities](public/nordic-atlas/sweden-lake-priorities/index.md) | lake registry ID, scenario, and model version | ranking meaning, stability, and missing field evidence |
+| inspect a direct visit | [fieldwork](public/fieldwork/index.md) | event ID, date, location, and media identity | situated observation and its claim boundary |
 
 ## Find The Authority
 
