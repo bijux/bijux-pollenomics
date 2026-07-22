@@ -37,6 +37,11 @@ flowchart LR
 | publication | country, multi-country, and complete report commands | no when inputs are local | writes scoped products beneath a report root |
 | animal foundation refresh | `refresh-animal-adna-foundation` | may use the network | refreshes linked animal evidence and its dependent publications |
 
+The important boundary is not whether a command feels small. It is whether the
+command owns a governed write. A one-source collection and a one-country report
+are still replacements of complete owned products; a broad inspection remains
+read-only even when it traverses many records.
+
 Collection and publication are intentionally state-changing. Use inspection
 or validation when the question can be answered from current state. Use a
 writer only when acquiring evidence or materializing a product is the intended
@@ -69,6 +74,20 @@ Do not copy a few successful candidate files into a governed tree after a
 failed operation. That can pair a new member with an old manifest or leave a
 derived product ahead of its evidence. Recover at the failed owner and rebuild
 the narrow complete boundary.
+
+## Three Meanings Of Success
+
+Operational success, contract validity, and scientific acceptance are distinct:
+
+| Result | What it establishes | What it does not establish |
+| --- | --- | --- |
+| process success | the command completed its implemented execution path | that the inputs were the intended inputs |
+| contract validity | required members, schemas, references, and manifests agree | that every admissible record is scientifically persuasive |
+| scientific acceptance | the reviewed evidence, qualifications, exclusions, and product role support the intended claim | that a broader claim is now justified |
+
+A release or publication decision needs all three at the applicable boundary.
+Treat warnings and explicit refusals as part of the result: they explain where
+the system declined to convert available context into a stronger claim.
 
 ## Supported Routes
 

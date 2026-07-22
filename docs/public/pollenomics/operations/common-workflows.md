@@ -60,6 +60,20 @@ If the write boundary cannot be named precisely, the workflow is too broad.
 If acceptance is only “the command exited zero,” the scientific review is too
 weak.
 
+Capture the baseline at the same boundary that the command will own. For a
+repository-root collection or publication run, a compact baseline is:
+
+```bash
+git rev-parse HEAD
+git status --short -- data docs/report
+bijux-pollenomics --version
+```
+
+After the operation, run the same status command and inspect the affected
+manifests before opening individual rendered files. This separates changes
+created by the operation from changes that were already present and keeps
+review anchored to stable member identity.
+
 ## Inspect Current Capability
 
 Use read-only commands before selecting a state-changing workflow:
@@ -85,6 +99,11 @@ bijux-pollenomics collect-data neotoma --output-root data
 bijux-pollenomics validate-collection-summary \
   --summary-path data/collection_summary.json
 ```
+
+`--output-root` is a data root, not a scratch directory name that the command
+silently relocates. Use an explicit alternate root for an isolated candidate;
+use `data` only when replacement of the repository-owned collection state is
+intended.
 
 Review the capture, normalized records, retrieval metadata, source hashes,
 counts, removals, and review findings as one causal change. A successful
@@ -143,6 +162,12 @@ Publication acceptance has four parts:
 4. the product diff can be explained by evidence, policy, scope, or rendering.
 
 Those causes should never be collapsed into “the reports changed.”
+
+The `--aadr-root` and `--version` pair select the release, `--context-root`
+selects normalized context evidence, and `--output-root` owns the publication
+tree. A correct country list with the wrong root pair is still the wrong
+publication. Prefer explicit roots in retained commands even when they match
+the defaults.
 
 ### Publication Review
 

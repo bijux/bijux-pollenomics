@@ -30,6 +30,18 @@ This route installs the canonical `bijux_pollenomics` import package and
 needs the compatibility import or shorter executable; it depends on the
 canonical distribution and does not contain a second scientific engine.
 
+Choose the installation by the work being performed:
+
+| Context | Installation | Governed repository state available? |
+| --- | --- | --- |
+| application integration | released `bijux-pollenomics` distribution | only when supplied separately |
+| compatibility integration | released `pollenomics` distribution and its canonical dependency | only when supplied separately |
+| reproducible repository work | locked editable workspace via `make install` | yes, from the checkout |
+
+An installed wheel can expose every runtime interface while having no local
+data release or publication tree. Package identity and evidence identity must
+therefore be recorded separately.
+
 ## Reproduce The Repository Environment
 
 The source checkout requires Python 3.11, `uv`, `uv.lock`, and all three
@@ -73,6 +85,20 @@ When the compatibility distribution is installed, its console script must
 report the same runtime behavior. A difference is a compatibility defect, not
 an optional scientific variation.
 
+For a result that may be reviewed later, retain the runtime and checkout
+identity before executing a writer:
+
+```bash
+artifacts/root/check-venv/bin/bijux-pollenomics --version
+git rev-parse HEAD
+git status --short
+```
+
+The revision identifies tracked inputs, while `git status --short` exposes
+local evidence or report changes that the revision alone cannot identify. A
+clean status is not mandatory, but unexplained pre-existing changes make a
+later causal diff ambiguous.
+
 ## Understand Relative Roots
 
 Default data and report roots are relative to the current working directory:
@@ -83,6 +109,11 @@ Default data and report roots are relative to the current working directory:
 | `data/aadr/v66/` | default AADR release input |
 | `docs/report/` | default publication destination |
 | Sweden, Norway, Finland, Denmark | default country publication scope |
+
+The effective default AADR input is `data/aadr/v66/`: `data/aadr/` is the
+`--aadr-root`, and `v66` is the default `--version`. Record both values when a
+different release is selected; a path without its release identity is
+insufficient provenance.
 
 Run repository workflows from the checkout root, or pass every relevant root
 explicitly. Otherwise a valid command can read or write a different tree than
