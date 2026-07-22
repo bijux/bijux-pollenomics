@@ -14,7 +14,7 @@ represents, where its coordinate came from, and which evidence rows support it.
 The rule is deliberately asymmetric: unresolved evidence can remain in the
 curated collection, but it cannot borrow visual certainty from a map marker.
 
-## Current published point posture
+## Current Published Point Posture
 
 The animal point-evidence review contains 234 accepted rows. Of these, 233 use
 coordinates captured directly from supplementary tables and carry `exact`
@@ -31,7 +31,7 @@ marker can be traced through the evidence fields required by this product.
 Project completeness, species completeness, and suitability for an analysis
 that needs uniform ascertainment remain outside that claim.
 
-### What the Published Marker Establishes
+### What The Published Marker Establishes
 
 | Reader question | Answer supported by an admitted marker | Claim not established by the marker |
 | --- | --- | --- |
@@ -45,7 +45,7 @@ In this contract, `exact` identifies a coordinate transcribed from a governed
 source rather than a coordinate resolved by the repository. It does not add a
 measurement precision that the source never reported.
 
-## Animal point admission
+## Animal Point Admission
 
 ```mermaid
 flowchart TD
@@ -70,7 +70,7 @@ species and support class; locality and coordinate provenance; project and
 sample identifiers; paper and supplement citations; site-evidence text; scope
 inclusion; and chronology at the precision allowed for publication.
 
-## Admission and field qualification
+## Admission And Field Qualification
 
 A row-level admission and a field-level admission answer different questions:
 
@@ -86,7 +86,7 @@ Likewise, a point accepted on the world surface can remain outside a Nordic or
 country subset. The public row must preserve those decisions rather than
 compress them into one status.
 
-### Admission is conjunctive
+### Admission Is Conjunctive
 
 For direct animal evidence, a marker is eligible only when every required
 spatial condition is satisfied:
@@ -110,7 +110,33 @@ The last column is the marker's claim ceiling. Popup copy, legends, and
 downstream prose must remain at or below it. Presentation can explain a
 qualification, but it cannot remove one.
 
-## Required evidence by field
+## Publication Eligibility Is Not Analytical Eligibility
+
+Point admission answers whether a marker can be drawn honestly. An analysis
+may require a stricter and different contract:
+
+| Proposed use | Additional requirement beyond point admission |
+| --- | --- |
+| exact distance threshold | endpoint precision and uncertainty small enough that threshold membership is stable |
+| density or clustering | known observation unit, duplicate relation, ascertainment, and comparable coverage |
+| temporal co-occurrence | compatible numeric intervals and an explicit overlap rule |
+| cross-species comparison | compatible recovery and admission populations, not merely visible species layers |
+| independent observations | sample, site, project, and publication relations sufficient to detect shared evidence |
+
+```mermaid
+flowchart LR
+    Point["honestly published point"] --> Question{"declared analysis"}
+    Question --> Requirements["analysis-specific assumptions"]
+    Requirements -->|satisfied| Eligible["eligible analytical member"]
+    Requirements -->|not satisfied| VisualOnly["remains a publication member only"]
+```
+
+An exact source-coordinate class does not establish independent sampling,
+uniform recovery, or stable membership in an arbitrary distance band. The
+analytical population must be derived separately and must account for every
+published point it excludes.
+
+## Required Evidence By Field
 
 | Published field | Minimum support |
 | --- | --- |
@@ -126,7 +152,7 @@ Chronology is field-gated as well as point-gated. A spatially admissible point
 does not gain a numeric time window when its chronology is broad, contextual,
 approximate beyond the product contract, unresolved, or conflicting.
 
-## Coordinate classes remain visible
+## Coordinate Classes Remain Visible
 
 Direct coordinate bases include published coordinates, supplementary-table
 coordinates, and archive coordinates. A named-site geocode can appear only
@@ -138,7 +164,7 @@ The public coordinate review counts direct and named-site-resolved features
 separately. This prevents a mixed layer from being described as wholly
 source-coordinate-backed.
 
-## Exclusion is a governed result
+## Exclusion Is A Governed Result
 
 Rows are excluded or refused when any of these conditions holds:
 
@@ -159,7 +185,7 @@ Admission can change only when the governing evidence changes or the declared
 product contract changes. Replacing a marker symbol, filtering a layer, or
 editing popup text cannot turn a refused row into an admitted one.
 
-## Publication gates
+## Publication Gates
 
 The animal publication gate verifies the whole emitted surface, including:
 
@@ -190,7 +216,7 @@ flowchart LR
     Scope -->|outside| OtherScope["retained outside this bundle"]
 ```
 
-## Auditing inclusion and absence
+## Auditing Inclusion And Absence
 
 For published features, begin with
 `docs/report/animal_point_evidence_review.json` and follow the stable evidence

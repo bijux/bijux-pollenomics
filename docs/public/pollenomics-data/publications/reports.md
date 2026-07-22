@@ -117,6 +117,34 @@ claim. When two surfaces disagree, the stable member identity, governing
 evidence, and narrower qualification control; the disagreement itself becomes
 a publication-integrity finding.
 
+## Review A Report Change
+
+Totals are the last comparison, not the first. Review a regenerated report in
+causal order:
+
+1. compare product identity, parent scope, input versions, and contract;
+2. compare artifact membership and stable member identifiers;
+3. classify added and removed members by admission, exclusion, scope, or
+   recovery cause;
+4. compare changed fields by evidence owner, unit, precision, and null state;
+5. compare warnings, refusals, and traceability coverage;
+6. only then reconcile summary counts and narrative claims.
+
+```mermaid
+flowchart LR
+    Before["prior bundle"] --> Identity["product and member identity diff"]
+    After["current bundle"] --> Identity
+    Identity --> Cause["admission, scope, evidence, or recovery cause"]
+    Cause --> Semantics["field and qualification diff"]
+    Semantics --> Totals["count reconciliation"]
+    Totals --> Narrative["reader-facing claim review"]
+```
+
+A zero count delta does not prove semantic stability: one member can replace
+another, a coordinate can become approximate, or a chronology can lose numeric
+comparability. Conversely, a changed total is expected when a declared scope
+or admission rule changes and every affected identity is accounted for.
+
 ## Compare Scopes Without Double Counting
 
 World, Europe-plus, Nordic, and country products are nested selections, not

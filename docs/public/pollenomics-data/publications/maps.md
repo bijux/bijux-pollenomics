@@ -35,6 +35,30 @@ scope and parent scope, artifact membership, countries, roles, layer rows,
 legend sections, filter surfaces, bounds, initial view, basemap, and visible
 caveats. The HTML map renders the contract; it is not the contract itself.
 
+## Three States Behind One View
+
+An interactive map combines three states that must remain distinguishable:
+
+| State | Owned by | What can change it |
+| --- | --- | --- |
+| evidence state | source and curated evidence authorities | source capture, normalization, or review decision |
+| product state | manifest, admission, layer, and traceability contracts | governed publication regeneration |
+| view state | browser filters, layers, viewport, selection, and basemap | reader interaction |
+
+```mermaid
+flowchart LR
+    Evidence["governed evidence state"] --> Product["admitted product state"]
+    Product --> View["current browser view"]
+    View -. cannot mutate .-> Product
+    Product -. cannot redefine .-> Evidence
+```
+
+A feature hidden by a country or time filter remains a product member. A
+feature absent from the product may be excluded, outside scope, unresolved, or
+unrecovered. A changed viewport has no evidentiary meaning. Reproducible map
+discussion therefore names all three states instead of treating the screenshot
+as the dataset.
+
 ## Reading Layers
 
 | Layer role | Safe interpretation | Required follow-up for a stronger claim |
