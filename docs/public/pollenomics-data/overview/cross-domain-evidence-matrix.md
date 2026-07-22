@@ -44,6 +44,37 @@ Geographic proximity is only one input. A valid interpretation also accounts
 for temporal overlap, observation unit, source maturity, and whether each layer
 is direct evidence, context, framing, or decision support.
 
+## Comparison Readiness Has Four Boundaries
+
+Before comparing two families, evaluate four independent boundaries for each
+input:
+
+| Boundary | Question | Failure posture |
+| --- | --- | --- |
+| materialization | are the exact contracted source and normalized artifacts present? | source known, captured only, or normalized authority missing |
+| evidence semantics | are object identity, unit, spatial meaning, time meaning, and missingness explicit? | ambiguous, contextual-only, or unresolved claim |
+| review | has the required source- or claim-specific review artifact been materialized? | unreviewed current state, even when a retained product exists |
+| product admission | does the named product permit this member, role, and precision? | qualified, refused, excluded, deferred, or outside scope |
+
+These boundaries cannot substitute for one another. A retained map demonstrates
+that a product was materialized; it does not prove that the current normalized
+authority or source-specific review remains present. Conversely, a complete
+capture can be valuable for recovery while remaining ineligible for the
+comparison being requested.
+
+```mermaid
+flowchart TD
+    Input["candidate family member"] --> Material{"contracted authority materialized?"}
+    Material -->|no| Refusal["bounded refusal or context-only result"]
+    Material -->|yes| Meaning{"identity, unit, space, and time explicit?"}
+    Meaning -->|no| Refusal
+    Meaning -->|yes| Review{"required review materialized?"}
+    Review -->|no| Refusal
+    Review -->|yes| Admission{"named product admits role and precision?"}
+    Admission -->|no| Refusal
+    Admission -->|yes| Bridge["eligible cross-domain bridge input"]
+```
+
 ## Relationship Contract
 
 Cross-domain publication joins records for a declared question; it does not

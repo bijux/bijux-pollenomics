@@ -37,6 +37,27 @@ A citation without the evidence identifier and locator can establish relevance
 but not which record or wording supported the published claim. A coordinate
 without its basis can establish geometry but not spatial precision.
 
+## Preparation Provenance
+
+Publication provenance begins during source preparation. A defensible
+normalized row retains the decisions that created it, including rows that did
+not survive preparation.
+
+| Preparation concern | Provenance required |
+| --- | --- |
+| selection | why this source, release, panel, project, paper, or supplement entered scope |
+| acquisition | retrieval identity, date, method, response or artifact, digest, and terms posture |
+| extraction | artifact member, sheet, table, row, field, selector, or endpoint that supplied the value |
+| normalization | source expression, target representation, rule, unit, precision, and null treatment |
+| identity resolution | source-native identities, aliases, governed identity, collision review, and merge or split basis |
+| exclusion | known source member, failed boundary, reason, and possible recovery condition |
+| accounting | discovered, captured, parsed, normalized, reviewed, and admitted populations with stable units |
+
+This packet prevents a clean normalized table from hiding parser loss,
+selection bias, unresolved identifiers, or substituted context. Counts alone
+cannot supply it: two preparations can emit the same number of rows while
+selecting different members or assigning different meanings.
+
 ## Claim Chain
 
 ```mermaid

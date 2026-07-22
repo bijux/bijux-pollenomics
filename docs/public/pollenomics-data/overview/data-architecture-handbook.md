@@ -34,6 +34,36 @@ flowchart LR
     Published -. "never governs upstream facts" .-> Reviewed
 ```
 
+## Evidence Preparation Transaction
+
+Preparing one source family is a sequence of accountable state changes, not a
+single import:
+
+```mermaid
+flowchart LR
+    Receipt["source receipt<br/>identity + terms + content"] --> Parse["source-preserving parse"]
+    Parse --> Normalize["typed objects + stable identities"]
+    Normalize --> Relate["evidence-backed relations"]
+    Relate --> Curate["precision + conflict + missingness"]
+    Curate --> Admit{"claim-specific admission"}
+    Admit -->|member| Project["manifested projection"]
+    Admit -->|non-member| Account["exclusion, refusal, or recovery"]
+```
+
+| State change | Required retained evidence |
+| --- | --- |
+| source receipt | upstream identity, release or accession, retrieval method, terms, content identity, and failure state |
+| parse | source artifact, locator, source-native field, parser rule, and rejected-row accounting |
+| normalization | governed object identity, source value, normalized value, method, unit, and null semantics |
+| relation construction | typed endpoints, cardinality, evidence locator, method, and ambiguity posture |
+| curation | fact owner, competing claims, precision, decision, reason, and recovery condition |
+| projection | product identity, rule set, member and non-member inventories, warnings, and revision |
+
+The transaction may stop honestly at any boundary. Captured material can
+remain unnormalized; normalized objects can remain unreviewed; reviewed
+objects can remain outside a product. A later state cannot be used as evidence
+that an earlier missing authority exists.
+
 ## Three Contract Registries
 
 The database is made legible by three cross-cutting registries:
