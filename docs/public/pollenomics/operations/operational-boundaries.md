@@ -30,31 +30,50 @@ metadata, content identity, and source-specific licence posture. Normalization
 may make structure consistent but cannot manufacture missing provenance,
 precision, or permission.
 
-## Write Boundaries
+## Network Boundary
+
+Only acquisition-oriented operations should require external services.
+`collect-data` retrieves the selected collector-managed families; the animal
+foundation refresh may retrieve archive and publication material. Inspection,
+collection-summary validation, contract materialization, and report
+publication operate from local state.
+
+An upstream response is captured input, not authority merely because retrieval
+succeeded. Source identity, retrieval metadata, licence posture, hashes, and
+source-native values must survive normalization.
+
+## Filesystem Boundaries
 
 | Operation | Authorized root | Boundary |
 | --- | --- | --- |
-| install and local checks | `.venv/`, caches, `artifacts/` | no governed evidence authority |
+| package installation | chosen virtual environment and installer cache | no governed evidence authority |
+| source-checkout installation and local checks | caches and `artifacts/` | no governed evidence authority |
 | source collection | selected trees under `data/` | external retrieval and normalization |
 | contract refresh | declared summary and review files under `data/` | derives from current checked-in tree |
 | report publication | `docs/report/` | consumes governed data; does not recollect implicitly |
 | documentation build | site output under `artifacts/` unless explicitly publishing | rendered preview is not a governed report |
 
 A command that changes an unexpected root has crossed its operational
-boundary. Stop and inspect before accepting or publishing the result.
+boundary. The output must not be treated as a governed replacement until the
+cause and ownership are understood.
+
+Relative defaults make the current working directory part of the call. Explicit
+`--data-root`, `--aadr-root`, `--context-root`, and `--output-root` arguments
+are the clearest contract when the command is not launched from the repository
+root.
 
 ## Partial Failure And Recovery
 
 Collectors and publishers can touch multiple files. A non-zero exit may leave
-partial local changes. Treat the worktree diff, collection hashes, manifests,
-and summary validators as the recovery record. Do not delete the evidence of a
-partial run before identifying which stages completed.
+staging or partial local changes. Collection hashes, manifests, summaries, and
+diagnostics identify which boundary completed. Do not delete that recovery
+evidence before the last coherent state is known.
 
 Rerunning is safe only after inputs, versions, destinations, and partial output
 are understood. A successful rerun does not excuse unexplained deletions or
 scope drift.
 
-## Security And Reuse
+## Security And Licence Boundary
 
 - Do not place credentials, access tokens, private URLs, or licensed source
   payloads into public reports or logs intended for publication.
@@ -66,12 +85,25 @@ scope drift.
 - Preserve coordinate precision and source caveats when exporting or reusing
   public rows.
 
+Public availability is not a universal reuse licence. A product can combine
+families with different terms, attribution needs, and precision constraints.
+Reuse decisions must follow the source-level licence and provenance attached
+to each family.
+
+## Determinism Boundary
+
+Given the same local captured inputs, version, country scope, species scope,
+and explicit roots, validation and publication are designed to be repeatable.
+Collection is not equivalent to replay: upstream services, access, and payloads
+can change. Retrieval date and content identity are therefore part of the
+evidence needed to compare collection runs.
+
 ## Performance Boundary
 
-Collection and full publication traverse large governed trees. Inspection,
+Collection and complete publication traverse large governed trees. Inspection,
 single-summary validation, one-species review, and one-country publication are
-available so a narrow question need not trigger an unrelated rebuild. Choose
-scope by the required state transition, then validate the affected contract.
+available so a narrow question does not require an unrelated rebuild. Choose
+scope by the required state transition.
 
 ## Claim Boundary
 

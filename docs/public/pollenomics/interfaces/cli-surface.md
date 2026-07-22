@@ -35,6 +35,27 @@ flowchart LR
 | collection and contract refresh | `collect-data`, `refresh-data-contract-surfaces`, `refresh-animal-adna-foundation` | writes governed data and, for the animal refresh, related publication surfaces |
 | publication | `report-country`, `report-multi-country-map`, `publish-reports` | writes scoped report and atlas products |
 
+## Command Synopsis
+
+| Form | Result |
+| --- | --- |
+| `collect-data <sources...>` | collect one or more source families, or `all` |
+| `adna-layout --species <name>` | canonical species evidence paths |
+| `adna-runtime-manifest --species <name>` | source bundles and analysis boundaries for one species |
+| `adna-artifact-plan --species <name>` | deterministic species rebuild paths and governed payloads |
+| `adna-curation-manifest --species <name>` | curated, pending, and rejected projects |
+| `adna-normalization-bundle --species <name>` | project summaries, study summaries, lineage, and refusals |
+| `adna-archive-projects [--species <name>]` | archive inventory and project-side metadata that still needs to feed sample extraction |
+| `adna-domestication-coverage` | cross-species curation coverage, including thin and unsupported areas |
+| `adna-species` | canonical species identity, support status, and modality matrix |
+| `adna-species-review --species <name>` | product role, assignment rule, archive integrity, and project admission reviews |
+| `report-country <country>` | one AADR country report bundle |
+| `report-multi-country-map <countries...>` | a shared geography surface with country toggles |
+| `publish-reports` | the configured world, regional, and country publication tree |
+
+`--output-root` defaults to `data` for collection or `docs/report` for
+publication. Commands with additional roots expose them in subcommand help.
+
 ## Machine-Readable Inspection
 
 Commands with `--json` expose the same governed result as their table form,
