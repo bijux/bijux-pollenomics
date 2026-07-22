@@ -41,6 +41,27 @@ in its manifests, evidence rows, reviews, and generated diff.
 | analysis | changed rank, score, sensitivity, or comparison | method identity, inputs, scenarios, and stability evidence |
 | rendering | changed layout, labels, colors, or interaction | proof that structured membership and meaning stayed unchanged |
 
+## Validation Layers
+
+```mermaid
+flowchart TB
+    Shape["schema and format"] --> Relations["identity and relationships"]
+    Relations --> Semantics["source-family meaning"]
+    Semantics --> Fitness["evidence fitness"]
+    Fitness --> Scope["product membership and scope"]
+    Scope --> Presentation["cross-format presentation"]
+```
+
+Each layer depends on the preceding layer but answers a different question.
+A syntactically valid record can still point to the wrong source; a correctly
+linked record can still have unresolved chronology; a strong evidence record
+can still fall outside one product; and a correct manifest can still be
+misrepresented by a rendering.
+
+Validation should therefore stop at the first failed layer and preserve its
+finding. Passing later presentation checks cannot compensate for an upstream
+identity or evidence failure.
+
 ## Counts Are Not Explanations
 
 An increased count may reflect recovered evidence, broader scope, repaired
@@ -62,6 +83,21 @@ direct-evidence row may become contextual.
    exclusions.
 6. Treat rendering-only change as neutral only when structured meaning is
    demonstrably unchanged.
+
+## Evidence Required By Change Type
+
+| Changed surface | Minimum review evidence |
+| --- | --- |
+| source-family tree | source identity, version, capture diff, normalized identity diff, coverage, and removals |
+| evidence or governance record | governing source chain, previous decision, new reason, precision, and affected consumers |
+| product scope or admission | old and new rule, member-level diff, qualifications, exclusions, and affected bundles |
+| analysis output | exact inputs, method identity, scenarios, sensitivity, and interpretation boundary |
+| public bundle | manifest and member diff, traceability, cross-format consistency, warnings, and citations |
+| narrative only | proof that no governed identity, role, scope, precision, or membership changed |
+
+These layers expose what a result changed and how that meaning can be traced.
+They do not by themselves establish historical correctness or fitness for a
+question outside the named contract.
 
 ## Interpretation Outcomes
 
