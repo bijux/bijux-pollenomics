@@ -4,103 +4,102 @@ audience: reader
 type: explanation
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-05-10
+last_reviewed: 2026-07-22
 ---
 
 # Data System Overview
 
-The data system in `bijux-pollenomics` is designed to keep different kinds of
-evidence visible instead of merging everything into one vague export. You
-should be able to tell whether you are looking at pollen context,
-archaeological context, boundary framing, fieldwork documentation, public
-review surfaces, or ancient DNA sample evidence.
+Pollenomics uses a layered database because source capture, scientific
+interpretation, and public presentation have different trust requirements. A
+source snapshot establishes what was acquired. A normalized file establishes a
+repository-owned representation. A review establishes fitness and uncertainty.
+A publication selects only the evidence appropriate to its declared purpose.
 
-The governing stance is `pollenomics-first`: the repository is built to explain
-the broader pollen and environmental evidence system clearly, while keeping
-animal ancient-DNA recovery visible as one important but still partial slice of
-that larger product.
+## Evidence Families And Roles
 
-## The Basic Shape
+| Family | Contracted role | Primary use | Important boundary |
+| --- | --- | --- | --- |
+| LandClim | primary pollen context | pollen sites and model-grid context | model context is not a direct sample observation |
+| Neotoma | primary pollen context | normalized pollen-site context | site chronology controls temporal interpretation |
+| SEAD | contextual archaeology domain | environmental archaeology sites | access and temporal comparability require review |
+| RAÄ | contextual archaeology domain | Swedish heritage and archaeology context | coverage is Sweden-specific |
+| Boundaries | geographic framing domain | filtering and map extent | geometry adds no scientific support |
+| SMHI SVAR | sampling-context domain | Swedish lakes and hydrography | a registered water body is not a suitable coring site by itself |
+| AADR | direct human aDNA domain | release-versioned human sample metadata | current processing uses metadata, not genotype files |
+| Animal aDNA | sample-owned evidence domain | curated animal samples from source literature | admission depends on recoverable sample-level evidence |
+
+The family contract states what each source can answer before publication code
+combines it with another layer.
+
+## Tracked State
 
 ```mermaid
 flowchart TB
-    sources["source datasets and papers"]
-    tracking["tracked source intake"]
-    normalization["normalized evidence files"]
-    publication["reports and atlas views"]
-
-    sources --> tracking
-    tracking --> normalization
-    normalization --> publication
+    subgraph Data["data/ — governing evidence state"]
+        Raw["raw source capture"] --> Normalized["normalized records"]
+        Normalized --> Review["review and governance surfaces"]
+        Review --> Final["admitted evidence inputs"]
+    end
+    subgraph Reports["docs/report/ — derived publication state"]
+        World["world"] --> Region["Europe-plus and Nordic"]
+        Region --> Country["Sweden, Norway, Finland, Denmark"]
+        Region --> Lake["lake ranking and sensitivity"]
+    end
+    Final --> World
 ```
 
-That structure matters because the repository has to support two kinds of use.
-Sometimes you want the public answer first. Sometimes you want to inspect the
-governing evidence directly. The system needs to support both without forcing
-you to decode an internal file tree before understanding what the repository is
-doing.
+The geography hierarchy is a selection hierarchy, not four independent
+databases. A country bundle cannot legitimately contain a stronger fact than
+its governing evidence or parent publication family.
 
-## What This Overview Should Clarify
+## Source Identity And Refresh
 
-- which evidence families exist and why they are kept separate
-- what kind of question each family can answer
-- which surfaces are evidence, which are framing, and which are publication
-- why a map, report, or country bundle should never outrank its narrower
-  governing files
+`data/collection_summary.json` records the selected source version, retrieval
+date, acquisition method, source and normalized hashes, provenance, output
+roots, and replacement behavior. Collectors write to a staging root and swap
+it into place only after successful preparation. A failed refresh therefore
+does not silently replace the last tracked source tree with a partial one.
 
-## Main Data Families
+Hash equality proves byte identity, not scientific fitness. Fitness enters at
+the review layer, where chronology, spatial precision, source legibility,
+coverage, and publication use are evaluated.
 
-| Family | Role in the repository | Main location | Current publication posture |
-| --- | --- | --- | --- |
-| Pollen context | environmental and paleoecological context | `data/landclim/`, `data/neotoma/` | first-class pollenomics context |
-| Archaeology context | broader settlement and environmental archaeology layers | `data/sead/`, `data/raa/` | contextual support layers |
-| Boundary framing | country filtering and regional map framing | `data/boundaries/` | framing layer, not scientific evidence |
-| Animal ancient DNA | sample-backed contextual evidence from papers and supplements | `data/adna/` | partial recovery program |
-| Fieldwork | direct visit and observation records | `docs/public/fieldwork/` | narrow but explicit record surface |
+## Fact Ownership
 
-## What Each Family Contributes
+The same concept can appear in a project dossier, normalized record, atlas
+candidate, country bundle, and summary. `data/source_fact_ownership_registry.json`
+identifies which surface governs each recurring fact. Downstream files may
+carry the value for publication, but they do not become competing authorities.
 
-- pollen context helps explain environmental setting, vegetation history, and
-  broader landscape change
-- archaeology context helps explain settlement and material activity around the
-  same geographies
-- boundary layers make filtering and regional framing readable, but they are
-  not themselves scientific evidence
-- human ancient DNA gives release-based historical population context
-- animal ancient DNA provides sample-level domestication and movement clues when
-  source recovery is strong enough
-- fieldwork gives a narrow, explicit ground-level record rather than a claim of
-  regional completeness
+This distinction is especially important for animal aDNA:
 
-## Main Repository Surfaces
+- project registries govern admitted project identity;
+- project sample surfaces govern sample identity, sites, locality, and
+  chronology evidence;
+- species-normalized records govern species views;
+- atlas-candidate records govern geographic admission; and
+- report bundles govern presentation of the admitted subset.
 
-- `data/` keeps repository-owned source material, normalized records, and
-  review artifacts.
-- `docs/report/` keeps the generated country bundles, atlas assets, and public
-  review surfaces.
-- `docs/public/pollenomics-data/` explains how those tracked files fit
-  together.
-- `data/source_family_contracts.json` and
-  `data/source_family_evidence_stage_matrix.json` keep the stage model explicit
-  instead of forcing you to infer it from directory names.
-- `data/source_fact_ownership_registry.json` names the governing surface for
-  recurring concepts such as project inventory, sample identity, and atlas
-  candidates.
+## Review Outcomes
 
-## Why The Separation Matters
+A review can admit, qualify, block, or defer a record. These outcomes preserve
+different meanings:
 
-- a source page tells you what entered the repository and why
-- an evidence page tells you what claim is currently being governed
-- a review surface tells you what is blocked, thin, or refused
-- a publication surface tells you what the repository is prepared to show
-  publicly
+- **admitted**: evidence meets the declared publication contract;
+- **qualified**: publication is allowed with explicit precision or source
+  limits;
+- **blocked**: a known evidence failure prevents publication;
+- **deferred**: the source or supporting material needed for a decision has not
+  been recovered.
 
-If those roles blur together, the site becomes easy to browse but hard to
-trust.
+Keeping blocked and deferred states visible prevents absence from being
+misread as proof that no relevant project or sample exists.
 
-## Where To Go Next
+## Related Surfaces
 
-- [Data architecture handbook](data-architecture-handbook.md) explains the raw -> normalized -> review -> publication model in one place.
-- [Pollenomics publication model](pollenomics-publication-model.md) explains how these families should publish together without pretending they are equally mature.
-- [Cross-domain evidence matrix](cross-domain-evidence-matrix.md) keeps domain balance visible in evidence units instead of file counts.
-- [Output surface classes](../publications/publication-types.md) separates pollenomics context, contextual support, animal recovery, and scaffolding outputs.
+- [Architecture handbook](data-architecture-handbook.md) identifies the
+  governing artifacts at each layer.
+- [Source families](../sources/index.md) covers acquisition and intended use.
+- [Evidence](../evidence/index.md) covers identity, place, time, and coordinate
+  semantics.
+- [Publications](../publications/index.md) covers derived outputs and limits.

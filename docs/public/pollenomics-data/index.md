@@ -1,159 +1,116 @@
 ---
-title: bijux-pollenomics-data
+title: Pollenomics Data
 audience: reader
 type: index
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-06-28
+last_reviewed: 2026-07-22
 ---
 
-# bijux-pollenomics-data
+# Pollenomics Data
 
-`bijux-pollenomics-data` is the public handbook for the evidence side of the
-repository. It explains what kinds of material this project uses, what each
-kind can actually tell you, and how a visible report row or map point is tied
-back to narrower evidence.
+The Pollenomics data system preserves the chain between an upstream source and
+a public claim. It combines eight contracted source families without erasing
+their differences: LandClim, Neotoma, SEAD, RAÄ, boundaries, SMHI SVAR, AADR,
+and animal ancient DNA.
 
-This is the right place to start when your first questions are practical and
-evidence-first:
-
-- what material is actually in scope here?
-- where does it come from, and why was it selected?
-- which parts are mature public context and which parts remain partial?
-- how can one public row be traced back to narrower governing evidence?
-- could this repository already help with a new country, region, or evidence
-  question you care about?
-
-<div class="bijux-callout"><strong>Use this section when the real question is about evidence, coverage, or trust.</strong> It should help you understand what the repository knows today, what remains incomplete, and how the public publications stay tied to the evidence behind them.</div>
+Every family has an explicit role. Pollen sources provide primary
+palaeoenvironmental context; archaeology sources provide contextual domains;
+boundaries frame geography; SVAR provides a lake registry; AADR provides
+versioned human ancient-DNA context; and animal aDNA is curated as
+sample-owned evidence from papers, supplements, and project archives.
 
 <div class="bijux-quicklinks">
-  <a class="md-button md-button--primary" href="overview/">Start with the system</a>
-  <a class="md-button" href="sources/">See the source families</a>
+  <a class="md-button md-button--primary" href="overview/">Understand the data system</a>
+  <a class="md-button" href="sources/">Inspect source families</a>
   <a class="md-button" href="evidence/">Follow the evidence chain</a>
-  <a class="md-button" href="publications/">See maps and reports</a>
-  <a class="md-button" href="overview/data-architecture-handbook/">Open the data architecture handbook</a>
-  <a class="md-button" href="overview/pollenomics-publication-model/">Open the publication model</a>
-  <a class="md-button" href="overview/cross-domain-evidence-matrix/">Open the cross-domain evidence matrix</a>
+  <a class="md-button" href="publications/">Interpret publications</a>
+  <a class="md-button" href="overview/cross-domain-evidence-matrix/">Compare evidence maturity</a>
 </div>
 
-## What You Will Find Here
+## Database Architecture
+
+```mermaid
+flowchart LR
+    Upstream["datasets, APIs, papers, supplements"] --> Raw["raw capture\nidentity + retrieval + hash"]
+    Raw --> Normalized["normalized layer\nrepository-owned fields"]
+    Normalized --> Reviewed["reviewed layer\nfitness + uncertainty + conflicts"]
+    Reviewed --> Gate{"publication eligibility"}
+    Gate -->|admitted| Published["world, region, country, and lake outputs"]
+    Gate -->|not admitted| Account["recovery queues and exclusion evidence"]
+```
+
+Four machine-readable contracts make this flow inspectable:
+
+- `data/source_family_contracts.json` declares each family's question, role,
+  paths, and coverage metrics;
+- `data/source_family_evidence_stage_matrix.json` records the state of raw,
+  normalized, reviewed, and published layers;
+- `data/source_fact_ownership_registry.json` identifies the authority for
+  facts repeated across the tree; and
+- `data/evidence_artifact_contracts.json` defines recurring project, sample,
+  regional, and country artifact shapes.
+
+## Curation Is Evidence Work
+
+Normalization is not the final step. Records may require scientific and
+documentary decisions that cannot be inferred safely from a column name.
+
+For animal ancient DNA, the curated database preserves:
+
+- project and paper registries;
+- source-intake dossiers and supporting-material manifests;
+- sample identity and sample-to-site linkage;
+- locality claims, coordinate provenance, and precision posture;
+- chronology claims, normalization, precision, and conflict ledgers;
+- species-normalized records and project recovery deficits;
+- atlas candidates, exclusions, caveats, and release-gate decisions.
+
+The result is an accountability system as well as a dataset. Missing source
+material, ambiguous identity, conflicting chronology, and region-only locality
+remain queryable outcomes rather than being converted into apparently complete
+rows.
+
+## Read The System In Either Direction
 
 ```mermaid
 flowchart TB
-    sources["source families"]
-    intake["tracked intake and recovery"]
-    evidence["sample, locality, date, and coordinate evidence"]
-    publications["country reports and atlas views"]
-
-    sources --> intake
-    intake --> evidence
-    evidence --> publications
+    Source[Source family] --> Record[Curated record]
+    Record --> Review[Scientific review]
+    Review --> Output[Publication]
+    Output -. audit .-> Review
+    Review -. provenance .-> Record
+    Record -. origin .-> Source
 ```
 
-The point of this handbook is to keep those stages readable. You should not
-have to reverse-engineer the difference between a source paper, a normalized
-evidence file, a locality decision, and a public map point.
+- Start with [Sources](sources/index.md) to evaluate origin, acquisition,
+  license, version, refresh behavior, and intended use.
+- Start with [Evidence](evidence/index.md) to evaluate sample identity,
+  locality, chronology, coordinates, and scientific qualification.
+- Start with [Publications](publications/index.md) to interpret maps, reports,
+  filters, rankings, and their derivation.
+- Use the [data architecture handbook](overview/data-architecture-handbook.md)
+  to locate the governing file when the same fact appears in several outputs.
 
-That also applies to the Sweden lake program. If a reader sees a ranked lake,
-they should be able to tell whether that row comes from source intake,
-evidence review, publication scoring, or a fieldwork-oriented shortlist rather
-than guessing from a map label alone.
+## Evidence Does Not Collapse Into One Score
 
-## What Makes This Repository Unusual
+Evidence families can co-occur spatially without answering the same question.
+A pollen site is not an animal sample, a heritage record is not a chronology
+claim, a lake polygon is not a sampling recommendation, and a country boundary
+does not validate any point inside it.
 
-Most data projects explain one evidence family at a time. This repository does
-not. It brings several different families into one public system:
+Cross-domain publications preserve those distinctions through layer labels,
+source posture, temporal semantics, coordinate precision, and visible caveats.
+Where comparability is weak, the system publishes the limitation or refuses a
+stronger release claim.
 
-- pollen context from large environmental databases
-- archaeology context from environmental and heritage sources
-- boundary layers used for framing and filtering
-- human ancient DNA release material
-- animal ancient DNA recovery work that is still being strengthened project by
-  project
+## Core References
 
-In practice, that means this section has to explain how those families work
-together without pretending they all mean the same thing. A pollen context row,
-a heritage context row, a human aDNA locality, and an animal recovery record
-can all appear in one publication family while still carrying different
-scientific weight.
-
-That mixed setting is useful, but it becomes misleading fast if the explanation
-is vague. Readers need to know whether they are looking at mature evidence,
-supporting context, or work that is still under recovery. They also need
-boundary framing, chronology posture, coordinate precision, and sampling
-posture to stay explicit, because those details change what a public map can
-honestly imply.
-
-## What You Can Use This Handbook For
-
-- deciding whether a public map or report is enough for your question
-- finding the narrower evidence surface behind a public output
-- understanding why one source family supports broad use while another stays
-  caveated
-- understanding how the Sweden lake ranking packet is derived and what it does
-  not claim
-- learning how the same evidence system could support future publication for
-  other countries or regions without inventing a second product model
-
-## Start Here
-
-- [System](overview/index.md): understand the overall model before the file
-  details
-- [Sources](sources/index.md): see what each source family contributes and what
-  it cannot honestly answer
-- [Evidence](evidence/index.md): follow the chain from sample record to
-  locality, chronology, and coordinates
-- [Publications](publications/index.md): learn what the published report tree
-  shows and what it intentionally does not promote
-- [Data architecture handbook](overview/data-architecture-handbook.md): learn
-  where truth lives and how capture, normalization, review, and publication
-  differ
-- [Cross-domain evidence matrix](overview/cross-domain-evidence-matrix.md):
-  compare the repository's evidence balance without relying on file counts
-  alone
-
-## Restored System Coverage
-
-- [provenance and publication linkage](overview/provenance-and-publication-linkage.md)
-- [source selection and refresh](overview/source-selection-and-refresh.md)
-- [coverage and naming](overview/coverage-and-naming.md)
-
-## Source-Family Comparison
-
-Start with the [source-family comparison](sources/source-comparison.md) when the
-main question is source comparison across pollen, archaeology, boundaries,
-human aDNA, and animal aDNA. That page is the fastest way to understand why two
-layers can appear on the same map while still answering very different
-questions.
-
-## Common Questions
-
-- Where does the repository's pollen, archaeology, boundary, and aDNA material
-  come from?
-- What happens between a paper or dataset and a public-facing output?
-- Which animal records already have sample-level locality and date evidence?
-- Why is one row publishable while another stays blocked or uncertain?
-- What could I responsibly reuse for a region that is not yet published as a
-  map atlas surface?
-
-## A Good Reading Order
-
-If you are new to the project, read this section in the same order that the
-repository handles evidence:
-
-1. start with the [system guide](overview/index.md) to understand the overall shape
-2. move to [sources](sources/index.md) to see what enters the repository
-3. move to [evidence](evidence/index.md) to see how claims are justified
-4. finish with [publications](publications/index.md) to see how public-facing bundles are derived
-
-That order is deliberate. The publications only make full sense once the source
-and evidence stages are clear.
-
-## Section Map
-
-| Section | Main question | Main pages |
-| --- | --- | --- |
-| System | How is the repository's data system structured? | [overview](overview/index.md) |
-| Sources | What source families are in scope and what do they contribute? | [sources](sources/index.md) |
-| Evidence | How are sample, locality, chronology, and coordinate claims justified? | [evidence](evidence/index.md) |
-| Publications | What reaches reports and maps, and what remains partial? | [publications](publications/index.md) |
+- [Data system overview](overview/data-system-overview.md)
+- [Data architecture handbook](overview/data-architecture-handbook.md)
+- [Publication model](overview/pollenomics-publication-model.md)
+- [Provenance and publication linkage](overview/provenance-and-publication-linkage.md)
+- [Source selection and refresh](overview/source-selection-and-refresh.md)
+- [Coverage and naming](overview/coverage-and-naming.md)
+- [Cross-domain evidence matrix](overview/cross-domain-evidence-matrix.md)
+- [Animal ancient-DNA evidence](overview/animal-ancient-dna-evidence.md)
