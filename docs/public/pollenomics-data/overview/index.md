@@ -56,6 +56,32 @@ observation units, denominators, geographic reach, and evidential roles. The
 bundle manifest records membership; the source and evidence records determine
 what each member can support.
 
+### Snapshot Labels Do Not Collapse State
+
+`v66` identifies the collector snapshot used by the current source capture and
+many retained products. It does not assert that every normalized, reviewed,
+and published descendant was rebuilt in one atomic transaction. Three state
+coordinates must travel together:
+
+| Coordinate | Establishes | Does not establish |
+| --- | --- | --- |
+| source snapshot | upstream selection, retrieval context, and captured content | complete normalization or review |
+| database revision | the coherent governed objects, claims, and decisions under inspection | membership in every publication |
+| product identity | the manifest, scope, members, caveats, and renderings released together | freshness of every upstream family |
+
+```mermaid
+flowchart LR
+    Snapshot["source snapshot"] --> Database["governed database revision"]
+    Database --> Product["product manifest"]
+    Snapshot -. "not interchangeable" .-> Product
+```
+
+Reproduction therefore names all three when they differ. A retained `v66`
+product remains inspectable even when the current evidence-stage matrix marks
+one prerequisite as missing; the correct conclusion is “retained but not
+currently rebuildable from a complete chain,” not that the missing stage must
+exist because the product does.
+
 ## Boundary Outputs
 
 | Boundary | Input question | Durable output |

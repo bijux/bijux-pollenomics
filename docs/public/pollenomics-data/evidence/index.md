@@ -37,6 +37,36 @@ Four invariants govern the evidence chain:
 4. **Refusal is data.** Unresolved, conflicted, blocked, and deferred outcomes
    remain visible so published coverage is not mistaken for source coverage.
 
+### Evidence Has More Than Two Outcomes
+
+The evidence database does not force every question into supported versus
+unsupported. Those labels hide whether evidence was examined, whether sources
+disagree, and whether the requested use exceeds the available precision.
+
+| Outcome | Meaning | Safe public treatment |
+| --- | --- | --- |
+| supported | governing evidence satisfies the declared claim and use | publish at the supported scope and precision |
+| qualified | the claim is usable only with a material bound or caveat | publish the qualification with the member |
+| conflicted | two or more attributable claims remain incompatible | preserve each claim and withhold an unqualified conclusion |
+| unknown | the required evidence is absent or has not been recovered | state the missing dimension; do not convert it to absence |
+| refused | evidence was evaluated and fails the named use contract | retain the record and reason outside that product membership |
+| out of scope | the claim was not evaluated because the product does not ask it | do not describe the outcome as scientific rejection |
+
+```mermaid
+flowchart LR
+    Claim["claim + intended use"] --> Evidence{"governing evidence available?"}
+    Evidence -->|no| Unknown["unknown or recovery state"]
+    Evidence -->|yes| Agreement{"consistent and sufficient?"}
+    Agreement -->|yes| Supported["supported or qualified"]
+    Agreement -->|conflict| Conflict["conflicted"]
+    Agreement -->|insufficient| Refused["refused for this use"]
+```
+
+This vocabulary protects negative claims. “No published point” can mean
+unknown coordinates, a spatial refusal, exclusion from a geographic scope, or
+a reader filter; none of those proves that the specimen or phenomenon was
+absent.
+
 ## Cross-Domain Evidence
 
 All source families preserve origin, version, and their materially present

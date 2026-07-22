@@ -68,6 +68,27 @@ postures, and spatial precisions are declared. It asks whether two governed
 populations support the same comparison operation; it does not flatten unlike
 families into a common row merely because their coordinates can be plotted.
 
+### Which Checked-In Artifact Answers Which Question?
+
+Several files summarize overlapping parts of the system. They are not equal
+authorities, and a convenient embedded summary must not overrule the contract
+that owns the question.
+
+| Question | Governing artifact | Why another summary is insufficient |
+| --- | --- | --- |
+| Which collector-managed trees were captured for `v66`? | `data/collection_summary.json` source inventory, hashes, and retrieval metadata | lifecycle presence does not follow from a source name or hash |
+| Which of the eight contracted families has materialized raw, normalized, reviewed, and published evidence? | `data/source_family_evidence_stage_matrix.json` | the collection summary covers seven collectors and can carry a differently timed embedded state snapshot |
+| Which record owns a repeated fact? | `data/source_fact_ownership_registry.json` | directory placement and copied fields do not transfer authority |
+| Which spatial or temporal use is permitted? | `data/source_spatiotemporal_posture_registry.json` plus claim-level review | coordinate or date presence does not establish comparability |
+| Which records belong to one public product? | that product's manifest and admission evidence | normalized presence and retained outputs do not imply membership |
+
+When two summaries appear to disagree, first compare their observation unit,
+scope, and revision. For current lifecycle claims, use the dedicated evidence
+stage matrix; use the collection summary as the capture receipt for its seven
+collector-managed families. Treating either file as a universal status object
+would erase the animal literature workflow and could infer missing stages from
+retained publications.
+
 ## Database Architecture
 
 ```mermaid

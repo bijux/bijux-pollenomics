@@ -60,6 +60,24 @@ prevent stronger claims.
 | What does an atlas marker establish? | [Nordic atlas](public/nordic-atlas/index.md) | feature ID, point class, coordinate posture, and time posture |
 | What supports a lake ranking? | [lake priorities](public/nordic-atlas/sweden-lake-priorities/index.md) | lake ID, model, scenario, candidate population, and readiness state |
 
+### Start From The Object You Actually Have
+
+The shortest trustworthy route depends on what is already in hand. A map
+marker, a source record, and a scientific statement begin at different
+authorities even when they eventually resolve to the same evidence graph.
+
+| Starting object | First check | Then establish |
+| --- | --- | --- |
+| map marker or table row | product manifest and member identity | admission reason, governing claim, and source locator |
+| source accession, DOI, or registry ID | source-family capture and native member | normalized identity, review posture, and every consuming product |
+| sample or site label | governed identity and aliases | project or source lineage, place and time claims, and ambiguity state |
+| number in a report | observation unit, denominator, scope, and revision | exclusions, unresolved members, and aggregation rule |
+| proposed cross-domain statement | role and observation unit for every family | spatial bridge, temporal bridge, independence, and refusal conditions |
+
+A visible feature is proof of product membership, not by itself proof of every
+scientific statement shown beside it. Conversely, a captured source record can
+remain valuable evidence without qualifying for any current public product.
+
 ## Current Product Contract
 
 The implemented runtime is an atlas builder and evidence-publication system.
