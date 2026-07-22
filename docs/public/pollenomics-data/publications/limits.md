@@ -39,7 +39,7 @@ The current governed state makes several limits measurable:
 | --- | --- | --- |
 | Animal sample recovery | 868 recovered rows across 40 projects; only four projects have a trustworthy expected count | recovered rows are auditable, but collection completeness is usually unknown |
 | Animal locality | 820 direct sample-site assignments; 32 region-only; 16 unresolved | 48 samples cannot be described as exact sample sites |
-| Animal publication points | 234 accepted point-evidence rows; 233 direct supplementary coordinates and one approximate named-site geocode | the point subset is traceable but spatial support is uneven |
+| Animal publication points | 234 accepted point-evidence rows; 233 final sample-backed features and one provisional project-context feature | the point subset is traceable but identity and spatial support are mixed |
 | Neotoma time | 175 of 200 sites have numeric BP spans; chronology rows are not captured | site-span comparison requires the Neotoma temporal caveat |
 | SEAD time | 2,172 normalized sites and no numeric intervals in the current capture | use as archaeology context, not same-period support |
 | RAÄ scope | Sweden-specific density source | do not generalize its coverage to the Nordic region |
@@ -90,6 +90,7 @@ The current publications must not be used to claim that:
 - absence from a map establishes biological, archaeological, or historical
   absence;
 - all visible points have equivalent locality or chronological precision;
+- every animal point represents a recovered source-native sample;
 - proximity between evidence families establishes association,
   contemporaneity, or causation;
 - a ranked lake has been field-validated or is ready for sampling; or
@@ -98,6 +99,27 @@ The current publications must not be used to claim that:
 These are claim boundaries, not defects hidden behind a generic disclaimer.
 Each boundary names the additional evidence or validation that a stronger
 interpretation would require.
+
+### Known Point-Surface Exception
+
+The single dromedary feature for Site 1040 near Wadi Halfa is admitted as
+qualified project context. Its paper-backed place statement and approximate
+named-place resolution support a visible spatial context feature. Its sample
+identity remains provisional and its source-native sample row remains
+unrecovered.
+
+| Proposed use | Current decision | Evidence needed for stronger use |
+| --- | --- | --- |
+| show qualified dromedary project context | supported with approximate and provisional labels | current evidence is sufficient for this bounded product role |
+| count recovered animal samples | exclude this feature from the recovered-sample population | recover and resolve the source-native sample row |
+| compare sample chronology numerically | not supported | sample-owned chronology with eligible numeric semantics |
+| claim exact excavation location | not supported | source-supplied or otherwise defensible site-level coordinate provenance |
+| infer an independent biological observation | not supported | final sample identity and evidence separating the observation from project context |
+
+This is a visible limit, not a reason to discard the other 233 point features.
+It is also not a license to average the exception away. Downstream work either
+uses the context feature under its declared role or excludes it with an
+accounted reason.
 
 ## Visible Absence
 

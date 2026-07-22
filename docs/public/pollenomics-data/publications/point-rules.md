@@ -23,6 +23,12 @@ coordinate confidence. One uses documented named-site geocoding and carries
 coordinate classes; it must not be described as entirely source-coordinate
 backed.
 
+Identity posture is mixed as well. The 233 supplementary-coordinate features
+contain final, directly extracted sample identities. The single Wadi Halfa
+dromedary feature contains a provisional project-anchored identity with
+`sample_evidence_status: not_yet_recoverable`. It is a qualified context point,
+not a recovered sample point.
+
 Acceptance applies to the declared point product. It does not certify complete
 project recovery, equal coverage across species, or unrestricted analytical
 fitness. The animal publication gate currently passes all ten anti-overclaim
@@ -35,7 +41,7 @@ that needs uniform ascertainment remain outside that claim.
 
 | Reader question | Answer supported by an admitted marker | Claim not established by the marker |
 | --- | --- | --- |
-| What is it? | a stable feature linked to species, project, and sample evidence | an exhaustive inventory of that project or species |
+| What is it? | a stable feature linked to species and project, plus final sample evidence when recovered | that every admitted feature is a recovered sample or an exhaustive inventory |
 | Why is it here? | a locality and coordinate decision with recorded provenance | survey-grade positional accuracy unless the source establishes it |
 | How certain is the position? | the published `exact` or `approximate` coordinate class | identical precision across all markers |
 | When is it from? | only the chronology posture and fields admitted for that row | a numeric date where the evidence is contextual, broad, or conflicting |
@@ -62,13 +68,32 @@ flowchart TD
     F -->|yes| G[Match sample, site evidence, citation, and review]
     G --> H{Project-level flattening detected?}
     H -->|yes| X
-    H -->|no| I[Publish traceable atlas evidence row]
+    H -->|no| I{Identity posture}
+    I -->|final sample| P[Publish sample-backed point]
+    I -->|qualified project context| Q[Publish visibly qualified context point]
 ```
 
 The emitted row carries stable feature, evidence-row, and site identifiers;
 species and support class; locality and coordinate provenance; project and
 sample identifiers; paper and supplement citations; site-evidence text; scope
 inclusion; and chronology at the precision allowed for publication.
+
+For the qualified project-context branch, “sample identifier” means the
+retained project-anchored token and must travel with its provisional resolution
+and unrecovered-sample status. It must not be presented as equivalent to a
+source-native sample identifier.
+
+### Current Point Classes
+
+| Product class | Features | Minimum identity | Coordinate posture | Claim ceiling |
+| --- | ---: | --- | --- | --- |
+| sample-backed animal point | 233 | final extracted sample identity | supplementary-table coordinate | qualified sample presence at the reported point |
+| project-context animal point | 1 | paper-pinned project context; sample not yet recoverable | approximate Wadi Halfa named-place geocode | qualified spatial context for the tracked project |
+
+The two classes share a point layer because both satisfy the current spatial
+product contract. They do not share analytical eligibility. Sample-level
+counts, recovery estimates, and independent-observation analyses must use the
+first class unless they declare and defend a different unit.
 
 ## Admission And Field Qualification
 
@@ -189,7 +214,8 @@ editing popup text cannot turn a refused row into an admitted one.
 
 The animal publication gate verifies the whole emitted surface, including:
 
-- required sample, site, coordinate, and citation traceability;
+- required member, site, coordinate, and citation traceability, including the
+  explicit identity posture of project-anchored context;
 - no project-level substitution for blocked sample sites;
 - no leakage of unresolved or conflicting chronology into country or atlas
   outputs;
@@ -200,7 +226,10 @@ The animal publication gate verifies the whole emitted surface, including:
 
 Passing those protections means the published subset obeys its contracts. It
 does not mean all tracked projects or species are fully recovered, and it does
-not justify stronger collection-wide completeness language.
+not justify stronger collection-wide completeness language. In particular,
+the passing `published_points_keep_required_traceability` check proves that
+the dromedary context feature retains its provisional sample status; it does
+not convert that status to final sample recovery.
 
 ```mermaid
 flowchart LR

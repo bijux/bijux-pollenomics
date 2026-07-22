@@ -40,6 +40,38 @@ cells, Neotoma points, RAÄ heritage and total sites, SEAD points, and SVAR
 lakes. These counts identify the assembled state; their exact observation
 units and temporal semantics remain governed by the family contracts.
 
+## Collection Membership Is Not Publication Membership
+
+The `v66` summary records seven collector-managed families:
+
+| Collection member | Collected root | Publication decision still required |
+| --- | --- | --- |
+| AADR | `data/aadr` | release-row identity, deduplication, geography, and product scope |
+| boundaries | `data/boundaries` | geometry version and named scope relation |
+| LandClim | `data/landclim` | site-sequence versus grid-cell role and temporal posture |
+| Neotoma | `data/neotoma` | site identity and temporal comparability class |
+| RAÄ | `data/raa` | selected classification, aggregation grid, and Sweden-only role |
+| SEAD | `data/sead` | four-country membership and context-only temporal posture |
+| SVAR | `data/svar` | lake identity and candidate-product eligibility |
+
+Animal aDNA is governed separately under `data/adna/`. Its 40-project intake,
+868 recovered rows, and 234 admitted point features must not be inferred from
+`collected_sources`. Conversely, the seven-family collection summary does not
+grant any member automatic map or report admission.
+
+```mermaid
+flowchart LR
+    Summary["collection_summary.json / v66"] --> Families["7 collected source families"]
+    Animal["separate animal source library"] --> Review["claim-specific review"]
+    Families --> Review
+    Review --> Product["world, regional, country, or lake product"]
+    Review --> Refusal["qualified, excluded, or deferred evidence"]
+```
+
+The publication asks a narrower question than collection: which reviewed
+members, from which authorities, satisfy this named product? That question is
+answered by the product manifest and evidence rows, not by the collection list.
+
 ```mermaid
 flowchart LR
     Capture["captured source state"] --> Hash["snapshot digest"]
@@ -62,6 +94,21 @@ The summary does not measure sample admissibility, coordinate quality,
 chronology precision, or geographic completeness. An empty or small normalized
 digest can coexist with a tracked source family, and a collected family can be
 absent from a particular product because its publication rules do not pass.
+
+### Three Identities To Compare
+
+| Identity | Governing surface | Change it can reveal |
+| --- | --- | --- |
+| collection identity | version, source metadata, and hashes in `collection_summary.json` | captured or normalized family state changed |
+| evidence identity | stable normalized, sample, site, and review records | interpretation, precision, conflict, or curation changed |
+| publication identity | scope, version, member inventory, and contract in the bundle | admission, geography, caveat, or presentation membership changed |
+
+The shared label `v66` is necessary but not sufficient to prove that two files
+belong to one coherent publication. Their manifest membership, governing
+identifiers, and hashes must also resolve. A later product can legitimately
+reuse an unchanged collection while applying a revised review or scope rule;
+that is a publication change over the same captured state, not a new source
+release.
 
 ## Verify A Collection Identity
 
