@@ -9,10 +9,10 @@ last_reviewed: 2026-07-22
 
 # Pollenomics Data
 
-The Pollenomics data system preserves the chain between an upstream source and
-a public claim. It combines eight contracted source families without erasing
-their differences: LandClim, Neotoma, SEAD, RAÄ, boundaries, SMHI SVAR, AADR,
-and animal ancient DNA.
+The Pollenomics data system is a version-controlled evidence database that
+preserves the chain between an upstream source and a public claim. It combines
+eight contracted source families without erasing their differences: LandClim,
+Neotoma, SEAD, RAÄ, boundaries, SMHI SVAR, AADR, and animal ancient DNA.
 
 Every family has an explicit role. Pollen sources provide primary
 palaeoenvironmental context; archaeology sources provide contextual domains;
@@ -22,6 +22,7 @@ sample-owned evidence from papers, supplements, and project archives.
 
 <div class="bijux-quicklinks">
   <a class="md-button md-button--primary" href="overview/">Understand the data system</a>
+  <a class="md-button" href="database/">Inspect the database model</a>
   <a class="md-button" href="sources/">Inspect source families</a>
   <a class="md-button" href="curation/">Understand evidence curation</a>
   <a class="md-button" href="evidence/">Follow the evidence chain</a>
@@ -316,6 +317,9 @@ stronger release claim.
 
 ## Core References
 
+- [Evidence database](database/index.md)
+- [Object and relation model](database/object-and-relation-model.md)
+- [Revision and state model](database/revision-and-state-model.md)
 - [Data system overview](overview/data-system-overview.md)
 - [Data architecture handbook](overview/data-architecture-handbook.md)
 - [Publication model](overview/pollenomics-publication-model.md)

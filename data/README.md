@@ -41,6 +41,30 @@ layers. `source_family_evidence_stage_matrix.json` records their evidence
 posture. `collection_summary.json` binds the collected source version,
 retrieval metadata, hashes, output roots, provenance, and replacement policy.
 
+## Database Contract Map
+
+The top-level registries have separate authority:
+
+| Registry | Governs | Must not be used as |
+| --- | --- | --- |
+| `collection_summary.json` | collected family roots, versions, acquisition, hashes, and replacement | a catalogue of every evidence record |
+| `source_family_contracts.json` | family role and lifecycle ownership | record-level scientific fitness |
+| `source_family_evidence_stage_matrix.json` | lifecycle presence and family-scale metrics | a universal maturity score |
+| `source_fact_ownership_registry.json` | the authority for recurring facts and their dependent copies | permission to edit a convenient descendant |
+| `evidence_artifact_contracts.json` | required companions for project, paper, sample, site, atlas, and country units | proof that populated values are scientifically valid |
+
+```mermaid
+flowchart LR
+    Collection["collection identity"] --> Family["family partitions"]
+    Family --> Objects["governed objects and claims"]
+    Objects --> Decisions["review and admission"]
+    Decisions --> Products["manifested publication projections"]
+```
+
+A coherent repository revision joins these authorities and descendants. No
+single registry represents the entire database, and no publication output may
+feed a fact backward into its evidence owner.
+
 ## Source Families
 
 | Root | Evidence role |
@@ -163,6 +187,9 @@ reveals conflicts or weaker support.
 ## Further Reading
 
 - [Data system](../docs/public/pollenomics-data/index.md)
+- [Evidence database](../docs/public/pollenomics-data/database/index.md)
+- [Object and relation model](../docs/public/pollenomics-data/database/object-and-relation-model.md)
+- [Revision and state model](../docs/public/pollenomics-data/database/revision-and-state-model.md)
 - [Data architecture](../docs/public/pollenomics-data/overview/data-architecture-handbook.md)
 - [Directory and authority model](../docs/public/pollenomics-data/overview/data-directory-layout.md)
 - [Source families](../docs/public/pollenomics-data/sources/index.md)

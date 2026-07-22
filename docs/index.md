@@ -14,9 +14,10 @@ pollen, palaeoenvironmental context, archaeology, hydrography, fieldwork, and
 ancient DNA. Every publication belongs to a traceable chain: source capture,
 normalization, evidence review, release qualification, and derived output.
 
-The site is useful in both directions. Start with a map or country report to
-understand the published result, or start with a source family and follow its
-records forward to see what the repository is prepared to claim.
+Evidence is traversable in both directions. A map or country report resolves
+backward through product membership, curation, governed facts, and captured
+sources. A source correction resolves forward through dependent claims,
+admission decisions, and affected publications.
 
 <!-- bijux-pollenomics-badges:generated:start -->
 [![Python 3.11+](https://img.shields.io/badge/python-3.11%2B-3776AB?logo=python&logoColor=white)](https://pypi.org/project/bijux-pollenomics/)
@@ -45,6 +46,7 @@ records forward to see what the repository is prepared to claim.
 <div class="bijux-quicklinks">
   <a class="md-button md-button--primary" href="public/pollenomics/">Open the product guide</a>
   <a class="md-button" href="public/pollenomics-data/">Open the data guide</a>
+  <a class="md-button" href="public/pollenomics-data/database/">Inspect the evidence database</a>
   <a class="md-button" href="public/pollenomics-data/curation/">Inspect evidence curation</a>
   <a class="md-button" href="report/">Open the report portal</a>
   <a class="md-button" href="report/how-to-read/">How to read the report tree</a>
@@ -57,7 +59,8 @@ records forward to see what the repository is prepared to claim.
 | You want to… | Begin here | Identify first | Leave with… |
 | --- | --- | --- | --- |
 | understand what Bijux Pollenomics is | [product guide](public/pollenomics/index.md) | the claim and evidence family in question | product responsibilities, interfaces, and limits |
-| understand how the database earns trust | [data guide](public/pollenomics-data/index.md) | source-native unit and governed record identity | source, curation, evidence, and publication boundaries |
+| understand how the database earns trust | [evidence database](public/pollenomics-data/database/index.md) | typed object, relation, and repository revision | identity, fact ownership, state, and projection boundaries |
+| understand the complete data lifecycle | [data guide](public/pollenomics-data/index.md) | source-native unit and governed record identity | source, curation, evidence, and publication boundaries |
 | explain an admission, qualification, or refusal | [curation guide](public/pollenomics-data/curation/index.md) | object identity, claim dimension, and intended product | governing evidence, decision rule, outcome, and recovery condition |
 | inspect the published state | [report portal](report/index.md) | bundle manifest and member ID | maps, tables, reviews, refusals, and their shared scope |
 | evaluate one visible feature | [Nordic atlas](public/nordic-atlas/index.md) | feature ID, layer role, and point class | coordinate posture, time posture, admission, and traceability |

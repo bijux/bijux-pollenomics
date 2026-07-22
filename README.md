@@ -47,6 +47,7 @@ than being promoted through a visually clean atlas.
 | You need to… | Start with… | Record first | What you will establish |
 | --- | --- | --- | --- |
 | understand the product and its boundaries | [documentation home](https://bijux.io/bijux-pollenomics/) | intended claim and observation unit | which claims and workflows the repository supports |
+| understand the evidence database | [database model](docs/public/pollenomics-data/database/index.md) | governed object type, identity namespace, and revision | how facts, relations, decisions, and product membership remain coherent |
 | inspect source selection and capture | [data system guide](docs/public/pollenomics-data/index.md) | source family, release, and native record key | which upstream material became governed evidence |
 | inspect an admission, conflict, or recovery decision | [curation guide](docs/public/pollenomics-data/curation/index.md) | governed object, claim dimension, and proposed use | fact ownership, qualification, decision reason, and recovery condition |
 | examine a checked-in result | [report portal](docs/report/index.md) | bundle identity and manifest | product scope, members, and review surfaces |
@@ -82,6 +83,12 @@ The trust boundary is explicit:
 
 A map or report is therefore an index into governed evidence, not a substitute
 for it.
+
+The database boundary is equally important for repository users. JSON, CSV,
+GeoJSON, manifests, and review ledgers are serializations of typed objects and
+relations, not independent sources of truth. Start with the
+[object and relation model](docs/public/pollenomics-data/database/object-and-relation-model.md)
+before joining records across families or reusing a publication extract.
 
 ## What A Published Record Contains
 
