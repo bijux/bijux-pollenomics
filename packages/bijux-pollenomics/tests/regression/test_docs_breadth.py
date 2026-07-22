@@ -131,9 +131,7 @@ class DocsBreadthRegressionTests(unittest.TestCase):
             self.assertTrue(path.is_file(), name)
             self.assertIn(heading, path.read_text(encoding="utf-8"))
 
-    def test_nordic_atlas_keeps_sweden_lake_explainer_in_a_nested_public_page(
-        self,
-    ) -> None:
+    def test_nordic_atlas_documents_sweden_lake_decision_support(self) -> None:
         atlas_index = (
             REPO_ROOT / "docs" / "public" / "nordic-atlas" / "index.md"
         ).read_text(encoding="utf-8")
@@ -146,14 +144,13 @@ class DocsBreadthRegressionTests(unittest.TestCase):
             / "index.md"
         ).read_text(encoding="utf-8")
 
+        atlas_text = " ".join(atlas_index.split())
+        lake_text = " ".join(lake_page.split())
+
         self.assertIn("./sweden-lake-priorities/", atlas_index)
-        self.assertIn("optional Sweden lake ranking overlays", atlas_index)
-        self.assertIn(
-            "The public Sweden lake packet currently ranks **6,763**",
-            lake_page,
-        )
-        self.assertIn("fieldwork shortlist top 20", lake_page)
-        self.assertIn(
-            "The current public packet does **not**\nship governed depth, width, bathymetry",
-            lake_page,
-        )
+        self.assertIn("derived decision-support products", atlas_text)
+        self.assertIn("disabled by default", lake_text)
+        self.assertIn("ranks 6,763 SMHI SVAR registry lakes", lake_text)
+        self.assertIn("fieldwork-preparation top 20", lake_text)
+        self.assertIn("does not contain governed bathymetry", lake_text)
+        self.assertIn("sweden_lake_evidence_richness_v66.md", lake_page)
