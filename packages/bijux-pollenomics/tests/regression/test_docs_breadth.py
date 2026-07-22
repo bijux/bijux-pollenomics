@@ -25,7 +25,8 @@ class DocsBreadthRegressionTests(unittest.TestCase):
         self.assertIn("Open the product guide", docs_index)
         self.assertIn("Open the report portal", docs_index)
         self.assertNotIn("Open the public guide", docs_index)
-        self.assertIn("for maintainers", internal_index)
+        self.assertIn("owns repository operation", internal_index)
+        self.assertIn("Public And Internal Boundary", internal_index)
         self.assertIn("Open the maintainer handbook", internal_index)
 
     def test_data_handbook_covers_cross_domain_system(self) -> None:

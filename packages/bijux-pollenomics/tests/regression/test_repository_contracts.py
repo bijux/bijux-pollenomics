@@ -2010,9 +2010,10 @@ class RepositoryContractRegressionTests(unittest.TestCase):
         self.assertNotIn("https://bijux.io/bijux-pollenomics/report/", atlas_text)
 
         self.assertIn(
-            "(../../report/regions/nordic/nordic_map.html)", fieldwork_index_text
+            'href="../../report/regions/nordic/nordic_map.html"',
+            fieldwork_index_text,
         )
-        self.assertIn("(../pollenomics-data/index.md)", fieldwork_index_text)
+        self.assertIn('href="../pollenomics-data/"', fieldwork_index_text)
         self.assertNotIn(
             "https://bijux.io/bijux-pollenomics/public/", fieldwork_index_text
         )

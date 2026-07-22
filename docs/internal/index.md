@@ -4,16 +4,15 @@ audience: maintainer
 type: index
 status: canonical
 owner: bijux-pollenomics-dev-docs
-last_reviewed: 2026-05-09
+last_reviewed: 2026-07-22
 ---
 
 # Internal Guide
 
-This part of the site is for maintainers. It explains how the repository keeps
-its public claims, generated outputs, and release surfaces aligned.
-
-Readers who only need to understand the evidence products should stay on the
-[documentation home](../index.md).
+The internal surface owns repository operation: validation policy, generated
+state, workflow behavior, release evidence, and documentation integrity. It
+does not redefine the scientific meaning published in the public data and
+atlas guides.
 
 ## Start Here
 
@@ -24,9 +23,25 @@ Readers who only need to understand the evidence products should stay on the
   <a class="md-button" href="pollenomics-dev/release-support/">Open release support</a>
 </div>
 
-## Use This Side If You Are
+## Ownership Map
 
-- maintaining release or documentation rules
-- changing GitHub workflows or Make entrypoints
-- updating repository truth or generated governance outputs
-- preparing a release or checking why release is still refused
+| Concern | Owner | Governing entry point |
+| --- | --- | --- |
+| repository-wide maintenance | maintainer handbook | [Maintenance](maintain/index.md) |
+| focused repository operations | `bijux-pollenomics-dev` | [Operator guide](pollenomics-dev/index.md) |
+| documentation navigation and claim integrity | documentation integrity checks | [Documentation integrity](pollenomics-dev/documentation-integrity.md) |
+| validation selection and proof | quality gates | [Quality gates](pollenomics-dev/quality-gates.md) |
+| GitHub Actions and release evidence | release support | [Release support](pollenomics-dev/release-support.md) |
+| Make target contracts | Make handbook | [Make system](maintain/makes/index.md) |
+
+## Public And Internal Boundary
+
+Public pages govern reader interpretation of sources, evidence, publications,
+atlas features, and fieldwork. Internal pages govern how maintainers preserve
+those contracts while changing code or generated state. An internal diagnostic
+may block a release or reveal drift; it does not become the scientific
+authority for a public record.
+
+Readers evaluating a scientific or publication claim should return to the
+[documentation home](../index.md) and follow the claim upstream through the
+data system.
