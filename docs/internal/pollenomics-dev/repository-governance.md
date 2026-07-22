@@ -4,55 +4,105 @@ audience: maintainer
 type: explanation
 status: canonical
 owner: bijux-pollenomics-dev-docs
-last_reviewed: 2026-05-08
+last_reviewed: 2026-07-22
 ---
 
 # Repository Governance
 
-`bijux-pollenomics-dev` is the maintainer package that turns repository-health
-rules into executable checks. It is not a second runtime and it is not the
-owner of source collection.
+Repository governance makes ownership, generated-state relationships, public
+claims, and release prerequisites executable. `bijux-pollenomics-dev` observes
+those contracts and reports disagreement. It is not a second runtime, a source
+collector, a scientific curator, or an atlas publisher.
 
-## Package Boundary
+## Governance Domains
 
-- `docs/` checks documentation integrity and public-surface breadth
-- `release/` checks claim posture and repository-truth gates
-- `quality/` holds maintainer-only validators and review helpers
-- `api/` supports frozen API contract review
+| Domain | Maintainer implementation | Authoritative owner remains |
+| --- | --- | --- |
+| API freeze | `api.freeze_contracts` and `api.openapi_drift` | canonical API schema and runtime compatibility decision |
+| documentation presentation | `docs.badge_sync` plus repository documentation tests | package metadata, navigation, public evidence, and documentation owners |
+| dependency policy | `quality.deptry_scan` | package architecture and dependency metadata |
+| legal assets | `release.license_assets` | root `LICENSE` and `NOTICE` authorities |
+| version and artifact eligibility | `release.version_resolver` and `release.publication_guard` | Git tag, package metadata, build, and release workflow |
+| process execution | `trusted_process` | the caller's command, scope, working directory, and output contract |
 
-## Module Map
+The maintainer package owns the observation and diagnostic behavior in the
+middle column. It does not acquire the authority named in the final column.
 
-Read `bijux-pollenomics-dev` as three owned enforcement groups:
+## Rule Lifecycle
 
-- docs integrity
-- release and claim governance
-- maintainer-only quality or contract helpers
+```mermaid
+flowchart LR
+    Owner["authoritative product or repository contract"] --> Rule["explicit semantic invariant"]
+    Rule --> Check["deterministic maintainer observation"]
+    Check --> Finding{"agreement?"}
+    Finding -->|yes| Proof["revision-scoped proof"]
+    Finding -->|no| Route["owner-routed finding"]
+    Route --> Correction["authoritative correction"]
+    Correction --> Check
+```
 
-## Governance Scope
+An invariant should be encoded where its meaning is owned. The check consumes
+that invariant, compares observed state, and reports enough identity to make
+the correction unambiguous.
 
-This package owns:
+## Add Or Change A Governance Rule
 
-- docs breadth and docs-link integrity checks
-- release-support rules for report posture and claim language
-- schema or API governance that belongs to repository publication integrity
+Before adding a rule, answer:
 
-This package does not own:
+1. Which durable contract is at risk?
+2. Which authority decides the expected state?
+3. Can the check observe the relation without recreating domain logic?
+4. Which paths, members, or external identities are in scope?
+5. Is the check read-only, or does a separate mode own a bounded generated
+   surface?
+6. Which result distinguishes disagreement, invalid invocation, and unavailable
+   environment?
+7. What focused proof demonstrates the rule itself?
 
-- source-family collection logic
-- sample extraction logic
-- atlas rendering logic
+Prefer semantic relationships over incidental text. For example, compare a
+schema with its pinned representation and digest; compare a manifest with its
+members; compare badge rendering with package metadata. Use language checks
+when wording strength or prohibited terminology is the governed contract.
 
-## Schema And Scope Governance
+## Generated Governance State
 
-- schema or frozen-contract changes belong here when they affect public review
-- source semantics and scientific interpretation do not
-- the package should stay narrow enough that runtime ownership remains obvious
+Badge blocks and package legal copies have explicit synchronizers. Check mode
+observes drift; synchronization materializes declared targets from their
+authorities. Review the authoritative input and all written targets, then rerun
+check mode to prove convergence.
+
+Other findings do not grant a generic write capability. API intent, scientific
+posture, report membership, package metadata, and workflow behavior must be
+corrected by their own owners and regenerated through their own producers.
+
+| Finding | Unsafe response | Durable response |
+| --- | --- | --- |
+| frozen API drift | hand-edit the digest to silence the comparison | decide canonical schema intent, regenerate the pin, and verify compatibility |
+| generated claim overstates evidence | weaken or delete the checker | correct evidence or producer wording and retain the bounded posture |
+| badge drift | edit one badge URL outside the managed block | correct metadata or catalog and run the owned synchronizer |
+| missing governed artifact | create an empty placeholder | recover through the declared producer with lineage and semantic validation |
+| external service unavailable | treat the repository state as failed evidence | record the environmental block and unchanged governed state |
 
 ## Security And Release Pressure
 
-Maintainer code must fail when:
+Governance must fail closed when a required contract cannot be evaluated or
+when public state exceeds its authority. Release urgency does not justify:
 
-- public docs become narrower than the repository evidence story
-- release surfaces imply stronger readiness than tracked evidence supports
-- frozen contract files drift without deliberate regeneration
-- security or policy gates are bypassed by convenience command routing
+- bypassing exit status or publication guards;
+- accepting development, local, or mismatched artifact versions;
+- weakening evidence-language or traceability assertions;
+- hand-editing managed standards, generated reports, or frozen derivatives;
+- deleting exclusions or recovery records to create a cleaner result; or
+- treating a local build as proof of external publication.
+
+Failing closed preserves the last coherent governed state and names the
+condition required to proceed. It does not mean every environmental failure is
+a product defect.
+
+## Governance Evidence
+
+A reviewable governance change retains the changed rule and owner, the before
+and after observation, deterministic diagnostics, focused tests, generated
+targets if any, warnings, and broader proof intentionally not run. Commit the
+rule and its contract coverage together so the repository never contains an
+unenforced promise or a check without an authoritative meaning.

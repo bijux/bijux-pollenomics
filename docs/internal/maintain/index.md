@@ -19,6 +19,7 @@ its writes, review its consequences, and retain proof at the same boundary.
 | --- | --- | --- | --- |
 | reader explanation | selected Markdown under `docs/index.md` or `docs/public/` | navigation or redirects only when routes change | focused documentation contracts and strict build |
 | source refresh | one source-family collection root | normalized records, collection summaries, and dependent products declared by that producer | source identity, hashes, coverage, replacement behavior, and normalized diff |
+| curation decision | claim owner, evidence locator, conflict or recovery record, and intended use | normalized views, eligibility, exclusions, and affected products | claim semantics, ownership, disposition, and descendant agreement |
 | animal evidence | project, sample, chronology, locality, coordinate, and review records | eligible point products and release posture | animal integrity and publication admission contracts |
 | atlas or fieldwork product | governed publication inputs and manifest | map layers, tables, warnings, and traceability views | member identities, exclusions, geography, scenario behavior, and product checks |
 | runtime interface | runtime implementation and canonical contract | examples and frozen interface representations | package tests plus compatibility and documentation review |
@@ -71,6 +72,22 @@ flowchart TD
 Producer success is necessary but insufficient. A mechanically valid report
 can still contain the wrong geography, an unsupported admission, or a changed
 warning posture.
+
+### Preserve The Decision Chain
+
+For data and publication work, keep four records distinguishable:
+
+| Record | Durable purpose |
+| --- | --- |
+| source evidence | identifies the captured material and what it states |
+| curation decision | establishes ownership, precision, conflict, and fitness for a declared use |
+| producer result | materializes normalized, review, or publication descendants |
+| verification evidence | demonstrates agreement for the named contract at one revision |
+
+The producer does not retroactively become the source, and verification does
+not become the scientific decision. Keeping the chain explicit allows a later
+source correction to reopen the right decision without rewriting unrelated
+history.
 
 ### Documentation-Only Change Protocol
 

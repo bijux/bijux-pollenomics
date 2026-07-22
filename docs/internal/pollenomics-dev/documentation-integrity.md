@@ -71,6 +71,23 @@ than hand-editing generated shared content.
 6. Run the narrowest relevant documentation contracts, then build MkDocs in
    strict mode.
 
+### Test The Reader Journey
+
+For an entrypoint or major section, verify that a reader can move through a
+complete question without encountering maintainer narration:
+
+| Journey stage | Reader must be able to identify |
+| --- | --- |
+| orientation | product, observation unit, scope, and supported question |
+| evidence | source identity, governed object, role, place, time, and precision |
+| curation | fact owner, conflict posture, admission outcome, and recovery condition |
+| publication | manifest, member identity, geography, warnings, and exclusions |
+| interpretation | supported statement, unsupported inference, and material limit |
+
+If the only route to one of these answers is a test name, commit note, backlog,
+or internal handbook, the public journey is incomplete. Add the domain answer
+to the owning public page and keep implementation procedure internal.
+
 ## Place Content By Decision Owner
 
 Use ownership, not sensitivity or technical depth, to choose a destination:
@@ -110,6 +127,12 @@ A route is incomplete when it ends at prose that merely repeats a number.
 Counts must resolve to their population and observation unit; maps must resolve
 to membership and provenance; absence statements must resolve to scope,
 recovery, evidence, or admission state.
+
+The new public curation route begins at
+`docs/public/pollenomics-data/curation/`. It owns explanations of admission,
+conflict, and recovery meaning. Internal pages may explain how to change or
+verify those contracts, but should link back rather than copy the scientific
+explanation.
 
 ## Focused Verification
 
