@@ -1,74 +1,69 @@
 ---
 title: Repository Scope and Limits
-audience: mixed
+audience: reader
 type: explanation
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-05-10
+last_reviewed: 2026-07-22
 ---
 
 # Repository Scope and Limits
 
-This repository is broader than one map layer and narrower than a finished
-cross-evidence pollenomics platform.
+The repository is broader than a map application and narrower than an
+integrated scientific inference platform. Its implemented strength is governed
+acquisition, evidence curation, publication, and traceability across several
+uneven source families.
 
-It is broad because it brings together multiple evidence families: pollen
-context, environmental archaeology, administrative and spatial boundaries,
-fieldwork documentation, and animal ancient DNA. It is narrow because those
-families are not yet equally mature, and because the repository still refuses
-to pretend that visible output automatically means complete scientific support.
+## Evidence Domains
 
-The runtime belongs here because the repository needs one accountable rebuild
-path for those outputs. The runtime does not justify itself by being
-complicated. It justifies itself by making changes easier to trace, inspect,
-and challenge.
+| Domain | Repository role | Important boundary |
+| --- | --- | --- |
+| LandClim and Neotoma | pollen and palaeoenvironmental context | source coverage and temporal resolution remain family-specific |
+| SEAD and RAÄ | environmental-archaeology and heritage context | contextual density is not sample evidence |
+| boundaries and SMHI SVAR | geographic scope and lake identity | framing does not establish scientific association |
+| AADR | versioned human ancient-DNA metadata | genotype processing is not implemented |
+| animal ancient DNA | sample, locality, chronology, coordinate, and citation evidence | exact publication requires sample-owned support |
+| fieldwork | direct record of a specific visit | a visit does not establish general site suitability |
 
-## Scope Model
+## Claim Boundary
 
 ```mermaid
-flowchart TB
-    repository["checked-in data and report surfaces"]
-    runtime["one accountable runtime"]
-    trace["visible source and output changes stay traceable"]
-    review["repository review stays possible"]
-
-    repository --> runtime
-    runtime --> trace
-    trace --> review
+flowchart LR
+    Captured["captured source"] --> Normalized["normalized evidence"]
+    Normalized --> Reviewed["reviewed fitness"]
+    Reviewed --> Published["scoped publication"]
+    Published --> Supported["supported descriptive claim"]
+    Published -. does not imply .-> Causal["causal inference"]
+    Published -. does not imply .-> Complete["complete domain coverage"]
+    Published -. does not imply .-> Recommendation["sampling recommendation"]
 ```
 
-The runtime earns its place only while it keeps pollen context, environmental
-context, archaeology context, and aDNA context more reviewable than an ad hoc
-script pile would.
+The runtime can establish which records were acquired, how they were
+normalized, whether they met a publication rule, and where they appear. It
+cannot make unlike evidence commensurate merely by placing it on the same map.
 
-## Why The Split Exists
+## Publication Claims
 
-- command entrypoints stay explicit instead of living in ad hoc shell history
-- collection, normalization, and publication can be verified as one product
-  surface
-- visible atlas and report changes can be traced back to one owned rebuild path
-- cross-domain evidence families can stay connected without collapsing into a
-  single map-only story
+The repository can support claims such as:
 
-## What The Repository Does Not Claim
+- a named source family was captured at a declared version or retrieval state;
+- a published feature belongs to a governed product scope;
+- an admitted animal point has sample-owned locality and coordinate evidence;
+- a lake appears in a stated ranking scenario using declared inputs;
+- a record was excluded because a required evidence dimension was unresolved.
 
-- it does not claim that every visible map point is backed by equally strong
-  evidence
-- it does not claim that the current animal aDNA slice already represents a
-  finished pollenomics engine
-- it does not claim that public-facing outputs can be trusted without checking
-  the tracked files that support them
-- it does not claim that presentation polish is the same thing as scientific
-  completeness
+It does not claim that every domain is equally complete, that proximity proves
+temporal overlap, that every country has equivalent source coverage, or that a
+ranked lake is ready for sampling.
 
-## First Places To Check
+## Accountability Test
 
-- `packages/bijux-pollenomics/src/bijux_pollenomics/`
-- `packages/bijux-pollenomics/tests/`
-- `data/`
-- `docs/report/`
+A capability belongs in this repository when its inputs, transformations,
+review decision, and published result can be inspected together. If a result
+depends on private scripts, untracked corrections, inferred precision, or an
+unrecorded eligibility decision, it is outside the trustworthy product
+boundary until that lineage is made explicit.
 
-## Boundary Test
-
-If the runtime stops making visible evidence changes easier to trace and review,
-the package split is no longer earning its place in the repository.
+Continue with [runtime scope and ownership](runtime-scope-and-ownership.md) for
+implementation ownership or the [data system](../../pollenomics-data/index.md)
+for source and evidence contracts.

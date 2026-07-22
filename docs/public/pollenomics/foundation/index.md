@@ -1,93 +1,76 @@
 ---
-title: Runtime Purpose and Boundary
+title: Product Boundary
 audience: reader
 type: explanation
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-05-10
+last_reviewed: 2026-07-22
 ---
 
-# What This Repository Is For
+# Product Boundary
 
-This repository exists to make one evidence publication loop visible and
-repeatable. It takes several evidence families that would otherwise stay
-scattered across papers, tables, maps, and local scripts, and turns them into
-one reviewable repository state.
+Bijux Pollenomics is an evidence publication system. It acquires heterogeneous
+scientific and geographic sources, preserves their identities and limitations,
+creates repository-owned evidence records, and derives scoped maps and reports
+from the admitted subset.
 
-In practical terms, `bijux-pollenomics` owns the path from tracked source
-material to tracked public output. That includes collection, normalization,
-publication, and the checks that stop the repository from sounding more certain
-than the evidence really is.
+The product is the accountable chain, not only the final visualization.
 
-This page answers the first practical question the public guide should resolve:
-what is this repository actually for, and why does it need one owned runtime at
-all?
+```mermaid
+flowchart LR
+    Upstream["datasets, APIs, papers, supplements"] --> Capture["versioned capture"]
+    Capture --> Evidence["owned evidence records"]
+    Evidence --> Review["fitness and uncertainty review"]
+    Review --> Scope["world, region, country, or lake scope"]
+    Scope --> Publication["maps, reports, and evidence packets"]
+    Publication --> Trace["claim-to-source traceability"]
+```
 
-## The Short Answer
+## Product Responsibilities
 
-The repository is trying to do one specific thing well: publish inspectable
-cross-evidence outputs without hiding where they came from. It is not here just
-to display a map, and it is not yet a finished scientific engine that settles
-every pollen, archaeology, and ancient-DNA question.
+| Responsibility | Durable result |
+| --- | --- |
+| acquisition | identifiable source material with retrieval and version context |
+| normalization | stable fields and identifiers without invented precision |
+| evidence review | explicit locality, chronology, coordinate, ambiguity, and comparability posture |
+| publication | governed membership, geography, labels, and caveats |
+| accountability | a reverse path from a visible feature to its governing evidence and source |
 
-Its value comes from joining three responsibilities that often drift apart:
+These responsibilities stay together because a polished output without its
+capture and review lineage cannot support a consequential scientific claim.
 
-- collecting and refreshing governed source material
-- normalizing that material into repository-owned evidence files
-- publishing downstream outputs that people can inspect and question
+## Scientific Scope
 
-If those responsibilities split into private scripts, ad hoc notebooks, and a
-separate presentation layer, the public outputs may still look polished, but
-they stop being accountable.
+Pollen and environmental archaeology provide palaeoenvironmental context.
+Boundaries and hydrography frame geography. AADR supplies versioned human
+ancient-DNA metadata. Animal ancient DNA is recovered from papers,
+supplements, and project archives into sample-owned evidence. Field
+observations and Sweden lake rankings add direct-visit and decision-support
+surfaces without being promoted to universal scientific conclusions.
 
-## What The Runtime Must Keep Legible
+The domains can coexist in one publication while retaining different units,
+coverage, uncertainty, and evidentiary roles.
 
-- command entrypoints that rewrite tracked state
-- source-family and normalized evidence files under `data/`
-- country, regional, and world publication outputs under `docs/report/`
-- tests and reviews that fail when those publication contracts drift
+## Runtime Boundary
 
-## Start With These Questions
+`bijux-pollenomics` owns collection, normalization, evidence evaluation, and
+publication behavior. The tracked `data/` tree records repository-owned
+evidence state; `docs/report/` contains derived publications; validation guards
+the contract between them.
 
-- [repository scope and limits](repository-scope-and-limits.md): what the
-  repository claims today and where it stops
-- [end-state product model](end-state-product-model.md): how world, region, and
-  country outputs fit together as one product rather than several unrelated
-  websites
-- [pollenomics engine roadmap](pollenomics-engine-roadmap.md): what broader
-  pollenomics ambition still remains ahead of the current state
-- [runtime scope and ownership](runtime-scope-and-ownership.md): what this
-  runtime owns inside the repository and what it deliberately leaves elsewhere
+The runtime does not turn geographic proximity into causation, process AADR
+genotypes, infer missing sample coordinates, or replace field verification.
 
-## Why This Matters
+## Evaluate The Product By Question
 
-A public guide should not make people reconstruct the product from code names.
-It should answer three basic questions quickly:
+| Question | Governing explanation |
+| --- | --- |
+| What is included and where does the claim boundary stop? | [Repository scope and limits](repository-scope-and-limits.md) |
+| How do world, regional, country, and specialized outputs relate? | [Publication scope model](end-state-product-model.md) |
+| Which layer owns each operation and artifact? | [Runtime scope and ownership](runtime-scope-and-ownership.md) |
+| Which source or evidence record supports a visible claim? | [Data system](../../pollenomics-data/index.md) |
+| How should atlas layers and points be interpreted? | [Nordic Evidence Atlas](../../nordic-atlas/index.md) |
 
-- what kinds of evidence are included here
-- what happens to those inputs before they become public outputs
-- how much confidence the repository claims, and where it refuses stronger
-  language
-
-That is the boundary this section protects. It explains the product first, then
-the code ownership that makes the product rebuildable.
-
-## Ownership Boundary
-
-- the runtime owns collection, normalization, and publication behavior
-- the data handbook owns source provenance and tracked file meaning
-- the atlas handbook owns how visible map surfaces should be interpreted
-- the maintainer handbook owns release, documentation shell, and
-  repository-health rules
-
-## Where To Go Next
-
-- stay in this section if your question is "what is this repository trying to
-  do, and how honest is it about its current state?"
-- move to [end-state product model](end-state-product-model.md) if your
-  question is how world, Europe-plus, Nordic, and country outputs fit together
-- move to [the data guide](../../pollenomics-data/index.md) if your question is
-  which source family, paper, site, sample, or chronology record supports a
-  visible claim
-- move to [the Nordic atlas guide](../../nordic-atlas/index.md) if your
-  question is how a visible map point should be read, filtered, or challenged
+Trust increases when the publication, evidence record, and source capture agree.
+When they do not, the narrower upstream authority wins and the publication must
+be corrected, qualified, or refused.
