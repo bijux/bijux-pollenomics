@@ -70,6 +70,35 @@ Species roots are views over governed project evidence, not independent source
 databases. Final atlas files are admitted downstream inputs, not authorities
 for project, sample, locality, chronology, or coordinate facts.
 
+### Species-centered recovery
+
+The species-centered animal ancient DNA recovery layout gives each supported
+taxon the same interpretable lifecycle without merging its underlying projects:
+
+```text
+data/adna/species/<latin_name>/
+├── raw/          source-facing species inventory
+├── normalized/   samples, sites, projects, localities, and coordinates
+├── manifests/    source, curation, normalization, and runtime membership
+├── review/       archive integrity and species fitness
+└── reports/      support summaries and recovery deficits
+```
+
+Current roots include `data/adna/species/equus_caballus/`,
+`data/adna/species/bos_taurus/`,
+`data/adna/species/canis_lupus_familiaris/`,
+`data/adna/species/camelus_dromedarius/`,
+`data/adna/species/rangifer_tarandus/`,
+`data/adna/species/equus_asinus/`, `data/adna/species/felis_catus/`,
+`data/adna/species/capra_hircus/`, `data/adna/species/ovis_aries/`, and
+`data/adna/species/sus_scrofa_domesticus/`. The
+`data/adna/species/homo_sapiens/` root exposes AADR under the same species
+boundary while retaining AADR as the raw authority.
+
+`data/adna/final/` is deliberately outside the species roots. It assembles
+cross-species candidate and accountability inputs for named products; it does
+not elevate a species projection into project or sample authority.
+
 ## Locate A Claim
 
 Read a repository locator from left to right:

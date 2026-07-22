@@ -85,6 +85,27 @@ work as evidence instead of silently deleting incomplete rows.
 normalized, manifest, report, and review surfaces. The human root links to the
 governed AADR capture; animal roots derive from the source library.
 
+The checked-in species roots make the collection breadth visible:
+
+| Root | Current role |
+| --- | --- |
+| `adna/species/homo_sapiens/` | human aDNA surface; `raw/aadr -> ../../../../aadr` preserves the governed AADR release rather than copying it |
+| `adna/species/equus_caballus/` | horse recovery, normalization, review, and reporting |
+| `adna/species/bos_taurus/` | cattle recovery, normalization, review, and reporting |
+| `adna/species/canis_lupus_familiaris/` | dog recovery, normalization, review, and reporting |
+| `adna/species/camelus_dromedarius/` | dromedary recovery, normalization, review, and reporting |
+| `adna/species/rangifer_tarandus/` | reindeer recovery, normalization, review, and reporting |
+| `adna/species/equus_asinus/` | donkey recovery, normalization, review, and reporting |
+| `adna/species/felis_catus/` | cat recovery, normalization, review, and reporting |
+| `adna/species/capra_hircus/` | goat recovery, normalization, review, and reporting |
+| `adna/species/ovis_aries/` | sheep recovery, normalization, review, and reporting |
+| `adna/species/sus_scrofa_domesticus/` | domestic pig recovery, normalization, review, and reporting |
+
+Together these roots form a domesticated-animal curation program, not eleven
+independent source databases. Project and paper evidence remains governed in
+`adna/governance/source_library/`; species roots expose reproducible views over
+that evidence for comparison, readiness review, and publication.
+
 `adna/final/` contains admitted downstream inputs:
 
 - `atlas/animal_atlas_point_candidates.json` for animal atlas candidates;
@@ -111,6 +132,8 @@ reveals conflicts or weaker support.
 
 - [Data system](../docs/public/pollenomics-data/index.md)
 - [Data architecture](../docs/public/pollenomics-data/overview/data-architecture-handbook.md)
+- [Directory and authority model](../docs/public/pollenomics-data/overview/data-directory-layout.md)
 - [Source families](../docs/public/pollenomics-data/sources/index.md)
+- [Animal source intake](../docs/public/pollenomics-data/sources/animal-source-intake.md)
 - [Evidence chain](../docs/public/pollenomics-data/evidence/index.md)
 - [Publication model](../docs/public/pollenomics-data/publications/index.md)

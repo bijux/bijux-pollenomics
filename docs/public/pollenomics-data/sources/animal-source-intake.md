@@ -7,7 +7,7 @@ owner: bijux-pollenomics-docs
 last_reviewed: 2026-07-22
 ---
 
-# Animal source intake
+# Animal Source Intake
 
 An animal ancient-DNA point begins with a project accession, a paper, and often
 several supplementary files—not with a finished map row. Bijux Pollenomics
@@ -59,6 +59,28 @@ Each transition has its own evidence requirement. A readable paper does not
 prove that its sample table was recovered; a recovered sample label does not
 prove an exact site; and a named site does not justify coordinates unless the
 coordinate source and resolution are explicit.
+
+## Governed Intake Surfaces
+
+The source library separates cross-project inventory from project-owned
+evidence. This lets a reader locate the decision that controls each transition:
+
+| Question | Governing surface | What it establishes |
+| --- | --- | --- |
+| Which projects and papers are tracked? | `tracked_project_and_paper_inventory.json` and `paper_registry.json` | archive and publication identity without implying sample recovery |
+| Were supporting files acquired and classified? | `supplement_acquisition_checklist.json` and `supplement_file_family_audit.json` | fetch and file-family posture for sample-bearing material |
+| What remains incomplete at intake? | `source_intake_audit.json` | project-level blocks, deficits, and next evidence boundary |
+| How much sample material was expected and recovered? | `project_sample_master_completeness.json` and each project's `sample_master.json` | denominator-qualified recovery and stable sample identity |
+| Which samples resolve to named sites? | `project_sample_site_review.json` and each project's `sample_sites.json` | sample-to-site relations without inventing coordinates |
+| Which locality claims conflict or need normalization? | each project's `locality_worksheet.json` and `sample_locality_evidence.json`, plus `sample_locality_conflict_ledger.json` and `site_name_normalization_dictionary.json` | reported place text, normalized identity, precision, and unresolved disagreement |
+| Which temporal claims are sample-owned? | `project_sample_chronology_review.json` and each project's `sample_chronology.json` | chronology coverage and source-owned temporal posture |
+
+The cross-project files live under
+`data/adna/governance/source_library/`. Project-owned files live under
+`data/adna/governance/source_library/projects/<project-accession>/`. A row in a
+cross-project review must resolve to the project file that supplies its sample,
+site, locality, or chronology evidence; the review cannot become a substitute
+authority.
 
 ## What is captured
 
