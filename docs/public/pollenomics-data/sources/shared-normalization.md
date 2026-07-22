@@ -7,107 +7,94 @@ owner: bijux-pollenomics-docs
 last_reviewed: 2026-07-22
 ---
 
-# Shared normalization
+# Shared Normalization
 
-LandClim pollen sequences, Neotoma sites, SEAD environmental archaeology,
-Swedish archaeology density, hydrography, boundaries, and ancient-DNA samples
-do not describe the same kind of evidence. Shared normalization makes their
-shape predictable without pretending that their scientific meaning is
-interchangeable.
+Shared normalization makes records addressable and comparable while
+preserving family-specific meaning. It does not force pollen sequences,
+archaeology sites, hydrography, boundaries, and ancient-DNA samples into one
+scientific schema.
 
-Normalization creates repository-owned records with explicit identity,
-provenance, geometry, temporal posture, and evidence role. Source-native fields
-and limitations remain available; unsupported precision is never manufactured
-to fill a common column.
+## Common Envelope
 
-## One envelope, distinct evidence roles
+A normalized record exposes enough shared structure to answer:
 
-| Source family | Evidence role | Normalized spatial meaning | Temporal posture |
-| --- | --- | --- | --- |
-| LandClim | primary pollen context | site-sequence points and grid cells | numeric site-sequence intervals where captured |
-| Neotoma | primary pollen context | pollen-site points | BP site spans where present; chronology coverage remains uneven |
-| SEAD | contextual archaeology | environmental-archaeology site inventory | not uniformly time-resolved in the checked-in capture |
-| RAÄ | contextual archaeology | Swedish archaeology density and counts | spatial context without repository-owned time windows |
-| SVAR | sampling and hydrography | lakes, catchments, and water bodies | present-day sampling context |
-| Boundaries | geographic framing | country and regional polygons | no temporal evidence claim |
-| AADR | direct human aDNA | sample-owned points | sample chronology when explicitly supported |
-| Animal aDNA | direct animal aDNA | sample-owned sites at admitted resolution | sample chronology with source lineage and precision |
+- what object is represented;
+- which family and upstream identity supplied it;
+- which repository-owned identifier addresses it;
+- what geometry and spatial basis it carries;
+- what temporal statement and basis it carries;
+- which evidence role it may play;
+- which captured record and transformation produced it;
+- whether it is only normalized, reviewed, qualified, or published.
 
-The common envelope lets downstream code ask consistent questions—what is this
-record, where did it come from, what geometry does it carry, and what may it be
-used for—while the evidence role prevents a contextual layer from silently
-becoming direct evidence.
-
-## The normalization boundary
+Family-owned fields remain beside this envelope. A pollen sequence retains
+sequence meaning, a registry site retains registry semantics, and a sample
+retains sample-level lineage.
 
 ```mermaid
 flowchart TB
-    subgraph Inputs[Source-native inputs]
-        A[Tables and APIs]
-        B[GeoJSON and grids]
-        C[Papers and supplements]
+    subgraph Native["source-native meaning"]
+        Pollen["pollen sequences and grids"]
+        Archaeology["archaeology sites and density"]
+        Water["lakes and catchments"]
+        DNA["projects, samples, and evidence"]
     end
-
-    Inputs --> D[Raw capture with provenance]
-    D --> E[Family-specific parser]
-    E --> F[Repository-owned normalized record]
-    F --> G[Coverage and comparability review]
-    G --> H{Publication contract satisfied?}
-    H -->|yes| I[Atlas, regional, and country products]
-    H -->|no| J[Reviewed evidence or explicit gap]
+    Native --> Parser["family-specific interpretation"]
+    Parser --> Envelope["shared identity, lineage, space, time, and role"]
+    Envelope --> Review["comparability and fitness review"]
+    Review -->|eligible| Product["scope-aware publication"]
+    Review -->|not eligible| Gap["qualified record or explicit gap"]
 ```
 
-The family-specific parser is essential. It interprets upstream fields using
-that source's contract before producing common geometry or dates. The shared
-layer begins only after those semantics are understood.
+## Family Semantics
 
-## Invariants preserved across families
+| Family | Spatial meaning | Temporal meaning | Evidence role |
+| --- | --- | --- | --- |
+| LandClim | site-sequence point or REVEALS grid | sequence interval where captured | primary pollen context |
+| Neotoma | pollen-site point | site span where present; uneven coverage | primary pollen context |
+| SEAD | environmental-archaeology site | not uniformly time-resolved in the capture | contextual domain |
+| RAÄ | registry point or density surface | no repository-owned uniform time window | contextual domain |
+| SVAR | current lake, catchment, or water body | present-day sampling context | sampling context |
+| boundaries | country or regional polygon | no temporal evidence claim | geographic framing |
+| AADR | release-owned sample point | sample chronology where supported | direct human aDNA |
+| animal aDNA | admitted sample-owned site at recorded precision | sample chronology with source and precision | direct animal aDNA |
 
-Every normalized family is expected to keep these distinctions legible:
+## Preserved Distinctions
 
-- **identity** — stable source and record identifiers remain recoverable;
-- **lineage** — acquisition metadata and source references lead back to the
-  captured input;
-- **evidence role** — direct evidence, contextual evidence, and geographic
-  framing cannot be substituted for one another;
-- **spatial resolution** — exact coordinates, named-site coordinates, regions,
-  and density surfaces remain different claims;
-- **temporal support** — a numeric interval, a textual period, no captured
-  chronology, and a modern context layer remain different states;
-- **missingness** — absent or unresolved values stay absent or unresolved;
-- **publication posture** — normalization alone does not make a record public.
+- reported and normalized values remain separately recoverable;
+- exact, approximate, substituted, region-only, and withheld geography remain
+  different states;
+- numeric interval, textual period, project context, and absent chronology
+  remain different states;
+- direct evidence, context, sampling support, comparator, and framing remain
+  different roles;
+- missing and unresolved values are not converted to empty certainty;
+- normalization status is not publication status.
 
-This is why shared normalization is not a universal schema that demands a
-value in every field. It is a contract for comparable *meaning* and traceable
-limits.
+## Join Eligibility
 
-## Spatial and temporal restraint
+A shared identifier shape does not authorize a scientific join. A join must
+declare the relation and compatible dimensions:
 
-A site name can be standardized for matching while retaining the reported
-text. A source-provided coordinate can be converted to a common geometry while
-retaining its resolution and provenance. A supported date range can be
-expressed in normalized BP terms while retaining the reported date text and
-normalization basis.
+| Relation | Minimum support |
+| --- | --- |
+| same object | governing identity relation, not label similarity alone |
+| same place | compatible geometry, basis, and precision |
+| same period | compatible normalized chronology and uncertainty |
+| contextual proximity | declared distance or containment rule plus evidence roles |
+| product membership | named scope and admission decision |
 
-The reverse transformations are forbidden: a regional label does not become
-an exact point, a site inventory does not gain a synthetic date, and an
-archaeology density surface does not become sample evidence. These constraints
-protect comparisons from false alignment.
+Co-located records with incompatible time support remain spatially comparable
+only. Records within one country remain co-members of a geographic scope, not
+evidence of association.
 
-## From normalized data to publication
+## Publication Boundary
 
-Family-owned outputs live under paths such as `data/landclim/normalized/`,
-`data/neotoma/normalized/`, `data/sead/normalized/`, and
-`data/adna/species/<species-slug>/normalized/`. Review surfaces record coverage,
-freshness, spatial posture, temporal comparability, and blockers before a
-subset is assembled under `docs/report/world/` and regional report roots.
+The normalized collection is intentionally broader than the published subset.
+Review evaluates fitness for one claim and product; publication admits only
+records that satisfy that contract and preserves qualifications or exclusions
+for those that do not.
 
-The published subset may therefore be smaller than the normalized collection.
-That difference is deliberate: normalization makes evidence inspectable;
-review establishes fitness for a specific claim; publication exposes only the
-records that satisfy that claim's contract.
-
-See the [source-family matrix](source-family-matrix.md) for per-family
-contracts, [spatiotemporal posture](spatiotemporal-posture.md) for comparison
-limits, and [map inputs](../publications/map-inputs.md) for the publication
-boundary.
+Continue with the [spatiotemporal posture](spatiotemporal-posture.md) for
+comparison limits and [map inputs](../publications/map-inputs.md) for the
+publication handoff.

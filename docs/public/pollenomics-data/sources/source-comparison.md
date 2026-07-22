@@ -1,77 +1,78 @@
 ---
 title: Source Comparison
 audience: reader
-type: explanation
+type: reference
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-05-10
+last_reviewed: 2026-07-22
 ---
 
 # Source Comparison
 
-The most important reading rule in this repository is simple: start from the
-question you are asking, then choose the source family that can honestly answer
-it.
+Source choice begins with the claim, not with whichever layer is easiest to
+plot. Families differ in evidence unit, geographic reach, temporal support,
+and publication role. Those differences remain visible when several families
+share one atlas.
 
-That rule sounds obvious, but mixed research products often fail here. A layer
-that looks precise on a map can still be only contextual. A broad source can
-be geographically useful while remaining weak for local interpretation. A
-published point can sit on top of months of recovery work that is still not
-finished for neighboring projects.
+## Choose By Question
 
-## The Fast Comparison
+| Question | Primary family | Evidence unit | Role in a combined product | Principal limit |
+| --- | --- | --- | --- | --- |
+| What vegetation or pollen setting surrounds a place? | [LandClim](landclim.md) | site sequence and REVEALS grid | primary pollen context | does not establish a sample-level claim |
+| Which pollen sites support cross-place comparison? | [Neotoma](neotoma.md) | palaeoecological site record | primary pollen context | chronology coverage is not uniform |
+| What environmental archaeology context surrounds the evidence? | [SEAD](sead.md) | environmental-archaeology site | contextual domain | nearby archaeology is not sample proof |
+| What dense Swedish archaeology context is available? | [RAÄ](raa.md) | registry record and spatial density | contextual domain | intentionally jurisdiction-specific |
+| Which lakes and water bodies frame sampling choices? | SVAR | lake, catchment, and water-body record | sampling context | present-day hydrography is not historical evidence |
+| Which country or region contains a feature? | [Boundaries](boundaries.md) | governed polygon | geographic framing | boundaries carry no scientific weight by themselves |
+| Which human aDNA samples appear in a versioned release? | [AADR](aadr.md) | release-owned sample metadata | direct human aDNA | metadata publication is not genotype analysis |
+| Which animal samples have defensible source, place, and time evidence? | [Animal source intake](animal-source-intake.md) | project, paper, supplement, sample, and evidence relation | direct animal aDNA | recovery and publication maturity differ by record |
 
-| If your question is mainly about... | Start with... | Because it is strongest at... | Main caution |
-| --- | --- | --- | --- |
-| vegetation history and environmental setting | [LandClim](landclim.md) | pollen sequence and REVEALS context | broad environmental context is not the same as direct sample evidence |
-| site-centered pollen records across wider geography | [Neotoma](neotoma.md) | paleoecological pollen-site comparison | coverage and structure differ from LandClim, so the two families should not be collapsed |
-| archaeology context across more than one local system | [SEAD](sead.md) | environmental archaeology interpretation | it remains contextual support, not direct proof of one sample claim |
-| archaeology context inside Sweden and nearby Nordic reading | [RAÄ](raa.md) | dense Sweden-specific archaeological framing | rich Swedish coverage should not be mistaken for equal global reach |
-| geographic scope, filtering, and public framing | [Boundaries](boundaries.md) | country and regional interpretation | these layers frame evidence; they are not evidence on their own |
-| human ancient DNA release context | [AADR](aadr.md) | release-based human aDNA comparison | it is a distinct human program, not a substitute for animal recovery review |
-| non-human ancient DNA project recovery and sample extraction | [Animal source intake](animal-source-intake.md) | showing what had to be recovered before publication | many intake records matter before they are ready for map publication |
-| taxonomy, metadata, and multi-repository palaeoecology alignment | [PalaeOpen](palaeopen.md) | network-level interoperability and collaboration planning | it is an infrastructure network, not a direct evidence family |
+PalaeOpen is an interoperability network rather than a captured evidence
+family. It can strengthen metadata alignment and collaboration without
+becoming direct support for a published feature.
 
-## What Changes From One Family To Another
+## Comparison Axes
 
-What varies most is not only the content. The trust model changes as well.
+```mermaid
+flowchart TB
+    Claim["proposed claim"] --> Unit["evidence unit"]
+    Unit --> Role["direct, context, sampling, or framing"]
+    Role --> Space["spatial meaning and precision"]
+    Space --> Time["temporal meaning and precision"]
+    Time --> Reach["geographic and source coverage"]
+    Reach --> Product["eligible product and caveat"]
+```
 
-- Pollenomics families are strongest when you want environmental setting,
-  vegetation history, and landscape comparison.
-- Archaeology families are strongest when you want cultural or settlement
-  context around other evidence.
-- Boundaries are strongest when you want clean geographic framing.
-- AADR is strongest when you want a broad human aDNA context layer.
-- Animal intake is strongest when you want to understand recovery status,
-  blockers, and what is truly sample-backed for non-human aDNA.
-- PalaeOpen is strongest when you want to think about interoperability,
-  harmonization, and broader palaeoecological collaboration rather than one
-  checked-in evidence layer.
+Two layers are comparable only across dimensions they both actually support.
+Co-location permits a spatial comparison; it does not establish shared time,
+causal relation, or equal evidence strength.
 
-That is why the same public atlas can contain several kinds of layers without
-pretending they all speak with one voice.
+## Valid Combinations
 
-## How This Helps Reuse
+| Combination | Supports | Does not support automatically |
+| --- | --- | --- |
+| LandClim + Neotoma | complementary pollen and palaeoenvironmental reading | one universal pollen chronology |
+| pollen + SEAD or RAÄ | environmental and archaeology context around a place | direct association between a site and a biological sample |
+| pollen + SVAR | lake-centered sampling and landscape interpretation | field suitability, permits, or preserved sediment quality |
+| direct aDNA + context layers | interpretation of a governed sample within a wider landscape | transfer of context-layer precision to the sample |
+| evidence + boundaries | reproducible geographic selection and display | representativeness within the selected area |
 
-If you want to adapt this repository for a region that does not yet have a
-published atlas, source comparison is the first practical step.
+## Reuse Outside Current Products
 
-It tells you:
+A source family is portable when its identity, acquisition, normalized
+semantics, evidence role, and review criteria remain meaningful in the new
+scope. Jurisdiction-specific sources may still be reusable as a pattern, but
+their records and authority do not travel beyond their governed coverage.
 
-- which source families are already portable across geographies
-- which ones are local or jurisdiction-specific
-- which ones are ready to support public interpretation now
-- which ones still need recovery, review, or narrower claims
+Before reuse, establish:
 
-That keeps reuse honest. You begin from the evidence each family can support,
-not from what would look attractive in a combined visualization.
+- the denominator and geographic scope;
+- whether the normalized record retains source-native meaning;
+- which temporal and spatial comparisons remain valid;
+- whether license and retrieval context permit the intended use;
+- which new review or publication gate is required.
 
-## Best Next Pages
-
-- Open [Source family matrix](source-family-matrix.md) if you want the broader
-  repository balance view.
-- Open [Animal source intake](animal-source-intake.md) if your question is
-  about projects, papers, supplements, or sample recovery.
-- Open [Shared normalization](shared-normalization.md) if you want to know how
-  these different families can appear together without being flattened into one
-  generic export.
+The [source-family matrix](source-family-matrix.md) records the repository-wide
+roles, while [shared normalization](shared-normalization.md) explains how
+different families become structurally comparable without becoming
+scientifically interchangeable.
