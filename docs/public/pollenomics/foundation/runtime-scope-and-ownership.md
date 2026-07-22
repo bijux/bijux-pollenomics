@@ -17,7 +17,22 @@ artifact exists. Ownership follows scientific meaning: collection owns
 acquisition, evidence modules own normalized claims, review owns fitness,
 product contracts own membership, and reporting owns presentation.
 
-## Runtime Boundaries
+## Domain Language
+
+| Term | Meaning in this runtime | Common misreading |
+| --- | --- | --- |
+| capture | retained upstream material plus retrieval identity | evidence already fit for a claim |
+| governed record | repository-owned identity and claim representation with source lineage | a generic row whose columns are self-authoritative |
+| review | claim- and use-specific evaluation of fitness, precision, conflict, or recovery | a universal quality score |
+| admission | decision that one governed record belongs to one product scope and role | proof that every claim on the record is analytically comparable |
+| publication | manifested members, warnings, traceability, and renderings | a new source of scientific facts |
+| refusal | durable result that preserves why a stronger claim or representation is unsupported | missing work that may be discarded |
+
+These terms name ownership transitions. “Collected,” “reviewed,” and
+“published” are not interchangeable maturity badges, and a later state never
+retroactively supplies an earlier missing authority.
+
+## Lifecycle And Surface Map
 
 ```mermaid
 flowchart LR
@@ -40,7 +55,7 @@ The direct path is not a shortcut around scientific review; it makes the
 current family-specific lifecycle observable. Claims that require a missing
 stage remain unavailable until that stage is governed and materialized.
 
-## Ownership Map
+## Ownership Boundary And Map
 
 | Runtime boundary | Owns | Durable result |
 | --- | --- | --- |
@@ -54,6 +69,28 @@ stage remain unavailable until that stage is governed and materialized.
 The tracked `data/` tree is governed evidence state. `docs/report/` contains
 derived publication and accountability state. Public guides explain how to
 read those artifacts; they do not become a third database.
+
+An ownership boundary is crossed only through a declared contract. Repeating
+a chronology in a popup does not transfer chronology ownership to the popup;
+calling a collector from the CLI does not transfer source-family semantics to
+the command parser. Corrections begin at the earliest authority and flow
+forward through typed descendants.
+
+## Capability Map
+
+| Capability | Current owner | Current result | Claim ceiling |
+| --- | --- | --- | --- |
+| source collection | family collectors and animal source intake | versioned captures, metadata, hashes, and source dossiers | capture presence, not scientific fitness |
+| evidence preparation | family normalization and animal evidence modules | stable records, relations, provenance, and unresolved states | represented meaning, not automatic product admission |
+| scientific review | evidence and analysis review modules | conflicts, precision, comparability, recovery, and refusal | the declared claim and use only |
+| product assembly | product contracts and reporting assembly | world, regional, country, lake, and fieldwork membership | manifested members within one scope |
+| presentation | reporting renderers | maps, tables, Markdown, and HTML | faithful rendering of admitted state |
+| repository verification | maintainer package and focused tests | contract findings and release stops | agreement for the checked boundary, not new scientific authority |
+
+The map describes implemented owners. General multi-evidence harmonization,
+evidence-aware interpretation, and workflow replay remain outside the current
+runtime capability boundary even where the repository contains design
+direction for them.
 
 ## Command Semantics
 
@@ -108,7 +145,7 @@ A reproducible runtime result includes:
 Terminal output alone cannot prove what entered a product. Generated files
 without invocation and input identity cannot prove how they were produced.
 
-## Adjacent Packages
+## Dependencies And Adjacencies
 
 | Distribution | Responsibility | Boundary |
 | --- | --- | --- |
@@ -120,6 +157,29 @@ Repository workflow policy can decide when to run the runtime, but it cannot
 change evidence meaning. Public documentation can explain an output, but it
 cannot admit a record. The compatibility package can rename an entry point,
 but it cannot produce a distinct schema or scientific result.
+
+Dependencies used for coordinate transformation, safe XML processing,
+serialization, or rendering supply mechanics. They do not own the repository's
+source roles, claim precision, or admission policy. An adjacency becomes a
+product dependency only through a named interface and an explicit transfer of
+typed data—not because both systems can read the same file format.
+
+## Change Principles
+
+1. Change a fact at its earliest governing record, then regenerate declared
+   descendants.
+2. Preserve source-native identity and wording before normalizing shape.
+3. Keep collection, fitness, admission, and rendering as separate decisions.
+4. Prefer a qualified or refused result to invented precision or silent loss.
+5. Require explicit roots for operations that read or replace governed state.
+6. Treat manifests, exclusions, warnings, and traceability as one publication
+   contract.
+7. Expand the runtime only through a durable owner, typed boundary, and
+   focused proof.
+
+These principles keep a correction local to its authority while still making
+its publication impact visible. They also prevent compatibility adapters,
+workflow routers, and renderers from becoming accidental scientific owners.
 
 ## Explicit Limits
 

@@ -37,9 +37,9 @@ flowchart LR
     OpenAPI -. "describes a compatibility target" .-> State
 ```
 
-## Python Facade
+## Python Surface
 
-The stable import boundary is the package root:
+The stable Python facade is the package root:
 
 ```python
 from bijux_pollenomics import (

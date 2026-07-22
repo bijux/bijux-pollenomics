@@ -88,7 +88,7 @@ that returns a report object may still have written governed files. Determine
 impact from the command contract and explicit root arguments, not from output
 format.
 
-## Authority Does Not Flow Backward
+## Dependency Direction
 
 Publication consumes scientific decisions but cannot redefine them. A map
 renderer may position a supported point; it cannot promote a region-only
@@ -108,7 +108,13 @@ The reverse path is equally constrained: acquisition does not imply
 normalization success, normalization does not imply publication fitness, and
 review for one product does not imply fitness for every product.
 
-## State Boundaries
+Dependency direction follows authority, not call order. Reporting may import
+evidence types and read admission decisions; evidence must not import a report
+renderer to decide whether a fact is true. Command dispatch may invoke every
+workflow; it remains an adapter and does not acquire the scientific ownership
+of the workflows it invokes.
+
+## State And Persistence
 
 - `data/` contains governed captured, normalized, reviewed, and governance
   state;
@@ -152,7 +158,7 @@ artifact, while this package does not start an HTTP service. A client can use
 the frozen description to design or validate a future adapter, but cannot infer
 that an endpoint is deployed from the presence of `apis/`.
 
-## Failure Semantics
+## Error Model
 
 | Failure | Meaning |
 | --- | --- |
@@ -201,7 +207,7 @@ flowchart LR
     Result --> Fitness["qualification and refusal evidence"]
 ```
 
-## Extension Rule
+## Extensibility Posture
 
 New source families and products enter through named ownership boundaries.
 They must declare source identity, normalized semantics, evidence role,
@@ -213,3 +219,19 @@ Code navigation begins with the boundary that owns the decision:
 `adna/` for animal sample evidence, `evidence/` for fitness,
 `analysis/` for comparison, and `reporting/` for publication. Shared mechanics
 belong in `core/` only when they carry no source- or product-specific meaning.
+
+### Code Navigation
+
+Trace a behavior from its public boundary toward the narrowest owner:
+
+| Behavior to inspect | Start at | Continue to |
+| --- | --- | --- |
+| command parsing, defaults, or exit behavior | `command_line/` | the handler and domain request it invokes |
+| source capture or decoding | `data_downloader/` or `adna/sources/` | family contract, retrieval identity, and normalized owner |
+| sample, locality, chronology, or coordinate meaning | `adna/` and `evidence/` | governed record, relation, conflict, and admission rule |
+| comparison or ranking | `analysis/` | declared population, feature contract, scenario, and sensitivity result |
+| bundle membership or rendering | `reporting/` | product contract, member assembly, manifest, and presentation adapter |
+
+Start from the public command or facade when compatibility is disputed. Start
+from the governed evidence record when scientific meaning is disputed. A
+search result in a renderer is not enough to assign ownership to rendering.
