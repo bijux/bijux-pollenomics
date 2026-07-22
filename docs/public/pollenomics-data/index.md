@@ -375,6 +375,26 @@ source posture, temporal semantics, coordinate precision, and visible caveats.
 Where comparability is weak, the system publishes the limitation or refuses a
 stronger release claim.
 
+## A Portable Extract Is A Bounded Claim Packet
+
+Moving rows out of the repository does not remove their evidence obligations.
+A reusable extract keeps enough structure to reconstruct both the claim and
+its publication decision:
+
+| Packet member | Required content |
+| --- | --- |
+| population contract | observation unit, inclusion rule, exclusions, scope, and database revision |
+| object identity | stable repository key, source-native key, type, and aliases |
+| owned claims | value, claimant, precision, basis, and unresolved or conflict state |
+| evidence locators | source family, release or accession, captured artifact, and row, table, or field locator |
+| decision | proposed use, rule, outcome, reason, qualification, and recovery condition |
+| publication context | product identity, manifest version, member identity, role, and visible caveats |
+
+An extract that omits the negative population is incomplete even when every
+exported row is internally traceable. Exclusions, unresolved identities, and
+recovery gaps establish the denominator and prevent the selected members from
+being mistaken for everything that was captured.
+
 ## Core References
 
 - [Domain language](domain-language.md)

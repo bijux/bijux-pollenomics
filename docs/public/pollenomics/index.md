@@ -294,6 +294,22 @@ weight merely because a lake is close to another layer.
 - [Sweden lake priorities](../nordic-atlas/sweden-lake-priorities/index.md)
   covers ranking evidence and fieldwork-oriented use.
 
+## Keep The Four Identities Together
+
+A result normally crosses four identifiers that answer different questions:
+
+| Identity | Question answered | Failure caused by dropping it |
+| --- | --- | --- |
+| source identity | which upstream release and member supplied the evidence? | the value cannot be recovered or refreshed reproducibly |
+| governed-object identity | which site, sample, lake, or record owns the claims? | repeated labels and derived rows can be mistaken for new objects |
+| decision identity | which claim-specific rule admitted, qualified, or refused the object? | product membership appears to follow automatically from capture |
+| product-member identity | where does the decision appear in a named manifest? | a rendering becomes impossible to reconcile with its declared population |
+
+The same object may have several product-member identities and several
+claim decisions. That multiplicity is expected: a sample may support an
+inventory, fail exact-point admission, and remain eligible for regional
+context. The stable object connects those outcomes without collapsing them.
+
 ## Boundaries
 
 The current maps are inspectable publications, not autonomous scientific
