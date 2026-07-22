@@ -7,7 +7,7 @@ owner: bijux-pollenomics-docs
 last_reviewed: 2026-07-22
 ---
 
-# Point publication rules
+# Point Publication Rules
 
 A point is published only when the repository can reconstruct what it
 represents, where its coordinate came from, and which evidence rows support it.
@@ -26,8 +26,24 @@ backed.
 Acceptance applies to the declared point product. It does not certify complete
 project recovery, equal coverage across species, or unrestricted analytical
 fitness. The animal publication gate currently passes all ten anti-overclaim
-and traceability checks while still refusing the strongest reference-grade
-claim.
+and traceability checks. The supported claim is narrower: every admitted
+marker can be traced through the evidence fields required by this product.
+Project completeness, species completeness, and suitability for an analysis
+that needs uniform ascertainment remain outside that claim.
+
+### What the Published Marker Establishes
+
+| Reader question | Answer supported by an admitted marker | Claim not established by the marker |
+| --- | --- | --- |
+| What is it? | a stable feature linked to species, project, and sample evidence | an exhaustive inventory of that project or species |
+| Why is it here? | a locality and coordinate decision with recorded provenance | survey-grade positional accuracy unless the source establishes it |
+| How certain is the position? | the published `exact` or `approximate` coordinate class | identical precision across all markers |
+| When is it from? | only the chronology posture and fields admitted for that row | a numeric date where the evidence is contextual, broad, or conflicting |
+| Why is it visible? | membership in the named product under its admission contract | eligibility for every regional subset or analytical use |
+
+In this contract, `exact` identifies a coordinate transcribed from a governed
+source rather than a coordinate resolved by the repository. It does not add a
+measurement precision that the source never reported.
 
 ## Animal point admission
 
@@ -89,6 +105,10 @@ a mappable locality remains in the collection but outside the point layer.
 | admitted location, broad chronology | admit spatially | omit numeric time window | location is visible; numeric temporal comparison is not authorized |
 | region-only or project-level locality | refuse | no coordinate fields | known evidence without a defensible marker |
 | sample/site disagreement | exclude pending resolution | no spatial or numeric borrowing | conflict remains visible in review surfaces |
+
+The last column is the marker's claim ceiling. Popup copy, legends, and
+downstream prose must remain at or below it. Presentation can explain a
+qualification, but it cannot remove one.
 
 ## Required evidence by field
 

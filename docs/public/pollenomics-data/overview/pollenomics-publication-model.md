@@ -24,7 +24,8 @@ The model deliberately separates three questions:
 
 A positive answer at one boundary does not imply a positive answer at the
 next. This is why a normalized row can remain excluded, and why a coherent
-map can still carry an explicit non-reference-grade posture.
+map can be internally valid without claiming complete recovery, uniform
+precision, or fitness for an undeclared analysis.
 
 ## Evidence Roles
 
@@ -86,6 +87,21 @@ and lake-decision products inherit its evidence semantics while applying
 narrower membership or a specialized decision contract. A descendant product
 can be more selective; it cannot silently strengthen its ancestors' facts.
 
+### Product Classes and Claim Ceilings
+
+| Product class | May claim | Must not imply |
+| --- | --- | --- |
+| evidence register | governed source, identifier, and review state for each listed record | that every relevant source or record has been recovered |
+| point layer | admitted spatial membership with row-level provenance and visible coordinate class | uniform precision, absence of refused evidence, or analytical independence |
+| contextual layer | source-specific environmental, archaeological, or geographic context | direct sample support or causation from proximity |
+| regional bundle | reproducible selection from the parent evidence state | stronger evidence semantics than the parent product |
+| decision-support output | ranking under named inputs, transformations, and scenarios | field readiness, optimality, or a scientific conclusion independent of assumptions |
+
+The claim ceiling travels with membership and semantics. A country subset does
+not turn contextual chronology into a numeric interval; a filtered map does
+not turn an approximate coordinate into a source-supplied one; a high lake
+rank does not become a coring recommendation without field evidence.
+
 ## Release Gates Preserve Honest Claims
 
 Release checks test the relationship between evidence and publication rather
@@ -93,7 +109,8 @@ than declaring the underlying science complete. For animal evidence, the
 current gate confirms that published points retain required traceability,
 blocked sample-site and chronology rows do not leak into exact outputs, and
 contextual chronology is not rendered as numeric time. The same gate refuses
-a reference-grade claim because project recovery remains incomplete.
+collection-completeness and uniform-precision claims because project recovery
+remains incomplete and admitted rows retain different evidence classes.
 
 That combination is intentional: a product can be valid for its declared
 membership and still decline a broader completeness claim. Passing integrity

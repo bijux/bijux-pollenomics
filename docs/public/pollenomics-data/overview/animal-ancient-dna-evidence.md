@@ -78,6 +78,23 @@ supplementary-table coordinates and one uses documented named-site geocoding
 at approximate confidence. These are admitted evidence rows, not proof that
 every project, species, locality, or chronology has reached the same maturity.
 
+### Evidence Depth Is Dimension-Specific
+
+| Dimension | What the repository can establish | Remaining boundary |
+| --- | --- | --- |
+| source discovery | which projects, papers, and supplements are tracked | discovery does not prove sample-bearing material was recovered |
+| sample recovery | which source rows became stable sample records | most projects do not have an exact expected-row denominator |
+| locality | which verbatim localities resolve to sample- or group-owned sites | regional or conflicting assignments remain non-point evidence |
+| coordinate | whether a pair is source-supplied or repository-resolved, with confidence | coordinate class does not imply uniform real-world precision |
+| chronology | which source statement, interval, and basis belong to a sample | broad or contextual time does not authorize synthetic numeric bounds |
+| publication | which rows satisfy a named product contract | admission does not establish collection completeness |
+
+There is therefore no single collection-wide maturity score. A project can be
+well documented at the paper and supplement level while its locality recovery
+is incomplete; a spatially admitted sample can still have chronology that is
+too broad for numeric comparison. The governing files preserve those
+different states instead of averaging them into one quality label.
+
 ```mermaid
 flowchart LR
     Inventory["40 tracked projects"] --> Recovery["868 recovered sample rows"]
@@ -117,8 +134,9 @@ The point contract is also narrower than “animal evidence available.” A
 project can contribute paper, supplement, taxonomy, or broad locality evidence
 without contributing an atlas point. Conversely, a point admitted under its
 present traceability and precision does not certify complete recovery of its
-project. The release posture records that distinction explicitly and currently
-refuses the stronger reference-grade claim.
+project. The release posture records the narrower claim that the admitted
+subset satisfies its point contract while project-level recovery denominators,
+blocked sources, and unresolved evidence remain visible outside that subset.
 
 Continue with [animal source intake](../sources/animal-source-intake.md),
 [sample records](../evidence/sample-records.md), [locality evidence](../evidence/localities.md),
