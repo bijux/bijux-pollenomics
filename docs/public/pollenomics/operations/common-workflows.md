@@ -1,7 +1,7 @@
 ---
 title: Common Workflows
 audience: reader
-type: explanation
+type: how-to
 status: canonical
 owner: bijux-pollenomics-docs
 last_reviewed: 2026-07-22
@@ -9,69 +9,104 @@ last_reviewed: 2026-07-22
 
 # Common Workflows
 
-Workflows are selected by the state that must change. Installation changes the
-local environment, collection changes governed evidence, publication changes
-public products, and a full application-state refresh changes all three in
-sequence.
+Choose a workflow by the state that must change. Inspection reads governed
+state, collection replaces evidence-family state, review derives posture, and
+publication replaces public products. Keeping those actions separate makes
+scientific changes explainable.
 
-## Fresh Checkout
-
-1. Run `make install`.
-2. Confirm the console script with
-   `artifacts/root/check-venv/bin/bijux-pollenomics --version`
-3. Inspect a read-only surface such as
-   `artifacts/root/check-venv/bin/bijux-pollenomics source-support`.
-
-Expected writes are limited to installation and run artifacts. Governed data
-and reports should remain unchanged.
-
-## Data Refresh Review
-
-1. Record the current `data/collection_summary.json` version and hashes.
-2. Run `make data-prep`, or invoke `collect-data` for named source families.
-3. Inspect changed `raw/`, `normalized/`, and `review/` surfaces separately.
-4. Compare retrieval metadata, licences, hashes, record counts, and deletions.
-5. Validate the collection summary without recollecting:
-   `bijux-pollenomics validate-collection-summary`.
-
-Source retrieval may succeed while normalization or review exposes weaker
-coverage. Preserve that result as an explicit review state; do not describe
-pipeline completion as publication readiness.
-
-## Publication Review
-
-1. Confirm that the intended collection state is already checked in.
-2. Run `make reports`, `publish-reports`, or a narrower `report-*` command.
-3. Inspect `docs/report/published_reports_summary.json` and changed manifests.
-4. Verify world-to-region-to-country subset lineage.
-5. Review point traceability, warnings, exclusions, ranking sensitivity, and
-   `docs/report/repository_truth_posture.md`.
-
-The report diff must explain whether change came from evidence, geographic
-selection, product rules, or rendering. These causes are not interchangeable.
-
-## Species Evidence Review
-
-1. Inspect `adna-species-review --species <name> --json`.
-2. Inspect the species runtime manifest and normalized evidence files.
-3. Follow project links for locality and chronology authority.
-4. Review coordinate posture and archive-integrity findings.
-5. Use the end-to-end animal refresh only when capture, normalization, and
-   dependent publication are all intentionally in scope.
-
-## Full Local Rebuild
-
-`make app-state` spans source refresh, publication, and site state. Review each
-governed root as a separate causal unit:
+## Workflow Map
 
 ```mermaid
-flowchart LR
-    Install["runtime environment"] --> Collect["data collection"]
-    Collect --> Review["evidence review"]
-    Review --> Publish["report publication"]
-    Publish --> Site["documentation site"]
+flowchart TB
+    Need{"required outcome"}
+    Need -->|understand current state| Inspect["inspect"]
+    Need -->|refresh upstream evidence| Collect["collect"]
+    Need -->|recompute derived contracts| Review["review"]
+    Need -->|replace public products| Publish["publish"]
+    Inspect --> NoWrite["no governed writes"]
+    Collect --> Data["data source-family diff"]
+    Review --> Findings["review and contract diff"]
+    Publish --> Reports["publication diff"]
 ```
 
-If an upstream stage fails, do not assume later roots are current. Preserve the
-logs under `artifacts/`, inspect partial changes, and rerun only after the
-governed state is understood.
+## Inspect Current Capability
+
+Use read-only commands before selecting a state-changing workflow:
+
+```bash
+bijux-pollenomics product-scope
+bijux-pollenomics surface-map
+bijux-pollenomics source-support
+bijux-pollenomics adna-species
+```
+
+These surfaces distinguish implemented capability, source-family support,
+species posture, and repository ownership. They are orientation records, not a
+substitute for the evidence behind one published feature.
+
+## Refresh A Source Family
+
+Collection should name the source family whenever a complete cross-family
+refresh is unnecessary:
+
+```bash
+bijux-pollenomics collect-data neotoma --output-root data
+bijux-pollenomics validate-collection-summary data/collection_summary.json
+```
+
+Review the capture, normalized records, retrieval metadata, source hashes,
+counts, removals, and review findings as one causal change. A successful
+download establishes acquisition; it does not establish unchanged meaning or
+publication readiness.
+
+## Recompute Data Contracts
+
+When governed source files already contain the intended state, contract
+surfaces can be derived without recollecting sources:
+
+```bash
+bijux-pollenomics refresh-data-contract-surfaces --data-root data
+```
+
+This workflow is appropriate for summaries and contracts that are stale
+relative to the checked-in tree. It must not be used to disguise an incomplete
+or partially replaced source family.
+
+## Review Animal Evidence
+
+```bash
+bijux-pollenomics adna-species-review --species ovis_aries --json
+bijux-pollenomics adna-runtime-manifest --species ovis_aries --json
+bijux-pollenomics adna-release-readiness --species ovis_aries --json
+```
+
+Read sample identity, project and paper lineage, locality, chronology,
+coordinate basis, archive integrity, and product role together. Project-level
+context cannot fill a missing sample-owned claim merely because the project is
+otherwise well documented.
+
+## Publish Governed Products
+
+```bash
+bijux-pollenomics publish-reports \
+  --aadr-root data/aadr \
+  --context-root data \
+  --output-root docs/report \
+  --countries Sweden Norway Finland Denmark
+```
+
+Publication acceptance has four parts:
+
+1. the intended data state is already governed;
+2. world, regional, and country membership follows declared scope;
+3. traceability, warnings, citations, and exclusions remain connected;
+4. the product diff can be explained by evidence, policy, scope, or rendering.
+
+Those causes should never be collapsed into “the reports changed.”
+
+## Rebuild All Governed State
+
+`make app-state` combines collection, publication, and documentation build. It
+is appropriate only when all of those changes are intentional. If a stage
+fails, later stages cannot be assumed current; use [failure
+recovery](failure-recovery.md) to identify the last coherent boundary.

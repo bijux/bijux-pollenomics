@@ -1,67 +1,87 @@
 ---
 title: Installation and Setup
 audience: reader
-type: explanation
+type: how-to
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-05-10
+last_reviewed: 2026-07-22
 ---
 
-# Installation and Setup
+# Installation And Setup
 
-The supported setup path is repository-first.
+The supported local environment is created from the repository lock and kept
+under `artifacts/`. Installation prepares the command surface without
+refreshing governed evidence or rebuilding public reports.
 
-That means the repository checkout itself is the supported environment. The aim
-is not to chase every possible Python invocation. The aim is to reach the
-known-good command path quickly and then stay on it.
+## Prerequisites
 
-## Setup Model
+- Python 3.11;
+- `uv` available on `PATH`;
+- a complete checkout containing `data/`, `docs/`, `apis/`, and `uv.lock`.
 
-```mermaid
-flowchart TB
-    prereq["python, uv, tracked checkout"]
-    install["make install"]
-    env["repository check environment"]
-    cli["bijux-pollenomics --version"]
-    proof["runtime proof surface"]
-
-    prereq --> install
-    install --> env
-    env --> cli
-    cli --> proof
-```
-
-The point is to reach a known-good local command path quickly.
-
-## Expected Prerequisites
-
-- Python 3.11
-- `uv`
-- a checkout that includes tracked `data/`, `docs/`, and `apis/` surfaces
-
-## Recommended Setup Flow
+From the repository root:
 
 ```bash
+python3.11 --version
+uv --version
 make install
 artifacts/root/check-venv/bin/bijux-pollenomics --version
 ```
 
-`make install` creates the editable repository environment used for package,
-docs, and verification work. Treat that environment as the supported local
-entrypoint before troubleshooting command behavior elsewhere.
+`make install` creates or refreshes the editable locked environment at
+`artifacts/root/check-venv/`. The command does not collect sources or publish
+reports.
 
-## Typical Rebuild Path
-
-```bash
-artifacts/root/check-venv/bin/bijux-pollenomics collect-data all --output-root data
-artifacts/root/check-venv/bin/bijux-pollenomics publish-reports --aadr-root data/aadr --context-root data --output-root docs/report --countries Sweden Norway Finland Denmark
+```mermaid
+flowchart LR
+    Lock["uv.lock"] --> Install["make install"]
+    Packages["workspace packages"] --> Install
+    Install --> Environment["artifacts/root/check-venv"]
+    Environment --> Canonical["bijux-pollenomics"]
+    Environment --> Alias["pollenomics"]
+    Canonical --> Inspect["read-only inspection"]
+    Alias -. "same runtime" .-> Inspect
 ```
 
-## First Proof Check
+## Confirm The Environment
 
-- `make install`
-- `artifacts/root/check-venv/bin/bijux-pollenomics --version`
-- `packages/bijux-pollenomics/tests/`
+These commands inspect installed identity and repository posture without
+rewriting governed data or reports:
 
-If those three checks are not working, it is too early to trust broader rebuild
-results.
+```bash
+artifacts/root/check-venv/bin/bijux-pollenomics --version
+artifacts/root/check-venv/bin/bijux-pollenomics product-scope
+artifacts/root/check-venv/bin/bijux-pollenomics source-support
+artifacts/root/check-venv/bin/bijux-pollenomics ownership-map
+```
+
+The two console scripts must report the same runtime behavior. A difference
+between them is a compatibility defect, not an optional package variation.
+
+## Understand Write Scope Before Execution
+
+| Operation | Expected writes | Network access |
+| --- | --- | --- |
+| installation | transient environment under `artifacts/` | package resolution may require it when caches are incomplete |
+| inspection commands | none | no |
+| collection | governed source-family state under `data/` | usually yes |
+| data-contract refresh | summaries derived from the current `data/` tree | no collection required |
+| publication | governed products under `docs/report/` | no, when required data is present |
+| documentation build | rendered site under `artifacts/` | no |
+
+Do not use collection or publication as an installation check: both are
+state-changing scientific workflows. Continue with [common
+workflows](common-workflows.md) only when changing those governed surfaces is
+the intended outcome.
+
+## Troubleshooting Setup
+
+If installation fails, keep the diagnosis at the environment boundary:
+
+1. confirm the Python and `uv` versions;
+2. confirm the checkout includes the lock and all workspace packages;
+3. inspect the installation error before invoking any data command;
+4. recreate only transient state under `artifacts/` when needed.
+
+A failed environment setup does not justify changing tracked data, reports, or
+the lock file.
