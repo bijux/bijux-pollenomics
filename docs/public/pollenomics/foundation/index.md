@@ -14,7 +14,28 @@ acquires heterogeneous scientific and geographic sources, preserves their
 identities and limitations, creates repository-owned evidence records, and
 derives scoped maps and reports from the admitted subset.
 
-The product is the accountable chain, not only the final visualization.
+The product is the accountable chain, not only the final visualization. That
+chain has three independently inspectable surfaces:
+
+| Product surface | What it owns | What it does not prove by itself |
+| --- | --- | --- |
+| governed evidence database | source identity, extracted records, normalized meaning, review state, conflicts, exclusions, and recovery gaps | that a record is fit for a particular public claim |
+| producer runtime | repeatable transformations, validation, ranking, admission, and publication behavior | that every source family has materialized every lifecycle stage |
+| publication products | declared membership, geography, evidence roles, caveats, and reader-facing interpretation | complete recovery, causal association, or equal comparability across domains |
+
+The database is therefore a product surface in its own right. It preserves
+more than the atlas shows, including negative decisions and unresolved work.
+The runtime operates on that governed state. A publication is a selected,
+manifested descendant of both; it is not the database rendered wholesale.
+
+```mermaid
+flowchart LR
+    Sources["versioned sources"] --> Database["governed evidence database"]
+    Database --> Producer["producer runtime"]
+    Producer --> Products["scoped publication products"]
+    Products -. "member trace" .-> Database
+    Producer -. "validation and accounting" .-> Database
+```
 
 The executable product-scope contract names the current mode
 `atlas_builder` and the project direction `future_engine`. That is a product
@@ -52,7 +73,7 @@ flowchart LR
 These responsibilities stay together because a polished output without its
 capture and review lineage cannot support a consequential scientific claim.
 
-### The Product Has Two Directions
+### Trust Runs In Two Directions
 
 Forward execution creates a publication; reverse inspection establishes
 trust. Both directions are required:
@@ -135,6 +156,23 @@ surfaces without being promoted to universal scientific conclusions.
 
 The domains can coexist in one publication while retaining different units,
 coverage, uncertainty, and evidentiary roles.
+
+### Populations Are Named, Not Blended
+
+Animal evidence demonstrates why a single phrase such as “the database” is
+not precise enough for scientific accounting:
+
+| Population | Count | Unit and purpose |
+| --- | ---: | --- |
+| sample-foundation truth | 894 | curated source rows classified by grounding and blocking posture |
+| recovered project sample master | 868 | stable sample identities recovered across 40 tracked projects |
+| animal point publication | 234 | 233 final sample-backed features plus one provisional project-context feature |
+
+These values answer different questions. They are not successive percentages
+of one denominator: foundation rows and recovered identities have distinct
+curation contracts, while publication membership applies a claim-specific
+point contract. Every comparison must name its population and observation
+unit before interpreting a count.
 
 ## Capability States
 

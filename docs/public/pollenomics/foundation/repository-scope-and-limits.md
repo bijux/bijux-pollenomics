@@ -24,7 +24,7 @@ yet own.
 
 | Surface | Status | Defensible statement |
 | --- | --- | --- |
-| source collection and normalization | implemented | the runtime captures named source families and writes governed raw and normalized state |
+| source collection and evidence preparation | implemented with family-specific materialization | the repository retains governed captures and preparation evidence, while normalized and review artifacts remain absent for some families |
 | atlas and country publication | implemented | the runtime assembles scoped bundles, reports, and maps from admitted evidence |
 | candidate ranking | implemented with a heuristic claim ceiling | declared features and scenarios produce reviewable decision-support artifacts |
 | multi-evidence harmonization runtime | planned | no current public contract performs general cross-domain harmonization |
@@ -34,6 +34,32 @@ yet own.
 The machine-readable authority for this distinction is the product and surface
 scope returned by the Python facade and the `product-scope` and `surface-map`
 commands. Narrative descriptions cannot expand that executable contract.
+
+## Three Boundaries Must Agree
+
+The repository has three related but non-equivalent boundaries:
+
+| Boundary | Authority | Reader test |
+| --- | --- | --- |
+| evidence database | captured, extracted, normalized, related, and reviewed repository state | can the record and its preparation lineage be inspected? |
+| runtime | commands and Python interfaces that own a transformation or decision | can the transition be replayed with declared inputs and outputs? |
+| publication | manifests and products that declare visible membership and claim role | can each member resolve to governed evidence and a scope decision? |
+
+```mermaid
+flowchart TD
+    Claim["proposed claim"] --> Published{"member of a governed product?"}
+    Published -->|no| Stop["not a publication claim"]
+    Published -->|yes| Runtime{"owned runtime decision?"}
+    Runtime -->|no| Stop
+    Runtime -->|yes| Evidence{"preparation lineage supports the role?"}
+    Evidence -->|no| Qualify["qualify, exclude, or recover"]
+    Evidence -->|yes| Support["defensible within declared scope"]
+```
+
+A publication can build successfully while a stronger evidence claim remains
+unsupported. Conversely, a curated database row may be valuable evidence even
+when it is not eligible for a point layer. Trust requires the three boundaries
+to agree at the level of the question being asked.
 
 ## Evidence Domains
 
@@ -77,6 +103,21 @@ The repository can support claims such as:
 It does not claim that every domain is equally complete, that proximity proves
 temporal overlap, that every country has equivalent source coverage, or that a
 ranked lake is ready for sampling.
+
+### Counts Require A Named Population
+
+The animal surfaces expose three counts that must not be collapsed:
+
+| Count | Governed population | Appropriate use |
+| ---: | --- | --- |
+| 894 | sample-foundation rows across 10 tracked species and 40 projects | grounding and blocker accounting |
+| 868 | recovered project sample-master identities | project recovery and stable sample identity |
+| 234 | published animal point features | map membership under the point contract |
+
+The 234 features comprise 233 final sample-backed points and one provisional
+project-context point. The other two populations are not implied denominators
+for that layer. A rate or completeness claim is invalid unless its numerator,
+denominator, observation unit, and governing contract are all named.
 
 ### One Point Layer, Two Claim Classes
 

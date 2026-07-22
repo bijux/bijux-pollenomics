@@ -25,7 +25,8 @@ the public interfaces do not perform.
 
 | Capability | Governed inputs | Result |
 | --- | --- | --- |
-| source collection | pinned source identities and family-specific acquisition rules | tracked raw and normalized family state with hashes and replacement semantics |
+| family-specific source collection | pinned source identities and family-specific acquisition rules | tracked captures with hashes, retrieval context, and replacement semantics where the family contract materializes them |
+| evidence-database preparation | captured material, extraction rules, identity contracts, and null semantics | repository-owned records with preserved provenance, typed uncertainty, conflicts, and negative outcomes |
 | animal evidence curation | archive projects, papers, supplements, and recovered samples | stable identity, locality, chronology, coordinate, conflict, and recovery records |
 | cross-domain publication | admitted evidence plus declared source roles | world, Europe-plus, Nordic, and country bundles |
 | geographic traceability | product manifests, feature IDs, and evidence owners | map members that resolve back to governed records and sources |
@@ -36,6 +37,38 @@ These capabilities produce checked-in structured artifacts, not only prose or
 screenshots. Each state-changing operation has an owned input boundary,
 manifested output, and review surface. They constitute an evidence-publication
 platform; they are not evidence that the planned general engine already exists.
+
+Operational here means that an owned contract exists and is exercised for the
+named result. It does not mean that every family has the same artifacts. The
+current lifecycle matrix records full capture, normalization, review, and
+publication materialization for Neotoma, SEAD, and animal ancient DNA. Other
+families retain narrower stage combinations: LandClim, RAÄ, and boundaries
+lack a materialized review stage, while SVAR and AADR currently retain capture
+and publication evidence without materialized normalized or review artifacts.
+Those absences are visible capability limits, not stages inferred from a
+successful downstream build.
+
+### Database Preparation Is Executable Evidence Work
+
+Preparation is not a clerical prelude to analysis. It is where source-native
+observations become accountable repository evidence:
+
+```mermaid
+flowchart LR
+    Receipt["source receipt"] --> Parse["parse without semantic promotion"]
+    Parse --> Normalize["normalize identity, units, and nulls"]
+    Normalize --> Relate["resolve samples, projects, places, and citations"]
+    Relate --> Curate["record conflicts, exclusions, and uncertainty"]
+    Curate --> Admit["apply claim-specific admission"]
+    Admit --> Publish["manifested product"]
+```
+
+The preparation capability is demonstrated by retained lineage and decisions,
+not merely by the existence of a table. A defensible record carries source
+identity, extraction context, normalization semantics, relationship evidence,
+and its review or blocking posture. Where one of those surfaces is not
+materialized for a family, the capability claim stops at the last observable
+stage.
 
 ## Qualified Capabilities
 
@@ -52,6 +85,12 @@ Some real capabilities carry narrower claims because the evidence is uneven:
   inventory rows remain temporally unresolved in the current capture; and
 - Sweden lake ranking supports prioritization, while field readiness remains
   dependent on bathymetry, access, permissions, and on-site verification.
+
+The animal database also contains different governed populations: 894
+sample-foundation rows, 868 recovered project sample-master identities, and
+234 point-publication members. These are distinct contracts rather than a
+single attrition funnel. The public layer contains 233 final sample-backed
+features and one provisional project-context feature.
 
 ```mermaid
 flowchart TB
