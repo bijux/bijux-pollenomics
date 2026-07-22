@@ -64,6 +64,7 @@ plugins:
         foundation/repository-scope.md: public/pollenomics/foundation/repository-scope-and-limits.md
         foundation/scope-and-non-goals.md: public/pollenomics/foundation/repository-scope-and-limits.md
         foundation/map-first-product-model.md: public/pollenomics/foundation/index.md
+        public/pollenomics/foundation/pollenomics-engine-roadmap.md: public/pollenomics/foundation/evidence-engine-capabilities.md
         architecture/index.md: public/pollenomics/architecture/index.md
         architecture/system-overview.md: public/pollenomics/architecture/module-map.md
         architecture/data-collection-flow.md: public/pollenomics/architecture/index.md
@@ -142,7 +143,7 @@ nav:
           - Overview: public/pollenomics/foundation/index.md
           - Repository Scope and Limits: public/pollenomics/foundation/repository-scope-and-limits.md
           - Publication Scope Model: public/pollenomics/foundation/publication-scope-model.md
-          - Pollenomics Engine Roadmap: public/pollenomics/foundation/pollenomics-engine-roadmap.md
+          - Evidence Engine Capabilities: public/pollenomics/foundation/evidence-engine-capabilities.md
           - Runtime Scope and Ownership: public/pollenomics/foundation/runtime-scope-and-ownership.md
       - Architecture:
           - Overview: public/pollenomics/architecture/index.md

@@ -104,6 +104,31 @@ surfaces without being promoted to universal scientific conclusions.
 The domains can coexist in one publication while retaining different units,
 coverage, uncertainty, and evidentiary roles.
 
+## Capability States
+
+Every capability belongs to one of three reader-visible states:
+
+| State | Meaning | Example |
+| --- | --- | --- |
+| operational | the runtime owns the complete input, decision, and output contract | versioned source collection and manifested report publication |
+| qualified | a real governed surface exists, but its evidence limits block a broader claim | admitted animal points beside explicit project-recovery gaps |
+| outside scope | no current runtime contract produces the claimed result | genotype analysis, causal inference, or autonomous sampling decisions |
+
+```mermaid
+flowchart LR
+    Request["reader or operator question"] --> Contract{"owned runtime contract?"}
+    Contract -->|no| Outside["outside current scope"]
+    Contract -->|yes| Evidence{"evidence satisfies claim?"}
+    Evidence -->|yes| Operational["operational result and traceability"]
+    Evidence -->|partly| Qualified["qualified result and visible limitation"]
+    Evidence -->|no| Refused["refusal or recovery surface"]
+```
+
+Qualified does not mean experimental or hidden. It means the repository can
+defend a narrower result and can name the evidence that prevents stronger
+language. Refusal is likewise a product outcome when the runtime completed but
+the scientific contract did not pass.
+
 ## Runtime Boundary
 
 `bijux-pollenomics` owns collection, normalization, evidence evaluation, and
@@ -121,6 +146,7 @@ genotypes, infer missing sample coordinates, or replace field verification.
 | What is included and where does the claim boundary stop? | [Repository scope and limits](repository-scope-and-limits.md) |
 | How do world, regional, country, and specialized outputs relate? | [Publication scope model](publication-scope-model.md) |
 | Which layer owns each operation and artifact? | [Runtime scope and ownership](runtime-scope-and-ownership.md) |
+| Which capabilities are operational, qualified, or outside scope? | [Evidence engine capabilities](evidence-engine-capabilities.md) |
 | Which source or evidence record supports a visible claim? | [Data system](../../pollenomics-data/index.md) |
 | How should atlas layers and points be interpreted? | [Nordic Evidence Atlas](../../nordic-atlas/index.md) |
 

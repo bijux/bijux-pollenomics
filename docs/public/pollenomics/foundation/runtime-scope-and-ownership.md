@@ -4,94 +4,102 @@ audience: reader
 type: explanation
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-05-10
+last_reviewed: 2026-07-22
 ---
 
-# Runtime Scope and Ownership
+# Runtime Scope And Ownership
 
-`bijux-pollenomics` exists to rebuild repository-owned evidence state. Its job
-is not abstract scientific theory and it is not general-purpose workflow
-policy. It owns the runtime loop that turns tracked inputs into tracked public
-outputs.
+`bijux-pollenomics` is the canonical runtime that turns explicit source and
+repository inputs into governed data, review, ranking, and publication
+artifacts. Ownership follows scientific meaning: collection owns acquisition,
+evidence modules own normalized claims, review owns fitness, product contracts
+own membership, and reporting owns presentation.
 
-That ownership boundary matters because this repository has several nearby
-surfaces that sound similar but serve different audiences. The public runtime,
-the data handbook, the atlas guide, and the maintainer toolkit should work
-together without being mistaken for the same thing.
+## Runtime Boundaries
 
-## Capability Map
+```mermaid
+flowchart LR
+    Command["CLI or Python request"] --> Collect["source collection"]
+    Collect --> Normalize["owned evidence records"]
+    Normalize --> Review["fitness, conflict, and comparability"]
+    Review --> Product["scope, role, and admission"]
+    Product --> Publish["structured bundles and presentation"]
+    Publish --> Verify["traceability, subset, and release checks"]
+    Verify -. correction .-> Normalize
+```
 
-- collect source families into governed `data/` trees
-- normalize pollen, archaeology, boundary, and aDNA evidence into inspectable
-  repository files
-- publish country bundles, atlas layers, and repository truth reviews
-- keep command defaults and output locations stable enough to review in one
-  repository checkout
+The arrow into publication carries admitted evidence and declared roles. It
+does not transfer upstream fact ownership to the report writer. A correction
+starts at the earliest governing record and then regenerates its descendants.
 
-## Surface Map
+## Ownership Map
 
-- runtime commands
-- tracked source-family and normalized evidence files
-- tracked publication outputs
-- repository truth and claim-audit surfaces
+| Runtime boundary | Owns | Durable result |
+| --- | --- | --- |
+| `data_downloader` and `adna.sources` | retrieval, decoding, source identity, and captured artifacts | versioned family trees and animal source dossiers |
+| `adna.projects` and normalization modules | stable samples, sites, chronology, coordinates, and family records | repository-owned evidence state |
+| `evidence` and `analysis.review` | ambiguity, precision, comparability, recovery, and refusal | review ledgers and fitness outcomes |
+| `foundation` and analysis modules | product scope, evidence role, admission, ranking, and sensitivity policy | machine-readable product and decision contracts |
+| `reporting` assembly | member relationships, bundles, and structured public rows | world, regional, country, and specialized product state |
+| `reporting` presentation | Markdown, HTML, tables, maps, and reader navigation | derived human-facing artifacts |
 
-## Ownership Boundary
+The tracked `data/` tree is governed evidence state. `docs/report/` contains
+derived publication and accountability state. Public guides explain how to
+read those artifacts; they do not become a third database.
 
-The runtime owns:
+## Command Semantics
 
-- command entrypoints and command defaults
-- collection and normalization behavior
-- publication behavior for `docs/report/`
-- file and path contracts needed to rebuild checked-in state
+Commands fall into two operational classes:
 
-The runtime does not own:
+| Class | Representative commands | Contract |
+| --- | --- | --- |
+| orientation | `product-scope`, `surface-map`, `ownership-map`, `source-support`, `adna-species` | read declared capabilities without rebuilding governed state |
+| state-changing | `collect-data`, `refresh-animal-adna-foundation`, `publish-reports` | consume explicit roots, write governed artifacts, and require semantic review |
 
-- repository-health policy that belongs in `bijux-pollenomics-dev`
-- public provenance interpretation that belongs in
-  `public/pollenomics-data`
-- atlas interpretation guidance that belongs in `public/nordic-atlas`
-- broader paper-grade pollenomics analysis that has not been implemented yet
+A successful process exit means software execution completed. It does not mean
+every requested scientific claim passed. State-changing operations can
+legitimately emit qualified results, empty admitted subsets, exclusions, or a
+release refusal while returning successful execution.
 
-## Dependencies And Adjacencies
+## Operation Evidence Packet
 
-The runtime sits between repository provenance and repository publication. It
-depends on source-family inputs and feeds country bundles, atlas layers, and
-review surfaces, but it should not blur those adjacent responsibilities into one
-flat story.
+A reproducible runtime result includes:
 
-## Domain Language
+1. command or API identity and explicit arguments;
+2. governed input roots and source or product version;
+3. software outcome and diagnostics;
+4. written manifest and artifact membership;
+5. semantic changes to identities, fields, precision, or membership;
+6. admitted, qualified, excluded, and unresolved outcomes; and
+7. focused verification against the affected contract.
 
-- `source family`: one governed upstream domain such as LandClim, Neotoma,
-  SEAD, RAÄ, boundaries, AADR, or animal aDNA papers
-- `normalized evidence`: tracked repository output derived from those sources
-- `publication surface`: a downstream atlas, country bundle, or report surface
-- `partial recovery`: a surface that is real and inspectable but still too thin
-  for stronger scientific or release language
+Terminal output alone cannot prove what entered a product. Generated files
+without invocation and input identity cannot prove how they were produced.
 
-## Lifecycle
+## Adjacent Packages
 
-1. collect or refresh source-family state
-2. normalize it into reviewable repository artifacts
-3. publish downstream surfaces from that state
-4. run validation that can block overclaims or drift
+| Distribution | Responsibility | Boundary |
+| --- | --- | --- |
+| `bijux-pollenomics` | canonical scientific and publication runtime | owns schemas, commands, evidence rules, and outputs |
+| `pollenomics` | short executable and import compatibility | forwards to the canonical runtime; owns no scientific fork |
+| `bijux-pollenomics-dev` | repository-only documentation, validation, and release support | must not own public runtime behavior or scientific truth |
 
-## Change Principles
+Repository workflow policy can decide when to run the runtime, but it cannot
+change evidence meaning. Public documentation can explain an output, but it
+cannot admit a record. The compatibility package can rename an entry point,
+but it cannot produce a distinct schema or scientific result.
 
-- preserve provenance differences across source families
-- prefer durable path and artifact contracts over convenience shortcuts
-- keep pollenomics breadth visible while weaker aDNA recovery continues
-- block stronger publication language when evidence depth is not there
+## Explicit Limits
 
-## Why This Matters
+The runtime does not:
 
-If the ownership line gets blurry, the public guide stops being trustworthy.
-It becomes harder to tell whether a claim is coming from tracked evidence,
-presentation logic, or maintainer policy. A clear runtime boundary is what lets
-the repository say, with some precision, which part of the system produced a
-given output and which part merely explains it.
+- process AADR genotype data;
+- infer missing sample coordinates or chronology from nearby records;
+- treat map proximity as temporal overlap or causation;
+- turn archaeology density, boundaries, or lake identity into direct evidence;
+- certify access, bathymetry, permits, or coring suitability; or
+- make every tracked source record eligible for publication.
 
-## Related Pages
-
-- [repository scope and limits](repository-scope-and-limits.md)
-- [pollenomics engine roadmap](pollenomics-engine-roadmap.md)
-- [runtime system model](../architecture/runtime-system-model.md)
+Continue to [evidence engine capabilities](evidence-engine-capabilities.md),
+[repository scope and limits](repository-scope-and-limits.md), and the
+[runtime architecture](../architecture/runtime-system-model.md).
