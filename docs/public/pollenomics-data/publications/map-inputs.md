@@ -86,6 +86,39 @@ covering 761,917 published Swedish sites, four Nordic boundary polygons, and
 234 reviewed animal publication points. These counts describe different units
 and roles and must never be summed into one evidence total.
 
+## One Viewport, Different Scientific Objects
+
+A LandClim marker, a Neotoma marker, a SEAD marker, an animal point, and a RAÄ
+density cell may overlap visually while answering different questions:
+
+| Visible object | Example meaning | Valid comparison | Invalid promotion |
+| --- | --- | --- | --- |
+| LandClim point | one dataset-specific pollen site sequence such as Aal Præstesø | compare declared sequence coverage and location | call the point a dated pollen event |
+| Neotoma point | one database site such as Abborrtjärnen with nested collections and samples | compare site-level coverage under its temporal posture | count nested samples as independent map points |
+| SEAD point | one captured environmental-archaeology site inventory row | report a declared spatial relation | infer same-period association without recovered chronology |
+| animal point | one product-admitted animal evidence feature | follow sample or project identity and qualification | treat all admitted points as equally complete samples |
+| RAÄ cell | aggregate count of selected registry records in one grid cell | compare declared density cells | reconstruct synthetic archaeological site coordinates |
+
+The correct cross-layer join is therefore a typed relation between two named
+members, not a merge on marker position. Its result records the two source
+identities, relation rule, distance or interval calculation, scope, and the
+weaker input posture.
+
+```mermaid
+flowchart LR
+    View["shared viewport"] --> LandClim["site sequence"]
+    View --> Neotoma["database site"]
+    View --> SEAD["site inventory row"]
+    View --> Animal["admitted evidence feature"]
+    View --> RAA["aggregate density cell"]
+    LandClim --> Relation["typed spatial or temporal relation"]
+    Neotoma --> Relation
+    SEAD --> Relation
+    Animal --> Relation
+    RAA --> Relation
+    Relation --> Claim["qualified cross-domain statement"]
+```
+
 ## Layer Acceptance Contract
 
 Each exported layer answers five questions before it enters a bundle:

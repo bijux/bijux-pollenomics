@@ -65,6 +65,37 @@ An interval overlap with a human or animal aDNA row means their declared
 windows intersect. It does not prove that pollen deposition and the dated
 individual represent the same event, locality process, or causal relationship.
 
+## Worked Record: Abborrtjärnen
+
+Neotoma site `13338`, **Abborrtjärnen**, is published at `14.45, 63.88333` in
+Sweden with a normalized range of `0-9815 BP`. The record contains one
+collection unit, one dataset, 107 samples, and 94 taxa, yet the exported map
+still has one site feature. Those counts describe nested source content; they
+are not additional independent map observations.
+
+| Field | Governed reading |
+| --- | --- |
+| `record_id: 13338` | stable Neotoma site identity |
+| `0-9815 BP` | site-level pollen coverage span |
+| `numeric_interval` | numeric overlap is permitted under the retained caveat |
+| midpoint `4908 BP` | navigation summary, not a dated event |
+| duration `9815 years` | width of represented coverage, not sampling resolution |
+| `mid_holocene` window | classification of the midpoint, not the full site's sole period |
+
+The wide interval intersects many narrower archaeological or aDNA intervals.
+Reporting every such intersection as contemporaneity would reward interval
+width rather than evidence specificity. A defensible comparison states that
+the **site coverage spans** overlap and retains both original intervals.
+
+```mermaid
+flowchart LR
+    Site["Neotoma site 13338"] --> Content["1 collection / 107 samples / 94 taxa"]
+    Site --> Span["0-9815 BP site coverage"]
+    Content --> Feature["one published site feature"]
+    Span --> Eligible["numeric overlap eligible"]
+    Eligible --> Caveat["site span, not sample-event chronology"]
+```
+
 ## Reuse Contract
 
 Carry the site identifier, source URL, geometry, collection counts, original

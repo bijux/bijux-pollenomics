@@ -65,6 +65,35 @@ REVEALS grid cells can span many windows. Use their declared window coverage
 rather than collapsing a cell to a single date. A cell's broad reconstruction
 span must not be treated as a sample-owned chronology.
 
+## Worked Record: Aal Præstesø
+
+The normalized LandClim feature for **Aal Præstesø** demonstrates the minimum
+portable site-sequence claim:
+
+| Field | Governed value | Interpretation |
+| --- | --- | --- |
+| `record_id` | `897303:Aal Præstesø:55.637778:8.257222` | dataset, label, and reported position form the retained record identity |
+| country | Denmark | publication grouping, not the scientific identity |
+| geometry | `8.257222, 55.637778` | GeoJSON longitude then latitude |
+| source | `https://doi.org/10.1594/PANGAEA.897303` | LandClim dataset lineage |
+| interval | `100-350 BP` | coverage attached to this site-sequence row |
+| observation unit | one site sequence | not one pollen grain, sample event, or REVEALS cell |
+
+The interval permits interval-aware filtering at the **site-sequence** level.
+It does not state that every observation within the sequence has that date or
+that another record overlapping `100-350 BP` represents the same event. If the
+feature is exported without its `record_id`, source DOI, and observation unit,
+the remaining name and point are insufficient to reconstruct that meaning.
+
+```mermaid
+flowchart LR
+    Dataset["PANGAEA 897303"] --> Sequence["Aal Præstesø site sequence"]
+    Sequence --> Place["reported point in Denmark"]
+    Sequence --> Window["100-350 BP coverage"]
+    Sequence --> Layer["LandClim pollen context"]
+    Window -. "not an event date" .-> Layer
+```
+
 ## Reuse Contract
 
 Keep record identity, source DOI, geometry type, observation unit, dataset,
