@@ -110,6 +110,23 @@ Other findings do not grant a generic write capability. API intent, scientific
 posture, report membership, package metadata, and workflow behavior must be
 corrected by their own owners and regenerated through their own producers.
 
+### Keep Authority, Producer, And Checker Distinct
+
+```mermaid
+flowchart LR
+    Authority["authority defines intended state"] --> Producer["producer materializes descendants"]
+    Authority --> Checker["checker evaluates the declared relation"]
+    Producer --> Descendant["generated or published state"]
+    Descendant --> Checker
+    Checker --> Finding["pass or bounded disagreement"]
+```
+
+The checker must not become a second implementation of the producer or a
+second authority for expected values. The producer must not weaken the
+authority to make generation succeed. A disagreement is repaired at the
+earliest incorrect boundary, then descendants are regenerated and the same
+independent relation is checked again.
+
 | Finding | Unsafe response | Durable response |
 | --- | --- | --- |
 | frozen API drift | hand-edit the digest to silence the comparison | decide canonical schema intent, regenerate the pin, and verify compatibility |

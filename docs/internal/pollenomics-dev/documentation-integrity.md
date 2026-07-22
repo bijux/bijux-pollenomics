@@ -136,6 +136,20 @@ commands should use explicit isolated roots under `artifacts/`. Procedures that
 intentionally replace checked-in `data/` or `docs/report/` state belong in the
 maintainer workflow that owns the complete regeneration and review transaction.
 
+### Reject Public Audience Leaks
+
+Review public Markdown as published product content, not as a note to its
+author. Remove or relocate sentences that discuss what the page should cover,
+future editing plans, test selection, commit structure, internal review roles,
+or documentation quality itself. Preserve domain-facing statements about
+evidence limits, recovery conditions, interfaces, and safe operation; those
+are part of the reader contract.
+
+The audit asks a simple question: could the sentence stand unchanged on the
+public site for a reader who has no repository-maintenance context? If not,
+move the durable maintainer decision here and put the actual domain answer on
+the owning public page.
+
 ## Trace A Claim Across Documentation
 
 For each material claim, verify a complete route:

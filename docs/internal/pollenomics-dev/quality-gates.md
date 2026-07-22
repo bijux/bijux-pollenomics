@@ -126,6 +126,19 @@ type does not determine risk; the claim and authority boundary do. Conversely,
 a prose correction that removes maintainer narration from a public page does
 not justify regenerating unrelated data or reports.
 
+### Refuse False-Green Evidence
+
+A green result is invalid when the evaluated population differs from the
+claimed population. Common examples are testing only discovered pages while
+claiming the full navigation, validating generated rows without their
+exclusions, building against a different environment than the reported lock,
+or checking a copied value instead of its authority.
+
+Every gate report therefore names the input identity, scope, selection rule,
+and result population. Empty selection is an explicit outcome, not an
+automatic pass. A focused gate may be exactly the right proof, but its success
+must remain bounded to the surface it actually observed.
+
 ## Classify A Failure Before Expanding
 
 | Failure signal | First owner to inspect | Do not infer |

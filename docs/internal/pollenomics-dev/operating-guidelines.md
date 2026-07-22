@@ -116,6 +116,19 @@ Expand verification when the change crosses owners. Do not run broad gates by
 habit when a focused contract answers the question, and do not use a focused
 check to claim coverage of an unrelated boundary.
 
+### Stop Before Mutation When Ownership Is Unclear
+
+Mutation requires four resolved facts: the authority to change, the complete
+write boundary, the prior coherent identity, and the acceptance proof. If any
+one is unknown, continue with read-only diagnosis. Do not infer ownership from
+the location of a failing descendant or from the fact that a tool can write a
+path.
+
+Once resolved, record the intended owner and roots before execution. This
+keeps a generated report defect from being patched in the report, a source
+problem from being hidden in normalization, and a documentation claim from
+being changed without checking its governed evidence.
+
 ## Review Generated State Causally
 
 Generated diffs should be explained from owner to descendant:
