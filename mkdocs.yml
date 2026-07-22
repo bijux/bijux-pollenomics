@@ -204,6 +204,7 @@ nav:
           - SMHI SVAR: public/pollenomics-data/sources/svar.md
       - Curation:
           - Overview: public/pollenomics-data/curation/index.md
+          - Evidence Decision Records: public/pollenomics-data/curation/decision-records.md
           - Record Admission: public/pollenomics-data/curation/record-admission.md
           - Conflicts and Recovery: public/pollenomics-data/curation/conflicts-and-recovery.md
       - Evidence:

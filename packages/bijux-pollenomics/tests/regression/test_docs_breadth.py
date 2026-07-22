@@ -43,6 +43,7 @@ class DocsBreadthRegressionTests(unittest.TestCase):
             "docs/public/pollenomics-data/overview/source-selection-and-refresh.md",
             "docs/public/pollenomics-data/overview/coverage-and-naming.md",
             "docs/public/pollenomics-data/database/querying-evidence.md",
+            "docs/public/pollenomics-data/curation/decision-records.md",
             "docs/public/pollenomics-data/sources/landclim.md",
             "docs/public/pollenomics-data/sources/neotoma.md",
             "docs/public/pollenomics-data/sources/sead.md",
@@ -80,6 +81,25 @@ class DocsBreadthRegressionTests(unittest.TestCase):
         self.assertIn("## Reuse Packet", species_views)
         self.assertIn("```mermaid", species_views)
         self.assertIn("species-evidence-views.md", evidence_index)
+
+    def test_decision_records_preserve_scoped_outcomes(self) -> None:
+        decision_records = (
+            REPO_ROOT
+            / "docs"
+            / "public"
+            / "pollenomics-data"
+            / "curation"
+            / "decision-records.md"
+        ).read_text(encoding="utf-8")
+        curation_index = (
+            REPO_ROOT / "docs" / "public" / "pollenomics-data" / "curation" / "index.md"
+        ).read_text(encoding="utf-8")
+
+        self.assertIn("# Evidence Decision Records", decision_records)
+        self.assertIn("## Evidence, Product, And Release Decisions Differ", decision_records)
+        self.assertIn("## Audit A Decision", decision_records)
+        self.assertIn("```mermaid", decision_records)
+        self.assertIn("decision-records.md", curation_index)
 
     def test_maintainer_handbook_covers_repository_health(self) -> None:
         maintain_index = (

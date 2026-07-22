@@ -19,6 +19,10 @@ what a plotted or summarized record means. An auditor can follow the same row
 back through its governing surface, source locator, transformation, caveat,
 and admission decision.
 
+[Evidence decision records](../curation/decision-records.md) explains how the
+claim, proposed use, evidence basis, rule, outcome, and recovery condition stay
+linked when evidence becomes a product member or a reasoned non-member.
+
 ## Trust Model
 
 Four invariants govern the evidence chain:

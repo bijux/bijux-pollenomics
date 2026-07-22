@@ -183,8 +183,10 @@ spatial posture everywhere it appears. If presentation uses the stronger
 language for both, the defect is in the projection even when the underlying
 curation records are correct.
 
-Continue with [record admission](record-admission.md) for the product gate and
-[conflicts and recovery](conflicts-and-recovery.md) for unresolved evidence.
+Continue with [evidence decision records](decision-records.md) for the durable
+connection between claim, rule, outcome, and product; [record
+admission](record-admission.md) for the product gate; and [conflicts and
+recovery](conflicts-and-recovery.md) for unresolved evidence.
 Use [source families](../sources/index.md) for acquisition context,
 [evidence dimensions](../evidence/index.md) for claim semantics, and
 [publications](../publications/index.md) for manifested outputs.
