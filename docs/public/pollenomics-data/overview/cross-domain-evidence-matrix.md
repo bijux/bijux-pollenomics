@@ -44,6 +44,34 @@ Geographic proximity is only one input. A valid interpretation also accounts
 for temporal overlap, observation unit, source maturity, and whether each layer
 is direct evidence, context, framing, or decision support.
 
+## Relationship Contract
+
+Cross-domain publication joins records for a declared question; it does not
+merge their identities or evidence roles.
+
+```mermaid
+flowchart TD
+    Direct["direct evidence record"] --> Bridge["declared bridge"]
+    Context["context record"] --> Bridge
+    Framing["scope or boundary"] --> Bridge
+    Bridge --> Relation["derived relationship"]
+    Relation --> Claim["qualified result"]
+    Direct --> DirectAuthority["direct-record authority"]
+    Context --> ContextAuthority["context authority"]
+    Framing --> FramingAuthority["scope authority"]
+```
+
+The bridge may be a distance band, interval-overlap rule, country predicate,
+species relation, or fieldwork criterion. Its result is a new derived relation,
+not new source evidence. Removing the bridge must leave each input record and
+its authority intact.
+
+Every derived relationship should preserve the identities of its members,
+their roles and precision, the rule and parameters, the product scope, and an
+outcome of supported, boundary-sensitive, contextual-only, or refused. A
+reader can then challenge the relationship without having to challenge the
+existence of its source records.
+
 ## Comparison Protocol
 
 1. State the scientific or operational question without naming the desired
@@ -60,6 +88,30 @@ is direct evidence, context, framing, or decision support.
 The bridge is part of the result. A distance threshold, temporal-overlap rule,
 administrative containment, species relation, or sampling criterion must be
 named rather than implied by a combined map.
+
+## Count Units And Denominators
+
+Counts are comparable only after their observation units and transformations
+are declared. The checked-in collection contains several instructive cases:
+
+| Published quantity | Unit | What must not be inferred |
+| --- | --- | --- |
+| 2,195 SEAD inventory rows | captured inventory row | 2,195 distinct normalized map points |
+| 2,172 normalized SEAD records | published site point | complete or uniformly dated archaeology evidence |
+| 761,917 RAÄ records | source registry record | equivalent density or recording effort across space |
+| 106 RAÄ density cells | one-degree aggregate cell | 106 archaeological sites |
+| two fieldwork pages | documentation surface | two independent visits |
+| one fieldwork feature | dated visit event | representative lake or regional coverage |
+
+The SEAD difference reflects transformation from source inventory to
+normalized spatial records. The RAÄ difference reflects deliberate
+aggregation. The fieldwork difference separates documentation pages from the
+single event they describe. None is an error when the unit remains attached;
+all become misleading when reduced to an unlabeled total.
+
+For any rate or comparison, publish the numerator, eligible denominator,
+excluded or unresolved count, and unit of observation. “Evidence-rich” is not
+a defensible substitute for those quantities.
 
 ## Comparisons To Refuse
 

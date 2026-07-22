@@ -7,7 +7,7 @@ owner: bijux-pollenomics-docs
 last_reviewed: 2026-07-22
 ---
 
-# Coordinate provenance
+# Coordinate Provenance
 
 A coordinate is a spatial interpretation of locality evidence. It may be
 reported directly with a sample, resolved from an explicit named site, or
@@ -18,7 +18,7 @@ This matters because every marker is visually exact. Without provenance, a
 regional study extent and a source-published excavation coordinate would look
 equally precise on a map.
 
-## Current evidence posture
+## Current Evidence Posture
 
 The cross-species map-readiness review currently reports 234 direct
 coordinate-backed entries, two indirectly geocoded entries, 21 unresolved
@@ -33,7 +33,7 @@ coordinate-backed entry. The public collection should expose that unevenness
 rather than let the strongest species imply equal spatial resolution for all
 animal evidence.
 
-## From locality to mapping posture
+## From Locality To Mapping Posture
 
 ```mermaid
 flowchart TD
@@ -62,7 +62,7 @@ Point eligibility is conjunctive: identity, locality linkage, coordinate
 basis, mapping posture, and product-specific rules must all pass. Confidence
 cannot compensate for a missing link earlier in the chain.
 
-## Confidence is not just decimal precision
+## Confidence Is Not Decimal Precision
 
 | Confidence | Coordinate basis | Public interpretation |
 | --- | --- | --- |
@@ -122,7 +122,43 @@ representation, but they must not change basis, confidence, or supported
 precision. A transformed pair remains the same governed spatial claim only
 when its lineage to the original pair is retained.
 
-## Why points are withheld
+## Spatial Relations Are Derived Claims
+
+A distance, containment result, or nearest-neighbour label is not stored truth
+about either endpoint. It is a derived claim whose lineage includes both
+coordinates and the operation applied to them:
+
+```mermaid
+flowchart LR
+    Left["endpoint A: identity, basis, precision"] --> Relation["distance or containment rule"]
+    Right["endpoint B: identity, basis, precision"] --> Relation
+    Rule["CRS, method, and threshold"] --> Relation
+    Relation --> Result{"supported result?"}
+    Result -->|yes| Qualified["qualified spatial relation"]
+    Result -->|boundary-sensitive| Review["threshold-sensitive review"]
+    Result -->|no| Refusal["relation withheld"]
+```
+
+The result cannot be more precise than its weakest endpoint. A 20 km band
+around a registry representative point and an approximate named-site point is
+a qualified proximity test, not an exact statement about the physical
+distance between a coring location and a specimen. When coordinate uncertainty
+could change threshold membership, the result is boundary-sensitive rather
+than simply inside or outside.
+
+Every reusable spatial relation should retain:
+
+- both governing endpoint identities;
+- each coordinate basis, confidence, and supported precision;
+- the coordinate reference system and distance or containment method;
+- the threshold, band, or polygon snapshot used; and
+- whether uncertainty can change the classification.
+
+Recomputing that relation after either endpoint changes is required. Copying a
+previous distance into a revised product would preserve a number while losing
+the claim that made it meaningful.
+
+## Why Points Are Withheld
 
 Common refusal conditions include:
 
@@ -155,7 +191,7 @@ distance even if a centroid is technically available. Ranking and proximity
 views should carry endpoint identity, basis, precision, distance method, and
 the threshold or band used.
 
-## Auditing a mapped sample
+## Auditing A Mapped Sample
 
 The species-owned record is
 `data/adna/species/<species-slug>/normalized/coordinate_provenance.json`.

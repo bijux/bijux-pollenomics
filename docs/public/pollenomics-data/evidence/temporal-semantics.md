@@ -7,7 +7,7 @@ owner: bijux-pollenomics-docs
 last_reviewed: 2026-07-22
 ---
 
-# Temporal semantics
+# Temporal Semantics
 
 Temporal semantics is the common contract used to compare time across direct
 ancient-DNA evidence, pollen context, and archaeology context. It keeps a
@@ -18,7 +18,7 @@ The contract does not force every source into a shared chronology model. It
 provides a shared vocabulary for stating what each source can support and for
 refusing comparisons that would manufacture precision.
 
-## The comparison contract
+## The Comparison Contract
 
 Every temporal payload answers four distinct questions:
 
@@ -34,7 +34,7 @@ duration, source path and locator, original and normalized labels, comparison
 note, and uncertainty notes. A display window never replaces the source
 interval.
 
-## Comparability postures
+## Comparability Postures
 
 | Posture | Meaning | Permitted use |
 | --- | --- | --- |
@@ -72,7 +72,37 @@ flowchart LR
     Eligible -->|no| Refusal["explicit comparison refusal"]
 ```
 
-## Capability in the checked-in collection
+## Three-State Comparison Logic
+
+Temporal comparison has at least three outcomes, not a Boolean pair:
+
+| Outcome | Required support | Meaning |
+| --- | --- | --- |
+| overlap | both records are numeric-comparable and their intervals intersect | compatible time support at the declared precision |
+| separated | both records are numeric-comparable and their intervals do not intersect | numeric non-overlap at the declared precision |
+| not comparable | either record lacks an eligible numeric posture | no numeric temporal conclusion is available |
+
+`not comparable` must remain distinct from `separated`. Collapsing both into
+false would turn missing or contextual chronology into evidence of temporal
+absence. The same distinction applies to aggregates: an overlap rate needs the
+number of eligible pairs as its denominator, plus the number excluded as not
+comparable.
+
+```mermaid
+flowchart TD
+    Pair["two records"] --> Eligible{"both numeric-comparable?"}
+    Eligible -->|no| Unknown["not comparable"]
+    Eligible -->|yes| Intersect{"intervals intersect?"}
+    Intersect -->|yes| Overlap["overlap"]
+    Intersect -->|no| Separated["separated"]
+```
+
+An atlas may display all three records together, but a temporal score must use
+only eligible comparisons and must report the refused share. Otherwise a
+source family with weak chronology can appear artificially precise merely
+because its unresolved records disappeared from the denominator.
+
+## Capability In The Checked-In Collection
 
 | Source family | Records | Numeric intervals | Time-aware use |
 | --- | ---: | ---: | --- |
@@ -89,7 +119,7 @@ pollen collections carry varying degrees of time support. A score or visual
 summary must use the declared posture, not infer evidentiary weight from row
 count.
 
-## From source date to atlas comparison
+## From Source Date To Atlas Comparison
 
 ```mermaid
 flowchart LR
@@ -130,7 +160,7 @@ would obscure that shared range. If the archaeology layer nearby carries only
 a textual period, it remains contextual beside the numeric overlap; it does
 not acquire the same interval.
 
-## Source-family differences remain visible
+## Source-Family Differences Remain Visible
 
 The checked-in collection currently carries different temporal capability by
 source family:
@@ -164,7 +194,7 @@ flowchart TD
     Bounds -->|no| SpatialOnly["spatial support outside temporal interval"]
 ```
 
-## Auditing cross-source time
+## Auditing Cross-Source Time
 
 `data/source_spatiotemporal_posture_registry.json` gives the governing path,
 record count, numeric-interval count, scoring posture, and caveats for each
