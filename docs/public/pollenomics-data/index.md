@@ -57,6 +57,35 @@ collector-managed source trees. The evidence system contains eight contracted
 families because animal ancient DNA is curated through its own archive,
 literature, supplement, project, and sample authorities.
 
+### The Database Is A Claim Ledger
+
+Rows are useful representations, but the durable model is a graph of objects,
+claims, evidence locators, decisions, and products:
+
+| Record class | Owns | Must remain resolvable |
+| --- | --- | --- |
+| object | the identity of a source record, project, paper, sample, site, lake, or boundary | stable key, object type, aliases, and source-native identity |
+| claim | one assertion about identity, taxonomy, locality, chronology, coordinate, or role | claimant, subject, value, scope, and precision |
+| evidence locator | the material that supports or conflicts with a claim | source family, release or accession, artifact, table or field, and content identity |
+| decision | the repository's treatment of a claim for a declared use | rule, outcome, qualification, conflict, and recovery condition |
+| product member | one decision admitted to one publication scope | product, version, member ID, evidence role, and companion warnings |
+
+```mermaid
+flowchart LR
+    Object["durable object"] --> Claim["scoped claim"]
+    Locator["source evidence locator"] --> Claim
+    Claim --> Decision{"claim-specific decision"}
+    Decision -->|admit or qualify| Member["product member"]
+    Decision -->|conflict| Ledger["conflict ledger"]
+    Decision -->|missing support| Recovery["recovery queue"]
+    Member --> Manifest["bundle manifest"]
+```
+
+This separation is what makes database curation auditable. Correcting a claim
+does not require inventing a new object identity; refusing publication does
+not delete the captured object; and one product decision does not grant the
+same claim fitness in another product.
+
 ## Curation Is Evidence Work
 
 Normalization is not the final step. Records may require scientific and

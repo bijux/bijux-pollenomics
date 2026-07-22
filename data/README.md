@@ -57,6 +57,38 @@ retrieval metadata, hashes, output roots, provenance, and replacement policy.
 These roots are not interchangeable. Their temporal resolution, spatial
 precision, licensing, coverage, and scientific role remain source-specific.
 
+## Evidence Graph And Cardinality
+
+The data model is relational even when an artifact is serialized as a flat
+table. Keys identify durable objects; explicit relations state how those
+objects may be joined; review records preserve whether the relation is final,
+qualified, conflicted, or unresolved.
+
+| Object | Stable relation | Cardinality that must survive |
+| --- | --- | --- |
+| source release | owns captured artifacts and source-native records | one release to many records |
+| paper or archive project | owns source context and supporting-material inventory | one project can cite several papers; one paper can describe several projects |
+| sample | resolves native labels and accessions through evidence locators | one project to many samples; labels are not globally unique |
+| locality claim | connects a sample or site to reported and resolved place evidence | one sample can have competing claims; one locality can serve many samples |
+| chronology claim | connects source wording to any allowed normalized interval | one sample can retain several claims without collapsing their bases |
+| publication member | connects one admitted evidence object to a product scope | one evidence object can enter several products under separate decisions |
+
+```mermaid
+flowchart LR
+    Release["source release"] --> Native["source-native record"]
+    Project["paper or project"] --> Sample["sample identity"]
+    Native --> Sample
+    Sample --> Locality["locality claim"]
+    Sample --> Chronology["chronology claim"]
+    Locality --> Decision["product admission"]
+    Chronology --> Decision
+    Decision --> Member["manifested member"]
+```
+
+Flattened exports may repeat these keys for convenience. They do not authorize
+a project-wide place or date to be copied into every sample, nor a published
+feature to become the owner of its upstream facts.
+
 ## Animal Ancient-DNA Curation
 
 `adna/governance/source_library/` is the source-accountability layer for animal

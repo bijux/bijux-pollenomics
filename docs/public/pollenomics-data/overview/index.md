@@ -101,6 +101,24 @@ The transaction never infers success from pipeline completion. A technically
 successful capture can still end in refusal when scientific ownership,
 precision, or comparability is inadequate.
 
+### Transaction Identity Remains Split
+
+An evidence transaction is reproducible only when its identities are recorded
+at their own scopes:
+
+| Identity | Why it is separate |
+| --- | --- |
+| capture identity | names the upstream version, acquired bytes, retrieval context, and hash |
+| record identity | names the normalized source-native object without implying publication fitness |
+| claim identity | names one assertion about the object and its evidence locator |
+| decision identity | names the claim, intended use, rule, outcome, and qualification |
+| member identity | names the admitted object within a specific product manifest |
+
+The same object can therefore retain an accepted spatial claim, an unresolved
+numeric chronology claim, and different membership decisions across world,
+regional, and country products. A single `status` column could not express
+that state without discarding which claim and product the status qualifies.
+
 ## Cardinality Is Scientific Meaning
 
 Project `PRJEB90141` contributes four recovered goat sample identities in the
