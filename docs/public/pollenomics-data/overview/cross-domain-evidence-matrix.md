@@ -44,6 +44,51 @@ Geographic proximity is only one input. A valid interpretation also accounts
 for temporal overlap, observation unit, source maturity, and whether each layer
 is direct evidence, context, framing, or decision support.
 
+## Comparison Protocol
+
+1. State the scientific or operational question without naming the desired
+   outcome.
+2. Identify the observation unit and governing identity in each family.
+3. Declare each family's evidence role for this question.
+4. Normalize spatial and temporal precision only to the weakest supported
+   common level.
+5. Record source version, scope, missingness, and inclusion rules.
+6. Decide whether the bridge supports comparison, context, prioritization, or
+   refusal.
+7. Preserve the member-level inputs and qualifications with the result.
+
+The bridge is part of the result. A distance threshold, temporal-overlap rule,
+administrative containment, species relation, or sampling criterion must be
+named rather than implied by a combined map.
+
+## Comparisons To Refuse
+
+| Proposed inference | Why it fails |
+| --- | --- |
+| map co-location proves contemporaneity | spatial overlap carries no temporal equivalence |
+| a project location is an exact sample location | project and sample are different observation units |
+| more registered sites means greater historical activity | registry coverage, preservation, and recording effort differ |
+| a contextual layer confirms a direct-evidence claim | evidence roles are not interchangeable |
+| absence from one product proves source absence | scope, admission, recovery, or precision may explain exclusion |
+| counts across families measure the same abundance | denominators and observation units differ |
+
+Refusal does not make the families useless together. It defines the narrower
+question they can answer without manufacturing comparability.
+
+## Example: Lake Prioritization
+
+A registered lake can supply sampling identity and geometry. Nearby
+archaeological records can describe contextual density; pollen sources can
+describe palaeoenvironmental context; and admitted ancient-DNA samples can
+provide direct evidence for their own governed specimens. A ranking may
+combine declared distance bands and sensitivity scenarios to prioritize
+fieldwork.
+
+That result supports a decision about where to investigate. It does not show
+that contextual records originated at the lake, that the layers are
+contemporaneous, or that a high-ranked basin will yield a successful core.
+Those limits travel with the ranking.
+
 ## Maturity Is Not A Single Rank
 
 A family can have reliable acquisition but weak temporal comparability, or

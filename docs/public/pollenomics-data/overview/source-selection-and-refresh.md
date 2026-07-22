@@ -31,6 +31,32 @@ A source may be scientifically important while remaining in recovery or
 context-only posture. Admission records that distinction instead of forcing a
 binary “available” label.
 
+## Selection Record
+
+A defensible selection records the question before the source. It names the
+target object and evidence role, explains why the source is suitable, identifies
+known alternatives or gaps, and states the conditions under which the source
+would be demoted or replaced. This prevents familiarity, convenient access, or
+large row counts from becoming unstated selection policy.
+
+For literature-backed animal evidence, selection also distinguishes four
+levels that are often collapsed: a project is known; its paper is identified;
+its supporting material is recovered; and sample-owned locality and chronology
+are supported. Progress at one level does not imply completion of the next.
+
+```mermaid
+flowchart LR
+    Question["declared evidence question"] --> Candidate["candidate source"]
+    Candidate --> Role["evidence role and observation unit"]
+    Role --> Recovery["recoverability and use conditions"]
+    Recovery --> Semantics["identity, place, time, taxonomy"]
+    Semantics --> Decision{"admission posture"}
+    Decision -->|direct| Direct["direct evidence contract"]
+    Decision -->|context| Context["context contract"]
+    Decision -->|recover| Gap["tracked recovery gap"]
+    Decision -->|refuse| Refusal["reasoned refusal"]
+```
+
 ## Refresh Transaction
 
 ```mermaid
@@ -48,6 +74,21 @@ flowchart LR
 Staging protects the prior coherent tree from partial acquisition. Acceptance
 requires more than a nonzero row count: expected assets, identity, hashes,
 schema, semantics, and family contract must agree.
+
+## Refresh Acceptance Evidence
+
+| Layer | Evidence to compare |
+| --- | --- |
+| source | dataset identity, release, retrieval route, response context, license posture, and hashes |
+| capture | expected versus recovered assets and any access or parsing refusal |
+| normalization | stable member identities, field semantics, geometry, chronology, taxonomy, and missingness |
+| coverage | denominators, added and removed members, conflicts, and precision classes |
+| curation | changed linkage, governing fact owner, qualifications, and open recovery work |
+| publication | affected admission decisions, bundle membership, warnings, and exclusions |
+
+An accepted refresh can legitimately produce no publication change. That
+outcome is meaningful when the record shows that changed source material did
+not alter normalized meaning or did not satisfy a product contract.
 
 ## Classify The Change
 
@@ -92,3 +133,8 @@ Refresh cadence therefore does not determine maturity. A recently collected
 context layer may support less than an older, well-curated direct-evidence
 record, and an unavailable supplement may remain the decisive gap in an
 otherwise current project.
+
+Replacement never erases provenance. The superseding source receives its own
+identity and selection record; affected normalized records and products retain
+the chain needed to distinguish a source substitution from newly discovered
+scientific evidence.

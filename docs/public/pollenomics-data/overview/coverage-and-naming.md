@@ -30,6 +30,33 @@ tracked” is not equivalent to “all samples recovered,” and “four countri
 published” is not equivalent to balanced source coverage across those
 countries.
 
+## Denominator Contract
+
+Every coverage statement should resolve this tuple:
+
+```text
+observation unit + governing scope + source version + lifecycle stage + denominator basis
+```
+
+For example, “admitted sample points from AADR v66 within the Nordic product
+scope” is interpretable only when the bundle names those members and the
+denominator explains whether excluded, unresolved, and out-of-scope samples
+are counted separately. Without that basis, a percentage can appear precise
+while comparing different populations.
+
+Use explicit states for the denominator:
+
+- **known and admitted** — satisfies the named product contract;
+- **known and qualified** — visible under a narrower claim;
+- **known and excluded** — evaluated but outside the contract;
+- **known and unresolved** — tracked but missing a required decision or fact;
+- **not assessed** — belongs to the declared population but has not been
+  evaluated;
+- **outside scope** — not part of the denominator for this question.
+
+Unknown is not zero, and absence from a product is not evidence of absence in
+the source or historical record.
+
 ## Naming Encodes Authority
 
 | Name component | Meaning |
@@ -45,6 +72,18 @@ A broad name must not conceal a narrow scope. Country, region, version,
 species, scenario, and evidence posture belong in the artifact identity when
 they materially constrain interpretation.
 
+## Identity And Display Names
+
+Stable identifiers join evidence; display names help readers. A site, sample,
+project, source record, and product feature may share words while remaining
+different objects. Preserve their identifiers independently and record any
+alias or normalized label as a property rather than using it as the join key.
+
+Coordinates are not names. Two records at the same rounded point need not be
+the same object, and one record with revised coordinates need not be a new
+object. Likewise, a species label, country name, or paper title can change
+without changing the governed identity it describes.
+
 ## Reading Counts Safely
 
 Before comparing two counts, confirm that they share the same unit, scope,
@@ -52,3 +91,8 @@ version, and evidence stage. Project counts cannot be compared directly with
 sample counts; source sites cannot be compared directly with published
 features; and an excluded record remains evidence even though it is absent
 from a map.
+
+When a count changes, compare member identifiers first. Then classify each
+addition, removal, and modification by source, normalization, curation,
+admission, or scope. Aggregate arithmetic can confirm the result but cannot
+explain it.
