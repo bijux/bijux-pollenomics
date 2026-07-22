@@ -35,8 +35,10 @@ Four invariants govern the evidence chain:
 
 ## Cross-Domain Evidence
 
-All source families preserve origin, version, normalization, review, and
-publication posture. Their scientific evidence units remain different:
+All source families preserve origin, version, and their materially present
+lifecycle posture. Normalized and review artifacts are family-specific rather
+than assumed from publication. Their scientific evidence units also remain
+different:
 
 - pollen sources govern sites, sequences, samples, and modelled context;
 - archaeology sources govern sites and contextual records;
@@ -74,6 +76,35 @@ date attached to a project does not automatically belong to every sample.
 The final decision is product-specific. A row may be valid evidence for a
 regional count, qualified contextual layer, or curation inventory while still
 being ineligible for an exact point or time-aware comparison.
+
+### Animal Evidence Has Several Governed Populations
+
+Three prominent animal counts describe different database contracts:
+
+| Population | Rows | Governing question |
+| --- | ---: | --- |
+| sample-foundation truth | 894 | which curated source rows are fully grounded, partly grounded, or blocked by metadata, locality, or chronology? |
+| recovered project sample master | 868 | which source rows resolve to stable project-owned sample identities? |
+| point publication | 234 | which sample-backed or explicitly qualified context members satisfy the spatial product contract? |
+
+The foundation contains 502 fully grounded rows, 256 partially grounded rows,
+29 blocked for missing metadata, four blocked for missing location detail, and
+103 blocked for weak chronology. Those classes measure evidence preparation;
+they are not publication decisions. Likewise, the 234-member point surface
+contains 233 final sample-backed features and one provisional project-context
+feature, so it is not a subset count that can be divided mechanically by 868
+or 894.
+
+```mermaid
+flowchart LR
+    Foundation["894 foundation rows<br/>grounding and blockers"] --> Identity["868 recovered sample identities"]
+    Identity --> Samples["233 sample-backed points"]
+    Context["1 qualified project-context feature"] --> Product["234 publication members"]
+    Samples --> Product
+```
+
+The arrows express governed relations, not guaranteed one-to-one attrition.
+Every count or percentage must name its observation unit and population.
 
 ## Evidence Dimensions
 

@@ -21,10 +21,16 @@ the stable sample identifier.
 
 ## Current Evidence Posture
 
-The governed snapshot contains 868 recovered sample rows across 40 animal
-archive projects. All 868 currently have a final identity resolution and the
-identity ambiguity ledger is empty. That is strong evidence for the recovered
-rows; it is not a claim that every sample deposited by every project has been
+The governed snapshot contains a 894-row sample-foundation truth surface across
+10 species and 40 projects. It classifies 502 rows as fully grounded, 256 as
+partially grounded, 29 as blocked by missing metadata, four as blocked by
+missing location detail, and 103 as blocked by weak chronology.
+
+The project sample-master population contains 868 recovered sample rows across
+the same 40 tracked projects. All 868 currently have a final identity
+resolution and the identity ambiguity ledger is empty. The two populations
+have different curation contracts and are not expected to match row for row.
+Neither count proves that every sample deposited by every project has been
 recovered. Only four projects currently have a trustworthy expected sample
 count, so project completeness remains unknown for most of the collection.
 
@@ -33,6 +39,7 @@ This distinction is intentional:
 | Question | Governing signal | What a positive result establishes |
 | --- | --- | --- |
 | Was a source row recovered? | `recovered_sample_count` | a row exists in the governed sample master |
+| How well is the foundation row grounded? | `animal_sample_foundation_truth.json` posture | source preparation is fully grounded, partial, or blocked for a named reason |
 | Is its identity usable? | `sample_identity_resolution` | labels resolve to one repository-stable sample |
 | Is the project complete? | expected versus final count, with provenance | the recovered set can be measured against a trustworthy expectation |
 | Is the sample publishable? | locality, chronology, and coordinate evidence | only the requested public representation is supported |
@@ -250,6 +257,23 @@ The same rule applies to arithmetic. `unresolved_sample_count` is meaningful
 only when an expected count exists. A null value means the denominator is not
 known; it does not mean that no samples are missing.
 
+### Grounding Is Not Completeness
+
+Foundation posture and project completeness answer separate questions. A row
+can be fully grounded because its available identity, locality, and chronology
+evidence are well traced while the project still lacks a trustworthy expected
+sample denominator. Conversely, learning an expected project count does not
+strengthen any row's locality or chronology.
+
+| Claim | Required denominator or evidence |
+| --- | --- |
+| percentage of foundation rows fully grounded | all 894 governed foundation rows |
+| percentage of recovered sample identities resolved | all 868 project sample-master rows |
+| project recovery completeness | project-specific expected sample population with provenance |
+| point publication rate | explicitly defined eligible candidate population and point contract |
+
+These ratios cannot borrow one another's denominators.
+
 ## Sample-Owned Claims
 
 The sample master carries the source-facing identity and the raw locality and
@@ -305,6 +329,7 @@ atlas admission are separate decisions.
 - `data/adna/governance/source_library/projects/<project_accession>/sample_master.json`
 - `data/adna/governance/source_library/projects/<project_accession>/sample_sites.json`
 - `data/adna/governance/source_library/project_sample_master_completeness.json`
+- `data/adna/governance/animal_sample_foundation_truth.json`
 - `data/adna/governance/source_library/sample_identity_ambiguity_ledger.json`
 - `data/adna/species/<latin_name>/normalized/sample_records.json`
 

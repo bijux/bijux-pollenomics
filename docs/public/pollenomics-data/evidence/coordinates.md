@@ -245,6 +245,35 @@ Recomputing that relation after either endpoint changes is required. Copying a
 previous distance into a revised product would preserve a number while losing
 the claim that made it meaningful.
 
+### Spatial Analysis Needs A Relation Packet
+
+Before classifying two records as near, inside, outside, or nearest, retain:
+
+| Relation member | Required evidence |
+| --- | --- |
+| endpoint identities | typed sample, site, lake, boundary, or field-observation keys |
+| endpoint geometries | coordinate or geometry claims with basis, CRS, precision, and revision |
+| scientific roles | direct evidence, context, framing, decision support, or field observation |
+| operation | distance metric, containment predicate, boundary snapshot, threshold, and tie behavior |
+| uncertainty result | whether plausible endpoint or boundary uncertainty can change the classification |
+| interpretation ceiling | the exact spatial statement supported without claiming time overlap or causation |
+
+```mermaid
+flowchart TD
+    Geometry["numeric geometry available"] --> Ownership{"endpoint ownership known?"}
+    Ownership -->|no| Refuse["withhold spatial relation"]
+    Ownership -->|yes| Precision{"basis and precision compatible?"}
+    Precision -->|no| Refuse
+    Precision -->|yes| Boundary{"uncertainty crosses threshold?"}
+    Boundary -->|yes| Sensitive["boundary-sensitive result"]
+    Boundary -->|no| Supported["qualified spatial result"]
+```
+
+This packet prevents a technically correct distance calculation from becoming
+an unsupported scientific association. Spatial compatibility is only one
+input to a cross-domain comparison; temporal and evidence-role compatibility
+remain independent requirements.
+
 ### Classify Coordinate Changes
 
 | Change | Scientific interpretation |
