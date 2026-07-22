@@ -4,91 +4,112 @@ audience: reader
 type: explanation
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-05-10
+last_reviewed: 2026-07-22
 ---
 
-# Point Rules
+# Point publication rules
 
-This page explains why a record is allowed to appear as a point on the public
-map.
+A point is published only when the repository can reconstruct what it
+represents, where its coordinate came from, and which evidence rows support it.
+The rule is deliberately asymmetric: unresolved evidence can remain in the
+curated collection, but it cannot borrow visual certainty from a map marker.
 
-The most important atlas question is often the simplest one: "why is this
-point allowed to exist?" The answer should never be "because the map generator
-put it there." The answer has to come from stable evidence rules.
+## Animal point admission
 
-## What Must Be True Before A Point Publishes
+```mermaid
+flowchart TD
+    A[Normalized animal locality] --> B{Project accession present?}
+    B -->|no| X[Exclude]
+    B -->|yes| C{Stable site identity present?}
+    C -->|no| X
+    C -->|yes| D{Coordinate provenance matches locality?}
+    D -->|no| X
+    D -->|yes| E{mapping_posture = mappable_point?}
+    E -->|no| Y[Refused or unresolved]
+    E -->|yes| F{Valid latitude and longitude?}
+    F -->|no| X
+    F -->|yes| G[Match sample, site evidence, citation, and review]
+    G --> H{Project-level flattening detected?}
+    H -->|yes| X
+    H -->|no| I[Publish traceable atlas evidence row]
+```
 
-- the sample identity must be stable enough to carry forward
-- the locality claim must be strong enough for coordinate work
-- the chronology posture must not be hidden by a prettier label
-- the coordinate provenance must still describe how the point was derived
+The emitted row carries stable feature, evidence-row, and site identifiers;
+species and support class; locality and coordinate provenance; project and
+sample identifiers; paper and supplement citations; site-evidence text; scope
+inclusion; and chronology at the precision allowed for publication.
 
-Those rules keep the visible map tied to reviewable evidence rather than to the
-desire to fill a geography with more points.
+## Required evidence by field
 
-## What A Published Point Means
+| Published field | Minimum support |
+| --- | --- |
+| Feature identity | stable site token, species identity, and project accession |
+| Sample count | matched sample records; project-level estimates do not become mapped samples |
+| Locality | sample- or defensibly group-owned locality at the declared resolution |
+| Coordinates | matching provenance row, `mappable_point` posture, numeric pair, basis, and confidence |
+| Citation | paper or governed source linkage sufficient to trace the claim |
+| Chronology | sample-owned, non-conflicting posture for numeric windows; otherwise broad context stays non-numeric or absent |
+| Nordic inclusion | explicit inclusion flag and reason, independent of world-map eligibility |
 
-- the repository decided the record can be shown under explicit conditions
-- the point cleared a chain of identity, locality, chronology, and coordinate
-  checks
-- the public product can point back to the narrower evidence if the claim is
-  challenged
+Chronology is field-gated as well as point-gated. A spatially admissible point
+does not gain a numeric time window when its chronology is broad, contextual,
+approximate beyond the product contract, unresolved, or conflicting.
 
-## What A Published Point Does Not Mean
+## Coordinate classes remain visible
 
-- that every visible point is equally strong
-- that the coordinate is always direct from one source table
-- that the map view is the best place to judge chronology or provenance
-- that an attractive point is safe to over-interpret
+Direct coordinate bases include published coordinates, supplementary-table
+coordinates, and archive coordinates. A named-site geocode can appear only
+with its approximate confidence, resolution method, gazetteer or curated
+anchor, and rationale. Region-centroid fallbacks remain `refused_region_only`
+and do not become markers.
 
-## What Questions These Rules Help Answer
+The public coordinate review counts direct and named-site-resolved features
+separately. This prevents a mixed layer from being described as wholly
+source-coordinate-backed.
 
-- why one record becomes a visible point while another remains blocked
-- why some points are shown with stronger locality confidence than others
-- whether a point is sample-backed, projected, broad-area, or still too weak
-  for precise display
-- which parts of the point are inferred from a chain of evidence rather than
-  copied directly from one source table
+## Exclusion is a governed result
 
-## How To Use This Page
+Rows are excluded or refused when any of these conditions holds:
 
-Use this page together with:
+- a project accession or stable site identity is missing;
+- the locality has no matching coordinate-provenance row;
+- geography remains regional, aggregated, or unresolved;
+- the coordinate pair is missing or invalid;
+- sample rows disagree with a flattened project-level site assignment;
+- citation or site-evidence lineage cannot support the visible claim;
+- chronology would require stronger numeric language than its evidence class
+  permits.
 
-- [maps](maps.md) if the question begins with a visible point on the atlas
-- [filters and popups](filters-and-popups.md) if the question is how that point
-  behaves once scope or family filters change
-- [limits](limits.md) if the point seems to carry more confidence than the
-  underlying evidence deserves
-- [sample records](../evidence/sample-records.md),
-  [localities](../evidence/localities.md), and
-  [coordinates](../evidence/coordinates.md) if the challenge is about the
-  evidence itself rather than the map behavior
+Refused rows remain visible in readiness, overbroad-site, unresolved-site,
+chronology, and recovery audits. Absence from the atlas is therefore not
+absence from the collection.
 
-## Why These Rules Matter Publicly
+## Publication gates
 
-- they stop map completeness from becoming more important than evidence quality
-- they keep the atlas answer tied to the narrower record
-- they make absence meaningful when the repository refuses to publish a weak
-  point
+The animal publication gate verifies the whole emitted surface, including:
 
-## What This Page Protects Against
+- required sample, site, coordinate, and citation traceability;
+- no project-level substitution for blocked sample sites;
+- no leakage of unresolved or conflicting chronology into country or atlas
+  outputs;
+- no numeric windows for broad or contextual chronology;
+- temporal-semantics fields that keep contextual rows non-numeric;
+- public language that does not claim all-species readiness while refusals and
+  unresolved rows remain.
 
-- publishing region-only claims as exact points
-- letting map convenience overrule weaker geography
-- showing visible points whose evidence chain cannot be reconstructed
+Passing those protections means the published subset obeys its contracts. It
+does not mean all tracked projects or species are fully recovered, and it does
+not justify stronger collection-wide completeness language.
 
-## What These Rules Do Not Promise
+## Auditing inclusion and absence
 
-Point rules do not mean every visible point is equally strong. They only mean
-that the repository has decided the point can be shown under explicit
-conditions.
+For published features, begin with
+`docs/report/animal_point_evidence_review.json` and follow the stable evidence
+identifiers into the species-normalized files. For absent or blocked features,
+inspect `data/adna/governance/cross_species_map_readiness.json`, the coordinate
+and locality ledgers, and `docs/report/animal_publication_release_gate.json`.
 
-That still leaves important differences between points:
-
-- some have direct coordinate-grade evidence
-- some are reconstructed from narrower locality work
-- some remain visible only because the current scope allows a broader framing
-- some are still missing because the repository refuses to promote weak rows
-
-The honest public product depends on keeping those differences visible instead
-of flattening them into one visual style.
+Read [map inputs](map-inputs.md) for the full layer assembly,
+[coordinate provenance](../evidence/coordinates.md) for spatial confidence,
+and [chronology evidence](../evidence/chronology.md) for temporal field
+admission.

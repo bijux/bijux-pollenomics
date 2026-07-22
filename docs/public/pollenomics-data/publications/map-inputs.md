@@ -4,84 +4,96 @@ audience: reader
 type: explanation
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-05-10
+last_reviewed: 2026-07-22
 ---
 
-# Map Inputs
+# Map inputs
 
-Map inputs are the files that decide what the public maps are allowed to show.
-They matter because a visible atlas is only as honest as the evidence,
-boundaries, and review surfaces that feed it.
+The atlas is assembled from governed evidence layers, geographic framing, and
+publication decisions. There is no single coordinate table that defines the
+map. Each visible feature retains a source-family role and a path back to the
+normalized or reviewed record that authorized it.
 
-Most people meet the atlas from the front: a point is visible, a filter is
-active, and the story looks compact. This page explains what sits behind that
-surface so you can challenge the map without guessing.
+## The six governed input families
 
-## What Counts As A Map Input
+| Input | Role in the atlas | Governing surface | Interpretation limit |
+| --- | --- | --- | --- |
+| LandClim | primary pollen context | `data/landclim/normalized/landclim_summary.json` | pollen sequences and grids, not direct human or animal evidence |
+| Neotoma | primary pollen context | `data/neotoma/raw/neotoma_pollen_sites.json` and normalized outputs | separate pollen inventory with uneven temporal support |
+| SEAD | contextual archaeology | `data/sead/raw/nordic_sites.json` and reviewed outputs | environmental archaeology context, not uniformly dated evidence |
+| RAÄ | contextual archaeology | `data/raa/normalized/sweden_archaeology_layer.json` | Sweden-scoped density context, not Nordic-wide site coverage |
+| Nordic boundaries | geographic framing | `data/boundaries/normalized/nordic_country_boundaries.geojson` | scope and clipping only; contributes no evidence score |
+| Animal aDNA | sample-backed evidence and explicit refusals | species-normalized records plus publication reviews | visible subset of an incomplete recovery program |
 
-In practice, map inputs include:
+SVAR lake records provide the authoritative candidate-lake anchors for the
+Sweden priority analysis. Human aDNA exports and additional report layers enter
+the products that declare them, but their presence does not change the role of
+the six audited atlas families above.
 
-- normalized evidence files that carry sample, locality, chronology, and
-  coordinate decisions
-- scope and boundary files that decide where one view stops and another starts
-- layer-specific ledgers that decide which families are allowed to appear in a
-  world, regional, or country surface
-- review artifacts that explain why some rows still publish cautiously or do
-  not publish at all
+## Assembly and review
 
-That means a map input is not only a coordinate table. It is the wider set of
-files that controls what a point means, where it can appear, and how strongly
-it may be described.
+```mermaid
+flowchart LR
+    A[Source-family capture] --> B[Family normalization]
+    B --> C[Coverage and posture review]
+    C --> D{Eligible for this geography and product?}
+    D -->|yes| E[Scoped layer export]
+    D -->|no| F[Gap or refusal surface]
+    E --> G[World map]
+    E --> H[Regional map]
+    E --> I[Country bundle]
+    G --> J[Feature IDs and provenance links]
+    H --> J
+    I --> J
+```
 
-## Why This Matters
+Eligibility is evaluated for a particular product. A record admitted to a
+world layer is not automatically Nordic evidence; a Sweden density layer is
+not automatically available for another country; and a tracked animal project
+is not automatically a mapped sample.
 
-If a map point is challenged, the answer should not stop at the rendered HTML.
-You should be able to trace the visible surface back to the input layer, then
-further back to the evidence files and source families that produced it.
+## What a scoped export must preserve
 
-## What Questions This Page Helps Answer
+A public layer must retain enough structure to answer:
 
-- which files decided that a point could be shown at all
-- which files decided that the point belongs to a specific geography
-- whether a visible change came from better evidence, new intake, or only a
-  presentation rewrite
-- which source family contributed the visible context around one point
-- where to look when a visible point seems broader, sharper, or more confident
-  than expected
+- which source family supplied the feature;
+- whether the feature is direct evidence, context, or framing;
+- which geography admitted it and why;
+- which normalized identity and source record it came from;
+- whether its coordinates are direct, resolved, or withheld;
+- whether its temporal semantics permit numeric comparison;
+- which rows were excluded or refused rather than silently dropped.
 
-## How To Trace A Surprise On The Map
+This is also why visual filters are not the publication boundary. A feature
+must already belong to the scoped export before the browser can show or hide
+it. Client-side controls cannot authorize an otherwise ineligible record.
 
-Use this route when a map raises a question:
+## Geographic products are subsets
 
-1. identify the visible surface in [maps](maps.md)
-2. check [point rules](point-rules.md) if the question is why one point exists
-3. check [filters and popups](filters-and-popups.md) if the question is why the
-   point behaves differently across scopes
-4. inspect the audit anchors below to see which tracked files fed that public
-   output
-5. move back into [evidence](../evidence/index.md) or [sources](../sources/index.md)
-   when the real disagreement is about chronology, locality, or provenance
+World, regional, and country outputs have explicit publication contracts. A
+regional bundle must be a defensible subset of its upstream evidence, and a
+country bundle must preserve sample, locality, chronology, coordinate, and
+citation linkage for every included direct-evidence feature.
 
-## What This Input Chain Protects Against
+Boundary polygons frame those subsets but never increase evidence strength.
+Context layers may explain what surrounds a sample or lake, yet proximity does
+not turn them into sample-owned proof.
 
-The input chain exists to stop the atlas from becoming a black box. It protects
-against:
+## Tracing a visible feature
 
-- a map point that cannot be traced back to a governing evidence decision
-- geography filters that appear to work visually but are not backed by explicit
-  scoped inputs
-- context layers being read as sample-backed proof
-- newly published regions looking stronger than the underlying inputs justify
+Use the feature's layer and stable identifier to follow this route:
 
-## What This Page Should Make Clear
+1. identify the product contract under `docs/report/world/`,
+   `docs/report/regions/<region>/`, or the country publication root;
+2. locate the feature in the corresponding GeoJSON or evidence-row export;
+3. follow its source-family, sample, site, or source identifiers into the
+   normalized data root;
+4. inspect coordinate and temporal semantics before comparing it with another
+   layer;
+5. check the refusal and coverage surfaces when expected evidence is absent.
 
-- a map is governed by several file families, not one magic export
-- geography inclusion is a decision, not a visual accident
-- context layers and sample-backed evidence have different responsibilities
-- visible change does not automatically mean stronger evidence
-
-## Direct Input Audits
-
-- [repository atlas input audit](../../../report/repository_atlas_input_audit.md)
-- [repository cross-domain evidence matrix](../../../report/repository_cross_domain_evidence_matrix.md)
-- [repository truth posture](../../../report/repository_truth_posture.md)
+The [repository atlas input audit](../../../report/repository_atlas_input_audit.md)
+summarizes the active input families and their tracked metrics. The
+[cross-domain evidence matrix](../../../report/repository_cross_domain_evidence_matrix.md)
+shows their responsibilities, while [point publication rules](point-rules.md)
+define the direct-evidence admission boundary.
