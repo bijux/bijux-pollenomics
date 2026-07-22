@@ -9,113 +9,100 @@ last_reviewed: 2026-07-22
 
 # bijux-pollenomics-dev
 
-`bijux-pollenomics-dev` owns executable repository-health policy. It validates
-documentation integrity, release support, badges, governed report routes, and
-repository truth contracts without taking ownership of collection, scientific
-normalization, evidence review, ranking, or publication behavior.
+`bijux-pollenomics-dev` is the maintainer-only package for executable
+repository-health policy. It checks interface freezes, dependency analysis,
+documentation presentation, managed license assets, versions, and publication
+guards. Its outputs are findings about repository state, never scientific
+observations.
 
-## Ownership Boundary
+Regular users install `bijux-pollenomics`. Maintainers use this package through
+repository tests and workflow commands when the question is whether declared
+repository contracts agree at a specific revision.
 
-| Concern | `bijux-pollenomics-dev` role | Product owner |
+## Implemented Modules
+
+| Module | Responsibility | Mutation behavior |
 | --- | --- | --- |
-| public and internal navigation | detect missing, crossed, or stale routes | documentation owners |
-| generated report inventory | verify expected governed surfaces and audiences | runtime reporting package |
-| badges and package identity | verify synchronized repository presentation | release and package metadata |
-| release readiness | aggregate repository evidence and enforce stops | affected runtime and workflow owners |
-| source or evidence semantics | no authority | `bijux-pollenomics` runtime and governed data contracts |
-| atlas membership or scientific claim | no authority | evidence and publication contracts |
+| `api.freeze_contracts` | compare the canonical API schema, pinned JSON, and stored digest | read-only; reports disagreement |
+| `api.openapi_drift` | compare the current OpenAPI field surface with its Git baseline | read-only; reports added or removed fields |
+| `docs.badge_sync` | render managed README badge blocks from package and repository metadata | check mode is read-only; synchronization rewrites only declared badge targets |
+| `quality.deptry_scan` | merge repository dependency-analysis policy and invoke the package scan | writes transient merged configuration through its controlled execution path |
+| `release.license_assets` | compare or synchronize package license and notice assets | check mode is read-only; synchronization writes declared package assets |
+| `release.version_resolver` | derive a package version from its metadata and Git history | read-only |
+| `release.publication_guard` | reject non-publishable versions or mismatched distribution artifacts | read-only against the selected `dist/` directory |
+| `trusted_process` | run explicitly assembled subprocess commands without shell expansion | execution primitive; callers own scope and outputs |
 
-## Maintainer Evidence Flow
+The package deliberately has no scientific collector, normalizer, evidence
+reviewer, ranking engine, atlas publisher, or fieldwork decision module.
+
+## Authority Boundary
+
+| Finding | What the package may decide | What remains product-owned |
+| --- | --- | --- |
+| API freeze mismatch | canonical, pinned, and digest representations disagree | intended runtime compatibility and API semantics |
+| badge mismatch | managed presentation differs from metadata-derived rendering | package identity and release history |
+| dependency finding | declared package imports or dependency policy disagree | architecture change that resolves the finding |
+| license asset mismatch | package copies differ from the governed repository assets | licensing decision itself |
+| version or artifact mismatch | selected artifacts are not publishable as the requested version | whether a release should occur |
+| report or documentation contract finding | repository routes or declared relations disagree | scientific truth and publication meaning |
 
 ```mermaid
 flowchart LR
-    Inputs["repository contracts and generated state"] --> Check["maintainer check"]
-    Check --> Result{"pass or finding"}
-    Result -->|pass| Evidence["retained verification evidence"]
-    Result -->|finding| Owner["route to owning product boundary"]
-    Owner --> Correction["source, contract, or publication correction"]
+    State["governed repository state"] --> Check["bounded maintainer check"]
+    Check --> Outcome{"contract satisfied?"}
+    Outcome -->|yes| Proof["revision-scoped verification evidence"]
+    Outcome -->|no| Finding["observed versus expected"]
+    Finding --> Owner["runtime, data, docs, package, or workflow owner"]
+    Owner --> Correction["durable correction"]
     Correction --> Check
 ```
 
-A failing maintainer check identifies drift; it does not authorize a local
-exception or rewrite the scientific rule. Correction belongs where the
-disputed behavior or claim is owned.
+The check identifies disagreement. It must not acquire authority by rewriting
+the scientific rule or weakening an assertion around an unsupported state.
 
-## Check Families
+## Use Check Mode Before Write Mode
 
-| Check family | Reads | Proves | Does not prove |
-| --- | --- | --- | --- |
-| documentation integrity | navigation, routes, reader language, links, diagrams, and local assets | documentation structure and declared claims remain internally coherent | scientific completeness |
-| API freeze | canonical schema, pinned form, and digest | published interface representation has not drifted silently | implementation correctness for every input |
-| package identity | metadata, badges, dependency direction, and compatibility surface | canonical, alias, and maintainer identities remain aligned | release publication succeeded |
-| repository operations | Make targets and documented command ownership | operators are routed to existing owned commands | every broad lane must run for every change |
-| report inventory | generated registry, manifests, and expected product paths | required governed products remain discoverable | their scientific claims are automatically correct |
-| release support | licenses, packages, workflows, repository truth, and active refusals | release prerequisites and stops are explicit | evidence weakness may be waived |
+Badge and license synchronization support an explicit write mode. Run their
+check mode first, inspect the named targets, and use synchronization only when
+the governed metadata or asset is correct. After writing, review every changed
+target and rerun the check.
 
-## Respond To A Finding
+| Operation class | Before | After |
+| --- | --- | --- |
+| read-only contract check | identify revision, inputs, and expected owner | retain command, result, and warnings |
+| managed synchronization | verify authority and declared target set | review all targets and prove convergence in check mode |
+| external command wrapper | inspect constructed arguments and output root | retain exit status and bounded output evidence |
+| publication guard | select exact version and distribution directory | retain version and artifact identities; publish only in the owning workflow |
 
-```mermaid
-flowchart TD
-    Finding["maintainer finding"] --> Reproduce["reproduce with focused input"]
-    Reproduce --> Owner{"identify authoritative owner"}
-    Owner --> Correct["correct runtime, data, docs, package, or workflow"]
-    Correct --> Focused["rerun focused contract"]
-    Focused --> Crosses{"change crosses another owner?"}
-    Crosses -->|yes| Expand["run companion owner checks"]
-    Crosses -->|no| Evidence["record verification evidence"]
-    Expand --> Evidence
-```
+A synchronizer succeeding only proves that it rendered its inputs. It does not
+prove those inputs are scientifically correct or that an external publication
+succeeded.
 
-If a generated artifact is stale, correct or run its producer. If a scientific
-claim is unsupported, change the evidence or retain the refusal. If a public
-page contains internal procedure, move the procedure here and leave the public
-page focused on reader use and interpretation.
+## Route A Finding
 
-## Classify Before Correcting
+| Signal | Correct owner | Required evidence |
+| --- | --- | --- |
+| canonical API and digest differ | runtime interface owner | compatibility decision plus regenerated freeze and focused test |
+| badge family or package name differs | package metadata owner | metadata diff plus checked synchronization |
+| public claim differs from a report | evidence or publication owner | source/member review plus corrected descendant and claim |
+| expected report route is absent | report producer or documentation route owner | product generation or route correction plus focused contract |
+| artifact version differs from release version | build/version owner | rebuilt artifact identities and publication guard result |
+| command cannot evaluate its inputs | operational environment | exact environmental failure, unchanged governed state, and rerun condition |
 
-| Finding class | Typical signal | Correction boundary | Required retained evidence |
-| --- | --- | --- | --- |
-| stale representation | generated value disagrees with unchanged owner | owning generator and governed input | producer invocation and reviewed generated diff |
-| contract drift | implementation and declared interface disagree | runtime, package, or workflow contract owner | compatibility decision and focused proof |
-| scientific overclaim | public wording or admission outruns governing evidence | evidence, review, or publication owner | narrower claim, qualification, exclusion, or stronger source evidence |
-| route failure | canonical content exists but navigation or link is wrong | documentation structure | strict build and route-focused check |
-| missing authority | several copies exist without one governing owner | responsible domain contract | explicit ownership plus corrected descendants |
-| environmental failure | tool, dependency, service, or credentials prevent evaluation | operational boundary | exact failure, unchanged governed state, and rerun condition |
+## Verification Record
 
-Classification prevents a quick presentation edit from masking contract or
-scientific drift. It also prevents an unavailable external service from being
-misreported as evidence regression when the prior governed state remains
-coherent.
+Report each maintainer check with:
 
-A finding can cross classes. For example, an overclaim may expose both stale
-generated prose and a missing admission guard. Correct the scientific owner
-first, then regenerate and verify every derived representation.
+- the exact invariant and owning module;
+- repository revision and governed inputs;
+- observed and expected state when it fails;
+- focused command, exit status, and warnings;
+- changed targets when a synchronizer runs; and
+- the owner responsible for the correction.
 
-## Handbook Routes
-
-| Question | Route |
-| --- | --- |
-| Which operating invariants apply to maintainer work? | [Operating guidelines](operating-guidelines.md) |
-| Which gate supplies proof for a changed boundary? | [Quality gates](quality-gates.md) |
-| How are reader, maintainer, report, and generated routes kept distinct? | [Documentation integrity](documentation-integrity.md) |
-| How does a new country enter the publication geography? | [Country onboarding](future-country-onboarding-playbook.md) |
-| Which evidence supports verification and release? | [Release support](release-support.md) |
-| Which repository contracts must remain aligned? | [Repository governance](repository-governance.md) |
-
-## Verification Discipline
-
-Use a focused check when one contract and one owner changed. Add companion
-checks when navigation, package identity, generated state, or release posture
-also changed. The strict documentation build belongs with public navigation or
-rendering changes; it does not require collection or report regeneration for a
-narrative-only edit.
-
-Retain failures and warnings in the handoff. Unknown pytest marks, external
-tool warnings, intentionally skipped slow lanes, and active scientific release
-refusals are part of the verification record, even when the focused contract
-passes.
-
-Report verification with its boundary: command, selected inputs, pass or
-failure, warnings, and intentionally unexecuted broader lanes. Do not compress
-focused evidence into “CI is green,” and do not run expensive unrelated lanes
-to compensate for uncertainty about which contract changed.
+Use [quality gates](quality-gates.md) to select proof, [documentation
+integrity](documentation-integrity.md) for route and audience contracts, and
+[release support](release-support.md) for publication prerequisites. Report
+broader lanes as intentionally unexecuted when they are unrelated or too
+expensive for the changed boundary; do not describe a focused result as proof
+that the entire repository is green.

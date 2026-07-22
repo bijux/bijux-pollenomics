@@ -9,120 +9,110 @@ last_reviewed: 2026-07-22
 
 # Maintainer Handbook
 
-The maintainer handbook connects repository operations to their owning
-contracts. It covers local command routing, generated-state review, workflow
-evidence, documentation integrity, and release stops. Scientific behavior
-remains owned by the runtime and governed evidence surfaces.
+Repository maintenance begins with ownership, not with a convenient command.
+Choose the surface that has authority to make the intended change, constrain
+its writes, review its consequences, and retain proof at the same boundary.
 
-## Ownership Routes
+## Classify The Change
 
-- executable repository checks:
-  [bijux-pollenomics-dev](../pollenomics-dev/index.md)
-- repository-governance overview:
-  [repository governance](../pollenomics-dev/repository-governance.md)
-- maintainer package operating rules:
-  [operating guidelines](../pollenomics-dev/operating-guidelines.md)
-- executable review stops:
-  [quality gates](../pollenomics-dev/quality-gates.md)
-- future-country onboarding contract:
-  [country onboarding playbook](../pollenomics-dev/future-country-onboarding-playbook.md)
-- local maintainer commands:
-  [makes](makes/index.md)
-- command-routing boundary:
-  [make system contracts](makes/make-system-contracts.md)
-- GitHub automation:
-  [gh-workflows](gh-workflows/index.md)
-- workflow verification and release map:
-  [verification and release](gh-workflows/verification-and-release.md)
+| Change | Authoritative input | Expected governed descendants | Primary proof |
+| --- | --- | --- | --- |
+| reader explanation | selected Markdown under `docs/index.md` or `docs/public/` | navigation or redirects only when routes change | focused documentation contracts and strict build |
+| source refresh | one source-family collection root | normalized records, collection summaries, and dependent products declared by that producer | source identity, hashes, coverage, replacement behavior, and normalized diff |
+| animal evidence | project, sample, chronology, locality, coordinate, and review records | eligible point products and release posture | animal integrity and publication admission contracts |
+| atlas or fieldwork product | governed publication inputs and manifest | map layers, tables, warnings, and traceability views | member identities, exclusions, geography, scenario behavior, and product checks |
+| runtime interface | runtime implementation and canonical contract | examples and frozen interface representations | package tests plus compatibility and documentation review |
+| repository check | `bijux-pollenomics-dev` implementation and maintainer contract | local and workflow findings | maintainer-package tests and the affected repository contract |
+| release behavior | workflow definition and version contract | PyPI, GHCR, GitHub, or documentation publication evidence | workflow-specific validation and retained job result |
 
-## State Review Matrix
+If a change fits more than one row, split independent intents or name the
+causal chain explicitly. A source correction and its required regenerated
+atlas members may be inseparable; an unrelated prose rewrite is not.
 
-| State | Authoritative root | Review requirement |
+## Governed State And Build State
+
+| State | Location | Review status |
 | --- | --- | --- |
-| local environment and logs | `artifacts/` | diagnostic only; never publication authority |
-| collected and curated evidence | `data/` | source identity, normalized diff, review posture, and contract validation |
-| generated public products | `docs/report/` | manifests, subsets, traceability, warnings, and narrative consistency |
-| reader documentation | `docs/public/` and `docs/index.md` | reader language, governing links, navigation, and strict build |
-| maintainer documentation | `docs/internal/` | repository-specific ownership and executable guidance |
-| API compatibility | `apis/bijux-pollenomics/v1/` | canonical schema, pinned representation, and hash agreement |
+| collected and curated evidence | `data/` | governed; review source identity and scientific semantics |
+| published reports | `docs/report/` | governed; review manifests, members, warnings, and traceability |
+| reader documentation | `docs/index.md`, `docs/public/` | governed prose; review claims against evidence owners |
+| canonical interface | `apis/bijux-pollenomics/v1/` | governed compatibility surface |
+| maintainer guidance | `docs/internal/` | governed repository procedure, absent from reader navigation |
+| local command output | `artifacts/` | disposable diagnostics; never commit as evidence authority |
+| distribution build output | `dist/` within a release job or its retained artifact | publishable only after version and content guards pass |
 
-## Mutation Classes
+Generated does not mean disposable. Files under `docs/report/` are checked-in
+publication state and require semantic review. Files under `artifacts/` are
+local run products and must not be cited as the repository’s durable evidence.
 
-| Change class | Expected writes | Review boundary |
-| --- | --- | --- |
-| narrative-only documentation | selected handwritten Markdown | audience, links, claims, navigation, and strict rendering |
-| source collection | one owned source-family tree and collection contracts | acquisition identity, hashes, replacement, normalization, and downstream impact |
-| animal foundation refresh | governed animal project, sample, evidence, review, and dependent publication surfaces | identity, locality, chronology, coordinates, exclusions, and release posture |
-| report publication | declared `docs/report/` product families | manifests, parent-child subsets, traceability, visual members, rankings, and caveats |
-| API contract change | canonical schema, pinned representation, and digest | compatibility intent and consumer-visible diff |
-| repository policy change | maintainer code, documentation, and affected workflow contracts | ownership, failure behavior, retained proof, and release consequence |
+## Execute A Bounded Change
 
-Do not broaden a write set merely because a convenience target is available.
-Use the operation that owns the intended state transition, then review every
-governed descendant it is designed to change.
-
-## Change Sequence
+1. Identify the authoritative input and every declared output root.
+2. Inspect the worktree before invoking a writer.
+3. Use the smallest owner-specific command that can perform the transition.
+4. Inspect handwritten and generated diffs separately.
+5. Compare identifiers, exclusions, warnings, and changed claims before totals.
+6. Run the narrowest check that proves the changed contract.
+7. Add companion checks only where the diff crosses another owner.
+8. Commit the coherent intent while its evidence is still attributable.
 
 ```mermaid
-flowchart LR
-    Intent["declared change boundary"] --> Mutation["smallest owning operation"]
-    Mutation --> Diff["separate handwritten and generated diffs"]
-    Diff --> Proof["focused validation evidence"]
-    Proof --> Gate{"release or review gate"}
-    Gate -->|pass| Commit["coherent commit"]
-    Gate -->|fail| Owner["return to owning boundary"]
+flowchart TD
+    Owner["authoritative input"] --> Producer["bounded editor or producer"]
+    Producer --> Handwritten["handwritten cause"]
+    Producer --> Generated["generated consequence"]
+    Handwritten --> Agreement{"cause explains every consequence?"}
+    Generated --> Agreement
+    Agreement -->|no| Investigate["return to owner or producer"]
+    Agreement -->|yes| Validate["focused contract proof"]
+    Validate --> Commit["durable intent commit"]
 ```
 
-Generated success does not replace diff review. A report refresh can complete
-while changing an unintended geography; a documentation build can pass while
-wording outruns evidence; a release workflow can be structurally valid while a
-scientific refusal remains active.
+Producer success is necessary but insufficient. A mechanically valid report
+can still contain the wrong geography, an unsupported admission, or a changed
+warning posture.
 
-## Review Handwritten And Generated State Separately
+## Choose The Command Surface
 
-```mermaid
-flowchart TB
-    Intent["owned change intent"] --> Handwritten["handwritten source or contract diff"]
-    Intent --> Generated["generated descendant diff"]
-    Handwritten --> Cause["review semantic cause"]
-    Generated --> Effect["review member-level effect"]
-    Cause --> Agreement{"cause explains every effect?"}
-    Effect --> Agreement
-    Agreement -->|no| Owner["return to producer or governing input"]
-    Agreement -->|yes| Proof["run focused contract"]
-```
+| Need | Route |
+| --- | --- |
+| local environment, checks, reports, or package targets | [Make system](makes/index.md) |
+| understand target delegation and output roots | [Make system contracts](makes/make-system-contracts.md) |
+| repository-health implementation | [`bijux-pollenomics-dev`](../pollenomics-dev/index.md) |
+| validation selection and release stops | [Quality gates](../pollenomics-dev/quality-gates.md) |
+| GitHub Actions trigger and evidence ownership | [GitHub workflows](gh-workflows/index.md) |
+| release ordering and publication proof | [Verification and release](gh-workflows/verification-and-release.md) |
 
-The handwritten side explains why behavior or evidence changed. The generated
-side shows the complete consequence under an owned producer. Review both even
-when they belong in the same final change set. A large generated diff is not
-self-justifying, and a small handwritten diff can legitimately have broad
-descendants only when the ownership and causal chain are explicit.
+Make is a routing layer, not an authority. Read the delegated command and its
+write boundary before using a broad target. A maintainer check may detect a
+scientific mismatch, but the correction still belongs to the evidence,
+runtime, or publication owner.
 
-For data and reports, compare member identities before totals. For navigation
-and badges, compare governing metadata before rendered presentation. For API
-freeze outputs, compare the canonical schema before its pinned representation
-and digest.
+## Diagnose Without Masking The Failure
 
-## Commit Boundary
+| Symptom | First inspection | Durable response |
+| --- | --- | --- |
+| published count changed | governing record identities and producer diff | correct the input or accept the explained membership change, then regenerate |
+| point disappeared | admission, coordinate, chronology, geography, and exclusion evidence | correct the owning evidence or retain the exclusion |
+| refresh deleted records | acquisition identity, replacement policy, staging output, and normalized diff | repair the collector or explicitly accept the source change |
+| public prose outruns evidence | claim, governing source, qualification, and product manifest | narrow the claim or strengthen the evidence owner |
+| generated file is stale | canonical input and producer | run or correct the producer; do not hand-edit the symptom |
+| external service is unavailable | command boundary, credentials, and unchanged governed state | record the environmental failure and rerun condition |
+| release refuses | exact guard, evidence anchor, and owning package or product | satisfy the owner or retain the refusal |
 
-A coherent maintenance commit contains one durable intent, its necessary
-handwritten and governed consequences, and focused verification evidence. Keep
-independent documentation, source refresh, report regeneration, and repository
-policy intents separate when they can be reviewed independently.
+Never weaken a check merely to remove a useful finding. An unavailable service
+is not proof that evidence regressed, and a green renderer is not proof that a
+scientific statement is supported.
 
-Before committing:
+## Commit And Handoff
 
-1. inspect unstaged and staged diffs independently;
-2. confirm no unrelated user work is staged;
-3. verify generated changes came from the owning producer;
-4. run the narrowest contract that proves the intent;
-5. record skipped broader checks and active warnings; and
-6. confirm the worktree state expected after the commit.
+Before each commit, inspect both unstaged and staged diffs; stage only the
+current intent; confirm generated files came from their declared producer; and
+record the focused proof. The commit subject names the enduring surface and
+result, not the order in which the work was delivered.
 
-The commit subject names the durable surface and result. It does not encode the
-delivery sequence, temporary context, or an implementation diary.
-
-Do not combine a narrative clarification with unrelated data regeneration just
-because both happen to be documentation-visible. Reader prose, governed
-reports, and repository checks have different owners and review evidence; keep
-their commit boundaries independently reversible whenever correctness allows.
+The handoff must distinguish checks that ran, checks intentionally omitted,
+warnings observed, and active refusals. Slow repository-wide lanes are release
+evidence when the release contract requires them; they are not a substitute
+for selecting the focused contract for a documentation-only or single-owner
+change.

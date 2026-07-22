@@ -25,8 +25,9 @@ class DocsBreadthRegressionTests(unittest.TestCase):
         self.assertIn("Open the product guide", docs_index)
         self.assertIn("Open the report portal", docs_index)
         self.assertNotIn("Open the public guide", docs_index)
-        self.assertIn("owns repository operation", internal_index)
-        self.assertIn("Public And Internal Boundary", internal_index)
+        self.assertIn("This handbook is for people changing the repository", internal_index)
+        self.assertIn("Reader And Maintainer Surfaces", internal_index)
+        self.assertIn("unlisted repository handbook", internal_index)
         self.assertIn("Open the maintainer handbook", internal_index)
 
     def test_data_handbook_covers_cross_domain_system(self) -> None:
@@ -71,10 +72,10 @@ class DocsBreadthRegressionTests(unittest.TestCase):
         ):
             self.assertTrue((REPO_ROOT / path).is_file(), path)
 
-        self.assertIn("repository-governance overview", maintain_index)
-        self.assertIn("country onboarding playbook", maintain_index)
-        self.assertIn("command-routing boundary", maintain_index)
-        self.assertIn("workflow verification and release map", maintain_index)
+        self.assertIn("Classify The Change", maintain_index)
+        self.assertIn("Governed State And Build State", maintain_index)
+        self.assertIn("makes/make-system-contracts.md", maintain_index)
+        self.assertIn("gh-workflows/verification-and-release.md", maintain_index)
 
     def test_report_root_preserves_documentation_accountability(self) -> None:
         report_root = REPO_ROOT / "docs" / "report"

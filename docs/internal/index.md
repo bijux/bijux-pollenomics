@@ -9,148 +9,124 @@ last_reviewed: 2026-07-22
 
 # Internal Guide
 
-The internal surface owns repository operation: validation policy, generated
-state, workflow behavior, release evidence, and documentation integrity. It
-does not redefine the scientific meaning published in the public data and
-atlas guides.
+This handbook is for people changing the repository. It explains where a
+change belongs, which state is authoritative, and what evidence is needed to
+review or release it. Scientific interpretation remains in the public data,
+atlas, and fieldwork guides; runtime behavior remains with the runtime package
+and its governed contracts.
 
-## Start Here
+## Reader And Maintainer Surfaces
+
+The MkDocs reader navigation contains the public handbook and governed
+reports. `docs/internal/` is an unlisted repository handbook: maintainers can
+build and inspect it with the same documentation toolchain, but public pages
+must not depend on it to explain a scientific claim or product.
+
+| Surface | Consumer | Content that belongs there |
+| --- | --- | --- |
+| `docs/index.md`, `docs/public/` | evidence users, researchers, and operators | product meaning, evidence lineage, use, interpretation, and limits |
+| `docs/report/` | readers reviewing a published product | checked-in maps, manifests, tables, exclusions, and traceability records |
+| `docs/internal/` | repository maintainers | producer ownership, validation selection, workflow behavior, and release evidence |
+| package `README.md` files | installers and integrators | distribution purpose, installation boundary, and package-owned interfaces |
+| `artifacts/` | the person running a local command | disposable previews, logs, test output, and local diagnostics |
+
+A governed report can be public even when its production procedure is
+internal. Conversely, a local site preview is not a publication merely because
+it renders the same Markdown.
+
+## Maintainer Routes
 
 <div class="bijux-quicklinks">
   <a class="md-button md-button--primary" href="maintain/">Open the maintainer handbook</a>
-  <a class="md-button" href="pollenomics-dev/documentation-integrity/">Open documentation integrity</a>
-  <a class="md-button" href="pollenomics-dev/quality-gates/">Open quality gates</a>
-  <a class="md-button" href="pollenomics-dev/release-support/">Open release support</a>
+  <a class="md-button" href="pollenomics-dev/">Inspect repository checks</a>
+  <a class="md-button" href="pollenomics-dev/quality-gates/">Select a quality gate</a>
+  <a class="md-button" href="maintain/gh-workflows/verification-and-release/">Review release evidence</a>
 </div>
 
-## Ownership Map
+| Need | Governing route |
+| --- | --- |
+| classify a repository change and its write boundary | [Maintainer handbook](maintain/index.md) |
+| run or extend a repository-health check | [`bijux-pollenomics-dev`](pollenomics-dev/index.md) |
+| choose focused proof for a changed contract | [Quality gates](pollenomics-dev/quality-gates.md) |
+| maintain reader navigation and claim boundaries | [Documentation integrity](pollenomics-dev/documentation-integrity.md) |
+| understand Make target ownership | [Make system](maintain/makes/index.md) |
+| inspect automation and publication evidence | [GitHub workflows](maintain/gh-workflows/index.md) |
 
-| Concern | Owner | Governing entry point |
+## Authority Map
+
+Repository facts often appear in several places. Correct the owner first and
+then regenerate or revise its consumers.
+
+| Fact | Authority | Derived consumers |
 | --- | --- | --- |
-| repository-wide maintenance | maintainer handbook | [Maintenance](maintain/index.md) |
-| focused repository operations | `bijux-pollenomics-dev` | [Operator guide](pollenomics-dev/index.md) |
-| documentation navigation and claim integrity | documentation integrity checks | [Documentation integrity](pollenomics-dev/documentation-integrity.md) |
-| validation selection and proof | quality gates | [Quality gates](pollenomics-dev/quality-gates.md) |
-| GitHub Actions and release evidence | release support | [Release support](pollenomics-dev/release-support.md) |
-| Make target contracts | Make handbook | [Make system](maintain/makes/index.md) |
-
-## Choose An Operating Mode
-
-Repository work has four modes with different authority and side effects:
-
-| Mode | Purpose | Expected writes | Completion evidence |
-| --- | --- | --- | --- |
-| inspect | locate an owner, contract, product member, or failure | none | identified governing surface and bounded question |
-| validate | test an existing contract without changing governed state | transient output under `artifacts/` | named check, inputs, revision, and result |
-| regenerate | intentionally replace owned data, reports, or generated contracts | declared governed output roots | producer inputs, semantic diff, focused validation, and review decision |
-| release | prove and publish an accepted repository state | release artifacts and external publication surfaces | exact revision, package set, retained workflow evidence, and published identities |
+| acquired source identity and payload | source-family collection record under `data/` | collection summary, normalized records, reports, and prose |
+| scientific normalization or exclusion | runtime contract plus governed evidence record | atlas members, tables, warnings, and documentation |
+| publication membership | product manifest and admission decision | map layers, counts, report indexes, and reader narratives |
+| runtime command or API behavior | `bijux-pollenomics` implementation and canonical interface contract | examples, frozen API representations, and operator guides |
+| repository-health rule | `bijux-pollenomics-dev` check and maintainer contract | local validation and workflow findings |
+| release event | tagged revision and retained workflow publication evidence | badges, package indexes, containers, and GitHub release pages |
 
 ```mermaid
 flowchart LR
-    Question["maintenance intent"] --> Inspect["inspect owner and scope"]
-    Inspect --> Validate["validate current state"]
-    Validate --> Change{"governed state must change?"}
-    Change -->|no| Evidence["retain focused result"]
-    Change -->|yes| Regenerate["regenerate owned surface"]
-    Regenerate --> Review["review semantic diff"]
-    Review --> Release["release only when requested"]
+    Observation["conflicting value or behavior"] --> Classify{"which authority owns it?"}
+    Classify --> Data["evidence or publication owner"]
+    Classify --> Runtime["runtime interface owner"]
+    Classify --> Repository["repository-health owner"]
+    Data --> Descendants["regenerate governed descendants"]
+    Runtime --> Descendants
+    Repository --> Focused["rerun focused repository check"]
+    Descendants --> Focused
 ```
 
-Validation success never grants permission to regenerate, and regeneration
-success never implies release readiness. The selected mode belongs in the
-handoff so another maintainer can distinguish observation from mutation.
+Changing a generated table, rendered badge, or prose sentence alone is not a
+correction when its governing input remains wrong.
 
-## Authority Precedence
+## Select The Operation
 
-Repository maintenance often encounters the same statement in source code,
-governed data, generated reports, public prose, and a check. Resolve the
-disagreement at the surface that owns the fact:
-
-```mermaid
-flowchart TD
-    Drift["conflicting repository statements"] --> Kind{"what kind of fact?"}
-    Kind -->|scientific or source fact| Data["governing data or evidence record"]
-    Kind -->|runtime behavior| Runtime["canonical runtime contract"]
-    Kind -->|product membership| Manifest["publication manifest and admission"]
-    Kind -->|repository policy| Maintainer["maintainer contract"]
-    Data --> Regenerate["regenerate dependent views"]
-    Runtime --> Regenerate
-    Manifest --> Regenerate
-    Maintainer --> Verify["rerun focused check"]
-    Regenerate --> Verify
-```
-
-A generated report, documentation sentence, or integrity check can reveal a
-conflict but cannot become a substitute authority. Correcting the consumer
-alone leaves the next regeneration free to restore the same defect.
-
-## Route A Repository Change
-
-| Changed surface | Primary review | Required companion evidence |
+| Intent | Allowed state transition | Evidence before handoff |
 | --- | --- | --- |
-| runtime source or CLI | runtime package tests and public contract review | affected command, API, data, or publication documentation |
-| collected or normalized data | source-family and data-contract validation | collection summary, hashes, coverage review, and generated diff |
-| animal evidence | project and sample integrity review | locality, chronology, coordinate, exclusion, and release-gate surfaces |
-| generated reports | publication and subset validation | manifest membership, traceability, warnings, and scientific review |
-| public documentation | documentation integrity and strict site build | links to the governing product, evidence, or source surface |
-| workflow or release behavior | GitHub workflow and release-support review | retained job evidence, package selection, and release contract |
-| shared Make behavior | Make system contract review | expanded target ownership and affected package lane |
+| inspect | no governed writes | owner, input, observed state, and bounded question |
+| validate | disposable output under `artifacts/` | command, selected inputs, revision, result, and warnings |
+| edit | one handwritten owner and required contract companions | semantic diff and focused proof |
+| regenerate | declared governed output roots from their producer | producer invocation, input diff, member-level output diff, and focused proof |
+| publish | accepted revision to an external publication surface | trigger identity, immutable version, job evidence, and published artifact identity |
+
+Validation does not authorize regeneration. Regeneration does not authorize
+publication. Keep those transitions explicit so a reviewer can distinguish a
+diagnostic run from a repository mutation and a local proof from an external
+release.
+
+## Review A Change
 
 ```mermaid
 flowchart LR
-    Change["repository change"] --> Owner{"which boundary owns it?"}
-    Owner --> Product["runtime or evidence owner"]
-    Owner --> Maint["repository maintenance owner"]
-    Product --> Contract["public contract and focused proof"]
-    Maint --> Gate["repository gate and release evidence"]
-    Contract --> Review["reviewable change set"]
-    Gate --> Review
+    Intent["durable intent"] --> Owner["authoritative owner"]
+    Owner --> Write["bounded handwritten or producer write"]
+    Write --> Diff["semantic and member-level diff"]
+    Diff --> Proof["focused contract proof"]
+    Proof --> Consequence{"crosses another owner?"}
+    Consequence -->|yes| Companion["companion owner proof"]
+    Consequence -->|no| Commit["coherent commit"]
+    Companion --> Commit
 ```
 
-Maintenance checks may coordinate product contracts, but a repository-health
-helper cannot become the owner of scientific normalization, evidence meaning,
-or publication semantics.
+Use member identities before totals when reviewing data and publications. Use
+canonical metadata before rendered presentation when reviewing badges or
+navigation. Use the canonical schema before its frozen representation and
+digest when reviewing an interface.
 
-## Diagnose By Symptom
+## Handoff Evidence
 
-| Symptom | Inspect first | Then verify |
-| --- | --- | --- |
-| public count or claim changed unexpectedly | governing evidence record and producer diff | report membership, narrative, and claim audit |
-| map point disappeared | exclusion, coordinate, locality, chronology, and scope surfaces | point traceability and publication gate |
-| source refresh deleted records | staging result, replacement rule, hashes, and normalized diff | source-family contracts and dependent publications |
-| docs build fails | reported page, link, plugin, or asset error | navigation, redirects, local assets, and strict build |
-| docs build passes but prose is wrong | audience, governing link, and claim evidence | language and breadth contracts plus human review |
-| release gate refuses | exact failing dimension and evidence anchor | owning package, workflow, scientific, or recovery proof |
+A complete maintainer handoff records:
 
-## Public And Internal Boundary
+- the changed owner and intended state transition;
+- handwritten and generated paths, identified separately;
+- the exact focused commands and results;
+- warnings, active refusals, and broader lanes intentionally not run;
+- the worktree and commit state; and
+- any external publication identity, only when publication actually occurred.
 
-Public pages govern reader interpretation of sources, evidence, publications,
-atlas features, and fieldwork. Internal pages govern how maintainers preserve
-those contracts while changing code or generated state. An internal diagnostic
-may block a release or reveal drift; it does not become the scientific
-authority for a public record.
-
-Readers evaluating a scientific or publication claim should return to the
-[documentation home](../index.md) and follow the claim upstream through the
-data system.
-
-## Place Documentation By Consumer
-
-| Content | Durable location | Reason |
-| --- | --- | --- |
-| product meaning, scientific interpretation, and reader workflow | `docs/public/` | belongs in the published handbook and must stand without repository-maintenance context |
-| checked-in maps, tables, manifests, reviews, and refusal outputs | `docs/report/` | governed publication state produced from evidence and contracts |
-| maintainer command selection, generated-state handling, release evidence, and repository diagnostics | `docs/internal/` | useful to repository operators but not part of the reader's scientific explanation |
-| package installation, API ownership, and integration contract | package `README.md` and package docs | stays beside the distribution that owns the interface |
-| temporary logs, previews, and local verification output | `artifacts/` | diagnostic run state, not durable documentation or evidence authority |
-
-Public prose should explain what a result means, how it can be traced, and
-where its limits are. Internal prose may explain which check to run, how to
-regenerate an owned surface, and how to prepare release evidence. If one page
-tries to serve both audiences, split by ownership and link across the boundary
-with descriptive context.
-
-Generated reports remain public when readers need them to evaluate claims;
-their generation and review procedure remains internal. This distinction
-prevents an operational checklist from interrupting the scientific narrative
-without hiding the evidence it produces.
+“The docs pass” or “CI is green” is not enough. Name the contract that was
+checked and the evidence it supplies. A passing documentation build proves
+rendering and link integrity; it does not establish source completeness or
+scientific sufficiency.
