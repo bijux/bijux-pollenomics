@@ -44,6 +44,36 @@ A successful boundary does not imply success at the next boundary. Capture can
 complete while extraction remains incomplete; normalization can complete while
 locality remains unresolved; review can complete with a defensible refusal.
 
+## One Evidence Transaction
+
+An evidence transaction begins with an identifiable upstream object and ends
+with either a qualified product member or an explicit non-publication outcome.
+The intermediate records are not disposable preparation files; together they
+preserve the scientific reasoning behind the outcome.
+
+| Transaction state | Durable fact | Reader-safe conclusion |
+| --- | --- | --- |
+| selected | source identity, intended role, access, and license are known | the source is relevant enough to pursue |
+| captured | exact material and retrieval context are recorded | this is the material the repository received |
+| normalized | source meaning is represented under declared fields | records can be inspected consistently without claiming fitness |
+| reviewed | identity, coverage, precision, conflict, and comparability are evaluated | the record has a claim-specific evidence posture |
+| admitted | a named product contract accepts or qualifies the record | the record may appear in that product at the declared strength |
+| refused or deferred | the failed rule or missing evidence is recorded | non-publication is explainable and revisable |
+
+```mermaid
+flowchart LR
+    Upstream["identifiable upstream object"] --> Capture["captured material"]
+    Capture --> Record["normalized record"]
+    Record --> Review{"claim-specific review"}
+    Review -->|supported| Member["qualified product member"]
+    Review -->|unsupported| Refusal["reasoned refusal"]
+    Review -->|evidence unavailable| Deferred["recovery state"]
+```
+
+The transaction never infers success from pipeline completion. A technically
+successful capture can still end in refusal when scientific ownership,
+precision, or comparability is inadequate.
+
 ## System References
 
 | Question | Reference |

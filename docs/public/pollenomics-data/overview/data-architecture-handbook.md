@@ -48,6 +48,35 @@ These registries answer different questions. A source-family contract says
 what a family contributes. Fact ownership says where disagreement is resolved.
 An artifact contract says which files must exist for a complete evidence unit.
 
+## Database Invariants
+
+The file-backed design depends on invariants that are stronger than directory
+conventions:
+
+| Invariant | Consequence |
+| --- | --- |
+| one fact, one owner | repeated values resolve to a declared governing record rather than majority agreement |
+| source and interpretation remain distinct | normalization can be challenged without losing what the source said |
+| derivation moves downstream | a map, report, or species view cannot silently feed facts back into project evidence |
+| precision never increases without evidence | formatting, geocoding, or normalization cannot manufacture certainty |
+| negative states remain typed | missing, unresolved, excluded, deferred, and outside-scope records retain different meanings |
+| membership is product-specific | admission to one scope or surface does not grant universal publication fitness |
+| every public member is reversible | product identity can be traced to evidence, decision, captured artifact, and upstream identity |
+
+```mermaid
+flowchart TB
+    Source["source-native fact"] --> Owner["governing repository record"]
+    Owner --> Views["normalized and domain views"]
+    Views --> Decision["product-specific decision"]
+    Decision --> Member["published member"]
+    Member -. trace only .-> Owner
+    Views -. never redefine .-> Source
+```
+
+These invariants let the repository use ordinary versioned files while still
+behaving like an evidence database: ownership, lineage, constraints, and
+revision effects remain inspectable.
+
 ## Source-Family Topology
 
 | Family | Evidence role | Characteristic reviewed state | Public use |

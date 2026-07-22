@@ -151,6 +151,34 @@ species, atlas, and country descendants are then regenerated and reviewed.
 Editing only the visible map row would leave the database internally
 contradictory.
 
+## Query By Claim, Not By Folder
+
+The database is easiest to inspect when the question determines the traversal.
+Directory names locate lifecycle state; identifiers and ownership records
+connect the evidence needed to answer the claim.
+
+| Question | Follow this path | Stop when you can name… |
+| --- | --- | --- |
+| What is this record? | publication member → normalized identity → source-native identity | the stable unit, its aliases, and its captured origin |
+| Where is it? | member → locality claim → site relationship → coordinate evidence | the place owner, resolution method, basis, and precision |
+| When is it? | member → chronology claim → normalized interval → dating basis | the source wording, allowed comparison, and caveat |
+| Why is it visible? | member → admission decision → product contract → manifest | the passed rules, scope, and bundle identity |
+| Why is it absent? | expected identity → scope, recovery, ambiguity, and exclusion surfaces | whether absence means not captured, unresolved, refused, or out of scope |
+| What changed after refresh? | capture identity → normalized diff → review diff → membership diff | the owning semantic change and every affected descendant |
+
+A query is complete only when it reaches both the governing evidence and the
+decision that connects that evidence to the product. Finding the same value in
+several generated files is not equivalent to finding its authority.
+
+```mermaid
+flowchart LR
+    Question["claim under inspection"] --> Member["product member or expected identity"]
+    Member --> Owner["governing evidence owner"]
+    Owner --> Origin["captured source"]
+    Owner --> Decision["admission, qualification, or refusal"]
+    Decision --> Scope["product scope and version"]
+```
+
 ## Read The System In Either Direction
 
 ```mermaid

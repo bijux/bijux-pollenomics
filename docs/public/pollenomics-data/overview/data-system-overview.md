@@ -114,6 +114,34 @@ different meanings:
 Keeping blocked and deferred states visible prevents absence from being
 misread as proof that no relevant project or sample exists.
 
+## Curation Transaction
+
+A curation change is accepted as a linked evidence revision, not as an isolated
+cell edit. The narrowest owner changes first, and every dependent interpretation
+is then re-evaluated against its own contract.
+
+```mermaid
+flowchart LR
+    Proposal["new or corrected evidence"] --> Owner["narrowest fact owner"]
+    Owner --> Relations["identity and relationship checks"]
+    Relations --> Claims["place, time, taxonomy, and coordinate review"]
+    Claims --> Products["affected product admissions"]
+    Products --> Diff["reviewable semantic diff"]
+```
+
+The transaction is acceptable when:
+
+- the source-native value and the repository interpretation both remain
+  recoverable;
+- stable identity is preserved or an explicit merge or split is recorded;
+- stronger precision is introduced only with stronger owned evidence;
+- conflicting claims remain conflicts until their owner resolves them;
+- admission changes identify the rule and product they affect; and
+- unchanged publications remain explainable even when upstream files changed.
+
+These properties make revision history scientifically useful. A larger output
+or a cleaner row is not, by itself, evidence that curation improved.
+
 ## How Evidence Changes Propagate
 
 A source refresh and a curation correction have different propagation paths.
