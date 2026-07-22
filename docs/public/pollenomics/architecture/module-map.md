@@ -125,3 +125,35 @@ Start from the observable surface and move inward:
 This route follows ownership instead of filename similarity. It is the safest
 way to distinguish a presentation defect from a curation or acquisition
 defect.
+
+## Place A Correction At Its Owner
+
+The visible symptom is often downstream of the responsible boundary. Locate
+the earliest decision that is wrong and correct it there:
+
+| Observed mismatch | Owning correction | Downstream consequence |
+| --- | --- | --- |
+| source version, retrieval URL, or payload hash is wrong | `data_downloader/` capture and family contract | normalize again, then rebuild affected evidence and products |
+| recovered animal identifier, locality, chronology, or coordinate is wrong | `adna/` project or sample evidence | review admission again before republishing |
+| evidence role or fitness posture is wrong | `evidence/` and its product rule | regenerate review and every product that consumes the decision |
+| ranking changes under the wrong scenario or interval rule | `analysis/review/` | regenerate ranking, sensitivity, and fieldwork-preparation packets |
+| correct evidence is selected but serialized or rendered incorrectly | `reporting/` | rebuild the affected bundle without rewriting upstream evidence |
+| public release wording overstates a governed result | the release-posture producer in `foundation/` or the owning report builder | regenerate the gate or review surface; do not patch generated prose |
+
+```mermaid
+flowchart LR
+    Symptom["observed mismatch"] --> Decision{"earliest wrong decision"}
+    Decision --> Capture["capture owner"]
+    Decision --> Curation["curation owner"]
+    Decision --> Fitness["fitness owner"]
+    Decision --> Analysis["analysis owner"]
+    Decision --> Publication["publication owner"]
+    Capture --> Rebuild["rebuild dependent surfaces"]
+    Curation --> Rebuild
+    Fitness --> Rebuild
+    Analysis --> Rebuild
+    Publication --> Rebuild
+```
+
+Generated artifacts are evidence of the producer's behavior. Hand-editing one
+would hide the defective decision and leave the next regeneration incorrect.

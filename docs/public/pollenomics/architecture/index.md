@@ -127,6 +127,32 @@ sequenceDiagram
 If any link is absent, the public point is incomplete regardless of how precise
 its marker appears.
 
+### The Same Layer Can Carry Different Evidence Units
+
+The animal map demonstrates why ownership cannot be inferred from geometry.
+Two markers can share a layer while resolving through different evidence
+chains:
+
+| Visible member | Evidence unit | Required reverse trace | Permitted claim |
+| --- | --- | --- | --- |
+| final sample-backed feature | recovered sample | feature → evidence row → final sample identity → supplementary row and coordinate → project capture | qualified sample presence at the recorded locality |
+| Wadi Halfa provisional feature | project context | feature → evidence row → provisional identity → paper-backed named place → project capture | spatial project context at an approximate geocode |
+
+`reporting/` is allowed to place both members because the point-class contract
+preserves their difference. It is not allowed to collapse them into one sample
+population. Recovering a source-native Wadi sample would begin in `adna/`, flow
+through `evidence/`, and only then change the published class.
+
+```mermaid
+flowchart TB
+    SampleSource["supplementary sample row"] --> SampleRecord["adna final sample record"]
+    SampleRecord --> SampleReview["evidence sample admission"]
+    SampleReview --> SamplePoint["reporting final sample-backed feature"]
+    PlaceSource["paper-backed named place"] --> ContextRecord["adna provisional project record"]
+    ContextRecord --> ContextReview["evidence context admission"]
+    ContextReview --> ContextPoint["reporting provisional context feature"]
+```
+
 ## Architecture References
 
 - [Runtime system model](runtime-system-model.md) describes execution order,

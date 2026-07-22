@@ -143,6 +143,34 @@ exclusion needed to explain why a candidate did not become a claim. Retrying
 cannot convert the third class into success unless its governing evidence or
 product contract changes.
 
+## Operation Evidence Packet
+
+A consequential run is reconstructable from more than its exit code. Preserve
+these identities together when evaluating or citing an operation:
+
+| Identity | Question answered |
+| --- | --- |
+| invocation | Which command, arguments, installed distribution, and explicit roots were used? |
+| inputs | Which source versions, capture hashes, manifests, and prior governed state were read? |
+| transition | Which owner built the candidate, what validation ran, and which governed tree could change? |
+| result | Which manifest or review packet names the accepted, qualified, refused, and excluded members? |
+| product | Which structured and rendered artifacts share that result identity? |
+
+This packet separates operational success from scientific admission. For
+example, `publish-reports` can complete coherently while preserving a
+provisional animal context feature or refusing a temporal comparison. The
+successful state transition proves that the publication contract ran; the
+manifest and review surfaces determine what the result supports.
+
+```mermaid
+flowchart LR
+    Invocation["invocation identity"] --> Transition["owned state transition"]
+    Inputs["input identities"] --> Transition
+    Transition --> Result["manifested result"]
+    Result --> Products["structured and rendered members"]
+    Result --> Fitness["qualification and refusal evidence"]
+```
+
 ## Extension Rule
 
 New source families and products enter through named ownership boundaries.
