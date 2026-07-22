@@ -33,7 +33,7 @@ yet own.
 
 The machine-readable authority for this distinction is the product and surface
 scope returned by the Python facade and the `product-scope` and `surface-map`
-commands. Reader-facing pages explain that contract; they do not expand it.
+commands. Narrative descriptions cannot expand that executable contract.
 
 ## Evidence Domains
 

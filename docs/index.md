@@ -41,6 +41,23 @@ admission decisions, and affected publications.
 [![pollenomics docs](https://img.shields.io/badge/docs-pollenomics-2563EB?logo=materialformkdocs&logoColor=white)](https://bijux.io/bijux-pollenomics/public/pollenomics/)
 <!-- bijux-pollenomics-badges:generated:end -->
 
+## Current Product Contract
+
+The implemented runtime is an atlas builder and evidence-publication system,
+not the complete cross-evidence engine suggested by the broader research
+direction.
+
+| Available now | Not a current runtime claim |
+| --- | --- |
+| named source collection and family-aware normalization | general cross-domain harmonization |
+| evidence curation, ambiguity, conflict, recovery, and refusal records | automatic reconciliation of unlike observation units |
+| heuristic candidate ranking with declared inputs and sensitivity | general scientific inference or causal interpretation |
+| manifested world, regional, country, atlas, and lake products | workflow-wide replay and semantic diff execution |
+
+This boundary is executable through `product-scope` and `surface-map`. A
+planned surface remains outside the product until it has an owned interface,
+state transition, governed result, and fitness contract.
+
 ## Start Here
 
 <div class="bijux-quicklinks">

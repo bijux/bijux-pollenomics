@@ -14,6 +14,26 @@ locality evidence, chronology evidence, ambiguity ledgers, and publication
 gates. Public reports are derived views over that curated state, not an
 independent database.
 
+The current executable product is an atlas builder and evidence-publication
+runtime. It collects and normalizes named sources, curates evidence, reviews
+claim fitness, produces heuristic decision support, and publishes governed
+report families. A general multi-evidence harmonization and interpretation
+engine remains project direction rather than implemented capability.
+
+```mermaid
+flowchart LR
+    Current["current atlas-builder runtime"] --> Collect["collect and normalize"]
+    Current --> Curate["curate and review"]
+    Current --> Publish["rank and publish"]
+    Planned["planned engine direction"] -. not current .-> Harmonize["general harmonization"]
+    Planned -. not current .-> Interpret["evidence-aware interpretation"]
+    Planned -. not current .-> Replay["workflow replay and diff"]
+```
+
+Run `bijux-pollenomics product-scope --json` and
+`bijux-pollenomics surface-map --json` for the machine-readable boundary. The
+returned contract governs the product boundary.
+
 World, Europe-plus, Nordic, and country outputs form one publication family.
 Pollen and environmental context are the strongest current surfaces. Animal
 aDNA remains deliberately conservative: records without adequate sample,
@@ -266,7 +286,7 @@ Today, the checked-in repository produces these durable outcomes:
 - point-traceability, subset-validation, scientific-review, and exclusion
   surfaces beside the visual publications they qualify
 - a MkDocs documentation site that builds into `artifacts/root/docs/site/`
-- maintainer-facing review surfaces that keep final-release claims blocked
+- review and release-readiness surfaces that keep final-release claims blocked
   while animal recovery and SEAD comparability remain materially weaker than
   the rest of the product
 
@@ -413,10 +433,11 @@ Treat the top-level paths by ownership and review expectations:
 - `Makefile` is the main local interface for verification, rebuilds, docs, and packaging
 - `pyproject.toml` and `uv.lock` define and lock the Python environment
 - `data/` contains tracked source snapshots, normalized outputs, and the collection manifest
-- `docs/report/` contains the public publication tree, including world,
-  regional, country, review, caveat, and maintainer-facing release-readiness
-  surfaces
-- `docs/` contains the canonical narrative and reference documentation that explains the checked-in outputs
+- `docs/report/` contains the governed publication tree, including world,
+  regional, country, review, caveat, and release-readiness surfaces
+- `docs/public/` contains reader-facing product, evidence, atlas, and fieldwork
+  documentation
+- `docs/internal/` contains maintainer and contributor documentation
 - `packages/bijux-pollenomics/src/` contains the CLI, collectors, and report publishing logic
 - `packages/bijux-pollenomics/tests/` contains unit, regression, and end-to-end coverage
 - `artifacts/` contains transient local outputs such as `.venv/`, `dist/`, and the built docs site

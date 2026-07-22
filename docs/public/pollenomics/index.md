@@ -24,9 +24,9 @@ publication rules.
 
 The current runtime is substantial, but its boundary is deliberate. It does
 not yet provide the broader multi-evidence harmonization and interpretation
-engine described by the project direction. Throughout this guide, “available”
-means backed by an executable interface and a governed result—not merely
-represented in a design or roadmap.
+engine described by the project direction. In the product contract,
+“available” means backed by an executable interface and a governed result—not
+merely represented in a design or roadmap.
 
 <div class="bijux-quicklinks">
   <a class="md-button md-button--primary" href="../pollenomics-data/">Explore the evidence system</a>
