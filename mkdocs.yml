@@ -207,6 +207,7 @@ nav:
           - Conflicts and Recovery: public/pollenomics-data/curation/conflicts-and-recovery.md
       - Evidence:
           - Overview: public/pollenomics-data/evidence/index.md
+          - Species Evidence Views: public/pollenomics-data/evidence/species-evidence-views.md
           - Sample Records: public/pollenomics-data/evidence/sample-records.md
           - Localities: public/pollenomics-data/evidence/localities.md
           - Chronology: public/pollenomics-data/evidence/chronology.md

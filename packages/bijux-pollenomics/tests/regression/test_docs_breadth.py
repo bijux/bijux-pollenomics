@@ -59,6 +59,26 @@ class DocsBreadthRegressionTests(unittest.TestCase):
         self.assertIn("Evidence Lifecycle", overview_index)
         self.assertIn("Authority Boundaries", overview_index)
 
+    def test_species_evidence_views_preserve_projection_boundaries(self) -> None:
+        species_views = (
+            REPO_ROOT
+            / "docs"
+            / "public"
+            / "pollenomics-data"
+            / "evidence"
+            / "species-evidence-views.md"
+        ).read_text(encoding="utf-8")
+        evidence_index = (
+            REPO_ROOT / "docs" / "public" / "pollenomics-data" / "evidence" / "index.md"
+        ).read_text(encoding="utf-8")
+
+        self.assertIn("# Species Evidence Views", species_views)
+        self.assertIn("## Two Lifecycle Models", species_views)
+        self.assertIn("## Cross-Species Comparison Contract", species_views)
+        self.assertIn("## Reuse Packet", species_views)
+        self.assertIn("```mermaid", species_views)
+        self.assertIn("species-evidence-views.md", evidence_index)
+
     def test_maintainer_handbook_covers_repository_health(self) -> None:
         maintain_index = (
             REPO_ROOT / "docs" / "internal" / "maintain" / "index.md"

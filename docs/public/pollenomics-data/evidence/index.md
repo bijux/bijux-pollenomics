@@ -106,6 +106,19 @@ flowchart LR
 The arrows express governed relations, not guaranteed one-to-one attrition.
 Every count or percentage must name its observation unit and population.
 
+### Species Views Preserve Taxon Posture, Not Fact Ownership
+
+The directories under `data/adna/species/` group evidence by accepted taxon
+and expose current curation, recovery, spatial, and release posture. They are
+projections over source- and project-owned evidence, not independent source
+databases. Human AADR currently exposes a capture-only species route, while
+the ten non-human views materialize broader normalized and review surfaces;
+the common directory shape must not be read as equivalent lifecycle depth.
+
+[Species evidence views](species-evidence-views.md) defines how to interpret
+those differences, audit one taxon claim, and construct a cross-species
+comparison without mixing projects, samples, sites, or publication members.
+
 ## Evidence Dimensions
 
 | Dimension | Governing question | Failure if flattened |
