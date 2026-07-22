@@ -67,13 +67,18 @@ result. It records what is known about the source and what remains unavailable.
 
 ## Current Evidence Depth
 
-The generated intake review currently tracks **40 archive projects** and
-**868 recovered sample rows**. Those figures describe two different
-populations: the project inventory and the extracted sample evidence. Only
-four projects have an exact expected-sample denominator, 22 have a defensible
-minimum floor, and eight are flagged for implausibly low recovery. The
-repository therefore does not present 868 as a complete census of the tracked
-projects.
+The governed foundation currently contains **894 preparation rows** across
+**10 species and 40 archive projects**. Of those rows, 502 are fully grounded,
+256 are partly grounded, 29 are blocked by missing metadata, four by missing
+location detail, and 103 by weak chronology. This is the evidence-preparation
+population, not a sample or publication count.
+
+The generated project intake review separately contains **868 recovered
+sample-master rows** across the 40 tracked projects. Only four projects have
+an exact expected-sample denominator, 22 have a defensible minimum floor, and
+eight are flagged for implausibly low recovery. The repository therefore does
+not present 868 as a complete census of the tracked projects or as a row-for-row
+subset of the foundation.
 
 The point-evidence review contains **234 admitted rows**. Of these, 233 retain
 supplementary-table coordinates and one uses documented named-site geocoding
@@ -95,6 +100,18 @@ sample row has exact excavation coordinates.
 | project-anchored dromedary context | 1 | provisional identity and approximate Wadi Halfa named-place geocode |
 | total admitted point-evidence rows | 234 | mixed evidence surface; preserve the class of each row |
 
+### Three Ledgers Answer Three Questions
+
+| Ledger | Unit | Question answered |
+| --- | --- | --- |
+| foundation truth | curated preparation row | how completely is the available identity, locality, chronology, and metadata evidence grounded? |
+| project sample master | recovered sample identity | which source labels resolve to a stable sample within a project? |
+| point publication | product member | which sample-backed or qualified context claims satisfy this map contract? |
+
+No universal completeness percentage spans all three. A preparation blocker is
+not necessarily an identity ambiguity; a final identity is not necessarily
+point-ready; and a qualified context point is not a recovered sample.
+
 ### Evidence Depth Is Dimension-Specific
 
 | Dimension | What the repository can establish | Remaining boundary |
@@ -114,7 +131,8 @@ different states instead of averaging them into one quality label.
 
 ```mermaid
 flowchart LR
-    Inventory["40 tracked projects"] --> Recovery["868 recovered sample rows"]
+    Inventory["40 tracked projects"] --> Foundation["894 preparation rows"]
+    Foundation -. "related, not one-to-one" .-> Recovery["868 recovered sample identities"]
     Recovery --> Review["identity, locality, chronology, coordinate review"]
     Review --> Samples["233 final sample-backed points"]
     Inventory --> Context["1 qualified project-anchored context point"]

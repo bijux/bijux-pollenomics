@@ -26,6 +26,7 @@ The current recovery review records:
 | Measure | Current value | Interpretation |
 | --- | ---: | --- |
 | tracked archive projects | 40 | declared project inventory, not sample count |
+| sample-foundation truth rows | 894 | curated source-row grounding and blocker population across 10 species |
 | recovered final sample rows | 868 | extracted governed rows, not a complete source census |
 | projects with exact expected counts | 4 | projects for which exact recovery completeness can be measured |
 | projects with a minimum expected floor | 22 | projects for which recovery can be tested against a lower bound |
@@ -36,6 +37,39 @@ The current recovery review records:
 These measures are published together because no one of them is an honest
 summary of the collection. In particular, dividing the recovered sample total
 by the four exact-denominator projects would compare unrelated populations.
+
+### The Foundation Is A Preparation Ledger
+
+`data/adna/governance/animal_sample_foundation_truth.json` records whether each
+foundation row has enough attributed evidence to support downstream curation:
+
+| Foundation posture | Rows | Intake meaning |
+| --- | ---: | --- |
+| fully grounded | 502 | identity and required evidence dimensions are attributable at the declared scope |
+| partially grounded | 256 | useful evidence exists, but one or more dimensions remain materially limited |
+| blocked: missing metadata | 29 | source metadata required to establish the governed row is absent |
+| blocked: missing location detail | 4 | locality evidence cannot support the requested spatial claim |
+| blocked: weak chronology | 103 | temporal evidence remains too weak for the stronger chronology claim |
+
+These 894 rows are not interchangeable with the 868 project sample-master
+identities. The foundation classifies preparation evidence; the sample master
+governs recovered identity. A row can be valuable in one population without
+having a one-to-one counterpart in the other.
+
+```mermaid
+flowchart LR
+    SourceRows["captured source rows"] --> Foundation["894-row preparation ledger"]
+    Foundation --> Grounded["fully or partly grounded"]
+    Foundation --> Blocked["metadata, location, or chronology blocker"]
+    Grounded --> Identity["project-owned sample identity where supported"]
+    Blocked --> Recovery["named source-recovery work"]
+```
+
+The blocker class determines the next evidence action. Missing metadata calls
+for source or relation recovery; missing location detail calls for stronger
+sample-to-site evidence; weak chronology calls for a sample-owned temporal
+source or a narrower non-numeric posture. None is repaired by copying a value
+from a published point.
 
 ### Intake And Point Populations Are Not The Same
 
@@ -244,6 +278,13 @@ meaning:
 Expected sample counts are also provenance-bearing claims. When the available
 paper or archive surface is too weak, the registry keeps the count unknown
 rather than turning an estimate into an apparent fact.
+
+Foundation blockers and intake blockers remain separately addressable. A weak
+chronology posture can block a temporal claim even when the paper, supplement,
+sample row, and locality are fully recovered. Conversely, an unavailable
+supplement can block sample extraction before locality or chronology can be
+evaluated at all. Reporting both levels prevents “blocked” from becoming an
+opaque catch-all.
 
 Recovery completeness must therefore name its denominator. “All recovered
 samples reviewed” describes the extracted rows; it does not mean every sample
