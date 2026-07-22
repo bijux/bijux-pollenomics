@@ -33,19 +33,36 @@ flowchart TB
 | artifacts | identity, schema, membership, and destination of emitted files | [Artifact contracts](artifact-contracts.md) |
 | workflows | safe ordering for verification, refresh, and publication | [Operator workflows](operator-workflows.md) |
 
-## Operations By Intent
+## Choose An Interface By Question
 
-| Intent | Typical interface | Repository effect |
+| Question | Begin with | What a successful result establishes |
 | --- | --- | --- |
-| inspect capability or ownership | `product-scope`, `ownership-map`, `source-support` | read-only structured output |
-| inspect animal evidence maturity | `adna-*` review commands | read-only evidence, coverage, or release posture |
-| validate collected state | `validate-collection-summary` | validation result without source refresh |
-| acquire or refresh evidence | `collect-data`, `refresh-animal-adna-foundation` | replaces governed tracked data surfaces |
-| derive public products | `report-country`, `report-multi-country-map`, `publish-reports` | writes governed report and atlas outputs |
+| What does the installed runtime claim? | `product-scope` | the boundary between implemented atlas work and unsupported engine claims |
+| Which source families and countries are represented? | `source-support --json` | the runtime's declared support matrix, not the completeness of every source |
+| Is one collection summary structurally valid? | `validate-collection-summary` | schema and cross-field validity without network access or recollection |
+| What is known about one animal species? | `adna-species-review --species … --json` | the governed role, assignment rule, evidence bucket, and archive findings |
+| Which files would a species rebuild own? | `adna-artifact-plan --species …` | a deterministic artifact plan without performing the rebuild |
+| Can current evidence support a publication? | `adna-release-readiness --species …` | cross-surface readiness and named refusals; it does not create a publication |
+| How is a public geography bundle produced? | `report-country`, `report-multi-country-map`, or `publish-reports` | materialized products under an explicit output root |
 
-Commands that write tracked state deserve explicit output roots and diff
-review. Inspection commands are the safer starting point when the goal is to
-understand capability or evidence posture.
+The command families distinguish inspection from materialization. Inspection
+commands print current governed state. Validation commands accept or reject an
+existing contract. Collection and publication commands write files. A
+successful process status means the requested operation completed; it does not
+turn missing evidence into a positive scientific claim.
+
+## Stable Result Shapes
+
+- inspection commands support either a compact table or `--json` when the
+  command advertises that option;
+- validation reports the path and collected-source count after the payload has
+  passed its contract;
+- collection reports the selected source families and writes a collection
+  summary alongside family-owned data;
+- publication writes manifests, subsets, traceability, and reader-facing
+  products beneath the chosen report root; and
+- invalid arguments and contract failures produce a non-zero process status
+  instead of a partial success claim.
 
 The [entrypoint examples](entrypoints-and-examples.md) show concrete invocations.
 Scientific meaning remains governed by the [data and evidence system](../../pollenomics-data/index.md),
