@@ -232,18 +232,20 @@ to find as its strongest surfaces:
 | Surface | What is present | Material limit in this checkout | Consequence |
 | --- | --- | --- | --- |
 | SVAR | capture manifest and summary for 40,565 lakes; lake identities retained in Sweden ranking rows | the contracted `data/svar/normalized/sweden_lake_registry.geojson` authority is declared but absent | published candidates remain inspectable, but the complete normalized registry cannot be independently traversed from this checkout |
+| human AADR | versioned v66 annotation captures and retained report products | the governed Homo sapiens normalized and review directories contain no member artifacts | human outputs remain inspectable, but the current snapshot cannot establish a normalized-and-reviewed human publication chain |
+| source-family review | LandClim, RAÄ, and boundaries have captured, normalized, and published artifacts | their contracts name source-specific review artifacts that are not materialized | use the normalized data at its declared role; do not describe these families as published with review support |
 | animal project recovery | 868 sample rows with final identity resolution | only four of 40 projects have a trustworthy expected sample count | recovered identity is not proof of project completeness |
 | SEAD chronology | 2,195 inventory rows and 2,172 normalized site points | no numeric intervals in the current capture | spatial archaeology context cannot be promoted to same-period support |
 | fieldwork | one dated Lyngsjön visit with checked-in photo and video | one event and selected media | no lake-wide, seasonal, or regional generalization |
 
-The SVAR absence is a repository-integrity gap, not a reason to hide the
-downstream lake work. Ranking rows preserve the registry identifiers,
-representative points, geometry-derived attributes, scenario inputs, and
-source links used by the publication. They support audit of published
-candidates while stopping short of a claim that the full normalized registry
-authority is present.
+The missing lifecycle artifacts are repository-integrity gaps, not reasons to
+hide retained downstream work. Those publications remain available for
+inspection at their declared versions. They cannot be used to infer their
+missing authorities backward, and the current snapshot must not be described
+as rebuildable or reviewed where the contracted evidence is absent.
 
 See the [SVAR source guide](docs/public/pollenomics-data/sources/svar.md),
+[revision and state model](docs/public/pollenomics-data/database/revision-and-state-model.md),
 [chronology semantics](docs/public/pollenomics-data/evidence/temporal-semantics.md),
 and [fieldwork evidence boundary](docs/public/fieldwork/index.md) for the
 claim-specific consequences.

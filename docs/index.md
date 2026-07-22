@@ -243,17 +243,21 @@ The collection is reviewable because incompleteness remains explicit:
 | Boundary | Current state | Reader-safe conclusion |
 | --- | --- | --- |
 | SVAR normalized authority | the capture manifest and summary report 40,565 lakes, but the contracted complete normalized GeoJSON is absent from this checkout | audit published lake rows through their retained SVAR fields; do not claim the full registry is locally traversable |
+| human AADR evidence lifecycle | v66 annotation captures and retained human-facing report products exist, but the governed Homo sapiens normalized and review layers have no member artifacts | inspect the retained product at its version; do not claim a complete current path from AADR capture through normalized and reviewed human evidence |
+| source-specific review | LandClim, RAÄ, and boundary captures, normalized layers, and publications exist without their contracted review artifacts | interpret the normalized sources at their declared roles; do not describe publication as carrying source-specific review support |
 | animal project denominators | four of 40 tracked projects have trustworthy expected sample counts | 868 recovered rows demonstrate recovered identity, not complete project recovery |
 | SEAD temporal support | the current site inventory has no numeric intervals | use SEAD as spatial archaeology context, not same-period evidence |
 | field observation coverage | one dated Lyngsjön visit is published | inspect that event; do not generalize it to the lake or region |
 
-These are different failure boundaries. The missing SVAR authority concerns
-repository traversal, the animal gap concerns denominator knowledge, the SEAD
-gap concerns temporal comparability, and the fieldwork limit concerns
-observation coverage. A single “complete” or “incomplete” label would erase
-the decisions a reader needs to make.
+These are different failure boundaries. Missing normalized evidence concerns
+rebuildability, a missing review surface concerns demonstrated fitness, the
+animal gap concerns denominator knowledge, the SEAD gap concerns temporal
+comparability, and the fieldwork limit concerns observation coverage. A single
+“complete” or “incomplete” label would erase the decisions a reader needs to
+make.
 
-The [SVAR guide](public/pollenomics-data/sources/svar.md), [sample records](public/pollenomics-data/evidence/sample-records.md),
+The [revision and state model](public/pollenomics-data/database/revision-and-state-model.md),
+[SVAR guide](public/pollenomics-data/sources/svar.md), [sample records](public/pollenomics-data/evidence/sample-records.md),
 [temporal semantics](public/pollenomics-data/evidence/temporal-semantics.md),
 and [fieldwork record](public/fieldwork/index.md) expose the governing detail.
 

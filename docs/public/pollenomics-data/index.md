@@ -59,6 +59,28 @@ collector-managed source trees. The evidence system contains eight contracted
 families because animal ancient DNA is curated through its own archive,
 literature, supplement, project, and sample authorities.
 
+### Current Materialized Lifecycle
+
+The checked-in evidence-stage matrix evaluates the exact artifacts named by
+each family contract. It does not count an empty directory, `.gitkeep`, family
+summary, or the matrix itself as evidence for a stage.
+
+| Family | Raw | Normalized | Reviewed | Published | Current interpretation |
+| --- | --- | --- | --- | --- | --- |
+| LandClim | present | present | missing | present | normalized and published; source-specific review is not materialized |
+| Neotoma | present | present | present | present | publication has its contracted review support |
+| SEAD | present | present | present | present | publication has its contracted review support within the declared contextual role |
+| RAÄ | present | present | missing | present | normalized and published; source-specific review is not materialized |
+| boundaries | present | present | missing | present | framing output exists without its contracted review artifact |
+| SVAR | present | missing | missing | present | retained publication exists, but current normalization and review prerequisites are blocked |
+| AADR | present | missing | missing | present | v66 capture and retained publication exist without materialized Homo sapiens normalization and review |
+| animal ancient DNA | present | present | present | present | contracted project, sample, review, and atlas evidence is materialized |
+
+`published` means that a contracted publication artifact exists. It does not
+override an earlier missing stage. A retained product can be inspected at its
+declared version while the current snapshot truthfully refuses to describe it
+as rebuildable from a complete normalized-and-reviewed chain.
+
 ### The Database Is A Claim Ledger
 
 Rows are useful representations, but the durable model is a graph of objects,
