@@ -103,6 +103,36 @@ Refresh does not repeat admission blindly. A new release can change schema,
 licence terms, endpoints, coverage, or semantics; those changes require review
 even when the source name remains stable.
 
+### Admission Has Three Separate Decisions
+
+Source-family admission, record capture, and product admission answer different
+questions. Conflating them makes a large collection look more publishable than
+its evidence warrants.
+
+| Decision | Question | Durable outcome |
+| --- | --- | --- |
+| family contract | Is the upstream object identifiable, recoverable, interpretable, and legally usable for a declared role? | admitted family or documented deferral |
+| record capture | Which source-native members were actually retrieved and normalized? | captured member, rejected row, or unresolved member with reason |
+| product admission | Does this reviewed member satisfy one named product's identity, spatial, temporal, and role requirements? | admitted, qualified, excluded, or deferred membership |
+
+A family may be fully contracted while some records remain unresolved. A
+record may be captured correctly yet excluded from every public product. A
+member admitted to a spatial inventory may remain ineligible for time-aware
+analysis. Each state is meaningful and remains queryable.
+
+### Source Substitution Is Forbidden
+
+A source may fill only the claim dimension it owns. Boundaries can decide
+spatial membership but cannot validate a sample coordinate. SEAD can supply
+environmental archaeology context but cannot date a nearby specimen. SVAR can
+identify a registered water body but cannot establish coring feasibility. AADR
+cannot resolve animal sample identity, and animal project metadata cannot stand
+in for sample-owned locality evidence.
+
+Cross-domain products therefore join governed claims; they do not merge source
+authority. When one required dimension is absent, the product must qualify,
+defer, or refuse the claim instead of borrowing certainty from another family.
+
 ## Change Propagation
 
 ```mermaid

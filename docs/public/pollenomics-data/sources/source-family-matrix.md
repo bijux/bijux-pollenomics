@@ -57,6 +57,45 @@ registries, but their responsibilities remain distinct.
 | sampling context | candidate selection and fieldwork reasoning | feasibility, preservation, permits, or scientific outcome |
 | geographic framing | membership in a declared spatial scope | scientific support for a member record |
 
+## Observation Units And Safe Joins
+
+Cross-family analysis is valid only when the join preserves the unit on both
+sides. Similar labels and nearby coordinates are candidates for review, not
+keys.
+
+| Family | Stable member identity | Safe cross-domain relation | Unsafe shortcut |
+| --- | --- | --- | --- |
+| LandClim | governed site or grid-cell identity | explicit site/grid relation with stated temporal basis | treating a model cell as an observed pollen sequence |
+| Neotoma | database and site/deposit identifiers | retained database identity plus reviewed site relation | joining on site name alone |
+| SEAD | SEAD site identifier | declared distance or containment from its reported point | interpreting proximity as sample association |
+| RAÄ | national registry identity | declared spatial relation within Swedish registry scope | replacing SEAD or specimen provenance with a nearby heritage record |
+| SVAR | registered water-body identity | reviewed candidate-to-lake relation | assuming a same-named water body is the intended sampling basin |
+| boundaries | governed geometry identity and version | point-in-polygon membership | using country membership as coordinate validation |
+| AADR | release-owned sample identifier | explicit reviewed locality or publication relation | matching a human sample by place label alone |
+| animal aDNA | project, accession, sample, and evidence locators | sample-owned locality, chronology, and source relations | collapsing all samples in one project to one place or date |
+
+Derived relations retain both member identifiers, the rule that connected
+them, input versions, and the evidence posture of each input. This allows a
+distance, containment, or comparison to be recomputed without turning it into
+source truth.
+
+## Product Admission Matrix
+
+The same family can be eligible for one product and ineligible for another.
+
+| Product use | Minimum source posture | Refusal condition |
+| --- | --- | --- |
+| spatial inventory | stable member identity and supported geometry | unresolved identity or geometry |
+| country membership | supported geometry and governed boundary version | missing geometry or undeclared boundary basis |
+| time-aware comparison | comparable numeric intervals with retained basis | absent, contextual-only, or incomparable chronology |
+| contextual overlay | declared contextual role and reproducible spatial relation | context presented as direct association |
+| specimen claim | sample-owned identity and claim-specific evidence | project-, paper-, or locality-level evidence substituted for the sample |
+| fieldwork prioritization | governed lake identity plus explicit decision inputs and caveats | registry presence or proximity presented as feasibility |
+
+Publication is therefore a claim-specific decision, not the final stage of a
+uniform source pipeline. Eligibility must be recomputed when the source,
+normalization, boundary, comparison rule, or product contract changes.
+
 ## Read Across A Family, Then Down A Claim
 
 The matrix supports two different readings:
