@@ -19,7 +19,7 @@ what a plotted or summarized record means. An auditor can follow the same row
 back through its governing surface, source locator, transformation, caveat,
 and admission decision.
 
-## Trust model
+## Trust Model
 
 Four invariants govern the evidence chain:
 
@@ -124,6 +124,37 @@ it was first seen:
 The envelope is intentionally larger than a popup or CSV cell. Compact views
 may point to it, but downstream reuse that drops these fields cannot retain the
 same evidential claim.
+
+### A Decision Is Scoped To One Claim
+
+Evidence posture belongs to the pair of claim and intended use, not to the
+record as a whole:
+
+| Governed object | Claim under review | Possible decision without changing object identity |
+| --- | --- | --- |
+| animal sample | labels identify one recovered analytical unit | final identity, ambiguity, merge, split, or refusal |
+| animal sample | locality is sample-owned at named-site precision | accepted named site, qualified regional claim, substitution, or unresolved |
+| animal sample | chronology supports numeric comparison | comparable interval, text-only time, contextual range, conflict, or unknown |
+| locality | geometry represents the supported place precision | exact, approximate, substituted, region-only, withheld, or refused point |
+| evidence row | claim is fit for one publication | admitted, qualified, excluded, deferred, or out of scope |
+
+```mermaid
+flowchart LR
+    Object["stable governed object"] --> IdentityClaim["identity claim"]
+    Object --> PlaceClaim["place claim"]
+    Object --> TimeClaim["time claim"]
+    IdentityClaim --> IdentityDecision["identity posture"]
+    PlaceClaim --> PlaceDecision["spatial posture"]
+    TimeClaim --> TimeDecision["temporal posture"]
+    IdentityDecision --> Admission["product-specific admission"]
+    PlaceDecision --> Admission
+    TimeDecision --> Admission
+```
+
+This model supports partial but honest records. A sample does not become
+globally “low quality” because one chronology is unresolved, and it does not
+become universally publishable because its identity and coordinates are
+strong.
 
 ```mermaid
 flowchart LR

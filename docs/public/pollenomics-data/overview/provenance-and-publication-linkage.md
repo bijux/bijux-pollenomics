@@ -138,6 +138,32 @@ system supports both traversals. The first makes a result inspectable; the
 second reveals whether the same evidence is reused under different scopes or
 roles.
 
+### Change Impact Traversal
+
+A correction follows fact ownership forward; it is not patched independently
+into every visible copy:
+
+| Governing correction | First review | Descendants that may need regeneration |
+| --- | --- | --- |
+| captured source member or release identity | member equivalence, schema, license, and content diff | normalized family records, coverage, and every consuming product |
+| sample merge or split | project sample master and identity ambiguity decision | site links, chronology links, species views, point candidates, and product membership |
+| locality or coordinate claim | source locator, place relation, method, and precision | GeoJSON geometry, country containment, distance relations, maps, and warnings |
+| chronology claim | reported wording, dating basis, normalization, and conflict posture | temporal review, comparison eligibility, popups, and derived analysis |
+| admission rule | evidence-role and product-scope contract | manifests, exclusions, traceability, counts, tables, and renderings |
+
+```mermaid
+flowchart LR
+    Authority["correct governing authority"] --> Claims["re-evaluate dependent claims"]
+    Claims --> Decisions["re-evaluate admissions"]
+    Decisions --> Manifests["rebuild affected manifests"]
+    Manifests --> Members["rebuild structured members"]
+    Members --> Views["rebuild reader views"]
+```
+
+The absence of a downstream change is also a result: it should be explained by
+stable membership, unchanged fitness, or product scope. Visual similarity
+alone does not prove that a source correction had no publication consequence.
+
 ## Audit One Claim
 
 Begin with a feature or table-row identifier in a world, regional, or country

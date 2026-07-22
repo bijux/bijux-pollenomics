@@ -58,6 +58,36 @@ The preferred label is for display; the repository-stable identifier is the
 join key. This prevents punctuation changes, spreadsheet formatting, or a
 later preferred-label correction from breaking evidence links.
 
+### Identity Packet
+
+A stable identifier is useful only with the relations that establish what it
+identifies. For `capra_hircus:sample:prjeb90141:samea4453841`, the packet
+preserves:
+
+| Identity member | Governed value or relation |
+| --- | --- |
+| object type | animal ancient-DNA sample, distinct from project, paper, site, and point feature |
+| species view | `capra_hircus`, a normalized discovery view rather than the extraction authority |
+| project namespace | `PRJEB90141`, preventing cross-project label collision |
+| source-native identity | archive sample `SAMEA4453841` |
+| paper identity | paper label `Direkli1-2` |
+| extraction locator | recovered supplementary workbook, Table S2, row 2 |
+| identity posture | final, with the archive and paper labels retained as related identities |
+
+```mermaid
+flowchart LR
+    Project["PRJEB90141"] --> Stable["stable sample ID"]
+    Archive["SAMEA4453841"] --> Stable
+    Paper["Direkli1-2"] --> Stable
+    Locator["Table S2, row 2"] --> Stable
+    Stable --> Place["Direkli Cave claim"]
+    Stable --> Time["sample chronology claim"]
+```
+
+The colon-delimited token is an address, not proof by itself. The packet makes
+the address defensible and allows a later display-label, locality, chronology,
+or publication correction without silently minting another specimen.
+
 ### Evidence That Can Establish Identity
 
 Identity evidence is evaluated inside a project and source lineage:
