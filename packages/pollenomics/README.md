@@ -46,6 +46,11 @@ Choosing the short name does not create a lighter runtime. Installation still
 resolves the canonical distribution, and collection or publication commands
 retain the same write behavior, evidence rules, output contracts, and caveats.
 
+The compatibility promise is deliberately narrow: naming convenience without
+scientific divergence. It covers forwarded imports, the short executable, and
+top-level public names. It does not create an independent data format, release
+posture, configuration model, or support lifecycle.
+
 ## Compatibility contract
 
 If this works:
@@ -134,6 +139,23 @@ Pinning only `pollenomics` still resolves a constrained canonical runtime
 dependency. Compatibility therefore includes both alias behavior and the
 declared canonical version range; it is not a copy of runtime source.
 
+## Single-Runtime Invariant
+
+For a supported installation, these statements are all true:
+
+| Invariant | Consequence |
+| --- | --- |
+| `pollenomics` depends on `bijux-pollenomics>=0.1.5,<1.0` | the alias cannot run without a compatible canonical distribution |
+| forwarded submodules resolve to `bijux_pollenomics` implementations | scientific logic has one owner |
+| both executables use the canonical command parser and dispatch | write behavior and exit semantics do not fork |
+| artifacts retain canonical schemas and meanings | downstream consumers do not need alias-specific readers |
+| releases remain separate distributions | installed versions must be reported as a pair |
+
+The version pair matters because distribution compatibility and scientific
+implementation are different facts. A `pollenomics` wheel can forward
+correctly while an unexpected canonical version is installed, or the expected
+pair can be present while the shell resolves a different executable.
+
 ```mermaid
 flowchart TD
     Consumer["application or operator"] --> Choice{"requested name"}
@@ -173,6 +195,18 @@ executable on `PATH`, or broken forwarding. It must not be normalized away by
 maintaining separate expected outputs for the two names. Resolve the installed
 identity or alias boundary; the canonical runtime remains the only owner of
 the result.
+
+When diagnosing imports, inspect module ownership as well as versions:
+
+```bash
+python3.11 -c 'import pollenomics.reporting as m; print(m.__name__, m.__file__)'
+python3.11 -c 'import bijux_pollenomics.reporting as m; print(m.__name__, m.__file__)'
+```
+
+The requested prefix can differ, but behavior must resolve to the canonical
+implementation. An application that deliberately loads both prefixes should
+not use prefix differences as domain identity or serialize them into evidence
+artifacts.
 
 Applications should constrain releases through normal dependency metadata and
 use one import prefix consistently. Serialized data and report contracts use

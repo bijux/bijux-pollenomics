@@ -200,3 +200,41 @@ inference or sampling systems. In particular:
 
 The reliable path for a consequential claim is publication to evidence to
 source—not publication alone.
+
+## Audit One Result In Five Minutes
+
+The shortest trust path starts from a visible object and moves upstream:
+
+```mermaid
+flowchart LR
+    Visible["map feature or report row"] --> Member["bundle membership"]
+    Member --> Decision["admission and evidence role"]
+    Decision --> Record["governing evidence record"]
+    Record --> Capture["captured source and locator"]
+    Capture --> Limit["precision, caveat, or unresolved work"]
+```
+
+1. Record the feature or row identifier and the product geography.
+2. Open the product manifest and confirm that the identifier is a member with
+   the role shown by the rendering.
+3. Follow its traceability link to the evidence record that owns the claim.
+4. Check spatial and temporal posture before comparing it with another layer.
+5. Recover the upstream dataset, accession, paper, supplement, or record
+   locator and read the visible caveat.
+
+This route distinguishes a real publication member from a display artifact,
+and a supported observation from context that merely shares the same map. If a
+member lacks any link in this chain, the gap is a product-integrity finding;
+it is not something the rendering can repair.
+
+## What To Carry Into Another Analysis
+
+Export the evidence packet, not a screenshot or isolated CSV. The reusable
+unit includes the product manifest, selected structured members, stable
+identifiers, evidence roles, source and version identity, spatial and temporal
+semantics, traceability, and material warnings or exclusions.
+
+That packet preserves the distinctions on which the publication depends. It
+allows another analysis to filter or aggregate the selected members without
+silently treating archaeology context as aDNA evidence, approximate geography
+as exact coordinates, or unresolved chronology as zero.
