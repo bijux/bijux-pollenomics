@@ -189,7 +189,7 @@ The current repository state is substantial but deliberately uneven:
 
 | Governed surface | Current checked-in scale | What the number means |
 | --- | ---: | --- |
-| source families | 7 | AADR, boundaries, LandClim, Neotoma, RAÄ, SEAD, and SVAR are separately captured and governed |
+| collector-managed source families | 7 | AADR, boundaries, LandClim, Neotoma, RAÄ, SEAD, and SVAR have runtime collection adapters and separately governed trees |
 | LandClim | 492 site sequences and 88 grid cells | primary pollen and vegetation context |
 | Neotoma | 200 sites; 170 numerically comparable, 5 contextual-only, and 25 unresolved | independent pollen context with explicit temporal posture |
 | SEAD | 2,195 reviewed inventory rows and 2,172 mapped Nordic features | archaeology context without numeric intervals in the current capture |
@@ -201,6 +201,15 @@ The current repository state is substantial but deliberately uneven:
 Counts from unlike surfaces are not additive. A pollen sequence, archaeology
 site, lake registry row, animal sample, and publication point answer different
 questions and retain different admission rules.
+
+`bijux-pollenomics source-support --json` reports collector capability and
+declared country reach for those seven families. It does not report whether a
+capture exists, whether the current release passed validation, or whether any
+member is fit for publication. Those states belong to the collection summary,
+evidence-stage matrix, and product admission records respectively. Animal aDNA
+does not appear in `source-support` because its governed intake follows papers,
+archives, supplements, and project-owned samples rather than one uniform
+collector endpoint.
 
 ```mermaid
 flowchart LR

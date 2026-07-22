@@ -135,6 +135,25 @@ geometry can frame a map without becoming scientific evidence; pollen and
 archaeology layers retain their own temporal semantics; and animal aDNA needs
 sample-level support before an exact point or chronology can be asserted.
 
+### Database Preparation Is Evidence Work
+
+The database is prepared through explicit changes in responsibility, not by
+flattening every source into a common table:
+
+| Boundary | Decision made | Evidence retained |
+| --- | --- | --- |
+| capture | which upstream members and relations were actually obtained | source release, locator, native identity, retrieval context, bytes or response identity, and access outcome |
+| normalization | how a native member becomes addressable without losing source meaning | typed repository key, native value, transformation rule, null state, units, geometry, time basis, and evidence role |
+| curation | which evidence governs identity, place, time, taxonomy, or another disputed fact | competing claims, owner, decision reason, precision, conflict, and recovery condition |
+| admission | whether one governed member supports one named product claim | eligible population, rule result, qualification or exclusion, and product membership |
+| publication | how admitted claims become a reader-visible bundle | manifest, feature identity, lineage links, caveats, and scope |
+
+The transitions remain queryable in both directions. A captured row can be
+retained without a normalized point; a normalized member can remain unresolved
+or excluded; and a publication can be regenerated without becoming the owner
+of its source facts. This is why preparation artifacts, review ledgers, and
+refusals are first-class database results rather than intermediate debris.
+
 ## How A Claim Earns Trust
 
 | Reader question | Evidence required |
@@ -210,6 +229,12 @@ Both counts are correct at their own boundary. Seven identifies the pinned
 collector state; eight identifies the full evidence system. Neither identifies
 the membership of a world, regional, country, or lake product, which is
 declared separately by its manifest and admission records.
+
+The `source-support` command describes the seven collector adapters and their
+declared geographic reach. It is a capability inventory, not a collection,
+fitness, or completeness verdict. Current material state is reported by the
+collection and evidence-state surfaces; claim fitness is decided by the named
+product contract.
 
 ### Current Integrity Boundaries
 
