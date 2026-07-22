@@ -4,22 +4,25 @@ audience: reader
 type: explanation
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-05-10
+last_reviewed: 2026-07-22
 ---
 
 # Data Directory Layout
 
-This page explains the shape of the main repository-owned data tree for people
-who need a file-system map after they already understand the product model.
+The tracked tree separates governed evidence state from derived publication
+state. Directory position communicates lifecycle and authority; it is not only
+an implementation detail.
 
-## How To Read The Tree
-
-The layout makes the most sense when you read it by role, not by alphabetical
-path order:
-
-- `data/` holds source capture, normalization, and review material
-- `docs/report/` holds generated public bundles and review packets
-- `docs/public/pollenomics-data/` explains what those tracked files mean
+```mermaid
+flowchart TB
+    Data["data/"] --> Families["source-family roots"]
+    Families --> Raw["raw capture"]
+    Families --> Normalized["normalized records"]
+    Families --> Review["review and governance"]
+    Review --> Final["admitted publication inputs"]
+    Final --> Reports["docs/report/"]
+    Reports --> Public["maps, bundles, tables, and accountability surfaces"]
+```
 
 ## Main Areas
 
@@ -32,35 +35,33 @@ path order:
 | `data/sead/` | environmental archaeology context | archaeology and environmental support |
 | `data/raa/` | Swedish archaeology context | Sweden-specific archaeology framing |
 | `data/boundaries/` | country and region framing geometry | filtering and scope clarity |
+| `data/svar/` | Swedish water-body registry and normalized lake geometry | lake identity and decision-support inputs |
 | `docs/report/` | generated world, regional, and country publication bundles | public-facing outputs |
 
 ## The Animal aDNA Tree
 
-The `data/adna/` tree is where species-centered animal ancient DNA recovery
-becomes inspectable. It is split so you can tell the difference between
-governance work, species-level normalized evidence, and final atlas-facing
-publication inputs.
+The `data/adna/` tree separates source recovery from species views and final
+publication inputs:
 
-- `data/adna/final/` holds the atlas- and publication-facing outputs derived
-  from the governed animal evidence chain.
-- `data/adna/species/equus_caballus/` tracks horse recovery and review files.
-- `data/adna/species/bos_taurus/` tracks cattle recovery and review files.
-- `data/adna/species/canis_lupus_familiaris/` tracks dog recovery and review
-  files.
-- `data/adna/species/camelus_dromedarius/` tracks camel recovery and review
-  files.
-- `data/adna/species/rangifer_tarandus/` tracks reindeer recovery and review
-  files.
-- `data/adna/species/equus_asinus/` tracks donkey recovery and review files.
-- `data/adna/species/felis_catus/` tracks cat recovery and review files.
+| Path | Authority |
+| --- | --- |
+| `data/adna/governance/source_library/` | projects, papers, captured artifacts, sample foundations, conflicts, and recovery state |
+| `data/adna/species/<latin_name>/normalized/` | cross-project species representation over governed sample evidence |
+| `data/adna/species/<latin_name>/review/` | species fitness, gaps, and release posture |
+| `data/adna/final/atlas/` | candidate and accountability inputs for atlas publication |
 
-Those species roots matter because the repository does not treat animal ancient
-DNA as one flat pile of records. Each species keeps its own recovery, review,
-and publication posture visible.
+Species roots are views over governed project evidence, not independent source
+databases. Final atlas files are admitted downstream inputs, not authorities
+for project, sample, locality, chronology, or coordinate facts.
 
-## How To Use This Page
+## Path Semantics
 
-Start with the handbook pages when your question is about meaning. Use this
-page when your question is about exact file locations. The tree becomes much
-easier to read once the roles of source, evidence, review, and publication are
-already clear.
+- `raw/` answers what was captured;
+- `normalized/` answers how it is represented;
+- `review/`, ledgers, and queues answer what is fit, conflicting, or missing;
+- `final/` answers what was admitted for a named downstream contract; and
+- `docs/report/` answers what was published from those admitted inputs.
+
+When repeated values disagree, resolve them at the governing evidence path and
+regenerate downstream views. Hand-editing a report or final input would create
+a competing authority.

@@ -4,57 +4,51 @@ audience: reader
 type: explanation
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-05-10
+last_reviewed: 2026-07-22
 ---
 
-# Coverage and Naming
+# Coverage And Naming
 
-Two kinds of confusion keep returning in mixed-evidence repositories: how much
-coverage a surface really has, and what a file or output name makes people
-assume. This page explains both in plain terms.
+Coverage is multidimensional. A source can be geographically broad but
+temporally sparse, contain many project records but few recovered samples, or
+support normalization without supporting publication. One count cannot
+represent all of those conditions.
 
-## What This Page Helps Clarify
+## Coverage Dimensions
 
-- what "coverage" means in this repository and what it does not mean
-- how naming helps readers tell evidence, review, and publication surfaces
-  apart
-- why a polished label can still be dishonest if it implies more than the
-  underlying evidence supports
+| Dimension | Question | Example measure |
+| --- | --- | --- |
+| acquisition | Was the intended source material captured? | expected and recovered files, projects, papers, or supplements |
+| extraction | Were usable records recovered from the capture? | extracted samples or sites versus supported expectations |
+| evidence | Are identity, locality, chronology, and coordinates supported? | resolved, qualified, unresolved, and conflicting records |
+| geographic | Which places are represented? | countries, regions, sites, or registered lakes |
+| temporal | Which time spans and precision classes are represented? | numeric intervals, contextual labels, unresolved chronology |
+| publication | Which records satisfy a named product contract? | admitted, qualified, excluded, and deferred members |
 
-## What Coverage Means Here
+Coverage claims name both the dimension and denominator. “Twelve projects
+tracked” is not equivalent to “all samples recovered,” and “four countries
+published” is not equivalent to balanced source coverage across those
+countries.
 
-Coverage in `bijux-pollenomics` does not mean every domain is equally complete.
-Some evidence families are broader and steadier than others, and the
-documentation should say that plainly.
+## Naming Encodes Authority
 
-Examples:
+| Name component | Meaning |
+| --- | --- |
+| `raw` or source capture | acquired material before repository interpretation |
+| `normalized` | repository-owned representation with source linkage |
+| `review`, `audit`, `ledger`, or `queue` | evaluation, conflict, exclusion, or unresolved work |
+| `candidate` | record evaluated for a use but not automatically published |
+| `final` | admitted input for a declared downstream contract, not universal scientific finality |
+| `report`, `map`, `bundle`, or `summary` | derived presentation or publication surface |
 
-- pollen and boundary context are broader and more stable
-- archaeology context is meaningful but still uneven across geography and source families
-- animal ancient DNA remains a recovery-heavy program, so public confidence must stay closer to the weakest supporting evidence
+A broad name must not conceal a narrow scope. Country, region, version,
+species, scenario, and evidence posture belong in the artifact identity when
+they materially constrain interpretation.
 
-The rule is simple: describe breadth and completeness in the same proportion
-that the evidence actually supports them.
+## Reading Counts Safely
 
-## Why Naming Matters
-
-The repository keeps raw inputs, normalized evidence, review surfaces, and
-public outputs side by side. If names are vague, it becomes hard to tell which
-file is authoritative and which one is only a presentation surface.
-
-The naming approach in this project tries to keep those roles visible:
-
-- source names describe where material came from
-- evidence names describe what claim is being governed
-- review names describe what is being challenged or checked
-- publication names describe what is shown to readers
-
-Naming is therefore part of public honesty, not just repository tidiness. If a
-name makes a weak surface sound final or broad, the name is wrong for this
-product.
-
-## A Practical Check
-
-If a file name sounds broad but the content is narrow, the page or file should
-say so directly. Good naming prevents a surface from sounding stronger or more
-complete than it really is.
+Before comparing two counts, confirm that they share the same unit, scope,
+version, and evidence stage. Project counts cannot be compared directly with
+sample counts; source sites cannot be compared directly with published
+features; and an excluded record remains evidence even though it is absent
+from a map.

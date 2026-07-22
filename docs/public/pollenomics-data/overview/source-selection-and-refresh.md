@@ -4,67 +4,56 @@ audience: reader
 type: explanation
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-05-10
+last_reviewed: 2026-07-22
 ---
 
-# Source Selection and Refresh
+# Source Selection And Refresh
 
-Not every upstream dataset, paper, or supplement becomes public evidence the
-moment it is found. This page explains how the repository decides what to
-track, what to deepen, and when a refresh changes the public story rather than
-only the counts.
+A source enters the governed system because it can answer a declared question,
+its identity and use conditions can be preserved, and its records can be
+reviewed without inventing missing evidence. Discovery alone is not admission.
 
-## What This Page Helps Explain
+## Selection Criteria
 
-- why some source families are tracked deeply while others stay thinner
-- why a refresh can change public wording instead of only changing counts
-- why the repository sometimes keeps context visible while refusing a stronger
-  sample-backed claim
-- how selection, refresh, and review pressure fit together
+| Criterion | Required answer |
+| --- | --- |
+| scientific role | Is the source direct evidence, scientific context, geographic framing, or sampling context? |
+| provenance | Can version, retrieval, license, and source identity be recorded? |
+| recoverability | Can the relevant records, supplements, or API results be captured reproducibly? |
+| semantics | Can place, time, taxonomy, and identifiers be represented without false precision? |
+| publication use | Which named products may consume the source, and under which limits? |
+| sustainability | Can refresh and failure behavior be maintained without private state? |
 
-## How Sources Are Chosen
+A scientifically relevant paper can remain tracked but unpublished when its
+sample-bearing supplement is missing. A boundary source can be widely
+published as framing while remaining explicitly non-evidentiary.
 
-Source selection is the decision about which inputs are worth carrying into the
-tracked system at all. That decision depends on fit, coverage, recoverability,
-and whether the material can honestly support the kinds of public claims this
-repository wants to make.
+## Refresh Transaction
 
-For example:
+```mermaid
+flowchart LR
+    Select["declared source and version"] --> Stage["isolated capture and normalization"]
+    Stage --> Validate["identity, schema, and contract checks"]
+    Validate --> Compare["review hashes, counts, semantics, and coverage"]
+    Compare --> Replace{"accept refresh?"}
+    Replace -->|yes| Governed["replace complete governed source tree"]
+    Replace -->|no| Preserve["preserve prior tracked state"]
+    Governed --> Reassess["reassess reviews and publications"]
+```
 
-- a pollen dataset may be valuable because it gives regional environmental context
-- an archive project may be valuable because its samples matter historically
-- a paper may still be too thin for public animal mapping if its supplement does not support recoverable sample rows
+Staging prevents a failed acquisition from leaving a partial tracked tree. It
+does not make a successful refresh scientifically neutral.
 
-Selection matters because this repository is not trying to collect everything
-indiscriminately. It is trying to build an evidence system that can explain
-why one source deserves public attention while another remains background,
-partial, or blocked.
+## Change Classification
 
-## What A Refresh Can Change
+| Change | Consequence |
+| --- | --- |
+| byte-only or packaging change | verify normalized identity before claiming no evidence change |
+| new or removed records | review coverage, denominators, and publication membership |
+| changed locality or chronology | rerun fitness, conflict, and point-admission review |
+| changed source version or license posture | update provenance and assess continued publication eligibility |
+| newly recovered supplement | revisit sample identity, completeness, and downstream claims |
 
-Refresh is not just a mechanical re-download. In this repository, a refresh is
-an evidence event. It can change counts, improve locality support, expose new
-blockers, or force public outputs to narrow their wording.
-
-That is why refresh work is paired with:
-
-- contracts that say what a source family should publish
-- review surfaces that say what changed
-- release gates that prevent public overstatement
-
-## Why Uneven Refresh Matters
-
-Refresh work also creates unevenness. Some source families move faster than
-others, and that changes what the repository is allowed to say about overall
-coverage. When the weaker parts of the system have not caught up, broader
-confidence has to stay limited. That refusal is part of the honesty model, not
-an embarrassment to hide.
-
-## Use This Page When You Need To Know
-
-This page is most useful when your question is one of these:
-
-- why is this source family in the repository at all
-- why has one source family been refreshed more aggressively than another
-- why did a public output change after a source update
-- why does the repository keep some material visible as context but not as strong evidence
+Refresh cadence can differ across source families. Public breadth remains
+limited by the actual maturity of each family, not by the date of the most
+recent successful collector run.
