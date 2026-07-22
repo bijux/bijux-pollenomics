@@ -33,6 +33,34 @@ are narrower selections over shared evidence; they are not separately curated
 databases. Subset validation detects rows that appear in a child without a
 governed parent or that change meaning between scopes.
 
+## Publication As A Governed Query
+
+A publication behaves like a recorded database query whose inputs, predicates,
+members, and non-members remain inspectable:
+
+| Query component | Governed publication equivalent |
+| --- | --- |
+| input population | versioned normalized and reviewed evidence identities |
+| relation set | source, sample, site, locality, chronology, coordinate, and geography joins admitted by contract |
+| predicates | product scope, evidence role, identity posture, spatial fitness, temporal fitness, and exclusion rules |
+| projection | declared fields, units, coordinate posture, warnings, and source locators |
+| result identity | bundle manifest, version, member IDs, and companion artifact inventory |
+| non-member accounting | outside-scope, excluded, refused, conflicted, and deferred identities with reasons |
+
+```mermaid
+flowchart LR
+    Population["reviewed evidence population"] --> Relations["governed relations"]
+    Relations --> Predicates{"scope and admission predicates"}
+    Predicates -->|member| Projection["declared product fields"]
+    Predicates -->|non-member| Account["reasoned non-member outcome"]
+    Projection --> Manifest["versioned bundle manifest"]
+    Account --> Review["exclusion and review surfaces"]
+```
+
+This is why a country map is not produced by clipping arbitrary coordinates.
+Containment is only one predicate; evidence role, point class, chronology
+posture, lineage, and product rules continue to govern the selected member.
+
 ## Publication Bundle
 
 A geographic bundle can include:
@@ -170,7 +198,9 @@ distinguish a human sample, animal context feature, or boundary polygon.
 
 Animal publication checks currently enforce that:
 
-- published points retain sample, site, coordinate, and citation support;
+- published points retain the identity support declared by their point class:
+  final sample lineage or visibly provisional project context;
+- provisional project context does not become recovered sample evidence;
 - sample-site disagreement is not flattened into one project locality;
 - blocked sample-site rows do not publish as exact sites;
 - unresolved or conflicting chronology does not enter country or atlas output;

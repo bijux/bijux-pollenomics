@@ -95,6 +95,36 @@ product contract. They do not share analytical eligibility. Sample-level
 counts, recovery estimates, and independent-observation analyses must use the
 first class unless they declare and defend a different unit.
 
+### Compare Two Admission Packets
+
+The distinction is visible in the evidence required to build each feature:
+
+| Packet member | Direkli goat sample | Wadi Halfa dromedary context |
+| --- | --- | --- |
+| governed identity | final sample `SAMEA4453841` in project `PRJEB90141` | provisional project-anchored token in `SRP073444` |
+| source locator | supplementary workbook, Table S2, row 2 | paper-backed named-place statement |
+| locality | sample-owned Direkli Cave | project-context Wadi Halfa |
+| coordinate | supplementary-table coordinate, `exact` source class | named-place geocode, `approximate` class |
+| sample evidence status | recovered final sample | `not_yet_recoverable` |
+| permitted point claim | qualified sample presence at the reported point | qualified project-context spatial presence |
+| forbidden promotion | complete project recovery or uniform ascertainment | recovered sample, exact excavation coordinate, or sample-level count |
+
+```mermaid
+flowchart LR
+    Direkli["final sample packet"] --> SamplePoint["sample-backed point"]
+    Wadi["provisional project packet"] --> ContextPoint["qualified context point"]
+    SamplePoint --> Layer["animal point layer"]
+    ContextPoint --> Layer
+    Layer --> Analysis{"declared analysis unit"}
+    Analysis -->|sample required| SamplesOnly["final sample-backed members only"]
+    Analysis -->|context accepted| DeclaredMix["classes retained separately"]
+```
+
+Both packets can satisfy the spatial product, but they answer different
+questions. Any export or analysis that drops `sample_identity_resolution`,
+`sample_evidence_status`, coordinate class, or evidence role destroys the
+distinction on which their joint visibility depends.
+
 ## Admission And Field Qualification
 
 A row-level admission and a field-level admission answer different questions:

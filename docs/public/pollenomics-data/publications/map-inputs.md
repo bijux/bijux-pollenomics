@@ -7,14 +7,14 @@ owner: bijux-pollenomics-docs
 last_reviewed: 2026-07-22
 ---
 
-# Map inputs
+# Map Inputs
 
 The atlas is assembled from governed evidence layers, geographic framing, and
 publication decisions. There is no single coordinate table that defines the
 map. Each visible feature retains a source-family role and a path back to the
 normalized or reviewed record that authorized it.
 
-## The six governed input families
+## The Six Governed Input Families
 
 | Input | Role in the atlas | Governing evidence surface | Interpretation limit |
 | --- | --- | --- | --- |
@@ -23,7 +23,7 @@ normalized or reviewed record that authorized it.
 | SEAD | contextual archaeology | `data/sead/normalized/nordic_environmental_sites.geojson` | environmental archaeology context, not uniformly dated evidence |
 | RAÄ | contextual archaeology | `data/raa/normalized/sweden_archaeology_layer.json` | Sweden-scoped density context, not Nordic-wide site coverage |
 | Nordic boundaries | geographic framing | `data/boundaries/normalized/nordic_country_boundaries.geojson` | scope and clipping only; contributes no evidence score |
-| Animal aDNA | sample-backed evidence and explicit refusals | `data/adna/final/atlas/animal_atlas_point_candidates.json` | visible subset of an incomplete recovery program |
+| Animal aDNA | sample-backed evidence plus visibly qualified project context and explicit refusals | `data/adna/final/atlas/animal_atlas_point_candidates.json` | point classes must remain distinct within an incomplete recovery program |
 
 Summary files and raw captures remain important refresh and review anchors,
 but they do not replace the normalized or admitted surface that governs a
@@ -35,7 +35,7 @@ Sweden priority analysis. Human aDNA exports and additional report layers enter
 the products that declare them, but their presence does not change the role of
 the six audited atlas families above.
 
-## Evidence role is part of the layer
+## Evidence Role Is Part Of The Layer
 
 ```mermaid
 flowchart LR
@@ -58,7 +58,7 @@ describe surrounding evidence without becoming a sample observation. A pollen
 sequence can supply palaeoenvironmental context without becoming direct aDNA
 evidence.
 
-## Assembly and review
+## Assembly And Review
 
 ```mermaid
 flowchart LR
@@ -79,6 +79,24 @@ Eligibility is evaluated for a particular product. A record admitted to a
 world layer is not automatically Nordic evidence; a Sweden density layer is
 not automatically available for another country; and a tracked animal project
 is not automatically a mapped sample.
+
+### Layer Assembly Packet
+
+Each emitted layer can be reconstructed from a bounded packet:
+
+| Packet member | What it controls |
+| --- | --- |
+| source population | exact normalized or reviewed input identities and version |
+| relation contract | allowed joins from source record to evidence and geography |
+| selection contract | product scope, evidence roles, point classes, and fitness predicates |
+| field projection | properties retained for identity, provenance, space, time, role, and qualification |
+| member inventory | stable feature IDs included in the layer |
+| non-member inventory | excluded, refused, deferred, or outside-scope candidates and reasons |
+
+The layer count is derived from the member inventory. It cannot substitute for
+that inventory, and a browser filter cannot alter it. This makes a layer
+rebuild reviewable as an identity and decision diff rather than a visual map
+comparison.
 
 The current input scale is intentionally heterogeneous: 492 LandClim site
 sequences, 200 Neotoma sites, 2,172 normalized SEAD sites, a RAÄ density source
@@ -148,7 +166,7 @@ The refusal branch is part of the evidence architecture. It keeps a visually
 clean layer from concealing records that were captured but could not support
 the product's claims.
 
-## What a scoped export must preserve
+## What A Scoped Export Must Preserve
 
 A public layer must retain enough structure to answer:
 
@@ -164,7 +182,7 @@ This is also why visual filters are not the publication boundary. A feature
 must already belong to the scoped export before the browser can show or hide
 it. Client-side controls cannot authorize an otherwise ineligible record.
 
-## Geographic products are subsets
+## Geographic Products Are Subsets
 
 World, regional, and country outputs have explicit publication contracts. A
 regional bundle must be a defensible subset of its upstream evidence, and a
@@ -175,7 +193,7 @@ Boundary polygons frame those subsets but never increase evidence strength.
 Context layers may explain what surrounds a sample or lake, yet proximity does
 not turn them into sample-owned proof.
 
-### Use the correct denominator
+### Use The Correct Denominator
 
 Layer counts have meaning only against the population from which they were
 selected. For animal points, distinguish tracked projects, recovered samples,
@@ -185,7 +203,7 @@ only the number of visible markers makes conservative admission look like
 collection completeness and makes heterogeneous layers look comparable when
 they are not.
 
-## Tracing a visible feature
+## Tracing A Visible Feature
 
 Use the feature's layer and stable identifier to follow this route:
 
