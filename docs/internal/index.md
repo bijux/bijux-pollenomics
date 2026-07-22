@@ -87,6 +87,7 @@ then regenerate or revise its consumers.
 | Fact | Authority | Derived consumers |
 | --- | --- | --- |
 | acquired source identity and payload | source-family collection record under `data/` | collection summary, normalized records, reports, and prose |
+| fact ownership, conflict posture, or recovery condition | governed curation record and claim-specific decision | readiness reviews, exclusions, atlas candidates, and public explanation |
 | scientific normalization or exclusion | runtime contract plus governed evidence record | atlas members, tables, warnings, and documentation |
 | publication membership | product manifest and admission decision | map layers, counts, report indexes, and reader narratives |
 | runtime command or API behavior | `bijux-pollenomics` implementation and canonical interface contract | examples, frozen API representations, and operator guides |
@@ -107,6 +108,21 @@ flowchart LR
 
 Changing a generated table, rendered badge, or prose sentence alone is not a
 correction when its governing input remains wrong.
+
+### Product Decisions And Repository Findings
+
+Maintain these as separate records even when one reveals the other:
+
+| Record | Answers | May cause |
+| --- | --- | --- |
+| scientific decision | what a captured claim supports at its actual scope and precision | admission, qualification, conflict, recovery, or refusal |
+| product decision | whether reviewed evidence belongs in one declared publication | membership, warning, exclusion, or scoped non-membership |
+| repository finding | whether checked-in owners and descendants agree at one revision | correction at an authority or producer boundary |
+| verification result | whether a named correction now satisfies the inspected contract | review evidence for one commit or release gate |
+
+A repository finding that exposes an unsupported claim does not itself decide
+the scientific posture. It routes the discrepancy to the evidence or product
+owner, then verifies that the corrected descendants agree.
 
 ## Reconcile Conflicting Surfaces
 

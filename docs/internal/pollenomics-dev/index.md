@@ -102,6 +102,35 @@ A synchronizer succeeding only proves that it rendered its inputs. It does not
 prove those inputs are scientifically correct or that an external publication
 succeeded.
 
+## Design A Durable Check
+
+Repository checks remain useful when their contract survives changes in prose,
+layout, and incidental execution details:
+
+| Property | Durable design |
+| --- | --- |
+| input identity | accept or discover one explicit repository root, revision, contract, and governed target set |
+| assertion | compare semantic fields, identities, membership, or declared relationships |
+| diagnostics | name observed state, expected invariant, owner, and affected paths or members |
+| ordering | sort findings and serialized members deterministically |
+| path handling | report repository-relative paths and keep disposable output under `artifacts/` |
+| mutation | default to read-only; expose write mode only for a declared generated surface |
+| exit behavior | distinguish contract disagreement from unavailable environment or invalid invocation |
+
+Avoid checks that pass only because an explanatory paragraph contains one
+fragile phrase when a schema field, link target, heading contract, manifest
+member, or structured relation can express the real invariant. Prose checks
+remain appropriate for prohibited overclaims and other language boundaries
+whose meaning is itself the contract.
+
+```mermaid
+flowchart LR
+    Contract["authoritative contract"] --> Observe["deterministic observation"]
+    Observe --> Compare{"semantic invariant"}
+    Compare -->|agrees| Proof["bounded proof"]
+    Compare -->|disagrees| Diagnostic["owner + observed + expected"]
+```
+
 ## Route A Finding
 
 | Signal | Correct owner | Required evidence |

@@ -50,6 +50,23 @@ check proves that the inspected contract is internally consistent at that
 revision; it does not prove that a source is complete, a chronology is precise,
 or a published interpretation is scientifically sufficient.
 
+### Admission Test For Maintainer Helpers
+
+A helper belongs in this package only when all of these statements hold:
+
+| Question | Required answer |
+| --- | --- |
+| What does it inspect? | an explicit repository, package, documentation, API, or release contract |
+| What does it decide? | whether observed repository state conforms to that existing contract |
+| What does it emit? | a bounded finding, verification result, or narrowly owned generated surface |
+| What must it not decide? | source meaning, sample truth, scientific fitness, ranking policy, or publication membership |
+| Where is the correction made? | in the authoritative runtime, data, documentation, package, or workflow owner |
+
+If a proposed helper needs domain judgment to choose the correct locality,
+chronology, identity, or admission outcome, that judgment belongs in the
+canonical evidence contract. The maintainer helper may verify the resulting
+relationship after the owner has made it explicit.
+
 ## Executable Module Map
 
 The package intentionally exposes Python modules rather than a public runtime
@@ -219,6 +236,11 @@ A maintainer finding is actionable when it records:
 “Documentation failed” or “repository truth is red” is not enough. The report
 must name the disputed claim and owner so the correction can occur at the
 authoritative boundary rather than in the check that detected it.
+
+A stable machine-readable finding should also avoid embedding terminal color,
+working-directory accidents, or an unordered filesystem traversal. Deterministic
+ordering and repository-relative paths make the same finding comparable across
+local runs and automation without turning the local environment into identity.
 
 ```mermaid
 flowchart LR
