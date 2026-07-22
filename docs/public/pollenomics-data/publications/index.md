@@ -61,6 +61,25 @@ This is why a country map is not produced by clipping arbitrary coordinates.
 Containment is only one predicate; evidence role, point class, chronology
 posture, lineage, and product rules continue to govern the selected member.
 
+### Projection Invariants
+
+A publication projection is valid only when it preserves the semantics of the
+database state it selects:
+
+| Invariant | Required publication behavior |
+| --- | --- |
+| identity preservation | every member resolves to the same typed governed object used during admission |
+| role preservation | direct evidence, context, sampling support, and framing remain distinguishable |
+| precision preservation | projected fields do not imply finer place, time, or identity support than their authorities |
+| state preservation | qualifications and conflicts material to use remain reachable; exclusions remain accounted for |
+| population preservation | numerator, eligible denominator, scope, and observation unit travel with aggregate claims |
+| revision consistency | manifest, members, traceability, warnings, and rendering derive from one database snapshot |
+
+Projection may rename columns, select fields, transform coordinate
+representation, or aggregate declared populations. It may not mint upstream
+facts, discard a material qualification, or reinterpret a contextual member
+as direct evidence.
+
 ## Publication Bundle
 
 A geographic bundle can include:
@@ -85,7 +104,7 @@ flowchart LR
 
 The map is one consumer of the bundle, not the bundle's authority.
 
-### Bundle identity
+### Bundle Identity
 
 A publication is identified by the combination of **version**, **geographic
 scope**, **member inventory**, and **governing contracts**. Two bundles with the
@@ -244,3 +263,6 @@ be named, the statement is not yet traceable enough for scientific reuse.
 For a count, also retain the observation unit, numerator, eligible population,
 exclusions, and scope. “234 points” is a product-membership statement; it is
 not a recovery rate until a defensible denominator and recovery rule are named.
+
+The [revision and state model](../database/revision-and-state-model.md)
+defines the database snapshot from which a projection receives its authority.

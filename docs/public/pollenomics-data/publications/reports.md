@@ -45,6 +45,25 @@ establish collection completeness.
 | scientific review | evaluate evidential strength and unresolved risk |
 | warnings and exclusions | account for records that did not publish |
 
+### Typed Report Members
+
+Files in one report directory are not interchangeable representations of one
+flat table. Each member has a distinct database role:
+
+| Member type | Carries | Cannot govern |
+| --- | --- | --- |
+| manifest | product identity, version, scope, parent, and artifact membership | sample locality or chronology facts |
+| evidence table | projected governed rows with stable identifiers and roles | membership outside its named product |
+| traceability table | relations from visible members to evidence authorities | source interpretation beyond the linked claim |
+| exclusion table | known non-members and product-specific reasons | source absence or global invalidity |
+| review surface | scientific qualifications, coverage, and refusal posture | source-native facts |
+| rendering | visual or narrative presentation of selected state | stronger identity, precision, or readiness than its members |
+
+The manifest binds these types into one product without merging their
+authority. A consumer that imports only the evidence table loses the
+non-member population; a consumer that imports only the map loses both row
+identity and decision context.
+
 ## Bundle Consistency
 
 The members are several representations of one governed publication state.
@@ -219,3 +238,7 @@ and [animal intake recovery review](../../../report/animal_intake_recovery_revie
 to distinguish a publication refusal from incomplete recovery. When a
 narrative sentence and its linked evidence disagree, the narrower governed
 evidence and visible caveat control the interpretation.
+
+See [publication projections](index.md#projection-invariants) for the
+identity, role, precision, state, population, and revision constraints shared
+by every report bundle.

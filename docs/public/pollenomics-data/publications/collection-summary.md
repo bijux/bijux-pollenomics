@@ -40,6 +40,33 @@ cells, Neotoma points, RAÄ heritage and total sites, SEAD points, and SVAR
 lakes. These counts identify the assembled state; their exact observation
 units and temporal semantics remain governed by the family contracts.
 
+### Collection Header, Not Record Catalogue
+
+The summary behaves as a collection-level transaction header. It identifies
+the source partitions and their captured and normalized content state, but it
+does not enumerate every governed object, relation, conflict, or publication
+member.
+
+```mermaid
+flowchart LR
+    Header["collection identity and family digests"] --> Partition["family-owned record partitions"]
+    Partition --> Claims["normalized claims and relations"]
+    Claims --> Review["curation and product decisions"]
+    Review --> Bundle["publication manifest and members"]
+```
+
+| Question | Correct authority |
+| --- | --- |
+| Which collected source roots belong to this state? | collection summary |
+| Which source-native or normalized records exist? | family-owned captured and normalized partitions |
+| Which value owns a sample, locality, chronology, or coordinate fact? | fact-ownership registry and governing evidence record |
+| Which records passed one product contract? | product admission and bundle manifest |
+| Which visible rows and exclusions belong together? | publication bundle and review companions |
+
+Treating the summary as a record catalogue would make its family counts appear
+scientifically comparable and would hide animal curation that is governed
+outside the seven collector-managed roots.
+
 ## Collection Membership Is Not Publication Membership
 
 The `v66` summary records seven collector-managed families:
@@ -131,4 +158,5 @@ separate decision.
 Use the [source family matrix](../sources/source-family-matrix.md) for evidence
 roles, the [cross-domain matrix](../overview/cross-domain-evidence-matrix.md)
 for comparability, and [publication limits](limits.md) for what remains outside
-the visible products.
+the visible products. The [evidence database](../database/index.md) explains
+how collection identity relates to governed records and projections.
