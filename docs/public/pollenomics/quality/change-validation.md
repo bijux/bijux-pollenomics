@@ -73,6 +73,34 @@ Stable counts can also hide meaningful change: one member may replace another,
 coordinates may become less precise, chronology may be reclassified, or a
 direct-evidence row may become contextual.
 
+## Build A Semantic Diff Packet
+
+A reviewable change packet compares identities before totals and meaning before
+rendering. For every affected population, retain:
+
+| Packet component | Required content | Question answered |
+| --- | --- | --- |
+| boundary identity | source family, evidence surface, product, version, and scope | what population is being compared? |
+| member sets | stable identifiers added, removed, retained, and replaced | did the population change even if its size did not? |
+| property changes | source identity, role, geometry, chronology, precision, qualification, and fact owner | did retained members change meaning? |
+| relationship changes | joins, aliases, sample–site links, comparison edges, and lineage independence | did the evidence graph change? |
+| decision changes | admission, qualification, exclusion, refusal, and reason | did policy or evidence fitness change visibility? |
+| presentation parity | structured formats and rendered views compared against the same manifest | is the visible change faithful to governed state? |
+
+```mermaid
+flowchart LR
+    Before["prior member identities"] --> Sets["added, removed, retained, replaced"]
+    After["current member identities"] --> Sets
+    Sets --> Meaning["property and relationship diff"]
+    Meaning --> Decisions["admission and qualification diff"]
+    Decisions --> Views["cross-format presentation diff"]
+    Views --> Explanation["causal change statement"]
+```
+
+The packet should make a zero-count change visible. If one member disappears
+and another enters, or a retained member loses coordinate precision, the total
+may stay constant while the evidence population changes materially.
+
 ## Reading A Product Difference
 
 1. Identify the product and recorded scope.
@@ -83,6 +111,11 @@ direct-evidence row may become contextual.
    exclusions.
 6. Treat rendering-only change as neutral only when structured meaning is
    demonstrably unchanged.
+
+The final explanation should name both cause and consequence: for example,
+“two members were excluded after sample-owned locality review” or “labels
+changed while manifest membership and feature properties remained stable.”
+“The product was regenerated” describes an operation, not the change.
 
 ## Evidence Required By Change Type
 

@@ -85,6 +85,35 @@ Counts, labels, roles, geography, and precision should agree across those
 surfaces. A disagreement is not resolved by preferring the most polished view;
 it is an unresolved publication defect.
 
+## Challenge The Claim Before Accepting It
+
+Positive traceability is necessary but can still conceal an overclaim. Apply
+these counterchecks to the exact proposed wording:
+
+| Challenge | If the answer is no |
+| --- | --- |
+| If contextual layers were hidden, would the direct claim still be supported by its owned evidence? | reduce the claim to context or recover direct evidence |
+| If the map were unavailable, could the feature still be resolved from manifest identity to governing source? | treat the publication lineage as unresolved |
+| Does every stated count name one observation unit and denominator? | separate samples, people, sites, sequences, cells, and source rows before counting |
+| Would the claim survive replacement of a precise marker with the source-reported spatial precision? | narrow the geographic wording |
+| Would the claim survive replacement of a display date with the governed temporal posture and caveat? | narrow or withhold the temporal wording |
+| Are two supporting records independent at the observation-lineage level? | describe agreement as shared or unresolved context, not corroboration |
+| Can absence be located at capture, normalization, admission, publication, or current view? | do not interpret non-visibility as evidence absence |
+
+```mermaid
+flowchart TD
+    Wording["proposed public wording"] --> Remove["remove contextual support"]
+    Remove --> Precision["restore governed place and time precision"]
+    Precision --> Count["name unit and denominator"]
+    Count --> Independence["test observation-lineage independence"]
+    Independence --> Absence["locate every absence boundary"]
+    Absence --> Verdict["supported, qualified, contextual, or refused"]
+```
+
+These checks do not demand maximal evidence for every statement. They ensure
+that the wording does not gain strength from visual proximity, aggregation,
+formatting precision, or duplicated lineage.
+
 ## Review Verdicts
 
 | Verdict | Meaning | Reader action |

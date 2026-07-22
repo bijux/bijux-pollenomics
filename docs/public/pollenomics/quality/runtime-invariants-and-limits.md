@@ -49,6 +49,35 @@ The negative column is part of the system contract. A guarantee is credible
 only when failure remains observable instead of being converted to a default,
 an inferred value, or an unexplained omission.
 
+## Separate Invariants From Snapshot Posture
+
+Runtime invariants describe behavior that must hold for every governed
+snapshot. Scientific posture describes what the current evidence happens to
+support. Mixing them makes a temporary count look like a permanent guarantee
+or makes an enduring safety property appear optional.
+
+| Statement | Kind | How to read it |
+| --- | --- | --- |
+| a published member resolves to governed source identity | invariant | failure is a traceability defect in any snapshot |
+| the current Neotoma review contains 170 members admitted to numeric comparison | snapshot posture | the count may change when governed evidence or review changes |
+| downstream geometry does not exceed source-supported precision | invariant | a more precise rendering must be refused or qualified |
+| the current SEAD materialization has no linked dating rows | snapshot posture | it limits this capture but does not claim upstream absence |
+| an excluded candidate retains an accountable reason | invariant | omission without a decision record violates the contract |
+| one source family is currently context-only for temporal comparison | snapshot posture | stronger evidence may change the posture through review |
+
+```mermaid
+flowchart LR
+    Invariant["enduring behavior contract"] --> Snapshot["governed evidence snapshot"]
+    Snapshot --> Posture["current scientific posture"]
+    Invariant --> Product["admissible publication behavior"]
+    Posture --> Product
+```
+
+A new snapshot may legitimately change counts, members, or fitness decisions
+while still satisfying every invariant. Conversely, preserving counts does not
+demonstrate conformance if lineage, precision, exclusion accountability, or
+manifest scope has been broken.
+
 ## Runtime Boundaries
 
 Collection can establish that material was retrieved and normalized. It cannot
