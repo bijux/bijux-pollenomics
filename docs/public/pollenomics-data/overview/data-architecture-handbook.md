@@ -4,99 +4,105 @@ audience: reader
 type: explanation
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-05-10
+last_reviewed: 2026-07-22
 ---
 
 # Data Architecture Handbook
 
-This page explains how the repository tree is organized so you can tell which
-files capture upstream material, which ones govern evidence, which ones review
-it, and which ones publish it.
+The database separates evidence by lifecycle and authority. Upstream bytes,
+normalized fields, scientific decisions, and public presentation are related,
+but no layer is allowed to impersonate another.
 
-## The Four Stages
+## Four Evidence Layers
 
-Every tracked source family should be readable through four durable stages:
+| Layer | Governing question | Typical contents |
+| --- | --- | --- |
+| Raw | What exactly was acquired? | source payload, version, retrieval metadata, license, and hash |
+| Normalized | How is the source represented consistently? | typed fields, stable identifiers, normalized dates, and geometry |
+| Reviewed | Is the record fit for a declared use? | conflicts, precision, coverage, caveats, exclusions, and release posture |
+| Published | What qualified evidence is exposed to readers? | report bundles, maps, tables, rankings, and public review surfaces |
 
-1. capture: the repository records what came from upstream
-2. normalization: the repository reshapes that material into owned evidence files
-3. review: the repository states what is thin, blocked, conflicted, or safe
-4. publication: the repository emits public bundles, atlas inputs, or map layers
+```mermaid
+flowchart LR
+    Raw -->|normalize without strengthening| Normalized
+    Normalized -->|evaluate fitness| Reviewed
+    Reviewed -->|select with declared posture| Published
+    Published -. never governs upstream facts .-> Reviewed
+```
 
-You do not need to memorize those names, but you do need the distinction. A
-report page is not the same thing as a governing evidence file, and a raw
-supplement is not the same thing as a reviewed sample record.
+## Family Topology
 
-The machine-readable checkpoints for those stages live in:
-
-- `data/source_family_contracts.json`
-- `data/source_family_evidence_stage_matrix.json`
-- `data/source_fact_ownership_registry.json`
-- `data/evidence_artifact_contracts.json`
-
-## Source Families
-
-| Source family | Raw capture | Normalized evidence | Review surface | Publication surface |
+| Family | Raw | Normalized | Reviewed | Published |
 | --- | --- | --- | --- | --- |
-| LandClim | `data/landclim/raw/` | `data/landclim/normalized/` | `data/source_family_evidence_stage_matrix.json` | `docs/report/world/` |
-| Neotoma | `data/neotoma/raw/` | `data/neotoma/normalized/` | `data/source_family_evidence_stage_matrix.json` | `docs/report/world/` |
-| SEAD | `data/sead/raw/` | `data/sead/normalized/` | `data/source_family_evidence_stage_matrix.json` | `docs/report/world/` |
-| RAÄ | `data/raa/raw/` | `data/raa/normalized/` | `data/source_family_evidence_stage_matrix.json` | `docs/report/world/` |
-| Boundaries | `data/boundaries/raw/` | `data/boundaries/normalized/` | `data/source_family_evidence_stage_matrix.json` | `docs/report/world/` |
-| AADR | `data/aadr/` | `data/adna/species/homo_sapiens/normalized/` | `data/adna/species/homo_sapiens/review/` | `docs/report/<country>/` |
-| Animal ancient DNA | `data/adna/governance/source_library/` | `data/adna/species/<latin_name>/normalized/` | `data/adna/governance/` | `data/adna/final/` and `docs/report/` |
+| LandClim | `data/landclim/raw/` | `data/landclim/normalized/` | cross-family stage matrix | world and regional pollen layers |
+| Neotoma | `data/neotoma/raw/` | `data/neotoma/normalized/` | `data/neotoma/review/` | world and regional pollen layers |
+| SEAD | `data/sead/raw/` | `data/sead/normalized/` | `data/sead/review/` | environmental archaeology layers |
+| RAÄ | `data/raa/raw/` | `data/raa/normalized/` | cross-family stage matrix | Sweden archaeology layers |
+| Boundaries | `data/boundaries/raw/` | `data/boundaries/normalized/` | cross-family stage matrix | geographic framing |
+| SVAR | `data/svar/raw/` | `data/svar/normalized/` | lake evidence and ranking reviews | Sweden lake packet and overlays |
+| AADR | `data/aadr/` | `data/adna/species/homo_sapiens/normalized/` | human species review | country and regional human aDNA layers |
+| Animal aDNA | project source library | species-normalized records | animal governance and scientific reviews | admitted atlas and country records |
 
-## Where Key Facts Are Owned
+The exact contract, example artifacts, and coverage metrics for each family are
+published in `data/source_family_contracts.json`.
 
-The repository repeats some concepts across recovery, normalization, and
-publication surfaces. That is unavoidable. What matters is that one governing
-surface owns each recurring fact.
+## Animal Evidence Topology
 
-- Project inventory is governed by `data/adna/governance/source_library/project_registry.json`.
-- Paper inventory is governed by `data/adna/governance/source_library/paper_registry.json`.
-- Sample identity is governed by `data/adna/governance/source_library/projects/<project_accession>/sample_master.json`.
-- Sample-to-site linkage is governed by `data/adna/governance/source_library/projects/<project_accession>/sample_sites.json`.
-- Locality evidence is governed by `data/adna/governance/source_library/projects/<project_accession>/sample_locality_evidence.json`.
-- Chronology evidence is governed by `data/adna/governance/source_library/projects/<project_accession>/sample_chronology_evidence.json`.
-- Species-normalized animal records are governed by `data/adna/species/<latin_name>/normalized/sample_records.json`.
-- Region-level animal atlas inputs are governed by `data/adna/final/atlas/animal_atlas_point_candidates.json`.
-- Country publication bundles are governed by `docs/report/countries/<country_slug>/<country_slug>_aadr_<version>_bundle.json`.
+Animal aDNA requires a richer topology because publication metadata, archive
+metadata, supplements, and sample evidence frequently have different owners.
 
-The full registry is in `data/source_fact_ownership_registry.json`.
+```mermaid
+flowchart TB
+    Paper["paper registry"] --> Project["project registry"]
+    Supplement["supporting-material manifest"] --> Project
+    Project --> Master["sample master"]
+    Master --> Site["sample-to-site linkage"]
+    Site --> Locality["locality evidence"]
+    Master --> Chronology["chronology evidence"]
+    Locality --> Species["species-normalized record"]
+    Chronology --> Species
+    Species --> Candidate{"atlas admission"}
+    Candidate -->|admit or qualify| Atlas["atlas candidate"]
+    Candidate -->|block| Ledger["exclusion and recovery evidence"]
+```
 
-That registry matters because the same sample or locality can appear in several
-downstream places. What matters is having one stable answer to a simple
-question: which file should win when two outputs appear to say the same thing
-at different levels of detail?
+The source library keeps a project accession distinct from a paper DOI and a
+sample identifier distinct from a site. This prevents a broad project locality
+or publication date from being copied into every sample row as if it were
+sample-specific evidence.
 
-## Why The Governance Tree Exists
+## Fact Ownership
 
-`data/adna/governance/` should not be read as one vague side bucket.
+`data/source_fact_ownership_registry.json` resolves repeated facts to one
+governing surface. Representative authorities include:
 
-- `data/adna/governance/source_library/` owns source recovery and per-project evidence capture.
-- `data/adna/governance/*.json` owns cross-species review, truth, caveats, and coverage posture.
-- `data/adna/governance/*product*.json` owns publication accounting and shipment discipline.
+- project inventory: `project_registry.json`;
+- paper inventory: `paper_registry.json`;
+- sample identity: a project's `sample_master.json`;
+- sample-site linkage: a project's `sample_sites.json`;
+- locality claims: a project's `sample_locality_evidence.json`;
+- chronology claims: a project's `sample_chronology_evidence.json`;
+- species views: `species/<latin_name>/normalized/sample_records.json`; and
+- atlas admission: `final/atlas/animal_atlas_point_candidates.json`.
 
-The repository states that split directly in
-`data/adna/governance/surface_role_registry.json`.
+A downstream bundle may repeat these facts for use, but disagreement is
+resolved at the governing surface and then regenerated downstream.
 
-## File Contracts
+## Artifact Contracts
 
-The repository publishes one file-contract standard so the recurring artifact
-scopes stay predictable:
-
-- project source bundles
-- paper supporting-material manifests
-- sample foundation surfaces
-- site evidence surfaces
-- regional atlas bundles
-- country publication bundles
-
-That contract is published in `data/evidence_artifact_contracts.json`, and the
-shared animal project subtree contract is published in
+`data/evidence_artifact_contracts.json` defines recurring scopes for project
+source bundles, paper supporting-material manifests, sample foundations, site
+evidence, regional atlas bundles, and country publications. The per-project
+animal subtree is further specified by
 `data/adna/governance/source_library/project_surface_contract.json`.
 
-## When This Page Is Most Useful
+Contracts make absence interpretable. A missing required artifact is a
+structural failure; an empty governed field can be a legitimate evidence gap;
+and a blocked review is an explicit scientific outcome.
 
-Use this page when the repository feels sprawling and the immediate question is
-not about one species or one map, but about where evidence becomes reviewable
-and which file actually governs the claim you care about.
+## Traceability Rule
+
+A public claim is complete only when it resolves through the publication
+manifest, admitted evidence row, governing normalized record, and source
+identity. A visually precise coordinate does not compensate for a missing link
+in that chain.

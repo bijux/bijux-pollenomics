@@ -1,72 +1,116 @@
-# Data Layout
+# Pollenomics Data Repository
 
-Tracked source data and governed species-owned ancient-DNA views live directly
-under `data/`:
+`data/` is the governing evidence state for Pollenomics. It contains tracked
+source captures, normalized records, scientific review surfaces, and curated
+ancient-DNA evidence. Files under `docs/report/` are derived publications over
+this state; they do not replace it as the authority for a scientific claim.
+
+## Evidence Layers
 
 ```text
-data
-├── adna
-│   ├── species
-│   │   ├── equus_caballus
-│   │   ├── sus_scrofa_domesticus
-│   │   ├── ovis_aries
-│   │   ├── bos_taurus
-│   │   ├── capra_hircus
-│   │   ├── canis_lupus_familiaris
-│   │   ├── felis_catus
-│   │   ├── camelus_dromedarius
-│   │   ├── rangifer_tarandus
-│   │   ├── equus_asinus
-│   │   └── homo_sapiens
-│   │       ├── raw
-│   │       │   └── aadr -> ../../../../aadr
-│   │       ├── normalized
-│   │       ├── manifests
-│   │       ├── reports
-│   │       └── review
-│   ├── governance
-│   │   └── source_library
-│   └── final
-├── aadr
-│   └── v66
-├── boundaries
-├── landclim
-├── neotoma
-├── raa
-├── sead
-└── svar
+data/
+├── collection_summary.json
+├── source_family_contracts.json
+├── source_family_evidence_stage_matrix.json
+├── source_fact_ownership_registry.json
+├── evidence_artifact_contracts.json
+├── aadr/
+├── boundaries/
+├── landclim/
+├── neotoma/
+├── raa/
+├── sead/
+├── svar/
+└── adna/
+    ├── governance/
+    │   └── source_library/
+    ├── species/
+    └── final/
 ```
 
-Detailed acquisition commands, source explanations, and storage rationale are documented in the canonical docs pages:
+Each contracted source family is represented through four roles where
+applicable:
 
-- [`docs/public/pollenomics-data/sources/index.md`](../docs/public/pollenomics-data/sources/index.md)
-- [`docs/public/pollenomics-data/overview/data-directory-layout.md`](../docs/public/pollenomics-data/overview/data-directory-layout.md)
+1. **raw** preserves acquired source identity and material;
+2. **normalized** stores repository-owned fields and geometry;
+3. **reviewed** records fitness, conflicts, caveats, and coverage; and
+4. **published** identifies the derived report or atlas surface.
 
-The collector also writes `collection_summary.json` so the current data tree can be inspected with machine-readable counts, source output roots, and provenance metadata.
+`source_family_contracts.json` declares the expected paths and purpose of those
+layers. `source_family_evidence_stage_matrix.json` records their evidence
+posture. `collection_summary.json` binds the collected source version,
+retrieval metadata, hashes, output roots, provenance, and replacement policy.
 
-The data root also ships contract surfaces that explain ownership instead of
-forcing readers to infer it from directory names alone:
+## Source Families
 
-- `source_family_contracts.json`
-- `source_family_evidence_stage_matrix.json`
-- `source_fact_ownership_registry.json`
-- `evidence_artifact_contracts.json`
+| Root | Evidence role |
+| --- | --- |
+| `landclim/` | pollen-site and REVEALS model context |
+| `neotoma/` | palaeoecological pollen-site context |
+| `sead/` | environmental archaeology context |
+| `raa/` | Sweden-specific archaeology and heritage context |
+| `boundaries/` | geographic filtering and framing |
+| `svar/` | Swedish lake and hydrography context |
+| `aadr/` | versioned human ancient-DNA metadata capture |
+| `adna/` | species-owned human and animal ancient-DNA evidence |
 
-`Homo sapiens` ancient DNA is governed under `adna/species/homo_sapiens/`, while the
-domesticated-animal curation program owns species roots such as
-`adna/species/equus_caballus/`, `adna/species/sus_scrofa_domesticus/`,
-`adna/species/ovis_aries/`, `adna/species/bos_taurus/`,
-`adna/species/capra_hircus/`, `adna/species/canis_lupus_familiaris/`,
-`adna/species/felis_catus/`, `adna/species/camelus_dromedarius/`,
-`adna/species/rangifer_tarandus/`, and `adna/species/equus_asinus/`.
+These roots are not interchangeable. Their temporal resolution, spatial
+precision, licensing, coverage, and scientific role remain source-specific.
 
-Cross-species audits, caveat ledgers, sample-foundation contracts, and source
-registries live under `adna/governance/`, including
-`adna/governance/cross_species_bibliography.json`,
-`adna/governance/source_library/project_registry.json`, and
-`adna/governance/animal_sample_foundation_truth.json`.
-The role split inside that tree is made explicit in
-`adna/governance/surface_role_registry.json`, and the shared per-project file
-contract lives in `adna/governance/source_library/project_surface_contract.json`.
-Shared atlas-ready and country-ready downstream data products live under
-`adna/final/`.
+## Animal Ancient-DNA Curation
+
+`adna/governance/source_library/` is the source-accountability layer for animal
+ancient DNA. It contains cross-project registries and one durable subtree per
+tracked archive project. A project subtree can include:
+
+- an intake dossier and bundle manifest;
+- archived source metadata and acquisition metadata;
+- a stable sample master;
+- sample-to-site linkage;
+- locality worksheets and locality evidence;
+- chronology, chronology evidence, and chronology provenance; and
+- a curation note recording project-specific interpretation.
+
+Paper-owned supporting material is tracked separately from archive-project
+metadata so a publication, project accession, supplement, sample, and site are
+not collapsed into one identifier.
+
+Cross-project ambiguity, missing-source, chronology, locality, coordinate, and
+coverage surfaces remain under `adna/governance/`. They preserve unresolved
+work as evidence instead of silently deleting incomplete rows.
+
+## Species And Publication Views
+
+`adna/species/<latin_name>/` groups curated records into species-owned raw,
+normalized, manifest, report, and review surfaces. The human root links to the
+governed AADR capture; animal roots derive from the source library.
+
+`adna/final/` contains admitted downstream inputs:
+
+- `atlas/animal_atlas_point_candidates.json` for animal atlas candidates;
+- `atlas/animal_atlas_candidate_accountability.json` for admission accounting;
+  and
+- `countries/country_publication_index.json` for country publication linkage.
+
+These are final inputs to publication, not final scientific truth. Their rows
+remain subordinate to the governing project and sample evidence identified by
+`source_fact_ownership_registry.json`.
+
+## Refresh Safety
+
+Source collection uses staging-and-swap replacement. A successful refresh
+replaces a source-specific tracked root; a failed refresh preserves the prior
+root. Running `make data-prep` is therefore an intentional tracked-data rewrite,
+not a read-only validation command.
+
+Review source identity, hashes, counts, evidence posture, and downstream report
+diffs together after a refresh. A newer source can narrow a claim when it
+reveals conflicts or weaker support.
+
+## Further Reading
+
+- [Data system](../docs/public/pollenomics-data/index.md)
+- [Data architecture](../docs/public/pollenomics-data/overview/data-architecture-handbook.md)
+- [Source families](../docs/public/pollenomics-data/sources/index.md)
+- [Evidence chain](../docs/public/pollenomics-data/evidence/index.md)
+- [Publication model](../docs/public/pollenomics-data/publications/index.md)
