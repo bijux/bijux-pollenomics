@@ -101,7 +101,7 @@ Distance and containment operate on the represented geometry; scientific
 interpretation operates on the observation and its role. Both identities must
 remain available.
 
-## The coordinate record
+## The Coordinate Record
 
 Each animal coordinate-provenance row preserves:
 
@@ -120,6 +120,25 @@ For samples whose own supplementary rows contain coordinates, the sample
 lineage supplies the coordinate basis directly. For broader project leads,
 coordinate provenance remains a separate reviewed record so a project-level
 anchor cannot silently become sample-level geography.
+
+### Coordinate Claim Identity
+
+The numeric pair is an attribute of a spatial claim, not its identifier. The
+claim remains addressable through the governed subject, reported locality,
+basis, method, source locator, precision, and revision. Two equal pairs can
+therefore represent different evidence, while a reference-system conversion
+can produce a different pair for the same governed claim.
+
+| Change | Database treatment |
+| --- | --- |
+| formatting or exact CRS conversion | new representation linked to the same spatial claim |
+| corrected axis order or source transcription | corrected claim with explicit predecessor relation |
+| new source-backed coordinate replaces a named-site resolution | stronger evidence claim; preserve the earlier curated claim |
+| locality ownership changes | reevaluate whether the coordinate still belongs to the governed subject |
+| point becomes withheld | retain the spatial evidence and publish a non-point or exclusion state |
+
+This model prevents geometry history from disappearing when the current map
+shows only the accepted representation.
 
 ## Coordinate Reuse Contract
 

@@ -139,6 +139,22 @@ relationship explicitly. Row count, identifier count, specimen count, and map
 point count are therefore different quantities unless a product proves them
 equivalent.
 
+### Database Constraints
+
+| Constraint | Refused state |
+| --- | --- |
+| a stable sample belongs to one governed project namespace | an unscoped label used as a repository key |
+| every alias resolves through evidence to a stable sample or remains ambiguous | spelling similarity used as identity proof |
+| locality and chronology attach through separate claim relations | a single denormalized row treated as one indivisible fact |
+| species views reference project-owned samples | an aggregate species row minting a replacement identity |
+| publication membership references both sample and product | map feature identity used as the sample authority |
+| merge and split decisions retain predecessor identities and reasons | silent deletion or reassignment of descendants |
+
+These constraints let the database correct a place, date, preferred label, or
+publication decision without changing the specimen identity. They also force
+true identity splits and merges to propagate through every dependent relation
+instead of being hidden as field edits.
+
 ## Identity Change Or Claim Change?
 
 Not every corrected field creates a new sample identity:
@@ -271,4 +287,5 @@ atlas admission are separate decisions.
 
 Continue with [localities](localities.md), [chronology](chronology.md), and
 [coordinates](coordinates.md) to evaluate the sample-owned claims that control
-publication.
+publication. See the [database object model](../database/object-and-relation-model.md)
+for the wider project, paper, sample, claim, and product cardinalities.

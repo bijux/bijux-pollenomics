@@ -125,6 +125,28 @@ The envelope is intentionally larger than a popup or CSV cell. Compact views
 may point to it, but downstream reuse that drops these fields cannot retain the
 same evidential claim.
 
+### Claims Are Addressable Database Objects
+
+A claim is identified by its governed subject, fact type, source or decision
+identity, and revision—not by the current displayed value. This allows two
+supported values to remain in conflict without overwriting one another and
+allows a later decision to change posture without erasing the evidence that
+was reviewed.
+
+| Claim member | Database responsibility |
+| --- | --- |
+| subject identity | binds the claim to one typed sample, site, source member, or product |
+| fact type | distinguishes identity, locality, chronology, coordinate, taxon, role, and membership claims |
+| assertion identity | keeps several source statements or curated interpretations separately addressable |
+| evidence locator | recovers the captured statement or deterministic inputs |
+| normalized representation | enables comparison while retaining source wording and method |
+| decision state | records acceptance, qualification, conflict, refusal, or unresolved posture |
+| supersession relation | explains which later claim or decision replaced an earlier interpretation and why |
+
+Supersession is not deletion. Historical values remain attributable to the
+database revision and evidence that supported them; current products select
+only the posture accepted by their own contracts.
+
 ### A Decision Is Scoped To One Claim
 
 Evidence posture belongs to the pair of claim and intended use, not to the
@@ -233,4 +255,5 @@ different questions.
 
 The relevant references are [sample records](sample-records.md),
 [localities](localities.md), [chronology](chronology.md), and
-[coordinates](coordinates.md).
+[coordinates](coordinates.md). The [object and relation model](../database/object-and-relation-model.md)
+defines the typed identities used throughout the chain.

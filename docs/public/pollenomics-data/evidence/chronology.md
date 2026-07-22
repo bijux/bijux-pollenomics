@@ -7,7 +7,7 @@ owner: bijux-pollenomics-docs
 last_reviewed: 2026-07-22
 ---
 
-# Chronology evidence
+# Chronology Evidence
 
 Chronology records what the source says about a sample's age, how that wording
 was interpreted, and how precisely it may be compared with other evidence. A
@@ -111,6 +111,29 @@ or chart that displays a mean must retain access to the original bounds,
 precision posture, evidence class, and comparison note so that an interval
 does not acquire false point precision.
 
+### Several Claims May Belong To One Sample
+
+A sample can retain a direct laboratory result, a modeled estimate, an
+archaeological context range, a historical label, and a disputed source
+statement at the same time. The chronology database stores these as separate
+claim objects and records which one governs a particular comparison.
+
+```mermaid
+flowchart LR
+    Sample["stable sample"] --> Direct["direct chronology claim"]
+    Sample --> Modeled["modeled chronology claim"]
+    Sample --> Context["contextual chronology claim"]
+    Direct --> Decision["claim-specific chronology decision"]
+    Modeled --> Decision
+    Context --> Decision
+    Decision --> Comparison["admitted comparison posture"]
+```
+
+Selecting a governing claim does not erase the alternatives. The decision
+retains evidence class, source locator, relation to the sample, conflict
+reason, and supersession history. Averaging incompatible claims would create a
+new unsupported chronology and is therefore refused.
+
 ### Calendar Conversion Contract
 
 Numeric BP values use 1950 CE as the reference year. For chronology text that
@@ -203,7 +226,7 @@ Chronology diffs should therefore compare reported text, source locator,
 dating basis, bounds, evidence class, precision, and comparability—not only the
 final display label or mean.
 
-## What is never inferred
+## What Is Never Inferred
 
 The chronology pipeline does not assign conventional numeric bounds to a named
 period merely to make it sortable. It does not treat a project's overall age
@@ -247,4 +270,6 @@ precision, conflicts, and unrecovered dates:
 
 Continue to [temporal semantics](temporal-semantics.md) for cross-source
 comparability and to [point publication rules](../publications/point-rules.md)
-for the effect of chronology on map admission.
+for the effect of chronology on map admission. The
+[revision and state model](../database/revision-and-state-model.md) defines how
+corrected claims and dependent products remain coherent at one revision.
