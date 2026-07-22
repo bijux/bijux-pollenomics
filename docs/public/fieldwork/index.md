@@ -125,6 +125,41 @@ flowchart LR
     Atlas["separate atlas context"] -. comparison only .-> Feature
 ```
 
+### Audit A Published Visit
+
+Start from the atlas feature and recover the evidence in both directions:
+
+1. Confirm that the layer identifies the record as fieldwork rather than a
+   lake candidate, environmental measurement, or archaeological observation.
+2. Match the feature title, date, and coordinates to the visit page.
+3. Open the linked media from repository-owned paths; a thumbnail or copied
+   URL alone does not establish media lineage.
+4. Read the claim boundary before interpreting anything visible in the media.
+5. Follow contextual links separately and retain each source family's spatial
+   and temporal qualifications.
+
+This audit distinguishes a complete visit claim from a plausible-looking map
+marker. It also prevents contextual density around a lake from being reported
+as something directly observed during the visit.
+
+## Identity Across Fieldwork And Lake Data
+
+The same named lake can have more than one legitimate coordinate-bearing
+record. A fieldwork coordinate locates an observed event; a registry
+representative point locates a water-body feature for inventory and ranking.
+They can be linked through lake identity without being treated as the same
+observation.
+
+| Identity | Unit represented | Safe use |
+| --- | --- | --- |
+| fieldwork event | one dated visit at a recorded location | inspect the visit and its media |
+| lake registry feature | one mapped water body | identify and compare the lake candidate |
+| ranking row | one lake under one declared scoring scenario | compare prioritization evidence |
+
+Coordinate proximity is therefore a linkage clue, not a deduplication rule.
+Preserving the three identities keeps a later registry correction from moving
+the historic visit and keeps a new visit from rewriting a prior ranking row.
+
 ## Publication Boundary
 
 The current record does not imply that every atlas point has field media or

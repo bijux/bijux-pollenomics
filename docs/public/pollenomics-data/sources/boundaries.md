@@ -33,6 +33,11 @@ MultiPolygon feature for each Nordic publication country:
 | Finland | country selection and Nordic composition |
 | Denmark | country selection and Nordic composition |
 
+The normalized geometry is the authority from which scope-specific copies are
+published. A copy beside a map is convenient for reuse, but it is not an
+independent boundary source. Its meaning depends on the normalized family,
+the product registry, and the selection rule that produced the bundle.
+
 ## Acquisition And Replacement
 
 ```mermaid
@@ -50,6 +55,29 @@ validates it, and replaces `data/boundaries/` only after success. A failed
 refresh preserves the preceding governed state. This makes a geometry change
 reviewable as a collection change rather than an in-place mutation of a
 published product.
+
+## How Geometry Changes Propagate
+
+One boundary decision can affect several downstream views even when no pollen,
+archaeology, hydrography, or ancient-DNA record changes:
+
+```mermaid
+flowchart TD
+    Geometry["normalized country geometry"] --> Membership["country membership"]
+    Geometry --> Extent["map extent and framing"]
+    Membership --> Country["country products"]
+    Membership --> Nordic["Nordic composition"]
+    Membership --> Counts["scope-specific counts"]
+    Extent --> Maps["published map bundles"]
+    Country --> Reports["tables and reports"]
+    Nordic --> Reports
+    Counts --> Reports
+```
+
+The affected outputs must therefore move together. Updating a displayed
+polygon without recomputing membership leaves the map and its counts in
+different geographic states. Recomputing membership without preserving the
+boundary snapshot makes the cause of a changed count impossible to recover.
 
 ## What A Boundary Decision Means
 
@@ -79,6 +107,18 @@ change. An unchanged boundary with revised coordinates is an evidence change.
 An unchanged pair with different product membership is a scope or admission
 change. Keeping those causes separate prevents geographic filtering from
 masquerading as new scientific evidence.
+
+| Observed difference | First authority to inspect | Interpretation |
+| --- | --- | --- |
+| polygon outline changed | normalized boundary digest | boundary collection changed |
+| record moved across an unchanged outline | record coordinate provenance | evidence location changed |
+| membership changed while both are stable | product selection rule | publication scope changed |
+| map outline changed but counts did not | published bundle lineage | geometry and membership may be out of sync |
+
+Country membership is a reproducible predicate, not a property that upgrades
+the underlying record. A point may be inside the current Sweden polygon while
+remaining historically ambiguous, coarsely located, or temporally unrelated
+to every other point in that product.
 
 Continue to [boundary exports](../publications/boundary-exports.md) for reuse,
 [maps](../publications/maps.md) for rendering, and

@@ -26,6 +26,12 @@ repository preserves selected media from that visit.
 | atlas layer | `Fieldwork documentation` |
 | atlas feature | `Lyngsjön Lake field sampling` |
 
+The coordinate above belongs to the visit feature. The Sweden lake-priority
+registry separately represents Lyngsjön as `svar-lakes:620184-139120` at a
+polygon representative point. The two coordinates are close, but they are not
+interchangeable: one locates this dated field record and the other identifies
+the mapped water body used by the ranking system.
+
 ## Atlas Context
 
 The surrounding atlas contains pollen, archaeology, hydrography, and
@@ -47,6 +53,21 @@ The diagram has no shortcut from atlas context to the visit claim. The visit
 is supported by its own record and media; contextual comparison begins only
 after that narrow claim is established.
 
+## Evidence Route
+
+```mermaid
+flowchart LR
+    AtlasFeature["fieldwork atlas feature"] --> VisitPage["visit identity and limits"]
+    VisitPage --> Photo["checked-in photograph"]
+    VisitPage --> Video["checked-in video"]
+    VisitPage -. lake identity link .-> Registry["SVAR lake 620184-139120"]
+    Registry --> Ranking["Sweden lake-priority scenarios"]
+```
+
+The solid path audits the visit. The dotted link enables comparison with the
+lake registry without claiming that the registry proves the visit or that the
+visit validates the ranking.
+
 ## Repository Evidence
 
 - photo: `docs/gallery/2026-02-26-data-collection.JPG`
@@ -58,6 +79,7 @@ after that narrow claim is established.
 <a class="md-button" href="../../../report/world/world_map.html">Open the world parent surface</a>
 <a class="md-button" href="../../../gallery/2026-02-26-data-collection.mp4">Open the field video</a>
 <a class="md-button" href="../../../gallery/2026-02-26-data-collection.JPG">Open the field photo</a>
+<a class="md-button" href="../../nordic-atlas/sweden-lake-priorities/">Compare the lake-priority record</a>
 
 ![Field sampling at Lyngsjön Lake on 2026-02-26.](../../../gallery/2026-02-26-data-collection.JPG){ loading=lazy }
 
@@ -80,6 +102,11 @@ after that narrow claim is established.
 
 Only one photograph and one video are published. Their role is evidence for the
 visit claim, not comprehensive documentation of conditions at the lake.
+
+The map, page, photograph, and video are complementary representations of one
+evidence packet. Repetition across those surfaces does not create four
+independent observations. A reviewer should count the visit once and use the
+media to inspect the bounded claim attached to it.
 
 ## Reading The Media
 
