@@ -95,6 +95,21 @@ share import names. This keeps collection deterministic and preserves a clear
 failure owner. Full gates remain appropriate for release qualification and
 genuinely cross-cutting changes.
 
+### Documentation Proof Is Layered
+
+| Proof | Establishes | Does not establish |
+| --- | --- | --- |
+| `git diff --check` | changed text has no whitespace errors detected by Git | links, navigation, or rendering are valid |
+| public-language contract | prohibited overclaims and audience leaks are absent from inspected surfaces | every scientific statement matches current evidence |
+| Mermaid contract | inspected diagrams avoid known parser hazards | every diagram communicates the intended scientific relationship |
+| documentation breadth contract | required routes and navigation surfaces remain represented | page quality or factual completeness |
+| strict site build | configured pages, links, plugins, and assets render under the installed toolchain | external destinations are live or scientific claims are sufficient |
+
+For new pages or navigation, use all applicable layers. For a narrowly edited
+internal paragraph, the semantic diff and focused documentation contracts may
+be sufficient until final strict rendering. Record the exact selection instead
+of reporting the generic phrase “documentation checks passed.”
+
 ## Classify A Failure Before Expanding
 
 | Failure signal | First owner to inspect | Do not infer |
@@ -115,3 +130,17 @@ secondary consequences, but it cannot assign the primary correction owner.
 For each completed change, record the exact checks run, their result, and any
 intentionally deferred proof. A passing command is evidence for its owned
 boundary; it is not evidence that every repository surface was exercised.
+
+Use four result states precisely:
+
+| State | Meaning |
+| --- | --- |
+| passed | the named command ran successfully against the reported inputs |
+| failed | the named command ran and observed a contract disagreement |
+| blocked | the command could not evaluate the contract because a required environment or input was unavailable |
+| not run | the command was intentionally outside the selected proof or was too expensive for this change |
+
+A rerun in the correct package context can replace an invocation or collection
+error in the final record, but retain the earlier diagnostic when it reveals a
+real repository execution constraint. Do not relabel blocked or unexecuted
+proof as passing.

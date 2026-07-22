@@ -56,6 +56,25 @@ Do not make a failing check pass by deleting evidence, weakening a claim gate,
 ignoring a return code, or teaching the check to accept two conflicting
 authorities.
 
+### Preflight Every Repository Operation
+
+Before execution, classify the operation rather than relying on a familiar
+target name:
+
+| Preflight field | Required answer |
+| --- | --- |
+| intent | inspect, validate, synchronize, regenerate, build, or publish |
+| authority | exact contract or source of truth the operation consumes |
+| input identity | revision, versions, roots, configuration, credentials, and network dependencies |
+| write boundary | complete governed targets and disposable output locations |
+| failure behavior | whether prior governed state is retained, partially written, or requires recovery |
+| acceptance evidence | semantic diff, member identities, focused checks, warnings, and exclusions |
+
+A command that writes only `artifacts/` is not automatically harmless if its
+result will be used to justify a governed change. Conversely, a state-changing
+producer is reviewable when its authority, complete target set, and rollback or
+replacement behavior are explicit.
+
 ## Check And Synchronize Deliberately
 
 Only badge blocks and package legal-asset copies currently expose maintainer
@@ -96,6 +115,26 @@ diagnostic context to identify the invoked tool.
 Expand verification when the change crosses owners. Do not run broad gates by
 habit when a focused contract answers the question, and do not use a focused
 check to claim coverage of an unrelated boundary.
+
+## Review Generated State Causally
+
+Generated diffs should be explained from owner to descendant:
+
+1. inspect the handwritten or governed input change;
+2. confirm the producer and its complete write boundary;
+3. compare manifests and stable member identities;
+4. classify field changes by semantics, precision, role, and null posture;
+5. reconcile warnings, exclusions, and recovery records;
+6. review rendered summaries and totals last.
+
+An unchanged count can conceal member replacement or weakened evidence. A
+large rendered diff can come from one legitimate template correction. File
+volume is therefore not a substitute for causal review.
+
+Never hide an unexplained generated difference by excluding the path, relaxing
+the assertion, or accepting both old and new authorities. If the producer
+cannot explain its output, preserve the finding and repair the ownership or
+generation contract.
 
 ## Handoff Record
 
