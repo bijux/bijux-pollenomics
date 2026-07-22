@@ -113,6 +113,37 @@ succeeded.
 | artifact version differs from release version | build/version owner | rebuilt artifact identities and publication guard result |
 | command cannot evaluate its inputs | operational environment | exact environmental failure, unchanged governed state, and rerun condition |
 
+### Worked Route: Generated Wording Overstates A Point Class
+
+Suppose a generated release gate says that every published animal point has
+sample support, while point traceability identifies one member as provisional
+project context. The inconsistency crosses several surfaces, but it has one
+repair route:
+
+1. Confirm that the feature, evidence row, and traceability record agree on the
+   provisional class; do not promote the record to make the prose true.
+2. Locate the runtime producer that assembled the release-gate statement. The
+   generated JSON or Markdown is an observed symptom, not the handwritten
+   correction point.
+3. Change the producer so its aggregation preserves point classes and produces
+   claim-specific wording.
+4. Regenerate the declared gate and every companion representation from the
+   same governed inputs.
+5. Compare member identities and posture before rerunning the public-language,
+   animal-foundation, and repository-contract checks.
+
+```mermaid
+flowchart LR
+    Finding["overstated generated wording"] --> Trace["confirm point-class evidence"]
+    Trace --> Producer["correct release-posture producer"]
+    Producer --> Generate["regenerate declared surfaces"]
+    Generate --> Compare["review identities and claims"]
+    Compare --> Check["rerun focused contracts"]
+```
+
+The maintainer package may detect or report this mismatch. It must not rewrite
+the gate, weaken the language check, or redefine the scientific point class.
+
 ## Verification Record
 
 Report each maintainer check with:

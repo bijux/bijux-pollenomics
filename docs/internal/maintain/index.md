@@ -72,6 +72,37 @@ Producer success is necessary but insufficient. A mechanically valid report
 can still contain the wrong geography, an unsupported admission, or a changed
 warning posture.
 
+### Documentation-Only Change Protocol
+
+A reader-documentation change is bounded only when it does not alter governed
+data, generated reports, runtime interfaces, or package metadata. Review it as
+a claim-bearing change even though it has no runtime write:
+
+1. Name the public claim or maintainer procedure being corrected and its
+   authoritative evidence.
+2. Edit only the reader or maintainer pages that own the explanation. Do not
+   hand-edit `docs/report/` to make a prose claim agree.
+3. Check relative links, navigation reachability, Mermaid identifiers, and the
+   public-language contract for the changed pages.
+4. Build with strict MkDocs settings into `artifacts/docs-site` so local output
+   remains outside governed documentation roots.
+5. Inspect the semantic diff for strengthened claims, lost qualifications,
+   audience leakage, and duplicated authority.
+6. Commit one coherent documentation intent with its focused results.
+
+```bash
+.venv/bin/mkdocs build --strict --site-dir artifacts/docs-site
+.venv/bin/pytest -q \
+  packages/bijux-pollenomics/tests/unit/test_public_artifact_language.py \
+  packages/bijux-pollenomics/tests/regression/test_repository_contracts.py::RepositoryContractRegressionTests::test_docs_mermaid_diagrams_avoid_reserved_node_ids
+```
+
+These commands prove site construction, the selected public-language rules,
+and the repository's Mermaid constraint. They do not prove that every source
+is complete or that every generated report is current. Add a domain check only
+when the prose depends on that contract; record broad lanes as not run rather
+than implying that focused proof covered them.
+
 ## Recover A Missing Governed Artifact
 
 Treat a contract-declared required artifact that is absent as an integrity

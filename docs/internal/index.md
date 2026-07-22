@@ -34,6 +34,33 @@ A governed report can be public even when its production procedure is
 internal. Conversely, a local site preview is not a publication merely because
 it renders the same Markdown.
 
+### Decide By Reader Dependency
+
+Place content according to who must understand it for the product to be used
+correctly:
+
+```mermaid
+flowchart TD
+    Content["documentation content"] --> Needed{"needed to interpret or operate the product?"}
+    Needed -->|yes| Public["public handbook or governed report"]
+    Needed -->|no| Maintain{"describes repository production or review?"}
+    Maintain -->|yes| Internal["internal maintainer handbook"]
+    Maintain -->|no| Package{"belongs to one distribution boundary?"}
+    Package -->|yes| Readme["package README"]
+    Package -->|no| Local["disposable run evidence under artifacts"]
+```
+
+| Content | Placement | Reason |
+| --- | --- | --- |
+| why a provisional animal point cannot be counted as a recovered sample | public evidence or atlas guide | readers need the distinction to interpret the product |
+| how the animal publication producer regenerates its release gate | internal maintainer guide | producer ownership and write procedure are repository concerns |
+| which files belong to the compatibility distribution | its package README | installation and delegation are package-boundary facts |
+| output from a local strict documentation build | `artifacts/` | it proves one run and is not governed reader content |
+
+Public pages may link to public contracts and governed reports. They must not
+require an internal runbook to explain evidence meaning, limitations, or the
+steps needed to use a supported interface.
+
 ## Maintainer Routes
 
 <div class="bijux-quicklinks">
