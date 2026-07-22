@@ -105,6 +105,34 @@ Independence must also be demonstrated rather than assumed. Two records derived
 from the same upstream source or one copied citation are not independent
 corroboration merely because they appear in separate layers.
 
+### Audit Independence Before Counting Support
+
+Several visible features can share one underlying observation, source, site,
+or transformation. Count independent support only after resolving lineage:
+
+| Apparent multiplicity | Independence question | Safe treatment |
+| --- | --- | --- |
+| one AADR sample appears in two panel selections | do both rows resolve to the same release-owned sample identity? | count one sample and retain both panel memberships |
+| several animal samples share one site | are specimens independently identified while locality is shared? | count samples for sample questions; count one site for site questions |
+| pollen sequence and site summary coexist | is the summary derived from the sequence population? | retain both roles; do not count as independent sources |
+| RAÄ density cell represents many registry rows | is the rendered cell an aggregate rather than an observation? | use the declared member denominator, not one symbol as one site |
+| narrative, CSV, and GeoJSON repeat one member | do formats share the same product-member identity? | count one governed member across presentations |
+
+```mermaid
+flowchart TD
+    Features["visible or exported rows"] --> Lineage["resolve governing identities and sources"]
+    Lineage --> Same{"same observation or derived ancestor?"}
+    Same -->|yes| Roles["retain presentations and roles; count once at chosen unit"]
+    Same -->|no| Independent{"independence supported for this question?"}
+    Independent -->|yes| Count["count separately with declared unit"]
+    Independent -->|no| Qualify["group or qualify dependence"]
+```
+
+Independence is scoped to the question. Samples from one site may be distinct
+specimens but not independent spatial observations. Two families can have
+different upstream owners yet remain dependent through a shared derived
+boundary or ranking input.
+
 ## Null And Absence Semantics
 
 Missing values retain family-specific meaning. A missing SEAD interval means

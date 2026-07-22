@@ -47,6 +47,22 @@ Two layers are comparable only across dimensions they both actually support.
 Co-location permits a spatial comparison; it does not establish shared time,
 causal relation, or equal evidence strength.
 
+### Publication Presence Is Not Comparison Readiness
+
+A retained publication proves that a product descendant exists. It does not
+prove that every preparation stage required by a new comparison is present in
+the current snapshot:
+
+| Family posture in the current lifecycle matrix | Safe starting claim | Additional comparison evidence required |
+| --- | --- | --- |
+| Neotoma, SEAD, animal aDNA: capture, normalization, review, and publication present | inspect the governed reviewed population | verify member-level role, space, time, denominator, and proposed bridge |
+| LandClim, RAÄ, boundaries: review artifact absent | use normalized and published material at its declared role | do not claim source-specific review support; add the review contract required by the comparison |
+| SVAR, AADR: normalized and review artifacts absent | inspect retained capture and publication surfaces | do not infer missing authorities backward from product fields |
+
+Comparison readiness is therefore evaluated from material evidence, not from
+navigation depth or map availability. A source can be valuable as framing or
+context while remaining unavailable for a stronger cross-domain bridge.
+
 ## Valid Combinations
 
 | Combination | Supports | Does not support automatically |
@@ -148,6 +164,11 @@ Without the packet, a downstream table can retain the result while losing why
 the comparison was permitted. That is especially dangerous for derived counts
 or distance bands, which appear precise even when their members carry unlike
 coverage or time semantics.
+
+The packet also records the lifecycle authority used for every input. If the
+comparison depends on a normalized interval or review posture, the named
+artifact must exist and resolve to the member; a field copied into a retained
+publication is not a substitute.
 
 ## Example: Proximity Without Temporal Equivalence
 

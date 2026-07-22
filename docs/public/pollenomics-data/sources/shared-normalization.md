@@ -148,6 +148,38 @@ A normalized value without this chain is structurally convenient but
 scientifically brittle: readers cannot distinguish transcription, parsing,
 mapping, derivation, or expert judgment.
 
+### Declare An Information-Loss Budget
+
+Some source detail is intentionally not reproduced in a compact normalized
+member. The contract distinguishes acceptable projection from destructive
+loss:
+
+| Source information | Normalized treatment | Loss condition that blocks reuse |
+| --- | --- | --- |
+| native identity and aliases | retain stable native key and attributed aliases | only a display label or row number remains |
+| source wording | retain verbatim value or exact locator where interpretation matters | normalized category cannot be traced to the expression it replaced |
+| units and basis | retain native unit, normalized unit, rule, and precision | converted number survives without basis or transformation |
+| missingness | preserve missing, unresolved, withheld, and inapplicable states | all states collapse to null, zero, or empty text |
+| one-to-many relations | retain typed member identities and cardinality | repeated rows appear to be independent observations |
+| conflict and qualification | retain competitors, decision, and claim ceiling | only the selected convenient value remains |
+
+```mermaid
+flowchart LR
+    Native["source-native member"] --> Transform["declared transformation"]
+    Transform --> Compact["normalized member"]
+    Native --> Receipt["identity, wording, basis, nulls, relations"]
+    Transform --> Receipt
+    Compact --> Receipt
+    Receipt --> Reconstruct{"meaning reconstructable?"}
+    Reconstruct -->|yes| Usable["bounded normalized claim"]
+    Reconstruct -->|no| Refuse["presentation extract only"]
+```
+
+The budget is semantic, not a requirement to copy every upstream byte. A
+normalized member is lossless enough for a claim when the omitted material
+cannot change identity, value meaning, uncertainty, relation cardinality, or
+the supported interpretation.
+
 ```mermaid
 flowchart TB
     subgraph Native["source-native meaning"]
@@ -277,6 +309,11 @@ their semantics, identities did not merge accidentally, and every strengthened
 claim has new supporting evidence. A mechanically stable count can still hide
 a damaging field reinterpretation; a changed count can be harmless when scope
 or grouping changed explicitly.
+
+Canonicalization tests should therefore compare identities and semantic
+packets, not only serialized bytes. Key order, whitespace, or equivalent
+numeric representation can change without scientific effect; changed null
+class, unit basis, relation cardinality, role, or precision cannot.
 
 ## Publication Boundary
 
