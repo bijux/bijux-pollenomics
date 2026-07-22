@@ -17,22 +17,21 @@ question because only some classes rewrite governed state.
 ## Discover The Interface
 
 ```bash
-artifacts/root/check-venv/bin/bijux-pollenomics --version
-artifacts/root/check-venv/bin/bijux-pollenomics --help
-artifacts/root/check-venv/bin/bijux-pollenomics collect-data --help
+bijux-pollenomics --version
+bijux-pollenomics --help
+bijux-pollenomics collect-data --help
 ```
 
-The examples use the repository installation under
-`artifacts/root/check-venv/`. A regular environment can invoke the same console
-script as `bijux-pollenomics`.
+The executable resolves from the active environment. Record the reported
+runtime version before creating evidence or publication artifacts.
 
 ## Read-Only Inspection
 
 ```bash
-artifacts/root/check-venv/bin/bijux-pollenomics source-support --json
-artifacts/root/check-venv/bin/bijux-pollenomics adna-species
-artifacts/root/check-venv/bin/bijux-pollenomics adna-species-review --species ovis_aries --json
-artifacts/root/check-venv/bin/bijux-pollenomics adna-runtime-manifest --species ovis_aries --json
+bijux-pollenomics source-support --json
+bijux-pollenomics adna-species
+bijux-pollenomics adna-species-review --species ovis_aries --json
+bijux-pollenomics adna-runtime-manifest --species ovis_aries --json
 ```
 
 These commands inspect registered source or species state. They do not perform
@@ -41,30 +40,64 @@ a collection or publication refresh.
 ## Validate A Collection Ledger
 
 ```bash
-artifacts/root/check-venv/bin/bijux-pollenomics validate-collection-summary \
+bijux-pollenomics validate-collection-summary \
   --summary-path data/collection_summary.json
 ```
 
 Validation checks the existing summary and is the appropriate first response
 to a summary-contract question.
 
-## Collection And Publication Examples
+## Evaluate Collection And Publication Safely
+
+Use explicit isolated roots when learning a state-changing command. The
+following evaluation keeps collected evidence and publications outside the
+governed repository trees:
 
 ```bash
-artifacts/root/check-venv/bin/bijux-pollenomics collect-data all --version v66 --output-root data
-artifacts/root/check-venv/bin/bijux-pollenomics publish-reports --aadr-root data/aadr --version v66 --context-root data --output-root docs/report
+bijux-pollenomics collect-data all \
+  --version v66 \
+  --output-root artifacts/operator-evaluation/data
+
+bijux-pollenomics publish-reports \
+  --aadr-root artifacts/operator-evaluation/data/aadr \
+  --version v66 \
+  --context-root artifacts/operator-evaluation/data \
+  --output-root artifacts/operator-evaluation/reports
 ```
 
-`collect-data` writes source-family trees and the collection ledger under
-`data/`. `publish-reports` consumes the current governed data state and writes
-the world, regional, country, review, and caveat products under `docs/report/`.
-Publication does not recollect a source implicitly.
+`collect-data` writes source-family trees and the collection ledger under the
+selected data root. `publish-reports` consumes that explicit state and writes
+world, regional, country, review, and caveat products under the selected report
+root. Publication does not recollect a source implicitly.
+
+```mermaid
+flowchart LR
+    Command["state-changing command"] --> Inputs["explicit input roots"]
+    Inputs --> Isolated["isolated evaluation outputs"]
+    Isolated --> Review["manifest, evidence, semantic, and membership review"]
+    Review --> Promote{"intended governed replacement?"}
+    Promote -->|no| Retain["diagnostic evaluation only"]
+    Promote -->|yes| Governed["use the repository-owned regeneration workflow"]
+```
+
+Copying selected evaluation files into governed roots is not promotion. A
+governed replacement must use the owning workflow and review the complete
+causal diff.
 
 ## Atlas And Country Surfaces
 
 ```bash
-artifacts/root/check-venv/bin/bijux-pollenomics report-country Sweden --aadr-root data/aadr --version v66 --context-root data --output-root docs/report
-artifacts/root/check-venv/bin/bijux-pollenomics report-multi-country-map Sweden Norway Finland Denmark --aadr-root data/aadr --version v66 --context-root data --output-root docs/report
+bijux-pollenomics report-country Sweden \
+  --aadr-root artifacts/operator-evaluation/data/aadr \
+  --version v66 \
+  --context-root artifacts/operator-evaluation/data \
+  --output-root artifacts/operator-evaluation/reports
+
+bijux-pollenomics report-multi-country-map Sweden Norway Finland Denmark \
+  --aadr-root artifacts/operator-evaluation/data/aadr \
+  --version v66 \
+  --context-root artifacts/operator-evaluation/data \
+  --output-root artifacts/operator-evaluation/reports
 ```
 
 `report-country` writes one country bundle. `report-multi-country-map` writes a
@@ -84,3 +117,8 @@ not shortcuts around the same evidence requirements.
 Inspect the resulting diff after every state-changing command. A successful
 exit establishes command completion; the evidence and publication diffs still
 require review.
+
+The table names the repository-owned default roots. Explicit paths override
+those defaults, as in the isolated examples above. Before execution, resolve
+every relative path against the current working directory and record the full
+input and output identities.

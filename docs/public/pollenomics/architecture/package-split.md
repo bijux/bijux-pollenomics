@@ -9,9 +9,12 @@ last_reviewed: 2026-07-22
 
 # Package Split
 
-The repository publishes three Python distributions with one runtime identity.
-The split separates scientific behavior, compatibility, and repository
-maintenance without creating competing products.
+The repository contains three Python distributions but publishes two runtime
+products. `bijux-pollenomics` is the canonical release, `pollenomics` is its
+short-name compatibility release, and `bijux-pollenomics-dev` is a
+repository-only maintainer distribution. The split separates scientific
+behavior, compatibility, and repository maintenance without creating
+competing products.
 
 ## Distribution Contracts
 
@@ -19,7 +22,7 @@ maintenance without creating competing products.
 | --- | --- | --- | --- |
 | `bijux-pollenomics` | `bijux_pollenomics`, `bijux-pollenomics` | canonical collection, evidence, review, analysis, and publication runtime | repository-only policy checks |
 | `pollenomics` | `pollenomics`, `pollenomics` | short-name compatibility facade over the canonical runtime | independent scientific or command behavior |
-| `bijux-pollenomics-dev` | `bijux_pollenomics_dev` | repository checks, documentation integrity, packaging, and release support | source semantics, evidence decisions, or publication rules |
+| `bijux-pollenomics-dev` | `bijux_pollenomics_dev` | repository checks, documentation integrity, packaging, and release support | public release product, source semantics, evidence decisions, or publication rules |
 
 ```mermaid
 flowchart LR
@@ -55,6 +58,11 @@ checks. Corrections belong in the canonical runtime or governed data surface.
 - use `pollenomics` when the shorter compatibility identity is required;
 - use `bijux-pollenomics-dev` only for repository maintenance workflows.
 
+Only the first two appear in the public package release set. The maintainer
+distribution can have its own package metadata and version inside the
+workspace without becoming a supported installation target for scientific
+users.
+
 Applications should not depend on the development distribution to reach
 runtime behavior. Integrations that use the alias should remain portable to
 the canonical package without a scientific or artifact change.
@@ -89,7 +97,10 @@ admission decisions through the alias has found a defect.
 - public exports are explicit at the canonical facade;
 - compatibility code carries no unique evidence or publication state.
 
-Versioning must preserve those invariants across all three distributions. A
+Versioning must preserve those invariants across all three workspace
+distributions. Public release identity is the compatible pair
+`bijux-pollenomics` and `pollenomics`; the maintainer distribution is recorded
+for repository reproducibility but is not a third public runtime release. A
 new canonical capability may be exposed through the alias, and a new
 repository check may inspect it, but neither companion distribution can ship a
 scientific capability that the canonical runtime does not own.
