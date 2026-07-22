@@ -34,6 +34,19 @@ pollenomics --help
 The installed dependency is `bijux-pollenomics>=0.1.5,<1.0`. Scientific logic,
 data contracts, and report behavior remain owned by that dependency.
 
+## Decide Before Depending
+
+| If your code needs | Depend on | Import or invoke |
+| --- | --- | --- |
+| canonical ownership and the stable implementation name | `bijux-pollenomics` | `bijux_pollenomics` or `bijux-pollenomics` |
+| a short interactive name with the same behavior | `pollenomics` | `pollenomics` |
+| a smaller scientific runtime | neither | the alias installs the canonical runtime |
+| independent schemas, data formats, or release policy | neither | no alias-owned scientific contract exists |
+
+Libraries should normally depend on the canonical distribution. User-facing
+notebooks and command examples may prefer the short name when that convenience
+outweighs the extra distribution identity.
+
 ## When The Short Name Helps
 
 Use `pollenomics` for concise interactive commands, notebooks, and applications
@@ -79,14 +92,14 @@ flowchart LR
     CanonicalModule --> Runtime
 ```
 
-The same release line therefore supports either import style:
+The same compatible release pair therefore supports either import style:
 
 ```python
 from bijux_pollenomics.reporting import generate_published_reports
 from pollenomics.reporting import generate_published_reports
 ```
 
-and get the same runtime behavior.
+Both imports execute the same runtime behavior.
 
 Module identity follows the canonical implementation. Code should not load the
 same runtime submodule through both prefixes and then rely on distinct class or
@@ -138,6 +151,11 @@ is preferable.
 Pinning only `pollenomics` still resolves a constrained canonical runtime
 dependency. Compatibility therefore includes both alias behavior and the
 declared canonical version range; it is not a copy of runtime source.
+
+The alias distribution version identifies the forwarding package. The
+canonical distribution version identifies the implementation. Record both in
+reproducibility metadata when the short name is used to create governed
+artifacts.
 
 ## Single-Runtime Invariant
 

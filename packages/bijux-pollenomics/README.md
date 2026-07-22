@@ -40,6 +40,33 @@ Python 3.11 or newer is required. The core dependency set includes coordinate
 transformation and safe XML handling; documentation and quality tooling live in
 the `dev` extra.
 
+## Distribution boundary
+
+The wheel ships the typed Python runtime and command entry point. It does not
+embed the repository's checked-in `data/` evidence tree or `docs/report/`
+publication tree. Inspection commands that describe compiled runtime contracts
+work immediately after installation:
+
+```bash
+bijux-pollenomics product-scope
+bijux-pollenomics source-support --json
+bijux-pollenomics adna-species --json
+```
+
+Collection and publication need explicit filesystem state. Their default
+`data/`, `data/aadr/v66/`, and `docs/report/` paths are relative to the current
+working directory. Applications should pass data, context, AADR, and output
+roots explicitly so a valid command cannot silently address the wrong tree.
+
+| Installed surface | Included | Supplied separately |
+| --- | --- | --- |
+| Python modules and type marker | collection, evidence, analysis, foundation, reporting, and CLI code | source-family captures and curated evidence records |
+| console command | parser, validation, inspection, collection, and publication handlers | credentials or access required by an upstream source |
+| artifact schemas and behavior | canonical runtime contracts | a prebuilt world, regional, or country publication tree |
+
+The repository is the reproducible reference environment when the checked-in
+evidence and publications are required together.
+
 ## Choose The Right Surface
 
 | Need | Start with | Why |
@@ -52,7 +79,7 @@ the `dev` extra.
 | publish geographic products | `publish-reports` | assembles manifest-governed world, regional, and country bundles |
 | embed behavior in Python | top-level `bijux_pollenomics` API | keeps integrations on the canonical runtime namespace |
 
-Begin with the read-only surface when discovering an unfamiliar checkout.
+Begin with the read-only surface when discovering an unfamiliar installation.
 Collection, foundation refresh, and report publication intentionally write
 governed artifacts and should receive explicit paths and review attention.
 

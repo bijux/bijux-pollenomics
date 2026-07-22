@@ -50,6 +50,37 @@ check proves that the inspected contract is internally consistent at that
 revision; it does not prove that a source is complete, a chronology is precise,
 or a published interpretation is scientifically sufficient.
 
+## Executable Module Map
+
+The package intentionally exposes Python modules rather than a public runtime
+console command. Repository Make targets compose these modules into maintainer
+workflows.
+
+| Module | Mode | Owned result |
+| --- | --- | --- |
+| `bijux_pollenomics_dev.api.freeze_contracts` | check | schema YAML, pinned JSON, and SHA-256 agreement for every API contract |
+| `bijux_pollenomics_dev.api.openapi_drift` | check | breaking field-removal findings relative to the preceding revision |
+| `bijux_pollenomics_dev.docs.badge_sync` | `check` or `sync` | generated badge blocks derived from package metadata and the badge catalog |
+| `bijux_pollenomics_dev.quality.deptry_scan` | check wrapper | package dependency findings under merged repository configuration |
+| `bijux_pollenomics_dev.release.license_assets` | `check` or `sync` | byte-identical package `LICENSE` and `NOTICE` files from root authorities |
+| `bijux_pollenomics_dev.release.version_resolver` | inspect | package version resolved from metadata, Hatch, or matching tags |
+| `bijux_pollenomics_dev.release.publication_guard` | check | prerelease, local-version, and built-artifact version findings |
+
+Check modes do not rewrite governed files. Sync modes are narrow
+materializers: badge sync owns generated README blocks; license sync owns only
+package legal-asset copies. The source catalog, root legal files, package
+metadata, runtime schemas, and scientific reports remain outside those
+generators' authority.
+
+Examples from the repository root:
+
+```bash
+python -m bijux_pollenomics_dev.api.freeze_contracts --repo-root .
+python -m bijux_pollenomics_dev.api.openapi_drift --repo-root .
+python -m bijux_pollenomics_dev.docs.badge_sync check
+python -m bijux_pollenomics_dev.release.license_assets check
+```
+
 ## Check Contract
 
 ```mermaid
