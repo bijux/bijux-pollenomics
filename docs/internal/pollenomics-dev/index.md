@@ -60,6 +60,30 @@ flowchart LR
 The check identifies disagreement. It must not acquire authority by rewriting
 the scientific rule or weakening an assertion around an unsupported state.
 
+## Finding Taxonomy
+
+A repository-health failure needs a type as well as a message. The type
+determines who can correct it and what a rerun proves:
+
+| Finding type | Example | Owning response | What clears it |
+| --- | --- | --- | --- |
+| authority mismatch | canonical schema and frozen representation differ | decide the intended canonical state, then regenerate its derivative | focused contract comparison agrees |
+| missing governed state | required data or publication member is absent | recover it through the declared owner or retain an explicit refusal | required identity and lineage are present |
+| stale generated state | inputs changed without corresponding outputs | rerun the bounded producer and review member-level changes | producer output converges and semantic diff is accepted |
+| evidence conflict | two captured claims disagree | evidence owner records precedence, qualification, or refusal | conflict is accounted for, not necessarily erased |
+| environment failure | credential, service, or tool is unavailable | preserve repository state and record the rerun condition | same check executes with its required environment |
+| publication refusal | evidence does not support the requested release claim | strengthen the evidence owner or keep the release blocked | named scientific guard is satisfied |
+
+An environment failure is not a stale-file finding, and a publication refusal
+is not a tooling defect. Conflating them encourages unsafe responses such as
+regenerating from incomplete inputs, weakening a scientific guard, or treating
+an unavailable network service as evidence loss.
+
+A useful finding reports the owner, observed state, expected invariant,
+affected identities, and a non-destructive next inspection. A proposed write
+belongs in the owning workflow, not in the checker merely because the checker
+found the problem.
+
 ## Use Check Mode Before Write Mode
 
 Badge and license synchronization support an explicit write mode. Run their

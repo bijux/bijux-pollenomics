@@ -81,6 +81,34 @@ flowchart LR
 Changing a generated table, rendered badge, or prose sentence alone is not a
 correction when its governing input remains wrong.
 
+## Reconcile Conflicting Surfaces
+
+When two checked-in surfaces disagree, classify the disagreement before
+editing either one:
+
+| Disagreement | Governing diagnosis | Correct response |
+| --- | --- | --- |
+| owner and derived copy differ | stale descendant or incomplete regeneration | correct the producer path and regenerate the declared consumer |
+| contract requires an artifact that is absent | governed-state integrity defect | preserve downstream evidence, disclose the gap, and recover through the owning producer |
+| two source claims disagree | scientific evidence conflict | retain both locators and apply the declared precedence or refusal rule |
+| report count and source count differ | possible unit, scope, or admission difference | compare identities and denominators before treating it as drift |
+| local validation differs from checked-in state | environment, revision, or generated-state difference | record inputs and revision; do not overwrite governed state until cause is known |
+
+```mermaid
+flowchart TD
+    Difference["observed disagreement"] --> SameUnit{"same owner, unit, and scope?"}
+    SameUnit -->|no| Semantics["explain relation and denominator"]
+    SameUnit -->|yes| Authority{"governing owner present?"}
+    Authority -->|no| Integrity["integrity defect and recovery path"]
+    Authority -->|yes| Fresh{"derived state current?"}
+    Fresh -->|no| Regenerate["producer-owned regeneration"]
+    Fresh -->|yes| Conflict["source or contract conflict review"]
+```
+
+Do not resolve a disagreement by selecting the largest count, newest file
+timestamp, most polished rendering, or value that makes a gate pass. Authority,
+unit, scope, and lineage decide which comparison is meaningful.
+
 ## Select The Operation
 
 | Intent | Allowed state transition | Evidence before handoff |

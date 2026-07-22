@@ -72,6 +72,46 @@ Producer success is necessary but insufficient. A mechanically valid report
 can still contain the wrong geography, an unsupported admission, or a changed
 warning posture.
 
+## Recover A Missing Governed Artifact
+
+Treat a contract-declared required artifact that is absent as an integrity
+incident, even when downstream reports still render:
+
+1. Identify the contract row, owning source family, required lifecycle layer,
+   and every published consumer.
+2. Preserve existing downstream products and record which fields still retain
+   traceability; do not delete them merely because their authority is missing.
+3. Stop claims that require complete local traversal of the absent authority.
+   Keep narrower claims that remain supported by retained member-level lineage.
+4. Inspect the captured source identity, retrieval manifest, hashes, licenses,
+   replacement policy, and producer before running any writer.
+5. Recreate the artifact only through the declared producer into its governed
+   output root. Never synthesize an empty file, placeholder, or hand-authored
+   approximation to satisfy path existence.
+6. Validate schema, record identities, counts, spatial or temporal semantics,
+   and the relation between the recovered authority and existing consumers.
+7. Regenerate affected descendants only after the authority passes its own
+   contract, then review additions, removals, changed qualifications, and
+   product membership before totals.
+8. Retain the integrity disclosure until the recovered state and every
+   required descendant are committed together or in an explicitly ordered,
+   reviewable chain.
+
+```mermaid
+flowchart LR
+    Missing["required authority absent"] --> Bound["bound supported claims"]
+    Bound --> Capture["verify capture and producer"]
+    Capture --> Recover["producer-owned recovery"]
+    Recover --> Validate["authority validation"]
+    Validate --> Descendants["regenerate affected descendants"]
+    Descendants --> Review["identity and semantic review"]
+    Review --> Close["remove disclosure with evidence"]
+```
+
+Path existence alone does not close the incident. Closure requires recovered
+identity, source lineage, semantic validity, and agreement with every contract
+that declared or consumed the artifact.
+
 ## Choose The Command Surface
 
 | Need | Route |
