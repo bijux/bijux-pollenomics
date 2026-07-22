@@ -236,6 +236,26 @@ Refused rows remain visible in readiness, overbroad-site, unresolved-site,
 chronology, and recovery audits. Absence from the atlas is therefore not
 absence from the collection.
 
+### Classify An Absent Marker
+
+When an expected marker is not visible, determine which population boundary
+removed it:
+
+| Absence class | Meaning | Evidence to inspect |
+| --- | --- | --- |
+| undiscovered | no governed source or candidate identity is known | discovery inventory and source scope |
+| known but uncaptured | source identity is known, but required material was not recovered | acquisition manifest and recovery record |
+| captured but unnormalized | source material exists without a stable candidate representation | normalization status and source-family blockers |
+| normalized but unevaluated | candidate exists without the required claim-specific review | review coverage and pending decision surfaces |
+| refused or deferred | evidence cannot yet support a point; a reason or recovery condition is recorded | locality, coordinate, chronology, and recovery ledgers |
+| excluded | candidate was evaluated and failed a named product rule | exclusion identity and failed predicate |
+| outside scope | evidence is valid but not a member of this geographic or product population | scope decision and parent-product membership |
+| admitted but hidden | member belongs to the product but a display filter suppresses it | manifest first, then client filter state |
+
+Only the last class is a presentation question. The others describe database,
+curation, or product state and must not be “fixed” by adding a marker directly
+to a rendering.
+
 Admission can change only when the governing evidence changes or the declared
 product contract changes. Replacing a marker symbol, filtering a layer, or
 editing popup text cannot turn a refused row into an admitted one.

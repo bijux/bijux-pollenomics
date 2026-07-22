@@ -98,6 +98,24 @@ that inventory, and a browser filter cannot alter it. This makes a layer
 rebuild reviewable as an identity and decision diff rather than a visual map
 comparison.
 
+### Materialized Input Contract
+
+A layer is available for assembly only when the exact artifact named by its
+source-family contract exists with governed content. Related files do not
+satisfy that requirement:
+
+| Available artifact | Missing artifact | Result |
+| --- | --- | --- |
+| source manifest | contracted raw capture | source identity known; raw stage still missing |
+| normalized summary and count | contracted normalized member dataset | coverage may be described; layer cannot be rebuilt |
+| evidence-stage matrix | source-specific review | review stage remains missing |
+| retained published GeoJSON | its current normalized authority | product remains inspectable; current rebuild is blocked |
+| empty directory or `.gitkeep` | any contracted evidence artifact | no stage evidence |
+
+This rule prevents a downstream map layer from being treated as a convenient
+backup of its own source. Recovery begins at the governing input or review
+surface and then regenerates the scoped export and bundle.
+
 The current input scale is intentionally heterogeneous: 492 LandClim site
 sequences, 200 Neotoma sites, 2,172 normalized SEAD sites, a RAÄ density source
 covering 761,917 published Swedish sites, four Nordic boundary polygons, and

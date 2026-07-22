@@ -80,6 +80,34 @@ representation, or aggregate declared populations. It may not mint upstream
 facts, discard a material qualification, or reinterpret a contextual member
 as direct evidence.
 
+## Product Existence And Rebuildability Differ
+
+A committed publication can remain available after the current database state
+reveals that one of its prerequisites is missing. The product then remains a
+retained, versioned result; it is not silently certified as reproducible from
+the present inputs.
+
+| Question | Governing evidence |
+| --- | --- |
+| Does the product exist? | bundle manifest and committed member inventory |
+| What did it publish? | product contract, evidence rows, exclusions, and review surfaces |
+| Can the current snapshot rebuild it? | materialized source-family stages, exact input artifacts, and passing publication gates |
+| Is it scientifically reusable now? | rebuildability plus the evidence and qualifications required by the proposed reuse |
+
+The evidence-stage matrix can therefore report `published` while also
+reporting a missing normalized or review stage. That combination is a visible
+integrity warning, not a contradiction and not permission to infer the
+missing evidence backward from the product.
+
+```mermaid
+flowchart LR
+    Product["retained publication"] --> Exists["existence and historical membership"]
+    Inputs["current contracted inputs"] --> Ready{"rebuild prerequisites present?"}
+    Review["current review and gates"] --> Ready
+    Ready -->|yes| Rebuildable["rebuildable current projection"]
+    Ready -->|no| Blocked["retained product with explicit blocker"]
+```
+
 ## Publication Bundle
 
 A geographic bundle can include:
