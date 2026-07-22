@@ -111,6 +111,32 @@ or chart that displays a mean must retain access to the original bounds,
 precision posture, evidence class, and comparison note so that an interval
 does not acquire false point precision.
 
+## Chronology Revision Impact
+
+A chronology correction can change several descendants without changing the
+sample identity:
+
+```mermaid
+flowchart LR
+    Source["new or corrected source claim"] --> Reported["reported chronology text"]
+    Reported --> Normalize["bounds, basis, and precision"]
+    Normalize --> Compare["comparability posture"]
+    Compare --> Window["navigation window"]
+    Compare --> Overlap["interval overlap and distance"]
+    Overlap --> Ranking["time-aware ranking evidence"]
+    Compare --> Admission["product qualification"]
+```
+
+Review the semantic cause before aggregate effects. A changed midpoint can
+move a record between navigation windows while leaving its source interval
+unchanged; a corrected interval can change overlap without changing the
+window; a reclassified contextual claim can remove a row from numeric scoring
+even when its numbers remain present.
+
+Chronology diffs should therefore compare reported text, source locator,
+dating basis, bounds, evidence class, precision, and comparability—not only the
+final display label or mean.
+
 ## What is never inferred
 
 The chronology pipeline does not assign conventional numeric bounds to a named
@@ -128,6 +154,11 @@ date join. Exact and interval-supported rows may participate in numeric window
 tests; approximate rows require a visible caveat; contextual intervals remain
 context; and text-only or unresolved rows cannot silently inherit a numeric
 window from a neighboring record.
+
+Chronology absence is also claim-specific. `text_only` means a source statement
+was recovered but cannot be safely converted; `unresolved` means no trustworthy
+claim is available. Neither is numeric non-overlap, and neither should be
+counted as evidence that two records belong to different periods.
 
 ## Auditing chronology lineage
 

@@ -102,6 +102,26 @@ lineage supplies the coordinate basis directly. For broader project leads,
 coordinate provenance remains a separate reviewed record so a project-level
 anchor cannot silently become sample-level geography.
 
+## Coordinate Reuse Contract
+
+A downstream export that retains latitude and longitude but drops their basis
+has converted reviewed evidence into unexplained geometry. Reuse should retain:
+
+| Required field | Question it preserves |
+| --- | --- |
+| governing sample or site ID | Which observation owns this point? |
+| original and resolved place text | What place was reported and what was interpreted? |
+| source artifact and locator | Where is the supporting statement or pair? |
+| coordinate basis and method | Was the point supplied, curated, or resolved? |
+| confidence and mapping posture | May it appear as a point, and with what qualification? |
+| spatial precision or caveat | How narrowly may distance or containment be interpreted? |
+| product and admission decision | Why is the point visible in this scope? |
+
+Coordinate reference conversion and decimal formatting may change
+representation, but they must not change basis, confidence, or supported
+precision. A transformed pair remains the same governed spatial claim only
+when its lineage to the original pair is retained.
+
 ## Why points are withheld
 
 Common refusal conditions include:
@@ -125,6 +145,15 @@ identify the missing source work needed for a future point.
 | region, basin, country, or transect | polygon, aggregate, label, or non-point context |
 | multiple unresolved candidate sites | review surface, never one synthesized point |
 | no defensible geography | explicit exclusion or unresolved count |
+
+## Read A Distance Carefully
+
+Distance is derived from geometry, so its usefulness is bounded by both
+endpoints. An exact lake centroid and an approximate named-site point produce
+an approximate distance relation. A region-only sample has no defensible point
+distance even if a centroid is technically available. Ranking and proximity
+views should carry endpoint identity, basis, precision, distance method, and
+the threshold or band used.
 
 ## Auditing a mapped sample
 

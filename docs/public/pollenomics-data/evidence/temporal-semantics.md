@@ -48,6 +48,30 @@ Numeric fields alone do not authorize comparison. The posture must also be one
 of the numeric classes; this prevents a parsed number from overruling its
 evidence class.
 
+## Comparison Operations
+
+| Operation | Required inputs | Result boundary |
+| --- | --- | --- |
+| interval overlap | two numeric-comparable BP bounds | overlapping or non-overlapping intervals at declared uncertainty |
+| interval distance | two numeric-comparable BP bounds | distance between intervals, not between display midpoints |
+| window filter | numeric midpoint plus retained source bounds | navigation subset, not contemporaneity |
+| contextual grouping | explicit labels and evidence roles | shared descriptive context, not numeric order |
+| mixed aggregate | member-level postures and denominators | aggregate with visible mixed-support warning |
+
+An operation must refuse inputs whose posture does not meet its contract. A
+textual period cannot enter interval arithmetic through an assumed lookup, and
+an unresolved date cannot be treated as zero or as outside every window.
+
+```mermaid
+flowchart LR
+    Left["record A posture and bounds"] --> Operation{"requested comparison"}
+    Right["record B posture and bounds"] --> Operation
+    Operation --> Eligible{"both inputs eligible?"}
+    Eligible -->|yes| Numeric["interval result with uncertainty"]
+    Eligible -->|partial| Context["qualified contextual result"]
+    Eligible -->|no| Refusal["explicit comparison refusal"]
+```
+
 ## Capability in the checked-in collection
 
 | Source family | Records | Numeric intervals | Time-aware use |
@@ -99,6 +123,12 @@ when their midpoints fall on opposite sides of a navigation boundary, and two
 rows in the same broad window can remain thousands of years apart. The window
 key supports browsing; the source bounds and comparability posture govern
 analysis.
+
+For example, an animal sample interval of 2500–2200 BP and a pollen sequence
+interval of 2300–1800 BP overlap from 2300 to 2200 BP. Their midpoints alone
+would obscure that shared range. If the archaeology layer nearby carries only
+a textual period, it remains contextual beside the numeric overlap; it does
+not acquire the same interval.
 
 ## Source-family differences remain visible
 
