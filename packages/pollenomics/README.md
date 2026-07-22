@@ -53,6 +53,15 @@ submodules. Local modules are limited to `cli`, `command_line`,
 `runtime_alias`, and package entry points; other imports resolve to the matching
 `bijux_pollenomics` module.
 
+```mermaid
+flowchart LR
+    ShortCLI["pollenomics executable"] --> CanonicalCLI["bijux_pollenomics.command_line"]
+    ShortImport["pollenomics.* import"] --> Resolver["runtime alias resolver"]
+    Resolver --> CanonicalModule["bijux_pollenomics.* module"]
+    CanonicalCLI --> Runtime["one scientific and publication runtime"]
+    CanonicalModule --> Runtime
+```
+
 The same release line therefore supports either import style:
 
 ```python
@@ -93,6 +102,20 @@ pollenomics publish-reports --help
 Use `bijux-pollenomics` in system architecture, release ownership, and durable
 integration documentation. Use `pollenomics` where a concise interactive name
 is preferable.
+
+## Equivalent And Distinct Identity
+
+| Surface | Equivalent | Intentionally distinct |
+| --- | --- | --- |
+| scientific behavior | same canonical modules and contracts | none |
+| command behavior | same parser, dispatch, and operation | executable and program label |
+| Python behavior | same resolved runtime modules and public names | import prefix requested by the caller |
+| distribution metadata | depends on and constrains the canonical package | package name, wheel, and release artifact |
+| ownership | canonical runtime remains authoritative | alias owns compatibility forwarding only |
+
+Pinning only `pollenomics` still resolves a constrained canonical runtime
+dependency. Compatibility therefore includes both alias behavior and the
+declared canonical version range; it is not a copy of runtime source.
 
 ## Boundaries
 

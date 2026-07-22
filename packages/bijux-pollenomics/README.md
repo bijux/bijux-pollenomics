@@ -67,6 +67,20 @@ The repository's tracked `data/` tree is the evidence state. `docs/report/`
 contains generated public and review products derived from that state. A report
 does not replace the evidence record that governs it.
 
+## Runtime state contract
+
+| Operation | Governing inputs | Intended writes | Review after success |
+| --- | --- | --- | --- |
+| source collection | source identity, collector configuration, selected version | named source trees and `data/collection_summary.json` | retrieval metadata, hashes, normalized diff, coverage, and deletions |
+| data-contract refresh | current checked-in `data/` tree | source, evidence-stage, ownership, and artifact contracts | authority paths, counts, roles, and schema drift |
+| animal foundation refresh | project registries, captured papers and supplements, species configuration | project evidence, species records, review ledgers, and dependent publications | sample identity, locality, chronology, coordinates, exclusions, and release posture |
+| report publication | governed data state, geography registry, and product configuration | `docs/report/` bundles | manifests, subsets, traceability, warnings, rankings, and caveats |
+
+The runtime may complete an operation while producing a scientific refusal or
+an empty qualified subset. That is not necessarily an execution failure. Exit
+status describes software completion; the review surfaces describe evidential
+fitness.
+
 ## Command-line surface
 
 The CLI groups commands by durable responsibility:
@@ -142,6 +156,21 @@ auditable:
 
 These guarantees constrain the published subset; they do not imply complete
 recovery across every source family or animal project.
+
+## Traceability contract
+
+```mermaid
+flowchart LR
+    Output["publication member"] --> Trace["stable evidence identifier"]
+    Trace --> Record["normalized or curated record"]
+    Record --> Claim["place, time, coordinate, and role evidence"]
+    Claim --> Source["source artifact and retrieval lineage"]
+    Output --> Product["manifest, geography, version, and caveat"]
+```
+
+An integration that exports a record should retain both branches: source and
+evidence lineage explain the scientific claim, while product metadata explains
+why that record appeared in a particular publication.
 
 ## Canonical and short names
 

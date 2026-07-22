@@ -45,6 +45,30 @@ package.
 - badge, handbook, and report-surface verification that should not live in the
   runtime package
 
+## Check Contract
+
+```mermaid
+flowchart LR
+    Governed["repository contract or generated state"] --> Check["maintainer check"]
+    Check --> Outcome{"pass or finding"}
+    Outcome -->|pass| Proof["focused verification evidence"]
+    Outcome -->|finding| ProductOwner["owning runtime, data, docs, or workflow boundary"]
+    ProductOwner --> Correction["durable correction"]
+    Correction --> Check
+```
+
+| Check family | Evidence inspected | Authority limit |
+| --- | --- | --- |
+| API freeze | canonical schema, pinned representation, and digest | detects drift; runtime API remains product-owned |
+| badges and package identity | README badge blocks and release metadata | verifies presentation; does not publish a release |
+| repository operations | Make and documentation guidance | verifies routes; Make owners define execution |
+| release guards | generated posture and required repository contracts | blocks unsupported release claims; does not strengthen evidence |
+| workspace layout | package and governed root boundaries | detects ownership drift; does not redefine package behavior |
+
+A check failure must be corrected at the boundary that owns the disputed fact
+or behavior. The maintainer package reports and enforces the mismatch; it does
+not create a parallel scientific contract.
+
 ## What It Does Not Own
 
 - runtime command handling
