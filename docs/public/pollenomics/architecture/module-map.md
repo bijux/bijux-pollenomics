@@ -1,7 +1,7 @@
 ---
 title: Module Map
 audience: reader
-type: explanation
+type: reference
 status: canonical
 owner: bijux-pollenomics-docs
 last_reviewed: 2026-07-22
@@ -9,60 +9,83 @@ last_reviewed: 2026-07-22
 
 # Module Map
 
-The runtime groups code by the evidence lifecycle. Ownership begins with the
-scientific or operational decision being made, then narrows to a module and an
-artifact contract.
+The canonical runtime namespace is organized by evidence responsibility. A
+module owns the scientific or operational decision it makes, not every file it
+reads or every downstream product that copies its result.
 
-## Responsibility Map
+The namespace paths below are relative to the runtime package. Its animal
+evidence boundary is `src/bijux_pollenomics/adna/`.
 
-| Question | Canonical owner | Governed result |
+## Ownership Map
+
+| Namespace | Durable responsibility | Governed outputs or decisions |
 | --- | --- | --- |
-| Which command was requested and how is it dispatched? | `command_line/` | parsed intent, validated arguments, selected handler, and exit status |
-| How did upstream material enter the repository? | `data_downloader/` | staged source capture, normalized source-family outputs, hashes, and collection summary |
-| Which animal project, sample, place, date, or coordinate is supported? | `adna/` | project dossiers, sample evidence, ambiguity decisions, species records, and integrity findings |
-| How are candidates ranked or compared under sensitivity scenarios? | `analysis/review/` | ranking evidence, scenario results, and stability assessments |
-| Which evidence rows are fit for atlas or scientific review? | `evidence/` | publication-ready evidence rows and fitness assessments |
-| How does governed evidence become a public product? | `reporting/` | world, regional, country, atlas, lake, traceability, and review outputs |
-| Which product claims and ownership boundaries are allowed? | `foundation/` | scope, ownership, repository-truth, credibility, and release posture |
-| Which mechanics are genuinely cross-domain? | `core/` | file, text, GeoJSON, HTTP, time, and distance primitives |
+| `command_line/` | parsing, dispatch, and the durable command registry | selected action, validated arguments, exit behavior, and declared write root |
+| `data_downloader/` | source-family acquisition and context normalization | capture metadata, normalized context, traceability, hashes, and collection summary |
+| `adna/` | animal project recovery and sample-owned evidence | project library, sample identity, locality, chronology, coordinates, species records, and archive findings |
+| `evidence/` | product-facing evidence fitness and evidence rows | scientific review and atlas evidence surfaces |
+| `analysis/` | explicit comparison and ranking methods | candidate rankings, sensitivity, lake evidence, and review packets |
+| `reporting/` | scope selection, bundle assembly, rendering, and review publication | world, regional, country, atlas, lake, traceability, and truth-review products |
+| `foundation/` | product scope, ownership, architecture, credibility, and release posture | runtime contracts and repository-level claim boundaries |
+| `core/` | mechanics shared without transferring domain ownership | time, GeoJSON, distance, HTTP, file, and text primitives |
 
-## Dependency Direction
+`command_line/` owns parsing, dispatch, and the durable command registry.
+Within acquisition, `data_downloader/pipeline/`, `data_downloader/sources/`,
+`data_downloader/intake/`, and `data_downloader/exports/` separate orchestration,
+source interpretation, payload decoding, and owned output writing.
+
+Within analysis, `analysis/review/` owns candidate-site ranking reviews and
+their sensitivity evidence. Within publication, `reporting/bundles/` owns
+bundle assembly, `reporting/presentation/` owns human-facing formatting,
+`reporting/rendering/` writes structured and narrative artifacts, and
+`reporting/review/` publishes repository-truth surfaces.
+
+## Dependency Shape
 
 ```mermaid
-flowchart LR
-    CLI[command_line] --> Collect[data_downloader]
-    CLI --> Animal[adna]
-    Collect --> Evidence[evidence]
+flowchart TB
+    Command["command_line"] --> Collection["data_downloader"]
+    Command --> Animal["adna"]
+    Command --> Publication["reporting"]
+    Collection --> Evidence["evidence"]
     Animal --> Evidence
-    Evidence --> Analysis[analysis/review]
-    Evidence --> Reporting[reporting]
-    Analysis --> Reporting
-    Foundation[foundation] --> Reporting
-    Core[core] --> Collect
+    Evidence --> Analysis["analysis"]
+    Evidence --> Publication
+    Analysis --> Publication
+    Core["core"] --> Collection
     Core --> Animal
-    Core --> Reporting
+    Core --> Analysis
+    Core --> Publication
+    Foundation["foundation"] -. "scope and posture contracts" .-> Publication
 ```
 
-`core/` supplies mechanics, not scientific ownership. `command_line/`
-coordinates work, not evidence meaning. `reporting/` consumes admitted evidence
-and cannot strengthen its locality, chronology, or coordinate posture.
+Coordination does not transfer fact ownership. `command_line/` selects work;
+it does not define evidence meaning. `core/` supplies reusable mechanics; it
+does not own source semantics. `reporting/` selects admitted evidence; it does
+not strengthen upstream precision.
 
 ## Animal Evidence Path
 
-Animal source recovery begins in `adna/sources/`; project and sample curation
-remain in `adna/projects/`; species-owned normalized records remain under the
-animal domain; atlas and country publication continue through `evidence/` and
-`reporting/`. The path preserves the distinction between a discovered project,
-a supported sample, and a publishable point.
+```mermaid
+flowchart LR
+    Sources["adna/sources"] --> Projects["adna/projects"]
+    Projects --> Species["adna/species"]
+    Species --> Fitness["evidence"]
+    Fitness --> Review["analysis/review"]
+    Fitness --> Reports["reporting"]
+    Review --> Reports
+```
 
-## Package Boundaries
+This path keeps a discovered archive project, a recovered paper supplement, a
+sample row, a named site, and a publishable point as distinct evidence units.
 
-- `bijux_pollenomics` is the canonical runtime namespace.
-- `pollenomics` resolves to that runtime and owns no scientific fork.
-- `bijux-pollenomics-dev` operates repository checks and release support but
-  owns no runtime evidence logic.
-- compatibility modules do not become canonical ownership merely because an
-  older import still resolves through them.
+## Compatibility Boundaries
 
-A visible output should resolve to one owner for evidence meaning and one owner
-for publication. Ambiguous ownership is itself a traceability defect.
+The `bijux_pollenomics` namespace is the scientific owner. The `pollenomics`
+alias distribution delegates to that runtime. Lower-level compatibility shims
+may preserve older imports, but they cannot become independent evidence or
+publication owners. The maintainer distribution can inspect these boundaries
+without embedding runtime science in repository tooling.
+
+A new responsibility belongs in the smallest domain that can name its input,
+decision, and governed result without becoming a generic helper bucket.

@@ -4,105 +4,88 @@ audience: reader
 type: explanation
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-05-10
+last_reviewed: 2026-07-22
 ---
 
 # Runtime System Model
 
-The runtime is easiest to understand as one controlled evidence pipeline. A
-CLI entrypoint resolves one owned action, collection and evidence code rewrite
-tracked files under `data/`, and the publication system turns that state into
-country bundles, atlas layers, and review surfaces under `docs/report/`.
+Bijux Pollenomics is a stateful evidence and publication system. It acquires
+source families, preserves their identities, normalizes comparable structure,
+records scientific decisions, and publishes qualified products. Each boundary
+has a different authority and a different failure meaning.
 
-The important part is not the number of steps. It is that each step has a
-clear responsibility and a visible output.
+## Lifecycle
 
-## Execution Path
+```mermaid
+flowchart LR
+    Intent["operator intent"] --> Acquire["source acquisition"]
+    Acquire --> Normalize["family-aware normalization"]
+    Normalize --> Evidence["evidence ownership"]
+    Evidence --> Review["fitness and conflict review"]
+    Review --> Publish["scope-aware publication"]
+    Publish --> Product["maps, tables, reports"]
+    Review --> Refusal["qualification or exclusion"]
+```
 
-1. `command_line/` parses operator intent and resolves the durable command
-   surface.
-2. `data_downloader/` collects source-family context data and normalizes
-   tracked source artifacts.
-3. `adna/` turns admitted animal projects, papers, and supplements into
-   species-owned evidence rows.
-4. `analysis/review/`, `evidence/`, and `foundation/` publish review surfaces
-   and release posture from that tracked state.
-5. `reporting/` assembles and writes public atlas, country, and review
-   artifacts.
-6. `tests/` and maintainer checks fail when the command, file, and publication
-   contracts drift apart.
+| Boundary | Governing decision | Persistent result |
+| --- | --- | --- |
+| command | Which supported action was requested? | exit status and declared writes |
+| acquisition | Which upstream material and retrieval context entered the system? | raw capture, metadata, and hashes |
+| normalization | How can source fields be compared without strengthening them? | stable family-owned records |
+| evidence | Which record owns identity, place, time, taxonomy, and provenance? | linked evidence surfaces |
+| review | Is the record fit for one declared use and precision? | findings, qualifications, and exclusions |
+| publication | Which admitted members belong to one product scope? | manifests, bundles, traceability, and renderings |
 
-## Dependency Direction
+## Authority Does Not Flow Backward
 
-- `command_line/` depends on runtime modules, never the reverse.
-- `data_downloader/` owns source collection, workbook intake, context exports,
-  and shared normalized file layout.
-- `adna/` owns animal aDNA intake, extraction, normalization, and validation.
-- `analysis/review/` owns ranking-review surfaces without taking over report
-  rendering.
-- `reporting/` depends on tracked data contracts and never invents evidence
-  that the upstream repository state does not already justify.
-- `foundation/` holds repository-truth, release, and architecture builders
-  that describe posture without taking over collection or publication
-  ownership.
+Publication consumes scientific decisions but cannot redefine them. A map
+renderer may position a supported point; it cannot promote a region-only
+record to exact coordinates. A country bundle may repeat sample chronology;
+it cannot become the authority for that chronology.
 
-## State And Persistence
+```mermaid
+flowchart RL
+    Product["published product"] --> Membership["product membership"]
+    Membership --> Decision["admission decision"]
+    Decision --> Record["governing evidence"]
+    Record --> Capture["source capture"]
+    Capture --> Upstream["upstream identity"]
+```
 
-- tracked source and normalized evidence lives under `data/`
-- tracked publication outputs live under `docs/report/`
-- docs explain those surfaces but do not replace them
-- transient local output belongs under `artifacts/`
+The reverse path is equally constrained: acquisition does not imply
+normalization success, normalization does not imply publication fitness, and
+review for one product does not imply fitness for every product.
 
-Those narrow output roots are deliberate. They let a reviewer compare
-repository changes without hunting through private temp folders or ad hoc
-side-effect directories.
+## State Boundaries
 
-## Integration Seams
+- `data/` contains governed captured, normalized, reviewed, and governance
+  state;
+- `docs/report/` contains governed public products and claim-review surfaces;
+- `apis/` contains versioned interface descriptions;
+- `artifacts/` contains transient environments, logs, previews, and local
+  verification output.
 
-- `command_line/parsing/subcommands.py` defines the public command surface
-- `data_downloader/pipeline/`, `data_downloader/sources/`,
-  `data_downloader/intake/`, and `data_downloader/exports/` isolate collection
-  logic from intake parsing and artifact writing
-- `adna/` keeps animal evidence recovery separate from pollen, archaeology, and
-  boundary context
-- `analysis/review/` isolates ranking review surfaces from publication code
-- `reporting/bundles/`, `reporting/presentation/`, `reporting/rendering/`, and
-  `reporting/review/` separate output assembly, helper formatting, artifact
-  writing, and repository-truth publication
+Only a complete operation may replace its owned governed tree. Collection and
+publication use staging so a failed operation can preserve the previous
+coherent state.
 
-## Error Model
+## Failure Semantics
 
-The runtime should fail early when one of these boundaries breaks:
+| Failure | Meaning |
+| --- | --- |
+| precondition or parse refusal | the requested action was not valid; governed state should remain untouched |
+| acquisition refusal | source identity, access, or payload could not be captured as required |
+| normalization refusal | source semantics could not produce a valid governed record |
+| evidence qualification | a record exists but supports only a narrower claim |
+| admission refusal | known evidence does not satisfy the named product contract |
+| publication failure | an admitted product could not be written coherently; the prior product remains authoritative |
 
-- a command points at a missing tracked source root
-- normalization cannot produce a reviewable tracked artifact
-- reporting would publish a surface that has no governed upstream support
-- repository-truth checks detect a documentation or evidence overclaim
+Refusal is part of correct operation. The runtime is designed to preserve an
+explicit gap rather than create a plausible but unsupported value.
 
-## What This Model Protects
+## Extension Rule
 
-- one command should map to one understandable action
-- collection should not silently rewrite publication outputs
-- reporting should not invent evidence that upstream files do not justify
-- truth and readiness surfaces should calibrate claims rather than decorate
-  them
-
-## Extensibility Posture
-
-The runtime grows by adding durable source-family or publication boundaries,
-not by hiding new work inside generic helper buckets. New behavior should name
-its domain and governing output clearly enough that you can follow it from
-command to tracked file to published surface.
-
-## Code Navigation
-
-- start in `packages/bijux-pollenomics/src/bijux_pollenomics/cli.py` when the
-  question begins from a command
-- start in `packages/bijux-pollenomics/src/bijux_pollenomics/data_downloader/`
-  when the question begins from collection or normalization
-- start in `packages/bijux-pollenomics/src/bijux_pollenomics/adna/` when the
-  question begins from sample-owned evidence recovery
-- start in `packages/bijux-pollenomics/src/bijux_pollenomics/analysis/review/`
-  when the question begins from ranking review surfaces
-- start in `packages/bijux-pollenomics/src/bijux_pollenomics/reporting/` when
-  the question begins from country or atlas publication
+New source families and products enter through named ownership boundaries.
+They must declare source identity, normalized semantics, evidence role,
+review criteria, write scope, and publication effect. A generic parser or
+renderer is not a sufficient architecture for a new scientific domain.

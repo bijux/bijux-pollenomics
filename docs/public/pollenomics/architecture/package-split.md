@@ -4,70 +4,65 @@ audience: reader
 type: explanation
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-05-08
+last_reviewed: 2026-07-22
 ---
 
 # Package Split
 
-`bijux-pollenomics` ships three distributions because they serve three
-different audiences. The split is acceptable only because the ownership line
-is sharp.
+The repository publishes three Python distributions with one runtime identity.
+The split separates scientific behavior, compatibility, and repository
+maintenance without creating competing products.
 
-Without that sharp line, the repository would drift into two predictable
-failures: runtime logic would leak into maintainer tooling, or the alias
-package would quietly become a second product with its own behavior.
+## Distribution Contracts
 
-## Canonical Runtime
+| Distribution | Namespace or command | Responsibility | Not its responsibility |
+| --- | --- | --- | --- |
+| `bijux-pollenomics` | `bijux_pollenomics`, `bijux-pollenomics` | canonical collection, evidence, review, analysis, and publication runtime | repository-only policy checks |
+| `pollenomics` | `pollenomics`, `pollenomics` | short-name compatibility facade over the canonical runtime | independent scientific or command behavior |
+| `bijux-pollenomics-dev` | `bijux_pollenomics_dev` | repository checks, documentation integrity, packaging, and release support | source semantics, evidence decisions, or publication rules |
 
-`packages/bijux-pollenomics/` owns the runtime command surface, source-family
-collection, animal aDNA evidence recovery, evidence review, and publication
-assembly.
+```mermaid
+flowchart LR
+    User["operator or integrator"] --> Canonical["bijux-pollenomics"]
+    User --> Alias["pollenomics"]
+    Alias -. "delegates" .-> Canonical
+    Maintainer["repository maintenance"] --> Toolkit["bijux-pollenomics-dev"]
+    Toolkit -. "checks contracts" .-> Canonical
+    Canonical --> State["governed evidence and products"]
+```
 
-If a change affects:
+## One Scientific Runtime
 
-- tracked files under `data/`
-- publication artifacts under `docs/report/`
-- the scientific meaning of intake, normalization, review, or reporting
+All collection, sample recovery, normalization, scientific review, ranking,
+and publication behavior belongs to `bijux_pollenomics`. The shorter package
+may re-export supported Python names and delegate its console command, but it
+must return the same results for the same inputs.
 
-then the change belongs in `bijux_pollenomics`.
+This equivalence matters for reproducibility: package spelling cannot change
+which records are admitted, how chronology is interpreted, or which warnings
+appear in a bundle.
 
-## Maintainer Toolkit
+## Tooling Is Not Evidence Authority
 
-`packages/bijux-pollenomics-dev/` owns maintainer checks, docs integrity,
-release support, and repository-health tooling.
+The development distribution can verify documentation, API drift, dependency
+policy, packages, badges, and release conditions. These checks can detect a
+broken evidence contract, but the toolkit does not own the scientific rule it
+checks. Corrections belong in the canonical runtime or governed data surface.
 
-It does not own:
+## Choosing A Distribution
 
-- project admission rules
-- source collection logic
-- sample, site, chronology, or coordinate normalization
-- atlas or country publication behavior
+- install `bijux-pollenomics` for the canonical command and Python API;
+- use `pollenomics` when the shorter compatibility identity is required;
+- use `bijux-pollenomics-dev` only for repository maintenance workflows.
 
-That package should test or validate the runtime. It should not quietly become
-another runtime.
+Applications should not depend on the development distribution to reach
+runtime behavior. Integrations that use the alias should remain portable to
+the canonical package without a scientific or artifact change.
 
-## Alias Distribution
+## Boundary Invariants
 
-`packages/pollenomics/` is a compatibility alias. It exists for the shorter
-package name and CLI command, not for independent scientific behavior.
-
-The alias may:
-
-- re-export the public Python API
-- delegate CLI parsing and dispatch to the canonical runtime
-
-The alias may not:
-
-- invent new collection logic
-- publish different report behavior
-- drift into a second conceptual product
-
-## Why This Matters
-
-This repository is already structurally dense. A clean package split prevents
-future work from hiding scientific logic in maintainer tooling or from letting
-the alias package drift away from the canonical runtime.
-
-For readers, the benefit is simpler: the package tree stays legible. There is
-one real runtime, one maintainer toolkit that checks it, and one compatibility
-package that points back to it.
+- one input state has one runtime interpretation;
+- aliases delegate instead of forking behavior;
+- repository checks remain outside scientific execution;
+- public exports are explicit at the canonical facade;
+- compatibility code carries no unique evidence or publication state.
