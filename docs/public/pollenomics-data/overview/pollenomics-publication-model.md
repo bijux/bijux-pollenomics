@@ -102,6 +102,41 @@ not turn contextual chronology into a numeric interval; a filtered map does
 not turn an approximate coordinate into a source-supplied one; a high lake
 rank does not become a coring recommendation without field evidence.
 
+## Membership Accounting
+
+A product is accountable when every candidate considered by its contract has
+one recoverable outcome. Use mutually exclusive states for accounting even
+when the rendering groups them differently:
+
+| Candidate outcome | Visible in the product? | Required record |
+| --- | --- | --- |
+| admitted | yes | membership and traceability |
+| admitted with qualification | yes, with the qualification | membership, traceability, and visible caveat |
+| excluded | no | named failed rule and governing evidence |
+| unresolved or recovery-bound | no | ambiguity or recovery record describing missing support |
+| outside scope | no | scope predicate and candidate identity |
+
+```mermaid
+flowchart LR
+    Population["declared candidate population"] --> Outcome{"one governed outcome"}
+    Outcome --> Admit["admitted"]
+    Outcome --> Qualified["admitted with qualification"]
+    Outcome --> Excluded["excluded"]
+    Outcome --> Recovery["unresolved or recovery-bound"]
+    Outcome --> Outside["outside scope"]
+    Admit --> Account["product accounting"]
+    Qualified --> Account
+    Excluded --> Account
+    Recovery --> Account
+    Outside --> Account
+```
+
+The accounting identity is conceptual but strict: the declared candidate
+population must equal the sum of those disjoint outcomes. Browser filters do
+not alter that population; they only change which already-admitted members are
+displayed. A record missing from both membership and accountability surfaces
+is not a harmless omission—it is an unexplained product-integrity gap.
+
 ## Release Gates Preserve Honest Claims
 
 Release checks test the relationship between evidence and publication rather

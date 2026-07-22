@@ -77,6 +77,37 @@ These invariants let the repository use ordinary versioned files while still
 behaving like an evidence database: ownership, lineage, constraints, and
 revision effects remain inspectable.
 
+## Revision Consistency
+
+A Git revision is the database snapshot. It is coherent only when authorities,
+required companions, and derived consumers describe the same evidence state.
+Checking in one regenerated table while leaving its manifest, traceability, or
+review surface behind is equivalent to a partial database transaction.
+
+```mermaid
+flowchart TD
+    Change["authority change"] --> Companions["required contract companions"]
+    Change --> Descendants["affected derived members"]
+    Companions --> Snapshot{"coherent revision?"}
+    Descendants --> Snapshot
+    Snapshot -->|yes| Commit["reviewable database snapshot"]
+    Snapshot -->|no| Partial["partial state; do not publish"]
+```
+
+Review consistency across four dimensions:
+
+| Dimension | Consistency question |
+| --- | --- |
+| identity | do manifests, rows, traceability, and exclusions name the same governing members? |
+| semantics | do units, roles, precision, and null states agree with their owners? |
+| membership | do additions and removals have an admission, scope, or recovery explanation? |
+| accounting | do totals equal their declared member populations without mixing observation units? |
+
+File timestamps and successful rendering are not consistency evidence. The
+revision must preserve causal order: authority first, required companions with
+it, derived consumers from the same state, and public claims no stronger than
+the resulting review posture.
+
 ## Source-Family Topology
 
 | Family | Evidence role | Characteristic reviewed state | Public use |

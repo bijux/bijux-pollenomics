@@ -157,6 +157,40 @@ point is approximate or one chronology is contextual. The normalized envelope
 exposes those limits so comparison code and readers can refuse the stronger
 relation.
 
+## Audit A Normalization Change
+
+A normalized diff is interpretable only when its cause is classified. Compare
+member identities before counts, then route each changed field through its
+lineage class:
+
+| Observed change | Evidence to inspect | Legitimate consequence |
+| --- | --- | --- |
+| source-native value changed | capture version, member identity, and original field | normalized descendants may change under the same rule |
+| parser or vocabulary changed | rule identity, affected source values, and before/after mapping | all members using the rule require semantic review |
+| derived value changed | named inputs, method, units, and precision | dependent relations and products require recomputation |
+| curated decision changed | competing evidence, decision reason, and owner | claim posture or admission may change without changing source text |
+| null state changed | prior state, recovered evidence, and new state | only the newly supported claim may strengthen |
+| count changed with stable members | grouping, scope, or denominator definition | narrative totals change; member evidence may remain identical |
+
+```mermaid
+flowchart LR
+    Diff["normalized member diff"] --> Cause{"lineage class"}
+    Cause --> SourceChange["source capture change"]
+    Cause --> RuleChange["transformation rule change"]
+    Cause --> DecisionChange["curation decision change"]
+    SourceChange --> Impact["affected descendants"]
+    RuleChange --> Impact
+    DecisionChange --> Impact
+    Impact --> Proof["member-level semantic proof"]
+```
+
+The proof is not merely that regenerated files match the new code. It must
+show that source-native meaning is still recoverable, units and nulls retain
+their semantics, identities did not merge accidentally, and every strengthened
+claim has new supporting evidence. A mechanically stable count can still hide
+a damaging field reinterpretation; a changed count can be harmless when scope
+or grouping changed explicitly.
+
 ## Publication Boundary
 
 The normalized collection is intentionally broader than the published subset.
