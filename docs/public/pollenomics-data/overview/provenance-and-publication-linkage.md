@@ -28,6 +28,11 @@ A reusable publication record should carry or resolve to:
 | source lineage | source family plus dataset version, accession, DOI, artifact, and locator as applicable |
 | qualification | caveat, conflict, exclusion relationship, or review outcome material to interpretation |
 
+The packet is a graph, not a flattened citation string. Some components can be
+embedded in a public row; others resolve through stable identifiers. What
+matters is that the joins survive export and that each identifier retains its
+object type.
+
 A citation without the evidence identifier and locator can establish relevance
 but not which record or wording supported the published claim. A coordinate
 without its basis can establish geometry but not spatial precision.
@@ -84,6 +89,12 @@ starts at the authority and descendants are regenerated.
 Representative ownership boundaries include project inventory, paper
 inventory, sample identity, sample-site linkage, locality evidence,
 chronology evidence, species-normalized records, and atlas admission.
+
+`data/source_fact_ownership_registry.json` publishes the cross-family
+ownership map. `data/source_spatiotemporal_posture_registry.json` publishes the
+corresponding limits on spatial and temporal use. Together they answer two
+different questions: **where does this value come from?** and **what claim can
+this value support?**
 
 ## Spatial And Temporal Lineage
 
@@ -142,3 +153,36 @@ locality and chronology packets, coordinate provenance, paper or supplement
 locator, and archive project. For a pollen or archaeology context feature, the
 chain is shorter but still retains source-family identity, normalized record,
 temporal posture, product membership, and caveats.
+
+## A Concrete Trace
+
+Consider an animal point in `world_animal_localities.geojson`. Its feature
+identifier resolves through the world bundle and point-traceability export to
+an admitted atlas evidence row. That row resolves to the governed sample and
+site records, locality and chronology evidence, and then to a paper,
+supplement, and archive project where those exist. Coordinate provenance tells
+the reader whether the point was source-supplied, recovered from supplementary
+material, approximately geocoded, substituted, or refused.
+
+The visible point is therefore the end of a decision chain, not the source of
+truth. Removing the feature from a map does not remove the sample from the
+evidence base. Correcting a source locality does not begin at the GeoJSON; it
+begins at the governing locality evidence and flows forward through admission
+and publication.
+
+## Portability Test
+
+A publication extract remains interpretable outside this repository when a
+reader can answer all of the following from the extract and its linked
+manifests:
+
+1. Which product and release included this object?
+2. What role did the object play: direct evidence, comparison, context, or
+   framing?
+3. Which governed record owns its identity, locality, chronology, and source
+   lineage?
+4. Which transformation or admission decision produced the published form?
+5. Which limitation changes how the object may be compared or mapped?
+
+If any answer depends only on a filename, prose memory, or an untyped copied
+value, the provenance chain is incomplete.

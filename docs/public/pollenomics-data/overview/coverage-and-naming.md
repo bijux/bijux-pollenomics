@@ -30,6 +30,17 @@ tracked” is not equivalent to “all samples recovered,” and “four countri
 published” is not equivalent to balanced source coverage across those
 countries.
 
+The resulting coverage description is a vector rather than a single score:
+
+```text
+(acquired, extracted, evidenced, geolocated, dated, admitted, published)
+```
+
+Each element has its own observation unit and denominator. Keeping those
+elements separate exposes where apparent abundance becomes an evidence
+bottleneck—for example, many captured rows but few supported numeric
+chronologies, or many governed samples but few exact-point admissions.
+
 ## Denominator Contract
 
 Every coverage statement should resolve this tuple:
@@ -56,6 +67,20 @@ Use explicit states for the denominator:
 
 Unknown is not zero, and absence from a product is not evidence of absence in
 the source or historical record.
+
+## Coverage At A Glance
+
+| Statement | Valid denominator | Misleading substitute |
+| --- | --- | --- |
+| source acquisition coverage | declared upstream objects expected for the named release | all objects that might exist upstream |
+| sample recovery coverage | source samples expected from captured material | number of downloaded files |
+| chronology coverage | governed records assessed for chronology | only records already carrying numeric bounds |
+| point-publication coverage | candidates evaluated under the named point contract | every record with a place name |
+| country publication coverage | product members evaluated inside the declared geography | all repository records mentioning the country |
+
+The denominator includes known exclusions and unresolved records when they
+belong to the evaluated population. Reporting only admitted rows turns a
+fitness result into a circular success rate.
 
 ## Naming Encodes Authority
 
@@ -96,3 +121,19 @@ When a count changes, compare member identifiers first. Then classify each
 addition, removal, and modification by source, normalization, curation,
 admission, or scope. Aggregate arithmetic can confirm the result but cannot
 explain it.
+
+## Compare Releases By Membership
+
+A release comparison separates four changes:
+
+| Change | Meaning |
+| --- | --- |
+| added identity | a governed object entered the declared population |
+| removed identity | an object left the population, with an exclusion or source reason |
+| changed evidence | the object remained, but an owned fact or qualification changed |
+| changed admission | the evidence remained, but product membership or role changed |
+
+This separation prevents a corrected coordinate from appearing as a new
+sample, a stricter admission rule from appearing as source loss, or a display
+name change from appearing as scientific turnover. Counts summarize the
+membership diff; stable identifiers and decision records explain it.
