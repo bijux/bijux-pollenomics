@@ -31,6 +31,32 @@ Family-owned fields remain beside this envelope. A pollen sequence retains
 sequence meaning, a registry site retains registry semantics, and a sample
 retains sample-level lineage.
 
+## Identity Before Shape
+
+The normalized database may render several families as rows or GeoJSON
+features, but storage shape does not define identity. Each record carries a
+typed key within an owning namespace.
+
+| Key component | Purpose |
+| --- | --- |
+| family or object type | prevents equal-looking identifiers from different domains from colliding |
+| source release or project | fixes the upstream identity context in which the native key is meaningful |
+| source-native key | preserves the upstream member without relying on row order or display name |
+| repository key | provides a stable address for governed relations and downstream membership |
+| alias or collision posture | records equivalence evidence, ambiguity, merge, or split decisions |
+
+Display labels remain attributes. A renamed lake, differently formatted sample
+label, or translated place can keep the same governed identity; conversely,
+equal labels can belong to different objects.
+
+```mermaid
+flowchart LR
+    NativeKey["typed source-native key"] --> RepositoryKey["stable repository key"]
+    Alias["curated alias or collision evidence"] --> RepositoryKey
+    RepositoryKey --> Relation["typed relation"]
+    Relation --> Membership["product-specific membership"]
+```
+
 ## Field Lineage
 
 Every normalized value should be classifiable by how it was obtained:
@@ -226,4 +252,5 @@ for those that do not.
 
 Continue with the [spatiotemporal posture](spatiotemporal-posture.md) for
 comparison limits and [map inputs](../publications/map-inputs.md) for the
-publication handoff.
+publication handoff. The [object and relation model](../database/object-and-relation-model.md)
+defines the typed identities that normalization and joins must preserve.

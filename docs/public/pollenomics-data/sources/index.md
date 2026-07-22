@@ -60,6 +60,34 @@ The current bindings are recorded in `data/collection_summary.json`. A hash
 identifies bytes; it does not certify scientific completeness, temporal
 comparability, or publication fitness.
 
+### A Family Writes A Bounded Database Partition
+
+Collection does not pour unlike records into one undifferentiated table. Each
+family owns a partition whose keys, observation unit, native fields, spatial
+and temporal meaning, and evidence role remain visible after normalization.
+
+```mermaid
+flowchart LR
+    Release["identified source release"] --> Native["source-native members"]
+    Native --> Partition["family-owned normalized partition"]
+    Partition --> Relations["typed cross-family relations"]
+    Relations --> Decision["claim-specific product decision"]
+```
+
+The partition boundary prevents a common field name from becoming common
+scientific meaning. A `site_id` in Neotoma and a `site_id` in SEAD belong to
+different identity domains. Coordinates from either family can participate in
+a declared proximity relation, but do not authorize an identity join.
+
+| Database responsibility | Family contract must preserve |
+| --- | --- |
+| member identity | source-native key, repository key, release, and collision posture |
+| observation unit | site, sequence, grid cell, registry record, sample, or polygon |
+| field meaning | native value, units, nulls, parsing or normalization rule, and precision |
+| lifecycle roots | captured, normalized, reviewed, and published surfaces |
+| evidence role | direct, primary context, contextual, sampling, or framing |
+| replacement behavior | staged root, final root, failure preservation, and semantic review |
+
 ### Minimum Capture Packet
 
 A captured member is usable evidence only when the repository can recover the
@@ -224,6 +252,8 @@ licensed, and admitted through the source contract.
 
 ## Compare And Inspect
 
+- [Evidence database](../database/index.md) explains how source partitions,
+  governed objects, and publication membership fit together.
 - [Source comparison](source-comparison.md) compares the questions each family
   can answer.
 - [Source-family matrix](source-family-matrix.md) compares role, reach,

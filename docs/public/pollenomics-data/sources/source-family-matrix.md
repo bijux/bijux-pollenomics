@@ -47,6 +47,28 @@ Every family declares captured, normalized, reviewed, and published surfaces.
 Those surfaces may be family-owned directories or shared cross-family
 registries, but their responsibilities remain distinct.
 
+### Checked-In Stage Metrics
+
+The evidence-stage matrix currently reports all eight families as present
+through publication. Its coverage metrics describe unlike populations and
+must be read with their units and review limits:
+
+| Family | Checked-in metric | Material qualification |
+| --- | ---: | --- |
+| LandClim | 492 site sequences; 88 grid cells | observed sequence and model cell are different units |
+| Neotoma | 200 normalized points | 175 have BP spans, but no chronology rows are captured |
+| SEAD | 2,172 normalized points | the temporal review is inventory-only and unresolved for numeric comparison |
+| RAÄ | 761,917 registry records; 318,265 heritage records | published geography is a Sweden-only density projection |
+| boundaries | 4 country geometries | framing establishes membership, not scientific evidence |
+| SVAR | 40,565 registered lakes | registry membership does not establish sampling feasibility |
+| AADR | 3 captured release files in the stage metric | the governed release contains two annotation tables; file count is not sample count |
+| animal aDNA | 10 species; 40 projects; 0 samples in this cross-family metric | project breadth does not establish sample-backed publication coverage |
+
+The last row is deliberately visible. A lifecycle surface can exist while its
+current cross-family sample denominator is zero. Presence is not a substitute
+for the sample, locality, chronology, coordinate, and admission evidence
+required by a specimen claim.
+
 ## Authority Boundaries
 
 | Family class | May establish | Cannot establish alone |
@@ -178,3 +200,7 @@ flowchart LR
 
 These reports describe the checked-in state. They do not replace the captured
 and normalized records that govern individual facts.
+
+The [revision and state model](../database/revision-and-state-model.md)
+explains why lifecycle presence, record fitness, and publication membership
+remain separate database states.
