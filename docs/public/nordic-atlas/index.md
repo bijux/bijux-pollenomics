@@ -91,6 +91,36 @@ Filtering changes visibility, not eligibility. A hidden feature remains part
 of the scoped product; an excluded record cannot be admitted by changing a
 browser control.
 
+## From Marker To Defensible Comparison
+
+The atlas supports comparison only after the features pass three independent
+tests:
+
+```mermaid
+flowchart LR
+    Features["selected features"] --> Role{"roles compatible?"}
+    Role -->|no| ContextOnly["describe separately"]
+    Role -->|yes| Space{"spatial precision supports comparison?"}
+    Space -->|no| ContextOnly
+    Space -->|yes| Time{"temporal semantics compatible?"}
+    Time -->|no| SpatialOnly["report spatial proximity only"]
+    Time -->|yes| Qualified["qualified cross-domain comparison"]
+```
+
+Role compatibility does not require identical source families; it requires a
+question that respects what each family can establish. Spatial compatibility
+requires distances no more precise than the underlying coordinates. Temporal
+compatibility requires eligible numeric intervals or another explicitly
+declared comparison rule. Passing all three tests supports comparison, not
+causation.
+
+| Map observation | Defensible next statement | Evidence to inspect |
+| --- | --- | --- |
+| two markers appear close | they are spatially proximate at the displayed precision | coordinate basis and uncertainty |
+| a pollen site and sample overlap numerically | their admitted time intervals overlap under the declared semantics | interval basis, bounds, and caveats |
+| a layer disappears after a scope change | the feature is not visible in the active selection | parent/child manifest and inclusion reason |
+| an expected record is absent | no marker is present in this view | recovery, refusal, and scope surfaces |
+
 ## Sweden lake overlays
 
 The optional lake layers rank SVAR registry lakes by nearby human aDNA, direct
@@ -102,6 +132,11 @@ Aggregate, consensus, radius-specific, and fieldwork-preparation overlays answer
 different questions. None includes bathymetry, coring depth, access, permits,
 landowner coordination, or field validation. A high-ranking lake is a candidate
 for further review, not a sampling recommendation.
+
+The overlay sequence is intentionally one-way: evidence layers inform a model;
+the model orders candidates; field review can accept, defer, or reject a
+candidate. A field decision never rewrites the evidence layers or retroactively
+changes the model score.
 
 ## Contracts and traceability
 

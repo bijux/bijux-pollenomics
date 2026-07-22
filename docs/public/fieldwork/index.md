@@ -33,6 +33,31 @@ flowchart LR
 | linkage between a visit record and an atlas feature | temporal overlap among nearby evidence families |
 | what is visibly documented in the selected media | a general sampling recommendation |
 
+## Observation Contract
+
+A publishable fieldwork feature binds five elements:
+
+| Element | Required meaning |
+| --- | --- |
+| place | a stable named feature and coordinates at the precision supported by the visit |
+| time | the date or interval during which the observation was made |
+| observer context | enough visit identity to distinguish the event from reused media or atlas context |
+| media lineage | repository-owned or explicitly licensed material linked to the visit |
+| claim boundary | a statement limited to what the visit and selected media establish |
+
+```mermaid
+flowchart LR
+    Visit["dated visit"] --> Identity["place and event identity"]
+    Identity --> Media["linked media"]
+    Media --> Review["claim boundary"]
+    Review --> Feature["published fieldwork feature"]
+    Context["atlas context"] -. compared after publication .-> Feature
+```
+
+Atlas context enters after the visit claim is established. Nearby pollen,
+archaeology, hydrography, or ancient-DNA records can motivate follow-up, but
+they cannot fill a missing visit date, location, media link, or observation.
+
 ## Current Record
 
 The published fieldwork surface contains one direct visit record:
@@ -58,6 +83,15 @@ field protocol required for sampling readiness.
 The fieldwork feature therefore remains its own atlas layer. It can be compared
 with nearby context, but proximity does not transfer evidentiary weight between
 layers.
+
+| Transition | What is learned | What remains unresolved |
+| --- | --- | --- |
+| ranking to desk review | whether a lake is evidence-rich under the model | bathymetry, access, permits, and field conditions |
+| desk review to visit | whether the candidate merits direct inspection | representative lake conditions and sampling feasibility |
+| visit to sampling decision | what was directly observed at one time and place | coring design, sediment integrity, and reproducibility |
+
+Each transition needs its own record. A visit is not a completion flag attached
+to a ranking row; it is new evidence with independent identity and limits.
 
 ## Publication Boundary
 

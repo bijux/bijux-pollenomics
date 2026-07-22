@@ -34,6 +34,19 @@ cross-domain investigation; they do not become direct evidence for the visit,
 and the visit does not validate their scientific claims. Each layer retains its
 own provenance, spatial precision, and temporal semantics.
 
+```mermaid
+flowchart LR
+    Visit["Lyngsjön visit"] --> Record["date, coordinates, and media"]
+    Record --> Claim["documented visit claim"]
+    Atlas["separately governed atlas layers"] --> Comparison["contextual comparison"]
+    Claim --> Comparison
+    Comparison --> Questions["follow-up questions"]
+```
+
+The diagram has no shortcut from atlas context to the visit claim. The visit
+is supported by its own record and media; contextual comparison begins only
+after that narrow claim is established.
+
 ## Repository Evidence
 
 - photo: `docs/gallery/2026-02-26-data-collection.JPG`
@@ -68,9 +81,27 @@ own provenance, spatial precision, and temporal semantics.
 Only one photograph and one video are published. Their role is evidence for the
 visit claim, not comprehensive documentation of conditions at the lake.
 
+## Reading The Media
+
+The photograph and video document selected views during a winter visit. They
+support statements about what is visible in those frames and the occurrence of
+the recorded visit. They do not establish conditions outside the captured
+view, persistence across seasons, lake-wide access, water depth, sediment
+structure, or the feasibility of a sampling design.
+
+The atlas coordinates locate the published visit feature. They are not a
+coring station, transect, shoreline-access guarantee, or substitute for a
+field protocol. Any later sampling record requires its own coordinates,
+methods, dates, permissions, observations, and media lineage.
+
 ## Evidence Boundary
 
 This record does not establish pollen stratigraphy, archaeological chronology,
 ancient-DNA presence, coring suitability, access, permits, or the
 representativeness of Lyngsjön for a wider region. Those questions require
 their own sources, methods, and review decisions.
+
+A stronger field assessment would add repeated or spatially distributed
+observations, bathymetry and basin evidence, access and permission records,
+seasonal context, and an explicit sampling protocol. Until then, the durable
+claim remains the documented visit described above.

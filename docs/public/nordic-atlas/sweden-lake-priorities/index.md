@@ -79,6 +79,35 @@ slices, then uses mean scenario rank and aggregate rank as tie-breakers. A lake
 that is consistently strong across radii can therefore differ from the lake
 with the highest weighted aggregate score.
 
+## Rank, Stability, And Readiness
+
+The ranking exposes three different signals that must not be collapsed into a
+single recommendation:
+
+| Signal | Meaning | Appropriate use |
+| --- | --- | --- |
+| aggregate rank | weighted evidence richness across all distance bands | identify candidates favored by the declared distance weighting |
+| consensus rank | recurrence near the top across scenario slices | identify candidates less dependent on one radius |
+| fieldwork-preparation posture | evidence, identity, and lake-screening readiness | order the next review actions |
+
+```mermaid
+flowchart LR
+    Evidence["governed nearby evidence"] --> Scenarios["radius scenarios"]
+    Scenarios --> Aggregate["aggregate ordering"]
+    Scenarios --> Consensus["cross-scenario stability"]
+    Aggregate --> Screen["fieldwork-preparation screen"]
+    Consensus --> Screen
+    Screen --> Review{"expert review"}
+    Review -->|evidence sufficient| Candidate["candidate for field assessment"]
+    Review -->|gap remains| Deferred["defer with required action"]
+```
+
+A high aggregate rank with weak cross-scenario recurrence is sensitive to the
+chosen radius. A strong consensus rank indicates stability within the tested
+scenarios, not robustness to missing source families or unmodeled field
+conditions. The fieldwork-preparation posture can therefore reorder or defer a
+high-scoring lake without contradicting the ranking.
+
 ## Reading candidate fields
 
 Each ranked row preserves:
@@ -131,6 +160,19 @@ A responsible progression is therefore:
 4. acquire bathymetry and sediment-basin information;
 5. assess access, permissions, conservation constraints, and field safety;
 6. record the expert decision independently of the ranking score.
+
+That final separation preserves auditability. The model score remains the
+answer to a reproducible evidence-richness question, while the expert decision
+records whether the unmodeled practical and scientific requirements were met.
+If the decision differs from rank order, the reason belongs in the field review
+rather than in an altered score.
+
+## Reusing A Ranked Result
+
+A defensible reference to a candidate includes its SVAR identity, ranking
+surface, scenario or aggregate definition, model inputs and weights, active
+geographic scope, and known required actions. Quoting only the ordinal rank
+removes the assumptions that give the number meaning.
 
 ## Governing outputs
 
