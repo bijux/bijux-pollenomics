@@ -4,119 +4,76 @@ audience: reader
 type: explanation
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-05-10
+last_reviewed: 2026-07-22
 ---
 
 # CLI Surface
 
-The CLI is the primary runtime interface because it rewrites tracked repository
-state.
-
-For most users, this is the most important runtime surface. It is where intent
-becomes action: collect data, inspect evidence, publish reports, or print a
-governed review. The point is to make the public command contract explicit, not
-to dump internal helper names.
-
-## CLI Model
+The `bijux-pollenomics` command is the canonical operational interface. Every
+subcommand belongs to collection, evidence inspection, validation, or
+publication, and its effect on repository state should be knowable before it
+runs.
 
 ```mermaid
-flowchart TB
-    command["named CLI command"]
-    options["shared options and defaults"]
-    handler["runtime handler"]
-    outputs["tracked data, report outputs, or typed runtime review"]
-    review["reviewable repository change"]
-
-    command --> options
-    options --> handler
-    handler --> outputs
-    outputs --> review
+flowchart LR
+    Command["named subcommand"] --> Arguments["validated scope and paths"]
+    Arguments --> Handler["owned runtime operation"]
+    Handler --> Result{"operation class"}
+    Result -->|inspect| Stdout["structured or human-readable output"]
+    Result -->|validate| Status["diagnostics and process status"]
+    Result -->|write| Files["reviewable tracked artifacts"]
 ```
 
-The point of this page is not to list every internal helper. It is to make the
-reviewable command surface explicit.
+## Command Families
 
-## Supported Commands
+| Family | Commands | State effect |
+| --- | --- | --- |
+| capability and ownership | `surface-map`, `product-scope`, `ownership-map`, `source-support` | read-only orientation |
+| animal evidence structure | `adna-layout`, `adna-runtime-manifest`, `adna-artifact-plan`, `adna-curation-manifest`, `adna-normalization-bundle` | read-only manifests and plans |
+| animal evidence review | `adna-archive-projects`, `adna-domestication-coverage`, `adna-species`, `adna-species-review`, `adna-release-bar`, `adna-release-readiness` | read-only coverage and release posture |
+| validation | `validate-collection-summary` | validates an existing summary without recollection |
+| collection and contract refresh | `collect-data`, `refresh-data-contract-surfaces`, `refresh-animal-adna-foundation` | writes governed data and, for the animal refresh, related publication surfaces |
+| publication | `report-country`, `report-multi-country-map`, `publish-reports` | writes scoped report and atlas products |
 
-- `collect-data <sources...>` collects tracked datasets into `data/`
-- `report-country <country>` publishes one country bundle from AADR metadata
-- `report-multi-country-map <countries...>` builds one shared evidence surface for a
-  chosen country set
-- `publish-reports` regenerates the checked-in publication bundle set using the
-  repository defaults
-- `adna-layout --species <name>` prints the canonical species-owned aDNA layout
-  under `data/adna/species/<latin_name>/...`
-- `adna-runtime-manifest --species <name>` prints the species-owned runtime
-  manifest, including source bundles and analysis boundaries
-- `adna-artifact-plan --species <name>` prints the deterministic species rebuild
-  artifact plan, including governed manifest and review payload paths
-- `adna-curation-manifest --species <name>` prints the governed curation
-  manifest for one species, including curated, pending, and rejected projects
-- `adna-normalization-bundle --species <name>` prints the governed non-human
-  normalization bundle, including project summaries, study summaries, lineage,
-  and explicit refusals
-- `adna-archive-projects` prints the curated ENA project inventory for
-  domesticated-animal ancient-DNA intake review, including evidence strength and
-  the current project-side metadata that still needs to feed sample extraction
-- `adna-domestication-coverage` prints the cross-species curation coverage
-  report, including support class and honesty posture for each domestication
-  program species
-- `adna-species` prints the canonical ancient-DNA species support matrix and
-  current runtime scope
-- `adna-species-review --species <name>` prints the governed review for one
-  species, including assignment rules, dataset bucket, release blockers,
-  project admission reviews, sample-foundation blockers, and archive integrity
-- `surface-map` prints a short runtime-versus-roadmap package surface map
-- `product-scope` prints explicit current atlas-builder scope versus not-yet-supported engine claims
-- `ownership-map` prints where source-data, ranking, and publication logic live
-- `source-support` prints source-family support status and country coverage
-- `validate-collection-summary` validates one collected summary payload without rerunning source collection
+## Inspect Before Writing
 
-The commands that matter most for most users are `collect-data`,
-`report-country`, `report-multi-country-map`, and `publish-reports`. The rest
-are evidence and contract inspection commands that explain how one species
-surface is shaped.
+```bash
+bijux-pollenomics product-scope
+bijux-pollenomics ownership-map
+bijux-pollenomics source-support
+bijux-pollenomics adna-species
+bijux-pollenomics publish-reports --help
+```
 
-## Shared Options
+Help is part of the interface contract. Use the subcommand help to confirm
+required inputs, defaults, and destinations before an operation that replaces
+tracked state.
 
-- `--version` selects the AADR version directory and defaults to `v66`
-- `--aadr-root` defaults to `data/aadr`
-- `--output-root` defaults to `data` for collection or `docs/report` for
-  report publishing
-- `--context-root` defaults to `data`
-- `--name` and `--title` control the atlas slug and display title
+## Explicit Write Paths
 
-## Example
+Collection and publication should name their governed roots when reproducible
+review matters:
 
 ```bash
 bijux-pollenomics collect-data all --version v66 --output-root data
-bijux-pollenomics adna-layout --species horse
-bijux-pollenomics adna-runtime-manifest --species "Homo sapiens" --version v66
-bijux-pollenomics adna-artifact-plan --species horse
-bijux-pollenomics adna-curation-manifest --species horse
-bijux-pollenomics adna-normalization-bundle --species horse --json
-bijux-pollenomics adna-archive-projects --species horse
-bijux-pollenomics adna-domestication-coverage --json
-bijux-pollenomics adna-species
-bijux-pollenomics adna-species-review --species horse --json
-bijux-pollenomics publish-reports --aadr-root data/aadr --version v66 --output-root docs/report --context-root data
+bijux-pollenomics publish-reports \
+  --aadr-root data/aadr \
+  --version v66 \
+  --output-root docs/report \
+  --context-root data
 ```
 
-## How To Read The Command Set
+`collect-data` can replace source-family directories. `publish-reports` can
+replace derived report products. Review their diffs as evidence and
+publication changes respectively; a zero exit status does not by itself prove
+scientific admission or unchanged output.
 
-- use collection commands when you want to refresh upstream inputs
-- use report commands when you want to publish downstream public outputs
-- use `adna-*` inspection commands when you want to inspect species-owned
-  evidence structure and blockers
-- use summary and validation commands when you want to challenge current state
-  without rewriting the whole repository
+## Alias Command
 
-The important boundary is that these commands should produce understandable
-repository effects. A command that hides what it rewrites is a bad public
-surface, even if it technically works.
+The `pollenomics` executable forwards to the same runtime with a shorter program
+name. It does not own separate handlers, defaults, evidence rules, or report
+logic. Durable operational documentation and system ownership use the
+canonical `bijux-pollenomics` name.
 
-## First Proof Check
-
-- `src/bijux_pollenomics/cli.py`
-- `src/bijux_pollenomics/command_line/parsing/`
-- `tests/e2e/test_cli.py`
+For Python imports, continue to the [API surface](api-surface.md). For safe
+operation sequences, continue to [operator workflows](operator-workflows.md).

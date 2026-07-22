@@ -65,6 +65,28 @@ publication evidence until a governed workflow admits it to a tracked surface.
 - Refused and qualified records remain visible in review surfaces instead of
   disappearing from the accountability trail.
 
+## Control Flow And Evidence Flow
+
+The command path and the evidence path intersect but are not equivalent. The
+CLI selects an operation and supplies explicit scope. Evidence modules decide
+what the acquired records mean. Publication modules decide which reviewed
+records belong to a product. A command may orchestrate all three boundaries;
+it may not silently replace their separate contracts.
+
+```mermaid
+flowchart LR
+    Intent["operator intent"] --> Command["command contract"]
+    Command --> Operation["bounded operation"]
+    Source["captured source"] --> Evidence["evidence contract"]
+    Evidence --> Decision["publication decision"]
+    Operation --> Decision
+    Decision --> Change["reviewable tracked change"]
+```
+
+This separation makes two failures distinguishable: an operation can fail to
+execute, or evidence can execute successfully and still fail admission. The
+second outcome is a scientific refusal, not a runtime defect.
+
 ## Trace A Published Point
 
 ```mermaid
