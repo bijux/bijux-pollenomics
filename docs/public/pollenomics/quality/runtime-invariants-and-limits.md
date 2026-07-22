@@ -64,8 +64,9 @@ complete or precise.
 A passing product demonstrates that its declared inputs, identities,
 relationships, geography, and publication rules were internally consistent at
 the recorded version. Stronger claims—complete recovery, representative
-sampling, exact historical abundance, reference-grade coordinates, or final
-scientific consensus—require evidence beyond that software contract.
+sampling, exact historical abundance, coordinates suitable for unrestricted
+reuse, or final scientific consensus—require evidence beyond that software
+contract.
 
 See [operational boundaries](../operations/operational-boundaries.md),
 [publication types](../../pollenomics-data/publications/publication-types.md),

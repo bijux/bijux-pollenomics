@@ -95,8 +95,8 @@ Animal publication checks currently enforce that:
 - contextual temporal rows remain distinguishable from numeric comparisons.
 
 Passing these safeguards permits the qualified publication surface. It does
-not authorize a reference-grade or final-release claim; those stronger claims
-have separate evidence requirements.
+not authorize unrestricted precision or final-release maturity; those stronger
+claims have separate evidence requirements.
 
 ## Choose A Publication
 

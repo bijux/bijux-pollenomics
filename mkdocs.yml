@@ -164,7 +164,7 @@ nav:
           - Operational Boundaries: public/pollenomics/operations/operational-boundaries.md
       - Quality:
           - Overview: public/pollenomics/quality/index.md
-          - Test Strategy: public/pollenomics/quality/test-strategy.md
+          - Verification Evidence: public/pollenomics/quality/test-strategy.md
           - Change Validation: public/pollenomics/quality/change-validation.md
           - Review Checklist: public/pollenomics/quality/review-checklist.md
           - Public Language Guide: public/pollenomics/quality/public-language-guide.md

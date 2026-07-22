@@ -77,5 +77,5 @@ scope by the required state transition, then validate the affected contract.
 
 Operational success proves that a command completed under its software
 contract. It does not prove source completeness, scientific correctness,
-reference-grade coordinates, or final-release maturity. Those claims remain
-governed by evidence review and publication gates.
+coordinates suitable for unrestricted reuse, or final-release maturity. Those
+claims remain governed by evidence review and publication gates.

@@ -26,7 +26,7 @@ vocabulary describes the authority of a surface; it is not a maturity score.
 | `ledger` | accumulated conflicts, exclusions, substitutions, or caveats | a set of resolved items |
 | `matrix` | repeated dimensions compared across domains or products | one total confidence rank |
 | `queue` | ordered unresolved recovery or curation work | evidence already eligible for publication |
-| `publishable` | eligible for a specific product at stated precision | reference-grade or unrestricted reuse |
+| `publishable` | eligible for a specific product at stated precision | unrestricted precision or reuse |
 
 ## Provenance Classes
 

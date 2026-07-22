@@ -47,7 +47,7 @@ result—not as a default proof that unrelated code or prose is correct.
 | recover from an interrupted or failed operation | [Failure recovery](failure-recovery.md) |
 | distinguish supported automation from scientific inference | [Operational boundaries](operational-boundaries.md) |
 | inspect exact subcommands and write effects | [CLI surface](../interfaces/cli-surface.md) |
-| select validation proportional to the changed surface | [Test strategy](../quality/test-strategy.md) |
+| understand the proof behind a published claim | [Verification evidence](../quality/test-strategy.md) |
 
 Every state-changing operation ends with the same obligation: inspect the
 resulting files as evidence or publication changes, then run the checks that

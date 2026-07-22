@@ -1081,15 +1081,22 @@ class RepositoryContractRegressionTests(unittest.TestCase):
             "export PYTHONPYCACHEPREFIX ?= $(ROOT_PYCACHE_DIR)", root_env_text
         )
 
-    def test_readme_and_docs_describe_license_and_test_suites(self) -> None:
+    def test_readme_and_docs_separate_reader_proof_from_test_selection(self) -> None:
         readme_text = (REPO_ROOT / "README.md").read_text(encoding="utf-8")
-        docs_text = (
+        public_quality_text = (
             REPO_ROOT
             / "docs"
             / "public"
             / "pollenomics"
             / "quality"
             / "test-strategy.md"
+        ).read_text(encoding="utf-8")
+        maintainer_quality_text = (
+            REPO_ROOT
+            / "docs"
+            / "internal"
+            / "pollenomics-dev"
+            / "quality-gates.md"
         ).read_text(encoding="utf-8")
 
         self.assertIn("Apache License 2.0", readme_text)
@@ -1099,9 +1106,14 @@ class RepositoryContractRegressionTests(unittest.TestCase):
         self.assertIn("make test-unit", readme_text)
         self.assertIn("make test-regression", readme_text)
         self.assertIn("make test-e2e", readme_text)
-        self.assertIn("`tests/unit/`", docs_text)
-        self.assertIn("`tests/regression/`", docs_text)
-        self.assertIn("`tests/e2e/`", docs_text)
+        self.assertIn("# Verification Evidence", public_quality_text)
+        self.assertIn("## Proof Layers", public_quality_text)
+        self.assertNotIn("`tests/unit/`", public_quality_text)
+        self.assertNotIn("`tests/regression/`", public_quality_text)
+        self.assertNotIn("`tests/e2e/`", public_quality_text)
+        self.assertIn("`tests/unit/`", maintainer_quality_text)
+        self.assertIn("`tests/regression/`", maintainer_quality_text)
+        self.assertIn("`tests/e2e/`", maintainer_quality_text)
 
     def test_docs_home_page_uses_repository_name_for_title_and_h1(self) -> None:
         docs_index = (REPO_ROOT / "docs" / "index.md").read_text(encoding="utf-8")

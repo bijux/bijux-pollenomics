@@ -1,85 +1,80 @@
 ---
-title: Test Strategy
+title: Verification Evidence
 audience: reader
 type: explanation
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-05-10
+last_reviewed: 2026-07-22
 ---
 
-# Test Strategy
+# Verification Evidence
 
-`bijux-pollenomics` uses layered tests so command behavior, file contracts, and
-source-specific transformations fail close to the defect.
+Every published claim sits on several independently reviewable proof layers.
+Verification establishes whether encoded contracts hold across those layers;
+it does not enlarge the underlying evidence or erase uncertainty recorded by a
+source.
 
-The purpose of the test strategy is not to make every change expensive. It is
-to make the right failure appear at the right layer, early enough that you can
-understand what broke.
+```mermaid
+flowchart LR
+    Source["source identity and retrieval context"] --> Curated["curated evidence records"]
+    Curated --> Relation["explicit evidence relations"]
+    Relation --> Membership["governed publication membership"]
+    Membership --> Product["map, report, or export"]
+    Source -. "lineage proof" .-> Claim["proportionate public claim"]
+    Curated -. "semantic proof" .-> Claim
+    Relation -. "support proof" .-> Claim
+    Membership -. "scope proof" .-> Claim
+    Product -. "delivery proof" .-> Claim
+```
 
-Use this page when your question is:
+## Proof Layers
 
-- what kind of checking stands behind the repository
-- why one change needs a narrow test while another needs a broader gate
-- what a passing suite does and does not prove
+| Layer | What is verified | What remains a review judgment |
+| --- | --- | --- |
+| source integrity | known source identity, retrieval context, expected assets, and governed hashes where available | whether the source is suitable for a new scientific question |
+| curation semantics | required fields, preserved nulls, normalized identifiers, chronology meaning, and precision rules | whether an ambiguous record should support a stronger interpretation |
+| evidence relations | typed links resolve to governed records and retain their declared role | whether contextual evidence can be promoted to direct support |
+| publication scope | deterministic membership, exclusions, traceability, and declared geographic or thematic boundaries | whether the publication scope is sufficient for a reader's intended inference |
+| runtime delivery | installed commands, artifacts, and failure behavior conform to their public contracts | whether a technically valid output communicates uncertainty well |
+| scientific review | source-specific assumptions and visible caveats receive human review | whether later evidence warrants a revised interpretation |
 
-## Current Layers
+No single layer substitutes for another. A valid artifact with missing lineage
+is not fully traceable; a traceable record outside a publication contract is
+not silently included; and a passing runtime check does not certify scientific
+completeness.
 
-- `tests/unit/` for focused module and helper behavior such as command parsing,
-  data layout rules, source normalization, geometry helpers, and reporting
-  artifact routines
-- `tests/regression/` for stable output and repository contract behavior such
-  as docs conventions, workflow assumptions, and bundle-level expectations
-- `tests/e2e/` for CLI-level flows that prove the installed command surface
+## Reading A Verification Result
 
-Those layers are different on purpose:
+| Result | Supported conclusion | Unsupported conclusion |
+| --- | --- | --- |
+| source checks pass | governed inputs have the expected identity and structure | the source has complete spatial, temporal, or taxonomic coverage |
+| curation checks pass | encoded transformations preserve declared invariants | every ambiguity has one scientifically correct resolution |
+| relation checks pass | evidence links are structurally valid and typed | every linked record provides direct support |
+| publication checks pass | the product contains the membership its contract declares | omitted records are irrelevant to every possible analysis |
+| delivery checks pass | the supported interface produces conforming outputs | the output is appropriate for an undeclared use case |
 
-- unit tests answer "did this narrow rule still hold"
-- regression tests answer "did the repository-owned surface drift"
-- end-to-end tests answer "does the installed command path still behave"
+The decisive question is therefore not simply whether verification passed. It
+is whether the proof that passed governs the claim being made.
 
-## Choose The Narrowest Honest Layer
+## Failure And Refusal
 
-- start with `tests/unit/` when the change is local to a helper, parser,
-  normalization rule, or renderer
-- widen to `tests/regression/` when the contract lives in tracked outputs,
-  repository conventions, or docs-facing publication behavior
-- use `tests/e2e/` when the risk is the command flow itself rather than one
-  internal implementation seam
+Verification failures preserve information. Depending on the boundary, the
+system can reject malformed input, preserve a qualified record, exclude a
+record with an explicit reason, or refuse publication. These outcomes are
+preferable to manufacturing certainty or silently weakening a contract.
 
-That "narrowest honest layer" rule matters for speed as well as rigor. A slow
-test suite is only useful when it is aimed at the right question.
+An exclusion report is consequently part of the evidence, not a secondary
+debug artifact. It identifies the boundary between what a publication can
+support and what remains outside its declared claim.
 
-## What Passing Tests Mean Here
+## Review Surfaces
 
-- the checked boundary behaved as expected
-- the repository caught a specific class of drift
-- one surface remains reviewable
-
-They do not automatically mean:
-
-- that the public wording is proportionate
-- that the evidence is complete
-- that a polished output is stronger than before
-
-## Important Local Anchors
-
-- `tests/unit/test_command_line.py` and `tests/e2e/test_cli.py` cover the
-  operator-facing command surface at different depths
-- `tests/unit/test_data_layout.py` and source-specific unit tests protect the
-  tracked data shape and source normalization logic
-- `tests/unit/test_reporting_artifacts.py` checks publication asset behavior
-- `tests/regression/test_repository_contracts.py` protects repository and docs
-  assumptions that should not drift unnoticed
-
-## First Proof Check
-
-- `tests/unit/`
-- `tests/regression/`
-- `tests/e2e/test_cli.py`
-
-## Public-Facing Implication
-
-The testing model is designed to keep failures close to the real question.
-That is good for maintainers, but it also matters publicly: when a surface is
-published, the repository should be able to say what kind of proof actually
-stands behind it.
+- [Runtime invariants and limits](runtime-invariants-and-limits.md) state the
+  conditions the supported system must preserve.
+- [Change validation](change-validation.md) explains how proof follows the
+  boundary that changed.
+- [Public language](public-language-guide.md) constrains the claim that may be
+  made from verified evidence.
+- [Animal atlas readiness](../../../report/animal_atlas_readiness.md) and the
+  [animal exclusion report](../../../report/animal_atlas_exclusion_report.md)
+  expose current publication readiness and refusal reasons.

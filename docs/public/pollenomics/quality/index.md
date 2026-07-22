@@ -63,7 +63,8 @@ evidence.
 
 - [Runtime invariants and limits](runtime-invariants-and-limits.md) define the
   conditions that must remain true.
-- [Test strategy](test-strategy.md) maps defect classes to validation layers.
+- [Verification evidence](test-strategy.md) explains what each proof layer can
+  and cannot establish for a public claim.
 - [Change validation](change-validation.md) defines proof proportional to a
   changed surface.
 - [Public language](public-language-guide.md) constrains claims and caveats.

@@ -27,9 +27,9 @@ Its current blocking dimensions are:
   exist, but broader geographic proof is not yet established.
 
 The animal publication gate passes its current anti-overclaim checks while
-still reporting that reference-grade language is not allowed. These two results
-are compatible: a conservative subset can be safely published before the
-underlying recovery program is complete.
+still prohibiting language that implies unrestricted precision. These two
+results are compatible: a conservative subset can be safely published before
+the underlying recovery program is complete.
 
 ## Limits By Dimension
 
