@@ -31,6 +31,25 @@ Family-owned fields remain beside this envelope. A pollen sequence retains
 sequence meaning, a registry site retains registry semantics, and a sample
 retains sample-level lineage.
 
+## Field Lineage
+
+Every normalized value should be classifiable by how it was obtained:
+
+| Value class | Required lineage | Example |
+| --- | --- | --- |
+| preserved | source field and source-native value | accession, reported locality, or registry identifier |
+| parsed | source text plus parsing rule | numeric interval parsed from a declared date field |
+| normalized | source value plus vocabulary or unit mapping | country code, taxon label, or coordinate reference system |
+| derived | named inputs plus deterministic method | bounding box, distance, density, or summary count |
+| curated | competing evidence plus recorded decision and owner | sample-to-site link or qualified coordinate |
+| absent | explicit missing, unresolved, inapplicable, or withheld state | chronology not supplied by the source |
+
+This classification prevents a derived or curated value from appearing
+source-native after it has moved downstream. It also makes review proportional:
+preserved values need identity proof; parsed and normalized values need
+transformation proof; derived values need method and input proof; curated
+values need a decision record.
+
 ```mermaid
 flowchart TB
     subgraph Native["source-native meaning"]
@@ -71,6 +90,20 @@ flowchart TB
 - missing and unresolved values are not converted to empty certainty;
 - normalization status is not publication status.
 
+## Nulls, Collisions, And Deduplication
+
+Null states remain semantic. `missing`, `unresolved`, `not applicable`, and
+`withheld` describe different relationships to the source and cannot be
+collapsed into an empty string or zero. A consumer that does not understand a
+state must preserve it rather than invent a default.
+
+Identity collisions are reviewed within the family that owns the observation
+unit. Matching labels, titles, place names, or rounded coordinates are
+candidate signals, not proof of equality. Deduplication must retain the source
+members, comparison rule, chosen governing identity, and any unresolved
+conflict. Cross-family records are normally related, not deduplicated, because
+they observe different objects.
+
 ## Join Eligibility
 
 A shared identifier shape does not authorize a scientific join. A join must
@@ -87,6 +120,12 @@ declare the relation and compatible dimensions:
 Co-located records with incompatible time support remain spatially comparable
 only. Records within one country remain co-members of a geographic scope, not
 evidence of association.
+
+A join result inherits the weakest compatible precision of its members. Two
+records with point geometry are not an exact spatiotemporal match when one
+point is approximate or one chronology is contextual. The normalized envelope
+exposes those limits so comparison code and readers can refuse the stronger
+relation.
 
 ## Publication Boundary
 

@@ -68,6 +68,31 @@ A newer source may reveal that an older claim was too broad. Narrowing or
 refusing that claim is a successful refresh outcome when it more accurately
 represents the evidence.
 
+## Compare Meaning Before Volume
+
+Review changes in this order:
+
+```mermaid
+flowchart LR
+    Identity["source identity and terms"] --> Members["member identities"]
+    Members --> Semantics["field meaning and null states"]
+    Semantics --> Precision["space, time, and taxonomy precision"]
+    Precision --> Decisions["curation and admission decisions"]
+    Decisions --> Products["product membership and presentation"]
+    Products --> Counts["aggregate counts"]
+```
+
+Counts come last because several important changes can cancel numerically. One
+record can replace another; exact geography can become approximate; a direct
+role can become contextual; or an admitted member can be exchanged for a
+different member while the total stays constant.
+
+For every removal, distinguish upstream deletion, corrected duplication,
+changed scope, failed acquisition, and normalization loss. For every addition,
+distinguish newly available evidence, a changed parser, a repaired identity,
+and a broadened admission rule. These causes have different scientific
+meaning even when they produce the same diff shape.
+
 ## Failure Classes
 
 | Failure | Meaning | Required response |
@@ -78,6 +103,22 @@ represents the evidence.
 | normalization loss | expected fields or records disappear during transformation | reject the staged root |
 | evidence regression | new records weaken locality, chronology, or source support | qualify or block affected publications |
 | publication drift | downstream bundles no longer agree with governed data | regenerate and revalidate the derived surfaces |
+
+## Acceptance Record
+
+A refresh is ready to replace the governed family only when the review can
+state:
+
+- the exact source identity, version, retrieval context, and use posture;
+- the expected and recovered assets, including explicit acquisition gaps;
+- the normalized member-level additions, removals, and modifications;
+- any changed semantics, precision, conflicts, or denominator;
+- the curation decisions that changed and the facts they own;
+- the publications that changed—or why none changed; and
+- whether the prior governed tree remains recoverable from repository history.
+
+This record makes acceptance reviewable after the live service and local logs
+are gone. Successful execution alone is not an acceptance record.
 
 ## Reproducibility Boundary
 

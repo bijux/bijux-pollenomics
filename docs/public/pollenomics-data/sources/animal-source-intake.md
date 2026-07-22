@@ -59,6 +59,36 @@ payloads. Their logical `article.html` or `archive_metadata.html` identity stays
 stable, while companion metadata records the physical path, byte size, and
 encoding. Storage optimization therefore does not break provenance locators.
 
+## Evidence Hierarchy
+
+Different artifacts can support different claims about the same sample. The
+curation record keeps those authorities separate:
+
+| Claim | Preferred authority | Acceptable narrower fallback | Never sufficient by itself |
+| --- | --- | --- | --- |
+| sample identity | sample-bearing supplement or archive row with stable locator | explicit paper table or project metadata linked to the sample | project title or species list |
+| project membership | archive accession and sample-to-project relation | paper statement naming both project and sample | DOI proximity alone |
+| locality | sample row, sample-specific table, or explicit sample-to-site link | documented named site or region with matching precision | project country or map-centroid inference |
+| chronology | sample-owned reported value and dating basis | explicit sample group interval carried as contextual or broad | paper year or undifferentiated project period |
+| coordinate | source-supplied sample or verified site coordinate with provenance | documented approximate named-site resolution | arbitrary representative point for a region |
+
+When authorities conflict, the intake does not select the most precise value.
+It records the competing claims, their locators, and the decision basis. A
+less precise but directly supported value outranks an exact-looking value with
+unclear ownership.
+
+```mermaid
+flowchart TB
+    Artifact["captured paper, supplement, or archive row"] --> Locator["stable source locator"]
+    Locator --> Claim["identity, locality, chronology, or coordinate claim"]
+    Claim --> Conflict{"conflicting support?"}
+    Conflict -->|no| Governed["governed sample evidence"]
+    Conflict -->|yes| Ledger["conflict and ambiguity record"]
+    Ledger --> Decision["qualified resolution or refusal"]
+    Governed --> Admission["product-specific admission"]
+    Decision --> Admission
+```
+
 ## Recovery states are evidence, too
 
 The intake registry distinguishes incomplete acquisition from incomplete
@@ -78,6 +108,12 @@ meaning:
 Expected sample counts are also provenance-bearing claims. When the available
 paper or archive surface is too weak, the registry keeps the count unknown
 rather than turning an estimate into an apparent fact.
+
+Recovery completeness must therefore name its denominator. “All recovered
+samples reviewed” describes the extracted rows; it does not mean every sample
+expected from every paper or project was recovered. Where a trustworthy
+expected count is unavailable, completeness remains unknown even if every
+known row is curated.
 
 ## How to audit a sample
 
@@ -102,6 +138,11 @@ preserve the source claims:
 Cross-project audits expose missing captures, ambiguous identities, locality
 conflicts, chronology gaps, and manual-curation work without promoting those
 records into public points.
+
+An audit should also verify that every published descendant points back to the
+same governing sample identity. Species views and report rows are projections;
+they cannot silently split one sample, merge distinct samples, or replace the
+project-owned authority.
 
 ## Reading a visible point correctly
 
