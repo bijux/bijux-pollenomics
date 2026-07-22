@@ -75,6 +75,25 @@ that keeps only standard output loses product membership; a caller that keeps
 only generated files loses the request and software outcome that produced
 them.
 
+### Record Which Distribution Supplied The Runtime
+
+The repository contains a canonical runtime distribution, a maintainer
+distribution, and a compatibility distribution. Only the canonical runtime
+owns scientific behavior. A reproducible invocation record therefore names:
+
+| Field | Example role |
+| --- | --- |
+| executable | `bijux-pollenomics`, or the delegated `pollenomics` alias |
+| distribution | installed `bijux-pollenomics` version and environment identity |
+| runtime owner | `bijux_pollenomics`, regardless of which supported executable invoked it |
+| governed roots | explicit `data/`, AADR, context, and report roots used by the command |
+| result identity | manifest, review packet, or validation target produced or inspected |
+
+This distinction prevents an editable checkout, a compatibility executable,
+and an installed wheel from becoming three unnamed execution contexts. The
+scientific result must still resolve to the same runtime owner and governed
+artifact contracts.
+
 ## Stable Result Shapes
 
 - inspection commands support either a compact table or `--json` when the

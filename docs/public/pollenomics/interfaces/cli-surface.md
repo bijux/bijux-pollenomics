@@ -115,6 +115,24 @@ products. It does not collect missing source data.
 | `publish-reports` | country list, data roots, version, and output root | current world, regional, and country publication tree | stronger precision than the inputs provide |
 | `refresh-animal-adna-foundation` | species, countries, and governed roots | animal capture, normalized evidence, and dependent animal publications | refresh of collector-managed environmental families |
 
+## Command Impact Evidence
+
+The command name alone is not an operation record. Retain the evidence that
+matches its state effect:
+
+| Command example | Before execution | Result to retain | After execution |
+| --- | --- | --- | --- |
+| `product-scope` | installed distribution identity | stdout or JSON-equivalent inspection result and process status | no governed file change |
+| `source-support --json` | installed distribution and requested output mode | structured support matrix and process status | no governed file change |
+| `validate-collection-summary` | summary path and content identity | validation status and diagnostics | validated file remains unchanged |
+| `collect-data` | selected families, version, destination, and prior collection summary | capture metadata, hashes, normalization result, and process status | compare family-owned trees and new collection summary |
+| `publish-reports` | AADR root, context root, countries, version, output root, and prior manifests | publication summary, manifests, review packets, and process status | compare membership and qualifications, not only rendered files |
+| `refresh-animal-adna-foundation` | species scope, evidence roots, report roots, and prior animal manifests | refresh result, validation, review, and release posture | inspect the full animal evidence and publication dependency set |
+
+For a writer, an unchanged process status with an unexpected semantic diff is
+not enough evidence of correctness. For an inspector, an empty filesystem diff
+is expected and does not mean the command produced no useful result.
+
 ## Failure Semantics
 
 Argument errors—such as an unknown subcommand, missing required species, or

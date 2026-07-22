@@ -93,6 +93,41 @@ If two bundle surfaces disagree, consumers should stop at the manifest and
 traceability boundary and report the inconsistency. Choosing whichever value
 looks more plausible would erase the evidence needed to repair the product.
 
+## A World Bundle Is A Connected Packet
+
+The checked-in world publication demonstrates the companion surfaces required
+to interpret one product:
+
+| Surface | World member | Responsibility |
+| --- | --- | --- |
+| bundle entrypoint | `world_bundle.json` | names product membership and companion artifacts |
+| publication contract | `world_map_publication_contract.json` | declares scope, evidence roles, and output expectations |
+| evidence surface | `world_evidence_surface.json` | exposes source-family fitness and comparison posture |
+| point traceability | `world_point_traceability.json` | connects visible point identities to governing evidence |
+| scientific review | `world_scientific_review.json` | records qualifications, refusals, and review findings |
+| structured geometry | `world_samples.geojson` and animal locality GeoJSON | carries admitted geometry and feature properties |
+| reader rendering | `world_map.html` and `README.md` | presents the governed product without becoming its authority |
+
+```mermaid
+flowchart TB
+    Bundle["world_bundle.json"] --> Contract["publication contract"]
+    Bundle --> Evidence["evidence surface"]
+    Bundle --> Trace["point traceability"]
+    Bundle --> Review["scientific review"]
+    Bundle --> Geometry["structured geometry"]
+    Contract --> Rendering["map and reader guide"]
+    Evidence --> Rendering
+    Trace --> Rendering
+    Review --> Rendering
+    Geometry --> Rendering
+```
+
+Copying only `world_map.html` preserves appearance but breaks the publication
+contract. A portable derivative keeps the bundle entrypoint, every referenced
+structured member, qualifications, exclusions, and the source product
+identity. A subset additionally records its selection rule and retained member
+identifiers.
+
 ## Reading One Feature
 
 Start with the visible feature identifier, locate it in the bundle membership
