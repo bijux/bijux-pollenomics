@@ -14,7 +14,7 @@ it defensible. It includes more than a citation: acquisition context,
 normalization, evidence ownership, admission, product membership, and visible
 qualification must remain linked.
 
-## Minimum Provenance Packet
+## Provenance Model
 
 A reusable publication record should carry or resolve to:
 
@@ -36,6 +36,13 @@ object type.
 A citation without the evidence identifier and locator can establish relevance
 but not which record or wording supported the published claim. A coordinate
 without its basis can establish geometry but not spatial precision.
+
+The model therefore preserves three kinds of provenance at once: source
+provenance identifies captured origin; transformation provenance explains how
+repository-owned meaning was produced; decision provenance explains why that
+meaning was admitted, qualified, or refused for one product. Product lineage
+is incomplete when any of the three becomes an untyped filename or copied
+value.
 
 ## Preparation Provenance
 
@@ -147,6 +154,25 @@ refused when the evidence does not own that precision.
 Chronology retains reported text, normalized interval where supported,
 evidence class, precision, and source owner. Project dates and paper dates do
 not become sample chronology through proximity in the provenance graph.
+
+## Coordinate Policy
+
+A coordinate claim retains value, reference system, source or resolution
+method, linked locality, precision posture, and evidence owner. Publication
+may project the value for display, but it may not strengthen its support.
+
+| Coordinate posture | Permitted representation | Required qualification |
+| --- | --- | --- |
+| source supplied and sample linked | exact point when the product admits it | retain source locator and stated precision |
+| resolved named site | point at the governed site geometry | identify the resolution method and site relation |
+| approximate named place | qualified point when the product permits approximation | expose approximate posture and basis |
+| region only | region or non-point representation | do not render a centroid as sample precision |
+| unresolved or conflicting | no exact point | retain the conflict, exclusion, and recovery condition |
+
+Country membership and distance are derived relations over this coordinate
+claim and a versioned boundary or comparator. They require their own method,
+scope, and revision; coordinate presence alone does not make either relation
+authoritative.
 
 ## Broken Links
 

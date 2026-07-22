@@ -3004,7 +3004,10 @@ def _docs_restoration_expectations() -> list[dict[str, object]]:
             ["docs/02-bijux-pollenomics-data/foundation/data-system-overview.md"],
             decision="merged",
             current_path="docs/public/pollenomics-data/overview/data-system-overview.md",
-            required_snippets=["docs/report/", "pollenomics-first"],
+            required_snippets=[
+                "docs/report/",
+                "Pollen Evidence Leads The Scientific Model",
+            ],
             rationale="the old foundation overview is replaced by the current data-system overview page",
         )
     )

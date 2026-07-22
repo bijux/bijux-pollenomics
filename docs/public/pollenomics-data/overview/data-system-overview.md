@@ -31,6 +31,29 @@ A publication selects only the evidence appropriate to its declared purpose.
 The family contract states what each source can answer before publication code
 combines it with another layer.
 
+### Pollen Evidence Leads The Scientific Model
+
+Pollenomics begins with pollen and palaeoenvironmental questions. LandClim and
+Neotoma contribute the primary pollen context; archaeology, hydrography,
+boundaries, human aDNA, animal aDNA, and field observations add distinct
+context, comparison, sampling, or framing roles. Their presence makes the
+evidence graph richer without making every layer equivalent to pollen
+evidence.
+
+```mermaid
+flowchart LR
+    Pollen["pollen and palaeoenvironmental evidence"] --> Question["declared scientific question"]
+    Archaeology["archaeology context"] --> Question
+    Hydrography["lake identity and sampling context"] --> Question
+    ADNA["human and animal aDNA context"] --> Question
+    Boundaries["geographic framing"] --> Product["scoped publication"]
+    Question --> Product
+```
+
+The leading role is conceptual, not a weighting shortcut. A specific analysis
+must still declare its observation unit, temporal and spatial comparability,
+selection population, and product contract before combining families.
+
 ## Curation Is Evidence Work
 
 Curation does more than make fields consistent. It records which identity,

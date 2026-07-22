@@ -14,7 +14,7 @@ can retain identity, use conditions, semantics, and limits through curation.
 Discovery is not admission, and a successful refresh is not evidence that the
 source's meaning stayed unchanged.
 
-## Admission Criteria
+## Selection Rules
 
 | Criterion | Required answer |
 | --- | --- |
@@ -84,7 +84,7 @@ flowchart LR
     Decision -->|refuse| Refusal["reasoned refusal"]
 ```
 
-## Refresh Transaction
+## Refresh Lifecycle
 
 ```mermaid
 flowchart LR
@@ -173,3 +173,23 @@ Replacement never erases provenance. The superseding source receives its own
 identity and selection record; affected normalized records and products retain
 the chain needed to distinguish a source substitution from newly discovered
 scientific evidence.
+
+## Migration Pressure
+
+A source schema, access route, identifier system, licence posture, or
+observation model can change without announcing a new scientific meaning.
+Migration pressure is the set of differences that the existing preparation
+contract can no longer absorb safely.
+
+| Pressure | Required response |
+| --- | --- |
+| renamed or split fields | map source expressions explicitly and review null, precision, and unit semantics |
+| changed native identifiers | publish equivalence, merge, split, and collision decisions before replacing stable identities |
+| new endpoint or archive packaging | preserve the new retrieval identity and prove member equivalence |
+| changed spatial or temporal model | revise the family contract and re-evaluate comparison and publication fitness |
+| discontinued access or restrictive terms | retain the last governed snapshot and narrow refresh or redistribution claims |
+| replacement source | create a new source identity and selection decision; never inherit authority silently |
+
+A migration is complete only when source, normalized, review, and publication
+populations reconcile by identity. Matching totals or a structurally valid
+schema does not prove unchanged meaning.
