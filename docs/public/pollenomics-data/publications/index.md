@@ -14,6 +14,9 @@ state. Reports, maps, evidence tables, ranking outputs, and caveat surfaces are
 assembled together so a visual result can be inspected alongside its inputs,
 traceability, and scientific review.
 
+The [domain language](../domain-language.md) defines product, manifest,
+publication member, projection, evidence role, and product scope.
+
 ## Geographic Lineage
 
 ```mermaid
@@ -149,6 +152,25 @@ The bundle is complete for interpretation only when its manifest, evidence
 members, review surfaces, and renderings resolve to the same identity. A
 standalone HTML map can remain useful for exploration, but it is not a complete
 scientific publication.
+
+### Bundle Closure
+
+A bundle is closed when every declared member and companion can be reconciled
+without inferring state from a rendering:
+
+| Closure check | Required agreement |
+| --- | --- |
+| inventory | manifest lists every required structured, review, warning, and rendering companion |
+| membership | admitted identities equal manifested identities after declared scope selection |
+| traceability | every visible scientific member resolves to governed evidence and a source locator |
+| qualification | material precision, conflict, context, and refusal posture survives every relevant projection |
+| accounting | counts reconcile by observation unit across eligible, admitted, qualified, and non-member populations |
+| geography | child members are valid subsets of their parent scope and retain invariant evidence meaning |
+| rendering | labels, filters, popups, tables, and narrative do not contradict structured member state |
+
+A file-complete directory can still fail closure when its members disagree. A
+scientifically coherent product can also contain explicit refusals and empty
+subsets; closure requires those outcomes to be accounted for, not hidden.
 
 ### Member Decisions Travel With The Bundle
 

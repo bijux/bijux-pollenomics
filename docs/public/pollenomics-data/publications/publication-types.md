@@ -13,6 +13,9 @@ Publication type states what a surface can support. It prevents a map, review,
 or source inventory from acquiring authority merely because it is polished or
 easy to cite.
 
+The [domain language](../domain-language.md) defines direct evidence, context,
+framing, decision support, publication member, and projection.
+
 ## Surface Roles
 
 | Role | Answers | Typical surfaces | Cannot establish alone |
@@ -80,6 +83,32 @@ others, even when all three symbols appear in the same viewport.
 The companion material is part of the claim, not optional background. It
 prevents a visual observation from silently becoming a stronger scientific
 assertion.
+
+### Construct A Typed Publication Claim
+
+A reusable publication statement contains five parts:
+
+```text
+governed member + evidence role + supported predicate + product scope + qualification
+```
+
+For example:
+
+> Neotoma site 13338 is published as Nordic pollen context with a site-level
+> 0–9815 BP coverage span; the interval describes site coverage, not a dated
+> sample event.
+
+| Part | Value in the example | Failure if omitted |
+| --- | --- | --- |
+| governed member | Neotoma site 13338 | the statement cannot be traced to one source-native object |
+| evidence role | pollen context | context may be mistaken for direct human or animal evidence |
+| supported predicate | site coverage spans 0–9815 BP | a marker may be cited without naming what it establishes |
+| product scope | Nordic publication | local membership may be generalized to another geography or version |
+| qualification | site coverage, not sample-event chronology | broad temporal presence may be promoted into contemporaneity |
+
+This grammar works for direct evidence, context, framing, rankings, and
+refusals. The verb and qualification change with the role; the map symbol does
+not choose them.
 
 ## Avoid Surface Mismatch
 

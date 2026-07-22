@@ -14,6 +14,9 @@ publication decisions. There is no single coordinate table that defines the
 map. Each visible feature retains a source-family role and a path back to the
 normalized or reviewed record that authorized it.
 
+The [domain language](../domain-language.md) defines projection, evidence role,
+precision, publication member, and product scope.
+
 ## The Six Governed Input Families
 
 | Input | Role in the atlas | Governing evidence surface | Interpretation limit |
@@ -125,6 +128,26 @@ When two public formats disagree, neither becomes authoritative because it is
 more detailed or easier to read. Resolve the field through its owning evidence
 or decision surface, correct the projection, and then regenerate every affected
 format from the same member inventory.
+
+### Geometry Semantics
+
+Geometry is a claim with a basis, not merely a renderable value. Every mapped
+feature preserves which of these meanings applies:
+
+| Geometry class | Defensible reading | Required restraint |
+| --- | --- | --- |
+| source-supplied point | the source reports this coordinate pair for the governed object at its declared precision | do not infer measurement accuracy from decimal places alone |
+| sample-to-site point | sample evidence supports a relation to a governed site whose coordinates are separately owned | do not describe the coordinate as sample-supplied unless the source says so |
+| named-place resolution | a documented resolver produced an approximate point from source wording | retain method, confidence, and approximate posture |
+| representative regional point | geometry permits broad contextual display | never use for exact distance, containment, or sample-locality claims |
+| centroid | a deterministic point summarizes a polygon or cell for display | retain the source geometry; the centroid is not an observed location |
+| polygon or grid cell | geometry represents extent, scope, or aggregation | do not expand its count into synthetic point observations |
+| withheld or unresolved | no defensible public geometry is available | retain the member in review or exclusion accounting rather than inventing a point |
+
+Coordinate reference system, axis order, transformation method, source
+geometry, and declared precision travel with the projected feature whenever
+they affect interpretation. A technically valid GeoJSON coordinate is not, by
+itself, evidence that the scientific object was observed there.
 
 ### Materialized Input Contract
 
