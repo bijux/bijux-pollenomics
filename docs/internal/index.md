@@ -34,6 +34,33 @@ atlas guides.
 | GitHub Actions and release evidence | release support | [Release support](pollenomics-dev/release-support.md) |
 | Make target contracts | Make handbook | [Make system](maintain/makes/index.md) |
 
+## Route A Repository Change
+
+| Changed surface | Primary review | Required companion evidence |
+| --- | --- | --- |
+| runtime source or CLI | runtime package tests and public contract review | affected command, API, data, or publication documentation |
+| collected or normalized data | source-family and data-contract validation | collection summary, hashes, coverage review, and generated diff |
+| animal evidence | project and sample integrity review | locality, chronology, coordinate, exclusion, and release-gate surfaces |
+| generated reports | publication and subset validation | manifest membership, traceability, warnings, and scientific review |
+| public documentation | documentation integrity and strict site build | links to the governing product, evidence, or source surface |
+| workflow or release behavior | GitHub workflow and release-support review | retained job evidence, package selection, and release contract |
+| shared Make behavior | Make system contract review | expanded target ownership and affected package lane |
+
+```mermaid
+flowchart LR
+    Change["repository change"] --> Owner{"which boundary owns it?"}
+    Owner --> Product["runtime or evidence owner"]
+    Owner --> Maint["repository maintenance owner"]
+    Product --> Contract["public contract and focused proof"]
+    Maint --> Gate["repository gate and release evidence"]
+    Contract --> Review["reviewable change set"]
+    Gate --> Review
+```
+
+Maintenance checks may coordinate product contracts, but a repository-health
+helper cannot become the owner of scientific normalization, evidence meaning,
+or publication semantics.
+
 ## Public And Internal Boundary
 
 Public pages govern reader interpretation of sources, evidence, publications,
