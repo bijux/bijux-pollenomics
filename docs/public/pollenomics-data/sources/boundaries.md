@@ -11,8 +11,8 @@ last_reviewed: 2026-07-22
 
 The boundary family supplies the four country geometries used to define
 Sweden, Norway, Finland, Denmark, and their shared Nordic scope. It governs
-publication framing and membership tests; it contributes no scientific weight
-to a feature inside a polygon.
+publication framing, country filtering, and membership tests; it contributes
+no scientific weight to a feature inside a polygon.
 
 ## Captured State
 

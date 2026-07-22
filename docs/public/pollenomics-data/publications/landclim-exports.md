@@ -26,10 +26,19 @@ The checked-in normalized state contains:
 
 The normalized artifacts are:
 
-- `nordic_pollen_site_sequences.csv` for tabular reuse;
-- `nordic_pollen_site_sequences.geojson` for site locations;
-- `nordic_reveals_grid_cells.geojson` for reconstruction coverage; and
-- `landclim_summary.json` for layer identities and counts.
+- `data/landclim/normalized/nordic_pollen_site_sequences.csv` for tabular
+  reuse;
+- `data/landclim/normalized/nordic_pollen_site_sequences.geojson` for site
+  locations;
+- `data/landclim/normalized/nordic_reveals_grid_cells.geojson` for
+  reconstruction coverage; and
+- `data/landclim/normalized/landclim_summary.json` for layer identities and
+  counts.
+
+These paths identify the normalized family authority. Scope-specific copies in
+report bundles remain product members whose lineage leads back to these
+records; copying a feature into a map directory does not transfer ownership of
+its sequence identity or temporal posture.
 
 ```mermaid
 flowchart LR

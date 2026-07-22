@@ -19,6 +19,23 @@ That distinction is operationally important: no PalaeOpen row, dataset
 snapshot, or network membership is used to admit a map feature in the current
 repository state.
 
+## Interoperability Boundary
+
+PalaeOpen informs questions about metadata harmonization, vocabulary
+alignment, and cross-repository identity. It is not a direct source in the
+current evidence database. The repository may use its own governed products to
+demonstrate an interoperability problem without attributing those records,
+heuristics, or decisions to the network.
+
+```mermaid
+flowchart LR
+    Network["PalaeOpen network goals"] -. informs .-> Crosswalk["metadata and vocabulary questions"]
+    Evidence["contracted repository sources"] --> Packet["governed evidence packet"]
+    Crosswalk --> Example["interoperability example"]
+    Packet --> Example
+    Network -. "does not admit members" .-> Packet
+```
+
 ## Current Repository Relationship
 
 | Question | Current answer |

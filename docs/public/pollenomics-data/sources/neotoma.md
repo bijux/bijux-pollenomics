@@ -14,6 +14,11 @@ records. It complements LandClim with a site-centered view, but temporal
 support varies by record and remains distinct from a captured chronology
 model.
 
+Its pollen-site context is governed at the site and dataset levels. A public
+point can orient a reader to a place, while dataset identity and the temporal
+review determine whether the record supports spatial context, bounded temporal
+comparison, or no numeric-time claim.
+
 ## Checked-In Evidence
 
 The current temporal review covers 200 normalized sites:

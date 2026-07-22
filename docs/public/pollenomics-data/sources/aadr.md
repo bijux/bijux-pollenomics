@@ -14,6 +14,11 @@ preserves a named release, persistent dataset identity, two annotation tables,
 and file identities so human samples can enter geographic publications without
 becoming an unversioned background layer.
 
+In this repository, “human ancient DNA” means the governed metadata view used
+for identity, geography, chronology where supported, and contextual
+publication. It does not mean genotype analysis, imputation, ancestry
+inference, or a claim that the annotation panel is a complete census.
+
 The current runtime consumes annotation metadata. It does not process AADR
 `.geno`, `.ind`, or `.snp` genotype files and does not claim population-genetic
 analysis.

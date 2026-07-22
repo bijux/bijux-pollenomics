@@ -322,6 +322,22 @@ Review evaluates fitness for one claim and product; publication admits only
 records that satisfy that contract and preserves qualifications or exclusions
 for those that do not.
 
+World products under `docs/report/world/` consume family-owned normalized and
+reviewed members through explicit product contracts. They are descendants, not
+a second normalization authority. Regional and country products inherit the
+same stable evidence identities while applying narrower geography and retaining
+the parent member's evidence role and qualification.
+
+```mermaid
+flowchart LR
+    Native["captured native member"] --> Normalized["family-owned normalized member"]
+    Normalized --> Review["claim-specific review"]
+    Review --> World["world product member"]
+    World --> Region["regional subset"]
+    Region --> Country["country subset"]
+    Country -. "identity and meaning remain owned upstream" .-> Normalized
+```
+
 Continue with the [spatiotemporal posture](spatiotemporal-posture.md) for
 comparison limits and [map inputs](../publications/map-inputs.md) for the
 publication handoff. The [object and relation model](../database/object-and-relation-model.md)
