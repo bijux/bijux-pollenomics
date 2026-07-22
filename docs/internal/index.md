@@ -34,6 +34,30 @@ atlas guides.
 | GitHub Actions and release evidence | release support | [Release support](pollenomics-dev/release-support.md) |
 | Make target contracts | Make handbook | [Make system](maintain/makes/index.md) |
 
+## Authority Precedence
+
+Repository maintenance often encounters the same statement in source code,
+governed data, generated reports, public prose, and a check. Resolve the
+disagreement at the surface that owns the fact:
+
+```mermaid
+flowchart TD
+    Drift["conflicting repository statements"] --> Kind{"what kind of fact?"}
+    Kind -->|scientific or source fact| Data["governing data or evidence record"]
+    Kind -->|runtime behavior| Runtime["canonical runtime contract"]
+    Kind -->|product membership| Manifest["publication manifest and admission"]
+    Kind -->|repository policy| Maintainer["maintainer contract"]
+    Data --> Regenerate["regenerate dependent views"]
+    Runtime --> Regenerate
+    Manifest --> Regenerate
+    Maintainer --> Verify["rerun focused check"]
+    Regenerate --> Verify
+```
+
+A generated report, documentation sentence, or integrity check can reveal a
+conflict but cannot become a substitute authority. Correcting the consumer
+alone leaves the next regeneration free to restore the same defect.
+
 ## Route A Repository Change
 
 | Changed surface | Primary review | Required companion evidence |
@@ -60,6 +84,17 @@ flowchart LR
 Maintenance checks may coordinate product contracts, but a repository-health
 helper cannot become the owner of scientific normalization, evidence meaning,
 or publication semantics.
+
+## Diagnose By Symptom
+
+| Symptom | Inspect first | Then verify |
+| --- | --- | --- |
+| public count or claim changed unexpectedly | governing evidence record and producer diff | report membership, narrative, and claim audit |
+| map point disappeared | exclusion, coordinate, locality, chronology, and scope surfaces | point traceability and publication gate |
+| source refresh deleted records | staging result, replacement rule, hashes, and normalized diff | source-family contracts and dependent publications |
+| docs build fails | reported page, link, plugin, or asset error | navigation, redirects, local assets, and strict build |
+| docs build passes but prose is wrong | audience, governing link, and claim evidence | language and breadth contracts plus human review |
+| release gate refuses | exact failing dimension and evidence anchor | owning package, workflow, scientific, or recovery proof |
 
 ## Public And Internal Boundary
 

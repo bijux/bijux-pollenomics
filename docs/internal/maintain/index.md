@@ -46,6 +46,21 @@ remains owned by the runtime and governed evidence surfaces.
 | maintainer documentation | `docs/internal/` | repository-specific ownership and executable guidance |
 | API compatibility | `apis/bijux-pollenomics/v1/` | canonical schema, pinned representation, and hash agreement |
 
+## Mutation Classes
+
+| Change class | Expected writes | Review boundary |
+| --- | --- | --- |
+| narrative-only documentation | selected handwritten Markdown | audience, links, claims, navigation, and strict rendering |
+| source collection | one owned source-family tree and collection contracts | acquisition identity, hashes, replacement, normalization, and downstream impact |
+| animal foundation refresh | governed animal project, sample, evidence, review, and dependent publication surfaces | identity, locality, chronology, coordinates, exclusions, and release posture |
+| report publication | declared `docs/report/` product families | manifests, parent-child subsets, traceability, visual members, rankings, and caveats |
+| API contract change | canonical schema, pinned representation, and digest | compatibility intent and consumer-visible diff |
+| repository policy change | maintainer code, documentation, and affected workflow contracts | ownership, failure behavior, retained proof, and release consequence |
+
+Do not broaden a write set merely because a convenience target is available.
+Use the operation that owns the intended state transition, then review every
+governed descendant it is designed to change.
+
 ## Change Sequence
 
 ```mermaid
@@ -62,3 +77,22 @@ Generated success does not replace diff review. A report refresh can complete
 while changing an unintended geography; a documentation build can pass while
 wording outruns evidence; a release workflow can be structurally valid while a
 scientific refusal remains active.
+
+## Commit Boundary
+
+A coherent maintenance commit contains one durable intent, its necessary
+handwritten and governed consequences, and focused verification evidence. Keep
+independent documentation, source refresh, report regeneration, and repository
+policy intents separate when they can be reviewed independently.
+
+Before committing:
+
+1. inspect unstaged and staged diffs independently;
+2. confirm no unrelated user work is staged;
+3. verify generated changes came from the owning producer;
+4. run the narrowest contract that proves the intent;
+5. record skipped broader checks and active warnings; and
+6. confirm the worktree state expected after the commit.
+
+The commit subject names the durable surface and result. It does not encode the
+delivery sequence, temporary context, or an implementation diary.
