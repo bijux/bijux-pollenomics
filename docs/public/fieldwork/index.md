@@ -117,6 +117,23 @@ layers.
 Each transition needs its own record. A visit is not a completion flag attached
 to a ranking row; it is new evidence with independent identity and limits.
 
+### Admit Field Observations Without Converting Interpretation Into Fact
+
+A visit can add several claim types, each with its own owner:
+
+| Claim type | Governing record | Admission requirement |
+| --- | --- | --- |
+| event occurred | visit identity, date, participants or observer context, and source record | event identity is recoverable and distinct from other visits |
+| location observed | visit coordinate, method, precision, and relation to the named place | coordinate basis supports the published geometry |
+| media captured | repository path, ownership or licence, capture relation, and content identity | media resolves to the visit without relying on a copied thumbnail |
+| condition observed | structured observation, method, spatial extent, and time | wording stays within what was directly inspected or measured |
+| condition not observed | declared observation opportunity, method, extent, and negative result | absence is limited to the inspected scope, not generalized to the lake |
+| interpretation | separate analysis or decision record linked to observations | inference names its method, assumptions, and competing explanations |
+
+Narrative impressions can orient later work, but they do not become measured
+lake properties merely by appearing on a field page. Preserve the observation
+first; attach interpretation as a separately reviewable relation.
+
 ## Fieldwork Evidence Packet
 
 | Packet member | What it proves |

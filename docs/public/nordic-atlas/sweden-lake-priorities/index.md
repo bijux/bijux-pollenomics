@@ -259,6 +259,28 @@ The dossier does not need to agree with rank order. Its purpose is to preserve
 why a decision was made after adding evidence the ranking intentionally does
 not model.
 
+### Preserve Candidate State Transitions
+
+A candidate moves through new evidence states; it is not edited from “ranked”
+into “field ready”:
+
+```mermaid
+flowchart LR
+    Ranked["ranked under model and data revision"] --> Desk["identity and evidence desk review"]
+    Desk --> Dossier["candidate decision dossier"]
+    Dossier -->|advance| Visit["dated field observation"]
+    Dossier -->|defer or reject| Decision["reason and recovery condition"]
+    Visit --> Assessment["separate sampling assessment"]
+    Assessment -->|supported| Protocol["site-specific protocol and permissions"]
+    Assessment -->|unsupported| Decision
+```
+
+Each node retains its own date, inputs, method, and disposition. A later visit
+does not rewrite the historical ranking, and a strong historical rank does not
+pre-authorize the visit or sampling assessment. This makes disagreement useful:
+the evidence shows whether the model, identity review, field conditions, or
+operational constraints caused the decision to change.
+
 ## Reusing A Ranked Result
 
 A defensible reference to a candidate includes its SVAR identity, ranking

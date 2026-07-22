@@ -108,6 +108,27 @@ evidence packet. Repetition across those surfaces does not create four
 independent observations. A reviewer should count the visit once and use the
 media to inspect the bounded claim attached to it.
 
+### Relate The Visit To A Ranking Revision
+
+The visit and lake-priority record can be connected only after fixing both
+identities:
+
+| Side of the relation | Required identity |
+| --- | --- |
+| fieldwork | Lyngsjön visit feature, `2026-02-26` event date, visit coordinate, and media packet |
+| lake registry | `svar-lakes:620184-139120`, governed polygon, and representative-point method |
+| ranking | product version, candidate population, scenario or aggregate definition, model weights, and evidence revision |
+
+That relation permits a reader to ask what ranking context existed for the
+same governed lake. It does not show that the visit was caused by the rank,
+that the rank predicted conditions visible in the media, or that the visit
+validated the ranking model. Those claims would require a dated selection
+decision and a field protocol that measures model-relevant outcomes.
+
+If the registry geometry or ranking later changes, retain the historical visit
+and prior ranking identities. Recompute the relation rather than moving the
+visit coordinate or rewriting what the earlier model ranked.
+
 ## Reading The Media
 
 The photograph and video document selected views during a winter visit. They
