@@ -133,6 +133,23 @@ archaeological period, or prove that a source label is sample-owned. Words such
 as *calibrated*, *modeled*, *circa*, and *contextual* remain part of the dating
 basis and precision posture after numbers are available.
 
+## Interval Comparison Without False Precision
+
+Normalized BP intervals are ordered from the younger, lower BP bound to the
+older, higher BP bound. Comparisons use the interval, not only its mean:
+
+| Relationship | Meaning | Safe conclusion |
+| --- | --- | --- |
+| intervals overlap | at least part of both supported temporal ranges is shared | temporally compatible at the declared precision |
+| intervals do not overlap | the declared numeric ranges are separated | non-overlap for those claims, not proof of historical absence |
+| one claim is a point inside an interval | the point falls within the other supported range | compatibility without upgrading the interval to a point |
+| one claim is contextual | numbers describe a site or project rather than the sample | context only, even when ranges overlap |
+| either claim is text-only or unresolved | no defensible numeric relation is available | incomparable, not non-overlapping |
+
+Interval width is evidence, not noise to discard. Two records with the same
+mean but very different widths do not have the same temporal precision, and a
+ranking that uses means must retain the bounds and disclose that simplification.
+
 ## Worked Chronology Trace
 
 The same sample used in the identity and locality guides,
@@ -208,6 +225,12 @@ Chronology absence is also claim-specific. `text_only` means a source statement
 was recovered but cannot be safely converted; `unresolved` means no trustworthy
 claim is available. Neither is numeric non-overlap, and neither should be
 counted as evidence that two records belong to different periods.
+
+The same distinction applies to downstream counts. A “dated records” total
+must say whether it includes contextual intervals, approximate or modeled
+claims, text-only period labels, and historical or recent dates. Otherwise
+records with materially different comparison rights appear to form one
+uniform temporal population.
 
 ## Auditing Chronology Lineage
 

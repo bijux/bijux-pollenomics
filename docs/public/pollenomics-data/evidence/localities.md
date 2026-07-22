@@ -97,6 +97,25 @@ Numeric geometry is therefore downstream of locality ownership. A precise
 coordinate cannot upgrade a broader place claim, and a strong locality can
 remain non-point evidence when coordinate support is absent.
 
+## Hierarchy Is Not Containment Proof
+
+Locality components answer different questions. A site label identifies the
+reported feature; municipality, region, and country fields support discovery
+and product scoping. Their coexistence in one record does not prove that every
+boundary snapshot contains the point or that historical and modern names are
+equivalent.
+
+| Relationship | Required support |
+| --- | --- |
+| sample belongs to site | sample-owned row or an explicit reviewed grouping |
+| site resolves to modern administrative area | named resolution method and boundary context |
+| coordinate lies inside a product geography | coordinate plus the product's boundary snapshot |
+| historical place name denotes modern feature | explicit normalization or curation decision |
+
+Country admission should therefore remain traceable to the governing country
+assignment or containment rule. It must not be inferred from a familiar site
+name, a nearby point, or the language of the publication.
+
 ## Evidence Precedence
 
 ```mermaid
@@ -199,6 +218,19 @@ This yields a durable invariant: **normalization may standardize a supported
 claim, but it may not increase the claim's resolution**. A region does not
 become a site, a site does not become an exact point, and a project context does
 not become a sample observation through transformation alone.
+
+### Effect Of A Locality Revision
+
+| Revision | Identity effect | Required downstream review |
+| --- | --- | --- |
+| spelling or transliteration correction | stable sample and site can remain unchanged | labels, aliases, and search surfaces |
+| project context replaced by sample-owned site | sample remains stable; locality relation changes | coordinate eligibility, geography, and admission |
+| one aggregate place separated into several sites | sample-to-site relations may change | every affected point and country bundle |
+| country or boundary interpretation changes | scientific sample identity remains stable | product membership and regional counts |
+| coordinate changes but named site does not | locality identity can remain stable | coordinate basis, distances, containment, and maps |
+
+This distinction prevents a label correction from looking like a new sample
+and prevents a changed country assignment from passing as presentation-only.
 
 ## Review Outcome
 

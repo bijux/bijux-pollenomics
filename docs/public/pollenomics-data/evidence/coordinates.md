@@ -82,6 +82,25 @@ resolution needs a visibly different interpretation from a source-published
 pair even if both use the same marker geometry. Decimal formatting must not
 suggest more precision than the source or resolution method supports.
 
+## Point Geometry Is Not The Observation
+
+A point is a representation chosen for a product. The underlying observation
+may be a specimen, core, archaeological site, registry feature, field visit, or
+resolved place name. Those units cannot be merged merely because each has a
+latitude and longitude.
+
+| Point owner | What the pair locates | Common overreading |
+| --- | --- | --- |
+| sample | source-backed or reviewed sample locality | exact excavation position when only a site anchor is known |
+| pollen sequence | sampling or core location as supplied by its source | uniform temporal coverage across sequences |
+| archaeological site | site or registry feature | a dated event or direct biological observation |
+| density cell | an aggregate spatial unit | one site at the cell centroid |
+| field observation | one recorded visit or sample event | representative coverage of the surrounding lake or region |
+
+Distance and containment operate on the represented geometry; scientific
+interpretation operates on the observation and its role. Both identities must
+remain available.
+
 ## The coordinate record
 
 Each animal coordinate-provenance row preserves:
@@ -188,6 +207,21 @@ Every reusable spatial relation should retain:
 Recomputing that relation after either endpoint changes is required. Copying a
 previous distance into a revised product would preserve a number while losing
 the claim that made it meaningful.
+
+### Classify Coordinate Changes
+
+| Change | Scientific interpretation |
+| --- | --- |
+| formatting or numeric type only | representation change if numeric meaning is identical |
+| axis-order correction | geometry correction; recompute containment, distance, and membership |
+| declared CRS transformation | representation change only when the full transform lineage is retained |
+| new source-backed pair replaces geocoding | evidence-strength and geometry change |
+| site anchor changes after locality review | locality-linked geometry change; reassess admission |
+| precision or confidence becomes weaker | interpretation change even if the numeric pair is unchanged |
+
+An unchanged marker is not proof of an unchanged spatial claim. Basis,
+confidence, locality ownership, and boundary snapshot can change the meaning
+or eligibility of the same pair.
 
 ## Why Points Are Withheld
 
