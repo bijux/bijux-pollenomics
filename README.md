@@ -101,20 +101,42 @@ bundle, uploads the Python distribution to PyPI, publishes the release bundle
 to its exact GHCR package page under the `bijux` account, and attaches the
 same staged assets to the GitHub Release.
 
-## What You Can Do Today
+## Follow One Result End To End
 
-- **Explore** the world, Europe-plus, Nordic, and country publication family
-  without treating its maps as the underlying database.
-- **Trace** an admitted animal point from its feature identifier through sample,
-  locality, chronology, coordinate, paper, and source-artifact evidence.
-- **Audit absence** through exclusion, ambiguity, recovery, and release surfaces
-  instead of assuming that an omitted record does not exist upstream.
-- **Compare context** from pollen, archaeology, hydrography, boundaries, human
-  aDNA metadata, and animal aDNA while preserving each family's scientific role.
-- **Review decisions** behind Sweden lake priorities and the fieldwork shortlist,
-  including sensitivity and evidence limitations.
-- **Rebuild or verify** the governed data and publication state through explicit
-  commands with different write contracts.
+Begin with the product manifest, not the rendered marker. For an admitted
+animal ancient-DNA point, the review route is:
+
+```mermaid
+flowchart LR
+    Product["world, region, or country bundle"] --> Member["published member ID"]
+    Member --> Candidate["animal atlas candidate"]
+    Candidate --> Sample["project-owned sample record"]
+    Sample --> Place["locality and coordinate evidence"]
+    Sample --> Time["chronology evidence"]
+    Sample --> Literature["paper and supporting material"]
+    Literature --> Capture["retrieved source artifact"]
+    Candidate --> Decision["admission, qualification, or exclusion"]
+```
+
+Each hop answers a different question. The bundle establishes product scope;
+the candidate establishes why the record may be plotted; the sample record
+owns identity; place and time records own supported precision; the literature
+chain establishes provenance; and the decision explains visibility. Skipping
+one hop creates familiar but unsafe shortcuts such as treating project
+geography as sample geography or a paper date as sample chronology.
+
+The same method works in the opposite direction. Start with a changed source
+capture, compare normalized identities and curation decisions, then identify
+which publication memberships changed. A source refresh that produces no
+public diff is still an interpretable outcome when the contract explains why.
+
+| If you need to… | Begin with… | Then verify… |
+| --- | --- | --- |
+| understand a visible point | bundle manifest and member ID | evidence owner, source lineage, precision, and caveats |
+| explain an absent candidate | exclusion, ambiguity, and recovery surfaces | product scope and missing governing evidence |
+| compare evidence families | source-family roles and observation units | temporal and spatial bridge, denominator, and limits |
+| evaluate a lake priority | ranking manifest and sensitivity output | contextual inputs, field constraints, and refusal boundaries |
+| assess a source refresh | capture identity and normalized member diff | curation, coverage, and affected publication membership |
 
 ## Checked-In Evidence Snapshot
 

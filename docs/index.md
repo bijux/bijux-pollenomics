@@ -51,6 +51,37 @@ records forward to see what the repository is prepared to claim.
   <a class="md-button" href="public/fieldwork/">Open the fieldwork record</a>
 </div>
 
+## Find The Authority
+
+Reader-visible information often crosses several files, but each fact has one
+governing owner. Start with the disputed question and follow that owner before
+interpreting a convenient copy.
+
+| Question | Governing surface | Derived surfaces to cross-check |
+| --- | --- | --- |
+| Which upstream object entered the repository? | source-family capture, identity, and retrieval record | collection summary and normalized record |
+| What does a normalized field mean? | source-family contract and normalization record | review tables and publication rows |
+| Which animal sample is this? | project-owned sample foundation | species view, atlas candidate, and report member |
+| How precise are its place and time? | sample locality, chronology, and coordinate evidence | GeoJSON feature, table row, and narrative |
+| Why is it visible in one product? | admission decision and bundle manifest | rendered map, country page, and summary count |
+| Why is a known record absent? | exclusion, ambiguity, recovery, or scope decision | readiness and truth-posture summaries |
+| What does a lake rank mean? | ranking manifest, method inputs, and sensitivity evidence | shortlist map and fieldwork-preparation packet |
+
+```mermaid
+flowchart TB
+    Question["reader question"] --> Owner{"which boundary owns the fact?"}
+    Owner --> Source["source identity and capture"]
+    Owner --> Evidence["normalized or curated evidence"]
+    Owner --> Decision["admission, exclusion, or ranking"]
+    Source --> CrossCheck["cross-check derived copies"]
+    Evidence --> CrossCheck
+    Decision --> CrossCheck
+    CrossCheck --> Wording["state only the supported claim"]
+```
+
+When two surfaces disagree, the owning record is the starting point for
+diagnosis, not permission to select the value that looks most plausible.
+
 ## From Source To Public Claim
 
 ```mermaid
