@@ -58,6 +58,27 @@ artifacts/root/check-venv/bin/bijux-pollenomics ownership-map
 The two console scripts must report the same runtime behavior. A difference
 between them is a compatibility defect, not an optional package variation.
 
+## Establish Repository Context
+
+Before interpreting a result, confirm which checkout and governed state the
+environment can see:
+
+```bash
+git rev-parse --show-toplevel
+git status --short --branch
+artifacts/root/check-venv/bin/bijux-pollenomics product-scope
+artifacts/root/check-venv/bin/bijux-pollenomics source-support
+```
+
+The Git commands identify the code and tracked-state context; the runtime
+commands identify declared product and source capability. None proves that a
+particular source family is complete or that a product is current. That proof
+lives in collection summaries, readiness records, and publication manifests.
+
+A dirty checkout is not automatically invalid, but any data or report change
+must be attributable to the intended operation. Unrelated modifications make
+that causal review unreliable and should be separated before governed work.
+
 ## Understand Write Scope Before Execution
 
 | Operation | Expected writes | Network access |
@@ -85,3 +106,9 @@ If installation fails, keep the diagnosis at the environment boundary:
 
 A failed environment setup does not justify changing tracked data, reports, or
 the lock file.
+
+If the console script exists but imports fail, verify that the script belongs
+to `artifacts/root/check-venv/` and that the checkout still contains all three
+workspace packages. Do not work around the package boundary by adding source
+directories to `PYTHONPATH`; that can conceal a broken installation and test a
+different import graph from the supported environment.

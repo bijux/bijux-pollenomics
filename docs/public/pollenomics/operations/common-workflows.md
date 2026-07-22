@@ -29,6 +29,37 @@ flowchart TB
     Publish --> Reports["publication diff"]
 ```
 
+## Fresh Checkout Orientation
+
+Start with installation and read-only capability inspection:
+
+```bash
+make install
+artifacts/root/check-venv/bin/bijux-pollenomics --version
+artifacts/root/check-venv/bin/bijux-pollenomics product-scope
+artifacts/root/check-venv/bin/bijux-pollenomics source-support
+```
+
+Then enter the documentation through the product, data, or claim you need to
+understand. Do not begin with collection or `make app-state`: a fresh checkout
+already contains governed evidence and reports, while those commands request
+replacement of scientific state.
+
+## Preflight A State Change
+
+Before collection, contract refresh, or publication, record four decisions:
+
+| Decision | Required answer |
+| --- | --- |
+| owner | Which source family, contract surface, or product owns the change? |
+| input | Which governed version and scope will be read? |
+| write boundary | Which complete tree may be replaced? |
+| acceptance | Which identities, relationships, counts, warnings, and exclusions must be reviewed? |
+
+If the write boundary cannot be named precisely, the workflow is too broad.
+If acceptance is only “the command exited zero,” the scientific review is too
+weak.
+
 ## Inspect Current Capability
 
 Use read-only commands before selecting a state-changing workflow:
@@ -58,6 +89,14 @@ Review the capture, normalized records, retrieval metadata, source hashes,
 counts, removals, and review findings as one causal change. A successful
 download establishes acquisition; it does not establish unchanged meaning or
 publication readiness.
+
+### Data Refresh Review
+
+Review the refresh in causal order: source identity and retrieval context,
+captured payload, normalized record identities, schema and relationship
+findings, coverage deltas, removals, changed precision, and downstream
+admission effects. A hash change without a normalized change may be packaging;
+a stable row count may still conceal member replacement or semantic change.
 
 ## Recompute Data Contracts
 
@@ -103,6 +142,19 @@ Publication acceptance has four parts:
 4. the product diff can be explained by evidence, policy, scope, or rendering.
 
 Those causes should never be collapsed into “the reports changed.”
+
+### Publication Review
+
+Begin with the publication summary and each affected bundle manifest. Compare
+member identifiers before aggregate counts, then follow additions, removals,
+and modified members to admission and evidence records. Finally confirm that
+CSV, JSON, GeoJSON, Markdown, HTML, citations, warnings, and exclusions agree
+on scope and role.
+
+A rendering-only change is safe to describe as such only when structured
+membership and meaning are unchanged. A zero-diff publication is still useful
+evidence when it shows that a source or curation change did not cross the
+product contract.
 
 ## Rebuild All Governed State
 
