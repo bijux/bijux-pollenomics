@@ -128,6 +128,38 @@ The generated reports make both branches visible. The published branch shows
 what satisfies the point contract; the accountability branch prevents the
 admitted subset from masquerading as collection completeness.
 
+## A Published Point Is A Typed Projection
+
+The point row does not become a new authority for the facts it displays. It is
+a product-specific projection over separately governed evidence:
+
+| Point field | Governing owner | Projection rule |
+| --- | --- | --- |
+| feature identity | publication manifest and evidence-row identity | stable within the named product and linked to the governed sample or qualified context member |
+| sample label and accession | project sample master | display the admitted identity without replacing source-native aliases |
+| species | species-normalized sample record and taxonomy decision | use the governed taxon posture, including qualification or conflict |
+| locality label | sample locality and site evidence | display at the admitted resolution; broad text remains broad |
+| geometry | coordinate-provenance decision | supplied, resolved, approximate, substituted, or withheld posture travels with the pair |
+| time label or interval | sample chronology evidence | preserve source wording, normalized basis, ownership, and comparability caveat |
+| admission posture | named product rule | distinguish sample-backed, qualified context, excluded, and deferred populations |
+
+```mermaid
+flowchart LR
+    Sample["sample identity"] --> Projection["product projection"]
+    Locality["locality and site evidence"] --> Projection
+    Coordinate["coordinate provenance"] --> Projection
+    Chronology["chronology evidence"] --> Projection
+    Taxonomy["species decision"] --> Projection
+    Projection --> Member["typed publication member"]
+    Projection --> Refusal["qualification or exclusion"]
+```
+
+This model permits a narrow supported point without declaring the whole
+project complete. It also permits curation to strengthen later without
+rewriting history: a new evidence decision creates a reviewable projection
+change and affected product diff rather than silently mutating the earlier
+source claim.
+
 ## Audit A Published Animal Point
 
 1. resolve its feature and evidence-row identifiers in the product traceability

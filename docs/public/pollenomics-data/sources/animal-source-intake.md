@@ -118,6 +118,36 @@ cross-project review must resolve to the project file that supplies its sample,
 site, locality, or chronology evidence; the review cannot become a substitute
 authority.
 
+### Every Recovery Edge Has A Receipt
+
+The source library is a graph of attributed relations, not a folder of papers
+beside a table of samples. Each edge is independently recoverable:
+
+| Relation | Receipt required |
+| --- | --- |
+| project to paper | accession, DOI or stable paper identity, relation basis, and governing registry row |
+| paper to artifact | canonical source URL, logical and physical path, media type, size, fetch outcome, and content identity |
+| artifact to sample | table, sheet, row, archive member, or excerpt locator plus source-native sample label |
+| sample to site | project-owned sample and site keys, native relation or explicit curation basis, and ambiguity posture |
+| sample to chronology | verbatim claim, source locator, ownership class, dating basis, normalized result, and precision |
+| site to coordinate | reported locality, coordinate source, resolution method, confidence, and disagreement outcome |
+
+```mermaid
+flowchart LR
+    Project["project accession"] -->|registry relation| Paper["paper identity"]
+    Paper -->|capture receipt| Artifact["source artifact"]
+    Artifact -->|row locator| Sample["stable sample"]
+    Sample -->|project-owned relation| Site["governed site"]
+    Sample -->|claim lineage| Time["chronology evidence"]
+    Site -->|spatial provenance| Coordinate["coordinate claim"]
+```
+
+An orphaned edge blocks only the claim that depends on it. A sample can retain
+its identity when its locality is unresolved, and a site can retain its name
+when no defensible coordinate exists. Conversely, a complete-looking endpoint
+cannot repair a missing edge: an exact coordinate is not sample evidence when
+the sample-to-site relation is absent.
+
 ### One Intake Produces Several Governed Decisions
 
 Extracting a sample row does not write one universal “curated” status. It

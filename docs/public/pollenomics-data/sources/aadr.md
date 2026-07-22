@@ -44,6 +44,31 @@ flowchart LR
     Normalize --> Scope["world, regional, and country selection"]
 ```
 
+### Release Capture And Species Projection
+
+The checked-in authority currently has two layers with different persistence:
+
+| Layer | Current repository state | Consequence |
+| --- | --- | --- |
+| AADR release capture | `data/aadr/v66/` contains the release manifest and both annotation members | release identity, file membership, checksums, and source rows are directly inspectable |
+| species-owned raw route | `data/adna/species/homo_sapiens/raw/aadr` links to the AADR capture | human species ownership is visible without copying the release |
+| species-owned normalized and review roots | the governed directories exist but contain no checked-in member or review artifacts | do not claim a persisted human normalization or review database from those roots |
+| country publication bundles | checked-in country CSV, GeoJSON, Markdown, summary, and manifest outputs | publication rows are derived directly through the release-aware annotation runtime and must be audited against both bundle membership and the AADR source row |
+
+```mermaid
+flowchart LR
+    Capture["AADR v66 manifest and annotation rows"] --> Runtime["release-aware metadata projection"]
+    Runtime --> Bundle["country bundle and manifest"]
+    Capture --> RawRoute["Homo sapiens raw source route"]
+    RawRoute -. no persisted members .-> Species["species normalized and review roots"]
+    Bundle --> Audit["publication member to release row"]
+```
+
+This boundary is narrower than a fully materialized human evidence database.
+The country products are reproducible from the governed release and runtime,
+but a consumer must not cite the empty species-owned roots as proof that a
+separate normalized or reviewed population was checked in.
+
 ## Read An AADR Member
 
 An annotation row can carry genetic, individual, skeletal, publication,
@@ -114,7 +139,11 @@ separately.
 - `data/aadr/v66/1240k/v66.1240K.aadr.PUB.anno` preserves the tracked `1240K`
   annotation population; and
 - `data/aadr/v66/ho/v66.HO.aadr.PUB.anno` preserves the tracked Human Origins
-  annotation population.
+  annotation population;
+- `data/adna/species/homo_sapiens/raw/aadr` exposes the release through the
+  species-owned source boundary; and
+- `docs/report/countries/<country>/` contains the derived AADR publication
+  bundles whose manifests govern country membership.
 
 Continue to [AADR exports](../publications/aadr-exports.md) for publication use,
 [shared normalization](shared-normalization.md) for field lineage, and
