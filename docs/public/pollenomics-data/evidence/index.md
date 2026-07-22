@@ -105,6 +105,29 @@ for unresolved sample identity; a direct date does not compensate for a
 project-only locality; strong evidence in one domain does not upgrade a
 contextual source in another.
 
+## Evidence Capability Is A Query
+
+Evidence capability is evaluated for a particular object, claim, and use. It
+is not inherited from the source family or summarized by the number of filled
+columns.
+
+```mermaid
+flowchart LR
+    Object["governed object"] --> Claim["claim dimension"]
+    Claim --> Owner["fact owner + evidence locator"]
+    Owner --> Posture["precision and review posture"]
+    Use["requested scientific use"] --> Gate{"capability query"}
+    Posture --> Gate
+    Gate -->|supported| Result["bounded claim"]
+    Gate -->|insufficient| Refusal["qualified, contextual, or refused result"]
+```
+
+This means “has coordinates” is not a sufficient query. The database asks
+whether the governed subject owns the locality, how the pair was produced,
+what precision it supports, and whether that posture satisfies the requested
+product. Equivalent queries apply to identity, chronology, taxonomy, and
+cross-domain association.
+
 ## Claim Envelope
 
 A reusable claim must retain enough context to survive outside the page where
@@ -222,6 +245,12 @@ part of the evidence, not an implementation detail.
 
 Blocked and deferred states remain part of the database. Their presence makes
 coverage gaps and recovery work measurable.
+
+An evidence-chain summary should therefore report at least three quantities:
+the known candidate population, the population for which the required chain
+was evaluated, and the population that passed the declared use. Omitting the
+first hides discovery coverage; omitting the second hides curation coverage;
+omitting the third hides publication selectivity.
 
 Evidence strength is bounded by the weakest claim needed for the proposed
 use. Strong identity does not repair unresolved locality; exact coordinates do

@@ -82,6 +82,24 @@ resolution needs a visibly different interpretation from a source-published
 pair even if both use the same marker geometry. Decimal formatting must not
 suggest more precision than the source or resolution method supports.
 
+## Spatial Precision Has Several Components
+
+A single confidence label cannot describe every spatial limitation:
+
+| Component | Governing question |
+| --- | --- |
+| subject linkage | does this coordinate belong to the sample, a shared site, a project, or another object? |
+| coordinate basis | was the pair reported, resolved from a name, derived, representative, or substituted? |
+| source precision | what spatial resolution and numeric precision did the source actually provide? |
+| resolution uncertainty | could the named-place or feature match select another location? |
+| representation | does the product show a point, polygon, aggregate, or withheld geometry? |
+| boundary sensitivity | could coordinate or boundary uncertainty change scope or threshold membership? |
+
+The defensible spatial claim is bounded by all six. A source-reported pair may
+still be project-owned; an exact arithmetic transform may preserve a broadly
+located observation; an approximate point can remain useful without becoming
+an exact excavation coordinate.
+
 ## Point Geometry Is Not The Observation
 
 A point is a representation chosen for a product. The underlying observation

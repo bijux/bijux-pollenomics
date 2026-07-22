@@ -66,6 +66,23 @@ can legitimately have several coordinate candidates. The stable locality
 token, sample link, political context, source locator, and resolution method
 decide whether those records may be joined.
 
+## Locality Claim Identity
+
+A locality claim remains addressable independently of its current normalized
+place label. Its identity binds:
+
+- the governed sample or site subject;
+- the reported place expression and source locator;
+- the claim scope, such as sample, group, project, or regional context;
+- the resolved feature or site identity when one is defensible;
+- the resolution method and decision posture; and
+- the database revision under which the claim was evaluated.
+
+This permits a spelling normalization, administrative-boundary change, or
+better gazetteer match without erasing what the source reported. It also
+permits two incompatible place claims to coexist while a product selects only
+the one accepted for its declared use.
+
 ## Resolution Classes
 
 | Resolution | Meaning | Safe public use |
@@ -115,6 +132,12 @@ equivalent.
 Country admission should therefore remain traceable to the governing country
 assignment or containment rule. It must not be inferred from a familiar site
 name, a nearby point, or the language of the publication.
+
+Modern containment is a product relation, not an intrinsic property of an
+ancient locality. It depends on the accepted coordinate or geometry, the
+boundary snapshot, and the containment method. Replacing a boundary can change
+country membership without changing the archaeological site or the source
+locality claim.
 
 ## Evidence Precedence
 

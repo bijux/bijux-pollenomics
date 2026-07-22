@@ -109,6 +109,25 @@ absence. The same distinction applies to aggregates: an overlap rate needs the
 number of eligible pairs as its denominator, plus the number excluded as not
 comparable.
 
+## Comparison Results Are Evidence Records
+
+A reusable temporal result preserves more than `overlap: true`:
+
+| Result member | Why it is required |
+| --- | --- |
+| endpoint identities | identifies the two governed objects being compared |
+| chronology claim identities | fixes which supported temporal statements were selected |
+| original and normalized bounds | permits the comparison to be reproduced and interpreted |
+| comparability postures | proves that both endpoints were eligible for the operation |
+| operation and rule version | distinguishes overlap, separation, windowing, and another declared test |
+| outcome and uncertainty | retains overlap bounds, separation, caveat, or explicit refusal |
+| database revision | ties the derived relation to the evidence state that produced it |
+
+If either chronology claim changes, the relation is stale even when its
+Boolean outcome happens to remain the same. Reuse therefore joins through the
+claim identities and recomputes the comparison rather than copying a previous
+label.
+
 ```mermaid
 flowchart TD
     Pair["two records"] --> Eligible{"both numeric-comparable?"}
@@ -122,6 +141,12 @@ An atlas may display all three records together, but a temporal score must use
 only eligible comparisons and must report the refused share. Otherwise a
 source family with weak chronology can appear artificially precise merely
 because its unresolved records disappeared from the denominator.
+
+For aggregate reporting, publish the candidate-pair count, eligible-pair
+count, overlap count, separated count, and not-comparable count. An overlap
+proportion without both the candidate and eligible denominators answers only
+how often already-comparable pairs overlapped; it does not describe temporal
+coverage of the collection.
 
 ## Capability In The Checked-In Collection
 

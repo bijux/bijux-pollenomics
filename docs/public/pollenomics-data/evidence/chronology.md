@@ -45,6 +45,26 @@ These views are deliberately different. A row may contain numbers and still be
 contextual or approximate; numeric normalization does not confer sample-level
 precision.
 
+## A Chronology Claim Is Not The Sample's Age
+
+The database records supported statements about time. It does not collapse
+them into one timeless `age` field. A chronology claim binds the sample or
+contextual object, reported expression, source locator, dating basis, evidence
+class, normalized representation, precision, and review posture.
+
+| Source statement | Governed interpretation |
+| --- | --- |
+| direct sample result | sample-owned claim, subject to its reported basis and precision |
+| modeled estimate | sample claim with model dependence retained |
+| archaeological layer or context | contextual claim unless evidence assigns it to the sample |
+| project-wide range | project context, not a date copied to every member |
+| historical label | source-backed temporal description; numeric use depends on the comparison contract |
+| conflicting values | separately addressable claims plus a governing decision for each use |
+
+This model allows later calibration, source recovery, or conflict resolution
+to revise the chronology descendants without rewriting sample identity or
+pretending the previous evidence never existed.
+
 ## Sample Evidence Outranks Project Context
 
 ```mermaid
@@ -155,6 +175,12 @@ laboratory uncertainty, choose a calibration curve, reinterpret an
 archaeological period, or prove that a source label is sample-owned. Words such
 as *calibrated*, *modeled*, *circa*, and *contextual* remain part of the dating
 basis and precision posture after numbers are available.
+
+When a calibrated distribution is available, reducing it to one interval or
+midpoint is itself a declared transformation. The chosen probability mass,
+possible disjoint ranges, calibration curve, and source method must remain
+recoverable; otherwise a convenient display range cannot support independent
+chronological analysis.
 
 ## Interval Comparison Without False Precision
 

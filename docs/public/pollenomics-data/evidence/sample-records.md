@@ -139,6 +139,23 @@ relationship explicitly. Row count, identifier count, specimen count, and map
 point count are therefore different quantities unless a product proves them
 equivalent.
 
+## One Sample, Several Record Roles
+
+The database exposes the same governed sample through several record roles.
+They are joins over one identity, not interchangeable copies:
+
+| Record role | Owns | Must not become |
+| --- | --- | --- |
+| captured source row | source wording, row position, and captured values | the repository identity solely because it was encountered first |
+| project sample master | stable sample identity, aliases, and extraction lineage | authority for reviewed locality or chronology conclusions |
+| dimension evidence row | one locality, chronology, coordinate, or conflict claim | a complete sample record by itself |
+| species-normalized row | a discovery and comparison view across projects | extraction authority or a new specimen identity |
+| publication member | role and posture inside one product | proof of universal eligibility |
+
+Every descendant carries the project-namespaced sample key. Where a compact
+surface cannot carry the full evidence packet, it retains a locator to the
+governing record rather than duplicating an unexplained value.
+
 ### Database Constraints
 
 | Constraint | Refused state |
@@ -222,6 +239,12 @@ An unknown expected count is not rewritten as zero. It remains a curation state
 such as `not_yet_curated`, with a reason and the artifact needed to resolve it.
 This prevents a large recovered table from being mistaken for proven project
 completeness.
+
+Completeness denominators are versioned evidence. A later source capture can
+establish a trustworthy expected count without changing any recovered sample
+identity; the project completeness claim changes because its denominator has
+become known. Conversely, a changed expected count requires provenance and a
+member comparison even when the final recovered count stays constant.
 
 The same rule applies to arithmetic. `unresolved_sample_count` is meaningful
 only when an expected count exists. A null value means the denominator is not
