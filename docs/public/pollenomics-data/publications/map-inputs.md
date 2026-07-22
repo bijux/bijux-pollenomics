@@ -98,6 +98,34 @@ that inventory, and a browser filter cannot alter it. This makes a layer
 rebuild reviewable as an identity and decision diff rather than a visual map
 comparison.
 
+### Preserve Field Authority Through Projection
+
+A public feature combines fields owned at different boundaries. The export is
+a projection of those authorities, not a new owner of every copied value.
+
+| Projected field | Governing authority | Conflict response |
+| --- | --- | --- |
+| source and member identity | source-family capture and normalized or evidence member | stop if the exported identity cannot resolve uniquely |
+| feature role | review and product contract | do not infer role from marker style or layer name |
+| geometry and coordinate basis | governing normalized or sample-owned spatial evidence | retain qualification; never prefer display precision |
+| chronology and comparability | temporal review or sample-owned chronology evidence | retain units, basis, caveat, and refusal posture |
+| publication membership | scoped bundle manifest and admission decision | a source row or browser state cannot self-admit |
+| display label and popup text | field projection under the publication contract | correct the projection when it conflicts with governing evidence |
+
+```mermaid
+flowchart LR
+    Identity["source and member identity"] --> Feature["public feature"]
+    Review["role, place, and time review"] --> Feature
+    Admission["scope and admission decision"] --> Feature
+    Feature --> Manifest["bundle member inventory"]
+    Feature --> Views["CSV, JSON, GeoJSON, Markdown, and HTML"]
+```
+
+When two public formats disagree, neither becomes authoritative because it is
+more detailed or easier to read. Resolve the field through its owning evidence
+or decision surface, correct the projection, and then regenerate every affected
+format from the same member inventory.
+
 ### Materialized Input Contract
 
 A layer is available for assembly only when the exact artifact named by its
@@ -233,6 +261,12 @@ Use the feature's layer and stable identifier to follow this route:
 4. inspect coordinate and temporal semantics before comparing it with another
    layer;
 5. check the refusal and coverage surfaces when expected evidence is absent.
+
+The trace should resolve two independent paths: evidence lineage from feature
+to source, and publication lineage from feature to scoped manifest and parent
+product. Evidence lineage explains what the member means; publication lineage
+explains why that member is present in this particular map. One path cannot
+substitute for the other.
 
 The [repository atlas input audit](../../../report/repository_atlas_input_audit.md)
 summarizes refresh anchors and tracked metrics for the active input families.

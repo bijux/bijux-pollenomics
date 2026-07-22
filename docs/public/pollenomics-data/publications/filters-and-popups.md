@@ -99,6 +99,35 @@ These states are not interchangeable. Only the first is reversed by a browser
 control; the others require a different product or a change in governed
 evidence.
 
+### Retain A Selection Receipt
+
+A screenshot records appearance but not the governed population or the exact
+selection that produced it. A reproducible reader selection retains:
+
+| Receipt field | Required value |
+| --- | --- |
+| product identity | world, regional, or country bundle and its manifest identity |
+| admitted population | layer member IDs before browser filtering |
+| active scope | geography and parent-product lineage declared by the open product |
+| filter state | enabled layers and exact geography, time, and attribute predicates |
+| unavailable controls | filters disabled by the layer contract and the reason |
+| visible result | stable member IDs after filtering, grouped by evidence role |
+| qualifications | warnings or caveats that materially constrain interpretation |
+
+```mermaid
+flowchart LR
+    Manifest["bundle manifest"] --> Population["admitted member population"]
+    Controls["declared filter state"] --> Selection["visible member selection"]
+    Population --> Selection
+    Contract["disabled-filter reasons"] --> Selection
+    Selection --> Receipt["reproducible selection receipt"]
+```
+
+Visible counts are selection counts, not source-family denominators. Report
+both when coverage matters—for example, “12 of 234 admitted animal publication
+points are visible under this filter”—and keep the member IDs so equal counts
+with different membership remain distinguishable.
+
 ## Popup Contract
 
 A useful popup identifies the source family and evidence role, shows the stable
