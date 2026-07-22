@@ -49,6 +49,29 @@ aggregated map features. Comparing those numbers as though they shared an
 observation unit would confuse source records, selected records, and rendered
 geometry.
 
+## Worked Aggregate: The Densest Published Cell
+
+The largest checked-in density feature covers the one-degree cell from
+longitude `17` to `18` and latitude `59` to `60`. Its published count is
+**27,450** selected `Fornlämning` records.
+
+That feature establishes one aggregate statement: 27,450 source records in the
+selected classification were assigned to this grid cell under the current
+normalization. It does not identify 27,450 coordinates in the export, and the
+cell centroid or polygon must not be treated as the location of any individual
+record.
+
+| Reuse operation | Defensible result | Information lost or invented |
+| --- | --- | --- |
+| preserve the cell polygon and count | comparable aggregate under the same grid and selection | none beyond source-level detail already abstracted by the layer |
+| convert the cell to one point | coarse visualization only, if labelled as an aggregate | polygon extent and within-cell distribution |
+| expand the count into repeated points | no defensible scientific result | synthetic coordinates and false independence |
+| compare with another grid size | only after recomputing both populations | direct count comparability across unequal areas |
+
+The grid definition is therefore part of the observation. A density count
+without its cell geometry, selection class, and source population cannot be
+reconstructed or compared responsibly.
+
 ## Supported Interpretation
 
 The layer supports questions about the spatial density of published Swedish

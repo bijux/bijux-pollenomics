@@ -55,6 +55,36 @@ record. Release comparison therefore distinguishes **geometry-driven scope
 change** from **evidence change**. The feature identifier and parent-child
 subset validation reveal which interpretation applies.
 
+### Membership Is A Recomputable Relation
+
+Country membership is not copied into source evidence as permanent truth. It
+is derived from three versioned inputs:
+
+```text
+membership = evidence geometry + boundary geometry + selection rule
+```
+
+| Input change | What changed | What did not necessarily change |
+| --- | --- | --- |
+| evidence coordinate corrected | the record's spatial claim | boundary or scientific identity |
+| boundary geometry replaced | publication scope geometry | source locality, chronology, or taxonomy |
+| containment rule revised | product selection semantics | captured source bytes |
+| product country list revised | declared publication scope | validity of records outside that scope |
+
+```mermaid
+flowchart LR
+    Evidence["evidence geometry and precision"] --> Relation["declared membership rule"]
+    Boundary["versioned country geometry"] --> Relation
+    Product["named geographic scope"] --> Relation
+    Relation --> Member["included with reason"]
+    Relation --> NonMember["retained outside scope"]
+```
+
+This separation explains why a record can move between country products
+without a new scientific observation. A release note must identify which of
+the three inputs changed instead of reporting every membership change as new
+or removed evidence.
+
 ## Edge And Precision Cases
 
 - A point near a border retains its coordinate provenance and precision; the

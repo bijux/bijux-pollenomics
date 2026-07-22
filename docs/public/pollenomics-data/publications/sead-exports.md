@@ -63,6 +63,34 @@ The current export does not establish:
 Missing temporal values mean **not captured under the current contract**, not
 zero, undated in the upstream database, or absent from archaeology.
 
+## Two Rows, Two Publication Outcomes
+
+The inventory and mapped populations can be inspected through concrete rows:
+
+| SEAD row | Captured state | Publication outcome |
+| --- | --- | --- |
+| `6468`, 10412 Fjälkinge | point at `14.28308648, 56.0388744`, country Sweden, stable upstream page | admitted to the Nordic context layer with unresolved time |
+| `3719`, Grobin | stable site identity and upstream page, blank country assignment | retained in review but absent from the four-country mapped layer |
+
+Fjälkinge demonstrates qualified admission: the point and source identity are
+usable for spatial context, while `time_start_bp`, `time_end_bp`, and duration
+remain null. Grobin demonstrates retained non-membership: source evidence
+exists, but the current publication geography does not admit it.
+
+```mermaid
+flowchart LR
+    Inventory["captured SEAD row"] --> Identity["site ID and upstream page"]
+    Identity --> Geography{"four-country membership?"}
+    Geography -->|6468 Fjälkinge| Point["mapped spatial context"]
+    Geography -->|3719 Grobin| Review["retained non-member"]
+    Point --> Time["numeric time refused"]
+    Review --> Time
+```
+
+Neither outcome is a negative archaeological conclusion. One is a spatially
+qualified publication member; the other is a captured record outside the
+current geographic product. Both retain an unresolved temporal posture.
+
 ## Reuse Contract
 
 Carry the site identifier, source URL, point geometry, country assignment,
