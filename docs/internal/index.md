@@ -34,6 +34,32 @@ atlas guides.
 | GitHub Actions and release evidence | release support | [Release support](pollenomics-dev/release-support.md) |
 | Make target contracts | Make handbook | [Make system](maintain/makes/index.md) |
 
+## Choose An Operating Mode
+
+Repository work has four modes with different authority and side effects:
+
+| Mode | Purpose | Expected writes | Completion evidence |
+| --- | --- | --- | --- |
+| inspect | locate an owner, contract, product member, or failure | none | identified governing surface and bounded question |
+| validate | test an existing contract without changing governed state | transient output under `artifacts/` | named check, inputs, revision, and result |
+| regenerate | intentionally replace owned data, reports, or generated contracts | declared governed output roots | producer inputs, semantic diff, focused validation, and review decision |
+| release | prove and publish an accepted repository state | release artifacts and external publication surfaces | exact revision, package set, retained workflow evidence, and published identities |
+
+```mermaid
+flowchart LR
+    Question["maintenance intent"] --> Inspect["inspect owner and scope"]
+    Inspect --> Validate["validate current state"]
+    Validate --> Change{"governed state must change?"}
+    Change -->|no| Evidence["retain focused result"]
+    Change -->|yes| Regenerate["regenerate owned surface"]
+    Regenerate --> Review["review semantic diff"]
+    Review --> Release["release only when requested"]
+```
+
+Validation success never grants permission to regenerate, and regeneration
+success never implies release readiness. The selected mode belongs in the
+handoff so another maintainer can distinguish observation from mutation.
+
 ## Authority Precedence
 
 Repository maintenance often encounters the same statement in source code,

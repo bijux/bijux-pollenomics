@@ -114,6 +114,32 @@ Do not satisfy a repository check by weakening the assertion when the
 underlying product contract is wrong. The finding is valuable precisely because
 it identifies a disagreement between declared and observed state.
 
+## Report A Finding Precisely
+
+A maintainer finding is actionable when it records:
+
+| Field | Required content |
+| --- | --- |
+| contract | the exact invariant, policy, schema, route, or generated relation inspected |
+| revision and inputs | the repository state and governed files used by the check |
+| observed state | the value, path, membership, or behavior actually found |
+| expected state | the owning contract's requirement |
+| owner | the runtime, data, documentation, workflow, or release boundary that decides the correction |
+| evidence | focused command result and any retained artifact path |
+| disposition | corrected, intentionally deferred with reason, or still blocking |
+
+“Documentation failed” or “repository truth is red” is not enough. The report
+must name the disputed claim and owner so the correction can occur at the
+authoritative boundary rather than in the check that detected it.
+
+```mermaid
+flowchart LR
+    Check["bounded check"] --> Finding["observed versus expected"]
+    Finding --> Owner["authoritative owner"]
+    Owner --> Correction["durable correction"]
+    Correction --> Proof["focused verification evidence"]
+```
+
 ## Maintainer Evidence Flow
 
 ```mermaid

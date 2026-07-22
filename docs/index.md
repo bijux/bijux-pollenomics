@@ -62,10 +62,6 @@ records forward to see what the repository is prepared to claim.
 | evaluate a lake-priority result | [Sweden lake priorities](public/nordic-atlas/sweden-lake-priorities/index.md) | model meaning, scenario stability, and missing field evidence |
 | inspect a direct visit | [fieldwork](public/fieldwork/index.md) | dated observation, media lineage, and claim boundary |
 
-The public site explains scientific and product meaning. Maintainer procedures
-remain in the [internal guide](internal/index.md), where they cannot be mistaken
-for evidence supporting a reader-facing claim.
-
 ## Find The Authority
 
 Reader-visible information often crosses several files, but each fact has one

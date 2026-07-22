@@ -113,6 +113,36 @@ flowchart TD
 This split is part of the API contract. Callers must not interpret a successful
 process exit as proof that the requested scientific claim was admitted.
 
+## Operation Evidence Packet
+
+For state-changing calls, the durable result is larger than the return value or
+terminal output. Preserve the packet appropriate to the operation:
+
+| Packet member | What it proves |
+| --- | --- |
+| invocation identity | which command or API, arguments, configuration, and roots were selected |
+| input identity | which source release, governed data state, or product configuration was consumed |
+| software outcome | whether execution completed and which diagnostics were emitted |
+| written manifest | which files and members belong to the resulting state |
+| semantic diff | how identities, fields, precision, coverage, or membership changed |
+| fitness outcome | which records were admitted, qualified, excluded, or deferred |
+| focused verification | which contract was checked against the written result |
+
+```mermaid
+flowchart LR
+    Invocation["command or API invocation"] --> Outcome["software outcome"]
+    Invocation --> Inputs["governed input identity"]
+    Outcome --> Manifest["written manifest"]
+    Inputs --> Diff["semantic diff"]
+    Manifest --> Fitness["fitness and refusal surfaces"]
+    Diff --> Verification["focused verification"]
+    Fitness --> Verification
+```
+
+An integration that retains only standard output cannot later prove product
+membership or scientific fitness. An integration that retains only generated
+files cannot explain the invocation and governed inputs that produced them.
+
 ## Command-line surface
 
 The CLI groups commands by durable responsibility:
