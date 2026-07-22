@@ -79,6 +79,34 @@ steps needed to use a supported interface.
 | understand Make target ownership | [Make system](maintain/makes/index.md) |
 | inspect automation and publication evidence | [GitHub workflows](maintain/gh-workflows/index.md) |
 
+### Declare The Change Contract
+
+Before editing or invoking a producer, record the boundary of the intended
+change:
+
+| Contract field | Required answer |
+| --- | --- |
+| durable intent | which repository behavior, evidence claim, procedure, or publication contract will differ? |
+| authoritative owner | which handwritten input or governed record is allowed to decide that difference? |
+| causal inputs | which source identities, configurations, contracts, or prior manifests will be read? |
+| write boundary | which exact handwritten files or complete producer-owned roots may change? |
+| dependent consumers | which generated, documented, packaged, or published surfaces may become stale? |
+| acceptance evidence | which member-level diff and focused checks establish the intended result? |
+| excluded scope | which adjacent owners and broader validation lanes are intentionally unchanged or not executed? |
+
+```mermaid
+flowchart LR
+    Intent["durable intent"] --> Owner["authoritative owner"]
+    Inputs["causal inputs"] --> Owner
+    Owner --> Writes["declared write boundary"]
+    Writes --> Consumers["dependent consumers"]
+    Consumers --> Proof["semantic diff and focused proof"]
+```
+
+If the owner or write boundary cannot be named, the proposed operation is not
+yet bounded. If the proof cannot distinguish an intended semantic change from
+incidental regeneration, the acceptance contract is not yet strong enough.
+
 ## Authority Map
 
 Repository facts often appear in several places. Correct the owner first and

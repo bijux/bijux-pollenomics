@@ -93,6 +93,34 @@ Producer success is necessary but insufficient. A mechanically valid report
 can still contain the wrong geography, an unsupported admission, or a changed
 warning posture.
 
+### Close The Dependency Boundary
+
+A commit is coherent when every changed authority and every affected consumer
+agree, while unrelated owners remain untouched.
+
+| Changed authority | Dependency closure required before commit |
+| --- | --- |
+| source capture | normalized members, reviews, collection accounting, and affected products are regenerated or explicitly shown unchanged |
+| normalized or curated fact | dependent relations, conflicts, admissions, manifests, and public wording are reevaluated |
+| admission or product rule | eligible population, decisions, exclusions, manifests, counts, and all bundle formats agree |
+| runtime interface | canonical contract, examples, compatibility forwarding, and focused package proof agree |
+| documentation route | navigation, redirects, links, audience boundary, and strict rendering agree |
+| maintainer check | its declared contract, deterministic finding format, internal guidance, and focused test agree |
+
+```mermaid
+flowchart TD
+    Authority["changed authority"] --> Dependents["typed dependent consumers"]
+    Dependents --> Account{"all effects accounted for?"}
+    Account -->|no| Continue["correct or regenerate owning surface"]
+    Continue --> Dependents
+    Account -->|yes| Proof["focused boundary proof"]
+    Proof --> Commit["coherent commit"]
+```
+
+An unaffected consumer does not need a cosmetic rewrite, but its unchanged
+status may need evidence when the changed authority could have altered it. A
+zero-diff regeneration or member comparison can provide that evidence.
+
 ### Preserve The Decision Chain
 
 For data and publication work, keep four records distinguishable:
@@ -128,8 +156,8 @@ a claim-bearing change even though it has no runtime write:
 6. Commit one coherent documentation intent with its focused results.
 
 ```bash
-.venv/bin/mkdocs build --strict --site-dir artifacts/docs-site
-.venv/bin/pytest -q \
+artifacts/root/check-venv/bin/mkdocs build --strict --site-dir artifacts/docs-site
+artifacts/root/check-venv/bin/pytest -q \
   packages/bijux-pollenomics/tests/unit/test_public_artifact_language.py \
   packages/bijux-pollenomics/tests/regression/test_repository_contracts.py::RepositoryContractRegressionTests::test_docs_mermaid_diagrams_avoid_reserved_node_ids
 ```
