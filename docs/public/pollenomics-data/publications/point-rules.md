@@ -70,6 +70,26 @@ Likewise, a point accepted on the world surface can remain outside a Nordic or
 country subset. The public row must preserve those decisions rather than
 compress them into one status.
 
+### Admission is conjunctive
+
+For direct animal evidence, a marker is eligible only when every required
+spatial condition is satisfied:
+
+> stable identity **and** locality ownership **and** coordinate provenance
+> **and** valid coordinates **and** citation lineage **and** product scope
+
+One strong field cannot compensate for a failed field. A precise coordinate
+without defensible sample ownership is ineligible; a well-cited sample without
+a mappable locality remains in the collection but outside the point layer.
+
+| Evidence state | Point decision | Field decision | Published meaning |
+| --- | --- | --- | --- |
+| direct coordinate, owned locality, complete lineage | admit | preserve direct coordinate class | qualified sample-backed point |
+| defensible named-site resolution, complete lineage | admit | mark coordinate approximate | qualified point at resolved precision |
+| admitted location, broad chronology | admit spatially | omit numeric time window | location is visible; numeric temporal comparison is not authorized |
+| region-only or project-level locality | refuse | no coordinate fields | known evidence without a defensible marker |
+| sample/site disagreement | exclude pending resolution | no spatial or numeric borrowing | conflict remains visible in review surfaces |
+
 ## Required evidence by field
 
 | Published field | Minimum support |
@@ -115,6 +135,10 @@ Refused rows remain visible in readiness, overbroad-site, unresolved-site,
 chronology, and recovery audits. Absence from the atlas is therefore not
 absence from the collection.
 
+Admission can change only when the governing evidence changes or the declared
+product contract changes. Replacing a marker symbol, filtering a layer, or
+editing popup text cannot turn a refused row into an admitted one.
+
 ## Publication gates
 
 The animal publication gate verifies the whole emitted surface, including:
@@ -153,6 +177,11 @@ For published features, begin with
 identifiers into the species-normalized files. For absent or blocked features,
 inspect `data/adna/governance/cross_species_map_readiness.json`, the coordinate
 and locality ledgers, and `docs/report/animal_publication_release_gate.json`.
+
+For any point-level claim, retain four linked facts: the feature identifier,
+the evidence-row identifier, the coordinate basis and confidence, and the
+bundle scope and version. Together they distinguish “this marker was visible”
+from “this evidence was qualified to support the stated claim.”
 
 Read [map inputs](map-inputs.md) for the full layer assembly,
 [coordinate provenance](../evidence/coordinates.md) for spatial confidence,

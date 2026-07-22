@@ -86,6 +86,35 @@ covering 761,917 published Swedish sites, four Nordic boundary polygons, and
 234 reviewed animal publication points. These counts describe different units
 and roles and must never be summed into one evidence total.
 
+## Layer Acceptance Contract
+
+Each exported layer answers five questions before it enters a bundle:
+
+| Contract field | Required answer |
+| --- | --- |
+| identity | what stable feature and source-family identifiers survive export? |
+| role | is the feature direct evidence, primary context, contextual archaeology, a candidate anchor, or framing? |
+| admission | which normalized or reviewed surface authorized inclusion? |
+| qualification | which spatial, temporal, and citation limits travel with the feature? |
+| scope | which world, regional, or country product selected it? |
+
+If a layer cannot answer all five, it may be useful source material but is not
+ready to function as a governed publication input.
+
+```mermaid
+flowchart LR
+    Family["source family"] --> Normalize["normalized identity"]
+    Normalize --> Review["role and qualification"]
+    Review --> Admit{"product contract passes?"}
+    Admit -->|yes| Export["scoped layer"]
+    Admit -->|no| Refusal["gap or refusal surface"]
+    Export --> Bundle["versioned publication bundle"]
+```
+
+The refusal branch is part of the evidence architecture. It keeps a visually
+clean layer from concealing records that were captured but could not support
+the product's claims.
+
 ## What a scoped export must preserve
 
 A public layer must retain enough structure to answer:
@@ -112,6 +141,16 @@ citation linkage for every included direct-evidence feature.
 Boundary polygons frame those subsets but never increase evidence strength.
 Context layers may explain what surrounds a sample or lake, yet proximity does
 not turn them into sample-owned proof.
+
+### Use the correct denominator
+
+Layer counts have meaning only against the population from which they were
+selected. For animal points, distinguish tracked projects, recovered samples,
+locality-qualified samples, and admitted point rows. For pollen and archaeology
+layers, retain the applicable source inventory and temporal posture. Reporting
+only the number of visible markers makes conservative admission look like
+collection completeness and makes heterogeneous layers look comparable when
+they are not.
 
 ## Tracing a visible feature
 
