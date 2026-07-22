@@ -35,8 +35,9 @@ Some real capabilities carry narrower claims because the evidence is uneven:
 
 - animal source recovery tracks 40 projects and 868 recovered sample rows,
   while expected-sample denominators remain incomplete;
-- animal point publication admits 234 supported rows without presenting them
-  as complete project or species coverage;
+- animal point publication admits 233 final sample-backed features and one
+  provisional project-context feature without presenting the 234-row surface
+  as one homogeneous sample population;
 - Neotoma provides 170 numerically comparable site spans alongside five
   contextual-only and 25 unresolved sites;
 - SEAD provides 2,172 mapped Nordic context features, while all 2,195 reviewed
@@ -56,6 +57,35 @@ flowchart TB
 ```
 
 The engine is credible because all three branches are durable outputs.
+
+## Capability Ledger
+
+Operational status is claim-specific. The same domain can be operational for
+one output, qualified for another, and outside scope for a stronger analysis.
+
+| Domain question | State | Governed result | Claim ceiling |
+| --- | --- | --- | --- |
+| Which AADR v66 rows belong to a country bundle? | operational | release-resolved members, manifest, table, and GeoJSON | geographic publication of metadata, not genotype analysis |
+| Which recovered animal samples meet the point contract? | operational for 233 features | final sample identity, locality, coordinate, chronology posture, and traceability | admitted subset, not complete project recovery |
+| May the Wadi Halfa dromedary context appear spatially? | qualified | one provisional project-context feature with approximate named-place geocode | context feature, not recovered sample evidence |
+| Are current SEAD sites contemporaneous with nearby aDNA? | refused | 2,195 unresolved temporal review rows | spatial context only until chronology is recovered |
+| Which Swedish lakes rank under declared scenarios? | qualified decision support | ranking, sensitivity, and fieldwork-preparation packets | prioritization, not sampling readiness |
+| What population-genetic process produced a pattern? | outside scope | no governed capability | requires a new analysis and evidence contract |
+
+This ledger prevents a mature command or attractive visualization from lending
+its status to a stronger question. Capability state follows the claim being
+asked, not the package or source family as a whole.
+
+```mermaid
+flowchart LR
+    Question["declared scientific or product question"] --> Inputs["owned inputs"]
+    Inputs --> Contract{"governed capability contract?"}
+    Contract -->|no| Outside["outside scope"]
+    Contract -->|yes| Fitness{"evidence fitness"}
+    Fitness -->|complete for claim| Operational["operational result"]
+    Fitness -->|bounded| Qualified["qualified result"]
+    Fitness -->|insufficient| Refused["refusal and recovery evidence"]
+```
 
 ## Outside Current Scope
 

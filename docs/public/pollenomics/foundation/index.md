@@ -45,6 +45,31 @@ flowchart LR
 These responsibilities stay together because a polished output without its
 capture and review lineage cannot support a consequential scientific claim.
 
+### The Product Has Two Directions
+
+Forward execution creates a publication; reverse inspection establishes
+trust. Both directions are required:
+
+```mermaid
+flowchart LR
+    Source["upstream source identity"] --> Capture["captured bytes and metadata"]
+    Capture --> Record["governed evidence record"]
+    Record --> Decision["claim-specific review"]
+    Decision --> Member["manifested product member"]
+    Member -. "audit" .-> Decision
+    Decision -. "audit" .-> Record
+    Record -. "audit" .-> Capture
+    Capture -. "audit" .-> Source
+```
+
+| Direction | Success condition | Failure meaning |
+| --- | --- | --- |
+| source to product | each transformation preserves identity, role, precision, and admission rationale | the candidate remains qualified, excluded, or unrecoverable |
+| product to source | a visible member resolves through manifest, review, evidence, capture, and upstream identity | the published claim is incomplete even if the rendering works |
+
+A screenshot proves neither direction. A source citation proves origin but not
+product membership. Trust comes from the linked chain.
+
 ## Product Guarantees
 
 The product boundary holds only when all of these relationships remain true:
@@ -128,6 +153,21 @@ Qualified does not mean experimental or hidden. It means the repository can
 defend a narrower result and can name the evidence that prevents stronger
 language. Refusal is likewise a product outcome when the runtime completed but
 the scientific contract did not pass.
+
+### Capability Evidence Packet
+
+A capability is demonstrated only when four surfaces agree:
+
+| Surface | Required evidence |
+| --- | --- |
+| interface | supported command or Python entry point with explicit inputs and write scope |
+| state transition | named owner, prior state, candidate state, and replacement behavior |
+| governed result | manifest, stable member identities, schemas, and evidence roles |
+| fitness | qualifications, exclusions, warnings, and claim ceiling |
+
+Code that can calculate a value is not by itself a product capability. For
+example, coordinate proximity is computable, but causal association remains
+outside scope because no governed inference contract owns that conclusion.
 
 ## Runtime Boundary
 

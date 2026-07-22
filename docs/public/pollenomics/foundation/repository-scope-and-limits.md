@@ -48,13 +48,36 @@ The repository can support claims such as:
 
 - a named source family was captured at a declared version or retrieval state;
 - a published feature belongs to a governed product scope;
-- an admitted animal point has sample-owned locality and coordinate evidence;
+- an admitted animal point has the identity, locality, coordinate, and
+  qualification required by its declared point class;
 - a lake appears in a stated ranking scenario using declared inputs;
 - a record was excluded because a required evidence dimension was unresolved.
 
 It does not claim that every domain is equally complete, that proximity proves
 temporal overlap, that every country has equivalent source coverage, or that a
 ranked lake is ready for sampling.
+
+### One Point Layer, Two Claim Classes
+
+The current animal point surface illustrates the repository boundary:
+
+| Class | Members | Supported statement | Unsupported promotion |
+| --- | ---: | --- | --- |
+| final sample-backed | 233 | these product members resolve to directly extracted final sample identities and supplementary coordinates | the tracked project or species collection is complete |
+| provisional project context | 1 | the Wadi Halfa feature retains paper-backed place context and an approximate geocode | a source-native sample row was recovered or the excavation coordinate is exact |
+
+Both can be visible because visibility follows a declared point class. A
+sample-count analysis cannot treat them as the same observation unit. The
+stronger analysis uses only final samples or records a separate context class
+and its effect on the result.
+
+```mermaid
+flowchart LR
+    Layer["animal point surface"] --> Samples["233 final sample-backed features"]
+    Layer --> Context["1 provisional project-context feature"]
+    Samples --> SampleClaim["sample-level qualified presence"]
+    Context --> ContextClaim["project-context spatial presence"]
+```
 
 ## Match The Claim To The Surface
 
