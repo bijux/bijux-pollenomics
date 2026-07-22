@@ -1,45 +1,16 @@
 # bijux-pollenomics
 
-`bijux-pollenomics` is a curated evidence and publication system for pollen,
-palaeoenvironmental context, archaeology, hydrography, field observations, and
-ancient DNA. It preserves source identity, normalization rules, review state,
-and publication lineage in one checked-in repository so a visible map point can
-be traced back to the files and decisions that support it.
+`bijux-pollenomics` is a curated evidence and publication system for
+pollen, palaeoenvironmental context, archaeology, hydrography, field
+observations, and ancient DNA. It preserves the path from a source object to a
+normalized record, scientific decision, publication member, and visible map or
+report.
 
-The database is part of the product. Source-family contracts distinguish raw,
-normalized, reviewed, and published layers; fact-ownership records identify
-which artifact governs a repeated claim; and the animal aDNA source library
-preserves project dossiers, supporting-material inventories, sample identity,
-locality evidence, chronology evidence, ambiguity ledgers, and publication
-gates. Public reports are derived views over that curated state, not an
-independent database.
-
-The current executable product is an atlas builder and evidence-publication
-runtime. It collects named sources, materializes family-specific preparation
-stages, curates evidence, reviews claim fitness where a review contract is
-present, produces heuristic decision support, and publishes governed report
-families. A general multi-evidence harmonization and interpretation engine
-remains project direction rather than implemented capability.
-
-```mermaid
-flowchart LR
-    Database["governed evidence database"] --> Current["current atlas-builder runtime"]
-    Current --> Publish["scoped publication products"]
-    Publish -. "member trace" .-> Database
-    Planned["planned engine direction"] -. not current .-> Harmonize["general harmonization"]
-    Planned -. not current .-> Interpret["evidence-aware interpretation"]
-    Planned -. not current .-> Replay["workflow replay and diff"]
-```
-
-Run `bijux-pollenomics product-scope --json` and
-`bijux-pollenomics surface-map --json` for the machine-readable boundary. The
-returned contract governs the product boundary.
-
-World, Europe-plus, Nordic, and country outputs form one publication family.
-Pollen and environmental context are the strongest current surfaces. Animal
-aDNA remains deliberately conservative: records without adequate sample,
-locality, chronology, or coordinate support stay qualified or excluded rather
-than being promoted through a visually clean atlas.
+The database is part of the product. The Python package supplies collection,
+normalization, review, ranking, and publication behavior; the checked-in
+`data/` tree supplies governed evidence state; and `docs/report/` contains
+manifested products derived from that evidence. None of those three identities
+can stand in for the others.
 
 <!-- bijux-pollenomics-badges:generated:start -->
 [![Python 3.11+](https://img.shields.io/badge/python-3.11%2B-3776AB?logo=python&logoColor=white)](https://pypi.org/project/bijux-pollenomics/)
@@ -63,586 +34,239 @@ than being promoted through a visually clean atlas.
 [![pollenomics docs](https://img.shields.io/badge/docs-pollenomics-2563EB?logo=materialformkdocs&logoColor=white)](https://bijux.io/bijux-pollenomics/public/pollenomics/)
 <!-- bijux-pollenomics-badges:generated:end -->
 
-## The Trust Envelope
+## Product Boundary
 
-A reusable Pollenomics result carries four linked identities. If one is
-missing, the result may still orient a reader, but it is not yet a complete
-evidence claim.
+The implemented product mode is `atlas_builder`. It collects named source
+families, prepares family-specific evidence, records qualifications and
+refusals, ranks declared decision-support populations, and publishes world,
+regional, country, Nordic-atlas, and fieldwork surfaces.
 
-| Identity | What it fixes | Typical authority |
-| --- | --- | --- |
-| source identity | which release, paper, archive member, API response, or registry row entered the system | capture manifest, source record, DOI, accession, or native key |
-| evidence identity | which normalized or curated object owns the claimed fact | governed member, locality, chronology, coordinate, or relation record |
-| decision identity | which rule admitted, qualified, excluded, or refused that object for one use | review, conflict, readiness, ranking, or admission record |
-| product identity | which versioned scope contains the visible member | bundle manifest, stable feature ID, geography, and publication version |
+General multi-evidence harmonization, evidence-aware interpretation, and
+workflow replay remain project direction. They are not presented as current
+runtime capabilities. The machine-readable boundary is available through:
+
+```bash
+bijux-pollenomics product-scope --json
+bijux-pollenomics surface-map --json
+```
 
 ```mermaid
 flowchart LR
-    Source["source identity"] --> Evidence["evidence identity"]
-    Evidence --> Decision["decision identity"]
-    Decision --> Product["product identity"]
-    Product -. "traceable reuse" .-> Source
+    Sources["versioned sources and literature"] --> Evidence["governed evidence database"]
+    Evidence --> Decisions["review, admission, ranking, and refusal"]
+    Decisions --> Products["manifested publication products"]
+    Products --> Views["maps, tables, reports, and field records"]
+    Views -. "stable member trace" .-> Evidence
+    Direction["planned engine direction"] -. "not current runtime" .-> Future["general harmonization and interpretation"]
 ```
 
-A package version identifies producer behavior, not the evidence snapshot. A
-data revision identifies governed state, not the product that selected from it.
-A screenshot identifies neither. Preserve the complete envelope for a map
-feature, count, comparison, exclusion, or ranking that will be reused.
+## What Makes A Result Reusable
 
-## Three Product Surfaces
+A consequential result carries four linked identities:
 
-| Surface | Durable value | Trust boundary |
+| Identity | Fixes | Typical authority |
 | --- | --- | --- |
-| governed evidence database | captured identities, extracted observations, normalized meaning, relationships, conflicts, review outcomes, exclusions, and recovery gaps | a retained record is not automatically eligible for a public claim |
-| producer runtime | explicit state transitions, validation, admission, ranking, and publication behavior | successful execution does not certify missing lifecycle stages or scientific fitness |
-| publication products | manifested membership, geography, evidence roles, caveats, maps, and reports | a descendant cannot strengthen its governing evidence or prove complete recovery |
+| source | which release, paper, archive member, response, or registry row entered the system | capture manifest, DOI, accession, native key, or content digest |
+| evidence | which governed object owns identity, place, time, taxonomy, and relations | normalized record, sample, locality, chronology, coordinate, or relation |
+| decision | why the object was admitted, qualified, excluded, ranked, or refused for one use | review, conflict, readiness, ranking, or admission record |
+| product | which declared scope contains the visible member | bundle manifest, stable member ID, geography, and publication version |
 
-The three surfaces are versioned and inspected together, but they answer
-different questions. The wheel supplies the producer runtime; a governed data
-root supplies evidence state; a product manifest identifies one published
-result. Reproducibility requires all three identities rather than a package
-version or screenshot alone.
+A package version identifies producer behavior, not an evidence snapshot. A
+data revision identifies governed state, not a selected product. A rendered
+point identifies neither. Preserve the full envelope when reusing a feature,
+count, comparison, exclusion, or ranking.
 
 ## Choose A Starting Point
 
-| You need to… | Start with… | Record first | What you will establish |
-| --- | --- | --- | --- |
-| understand the product and its boundaries | [documentation home](https://bijux.io/bijux-pollenomics/) | intended claim and observation unit | which claims and workflows the repository supports |
-| understand the evidence database | [database model](docs/public/pollenomics-data/database/index.md) | governed object type, identity namespace, and revision | how facts, relations, decisions, and product membership remain coherent |
-| inspect source selection and capture | [data system guide](docs/public/pollenomics-data/index.md) | source family, release, and native record key | which upstream material became governed evidence |
-| inspect an admission, conflict, or recovery decision | [curation guide](docs/public/pollenomics-data/curation/index.md) | governed object, claim dimension, and proposed use | fact ownership, qualification, decision reason, and recovery condition |
-| examine a checked-in result | [report portal](docs/report/index.md) | bundle identity and manifest | product scope, members, and review surfaces |
-| interpret a visible marker | [Nordic atlas guide](docs/public/nordic-atlas/index.md) | feature ID and evidence role | admission posture, spatial and temporal precision, and lineage |
-| evaluate a candidate lake | [Sweden lake priorities](docs/public/nordic-atlas/sweden-lake-priorities/index.md) | lake registry ID and ranking scenario | ranking assumptions, stability, and fieldwork gaps |
-| explain a blocked claim | [release-readiness refusal](docs/report/repository_final_release_refusal.md) | refused claim and governing gate | which evidence dimension prevents stronger language |
-| operate repository-owned state | [maintainer handbook](docs/internal/maintain/index.md) | owner, explicit roots, and prior manifest | which commands validate or intentionally regenerate it |
-
-Choose by question rather than by file type. A rendered map is the right
-starting point for orientation; a governing evidence record is the right
-ending point for a consequential claim. Recording the identity in the third
-column prevents a later screenshot, filename, or count from becoming the only
-handle on the result.
-
-### Choose Proof That Matches The Claim
-
-The strength of a claim is bounded by the weakest governing link it depends
-on. Select the evidence packet before selecting the wording:
-
-| Claim | Minimum governing packet | Insufficient substitute |
+| Question | Start here | Identity to retain |
 | --- | --- | --- |
-| a source record was acquired | source identity, version, retrieval context, and captured member | citation, filename, or download success alone |
-| two records describe the same entity | native identities, explicit relation, and reviewed resolution | matching labels or nearby coordinates |
-| a location is exact | locality evidence, coordinate provenance, precision posture, and conflict outcome | a plotted point or geocoder result |
-| a date belongs to a sample | sample-owned chronology, dating basis, normalized interval, and review posture | site context or publication-period summary |
-| a member belongs in a product | governed evidence, admission result, product scope, and manifest membership | presence in a normalized table |
-| one site outranks another | ranking inputs, method identity, scenario, sensitivity evidence, and manifest | a single displayed score |
+| What does the product implement? | [Pollenomics handbook](docs/public/pollenomics/index.md) | runtime version and product-scope contract |
+| What does a database object mean? | [domain language](docs/public/pollenomics-data/domain-language.md) | object type, stable ID, and claim dimension |
+| How was evidence prepared? | [data-system overview](docs/public/pollenomics-data/overview/data-system-overview.md) | source family, captured member, and data revision |
+| Why was a record admitted or refused? | [curation guide](docs/public/pollenomics-data/curation/index.md) | decision ID, proposed use, disposition, and reason |
+| What belongs to a publication? | [publication model](docs/public/pollenomics-data/publications/index.md) | manifest, member ID, geography, and caveat |
+| How should an atlas marker be interpreted? | [Nordic Evidence Atlas](docs/public/nordic-atlas/index.md) | feature ID, evidence role, space, and time posture |
+| What supports a lake priority? | [Sweden lake priorities](docs/public/nordic-atlas/sweden-lake-priorities/index.md) | candidate ID, ranking scenario, and readiness state |
+| What does a field visit establish? | [fieldwork evidence](docs/public/fieldwork/index.md) | visit identity, date, location, and media lineage |
+| Which limitation blocks stronger release language? | [release refusal](docs/report/repository_final_release_refusal.md) | refused claim and governing evidence dimension |
+| How is tracked state operated safely? | [maintainer handbook](docs/internal/maintain/index.md) | owner, explicit roots, prior manifest, and verification |
 
-```mermaid
-flowchart LR
-    Claim["claim to make"] --> Dimension{"which facts does it require?"}
-    Dimension --> Owners["governing records for identity, place, time, and role"]
-    Owners --> Decision["review or admission decision"]
-    Decision --> Product["manifested product member"]
-    Product --> Wording["claim no stronger than the weakest link"]
+Choose by claim rather than file format. JSON, CSV, GeoJSON, Markdown, and HTML
+are representations of governed objects or products; their extensions do not
+tell you which layer owns the meaning.
+
+## Inspect Before Rebuilding
+
+Install the canonical runtime on Python 3.11 or newer:
+
+```bash
+python3.11 -m pip install bijux-pollenomics
+bijux-pollenomics --version
 ```
 
-A product can narrow a claim through qualification or exclusion, but it cannot
-repair missing source identity, manufacture sample-level precision, or turn a
-context layer into direct evidence. Follow every material dimension to its
-owner before treating the publication as reusable proof.
-
-```mermaid
-flowchart LR
-    Sources["versioned sources and papers"] --> Capture["tracked source capture"]
-    Capture --> Curate["normalization and evidence curation"]
-    Curate --> Review["conflicts, caveats, and release gates"]
-    Review --> Publish["world, regional, and country publications"]
-    Publish --> Trace["reader traceability"]
-    Trace -. challenge .-> Review
-```
-
-The trust boundary is explicit:
-
-| Layer | Governs | Does not govern |
-| --- | --- | --- |
-| source capture | acquired identity, retrieval context, and source bytes | repository interpretation |
-| normalized evidence | stable fields, identifiers, and source linkage | publication eligibility |
-| curation and review | fact ownership, precision, conflicts, comparability, admission, and refusal | source-native facts |
-| publication | admitted records, geography, labels, and visible caveats | upstream evidence truth |
-
-A map or report is therefore an index into governed evidence, not a substitute
-for it.
-
-The database boundary is equally important for repository users. JSON, CSV,
-GeoJSON, manifests, and review ledgers are serializations of typed objects and
-relations, not independent sources of truth. Start with the
-[object and relation model](docs/public/pollenomics-data/database/object-and-relation-model.md)
-before joining records across families or reusing a publication extract.
-
-## Inspect Without Rebuilding
-
-A first inspection should be read-only. The checked-in contracts and products
-are sufficient to establish what the runtime claims, which source families it
-knows, and where one visible member obtains its authority:
+The wheel contains runtime behavior and schemas. It does not contain this
+repository's evidence database or published report tree. From a repository
+checkout, begin with read-only contracts and a checked-in manifest:
 
 ```bash
 uv run --project packages/bijux-pollenomics bijux-pollenomics product-scope --json
-uv run --project packages/bijux-pollenomics bijux-pollenomics surface-map --json
 uv run --project packages/bijux-pollenomics bijux-pollenomics source-support --json
+uv run --project packages/bijux-pollenomics bijux-pollenomics adna-species --json
 python3 -m json.tool docs/report/world/world_bundle.json | head -80
 ```
 
-These commands answer different questions:
-
 | Inspection | Establishes | Does not establish |
 | --- | --- | --- |
-| product scope | implemented runtime boundary and explicitly planned capabilities | scientific fitness of the checked-in evidence |
-| surface map | runtime, data, publication, and repository ownership | whether every declared lifecycle stage is materialized |
-| source support | collector capability and declared geography | capture success, review maturity, or product membership |
-| world bundle | one publication identity and its governed members | upstream completeness or eligibility for another scope |
+| product scope | implemented and explicitly planned capability boundaries | fitness of the checked-in evidence |
+| source support | collector capability for named families | capture presence, completeness, or publication membership |
+| species inventory | registered animal evidence surfaces | source recovery or release readiness |
+| world bundle | identity and members of one published scope | completeness of upstream collection or eligibility elsewhere |
 
-```mermaid
-flowchart LR
-    Scope["runtime scope"] --> Question{"claim to inspect"}
-    Sources["source-family capability"] --> Question
-    Question --> Bundle["product manifest"]
-    Bundle --> Member["stable member identity"]
-    Member --> Evidence["governing evidence and decision"]
-```
+Continue from a manifest member to its evidence and decision records. Run a
+writer only when the intended governed roots and review boundary are explicit.
 
-Continue from a manifest member into its traceability, review, and source
-records. Run `make data-prep`, `make reports`, or `make app-state` only when the
-intended operation is a governed rebuild and the resulting tracked diff will
-be reviewed as evidence state.
+## Evidence Roles
 
-## What A Published Record Contains
+Pollen and palaeoenvironmental evidence lead the scientific model. Other
+families contribute direct evidence, environmental or archaeological context,
+sampling context, and geographic framing without becoming interchangeable.
 
-A public feature is a compound claim. Its visual geometry is only one member
-of the record; identity, source lineage, temporal posture, spatial precision,
-product scope, and admission outcome travel with it.
-
-| Claim component | Governing evidence | Typical failure mode |
+| Family | Contracted role | Principal boundary |
 | --- | --- | --- |
-| identity | stable source, project, sample, site, or registry identifier | conflated or duplicated records |
-| origin | source version, retrieval metadata, artifact locator, and content hash | a citation without recoverable source material |
-| place | reported locality, site relationship, coordinate basis, and precision | a broad place rendered as an exact point |
-| time | source wording, normalized interval, dating basis, and comparability | contextual time presented as a sample date |
-| role | direct evidence, context, decision support, or framing | co-located layers treated as equivalent proof |
-| publication | geography, product version, gate result, and visible caveat | presentation silently strengthening upstream evidence |
+| LandClim and Neotoma | primary pollen and vegetation context | site sequences, samples, and model cells retain different observation units |
+| SEAD and RAÄ | environmental-archaeology context | context density or proximity is not sample proof or contemporaneity |
+| SMHI SVAR | lake and hydrography context | registry presence and representative geometry do not establish coring suitability |
+| AADR | release-versioned human aDNA evidence | panel rows require governed identity resolution before person or sample counts |
+| animal aDNA | literature-backed, sample-owned evidence | locality, chronology, and coordinates require recoverable sample-level support |
+| boundaries | publication framing | modern geometry supplies scope, not scientific weight or historical affiliation |
+| fieldwork | direct visit observation | a visit record does not validate nearby evidence or establish sampling suitability |
+
+The current animal aDNA and SEAD surfaces remain deliberately conservative:
+records without adequate sample, locality, chronology, or coordinate support
+stay qualified or excluded. Missing evidence and unavailable comparability
+remain visible as recovery work or release refusal.
+
+## Database And Publication State
 
 ```mermaid
-flowchart LR
-    Feature["published feature ID"] --> Membership["bundle membership"]
-    Membership --> Evidence["evidence row"]
-    Evidence --> Identity["stable record identity"]
-    Evidence --> Place["locality and coordinate posture"]
-    Evidence --> Time["chronology posture"]
-    Identity --> Origin["project, paper, source artifact"]
-    Place --> Origin
-    Time --> Origin
+flowchart TB
+    Capture["captured source identity and material"] --> Normalize["typed, source-preserving records"]
+    Normalize --> Curate["fact ownership, relations, and conflicts"]
+    Curate --> Review["claim-specific fitness and precision"]
+    Review --> Admission{"product contract"}
+    Admission -->|admit or qualify| Manifest["manifested product member"]
+    Admission -->|exclude or refuse| Negative["exclusion, gap, or recovery evidence"]
+    Manifest --> Render["map, table, report, or fieldwork view"]
 ```
 
-This decomposition is why the repository contains more than map-ready tables.
-The curation database records rejected precision, unresolved evidence,
-conflicting claims, and source-recovery gaps so publication can remain smaller
-than collection without becoming opaque.
+`data/` owns captured, normalized, curated, and reviewed evidence. Different
+source families materialize different lifecycle stages; a downstream product
+does not prove that an absent upstream stage exists. `docs/report/` owns
+derived product state. Its manifests identify membership, while its member
+records retain links to the evidence and decisions that justify publication.
 
-This repository publishes `2` packages. Each release tag builds one staged
-bundle, uploads the Python distribution to PyPI, publishes the release bundle
-to its exact GHCR package page under the `bijux` account, and attaches the
-same staged assets to the GitHub Release.
+The [data repository guide](data/README.md) maps tracked paths to authority.
+The [database model](docs/public/pollenomics-data/database/index.md) explains
+objects, relations, revisions, and coherent read sets.
 
-## Follow One Curated Record End To End
+## Packages
 
-The world animal surface contains an accepted goat feature for Direkli Cave.
-Its published row is only the end of a longer, checked-in chain:
-
-| Layer | Governing identity or fact |
-| --- | --- |
-| publication | feature `animal-atlas-feature:capra-hircus-locality-prjeb90141-direklicave-taurusmountainsturkey` is accepted in the world animal evidence surface |
-| locality | `capra_hircus:locality:prjeb90141:direklicave:taurusmountainsturkey` owns Direkli Cave and its exact supplied coordinates |
-| sample | `capra_hircus:sample:prjeb90141:samea4453841` resolves archive sample `SAMEA4453841` and paper label `Direkli1-2` |
-| chronology | the sample-owned source text `11367-11220 BCE` is normalized to `13169-13316 BP` with a sample-precise interval posture |
-| provenance | Table S2, row 2 of the recovered PRJEB90141 supplementary workbook supplies label, place, coordinates, time, and accession lineage |
-| accountability | the candidate record confirms sample lineage, site evidence, chronology evidence, coordinate provenance, and locality agreement |
-
-```mermaid
-flowchart LR
-    Workbook["supplementary workbook<br/>Table S2 row 2"] --> Sample["SAMEA4453841<br/>Direkli1-2"]
-    Sample --> Locality["Direkli Cave<br/>supplied coordinates"]
-    Sample --> Chronology["11367–11220 BCE<br/>13169–13316 BP"]
-    Locality --> Candidate["accountable animal candidate"]
-    Chronology --> Candidate
-    Candidate --> World["accepted world feature"]
-```
-
-This trace is intentionally more specific than a citation. It proves which
-spreadsheet row owns the identity, spatial claim, and temporal claim; how those
-claims were normalized; and which product admitted the resulting feature. The
-same project also contains sample-owned chronology that conflicts with broader
-project wording, so the database preserves the narrower sample claim instead
-of flattening every project member to one date.
-
-For an absent or qualified record, follow the same route from the expected
-identity into exclusion, ambiguity, substitution, and recovery surfaces. A
-source refresh is reviewed in the opposite direction: capture, normalized
-identity, curation decision, then affected publication membership.
-
-## Checked-In Evidence Snapshot
-
-The current repository state is substantial but deliberately uneven:
-
-| Governed surface | Current checked-in scale | What the number means |
-| --- | ---: | --- |
-| collector-managed source families | 7 | AADR, boundaries, LandClim, Neotoma, RAÄ, SEAD, and SVAR have runtime collection adapters and separately governed trees |
-| LandClim | 492 site sequences and 88 grid cells | primary pollen and vegetation context |
-| Neotoma | 200 sites; 170 numerically comparable, 5 contextual-only, and 25 unresolved | independent pollen context with explicit temporal posture |
-| SEAD | 2,195 reviewed inventory rows and 2,172 mapped Nordic features | archaeology context without numeric intervals in the current capture |
-| RAÄ | 761,917 published sites | Sweden-specific heritage density context |
-| SVAR | 40,565 lakes | candidate-lake identity and hydrographic framing |
-| animal sample foundation | 894 rows across 10 species and 40 projects | grounding and blocker classifications for curated source rows |
-| animal aDNA curation | 868 recovered samples across 40 projects | recovered identity rows, not proof of complete project recovery |
-| animal publication | 234 reviewed point-evidence rows | the admitted spatial subset; 233 use supplementary coordinates and one uses qualified named-site geocoding |
-
-Counts from unlike surfaces are not additive. A pollen sequence, archaeology
-site, lake registry row, animal sample, and publication point answer different
-questions and retain different admission rules.
-
-`bijux-pollenomics source-support --json` reports collector capability and
-declared country reach for those seven families. It does not report whether a
-capture exists, whether the current release passed validation, or whether any
-member is fit for publication. Those states belong to the collection summary,
-evidence-stage matrix, and product admission records respectively. Animal aDNA
-does not appear in `source-support` because its governed intake follows papers,
-archives, supplements, and project-owned samples rather than one uniform
-collector endpoint.
-
-```mermaid
-flowchart LR
-    Inventory["source inventories"] --> Curated["governed evidence state"]
-    Curated --> Qualified{"claim-specific review"}
-    Qualified -->|supported| Public["admitted publication subset"]
-    Qualified -->|incomplete| Queue["recovery or ambiguity surface"]
-    Qualified -->|unsupported| Refusal["explicit refusal"]
-```
-
-The 894 foundation rows, 868 recovered sample-master identities, and 234
-published point rows are not one attrition funnel. They are separately
-governed populations with different observation units and purposes. The
-foundation tracks grounding and blockers, the sample master tracks recovered
-identity, and the point contract tracks publication admission.
-
-## Current Integrity Disclosures
-
-Trust in the checked-in snapshot depends on making its material gaps as easy
-to find as its strongest surfaces:
-
-| Surface | What is present | Material limit in this checkout | Consequence |
-| --- | --- | --- | --- |
-| SVAR | capture manifest and summary for 40,565 lakes; lake identities retained in Sweden ranking rows | the contracted `data/svar/normalized/sweden_lake_registry.geojson` authority is declared but absent | published candidates remain inspectable, but the complete normalized registry cannot be independently traversed from this checkout |
-| human AADR | versioned v66 annotation captures and retained report products | the governed Homo sapiens normalized and review directories contain no member artifacts | human outputs remain inspectable, but the current snapshot cannot establish a normalized-and-reviewed human publication chain |
-| source-family review | LandClim, RAÄ, and boundaries have captured, normalized, and published artifacts | their contracts name source-specific review artifacts that are not materialized | use the normalized data at its declared role; do not describe these families as published with review support |
-| animal project recovery | 868 sample rows with final identity resolution | only four of 40 projects have a trustworthy expected sample count | recovered identity is not proof of project completeness |
-| SEAD chronology | 2,195 inventory rows and 2,172 normalized site points | no numeric intervals in the current capture | spatial archaeology context cannot be promoted to same-period support |
-| fieldwork | one dated Lyngsjön visit with checked-in photo and video | one event and selected media | no lake-wide, seasonal, or regional generalization |
-
-The missing lifecycle artifacts are repository-integrity gaps, not reasons to
-hide retained downstream work. Those publications remain available for
-inspection at their declared versions. They cannot be used to infer their
-missing authorities backward, and the current snapshot must not be described
-as rebuildable or reviewed where the contracted evidence is absent.
-
-See the [SVAR source guide](docs/public/pollenomics-data/sources/svar.md),
-[revision and state model](docs/public/pollenomics-data/database/revision-and-state-model.md),
-[chronology semantics](docs/public/pollenomics-data/evidence/temporal-semantics.md),
-and [fieldwork evidence boundary](docs/public/fieldwork/index.md) for the
-claim-specific consequences.
-
-## Collection, Curation, And Publication Denominators
-
-Three totals recur across the repository because they describe different
-populations:
-
-| Population | Current scope | Governing question |
+| Distribution | Responsibility | Intended audience |
 | --- | --- | --- |
-| collected source families | 7 families in `data/collection_summary.json` | which collector-managed source trees belong to the pinned collection state? |
-| contracted evidence families | 8 families, including animal ancient DNA | which scientific and framing families have declared evidence roles and lifecycle contracts? |
-| publication members | product-specific subsets | which governed records satisfy this geography and claim contract? |
+| [`bijux-pollenomics`](packages/bijux-pollenomics/README.md) | canonical runtime, Python namespace, and command | users, operators, and integrators |
+| [`pollenomics`](packages/pollenomics/README.md) | short executable and import compatibility surface | users who prefer the concise name |
+| [`bijux-pollenomics-dev`](packages/bijux-pollenomics-dev/README.md) | repository, documentation, API-freeze, and release checks | repository maintainers |
 
-Animal ancient DNA is the eighth contracted family, but it is curated through
-project archives, papers, supplements, sample authorities, and species views
-rather than the seven-family collector summary. A product then admits only the
-members supported for its particular spatial, temporal, and evidential claim.
+The two public distributions execute one canonical scientific runtime. The
+short name does not own separate schemas, evidence, or publication behavior.
+The maintainer package observes repository contracts; it does not make
+scientific decisions.
 
-This distinction prevents three common errors: reading collection breadth as
-publication completeness, reading recovered samples as map-ready points, and
-adding counts whose observation units differ.
+## Repository Workflows
 
-```mermaid
-flowchart LR
-    Collected["7 collector-managed families"] --> Contracts["family contracts and normalized state"]
-    Animal["animal source library and sample evidence"] --> Contracts
-    Contracts --> Eight["8 contracted evidence families"]
-    Eight --> Gate{"product-specific admission"}
-    Gate --> Members["scoped publication members"]
-    Gate --> Account["qualified, excluded, and unresolved records"]
-```
-
-## What This Repository Produces
-
-Today, the checked-in repository produces these durable outcomes:
-
-- a tracked `data/` tree with source-family ownership and normalized outputs
-- machine-readable source-family, evidence-stage, artifact, and fact-ownership
-  contracts
-- an animal aDNA curation library with project dossiers, sample-level evidence,
-  manual review queues, and explicit release guards
-- public curation contracts that explain record admission, conflicting claims,
-  recovery evidence, and the populations on both sides of publication gates
-- a report tree under `docs/report/` with world, regional, and country publication families
-- governed world, Europe-plus, and Nordic map surfaces that share one publication contract
-- country bundles for Sweden, Norway, Finland, and Denmark that remain filtered descendants of the same broader evidence state
-- point-traceability, subset-validation, scientific-review, and exclusion
-  surfaces beside the visual publications they qualify
-- a MkDocs documentation site that builds into `artifacts/root/docs/site/`
-- review and release-readiness surfaces that keep final-release claims blocked
-  while animal recovery and SEAD comparability remain materially weaker than
-  the rest of the product
-
-The durable product is therefore a **database, decision record, and
-publication system together**. Removing the review and refusal surfaces would
-make the maps easier to browse but materially less trustworthy.
-
-## Which Package To Install
-
-Choose the package by ownership, not by name length:
-
-- install `bijux-pollenomics` when you want the canonical runtime, CLI, and
-  Python entrypoints that own collection, normalization, reporting, and atlas
-  generation
-- install `pollenomics` when you want the shorter package name and CLI command
-  but still expect the same runtime behavior under the hood
-- use `bijux-pollenomics-dev` only for maintainer checks, docs integrity, and
-  release-support workflows inside this repository
-
-## Package Map
-
-The `2` publishable packages in this repository are:
-
-| Package | Role | Links |
-| --- | --- | --- |
-| `bijux-pollenomics` | Runtime package for tracked data collection, report publication, and atlas generation | <a href="https://pypi.org/project/bijux-pollenomics/"><img alt="PyPI" src="https://img.shields.io/badge/pypi-3775A9?logo=pypi&logoColor=white" height="18"></a> <a href="https://bijux.io/bijux-pollenomics/public/pollenomics/"><img alt="Docs" src="https://img.shields.io/badge/docs-2563EB?logo=materialformkdocs&logoColor=white" height="18"></a> <a href="https://github.com/bijux/bijux-pollenomics/pkgs/container/bijux-pollenomics%2Fbijux-pollenomics"><img alt="GHCR" src="https://img.shields.io/badge/ghcr-181717?logo=github&logoColor=white" height="18"></a> <a href="https://github.com/bijux/bijux-pollenomics/tree/main/packages/bijux-pollenomics"><img alt="Source" src="https://img.shields.io/badge/source-181717?logo=github&logoColor=white" height="18"></a> |
-| `pollenomics` | Compatibility alias package that re-exports the runtime API and provides the `pollenomics` CLI command | <a href="https://pypi.org/project/pollenomics/"><img alt="PyPI" src="https://img.shields.io/badge/pypi-3775A9?logo=pypi&logoColor=white" height="18"></a> <a href="https://bijux.io/bijux-pollenomics/public/pollenomics/"><img alt="Docs" src="https://img.shields.io/badge/docs-2563EB?logo=materialformkdocs&logoColor=white" height="18"></a> <a href="https://github.com/bijux/bijux-pollenomics/pkgs/container/bijux-pollenomics%2Fpollenomics"><img alt="GHCR" src="https://img.shields.io/badge/ghcr-181717?logo=github&logoColor=white" height="18"></a> <a href="https://github.com/bijux/bijux-pollenomics/tree/main/packages/pollenomics"><img alt="Source" src="https://img.shields.io/badge/source-181717?logo=github&logoColor=white" height="18"></a> |
-
-## Capability Boundaries
-
-Capability statements describe checked-in contracts, not an intended future
-state. Each supported use therefore has an explicit inference it does not
-authorize:
-
-| Surface | Supported use | Excluded inference or operation |
-| --- | --- | --- |
-| source-family database | capture named sources and materialize the family-specific normalization, review, and publication stages that are actually present | exhaustive upstream coverage, uniform lifecycle maturity, or silent refresh |
-| human ancient DNA | versioned AADR `.anno` metadata context | `.geno`, `.ind`, or `.snp` genotype processing |
-| animal ancient DNA | project, paper, supplement, sample, locality, chronology, coordinate, and admission curation | complete recovery of every tracked project or equal readiness across species |
-| evidence maps | inspect scoped direct evidence, context, framing, and exclusions | infer causation, contemporaneity, or analytical equivalence from proximity |
-| Sweden lake priorities | compare candidates under named evidence weights, radii, sensitivity, and preparation screens | automated sampling selection, coring feasibility, access, or permits |
-| Lyngsjön fieldwork | inspect a dated and situated direct-visit record | generalize one visit into regional lake suitability |
-
-These are product boundaries, not missing disclaimers. A workflow that needs
-an excluded inference must first introduce the governing evidence and review
-contract required to support it.
-
-## Evidence Maturity
-
-The publication architecture is broader than the maturity of every scientific
-layer. That difference is intentional and visible:
-
-| Surface | Current posture |
-| --- | --- |
-| pollen and palaeoenvironmental context | established collection and publication routes |
-| boundaries and hydrography | geographic framing and lake-registry context, not independent scientific weight |
-| human ancient DNA | versioned AADR metadata context; genotype processing is out of scope |
-| animal ancient DNA | evidence-preserving recovery with conservative exact-point admission |
-| lake ranking | reproducible decision support that still requires bathymetry, access, permits, and field verification |
-
-Expansion is acceptable only when it retains source identity, domain-specific
-semantics, and reviewable refusal. A larger atlas with weaker evidence would be
-a regression.
-
-## Working With Commands
-
-The root `Makefile` is the main local interface. Some targets only validate the checkout, while others rewrite tracked files.
-
-Validation-first targets:
-
-- `make install` creates or updates the editable environment under `artifacts/root/check-venv/`
-- `make lock-check`, `make lint`, `make test`, `make api`, `make docs`, `make package-verify`, and `make check` verify the repository without rewriting tracked data or report outputs
-
-State-changing targets:
-
-- `make lock` rewrites `uv.lock`
-- `make data-prep` rewrites tracked source outputs under `data/`
-- `make reports` rewrites tracked publication outputs under `docs/report/`
-- `make app-state` runs the full rebuild path and rewrites tracked data, tracked reports, and the local docs build
-
-If your goal is only to validate the repository, stop at the verification
-targets. Do not start with `make app-state` unless you intentionally want to
-rewrite tracked repository outputs.
-
-## Quick Start
-
-### Verify A Fresh Checkout
-
-Prerequisites: `python3.11` and `uv` must be available locally.
+Create the locked environment and run the focused default checks:
 
 ```bash
-python3.11 --version
-uv --version
 make install
 artifacts/root/check-venv/bin/bijux-pollenomics --version
-make lock-check
-make lint
-make test
-make package-verify
-make docs
+make check
 ```
 
-This is the safest first run because it proves the editable environment, test surface, packaging surface, and docs build before any tracked data or report tree is regenerated.
-
-### Rebuild The Checked-In Repository State
-
-Use the explicit sequence when you want reviewable rebuild steps:
+State-changing workflows are intentionally separate:
 
 ```bash
-make data-prep
-make reports
-make docs
+make data-prep   # collect and prepare governed data state
+make reports     # publish governed report products
+make app-state   # rebuild data, reports, and documentation state
 ```
 
-Use `make app-state` when you want that same sequence as a single convenience target.
+These commands can replace owned generated trees. Review source identity,
+member identity, semantic changes, population changes, exclusions, and
+manifest changes—not only file counts or successful exit status. Transient
+experiments and build products belong under `artifacts/`; governed evidence
+and publications belong only in their declared tracked roots.
 
-Expect the rebuild path to take longer than lint and tests, to require network access, and to overwrite generated files that are intentionally checked in.
+The local documentation gate is:
 
-#### Accept A Governed Rebuild
+```bash
+make docs-check
+```
 
-A successful command is only the start of rebuild review. Accept the new
-snapshot when all affected authorities and descendants form one explainable
-transaction:
+Use the focused lane that matches the changed contract:
 
-| Review | Required evidence |
+| Contract | Focused command |
 | --- | --- |
-| acquisition | source versions, retrieval outcomes, content identities, licences, and explicit failures |
-| preparation | member-level identity, normalization, grounding, conflict, and blocker changes |
-| decisions | changed review, admission, qualification, exclusion, and recovery postures |
-| products | manifest additions, removals, modifications, counts, warnings, and subset lineage |
-| causality | every public change resolves to a source, rule, or presentation cause |
-| verification | focused semantic contracts and strict documentation rendering for the affected surfaces |
+| locked environment | `make lock-check` |
+| package metadata and build | `make package-check` |
+| installed package behavior | `make package-verify` |
+| source-distribution installation | `make package-source-smoke` |
+| unit behavior | `make test-unit` |
+| repository contracts | `make test-regression` |
+| end-to-end workflows | `make test-e2e` |
 
-```mermaid
-flowchart LR
-    Prior["coherent prior snapshot"] --> Rebuild["owned regeneration commands"]
-    Rebuild --> Diff["source, evidence, decision, and product diff"]
-    Diff --> Review{"causal state coherent?"}
-    Review -->|no| Refuse["do not accept partial replacement"]
-    Review -->|yes| Snapshot["coherent governed snapshot"]
-```
+Slow and aggregate lanes remain available through the Make interface, but
+they are not substitutes for the owner-specific check closest to a changed
+contract.
 
-Do not accept a rebuild by count equality alone. Stable totals can hide member
-replacement, weaker evidence class, changed coordinates, or lost exclusions.
-Do not repair one generated descendant by hand; correct the authority or
-producer and regenerate its owned surface.
+## Repository Map
 
-## Common Workflows
+| Path | Authority |
+| --- | --- |
+| `data/` | tracked source, normalized, curation, review, and evidence state |
+| `docs/report/` | generated, manifested publication and review products |
+| `docs/public/` | reader-facing product, evidence, atlas, and fieldwork explanations |
+| `docs/internal/` | repository operation, validation, generation, and release ownership |
+| `packages/bijux-pollenomics/` | canonical runtime and its tests |
+| `packages/pollenomics/` | short-name compatibility distribution |
+| `packages/bijux-pollenomics-dev/` | maintainer checks and release support |
+| `apis/bijux-pollenomics/v1/` | frozen public API contract and digest |
+| `artifacts/` | disposable local build, test, and rehearsal output |
 
-- `make install` syncs the editable environment from the tracked `uv.lock`
-- `make check` runs the main repository verification pass: lock check, lint, tests, docs, and distribution verification
-- `make data-prep` runs `collect-data all --version v66 --output-root data`
-- `make reports` runs `publish-reports --aadr-root data/aadr --version v66 --output-root docs/report --context-root data`
-- `make app-state` runs the full rebuild path: data, reports, and docs
-- `make docs-serve` serves the docs locally at `http://127.0.0.1:8000/`
-- `make clean` removes transient virtualenv, packaging, and cache artifacts
+## Current Scientific Limits
 
-## Local Artifact Contract
+The repository publishes qualification and refusal surfaces alongside its
+successful products. In particular:
 
-- transient local outputs belong under `artifacts/`, not as ad hoc root-level
-  cache or build directories
-- the shared root environment lives at `artifacts/root/check-venv/`
-- the MkDocs site builds to `artifacts/root/docs/site/`
+- animal source recovery is not yet sufficiently region-agnostic for final
+  release wording;
+- SEAD chronology and bibliography remain too thin for temporal-comparison
+  claims;
+- RAÄ is Sweden-specific and cannot imply equivalent Nordic archaeology
+  coverage;
+- boundary geometry frames publication scope but adds no scientific support;
+- lake rankings are decision support, not field-readiness or coring-site
+  selection; and
+- spatial proximity and interval overlap do not establish association,
+  contemporaneity, or causation.
 
-For exact CLI expansions, narrower test targets, and package troubleshooting targets, use [entrypoints and examples](https://bijux.io/bijux-pollenomics/public/pollenomics/interfaces/entrypoints-and-examples/) and [common workflows](https://bijux.io/bijux-pollenomics/public/pollenomics/operations/common-workflows/).
+Start with the [report portal](docs/report/index.md) for checked-in products
+and their current review posture.
 
-The narrower verification and packaging targets remain available when you need them: `make test-unit`, `make test-regression`, `make test-e2e`, `make package-check`, `make package-smoke`, and `make package-source-smoke`.
+## Contributing, Security, And License
 
-## Repository Layout
+Read [CONTRIBUTING.md](CONTRIBUTING.md) before changing governed state or
+package contracts. Report vulnerabilities through the private process in
+[SECURITY.md](SECURITY.md), not a public issue.
 
-Treat the top-level paths by ownership and review expectations:
-
-- `Makefile` is the main local interface for verification, rebuilds, docs, and packaging
-- `pyproject.toml` and `uv.lock` define and lock the Python environment
-- `data/` contains tracked source snapshots, normalized outputs, and the collection manifest
-- `docs/report/` contains the governed publication tree, including world,
-  regional, country, review, caveat, and release-readiness surfaces
-- `docs/public/` contains reader-facing product, evidence, atlas, and fieldwork
-  documentation
-- `docs/internal/` contains maintainer and contributor documentation
-- `packages/bijux-pollenomics/src/` contains the CLI, collectors, and report publishing logic
-- `packages/bijux-pollenomics/tests/` contains unit, regression, and end-to-end coverage
-- `artifacts/` contains transient local outputs such as `.venv/`, `dist/`, and the built docs site
-
-Key checked-in contract files:
-
-- `packages/bijux-pollenomics/src/bijux_pollenomics/config.py` centralizes publication defaults such as the current AADR version
-- `apis/bijux-pollenomics/v1/` contains the checked-in public API contract, pinned canonical JSON, and schema digest
-- `packages/bijux-pollenomics/src/bijux_pollenomics/data_downloader/contracts.py` and `packages/bijux-pollenomics/src/bijux_pollenomics/reporting/bundles/paths.py` centralize file and directory naming contracts
-
-## Published Outputs
-
-The main checked-in publication artifacts are:
-
-- report portal: [`docs/report/index.md`](docs/report/index.md)
-- world surface: [`docs/report/world/world_map.html`](docs/report/world/world_map.html)
-- Europe-plus surface: [`docs/report/regions/europe-plus/europe-plus_map.html`](docs/report/regions/europe-plus/europe-plus_map.html)
-- Nordic surface: [`docs/report/regions/nordic/nordic_map.html`](docs/report/regions/nordic/nordic_map.html)
-- published report manifest: [`docs/report/published_reports_summary.json`](docs/report/published_reports_summary.json)
-- data collection manifest: [`data/collection_summary.json`](data/collection_summary.json)
-- country bundles under `docs/report/countries/`
-- release-readiness caveats: [`docs/report/repository_final_release_refusal.md`](docs/report/repository_final_release_refusal.md)
-
-Important output limits:
-
-- the visible maps are inspectable publication artifacts, not site-selection engines
-- the published map bundles local Leaflet assets, but basemap tiles still come from external providers at runtime
-- RAÄ coverage is Sweden-only
-- final release language remains refused while animal recovery and SEAD comparability stay below the stronger repository surfaces
-- country reports are file bundles and summaries, not standalone web applications
-
-## Documentation
-
-The MkDocs site separates public scientific and product explanations from
-operator material. Public pages explain sources, evidence, publications,
-maps, and fieldwork. Internal pages cover repository operation, validation,
-and release ownership.
-
-- docs home: [`docs/index.md`](docs/index.md)
-- runtime package handbook: [`docs/public/pollenomics/index.md`](docs/public/pollenomics/index.md)
-- package operations guide: [`docs/public/pollenomics/operations/index.md`](docs/public/pollenomics/operations/index.md)
-- package interface reference: [`docs/public/pollenomics/interfaces/index.md`](docs/public/pollenomics/interfaces/index.md)
-- data reference: [`docs/public/pollenomics-data/index.md`](docs/public/pollenomics-data/index.md)
-- fieldwork reference: [`docs/public/fieldwork/lyngsjon-lake-fieldwork/index.md`](docs/public/fieldwork/lyngsjon-lake-fieldwork/index.md)
-- internal guide: [`docs/internal/index.md`](docs/internal/index.md)
-- maintainer handbook: [`docs/internal/maintain/index.md`](docs/internal/maintain/index.md)
-
-## Working Rules
-
-These behaviors matter in review:
-
-- collectors replace source-specific output directories before rewriting them, so reruns are intentionally destructive to stale generated files
-- `data/` and `docs/report/` are tracked outputs that should change only when the corresponding rebuild intent is explicit
-- `artifacts/` is disposable local state and should not be treated as a publication surface
-- this README should describe only commands, outputs, and limits that exist in the current repository state
-- if a change rewrites generated artifacts, review those diffs together with any narrative or workflow updates that explain them
-
-## License
-
-This repository is licensed under the Apache License 2.0. Copyright 2026 Bijan Mousavi <bijan@bijux.io>. See [`LICENSE`](LICENSE) and [`NOTICE`](NOTICE).
+This repository is licensed under the Apache License 2.0. Copyright 2026 Bijan
+Mousavi <bijan@bijux.io>. See [LICENSE](LICENSE) and [NOTICE](NOTICE).
