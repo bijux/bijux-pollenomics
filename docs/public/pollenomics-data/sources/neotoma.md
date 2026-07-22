@@ -43,6 +43,32 @@ reader can distinguish what the source returned from what the product admits.
 A normalized point is therefore inspectable as a transformation, not presented
 as an unexplained database export.
 
+### Dataset And Site Are Different Identity Levels
+
+A Neotoma site can expose one or more dataset records, while a dataset can
+carry age-range statements, contributor notes, and lineage that do not belong
+to the site name alone. Preparation therefore retains both levels:
+
+| Identity level | What it owns | Unsafe collapse |
+| --- | --- | --- |
+| site | stable place-oriented source identity and reported geometry | treating the display name as a universal pollen-sequence key |
+| dataset | dataset identity, type, contributor and source notes, and captured age coverage | merging several datasets into one unexplained site interval |
+| normalized site member | repository spatial member plus summarized temporal posture | presenting the summary as a chronology or age-depth model |
+| temporal review row | comparability decision and caveat for the current capture | inheriting family-wide time eligibility |
+
+```mermaid
+flowchart LR
+    Site["source site"] --> Member["normalized site member"]
+    DatasetA["dataset identity A"] --> Coverage["captured age coverage"]
+    DatasetB["dataset identity B"] --> Coverage
+    Coverage --> Review["site temporal review"]
+    Member --> Review
+    Review --> Use["bounded or spatial-only use"]
+```
+
+The review can summarize a site for product use while the captured dataset
+inventory retains the members needed to challenge that summary.
+
 ```mermaid
 flowchart LR
     Inventory["captured site and dataset inventory"] --> Site["normalized pollen site"]
@@ -130,6 +156,13 @@ strengths differ:
   dataset coverage;
 - neither family replaces the other;
 - neither becomes direct sample evidence when displayed beside aDNA.
+
+The two families are not guaranteed to be statistically independent. Captured
+Neotoma dataset notes include contributions associated with the LandClim
+project and the European Pollen Database. Before describing agreement as
+corroboration, compare source dataset identity, contributor, site, sequence,
+and age coverage. Two publication layers can be separate repository families
+while still representing one upstream observation lineage.
 
 ## Choose Neotoma For The Question
 

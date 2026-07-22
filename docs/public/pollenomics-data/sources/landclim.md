@@ -43,6 +43,35 @@ The split between sequence and model normalization is a scientific boundary,
 not a storage convenience. It prevents a modeled grid value from acquiring the
 identity or evidentiary meaning of a sampled pollen sequence.
 
+### Multi-Artifact Preparation Receipt
+
+The captured LandClim family is assembled from unlike source artifacts:
+site metadata, REVEALS results, grid-cell quality, taxa-to-functional-type
+mappings, productivity and dispersal parameters, land-cover classifications,
+and archived model outputs. Preparation must preserve the join that brought a
+value into a sequence or cell rather than citing the family name alone.
+
+| Prepared claim | Minimum retained lineage |
+| --- | --- |
+| site-sequence identity and geometry | source artifact, source-native dataset or sequence key, site metadata row, and normalization rule |
+| numeric sequence interval | native bounds and basis, parsing rule, normalized BP values, and comparability posture |
+| model-cell value | grid-cell identity and geometry, model release, time window, taxon or functional-type mapping, and applicable quality evidence |
+| cross-window summary | member cell, exact contributing windows, aggregation method, and missing-window posture |
+
+```mermaid
+flowchart LR
+    Metadata["site and grid metadata"] --> Member["typed sequence or cell identity"]
+    Results["REVEALS results"] --> Member
+    Mappings["taxa, functional types, and parameters"] --> Value["interpretable model value"]
+    Member --> Value
+    Quality["grid quality evidence"] --> Value
+    Value --> Product["qualified pollen-context feature"]
+```
+
+The receipt matters when a workbook or archive changes independently. A stable
+cell count cannot demonstrate unchanged model meaning if its taxon mapping,
+time-window definition, or quality evidence changed.
+
 ```mermaid
 flowchart LR
     Capture["source workbooks and archive"] --> Sites["normalized site sequences"]
@@ -143,6 +172,13 @@ different units. A comparison must name which unit it counts.
 Proximity between a LandClim record and another feature is a declared spatial
 relation. It does not establish shared chronology or causal association unless
 those dimensions are supported separately.
+
+LandClim and Neotoma may also carry shared data lineage. Some captured Neotoma
+dataset notes attribute contributions to the LandClim project or the European
+Pollen Database. A matching or nearby member across the two normalized families
+is therefore not automatically independent corroboration. Independence review
+must compare dataset identity, contributor, site, and underlying sequence
+lineage before treating the two records as separate support.
 
 ## Choose LandClim For The Question
 
