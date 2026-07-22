@@ -14,6 +14,11 @@ geographic and purpose-specific views. World, Europe-plus, Nordic, country,
 lake-ranking, and fieldwork surfaces are related products, not independent
 databases with separate truth rules.
 
+“One governed evidence state” means one authority chain, not one homogeneous
+table. Source families retain different observation units, lifecycle
+materialization, precision, and claim roles. Publication composes eligible
+members while preserving those differences.
+
 ## Geographic Lineage
 
 ```mermaid
@@ -34,6 +39,24 @@ The arrows mean governed derivation, not increasing evidence strength. A
 narrower geography selects records and context appropriate to its scope; it
 cannot acquire a more precise locality, stronger chronology, or better source
 lineage merely by being closer to the reader's question.
+
+## Publication Is Downstream Selection
+
+```mermaid
+flowchart LR
+    Capture["captured source state"] --> Prepared["materialized preparation evidence"]
+    Prepared --> Fitness["claim-specific fitness"]
+    Fitness --> Membership["product membership"]
+    Membership --> Scope["geographic or purpose scope"]
+    Scope --> Product["manifest, evidence rows, and presentation"]
+    Missing["missing preparation stage"] -. "cannot be repaired by" .-> Scope
+```
+
+Selection answers whether an eligible record belongs in a declared product.
+It does not certify collection completeness, create a normalized artifact, or
+supply a review record that the evidence lifecycle does not contain. If a
+publication member depends on a family with a narrower materialized lifecycle,
+the product must preserve that limit in its role, caveat, and traceability.
 
 ## Scope Responsibilities
 
@@ -97,6 +120,22 @@ suitability.
 Choosing a narrower scope improves relevance, not authority. Consequential
 claims still resolve through the publication member to the governing evidence
 and captured source.
+
+### Absence Has More Than One Cause
+
+When a record does not appear in a child product, inspect its governed state
+before interpreting the omission:
+
+| Cause | Meaning |
+| --- | --- |
+| outside geography or purpose | valid evidence is irrelevant to this scope |
+| source not captured or recovered | the repository cannot yet account for the candidate record |
+| preparation stage absent | the family lacks a materialized artifact required by the claim |
+| evidence unresolved | identity, locality, chronology, coordinates, or role remain insufficient |
+| product refusal | known evidence does not satisfy the declared admission rule |
+
+Only the first is ordinary scope filtering. None is evidence of biological or
+archaeological absence.
 
 ## Inspect The Contract
 

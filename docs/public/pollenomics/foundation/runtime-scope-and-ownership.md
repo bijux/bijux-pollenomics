@@ -11,18 +11,23 @@ last_reviewed: 2026-07-22
 
 `bijux-pollenomics` is the canonical runtime that turns explicit source and
 repository inputs into governed data, review, ranking, and publication
-artifacts. Ownership follows scientific meaning: collection owns acquisition,
-evidence modules own normalized claims, review owns fitness, product contracts
-own membership, and reporting owns presentation.
+artifacts. Each family materializes only the stages its current contract owns;
+a downstream product does not prove that an absent normalized or review
+artifact exists. Ownership follows scientific meaning: collection owns
+acquisition, evidence modules own normalized claims, review owns fitness,
+product contracts own membership, and reporting owns presentation.
 
 ## Runtime Boundaries
 
 ```mermaid
 flowchart LR
     Command["CLI or Python request"] --> Collect["source collection"]
-    Collect --> Normalize["owned evidence records"]
+    Collect --> Stage{"family contract and materialized stage"}
+    Stage --> Normalize["owned evidence records"]
+    Stage --> Direct["retained capture or family-specific descendant"]
     Normalize --> Review["fitness, conflict, and comparability"]
     Review --> Product["scope, role, and admission"]
+    Direct --> Product
     Product --> Publish["structured bundles and presentation"]
     Publish --> Verify["traceability, subset, and release checks"]
     Verify -. correction .-> Normalize
@@ -31,6 +36,9 @@ flowchart LR
 The arrow into publication carries admitted evidence and declared roles. It
 does not transfer upstream fact ownership to the report writer. A correction
 starts at the earliest governing record and then regenerates its descendants.
+The direct path is not a shortcut around scientific review; it makes the
+current family-specific lifecycle observable. Claims that require a missing
+stage remain unavailable until that stage is governed and materialized.
 
 ## Ownership Map
 
@@ -60,6 +68,30 @@ A successful process exit means software execution completed. It does not mean
 every requested scientific claim passed. State-changing operations can
 legitimately emit qualified results, empty admitted subsets, exclusions, or a
 release refusal while returning successful execution.
+
+### Four Success Conditions
+
+| Condition | Question answered | What failure requires |
+| --- | --- | --- |
+| execution | did the command complete its software contract? | diagnose invocation, input, or runtime failure |
+| evidence fitness | do identity, place, time, coordinates, and role support the claim? | recover, qualify, or refuse evidence |
+| admission | does the record satisfy the declared product rule? | retain an accountable exclusion or change the governed rule |
+| publication integrity | do manifest, evidence rows, traceability, and presentation agree? | block release and regenerate descendants |
+
+```mermaid
+flowchart TD
+    Run["successful execution"] --> Fit{"evidence fit for claim?"}
+    Fit -->|no| Account["qualification, exclusion, or recovery"]
+    Fit -->|yes| Admit{"admitted by product contract?"}
+    Admit -->|no| Account
+    Admit -->|yes| Integrity{"publication descendants agree?"}
+    Integrity -->|no| Block["block publication"]
+    Integrity -->|yes| Release["governed product"]
+```
+
+No later condition upgrades an earlier one. A map build can be technically
+successful while a row remains scientifically unresolved, and a valid
+evidence record can remain outside a particular publication scope.
 
 ## Operation Evidence Packet
 
