@@ -26,6 +26,11 @@ from it.
 | `apis/bijux-pollenomics/v1/` | future HTTP compatibility shapes | versioned interface contract | availability of a running service |
 | `artifacts/` | local logs, previews, environments, and verification output | transient | publication authority |
 
+These roots are governing boundaries, not merely storage conventions. Moving
+a file from one root to another changes neither its evidence role nor its
+fitness automatically. The receiving owner must admit it through the relevant
+schema, identity, lineage, and product rules.
+
 ## Evidence Flow
 
 ```mermaid
@@ -56,6 +61,36 @@ chronology, taxonomy, or provenance.
 - publication membership is reproducible from governed repository state;
 - replacement of a source-family tree occurs only after complete staging and
   contract validation.
+
+## Record Contract
+
+A reusable record must make six properties recoverable:
+
+| Property | Contract question |
+| --- | --- |
+| identity | Which stable repository record and source-native object is this? |
+| lineage | Which capture, version, accession, or curation decision produced it? |
+| semantics | What does each value mean in its source family and normalized form? |
+| precision | Which spatial, temporal, or taxonomic detail is directly supported? |
+| role | Is the record direct evidence, context, framing, a candidate, or a refusal? |
+| fitness | For which named product or analysis is it admitted, qualified, or excluded? |
+
+Omission is meaningful. A missing coordinate is different from an approximate
+coordinate; an unknown chronology is different from a numeric zero; an empty
+publication set is different from a failed collection. Consumers must not
+collapse these states to simplify a join.
+
+## Join Rules
+
+Join by declared stable identifiers and verify cardinality before carrying
+claims across families. Display labels, filenames, place names, rounded
+coordinates, and row positions are not durable join keys. A successful
+technical join does not establish scientific comparability: evidence role,
+time semantics, precision, and product scope must also agree.
+
+When a derived table denormalizes a fact, retain both the governing record
+identifier and the source-family identity. If either is lost, the copied value
+must be treated as presentation data rather than authoritative evidence.
 
 ## Structured Formats
 
@@ -92,3 +127,8 @@ Reuse begins with the owning contract, not with a visually convenient file.
 Preserve identifiers, evidence roles, precision fields, and exclusions when
 subsetting or joining. If those fields cannot travel with a derived product,
 the derived product cannot inherit the original claim strength.
+
+Schema validation is necessary but not sufficient for safe reuse. It proves
+shape and declared relationships; it does not prove source completeness,
+representative sampling, historical correctness, or fitness for a question
+outside the named contract.

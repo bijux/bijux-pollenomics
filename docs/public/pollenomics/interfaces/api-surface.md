@@ -59,6 +59,39 @@ unless their owning API explicitly exports a name.
 The `pollenomics` package re-exports the canonical runtime facade. It is an
 identity-compatible entrypoint, not an independent scientific API.
 
+### Call And Result Contract
+
+Public workflow functions take explicit filesystem roots and scientific scope
+instead of discovering authority from process state. Collection returns a
+`DataCollectionReport`; country, multi-country, and complete publication calls
+return their corresponding report types. These results summarize the
+completed operation. The written bundle and its manifest remain the durable
+exchange surface.
+
+Calls that publish a bundle replace their owned output through staging. A
+caller must therefore treat the output root as an ownership boundary, not as a
+directory for unrelated application files. Invalid empty scopes are rejected
+before publication, while source, evidence, and contract failures propagate
+as failures rather than returning a plausible partial report.
+
+```python
+from pathlib import Path
+
+from bijux_pollenomics import generate_country_report
+
+report = generate_country_report(
+    version_dir=Path("data/aadr/v66"),
+    country="Sweden",
+    output_dir=Path("artifacts/example-country"),
+    context_root=Path("data"),
+)
+
+print(report.total_unique_samples, report.output_dir)
+```
+
+This example writes to `artifacts/` for inspection. Selecting a governed
+publication root is a separate decision with review obligations.
+
 ## File Interfaces
 
 Files are often the strongest integration boundary because they retain state
@@ -95,3 +128,16 @@ published and operated, use the CLI, Python facade, or checked-in artifacts.
   not by filename alone;
 - a changed OpenAPI schema requires a matching pinned rendering and digest;
 - internal module layout may change without redefining a supported interface.
+
+## Compatibility Posture
+
+Compatibility protects observable meaning, not every implementation detail.
+For a supported surface, a compatible change preserves accepted inputs,
+result interpretation, evidence roles, artifact identity, and failure
+semantics. New optional fields may extend a structured record only when older
+consumers can continue to identify the record and its governing contract.
+
+A rename, removal, changed default scope, weakened refusal, or altered
+publication membership is not a cosmetic change. It requires an explicit
+compatibility decision and a migration path appropriate to the affected CLI,
+Python, file, or OpenAPI consumer.
