@@ -95,6 +95,24 @@ Proximity and containment are derived relations. They can be reproducible and
 useful without proving biological association, shared identity, or
 contemporaneity.
 
+### Relation Direction Is Part Of Meaning
+
+Relations are read from a declared subject to a declared object. Reversing an
+edge may produce a different claim or no valid claim at all.
+
+| Directed relation | Valid reading | Invalid reversal |
+| --- | --- | --- |
+| project `contains` sample | the source project population includes the sample | the sample owns or exhaustively represents the project |
+| source row `supports` chronology claim | the located row provides evidence for that claim | the normalized claim is the source row |
+| sample `linked by evidence to` locality | a governed relation connects this sample to this place | every sample at the place shares that sample's evidence |
+| product `admits` governed object | the object satisfies one product contract | the object's existence authorizes every product |
+| point `within` boundary | geometry satisfies a versioned containment predicate | the boundary supplies the point's locality evidence |
+| interval `overlaps` interval | two compatible intervals meet one declared rule | the underlying observations are associated or independent |
+
+A relation key therefore includes its typed endpoints, predicate, method,
+scope, posture, and revision. A pair of object identifiers without the edge
+contract is not enough to reproduce the join.
+
 ### Worked Relation Graph
 
 The Direkli Cave goat record shows why typed relations matter. The public

@@ -121,6 +121,38 @@ A coherent revision satisfies all of these invariants:
 Violation of an invariant is a database defect even when every Markdown page
 renders and every map opens.
 
+### Snapshot Reconciliation Receipt
+
+Before a revision is treated as one coherent evidence state, reconcile each
+affected population through the complete lifecycle:
+
+| Receipt member | Required reconciliation |
+| --- | --- |
+| source population | expected and captured members, additions, removals, retrieval failures, and content identities |
+| normalized population | source-to-member mapping, exclusions, null states, identity merges or splits, and semantic changes |
+| reviewed population | accepted, qualified, conflicted, unresolved, deferred, and refused members by claim dimension |
+| admitted population | eligible denominator, product rule, admitted members, exclusions, and outside-scope members |
+| published population | manifest members, stable feature identities, warnings, format parity, and parent–child scope relations |
+| retained non-members | known objects absent from publication with one recoverable boundary and reason |
+
+```mermaid
+flowchart LR
+    Source["captured population"] --> Normalized["normalized population"]
+    Normalized --> Reviewed["reviewed population"]
+    Reviewed --> Admitted["admitted population"]
+    Admitted --> Published["manifested population"]
+    Source --> NonMembers["accounted non-members"]
+    Normalized --> NonMembers
+    Reviewed --> NonMembers
+    Admitted --> NonMembers
+    Published --> Receipt["coherent snapshot receipt"]
+    NonMembers --> Receipt
+```
+
+The populations need not have equal counts. Coherence means every transition
+has a declared rule and every difference is accounted for at member level.
+An unexplained equality is weaker evidence than an explained reduction.
+
 ## Version Identities
 
 Different versions answer different questions:

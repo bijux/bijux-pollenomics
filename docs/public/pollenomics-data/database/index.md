@@ -31,6 +31,38 @@ source artifacts, review ledgers, and manifests carry different parts of the
 model. Their authority comes from explicit contracts and relations, not from
 their file format.
 
+### Five Database Questions
+
+The database is designed to answer five classes of question without treating
+one denormalized export as universal truth:
+
+| Query | Start with | Resolve to |
+| --- | --- | --- |
+| identity | native key, accession, DOI, governed key, or product member | one typed object plus aliases and source locators |
+| lineage | governed claim or public member | supporting artifact, source-native record, transformation, fact owner, and decision |
+| population | source family, evidence posture, species, geography, or product | eligible members, admitted members, non-members, and denominator |
+| impact | changed artifact, fact, relation, or rule | dependent claims, decisions, manifests, and rendered products |
+| absence | expected object or relation | capture, normalization, curation, admission, scope, filter, or integrity boundary that explains non-membership |
+
+```mermaid
+flowchart TD
+    Query["database question"] --> Class{"query class"}
+    Class --> Identity["identity graph"]
+    Class --> Lineage["evidence lineage"]
+    Class --> Population["population accounting"]
+    Class --> Impact["forward dependency graph"]
+    Class --> Absence["anti-join and refusal state"]
+    Identity --> Answer["typed, revision-bound answer"]
+    Lineage --> Answer
+    Population --> Answer
+    Impact --> Answer
+    Absence --> Answer
+```
+
+Every answer is revision-bound. “Which record is this?” and “why is it absent?”
+can change when source identity, evidence, scope, or admission rules change,
+even when the display label remains stable.
+
 ### Files Are Projections Of A Typed Graph
 
 Directory position is useful for discovery, but the database model is the
