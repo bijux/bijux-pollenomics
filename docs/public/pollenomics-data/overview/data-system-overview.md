@@ -114,6 +114,48 @@ different meanings:
 Keeping blocked and deferred states visible prevents absence from being
 misread as proof that no relevant project or sample exists.
 
+## How Evidence Changes Propagate
+
+A source refresh and a curation correction have different propagation paths.
+A refresh begins with new upstream material and may change capture hashes,
+normalized records, reviews, and publications. A curation correction begins at
+the narrowest governing evidence record and regenerates only the descendants
+that depend on it.
+
+```mermaid
+flowchart TD
+    Change{"what changed?"}
+    Change -->|upstream source| Capture["replace family capture atomically"]
+    Change -->|curation decision| Authority["correct governing evidence record"]
+    Capture --> Normalize["rebuild family normalization"]
+    Normalize --> Review["recompute coverage and fitness"]
+    Authority --> Review
+    Review --> Impact{"publication membership changed?"}
+    Impact -->|yes| Rebuild["regenerate affected bundles and caveats"]
+    Impact -->|no| Retain["retain publication; update review lineage"]
+    Rebuild --> Validate["validate subsets, traceability, and claims"]
+    Retain --> Validate
+```
+
+This dependency direction prevents derived products from feeding facts back
+into their authorities. It also makes a scientific refusal stable across
+regeneration: the refusal changes only when its underlying evidence or product
+contract changes.
+
+## Review The Diff By Meaning
+
+| Changed surface | Primary review question |
+| --- | --- |
+| raw capture | is this the intended upstream identity, version, license, and complete payload? |
+| normalized data | did field meaning, record identity, null handling, geometry, or chronology change? |
+| governance or review | did evidence precision, conflict status, coverage, or admission posture change? |
+| final evidence input | did the admitted population change for a defensible reason? |
+| report bundle | do membership, traceability, labels, warnings, and visual layers agree with governed inputs? |
+
+Large generated diffs are not self-explanatory. Record count, deletion, and
+hash changes must be interpreted at the layer that owns them before a cleaner
+map or larger table is considered an improvement.
+
 ## Conflict Resolution
 
 When two downstream surfaces disagree, the repository does not select the

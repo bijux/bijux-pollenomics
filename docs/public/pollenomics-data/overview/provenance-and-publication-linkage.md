@@ -14,6 +14,24 @@ it defensible. It includes more than a citation: acquisition context,
 normalization, evidence ownership, admission, product membership, and visible
 qualification must remain linked.
 
+## Minimum Provenance Packet
+
+A reusable publication record should carry or resolve to:
+
+| Component | Minimum information |
+| --- | --- |
+| public identity | stable feature or table-row identifier and evidence role |
+| product identity | manifest, version, geography, and membership decision |
+| governing evidence | stable normalized, sample, site, or context record identifier |
+| spatial claim | reported locality, coordinate basis, confidence, and mapping posture |
+| temporal claim | original wording, bounds when supported, evidence class, and comparability posture |
+| source lineage | source family plus dataset version, accession, DOI, artifact, and locator as applicable |
+| qualification | caveat, conflict, exclusion relationship, or review outcome material to interpretation |
+
+A citation without the evidence identifier and locator can establish relevance
+but not which record or wording supported the published claim. A coordinate
+without its basis can establish geometry but not spatial precision.
+
 ## Claim Chain
 
 ```mermaid
@@ -89,6 +107,25 @@ not become sample chronology through proximity in the provenance graph.
 | point without coordinate basis | exact-point refusal |
 | downstream fact disagreeing with authority | correct authority, then regenerate descendants |
 
+## Audit In Both Directions
+
+```mermaid
+flowchart LR
+    Public["public feature"] --> Product["manifest and admission"]
+    Product --> Evidence["governing evidence record"]
+    Evidence --> Capture["captured artifact and locator"]
+    Capture --> Upstream["upstream identity"]
+    Upstream -. refresh .-> Capture
+    Capture -. transformation review .-> Evidence
+    Evidence -. impact review .-> Product
+    Product -. rendered membership .-> Public
+```
+
+Backward audit asks, “what supports this visible claim?” Forward impact review
+asks, “which claims may change if this source or curation decision changes?” A
+trustworthy publication system must support both traversals. Backward links
+make a result inspectable; forward links make correction and refresh safe.
+
 ## Audit One Claim
 
 Begin with a feature or table-row identifier in a world, regional, or country
@@ -98,3 +135,10 @@ the source family, project, paper, supplement, dataset, or archive identity.
 
 The audit is complete only when the public wording remains within the weakest
 material link in that chain.
+
+For an animal point, that usually means checking the feature row, publication
+manifest, point-admission evidence, project-owned sample and site records,
+locality and chronology packets, coordinate provenance, paper or supplement
+locator, and archive project. For a pollen or archaeology context feature, the
+chain is shorter but still retains source-family identity, normalized record,
+temporal posture, product membership, and caveats.

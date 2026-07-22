@@ -71,6 +71,32 @@ material, ambiguous identity, conflicting chronology, and region-only locality
 remain queryable outcomes rather than being converted into apparently complete
 rows.
 
+## The Database Stores Claims At Their Natural Scope
+
+| Scope | Typical governing object | Why it stays separate |
+| --- | --- | --- |
+| source family | source contract, acquisition metadata, and lifecycle roots | establishes what one upstream ecosystem contributes |
+| dataset or release | version, snapshot identity, retrieval method, and hashes | makes refresh and comparison reproducible |
+| project or paper | archive accession, DOI, source bundle, and supporting-material inventory | relates literature and deposits without treating either as a sample |
+| sample | stable identity, native labels, lineage locator, and ambiguity state | preserves the physical or analytical evidence unit |
+| place and time claim | locality, chronology, coordinate basis, precision, and conflict state | allows each scientific claim to succeed or fail independently |
+| species view | cross-project normalized records | supports taxon-level discovery without replacing project authority |
+| publication member | product, geography, admission, caveat, and feature identity | explains why one governed record appears in one output |
+
+This scoped model is the main reason the data tree contains several related
+records for one visible point. Flattening them into one row would make access
+easier at the cost of losing which source, decision, and scope owns each fact.
+
+```mermaid
+flowchart TB
+    Family["source-family authority"] --> Release["dataset or release capture"]
+    Release --> Unit["project, paper, site, or source record"]
+    Unit --> Sample["sample identity when applicable"]
+    Sample --> Claims["place, time, and coordinate claims"]
+    Claims --> View["species or cross-domain view"]
+    View --> Member["product-specific publication member"]
+```
+
 ## Curation Decisions Remain Queryable
 
 | Decision class | Preserved distinction | Why publication depends on it |
@@ -86,6 +112,12 @@ These decisions are durable database content. They can be counted, compared,
 reviewed, and revised when stronger source evidence is recovered. The system
 therefore represents both what can be published and why the larger collected
 population does not all publish.
+
+A revision to a claim begins at its governing scope. If a supplement resolves
+a sample label, the sample authority changes first; locality, chronology,
+species, atlas, and country descendants are then regenerated and reviewed.
+Editing only the visible map row would leave the database internally
+contradictory.
 
 ## Read The System In Either Direction
 
