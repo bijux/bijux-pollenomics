@@ -173,6 +173,26 @@ causation.
 | a layer disappears after a scope change | the feature is not visible in the active selection | parent/child manifest and inclusion reason |
 | an expected record is absent | no marker is present in this view | recovery, refusal, and scope surfaces |
 
+### Retain A Comparison Packet
+
+An atlas comparison becomes reusable when it preserves more than the visible
+markers:
+
+| Packet member | Required content |
+| --- | --- |
+| question | the spatial, temporal, descriptive, or decision-support claim being tested |
+| product state | Nordic bundle version, parent scope, active layers, and filters |
+| members | stable feature, evidence, and source-native identifiers |
+| bridge | distance, containment, temporal-overlap, identity, or other declared rule |
+| precision | coordinate basis and temporal posture for every participating member |
+| result | aligned, partially aligned, contextual, or refused, with qualifications |
+| non-members | relevant filtered, excluded, unresolved, or unrecovered records |
+
+This packet separates an observation made in one browser session from a
+recoverable result. Viewport, marker color, and popup order can help discovery,
+but they are not part of the scientific bridge unless the publication contract
+explicitly says so.
+
 ## Sweden Lake Overlays
 
 The optional lake layers rank SVAR registry lakes by nearby human aDNA, direct
@@ -189,6 +209,12 @@ The overlay sequence is intentionally one-way: evidence layers inform a model;
 the model orders candidates; field review can accept, defer, or reject a
 candidate. A field decision never rewrites the evidence layers or retroactively
 changes the model score.
+
+When a candidate looks strong, inspect the contribution by family before the
+aggregate score. Dense RAÄ context, repeated AADR samples at one locality, and
+multiple independent pollen sites describe different kinds of support. The
+ranking contract retains them separately so visual concentration does not
+become a synthetic “evidence amount.”
 
 ## Contracts And Traceability
 

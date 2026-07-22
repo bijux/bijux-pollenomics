@@ -58,6 +58,25 @@ Atlas context enters after the visit claim is established. Nearby pollen,
 archaeology, hydrography, or ancient-DNA records can motivate follow-up, but
 they cannot fill a missing visit date, location, media link, or observation.
 
+## Documentation Is Not Measurement
+
+A dated photograph or video documents what the selected media visibly support.
+It does not become a limnological, sedimentological, archaeological, or
+ecological measurement unless the event also carries the relevant method,
+instrument, units, calibration, sampling location, and result.
+
+| Field record | Defensible claim | Additional evidence needed for a stronger claim |
+| --- | --- | --- |
+| dated visit and media | the visit occurred and the selected conditions are documented | a defined observation protocol for systematic comparison |
+| shoreline coordinate | the observer was at the recorded location | surveyed lake geometry or coring position |
+| visual water or ice condition | the condition is visible in the media at that moment | instrumented environmental measurement |
+| access route used once | the route was used for this visit | legal access, seasonal feasibility, and safety assessment |
+| no feature noted in visit record | it was not recorded under this visit's documentation | protocol-defined search effort before claiming absence |
+
+Negative field claims require particular care. “Not recorded” may reflect the
+visit scope, season, visibility, or documentation method; it is not equivalent
+to “not present.”
+
 ## Current Record
 
 The published fieldwork surface contains one direct visit record:
@@ -160,6 +179,11 @@ Coordinate proximity is therefore a linkage clue, not a deduplication rule.
 Preserving the three identities keeps a later registry correction from moving
 the historic visit and keeps a new visit from rewriting a prior ranking row.
 
+The link also has a direction. A confirmed lake identity can connect the visit
+to registry and ranking context; it does not make the field coordinate the
+canonical lake representative point. Likewise, a registry correction can
+trigger review of the link without rewriting the recorded historic event.
+
 ## Publication Boundary
 
 The current record does not imply that every atlas point has field media or
@@ -171,3 +195,9 @@ Repeated visits to the same lake remain distinct events. They may share the
 lake identity while retaining separate dates, observations, media, methods,
 and conditions. Merging them by coordinates would erase the temporal and
 observational unit that makes fieldwork evidence auditable.
+
+Cross-visit comparison requires a shared protocol or an explicit statement of
+which fields are comparable. Media captured in different seasons, positions,
+weather, or visit purposes can document change or contrast, but those
+differences must remain part of the interpretation rather than being treated
+as interchangeable replicates.

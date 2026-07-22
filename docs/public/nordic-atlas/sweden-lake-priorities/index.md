@@ -106,6 +106,25 @@ slices, then uses mean scenario rank and aggregate rank as tie-breakers. A lake
 that is consistently strong across radii can therefore differ from the lake
 with the highest weighted aggregate score.
 
+## Explain Rank Movement By Cause
+
+Ordinal position can change even when a lake's own evidence does not. A
+reproducible comparison classifies the cause before interpreting the movement:
+
+| Cause | What changed | Appropriate reading |
+| --- | --- | --- |
+| source refresh | nearby governed members or their evidence fields | scientific input change |
+| candidate-population change | lakes became eligible, ineligible, merged, or separated | denominator and normalization change |
+| identity correction | registry match, polygon, name, or representative point | candidate-definition change |
+| model change | signal, weight, tie-break, radius, or missingness treatment | decision-policy change |
+| precision change | chronology or coordinate posture strengthened or weakened | comparison-rights change |
+| unchanged score, changed rank | other candidates moved around this lake | relative ordering change only |
+
+For this reason, “rose five places” is incomplete without the prior and current
+candidate populations, model identities, component values, and member-level
+evidence diff. Rank movement is not itself evidence that a lake became more
+suitable.
+
 ## Rank, Stability, And Readiness
 
 The ranking exposes three different signals that must not be collapsed into a
@@ -221,6 +240,24 @@ answer to a reproducible evidence-richness question, while the expert decision
 records whether the unmodeled practical and scientific requirements were met.
 If the decision differs from rank order, the reason belongs in the field review
 rather than in an altered score.
+
+### Candidate Decision Dossier
+
+Before a ranked row becomes a field-assessment candidate, assemble one dossier
+containing:
+
+- the exact SVAR identity, polygon, representative-point method, and name-risk
+  review;
+- contributing evidence members partitioned by family, role, distance band,
+  and temporal comparability;
+- aggregate, consensus, and sensitivity results under the governing model;
+- bathymetry, basin morphology, sediment expectations, access, permissions,
+  conservation constraints, logistics, and safety evidence;
+- the expert disposition—advance, defer, or reject—with its reason and date.
+
+The dossier does not need to agree with rank order. Its purpose is to preserve
+why a decision was made after adding evidence the ranking intentionally does
+not model.
 
 ## Reusing A Ranked Result
 
