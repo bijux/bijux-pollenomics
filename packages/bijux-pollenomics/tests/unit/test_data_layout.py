@@ -34,10 +34,8 @@ class DataLayoutUnitTests(unittest.TestCase):
     def test_render_data_root_readme_for_uses_requested_root_name(self) -> None:
         readme = render_data_root_readme_for(Path("/tmp/custom-data"), "v99.1")
 
-        self.assertIn(
-            "Tracked source data and governed species-owned ancient-DNA views live directly",
-            readme,
-        )
+        self.assertIn("governing evidence state for Pollenomics", readme)
+        self.assertIn("governed species-owned ancient-DNA views", readme)
         self.assertIn("`custom-data/`", readme)
         self.assertIn("│   ├── equus_caballus", readme)
         self.assertIn("│   ├── bos_taurus", readme)
@@ -69,6 +67,10 @@ class DataLayoutUnitTests(unittest.TestCase):
             "`adna/governance/source_library/project_surface_contract.json`", readme
         )
         self.assertIn("`adna/final/`", readme)
+        self.assertIn("## Audit One Data Claim", readme)
+        self.assertIn("## Refresh Safety", readme)
+        self.assertIn("species-evidence-views.md", readme)
+        self.assertIn("```mermaid", readme)
         self.assertIn(
             f"[`docs/public/pollenomics-data/sources/index.md`]({DATA_SOURCE_INDEX})",
             readme,

@@ -93,6 +93,55 @@ A visible coordinate cannot substitute for this traversal. The same numeric
 pair can be source-supplied, named-site resolved, approximate, substituted, or
 unsupported; only the evidence chain establishes which meaning applies.
 
+## Query One Species View
+
+Species roots provide a compact entrance into evidence that remains owned by
+projects, papers, samples, and claim records:
+
+```mermaid
+flowchart LR
+    Species["species README and posture"] --> Records["normalized sample records"]
+    Records --> Project["project-owned sample master"]
+    Project --> Claims["locality, chronology, and coordinate evidence"]
+    Claims --> Origin["paper, supplement, sheet, table, or archive row"]
+    Claims --> Admission["product-specific decision"]
+```
+
+1. Read the species README for role, curation class, release posture, project
+   deficits, and blocking reasons.
+2. Select the observation unit before using a count: project, recovered
+   sample, site, locality, coordinate row, or publication member.
+3. Resolve the normalized record to the project-owned sample and its captured
+   source locator.
+4. Inspect locality, chronology, and coordinate claims independently.
+5. Follow any public descendant to its admission record and product manifest.
+6. Carry unresolved, pending, rejected, excluded, and out-of-scope records
+   into the population account.
+
+Human and non-human species roots have different material depth. The human
+root exposes the governed AADR v66 capture but has no normalized or review
+member artifacts in this checkout. The ten non-human roots materialize broader
+generated evidence and review surfaces. Directory symmetry does not establish
+lifecycle symmetry.
+
+## Species View Regeneration
+
+Non-human species READMEs and their companion evidence files are produced by
+`bijux_pollenomics.adna.species.tracked_data`. The human README and AADR link
+contract are produced by `bijux_pollenomics.data_downloader.data_layout`.
+Change those owners before regenerating descendants.
+
+After regeneration, verify that:
+
+- every species README matches its renderer;
+- sample, project, site, coordinate, and publication counts remain typed and
+  are not presented as one funnel;
+- release gates remain distinct from per-project recovery and product
+  admission;
+- missing human lifecycle members remain disclosed; and
+- source identity, fact ownership, blockers, and product decisions still
+  reconcile.
+
 ## Primary Entry Points
 
 - [`governance/source_library/project_registry.json`](governance/source_library/project_registry.json)
@@ -107,5 +156,6 @@ unsupported; only the evidence chain establishes which meaning applies.
 
 The public [database model](../../docs/public/pollenomics-data/database/index.md),
 [sample-record contract](../../docs/public/pollenomics-data/evidence/sample-records.md),
+[species-view contract](../../docs/public/pollenomics-data/evidence/species-evidence-views.md),
 and [record-admission contract](../../docs/public/pollenomics-data/curation/record-admission.md)
 define how these surfaces may be interpreted and reused.
