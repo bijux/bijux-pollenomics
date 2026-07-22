@@ -18,6 +18,27 @@ The decisive question is not whether a place name appears somewhere in a
 paper. It is whether captured evidence connects that place to the sample at the
 resolution being published.
 
+## Current evidence posture
+
+Of 868 governed animal sample rows, 820 carry a direct sample-site assignment.
+The remaining 48 do not: 32 have region-only context and 16 remain unresolved.
+No current row is promoted through a sample-group, project-only, or inferred
+named-place assignment. These counts describe locality linkage, not coordinate
+quality; even a direct site still needs independent coordinate provenance
+before it can become a point.
+
+The repository records three related but non-interchangeable dimensions:
+
+| Dimension | Example values | Question answered |
+| --- | --- | --- |
+| Resolution status | `direct_sample_site`, `region_only`, `unresolved` | how tightly is place linked to this sample? |
+| Locality class | excavation site, municipality, country, broader locality | what kind of place does the source describe? |
+| Mapping posture | mappable point or contextual/non-point use | what spatial representation is defensible? |
+
+A named excavation site can be directly linked yet still lack point-quality
+coordinates. Conversely, a coordinate resolved from project context does not
+become sample-owned merely because it is numeric.
+
 ## Resolution classes
 
 | Resolution | Meaning | Safe public use |
@@ -48,9 +69,10 @@ flowchart TD
     H -->|yes| I[Conflict ledger and review]
     H -->|no| J[Coordinate provenance review]
     I --> J
-    J --> K{Resolution supports requested output?}
-    K -->|yes| L[Eligible locality representation]
-    K -->|no| M[Retain as non-point context]
+    J --> K{Resolution and coordinate basis support the output?}
+    K -->|point| L[Eligible point candidate]
+    K -->|region| M[Regional or aggregate representation]
+    K -->|neither| N[Review or explicit exclusion]
 ```
 
 Sample-owned evidence takes precedence over a broader project description for
@@ -78,6 +100,11 @@ They do not replace the reported place text. A normalization dictionary can
 join spelling variants, while the original wording remains available for
 audit.
 
+The `geocoding_safe_token` is likewise an aid to resolution, not evidence in
+its own right. A successful gazetteer lookup can propose a coordinate, but the
+source scope, locality class, coordinate basis, confidence, and review posture
+still determine whether that result is publishable.
+
 ## Conflicts and substitutions
 
 A locality conflict exists when two captured surfaces assign incompatible
@@ -91,6 +118,11 @@ Project-level substitution is never silent. If sample-level locality is absent,
 the resulting row retains a broader resolution status and cannot pass as a
 direct sample site. Manual-curation queues identify the exact sample and
 missing source field needed to improve that posture.
+
+This yields a durable invariant: **normalization may standardize a supported
+claim, but it may not increase the claim's resolution**. A region does not
+become a site, a site does not become an exact point, and a project context does
+not become a sample observation through transformation alone.
 
 ## Auditing locality lineage
 

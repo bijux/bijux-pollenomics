@@ -22,6 +22,29 @@ Bijux Pollenomics therefore keeps three questions separate:
 3. **What comparison is safe?** A precision posture derived from ownership,
    evidence class, and normalization status.
 
+## Current evidence posture
+
+The governed chronology audit covers all 868 recovered animal samples:
+
+| Normalization result | Samples | Interpretation |
+| --- | ---: | --- |
+| numeric point | 469 | one defensible BP value is available |
+| numeric interval | 296 | comparison must preserve interval width |
+| text only | 87 | wording is useful but is not safely parsed into BP bounds |
+| unresolved | 16 | no trustworthy chronology claim has been recovered |
+
+Evidence class and comparison precision cut across those normalization counts.
+The collection includes 729 direct radiocarbon-date rows, 30 archaeological
+context dates, 93 historical or recent dates, and 16 unresolved rows. Its
+precision postures include 461 sample-precise points, 254 sample-precise
+intervals, 87 approximate or modeled sample claims, 50 contextual intervals,
+and 16 unresolved claims. Ten projects currently require manual chronology
+review.
+
+These views are deliberately different. A row may contain numbers and still be
+contextual or approximate; numeric normalization does not confer sample-level
+precision.
+
 ## Sample evidence outranks project context
 
 ```mermaid
@@ -37,8 +60,10 @@ flowchart TD
     H --> I
     E --> I
     I --> J{Numeric comparison justified?}
-    J -->|yes| K[Interval comparison at stated precision]
-    J -->|no| L[Textual context or exclusion]
+    J -->|precise| K[Point or interval comparison]
+    J -->|approximate| L[Caveated numeric comparison]
+    J -->|context only| M[Contextual temporal layer]
+    J -->|no| N[Textual context or exclusion]
 ```
 
 When a sample-owned date conflicts with a project-level range, the sample claim
@@ -80,6 +105,12 @@ be converted safely, and `unresolved` when no chronology has been recovered.
 For numeric values, equal BP bounds represent a point; unequal bounds represent
 an interval. Original text remains the authoritative source expression.
 
+`time_mean_bp` is a summary coordinate, not a replacement for the interval.
+Range overlap and distance calculations use the bounds when they exist. A map
+or chart that displays a mean must retain access to the original bounds,
+precision posture, evidence class, and comparison note so that an interval
+does not acquire false point precision.
+
 ## What is never inferred
 
 The chronology pipeline does not assign conventional numeric bounds to a named
@@ -91,6 +122,12 @@ Those restraints matter in a cross-domain atlas. Two layers can overlap in
 space while lacking comparable time support. A pollen sequence with a numeric
 BP interval, a SEAD site-inventory point, and an animal sample with a modeled
 date must retain their different temporal semantics.
+
+Cross-source comparison is therefore an admission decision, not a generic
+date join. Exact and interval-supported rows may participate in numeric window
+tests; approximate rows require a visible caveat; contextual intervals remain
+context; and text-only or unresolved rows cannot silently inherit a numeric
+window from a neighboring record.
 
 ## Auditing chronology lineage
 

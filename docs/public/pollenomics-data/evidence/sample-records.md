@@ -14,6 +14,29 @@ sample record. Papers describe studies, archive projects group deposits, and
 supplements contain tables; none of those scopes is automatically equivalent
 to one physical sample.
 
+A sample record answers **which specimen row is being discussed**. It does not
+by itself certify where the specimen came from, when it lived, or whether it
+may appear as a map point. Those are separately governed claims joined through
+the stable sample identifier.
+
+## Current evidence posture
+
+The governed snapshot contains 868 recovered sample rows across 40 animal
+archive projects. All 868 currently have a final identity resolution and the
+identity ambiguity ledger is empty. That is strong evidence for the recovered
+rows; it is not a claim that every sample deposited by every project has been
+recovered. Only four projects currently have a trustworthy expected sample
+count, so project completeness remains unknown for most of the collection.
+
+This distinction is intentional:
+
+| Question | Governing signal | What a positive result establishes |
+| --- | --- | --- |
+| Was a source row recovered? | `recovered_sample_count` | a row exists in the governed sample master |
+| Is its identity usable? | `sample_identity_resolution` | labels resolve to one repository-stable sample |
+| Is the project complete? | expected versus final count, with provenance | the recovered set can be measured against a trustworthy expectation |
+| Is the sample publishable? | locality, chronology, and coordinate evidence | only the requested public representation is supported |
+
 ## Stable Identity
 
 A project sample master assigns a repository-stable identifier and preserves
@@ -29,6 +52,12 @@ the labels available from each source surface:
 The stable identifier is namespaced by project so identical human-readable
 labels in different projects do not collapse into one record.
 
+Identity resolution follows the evidence, not label appearance. Archive,
+paper, and supplementary labels remain distinct fields even when they agree.
+The preferred label is for display; the repository-stable identifier is the
+join key. This prevents punctuation changes, spreadsheet formatting, or a
+later preferred-label correction from breaking evidence links.
+
 ## Source Lineage
 
 ```mermaid
@@ -39,8 +68,13 @@ flowchart LR
     Locator["sheet, row, table, or record locator"] --> Sample
     Sample --> Site["sample-site record"]
     Sample --> Date["sample chronology record"]
-    Site --> Species["species-normalized view"]
-    Date --> Species
+    Site --> Locality["locality evidence packet"]
+    Date --> Temporal["chronology evidence packet"]
+    Locality --> Species["species-normalized view"]
+    Temporal --> Species
+    Species --> Candidate{"publication rules pass?"}
+    Candidate -->|yes| Product["atlas or country product"]
+    Candidate -->|no| Review["review or exclusion surface"]
 ```
 
 A direct extraction records the source artifact, its kind, an internal locator,
@@ -59,6 +93,10 @@ such as `not_yet_curated`, with a reason and the artifact needed to resolve it.
 This prevents a large recovered table from being mistaken for proven project
 completeness.
 
+The same rule applies to arithmetic. `unresolved_sample_count` is meaningful
+only when an expected count exists. A null value means the denominator is not
+known; it does not mean that no samples are missing.
+
 ## Sample-Owned Claims
 
 The sample master carries the source-facing identity and the raw locality and
@@ -76,6 +114,12 @@ those claims:
 Separating these surfaces prevents a correction to place or time from changing
 sample identity, and prevents species aggregation from becoming the authority
 for project-level extraction.
+
+The source-fact ownership registry makes that direction explicit: the
+project-owned `sample_master.json` governs identity, while species-normalized
+records and completeness summaries support discovery and review. Readers can
+therefore trace a species-level row back to its project authority without
+treating the convenient aggregate as a new source of truth.
 
 ## Ambiguity And Refusal
 
