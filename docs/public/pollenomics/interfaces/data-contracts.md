@@ -14,7 +14,7 @@ publication, and transient execution. A record's location identifies its
 lifecycle stage; its schema and evidence role determine what may be claimed
 from it.
 
-## Authority And Persistence
+## Governing Roots
 
 | Surface | Owns | Persistence | Does not establish |
 | --- | --- | --- | --- |
@@ -30,6 +30,28 @@ These roots are governing boundaries, not merely storage conventions. Moving
 a file from one root to another changes neither its evidence role nor its
 fitness automatically. The receiving owner must admit it through the relevant
 schema, identity, lineage, and product rules.
+
+## Contract Rules
+
+A contract is valid only when producer and consumer agree on meaning as well
+as shape. The following rules apply across every source family and publication
+format:
+
+| Rule | Required behavior | Rejected shortcut |
+| --- | --- | --- |
+| identity | retain the repository-owned identifier and source-native key | joining by label, row order, or rounded coordinate |
+| lineage | name the captured member, source version, and transformation path | citing a landing page without the acquired object |
+| fact ownership | resolve each repeated value to one governing record | choosing whichever derived copy appears newest |
+| precision | preserve supplied, derived, approximate, substituted, unresolved, and missing states | coercing every place or date into an exact value |
+| evidence role | distinguish direct evidence, context, decision support, and framing | treating co-location as proof of equivalence |
+| joins | declare observation units and cardinality and retain unmatched members | accepting a technically successful many-to-many join silently |
+| admission | record the named product, eligible population, rule, and disposition | equating normalized presence with publication eligibility |
+| publication | bind members, caveats, scope, and content identity in a manifest | treating a rendered file as the product authority |
+
+Validation must fail visibly when a required identity or relation is absent.
+Unknown and unresolved states remain data; they must not be replaced with a
+plausible value merely to satisfy a downstream schema. A derived product may
+narrow the source claim, but it may never strengthen it.
 
 ## Contract, State, And Presentation
 

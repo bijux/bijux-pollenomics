@@ -25,7 +25,7 @@ bijux-pollenomics collect-data --help
 The executable resolves from the active environment. Record the reported
 runtime version before creating evidence or publication artifacts.
 
-## Read-Only Inspection
+## Verification Entry Points
 
 ```bash
 bijux-pollenomics source-support --json
@@ -35,7 +35,9 @@ bijux-pollenomics adna-runtime-manifest --species ovis_aries --json
 ```
 
 These commands inspect registered source or species state. They do not perform
-a collection or publication refresh.
+a collection or publication refresh. Capture the command, runtime version,
+explicit roots when applicable, and emitted identity so another reader can
+repeat the same verification against the same state.
 
 ## Validate A Collection Ledger
 
@@ -47,7 +49,7 @@ bijux-pollenomics validate-collection-summary \
 Validation checks the existing summary and is the appropriate first response
 to a summary-contract question.
 
-## Evaluate Collection And Publication Safely
+## Collection And Publication Examples
 
 Use explicit isolated roots when learning a state-changing command. The
 following evaluation keeps collected evidence and publications outside the

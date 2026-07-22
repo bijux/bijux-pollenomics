@@ -29,7 +29,7 @@ flowchart TD
     Publish --> ProductResult["manifests, subsets, traceability, and caveats"]
 ```
 
-## Read Without Rewriting
+## Verify Only
 
 Inspection commands are the safest starting point for source support, species
 membership, runtime manifests, and review posture. A narrow validator is
@@ -46,7 +46,7 @@ The first answers a capability question. The second proves that one existing
 summary satisfies its structural contract. Neither demonstrates that every
 upstream source is complete or every normalized record is publishable.
 
-## Collect Source Families
+## Refresh Data
 
 `collect-data` may contact external sources and replace the selected family
 trees plus the collection summary. Its observable evidence should include:
@@ -58,6 +58,13 @@ trees plus the collection summary. Its observable evidence should include:
 
 Collection success means the pipeline completed. It does not mean every source
 record is publication-ready.
+
+A data refresh is broader than retrieval. Review the source-family contract to
+determine whether the family materializes capture only, capture plus
+normalization, or additional review evidence. Never infer an absent lifecycle
+stage from a later publication. When only one family changed, validate and
+review that family's causal descendants rather than presenting an unrelated
+repository-wide rewrite as evidence of success.
 
 ## Refresh Animal Evidence
 
@@ -72,7 +79,7 @@ identity, locality, chronology, coordinate basis, and admission posture remain
 connected. Gap, conflict, substitution, and exclusion records are part of the
 result; they are not noise to discard before reading the visible points.
 
-## Publish Products
+## Publish Outputs
 
 `publish-reports` reads the current governed data state and rebuilds public
 world, regional, country, review, and caveat outputs. The publication can be
