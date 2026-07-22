@@ -13,6 +13,15 @@ Pollenomics combines eight contracted source families. Their records can share
 a publication, but the source contract preserves what each family measures,
 where it applies, how it was acquired, and which claims it can support.
 
+The portfolio and the collection command have deliberately different
+boundaries. Seven families have collectors and appear in `source-support`:
+AADR, boundaries, LandClim, Neotoma, RAÄ, SEAD, and SVAR. Animal ancient-DNA
+evidence is the eighth contracted family, but it enters through a
+literature-and-archive intake workflow because there is no single upstream
+release to collect. A support-matrix row therefore means that a collection
+adapter exists; it does not mean that a capture is present, complete, current,
+or admitted to a product.
+
 ## Contracted Sources
 
 | Family | Evidence role | Suitable questions | Principal limit |
@@ -158,9 +167,35 @@ unit, a geographic and temporal interpretation, and an explicit role in the
 publication model. A source that fails one requirement may remain documented
 for recovery without being presented as a collected evidence family.
 
+An admission decision is auditable only when its evidence can be separated
+from the source itself. The decision packet names the proposed family owner,
+upstream authority, selected release or accession, acquisition route, reuse
+posture, observation unit, evidence role, known biases, normalization owner,
+and the products allowed to consume the result. It also records rejected
+alternatives and the condition that would trigger demotion or renewed review.
+This makes selection policy inspectable instead of hiding it in downloader
+code or repository history.
+
 Refresh does not repeat admission blindly. A new release can change schema,
 licence terms, endpoints, coverage, or semantics; those changes require review
 even when the source name remains stable.
+
+### Contract, Capability, State, And Fitness
+
+Four surfaces answer different questions and must not be read as substitutes:
+
+| Surface | Question answered | What it does not prove |
+| --- | --- | --- |
+| source-family contract | What kind of evidence is this family allowed to contribute? | that software can currently acquire it |
+| `source-support` | Which collector adapters and declared country scopes exist? | that any bytes were captured or validated |
+| collection and evidence-state matrices | What governed material is present and which checks passed? | that a record is fit for a particular product |
+| product admission ledger | Which members satisfy one named publication contract, and why? | that excluded or unresolved evidence is scientifically irrelevant |
+
+The separation matters most for partial recovery. A family can be contracted
+and supported while its current capture is incomplete; a complete capture can
+still contain unresolved members; and a resolved member can remain outside a
+product because its place, time, role, or precision does not meet that
+product's policy.
 
 ### Admission Has Three Separate Decisions
 

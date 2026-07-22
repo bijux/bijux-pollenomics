@@ -14,6 +14,11 @@ questions, not because they are interchangeable. Each family retains its own
 observation unit, authority, spatial precision, temporal posture, and product
 role.
 
+An evidence role is an authority boundary, not a display category. It governs
+which assertions a record may contribute before any map styling, proximity
+calculation, or ranking is applied. A downstream product can narrow that
+authority, but cannot promote it.
+
 ## Role Matrix
 
 | Family | Governed unit | Product role | Strongest supported reading |
@@ -26,6 +31,20 @@ role.
 | animal ancient DNA | project-owned sample and its claim records | direct or qualified animal evidence | sample identity, locality, chronology, and coordinate claims that pass the product contract |
 | SVAR | registered lake | geographic and decision-support input | stable lake identity and hydrographic properties |
 | boundaries | country MultiPolygon | geographic framing | reproducible Nordic and country scope selection |
+
+### Role And Workflow Are Independent
+
+Evidence role describes what a family may support. Intake workflow describes
+how its governed material reaches the repository. The two dimensions remain
+separate:
+
+| Family boundary | Intake pattern | Why the distinction matters |
+| --- | --- | --- |
+| seven collector-managed families | release, API, or registry capture into a family-owned tree | executable support is visible through `source-support`, but presence and fitness require separate state evidence |
+| animal ancient-DNA family | paper, archive, supplement, and sample-owned recovery | no synthetic collection adapter can replace project-by-project evidence lineage |
+
+This is why the eight-family portfolio has seven collection adapters. The
+difference is part of the scientific model, not an incomplete count.
 
 ## Comparison Requires A Bridge
 
@@ -114,6 +133,23 @@ Any derived row should retain the member identities on both sides of the
 bridge, the rule and parameters, the governing source versions, the result
 posture, and the reason for refusal when no result was produced. Otherwise the
 row can be displayed but cannot be independently re-evaluated.
+
+### Governing Authority Survives The Join
+
+The product record carries a small authority ledger for every derived claim:
+
+| Ledger field | Purpose |
+| --- | --- |
+| member identities | recover the exact source-native records on every side of the relation |
+| evidence roles | prevent a contextual or framing contribution from being presented as direct support |
+| bridge rule and parameters | state whether the relation is containment, distance, time overlap, identifier linkage, or another declared operation |
+| precision posture | cap the result at the weakest relevant place and time precision |
+| source versions | make the result reproducible against the releases actually reviewed |
+| disposition and reason | distinguish admitted, qualified, excluded, deferred, and refused results |
+
+A derived score is not this ledger. Scores can order candidates within an
+already governed decision surface; they cannot erase missing evidence,
+manufacture independence, or transfer authority between families.
 
 Continue to the [source-family matrix](source-family-matrix.md),
 [spatiotemporal posture](spatiotemporal-posture.md), and

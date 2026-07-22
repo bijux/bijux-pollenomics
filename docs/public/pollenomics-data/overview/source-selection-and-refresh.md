@@ -44,6 +44,13 @@ levels that are often collapsed: a project is known; its paper is identified;
 its supporting material is recovered; and sample-owned locality and chronology
 are supported. Progress at one level does not imply completion of the next.
 
+The selected family has a named evidence owner and a named preparation owner.
+The evidence owner is accountable for observation-unit meaning, authority,
+bias, and permitted claims. The preparation owner is accountable for capture,
+normalization, validation, and replacement behavior. One person or component
+may hold both responsibilities, but the decision record keeps them explicit so
+that operational success cannot stand in for scientific acceptance.
+
 ## Selection Bias Remains Visible
 
 The collected families are a governed evidence portfolio, not proof that every
@@ -94,6 +101,14 @@ flowchart LR
 Staging protects the prior coherent tree from partial acquisition. Acceptance
 requires more than a nonzero row count: expected assets, identity, hashes,
 schema, semantics, and family contract must agree.
+
+Replacement is atomic at the owned family-tree boundary. A candidate is built
+in an isolated sibling tree; the previous tree is moved to a recovery sibling;
+the candidate is promoted; and a failed promotion restores the previous tree.
+After successful promotion the recovery sibling is removed. This protects one
+owned tree from acquisition and promotion failure. It is not a transaction
+across several source families, the review database, and published products;
+those downstream surfaces are reassessed through explicit propagation records.
 
 ## Refresh Acceptance Evidence
 
