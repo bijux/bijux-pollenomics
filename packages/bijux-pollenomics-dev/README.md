@@ -50,6 +50,22 @@ check proves that the inspected contract is internally consistent at that
 revision; it does not prove that a source is complete, a chronology is precise,
 or a published interpretation is scientifically sufficient.
 
+## Documentation Audience Boundary
+
+Documentation checks preserve a product boundary as well as link and rendering
+integrity:
+
+| Surface | Audience | Appropriate content |
+| --- | --- | --- |
+| `docs/public/` and the published MkDocs navigation | readers, operators, and integrators | product behavior, evidence meaning, supported interfaces, workflows, limits, and traceability |
+| `docs/internal/` | maintainers and contributors | repository checks, release mechanics, generator ownership, and implementation maintenance |
+| generated `docs/report/` | readers and reviewers of governed products | manifested publications, scientific reviews, qualifications, and refusals |
+
+Public pages must not narrate documentation work, repository housekeeping, or
+what a future editor should add. Internal pages must not become a second source
+of scientific truth. A documentation-integrity check may detect audience
+leakage, but the correction belongs in the owning page or generator.
+
 ### Admission Test For Maintainer Helpers
 
 A helper belongs in this package only when all of these statements hold:

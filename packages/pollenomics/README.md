@@ -5,6 +5,11 @@
 `pollenomics` executable and import prefix while dispatching collection,
 evidence review, ranking, and publication to the canonical runtime.
 
+The alias inherits the canonical product boundary. It exposes the current
+atlas-builder and evidence-publication runtime; it does not make planned
+harmonization or interpretation engine surfaces available under a shorter
+name.
+
 <!-- bijux-pollenomics-badges:generated:start -->
 [![Python 3.11+](https://img.shields.io/badge/python-3.11%2B-3776AB?logo=python&logoColor=white)](https://pypi.org/project/pollenomics/)
 [![License: Apache-2.0](https://img.shields.io/badge/license-Apache--2.0-0F766E)](https://github.com/bijux/bijux-pollenomics/blob/main/LICENSE)
@@ -96,6 +101,11 @@ The compatibility promise is deliberately narrow: naming convenience without
 scientific divergence. It covers forwarded imports, the short executable, and
 top-level public names. It does not create an independent data format, release
 posture, configuration model, or support lifecycle.
+
+The same ceiling applies to operational guarantees. Collection and publication
+retain the canonical write roots, staging behavior, replacement semantics, and
+recovery requirements. A shorter executable is not a safer preview mode; use
+an explicit `artifacts/` destination when rehearsing a state-changing call.
 
 ## Compatibility contract
 
@@ -323,6 +333,10 @@ The alias does not fork:
 New scientific capabilities belong in `bijux_pollenomics` and become available
 through the alias automatically when they are part of the public runtime
 surface.
+
+The alias also cannot promote a planned canonical surface into a supported one.
+Capability status is determined by the canonical runtime contract, not by
+whether an import can be resolved or a name sounds domain-complete.
 
 ## Documentation
 

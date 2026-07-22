@@ -10,6 +10,12 @@ The runtime is designed around evidence preservation: source capture remains
 separate from normalization, review can refuse unsupported precision, and
 publication emits only the subset admitted by a product contract.
 
+Its current product mode is `atlas_builder`. Multi-evidence harmonization,
+general evidence-aware interpretation, and workflow replay are project
+directions rather than implemented runtime surfaces. This distinction is
+machine-readable through `product-scope` and `surface-map`; consumers do not
+need to infer it from branding.
+
 <!-- bijux-pollenomics-badges:generated:start -->
 [![Python 3.11+](https://img.shields.io/badge/python-3.11%2B-3776AB?logo=python&logoColor=white)](https://pypi.org/project/bijux-pollenomics/)
 [![License: Apache-2.0](https://img.shields.io/badge/license-Apache--2.0-0F766E)](https://github.com/bijux/bijux-pollenomics/blob/main/LICENSE)
@@ -66,6 +72,11 @@ roots explicitly so a valid command cannot silently address the wrong tree.
 
 The repository is the reproducible reference environment when the checked-in
 evidence and publications are required together.
+
+The wheel is classified as alpha software. That status applies to the runtime
+distribution, while each captured dataset and publication has its own version,
+manifest, and evidence posture. Runtime version, evidence version, and product
+identity are separate reproducibility fields.
 
 ### Installed Runtime Versus Repository Product
 
@@ -198,6 +209,13 @@ The runtime may complete an operation while producing a scientific refusal or
 an empty qualified subset. That is not necessarily an execution failure. Exit
 status describes software completion; the review surfaces describe evidential
 fitness.
+
+Collection and publication first build a sibling candidate tree. Failure while
+building that candidate preserves the prior destination. Final replacement is
+not rollback-backed: the prior owned directory is removed before the candidate
+is renamed into place. Operators should retain a clean tracked baseline or
+another verified copy and confirm the resulting manifest after every governed
+replacement.
 
 ```mermaid
 flowchart TD
