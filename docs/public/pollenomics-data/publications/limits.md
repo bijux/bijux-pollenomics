@@ -31,6 +31,23 @@ still prohibiting language that implies unrestricted precision. These two
 results are compatible: a conservative subset can be safely published before
 the underlying recovery program is complete.
 
+## Quantified Boundaries
+
+The current governed state makes several limits measurable:
+
+| Surface | Current signal | Consequence |
+| --- | --- | --- |
+| Animal sample recovery | 868 recovered rows across 40 projects; only four projects have a trustworthy expected count | recovered rows are auditable, but collection completeness is usually unknown |
+| Animal locality | 820 direct sample-site assignments; 32 region-only; 16 unresolved | 48 samples cannot be described as exact sample sites |
+| Animal publication points | 234 accepted point-evidence rows; 233 direct supplementary coordinates and one approximate named-site geocode | the point subset is traceable but spatial support is uneven |
+| Neotoma time | 175 of 200 sites have numeric BP spans; chronology rows are not captured | site-span comparison requires the Neotoma temporal caveat |
+| SEAD time | 2,172 normalized sites and no numeric intervals in the current capture | use as archaeology context, not same-period support |
+| RAÄ scope | Sweden-specific density source | do not generalize its coverage to the Nordic region |
+
+These numbers are a snapshot of the governed artifacts, not permanent project
+constants. The applicable manifests and review surfaces remain authoritative
+when the data state changes.
+
 ## Limits By Dimension
 
 | Dimension | Supported use | Unsupported inference |
@@ -60,6 +77,12 @@ These causes have different meanings. The exclusion and recovery surfaces are
 necessary companions to the visible atlas because a clean map alone cannot
 distinguish them.
 
+Absence is therefore not one claim. “Not captured,” “captured but unresolved,”
+“reviewed and refused,” “outside geographic scope,” and “unsupported by this
+publication type” require different language and different next evidence. A
+responsible downstream analysis should retain the reason rather than replace
+all five with a single missing-value code.
+
 ## Map Boundaries
 
 - Basemap tiles may still depend on external providers even though publication
@@ -80,6 +103,17 @@ Before relying on a publication:
 4. preserve precision and temporal posture when quoting or transforming data;
 5. check exclusions and recovery gaps before interpreting absence; and
 6. avoid language stronger than the current release posture.
+
+For lake prioritization, treat the ranking as a reproducible screening model,
+not a fieldwork decision. A high score identifies a candidate supported by the
+available and weighted layers. It does not establish sediment preservation,
+basin geometry, access, legal permission, sampling feasibility, or the absence
+of uncaptured evidence around lower-ranked lakes.
+
+For cross-domain interpretation, report proximity and temporal compatibility
+as separate findings. Co-location is not contemporaneity; contemporaneity is
+not causation; contextual archaeology or pollen is not direct evidence about a
+particular human or animal sample.
 
 The generated
 [`repository_final_release_refusal`](../../../report/repository_final_release_refusal.md)

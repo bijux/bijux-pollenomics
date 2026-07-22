@@ -16,19 +16,47 @@ normalized or reviewed record that authorized it.
 
 ## The six governed input families
 
-| Input | Role in the atlas | Governing surface | Interpretation limit |
+| Input | Role in the atlas | Governing evidence surface | Interpretation limit |
 | --- | --- | --- | --- |
-| LandClim | primary pollen context | `data/landclim/normalized/landclim_summary.json` | pollen sequences and grids, not direct human or animal evidence |
-| Neotoma | primary pollen context | `data/neotoma/raw/neotoma_pollen_sites.json` and normalized outputs | separate pollen inventory with uneven temporal support |
-| SEAD | contextual archaeology | `data/sead/raw/nordic_sites.json` and reviewed outputs | environmental archaeology context, not uniformly dated evidence |
+| LandClim | primary pollen context | `data/landclim/normalized/nordic_pollen_site_sequences.geojson` | pollen sequences and grids, not direct human or animal evidence |
+| Neotoma | primary pollen context | `data/neotoma/normalized/nordic_pollen_sites.geojson` | separate pollen inventory with uneven temporal support |
+| SEAD | contextual archaeology | `data/sead/normalized/nordic_environmental_sites.geojson` | environmental archaeology context, not uniformly dated evidence |
 | RAÄ | contextual archaeology | `data/raa/normalized/sweden_archaeology_layer.json` | Sweden-scoped density context, not Nordic-wide site coverage |
 | Nordic boundaries | geographic framing | `data/boundaries/normalized/nordic_country_boundaries.geojson` | scope and clipping only; contributes no evidence score |
-| Animal aDNA | sample-backed evidence and explicit refusals | species-normalized records plus publication reviews | visible subset of an incomplete recovery program |
+| Animal aDNA | sample-backed evidence and explicit refusals | `data/adna/final/atlas/animal_atlas_point_candidates.json` | visible subset of an incomplete recovery program |
+
+Summary files and raw captures remain important refresh and review anchors,
+but they do not replace the normalized or admitted surface that governs a
+visible layer. This distinction matters when a raw inventory contains rows
+that normalization later excludes or qualifies.
 
 SVAR lake records provide the authoritative candidate-lake anchors for the
 Sweden priority analysis. Human aDNA exports and additional report layers enter
 the products that declare them, but their presence does not change the role of
 the six audited atlas families above.
+
+## Evidence role is part of the layer
+
+```mermaid
+flowchart LR
+    Direct["direct sample evidence"] --> Product["declared publication"]
+    Pollen["primary pollen context"] --> Product
+    Archaeology["contextual archaeology"] --> Product
+    Lakes["candidate-lake anchors"] --> Product
+    Boundaries["geographic framing"] --> Product
+    Product --> Reader{"reader interpretation"}
+    Reader -->|claim| Direct
+    Reader -->|environmental support| Pollen
+    Reader -->|surrounding context| Archaeology
+    Reader -->|selection unit| Lakes
+    Reader -->|scope only| Boundaries
+```
+
+Layer co-location does not collapse these roles. A boundary can select a
+country but cannot support a scientific score. An archaeology layer can
+describe surrounding evidence without becoming a sample observation. A pollen
+sequence can supply palaeoenvironmental context without becoming direct aDNA
+evidence.
 
 ## Assembly and review
 
@@ -51,6 +79,12 @@ Eligibility is evaluated for a particular product. A record admitted to a
 world layer is not automatically Nordic evidence; a Sweden density layer is
 not automatically available for another country; and a tracked animal project
 is not automatically a mapped sample.
+
+The current input scale is intentionally heterogeneous: 492 LandClim site
+sequences, 200 Neotoma sites, 2,172 normalized SEAD sites, a RAÄ density source
+covering 761,917 published Swedish sites, four Nordic boundary polygons, and
+234 reviewed animal publication points. These counts describe different units
+and roles and must never be summed into one evidence total.
 
 ## What a scoped export must preserve
 
@@ -93,7 +127,9 @@ Use the feature's layer and stable identifier to follow this route:
 5. check the refusal and coverage surfaces when expected evidence is absent.
 
 The [repository atlas input audit](../../../report/repository_atlas_input_audit.md)
-summarizes the active input families and their tracked metrics. The
+summarizes refresh anchors and tracked metrics for the active input families.
+The source-fact ownership registry identifies the governing evidence surfaces.
+The
 [cross-domain evidence matrix](../../../report/repository_cross_domain_evidence_matrix.md)
 shows their responsibilities, while [point publication rules](point-rules.md)
 define the direct-evidence admission boundary.

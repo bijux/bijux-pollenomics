@@ -14,6 +14,21 @@ represents, where its coordinate came from, and which evidence rows support it.
 The rule is deliberately asymmetric: unresolved evidence can remain in the
 curated collection, but it cannot borrow visual certainty from a map marker.
 
+## Current published point posture
+
+The animal point-evidence review contains 234 accepted rows. Of these, 233 use
+coordinates captured directly from supplementary tables and carry `exact`
+coordinate confidence. One uses documented named-site geocoding and carries
+`approximate` confidence. The public surface therefore contains qualified
+coordinate classes; it must not be described as entirely source-coordinate
+backed.
+
+Acceptance applies to the declared point product. It does not certify complete
+project recovery, equal coverage across species, or unrestricted analytical
+fitness. The animal publication gate currently passes all ten anti-overclaim
+and traceability checks while still refusing the strongest reference-grade
+claim.
+
 ## Animal point admission
 
 ```mermaid
@@ -38,6 +53,22 @@ The emitted row carries stable feature, evidence-row, and site identifiers;
 species and support class; locality and coordinate provenance; project and
 sample identifiers; paper and supplement citations; site-evidence text; scope
 inclusion; and chronology at the precision allowed for publication.
+
+## Admission and field qualification
+
+A row-level admission and a field-level admission answer different questions:
+
+| Decision | Question | Possible result |
+| --- | --- | --- |
+| point admission | is there enough identity, locality, coordinate, and citation support to draw this point? | publish, refuse, or exclude |
+| coordinate qualification | was the pair reported directly or resolved from a named place? | exact or approximate confidence |
+| chronology admission | may numeric time fields appear for this point? | precise interval, qualified context, or no numeric fields |
+| scope admission | does the point belong in this world, regional, or country product? | include with reason or omit from that scope |
+
+A point can pass spatial admission while numeric chronology remains absent.
+Likewise, a point accepted on the world surface can remain outside a Nordic or
+country subset. The public row must preserve those decisions rather than
+compress them into one status.
 
 ## Required evidence by field
 
@@ -100,6 +131,20 @@ The animal publication gate verifies the whole emitted surface, including:
 Passing those protections means the published subset obeys its contracts. It
 does not mean all tracked projects or species are fully recovered, and it does
 not justify stronger collection-wide completeness language.
+
+```mermaid
+flowchart LR
+    Curated["curated evidence"] --> Spatial{"point admission"}
+    Spatial -->|fail| Refusal["refusal or exclusion surface"]
+    Spatial -->|pass| Point["published point"]
+    Point --> Coordinate["coordinate confidence"]
+    Point --> Time{"chronology field admission"}
+    Point --> Scope{"geographic scope admission"}
+    Time -->|numeric allowed| Window["qualified BP fields"]
+    Time -->|not allowed| NoWindow["no false numeric window"]
+    Scope -->|included| Bundle["declared product bundle"]
+    Scope -->|outside| OtherScope["retained outside this bundle"]
+```
 
 ## Auditing inclusion and absence
 
