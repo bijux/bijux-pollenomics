@@ -58,7 +58,7 @@ if a sample-bearing table had been recovered. A query that requires samples
 uses the first population. A map that accepts qualified project context may use
 both, but must expose the identity class.
 
-## From project to publishable sample
+## From Project To Publishable Sample
 
 ```mermaid
 flowchart LR
@@ -118,7 +118,37 @@ cross-project review must resolve to the project file that supplies its sample,
 site, locality, or chronology evidence; the review cannot become a substitute
 authority.
 
-## What is captured
+### One Intake Produces Several Governed Decisions
+
+Extracting a sample row does not write one universal “curated” status. It
+creates independent decisions that can mature at different rates:
+
+| Decision record | Candidate input | Durable outcome |
+| --- | --- | --- |
+| sample identity | native label, accession, table locator, and project relation | final identity, unresolved candidates, or refusal to merge |
+| sample-to-site relation | sample label, site label, table relation, and project context | direct relation, documented substitution, ambiguity, or missing link |
+| locality claim | verbatim place text, site evidence, hierarchy, and conflicts | resolved locality with precision or unresolved claim |
+| chronology claim | verbatim date, basis, sample ownership, and competing wording | numeric interval, textual posture, contextual range, conflict, or unknown |
+| coordinate claim | supplied coordinate or named-place resolution with provenance | exact, approximate, substituted, region-only, withheld, or unresolved |
+| publication admission | the preceding decisions plus product scope | admitted, qualified, excluded, or deferred member |
+
+```mermaid
+flowchart TB
+    Row["recovered sample row"] --> Identity["identity decision"]
+    Identity --> Site["sample-to-site decision"]
+    Site --> Locality["locality decision"]
+    Identity --> Time["chronology decision"]
+    Locality --> Coordinate["coordinate decision"]
+    Coordinate --> Admission["product admission"]
+    Time --> Admission
+```
+
+This fan-out is the central curation operation. A final identity can coexist
+with unresolved chronology; an exact coordinate can coexist with text-only
+time; and a project-context feature can remain visibly distinct from a final
+sample-backed member.
+
+## What Is Captured
 
 | Evidence unit | Preserved information | Why it matters |
 | --- | --- | --- |
@@ -165,7 +195,7 @@ flowchart TB
     Decision --> Admission
 ```
 
-## Recovery states are evidence, too
+## Recovery States Are Evidence, Too
 
 The intake registry distinguishes incomplete acquisition from incomplete
 extraction. These conditions have different remedies and different scientific
@@ -210,7 +240,7 @@ This is the central collection rule: evidence already fit for a narrow product
 does not erase known recovery debt, and recovery debt does not erase the
 evidence that has been defensibly curated.
 
-## How to audit a sample
+## How To Audit A Sample
 
 Start with the project registry under
 `data/adna/governance/source_library/project_registry.json`, then follow the
@@ -239,7 +269,7 @@ same governing sample identity. Species views and report rows are projections;
 they cannot silently split one sample, merge distinct samples, or replace the
 project-owned authority.
 
-## Reading a visible point correctly
+## Reading A Visible Point Correctly
 
 A visible point means that the repository can defend the sample at the
 published spatial and temporal resolution. It does not mean every source field

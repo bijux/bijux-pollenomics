@@ -60,6 +60,37 @@ The current bindings are recorded in `data/collection_summary.json`. A hash
 identifies bytes; it does not certify scientific completeness, temporal
 comparability, or publication fitness.
 
+### Minimum Capture Packet
+
+A captured member is usable evidence only when the repository can recover the
+object and the context in which it was acquired:
+
+| Packet field | Required meaning |
+| --- | --- |
+| source identity | family, upstream owner, dataset or archive name, and release or accession |
+| member identity | source-native key and repository key without relying on row order |
+| acquisition | canonical locator, retrieval method, retrieval time, and access outcome |
+| content identity | physical or logical artifact path, media type, size, and digest |
+| reuse posture | licence or terms evidence and any redistribution limit |
+| intended role | observation unit, geographic and temporal reach, and permitted evidence role |
+| preparation lineage | parser or extraction rule, normalized destination, and unresolved fields |
+
+```mermaid
+flowchart LR
+    Upstream["upstream object"] --> Capture["capture packet"]
+    Capture --> Bytes["content identity"]
+    Capture --> Member["source-native member identity"]
+    Capture --> Role["declared evidence role"]
+    Member --> Prepared["normalized record"]
+    Bytes --> Prepared
+    Role --> Prepared
+```
+
+A DOI without the recovered table, an API URL without a release or response
+identity, or a copied row without its source-native key is an incomplete
+capture packet. Such material can remain in recovery state, but cannot silently
+enter the normalized population.
+
 ## Source Contract As Scientific Interface
 
 A family contract defines the stable boundary between an upstream ecosystem

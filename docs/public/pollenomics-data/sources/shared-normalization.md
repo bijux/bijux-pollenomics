@@ -50,6 +50,32 @@ preserved values need identity proof; parsed and normalized values need
 transformation proof; derived values need method and input proof; curated
 values need a decision record.
 
+### Field Contract
+
+Each non-trivial normalized field can be reconstructed as a compact contract:
+
+| Contract member | Question it answers |
+| --- | --- |
+| subject | Which stable source-native object owns the field? |
+| source | Which captured artifact and locator supplied the input? |
+| native value | What did the source say before repository interpretation? |
+| operation | Was the value preserved, parsed, normalized, derived, or curated, and by which rule? |
+| result | What value, unit, vocabulary, geometry, or null state was retained? |
+| posture | What precision, ambiguity, conflict, or review qualification applies? |
+
+```mermaid
+flowchart LR
+    Subject["stable subject"] --> Field["normalized field"]
+    Source["captured source locator"] --> Native["native value"]
+    Native --> Operation["declared operation"]
+    Operation --> Field
+    Field --> Posture["precision and review posture"]
+```
+
+The contract is evaluated per field because identity, locality, chronology,
+and coordinates may have different evidence. A record-level success flag would
+allow one strong field to conceal another field's unresolved state.
+
 ## Lossless By Meaning
 
 Normalization is lossless when every repository value can be interpreted
