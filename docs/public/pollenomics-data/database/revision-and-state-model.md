@@ -78,6 +78,34 @@ Updating a visible map without its manifest is a partial transaction. Updating
 a normalized fact without reevaluating dependent admissions is also partial,
 even if the map happens to remain visually unchanged.
 
+### Evidence Changes Are Semantic Transactions
+
+A coherent change begins at the earliest authority whose meaning changed and
+ends only when every affected decision and projection has been accounted for:
+
+| Authority change | Required transaction boundary |
+| --- | --- |
+| captured artifact replaced | capture identity, extraction locators, normalized descendants, review, and affected products |
+| sample identity merged or split | aliases, project relations, dimension claims, species views, admissions, and member identities |
+| locality or coordinate strengthened | prior claim, new provenance, point posture, geography predicates, and presentation caveats |
+| chronology reclassified | source wording, normalized basis, comparability, temporal joins, and public labels |
+| product rule changed | eligible population, decisions, manifest, exclusions, counts, and reader-facing claim |
+
+```mermaid
+flowchart LR
+    Before["coherent prior snapshot"] --> Authority["governing change"]
+    Authority --> Impact["typed dependent relations"]
+    Impact --> Decisions["reevaluated decisions"]
+    Decisions --> Products["regenerated products and accountability"]
+    Products --> Compare["semantic and membership diff"]
+    Compare --> After["coherent new snapshot"]
+```
+
+A transaction may legitimately produce no visible map change. In that case,
+the review still explains why membership remained stable despite changed
+evidence. Conversely, an unchanged total is not proof of a no-op because one
+member or evidence class may have replaced another.
+
 ## Snapshot Invariants
 
 A coherent revision satisfies all of these invariants:
@@ -138,3 +166,9 @@ source versions, typed object identities, evidence roles, relation methods,
 precision, admission posture, and material qualifications. If an extract
 drops exclusions, unresolved states, or its denominator, it cannot carry the
 same coverage claim as the governed snapshot.
+
+For longitudinal comparison, retain both snapshot identities and compare
+objects and relations before aggregate counts. The minimum diff classifies
+added, removed, and modified identities; changed fact owners; relation changes;
+decision changes; and publication effects. A textual changelog is useful
+context, but the governed member-level diff is the evidence for what changed.

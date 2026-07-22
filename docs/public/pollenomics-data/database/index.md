@@ -31,6 +31,27 @@ source artifacts, review ledgers, and manifests carry different parts of the
 model. Their authority comes from explicit contracts and relations, not from
 their file format.
 
+### Files Are Projections Of A Typed Graph
+
+Directory position is useful for discovery, but the database model is the
+network of typed identities and evidence-bearing relations:
+
+```mermaid
+flowchart LR
+    Artifact["captured artifact"] -->|contains row| SourceRow["source-native record"]
+    SourceRow -->|supports identity| Object["governed object"]
+    SourceRow -->|supports claim| Claim["typed evidence claim"]
+    Object -->|subject of| Claim
+    Claim -->|evaluated by| Decision["curation or admission decision"]
+    Decision -->|manifests as| Member["publication member"]
+```
+
+A JSON row can serialize several nodes for convenience, but it does not erase
+their types. The source row is not the governed sample, the sample is not its
+locality claim, and the locality claim is not the point feature. Readers
+should join on stable typed identities and declared relation keys, never on
+display labels, row positions, or coordinate equality.
+
 ## Database Boundaries
 
 The database has three deliberately different surfaces:
@@ -99,6 +120,23 @@ For a claim in a table, map, or narrative, inspect in this order:
 This order separates *what the product says* from *why the database permits it
 to say that*. It also exposes the exact boundary at which a result becomes
 qualified, conflicted, or non-reproducible.
+
+### Minimum Inspection Packet
+
+An independently reviewable answer retains more than the displayed value:
+
+| Packet member | Why it is required |
+| --- | --- |
+| repository revision | fixes the joined database snapshot |
+| product and member identity | fixes the projection and declared role |
+| governed object identity | names the sample, site, source record, or context object |
+| claim and relation identities | distinguishes identity, place, time, coordinate, and membership assertions |
+| source artifact and locator | permits recovery of the supporting material |
+| decision posture and rule | explains admission, qualification, exclusion, or refusal |
+| precision, conflict, and recovery state | preserves the ceiling on reuse |
+
+If an extract cannot supply this packet, it may still support display or
+orientation, but it cannot independently carry the database claim.
 
 ## Read The Database In Two Directions
 

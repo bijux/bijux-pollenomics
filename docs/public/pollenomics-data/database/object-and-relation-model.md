@@ -95,6 +95,33 @@ Proximity and containment are derived relations. They can be reproducible and
 useful without proving biological association, shared identity, or
 contemporaneity.
 
+### Worked Relation Graph
+
+The Direkli Cave goat record shows why typed relations matter. The public
+feature resolves through a product member to sample
+`capra_hircus:sample:prjeb90141:samea4453841`. That sample is namespaced by
+project `PRJEB90141` and supported by supplementary workbook Table S2, row 2.
+Separate relations connect it to the Direkli Cave locality, supplied
+coordinates, and sample-owned chronology.
+
+```mermaid
+flowchart TB
+    Workbook["Table S2, row 2"] -->|identifies| Sample["SAMEA4453841"]
+    Project["PRJEB90141"] -->|contains| Sample
+    Sample -->|reported at| Site["Direkli Cave"]
+    Site -->|has supplied pair| Coordinate["coordinate claim"]
+    Sample -->|has sample date| Time["chronology claim"]
+    Sample -->|evaluated for| Decision["animal point admission"]
+    Coordinate --> Decision
+    Time --> Decision
+    Decision --> Member["world product member"]
+```
+
+None of the arrows can be replaced by label similarity. The paper label
+`Direkli1-2`, archive identity `SAMEA4453841`, and product feature token are
+different identifiers connected by evidence. Keeping them distinct allows a
+coordinate or chronology correction without changing the specimen identity.
+
 ## Fact Ownership
 
 When a fact is repeated, the database does not resolve disagreement by taking
@@ -123,6 +150,24 @@ regenerated when the authority changes.
 
 The correct result of an unsafe join is an unresolved or refused relation,
 not a fabricated key.
+
+### Anti-Joins Are Accountability Queries
+
+The database must also support questions about missing relations. A sample
+without a site link, a site without defensible coordinates, or an admitted
+candidate absent from a product manifest is not discarded by an inner join.
+It belongs in an unresolved, excluded, or integrity population with a named
+reason.
+
+| Anti-join | Meaning to investigate |
+| --- | --- |
+| recovered sample without locality claim | locality evidence has not been recovered or related |
+| locality claim without mappable coordinate | the place may be broad, ambiguous, or intentionally withheld |
+| reviewed candidate without product membership | scope, qualification, exclusion, or manifest defect must explain the absence |
+| product member without governing evidence relation | database-integrity failure; publication must be blocked |
+
+This is how the file-backed database preserves denominators. A query that
+silently drops unmatched objects cannot support a completeness statement.
 
 ## Relation Evidence Must Survive Export
 
