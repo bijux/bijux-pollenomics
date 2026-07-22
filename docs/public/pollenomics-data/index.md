@@ -22,6 +22,7 @@ sample-owned evidence from papers, supplements, and project archives.
 
 <div class="bijux-quicklinks">
   <a class="md-button md-button--primary" href="overview/">Understand the data system</a>
+  <a class="md-button" href="domain-language/">Use the domain language</a>
   <a class="md-button" href="database/">Inspect the database model</a>
   <a class="md-button" href="sources/">Inspect source families</a>
   <a class="md-button" href="curation/">Understand evidence curation</a>
@@ -38,6 +39,7 @@ the family pages introduce source-specific details:
 
 | Reader question | Governing route | What the route establishes |
 | --- | --- | --- |
+| What do source, claim, decision, member, and projection mean? | [domain language](domain-language.md) | stable vocabulary, authority boundaries, and false equivalences |
 | How does a source claim become a product member? | [provenance and publication linkage](overview/provenance-and-publication-linkage.md) | source, claim, decision, membership, and correction lineage |
 | Why was a source selected, and what changes on refresh? | [source selection and refresh](overview/source-selection-and-refresh.md) | admission criteria, capture identity, replacement behavior, and impact review |
 | What do names and counts cover? | [coverage and naming](overview/coverage-and-naming.md) | observation unit, population, scope, revision, and stable naming rules |
@@ -375,6 +377,7 @@ stronger release claim.
 
 ## Core References
 
+- [Domain language](domain-language.md)
 - [Evidence database](database/index.md)
 - [Querying governed evidence](database/querying-evidence.md)
 - [Object and relation model](database/object-and-relation-model.md)

@@ -175,6 +175,7 @@ nav:
       - Overview: public/pollenomics-data/index.md
       - System:
           - Overview: public/pollenomics-data/overview/index.md
+          - Domain Language: public/pollenomics-data/domain-language.md
           - System Overview: public/pollenomics-data/overview/data-system-overview.md
           - Architecture: public/pollenomics-data/overview/data-architecture-handbook.md
           - Publication Model: public/pollenomics-data/overview/pollenomics-publication-model.md

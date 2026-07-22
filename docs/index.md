@@ -87,6 +87,7 @@ the runtime decision to its governing evidence and source.
 <div class="bijux-quicklinks">
   <a class="md-button md-button--primary" href="public/pollenomics/">Open the product guide</a>
   <a class="md-button" href="public/pollenomics-data/">Open the data guide</a>
+  <a class="md-button" href="public/pollenomics-data/domain-language/">Learn the domain language</a>
   <a class="md-button" href="public/pollenomics-data/database/">Inspect the evidence database</a>
   <a class="md-button" href="public/pollenomics-data/curation/">Inspect evidence curation</a>
   <a class="md-button" href="report/">Open the report portal</a>
@@ -100,6 +101,7 @@ the runtime decision to its governing evidence and source.
 | You want to… | Begin here | Identify first | Leave with… |
 | --- | --- | --- | --- |
 | understand what Bijux Pollenomics is | [product guide](public/pollenomics/index.md) | the claim and evidence family in question | product responsibilities, interfaces, and limits |
+| distinguish sources, claims, decisions, and products | [domain language](public/pollenomics-data/domain-language.md) | the term whose authority or scope is unclear | stable meanings and the false equivalences to refuse |
 | understand how the database earns trust | [evidence database](public/pollenomics-data/database/index.md) | typed object, relation, and repository revision | identity, fact ownership, state, and projection boundaries |
 | understand the complete data lifecycle | [data guide](public/pollenomics-data/index.md) | source-native unit and governed record identity | source, curation, evidence, and publication boundaries |
 | explain an admission, qualification, or refusal | [curation guide](public/pollenomics-data/curation/index.md) | object identity, claim dimension, and intended product | governing evidence, decision rule, outcome, and recovery condition |

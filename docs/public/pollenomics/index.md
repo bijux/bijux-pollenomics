@@ -22,6 +22,11 @@ ancient DNA, animal ancient DNA, and field observations may share a map, but
 they retain distinct provenance, temporal meaning, spatial precision, and
 publication rules.
 
+The [domain language](../pollenomics-data/domain-language.md) distinguishes a
+source object, governed object, claim, decision, publication member, and
+rendered projection. Those are connected stages of one lineage, not
+interchangeable names for a row.
+
 The current runtime is substantial, but its boundary is deliberate. It does
 not yet provide the broader multi-evidence harmonization and interpretation
 engine described by the project direction. In the product contract,
@@ -30,6 +35,7 @@ merely represented in a design or roadmap.
 
 <div class="bijux-quicklinks">
   <a class="md-button md-button--primary" href="../pollenomics-data/">Explore the evidence system</a>
+  <a class="md-button" href="../pollenomics-data/domain-language/">Use the domain language</a>
   <a class="md-button" href="architecture/">Follow the publication flow</a>
   <a class="md-button" href="interfaces/">Use commands and contracts</a>
   <a class="md-button" href="operations/">Install and rebuild</a>

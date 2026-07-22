@@ -149,6 +149,10 @@ These identifiers can share labels or coordinates without becoming the same
 object. A marker audit is complete only when the feature resolves through all
 applicable identities and retains role, place, time, and qualification.
 
+The [Pollenomics domain language](../pollenomics-data/domain-language.md)
+defines these identities and distinguishes a publication member from its
+governed object, evidence claims, and rendered projection.
+
 ## From Marker To Defensible Comparison
 
 The atlas supports comparison only after the features pass three independent
