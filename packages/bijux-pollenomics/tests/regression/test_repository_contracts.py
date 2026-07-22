@@ -1465,26 +1465,26 @@ class RepositoryContractRegressionTests(unittest.TestCase):
             for path in (REPO_ROOT / "docs" / "public" / "nordic-atlas").glob("*.md")
         )
 
-        self.assertIn("checked-in pollenomics and environmental", root_readme)
+        self.assertIn("curated evidence and publication system", root_readme)
         self.assertIn(
-            "animal aDNA sample extraction and atlas publication path is still under recovery",
+            "records without adequate sample, locality, chronology, or coordinate support stay qualified or excluded",
             root_readme,
         )
         self.assertIn(
-            "pollenomics, environmental, archaeology, boundary, fieldwork, and ancient-DNA",
+            "keeps pollen, environmental archaeology, boundaries, lake registries, human ancient DNA",
             runtime_readme,
         )
-        self.assertIn("same pollenomics-first runtime behavior", alias_readme)
+        self.assertIn("short-name distribution", alias_readme)
         self.assertIn(
-            "product guide for the repository's public evidence", runtime_index
+            "turns heterogeneous scientific and spatial sources", runtime_index
         )
-        self.assertIn("without needing to read the source code first", runtime_index)
-        self.assertIn("pollen context, environmental archaeology", data_index)
-        self.assertIn("downstream view of the repository evidence tree", atlas_index)
+        self.assertIn("The system keeps unlike evidence unlike", runtime_index)
+        self.assertIn("preserves the chain between an upstream source", data_index)
+        self.assertIn("comparison surface", atlas_index)
         self.assertEqual(atlas_files, ["index.md"])
-        self.assertIn("How animal points are built", atlas_index)
-        self.assertIn("How filters and popups work", atlas_index)
-        self.assertIn("Current limits and audits", atlas_index)
+        self.assertIn("Point publication rules", atlas_index)
+        self.assertIn("Filters and popups", atlas_index)
+        self.assertIn("Current limits", atlas_index)
 
     def test_top_level_landings_keep_pollenomics_scope_and_source_breadth(self) -> None:
         readme_text = (REPO_ROOT / "README.md").read_text(encoding="utf-8").lower()
@@ -1624,9 +1624,10 @@ class RepositoryContractRegressionTests(unittest.TestCase):
             REPO_ROOT / "packages" / "bijux-pollenomics-dev" / "README.md"
         ).read_text(encoding="utf-8")
 
-        self.assertIn("Use this package if you want the canonical CLI", runtime_readme)
-        self.assertIn("tracked source collection, animal aDNA intake", runtime_readme)
-        self.assertIn("Alias distribution", alias_readme)
+        self.assertIn("is the canonical runtime", runtime_readme)
+        self.assertIn("## Evidence guarantees", runtime_readme)
+        self.assertIn("is the short-name distribution", alias_readme)
+        self.assertIn("## Compatibility contract", alias_readme)
         self.assertIn("Maintainer-only package", maintainer_readme)
         self.assertIn("It is not the owner of runtime commands", maintainer_readme)
 
