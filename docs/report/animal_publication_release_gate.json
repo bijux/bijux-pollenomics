@@ -5,7 +5,7 @@
     {
       "check_id": "published_points_keep_required_traceability",
       "passed": true,
-      "description": "Every published animal point keeps sample, site, coordinate, and citation support.",
+      "description": "Every published animal point keeps declared identity, site, coordinate, and citation traceability; provisional project context remains explicitly non-final sample evidence.",
       "finding_count": 0,
       "findings": []
     },

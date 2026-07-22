@@ -1217,7 +1217,7 @@ def build_animal_publication_release_gate(
                 and bool(str(row.get("paper_url", "")).strip())
                 for row in point_payload["rows"]
             ),
-            "Every published animal point keeps sample, site, coordinate, and citation support.",
+            "Every published animal point keeps declared identity, site, coordinate, and citation traceability; provisional project context remains explicitly non-final sample evidence.",
             [
                 str(row.get("feature_id", ""))
                 for row in point_payload["rows"]
