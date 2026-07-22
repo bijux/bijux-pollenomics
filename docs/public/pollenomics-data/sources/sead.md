@@ -155,6 +155,37 @@ change must reevaluate those 23 identities; it must not silently append them
 or rewrite their coordinates. Report both captured and normalized totals
 whenever the distinction affects a coverage claim.
 
+### Read Absence At The Correct Boundary
+
+SEAD exposes several forms of “not present,” and they are not interchangeable.
+The boundary that produced the absence must travel with the interpretation.
+
+| Observation | What it establishes | What it does not establish |
+| --- | --- | --- |
+| no dating rows in the governed materialization | this snapshot cannot support a linked numeric chronology claim | the upstream SEAD database or the archaeological site has no dating evidence |
+| no bibliography rows in the governed materialization | this snapshot cannot provide record-level bibliography lineage | no publication discusses the site |
+| captured row absent from the normalized layer | the row did not meet the current four-country spatial membership rule | the source identity is invalid or was deduplicated |
+| normalized point absent from a selected map view | the current product or interaction did not display it | the point is absent from the normalized family population |
+| no nearby SEAD point under a declared radius | no admitted member met that spatial query | no archaeological evidence exists near the target place |
+
+```mermaid
+flowchart TD
+    Missing["apparently absent evidence"] --> Boundary{"where is it absent?"}
+    Boundary -->|capture| Materialization["not materialized in this snapshot"]
+    Boundary -->|normalization| Membership["outside current membership rule"]
+    Boundary -->|publication| Product["not admitted to this product"]
+    Boundary -->|interaction| View["not visible in current view"]
+    Materialization --> Claim["boundary-qualified absence claim"]
+    Membership --> Claim
+    Product --> Claim
+    View --> Claim
+```
+
+This distinction is central to database curation. A governed thin capture is
+useful because it makes its selection boundary inspectable; it must not be
+described as though it exhaustively represents every relation in the upstream
+system.
+
 ## Relationship To RAÄ
 
 SEAD provides wider environmental-archaeology context. RAÄ provides denser

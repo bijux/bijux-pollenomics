@@ -69,6 +69,25 @@ The country products are reproducible from the governed release and runtime,
 but a consumer must not cite the empty species-owned roots as proof that a
 separate normalized or reviewed population was checked in.
 
+### Publication Readiness Is Route-Specific
+
+The current AADR lifecycle supports a release-to-country-publication route. It
+does not support a claim that every intermediate evidence stage has been
+persisted. Those are separate statements:
+
+| Question | Current answer | Authority |
+| --- | --- | --- |
+| Can a source annotation row be inspected? | yes | named release member and checksum in `release_manifest.json` |
+| Can a country feature be traced to its source row? | yes | country bundle membership plus the release-aware projection route |
+| Is there a checked-in species-normalized human member database? | no | the species normalized root contains no governed members |
+| Is there a checked-in species review population? | no | the species review root contains no governed review artifacts |
+| Does a published feature prove genotype processing? | no | the runtime consumes annotation metadata only |
+
+The route can therefore reproduce a publication without pretending that a
+different, empty route has been completed. A future species-normalization
+workflow must create its own members, review decisions, and population receipt;
+it cannot retroactively treat country exports as those missing authorities.
+
 ## Read An AADR Member
 
 An annotation row can carry genetic, individual, skeletal, publication,
@@ -104,6 +123,23 @@ This route separates three identities that are easy to conflate: the public
 map feature, the release-versioned annotation row, and the represented person
 or genetic data instance. A match at one level does not prove a match at the
 others.
+
+### Keep The Three Populations Separate
+
+An AADR result may report three different populations. Each answers a
+different question and must retain its own denominator:
+
+| Population | Unit counted | Suitable claim |
+| --- | --- | --- |
+| annotation member | release-versioned table row | rows present in one named AADR member |
+| projected metadata row | runtime-admitted representation | records that passed the declared metadata and geography rules |
+| country bundle feature | member in a governed publication bundle | features published for one declared country scope |
+
+Adding `1240K` and `HO` row totals is not a person count. Likewise, counting
+country features is not a release total, because projection, geographic
+membership, and cross-member identity can change the population. Any aggregate
+must name the release, annotation member or members, admission rule, identity
+unit, and publication scope.
 
 ## Release Changes Affect More Than Counts
 
