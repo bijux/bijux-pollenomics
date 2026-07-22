@@ -4,66 +4,109 @@ audience: reader
 type: explanation
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-05-10
+last_reviewed: 2026-07-22
 ---
 
-# Localities
+# Locality evidence
 
-Locality evidence explains what place claim the repository is actually willing
-to make for a sample. That may sound obvious, but it is where many historical
-datasets become overstated if the documentation is sloppy.
+Locality is a claim about where a particular sample came from. A country, a
+project-wide region, a named archaeological site, and a coordinate pair carry
+different precision. Bijux Pollenomics records those distinctions before a
+sample can enter a spatial product.
 
-A place label can look precise long before it really is. A project name, a
-regional description, and a named site are not the same kind of locality
-claim.
+The decisive question is not whether a place name appears somewhere in a
+paper. It is whether captured evidence connects that place to the sample at the
+resolution being published.
 
-## What Locality Review Is Trying To Prevent
+## Resolution classes
 
-- treating a project-wide label as if it identified one precise site
-- treating a broad regional note as if it were enough for exact map publication
-- carrying forward place names that are still ambiguous across supplements,
-  archive metadata, and article text
+| Resolution | Meaning | Safe public use |
+| --- | --- | --- |
+| `direct_sample_site` | the recovered sample row names its site | site-level review; point mapping still requires coordinate provenance |
+| `sample_group_site` | a defined sample group is tied to one site | group-level site context with the grouping visible |
+| `project_level_site_only` | the project has a site, but the individual sample does not | project context, not a sample-owned point |
+| `named_place_inferred` | evidence supports a named place through an explicit inference | cautious locality context with inference disclosed |
+| `region_only` | only a broad area is supported | regional summary or non-point representation |
+| `unresolved` | no defensible locality assignment exists | curation record only |
 
-## What You Should Be Able To Learn
+These classes prevent a project title or abstract from assigning every sample
+to the same excavation site. They also keep a regional statement from becoming
+an exact-looking coordinate through geocoding alone.
 
-- whether a sample is tied to one named site
-- whether the place claim is broad, uncertain, or contested
-- whether the location is strong enough to support downstream coordinate work
+## Evidence precedence
 
-## Why Place Claims Need Their Own Layer
+```mermaid
+flowchart TD
+    A[Recovered sample row] --> B{Sample-owned locality present?}
+    B -->|yes| C[Preserve reported text and source locator]
+    B -->|no| D{Group or project locality supported?}
+    D -->|yes| E[Record broader resolution]
+    D -->|no| F[Mark unresolved]
+    C --> G[Resolve site hierarchy]
+    E --> G
+    G --> H{Conflicting source claim?}
+    H -->|yes| I[Conflict ledger and review]
+    H -->|no| J[Coordinate provenance review]
+    I --> J
+    J --> K{Resolution supports requested output?}
+    K -->|yes| L[Eligible locality representation]
+    K -->|no| M[Retain as non-point context]
+```
 
-A locality claim does more than name a place. It determines:
+Sample-owned evidence takes precedence over a broader project description for
+that sample. The broader statement is not discarded: it remains contextual
+evidence and, when it disagrees, appears in the locality conflict ledger. This
+preserves both source claims without allowing the less specific one to erase
+the more specific one.
 
-- whether a record can later be mapped precisely
-- whether a country bundle is speaking about one site or only about a broader
-  region
-- whether the repository is showing direct archaeological context or a more
-  cautious geographic approximation
+## What a locality record preserves
 
-## What To Watch For
+The sample-site record joins identity and place evidence without collapsing
+them. Its principal fields include:
 
-- a project or paper label being mistaken for one exact excavation site
-- a regional note being read as if it were enough for exact coordinates
-- a confident place name hiding unresolved disagreement between sources
+- stable sample identifier and preferred source label;
+- reported `locality_text` and `locality_resolution_status`;
+- source artifact path, artifact kind, locator, and supporting text;
+- site, municipality, region, country, and broader-geography components;
+- coordinate basis, mapping posture, and coordinate confidence;
+- chronology wording attached to the same recovered row;
+- a review note describing whether the locality is sample-owned or inherited
+  from broader context.
 
-## Direct Files Behind This Surface
+Standardized hierarchy fields support search, grouping, and country bundles.
+They do not replace the reported place text. A normalization dictionary can
+join spelling variants, while the original wording remains available for
+audit.
 
-- `data/adna/species/ovis_aries/normalized/site_evidence.json`
-- `data/adna/species/ovis_aries/review/sample_locality_evidence.json`
-- `data/adna/governance/source_library/project_sample_site_review.json`
-- `data/adna/governance/source_library/sample_locality_conflict_ledger.json`
+## Conflicts and substitutions
 
-## Why This Page Matters
+A locality conflict exists when two captured surfaces assign incompatible
+places or scopes to the same sample. For example, a supplementary sample table
+may name an excavation site while article-level prose describes the project's
+broader cultural or geographic context. The repository keeps the sample-owned
+site for the sample and records the broader claim, its locator, and the reason
+for the disagreement.
 
-If locality evidence is weak, every later step stays weaker too. Chronology and
-coordinates may still be useful, but they cannot rescue an unresolved place
-claim on their own.
+Project-level substitution is never silent. If sample-level locality is absent,
+the resulting row retains a broader resolution status and cannot pass as a
+direct sample site. Manual-curation queues identify the exact sample and
+missing source field needed to improve that posture.
 
-## Where To Go Next
+## Auditing locality lineage
 
-- move to [sample records](sample-records.md) if the identity itself is still
-  uncertain
-- move to [coordinates](coordinates.md) if the locality is good enough to ask
-  why a point did or did not publish
-- move to [chronology](chronology.md) if the place is clear but the time claim
-  is still the real source of doubt
+For one species, begin with
+`data/adna/species/<species-slug>/normalized/sample_sites.json`. The row's
+artifact path and locator lead to the supporting source. Its evidence record is
+available in `review/sample_locality_evidence.json`; cross-project coverage and
+conflicts are summarized in:
+
+- `data/adna/governance/source_library/project_sample_site_review.json`;
+- `data/adna/governance/source_library/sample_locality_conflict_ledger.json`;
+- `data/adna/governance/source_library/project_locality_substitution_ledger.json`;
+- `data/adna/governance/source_library/sample_site_manual_curation_queue.json`.
+
+A resolved locality is necessary but not sufficient for point publication.
+Continue to [coordinate provenance](coordinates.md) to see how a place claim
+becomes—or deliberately does not become—a coordinate. Return to
+[sample records](sample-records.md) when the identity linkage itself is
+uncertain.

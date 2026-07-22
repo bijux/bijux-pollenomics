@@ -4,65 +4,106 @@ audience: reader
 type: explanation
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-05-10
+last_reviewed: 2026-07-22
 ---
 
-# Chronology
+# Chronology evidence
 
-Chronology evidence explains what date claim the repository is prepared to
-carry forward for a sample or site.
+Chronology records what the source says about a sample's age, how that wording
+was interpreted, and how precisely it may be compared with other evidence. A
+numeric value is not automatically a precise sample date: it may describe a
+project context, a modeled estimate, or a broad interval.
 
-Time language is easy to over-read. A record can look cleanly dated in a public
-table even when the underlying support is a range, a textual period label, a
-derived estimate, or something still unresolved.
+Bijux Pollenomics therefore keeps three questions separate:
 
-## What Chronology Review Has To Decide
+1. **What was reported?** The original chronology text and its source locator.
+2. **What can be normalized?** A BP point or interval only when the wording and
+   dating basis support one.
+3. **What comparison is safe?** A precision posture derived from ownership,
+   evidence class, and normalization status.
 
-- whether the dating information is direct, derived, broad, or unresolved
-- whether the claim is strong enough for comparison across records
-- whether the public-facing label is more precise than the evidence actually
-  supports
+## Sample evidence outranks project context
 
-## What You Should Be Able To Learn
+```mermaid
+flowchart TD
+    A[Recovered sample] --> B{Sample-owned chronology text?}
+    B -->|yes| C[Normalize sample claim]
+    B -->|no| D{Project or site chronology?}
+    D -->|yes| E[Normalize as contextual claim]
+    D -->|no| F[Unresolved chronology]
+    C --> G{Disagrees with project context?}
+    G -->|yes| H[Keep sample claim and record conflict]
+    G -->|no| I[Classify evidence and precision]
+    H --> I
+    E --> I
+    I --> J{Numeric comparison justified?}
+    J -->|yes| K[Interval comparison at stated precision]
+    J -->|no| L[Textual context or exclusion]
+```
 
-- whether the date claim is direct or reconstructed
-- whether the public label preserves or hides uncertainty
-- whether two records are actually comparable in time
-- whether a visible chronology is strong enough for reuse or only for cautious
-  orientation
+When a sample-owned date conflicts with a project-level range, the sample claim
+remains attached to that sample and the disagreement is explicit. Falling back
+to project context is allowed only when the sample row lacks its own
+chronology, and the result stays classified as contextual rather than
+sample-precise.
 
-## Why Chronology Needs Its Own Page
+## Evidence class and precision
 
-Historical datasets often mix exact dates, ranges, textual eras, and inferred
-period language. If those are flattened into one display field, it becomes
-hard to tell strong dating support from weak approximation.
+| Precision posture | Typical support | Comparison rule |
+| --- | --- | --- |
+| `sample_precise_point` | sample-owned numeric point | compare numerically without implying narrower source precision |
+| `sample_precise_interval` | sample-owned numeric interval | compare by interval overlap or distance |
+| `sample_approximate_or_modeled` | circa wording, model output, or parsed approximate date | numeric comparison requires a visible caveat |
+| `contextual_interval` | site- or project-level numeric context | context only; not a sample-owned date |
+| `broad_period_only` | textual archaeological or historical period | label-based orientation, not numeric interval comparison |
+| `unresolved` | no recovered or trustworthy date claim | no temporal comparison |
 
-This page keeps that distinction visible.
+The corresponding evidence classes distinguish direct radiocarbon dates,
+modeled sample dates, archaeological context dates, broad period labels, and
+historical or recent dates. Evidence class describes *what kind of support
+exists*; precision posture describes *how that support may be used*.
 
-## Why Public Date Language Needs Restraint
+## The normalized chronology contract
 
-A narrow chronology claim can make a record sound much stronger than it really
-is. This repository therefore treats date posture as part of the evidence
-chain, not as display decoration.
+A chronology row preserves:
 
-That means:
+- stable sample identity and preferred source label;
+- original chronology text;
+- chronology strength and evidence class;
+- precision posture and normalization status;
+- provenance artifact, artifact kind, locator, and supporting excerpt;
+- `time_start_bp`, `time_end_bp`, and `time_mean_bp` when defensible;
+- dating basis, conflict note, and review note.
 
-- exact-looking dates should only appear when the support is exact enough
-- broad or textual eras should remain visibly broad
-- unresolved chronology should remain unresolved in public language
+Normalization status remains `text_only_unparsed` when useful wording cannot
+be converted safely, and `unresolved` when no chronology has been recovered.
+For numeric values, equal BP bounds represent a point; unequal bounds represent
+an interval. Original text remains the authoritative source expression.
 
-## Direct Files Behind This Surface
+## What is never inferred
 
-- `data/adna/governance/source_library/project_sample_chronology_review.json`
-- `data/adna/species/ovis_aries/normalized/sample_chronology.json`
-- `data/adna/species/ovis_aries/review/sample_chronology_provenance_review.json`
-- `data/adna/governance/source_library/sample_chronology_ambiguity_ledger.json`
+The chronology pipeline does not assign conventional numeric bounds to a named
+period merely to make it sortable. It does not treat a project's overall age
+range as the precise age of every sample. It does not erase qualifiers such as
+*circa*, modeled, calibrated, historical, or recent.
 
-## Where To Go Next
+Those restraints matter in a cross-domain atlas. Two layers can overlap in
+space while lacking comparable time support. A pollen sequence with a numeric
+BP interval, a SEAD site-inventory point, and an animal sample with a modeled
+date must retain their different temporal semantics.
 
-- move to [sample records](sample-records.md) if the identity lineage is still
-  the main uncertainty
-- move to [localities](localities.md) if the chronology looks strong but the
-  place claim does not
-- move to [coordinates](coordinates.md) if the date is acceptable and the real
-  question is why the sample did or did not become a point
+## Auditing chronology lineage
+
+Species-owned chronology is published under
+`data/adna/species/<species-slug>/normalized/sample_chronology.json`, with the
+supporting provenance review under the species `review/` directory. Collection
+audits expose coverage, precision, conflicts, and unrecovered dates:
+
+- `data/adna/governance/source_library/project_sample_chronology_review.json`;
+- `data/adna/governance/source_library/sample_chronology_precision_audit.json`;
+- `data/adna/governance/source_library/sample_chronology_conflict_ledger.json`;
+- `data/adna/governance/source_library/date_evidence_gap_queue.json`.
+
+Continue to [temporal semantics](temporal-semantics.md) for cross-source
+comparability and to [point publication rules](../publications/point-rules.md)
+for the effect of chronology on map admission.
