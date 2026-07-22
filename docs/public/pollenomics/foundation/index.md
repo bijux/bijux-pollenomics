@@ -16,6 +16,12 @@ from the admitted subset.
 
 The product is the accountable chain, not only the final visualization.
 
+The checked-in evidence state and publication state are deliberately
+different sizes. Collection preserves records that may be contextual,
+unresolved, excluded, or awaiting stronger source recovery. Publication exposes
+only the members admitted for a declared geography and use. That difference is
+an observable product decision, not undocumented filtering.
+
 ```mermaid
 flowchart LR
     Upstream["datasets, APIs, papers, supplements"] --> Capture["versioned capture"]
@@ -73,6 +79,19 @@ flowchart TD
 | recovery and refusal outputs | accountable incompleteness | not evidence of biological absence |
 | local build artifacts | diagnostics and previews | not governed repository state |
 
+## Current Product Surfaces
+
+| Surface family | What readers receive | Accountability companion |
+| --- | --- | --- |
+| world, Europe-plus, and Nordic | maps, evidence rows, rankings, and regional reviews | manifests, traceability, subset validation, and scientific review |
+| Sweden, Norway, Finland, and Denmark | national samples, citations, warnings, and context | country bundle membership and parent-scope lineage |
+| Sweden lake priorities | ranked candidates and sensitivity evidence | ranking manifest, input roles, caveats, and fieldwork preparation |
+| Lyngsjön fieldwork | one dated visit with situated observations | explicit boundary against generalized suitability claims |
+| recovery and release reviews | measurable gaps, conflicts, and blocked language | governing evidence paths and conditions for reconsideration |
+
+These surfaces are different views over one governed system. Their proximity
+in navigation or on a map does not make their evidence units interchangeable.
+
 ## Scientific Scope
 
 Pollen and environmental archaeology provide palaeoenvironmental context.
@@ -100,7 +119,7 @@ genotypes, infer missing sample coordinates, or replace field verification.
 | Question | Governing explanation |
 | --- | --- |
 | What is included and where does the claim boundary stop? | [Repository scope and limits](repository-scope-and-limits.md) |
-| How do world, regional, country, and specialized outputs relate? | [Publication scope model](end-state-product-model.md) |
+| How do world, regional, country, and specialized outputs relate? | [Publication scope model](publication-scope-model.md) |
 | Which layer owns each operation and artifact? | [Runtime scope and ownership](runtime-scope-and-ownership.md) |
 | Which source or evidence record supports a visible claim? | [Data system](../../pollenomics-data/index.md) |
 | How should atlas layers and points be interpreted? | [Nordic Evidence Atlas](../../nordic-atlas/index.md) |

@@ -56,6 +56,38 @@ It does not claim that every domain is equally complete, that proximity proves
 temporal overlap, that every country has equivalent source coverage, or that a
 ranked lake is ready for sampling.
 
+## Match The Claim To The Surface
+
+| Intended claim | Sufficient starting surface | Required follow-up |
+| --- | --- | --- |
+| a record appears in a geographic product | product manifest and evidence row | governing evidence identity and scope reason |
+| a point has defensible coordinates | point traceability and coordinate posture | locality evidence and coordinate provenance |
+| two records are temporally comparable | temporal-semantics payloads | original chronology, bounds, evidence class, and caveats |
+| a lake ranked under one scenario | ranking table and manifest | feature inputs, weights, sensitivity, and missing evidence |
+| a source family was captured reproducibly | collection summary and family contract | retrieval metadata, hashes, replacement behavior, and review state |
+| evidence is absent from a publication | exclusion, warning, or recovery surface | distinguish scope, refusal, unresolved evidence, and non-capture |
+
+A screenshot, popup, or summary count can orient a reader but is insufficient
+for a sample-level, temporal, or decision-support claim without its governing
+follow-up.
+
+## Limits Are Typed Outcomes
+
+```mermaid
+flowchart TD
+    Missing["claim not supported as requested"] --> Cause{"material reason"}
+    Cause --> Scope["outside product scope"]
+    Cause --> Capture["source not captured or recovered"]
+    Cause --> Evidence["identity, place, time, or coordinate unresolved"]
+    Cause --> Contract["known evidence fails product rule"]
+    Cause --> Capability["analysis is outside implemented runtime"]
+```
+
+These outcomes are not interchangeable. A scope exclusion can be answered by
+a different product; a recovery gap requires source work; an evidence gap
+requires stronger support; a contract refusal protects against overclaim; and
+an unimplemented analysis requires a new governed capability.
+
 ## Accountability Test
 
 A capability belongs in this repository when its inputs, transformations,

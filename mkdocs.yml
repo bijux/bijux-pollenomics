@@ -140,7 +140,7 @@ nav:
       - Foundation:
           - Overview: public/pollenomics/foundation/index.md
           - Repository Scope and Limits: public/pollenomics/foundation/repository-scope-and-limits.md
-          - End-State Product Model: public/pollenomics/foundation/end-state-product-model.md
+          - Publication Scope Model: public/pollenomics/foundation/publication-scope-model.md
           - Pollenomics Engine Roadmap: public/pollenomics/foundation/pollenomics-engine-roadmap.md
           - Runtime Scope and Ownership: public/pollenomics/foundation/runtime-scope-and-ownership.md
       - Architecture:

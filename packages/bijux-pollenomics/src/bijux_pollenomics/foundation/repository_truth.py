@@ -1786,7 +1786,7 @@ def build_repository_product_model(
             "docs/report/publication_geography_registry.json",
             "docs/report/publication_geography_subset_validation.json",
             "docs/report/publication_country_onboarding_contract.json",
-            "docs/public/pollenomics/foundation/end-state-product-model.md",
+            "docs/public/pollenomics/foundation/publication-scope-model.md",
         ],
     }
 
@@ -1876,7 +1876,7 @@ def build_repository_credibility_dashboard(
             "repository architecture and product-model surfaces now name the world-to-country publication model directly",
             [
                 "docs/report/repository_product_model.json",
-                "docs/public/pollenomics/foundation/end-state-product-model.md",
+                "docs/public/pollenomics/foundation/publication-scope-model.md",
             ],
         ),
         _credibility_row(
@@ -2122,7 +2122,7 @@ def build_repository_extension_review(
             "finding": "the runtime, data, and maintainer handbooks still explain ownership without collapsing the repo into one vague top layer",
             "evidence_anchors": [
                 "docs/report/repository_docs_scope_validation.json",
-                "docs/public/pollenomics/foundation/end-state-product-model.md",
+                "docs/public/pollenomics/foundation/publication-scope-model.md",
             ],
         },
         {
@@ -2305,7 +2305,7 @@ def build_repository_final_release_refusal(
             "the repository now has explicit architecture and product-model surfaces",
             [
                 "docs/report/repository_product_model.json",
-                "docs/public/pollenomics/foundation/end-state-product-model.md",
+                "docs/public/pollenomics/foundation/publication-scope-model.md",
             ],
         ),
         _release_refusal_row(
