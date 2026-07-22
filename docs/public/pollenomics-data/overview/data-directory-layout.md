@@ -131,6 +131,24 @@ When repeated values disagree, resolve them at the governing evidence path and
 regenerate downstream views. Hand-editing a report or final input would create
 a competing authority.
 
+### Directory Names Do Not Certify A Stage
+
+`raw/`, `normalized/`, `review/`, and `final/` communicate responsibility, but
+the directory name alone is not stage evidence. A stage is materialized only
+when its contracted artifacts contain governed members and satisfy their
+identity and companion-file rules.
+
+| Misleading observation | Required inspection |
+| --- | --- |
+| an empty `review/` directory exists | stage matrix, review contract, governed findings, and reviewed denominator |
+| a GeoJSON file exists under `normalized/` | source linkage, stable IDs, field semantics, geometry basis, and rejected-row accounting |
+| a record appears under `final/` | admission decision, product contract, eligible population, and non-member accounting |
+| the same value appears in several roots | fact-ownership registry and lineage from owner to descendants |
+| a report survives after an upstream stage disappears | retained product identity plus an explicit rebuildability limitation |
+
+This rule prevents scaffolding, cached descendants, and convenient copies from
+being mistaken for completed preparation.
+
 ## Move Evidence Without Losing Meaning
 
 A portable evidence slice contains more than the selected rows. It travels

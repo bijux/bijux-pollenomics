@@ -120,6 +120,24 @@ Animal aDNA also demonstrates why metrics are typed. Its lifecycle row counts
 rows. These are foundation, recovery, and product populations—not three
 estimates of one interchangeable total.
 
+### Readiness Has Independent Dimensions
+
+A family can be strong on one axis and blocked on another. Treating readiness
+as a single percentage hides the claim that remains unsupported.
+
+| Dimension | Governing question | Example of an honest mixed state |
+| --- | --- | --- |
+| source recovery | Can the necessary upstream object be retrieved and identified? | paper known, supplement still missing |
+| object identity | Can records be distinguished and related without label guessing? | project resolved, some samples provisional |
+| spatial support | What location and precision does the evidence own? | site known, sample coordinate approximate |
+| temporal support | What time claim and evidence class are defensible? | context period present, sample date absent |
+| comparability | May this object be compared numerically with another family? | display allowed, interval overlap refused |
+| publication fitness | Does one named product admit the object? | retained in evidence, excluded from a country bundle |
+
+Report the relevant dimensions and denominators together. An increase in
+mapped members does not prove better chronology; additional source recovery
+can expose conflicts and legitimately reduce the admitted population.
+
 ## Source Identity And Refresh
 
 `data/collection_summary.json` records the selected source version, retrieval

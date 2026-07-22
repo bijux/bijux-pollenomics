@@ -85,6 +85,23 @@ may feed a fact backward into its evidence owner.
 These roots are not interchangeable. Their temporal resolution, spatial
 precision, licensing, coverage, and scientific role remain source-specific.
 
+### Read Partial Lifecycle State
+
+The tree is not expected to present one uniform four-directory pattern for
+every family. Read the materialized artifacts before describing readiness:
+
+| Observable state | Defensible conclusion | Unsupported conclusion |
+| --- | --- | --- |
+| capture only | named upstream material is retained | normalized meaning or publication fitness exists |
+| capture and normalization | repository objects can be traced to source material | conflicts and precision were reviewed |
+| normalization and publication, no review | a product was derived from normalized state under a declared topology | an absent review was performed implicitly |
+| review and no publication | fitness was evaluated for the named use | the reviewed population was published |
+| publication only among declared stage artifacts | a retained product exists | the current tree can reconstruct every upstream preparation stage |
+
+Stage absence is a database fact. Preserve it in lifecycle audits and release
+language rather than creating an empty artifact or inferring the stage from a
+downstream schema.
+
 ## Evidence Graph And Cardinality
 
 The data model is relational even when an artifact is serialized as a flat

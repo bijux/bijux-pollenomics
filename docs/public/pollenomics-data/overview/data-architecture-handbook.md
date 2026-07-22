@@ -64,6 +64,26 @@ remain unnormalized; normalized objects can remain unreviewed; reviewed
 objects can remain outside a product. A later state cannot be used as evidence
 that an earlier missing authority exists.
 
+### Close A Preparation Transaction
+
+A preparation run is accepted as evidence state only when its receipt accounts
+for both changed and unchanged meaning:
+
+| Receipt field | Required evidence |
+| --- | --- |
+| input identity | source release, retrieval or archive identity, configuration, and prior data revision |
+| output identity | governed roots, schema versions, manifests, and content digests |
+| object diff | added, removed, retained, merged, split, and superseded identifiers |
+| semantic diff | field meaning, units, null semantics, precision, taxonomy, and relation changes |
+| decision diff | new, changed, or invalidated conflicts, qualifications, admissions, and exclusions |
+| population diff | eligible, reviewed, admitted, non-member, and published counts by observation unit |
+| dependent diff | downstream products changed or shown unaffected through stable identities |
+| verification | focused validators, warnings, failures, and intentionally unexecuted broader lanes |
+
+Parser success and row totals cannot replace this receipt. A refresh with the
+same row count can still replace identities or semantics; a refresh with fewer
+published members can be more correct when new evidence exposes a conflict.
+
 ## Three Contract Registries
 
 The database is made legible by three cross-cutting registries:
