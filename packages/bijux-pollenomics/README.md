@@ -40,6 +40,22 @@ Python 3.11 or newer is required. The core dependency set includes coordinate
 transformation and safe XML handling; documentation and quality tooling live in
 the `dev` extra.
 
+## Choose The Right Surface
+
+| Need | Start with | Why |
+| --- | --- | --- |
+| inspect product scope or ownership | `product-scope`, `surface-map`, or `ownership-map` | read-only orientation before touching governed state |
+| inspect supported source families | `source-support` | shows collection and evidence responsibilities without collecting data |
+| collect or refresh source data | `collect-data` | owns source-family retrieval and normalization contracts |
+| inspect animal evidence readiness | `adna-species` and `adna-species-review` | separates inventory from review posture |
+| rebuild animal evidence | `refresh-animal-adna-foundation` | refreshes project, sample, locality, chronology, coordinate, and review surfaces together |
+| publish geographic products | `publish-reports` | assembles manifest-governed world, regional, and country bundles |
+| embed behavior in Python | top-level `bijux_pollenomics` API | keeps integrations on the canonical runtime namespace |
+
+Begin with the read-only surface when discovering an unfamiliar checkout.
+Collection, foundation refresh, and report publication intentionally write
+governed artifacts and should receive explicit paths and review attention.
+
 ## Runtime architecture
 
 ```mermaid
@@ -80,6 +96,22 @@ The runtime may complete an operation while producing a scientific refusal or
 an empty qualified subset. That is not necessarily an execution failure. Exit
 status describes software completion; the review surfaces describe evidential
 fitness.
+
+```mermaid
+flowchart TD
+    Request["runtime request"] --> Validate["validate arguments and owned inputs"]
+    Validate --> Execute["execute collection, review, or publication"]
+    Execute --> Software{"operation completed?"}
+    Software -->|no| Failure["execution failure and diagnostics"]
+    Software -->|yes| Artifacts["write governed result surfaces"]
+    Artifacts --> Fitness{"evidence fit for requested claim?"}
+    Fitness -->|yes| Accepted["admitted output and traceability"]
+    Fitness -->|qualified| Caveat["qualified output and visible warning"]
+    Fitness -->|no| Refused["refusal, exclusion, or recovery surface"]
+```
+
+This split is part of the API contract. Callers must not interpret a successful
+process exit as proof that the requested scientific claim was admitted.
 
 ## Command-line surface
 
@@ -171,6 +203,11 @@ flowchart LR
 An integration that exports a record should retain both branches: source and
 evidence lineage explain the scientific claim, while product metadata explains
 why that record appeared in a particular publication.
+
+At minimum, retain the stable evidence identifier, source family, governing
+record identity, coordinate and temporal posture, publication geography,
+bundle version, and material caveats. Exporting geometry and a display label
+alone discards the information that makes the result reviewable.
 
 ## Canonical and short names
 

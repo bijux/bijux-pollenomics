@@ -34,6 +34,18 @@ pollenomics --help
 The installed dependency is `bijux-pollenomics>=0.1.5,<1.0`. Scientific logic,
 data contracts, and report behavior remain owned by that dependency.
 
+## When The Short Name Helps
+
+Use `pollenomics` for concise interactive commands, notebooks, and applications
+that prefer the shorter import prefix. Use `bijux-pollenomics` and
+`bijux_pollenomics` in architecture records, dependency ownership, operational
+runbooks, and bug reports where the canonical implementation must be
+unambiguous.
+
+Choosing the short name does not create a lighter runtime. Installation still
+resolves the canonical distribution, and collection or publication commands
+retain the same write behavior, evidence rules, output contracts, and caveats.
+
 ## Compatibility contract
 
 If this works:
@@ -70,6 +82,11 @@ from pollenomics.reporting import generate_published_reports
 ```
 
 and get the same runtime behavior.
+
+Module identity follows the canonical implementation. Code should not load the
+same runtime submodule through both prefixes and then rely on distinct class or
+module identities. Pick one import style within an integration, while treating
+serialized artifact schemas and command results as canonical runtime outputs.
 
 Top-level public names are re-exported from the canonical package:
 
@@ -116,6 +133,20 @@ is preferable.
 Pinning only `pollenomics` still resolves a constrained canonical runtime
 dependency. Compatibility therefore includes both alias behavior and the
 declared canonical version range; it is not a copy of runtime source.
+
+```mermaid
+flowchart TD
+    Consumer["application or operator"] --> Choice{"requested name"}
+    Choice -->|bijux-pollenomics| Canonical["canonical distribution and namespace"]
+    Choice -->|pollenomics| Alias["short distribution and import resolver"]
+    Alias --> Canonical
+    Canonical --> Behavior["one collection, evidence, and publication runtime"]
+    Behavior --> Artifact["canonical schemas, manifests, and reports"]
+```
+
+Bug reports should include both the installed `pollenomics` version and the
+resolved `bijux-pollenomics` version. The pair identifies the forwarding
+contract and the implementation that actually produced the behavior.
 
 ## Boundaries
 

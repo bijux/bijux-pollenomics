@@ -45,6 +45,11 @@ package.
 - badge, handbook, and report-surface verification that should not live in the
   runtime package
 
+Its outputs are repository findings, not scientific observations. A passing
+check proves that the inspected contract is internally consistent at that
+revision; it does not prove that a source is complete, a chronology is precise,
+or a published interpretation is scientifically sufficient.
+
 ## Check Contract
 
 ```mermaid
@@ -68,6 +73,37 @@ flowchart LR
 A check failure must be corrected at the boundary that owns the disputed fact
 or behavior. The maintainer package reports and enforces the mismatch; it does
 not create a parallel scientific contract.
+
+## Route Findings To The Owner
+
+| Finding | Correct owner | Typical durable correction |
+| --- | --- | --- |
+| public API digest drift | canonical runtime API | reconcile the declared API surface and its frozen representation |
+| badge or package count mismatch | package and release metadata | correct the governing metadata, then regenerate presentation |
+| broken public route or navigation entry | documentation structure | repair the canonical page or navigation contract |
+| stale generated report claim | runtime publication or review generator | correct the producer and regenerate the governed report |
+| unsupported release language | evidence or release posture | strengthen the underlying evidence or retain the refusal |
+| package ownership leakage | owning runtime or maintainer boundary | move behavior to the package that makes the authoritative decision |
+
+Do not satisfy a repository check by weakening the assertion when the
+underlying product contract is wrong. The finding is valuable precisely because
+it identifies a disagreement between declared and observed state.
+
+## Maintainer Evidence Flow
+
+```mermaid
+flowchart LR
+    Input["governed repository state"] --> Inspect["focused integrity check"]
+    Inspect --> Finding{"contract satisfied?"}
+    Finding -->|yes| Evidence["retained verification result"]
+    Finding -->|no| Owner["authoritative owning boundary"]
+    Owner --> Correction["source, runtime, docs, or release correction"]
+    Correction --> Inspect
+```
+
+Run the narrowest check that proves the changed contract. Escalate to broader
+repository lanes when the change crosses ownership boundaries or when release
+evidence requires them.
 
 ## What It Does Not Own
 
