@@ -62,6 +62,38 @@ For a public claim, retain the AADR release and annotation member as well as the
 row identity. A sample label without release context cannot explain later
 coverage or metadata changes.
 
+## Audit A Human aDNA Feature
+
+1. Record the publication scope, product version, layer, and feature identifier.
+2. Resolve the feature to its AADR annotation member and source row.
+3. Confirm the release identity in `release_manifest.json`; do not infer it
+   from the map filename or sample label.
+4. Read locality and chronology from the annotation fields at their reported
+   precision, including method and source wording where present.
+5. Distinguish the genetic-data instance from a unique person before counting
+   or joining `1240K` and `HO` rows.
+6. Retain the product admission and geographic-scope decision separately from
+   the source metadata.
+
+This route separates three identities that are easy to conflate: the public
+map feature, the release-versioned annotation row, and the represented person
+or genetic data instance. A match at one level does not prove a match at the
+others.
+
+## Release Changes Affect More Than Counts
+
+| Release difference | Re-evaluate |
+| --- | --- |
+| member file added, removed, or renamed | dataset membership and publication input identity |
+| row identity or aliases changed | cross-member deduplication and stable feature lineage |
+| locality or coordinate changed | geographic scope, point geometry, and distance relations |
+| chronology fields changed | temporal posture and cross-family comparisons |
+| publication or repository locator changed | citation lineage and recoverability |
+| assessment or data-type field changed | metadata interpretation without implying genotype analysis |
+
+A release refresh is complete only when these semantic differences are
+reviewed. Equal row counts do not establish equal evidence.
+
 ## Relationship To Animal aDNA
 
 AADR is a release-oriented human metadata family. Animal aDNA is a

@@ -54,6 +54,33 @@ Cell size is part of the result. A one-degree aggregation supports broad
 national or regional context, not precise local-distance reasoning. Rendering
 the cell with a smooth color ramp does not increase spatial resolution.
 
+## Aggregation Contract
+
+| Layer | Observation unit | Defensible denominator | Spatial meaning |
+| --- | --- | --- | --- |
+| source summary | published RAÄ registry record | 761,917 records in the governed capture summary | national registry population represented by the capture |
+| classified summary | record in a declared RAÄ class | the selected classification population | classification count, not event count |
+| density layer | one-degree cell | 106 emitted cells | aggregate registry density within the cell |
+| map rendering | colored cell polygon | cells admitted to the Sweden product | visual comparison at cell resolution |
+
+The transformation changes the observation unit. A statement about a density
+cell must cite the cell and classification contract; a statement about an
+individual RAÄ record requires the source record, which the public density
+surface does not expose.
+
+## Audit An Archaeology-Density Claim
+
+1. Identify the Sweden product, RAÄ layer, cell, and classification being read.
+2. Confirm the normalized national counts and the density layer use the same
+   governed capture.
+3. Treat the cell value as an aggregate count, not a site-level distance or a
+   chronology statement.
+4. State the one-degree spatial support and Sweden-only reach.
+5. When comparing with SEAD, retain both observation units and do not add their
+   counts into one archaeology population.
+6. For a stronger local or temporal claim, return to the appropriate source
+   records rather than interpolating detail from the color scale.
+
 ## Relationship To SEAD
 
 | Dimension | RAÄ | SEAD |

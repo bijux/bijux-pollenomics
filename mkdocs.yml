@@ -196,6 +196,7 @@ nav:
           - Neotoma: public/pollenomics-data/sources/neotoma.md
           - RAÄ: public/pollenomics-data/sources/raa.md
           - SEAD: public/pollenomics-data/sources/sead.md
+          - SMHI SVAR: public/pollenomics-data/sources/svar.md
       - Evidence:
           - Overview: public/pollenomics-data/evidence/index.md
           - Sample Records: public/pollenomics-data/evidence/sample-records.md
