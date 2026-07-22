@@ -67,6 +67,25 @@ Applications should not depend on the development distribution to reach
 runtime behavior. Integrations that use the alias should remain portable to
 the canonical package without a scientific or artifact change.
 
+## Record Runtime Identity
+
+Compatibility is directional: `pollenomics` delegates to
+`bijux-pollenomics`; the canonical runtime never delegates back. For a
+reproducible operation, record both the invoked distribution and the resolved
+canonical runtime version.
+
+| Observation | Interpretation |
+| --- | --- |
+| canonical command and alias return equivalent contracts for the same installed runtime | expected compatibility behavior |
+| alias package version differs from the resolved canonical version | packaging state to record, not evidence of a second scientific runtime |
+| alias produces different members, warnings, schemas, or writes | compatibility defect; neither result should be explained as an intentional product fork |
+| development checks report a discrepancy | verification finding against the owning runtime or repository contract |
+
+The producer identity in an evidence packet is the canonical runtime that
+performed the work. The spelling used to reach it remains useful invocation
+metadata, but it does not establish a separate evidence revision or product
+lineage.
+
 ## Installation And Dependency Direction
 
 ```mermaid

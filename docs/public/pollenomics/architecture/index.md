@@ -89,6 +89,24 @@ understand authority. A reader can identify the governing contract from the
 artifact tree, and an operator can trace the module responsible for producing
 it.
 
+### Consistency Lives On The Edges
+
+Repository consistency is not established by matching timestamps or file
+counts. It is established by validating the relationships between authority
+surfaces:
+
+| Edge | Required agreement |
+| --- | --- |
+| capture → governed record | source member, version, content identity, and extraction lineage resolve |
+| governed record → decision | the reviewed identity and claim dimension match the evidence owner |
+| decision → product member | admission posture, evidence role, scope reason, and stable member identity agree |
+| manifest → structured descendants | declared members, counts, warnings, exclusions, and traceability reconcile |
+| structured descendant → rendering | labels and visual encodings preserve the structured value and qualification |
+
+A fresh file can be inconsistent and an older capture can remain authoritative.
+The graph determines coherence: if one edge fails, the downstream artifact is
+not repaired by regenerating only its presentation.
+
 ### Producer Ownership And Fact Ownership Are Different
 
 The module that writes a file is not necessarily the owner of every fact it

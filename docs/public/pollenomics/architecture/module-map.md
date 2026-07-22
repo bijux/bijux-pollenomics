@@ -89,6 +89,26 @@ When a change appears to require the reverse direction, the missing concept
 usually belongs in the upstream owner or in an explicit contract shared at
 the boundary.
 
+### Choose The Owner By Invariant
+
+Place behavior with the invariant it must preserve, not with the file format
+it happens to read or write:
+
+| Invariant | Owning boundary |
+| --- | --- |
+| an upstream member is acquired with recoverable identity and bytes | `data_downloader/` or `adna/sources/` |
+| a sample, place, chronology, coordinate, or relation retains scientific meaning | `adna/` and its evidence contracts |
+| a record supports a declared use or remains qualified | `evidence/` |
+| a declared population is ranked under explicit features and scenarios | `analysis/` |
+| admitted members form a coherent geographic or purpose-specific product | `reporting/` |
+| a product claim remains inside the implemented and releasable boundary | `foundation/` |
+
+For example, GeoJSON serialization is a mechanical concern, coordinate
+precision is an evidence concern, geographic admission is a product concern,
+and marker styling is a presentation concern. Keeping those decisions apart
+allows one correction to propagate without turning a shared format helper
+into a scientific owner.
+
 ## Animal Evidence Path
 
 ```mermaid

@@ -133,6 +133,17 @@ report publication are separate state transitions. If an operator chains them,
 the operation ledger must record which transitions completed and which prior
 tree remains authoritative after a later refusal.
 
+| Transition | Candidate boundary | Commit point | Failure boundary |
+| --- | --- | --- | --- |
+| source-family collection | one family-specific staging tree | validated tree replaces that family's governed root | failed staging is discarded; prior family tree remains |
+| publication build | one complete report staging tree | validated tree replaces the declared publication root | failed staging is discarded; prior report tree remains |
+| chained data and publication refresh | several independent owned transitions | each owner commits separately | a later failure does not roll back an earlier committed owner |
+
+This model prevents a partial tree from becoming current within one owned
+replacement. It does not promise atomic agreement across `data/` and
+`docs/report/`. Cross-root agreement is established after the transitions by
+comparing input identities, manifests, traceability, and review gates.
+
 State does not move between these roots merely because two files have the
 same format. A JSON file under `artifacts/` is diagnostic output; a JSON file
 under a governed family tree becomes evidence only through its owning
