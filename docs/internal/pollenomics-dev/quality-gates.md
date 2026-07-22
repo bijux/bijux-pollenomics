@@ -110,6 +110,22 @@ internal paragraph, the semantic diff and focused documentation contracts may
 be sufficient until final strict rendering. Record the exact selection instead
 of reporting the generic phrase “documentation checks passed.”
 
+### Classify Documentation Risk Before Selecting Proof
+
+| Documentation change | Primary risk | Required focused evidence |
+| --- | --- | --- |
+| explanatory prose with no governed values | meaning, audience, and unsupported language | semantic diff plus public-language contract when public |
+| count, status, or capability statement | divergence from governed data or runtime contract | owning artifact or command, focused data contract, and semantic diff |
+| command example | wrong interface, unsafe write root, or misleading completion claim | parser or help contract plus explicit read/write review |
+| Mermaid model | parser failure or incorrect authority direction | Mermaid contract plus semantic diagram review |
+| navigation, redirect, or link | unreachable reader journey | focused repository contract and strict site build |
+| generated report wording | disagreement with producer inputs or claim posture | correct owner, regenerate, inspect structured and narrative diff |
+
+A Markdown-only diff can therefore require runtime or data verification. File
+type does not determine risk; the claim and authority boundary do. Conversely,
+a prose correction that removes maintainer narration from a public page does
+not justify regenerating unrelated data or reports.
+
 ## Classify A Failure Before Expanding
 
 | Failure signal | First owner to inspect | Do not infer |

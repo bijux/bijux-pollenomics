@@ -71,6 +71,25 @@ than hand-editing generated shared content.
 6. Run the narrowest relevant documentation contracts, then build MkDocs in
    strict mode.
 
+### Audit Numbers As Database Claims
+
+Counts and percentages require the same ownership review as code-generated
+artifacts. Before accepting a number in public prose, record:
+
+| Property | Review question |
+| --- | --- |
+| observation unit | is the count of source rows, samples, sites, projects, claims, or product members? |
+| population | captured, foundation, recovered, reviewed, eligible, admitted, excluded, or unresolved? |
+| scope and revision | which source release, species, geography, product, and repository state does it describe? |
+| authority | which manifest, review, registry, or evidence artifact owns the value? |
+| reconciliation | are non-members and differences from adjacent counts explained by identity? |
+| claim ceiling | what completeness, coverage, or scientific interpretation remains unsupported? |
+
+For example, the 894 animal foundation rows, 868 recovered sample-master
+identities, and 234 published point members are three governed populations.
+Documentation integrity requires naming their units and contracts; making the
+numbers visually consistent would be a scientific error.
+
 ### Test The Reader Journey
 
 For an entrypoint or major section, verify that a reader can move through a
@@ -111,6 +130,12 @@ page ought to be written. Internal pages may describe those procedures, but
 must link scientific claims back to the public or governed evidence owner
 rather than becoming a competing authority.
 
+Public command examples also need a safe write boundary. Inspection examples
+may read governed state, but learning or evaluation examples for state-changing
+commands should use explicit isolated roots under `artifacts/`. Procedures that
+intentionally replace checked-in `data/` or `docs/report/` state belong in the
+maintainer workflow that owns the complete regeneration and review transaction.
+
 ## Trace A Claim Across Documentation
 
 For each material claim, verify a complete route:
@@ -128,7 +153,7 @@ Counts must resolve to their population and observation unit; maps must resolve
 to membership and provenance; absence statements must resolve to scope,
 recovery, evidence, or admission state.
 
-The new public curation route begins at
+The public curation route begins at
 `docs/public/pollenomics-data/curation/`. It owns explanations of admission,
 conflict, and recovery meaning. Internal pages may explain how to change or
 verify those contracts, but should link back rather than copy the scientific
