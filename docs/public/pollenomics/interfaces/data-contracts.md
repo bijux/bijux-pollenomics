@@ -31,6 +31,21 @@ a file from one root to another changes neither its evidence role nor its
 fitness automatically. The receiving owner must admit it through the relevant
 schema, identity, lineage, and product rules.
 
+## Contract, State, And Presentation
+
+Three file roles recur across formats and must not be collapsed:
+
+| Role | Purpose | Authority test |
+| --- | --- | --- |
+| contract | declares shape, ownership, roles, or admissible relationships | a producer and consumer can validate the same meaning before reading values |
+| state | records captured facts, normalized evidence, review decisions, or product membership | stable identity and lineage resolve to the owner that produced the record |
+| presentation | selects or renders governed state for a reader | every consequential value can be traced to state and its contract |
+
+A JSON document can occupy any of these roles. Format therefore cannot answer
+whether a file is authoritative. For example, an evidence contract, a sample
+record, and a publication summary may all be JSON while owning different
+decisions and replacement lifecycles.
+
 ## Evidence Flow
 
 ```mermaid
@@ -92,6 +107,13 @@ When a derived table denormalizes a fact, retain both the governing record
 identifier and the source-family identity. If either is lost, the copied value
 must be treated as presentation data rather than authoritative evidence.
 
+Before joining across families, record the observation unit on both sides. A
+project, paper, sample, site, lake, grid cell, heritage record, and country
+bundle are not interchangeable merely because each has a name or coordinate.
+Declare one-to-one, one-to-many, or many-to-many cardinality and retain the
+unmatched population; otherwise a technically valid join can silently erase
+ambiguity or inflate the denominator.
+
 ## Structured Formats
 
 | Format | Typical responsibility |
@@ -132,3 +154,9 @@ Schema validation is necessary but not sufficient for safe reuse. It proves
 shape and declared relationships; it does not prove source completeness,
 representative sampling, historical correctness, or fitness for a question
 outside the named contract.
+
+For a reusable extract, retain the contract version, source-family identity,
+record identifiers, governing manifest, selected member population, excluded
+or unresolved population, spatial and temporal posture, and content hashes.
+That packet makes a downstream subset reviewable even after its rows leave the
+repository layout.

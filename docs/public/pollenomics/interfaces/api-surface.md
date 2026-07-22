@@ -59,6 +59,19 @@ unless their owning API explicitly exports a name.
 The `pollenomics` package re-exports the canonical runtime facade. It is an
 identity-compatible entrypoint, not an independent scientific API.
 
+### Root Export Families
+
+| Family | Root exports | Contract |
+| --- | --- | --- |
+| collection | `collect_data`, `collect_context_data` | write collector-owned source state and return `DataCollectionReport` or `ContextDataReport` |
+| publication | `generate_country_report`, `generate_multi_country_map`, `generate_published_reports` | write one owned publication boundary and return its report type |
+| product inspection | `build_product_scope`, `build_surface_map`, `build_ownership_map` | return immutable descriptions without changing governed state |
+| distribution contracts | `runtime_surface_contract`, `compatibility_alias_contract` | identify the canonical runtime and the short-name delegation boundary |
+
+The facade deliberately does not export a general harmonization, inference, or
+HTTP-service object. Absence from this table is therefore material when
+evaluating the current product boundary.
+
 ### Call And Result Contract
 
 Public workflow functions take explicit filesystem roots and scientific scope
@@ -118,6 +131,12 @@ must preserve.
 The schema is reviewable today, but the repository does not promise that its
 server URL is currently deployed. Until an HTTP service is separately
 published and operated, use the CLI, Python facade, or checked-in artifacts.
+
+The frozen document currently defines four read shapes: health, published
+report discovery, atlas summary, and one Nordic AADR country summary. It is not
+a serialization contract for every database record or runtime command. A
+future adapter must map those read shapes to governed publication state rather
+than treating the schema as an alternate evidence database.
 
 ## Compatibility Rules
 

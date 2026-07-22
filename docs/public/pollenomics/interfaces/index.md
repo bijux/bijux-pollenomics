@@ -14,6 +14,11 @@ The runtime exposes operations through two supported interfaces: the
 Both lead to the same evidence and publication owners. Interface convenience
 does not create a second scientific implementation.
 
+Persisted files are supported consumption contracts, not a third execution
+engine. The frozen OpenAPI description is narrower still: it specifies shapes
+that a future HTTP adapter must preserve, but there is no server process or
+deployed endpoint in the current package.
+
 ## Contract Layers
 
 ```mermaid
@@ -50,6 +55,23 @@ commands print current governed state. Validation commands accept or reject an
 existing contract. Collection and publication commands write files. A
 successful process status means the requested operation completed; it does not
 turn missing evidence into a positive scientific claim.
+
+## Public Surface Versus Internal Reachability
+
+Python makes many modules importable, and a repository checkout makes every
+file readable. Neither fact alone creates a supported interface.
+
+| Reachable surface | Support posture | Consumer obligation |
+| --- | --- | --- |
+| package-root exports | supported Python facade | pin the distribution version and honor typed results and failures |
+| documented public subpackages | specialized supported composition | retain the same governed roots, evidence roles, and result contracts |
+| deeper implementation modules | internal | expect layout changes and do not make them an external compatibility promise |
+| governed structured files | persisted contract | consume with the owning manifest, schema, identity, and qualification |
+| rendered HTML or Markdown | reader presentation | trace consequential facts to structured evidence |
+| pinned OpenAPI description | frozen compatibility specification | do not assume transport availability |
+
+This distinction lets integrators choose a durable seam without confusing
+source-code visibility with a stability guarantee.
 
 ## Read A Result At Four Levels
 

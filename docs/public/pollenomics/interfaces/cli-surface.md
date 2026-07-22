@@ -111,7 +111,7 @@ products. It does not collect missing source data.
 | `collect-data` | one or more source names, or `all` | family captures, normalized data, and collection summary | publication admission |
 | `refresh-data-contract-surfaces` | data root and AADR version | collection summary and checked-in contract surfaces | new upstream acquisition |
 | `report-country` | one political-entity value | one AADR country report bundle | multi-source regional synthesis |
-| `report-multi-country-map` | two or more political-entity values | one shared evidence surface with country toggles | a global or default publication |
+| `report-multi-country-map` | one or more political-entity values | one named shared evidence surface with country toggles | a global or default publication |
 | `publish-reports` | country list, data roots, version, and output root | current world, regional, and country publication tree | stronger precision than the inputs provide |
 | `refresh-animal-adna-foundation` | species, countries, and governed roots | animal capture, normalized evidence, and dependent animal publications | refresh of collector-managed environmental families |
 
@@ -141,6 +141,17 @@ errors fail during the owned operation. Successful validation prints the
 validated summary path; successful writers print a concise materialization
 summary. Callers should rely on the process status and governed artifacts, not
 on the presence of an output directory left by an earlier run.
+
+Shell success is intentionally narrower than scientific success. Exit status
+zero means the handler completed its contract. An inspector may report a
+blocked release in valid JSON and still exit successfully because the refusal
+is the requested result. Automation must read the status fields inside review
+payloads rather than converting every successful process into admission.
+
+Conversely, a non-zero exit means the requested contract did not complete; a
+directory from a previous run is not evidence of partial success. Compare the
+governing manifest or summary identity before and after the invocation to
+determine which state remains authoritative.
 
 ## Alias Command
 
