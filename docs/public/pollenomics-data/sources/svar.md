@@ -82,6 +82,28 @@ Duplicate lake names are expected and must remain visible. A clean name match
 cannot replace the registry identifier, UUID, geometry, and coordinate when a
 candidate is cited or reviewed.
 
+### Lake, Candidate, And Sampling Location Are Different Objects
+
+| Object | Governing identity | Supported claim |
+| --- | --- | --- |
+| registered lake | SVAR registry ID, UUID, water identity, and source geometry | which official water body the record represents |
+| ranking candidate | product version, lake identity, representative point, mapped area, scenario, and evidence packet | how the lake compares under one declared decision-support model |
+| fieldwork target | reviewed access, basin, bathymetry, sediment, permit, safety, and sampling rationale | where a field team may investigate |
+| sampling station | field-owned coordinate, method, date, and observation record | where a specific visit or sample was actually made |
+
+```mermaid
+flowchart LR
+    Lake["registered lake identity"] --> Candidate["ranked candidate"]
+    Candidate --> Review["field feasibility review"]
+    Review --> Target["fieldwork target"]
+    Target --> Visit["sampling station or visit"]
+```
+
+The transitions are decisions, not aliases. The representative point used for
+distance calculations must not be copied forward as a coring coordinate, and
+a high-ranked lake does not become an approved field target without the
+missing field-owned evidence.
+
 ## From Registry To Decision Support
 
 ```mermaid

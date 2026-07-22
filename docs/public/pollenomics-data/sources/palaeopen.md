@@ -77,6 +77,24 @@ Network relevance alone cannot satisfy those requirements. Until a concrete
 dataset passes them, PalaeOpen remains an interoperability relationship rather
 than an evidence source.
 
+### Interoperability Is Not Evidence Admission
+
+Several useful forms of alignment can exist before any new evidence family is
+created. They carry different authority:
+
+| Alignment | What can be reused | What remains unproven |
+| --- | --- | --- |
+| vocabulary alignment | comparable names for proxy, taxonomy, place, time, and repository roles | equivalent observations or accepted value mappings |
+| metadata crosswalk | explicit translation between two declared field contracts | scientific comparability of the underlying measurements |
+| identity linkage | recoverable relation between stable dataset or site identifiers | independence, shared chronology, or shared observation lineage |
+| workflow example | a governed multi-family packet that demonstrates a concrete interoperability problem | network endorsement or fitness as network evidence |
+| evidence-family integration | captured, normalized, reviewed, and admitted members under a source contract | completeness beyond the integrated release and scope |
+
+The current repository relationship reaches the workflow-example boundary.
+Moving further requires a named upstream dataset and a governed crosswalk whose
+information loss, identity behavior, and scientific claim ceiling can be
+reviewed member by member.
+
 ## Official Sources
 
 - [PalaeOpen](https://palaeopen.github.io/)

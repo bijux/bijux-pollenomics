@@ -120,6 +120,33 @@ the underlying record. A point may be inside the current Sweden polygon while
 remaining historically ambiguous, coarsely located, or temporally unrelated
 to every other point in that product.
 
+### Membership Decision Receipt
+
+Every reusable geography decision retains both sides of the predicate:
+
+| Receipt field | Why it is required |
+| --- | --- |
+| evidence member | stable object identity and the coordinate or geometry claim evaluated |
+| spatial basis | reported, resolved, representative, centroid, or other governed geometry method |
+| boundary identity | collection version, normalized digest, country feature, and coordinate reference system |
+| predicate | containment or intersection method, including edge handling |
+| decision scope | country, Nordic composition, or another named product geography |
+| outcome | included, outside scope, spatially unresolved, or refused |
+| product effect | affected manifest member, exclusion, count, and parent–child relation |
+
+```mermaid
+flowchart LR
+    Member["evidence geometry and basis"] --> Predicate["versioned spatial predicate"]
+    Boundary["boundary geometry and digest"] --> Predicate
+    Predicate --> Outcome["membership outcome"]
+    Scope["declared product geography"] --> Outcome
+    Outcome --> Receipt["scope decision receipt"]
+```
+
+This receipt prevents a country label copied into a downstream table from
+becoming the authority for membership. It also makes edge cases reviewable
+without silently moving a source coordinate to force a desired country result.
+
 Continue to [boundary exports](../publications/boundary-exports.md) for reuse,
 [maps](../publications/maps.md) for rendering, and
 [publication reports](../publications/reports.md) for scope lineage.

@@ -68,6 +68,34 @@ cell must cite the cell and classification contract; a statement about an
 individual RAÄ record requires the source record, which the public density
 surface does not expose.
 
+### Retain The Aggregation Receipt
+
+A density comparison is reusable only when the aggregation choices travel with
+the cell value:
+
+| Receipt field | Required meaning |
+| --- | --- |
+| source population | governed RAÄ capture and source classification included |
+| membership predicate | rule assigning source records to cells |
+| grid definition | cell geometry, resolution, coordinate reference system, and boundary convention |
+| numerator | count of admitted registry records in the named cell |
+| denominator | selected source population or comparison-cell population used by the claim |
+| missing and duplicate posture | treatment of unusable geometry, repeated identities, and multi-part records |
+| product identity | publication version and stable cell identifier |
+
+```mermaid
+flowchart LR
+    Records["selected RAÄ records"] --> Predicate["declared cell-membership rule"]
+    Grid["versioned one-degree grid"] --> Predicate
+    Predicate --> Cell["stable density-cell member"]
+    Cell --> Receipt["count, denominator, and aggregation receipt"]
+    Receipt --> Context["qualified archaeology-density context"]
+```
+
+Two cells are comparable only under the same source population,
+classification, grid, and membership rule. Equal color classes from different
+contracts are visually similar, not necessarily quantitatively comparable.
+
 ## Audit An Archaeology-Density Claim
 
 1. Identify the Sweden product, RAÄ layer, cell, and classification being read.
