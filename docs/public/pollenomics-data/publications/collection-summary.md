@@ -4,76 +4,52 @@ audience: reader
 type: explanation
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-05-10
+last_reviewed: 2026-07-22
 ---
 
 # Collection Summary
 
-The collection summary is the compact ledger that shows what the repository
-currently holds after data preparation and refresh.
+`data/collection_summary.json` identifies the collected state from which
+publication begins. It records the collection version, generation date,
+source roots, acquisition metadata, and hashes for captured and normalized
+material.
 
-People often meet the public product after a map, report, or country bundle
-has already been generated. At that stage it is easy to miss that the visible
-site sits on top of a collection pipeline that changes over time. This page
-keeps that movement visible instead of letting polished pages hide it.
+## Recorded Contract
 
-## What Questions It Answers
+| Field | Meaning | Reader use |
+| --- | --- | --- |
+| `generated_on` | date the summary was assembled | distinguish collection time from publication time |
+| `version` | shared collection label | join source and publication surfaces from the same state |
+| `collected_sources` | source families included by the collector | establish collection breadth, not evidence completeness |
+| `source_output_roots` | governed location of each family | locate the family tree without guessing |
+| `source_metadata` | version, licence posture, retrieval date, method | interpret origin and reuse constraints |
+| `source_hashes` | captured and normalized content digests | detect changed collection content |
+| `source_provenance` | family name, role, roots, and digests | connect family identity to stored state |
 
-- which source families were refreshed recently
-- how much material is currently staged by family
-- whether a visible change probably came from source collection rather than
-  only from docs or presentation work
-- whether one family is much stronger or broader than another
-- whether a newly published geography reflects major new intake or only a new
-  public route through older material
+```mermaid
+flowchart LR
+    Capture["captured source state"] --> Hash["snapshot digest"]
+    Capture --> Normalize["normalized family state"]
+    Normalize --> NormalizedHash["normalized digest"]
+    Hash --> Summary["collection_summary.json"]
+    NormalizedHash --> Summary
+    Summary --> Publication["versioned publication inputs"]
+```
 
-## Where To Inspect It
+## Interpreting Change
 
-- `data/collection_summary.json` is the governing checked-in summary for this
-  surface
-- this page explains how that summary should be read as a refresh and breadth
-  ledger rather than as a proof ledger
+A changed snapshot digest means captured source content changed. A changed
+normalized digest means the normalized family state changed. A new report with
+unchanged collection hashes may reflect a new scope, contract, or presentation
+over the same collected state. These are different kinds of change and should
+not be described as equivalent data growth.
 
-## Why This Matters
+The summary does not measure sample admissibility, coordinate quality,
+chronology precision, or geographic completeness. An empty or small normalized
+digest can coexist with a tracked source family, and a collected family can be
+absent from a particular product because its publication rules do not pass.
 
-This is not only a maintainer ledger. It helps answer public questions that
-naturally arise when using the repository:
-
-- is this project growing, or only being repackaged?
-- does the public product rest on broad evidence or on one especially strong
-  family?
-- when a new map or report appears, did the underlying collection actually
-  change?
-- which families still look thin enough that they should be interpreted with
-  extra caution?
-
-## How To Use It Well
-
-Read the collection summary together with:
-
-- [sources](../sources/index.md) if you want to understand where the material
-  came from
-- [evidence](../evidence/index.md) if you need to know how a claim becomes
-  reviewable
-- [reports](reports.md) and [maps](maps.md) if you want to compare visible
-  publication breadth with actual collected breadth
-- [limits](limits.md) if a family appears present in the repository but still
-  does not publish strongly
-
-## What It Cannot Tell You By Itself
-
-The collection summary is a breadth ledger, not a proof ledger. It can show
-that material exists, but it cannot by itself prove that:
-
-- all rows are equally strong
-- a sample has coordinate-grade locality evidence
-- a geography is ready for stronger public language
-- contextual families and sample-backed families should be read as equivalent
-
-That is why the summary belongs in the handbook, but not at the top of the
-interpretive chain.
-
-## Why It Belongs In The Handbook
-
-This summary helps explain that the public product sits on top of a tracked
-data collection pipeline. It is not only a docs site or a map bundle.
+Use the [source family matrix](../sources/source-family-matrix.md) for evidence
+roles, the [cross-domain matrix](../overview/cross-domain-evidence-matrix.md)
+for comparability, and [publication limits](limits.md) for what remains outside
+the visible products.

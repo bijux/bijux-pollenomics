@@ -4,88 +4,69 @@ audience: reader
 type: explanation
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-05-10
+last_reviewed: 2026-07-22
 ---
 
 # Maps
 
-Maps are the fastest way to understand what the repository currently shows
-across world, regional, and country geography. They place several evidence
-families into one visible space so you can orient before moving into a
-narrower check.
+Maps are scoped views over admitted evidence, contextual layers, and geographic
+framing. They reveal spatial relationships quickly, while their contracts and
+traceability surfaces preserve the slower answer to why each feature appears.
 
-That speed is useful, but it creates risk. A map can look more settled than the
-evidence behind it really is. This page explains how to use the map without
-mistaking visibility for proof.
+## Map Assembly
 
-## What Maps Are For
+```mermaid
+flowchart LR
+    Families["governed source families"] --> Eligibility{"scope and product eligibility"}
+    Eligibility -->|admit| Layers["versioned GeoJSON layers"]
+    Eligibility -->|refuse| Exclusions["exclusion and gap outputs"]
+    Boundaries["geographic framing"] --> Layers
+    Layers --> Bundle["manifested map bundle"]
+    Bundle --> Browser["interactive map"]
+    Bundle --> Trace["point traceability and contract"]
+```
 
-- show broad geographic pattern before one point or one country becomes the
-  whole story
-- keep scope changes explicit across world, Europe-plus, Nordic, and country
-  views
-- let you compare evidence, context, and framing layers without pretending
-  they all mean the same thing
-- show which visible answers are mainly for orientation and which need a
-  narrower follow-up before reuse
+The browser is a consumer. Its filters can hide admitted features but cannot
+admit new ones. Popup text can summarize a record but cannot replace its
+evidence row.
 
-## What Maps Can Answer Well
+## Reading Layers
 
-- where the repository currently publishes broad contextual coverage
-- how one geography differs from another by scope
-- whether a visible layer is acting as evidence, context, or framing
-- where the next narrower public explanation lives when one point or layer
-  needs an audit
+| Layer role | Safe interpretation | Required follow-up for a stronger claim |
+| --- | --- | --- |
+| direct evidence | admitted sample or observation at declared precision | sample, locality, chronology, coordinate, and citation lineage |
+| environmental context | surrounding palaeoenvironmental signal | source-specific temporal and observation-unit semantics |
+| archaeological context | nearby or scoped archaeology records | dating and registry limits; proximity is not ownership |
+| decision support | ranked or scored candidate geometry | ranking model, inputs, and sensitivity output |
+| framing | boundary or viewport | none as scientific evidence; framing carries no evidence weight |
 
-## What Maps Cannot Settle By Themselves
+## Geographic Subsets
 
-These surfaces do not replace the narrower governing evidence files behind
-their visible points. They are presentation surfaces with explicit contracts,
-not a license to outrank sample, locality, chronology, or coordinate review.
+World, Europe-plus, Nordic, and country maps form a subset lineage. Narrowing
+scope must preserve feature identity and meaning. It may apply a stricter
+product rule, but it must not invent a child feature, strengthen coordinate
+precision, or reclassify context as direct evidence.
 
-## How To Start Well
+## Auditing A Feature
 
-- use the map first when the question is spatial:
-  where are the visible clusters, gaps, and scope changes?
-- leave the map quickly when the question becomes evidential:
-  why is this point here, why is that point missing, or how strong is this
-  chronology or locality claim?
-- treat scope labels as part of the meaning:
-  world, Europe-plus, Nordic, and country pages are not interchangeable views
-  of the same claim
+1. record the map scope, version, layer, and stable feature identifier;
+2. locate the feature in the corresponding layer or evidence-row export;
+3. inspect the geography's publication contract and point-traceability table;
+4. follow source, sample, site, chronology, and coordinate identifiers to the
+   governed data surface;
+5. check the exclusion output when an expected feature is absent.
 
-## How To Read A Map Responsibly
+A cluster supports a statement about the visible product, not necessarily
+sampling intensity or historical abundance. An empty area may mean no admitted
+record, incomplete source recovery, incompatible temporal support, or true
+source absence; the map alone cannot choose among those explanations.
 
-1. read the visible geography first: which scope, which layers, which caveats
-2. decide whether the question is about pattern, inclusion, or confidence
-3. move to traceability or review pages before making a stronger claim about
-   any individual point
-4. trust the narrower evidence chain if the map looks cleaner than the record
-   behind it
-
-## Common Questions
-
-- why is this layer visible at world scope but not at country scope
-- is this point direct evidence, contextual support, or framing only
-- why does one regional view look denser than another
-- which visible surfaces are good for orientation but too weak for a final claim
-- where should I check the caveats before I reuse this map publicly
-
-## Follow-Up Routes
-
-- use [point rules](point-rules.md) when the question is why a point is allowed
-  to appear at all
-- use [filters and popups](filters-and-popups.md) when the question is about
-  scope behavior or visible labels
-- use [map inputs](map-inputs.md) when the question is which tracked files fed
-  the published map
-- use [limits](limits.md) when the question is about weakness, blockage, or
-  refusal
-
-## Audit Anchors
-
-- [world map publication contract](../../../report/world/world_map_publication_contract.md)
-- [Nordic point traceability](../../../report/regions/nordic/nordic_point_traceability.md)
-- [repository truth posture](../../../report/repository_truth_posture.md)
-- [repository claim audit](../../../report/repository_claim_audit.md)
-- `data/adna/final/atlas/animal_atlas_candidate_accountability.md`
+Audit anchors include the
+[world map publication contract](../../../report/world/world_map_publication_contract.md),
+[Nordic point traceability](../../../report/regions/nordic/nordic_point_traceability.md),
+[atlas input audit](../../../report/repository_atlas_input_audit.md), and
+[animal atlas exclusion report](../../../report/animal_atlas_exclusion_report.md).
+Candidate admission and refusal are also recorded in
+`data/adna/final/atlas/animal_atlas_candidate_accountability.md`.
+Continue with [map inputs](map-inputs.md), [point rules](point-rules.md), and
+[filters and popups](filters-and-popups.md).

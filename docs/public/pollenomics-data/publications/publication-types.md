@@ -4,111 +4,68 @@ audience: reader
 type: explanation
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-05-10
+last_reviewed: 2026-07-22
 ---
 
 # Publication Types
 
-Not every page in this repository is trying to do the same job. Some pages are
-meant to answer a public question directly. Others explain limits, surface
-review pressure, or keep a polished output from being mistaken for the whole
-truth.
+Publication type states what a surface can support. It prevents a map, review,
+or source inventory from acquiring authority merely because it is polished or
+easy to cite.
 
-This page helps classify a surface before trusting it. The key question
-is not "does this look finished?" The key question is "what job does this page
-actually own?"
+## Surface Roles
 
-That distinction matters because a polished page can still serve a narrow role.
-You should not have to guess whether a surface is:
+| Role | Answers | Typical surfaces | Cannot establish alone |
+| --- | --- | --- | --- |
+| evidence | what admitted records show within a declared scope | evidence tables, country samples, traceability rows | completeness beyond the published scope |
+| context | what surrounds or helps interpret direct evidence | pollen, archaeology, lake, human-aDNA, and boundary layers | a sample-owned locality, chronology, or biological observation |
+| framing | which geography and visual extent define a product | boundaries, scope registries, map viewport | scientific support |
+| decision support | which candidates rank under an explicit model | candidate-site rankings and sensitivity outputs | a fieldwork conclusion or historical fact |
+| review | where evidence is incomplete, conflicting, or refused | caveat ledgers, exclusion reports, maturity reviews | a stronger claim than the reviewed evidence |
+| contract | what must hold before a surface may publish | manifests, publication contracts, subset validation | the scientific observation itself |
+| narrative | how the scoped evidence and limits fit together | world, regional, and country reports | authority beyond its linked bundle |
 
-- meant to answer a real historical or geographic question
-- meant to explain context around that question
-- meant to expose caveats, blockers, or incomplete recovery work
-- meant to document rules that keep the public-facing output from overstating
-  what the repository actually knows
+One artifact can participate in more than one product, but its role must not
+change silently. A boundary polygon remains framing when displayed beside an
+animal sample. A pollen site remains environmental context unless the product
+explicitly asks a pollen question.
 
-## Why Classification Matters
+## Authority Flow
 
-Without that distinction, a site can look more complete and more uniform than
-it really is. This page aims to prevent that confusion before it starts.
+```mermaid
+flowchart LR
+    Source["captured source"] --> Evidence["normalized and reviewed evidence"]
+    Evidence --> Contract{"publication contract"}
+    Contract -->|admitted| Product["scoped product"]
+    Contract -->|not admitted| Review["gap, exclusion, or refusal"]
+    Context["context and framing"] --> Product
+    Product --> Narrative["report or map"]
+```
 
-## The Four Main Roles
+The arrow direction matters. A narrative can lead a reader back to evidence;
+it cannot make the evidence stronger. A review can explain an exclusion; it
+cannot convert that exclusion into a negative scientific finding.
 
-### Evidence Surfaces
+## Choosing A Surface
 
-Evidence surfaces are the public-facing products that summarize what the
-repository is currently prepared to show. Examples include [reports](reports.md),
-[maps](maps.md), and the generated bundles they describe.
+- For a sample-level assertion, retain the evidence or traceability row and
+  its locality, chronology, coordinate, and citation lineage.
+- For a geographic pattern, use the scoped map together with its manifest and
+  publication contract.
+- For a ranked recommendation, retain the ranking inputs, model identity, and
+  sensitivity output.
+- For a missing record, consult the applicable exclusion or recovery review;
+  absence from a product is not evidence of biological absence.
+- For a narrative summary, cite the report and the narrower evidence surface
+  that supports the sentence being reused.
 
-Use them when the question is:
+## Scope And Version Are Part Of Meaning
 
-- what does the repository currently show for one geography or scope
-- which signals are already mature enough to be visible publicly
-- how one public view relates to another, such as world, Nordic, or country
+World, Europe-plus, Nordic, and country products are related subsets, not
+interchangeable editions. A version identifies a collected and published state;
+it does not imply that every source family has equal maturity. Reuse therefore
+retains product scope, version, role, evidence identifier, and visible caveat.
 
-They are the best place to start when you want the visible answer, but they are
-not stronger than the evidence chain behind them.
-
-### Context Surfaces
-
-Context surfaces strengthen interpretation without pretending to be direct
-sample-backed proof. The exported pollen, archaeology, boundary, and human
-context explainers belong here.
-
-Use them when the question is:
-
-- what background material helps interpret the visible public product
-- which source family contributes environmental or archaeological context
-- why a region can be framed confidently even when sample density is uneven
-
-### Review Surfaces
-
-Review surfaces exist so the repository can show where the product is thin,
-blocked, caveated, or still under recovery pressure.
-
-Use them when the question is:
-
-- why something is missing
-- why a visible surface uses cautious language
-- what the repository itself says is not ready for a stronger claim
-
-### Contract Surfaces
-
-Contract surfaces explain the rules that decide whether a row, point, report,
-or map view is allowed to publish at all. They are less about historical
-content and more about publication discipline.
-
-Use them when the question is:
-
-- what had to be true before this visible surface was allowed to exist
-- what rules stop the product from quietly promoting weaker evidence
-- how a maintainer or auditor can trace one public surface back to its
-  governing evidence
-
-## A Fast Rule Of Thumb
-
-- if you want the visible answer, start with an evidence surface
-- if you want background that helps interpret that answer, use a context surface
-- if you want to understand why language is cautious or why something is
-  missing, use a review surface
-- if you want to know what had to be true before publication was allowed, use a
-  contract surface
-
-## A Practical Reading Order
-
-A good reading order is:
-
-1. start with [reports](reports.md) or [maps](maps.md) if you want the visible
-   public answer
-2. move to [point rules](point-rules.md) or [map inputs](map-inputs.md) if you
-   need to understand how that answer was built
-3. move to [limits](limits.md) if the visible answer feels thinner or more
-   cautious than expected
-4. move to the source-family export pages if you need to understand which kind
-   of evidence contributed context rather than direct sample-backed claims
-
-## The Main Rule
-
-When a page looks polished, ask what job it actually owns. In this repository,
-clarity depends on keeping evidence surfaces, context surfaces, review
-surfaces, and contract surfaces visibly separate.
+Continue with [reports](reports.md), [maps](maps.md),
+[map inputs](map-inputs.md), [point rules](point-rules.md), and
+[publication limits](limits.md).
