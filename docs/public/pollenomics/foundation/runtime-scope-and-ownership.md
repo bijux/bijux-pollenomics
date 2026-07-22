@@ -76,6 +76,23 @@ calling a collector from the CLI does not transfer source-family semantics to
 the command parser. Corrections begin at the earliest authority and flow
 forward through typed descendants.
 
+### Effect Authority And Fact Authority
+
+The component allowed to write a file is not necessarily the component that
+owns the scientific meaning inside it:
+
+| Authority | Governs | Example |
+| --- | --- | --- |
+| effect authority | whether an operation may create, replace, or publish a bounded tree | the publication assembly owns replacement of its staging and output roots |
+| fact authority | identity, place, time, taxonomy, precision, and source role | the evidence record and its source-family contract own claims repeated in a bundle |
+| decision authority | fitness, admission, ranking, qualification, or refusal for one declared use | a review or product contract owns why a record appears or remains absent |
+| presentation authority | faithful labels, grouping, links, and visual encoding | a renderer owns display shape but cannot strengthen the underlying claim |
+
+A single operation may exercise all four through typed boundaries, but they
+remain independently auditable. If a published chronology is wrong, changing
+only the popup would create disagreement; the correction belongs at the fact
+authority, followed by review, admission, and publication regeneration.
+
 ## Capability Map
 
 | Capability | Current owner | Current result | Claim ceiling |

@@ -70,6 +70,26 @@ and its review or blocking posture. Where one of those surfaces is not
 materialized for a family, the capability claim stops at the last observable
 stage.
 
+### Test A Capability Claim
+
+A capability claim is complete only when a reader can resolve each part of
+the operation:
+
+| Proof question | Required answer |
+| --- | --- |
+| who owns the behavior? | a canonical runtime module rather than a renderer, compatibility alias, or workflow wrapper |
+| how is it invoked? | a supported command or Python entry point with typed or documented arguments |
+| what state does it consume? | explicit source identities, versions, roots, schemas, and required prior decisions |
+| what effect can it have? | read-only inspection or a bounded replacement of named governed roots |
+| what result survives the process? | a structured return value plus manifests, records, decisions, or publication artifacts where the operation writes state |
+| how can failure be interpreted? | execution errors remain distinct from qualification, exclusion, refusal, and release blocking |
+| what verifies the contract? | focused checks over behavior, identity, membership, lineage, and semantic invariants |
+
+This test distinguishes a callable helper from a product capability. It also
+distinguishes an operational producer from repository readiness: the code may
+own all seven answers while the selected evidence revision still lacks a
+required source, field, or decision.
+
 ## Qualified Capabilities
 
 Some real capabilities carry narrower claims because the evidence is uneven:

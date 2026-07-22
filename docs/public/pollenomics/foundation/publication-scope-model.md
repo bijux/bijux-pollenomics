@@ -69,6 +69,34 @@ the product must preserve that limit in its role, caveat, and traceability.
 | lake priority | which Swedish lakes rank under declared evidence and sensitivity rules? | decision-support inputs, weights, ranking, and caveats | not a fieldwork or sampling instruction |
 | fieldwork | what was observed during one situated visit? | date, place, observations, and evidence boundary | not representative lake or regional coverage |
 
+## Eligibility, Generation, And Release Are Separate
+
+Publication crosses three gates, and a later gate cannot repair an earlier
+failure:
+
+| Gate | Question | Accountable negative outcome |
+| --- | --- | --- |
+| eligibility | does the governed evidence satisfy this product's identity, role, geography, and fitness rules? | qualification, exclusion, or recovery requirement |
+| generation | did the producer assemble a coherent manifest and all declared descendants? | build failure or publication-integrity finding |
+| release | do coverage, traceability, limitations, and product language support distribution under the proposed claim? | retained release refusal with reconsideration conditions |
+
+```mermaid
+flowchart LR
+    Evidence["governed evidence"] --> Eligible{"eligible for scope?"}
+    Eligible -->|no| Account["qualification, exclusion, or recovery"]
+    Eligible -->|yes| Generate{"bundle coherent?"}
+    Generate -->|no| Integrity["publication-integrity finding"]
+    Generate -->|yes| Release{"release claim supported?"}
+    Release -->|no| Refusal["release refusal"]
+    Release -->|yes| Published["released product"]
+```
+
+An eligible record does not authorize generation when required inputs or
+parent lineage are unavailable. A generated product does not authorize broad
+release wording when recovery, comparability, or coverage remains
+insufficient. This is why a successful report build and a release refusal can
+both be correct outcomes for the same repository revision.
+
 ## Subset Invariants
 
 A child publication is trustworthy only when it preserves these relationships:
