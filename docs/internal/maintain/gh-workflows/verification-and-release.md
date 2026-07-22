@@ -15,6 +15,22 @@ publication, GHCR publication, GitHub release creation, and documentation
 deployment produce different evidence. Success in one lane must not be used as
 evidence that another lane ran.
 
+## Verification Surface
+
+Verification proves that a named revision satisfies the repository, package,
+documentation, data, and publication contracts selected by the workflow. Its
+evidence includes the source SHA, resolved environment, invoked gates, exact
+results, warnings, and retained artifacts. It does not publish a distribution
+or waive a scientific refusal.
+
+## Release Surface
+
+Release workflows consume an already accepted revision and immutable staged
+artifacts. Each external destination owns a separate publication result. A
+green PyPI upload says nothing about GHCR, GitHub Release, Pages deployment, or
+the scientific posture of bundled evidence unless those surfaces are
+independently reconciled.
+
 ## Repository Release Set
 
 `.github/release.env` enables release publication for two distributions:
@@ -50,6 +66,19 @@ all selected surfaces. Before publication, retain:
 An artifact filename is not sufficient version evidence. The publication
 guard checks that built distributions carry the publishable requested version
 and rejects development, local, or mismatched versions.
+
+## Reusable Workflow Pressure
+
+Manual dispatch and reusable calls must preserve the same input, version,
+artifact, permission, and result contracts. A caller may select a package
+matrix or provide trusted credentials; it must not bypass publication guards,
+substitute an unrelated build, or turn a disabled matrix into a successful
+release report.
+
+Reusable workflow evidence must retain both identities: the caller revision
+that requested publication and the reusable workflow revision that performed
+it. This makes policy changes and artifact provenance reviewable without
+pretending that a workflow name alone identifies behavior.
 
 ## Artifact Construction
 

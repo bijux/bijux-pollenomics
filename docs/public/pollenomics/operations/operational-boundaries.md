@@ -42,7 +42,22 @@ An upstream response is captured input, not authority merely because retrieval
 succeeded. Source identity, retrieval metadata, licence posture, hashes, and
 source-native values must survive normalization.
 
-## Filesystem Boundaries
+## Observability And Diagnostics
+
+Every consequential operation should expose enough evidence to identify the
+request, inputs, owned write boundary, result, and refusal posture. Useful
+diagnostics name source or product identity and the failed contract; they do
+not dump credentials, private URLs, licensed payloads, or unrelated records.
+
+| Signal | Establishes | Does not establish |
+| --- | --- | --- |
+| exit status | whether the software operation completed | which scientific claims were admitted |
+| structured result | counts, paths, and statuses returned by the owner | durable membership without its manifest |
+| manifest | product identity, scope, and members | completeness of upstream recovery |
+| warning or exclusion | bounded reason a candidate is qualified or absent | that the underlying source record is false |
+| local log under `artifacts/` | execution context for diagnosis | governed evidence authority |
+
+## Local Development And Filesystem Boundaries
 
 | Operation | Authorized root | Boundary |
 | --- | --- | --- |
@@ -73,7 +88,7 @@ Rerunning is safe only after inputs, versions, destinations, and partial output
 are understood. A successful rerun does not excuse unexplained deletions or
 scope drift.
 
-## Security And Licence Boundary
+## Security And Safety
 
 - Do not place credentials, access tokens, private URLs, or licensed source
   payloads into public reports or logs intended for publication.
@@ -90,6 +105,11 @@ families with different terms, attribution needs, and precision constraints.
 Reuse decisions must follow the source-level licence and provenance attached
 to each family.
 
+Safety also includes scientific integrity. Do not make a command appear to
+succeed by dropping unresolved records, weakening admission, or replacing an
+unknown coordinate or date with a convenient default. Retain the finding and
+the last coherent governed state.
+
 ## Determinism Boundary
 
 Given the same local captured inputs, version, country scope, species scope,
@@ -98,12 +118,29 @@ Collection is not equivalent to replay: upstream services, access, and payloads
 can change. Retrieval date and content identity are therefore part of the
 evidence needed to compare collection runs.
 
-## Performance Boundary
+## Performance Posture
 
 Collection and complete publication traverse large governed trees. Inspection,
 single-summary validation, one-species review, and one-country publication are
 available so a narrow question does not require an unrelated rebuild. Choose
 scope by the required state transition.
+
+Performance evidence must name the input revision, scope, cache posture,
+hardware, and operation. A faster result obtained by reading a retained
+product is not evidence that the owning source-to-publication rebuild became
+faster.
+
+## Release And Versioning
+
+Runtime version, evidence revision, and publication identity are separate.
+The package version identifies producer behavior; a source release or capture
+hash identifies input state; a bundle manifest identifies the selected public
+members. A reproducible release records all three.
+
+Distribution publication cannot qualify evidence retroactively. PyPI, GHCR,
+GitHub Release, and documentation deployment are independent publication
+surfaces that must be reconciled to the same intended revision and artifact
+identity.
 
 ## Claim Boundary
 

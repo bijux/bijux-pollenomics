@@ -14,7 +14,7 @@ them. Root orchestration, repository policy, shared Python gates, and
 package-local declarations remain separate so a command has one explainable
 implementation and one evidence boundary.
 
-## Ownership Model
+## Main Files And Ownership Model
 
 ```mermaid
 flowchart TB
@@ -44,7 +44,21 @@ The local `makes/bijux-py/` tree is managed synchronized content. Change the
 shared owner and refresh the mirror; do not patch a downstream copy to make one
 repository green.
 
-## Target Contract
+## Repository Layout And Entry Points
+
+| Entry point | Intended caller | Delegates to | Mutation expectation |
+| --- | --- | --- | --- |
+| root `Makefile` | people, CI, and repository automation | named targets in `makes/root.mk` | visible in target help and prerequisites |
+| `makes/root.mk` | root target routing | shared recipes, package profiles, or repository producers | may route tracked writes only through a named governed target |
+| `makes/packages.mk` | package dispatch | one declared package profile | no scientific or release logic |
+| `makes/packages/<package>.mk` | package-scoped checks and builds | package toolchain and narrow overrides | package artifacts under declared roots |
+| `makes/publish.mk` | explicit release intent | version and publication guards | external mutation only after qualified artifacts exist |
+
+Entry points are stable routes, not duplicate implementations. A package
+profile may declare identity and narrow behavior; it must not copy a root
+producer or synchronized gate merely to avoid delegation.
+
+## Contract Rule
 
 Every target declares five properties, whether or not they are written as
 metadata:
@@ -97,7 +111,15 @@ Never make a release target depend on an unreviewed tracked rewrite. When a
 rebuild is required, expose it as a named boundary and review its semantic diff
 before downstream publication.
 
-## Add Or Change A Rule
+## Authoring And CI Pressure
+
+Local and CI routes must reach the same owner with the same policy inputs.
+CI may add credentials, matrix selection, caches, or retained artifacts; it
+must not depend on a hidden implementation that maintainers cannot reproduce.
+Likewise, a local convenience target must not omit a contract that the
+workflow later treats as release evidence.
+
+### Add Or Change A Rule
 
 1. Locate the narrowest durable owner using the ownership table.
 2. Name the target by repository outcome rather than delivery history.

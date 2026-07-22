@@ -14,7 +14,7 @@ curation, analysis, and publication. These guarantees make a public record
 traceable even when its source family is incomplete or its scientific posture
 remains qualified.
 
-## Observable Guarantees
+## Invariants
 
 | Guarantee | Observable consequence |
 | --- | --- |
@@ -108,7 +108,34 @@ These are deliberate limits, not missing convenience features. Automating them
 without stronger evidence would turn an unknown or contextual fact into an
 apparently authoritative result.
 
-## Current Scientific Limits
+## Definition Of Done
+
+A runtime change is complete when the owning behavior, public contract,
+governed descendants, and focused proof agree. A data or publication change
+also accounts for admitted, qualified, excluded, and unresolved members by
+identity. A successful command or unchanged total is not sufficient when the
+semantic diff remains unexplained.
+
+| Changed boundary | Completion evidence |
+| --- | --- |
+| command or Python interface | accepted inputs, result meaning, failure behavior, compatibility posture, and focused tests |
+| source or normalized record | source identity, field lineage, relation integrity, and affected descendant review |
+| curation or admission rule | declared population, reasoned outcomes, exclusions, manifests, and public language |
+| renderer or publication format | manifest agreement, stable member identity, warnings, traceability, and structured/rendered parity |
+
+## Dependency Governance
+
+Dependencies may supply parsing, transformation, serialization, or rendering
+mechanics. Repository contracts retain ownership of source meaning, precision,
+evidence roles, and product admission. New dependencies must have a bounded
+purpose, compatible licence, maintained version policy, and no hidden transfer
+of scientific decisions into an opaque adapter.
+
+Optional tooling and documentation dependencies remain outside the minimal
+runtime contract. Compatibility packages delegate to the canonical runtime
+instead of carrying an independently drifting dependency graph.
+
+## Known Limits
 
 - Animal ancient-DNA recovery remains uneven across projects, supplements,
   species, localities, and chronology.
@@ -135,6 +162,20 @@ apparently authoritative result.
   offer an independently versioned scientific implementation.
 - A successful command establishes completion of its declared operation, not
   correctness for an undeclared downstream use.
+
+## Risk Posture
+
+| Risk | Preserved control | Residual limit |
+| --- | --- | --- |
+| upstream drift or loss | capture identity, hashes, and retained governed snapshot | inaccessible material can still block refresh or redistribution |
+| false precision | source wording, precision posture, qualification, and refusal | some records remain unsuitable for exact point or numeric-time use |
+| cross-family overinterpretation | evidence roles, observation units, and comparison contracts | co-location can still be misread outside the governed product |
+| publication drift | manifests, stable members, subset validation, and traceability | copied renderings lose authority when separated from their packet |
+| runtime compatibility drift | public facades, frozen contracts, aliases, and focused checks | alpha status permits explicit evolution with a compatibility decision |
+
+The posture is intentionally conservative: preserve a narrower supported claim
+and a visible recovery path instead of converting uncertainty into a clean but
+unsupported product.
 
 ## Interpreting A Passing Product
 

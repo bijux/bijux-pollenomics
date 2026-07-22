@@ -14,6 +14,28 @@ claims, and release prerequisites executable. `bijux-pollenomics-dev` observes
 those contracts and reports disagreement. It is not a second runtime, a source
 collector, a scientific curator, or an atlas publisher.
 
+## Package Boundary
+
+`bijux-pollenomics-dev` owns repository observation, deterministic findings,
+documentation support, and release guards. The canonical runtime package owns
+public scientific and publication behavior; the compatibility distribution
+delegates to that runtime; data and report producers own their governed output
+trees. Moving domain logic into the maintainer package would make a check an
+unreviewed second implementation.
+
+## Module Map
+
+| Module family | Responsibility | Authority consumed |
+| --- | --- | --- |
+| `api` | frozen-schema rendering and drift observation | canonical API intent and checked-in schema |
+| `docs` | badge and documentation integrity support | package metadata, site configuration, and reader contracts |
+| `quality` | dependency and repository-policy checks | package architecture and repository configuration |
+| `release` | licence, version, and publication eligibility checks | legal assets, package metadata, tags, and built artifacts |
+| `trusted_process` | bounded subprocess execution and diagnostics | caller-declared command, roots, and expected result |
+
+The modules report agreement or disagreement. They do not create a competing
+scientific fact, product member, version, or release identity.
+
 ## Governance Domains
 
 | Domain | Maintainer implementation | Authoritative owner remains |
@@ -44,6 +66,19 @@ flowchart LR
 An invariant should be encoded where its meaning is owned. The check consumes
 that invariant, compares observed state, and reports enough identity to make
 the correction unambiguous.
+
+## Schema And Scope Governance
+
+Schema governance binds canonical intent, normalized representation, digest,
+and compatibility review. Scope governance binds a check to the exact paths,
+packages, members, or publication surfaces it claims to inspect. A green
+result outside that declared scope cannot be promoted into repository-wide
+proof.
+
+When a schema or scope changes, update the owner first, regenerate managed
+derivatives through their producer, inspect removed and reinterpreted fields,
+and retain a focused regression. Never hand-edit a pin or widen a glob merely
+to make current state agree with an old expectation.
 
 ## Add Or Change A Governance Rule
 
