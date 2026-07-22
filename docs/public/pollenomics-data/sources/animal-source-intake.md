@@ -38,6 +38,33 @@ These measures are published together because no one of them is an honest
 summary of the collection. In particular, dividing the recovered sample total
 by the four exact-denominator projects would compare unrelated populations.
 
+### Denominator Confidence Governs Recovery Claims
+
+Project recovery uses three denominator postures. They must not be combined
+into one portfolio-wide completion percentage.
+
+| Denominator posture | What can be claimed | What remains unknown |
+| --- | --- | --- |
+| exact expected count | recovered, missing, duplicate, and unresolved identities can reconcile to a fixed source population | whether uncatalogued source material exists outside the declared authority |
+| minimum expected floor | recovery can be shown to meet or fall below a supported lower bound | the true total and percentage complete |
+| unknown expected count | recovered identities and their evidence can be reported | completeness, deficit, and percentage complete |
+
+```mermaid
+flowchart LR
+    Source["project evidence"] --> Denominator{"expected population posture"}
+    Denominator --> Exact["exact reconciliation"]
+    Denominator --> Floor["lower-bound comparison"]
+    Denominator --> Unknown["recovered population only"]
+    Exact --> Portfolio["posture-preserving portfolio summary"]
+    Floor --> Portfolio
+    Unknown --> Portfolio
+```
+
+A portfolio summary may count projects in each posture and may sum recovered
+identities after collision review. It may not divide the summed recovery by a
+mixture of exact, minimum, and unknown denominators. That calculation would
+manufacture precision from projects whose source populations are not known.
+
 ### The Foundation Is A Preparation Ledger
 
 `data/adna/governance/animal_sample_foundation_truth.json` records whether each

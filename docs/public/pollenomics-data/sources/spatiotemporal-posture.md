@@ -52,6 +52,34 @@ still be valid for geographic framing or broad context. Conversely, numeric
 intervals do not authorize a direct biological relation when the families
 observe different objects.
 
+### Preserve The Comparison Denominator
+
+A comparison result has at least four populations. Reporting only matches
+hides whether non-matches were evaluated or were never comparable.
+
+| Population | Governing question |
+| --- | --- |
+| candidates | which governed records entered the declared source, geography, and role scope? |
+| evaluated | which candidates had the identities and fields needed to run the gate? |
+| comparable | which evaluated records passed unit, space, time, and role compatibility? |
+| related | which comparable records satisfied the declared overlap, distance, containment, or ranking rule? |
+
+```mermaid
+flowchart LR
+    Candidates["candidate population"] --> Evaluated["gate evaluated"]
+    Candidates --> Unevaluated["missing required evidence"]
+    Evaluated --> Comparable["comparison permitted"]
+    Evaluated --> Refused["comparison refused"]
+    Comparable --> Related["declared relation satisfied"]
+    Comparable --> NotRelated["declared relation not satisfied"]
+```
+
+Only the last branch can support a negative result under the declared rule.
+Unevaluated and refused records are not evidence of non-overlap or distance;
+they are evidence about comparison coverage. A reusable result reports all
+four populations, the rule, input revisions, and the reason each record left
+the comparison path.
+
 ## Precision Rules
 
 - Compare at the weakest supported spatial precision; do not turn a region or

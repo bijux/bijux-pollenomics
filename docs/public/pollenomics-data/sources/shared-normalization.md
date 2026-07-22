@@ -180,6 +180,43 @@ normalized member is lossless enough for a claim when the omitted material
 cannot change identity, value meaning, uncertainty, relation cardinality, or
 the supported interpretation.
 
+## Account For Every Input Member
+
+Preparation quality is measured by identity reconciliation, not by the number
+of rows emitted. Every discovered source member receives a disposition, and
+every normalized member resolves to the source members that produced it.
+
+| Disposition | Meaning | Required evidence |
+| --- | --- | --- |
+| normalized | the member has a governed representation | source-native key, repository key, transformation receipt, and resulting identity |
+| rejected | the member violates a declared structural or semantic boundary | source-native key, failed rule, retained source value, and recovery condition when applicable |
+| unresolved | the member is retained but identity or meaning cannot yet be represented safely | candidates, ambiguity state, evidence needed, and owner |
+| merged | several native members resolve to one governed object | all predecessor identities and equivalence decision |
+| split | one native member represents several governed objects | predecessor identity, successor identities, and split basis |
+
+For a one-to-one family, the discovered population should reconcile to
+normalized, rejected, and unresolved members by stable identity. For families
+with merge or split decisions, a relation ledger replaces simple row-count
+equality.
+
+```mermaid
+flowchart LR
+    Discovered["discovered native identities"] --> Disposition{"member disposition"}
+    Disposition --> Normalized["normalized identities"]
+    Disposition --> Rejected["rejected with reason"]
+    Disposition --> Unresolved["unresolved with recovery condition"]
+    Disposition --> Relations["merge and split relations"]
+    Normalized --> Reconcile["identity reconciliation"]
+    Rejected --> Reconcile
+    Unresolved --> Reconcile
+    Relations --> Reconcile
+```
+
+This accounting detects silent parser loss that equal output counts cannot.
+Two source members may disappear while two duplicates are introduced and the
+total remains unchanged. Member identities, dispositions, and relation
+cardinality reveal the loss.
+
 ```mermaid
 flowchart TB
     subgraph Native["source-native meaning"]
