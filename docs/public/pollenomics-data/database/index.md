@@ -15,6 +15,9 @@ decisions, unresolved states, and publication membership. Maps and reports
 are projections over that state; they are not the authority from which source
 or sample facts are recovered.
 
+The [domain language](../domain-language.md) defines the object, claim,
+decision, member, and projection terms used below.
+
 ## What The Database Governs
 
 | Concern | Governed representation | Why it matters |
@@ -86,18 +89,31 @@ display labels, row positions, or coordinate equality.
 
 ## Database Boundaries
 
-The database has three deliberately different surfaces:
+Two persisted surfaces answer different questions:
 
-| Surface | Primary responsibility | Read it as |
+| Surface | Primary responsibility | Authority limit |
 | --- | --- | --- |
-| source and normalized data under `data/` | captured bytes, source-native facts, normalized evidence, provenance, and review state | the governed evidence state |
-| publication data under `docs/report/` | versioned projections, manifests, accounting, and reader-facing products | a descendant of governed evidence |
-| public documentation under `docs/public/` | contracts, interpretation rules, limitations, and navigation | an explanation of the system, never a substitute for evidence |
+| evidence state under `data/` | captured bytes, source-native facts, normalized objects and claims, provenance, relations, and review decisions | does not define membership in every product |
+| publication state under `docs/report/` | versioned product manifests, admitted members, exclusions, accounting, maps, tables, and reports | remains a descendant of governed evidence and cannot rewrite its facts |
 
-The boundary matters during correction. A statement in a guide cannot repair
-a missing normalized artifact. A map cannot become the authority for the
-sample or locality facts it displays. A governed JSON record does not become
-reader-facing merely because it is committed beside the website source.
+The boundary matters during correction. A map cannot become the authority for
+the sample, locality, chronology, or coordinate facts it displays. Conversely,
+a valid evidence record does not enter a product until the product's eligible
+population, admission rule, and manifest account for it.
+
+### Authority Depends On The Question
+
+| Question | Authority | Cross-check |
+| --- | --- | --- |
+| what material was acquired? | capture identity and source artifact | retrieval outcome, digest, source version, and licence posture |
+| which object does the material describe? | governed identity and explicit relations | source-native key, aliases, ambiguity posture, and cardinality |
+| what place, time, or taxonomy is supported? | claim-specific fact owner | evidence locator, method, precision, conflict, and qualification |
+| may the object appear in this product? | admission decision for the named product | eligible population, rule result, exclusion, and scope |
+| what exactly was published? | manifest and member identities | structured projections, warnings, counts, and parent–child lineage |
+
+This order prevents a repeated value from carrying the authority of whichever
+file is most convenient. The same fact can be copied into a popup, table, and
+report while remaining governed by one claim record.
 
 ## Evidence Lifecycle
 

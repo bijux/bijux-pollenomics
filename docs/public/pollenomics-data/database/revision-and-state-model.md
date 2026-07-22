@@ -13,6 +13,9 @@ A Git revision is a Pollenomics database snapshot. Trust depends on the
 snapshot carrying authorities, required companions, review decisions,
 manifests, exclusions, and public projections from the same causal state.
 
+The [domain language](../domain-language.md) defines revision, lineage,
+posture, product, and projection as separate identities.
+
 ## Lifecycle State Is Not A Quality Score
 
 | State | Establishes | Does not establish |
@@ -168,6 +171,27 @@ Different versions answer different questions:
 None substitutes for another. A product filename containing `v66` does not
 prove that every input comes from AADR v66, and an unchanged source release
 does not prove unchanged normalized semantics.
+
+### Coherent Read Set
+
+A reproducible answer fixes all identities needed by the query, not only the
+repository commit or product filename:
+
+| Read-set identity | Why it must be fixed |
+| --- | --- |
+| repository revision | joins the checked-in authorities, decisions, and descendants |
+| source family and upstream release | identifies the upstream population represented |
+| captured content identity | distinguishes changed bytes or responses under the same release label |
+| schema and rule identities | fixes how records were interpreted and admitted |
+| product manifest identity | fixes scope, membership, roles, exclusions, and required companions |
+| selected member and claim identities | fixes the exact evidence traversed by the answer |
+
+Mixing a manifest from one revision with evidence rows from another produces a
+plausible but ungoverned read. The same risk appears when a notebook caches a
+normalized table while reopening a newer map, or when a copied GeoJSON loses
+the manifest that identifies its product population. Reuse must either retain
+the coherent read set or explicitly describe the result as an unverified
+cross-revision comparison.
 
 ## Change Classes
 

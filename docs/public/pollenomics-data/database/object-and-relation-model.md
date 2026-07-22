@@ -14,6 +14,9 @@ specific object type and every join to a typed relation. A shared label,
 coordinate, place name, or publication is evidence to investigate a relation;
 it is not a universal key.
 
+See [domain language](../domain-language.md) for the distinction between a
+source object, governed object, claim, decision, member, and projection.
+
 ## Governed Object Types
 
 | Object | Stable identity | Facts it may own |
@@ -112,6 +115,37 @@ edge may produce a different claim or no valid claim at all.
 A relation key therefore includes its typed endpoints, predicate, method,
 scope, posture, and revision. A pair of object identifiers without the edge
 contract is not enough to reproduce the join.
+
+### Observation Lineage And Independence
+
+Independence is a property of evidence lineage, not of file count or marker
+count. Two publication members are independent support only when their
+governing observations and evidence locators are distinct at the level needed
+by the claim.
+
+```mermaid
+flowchart TD
+    Artifact["one supporting artifact"] --> Claim["one governed claim"]
+    Claim --> World["world member"]
+    Claim --> Nordic["Nordic member"]
+    Claim --> Country["country member"]
+    World --> Copies["three projections, one observation lineage"]
+    Nordic --> Copies
+    Country --> Copies
+```
+
+| Apparent multiplicity | Independence reading |
+| --- | --- |
+| one sample repeated in world, regional, and country products | one governed observation projected into three scopes |
+| one site exported as CSV, GeoJSON, and HTML | one product member represented in three formats |
+| several samples supported by the same project-level locality sentence | distinct sample identities with shared, non-sample-owned locality context |
+| two samples with separate source rows and sample-owned evidence | potentially independent observations, subject to the claim and source design |
+| two datasets derived from the same underlying measurement | related descendants whose shared lineage must remain visible |
+
+An independence claim therefore records the observation unit, source locator,
+derivation path, and relationship between the supporting records. Without
+those fields, use “multiple records” or “multiple projections,” not
+“independent evidence.”
 
 ### Worked Relation Graph
 
