@@ -18,7 +18,7 @@ The decisive question is not whether a place name appears somewhere in a
 paper. It is whether captured evidence connects that place to the sample at the
 resolution being published.
 
-## Current evidence posture
+## Current Evidence Posture
 
 Of 868 governed animal sample rows, 820 carry a direct sample-site assignment.
 The remaining 48 do not: 32 have region-only context and 16 remain unresolved.
@@ -39,7 +39,7 @@ A named excavation site can be directly linked yet still lack point-quality
 coordinates. Conversely, a coordinate resolved from project context does not
 become sample-owned merely because it is numeric.
 
-## Resolution classes
+## Resolution Classes
 
 | Resolution | Meaning | Safe public use |
 | --- | --- | --- |
@@ -70,7 +70,7 @@ Numeric geometry is therefore downstream of locality ownership. A precise
 coordinate cannot upgrade a broader place claim, and a strong locality can
 remain non-point evidence when coordinate support is absent.
 
-## Evidence precedence
+## Evidence Precedence
 
 ```mermaid
 flowchart TD
@@ -97,7 +97,7 @@ evidence and, when it disagrees, appears in the locality conflict ledger. This
 preserves both source claims without allowing the less specific one to erase
 the more specific one.
 
-## What a locality record preserves
+## What A Locality Record Preserves
 
 The sample-site record joins identity and place evidence without collapsing
 them. Its principal fields include:
@@ -121,7 +121,40 @@ its own right. A successful gazetteer lookup can propose a coordinate, but the
 source scope, locality class, coordinate basis, confidence, and review posture
 still determine whether that result is publishable.
 
-## Conflicts and substitutions
+## Worked Locality Trace
+
+Sample `prjeb22390:cgg_1_017139` illustrates why place and point must be
+reviewed separately:
+
+| Question | Governed answer |
+| --- | --- |
+| What place text belongs to the sample? | `Haunstetten` |
+| How is it linked? | `direct_sample_site` from the recovered supplementary rows |
+| What kind of place is it? | `excavation_site` |
+| How was the point obtained? | `named_site_geocoding` |
+| How precise is that point? | `approximate` |
+
+The direct sample-site assignment supports the named locality. It does not
+turn a geocoded point into a source-reported excavation coordinate. A map can
+publish the point only with its approximate confidence and geocoding basis
+visible; an analysis requiring exact sample coordinates must exclude or
+separately qualify it.
+
+```mermaid
+flowchart LR
+    Rows["supplementary rows"] --> Place["sample-owned Haunstetten claim"]
+    Place --> Class["excavation-site class"]
+    Place --> Geocode["named-site geocoding"]
+    Geocode --> Approx["approximate point"]
+    Approx --> Qualified["qualified map candidate"]
+    Approx -. insufficient .-> Exact["exact-coordinate analysis"]
+```
+
+This trace also shows why correcting the coordinate need not alter the sample
+or locality identity. The stable sample and named site can remain unchanged
+while the coordinate basis, confidence, or publication posture is revised.
+
+## Conflicts And Substitutions
 
 A locality conflict exists when two captured surfaces assign incompatible
 places or scopes to the same sample. For example, a supplementary sample table
@@ -149,7 +182,7 @@ locality and withhold exact-point publication.” This is more informative than
 either `resolved` or `missing`, because it identifies what is supported and
 what evidence would change the mapping posture.
 
-## Auditing locality lineage
+## Auditing Locality Lineage
 
 For one species, begin with
 `data/adna/species/<species-slug>/normalized/site_evidence.json`. The row's

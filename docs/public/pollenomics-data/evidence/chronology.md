@@ -22,7 +22,7 @@ Bijux Pollenomics therefore keeps three questions separate:
 3. **What comparison is safe?** A precision posture derived from ownership,
    evidence class, and normalization status.
 
-## Current evidence posture
+## Current Evidence Posture
 
 The governed chronology audit covers all 868 recovered animal samples:
 
@@ -45,7 +45,7 @@ These views are deliberately different. A row may contain numbers and still be
 contextual or approximate; numeric normalization does not confer sample-level
 precision.
 
-## Sample evidence outranks project context
+## Sample Evidence Outranks Project Context
 
 ```mermaid
 flowchart TD
@@ -72,7 +72,7 @@ to project context is allowed only when the sample row lacks its own
 chronology, and the result stays classified as contextual rather than
 sample-precise.
 
-## Evidence class and precision
+## Evidence Class And Precision
 
 | Precision posture | Typical support | Comparison rule |
 | --- | --- | --- |
@@ -88,7 +88,7 @@ modeled sample dates, archaeological context dates, broad period labels, and
 historical or recent dates. Evidence class describes *what kind of support
 exists*; precision posture describes *how that support may be used*.
 
-## The normalized chronology contract
+## The Normalized Chronology Contract
 
 A chronology row preserves:
 
@@ -110,6 +110,33 @@ Range overlap and distance calculations use the bounds when they exist. A map
 or chart that displays a mean must retain access to the original bounds,
 precision posture, evidence class, and comparison note so that an interval
 does not acquire false point precision.
+
+## Worked Chronology Trace
+
+The same sample used in the identity and locality guides,
+`prjeb22390:cgg_1_017139`, preserves `1979 BP` from the captured supplementary
+rows. Its governed chronology currently records:
+
+| Field | Value |
+| --- | --- |
+| ownership | sample-owned |
+| evidence class | `direct_radiocarbon_date` |
+| normalization | `normalized_point` |
+| precision posture | `sample_precise_point` |
+| BP bounds | `1979` to `1979` |
+| dating basis | `mixed_radiocarbon_and_archaeological_context` |
+| conflict posture | sample claim disagrees with the project-level interval |
+
+The equal normalized bounds mean that the captured claim contributes one BP
+value to the current comparison contract. They do not prove zero laboratory,
+calibration, or archaeological uncertainty. The original wording, supporting
+row, dating basis, and conflict note remain necessary to interpret the value.
+
+The project disagreement is retained rather than averaged away. Sample-owned
+evidence governs this sample; project context remains visible as a conflicting
+broader claim. If later source recovery provides an interval or calibration
+detail, the chronology descendant can change while the stable sample identity
+and Haunstetten locality remain intact.
 
 ## Chronology Revision Impact
 
@@ -160,7 +187,7 @@ was recovered but cannot be safely converted; `unresolved` means no trustworthy
 claim is available. Neither is numeric non-overlap, and neither should be
 counted as evidence that two records belong to different periods.
 
-## Auditing chronology lineage
+## Auditing Chronology Lineage
 
 Chronology evidence remains project-owned under
 `data/adna/governance/source_library/projects/<project-accession>/`, including

@@ -19,7 +19,7 @@ by itself certify where the specimen came from, when it lived, or whether it
 may appear as a map point. Those are separately governed claims joined through
 the stable sample identifier.
 
-## Current evidence posture
+## Current Evidence Posture
 
 The governed snapshot contains 868 recovered sample rows across 40 animal
 archive projects. All 868 currently have a final identity resolution and the
@@ -57,6 +57,39 @@ paper, and supplementary labels remain distinct fields even when they agree.
 The preferred label is for display; the repository-stable identifier is the
 join key. This prevents punctuation changes, spreadsheet formatting, or a
 later preferred-label correction from breaking evidence links.
+
+## Relational Contract
+
+The sample identifier is the hub of the evidence model, not a container that
+turns every linked statement into a sample-owned fact:
+
+```mermaid
+flowchart LR
+    Project["archive project"] --> Identity["stable sample identity"]
+    SourceRows["paper and supplement rows"] --> Identity
+    Identity --> LocalityClaim["locality claim"]
+    Identity --> ChronologyClaim["chronology claim"]
+    Identity --> SpeciesView["species-normalized view"]
+    LocalityClaim --> PointDecision{"point admission"}
+    ChronologyClaim --> TimeDecision{"temporal comparison"}
+    PointDecision --> Product["published evidence surface"]
+    TimeDecision --> Product
+```
+
+This structure enforces four invariants:
+
+- every descendant resolves through the project-namespaced stable identifier;
+- source-native labels remain evidence attributes, never cross-project join
+  keys;
+- locality and chronology can be corrected without minting a new specimen;
+- a species view may aggregate governed samples but cannot become their
+  identity authority.
+
+One paper row may mention several analytical identifiers, and several source
+rows may describe one specimen. The identity decision records that
+relationship explicitly. Row count, identifier count, specimen count, and map
+point count are therefore different quantities unless a product proves them
+equivalent.
 
 ## Identity Change Or Claim Change?
 
@@ -98,6 +131,21 @@ flowchart LR
 A direct extraction records the source artifact, its kind, an internal locator,
 and a short source excerpt. This makes the transformation auditable without
 requiring a reader to infer which spreadsheet row produced the record.
+
+## Worked Identity Trace
+
+The governed horse sample `prjeb22390:cgg_1_017139` demonstrates the contract.
+Its archive identifier is `CGG_1_017139`; its paper and supplementary display
+labels use `Haunstetten 1979` and `Haunstetten_1979`. The stable ID binds those
+spellings to one sample while preserving two supplementary locators:
+`Sheet1!row204` and `Sheet1!row16` in the captured Science supporting tables.
+
+That identity supports joins; it does not settle the joined claims. The same
+sample currently carries a direct Haunstetten locality, approximate geocoded
+coordinates, and a sample-owned `1979 BP` chronology. Each has its own evidence
+class and publication rule. A reviewer can therefore accept the label
+reconciliation while rejecting or revising a coordinate or temporal
+interpretation without changing the specimen identity.
 
 ## Project Completeness
 
