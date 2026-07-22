@@ -108,6 +108,29 @@ scenarios, not robustness to missing source families or unmodeled field
 conditions. The fieldwork-preparation posture can therefore reorder or defer a
 high-scoring lake without contradicting the ranking.
 
+## A Concrete Reordering
+
+The current fieldwork-preparation screen places **Sjötorpasjön first** even
+though it is third in the aggregate evidence ranking. The screen retains both
+facts:
+
+| Field | Current value |
+| --- | --- |
+| fieldwork rank | 1 |
+| aggregate rank | 3 |
+| aggregate score | 0.5862 |
+| scenario consistency | high; present in six tested top-20 slices |
+| sampling posture | `sampling_lake_candidate` |
+| preparation posture | `identity_resolution_required` |
+| identity issue | duplicate Swedish lake name |
+| required review | confirm the exact registry match and inspect linked SEAD records |
+
+This is not a contradiction or a hidden override. Aggregate rank answers the
+weighted evidence-richness question. Fieldwork rank applies a separate
+human-context, sampling, scenario-consistency, and identity-review contract.
+The unresolved name prevents the top fieldwork row from becoming a sampling
+instruction.
+
 ## Reading candidate fields
 
 Each ranked row preserves:
@@ -125,6 +148,11 @@ Sampling postures are screening labels. `small_lake_review` flags a micro-basin
 that needs validation; `compact_lake_candidate` marks a small mapped surface;
 and `sampling_lake_candidate` indicates a more plausible area-based posture.
 None asserts sufficient depth, intact sediment, access, or coring feasibility.
+
+`palaeopen_alignment_posture` is also a local screening field. It summarizes
+whether a candidate already has at least two direct pollen sources and four
+evidence families within 20 km. It adds no score, source record, network
+membership, or PalaeOpen endorsement.
 
 ## Current aggregate leaders
 
@@ -173,6 +201,12 @@ A defensible reference to a candidate includes its SVAR identity, ranking
 surface, scenario or aggregate definition, model inputs and weights, active
 geographic scope, and known required actions. Quoting only the ordinal rank
 removes the assumptions that give the number meaning.
+
+The portable ranking packet includes the ranked registry, per-radius scenario
+rows, evidence bands, aggregate definition, model weights, ranking-engine
+manifest, sensitivity output, and fieldwork-preparation screen. Quoting a row
+without the engine manifest and scenario identity makes its rank impossible to
+reproduce or interpret after a source refresh.
 
 ## Governing outputs
 

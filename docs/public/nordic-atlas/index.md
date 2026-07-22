@@ -52,6 +52,31 @@ flowchart TB
 | Boundary framing | geographic scope and product membership | scientific support |
 | Lake ranking | evidence-rich registry lakes under explicit scenarios | field readiness or optimal coring location |
 
+## Current Nordic Bundle
+
+The checked-in `v66` Nordic bundle was generated on `2026-06-28`. Its map
+contract publishes these governed layer populations:
+
+| Layer | Features | Role |
+| --- | ---: | --- |
+| AADR human samples | 1,231 | shared direct evidence |
+| admitted horse aDNA localities | 2 | shared animal evidence |
+| LandClim pollen sequences | 492 | Nordic environmental context |
+| Neotoma pollen sites | 200 | Nordic environmental context |
+| SEAD sites | 2,172 | Nordic archaeology context |
+| Lyngsjön fieldwork | 1 | Nordic direct-visit evidence |
+| LandClim REVEALS cells | 88 | vegetation-reconstruction context |
+| RAÄ density cells | 106 | Sweden-specific archaeology context |
+| country boundaries | 4 | filtered geographic framing |
+
+The map also carries optional Sweden lake overlays: aggregate and consensus
+top 40, five radius-specific top 40 layers, and a fieldwork-preparation top 20.
+Those overlays are derived decision support and are disabled by default.
+
+Counts remain typed by layer. Adding 1,231 samples, 492 sequences, 2,172 sites,
+and 106 density cells would not produce a meaningful total because the units,
+roles, and admission contracts differ.
+
 ## Explore the atlas
 
 <div class="bijux-quicklinks">
@@ -90,6 +115,19 @@ marker:
 Filtering changes visibility, not eligibility. A hidden feature remains part
 of the scoped product; an excluded record cannot be admitted by changing a
 browser control.
+
+## Four Identities Behind One Marker
+
+| Identity | Establishes |
+| --- | --- |
+| map feature ID | the interactive object and layer membership |
+| product member ID | inclusion in the Nordic manifest and parent-scope lineage |
+| evidence record ID | the governed scientific or framing object |
+| source-native ID | the upstream sample, site, record, lake, or dataset identity |
+
+These identifiers can share labels or coordinates without becoming the same
+object. A marker audit is complete only when the feature resolves through all
+applicable identities and retains role, place, time, and qualification.
 
 ## From Marker To Defensible Comparison
 
@@ -158,3 +196,8 @@ changes the model score.
 The checked-in animal candidate and accountability surfaces remain under
 `data/adna/final/atlas/`. Their broader contents do not override the narrower
 Nordic publication contract.
+
+For portable reuse, carry the Nordic bundle, map publication contract,
+selected GeoJSON layers, point traceability, scientific review, and visible
+caveats together. The HTML map is a rendering of that packet, not a complete
+export by itself.

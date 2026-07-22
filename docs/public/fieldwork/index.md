@@ -65,6 +65,11 @@ The published fieldwork surface contains one direct visit record:
 record includes coordinates, atlas identity, a checked-in photograph, and a
 checked-in video.
 
+The Nordic map contract publishes this as one `fieldwork-documentation`
+feature. It is enabled by default in Nordic scope, follows country filtering,
+and does not use the atlas time filter because the visit date is an event
+property rather than an ancient temporal-comparison interval.
+
 <div class="bijux-quicklinks">
   <a class="md-button md-button--primary" href="./lyngsjon-lake-fieldwork/">Inspect the Lyngsjön visit</a>
   <a class="md-button" href="../../report/regions/nordic/nordic_map.html">Open the Nordic atlas</a>
@@ -93,9 +98,41 @@ layers.
 Each transition needs its own record. A visit is not a completion flag attached
 to a ranking row; it is new evidence with independent identity and limits.
 
+## Fieldwork Evidence Packet
+
+| Packet member | What it proves |
+| --- | --- |
+| visit identity and date | which event is being documented |
+| named place and coordinates | where the published visit feature is located |
+| media paths and ownership | which checked-in photograph and video support the visit |
+| atlas feature and layer | how the visit appears in the Nordic product |
+| claim boundary | which observations remain supportable from the event and selected media |
+| contextual links | which separately governed atlas evidence can be inspected nearby |
+
+For Lyngsjön, the media authorities are
+`docs/gallery/2026-02-26-data-collection.JPG` and
+`docs/gallery/2026-02-26-data-collection.mp4`. Copying the atlas marker without
+the dated visit and media lineage would leave only a coordinate, not fieldwork
+evidence.
+
+```mermaid
+flowchart LR
+    Event["visit identity and date"] --> Place["named place and coordinates"]
+    Event --> Media["owned photograph and video"]
+    Place --> Claim["bounded field observation"]
+    Media --> Claim
+    Claim --> Feature["Nordic fieldwork feature"]
+    Atlas["separate atlas context"] -. comparison only .-> Feature
+```
+
 ## Publication Boundary
 
 The current record does not imply that every atlas point has field media or
 that Lyngsjön represents regional conditions. Additional visits require their
 own date, location, media lineage, feature identity, and claim boundary before
 publication.
+
+Repeated visits to the same lake remain distinct events. They may share the
+lake identity while retaining separate dates, observations, media, methods,
+and conditions. Merging them by coordinates would erase the temporal and
+observational unit that makes fieldwork evidence auditable.
