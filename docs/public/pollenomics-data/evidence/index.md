@@ -86,6 +86,37 @@ being ineligible for an exact point or time-aware comparison.
 | Coordinates | What created the point and with what confidence? | map marker outranks place evidence |
 | Fitness | Is the combined record eligible for the declared publication? | presentation silently strengthens evidence |
 
+## Claim Envelope
+
+A reusable claim must retain enough context to survive outside the page where
+it was first seen:
+
+| Envelope field | Why it is indispensable |
+| --- | --- |
+| governed object ID | identifies the sample, site, source record, or product member without relying on a label |
+| fact owner | identifies the record authorized to define the disputed value |
+| source family and locator | leads to the captured upstream object and exact supporting location |
+| reported value | preserves what the source expressed before repository interpretation |
+| normalized value and method | makes comparison possible without hiding transformation |
+| precision and evidence class | bounds spatial, temporal, taxonomic, or identity strength |
+| role and product scope | explains what the record contributes and where it was admitted |
+| qualification or refusal | prevents missing or conflicted evidence from disappearing in reuse |
+
+The envelope is intentionally larger than a popup or CSV cell. Compact views
+may point to it, but downstream reuse that drops these fields cannot retain the
+same evidential claim.
+
+```mermaid
+flowchart LR
+    Claim["claim value"] --> Object["governed object"]
+    Claim --> Owner["fact owner"]
+    Claim --> Source["source and locator"]
+    Claim --> Method["normalization or curation method"]
+    Claim --> Precision["precision and class"]
+    Claim --> Scope["role and product scope"]
+    Claim --> Limit["qualification or refusal"]
+```
+
 ## Evidence Joins Are Claims
 
 Joining records is not a neutral formatting operation. Each relationship needs
@@ -119,6 +150,11 @@ part of the evidence, not an implementation detail.
 
 Blocked and deferred states remain part of the database. Their presence makes
 coverage gaps and recovery work measurable.
+
+Evidence strength is bounded by the weakest claim needed for the proposed
+use. Strong identity does not repair unresolved locality; exact coordinates do
+not repair uncertain ownership; complete lineage does not create chronology;
+and admission to one product does not establish fitness for another.
 
 ## Inspect A Claim
 

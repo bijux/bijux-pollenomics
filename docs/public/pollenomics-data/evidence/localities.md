@@ -54,6 +54,22 @@ These classes prevent a project title or abstract from assigning every sample
 to the same excavation site. They also keep a regional statement from becoming
 an exact-looking coordinate through geocoding alone.
 
+## Interpret Place And Point Separately
+
+| Locality evidence | Coordinate evidence | Defensible representation |
+| --- | --- | --- |
+| direct sample site | source-supplied or verified site coordinate | point with declared basis and precision |
+| direct sample site | no defensible coordinate | named site without an invented marker |
+| sample-group site | verified group-site coordinate | qualified group-level point or site context |
+| project-only site | exact project coordinate | project context, never a sample-owned point |
+| named-place inference | documented geocoding result | approximate point only when inference and uncertainty remain visible |
+| region only | centroid or representative coordinate | region or aggregate geometry, not a point claim |
+| unresolved | any unrelated numeric coordinate | exclusion from spatial publication |
+
+Numeric geometry is therefore downstream of locality ownership. A precise
+coordinate cannot upgrade a broader place claim, and a strong locality can
+remain non-point evidence when coordinate support is absent.
+
 ## Evidence precedence
 
 ```mermaid
@@ -123,6 +139,15 @@ This yields a durable invariant: **normalization may standardize a supported
 claim, but it may not increase the claim's resolution**. A region does not
 become a site, a site does not become an exact point, and a project context does
 not become a sample observation through transformation alone.
+
+## Review Outcome
+
+A locality review ends with both an evidence statement and a spatial-use
+statement. For example: “the supplement directly links sample X to named site
+Y, but no source-backed coordinate has been recovered; retain site-level
+locality and withhold exact-point publication.” This is more informative than
+either `resolved` or `missing`, because it identifies what is supported and
+what evidence would change the mapping posture.
 
 ## Auditing locality lineage
 

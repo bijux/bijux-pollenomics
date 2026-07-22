@@ -58,6 +58,24 @@ The preferred label is for display; the repository-stable identifier is the
 join key. This prevents punctuation changes, spreadsheet formatting, or a
 later preferred-label correction from breaking evidence links.
 
+## Identity Change Or Claim Change?
+
+Not every corrected field creates a new sample identity:
+
+| Change | Identity consequence | Downstream consequence |
+| --- | --- | --- |
+| preferred-label spelling corrected | stable ID remains | update display copies; preserve prior source labels |
+| locality or chronology strengthened | stable ID remains | reevaluate the affected claim and product admission |
+| two source labels proven to name one specimen | one governing identity with retained aliases and merge evidence | redirect descendants and review duplicate membership |
+| one row proven to conflate distinct specimens | split into independently governed identities | reassess every site, chronology, species, and publication relation |
+| project assignment corrected | identity reviewed against source lineage | move authority only with explicit sample-to-project evidence |
+| source row replaced by a new release | stable ID may remain when equivalence is proven | retain release lineage and review changed fields |
+
+The decisive question is whether the physical or analytical evidence unit
+changed, not whether its presentation changed. Merge and split decisions need
+their own source locators and cannot be inferred from matching labels or
+coordinates.
+
 ## Source Lineage
 
 ```mermaid
@@ -131,6 +149,19 @@ by choosing the most convenient label.
 Likewise, a recovered sample can be valid while its locality, chronology, or
 coordinate evidence remains unfit for exact publication. Sample recovery and
 atlas admission are separate decisions.
+
+## Audit One Identity
+
+1. Resolve the published or species-level row to its project-namespaced stable
+   sample ID.
+2. Inspect all source-native labels and the exact paper, supplement, sheet,
+   table, or archive locator.
+3. Confirm that the identity decision accounts for collisions, aliases, and
+   any merge or split history.
+4. Verify that site, chronology, species, and publication descendants reference
+   the same governing ID.
+5. Treat a missing link as an identity failure; do not repair it with a display
+   label or spatial proximity.
 
 ## Governing Records
 
