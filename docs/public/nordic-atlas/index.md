@@ -4,61 +4,62 @@ audience: reader
 type: index
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-06-28
+last_reviewed: 2026-07-22
 ---
 
 # Nordic Evidence Atlas
 
-The Nordic Evidence Atlas is a downstream view of the repository evidence tree,
-not the primary evidence artifact. The checked-in pollen context,
-environmental archaeology context, boundary framing, fieldwork material,
-sample, site, chronology, and coordinate files remain the governing evidence
-surfaces, and the atlas should only summarize what those files already
-justify. Use it when you need a fast geographic view and then want to drop back
-to the evidence behind a point.
+The Nordic Evidence Atlas connects sample-backed ancient DNA with pollen and
+archaeology context across the Nordic publication scope. Every point belongs
+to a declared source family and product contract; popups retain the identifiers
+and provenance needed to leave the map and inspect the governing evidence.
 
-Its job is to answer four questions quickly:
+The atlas is a comparison surface, not a claim that nearby records describe
+the same event. Geography, chronology, and evidence role must all support an
+interpretation before proximity becomes meaningful.
 
-- why a point is on the map
-- which filter settings can hide or reveal it
-- which citation or supplementary source supports it
-- whether the repository itself says the point is exact, geocoded, projected, or still blocked
+## Evidence architecture
 
-Detailed explanation pages for point construction, filtering, and atlas limits
-now live under the data handbook so the Nordic atlas stays a clear landing
-surface instead of turning into a parallel handbook.
+```mermaid
+flowchart TB
+    subgraph Direct[Direct evidence]
+        A[Human aDNA samples]
+        B[Admitted animal aDNA samples]
+    end
+    subgraph Context[Context]
+        C[LandClim pollen]
+        D[Neotoma pollen]
+        E[SEAD archaeology]
+        F[RAÄ Sweden density]
+    end
+    subgraph Frame[Geographic frame]
+        G[Nordic boundaries]
+        H[SVAR Sweden lakes]
+    end
+    Direct --> I[Scope and publication contracts]
+    Context --> I
+    Frame --> I
+    I --> J[Nordic evidence map]
+    J --> K[Feature traceability]
+    J --> L[Optional Sweden lake rankings]
+```
 
-The atlas also ships optional Sweden lake ranking overlays. They stay off by
-default because they are downstream ranking interpretations over the Sweden
-lake packet, not the base pollen, archaeology, or animal evidence layers.
+| Layer role | What it can establish | What it cannot establish alone |
+| --- | --- | --- |
+| Direct evidence | a source-backed sample at an admitted place and chronology posture | regional completeness or causation |
+| Pollen context | nearby vegetation-history and sequence context | human or animal presence |
+| Archaeology context | surrounding environmental-archaeology or density context | sample ownership or uniform temporal overlap |
+| Boundary framing | geographic scope and product membership | scientific support |
+| Lake ranking | evidence-rich registry lakes under explicit scenarios | field readiness or optimal coring location |
 
-## Use This Atlas For
-
-- seeing where the current governed public points appear geographically
-- checking why a point is visible and which filters change that visibility
-- moving from a point, popup, or overlay back to a report row or narrower
-  evidence surface
-- comparing the Nordic surface with its world and Europe-plus parent views
-
-## Do Not Use This Atlas For
-
-- treating proximity alone as scientific proof
-- assuming every visible point has the same chronology strength or coordinate
-  precision
-- replacing the report packet when the exact evidence posture matters
-- treating Sweden lake overlays as field-ready coring plans
-
-## Open The Atlas
+## Explore the atlas
 
 <div class="bijux-quicklinks">
+  <a class="md-button md-button--primary" href="../../report/regions/nordic/nordic_map.html">Open the Nordic evidence atlas</a>
   <a class="md-button" href="../../report/">Open the report portal</a>
-  <a class="md-button md-button--primary" href="../../report/regions/nordic/nordic_map.html">Open the Nordic evidence surface</a>
-  <a class="md-button" href="../../report/world/world_map.html">Open the world parent surface</a>
-  <a class="md-button" href="../../report/regions/europe-plus/europe-plus_map.html">Open the Europe-plus surface</a>
-  <a class="md-button" href="./sweden-lake-priorities/">Sweden lake ranking logic</a>
-  <a class="md-button" href="../pollenomics-data/publications/point-rules/">How animal points are built</a>
-  <a class="md-button" href="../pollenomics-data/publications/filters-and-popups/">How filters and popups work</a>
-  <a class="md-button" href="../pollenomics-data/publications/limits/">Current limits and audits</a>
+  <a class="md-button" href="../../report/world/world_map.html">Open the world parent</a>
+  <a class="md-button" href="../../report/regions/europe-plus/europe-plus_map.html">Open Europe-plus</a>
+  <a class="md-button" href="./sweden-lake-priorities/">Inspect Sweden lake priorities</a>
 </div>
 
 <div class="bijux-map-mobile-note">
@@ -70,28 +71,55 @@ lake packet, not the base pollen, archaeology, or animal evidence layers.
   <iframe src="../../report/regions/nordic/nordic_map.html" title="Nordic Evidence Atlas"></iframe>
 </div>
 
-## Direct Evidence Anchors
+## Reading a feature
 
-- [report portal](../../report/index.md)
-- [how to read the report tree](../../report/how-to-read.md)
-- [map surfaces guide](../../report/maps/index.md)
-- [scientific caveats guide](../../report/caveats/index.md)
-- [Nordic surface README](../../report/regions/nordic/README.md)
-- [shipped Nordic atlas map](../../report/regions/nordic/nordic_map.html)
+Begin with its popup and follow the evidence role before interpreting the
+marker:
+
+1. **Identify the layer.** Direct evidence and context layers answer different
+   questions.
+2. **Check the scope.** Nordic inclusion is explicit and may differ from world
+   or Europe-plus eligibility.
+3. **Inspect coordinate basis.** Direct coordinates and named-site resolution
+   remain visibly distinct; region-only animal evidence is not a point.
+4. **Inspect temporal semantics.** Numeric interval, caveated interval,
+   contextual label, and unresolved time support different comparisons.
+5. **Follow the identifiers.** Feature, evidence-row, site, project, sample,
+   and citation fields connect the marker to its narrower source records.
+
+Filtering changes visibility, not eligibility. A hidden feature remains part
+of the scoped product; an excluded record cannot be admitted by changing a
+browser control.
+
+## Sweden lake overlays
+
+The optional lake layers rank SVAR registry lakes by nearby human aDNA, direct
+and nearby pollen, archaeology context, animal context, evidence diversity,
+and basic lake sampling fit. They are off by default because they are derived
+decision-support products layered over the evidence map.
+
+Aggregate, consensus, radius-specific, and fieldwork-preparation overlays answer
+different questions. None includes bathymetry, coring depth, access, permits,
+landowner coordination, or field validation. A high-ranking lake is a candidate
+for further review, not a sampling recommendation.
+
+## Contracts and traceability
+
 - [Nordic map publication contract](../../report/regions/nordic/nordic_map_publication_contract.md)
+  defines the product scope and required layers.
 - [Nordic point traceability](../../report/regions/nordic/nordic_point_traceability.md)
-- [Sweden lake priorities and ranking logic](./sweden-lake-priorities/index.md)
-- [Nordic animal atlas evidence rows](../../report/regions/nordic/nordic_animal_atlas_evidence.json)
-- [Nordic animal point traceability](../../report/regions/nordic/nordic_animal_point_traceability.json)
-- [world parent surface](../../report/world/README.md)
-- [animal point evidence review](../../report/animal_point_evidence_review.md)
-- [atlas readiness audit](../../report/animal_atlas_readiness.md)
-- [animal output honesty](../../report/animal_output_honesty.md)
-- [animal atlas exclusion report](../../report/animal_atlas_exclusion_report.md)
-- [country output coverage](../../report/animal_country_species_coverage.md)
-- [repository truth posture](../../report/repository_truth_posture.md)
+  connects visible features to governing evidence.
+- [Nordic animal evidence rows](../../report/regions/nordic/nordic_animal_atlas_evidence.json)
+  expose the admitted animal subset.
+- [Animal atlas exclusion report](../../report/animal_atlas_exclusion_report.md)
+  records evidence kept outside the point layer.
+- [Point publication rules](../pollenomics-data/publications/point-rules.md)
+  define animal feature admission.
+- [Filters and popups](../pollenomics-data/publications/filters-and-popups.md)
+  define browser behavior and visible provenance.
+- [Current limits](../pollenomics-data/publications/limits.md) distinguish
+  published capability from remaining recovery gaps.
 
-Checked-in atlas candidate artifacts remain under:
-
-- `data/adna/final/atlas/animal_atlas_point_candidates.json`
-- `data/adna/final/atlas/animal_atlas_candidate_accountability.md`
+The checked-in animal candidate and accountability surfaces remain under
+`data/adna/final/atlas/`. Their broader contents do not override the narrower
+Nordic publication contract.
