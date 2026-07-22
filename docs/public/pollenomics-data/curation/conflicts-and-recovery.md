@@ -56,6 +56,35 @@ A sample-owned date can govern that sample while a broader project interval
 remains valid context. The two claims need not be averaged or reduced to one
 unqualified field.
 
+### Classify Disagreement Before Resolving It
+
+Not every unequal value is a contradiction. First identify what differs:
+
+| Disagreement class | Example | Correct treatment |
+| --- | --- | --- |
+| identity conflict | one label maps plausibly to two samples | retain both candidates until a discriminating locator resolves identity |
+| value conflict | two sample-owned coordinates claim different exact places | compare source authority, method, and precision; preserve the losing claim |
+| scope difference | a project interval and a narrower sample interval differ | retain both at their natural scopes; use the sample claim for the sample |
+| method difference | calibrated and uncalibrated BP values appear numeric but use different bases | refuse direct comparison or normalize only under a declared conversion contract |
+| precision difference | region-level locality and exact supplied coordinate describe the same sample | retain both; do not treat the broader statement as contradictory |
+| revision difference | a later source release changes a value | compare releases and lineage; do not overwrite the prior snapshot silently |
+| role difference | one record is direct evidence and another is environmental context | preserve both roles; do not ask majority agreement to select an owner |
+
+```mermaid
+flowchart TD
+    Values["unequal claims"] --> Subject{"same typed subject?"}
+    Subject -->|no| Identity["identity or join problem"]
+    Subject -->|yes| Scope{"same dimension, scope, method, and revision?"}
+    Scope -->|no| Plural["compatible scoped claims"]
+    Scope -->|yes| Conflict["true claim conflict"]
+    Identity --> Recovery["recover discriminating evidence"]
+    Plural --> Preserve["preserve each natural scope"]
+    Conflict --> Authority["resolve by fact ownership and evidence"]
+```
+
+Only the final branch is a value conflict. Resolving scope or identity first
+prevents curation from manufacturing disagreement through an invalid join.
+
 ## Resolve By Authority And Scope
 
 Conflict resolution follows evidence ownership before convenience:

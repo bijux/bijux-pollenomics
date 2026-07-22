@@ -54,6 +54,31 @@ A bare Boolean cannot distinguish an evidence failure from an out-of-scope
 record. That distinction determines whether recovery, a different product, or
 no further action is appropriate.
 
+### Separate Eligibility, Selection, And Materialization
+
+Three gates sit between reviewed evidence and a visible feature:
+
+| Gate | Question | Non-member meaning |
+| --- | --- | --- |
+| evidence eligibility | does this object support the proposed role and claim strength? | qualified, contextual, deferred, or refused under the evidence contract |
+| product selection | does an eligible object belong to this geography, species, scenario, and product scope? | valid evidence outside this product population |
+| publication materialization | does every selected member appear in the manifest and required formats? | integrity defect if selection has no accountable published result |
+
+```mermaid
+flowchart LR
+    Reviewed["reviewed evidence"] --> Eligible{"evidence eligible?"}
+    Eligible -->|no| EvidenceOutcome["qualification, context, deferral, or refusal"]
+    Eligible -->|yes| Selected{"selected for product scope?"}
+    Selected -->|no| Outside["accounted outside-scope member"]
+    Selected -->|yes| Materialized{"manifest and formats agree?"}
+    Materialized -->|yes| Member["published member"]
+    Materialized -->|no| Defect["publication integrity defect"]
+```
+
+This separation prevents an out-of-country sample from being described as
+weak evidence and prevents an eligible-but-missing feature from being hidden
+as a scientific refusal. Recovery belongs to the gate that actually failed.
+
 ## Decision Identity
 
 An admission decision is identified by the candidate, product, product

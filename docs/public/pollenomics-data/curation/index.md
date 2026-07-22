@@ -49,6 +49,29 @@ identity; project sample masters govern samples; per-sample evidence packets
 govern locality and chronology claims; species views combine reviewed records;
 publication manifests govern product membership.
 
+### Anatomy Of A Curated Claim
+
+A curated claim is durable when another reader can reconstruct both the
+reported fact and the decision made about it:
+
+| Field | Purpose |
+| --- | --- |
+| subject | typed governed object the claim concerns |
+| dimension and predicate | identity, taxonomy, locality, chronology, coordinate, role, or another declared assertion |
+| reported value | source wording or source-native value before interpretation |
+| normalized value | typed representation when a defensible transformation exists |
+| scope and precision | object level, geography, time basis, uncertainty, and supported granularity |
+| evidence locator | source identity, artifact, table, row, field, excerpt, or deterministic derivation |
+| fact owner | authority that governs repeated copies of this dimension |
+| posture | accepted, qualified, conflicted, unresolved, deferred, or refused |
+| decision reason | evidence and rule that justify the posture |
+| recovery condition | specific evidence capable of changing an incomplete decision |
+| revision identity | database state in which the claim and decision were evaluated |
+
+The normalized value may legitimately be absent while the reported value and
+locator remain governed. Preserving that distinction is stronger than filling
+a typed field with an assumption that cannot be traced to the source.
+
 ## Curation Is Database Construction
 
 Curation does more than annotate imported rows. It constructs the joins and
