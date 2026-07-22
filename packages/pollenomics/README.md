@@ -247,6 +247,34 @@ Do not mint alias-specific schema names, provenance fields, or output roots to
 record this information. Invocation metadata may name the short surface;
 evidence records and publication members retain canonical runtime meaning.
 
+### Data State Is Not Aliased
+
+The compatibility resolver changes how code is reached. It does not select,
+copy, or certify a governed evidence database. Both command names operate on
+the explicit roots supplied by the caller and produce canonical manifests.
+
+| Identity | Owned by | Required reproducibility record |
+| --- | --- | --- |
+| entry name | `pollenomics` compatibility distribution | alias version and requested command or import |
+| runtime behavior | `bijux-pollenomics` canonical distribution | canonical version and resolved implementation |
+| evidence state | supplied governed data root | repository revision or data release, source versions, and materialized lifecycle stages |
+| publication state | canonical product contract | manifest identity, members, caveats, and focused verification |
+
+Two runs with the same alias and runtime versions can produce legitimately
+different results when their governed data roots differ. Conversely, changing
+from the short command to the canonical command does not change scientific
+meaning when the runtime version, inputs, arguments, and configuration are the
+same.
+
+```mermaid
+flowchart LR
+    Alias["short entry name"] --> Runtime["canonical runtime"]
+    Root["explicit governed data root"] --> Runtime
+    Runtime --> Product["canonical publication identity"]
+    Alias -. "does not own" .-> Root
+    Alias -. "does not rename" .-> Product
+```
+
 ## Single-Runtime Invariant
 
 For a supported installation, these statements are all true:

@@ -178,6 +178,25 @@ Checks establish bounded repository evidence. Their names and results should
 be reported with the governing revision and inputs; “all checks passed” is too
 broad when only one contract was inspected.
 
+### Lifecycle Findings Preserve Missing Stages
+
+A lifecycle check reports which family-stage artifacts are observable. It
+must not convert downstream success into upstream completeness. For example,
+a published SVAR or AADR descendant does not prove that normalized and review
+artifacts are materialized, and a publication for LandClim, RAÄ, or boundaries
+does not prove that a review artifact exists.
+
+| Observed condition | Correct finding | Incorrect repair |
+| --- | --- | --- |
+| publication exists and normalized artifact is absent | report the family-specific lifecycle state | infer normalization from published columns |
+| publication exists and review artifact is absent | retain the missing review stage as an explicit limit | create an empty passing review file |
+| evidence count differs across curated populations | name each population and observation unit | force the counts to agree |
+| generator and governed input disagree | route the mismatch to the owning producer | weaken the assertion or hand-edit output |
+
+The check protects the distinction between missing evidence, a failing
+contract, and a valid family-specific topology. Only the scientific owner can
+decide whether a new stage should exist and what evidence it must retain.
+
 ## Generated State Rule
 
 When a finding concerns a generated report, checksum, badge block, or frozen

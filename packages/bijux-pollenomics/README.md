@@ -169,6 +169,31 @@ caller is responsible for retaining the input identity and complete resulting
 bundle; the runtime is responsible for applying its declared contracts and
 failing visibly when required authority is missing.
 
+### Preserve Lifecycle Evidence Per Source Family
+
+An integration must not infer intermediate evidence from a final publication.
+The repository reference state deliberately exposes family-specific lifecycle
+materialization:
+
+| Materialized pattern | Current families | Integration consequence |
+| --- | --- | --- |
+| capture, normalization, review, publication | Neotoma, SEAD, animal ancient DNA | retain and verify all four stage authorities |
+| capture, normalization, publication | LandClim, RAÄ, boundaries | do not claim a review artifact exists |
+| capture and publication | SVAR, AADR | do not manufacture normalized or review provenance from the published descendant |
+
+These patterns describe checked-in stage evidence, not source quality. A
+caller using another data root records the stages actually present there. If a
+claim requires an absent stage, the safe result is a qualification or refusal,
+not a reconstructed history based only on the output schema.
+
+```mermaid
+flowchart LR
+    Runtime["installed runtime"] --> Operation["operation over explicit data root"]
+    Data["family-specific lifecycle evidence"] --> Operation
+    Operation --> Result["manifested result"]
+    Result -. "does not synthesize" .-> Missing["absent preparation stage"]
+```
+
 ## Runtime architecture
 
 ```mermaid
