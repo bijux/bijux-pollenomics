@@ -87,6 +87,8 @@ then regenerate or revise its consumers.
 | Fact | Authority | Derived consumers |
 | --- | --- | --- |
 | acquired source identity and payload | source-family collection record under `data/` | collection summary, normalized records, reports, and prose |
+| source-family lifecycle requirement | `data/source_family_contracts.json`, generated from the runtime contract | evidence-stage matrix, readiness language, and recovery routing |
+| source-family lifecycle status | exact materialized artifacts evaluated from the family contract | entry-point disclosures and rebuildability decisions |
 | fact ownership, conflict posture, or recovery condition | governed curation record and claim-specific decision | readiness reviews, exclusions, atlas candidates, and public explanation |
 | scientific normalization or exclusion | runtime contract plus governed evidence record | atlas members, tables, warnings, and documentation |
 | publication membership | product manifest and admission decision | map layers, counts, report indexes, and reader narratives |
@@ -124,6 +126,32 @@ A repository finding that exposes an unsupported claim does not itself decide
 the scientific posture. It routes the discrepancy to the evidence or product
 owner, then verifies that the corrected descendants agree.
 
+### When Documentation Exposes A State Defect
+
+A documentation review can begin as a prose-only operation and discover that
+the governing state contradicts the claim. At that point, reclassify the work:
+
+```mermaid
+flowchart LR
+    Claim["reader claim under review"] --> Evidence{"governing state agrees?"}
+    Evidence -->|yes| Prose["bounded documentation correction"]
+    Evidence -->|no| Owner["correct contract, evidence, or producer owner"]
+    Owner --> Governed["regenerate governed descendants"]
+    Governed --> Docs["revise reader disclosure and interpretation"]
+    Docs --> Proof["domain proof + documentation proof"]
+```
+
+Do not preserve a false machine-readable state merely to keep the change
+documentation-only. Conversely, do not rewrite governed evidence from prose.
+Correct the owning implementation or record, regenerate only its declared
+descendants, then make the reader-facing claim match the corrected state.
+
+The commit boundary follows causal coherence. A contract correction, its
+generated status surface, focused regression proof, and the documentation
+that explains the corrected semantics may belong together when separating
+them would leave a false intermediate state. Independent explanatory work
+belongs in later documentation commits.
+
 ## Reconcile Conflicting Surfaces
 
 When two checked-in surfaces disagree, classify the disagreement before
@@ -133,6 +161,7 @@ editing either one:
 | --- | --- | --- |
 | owner and derived copy differ | stale descendant or incomplete regeneration | correct the producer path and regenerate the declared consumer |
 | contract requires an artifact that is absent | governed-state integrity defect | preserve downstream evidence, disclose the gap, and recover through the owning producer |
+| lifecycle stage is present only because its directory or status matrix exists | stage-evaluation defect or circular contract | require the exact named artifact and remove self-certifying review evidence |
 | two source claims disagree | scientific evidence conflict | retain both locators and apply the declared precedence or refusal rule |
 | report count and source count differ | possible unit, scope, or admission difference | compare identities and denominators before treating it as drift |
 | local validation differs from checked-in state | environment, revision, or generated-state difference | record inputs and revision; do not overwrite governed state until cause is known |

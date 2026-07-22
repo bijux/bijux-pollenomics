@@ -46,6 +46,26 @@ Generated does not mean disposable. Files under `docs/report/` are checked-in
 publication state and require semantic review. Files under `artifacts/` are
 local run products and must not be cited as the repository’s durable evidence.
 
+### Lifecycle Status Contract
+
+The source-family contract declares the exact artifacts that substantiate raw,
+normalized, reviewed, and published stages. The evidence-stage matrix is a
+derived evaluation of those requirements.
+
+| Rule | Failure it prevents |
+| --- | --- |
+| evaluate `example_artifacts`, not only `repository_path` | a summary or unrelated sibling file making a broad directory look complete |
+| require non-hidden, non-empty governed content | `.gitkeep` and empty placeholders passing as evidence |
+| require every named artifact in a multi-artifact stage | partial normalization or review reported as complete |
+| keep review evidence independent of the stage matrix | the matrix certifying the review status it is computing |
+| resolve paths from an explicit repository data root | results changing with the caller's working directory |
+| preserve missing stages in generated output | downstream publication existence hiding an upstream blocker |
+
+For a new family or stage, test both the positive materialized case and the
+negative case in which only a directory, summary, or status output exists.
+Generation from a clean destination and generation over an existing matrix
+must produce the same lifecycle decision.
+
 ## Execute A Bounded Change
 
 1. Identify the authoritative input and every declared output root.
@@ -120,6 +140,11 @@ is complete or that every generated report is current. Add a domain check only
 when the prose depends on that contract; record broad lanes as not run rather
 than implying that focused proof covered them.
 
+If claim verification exposes a false governed status, stop treating the work
+as documentation-only. Correct and test the owner, regenerate its declared
+status surfaces, then revise the public explanation. The resulting change
+requires both the domain proof and the documentation proof.
+
 ## Recover A Missing Governed Artifact
 
 Treat a contract-declared required artifact that is absent as an integrity
@@ -159,6 +184,11 @@ flowchart LR
 Path existence alone does not close the incident. Closure requires recovered
 identity, source lineage, semantic validity, and agreement with every contract
 that declared or consumed the artifact.
+
+Do not remove an integrity disclosure merely because the evidence-stage matrix
+changed to `present`. Inspect the named artifact, compare its members and
+semantics with the retained consumers, rerun the owning domain contract, and
+confirm that the status does not depend on a pre-existing generated matrix.
 
 ## Choose The Command Surface
 
