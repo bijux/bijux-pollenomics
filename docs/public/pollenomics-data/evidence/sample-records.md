@@ -58,6 +58,24 @@ The preferred label is for display; the repository-stable identifier is the
 join key. This prevents punctuation changes, spreadsheet formatting, or a
 later preferred-label correction from breaking evidence links.
 
+### Evidence That Can Establish Identity
+
+Identity evidence is evaluated inside a project and source lineage:
+
+| Evidence | Identity use |
+| --- | --- |
+| archive-native accession linked to a captured project | strong anchor for the deposited analytical object |
+| paper or supplementary label tied to an exact table row | source-backed alias or specimen label |
+| explicit table relation between archive and paper labels | evidence that two labels belong to one sample |
+| documented one-to-many or many-to-one relation | basis for retaining several analytical IDs or reconciling duplicate source rows |
+| preferred display label | presentation only; never the governing join key |
+
+Place, chronology, species expectation, and coordinate proximity may reveal a
+possible mismatch, but they cannot prove identity by themselves. Using those
+claims to choose an identity and then citing the chosen identity as support
+for those same claims would be circular. Unresolved candidates remain in the
+ambiguity ledger until label or accession lineage distinguishes them.
+
 ## Relational Contract
 
 The sample identifier is the hub of the evidence model, not a container that

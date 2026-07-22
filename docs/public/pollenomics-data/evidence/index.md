@@ -86,6 +86,25 @@ being ineligible for an exact point or time-aware comparison.
 | Coordinates | What created the point and with what confidence? | map marker outranks place evidence |
 | Fitness | Is the combined record eligible for the declared publication? | presentation silently strengthens evidence |
 
+## Minimum Evidence Depends On The Claim
+
+There is no universal “complete record.” Completeness is evaluated against the
+claim being made:
+
+| Proposed use | Minimum governing evidence | A valid record can still be ineligible when… |
+| --- | --- | --- |
+| source inventory | stable source-native identity and capture lineage | the source row cannot be distinguished or recovered |
+| sample inventory | resolved sample identity and project lineage | only a project accession or unlinked paper label is known |
+| named-site summary | sample-to-site evidence and locality class | place exists only at project or regional scope |
+| exact point map | sample-owned locality plus source-backed or verified site coordinates | a coordinate is inferred, substituted, or broader than the locality claim |
+| numeric temporal comparison | comparable numeric interval, dating basis, precision posture, and overlap rule | time is textual, contextual, unresolved, or measured under an incompatible contract |
+| cross-domain association | eligible records from both domains plus explicit spatial and temporal bridges | proximity is available but chronology or evidence role is not comparable |
+
+The required dimensions are conjunctive. Exact coordinates do not compensate
+for unresolved sample identity; a direct date does not compensate for a
+project-only locality; strong evidence in one domain does not upgrade a
+contextual source in another.
+
 ## Claim Envelope
 
 A reusable claim must retain enough context to survive outside the page where

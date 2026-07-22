@@ -39,6 +39,33 @@ A named excavation site can be directly linked yet still lack point-quality
 coordinates. Conversely, a coordinate resolved from project context does not
 become sample-owned merely because it is numeric.
 
+## Four Spatial Operations Stay Separate
+
+Place processing contains four decisions that are often collapsed into
+“geocoding”:
+
+```mermaid
+flowchart LR
+    Reported["reported place text"] --> Normalize["lexical normalization"]
+    Normalize --> Resolve["feature or site resolution"]
+    Resolve --> Locate["coordinate placement"]
+    Locate --> Represent["point, region, or withheld geometry"]
+```
+
+| Operation | Allowed change | Evidence it cannot create |
+| --- | --- | --- |
+| preserve reported text | retain spelling, language, punctuation, and source locator | standardized site identity |
+| lexical normalization | make variants searchable and comparable | proof that two names refer to one place |
+| feature resolution | link text to a named site or administrative feature with a documented method | sample ownership of that place |
+| coordinate placement | attach supplied, verified, or explicitly approximate geometry | finer locality resolution than the source supports |
+| publication representation | choose point, aggregate, region, or no geometry | stronger coordinate or locality evidence |
+
+This separation protects homonyms and repeated site names. Two records can
+share normalized text without sharing an identity, and one archaeological site
+can legitimately have several coordinate candidates. The stable locality
+token, sample link, political context, source locator, and resolution method
+decide whether those records may be joined.
+
 ## Resolution Classes
 
 | Resolution | Meaning | Safe public use |
