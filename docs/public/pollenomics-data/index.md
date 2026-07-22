@@ -71,6 +71,22 @@ material, ambiguous identity, conflicting chronology, and region-only locality
 remain queryable outcomes rather than being converted into apparently complete
 rows.
 
+## Curation Decisions Remain Queryable
+
+| Decision class | Preserved distinction | Why publication depends on it |
+| --- | --- | --- |
+| source admission | discovered, captured, recoverable, and licensed are separate states | a known source is not automatically usable evidence |
+| identity resolution | source label, stable sample identity, project membership, and species view remain linked | grouping must not erase the physical or analytical sample |
+| locality resolution | reported text, site assignment, geographic hierarchy, and substitution posture remain separate | a regional description cannot become an exact sample point |
+| chronology resolution | reported wording, numeric interpretation, dating basis, and precision remain separate | contextual or broad time cannot become a precise sample interval |
+| coordinate resolution | supplied, resolved, approximate, substituted, and unresolved coordinates remain distinguishable | marker precision must not outrank locality evidence |
+| publication admission | eligible, qualified, excluded, and deferred outcomes remain recorded | the visible subset must be explainable against the curated population |
+
+These decisions are durable database content. They can be counted, compared,
+reviewed, and revised when stronger source evidence is recovered. The system
+therefore represents both what can be published and why the larger collected
+population does not all publish.
+
 ## Read The System In Either Direction
 
 ```mermaid

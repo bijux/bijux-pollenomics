@@ -42,6 +42,30 @@ The current bindings are recorded in `data/collection_summary.json`. A hash
 identifies bytes; it does not certify scientific completeness, temporal
 comparability, or publication fitness.
 
+## Source Admission
+
+```mermaid
+flowchart LR
+    Candidate["candidate source"] --> Identity{"stable identity and owner?"}
+    Identity -->|no| Defer["defer with reason"]
+    Identity -->|yes| Access{"recoverable and permitted?"}
+    Access -->|no| Defer
+    Access -->|yes| Semantics{"observation unit and role understood?"}
+    Semantics -->|no| Review["retain for source review"]
+    Semantics -->|yes| Contract["admit source-family contract"]
+    Contract --> Capture["versioned capture and normalization"]
+```
+
+Admission requires more than topical relevance. The system needs a stable
+source identity, an acquisition route, a reuse posture, a defined observation
+unit, a geographic and temporal interpretation, and an explicit role in the
+publication model. A source that fails one requirement may remain documented
+for recovery without being presented as a collected evidence family.
+
+Refresh does not repeat admission blindly. A new release can change schema,
+licence terms, endpoints, coverage, or semantics; those changes require review
+even when the source name remains stable.
+
 ## Direct Evidence, Context, And Framing
 
 ```mermaid

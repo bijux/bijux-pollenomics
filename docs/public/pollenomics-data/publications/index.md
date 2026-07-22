@@ -57,6 +57,31 @@ flowchart LR
 
 The map is one consumer of the bundle, not the bundle's authority.
 
+## Bundle Authority Order
+
+When publication artifacts disagree, resolve the claim through the narrowest
+governing surface:
+
+1. the bundle manifest governs product identity, version, scope, and members;
+2. the publication contract governs required layers, fields, and admission
+   behavior;
+3. point traceability and evidence tables govern visible record identity;
+4. scientific review and warning surfaces govern material qualifications;
+5. maps and narrative reports render and interpret that governed state.
+
+```mermaid
+flowchart TD
+    Manifest["manifest and product scope"] --> Contract["publication contract"]
+    Contract --> Rows["evidence and traceability rows"]
+    Rows --> Review["scientific review and warnings"]
+    Review --> Map["interactive map"]
+    Review --> Narrative["reader narrative"]
+```
+
+A map label or narrative sentence cannot override a manifest member, evidence
+identifier, precision posture, or material warning. If the rendered surface
+disagrees, the rendering is stale or defective and must be corrected.
+
 ## Publication Gates
 
 Animal publication checks currently enforce that:

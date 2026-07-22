@@ -63,6 +63,26 @@ date attached to a project does not automatically belong to every sample.
 | Coordinates | What created the point and with what confidence? | map marker outranks place evidence |
 | Fitness | Is the combined record eligible for the declared publication? | presentation silently strengthens evidence |
 
+## Evidence Joins Are Claims
+
+Joining records is not a neutral formatting operation. Each relationship needs
+an identity rule and provenance because a wrong join can create a plausible but
+unsupported public point.
+
+| Relationship | Required support | Unsafe shortcut |
+| --- | --- | --- |
+| project to paper | registry linkage or source-backed publication association | matching by title fragment alone |
+| paper to supplement | captured artifact identity and supporting-material manifest | assuming every attachment contains sample rows |
+| project to sample | recoverable source label and stable repository identity | treating a project accession as one sample |
+| sample to site | sample-owned row, defined group, or explicitly broader locality class | assigning all project samples to the project title's place |
+| sample to chronology | sample-owned claim or visibly contextual fallback | copying the project age range to every sample |
+| locality to coordinate | declared coordinate source, method, and precision | geocoding a broad region as an exact site |
+| evidence row to product | stable identifier and successful product admission | plotting every normalized row |
+
+Conflict and substitution ledgers preserve cases where more than one join is
+possible or where a broader relationship is used provisionally. That record is
+part of the evidence, not an implementation detail.
+
 ## Evidence Outcomes
 
 - **direct** evidence resolves to a sample-owned source location such as a

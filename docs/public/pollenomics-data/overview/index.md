@@ -29,6 +29,21 @@ The lifecycle is represented in machine-readable contracts and checked-in
 artifacts. It supports forward questions—what can be published from this
 source?—and reverse questions—what evidence supports this visible result?
 
+## Boundary Outputs
+
+| Boundary | Input question | Durable output |
+| --- | --- | --- |
+| selection | Is the source relevant, identifiable, accessible, and licensable for its intended role? | source identity and selection rationale |
+| capture | Which exact material was acquired, from where, and when? | raw artifact, retrieval metadata, and content identity |
+| normalization | Which stable repository fields preserve the source record? | normalized record plus transformation and null semantics |
+| review | What can this record support at its actual precision? | coverage, conflict, fitness, and recovery surfaces |
+| publication | Which reviewed records belong to this product and geography? | manifest, layers, tables, contract, and caveats |
+| audit | Can a visible or missing member be explained? | traceability, subset validation, exclusions, and refusal |
+
+A successful boundary does not imply success at the next boundary. Capture can
+complete while extraction remains incomplete; normalization can complete while
+locality remains unresolved; review can complete with a defensible refusal.
+
 ## System References
 
 | Question | Reference |
