@@ -46,6 +46,30 @@ flowchart TB
 The exact command depends on the changed owner. Validation should expand with
 risk, not with habit.
 
+## The Weakest-Link Rule
+
+A public claim inherits the narrowest valid posture along its evidence chain.
+High-quality processing cannot compensate for a missing scientific fact:
+
+```mermaid
+flowchart LR
+    Capture["captured source"] --> Meaning["interpreted meaning"]
+    Meaning --> Relation["typed relationship"]
+    Relation --> Admission["product admission"]
+    Admission --> Display["visible output"]
+    Gap{"material gap?"}
+    Capture --> Gap
+    Meaning --> Gap
+    Relation --> Gap
+    Gap -->|yes| Narrow["qualify, exclude, or refuse"]
+    Gap -->|no| Claim["publish bounded claim"]
+```
+
+For example, exact map rendering does not make a region-level locality exact,
+and a resolved archive project does not make an unresolved sample date
+sample-specific. The downstream representation must preserve the upstream
+limit or become more conservative.
+
 ## Claim Posture
 
 A visible output may be:
@@ -75,6 +99,10 @@ from presentation alone:
    be read more precisely than its provenance permits.
 5. **Where are non-members explained?** Scope exclusions, unresolved evidence,
    source gaps, and scientific refusals should remain visible.
+
+The order matters. Starting from a compelling map and reasoning backward can
+mistake symbol precision for evidence precision. Start with the observation
+unit and eligible population, then inspect role, time, place, and exclusions.
 
 For example, the Nordic bundle contains 2,172 mapped SEAD sites while its
 reviewed inventory contains 2,195 rows. The difference is accounted for by 23

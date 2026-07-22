@@ -56,6 +56,24 @@ completeness.
 The decisive question is therefore not simply whether verification passed. It
 is whether the proof that passed governs the claim being made.
 
+## Match Proof To Failure Mode
+
+Different checks catch different classes of error. A credible review names the
+failure mode and selects evidence capable of detecting it:
+
+| Possible failure | Decisive proof | Insufficient proof by itself |
+| --- | --- | --- |
+| wrong upstream release | source identity, retrieval metadata, and governed hashes | unchanged published count |
+| record meaning changed during normalization | field-level semantic comparison and focused normalization behavior | schema validity |
+| evidence attached to the wrong sample or site | stable identifiers and relation resolution across the chain | valid individual records |
+| eligible member missing from a product | admission inventory, exclusion ledger, and manifest membership comparison | successful rendering |
+| product scope changed | declared geography and product contract diff | unchanged file names |
+| caveat disappeared from presentation | structured warning plus rendered-output review | structured artifact validity |
+
+This is why a broad green test run is not a complete evidence statement. Its
+value depends on whether the relevant assertion was present and whether the
+reviewed artifact is the one the assertion governed.
+
 ## Worked Verification Paths
 
 ### A mapped SEAD site
@@ -111,6 +129,11 @@ preferable to manufacturing certainty or silently weakening a contract.
 An exclusion report is consequently part of the evidence, not a secondary
 debug artifact. It identifies the boundary between what a publication can
 support and what remains outside its declared claim.
+
+Absence also needs a type. “Not captured,” “captured but unresolved,” “resolved
+but ineligible,” and “eligible but outside this product scope” describe
+different populations and different recovery actions. Collapsing all four
+into a missing row destroys the information needed to audit completeness.
 
 ## Review Surfaces
 

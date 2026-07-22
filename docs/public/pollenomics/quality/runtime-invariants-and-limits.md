@@ -64,6 +64,21 @@ coherent. They cannot show that an unavailable supplement was fully recovered,
 that historical sampling was representative, or that two evidence families
 measure the same phenomenon.
 
+## What The Runtime Does Not Guarantee
+
+| Non-guarantee | Consequence for interpretation |
+| --- | --- |
+| exhaustive discovery | tracked projects and sources are not a census of all relevant evidence |
+| source representativeness | source density cannot be read as historical abundance or sampling equality |
+| automatic conflict resolution | conflicting facts require an owned decision or remain visibly unresolved |
+| cross-family equivalence | samples, sites, sequences, density cells, and observations retain distinct meanings |
+| inferred precision | a precise coordinate or date is not manufactured from broader project or regional context |
+| analytical universality | a ranking is valid only for its declared inputs, scenario, and sensitivity posture |
+
+These are deliberate limits, not missing convenience features. Automating them
+without stronger evidence would turn an unknown or contextual fact into an
+apparently authoritative result.
+
 ## Current Scientific Limits
 
 - Animal ancient-DNA recovery remains uneven across projects, supplements,
@@ -105,6 +120,12 @@ The strongest defensible statement is bounded by the weakest link in the
 chain. A fully validated bundle containing a region-level locality still
 supports only region-level spatial interpretation; perfect rendering cannot
 upgrade that precision.
+
+Conversely, a refusal does not imply that the underlying record is false. It
+means the record does not currently satisfy the evidence and product contract
+for the proposed claim. Recovery should strengthen or relink the governing
+evidence, then rerun review and admission; it should not weaken the contract or
+fill the gap with a default.
 
 See [operational boundaries](../operations/operational-boundaries.md),
 [publication types](../../pollenomics-data/publications/publication-types.md),
