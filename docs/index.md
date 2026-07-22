@@ -83,6 +83,22 @@ sample-level support before an exact point or chronology can be asserted.
 No single map popup answers all five questions. Consequential interpretation
 continues from publication to evidence and then to the governing source.
 
+## Collection At A Glance
+
+| Evidence family | Checked-in posture | Reader-safe interpretation |
+| --- | --- | --- |
+| LandClim | 492 site sequences; 482 carry numeric BP intervals | time-aware pollen context at the sequence level |
+| Neotoma | 200 sites; 175 carry numeric site spans | pollen context with explicit temporal caveats |
+| SEAD | 2,172 normalized sites; no numeric intervals in the current capture | archaeology context, not same-period support |
+| RAÄ | density source covering 761,917 published Swedish sites | Sweden-specific spatial archaeology context |
+| SVAR | 40,565 candidate lakes | hydrographic identity and selection units, not scientific evidence weight |
+| animal aDNA | 868 recovered sample rows across 40 projects | curated sample evidence with uneven project completeness |
+| animal atlas points | 234 reviewed rows | a conservative publication subset, not the size of the source collection |
+
+The collection is intentionally larger than any one publication. Governed
+records may remain contextual, unresolved, excluded, or queued for recovery
+when their evidence cannot support the requested public representation.
+
 ## Evidence Surfaces
 
 | Surface | What it preserves | Where to begin |
@@ -92,6 +108,20 @@ continues from publication to evidence and then to the governing source.
 | Publications | derived world, regional, country, and lake views | [Publications](public/pollenomics-data/publications/index.md) |
 | Atlas interpretation | layer meaning, point posture, filters, and visible limits | [Nordic atlas](public/nordic-atlas/index.md) |
 | Field observations | a dated, situated record from Lyngsjön Lake | [Fieldwork](public/fieldwork/index.md) |
+
+```mermaid
+flowchart TD
+    Reader["reader question"] --> Published{"visible in a publication?"}
+    Published -->|yes| Trace["trace feature and bundle membership"]
+    Published -->|no| Absence["inspect exclusion, scope, and recovery"]
+    Trace --> Evidence["inspect governing evidence"]
+    Absence --> Evidence
+    Evidence --> Source["inspect captured source and locator"]
+```
+
+This route treats visibility and absence as claims that both require evidence.
+It also prevents a generated report from becoming the authority for a fact
+that belongs to a project record, source-family dataset, or source artifact.
 
 ## Evidence Maturity
 

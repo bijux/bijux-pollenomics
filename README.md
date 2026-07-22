@@ -103,19 +103,50 @@ same staged assets to the GitHub Release.
 
 ## What You Can Do Today
 
-- inspect the world map and report portal to see the broadest public surface
-- trace published points through manifests, evidence tables, review ledgers,
-  and source-family contracts
-- inspect how sample identity, locality, chronology, coordinate precision, and
-  source recovery are curated before animal aDNA reaches publication
-- compare admitted records with exclusion, ambiguity, and recovery ledgers so
-  absence from a map is not mistaken for absence from the source record
-- rebuild the checked-in `data/` and `docs/report/` state from repository
-  commands when you need a fresh local copy
-- inspect the Sweden lake ranking packet, fieldwork shortlist, and optional
-  Nordic atlas lake overlays
-- verify the repository locally without rewriting tracked outputs when your
-  goal is review rather than regeneration
+- **Explore** the world, Europe-plus, Nordic, and country publication family
+  without treating its maps as the underlying database.
+- **Trace** an admitted animal point from its feature identifier through sample,
+  locality, chronology, coordinate, paper, and source-artifact evidence.
+- **Audit absence** through exclusion, ambiguity, recovery, and release surfaces
+  instead of assuming that an omitted record does not exist upstream.
+- **Compare context** from pollen, archaeology, hydrography, boundaries, human
+  aDNA metadata, and animal aDNA while preserving each family's scientific role.
+- **Review decisions** behind Sweden lake priorities and the fieldwork shortlist,
+  including sensitivity and evidence limitations.
+- **Rebuild or verify** the governed data and publication state through explicit
+  commands with different write contracts.
+
+## Checked-In Evidence Snapshot
+
+The current repository state is substantial but deliberately uneven:
+
+| Governed surface | Current checked-in scale | What the number means |
+| --- | ---: | --- |
+| source families | 7 | AADR, boundaries, LandClim, Neotoma, RAÄ, SEAD, and SVAR are separately captured and governed |
+| LandClim | 492 site sequences and 88 grid cells | primary pollen and vegetation context |
+| Neotoma | 200 sites | independent pollen context with uneven chronology support |
+| SEAD | 2,172 normalized sites | archaeology context without numeric intervals in the current capture |
+| RAÄ | 761,917 published sites | Sweden-specific heritage density context |
+| SVAR | 40,565 lakes | candidate-lake identity and hydrographic framing |
+| animal aDNA curation | 868 recovered samples across 40 projects | recovered identity rows, not proof of complete project recovery |
+| animal publication | 234 reviewed point-evidence rows | the admitted spatial subset; 233 use supplementary coordinates and one uses qualified named-site geocoding |
+
+Counts from unlike surfaces are not additive. A pollen sequence, archaeology
+site, lake registry row, animal sample, and publication point answer different
+questions and retain different admission rules.
+
+```mermaid
+flowchart LR
+    Inventory["source inventories"] --> Curated["governed evidence state"]
+    Curated --> Qualified{"claim-specific review"}
+    Qualified -->|supported| Public["admitted publication subset"]
+    Qualified -->|incomplete| Queue["recovery or ambiguity surface"]
+    Qualified -->|unsupported| Refusal["explicit refusal"]
+```
+
+The difference between 868 recovered animal samples and 234 published point
+rows is not unexplained loss. It is the visible effect of evidence ownership,
+spatial resolution, temporal posture, source recovery, and product admission.
 
 ## Choose A Starting Point
 
@@ -147,6 +178,10 @@ Today, the checked-in repository produces these durable outcomes:
 - maintainer-facing review surfaces that keep final-release claims blocked
   while animal recovery and SEAD comparability remain materially weaker than
   the rest of the product
+
+The durable product is therefore a **database, decision record, and
+publication system together**. Removing the review and refusal surfaces would
+make the maps easier to browse but materially less trustworthy.
 
 ## Which Package To Install
 
