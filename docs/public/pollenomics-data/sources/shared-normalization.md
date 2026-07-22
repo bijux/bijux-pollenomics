@@ -31,6 +31,22 @@ Family-owned fields remain beside this envelope. A pollen sequence retains
 sequence meaning, a registry site retains registry semantics, and a sample
 retains sample-level lineage.
 
+### Native Record, Normalized Member, And Product Feature
+
+The three representations have different ownership and must remain
+distinguishable even when all are serialized as JSON:
+
+| Representation | Owner | Stable responsibility |
+| --- | --- | --- |
+| captured native record | upstream family and capture manifest | preserve what was obtained, from where, under which release and use posture |
+| normalized member | family contract | assign typed identity and expose place, time, role, lineage, and family-owned semantics |
+| product feature | named publication contract | select an eligible member, carry qualifications, and express only the fields needed for that product |
+
+Publication is therefore projection plus admission, not another normalization
+pass. A product feature points back to its normalized member; the normalized
+member points back to captured evidence. Product-specific labels or geometry
+must not overwrite either earlier representation.
+
 ## Identity Before Shape
 
 The normalized database may render several families as rows or GeoJSON
@@ -171,6 +187,25 @@ flowchart TB
   different roles;
 - missing and unresolved values are not converted to empty certainty;
 - normalization status is not publication status.
+
+## Normalization Refusal
+
+Not every source value has a defensible normalized result. The transformation
+can preserve the native value and refuse a stronger representation:
+
+| Condition | Retained state | Forbidden shortcut |
+| --- | --- | --- |
+| ambiguous identifier | native identifier plus collision candidates | choosing the first matching label |
+| locality without defensible geometry | reported locality and its precision class | assigning a convenient centroid as an exact point |
+| textual period without supported conversion | source text and contextual-time posture | inventing numeric endpoints |
+| mixed or unknown units | source value, unit evidence, and unresolved status | assuming the dominant unit |
+| conflicting source claims | all attributed claims and a conflict relation | silently selecting one value |
+| absent or restricted payload | acquisition outcome and recovery state | treating an empty normalized file as evidence of absence |
+
+Refusal is a successful data-preparation outcome when it preserves the source
+statement and prevents false precision. A later curation decision may resolve
+the field, but it must add evidence and lineage rather than mutate the earlier
+capture into apparent certainty.
 
 ## Nulls, Collisions, And Deduplication
 

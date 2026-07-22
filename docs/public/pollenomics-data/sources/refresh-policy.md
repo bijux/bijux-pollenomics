@@ -35,6 +35,34 @@ This model protects the previous tracked source tree from partial acquisition.
 It does not make a successful refresh automatically publishable; the new state
 must still pass scientific and publication review.
 
+### Owned-Tree Promotion
+
+The replacement sequence has an explicit rollback point:
+
+```mermaid
+sequenceDiagram
+    participant C as Collector
+    participant S as Staging sibling
+    participant G as Governed tree
+    participant R as Recovery sibling
+    C->>S: build complete candidate
+    C->>S: validate candidate contracts
+    C->>R: move prior governed tree
+    C->>G: promote candidate
+    alt promotion succeeds
+        C->>R: remove recovery sibling
+    else promotion fails
+        C->>G: remove incomplete destination if present
+        C->>G: restore prior tree from recovery sibling
+    end
+```
+
+The staging and recovery siblings are repository-owned operational surfaces;
+they are not additional scientific versions. The accepted tree and repository
+history carry the durable evidence state. This guarantee applies to one owned
+source or report tree at a time, not to a coordinated refresh of every family
+and publication.
+
 ## Refresh Evidence
 
 `data/collection_summary.json` records, per family:
@@ -146,6 +174,18 @@ state:
 
 This record makes acceptance reviewable after the live service and local logs
 are gone. Successful execution alone is not an acceptance record.
+
+### Acceptance And Publication Are Separate Decisions
+
+Tree promotion accepts a coherent captured-and-normalized family state.
+Scientific review then decides which existing interpretations remain valid,
+and publication review decides which named products may adopt the result. A
+failure in either downstream review does not make the accepted capture vanish;
+it produces an explicit qualified, deferred, or refused propagation decision.
+
+This separation prevents two opposite errors: withholding a valid source
+capture because one product cannot yet use it, and publishing a structurally
+valid refresh before changed meaning has been reviewed.
 
 ## Reproducibility Boundary
 

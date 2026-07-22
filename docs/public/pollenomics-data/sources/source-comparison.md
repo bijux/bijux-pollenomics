@@ -92,6 +92,32 @@ refused as same-period evidence when numeric intervals are absent. Boundaries
 can be aligned for geographic containment while remaining incapable of
 supporting biological association.
 
+### Population Before Result
+
+A comparison declares its population before it calculates matches. This keeps
+coverage and missingness from disappearing behind a result count.
+
+```mermaid
+flowchart LR
+    Scope["governed source population"] --> Eligible["eligible for declared bridge"]
+    Eligible --> Tested["members actually evaluated"]
+    Tested --> Matched["members satisfying the rule"]
+    Scope --> Excluded["excluded with reason"]
+    Eligible --> Deferred["not testable with current evidence"]
+```
+
+| Denominator | Meaning |
+| --- | --- |
+| governed population | all members in the named source release and scope |
+| eligible population | members whose observation unit, role, place, and time posture permit the proposed bridge |
+| tested population | eligible members for which the operation completed |
+| matched population | tested members satisfying the declared rule |
+| excluded or deferred population | members outside policy or lacking the evidence needed for evaluation |
+
+Percentages name their denominator. “Five nearby sites” is incomplete when
+the reader cannot tell whether five of six eligible members or five of six
+hundred captured members were tested.
+
 ## Comparison Packet
 
 A reusable comparison preserves the inputs and bridge that produced its
@@ -161,6 +187,19 @@ Reuse must also preserve negative evidence. Exclusions, unresolved identities,
 missing intervals, and jurisdictional limits cannot be dropped merely because
 the destination schema has no field for them. A schema that cannot retain the
 qualification cannot inherit the original claim strength.
+
+### Comparison Changes Are Evidence Changes
+
+A changed verdict can originate in four places: a source member changed, a
+normalization rule changed, the bridge or its parameters changed, or the
+product population changed. A reusable result identifies which cause applies.
+Recomputing a distance or overlap under new code without retaining the prior
+rule identity makes source change and method change indistinguishable.
+
+When a verdict strengthens—from refused to contextual, contextual to partially
+aligned, or partially aligned to aligned—the packet names the newly recovered
+evidence. When it weakens, the earlier result remains traceable and affected
+products are reassessed. Neither direction is reduced to a changed count.
 
 The [source-family matrix](source-family-matrix.md) records the repository-wide
 roles, while [shared normalization](shared-normalization.md) explains how
