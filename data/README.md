@@ -192,6 +192,30 @@ An audit closes only when the governing evidence and the decision connecting
 it to the product are both recoverable. Finding the same value in several
 files is not equivalent to finding its authority.
 
+### Worked Accountability Join
+
+`adna/final/atlas/animal_atlas_candidate_accountability.json` is an anti-gap
+surface over the animal point population. Each row joins a final candidate to
+the evidence dimensions required to account for it: sample rows, sample
+lineage, site evidence, chronology evidence, coordinate provenance, and
+locality agreement.
+
+For the current dromedary-camel candidate, `sample_rows_present` is true while
+`sample_lineage_present` is false. Site, chronology, and coordinate evidence
+are present, so the row is neither “missing” nor “complete.” The defensible
+state is a known candidate with a failed lineage dimension.
+
+| Surface | What it contributes | What it cannot decide alone |
+| --- | --- | --- |
+| final atlas candidate | stable proposed product identity | whether all evidence dimensions resolve |
+| accountability row | dimension-by-dimension presence and locators | whether missing evidence can be inferred |
+| project or paper evidence | recovered source material and relations | final product membership |
+| world bundle | manifested public population | upstream completeness |
+
+This join demonstrates why database preparation preserves booleans, locators,
+and failed dimensions rather than reducing accountability to the presence of a
+rendered point.
+
 ## Refresh Safety
 
 Source collection uses staging-and-swap replacement. A successful refresh

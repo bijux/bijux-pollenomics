@@ -169,6 +169,40 @@ The [data repository guide](data/README.md) maps tracked paths to authority.
 The [database model](docs/public/pollenomics-data/database/index.md) explains
 objects, relations, revisions, and coherent read sets.
 
+## Audit A Checked-In Publication Boundary
+
+The world bundle currently declares 234 animal locality members. The candidate
+accountability surface evaluates the same 234 identities and reports 233 as
+fully accountable; the remaining dromedary-camel candidate has site,
+chronology, and coordinate evidence but lacks sample-lineage evidence. This is
+not a count discrepancy to smooth over. It is a concrete example of a visible
+product member whose evidence packet does not satisfy every accountability
+dimension.
+
+```mermaid
+flowchart LR
+    Bundle["world bundle<br/>234 locality members"] --> Trace["member and point traceability"]
+    Trace --> Accountability["candidate accountability<br/>233 fully accountable"]
+    Accountability --> Gap["one missing sample-lineage chain"]
+    Gap --> Recovery["retain visible limitation<br/>and recover named evidence"]
+```
+
+Inspect the boundary directly:
+
+```bash
+jq '{total: .animal_atlas.total_locality_points}' \
+  docs/report/world/world_bundle.json
+jq '{candidates: .candidate_row_count, accountable: .passed_row_count, ok: .overall_ok}' \
+  data/adna/final/atlas/animal_atlas_candidate_accountability.json
+jq '.rows[] | select(.fully_accountable == false)' \
+  data/adna/final/atlas/animal_atlas_candidate_accountability.json
+```
+
+The right response is to preserve the publication identity, the failed
+accountability dimension, and its recovery condition together. Deleting the
+row would hide collected evidence; treating the map point as proof of complete
+lineage would overstate it.
+
 ## Packages
 
 | Distribution | Responsibility | Intended audience |
@@ -202,9 +236,11 @@ make app-state   # rebuild data, reports, and documentation state
 
 These commands can replace owned generated trees. Review source identity,
 member identity, semantic changes, population changes, exclusions, and
-manifest changes—not only file counts or successful exit status. Transient
-experiments and build products belong under `artifacts/`; governed evidence
-and publications belong only in their declared tracked roots.
+manifest changes—not only file counts or successful exit status. All
+transient local outputs belong under `artifacts/`; the locked check environment
+belongs under `artifacts/root/check-venv/`, and the local documentation site
+belongs under `artifacts/root/docs/site/`. Governed evidence and publications
+belong only in their declared tracked roots.
 
 The local documentation gate is:
 
