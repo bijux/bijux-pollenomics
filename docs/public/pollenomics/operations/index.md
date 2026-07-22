@@ -60,10 +60,11 @@ stateDiagram-v2
     Candidate --> Rejected: acquisition or validation fails
     Rejected --> Prior: retain prior state
     Candidate --> Replacement: candidate contract passes
-    Replacement --> Committed: remove prior tree and rename candidate
-    Replacement --> Recovery: final replacement fails
+    Replacement --> RecoveryCopy: move prior tree to recovery sibling
+    RecoveryCopy --> Committed: rename candidate into final path
+    RecoveryCopy --> Restored: candidate rename fails
+    Restored --> Prior: restore prior tree
     Committed --> Reviewed: manifest and semantic diff accepted
-    Recovery --> PriorOrVCS: inspect filesystem and recover tracked state
     Reviewed --> [*]
 ```
 
@@ -71,7 +72,7 @@ stateDiagram-v2
 | --- | --- |
 | prior | resolvable manifest or complete owned tree at a known revision |
 | candidate | explicit input identity, scope, destination, and diagnostics |
-| replacement | complete candidate, known final destination, and awareness that the prior directory is removed before the candidate rename |
+| replacement | complete candidate, known final destination, and a recovery sibling protecting the prior tree during the final rename |
 | commit | replacement completed and the new manifest resolves every governed member |
 | review | identity, meaning, precision, membership, warning, and exclusion diff |
 
@@ -80,11 +81,12 @@ failed operation. That can pair a new member with an old manifest or leave a
 derived product ahead of its evidence. Recover at the failed owner and rebuild
 the narrow complete boundary.
 
-The implementation protects the prior tree while candidate construction runs;
-it does not keep an automatic rollback copy across the final replacement. If
-the removal succeeds and the rename fails, recover the tracked tree from source
-control or another verified copy before retrying. This is a narrower guarantee
-than a transactional database commit and should be operated accordingly.
+The implementation protects the prior tree during candidate construction and
+final replacement. It moves the prior tree to a recovery sibling, promotes the
+candidate, and removes recovery state only after promotion succeeds. If the
+candidate rename fails, the prior tree is restored before the error returns.
+This is one owned-tree replacement, not a transaction spanning several source
+families or later publication work.
 
 ## Three Meanings Of Success
 

@@ -432,7 +432,7 @@ class DataCollectorTests(unittest.TestCase):
                     )
 
             self.assertTrue(preserved_file.exists())
-            self.assertFalse((output_root / ".neotoma.tmp").exists())
+            self.assertFalse((output_root / ".neotoma.staging").exists())
 
     def test_collect_data_preserves_root_contract_files_when_collection_fails(
         self,

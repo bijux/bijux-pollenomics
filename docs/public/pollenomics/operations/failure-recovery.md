@@ -37,19 +37,20 @@ stateDiagram-v2
 
 Collectors and publishers build in a sibling staging directory. Failure during
 candidate construction removes that candidate and preserves the previous
-governed tree. Final replacement is not backed by an automatic rollback copy:
-the implementation removes the previous directory before renaming the
-candidate. Confirm the final filesystem and manifest explicitly; do not infer
-preservation from a single log line.
+governed tree. During final replacement, the previous tree moves to a recovery
+sibling until the candidate has been promoted. A failed candidate rename
+restores the previous tree before the error returns. Confirm the final
+filesystem and manifest explicitly; do not infer preservation from a single
+log line.
 
 ```mermaid
 flowchart LR
     PriorTree["prior owned tree"] --> CandidateTree["sibling candidate"]
     CandidateTree -->|build fails| Cleanup["remove candidate; prior remains"]
-    CandidateTree -->|build succeeds| Remove["remove prior tree"]
-    Remove --> Rename["rename candidate to final path"]
+    CandidateTree -->|build succeeds| Protect["move prior tree to recovery sibling"]
+    Protect --> Rename["rename candidate to final path"]
     Rename -->|succeeds| CurrentTree["new owned tree"]
-    Rename -->|fails| Restore["recover verified prior state"]
+    Rename -->|fails| Restore["restore prior tree"]
 ```
 
 ## Failure Questions
@@ -66,9 +67,10 @@ Answer these questions before retrying:
 6. What is the narrowest operation that can demonstrate recovery?
 
 The distinction between candidate failure and replacement failure is
-operationally decisive. The first normally leaves the prior tree intact. The
-second may leave the final path absent and requires restoration before any
-downstream product can be trusted.
+operationally decisive. The first leaves the prior tree in its final path. The
+second exercises the recovery rename before returning the failure. In either
+case, verify that the final manifest resolves before trusting downstream
+products.
 
 This separates a retryable transport failure from a source-semantic change or
 an evidence gap. The same symptom—such as a missing output—can require a very
@@ -81,8 +83,8 @@ different response at each boundary.
 3. Inspect tracked changes only within the operation's declared write root.
 4. Compare the current tree with the last coherent manifest, hashes, counts,
    and membership.
-5. If the final owned path is missing or incomplete, restore the last verified
-   tracked state before retrying; do not assemble it from candidate fragments.
+5. If the final owned path is missing or incomplete despite recovery, stop and
+   restore the last verified tracked state; do not assemble it from fragments.
 6. Correct the owning source, contract, evidence decision, or publication rule.
 7. Rerun the narrow operation and review its complete output before expanding
    scope.

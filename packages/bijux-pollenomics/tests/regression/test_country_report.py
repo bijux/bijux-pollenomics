@@ -719,7 +719,7 @@ class CountryReportTests(unittest.TestCase):
                 generate_country_report(root, "Sweden", output)
 
             self.assertEqual(preserved_file.read_text(encoding="utf-8"), "kept")
-            self.assertFalse((output.parent / ".sweden.tmp").exists())
+            self.assertFalse((output.parent / ".sweden.staging").exists())
 
     def test_generate_country_report_uses_country_specific_copy_and_locality_placeholder(
         self,
@@ -1829,7 +1829,7 @@ class CountryReportTests(unittest.TestCase):
                 )
 
             self.assertEqual(preserved_file.read_text(encoding="utf-8"), "kept")
-            self.assertFalse((output.parent / ".nordic-atlas.tmp").exists())
+            self.assertFalse((output.parent / ".nordic-atlas.staging").exists())
 
     def test_generate_published_reports_writes_shared_and_country_bundles(self) -> None:
         with tempfile.TemporaryDirectory() as tmp:
@@ -2129,8 +2129,8 @@ class CountryReportTests(unittest.TestCase):
                 sweden_summary["output_dir"],
                 str(output / "countries" / "sweden"),
             )
-            self.assertNotIn(".report.tmp", atlas_summary["output_dir"])
-            self.assertNotIn(".report.tmp", sweden_summary["output_dir"])
+            self.assertNotIn(".report.staging", atlas_summary["output_dir"])
+            self.assertNotIn(".report.staging", sweden_summary["output_dir"])
             self.assertEqual(
                 atlas_summary["artifacts"]["animal_point_traceability_json"],
                 "nordic_animal_point_traceability.json",
@@ -2241,7 +2241,7 @@ class CountryReportTests(unittest.TestCase):
                 )
 
             self.assertEqual(preserved_file.read_text(encoding="utf-8"), "kept")
-            self.assertFalse((output.parent / ".report.tmp").exists())
+            self.assertFalse((output.parent / ".report.staging").exists())
 
     def write_anno(self, path: Path, rows: list[str]) -> None:
         write_anno_file(path, rows, header=AADR_HEADER)

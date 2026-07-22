@@ -211,11 +211,11 @@ status describes software completion; the review surfaces describe evidential
 fitness.
 
 Collection and publication first build a sibling candidate tree. Failure while
-building that candidate preserves the prior destination. Final replacement is
-not rollback-backed: the prior owned directory is removed before the candidate
-is renamed into place. Operators should retain a clean tracked baseline or
-another verified copy and confirm the resulting manifest after every governed
-replacement.
+building that candidate preserves the prior destination. Final replacement
+moves the prior tree to a recovery sibling, promotes the candidate, and
+restores the prior tree if promotion fails. Operators should still retain a
+clean tracked baseline and confirm the resulting manifest because the guarantee
+applies to one owned tree, not a multi-stage repository rebuild.
 
 ```mermaid
 flowchart TD
