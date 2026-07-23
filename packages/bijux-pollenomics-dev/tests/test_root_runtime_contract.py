@@ -33,6 +33,10 @@ def test_root_tox_installs_the_locked_workspace_without_ci_only_plugins() -> Non
     tox_config = _tox_config()
     tox_requirements = tox_config["tox"]["requires"]
     test_environment = tox_config["testenv"]
+    root_environments = (
+        tox_config["testenv:security"],
+        tox_config["testenv:docs"],
+    )
 
     assert "tox-gh-actions" not in tox_requirements
     assert (
@@ -40,6 +44,10 @@ def test_root_tox_installs_the_locked_workspace_without_ci_only_plugins() -> Non
         in test_environment["commands_pre"]
     )
     assert "uv" in test_environment["allowlist_externals"].splitlines()
+    assert all(
+        "uv" in environment["allowlist_externals"].splitlines()
+        for environment in root_environments
+    )
     assert "UV_PROJECT_ENVIRONMENT = {envdir}" in test_environment["setenv"]
 
 
