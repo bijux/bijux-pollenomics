@@ -1104,11 +1104,7 @@ class RepositoryContractRegressionTests(unittest.TestCase):
             / "test-strategy.md"
         ).read_text(encoding="utf-8")
         maintainer_quality_text = (
-            REPO_ROOT
-            / "docs"
-            / "internal"
-            / "pollenomics-dev"
-            / "quality-gates.md"
+            REPO_ROOT / "docs" / "internal" / "pollenomics-dev" / "quality-gates.md"
         ).read_text(encoding="utf-8")
 
         self.assertIn("Apache License 2.0", readme_text)
@@ -1133,7 +1129,9 @@ class RepositoryContractRegressionTests(unittest.TestCase):
         self.assertIn("title: Bijux Pollenomics", docs_index)
         self.assertIn("# Bijux Pollenomics", docs_index)
         self.assertNotIn("# Docs Index", docs_index)
-        self.assertIn("connects curated evidence to public maps and reports", docs_index)
+        self.assertIn(
+            "connects curated evidence to public maps and reports", docs_index
+        )
         self.assertIn(
             "the repository is already the full cross-evidence pollenomics engine",
             docs_index,

@@ -25,7 +25,9 @@ class DocsBreadthRegressionTests(unittest.TestCase):
         self.assertIn("Open the product guide", docs_index)
         self.assertIn("Open the report portal", docs_index)
         self.assertNotIn("Open the public guide", docs_index)
-        self.assertIn("This handbook is for people changing the repository", internal_index)
+        self.assertIn(
+            "This handbook is for people changing the repository", internal_index
+        )
         self.assertIn("Reader And Maintainer Surfaces", internal_index)
         self.assertIn("unlisted repository handbook", internal_index)
         self.assertIn("Open the maintainer handbook", internal_index)
@@ -96,7 +98,9 @@ class DocsBreadthRegressionTests(unittest.TestCase):
         ).read_text(encoding="utf-8")
 
         self.assertIn("# Evidence Decision Records", decision_records)
-        self.assertIn("## Evidence, Product, And Release Decisions Differ", decision_records)
+        self.assertIn(
+            "## Evidence, Product, And Release Decisions Differ", decision_records
+        )
         self.assertIn("## Audit A Decision", decision_records)
         self.assertIn("```mermaid", decision_records)
         self.assertIn("decision-records.md", curation_index)

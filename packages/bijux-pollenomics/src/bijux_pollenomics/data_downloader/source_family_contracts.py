@@ -90,9 +90,7 @@ def build_source_family_contracts() -> tuple[SourceFamilyContract, ...]:
                 repository_path="data/landclim/review",
                 required=True,
                 purpose="source-specific review of temporal support and normalization quality",
-                example_artifacts=(
-                    "data/landclim/review/spatiotemporal_review.json",
-                ),
+                example_artifacts=("data/landclim/review/spatiotemporal_review.json",),
             ),
             published_layer=SourceFamilyLayerContract(
                 layer_key="published",
@@ -508,9 +506,7 @@ def build_source_family_state_matrix_payload(
 
 def _layer_status(output_root: Path, contract: SourceFamilyLayerContract) -> str:
     has_evidence = all(
-        _path_has_governed_content(
-            _resolve_repository_path(output_root, artifact_path)
-        )
+        _path_has_governed_content(_resolve_repository_path(output_root, artifact_path))
         for artifact_path in contract.example_artifacts
     )
     if not contract.required and not has_evidence:
