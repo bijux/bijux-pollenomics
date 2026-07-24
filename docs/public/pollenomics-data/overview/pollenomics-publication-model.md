@@ -4,53 +4,161 @@ audience: reader
 type: explanation
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-05-10
+last_reviewed: 2026-07-22
 ---
 
 # Pollenomics Publication Model
 
-This page explains how the repository publishes several evidence families
-together without pretending they all say the same thing or carry the same
-maturity.
+Publications combine unlike evidence without declaring it equivalent. Every
+layer has a role, every product has a scope, and every visible feature remains
+downstream of an admission decision.
 
-The public product is not meant to be a stack of unrelated maps and tables. It
-is meant to help people move from broad environmental and archaeology context
-toward narrower human and animal ancient DNA signals, while staying honest
-about where the evidence is strong and where it is still thin.
+The model deliberately separates three questions:
 
-## What The Publication Model Is Trying To Do
+1. **Is the source represented faithfully?** — acquisition, identifiers, and
+   normalization answer this.
+2. **Is the record fit for a declared use?** — evidence review and admission
+   answer this.
+3. **Is the product internally coherent?** — manifests, traceability, release
+   checks, and rendered outputs answer this.
 
-The publication model has three simple rules:
+A positive answer at one boundary does not imply a positive answer at the
+next. This is why a normalized row can remain excluded, and why a coherent
+map can be internally valid without claiming complete recovery, uniform
+precision, or fitness for an undeclared analysis.
 
-1. pollen and environmental context provide landscape setting
-2. archaeology context adds cultural and settlement framing
-3. ancient DNA adds narrower sample-backed evidence when the source recovery is strong enough
+## Evidence Roles
 
-The repository is therefore not trying to make every layer equally central.
-Some layers explain setting. Some layers explain evidence. Some layers support
-scope, filtering, or honesty about what is missing.
+| Role | Examples | Supports | Does not support alone |
+| --- | --- | --- | --- |
+| direct evidence | admitted human and animal aDNA samples, direct field observation | a source-backed record at its declared place and time posture | regional completeness or causation |
+| scientific context | LandClim, Neotoma, SEAD, RAÄ | environmental or archaeology setting | sample identity or automatic temporal overlap |
+| geographic framing | boundaries and SVAR lake registry | scope, filtering, lake identity, and map extent | scientific association |
+| decision support | lake rankings and sensitivity scenarios | reproducible prioritization under declared inputs | sampling readiness or optimal coring location |
+| accountability | caveats, exclusions, drift reviews, traceability reports | why evidence is present, qualified, or absent | a stronger claim than the governing record |
 
-## What You Should Be Able To Tell From A Public Surface
+## Scope Inheritance
 
-- a public map should show why a layer is present, not just that it exists
-- a country bundle should stay narrower than the regional and world surfaces it descends from
-- animal ancient DNA should stay visibly qualified when locality, chronology, or coordinate evidence is weak
-- boundary and scope layers should remain framing devices rather than being mistaken for scientific claims
+```mermaid
+flowchart TB
+    Evidence["governed evidence state"] --> World["world publication"]
+    World --> Europe["Europe-plus scope"]
+    Europe --> Nordic["Nordic scope"]
+    Nordic --> Countries["country bundles"]
+    Nordic --> Lakes["Sweden lake decision support"]
+```
 
-## Why This Model Matters
+The hierarchy selects records; it does not clone truth. A country bundle is a
+filtered descendant of broader evidence state and cannot legitimately carry a
+stronger locality, chronology, coordinate, or source claim. Specialized lake
+products retain their scenario inputs and remain attached to the same Nordic
+publication family.
 
-Without a clear publication model, mixed-domain repositories often make two
-mistakes. They either flatten every source into one generic evidence cloud, or
-they bury the public product under internal data structure. This repository is
-trying to avoid both failures.
+## Publication Admission
 
-## Follow These Pages Next
+Normalization makes a record consistent enough to review. It does not make the
+record universally publishable. Admission is evaluated against a named
+product:
 
-Use this page together with:
+1. confirm source and record identity;
+2. evaluate the evidence dimensions required by the product;
+3. apply geographic and domain scope;
+4. admit, qualify, or exclude with a recorded reason;
+5. emit membership and traceability alongside presentation.
 
-- [data system overview](data-system-overview.md)
-- [cross-domain evidence matrix](cross-domain-evidence-matrix.md)
-- [published reports](../publications/reports.md)
-- [geographic evidence surfaces](../publications/maps.md)
+Filtering in a browser changes visibility after publication. It cannot admit
+an excluded record or alter its evidence role.
 
-Those pages show how the publication model appears in practice.
+## Product Contract
+
+Every publication resolves six elements:
+
+| Element | Reader-facing meaning |
+| --- | --- |
+| scope | geography, source families, species, and scenarios considered |
+| membership | stable identifiers actually included in the product |
+| roles | direct evidence, context, framing, decision support, or accountability |
+| semantics | spatial precision, temporal posture, units, and null meaning |
+| traceability | joins from visible objects back to governed evidence and sources |
+| release posture | checks passed, claims refused, and known limitations |
+
+The world bundle is the broad product assembly. Europe-plus, Nordic, country,
+and lake-decision products inherit its evidence semantics while applying
+narrower membership or a specialized decision contract. A descendant product
+can be more selective; it cannot silently strengthen its ancestors' facts.
+
+### Product Classes and Claim Ceilings
+
+| Product class | May claim | Must not imply |
+| --- | --- | --- |
+| evidence register | governed source, identifier, and review state for each listed record | that every relevant source or record has been recovered |
+| point layer | admitted spatial membership with row-level provenance and visible coordinate class | uniform precision, absence of refused evidence, or analytical independence |
+| contextual layer | source-specific environmental, archaeological, or geographic context | direct sample support or causation from proximity |
+| regional bundle | reproducible selection from the parent evidence state | stronger evidence semantics than the parent product |
+| decision-support output | ranking under named inputs, transformations, and scenarios | field readiness, optimality, or a scientific conclusion independent of assumptions |
+
+The claim ceiling travels with membership and semantics. A country subset does
+not turn contextual chronology into a numeric interval; a filtered map does
+not turn an approximate coordinate into a source-supplied one; a high lake
+rank does not become a coring recommendation without field evidence.
+
+## Membership Accounting
+
+A product is accountable when every candidate considered by its contract has
+one recoverable outcome. Use mutually exclusive states for accounting even
+when the rendering groups them differently:
+
+| Candidate outcome | Visible in the product? | Required record |
+| --- | --- | --- |
+| admitted | yes | membership and traceability |
+| admitted with qualification | yes, with the qualification | membership, traceability, and visible caveat |
+| excluded | no | named failed rule and governing evidence |
+| unresolved or recovery-bound | no | ambiguity or recovery record describing missing support |
+| outside scope | no | scope predicate and candidate identity |
+
+```mermaid
+flowchart LR
+    Population["declared candidate population"] --> Outcome{"one governed outcome"}
+    Outcome --> Admit["admitted"]
+    Outcome --> Qualified["admitted with qualification"]
+    Outcome --> Excluded["excluded"]
+    Outcome --> Recovery["unresolved or recovery-bound"]
+    Outcome --> Outside["outside scope"]
+    Admit --> Account["product accounting"]
+    Qualified --> Account
+    Excluded --> Account
+    Recovery --> Account
+    Outside --> Account
+```
+
+The accounting identity is conceptual but strict: the declared candidate
+population must equal the sum of those disjoint outcomes. Browser filters do
+not alter that population; they only change which already-admitted members are
+displayed. A record missing from both membership and accountability surfaces
+is not a harmless omission—it is an unexplained product-integrity gap.
+
+## Release Gates Preserve Honest Claims
+
+Release checks test the relationship between evidence and publication rather
+than declaring the underlying science complete. For animal evidence, the
+current gate confirms that published points retain required traceability,
+blocked sample-site and chronology rows do not leak into exact outputs, and
+contextual chronology is not rendered as numeric time. The same gate refuses
+collection-completeness and uniform-precision claims because project recovery
+remains incomplete and admitted rows retain different evidence classes.
+
+That combination is intentional: a product can be valid for its declared
+membership and still decline a broader completeness claim. Passing integrity
+checks means the output says no more than its governed evidence supports.
+
+## Reading Mixed-Domain Outputs
+
+Interpret the layer before interpreting proximity. Two nearby points can have
+different chronology postures, spatial precision, source maturity, and
+scientific roles. The map supports comparison by keeping those differences
+visible; it does not erase them.
+
+Continue to the [cross-domain evidence matrix](cross-domain-evidence-matrix.md)
+for maturity by family, [published reports](../publications/reports.md) for the
+output tree, and [geographic evidence surfaces](../publications/maps.md) for map
+behavior.

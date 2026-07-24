@@ -4,103 +4,267 @@ audience: reader
 type: explanation
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-05-10
+last_reviewed: 2026-07-22
 ---
 
 # Data System Overview
 
-The data system in `bijux-pollenomics` is designed to keep different kinds of
-evidence visible instead of merging everything into one vague export. You
-should be able to tell whether you are looking at pollen context,
-archaeological context, boundary framing, fieldwork documentation, public
-review surfaces, or ancient DNA sample evidence.
+Pollenomics uses a layered database because source capture, scientific
+interpretation, and public presentation have different trust requirements. A
+source snapshot establishes what was acquired. A normalized file establishes a
+repository-owned representation. A review establishes fitness and uncertainty.
+A publication selects only the evidence appropriate to its declared purpose.
 
-The governing stance is `pollenomics-first`: the repository is built to explain
-the broader pollen and environmental evidence system clearly, while keeping
-animal ancient-DNA recovery visible as one important but still partial slice of
-that larger product.
+## Evidence Families And Roles
 
-## The Basic Shape
+| Family | Contracted role | Primary use | Important boundary |
+| --- | --- | --- | --- |
+| LandClim | primary pollen context | pollen sites and model-grid context | model context is not a direct sample observation |
+| Neotoma | primary pollen context | normalized pollen-site context | site chronology controls temporal interpretation |
+| SEAD | contextual archaeology domain | environmental archaeology sites | access and temporal comparability require review |
+| RAÄ | contextual archaeology domain | Swedish heritage and archaeology context | coverage is Sweden-specific |
+| Boundaries | geographic framing domain | filtering and map extent | geometry adds no scientific support |
+| SMHI SVAR | sampling-context domain | Swedish lakes and hydrography | a registered water body is not a suitable coring site by itself |
+| AADR | direct human aDNA domain | release-versioned human sample metadata | current processing uses metadata, not genotype files |
+| Animal aDNA | sample-owned evidence domain | curated animal samples from source literature | admission depends on recoverable sample-level evidence |
+
+The family contract states what each source can answer before publication code
+combines it with another layer.
+
+### Pollen Evidence Leads The Scientific Model
+
+Pollenomics begins with pollen and palaeoenvironmental questions. LandClim and
+Neotoma contribute the primary pollen context; archaeology, hydrography,
+boundaries, human aDNA, animal aDNA, and field observations add distinct
+context, comparison, sampling, or framing roles. Their presence makes the
+evidence graph richer without making every layer equivalent to pollen
+evidence.
+
+```mermaid
+flowchart LR
+    Pollen["pollen and palaeoenvironmental evidence"] --> Question["declared scientific question"]
+    Archaeology["archaeology context"] --> Question
+    Hydrography["lake identity and sampling context"] --> Question
+    ADNA["human and animal aDNA context"] --> Question
+    Boundaries["geographic framing"] --> Product["scoped publication"]
+    Question --> Product
+```
+
+The leading role is conceptual, not a weighting shortcut. A specific analysis
+must still declare its observation unit, temporal and spatial comparability,
+selection population, and product contract before combining families.
+
+## Curation Is Evidence Work
+
+Curation does more than make fields consistent. It records which identity,
+place, time, coordinate, and source claim is supported strongly enough for a
+specific use.
+
+| Curation operation | Preserved evidence | Refused shortcut |
+| --- | --- | --- |
+| identity resolution | source-native identifier, repository identifier, aliases, and lineage | merging records because names look similar |
+| locality resolution | verbatim locality, resolved feature, country or region, method, and precision | copying a project-level place into every sample |
+| chronology normalization | source text, numeric interval where supported, dating basis, and caveat | deriving precise years from a broad cultural label |
+| coordinate review | supplied or resolved coordinates, basis, precision, and evidence owner | plotting a regional centroid as an exact sample point |
+| species normalization | source taxon, accepted view, assignment rule, and unresolved state | silently forcing ambiguous taxonomy into a target species |
+| publication admission | product, rule, decision, and exclusion reason | treating every normalized record as publishable |
+
+Null, ambiguous, blocked, and deferred values are part of the database. They
+identify the limit of current evidence and the recovery action that could
+change it.
+
+## Tracked State
 
 ```mermaid
 flowchart TB
-    sources["source datasets and papers"]
-    tracking["tracked source intake"]
-    normalization["normalized evidence files"]
-    publication["reports and atlas views"]
-
-    sources --> tracking
-    tracking --> normalization
-    normalization --> publication
+    subgraph Data["data/ — governing evidence state"]
+        Contract["source-family contract"] --> Raw["materialized raw evidence"]
+        Contract --> Normalized["materialized normalized evidence"]
+        Contract --> Review["materialized review evidence"]
+        Raw --> Normalized
+        Normalized --> Review
+        Review --> Final["admitted current evidence inputs"]
+    end
+    subgraph Reports["docs/report/ — derived publication state"]
+        World["world"] --> Region["Europe-plus and Nordic"]
+        Region --> Country["Sweden, Norway, Finland, Denmark"]
+        Region --> Lake["lake ranking and sensitivity"]
+    end
+    Final --> World
+    World -. "retained product does not prove missing authority" .-> Contract
+    Lake -. "retained product does not prove missing authority" .-> Contract
 ```
 
-That structure matters because the repository has to support two kinds of use.
-Sometimes you want the public answer first. Sometimes you want to inspect the
-governing evidence directly. The system needs to support both without forcing
-you to decode an internal file tree before understanding what the repository is
-doing.
+The geography hierarchy is a selection hierarchy, not four independent
+databases. A country bundle cannot legitimately contain a stronger fact than
+its governing evidence or parent publication family.
 
-## What This Overview Should Clarify
+### Materialized State Is Not A Linear Badge
 
-- which evidence families exist and why they are kept separate
-- what kind of question each family can answer
-- which surfaces are evidence, which are framing, and which are publication
-- why a map, report, or country bundle should never outrank its narrower
-  governing files
+The stage matrix evaluates each contracted artifact independently. In the
+current snapshot, Neotoma, SEAD, and animal aDNA have materialized evidence at
+all four stages. LandClim, RAÄ, and boundaries lack their contracted
+source-specific review artifacts. SVAR and AADR retain publications while
+their contracted normalized and review members are absent.
 
-## Main Data Families
+This is why the lifecycle is stored as four statuses rather than one maturity
+label. `published` answers whether the publication artifact exists.
+`normalized` and `reviewed` answer whether the present repository can traverse
+the declared authorities that should support a rebuild. A missing earlier
+stage blocks the stronger rebuildability claim without deleting the retained
+product or pretending it never existed.
 
-| Family | Role in the repository | Main location | Current publication posture |
-| --- | --- | --- | --- |
-| Pollen context | environmental and paleoecological context | `data/landclim/`, `data/neotoma/` | first-class pollenomics context |
-| Archaeology context | broader settlement and environmental archaeology layers | `data/sead/`, `data/raa/` | contextual support layers |
-| Boundary framing | country filtering and regional map framing | `data/boundaries/` | framing layer, not scientific evidence |
-| Animal ancient DNA | sample-backed contextual evidence from papers and supplements | `data/adna/` | partial recovery program |
-| Fieldwork | direct visit and observation records | `docs/public/fieldwork/` | narrow but explicit record surface |
+Animal aDNA also demonstrates why metrics are typed. Its lifecycle row counts
+894 species-owned sample-foundation rows. Project recovery currently counts
+868 recovered sample-master identities, while point publication admits 234
+rows. These are foundation, recovery, and product populations—not three
+estimates of one interchangeable total.
 
-## What Each Family Contributes
+### Readiness Has Independent Dimensions
 
-- pollen context helps explain environmental setting, vegetation history, and
-  broader landscape change
-- archaeology context helps explain settlement and material activity around the
-  same geographies
-- boundary layers make filtering and regional framing readable, but they are
-  not themselves scientific evidence
-- human ancient DNA gives release-based historical population context
-- animal ancient DNA provides sample-level domestication and movement clues when
-  source recovery is strong enough
-- fieldwork gives a narrow, explicit ground-level record rather than a claim of
-  regional completeness
+A family can be strong on one axis and blocked on another. Treating readiness
+as a single percentage hides the claim that remains unsupported.
 
-## Main Repository Surfaces
+| Dimension | Governing question | Example of an honest mixed state |
+| --- | --- | --- |
+| source recovery | Can the necessary upstream object be retrieved and identified? | paper known, supplement still missing |
+| object identity | Can records be distinguished and related without label guessing? | project resolved, some samples provisional |
+| spatial support | What location and precision does the evidence own? | site known, sample coordinate approximate |
+| temporal support | What time claim and evidence class are defensible? | context period present, sample date absent |
+| comparability | May this object be compared numerically with another family? | display allowed, interval overlap refused |
+| publication fitness | Does one named product admit the object? | retained in evidence, excluded from a country bundle |
 
-- `data/` keeps repository-owned source material, normalized records, and
-  review artifacts.
-- `docs/report/` keeps the generated country bundles, atlas assets, and public
-  review surfaces.
-- `docs/public/pollenomics-data/` explains how those tracked files fit
-  together.
-- `data/source_family_contracts.json` and
-  `data/source_family_evidence_stage_matrix.json` keep the stage model explicit
-  instead of forcing you to infer it from directory names.
-- `data/source_fact_ownership_registry.json` names the governing surface for
-  recurring concepts such as project inventory, sample identity, and atlas
-  candidates.
+Report the relevant dimensions and denominators together. An increase in
+mapped members does not prove better chronology; additional source recovery
+can expose conflicts and legitimately reduce the admitted population.
 
-## Why The Separation Matters
+## Source Identity And Refresh
 
-- a source page tells you what entered the repository and why
-- an evidence page tells you what claim is currently being governed
-- a review surface tells you what is blocked, thin, or refused
-- a publication surface tells you what the repository is prepared to show
-  publicly
+`data/collection_summary.json` records the selected source version, retrieval
+date, acquisition method, source and normalized hashes, provenance, output
+roots, and replacement behavior. Collectors write to a staging root and swap
+it into place only after successful preparation. A failed refresh therefore
+does not silently replace the last tracked source tree with a partial one.
 
-If those roles blur together, the site becomes easy to browse but hard to
-trust.
+Hash equality proves byte identity, not scientific fitness. Fitness enters at
+the review layer, where chronology, spatial precision, source legibility,
+coverage, and publication use are evaluated.
 
-## Where To Go Next
+## Fact Ownership
 
-- [Data architecture handbook](data-architecture-handbook.md) explains the raw -> normalized -> review -> publication model in one place.
-- [Pollenomics publication model](pollenomics-publication-model.md) explains how these families should publish together without pretending they are equally mature.
-- [Cross-domain evidence matrix](cross-domain-evidence-matrix.md) keeps domain balance visible in evidence units instead of file counts.
-- [Output surface classes](../publications/publication-types.md) separates pollenomics context, contextual support, animal recovery, and scaffolding outputs.
+The same concept can appear in a project dossier, normalized record, atlas
+candidate, country bundle, and summary. `data/source_fact_ownership_registry.json`
+identifies which surface governs each recurring fact. Downstream files may
+carry the value for publication, but they do not become competing authorities.
+
+This distinction is especially important for animal aDNA:
+
+- project registries govern admitted project identity;
+- project sample surfaces govern sample identity, sites, locality, and
+  chronology evidence;
+- species-normalized records govern species views;
+- atlas-candidate records govern geographic admission; and
+- report bundles govern presentation of the admitted subset.
+
+## Join Contracts
+
+Every cross-surface join is itself a claim. The database admits joins through
+stable identities and recorded relations, never through visual similarity or
+proximity alone.
+
+| Join | Required key or relation | Unsafe substitute |
+| --- | --- | --- |
+| source row to normalized record | source-family identity plus release-native key | row order or display label |
+| archive sample to paper sample | accession lineage plus recovered sample-label evidence | similar specimen name |
+| sample to locality | sample-owned site link or documented substitution | project country or nearest named place |
+| sample to chronology | sample-owned chronology evidence and locator | paper year or project-wide interval |
+| locality to coordinate | coordinate provenance tied to the locality claim | map search result without retained basis |
+| evidence record to publication member | stable evidence ID plus explicit admission decision | matching coordinates or title text |
+
+```mermaid
+flowchart LR
+    Left["record in one authority"] --> Relation["stable key + evidence locator"]
+    Relation --> Right["record in another authority"]
+    Relation --> Review["ambiguity, conflict, or substitution posture"]
+```
+
+When a key is absent or one-to-many, the unresolved relation remains visible.
+Choosing the nearest coordinate, the first label match, or a project-wide
+value would make the normalized database appear complete by creating evidence
+that the source never supplied.
+
+## Review Outcomes
+
+A review can admit, qualify, block, or defer a record. These outcomes preserve
+different meanings:
+
+- **admitted**: evidence meets the declared publication contract;
+- **qualified**: publication is allowed with explicit precision or source
+  limits;
+- **blocked**: a known evidence failure prevents publication;
+- **deferred**: the source or supporting material needed for a decision has not
+  been recovered.
+
+Keeping blocked and deferred states visible prevents absence from being
+misread as proof that no relevant project or sample exists.
+
+## Follow One Published Object
+
+The most reliable way to understand the database is to follow an object rather
+than a directory name. A published mark first resolves to its product bundle,
+then to the record that owns its scientific claim, and finally to captured
+source identity.
+
+```mermaid
+flowchart RL
+    Mark["map mark or export row"] --> Manifest["product manifest"]
+    Manifest --> Admission["membership and qualification"]
+    Admission --> Evidence["governing evidence record"]
+    Evidence --> Normalized["source-preserving normalized record"]
+    Normalized --> Capture["captured source and version"]
+    Capture --> Upstream["dataset, archive, paper, or supplement"]
+```
+
+The chain differs by family. An AADR row resolves to a release manifest and
+annotation panel. A Neotoma point resolves to a site record and its temporal
+review. An animal point can cross a project registry, paper, supplement,
+sample master, site link, locality packet, chronology packet, coordinate
+provenance, and admission record. Those different chain lengths reflect the
+source material; they are not maturity scores.
+
+## Separate Three Populations
+
+Many apparent contradictions disappear when three populations are kept
+distinct:
+
+| Population | Question answered | Example |
+| --- | --- | --- |
+| captured | What material did the repository acquire? | two AADR annotation panels or 2,195 SEAD inventory rows |
+| normalized and reviewed | Which records have a stable repository representation and evidence posture? | 200 Neotoma site records with temporal review |
+| published | Which records satisfy one named product contract? | 2,172 mapped Nordic SEAD features or 2 Nordic animal localities |
+
+A smaller published population can be the honest result of stronger review,
+geographic scope, or missing evidence. It must not be described as failed
+collection without inspecting the captured and reviewed populations.
+
+## Read Disagreement As Evidence
+
+When two surfaces disagree, first identify whether they count the same object
+and population. A source total, normalized total, and product total may all be
+correct. If the object and population are identical, follow the fact-ownership
+registry to the governing record and treat downstream copies as
+representations rather than competing authorities.
+
+Unresolved and conflicted states are informative. They tell a reader which
+join, precision, or source claim is missing and why a record was qualified,
+excluded, or deferred. Choosing the most convenient downstream value would
+erase that evidence.
+
+## Related Surfaces
+
+- [Architecture handbook](data-architecture-handbook.md) identifies the
+  governing artifacts at each layer.
+- [Source families](../sources/index.md) covers acquisition and intended use.
+- [Evidence](../evidence/index.md) covers identity, place, time, and coordinate
+  semantics.
+- [Publications](../publications/index.md) covers derived outputs and limits.

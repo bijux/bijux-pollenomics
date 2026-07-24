@@ -393,39 +393,47 @@ def render_public_animal_output_audit_markdown(payload: dict[str, object]) -> st
     if atlas_layer_total == 0 and country_output_total == 0:
         lines.extend(
             [
-                "The current public report tree still ships no mapped non-human animal atlas "
-                "layers or country bundles. The species rows above stay zero until those "
-                "artifacts become real tracked report outputs.",
+                (
+                    "The current public report tree still ships no mapped non-human animal atlas "
+                    "layers or country bundles. The species rows above stay zero until those "
+                    "artifacts become real tracked report outputs."
+                ),
                 "",
             ]
         )
     elif payload["point_candidate_count"] <= 2:
         lines.extend(
             [
-                f"The atlas still rests on only `{payload['point_candidate_count']}` candidate "
-                "row(s), so the public surface must be read as a traceable pilot rather than "
-                "a broad animal coverage claim.",
+                (
+                    f"The atlas still rests on only `{payload['point_candidate_count']}` candidate "
+                    "row(s), so the public surface must be read as a traceable pilot rather than "
+                    "a broad animal coverage claim."
+                ),
                 "",
             ]
         )
     elif country_output_total == 0:
         lines.extend(
             [
-                f"The current public report tree ships `{atlas_layer_total}` mapped "
-                "non-human animal atlas layer rows across the species table above, but "
-                "country-bundle animal outputs remain zero until those narrower surfaces "
-                "become real tracked report outputs.",
+                (
+                    f"The current public report tree ships `{atlas_layer_total}` mapped "
+                    "non-human animal atlas layer rows across the species table above, but "
+                    "country-bundle animal outputs remain zero until those narrower surfaces "
+                    "become real tracked report outputs."
+                ),
                 "",
             ]
         )
     else:
         lines.extend(
             [
-                f"The current public report tree ships `{atlas_layer_total}` mapped "
-                "non-human animal atlas layer rows and "
-                f"`{country_output_total}` country-resolved animal output hits across the "
-                "species table above. Those counts still need to be read beside blocked and "
-                "unresolved sample totals rather than as a standalone readiness claim.",
+                (
+                    f"The current public report tree ships `{atlas_layer_total}` mapped "
+                    "non-human animal atlas layer rows and "
+                    f"`{country_output_total}` country-resolved animal output hits across the "
+                    "species table above. Those counts still need to be read beside blocked and "
+                    "unresolved sample totals rather than as a standalone readiness claim."
+                ),
                 "",
             ]
         )

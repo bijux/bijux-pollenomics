@@ -1,10 +1,10 @@
 ---
 title: Quality Gates
-audience: mixed
+audience: maintainer
 type: explanation
 status: canonical
 owner: bijux-pollenomics-dev-docs
-last_reviewed: 2026-05-07
+last_reviewed: 2026-07-22
 ---
 
 # Quality Gates
@@ -44,3 +44,132 @@ into broader publication claims.
 - docs and badge integrity checks
 - release support and license alignment checks
 - repository truth and publication-claim checks where runtime outputs demand it
+
+## Executable Gate Ownership
+
+| Gate | Direct module or repository route | Reads | May write |
+| --- | --- | --- | --- |
+| API freeze | `python -m bijux_pollenomics_dev.api.freeze_contracts --repo-root .` | `apis/*/v1/schema.yaml`, pinned JSON, stored digest | no |
+| OpenAPI field drift | `python -m bijux_pollenomics_dev.api.openapi_drift --repo-root .` | current schema and preceding Git revision | no |
+| badge integrity | `python -m bijux_pollenomics_dev.docs.badge_sync check` | badge catalog and package metadata | only the separate `sync` mode writes managed blocks |
+| license assets | `python -m bijux_pollenomics_dev.release.license_assets check` | root and package legal assets | only the separate `sync` mode writes package copies |
+| dependency policy | `bijux_pollenomics_dev.quality.deptry_scan` through package quality routes | root policy, package metadata, and imports | transient merged configuration only |
+| package version | `bijux_pollenomics_dev.release.version_resolver` | package metadata, Hatch result, and tags | no |
+| publication eligibility | `bijux_pollenomics_dev.release.publication_guard` | resolved version and optional distribution directory | no |
+| documentation rendering | `make docs` or a strict MkDocs build under `artifacts/` | nav, Markdown, assets, links, and plugins | rendered site under `artifacts/` |
+
+The direct modules are useful for bounded diagnosis. Repository Make routes
+remain the integration surface when prerequisite setup, shared configuration,
+or multiple owners are intentionally part of the proof.
+
+## Test Layers
+
+Choose the narrowest layer that owns the risk. Broader execution is warranted
+when a change crosses boundaries, not as a substitute for identifying the
+affected contract.
+
+| Layer | Location | Use it for |
+| --- | --- | --- |
+| unit | `tests/unit/` | command parsing, normalization, data layout, geometry, rendering, and other focused behavior |
+| regression | `tests/regression/` | tracked repository contracts, documentation conventions, workflow assumptions, and stable artifact expectations |
+| end to end | `tests/e2e/` | installed command paths and complete operator-visible effects |
+
+Representative anchors include
+`tests/unit/test_command_line.py`, `tests/unit/test_data_layout.py`,
+`tests/unit/test_reporting_artifacts.py`,
+`tests/regression/test_repository_contracts.py`, and
+`tests/e2e/test_cli.py`.
+
+## Select Proof By Changed Boundary
+
+| Changed surface | First proof | Expansion condition |
+| --- | --- | --- |
+| parser, helper, or normalization rule | owning unit test module | add regression coverage when a tracked contract changes |
+| repository or documentation contract | focused regression test | add a strict site build when navigation, links, or rendering can change |
+| command wiring or installed behavior | focused end-to-end case | add unit coverage when the defect belongs to an internal rule |
+| package metadata or distribution | package check and source-install smoke | add release checks when published metadata changes |
+| governed data or report output | owning semantic tests and reviewed artifact diff | add publication checks when membership or exclusions change |
+
+Run unit, regression, and end-to-end suites separately when package test trees
+share import names. This keeps collection deterministic and preserves a clear
+failure owner. Full gates remain appropriate for release qualification and
+genuinely cross-cutting changes.
+
+### Documentation Proof Is Layered
+
+| Proof | Establishes | Does not establish |
+| --- | --- | --- |
+| `git diff --check` | changed text has no whitespace errors detected by Git | links, navigation, or rendering are valid |
+| public-language contract | prohibited overclaims and audience leaks are absent from inspected surfaces | every scientific statement matches current evidence |
+| Mermaid contract | inspected diagrams avoid known parser hazards | every diagram communicates the intended scientific relationship |
+| documentation breadth contract | required routes and navigation surfaces remain represented | page quality or factual completeness |
+| strict site build | configured pages, links, plugins, and assets render under the installed toolchain | external destinations are live or scientific claims are sufficient |
+
+For new pages or navigation, use all applicable layers. For a narrowly edited
+internal paragraph, the semantic diff and focused documentation contracts may
+be sufficient until final strict rendering. Record the exact selection instead
+of reporting the generic phrase “documentation checks passed.”
+
+### Classify Documentation Risk Before Selecting Proof
+
+| Documentation change | Primary risk | Required focused evidence |
+| --- | --- | --- |
+| explanatory prose with no governed values | meaning, audience, and unsupported language | semantic diff plus public-language contract when public |
+| count, status, or capability statement | divergence from governed data or runtime contract | owning artifact or command, focused data contract, and semantic diff |
+| command example | wrong interface, unsafe write root, or misleading completion claim | parser or help contract plus explicit read/write review |
+| Mermaid model | parser failure or incorrect authority direction | Mermaid contract plus semantic diagram review |
+| navigation, redirect, or link | unreachable reader journey | focused repository contract and strict site build |
+| generated report wording | disagreement with producer inputs or claim posture | correct owner, regenerate, inspect structured and narrative diff |
+
+A Markdown-only diff can therefore require runtime or data verification. File
+type does not determine risk; the claim and authority boundary do. Conversely,
+a prose correction that removes maintainer narration from a public page does
+not justify regenerating unrelated data or reports.
+
+### Refuse False-Green Evidence
+
+A green result is invalid when the evaluated population differs from the
+claimed population. Common examples are testing only discovered pages while
+claiming the full navigation, validating generated rows without their
+exclusions, building against a different environment than the reported lock,
+or checking a copied value instead of its authority.
+
+Every gate report therefore names the input identity, scope, selection rule,
+and result population. Empty selection is an explicit outcome, not an
+automatic pass. A focused gate may be exactly the right proof, but its success
+must remain bounded to the surface it actually observed.
+
+## Classify A Failure Before Expanding
+
+| Failure signal | First owner to inspect | Do not infer |
+| --- | --- | --- |
+| MkDocs cannot resolve a page | nav target, Markdown link, or generated docs source | that scientific evidence is invalid |
+| claim-language contract fails | public wording and its governing evidence posture | that deleting the assertion is an acceptable correction |
+| badge check reports drift | package metadata or badge catalog, then generated block | that the release itself failed |
+| API freeze differs | canonical schema intent, pinned representation, and digest | that the pin should be handwritten to match |
+| OpenAPI removal is reported | compatibility decision and schema version | that every additive schema change is breaking |
+| license copy differs | root legal authority and declared package targets | that package-local wording owns the licence decision |
+| pytest collection imports the wrong `tests` tree | invocation composition and package boundary | that the tests themselves are defective |
+
+Expand only after the first owner is understood. A broader gate can reveal
+secondary consequences, but it cannot assign the primary correction owner.
+
+## Acceptance Record
+
+For each completed change, record the exact checks run, their result, and any
+intentionally deferred proof. A passing command is evidence for its owned
+boundary; it is not evidence that every repository surface was exercised.
+
+Use four result states precisely:
+
+| State | Meaning |
+| --- | --- |
+| passed | the named command ran successfully against the reported inputs |
+| failed | the named command ran and observed a contract disagreement |
+| blocked | the command could not evaluate the contract because a required environment or input was unavailable |
+| not run | the command was intentionally outside the selected proof or was too expensive for this change |
+
+A rerun in the correct package context can replace an invocation or collection
+error in the final record, but retain the earlier diagnostic when it reveals a
+real repository execution constraint. Do not relabel blocked or unexecuted
+proof as passing.

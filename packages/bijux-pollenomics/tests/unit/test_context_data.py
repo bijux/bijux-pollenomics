@@ -502,6 +502,11 @@ class ContextDataTests(unittest.TestCase):
                     encoding="utf-8"
                 )
             )
+            recovery_requirements = json.loads(
+                (
+                    data_root / "sead" / "review" / "recovery_requirements.json"
+                ).read_text(encoding="utf-8")
+            )
             raw_payload = json.loads(
                 (data_root / "sead" / "raw" / "nordic_sites.json").read_text(
                     encoding="utf-8"
@@ -537,6 +542,14 @@ class ContextDataTests(unittest.TestCase):
         self.assertEqual(
             temporal_review["rows"][0]["raw_capture_posture"],
             "site_inventory_only",
+        )
+        self.assertEqual(
+            recovery_requirements["schema_version"],
+            "sead-recovery-requirements.v1",
+        )
+        self.assertEqual(
+            recovery_requirements["rows"][0]["requirement_key"],
+            "linked_temporal_capture",
         )
         self.assertEqual(
             raw_payload["inventory_summary"]["temporal_capture_posture"],

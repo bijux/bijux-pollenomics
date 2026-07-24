@@ -15,6 +15,7 @@ from bijux_pollenomics.data_downloader.data_layout import (
     ensure_curated_species_adna_layout,
     ensure_homo_sapiens_adna_layout,
     render_data_root_readme_for,
+    render_homo_sapiens_readme,
     write_data_directory_readme,
 )
 
@@ -33,10 +34,8 @@ class DataLayoutUnitTests(unittest.TestCase):
     def test_render_data_root_readme_for_uses_requested_root_name(self) -> None:
         readme = render_data_root_readme_for(Path("/tmp/custom-data"), "v99.1")
 
-        self.assertIn(
-            "Tracked source data and governed species-owned ancient-DNA views live directly",
-            readme,
-        )
+        self.assertIn("governing evidence state for Pollenomics", readme)
+        self.assertIn("governed species-owned ancient-DNA views", readme)
         self.assertIn("`custom-data/`", readme)
         self.assertIn("│   ├── equus_caballus", readme)
         self.assertIn("│   ├── bos_taurus", readme)
@@ -68,6 +67,10 @@ class DataLayoutUnitTests(unittest.TestCase):
             "`adna/governance/source_library/project_surface_contract.json`", readme
         )
         self.assertIn("`adna/final/`", readme)
+        self.assertIn("## Audit One Data Claim", readme)
+        self.assertIn("## Refresh Safety", readme)
+        self.assertIn("species-evidence-views.md", readme)
+        self.assertIn("```mermaid", readme)
         self.assertIn(
             f"[`docs/public/pollenomics-data/sources/index.md`]({DATA_SOURCE_INDEX})",
             readme,
@@ -102,6 +105,11 @@ class DataLayoutUnitTests(unittest.TestCase):
             raw_aadr = species_root / "raw" / "aadr"
             self.assertTrue(raw_aadr.is_symlink())
             self.assertEqual(raw_aadr.readlink().as_posix(), "../../../../aadr")
+            readme = (species_root / "README.md").read_text(encoding="utf-8")
+            self.assertEqual(readme, render_homo_sapiens_readme())
+            self.assertIn("## Current Material State", readme)
+            self.assertIn("## Evidence Boundary", readme)
+            self.assertIn("capture-only boundary", readme)
 
     def test_ensure_curated_species_adna_layout_creates_nonhuman_species_roots(
         self,
@@ -140,6 +148,11 @@ class DataLayoutUnitTests(unittest.TestCase):
 
             horse_root = output_root / "adna" / "species" / "equus_caballus"
             self.assertTrue((horse_root / "README.md").is_file())
+            horse_readme = (horse_root / "README.md").read_text(encoding="utf-8")
+            self.assertIn("# Horse Evidence View", horse_readme)
+            self.assertIn("## Current Curation Snapshot", horse_readme)
+            self.assertIn("## Inspect The Evidence", horse_readme)
+            self.assertIn("## Evidence Boundary", horse_readme)
             self.assertTrue((horse_root / "raw" / "archive_inventory.json").is_file())
             self.assertTrue((horse_root / "raw" / "archive_inventory.csv").is_file())
             self.assertTrue((horse_root / "raw" / "source_snapshot.json").is_file())

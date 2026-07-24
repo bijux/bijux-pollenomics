@@ -85,7 +85,14 @@ class RepositoryContractRegressionTests(unittest.TestCase):
         pollenomics_data = nav_entry("Data")
         self.assertEqual(
             [next(iter(item.keys())) for item in pollenomics_data[1:]],
-            ["System", "Sources", "Evidence", "Publications"],
+            [
+                "System",
+                "Database",
+                "Sources",
+                "Curation",
+                "Evidence",
+                "Publications",
+            ],
         )
 
         fieldwork = nav_entry("Fieldwork")
@@ -916,6 +923,11 @@ class RepositoryContractRegressionTests(unittest.TestCase):
         self.assertIn("- Unresolved sample rows:", readme_text)
         self.assertIn("- Mapped Nordic rows:", readme_text)
         self.assertIn("- Tracked intake projects:", readme_text)
+        self.assertIn("## Interpret The Posture", readme_text)
+        self.assertIn("## Inspect The Evidence", readme_text)
+        self.assertIn("## Directory Contract", readme_text)
+        self.assertIn("## Evidence Boundary", readme_text)
+        self.assertIn("```mermaid", readme_text)
 
     def test_public_data_docs_keep_the_evidence_chain_directly_linked(self) -> None:
         inventory_page = (
@@ -1081,15 +1093,18 @@ class RepositoryContractRegressionTests(unittest.TestCase):
             "export PYTHONPYCACHEPREFIX ?= $(ROOT_PYCACHE_DIR)", root_env_text
         )
 
-    def test_readme_and_docs_describe_license_and_test_suites(self) -> None:
+    def test_readme_and_docs_separate_reader_proof_from_test_selection(self) -> None:
         readme_text = (REPO_ROOT / "README.md").read_text(encoding="utf-8")
-        docs_text = (
+        public_quality_text = (
             REPO_ROOT
             / "docs"
             / "public"
             / "pollenomics"
             / "quality"
             / "test-strategy.md"
+        ).read_text(encoding="utf-8")
+        maintainer_quality_text = (
+            REPO_ROOT / "docs" / "internal" / "pollenomics-dev" / "quality-gates.md"
         ).read_text(encoding="utf-8")
 
         self.assertIn("Apache License 2.0", readme_text)
@@ -1099,9 +1114,14 @@ class RepositoryContractRegressionTests(unittest.TestCase):
         self.assertIn("make test-unit", readme_text)
         self.assertIn("make test-regression", readme_text)
         self.assertIn("make test-e2e", readme_text)
-        self.assertIn("`tests/unit/`", docs_text)
-        self.assertIn("`tests/regression/`", docs_text)
-        self.assertIn("`tests/e2e/`", docs_text)
+        self.assertIn("# Verification Evidence", public_quality_text)
+        self.assertIn("## Proof Layers", public_quality_text)
+        self.assertNotIn("`tests/unit/`", public_quality_text)
+        self.assertNotIn("`tests/regression/`", public_quality_text)
+        self.assertNotIn("`tests/e2e/`", public_quality_text)
+        self.assertIn("`tests/unit/`", maintainer_quality_text)
+        self.assertIn("`tests/regression/`", maintainer_quality_text)
+        self.assertIn("`tests/e2e/`", maintainer_quality_text)
 
     def test_docs_home_page_uses_repository_name_for_title_and_h1(self) -> None:
         docs_index = (REPO_ROOT / "docs" / "index.md").read_text(encoding="utf-8")
@@ -1109,7 +1129,9 @@ class RepositoryContractRegressionTests(unittest.TestCase):
         self.assertIn("title: Bijux Pollenomics", docs_index)
         self.assertIn("# Bijux Pollenomics", docs_index)
         self.assertNotIn("# Docs Index", docs_index)
-        self.assertIn("public evidence surfaces about Nordic pollenomics", docs_index)
+        self.assertIn(
+            "connects curated evidence to public maps and reports", docs_index
+        )
         self.assertIn(
             "the repository is already the full cross-evidence pollenomics engine",
             docs_index,
@@ -1202,13 +1224,13 @@ class RepositoryContractRegressionTests(unittest.TestCase):
             / "sources"
             / "animal-source-intake.md"
         ).read_text(encoding="utf-8")
-        source_recovery_page = (
+        cross_domain_roles_page = (
             REPO_ROOT
             / "docs"
             / "public"
             / "pollenomics-data"
             / "sources"
-            / "non-adna-explainer-recovery.md"
+            / "cross-domain-source-roles.md"
         ).read_text(encoding="utf-8")
         atlas_index = (
             REPO_ROOT / "docs" / "public" / "nordic-atlas" / "index.md"
@@ -1253,20 +1275,23 @@ class RepositoryContractRegressionTests(unittest.TestCase):
         self.assertIn("report/", docs_index)
         self.assertIn("public/nordic-atlas/", docs_index)
         self.assertIn(
-            "data/adna/governance/animal_sample_foundation_truth.json", sample_page
+            "data/adna/governance/source_library/project_sample_master_completeness.json",
+            sample_page,
         )
         self.assertIn(
-            "data/adna/species/ovis_aries/normalized/sample_records.json", sample_page
+            "data/adna/species/<latin_name>/normalized/sample_records.json",
+            sample_page,
         )
         self.assertIn(
-            "data/adna/species/ovis_aries/normalized/site_evidence.json", site_page
+            "data/adna/species/<species-slug>/normalized/site_evidence.json",
+            site_page,
         )
         self.assertIn(
             "data/adna/governance/source_library/project_sample_chronology_review.json",
             chronology_page,
         )
         self.assertIn(
-            "sample_chronology_provenance_review.json",
+            "sample_chronology_precision_audit.json",
             chronology_page,
         )
         self.assertIn(
@@ -1274,7 +1299,7 @@ class RepositoryContractRegressionTests(unittest.TestCase):
             temporal_semantics_page,
         )
         self.assertIn(
-            "data/sead/review/evidence_legibility_review.json",
+            "data/source_spatiotemporal_posture_registry.json",
             temporal_semantics_page,
         )
         self.assertIn(
@@ -1282,15 +1307,15 @@ class RepositoryContractRegressionTests(unittest.TestCase):
             sead_handbook_page,
         )
         self.assertIn(
-            "data/sead/review/recovery_roadmap.json",
+            "data/sead/review/recovery_requirements.json",
             sead_handbook_page,
         )
         self.assertIn(
-            "data/adna/species/ovis_aries/normalized/coordinate_provenance.json",
+            "data/adna/species/<species-slug>/normalized/coordinate_provenance.json",
             coordinate_page,
         )
         self.assertIn(
-            "../../report/animal_point_evidence_review.md",
+            "../../report/animal_atlas_exclusion_report.md",
             atlas_index,
         )
         self.assertIn(
@@ -1302,7 +1327,7 @@ class RepositoryContractRegressionTests(unittest.TestCase):
             atlas_index,
         )
         self.assertIn(
-            "data/adna/governance/source_library/project_source_evidence_matrix.json",
+            "data/collection_summary.json",
             source_index,
         )
         self.assertIn(
@@ -1338,33 +1363,24 @@ class RepositoryContractRegressionTests(unittest.TestCase):
         )
         self.assertIn("cross-domain evidence matrix", publication_model_page.lower())
         self.assertIn(
-            "data/adna/governance/source_library/reference_stash_reconciliation.json",
+            "data/adna/governance/source_library/project_registry.json",
             inventory_page,
         )
+        self.assertIn("source_bundle_path", inventory_page)
+        self.assertIn("data/adna/species/<species-slug>/", inventory_page)
         self.assertIn(
-            "data/adna/governance/source_library/source_blocker_review.json",
+            "data/adna/governance/source_library/projects/<project-accession>/",
             inventory_page,
         )
+        self.assertIn("sample_master.json", inventory_page)
+        self.assertIn("sample_locality_evidence.json", inventory_page)
+        self.assertIn("sample_chronology_evidence.json", inventory_page)
         self.assertIn(
-            "data/adna/governance/source_library/project_recovery_stage_review.json",
-            inventory_page,
+            "observation unit",
+            cross_domain_roles_page,
         )
-        self.assertIn(
-            "data/adna/governance/source_library/project_expected_sample_yield_review.json",
-            inventory_page,
-        )
-        self.assertIn(
-            "data/adna/governance/source_library/manual_curation_worklist.json",
-            inventory_page,
-        )
-        self.assertIn(
-            "data/adna/governance/source_library/source_recovery_release_guard.json",
-            inventory_page,
-        )
-        self.assertIn(
-            "../../../report/repository_source_explainer_audit.md",
-            source_recovery_page,
-        )
+        self.assertIn("temporal posture", cross_domain_roles_page)
+        self.assertIn("evidence roles", cross_domain_roles_page)
         self.assertIn(
             "../../../report/animal_sample_database_review.md",
             published_reports,
@@ -1465,26 +1481,26 @@ class RepositoryContractRegressionTests(unittest.TestCase):
             for path in (REPO_ROOT / "docs" / "public" / "nordic-atlas").glob("*.md")
         )
 
-        self.assertIn("checked-in pollenomics and environmental", root_readme)
+        self.assertIn("curated evidence and publication system", root_readme)
         self.assertIn(
-            "animal aDNA sample extraction and atlas publication path is still under recovery",
+            "records without adequate sample, locality, chronology, or coordinate support stay qualified or excluded",
             root_readme,
         )
         self.assertIn(
-            "pollenomics, environmental, archaeology, boundary, fieldwork, and ancient-DNA",
+            "keeps pollen, environmental archaeology, boundaries, lake registries, human ancient DNA",
             runtime_readme,
         )
-        self.assertIn("same pollenomics-first runtime behavior", alias_readme)
+        self.assertIn("short-name distribution", alias_readme)
         self.assertIn(
-            "product guide for the repository's public evidence", runtime_index
+            "turns heterogeneous scientific and spatial sources", runtime_index
         )
-        self.assertIn("without needing to read the source code first", runtime_index)
-        self.assertIn("pollen context, environmental archaeology", data_index)
-        self.assertIn("downstream view of the repository evidence tree", atlas_index)
+        self.assertIn("The system keeps unlike evidence unlike", runtime_index)
+        self.assertIn("preserves the chain between an upstream source", data_index)
+        self.assertIn("comparison surface", atlas_index)
         self.assertEqual(atlas_files, ["index.md"])
-        self.assertIn("How animal points are built", atlas_index)
-        self.assertIn("How filters and popups work", atlas_index)
-        self.assertIn("Current limits and audits", atlas_index)
+        self.assertIn("Point publication rules", atlas_index)
+        self.assertIn("Filters and popups", atlas_index)
+        self.assertIn("Current limits", atlas_index)
 
     def test_top_level_landings_keep_pollenomics_scope_and_source_breadth(self) -> None:
         readme_text = (REPO_ROOT / "README.md").read_text(encoding="utf-8").lower()
@@ -1518,9 +1534,10 @@ class RepositoryContractRegressionTests(unittest.TestCase):
         self.assertIn("Open the product guide", docs_index)
         self.assertIn("Open the report portal", docs_index)
         self.assertIn("How to read the report tree", docs_index)
-        self.assertIn("public evidence surfaces about Nordic pollenomics", docs_index)
+        self.assertIn("How A Claim Earns Trust", docs_index)
+        self.assertIn("No single map popup answers all five questions", docs_index)
         self.assertNotIn("Open the internal guide", docs_index)
-        self.assertIn("source-family comparison", data_index)
+        self.assertIn("preserves the chain between an upstream source", data_index)
         self.assertIn(
             "[report portal](../../../report/index.md)",
             (
@@ -1533,7 +1550,7 @@ class RepositoryContractRegressionTests(unittest.TestCase):
             ).read_text(encoding="utf-8"),
         )
         self.assertIn(
-            "[report portal](../../report/index.md)",
+            'href="../../report/">Open the report portal</a>',
             (REPO_ROOT / "docs" / "public" / "nordic-atlas" / "index.md").read_text(
                 encoding="utf-8"
             ),
@@ -1624,9 +1641,10 @@ class RepositoryContractRegressionTests(unittest.TestCase):
             REPO_ROOT / "packages" / "bijux-pollenomics-dev" / "README.md"
         ).read_text(encoding="utf-8")
 
-        self.assertIn("Use this package if you want the canonical CLI", runtime_readme)
-        self.assertIn("tracked source collection, animal aDNA intake", runtime_readme)
-        self.assertIn("Alias distribution", alias_readme)
+        self.assertIn("is the canonical runtime", runtime_readme)
+        self.assertIn("## Evidence guarantees", runtime_readme)
+        self.assertIn("is the short-name distribution", alias_readme)
+        self.assertIn("## Compatibility contract", alias_readme)
         self.assertIn("Maintainer-only package", maintainer_readme)
         self.assertIn("It is not the owner of runtime commands", maintainer_readme)
 
@@ -2008,9 +2026,10 @@ class RepositoryContractRegressionTests(unittest.TestCase):
         self.assertNotIn("https://bijux.io/bijux-pollenomics/report/", atlas_text)
 
         self.assertIn(
-            "(../../report/regions/nordic/nordic_map.html)", fieldwork_index_text
+            'href="../../report/regions/nordic/nordic_map.html"',
+            fieldwork_index_text,
         )
-        self.assertIn("(../pollenomics-data/index.md)", fieldwork_index_text)
+        self.assertIn('href="../pollenomics-data/"', fieldwork_index_text)
         self.assertNotIn(
             "https://bijux.io/bijux-pollenomics/public/", fieldwork_index_text
         )

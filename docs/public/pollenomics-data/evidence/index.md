@@ -1,78 +1,389 @@
 ---
-title: Evidence
+title: Evidence Chain
 audience: reader
 type: explanation
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-05-10
+last_reviewed: 2026-07-22
 ---
 
-# Evidence
+# Evidence Chain
 
-This section explains how an animal ancient DNA claim becomes evidence that can
-actually be checked inside the repository.
+Evidence in Pollenomics is a linked set of claims, not a single confidence
+label. A public row can involve source identity, record identity, place, time,
+coordinates, scientific role, and publication eligibility. Each claim keeps
+its own provenance and precision.
 
-The public question is usually simple: why is this sample, locality, date, or
-point shown here at all. The answer is not stored in one file. It is spread
-across sample records, locality evidence, chronology review, and coordinate
-provenance.
+This model serves two kinds of reader at once. A scientific reader can see
+what a plotted or summarized record means. An auditor can follow the same row
+back through its governing surface, source locator, transformation, caveat,
+and admission decision.
 
-Use this section when your question sounds like one of these:
+[Evidence decision records](../curation/decision-records.md) explains how the
+claim, proposed use, evidence basis, rule, outcome, and recovery condition stay
+linked when evidence becomes a product member or a reasoned non-member.
 
-- why is this point allowed to appear publicly
-- how strong is the place or date claim behind this record
-- where should I look when the map feels cleaner than the evidence probably is
-- what kind of support stands behind one country row or atlas point
+## Trust Model
 
-## The Evidence Chain
+Four invariants govern the evidence chain:
+
+1. **Authority is scoped.** Project records govern project facts; sample
+   records govern sample facts; aggregates summarize but do not replace them.
+2. **Transformation cannot strengthen evidence.** Normalization may make a
+   supported claim comparable, but cannot invent finer place, time, or identity
+   resolution.
+3. **Joins require evidence.** Shared labels, proximity, and convenient project
+   context are not sufficient linkage on their own.
+4. **Refusal is data.** Unresolved, conflicted, blocked, and deferred outcomes
+   remain visible so published coverage is not mistaken for source coverage.
+
+### Evidence Has More Than Two Outcomes
+
+The evidence database does not force every question into supported versus
+unsupported. Those labels hide whether evidence was examined, whether sources
+disagree, and whether the requested use exceeds the available precision.
+
+| Outcome | Meaning | Safe public treatment |
+| --- | --- | --- |
+| supported | governing evidence satisfies the declared claim and use | publish at the supported scope and precision |
+| qualified | the claim is usable only with a material bound or caveat | publish the qualification with the member |
+| conflicted | two or more attributable claims remain incompatible | preserve each claim and withhold an unqualified conclusion |
+| unknown | the required evidence is absent or has not been recovered | state the missing dimension; do not convert it to absence |
+| refused | evidence was evaluated and fails the named use contract | retain the record and reason outside that product membership |
+| out of scope | the claim was not evaluated because the product does not ask it | do not describe the outcome as scientific rejection |
 
 ```mermaid
 flowchart LR
-    samples["sample records"]
-    localities["locality evidence"]
-    chronology["chronology review"]
-    coordinates["coordinate provenance"]
-    outputs["reports and atlas rows"]
-
-    samples --> localities
-    samples --> chronology
-    localities --> coordinates
-    chronology --> outputs
-    coordinates --> outputs
-    samples --> outputs
+    Claim["claim + intended use"] --> Evidence{"governing evidence available?"}
+    Evidence -->|no| Unknown["unknown or recovery state"]
+    Evidence -->|yes| Agreement{"consistent and sufficient?"}
+    Agreement -->|yes| Supported["supported or qualified"]
+    Agreement -->|conflict| Conflict["conflicted"]
+    Agreement -->|insufficient| Refused["refused for this use"]
 ```
 
-## Start Here
+This vocabulary protects negative claims. “No published point” can mean
+unknown coordinates, a spatial refusal, exclusion from a geographic scope, or
+a reader filter; none of those proves that the specimen or phenomenon was
+absent.
 
-- [Sample records](sample-records.md) for sample identity and lineage
-- [Localities](localities.md) for site-level place claims
-- [Chronology](chronology.md) for date evidence and normalization status
-- [Temporal semantics](temporal-semantics.md) for cross-family comparison
-  posture and uncertainty
-- [Coordinates](coordinates.md) for why a row maps as a point or stays blocked
+## Cross-Domain Evidence
 
-## What This Section Helps You Judge
+All source families preserve origin, version, and their materially present
+lifecycle posture. Normalized and review artifacts are family-specific rather
+than assumed from publication. Their scientific evidence units also remain
+different:
 
-- whether a visible record is strong because the evidence is strong or only
-  because the presentation is smooth
-- whether a challenge belongs at sample level, locality level, chronology
-  level, or coordinate level
-- whether the current public output is direct evidence, cautious projection, or
-  still too weak for exact publication
+- pollen sources govern sites, sequences, samples, and modelled context;
+- archaeology sources govern sites and contextual records;
+- SVAR governs hydrographic registry records;
+- AADR governs release-versioned human ancient-DNA metadata;
+- animal aDNA governs project-, paper-, supplement-, sample-, and site-owned
+  evidence; and
+- boundaries govern geographic selection, never scientific support.
 
-## A Practical Reading Order
+[Temporal semantics](temporal-semantics.md) explains how time claims from these
+families can be compared without pretending they have equal resolution.
 
-- start with sample records when the identity or project lineage is unclear
-- move to localities when the place claim seems too broad or too confident
-- move to chronology when the date language looks cleaner than the source
-  probably was
-- move to coordinates when the map precision itself is the question
+## Animal Sample Evidence
 
-The important rule is that the visible point is not the beginning of the
-argument. It is the downstream result of these narrower evidence decisions.
+Animal aDNA has the deepest explicit chain because a project accession or paper
+citation is not enough to justify a sample-level map point.
 
-## The Key Principle
+```mermaid
+flowchart LR
+    Source["paper, project, supplement"] --> Sample["stable sample identity"]
+    Sample --> Site["sample-to-site linkage"]
+    Site --> Locality["locality class and provenance"]
+    Sample --> Chronology["date claim and provenance"]
+    Locality --> Coordinates["coordinate basis and precision"]
+    Chronology --> Fitness{"scientific fitness"}
+    Coordinates --> Fitness
+    Fitness -->|admit or qualify| Point["atlas or country evidence row"]
+    Fitness -->|block or defer| Ledger["exclusion or recovery surface"]
+```
 
-No visible point or country row should outrank the evidence chain behind it.
-If a record appears publicly, the sample, locality, date, and coordinate basis
-should still be traceable in the tracked files.
+Every arrow represents a claim that can fail independently. A stable sample
+identifier does not prove a site. A named site does not prove coordinates. A
+date attached to a project does not automatically belong to every sample.
+
+The final decision is product-specific. A row may be valid evidence for a
+regional count, qualified contextual layer, or curation inventory while still
+being ineligible for an exact point or time-aware comparison.
+
+### Animal Evidence Has Several Governed Populations
+
+Three prominent animal counts describe different database contracts:
+
+| Population | Rows | Governing question |
+| --- | ---: | --- |
+| sample-foundation truth | 894 | which curated source rows are fully grounded, partly grounded, or blocked by metadata, locality, or chronology? |
+| recovered project sample master | 868 | which source rows resolve to stable project-owned sample identities? |
+| point publication | 234 | which sample-backed or explicitly qualified context members satisfy the spatial product contract? |
+
+The foundation contains 502 fully grounded rows, 256 partially grounded rows,
+29 blocked for missing metadata, four blocked for missing location detail, and
+103 blocked for weak chronology. Those classes measure evidence preparation;
+they are not publication decisions. Likewise, the 234-member point surface
+contains 233 final sample-backed features and one provisional project-context
+feature, so it is not a subset count that can be divided mechanically by 868
+or 894.
+
+```mermaid
+flowchart LR
+    Foundation["894 foundation rows<br/>grounding and blockers"] --> Identity["868 recovered sample identities"]
+    Identity --> Samples["233 sample-backed points"]
+    Context["1 qualified project-context feature"] --> Product["234 publication members"]
+    Samples --> Product
+```
+
+The arrows express governed relations, not guaranteed one-to-one attrition.
+Every count or percentage must name its observation unit and population.
+
+### Species Views Preserve Taxon Posture, Not Fact Ownership
+
+The directories under `data/adna/species/` group evidence by accepted taxon
+and expose current curation, recovery, spatial, and release posture. They are
+projections over source- and project-owned evidence, not independent source
+databases. Human AADR currently exposes a capture-only species route, while
+the ten non-human views materialize broader normalized and review surfaces;
+the common directory shape must not be read as equivalent lifecycle depth.
+
+[Species evidence views](species-evidence-views.md) defines how to interpret
+those differences, audit one taxon claim, and construct a cross-species
+comparison without mixing projects, samples, sites, or publication members.
+
+## Evidence Dimensions
+
+| Dimension | Governing question | Failure if flattened |
+| --- | --- | --- |
+| Identity | Which physical or analytical sample does this row represent? | duplicate or conflated samples |
+| Lineage | Which project, paper, supplement, table, and source row support it? | unverifiable extraction |
+| Locality | Is the place sample-specific, site-specific, regional, substituted, or unresolved? | false geographic precision |
+| Chronology | Is the date direct, derived, interval-based, textual, or unresolved? | false temporal precision |
+| Coordinates | What created the point and with what confidence? | map marker outranks place evidence |
+| Fitness | Is the combined record eligible for the declared publication? | presentation silently strengthens evidence |
+
+## Minimum Evidence Depends On The Claim
+
+There is no universal “complete record.” Completeness is evaluated against the
+claim being made:
+
+| Proposed use | Minimum governing evidence | A valid record can still be ineligible when… |
+| --- | --- | --- |
+| source inventory | stable source-native identity and capture lineage | the source row cannot be distinguished or recovered |
+| sample inventory | resolved sample identity and project lineage | only a project accession or unlinked paper label is known |
+| named-site summary | sample-to-site evidence and locality class | place exists only at project or regional scope |
+| exact point map | sample-owned locality plus source-backed or verified site coordinates | a coordinate is inferred, substituted, or broader than the locality claim |
+| numeric temporal comparison | comparable numeric interval, dating basis, precision posture, and overlap rule | time is textual, contextual, unresolved, or measured under an incompatible contract |
+| cross-domain association | eligible records from both domains plus explicit spatial and temporal bridges | proximity is available but chronology or evidence role is not comparable |
+
+The required dimensions are conjunctive. Exact coordinates do not compensate
+for unresolved sample identity; a direct date does not compensate for a
+project-only locality; strong evidence in one domain does not upgrade a
+contextual source in another.
+
+### Completeness Is A Claim Vector
+
+For any governed object, completeness is a vector of independently reviewable
+states rather than a percentage attached to the row:
+
+```mermaid
+flowchart LR
+    Object["governed object"] --> Identity["identity state"]
+    Object --> Place["locality state"]
+    Object --> Time["chronology state"]
+    Object --> Geometry["coordinate state"]
+    Object --> Lineage["lineage state"]
+    Identity --> Use{"requested use"}
+    Place --> Use
+    Time --> Use
+    Geometry --> Use
+    Lineage --> Use
+```
+
+The requested use selects which vector components are mandatory and which may
+remain qualified. This preserves useful partial evidence without letting a
+high-confidence component conceal an unresolved one.
+
+## Evidence Capability Is A Query
+
+Evidence capability is evaluated for a particular object, claim, and use. It
+is not inherited from the source family or summarized by the number of filled
+columns.
+
+```mermaid
+flowchart LR
+    Object["governed object"] --> Claim["claim dimension"]
+    Claim --> Owner["fact owner + evidence locator"]
+    Owner --> Posture["precision and review posture"]
+    Use["requested scientific use"] --> Gate{"capability query"}
+    Posture --> Gate
+    Gate -->|supported| Result["bounded claim"]
+    Gate -->|insufficient| Refusal["qualified, contextual, or refused result"]
+```
+
+This means “has coordinates” is not a sufficient query. The database asks
+whether the governed subject owns the locality, how the pair was produced,
+what precision it supports, and whether that posture satisfies the requested
+product. Equivalent queries apply to identity, chronology, taxonomy, and
+cross-domain association.
+
+## Claim Envelope
+
+A reusable claim must retain enough context to survive outside the page where
+it was first seen:
+
+| Envelope field | Why it is indispensable |
+| --- | --- |
+| governed object ID | identifies the sample, site, source record, or product member without relying on a label |
+| fact owner | identifies the record authorized to define the disputed value |
+| source family and locator | leads to the captured upstream object and exact supporting location |
+| reported value | preserves what the source expressed before repository interpretation |
+| normalized value and method | makes comparison possible without hiding transformation |
+| precision and evidence class | bounds spatial, temporal, taxonomic, or identity strength |
+| role and product scope | explains what the record contributes and where it was admitted |
+| qualification or refusal | prevents missing or conflicted evidence from disappearing in reuse |
+
+The envelope is intentionally larger than a popup or CSV cell. Compact views
+may point to it, but downstream reuse that drops these fields cannot retain the
+same evidential claim.
+
+### Claims Are Addressable Database Objects
+
+A claim is identified by its governed subject, fact type, source or decision
+identity, and revision—not by the current displayed value. This allows two
+supported values to remain in conflict without overwriting one another and
+allows a later decision to change posture without erasing the evidence that
+was reviewed.
+
+| Claim member | Database responsibility |
+| --- | --- |
+| subject identity | binds the claim to one typed sample, site, source member, or product |
+| fact type | distinguishes identity, locality, chronology, coordinate, taxon, role, and membership claims |
+| assertion identity | keeps several source statements or curated interpretations separately addressable |
+| evidence locator | recovers the captured statement or deterministic inputs |
+| normalized representation | enables comparison while retaining source wording and method |
+| decision state | records acceptance, qualification, conflict, refusal, or unresolved posture |
+| supersession relation | explains which later claim or decision replaced an earlier interpretation and why |
+
+Supersession is not deletion. Historical values remain attributable to the
+database revision and evidence that supported them; current products select
+only the posture accepted by their own contracts.
+
+### A Decision Is Scoped To One Claim
+
+Evidence posture belongs to the pair of claim and intended use, not to the
+record as a whole:
+
+| Governed object | Claim under review | Possible decision without changing object identity |
+| --- | --- | --- |
+| animal sample | labels identify one recovered analytical unit | final identity, ambiguity, merge, split, or refusal |
+| animal sample | locality is sample-owned at named-site precision | accepted named site, qualified regional claim, substitution, or unresolved |
+| animal sample | chronology supports numeric comparison | comparable interval, text-only time, contextual range, conflict, or unknown |
+| locality | geometry represents the supported place precision | exact, approximate, substituted, region-only, withheld, or refused point |
+| evidence row | claim is fit for one publication | admitted, qualified, excluded, deferred, or out of scope |
+
+```mermaid
+flowchart LR
+    Object["stable governed object"] --> IdentityClaim["identity claim"]
+    Object --> PlaceClaim["place claim"]
+    Object --> TimeClaim["time claim"]
+    IdentityClaim --> IdentityDecision["identity posture"]
+    PlaceClaim --> PlaceDecision["spatial posture"]
+    TimeClaim --> TimeDecision["temporal posture"]
+    IdentityDecision --> Admission["product-specific admission"]
+    PlaceDecision --> Admission
+    TimeDecision --> Admission
+```
+
+This model supports partial but honest records. A sample does not become
+globally “low quality” because one chronology is unresolved, and it does not
+become universally publishable because its identity and coordinates are
+strong.
+
+```mermaid
+flowchart LR
+    Claim["claim value"] --> Object["governed object"]
+    Claim --> Owner["fact owner"]
+    Claim --> Source["source and locator"]
+    Claim --> Method["normalization or curation method"]
+    Claim --> Precision["precision and class"]
+    Claim --> Scope["role and product scope"]
+    Claim --> Limit["qualification or refusal"]
+```
+
+## Evidence Joins Are Claims
+
+Joining records is not a neutral formatting operation. Each relationship needs
+an identity rule and provenance because a wrong join can create a plausible but
+unsupported public point.
+
+| Relationship | Required support | Unsafe shortcut |
+| --- | --- | --- |
+| project to paper | registry linkage or source-backed publication association | matching by title fragment alone |
+| paper to supplement | captured artifact identity and supporting-material manifest | assuming every attachment contains sample rows |
+| project to sample | recoverable source label and stable repository identity | treating a project accession as one sample |
+| sample to site | sample-owned row, defined group, or explicitly broader locality class | assigning all project samples to the project title's place |
+| sample to chronology | sample-owned claim or visibly contextual fallback | copying the project age range to every sample |
+| locality to coordinate | declared coordinate source, method, and precision | geocoding a broad region as an exact site |
+| evidence row to product | stable identifier and successful product admission | plotting every normalized row |
+
+Conflict and substitution ledgers preserve cases where more than one join is
+possible or where a broader relationship is used provisionally. That record is
+part of the evidence, not an implementation detail.
+
+## Evidence Outcomes
+
+- **direct** evidence resolves to a sample-owned source location such as a
+  supplementary table row;
+- **derived** evidence records the transformation and its assumptions;
+- **qualified** evidence is usable only with an explicit precision or source
+  caveat;
+- **conflicted** evidence preserves incompatible claims pending resolution;
+- **blocked** evidence fails a known publication requirement; and
+- **deferred** evidence awaits source recovery or manual curation.
+
+Blocked and deferred states remain part of the database. Their presence makes
+coverage gaps and recovery work measurable.
+
+An evidence-chain summary should therefore report at least three quantities:
+the known candidate population, the population for which the required chain
+was evaluated, and the population that passed the declared use. Omitting the
+first hides discovery coverage; omitting the second hides curation coverage;
+omitting the third hides publication selectivity.
+
+Evidence strength is bounded by the weakest claim needed for the proposed
+use. Strong identity does not repair unresolved locality; exact coordinates do
+not repair uncertain ownership; complete lineage does not create chronology;
+and admission to one product does not establish fitness for another.
+
+## Inspect A Claim
+
+1. Begin with the public evidence identifier and publication posture.
+2. Resolve the normalized record and governing fact owner.
+3. Inspect sample identity and source lineage.
+4. Inspect locality and chronology as separate claims.
+5. Compare coordinate precision with locality evidence.
+6. Read conflicts, caveats, exclusions, and release-gate outcomes.
+
+```mermaid
+flowchart TD
+    Public["public row or visual mark"] --> Posture["publication posture"]
+    Posture --> Normalized["normalized evidence record"]
+    Normalized --> Owner["governing fact owner"]
+    Owner --> Locator["source artifact and locator"]
+    Posture --> Decision["admission, qualification, or exclusion"]
+    Decision --> Review["review and conflict surfaces"]
+    Locator --> Source["archive, paper, supplement, or governed dataset"]
+```
+
+Start from the public artifact when checking a visible claim. Start from the
+governing fact owner when checking collection completeness or curation state.
+Those directions meet at the normalized evidence record, but they answer
+different questions.
+
+The relevant references are [sample records](sample-records.md),
+[localities](localities.md), [chronology](chronology.md), and
+[coordinates](coordinates.md). The [object and relation model](../database/object-and-relation-model.md)
+defines the typed identities used throughout the chain.

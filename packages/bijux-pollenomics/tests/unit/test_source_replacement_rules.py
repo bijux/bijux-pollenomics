@@ -19,7 +19,10 @@ class SourceReplacementRulesUnitTests(unittest.TestCase):
         self.assertTrue(rules["neotoma"].preserves_previous_on_failure)
         self.assertEqual(rules["neotoma"].refresh_mode, "staging_swap")
         self.assertEqual(rules["neotoma"].final_output_root, "/tmp/data/neotoma")
-        self.assertEqual(rules["neotoma"].staging_output_root, "/tmp/data/.neotoma.tmp")
+        self.assertEqual(
+            rules["neotoma"].staging_output_root,
+            "/tmp/data/.neotoma.staging",
+        )
 
 
 if __name__ == "__main__":

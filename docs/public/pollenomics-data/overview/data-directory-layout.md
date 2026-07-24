@@ -4,22 +4,30 @@ audience: reader
 type: explanation
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-05-10
+last_reviewed: 2026-07-22
 ---
 
 # Data Directory Layout
 
-This page explains the shape of the main repository-owned data tree for people
-who need a file-system map after they already understand the product model.
+The tracked tree separates governed evidence state from derived publication
+state. Directory position communicates lifecycle and authority; it is not only
+an implementation detail.
 
-## How To Read The Tree
+```mermaid
+flowchart TB
+    Data["data/"] --> Families["source-family roots"]
+    Families --> Raw["raw capture"]
+    Families --> Normalized["normalized records"]
+    Families --> Review["review and governance"]
+    Review --> Final["admitted publication inputs"]
+    Final --> Reports["docs/report/"]
+    Reports --> Public["maps, bundles, tables, and accountability surfaces"]
+```
 
-The layout makes the most sense when you read it by role, not by alphabetical
-path order:
-
-- `data/` holds source capture, normalization, and review material
-- `docs/report/` holds generated public bundles and review packets
-- `docs/public/pollenomics-data/` explains what those tracked files mean
+The path answers **where a record is governed**. The record identifier answers
+**which scientific object it represents**. Neither can replace the other: a
+copied file without its identifiers loses joinability, while an identifier
+without its governing path loses the evidence needed to interpret it.
 
 ## Main Areas
 
@@ -32,35 +40,125 @@ path order:
 | `data/sead/` | environmental archaeology context | archaeology and environmental support |
 | `data/raa/` | Swedish archaeology context | Sweden-specific archaeology framing |
 | `data/boundaries/` | country and region framing geometry | filtering and scope clarity |
+| `data/svar/` | Swedish water-body registry and normalized lake geometry | lake identity and decision-support inputs |
 | `docs/report/` | generated world, regional, and country publication bundles | public-facing outputs |
+
+Two repository-wide registries make the family boundaries explicit:
+
+| Registry | Question it answers |
+| --- | --- |
+| `data/source_fact_ownership_registry.json` | which surface owns each repeated fact, and which surfaces contain derived copies? |
+| `data/source_spatiotemporal_posture_registry.json` | what spatial and temporal claims can each source family support? |
+
+These registries are cross-family indexes. They do not supersede a project,
+sample, site, chronology, or source record. Their role is to prevent a
+convenient downstream copy from becoming an accidental authority.
 
 ## The Animal aDNA Tree
 
-The `data/adna/` tree is where species-centered animal ancient DNA recovery
-becomes inspectable. It is split so you can tell the difference between
-governance work, species-level normalized evidence, and final atlas-facing
-publication inputs.
+The `data/adna/` tree separates source recovery from species views and final
+publication inputs:
 
-- `data/adna/final/` holds the atlas- and publication-facing outputs derived
-  from the governed animal evidence chain.
-- `data/adna/species/equus_caballus/` tracks horse recovery and review files.
-- `data/adna/species/bos_taurus/` tracks cattle recovery and review files.
-- `data/adna/species/canis_lupus_familiaris/` tracks dog recovery and review
-  files.
-- `data/adna/species/camelus_dromedarius/` tracks camel recovery and review
-  files.
-- `data/adna/species/rangifer_tarandus/` tracks reindeer recovery and review
-  files.
-- `data/adna/species/equus_asinus/` tracks donkey recovery and review files.
-- `data/adna/species/felis_catus/` tracks cat recovery and review files.
+| Path | Authority |
+| --- | --- |
+| `data/adna/governance/source_library/` | projects, papers, captured artifacts, sample foundations, conflicts, and recovery state |
+| `data/adna/species/<latin_name>/normalized/` | cross-project species representation over governed sample evidence |
+| `data/adna/species/<latin_name>/review/` | species fitness, gaps, and release posture |
+| `data/adna/final/atlas/` | candidate and accountability inputs for atlas publication |
 
-Those species roots matter because the repository does not treat animal ancient
-DNA as one flat pile of records. Each species keeps its own recovery, review,
-and publication posture visible.
+Species roots are views over governed project evidence, not independent source
+databases. Final atlas files are admitted downstream inputs, not authorities
+for project, sample, locality, chronology, or coordinate facts.
 
-## How To Use This Page
+### Species-centered recovery
 
-Start with the handbook pages when your question is about meaning. Use this
-page when your question is about exact file locations. The tree becomes much
-easier to read once the roles of source, evidence, review, and publication are
-already clear.
+The species-centered animal ancient DNA recovery layout gives each supported
+taxon the same interpretable lifecycle without merging its underlying projects:
+
+```text
+data/adna/species/<latin_name>/
+├── raw/          source-facing species inventory
+├── normalized/   samples, sites, projects, localities, and coordinates
+├── manifests/    source, curation, normalization, and runtime membership
+├── review/       archive integrity and species fitness
+└── reports/      support summaries and recovery deficits
+```
+
+Current roots include `data/adna/species/equus_caballus/`,
+`data/adna/species/bos_taurus/`,
+`data/adna/species/canis_lupus_familiaris/`,
+`data/adna/species/camelus_dromedarius/`,
+`data/adna/species/rangifer_tarandus/`,
+`data/adna/species/equus_asinus/`, `data/adna/species/felis_catus/`,
+`data/adna/species/capra_hircus/`, `data/adna/species/ovis_aries/`, and
+`data/adna/species/sus_scrofa_domesticus/`. The
+`data/adna/species/homo_sapiens/` root exposes AADR under the same species
+boundary while retaining AADR as the raw authority.
+
+`data/adna/final/` is deliberately outside the species roots. It assembles
+cross-species candidate and accountability inputs for named products; it does
+not elevate a species projection into project or sample authority.
+
+## Locate A Claim
+
+Read a repository locator from left to right:
+
+```text
+source family / lifecycle stage / governed object / representation
+```
+
+For example, `data/adna/governance/source_library/paper_registry.json` is the
+animal-aDNA, governance-stage registry for papers. By contrast,
+`data/adna/final/atlas/animal_atlas_point_candidates.json` is a product input:
+it contains admitted candidates, but its repeated paper and sample fields
+remain governed by the source library.
+
+The same distinction applies to the other families. A Neotoma normalized site,
+a Swedish National Heritage Board normalized archaeology record, and an SVAR
+normalized lake are repository representations of upstream objects. The raw
+capture and source identity remain necessary to explain how each
+representation was obtained.
+
+## Path Semantics
+
+- `raw/` answers what was captured;
+- `normalized/` answers how it is represented;
+- `review/`, ledgers, and queues answer what is fit, conflicting, or missing;
+- `final/` answers what was admitted for a named downstream contract; and
+- `docs/report/` answers what was published from those admitted inputs.
+
+When repeated values disagree, resolve them at the governing evidence path and
+regenerate downstream views. Hand-editing a report or final input would create
+a competing authority.
+
+### Directory Names Do Not Certify A Stage
+
+`raw/`, `normalized/`, `review/`, and `final/` communicate responsibility, but
+the directory name alone is not stage evidence. A stage is materialized only
+when its contracted artifacts contain governed members and satisfy their
+identity and companion-file rules.
+
+| Misleading observation | Required inspection |
+| --- | --- |
+| an empty `review/` directory exists | stage matrix, review contract, governed findings, and reviewed denominator |
+| a GeoJSON file exists under `normalized/` | source linkage, stable IDs, field semantics, geometry basis, and rejected-row accounting |
+| a record appears under `final/` | admission decision, product contract, eligible population, and non-member accounting |
+| the same value appears in several roots | fact-ownership registry and lineage from owner to descendants |
+| a report survives after an upstream stage disappears | retained product identity plus an explicit rebuildability limitation |
+
+This rule prevents scaffolding, cached descendants, and convenient copies from
+being mistaken for completed preparation.
+
+## Move Evidence Without Losing Meaning
+
+A portable evidence slice contains more than the selected rows. It travels
+with the source release or acquisition identity, stable record identifiers,
+the applicable fact-ownership and spatiotemporal posture entries, admission or
+exclusion state, and the product manifest that names its members. If file
+integrity is material, the slice also carries the recorded digest or checksum
+from its acquisition surface.
+
+This makes a copied bundle independently auditable. A recipient can determine
+which rows were published, which source and version they came from, which
+fields are derived, and which caveats still constrain interpretation without
+reconstructing meaning from directory names alone.

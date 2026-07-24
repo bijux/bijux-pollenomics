@@ -28,32 +28,6 @@ extra:
     docs_package: bijux-pollenomics-dev
     nav_mode: default
     theme_key: bijux:theme
-    hub_links:
-      - key: bijux
-        label: Bijux
-        url: https://bijux.io/
-      - key: bijux-core
-        label: Core
-        url: https://bijux.io/bijux-core/
-      - key: bijux-proteomics
-        label: Proteomics
-        url: https://bijux.io/bijux-proteomics/
-      - key: bijux-pollenomics
-        label: Pollenomics
-        url: https://bijux.io/bijux-pollenomics/
-      - key: bijux-phylogenetics
-        label: Phylogenetics
-        url: https://bijux.io/bijux-phylogenetics/
-      - key: bijux-canon
-        label: Canon
-        url: https://bijux.io/bijux-canon/
-      - key: bijux-atlas
-        label: Atlas
-        url: https://bijux.io/bijux-atlas/
-      - key: bijux-masterclass
-        label: Masterclass
-        url: https://bijux.io/bijux-masterclass/
-
 plugins:
   - search
   - autorefs
@@ -64,6 +38,7 @@ plugins:
         foundation/repository-scope.md: public/pollenomics/foundation/repository-scope-and-limits.md
         foundation/scope-and-non-goals.md: public/pollenomics/foundation/repository-scope-and-limits.md
         foundation/map-first-product-model.md: public/pollenomics/foundation/index.md
+        public/pollenomics/foundation/pollenomics-engine-roadmap.md: public/pollenomics/foundation/evidence-engine-capabilities.md
         architecture/index.md: public/pollenomics/architecture/index.md
         architecture/system-overview.md: public/pollenomics/architecture/module-map.md
         architecture/data-collection-flow.md: public/pollenomics/architecture/index.md
@@ -89,6 +64,7 @@ plugins:
         data-sources/neotoma.md: public/pollenomics-data/sources/neotoma.md
         data-sources/raa.md: public/pollenomics-data/sources/raa.md
         data-sources/sead.md: public/pollenomics-data/sources/sead.md
+        public/pollenomics-data/sources/non-adna-explainer-recovery.md: public/pollenomics-data/sources/cross-domain-source-roles.md
         outputs/index.md: public/pollenomics-data/publications/index.md
         outputs/nordic-evidence-atlas.md: public/pollenomics-data/publications/maps.md
         outputs/country-reports.md: public/pollenomics-data/publications/reports.md
@@ -140,8 +116,8 @@ nav:
       - Foundation:
           - Overview: public/pollenomics/foundation/index.md
           - Repository Scope and Limits: public/pollenomics/foundation/repository-scope-and-limits.md
-          - End-State Product Model: public/pollenomics/foundation/end-state-product-model.md
-          - Pollenomics Engine Roadmap: public/pollenomics/foundation/pollenomics-engine-roadmap.md
+          - Publication Scope Model: public/pollenomics/foundation/publication-scope-model.md
+          - Evidence Engine Capabilities: public/pollenomics/foundation/evidence-engine-capabilities.md
           - Runtime Scope and Ownership: public/pollenomics/foundation/runtime-scope-and-ownership.md
       - Architecture:
           - Overview: public/pollenomics/architecture/index.md
@@ -164,28 +140,34 @@ nav:
           - Operational Boundaries: public/pollenomics/operations/operational-boundaries.md
       - Quality:
           - Overview: public/pollenomics/quality/index.md
-          - Test Strategy: public/pollenomics/quality/test-strategy.md
-          - Change Validation: public/pollenomics/quality/change-validation.md
-          - Review Checklist: public/pollenomics/quality/review-checklist.md
-          - Public Language Guide: public/pollenomics/quality/public-language-guide.md
+          - Verification Evidence: public/pollenomics/quality/test-strategy.md
+          - Change Evidence: public/pollenomics/quality/change-validation.md
+          - Claim Review: public/pollenomics/quality/review-checklist.md
+          - Evidence Vocabulary: public/pollenomics/quality/public-language-guide.md
           - Runtime Invariants and Limits: public/pollenomics/quality/runtime-invariants-and-limits.md
   - Data:
       - Overview: public/pollenomics-data/index.md
       - System:
           - Overview: public/pollenomics-data/overview/index.md
+          - Domain Language: public/pollenomics-data/domain-language.md
           - System Overview: public/pollenomics-data/overview/data-system-overview.md
           - Architecture: public/pollenomics-data/overview/data-architecture-handbook.md
           - Publication Model: public/pollenomics-data/overview/pollenomics-publication-model.md
           - Evidence Matrix: public/pollenomics-data/overview/cross-domain-evidence-matrix.md
           - Animal aDNA: public/pollenomics-data/overview/animal-ancient-dna-evidence.md
           - Directory Layout: public/pollenomics-data/overview/data-directory-layout.md
+      - Database:
+          - Overview: public/pollenomics-data/database/index.md
+          - Querying Governed Evidence: public/pollenomics-data/database/querying-evidence.md
+          - Object and Relation Model: public/pollenomics-data/database/object-and-relation-model.md
+          - Revision and State Model: public/pollenomics-data/database/revision-and-state-model.md
       - Sources:
           - Overview: public/pollenomics-data/sources/index.md
           - Source Comparison: public/pollenomics-data/sources/source-comparison.md
           - Source Family Matrix: public/pollenomics-data/sources/source-family-matrix.md
           - Refresh Policy: public/pollenomics-data/sources/refresh-policy.md
           - Shared Normalization: public/pollenomics-data/sources/shared-normalization.md
-          - Non-aDNA Explainer Recovery: public/pollenomics-data/sources/non-adna-explainer-recovery.md
+          - Cross-Domain Source Roles: public/pollenomics-data/sources/cross-domain-source-roles.md
           - Animal Source Intake: public/pollenomics-data/sources/animal-source-intake.md
           - SEAD Handbook: public/pollenomics-data/sources/sead-handbook.md
           - AADR: public/pollenomics-data/sources/aadr.md
@@ -194,8 +176,15 @@ nav:
           - Neotoma: public/pollenomics-data/sources/neotoma.md
           - RAÄ: public/pollenomics-data/sources/raa.md
           - SEAD: public/pollenomics-data/sources/sead.md
+          - SMHI SVAR: public/pollenomics-data/sources/svar.md
+      - Curation:
+          - Overview: public/pollenomics-data/curation/index.md
+          - Evidence Decision Records: public/pollenomics-data/curation/decision-records.md
+          - Record Admission: public/pollenomics-data/curation/record-admission.md
+          - Conflicts and Recovery: public/pollenomics-data/curation/conflicts-and-recovery.md
       - Evidence:
           - Overview: public/pollenomics-data/evidence/index.md
+          - Species Evidence Views: public/pollenomics-data/evidence/species-evidence-views.md
           - Sample Records: public/pollenomics-data/evidence/sample-records.md
           - Localities: public/pollenomics-data/evidence/localities.md
           - Chronology: public/pollenomics-data/evidence/chronology.md
@@ -203,6 +192,7 @@ nav:
           - Coordinates: public/pollenomics-data/evidence/coordinates.md
       - Publications:
           - Overview: public/pollenomics-data/publications/index.md
+          - Geographic Publication Lineage: public/pollenomics-data/publications/geographic-lineage.md
           - Publication Types: public/pollenomics-data/publications/publication-types.md
           - Collection Summary: public/pollenomics-data/publications/collection-summary.md
           - Reports: public/pollenomics-data/publications/reports.md

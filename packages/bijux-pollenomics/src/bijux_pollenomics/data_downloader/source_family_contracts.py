@@ -87,10 +87,10 @@ def build_source_family_contracts() -> tuple[SourceFamilyContract, ...]:
             ),
             reviewed_layer=SourceFamilyLayerContract(
                 layer_key="reviewed",
-                repository_path="data/source_family_evidence_stage_matrix.json",
+                repository_path="data/landclim/review",
                 required=True,
-                purpose="cross-family review of freshness, coverage, and publication posture",
-                example_artifacts=("data/source_family_evidence_stage_matrix.json",),
+                purpose="source-specific review of temporal support and normalization quality",
+                example_artifacts=("data/landclim/review/spatiotemporal_review.json",),
             ),
             published_layer=SourceFamilyLayerContract(
                 layer_key="published",
@@ -219,10 +219,10 @@ def build_source_family_contracts() -> tuple[SourceFamilyContract, ...]:
             ),
             reviewed_layer=SourceFamilyLayerContract(
                 layer_key="reviewed",
-                repository_path="data/source_family_evidence_stage_matrix.json",
+                repository_path="data/raa/review",
                 required=True,
-                purpose="cross-family review of freshness, coverage, and publication posture",
-                example_artifacts=("data/source_family_evidence_stage_matrix.json",),
+                purpose="source-specific review of temporal support and publication limits",
+                example_artifacts=("data/raa/review/spatiotemporal_review.json",),
             ),
             published_layer=SourceFamilyLayerContract(
                 layer_key="published",
@@ -262,10 +262,10 @@ def build_source_family_contracts() -> tuple[SourceFamilyContract, ...]:
             ),
             reviewed_layer=SourceFamilyLayerContract(
                 layer_key="reviewed",
-                repository_path="data/source_family_evidence_stage_matrix.json",
+                repository_path="data/boundaries/review",
                 required=True,
-                purpose="cross-family review of framing coverage and publication posture",
-                example_artifacts=("data/source_family_evidence_stage_matrix.json",),
+                purpose="source-specific review of geometry coverage and framing limits",
+                example_artifacts=("data/boundaries/review/framing_review.json",),
             ),
             published_layer=SourceFamilyLayerContract(
                 layer_key="published",
@@ -305,10 +305,10 @@ def build_source_family_contracts() -> tuple[SourceFamilyContract, ...]:
             ),
             reviewed_layer=SourceFamilyLayerContract(
                 layer_key="reviewed",
-                repository_path="data/source_family_evidence_stage_matrix.json",
+                repository_path="data/svar/review",
                 required=True,
-                purpose="cross-family review of lake-registry freshness, coverage, and publication posture",
-                example_artifacts=("data/source_family_evidence_stage_matrix.json",),
+                purpose="source-specific review of lake-registry freshness and coverage",
+                example_artifacts=("data/svar/review/lake_registry_review.json",),
             ),
             published_layer=SourceFamilyLayerContract(
                 layer_key="published",
@@ -505,10 +505,13 @@ def build_source_family_state_matrix_payload(
 
 
 def _layer_status(output_root: Path, contract: SourceFamilyLayerContract) -> str:
-    path = _resolve_repository_path(output_root, contract.repository_path)
-    if not contract.required and not _path_has_content(path):
+    has_evidence = all(
+        _path_has_governed_content(_resolve_repository_path(output_root, artifact_path))
+        for artifact_path in contract.example_artifacts
+    )
+    if not contract.required and not has_evidence:
         return "optional_absent"
-    return "present" if _path_has_content(path) else "missing"
+    return "present" if has_evidence else "missing"
 
 
 def _resolve_repository_path(output_root: Path, repository_path: str) -> Path:
@@ -519,13 +522,18 @@ def _resolve_repository_path(output_root: Path, repository_path: str) -> Path:
     return output_root.parent / repository_path
 
 
-def _path_has_content(path: Path) -> bool:
+def _path_has_governed_content(path: Path) -> bool:
     if not path.exists():
         return False
     if path.is_file():
-        return path.stat().st_size > 0
+        return not path.name.startswith(".") and path.stat().st_size > 0
     if path.is_dir():
-        return any(child.is_file() for child in path.rglob("*"))
+        return any(
+            child.is_file()
+            and not child.name.startswith(".")
+            and child.stat().st_size > 0
+            for child in path.rglob("*")
+        )
     return False
 
 
@@ -642,7 +650,7 @@ def _animal_adna_metrics(output_root: Path) -> dict[str, int]:
         payload = json.loads(truth_path.read_text(encoding="utf-8"))
         summary = payload.get("summary", {})
         if isinstance(summary, dict):
-            sample_count = int(summary.get("curated_sample_row_count", 0))
+            sample_count = int(summary.get("sample_row_count", 0))
     project_registry = source_library_root / "project_registry.json"
     if project_registry.is_file():
         payload = json.loads(project_registry.read_text(encoding="utf-8"))

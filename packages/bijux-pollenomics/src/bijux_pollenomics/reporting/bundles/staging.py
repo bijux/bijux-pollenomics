@@ -2,8 +2,13 @@ from __future__ import annotations
 
 from collections.abc import Callable
 from pathlib import Path
-import shutil
 from typing import TypeVar
+
+from ...core.owned_tree import (
+    build_staging_output_dir,
+    remove_output_tree,
+    replace_output_tree,
+)
 
 T = TypeVar("T")
 
@@ -12,14 +17,7 @@ __all__ = ["build_staging_output_dir", "publish_into_staging_dir", "reset_output
 
 def reset_output_dir(path: Path) -> None:
     """Remove one generated report directory so publication stays deterministic."""
-    if path.exists():
-        shutil.rmtree(path)
-
-
-def build_staging_output_dir(final_output_root: Path) -> Path:
-    """Build the sibling staging directory used for safe report publication."""
-    final_output_root = Path(final_output_root)
-    return final_output_root.parent / f".{final_output_root.name}.tmp"
+    remove_output_tree(path)
 
 
 def publish_into_staging_dir(
@@ -32,8 +30,10 @@ def publish_into_staging_dir(
     staging_output_root.mkdir(parents=True, exist_ok=True)
     try:
         result = publish(staging_output_root)
-        reset_output_dir(final_output_root)
-        staging_output_root.replace(final_output_root)
+        replace_output_tree(
+            final_output_root=final_output_root,
+            staging_output_root=staging_output_root,
+        )
         return result
     except Exception:
         reset_output_dir(staging_output_root)

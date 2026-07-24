@@ -1,44 +1,189 @@
 ---
 title: Failure Recovery
 audience: reader
-type: explanation
+type: how-to
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-05-10
+last_reviewed: 2026-07-22
 ---
 
 # Failure Recovery
 
-When a rebuild fails, recover by boundary rather than rerunning the whole
-repository blindly.
+Recovery begins by identifying the last coherent governed state. Retrying a
+broad workflow before that boundary is known can enlarge the diff, obscure the
+cause, and make partial output look authoritative.
 
-Broad reruns often hide the real problem. A useful recovery path narrows the
-failing boundary first, then expands only when the cause is understood.
+## Locate The Failed Boundary
 
-## First Questions
+| Symptom | Likely boundary | State to inspect |
+| --- | --- | --- |
+| command rejected arguments | parsing or precondition | no governed write should have occurred |
+| source capture failed | network, identity, license, or upstream format | staged capture and prior governed family tree |
+| normalization failed | source semantics or schema | raw capture, normalized staging, and review findings |
+| contract refresh failed | inconsistent governed tree | collection summary and family contracts |
+| publication failed | admission, scope, traceability, or rendering | publication staging and previous `docs/report/` tree |
+| claim gate refused output | evidence or language exceeded the declared contract | refusal, exclusion, readiness, and truth-posture records |
 
-- did command parsing fail before any tracked state changed?
-- did collection or normalization fail inside one source family?
-- did publication fail while writing `docs/report/` outputs?
-- did a truth or contract check block an overclaim?
+```mermaid
+stateDiagram-v2
+    [*] --> Prior: prior governed state
+    Prior --> Staging: begin state-changing work
+    Staging --> Rejected: acquisition or validation fails
+    Rejected --> Prior: discard incomplete staging
+    Staging --> Accepted: complete boundary passes
+    Accepted --> Governed: replace owned tree
+    Governed --> [*]
+```
+
+Collectors and publishers build in a sibling staging directory. Failure during
+candidate construction removes that candidate and preserves the previous
+governed tree. During final replacement, the previous tree moves to a recovery
+sibling until the candidate has been promoted. A failed candidate rename
+restores the previous tree before the error returns. Confirm the final
+filesystem and manifest explicitly; do not infer preservation from a single
+log line.
+
+```mermaid
+flowchart LR
+    PriorTree["prior owned tree"] --> CandidateTree["sibling candidate"]
+    CandidateTree -->|build fails| Cleanup["remove candidate; prior remains"]
+    CandidateTree -->|build succeeds| Protect["move prior tree to recovery sibling"]
+    Protect --> Rename["rename candidate to final path"]
+    Rename -->|succeeds| CurrentTree["new owned tree"]
+    Rename -->|fails| Restore["restore prior tree"]
+```
+
+## Failure Questions
+
+Answer these questions before retrying:
+
+1. Which command, inputs, scope, and explicit roots were used?
+2. Did failure occur before staging, during candidate construction, during
+   validation, or during replacement?
+3. Which path owns the incomplete work, and is it governed or transient?
+4. Does the previous manifest still resolve every governed member?
+5. Is the failure operational, a contract inconsistency, or a valid
+   scientific refusal?
+6. What is the narrowest operation that can demonstrate recovery?
+
+The distinction between candidate failure and replacement failure is
+operationally decisive. The first leaves the prior tree in its final path. The
+second exercises the recovery rename before returning the failure. In either
+case, verify that the final manifest resolves before trusting downstream
+products.
+
+This separates a retryable transport failure from a source-semantic change or
+an evidence gap. The same symptom—such as a missing output—can require a very
+different response at each boundary.
+
+### Retry Only When The Cause Is Stable
+
+| Failure class | Retry condition | Unsafe response |
+| --- | --- | --- |
+| transient transport | upstream identity and request contract are unchanged, and retry policy permits it | accepting whichever response eventually arrives without comparing identity |
+| authentication or access | credentials or access posture are corrected and recorded | treating an empty or partial response as source absence |
+| upstream format change | the parser and source contract are deliberately revised and reviewed | repeated execution against the same incompatible payload |
+| governed-state inconsistency | the owning boundary and last coherent manifest are known | broad rebuild before isolating the inconsistent tree |
+| scientific refusal | stronger named evidence satisfies the recovery condition | changing thresholds or inventing values until the record passes |
+
+A retry is an execution choice, not an evidence decision. It must not change
+the meaning of absence, lower an admission rule, or erase the failed attempt
+from the retained operation evidence.
+
+## Recovery Procedure
+
+1. Stop at the first failed boundary.
+2. Preserve the error and transient diagnostics under `artifacts/`.
+3. Inspect tracked changes only within the operation's declared write root.
+4. Compare the current tree with the last coherent manifest, hashes, counts,
+   and membership.
+5. If the final owned path is missing or incomplete despite recovery, stop and
+   restore the last verified tracked state; do not assemble it from fragments.
+6. Correct the owning source, contract, evidence decision, or publication rule.
+7. Rerun the narrow operation and review its complete output before expanding
+   scope.
 
 ## Recovery Route
 
-1. inspect the narrowest command you ran
-2. inspect the governed root it should have touched: `data/` or `docs/report/`
-3. rerun the narrowest relevant tests
-4. only rerun `make app-state` once the broken boundary is understood
+```mermaid
+flowchart TB
+    Failure["failed operation"] --> Boundary{"last coherent boundary known?"}
+    Boundary -->|no| Inspect["inspect roots, manifest, and diagnostics"]
+    Inspect --> Boundary
+    Boundary -->|yes| Classify{"failure class"}
+    Classify -->|request or environment| Correct["correct precondition"]
+    Classify -->|source or contract| Owner["correct owning source or rule"]
+    Classify -->|scientific refusal| Preserve["retain qualification or exclusion"]
+    Correct --> Narrow["rerun narrow operation"]
+    Owner --> Narrow
+    Narrow --> Review{"complete coherent diff?"}
+    Review -->|no| Boundary
+    Review -->|yes| Accept["accept owned replacement"]
+    Preserve --> Accept
+```
 
-That sequence matters. If you skip straight to a full rebuild, you can make the
-diff larger while learning less.
+Do not manually splice a subset of staged files into a governed tree. That
+breaks the atomic boundary and can leave a manifest describing members that do
+not exist. Repair the owner or input, then let the narrow operation rebuild and
+validate its complete candidate state.
 
-## High-Risk Cases
+## Prove Recovery At The Owned Boundary
 
-- partial aDNA refreshes that appear to improve counts without improving
-  sample-owned evidence
-- docs rewrites that narrow `01`, `02`, or `03` while keeping pages green
-- report output changes that make atlas posture sound stronger than the support
-  reviews justify
+Recovery is complete only when the owned tree is coherent and its authority
+resolves. The disappearance of an error message is not sufficient.
 
-These are high-risk not because they always fail loudly, but because they can
-leave the repository looking healthier than it really is.
+| Recovered boundary | Minimum proof | Remaining downstream obligation |
+| --- | --- | --- |
+| source-family collection | collection summary resolves the expected family, source identity, hashes, and member counts | re-evaluate normalization, review, and publication effects |
+| normalized evidence | normalized members, family summary, exclusions, and source links agree | recompute affected review and comparison contracts |
+| review or contract surface | every governed member has the intended posture and denominators reconcile | re-evaluate publication admission |
+| publication bundle | manifest membership resolves and CSV, JSON, GeoJSON, Markdown, and HTML agree on scope | inspect links, warnings, and presentation parity |
+| scientific refusal | qualification or exclusion remains attached to the member and requested claim | no stronger downstream claim may bypass the refusal |
+
+```mermaid
+flowchart LR
+    Correction["owner or input corrected"] --> NarrowRun["narrow operation succeeds"]
+    NarrowRun --> Authority["manifest and members resolve"]
+    Authority --> Semantic["identities, counts, and meaning reviewed"]
+    Semantic --> Downstream["dependent boundaries re-evaluated"]
+    Downstream --> Recovered["recovery established"]
+```
+
+If the authority resolves but the semantic population cannot be explained,
+the system is operational again but the evidence change is not accepted. Keep
+those states distinct in the operation ledger.
+
+For tracked `data/` and `docs/report/` state, the repository revision and clean
+baseline are the normal recovery authority. Local uncommitted evidence changes
+must be preserved separately before restoration; otherwise recovery can erase
+work that was never represented by the last commit. A backup is trustworthy
+only when its manifest and member identities resolve, not merely because the
+directory exists.
+
+## Scientific Failure Modes
+
+Some failures are valid evidence outcomes rather than software defects:
+
+- a paper is known but its sample-bearing supplement is unavailable;
+- a project is recoverable but a sample cannot be linked to a named site;
+- chronology exists only at project level;
+- a coordinate is too broad for exact-point publication;
+- a contextual source cannot support the direct claim requested;
+- a known candidate falls outside the product's geographic or evidence scope.
+
+Preserve these states as qualified records, recovery work, or reasoned
+exclusions. Replacing them with inferred values would make the workflow appear
+successful by weakening the evidence.
+
+## When A Broader Rebuild Is Safe
+
+A broader rebuild is appropriate after the failed owner is understood, the
+previous governed state is confirmed, and the narrow operation produces a
+coherent reviewable diff. It is not a recovery mechanism for uncertainty about
+which boundary failed.
+
+After recovery, preserve enough evidence to explain the incident: the failing
+operation and scope, diagnostics, affected owner, whether prior state was
+retained, the correction, and the manifest or review evidence that established
+coherence. Transient details belong under `artifacts/`; lasting scientific
+qualifications belong with their governed evidence.

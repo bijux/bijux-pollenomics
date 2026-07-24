@@ -2,16 +2,16 @@
   "schema_version": "repository-source-explainer-audit.v1",
   "row_count": 16,
   "status_counts": {
-    "present_useful_form": 13,
-    "restoration_plan_required": 3
+    "present_useful_form": 16,
+    "restoration_plan_required": 0
   },
   "rows": [
     {
       "surface_kind": "source_family",
       "display_name": "LandClim source explainer",
       "page_path": "docs/public/pollenomics-data/sources/landclim.md",
-      "status": "restoration_plan_required",
-      "notes": "missing expected anchors: `pollen context`"
+      "status": "present_useful_form",
+      "notes": "page exists and keeps the expected source or output anchors visible"
     },
     {
       "surface_kind": "source_family",
@@ -38,8 +38,8 @@
       "surface_kind": "source_family",
       "display_name": "Boundary source explainer",
       "page_path": "docs/public/pollenomics-data/sources/boundaries.md",
-      "status": "restoration_plan_required",
-      "notes": "missing expected anchors: `country filtering`"
+      "status": "present_useful_form",
+      "notes": "page exists and keeps the expected source or output anchors visible"
     },
     {
       "surface_kind": "source_family",
@@ -66,8 +66,8 @@
       "surface_kind": "recovery_rule",
       "display_name": "Shared normalization explainer",
       "page_path": "docs/public/pollenomics-data/sources/shared-normalization.md",
-      "status": "restoration_plan_required",
-      "notes": "missing expected anchors: `docs/report/world/`"
+      "status": "present_useful_form",
+      "notes": "page exists and keeps the expected source or output anchors visible"
     },
     {
       "surface_kind": "output_family",

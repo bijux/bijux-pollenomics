@@ -4,87 +4,168 @@ audience: reader
 type: reference
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-05-10
+last_reviewed: 2026-07-22
 ---
 
 # Entrypoints and Examples
 
-Use the installed console script, not `python -m`, when you want the canonical
-runtime surface.
+The installed `bijux-pollenomics` console script is the supported runtime
+entrypoint. Commands fall into inspection, validation, collection, evidence
+refresh, and publication classes. Choose the narrowest class that answers the
+question because only some classes rewrite governed state.
 
-This page gives the shortest supported command paths. It should help someone
-reach a known-good route quickly, without having to rebuild the whole
-repository just to discover the right entrypoint.
+## Discover The Interface
 
-## Start With Intent, Not With Commands
+```bash
+bijux-pollenomics --version
+bijux-pollenomics --help
+bijux-pollenomics collect-data --help
+```
 
-Most confusion in this repository comes from choosing a workflow that is wider
-than the real question. Start with intent first:
-
-- verify when the question is "is this checkout healthy"
-- refresh when the question is "did the tracked evidence change"
-- publish when the question is "what public output does the repository now say"
-- inspect species-level animal work when the question is narrower than a full
-  public rebuild
+The executable resolves from the active environment. Record the reported
+runtime version before creating evidence or publication artifacts.
 
 ## Verification Entry Points
 
 ```bash
-make install
-artifacts/root/check-venv/bin/bijux-pollenomics --version
-make lock-check
-make lint
-make test
-make test-generated-artifacts
-make test-all
-make docs
+bijux-pollenomics source-support --json
+bijux-pollenomics adna-species
+bijux-pollenomics adna-species-review --species ovis_aries --json
+bijux-pollenomics adna-runtime-manifest --species ovis_aries --json
 ```
 
-Use `make test-generated-artifacts` when the question is specifically about the
-governed docs, reports, and other generated-publication contracts. Use
-`make test-all` when you want the full local gate instead of the faster default
-test slice.
+These commands inspect registered source or species state. They do not perform
+a collection or publication refresh. Capture the command, runtime version,
+explicit roots when applicable, and emitted identity so another reader can
+repeat the same verification against the same state.
+
+## Validate A Collection Ledger
+
+```bash
+bijux-pollenomics validate-collection-summary \
+  --summary-path data/collection_summary.json
+```
+
+Validation checks the existing summary and is the appropriate first response
+to a summary-contract question.
 
 ## Collection And Publication Examples
 
-```bash
-artifacts/root/check-venv/bin/bijux-pollenomics collect-data all --version v66 --output-root data
-artifacts/root/check-venv/bin/bijux-pollenomics publish-reports --aadr-root data/aadr --version v66 --context-root data --output-root docs/report
-```
-
-These are the shortest canonical routes for rebuilding tracked source material
-and tracked public report outputs.
-
-## Narrow aDNA Surfaces
+Use explicit isolated roots when learning a state-changing command. The
+following evaluation keeps collected evidence and publications outside the
+governed repository trees:
 
 ```bash
-artifacts/root/check-venv/bin/bijux-pollenomics adna-archive-projects
-artifacts/root/check-venv/bin/bijux-pollenomics adna-domestication-coverage
-artifacts/root/check-venv/bin/bijux-pollenomics adna-species
-artifacts/root/check-venv/bin/bijux-pollenomics adna-species-review --species ovis_aries
+bijux-pollenomics collect-data all \
+  --version v66 \
+  --output-root artifacts/operator-evaluation/data
+
+bijux-pollenomics publish-reports \
+  --aadr-root artifacts/operator-evaluation/data/aadr \
+  --version v66 \
+  --context-root artifacts/operator-evaluation/data \
+  --output-root artifacts/operator-evaluation/reports
 ```
+
+`collect-data` writes source-family trees and the collection ledger under the
+selected data root. `publish-reports` consumes that explicit state and writes
+world, regional, country, review, and caveat products under the selected report
+root. Publication does not recollect a source implicitly.
+
+### Read A Publication Packet
+
+For the checked-in repository state, begin with the publication summary and a
+named bundle rather than opening HTML first:
+
+```bash
+jq '{schema_version, version, countries,
+     geography_bundle_count: (.geography_bundles | length),
+     artifact_count: (.artifacts | length)}' \
+  docs/report/published_reports_summary.json
+
+jq '{scope_key, scope_kind, countries, total_unique_samples,
+     animal_points: .animal_atlas.total_locality_points}' \
+  docs/report/world/world_bundle.json
+
+jq '{overall_ok, reference_grade_claim_allowed,
+     reference_grade_support_ready}' \
+  docs/report/animal_publication_release_gate.json
+```
+
+The summary identifies the publication family, the bundle identifies one
+scope and its populations, and the release gate constrains the language that
+may be used for that state. None replaces member-level traceability or the
+governing evidence record. A coherent bundle with a false release claim flag
+is an accountable product with restricted claim language, not a failed JSON
+read.
+
+```mermaid
+flowchart LR
+    Command["state-changing command"] --> Inputs["explicit input roots"]
+    Inputs --> Isolated["isolated evaluation outputs"]
+    Isolated --> Review["manifest, evidence, semantic, and membership review"]
+    Review --> Promote{"intended governed replacement?"}
+    Promote -->|no| Retain["diagnostic evaluation only"]
+    Promote -->|yes| Governed["use the repository-owned regeneration workflow"]
+```
+
+Copying selected evaluation files into governed roots is not promotion. A
+governed replacement must use the owning workflow and review the complete
+causal diff.
+
+### Compare An Evaluation With Governed State
+
+Before deciding whether an isolated run should become repository state,
+compare it with the current governed baseline:
+
+| Comparison | Evidence to inspect |
+| --- | --- |
+| source identity | release, retrieval context, member inventory, content digests, and access posture |
+| governed objects | added, removed, retained, merged, split, and superseded stable IDs |
+| meaning | units, nulls, roles, precision, time basis, geometry basis, and relations |
+| review | conflicts, qualifications, refusals, and recovery conditions |
+| populations | captured, eligible, reviewed, admitted, excluded, and published denominators |
+| products | manifest membership, caveats, structured members, and rendered descendants |
+
+If the comparison cannot attribute a product change to source, evidence,
+decision, boundary, or product-rule input, keep the evaluation isolated. A
+visually plausible map is not enough to replace governed state.
 
 ## Atlas And Country Surfaces
 
 ```bash
-artifacts/root/check-venv/bin/bijux-pollenomics report-country Sweden --aadr-root data/aadr --version v66 --context-root data --output-root docs/report
-artifacts/root/check-venv/bin/bijux-pollenomics report-multi-country-map Sweden Norway Finland Denmark --aadr-root data/aadr --version v66 --context-root data --output-root docs/report
+bijux-pollenomics report-country Sweden \
+  --aadr-root artifacts/operator-evaluation/data/aadr \
+  --version v66 \
+  --context-root artifacts/operator-evaluation/data \
+  --output-root artifacts/operator-evaluation/reports
+
+bijux-pollenomics report-multi-country-map Sweden Norway Finland Denmark \
+  --aadr-root artifacts/operator-evaluation/data/aadr \
+  --version v66 \
+  --context-root artifacts/operator-evaluation/data \
+  --output-root artifacts/operator-evaluation/reports
 ```
 
-## Which Route To Choose
+`report-country` writes one country bundle. `report-multi-country-map` writes a
+shared map for the named countries. They are narrower publication operations,
+not shortcuts around the same evidence requirements.
 
-- choose the verification route if you need confidence without rewriting
-  tracked repository state
-- choose `collect-data` if the goal is source refresh or normalization review
-- choose `publish-reports` if the goal is public report and atlas output review
-- choose the narrower aDNA commands if the question is species, archive, or
-  review specific
+## Mutation Boundaries
 
-## When To Stop
+| Command family | Reads | Writes |
+| --- | --- | --- |
+| `source-support`, `adna-*` inspection | current governed state | standard output |
+| `validate-collection-summary` | one summary file | standard output and exit status |
+| `collect-data` | external sources and collector configuration | `data/` |
+| `refresh-data-contract-surfaces` | current data tree | collection and contract summaries |
+| `publish-reports`, `report-*` | governed data and geography configuration | `docs/report/` |
 
-- stop after verification commands if the goal is only repository health
-- stop after `collect-data` if the goal is data refresh review
-- stop after `publish-reports` if the goal is publication-surface review
+Inspect the resulting diff after every state-changing command. A successful
+exit establishes command completion; the evidence and publication diffs still
+require review.
 
-That stop rule matters. Many problems in this repository come from running a
-much broader workflow than the question actually requires.
+The table names the repository-owned default roots. Explicit paths override
+those defaults, as in the isolated examples above. Before execution, resolve
+every relative path against the current working directory and record the full
+input and output identities.

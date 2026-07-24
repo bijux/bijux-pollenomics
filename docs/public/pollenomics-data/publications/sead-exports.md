@@ -4,60 +4,116 @@ audience: reader
 type: explanation
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-05-10
+last_reviewed: 2026-07-22
 ---
 
 # SEAD Exports
 
-SEAD exports are the public environmental-archaeology context surfaces derived
-from SEAD. They help the product explain broader archaeology setting without
-confusing that setting with direct sample-backed evidence.
+SEAD exports provide Nordic environmental-archaeology site context. Their
+current strength is inventory and spatial framing. Their current limitation is
+equally important: the checked-in capture does not contain the linked temporal
+and bibliographic evidence required for chronological comparison.
 
-They matter because people often need archaeology context that is broader than
-one country and broader than one excavation-like reading. SEAD helps the
-repository show the kind of wider human landscape that surrounds a geography
-without pretending that context and direct evidence are the same thing.
+## Current Governed Surface
 
-## What SEAD Makes Clear
+The temporal and legibility reviews cover **2,195 source inventory rows**. The
+normalized Nordic GeoJSON contains **2,172 mapped features** across Sweden,
+Norway, Finland, and Denmark. The remaining 23 review rows lack a country
+assignment and are not members of the normalized Nordic point layer.
 
-- what wider archaeology context surrounds a visible geography
-- whether a public interpretation is grounded only in pollen and ancient DNA or
-  also in broader archaeology context
-- how to think about archaeology patterns outside the narrowest
-  country frame
-- why a public region can be interesting even when direct sample density is not
-  yet strong everywhere
+| Evidence dimension | Current review result |
+| --- | ---: |
+| numeric interval rows | 0 |
+| dating-range rows | 0 |
+| relative-period rows | 0 |
+| bibliography rows | 0 |
+| site-inventory-only rows | 2,195 |
+| mapped Nordic context features | 2,172 |
 
-## What SEAD Adds To The Public Product
+Every reviewed row currently has `site_page_only` access visibility,
+`duration_not_available` posture, and unresolved temporal comparability. The
+layer is therefore useful context, but it is not a temporally aligned
+archaeology event surface.
 
-SEAD makes the public product more useful by adding:
+## Governed Artifacts
 
-- broader environmental archaeology framing
-- cross-regional context that keeps interpretation from collapsing into one
-  evidence family
-- a way to compare archaeological background across visible geographies
+| Artifact | Responsibility |
+| --- | --- |
+| `data/sead/normalized/nordic_environmental_sites.geojson` | the 2,172 mapped Nordic context features and their stable SEAD identities |
+| `data/sead/review/temporal_review.json` | machine-readable temporal classification, evidence posture, and denominators |
+| `data/sead/review/temporal_review.csv` | row-level review exchange surface |
+| `data/sead/review/temporal_review.md` | reader-facing explanation of the same governed review |
 
-## What It Does Not Do
+The `data/sead/normalized/` tree is the family authority for repository-owned
+representation, while `data/sead/review/` owns its temporal, access, and
+legibility findings. Regional report copies are selected descendants. They
+cannot fill the current chronology and bibliography gaps or change an
+inventory row into an archaeological event.
 
-SEAD exports are contextual publications. They should not be read as if they:
+```mermaid
+flowchart LR
+    Inventory["2,195 captured site rows"] --> Review["inventory and legibility review"]
+    Review --> Mapped["2,172 Nordic point features"]
+    Review --> Unassigned["23 rows without country assignment"]
+    Mapped --> Context["environmental archaeology context"]
+    Review --> TimeGap["0 dating, period, or bibliography rows"]
+    TimeGap --> Refusal["numeric temporal comparison refused"]
+```
 
-- prove one specific site-level or sample-level claim on their own
-- replace chronology, locality, or coordinate review for sample-backed rows
-- make a thin ancient DNA surface strong simply by surrounding it with richer
-  archaeology context
+## Read A SEAD Feature
 
-## How These Exports Broaden The Question
+The normalized feature preserves the SEAD site identifier, name, country,
+coordinates, source page URL, context role, access limits, and explicit
+unresolved temporal semantics. The site page is the upstream inspection
+anchor when the repository view is too thin for a stronger claim.
 
-When SEAD is visible, you can ask a better question than "is there one sample
-here?" You can also ask "what kind of surrounding archaeology context does
-this place sit inside?"
+The current export does not establish:
 
-## If You Need The Repository-Owned Records
+- a numeric age or duration;
+- a relative-period assignment;
+- source bibliography for the site's archaeological interpretation;
+- equivalence between site inventory density and past activity; or
+- contemporaneity with nearby pollen or aDNA evidence.
 
-The normalized family outputs live under:
+Missing temporal values mean **not captured under the current contract**, not
+zero, undated in the upstream database, or absent from archaeology.
 
-- `data/sead/normalized/`
+## Two Rows, Two Publication Outcomes
 
-If your question is about the visible publication, continue to [maps](maps.md)
-or [reports](reports.md). If your question is about the family itself, continue
-to [SEAD source guidance](../sources/sead.md).
+The inventory and mapped populations can be inspected through concrete rows:
+
+| SEAD row | Captured state | Publication outcome |
+| --- | --- | --- |
+| `6468`, 10412 Fjälkinge | point at `14.28308648, 56.0388744`, country Sweden, stable upstream page | admitted to the Nordic context layer with unresolved time |
+| `3719`, Grobin | stable site identity and upstream page, blank country assignment | retained in review but absent from the four-country mapped layer |
+
+Fjälkinge demonstrates qualified admission: the point and source identity are
+usable for spatial context, while `time_start_bp`, `time_end_bp`, and duration
+remain null. Grobin demonstrates retained non-membership: source evidence
+exists, but the current publication geography does not admit it.
+
+```mermaid
+flowchart LR
+    Inventory["captured SEAD row"] --> Identity["site ID and upstream page"]
+    Identity --> Geography{"four-country membership?"}
+    Geography -->|6468 Fjälkinge| Point["mapped spatial context"]
+    Geography -->|3719 Grobin| Review["retained non-member"]
+    Point --> Time["numeric time refused"]
+    Review --> Time
+```
+
+Neither outcome is a negative archaeological conclusion. One is a spatially
+qualified publication member; the other is a captured record outside the
+current geographic product. Both retain an unresolved temporal posture.
+
+## Reuse Contract
+
+Carry the site identifier, source URL, point geometry, country assignment,
+access posture, context-only evidence role, and unresolved temporal-semantics
+object. Use 2,195 as the reviewed inventory denominator and 2,172 as the mapped
+Nordic-feature denominator; do not interchange them or silently discard the 23
+unassigned records from a completeness statement.
+
+Continue to [SEAD source guidance](../sources/sead.md) for access and capture
+limits, [maps](maps.md) for context-layer interpretation, and
+[publication limits](limits.md) for refused comparisons.

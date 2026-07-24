@@ -4,149 +4,388 @@ audience: reader
 type: index
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-06-28
+last_reviewed: 2026-07-22
 ---
 
 # Bijux Pollenomics Product Guide
 
-`bijux-pollenomics` is the product guide for the repository's public evidence.
-It explains what the repository publishes today, why those outputs exist, how
-far they can be trusted, and where to go next without reading the source code
-first.
+`bijux-pollenomics` is an atlas builder and evidence-publication runtime. It
+turns heterogeneous scientific and spatial sources into versioned, reviewable
+records and scoped publications. It collects source material, creates
+repository-owned evidence records, exposes uncertainty and conflicts, and
+publishes world, regional, country, and lake-oriented views from the same
+governed state.
 
-The central idea is simple. This repository rebuilds one governed evidence
-system, then publishes several public-facing cuts from that same state. Pollen
-context, environmental archaeology, boundary framing, fieldwork records, and
-animal ancient-DNA recovery all live in one repository, but they do not all
-carry the same scientific weight. This guide explains those differences
-directly instead of leaving them buried in the file tree.
+The system keeps unlike evidence unlike. Pollen observations, environmental
+archaeology, heritage records, hydrography, administrative boundaries, human
+ancient DNA, animal ancient DNA, and field observations may share a map, but
+they retain distinct provenance, temporal meaning, spatial precision, and
+publication rules.
 
-That same model now includes the Sweden lake evidence program. The lake packet
-is not a side spreadsheet pasted beside the atlas. It is another published cut
-through the repository evidence state, with its own ranking logic, shortlist
-rules, and honesty boundaries.
+The [domain language](../pollenomics-data/domain-language.md) distinguishes a
+source object, governed object, claim, decision, publication member, and
+rendered projection. Those are connected stages of one lineage, not
+interchangeable names for a row.
 
-Use this handbook when your first question is:
-
-- what this repository is actually for
-- what I can use from it right now
-- what kind of question each output can answer
-- what the current limits are before I rely on a public map, report, or data file
-
-Do not use this handbook when you need maintainer-only release policy, internal
-governance, or package-check implementation details. Those belong in the
-repository's internal docs, not on the public product surface.
+The current runtime is substantial, but its boundary is deliberate. It does
+not yet provide the broader multi-evidence harmonization and interpretation
+engine described by the project direction. In the product contract,
+“available” means backed by an executable interface and a governed result—not
+merely represented in a design or roadmap.
 
 <div class="bijux-quicklinks">
-  <a class="md-button md-button--primary" href="../../index.md">Open the documentation home</a>
-  <a class="md-button" href="foundation/">What this repository is for</a>
-  <a class="md-button" href="architecture/">How evidence becomes outputs</a>
-  <a class="md-button" href="interfaces/">Commands and public contracts</a>
+  <a class="md-button md-button--primary" href="../pollenomics-data/">Explore the evidence system</a>
+  <a class="md-button" href="../pollenomics-data/domain-language/">Use the domain language</a>
+  <a class="md-button" href="architecture/">Follow the publication flow</a>
+  <a class="md-button" href="interfaces/">Use commands and contracts</a>
   <a class="md-button" href="operations/">Install and rebuild</a>
-  <a class="md-button" href="quality/">Checks and current limits</a>
+  <a class="md-button" href="quality/">Understand guarantees and limits</a>
 </div>
 
-## What You Can Learn Here
+## Read Product Status On Three Axes
 
-- understand the product shape before reading package names or command syntax
-- decide whether you need the visible public answer, the narrower evidence
-  chain, or the rebuild workflow behind it
-- tell which surfaces are mature public context and which remain partial or
-  recovery-heavy
-- move from a big public question to the right page quickly instead of
-  wandering through internal terminology
+Three independent questions prevent implemented software from being confused
+with checked-in evidence or release authority:
 
-## Publication Loop
+| Axis | Governing question | Strongest valid answer |
+| --- | --- | --- |
+| executable capability | does a supported interface own the inputs, behavior, effects, and result? | the runtime can perform the named operation |
+| evidence state | does the selected repository revision contain the required identities, fields, lineage, and decisions? | the governed state supports the stated evidence posture |
+| publication fitness | does a named product contract admit the evidence and preserve its qualifications? | the manifested scope supports the stated release language |
+
+These axes do not inherit from one another. A collector can be operational
+while a source capture is absent. A complete governed record can remain
+outside a country product. A successfully generated bundle can still carry a
+release refusal. State all three when assessing readiness.
+
+```mermaid
+flowchart LR
+    Capability["executable capability"] --> Request["bounded request"]
+    Evidence["governed evidence state"] --> Request
+    Request --> Decision{"product fitness"}
+    Decision -->|admitted| Product["manifested product"]
+    Decision -->|not admitted| Account["qualification, exclusion, or refusal"]
+```
+
+## Choose The Governing Surface
+
+Start with the question whose answer will be reused. The runtime system model
+explains execution and persistence; repository scope and limits define the
+claim ceiling; interfaces define callable behavior; and quality pages explain
+which proof matches a change. No single page substitutes for the evidence
+record or product manifest that owns a scientific result.
+
+| Question | Start here | Authority reached next |
+| --- | --- | --- |
+| What does the runtime execute, read, and write? | [runtime system model](architecture/runtime-system-model.md) | owning module, command contract, and bounded filesystem roots |
+| Which capabilities and claims belong to this repository? | [repository scope and limits](foundation/repository-scope-and-limits.md) | machine-readable product scope and evidence-family contracts |
+| Which package or layer owns a decision? | [runtime scope and ownership](foundation/runtime-scope-and-ownership.md) | package facade, governed record, or publication contract |
+| How can an operator or integration invoke the system? | [interfaces](interfaces/index.md) | CLI, Python, data, and artifact contracts |
+| How should a source refresh or product build be executed? | [operations](operations/index.md) | explicit input and output roots plus retained manifests |
+| What evidence is sufficient for a change or claim? | [quality](quality/index.md) | focused checks, scientific review, and visible limitations |
+
+```mermaid
+flowchart LR
+    Question["reader question"] --> Owner{"governing surface"}
+    Owner --> Runtime["runtime contract"]
+    Owner --> Evidence["evidence owner"]
+    Owner --> Product["product manifest"]
+    Runtime --> Proof["focused behavioral proof"]
+    Evidence --> Proof
+    Product --> Proof
+```
+
+Follow the route until it reaches an authority, not merely another summary.
+For a visible atlas member, that normally means a product manifest, member
+identity, admission decision, governed fact, and source locator. For runtime
+behavior, it means the public interface, implementation owner, and focused
+test or emitted contract.
+
+## One Repository, Four Responsibilities
+
+```mermaid
+flowchart LR
+    Collect["Collect\nversioned source material"] --> Curate["Curate\nowned evidence records"]
+    Curate --> Evaluate["Evaluate\ncoverage, conflicts, and fitness"]
+    Evaluate --> Publish["Publish\nreports, maps, and evidence packets"]
+    Publish --> Audit["Audit\nlineage and visible limits"]
+    Audit -. contested claim .-> Evaluate
+```
+
+| Responsibility | Durable result | Boundary it cannot cross |
+| --- | --- | --- |
+| Collection | source identity, retrieval metadata, content hashes, replacement rules, and tracked raw artifacts | acquisition does not establish normalized meaning or fitness |
+| Curation | normalized records, sample and site linkage, chronology evidence, coordinate provenance, and source-family contracts | representation cannot strengthen source identity, place, or time |
+| Evaluation | ambiguity ledgers, scientific reviews, coverage metrics, sensitivity results, and release refusal reasons | one claim-specific review cannot grant fitness for every use |
+| Publication | consistent world, Europe-plus, Nordic, country, lake, and fieldwork surfaces with traceable inputs | selection and rendering cannot rewrite governed evidence |
+
+This division prevents a polished output from becoming its own authority. The
+publication layer can select, summarize, and render evidence; it cannot invent
+support that the curated state does not contain.
+
+## What The System Decides
+
+Bijux Pollenomics makes bounded, reviewable decisions at named surfaces. It
+does not turn every available field into a scientific conclusion.
+
+| Decision | Evidence considered | Result retained |
+| --- | --- | --- |
+| source admission | upstream identity, access, licence, version, and intended role | selected, recoverable, blocked, or outside scope |
+| record identity | source keys, labels, accessions, joins, and ambiguity evidence | stable identity, aliases, unresolved candidates, or refusal to merge |
+| claim precision | source wording, locality support, dating basis, coordinates, and provenance | supported precision, qualification, substitution, conflict, or unknown |
+| product admission | evidence role, geography, claim fitness, and publication contract | admitted member, qualified member, exclusion, or deferred recovery |
+| ranking posture | declared features, weights, scenarios, and sensitivity | decision-support order with stability and field-evidence requirements |
+
+The system does not decide that proximity implies association, that a registry
+lake is suitable for coring, that project context is sample evidence, or that
+an unresolved date can be made numeric. Those are precisely the shortcuts its
+curation and refusal records are designed to prevent.
+
+## A Publication Is A Claim Graph
+
+A report directory is not a bag of equivalent files. The manifest defines the
+product and its members; structured rows carry reusable values; traceability
+connects members to evidence; warnings and exclusions constrain
+interpretation; and HTML or Markdown renders that state for people.
 
 ```mermaid
 flowchart TB
-    sources["tracked source families"]
-    normalization["normalization and review"]
-    outputs["country bundles, report portal, and atlas surfaces"]
-    readers["public user checks traceability and limits"]
-
-    sources --> normalization
-    normalization --> outputs
-    outputs --> readers
+    Manifest["product manifest<br/>scope + version + members"] --> Rows["JSON, CSV, and GeoJSON"]
+    Manifest --> Trace["member-to-evidence traceability"]
+    Manifest --> Warnings["warnings and exclusions"]
+    Rows --> View["map, table, and narrative"]
+    Trace --> View
+    Warnings --> View
+    Trace --> Evidence["governing evidence records"]
+    Evidence --> Source["captured source identity"]
 ```
 
-## What Most People Need First
+The graph matters in both directions. A reader can challenge a visible member
+by tracing it upstream. A curator can assess the publication impact of a
+changed source or decision by following descendants. A copied map or table
+without its manifest and qualifications is therefore an incomplete product.
 
-- what the repository already publishes with confidence:
-  pollen context, environmental archaeology context, boundary framing, and
-  governed report bundles
-- what the Sweden lake packet adds:
-  candidate prioritization, scenario comparison, and a fieldwork shortlist
-  without pretending those rankings replace field limnology
-- what remains visibly partial:
-  animal ancient-DNA recovery and the claims that depend on deeper sample
-  extraction
-- how to use the product without overstating it:
-  start with public outputs for orientation, then drop to evidence and review
-  surfaces when a claim matters
-- how this can grow to more countries and more regions:
-  the world, Europe-plus, Nordic, and country outputs are meant to be one
-  expansion model, not separate products
+## What Is Available
 
-## Start Here
+- a source collection pipeline for AADR, boundaries, LandClim, Neotoma, RAÄ,
+  SEAD, and SMHI SVAR
+- repository-owned raw, normalized, reviewed, and published layers described
+  by machine-readable contracts
+- sample-level animal aDNA curation across project accessions, papers,
+  supplements, identities, localities, chronology, coordinates, and species
+  views
+- world, Europe-plus, Nordic, Sweden, Norway, Finland, and Denmark report
+  families derived from shared publication contracts
+- candidate-site ranking and sensitivity surfaces, including the Sweden lake
+  evidence packet and fieldwork shortlist
+- a typed Python API, the `bijux-pollenomics` command, and the compatible
+  `pollenomics` command
 
-- start with [foundation](foundation/index.md) if you need the product answer:
-  what this repository is for, what it refuses to claim, and why
-- move to [architecture](architecture/index.md) if you need the lifecycle
-  answer: how evidence becomes reviewable files, reports, and maps
-- use [interfaces](interfaces/index.md) if you need the runtime answer: which
-  commands, files, and contracts are meant to stay stable
-- use [operations](operations/index.md) if you need the practical answer: how
-  to install, verify, rebuild, and recover locally
-- use [quality](quality/index.md) if you need the trust answer: what the
-  current checks, limits, and refusal rules actually say
+These surfaces establish a working atlas and publication system. They do not
+establish a general-purpose inference engine. The distinction can be tested
+directly with `bijux-pollenomics product-scope --json`: current capabilities
+are returned separately from unsupported claims, so downstream automation does
+not have to infer product status from prose.
 
-## Routes By Question
+## Governed State Today
 
-- what does this repository publish, and what does it still refuse to claim:
-  [repository scope and limits](foundation/repository-scope-and-limits.md)
-- how does source material become visible data, reports, and map surfaces:
-  [runtime system model](architecture/runtime-system-model.md)
-- what commands do I actually run for inspection, rebuilds, and checks:
-  [entrypoints and examples](interfaces/entrypoints-and-examples.md)
-- how do I follow common rebuild paths without getting lost in internal
-  tooling:
-  [common workflows](operations/common-workflows.md)
-- how do I judge whether a surface is reviewable, publishable, or still too
-  weak for a stronger claim:
-  [runtime invariants and limits](quality/runtime-invariants-and-limits.md)
-- how do I understand the Sweden lake packet and the optional Nordic overlays:
-  [Sweden lake priorities](../nordic-atlas/sweden-lake-priorities/index.md)
-- where do the public data explanations live if I care more about evidence than
-  code:
-  [data handbook](../pollenomics-data/index.md)
+The checked-in state demonstrates all four responsibilities at meaningful
+scale. Collection spans seven independently governed source families. The
+normalized context includes 492 LandClim site sequences, 200 Neotoma sites,
+2,172 SEAD sites, a RAÄ density source representing 761,917 published Swedish
+sites, and 40,565 SVAR lakes.
 
-## Evidence Routes
+Animal aDNA demonstrates the deeper evidence model. Forty tracked projects
+currently contribute 868 recovered sample rows. The public animal point review
+admits 234 rows: 233 backed by supplementary-table coordinates and one by a
+documented approximate named-site resolution. Only four projects have a
+trustworthy expected sample count, so identity recovery is auditable without
+being misrepresented as collection completeness.
 
-If your question is really about the evidence families behind the product, move
-from this handbook into the public data pages that explain them directly:
+```mermaid
+flowchart LR
+    Project["40 animal projects"] --> Sample["868 recovered sample rows"]
+    Sample --> Place["locality and coordinate review"]
+    Sample --> Time["chronology review"]
+    Place --> Admission{"point-product admission"}
+    Time --> Admission
+    Admission -->|accepted| Point["234 reviewed point rows"]
+    Admission -->|not supported| VisibleGap["exclusion, refusal, or recovery evidence"]
+```
 
-- [LandClim](../pollenomics-data/sources/landclim.md)
-- [Neotoma](../pollenomics-data/sources/neotoma.md)
-- [SEAD](../pollenomics-data/sources/sead.md)
-- [RAA](../pollenomics-data/sources/raa.md)
-- [Boundaries](../pollenomics-data/sources/boundaries.md)
-- [AADR](../pollenomics-data/sources/aadr.md)
+The funnel is claim-specific rather than a universal quality score. A sample
+excluded from exact point publication can remain valid for identity,
+project-level inventory, regional context, or future source recovery.
 
-## What This Guide Covers
+## The Database Preserves Negative Information
 
-- the product shape of the runtime
-- the architecture that turns governed evidence into governed outputs
-- the public command and file contracts you can inspect
-- the operational route for rebuilding and checking the repository
-- the quality rules that keep visible output language honest
-- the places where ranking, atlas, and fieldwork outputs are informative but
-  still narrower than a finished scientific inference engine
+A trustworthy evidence database must retain more than admitted rows. Bijux
+Pollenomics preserves the states that explain why an apparently plausible
+claim was qualified, deferred, or refused:
 
-## What This Guide Does Not Promise
+| Record family | Question it answers | Why it matters |
+| --- | --- | --- |
+| ambiguity ledger | which candidate identities could not be reconciled? | prevents convenient label matching from becoming identity |
+| conflict ledger | which captured claims disagree, and which authority governs? | prevents normalization from erasing source disagreement |
+| substitution ledger | where does broader project context stand in for missing sample evidence? | keeps inherited context from appearing sample-owned |
+| recovery queue | which source, table, locator, or field is still needed? | turns missingness into an actionable evidence requirement |
+| exclusion and refusal surface | why did a known record fail one publication contract? | distinguishes unsupported representation from source absence |
+| sensitivity output | how stable is a ranking under declared alternatives? | prevents one ordinal result from masquerading as certainty |
 
-- that you already know the repository layout
-- that every visible output has the same scientific strength
-- that the current animal ancient-DNA slice already equals a finished
-  pollenomics engine
-- that maintainer-only rules belong on the public product surface
+```mermaid
+flowchart LR
+    Candidate["captured or derived candidate"] --> Review{"claim-specific review"}
+    Review -->|supported| Admit["admitted member"]
+    Review -->|qualified| Caveat["qualified member"]
+    Review -->|conflicting| Conflict["conflict or ambiguity ledger"]
+    Review -->|missing evidence| Recovery["recovery queue"]
+    Review -->|unsupported| Refusal["exclusion or refusal"]
+    Admit --> Account["accounted product population"]
+    Caveat --> Account
+    Conflict --> Account
+    Recovery --> Account
+    Refusal --> Account
+```
+
+The accounted population is therefore larger than the visible subset. A
+publication is trustworthy when every expected candidate can be resolved to a
+member, a qualification, an exclusion, an unresolved identity, or a declared
+recovery gap—and when those outcomes retain their governing evidence.
+
+This is also why a smaller public atlas can represent deeper work than a
+larger unqualified map. Refusal is not discarded effort; it is the stored
+result of applying an evidence contract.
+
+## Follow The Question, Not The Rendering
+
+| Question | First surface | Governing follow-up |
+| --- | --- | --- |
+| Which records are publicly visible for a geography? | world, regional, or country report bundle | bundle manifest and subset validation |
+| Why does one animal point appear? | point traceability row | sample record, site evidence, chronology evidence, coordinate provenance, and source lineage |
+| Why is an expected point absent? | exclusion or warning surface | recovery queue, conflict ledger, substitution ledger, or release guard |
+| What environmental context surrounds a sample or lake? | source-family map layer | source contract and temporal semantics for that family |
+| Why does one lake rank above another? | ranking table | ranking manifest, feature inputs, and sensitivity analysis |
+| What changed after source collection? | collection summary | source metadata, snapshot hash, normalized hash, and family review |
+
+The first surface locates the answer; the follow-up establishes its authority.
+A map is usually the fastest index, while the evidence database is the stronger
+surface for a claim about one record.
+
+Absence follows the same rule. A record may be absent because it lies outside
+the product geography, lacks claim-specific evidence, remains unresolved, was
+excluded by policy, or was never recovered from the source. Only the relevant
+scope, exclusion, and recovery records distinguish those meanings.
+
+## Evidence Strength Is Explicit
+
+The current evidence families do not have equal maturity. Pollen and several
+environmental context layers have stable collection and publication routes.
+Human aDNA uses versioned AADR metadata. Animal aDNA has a deeper curation
+model because source papers and supplements often disagree, omit sample-level
+fields, or identify only a broad locality.
+
+An animal record can therefore occupy different states:
+
+- source discovered but supporting material incomplete;
+- sample identity established but locality or chronology unresolved;
+- normalized to a species record but not eligible for exact-point publication;
+- admitted to an atlas candidate surface with explicit precision and caveats;
+- blocked from publication by a release guard.
+
+These states are meaningful results. A blocked record communicates what is
+known, what is missing, and what recovery work would change the decision.
+
+The same principle applies outside animal aDNA. SEAD remains useful archaeology
+context even though its current capture lacks numeric time intervals. RAÄ
+remains valuable for Swedish density context without becoming Nordic-wide
+coverage. SVAR governs lake identity without contributing scientific evidence
+weight merely because a lake is close to another layer.
+
+## Choose A Route
+
+- [Foundation](foundation/index.md) defines the scientific and product scope.
+- [Architecture](architecture/index.md) follows evidence from a command to a
+  tracked artifact and public output.
+- [Interfaces](interfaces/index.md) covers the CLI, Python API, and artifact
+  contracts.
+- [Operations](operations/index.md) covers installation, validation, rebuilds,
+  and recovery.
+- [Quality](quality/index.md) covers invariants, tests, publication language,
+  and known limits.
+- [Data](../pollenomics-data/index.md) covers source families, curation,
+  evidence semantics, and publications.
+- [Nordic atlas](../nordic-atlas/index.md) covers visible layers, filters, and
+  point interpretation.
+- [Sweden lake priorities](../nordic-atlas/sweden-lake-priorities/index.md)
+  covers ranking evidence and fieldwork-oriented use.
+
+## Keep The Four Identities Together
+
+A result normally crosses four identifiers that answer different questions:
+
+| Identity | Question answered | Failure caused by dropping it |
+| --- | --- | --- |
+| source identity | which upstream release and member supplied the evidence? | the value cannot be recovered or refreshed reproducibly |
+| governed-object identity | which site, sample, lake, or record owns the claims? | repeated labels and derived rows can be mistaken for new objects |
+| decision identity | which claim-specific rule admitted, qualified, or refused the object? | product membership appears to follow automatically from capture |
+| product-member identity | where does the decision appear in a named manifest? | a rendering becomes impossible to reconcile with its declared population |
+
+The same object may have several product-member identities and several
+claim decisions. That multiplicity is expected: a sample may support an
+inventory, fail exact-point admission, and remain eligible for regional
+context. The stable object connects those outcomes without collapsing them.
+
+## Boundaries
+
+The current maps are inspectable publications, not autonomous scientific
+inference or sampling systems. In particular:
+
+- spatial proximity does not establish temporal overlap or causal relation;
+- an administrative boundary frames a view but does not add scientific weight;
+- approximate or substituted locality evidence is not equivalent to a verified
+  sample coordinate;
+- ranking outputs support prioritization but do not replace bathymetry,
+  permitting, access assessment, or field verification; and
+- the runtime does not process AADR genotype files or provide a finished
+  integrated eDNA, aDNA, pollen, and archaeology analysis engine.
+
+The reliable path for a consequential claim is publication to evidence to
+source—not publication alone.
+
+## Audit One Result In Five Minutes
+
+The shortest trust path starts from a visible object and moves upstream:
+
+```mermaid
+flowchart LR
+    Visible["map feature or report row"] --> Member["bundle membership"]
+    Member --> Decision["admission and evidence role"]
+    Decision --> Record["governing evidence record"]
+    Record --> Capture["captured source and locator"]
+    Capture --> Limit["precision, caveat, or unresolved work"]
+```
+
+1. Record the feature or row identifier and the product geography.
+2. Open the product manifest and confirm that the identifier is a member with
+   the role shown by the rendering.
+3. Follow its traceability link to the evidence record that owns the claim.
+4. Check spatial and temporal posture before comparing it with another layer.
+5. Recover the upstream dataset, accession, paper, supplement, or record
+   locator and read the visible caveat.
+
+This route distinguishes a real publication member from a display artifact,
+and a supported observation from context that merely shares the same map. If a
+member lacks any link in this chain, the gap is a product-integrity finding;
+it is not something the rendering can repair.
+
+## What To Carry Into Another Analysis
+
+Export the evidence packet, not a screenshot or isolated CSV. The reusable
+unit includes the product manifest, selected structured members, stable
+identifiers, evidence roles, source and version identity, spatial and temporal
+semantics, traceability, and material warnings or exclusions.
+
+That packet preserves the distinctions on which the publication depends. It
+allows another analysis to filter or aggregate the selected members without
+silently treating archaeology context as aDNA evidence, approximate geography
+as exact coordinates, or unresolved chronology as zero.

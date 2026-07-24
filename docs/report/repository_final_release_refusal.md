@@ -2,7 +2,7 @@
 
 - Overall posture: `final_release_language_refused`
 - Final release language allowed: `false`
-- Blocking dimensions: `3`
+- Blocking dimensions: `2`
 
 | Dimension | Ready | Finding |
 | --- | --- | --- |
@@ -12,4 +12,4 @@
 | `temporal_semantics` | `true` | temporal semantics are governed and published across sample and contextual families |
 | `sead_treatment` | `false` | SEAD still carries unresolved comparability posture and therefore blocks final release language |
 | `docs_clarity` | `true` | docs breadth holds and the report tree now routes readers through explanation-first pages |
-| `geographic_extensibility` | `false` | future-country onboarding is now a governed contract instead of tribal knowledge |
+| `geographic_extensibility` | `true` | country publication onboarding is a governed contract instead of tribal knowledge |

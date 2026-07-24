@@ -1,13 +1,28 @@
 # Runtime Package Boundaries
 
 `bijux_pollenomics` owns the checked-in sample database and the publication
-surfaces derived from it. The package should be organized by durable evidence
-responsibility, not by temporary delivery sequence or by whichever collector or
-report happened to grow first.
+surfaces derived from it. The package is organized by durable evidence
+responsibility: acquisition, normalization, review, product definition,
+analysis, and publication.
 
-This boundary document exists for one practical reason: when a reader or
-maintainer opens `adna/` or `data_downloader/`, the tree should explain intent
-clearly enough that the next edit has an obvious home.
+The boundary is also a dependency rule. Source intake does not depend on a
+rendered report, evidence review does not recover facts from presentation, and
+compatibility forwarding does not own runtime behavior.
+
+```mermaid
+flowchart LR
+    Command["command_line"] --> Intake["data_downloader and adna.sources"]
+    Intake --> Evidence["adna.projects and adna.normalization"]
+    Evidence --> Review["evidence and analysis.review"]
+    Review --> Product["foundation and analysis"]
+    Product --> Assembly["reporting assembly and bundles"]
+    Assembly --> Render["reporting presentation and rendering"]
+    Render -. no authority flows backward .-> Evidence
+```
+
+Commands orchestrate these boundaries; they do not absorb their scientific
+logic. Data flows toward publication, while corrections flow back to the
+owning evidence boundary and are then regenerated forward.
 
 ## Runtime Command Surface
 
@@ -107,6 +122,10 @@ Primary modules:
 - `bijux_pollenomics.reporting.bundles`
 - `bijux_pollenomics.reporting.context`
 
+Assembly owns membership, roles, and product relationships. It consumes
+governed evidence and produces structured publication state. It does not own
+HTML wording, source acquisition, or the facts repeated from upstream records.
+
 ## Public Artifact Writing
 
 Public artifact writing formats and writes the governed report tree under
@@ -119,6 +138,10 @@ Primary modules:
 - `bijux_pollenomics.reporting.map_document`
 - `bijux_pollenomics.reporting.review`
 
+Artifact writers may format, link, and summarize structured publication state.
+They do not infer missing chronology, strengthen coordinate precision, change
+membership, or substitute display labels for stable identifiers.
+
 ## Package Split
 
 The repository keeps three distributions for three audiences:
@@ -128,6 +151,35 @@ The repository keeps three distributions for three audiences:
   scientific logic
 - `pollenomics` is a compatibility alias and must not drift into an
   independent runtime
+
+| Distribution | Owns | Must not own |
+| --- | --- | --- |
+| `bijux-pollenomics` | scientific runtime, schemas, commands, evidence review, and publication | maintainer-only repository automation |
+| `bijux-pollenomics-dev` | repository validation, documentation operations, and maintainer workflows | scientific truth or user-facing runtime behavior |
+| `pollenomics` | executable and import compatibility forwarding | duplicated collectors, schemas, review rules, or reports |
+
+The canonical runtime may be used without the development package. The alias
+may be used instead of the canonical name at an integration boundary, but it
+still resolves and executes the canonical runtime.
+
+## Ownership Decision
+
+Place a change at the earliest boundary that owns its durable meaning:
+
+| Change | Owner |
+| --- | --- |
+| retrieval, decoding, or source-native field mapping | source collection and intake |
+| stable sample, site, chronology, or coordinate representation | evidence normalization |
+| admissibility, ambiguity, conflict, or scientific comparability | evidence review |
+| geography, scenario, membership, or ranking policy | product contracts and analysis |
+| bundle relationships and structured public records | publication assembly |
+| Markdown, HTML, table, or map presentation | public artifact writing |
+| repository-only validation or release support | `bijux_pollenomics_dev` |
+| short-name import or executable behavior | `pollenomics` compatibility package |
+
+If a formatting change appears to require a new scientific fact, the fact is
+missing upstream. Adding it in the writer would make presentation a competing
+database.
 
 ## Cross-Tree Contract
 

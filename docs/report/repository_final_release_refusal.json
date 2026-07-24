@@ -2,11 +2,10 @@
   "schema_version": "repository-final-release-refusal.v1",
   "final_release_language_allowed": false,
   "overall_posture": "final_release_language_refused",
-  "blocking_dimension_count": 3,
+  "blocking_dimension_count": 2,
   "blocking_dimensions": [
     "data_recovery",
-    "sead_treatment",
-    "geographic_extensibility"
+    "sead_treatment"
   ],
   "rows": [
     {
@@ -15,7 +14,7 @@
       "finding": "the repository now has explicit architecture and product-model surfaces",
       "evidence_anchors": [
         "docs/report/repository_product_model.json",
-        "docs/public/pollenomics/foundation/end-state-product-model.md"
+        "docs/public/pollenomics/foundation/publication-scope-model.md"
       ]
     },
     {
@@ -65,11 +64,11 @@
     },
     {
       "dimension_key": "geographic_extensibility",
-      "ready_for_final_release_language": false,
-      "finding": "future-country onboarding is now a governed contract instead of tribal knowledge",
+      "ready_for_final_release_language": true,
+      "finding": "country publication onboarding is a governed contract instead of tribal knowledge",
       "evidence_anchors": [
         "docs/report/publication_country_onboarding_contract.json",
-        "docs/internal/pollenomics-dev/future-country-onboarding-playbook.md"
+        "docs/internal/pollenomics-dev/country-publication-onboarding.md"
       ]
     }
   ]

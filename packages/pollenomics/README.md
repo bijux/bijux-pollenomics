@@ -1,10 +1,12 @@
 # pollenomics
 
-Alias distribution for `bijux-pollenomics`.
+`pollenomics` is the short-name distribution for
+[`bijux-pollenomics`](../bijux-pollenomics/README.md). It supplies the
+`pollenomics` executable and import prefix while forwarding all collection,
+evidence, ranking, and publication behavior to the canonical runtime.
 
-Install this package if you want the shorter package name and CLI command while
-running the same runtime behavior, report builders, and atlas logic as
-`bijux-pollenomics`.
+Use it for naming convenience, not as a smaller product or a separate
+scientific implementation.
 
 <!-- bijux-pollenomics-badges:generated:start -->
 [![Python 3.11+](https://img.shields.io/badge/python-3.11%2B-3776AB?logo=python&logoColor=white)](https://pypi.org/project/pollenomics/)
@@ -29,65 +31,122 @@ running the same runtime behavior, report builders, and atlas logic as
 
 ```bash
 python3.11 -m pip install pollenomics
-pollenomics --help
+pollenomics --version
+pollenomics product-scope --json
 ```
 
-Choose `pollenomics` when ergonomics matter more than package ownership. Choose
-`bijux-pollenomics` when you want the canonical runtime name in your
-environment, packaging metadata, or downstream documentation.
+The alias depends on a compatible `bijux-pollenomics` release. Installing it
+therefore installs the full canonical runtime rather than an independent or
+reduced implementation.
 
-## What It Does
+### Version Pairing Is Directional
 
-- re-exports the public Python API from `bijux-pollenomics`
-- resolves runtime submodules such as `pollenomics.command_line` and
-  `pollenomics.reporting.models` to the same canonical runtime modules used by
-  `bijux_pollenomics`
-- dispatches the same CLI handlers through the shorter `pollenomics` command
-- stays subordinate to the canonical runtime package
-- avoids becoming a second home for scientific logic or publication behavior
+The alias metadata declares the accepted canonical-runtime version range. The
+canonical runtime does not depend on the alias, and its version alone does not
+prove that a separately installed short-name package is compatible.
 
-## Choose This Package When
+```mermaid
+flowchart LR
+    AliasRelease["pollenomics release"] --> Constraint["declared canonical version range"]
+    Constraint --> RuntimeRelease["resolved bijux-pollenomics release"]
+    RuntimeRelease --> Behavior["canonical command and Python behavior"]
+    AliasRelease --> Entry["short command and import forwarding"]
+    Entry --> Behavior
+```
 
-- you want the shorter `pollenomics` command
-- you want shorter import paths such as `pollenomics.reporting`
-- you still expect the same runtime behavior as `bijux-pollenomics`
+Record both distribution versions when the short name appears in reproducible
+provenance. The runtime version owns scientific behavior; the alias version
+owns only the compatibility promise used to reach it.
 
-## What It Does Not Do
+## Choose The Distribution
 
-- it does not own a separate runtime
-- it does not ship different scientific logic
-- it does not fork the Sweden lake ranking, atlas, or report publication paths
-- it does not replace `bijux-pollenomics` as the canonical package owner
+| Requirement | Distribution and entry surface |
+| --- | --- |
+| canonical dependency and ownership identity | `bijux-pollenomics`, `bijux_pollenomics`, `bijux-pollenomics` |
+| concise notebook or interactive identity | `pollenomics`, `pollenomics` |
+| smaller runtime or different scientific behavior | neither; both reach the canonical runtime |
+| alias-owned schema, evidence state, or release policy | none |
 
-If you are deciding which package should appear in documentation, release
-notes, or system-level ownership discussions, prefer `bijux-pollenomics`. This
-package exists for compatibility and convenience, not to become a second
-canonical surface.
+Libraries and durable architecture records should normally use the canonical
+name. An application can use the short name consistently when its invocation
+provenance records both installed distributions.
 
-## Compatibility Contract
+## Compatibility contract
 
-If this works:
+The short executable dispatches to the canonical command implementation. The
+short import resolver forwards runtime submodules and public names:
 
 ```python
-from bijux_pollenomics.command_line import build_parser
+from pollenomics import build_product_scope, collect_data
+from pollenomics.reporting import generate_published_reports
 ```
 
-the alias package is expected to support the same import through:
-
-```python
-from pollenomics.command_line import build_parser
+```mermaid
+flowchart LR
+    Short["pollenomics command or import"] --> Resolver["compatibility forwarding"]
+    Resolver --> Canonical["bijux_pollenomics runtime"]
+    Canonical --> Inputs["same explicit governed roots"]
+    Inputs --> Result["same canonical schemas and manifests"]
 ```
 
-The only intentional local difference is the compatibility CLI wrapper in
-`pollenomics.cli`, which keeps the executable name and top-level parser program
-label as `pollenomics`.
+The compatibility promise covers command dispatch, import forwarding, and
+top-level public names for a compatible release pair. It does not create
+alias-specific artifact formats, identifiers, configuration, scientific
+decisions, write roots, or publication caveats.
 
-In practical terms, this means the same release line should let users choose
-either of these:
+## Record A Short-Name Run
 
-```python
-from bijux_pollenomics.reporting import publish_reports
-from pollenomics.reporting import publish_reports
+When the alias creates governed artifacts, retain:
+
+| Identity | Required record |
+| --- | --- |
+| entry surface | `pollenomics` distribution version and requested command or import |
+| implementation | resolved `bijux-pollenomics` distribution version |
+| operation | arguments, configuration, and explicit source, data, and output roots |
+| evidence state | source releases, data revision, and materialized lifecycle stages |
+| result | canonical manifest, member IDs, hashes, and focused verification |
+
+Do not rename evidence IDs, schemas, provenance fields, or output roots to
+contain the alias. Those identify scientific and product state rather than the
+convenience namespace used to enter the runtime.
+
+## Prove Parity At The Right Boundary
+
+Parity means both names resolve the same canonical behavior for identical
+inputs. Check the release pair and read-only contracts before replaying a
+writer:
+
+```bash
+pollenomics --version
+bijux-pollenomics --version
+pollenomics product-scope --json
+bijux-pollenomics product-scope --json
 ```
 
-and get the same runtime behavior.
+For a governed result, compare canonical schema identity, product manifests,
+member IDs, evidence posture, and caveats. Different terminal labels are
+expected; different scientific results under the same compatible versions and
+inputs are a defect.
+
+## Diagnose A Mismatch
+
+Inspect these causes in order:
+
+1. confirm which executables and environments resolved;
+2. record both installed distribution versions;
+3. confirm one import prefix is used consistently within the process;
+4. compare arguments, configuration, and explicit roots;
+5. compare canonical manifests and member identities; and
+6. reproduce through the canonical name before attributing the mismatch to
+   scientific behavior.
+
+The alias changes access, not data state. An empty or different result usually
+indicates environment, root, configuration, or version identity that must be
+made explicit.
+
+## Read Next
+
+- [Canonical runtime package](../bijux-pollenomics/README.md)
+- [Product handbook](../../docs/public/pollenomics/index.md)
+- [Interfaces](../../docs/public/pollenomics/interfaces/index.md)
+- [Evidence database](../../docs/public/pollenomics-data/index.md)

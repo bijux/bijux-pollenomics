@@ -1,93 +1,259 @@
 ---
-title: Runtime Purpose and Boundary
+title: Product Boundary
 audience: reader
 type: explanation
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-05-10
+last_reviewed: 2026-07-22
 ---
 
-# What This Repository Is For
+# Product Boundary
 
-This repository exists to make one evidence publication loop visible and
-repeatable. It takes several evidence families that would otherwise stay
-scattered across papers, tables, maps, and local scripts, and turns them into
-one reviewable repository state.
+Bijux Pollenomics is an atlas builder and evidence-publication system. It
+acquires heterogeneous scientific and geographic sources, preserves their
+identities and limitations, creates repository-owned evidence records, and
+derives scoped maps and reports from the admitted subset.
 
-In practical terms, `bijux-pollenomics` owns the path from tracked source
-material to tracked public output. That includes collection, normalization,
-publication, and the checks that stop the repository from sounding more certain
-than the evidence really is.
+The product is the accountable chain, not only the final visualization. That
+chain has three independently inspectable surfaces:
 
-This page answers the first practical question the public guide should resolve:
-what is this repository actually for, and why does it need one owned runtime at
-all?
+| Product surface | What it owns | What it does not prove by itself |
+| --- | --- | --- |
+| governed evidence database | source identity, extracted records, normalized meaning, review state, conflicts, exclusions, and recovery gaps | that a record is fit for a particular public claim |
+| producer runtime | repeatable transformations, validation, ranking, admission, and publication behavior | that every source family has materialized every lifecycle stage |
+| publication products | declared membership, geography, evidence roles, caveats, and reader-facing interpretation | complete recovery, causal association, or equal comparability across domains |
 
-## The Short Answer
+The database is therefore a product surface in its own right. It preserves
+more than the atlas shows, including negative decisions and unresolved work.
+The runtime operates on that governed state. A publication is a selected,
+manifested descendant of both; it is not the database rendered wholesale.
 
-The repository is trying to do one specific thing well: publish inspectable
-cross-evidence outputs without hiding where they came from. It is not here just
-to display a map, and it is not yet a finished scientific engine that settles
-every pollen, archaeology, and ancient-DNA question.
+```mermaid
+flowchart LR
+    Sources["versioned sources"] --> Database["governed evidence database"]
+    Database --> Producer["producer runtime"]
+    Producer --> Products["scoped publication products"]
+    Products -. "member trace" .-> Database
+    Producer -. "validation and accounting" .-> Database
+```
 
-Its value comes from joining three responsibilities that often drift apart:
+The executable product-scope contract names the current mode
+`atlas_builder` and the project direction `future_engine`. That is a product
+boundary, not a disclaimer hidden at the edge of the documentation. Collection,
+curation, review, ranking, and publication are current runtime behavior;
+general multi-evidence harmonization and interpretation remain outside the
+implemented contract.
 
-- collecting and refreshing governed source material
-- normalizing that material into repository-owned evidence files
-- publishing downstream outputs that people can inspect and question
+The checked-in evidence state and publication state are deliberately
+different sizes. Collection preserves records that may be contextual,
+unresolved, excluded, or awaiting stronger source recovery. Publication exposes
+only the members admitted for a declared geography and use. That difference is
+an observable product decision, not undocumented filtering.
 
-If those responsibilities split into private scripts, ad hoc notebooks, and a
-separate presentation layer, the public outputs may still look polished, but
-they stop being accountable.
+The system therefore has three independent version coordinates:
 
-## What The Runtime Must Keep Legible
+| Coordinate | Identifies | Must not be used as a substitute for |
+| --- | --- | --- |
+| producer version | the runtime behavior that interpreted inputs and wrote results | a particular evidence snapshot |
+| evidence revision | the coherent governed records and decisions available to the operation | product membership or release approval |
+| product identity | the manifest, scope, version, and selected members released together | upstream fact ownership |
 
-- command entrypoints that rewrite tracked state
-- source-family and normalized evidence files under `data/`
-- country, regional, and world publication outputs under `docs/report/`
-- tests and reviews that fail when those publication contracts drift
+A durable result names all three. Re-running the same producer against a new
+evidence revision is repeatable execution, but it is not the same scientific
+result; republishing the same evidence under a different scope is a different
+product even when many members overlap.
 
-## Start With These Questions
+```mermaid
+flowchart LR
+    Upstream["datasets, APIs, papers, supplements"] --> Capture["versioned capture"]
+    Capture --> Evidence["owned evidence records"]
+    Evidence --> Review["fitness and uncertainty review"]
+    Review --> Scope["world, region, country, or lake scope"]
+    Scope --> Publication["maps, reports, and evidence packets"]
+    Publication --> Trace["claim-to-source traceability"]
+```
 
-- [repository scope and limits](repository-scope-and-limits.md): what the
-  repository claims today and where it stops
-- [end-state product model](end-state-product-model.md): how world, region, and
-  country outputs fit together as one product rather than several unrelated
-  websites
-- [pollenomics engine roadmap](pollenomics-engine-roadmap.md): what broader
-  pollenomics ambition still remains ahead of the current state
-- [runtime scope and ownership](runtime-scope-and-ownership.md): what this
-  runtime owns inside the repository and what it deliberately leaves elsewhere
+## Product Responsibilities
 
-## Why This Matters
+| Responsibility | Durable result |
+| --- | --- |
+| acquisition | identifiable source material with retrieval and version context |
+| normalization | stable fields and identifiers without invented precision |
+| evidence review | explicit locality, chronology, coordinate, ambiguity, and comparability posture |
+| publication | governed membership, geography, labels, and caveats |
+| accountability | a reverse path from a visible feature to its governing evidence and source |
 
-A public guide should not make people reconstruct the product from code names.
-It should answer three basic questions quickly:
+These responsibilities stay together because a polished output without its
+capture and review lineage cannot support a consequential scientific claim.
 
-- what kinds of evidence are included here
-- what happens to those inputs before they become public outputs
-- how much confidence the repository claims, and where it refuses stronger
-  language
+### Trust Runs In Two Directions
 
-That is the boundary this section protects. It explains the product first, then
-the code ownership that makes the product rebuildable.
+Forward execution creates a publication; reverse inspection establishes
+trust. Both directions are required:
 
-## Ownership Boundary
+```mermaid
+flowchart LR
+    Source["upstream source identity"] --> Capture["captured bytes and metadata"]
+    Capture --> Record["governed evidence record"]
+    Record --> Decision["claim-specific review"]
+    Decision --> Member["manifested product member"]
+    Member -. "audit" .-> Decision
+    Decision -. "audit" .-> Record
+    Record -. "audit" .-> Capture
+    Capture -. "audit" .-> Source
+```
 
-- the runtime owns collection, normalization, and publication behavior
-- the data handbook owns source provenance and tracked file meaning
-- the atlas handbook owns how visible map surfaces should be interpreted
-- the maintainer handbook owns release, documentation shell, and
-  repository-health rules
+| Direction | Success condition | Failure meaning |
+| --- | --- | --- |
+| source to product | each transformation preserves identity, role, precision, and admission rationale | the candidate remains qualified, excluded, or unrecoverable |
+| product to source | a visible member resolves through manifest, review, evidence, capture, and upstream identity | the published claim is incomplete even if the rendering works |
 
-## Where To Go Next
+A screenshot proves neither direction. A source citation proves origin but not
+product membership. Trust comes from the linked chain.
 
-- stay in this section if your question is "what is this repository trying to
-  do, and how honest is it about its current state?"
-- move to [end-state product model](end-state-product-model.md) if your
-  question is how world, Europe-plus, Nordic, and country outputs fit together
-- move to [the data guide](../../pollenomics-data/index.md) if your question is
-  which source family, paper, site, sample, or chronology record supports a
-  visible claim
-- move to [the Nordic atlas guide](../../nordic-atlas/index.md) if your
-  question is how a visible map point should be read, filtered, or challenged
+## Product Guarantees
+
+The product boundary holds only when all of these relationships remain true:
+
+- every publication member has a stable identity within its source family;
+- normalization preserves source-native meaning and represents missing values
+  without invented precision;
+- evidence review records the basis for place, time, coordinates, and role;
+- product membership names geography, version, admission posture, and caveat;
+- child geographies remain defensible subsets of their governed parents; and
+- rejected or deferred records remain accountable outside the visible subset.
+
+```mermaid
+flowchart TD
+    Record["governed record"] --> Identity{"stable identity?"}
+    Identity -->|no| Refuse["refuse publication"]
+    Identity -->|yes| Semantics{"place, time, and role preserved?"}
+    Semantics -->|no| Refuse
+    Semantics -->|yes| Scope{"eligible for declared product?"}
+    Scope -->|no| Account["exclusion or recovery surface"]
+    Scope -->|yes| Member["manifested publication member"]
+```
+
+## Products And Non-Products
+
+| Surface | Product responsibility | Boundary |
+| --- | --- | --- |
+| curated data tree | evidence identity, lineage, semantics, and review state | not itself a public scientific conclusion |
+| atlas and reports | scoped publication and interpretation | not an independent evidence authority |
+| candidate ranking | reproducible decision support | not a sampling instruction or field result |
+| fieldwork record | evidence from one dated visit | not representative coverage of a lake or region |
+| recovery and refusal outputs | accountable incompleteness | not evidence of biological absence |
+| local build artifacts | diagnostics and previews | not governed repository state |
+
+## Current Product Surfaces
+
+| Surface family | What readers receive | Accountability companion |
+| --- | --- | --- |
+| world, Europe-plus, and Nordic | maps, evidence rows, rankings, and regional reviews | manifests, traceability, subset validation, and scientific review |
+| Sweden, Norway, Finland, and Denmark | national samples, citations, warnings, and context | country bundle membership and parent-scope lineage |
+| Sweden lake priorities | ranked candidates and sensitivity evidence | ranking manifest, input roles, caveats, and fieldwork preparation |
+| Lyngsjön fieldwork | one dated visit with situated observations | explicit boundary against generalized suitability claims |
+| recovery and release reviews | measurable gaps, conflicts, and blocked language | governing evidence paths and conditions for reconsideration |
+
+These surfaces are different views over one governed system. Their proximity
+in navigation or on a map does not make their evidence units interchangeable.
+
+## Scientific Scope
+
+Pollen and environmental archaeology provide palaeoenvironmental context.
+Boundaries and hydrography frame geography. AADR supplies versioned human
+ancient-DNA metadata. Animal ancient DNA is recovered from papers,
+supplements, and project archives into sample-owned evidence. Field
+observations and Sweden lake rankings add direct-visit and decision-support
+surfaces without being promoted to universal scientific conclusions.
+
+The domains can coexist in one publication while retaining different units,
+coverage, uncertainty, and evidentiary roles.
+
+### Populations Are Named, Not Blended
+
+Animal evidence demonstrates why a single phrase such as “the database” is
+not precise enough for scientific accounting:
+
+| Population | Count | Unit and purpose |
+| --- | ---: | --- |
+| sample-foundation truth | 894 | curated source rows classified by grounding and blocking posture |
+| recovered project sample master | 868 | stable sample identities recovered across 40 tracked projects |
+| animal point publication | 234 | 233 final sample-backed features plus one provisional project-context feature |
+
+These values answer different questions. They are not successive percentages
+of one denominator: foundation rows and recovered identities have distinct
+curation contracts, while publication membership applies a claim-specific
+point contract. Every comparison must name its population and observation
+unit before interpreting a count.
+
+## Capability States
+
+Every capability belongs to one of three reader-visible states:
+
+| State | Meaning | Example |
+| --- | --- | --- |
+| operational | the runtime owns the complete input, decision, and output contract | versioned source collection and manifested report publication |
+| qualified | a real governed surface exists, but its evidence limits block a broader claim | admitted animal points beside explicit project-recovery gaps |
+| outside scope | no current runtime contract produces the claimed result | genotype analysis, causal inference, or autonomous sampling decisions |
+
+```mermaid
+flowchart LR
+    Request["reader or operator question"] --> Contract{"owned runtime contract?"}
+    Contract -->|no| Outside["outside current scope"]
+    Contract -->|yes| Evidence{"evidence satisfies claim?"}
+    Evidence -->|yes| Operational["operational result and traceability"]
+    Evidence -->|partly| Qualified["qualified result and visible limitation"]
+    Evidence -->|no| Refused["refusal or recovery surface"]
+```
+
+Qualified does not mean experimental or hidden. It means the repository can
+defend a narrower result and can name the evidence that prevents stronger
+language. Refusal is likewise a product outcome when the runtime completed but
+the scientific contract did not pass.
+
+Capability state is also separate from roadmap state. An operational atlas
+publication remains operational even though a broader engine is planned. A
+planned engine surface does not become qualified merely because the repository
+already holds relevant evidence; it remains outside the current product until
+an owned interface, transformation, result, and fitness contract exist.
+
+### Capability Evidence Packet
+
+A capability is demonstrated only when four surfaces agree:
+
+| Surface | Required evidence |
+| --- | --- |
+| interface | supported command or Python entry point with explicit inputs and write scope |
+| state transition | named owner, prior state, candidate state, and replacement behavior |
+| governed result | manifest, stable member identities, schemas, and evidence roles |
+| fitness | qualifications, exclusions, warnings, and claim ceiling |
+
+Code that can calculate a value is not by itself a product capability. For
+example, coordinate proximity is computable, but causal association remains
+outside scope because no governed inference contract owns that conclusion.
+
+## Runtime Boundary
+
+`bijux-pollenomics` owns collection, normalization, evidence review, heuristic
+candidate ranking, and publication behavior. The tracked `data/` tree records
+repository-owned evidence state; `docs/report/` contains derived publications;
+validation guards the contract between them.
+
+The runtime does not turn geographic proximity into causation, process AADR
+genotypes, infer missing sample coordinates, or replace field verification.
+
+## Evaluate The Product By Question
+
+| Question | Governing explanation |
+| --- | --- |
+| What is included and where does the claim boundary stop? | [Repository scope and limits](repository-scope-and-limits.md) |
+| How do world, regional, country, and specialized outputs relate? | [Publication scope model](publication-scope-model.md) |
+| Which layer owns each operation and artifact? | [Runtime scope and ownership](runtime-scope-and-ownership.md) |
+| Which capabilities are operational, qualified, or outside scope? | [Evidence engine capabilities](evidence-engine-capabilities.md) |
+| Which source or evidence record supports a visible claim? | [Data system](../../pollenomics-data/index.md) |
+| How should atlas layers and points be interpreted? | [Nordic Evidence Atlas](../../nordic-atlas/index.md) |
+
+Trust increases when the publication, evidence record, and source capture agree.
+When they do not, the narrower upstream authority wins and the publication must
+be corrected, qualified, or refused.

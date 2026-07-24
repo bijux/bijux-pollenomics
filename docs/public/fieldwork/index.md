@@ -1,110 +1,220 @@
 ---
 title: Fieldwork
-audience: mixed
+audience: reader
 type: index
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-05-10
+last_reviewed: 2026-07-22
 ---
 
 # Fieldwork
 
-Fieldwork is the repository's direct visit surface. It shows, in the most
-concrete possible way, that at least some mapped interpretation in the public
-atlas is anchored to a real place, on a real day, with repository-owned media
-that can be inspected directly.
+Fieldwork records direct observation at a declared place and time. Within
+Bijux Pollenomics, that is a distinct evidence role: it can establish that a
+visit occurred and preserve what was documented, but it cannot replace pollen,
+archaeology, hydrography, or ancient-DNA evidence.
 
-In `bijux-pollenomics`, fieldwork is not the whole scientific argument. Pollen
-context, environmental archaeology, boundaries, and ancient DNA still do most
-of the analytical work. Fieldwork plays a different role. It shows where the
-project has physically gone into the landscape, what was documented there, and
-how one on-the-ground visit connects back to the wider evidence picture.
-
-## Fieldwork Model
+## Evidence Role
 
 ```mermaid
-flowchart TB
-    atlas["visible atlas point"]
-    visit["visit record page"]
-    media["repository-owned photo and video"]
-    reader["direct evidence question"]
-
-    atlas --> visit
-    visit --> media
-    media --> reader
+flowchart LR
+    Visit["dated visit"] --> Record["location and visit record"]
+    Visit --> Media["repository-owned photo and video"]
+    Record --> Point["fieldwork atlas feature"]
+    Media --> Point
+    Point --> Claim["inspectable visit claim"]
+    Context["pollen, archaeology, aDNA, and lake context"] -. interpreted separately .-> Point
 ```
 
-This section should work as a narrow but trustworthy bridge. You should be able
-to move from a visible atlas point to a documented visit record, and from that
-visit record to the photo and video captured on the day. If that route is
-vague, fieldwork stops being evidence and becomes decoration.
+| Fieldwork can establish | Fieldwork cannot establish alone |
+| --- | --- |
+| a visit at the recorded date and location | representative coverage of a lake or region |
+| repository ownership of the published media | sediment quality, bathymetry, or coring suitability |
+| linkage between a visit record and an atlas feature | temporal overlap among nearby evidence families |
+| what is visibly documented in the selected media | a general sampling recommendation |
 
-## Start Here
+## Observation Contract
 
-- start with [Lyngsjön Lake Fieldwork](./lyngsjon-lake-fieldwork/index.md)
-  if you want the current direct visit record
-- open the [Nordic Evidence Atlas](../../report/regions/nordic/nordic_map.html)
-  if your question begins with a mapped point and you want to understand why
-  that area was worth documenting
-- open the [data handbook](../pollenomics-data/index.md)
-  if your real question is about provenance, normalization, or source-family
-  coverage across the wider repository
+A publishable fieldwork feature binds five elements:
 
-## Section Pages
+| Element | Required meaning |
+| --- | --- |
+| place | a stable named feature and coordinates at the precision supported by the visit |
+| time | the date or interval during which the observation was made |
+| observer context | enough visit identity to distinguish the event from reused media or atlas context |
+| media lineage | repository-owned or explicitly licensed material linked to the visit |
+| claim boundary | a statement limited to what the visit and selected media establish |
 
-- [Lyngsjön Lake Fieldwork](./lyngsjon-lake-fieldwork/index.md)
+```mermaid
+flowchart LR
+    Visit["dated visit"] --> Identity["place and event identity"]
+    Identity --> Media["linked media"]
+    Media --> Review["claim boundary"]
+    Review --> Feature["published fieldwork feature"]
+    Context["atlas context"] -. compared after publication .-> Feature
+```
 
-## Why This Surface Matters
+Atlas context enters after the visit claim is established. Nearby pollen,
+archaeology, hydrography, or ancient-DNA records can motivate follow-up, but
+they cannot fill a missing visit date, location, media link, or observation.
 
-The fieldwork surface matters because a map point should not be trusted
-blindly. In some cases, the repository can show not only the processed
-evidence layers around a place, but also the fact that the team stood there,
-documented the visit, and treated that location as a serious candidate for
-cross-evidence work.
+## Documentation Is Not Measurement
 
-The Lyngsjön area is a good example of why this matters. It sits in a part of
-the Nordic evidence space where pollen context, archaeology, and ancient DNA
-are all unusually relevant together. That does not mean the area proves
-everything by itself. It means it is a rational place to begin: rich enough to
-connect multiple evidence families, focused enough to document carefully, and
-concrete enough to inspect as an actual landscape rather than an
-abstract atlas label.
+A dated photograph or video documents what the selected media visibly support.
+It does not become a limnological, sedimentological, archaeological, or
+ecological measurement unless the event also carries the relevant method,
+instrument, units, calibration, sampling location, and result.
 
-## What You Can Learn Here
+| Field record | Defensible claim | Additional evidence needed for a stronger claim |
+| --- | --- | --- |
+| dated visit and media | the visit occurred and the selected conditions are documented | a defined observation protocol for systematic comparison |
+| shoreline coordinate | the observer was at the recorded location | surveyed lake geometry or coring position |
+| visual water or ice condition | the condition is visible in the media at that moment | instrumented environmental measurement |
+| access route used once | the route was used for this visit | legal access, seasonal feasibility, and safety assessment |
+| no feature noted in visit record | it was not recorded under this visit's documentation | protocol-defined search effort before claiming absence |
 
-- whether a published fieldwork point refers to a real documented visit
-- which date, location, and media support that visit record
-- why this location was treated as a strong candidate for pollenomics work
-- where fieldwork evidence stops and broader source-derived evidence begins
+Negative field claims require particular care. “Not recorded” may reflect the
+visit scope, season, visibility, or documentation method; it is not equivalent
+to “not present.”
 
-## First Inspection Path
+## Current Record
 
-- inspect `docs/gallery/2026-02-26-data-collection.JPG`
-- inspect `docs/gallery/2026-02-26-data-collection.mp4`
-- compare the visit record with the corresponding atlas point in the Nordic
-  evidence surface
-- then step outward into the data handbook if you want to understand the wider
-  pollen, archaeology, and ancient-DNA context around the same area
+The published fieldwork surface contains one direct visit record:
+[Lyngsjön Lake, 26 February 2026](./lyngsjon-lake-fieldwork/index.md). The
+record includes coordinates, atlas identity, a checked-in photograph, and a
+checked-in video.
 
-## Scope And Restraint
+The Nordic map contract publishes this as one `fieldwork-documentation`
+feature. It is enabled by default in Nordic scope, follows country filtering,
+and does not use the atlas time filter because the visit date is an event
+property rather than an ancient temporal-comparison interval.
 
-The repository must resist an easy mistake here: one documented visit can make
-an area feel more certain or more complete than it really is. This section only
-works when it stays modest. It should deepen trust in one visit record, not
-inflate the scientific completeness of the whole atlas.
+<div class="bijux-quicklinks">
+  <a class="md-button md-button--primary" href="./lyngsjon-lake-fieldwork/">Inspect the Lyngsjön visit</a>
+  <a class="md-button" href="../../report/regions/nordic/nordic_map.html">Open the Nordic atlas</a>
+  <a class="md-button" href="../nordic-atlas/sweden-lake-priorities/">Review Sweden lake priorities</a>
+  <a class="md-button" href="../pollenomics-data/">Follow the data evidence chain</a>
+</div>
 
-## Media Boundary
+## Relationship To Lake Prioritization
 
-This public surface intentionally shows only one photo and one video from the
-day. They are enough to make the visit inspectable without turning the website
-into a media dump.
+A documented visit and a ranked lake answer different questions. Ranking
+combines declared evidence and lake attributes to support prioritization. A
+visit records direct presence and media at one location. Neither supplies the
+missing bathymetry, permits, access analysis, sediment assessment, or complete
+field protocol required for sampling readiness.
 
-If you are a curious reader and want more field material from the same visit,
-send an email to `bijan@bijux.io`.
+The fieldwork feature therefore remains its own atlas layer. It can be compared
+with nearby context, but proximity does not transfer evidentiary weight between
+layers.
 
-## Boundary Test
+| Transition | What is learned | What remains unresolved |
+| --- | --- | --- |
+| ranking to desk review | whether a lake is evidence-rich under the model | bathymetry, access, permits, and field conditions |
+| desk review to visit | whether the candidate merits direct inspection | representative lake conditions and sampling feasibility |
+| visit to sampling decision | what was directly observed at one time and place | coring design, sediment integrity, and reproducibility |
 
-This section does not imply that every atlas point has matching field media. It
-does not replace the data handbook, and it does not turn field documentation
-into a substitute for pollen records, archaeological context, or sample-backed
-ancient DNA. Its job is narrower and clearer: make one real visit legible.
+Each transition needs its own record. A visit is not a completion flag attached
+to a ranking row; it is new evidence with independent identity and limits.
+
+### Admit Field Observations Without Converting Interpretation Into Fact
+
+A visit can add several claim types, each with its own owner:
+
+| Claim type | Governing record | Admission requirement |
+| --- | --- | --- |
+| event occurred | visit identity, date, participants or observer context, and source record | event identity is recoverable and distinct from other visits |
+| location observed | visit coordinate, method, precision, and relation to the named place | coordinate basis supports the published geometry |
+| media captured | repository path, ownership or licence, capture relation, and content identity | media resolves to the visit without relying on a copied thumbnail |
+| condition observed | structured observation, method, spatial extent, and time | wording stays within what was directly inspected or measured |
+| condition not observed | declared observation opportunity, method, extent, and negative result | absence is limited to the inspected scope, not generalized to the lake |
+| interpretation | separate analysis or decision record linked to observations | inference names its method, assumptions, and competing explanations |
+
+Narrative impressions can orient later work, but they do not become measured
+lake properties merely by appearing on a field page. Preserve the observation
+first; attach interpretation as a separately reviewable relation.
+
+## Fieldwork Evidence Packet
+
+| Packet member | What it proves |
+| --- | --- |
+| visit identity and date | which event is being documented |
+| named place and coordinates | where the published visit feature is located |
+| media paths and ownership | which checked-in photograph and video support the visit |
+| atlas feature and layer | how the visit appears in the Nordic product |
+| claim boundary | which observations remain supportable from the event and selected media |
+| contextual links | which separately governed atlas evidence can be inspected nearby |
+
+For Lyngsjön, the media authorities are
+`docs/gallery/2026-02-26-data-collection.JPG` and
+`docs/gallery/2026-02-26-data-collection.mp4`. Copying the atlas marker without
+the dated visit and media lineage would leave only a coordinate, not fieldwork
+evidence.
+
+```mermaid
+flowchart LR
+    Event["visit identity and date"] --> Place["named place and coordinates"]
+    Event --> Media["owned photograph and video"]
+    Place --> Claim["bounded field observation"]
+    Media --> Claim
+    Claim --> Feature["Nordic fieldwork feature"]
+    Atlas["separate atlas context"] -. comparison only .-> Feature
+```
+
+### Audit A Published Visit
+
+Start from the atlas feature and recover the evidence in both directions:
+
+1. Confirm that the layer identifies the record as fieldwork rather than a
+   lake candidate, environmental measurement, or archaeological observation.
+2. Match the feature title, date, and coordinates to the visit page.
+3. Open the linked media from repository-owned paths; a thumbnail or copied
+   URL alone does not establish media lineage.
+4. Read the claim boundary before interpreting anything visible in the media.
+5. Follow contextual links separately and retain each source family's spatial
+   and temporal qualifications.
+
+This audit distinguishes a complete visit claim from a plausible-looking map
+marker. It also prevents contextual density around a lake from being reported
+as something directly observed during the visit.
+
+## Identity Across Fieldwork And Lake Data
+
+The same named lake can have more than one legitimate coordinate-bearing
+record. A fieldwork coordinate locates an observed event; a registry
+representative point locates a water-body feature for inventory and ranking.
+They can be linked through lake identity without being treated as the same
+observation.
+
+| Identity | Unit represented | Safe use |
+| --- | --- | --- |
+| fieldwork event | one dated visit at a recorded location | inspect the visit and its media |
+| lake registry feature | one mapped water body | identify and compare the lake candidate |
+| ranking row | one lake under one declared scoring scenario | compare prioritization evidence |
+
+Coordinate proximity is therefore a linkage clue, not a deduplication rule.
+Preserving the three identities keeps a later registry correction from moving
+the historic visit and keeps a new visit from rewriting a prior ranking row.
+
+The link also has a direction. A confirmed lake identity can connect the visit
+to registry and ranking context; it does not make the field coordinate the
+canonical lake representative point. Likewise, a registry correction can
+trigger review of the link without rewriting the recorded historic event.
+
+## Publication Boundary
+
+The current record does not imply that every atlas point has field media or
+that Lyngsjön represents regional conditions. Additional visits require their
+own date, location, media lineage, feature identity, and claim boundary before
+publication.
+
+Repeated visits to the same lake remain distinct events. They may share the
+lake identity while retaining separate dates, observations, media, methods,
+and conditions. Merging them by coordinates would erase the temporal and
+observational unit that makes fieldwork evidence auditable.
+
+Cross-visit comparison requires a shared protocol or an explicit statement of
+which fields are comparable. Media captured in different seasons, positions,
+weather, or visit purposes can document change or contrast, but those
+differences must remain part of the interpretation rather than being treated
+as interchangeable replicates.

@@ -2,8 +2,8 @@
 
 - Rule: missing origin/main handbook pages must be restored, merged, or retired only with a verified replacement
 - Ledger rows: `68`
-- Verified replacements: `60`
-- Replacement gaps: `8`
+- Verified replacements: `68`
+- Replacement gaps: `0`
 
 | Legacy page | Decision | Current replacement | Status |
 | --- | --- | --- | --- |
@@ -39,7 +39,7 @@
 | `docs/01-bijux-pollenomics/operations/performance-and-scaling.md` | `merged` | `docs/public/pollenomics/operations/operational-boundaries.md` | `verified_replacement` |
 | `docs/01-bijux-pollenomics/operations/release-and-versioning.md` | `merged` | `docs/public/pollenomics/operations/operational-boundaries.md` | `verified_replacement` |
 | `docs/01-bijux-pollenomics/operations/security-and-safety.md` | `merged` | `docs/public/pollenomics/operations/operational-boundaries.md` | `verified_replacement` |
-| `docs/01-bijux-pollenomics/operations/failure-recovery.md` | `restored` | `docs/public/pollenomics/operations/failure-recovery.md` | `replacement_incomplete` |
+| `docs/01-bijux-pollenomics/operations/failure-recovery.md` | `restored` | `docs/public/pollenomics/operations/failure-recovery.md` | `verified_replacement` |
 | `docs/01-bijux-pollenomics/quality/change-validation.md` | `restored` | `docs/public/pollenomics/quality/change-validation.md` | `verified_replacement` |
 | `docs/01-bijux-pollenomics/quality/definition-of-done.md` | `merged` | `docs/public/pollenomics/quality/runtime-invariants-and-limits.md` | `verified_replacement` |
 | `docs/01-bijux-pollenomics/quality/dependency-governance.md` | `merged` | `docs/public/pollenomics/quality/runtime-invariants-and-limits.md` | `verified_replacement` |
@@ -48,16 +48,16 @@
 | `docs/01-bijux-pollenomics/quality/risk-register.md` | `merged` | `docs/public/pollenomics/quality/runtime-invariants-and-limits.md` | `verified_replacement` |
 | `docs/01-bijux-pollenomics/quality/documentation-standards.md` | `merged` | `docs/public/pollenomics/quality/change-validation.md` | `verified_replacement` |
 | `docs/01-bijux-pollenomics/quality/review-checklist.md` | `restored` | `docs/public/pollenomics/quality/review-checklist.md` | `verified_replacement` |
-| `docs/02-bijux-pollenomics-data/foundation/coordinate-policy.md` | `merged` | `docs/public/pollenomics-data/overview/provenance-and-publication-linkage.md` | `replacement_incomplete` |
-| `docs/02-bijux-pollenomics-data/foundation/provenance-model.md` | `merged` | `docs/public/pollenomics-data/overview/provenance-and-publication-linkage.md` | `replacement_incomplete` |
-| `docs/02-bijux-pollenomics-data/foundation/publication-linkage.md` | `merged` | `docs/public/pollenomics-data/overview/provenance-and-publication-linkage.md` | `replacement_incomplete` |
+| `docs/02-bijux-pollenomics-data/foundation/coordinate-policy.md` | `merged` | `docs/public/pollenomics-data/overview/provenance-and-publication-linkage.md` | `verified_replacement` |
+| `docs/02-bijux-pollenomics-data/foundation/provenance-model.md` | `merged` | `docs/public/pollenomics-data/overview/provenance-and-publication-linkage.md` | `verified_replacement` |
+| `docs/02-bijux-pollenomics-data/foundation/publication-linkage.md` | `merged` | `docs/public/pollenomics-data/overview/provenance-and-publication-linkage.md` | `verified_replacement` |
 | `docs/02-bijux-pollenomics-data/foundation/data-system-overview.md` | `merged` | `docs/public/pollenomics-data/overview/data-system-overview.md` | `verified_replacement` |
 | `docs/02-bijux-pollenomics-data/foundation/directory-layout.md` | `merged` | `docs/public/pollenomics-data/overview/data-directory-layout.md` | `verified_replacement` |
 | `docs/02-bijux-pollenomics-data/foundation/index.md` | `retired_with_replacement` | `docs/public/pollenomics-data/overview/index.md` | `verified_replacement` |
-| `docs/02-bijux-pollenomics-data/foundation/migration-issues.md` | `merged` | `docs/public/pollenomics-data/overview/source-selection-and-refresh.md` | `replacement_incomplete` |
-| `docs/02-bijux-pollenomics-data/foundation/source-selection-rules.md` | `merged` | `docs/public/pollenomics-data/overview/source-selection-and-refresh.md` | `replacement_incomplete` |
-| `docs/02-bijux-pollenomics-data/foundation/update-lifecycle.md` | `merged` | `docs/public/pollenomics-data/overview/source-selection-and-refresh.md` | `replacement_incomplete` |
-| `docs/02-bijux-pollenomics-data/foundation/naming-conventions.md` | `merged` | `docs/public/pollenomics-data/overview/coverage-and-naming.md` | `replacement_incomplete` |
+| `docs/02-bijux-pollenomics-data/foundation/migration-issues.md` | `merged` | `docs/public/pollenomics-data/overview/source-selection-and-refresh.md` | `verified_replacement` |
+| `docs/02-bijux-pollenomics-data/foundation/source-selection-rules.md` | `merged` | `docs/public/pollenomics-data/overview/source-selection-and-refresh.md` | `verified_replacement` |
+| `docs/02-bijux-pollenomics-data/foundation/update-lifecycle.md` | `merged` | `docs/public/pollenomics-data/overview/source-selection-and-refresh.md` | `verified_replacement` |
+| `docs/02-bijux-pollenomics-data/foundation/naming-conventions.md` | `merged` | `docs/public/pollenomics-data/overview/coverage-and-naming.md` | `verified_replacement` |
 | `docs/03-bijux-pollenomics-maintain/bijux-pollenomics-dev/module-map.md` | `merged` | `docs/internal/pollenomics-dev/repository-governance.md` | `verified_replacement` |
 | `docs/03-bijux-pollenomics-maintain/bijux-pollenomics-dev/package-overview.md` | `merged` | `docs/internal/pollenomics-dev/repository-governance.md` | `verified_replacement` |
 | `docs/03-bijux-pollenomics-maintain/bijux-pollenomics-dev/schema-governance.md` | `merged` | `docs/internal/pollenomics-dev/repository-governance.md` | `verified_replacement` |

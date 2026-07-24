@@ -4,83 +4,217 @@ audience: reader
 type: explanation
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-05-10
+last_reviewed: 2026-07-22
 ---
 
 # Animal Ancient DNA Evidence
 
-Animal ancient DNA enters this repository through studies, project accessions,
-and supplementary tables, but the public-facing claim is rarely about the
-project alone. It is about a sample, a locality, a date, and a mapping
-decision that can be checked.
+Animal ancient-DNA publication normally begins with a source-backed sample,
+not a project title or species mention. Papers, archive projects, supplements,
+sample tables, sites, chronology statements, and coordinates remain distinct
+evidence units until their relationships are explicitly curated. The current
+point surface also contains one explicitly qualified project-anchored context
+feature; it must not be described as a recovered sample.
 
-That is why the key unit is the sample-backed evidence chain:
+## Evidence Chain
 
 ```mermaid
 flowchart LR
-    project["project accession"]
-    paper["paper and supplement"]
-    sample["sample row"]
-    site["site evidence"]
-    date["chronology evidence"]
-    coordinates["coordinate provenance"]
-    atlas["atlas or country output row"]
-
-    project --> paper
-    paper --> sample
-    sample --> site
-    sample --> date
-    site --> coordinates
-    date --> atlas
-    coordinates --> atlas
-    sample --> atlas
+    Paper["paper DOI"] --> Project["archive project"]
+    Supplement["captured supplement"] --> Project
+    Project --> Sample["stable sample identity"]
+    Sample --> Locality["sample locality evidence"]
+    Sample --> Chronology["sample chronology evidence"]
+    Locality --> Coordinate["coordinate basis and precision"]
+    Sample --> Species["species-normalized view"]
+    Chronology --> Decision{"product admission"}
+    Coordinate --> Decision
+    Species --> Decision
+    Decision -->|admit or qualify| Published["atlas and country evidence row"]
+    Decision -->|exclude| Accountability["gap, conflict, or refusal surface"]
 ```
 
-## Why This Domain Needs Extra Care
+## Evidence Units And Authorities
 
-Animal ancient DNA is the part of the repository most likely to look stronger
-from a distance than it really is. A species can appear in a report, a map, or
-coverage summary long before every supporting sample row has clean locality and
-chronology support.
-
-The important point is that animal evidence is not one file family or one
-project list. It is a recovery chain that has to hold together from source
-capture to public publication.
-
-## What A Strong Animal Record Should Answer
-
-A strong animal row in this repository should make the following questions
-answerable:
-
-| Question | Where the answer usually lives | Example |
+| Evidence unit | Governing surface | Required distinction |
 | --- | --- | --- |
-| Which study or archive project is this record tied to? | project and paper registries | `data/adna/governance/source_library/project_registry.json` |
-| Which recoverable sample rows exist? | project sample masters and normalized sample records | `data/adna/governance/source_library/projects/PRJEB36540/sample_master.json` |
-| What locality claim is actually supported? | project sample sites and normalized site evidence | `data/adna/species/ovis_aries/normalized/site_evidence.json` |
-| What date claim survives review? | project chronology and chronology audits | `data/adna/governance/source_library/project_sample_chronology_review.json` |
-| Why is a point mapped or blocked? | coordinate provenance | `data/adna/species/ovis_aries/normalized/coordinate_provenance.json` |
-| Where does the public row appear? | country reports and geography outputs | [`docs/report/world/world_animal_atlas_evidence.json`](../../../report/world/world_animal_atlas_evidence.json) |
+| project | `source_library/project_registry.json` | archive identity is not a sample identity |
+| paper | `source_library/paper_registry.json` | publication identity is not project identity |
+| captured artifact | project source bundle and supporting-material manifest | discovered URL is not recovered content |
+| sample | project `sample_master.json` | source labels and stable repository identity remain linked |
+| locality | project `sample_locality_evidence.json` and species `site_evidence.json` | verbatim place, resolved site, and publication precision differ |
+| chronology | project `sample_chronology_evidence.json` and chronology review surfaces | source text, normalized interval, basis, and caveat remain linked |
+| coordinate | species `coordinate_provenance.json` | supplied, resolved, approximate, substituted, and unresolved differ |
+| publication | atlas evidence row and product manifest | visible membership is downstream of admission |
 
-## One Practical Reading Path
+## Recovery States
 
-If you want to check one animal point carefully, the shortest path is:
+```mermaid
+stateDiagram-v2
+    [*] --> Discovered
+    Discovered --> Captured: paper and supporting material acquired
+    Captured --> Extracted: stable sample rows recovered
+    Extracted --> Reviewed: locality, chronology, taxonomy, and coordinates evaluated
+    Reviewed --> Admitted: product requirements satisfied
+    Reviewed --> Qualified: material precision limit remains visible
+    Reviewed --> Excluded: required evidence is absent or conflicting
+    Discovered --> Deferred: required source material unavailable
+    Captured --> Deferred: sample-bearing content not recoverable
+```
 
-1. identify the sample row in `data/adna/species/<latin_name>/normalized/sample_records.json`
-2. confirm the named place in `data/adna/species/<latin_name>/normalized/site_evidence.json`
-3. confirm the date posture in `data/adna/governance/source_library/project_sample_chronology_review.json`
-4. confirm the mapping basis in `data/adna/species/<latin_name>/normalized/coordinate_provenance.json`
-5. confirm the published row in the relevant country bundle or atlas evidence file
+Tracked but deferred evidence is not equivalent to a negative scientific
+result. It records what is known about the source and what remains unavailable.
 
-## What This Evidence Model Refuses
+## Current Evidence Depth
 
-- treating a project list as if it were already a sample table
-- treating a broad locality label as if it were an exact excavation point
-- treating vague chronology text as if it were a precise date
-- treating a visible atlas point as stronger than the evidence chain behind it
+The governed foundation currently contains **894 preparation rows** across
+**10 species and 40 archive projects**. Of those rows, 502 are fully grounded,
+256 are partly grounded, 29 are blocked by missing metadata, four by missing
+location detail, and 103 by weak chronology. This is the evidence-preparation
+population, not a sample or publication count.
 
-## Where To Go Next
+The generated project intake review separately contains **868 recovered
+sample-master rows** across the 40 tracked projects. Only four projects have
+an exact expected-sample denominator, 22 have a defensible minimum floor, and
+eight are flagged for implausibly low recovery. The repository therefore does
+not present 868 as a complete census of the tracked projects or as a row-for-row
+subset of the foundation.
 
-- [animal source intake](../sources/animal-source-intake.md) if your question is still about project and supplement recovery
-- [sample records](../evidence/sample-records.md) if your question is already about one recoverable row
-- [coordinates](../evidence/coordinates.md) if your question is about why a row appears on a map
-- [geographic limits and honesty](../publications/limits.md) if your question is about why some animal rows remain qualified or excluded
+The point-evidence review contains **234 admitted rows**. Of these, 233 retain
+supplementary-table coordinates and one uses documented named-site geocoding
+at approximate confidence. These are admitted evidence rows, not proof that
+every project, species, locality, or chronology has reached the same maturity.
+
+The same split applies to identity. The 233 supplementary-coordinate rows have
+final sample identity backed by directly extracted table rows. The remaining
+feature, the Wadi Halfa dromedary context for project `SRP073444`, has
+provisional project-anchored identity and `not_yet_recoverable` sample status.
+Its paper names Site 1040 near Wadi Halfa, and its published geometry is an
+approximate named-place resolution. The supported statement is therefore that
+the product carries a qualified dromedary context feature—not that a recovered
+sample row has exact excavation coordinates.
+
+| Point population | Rows | Identity and coordinate posture |
+| --- | ---: | --- |
+| directly extracted sample evidence | 233 | final sample identity and supplementary-table coordinates |
+| project-anchored dromedary context | 1 | provisional identity and approximate Wadi Halfa named-place geocode |
+| total admitted point-evidence rows | 234 | mixed evidence surface; preserve the class of each row |
+
+### Three Ledgers Answer Three Questions
+
+| Ledger | Unit | Question answered |
+| --- | --- | --- |
+| foundation truth | curated preparation row | how completely is the available identity, locality, chronology, and metadata evidence grounded? |
+| project sample master | recovered sample identity | which source labels resolve to a stable sample within a project? |
+| point publication | product member | which sample-backed or qualified context claims satisfy this map contract? |
+
+No universal completeness percentage spans all three. A preparation blocker is
+not necessarily an identity ambiguity; a final identity is not necessarily
+point-ready; and a qualified context point is not a recovered sample.
+
+### Evidence Depth Is Dimension-Specific
+
+| Dimension | What the repository can establish | Remaining boundary |
+| --- | --- | --- |
+| source discovery | which projects, papers, and supplements are tracked | discovery does not prove sample-bearing material was recovered |
+| sample recovery | which source rows became stable sample records | most projects do not have an exact expected-row denominator |
+| locality | which verbatim localities resolve to sample- or group-owned sites | regional or conflicting assignments remain non-point evidence |
+| coordinate | whether a pair is source-supplied or repository-resolved, with confidence | coordinate class does not imply uniform real-world precision |
+| chronology | which source statement, interval, and basis belong to a sample | broad or contextual time does not authorize synthetic numeric bounds |
+| publication | which rows satisfy a named product contract | admission does not establish collection completeness |
+
+There is therefore no single collection-wide maturity score. A project can be
+well documented at the paper and supplement level while its locality recovery
+is incomplete; a spatially admitted sample can still have chronology that is
+too broad for numeric comparison. The governing files preserve those
+different states instead of averaging them into one quality label.
+
+```mermaid
+flowchart LR
+    Inventory["40 tracked projects"] --> Foundation["894 preparation rows"]
+    Foundation -. "related, not one-to-one" .-> Recovery["868 recovered sample identities"]
+    Recovery --> Review["identity, locality, chronology, coordinate review"]
+    Review --> Samples["233 final sample-backed points"]
+    Inventory --> Context["1 qualified project-anchored context point"]
+    Samples --> Points["234 admitted point-evidence rows"]
+    Context --> Points
+    Inventory --> Gaps["blocked, under-recovered, and unresolved projects"]
+    Gaps --> Accountability["recovery review and refusal surfaces"]
+```
+
+The generated reports make both branches visible. The published branch shows
+what satisfies the point contract; the accountability branch prevents the
+admitted subset from masquerading as collection completeness.
+
+## A Published Point Is A Typed Projection
+
+The point row does not become a new authority for the facts it displays. It is
+a product-specific projection over separately governed evidence:
+
+| Point field | Governing owner | Projection rule |
+| --- | --- | --- |
+| feature identity | publication manifest and evidence-row identity | stable within the named product and linked to the governed sample or qualified context member |
+| sample label and accession | project sample master | display the admitted identity without replacing source-native aliases |
+| species | species-normalized sample record and taxonomy decision | use the governed taxon posture, including qualification or conflict |
+| locality label | sample locality and site evidence | display at the admitted resolution; broad text remains broad |
+| geometry | coordinate-provenance decision | supplied, resolved, approximate, substituted, or withheld posture travels with the pair |
+| time label or interval | sample chronology evidence | preserve source wording, normalized basis, ownership, and comparability caveat |
+| admission posture | named product rule | distinguish sample-backed, qualified context, excluded, and deferred populations |
+
+```mermaid
+flowchart LR
+    Sample["sample identity"] --> Projection["product projection"]
+    Locality["locality and site evidence"] --> Projection
+    Coordinate["coordinate provenance"] --> Projection
+    Chronology["chronology evidence"] --> Projection
+    Taxonomy["species decision"] --> Projection
+    Projection --> Member["typed publication member"]
+    Projection --> Refusal["qualification or exclusion"]
+```
+
+This model permits a narrow supported point without declaring the whole
+project complete. It also permits curation to strengthen later without
+rewriting history: a new evidence decision creates a reviewable projection
+change and affected product diff rather than silently mutating the earlier
+source claim.
+
+## Audit A Published Animal Point
+
+1. resolve its feature and evidence-row identifiers in the product traceability
+   surface;
+2. confirm the species record under
+   `data/adna/species/<latin_name>/normalized/sample_records.json`;
+3. inspect the species `site_evidence.json`, then follow its project linkage to
+   `sample_sites.json` and `sample_locality_evidence.json`;
+4. inspect project `sample_chronology_evidence.json` and the cross-project
+   chronology review for temporal posture;
+5. inspect `coordinate_provenance.json` for basis and precision;
+6. follow the sample lineage to the project sample master, source bundle,
+   paper, and captured supporting artifact;
+7. confirm that the product manifest records the point's admission posture.
+
+## Publication Boundary
+
+A species-level presence, archive project, or paper citation cannot substitute
+for a recoverable sample row. A broad locality cannot become an exact point. A
+cultural period cannot acquire a synthetic numeric interval. A visible point
+cannot outrank its governing evidence.
+
+The point contract is also narrower than “animal evidence available.” A
+project can contribute paper, supplement, taxonomy, or broad locality evidence
+without contributing an atlas point. Conversely, a point admitted under its
+present traceability and precision does not certify complete recovery of its
+project. The release posture records the narrower claim that the admitted
+subset satisfies its point contract while project-level recovery denominators,
+blocked sources, and unresolved evidence remain visible outside that subset.
+
+The Wadi Halfa context feature is the concrete reason publication type must
+travel with the row. It is spatially admitted under the current product but
+does not satisfy the stronger recovered-sample identity posture of the other
+233 rows. Analyses requiring sample-level independence or recovered sample
+denominators must exclude or separately classify it and account for that
+decision.
+
+Continue with [animal source intake](../sources/animal-source-intake.md),
+[sample records](../evidence/sample-records.md), [locality evidence](../evidence/localities.md),
+[chronology](../evidence/chronology.md), and [point publication rules](../publications/point-rules.md).

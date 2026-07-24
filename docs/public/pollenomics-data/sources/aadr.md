@@ -4,72 +4,199 @@ audience: reader
 type: explanation
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-05-10
+last_reviewed: 2026-07-22
 ---
 
 # AADR
 
-AADR gives the repository a release-based human ancient DNA family. Its public
-role is not to compete with the animal recovery program. Its role is to let
-readers see human ancient DNA in the same evidence landscape as animal ancient
-DNA, pollen, archaeology, and geography.
+AADR supplies release-owned human ancient-DNA metadata. The checked-in capture
+preserves a named release, persistent dataset identity, two annotation tables,
+and file identities so human samples can enter geographic publications without
+becoming an unversioned background layer.
 
-That matters because many public questions are comparative. A reader may want
-to know whether a region is visible only through animal evidence, whether human
-and animal signals overlap, or whether a country surface includes one human
-release context at all. AADR helps answer those questions in a versioned and
-bounded way.
+In this repository, “human ancient DNA” means the governed metadata view used
+for identity, geography, chronology where supported, and contextual
+publication. It does not mean genotype analysis, imputation, ancestry
+inference, or a claim that the annotation panel is a complete census.
 
-## What AADR Adds
+The current runtime consumes annotation metadata. It does not process AADR
+`.geno`, `.ind`, or `.snp` genotype files and does not claim population-genetic
+analysis.
 
-AADR is strongest when readers need:
+## Checked-In Release
 
-- release-based human ancient DNA context
-- country and regional human aDNA visibility
-- broad comparison between human evidence, animal evidence, and environmental
-  context
+| Property | Governed value |
+| --- | --- |
+| requested release | `v66` |
+| persistent dataset identity | `doi:10.7910/DVN/FFIDCW` |
+| upstream Dataverse release | `10.0` |
+| release timestamp | `2026-04-13T04:33:11Z` |
+| annotation members | `1240K` and Human Origins (`HO`) |
+| `1240K` annotation rows | 23,250 records after the header |
+| `HO` annotation rows | 27,755 records after the header |
 
-It helps the repository keep human ancient DNA visible as one distinct family
-rather than folding it into a generic "DNA" label.
+The two row counts are table populations, not a unique-individual total. A
+person or genetic representation can occur across datasets, and identity must
+be resolved through the source identifiers rather than by adding counts.
 
-## What AADR Does Not Do
+```mermaid
+flowchart LR
+    Dataset["persistent AADR dataset"] --> Release["release v66"]
+    Release --> K1240["1240K annotation table"]
+    Release --> HO["HO annotation table"]
+    K1240 --> Normalize["release-aware sample metadata"]
+    HO --> Normalize
+    Normalize --> Scope["world, regional, and country selection"]
+```
 
-AADR is not the animal recovery program, and it is not a substitute for the
-narrower review surfaces that govern sample identity, locality, chronology, or
-coordinates.
+### Release Capture And Species Projection
 
-It does not replace:
+The checked-in authority currently has two layers with different persistence:
 
-- animal-source intake and project recovery review
-- sample-level locality and chronology evidence
-- pollen-derived environmental interpretation
-- archaeology-context families such as SEAD and RAÄ
+| Layer | Current repository state | Consequence |
+| --- | --- | --- |
+| AADR release capture | `data/aadr/v66/` contains the release manifest and both annotation members | release identity, file membership, checksums, and source rows are directly inspectable |
+| species-owned raw route | `data/adna/species/homo_sapiens/raw/aadr` links to the AADR capture | human species ownership is visible without copying the release |
+| species-owned normalized and review roots | the governed directories exist but contain no checked-in member or review artifacts | do not claim a persisted human normalization or review database from those roots |
+| country publication bundles | checked-in country CSV, GeoJSON, Markdown, summary, and manifest outputs | publication rows are derived directly through the release-aware annotation runtime and must be audited against both bundle membership and the AADR source row |
 
-Its public value comes from being clear about its role: broad human release
-context, not one universal proof layer.
+```mermaid
+flowchart LR
+    Capture["AADR v66 manifest and annotation rows"] --> Runtime["release-aware metadata projection"]
+    Runtime --> Bundle["country bundle and manifest"]
+    Capture --> RawRoute["Homo sapiens raw source route"]
+    RawRoute -. no persisted members .-> Species["species normalized and review roots"]
+    Bundle --> Audit["publication member to release row"]
+```
 
-## Why Versioned Release Context Matters
+This boundary is narrower than a fully materialized human evidence database.
+The country products are reproducible from the governed release and runtime,
+but a consumer must not cite the empty species-owned roots as proof that a
+separate normalized or reviewed population was checked in.
 
-Human ancient DNA releases change over time. If the repository did not keep the
-release context explicit, readers would have no stable way to understand why
-coverage, counts, or labels changed between publications.
+### Publication Readiness Is Route-Specific
 
-Versioning is therefore part of public honesty. It lets readers tie an output
-back to a concrete release instead of treating human evidence as an untracked
-background layer.
+The current AADR lifecycle supports a release-to-country-publication route. It
+does not support a claim that every intermediate evidence stage has been
+persisted. Those are separate statements:
 
-## How It Appears In Public Outputs
+| Question | Current answer | Authority |
+| --- | --- | --- |
+| Can a source annotation row be inspected? | yes | named release member and checksum in `release_manifest.json` |
+| Can a country feature be traced to its source row? | yes | country bundle membership plus the release-aware projection route |
+| Is there a checked-in species-normalized human member database? | no | the species normalized root contains no governed members |
+| Is there a checked-in species review population? | no | the species review root contains no governed review artifacts |
+| Does a published feature prove genotype processing? | no | the runtime consumes annotation metadata only |
 
-AADR appears where the repository needs a human ancient DNA family that can sit
-beside animal evidence and contextual layers without collapsing those domains
-into each other. It helps public readers compare evidence families instead of
-mistaking them for one fused dataset.
+The route can therefore reproduce a publication without pretending that a
+different, empty route has been completed. A future species-normalization
+workflow must create its own members, review decisions, and population receipt;
+it cannot retroactively treat country exports as those missing authorities.
 
-## If You Need The Repository-Owned Records
+## Read An AADR Member
 
-The current versioned path for this family lives under:
+An annotation row can carry genetic, individual, skeletal, publication,
+repository, dating, locality, coordinate, data-type, and assessment fields.
+These fields do not all have the same authority or precision.
 
-- `data/aadr/v66/`
+| Claim | Evidence to retain | Boundary |
+| --- | --- | --- |
+| sample identity | genetic and persistent identifiers plus release member | labels can represent genetic data instances rather than unique persons |
+| publication lineage | DOI, publication abbreviation, and repository locator | first publication and the publication of this representation may differ |
+| chronology | method, mean and deviation, full source wording, and date class | direct and contextual dates must remain distinguishable |
+| locality | source locality, political entity, latitude, and longitude | map precision cannot exceed source metadata precision |
+| data posture | pulldown strategy, data type, libraries, and assessment | metadata does not substitute for genotype processing |
 
-That is the tracked repository location behind the current AADR-derived public
-surfaces.
+For a public claim, retain the AADR release and annotation member as well as the
+row identity. A sample label without release context cannot explain later
+coverage or metadata changes.
+
+## Audit A Human aDNA Feature
+
+1. Record the publication scope, product version, layer, and feature identifier.
+2. Resolve the feature to its AADR annotation member and source row.
+3. Confirm the release identity in `release_manifest.json`; do not infer it
+   from the map filename or sample label.
+4. Read locality and chronology from the annotation fields at their reported
+   precision, including method and source wording where present.
+5. Distinguish the genetic-data instance from a unique person before counting
+   or joining `1240K` and `HO` rows.
+6. Retain the product admission and geographic-scope decision separately from
+   the source metadata.
+
+This route separates three identities that are easy to conflate: the public
+map feature, the release-versioned annotation row, and the represented person
+or genetic data instance. A match at one level does not prove a match at the
+others.
+
+### Keep The Three Populations Separate
+
+An AADR result may report three different populations. Each answers a
+different question and must retain its own denominator:
+
+| Population | Unit counted | Suitable claim |
+| --- | --- | --- |
+| annotation member | release-versioned table row | rows present in one named AADR member |
+| projected metadata row | runtime-admitted representation | records that passed the declared metadata and geography rules |
+| country bundle feature | member in a governed publication bundle | features published for one declared country scope |
+
+Adding `1240K` and `HO` row totals is not a person count. Likewise, counting
+country features is not a release total, because projection, geographic
+membership, and cross-member identity can change the population. Any aggregate
+must name the release, annotation member or members, admission rule, identity
+unit, and publication scope.
+
+## Release Changes Affect More Than Counts
+
+| Release difference | Re-evaluate |
+| --- | --- |
+| member file added, removed, or renamed | dataset membership and publication input identity |
+| row identity or aliases changed | cross-member deduplication and stable feature lineage |
+| locality or coordinate changed | geographic scope, point geometry, and distance relations |
+| chronology fields changed | temporal posture and cross-family comparisons |
+| publication or repository locator changed | citation lineage and recoverability |
+| assessment or data-type field changed | metadata interpretation without implying genotype analysis |
+
+A release refresh is complete only when these semantic differences are
+reviewed. Equal row counts do not establish equal evidence.
+
+## Relationship To Animal aDNA
+
+AADR is a release-oriented human metadata family. Animal aDNA is a
+project-and-literature recovery system whose publication depends on curated
+sample, locality, chronology, coordinate, and supporting-material evidence.
+They may share a map and both represent direct sample evidence, but neither
+inherits the other's recovery model, denominator, or fitness decision.
+
+Spatial proximity between a human and animal point supports a qualified
+geographic comparison. It does not establish contemporaneity, association, or
+a shared archaeological context unless those dimensions are evaluated
+separately.
+
+### Review A Refresh As Population Reconciliation
+
+An AADR refresh reconciles release members, annotation rows, projected Homo
+sapiens records, and product members as distinct populations. The receipt
+accounts for stable and changed identities, aliases across `1240K` and `HO`,
+locality and chronology differences, projection refusals, country membership,
+and affected publications. It must explain both additions and removals. Equal
+release row counts do not establish equal people, equal projections, or equal
+country products.
+
+## Governing Surfaces
+
+- `data/aadr/v66/release_manifest.json` governs persistent identity, upstream
+  release, member files, sizes, and checksums;
+- `data/aadr/v66/1240k/v66.1240K.aadr.PUB.anno` preserves the tracked `1240K`
+  annotation population; and
+- `data/aadr/v66/ho/v66.HO.aadr.PUB.anno` preserves the tracked Human Origins
+  annotation population;
+- `data/adna/species/homo_sapiens/raw/aadr` exposes the release through the
+  species-owned source boundary; and
+- `docs/report/countries/<country>/` contains the derived AADR publication
+  bundles whose manifests govern country membership.
+
+Continue to [AADR exports](../publications/aadr-exports.md) for publication use,
+[shared normalization](shared-normalization.md) for field lineage, and
+[source comparison](source-comparison.md) before combining AADR with another
+family.

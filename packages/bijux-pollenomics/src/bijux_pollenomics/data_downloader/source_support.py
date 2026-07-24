@@ -32,4 +32,5 @@ def build_source_support_matrix() -> tuple[SourceSupportStatus, ...]:
         SourceSupportStatus("neotoma", "implemented", nordic),
         SourceSupportStatus("raa", "implemented", ("Sweden",)),
         SourceSupportStatus("sead", "implemented", nordic),
+        SourceSupportStatus("svar", "implemented", ("Sweden",)),
     )

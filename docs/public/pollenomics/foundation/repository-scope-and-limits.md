@@ -1,74 +1,186 @@
 ---
 title: Repository Scope and Limits
-audience: mixed
+audience: reader
 type: explanation
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-05-10
+last_reviewed: 2026-07-22
 ---
 
 # Repository Scope and Limits
 
-This repository is broader than one map layer and narrower than a finished
-cross-evidence pollenomics platform.
+The repository is broader than a map application and narrower than an
+integrated scientific inference platform. Its current product mode is an atlas
+builder backed by governed acquisition, evidence curation, review, heuristic
+ranking, publication, and traceability across several uneven source families.
 
-It is broad because it brings together multiple evidence families: pollen
-context, environmental archaeology, administrative and spatial boundaries,
-fieldwork documentation, and animal ancient DNA. It is narrow because those
-families are not yet equally mature, and because the repository still refuses
-to pretend that visible output automatically means complete scientific support.
+This boundary prevents two opposite errors. Calling the repository “only a
+map” ignores the database, refusal records, release reviews, and reproducible
+publication pipeline. Calling it a finished evidence engine promotes planned
+harmonization and interpretation work into a capability the runtime does not
+yet own.
 
-The runtime belongs here because the repository needs one accountable rebuild
-path for those outputs. The runtime does not justify itself by being
-complicated. It justifies itself by making changes easier to trace, inspect,
-and challenge.
+## Implemented Runtime And Project Direction
 
-## Scope Model
+| Surface | Status | Defensible statement |
+| --- | --- | --- |
+| source collection and evidence preparation | implemented with family-specific materialization | the repository retains governed captures and preparation evidence, while normalized and review artifacts remain absent for some families |
+| atlas and country publication | implemented | the runtime assembles scoped bundles, reports, and maps from admitted evidence |
+| candidate ranking | implemented with a heuristic claim ceiling | declared features and scenarios produce reviewable decision-support artifacts |
+| multi-evidence harmonization runtime | planned | no current public contract performs general cross-domain harmonization |
+| evidence-aware interpretation engine | planned | no current public contract produces general scientific interpretation or causal inference |
+| workflow replay and diff execution | planned | individual builds are reproducible, but a general replay-and-diff engine is not a current surface |
+
+The machine-readable authority for this distinction is the product and surface
+scope returned by the Python facade and the `product-scope` and `surface-map`
+commands. Narrative descriptions cannot expand that executable contract.
+
+## Three Boundaries Must Agree
+
+The repository has three related but non-equivalent boundaries:
+
+| Boundary | Authority | Reader test |
+| --- | --- | --- |
+| evidence database | captured, extracted, normalized, related, and reviewed repository state | can the record and its preparation lineage be inspected? |
+| runtime | commands and Python interfaces that own a transformation or decision | can the transition be replayed with declared inputs and outputs? |
+| publication | manifests and products that declare visible membership and claim role | can each member resolve to governed evidence and a scope decision? |
 
 ```mermaid
-flowchart TB
-    repository["checked-in data and report surfaces"]
-    runtime["one accountable runtime"]
-    trace["visible source and output changes stay traceable"]
-    review["repository review stays possible"]
-
-    repository --> runtime
-    runtime --> trace
-    trace --> review
+flowchart TD
+    Claim["proposed claim"] --> Published{"member of a governed product?"}
+    Published -->|no| Stop["not a publication claim"]
+    Published -->|yes| Runtime{"owned runtime decision?"}
+    Runtime -->|no| Stop
+    Runtime -->|yes| Evidence{"preparation lineage supports the role?"}
+    Evidence -->|no| Qualify["qualify, exclude, or recover"]
+    Evidence -->|yes| Support["defensible within declared scope"]
 ```
 
-The runtime earns its place only while it keeps pollen context, environmental
-context, archaeology context, and aDNA context more reviewable than an ad hoc
-script pile would.
+A publication can build successfully while a stronger evidence claim remains
+unsupported. Conversely, a curated database row may be valuable evidence even
+when it is not eligible for a point layer. Trust requires the three boundaries
+to agree at the level of the question being asked.
 
-## Why The Split Exists
+## Evidence Domains
 
-- command entrypoints stay explicit instead of living in ad hoc shell history
-- collection, normalization, and publication can be verified as one product
-  surface
-- visible atlas and report changes can be traced back to one owned rebuild path
-- cross-domain evidence families can stay connected without collapsing into a
-  single map-only story
+| Domain | Repository role | Important boundary |
+| --- | --- | --- |
+| LandClim and Neotoma | pollen and palaeoenvironmental context | source coverage and temporal resolution remain family-specific |
+| SEAD and RAÄ | environmental-archaeology and heritage context | contextual density is not sample evidence |
+| boundaries and SMHI SVAR | geographic scope and lake identity | framing does not establish scientific association |
+| AADR | versioned human ancient-DNA metadata | genotype processing is not implemented |
+| animal ancient DNA | sample, locality, chronology, coordinate, and citation evidence | exact publication requires sample-owned support |
+| fieldwork | direct record of a specific visit | a visit does not establish general site suitability |
 
-## What The Repository Does Not Claim
+## Claim Boundary
 
-- it does not claim that every visible map point is backed by equally strong
-  evidence
-- it does not claim that the current animal aDNA slice already represents a
-  finished pollenomics engine
-- it does not claim that public-facing outputs can be trusted without checking
-  the tracked files that support them
-- it does not claim that presentation polish is the same thing as scientific
-  completeness
+```mermaid
+flowchart LR
+    Captured["captured source"] --> Normalized["normalized evidence"]
+    Normalized --> Reviewed["reviewed fitness"]
+    Reviewed --> Published["scoped publication"]
+    Published --> Supported["supported descriptive claim"]
+    Published -. does not imply .-> Causal["causal inference"]
+    Published -. does not imply .-> Complete["complete domain coverage"]
+    Published -. does not imply .-> Recommendation["sampling recommendation"]
+```
 
-## First Places To Check
+The runtime can establish which records were acquired, how they were
+normalized, whether they met a publication rule, and where they appear. It
+cannot make unlike evidence commensurate merely by placing it on the same map.
 
-- `packages/bijux-pollenomics/src/bijux_pollenomics/`
-- `packages/bijux-pollenomics/tests/`
-- `data/`
-- `docs/report/`
+## Publication Claims
 
-## Boundary Test
+The repository can support claims such as:
 
-If the runtime stops making visible evidence changes easier to trace and review,
-the package split is no longer earning its place in the repository.
+- a named source family was captured at a declared version or retrieval state;
+- a published feature belongs to a governed product scope;
+- an admitted animal point has the identity, locality, coordinate, and
+  qualification required by its declared point class;
+- a lake appears in a stated ranking scenario using declared inputs;
+- a record was excluded because a required evidence dimension was unresolved.
+
+It does not claim that every domain is equally complete, that proximity proves
+temporal overlap, that every country has equivalent source coverage, or that a
+ranked lake is ready for sampling.
+
+### Counts Require A Named Population
+
+The animal surfaces expose three counts that must not be collapsed:
+
+| Count | Governed population | Appropriate use |
+| ---: | --- | --- |
+| 894 | sample-foundation rows across 10 tracked species and 40 projects | grounding and blocker accounting |
+| 868 | recovered project sample-master identities | project recovery and stable sample identity |
+| 234 | published animal point features | map membership under the point contract |
+
+The 234 features comprise 233 final sample-backed points and one provisional
+project-context point. The other two populations are not implied denominators
+for that layer. A rate or completeness claim is invalid unless its numerator,
+denominator, observation unit, and governing contract are all named.
+
+### One Point Layer, Two Claim Classes
+
+The current animal point surface illustrates the repository boundary:
+
+| Class | Members | Supported statement | Unsupported promotion |
+| --- | ---: | --- | --- |
+| final sample-backed | 233 | these product members resolve to directly extracted final sample identities and supplementary coordinates | the tracked project or species collection is complete |
+| provisional project context | 1 | the Wadi Halfa feature retains paper-backed place context and an approximate geocode | a source-native sample row was recovered or the excavation coordinate is exact |
+
+Both can be visible because visibility follows a declared point class. A
+sample-count analysis cannot treat them as the same observation unit. The
+stronger analysis uses only final samples or records a separate context class
+and its effect on the result.
+
+```mermaid
+flowchart LR
+    Layer["animal point surface"] --> Samples["233 final sample-backed features"]
+    Layer --> Context["1 provisional project-context feature"]
+    Samples --> SampleClaim["sample-level qualified presence"]
+    Context --> ContextClaim["project-context spatial presence"]
+```
+
+## Match The Claim To The Surface
+
+| Intended claim | Sufficient starting surface | Required follow-up |
+| --- | --- | --- |
+| a record appears in a geographic product | product manifest and evidence row | governing evidence identity and scope reason |
+| a point has defensible coordinates | point traceability and coordinate posture | locality evidence and coordinate provenance |
+| two records are temporally comparable | temporal-semantics payloads | original chronology, bounds, evidence class, and caveats |
+| a lake ranked under one scenario | ranking table and manifest | feature inputs, weights, sensitivity, and missing evidence |
+| a source family was captured reproducibly | collection summary and family contract | retrieval metadata, hashes, replacement behavior, and review state |
+| evidence is absent from a publication | exclusion, warning, or recovery surface | distinguish scope, refusal, unresolved evidence, and non-capture |
+
+A screenshot, popup, or summary count can orient a reader but is insufficient
+for a sample-level, temporal, or decision-support claim without its governing
+follow-up.
+
+## Limits Are Typed Outcomes
+
+```mermaid
+flowchart TD
+    Missing["claim not supported as requested"] --> Cause{"material reason"}
+    Cause --> Scope["outside product scope"]
+    Cause --> Capture["source not captured or recovered"]
+    Cause --> Evidence["identity, place, time, or coordinate unresolved"]
+    Cause --> Contract["known evidence fails product rule"]
+    Cause --> Capability["analysis is outside implemented runtime"]
+```
+
+These outcomes are not interchangeable. A scope exclusion can be answered by
+a different product; a recovery gap requires source work; an evidence gap
+requires stronger support; a contract refusal protects against overclaim; and
+an unimplemented analysis requires a new governed capability.
+
+## Accountability Test
+
+A capability belongs in this repository when its inputs, transformations,
+review decision, and published result can be inspected together. If a result
+depends on private scripts, untracked corrections, inferred precision, or an
+unrecorded eligibility decision, it is outside the trustworthy product
+boundary until that lineage is made explicit.
+
+Continue with [runtime scope and ownership](runtime-scope-and-ownership.md) for
+implementation ownership or the [data system](../../pollenomics-data/index.md)
+for source and evidence contracts.

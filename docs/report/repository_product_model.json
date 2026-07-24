@@ -54,12 +54,12 @@
   "current_state_counts": {
     "published_country_bundle_count": 4,
     "published_world_animal_points": 234,
-    "source_explainer_count": 13
+    "source_explainer_count": 15
   },
   "evidence_anchors": [
     "docs/report/publication_geography_registry.json",
     "docs/report/publication_geography_subset_validation.json",
     "docs/report/publication_country_onboarding_contract.json",
-    "docs/public/pollenomics/foundation/end-state-product-model.md"
+    "docs/public/pollenomics/foundation/publication-scope-model.md"
   ]
 }

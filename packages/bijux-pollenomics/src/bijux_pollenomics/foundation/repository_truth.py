@@ -464,11 +464,12 @@ def build_repository_claim_audit(
         report_root=report_root,
     )
 
+    landing_text = (root_readme + docs_index + runtime_readme + data_index).casefold()
     checks = [
         _claim_check(
             "repository_landings_name_pollenomics_first",
             all(
-                text in root_readme + docs_index + runtime_readme + data_index
+                text in landing_text
                 for text in ("pollenomics", "environmental", "source comparison")
             ),
             "Repository landings describe pollenomics and environmental evidence before the thin animal recovery slice.",
@@ -1786,7 +1787,7 @@ def build_repository_product_model(
             "docs/report/publication_geography_registry.json",
             "docs/report/publication_geography_subset_validation.json",
             "docs/report/publication_country_onboarding_contract.json",
-            "docs/public/pollenomics/foundation/end-state-product-model.md",
+            "docs/public/pollenomics/foundation/publication-scope-model.md",
         ],
     }
 
@@ -1876,7 +1877,7 @@ def build_repository_credibility_dashboard(
             "repository architecture and product-model surfaces now name the world-to-country publication model directly",
             [
                 "docs/report/repository_product_model.json",
-                "docs/public/pollenomics/foundation/end-state-product-model.md",
+                "docs/public/pollenomics/foundation/publication-scope-model.md",
             ],
         ),
         _credibility_row(
@@ -2110,10 +2111,10 @@ def build_repository_extension_review(
             "score": 4
             if (report_root / "publication_country_onboarding_contract.json").exists()
             else 2,
-            "finding": "adding Germany or another country is now governed as roster, data, docs, and tests work instead of renderer surgery",
+            "finding": "adding Germany or another country is governed as roster, evidence, publication, documentation, and verification work instead of renderer surgery",
             "evidence_anchors": [
                 "docs/report/publication_country_onboarding_contract.json",
-                "docs/internal/pollenomics-dev/future-country-onboarding-playbook.md",
+                "docs/internal/pollenomics-dev/country-publication-onboarding.md",
             ],
         },
         {
@@ -2122,7 +2123,7 @@ def build_repository_extension_review(
             "finding": "the runtime, data, and maintainer handbooks still explain ownership without collapsing the repo into one vague top layer",
             "evidence_anchors": [
                 "docs/report/repository_docs_scope_validation.json",
-                "docs/public/pollenomics/foundation/end-state-product-model.md",
+                "docs/public/pollenomics/foundation/publication-scope-model.md",
             ],
         },
         {
@@ -2305,7 +2306,7 @@ def build_repository_final_release_refusal(
             "the repository now has explicit architecture and product-model surfaces",
             [
                 "docs/report/repository_product_model.json",
-                "docs/public/pollenomics/foundation/end-state-product-model.md",
+                "docs/public/pollenomics/foundation/publication-scope-model.md",
             ],
         ),
         _release_refusal_row(
@@ -2371,10 +2372,10 @@ def build_repository_final_release_refusal(
         _release_refusal_row(
             "geographic_extensibility",
             (report_root / "publication_country_onboarding_contract.json").exists(),
-            "future-country onboarding is now a governed contract instead of tribal knowledge",
+            "country publication onboarding is a governed contract instead of tribal knowledge",
             [
                 "docs/report/publication_country_onboarding_contract.json",
-                "docs/internal/pollenomics-dev/future-country-onboarding-playbook.md",
+                "docs/internal/pollenomics-dev/country-publication-onboarding.md",
             ],
         ),
     ]
@@ -3003,7 +3004,10 @@ def _docs_restoration_expectations() -> list[dict[str, object]]:
             ["docs/02-bijux-pollenomics-data/foundation/data-system-overview.md"],
             decision="merged",
             current_path="docs/public/pollenomics-data/overview/data-system-overview.md",
-            required_snippets=["docs/report/", "pollenomics-first"],
+            required_snippets=[
+                "docs/report/",
+                "Pollen Evidence Leads The Scientific Model",
+            ],
             rationale="the old foundation overview is replaced by the current data-system overview page",
         )
     )
@@ -3022,7 +3026,7 @@ def _docs_restoration_expectations() -> list[dict[str, object]]:
             decision="retired_with_replacement",
             current_path="docs/public/pollenomics-data/overview/index.md",
             required_snippets=[
-                "Restored Foundation Topics",
+                "Evidence Foundation Topics",
                 "Provenance and publication linkage",
             ],
             rationale="the old foundation subtree was retired in favor of the overview subtree, with explicit replacement links",
@@ -3191,12 +3195,12 @@ def _docs_breadth_expectations() -> list[dict[str, object]]:
                 "docs/public/pollenomics-data/publications/maps.md",
             ],
             "required_link_snippets": [
-                "overview/provenance-and-publication-linkage/",
-                "overview/source-selection-and-refresh/",
-                "overview/coverage-and-naming/",
+                "overview/provenance-and-publication-linkage.md",
+                "overview/source-selection-and-refresh.md",
+                "overview/coverage-and-naming.md",
             ],
             "required_topic_snippets": [
-                "Restored System Coverage",
+                "Evidence System Coverage",
                 "pollen context",
                 "boundary framing",
             ],
@@ -3213,14 +3217,14 @@ def _docs_breadth_expectations() -> list[dict[str, object]]:
                 "docs/internal/maintain/makes/make-system-contracts.md",
             ],
             "required_link_snippets": [
-                "pollenomics-dev/repository-governance.md",
+                "../pollenomics-dev/repository-governance.md",
                 "gh-workflows/verification-and-release.md",
                 "makes/make-system-contracts.md",
             ],
             "required_topic_snippets": [
-                "repository-governance overview",
-                "command-routing boundary",
-                "workflow verification and release map",
+                "Repository Governance",
+                "command-routing",
+                "verification and release map",
             ],
         },
     ]

@@ -1,67 +1,207 @@
 ---
 title: Installation and Setup
 audience: reader
-type: explanation
+type: how-to
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-05-10
+last_reviewed: 2026-07-22
 ---
 
-# Installation and Setup
+# Installation And Setup
 
-The supported setup path is repository-first.
+Install the runtime package to inspect contracts or work with evidence from
+Python. Use the locked repository environment when reproducing the checked-in
+data and publication workflows. Neither installation route collects evidence
+or builds reports by itself.
 
-That means the repository checkout itself is the supported environment. The aim
-is not to chase every possible Python invocation. The aim is to reach the
-known-good command path quickly and then stay on it.
+## Install The Runtime
 
-## Setup Model
-
-```mermaid
-flowchart TB
-    prereq["python, uv, tracked checkout"]
-    install["make install"]
-    env["repository check environment"]
-    cli["bijux-pollenomics --version"]
-    proof["runtime proof surface"]
-
-    prereq --> install
-    install --> env
-    env --> cli
-    cli --> proof
-```
-
-The point is to reach a known-good local command path quickly.
-
-## Expected Prerequisites
-
-- Python 3.11
-- `uv`
-- a checkout that includes tracked `data/`, `docs/`, and `apis/` surfaces
-
-## Recommended Setup Flow
+Python 3.11 or later is required:
 
 ```bash
+python3.11 -m venv .venv
+.venv/bin/python -m pip install --upgrade pip
+.venv/bin/python -m pip install bijux-pollenomics
+.venv/bin/bijux-pollenomics --version
+```
+
+This route installs the canonical `bijux_pollenomics` import package and
+`bijux-pollenomics` command. Install `pollenomics` only when an application
+needs the compatibility import or shorter executable; it depends on the
+canonical distribution and does not contain a second scientific engine.
+
+Choose the installation by the work being performed:
+
+| Context | Installation | Governed repository state available? |
+| --- | --- | --- |
+| application integration | released `bijux-pollenomics` distribution | only when supplied separately |
+| compatibility integration | released `pollenomics` distribution and its canonical dependency | only when supplied separately |
+| reproducible repository work | locked editable workspace via `make install` | yes, from the checkout |
+
+An installed wheel can expose every runtime interface while having no local
+data release or publication tree. Package identity and evidence identity must
+therefore be recorded separately.
+
+The package metadata describes the current runtime as alpha software. Treat
+the command and Python contracts as versioned integration surfaces, while
+treating the checked-in data and publications as separately versioned evidence
+products. Upgrading the wheel does not upgrade a captured source tree, and
+copying a newer data tree does not establish which runtime produced it.
+
+## Reproduce The Repository Environment
+
+The source checkout requires Python 3.11, `uv`, `uv.lock`, and all three
+workspace packages. From the repository root:
+
+```bash
+python3.11 --version
+uv --version
 make install
 artifacts/root/check-venv/bin/bijux-pollenomics --version
 ```
 
-`make install` creates the editable repository environment used for package,
-docs, and verification work. Treat that environment as the supported local
-entrypoint before troubleshooting command behavior elsewhere.
+`make install` creates or refreshes an editable, lock-resolved environment at
+`artifacts/root/check-venv/`. This is the supported route for reproducing the
+checked-in data and report workflows.
 
-## Typical Rebuild Path
-
-```bash
-artifacts/root/check-venv/bin/bijux-pollenomics collect-data all --output-root data
-artifacts/root/check-venv/bin/bijux-pollenomics publish-reports --aadr-root data/aadr --context-root data --output-root docs/report --countries Sweden Norway Finland Denmark
+```mermaid
+flowchart LR
+    Lock["uv.lock"] --> Install["make install"]
+    Packages["workspace packages"] --> Install
+    Install --> Environment["artifacts/root/check-venv"]
+    Environment --> Canonical["bijux-pollenomics"]
+    Environment --> Alias["pollenomics"]
+    Canonical --> Inspect["read-only inspection"]
+    Alias -. "same runtime" .-> Inspect
 ```
 
-## First Proof Check
+## Confirm Runtime Identity
 
-- `make install`
-- `artifacts/root/check-venv/bin/bijux-pollenomics --version`
-- `packages/bijux-pollenomics/tests/`
+These commands inspect installed identity and repository posture without
+rewriting governed data or reports:
 
-If those three checks are not working, it is too early to trust broader rebuild
-results.
+```bash
+artifacts/root/check-venv/bin/bijux-pollenomics --version
+artifacts/root/check-venv/bin/bijux-pollenomics product-scope
+artifacts/root/check-venv/bin/bijux-pollenomics source-support
+artifacts/root/check-venv/bin/bijux-pollenomics ownership-map
+```
+
+When the compatibility distribution is installed, its console script must
+report the same runtime behavior. A difference is a compatibility defect, not
+an optional scientific variation.
+
+For a result that may be reviewed later, retain the runtime and checkout
+identity before executing a writer:
+
+```bash
+artifacts/root/check-venv/bin/bijux-pollenomics --version
+git rev-parse HEAD
+git status --short
+```
+
+The revision identifies tracked inputs, while `git status --short` exposes
+local evidence or report changes that the revision alone cannot identify. A
+clean status is not mandatory, but unexplained pre-existing changes make a
+later causal diff ambiguous.
+
+### Retain A Setup Receipt
+
+A reproducible result needs both execution identity and evidence identity.
+Retain the following values before a governed write:
+
+| Identity | Minimum record | Why it matters |
+| --- | --- | --- |
+| runtime | distribution name and `--version` output | identifies the behavior that interpreted the inputs |
+| interpreter | Python version | bounds the supported execution environment |
+| dependency graph | `uv.lock` identity for repository work | distinguishes an editable workspace from an unrecorded environment |
+| checkout | repository revision and relevant working-tree status | identifies tracked inputs and exposes local changes |
+| evidence | source release, collection summary, or input manifest | identifies the scientific population being read |
+| write scope | explicit data, context, AADR, and output roots used by the operation | identifies which complete tree the command was allowed to replace |
+
+```mermaid
+flowchart LR
+    Runtime["runtime and interpreter"] --> Receipt["setup receipt"]
+    Lock["dependency identity"] --> Receipt
+    Checkout["revision and local status"] --> Receipt
+    Evidence["input release and manifests"] --> Receipt
+    Roots["explicit read and write roots"] --> Receipt
+    Receipt --> Operation["reproducible governed operation"]
+```
+
+The receipt is intentionally asymmetric. A released wheel can identify
+runtime behavior without identifying any evidence snapshot; a repository
+revision can identify tracked evidence without proving which installed runtime
+was invoked. Record both whenever a result may be reviewed or regenerated.
+
+## Understand Relative Roots
+
+Default data and report roots are relative to the current working directory:
+
+| Default | Meaning |
+| --- | --- |
+| `data/` | collector-managed context and animal evidence state |
+| `data/aadr/v66/` | default AADR release input |
+| `docs/report/` | default publication destination |
+| Sweden, Norway, Finland, Denmark | default country publication scope |
+
+The effective default AADR input is `data/aadr/v66/`: `data/aadr/` is the
+`--aadr-root`, and `v66` is the default `--version`. Record both values when a
+different release is selected; a path without its release identity is
+insufficient provenance.
+
+Run repository workflows from the checkout root, or pass every relevant root
+explicitly. Otherwise a valid command can read or write a different tree than
+the one you intended.
+
+To establish context in a source checkout:
+
+```bash
+git rev-parse --show-toplevel
+git status --short --branch
+artifacts/root/check-venv/bin/bijux-pollenomics product-scope
+artifacts/root/check-venv/bin/bijux-pollenomics source-support
+```
+
+The Git commands identify the checkout; the runtime commands identify declared
+product and source capability. Neither proves that a source family is complete
+or a product is current. That evidence lives in collection summaries,
+readiness records, and publication manifests.
+
+## Understand Write Scope Before Execution
+
+| Operation | Expected writes | Network access |
+| --- | --- | --- |
+| installation | transient environment under `artifacts/` | package resolution may require it when caches are incomplete |
+| inspection commands | none | no |
+| collection | governed source-family state under `data/` | usually yes |
+| data-contract refresh | summaries derived from the current `data/` tree | no collection required |
+| publication | governed products under `docs/report/` | no, when required data is present |
+| documentation build in a source checkout | rendered site under `artifacts/` | no |
+
+Do not use collection or publication as an installation check. The read-only
+`--version`, `product-scope`, and `source-support` commands establish that the
+runtime is installed without changing scientific state.
+
+For a write-path rehearsal, direct the complete owned result to a new path
+under `artifacts/` and inspect its manifests there. Do not point a rehearsal at
+`data/` or `docs/report/`: publication and collection writers own their
+destinations as replaceable trees, not as append-only folders.
+
+## Troubleshooting Setup
+
+If source installation fails, keep the diagnosis at the environment boundary:
+
+1. confirm the Python and `uv` versions;
+2. confirm the checkout includes the lock and all workspace packages;
+3. inspect the installation error before invoking any data command;
+4. recreate only transient state under `artifacts/` when needed.
+
+A failed environment setup does not justify changing governed data or reports.
+Changing the lock is a dependency decision, not a recovery technique.
+
+If the console script exists but imports fail, verify that the script belongs
+to `artifacts/root/check-venv/` and that the checkout still contains all three
+workspace packages. Do not work around the package boundary by adding source
+directories to `PYTHONPATH`; that can conceal a broken installation and test a
+different import graph from the supported environment.

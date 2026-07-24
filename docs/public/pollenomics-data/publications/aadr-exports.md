@@ -4,63 +4,111 @@ audience: reader
 type: explanation
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-05-10
+last_reviewed: 2026-07-22
 ---
 
 # AADR Exports
 
-AADR exports are the public human ancient DNA surfaces derived from the AADR
-release material. They provide the human side of the repository's broader
-mixed-evidence publication model.
+AADR exports provide release-pinned human ancient-DNA evidence for country and
+regional products. They preserve the distinction between the upstream release,
+its annotation panels, repository selection, and the rows admitted to each
+geographic bundle.
 
-They matter because the repository does not only publish pollenomics context
-and animal recovery work. It also needs a human ancient DNA layer that helps
-place those other surfaces in a broader release-based historical setting.
+## Release Identity
 
-## What AADR Makes Clear
+The checked-in manifest identifies:
 
-- what human ancient DNA context is visible beside pollen, archaeology, and
-  animal evidence
-- whether a public geography is being interpreted only through animal recovery
-  or also through a broader human release layer
-- how one region fits into a larger historical population context without
-  pretending that this is the same as local animal sample review
-- what the repository gains by keeping a human evidence family alongside its
-  pollenomics-first publication model
+| Property | Value |
+| --- | --- |
+| persistent dataset identity | `doi:10.7910/DVN/FFIDCW` |
+| requested release | `v66` |
+| Dataverse release | `10.0` |
+| release timestamp | `2026-04-13T04:33:11Z` |
+| captured annotation panels | `1240K` and `HO` |
 
-## What AADR Adds To The Public Product
+`data/aadr/v66/release_manifest.json` also records the Dataverse file
+identifiers, filenames, sizes, and MD5 digests. This packet establishes which
+upstream objects the repository captured; the `v66` directory name alone is
+not sufficient release provenance.
 
-AADR exports add:
+The 1240K annotation file contains **23,250 data rows** and the HO annotation
+file contains **27,755 data rows**, excluding their headers. These are panel
+rows, not two disjoint censuses of unique people. Samples can occur across
+panels, so adding the counts would manufacture a false individual total.
 
-- broad human ancient DNA context
-- a release-based comparison layer across geographies
-- a way to keep the public product from reading as if animals, pollen, and
-  archaeology exist in isolation from the human side of the historical record
+## From Release To Country Product
 
-## What It Does Not Do
+```mermaid
+flowchart LR
+    Release["AADR dataset and v66 manifest"] --> Panels["1240K and HO annotations"]
+    Panels --> Normalize["typed repository records"]
+    Normalize --> Scope["country and product selection"]
+    Scope --> Bundle["bundle manifest and summary"]
+    Bundle --> Samples["sample CSV, GeoJSON, and Markdown"]
+    Bundle --> Localities["locality CSV"]
+```
 
-AADR exports should not be read as if they:
+Each Nordic country product carries a versioned bundle, summary, sample table,
+sample GeoJSON, human-readable sample view, and locality export. The bundle is
+the membership authority. A row present in the captured release is not
+automatically a member of every geography.
 
-- replace animal sample review
-- settle local coordinate or chronology disputes for animal evidence
-- make a weak regional surface strong simply because a human release layer is
-  present
-- collapse the difference between release-based human context and narrower
-  project-by-project animal recovery work
+## Reading The Exports
 
-## Why Versioned Human Context Matters
+| Surface | Use it for | Do not infer |
+| --- | --- | --- |
+| release manifest | upstream identity and file integrity | geographic admission |
+| sample CSV | structured admitted sample rows | unique-person totals across panels without identity review |
+| sample GeoJSON | admitted spatial view at declared precision | exact excavation coordinates from display alone |
+| locality CSV | locality-oriented grouping and inspection | one-to-one equivalence between locality and sample |
+| summary JSON | product counts and scope summary | source completeness |
+| bundle JSON | versioned artifact membership and relationships | scientific authority independent of its evidence rows |
 
-Versioning matters here because human ancient DNA releases change over time. A
-public product that reuses human context should be able to show which release
-is behind that surface rather than treating the human layer as an untracked
-background.
+Human aDNA is a direct-evidence family within its declared sample contract,
+but it does not settle locality or chronology conflicts in animal evidence,
+validate pollen chronology, or turn nearby archaeology context into a causal
+relationship.
 
-## If You Need The Repository-Owned Records
+## Worked Member: RISE175.SG
 
-The versioned family path lives under:
+The Sweden `v66` bundle contains genetic ID `RISE175.SG` as one unique sample
+even though its accession lineage names both the `1240k` and `ho` panels.
 
-- `data/aadr/v66/`
+| Field | Governed value | Meaning |
+| --- | --- | --- |
+| genetic ID | `RISE175.SG` | release-owned member identity used across the export |
+| master ID | `9519` | additional AADR identity retained for resolution |
+| panels | `1240k`, `ho` | two source-panel memberships, not two people |
+| locality | Abekås I, Sweden | release metadata selected into the Sweden product |
+| geometry | `13.6, 55.397` | GeoJSON longitude then latitude |
+| source chronology | `1396-1131 calBCE (3025±30 BP, OxA-28998)` | original wording retained with the row |
+| normalized interval | `3113-3353 BP` | comparison representation derived from the declared mean and deviation basis |
 
-If your question is about the visible publication, continue to [reports](reports.md)
-or [maps](maps.md). If your question is about the family itself, continue to
-[AADR source guidance](../sources/aadr.md).
+```mermaid
+flowchart LR
+    Release["AADR v66"] --> K1240["1240k member"]
+    Release --> HO["HO member"]
+    K1240 --> Identity["RISE175.SG / master 9519"]
+    HO --> Identity
+    Identity --> Sweden["one Sweden bundle sample"]
+    Sweden --> Feature["one GeoJSON feature"]
+```
+
+This is why panel row counts cannot be added as individual counts. The bundle
+reports 416 Sweden rows in each panel but 416 unique samples, because identity
+resolution collapses the two panel memberships at the product boundary. A
+downstream merge on coordinates or display labels would not preserve that
+decision.
+
+## Audit Or Reuse A Row
+
+Carry the country bundle, sample identifier, panel and release identity,
+structured row, locality information, spatial and temporal semantics, and
+source citation together. Before combining country exports, deduplicate by the
+governed sample identity rather than by coordinates, labels, or panel-row
+counts.
+
+The captured release material lives under `data/aadr/v66/`. Continue to
+[AADR source guidance](../sources/aadr.md) for collection and normalization,
+[reports](reports.md) for bundle structure, and [maps](maps.md) for spatial
+interpretation.

@@ -752,6 +752,15 @@ class AnimalFoundationOutputsUnitTests(unittest.TestCase):
                 sample_database_review_payload["region_agnostic_contract_ready"]
             )
             self.assertTrue(gate_payload["overall_ok"])
+            traceability_check = next(
+                row
+                for row in gate_payload["checks"]
+                if row["check_id"] == "published_points_keep_required_traceability"
+            )
+            self.assertEqual(
+                traceability_check["description"],
+                "Every published animal point keeps declared identity, site, coordinate, and citation traceability; provisional project context remains explicitly non-final sample evidence.",
+            )
 
 
 def _sample_row(

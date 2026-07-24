@@ -1,98 +1,132 @@
 ---
-title: Public Language Guide
+title: Evidence Vocabulary
 audience: reader
-type: explanation
+type: reference
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-05-10
+last_reviewed: 2026-07-22
 ---
 
-# Public Language Guide
+# Evidence Vocabulary
 
-`bijux-pollenomics` should read like a calm scientific product, not like an
-operator notebook and not like a status theater dashboard. This page defines
-the vocabulary used in code-owned report surfaces and in the handbook pages
-that explain them.
+Bijux Pollenomics uses controlled language so coverage, validation, readiness,
+and publication do not collapse into one vague maturity claim. A complete
+statement identifies the object, scope, posture, and evidence strength.
 
-Public language matters here because wording can inflate a weak surface without
-changing a single data file. The repository therefore treats naming and phrasing
-as part of the evidence contract, not as a cosmetic afterthought.
+## Four Parts Of A Claim
 
-Use this page when your question is:
+| Part | Question | Example |
+| --- | --- | --- |
+| object | What record or product is described? | sample chronology |
+| scope | Where and for which product? | Nordic atlas |
+| posture | What decision or state applies? | qualified |
+| strength | What relationship does the evidence justify? | supports |
 
-- why does the repository use one word and reject another
-- which terms signal real review strength and which would overclaim
-- how should I describe these outputs without making them sound broader than
-  they are
-
-## Core Rule
-
-Public wording should help people judge evidence strength more clearly, not
-less clearly. If a phrase makes a weak surface sound mature, general, or final,
-it is the wrong phrase even when it sounds elegant.
+“Validated” alone is ambiguous. “The Nordic bundle validates declared member
+traceability” identifies both the object and the bounded property checked.
 
 ## Information Roles
 
-- `review`: public judgment about whether one bounded surface is trusted
-- `validation`: pass or fail structural checks on a governed surface
-- `audit`: systematic inspection across many files, claims, or source families
-- `truth`: claim-calibration surface that keeps scope and weakness explicit
-- `summary`: aggregate orientation surface for people or downstream tooling
-- `coverage`: how much of a bounded domain is currently represented
-- `readiness`: whether a publication surface currently clears its own bar
-- `honesty`: public caveat surface that keeps limits visible beside outputs
-- `ledger`: accumulated exclusions, conflicts, or unresolved caveats
-- `matrix`: repeated comparison question across several domains or surfaces
-- `workflow`: governed human review sequence for curation or release
-- `queue`: ordered recovery pressure for still-blocked work
+| Term | Meaning | Does not mean |
+| --- | --- | --- |
+| `review` | bounded evaluation of evidence or product posture | universal scientific endorsement |
+| `validation` | declared structural, semantic, or relational checks passed | source completeness or historical truth |
+| `audit` | systematic inspection across a declared population | automatic correction of findings |
+| `summary` | aggregate orientation over governed records | proof for every member row |
+| `coverage` | represented share of an explicit denominator | representative sampling unless demonstrated |
+| `readiness` | a named product currently clears its declared gate | final release or equal maturity across families |
+| `ledger` | accumulated conflicts, exclusions, substitutions, or caveats | a set of resolved items |
+| `matrix` | repeated dimensions compared across domains or products | one total confidence rank |
+| `queue` | ordered unresolved recovery or curation work | evidence already eligible for publication |
+| `publishable` | eligible for one product at stated precision | unrestricted precision or reuse |
 
-These roles matter because different surfaces do different jobs. You should not
-have to guess whether a page is making a claim, exposing a caveat, or only
-recording a diagnostic.
+## Evidence Roles
 
-## Avoid These Words
+| Role | Interpretation |
+| --- | --- |
+| `direct evidence` | supports a claim about its governed observation or sample |
+| `primary context` | provides source-backed environmental context central to comparison |
+| `contextual domain` | frames interpretation from another evidence domain |
+| `sampling context` | informs candidate selection or fieldwork reasoning |
+| `geographic framing` | defines or displays scope without becoming scientific evidence |
+| `comparator` | appears for structured contrast without equal evidential weight |
 
-- `viewer`: it describes a tool posture, not an evidence responsibility
-- `packets`: it describes delivery format, not the question a surface answers
-- `scorecard`: it sounds managerial and hides what is actually being reviewed
-- polished labels that do not say what the page settles
+## Provenance Postures
 
-These banned patterns are not about style preference alone. They are blocked
-because they often hide the real question a surface answers.
+- `sample-owned` ties the claim to a recoverable sample row;
+- `site-owned` ties it to a site shared by one or more samples;
+- `project-level` describes an archive project and cannot silently apply to
+  every sample;
+- `source-supplied` preserves a value reported directly by the governing
+  source;
+- `substituted` uses a broader or alternative source under an explicit rule;
+- `unresolved` records that the requested representation cannot be defended.
 
-## What Good Public Wording Sounds Like
+## Strength Verbs
 
-- it names the surface responsibility directly
-- it names uncertainty instead of smoothing it away
-- it distinguishes context, evidence, framing, and caveat roles
-- it helps people know what to trust and what to inspect next
+| Verb | Evidential posture |
+| --- | --- |
+| `records` | preserves a source statement or repository observation |
+| `links` | establishes a declared relation between governed identities |
+| `supports` | provides evidence consistent with a bounded claim |
+| `anchors` | supplies identity, geography, or chronology used by a product |
+| `suggests` | indicates a qualified pattern with meaningful alternatives |
+| `blocks` | prevents admission under an explicit rule |
+| `proves` | reserved for a claim whose evidence and alternatives justify that strength |
 
-## Provenance Wording
+## Scope Language
 
-- say `sample-owned`, `project-level`, `supplementary-table`, or another exact
-  provenance class when it matters
-- name uncertainty directly instead of smoothing it into confident prose
-- prefer `supports`, `anchors`, `suggests`, `blocks`, and `remains unresolved`
-  over inflated verbs such as `proves` unless the surface genuinely does
+`world`, `Europe-plus`, `Nordic`, and country names identify publication
+geographies. `country-filtered` describes selection, not national
+representativeness. `current` identifies the checked-in state, not permanent
+completeness. `reproducible` means the declared inputs and method can recreate
+an output; it does not mean the source population is exhaustive.
 
-## Geographic Wording
+Terms describing quality travel with their object and scope: *sample locality
+unresolved*, *Nordic product publishable*, or *project recovery partial*.
+Words such as *complete*, *ready*, *validated*, and *representative* require an
+explicit denominator or contract.
 
-- distinguish `Nordic`, `country-filtered`, `Europe-plus`, and `comparator`
-  scopes explicitly
-- do not call a comparator-heavy or region-limited output `general` or
-  `region-agnostic`
-- name the filter boundary whenever a map or summary is scope-specific
+## Rewrite Ambiguous Claims
 
-## Publication Wording
+| Avoid | Prefer | Why |
+| --- | --- | --- |
+| “The database has 1,231 Nordic records.” | “The current Nordic bundle admits 1,231 AADR human-sample rows from Sweden, Norway, Finland, and Denmark.” | names product, family, unit, and geography |
+| “SEAD coverage is complete.” | “The reviewed SEAD inventory has 2,195 rows; 2,172 have country assignment and are mapped in the Nordic bundle.” | exposes denominator and non-members |
+| “The animal dataset is validated.” | “The named animal product passes its admission and traceability contracts; project recovery remains uneven.” | distinguishes product validity from source completeness |
+| “Pollen explains the archaeological pattern.” | “LandClim and Neotoma provide primary pollen context for comparison with archaeological layers.” | preserves evidence role and avoids causal promotion |
+| “Coordinates are exact.” | “The published coordinate uses source-supplied site precision recorded in coordinate provenance.” | anchors precision to its source |
+| “No samples exist for this project.” | “No defensible sample rows have been recovered from the currently captured project material.” | distinguishes absence of evidence from evidence of absence |
+| “The map proves a regional signal.” | “The mapped layers suggest a regional pattern under the declared scope and observation units.” | bounds inference and preserves alternatives |
 
-- call a surface `publishable` only when the governed checks for that surface
-  actually pass
-- keep the strongest readiness language behind the release gate
-- when evidence is partial, say `partial`, `thin`, `blocked`, or `contextual`
-  rather than hiding that status in softer wording
+## State Denominators Explicitly
 
-## A Quick Check
+Coverage language is incomplete without its denominator. Useful forms include:
 
-If a term sounds broader, cleaner, or more triumphant than the underlying
-evidence really is, stop and translate it into the more exact role it is trying
-to describe.
+- `published members / eligible reviewed records` for product admission;
+- `recovered samples / expected samples` for source recovery, only when the
+  expected count is itself supported;
+- `geocoded records / reviewed records` for spatial representation;
+- `records with sample-owned chronology / recovered sample records` for
+  temporal evidence; and
+- `represented countries / declared product countries` for geographic scope.
+
+When the denominator is unknown, say so. “All recovered rows were reviewed” is
+valid if true; it must not be shortened to “recovery is complete.”
+
+## Describe Absence Carefully
+
+Absence can arise from scope, acquisition, extraction, linkage, evidence
+quality, or admission. Use the narrowest statement supported by the governing
+record:
+
+| Recorded state | Defensible wording |
+| --- | --- |
+| outside product geography | excluded from this geographic product |
+| known source, unavailable supplement | sample recovery blocked by unavailable supporting material |
+| readable source, no defensible sample rows yet | sample extraction incomplete |
+| sample known, locality unresolved | retained in evidence; exact-point publication refused |
+| eligible record rejected by a product rule | excluded from the named product with the recorded reason |
+| no captured evidence for the object | not represented in the current evidence base |
+
+None of these states, by itself, supports “the object does not exist.”

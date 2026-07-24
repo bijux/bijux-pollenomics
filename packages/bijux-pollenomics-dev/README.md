@@ -1,19 +1,12 @@
 # bijux-pollenomics-dev
 
-Maintainer-only package for repository-health checks, docs integrity, and
-release support in the `bijux-pollenomics` monorepo.
+Maintainer-only package for repository-health checks, documentation integrity,
+API freezes, and release support in the `bijux-pollenomics` repository.
 
 It is not the owner of runtime commands, source collection, animal aDNA
 intake, sample extraction, chronology normalization, coordinate provenance,
-evidence review, or atlas publication logic. Those durable scientific
-boundaries live in the runtime package.
-
-Use this package when the real question is "is the repository healthy enough to
-ship or review?" rather than "how does the scientific runtime work?"
-
-Install it only when you are working on repository checks, release support, or
-documentation integrity. Regular users of the runtime should not need this
-package.
+scientific review, ranking policy, or publication membership. Those decisions
+remain with the canonical runtime and governed evidence boundaries.
 
 <!-- bijux-pollenomics-badges:generated:start -->
 [![Python 3.11+](https://img.shields.io/badge/python-3.11%2B-3776AB?logo=python&logoColor=white)](https://github.com/bijux/bijux-pollenomics)
@@ -25,37 +18,139 @@ package.
 [![Docs](https://github.com/bijux/bijux-pollenomics/actions/workflows/deploy-docs.yml/badge.svg)](https://github.com/bijux/bijux-pollenomics/actions/workflows/deploy-docs.yml)
 <!-- bijux-pollenomics-badges:generated:end -->
 
-## Audience
+## Package Boundary
 
-- maintainers working in the monorepo
-- contributors changing docs, release checks, badge sync, or repository truth logic
+Use this package when the question is whether a named repository contract
+agrees at a specific revision. Regular runtime users do not need it.
 
-## Choose This Package When
+| It may | It must not |
+| --- | --- |
+| compare declared and observed repository state | choose a locality, chronology, taxonomy, or sample identity |
+| validate documentation structure and generated presentation | create scientific truth to make a page pass |
+| detect API, dependency, package, or release drift | redefine the public API or package ownership |
+| materialize narrowly owned badge or legal-file blocks | rewrite unrelated evidence or report trees |
+| refuse unsupported repository or release claims | strengthen missing evidence or erase a blocker |
 
-- you are checking whether the repository is ready to review or release
-- you are working on docs integrity, release tooling, or repository truth
-  checks
-- you need maintainer-facing helpers without pulling scientific ownership into
-  a maintainer package
+Its outputs are bounded findings, not scientific observations. Passing one
+check establishes only the contract, inputs, execution scope, and revision
+that check actually evaluated.
 
-## What This Package Owns
+## Maintainer Modules
 
-- repository and documentation integrity checks
-- release-support helpers and maintainer-facing contract coverage
-- badge, handbook, and report-surface verification that should not live in the
-  runtime package
+| Module | Mode | Owned result |
+| --- | --- | --- |
+| `bijux_pollenomics_dev.api.freeze_contracts` | check | schema YAML, canonical JSON, and digest agreement |
+| `bijux_pollenomics_dev.api.openapi_drift` | check | breaking API-field findings against the selected baseline |
+| `bijux_pollenomics_dev.docs.badge_sync` | check or sync | generated README badge blocks from package metadata |
+| `bijux_pollenomics_dev.quality.deptry_scan` | check wrapper | package dependency findings under repository configuration |
+| `bijux_pollenomics_dev.release.license_assets` | check or sync | package legal-file copies from root authorities |
+| `bijux_pollenomics_dev.release.version_resolver` | inspect | package version resolved from metadata, Hatch, or tags |
+| `bijux_pollenomics_dev.release.publication_guard` | check | prerelease, local-version, and built-artifact findings |
 
-## What It Does Not Own
+Check modes do not rewrite governed files. Sync modes have narrow write sets:
+badge sync owns only marked badge blocks; license sync owns only package legal
+copies. Source catalogs, scientific evidence, runtime schemas, and generated
+reports remain outside those writers' authority.
 
-- runtime command handling
-- source collection and normalization
-- sample truth, chronology, or coordinate provenance
-- atlas publication semantics
-- scientific ranking logic such as the Sweden lake evidence program
+## Finding Contract
+
+```mermaid
+flowchart LR
+    Input["named governed input"] --> Check["maintainer check and invariant"]
+    Check --> Outcome{"result class"}
+    Outcome -->|satisfied| Evidence["bounded verification evidence"]
+    Outcome -->|violation| Owner["authoritative product or repository owner"]
+    Outcome -->|unavailable| Rerun["explicit environment or input condition"]
+    Owner --> Correction["durable correction"]
+    Correction --> Check
+```
+
+Keep these outcomes distinct:
+
+| Outcome | Meaning | Correct response |
+| --- | --- | --- |
+| contract satisfied | observed state agrees for the named inputs | retain focused verification; do not generalize |
+| contract violation | evaluation completed and found disagreement | route expected and observed state to the owner |
+| invalid invocation | arguments or paths do not satisfy the command contract | correct invocation without claiming repository status |
+| unavailable environment | a prerequisite prevented evaluation | record the exact condition required to rerun |
+| publication refusal | evidence was evaluated and does not support the requested claim | preserve the refusal until its evidence owner changes |
+
+A finding should name its governed input, invariant, observed state, expected
+state, affected identities, revision, and non-destructive next inspection.
+
+### Route A Finding To One Owner
+
+```mermaid
+flowchart TD
+    Finding["maintainer finding"] --> Relation{"which declared relation disagrees?"}
+    Relation --> Authority["authority is wrong"]
+    Relation --> Producer["producer mis-materialized state"]
+    Relation --> Descendant["descendant is stale or edited"]
+    Relation --> Environment["contract could not be evaluated"]
+    Authority --> CorrectAuthority["correct the owning contract"]
+    Producer --> CorrectProducer["correct producer behavior"]
+    Descendant --> Regenerate["regenerate through the owner"]
+    Environment --> Blocked["report the exact rerun condition"]
+    CorrectAuthority --> Recheck["rerun the independent check"]
+    CorrectProducer --> Recheck
+    Regenerate --> Recheck
+```
+
+One failure may affect many files, but it still has one earliest incorrect
+boundary. The maintainer package reports that boundary; it does not gain
+permission to rewrite every observed descendant.
+
+## Generated State
+
+When a finding concerns a report, checksum, badge block, legal copy, or frozen
+API representation, correct its authoritative input or producer and regenerate
+the owned surface. Hand-editing the descendant leaves the next run guaranteed
+to restore the disagreement.
+
+Review generated output with:
+
+- producer and exact command;
+- input identities and repository revision;
+- complete write set;
+- added, removed, retained, merged, or split identities;
+- semantic and population changes;
+- unexpectedly unchanged dependents; and
+- focused verification, warnings, and omitted broader lanes.
+
+Successful execution and aggregate counts are summaries, not substitutes for
+that evidence.
+
+## Direct Module Checks
+
+From the repository root:
+
+```bash
+python -m bijux_pollenomics_dev.api.freeze_contracts --repo-root .
+python -m bijux_pollenomics_dev.api.openapi_drift --repo-root .
+python -m bijux_pollenomics_dev.docs.badge_sync check
+python -m bijux_pollenomics_dev.release.license_assets check
+```
+
+Repository Make targets compose these modules into broader maintainer lanes.
+Run the narrowest owner-specific check first and retain outputs under
+`artifacts/` when terminal status alone is not enough to reconstruct the
+verification boundary.
+
+## Documentation Boundary
+
+| Surface | Owned content |
+| --- | --- |
+| `docs/public/` | product behavior, evidence meaning, workflows, interfaces, limitations, and traceability |
+| `docs/internal/` | repository checks, generators, release mechanics, and maintenance ownership |
+| `docs/report/` | governed publication, review, qualification, and refusal products |
+
+Documentation checks may detect audience leakage or broken presentation. The
+correction still belongs in the owning page, contract, input, or generator; a
+maintainer helper does not become a parallel source of scientific meaning.
 
 ## Read Next
 
-- internal guide: [`docs/internal/index.md`](../../docs/internal/index.md)
-- maintainer handbook: [`docs/internal/maintain/index.md`](../../docs/internal/maintain/index.md)
-- documentation integrity: [`docs/internal/pollenomics-dev/documentation-integrity.md`](../../docs/internal/pollenomics-dev/documentation-integrity.md)
-- release support: [`docs/internal/pollenomics-dev/release-support.md`](../../docs/internal/pollenomics-dev/release-support.md)
+- [Maintainer package handbook](../../docs/internal/pollenomics-dev/index.md)
+- [Repository maintenance](../../docs/internal/maintain/index.md)
+- [Quality gates](../../docs/internal/pollenomics-dev/quality-gates.md)
+- [Documentation integrity](../../docs/internal/pollenomics-dev/documentation-integrity.md)

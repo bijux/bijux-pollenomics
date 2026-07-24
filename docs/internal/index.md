@@ -4,29 +4,282 @@ audience: maintainer
 type: index
 status: canonical
 owner: bijux-pollenomics-dev-docs
-last_reviewed: 2026-05-09
+last_reviewed: 2026-07-22
 ---
 
 # Internal Guide
 
-This part of the site is for maintainers. It explains how the repository keeps
-its public claims, generated outputs, and release surfaces aligned.
+This handbook is for people changing the repository. It explains where a
+change belongs, which state is authoritative, and what evidence is needed to
+review or release it. Scientific interpretation remains in the public data,
+atlas, and fieldwork guides; runtime behavior remains with the runtime package
+and its governed contracts.
 
-Readers who only need to understand the evidence products should stay on the
-[documentation home](../index.md).
+Use the public [Pollenomics domain language](../public/pollenomics-data/domain-language.md)
+for object, claim, decision, member, posture, and projection terminology. The
+maintainer handbook adds ownership and change-control rules; it does not define
+a second scientific vocabulary.
 
-## Start Here
+## Reader And Maintainer Surfaces
+
+The MkDocs reader navigation contains the public handbook and governed
+reports. `docs/internal/` is an unlisted repository handbook: maintainers can
+build and inspect it with the same documentation toolchain, but public pages
+must not depend on it to explain a scientific claim or product.
+
+| Surface | Consumer | Content that belongs there |
+| --- | --- | --- |
+| `docs/index.md`, `docs/public/` | evidence users, researchers, and operators | product meaning, evidence lineage, use, interpretation, and limits |
+| `docs/report/` | readers reviewing a published product | checked-in maps, manifests, tables, exclusions, and traceability records |
+| `docs/internal/` | repository maintainers | producer ownership, validation selection, workflow behavior, and release evidence |
+| package `README.md` files | installers and integrators | distribution purpose, installation boundary, and package-owned interfaces |
+| `artifacts/` | the person running a local command | disposable previews, logs, test output, and local diagnostics |
+
+A governed report can be public even when its production procedure is
+internal. Conversely, a local site preview is not a publication merely because
+it renders the same Markdown.
+
+### Decide By Reader Dependency
+
+Place content according to who must understand it for the product to be used
+correctly:
+
+```mermaid
+flowchart TD
+    Content["documentation content"] --> Needed{"needed to interpret or operate the product?"}
+    Needed -->|yes| Public["public handbook or governed report"]
+    Needed -->|no| Maintain{"describes repository production or review?"}
+    Maintain -->|yes| Internal["internal maintainer handbook"]
+    Maintain -->|no| Package{"belongs to one distribution boundary?"}
+    Package -->|yes| Readme["package README"]
+    Package -->|no| Local["disposable run evidence under artifacts"]
+```
+
+| Content | Placement | Reason |
+| --- | --- | --- |
+| why a provisional animal point cannot be counted as a recovered sample | public evidence or atlas guide | readers need the distinction to interpret the product |
+| how the animal publication producer regenerates its release gate | internal maintainer guide | producer ownership and write procedure are repository concerns |
+| which files belong to the compatibility distribution | its package README | installation and delegation are package-boundary facts |
+| output from a local strict documentation build | `artifacts/` | it proves one run and is not governed reader content |
+
+Public pages may link to public contracts and governed reports. They must not
+require an internal runbook to explain evidence meaning, limitations, or the
+steps needed to use a supported interface.
+
+## Maintainer Routes
 
 <div class="bijux-quicklinks">
   <a class="md-button md-button--primary" href="maintain/">Open the maintainer handbook</a>
-  <a class="md-button" href="pollenomics-dev/documentation-integrity/">Open documentation integrity</a>
-  <a class="md-button" href="pollenomics-dev/quality-gates/">Open quality gates</a>
-  <a class="md-button" href="pollenomics-dev/release-support/">Open release support</a>
+  <a class="md-button" href="pollenomics-dev/">Inspect repository checks</a>
+  <a class="md-button" href="pollenomics-dev/quality-gates/">Select a quality gate</a>
+  <a class="md-button" href="maintain/gh-workflows/verification-and-release/">Review release evidence</a>
 </div>
 
-## Use This Side If You Are
+| Need | Governing route |
+| --- | --- |
+| classify a repository change and its write boundary | [Maintainer handbook](maintain/index.md) |
+| run or extend a repository-health check | [`bijux-pollenomics-dev`](pollenomics-dev/index.md) |
+| choose focused proof for a changed contract | [Quality gates](pollenomics-dev/quality-gates.md) |
+| maintain reader navigation and claim boundaries | [Documentation integrity](pollenomics-dev/documentation-integrity.md) |
+| add a governed country publication | [Country publication onboarding](pollenomics-dev/country-publication-onboarding.md) |
+| understand Make target ownership | [Make system](maintain/makes/index.md) |
+| inspect automation and publication evidence | [GitHub workflows](maintain/gh-workflows/index.md) |
 
-- maintaining release or documentation rules
-- changing GitHub workflows or Make entrypoints
-- updating repository truth or generated governance outputs
-- preparing a release or checking why release is still refused
+### Declare The Change Contract
+
+Before editing or invoking a producer, record the boundary of the intended
+change:
+
+| Contract field | Required answer |
+| --- | --- |
+| durable intent | which repository behavior, evidence claim, procedure, or publication contract will differ? |
+| authoritative owner | which handwritten input or governed record is allowed to decide that difference? |
+| causal inputs | which source identities, configurations, contracts, or prior manifests will be read? |
+| write boundary | which exact handwritten files or complete producer-owned roots may change? |
+| dependent consumers | which generated, documented, packaged, or published surfaces may become stale? |
+| acceptance evidence | which member-level diff and focused checks establish the intended result? |
+| excluded scope | which adjacent owners and broader validation lanes are intentionally unchanged or not executed? |
+
+```mermaid
+flowchart LR
+    Intent["durable intent"] --> Owner["authoritative owner"]
+    Inputs["causal inputs"] --> Owner
+    Owner --> Writes["declared write boundary"]
+    Writes --> Consumers["dependent consumers"]
+    Consumers --> Proof["semantic diff and focused proof"]
+```
+
+If the owner or write boundary cannot be named, the proposed operation is not
+yet bounded. If the proof cannot distinguish an intended semantic change from
+incidental regeneration, the acceptance contract is not yet strong enough.
+
+### Stop Before Mutation
+
+Do not invoke a writer while any of these conditions remains unresolved:
+
+| Stop condition | Required resolution |
+| --- | --- |
+| authoritative owner is unknown | trace the value or behavior to its governing contract, record, or producer |
+| worktree contains overlapping unexplained changes | separate ownership and intent before staging or regeneration |
+| input identity or revision is ambiguous | fix source, product, schema, and repository identities for the operation |
+| command write boundary is broader than the intended owner | select a narrower producer or explicitly account for every affected root |
+| required upstream stage is absent or self-certified | preserve the blocker and recover the named governed artifact first |
+| generated output disagrees with governed evidence | correct the owner or producer; do not edit the descendant to match expectations |
+| success would require weakening a check or claim | keep the failure visible and route it to the responsible owner |
+| external publication or deletion is implied but not part of the change contract | stop at local, reviewable state until that transition is separately authorized |
+
+Stopping is a correctness action when the next command would destroy evidence
+about the cause, mix unrelated work, or cross an undeclared state boundary.
+Continue with read-only inspection until the change contract becomes explicit.
+
+## Authority Map
+
+Repository facts often appear in several places. Correct the owner first and
+then regenerate or revise its consumers.
+
+| Fact | Authority | Derived consumers |
+| --- | --- | --- |
+| acquired source identity and payload | source-family collection record under `data/` | collection summary, normalized records, reports, and prose |
+| source-family lifecycle requirement | `data/source_family_contracts.json`, generated from the runtime contract | evidence-stage matrix, readiness language, and recovery routing |
+| source-family lifecycle status | exact materialized artifacts evaluated from the family contract | entry-point disclosures and rebuildability decisions |
+| fact ownership, conflict posture, or recovery condition | governed curation record and claim-specific decision | readiness reviews, exclusions, atlas candidates, and public explanation |
+| scientific normalization or exclusion | runtime contract plus governed evidence record | atlas members, tables, warnings, and documentation |
+| publication membership | product manifest and admission decision | map layers, counts, report indexes, and reader narratives |
+| runtime command or API behavior | `bijux-pollenomics` implementation and canonical interface contract | examples, frozen API representations, and operator guides |
+| repository-health rule | `bijux-pollenomics-dev` check and maintainer contract | local validation and workflow findings |
+| release event | tagged revision and retained workflow publication evidence | badges, package indexes, containers, and GitHub release pages |
+
+```mermaid
+flowchart LR
+    Observation["conflicting value or behavior"] --> Classify{"which authority owns it?"}
+    Classify --> Data["evidence or publication owner"]
+    Classify --> Runtime["runtime interface owner"]
+    Classify --> Repository["repository-health owner"]
+    Data --> Descendants["regenerate governed descendants"]
+    Runtime --> Descendants
+    Repository --> Focused["rerun focused repository check"]
+    Descendants --> Focused
+```
+
+Changing a generated table, rendered badge, or prose sentence alone is not a
+correction when its governing input remains wrong.
+
+### Product Decisions And Repository Findings
+
+Maintain these as separate records even when one reveals the other:
+
+| Record | Answers | May cause |
+| --- | --- | --- |
+| scientific decision | what a captured claim supports at its actual scope and precision | admission, qualification, conflict, recovery, or refusal |
+| product decision | whether reviewed evidence belongs in one declared publication | membership, warning, exclusion, or scoped non-membership |
+| repository finding | whether checked-in owners and descendants agree at one revision | correction at an authority or producer boundary |
+| verification result | whether a named correction now satisfies the inspected contract | review evidence for one commit or release gate |
+
+A repository finding that exposes an unsupported claim does not itself decide
+the scientific posture. It routes the discrepancy to the evidence or product
+owner, then verifies that the corrected descendants agree.
+
+### When Documentation Exposes A State Defect
+
+A documentation review can begin as a prose-only operation and discover that
+the governing state contradicts the claim. At that point, reclassify the work:
+
+```mermaid
+flowchart LR
+    Claim["reader claim under review"] --> Evidence{"governing state agrees?"}
+    Evidence -->|yes| Prose["bounded documentation correction"]
+    Evidence -->|no| Owner["correct contract, evidence, or producer owner"]
+    Owner --> Governed["regenerate governed descendants"]
+    Governed --> Docs["revise reader disclosure and interpretation"]
+    Docs --> Proof["domain proof + documentation proof"]
+```
+
+Do not preserve a false machine-readable state merely to keep the change
+documentation-only. Conversely, do not rewrite governed evidence from prose.
+Correct the owning implementation or record, regenerate only its declared
+descendants, then make the reader-facing claim match the corrected state.
+
+The commit boundary follows causal coherence. A contract correction, its
+generated status surface, focused regression proof, and the documentation
+that explains the corrected semantics may belong together when separating
+them would leave a false intermediate state. Independent explanatory work
+belongs in later documentation commits.
+
+## Reconcile Conflicting Surfaces
+
+When two checked-in surfaces disagree, classify the disagreement before
+editing either one:
+
+| Disagreement | Governing diagnosis | Correct response |
+| --- | --- | --- |
+| owner and derived copy differ | stale descendant or incomplete regeneration | correct the producer path and regenerate the declared consumer |
+| contract requires an artifact that is absent | governed-state integrity defect | preserve downstream evidence, disclose the gap, and recover through the owning producer |
+| lifecycle stage is present only because its directory or status matrix exists | stage-evaluation defect or circular contract | require the exact named artifact and remove self-certifying review evidence |
+| two source claims disagree | scientific evidence conflict | retain both locators and apply the declared precedence or refusal rule |
+| report count and source count differ | possible unit, scope, or admission difference | compare identities and denominators before treating it as drift |
+| local validation differs from checked-in state | environment, revision, or generated-state difference | record inputs and revision; do not overwrite governed state until cause is known |
+
+```mermaid
+flowchart TD
+    Difference["observed disagreement"] --> SameUnit{"same owner, unit, and scope?"}
+    SameUnit -->|no| Semantics["explain relation and denominator"]
+    SameUnit -->|yes| Authority{"governing owner present?"}
+    Authority -->|no| Integrity["integrity defect and recovery path"]
+    Authority -->|yes| Fresh{"derived state current?"}
+    Fresh -->|no| Regenerate["producer-owned regeneration"]
+    Fresh -->|yes| Conflict["source or contract conflict review"]
+```
+
+Do not resolve a disagreement by selecting the largest count, newest file
+timestamp, most polished rendering, or value that makes a gate pass. Authority,
+unit, scope, and lineage decide which comparison is meaningful.
+
+## Select The Operation
+
+| Intent | Allowed state transition | Evidence before handoff |
+| --- | --- | --- |
+| inspect | no governed writes | owner, input, observed state, and bounded question |
+| validate | disposable output under `artifacts/` | command, selected inputs, revision, result, and warnings |
+| edit | one handwritten owner and required contract companions | semantic diff and focused proof |
+| regenerate | declared governed output roots from their producer | producer invocation, input diff, member-level output diff, and focused proof |
+| publish | accepted revision to an external publication surface | trigger identity, immutable version, job evidence, and published artifact identity |
+
+Validation does not authorize regeneration. Regeneration does not authorize
+publication. Keep those transitions explicit so a reviewer can distinguish a
+diagnostic run from a repository mutation and a local proof from an external
+release.
+
+## Review A Change
+
+```mermaid
+flowchart LR
+    Intent["durable intent"] --> Owner["authoritative owner"]
+    Owner --> Write["bounded handwritten or producer write"]
+    Write --> Diff["semantic and member-level diff"]
+    Diff --> Proof["focused contract proof"]
+    Proof --> Consequence{"crosses another owner?"}
+    Consequence -->|yes| Companion["companion owner proof"]
+    Consequence -->|no| Commit["coherent commit"]
+    Companion --> Commit
+```
+
+Use member identities before totals when reviewing data and publications. Use
+canonical metadata before rendered presentation when reviewing badges or
+navigation. Use the canonical schema before its frozen representation and
+digest when reviewing an interface.
+
+## Handoff Evidence
+
+A complete maintainer handoff records:
+
+- the changed owner and intended state transition;
+- handwritten and generated paths, identified separately;
+- the exact focused commands and results;
+- warnings, active refusals, and broader lanes intentionally not run;
+- the worktree and commit state; and
+- any external publication identity, only when publication actually occurred.
+
+“The docs pass” or “CI is green” is not enough. Name the contract that was
+checked and the evidence it supplies. A passing documentation build proves
+rendering and link integrity; it does not establish source completeness or
+scientific sufficiency.

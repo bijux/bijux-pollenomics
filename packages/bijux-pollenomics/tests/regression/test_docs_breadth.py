@@ -11,20 +11,28 @@ pytestmark = pytest.mark.generated_artifacts
 
 
 class DocsBreadthRegressionTests(unittest.TestCase):
-    def test_docs_home_routes_readers_before_repo_details(self) -> None:
+    def test_docs_home_leads_with_public_evidence_routes(self) -> None:
         docs_index = (REPO_ROOT / "docs" / "index.md").read_text(encoding="utf-8")
         internal_index = (REPO_ROOT / "docs" / "internal" / "index.md").read_text(
             encoding="utf-8"
         )
 
-        self.assertIn("public evidence surfaces about Nordic pollenomics", docs_index)
+        self.assertIn(
+            "connects curated evidence to public maps and reports", docs_index
+        )
+        self.assertIn("From Source To Public Claim", docs_index)
+        self.assertIn("Evidence Surfaces", docs_index)
         self.assertIn("Open the product guide", docs_index)
         self.assertIn("Open the report portal", docs_index)
         self.assertNotIn("Open the public guide", docs_index)
-        self.assertIn("for maintainers", internal_index)
+        self.assertIn(
+            "This handbook is for people changing the repository", internal_index
+        )
+        self.assertIn("Reader And Maintainer Surfaces", internal_index)
+        self.assertIn("unlisted repository handbook", internal_index)
         self.assertIn("Open the maintainer handbook", internal_index)
 
-    def test_data_handbook_keeps_cross_domain_system_coverage(self) -> None:
+    def test_data_handbook_covers_cross_domain_system(self) -> None:
         data_index = (
             REPO_ROOT / "docs" / "public" / "pollenomics-data" / "index.md"
         ).read_text(encoding="utf-8")
@@ -36,6 +44,8 @@ class DocsBreadthRegressionTests(unittest.TestCase):
             "docs/public/pollenomics-data/overview/provenance-and-publication-linkage.md",
             "docs/public/pollenomics-data/overview/source-selection-and-refresh.md",
             "docs/public/pollenomics-data/overview/coverage-and-naming.md",
+            "docs/public/pollenomics-data/database/querying-evidence.md",
+            "docs/public/pollenomics-data/curation/decision-records.md",
             "docs/public/pollenomics-data/sources/landclim.md",
             "docs/public/pollenomics-data/sources/neotoma.md",
             "docs/public/pollenomics-data/sources/sead.md",
@@ -45,31 +55,110 @@ class DocsBreadthRegressionTests(unittest.TestCase):
         ):
             self.assertTrue((REPO_ROOT / path).is_file(), path)
 
-        self.assertIn("Restored System Coverage", data_index)
+        self.assertIn("Database Architecture", data_index)
+        self.assertIn("Curation Is Evidence Work", data_index)
+        self.assertIn("database/querying-evidence.md", data_index)
         self.assertIn("overview/provenance-and-publication-linkage.md", data_index)
         self.assertIn("overview/source-selection-and-refresh.md", data_index)
         self.assertIn("overview/coverage-and-naming.md", data_index)
-        self.assertIn("Restored Foundation Topics", overview_index)
+        self.assertIn("Evidence Lifecycle", overview_index)
+        self.assertIn("Authority Boundaries", overview_index)
 
-    def test_maintainer_handbook_restores_repository_health_breadth(self) -> None:
+    def test_species_evidence_views_preserve_projection_boundaries(self) -> None:
+        species_views = (
+            REPO_ROOT
+            / "docs"
+            / "public"
+            / "pollenomics-data"
+            / "evidence"
+            / "species-evidence-views.md"
+        ).read_text(encoding="utf-8")
+        evidence_index = (
+            REPO_ROOT / "docs" / "public" / "pollenomics-data" / "evidence" / "index.md"
+        ).read_text(encoding="utf-8")
+
+        self.assertIn("# Species Evidence Views", species_views)
+        self.assertIn("## Two Lifecycle Models", species_views)
+        self.assertIn("## Cross-Species Comparison Contract", species_views)
+        self.assertIn("## Reuse Packet", species_views)
+        self.assertIn("```mermaid", species_views)
+        self.assertIn("species-evidence-views.md", evidence_index)
+
+    def test_decision_records_preserve_scoped_outcomes(self) -> None:
+        decision_records = (
+            REPO_ROOT
+            / "docs"
+            / "public"
+            / "pollenomics-data"
+            / "curation"
+            / "decision-records.md"
+        ).read_text(encoding="utf-8")
+        curation_index = (
+            REPO_ROOT / "docs" / "public" / "pollenomics-data" / "curation" / "index.md"
+        ).read_text(encoding="utf-8")
+
+        self.assertIn("# Evidence Decision Records", decision_records)
+        self.assertIn(
+            "## Evidence, Product, And Release Decisions Differ", decision_records
+        )
+        self.assertIn("## Audit A Decision", decision_records)
+        self.assertIn("```mermaid", decision_records)
+        self.assertIn("decision-records.md", curation_index)
+
+    def test_geographic_lineage_preserves_parent_meaning(self) -> None:
+        lineage = (
+            REPO_ROOT
+            / "docs"
+            / "public"
+            / "pollenomics-data"
+            / "publications"
+            / "geographic-lineage.md"
+        ).read_text(encoding="utf-8")
+        publication_index = (
+            REPO_ROOT
+            / "docs"
+            / "public"
+            / "pollenomics-data"
+            / "publications"
+            / "index.md"
+        ).read_text(encoding="utf-8")
+
+        self.assertIn("# Geographic Publication Lineage", lineage)
+        self.assertIn("## Subset Validation", lineage)
+        self.assertIn("## Explain Absence From A Child Scope", lineage)
+        self.assertIn("```mermaid", lineage)
+        self.assertIn("geographic-lineage.md", publication_index)
+
+    def test_maintainer_handbook_covers_repository_health(self) -> None:
         maintain_index = (
             REPO_ROOT / "docs" / "internal" / "maintain" / "index.md"
         ).read_text(encoding="utf-8")
+        country_onboarding = (
+            REPO_ROOT
+            / "docs"
+            / "internal"
+            / "pollenomics-dev"
+            / "country-publication-onboarding.md"
+        ).read_text(encoding="utf-8")
 
         for path in (
-            "docs/internal/pollenomics-dev/future-country-onboarding-playbook.md",
+            "docs/internal/pollenomics-dev/country-publication-onboarding.md",
             "docs/internal/pollenomics-dev/repository-governance.md",
             "docs/internal/maintain/gh-workflows/verification-and-release.md",
             "docs/internal/maintain/makes/make-system-contracts.md",
         ):
             self.assertTrue((REPO_ROOT / path).is_file(), path)
 
-        self.assertIn("repository-governance overview", maintain_index)
-        self.assertIn("country onboarding playbook", maintain_index)
-        self.assertIn("command-routing boundary", maintain_index)
-        self.assertIn("workflow verification and release map", maintain_index)
+        self.assertIn("Classify The Change", maintain_index)
+        self.assertIn("Governed State And Build State", maintain_index)
+        self.assertIn("makes/make-system-contracts.md", maintain_index)
+        self.assertIn("gh-workflows/verification-and-release.md", maintain_index)
+        self.assertIn("# Country Publication Onboarding", country_onboarding)
+        self.assertIn("## Evidence Readiness By Family", country_onboarding)
+        self.assertIn("## Subset And Meaning Validation", country_onboarding)
+        self.assertIn("```mermaid", country_onboarding)
 
-    def test_report_root_ships_docs_recovery_packets(self) -> None:
+    def test_report_root_preserves_documentation_accountability(self) -> None:
         report_root = REPO_ROOT / "docs" / "report"
         for name, heading in (
             (
@@ -125,9 +214,7 @@ class DocsBreadthRegressionTests(unittest.TestCase):
             self.assertTrue(path.is_file(), name)
             self.assertIn(heading, path.read_text(encoding="utf-8"))
 
-    def test_nordic_atlas_keeps_sweden_lake_explainer_in_a_nested_public_page(
-        self,
-    ) -> None:
+    def test_nordic_atlas_documents_sweden_lake_decision_support(self) -> None:
         atlas_index = (
             REPO_ROOT / "docs" / "public" / "nordic-atlas" / "index.md"
         ).read_text(encoding="utf-8")
@@ -140,14 +227,13 @@ class DocsBreadthRegressionTests(unittest.TestCase):
             / "index.md"
         ).read_text(encoding="utf-8")
 
+        atlas_text = " ".join(atlas_index.split())
+        lake_text = " ".join(lake_page.split())
+
         self.assertIn("./sweden-lake-priorities/", atlas_index)
-        self.assertIn("optional Sweden lake ranking overlays", atlas_index)
-        self.assertIn(
-            "The public Sweden lake packet currently ranks **6,763**",
-            lake_page,
-        )
-        self.assertIn("fieldwork shortlist top 20", lake_page)
-        self.assertIn(
-            "The current public packet does **not**\nship governed depth, width, bathymetry",
-            lake_page,
-        )
+        self.assertIn("derived decision-support products", atlas_text)
+        self.assertIn("disabled by default", lake_text)
+        self.assertIn("ranks 6,763 SMHI SVAR registry lakes", lake_text)
+        self.assertIn("fieldwork-preparation top 20", lake_text)
+        self.assertIn("does not contain governed bathymetry", lake_text)
+        self.assertIn("sweden_lake_evidence_richness_v66.md", lake_page)

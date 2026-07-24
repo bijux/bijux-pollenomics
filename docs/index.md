@@ -4,19 +4,16 @@ audience: reader
 type: index
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-06-29
+last_reviewed: 2026-07-22
 ---
 
 # Bijux Pollenomics
 
-`bijux-pollenomics` publishes public evidence surfaces about Nordic
-pollenomics, environmental context, archaeology, boundaries, fieldwork, and
-ancient-DNA recovery. This site explains what the repository publishes today,
-what those outputs can answer, and where the limits still are before you lean
-on a report, ranking, or map view.
-
-Maintainer-only notes stay under `docs/internal/` and are not part of the
-public website navigation.
+`bijux-pollenomics` connects curated evidence to public maps and reports about
+pollen, palaeoenvironmental context, archaeology, hydrography, fieldwork, and
+ancient DNA. Its database preserves captured source identity, family-specific
+preparation, scientific decisions, publication membership, and the gaps that
+prevent stronger claims.
 
 <!-- bijux-pollenomics-badges:generated:start -->
 [![Python 3.11+](https://img.shields.io/badge/python-3.11%2B-3776AB?logo=python&logoColor=white)](https://pypi.org/project/bijux-pollenomics/)
@@ -45,99 +42,162 @@ public website navigation.
 <div class="bijux-quicklinks">
   <a class="md-button md-button--primary" href="public/pollenomics/">Open the product guide</a>
   <a class="md-button" href="public/pollenomics-data/">Open the data guide</a>
+  <a class="md-button" href="public/pollenomics-data/domain-language/">Learn the domain language</a>
+  <a class="md-button" href="public/pollenomics-data/database/">Inspect the evidence database</a>
   <a class="md-button" href="report/">Open the report portal</a>
   <a class="md-button" href="report/how-to-read/">How to read the report tree</a>
   <a class="md-button" href="public/nordic-atlas/">Open the atlas guide</a>
-  <a class="md-button" href="public/fieldwork/">Open the fieldwork record</a>
+  <a class="md-button" href="public/fieldwork/">Inspect fieldwork evidence</a>
 </div>
 
-If you are new to the project, read the site in this order:
+| Question | Governing route | Identity to retain |
+| --- | --- | --- |
+| What does the product implement? | [product guide](public/pollenomics/index.md) | runtime version and product-scope contract |
+| What does a database term mean? | [domain language](public/pollenomics-data/domain-language.md) | object type, stable ID, and claim dimension |
+| How was evidence acquired and prepared? | [data system](public/pollenomics-data/index.md) | source family, source member, stage, and data revision |
+| Why was a record admitted, qualified, or refused? | [curation](public/pollenomics-data/curation/index.md) | governed object, decision, proposed use, and reason |
+| What belongs to a public product? | [report portal](report/index.md) | manifest, member ID, geography, role, and caveat |
+| What does an atlas marker establish? | [Nordic atlas](public/nordic-atlas/index.md) | feature ID, point class, coordinate posture, and time posture |
+| What supports a lake ranking? | [lake priorities](public/nordic-atlas/sweden-lake-priorities/index.md) | lake ID, model, scenario, candidate population, and readiness state |
+
+### Start From The Object You Actually Have
+
+The shortest trustworthy route depends on what is already in hand. A map
+marker, a source record, and a scientific statement begin at different
+authorities even when they eventually resolve to the same evidence graph.
+
+| Starting object | First check | Then establish |
+| --- | --- | --- |
+| map marker or table row | product manifest and member identity | admission reason, governing claim, and source locator |
+| source accession, DOI, or registry ID | source-family capture and native member | normalized identity, review posture, and every consuming product |
+| sample or site label | governed identity and aliases | project or source lineage, place and time claims, and ambiguity state |
+| number in a report | observation unit, denominator, scope, and revision | exclusions, unresolved members, and aggregation rule |
+| proposed cross-domain statement | role and observation unit for every family | spatial bridge, temporal bridge, independence, and refusal conditions |
+
+A visible feature is proof of product membership, not by itself proof of every
+scientific statement shown beside it. Conversely, a captured source record can
+remain valuable evidence without qualifying for any current public product.
+
+## Current Product Contract
+
+The implemented runtime is an atlas builder and evidence-publication system.
+The broader research direction must not be read as a claim that the repository is already the full cross-evidence pollenomics engine.
+
+| Available now | Outside the current runtime claim |
+| --- | --- |
+| named source collection and source-preserving preparation | general cross-domain harmonization |
+| governed objects, relations, conflicts, qualifications, and refusals | automatic reconciliation of unlike observation units |
+| declared ranking models and sensitivity outputs | general causal or scientific inference |
+| manifested world, regional, country, atlas, and fieldwork products | workflow-wide semantic replay and interpretation |
+
+`product-scope` and `surface-map` expose this boundary in machine-readable
+form. Planned behavior becomes product behavior only after it has an owned
+interface, state transition, governed output, and evidence-fitness contract.
+
+## From Source To Public Claim
 
 ```mermaid
-flowchart TB
-    pollen["pollen and environmental source families"]
-    context["archaeology, boundary, and fieldwork context"]
-    samples["sample-backed ancient DNA context"]
-    reports["country bundles and atlas evidence tables"]
-    atlas["visible atlas point or country surface"]
-    review["traceability and limits stay visible"]
-
-    pollen --> reports
-    context --> reports
-    samples --> reports
-    reports --> atlas
-    atlas --> review
+flowchart LR
+    Source["source release, paper, archive, registry, or API"] --> Capture["captured identity and material"]
+    Capture --> Evidence["normalized objects and evidence relations"]
+    Evidence --> Decision["claim-specific review and admission"]
+    Decision --> Manifest["product manifest and member"]
+    Manifest --> View["map, table, report, or field record"]
+    View -. "trace backward" .-> Evidence
 ```
 
-## What Is Strong Today
+The chain is reversible. A reader can move backward from a visible member to
+its decision, evidence, capture, and upstream identity. A source correction
+moves forward through affected objects, decisions, manifests, and views.
 
-- the repository already publishes tracked pollen, archaeology, boundary, and
-  fieldwork context as reviewable files plus public report surfaces
-- world, Europe-plus, Nordic, and country bundles are one publication family,
-  not disconnected products
-- the Sweden lake ranking packet and optional Nordic lake overlays now make
-  lake prioritization visible without hiding the underlying evidence packet
+The wheel supplies producer behavior; `data/` supplies governed evidence
+state; `report/` supplies checked-in publication state. A package version,
+data revision, and product manifest answer different reproducibility questions.
 
-## What Is Still Constrained
+## How A Claim Earns Trust
 
-- animal aDNA extraction and the strongest claims that depend on deeper sample
-  recovery remain less mature than the rest of the repository
-- visible map proximity still does not substitute for chronology review, source
-  posture, or field verification
-- lake ranking surfaces are decision-support outputs, not bathymetry or coring
-  plans
+Resolve five questions for a consequential claim:
 
-## Choose A Route
+1. **Identity:** which source, evidence object, decision, and product member is
+   being discussed?
+2. **Meaning:** what observation unit and evidence role does the object carry?
+3. **Space:** what geometry, basis, method, and precision are supported?
+4. **Time:** what source expression, evidence class, interval, and
+   comparability posture are supported?
+5. **Membership:** why did the named product admit, qualify, exclude, or refuse
+   the object?
 
-- use the [product guide](public/pollenomics/index.md) when you need the
-  overall answer: what the repository is for and how the outputs fit together
-- use the [data guide](public/pollenomics-data/index.md) when you need the
-  evidence answer: what is in scope, how it is governed, and what remains weak
-- use the [report portal](report/index.md) when you want the checked-in public
-  outputs first
-- use the [Nordic atlas guide](public/nordic-atlas/index.md) when you need map
-  behavior, filters, point posture, and overlay caveats
-- use the [fieldwork record](public/fieldwork/index.md) when you want one real
-  visited location instead of a generalized public summary
+No single map popup answers all five questions. Use the popup for orientation,
+then follow its stable identity through the manifest and governing evidence.
 
-These routes are written for readers first. You should be able to understand
-what the repository publishes, why a map or ranking exists, and where the
-limits still are without reading the source tree first.
+| Claim | Minimum supporting packet | Insufficient substitute |
+| --- | --- | --- |
+| a source object was captured | source identity, version, retrieval context, member locator, and digest | citation or filename alone |
+| two records identify the same object | stable identities, typed relation, evidence locator, and resolution decision | matching labels or nearby coordinates |
+| a location is exact | locality evidence, coordinate provenance, method, precision, and conflict outcome | plotted point or decimal count |
+| a time comparison is numeric | evidence class, common basis, normalized interval, precision, and comparability decision | contextual period label |
+| a record belongs in a product | governed evidence, admission decision, scope, manifest membership, and caveat | presence in a normalized file |
 
-## Fieldwork Record
+## Evidence Surfaces
 
-The fieldwork section is intentionally narrow. It anchors one mapped point to a
-real visit without pretending that field media replaces curated sample, paper,
-or supplement evidence.
+| Surface | Answers | Does not answer |
+| --- | --- | --- |
+| [source families](public/pollenomics-data/sources/index.md) | what entered, under which identity, role, and access conditions | record-level publication fitness |
+| [database](public/pollenomics-data/database/index.md) | objects, relations, fact ownership, revisions, and coherent state | whether every object belongs in a product |
+| [evidence](public/pollenomics-data/evidence/index.md) | identity, locality, coordinate, chronology, taxonomy, and join support | universal comparability across domains |
+| [curation](public/pollenomics-data/curation/index.md) | claim-specific conflicts, decisions, recovery, admission, and refusal | new source-native facts |
+| [publications](public/pollenomics-data/publications/index.md) | versioned scope, members, non-members, caveats, and renderings | stronger evidence than the database contains |
+| [atlas](public/nordic-atlas/index.md) | role-aware spatial comparison and traceability | association, contemporaneity, or causation from proximity |
+| [fieldwork](public/fieldwork/index.md) | dated visits, locations, media, and bounded observations | lake-wide conditions or sampling readiness |
 
-<div class="bijux-quicklinks">
-  <a class="md-button md-button--primary" href="https://bijux.io/bijux-pollenomics/public/fieldwork/lyngsjon-lake-fieldwork/">Open the fieldwork page</a>
-  <a class="md-button" href="gallery/2026-02-26-data-collection.mp4">Open the field video</a>
-</div>
+## Read Counts As Typed Claims
 
-<div class="bijux-media-grid">
-  <figure class="bijux-media-card">
-    <img src="gallery/2026-02-26-data-collection.JPG" alt="Field sampling at Lyngsjön Lake on 2026-02-26." loading="lazy">
-    <figcaption>Lyngsjön Lake, southwest of Kristianstad, during winter field collection on 2026-02-26.</figcaption>
-  </figure>
-</div>
+Counts are meaningful only with their observation unit, population, scope, and
+revision. Captured rows, normalized objects, reviewed claims, eligible members,
+published members, map features, and display aggregates are not interchangeable
+denominators.
 
-## What The Repository Does Not Claim
+An example from animal evidence illustrates the difference: a project recovery
+count, species-owned sample-foundation count, and admitted atlas-point count
+describe different governed populations. Their disagreement is expected until
+an identity-level reconciliation proves otherwise.
 
-- that map proximity alone establishes scientific weight
-- that every visible layer has identical provenance quality
-- that a project list alone is enough to justify a mapped point
-- that unresolved or region-only geography should be published like exact site evidence
-- that the current narrow animal aDNA atlas candidate surface means the repository is already scientifically broad
-- that the repository is already the full cross-evidence pollenomics engine
+Before reusing a number, retain:
 
-## Read By Question
+- observation unit and stable identity namespace;
+- source or database revision;
+- geographic, temporal, taxonomic, and product scope;
+- eligibility, exclusion, unresolved, and missingness rules; and
+- the manifest or review surface that owns the denominator.
 
-- what the runtime rebuilds: [product guide](public/pollenomics/index.md)
-- what this repository publishes and where its limits are:
-  [documentation home](index.md)
-- what the tracked data system and source families are:
-  [data guide](public/pollenomics-data/index.md)
-- how the publication tree is organized: [report portal](report/index.md)
-- how the map points, filters, and honesty surfaces work:
-  [Nordic atlas guide](public/nordic-atlas/index.md)
+## Current Integrity Boundaries
+
+The public products remain deliberately smaller than the collected evidence:
+
+- animal sample, locality, chronology, coordinate, and source-recovery gaps
+  remain qualified, excluded, or release-blocking;
+- SEAD currently supports inventory and spatial context, not numeric temporal
+  comparison;
+- RAÄ is Sweden-specific and supplies no equivalent Nordic registry coverage;
+- modern boundaries frame publication scope without adding scientific weight;
+- lake rankings are evidence-richness decision support, not field readiness or
+  coring-site selection; and
+- field visits document bounded observations without validating nearby layers.
+
+These are product facts, not footnotes. Start with the
+[release refusal](report/repository_final_release_refusal.md) and relevant
+review surfaces before strengthening public language.
+
+## Reproduce Or Challenge A Result
+
+1. Name the product manifest and stable member.
+2. Recover the admission decision and governing evidence IDs.
+3. Inspect source identity, locality, coordinate, chronology, role, and caveat.
+4. Confirm the database and runtime revisions used by the product.
+5. Recompute only through the owner of the disputed transition.
+6. Compare identities, semantics, decisions, populations, and manifested
+   descendants—not only files or rendered appearance.
+
+For installed behavior, continue to [operations](public/pollenomics/operations/index.md).
+For tracked evidence, continue to [Pollenomics Data](public/pollenomics-data/index.md).
+For checked-in products, continue to the [report portal](report/index.md).

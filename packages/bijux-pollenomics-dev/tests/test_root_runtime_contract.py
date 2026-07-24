@@ -29,6 +29,28 @@ def test_root_tox_keeps_the_shared_env_families_and_drops_proteomics_only_ones()
     assert "openapi-drift-core" not in envlist
 
 
+def test_root_tox_installs_the_locked_workspace_without_ci_only_plugins() -> None:
+    tox_config = _tox_config()
+    tox_requirements = tox_config["tox"]["requires"]
+    test_environment = tox_config["testenv"]
+    root_environments = (
+        tox_config["testenv:security"],
+        tox_config["testenv:docs"],
+    )
+
+    assert "tox-gh-actions" not in tox_requirements
+    assert (
+        "uv sync --frozen --all-packages --all-extras"
+        in test_environment["commands_pre"]
+    )
+    assert "uv" in test_environment["allowlist_externals"].splitlines()
+    assert all(
+        "uv" in environment["allowlist_externals"].splitlines()
+        for environment in root_environments
+    )
+    assert "UV_PROJECT_ENVIRONMENT = {envdir}" in test_environment["setenv"]
+
+
 def test_root_make_declares_shared_maintainer_commands() -> None:
     root_make = (REPO_ROOT / "makes" / "root.mk").read_text(encoding="utf-8")
 

@@ -129,7 +129,7 @@ def _build_repository_output_specs(
             audience="maintainer_diagnostic",
             information_role="end-state product model",
             coexistence_rule="coexists with the runtime and data handbooks as the report-root statement of world-to-country product shape",
-            docs_anchor="docs/01-bijux-pollenomics/foundation/end-state-product-model.md",
+            docs_anchor="docs/public/pollenomics/foundation/publication-scope-model.md",
             test_anchor="packages/bijux-pollenomics/tests/unit/test_repository_truth.py",
         ),
         _repository_output_spec(
@@ -185,7 +185,7 @@ def _build_repository_output_specs(
             audience="maintainer_diagnostic",
             information_role="extensibility and interpretability review",
             coexistence_rule="coexists with the country onboarding contract and checks whether new work improves global extensibility without making local reasoning worse",
-            docs_anchor="docs/internal/pollenomics-dev/future-country-onboarding-playbook.md",
+            docs_anchor="docs/internal/pollenomics-dev/country-publication-onboarding.md",
             test_anchor="packages/bijux-pollenomics/tests/unit/test_repository_truth.py",
         ),
         _repository_output_spec(

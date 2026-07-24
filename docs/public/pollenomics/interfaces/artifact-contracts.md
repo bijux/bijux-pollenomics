@@ -4,69 +4,183 @@ audience: reader
 type: explanation
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-06-22
+last_reviewed: 2026-07-22
 ---
 
 # Artifact Contracts
 
-Published artifacts are part of the runtime contract because they are checked
-in and reviewed like code.
+A published artifact is a claim-bearing product, not merely a generated file.
+Its contract identifies the product scope, membership, evidence roles,
+traceability, warnings, and exclusions needed to interpret it honestly.
 
-That means the public outputs are not optional decoration around the runtime.
-They are part of what the runtime is for. If the runtime writes a bundle, map,
-or audit surface, you should be able to inspect that artifact directly and
-understand what family it belongs to.
+## Publication Families
 
-## Main Artifact Families
+| Family | Reader question | Governing material |
+| --- | --- | --- |
+| world | What evidence can be viewed without a regional assumption? | world bundle, publication contract, evidence surface, traceability, and scientific review |
+| Europe-plus | Which wider European records qualify under one regional scope? | regional bundle, scope metadata, feature tables, and exclusions |
+| Nordic | Which records qualify for Nordic comparison? | Nordic bundle, country membership, evidence roles, and point traceability |
+| country | What is admitted within one named country? | country manifest, samples, species, localities, citations, warnings, and summary |
+| Sweden lake | Which basins remain interesting across evidence and sensitivity views? | ranking manifest, scenarios, registry, distance bands, map, and fieldwork-preparation packet |
+| repository review | What is currently supported, incomplete, or blocked? | readiness, honesty, coverage, exclusion, truth-posture, and claim-audit reports |
 
-- country bundles under `docs/report/countries/<country-slug>/`
-- the world surface under `docs/report/world/` and regional surfaces under `docs/report/regions/`
-- root-level report artifacts under `docs/report/` that summarize public animal
-  coverage, chronology overlap, first appearance, and scenario posture
-- country-scoped analytic sidecars that keep derived ranking methods visible
-  beside the owning bundle, such as Sweden lake evidence richness outputs
-- report summaries and map payloads produced by the reporting package
-- atlas candidate ranking sidecars that summarize locality proximity against
-  tracked context layers
+```mermaid
+flowchart LR
+    Evidence["governed evidence"] --> Decision["admission or qualification"]
+    Decision --> Manifest["product manifest"]
+    Manifest --> Rows["structured rows and geometry"]
+    Manifest --> Narrative["reader explanation"]
+    Manifest --> Limits["warnings and exclusions"]
+    Rows --> Product["map, table, or report"]
+    Narrative --> Product
+    Limits --> Product
+```
 
-## Direct Inspection Anchors
+## Bundle Anatomy
 
-- [world map](../../../report/world/world_map.html)
-- [world animal evidence rows](../../../report/world/world_animal_atlas_evidence.json)
+The manifest is the entrypoint for a bundle. It records what belongs to the
+product and connects the visible rendering to structured members. Supporting
+files then divide responsibilities:
+
+- CSV and JSON expose rows, summaries, and machine-readable decisions;
+- GeoJSON exposes geometry together with feature properties and evidence role;
+- citations identify external evidence and source context;
+- warnings preserve qualifications that affect interpretation;
+- exclusions explain why known candidates are absent;
+- Markdown and HTML provide a readable view over those governed materials.
+
+No rendering outranks its inputs. If a map label and a structured evidence row
+disagree, the discrepancy is a publication defect to investigate rather than
+a choice between two equally authoritative stories.
+
+## Artifact Identity
+
+An artifact is identified by more than its path. Its durable identity combines
+the artifact family, product scope, source or data version, governed member
+identifiers, and the contract that defines the bundle. Country and regional
+outputs also carry their geography explicitly; analysis outputs carry their
+method or scenario.
+
+```mermaid
+flowchart TB
+    Contract["artifact contract"] --> Identity["family and scope"]
+    Inputs["governed input identities"] --> Identity
+    Decision["admission and qualification"] --> Membership["member identities"]
+    Identity --> Manifest["bundle manifest"]
+    Membership --> Manifest
+    Manifest --> Structured["JSON, CSV, GeoJSON"]
+    Manifest --> Rendered["Markdown, HTML, map"]
+    Manifest --> Limits["warnings and exclusions"]
+```
+
+A filename can help a person locate an artifact but cannot substitute for
+this identity. Moving or copying a rendering without its manifest, warnings,
+and traceability produces an incomplete derivative.
+
+## Consistency Rules
+
+- every member named by a manifest must resolve to its structured row or
+  feature;
+- identifiers and evidence roles must agree across JSON, CSV, GeoJSON, and
+  narrative copies;
+- counts are derived from membership, never used as a substitute for it;
+- citations, warnings, and exclusions remain connected to the scope they
+  qualify;
+- geography and version are recorded rather than inferred from a folder name;
+- a failed publication leaves the preceding complete bundle authoritative.
+
+If two bundle surfaces disagree, consumers should stop at the manifest and
+traceability boundary and report the inconsistency. Choosing whichever value
+looks more plausible would erase the evidence needed to repair the product.
+
+### Portable Derivatives Preserve The Claim Envelope
+
+| Derivative action | Minimum retained material |
+| --- | --- |
+| copy a complete bundle | bundle manifest, every referenced structured member, traceability, warnings, exclusions, and source product identity |
+| select a subset | parent identity, selection rule, retained stable member IDs, excluded population accounting, and inherited qualifications |
+| join with another family | both observation units, join keys and cardinality, unmatched populations, evidence roles, and temporal and spatial posture |
+| render a new view | governing structured inputs, labels, precision classes, warnings, and a link back to the manifest |
+
+Once this envelope is dropped, the derivative may still be useful as a
+visualization or exploratory table, but it cannot inherit the original
+product's membership, completeness, or claim strength by implication.
+
+## A World Bundle Is A Connected Packet
+
+The checked-in world publication demonstrates the companion surfaces required
+to interpret one product:
+
+| Surface | World member | Responsibility |
+| --- | --- | --- |
+| bundle entrypoint | `world_bundle.json` | names product membership and companion artifacts |
+| publication contract | `world_map_publication_contract.json` | declares scope, evidence roles, and output expectations |
+| evidence surface | `world_evidence_surface.json` | exposes source-family fitness and comparison posture |
+| point traceability | `world_point_traceability.json` | connects visible point identities to governing evidence |
+| scientific review | `world_scientific_review.json` | records qualifications, refusals, and review findings |
+| structured geometry | `world_samples.geojson` and animal locality GeoJSON | carries admitted geometry and feature properties |
+| reader rendering | `world_map.html` and `README.md` | presents the governed product without becoming its authority |
+
+```mermaid
+flowchart TB
+    Bundle["world_bundle.json"] --> Contract["publication contract"]
+    Bundle --> Evidence["evidence surface"]
+    Bundle --> Trace["point traceability"]
+    Bundle --> Review["scientific review"]
+    Bundle --> Geometry["structured geometry"]
+    Contract --> Rendering["map and reader guide"]
+    Evidence --> Rendering
+    Trace --> Rendering
+    Review --> Rendering
+    Geometry --> Rendering
+```
+
+Copying only `world_map.html` preserves appearance but breaks the publication
+contract. A portable derivative keeps the bundle entrypoint, every referenced
+structured member, qualifications, exclusions, and the source product
+identity. A subset additionally records its selection rule and retained member
+identifiers.
+
+## Reading One Feature
+
+Start with the visible feature identifier, locate it in the bundle membership
+or traceability surface, follow the governing evidence-row identifier, and
+then inspect the source, locality, chronology, and coordinate basis. This path
+separates six questions that a single marker cannot answer:
+
+1. What object is shown?
+2. Why is it in this product?
+3. Which evidence role does it have?
+4. Where and when is it supported?
+5. Which source or curation decision owns that support?
+6. Which warnings limit reuse?
+
+## Evolution And Reuse
+
+An additive rendering or optional field may preserve compatibility when
+membership, identifiers, evidence roles, and governing meaning remain stable.
+A changed member key, scope, admission rule, precision meaning, or required
+companion surface changes the contract and must be reviewed as such.
+
+Downstream products may subset an artifact, but they should record the parent
+bundle identity, selection rule, retained member identifiers, and any new
+qualification. They cannot claim the original bundle's completeness after
+discarding exclusions or scope metadata.
+
+## Direct Inspection
+
+- [world product](../../../report/world/README.md)
+- [world publication contract](../../../report/world/world_map_publication_contract.md)
+- [world point traceability](../../../report/world/world_point_traceability.md)
 - [Sweden country bundle](../../../report/countries/sweden/README.md)
-- [Sweden lake evidence richness markdown](../../../report/countries/sweden/sweden_lake_evidence_richness_v66.md)
-- [Sweden lake evidence richness JSON](../../../report/countries/sweden/sweden_lake_evidence_richness_v66.json)
+- [Sweden lake evidence richness](../../../report/countries/sweden/sweden_lake_evidence_richness_v66.md)
 - [animal atlas readiness](../../../report/animal_atlas_readiness.md)
-- [animal country coverage](../../../report/animal_country_species_coverage.md)
-- [animal output honesty](../../../report/animal_output_honesty.md)
-- [animal atlas exclusion report](../../../report/animal_atlas_exclusion_report.md)
-- [repository truth posture](../../../report/repository_truth_posture.md)
+- [animal atlas exclusions](../../../report/animal_atlas_exclusion_report.md)
 - [repository claim audit](../../../report/repository_claim_audit.md)
-- sample-backed species evidence in `data/adna/species/ovis_aries/normalized/sample_records.json`
 
-## Stable Path Anchors
+## Contract Limits
 
-- `reporting/bundles/paths.py` defines the named path families for country and atlas bundles
-- country bundles include `README.md`, sample tables, species tables, locality GeoJSON, citations, warnings, and summary JSON outputs
-- Sweden country bundles also publish lake evidence richness JSON, markdown,
-  and distance-band CSV outputs under the same governed country root
-- the world surface includes the map HTML document, animal evidence rows, point traceability, and summary JSON outputs
-- root-level report artifacts include `animal_output_audit.*`, `animal_output_honesty.*`, `animal_atlas_readiness.*`, `animal_atlas_exclusion_report.*`, `animal_country_species_coverage.*`, repository truth reviews, chronology overlap artifacts, and scenario posture artifacts
-
-## What This Contract Prevents
-
-- report outputs should not drift into ad hoc names or locations
-- the same output family should not move silently between public and transient
-  roots
-- documentation pages may explain an artifact, but they should not replace the
-  governed file itself
-- publication logic should not present a surface as stable if its path contract
-  is still fluid
-
-## First Proof Check
-
-- `docs/report/`
-- `src/bijux_pollenomics/reporting/bundles/paths.py`
-- `src/bijux_pollenomics/reporting/rendering/`
-- `tests/unit/test_reporting_artifacts.py`
-- `tests/regression/test_country_report.py`
+A published bundle establishes declared membership and traceability at its
+recorded state. It does not establish representative sampling, exhaustive
+source recovery, equal maturity across evidence families, or suitability for
+an undeclared analysis. Those stronger claims require separate evidence.

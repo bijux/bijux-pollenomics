@@ -1,8 +1,8 @@
-# SEAD recovery roadmap
+# SEAD recovery requirements
 
-This roadmap turns SEAD from a merely present source family into a scientifically legible and operationally trustworthy context program.
+These requirements identify the evidence needed to make SEAD a scientifically legible and operationally trustworthy context program.
 
-| Deliverable | Current gap count | Goal | Completion signal |
+| Requirement | Evidence gap count | Required evidence | Satisfaction signal |
 | --- | ---: | --- | --- |
 | linked_temporal_capture | 2195 | Capture linked dating-range, relative-period, and uncertainty tables into checked-in raw SEAD inventory refreshes. | Checked-in raw SEAD rows carry temporal linked tables often enough that the thin-site-inventory risk no longer dominates the review packet. |
 | reference_link_capture | 2195 | Preserve stable bibliography or DOI links wherever SEAD linked records expose them, so readers do not have to begin every review from the generic site page. | The access review shows a meaningful shift away from site-page-only visibility. |

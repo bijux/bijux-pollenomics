@@ -4,32 +4,317 @@ audience: maintainer
 type: index
 status: canonical
 owner: bijux-pollenomics-dev-docs
-last_reviewed: 2026-05-07
+last_reviewed: 2026-07-22
 ---
 
 # Maintainer Handbook
 
-This handbook is maintainer-only. It explains the repository-health surfaces
-that sit above the product package and keep source truth, docs truth, and
-publication truth aligned.
+Repository maintenance begins with ownership, not with a convenient command.
+Choose the surface that has authority to make the intended change, constrain
+its writes, review its consequences, and retain proof at the same boundary.
 
-## Start Here
+Scientific objects and publication states use the public [domain
+language](../../public/pollenomics-data/domain-language.md); maintenance adds
+producer, write-boundary, verification, and release responsibilities without
+renaming those concepts.
 
-- Python-maintained repository checks:
-  [bijux-pollenomics-dev](bijux-pollenomics-dev/index.md)
-- repository-governance overview:
-  [repository governance](bijux-pollenomics-dev/repository-governance.md)
-- maintainer package operating rules:
-  [operating guidelines](bijux-pollenomics-dev/operating-guidelines.md)
-- executable review stops:
-  [quality gates](bijux-pollenomics-dev/quality-gates.md)
-- future-country onboarding contract:
-  [country onboarding playbook](bijux-pollenomics-dev/future-country-onboarding-playbook.md)
-- local maintainer commands:
-  [makes](makes/index.md)
-- command-routing boundary:
-  [make system contracts](makes/make-system-contracts.md)
-- GitHub automation:
-  [gh-workflows](gh-workflows/index.md)
-- workflow verification and release map:
-  [verification and release](gh-workflows/verification-and-release.md)
+## Repository Governance
+
+The maintainer surface separates three forms of ownership. The
+[repository-governance overview](../pollenomics-dev/repository-governance.md)
+defines the package and schema owners that may change policy. The
+[Make contracts](makes/make-system-contracts.md) define the command-routing
+boundary between convenient targets and their real producers. The
+[verification and release map](gh-workflows/verification-and-release.md)
+defines which workflow proves repository state and which workflow may publish
+an already-qualified artifact.
+
+```mermaid
+flowchart LR
+    Intent["maintenance intent"] --> Governance["repository governance"]
+    Governance --> Routing["command routing"]
+    Routing --> Producer["owning producer"]
+    Producer --> Verification["focused verification"]
+    Verification --> Release["release evidence when applicable"]
+```
+
+| Boundary | Governs | Does not govern |
+| --- | --- | --- |
+| repository governance | package ownership, schemas, repository policy, and release stops | scientific facts owned by source and curation records |
+| command routing | delegation, prerequisites, explicit roots, and generated destinations | acceptance of the resulting scientific meaning |
+| verification | agreement for a named contract at a named revision | authority to broaden an unsupported claim |
+| release | artifact identity and cross-surface publication | retroactive qualification of data or documentation |
+
+Use this chain before selecting a command. It prevents a broad target from
+becoming the apparent owner of every file it happens to touch.
+
+## Classify The Change
+
+| Change | Authoritative input | Expected governed descendants | Primary proof |
+| --- | --- | --- | --- |
+| reader explanation | selected Markdown under `docs/index.md` or `docs/public/` | navigation or redirects only when routes change | focused documentation contracts and strict build |
+| source refresh | one source-family collection root | normalized records, collection summaries, and dependent products declared by that producer | source identity, hashes, coverage, replacement behavior, and normalized diff |
+| curation decision | claim owner, evidence locator, conflict or recovery record, and intended use | normalized views, eligibility, exclusions, and affected products | claim semantics, ownership, disposition, and descendant agreement |
+| animal evidence | project, sample, chronology, locality, coordinate, and review records | eligible point products and release posture | animal integrity and publication admission contracts |
+| atlas or fieldwork product | governed publication inputs and manifest | map layers, tables, warnings, and traceability views | member identities, exclusions, geography, scenario behavior, and product checks |
+| country publication | published roster, geography plan, and governed political-entity evidence | country bundle, subset validation, portal route, warnings, and reviews | [country publication onboarding](../pollenomics-dev/country-publication-onboarding.md) plus member-level lineage proof |
+| runtime interface | runtime implementation and canonical contract | examples and frozen interface representations | package tests plus compatibility and documentation review |
+| repository check | `bijux-pollenomics-dev` implementation and maintainer contract | local and workflow findings | maintainer-package tests and the affected repository contract |
+| release behavior | workflow definition and version contract | PyPI, GHCR, GitHub, or documentation publication evidence | workflow-specific validation and retained job result |
+
+If a change fits more than one row, split independent intents or name the
+causal chain explicitly. A source correction and its required regenerated
+atlas members may be inseparable; an unrelated prose rewrite is not.
+
+## Governed State And Build State
+
+| State | Location | Review status |
+| --- | --- | --- |
+| collected and curated evidence | `data/` | governed; review source identity and scientific semantics |
+| published reports | `docs/report/` | governed; review manifests, members, warnings, and traceability |
+| reader documentation | `docs/index.md`, `docs/public/` | governed prose; review claims against evidence owners |
+| canonical interface | `apis/bijux-pollenomics/v1/` | governed compatibility surface |
+| maintainer guidance | `docs/internal/` | governed repository procedure, absent from reader navigation |
+| local command output | `artifacts/` | disposable diagnostics; never commit as evidence authority |
+| distribution build output | `dist/` within a release job or its retained artifact | publishable only after version and content guards pass |
+
+Generated does not mean disposable. Files under `docs/report/` are checked-in
+publication state and require semantic review. Files under `artifacts/` are
+local run products and must not be cited as the repository’s durable evidence.
+
+### Lifecycle Status Contract
+
+The source-family contract declares the exact artifacts that substantiate raw,
+normalized, reviewed, and published stages. The evidence-stage matrix is a
+derived evaluation of those requirements.
+
+| Rule | Failure it prevents |
+| --- | --- |
+| evaluate `example_artifacts`, not only `repository_path` | a summary or unrelated sibling file making a broad directory look complete |
+| require non-hidden, non-empty governed content | `.gitkeep` and empty placeholders passing as evidence |
+| require every named artifact in a multi-artifact stage | partial normalization or review reported as complete |
+| keep review evidence independent of the stage matrix | the matrix certifying the review status it is computing |
+| resolve paths from an explicit repository data root | results changing with the caller's working directory |
+| preserve missing stages in generated output | downstream publication existence hiding an upstream blocker |
+
+For a new family or stage, test both the positive materialized case and the
+negative case in which only a directory, summary, or status output exists.
+Generation from a clean destination and generation over an existing matrix
+must produce the same lifecycle decision.
+
+## Execute A Bounded Change
+
+1. Identify the authoritative input and every declared output root.
+2. Inspect the worktree before invoking a writer.
+3. Use the smallest owner-specific command that can perform the transition.
+4. Inspect handwritten and generated diffs separately.
+5. Compare identifiers, exclusions, warnings, and changed claims before totals.
+6. Run the narrowest check that proves the changed contract.
+7. Add companion checks only where the diff crosses another owner.
+8. Commit the coherent intent while its evidence is still attributable.
+
+```mermaid
+flowchart TD
+    Owner["authoritative input"] --> Producer["bounded editor or producer"]
+    Producer --> Handwritten["handwritten cause"]
+    Producer --> Generated["generated consequence"]
+    Handwritten --> Agreement{"cause explains every consequence?"}
+    Generated --> Agreement
+    Agreement -->|no| Investigate["return to owner or producer"]
+    Agreement -->|yes| Validate["focused contract proof"]
+    Validate --> Commit["durable intent commit"]
+```
+
+Producer success is necessary but insufficient. A mechanically valid report
+can still contain the wrong geography, an unsupported admission, or a changed
+warning posture.
+
+### Generated-State Review Packet
+
+When a governed producer writes `data/`, `docs/report/`, an interface freeze,
+or another declared destination, retain this review packet:
+
+| Packet member | Required content |
+| --- | --- |
+| producer identity | exact command or module and the contract that authorizes its writes |
+| input identity | repository revision, source or product versions, configuration, and prior manifests |
+| write set | every changed root and whether each file is handwritten, generated, or removed |
+| identity diff | added, removed, retained, merged, split, and replaced governed members |
+| semantic diff | changed roles, facts, precision, relations, qualifications, decisions, and warnings |
+| population diff | eligible, admitted, non-member, and published denominators before and after |
+| unchanged dependents | consumers that could have changed but remained stable, with evidence |
+| verification | owner-specific checks, exit status, warnings, and intentionally omitted broader lanes |
+
+Aggregate counts and a successful exit are summaries of this packet, not
+substitutes for it. Review member identity before count, scientific meaning
+before rendering, and governing input before generated presentation.
+
+### Close The Dependency Boundary
+
+A commit is coherent when every changed authority and every affected consumer
+agree, while unrelated owners remain untouched.
+
+| Changed authority | Dependency closure required before commit |
+| --- | --- |
+| source capture | normalized members, reviews, collection accounting, and affected products are regenerated or explicitly shown unchanged |
+| normalized or curated fact | dependent relations, conflicts, admissions, manifests, and public wording are reevaluated |
+| admission or product rule | eligible population, decisions, exclusions, manifests, counts, and all bundle formats agree |
+| runtime interface | canonical contract, examples, compatibility forwarding, and focused package proof agree |
+| documentation route | navigation, redirects, links, audience boundary, and strict rendering agree |
+| maintainer check | its declared contract, deterministic finding format, internal guidance, and focused test agree |
+
+```mermaid
+flowchart TD
+    Authority["changed authority"] --> Dependents["typed dependent consumers"]
+    Dependents --> Account{"all effects accounted for?"}
+    Account -->|no| Continue["correct or regenerate owning surface"]
+    Continue --> Dependents
+    Account -->|yes| Proof["focused boundary proof"]
+    Proof --> Commit["coherent commit"]
+```
+
+An unaffected consumer does not need a cosmetic rewrite, but its unchanged
+status may need evidence when the changed authority could have altered it. A
+zero-diff regeneration or member comparison can provide that evidence.
+
+### Preserve The Decision Chain
+
+For data and publication work, keep four records distinguishable:
+
+| Record | Durable purpose |
+| --- | --- |
+| source evidence | identifies the captured material and what it states |
+| curation decision | establishes ownership, precision, conflict, and fitness for a declared use |
+| producer result | materializes normalized, review, or publication descendants |
+| verification evidence | demonstrates agreement for the named contract at one revision |
+
+The producer does not retroactively become the source, and verification does
+not become the scientific decision. Keeping the chain explicit allows a later
+source correction to reopen the right decision without rewriting unrelated
+history.
+
+### Documentation-Only Change Protocol
+
+A reader-documentation change is bounded only when it does not alter governed
+data, generated reports, runtime interfaces, or package metadata. Review it as
+a claim-bearing change even though it has no runtime write:
+
+1. Name the public claim or maintainer procedure being corrected and its
+   authoritative evidence.
+2. Edit only the reader or maintainer pages that own the explanation. Do not
+   hand-edit `docs/report/` to make a prose claim agree.
+3. Check relative links, navigation reachability, Mermaid identifiers, and the
+   public-language contract for the changed pages.
+4. Build with strict MkDocs settings into `artifacts/docs-site` so local output
+   remains outside governed documentation roots.
+5. Inspect the semantic diff for strengthened claims, lost qualifications,
+   audience leakage, and duplicated authority.
+6. Commit one coherent documentation intent with its focused results.
+
+```bash
+artifacts/root/check-venv/bin/mkdocs build --strict --site-dir artifacts/docs-site
+artifacts/root/check-venv/bin/pytest -q \
+  packages/bijux-pollenomics/tests/unit/test_public_artifact_language.py \
+  packages/bijux-pollenomics/tests/regression/test_repository_contracts.py::RepositoryContractRegressionTests::test_docs_mermaid_diagrams_avoid_reserved_node_ids
+```
+
+These commands prove site construction, the selected public-language rules,
+and the repository's Mermaid constraint. They do not prove that every source
+is complete or that every generated report is current. Add a domain check only
+when the prose depends on that contract; record broad lanes as not run rather
+than implying that focused proof covered them.
+
+If claim verification exposes a false governed status, stop treating the work
+as documentation-only. Correct and test the owner, regenerate its declared
+status surfaces, then revise the public explanation. The resulting change
+requires both the domain proof and the documentation proof.
+
+## Recover A Missing Governed Artifact
+
+Treat a contract-declared required artifact that is absent as an integrity
+incident, even when downstream reports still render:
+
+1. Identify the contract row, owning source family, required lifecycle layer,
+   and every published consumer.
+2. Preserve existing downstream products and record which fields still retain
+   traceability; do not delete them merely because their authority is missing.
+3. Stop claims that require complete local traversal of the absent authority.
+   Keep narrower claims that remain supported by retained member-level lineage.
+4. Inspect the captured source identity, retrieval manifest, hashes, licenses,
+   replacement policy, and producer before running any writer.
+5. Recreate the artifact only through the declared producer into its governed
+   output root. Never synthesize an empty file, placeholder, or hand-authored
+   approximation to satisfy path existence.
+6. Validate schema, record identities, counts, spatial or temporal semantics,
+   and the relation between the recovered authority and existing consumers.
+7. Regenerate affected descendants only after the authority passes its own
+   contract, then review additions, removals, changed qualifications, and
+   product membership before totals.
+8. Retain the integrity disclosure until the recovered state and every
+   required descendant are committed together or in an explicitly ordered,
+   reviewable chain.
+
+```mermaid
+flowchart LR
+    Missing["required authority absent"] --> Bound["bound supported claims"]
+    Bound --> Capture["verify capture and producer"]
+    Capture --> Recover["producer-owned recovery"]
+    Recover --> Validate["authority validation"]
+    Validate --> Descendants["regenerate affected descendants"]
+    Descendants --> Review["identity and semantic review"]
+    Review --> Close["remove disclosure with evidence"]
+```
+
+Path existence alone does not close the incident. Closure requires recovered
+identity, source lineage, semantic validity, and agreement with every contract
+that declared or consumed the artifact.
+
+Do not remove an integrity disclosure merely because the evidence-stage matrix
+changed to `present`. Inspect the named artifact, compare its members and
+semantics with the retained consumers, rerun the owning domain contract, and
+confirm that the status does not depend on a pre-existing generated matrix.
+
+## Choose The Command Surface
+
+| Need | Route |
+| --- | --- |
+| local environment, checks, reports, or package targets | [Make system](makes/index.md) |
+| understand target delegation and output roots | [Make system contracts](makes/make-system-contracts.md) |
+| repository-health implementation | [`bijux-pollenomics-dev`](../pollenomics-dev/index.md) |
+| validation selection and release stops | [Quality gates](../pollenomics-dev/quality-gates.md) |
+| GitHub Actions trigger and evidence ownership | [GitHub workflows](gh-workflows/index.md) |
+| release ordering and publication proof | [Verification and release](gh-workflows/verification-and-release.md) |
+
+Make is a routing layer, not an authority. Read the delegated command and its
+write boundary before using a broad target. A maintainer check may detect a
+scientific mismatch, but the correction still belongs to the evidence,
+runtime, or publication owner.
+
+## Diagnose Without Masking The Failure
+
+| Symptom | First inspection | Durable response |
+| --- | --- | --- |
+| published count changed | governing record identities and producer diff | correct the input or accept the explained membership change, then regenerate |
+| point disappeared | admission, coordinate, chronology, geography, and exclusion evidence | correct the owning evidence or retain the exclusion |
+| refresh deleted records | acquisition identity, replacement policy, staging output, and normalized diff | repair the collector or explicitly accept the source change |
+| public prose outruns evidence | claim, governing source, qualification, and product manifest | narrow the claim or strengthen the evidence owner |
+| generated file is stale | canonical input and producer | run or correct the producer; do not hand-edit the symptom |
+| external service is unavailable | command boundary, credentials, and unchanged governed state | record the environmental failure and rerun condition |
+| release refuses | exact guard, evidence anchor, and owning package or product | satisfy the owner or retain the refusal |
+
+Never weaken a check merely to remove a useful finding. An unavailable service
+is not proof that evidence regressed, and a green renderer is not proof that a
+scientific statement is supported.
+
+## Commit And Handoff
+
+Before each commit, inspect both unstaged and staged diffs; stage only the
+current intent; confirm generated files came from their declared producer; and
+record the focused proof. The commit subject names the enduring surface and
+result, not the order in which the work was delivered.
+
+The handoff must distinguish checks that ran, checks intentionally omitted,
+warnings observed, and active refusals. Slow repository-wide lanes are release
+evidence when the release contract requires them; they are not a substitute
+for selecting the focused contract for a documentation-only or single-owner
+change.

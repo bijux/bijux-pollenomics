@@ -1,94 +1,231 @@
 ---
-title: Evidence Publication Flow
+title: Evidence Publication Architecture
 audience: reader
 type: explanation
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-05-10
+last_reviewed: 2026-07-22
 ---
 
-# How Evidence Becomes Outputs
+# Evidence Publication Architecture
 
-This section explains how source material becomes visible output. It belongs on
-the public surface because practical questions quickly turn into architecture
-questions:
+The runtime is organized around evidence ownership. Commands initiate a
+bounded action; collectors preserve source identity; curation modules create
+governed records; review modules evaluate fitness and uncertainty; and
+reporting modules derive public artifacts. Each boundary has a distinct output
+that can be inspected without trusting the final rendering.
 
-- how did this report, map point, or bundle get here
-- which part of the system governs it
-- where should I look when a visible output seems stronger or weaker than I
-  expected
+## Execution And Evidence Flow
 
-The goal here is not to tour internal names. It is to make the publication
-flow understandable enough that you can trace one public output back to the
-part of the runtime that governs it.
+```mermaid
+flowchart TB
+    CLI["command_line\nparse and dispatch"] --> Collect["data_downloader\ncollect source families"]
+    CLI --> Animal["adna\ncurate animal evidence"]
+    Collect --> Data[("tracked data state")]
+    Animal --> Data
+    Data --> Evidence["evidence + analysis/review\nevaluate scientific fitness"]
+    Evidence --> Gate{"publication policy"}
+    Gate -->|admit with posture| Reporting["reporting\nassemble and render"]
+    Gate -->|refuse or qualify| Reviews["caveats, ledgers, and recovery surfaces"]
+    Reporting --> Reports[("tracked report state")]
+    Reviews --> Reports
+```
 
-## Flow
+The two persistent roots have different authority:
+
+- `data/` owns collected, normalized, and reviewed evidence state;
+- `docs/report/` owns derived publication bundles and review surfaces.
+
+`artifacts/` holds disposable local build output. A file there does not become
+publication evidence until a governed workflow admits it to a tracked surface.
+
+A third tracked root has a different job: `docs/` outside `docs/report/`
+explains the system to readers. Those handbook pages interpret contracts and
+published state; they are not generated evidence and cannot override a source,
+manifest, or review result. Keeping explanation, governed evidence, and derived
+publication distinct prevents a confident sentence from becoming an authority
+merely because it appears on the public site.
 
 ```mermaid
 flowchart LR
-    commands["command surface"]
-    collection["source collection"]
-    normalization["evidence normalization"]
-    review["evidence review"]
-    assembly["publication assembly"]
-    writing["public artifact writing"]
-    checks["unit and regression checks"]
-
-    commands --> collection
-    collection --> normalization
-    normalization --> review
-    normalization --> assembly
-    review --> assembly
-    assembly --> writing
-    checks --> commands
-    checks --> review
-    checks --> writing
+    Code["runtime owners"] --> Data["data/<br/>governed evidence state"]
+    Data --> Report["docs/report/<br/>derived publication state"]
+    Code --> Report
+    Data -. explained by .-> Guide["docs/<br/>reader explanation"]
+    Report -. explained by .-> Guide
+    Local["artifacts/<br/>local diagnostics"] -. not authoritative .-> Guide
 ```
 
-## The Main Stages
+## Lifecycle Owners
 
-- commands declare what kind of rebuild, check, or inspection is being
-  requested
-- collection brings governed source material into the repository
-- normalization turns mixed upstream inputs into comparable repository-owned
-  evidence files
-- review surfaces expose strengths, blockers, caveats, and refusal reasons
-- publication writes country, regional, and world-facing outputs
-- checks fail when those layers drift apart or start implying too much
+| Boundary | Responsibility | Representative outputs |
+| --- | --- | --- |
+| `command_line/` | CLI parsing, subcommand registration, runtime dispatch | exit status and selected action |
+| `data_downloader/` | source acquisition, staging swaps, normalization, hashes, provenance, and source-family contracts | raw and normalized source trees, `collection_summary.json` |
+| `adna/` | animal project intake, supplement recovery, sample identity, locality, chronology, coordinate provenance, species normalization, and integrity checks | project evidence surfaces and species records |
+| `analysis/review/` | candidate ranking, sensitivity analysis, and review-oriented comparisons | ranking and sensitivity records |
+| `evidence/` | atlas evidence rows and scientific review surfaces | evidence tables and fitness assessments |
+| `reporting/` | geography selection, bundle assembly, map documents, reports, and review publication | world, region, country, and lake outputs |
+| `foundation/` | architecture contracts, ownership, repository truth, release posture, and public claim language | release and credibility assessments |
 
-## What This Section Helps Explain
+## Persisted Authority Surfaces
 
-- why a visible output is never the whole story by itself
-- why source intake, evidence normalization, review, and publication must stay
-  visibly separate
-- where to go next when your question is about system flow rather than evidence
-  content
+Code ownership determines which operation creates a record. Persisted
+contracts determine which checked-in artifact governs it after the operation
+finishes.
 
-## Durable Boundaries
+| Authority | Governing surface | Downstream consumers |
+| --- | --- | --- |
+| collected source state | `data/collection_summary.json` | source reviews, refresh comparison, publication inputs |
+| source-family meaning | `data/source_family_contracts.json` | data portal, maps, cross-domain reviews |
+| evidence-stage maturity | `data/source_family_evidence_stage_matrix.json` | coverage and publication-readiness reviews |
+| repeated fact ownership | `data/source_fact_ownership_registry.json` | reports and audits that repeat source or evidence facts |
+| recurring artifact shapes | `data/evidence_artifact_contracts.json` | project, sample, geography, and report validation |
+| public API shape | `apis/bijux-pollenomics/v1/pinned_openapi.json` and `schema.hash` | API consumers and compatibility checks |
+| publication membership | geography and product manifests under `docs/report/` | maps, tables, narrative reports, and subset validation |
 
-- `command_line/` owns CLI parsing, dispatch, and command registration
-- `data_downloader/` owns source-family collection, intake helpers, and tracked
-  context normalization
-- `adna/` owns animal aDNA intake, extraction, normalization, and validation
-- `analysis/review/` owns ranking review surfaces rather than public rendering
-- `reporting/` owns publication assembly, rendering, and governed report
-  writing
-- `foundation/` owns repository-truth, release posture, and architecture
-  contracts
+This division prevents implementation layout from becoming the only way to
+understand authority. A reader can identify the governing contract from the
+artifact tree, and an operator can trace the module responsible for producing
+it.
 
-## Use This Section When You Need To Know
+### Consistency Lives On The Edges
 
-- how commands line up with tracked source material
-- where evidence becomes reviewable before it becomes public output
-- which parts of the repository own review versus rendering
-- where to look if an output changes unexpectedly
-- how to trace a public-facing surface back to its governing evidence and rules
+Repository consistency is not established by matching timestamps or file
+counts. It is established by validating the relationships between authority
+surfaces:
 
-## Expanded Pages
+| Edge | Required agreement |
+| --- | --- |
+| capture → governed record | source member, version, content identity, and extraction lineage resolve |
+| governed record → decision | the reviewed identity and claim dimension match the evidence owner |
+| decision → product member | admission posture, evidence role, scope reason, and stable member identity agree |
+| manifest → structured descendants | declared members, counts, warnings, exclusions, and traceability reconcile |
+| structured descendant → rendering | labels and visual encodings preserve the structured value and qualification |
 
-- [runtime system model](runtime-system-model.md) explains the end-to-end flow
-  in the order it actually runs
-- [module map](module-map.md) explains which directories own which parts of the
-  lifecycle
-- [package split](package-split.md) explains why runtime, maintainer, and alias
-  distributions stay separate
+A fresh file can be inconsistent and an older capture can remain authoritative.
+The graph determines coherence: if one edge fails, the downstream artifact is
+not repaired by regenerating only its presentation.
+
+### Producer Ownership And Fact Ownership Are Different
+
+The module that writes a file is not necessarily the owner of every fact it
+serializes. Publication code writes country bundles, but evidence records own
+sample identity, place, and time; boundary contracts own containment inputs;
+and the product manifest owns membership.
+
+```mermaid
+flowchart LR
+    Producer["producer owns the write"] --> Artifact["structured product artifact"]
+    Source["source owner"] --> Artifact
+    Evidence["evidence fact owners"] --> Artifact
+    Decision["admission owner"] --> Artifact
+    Manifest["product membership owner"] --> Artifact
+```
+
+Review a disputed value through fact ownership, and review an incorrectly
+materialized file through producer ownership. Correcting the renderer cannot
+resolve a chronology conflict; correcting a sample record does not by itself
+regenerate every consuming product.
+
+## Governing Invariants
+
+- Commands may coordinate owners but do not contain scientific business logic.
+- Collection uses staged replacement so a failed refresh preserves the previous
+  tracked source tree.
+- Normalization records source version and content identity rather than
+  flattening inputs into anonymous rows.
+- Animal evidence remains project- and sample-traceable before it is grouped by
+  species or geography.
+- Reporting consumes governed evidence and may not strengthen locality,
+  chronology, coordinate precision, or source support.
+- Refused and qualified records remain visible in review surfaces instead of
+  disappearing from the accountability trail.
+
+## Control Flow And Evidence Flow
+
+The command path and the evidence path intersect but are not equivalent. The
+CLI selects an operation and supplies explicit scope. Evidence modules decide
+what the acquired records mean. Publication modules decide which reviewed
+records belong to a product. A command may orchestrate all three boundaries;
+it may not silently replace their separate contracts.
+
+```mermaid
+flowchart LR
+    Intent["operator intent"] --> Command["command contract"]
+    Command --> Operation["bounded operation"]
+    Source["captured source"] --> Evidence["evidence contract"]
+    Evidence --> Decision["publication decision"]
+    Operation --> Decision
+    Decision --> Change["reviewable tracked change"]
+```
+
+This separation makes two failures distinguishable: an operation can fail to
+execute, or evidence can execute successfully and still fail admission. The
+second outcome is a scientific refusal, not a runtime defect.
+
+Read-only inspection commands stop before state replacement. Commands such as
+`product-scope`, `surface-map`, `ownership-map`, and the animal review commands
+serialize existing contracts or governed state. Materializing commands such as
+`collect-data`, `refresh-data-contract-surfaces`, and `publish-reports` may
+change an owned tree and therefore require explicit roots and replacement
+semantics. The shared command registry gives both classes one discoverable
+entry point without pretending that they have the same impact.
+
+## Trace A Published Point
+
+```mermaid
+sequenceDiagram
+    participant R as Reader
+    participant P as Published surface
+    participant E as Evidence row
+    participant C as Curated record
+    participant S as Source capture
+    R->>P: inspect point and posture
+    P->>E: resolve evidence identifier
+    E->>C: resolve sample, locality, and chronology
+    C->>S: resolve project, paper, supplement, and source hash
+    S-->>R: recover provenance and known gaps
+```
+
+If any link is absent, the public point is incomplete regardless of how precise
+its marker appears.
+
+### The Same Layer Can Carry Different Evidence Units
+
+The animal map demonstrates why ownership cannot be inferred from geometry.
+Two markers can share a layer while resolving through different evidence
+chains:
+
+| Visible member | Evidence unit | Required reverse trace | Permitted claim |
+| --- | --- | --- | --- |
+| final sample-backed feature | recovered sample | feature → evidence row → final sample identity → supplementary row and coordinate → project capture | qualified sample presence at the recorded locality |
+| Wadi Halfa provisional feature | project context | feature → evidence row → provisional identity → paper-backed named place → project capture | spatial project context at an approximate geocode |
+
+`reporting/` is allowed to place both members because the point-class contract
+preserves their difference. It is not allowed to collapse them into one sample
+population. Recovering a source-native Wadi sample would begin in `adna/`, flow
+through `evidence/`, and only then change the published class.
+
+```mermaid
+flowchart TB
+    SampleSource["supplementary sample row"] --> SampleRecord["adna final sample record"]
+    SampleRecord --> SampleReview["evidence sample admission"]
+    SampleReview --> SamplePoint["reporting final sample-backed feature"]
+    PlaceSource["paper-backed named place"] --> ContextRecord["adna provisional project record"]
+    ContextRecord --> ContextReview["evidence context admission"]
+    ContextReview --> ContextPoint["reporting provisional context feature"]
+```
+
+## Architecture References
+
+- [Runtime system model](runtime-system-model.md) describes execution order,
+  persistence, and error handling.
+- [Module map](module-map.md) maps scientific and publication questions to code
+  ownership.
+- [Package split](package-split.md) distinguishes the canonical runtime,
+  compatibility distribution, and repository tooling.
+- [Data architecture](../../pollenomics-data/overview/data-architecture-handbook.md)
+  maps source families across raw, normalized, reviewed, and published layers.
+- [Evidence chain](../../pollenomics-data/evidence/index.md) explains the
+  sample, locality, chronology, and coordinate semantics behind publication.

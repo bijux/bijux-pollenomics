@@ -19,32 +19,32 @@
     "normalized_output_page": "docs/public/pollenomics-data/publications/sead-exports.md",
     "access_model": "data/sead/review/access_model.json",
     "evidence_review": "data/sead/review/evidence_legibility_review.json",
-    "recovery_roadmap": "data/sead/review/recovery_roadmap.json"
+    "recovery_requirements": "data/sead/review/recovery_requirements.json"
   },
-  "roadmap_rows": [
+  "requirement_rows": [
     {
-      "deliverable_key": "linked_temporal_capture",
-      "current_gap_count": 2195,
-      "goal": "Capture linked dating-range, relative-period, and uncertainty tables into checked-in raw SEAD inventory refreshes.",
-      "completion_signal": "Checked-in raw SEAD rows carry temporal linked tables often enough that the thin-site-inventory risk no longer dominates the review packet."
+      "requirement_key": "linked_temporal_capture",
+      "evidence_gap_count": 2195,
+      "required_evidence": "Capture linked dating-range, relative-period, and uncertainty tables into checked-in raw SEAD inventory refreshes.",
+      "satisfaction_signal": "Checked-in raw SEAD rows carry temporal linked tables often enough that the thin-site-inventory risk no longer dominates the review packet."
     },
     {
-      "deliverable_key": "reference_link_capture",
-      "current_gap_count": 2195,
-      "goal": "Preserve stable bibliography or DOI links wherever SEAD linked records expose them, so readers do not have to begin every review from the generic site page.",
-      "completion_signal": "The access review shows a meaningful shift away from site-page-only visibility."
+      "requirement_key": "reference_link_capture",
+      "evidence_gap_count": 2195,
+      "required_evidence": "Preserve stable bibliography or DOI links wherever SEAD linked records expose them, so readers do not have to begin every review from the generic site page.",
+      "satisfaction_signal": "The access review shows a meaningful shift away from site-page-only visibility."
     },
     {
-      "deliverable_key": "context_layer_republication",
-      "current_gap_count": 2195,
-      "goal": "Republish the normalized SEAD context layer with explicit temporal semantics, access posture, and context-only caveats on every feature.",
-      "completion_signal": "Normalized and published SEAD GeoJSON no longer trigger missing-temporal-semantics findings in report review surfaces."
+      "requirement_key": "context_layer_republication",
+      "evidence_gap_count": 2195,
+      "required_evidence": "Republish the normalized SEAD context layer with explicit temporal semantics, access posture, and context-only caveats on every feature.",
+      "satisfaction_signal": "Normalized and published SEAD GeoJSON no longer trigger missing-temporal-semantics findings in report review surfaces."
     },
     {
-      "deliverable_key": "published_scope_refresh",
-      "current_gap_count": 2195,
-      "goal": "Refresh published world, Europe-plus, and Nordic report bundles so SEAD appears as a bounded archaeology context layer rather than a generic environmental blob.",
-      "completion_signal": "Published map and review bundles expose SEAD with stable caveats, access wording, and bounded contextual role labels."
+      "requirement_key": "published_scope_refresh",
+      "evidence_gap_count": 2195,
+      "required_evidence": "Refresh published world, Europe-plus, and Nordic report bundles so SEAD appears as a bounded archaeology context layer rather than a generic environmental blob.",
+      "satisfaction_signal": "Published map and review bundles expose SEAD with stable caveats, access wording, and bounded contextual role labels."
     }
   ]
 }
