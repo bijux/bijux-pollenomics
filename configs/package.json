@@ -7,7 +7,7 @@
   },
   "type": "commonjs",
   "devDependencies": {
-    "@openapitools/openapi-generator-cli": "2.39.1",
+    "@openapitools/openapi-generator-cli": "2.40.0",
     "@redocly/cli": "^2.39.0"
   },
   "overrides": {
@@ -21,6 +21,7 @@
     "ip-address": "^10.2.0",
     "postcss": "^8.5.12",
     "protobufjs": "^7.5.8",
+    "shell-quote": "^1.10.0",
     "styled-components": "^6.4.1"
   }
 }
