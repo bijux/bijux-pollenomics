@@ -37,8 +37,8 @@ def matrix_replacements(
     workflow_name: str,
     job_name: str,
 ) -> list[dict[str, str]]:
-    replacements = []
-    dimensions = []
+    replacements: list[dict[str, str]] = []
+    dimensions: list[list[str]] = []
     for key in matrix_keys:
         values = matrix.get(key)
         if not isinstance(values, list):
