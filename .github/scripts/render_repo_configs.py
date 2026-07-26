@@ -29,7 +29,9 @@ DEPENDABOT_PR_SKIP_CONDITION = (
 
 
 def repository_checkout_variable(repo_name: str) -> str:
-    suffix = "".join(character.upper() if character.isalnum() else "_" for character in repo_name)
+    suffix = "".join(
+        character.upper() if character.isalnum() else "_" for character in repo_name
+    )
     return f"BIJUX_REPOSITORY_PATH_{suffix}"
 
 
@@ -62,7 +64,7 @@ def yaml_scalar(value: Any) -> str:
     text = str(value)
     if re.fullmatch(r"[A-Za-z0-9_./:@-]+", text):
         return text
-    escaped = text.replace('\\', '\\\\').replace('"', '\\"')
+    escaped = text.replace("\\", "\\\\").replace('"', '\\"')
     return f'"{escaped}"'
 
 
@@ -331,7 +333,7 @@ def inject_dependabot_pull_request_skip(
     wrapper_name: str,
     wrapper_definition: dict[str, Any],
 ) -> dict[str, Any]:
-    if wrapper_name != "ci":
+    if wrapper_name not in {"ci", "verify"}:
         return wrapper_definition
 
     jobs = wrapper_definition.get("jobs")
@@ -387,18 +389,24 @@ def render_repo(repo_name: str, manifest: dict) -> None:
         if wrapper_definition is None:
             remove_if_generated(wrapper_path)
             continue
+        wrapper_definition = inject_policy_gate(wrapper_name, wrapper_definition)
         wrapper_definition = inject_dependabot_pull_request_skip(
             wrapper_name,
             wrapper_definition,
         )
-        wrapper_definition = inject_policy_gate(wrapper_name, wrapper_definition)
         write_if_needed(wrapper_path, render_yaml_document(wrapper_definition))
 
 
 def main() -> None:
-    parser = argparse.ArgumentParser(description="Render release.env, dependabot.yml, labeler.yml, codecov.yml, and workflow wrappers from manifest")
-    parser.add_argument("--manifest", default=str(MANIFEST_PATH), help="Path to manifest JSON")
-    parser.add_argument("--repo", action="append", default=[], help="Repository name (repeatable)")
+    parser = argparse.ArgumentParser(
+        description="Render release.env, dependabot.yml, labeler.yml, codecov.yml, and workflow wrappers from manifest"
+    )
+    parser.add_argument(
+        "--manifest", default=str(MANIFEST_PATH), help="Path to manifest JSON"
+    )
+    parser.add_argument(
+        "--repo", action="append", default=[], help="Repository name (repeatable)"
+    )
     args = parser.parse_args()
 
     manifest = json.loads(Path(args.manifest).read_text(encoding="utf-8"))

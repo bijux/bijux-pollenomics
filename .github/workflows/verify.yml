@@ -63,6 +63,7 @@ jobs:
           |
             set -euo pipefail
             python3 .github/scripts/check_workflow_prerequisites.py
+    if: "${{ github.event_name != 'pull_request' || github.event.pull_request.user.login != 'dependabot[bot]' }}"
   repository:
     name: repository-contracts
     runs-on: ubuntu-latest
@@ -83,6 +84,7 @@ jobs:
         shell: bash
         run: "set -euo pipefail; if [[ -n \"$(git status --short)\" ]]; then git status --short; exit 1; fi "
     needs: policy_gate
+    if: "${{ github.event_name != 'pull_request' || github.event.pull_request.user.login != 'dependabot[bot]' }}"
   package:
     name: "${{ matrix.package_slug }}"
     needs:
@@ -113,3 +115,4 @@ jobs:
       check_targets: "${{ matrix.check_targets || '[\"quality\", \"security\", \"docs\", \"api\", \"build\", \"sbom\"]' }}"
       api_toolchain_targets: "${{ matrix.api_toolchain_targets || '[\"api\", \"openapi-drift\"]' }}"
       post_test_command: "${{ matrix.post_test_command || '' }}"
+    if: "${{ github.event_name != 'pull_request' || github.event.pull_request.user.login != 'dependabot[bot]' }}"
