@@ -61,8 +61,7 @@ def matrix_replacements(
         replacements.append({key: entry[key] for key in matrix_keys})
 
     assert replacements, (
-        f"{workflow_name} job {job_name} matrix must resolve "
-        f"{', '.join(matrix_keys)}"
+        f"{workflow_name} job {job_name} matrix must resolve {', '.join(matrix_keys)}"
     )
     return replacements
 
@@ -112,16 +111,12 @@ def pull_request_check_names() -> set[str]:
 def required_status_check_names() -> set[str]:
     ruleset = json.loads(RULESET_PATH.read_text(encoding="utf-8"))
     required_status_rules = [
-        rule
-        for rule in ruleset["rules"]
-        if rule["type"] == "required_status_checks"
+        rule for rule in ruleset["rules"] if rule["type"] == "required_status_checks"
     ]
     assert len(required_status_rules) == 1
     return {
         check["context"]
-        for check in required_status_rules[0]["parameters"][
-            "required_status_checks"
-        ]
+        for check in required_status_rules[0]["parameters"]["required_status_checks"]
     }
 
 
