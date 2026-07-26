@@ -2,10 +2,10 @@
 
 from __future__ import annotations
 
-import json
-import re
 from itertools import product
+import json
 from pathlib import Path
+import re
 
 import yaml
 
@@ -66,6 +66,16 @@ def matrix_replacements(
     return replacements
 
 
+def render_check_name(
+    check_name: str,
+    replacements: dict[str, str],
+) -> str:
+    return MATRIX_REFERENCE.sub(
+        lambda match: replacements[match.group(1)],
+        check_name,
+    )
+
+
 def pull_request_check_names() -> set[str]:
     names = set()
     for path, document in workflow_documents():
@@ -99,12 +109,7 @@ def pull_request_check_names() -> set[str]:
                 workflow_name=path.name,
                 job_name=job_name,
             ):
-                names.add(
-                    MATRIX_REFERENCE.sub(
-                        lambda match: replacements[match.group(1)],
-                        check_name,
-                    )
-                )
+                names.add(render_check_name(check_name, replacements))
     return names
 
 
