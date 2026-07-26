@@ -47,8 +47,9 @@ def matrix_replacements(
         assert all(isinstance(value, str) for value in values)
         dimensions.append(values)
 
-    for combination in product(*dimensions):
-        replacements.append(dict(zip(matrix_keys, combination, strict=True)))
+    if len(dimensions) == len(matrix_keys):
+        for combination in product(*dimensions):
+            replacements.append(dict(zip(matrix_keys, combination, strict=True)))
 
     included = matrix.get("include", [])
     assert isinstance(included, list)
