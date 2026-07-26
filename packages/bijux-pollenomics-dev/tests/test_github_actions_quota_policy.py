@@ -30,6 +30,42 @@ def workflow_documents() -> list[tuple[Path, dict[str, object]]]:
     return workflows
 
 
+def matrix_replacements(
+    *,
+    matrix: dict[str, object],
+    matrix_keys: list[str],
+    workflow_name: str,
+    job_name: str,
+) -> list[dict[str, str]]:
+    replacements = []
+    dimensions = []
+    for key in matrix_keys:
+        values = matrix.get(key)
+        if not isinstance(values, list):
+            dimensions = []
+            break
+        assert all(isinstance(value, str) for value in values)
+        dimensions.append(values)
+
+    for combination in product(*dimensions):
+        replacements.append(dict(zip(matrix_keys, combination, strict=True)))
+
+    included = matrix.get("include", [])
+    assert isinstance(included, list)
+    for entry in included:
+        assert isinstance(entry, dict)
+        if not all(key in entry for key in matrix_keys):
+            continue
+        assert all(isinstance(entry[key], str) for key in matrix_keys)
+        replacements.append({key: entry[key] for key in matrix_keys})
+
+    assert replacements, (
+        f"{workflow_name} job {job_name} matrix must resolve "
+        f"{', '.join(matrix_keys)}"
+    )
+    return replacements
+
+
 def pull_request_check_names() -> set[str]:
     names = set()
     for path, document in workflow_documents():
@@ -57,16 +93,12 @@ def pull_request_check_names() -> set[str]:
             )
             matrix = strategy.get("matrix")
             assert isinstance(matrix, dict)
-            dimensions = []
-            for key in matrix_keys:
-                values = matrix.get(key)
-                assert isinstance(values, list), (
-                    f"{path.name} job {job_name} matrix must define {key}"
-                )
-                dimensions.append(values)
-
-            for combination in product(*dimensions):
-                replacements = dict(zip(matrix_keys, combination, strict=True))
+            for replacements in matrix_replacements(
+                matrix=matrix,
+                matrix_keys=matrix_keys,
+                workflow_name=path.name,
+                job_name=job_name,
+            ):
                 names.add(
                     MATRIX_REFERENCE.sub(
                         lambda match: replacements[match.group(1)],
