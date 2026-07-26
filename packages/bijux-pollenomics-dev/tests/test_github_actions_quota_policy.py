@@ -6,7 +6,6 @@ from pathlib import Path
 
 import yaml
 
-
 REPO_ROOT = Path(__file__).resolve().parents[3]
 DEPENDABOT_SKIP = "github.event.pull_request.user.login != 'dependabot[bot]'"
 PULL_REQUEST_EVENTS = {
