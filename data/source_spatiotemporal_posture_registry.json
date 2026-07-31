@@ -61,22 +61,19 @@
         "data/sead/review/access_model.json"
       ],
       "spatial_representation": "site point inventory",
-      "temporal_support_posture": "site_inventory_only",
+      "temporal_support_posture": "linked_inventory_available",
       "temporal_support_note": "Checked-in SEAD points are useful archaeology context, but the repository must not read them as uniformly time-resolved evidence.",
       "temporal_scope": "archaeology-context inventory",
       "distance_scoring_posture": "contextual_archaeology_only",
       "distance_scoring_note": "Use SEAD to measure archaeology context around lakes; do not treat it as same-period support unless numeric intervals are explicitly present.",
       "record_count": 2172,
-      "numeric_interval_record_count": 0,
+      "numeric_interval_record_count": 519,
       "detail_metrics": {
-        "site_inventory_only_row_count": 2195,
-        "dating_range_row_count": 0,
-        "relative_period_row_count": 0
+        "site_inventory_only_row_count": 1137,
+        "dating_range_row_count": 392,
+        "relative_period_row_count": 531
       },
-      "caveats": [
-        "The checked-in SEAD state is a site inventory and contextual point layer, not a repository-wide chronology-support layer.",
-        "The current Sweden-facing SEAD capture does not yet preserve linked relative-period or dating-range tables in checked-in raw form."
-      ]
+      "caveats": []
     },
     {
       "source_key": "raa",

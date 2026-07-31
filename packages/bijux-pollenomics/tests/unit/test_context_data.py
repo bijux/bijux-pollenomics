@@ -569,7 +569,7 @@ class ContextDataTests(unittest.TestCase):
             longitude=17.5,
             geometry_type="Point",
             subtitle="Sequence",
-            description="Test record",
+            description="First line   \nSecond line",
             source_url="https://example.test/site-1",
             record_count=3,
             popup_rows=(("Time windows", "0-100 BP, 350-700 BP"),),
@@ -593,6 +593,7 @@ class ContextDataTests(unittest.TestCase):
             write_context_points_geojson(geojson_path, [record])
 
             csv_text = csv_path.read_text(encoding="utf-8")
+            csv_bytes = csv_path.read_bytes()
             geojson = json.loads(geojson_path.read_text(encoding="utf-8"))
             geojson_features = cast(
                 list[dict[str, object]], cast(dict[str, object], geojson)["features"]
@@ -603,6 +604,9 @@ class ContextDataTests(unittest.TestCase):
         self.assertIn("time_mean_bp", csv_text)
         self.assertIn("time_label", csv_text)
         self.assertIn("temporal_semantics_json", csv_text)
+        self.assertNotIn(b"\r\n", csv_bytes)
+        self.assertIn("First line\nSecond line", csv_text)
+        self.assertNotIn("First line   \n", csv_text)
         properties = cast(dict[str, object], geojson_features[0]["properties"])
         self.assertEqual(properties["time_start_bp"], 0)
         self.assertEqual(properties["time_end_bp"], 700)

@@ -9,6 +9,11 @@ from ...core.files import write_json
 from ..models import ContextPointRecord
 
 
+def _normalize_csv_text(value: str) -> str:
+    """Remove source formatting whitespace without flattening meaningful lines."""
+    return "\n".join(line.rstrip() for line in value.splitlines()).strip()
+
+
 def write_context_points_csv(path: Path, records: Iterable[ContextPointRecord]) -> None:
     """Write normalized context point records as CSV."""
     fieldnames = [
@@ -34,7 +39,7 @@ def write_context_points_csv(path: Path, records: Iterable[ContextPointRecord]) 
         "popup_rows_json",
     ]
     with path.open("w", encoding="utf-8", newline="") as handle:
-        writer = csv.DictWriter(handle, fieldnames=fieldnames)
+        writer = csv.DictWriter(handle, fieldnames=fieldnames, lineterminator="\n")
         writer.writeheader()
         for record in records:
             writer.writerow(
@@ -50,7 +55,7 @@ def write_context_points_csv(path: Path, records: Iterable[ContextPointRecord]) 
                     "longitude": f"{record.longitude:.6f}",
                     "geometry_type": record.geometry_type,
                     "subtitle": record.subtitle,
-                    "description": record.description,
+                    "description": _normalize_csv_text(record.description),
                     "source_url": record.source_url,
                     "record_count": record.record_count,
                     "time_start_bp": record.time_start_bp

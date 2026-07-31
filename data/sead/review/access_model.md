@@ -23,7 +23,8 @@ This packet states what the repository mirrors from SEAD, what it only reference
 
 ## Access Visibility
 
-- site page only: `2195`
+- site page only: `2192`
+- site page with reference links: `3`
 
 | Site | Access visibility | Reference links | Stable site page |
 | --- | --- | ---: | --- |
@@ -1490,7 +1491,6 @@ This packet states what the repository mirrors from SEAD, what it only reference
 | Prästgårdsloftet Älvdalen (`6099`) | site_page_only | 0 | https://browser.sead.se/site/6099 |
 | Prästsjödiket Umeå (`186`) | site_page_only | 0 | https://browser.sead.se/site/186 |
 | Prästtorp (`3862`) | site_page_only | 0 | https://browser.sead.se/site/3862 |
-| Præstelyngen i Åmosen (`4910`) | site_page_only | 0 | https://browser.sead.se/site/4910 |
 | Purasharju (`4851`) | site_page_only | 0 | https://browser.sead.se/site/4851 |
 | Pyhäjärvi: Hoikkaneva (`5088`) | site_page_only | 0 | https://browser.sead.se/site/5088 |
 | Päbul i Östnor (`6075`) | site_page_only | 0 | https://browser.sead.se/site/6075 |
@@ -1677,7 +1677,6 @@ This packet states what the repository mirrors from SEAD, what it only reference
 | Skälvums kyrka (`6145`) | site_page_only | 0 | https://browser.sead.se/site/6145 |
 | Skänninge 52 (`6404`) | site_page_only | 0 | https://browser.sead.se/site/6404 |
 | Skänninge 5:1 (`6411`) | site_page_only | 0 | https://browser.sead.se/site/6411 |
-| Skänninge Abbey (`6486`) | site_page_only | 0 | https://browser.sead.se/site/6486 |
 | Skålsta (`3855`) | site_page_only | 0 | https://browser.sead.se/site/3855 |
 | Skålö (`6143`) | site_page_only | 0 | https://browser.sead.se/site/6143 |
 | Skånes-Fagerhult 125 (`3480`) | site_page_only | 0 | https://browser.sead.se/site/3480 |
@@ -1762,7 +1761,6 @@ This packet states what the repository mirrors from SEAD, what it only reference
 | Stare 1:13 (`62`) | site_page_only | 0 | https://browser.sead.se/site/62 |
 | Stavsholmen (`6189`) | site_page_only | 0 | https://browser.sead.se/site/6189 |
 | Stavsjöbodarna (`6190`) | site_page_only | 0 | https://browser.sead.se/site/6190 |
-| Stavsåkra (`4905`) | site_page_only | 0 | https://browser.sead.se/site/4905 |
 | Stenbockska palatset (`3923`) | site_page_only | 0 | https://browser.sead.se/site/3923 |
 | Steninge kyrka (`6191`) | site_page_only | 0 | https://browser.sead.se/site/6191 |
 | Steninge slott (`3998`) | site_page_only | 0 | https://browser.sead.se/site/3998 |
@@ -2222,3 +2220,6 @@ This packet states what the repository mirrors from SEAD, what it only reference
 | Övraby Raä 70 (`195`) | site_page_only | 0 | https://browser.sead.se/site/195 |
 | Övre Häfla bruk (`3926`) | site_page_only | 0 | https://browser.sead.se/site/3926 |
 | Øvre Kvilhaugmyra (`4572`) | site_page_only | 0 | https://browser.sead.se/site/4572 |
+| Præstelyngen i Åmosen (`4910`) | site_page_with_reference_links | 1 | https://browser.sead.se/site/4910 |
+| Skänninge Abbey (`6486`) | site_page_with_reference_links | 11 | https://browser.sead.se/site/6486 |
+| Stavsåkra (`4905`) | site_page_with_reference_links | 1 | https://browser.sead.se/site/4905 |
