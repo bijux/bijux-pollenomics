@@ -4,7 +4,7 @@ audience: reader
 type: explainer
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-07-22
+last_reviewed: 2026-07-31
 ---
 
 # Sweden Lake Priorities
@@ -57,11 +57,11 @@ Within each band, human aDNA locality and sample coverage determine ordering
 first. Direct pollen breaks the next tie, followed by broader pollen and
 archaeology context. Sampling fit and the blended score resolve later ties.
 
-Temporal credit is conditional. Neotoma and LandClim records gain stronger
-chronology contribution only when numeric BP intervals overlap nearby human
-locality windows. The current Sweden-facing SEAD capture is a site inventory
-without numeric chronology rows, so it contributes spatial archaeology context
-but not same-period evidence.
+Temporal credit is conditional. Neotoma, LandClim, and SEAD records gain
+stronger chronology contribution only when numeric BP intervals overlap nearby
+human locality windows. The current SEAD layer contains 497 mapped numeric
+site envelopes alongside 1,675 label-only or unresolved sites. Those remaining
+sites contribute spatial archaeology context but receive no same-period credit.
 
 ### Score And Rank Are Separate Contracts
 

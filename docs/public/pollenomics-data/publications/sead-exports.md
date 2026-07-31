@@ -4,116 +4,142 @@ audience: reader
 type: explanation
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-07-22
+last_reviewed: 2026-07-31
 ---
 
 # SEAD Exports
 
-SEAD exports provide Nordic environmental-archaeology site context. Their
-current strength is inventory and spatial framing. Their current limitation is
-equally important: the checked-in capture does not contain the linked temporal
-and bibliographic evidence required for chronological comparison.
+SEAD exports turn a relational environmental-archaeology source into three
+different products: an auditable capture, a normalized map layer, and review
+packets that explain which comparisons are allowed. Choose the product that
+matches the question rather than treating the GeoJSON as the whole database.
 
-## Current Governed Surface
+## Snapshot At A Glance
 
-The temporal and legibility reviews cover **2,195 source inventory rows**. The
-normalized Nordic GeoJSON contains **2,172 mapped features** across Sweden,
-Norway, Finland, and Denmark. The remaining 23 review rows lack a country
-assignment and are not members of the normalized Nordic point layer.
-
-| Evidence dimension | Current review result |
+| Population or relation | Count |
 | --- | ---: |
-| numeric interval rows | 0 |
-| dating-range rows | 0 |
-| relative-period rows | 0 |
-| bibliography rows | 0 |
-| site-inventory-only rows | 2,195 |
-| mapped Nordic context features | 2,172 |
+| captured sites | 2,195 |
+| mapped Nordic features | 2,172 |
+| mapped numeric features | 497 |
+| mapped contextual-label-only features | 12 |
+| mapped unresolved features | 1,663 |
+| captured sites with numeric interval material | 519 |
+| captured sites linked to dating ranges | 392 |
+| captured sites linked to relative periods | 531 |
+| captured sites linked to bibliography | 1,034 |
+| captured site-inventory-only rows | 1,137 |
 
-Every reviewed row currently has `site_page_only` access visibility,
-`duration_not_available` posture, and unresolved temporal comparability. The
-layer is therefore useful context, but it is not a temporally aligned
-archaeology event surface.
+The difference between 519 captured numeric rows and 497 mapped numeric
+features is deliberate. Capture and map-country membership are separate
+decisions. The difference between 2,195 captured sites and 2,172 mapped sites
+is the same kind of publication boundary, not evidence loss.
 
-## Governed Artifacts
+## Choose An Artifact
 
-| Artifact | Responsibility |
-| --- | --- |
-| `data/sead/normalized/nordic_environmental_sites.geojson` | the 2,172 mapped Nordic context features and their stable SEAD identities |
-| `data/sead/review/temporal_review.json` | machine-readable temporal classification, evidence posture, and denominators |
-| `data/sead/review/temporal_review.csv` | row-level review exchange surface |
-| `data/sead/review/temporal_review.md` | reader-facing explanation of the same governed review |
-
-The `data/sead/normalized/` tree is the family authority for repository-owned
-representation, while `data/sead/review/` owns its temporal, access, and
-legibility findings. Regional report copies are selected descendants. They
-cannot fill the current chronology and bibliography gaps or change an
-inventory row into an archaeological event.
-
-```mermaid
-flowchart LR
-    Inventory["2,195 captured site rows"] --> Review["inventory and legibility review"]
-    Review --> Mapped["2,172 Nordic point features"]
-    Review --> Unassigned["23 rows without country assignment"]
-    Mapped --> Context["environmental archaeology context"]
-    Review --> TimeGap["0 dating, period, or bibliography rows"]
-    TimeGap --> Refusal["numeric temporal comparison refused"]
-```
-
-## Read A SEAD Feature
-
-The normalized feature preserves the SEAD site identifier, name, country,
-coordinates, source page URL, context role, access limits, and explicit
-unresolved temporal semantics. The site page is the upstream inspection
-anchor when the repository view is too thin for a stronger claim.
-
-The current export does not establish:
-
-- a numeric age or duration;
-- a relative-period assignment;
-- source bibliography for the site's archaeological interpretation;
-- equivalence between site inventory density and past activity; or
-- contemporaneity with nearby pollen or aDNA evidence.
-
-Missing temporal values mean **not captured under the current contract**, not
-zero, undated in the upstream database, or absent from archaeology.
-
-## Two Rows, Two Publication Outcomes
-
-The inventory and mapped populations can be inspected through concrete rows:
-
-| SEAD row | Captured state | Publication outcome |
+| Need | Use | Why |
 | --- | --- | --- |
-| `6468`, 10412 Fjälkinge | point at `14.28308648, 56.0388744`, country Sweden, stable upstream page | admitted to the Nordic context layer with unresolved time |
-| `3719`, Grobin | stable site identity and upstream page, blank country assignment | retained in review but absent from the four-country mapped layer |
+| audit acquisition and joins | `data/sead/raw/nordic_sites.json` | preserves source rows, relation inventories, counts, and site-linked material |
+| display or spatial analysis | `data/sead/normalized/nordic_environmental_sites.geojson` | provides admitted point geometry, popup evidence, and normalized temporal fields |
+| tabular exchange | `data/sead/normalized/nordic_environmental_sites.csv` | represents the same normalized point population with serialized temporal semantics |
+| decide temporal eligibility | `data/sead/review/temporal_review.json` | classifies each captured site as numeric-plus-context, label-only, or unresolved |
+| inspect access limits | `data/sead/review/access_model.json` | distinguishes mirrored material from upstream browsing and references |
+| assess interpretability | `data/sead/review/evidence_legibility_review.json` | records capture depth, risk, and publication posture |
+| plan stronger evidence recovery | `data/sead/review/recovery_requirements.json` | links gaps to required evidence and satisfaction signals |
 
-Fjälkinge demonstrates qualified admission: the point and source identity are
-usable for spatial context, while `time_start_bp`, `time_end_bp`, and duration
-remain null. Grobin demonstrates retained non-membership: source evidence
-exists, but the current publication geography does not admit it.
+CSV and Markdown companions are review and exchange views of the same governed
+packets. They do not define a second scientific truth.
 
 ```mermaid
 flowchart LR
-    Inventory["captured SEAD row"] --> Identity["site ID and upstream page"]
-    Identity --> Geography{"four-country membership?"}
-    Geography -->|6468 Fjälkinge| Point["mapped spatial context"]
-    Geography -->|3719 Grobin| Review["retained non-member"]
-    Point --> Time["numeric time refused"]
-    Review --> Time
+    API["SEAD relational API"] --> Raw["raw capture"]
+    Raw --> Normalize["normalized site features"]
+    Raw --> Review["temporal, access, and legibility review"]
+    Normalize --> Atlas["Nordic atlas layer"]
+    Review --> Atlas
+    Review --> Decision["allowed and refused comparisons"]
 ```
 
-Neither outcome is a negative archaeological conclusion. One is a spatially
-qualified publication member; the other is a captured record outside the
-current geographic product. Both retain an unresolved temporal posture.
+## Read The Normalized Temporal Fields
 
-## Reuse Contract
+For a numeric feature:
 
-Carry the site identifier, source URL, point geometry, country assignment,
-access posture, context-only evidence role, and unresolved temporal-semantics
-object. Use 2,195 as the reviewed inventory denominator and 2,172 as the mapped
-Nordic-feature denominator; do not interchange them or silently discard the 23
-unassigned records from a completeness statement.
+- `time_start_bp` and `time_end_bp` define the derived site envelope;
+- `time_mean_bp` is a display and indexing aid, not a replacement for the
+  interval;
+- `time_label` presents the interval to readers; and
+- `temporal_semantics` records evidence class, precision, comparison posture,
+  original labels, normalized labels, uncertainty, and provenance locator.
 
-Continue to [SEAD source guidance](../sources/sead.md) for access and capture
-limits, [maps](maps.md) for context-layer interpretation, and
+For label-only or unresolved features, numeric fields remain null. Do not
+coerce null to zero, manufacture a midpoint, or map a broad label to numeric
+bounds without a governed source rule.
+
+## Atlas Behavior
+
+The SEAD layer is a mixed temporal population. The atlas therefore applies a
+two-mode interaction contract:
+
+| Atlas state | Numeric features | Label-only and unresolved features |
+| --- | --- | --- |
+| full temporal extent | shown | shown |
+| narrowed BP window | shown only on interval overlap | withheld because overlap is unknown |
+
+This makes the full view useful for spatial exploration while keeping a
+narrowed view scientifically honest. A withheld unresolved point is not a
+negative finding about the selected period.
+
+## Follow Two Concrete Rows
+
+### Agerod V (`4237`)
+
+The capture follows Agerod V through its linked sample and analysis inventory.
+The normalized feature publishes `7000–10000 BP` and retains its original
+period context. It is eligible for numeric timeline overlap, but the interval
+must still be described as a site envelope rather than a single event date.
+
+### Borgholm (`3776`)
+
+The capture retains the source label `Quaternary`, but no eligible numeric
+site interval. The normalized feature remains valuable in the full spatial
+view. It is withheld from narrowed numeric windows because the repository has
+not invented a BP conversion for the label.
+
+```mermaid
+flowchart TD
+    Feature["normalized SEAD feature"] --> Bounds{"numeric BP bounds?"}
+    Bounds -->|yes| Overlap["test interval overlap"]
+    Bounds -->|no| Full{"full temporal extent?"}
+    Full -->|yes| Context["show as spatial context"]
+    Full -->|no| Withhold["withhold: temporal eligibility unknown"]
+```
+
+## Geographic Membership
+
+Twenty-three captured rows are not members of the four-country point layer.
+They retain their identities and coordinates in the raw and review surfaces.
+Their absence from GeoJSON means they did not satisfy the current Sweden,
+Norway, Finland, or Denmark geometry rule; it does not mean that the source
+row was invalid, deduplicated, or deleted.
+
+Use 2,195 as the capture denominator and 2,172 as the mapped denominator.
+Whenever numeric map coverage is discussed, use 497 as the mapped temporal
+denominator and state that 1,675 mapped features remain label-only or
+unresolved.
+
+## Reuse Checklist
+
+Before publishing a SEAD-derived result, verify that it retains:
+
+- the site identifier and source URL;
+- capture and mapped denominators relevant to the claim;
+- coordinate and country-membership basis;
+- temporal posture and numeric bounds, if any;
+- the site-envelope observation unit;
+- uncertainty and original period labels;
+- the distance or interval-overlap rule used; and
+- a clear distinction between absence, exclusion, and unknown temporal
+  eligibility.
+
+Continue to [SEAD source guidance](../sources/sead.md) for the full evidence
+model, [maps](maps.md) for atlas interpretation, and
 [publication limits](limits.md) for refused comparisons.

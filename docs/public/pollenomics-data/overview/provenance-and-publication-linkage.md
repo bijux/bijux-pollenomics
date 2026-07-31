@@ -4,7 +4,7 @@ audience: reader
 type: explanation
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-07-22
+last_reviewed: 2026-07-31
 ---
 
 # Provenance And Publication Linkage
@@ -320,7 +320,7 @@ packet remains the authority and the visible geometry is stale.
 | --- | --- | --- |
 | AADR Nordic sample | Nordic bundle → AADR sample row → panel file → `v66` release manifest → Dataverse identity | panel membership and geographic selection do not create genotype analysis |
 | Neotoma pollen site | Nordic bundle → normalized site → temporal review → Neotoma site identity | site-level coverage span is not a sample-event date |
-| SEAD context point | Nordic bundle → normalized site → legibility and temporal review → SEAD site page | current inventory has no captured dating, period, or bibliography rows |
+| SEAD context point | Nordic bundle → normalized site → relational capture, legibility, and temporal review → SEAD site page | a derived site envelope summarizes linked chronology but is not a sample-event date; label-only and unresolved sites remain non-comparable |
 | animal atlas point | scope bundle → point traceability → admission row → sample, site, locality, chronology, and coordinate evidence → project, paper, supplement, and archive identity | every link has independent precision and can qualify or refuse publication |
 
 The shapes are intentionally unlike. A short chain is not automatically weak,

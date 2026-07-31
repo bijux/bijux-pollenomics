@@ -4,7 +4,7 @@ audience: reader
 type: explanation
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-07-22
+last_reviewed: 2026-07-31
 ---
 
 # Collection Summary
@@ -102,7 +102,7 @@ The `v66` summary records seven collector-managed families:
 | LandClim | `data/landclim` | site-sequence versus grid-cell role and temporal posture |
 | Neotoma | `data/neotoma` | site identity and temporal comparability class |
 | RAÄ | `data/raa` | selected classification, aggregation grid, and Sweden-only role |
-| SEAD | `data/sead` | four-country membership and context-only temporal posture |
+| SEAD | `data/sead` | four-country membership and member-level numeric, label-only, or unresolved temporal posture |
 | SVAR | `data/svar` | lake identity and candidate-product eligibility |
 
 Animal aDNA is governed separately under `data/adna/`. Its 40-project intake,

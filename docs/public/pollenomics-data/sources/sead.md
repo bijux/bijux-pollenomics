@@ -4,229 +4,202 @@ audience: reader
 type: explanation
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-07-22
+last_reviewed: 2026-07-31
 ---
 
 # SEAD
 
-SEAD supplies environmental-archaeology context. In the current checked-in
-state it is a spatial site inventory, not a uniformly time-resolved
-archaeology layer. Its value is substantial precisely when that contextual
-role and temporal limit remain explicit.
+SEAD contributes environmental-archaeology sites to the Nordic evidence
+atlas. Those sites are not static. Many are connected to dating ranges or
+relative periods in SEAD's relational database, while others still have no
+usable numeric chronology. The repository preserves that unevenness instead
+of forcing every site into one temporal category.
 
-## Checked-In Evidence
+The practical rule is simple: **filter a SEAD site through time only when its
+captured relations support a numeric BP interval**. A cultural-period label is
+useful context, but it is not automatically a numeric date. A site with no
+chronology remains visible in the full-extent view and is withheld from a
+narrowed time window because overlap cannot be demonstrated.
 
-The current temporal and legibility reviews cover 2,195 captured site rows:
+## Current Evidence State
 
-| Property | Count | Posture |
+The governed snapshot begins with 2,195 captured site rows. Spatial
+normalization admits 2,172 of them to the Sweden, Norway, Finland, and Denmark
+map layer.
+
+| Evidence property | Count | What the count means |
 | --- | ---: | --- |
-| site inventory rows | 2,195 | spatial archaeology context |
-| numeric temporal intervals | 0 | no numeric same-period comparison |
-| linked dating-range rows | 0 | dating foundation not captured here |
-| linked relative-period rows | 0 | period foundation not captured here |
-| bibliography rows | 0 | bibliography linkage not captured here |
+| captured site rows | 2,195 | denominator before map-country membership |
+| mapped Nordic features | 2,172 | sites inside the four governed country geometries |
+| captured rows with numeric interval material | 519 | source rows from which a numeric site envelope can be derived |
+| mapped features with numeric intervals | 497 | points that can participate in atlas time filtering |
+| mapped features with contextual labels only | 12 | points with period language but no eligible numeric interval |
+| mapped features with unresolved time | 1,663 | points retained as spatial context only |
+| captured rows linked to dating ranges | 392 | sites connected through the SEAD dating-range relation |
+| captured rows linked to relative periods | 531 | sites connected through relative-date or relative-age relations |
+| captured rows linked to bibliography | 1,034 | sites with captured site-reference lineage |
+| captured site-inventory-only rows | 1,137 | sites without the linked evidence required for a richer posture |
 
-The normalized spatial layer contains 2,172 records. The difference between
-captured and normalized counts must remain visible; it is not evidence that
-the omitted records never existed.
+These denominators answer different questions. The 519 numeric source rows
+must not be reported as 519 visible timed points: only 497 are members of the
+current mapped population. Likewise, 7,775 raw dating-range relation rows are
+not 7,775 sites. They are linked records from which site-level summaries are
+derived.
 
-Every current legibility-review row is classified as inventory-only or
-unresolved for time, with high risk from the thin site-inventory capture and a
-publication posture of context with an explicit caveat.
+## From A Relational Database To A Map Point
 
-### Curation Lineage
-
-| Boundary | Governing material | Decision preserved |
-| --- | --- | --- |
-| inventory capture | `raw/nordic_sites.json` | the site identities and geometry available in the checked-in snapshot |
-| spatial normalization | `normalized/nordic_environmental_sites.geojson` | the 2,172 members eligible for contextual mapping |
-| access review | `review/access_model.json` | how the captured surface relates to deeper SEAD information |
-| temporal review | `review/temporal_review.json` | refusal of unsupported numeric comparison |
-| evidence legibility | `review/evidence_legibility_review.json` | why inventory visibility is not record-level interpretive depth |
-| recovery requirements | `review/recovery_requirements.json` | which missing relations would materially strengthen future claims and how their recovery is demonstrated |
-
-These surfaces turn a thin database capture into an auditable evidence state.
-They do not conceal the missing chronology and bibliography behind a successful
-normalization count.
-
-### Database Preparation Is Selective Materialization
-
-SEAD is relational upstream, while the current governed capture materializes a
-site inventory. The preparation contract therefore records not only the rows
-that exist, but the relations that were not captured. That distinction prevents
-an inventory-shaped export from being mistaken for the full source database.
+A SEAD date belongs to a chain of records, not directly to a coordinate. The
+collector follows that chain and retains the intermediate identities before
+deriving a site envelope.
 
 ```mermaid
 flowchart LR
-    Site["site inventory row"] --> Identity["stable site identity"]
-    Site -. not captured .-> Dating["dating and relative-period relations"]
-    Site -. not captured .-> References["bibliography relations"]
-    Site -. not captured .-> Proxies["dataset and analysis relations"]
-    Identity --> Point["normalized contextual point"]
-    Dating --> Time["time-aware eligibility review"]
-    References --> Attribution["record-level source interpretation"]
-    Proxies --> Evidence["proxy-specific environmental claim"]
+    Site["site"] --> Group["sample group"]
+    Group --> Sample["physical sample"]
+    Sample --> Entity["analysis entity"]
+    Entity --> Value["analysis value"]
+    Entity --> Dating["dating ranges"]
+    Entity --> Relative["relative dates and ages"]
+    Site --> Reference["site references"]
+    Reference --> Bibliography["bibliography"]
+    Dating --> Envelope["reviewed site-level BP envelope"]
+    Relative --> Envelope
+    Envelope --> Point["normalized map point"]
 ```
 
-Only the solid path is currently governed for all captured members. The
-dashed relations describe evidence requirements, not implied empty tables.
-Recovering one relation strengthens only the claim dimension it owns: a
-bibliography link does not provide chronology, and a date does not establish
-which proxy or specimen produced it.
+The site envelope is a publication convenience. It expresses the temporal
+coverage captured beneath a site; it does not claim that every sample,
+analysis, or archaeological event at that site shares the whole interval.
+For sample-level reasoning, follow the relation identities in
+`raw/nordic_sites.json` rather than reading the envelope as an event date.
 
-```mermaid
-flowchart LR
-    Capture["captured site inventory"] --> Normalize["normalized site points"]
-    Normalize --> Temporal["temporal review"]
-    Normalize --> Legibility["evidence legibility review"]
-    Temporal --> Context["context-only publication posture"]
-    Legibility --> Context
-    Context --> Product["archaeology context layer"]
-```
+## Three Temporal Postures
 
-## What SEAD Supports
+### Numeric interval and context
 
-- environmental-archaeology context around samples, pollen records, lakes,
-  and regions;
-- spatial density and proximity comparisons under declared distance bands;
-- cross-regional context beyond one national registry;
-- identification of places where deeper source recovery may be valuable;
-- landscape interpretation that keeps archaeology visible beside biological
-  and environmental evidence.
+A site has a normalized `time_start_bp` and `time_end_bp` derived from
+captured temporal relations. It may also retain the original relative-period
+labels and uncertainty notes. The atlas can test interval overlap for this
+site.
 
-## What The Current Capture Does Not Support
+For example, Agerod V (`4237`) is published with a site envelope of
+`7000–10000 BP`. That makes it eligible for a map window that overlaps the
+interval. It does not prove that every Agerod V observation belongs to every
+year in that span.
 
-- same-period claims between SEAD sites and nearby pollen or aDNA;
-- exact sample identity, locality, chronology, or species assignment;
-- duration or phase comparison across the captured inventory;
-- bibliography-backed interpretation for every normalized site;
-- treating site density as a direct measure of past activity or preservation.
+### Contextual label only
 
-The absence of numeric intervals is not repaired with inferred dates. SEAD can
-affect spatial decision support while receiving no chronology credit.
+A site has source period language but no stable numeric interval accepted by
+the repository. Borgholm (`3776`), for example, retains the label
+`Quaternary`. The label supports human interpretation and source review, but
+it is too broad to place on the numeric slider without an explicit,
+source-governed conversion.
 
-## Interpret The Capture Gap
+### Unresolved
 
-The difference between inventory visibility and evidentiary depth is itself a
-governed result:
-
-| State | What is known | What remains unavailable |
-| --- | --- | --- |
-| captured inventory row | a source site identity entered the repository | linked dating, period, bibliography, and deeper record relations |
-| normalized site point | a spatial representation passed family normalization | uniform numeric chronology and record-level interpretive depth |
-| contextual publication member | the point is eligible for declared archaeology context | same-period support or direct association with nearby evidence |
-| omitted captured row | the upstream inventory included a row not present in the normalized point layer | the exact normalization, identity, or geometry issue must be inspected |
-
-```mermaid
-flowchart LR
-    Inventory["2,195 captured rows"] --> Normalize["2,172 normalized points"]
-    Normalize --> Context["spatial archaeology context"]
-    Inventory --> Gap["23-row normalization difference"]
-    Context --> Recovery["deeper chronology and bibliography recovery"]
-    Gap --> Recovery
-```
-
-The 23-row difference is not automatically an error or a valid deletion; it is
-a review boundary that requires member-level explanation. Likewise, the lack
-of linked chronology is a source-recovery limitation, not permission to assign
-dates from nearby records or broad archaeological expectations.
-
-### Account For The 23-Row Difference
-
-The current normalized layer requires a coordinate to classify inside one of
-the four publication-country boundary geometries. All 23 captured rows absent
-from the normalized layer retain coordinates but do not satisfy that country
-membership predicate. The set includes records east or south of the four
-country scope, such as Troitski, Hedeby, Riga, and Stralsund, as well as island
-or edge cases such as Tjärnan, Syllöda, Otterböte, and Kastelholm.
-
-```mermaid
-flowchart LR
-    Capture["2,195 captured site identities"] --> Coordinates{"usable coordinates?"}
-    Coordinates -->|yes| Country{"inside one publication-country geometry?"}
-    Country -->|yes| Normalized["2,172 normalized Nordic points"]
-    Country -->|no| Outside["23 captured, non-member rows"]
-    Outside --> Audit["identity and coordinates retained for audit"]
-```
-
-The difference is therefore a scope-membership result in this snapshot, not
-deduplication and not evidence deletion. A future boundary or country-scope
-change must reevaluate those 23 identities; it must not silently append them
-or rewrite their coordinates. Report both captured and normalized totals
-whenever the distinction affects a coverage claim.
-
-### Read Absence At The Correct Boundary
-
-SEAD exposes several forms of “not present,” and they are not interchangeable.
-The boundary that produced the absence must travel with the interpretation.
-
-| Observation | What it establishes | What it does not establish |
-| --- | --- | --- |
-| no dating rows in the governed materialization | this snapshot cannot support a linked numeric chronology claim | the upstream SEAD database or the archaeological site has no dating evidence |
-| no bibliography rows in the governed materialization | this snapshot cannot provide record-level bibliography lineage | no publication discusses the site |
-| captured row absent from the normalized layer | the row did not meet the current four-country spatial membership rule | the source identity is invalid or was deduplicated |
-| normalized point absent from a selected map view | the current product or interaction did not display it | the point is absent from the normalized family population |
-| no nearby SEAD point under a declared radius | no admitted member met that spatial query | no archaeological evidence exists near the target place |
+The captured relations do not support either an eligible numeric envelope or
+a useful normalized period label. The site remains valid spatial context. A
+null time value means “not resolved under this contract,” not `0 BP`, “modern,”
+or “undated in the upstream database.”
 
 ```mermaid
 flowchart TD
-    Missing["apparently absent evidence"] --> Boundary{"where is it absent?"}
-    Boundary -->|capture| Materialization["not materialized in this snapshot"]
-    Boundary -->|normalization| Membership["outside current membership rule"]
-    Boundary -->|publication| Product["not admitted to this product"]
-    Boundary -->|interaction| View["not visible in current view"]
-    Materialization --> Claim["boundary-qualified absence claim"]
-    Membership --> Claim
-    Product --> Claim
-    View --> Claim
+    Relations["captured temporal relations"] --> Numeric{"eligible numeric bounds?"}
+    Numeric -->|yes| Timed["numeric interval and context"]
+    Numeric -->|no| Label{"source period label?"}
+    Label -->|yes| Context["contextual label only"]
+    Label -->|no| Unresolved["unresolved"]
+    Timed --> Slider["numeric timeline filtering"]
+    Context --> Reading["popup and source interpretation"]
+    Unresolved --> Reading
 ```
 
-This distinction is central to database curation. A governed thin capture is
-useful because it makes its selection boundary inspectable; it must not be
-described as though it exhaustively represents every relation in the upstream
-system.
+## How The Atlas Timeline Treats SEAD
 
-## Relationship To RAÄ
+At the full temporal extent, the atlas shows all admitted SEAD points. This is
+the honest overview of spatial coverage. Once a reader narrows the time
+window:
 
-SEAD provides wider environmental-archaeology context. RAÄ provides denser
-Sweden-specific registry context. Their records may overlap spatially, but the
-families have different coverage, source systems, and normalization semantics.
-They should be compared as complementary context rather than merged into a
-single archaeology truth set.
+1. numeric SEAD intervals remain visible only when they overlap the selected
+   window;
+2. label-only and unresolved sites are hidden because their overlap is
+   unknown; and
+3. restoring the full extent restores those contextual sites.
 
-## Choose SEAD For The Question
+This is different from declaring label-only or unresolved sites absent from
+the selected period. The interface is refusing a comparison it cannot make.
+Static layers such as boundaries are unaffected by this rule.
 
-| Question | Use | Retain with the claim |
-| --- | --- | --- |
-| Which environmental-archaeology sites are spatially near this feature? | normalized site points under a declared distance rule | SEAD member identity, distance, and inventory-only posture |
-| Were nearby records contemporaneous? | not from the current capture | linked dating or period evidence must first be recovered and reviewed |
-| Does a dense cluster represent greater past activity? | not directly | capture, investigation, preservation, and database-selection effects remain alternatives |
-| Where would deeper source recovery add the most value? | inventory, gap, and recovery-review surfaces together | the missing relation and the claim it would unlock |
+## Compare SEAD With LANDCLIM And AADR Carefully
 
-### Review A Refresh Against The Access Boundary
+All three families can appear on one numeric BP timeline, but their
+observation units remain different.
 
-SEAD refresh review first distinguishes a changed upstream inventory from a
-changed accessible projection. It then accounts for raw identities,
-normalization membership, the 23-row boundary, access-model changes, temporal
-eligibility, and published descendants. A member becoming accessible is not
-evidence that its missing chronology was recovered; access and scientific
-fitness are independent transitions with separate receipts.
+| Source family | Timed map unit | What interval overlap supports | What it does not support |
+| --- | --- | --- | --- |
+| SEAD | derived site envelope | a captured site chronology overlaps the selected window | every sample or event at the site is contemporaneous |
+| LANDCLIM | pollen site-sequence interval | the sequence covers part of the selected window | direct association with a nearby archaeological site |
+| AADR | dated human sample or governed locality descendant | the sample chronology overlaps the window | identity between a sample and a nearby site |
+
+Temporal overlap is therefore a candidate relation for investigation, not a
+join key. Keep source identity, spatial distance, interval basis, and
+observation unit with any cross-source statement.
+
+## The 23 Captured Non-Members
+
+The difference between 2,195 captured rows and 2,172 mapped points is a
+country-membership decision. The omitted rows retain source identities and
+coordinates but do not fall inside the four governed publication-country
+geometries. The set includes places east or south of the current scope and
+some island or boundary-edge cases.
+
+```mermaid
+flowchart LR
+    Capture["2,195 captured sites"] --> Coordinate{"inside a governed country geometry?"}
+    Coordinate -->|yes| Map["2,172 mapped features"]
+    Coordinate -->|no| Retained["23 retained non-members"]
+    Map --> Timed["497 numeric timeline members"]
+    Map --> Context["1,675 label-only or unresolved members"]
+```
+
+This is not deduplication or evidence deletion. A boundary or publication
+scope change must reevaluate the same 23 identities.
+
+## Appropriate Claims
+
+SEAD supports:
+
+- finding environmental-archaeology sites near a lake, pollen sequence, or
+  aDNA locality under a declared distance rule;
+- navigating the 497 mapped numeric site envelopes through BP time;
+- retaining relative-period language for human interpretation without
+  inventing numeric bounds;
+- identifying sites whose bibliography or deeper relational evidence merits
+  inspection; and
+- comparing regional evidence coverage while keeping capture and publication
+  denominators separate.
+
+SEAD does not by itself support:
+
+- treating proximity as direct association;
+- treating a site envelope as a sample or event date;
+- assigning dates to unresolved sites from neighbours or broad historical
+  expectations;
+- interpreting database density as past population or activity; or
+- merging SEAD and RAÄ into one archaeology truth set.
 
 ## Governing Surfaces
 
-- `data/sead/raw/nordic_sites.json` records the captured inventory;
-- `data/sead/normalized/nordic_environmental_sites.geojson` governs normalized
-  points;
-- `data/sead/review/access_model.json` records access posture;
-- `data/sead/review/evidence_legibility_review.json` records interpretability;
-- `data/sead/review/temporal_review.json` records temporal refusal;
-- `data/sead/review/recovery_requirements.json` records the evidence gaps,
-  required evidence, and satisfaction signals for stronger use.
+| Surface | Responsibility |
+| --- | --- |
+| `data/sead/raw/nordic_sites.json` | captured site rows, relational inventories, source counts, and acquisition lineage |
+| `data/sead/normalized/nordic_environmental_sites.geojson` | mapped features, temporal fields, popup evidence, and country membership |
+| `data/sead/review/temporal_review.json` | row-level comparison posture and capture denominators |
+| `data/sead/review/access_model.json` | mirrored versus upstream-only access boundary |
+| `data/sead/review/evidence_legibility_review.json` | interpretability and publication risk |
+| `data/sead/review/recovery_requirements.json` | remaining evidence gaps and their satisfaction signals |
+| `data/source_spatiotemporal_posture_registry.json` | cross-source summary of allowed spatial and temporal use |
 
-Together these files form a database-preparation receipt: captured population,
-normalized membership, access posture, temporal eligibility, interpretation
-risk, and the evidence required for stronger use remain independently
-inspectable.
-
-The [SEAD handbook](sead-handbook.md) expands the interpretation and
-collaboration context without changing these evidence limits.
+The [SEAD handbook](sead-handbook.md) provides a step-by-step reading method.
+The [SEAD exports guide](../publications/sead-exports.md) explains which
+artifact to use for analysis, review, and publication.

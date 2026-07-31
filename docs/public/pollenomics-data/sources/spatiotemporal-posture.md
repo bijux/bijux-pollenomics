@@ -4,7 +4,7 @@ audience: reader
 type: explanation
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-07-22
+last_reviewed: 2026-07-31
 ---
 
 # Spatiotemporal Posture
@@ -24,7 +24,7 @@ spatial role, temporal capability, ranking role, and current evidence basis.
 | --- | --- | --- | --- | --- |
 | LandClim | site sequences and model-grid context | numeric BP windows where present | chronology-aware pollen and landscape context | observed sites and model grids remain distinct |
 | Neotoma | palaeoecological site points | numeric site spans for a subset; uneven resolution | site-level pollen comparison where intervals overlap | missing intervals cannot be inferred from nearby sites |
-| SEAD | environmental-archaeology site inventory | no uniform numeric intervals in the current capture | broad archaeology context | not same-period support without record-level chronology |
+| SEAD | environmental-archaeology site inventory | numeric site envelopes for a subset; label-only and unresolved time retained | broad archaeology context with interval-aware filtering | only numeric members support overlap, and a site envelope is not a sample-event date |
 | RAÄ | Swedish registry points and density representation | no repository-wide uniform interval | Swedish spatial archaeology context | density and registry effort do not measure historical abundance |
 | SVAR | registered lake and water-body geometry | present-day registry state | candidate identity, containment, and distance | no historical chronology or sampling-feasibility claim |
 | boundaries | administrative polygons | no scientific temporal claim | clipping, containment, and scope | no independent evidential weight |

@@ -4,7 +4,7 @@ audience: reader
 type: explanation
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-07-22
+last_reviewed: 2026-07-31
 ---
 
 # RAÄ
@@ -115,7 +115,7 @@ contracts are visually similar, not necessarily quantitatively comparable.
 | --- | --- | --- |
 | reach | Sweden-specific | broader environmental-archaeology context |
 | current public geometry | coarse density cells | normalized site points |
-| temporal posture | density without uniform time | inventory points without captured numeric intervals |
+| temporal posture | density without uniform time | mixed site envelopes: numeric where linked chronology supports them, otherwise label-only or unresolved |
 | strongest use | Swedish registry-density context | wider site-centered archaeology context |
 | invalid shortcut | generalize Swedish density to the Nordic region | infer same-period evidence from undated proximity |
 
