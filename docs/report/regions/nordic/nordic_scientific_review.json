@@ -815,8 +815,8 @@
       "species_latin_name": "Homo sapiens",
       "context_layer_key": "sead-sites",
       "overlap_status": "locality_level_overlap_available",
-      "overlapping_direct_localities": 0,
-      "non_overlapping_direct_localities": 447,
+      "overlapping_direct_localities": 447,
+      "non_overlapping_direct_localities": 0,
       "noncomparable_records": 0,
       "rationale": "Human locality chronology can be compared directly with time-aware context points."
     },
@@ -1751,8 +1751,8 @@
       "species_latin_name": "Equus caballus",
       "context_layer_key": "sead-sites",
       "overlap_status": "mapped_locality_overlap_with_caution",
-      "overlapping_direct_localities": 0,
-      "non_overlapping_direct_localities": 2,
+      "overlapping_direct_localities": 2,
+      "non_overlapping_direct_localities": 0,
       "noncomparable_records": 0,
       "rationale": "Mapped animal locality leads can be compared with context layers, but only with their stated chronology and precision caveats."
     },

@@ -119,7 +119,7 @@
 | Homo sapiens | fieldwork-documentation | locality_level_overlap_available | 0 | 447 | 0 | Human locality chronology can be compared directly with time-aware context points. |
 | Homo sapiens | landclim-sites | locality_level_overlap_available | 447 | 0 | 0 | Human locality chronology can be compared directly with time-aware context points. |
 | Homo sapiens | neotoma-pollen | locality_level_overlap_available | 447 | 0 | 0 | Human locality chronology can be compared directly with time-aware context points. |
-| Homo sapiens | sead-sites | locality_level_overlap_available | 0 | 447 | 0 | Human locality chronology can be compared directly with time-aware context points. |
+| Homo sapiens | sead-sites | locality_level_overlap_available | 447 | 0 | 0 | Human locality chronology can be compared directly with time-aware context points. |
 | Homo sapiens | sweden-lake-10km-top40 | locality_level_overlap_available | 0 | 447 | 0 | Human locality chronology can be compared directly with time-aware context points. |
 | Homo sapiens | sweden-lake-20km-top40 | locality_level_overlap_available | 0 | 447 | 0 | Human locality chronology can be compared directly with time-aware context points. |
 | Homo sapiens | sweden-lake-30km-top40 | locality_level_overlap_available | 0 | 447 | 0 | Human locality chronology can be compared directly with time-aware context points. |
@@ -223,7 +223,7 @@
 | Equus caballus | fieldwork-documentation | mapped_locality_overlap_with_caution | 0 | 2 | 0 | Mapped animal locality leads can be compared with context layers, but only with their stated chronology and precision caveats. |
 | Equus caballus | landclim-sites | mapped_locality_overlap_with_caution | 2 | 0 | 0 | Mapped animal locality leads can be compared with context layers, but only with their stated chronology and precision caveats. |
 | Equus caballus | neotoma-pollen | mapped_locality_overlap_with_caution | 2 | 0 | 0 | Mapped animal locality leads can be compared with context layers, but only with their stated chronology and precision caveats. |
-| Equus caballus | sead-sites | mapped_locality_overlap_with_caution | 0 | 2 | 0 | Mapped animal locality leads can be compared with context layers, but only with their stated chronology and precision caveats. |
+| Equus caballus | sead-sites | mapped_locality_overlap_with_caution | 2 | 0 | 0 | Mapped animal locality leads can be compared with context layers, but only with their stated chronology and precision caveats. |
 | Equus caballus | sweden-lake-10km-top40 | mapped_locality_overlap_with_caution | 0 | 2 | 0 | Mapped animal locality leads can be compared with context layers, but only with their stated chronology and precision caveats. |
 | Equus caballus | sweden-lake-20km-top40 | mapped_locality_overlap_with_caution | 0 | 2 | 0 | Mapped animal locality leads can be compared with context layers, but only with their stated chronology and precision caveats. |
 | Equus caballus | sweden-lake-30km-top40 | mapped_locality_overlap_with_caution | 0 | 2 | 0 | Mapped animal locality leads can be compared with context layers, but only with their stated chronology and precision caveats. |

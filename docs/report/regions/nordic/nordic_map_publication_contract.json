@@ -152,7 +152,7 @@
       "scope_visibility": "shared_default",
       "default_enabled": false,
       "applies_country_filter": true,
-      "applies_time_filter": true,
+      "applies_time_filter": false,
       "scope_caveat": "This overlay is visible only in Nordic scope because its source family is still Nordic-specific."
     },
     {
@@ -165,7 +165,7 @@
       "scope_visibility": "shared_default",
       "default_enabled": false,
       "applies_country_filter": true,
-      "applies_time_filter": true,
+      "applies_time_filter": false,
       "scope_caveat": "This overlay is visible only in Nordic scope because its source family is still Nordic-specific."
     },
     {
@@ -178,7 +178,7 @@
       "scope_visibility": "shared_default",
       "default_enabled": false,
       "applies_country_filter": true,
-      "applies_time_filter": true,
+      "applies_time_filter": false,
       "scope_caveat": "This overlay is visible only in Nordic scope because its source family is still Nordic-specific."
     },
     {
@@ -191,7 +191,7 @@
       "scope_visibility": "shared_default",
       "default_enabled": false,
       "applies_country_filter": true,
-      "applies_time_filter": true,
+      "applies_time_filter": false,
       "scope_caveat": "This overlay is visible only in Nordic scope because its source family is still Nordic-specific."
     },
     {
@@ -204,7 +204,7 @@
       "scope_visibility": "shared_default",
       "default_enabled": false,
       "applies_country_filter": true,
-      "applies_time_filter": true,
+      "applies_time_filter": false,
       "scope_caveat": "This overlay is visible only in Nordic scope because its source family is still Nordic-specific."
     },
     {
@@ -217,7 +217,7 @@
       "scope_visibility": "shared_default",
       "default_enabled": false,
       "applies_country_filter": true,
-      "applies_time_filter": true,
+      "applies_time_filter": false,
       "scope_caveat": "This overlay is visible only in Nordic scope because its source family is still Nordic-specific."
     },
     {
@@ -230,7 +230,7 @@
       "scope_visibility": "shared_default",
       "default_enabled": false,
       "applies_country_filter": true,
-      "applies_time_filter": true,
+      "applies_time_filter": false,
       "scope_caveat": "This overlay is visible only in Nordic scope because its source family is still Nordic-specific."
     },
     {
@@ -243,7 +243,7 @@
       "scope_visibility": "shared_default",
       "default_enabled": false,
       "applies_country_filter": true,
-      "applies_time_filter": true,
+      "applies_time_filter": false,
       "scope_caveat": "This overlay is visible only in Nordic scope because its source family is still Nordic-specific."
     },
     {

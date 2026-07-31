@@ -1,6 +1,6 @@
 # Nordic Evidence Atlas
 
-This shared interactive map bundle was generated on `2026-06-28` from Homo
+This shared interactive map bundle was generated on `2026-08-01` from Homo
 sapiens AADR `v66` plus any governed contextual and animal surfaces that
 the active scope contract allows.
 
