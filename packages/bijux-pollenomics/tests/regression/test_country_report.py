@@ -1654,6 +1654,8 @@ class CountryReportTests(unittest.TestCase):
             self.assertIn("const TIME_HAS_DATA = true;", map_html)
             self.assertIn("const DEFAULT_TIME_START_BP = 100;", map_html)
             self.assertIn("const DEFAULT_TIME_INTERVAL_YEARS = 3100;", map_html)
+            self.assertIn('data-time-interval="5000">5000 years</button>', map_html)
+            self.assertIn('data-time-interval="50000">50000 years</button>', map_html)
             self.assertIn('data-time-interval="full">Full span</button>', map_html)
             self.assertIn(
                 "if (!featureWindow) return timeFilterUsesFullExtent();", map_html

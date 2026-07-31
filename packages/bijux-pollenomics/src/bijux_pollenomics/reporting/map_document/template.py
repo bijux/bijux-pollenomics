@@ -1564,6 +1564,9 @@ MAP_DOCUMENT_TEMPLATE = """
                     <button class="preset-button" type="button" data-time-interval="100">100 years</button>
                     <button class="preset-button" type="button" data-time-interval="500">500 years</button>
                     <button class="preset-button" type="button" data-time-interval="1000">1000 years</button>
+                    <button class="preset-button" type="button" data-time-interval="5000">5000 years</button>
+                    <button class="preset-button" type="button" data-time-interval="10000">10000 years</button>
+                    <button class="preset-button" type="button" data-time-interval="50000">50000 years</button>
                     <button class="preset-button is-active" type="button" data-time-interval="full">Full span</button>
                   </div>
                   <div id="time-record-count" class="search-meta">Calculating time-aware records in the active BP window.</div>
