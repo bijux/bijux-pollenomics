@@ -1872,6 +1872,9 @@ MAP_DOCUMENT_TEMPLATE = """
       function timeWindowEndBp() {
         return Math.min(TIME_MAX_BP, timeStartBp + timeIntervalYears);
       }
+      function timeFilterUsesFullExtent() {
+        return timeStartBp <= TIME_MIN_BP && timeWindowEndBp() >= TIME_MAX_BP;
+      }
       function refreshTimeControls() {
         if (!TIME_HAS_DATA) {
           timeStartSlider.disabled = true;
@@ -2475,7 +2478,7 @@ MAP_DOCUMENT_TEMPLATE = """
       function featureInTimeWindow(layer, feature) {
         if (!layer.applies_time_filter || !TIME_HAS_DATA) return true;
         const featureWindow = featureTimeWindow(feature);
-        if (!featureWindow) return true;
+        if (!featureWindow) return timeFilterUsesFullExtent();
         const activeWindow = { start: timeStartBp, end: timeWindowEndBp() };
         return featureWindow.end >= activeWindow.start && featureWindow.start <= activeWindow.end;
       }

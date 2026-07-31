@@ -1655,6 +1655,9 @@ class CountryReportTests(unittest.TestCase):
             self.assertIn("const DEFAULT_TIME_START_BP = 100;", map_html)
             self.assertIn("const DEFAULT_TIME_INTERVAL_YEARS = 3100;", map_html)
             self.assertIn('data-time-interval="full">Full span</button>', map_html)
+            self.assertIn(
+                "if (!featureWindow) return timeFilterUsesFullExtent();", map_html
+            )
 
     def test_generate_multi_country_map_handles_empty_aadr_selection(self) -> None:
         with tempfile.TemporaryDirectory() as tmp:

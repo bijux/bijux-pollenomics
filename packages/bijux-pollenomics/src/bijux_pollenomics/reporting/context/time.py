@@ -70,16 +70,14 @@ def feature_time_payload(properties: JsonObject) -> dict[str, object]:
 
 
 def feature_has_time(feature: JsonObject) -> bool:
-    """Return whether a point or polygon feature carries temporal metadata."""
+    """Return whether a feature can participate in numeric timeline filtering."""
     payload = feature_time_payload(feature)
     return any(
-        payload.get(key) not in (None, "")
+        payload.get(key) is not None
         for key in (
             "time_start_bp",
             "time_end_bp",
             "time_mean_bp",
-            "time_label",
-            "temporal_window_key",
         )
     )
 

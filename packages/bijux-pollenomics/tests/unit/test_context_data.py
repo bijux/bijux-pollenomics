@@ -648,6 +648,78 @@ class ContextDataTests(unittest.TestCase):
             "Recent and historical (0-1000 BP)",
         )
 
+    def test_external_point_layers_do_not_treat_context_labels_as_numeric_time(
+        self,
+    ) -> None:
+        layer = build_external_point_layer(
+            {
+                "type": "FeatureCollection",
+                "features": [
+                    {
+                        "type": "Feature",
+                        "geometry": {"type": "Point", "coordinates": [17.0, 59.0]},
+                        "properties": {
+                            "layer_key": "sead-sites",
+                            "layer_label": "SEAD environmental sites",
+                            "country": "Sweden",
+                            "name": "Undated site",
+                            "category": "Environmental archive",
+                            "time_label": "Relative chronology available",
+                            "temporal_semantics": {
+                                "comparability_posture": "context_only",
+                                "temporal_window_key": "unresolved",
+                                "temporal_window_label": "Unresolved",
+                            },
+                        },
+                    }
+                ],
+            }
+        )
+
+        self.assertFalse(layer["applies_time_filter"])
+
+    def test_external_point_layers_enable_time_filter_for_mixed_sead_chronology(
+        self,
+    ) -> None:
+        layer = build_external_point_layer(
+            {
+                "type": "FeatureCollection",
+                "features": [
+                    {
+                        "type": "Feature",
+                        "geometry": {"type": "Point", "coordinates": [17.0, 59.0]},
+                        "properties": {
+                            "layer_key": "sead-sites",
+                            "layer_label": "SEAD environmental sites",
+                            "country": "Sweden",
+                            "name": "Dated site",
+                            "category": "Environmental archive",
+                            "time_start_bp": 1200,
+                            "time_end_bp": 1800,
+                        },
+                    },
+                    {
+                        "type": "Feature",
+                        "geometry": {"type": "Point", "coordinates": [18.0, 60.0]},
+                        "properties": {
+                            "layer_key": "sead-sites",
+                            "layer_label": "SEAD environmental sites",
+                            "country": "Sweden",
+                            "name": "Undated site",
+                            "category": "Environmental archive",
+                            "temporal_semantics": {
+                                "comparability_posture": "unresolved",
+                                "temporal_window_key": "unresolved",
+                                "temporal_window_label": "Unresolved",
+                            },
+                        },
+                    },
+                ],
+            }
+        )
+
+        self.assertTrue(layer["applies_time_filter"])
+
     def test_external_polygon_layers_enable_time_filter_when_temporal_properties_exist(
         self,
     ) -> None:
