@@ -225,7 +225,18 @@ class CliTests(unittest.TestCase):
             )
 
             stdout = io.StringIO()
-            with contextlib.redirect_stdout(stdout):
+            context_root = Path(tmp) / "data"
+            with (
+                patch(
+                    "bijux_pollenomics.command_line.runtime.handlers.generate_country_report",
+                    return_value=SimpleNamespace(
+                        country="Sweden",
+                        version=DEFAULT_AADR_VERSION,
+                        total_unique_samples=1,
+                    ),
+                ) as generate_country_report,
+                contextlib.redirect_stdout(stdout),
+            ):
                 exit_code = main(
                     [
                         "report-country",
@@ -234,17 +245,20 @@ class CliTests(unittest.TestCase):
                         str(Path(tmp) / "data" / "aadr"),
                         "--output-root",
                         str(Path(tmp) / "docs" / "report"),
+                        "--context-root",
+                        str(context_root),
                     ]
                 )
 
             bundle_root = Path(tmp) / "docs" / "report" / "sweden"
             self.assertEqual(exit_code, 0)
             self.assertIn("1 unique samples", stdout.getvalue())
-            self.assertTrue((bundle_root / "README.md").exists())
-            self.assertTrue(
-                (
-                    bundle_root / f"sweden_aadr_{DEFAULT_AADR_VERSION}_summary.json"
-                ).exists()
+            generate_country_report.assert_called_once_with(
+                version_dir=Path(tmp) / "data" / "aadr" / DEFAULT_AADR_VERSION,
+                country="Sweden",
+                output_dir=bundle_root,
+                map_reference=None,
+                context_root=context_root,
             )
 
     def test_report_multi_country_map_command_writes_atlas_bundle(self) -> None:

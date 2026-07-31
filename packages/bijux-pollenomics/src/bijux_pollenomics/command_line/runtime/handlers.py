@@ -300,6 +300,7 @@ def run_report_country(
         country=args.country,
         output_dir=output_dir,
         map_reference=map_reference,
+        context_root=args.context_root,
     )
     print(
         f"Wrote {report.country} Homo sapiens aDNA {report.version} report with "

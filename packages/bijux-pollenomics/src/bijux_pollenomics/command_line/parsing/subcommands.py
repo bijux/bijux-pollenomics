@@ -338,6 +338,7 @@ def build_report_country_parser(
         parser,
         help_text="Directory where country report folders should be written. Default: docs/report",
     )
+    add_context_root_argument(parser)
     parser.add_argument(
         "--shared-map-label",
         default=None,
