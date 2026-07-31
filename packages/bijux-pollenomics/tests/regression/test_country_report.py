@@ -843,6 +843,14 @@ class CountryReportTests(unittest.TestCase):
 
             map_html = (output / "nordic-atlas_map.html").read_text(encoding="utf-8")
             readme_text = (output / "README.md").read_text(encoding="utf-8")
+            candidate_csv_bytes = (
+                output / "nordic-atlas_candidate_sites.csv"
+            ).read_bytes()
+            point_traceability_text = (
+                output / "nordic-atlas_point_traceability.md"
+            ).read_text(encoding="utf-8")
+            self.assertNotIn(b"\r\n", candidate_csv_bytes)
+            self.assertNotIn(" \n", point_traceability_text)
             self.assertIn("Country Filters", map_html)
             self.assertIn("country-checkbox", map_html)
             self.assertIn("Sweden", map_html)

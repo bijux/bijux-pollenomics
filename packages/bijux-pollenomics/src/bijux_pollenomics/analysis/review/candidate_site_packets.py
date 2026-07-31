@@ -28,6 +28,7 @@ def write_candidate_sites_csv(path: Path, scores: list[CandidateSiteScore]) -> N
     with path.open("w", encoding="utf-8", newline="") as handle:
         writer = csv.DictWriter(
             handle,
+            lineterminator="\n",
             fieldnames=[
                 "locality",
                 "locality_token",

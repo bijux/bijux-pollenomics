@@ -410,7 +410,7 @@ for deeper source-family review files.
 
 - Scope key: `{payload["scope_key"]}`
 - Visible point rows: `{payload["row_count"]}`
-- Visible point layers: `{len(payload["layer_counts"])}` 
+- Visible point layers: `{len(payload["layer_counts"])}`
 
 ## Example Rows
 
