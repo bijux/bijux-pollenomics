@@ -2,22 +2,22 @@
 
 This report ranks Sweden lake candidates by the richness of tracked pollen, archaeology, human aDNA, and domesticated-animal aDNA evidence around each lake. The ranking keeps lake identity diagnostics visible so duplicate names and registry naming cautions are not hidden inside one synthetic lake label.
 
-Coordinates resolve to representative points drawn from official SMHI SVAR lake polygons, so map checks land on the lake itself rather than on a synthetic centroid or on one supporting pollen record.
+Coordinates resolve to one representative source-backed point per lake candidate so map checks land on a published source point rather than a synthetic centroid.
 
 ## Methodology
 
-- Candidate derivation: Candidates come from the Sweden lake registry published through SMHI SVAR. Each candidate uses a representative point derived from the official lake polygon instead of a pollen-point centroid. Only lakes with at least one human aDNA locality within 50 km remain in the ranked set. Registry names that clearly describe engineered water bodies or wetlands instead of sampling lakes are kept out of the shortlist.
+- Candidate derivation: Candidates come from Sweden-scoped Neotoma and LandClim pollen points whose names or site descriptions identify lake-like basins. Points merge only when their cleaned lake names match and their coordinates stay within 2 km, so nearby but differently named lakes remain distinct. Each candidate keeps one source-backed representative coordinate chosen from the supporting points instead of a synthetic arithmetic centroid. Duplicate names, coordinate spread, and source position notes remain explicit as ambiguity diagnostics.
 - Distance bands: 10 km, 20 km, 30 km, 40 km, 50 km
-- Identity diagnostics: duplicate Sweden lake names stay explicit, and registry names that do not come from the official register field remain flagged for review
-- Coordinate targeting: each lake keeps one representative point derived from the official lake polygon, with registry identifiers and name status carried into the CSV, JSON, and map popups
-- Human aDNA weighting: human aDNA contributes 0.59 of each band score, direct pollen contributes 0.14, nearby pollen contributes 0.07, and archaeology contributes 0.07
-- Ranking decision rule: Aggregate and band ranks sort first by human aDNA locality and sample coverage, then by direct pollen support, then by broader pollen and archaeology context, with sampling fit and blended score used as later tie-breakers.
-- Temporal alignment rule: Neotoma pollen and SEAD archaeology remain lake-anchored context layers, but their stronger chronology contribution comes only from records with numeric BP intervals that overlap nearby human locality windows.
-- Source temporal coverage: Neotoma 81/99 numeric-interval records (BP site spans available; chronology rows absent in checked-in raw capture; use Neotoma to compare pollen context around lakes; only promote it into chronology-aware support when a numeric interval is actually present.), LandClim 190/198 numeric-interval records (Checked-in LandClim sequence points carry numeric BP windows in the normalized repository layer.), SEAD 0/2007 numeric-interval records (site inventory only in checked-in raw capture; use SEAD to measure archaeology context around lakes; do not treat it as same-period support unless numeric intervals are explicitly present.)
-- Sampling note: Lake suitability remains separate from evidence density. Very small basins stay visible but score lower, while registry names that clearly point to wetlands, pits, ponds, or engineered water bodies do not enter the ranked shortlist.
-- Archaeology note: SEAD contributes site-level point counts and gains stronger weight when those site spans are numerically comparable and overlap nearby human locality windows. RAÄ contributes coarse density cells, so the archaeology term still measures surrounding evidence richness rather than exact site-to-lake proximity.
-- Pollen note: Direct pollen signal reflects lake-basin pollen records placed on or very near the official lake. Nearby pollen signal then adds broader pollen context within the active distance band, with extra credit when those pollen records carry comparable chronology that overlaps nearby human localities.
-- Animal note: Domesticated animal aDNA remains a secondary contextual signal. Human aDNA is the decisive ranking term, direct pollen is the next tie-break, and archaeology resolves ties among similarly sampled lakes.
+- Identity diagnostics: cleaned-name matching within 2.0 km, coordinate-spread flag at 0.75 km, and explicit source-position notes when raw source notes say the lake position is uncertain
+- Coordinate targeting: each lake keeps one representative source-backed point chosen from its supporting pollen records using the method recorded in the registry CSV and JSON payload
+- Human aDNA weighting: human aDNA contributes 0.20 of each band score, direct pollen contributes 0.20, nearby pollen contributes 0.10, and archaeology contributes 0.25
+- Ranking decision rule: aggregate and band ranks use one blended score without an explicit decision chain
+- Temporal alignment rule: time-aware chronology remains visible where available, but the ranking does not currently promote chronology overlap as a separate rule
+- Source temporal coverage: Neotoma 81/99 numeric-interval records (BP site spans available; chronology rows absent in checked-in raw capture; use Neotoma to compare pollen context around lakes; only promote it into chronology-aware support when a numeric interval is actually present.), LandClim 190/198 numeric-interval records (Checked-in LandClim sequence points carry numeric BP windows in the normalized repository layer.), SEAD 370/2007 numeric-interval records (partial chronology coverage)
+
+- Archaeology note: SEAD contributes site-level point counts. RAÄ contributes coarse 1-degree density cells, so the RAÄ term captures archaeology richness around the lake rather than precise site-by-site distance.
+- Pollen note: Direct pollen signal reflects the quality of the lake-linked pollen records rather than a synthetic lake average.
+- Animal note: Domesticated animal aDNA remains sparse in the current Sweden bundle. The ranking keeps that sparsity visible instead of inflating it.
 
 ## Interpretation guardrails
 
@@ -29,198 +29,198 @@ Coordinates resolve to representative points drawn from official SMHI SVAR lake 
 
 | Rank | Lake | Coordinates | Lake registry id | Name status | Aggregate score | Top-20 scenario presence | Identity diagnostics | Pollen sources | Human localities within 20 km | SEAD sites within 20 km | Domesticated animal localities within 50 km |
 | ---: | --- | --- | --- | --- | ---: | ---: | --- | --- | ---: | ---: | ---: |
-| 1 | Bergsjön (58.201093, 13.484551) | [58.201093, 13.484551](https://www.google.com/maps/search/?api=1&query=58.201093,13.484551) | 645548-136373 | water_surface_name | 0.5947 | 4/7 | duplicate_sweden_name | none | 9 | 15 | 0 |
-| 2 | Hulesjön | [58.154892, 13.530245](https://www.google.com/maps/search/?api=1&query=58.154892,13.530245) | 645008-136594 | water_surface_name | 0.5875 | 3/7 | none | none | 9 | 15 | 0 |
-| 3 | Sjötorpasjön (58.141960, 13.460319) | [58.141960, 13.460319](https://www.google.com/maps/search/?api=1&query=58.141960,13.460319) | 644831-136156 | water_surface_name | 0.5862 | 7/7 | duplicate_sweden_name | none | 9 | 15 | 0 |
-| 4 | Hornborgasjön | [58.317269, 13.549447](https://www.google.com/maps/search/?api=1&query=58.317269,13.549447) | 646918-136677 | water_surface_name | 0.5037 | 6/7 | none | none | 11 | 19 | 0 |
-| 5 | Skårsjön (58.191521, 13.409040) | [58.191521, 13.409040](https://www.google.com/maps/search/?api=1&query=58.191521,13.409040) | 645452-135906 | water_surface_name | 0.4818 | 3/7 | duplicate_sweden_name | none | 9 | 15 | 0 |
-| 6 | Rösjön (58.256624, 13.380976) | [58.256624, 13.380976](https://www.google.com/maps/search/?api=1&query=58.256624,13.380976) | 646105-135775 | water_surface_name | 0.4651 | 6/7 | duplicate_sweden_name | none | 10 | 13 | 0 |
-| 7 | Bjärsjön | [58.334534, 13.656520](https://www.google.com/maps/search/?api=1&query=58.334534,13.656520) | 646994-137366 | water_surface_name | 0.4573 | 6/7 | none | neotoma-pollen | 5 | 15 | 0 |
-| 8 | Tresjö | [58.306216, 13.507129](https://www.google.com/maps/search/?api=1&query=58.306216,13.507129) | 646727-136543 | water_surface_name | 0.4433 | 3/7 | none | none | 11 | 19 | 0 |
-| 9 | Vartoftasjön | [58.086896, 13.669730](https://www.google.com/maps/search/?api=1&query=58.086896,13.669730) | 644206-137422 | water_surface_name | 0.4186 | 4/7 | none | none | 9 | 15 | 0 |
-| 10 | Alasjön | [59.686908, 17.722590](https://www.google.com/maps/search/?api=1&query=59.686908,17.722590) | 661929-160809 | water_surface_name | 0.4053 | 4/7 | none | none | 10 | 37 | 1 |
-| 11 | Ullstorpasjön | [58.220133, 13.269162](https://www.google.com/maps/search/?api=1&query=58.220133,13.269162) | 645824-135079 | water_surface_name | 0.3983 | 4/7 | none | none | 7 | 10 | 0 |
-| 12 | Häckebergasjön | [55.577162, 13.422814](https://www.google.com/maps/search/?api=1&query=55.577162,13.422814) | 616410-134992 | water_surface_name | 0.3859 | 3/7 | none | landclim-sites, neotoma-pollen | 1 | 37 | 0 |
-| 13 | Stora Eketången | [58.213563, 13.255281](https://www.google.com/maps/search/?api=1&query=58.213563,13.255281) | 645713-135007 | water_surface_name | 0.3816 | 3/7 | none | none | 7 | 9 | 0 |
-| 14 | Lejondalssjön | [59.541673, 17.687602](https://www.google.com/maps/search/?api=1&query=59.541673,17.687602) | 660523-160785 | water_surface_name | 0.3767 | 3/7 | none | none | 8 | 26 | 1 |
-| 15 | Vagnsjön (58.405652, 13.628989) | [58.405652, 13.628989](https://www.google.com/maps/search/?api=1&query=58.405652,13.628989) | 647762-137280 | water_surface_name | 0.3725 | 4/7 | duplicate_sweden_name | none | 2 | 17 | 0 |
-| 16 | Ormsjön (58.410093, 13.645479) | [58.410093, 13.645479](https://www.google.com/maps/search/?api=1&query=58.410093,13.645479) | 647841-137343 | water_surface_name | 0.3725 | 5/7 | duplicate_sweden_name | none | 2 | 15 | 0 |
-| 17 | Husgärdessjön | [58.393140, 13.605399](https://www.google.com/maps/search/?api=1&query=58.393140,13.605399) | 647609-137150 | water_surface_name | 0.3711 | 4/7 | none | none | 2 | 17 | 0 |
-| 18 | Bysjön (58.405310, 13.608083) | [58.405310, 13.608083](https://www.google.com/maps/search/?api=1&query=58.405310,13.608083) | 647753-137164 | water_surface_name | 0.3710 | 5/7 | duplicate_sweden_name | none | 2 | 17 | 0 |
-| 19 | Ökullasjön | [58.389091, 13.617191](https://www.google.com/maps/search/?api=1&query=58.389091,13.617191) | 647620-137198 | water_surface_name | 0.3710 | 4/7 | none | none | 2 | 16 | 0 |
-| 20 | Vingasjön | [58.381062, 13.582006](https://www.google.com/maps/search/?api=1&query=58.381062,13.582006) | 647484-137007 | water_surface_name | 0.3704 | 4/7 | none | none | 2 | 16 | 0 |
+| 1 | Bjäresjösjön (55.459167, 13.751944) | [55.459167, 13.751944](https://www.google.com/maps/search/?api=1&query=55.459167,13.751944) | not_available | not_available | 0.4721 | 7/7 | source_coordinate_spread | landclim-sites, neotoma-pollen | 2 | 42 | 0 |
+| 2 | Bjärsjöholmssjön (55.454444, 13.766389) | [55.454444, 13.766389](https://www.google.com/maps/search/?api=1&query=55.454444,13.766389) | not_available | not_available | 0.4718 | 7/7 | source_coordinate_spread | landclim-sites, neotoma-pollen | 2 | 42 | 0 |
+| 3 | Krageholmssjön | [55.500000, 13.733333](https://www.google.com/maps/search/?api=1&query=55.500000,13.733333) | not_available | not_available | 0.4605 | 7/7 | none | landclim-sites, neotoma-pollen | 1 | 37 | 0 |
+| 4 | Bussjösjön | [55.466667, 13.816667](https://www.google.com/maps/search/?api=1&query=55.466667,13.816667) | not_available | not_available | 0.4586 | 7/7 | none | landclim-sites, neotoma-pollen | 1 | 38 | 0 |
+| 5 | Bökesjön | [55.575556, 13.437500](https://www.google.com/maps/search/?api=1&query=55.575556,13.437500) | not_available | not_available | 0.4362 | 7/7 | none | landclim-sites, neotoma-pollen | 0 | 38 | 0 |
+| 6 | Bjärsjon | [58.334560, 13.656065](https://www.google.com/maps/search/?api=1&query=58.334560,13.656065) | not_available | not_available | 0.4254 | 7/7 | none | neotoma-pollen | 5 | 15 | 0 |
+| 7 | Åsbotorpsjön | [58.409810, 13.819960](https://www.google.com/maps/search/?api=1&query=58.409810,13.819960) | not_available | not_available | 0.3392 | 6/7 | none | neotoma-pollen | 2 | 4 | 0 |
+| 8 | Avegöl | [57.683333, 14.500000](https://www.google.com/maps/search/?api=1&query=57.683333,14.500000) | not_available | not_available | 0.3224 | 6/7 | none | landclim-sites, neotoma-pollen | 0 | 5 | 0 |
+| 9 | Flarken (58.556790, 13.673190) | [58.556790, 13.673190](https://www.google.com/maps/search/?api=1&query=58.556790,13.673190) | not_available | not_available | 0.3222 | 5/7 | duplicate_sweden_name | neotoma-pollen | 2 | 18 | 0 |
+| 10 | Flinkasjön | [56.250000, 13.250000](https://www.google.com/maps/search/?api=1&query=56.250000,13.250000) | not_available | not_available | 0.3194 | 6/7 | none | landclim-sites, neotoma-pollen | 0 | 7 | 0 |
+| 11 | Sigvalde Träsk | [57.342480, 18.525960](https://www.google.com/maps/search/?api=1&query=57.342480,18.525960) | not_available | not_available | 0.3173 | 6/7 | none | neotoma-pollen | 4 | 23 | 0 |
+| 12 | Värsjö Utmark | [56.316667, 13.433333](https://www.google.com/maps/search/?api=1&query=56.316667,13.433333) | not_available | not_available | 0.3171 | 6/7 | none | landclim-sites, neotoma-pollen | 0 | 7 | 0 |
+| 13 | Trummen | [56.866667, 14.833333](https://www.google.com/maps/search/?api=1&query=56.866667,14.833333) | not_available | not_available | 0.3100 | 5/7 | none | landclim-sites, neotoma-pollen | 0 | 8 | 0 |
+| 14 | Holtjärnen | [60.650000, 14.916667](https://www.google.com/maps/search/?api=1&query=60.650000,14.916667) | not_available | not_available | 0.3080 | 5/7 | none | landclim-sites, neotoma-pollen | 0 | 25 | 0 |
+| 15 | Sambösjön (57.133333, 12.416667) | [57.133333, 12.416667](https://www.google.com/maps/search/?api=1&query=57.133333,12.416667) | not_available | not_available | 0.3066 | 4/7 | duplicate_sweden_name | landclim-sites | 0 | 10 | 0 |
+| 16 | Flarken (58.583333, 13.666667) | [58.583333, 13.666667](https://www.google.com/maps/search/?api=1&query=58.583333,13.666667) | not_available | not_available | 0.3066 | 5/7 | duplicate_sweden_name | landclim-sites | 0 | 18 | 0 |
+| 17 | Kansjön (57.633333, 14.533333) | [57.633333, 14.533333](https://www.google.com/maps/search/?api=1&query=57.633333,14.533333) | not_available | not_available | 0.3059 | 5/7 | source_coordinate_spread, source_name_variants | landclim-sites, neotoma-pollen | 0 | 3 | 0 |
+| 18 | Storasjö (56.933333, 15.266667) | [56.933333, 15.266667](https://www.google.com/maps/search/?api=1&query=56.933333,15.266667) | not_available | not_available | 0.3033 | 4/7 | duplicate_sweden_name | landclim-sites, neotoma-pollen | 0 | 5 | 0 |
+| 19 | Färskesjön (56.166667, 15.866667) | [56.166667, 15.866667](https://www.google.com/maps/search/?api=1&query=56.166667,15.866667) | not_available | not_available | 0.3030 | 4/7 | source_coordinate_spread | landclim-sites, neotoma-pollen | 0 | 9 | 0 |
+| 20 | Lillsjön (57.083330, 12.533330) | [57.083330, 12.533330](https://www.google.com/maps/search/?api=1&query=57.083330,12.533330) | not_available | not_available | 0.3011 | 4/7 | duplicate_sweden_name | neotoma-pollen | 0 | 19 | 0 |
 
 ## Scenario Consensus
 
 | Consensus rank | Lake | Coordinates | Lake registry id | Name status | Top-20 scenario presence | Best scenario rank | Mean scenario rank | Aggregate rank | Coordinate method |
 | ---: | --- | --- | --- | --- | ---: | ---: | ---: | ---: | --- |
-| 1 | Sjötorpasjön (58.141960, 13.460319) | [58.141960, 13.460319](https://www.google.com/maps/search/?api=1&query=58.141960,13.460319) | 644831-136156 | water_surface_name | 7/7 | 1 | 4.71 | 3 | svar_polygon_representative_point |
-| 2 | Bjärsjön | [58.334534, 13.656520](https://www.google.com/maps/search/?api=1&query=58.334534,13.656520) | 646994-137366 | water_surface_name | 6/7 | 1 | 6.67 | 7 | svar_polygon_representative_point |
-| 3 | Hornborgasjön | [58.317269, 13.549447](https://www.google.com/maps/search/?api=1&query=58.317269,13.549447) | 646918-136677 | water_surface_name | 6/7 | 1 | 8.14 | 4 | svar_polygon_representative_point |
-| 4 | Rösjön (58.256624, 13.380976) | [58.256624, 13.380976](https://www.google.com/maps/search/?api=1&query=58.256624,13.380976) | 646105-135775 | water_surface_name | 6/7 | 3 | 11.29 | 6 | svar_polygon_representative_point |
-| 5 | Bysjön (58.405310, 13.608083) | [58.405310, 13.608083](https://www.google.com/maps/search/?api=1&query=58.405310,13.608083) | 647753-137164 | water_surface_name | 5/7 | 7 | 27.29 | 18 | svar_polygon_representative_point |
-| 6 | Ormsjön (58.410093, 13.645479) | [58.410093, 13.645479](https://www.google.com/maps/search/?api=1&query=58.410093,13.645479) | 647841-137343 | water_surface_name | 5/7 | 11 | 27.71 | 16 | svar_polygon_representative_point |
-| 7 | Bergsjön (58.201093, 13.484551) | [58.201093, 13.484551](https://www.google.com/maps/search/?api=1&query=58.201093,13.484551) | 645548-136373 | water_surface_name | 4/7 | 1 | 20.33 | 1 | svar_polygon_representative_point |
-| 8 | Vartoftasjön | [58.086896, 13.669730](https://www.google.com/maps/search/?api=1&query=58.086896,13.669730) | 644206-137422 | water_surface_name | 4/7 | 5 | 23.57 | 9 | svar_polygon_representative_point |
-| 9 | Simsjön (58.355667, 13.782031) | [58.355667, 13.782031](https://www.google.com/maps/search/?api=1&query=58.355667,13.782031) | 647133-138139 | water_surface_name | 4/7 | 2 | 25.29 | 21 | svar_polygon_representative_point |
-| 10 | Husgärdessjön | [58.393140, 13.605399](https://www.google.com/maps/search/?api=1&query=58.393140,13.605399) | 647609-137150 | water_surface_name | 4/7 | 8 | 27.00 | 17 | svar_polygon_representative_point |
-| 11 | Vagnsjön (58.405652, 13.628989) | [58.405652, 13.628989](https://www.google.com/maps/search/?api=1&query=58.405652,13.628989) | 647762-137280 | water_surface_name | 4/7 | 10 | 27.43 | 15 | svar_polygon_representative_point |
-| 12 | Vingasjön | [58.381062, 13.582006](https://www.google.com/maps/search/?api=1&query=58.381062,13.582006) | 647484-137007 | water_surface_name | 4/7 | 6 | 27.86 | 20 | svar_polygon_representative_point |
-| 13 | Ökullasjön | [58.389091, 13.617191](https://www.google.com/maps/search/?api=1&query=58.389091,13.617191) | 647620-137198 | water_surface_name | 4/7 | 9 | 29.00 | 19 | svar_polygon_representative_point |
-| 14 | Ullstorpasjön | [58.220133, 13.269162](https://www.google.com/maps/search/?api=1&query=58.220133,13.269162) | 645824-135079 | water_surface_name | 4/7 | 7 | 40.00 | 11 | svar_polygon_representative_point |
-| 15 | Alasjön | [59.686908, 17.722590](https://www.google.com/maps/search/?api=1&query=59.686908,17.722590) | 661929-160809 | water_surface_name | 4/7 | 4 | 71.86 | 10 | svar_polygon_representative_point |
-| 16 | Hulesjön | [58.154892, 13.530245](https://www.google.com/maps/search/?api=1&query=58.154892,13.530245) | 645008-136594 | water_surface_name | 3/7 | 1 | 21.67 | 2 | svar_polygon_representative_point |
-| 17 | Häckebergasjön | [55.577162, 13.422814](https://www.google.com/maps/search/?api=1&query=55.577162,13.422814) | 616410-134992 | water_surface_name | 3/7 | 10 | 27.67 | 12 | svar_polygon_representative_point |
-| 18 | Skårsjön (58.191521, 13.409040) | [58.191521, 13.409040](https://www.google.com/maps/search/?api=1&query=58.191521,13.409040) | 645452-135906 | water_surface_name | 3/7 | 5 | 29.50 | 5 | svar_polygon_representative_point |
-| 19 | Skärvalången | [58.420796, 13.646123](https://www.google.com/maps/search/?api=1&query=58.420796,13.646123) | 647843-137307 | water_surface_name | 3/7 | 5 | 34.83 | 29 | svar_polygon_representative_point |
-| 20 | Ämten (58.435871, 13.664187) | [58.435871, 13.664187](https://www.google.com/maps/search/?api=1&query=58.435871,13.664187) | 648138-137420 | water_surface_name | 3/7 | 6 | 48.00 | 39 | svar_polygon_representative_point |
+| 1 | Bjäresjösjön (55.459167, 13.751944) | [55.459167, 13.751944](https://www.google.com/maps/search/?api=1&query=55.459167,13.751944) | not_available | not_available | 7/7 | 1 | 2.57 | 1 | source_coordinate_medoid |
+| 2 | Bjärsjöholmssjön (55.454444, 13.766389) | [55.454444, 13.766389](https://www.google.com/maps/search/?api=1&query=55.454444,13.766389) | not_available | not_available | 7/7 | 1 | 3.29 | 2 | source_coordinate_medoid |
+| 3 | Krageholmssjön | [55.500000, 13.733333](https://www.google.com/maps/search/?api=1&query=55.500000,13.733333) | not_available | not_available | 7/7 | 2 | 4.14 | 3 | source_coordinate_medoid |
+| 4 | Bussjösjön | [55.466667, 13.816667](https://www.google.com/maps/search/?api=1&query=55.466667,13.816667) | not_available | not_available | 7/7 | 3 | 4.71 | 4 | source_coordinate_medoid |
+| 5 | Bjärsjon | [58.334560, 13.656065](https://www.google.com/maps/search/?api=1&query=58.334560,13.656065) | not_available | not_available | 7/7 | 1 | 5.00 | 6 | shared_source_coordinate |
+| 6 | Bökesjön | [55.575556, 13.437500](https://www.google.com/maps/search/?api=1&query=55.575556,13.437500) | not_available | not_available | 7/7 | 1 | 6.00 | 5 | source_coordinate_medoid |
+| 7 | Sigvalde Träsk | [57.342480, 18.525960](https://www.google.com/maps/search/?api=1&query=57.342480,18.525960) | not_available | not_available | 6/7 | 2 | 12.29 | 11 | shared_source_coordinate |
+| 8 | Avegöl | [57.683333, 14.500000](https://www.google.com/maps/search/?api=1&query=57.683333,14.500000) | not_available | not_available | 6/7 | 8 | 12.33 | 8 | source_coordinate_medoid |
+| 9 | Flinkasjön | [56.250000, 13.250000](https://www.google.com/maps/search/?api=1&query=56.250000,13.250000) | not_available | not_available | 6/7 | 10 | 12.33 | 10 | source_coordinate_medoid |
+| 10 | Värsjö Utmark | [56.316667, 13.433333](https://www.google.com/maps/search/?api=1&query=56.316667,13.433333) | not_available | not_available | 6/7 | 7 | 13.33 | 12 | source_coordinate_medoid |
+| 11 | Åsbotorpsjön | [58.409810, 13.819960](https://www.google.com/maps/search/?api=1&query=58.409810,13.819960) | not_available | not_available | 6/7 | 2 | 14.29 | 7 | shared_source_coordinate |
+| 12 | Trummen | [56.866667, 14.833333](https://www.google.com/maps/search/?api=1&query=56.866667,14.833333) | not_available | not_available | 5/7 | 10 | 15.33 | 13 | source_coordinate_medoid |
+| 13 | Holtjärnen | [60.650000, 14.916667](https://www.google.com/maps/search/?api=1&query=60.650000,14.916667) | not_available | not_available | 5/7 | 10 | 16.00 | 14 | source_coordinate_medoid |
+| 14 | Flarken (58.556790, 13.673190) | [58.556790, 13.673190](https://www.google.com/maps/search/?api=1&query=58.556790,13.673190) | not_available | not_available | 5/7 | 6 | 16.71 | 9 | shared_source_coordinate |
+| 15 | Kansjön (57.633333, 14.533333) | [57.633333, 14.533333](https://www.google.com/maps/search/?api=1&query=57.633333,14.533333) | not_available | not_available | 5/7 | 12 | 17.83 | 17 | source_coordinate_medoid |
+| 16 | Flarken (58.583333, 13.666667) | [58.583333, 13.666667](https://www.google.com/maps/search/?api=1&query=58.583333,13.666667) | not_available | not_available | 5/7 | 8 | 18.57 | 16 | shared_source_coordinate |
+| 17 | Storasjö (56.933333, 15.266667) | [56.933333, 15.266667](https://www.google.com/maps/search/?api=1&query=56.933333,15.266667) | not_available | not_available | 4/7 | 13 | 18.17 | 18 | source_coordinate_medoid |
+| 18 | Färskesjön (56.166667, 15.866667) | [56.166667, 15.866667](https://www.google.com/maps/search/?api=1&query=56.166667,15.866667) | not_available | not_available | 4/7 | 8 | 18.29 | 19 | source_coordinate_medoid |
+| 19 | Sambösjön (57.133333, 12.416667) | [57.133333, 12.416667](https://www.google.com/maps/search/?api=1&query=57.133333,12.416667) | not_available | not_available | 4/7 | 6 | 18.67 | 15 | shared_source_coordinate |
+| 20 | Lillsjön (57.083330, 12.533330) | [57.083330, 12.533330](https://www.google.com/maps/search/?api=1&query=57.083330,12.533330) | not_available | not_available | 4/7 | 9 | 20.67 | 20 | shared_source_coordinate |
 
 ## Fieldwork Shortlist
 
 | Fieldwork rank | Lake | Coordinates | Lake registry id | Name status | Shortlist score | Sampling posture | Human context | Sampling fit | Area km² | Human localities within 20 km | Evidence families within 20 km |
 | ---: | --- | --- | --- | --- | ---: | --- | --- | ---: | ---: | ---: | ---: |
-| 1 | Sjötorpasjön (58.141960, 13.460319) | [58.141960, 13.460319](https://www.google.com/maps/search/?api=1&query=58.141960,13.460319) | 644831-136156 | water_surface_name | 0.6155 | sampling_lake_candidate | core_human_adna_context | 1.0000 | 0.603 | 9 | 2 |
-| 2 | Hornborgasjön | [58.317269, 13.549447](https://www.google.com/maps/search/?api=1&query=58.317269,13.549447) | 646918-136677 | water_surface_name | 0.5775 | sampling_lake_candidate | core_human_adna_context | 0.9400 | 27.926 | 11 | 3 |
-| 3 | Rösjön (58.256624, 13.380976) | [58.256624, 13.380976](https://www.google.com/maps/search/?api=1&query=58.256624,13.380976) | 646105-135775 | water_surface_name | 0.5289 | sampling_lake_candidate | core_human_adna_context | 1.0000 | 0.957 | 10 | 3 |
-| 4 | Alasjön | [59.686908, 17.722590](https://www.google.com/maps/search/?api=1&query=59.686908,17.722590) | 661929-160809 | water_surface_name | 0.4653 | sampling_lake_candidate | core_human_adna_context | 0.8680 | 0.191 | 10 | 3 |
-| 5 | Vartoftasjön | [58.086896, 13.669730](https://www.google.com/maps/search/?api=1&query=58.086896,13.669730) | 644206-137422 | water_surface_name | 0.4639 | sampling_lake_candidate | core_human_adna_context | 0.8680 | 0.155 | 9 | 2 |
-| 6 | Lejondalssjön | [59.541673, 17.687602](https://www.google.com/maps/search/?api=1&query=59.541673,17.687602) | 660523-160785 | water_surface_name | 0.4309 | sampling_lake_candidate | core_human_adna_context | 1.0000 | 2.717 | 8 | 2 |
-| 7 | Ullstorpasjön | [58.220133, 13.269162](https://www.google.com/maps/search/?api=1&query=58.220133,13.269162) | 645824-135079 | water_surface_name | 0.4259 | sampling_lake_candidate | core_human_adna_context | 0.8680 | 0.290 | 7 | 2 |
-| 8 | Valloxen | [59.736717, 17.842415](https://www.google.com/maps/search/?api=1&query=59.736717,17.842415) | 662383-161313 | water_surface_name | 0.4054 | sampling_lake_candidate | core_human_adna_context | 1.0000 | 2.787 | 10 | 3 |
-| 9 | Yddingesjön | [55.544521, 13.251816](https://www.google.com/maps/search/?api=1&query=55.544521,13.251816) | 616141-133891 | water_surface_name | 0.3938 | sampling_lake_candidate | core_human_adna_context | 1.0000 | 1.961 | 9 | 3 |
-| 10 | Vagnsjön (58.405652, 13.628989) | [58.405652, 13.628989](https://www.google.com/maps/search/?api=1&query=58.405652,13.628989) | 647762-137280 | water_surface_name | 0.3870 | sampling_lake_candidate | core_human_adna_context | 0.8680 | 0.211 | 2 | 3 |
-| 11 | Husgärdessjön | [58.393140, 13.605399](https://www.google.com/maps/search/?api=1&query=58.393140,13.605399) | 647609-137150 | water_surface_name | 0.3868 | sampling_lake_candidate | core_human_adna_context | 0.8680 | 0.326 | 2 | 3 |
-| 12 | Bysjön (58.405310, 13.608083) | [58.405310, 13.608083](https://www.google.com/maps/search/?api=1&query=58.405310,13.608083) | 647753-137164 | water_surface_name | 0.3868 | sampling_lake_candidate | core_human_adna_context | 0.8680 | 0.238 | 2 | 3 |
-| 13 | Ökullasjön | [58.389091, 13.617191](https://www.google.com/maps/search/?api=1&query=58.389091,13.617191) | 647620-137198 | water_surface_name | 0.3858 | sampling_lake_candidate | core_human_adna_context | 0.8680 | 0.151 | 2 | 3 |
-| 14 | Vingasjön | [58.381062, 13.582006](https://www.google.com/maps/search/?api=1&query=58.381062,13.582006) | 647484-137007 | water_surface_name | 0.3857 | sampling_lake_candidate | core_human_adna_context | 0.8680 | 0.151 | 2 | 3 |
-| 15 | Ormsjön (58.410093, 13.645479) | [58.410093, 13.645479](https://www.google.com/maps/search/?api=1&query=58.410093,13.645479) | 647841-137343 | water_surface_name | 0.3850 | sampling_lake_candidate | core_human_adna_context | 0.8680 | 0.325 | 2 | 3 |
-| 16 | Simsjön (58.355667, 13.782031) | [58.355667, 13.782031](https://www.google.com/maps/search/?api=1&query=58.355667,13.782031) | 647133-138139 | water_surface_name | 0.3794 | sampling_lake_candidate | core_human_adna_context | 1.0000 | 0.504 | 2 | 3 |
-| 17 | Norrviken (59.497651, 17.966775) | [59.497651, 17.966775](https://www.google.com/maps/search/?api=1&query=59.497651,17.966775) | 659728-161988 | water_surface_name | 0.3722 | sampling_lake_candidate | core_human_adna_context | 1.0000 | 2.485 | 10 | 2 |
-| 18 | Edssjön | [59.502036, 17.876831](https://www.google.com/maps/search/?api=1&query=59.502036,17.876831) | 660010-161773 | water_surface_name | 0.3718 | sampling_lake_candidate | core_human_adna_context | 1.0000 | 0.945 | 10 | 2 |
-| 19 | Oxundasjön | [59.551582, 17.867891](https://www.google.com/maps/search/?api=1&query=59.551582,17.867891) | 660637-161566 | water_surface_name | 0.3671 | sampling_lake_candidate | core_human_adna_context | 1.0000 | 1.499 | 9 | 2 |
-| 20 | Fysingen | [59.565259, 17.923853](https://www.google.com/maps/search/?api=1&query=59.565259,17.923853) | 660749-161885 | water_surface_name | 0.3671 | sampling_lake_candidate | core_human_adna_context | 1.0000 | 4.759 | 9 | 2 |
+| 1 | Bjärsjon | [58.334560, 13.656065](https://www.google.com/maps/search/?api=1&query=58.334560,13.656065) | not_available | not_available | 0.6998 | not_scored | core_human_adna_context | 0.0000 | Not available | 5 | 4 |
+| 2 | Sigvalde Träsk | [57.342480, 18.525960](https://www.google.com/maps/search/?api=1&query=57.342480,18.525960) | not_available | not_available | 0.3980 | not_scored | core_human_adna_context | 0.0000 | Not available | 4 | 3 |
+| 3 | Ljungsjön | [57.734290, 13.332690](https://www.google.com/maps/search/?api=1&query=57.734290,13.332690) | not_available | not_available | 0.3007 | not_scored | core_human_adna_context | 0.0000 | Not available | 1 | 3 |
+| 4 | Bjäresjösjön (55.459167, 13.751944) | [55.459167, 13.751944](https://www.google.com/maps/search/?api=1&query=55.459167,13.751944) | not_available | not_available | 0.4506 | not_scored | near_human_adna_context | 0.0000 | Not available | 2 | 4 |
+| 5 | Bjärsjöholmssjön (55.454444, 13.766389) | [55.454444, 13.766389](https://www.google.com/maps/search/?api=1&query=55.454444,13.766389) | not_available | not_available | 0.4505 | not_scored | near_human_adna_context | 0.0000 | Not available | 2 | 4 |
+| 6 | Krageholmssjön | [55.500000, 13.733333](https://www.google.com/maps/search/?api=1&query=55.500000,13.733333) | not_available | not_available | 0.4291 | not_scored | near_human_adna_context | 0.0000 | Not available | 1 | 4 |
+| 7 | Bussjösjön | [55.466667, 13.816667](https://www.google.com/maps/search/?api=1&query=55.466667,13.816667) | not_available | not_available | 0.4289 | not_scored | near_human_adna_context | 0.0000 | Not available | 1 | 4 |
+| 8 | Flarken (58.556790, 13.673190) | [58.556790, 13.673190](https://www.google.com/maps/search/?api=1&query=58.556790,13.673190) | not_available | not_available | 0.3690 | not_scored | near_human_adna_context | 0.0000 | Not available | 2 | 4 |
+| 9 | Åsbotorpsjön | [58.409810, 13.819960](https://www.google.com/maps/search/?api=1&query=58.409810,13.819960) | not_available | not_available | 0.3661 | not_scored | near_human_adna_context | 0.0000 | Not available | 2 | 4 |
+| 10 | Bökesjön | [55.575556, 13.437500](https://www.google.com/maps/search/?api=1&query=55.575556,13.437500) | not_available | not_available | 0.3670 | not_scored | extended_human_adna_context | 0.0000 | Not available | 0 | 2 |
+| 11 | Flarken (58.583333, 13.666667) | [58.583333, 13.666667](https://www.google.com/maps/search/?api=1&query=58.583333,13.666667) | not_available | not_available | 0.2481 | not_scored | extended_human_adna_context | 0.0000 | Not available | 0 | 3 |
+| 12 | Ran Viken | [56.281450, 14.290560](https://www.google.com/maps/search/?api=1&query=56.281450,14.290560) | not_available | not_available | 0.1954 | not_scored | extended_human_adna_context | 0.0000 | Not available | 0 | 2 |
+| 13 | Färskesjön (56.166667, 15.866667) | [56.166667, 15.866667](https://www.google.com/maps/search/?api=1&query=56.166667,15.866667) | not_available | not_available | 0.3129 | not_scored | outer_human_adna_context | 0.0000 | Not available | 0 | 3 |
+| 14 | Gilltjärnen (60.083333, 15.833333) | [60.083333, 15.833333](https://www.google.com/maps/search/?api=1&query=60.083333,15.833333) | not_available | not_available | 0.2808 | not_scored | outer_human_adna_context | 0.0000 | Not available | 0 | 2 |
+| 15 | Åbodasjön | [57.085556, 14.478611](https://www.google.com/maps/search/?api=1&query=57.085556,14.478611) | not_available | not_available | 0.2223 | not_scored | outer_human_adna_context | 0.0000 | Not available | 0 | 3 |
+| 16 | Lindhultsgöl | [57.143611, 14.466111](https://www.google.com/maps/search/?api=1&query=57.143611,14.466111) | not_available | not_available | 0.2194 | not_scored | outer_human_adna_context | 0.0000 | Not available | 0 | 3 |
+| 17 | Klotjärnen (61.821250, 16.404720) | [61.821250, 16.404720](https://www.google.com/maps/search/?api=1&query=61.821250,16.404720) | not_available | not_available | 0.2165 | not_scored | outer_human_adna_context | 0.0000 | Not available | 0 | 3 |
+| 18 | Klotjärnen (61.816667, 16.533333) | [61.816667, 16.533333](https://www.google.com/maps/search/?api=1&query=61.816667,16.533333) | not_available | not_available | 0.2155 | not_scored | outer_human_adna_context | 0.0000 | Not available | 0 | 3 |
+| 19 | Skärsgölarna | [57.016667, 16.116667](https://www.google.com/maps/search/?api=1&query=57.016667,16.116667) | not_available | not_available | 0.2154 | not_scored | outer_human_adna_context | 0.0000 | Not available | 0 | 3 |
+| 20 | Färshesjön | [56.166667, 15.866667](https://www.google.com/maps/search/?api=1&query=56.166667,15.866667) | not_available | not_available | 0.2134 | not_scored | outer_human_adna_context | 0.0000 | Not available | 0 | 3 |
 
 ## 10 km Ranking
 
 | Rank | Lake | Coordinates | Score | Identity diagnostics | Human localities | Human samples | Domesticated animal localities | SEAD sites | RAÄ density count | Nearby pollen lakes | Evidence families |
 | ---: | --- | --- | ---: | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
-| 1 | Hulesjön | [58.154892, 13.530245](https://www.google.com/maps/search/?api=1&query=58.154892,13.530245) | 0.6332 | none | 9 | 126 | 0 | 10 | 10501 | 0 | 2 |
-| 2 | Bergsjön (58.201093, 13.484551) | [58.201093, 13.484551](https://www.google.com/maps/search/?api=1&query=58.201093,13.484551) | 0.6194 | duplicate_sweden_name | 8 | 125 | 0 | 9 | 10501 | 0 | 2 |
-| 3 | Sjötorpasjön (58.141960, 13.460319) | [58.141960, 13.460319](https://www.google.com/maps/search/?api=1&query=58.141960,13.460319) | 0.5466 | duplicate_sweden_name | 7 | 99 | 0 | 6 | 10501 | 0 | 2 |
-| 4 | Lejondalssjön | [59.541673, 17.687602](https://www.google.com/maps/search/?api=1&query=59.541673,17.687602) | 0.3588 | none | 7 | 24 | 0 | 7 | 27450 | 0 | 2 |
-| 5 | Alasjön | [59.686908, 17.722590](https://www.google.com/maps/search/?api=1&query=59.686908,17.722590) | 0.3524 | none | 7 | 24 | 0 | 11 | 27450 | 0 | 2 |
-| 6 | Skårsjön (58.191521, 13.409040) | [58.191521, 13.409040](https://www.google.com/maps/search/?api=1&query=58.191521,13.409040) | 0.3444 | duplicate_sweden_name | 4 | 75 | 0 | 5 | 10501 | 0 | 2 |
-| 7 | Rydjan | [59.607233, 17.553644](https://www.google.com/maps/search/?api=1&query=59.607233,17.553644) | 0.3336 | none | 7 | 24 | 0 | 8 | 27450 | 0 | 2 |
-| 8 | Krageholmssjön | [55.501715, 13.744603](https://www.google.com/maps/search/?api=1&query=55.501715,13.744603) | 0.2927 | none | 0 | 0 | 0 | 18 | 6654 | 16 | 3 |
-| 9 | Bjärsjön | [58.334534, 13.656520](https://www.google.com/maps/search/?api=1&query=58.334534,13.656520) | 0.2599 | none | 2 | 32 | 0 | 0 | 10501 | 1 | 4 |
-| 10 | Ämten (58.435871, 13.664187) | [58.435871, 13.664187](https://www.google.com/maps/search/?api=1&query=58.435871,13.664187) | 0.2445 | duplicate_sweden_name | 2 | 32 | 0 | 1 | 10501 | 1 | 3 |
-| 11 | Häckebergasjön | [55.577162, 13.422814](https://www.google.com/maps/search/?api=1&query=55.577162,13.422814) | 0.2442 | none | 0 | 0 | 0 | 4 | 6654 | 5 | 3 |
-| 12 | Flämsjön (58.451139, 13.674129) | [58.451139, 13.674129](https://www.google.com/maps/search/?api=1&query=58.451139,13.674129) | 0.2438 | duplicate_sweden_name | 2 | 32 | 0 | 0 | 10501 | 1 | 3 |
-| 13 | Bjäresjö | [55.459405, 13.751743](https://www.google.com/maps/search/?api=1&query=55.459405,13.751743) | 0.2423 | none | 0 | 0 | 0 | 19 | 6654 | 16 | 3 |
-| 14 | Färskesjön | [56.159037, 15.859814](https://www.google.com/maps/search/?api=1&query=56.159037,15.859814) | 0.2314 | none | 0 | 0 | 0 | 2 | 12008 | 4 | 3 |
-| 15 | Skärvalången | [58.420796, 13.646123](https://www.google.com/maps/search/?api=1&query=58.420796,13.646123) | 0.2296 | none | 2 | 32 | 0 | 1 | 10501 | 1 | 3 |
-| 16 | Hornborgasjön | [58.317269, 13.549447](https://www.google.com/maps/search/?api=1&query=58.317269,13.549447) | 0.2247 | none | 2 | 32 | 0 | 0 | 10501 | 1 | 3 |
-| 17 | Flarken | [58.556811, 13.672884](https://www.google.com/maps/search/?api=1&query=58.556811,13.672884) | 0.2211 | none | 0 | 0 | 0 | 1 | 10501 | 3 | 3 |
-| 18 | Ungen | [60.100336, 15.838505](https://www.google.com/maps/search/?api=1&query=60.100336,15.838505) | 0.2206 | none | 0 | 0 | 0 | 1 | 8227 | 2 | 3 |
-| 19 | Ormsjön (58.410093, 13.645479) | [58.410093, 13.645479](https://www.google.com/maps/search/?api=1&query=58.410093,13.645479) | 0.2204 | duplicate_sweden_name | 2 | 32 | 0 | 1 | 10501 | 1 | 3 |
-| 20 | Bysjön (58.405310, 13.608083) | [58.405310, 13.608083](https://www.google.com/maps/search/?api=1&query=58.405310,13.608083) | 0.2196 | duplicate_sweden_name | 2 | 32 | 0 | 0 | 10501 | 1 | 3 |
+| 1 | Bjärsjöholmssjön (55.454444, 13.766389) | [55.454444, 13.766389](https://www.google.com/maps/search/?api=1&query=55.454444,13.766389) | 0.4344 | source_coordinate_spread | 0 | 0 | 0 | 19 | 6654 | 3 | 3 |
+| 2 | Bjäresjösjön (55.459167, 13.751944) | [55.459167, 13.751944](https://www.google.com/maps/search/?api=1&query=55.459167,13.751944) | 0.4318 | source_coordinate_spread | 0 | 0 | 0 | 19 | 6654 | 3 | 3 |
+| 3 | Bussjösjön | [55.466667, 13.816667](https://www.google.com/maps/search/?api=1&query=55.466667,13.816667) | 0.4318 | none | 0 | 0 | 0 | 19 | 6654 | 3 | 3 |
+| 4 | Krageholmssjön | [55.500000, 13.733333](https://www.google.com/maps/search/?api=1&query=55.500000,13.733333) | 0.4272 | none | 0 | 0 | 0 | 18 | 6654 | 3 | 3 |
+| 5 | Bjärsjon | [58.334560, 13.656065](https://www.google.com/maps/search/?api=1&query=58.334560,13.656065) | 0.3690 | none | 2 | 32 | 0 | 0 | 10501 | 0 | 3 |
+| 6 | Sambösjön (57.133333, 12.416667) | [57.133333, 12.416667](https://www.google.com/maps/search/?api=1&query=57.133333,12.416667) | 0.3169 | duplicate_sweden_name | 0 | 0 | 0 | 4 | 8569 | 3 | 3 |
+| 7 | Värsjö Utmark | [56.316667, 13.433333](https://www.google.com/maps/search/?api=1&query=56.316667,13.433333) | 0.3131 | none | 0 | 0 | 0 | 3 | 8912 | 1 | 3 |
+| 8 | Färskesjön (56.166667, 15.866667) | [56.166667, 15.866667](https://www.google.com/maps/search/?api=1&query=56.166667,15.866667) | 0.3084 | source_coordinate_spread | 0 | 0 | 0 | 2 | 12008 | 2 | 3 |
+| 9 | Avegöl | [57.683333, 14.500000](https://www.google.com/maps/search/?api=1&query=57.683333,14.500000) | 0.3051 | none | 0 | 0 | 0 | 1 | 8067 | 1 | 3 |
+| 10 | Holtjärnen | [60.650000, 14.916667](https://www.google.com/maps/search/?api=1&query=60.650000,14.916667) | 0.3046 | none | 0 | 0 | 0 | 9 | 5719 | 0 | 2 |
+| 11 | Flinkasjön | [56.250000, 13.250000](https://www.google.com/maps/search/?api=1&query=56.250000,13.250000) | 0.2995 | none | 0 | 0 | 0 | 2 | 8912 | 1 | 3 |
+| 12 | Vuolep Njakajaure (68.333333, 18.750000) | [68.333333, 18.750000](https://www.google.com/maps/search/?api=1&query=68.333333,18.750000) | 0.2949 | source_coordinate_spread | 0 | 0 | 0 | 1 | 214 | 4 | 3 |
+| 13 | Lillsjön (57.083330, 12.533330) | [57.083330, 12.533330](https://www.google.com/maps/search/?api=1&query=57.083330,12.533330) | 0.2940 | duplicate_sweden_name | 0 | 0 | 0 | 4 | 14902 | 2 | 3 |
+| 14 | Badsjön (68.333333, 18.750000) | [68.333333, 18.750000](https://www.google.com/maps/search/?api=1&query=68.333333,18.750000) | 0.2865 | duplicate_sweden_name | 0 | 0 | 0 | 1 | 214 | 4 | 3 |
+| 15 | Sämbosjön (57.163130, 12.414260) | [57.163130, 12.414260](https://www.google.com/maps/search/?api=1&query=57.163130,12.414260) | 0.2863 | duplicate_sweden_name | 0 | 0 | 0 | 5 | 8569 | 2 | 3 |
+| 16 | Storasjö (56.933333, 15.266667) | [56.933333, 15.266667](https://www.google.com/maps/search/?api=1&query=56.933333,15.266667) | 0.2837 | duplicate_sweden_name | 0 | 0 | 0 | 1 | 9853 | 1 | 3 |
+| 17 | Bökesjön | [55.575556, 13.437500](https://www.google.com/maps/search/?api=1&query=55.575556,13.437500) | 0.2830 | none | 0 | 0 | 0 | 4 | 6654 | 0 | 2 |
+| 18 | Kansjön (57.633333, 14.533333) | [57.633333, 14.533333](https://www.google.com/maps/search/?api=1&query=57.633333,14.533333) | 0.2815 | source_coordinate_spread, source_name_variants | 0 | 0 | 0 | 0 | 8067 | 1 | 3 |
+| 19 | Tibetanus | [68.333333, 18.700000](https://www.google.com/maps/search/?api=1&query=68.333333,18.700000) | 0.2740 | none | 0 | 0 | 0 | 1 | 214 | 4 | 3 |
+| 20 | Ljungsjön | [57.734290, 13.332690](https://www.google.com/maps/search/?api=1&query=57.734290,13.332690) | 0.2693 | none | 1 | 1 | 0 | 3 | 8587 | 0 | 3 |
 
 ## 20 km Ranking
 
 | Rank | Lake | Coordinates | Score | Identity diagnostics | Human localities | Human samples | Domesticated animal localities | SEAD sites | RAÄ density count | Nearby pollen lakes | Evidence families |
 | ---: | --- | --- | ---: | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
-| 1 | Hornborgasjön | [58.317269, 13.549447](https://www.google.com/maps/search/?api=1&query=58.317269,13.549447) | 0.6809 | none | 11 | 158 | 0 | 19 | 10501 | 2 | 3 |
-| 2 | Tresjö | [58.306216, 13.507129](https://www.google.com/maps/search/?api=1&query=58.306216,13.507129) | 0.6563 | none | 11 | 158 | 0 | 19 | 10501 | 1 | 3 |
-| 3 | Rösjön (58.256624, 13.380976) | [58.256624, 13.380976](https://www.google.com/maps/search/?api=1&query=58.256624,13.380976) | 0.5925 | duplicate_sweden_name | 10 | 127 | 0 | 13 | 10501 | 1 | 3 |
-| 4 | Sjötorpasjön (58.141960, 13.460319) | [58.141960, 13.460319](https://www.google.com/maps/search/?api=1&query=58.141960,13.460319) | 0.5633 | duplicate_sweden_name | 9 | 126 | 0 | 15 | 19088 | 0 | 2 |
-| 5 | Vartoftasjön | [58.086896, 13.669730](https://www.google.com/maps/search/?api=1&query=58.086896,13.669730) | 0.5550 | none | 9 | 126 | 0 | 15 | 22903 | 0 | 2 |
-| 6 | Bergsjön (58.201093, 13.484551) | [58.201093, 13.484551](https://www.google.com/maps/search/?api=1&query=58.201093,13.484551) | 0.5410 | duplicate_sweden_name | 9 | 126 | 0 | 15 | 10501 | 1 | 3 |
-| 7 | Hulesjön | [58.154892, 13.530245](https://www.google.com/maps/search/?api=1&query=58.154892,13.530245) | 0.5185 | none | 9 | 126 | 0 | 15 | 19088 | 0 | 2 |
-| 8 | Skårsjön (58.191521, 13.409040) | [58.191521, 13.409040](https://www.google.com/maps/search/?api=1&query=58.191521,13.409040) | 0.5102 | duplicate_sweden_name | 9 | 126 | 0 | 15 | 10501 | 0 | 2 |
-| 9 | Ullstorpasjön | [58.220133, 13.269162](https://www.google.com/maps/search/?api=1&query=58.220133,13.269162) | 0.4484 | none | 7 | 99 | 0 | 10 | 17822 | 0 | 2 |
-| 10 | Valloxen | [59.736717, 17.842415](https://www.google.com/maps/search/?api=1&query=59.736717,17.842415) | 0.4472 | none | 10 | 31 | 1 | 35 | 38213 | 0 | 3 |
-| 11 | Börringesjön | [55.485153, 13.313577](https://www.google.com/maps/search/?api=1&query=55.485153,13.313577) | 0.4410 | none | 11 | 28 | 0 | 55 | 7880 | 6 | 3 |
-| 12 | Alasjön | [59.686908, 17.722590](https://www.google.com/maps/search/?api=1&query=59.686908,17.722590) | 0.4386 | none | 10 | 31 | 1 | 37 | 38213 | 0 | 3 |
-| 13 | Säbysjön (59.709756, 17.818598) | [59.709756, 17.818598](https://www.google.com/maps/search/?api=1&query=59.709756,17.818598) | 0.4376 | duplicate_sweden_name | 10 | 31 | 1 | 34 | 38213 | 0 | 3 |
-| 14 | Stora Eketången | [58.213563, 13.255281](https://www.google.com/maps/search/?api=1&query=58.213563,13.255281) | 0.4315 | none | 7 | 99 | 0 | 9 | 17822 | 0 | 2 |
-| 15 | Kroksjön (58.224560, 13.275230) | [58.224560, 13.275230](https://www.google.com/maps/search/?api=1&query=58.224560,13.275230) | 0.4129 | duplicate_sweden_name | 7 | 99 | 0 | 10 | 17822 | 0 | 2 |
-| 16 | Bjärsjön | [58.334534, 13.656520](https://www.google.com/maps/search/?api=1&query=58.334534,13.656520) | 0.4119 | none | 5 | 81 | 0 | 15 | 10501 | 2 | 4 |
-| 17 | Borrabosjön | [58.180380, 13.259343](https://www.google.com/maps/search/?api=1&query=58.180380,13.259343) | 0.4069 | none | 7 | 99 | 0 | 11 | 17822 | 0 | 2 |
-| 18 | Brantshammarssjön | [59.731067, 17.733493](https://www.google.com/maps/search/?api=1&query=59.731067,17.733493) | 0.4046 | none | 10 | 31 | 1 | 42 | 38213 | 0 | 3 |
-| 19 | Åmossarna (55.431689, 13.155614) | [55.431689, 13.155614](https://www.google.com/maps/search/?api=1&query=55.431689,13.155614) | 0.4014 | duplicate_sweden_name | 11 | 28 | 0 | 55 | 7880 | 1 | 3 |
-| 20 | Norrviken (59.497651, 17.966775) | [59.497651, 17.966775](https://www.google.com/maps/search/?api=1&query=59.497651,17.966775) | 0.3994 | duplicate_sweden_name | 10 | 27 | 0 | 49 | 38213 | 0 | 2 |
+| 1 | Bjäresjösjön (55.459167, 13.751944) | [55.459167, 13.751944](https://www.google.com/maps/search/?api=1&query=55.459167,13.751944) | 0.5185 | source_coordinate_spread | 2 | 3 | 0 | 42 | 9859 | 3 | 4 |
+| 2 | Bjärsjöholmssjön (55.454444, 13.766389) | [55.454444, 13.766389](https://www.google.com/maps/search/?api=1&query=55.454444,13.766389) | 0.5185 | source_coordinate_spread | 2 | 3 | 0 | 42 | 9859 | 3 | 4 |
+| 3 | Bussjösjön | [55.466667, 13.816667](https://www.google.com/maps/search/?api=1&query=55.466667,13.816667) | 0.4825 | none | 1 | 2 | 0 | 38 | 9859 | 3 | 4 |
+| 4 | Krageholmssjön | [55.500000, 13.733333](https://www.google.com/maps/search/?api=1&query=55.500000,13.733333) | 0.4757 | none | 1 | 2 | 0 | 37 | 9859 | 3 | 4 |
+| 5 | Bjärsjon | [58.334560, 13.656065](https://www.google.com/maps/search/?api=1&query=58.334560,13.656065) | 0.4412 | none | 5 | 81 | 0 | 15 | 10501 | 1 | 4 |
+| 6 | Flarken (58.556790, 13.673190) | [58.556790, 13.673190](https://www.google.com/maps/search/?api=1&query=58.556790,13.673190) | 0.3810 | duplicate_sweden_name | 2 | 32 | 0 | 18 | 14316 | 2 | 4 |
+| 7 | Bökesjön | [55.575556, 13.437500](https://www.google.com/maps/search/?api=1&query=55.575556,13.437500) | 0.3658 | none | 0 | 0 | 0 | 38 | 6654 | 0 | 2 |
+| 8 | Åsbotorpsjön | [58.409810, 13.819960](https://www.google.com/maps/search/?api=1&query=58.409810,13.819960) | 0.3454 | none | 2 | 32 | 0 | 4 | 14316 | 2 | 4 |
+| 9 | Lillsjön (57.083330, 12.533330) | [57.083330, 12.533330](https://www.google.com/maps/search/?api=1&query=57.083330,12.533330) | 0.3203 | duplicate_sweden_name | 0 | 0 | 0 | 19 | 14902 | 4 | 3 |
+| 10 | Flinkasjön | [56.250000, 13.250000](https://www.google.com/maps/search/?api=1&query=56.250000,13.250000) | 0.3192 | none | 0 | 0 | 0 | 7 | 15245 | 2 | 3 |
+| 11 | Sigvalde Träsk | [57.342480, 18.525960](https://www.google.com/maps/search/?api=1&query=57.342480,18.525960) | 0.3191 | none | 4 | 6 | 0 | 23 | 13558 | 0 | 3 |
+| 12 | Holtjärnen | [60.650000, 14.916667](https://www.google.com/maps/search/?api=1&query=60.650000,14.916667) | 0.3115 | none | 0 | 0 | 0 | 25 | 5719 | 0 | 2 |
+| 13 | Storasjö (56.933333, 15.266667) | [56.933333, 15.266667](https://www.google.com/maps/search/?api=1&query=56.933333,15.266667) | 0.3112 | duplicate_sweden_name | 0 | 0 | 0 | 5 | 28737 | 1 | 3 |
+| 14 | Sambösjön (57.133333, 12.416667) | [57.133333, 12.416667](https://www.google.com/maps/search/?api=1&query=57.133333,12.416667) | 0.3091 | duplicate_sweden_name | 0 | 0 | 0 | 10 | 14902 | 4 | 3 |
+| 15 | Värsjö Utmark | [56.316667, 13.433333](https://www.google.com/maps/search/?api=1&query=56.316667,13.433333) | 0.3082 | none | 0 | 0 | 0 | 7 | 8912 | 2 | 3 |
+| 16 | Färskesjön (56.166667, 15.866667) | [56.166667, 15.866667](https://www.google.com/maps/search/?api=1&query=56.166667,15.866667) | 0.3082 | source_coordinate_spread | 0 | 0 | 0 | 9 | 12008 | 2 | 3 |
+| 17 | Sämbosjön (57.163130, 12.414260) | [57.163130, 12.414260](https://www.google.com/maps/search/?api=1&query=57.163130,12.414260) | 0.3037 | duplicate_sweden_name | 0 | 0 | 0 | 13 | 14902 | 4 | 3 |
+| 18 | Trummen | [56.866667, 14.833333](https://www.google.com/maps/search/?api=1&query=56.866667,14.833333) | 0.3036 | none | 0 | 0 | 0 | 8 | 28737 | 0 | 2 |
+| 19 | Avegöl | [57.683333, 14.500000](https://www.google.com/maps/search/?api=1&query=57.683333,14.500000) | 0.3025 | none | 0 | 0 | 0 | 5 | 8067 | 1 | 3 |
+| 20 | Kansjön (57.633333, 14.533333) | [57.633333, 14.533333](https://www.google.com/maps/search/?api=1&query=57.633333,14.533333) | 0.2974 | source_coordinate_spread, source_name_variants | 0 | 0 | 0 | 3 | 8067 | 2 | 3 |
 
 ## 30 km Ranking
 
 | Rank | Lake | Coordinates | Score | Identity diagnostics | Human localities | Human samples | Domesticated animal localities | SEAD sites | RAÄ density count | Nearby pollen lakes | Evidence families |
 | ---: | --- | --- | ---: | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
-| 1 | Bjärsjön | [58.334534, 13.656520](https://www.google.com/maps/search/?api=1&query=58.334534,13.656520) | 0.6816 | none | 11 | 158 | 0 | 34 | 14316 | 5 | 4 |
-| 2 | Simsjön (58.355667, 13.782031) | [58.355667, 13.782031](https://www.google.com/maps/search/?api=1&query=58.355667,13.782031) | 0.6519 | duplicate_sweden_name | 11 | 158 | 0 | 31 | 14316 | 6 | 3 |
-| 3 | Rösjön (58.256624, 13.380976) | [58.256624, 13.380976](https://www.google.com/maps/search/?api=1&query=58.256624,13.380976) | 0.6444 | duplicate_sweden_name | 11 | 158 | 0 | 31 | 26409 | 1 | 3 |
-| 4 | Hornborgasjön | [58.317269, 13.549447](https://www.google.com/maps/search/?api=1&query=58.317269,13.549447) | 0.6424 | none | 11 | 158 | 0 | 34 | 14316 | 3 | 3 |
-| 5 | Sjötorpasjön (58.141960, 13.460319) | [58.141960, 13.460319](https://www.google.com/maps/search/?api=1&query=58.141960,13.460319) | 0.6422 | duplicate_sweden_name | 11 | 158 | 0 | 21 | 26409 | 1 | 3 |
-| 6 | Vingasjön | [58.381062, 13.582006](https://www.google.com/maps/search/?api=1&query=58.381062,13.582006) | 0.6418 | none | 11 | 158 | 0 | 36 | 14316 | 5 | 3 |
-| 7 | Bysjön (58.405310, 13.608083) | [58.405310, 13.608083](https://www.google.com/maps/search/?api=1&query=58.405310,13.608083) | 0.6416 | duplicate_sweden_name | 11 | 158 | 0 | 35 | 14316 | 5 | 3 |
-| 8 | Husgärdessjön | [58.393140, 13.605399](https://www.google.com/maps/search/?api=1&query=58.393140,13.605399) | 0.6416 | none | 11 | 158 | 0 | 35 | 14316 | 5 | 3 |
-| 9 | Ökullasjön | [58.389091, 13.617191](https://www.google.com/maps/search/?api=1&query=58.389091,13.617191) | 0.6416 | none | 11 | 158 | 0 | 35 | 14316 | 5 | 3 |
-| 10 | Vagnsjön (58.405652, 13.628989) | [58.405652, 13.628989](https://www.google.com/maps/search/?api=1&query=58.405652,13.628989) | 0.6414 | duplicate_sweden_name | 11 | 158 | 0 | 34 | 14316 | 5 | 3 |
-| 11 | Ormsjön (58.410093, 13.645479) | [58.410093, 13.645479](https://www.google.com/maps/search/?api=1&query=58.410093,13.645479) | 0.6409 | duplicate_sweden_name | 11 | 158 | 0 | 32 | 14316 | 5 | 3 |
-| 12 | Ullstorpasjön | [58.220133, 13.269162](https://www.google.com/maps/search/?api=1&query=58.220133,13.269162) | 0.6349 | none | 11 | 158 | 0 | 22 | 34978 | 1 | 3 |
-| 13 | Gårdssjön (58.398292, 13.626305) | [58.398292, 13.626305](https://www.google.com/maps/search/?api=1&query=58.398292,13.626305) | 0.6249 | duplicate_sweden_name | 11 | 158 | 0 | 35 | 14316 | 5 | 3 |
-| 14 | Måsjön (58.401821, 13.625023) | [58.401821, 13.625023](https://www.google.com/maps/search/?api=1&query=58.401821,13.625023) | 0.6249 | duplicate_sweden_name | 11 | 158 | 0 | 35 | 14316 | 5 | 3 |
-| 15 | Tåsjön (58.395428, 13.633404) | [58.395428, 13.633404](https://www.google.com/maps/search/?api=1&query=58.395428,13.633404) | 0.6247 | duplicate_sweden_name | 11 | 158 | 0 | 34 | 14316 | 5 | 3 |
-| 16 | Tresjö | [58.306216, 13.507129](https://www.google.com/maps/search/?api=1&query=58.306216,13.507129) | 0.6222 | none | 11 | 158 | 0 | 34 | 21637 | 3 | 3 |
-| 17 | Djupasjön (58.224080, 13.853942) | [58.224080, 13.853942](https://www.google.com/maps/search/?api=1&query=58.224080,13.853942) | 0.6209 | duplicate_sweden_name | 11 | 158 | 0 | 20 | 30970 | 3 | 3 |
-| 18 | Stora Eketången | [58.213563, 13.255281](https://www.google.com/maps/search/?api=1&query=58.213563,13.255281) | 0.6180 | none | 11 | 158 | 0 | 21 | 34978 | 1 | 3 |
-| 19 | Hallasjön (58.220512, 13.245042) | [58.220512, 13.245042](https://www.google.com/maps/search/?api=1&query=58.220512,13.245042) | 0.6178 | duplicate_sweden_name | 11 | 158 | 0 | 20 | 34978 | 1 | 3 |
-| 20 | Bergsjön (58.201093, 13.484551) | [58.201093, 13.484551](https://www.google.com/maps/search/?api=1&query=58.201093,13.484551) | 0.6174 | duplicate_sweden_name | 11 | 158 | 0 | 26 | 26409 | 1 | 3 |
+| 1 | Bökesjön | [55.575556, 13.437500](https://www.google.com/maps/search/?api=1&query=55.575556,13.437500) | 0.5731 | none | 11 | 15 | 0 | 122 | 7880 | 4 | 4 |
+| 2 | Bjäresjösjön (55.459167, 13.751944) | [55.459167, 13.751944](https://www.google.com/maps/search/?api=1&query=55.459167,13.751944) | 0.4615 | source_coordinate_spread | 3 | 4 | 0 | 64 | 9859 | 4 | 4 |
+| 3 | Bjärsjöholmssjön (55.454444, 13.766389) | [55.454444, 13.766389](https://www.google.com/maps/search/?api=1&query=55.454444,13.766389) | 0.4600 | source_coordinate_spread | 3 | 4 | 0 | 64 | 9859 | 4 | 4 |
+| 4 | Bussjösjön | [55.466667, 13.816667](https://www.google.com/maps/search/?api=1&query=55.466667,13.816667) | 0.4591 | none | 3 | 4 | 0 | 63 | 9859 | 4 | 4 |
+| 5 | Bjärsjon | [58.334560, 13.656065](https://www.google.com/maps/search/?api=1&query=58.334560,13.656065) | 0.4578 | none | 11 | 158 | 0 | 34 | 14316 | 3 | 4 |
+| 6 | Krageholmssjön | [55.500000, 13.733333](https://www.google.com/maps/search/?api=1&query=55.500000,13.733333) | 0.4576 | none | 3 | 4 | 0 | 64 | 9859 | 4 | 4 |
+| 7 | Åsbotorpsjön | [58.409810, 13.819960](https://www.google.com/maps/search/?api=1&query=58.409810,13.819960) | 0.3571 | none | 3 | 58 | 0 | 26 | 14316 | 4 | 4 |
+| 8 | Avegöl | [57.683333, 14.500000](https://www.google.com/maps/search/?api=1&query=57.683333,14.500000) | 0.3516 | none | 0 | 0 | 0 | 40 | 20658 | 2 | 3 |
+| 9 | Sigvalde Träsk | [57.342480, 18.525960](https://www.google.com/maps/search/?api=1&query=57.342480,18.525960) | 0.3473 | none | 9 | 66 | 0 | 51 | 13558 | 0 | 3 |
+| 10 | Trummen | [56.866667, 14.833333](https://www.google.com/maps/search/?api=1&query=56.866667,14.833333) | 0.3403 | none | 0 | 0 | 0 | 19 | 28737 | 3 | 3 |
+| 11 | Flarken (58.583333, 13.666667) | [58.583333, 13.666667](https://www.google.com/maps/search/?api=1&query=58.583333,13.666667) | 0.3298 | duplicate_sweden_name | 2 | 32 | 0 | 23 | 14316 | 3 | 4 |
+| 12 | Kansjön (57.633333, 14.533333) | [57.633333, 14.533333](https://www.google.com/maps/search/?api=1&query=57.633333,14.533333) | 0.3277 | source_coordinate_spread, source_name_variants | 0 | 0 | 0 | 38 | 12071 | 2 | 3 |
+| 13 | Flinkasjön | [56.250000, 13.250000](https://www.google.com/maps/search/?api=1&query=56.250000,13.250000) | 0.3240 | none | 0 | 0 | 0 | 14 | 21899 | 3 | 3 |
+| 14 | Flarken (58.556790, 13.673190) | [58.556790, 13.673190](https://www.google.com/maps/search/?api=1&query=58.556790,13.673190) | 0.3173 | duplicate_sweden_name | 2 | 32 | 0 | 23 | 14316 | 3 | 4 |
+| 15 | Storasjö (56.933333, 15.266667) | [56.933333, 15.266667](https://www.google.com/maps/search/?api=1&query=56.933333,15.266667) | 0.3144 | duplicate_sweden_name | 0 | 0 | 0 | 19 | 28737 | 2 | 3 |
+| 16 | Ran Viken | [56.281450, 14.290560](https://www.google.com/maps/search/?api=1&query=56.281450,14.290560) | 0.3060 | none | 1 | 1 | 0 | 34 | 19729 | 2 | 4 |
+| 17 | Värsjö Utmark | [56.316667, 13.433333](https://www.google.com/maps/search/?api=1&query=56.316667,13.433333) | 0.3051 | none | 0 | 0 | 0 | 17 | 15245 | 2 | 3 |
+| 18 | Lillsjön (57.083330, 12.533330) | [57.083330, 12.533330](https://www.google.com/maps/search/?api=1&query=57.083330,12.533330) | 0.3049 | duplicate_sweden_name | 0 | 0 | 0 | 30 | 32401 | 4 | 3 |
+| 19 | Sambösjön (57.133333, 12.416667) | [57.133333, 12.416667](https://www.google.com/maps/search/?api=1&query=57.133333,12.416667) | 0.2987 | duplicate_sweden_name | 0 | 0 | 0 | 29 | 19907 | 4 | 3 |
+| 20 | Storasjö (56.916667, 15.283333) | [56.916667, 15.283333](https://www.google.com/maps/search/?api=1&query=56.916667,15.283333) | 0.2861 | duplicate_sweden_name | 0 | 0 | 0 | 13 | 28737 | 2 | 3 |
 
 ## 40 km Ranking
 
 | Rank | Lake | Coordinates | Score | Identity diagnostics | Human localities | Human samples | Domesticated animal localities | SEAD sites | RAÄ density count | Nearby pollen lakes | Evidence families |
 | ---: | --- | --- | ---: | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
-| 1 | Havstenasjön | [58.404997, 13.843492](https://www.google.com/maps/search/?api=1&query=58.404997,13.843492) | 0.6729 | none | 11 | 158 | 0 | 47 | 14316 | 6 | 4 |
-| 2 | Bjärsjön | [58.334534, 13.656520](https://www.google.com/maps/search/?api=1&query=58.334534,13.656520) | 0.6690 | none | 11 | 158 | 0 | 44 | 30224 | 6 | 4 |
-| 3 | Rösjön (58.256624, 13.380976) | [58.256624, 13.380976](https://www.google.com/maps/search/?api=1&query=58.256624,13.380976) | 0.6384 | duplicate_sweden_name | 11 | 158 | 0 | 47 | 38793 | 5 | 3 |
-| 4 | Simsjön (58.355667, 13.782031) | [58.355667, 13.782031](https://www.google.com/maps/search/?api=1&query=58.355667,13.782031) | 0.6368 | duplicate_sweden_name | 11 | 158 | 0 | 46 | 22903 | 6 | 3 |
-| 5 | Skärvalången | [58.420796, 13.646123](https://www.google.com/maps/search/?api=1&query=58.420796,13.646123) | 0.6364 | none | 11 | 158 | 0 | 45 | 21637 | 6 | 3 |
-| 6 | Ämten (58.435871, 13.664187) | [58.435871, 13.664187](https://www.google.com/maps/search/?api=1&query=58.435871,13.664187) | 0.6364 | duplicate_sweden_name | 11 | 158 | 0 | 45 | 21637 | 6 | 3 |
-| 7 | Flämsjön (58.451139, 13.674129) | [58.451139, 13.674129](https://www.google.com/maps/search/?api=1&query=58.451139,13.674129) | 0.6362 | duplicate_sweden_name | 11 | 158 | 0 | 44 | 21637 | 6 | 3 |
-| 8 | Hornborgasjön | [58.317269, 13.549447](https://www.google.com/maps/search/?api=1&query=58.317269,13.549447) | 0.6341 | none | 11 | 158 | 0 | 46 | 30224 | 6 | 3 |
-| 9 | Sjötorpasjön (58.141960, 13.460319) | [58.141960, 13.460319](https://www.google.com/maps/search/?api=1&query=58.141960,13.460319) | 0.6327 | duplicate_sweden_name | 11 | 158 | 0 | 34 | 46860 | 2 | 3 |
-| 10 | Häckebergasjön | [55.577162, 13.422814](https://www.google.com/maps/search/?api=1&query=55.577162,13.422814) | 0.6324 | none | 13 | 31 | 0 | 165 | 11085 | 41 | 4 |
-| 11 | Vingasjön | [58.381062, 13.582006](https://www.google.com/maps/search/?api=1&query=58.381062,13.582006) | 0.6275 | none | 11 | 158 | 0 | 47 | 21637 | 6 | 3 |
-| 12 | Bysjön (58.405310, 13.608083) | [58.405310, 13.608083](https://www.google.com/maps/search/?api=1&query=58.405310,13.608083) | 0.6273 | duplicate_sweden_name | 11 | 158 | 0 | 46 | 21637 | 6 | 3 |
-| 13 | Eggbysjön | [58.424749, 13.648948](https://www.google.com/maps/search/?api=1&query=58.424749,13.648948) | 0.6271 | none | 11 | 158 | 0 | 45 | 21637 | 6 | 3 |
-| 14 | Husgärdessjön | [58.393140, 13.605399](https://www.google.com/maps/search/?api=1&query=58.393140,13.605399) | 0.6271 | none | 11 | 158 | 0 | 45 | 21637 | 6 | 3 |
-| 15 | Ormsjön (58.410093, 13.645479) | [58.410093, 13.645479](https://www.google.com/maps/search/?api=1&query=58.410093,13.645479) | 0.6271 | duplicate_sweden_name | 11 | 158 | 0 | 45 | 21637 | 6 | 3 |
-| 16 | Vagnsjön (58.405652, 13.628989) | [58.405652, 13.628989](https://www.google.com/maps/search/?api=1&query=58.405652,13.628989) | 0.6271 | duplicate_sweden_name | 11 | 158 | 0 | 45 | 21637 | 6 | 3 |
-| 17 | Ökullasjön | [58.389091, 13.617191](https://www.google.com/maps/search/?api=1&query=58.389091,13.617191) | 0.6271 | none | 11 | 158 | 0 | 45 | 21637 | 6 | 3 |
-| 18 | Lilla Bjursjön (58.492963, 13.678407) | [58.492963, 13.678407](https://www.google.com/maps/search/?api=1&query=58.492963,13.678407) | 0.6268 | duplicate_sweden_name | 11 | 158 | 0 | 43 | 21637 | 6 | 3 |
-| 19 | Stora Bjursjön (58.498962, 13.682803) | [58.498962, 13.682803](https://www.google.com/maps/search/?api=1&query=58.498962,13.682803) | 0.6267 | duplicate_sweden_name | 11 | 158 | 0 | 42 | 21637 | 6 | 3 |
-| 20 | Karstorpasjön | [58.420082, 13.852992](https://www.google.com/maps/search/?api=1&query=58.420082,13.852992) | 0.6258 | none | 11 | 158 | 0 | 46 | 14316 | 6 | 3 |
+| 1 | Bökesjön | [55.575556, 13.437500](https://www.google.com/maps/search/?api=1&query=55.575556,13.437500) | 0.5770 | none | 13 | 31 | 0 | 168 | 11085 | 4 | 4 |
+| 2 | Åsbotorpsjön | [58.409810, 13.819960](https://www.google.com/maps/search/?api=1&query=58.409810,13.819960) | 0.4742 | none | 11 | 158 | 0 | 45 | 14316 | 4 | 4 |
+| 3 | Bjärsjon | [58.334560, 13.656065](https://www.google.com/maps/search/?api=1&query=58.334560,13.656065) | 0.4508 | none | 11 | 158 | 0 | 44 | 30224 | 4 | 4 |
+| 4 | Krageholmssjön | [55.500000, 13.733333](https://www.google.com/maps/search/?api=1&query=55.500000,13.733333) | 0.4465 | none | 3 | 4 | 0 | 108 | 9859 | 4 | 4 |
+| 5 | Bjäresjösjön (55.459167, 13.751944) | [55.459167, 13.751944](https://www.google.com/maps/search/?api=1&query=55.459167,13.751944) | 0.4422 | source_coordinate_spread | 3 | 4 | 0 | 102 | 9859 | 4 | 4 |
+| 6 | Bjärsjöholmssjön (55.454444, 13.766389) | [55.454444, 13.766389](https://www.google.com/maps/search/?api=1&query=55.454444,13.766389) | 0.4394 | source_coordinate_spread | 3 | 4 | 0 | 96 | 9859 | 4 | 4 |
+| 7 | Bussjösjön | [55.466667, 13.816667](https://www.google.com/maps/search/?api=1&query=55.466667,13.816667) | 0.4381 | none | 3 | 4 | 0 | 92 | 9859 | 4 | 4 |
+| 8 | Sigvalde Träsk | [57.342480, 18.525960](https://www.google.com/maps/search/?api=1&query=57.342480,18.525960) | 0.3666 | none | 11 | 91 | 0 | 76 | 13558 | 0 | 3 |
+| 9 | Mullsjön | [58.317610, 14.211360](https://www.google.com/maps/search/?api=1&query=58.317610,14.211360) | 0.3548 | none | 4 | 59 | 0 | 39 | 30970 | 2 | 4 |
+| 10 | Trummen | [56.866667, 14.833333](https://www.google.com/maps/search/?api=1&query=56.866667,14.833333) | 0.3487 | none | 0 | 0 | 0 | 21 | 28737 | 7 | 3 |
+| 11 | Ran Viken | [56.281450, 14.290560](https://www.google.com/maps/search/?api=1&query=56.281450,14.290560) | 0.3475 | none | 3 | 6 | 0 | 50 | 29588 | 5 | 4 |
+| 12 | Värsjö Utmark | [56.316667, 13.433333](https://www.google.com/maps/search/?api=1&query=56.316667,13.433333) | 0.3389 | none | 0 | 0 | 0 | 36 | 32716 | 4 | 3 |
+| 13 | Lindhultsgöl | [57.143611, 14.466111](https://www.google.com/maps/search/?api=1&query=57.143611,14.466111) | 0.3351 | none | 1 | 6 | 0 | 16 | 46236 | 4 | 4 |
+| 14 | Avegöl | [57.683333, 14.500000](https://www.google.com/maps/search/?api=1&query=57.683333,14.500000) | 0.3342 | none | 0 | 0 | 0 | 44 | 24473 | 2 | 3 |
+| 15 | Åbodasjön | [57.085556, 14.478611](https://www.google.com/maps/search/?api=1&query=57.085556,14.478611) | 0.3300 | none | 1 | 6 | 0 | 20 | 46236 | 3 | 4 |
+| 16 | Flinkasjön | [56.250000, 13.250000](https://www.google.com/maps/search/?api=1&query=56.250000,13.250000) | 0.3266 | none | 0 | 0 | 0 | 41 | 23125 | 3 | 3 |
+| 17 | Flarken (58.583333, 13.666667) | [58.583333, 13.666667](https://www.google.com/maps/search/?api=1&query=58.583333,13.666667) | 0.3248 | duplicate_sweden_name | 2 | 32 | 0 | 35 | 21637 | 3 | 4 |
+| 18 | Skärsgölarna | [57.016667, 16.116667](https://www.google.com/maps/search/?api=1&query=57.016667,16.116667) | 0.3221 | none | 1 | 32 | 0 | 23 | 24492 | 4 | 4 |
+| 19 | Kansjön (57.633333, 14.533333) | [57.633333, 14.533333](https://www.google.com/maps/search/?api=1&query=57.633333,14.533333) | 0.3213 | source_coordinate_spread, source_name_variants | 0 | 0 | 0 | 46 | 20658 | 2 | 3 |
+| 20 | Holtjärnen | [60.650000, 14.916667](https://www.google.com/maps/search/?api=1&query=60.650000,14.916667) | 0.3185 | none | 0 | 0 | 0 | 115 | 8528 | 0 | 2 |
 
 ## 50 km Ranking
 
 | Rank | Lake | Coordinates | Score | Identity diagnostics | Human localities | Human samples | Domesticated animal localities | SEAD sites | RAÄ density count | Nearby pollen lakes | Evidence families |
 | ---: | --- | --- | ---: | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
-| 1 | Flarken | [58.556811, 13.672884](https://www.google.com/maps/search/?api=1&query=58.556811,13.672884) | 0.7473 | none | 11 | 158 | 0 | 55 | 25127 | 6 | 4 |
-| 2 | Mullsjön (58.317875, 14.210785) | [58.317875, 14.210785](https://www.google.com/maps/search/?api=1&query=58.317875,14.210785) | 0.7166 | duplicate_sweden_name | 11 | 158 | 0 | 76 | 40833 | 9 | 4 |
-| 3 | Havstenasjön | [58.404997, 13.843492](https://www.google.com/maps/search/?api=1&query=58.404997,13.843492) | 0.6587 | none | 11 | 158 | 0 | 57 | 38291 | 6 | 4 |
-| 4 | Hallsjön (58.546718, 13.698131) | [58.546718, 13.698131](https://www.google.com/maps/search/?api=1&query=58.546718,13.698131) | 0.6553 | duplicate_sweden_name | 11 | 158 | 0 | 56 | 21637 | 6 | 4 |
-| 5 | Bjärsjön | [58.334534, 13.656520](https://www.google.com/maps/search/?api=1&query=58.334534,13.656520) | 0.6524 | none | 11 | 158 | 0 | 60 | 38291 | 6 | 4 |
-| 6 | Sandhemssjön | [57.998654, 13.784093](https://www.google.com/maps/search/?api=1&query=57.998654,13.784093) | 0.6449 | none | 12 | 159 | 0 | 57 | 46860 | 8 | 3 |
-| 7 | Stråken (57.972145, 13.830699) | [57.972145, 13.830699](https://www.google.com/maps/search/?api=1&query=57.972145,13.830699) | 0.6448 | duplicate_sweden_name | 12 | 159 | 0 | 56 | 46860 | 8 | 3 |
-| 8 | Sjötorpasjön (58.141960, 13.460319) | [58.141960, 13.460319](https://www.google.com/maps/search/?api=1&query=58.141960,13.460319) | 0.6404 | duplicate_sweden_name | 12 | 159 | 0 | 53 | 46860 | 5 | 3 |
-| 9 | Grimstorpasjön | [57.996442, 13.772821](https://www.google.com/maps/search/?api=1&query=57.996442,13.772821) | 0.6357 | none | 12 | 159 | 0 | 57 | 46860 | 8 | 3 |
-| 10 | Gimmesjön | [58.070218, 13.881275](https://www.google.com/maps/search/?api=1&query=58.070218,13.881275) | 0.6343 | none | 12 | 159 | 0 | 61 | 30970 | 9 | 3 |
-| 11 | Vartoftasjön | [58.086896, 13.669730](https://www.google.com/maps/search/?api=1&query=58.086896,13.669730) | 0.6314 | none | 12 | 159 | 0 | 66 | 46860 | 4 | 3 |
-| 12 | Alvasjön (58.083087, 14.121502) | [58.083087, 14.121502](https://www.google.com/maps/search/?api=1&query=58.083087,14.121502) | 0.6314 | duplicate_sweden_name | 11 | 158 | 0 | 67 | 30970 | 14 | 3 |
-| 13 | Bredsjön (58.051700, 14.056272) | [58.051700, 14.056272](https://www.google.com/maps/search/?api=1&query=58.051700,14.056272) | 0.6313 | duplicate_sweden_name | 11 | 158 | 0 | 66 | 30970 | 14 | 3 |
-| 14 | Hornsjön (57.979319, 14.022368) | [57.979319, 14.022368](https://www.google.com/maps/search/?api=1&query=57.979319,14.022368) | 0.6244 | duplicate_sweden_name | 11 | 158 | 0 | 59 | 30970 | 17 | 3 |
-| 15 | Rösjön (58.256624, 13.380976) | [58.256624, 13.380976](https://www.google.com/maps/search/?api=1&query=58.256624,13.380976) | 0.6225 | duplicate_sweden_name | 11 | 158 | 0 | 55 | 46860 | 6 | 3 |
-| 16 | Nordvättnen | [58.056502, 14.071951](https://www.google.com/maps/search/?api=1&query=58.056502,14.071951) | 0.6222 | none | 11 | 158 | 0 | 67 | 30970 | 14 | 3 |
-| 17 | Sörvättnen | [58.048397, 14.072735](https://www.google.com/maps/search/?api=1&query=58.048397,14.072735) | 0.6222 | none | 11 | 158 | 0 | 67 | 30970 | 14 | 3 |
-| 18 | Simsjön (58.355667, 13.782031) | [58.355667, 13.782031](https://www.google.com/maps/search/?api=1&query=58.355667,13.782031) | 0.6215 | duplicate_sweden_name | 11 | 158 | 0 | 61 | 38291 | 6 | 3 |
-| 19 | Skärvalången | [58.420796, 13.646123](https://www.google.com/maps/search/?api=1&query=58.420796,13.646123) | 0.6198 | none | 11 | 158 | 0 | 60 | 30224 | 6 | 3 |
-| 20 | Ämten (58.435871, 13.664187) | [58.435871, 13.664187](https://www.google.com/maps/search/?api=1&query=58.435871,13.664187) | 0.6196 | duplicate_sweden_name | 11 | 158 | 0 | 58 | 30224 | 6 | 3 |
+| 1 | Bökesjön | [55.575556, 13.437500](https://www.google.com/maps/search/?api=1&query=55.575556,13.437500) | 0.5866 | none | 13 | 31 | 0 | 201 | 19997 | 5 | 4 |
+| 2 | Krageholmssjön | [55.500000, 13.733333](https://www.google.com/maps/search/?api=1&query=55.500000,13.733333) | 0.5496 | none | 12 | 30 | 0 | 172 | 11085 | 4 | 4 |
+| 3 | Bjäresjösjön (55.459167, 13.751944) | [55.459167, 13.751944](https://www.google.com/maps/search/?api=1&query=55.459167,13.751944) | 0.5432 | source_coordinate_spread | 12 | 30 | 0 | 153 | 11085 | 4 | 4 |
+| 4 | Bjärsjöholmssjön (55.454444, 13.766389) | [55.454444, 13.766389](https://www.google.com/maps/search/?api=1&query=55.454444,13.766389) | 0.5399 | source_coordinate_spread | 12 | 30 | 0 | 146 | 11085 | 4 | 4 |
+| 5 | Bussjösjön | [55.466667, 13.816667](https://www.google.com/maps/search/?api=1&query=55.466667,13.816667) | 0.5088 | none | 9 | 25 | 0 | 137 | 9859 | 4 | 4 |
+| 6 | Mullsjön | [58.317610, 14.211360](https://www.google.com/maps/search/?api=1&query=58.317610,14.211360) | 0.5054 | none | 11 | 158 | 0 | 76 | 40833 | 4 | 4 |
+| 7 | Åsbotorpsjön | [58.409810, 13.819960](https://www.google.com/maps/search/?api=1&query=58.409810,13.819960) | 0.4893 | none | 11 | 158 | 0 | 55 | 38291 | 4 | 4 |
+| 8 | Flarken (58.583333, 13.666667) | [58.583333, 13.666667](https://www.google.com/maps/search/?api=1&query=58.583333,13.666667) | 0.4886 | duplicate_sweden_name | 11 | 158 | 0 | 54 | 25127 | 4 | 4 |
+| 9 | Flarken (58.556790, 13.673190) | [58.556790, 13.673190](https://www.google.com/maps/search/?api=1&query=58.556790,13.673190) | 0.4766 | duplicate_sweden_name | 11 | 158 | 0 | 55 | 25127 | 4 | 4 |
+| 10 | Bjärsjon | [58.334560, 13.656065](https://www.google.com/maps/search/?api=1&query=58.334560,13.656065) | 0.4518 | none | 11 | 158 | 0 | 60 | 38291 | 4 | 4 |
+| 11 | Ljungsjön | [57.734290, 13.332690](https://www.google.com/maps/search/?api=1&query=57.734290,13.332690) | 0.3848 | none | 7 | 78 | 0 | 39 | 46860 | 1 | 4 |
+| 12 | Sigvalde Träsk | [57.342480, 18.525960](https://www.google.com/maps/search/?api=1&query=57.342480,18.525960) | 0.3653 | none | 12 | 92 | 0 | 84 | 13558 | 0 | 3 |
+| 13 | Ran Viken | [56.281450, 14.290560](https://www.google.com/maps/search/?api=1&query=56.281450,14.290560) | 0.3618 | none | 3 | 6 | 0 | 74 | 35437 | 7 | 4 |
+| 14 | Flinkasjön | [56.250000, 13.250000](https://www.google.com/maps/search/?api=1&query=56.250000,13.250000) | 0.3600 | none | 0 | 0 | 0 | 84 | 33942 | 4 | 3 |
+| 15 | Trummen | [56.866667, 14.833333](https://www.google.com/maps/search/?api=1&query=56.866667,14.833333) | 0.3499 | none | 0 | 0 | 0 | 25 | 28737 | 9 | 3 |
+| 16 | Avegöl | [57.683333, 14.500000](https://www.google.com/maps/search/?api=1&query=57.683333,14.500000) | 0.3481 | none | 0 | 0 | 0 | 60 | 44837 | 2 | 3 |
+| 17 | Värsjö Utmark | [56.316667, 13.433333](https://www.google.com/maps/search/?api=1&query=56.316667,13.433333) | 0.3423 | none | 0 | 0 | 0 | 58 | 37147 | 4 | 3 |
+| 18 | Odensjön | [56.003940, 13.275650](https://www.google.com/maps/search/?api=1&query=56.003940,13.275650) | 0.3419 | none | 3 | 5 | 0 | 138 | 37147 | 4 | 4 |
+| 19 | Holtjärnen | [60.650000, 14.916667](https://www.google.com/maps/search/?api=1&query=60.650000,14.916667) | 0.3415 | none | 0 | 0 | 0 | 178 | 13996 | 0 | 2 |
+| 20 | Skärsgölarna | [57.016667, 16.116667](https://www.google.com/maps/search/?api=1&query=57.016667,16.116667) | 0.3404 | none | 2 | 33 | 0 | 61 | 24492 | 4 | 4 |

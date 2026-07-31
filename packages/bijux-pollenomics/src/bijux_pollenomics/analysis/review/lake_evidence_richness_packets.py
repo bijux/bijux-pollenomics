@@ -397,6 +397,8 @@ def render_lake_evidence_richness_markdown(
     """Render the Sweden lake evidence richness report as markdown."""
     scenario_metrics = _scenario_metric_map(report)
     registry_backed = _is_registry_backed_report(report)
+    sampling_note = _render_optional_methodology_note(report, "sampling_note")
+    sampling_note_row = f"- Sampling note: {sampling_note}" if sampling_note else ""
     overall_rows = (
         "\n".join(
             (
@@ -438,7 +440,7 @@ This report ranks Sweden lake candidates by the richness of tracked pollen, arch
 - Ranking decision rule: {_render_ranking_decision_rule(report)}
 - Temporal alignment rule: {_render_temporal_alignment_rule(report)}
 - Source temporal coverage: {_render_source_temporal_coverage(report)}
-- Sampling note: {_render_optional_methodology_note(report, "sampling_note")}
+{sampling_note_row}
 - Archaeology note: {report.methodology["archaeology_note"]}
 - Pollen note: {_render_optional_methodology_note(report, "pollen_note")}
 - Animal note: {report.methodology["animal_note"]}

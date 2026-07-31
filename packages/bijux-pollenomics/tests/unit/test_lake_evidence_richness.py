@@ -1303,6 +1303,7 @@ def test_lake_evidence_richness_packets_write_reviewable_outputs() -> None:
         assert "not_available" in markdown
         assert "no checked-in records" in markdown
         assert "chronology rows absent in checked-in raw capture" in markdown
+        assert "- Sampling note:" not in markdown
         assert (
             "https://www.google.com/maps/search/?api=1&query=57.000000,14.000000"
             in markdown
