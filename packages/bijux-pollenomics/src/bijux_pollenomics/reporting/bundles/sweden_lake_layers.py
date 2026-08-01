@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import csv
+import json
 from pathlib import Path
 
 from ..context.points import build_external_point_layer
@@ -251,108 +252,180 @@ def _build_feature_collection(
         longitude = float(row["longitude"])
         lake_area = _parse_float(row.get("lake_area_km2", ""))
         sampling_fit = _parse_float(row.get("lake_sampling_fit", ""))
-        features.append(
-            {
-                "type": "Feature",
-                "geometry": {
-                    "type": "Point",
-                    "coordinates": [longitude, latitude],
-                },
-                "properties": {
-                    "source": "bijux-pollenomics",
-                    "layer_key": layer_key,
-                    "layer_label": layer_label,
-                    "category": "Lake evidence candidate",
-                    "country": "Sweden",
-                    "record_id": row["lake_token"],
-                    "name": row["lake_label"],
-                    "geometry_type": "Point",
-                    "subtitle": "Optional Sweden lake ranking overlay",
-                    "description": (
-                        row.get("ambiguity_note", "").strip()
-                        or "Published Sweden lake ranking candidate."
-                    ),
-                    "source_url": row.get("google_maps_url", "").strip(),
-                    "record_count": 1,
-                    "media_links": [],
-                    "popup_rows": [
-                        {"label": "Scenario", "value": scenario_label},
-                        {"label": "Scenario rank", "value": row["rank"]},
-                        {
-                            "label": "Scenario score",
-                            "value": _format_score(row["score"]),
-                        },
-                        {
-                            "label": "Aggregate rank",
-                            "value": row.get("aggregate_rank", "").strip()
-                            or "Not available",
-                        },
-                        {
-                            "label": "Aggregate score",
-                            "value": _format_score(row.get("aggregate_score", "")),
-                        },
-                        {
-                            "label": "Coordinates",
-                            "value": f"{latitude:.6f}, {longitude:.6f}",
-                        },
-                        {
-                            "label": "Lake registry id",
-                            "value": row.get("lake_registry_id", "").strip()
-                            or "Not available",
-                        },
-                        {
-                            "label": "Lake area",
-                            "value": (
-                                f"{lake_area:.3f} km²"
-                                if lake_area is not None
-                                else "Not available"
-                            ),
-                        },
-                        {
-                            "label": "Sampling posture",
-                            "value": row.get("lake_sampling_posture", "").strip()
-                            or "Not available",
-                        },
-                        {
-                            "label": "Sampling fit",
-                            "value": (
-                                f"{sampling_fit:.4f}"
-                                if sampling_fit is not None
-                                else "Not available"
-                            ),
-                        },
-                        {
-                            "label": "Sampling notes",
-                            "value": row.get("lake_sampling_notes", "").strip()
-                            or "Not available",
-                        },
-                        {
-                            "label": "Identity diagnostics",
-                            "value": row.get("ambiguity_flags", "").strip()
-                            or "No explicit identity warning.",
-                        },
-                        {
-                            "label": "Identity note",
-                            "value": row.get("ambiguity_note", "").strip()
-                            or "No explicit identity warning.",
-                        },
-                        {
-                            "label": "Scenario top-20 presence count",
-                            "value": row.get(
-                                "scenario_top20_presence_count", ""
-                            ).strip()
-                            or "0",
-                        },
-                        {
-                            "label": "Scenario top-20 labels",
-                            "value": row.get("scenario_top20_labels", "").strip()
-                            or "None",
-                        },
-                    ],
-                },
-            }
-        )
+        temporal_evidence = _parse_temporal_evidence(row)
+        for evidence in temporal_evidence or (None,):
+            evidence_record = (
+                str(evidence.get("source_record", "")).strip()
+                if evidence is not None
+                else ""
+            )
+            features.append(
+                {
+                    "type": "Feature",
+                    "geometry": {
+                        "type": "Point",
+                        "coordinates": [longitude, latitude],
+                    },
+                    "properties": {
+                        "source": "bijux-pollenomics",
+                        "layer_key": layer_key,
+                        "layer_label": layer_label,
+                        "category": "Lake evidence candidate",
+                        "country": "Sweden",
+                        "record_id": (
+                            f"{row['lake_token']}:{evidence_record}"
+                            if evidence_record
+                            else row["lake_token"]
+                        ),
+                        "name": row["lake_label"],
+                        "geometry_type": "Point",
+                        "subtitle": "Optional Sweden lake ranking overlay",
+                        "description": (
+                            row.get("ambiguity_note", "").strip()
+                            or "Published Sweden lake ranking candidate."
+                        ),
+                        "source_url": row.get("google_maps_url", "").strip(),
+                        "record_count": 1,
+                        "media_links": [],
+                        "popup_rows": [
+                            {"label": "Scenario", "value": scenario_label},
+                            {"label": "Scenario rank", "value": row["rank"]},
+                            {
+                                "label": "Scenario score",
+                                "value": _format_score(row["score"]),
+                            },
+                            {
+                                "label": "Aggregate rank",
+                                "value": row.get("aggregate_rank", "").strip()
+                                or "Not available",
+                            },
+                            {
+                                "label": "Aggregate score",
+                                "value": _format_score(row.get("aggregate_score", "")),
+                            },
+                            {
+                                "label": "Coordinates",
+                                "value": f"{latitude:.6f}, {longitude:.6f}",
+                            },
+                            {
+                                "label": "Lake registry id",
+                                "value": row.get("lake_registry_id", "").strip()
+                                or "Not available",
+                            },
+                            {
+                                "label": "Lake area",
+                                "value": (
+                                    f"{lake_area:.3f} km²"
+                                    if lake_area is not None
+                                    else "Not available"
+                                ),
+                            },
+                            {
+                                "label": "Sampling posture",
+                                "value": row.get("lake_sampling_posture", "").strip()
+                                or "Not available",
+                            },
+                            {
+                                "label": "Sampling fit",
+                                "value": (
+                                    f"{sampling_fit:.4f}"
+                                    if sampling_fit is not None
+                                    else "Not available"
+                                ),
+                            },
+                            {
+                                "label": "Sampling notes",
+                                "value": row.get("lake_sampling_notes", "").strip()
+                                or "Not available",
+                            },
+                            {
+                                "label": "Identity diagnostics",
+                                "value": row.get("ambiguity_flags", "").strip()
+                                or "No explicit identity warning.",
+                            },
+                            {
+                                "label": "Identity note",
+                                "value": row.get("ambiguity_note", "").strip()
+                                or "No explicit identity warning.",
+                            },
+                            {
+                                "label": "Scenario top-20 presence count",
+                                "value": row.get(
+                                    "scenario_top20_presence_count", ""
+                                ).strip()
+                                or "0",
+                            },
+                            {
+                                "label": "Scenario top-20 labels",
+                                "value": row.get("scenario_top20_labels", "").strip()
+                                or "None",
+                            },
+                            *_temporal_popup_rows(evidence),
+                        ],
+                        **_temporal_properties(evidence),
+                    },
+                }
+            )
     return {"type": "FeatureCollection", "features": features}
+
+
+def _parse_temporal_evidence(row: dict[str, str]) -> tuple[dict[str, object], ...]:
+    payload = row.get("direct_pollen_temporal_evidence", "").strip()
+    if not payload:
+        return ()
+    decoded = json.loads(payload)
+    if not isinstance(decoded, list) or not all(
+        isinstance(item, dict) for item in decoded
+    ):
+        raise ValueError(
+            "direct_pollen_temporal_evidence must be a JSON list of objects"
+        )
+    return tuple(decoded)
+
+
+def _temporal_properties(
+    evidence: dict[str, object] | None,
+) -> dict[str, object]:
+    if evidence is None:
+        return {
+            "time_start_bp": None,
+            "time_end_bp": None,
+            "time_mean_bp": None,
+            "time_label": "Chronology unresolved",
+            "temporal_semantics": {
+                "comparability_posture": "unresolved",
+                "comparison_note": (
+                    "The lake identity remains visible, but no direct pollen record "
+                    "with a numeric interval supports time filtering."
+                ),
+            },
+        }
+    return {
+        "time_start_bp": evidence.get("time_start_bp"),
+        "time_end_bp": evidence.get("time_end_bp"),
+        "time_mean_bp": evidence.get("time_mean_bp"),
+        "time_label": str(evidence.get("time_label", "")).strip(),
+        "temporal_semantics": evidence.get("temporal_semantics", {}),
+    }
+
+
+def _temporal_popup_rows(
+    evidence: dict[str, object] | None,
+) -> list[dict[str, str]]:
+    if evidence is None:
+        return [
+            {"label": "Temporal support", "value": "No numeric direct-pollen interval"}
+        ]
+    time_label = str(evidence.get("time_label", "")).strip()
+    if not time_label:
+        time_label = f"{evidence.get('time_start_bp')}–{evidence.get('time_end_bp')} BP"
+    return [
+        {"label": "Temporal support", "value": time_label},
+        {
+            "label": "Temporal source",
+            "value": str(evidence.get("source_record", "")).strip(),
+        },
+    ]
 
 
 def _parse_float(value: str) -> float | None:

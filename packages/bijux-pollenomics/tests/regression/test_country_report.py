@@ -1509,6 +1509,7 @@ class CountryReportTests(unittest.TestCase):
                     "coordinate_spread_km",
                     "ambiguity_flags",
                     "ambiguity_note",
+                    "direct_pollen_temporal_evidence",
                 ],
                 rows=[
                     self.lake_scenario_row("aggregate", "Aggregate", "1"),
@@ -1550,6 +1551,9 @@ class CountryReportTests(unittest.TestCase):
             ):
                 self.assertIn(label, map_html)
             self.assertIn('"default_enabled": false', map_html)
+            self.assertIn('"applies_time_filter": true', map_html)
+            self.assertIn('"time_start_bp": 3600', map_html)
+            self.assertIn("neotoma-pollen:alpha", map_html)
             self.assertIn("Optional Sweden lake ranking overlay", map_html)
             self.assertIn(
                 "sweden_lake_evidence_richness_v62.0_scenarios.csv",
@@ -2704,6 +2708,23 @@ class CountryReportTests(unittest.TestCase):
             "coordinate_spread_km": "0.0000",
             "ambiguity_flags": "",
             "ambiguity_note": "",
+            "direct_pollen_temporal_evidence": json.dumps(
+                [
+                    {
+                        "source_record": "neotoma-pollen:alpha",
+                        "source_name": "Lake Alpha",
+                        "source_layer_key": "neotoma-pollen",
+                        "latitude": 57.02,
+                        "longitude": 14.02,
+                        "source_url": "https://example.test/neotoma/alpha",
+                        "time_start_bp": 3600,
+                        "time_end_bp": 2400,
+                        "time_mean_bp": 3000,
+                        "time_label": "3600–2400 BP",
+                        "temporal_semantics": {},
+                    }
+                ]
+            ),
         }
 
 

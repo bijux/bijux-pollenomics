@@ -1296,6 +1296,8 @@ def test_lake_evidence_richness_packets_write_reviewable_outputs() -> None:
         )
         assert geojson["type"] == "FeatureCollection"
         assert geojson["features"][0]["properties"]["name"] == "Alpha"
+        assert geojson["features"][0]["properties"]["time_start_bp"] == 3600
+        assert geojson["features"][0]["properties"]["time_end_bp"] == 2400
         assert markdown.startswith("# Sweden lake evidence richness")
         assert "## Interpretation guardrails" in markdown
         assert "## 10 km Ranking" in markdown
@@ -1313,6 +1315,15 @@ def test_lake_evidence_richness_packets_write_reviewable_outputs() -> None:
         )
         assert registry_rows[0]["lake_registry_id"] == ""
         assert registry_rows[0]["representative_source_record"] == "neotoma-pollen:n1"
+        registry_temporal_evidence = json.loads(
+            registry_rows[0]["direct_pollen_temporal_evidence"]
+        )
+        assert registry_temporal_evidence[0]["source_record"] == "neotoma-pollen:n1"
+        assert registry_temporal_evidence[0]["time_start_bp"] == 3600
+        scenario_temporal_evidence = json.loads(
+            scenario_rows[0]["direct_pollen_temporal_evidence"]
+        )
+        assert scenario_temporal_evidence == registry_temporal_evidence
 
 
 def test_source_spatiotemporal_registry_does_not_override_scoped_counts() -> None:

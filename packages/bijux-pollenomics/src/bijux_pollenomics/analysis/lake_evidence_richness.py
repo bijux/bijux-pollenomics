@@ -63,6 +63,11 @@ class LakeEvidenceSourceAnchor:
     latitude: float
     longitude: float
     source_url: str
+    time_start_bp: int | None = None
+    time_end_bp: int | None = None
+    time_mean_bp: int | None = None
+    time_label: str = ""
+    temporal_semantics: dict[str, object] | None = None
 
     def as_dict(self) -> dict[str, object]:
         return {
@@ -72,6 +77,11 @@ class LakeEvidenceSourceAnchor:
             "latitude": round(self.latitude, 6),
             "longitude": round(self.longitude, 6),
             "source_url": self.source_url,
+            "time_start_bp": self.time_start_bp,
+            "time_end_bp": self.time_end_bp,
+            "time_mean_bp": self.time_mean_bp,
+            "time_label": self.time_label,
+            "temporal_semantics": self.temporal_semantics or {},
         }
 
 
@@ -1215,6 +1225,11 @@ def _derive_lake_candidates(
                         latitude=source_point.point.latitude,
                         longitude=source_point.point.longitude,
                         source_url=source_point.point.source_url,
+                        time_start_bp=source_point.point.time_start_bp,
+                        time_end_bp=source_point.point.time_end_bp,
+                        time_mean_bp=source_point.point.time_mean_bp,
+                        time_label=source_point.point.time_label,
+                        temporal_semantics=source_point.point.temporal_semantics,
                     )
                     for source_point in points
                 ),
@@ -1450,6 +1465,11 @@ def _derive_svar_lake_candidates(
                         latitude=point.latitude,
                         longitude=point.longitude,
                         source_url=point.source_url,
+                        time_start_bp=point.time_start_bp,
+                        time_end_bp=point.time_end_bp,
+                        time_mean_bp=point.time_mean_bp,
+                        time_label=point.time_label,
+                        temporal_semantics=point.temporal_semantics,
                     )
                     for point in direct_pollen_points
                 ),

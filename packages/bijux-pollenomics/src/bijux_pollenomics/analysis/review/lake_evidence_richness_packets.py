@@ -10,7 +10,10 @@ from ...reporting.context.points import build_external_point_layer
 from ...reporting.map_document import render_multi_country_map_html
 from ...reporting.map_publication import resolve_map_scope_policy
 from ...reporting.rendering.artifacts import copy_map_assets
-from ..lake_evidence_richness import LakeEvidenceRichnessReport
+from ..lake_evidence_richness import (
+    LakeEvidenceRichnessReport,
+    LakeEvidenceSourceAnchor,
+)
 from .lake_fieldwork_priority import (
     band_score as fieldwork_band_score,
 )
@@ -49,7 +52,9 @@ def build_lake_evidence_richness_geojson(
     return {
         "type": "FeatureCollection",
         "features": [
-            _build_candidate_feature(assessment) for assessment in report.assessments
+            feature
+            for assessment in report.assessments
+            for feature in _build_candidate_features(assessment)
         ],
     }
 
@@ -98,6 +103,7 @@ def write_lake_evidence_richness_band_csv(
         "lake_sampling_notes",
         "supporting_source_records",
         "supporting_source_points",
+        "direct_pollen_temporal_evidence",
         "aggregate_rank",
         "aggregate_score",
         "scenario_top20_presence_count",
@@ -171,6 +177,9 @@ def write_lake_evidence_richness_band_csv(
                         "supporting_source_points": "; ".join(
                             _render_source_point_cell(source_point)
                             for source_point in candidate.supporting_source_points
+                        ),
+                        "direct_pollen_temporal_evidence": _render_temporal_evidence_json(
+                            candidate
                         ),
                         "aggregate_rank": assessment.aggregate_rank,
                         "aggregate_score": assessment.aggregate_score,
@@ -253,6 +262,7 @@ def write_lake_evidence_richness_registry_csv(
         "supporting_pollen_names",
         "supporting_source_records",
         "supporting_source_points",
+        "direct_pollen_temporal_evidence",
         "direct_pollen_source_count",
         "direct_pollen_record_count",
         "time_aware_direct_pollen_records",
@@ -314,6 +324,9 @@ def write_lake_evidence_richness_registry_csv(
                         _render_source_point_cell(source_point)
                         for source_point in candidate.supporting_source_points
                     ),
+                    "direct_pollen_temporal_evidence": _render_temporal_evidence_json(
+                        candidate
+                    ),
                     "direct_pollen_source_count": candidate.direct_pollen_source_count,
                     "direct_pollen_record_count": candidate.direct_pollen_record_count,
                     "time_aware_direct_pollen_records": candidate.time_aware_direct_pollen_records,
@@ -353,6 +366,7 @@ def write_lake_evidence_richness_scenario_csv(
         "coordinate_spread_km",
         "ambiguity_flags",
         "ambiguity_note",
+        "direct_pollen_temporal_evidence",
     )
     with path.open("w", encoding="utf-8", newline="") as handle:
         writer = csv.DictWriter(handle, fieldnames=fieldnames, lineterminator="\n")
@@ -614,6 +628,9 @@ def _scenario_rows(report: LakeEvidenceRichnessReport) -> list[dict[str, object]
                 "coordinate_spread_km": candidate.coordinate_spread_km,
                 "ambiguity_flags": "; ".join(candidate.ambiguity_flags),
                 "ambiguity_note": candidate.ambiguity_note,
+                "direct_pollen_temporal_evidence": _render_temporal_evidence_json(
+                    candidate
+                ),
             }
         )
     for radius in report.radii_km:
@@ -658,6 +675,9 @@ def _scenario_rows(report: LakeEvidenceRichnessReport) -> list[dict[str, object]
                     "coordinate_spread_km": candidate.coordinate_spread_km,
                     "ambiguity_flags": "; ".join(candidate.ambiguity_flags),
                     "ambiguity_note": candidate.ambiguity_note,
+                    "direct_pollen_temporal_evidence": _render_temporal_evidence_json(
+                        candidate
+                    ),
                 }
             )
     fieldwork_rank_map = _fieldwork_rank_map(report)
@@ -697,37 +717,49 @@ def _scenario_rows(report: LakeEvidenceRichnessReport) -> list[dict[str, object]
                 "coordinate_spread_km": candidate.coordinate_spread_km,
                 "ambiguity_flags": "; ".join(candidate.ambiguity_flags),
                 "ambiguity_note": candidate.ambiguity_note,
+                "direct_pollen_temporal_evidence": _render_temporal_evidence_json(
+                    candidate
+                ),
             }
         )
     return rows
 
 
-def _build_candidate_feature(assessment) -> dict[str, object]:
+def _build_candidate_features(assessment) -> list[dict[str, object]]:
     candidate = assessment.candidate
-    return {
-        "type": "Feature",
-        "geometry": {
-            "type": "Point",
-            "coordinates": [candidate.longitude, candidate.latitude],
-        },
-        "properties": {
-            "source": "bijux-pollenomics",
-            "layer_key": "lake-evidence-candidates",
-            "layer_label": "Sweden lake evidence candidates",
-            "category": "Lake evidence candidate",
-            "country": "Sweden",
-            "record_id": candidate.lake_token,
-            "name": candidate.lake_label,
-            "geometry_type": "Point",
-            "subtitle": "Sweden lake evidence candidate",
-            "description": candidate.ambiguity_note
-            or _candidate_description(candidate),
-            "source_url": candidate.representative_source_url,
-            "record_count": 1,
-            "media_links": _candidate_media_links(candidate),
-            "popup_rows": _candidate_popup_rows(assessment),
-        },
-    }
+    temporal_sources = _candidate_temporal_sources(candidate)
+    sources = temporal_sources or (None,)
+    return [
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [candidate.longitude, candidate.latitude],
+            },
+            "properties": {
+                "source": "bijux-pollenomics",
+                "layer_key": "lake-evidence-candidates",
+                "layer_label": "Sweden lake evidence candidates",
+                "category": "Lake evidence candidate",
+                "country": "Sweden",
+                "record_id": _temporal_record_id(candidate, source_point),
+                "name": candidate.lake_label,
+                "geometry_type": "Point",
+                "subtitle": "Sweden lake evidence candidate",
+                "description": candidate.ambiguity_note
+                or _candidate_description(candidate),
+                "source_url": candidate.representative_source_url,
+                "record_count": 1,
+                "media_links": _candidate_media_links(candidate),
+                "popup_rows": [
+                    *_candidate_popup_rows(assessment),
+                    *_temporal_popup_rows(source_point),
+                ],
+                **_temporal_properties(source_point),
+            },
+        }
+        for source_point in sources
+    ]
 
 
 def _candidate_popup_rows(assessment) -> list[dict[str, str]]:
@@ -817,6 +849,80 @@ def _candidate_popup_rows(assessment) -> list[dict[str, str]]:
     ]
 
 
+def _candidate_temporal_sources(
+    candidate,
+) -> tuple[LakeEvidenceSourceAnchor, ...]:
+    return tuple(
+        source_point
+        for source_point in candidate.supporting_source_points
+        if source_point.time_start_bp is not None
+        and source_point.time_end_bp is not None
+    )
+
+
+def _render_temporal_evidence_json(candidate) -> str:
+    return json.dumps(
+        [
+            source_point.as_dict()
+            for source_point in _candidate_temporal_sources(candidate)
+        ],
+        ensure_ascii=False,
+        separators=(",", ":"),
+        sort_keys=True,
+    )
+
+
+def _temporal_record_id(
+    candidate,
+    source_point: LakeEvidenceSourceAnchor | None,
+) -> str:
+    if source_point is None:
+        return candidate.lake_token
+    return f"{candidate.lake_token}:{source_point.source_record}"
+
+
+def _temporal_properties(
+    source_point: LakeEvidenceSourceAnchor | None,
+) -> dict[str, object]:
+    if source_point is None:
+        return {
+            "time_start_bp": None,
+            "time_end_bp": None,
+            "time_mean_bp": None,
+            "time_label": "Chronology unresolved",
+            "temporal_semantics": {
+                "comparability_posture": "unresolved",
+                "comparison_note": (
+                    "The lake identity remains visible, but no direct pollen record "
+                    "with a numeric interval supports time filtering."
+                ),
+            },
+        }
+    return {
+        "time_start_bp": source_point.time_start_bp,
+        "time_end_bp": source_point.time_end_bp,
+        "time_mean_bp": source_point.time_mean_bp,
+        "time_label": source_point.time_label,
+        "temporal_semantics": source_point.temporal_semantics or {},
+    }
+
+
+def _temporal_popup_rows(
+    source_point: LakeEvidenceSourceAnchor | None,
+) -> list[dict[str, str]]:
+    if source_point is None:
+        return [
+            {"label": "Temporal support", "value": "No numeric direct-pollen interval"}
+        ]
+    interval_label = source_point.time_label or (
+        f"{source_point.time_start_bp}–{source_point.time_end_bp} BP"
+    )
+    return [
+        {"label": "Temporal support", "value": interval_label},
+        {"label": "Temporal source", "value": source_point.source_record},
+    ]
+
+
 def _map_scenarios(report: LakeEvidenceRichnessReport) -> list[dict[str, object]]:
     scenario_metrics = _scenario_metric_map(report)
     scenarios: list[dict[str, object]] = [
@@ -891,86 +997,93 @@ def _build_scenario_feature_collection(
     score_getter = scenario["score_getter"]
     for assessment in rows:  # type: ignore[assignment]
         candidate = assessment.candidate
-        features.append(
-            {
-                "type": "Feature",
-                "geometry": {
-                    "type": "Point",
-                    "coordinates": [candidate.longitude, candidate.latitude],
-                },
-                "properties": {
-                    "source": "bijux-pollenomics",
-                    "layer_key": scenario["key"],
-                    "layer_label": scenario["label"],
-                    "category": "Lake evidence candidate",
-                    "country": "Sweden",
-                    "record_id": candidate.lake_token,
-                    "name": candidate.lake_label,
-                    "geometry_type": "Point",
-                    "subtitle": "Lake evidence ranking scenario",
-                    "description": candidate.ambiguity_note
-                    or _candidate_description(candidate),
-                    "source_url": candidate.representative_source_url,
-                    "record_count": 1,
-                    "media_links": _candidate_media_links(candidate),
-                    "popup_rows": [
-                        {
-                            "label": "Scenario",
-                            "value": str(scenario["scenario_label"]),
-                        },
-                        {
-                            "label": "Scenario rank",
-                            "value": str(rank_getter(assessment)),
-                        },
-                        {
-                            "label": "Scenario score",
-                            "value": f"{score_getter(assessment):.4f}",
-                        },
-                        {
-                            "label": "Aggregate rank",
-                            "value": str(assessment.aggregate_rank),
-                        },
-                        {
-                            "label": "Coordinates",
-                            "value": f"{candidate.latitude:.6f}, {candidate.longitude:.6f}",
-                        },
-                        {
-                            "label": "Representative source",
-                            "value": candidate.representative_source_record,
-                        },
-                        {
-                            "label": "Lake registry id",
-                            "value": candidate.lake_registry_id or "Not available",
-                        },
-                        {
-                            "label": "Lake area",
-                            "value": (
-                                f"{candidate.lake_area_km2:.3f} km²"
-                                if candidate.lake_area_km2 is not None
-                                else "Not available"
-                            ),
-                        },
-                        {
-                            "label": "Sampling posture",
-                            "value": candidate.lake_sampling_posture or "Not available",
-                        },
-                        {
-                            "label": "Sampling fit",
-                            "value": f"{candidate.lake_sampling_fit:.4f}",
-                        },
-                        {
-                            "label": "Identity diagnostics",
-                            "value": _render_ambiguity_cell(candidate.ambiguity_flags),
-                        },
-                        {
-                            "label": "Identity note",
-                            "value": candidate.ambiguity_note
-                            or "No explicit identity warning.",
-                        },
-                    ],
-                },
-            }
-        )
+        temporal_sources = _candidate_temporal_sources(candidate)
+        for source_point in temporal_sources or (None,):
+            features.append(
+                {
+                    "type": "Feature",
+                    "geometry": {
+                        "type": "Point",
+                        "coordinates": [candidate.longitude, candidate.latitude],
+                    },
+                    "properties": {
+                        "source": "bijux-pollenomics",
+                        "layer_key": scenario["key"],
+                        "layer_label": scenario["label"],
+                        "category": "Lake evidence candidate",
+                        "country": "Sweden",
+                        "record_id": _temporal_record_id(candidate, source_point),
+                        "name": candidate.lake_label,
+                        "geometry_type": "Point",
+                        "subtitle": "Lake evidence ranking scenario",
+                        "description": candidate.ambiguity_note
+                        or _candidate_description(candidate),
+                        "source_url": candidate.representative_source_url,
+                        "record_count": 1,
+                        "media_links": _candidate_media_links(candidate),
+                        "popup_rows": [
+                            {
+                                "label": "Scenario",
+                                "value": str(scenario["scenario_label"]),
+                            },
+                            {
+                                "label": "Scenario rank",
+                                "value": str(rank_getter(assessment)),
+                            },
+                            {
+                                "label": "Scenario score",
+                                "value": f"{score_getter(assessment):.4f}",
+                            },
+                            {
+                                "label": "Aggregate rank",
+                                "value": str(assessment.aggregate_rank),
+                            },
+                            {
+                                "label": "Coordinates",
+                                "value": f"{candidate.latitude:.6f}, {candidate.longitude:.6f}",
+                            },
+                            {
+                                "label": "Representative source",
+                                "value": candidate.representative_source_record,
+                            },
+                            {
+                                "label": "Lake registry id",
+                                "value": candidate.lake_registry_id or "Not available",
+                            },
+                            {
+                                "label": "Lake area",
+                                "value": (
+                                    f"{candidate.lake_area_km2:.3f} km²"
+                                    if candidate.lake_area_km2 is not None
+                                    else "Not available"
+                                ),
+                            },
+                            {
+                                "label": "Sampling posture",
+                                "value": candidate.lake_sampling_posture
+                                or "Not available",
+                            },
+                            {
+                                "label": "Sampling fit",
+                                "value": f"{candidate.lake_sampling_fit:.4f}",
+                            },
+                            {
+                                "label": "Identity diagnostics",
+                                "value": _render_ambiguity_cell(
+                                    candidate.ambiguity_flags
+                                ),
+                            },
+                            {
+                                "label": "Identity note",
+                                "value": candidate.ambiguity_note
+                                or "No explicit identity warning.",
+                            },
+                            *_temporal_popup_rows(source_point),
+                        ],
+                        **_temporal_properties(source_point),
+                    },
+                }
+            )
     return {"type": "FeatureCollection", "features": features}
 
 
