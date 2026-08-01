@@ -6,12 +6,14 @@ from pathlib import Path
 from ...analysis import (
     build_lake_archaeology_sensitivity_payload,
     build_lake_fieldwork_preparation_payload,
+    build_sweden_land_use_synthesis,
     build_sweden_lake_evidence_richness_report,
     render_lake_evidence_richness_markdown,
     render_lake_evidence_richness_section,
     render_lake_archaeology_sensitivity_markdown,
     render_lake_fieldwork_preparation_markdown,
     render_lake_fieldwork_preparation_section,
+    render_sweden_land_use_synthesis_markdown,
     write_lake_evidence_richness_band_csv,
     write_lake_archaeology_sensitivity_csv,
     write_lake_archaeology_sensitivity_json,
@@ -22,6 +24,8 @@ from ...analysis import (
     write_lake_evidence_richness_scenario_csv,
     write_lake_fieldwork_preparation_csv,
     write_lake_fieldwork_preparation_json,
+    write_sweden_land_use_synthesis_csv,
+    write_sweden_land_use_synthesis_json,
 )
 from ..adna.country_outputs import (
     build_country_animal_output_bundle,
@@ -181,6 +185,24 @@ def publish_country_report_bundle(
             render_lake_archaeology_sensitivity_markdown(lake_archaeology_payload),
             encoding="utf-8",
         )
+        land_use_payload = build_sweden_land_use_synthesis(
+            context_root=context_root,
+            lake_report=lake_report,
+            human_localities=report.localities,
+            animal_localities=animal_localities,
+        )
+        write_sweden_land_use_synthesis_json(
+            bundle_paths.land_use_synthesis_json_path,
+            land_use_payload,
+        )
+        write_sweden_land_use_synthesis_csv(
+            bundle_paths.land_use_synthesis_csv_path,
+            land_use_payload,
+        )
+        bundle_paths.land_use_synthesis_markdown_path.write_text(
+            render_sweden_land_use_synthesis_markdown(land_use_payload),
+            encoding="utf-8",
+        )
         lake_section_markdown = render_lake_evidence_richness_section(
             json_name=bundle_paths.lake_evidence_richness_json_path.name,
             registry_csv_name=bundle_paths.lake_evidence_richness_registry_csv_path.name,
@@ -197,6 +219,12 @@ def publish_country_report_bundle(
 - Sensitivity JSON: [`{bundle_paths.lake_archaeology_sensitivity_json_path.name}`](./{bundle_paths.lake_archaeology_sensitivity_json_path.name})
 - Sensitivity CSV: [`{bundle_paths.lake_archaeology_sensitivity_csv_path.name}`](./{bundle_paths.lake_archaeology_sensitivity_csv_path.name})
 - Reader explanation: [`{bundle_paths.lake_archaeology_sensitivity_markdown_path.name}`](./{bundle_paths.lake_archaeology_sensitivity_markdown_path.name})
+
+## Southern Sweden Land-Use Synthesis
+
+- Full temporal synthesis JSON: [`{bundle_paths.land_use_synthesis_json_path.name}`](./{bundle_paths.land_use_synthesis_json_path.name})
+- Full temporal synthesis CSV: [`{bundle_paths.land_use_synthesis_csv_path.name}`](./{bundle_paths.land_use_synthesis_csv_path.name})
+- Target decisions and reader explanation: [`{bundle_paths.land_use_synthesis_markdown_path.name}`](./{bundle_paths.land_use_synthesis_markdown_path.name})
 """
         lake_fieldwork_section_markdown = render_lake_fieldwork_preparation_section(
             json_name=bundle_paths.lake_fieldwork_preparation_json_path.name,

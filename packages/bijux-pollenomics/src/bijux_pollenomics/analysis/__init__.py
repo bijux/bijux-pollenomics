@@ -63,6 +63,12 @@ from .site_candidates import (
     resolve_ranking_profile,
     score_candidate_site,
 )
+from .sweden_land_use_synthesis import (
+    build_sweden_land_use_synthesis,
+    render_sweden_land_use_synthesis_markdown,
+    write_sweden_land_use_synthesis_csv,
+    write_sweden_land_use_synthesis_json,
+)
 
 __all__ = [
     "CandidateRankingProfile",
@@ -89,6 +95,7 @@ __all__ = [
     "build_ranking_profiles",
     "build_ranking_sensitivity_report",
     "build_sweden_lake_evidence_richness_report",
+    "build_sweden_land_use_synthesis",
     "default_harmonization_rules",
     "rank_localities",
     "render_candidate_site_markdown",
@@ -99,6 +106,7 @@ __all__ = [
     "render_lake_evidence_richness_map_html",
     "render_lake_evidence_richness_markdown",
     "render_lake_evidence_richness_section",
+    "render_sweden_land_use_synthesis_markdown",
     "resolve_ranking_profile",
     "ScoringWeights",
     "score_candidate_site",
@@ -117,4 +125,6 @@ __all__ = [
     "write_lake_evidence_richness_map_html",
     "write_lake_evidence_richness_registry_csv",
     "write_lake_evidence_richness_scenario_csv",
+    "write_sweden_land_use_synthesis_csv",
+    "write_sweden_land_use_synthesis_json",
 ]
