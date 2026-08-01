@@ -10,6 +10,7 @@ from ...data_downloader.contracts import (
     ATLAS_POINT_ARTIFACTS,
     BOUNDARY_COLLECTION,
     LANDCLIM_GRID_GEOJSON,
+    LANDCLIM_TEMPORAL_GRID_GEOJSON,
     RAA_DENSITY_GEOJSON,
     RAA_LAYER_METADATA,
 )
@@ -72,10 +73,23 @@ def stage_context_polygon_layers(
         )
         extra_artifacts.append((BOUNDARY_COLLECTION.label, destination_path.name))
 
-    landclim_grid_path = LANDCLIM_GRID_GEOJSON.path_under(context_root)
+    temporal_landclim_grid_path = LANDCLIM_TEMPORAL_GRID_GEOJSON.path_under(
+        context_root
+    )
+    landclim_grid_contract = (
+        LANDCLIM_TEMPORAL_GRID_GEOJSON
+        if temporal_landclim_grid_path.exists()
+        else LANDCLIM_GRID_GEOJSON
+    )
+    landclim_grid_path = landclim_grid_contract.path_under(context_root)
+    landclim_layer_key = (
+        "landclim-reveals-temporal-grid"
+        if landclim_grid_contract is LANDCLIM_TEMPORAL_GRID_GEOJSON
+        else "landclim-reveals-grid"
+    )
     if landclim_grid_path.exists() and map_allows_context_layer(
         scope_key=scope_key,
-        layer_key="landclim-reveals-grid",
+        layer_key=landclim_layer_key,
     ):
         destination_path = stage_context_artifact(
             source_path=landclim_grid_path, output_dir=output_dir
@@ -85,7 +99,7 @@ def stage_context_polygon_layers(
                 load_context_geojson(destination_path), source_path=destination_path
             )
         )
-        extra_artifacts.append((LANDCLIM_GRID_GEOJSON.label, destination_path.name))
+        extra_artifacts.append((landclim_grid_contract.label, destination_path.name))
 
     archaeology_path = RAA_LAYER_METADATA.path_under(context_root)
     if archaeology_path.exists() and map_allows_context_layer(

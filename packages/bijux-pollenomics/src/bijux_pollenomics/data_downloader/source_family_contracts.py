@@ -83,6 +83,8 @@ def build_source_family_contracts() -> tuple[SourceFamilyContract, ...]:
                 example_artifacts=(
                     "data/landclim/normalized/nordic_pollen_site_sequences.geojson",
                     "data/landclim/normalized/nordic_reveals_grid_cells.geojson",
+                    "data/landclim/normalized/nordic_reveals_temporal_grid_cells.geojson",
+                    "data/landclim/normalized/landclim_bibliography.json",
                 ),
             ),
             reviewed_layer=SourceFamilyLayerContract(
@@ -99,6 +101,7 @@ def build_source_family_contracts() -> tuple[SourceFamilyContract, ...]:
                 purpose="published pollen-context layers used in atlas outputs",
                 example_artifacts=(
                     "docs/report/regions/nordic/nordic_pollen_sites.geojson",
+                    "docs/report/regions/nordic/nordic_reveals_temporal_grid_cells.geojson",
                 ),
             ),
             coverage_metric_keys=("landclim_site_count", "landclim_grid_cell_count"),

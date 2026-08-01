@@ -1003,10 +1003,12 @@ def build_repository_atlas_input_audit(
             [
                 "data/landclim/normalized/nordic_pollen_site_sequences.geojson",
                 "data/landclim/normalized/nordic_reveals_grid_cells.geojson",
+                "data/landclim/normalized/nordic_reveals_temporal_grid_cells.geojson",
+                "data/landclim/normalized/landclim_bibliography.json",
             ],
             [
                 "docs/report/regions/nordic/nordic_pollen_site_sequences.geojson",
-                "docs/report/regions/nordic/nordic_reveals_grid_cells.geojson",
+                "docs/report/regions/nordic/nordic_reveals_temporal_grid_cells.geojson",
             ],
             "data/landclim/normalized/landclim_summary.json",
             {

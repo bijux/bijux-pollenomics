@@ -180,6 +180,7 @@ _LAYER_SCOPE_RULES = {
     "sead-sites": _NORDIC_SCOPE_KEYS,
     "sead-temporal-evidence": _NORDIC_SCOPE_KEYS,
     "landclim-reveals-grid": _NORDIC_SCOPE_KEYS,
+    "landclim-reveals-temporal-grid": _NORDIC_SCOPE_KEYS,
     "raa-archaeology": _NORDIC_SCOPE_KEYS,
     "raa-layer-metadata": _NORDIC_SCOPE_KEYS,
 }

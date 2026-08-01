@@ -43,6 +43,16 @@ LANDCLIM_GRID_GEOJSON = DataArtifactContract(
     label="LandClim REVEALS grid GeoJSON",
     relative_parts=("normalized", "nordic_reveals_grid_cells.geojson"),
 )
+LANDCLIM_TEMPORAL_GRID_GEOJSON = DataArtifactContract(
+    source="landclim",
+    label="LandClim REVEALS temporal grid GeoJSON",
+    relative_parts=("normalized", "nordic_reveals_temporal_grid_cells.geojson"),
+)
+LANDCLIM_BIBLIOGRAPHY_JSON = DataArtifactContract(
+    source="landclim",
+    label="LandClim bibliography",
+    relative_parts=("normalized", "landclim_bibliography.json"),
+)
 NEOTOMA_POINT_CSV = DataArtifactContract(
     source="neotoma",
     label="Neotoma pollen CSV",

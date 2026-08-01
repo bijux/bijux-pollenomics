@@ -11,6 +11,7 @@ from ....core.bp_time import (
     parse_bp_window_label,
 )
 from ....core.text import clean_optional_text
+from ....core.temporal_semantics import build_temporal_semantics
 from ...intake.workbooks import read_xlsx_sheet_rows
 from ...models import ContextPointRecord
 from ...spatial import classify_country, point_in_bbox
@@ -142,6 +143,12 @@ def marquer_site_records(
                 time_end_bp=11700,
                 time_mean_bp=5850,
                 time_label="0-11700 BP",
+                temporal_semantics=landclim_site_temporal_semantics(
+                    dataset_id="900966",
+                    interval=(0, 11700),
+                    summary_label="0-11700 BP",
+                    provenance_locator=f"Metadata:{site_name}",
+                ),
                 popup_rows=tuple(popup_rows),
             )
         )
@@ -225,6 +232,12 @@ def landclim_i_site_records(
                 time_label=summarize_time_windows(available_windows)
                 if available_windows
                 else "",
+                temporal_semantics=landclim_site_temporal_semantics(
+                    dataset_id="897303",
+                    interval=time_interval,
+                    summary_label=summarize_time_windows(available_windows),
+                    provenance_locator=f"SiteData:{site_name}",
+                ),
                 popup_rows=tuple(
                     (label, value) for label, value in popup_rows if value
                 ),
@@ -277,6 +290,17 @@ def landclim_ii_site_records(
             ("Top BP", value_from_row(row, index, "TopBP")),
             ("Bottom BP", value_from_row(row, index, "BotBP")),
             ("Elevation", value_from_row(row, index, "Elevation")),
+            (
+                "Data owner or collector",
+                value_from_row(row, index, "Database/Authorname and/or data collector"),
+            ),
+            (
+                "Access posture",
+                value_from_row(row, index, "DataRestricted/NotRestriced"),
+            ),
+            ("Chronology basis", value_from_row(row, index, "chronologySource")),
+            ("Chronology notes", value_from_row(row, index, "ChronologyNotes")),
+            ("LandClim project", value_from_row(row, index, "LandClimProject")),
         ]
         records.append(
             ContextPointRecord(
@@ -300,6 +324,19 @@ def landclim_ii_site_records(
                 time_label=build_bp_interval_label(time_interval[0], time_interval[1])
                 if time_interval is not None
                 else "",
+                temporal_semantics=landclim_site_temporal_semantics(
+                    dataset_id="937075",
+                    interval=time_interval,
+                    summary_label=build_bp_interval_label(
+                        time_interval[0], time_interval[1]
+                    )
+                    if time_interval is not None
+                    else "",
+                    provenance_locator=(
+                        "LANDCLIMII metadata file:"
+                        f"{value_from_row(row, index, 'csvfilename')}"
+                    ),
+                ),
                 popup_rows=tuple(
                     (label, value) for label, value in popup_rows if value
                 ),
@@ -426,6 +463,45 @@ def landclim_top_bottom_interval(
 ) -> tuple[int, int] | None:
     """Build a LandClim interval from top and bottom BP fields."""
     return normalize_bp_interval(top_bp, bottom_bp)
+
+
+def landclim_site_temporal_semantics(
+    *,
+    dataset_id: str,
+    interval: tuple[int, int] | None,
+    summary_label: str,
+    provenance_locator: str,
+) -> dict[str, object]:
+    """Build explicit temporal posture for one LandClim site sequence."""
+    return build_temporal_semantics(
+        source_family="landclim",
+        evidence_class="pollen_site_sequence_coverage",
+        precision_posture="site_sequence_interval"
+        if interval is not None
+        else "source_metadata_without_numeric_interval",
+        comparability_posture="numeric_interval"
+        if interval is not None
+        else "unresolved",
+        time_start_bp=interval[0] if interval is not None else None,
+        time_end_bp=interval[1] if interval is not None else None,
+        summary_label=summary_label,
+        comparison_note=(
+            "This interval describes sequence coverage, not a single pollen observation "
+            "or an event date."
+            if interval is not None
+            else "The source row remains spatial pollen context until numeric sequence bounds are available."
+        ),
+        provenance_path=(
+            "data/landclim/raw/marquer_2017_reveals_taxa_grid_cells.xlsx"
+            if dataset_id == "900966"
+            else "data/landclim/raw/landclim_i_land_cover_types.xlsx"
+            if dataset_id == "897303"
+            else "data/landclim/raw/landclim_ii_site_metadata.xlsx"
+        ),
+        provenance_locator=provenance_locator,
+        original_labels=(summary_label,) if summary_label else (),
+        normalized_labels=(summary_label,) if summary_label else (),
+    ).as_dict()
 
 
 def normalize_landclim_time_window_label(value: str) -> str:

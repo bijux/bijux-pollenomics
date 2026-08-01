@@ -4,18 +4,27 @@ from dataclasses import dataclass
 from datetime import date
 from pathlib import Path
 
+from ..config import NORDIC_BBOX
 from ..core.files import write_json
 from ..core.geojson import feature_list
 from ..core.http import fetch_binary
-from .contracts import LANDCLIM_GRID_GEOJSON, LANDCLIM_SITE_CSV, LANDCLIM_SITE_GEOJSON
+from .contracts import (
+    LANDCLIM_BIBLIOGRAPHY_JSON,
+    LANDCLIM_GRID_GEOJSON,
+    LANDCLIM_SITE_CSV,
+    LANDCLIM_SITE_GEOJSON,
+    LANDCLIM_TEMPORAL_GRID_GEOJSON,
+)
 from .exports.context_points import (
     write_context_points_csv,
     write_context_points_geojson,
 )
+from .shared import load_repository_country_boundaries
 from .sources.landclim.catalog import (
     LANDCLIM_DATASET_METADATA,
     LandClimRawAssets,
     build_landclim_raw_asset_summaries,
+    build_landclim_bibliography,
     inspect_landclim_ii_archive,
     resolve_landclim_marquer_asset_urls,
     resolve_landclim_tabular_asset_urls,
@@ -38,6 +47,10 @@ from .sources.landclim.sites import (
     landclim_ii_site_records,
     parse_coordinate,
 )
+from .sources.landclim.time_windows import (
+    LANDCLIM_TEMPORAL_GRID_LAYER_KEY,
+    build_landclim_temporal_grid_geojson,
+)
 
 
 @dataclass(frozen=True)
@@ -49,6 +62,8 @@ class LandClimDataReport:
     normalized_sites_csv_path: Path
     normalized_sites_geojson_path: Path
     normalized_grid_geojson_path: Path
+    normalized_temporal_grid_geojson_path: Path
+    bibliography_path: Path
     summary_path: Path
 
 
@@ -73,6 +88,9 @@ def collect_landclim_data(
         raw_paths, bbox=bbox, country_boundaries=country_boundaries
     )
     grid_geojson = build_landclim_grid_geojson(
+        raw_paths, bbox=bbox, country_boundaries=country_boundaries
+    )
+    temporal_grid_geojson = build_landclim_temporal_grid_geojson(
         raw_paths, bbox=bbox, country_boundaries=country_boundaries
     )
 
@@ -118,10 +136,16 @@ def collect_landclim_data(
     normalized_sites_csv_path = LANDCLIM_SITE_CSV.source_path_under(output_root)
     normalized_sites_geojson_path = LANDCLIM_SITE_GEOJSON.source_path_under(output_root)
     normalized_grid_geojson_path = LANDCLIM_GRID_GEOJSON.source_path_under(output_root)
+    normalized_temporal_grid_geojson_path = (
+        LANDCLIM_TEMPORAL_GRID_GEOJSON.source_path_under(output_root)
+    )
+    bibliography_path = LANDCLIM_BIBLIOGRAPHY_JSON.source_path_under(output_root)
     summary_path = normalized_dir / "landclim_summary.json"
     write_context_points_csv(normalized_sites_csv_path, site_records)
     write_context_points_geojson(normalized_sites_geojson_path, site_records)
     write_json(normalized_grid_geojson_path, grid_geojson)
+    write_json(normalized_temporal_grid_geojson_path, temporal_grid_geojson)
+    write_json(bibliography_path, build_landclim_bibliography())
     write_json(
         summary_path,
         {
@@ -129,8 +153,16 @@ def collect_landclim_data(
             "source": "LandClim",
             "site_count": len(site_records),
             "grid_cell_count": len(feature_list(grid_geojson)),
+            "temporal_grid_feature_count": len(feature_list(temporal_grid_geojson)),
+            "numeric_site_interval_count": sum(
+                1
+                for record in site_records
+                if record.time_start_bp is not None and record.time_end_bp is not None
+            ),
+            "bibliography_dataset_count": len(LANDCLIM_DATASET_METADATA),
             "site_layer_key": LANDCLIM_SITE_LAYER_KEY,
             "grid_layer_key": LANDCLIM_GRID_LAYER_KEY,
+            "temporal_grid_layer_key": LANDCLIM_TEMPORAL_GRID_LAYER_KEY,
         },
     )
 
@@ -142,6 +174,82 @@ def collect_landclim_data(
         normalized_sites_csv_path=normalized_sites_csv_path,
         normalized_sites_geojson_path=normalized_sites_geojson_path,
         normalized_grid_geojson_path=normalized_grid_geojson_path,
+        normalized_temporal_grid_geojson_path=normalized_temporal_grid_geojson_path,
+        bibliography_path=bibliography_path,
+        summary_path=summary_path,
+    )
+
+
+def materialize_landclim_repository_surfaces(data_root: Path) -> LandClimDataReport:
+    """Refresh normalized LandClim surfaces from the checked-in raw capture."""
+    data_root = Path(data_root)
+    output_root = data_root / "landclim"
+    raw_dir = output_root / "raw"
+    normalized_dir = output_root / "normalized"
+    normalized_dir.mkdir(parents=True, exist_ok=True)
+    raw_paths = {
+        path.name: path
+        for path in raw_dir.iterdir()
+        if path.is_file() and path.name != "landclim_sources.json"
+    }
+    country_boundaries = load_repository_country_boundaries(data_root)
+    site_records = build_landclim_site_records(
+        raw_paths,
+        bbox=NORDIC_BBOX,
+        country_boundaries=country_boundaries,
+    )
+    grid_geojson = build_landclim_grid_geojson(
+        raw_paths,
+        bbox=NORDIC_BBOX,
+        country_boundaries=country_boundaries,
+    )
+    temporal_grid_geojson = build_landclim_temporal_grid_geojson(
+        raw_paths,
+        bbox=NORDIC_BBOX,
+        country_boundaries=country_boundaries,
+    )
+    normalized_sites_csv_path = LANDCLIM_SITE_CSV.path_under(data_root)
+    normalized_sites_geojson_path = LANDCLIM_SITE_GEOJSON.path_under(data_root)
+    normalized_grid_geojson_path = LANDCLIM_GRID_GEOJSON.path_under(data_root)
+    normalized_temporal_grid_geojson_path = LANDCLIM_TEMPORAL_GRID_GEOJSON.path_under(
+        data_root
+    )
+    bibliography_path = LANDCLIM_BIBLIOGRAPHY_JSON.path_under(data_root)
+    summary_path = normalized_dir / "landclim_summary.json"
+    write_context_points_csv(normalized_sites_csv_path, site_records)
+    write_context_points_geojson(normalized_sites_geojson_path, site_records)
+    write_json(normalized_grid_geojson_path, grid_geojson)
+    write_json(normalized_temporal_grid_geojson_path, temporal_grid_geojson)
+    write_json(bibliography_path, build_landclim_bibliography())
+    write_json(
+        summary_path,
+        {
+            "generated_on": str(date.today()),
+            "source": "LandClim",
+            "site_count": len(site_records),
+            "numeric_site_interval_count": sum(
+                1
+                for record in site_records
+                if record.time_start_bp is not None and record.time_end_bp is not None
+            ),
+            "grid_cell_count": len(feature_list(grid_geojson)),
+            "temporal_grid_feature_count": len(feature_list(temporal_grid_geojson)),
+            "bibliography_dataset_count": len(LANDCLIM_DATASET_METADATA),
+            "site_layer_key": LANDCLIM_SITE_LAYER_KEY,
+            "grid_layer_key": LANDCLIM_GRID_LAYER_KEY,
+            "temporal_grid_layer_key": LANDCLIM_TEMPORAL_GRID_LAYER_KEY,
+        },
+    )
+    return LandClimDataReport(
+        output_dir=output_root,
+        site_count=len(site_records),
+        grid_cell_count=len(feature_list(grid_geojson)),
+        raw_manifest_path=raw_dir / "landclim_sources.json",
+        normalized_sites_csv_path=normalized_sites_csv_path,
+        normalized_sites_geojson_path=normalized_sites_geojson_path,
+        normalized_grid_geojson_path=normalized_grid_geojson_path,
+        normalized_temporal_grid_geojson_path=normalized_temporal_grid_geojson_path,
+        bibliography_path=bibliography_path,
         summary_path=summary_path,
     )
 
@@ -167,6 +275,7 @@ def download_landclim_raw_assets(raw_dir: Path) -> LandClimRawAssets:
 __all__ = [
     "LandClimDataReport",
     "build_landclim_grid_geojson",
+    "build_landclim_temporal_grid_geojson",
     "build_landclim_raw_asset_summaries",
     "build_landclim_site_records",
     "collect_landclim_data",
@@ -177,6 +286,7 @@ __all__ = [
     "inspect_landclim_ii_archive",
     "landclim_i_site_records",
     "landclim_ii_site_records",
+    "materialize_landclim_repository_surfaces",
     "parse_coordinate",
     "resolve_landclim_asset_urls",
     "resolve_landclim_marquer_asset_urls",

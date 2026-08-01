@@ -18,6 +18,7 @@ from bijux_pollenomics.adna import (
 from bijux_pollenomics.data_downloader.contracts import (
     BOUNDARY_COLLECTION,
     LANDCLIM_GRID_GEOJSON,
+    LANDCLIM_TEMPORAL_GRID_GEOJSON,
     NEOTOMA_POINT_GEOJSON,
 )
 from bijux_pollenomics.data_downloader.exports import (
@@ -59,6 +60,13 @@ class ContextDataTests(unittest.TestCase):
         self.assertEqual(
             LANDCLIM_GRID_GEOJSON.path_under(root),
             root / "landclim" / "normalized" / "nordic_reveals_grid_cells.geojson",
+        )
+        self.assertEqual(
+            LANDCLIM_TEMPORAL_GRID_GEOJSON.path_under(root),
+            root
+            / "landclim"
+            / "normalized"
+            / "nordic_reveals_temporal_grid_cells.geojson",
         )
 
     def setUp(self) -> None:

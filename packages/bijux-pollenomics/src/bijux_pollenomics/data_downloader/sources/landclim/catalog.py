@@ -11,6 +11,7 @@ from ....core.http import fetch_binary, fetch_text
 from ....core.text import clean_optional_text
 
 __all__ = [
+    "LANDCLIM_BIBLIOGRAPHY",
     "LANDCLIM_DATASET_METADATA",
     "LANDCLIM_I_DATASET_PAGE",
     "LANDCLIM_II_DATASET_PAGE",
@@ -20,6 +21,7 @@ __all__ = [
     "LANDCLIM_II_MEANS_DIRECTORY",
     "LANDCLIM_II_STANDARD_ERRORS_DIRECTORY",
     "LandClimRawAssets",
+    "build_landclim_bibliography",
     "build_landclim_ii_file_url",
     "build_landclim_raw_asset_summaries",
     "download_landclim_raw_assets",
@@ -51,16 +53,52 @@ LANDCLIM_DATASET_METADATA = {
     "900966": {
         "label": "Marquer et al. 2019 REVEALS taxa grid cells",
         "doi": "https://doi.org/10.1594/PANGAEA.900966",
+        "citation": "Marquer, Laurent et al. (2019): Pollen-based REVEALS estimates of plant cover in Europe for 36 grid-cells and the last 11700 years [dataset]. PANGAEA.",
+        "publication_year": 2019,
     },
     "897303": {
         "label": "Gaillard 2019 LandClim I REVEALS grids",
         "doi": "https://doi.org/10.1594/PANGAEA.897303",
+        "citation": "Gaillard, Marie-José (2019): First pollen-based REVEALS reconstruction of vegetation abundance in Europe for five time windows between 6k years BP and present [dataset]. PANGAEA.",
+        "publication_year": 2019,
     },
     "937075": {
         "label": "Fyfe et al. 2021 LandClim II REVEALS grids",
         "doi": "https://doi.org/10.1594/PANGAEA.937075",
+        "citation": "Fyfe, Ralph M et al. (2021): A full Holocene record of transient gridded vegetation cover in Europe [dataset]. PANGAEA.",
+        "publication_year": 2021,
     },
 }
+LANDCLIM_BIBLIOGRAPHY = (
+    {
+        "reference_key": "marquer-et-al-2017",
+        "citation": "Marquer, Laurent et al. (2017): Quantifying the effects of land use and climate on Holocene vegetation in Europe. Quaternary Science Reviews 171, 20-37.",
+        "doi": "https://doi.org/10.1016/j.quascirev.2017.07.001",
+        "relation": "primary_publication_for_dataset_900966",
+        "dataset_ids": ["900966"],
+    },
+    {
+        "reference_key": "trondman-et-al-2015",
+        "citation": "Trondman, Anna-Kari et al. (2015): Pollen-based quantitative reconstructions of Holocene regional vegetation cover in Europe suitable for climate modelling. Global Change Biology 21(2), 676-697.",
+        "doi": "https://doi.org/10.1111/gcb.12737",
+        "relation": "method_and_first_generation_land_cover_publication",
+        "dataset_ids": ["897303", "937075"],
+    },
+    {
+        "reference_key": "githumbi-et-al-2022",
+        "citation": "Githumbi, Esther et al. (2022): European pollen-based REVEALS land-cover reconstructions for the Holocene: methodology, mapping and potentials. Earth System Science Data 14(4), 1581-1619.",
+        "doi": "https://doi.org/10.5194/essd-14-1581-2022",
+        "relation": "primary_method_and_mapping_publication_for_dataset_937075",
+        "dataset_ids": ["937075"],
+    },
+    {
+        "reference_key": "sugita-2007-reveals",
+        "citation": "Sugita, Shinya (2007): Theory of quantitative reconstruction of vegetation I: pollen from large sites REVEALS regional vegetation composition. The Holocene 17(2), 229-241.",
+        "doi": "https://doi.org/10.1177/0959683607075837",
+        "relation": "reveals_method",
+        "dataset_ids": ["900966", "897303", "937075"],
+    },
+)
 LANDCLIM_II_MEANS_DIRECTORY = "LANDCLIMII.RV.means.JUN2021/"
 LANDCLIM_II_STANDARD_ERRORS_DIRECTORY = "LANDCLIMII.RV.standarderrors.JUN2021/"
 LANDCLIM_II_EXPECTED_TIME_WINDOW_COUNT = 25
@@ -71,6 +109,34 @@ TW_FILE_PATTERN = re.compile(r"TW(?P<index>\d+)\.")
 class LandClimRawAssets:
     paths: dict[str, Path]
     asset_urls: dict[str, str]
+
+
+def build_landclim_bibliography() -> dict[str, object]:
+    """Build the governed dataset and publication bibliography for LandClim."""
+    datasets = [
+        {
+            "dataset_id": dataset_id,
+            "label": metadata["label"],
+            "citation": metadata["citation"],
+            "doi": metadata["doi"],
+            "publication_year": metadata["publication_year"],
+            "license": "CC-BY-4.0",
+            "related_reference_keys": [
+                reference["reference_key"]
+                for reference in LANDCLIM_BIBLIOGRAPHY
+                if dataset_id in reference["dataset_ids"]
+            ],
+        }
+        for dataset_id, metadata in LANDCLIM_DATASET_METADATA.items()
+    ]
+    return {
+        "schema_version": "landclim-bibliography.v1",
+        "source": "LandClim",
+        "dataset_count": len(datasets),
+        "reference_count": len(LANDCLIM_BIBLIOGRAPHY),
+        "datasets": datasets,
+        "references": list(LANDCLIM_BIBLIOGRAPHY),
+    }
 
 
 def download_landclim_raw_assets(raw_dir: Path) -> LandClimRawAssets:

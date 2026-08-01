@@ -53,6 +53,14 @@ def _build_landclim_row(output_root: Path) -> SourceSpatiotemporalPostureRecord:
         output_root / "landclim" / "normalized" / "nordic_pollen_site_sequences.geojson"
     )
     features = _geojson_features(payload)
+    temporal_grid_features = _geojson_features(
+        _load_json(
+            output_root
+            / "landclim"
+            / "normalized"
+            / "nordic_reveals_temporal_grid_cells.geojson"
+        )
+    )
     numeric_interval_count = sum(
         1 for feature in features if _feature_has_numeric_interval(feature)
     )
@@ -62,15 +70,16 @@ def _build_landclim_row(output_root: Path) -> SourceSpatiotemporalPostureRecord:
         governing_surface_path="data/landclim/normalized/nordic_pollen_site_sequences.geojson",
         review_surface_paths=(
             "data/landclim/normalized/landclim_summary.json",
+            "data/landclim/normalized/landclim_bibliography.json",
             "data/source_family_evidence_stage_matrix.json",
         ),
-        spatial_representation="site-sequence point inventory",
-        temporal_support_posture="numeric_site_sequence_intervals",
+        spatial_representation="site-sequence points plus time-window model polygons",
+        temporal_support_posture="numeric_site_and_reveals_window_intervals",
         temporal_support_note=(
-            "Checked-in LandClim sequence points carry numeric BP windows in the "
-            "normalized repository layer."
+            "LandClim sequence points carry explicit temporal posture and REVEALS "
+            "model cells are published as separate, filterable time-window records."
         ),
-        temporal_scope="site-sequence context",
+        temporal_scope="site-sequence coverage and modeled vegetation windows",
         distance_scoring_posture="supporting_pollen_context",
         distance_scoring_note=(
             "Use LandClim to strengthen pollen context around lakes; do not treat it "
@@ -81,9 +90,10 @@ def _build_landclim_row(output_root: Path) -> SourceSpatiotemporalPostureRecord:
         detail_metrics={
             "site_sequence_record_count": len(features),
             "numeric_interval_record_count": numeric_interval_count,
+            "temporal_grid_feature_count": len(temporal_grid_features),
         },
         caveats=(
-            "The registry reflects normalized site-sequence intervals rather than a separate chronology packet inventory.",
+            "REVEALS windows are modeled vegetation estimates, not sample-owned chronologies.",
         ),
     )
 

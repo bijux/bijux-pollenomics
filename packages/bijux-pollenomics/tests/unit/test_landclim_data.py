@@ -11,6 +11,7 @@ from bijux_pollenomics.data_downloader.landclim import (
     build_landclim_grid_geojson,
     build_landclim_raw_asset_summaries,
     build_landclim_site_records,
+    build_landclim_temporal_grid_geojson,
     download_landclim_raw_assets,
     feature_key_from_center,
     feature_key_from_geometry,
@@ -101,6 +102,10 @@ class LandClimDataTests(unittest.TestCase):
             self.assertEqual(records[0].time_end_bp, 700)
             self.assertEqual(records[0].time_mean_bp, 350)
             self.assertEqual(records[0].time_label, "0-100 BP to 350-700 BP")
+            self.assertEqual(
+                records[0].temporal_semantics["comparability_posture"],
+                "numeric_interval",
+            )
 
     def test_landclim_grid_merge_uses_one_feature_for_same_cell(self) -> None:
         with tempfile.TemporaryDirectory() as tmp:
@@ -177,6 +182,47 @@ class LandClimDataTests(unittest.TestCase):
             self.assertEqual(properties["time_end_bp"], 100)
             self.assertEqual(properties["time_mean_bp"], 50)
             self.assertEqual(properties["time_label"], "0-100 BP")
+
+            temporal_geojson = build_landclim_temporal_grid_geojson(
+                raw_paths,
+                NORDIC_TEST_BBOX,
+                cast(CountryBoundaries, SWEDEN_BOUNDARIES),
+            )
+            temporal_features = cast(
+                list[GeoJsonFeature],
+                cast(GeoJsonCollection, temporal_geojson)["features"],
+            )
+            self.assertEqual(len(temporal_features), 2)
+            temporal_properties = [
+                cast(dict[str, object], feature["properties"])
+                for feature in temporal_features
+            ]
+            self.assertEqual(
+                {properties["dataset_id"] for properties in temporal_properties},
+                {"897303", "937075"},
+            )
+            self.assertTrue(
+                all(
+                    properties["time_start_bp"] == 0
+                    and properties["time_end_bp"] == 100
+                    for properties in temporal_properties
+                )
+            )
+            landclim_ii = next(
+                properties
+                for properties in temporal_properties
+                if properties["dataset_id"] == "937075"
+            )
+            self.assertEqual(
+                cast(dict[str, float], landclim_ii["reconstruction_values"])["PICEA"],
+                0.12,
+            )
+            self.assertEqual(
+                cast(dict[str, object], landclim_ii["temporal_semantics"])[
+                    "comparability_posture"
+                ],
+                "numeric_interval_with_caveat",
+            )
 
     def test_inspect_landclim_ii_archive_validates_documented_structure(self) -> None:
         with tempfile.TemporaryDirectory() as tmp:
@@ -368,6 +414,12 @@ class LandClimDataTests(unittest.TestCase):
             self.assertEqual(records[0].time_end_bp, 2150)
             self.assertEqual(records[0].time_mean_bp, 1150)
             self.assertEqual(records[0].time_label, "150-2150 BP")
+            popup = dict(records[0].popup_rows)
+            self.assertEqual(
+                records[0].temporal_semantics["evidence_class"],
+                "pollen_site_sequence_coverage",
+            )
+            self.assertNotIn("Data owner or collector", popup)
 
     def test_resolve_landclim_asset_urls_reads_pangaea_record_formats(self) -> None:
         marquer_html = '<a id="static-download-link" href="https://store.pangaea.de/Publications/Marquer-etal_2017/MARQUER_QSR2017.xlsx">Download dataset</a>'
