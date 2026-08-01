@@ -147,8 +147,17 @@ def _build_sead_row(output_root: Path) -> SourceSpatiotemporalPostureRecord:
     normalized_payload = _load_json(
         output_root / "sead" / "normalized" / "nordic_environmental_sites.geojson"
     )
+    temporal_payload = _load_json(
+        output_root / "sead" / "normalized" / "nordic_temporal_evidence.geojson"
+    )
     inventory_summary = _dict(review_payload.get("inventory_summary"))
     feature_count = len(_geojson_features(normalized_payload))
+    temporal_features = _geojson_features(temporal_payload)
+    temporal_feature_count = len(temporal_features)
+    represented_chronology_record_count = sum(
+        _int(_dict(feature.get("properties")).get("record_count", 0))
+        for feature in temporal_features
+    )
     temporal_capture_posture = (
         str(inventory_summary.get("temporal_capture_posture", "")).strip()
         or "unresolved"
@@ -171,30 +180,27 @@ def _build_sead_row(output_root: Path) -> SourceSpatiotemporalPostureRecord:
             "data/sead/review/evidence_legibility_review.json",
             "data/sead/review/access_model.json",
         ),
-        spatial_representation="site point inventory",
+        spatial_representation="site inventory plus record-level chronology points",
         temporal_support_posture=temporal_capture_posture,
         temporal_support_note=(
-            "Checked-in SEAD points are useful archaeology context, but the repository must not read them as uniformly time-resolved evidence."
+            "SEAD chronology is published as interval-preserving temporal features; upstream-undated sites remain available only in the separate spatial inventory."
         ),
-        temporal_scope="archaeology-context inventory",
+        temporal_scope="linked archaeology chronology",
         distance_scoring_posture="contextual_archaeology_only",
         distance_scoring_note=(
             "Use SEAD to measure archaeology context around lakes; do not treat it as same-period support unless numeric intervals are explicitly present."
         ),
         record_count=feature_count,
-        numeric_interval_record_count=_int(
-            inventory_summary.get("numeric_interval_row_count", 0)
-        ),
+        numeric_interval_record_count=temporal_feature_count,
         detail_metrics={
-            "site_inventory_only_row_count": _int(
-                inventory_summary.get("site_inventory_only_row_count", 0)
+            "unresolved_site_count": _int(
+                inventory_summary.get("unresolved_site_count", 0)
             ),
-            "dating_range_row_count": _int(
-                inventory_summary.get("dating_range_row_count", 0)
+            "captured_chronology_record_count": _int(
+                inventory_summary.get("chronology_record_count", 0)
             ),
-            "relative_period_row_count": _int(
-                inventory_summary.get("relative_period_row_count", 0)
-            ),
+            "mapped_temporal_feature_count": temporal_feature_count,
+            "mapped_chronology_record_count": represented_chronology_record_count,
         },
         caveats=tuple(caveats),
     )

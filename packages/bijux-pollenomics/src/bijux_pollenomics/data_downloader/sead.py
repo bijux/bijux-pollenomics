@@ -7,7 +7,12 @@ from pathlib import Path
 
 from ..core.files import write_json
 from ..core.http import fetch_json
-from .contracts import SEAD_POINT_CSV, SEAD_POINT_GEOJSON
+from .contracts import (
+    SEAD_POINT_CSV,
+    SEAD_POINT_GEOJSON,
+    SEAD_TEMPORAL_EVIDENCE_CSV,
+    SEAD_TEMPORAL_EVIDENCE_GEOJSON,
+)
 from .exports.context_points import (
     write_context_points_csv,
     write_context_points_geojson,
@@ -37,7 +42,10 @@ from .sources.sead.fetch import (
     sead_dating_interval as sead_dating_interval_value,
 )
 from .sources.sead.inventory import SeadSiteFetchResult, build_sead_site_inventory
-from .sources.sead.normalization import normalize_sead_rows
+from .sources.sead.normalization import (
+    normalize_sead_rows,
+    normalize_sead_temporal_evidence,
+)
 from .sources.sead.review import write_sead_review_outputs
 
 
@@ -156,10 +164,19 @@ def collect_sead_data(
         inventory_summary=fetch_result.inventory_summary,
     )
     records = normalize_sead_rows(rows, country_boundaries=country_boundaries)
+    temporal_records = normalize_sead_temporal_evidence(
+        rows, country_boundaries=country_boundaries
+    )
     normalized_csv_path = SEAD_POINT_CSV.source_path_under(output_root)
     normalized_geojson_path = SEAD_POINT_GEOJSON.source_path_under(output_root)
     write_context_points_csv(normalized_csv_path, records)
     write_context_points_geojson(normalized_geojson_path, records)
+    write_context_points_csv(
+        SEAD_TEMPORAL_EVIDENCE_CSV.source_path_under(output_root), temporal_records
+    )
+    write_context_points_geojson(
+        SEAD_TEMPORAL_EVIDENCE_GEOJSON.source_path_under(output_root), temporal_records
+    )
     write_sead_review_outputs(output_root, rows=rows, records=records)
 
     return SeadDataReport(
@@ -184,15 +201,30 @@ def materialize_sead_repository_surfaces(data_root: Path) -> SeadDataReport:
     refresh_sead_repository_rows(rows)
     payload["rows"] = rows
     payload["source_tables"] = list(SEAD_LINKED_SOURCE_TABLES)
-    payload["inventory_summary"] = _build_repository_inventory_summary(rows)
+    existing_inventory_summary = payload.get("inventory_summary", {})
+    if not isinstance(existing_inventory_summary, dict):
+        existing_inventory_summary = {}
+    payload["inventory_summary"] = {
+        **existing_inventory_summary,
+        **_build_repository_inventory_summary(rows),
+    }
     write_json(raw_path, payload)
     country_boundaries = load_repository_country_boundaries(data_root)
     records = normalize_sead_rows(rows, country_boundaries=country_boundaries)
+    temporal_records = normalize_sead_temporal_evidence(
+        rows, country_boundaries=country_boundaries
+    )
     normalized_csv_path = SEAD_POINT_CSV.path_under(data_root)
     normalized_geojson_path = SEAD_POINT_GEOJSON.path_under(data_root)
     normalized_csv_path.parent.mkdir(parents=True, exist_ok=True)
     write_context_points_csv(normalized_csv_path, records)
     write_context_points_geojson(normalized_geojson_path, records)
+    write_context_points_csv(
+        SEAD_TEMPORAL_EVIDENCE_CSV.path_under(data_root), temporal_records
+    )
+    write_context_points_geojson(
+        SEAD_TEMPORAL_EVIDENCE_GEOJSON.path_under(data_root), temporal_records
+    )
     write_sead_review_outputs(output_root, rows=rows, records=records)
     return SeadDataReport(
         output_dir=output_root,
@@ -208,9 +240,7 @@ def _build_repository_inventory_summary(
 ) -> dict[str, int | str]:
     def _record_count(key: str) -> int:
         return sum(
-            len(value)
-            for row in rows
-            if isinstance((value := row.get(key)), list)
+            len(value) for row in rows if isinstance((value := row.get(key)), list)
         )
 
     def _site_count(key: str) -> int:
@@ -232,8 +262,15 @@ def _build_repository_inventory_summary(
     geochronology_row_count = _record_count("geochronology_rows")
     dendro_date_row_count = _record_count("dendro_date_rows")
     bibliography_row_count = _record_count("bibliography_rows")
-    sample_row_count = _record_count("sample_rows")
-    dataset_row_count = _record_count("dataset_rows")
+    chronology_record_count = sum(
+        (
+            dating_range_row_count,
+            relative_period_row_count,
+            analysis_entity_age_row_count,
+            geochronology_row_count,
+            dendro_date_row_count,
+        )
+    )
     temporal_capture_posture = (
         "linked_chronology_captured"
         if any(
@@ -251,8 +288,7 @@ def _build_repository_inventory_summary(
     )
     return {
         "row_count": len(rows),
-        "sample_row_count": sample_row_count,
-        "dataset_row_count": dataset_row_count,
+        "site_row_count": len(rows),
         "bibliography_row_count": bibliography_row_count,
         "bibliography_site_count": _site_count("bibliography_rows"),
         "dating_range_row_count": dating_range_row_count,
@@ -265,7 +301,9 @@ def _build_repository_inventory_summary(
         "geochronology_site_count": _site_count("geochronology_rows"),
         "dendro_date_row_count": dendro_date_row_count,
         "dendro_date_site_count": _site_count("dendro_date_rows"),
+        "chronology_record_count": chronology_record_count,
         "numeric_interval_row_count": numeric_interval_row_count,
+        "unresolved_site_count": len(rows) - numeric_interval_row_count,
         "site_inventory_only_row_count": len(rows) - numeric_interval_row_count,
         "temporal_capture_posture": temporal_capture_posture,
     }
@@ -282,6 +320,7 @@ __all__ = [
     "materialize_sead_repository_surfaces",
     "merge_sead_intervals",
     "normalize_sead_rows",
+    "normalize_sead_temporal_evidence",
     "parse_optional_int",
     "populate_sead_site_inventory_fields",
     "refresh_sead_repository_rows",

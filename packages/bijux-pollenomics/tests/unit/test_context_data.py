@@ -32,6 +32,7 @@ from bijux_pollenomics.data_downloader.sead import (
     fetch_sead_site_rows,
     materialize_sead_repository_surfaces,
     normalize_sead_rows,
+    normalize_sead_temporal_evidence,
     refresh_sead_repository_rows,
     sead_dating_interval,
 )
@@ -180,6 +181,54 @@ class ContextDataTests(unittest.TestCase):
             "Recent and historical (0-1000 BP)",
         )
 
+    def test_normalize_sead_temporal_evidence_groups_only_matching_intervals(
+        self,
+    ) -> None:
+        rows = [
+            {
+                "site_id": 6468,
+                "site_name": "10412 Fjalkinge",
+                "latitude_dd": 56.05,
+                "longitude_dd": 14.28,
+                "bibliography_rows": [{"biblio_id": 60}],
+                "dating_range_rows": [
+                    {
+                        "analysis_dating_range_id": 34,
+                        "age_type": "calibrated years BP",
+                        "time_start_bp": 200,
+                        "time_end_bp": 800,
+                    },
+                    {
+                        "analysis_dating_range_id": 35,
+                        "age_type": "calibrated years BP",
+                        "time_start_bp": 200,
+                        "time_end_bp": 800,
+                    },
+                    {
+                        "analysis_dating_range_id": 36,
+                        "age_type": "calibrated years BP",
+                        "time_start_bp": 900,
+                        "time_end_bp": 1000,
+                    },
+                ],
+            }
+        ]
+
+        records = normalize_sead_temporal_evidence(
+            rows, country_boundaries=self.country_boundaries
+        )
+
+        self.assertEqual(len(records), 2)
+        self.assertEqual(sum(record.record_count for record in records), 3)
+        first = records[0]
+        self.assertEqual(first.layer_key, "sead-temporal-evidence")
+        self.assertEqual(first.time_start_bp, 200)
+        self.assertEqual(first.time_end_bp, 800)
+        self.assertEqual(
+            first.temporal_semantics["source_record_ids"],
+            [34, 35],
+        )
+
     def test_fetch_sead_site_rows_adds_linked_inventory_counts(self) -> None:
         seen_orders: list[tuple[str, ...]] = []
 
@@ -293,7 +342,7 @@ class ContextDataTests(unittest.TestCase):
                         "age_type_id": 2,
                         "age_type": "calibrated years BP",
                         "description": "calendar years before present",
-                    }
+                    },
                 ]
             if url.endswith("/tbl_relative_dates"):
                 return [
@@ -615,10 +664,14 @@ class ContextDataTests(unittest.TestCase):
                 )
 
             raw_payload = json.loads(report.raw_path.read_text(encoding="utf-8"))
+            temporal_geojson_exists = (
+                output_root / "normalized" / "nordic_temporal_evidence.geojson"
+            ).exists()
 
         self.assertEqual(raw_payload["bbox"], [4.0, 54.0, 35.0, 72.0])
         self.assertEqual(raw_payload["inventory_summary"]["dataset_row_count"], 9)
         self.assertIn("tbl_analysis_dating_ranges", raw_payload["source_tables"])
+        self.assertTrue(temporal_geojson_exists)
 
     def test_materialize_sead_repository_surfaces_rebuilds_review_outputs(self) -> None:
         with tempfile.TemporaryDirectory() as tmp:
@@ -632,6 +685,10 @@ class ContextDataTests(unittest.TestCase):
                         "endpoint": "https://browser.sead.se/postgrest/tbl_sites",
                         "generated_on": "2026-05-09",
                         "row_count": 1,
+                        "inventory_summary": {
+                            "analysis_entity_row_count": 4,
+                            "dataset_row_count": 9,
+                        },
                         "rows": [
                             {
                                 "site_id": 6468,
@@ -729,8 +786,17 @@ class ContextDataTests(unittest.TestCase):
                     encoding="utf-8"
                 )
             )
+            temporal_geojson = json.loads(
+                (
+                    data_root
+                    / "sead"
+                    / "normalized"
+                    / "nordic_temporal_evidence.geojson"
+                ).read_text(encoding="utf-8")
+            )
 
         self.assertEqual(report.point_count, 1)
+        self.assertEqual(temporal_geojson["features"], [])
         self.assertEqual(feature["properties"]["country"], "Sweden")
         self.assertEqual(
             feature["properties"]["temporal_semantics"]["comparability_posture"],
@@ -766,12 +832,18 @@ class ContextDataTests(unittest.TestCase):
         )
         self.assertEqual(
             recovery_requirements["rows"][0]["requirement_key"],
-            "linked_temporal_promotion",
+            "unresolved_chronology_boundary",
         )
         self.assertEqual(
             raw_payload["inventory_summary"]["temporal_capture_posture"],
             "site_inventory_only",
         )
+        self.assertEqual(
+            raw_payload["inventory_summary"]["analysis_entity_row_count"],
+            4,
+        )
+        self.assertEqual(raw_payload["inventory_summary"]["dataset_row_count"], 9)
+        self.assertEqual(recovery_requirements["rows"][0]["evidence_gap_count"], 1)
 
     def test_context_point_exports_preserve_temporal_fields(self) -> None:
         record = ContextPointRecord(
@@ -859,6 +931,7 @@ class ContextDataTests(unittest.TestCase):
         )
 
         self.assertTrue(layer["applies_time_filter"])
+        self.assertTrue(layer["default_enabled"])
         layer_features = cast(list[dict[str, object]], layer["features"])
         self.assertEqual(layer_features[0]["time_start_bp"], 0)
         self.assertEqual(layer_features[0]["time_end_bp"], 700)
@@ -868,6 +941,34 @@ class ContextDataTests(unittest.TestCase):
             layer_features[0]["temporal_window_label"],
             "Recent and historical (0-1000 BP)",
         )
+
+    def test_external_temporal_sead_layer_is_time_filterable_by_default(self) -> None:
+        layer = build_external_point_layer(
+            {
+                "type": "FeatureCollection",
+                "features": [
+                    {
+                        "type": "Feature",
+                        "geometry": {"type": "Point", "coordinates": [17.0, 59.0]},
+                        "properties": {
+                            "layer_key": "sead-temporal-evidence",
+                            "layer_label": "SEAD temporal evidence",
+                            "country": "Sweden",
+                            "name": "Dated chronology",
+                            "category": "Environmental archaeology chronology",
+                            "time_start_bp": 1200,
+                            "time_end_bp": 1800,
+                        },
+                    }
+                ],
+            }
+        )
+
+        self.assertTrue(layer["applies_time_filter"])
+        self.assertTrue(layer["default_enabled"])
+        layer_features = cast(list[dict[str, object]], layer["features"])
+        self.assertEqual(layer_features[0]["time_start_bp"], 1200)
+        self.assertEqual(layer_features[0]["time_end_bp"], 1800)
 
     def test_external_point_layers_do_not_treat_context_labels_as_numeric_time(
         self,
@@ -940,6 +1041,7 @@ class ContextDataTests(unittest.TestCase):
         )
 
         self.assertTrue(layer["applies_time_filter"])
+        self.assertFalse(layer["default_enabled"])
 
     def test_external_polygon_layers_enable_time_filter_when_temporal_properties_exist(
         self,

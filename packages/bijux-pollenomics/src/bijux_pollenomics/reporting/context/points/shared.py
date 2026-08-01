@@ -28,6 +28,12 @@ POINT_LAYER_STYLES = {
         "circleStroke": "rgba(15, 118, 110, 0.42)",
         "circleFill": "rgba(20, 184, 166, 0.10)",
     },
+    "sead-temporal-evidence": {
+        "fill": "#0d9488",
+        "stroke": "#042f2e",
+        "circleStroke": "rgba(13, 148, 136, 0.46)",
+        "circleFill": "rgba(45, 212, 191, 0.12)",
+    },
     "lake-evidence-aggregate": {
         "fill": "#9a3412",
         "stroke": "#7c2d12",
@@ -132,6 +138,14 @@ POINT_LAYER_METADATA = {
         "source_name": "SEAD",
         "coverage_label": "Environmental archaeology sites staged from the SEAD normalization bundle.",
         "geometry_label": "Point records",
+        "default_enabled": False,
+    },
+    "sead-temporal-evidence": {
+        "group": "environmental-context",
+        "source_name": "SEAD",
+        "coverage_label": "Linked SEAD dating, relative-period, modelled-age, geochronology, and dendrochronology records grouped only when site, interval, label, and uncertainty agree.",
+        "geometry_label": "Time-filterable chronology records",
+        "default_enabled": True,
     },
     "lake-evidence-aggregate": {
         "group": "candidate-ranking",

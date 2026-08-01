@@ -70,6 +70,17 @@ def build_sead_temporal_review(
                 "relative_period_count": len(row.get("relative_period_rows", []))
                 if isinstance(row.get("relative_period_rows"), list)
                 else 0,
+                "analysis_entity_age_count": len(
+                    row.get("analysis_entity_age_rows", [])
+                )
+                if isinstance(row.get("analysis_entity_age_rows"), list)
+                else 0,
+                "geochronology_count": len(row.get("geochronology_rows", []))
+                if isinstance(row.get("geochronology_rows"), list)
+                else 0,
+                "dendro_date_count": len(row.get("dendro_date_rows", []))
+                if isinstance(row.get("dendro_date_rows"), list)
+                else 0,
                 "bibliography_count": len(row.get("bibliography_rows", []))
                 if isinstance(row.get("bibliography_rows"), list)
                 else 0,
@@ -129,10 +140,11 @@ def build_sead_access_model_packet(rows: list[dict[str, object]]) -> dict[str, o
         "schema_version": "sead-access-model.v1",
         "generated_on": str(date.today()),
         "row_count": len(review_rows),
-        "repository_posture": "mirrored_site_inventory_and_normalized_context",
+        "repository_posture": "mirrored_relational_inventory_and_temporal_context",
         "what_the_repository_mirrors": [
             "raw site inventory capture under data/sead/raw/",
-            "normalized contextual point layers under data/sead/normalized/",
+            "linked chronology and bibliography relations under data/sead/raw/",
+            "normalized site and temporal-evidence point layers under data/sead/normalized/",
             "review packets under data/sead/review/",
         ],
         "what_the_repository_references": [
@@ -220,6 +232,7 @@ def build_sead_evidence_legibility_review(
         "schema_version": "sead-evidence-legibility-review.v1",
         "generated_on": str(date.today()),
         "row_count": len(review_rows),
+        "inventory_summary": _inventory_summary(rows),
         "temporal_strength_counts": temporal_strength_counts,
         "duration_posture_counts": duration_posture_counts,
         "access_visibility_counts": access_visibility_counts,
@@ -234,9 +247,12 @@ def build_sead_recovery_requirements(
     evidence_legibility_review: dict[str, object],
 ) -> dict[str, object]:
     """Turn current SEAD legibility gaps into governed evidence requirements."""
-    high_risk_count = int(
-        dict(evidence_legibility_review.get("normalization_risk_counts", {})).get(
-            "high_thin_site_inventory", 0
+    unresolved_count = int(
+        dict(evidence_legibility_review.get("inventory_summary", {})).get(
+            "unresolved_site_count",
+            dict(evidence_legibility_review.get("temporal_strength_counts", {})).get(
+                "inventory_only_or_unresolved", 0
+            ),
         )
     )
     site_page_only_count = int(
@@ -246,16 +262,16 @@ def build_sead_recovery_requirements(
     )
     rows = [
         {
-            "requirement_key": "linked_temporal_promotion",
-            "evidence_gap_count": high_risk_count,
-            "required_evidence": "Promote captured SEAD dating-range, calendar-era, and relative-period rows into normalized BP intervals wherever the linked inventory supports it, while keeping unresolved rows explicit.",
-            "satisfaction_signal": "SEAD temporal review shows numeric intervals for chronology-bearing rows and leaves unresolved site inventory rows visibly unresolved instead of implying uniform time support.",
+            "requirement_key": "unresolved_chronology_boundary",
+            "evidence_gap_count": unresolved_count,
+            "required_evidence": "Retain sites without captured upstream chronology as an explicit spatial-only population; add dates only when a linked SEAD chronology record supplies defensible bounds.",
+            "satisfaction_signal": "Every captured chronology row has normalized BP bounds, the temporal-evidence layer is fully time-filterable, and upstream-undated sites remain visibly unresolved.",
         },
         {
-            "requirement_key": "reference_visibility_promotion",
+            "requirement_key": "unreferenced_site_boundary",
             "evidence_gap_count": site_page_only_count,
-            "required_evidence": "Promote preserved bibliography or DOI links wherever checked-in SEAD linked records expose them, and keep site-page-only rows explicit where upstream link visibility remains thin.",
-            "satisfaction_signal": "The access review distinguishes bibliography-backed rows from site-page-only rows without hiding the remaining upstream access constraint.",
+            "required_evidence": "Retain site-page-only access where captured bibliography rows expose no directly followable DOI or URL; add links only from identified SEAD bibliography values.",
+            "satisfaction_signal": "All captured bibliography relations preserve their source relation and sites without directly followable upstream links remain explicit instead of receiving inferred URLs.",
         },
         {
             "requirement_key": "context_layer_republication",
@@ -341,7 +357,7 @@ def render_sead_temporal_review_markdown(payload: dict[str, object]) -> str:
     lines = [
         "# SEAD temporal review",
         "",
-        "This review keeps SEAD honest about site-level time semantics. It distinguishes numeric site spans, mixed site spans plus cultural labels, and label-only rows that should not be read like sample-owned dates. When the checked-in raw capture only preserves site inventory rows, that absence of linked temporal tables stays explicit here instead of being implied away.",
+        "This review keeps SEAD honest about site-level time semantics. It distinguishes numeric site spans, mixed site spans plus cultural labels, and unresolved rows that should not be read like sample-owned dates. Record-level chronology is published separately so one broad site envelope does not replace its linked intervals.",
         "",
         f"- Reviewed sites: `{payload['row_count']}`",
     ]
@@ -353,11 +369,15 @@ def render_sead_temporal_review_markdown(payload: dict[str, object]) -> str:
         lines.extend(
             [
                 f"- Raw capture posture: `{inventory_summary.get('temporal_capture_posture', 'unknown')}`",
-                f"- Rows with numeric intervals: `{inventory_summary.get('numeric_interval_row_count', 0)}`",
-                f"- Rows with linked dating ranges: `{inventory_summary.get('dating_range_row_count', 0)}`",
-                f"- Rows with linked relative periods: `{inventory_summary.get('relative_period_row_count', 0)}`",
-                f"- Rows with bibliography links: `{inventory_summary.get('bibliography_row_count', 0)}`",
-                f"- Rows with site inventory only: `{inventory_summary.get('site_inventory_only_row_count', 0)}`",
+                f"- Sites with numeric intervals: `{inventory_summary.get('numeric_interval_row_count', 0)}`",
+                f"- Captured chronology records: `{inventory_summary.get('chronology_record_count', 0)}`",
+                f"- Dating-range records: `{inventory_summary.get('dating_range_row_count', 0)}`",
+                f"- Relative-period records: `{inventory_summary.get('relative_period_row_count', 0)}`",
+                f"- Modelled analysis-entity ages: `{inventory_summary.get('analysis_entity_age_row_count', 0)}`",
+                f"- Geochronology records: `{inventory_summary.get('geochronology_row_count', 0)}`",
+                f"- Dendrochronology records: `{inventory_summary.get('dendro_date_row_count', 0)}`",
+                f"- Bibliography relations: `{inventory_summary.get('bibliography_row_count', 0)}`",
+                f"- Sites without numeric chronology: `{inventory_summary.get('unresolved_site_count', 0)}`",
             ]
         )
     lines.extend(
@@ -570,11 +590,16 @@ def _review_note_for(
 
 
 def _inventory_summary(rows: list[dict[str, object]]) -> dict[str, int | str]:
-    def _rows_with_list(key: str) -> int:
+    def _sites_with_records(key: str) -> int:
         return sum(
             1
             for row in rows
             if isinstance(row.get(key), list) and len(row.get(key, [])) > 0
+        )
+
+    def _record_count(key: str) -> int:
+        return sum(
+            len(value) for row in rows if isinstance((value := row.get(key)), list)
         )
 
     numeric_interval_row_count = sum(
@@ -583,14 +608,24 @@ def _inventory_summary(rows: list[dict[str, object]]) -> dict[str, int | str]:
         if isinstance(row.get("time_start_bp"), int)
         and isinstance(row.get("time_end_bp"), int)
     )
-    dating_range_row_count = _rows_with_list("dating_range_rows")
-    relative_period_row_count = _rows_with_list("relative_period_rows")
-    bibliography_row_count = _rows_with_list("bibliography_rows")
+    temporal_row_keys = (
+        "dating_range_rows",
+        "relative_period_rows",
+        "analysis_entity_age_rows",
+        "geochronology_rows",
+        "dendro_date_rows",
+    )
+    dating_range_row_count = _record_count("dating_range_rows")
+    relative_period_row_count = _record_count("relative_period_rows")
+    analysis_entity_age_row_count = _record_count("analysis_entity_age_rows")
+    geochronology_row_count = _record_count("geochronology_rows")
+    dendro_date_row_count = _record_count("dendro_date_rows")
+    bibliography_row_count = _record_count("bibliography_rows")
     site_inventory_only_row_count = sum(
         1 for row in rows if _sead_row_capture_posture(row) == "site_inventory_only"
     )
     temporal_capture_posture = (
-        "linked_inventory_available"
+        "linked_chronology_captured"
         if any(
             count > 0
             for count in (
@@ -604,24 +639,41 @@ def _inventory_summary(rows: list[dict[str, object]]) -> dict[str, int | str]:
     return {
         "numeric_interval_row_count": numeric_interval_row_count,
         "dating_range_row_count": dating_range_row_count,
+        "dating_range_site_count": _sites_with_records("dating_range_rows"),
         "relative_period_row_count": relative_period_row_count,
+        "relative_period_site_count": _sites_with_records("relative_period_rows"),
+        "analysis_entity_age_row_count": analysis_entity_age_row_count,
+        "analysis_entity_age_site_count": _sites_with_records(
+            "analysis_entity_age_rows"
+        ),
+        "geochronology_row_count": geochronology_row_count,
+        "geochronology_site_count": _sites_with_records("geochronology_rows"),
+        "dendro_date_row_count": dendro_date_row_count,
+        "dendro_date_site_count": _sites_with_records("dendro_date_rows"),
+        "chronology_record_count": sum(_record_count(key) for key in temporal_row_keys),
         "bibliography_row_count": bibliography_row_count,
+        "bibliography_site_count": _sites_with_records("bibliography_rows"),
+        "unresolved_site_count": len(rows) - numeric_interval_row_count,
         "site_inventory_only_row_count": site_inventory_only_row_count,
         "temporal_capture_posture": temporal_capture_posture,
     }
 
 
 def _sead_row_capture_posture(row: dict[str, object]) -> str:
-    has_dating_ranges = isinstance(row.get("dating_range_rows"), list) and bool(
-        row.get("dating_range_rows")
-    )
-    has_relative_periods = isinstance(row.get("relative_period_rows"), list) and bool(
-        row.get("relative_period_rows")
+    has_temporal_rows = any(
+        isinstance(row.get(key), list) and bool(row.get(key))
+        for key in (
+            "dating_range_rows",
+            "relative_period_rows",
+            "analysis_entity_age_rows",
+            "geochronology_rows",
+            "dendro_date_rows",
+        )
     )
     has_bibliography = isinstance(row.get("bibliography_rows"), list) and bool(
         row.get("bibliography_rows")
     )
-    if has_dating_ranges or has_relative_periods:
+    if has_temporal_rows:
         return "linked_temporal_rows_captured"
     if has_bibliography:
         return "bibliography_only"

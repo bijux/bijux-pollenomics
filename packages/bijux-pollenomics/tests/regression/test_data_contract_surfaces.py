@@ -75,9 +75,13 @@ class DataContractSurfaceRegressionTests(unittest.TestCase):
             "bp_site_spans_without_chronology_rows",
         )
         self.assertEqual(
-            rows["sead"]["temporal_support_posture"], "linked_inventory_available"
+            rows["sead"]["temporal_support_posture"], "linked_chronology_captured"
         )
-        self.assertGreater(rows["sead"]["numeric_interval_record_count"], 0)
+        self.assertEqual(rows["sead"]["numeric_interval_record_count"], 9_380)
+        self.assertEqual(
+            rows["sead"]["detail_metrics"]["captured_chronology_record_count"],
+            27_002,
+        )
         self.assertEqual(
             rows["svar"]["distance_scoring_posture"],
             "candidate_lake_anchor",

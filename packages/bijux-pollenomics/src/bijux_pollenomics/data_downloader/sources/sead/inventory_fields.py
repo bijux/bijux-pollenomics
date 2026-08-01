@@ -529,9 +529,7 @@ def populate_sead_site_inventory_fields(
                 geochronology_row,
                 interval=interval,
                 uncertainty=uncertainty_by_id.get(
-                    parse_required_int(
-                        geochronology_row.get("dating_uncertainty_id")
-                    ),
+                    parse_required_int(geochronology_row.get("dating_uncertainty_id")),
                     {},
                 ),
             )
@@ -756,9 +754,7 @@ def populate_sead_site_inventory_fields(
         row["analysis_entity_age_count"] = len(
             analysis_entity_age_rows_by_site.get(site_id, [])
         )
-        row["geochronology_count"] = len(
-            geochronology_rows_by_site.get(site_id, [])
-        )
+        row["geochronology_count"] = len(geochronology_rows_by_site.get(site_id, []))
         row["dendro_date_count"] = len(dendro_date_rows_by_site.get(site_id, []))
         numeric_time_interval = merge_sead_intervals(
             numeric_dating_intervals_by_site.get(site_id, [])
@@ -972,9 +968,7 @@ def _build_analysis_entity_age_row(
         "analysis_entity_age_id": parse_required_int(
             entity_age.get("analysis_entity_age_id")
         ),
-        "analysis_entity_id": parse_required_int(
-            entity_age.get("analysis_entity_id")
-        ),
+        "analysis_entity_id": parse_required_int(entity_age.get("analysis_entity_id")),
         "chronology_id": parse_optional_int(entity_age.get("chronology_id")),
         "dating_specifier": clean_optional_text(entity_age.get("dating_specifier")),
         "age": parse_optional_int(entity_age.get("age")),
@@ -1015,9 +1009,7 @@ def _build_geochronology_row(
         "error_younger": parse_optional_int(geochronology_row.get("error_younger")),
         "notes": clean_optional_text(geochronology_row.get("notes")),
         "uncertainty_label": clean_optional_text(uncertainty.get("label")),
-        "uncertainty_description": clean_optional_text(
-            uncertainty.get("description")
-        ),
+        "uncertainty_description": clean_optional_text(uncertainty.get("description")),
         "time_start_bp": interval[0] if interval is not None else None,
         "time_end_bp": interval[1] if interval is not None else None,
     }
@@ -1046,9 +1038,7 @@ def _build_dendro_date_row(
 ) -> dict[str, object]:
     return {
         "dendro_date_id": parse_required_int(dendro_date.get("dendro_date_id")),
-        "analysis_entity_id": parse_required_int(
-            dendro_date.get("analysis_entity_id")
-        ),
+        "analysis_entity_id": parse_required_int(dendro_date.get("analysis_entity_id")),
         "age_type": age_type,
         "age_older": parse_optional_int(dendro_date.get("age_older")),
         "age_younger": parse_optional_int(dendro_date.get("age_younger")),
@@ -1056,9 +1046,7 @@ def _build_dendro_date_row(
         "dendro_lookup_id": parse_optional_int(dendro_date.get("dendro_lookup_id")),
         "season_id": parse_optional_int(dendro_date.get("season_id")),
         "uncertainty_label": clean_optional_text(uncertainty.get("label")),
-        "uncertainty_description": clean_optional_text(
-            uncertainty.get("description")
-        ),
+        "uncertainty_description": clean_optional_text(uncertainty.get("description")),
         "time_start_bp": interval[0] if interval is not None else None,
         "time_end_bp": interval[1] if interval is not None else None,
     }
@@ -1243,7 +1231,9 @@ def refresh_sead_repository_rows(rows: list[dict[str, object]]) -> None:
     """Backfill repository-owned derived SEAD fields from checked-in linked rows."""
     for row in rows:
         relative_rows = [
-            item for item in row.get("relative_period_rows", []) if isinstance(item, dict)
+            item
+            for item in row.get("relative_period_rows", [])
+            if isinstance(item, dict)
         ]
         dating_rows = [
             item for item in row.get("dating_range_rows", []) if isinstance(item, dict)
@@ -1254,9 +1244,7 @@ def refresh_sead_repository_rows(rows: list[dict[str, object]]) -> None:
             if isinstance(item, dict)
         ]
         geochronology_rows = [
-            item
-            for item in row.get("geochronology_rows", [])
-            if isinstance(item, dict)
+            item for item in row.get("geochronology_rows", []) if isinstance(item, dict)
         ]
         dendro_date_rows = [
             item for item in row.get("dendro_date_rows", []) if isinstance(item, dict)
@@ -1322,7 +1310,9 @@ def refresh_sead_repository_rows(rows: list[dict[str, object]]) -> None:
                 )
                 if interval is not None:
                     relative_row["interval_source"] = "encoded_relative_age_label"
-            relative_row["time_start_bp"] = interval[0] if interval is not None else None
+            relative_row["time_start_bp"] = (
+                interval[0] if interval is not None else None
+            )
             relative_row["time_end_bp"] = interval[1] if interval is not None else None
             if interval is not None:
                 contextual_intervals.append(interval)

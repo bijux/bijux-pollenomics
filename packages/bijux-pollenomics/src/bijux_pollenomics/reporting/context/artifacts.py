@@ -136,4 +136,6 @@ def _layer_key_for_point_contract(filename: str) -> str:
         return "neotoma-pollen"
     if filename == "nordic_environmental_sites.geojson":
         return "sead-sites"
+    if filename == "nordic_temporal_evidence.geojson":
+        return "sead-temporal-evidence"
     raise ValueError(f"Unhandled point artifact contract filename: {filename}")

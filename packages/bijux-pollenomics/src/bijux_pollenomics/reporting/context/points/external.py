@@ -81,7 +81,9 @@ def build_external_point_layer(
         "geometry_label": POINT_LAYER_METADATA.get(layer_key, {}).get(
             "geometry_label", "Point records"
         ),
-        "default_enabled": True,
+        "default_enabled": POINT_LAYER_METADATA.get(layer_key, {}).get(
+            "default_enabled", True
+        ),
         "applies_country_filter": applies_country_filter,
         "applies_time_filter": applies_time_filter,
         "circle_enabled": True,

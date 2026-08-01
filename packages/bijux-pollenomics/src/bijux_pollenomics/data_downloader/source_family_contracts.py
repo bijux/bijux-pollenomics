@@ -169,6 +169,7 @@ def build_source_family_contracts() -> tuple[SourceFamilyContract, ...]:
                 purpose="tracked normalized SEAD context ready for downstream use",
                 example_artifacts=(
                     "data/sead/normalized/nordic_environmental_sites.geojson",
+                    "data/sead/normalized/nordic_temporal_evidence.geojson",
                 ),
             ),
             reviewed_layer=SourceFamilyLayerContract(
@@ -188,6 +189,7 @@ def build_source_family_contracts() -> tuple[SourceFamilyContract, ...]:
                 purpose="published archaeology context layers used in atlas outputs",
                 example_artifacts=(
                     "docs/report/regions/nordic/nordic_environmental_sites.geojson",
+                    "docs/report/regions/nordic/nordic_temporal_evidence.geojson",
                 ),
             ),
             coverage_metric_keys=("sead_point_count",),

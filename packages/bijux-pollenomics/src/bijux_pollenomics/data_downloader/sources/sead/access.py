@@ -49,17 +49,24 @@ def build_sead_site_access_model(row: Mapping[str, object]) -> dict[str, object]
         access_visibility = "no_stable_public_link"
 
     access_limits = [
-        "The repository mirrors site inventory and derived context layers, not the full upstream relational SEAD database."
+        "The repository mirrors the scoped site inventory, linked chronology and bibliography relations, and derived context layers, not the full upstream relational SEAD database."
     ]
     if not reference_links:
         access_limits.append(
-            "No stable bibliography or dataset link is currently captured for this row, so readers may need to inspect the SEAD site page directly."
+            "Captured bibliography for this row exposes no directly followable DOI or URL, so readers may need to inspect the SEAD site page directly."
         )
-    if not isinstance(row.get("dating_range_rows"), list) and not isinstance(
-        row.get("relative_period_rows"), list
+    chronology_keys = (
+        "dating_range_rows",
+        "relative_period_rows",
+        "analysis_entity_age_rows",
+        "geochronology_rows",
+        "dendro_date_rows",
+    )
+    if not any(
+        isinstance(row.get(key), list) and row.get(key) for key in chronology_keys
     ):
         access_limits.append(
-            "This checked-in raw row behaves like a thin site inventory capture rather than a linked temporal dossier."
+            "No linked upstream chronology is captured for this site, so it remains spatial context rather than a dated map observation."
         )
 
     return {
@@ -68,10 +75,10 @@ def build_sead_site_access_model(row: Mapping[str, object]) -> dict[str, object]
         "search_url": search_url,
         "reference_links": reference_links,
         "access_visibility": access_visibility,
-        "repository_posture": "mirrored_site_inventory_and_normalized_context",
+        "repository_posture": "mirrored_relational_inventory_and_temporal_context",
         "redistribution_posture": "reference_upstream_pages_and_publish_repository_derived_context_only",
         "reader_action": (
-            "Inspect the SEAD site page when the repository view is too thin for chronology or provenance review."
+            "Inspect the SEAD site page when captured chronology or bibliography does not answer the research question."
         ),
         "access_limits": access_limits,
     }

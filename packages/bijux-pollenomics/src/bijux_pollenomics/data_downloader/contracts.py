@@ -63,6 +63,16 @@ SEAD_POINT_GEOJSON = DataArtifactContract(
     label="SEAD site GeoJSON",
     relative_parts=("normalized", "nordic_environmental_sites.geojson"),
 )
+SEAD_TEMPORAL_EVIDENCE_CSV = DataArtifactContract(
+    source="sead",
+    label="SEAD temporal evidence CSV",
+    relative_parts=("normalized", "nordic_temporal_evidence.csv"),
+)
+SEAD_TEMPORAL_EVIDENCE_GEOJSON = DataArtifactContract(
+    source="sead",
+    label="SEAD temporal evidence GeoJSON",
+    relative_parts=("normalized", "nordic_temporal_evidence.geojson"),
+)
 RAA_LAYER_METADATA = DataArtifactContract(
     source="raa",
     label="RAÄ archaeology layer metadata",
@@ -83,4 +93,5 @@ ATLAS_POINT_ARTIFACTS = (
     LANDCLIM_SITE_GEOJSON,
     NEOTOMA_POINT_GEOJSON,
     SEAD_POINT_GEOJSON,
+    SEAD_TEMPORAL_EVIDENCE_GEOJSON,
 )
