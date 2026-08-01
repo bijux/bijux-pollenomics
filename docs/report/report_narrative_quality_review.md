@@ -4,13 +4,13 @@ This review checks whether the report-facing Markdown surfaces explain
 themselves in prose or structured reference form instead of behaving like bare
 link farms or coded operator notes.
 
-- Reviewed markdown pages: `96`
+- Reviewed markdown pages: `98`
 
 ## Quality Postures
 
 | Posture | Count |
 | --- | ---: |
-| `reader_ready` | 48 |
+| `reader_ready` | 50 |
 | `structured_reference` | 22 |
 | `thin_structure` | 26 |
 
@@ -52,13 +52,15 @@ link farms or coded operator notes.
 | `docs/report/countries/norway/norway_animal_adna_v66_citations.md` | `thin_structure` | 1 | 0 | 0 | 3 | 1 | Page explains itself but still needs stronger internal wayfinding. |
 | `docs/report/countries/norway/norway_animal_adna_v66_samples.md` | `thin_structure` | 1 | 0 | 0 | 3 | 1 | Page explains itself but still needs stronger internal wayfinding. |
 | `docs/report/countries/norway/norway_animal_adna_v66_warnings.md` | `thin_structure` | 1 | 0 | 0 | 0 | 1 | Page explains itself but still needs stronger internal wayfinding. |
-| `docs/report/countries/sweden/README.md` | `reader_ready` | 9 | 0 | 32 | 24 | 10 | Page explains its purpose before or alongside artifact links. |
+| `docs/report/countries/sweden/README.md` | `reader_ready` | 11 | 0 | 38 | 24 | 12 | Page explains its purpose before or alongside artifact links. |
 | `docs/report/countries/sweden/sweden_aadr_v66_samples.md` | `structured_reference` | 0 | 0 | 0 | 418 | 1 | Page is table-heavy, but it behaves like a reference surface rather than a loose link dump. |
 | `docs/report/countries/sweden/sweden_animal_adna_v66_citations.md` | `thin_structure` | 1 | 0 | 0 | 3 | 1 | Page explains itself but still needs stronger internal wayfinding. |
 | `docs/report/countries/sweden/sweden_animal_adna_v66_samples.md` | `thin_structure` | 1 | 0 | 0 | 3 | 1 | Page explains itself but still needs stronger internal wayfinding. |
 | `docs/report/countries/sweden/sweden_animal_adna_v66_warnings.md` | `thin_structure` | 1 | 0 | 0 | 0 | 1 | Page explains itself but still needs stronger internal wayfinding. |
-| `docs/report/countries/sweden/sweden_lake_evidence_richness_v66.md` | `reader_ready` | 5 | 0 | 13 | 176 | 11 | Page explains its purpose before or alongside artifact links. |
+| `docs/report/countries/sweden/sweden_lake_archaeology_sensitivity_v66.md` | `reader_ready` | 5 | 0 | 0 | 22 | 4 | Page explains its purpose before or alongside artifact links. |
+| `docs/report/countries/sweden/sweden_lake_evidence_richness_v66.md` | `reader_ready` | 4 | 0 | 14 | 176 | 11 | Page explains its purpose before or alongside artifact links. |
 | `docs/report/countries/sweden/sweden_lake_fieldwork_preparation_v66.md` | `reader_ready` | 2 | 0 | 9 | 22 | 3 | Page explains its purpose before or alongside artifact links. |
+| `docs/report/countries/sweden/sweden_land_use_synthesis_v66.md` | `reader_ready` | 4 | 0 | 4 | 34 | 4 | Page explains its purpose before or alongside artifact links. |
 | `docs/report/nordic_farming_history_scenario.md` | `reader_ready` | 3 | 0 | 8 | 0 | 4 | Page explains its purpose before or alongside artifact links. |
 | `docs/report/publication_country_onboarding_contract.md` | `reader_ready` | 7 | 0 | 16 | 0 | 9 | Page explains its purpose before or alongside artifact links. |
 | `docs/report/publication_geography_registry.md` | `reader_ready` | 2 | 0 | 0 | 9 | 3 | Page explains its purpose before or alongside artifact links. |

@@ -4,7 +4,7 @@ This registry classifies the current `docs/report/` tree by family, audience,
 scope, and explanation role so the publication system can be navigated as one
 coherent report surface instead of a loose artifact dump.
 
-- Surface count: `291`
+- Surface count: `297`
 
 ## Family Counts
 
@@ -15,14 +15,14 @@ coherent report surface instead of a loose artifact dump.
 | Map surfaces | 78 |
 | Portal guidance | 2 |
 | Evidence reviews | 33 |
-| Scope-filtered outputs | 118 |
+| Scope-filtered outputs | 124 |
 
 ## Audience Counts
 
 | Audience | Count |
 | --- | ---: |
 | Maintainer diagnostic | 53 |
-| Public reading surface | 127 |
+| Public reading surface | 133 |
 | Scientific review surface | 111 |
 
 ## Classified Surfaces
@@ -133,6 +133,9 @@ coherent report surface instead of a loose artifact dump.
 | `docs/report/countries/sweden/sweden_animal_adna_v66_species.csv` | Scope-filtered outputs | Public reading surface | `sweden` | `csv` | Governed report artifact. |
 | `docs/report/countries/sweden/sweden_animal_adna_v66_summary.json` | Scope-filtered outputs | Public reading surface | `sweden` | `json` | Scope summary surface for direct inspection or downstream filtering. |
 | `docs/report/countries/sweden/sweden_animal_adna_v66_warnings.md` | Scope-filtered outputs | Public reading surface | `sweden` | `md` | Governed report artifact. |
+| `docs/report/countries/sweden/sweden_lake_archaeology_sensitivity_v66.csv` | Scope-filtered outputs | Public reading surface | `sweden` | `csv` | Governed report artifact. |
+| `docs/report/countries/sweden/sweden_lake_archaeology_sensitivity_v66.json` | Scope-filtered outputs | Public reading surface | `sweden` | `json` | Governed report artifact. |
+| `docs/report/countries/sweden/sweden_lake_archaeology_sensitivity_v66.md` | Scope-filtered outputs | Public reading surface | `sweden` | `md` | Governed report artifact. |
 | `docs/report/countries/sweden/sweden_lake_evidence_richness_v66.geojson` | Scope-filtered outputs | Public reading surface | `sweden` | `geojson` | Governed report artifact. |
 | `docs/report/countries/sweden/sweden_lake_evidence_richness_v66.json` | Scope-filtered outputs | Public reading surface | `sweden` | `json` | Governed report artifact. |
 | `docs/report/countries/sweden/sweden_lake_evidence_richness_v66.md` | Scope-filtered outputs | Public reading surface | `sweden` | `md` | Governed report artifact. |
@@ -143,6 +146,9 @@ coherent report surface instead of a loose artifact dump.
 | `docs/report/countries/sweden/sweden_lake_fieldwork_preparation_v66.csv` | Scope-filtered outputs | Public reading surface | `sweden` | `csv` | Governed report artifact. |
 | `docs/report/countries/sweden/sweden_lake_fieldwork_preparation_v66.json` | Scope-filtered outputs | Public reading surface | `sweden` | `json` | Governed report artifact. |
 | `docs/report/countries/sweden/sweden_lake_fieldwork_preparation_v66.md` | Scope-filtered outputs | Public reading surface | `sweden` | `md` | Governed report artifact. |
+| `docs/report/countries/sweden/sweden_land_use_synthesis_v66.csv` | Scope-filtered outputs | Public reading surface | `sweden` | `csv` | Governed report artifact. |
+| `docs/report/countries/sweden/sweden_land_use_synthesis_v66.json` | Scope-filtered outputs | Public reading surface | `sweden` | `json` | Governed report artifact. |
+| `docs/report/countries/sweden/sweden_land_use_synthesis_v66.md` | Scope-filtered outputs | Public reading surface | `sweden` | `md` | Governed report artifact. |
 | `docs/report/nordic_farming_history_scenario.json` | Evidence reviews | Scientific review surface | `report_root` | `json` | Scientific review surface for animal evidence, chronology, or recovery posture. |
 | `docs/report/nordic_farming_history_scenario.md` | Evidence reviews | Scientific review surface | `report_root` | `md` | Scientific review surface for animal evidence, chronology, or recovery posture. |
 | `docs/report/publication_country_onboarding_contract.json` | Maintainer truth surfaces | Maintainer diagnostic | `report_root` | `json` | Maintainer-facing truth or governance surface. |

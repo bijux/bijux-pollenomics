@@ -1,17 +1,17 @@
 {
   "schema_version": "report-surface-registry.v1",
-  "surface_count": 291,
+  "surface_count": 297,
   "family_counts": {
     "caveats": 9,
     "maintenance": 51,
     "maps": 78,
     "portal": 2,
     "reviews": 33,
-    "scopes": 118
+    "scopes": 124
   },
   "audience_counts": {
     "maintainer_diagnostic": 53,
-    "public_reading_surface": 127,
+    "public_reading_surface": 133,
     "scientific_review_surface": 111
   },
   "geography_counts": {
@@ -21,7 +21,7 @@
     "nordic": 45,
     "norway": 14,
     "report_root": 98,
-    "sweden": 34,
+    "sweden": 40,
     "world": 36
   },
   "rows": [
@@ -1274,6 +1274,42 @@
       "reader_route": "scope_bundle"
     },
     {
+      "repository_path": "docs/report/countries/sweden/sweden_lake_archaeology_sensitivity_v66.csv",
+      "family": "scopes",
+      "family_label": "Scope-filtered outputs",
+      "audience": "public_reading_surface",
+      "audience_label": "Public reading surface",
+      "format": "csv",
+      "geography": "sweden",
+      "caution_level": "medium",
+      "explanation": "Governed report artifact.",
+      "reader_route": "scope_bundle"
+    },
+    {
+      "repository_path": "docs/report/countries/sweden/sweden_lake_archaeology_sensitivity_v66.json",
+      "family": "scopes",
+      "family_label": "Scope-filtered outputs",
+      "audience": "public_reading_surface",
+      "audience_label": "Public reading surface",
+      "format": "json",
+      "geography": "sweden",
+      "caution_level": "medium",
+      "explanation": "Governed report artifact.",
+      "reader_route": "scope_bundle"
+    },
+    {
+      "repository_path": "docs/report/countries/sweden/sweden_lake_archaeology_sensitivity_v66.md",
+      "family": "scopes",
+      "family_label": "Scope-filtered outputs",
+      "audience": "public_reading_surface",
+      "audience_label": "Public reading surface",
+      "format": "md",
+      "geography": "sweden",
+      "caution_level": "medium",
+      "explanation": "Governed report artifact.",
+      "reader_route": "scope_bundle"
+    },
+    {
       "repository_path": "docs/report/countries/sweden/sweden_lake_evidence_richness_v66.geojson",
       "family": "scopes",
       "family_label": "Scope-filtered outputs",
@@ -1383,6 +1419,42 @@
     },
     {
       "repository_path": "docs/report/countries/sweden/sweden_lake_fieldwork_preparation_v66.md",
+      "family": "scopes",
+      "family_label": "Scope-filtered outputs",
+      "audience": "public_reading_surface",
+      "audience_label": "Public reading surface",
+      "format": "md",
+      "geography": "sweden",
+      "caution_level": "medium",
+      "explanation": "Governed report artifact.",
+      "reader_route": "scope_bundle"
+    },
+    {
+      "repository_path": "docs/report/countries/sweden/sweden_land_use_synthesis_v66.csv",
+      "family": "scopes",
+      "family_label": "Scope-filtered outputs",
+      "audience": "public_reading_surface",
+      "audience_label": "Public reading surface",
+      "format": "csv",
+      "geography": "sweden",
+      "caution_level": "medium",
+      "explanation": "Governed report artifact.",
+      "reader_route": "scope_bundle"
+    },
+    {
+      "repository_path": "docs/report/countries/sweden/sweden_land_use_synthesis_v66.json",
+      "family": "scopes",
+      "family_label": "Scope-filtered outputs",
+      "audience": "public_reading_surface",
+      "audience_label": "Public reading surface",
+      "format": "json",
+      "geography": "sweden",
+      "caution_level": "medium",
+      "explanation": "Governed report artifact.",
+      "reader_route": "scope_bundle"
+    },
+    {
+      "repository_path": "docs/report/countries/sweden/sweden_land_use_synthesis_v66.md",
       "family": "scopes",
       "family_label": "Scope-filtered outputs",
       "audience": "public_reading_surface",
