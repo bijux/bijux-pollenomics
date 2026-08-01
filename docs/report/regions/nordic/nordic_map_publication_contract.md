@@ -1,4 +1,4 @@
-# Nordic Evidence Atlas Map Publication Contract
+# Nordic Evidence Surface Map Publication Contract
 
 Nordic is the regional detail surface. It keeps the shared human and animal evidence layers, then adds Nordic-only environmental, archaeology, boundary, and fieldwork overlays that remain interpretable at this scale.
 
@@ -25,6 +25,7 @@ The opening extent stays tight on Nordic countries so lake, site, and archaeolog
 | LandClim pollen sites | `scope_specific_overlay` | LandClim | Pollen sequences staged from the LandClim normalization bundle. | `492` |
 | Neotoma pollen sites | `scope_specific_overlay` | Neotoma | Pollen and paleoecology sites staged from the Neotoma normalization bundle. | `200` |
 | SEAD sites | `scope_specific_overlay` | SEAD | Environmental archaeology sites staged from the SEAD normalization bundle. | `2172` |
+| SEAD temporal evidence | `scope_specific_overlay` | SEAD | Linked SEAD dating, relative-period, modelled-age, geochronology, and dendrochronology records grouped only when site, interval, label, and uncertainty agree. | `9380` |
 | Horse aDNA site evidence | `shared_world_scale_layer` | Tracked animal aDNA localities | Mapped animal features staged from traceable evidence rows built from species-owned sample, site, coordinate, and citation surfaces. | `2` |
 | Sweden lake aggregate top 40 | `scope_specific_overlay` | Sweden lake evidence | Optional Nordic atlas overlay for the top 40 Sweden lakes in the aggregate evidence ranking. | `40` |
 | Sweden lake consensus top 40 | `scope_specific_overlay` | Sweden lake evidence | Optional Nordic atlas overlay for the top 40 Sweden lakes that recur across scenario rankings. | `40` |

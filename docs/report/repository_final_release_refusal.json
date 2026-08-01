@@ -2,10 +2,11 @@
   "schema_version": "repository-final-release-refusal.v1",
   "final_release_language_allowed": false,
   "overall_posture": "final_release_language_refused",
-  "blocking_dimension_count": 2,
+  "blocking_dimension_count": 3,
   "blocking_dimensions": [
     "data_recovery",
-    "sead_treatment"
+    "sead_treatment",
+    "geographic_extensibility"
   ],
   "rows": [
     {
@@ -64,7 +65,7 @@
     },
     {
       "dimension_key": "geographic_extensibility",
-      "ready_for_final_release_language": true,
+      "ready_for_final_release_language": false,
       "finding": "country publication onboarding is a governed contract instead of tribal knowledge",
       "evidence_anchors": [
         "docs/report/publication_country_onboarding_contract.json",

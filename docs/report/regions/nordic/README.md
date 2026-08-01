@@ -1,4 +1,4 @@
-# Nordic Evidence Atlas
+# Nordic Evidence Surface
 
 This shared interactive map bundle was generated on `2026-08-01` from Homo
 sapiens AADR `v66` plus any governed contextual and animal surfaces that
@@ -36,6 +36,7 @@ Nordic is the regional detail surface. It keeps the shared human and animal evid
 - LandClim pollen site GeoJSON: [`nordic_pollen_site_sequences.geojson`](./nordic_pollen_site_sequences.geojson)
 - Neotoma pollen GeoJSON: [`nordic_pollen_sites.geojson`](./nordic_pollen_sites.geojson)
 - SEAD site GeoJSON: [`nordic_environmental_sites.geojson`](./nordic_environmental_sites.geojson)
+- SEAD temporal evidence GeoJSON: [`nordic_temporal_evidence.geojson`](./nordic_temporal_evidence.geojson)
 - Nordic country boundaries: [`nordic_country_boundaries.geojson`](./nordic_country_boundaries.geojson)
 - LandClim REVEALS grid GeoJSON: [`nordic_reveals_grid_cells.geojson`](./nordic_reveals_grid_cells.geojson)
 - RAÄ archaeology layer metadata: [`sweden_archaeology_layer.json`](./sweden_archaeology_layer.json)
@@ -66,6 +67,7 @@ Nordic is the regional detail surface. It keeps the shared human and animal evid
 | LandClim pollen sites | `scope_specific_overlay` | Pollen sequences staged from the LandClim normalization bundle. | `492` |
 | Neotoma pollen sites | `scope_specific_overlay` | Pollen and paleoecology sites staged from the Neotoma normalization bundle. | `200` |
 | SEAD sites | `scope_specific_overlay` | Environmental archaeology sites staged from the SEAD normalization bundle. | `2172` |
+| SEAD temporal evidence | `scope_specific_overlay` | Linked SEAD dating, relative-period, modelled-age, geochronology, and dendrochronology records grouped only when site, interval, label, and uncertainty agree. | `9380` |
 | Horse aDNA site evidence | `shared_world_scale_layer` | Mapped animal features staged from traceable evidence rows built from species-owned sample, site, coordinate, and citation surfaces. | `2` |
 | Sweden lake aggregate top 40 | `scope_specific_overlay` | Optional Nordic atlas overlay for the top 40 Sweden lakes in the aggregate evidence ranking. | `40` |
 | Sweden lake consensus top 40 | `scope_specific_overlay` | Optional Nordic atlas overlay for the top 40 Sweden lakes that recur across scenario rankings. | `40` |

@@ -135,7 +135,7 @@
       "species_scope": [],
       "layer_role": "mapped_context",
       "mapped": true,
-      "feature_count": 234,
+      "feature_count": 534,
       "evidence_posture": "non_adna_context",
       "provenance_posture": "normalized_context_layers",
       "popup_contract": [
@@ -163,7 +163,15 @@
       "contextual_layer_dependencies": [
         "animal-camelus-dromedarius",
         "animal-capra-hircus",
-        "animal-equus-caballus"
+        "animal-equus-caballus",
+        "sweden-lake-10km-top40",
+        "sweden-lake-20km-top40",
+        "sweden-lake-30km-top40",
+        "sweden-lake-40km-top40",
+        "sweden-lake-50km-top40",
+        "sweden-lake-aggregate-top40",
+        "sweden-lake-consensus-top40",
+        "sweden-lake-fieldwork-shortlist"
       ],
       "blocking_reasons": [],
       "rationale": [
@@ -187,7 +195,15 @@
       "contextual_layer_dependencies": [
         "animal-camelus-dromedarius",
         "animal-capra-hircus",
-        "animal-equus-caballus"
+        "animal-equus-caballus",
+        "sweden-lake-10km-top40",
+        "sweden-lake-20km-top40",
+        "sweden-lake-30km-top40",
+        "sweden-lake-40km-top40",
+        "sweden-lake-50km-top40",
+        "sweden-lake-aggregate-top40",
+        "sweden-lake-consensus-top40",
+        "sweden-lake-fieldwork-shortlist"
       ],
       "blocking_reasons": [],
       "rationale": [
@@ -210,7 +226,15 @@
       "contextual_layer_dependencies": [
         "animal-camelus-dromedarius",
         "animal-capra-hircus",
-        "animal-equus-caballus"
+        "animal-equus-caballus",
+        "sweden-lake-10km-top40",
+        "sweden-lake-20km-top40",
+        "sweden-lake-30km-top40",
+        "sweden-lake-40km-top40",
+        "sweden-lake-50km-top40",
+        "sweden-lake-aggregate-top40",
+        "sweden-lake-consensus-top40",
+        "sweden-lake-fieldwork-shortlist"
       ],
       "blocking_reasons": [
         "missing_archive_projects",
@@ -237,7 +261,15 @@
       "contextual_layer_dependencies": [
         "animal-camelus-dromedarius",
         "animal-capra-hircus",
-        "animal-equus-caballus"
+        "animal-equus-caballus",
+        "sweden-lake-10km-top40",
+        "sweden-lake-20km-top40",
+        "sweden-lake-30km-top40",
+        "sweden-lake-40km-top40",
+        "sweden-lake-50km-top40",
+        "sweden-lake-aggregate-top40",
+        "sweden-lake-consensus-top40",
+        "sweden-lake-fieldwork-shortlist"
       ],
       "blocking_reasons": [
         "missing_primary_paper_pins",
@@ -267,7 +299,15 @@
       "contextual_layer_dependencies": [
         "animal-camelus-dromedarius",
         "animal-capra-hircus",
-        "animal-equus-caballus"
+        "animal-equus-caballus",
+        "sweden-lake-10km-top40",
+        "sweden-lake-20km-top40",
+        "sweden-lake-30km-top40",
+        "sweden-lake-40km-top40",
+        "sweden-lake-50km-top40",
+        "sweden-lake-aggregate-top40",
+        "sweden-lake-consensus-top40",
+        "sweden-lake-fieldwork-shortlist"
       ],
       "blocking_reasons": [],
       "rationale": [
@@ -291,7 +331,15 @@
       "contextual_layer_dependencies": [
         "animal-camelus-dromedarius",
         "animal-capra-hircus",
-        "animal-equus-caballus"
+        "animal-equus-caballus",
+        "sweden-lake-10km-top40",
+        "sweden-lake-20km-top40",
+        "sweden-lake-30km-top40",
+        "sweden-lake-40km-top40",
+        "sweden-lake-50km-top40",
+        "sweden-lake-aggregate-top40",
+        "sweden-lake-consensus-top40",
+        "sweden-lake-fieldwork-shortlist"
       ],
       "blocking_reasons": [],
       "rationale": [
@@ -314,7 +362,15 @@
       "contextual_layer_dependencies": [
         "animal-camelus-dromedarius",
         "animal-capra-hircus",
-        "animal-equus-caballus"
+        "animal-equus-caballus",
+        "sweden-lake-10km-top40",
+        "sweden-lake-20km-top40",
+        "sweden-lake-30km-top40",
+        "sweden-lake-40km-top40",
+        "sweden-lake-50km-top40",
+        "sweden-lake-aggregate-top40",
+        "sweden-lake-consensus-top40",
+        "sweden-lake-fieldwork-shortlist"
       ],
       "blocking_reasons": [],
       "rationale": [
@@ -338,7 +394,15 @@
       "contextual_layer_dependencies": [
         "animal-camelus-dromedarius",
         "animal-capra-hircus",
-        "animal-equus-caballus"
+        "animal-equus-caballus",
+        "sweden-lake-10km-top40",
+        "sweden-lake-20km-top40",
+        "sweden-lake-30km-top40",
+        "sweden-lake-40km-top40",
+        "sweden-lake-50km-top40",
+        "sweden-lake-aggregate-top40",
+        "sweden-lake-consensus-top40",
+        "sweden-lake-fieldwork-shortlist"
       ],
       "blocking_reasons": [],
       "rationale": [
@@ -361,7 +425,15 @@
       "contextual_layer_dependencies": [
         "animal-camelus-dromedarius",
         "animal-capra-hircus",
-        "animal-equus-caballus"
+        "animal-equus-caballus",
+        "sweden-lake-10km-top40",
+        "sweden-lake-20km-top40",
+        "sweden-lake-30km-top40",
+        "sweden-lake-40km-top40",
+        "sweden-lake-50km-top40",
+        "sweden-lake-aggregate-top40",
+        "sweden-lake-consensus-top40",
+        "sweden-lake-fieldwork-shortlist"
       ],
       "blocking_reasons": [
         "missing_primary_paper_pins",
@@ -389,7 +461,15 @@
       "contextual_layer_dependencies": [
         "animal-camelus-dromedarius",
         "animal-capra-hircus",
-        "animal-equus-caballus"
+        "animal-equus-caballus",
+        "sweden-lake-10km-top40",
+        "sweden-lake-20km-top40",
+        "sweden-lake-30km-top40",
+        "sweden-lake-40km-top40",
+        "sweden-lake-50km-top40",
+        "sweden-lake-aggregate-top40",
+        "sweden-lake-consensus-top40",
+        "sweden-lake-fieldwork-shortlist"
       ],
       "blocking_reasons": [],
       "rationale": [
@@ -412,7 +492,15 @@
       "contextual_layer_dependencies": [
         "animal-camelus-dromedarius",
         "animal-capra-hircus",
-        "animal-equus-caballus"
+        "animal-equus-caballus",
+        "sweden-lake-10km-top40",
+        "sweden-lake-20km-top40",
+        "sweden-lake-30km-top40",
+        "sweden-lake-40km-top40",
+        "sweden-lake-50km-top40",
+        "sweden-lake-aggregate-top40",
+        "sweden-lake-consensus-top40",
+        "sweden-lake-fieldwork-shortlist"
       ],
       "blocking_reasons": [],
       "rationale": [
@@ -435,7 +523,15 @@
       "contextual_layer_dependencies": [
         "animal-camelus-dromedarius",
         "animal-capra-hircus",
-        "animal-equus-caballus"
+        "animal-equus-caballus",
+        "sweden-lake-10km-top40",
+        "sweden-lake-20km-top40",
+        "sweden-lake-30km-top40",
+        "sweden-lake-40km-top40",
+        "sweden-lake-50km-top40",
+        "sweden-lake-aggregate-top40",
+        "sweden-lake-consensus-top40",
+        "sweden-lake-fieldwork-shortlist"
       ],
       "blocking_reasons": [],
       "rationale": [
@@ -458,7 +554,15 @@
       "contextual_layer_dependencies": [
         "animal-camelus-dromedarius",
         "animal-capra-hircus",
-        "animal-equus-caballus"
+        "animal-equus-caballus",
+        "sweden-lake-10km-top40",
+        "sweden-lake-20km-top40",
+        "sweden-lake-30km-top40",
+        "sweden-lake-40km-top40",
+        "sweden-lake-50km-top40",
+        "sweden-lake-aggregate-top40",
+        "sweden-lake-consensus-top40",
+        "sweden-lake-fieldwork-shortlist"
       ],
       "blocking_reasons": [],
       "rationale": [
@@ -481,7 +585,15 @@
       "contextual_layer_dependencies": [
         "animal-camelus-dromedarius",
         "animal-capra-hircus",
-        "animal-equus-caballus"
+        "animal-equus-caballus",
+        "sweden-lake-10km-top40",
+        "sweden-lake-20km-top40",
+        "sweden-lake-30km-top40",
+        "sweden-lake-40km-top40",
+        "sweden-lake-50km-top40",
+        "sweden-lake-aggregate-top40",
+        "sweden-lake-consensus-top40",
+        "sweden-lake-fieldwork-shortlist"
       ],
       "blocking_reasons": [
         "missing_primary_paper_pins",
@@ -508,7 +620,15 @@
       "contextual_layer_dependencies": [
         "animal-camelus-dromedarius",
         "animal-capra-hircus",
-        "animal-equus-caballus"
+        "animal-equus-caballus",
+        "sweden-lake-10km-top40",
+        "sweden-lake-20km-top40",
+        "sweden-lake-30km-top40",
+        "sweden-lake-40km-top40",
+        "sweden-lake-50km-top40",
+        "sweden-lake-aggregate-top40",
+        "sweden-lake-consensus-top40",
+        "sweden-lake-fieldwork-shortlist"
       ],
       "blocking_reasons": [],
       "rationale": [
@@ -531,7 +651,15 @@
       "contextual_layer_dependencies": [
         "animal-camelus-dromedarius",
         "animal-capra-hircus",
-        "animal-equus-caballus"
+        "animal-equus-caballus",
+        "sweden-lake-10km-top40",
+        "sweden-lake-20km-top40",
+        "sweden-lake-30km-top40",
+        "sweden-lake-40km-top40",
+        "sweden-lake-50km-top40",
+        "sweden-lake-aggregate-top40",
+        "sweden-lake-consensus-top40",
+        "sweden-lake-fieldwork-shortlist"
       ],
       "blocking_reasons": [
         "missing_primary_paper_pins",

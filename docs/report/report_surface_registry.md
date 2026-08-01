@@ -4,7 +4,7 @@ This registry classifies the current `docs/report/` tree by family, audience,
 scope, and explanation role so the publication system can be navigated as one
 coherent report surface instead of a loose artifact dump.
 
-- Surface count: `288`
+- Surface count: `289`
 
 ## Family Counts
 
@@ -15,14 +15,14 @@ coherent report surface instead of a loose artifact dump.
 | Map surfaces | 75 |
 | Portal guidance | 2 |
 | Evidence reviews | 33 |
-| Scope-filtered outputs | 118 |
+| Scope-filtered outputs | 119 |
 
 ## Audience Counts
 
 | Audience | Count |
 | --- | ---: |
 | Maintainer diagnostic | 53 |
-| Public reading surface | 127 |
+| Public reading surface | 128 |
 | Scientific review surface | 108 |
 
 ## Classified Surfaces
@@ -228,6 +228,7 @@ coherent report surface instead of a loose artifact dump.
 | `docs/report/regions/nordic/nordic_scientific_review.json` | Map surfaces | Scientific review surface | `nordic` | `json` | Governed report artifact. |
 | `docs/report/regions/nordic/nordic_scientific_review.md` | Map surfaces | Scientific review surface | `nordic` | `md` | Governed report artifact. |
 | `docs/report/regions/nordic/nordic_summary.json` | Scope-filtered outputs | Public reading surface | `nordic` | `json` | Scope summary surface for direct inspection or downstream filtering. |
+| `docs/report/regions/nordic/nordic_temporal_evidence.geojson` | Scope-filtered outputs | Public reading surface | `nordic` | `geojson` | Governed report artifact. |
 | `docs/report/regions/nordic/sweden_archaeology_density.geojson` | Map surfaces | Scientific review surface | `nordic` | `geojson` | Governed report artifact. |
 | `docs/report/regions/nordic/sweden_archaeology_layer.json` | Map surfaces | Scientific review surface | `nordic` | `json` | Governed report artifact. |
 | `docs/report/repository_atlas_input_audit.json` | Maintainer truth surfaces | Maintainer diagnostic | `report_root` | `json` | Maintainer-facing truth or governance surface. |

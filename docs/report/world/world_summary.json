@@ -3,7 +3,7 @@
   "title": "World Evidence Surface",
   "slug": "world",
   "version": "v66",
-  "generated_on": "2026-06-22",
+  "generated_on": "2026-08-01",
   "scope_key": "world",
   "scope_label": "World",
   "scope_kind": "world",
@@ -21,7 +21,7 @@
     "Denmark": 653
   },
   "total_unique_samples": 1231,
-  "output_dir": "/Users/bijan/bijux/bijux-pollenomics/docs/report/world",
+  "output_dir": "docs/report/world",
   "artifacts": {
     "bundle_manifest": "world_bundle.json",
     "readme": "README.md",
@@ -168,7 +168,7 @@
     "role_counts": {
       "shared_world_scale_layer": 4,
       "region_filtered_layer": 1,
-      "scope_specific_overlay": 0
+      "scope_specific_overlay": 8
     },
     "layer_rows": [
       {
@@ -222,6 +222,110 @@
         "applies_country_filter": true,
         "applies_time_filter": true,
         "scope_caveat": "Shared evidence layer across every governed scope."
+      },
+      {
+        "key": "sweden-lake-aggregate-top40",
+        "label": "Sweden lake aggregate top 40",
+        "source_name": "Sweden lake evidence",
+        "coverage_label": "Optional Nordic atlas overlay for the top 40 Sweden lakes in the aggregate evidence ranking.",
+        "count": 40,
+        "publication_role": "scope_specific_overlay",
+        "scope_visibility": "shared_default",
+        "default_enabled": false,
+        "applies_country_filter": true,
+        "applies_time_filter": false,
+        "scope_caveat": "This overlay is intentionally withheld outside Nordic scope."
+      },
+      {
+        "key": "sweden-lake-consensus-top40",
+        "label": "Sweden lake consensus top 40",
+        "source_name": "Sweden lake evidence",
+        "coverage_label": "Optional Nordic atlas overlay for the top 40 Sweden lakes that recur across scenario rankings.",
+        "count": 40,
+        "publication_role": "scope_specific_overlay",
+        "scope_visibility": "shared_default",
+        "default_enabled": false,
+        "applies_country_filter": true,
+        "applies_time_filter": false,
+        "scope_caveat": "This overlay is intentionally withheld outside Nordic scope."
+      },
+      {
+        "key": "sweden-lake-fieldwork-shortlist",
+        "label": "Sweden lake fieldwork shortlist",
+        "source_name": "Sweden lake evidence",
+        "coverage_label": "Optional Nordic atlas overlay for the published Sweden fieldwork shortlist.",
+        "count": 20,
+        "publication_role": "scope_specific_overlay",
+        "scope_visibility": "shared_default",
+        "default_enabled": false,
+        "applies_country_filter": true,
+        "applies_time_filter": false,
+        "scope_caveat": "This overlay is intentionally withheld outside Nordic scope."
+      },
+      {
+        "key": "sweden-lake-10km-top40",
+        "label": "Sweden lake 10 km top 40",
+        "source_name": "Sweden lake evidence",
+        "coverage_label": "Optional Nordic atlas overlay for the top 40 Sweden lakes in the 10 km evidence scenario.",
+        "count": 40,
+        "publication_role": "scope_specific_overlay",
+        "scope_visibility": "shared_default",
+        "default_enabled": false,
+        "applies_country_filter": true,
+        "applies_time_filter": false,
+        "scope_caveat": "This overlay is intentionally withheld outside Nordic scope."
+      },
+      {
+        "key": "sweden-lake-20km-top40",
+        "label": "Sweden lake 20 km top 40",
+        "source_name": "Sweden lake evidence",
+        "coverage_label": "Optional Nordic atlas overlay for the top 40 Sweden lakes in the 20 km evidence scenario.",
+        "count": 40,
+        "publication_role": "scope_specific_overlay",
+        "scope_visibility": "shared_default",
+        "default_enabled": false,
+        "applies_country_filter": true,
+        "applies_time_filter": false,
+        "scope_caveat": "This overlay is intentionally withheld outside Nordic scope."
+      },
+      {
+        "key": "sweden-lake-30km-top40",
+        "label": "Sweden lake 30 km top 40",
+        "source_name": "Sweden lake evidence",
+        "coverage_label": "Optional Nordic atlas overlay for the top 40 Sweden lakes in the 30 km evidence scenario.",
+        "count": 40,
+        "publication_role": "scope_specific_overlay",
+        "scope_visibility": "shared_default",
+        "default_enabled": false,
+        "applies_country_filter": true,
+        "applies_time_filter": false,
+        "scope_caveat": "This overlay is intentionally withheld outside Nordic scope."
+      },
+      {
+        "key": "sweden-lake-40km-top40",
+        "label": "Sweden lake 40 km top 40",
+        "source_name": "Sweden lake evidence",
+        "coverage_label": "Optional Nordic atlas overlay for the top 40 Sweden lakes in the 40 km evidence scenario.",
+        "count": 40,
+        "publication_role": "scope_specific_overlay",
+        "scope_visibility": "shared_default",
+        "default_enabled": false,
+        "applies_country_filter": true,
+        "applies_time_filter": false,
+        "scope_caveat": "This overlay is intentionally withheld outside Nordic scope."
+      },
+      {
+        "key": "sweden-lake-50km-top40",
+        "label": "Sweden lake 50 km top 40",
+        "source_name": "Sweden lake evidence",
+        "coverage_label": "Optional Nordic atlas overlay for the top 40 Sweden lakes in the 50 km evidence scenario.",
+        "count": 40,
+        "publication_role": "scope_specific_overlay",
+        "scope_visibility": "shared_default",
+        "default_enabled": false,
+        "applies_country_filter": true,
+        "applies_time_filter": false,
+        "scope_caveat": "This overlay is intentionally withheld outside Nordic scope."
       },
       {
         "key": "country-boundaries",

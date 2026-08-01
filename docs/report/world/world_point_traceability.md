@@ -7,8 +7,8 @@ for deeper source-family review files.
 ## Summary
 
 - Scope key: `world`
-- Visible point rows: `1465`
-- Visible point layers: `4` 
+- Visible point rows: `1765`
+- Visible point layers: `12`
 
 ## Example Rows
 

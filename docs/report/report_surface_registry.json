@@ -1,24 +1,24 @@
 {
   "schema_version": "report-surface-registry.v1",
-  "surface_count": 288,
+  "surface_count": 289,
   "family_counts": {
     "caveats": 9,
     "maintenance": 51,
     "maps": 75,
     "portal": 2,
     "reviews": 33,
-    "scopes": 118
+    "scopes": 119
   },
   "audience_counts": {
     "maintainer_diagnostic": 53,
-    "public_reading_surface": 127,
+    "public_reading_surface": 128,
     "scientific_review_surface": 108
   },
   "geography_counts": {
     "denmark": 14,
     "europe_plus": 36,
     "finland": 14,
-    "nordic": 42,
+    "nordic": 43,
     "norway": 14,
     "report_root": 98,
     "sweden": 34,
@@ -2411,6 +2411,18 @@
       "geography": "nordic",
       "caution_level": "medium",
       "explanation": "Scope summary surface for direct inspection or downstream filtering.",
+      "reader_route": "scope_bundle"
+    },
+    {
+      "repository_path": "docs/report/regions/nordic/nordic_temporal_evidence.geojson",
+      "family": "scopes",
+      "family_label": "Scope-filtered outputs",
+      "audience": "public_reading_surface",
+      "audience_label": "Public reading surface",
+      "format": "geojson",
+      "geography": "nordic",
+      "caution_level": "high",
+      "explanation": "Governed report artifact.",
       "reader_route": "scope_bundle"
     },
     {

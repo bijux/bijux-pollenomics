@@ -42,7 +42,7 @@
           },
           {
             "label": "Aggregate score",
-            "value": "0.4721"
+            "value": "0.4875"
           },
           {
             "label": "Coordinates",
@@ -94,7 +94,7 @@
           },
           {
             "label": "20 km SEAD with numeric chronology",
-            "value": "22"
+            "value": "35"
           },
           {
             "label": "20 km SEAD overlapping nearby human chronology",
@@ -160,7 +160,7 @@
           },
           {
             "label": "Aggregate score",
-            "value": "0.4718"
+            "value": "0.4864"
           },
           {
             "label": "Coordinates",
@@ -212,7 +212,7 @@
           },
           {
             "label": "20 km SEAD with numeric chronology",
-            "value": "22"
+            "value": "35"
           },
           {
             "label": "20 km SEAD overlapping nearby human chronology",
@@ -278,7 +278,7 @@
           },
           {
             "label": "Aggregate score",
-            "value": "0.4605"
+            "value": "0.4770"
           },
           {
             "label": "Coordinates",
@@ -330,7 +330,7 @@
           },
           {
             "label": "20 km SEAD with numeric chronology",
-            "value": "16"
+            "value": "30"
           },
           {
             "label": "20 km SEAD overlapping nearby human chronology",
@@ -396,7 +396,7 @@
           },
           {
             "label": "Aggregate score",
-            "value": "0.4586"
+            "value": "0.4731"
           },
           {
             "label": "Coordinates",
@@ -448,7 +448,7 @@
           },
           {
             "label": "20 km SEAD with numeric chronology",
-            "value": "18"
+            "value": "31"
           },
           {
             "label": "20 km SEAD overlapping nearby human chronology",
@@ -514,7 +514,7 @@
           },
           {
             "label": "Aggregate score",
-            "value": "0.4362"
+            "value": "0.4467"
           },
           {
             "label": "Coordinates",
@@ -566,7 +566,7 @@
           },
           {
             "label": "20 km SEAD with numeric chronology",
-            "value": "18"
+            "value": "31"
           },
           {
             "label": "20 km SEAD overlapping nearby human chronology",
@@ -632,7 +632,7 @@
           },
           {
             "label": "Aggregate score",
-            "value": "0.4254"
+            "value": "0.4240"
           },
           {
             "label": "Coordinates",
@@ -714,6 +714,124 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          18.52596,
+          57.34248
+        ]
+      },
+      "properties": {
+        "source": "bijux-pollenomics",
+        "layer_key": "lake-evidence-candidates",
+        "layer_label": "Sweden lake evidence candidates",
+        "category": "Lake evidence candidate",
+        "country": "Sweden",
+        "record_id": "sweden_lake:sigvaldetrask:57.34248:18.52596",
+        "name": "Sigvalde Tr\u00e4sk",
+        "geometry_type": "Point",
+        "subtitle": "Sweden lake evidence candidate",
+        "description": "Lake candidate derived from Sweden pollen context.",
+        "source_url": "https://apps.neotomadb.org/explorer/#/record/site/3411",
+        "record_count": 1,
+        "media_links": [
+          {
+            "label": "Open in Google Maps",
+            "url": "https://www.google.com/maps/search/?api=1&query=57.342480,18.525960",
+            "kind": "link"
+          },
+          {
+            "label": "Open representative source",
+            "url": "https://apps.neotomadb.org/explorer/#/record/site/3411",
+            "kind": "link"
+          }
+        ],
+        "popup_rows": [
+          {
+            "label": "Aggregate rank",
+            "value": "7"
+          },
+          {
+            "label": "Aggregate score",
+            "value": "0.3396"
+          },
+          {
+            "label": "Coordinates",
+            "value": "57.342480, 18.525960"
+          },
+          {
+            "label": "Coordinate method",
+            "value": "shared_source_coordinate"
+          },
+          {
+            "label": "Representative source",
+            "value": "neotoma-pollen:3411 (Sigvalde Tr\u00e4sk)"
+          },
+          {
+            "label": "Lake registry id",
+            "value": "Not available"
+          },
+          {
+            "label": "Lake name status",
+            "value": "Not available"
+          },
+          {
+            "label": "Lake area",
+            "value": "Not available"
+          },
+          {
+            "label": "Sampling posture",
+            "value": "Not available"
+          },
+          {
+            "label": "Sampling fit",
+            "value": "0.0000"
+          },
+          {
+            "label": "Pollen sources",
+            "value": "neotoma-pollen"
+          },
+          {
+            "label": "Direct pollen with numeric chronology",
+            "value": "0"
+          },
+          {
+            "label": "20 km pollen with numeric chronology",
+            "value": "0"
+          },
+          {
+            "label": "20 km pollen overlapping nearby human chronology",
+            "value": "0"
+          },
+          {
+            "label": "20 km SEAD with numeric chronology",
+            "value": "19"
+          },
+          {
+            "label": "20 km SEAD overlapping nearby human chronology",
+            "value": "5"
+          },
+          {
+            "label": "Duplicate Sweden names",
+            "value": "1"
+          },
+          {
+            "label": "Coordinate spread",
+            "value": "0.00 km"
+          },
+          {
+            "label": "Identity diagnostics",
+            "value": "none"
+          },
+          {
+            "label": "Identity note",
+            "value": "No explicit identity warning."
+          }
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           13.81996,
           58.40981
         ]
@@ -746,11 +864,11 @@
         "popup_rows": [
           {
             "label": "Aggregate rank",
-            "value": "7"
+            "value": "8"
           },
           {
             "label": "Aggregate score",
-            "value": "0.3392"
+            "value": "0.3387"
           },
           {
             "label": "Coordinates",
@@ -864,11 +982,11 @@
         "popup_rows": [
           {
             "label": "Aggregate rank",
-            "value": "8"
+            "value": "9"
           },
           {
             "label": "Aggregate score",
-            "value": "0.3224"
+            "value": "0.3261"
           },
           {
             "label": "Coordinates",
@@ -920,7 +1038,7 @@
           },
           {
             "label": "20 km SEAD with numeric chronology",
-            "value": "2"
+            "value": "5"
           },
           {
             "label": "20 km SEAD overlapping nearby human chronology",
@@ -982,11 +1100,11 @@
         "popup_rows": [
           {
             "label": "Aggregate rank",
-            "value": "9"
+            "value": "10"
           },
           {
             "label": "Aggregate score",
-            "value": "0.3222"
+            "value": "0.3216"
           },
           {
             "label": "Coordinates",
@@ -1100,11 +1218,11 @@
         "popup_rows": [
           {
             "label": "Aggregate rank",
-            "value": "10"
+            "value": "11"
           },
           {
             "label": "Aggregate score",
-            "value": "0.3194"
+            "value": "0.3185"
           },
           {
             "label": "Coordinates",
@@ -1156,7 +1274,7 @@
           },
           {
             "label": "20 km SEAD with numeric chronology",
-            "value": "2"
+            "value": "3"
           },
           {
             "label": "20 km SEAD overlapping nearby human chronology",
@@ -1169,124 +1287,6 @@
           {
             "label": "Coordinate spread",
             "value": "0.64 km"
-          },
-          {
-            "label": "Identity diagnostics",
-            "value": "none"
-          },
-          {
-            "label": "Identity note",
-            "value": "No explicit identity warning."
-          }
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          18.52596,
-          57.34248
-        ]
-      },
-      "properties": {
-        "source": "bijux-pollenomics",
-        "layer_key": "lake-evidence-candidates",
-        "layer_label": "Sweden lake evidence candidates",
-        "category": "Lake evidence candidate",
-        "country": "Sweden",
-        "record_id": "sweden_lake:sigvaldetrask:57.34248:18.52596",
-        "name": "Sigvalde Tr\u00e4sk",
-        "geometry_type": "Point",
-        "subtitle": "Sweden lake evidence candidate",
-        "description": "Lake candidate derived from Sweden pollen context.",
-        "source_url": "https://apps.neotomadb.org/explorer/#/record/site/3411",
-        "record_count": 1,
-        "media_links": [
-          {
-            "label": "Open in Google Maps",
-            "url": "https://www.google.com/maps/search/?api=1&query=57.342480,18.525960",
-            "kind": "link"
-          },
-          {
-            "label": "Open representative source",
-            "url": "https://apps.neotomadb.org/explorer/#/record/site/3411",
-            "kind": "link"
-          }
-        ],
-        "popup_rows": [
-          {
-            "label": "Aggregate rank",
-            "value": "11"
-          },
-          {
-            "label": "Aggregate score",
-            "value": "0.3173"
-          },
-          {
-            "label": "Coordinates",
-            "value": "57.342480, 18.525960"
-          },
-          {
-            "label": "Coordinate method",
-            "value": "shared_source_coordinate"
-          },
-          {
-            "label": "Representative source",
-            "value": "neotoma-pollen:3411 (Sigvalde Tr\u00e4sk)"
-          },
-          {
-            "label": "Lake registry id",
-            "value": "Not available"
-          },
-          {
-            "label": "Lake name status",
-            "value": "Not available"
-          },
-          {
-            "label": "Lake area",
-            "value": "Not available"
-          },
-          {
-            "label": "Sampling posture",
-            "value": "Not available"
-          },
-          {
-            "label": "Sampling fit",
-            "value": "0.0000"
-          },
-          {
-            "label": "Pollen sources",
-            "value": "neotoma-pollen"
-          },
-          {
-            "label": "Direct pollen with numeric chronology",
-            "value": "0"
-          },
-          {
-            "label": "20 km pollen with numeric chronology",
-            "value": "0"
-          },
-          {
-            "label": "20 km pollen overlapping nearby human chronology",
-            "value": "0"
-          },
-          {
-            "label": "20 km SEAD with numeric chronology",
-            "value": "3"
-          },
-          {
-            "label": "20 km SEAD overlapping nearby human chronology",
-            "value": "3"
-          },
-          {
-            "label": "Duplicate Sweden names",
-            "value": "1"
-          },
-          {
-            "label": "Coordinate spread",
-            "value": "0.00 km"
           },
           {
             "label": "Identity diagnostics",
@@ -1340,7 +1340,7 @@
           },
           {
             "label": "Aggregate score",
-            "value": "0.3171"
+            "value": "0.3157"
           },
           {
             "label": "Coordinates",
@@ -1392,7 +1392,7 @@
           },
           {
             "label": "20 km SEAD with numeric chronology",
-            "value": "2"
+            "value": "4"
           },
           {
             "label": "20 km SEAD overlapping nearby human chronology",
@@ -1458,7 +1458,7 @@
           },
           {
             "label": "Aggregate score",
-            "value": "0.3100"
+            "value": "0.3129"
           },
           {
             "label": "Coordinates",
@@ -1510,7 +1510,7 @@
           },
           {
             "label": "20 km SEAD with numeric chronology",
-            "value": "2"
+            "value": "6"
           },
           {
             "label": "20 km SEAD overlapping nearby human chronology",
@@ -1531,6 +1531,124 @@
           {
             "label": "Identity note",
             "value": "No explicit identity warning."
+          }
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.533333,
+          57.633333
+        ]
+      },
+      "properties": {
+        "source": "bijux-pollenomics",
+        "layer_key": "lake-evidence-candidates",
+        "layer_label": "Sweden lake evidence candidates",
+        "category": "Lake evidence candidate",
+        "country": "Sweden",
+        "record_id": "sweden_lake:kansjon:57.633333:14.533333",
+        "name": "Kansj\u00f6n (57.633333, 14.533333)",
+        "geometry_type": "Point",
+        "subtitle": "Sweden lake evidence candidate",
+        "description": "Source coordinates span 0.81 km inside this candidate. Source records use more than one lake name form for this candidate.",
+        "source_url": "https://doi.org/10.1594/PANGAEA.897303",
+        "record_count": 1,
+        "media_links": [
+          {
+            "label": "Open in Google Maps",
+            "url": "https://www.google.com/maps/search/?api=1&query=57.633333,14.533333",
+            "kind": "link"
+          },
+          {
+            "label": "Open representative source",
+            "url": "https://doi.org/10.1594/PANGAEA.897303",
+            "kind": "link"
+          }
+        ],
+        "popup_rows": [
+          {
+            "label": "Aggregate rank",
+            "value": "14"
+          },
+          {
+            "label": "Aggregate score",
+            "value": "0.3109"
+          },
+          {
+            "label": "Coordinates",
+            "value": "57.633333, 14.533333"
+          },
+          {
+            "label": "Coordinate method",
+            "value": "source_coordinate_medoid"
+          },
+          {
+            "label": "Representative source",
+            "value": "landclim-sites:897303:Kansjon:57.633333:14.533333 (Kansjon)"
+          },
+          {
+            "label": "Lake registry id",
+            "value": "Not available"
+          },
+          {
+            "label": "Lake name status",
+            "value": "Not available"
+          },
+          {
+            "label": "Lake area",
+            "value": "Not available"
+          },
+          {
+            "label": "Sampling posture",
+            "value": "Not available"
+          },
+          {
+            "label": "Sampling fit",
+            "value": "0.0000"
+          },
+          {
+            "label": "Pollen sources",
+            "value": "landclim-sites, neotoma-pollen"
+          },
+          {
+            "label": "Direct pollen with numeric chronology",
+            "value": "3"
+          },
+          {
+            "label": "20 km pollen with numeric chronology",
+            "value": "0"
+          },
+          {
+            "label": "20 km pollen overlapping nearby human chronology",
+            "value": "0"
+          },
+          {
+            "label": "20 km SEAD with numeric chronology",
+            "value": "3"
+          },
+          {
+            "label": "20 km SEAD overlapping nearby human chronology",
+            "value": "0"
+          },
+          {
+            "label": "Duplicate Sweden names",
+            "value": "1"
+          },
+          {
+            "label": "Coordinate spread",
+            "value": "0.81 km"
+          },
+          {
+            "label": "Identity diagnostics",
+            "value": "source_coordinate_spread, source_name_variants"
+          },
+          {
+            "label": "Identity note",
+            "value": "Source coordinates span 0.81 km inside this candidate. Source records use more than one lake name form for this candidate."
           }
         ]
       }
@@ -1572,11 +1690,11 @@
         "popup_rows": [
           {
             "label": "Aggregate rank",
-            "value": "14"
+            "value": "15"
           },
           {
             "label": "Aggregate score",
-            "value": "0.3080"
+            "value": "0.3072"
           },
           {
             "label": "Coordinates",
@@ -1658,124 +1776,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          12.416667,
-          57.133333
-        ]
-      },
-      "properties": {
-        "source": "bijux-pollenomics",
-        "layer_key": "lake-evidence-candidates",
-        "layer_label": "Sweden lake evidence candidates",
-        "category": "Lake evidence candidate",
-        "country": "Sweden",
-        "record_id": "sweden_lake:sambosjon:57.133333:12.416667",
-        "name": "Samb\u00f6sj\u00f6n (57.133333, 12.416667)",
-        "geometry_type": "Point",
-        "subtitle": "Sweden lake evidence candidate",
-        "description": "2 Sweden candidates share this cleaned lake name.",
-        "source_url": "https://doi.org/10.1594/PANGAEA.897303",
-        "record_count": 1,
-        "media_links": [
-          {
-            "label": "Open in Google Maps",
-            "url": "https://www.google.com/maps/search/?api=1&query=57.133333,12.416667",
-            "kind": "link"
-          },
-          {
-            "label": "Open representative source",
-            "url": "https://doi.org/10.1594/PANGAEA.897303",
-            "kind": "link"
-          }
-        ],
-        "popup_rows": [
-          {
-            "label": "Aggregate rank",
-            "value": "15"
-          },
-          {
-            "label": "Aggregate score",
-            "value": "0.3066"
-          },
-          {
-            "label": "Coordinates",
-            "value": "57.133333, 12.416667"
-          },
-          {
-            "label": "Coordinate method",
-            "value": "shared_source_coordinate"
-          },
-          {
-            "label": "Representative source",
-            "value": "landclim-sites:897303:Lake Samb\u00f6sj\u00f6n:57.133333:12.416667 (Samb\u00f6sj\u00f6n)"
-          },
-          {
-            "label": "Lake registry id",
-            "value": "Not available"
-          },
-          {
-            "label": "Lake name status",
-            "value": "Not available"
-          },
-          {
-            "label": "Lake area",
-            "value": "Not available"
-          },
-          {
-            "label": "Sampling posture",
-            "value": "Not available"
-          },
-          {
-            "label": "Sampling fit",
-            "value": "0.0000"
-          },
-          {
-            "label": "Pollen sources",
-            "value": "landclim-sites"
-          },
-          {
-            "label": "Direct pollen with numeric chronology",
-            "value": "2"
-          },
-          {
-            "label": "20 km pollen with numeric chronology",
-            "value": "0"
-          },
-          {
-            "label": "20 km pollen overlapping nearby human chronology",
-            "value": "0"
-          },
-          {
-            "label": "20 km SEAD with numeric chronology",
-            "value": "5"
-          },
-          {
-            "label": "20 km SEAD overlapping nearby human chronology",
-            "value": "0"
-          },
-          {
-            "label": "Duplicate Sweden names",
-            "value": "2"
-          },
-          {
-            "label": "Coordinate spread",
-            "value": "0.00 km"
-          },
-          {
-            "label": "Identity diagnostics",
-            "value": "duplicate_sweden_name"
-          },
-          {
-            "label": "Identity note",
-            "value": "2 Sweden candidates share this cleaned lake name."
-          }
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           13.666667,
           58.583333
         ]
@@ -1812,7 +1812,7 @@
           },
           {
             "label": "Aggregate score",
-            "value": "0.3066"
+            "value": "0.3060"
           },
           {
             "label": "Coordinates",
@@ -1894,124 +1894,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          14.533333,
-          57.633333
-        ]
-      },
-      "properties": {
-        "source": "bijux-pollenomics",
-        "layer_key": "lake-evidence-candidates",
-        "layer_label": "Sweden lake evidence candidates",
-        "category": "Lake evidence candidate",
-        "country": "Sweden",
-        "record_id": "sweden_lake:kansjon:57.633333:14.533333",
-        "name": "Kansj\u00f6n (57.633333, 14.533333)",
-        "geometry_type": "Point",
-        "subtitle": "Sweden lake evidence candidate",
-        "description": "Source coordinates span 0.81 km inside this candidate. Source records use more than one lake name form for this candidate.",
-        "source_url": "https://doi.org/10.1594/PANGAEA.897303",
-        "record_count": 1,
-        "media_links": [
-          {
-            "label": "Open in Google Maps",
-            "url": "https://www.google.com/maps/search/?api=1&query=57.633333,14.533333",
-            "kind": "link"
-          },
-          {
-            "label": "Open representative source",
-            "url": "https://doi.org/10.1594/PANGAEA.897303",
-            "kind": "link"
-          }
-        ],
-        "popup_rows": [
-          {
-            "label": "Aggregate rank",
-            "value": "17"
-          },
-          {
-            "label": "Aggregate score",
-            "value": "0.3059"
-          },
-          {
-            "label": "Coordinates",
-            "value": "57.633333, 14.533333"
-          },
-          {
-            "label": "Coordinate method",
-            "value": "source_coordinate_medoid"
-          },
-          {
-            "label": "Representative source",
-            "value": "landclim-sites:897303:Kansjon:57.633333:14.533333 (Kansjon)"
-          },
-          {
-            "label": "Lake registry id",
-            "value": "Not available"
-          },
-          {
-            "label": "Lake name status",
-            "value": "Not available"
-          },
-          {
-            "label": "Lake area",
-            "value": "Not available"
-          },
-          {
-            "label": "Sampling posture",
-            "value": "Not available"
-          },
-          {
-            "label": "Sampling fit",
-            "value": "0.0000"
-          },
-          {
-            "label": "Pollen sources",
-            "value": "landclim-sites, neotoma-pollen"
-          },
-          {
-            "label": "Direct pollen with numeric chronology",
-            "value": "3"
-          },
-          {
-            "label": "20 km pollen with numeric chronology",
-            "value": "0"
-          },
-          {
-            "label": "20 km pollen overlapping nearby human chronology",
-            "value": "0"
-          },
-          {
-            "label": "20 km SEAD with numeric chronology",
-            "value": "1"
-          },
-          {
-            "label": "20 km SEAD overlapping nearby human chronology",
-            "value": "0"
-          },
-          {
-            "label": "Duplicate Sweden names",
-            "value": "1"
-          },
-          {
-            "label": "Coordinate spread",
-            "value": "0.81 km"
-          },
-          {
-            "label": "Identity diagnostics",
-            "value": "source_coordinate_spread, source_name_variants"
-          },
-          {
-            "label": "Identity note",
-            "value": "Source coordinates span 0.81 km inside this candidate. Source records use more than one lake name form for this candidate."
-          }
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           15.266667,
           56.933333
         ]
@@ -2044,11 +1926,11 @@
         "popup_rows": [
           {
             "label": "Aggregate rank",
-            "value": "18"
+            "value": "17"
           },
           {
             "label": "Aggregate score",
-            "value": "0.3033"
+            "value": "0.3035"
           },
           {
             "label": "Coordinates",
@@ -2100,7 +1982,7 @@
           },
           {
             "label": "20 km SEAD with numeric chronology",
-            "value": "1"
+            "value": "2"
           },
           {
             "label": "20 km SEAD overlapping nearby human chronology",
@@ -2162,11 +2044,11 @@
         "popup_rows": [
           {
             "label": "Aggregate rank",
-            "value": "19"
+            "value": "18"
           },
           {
             "label": "Aggregate score",
-            "value": "0.3030"
+            "value": "0.3012"
           },
           {
             "label": "Coordinates",
@@ -2248,6 +2130,124 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          12.416667,
+          57.133333
+        ]
+      },
+      "properties": {
+        "source": "bijux-pollenomics",
+        "layer_key": "lake-evidence-candidates",
+        "layer_label": "Sweden lake evidence candidates",
+        "category": "Lake evidence candidate",
+        "country": "Sweden",
+        "record_id": "sweden_lake:sambosjon:57.133333:12.416667",
+        "name": "Samb\u00f6sj\u00f6n (57.133333, 12.416667)",
+        "geometry_type": "Point",
+        "subtitle": "Sweden lake evidence candidate",
+        "description": "2 Sweden candidates share this cleaned lake name.",
+        "source_url": "https://doi.org/10.1594/PANGAEA.897303",
+        "record_count": 1,
+        "media_links": [
+          {
+            "label": "Open in Google Maps",
+            "url": "https://www.google.com/maps/search/?api=1&query=57.133333,12.416667",
+            "kind": "link"
+          },
+          {
+            "label": "Open representative source",
+            "url": "https://doi.org/10.1594/PANGAEA.897303",
+            "kind": "link"
+          }
+        ],
+        "popup_rows": [
+          {
+            "label": "Aggregate rank",
+            "value": "19"
+          },
+          {
+            "label": "Aggregate score",
+            "value": "0.2987"
+          },
+          {
+            "label": "Coordinates",
+            "value": "57.133333, 12.416667"
+          },
+          {
+            "label": "Coordinate method",
+            "value": "shared_source_coordinate"
+          },
+          {
+            "label": "Representative source",
+            "value": "landclim-sites:897303:Lake Samb\u00f6sj\u00f6n:57.133333:12.416667 (Samb\u00f6sj\u00f6n)"
+          },
+          {
+            "label": "Lake registry id",
+            "value": "Not available"
+          },
+          {
+            "label": "Lake name status",
+            "value": "Not available"
+          },
+          {
+            "label": "Lake area",
+            "value": "Not available"
+          },
+          {
+            "label": "Sampling posture",
+            "value": "Not available"
+          },
+          {
+            "label": "Sampling fit",
+            "value": "0.0000"
+          },
+          {
+            "label": "Pollen sources",
+            "value": "landclim-sites"
+          },
+          {
+            "label": "Direct pollen with numeric chronology",
+            "value": "2"
+          },
+          {
+            "label": "20 km pollen with numeric chronology",
+            "value": "0"
+          },
+          {
+            "label": "20 km pollen overlapping nearby human chronology",
+            "value": "0"
+          },
+          {
+            "label": "20 km SEAD with numeric chronology",
+            "value": "5"
+          },
+          {
+            "label": "20 km SEAD overlapping nearby human chronology",
+            "value": "0"
+          },
+          {
+            "label": "Duplicate Sweden names",
+            "value": "2"
+          },
+          {
+            "label": "Coordinate spread",
+            "value": "0.00 km"
+          },
+          {
+            "label": "Identity diagnostics",
+            "value": "duplicate_sweden_name"
+          },
+          {
+            "label": "Identity note",
+            "value": "2 Sweden candidates share this cleaned lake name."
+          }
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           12.53333,
           57.08333
         ]
@@ -2284,7 +2284,7 @@
           },
           {
             "label": "Aggregate score",
-            "value": "0.3011"
+            "value": "0.2944"
           },
           {
             "label": "Coordinates",
@@ -2366,6 +2366,124 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          14.478611,
+          57.085556
+        ]
+      },
+      "properties": {
+        "source": "bijux-pollenomics",
+        "layer_key": "lake-evidence-candidates",
+        "layer_label": "Sweden lake evidence candidates",
+        "category": "Lake evidence candidate",
+        "country": "Sweden",
+        "record_id": "sweden_lake:abodasjon:57.085556:14.478611",
+        "name": "\u00c5bodasj\u00f6n",
+        "geometry_type": "Point",
+        "subtitle": "Sweden lake evidence candidate",
+        "description": "Lake candidate derived from Sweden pollen context.",
+        "source_url": "https://doi.org/10.1594/PANGAEA.897303",
+        "record_count": 1,
+        "media_links": [
+          {
+            "label": "Open in Google Maps",
+            "url": "https://www.google.com/maps/search/?api=1&query=57.085556,14.478611",
+            "kind": "link"
+          },
+          {
+            "label": "Open representative source",
+            "url": "https://doi.org/10.1594/PANGAEA.897303",
+            "kind": "link"
+          }
+        ],
+        "popup_rows": [
+          {
+            "label": "Aggregate rank",
+            "value": "21"
+          },
+          {
+            "label": "Aggregate score",
+            "value": "0.2853"
+          },
+          {
+            "label": "Coordinates",
+            "value": "57.085556, 14.478611"
+          },
+          {
+            "label": "Coordinate method",
+            "value": "source_coordinate_medoid"
+          },
+          {
+            "label": "Representative source",
+            "value": "landclim-sites:897303:\u00c5bodasj\u00f6n:57.085556:14.478611 (\u00c5bodasj\u00f6n)"
+          },
+          {
+            "label": "Lake registry id",
+            "value": "Not available"
+          },
+          {
+            "label": "Lake name status",
+            "value": "Not available"
+          },
+          {
+            "label": "Lake area",
+            "value": "Not available"
+          },
+          {
+            "label": "Sampling posture",
+            "value": "Not available"
+          },
+          {
+            "label": "Sampling fit",
+            "value": "0.0000"
+          },
+          {
+            "label": "Pollen sources",
+            "value": "landclim-sites"
+          },
+          {
+            "label": "Direct pollen with numeric chronology",
+            "value": "3"
+          },
+          {
+            "label": "20 km pollen with numeric chronology",
+            "value": "0"
+          },
+          {
+            "label": "20 km pollen overlapping nearby human chronology",
+            "value": "0"
+          },
+          {
+            "label": "20 km SEAD with numeric chronology",
+            "value": "2"
+          },
+          {
+            "label": "20 km SEAD overlapping nearby human chronology",
+            "value": "0"
+          },
+          {
+            "label": "Duplicate Sweden names",
+            "value": "1"
+          },
+          {
+            "label": "Coordinate spread",
+            "value": "0.01 km"
+          },
+          {
+            "label": "Identity diagnostics",
+            "value": "none"
+          },
+          {
+            "label": "Identity note",
+            "value": "No explicit identity warning."
+          }
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           12.41426,
           57.16313
         ]
@@ -2398,11 +2516,11 @@
         "popup_rows": [
           {
             "label": "Aggregate rank",
-            "value": "21"
+            "value": "22"
           },
           {
             "label": "Aggregate score",
-            "value": "0.2885"
+            "value": "0.2822"
           },
           {
             "label": "Coordinates",
@@ -2484,124 +2602,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          14.478611,
-          57.085556
-        ]
-      },
-      "properties": {
-        "source": "bijux-pollenomics",
-        "layer_key": "lake-evidence-candidates",
-        "layer_label": "Sweden lake evidence candidates",
-        "category": "Lake evidence candidate",
-        "country": "Sweden",
-        "record_id": "sweden_lake:abodasjon:57.085556:14.478611",
-        "name": "\u00c5bodasj\u00f6n",
-        "geometry_type": "Point",
-        "subtitle": "Sweden lake evidence candidate",
-        "description": "Lake candidate derived from Sweden pollen context.",
-        "source_url": "https://doi.org/10.1594/PANGAEA.897303",
-        "record_count": 1,
-        "media_links": [
-          {
-            "label": "Open in Google Maps",
-            "url": "https://www.google.com/maps/search/?api=1&query=57.085556,14.478611",
-            "kind": "link"
-          },
-          {
-            "label": "Open representative source",
-            "url": "https://doi.org/10.1594/PANGAEA.897303",
-            "kind": "link"
-          }
-        ],
-        "popup_rows": [
-          {
-            "label": "Aggregate rank",
-            "value": "22"
-          },
-          {
-            "label": "Aggregate score",
-            "value": "0.2838"
-          },
-          {
-            "label": "Coordinates",
-            "value": "57.085556, 14.478611"
-          },
-          {
-            "label": "Coordinate method",
-            "value": "source_coordinate_medoid"
-          },
-          {
-            "label": "Representative source",
-            "value": "landclim-sites:897303:\u00c5bodasj\u00f6n:57.085556:14.478611 (\u00c5bodasj\u00f6n)"
-          },
-          {
-            "label": "Lake registry id",
-            "value": "Not available"
-          },
-          {
-            "label": "Lake name status",
-            "value": "Not available"
-          },
-          {
-            "label": "Lake area",
-            "value": "Not available"
-          },
-          {
-            "label": "Sampling posture",
-            "value": "Not available"
-          },
-          {
-            "label": "Sampling fit",
-            "value": "0.0000"
-          },
-          {
-            "label": "Pollen sources",
-            "value": "landclim-sites"
-          },
-          {
-            "label": "Direct pollen with numeric chronology",
-            "value": "3"
-          },
-          {
-            "label": "20 km pollen with numeric chronology",
-            "value": "0"
-          },
-          {
-            "label": "20 km pollen overlapping nearby human chronology",
-            "value": "0"
-          },
-          {
-            "label": "20 km SEAD with numeric chronology",
-            "value": "0"
-          },
-          {
-            "label": "20 km SEAD overlapping nearby human chronology",
-            "value": "0"
-          },
-          {
-            "label": "Duplicate Sweden names",
-            "value": "1"
-          },
-          {
-            "label": "Coordinate spread",
-            "value": "0.01 km"
-          },
-          {
-            "label": "Identity diagnostics",
-            "value": "none"
-          },
-          {
-            "label": "Identity note",
-            "value": "No explicit identity warning."
-          }
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           13.33269,
           57.73429
         ]
@@ -2638,7 +2638,7 @@
           },
           {
             "label": "Aggregate score",
-            "value": "0.2817"
+            "value": "0.2812"
           },
           {
             "label": "Coordinates",
@@ -2720,242 +2720,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          18.75,
-          68.333333
-        ]
-      },
-      "properties": {
-        "source": "bijux-pollenomics",
-        "layer_key": "lake-evidence-candidates",
-        "layer_label": "Sweden lake evidence candidates",
-        "category": "Lake evidence candidate",
-        "country": "Sweden",
-        "record_id": "sweden_lake:vuolepnjakajaure:68.333333:18.75",
-        "name": "Vuolep Njakajaure (68.333333, 18.750000)",
-        "geometry_type": "Point",
-        "subtitle": "Sweden lake evidence candidate",
-        "description": "Source coordinates span 1.56 km inside this candidate.",
-        "source_url": "https://doi.org/10.1594/PANGAEA.897303",
-        "record_count": 1,
-        "media_links": [
-          {
-            "label": "Open in Google Maps",
-            "url": "https://www.google.com/maps/search/?api=1&query=68.333333,18.750000",
-            "kind": "link"
-          },
-          {
-            "label": "Open representative source",
-            "url": "https://doi.org/10.1594/PANGAEA.897303",
-            "kind": "link"
-          }
-        ],
-        "popup_rows": [
-          {
-            "label": "Aggregate rank",
-            "value": "24"
-          },
-          {
-            "label": "Aggregate score",
-            "value": "0.2798"
-          },
-          {
-            "label": "Coordinates",
-            "value": "68.333333, 18.750000"
-          },
-          {
-            "label": "Coordinate method",
-            "value": "source_coordinate_medoid"
-          },
-          {
-            "label": "Representative source",
-            "value": "landclim-sites:897303:Lake Vuolep Njakajaure:68.333333:18.750000 (Vuolep Njakajaure)"
-          },
-          {
-            "label": "Lake registry id",
-            "value": "Not available"
-          },
-          {
-            "label": "Lake name status",
-            "value": "Not available"
-          },
-          {
-            "label": "Lake area",
-            "value": "Not available"
-          },
-          {
-            "label": "Sampling posture",
-            "value": "Not available"
-          },
-          {
-            "label": "Sampling fit",
-            "value": "0.0000"
-          },
-          {
-            "label": "Pollen sources",
-            "value": "landclim-sites, neotoma-pollen"
-          },
-          {
-            "label": "Direct pollen with numeric chronology",
-            "value": "1"
-          },
-          {
-            "label": "20 km pollen with numeric chronology",
-            "value": "0"
-          },
-          {
-            "label": "20 km pollen overlapping nearby human chronology",
-            "value": "0"
-          },
-          {
-            "label": "20 km SEAD with numeric chronology",
-            "value": "1"
-          },
-          {
-            "label": "20 km SEAD overlapping nearby human chronology",
-            "value": "0"
-          },
-          {
-            "label": "Duplicate Sweden names",
-            "value": "1"
-          },
-          {
-            "label": "Coordinate spread",
-            "value": "1.56 km"
-          },
-          {
-            "label": "Identity diagnostics",
-            "value": "source_coordinate_spread"
-          },
-          {
-            "label": "Identity note",
-            "value": "Source coordinates span 1.56 km inside this candidate."
-          }
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          15.283333,
-          56.916667
-        ]
-      },
-      "properties": {
-        "source": "bijux-pollenomics",
-        "layer_key": "lake-evidence-candidates",
-        "layer_label": "Sweden lake evidence candidates",
-        "category": "Lake evidence candidate",
-        "country": "Sweden",
-        "record_id": "sweden_lake:storasjo:56.916667:15.283333",
-        "name": "Storasj\u00f6 (56.916667, 15.283333)",
-        "geometry_type": "Point",
-        "subtitle": "Sweden lake evidence candidate",
-        "description": "2 Sweden candidates share this cleaned lake name.",
-        "source_url": "https://doi.org/10.1594/PANGAEA.937075",
-        "record_count": 1,
-        "media_links": [
-          {
-            "label": "Open in Google Maps",
-            "url": "https://www.google.com/maps/search/?api=1&query=56.916667,15.283333",
-            "kind": "link"
-          },
-          {
-            "label": "Open representative source",
-            "url": "https://doi.org/10.1594/PANGAEA.937075",
-            "kind": "link"
-          }
-        ],
-        "popup_rows": [
-          {
-            "label": "Aggregate rank",
-            "value": "25"
-          },
-          {
-            "label": "Aggregate score",
-            "value": "0.2792"
-          },
-          {
-            "label": "Coordinates",
-            "value": "56.916667, 15.283333"
-          },
-          {
-            "label": "Coordinate method",
-            "value": "shared_source_coordinate"
-          },
-          {
-            "label": "Representative source",
-            "value": "landclim-sites:937075:STOR (Storasj\u00f6)"
-          },
-          {
-            "label": "Lake registry id",
-            "value": "Not available"
-          },
-          {
-            "label": "Lake name status",
-            "value": "Not available"
-          },
-          {
-            "label": "Lake area",
-            "value": "Not available"
-          },
-          {
-            "label": "Sampling posture",
-            "value": "Not available"
-          },
-          {
-            "label": "Sampling fit",
-            "value": "0.0000"
-          },
-          {
-            "label": "Pollen sources",
-            "value": "landclim-sites"
-          },
-          {
-            "label": "Direct pollen with numeric chronology",
-            "value": "3"
-          },
-          {
-            "label": "20 km pollen with numeric chronology",
-            "value": "0"
-          },
-          {
-            "label": "20 km pollen overlapping nearby human chronology",
-            "value": "0"
-          },
-          {
-            "label": "20 km SEAD with numeric chronology",
-            "value": "1"
-          },
-          {
-            "label": "20 km SEAD overlapping nearby human chronology",
-            "value": "0"
-          },
-          {
-            "label": "Duplicate Sweden names",
-            "value": "2"
-          },
-          {
-            "label": "Coordinate spread",
-            "value": "0.00 km"
-          },
-          {
-            "label": "Identity diagnostics",
-            "value": "duplicate_sweden_name"
-          },
-          {
-            "label": "Identity note",
-            "value": "2 Sweden candidates share this cleaned lake name."
-          }
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           16.116667,
           57.016667
         ]
@@ -2988,11 +2752,11 @@
         "popup_rows": [
           {
             "label": "Aggregate rank",
-            "value": "26"
+            "value": "24"
           },
           {
             "label": "Aggregate score",
-            "value": "0.2785"
+            "value": "0.2807"
           },
           {
             "label": "Coordinates",
@@ -3074,6 +2838,242 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          15.283333,
+          56.916667
+        ]
+      },
+      "properties": {
+        "source": "bijux-pollenomics",
+        "layer_key": "lake-evidence-candidates",
+        "layer_label": "Sweden lake evidence candidates",
+        "category": "Lake evidence candidate",
+        "country": "Sweden",
+        "record_id": "sweden_lake:storasjo:56.916667:15.283333",
+        "name": "Storasj\u00f6 (56.916667, 15.283333)",
+        "geometry_type": "Point",
+        "subtitle": "Sweden lake evidence candidate",
+        "description": "2 Sweden candidates share this cleaned lake name.",
+        "source_url": "https://doi.org/10.1594/PANGAEA.937075",
+        "record_count": 1,
+        "media_links": [
+          {
+            "label": "Open in Google Maps",
+            "url": "https://www.google.com/maps/search/?api=1&query=56.916667,15.283333",
+            "kind": "link"
+          },
+          {
+            "label": "Open representative source",
+            "url": "https://doi.org/10.1594/PANGAEA.937075",
+            "kind": "link"
+          }
+        ],
+        "popup_rows": [
+          {
+            "label": "Aggregate rank",
+            "value": "25"
+          },
+          {
+            "label": "Aggregate score",
+            "value": "0.2793"
+          },
+          {
+            "label": "Coordinates",
+            "value": "56.916667, 15.283333"
+          },
+          {
+            "label": "Coordinate method",
+            "value": "shared_source_coordinate"
+          },
+          {
+            "label": "Representative source",
+            "value": "landclim-sites:937075:STOR (Storasj\u00f6)"
+          },
+          {
+            "label": "Lake registry id",
+            "value": "Not available"
+          },
+          {
+            "label": "Lake name status",
+            "value": "Not available"
+          },
+          {
+            "label": "Lake area",
+            "value": "Not available"
+          },
+          {
+            "label": "Sampling posture",
+            "value": "Not available"
+          },
+          {
+            "label": "Sampling fit",
+            "value": "0.0000"
+          },
+          {
+            "label": "Pollen sources",
+            "value": "landclim-sites"
+          },
+          {
+            "label": "Direct pollen with numeric chronology",
+            "value": "3"
+          },
+          {
+            "label": "20 km pollen with numeric chronology",
+            "value": "0"
+          },
+          {
+            "label": "20 km pollen overlapping nearby human chronology",
+            "value": "0"
+          },
+          {
+            "label": "20 km SEAD with numeric chronology",
+            "value": "2"
+          },
+          {
+            "label": "20 km SEAD overlapping nearby human chronology",
+            "value": "0"
+          },
+          {
+            "label": "Duplicate Sweden names",
+            "value": "2"
+          },
+          {
+            "label": "Coordinate spread",
+            "value": "0.00 km"
+          },
+          {
+            "label": "Identity diagnostics",
+            "value": "duplicate_sweden_name"
+          },
+          {
+            "label": "Identity note",
+            "value": "2 Sweden candidates share this cleaned lake name."
+          }
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.75,
+          68.333333
+        ]
+      },
+      "properties": {
+        "source": "bijux-pollenomics",
+        "layer_key": "lake-evidence-candidates",
+        "layer_label": "Sweden lake evidence candidates",
+        "category": "Lake evidence candidate",
+        "country": "Sweden",
+        "record_id": "sweden_lake:vuolepnjakajaure:68.333333:18.75",
+        "name": "Vuolep Njakajaure (68.333333, 18.750000)",
+        "geometry_type": "Point",
+        "subtitle": "Sweden lake evidence candidate",
+        "description": "Source coordinates span 1.56 km inside this candidate.",
+        "source_url": "https://doi.org/10.1594/PANGAEA.897303",
+        "record_count": 1,
+        "media_links": [
+          {
+            "label": "Open in Google Maps",
+            "url": "https://www.google.com/maps/search/?api=1&query=68.333333,18.750000",
+            "kind": "link"
+          },
+          {
+            "label": "Open representative source",
+            "url": "https://doi.org/10.1594/PANGAEA.897303",
+            "kind": "link"
+          }
+        ],
+        "popup_rows": [
+          {
+            "label": "Aggregate rank",
+            "value": "26"
+          },
+          {
+            "label": "Aggregate score",
+            "value": "0.2780"
+          },
+          {
+            "label": "Coordinates",
+            "value": "68.333333, 18.750000"
+          },
+          {
+            "label": "Coordinate method",
+            "value": "source_coordinate_medoid"
+          },
+          {
+            "label": "Representative source",
+            "value": "landclim-sites:897303:Lake Vuolep Njakajaure:68.333333:18.750000 (Vuolep Njakajaure)"
+          },
+          {
+            "label": "Lake registry id",
+            "value": "Not available"
+          },
+          {
+            "label": "Lake name status",
+            "value": "Not available"
+          },
+          {
+            "label": "Lake area",
+            "value": "Not available"
+          },
+          {
+            "label": "Sampling posture",
+            "value": "Not available"
+          },
+          {
+            "label": "Sampling fit",
+            "value": "0.0000"
+          },
+          {
+            "label": "Pollen sources",
+            "value": "landclim-sites, neotoma-pollen"
+          },
+          {
+            "label": "Direct pollen with numeric chronology",
+            "value": "1"
+          },
+          {
+            "label": "20 km pollen with numeric chronology",
+            "value": "0"
+          },
+          {
+            "label": "20 km pollen overlapping nearby human chronology",
+            "value": "0"
+          },
+          {
+            "label": "20 km SEAD with numeric chronology",
+            "value": "1"
+          },
+          {
+            "label": "20 km SEAD overlapping nearby human chronology",
+            "value": "0"
+          },
+          {
+            "label": "Duplicate Sweden names",
+            "value": "1"
+          },
+          {
+            "label": "Coordinate spread",
+            "value": "1.56 km"
+          },
+          {
+            "label": "Identity diagnostics",
+            "value": "source_coordinate_spread"
+          },
+          {
+            "label": "Identity note",
+            "value": "Source coordinates span 1.56 km inside this candidate."
+          }
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           14.466111,
           57.143611
         ]
@@ -3110,7 +3110,7 @@
           },
           {
             "label": "Aggregate score",
-            "value": "0.2764"
+            "value": "0.2772"
           },
           {
             "label": "Coordinates",
@@ -3192,124 +3192,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          18.75,
-          68.333333
-        ]
-      },
-      "properties": {
-        "source": "bijux-pollenomics",
-        "layer_key": "lake-evidence-candidates",
-        "layer_label": "Sweden lake evidence candidates",
-        "category": "Lake evidence candidate",
-        "country": "Sweden",
-        "record_id": "sweden_lake:badsjon:68.333333:18.75",
-        "name": "Badsj\u00f6n (68.333333, 18.750000)",
-        "geometry_type": "Point",
-        "subtitle": "Sweden lake evidence candidate",
-        "description": "2 Sweden candidates share this cleaned lake name.",
-        "source_url": "https://doi.org/10.1594/PANGAEA.897303",
-        "record_count": 1,
-        "media_links": [
-          {
-            "label": "Open in Google Maps",
-            "url": "https://www.google.com/maps/search/?api=1&query=68.333333,18.750000",
-            "kind": "link"
-          },
-          {
-            "label": "Open representative source",
-            "url": "https://doi.org/10.1594/PANGAEA.897303",
-            "kind": "link"
-          }
-        ],
-        "popup_rows": [
-          {
-            "label": "Aggregate rank",
-            "value": "28"
-          },
-          {
-            "label": "Aggregate score",
-            "value": "0.2714"
-          },
-          {
-            "label": "Coordinates",
-            "value": "68.333333, 18.750000"
-          },
-          {
-            "label": "Coordinate method",
-            "value": "shared_source_coordinate"
-          },
-          {
-            "label": "Representative source",
-            "value": "landclim-sites:897303:Lake Badsj\u00f6n:68.333333:18.750000 (Badsj\u00f6n)"
-          },
-          {
-            "label": "Lake registry id",
-            "value": "Not available"
-          },
-          {
-            "label": "Lake name status",
-            "value": "Not available"
-          },
-          {
-            "label": "Lake area",
-            "value": "Not available"
-          },
-          {
-            "label": "Sampling posture",
-            "value": "Not available"
-          },
-          {
-            "label": "Sampling fit",
-            "value": "0.0000"
-          },
-          {
-            "label": "Pollen sources",
-            "value": "landclim-sites"
-          },
-          {
-            "label": "Direct pollen with numeric chronology",
-            "value": "3"
-          },
-          {
-            "label": "20 km pollen with numeric chronology",
-            "value": "0"
-          },
-          {
-            "label": "20 km pollen overlapping nearby human chronology",
-            "value": "0"
-          },
-          {
-            "label": "20 km SEAD with numeric chronology",
-            "value": "1"
-          },
-          {
-            "label": "20 km SEAD overlapping nearby human chronology",
-            "value": "0"
-          },
-          {
-            "label": "Duplicate Sweden names",
-            "value": "2"
-          },
-          {
-            "label": "Coordinate spread",
-            "value": "0.00 km"
-          },
-          {
-            "label": "Identity diagnostics",
-            "value": "duplicate_sweden_name"
-          },
-          {
-            "label": "Identity note",
-            "value": "2 Sweden candidates share this cleaned lake name."
-          }
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           14.490278,
           59.761111
         ]
@@ -3342,7 +3224,7 @@
         "popup_rows": [
           {
             "label": "Aggregate rank",
-            "value": "29"
+            "value": "28"
           },
           {
             "label": "Aggregate score",
@@ -3428,8 +3310,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          13.31861,
-          56.26417
+          18.75,
+          68.333333
         ]
       },
       "properties": {
@@ -3438,22 +3320,140 @@
         "layer_label": "Sweden lake evidence candidates",
         "category": "Lake evidence candidate",
         "country": "Sweden",
-        "record_id": "sweden_lake:ostraringarp:56.26417:13.31861",
-        "name": "\u00d6stra Ringarp",
+        "record_id": "sweden_lake:badsjon:68.333333:18.75",
+        "name": "Badsj\u00f6n (68.333333, 18.750000)",
         "geometry_type": "Point",
         "subtitle": "Sweden lake evidence candidate",
-        "description": "Lake candidate derived from Sweden pollen context.",
-        "source_url": "https://apps.neotomadb.org/explorer/#/record/site/28886",
+        "description": "2 Sweden candidates share this cleaned lake name.",
+        "source_url": "https://doi.org/10.1594/PANGAEA.897303",
         "record_count": 1,
         "media_links": [
           {
             "label": "Open in Google Maps",
-            "url": "https://www.google.com/maps/search/?api=1&query=56.264170,13.318610",
+            "url": "https://www.google.com/maps/search/?api=1&query=68.333333,18.750000",
             "kind": "link"
           },
           {
             "label": "Open representative source",
-            "url": "https://apps.neotomadb.org/explorer/#/record/site/28886",
+            "url": "https://doi.org/10.1594/PANGAEA.897303",
+            "kind": "link"
+          }
+        ],
+        "popup_rows": [
+          {
+            "label": "Aggregate rank",
+            "value": "29"
+          },
+          {
+            "label": "Aggregate score",
+            "value": "0.2696"
+          },
+          {
+            "label": "Coordinates",
+            "value": "68.333333, 18.750000"
+          },
+          {
+            "label": "Coordinate method",
+            "value": "shared_source_coordinate"
+          },
+          {
+            "label": "Representative source",
+            "value": "landclim-sites:897303:Lake Badsj\u00f6n:68.333333:18.750000 (Badsj\u00f6n)"
+          },
+          {
+            "label": "Lake registry id",
+            "value": "Not available"
+          },
+          {
+            "label": "Lake name status",
+            "value": "Not available"
+          },
+          {
+            "label": "Lake area",
+            "value": "Not available"
+          },
+          {
+            "label": "Sampling posture",
+            "value": "Not available"
+          },
+          {
+            "label": "Sampling fit",
+            "value": "0.0000"
+          },
+          {
+            "label": "Pollen sources",
+            "value": "landclim-sites"
+          },
+          {
+            "label": "Direct pollen with numeric chronology",
+            "value": "3"
+          },
+          {
+            "label": "20 km pollen with numeric chronology",
+            "value": "0"
+          },
+          {
+            "label": "20 km pollen overlapping nearby human chronology",
+            "value": "0"
+          },
+          {
+            "label": "20 km SEAD with numeric chronology",
+            "value": "1"
+          },
+          {
+            "label": "20 km SEAD overlapping nearby human chronology",
+            "value": "0"
+          },
+          {
+            "label": "Duplicate Sweden names",
+            "value": "2"
+          },
+          {
+            "label": "Coordinate spread",
+            "value": "0.00 km"
+          },
+          {
+            "label": "Identity diagnostics",
+            "value": "duplicate_sweden_name"
+          },
+          {
+            "label": "Identity note",
+            "value": "2 Sweden candidates share this cleaned lake name."
+          }
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          15.31667,
+          56.23333
+        ]
+      },
+      "properties": {
+        "source": "bijux-pollenomics",
+        "layer_key": "lake-evidence-candidates",
+        "layer_label": "Sweden lake evidence candidates",
+        "category": "Lake evidence candidate",
+        "country": "Sweden",
+        "record_id": "sweden_lake:halsjonii:56.23333:15.31667",
+        "name": "Halsj\u00f6n II",
+        "geometry_type": "Point",
+        "subtitle": "Sweden lake evidence candidate",
+        "description": "Lake candidate derived from Sweden pollen context.",
+        "source_url": "https://apps.neotomadb.org/explorer/#/record/site/3141",
+        "record_count": 1,
+        "media_links": [
+          {
+            "label": "Open in Google Maps",
+            "url": "https://www.google.com/maps/search/?api=1&query=56.233330,15.316670",
+            "kind": "link"
+          },
+          {
+            "label": "Open representative source",
+            "url": "https://apps.neotomadb.org/explorer/#/record/site/3141",
             "kind": "link"
           }
         ],
@@ -3464,11 +3464,11 @@
           },
           {
             "label": "Aggregate score",
-            "value": "0.2678"
+            "value": "0.2675"
           },
           {
             "label": "Coordinates",
-            "value": "56.264170, 13.318610"
+            "value": "56.233330, 15.316670"
           },
           {
             "label": "Coordinate method",
@@ -3476,7 +3476,7 @@
           },
           {
             "label": "Representative source",
-            "value": "neotoma-pollen:28886 (\u00d6stra Ringarp)"
+            "value": "neotoma-pollen:3141 (Halsj\u00f6n II)"
           },
           {
             "label": "Lake registry id",
@@ -3516,7 +3516,7 @@
           },
           {
             "label": "20 km SEAD with numeric chronology",
-            "value": "2"
+            "value": "3"
           },
           {
             "label": "20 km SEAD overlapping nearby human chronology",
@@ -3664,8 +3664,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          15.31667,
-          56.23333
+          13.31861,
+          56.26417
         ]
       },
       "properties": {
@@ -3674,22 +3674,22 @@
         "layer_label": "Sweden lake evidence candidates",
         "category": "Lake evidence candidate",
         "country": "Sweden",
-        "record_id": "sweden_lake:halsjonii:56.23333:15.31667",
-        "name": "Halsj\u00f6n II",
+        "record_id": "sweden_lake:ostraringarp:56.26417:13.31861",
+        "name": "\u00d6stra Ringarp",
         "geometry_type": "Point",
         "subtitle": "Sweden lake evidence candidate",
         "description": "Lake candidate derived from Sweden pollen context.",
-        "source_url": "https://apps.neotomadb.org/explorer/#/record/site/3141",
+        "source_url": "https://apps.neotomadb.org/explorer/#/record/site/28886",
         "record_count": 1,
         "media_links": [
           {
             "label": "Open in Google Maps",
-            "url": "https://www.google.com/maps/search/?api=1&query=56.233330,15.316670",
+            "url": "https://www.google.com/maps/search/?api=1&query=56.264170,13.318610",
             "kind": "link"
           },
           {
             "label": "Open representative source",
-            "url": "https://apps.neotomadb.org/explorer/#/record/site/3141",
+            "url": "https://apps.neotomadb.org/explorer/#/record/site/28886",
             "kind": "link"
           }
         ],
@@ -3700,11 +3700,11 @@
           },
           {
             "label": "Aggregate score",
-            "value": "0.2666"
+            "value": "0.2662"
           },
           {
             "label": "Coordinates",
-            "value": "56.233330, 15.316670"
+            "value": "56.264170, 13.318610"
           },
           {
             "label": "Coordinate method",
@@ -3712,7 +3712,7 @@
           },
           {
             "label": "Representative source",
-            "value": "neotoma-pollen:3141 (Halsj\u00f6n II)"
+            "value": "neotoma-pollen:28886 (\u00d6stra Ringarp)"
           },
           {
             "label": "Lake registry id",
@@ -3752,7 +3752,243 @@
           },
           {
             "label": "20 km SEAD with numeric chronology",
-            "value": "2"
+            "value": "4"
+          },
+          {
+            "label": "20 km SEAD overlapping nearby human chronology",
+            "value": "0"
+          },
+          {
+            "label": "Duplicate Sweden names",
+            "value": "1"
+          },
+          {
+            "label": "Coordinate spread",
+            "value": "0.00 km"
+          },
+          {
+            "label": "Identity diagnostics",
+            "value": "none"
+          },
+          {
+            "label": "Identity note",
+            "value": "No explicit identity warning."
+          }
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.29056,
+          56.28145
+        ]
+      },
+      "properties": {
+        "source": "bijux-pollenomics",
+        "layer_key": "lake-evidence-candidates",
+        "layer_label": "Sweden lake evidence candidates",
+        "category": "Lake evidence candidate",
+        "country": "Sweden",
+        "record_id": "sweden_lake:ranviken:56.28145:14.29056",
+        "name": "Ran Viken",
+        "geometry_type": "Point",
+        "subtitle": "Sweden lake evidence candidate",
+        "description": "Lake candidate derived from Sweden pollen context.",
+        "source_url": "https://apps.neotomadb.org/explorer/#/record/site/3370",
+        "record_count": 1,
+        "media_links": [
+          {
+            "label": "Open in Google Maps",
+            "url": "https://www.google.com/maps/search/?api=1&query=56.281450,14.290560",
+            "kind": "link"
+          },
+          {
+            "label": "Open representative source",
+            "url": "https://apps.neotomadb.org/explorer/#/record/site/3370",
+            "kind": "link"
+          }
+        ],
+        "popup_rows": [
+          {
+            "label": "Aggregate rank",
+            "value": "33"
+          },
+          {
+            "label": "Aggregate score",
+            "value": "0.2643"
+          },
+          {
+            "label": "Coordinates",
+            "value": "56.281450, 14.290560"
+          },
+          {
+            "label": "Coordinate method",
+            "value": "shared_source_coordinate"
+          },
+          {
+            "label": "Representative source",
+            "value": "neotoma-pollen:3370 (Ran Viken)"
+          },
+          {
+            "label": "Lake registry id",
+            "value": "Not available"
+          },
+          {
+            "label": "Lake name status",
+            "value": "Not available"
+          },
+          {
+            "label": "Lake area",
+            "value": "Not available"
+          },
+          {
+            "label": "Sampling posture",
+            "value": "Not available"
+          },
+          {
+            "label": "Sampling fit",
+            "value": "0.0000"
+          },
+          {
+            "label": "Pollen sources",
+            "value": "neotoma-pollen"
+          },
+          {
+            "label": "Direct pollen with numeric chronology",
+            "value": "1"
+          },
+          {
+            "label": "20 km pollen with numeric chronology",
+            "value": "0"
+          },
+          {
+            "label": "20 km pollen overlapping nearby human chronology",
+            "value": "0"
+          },
+          {
+            "label": "20 km SEAD with numeric chronology",
+            "value": "3"
+          },
+          {
+            "label": "20 km SEAD overlapping nearby human chronology",
+            "value": "0"
+          },
+          {
+            "label": "Duplicate Sweden names",
+            "value": "1"
+          },
+          {
+            "label": "Coordinate spread",
+            "value": "0.00 km"
+          },
+          {
+            "label": "Identity diagnostics",
+            "value": "none"
+          },
+          {
+            "label": "Identity note",
+            "value": "No explicit identity warning."
+          }
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.21136,
+          58.31761
+        ]
+      },
+      "properties": {
+        "source": "bijux-pollenomics",
+        "layer_key": "lake-evidence-candidates",
+        "layer_label": "Sweden lake evidence candidates",
+        "category": "Lake evidence candidate",
+        "country": "Sweden",
+        "record_id": "sweden_lake:mullsjon:58.31761:14.21136",
+        "name": "Mullsj\u00f6n",
+        "geometry_type": "Point",
+        "subtitle": "Sweden lake evidence candidate",
+        "description": "Lake candidate derived from Sweden pollen context.",
+        "source_url": "https://apps.neotomadb.org/explorer/#/record/site/3303",
+        "record_count": 1,
+        "media_links": [
+          {
+            "label": "Open in Google Maps",
+            "url": "https://www.google.com/maps/search/?api=1&query=58.317610,14.211360",
+            "kind": "link"
+          },
+          {
+            "label": "Open representative source",
+            "url": "https://apps.neotomadb.org/explorer/#/record/site/3303",
+            "kind": "link"
+          }
+        ],
+        "popup_rows": [
+          {
+            "label": "Aggregate rank",
+            "value": "34"
+          },
+          {
+            "label": "Aggregate score",
+            "value": "0.2641"
+          },
+          {
+            "label": "Coordinates",
+            "value": "58.317610, 14.211360"
+          },
+          {
+            "label": "Coordinate method",
+            "value": "shared_source_coordinate"
+          },
+          {
+            "label": "Representative source",
+            "value": "neotoma-pollen:3303 (Mullsj\u00f6n)"
+          },
+          {
+            "label": "Lake registry id",
+            "value": "Not available"
+          },
+          {
+            "label": "Lake name status",
+            "value": "Not available"
+          },
+          {
+            "label": "Lake area",
+            "value": "Not available"
+          },
+          {
+            "label": "Sampling posture",
+            "value": "Not available"
+          },
+          {
+            "label": "Sampling fit",
+            "value": "0.0000"
+          },
+          {
+            "label": "Pollen sources",
+            "value": "neotoma-pollen"
+          },
+          {
+            "label": "Direct pollen with numeric chronology",
+            "value": "1"
+          },
+          {
+            "label": "20 km pollen with numeric chronology",
+            "value": "0"
+          },
+          {
+            "label": "20 km pollen overlapping nearby human chronology",
+            "value": "0"
+          },
+          {
+            "label": "20 km SEAD with numeric chronology",
+            "value": "0"
           },
           {
             "label": "20 km SEAD overlapping nearby human chronology",
@@ -3814,7 +4050,7 @@
         "popup_rows": [
           {
             "label": "Aggregate rank",
-            "value": "33"
+            "value": "35"
           },
           {
             "label": "Aggregate score",
@@ -3900,124 +4136,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          14.29056,
-          56.28145
-        ]
-      },
-      "properties": {
-        "source": "bijux-pollenomics",
-        "layer_key": "lake-evidence-candidates",
-        "layer_label": "Sweden lake evidence candidates",
-        "category": "Lake evidence candidate",
-        "country": "Sweden",
-        "record_id": "sweden_lake:ranviken:56.28145:14.29056",
-        "name": "Ran Viken",
-        "geometry_type": "Point",
-        "subtitle": "Sweden lake evidence candidate",
-        "description": "Lake candidate derived from Sweden pollen context.",
-        "source_url": "https://apps.neotomadb.org/explorer/#/record/site/3370",
-        "record_count": 1,
-        "media_links": [
-          {
-            "label": "Open in Google Maps",
-            "url": "https://www.google.com/maps/search/?api=1&query=56.281450,14.290560",
-            "kind": "link"
-          },
-          {
-            "label": "Open representative source",
-            "url": "https://apps.neotomadb.org/explorer/#/record/site/3370",
-            "kind": "link"
-          }
-        ],
-        "popup_rows": [
-          {
-            "label": "Aggregate rank",
-            "value": "34"
-          },
-          {
-            "label": "Aggregate score",
-            "value": "0.2631"
-          },
-          {
-            "label": "Coordinates",
-            "value": "56.281450, 14.290560"
-          },
-          {
-            "label": "Coordinate method",
-            "value": "shared_source_coordinate"
-          },
-          {
-            "label": "Representative source",
-            "value": "neotoma-pollen:3370 (Ran Viken)"
-          },
-          {
-            "label": "Lake registry id",
-            "value": "Not available"
-          },
-          {
-            "label": "Lake name status",
-            "value": "Not available"
-          },
-          {
-            "label": "Lake area",
-            "value": "Not available"
-          },
-          {
-            "label": "Sampling posture",
-            "value": "Not available"
-          },
-          {
-            "label": "Sampling fit",
-            "value": "0.0000"
-          },
-          {
-            "label": "Pollen sources",
-            "value": "neotoma-pollen"
-          },
-          {
-            "label": "Direct pollen with numeric chronology",
-            "value": "1"
-          },
-          {
-            "label": "20 km pollen with numeric chronology",
-            "value": "0"
-          },
-          {
-            "label": "20 km pollen overlapping nearby human chronology",
-            "value": "0"
-          },
-          {
-            "label": "20 km SEAD with numeric chronology",
-            "value": "1"
-          },
-          {
-            "label": "20 km SEAD overlapping nearby human chronology",
-            "value": "0"
-          },
-          {
-            "label": "Duplicate Sweden names",
-            "value": "1"
-          },
-          {
-            "label": "Coordinate spread",
-            "value": "0.00 km"
-          },
-          {
-            "label": "Identity diagnostics",
-            "value": "none"
-          },
-          {
-            "label": "Identity note",
-            "value": "No explicit identity warning."
-          }
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           15.21014,
           56.21884
         ]
@@ -4050,11 +4168,11 @@
         "popup_rows": [
           {
             "label": "Aggregate rank",
-            "value": "35"
+            "value": "36"
           },
           {
             "label": "Aggregate score",
-            "value": "0.2619"
+            "value": "0.2629"
           },
           {
             "label": "Coordinates",
@@ -4106,125 +4224,7 @@
           },
           {
             "label": "20 km SEAD with numeric chronology",
-            "value": "1"
-          },
-          {
-            "label": "20 km SEAD overlapping nearby human chronology",
-            "value": "0"
-          },
-          {
-            "label": "Duplicate Sweden names",
-            "value": "1"
-          },
-          {
-            "label": "Coordinate spread",
-            "value": "0.00 km"
-          },
-          {
-            "label": "Identity diagnostics",
-            "value": "none"
-          },
-          {
-            "label": "Identity note",
-            "value": "No explicit identity warning."
-          }
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          14.21136,
-          58.31761
-        ]
-      },
-      "properties": {
-        "source": "bijux-pollenomics",
-        "layer_key": "lake-evidence-candidates",
-        "layer_label": "Sweden lake evidence candidates",
-        "category": "Lake evidence candidate",
-        "country": "Sweden",
-        "record_id": "sweden_lake:mullsjon:58.31761:14.21136",
-        "name": "Mullsj\u00f6n",
-        "geometry_type": "Point",
-        "subtitle": "Sweden lake evidence candidate",
-        "description": "Lake candidate derived from Sweden pollen context.",
-        "source_url": "https://apps.neotomadb.org/explorer/#/record/site/3303",
-        "record_count": 1,
-        "media_links": [
-          {
-            "label": "Open in Google Maps",
-            "url": "https://www.google.com/maps/search/?api=1&query=58.317610,14.211360",
-            "kind": "link"
-          },
-          {
-            "label": "Open representative source",
-            "url": "https://apps.neotomadb.org/explorer/#/record/site/3303",
-            "kind": "link"
-          }
-        ],
-        "popup_rows": [
-          {
-            "label": "Aggregate rank",
-            "value": "36"
-          },
-          {
-            "label": "Aggregate score",
-            "value": "0.2613"
-          },
-          {
-            "label": "Coordinates",
-            "value": "58.317610, 14.211360"
-          },
-          {
-            "label": "Coordinate method",
-            "value": "shared_source_coordinate"
-          },
-          {
-            "label": "Representative source",
-            "value": "neotoma-pollen:3303 (Mullsj\u00f6n)"
-          },
-          {
-            "label": "Lake registry id",
-            "value": "Not available"
-          },
-          {
-            "label": "Lake name status",
-            "value": "Not available"
-          },
-          {
-            "label": "Lake area",
-            "value": "Not available"
-          },
-          {
-            "label": "Sampling posture",
-            "value": "Not available"
-          },
-          {
-            "label": "Sampling fit",
-            "value": "0.0000"
-          },
-          {
-            "label": "Pollen sources",
-            "value": "neotoma-pollen"
-          },
-          {
-            "label": "Direct pollen with numeric chronology",
-            "value": "1"
-          },
-          {
-            "label": "20 km pollen with numeric chronology",
-            "value": "0"
-          },
-          {
-            "label": "20 km pollen overlapping nearby human chronology",
-            "value": "0"
-          },
-          {
-            "label": "20 km SEAD with numeric chronology",
-            "value": "0"
+            "value": "2"
           },
           {
             "label": "20 km SEAD overlapping nearby human chronology",
@@ -4290,7 +4290,7 @@
           },
           {
             "label": "Aggregate score",
-            "value": "0.2611"
+            "value": "0.2619"
           },
           {
             "label": "Coordinates",
@@ -4408,7 +4408,7 @@
           },
           {
             "label": "Aggregate score",
-            "value": "0.2611"
+            "value": "0.2619"
           },
           {
             "label": "Coordinates",
@@ -4644,7 +4644,7 @@
           },
           {
             "label": "Aggregate score",
-            "value": "0.2606"
+            "value": "0.2592"
           },
           {
             "label": "Coordinates",
@@ -4696,125 +4696,7 @@
           },
           {
             "label": "20 km SEAD with numeric chronology",
-            "value": "1"
-          },
-          {
-            "label": "20 km SEAD overlapping nearby human chronology",
-            "value": "0"
-          },
-          {
-            "label": "Duplicate Sweden names",
-            "value": "1"
-          },
-          {
-            "label": "Coordinate spread",
-            "value": "0.00 km"
-          },
-          {
-            "label": "Identity diagnostics",
-            "value": "none"
-          },
-          {
-            "label": "Identity note",
-            "value": "No explicit identity warning."
-          }
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          18.7,
-          68.333333
-        ]
-      },
-      "properties": {
-        "source": "bijux-pollenomics",
-        "layer_key": "lake-evidence-candidates",
-        "layer_label": "Sweden lake evidence candidates",
-        "category": "Lake evidence candidate",
-        "country": "Sweden",
-        "record_id": "sweden_lake:tibetanus:68.333333:18.7",
-        "name": "Tibetanus",
-        "geometry_type": "Point",
-        "subtitle": "Sweden lake evidence candidate",
-        "description": "Lake candidate derived from Sweden pollen context.",
-        "source_url": "https://doi.org/10.1594/PANGAEA.897303",
-        "record_count": 1,
-        "media_links": [
-          {
-            "label": "Open in Google Maps",
-            "url": "https://www.google.com/maps/search/?api=1&query=68.333333,18.700000",
-            "kind": "link"
-          },
-          {
-            "label": "Open representative source",
-            "url": "https://doi.org/10.1594/PANGAEA.897303",
-            "kind": "link"
-          }
-        ],
-        "popup_rows": [
-          {
-            "label": "Aggregate rank",
-            "value": "41"
-          },
-          {
-            "label": "Aggregate score",
-            "value": "0.2589"
-          },
-          {
-            "label": "Coordinates",
-            "value": "68.333333, 18.700000"
-          },
-          {
-            "label": "Coordinate method",
-            "value": "shared_source_coordinate"
-          },
-          {
-            "label": "Representative source",
-            "value": "landclim-sites:897303:Lake Tibetanus:68.333333:18.700000 (Tibetanus)"
-          },
-          {
-            "label": "Lake registry id",
-            "value": "Not available"
-          },
-          {
-            "label": "Lake name status",
-            "value": "Not available"
-          },
-          {
-            "label": "Lake area",
-            "value": "Not available"
-          },
-          {
-            "label": "Sampling posture",
-            "value": "Not available"
-          },
-          {
-            "label": "Sampling fit",
-            "value": "0.0000"
-          },
-          {
-            "label": "Pollen sources",
-            "value": "landclim-sites"
-          },
-          {
-            "label": "Direct pollen with numeric chronology",
             "value": "2"
-          },
-          {
-            "label": "20 km pollen with numeric chronology",
-            "value": "0"
-          },
-          {
-            "label": "20 km pollen overlapping nearby human chronology",
-            "value": "0"
-          },
-          {
-            "label": "20 km SEAD with numeric chronology",
-            "value": "1"
           },
           {
             "label": "20 km SEAD overlapping nearby human chronology",
@@ -4876,11 +4758,11 @@
         "popup_rows": [
           {
             "label": "Aggregate rank",
-            "value": "42"
+            "value": "41"
           },
           {
             "label": "Aggregate score",
-            "value": "0.2588"
+            "value": "0.2589"
           },
           {
             "label": "Coordinates",
@@ -4994,11 +4876,11 @@
         "popup_rows": [
           {
             "label": "Aggregate rank",
-            "value": "43"
+            "value": "42"
           },
           {
             "label": "Aggregate score",
-            "value": "0.2584"
+            "value": "0.2585"
           },
           {
             "label": "Coordinates",
@@ -5112,7 +4994,7 @@
         "popup_rows": [
           {
             "label": "Aggregate rank",
-            "value": "44"
+            "value": "43"
           },
           {
             "label": "Aggregate score",
@@ -5198,6 +5080,242 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          18.7,
+          68.333333
+        ]
+      },
+      "properties": {
+        "source": "bijux-pollenomics",
+        "layer_key": "lake-evidence-candidates",
+        "layer_label": "Sweden lake evidence candidates",
+        "category": "Lake evidence candidate",
+        "country": "Sweden",
+        "record_id": "sweden_lake:tibetanus:68.333333:18.7",
+        "name": "Tibetanus",
+        "geometry_type": "Point",
+        "subtitle": "Sweden lake evidence candidate",
+        "description": "Lake candidate derived from Sweden pollen context.",
+        "source_url": "https://doi.org/10.1594/PANGAEA.897303",
+        "record_count": 1,
+        "media_links": [
+          {
+            "label": "Open in Google Maps",
+            "url": "https://www.google.com/maps/search/?api=1&query=68.333333,18.700000",
+            "kind": "link"
+          },
+          {
+            "label": "Open representative source",
+            "url": "https://doi.org/10.1594/PANGAEA.897303",
+            "kind": "link"
+          }
+        ],
+        "popup_rows": [
+          {
+            "label": "Aggregate rank",
+            "value": "44"
+          },
+          {
+            "label": "Aggregate score",
+            "value": "0.2571"
+          },
+          {
+            "label": "Coordinates",
+            "value": "68.333333, 18.700000"
+          },
+          {
+            "label": "Coordinate method",
+            "value": "shared_source_coordinate"
+          },
+          {
+            "label": "Representative source",
+            "value": "landclim-sites:897303:Lake Tibetanus:68.333333:18.700000 (Tibetanus)"
+          },
+          {
+            "label": "Lake registry id",
+            "value": "Not available"
+          },
+          {
+            "label": "Lake name status",
+            "value": "Not available"
+          },
+          {
+            "label": "Lake area",
+            "value": "Not available"
+          },
+          {
+            "label": "Sampling posture",
+            "value": "Not available"
+          },
+          {
+            "label": "Sampling fit",
+            "value": "0.0000"
+          },
+          {
+            "label": "Pollen sources",
+            "value": "landclim-sites"
+          },
+          {
+            "label": "Direct pollen with numeric chronology",
+            "value": "2"
+          },
+          {
+            "label": "20 km pollen with numeric chronology",
+            "value": "0"
+          },
+          {
+            "label": "20 km pollen overlapping nearby human chronology",
+            "value": "0"
+          },
+          {
+            "label": "20 km SEAD with numeric chronology",
+            "value": "1"
+          },
+          {
+            "label": "20 km SEAD overlapping nearby human chronology",
+            "value": "0"
+          },
+          {
+            "label": "Duplicate Sweden names",
+            "value": "1"
+          },
+          {
+            "label": "Coordinate spread",
+            "value": "0.00 km"
+          },
+          {
+            "label": "Identity diagnostics",
+            "value": "none"
+          },
+          {
+            "label": "Identity note",
+            "value": "No explicit identity warning."
+          }
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.55571,
+          56.53516
+        ]
+      },
+      "properties": {
+        "source": "bijux-pollenomics",
+        "layer_key": "lake-evidence-candidates",
+        "layer_label": "Sweden lake evidence candidates",
+        "category": "Lake evidence candidate",
+        "country": "Sweden",
+        "record_id": "sweden_lake:kalven:56.53516:14.55571",
+        "name": "Kalven",
+        "geometry_type": "Point",
+        "subtitle": "Sweden lake evidence candidate",
+        "description": "Lake candidate derived from Sweden pollen context.",
+        "source_url": "https://apps.neotomadb.org/explorer/#/record/site/3179",
+        "record_count": 1,
+        "media_links": [
+          {
+            "label": "Open in Google Maps",
+            "url": "https://www.google.com/maps/search/?api=1&query=56.535160,14.555710",
+            "kind": "link"
+          },
+          {
+            "label": "Open representative source",
+            "url": "https://apps.neotomadb.org/explorer/#/record/site/3179",
+            "kind": "link"
+          }
+        ],
+        "popup_rows": [
+          {
+            "label": "Aggregate rank",
+            "value": "45"
+          },
+          {
+            "label": "Aggregate score",
+            "value": "0.2549"
+          },
+          {
+            "label": "Coordinates",
+            "value": "56.535160, 14.555710"
+          },
+          {
+            "label": "Coordinate method",
+            "value": "shared_source_coordinate"
+          },
+          {
+            "label": "Representative source",
+            "value": "neotoma-pollen:3179 (Kalven)"
+          },
+          {
+            "label": "Lake registry id",
+            "value": "Not available"
+          },
+          {
+            "label": "Lake name status",
+            "value": "Not available"
+          },
+          {
+            "label": "Lake area",
+            "value": "Not available"
+          },
+          {
+            "label": "Sampling posture",
+            "value": "Not available"
+          },
+          {
+            "label": "Sampling fit",
+            "value": "0.0000"
+          },
+          {
+            "label": "Pollen sources",
+            "value": "neotoma-pollen"
+          },
+          {
+            "label": "Direct pollen with numeric chronology",
+            "value": "1"
+          },
+          {
+            "label": "20 km pollen with numeric chronology",
+            "value": "0"
+          },
+          {
+            "label": "20 km pollen overlapping nearby human chronology",
+            "value": "0"
+          },
+          {
+            "label": "20 km SEAD with numeric chronology",
+            "value": "0"
+          },
+          {
+            "label": "20 km SEAD overlapping nearby human chronology",
+            "value": "0"
+          },
+          {
+            "label": "Duplicate Sweden names",
+            "value": "1"
+          },
+          {
+            "label": "Coordinate spread",
+            "value": "0.00 km"
+          },
+          {
+            "label": "Identity diagnostics",
+            "value": "none"
+          },
+          {
+            "label": "Identity note",
+            "value": "No explicit identity warning."
+          }
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           15.866667,
           56.166667
         ]
@@ -5230,11 +5348,11 @@
         "popup_rows": [
           {
             "label": "Aggregate rank",
-            "value": "45"
+            "value": "46"
           },
           {
             "label": "Aggregate score",
-            "value": "0.2555"
+            "value": "0.2537"
           },
           {
             "label": "Coordinates",
@@ -5348,11 +5466,11 @@
         "popup_rows": [
           {
             "label": "Aggregate rank",
-            "value": "46"
+            "value": "47"
           },
           {
             "label": "Aggregate score",
-            "value": "0.2555"
+            "value": "0.2537"
           },
           {
             "label": "Coordinates",
@@ -5434,124 +5552,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          14.55571,
-          56.53516
-        ]
-      },
-      "properties": {
-        "source": "bijux-pollenomics",
-        "layer_key": "lake-evidence-candidates",
-        "layer_label": "Sweden lake evidence candidates",
-        "category": "Lake evidence candidate",
-        "country": "Sweden",
-        "record_id": "sweden_lake:kalven:56.53516:14.55571",
-        "name": "Kalven",
-        "geometry_type": "Point",
-        "subtitle": "Sweden lake evidence candidate",
-        "description": "Lake candidate derived from Sweden pollen context.",
-        "source_url": "https://apps.neotomadb.org/explorer/#/record/site/3179",
-        "record_count": 1,
-        "media_links": [
-          {
-            "label": "Open in Google Maps",
-            "url": "https://www.google.com/maps/search/?api=1&query=56.535160,14.555710",
-            "kind": "link"
-          },
-          {
-            "label": "Open representative source",
-            "url": "https://apps.neotomadb.org/explorer/#/record/site/3179",
-            "kind": "link"
-          }
-        ],
-        "popup_rows": [
-          {
-            "label": "Aggregate rank",
-            "value": "47"
-          },
-          {
-            "label": "Aggregate score",
-            "value": "0.2547"
-          },
-          {
-            "label": "Coordinates",
-            "value": "56.535160, 14.555710"
-          },
-          {
-            "label": "Coordinate method",
-            "value": "shared_source_coordinate"
-          },
-          {
-            "label": "Representative source",
-            "value": "neotoma-pollen:3179 (Kalven)"
-          },
-          {
-            "label": "Lake registry id",
-            "value": "Not available"
-          },
-          {
-            "label": "Lake name status",
-            "value": "Not available"
-          },
-          {
-            "label": "Lake area",
-            "value": "Not available"
-          },
-          {
-            "label": "Sampling posture",
-            "value": "Not available"
-          },
-          {
-            "label": "Sampling fit",
-            "value": "0.0000"
-          },
-          {
-            "label": "Pollen sources",
-            "value": "neotoma-pollen"
-          },
-          {
-            "label": "Direct pollen with numeric chronology",
-            "value": "1"
-          },
-          {
-            "label": "20 km pollen with numeric chronology",
-            "value": "0"
-          },
-          {
-            "label": "20 km pollen overlapping nearby human chronology",
-            "value": "0"
-          },
-          {
-            "label": "20 km SEAD with numeric chronology",
-            "value": "0"
-          },
-          {
-            "label": "20 km SEAD overlapping nearby human chronology",
-            "value": "0"
-          },
-          {
-            "label": "Duplicate Sweden names",
-            "value": "1"
-          },
-          {
-            "label": "Coordinate spread",
-            "value": "0.00 km"
-          },
-          {
-            "label": "Identity diagnostics",
-            "value": "none"
-          },
-          {
-            "label": "Identity note",
-            "value": "No explicit identity warning."
-          }
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           14.88333,
           56.35
         ]
@@ -5588,7 +5588,7 @@
           },
           {
             "label": "Aggregate score",
-            "value": "0.2516"
+            "value": "0.2515"
           },
           {
             "label": "Coordinates",
@@ -5706,7 +5706,7 @@
           },
           {
             "label": "Aggregate score",
-            "value": "0.2495"
+            "value": "0.2493"
           },
           {
             "label": "Coordinates",
@@ -5788,242 +5788,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          18.79667,
-          68.34472
-        ]
-      },
-      "properties": {
-        "source": "bijux-pollenomics",
-        "layer_key": "lake-evidence-candidates",
-        "layer_label": "Sweden lake evidence candidates",
-        "category": "Lake evidence candidate",
-        "country": "Sweden",
-        "record_id": "sweden_lake:badsjon:68.34472:18.79667",
-        "name": "Badsj\u00f6n (68.344720, 18.796670)",
-        "geometry_type": "Point",
-        "subtitle": "Sweden lake evidence candidate",
-        "description": "2 Sweden candidates share this cleaned lake name.",
-        "source_url": "https://apps.neotomadb.org/explorer/#/record/site/28144",
-        "record_count": 1,
-        "media_links": [
-          {
-            "label": "Open in Google Maps",
-            "url": "https://www.google.com/maps/search/?api=1&query=68.344720,18.796670",
-            "kind": "link"
-          },
-          {
-            "label": "Open representative source",
-            "url": "https://apps.neotomadb.org/explorer/#/record/site/28144",
-            "kind": "link"
-          }
-        ],
-        "popup_rows": [
-          {
-            "label": "Aggregate rank",
-            "value": "50"
-          },
-          {
-            "label": "Aggregate score",
-            "value": "0.2465"
-          },
-          {
-            "label": "Coordinates",
-            "value": "68.344720, 18.796670"
-          },
-          {
-            "label": "Coordinate method",
-            "value": "shared_source_coordinate"
-          },
-          {
-            "label": "Representative source",
-            "value": "neotoma-pollen:28144 (Badsj\u00f6n)"
-          },
-          {
-            "label": "Lake registry id",
-            "value": "Not available"
-          },
-          {
-            "label": "Lake name status",
-            "value": "Not available"
-          },
-          {
-            "label": "Lake area",
-            "value": "Not available"
-          },
-          {
-            "label": "Sampling posture",
-            "value": "Not available"
-          },
-          {
-            "label": "Sampling fit",
-            "value": "0.0000"
-          },
-          {
-            "label": "Pollen sources",
-            "value": "neotoma-pollen"
-          },
-          {
-            "label": "Direct pollen with numeric chronology",
-            "value": "1"
-          },
-          {
-            "label": "20 km pollen with numeric chronology",
-            "value": "0"
-          },
-          {
-            "label": "20 km pollen overlapping nearby human chronology",
-            "value": "0"
-          },
-          {
-            "label": "20 km SEAD with numeric chronology",
-            "value": "1"
-          },
-          {
-            "label": "20 km SEAD overlapping nearby human chronology",
-            "value": "0"
-          },
-          {
-            "label": "Duplicate Sweden names",
-            "value": "2"
-          },
-          {
-            "label": "Coordinate spread",
-            "value": "0.00 km"
-          },
-          {
-            "label": "Identity diagnostics",
-            "value": "duplicate_sweden_name"
-          },
-          {
-            "label": "Identity note",
-            "value": "2 Sweden candidates share this cleaned lake name."
-          }
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          18.69306,
-          68.33583
-        ]
-      },
-      "properties": {
-        "source": "bijux-pollenomics",
-        "layer_key": "lake-evidence-candidates",
-        "layer_label": "Sweden lake evidence candidates",
-        "category": "Lake evidence candidate",
-        "country": "Sweden",
-        "record_id": "sweden_lake:tibenatus:68.33583:18.69306",
-        "name": "Tibenatus",
-        "geometry_type": "Point",
-        "subtitle": "Sweden lake evidence candidate",
-        "description": "Lake candidate derived from Sweden pollen context.",
-        "source_url": "https://apps.neotomadb.org/explorer/#/record/site/28860",
-        "record_count": 1,
-        "media_links": [
-          {
-            "label": "Open in Google Maps",
-            "url": "https://www.google.com/maps/search/?api=1&query=68.335830,18.693060",
-            "kind": "link"
-          },
-          {
-            "label": "Open representative source",
-            "url": "https://apps.neotomadb.org/explorer/#/record/site/28860",
-            "kind": "link"
-          }
-        ],
-        "popup_rows": [
-          {
-            "label": "Aggregate rank",
-            "value": "51"
-          },
-          {
-            "label": "Aggregate score",
-            "value": "0.2465"
-          },
-          {
-            "label": "Coordinates",
-            "value": "68.335830, 18.693060"
-          },
-          {
-            "label": "Coordinate method",
-            "value": "shared_source_coordinate"
-          },
-          {
-            "label": "Representative source",
-            "value": "neotoma-pollen:28860 (Tibenatus)"
-          },
-          {
-            "label": "Lake registry id",
-            "value": "Not available"
-          },
-          {
-            "label": "Lake name status",
-            "value": "Not available"
-          },
-          {
-            "label": "Lake area",
-            "value": "Not available"
-          },
-          {
-            "label": "Sampling posture",
-            "value": "Not available"
-          },
-          {
-            "label": "Sampling fit",
-            "value": "0.0000"
-          },
-          {
-            "label": "Pollen sources",
-            "value": "neotoma-pollen"
-          },
-          {
-            "label": "Direct pollen with numeric chronology",
-            "value": "1"
-          },
-          {
-            "label": "20 km pollen with numeric chronology",
-            "value": "0"
-          },
-          {
-            "label": "20 km pollen overlapping nearby human chronology",
-            "value": "0"
-          },
-          {
-            "label": "20 km SEAD with numeric chronology",
-            "value": "1"
-          },
-          {
-            "label": "20 km SEAD overlapping nearby human chronology",
-            "value": "0"
-          },
-          {
-            "label": "Duplicate Sweden names",
-            "value": "1"
-          },
-          {
-            "label": "Coordinate spread",
-            "value": "0.00 km"
-          },
-          {
-            "label": "Identity diagnostics",
-            "value": "none"
-          },
-          {
-            "label": "Identity note",
-            "value": "No explicit identity warning."
-          }
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           16.533333,
           61.816667
         ]
@@ -6056,7 +5820,7 @@
         "popup_rows": [
           {
             "label": "Aggregate rank",
-            "value": "52"
+            "value": "50"
           },
           {
             "label": "Aggregate score",
@@ -6174,11 +5938,11 @@
         "popup_rows": [
           {
             "label": "Aggregate rank",
-            "value": "53"
+            "value": "51"
           },
           {
             "label": "Aggregate score",
-            "value": "0.2455"
+            "value": "0.2462"
           },
           {
             "label": "Coordinates",
@@ -6260,8 +6024,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          12.57381,
-          57.09696
+          18.79667,
+          68.34472
         ]
       },
       "properties": {
@@ -6270,37 +6034,37 @@
         "layer_label": "Sweden lake evidence candidates",
         "category": "Lake evidence candidate",
         "country": "Sweden",
-        "record_id": "sweden_lake:mjallsjon:57.09696:12.57381",
-        "name": "Mj\u00e4llsj\u00f6n",
+        "record_id": "sweden_lake:badsjon:68.34472:18.79667",
+        "name": "Badsj\u00f6n (68.344720, 18.796670)",
         "geometry_type": "Point",
         "subtitle": "Sweden lake evidence candidate",
-        "description": "Lake candidate derived from Sweden pollen context.",
-        "source_url": "https://apps.neotomadb.org/explorer/#/record/site/3287",
+        "description": "2 Sweden candidates share this cleaned lake name.",
+        "source_url": "https://apps.neotomadb.org/explorer/#/record/site/28144",
         "record_count": 1,
         "media_links": [
           {
             "label": "Open in Google Maps",
-            "url": "https://www.google.com/maps/search/?api=1&query=57.096960,12.573810",
+            "url": "https://www.google.com/maps/search/?api=1&query=68.344720,18.796670",
             "kind": "link"
           },
           {
             "label": "Open representative source",
-            "url": "https://apps.neotomadb.org/explorer/#/record/site/3287",
+            "url": "https://apps.neotomadb.org/explorer/#/record/site/28144",
             "kind": "link"
           }
         ],
         "popup_rows": [
           {
             "label": "Aggregate rank",
-            "value": "54"
+            "value": "52"
           },
           {
             "label": "Aggregate score",
-            "value": "0.2419"
+            "value": "0.2446"
           },
           {
             "label": "Coordinates",
-            "value": "57.096960, 12.573810"
+            "value": "68.344720, 18.796670"
           },
           {
             "label": "Coordinate method",
@@ -6308,7 +6072,7 @@
           },
           {
             "label": "Representative source",
-            "value": "neotoma-pollen:3287 (Mj\u00e4llsj\u00f6n)"
+            "value": "neotoma-pollen:28144 (Badsj\u00f6n)"
           },
           {
             "label": "Lake registry id",
@@ -6336,7 +6100,7 @@
           },
           {
             "label": "Direct pollen with numeric chronology",
-            "value": "0"
+            "value": "1"
           },
           {
             "label": "20 km pollen with numeric chronology",
@@ -6348,7 +6112,125 @@
           },
           {
             "label": "20 km SEAD with numeric chronology",
-            "value": "5"
+            "value": "1"
+          },
+          {
+            "label": "20 km SEAD overlapping nearby human chronology",
+            "value": "0"
+          },
+          {
+            "label": "Duplicate Sweden names",
+            "value": "2"
+          },
+          {
+            "label": "Coordinate spread",
+            "value": "0.00 km"
+          },
+          {
+            "label": "Identity diagnostics",
+            "value": "duplicate_sweden_name"
+          },
+          {
+            "label": "Identity note",
+            "value": "2 Sweden candidates share this cleaned lake name."
+          }
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.69306,
+          68.33583
+        ]
+      },
+      "properties": {
+        "source": "bijux-pollenomics",
+        "layer_key": "lake-evidence-candidates",
+        "layer_label": "Sweden lake evidence candidates",
+        "category": "Lake evidence candidate",
+        "country": "Sweden",
+        "record_id": "sweden_lake:tibenatus:68.33583:18.69306",
+        "name": "Tibenatus",
+        "geometry_type": "Point",
+        "subtitle": "Sweden lake evidence candidate",
+        "description": "Lake candidate derived from Sweden pollen context.",
+        "source_url": "https://apps.neotomadb.org/explorer/#/record/site/28860",
+        "record_count": 1,
+        "media_links": [
+          {
+            "label": "Open in Google Maps",
+            "url": "https://www.google.com/maps/search/?api=1&query=68.335830,18.693060",
+            "kind": "link"
+          },
+          {
+            "label": "Open representative source",
+            "url": "https://apps.neotomadb.org/explorer/#/record/site/28860",
+            "kind": "link"
+          }
+        ],
+        "popup_rows": [
+          {
+            "label": "Aggregate rank",
+            "value": "53"
+          },
+          {
+            "label": "Aggregate score",
+            "value": "0.2446"
+          },
+          {
+            "label": "Coordinates",
+            "value": "68.335830, 18.693060"
+          },
+          {
+            "label": "Coordinate method",
+            "value": "shared_source_coordinate"
+          },
+          {
+            "label": "Representative source",
+            "value": "neotoma-pollen:28860 (Tibenatus)"
+          },
+          {
+            "label": "Lake registry id",
+            "value": "Not available"
+          },
+          {
+            "label": "Lake name status",
+            "value": "Not available"
+          },
+          {
+            "label": "Lake area",
+            "value": "Not available"
+          },
+          {
+            "label": "Sampling posture",
+            "value": "Not available"
+          },
+          {
+            "label": "Sampling fit",
+            "value": "0.0000"
+          },
+          {
+            "label": "Pollen sources",
+            "value": "neotoma-pollen"
+          },
+          {
+            "label": "Direct pollen with numeric chronology",
+            "value": "1"
+          },
+          {
+            "label": "20 km pollen with numeric chronology",
+            "value": "0"
+          },
+          {
+            "label": "20 km pollen overlapping nearby human chronology",
+            "value": "0"
+          },
+          {
+            "label": "20 km SEAD with numeric chronology",
+            "value": "1"
           },
           {
             "label": "20 km SEAD overlapping nearby human chronology",
@@ -6410,11 +6292,11 @@
         "popup_rows": [
           {
             "label": "Aggregate rank",
-            "value": "55"
+            "value": "54"
           },
           {
             "label": "Aggregate score",
-            "value": "0.2416"
+            "value": "0.2420"
           },
           {
             "label": "Coordinates",
@@ -6496,6 +6378,124 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          16.38903,
+          57.93223
+        ]
+      },
+      "properties": {
+        "source": "bijux-pollenomics",
+        "layer_key": "lake-evidence-candidates",
+        "layer_label": "Sweden lake evidence candidates",
+        "category": "Lake evidence candidate",
+        "country": "Sweden",
+        "record_id": "sweden_lake:lillsjon:57.93223:16.38903",
+        "name": "Lillsj\u00f6n (57.932230, 16.389030)",
+        "geometry_type": "Point",
+        "subtitle": "Sweden lake evidence candidate",
+        "description": "2 Sweden candidates share this cleaned lake name.",
+        "source_url": "https://apps.neotomadb.org/explorer/#/record/site/31818",
+        "record_count": 1,
+        "media_links": [
+          {
+            "label": "Open in Google Maps",
+            "url": "https://www.google.com/maps/search/?api=1&query=57.932230,16.389030",
+            "kind": "link"
+          },
+          {
+            "label": "Open representative source",
+            "url": "https://apps.neotomadb.org/explorer/#/record/site/31818",
+            "kind": "link"
+          }
+        ],
+        "popup_rows": [
+          {
+            "label": "Aggregate rank",
+            "value": "55"
+          },
+          {
+            "label": "Aggregate score",
+            "value": "0.2418"
+          },
+          {
+            "label": "Coordinates",
+            "value": "57.932230, 16.389030"
+          },
+          {
+            "label": "Coordinate method",
+            "value": "shared_source_coordinate"
+          },
+          {
+            "label": "Representative source",
+            "value": "neotoma-pollen:31818 (Lillsj\u00f6n)"
+          },
+          {
+            "label": "Lake registry id",
+            "value": "Not available"
+          },
+          {
+            "label": "Lake name status",
+            "value": "Not available"
+          },
+          {
+            "label": "Lake area",
+            "value": "Not available"
+          },
+          {
+            "label": "Sampling posture",
+            "value": "Not available"
+          },
+          {
+            "label": "Sampling fit",
+            "value": "0.0000"
+          },
+          {
+            "label": "Pollen sources",
+            "value": "neotoma-pollen"
+          },
+          {
+            "label": "Direct pollen with numeric chronology",
+            "value": "1"
+          },
+          {
+            "label": "20 km pollen with numeric chronology",
+            "value": "0"
+          },
+          {
+            "label": "20 km pollen overlapping nearby human chronology",
+            "value": "0"
+          },
+          {
+            "label": "20 km SEAD with numeric chronology",
+            "value": "7"
+          },
+          {
+            "label": "20 km SEAD overlapping nearby human chronology",
+            "value": "0"
+          },
+          {
+            "label": "Duplicate Sweden names",
+            "value": "2"
+          },
+          {
+            "label": "Coordinate spread",
+            "value": "0.00 km"
+          },
+          {
+            "label": "Identity diagnostics",
+            "value": "duplicate_sweden_name"
+          },
+          {
+            "label": "Identity note",
+            "value": "2 Sweden candidates share this cleaned lake name."
+          }
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           12.42425,
           58.31129
         ]
@@ -6532,7 +6532,7 @@
           },
           {
             "label": "Aggregate score",
-            "value": "0.2396"
+            "value": "0.2395"
           },
           {
             "label": "Coordinates",
@@ -6732,8 +6732,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          12.3533,
-          57.20915
+          12.57381,
+          57.09696
         ]
       },
       "properties": {
@@ -6742,22 +6742,22 @@
         "layer_label": "Sweden lake evidence candidates",
         "category": "Lake evidence candidate",
         "country": "Sweden",
-        "record_id": "sweden_lake:deromesjon:57.20915:12.3533",
-        "name": "Deromesj\u00f6n",
+        "record_id": "sweden_lake:mjallsjon:57.09696:12.57381",
+        "name": "Mj\u00e4llsj\u00f6n",
         "geometry_type": "Point",
         "subtitle": "Sweden lake evidence candidate",
         "description": "Lake candidate derived from Sweden pollen context.",
-        "source_url": "https://apps.neotomadb.org/explorer/#/record/site/3081",
+        "source_url": "https://apps.neotomadb.org/explorer/#/record/site/3287",
         "record_count": 1,
         "media_links": [
           {
             "label": "Open in Google Maps",
-            "url": "https://www.google.com/maps/search/?api=1&query=57.209150,12.353300",
+            "url": "https://www.google.com/maps/search/?api=1&query=57.096960,12.573810",
             "kind": "link"
           },
           {
             "label": "Open representative source",
-            "url": "https://apps.neotomadb.org/explorer/#/record/site/3081",
+            "url": "https://apps.neotomadb.org/explorer/#/record/site/3287",
             "kind": "link"
           }
         ],
@@ -6768,11 +6768,11 @@
           },
           {
             "label": "Aggregate score",
-            "value": "0.2391"
+            "value": "0.2369"
           },
           {
             "label": "Coordinates",
-            "value": "57.209150, 12.353300"
+            "value": "57.096960, 12.573810"
           },
           {
             "label": "Coordinate method",
@@ -6780,7 +6780,7 @@
           },
           {
             "label": "Representative source",
-            "value": "neotoma-pollen:3081 (Deromesj\u00f6n)"
+            "value": "neotoma-pollen:3287 (Mj\u00e4llsj\u00f6n)"
           },
           {
             "label": "Lake registry id",
@@ -6850,124 +6850,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          16.38903,
-          57.93223
-        ]
-      },
-      "properties": {
-        "source": "bijux-pollenomics",
-        "layer_key": "lake-evidence-candidates",
-        "layer_label": "Sweden lake evidence candidates",
-        "category": "Lake evidence candidate",
-        "country": "Sweden",
-        "record_id": "sweden_lake:lillsjon:57.93223:16.38903",
-        "name": "Lillsj\u00f6n (57.932230, 16.389030)",
-        "geometry_type": "Point",
-        "subtitle": "Sweden lake evidence candidate",
-        "description": "2 Sweden candidates share this cleaned lake name.",
-        "source_url": "https://apps.neotomadb.org/explorer/#/record/site/31818",
-        "record_count": 1,
-        "media_links": [
-          {
-            "label": "Open in Google Maps",
-            "url": "https://www.google.com/maps/search/?api=1&query=57.932230,16.389030",
-            "kind": "link"
-          },
-          {
-            "label": "Open representative source",
-            "url": "https://apps.neotomadb.org/explorer/#/record/site/31818",
-            "kind": "link"
-          }
-        ],
-        "popup_rows": [
-          {
-            "label": "Aggregate rank",
-            "value": "59"
-          },
-          {
-            "label": "Aggregate score",
-            "value": "0.2368"
-          },
-          {
-            "label": "Coordinates",
-            "value": "57.932230, 16.389030"
-          },
-          {
-            "label": "Coordinate method",
-            "value": "shared_source_coordinate"
-          },
-          {
-            "label": "Representative source",
-            "value": "neotoma-pollen:31818 (Lillsj\u00f6n)"
-          },
-          {
-            "label": "Lake registry id",
-            "value": "Not available"
-          },
-          {
-            "label": "Lake name status",
-            "value": "Not available"
-          },
-          {
-            "label": "Lake area",
-            "value": "Not available"
-          },
-          {
-            "label": "Sampling posture",
-            "value": "Not available"
-          },
-          {
-            "label": "Sampling fit",
-            "value": "0.0000"
-          },
-          {
-            "label": "Pollen sources",
-            "value": "neotoma-pollen"
-          },
-          {
-            "label": "Direct pollen with numeric chronology",
-            "value": "1"
-          },
-          {
-            "label": "20 km pollen with numeric chronology",
-            "value": "0"
-          },
-          {
-            "label": "20 km pollen overlapping nearby human chronology",
-            "value": "0"
-          },
-          {
-            "label": "20 km SEAD with numeric chronology",
-            "value": "1"
-          },
-          {
-            "label": "20 km SEAD overlapping nearby human chronology",
-            "value": "0"
-          },
-          {
-            "label": "Duplicate Sweden names",
-            "value": "2"
-          },
-          {
-            "label": "Coordinate spread",
-            "value": "0.00 km"
-          },
-          {
-            "label": "Identity diagnostics",
-            "value": "duplicate_sweden_name"
-          },
-          {
-            "label": "Identity note",
-            "value": "2 Sweden candidates share this cleaned lake name."
-          }
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           14.45,
           63.883333
         ]
@@ -7000,7 +6882,7 @@
         "popup_rows": [
           {
             "label": "Aggregate rank",
-            "value": "60"
+            "value": "59"
           },
           {
             "label": "Aggregate score",
@@ -7057,6 +6939,124 @@
           {
             "label": "20 km SEAD with numeric chronology",
             "value": "0"
+          },
+          {
+            "label": "20 km SEAD overlapping nearby human chronology",
+            "value": "0"
+          },
+          {
+            "label": "Duplicate Sweden names",
+            "value": "1"
+          },
+          {
+            "label": "Coordinate spread",
+            "value": "0.00 km"
+          },
+          {
+            "label": "Identity diagnostics",
+            "value": "none"
+          },
+          {
+            "label": "Identity note",
+            "value": "No explicit identity warning."
+          }
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          15.37054,
+          56.321475
+        ]
+      },
+      "properties": {
+        "source": "bijux-pollenomics",
+        "layer_key": "lake-evidence-candidates",
+        "layer_label": "Sweden lake evidence candidates",
+        "category": "Lake evidence candidate",
+        "country": "Sweden",
+        "record_id": "sweden_lake:sannen:56.321475:15.37054",
+        "name": "S\u00e4nnen",
+        "geometry_type": "Point",
+        "subtitle": "Sweden lake evidence candidate",
+        "description": "Lake candidate derived from Sweden pollen context.",
+        "source_url": "https://apps.neotomadb.org/explorer/#/record/site/22656",
+        "record_count": 1,
+        "media_links": [
+          {
+            "label": "Open in Google Maps",
+            "url": "https://www.google.com/maps/search/?api=1&query=56.321475,15.370540",
+            "kind": "link"
+          },
+          {
+            "label": "Open representative source",
+            "url": "https://apps.neotomadb.org/explorer/#/record/site/22656",
+            "kind": "link"
+          }
+        ],
+        "popup_rows": [
+          {
+            "label": "Aggregate rank",
+            "value": "60"
+          },
+          {
+            "label": "Aggregate score",
+            "value": "0.2356"
+          },
+          {
+            "label": "Coordinates",
+            "value": "56.321475, 15.370540"
+          },
+          {
+            "label": "Coordinate method",
+            "value": "shared_source_coordinate"
+          },
+          {
+            "label": "Representative source",
+            "value": "neotoma-pollen:22656 (S\u00e4nnen)"
+          },
+          {
+            "label": "Lake registry id",
+            "value": "Not available"
+          },
+          {
+            "label": "Lake name status",
+            "value": "Not available"
+          },
+          {
+            "label": "Lake area",
+            "value": "Not available"
+          },
+          {
+            "label": "Sampling posture",
+            "value": "Not available"
+          },
+          {
+            "label": "Sampling fit",
+            "value": "0.0000"
+          },
+          {
+            "label": "Pollen sources",
+            "value": "neotoma-pollen"
+          },
+          {
+            "label": "Direct pollen with numeric chronology",
+            "value": "1"
+          },
+          {
+            "label": "20 km pollen with numeric chronology",
+            "value": "0"
+          },
+          {
+            "label": "20 km pollen overlapping nearby human chronology",
+            "value": "0"
+          },
+          {
+            "label": "20 km SEAD with numeric chronology",
+            "value": "1"
           },
           {
             "label": "20 km SEAD overlapping nearby human chronology",
@@ -7204,8 +7204,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          15.37054,
-          56.321475
+          12.3533,
+          57.20915
         ]
       },
       "properties": {
@@ -7214,22 +7214,22 @@
         "layer_label": "Sweden lake evidence candidates",
         "category": "Lake evidence candidate",
         "country": "Sweden",
-        "record_id": "sweden_lake:sannen:56.321475:15.37054",
-        "name": "S\u00e4nnen",
+        "record_id": "sweden_lake:deromesjon:57.20915:12.3533",
+        "name": "Deromesj\u00f6n",
         "geometry_type": "Point",
         "subtitle": "Sweden lake evidence candidate",
         "description": "Lake candidate derived from Sweden pollen context.",
-        "source_url": "https://apps.neotomadb.org/explorer/#/record/site/22656",
+        "source_url": "https://apps.neotomadb.org/explorer/#/record/site/3081",
         "record_count": 1,
         "media_links": [
           {
             "label": "Open in Google Maps",
-            "url": "https://www.google.com/maps/search/?api=1&query=56.321475,15.370540",
+            "url": "https://www.google.com/maps/search/?api=1&query=57.209150,12.353300",
             "kind": "link"
           },
           {
             "label": "Open representative source",
-            "url": "https://apps.neotomadb.org/explorer/#/record/site/22656",
+            "url": "https://apps.neotomadb.org/explorer/#/record/site/3081",
             "kind": "link"
           }
         ],
@@ -7240,11 +7240,11 @@
           },
           {
             "label": "Aggregate score",
-            "value": "0.2349"
+            "value": "0.2343"
           },
           {
             "label": "Coordinates",
-            "value": "56.321475, 15.370540"
+            "value": "57.209150, 12.353300"
           },
           {
             "label": "Coordinate method",
@@ -7252,7 +7252,125 @@
           },
           {
             "label": "Representative source",
-            "value": "neotoma-pollen:22656 (S\u00e4nnen)"
+            "value": "neotoma-pollen:3081 (Deromesj\u00f6n)"
+          },
+          {
+            "label": "Lake registry id",
+            "value": "Not available"
+          },
+          {
+            "label": "Lake name status",
+            "value": "Not available"
+          },
+          {
+            "label": "Lake area",
+            "value": "Not available"
+          },
+          {
+            "label": "Sampling posture",
+            "value": "Not available"
+          },
+          {
+            "label": "Sampling fit",
+            "value": "0.0000"
+          },
+          {
+            "label": "Pollen sources",
+            "value": "neotoma-pollen"
+          },
+          {
+            "label": "Direct pollen with numeric chronology",
+            "value": "0"
+          },
+          {
+            "label": "20 km pollen with numeric chronology",
+            "value": "0"
+          },
+          {
+            "label": "20 km pollen overlapping nearby human chronology",
+            "value": "0"
+          },
+          {
+            "label": "20 km SEAD with numeric chronology",
+            "value": "5"
+          },
+          {
+            "label": "20 km SEAD overlapping nearby human chronology",
+            "value": "0"
+          },
+          {
+            "label": "Duplicate Sweden names",
+            "value": "1"
+          },
+          {
+            "label": "Coordinate spread",
+            "value": "0.00 km"
+          },
+          {
+            "label": "Identity diagnostics",
+            "value": "none"
+          },
+          {
+            "label": "Identity note",
+            "value": "No explicit identity warning."
+          }
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.46667,
+          57.48333
+        ]
+      },
+      "properties": {
+        "source": "bijux-pollenomics",
+        "layer_key": "lake-evidence-candidates",
+        "layer_label": "Sweden lake evidence candidates",
+        "category": "Lake evidence candidate",
+        "country": "Sweden",
+        "record_id": "sweden_lake:akerhultagoltomtabaken:57.48333:14.46667",
+        "name": "\u00c5kerhultag\u00f6l [Tomtabaken]",
+        "geometry_type": "Point",
+        "subtitle": "Sweden lake evidence candidate",
+        "description": "Lake candidate derived from Sweden pollen context.",
+        "source_url": "https://apps.neotomadb.org/explorer/#/record/site/3470",
+        "record_count": 1,
+        "media_links": [
+          {
+            "label": "Open in Google Maps",
+            "url": "https://www.google.com/maps/search/?api=1&query=57.483330,14.466670",
+            "kind": "link"
+          },
+          {
+            "label": "Open representative source",
+            "url": "https://apps.neotomadb.org/explorer/#/record/site/3470",
+            "kind": "link"
+          }
+        ],
+        "popup_rows": [
+          {
+            "label": "Aggregate rank",
+            "value": "63"
+          },
+          {
+            "label": "Aggregate score",
+            "value": "0.2331"
+          },
+          {
+            "label": "Coordinates",
+            "value": "57.483330, 14.466670"
+          },
+          {
+            "label": "Coordinate method",
+            "value": "shared_source_coordinate"
+          },
+          {
+            "label": "Representative source",
+            "value": "neotoma-pollen:3470 (\u00c5kerhultag\u00f6l [Tomtabaken])"
           },
           {
             "label": "Lake registry id",
@@ -7292,7 +7410,7 @@
           },
           {
             "label": "20 km SEAD with numeric chronology",
-            "value": "0"
+            "value": "1"
           },
           {
             "label": "20 km SEAD overlapping nearby human chronology",
@@ -7354,7 +7472,7 @@
         "popup_rows": [
           {
             "label": "Aggregate rank",
-            "value": "63"
+            "value": "64"
           },
           {
             "label": "Aggregate score",
@@ -7472,11 +7590,11 @@
         "popup_rows": [
           {
             "label": "Aggregate rank",
-            "value": "64"
+            "value": "65"
           },
           {
             "label": "Aggregate score",
-            "value": "0.2319"
+            "value": "0.2315"
           },
           {
             "label": "Coordinates",
@@ -7558,8 +7676,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          14.46667,
-          57.48333
+          13.27565,
+          56.00394
         ]
       },
       "properties": {
@@ -7568,37 +7686,37 @@
         "layer_label": "Sweden lake evidence candidates",
         "category": "Lake evidence candidate",
         "country": "Sweden",
-        "record_id": "sweden_lake:akerhultagoltomtabaken:57.48333:14.46667",
-        "name": "\u00c5kerhultag\u00f6l [Tomtabaken]",
+        "record_id": "sweden_lake:odensjon:56.00394:13.27565",
+        "name": "Odensj\u00f6n",
         "geometry_type": "Point",
         "subtitle": "Sweden lake evidence candidate",
         "description": "Lake candidate derived from Sweden pollen context.",
-        "source_url": "https://apps.neotomadb.org/explorer/#/record/site/3470",
+        "source_url": "https://apps.neotomadb.org/explorer/#/record/site/3326",
         "record_count": 1,
         "media_links": [
           {
             "label": "Open in Google Maps",
-            "url": "https://www.google.com/maps/search/?api=1&query=57.483330,14.466670",
+            "url": "https://www.google.com/maps/search/?api=1&query=56.003940,13.275650",
             "kind": "link"
           },
           {
             "label": "Open representative source",
-            "url": "https://apps.neotomadb.org/explorer/#/record/site/3470",
+            "url": "https://apps.neotomadb.org/explorer/#/record/site/3326",
             "kind": "link"
           }
         ],
         "popup_rows": [
           {
             "label": "Aggregate rank",
-            "value": "65"
+            "value": "66"
           },
           {
             "label": "Aggregate score",
-            "value": "0.2296"
+            "value": "0.2311"
           },
           {
             "label": "Coordinates",
-            "value": "57.483330, 14.466670"
+            "value": "56.003940, 13.275650"
           },
           {
             "label": "Coordinate method",
@@ -7606,7 +7724,7 @@
           },
           {
             "label": "Representative source",
-            "value": "neotoma-pollen:3470 (\u00c5kerhultag\u00f6l [Tomtabaken])"
+            "value": "neotoma-pollen:3326 (Odensj\u00f6n)"
           },
           {
             "label": "Lake registry id",
@@ -7634,7 +7752,7 @@
           },
           {
             "label": "Direct pollen with numeric chronology",
-            "value": "1"
+            "value": "0"
           },
           {
             "label": "20 km pollen with numeric chronology",
@@ -7646,7 +7764,7 @@
           },
           {
             "label": "20 km SEAD with numeric chronology",
-            "value": "0"
+            "value": "6"
           },
           {
             "label": "20 km SEAD overlapping nearby human chronology",
@@ -7708,11 +7826,11 @@
         "popup_rows": [
           {
             "label": "Aggregate rank",
-            "value": "66"
+            "value": "67"
           },
           {
             "label": "Aggregate score",
-            "value": "0.2274"
+            "value": "0.2288"
           },
           {
             "label": "Coordinates",
@@ -7764,7 +7882,7 @@
           },
           {
             "label": "20 km SEAD with numeric chronology",
-            "value": "0"
+            "value": "1"
           },
           {
             "label": "20 km SEAD overlapping nearby human chronology",
@@ -7794,8 +7912,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          13.27565,
-          56.00394
+          13.92491,
+          56.28143
         ]
       },
       "properties": {
@@ -7804,37 +7922,37 @@
         "layer_label": "Sweden lake evidence candidates",
         "category": "Lake evidence candidate",
         "country": "Sweden",
-        "record_id": "sweden_lake:odensjon:56.00394:13.27565",
-        "name": "Odensj\u00f6n",
+        "record_id": "sweden_lake:lillasjo:56.28143:13.92491",
+        "name": "Lilla Sj\u00f6",
         "geometry_type": "Point",
         "subtitle": "Sweden lake evidence candidate",
         "description": "Lake candidate derived from Sweden pollen context.",
-        "source_url": "https://apps.neotomadb.org/explorer/#/record/site/3326",
+        "source_url": "https://apps.neotomadb.org/explorer/#/record/site/3237",
         "record_count": 1,
         "media_links": [
           {
             "label": "Open in Google Maps",
-            "url": "https://www.google.com/maps/search/?api=1&query=56.003940,13.275650",
+            "url": "https://www.google.com/maps/search/?api=1&query=56.281430,13.924910",
             "kind": "link"
           },
           {
             "label": "Open representative source",
-            "url": "https://apps.neotomadb.org/explorer/#/record/site/3326",
+            "url": "https://apps.neotomadb.org/explorer/#/record/site/3237",
             "kind": "link"
           }
         ],
         "popup_rows": [
           {
             "label": "Aggregate rank",
-            "value": "67"
+            "value": "68"
           },
           {
             "label": "Aggregate score",
-            "value": "0.2272"
+            "value": "0.2229"
           },
           {
             "label": "Coordinates",
-            "value": "56.003940, 13.275650"
+            "value": "56.281430, 13.924910"
           },
           {
             "label": "Coordinate method",
@@ -7842,7 +7960,7 @@
           },
           {
             "label": "Representative source",
-            "value": "neotoma-pollen:3326 (Odensj\u00f6n)"
+            "value": "neotoma-pollen:3237 (Lilla Sj\u00f6)"
           },
           {
             "label": "Lake registry id",
@@ -7882,7 +8000,7 @@
           },
           {
             "label": "20 km SEAD with numeric chronology",
-            "value": "4"
+            "value": "3"
           },
           {
             "label": "20 km SEAD overlapping nearby human chronology",
@@ -7944,11 +8062,11 @@
         "popup_rows": [
           {
             "label": "Aggregate rank",
-            "value": "68"
+            "value": "69"
           },
           {
             "label": "Aggregate score",
-            "value": "0.2215"
+            "value": "0.2209"
           },
           {
             "label": "Coordinates",
@@ -8062,11 +8180,11 @@
         "popup_rows": [
           {
             "label": "Aggregate rank",
-            "value": "69"
+            "value": "70"
           },
           {
             "label": "Aggregate score",
-            "value": "0.2205"
+            "value": "0.2202"
           },
           {
             "label": "Coordinates",
@@ -8148,242 +8266,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          19.1,
-          68.34556
-        ]
-      },
-      "properties": {
-        "source": "bijux-pollenomics",
-        "layer_key": "lake-evidence-candidates",
-        "layer_label": "Sweden lake evidence candidates",
-        "category": "Lake evidence candidate",
-        "country": "Sweden",
-        "record_id": "sweden_lake:vuoskkujavri:68.34556:19.1",
-        "name": "Vuoskkuj\u00e1vri",
-        "geometry_type": "Point",
-        "subtitle": "Sweden lake evidence candidate",
-        "description": "Lake candidate derived from Sweden pollen context.",
-        "source_url": "https://apps.neotomadb.org/explorer/#/record/site/26117",
-        "record_count": 1,
-        "media_links": [
-          {
-            "label": "Open in Google Maps",
-            "url": "https://www.google.com/maps/search/?api=1&query=68.345560,19.100000",
-            "kind": "link"
-          },
-          {
-            "label": "Open representative source",
-            "url": "https://apps.neotomadb.org/explorer/#/record/site/26117",
-            "kind": "link"
-          }
-        ],
-        "popup_rows": [
-          {
-            "label": "Aggregate rank",
-            "value": "70"
-          },
-          {
-            "label": "Aggregate score",
-            "value": "0.2185"
-          },
-          {
-            "label": "Coordinates",
-            "value": "68.345560, 19.100000"
-          },
-          {
-            "label": "Coordinate method",
-            "value": "shared_source_coordinate"
-          },
-          {
-            "label": "Representative source",
-            "value": "neotoma-pollen:26117 (Vuoskkuj\u00e1vri)"
-          },
-          {
-            "label": "Lake registry id",
-            "value": "Not available"
-          },
-          {
-            "label": "Lake name status",
-            "value": "Not available"
-          },
-          {
-            "label": "Lake area",
-            "value": "Not available"
-          },
-          {
-            "label": "Sampling posture",
-            "value": "Not available"
-          },
-          {
-            "label": "Sampling fit",
-            "value": "0.0000"
-          },
-          {
-            "label": "Pollen sources",
-            "value": "neotoma-pollen"
-          },
-          {
-            "label": "Direct pollen with numeric chronology",
-            "value": "1"
-          },
-          {
-            "label": "20 km pollen with numeric chronology",
-            "value": "0"
-          },
-          {
-            "label": "20 km pollen overlapping nearby human chronology",
-            "value": "0"
-          },
-          {
-            "label": "20 km SEAD with numeric chronology",
-            "value": "1"
-          },
-          {
-            "label": "20 km SEAD overlapping nearby human chronology",
-            "value": "0"
-          },
-          {
-            "label": "Duplicate Sweden names",
-            "value": "1"
-          },
-          {
-            "label": "Coordinate spread",
-            "value": "0.00 km"
-          },
-          {
-            "label": "Identity diagnostics",
-            "value": "none"
-          },
-          {
-            "label": "Identity note",
-            "value": "No explicit identity warning."
-          }
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          13.92491,
-          56.28143
-        ]
-      },
-      "properties": {
-        "source": "bijux-pollenomics",
-        "layer_key": "lake-evidence-candidates",
-        "layer_label": "Sweden lake evidence candidates",
-        "category": "Lake evidence candidate",
-        "country": "Sweden",
-        "record_id": "sweden_lake:lillasjo:56.28143:13.92491",
-        "name": "Lilla Sj\u00f6",
-        "geometry_type": "Point",
-        "subtitle": "Sweden lake evidence candidate",
-        "description": "Lake candidate derived from Sweden pollen context.",
-        "source_url": "https://apps.neotomadb.org/explorer/#/record/site/3237",
-        "record_count": 1,
-        "media_links": [
-          {
-            "label": "Open in Google Maps",
-            "url": "https://www.google.com/maps/search/?api=1&query=56.281430,13.924910",
-            "kind": "link"
-          },
-          {
-            "label": "Open representative source",
-            "url": "https://apps.neotomadb.org/explorer/#/record/site/3237",
-            "kind": "link"
-          }
-        ],
-        "popup_rows": [
-          {
-            "label": "Aggregate rank",
-            "value": "71"
-          },
-          {
-            "label": "Aggregate score",
-            "value": "0.2183"
-          },
-          {
-            "label": "Coordinates",
-            "value": "56.281430, 13.924910"
-          },
-          {
-            "label": "Coordinate method",
-            "value": "shared_source_coordinate"
-          },
-          {
-            "label": "Representative source",
-            "value": "neotoma-pollen:3237 (Lilla Sj\u00f6)"
-          },
-          {
-            "label": "Lake registry id",
-            "value": "Not available"
-          },
-          {
-            "label": "Lake name status",
-            "value": "Not available"
-          },
-          {
-            "label": "Lake area",
-            "value": "Not available"
-          },
-          {
-            "label": "Sampling posture",
-            "value": "Not available"
-          },
-          {
-            "label": "Sampling fit",
-            "value": "0.0000"
-          },
-          {
-            "label": "Pollen sources",
-            "value": "neotoma-pollen"
-          },
-          {
-            "label": "Direct pollen with numeric chronology",
-            "value": "0"
-          },
-          {
-            "label": "20 km pollen with numeric chronology",
-            "value": "0"
-          },
-          {
-            "label": "20 km pollen overlapping nearby human chronology",
-            "value": "0"
-          },
-          {
-            "label": "20 km SEAD with numeric chronology",
-            "value": "0"
-          },
-          {
-            "label": "20 km SEAD overlapping nearby human chronology",
-            "value": "0"
-          },
-          {
-            "label": "Duplicate Sweden names",
-            "value": "1"
-          },
-          {
-            "label": "Coordinate spread",
-            "value": "0.00 km"
-          },
-          {
-            "label": "Identity diagnostics",
-            "value": "none"
-          },
-          {
-            "label": "Identity note",
-            "value": "No explicit identity warning."
-          }
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           16.15584,
           57.20045
         ]
@@ -8416,11 +8298,11 @@
         "popup_rows": [
           {
             "label": "Aggregate rank",
-            "value": "72"
+            "value": "71"
           },
           {
             "label": "Aggregate score",
-            "value": "0.2178"
+            "value": "0.2185"
           },
           {
             "label": "Coordinates",
@@ -8502,6 +8384,124 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          19.1,
+          68.34556
+        ]
+      },
+      "properties": {
+        "source": "bijux-pollenomics",
+        "layer_key": "lake-evidence-candidates",
+        "layer_label": "Sweden lake evidence candidates",
+        "category": "Lake evidence candidate",
+        "country": "Sweden",
+        "record_id": "sweden_lake:vuoskkujavri:68.34556:19.1",
+        "name": "Vuoskkuj\u00e1vri",
+        "geometry_type": "Point",
+        "subtitle": "Sweden lake evidence candidate",
+        "description": "Lake candidate derived from Sweden pollen context.",
+        "source_url": "https://apps.neotomadb.org/explorer/#/record/site/26117",
+        "record_count": 1,
+        "media_links": [
+          {
+            "label": "Open in Google Maps",
+            "url": "https://www.google.com/maps/search/?api=1&query=68.345560,19.100000",
+            "kind": "link"
+          },
+          {
+            "label": "Open representative source",
+            "url": "https://apps.neotomadb.org/explorer/#/record/site/26117",
+            "kind": "link"
+          }
+        ],
+        "popup_rows": [
+          {
+            "label": "Aggregate rank",
+            "value": "72"
+          },
+          {
+            "label": "Aggregate score",
+            "value": "0.2181"
+          },
+          {
+            "label": "Coordinates",
+            "value": "68.345560, 19.100000"
+          },
+          {
+            "label": "Coordinate method",
+            "value": "shared_source_coordinate"
+          },
+          {
+            "label": "Representative source",
+            "value": "neotoma-pollen:26117 (Vuoskkuj\u00e1vri)"
+          },
+          {
+            "label": "Lake registry id",
+            "value": "Not available"
+          },
+          {
+            "label": "Lake name status",
+            "value": "Not available"
+          },
+          {
+            "label": "Lake area",
+            "value": "Not available"
+          },
+          {
+            "label": "Sampling posture",
+            "value": "Not available"
+          },
+          {
+            "label": "Sampling fit",
+            "value": "0.0000"
+          },
+          {
+            "label": "Pollen sources",
+            "value": "neotoma-pollen"
+          },
+          {
+            "label": "Direct pollen with numeric chronology",
+            "value": "1"
+          },
+          {
+            "label": "20 km pollen with numeric chronology",
+            "value": "0"
+          },
+          {
+            "label": "20 km pollen overlapping nearby human chronology",
+            "value": "0"
+          },
+          {
+            "label": "20 km SEAD with numeric chronology",
+            "value": "1"
+          },
+          {
+            "label": "20 km SEAD overlapping nearby human chronology",
+            "value": "0"
+          },
+          {
+            "label": "Duplicate Sweden names",
+            "value": "1"
+          },
+          {
+            "label": "Coordinate spread",
+            "value": "0.00 km"
+          },
+          {
+            "label": "Identity diagnostics",
+            "value": "none"
+          },
+          {
+            "label": "Identity note",
+            "value": "No explicit identity warning."
+          }
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           16.223,
           57.707
         ]
@@ -8538,7 +8538,7 @@
           },
           {
             "label": "Aggregate score",
-            "value": "0.2108"
+            "value": "0.2128"
           },
           {
             "label": "Coordinates",
@@ -8656,7 +8656,7 @@
           },
           {
             "label": "Aggregate score",
-            "value": "0.2106"
+            "value": "0.2102"
           },
           {
             "label": "Coordinates",
@@ -8774,7 +8774,7 @@
           },
           {
             "label": "Aggregate score",
-            "value": "0.1995"
+            "value": "0.1994"
           },
           {
             "label": "Coordinates",
@@ -8892,7 +8892,7 @@
           },
           {
             "label": "Aggregate score",
-            "value": "0.1973"
+            "value": "0.1972"
           },
           {
             "label": "Coordinates",
@@ -9364,7 +9364,7 @@
           },
           {
             "label": "Aggregate score",
-            "value": "0.1630"
+            "value": "0.1627"
           },
           {
             "label": "Coordinates",

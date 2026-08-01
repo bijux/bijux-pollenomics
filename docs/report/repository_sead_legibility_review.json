@@ -5,20 +5,18 @@
   "current_posture": "contextual_archaeology_layer_with_explicit_temporal_and_access_limits",
   "row_count": 2195,
   "normalization_risk_counts": {
-    "medium_access_constrained": 1448,
-    "medium_contextual_numeric_mix": 735,
-    "medium_period_label_interpretation": 12
+    "medium_access_constrained": 1447,
+    "medium_contextual_numeric_mix": 748
   },
   "access_visibility_counts": {
     "site_page_only": 2192,
     "site_page_with_reference_links": 3
   },
   "comparability_posture_counts": {
-    "unresolved": 1294,
-    "mixed_interval_and_context": 497,
-    "contextual_label_only": 12,
-    "numeric_interval": 154,
-    "numeric_interval_with_caveat": 238
+    "unresolved": 1290,
+    "mixed_interval_and_context": 509,
+    "numeric_interval": 157,
+    "numeric_interval_with_caveat": 239
   },
   "direct_links": {
     "source_page": "docs/public/pollenomics-data/sources/sead.md",
@@ -30,16 +28,16 @@
   },
   "requirement_rows": [
     {
-      "requirement_key": "linked_temporal_promotion",
-      "evidence_gap_count": 0,
-      "required_evidence": "Promote captured SEAD dating-range, calendar-era, and relative-period rows into normalized BP intervals wherever the linked inventory supports it, while keeping unresolved rows explicit.",
-      "satisfaction_signal": "SEAD temporal review shows numeric intervals for chronology-bearing rows and leaves unresolved site inventory rows visibly unresolved instead of implying uniform time support."
+      "requirement_key": "unresolved_chronology_boundary",
+      "evidence_gap_count": 1268,
+      "required_evidence": "Retain sites without captured upstream chronology as an explicit spatial-only population; add dates only when a linked SEAD chronology record supplies defensible bounds.",
+      "satisfaction_signal": "Every captured chronology row has normalized BP bounds, the temporal-evidence layer is fully time-filterable, and upstream-undated sites remain visibly unresolved."
     },
     {
-      "requirement_key": "reference_visibility_promotion",
+      "requirement_key": "unreferenced_site_boundary",
       "evidence_gap_count": 2192,
-      "required_evidence": "Promote preserved bibliography or DOI links wherever checked-in SEAD linked records expose them, and keep site-page-only rows explicit where upstream link visibility remains thin.",
-      "satisfaction_signal": "The access review distinguishes bibliography-backed rows from site-page-only rows without hiding the remaining upstream access constraint."
+      "required_evidence": "Retain site-page-only access where captured bibliography rows expose no directly followable DOI or URL; add links only from identified SEAD bibliography values.",
+      "satisfaction_signal": "All captured bibliography relations preserve their source relation and sites without directly followable upstream links remain explicit instead of receiving inferred URLs."
     },
     {
       "requirement_key": "context_layer_republication",

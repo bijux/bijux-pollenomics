@@ -1,6 +1,6 @@
 {
   "schema_version": "geographic-evidence-surface-summary.v1",
-  "title": "Nordic Evidence Atlas",
+  "title": "Nordic Evidence Surface",
   "slug": "nordic",
   "version": "v66",
   "generated_on": "2026-08-01",
@@ -48,6 +48,10 @@
       {
         "label": "SEAD site GeoJSON",
         "filename": "nordic_environmental_sites.geojson"
+      },
+      {
+        "label": "SEAD temporal evidence GeoJSON",
+        "filename": "nordic_temporal_evidence.geojson"
       },
       {
         "label": "Nordic country boundaries",
@@ -139,7 +143,7 @@
   },
   "map_publication_contract": {
     "schema_version": "map-publication-contract.v1",
-    "title": "Nordic Evidence Atlas",
+    "title": "Nordic Evidence Surface",
     "scope_key": "nordic",
     "scope_label": "Nordic",
     "scope_kind": "region",
@@ -200,7 +204,7 @@
     "role_counts": {
       "shared_world_scale_layer": 2,
       "region_filtered_layer": 1,
-      "scope_specific_overlay": 14
+      "scope_specific_overlay": 15
     },
     "layer_rows": [
       {
@@ -261,6 +265,19 @@
         "source_name": "SEAD",
         "coverage_label": "Environmental archaeology sites staged from the SEAD normalization bundle.",
         "count": 2172,
+        "publication_role": "scope_specific_overlay",
+        "scope_visibility": "scope_owned",
+        "default_enabled": false,
+        "applies_country_filter": true,
+        "applies_time_filter": true,
+        "scope_caveat": "This overlay is visible only in Nordic scope because its source family is still Nordic-specific."
+      },
+      {
+        "key": "sead-temporal-evidence",
+        "label": "SEAD temporal evidence",
+        "source_name": "SEAD",
+        "coverage_label": "Linked SEAD dating, relative-period, modelled-age, geochronology, and dendrochronology records grouped only when site, interval, label, and uncertainty agree.",
+        "count": 9380,
         "publication_role": "scope_specific_overlay",
         "scope_visibility": "scope_owned",
         "default_enabled": true,

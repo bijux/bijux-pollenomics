@@ -9,7 +9,7 @@ This review names the temporal comparisons that remain safe and the ones that wo
 
 ## Unsafe Comparison Findings
 
-- No unsafe comparison findings are currently published.
+- SEAD rows that mix numeric spans with cultural or geologic labels remain contextual archaeology evidence, not direct event dates.
 
 ## Direct Links
 
