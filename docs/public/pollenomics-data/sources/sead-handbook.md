@@ -139,6 +139,24 @@ This behavior prevents two opposite errors: discarding valuable undated
 spatial context from the overview, and pretending that undated sites are
 present in every period.
 
+## Use The Governed Sweden Discovery Surface
+
+For Sweden, the Nordic Atlas combines those two reading needs without erasing
+their distinction. Every one of the 2,007 Swedish SEAD sites appears through
+either its linked numeric chronology features or one explicitly unresolved
+feature. The layer therefore supports both full-population spatial discovery
+and honest interval filtering.
+
+Its rank is an evidence-readiness order. Chronology and bibliography coverage
+come first, followed by chronology breadth and represented record depth. The
+order does not measure archaeological importance or current activity. RAÄ
+density is displayed only as coarse context and cannot supply a site identity,
+date, or rank contribution.
+
+See [Sweden archaeology site discovery](../publications/archaeology-site-discovery.md)
+for the complete 2,007-site contract and its JSON, CSV, GeoJSON, and Markdown
+companions.
+
 ## Compare With Other Evidence Families
 
 For a SEAD–LANDCLIM–AADR comparison, perform three independent checks:

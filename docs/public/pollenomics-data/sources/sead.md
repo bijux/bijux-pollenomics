@@ -19,12 +19,11 @@ This source family stays an archaeology context layer: it is strong contextual
 evidence for nearby activity and chronology review, but it is not sample-owned
 proof of one lake event.
 
-The practical rule is simple: **use the temporal-evidence layer for time
-navigation and the site-inventory layer for spatial discovery**. The first
-keeps the intervals of linked dating records. The second keeps one point per
-site, including sites for which SEAD publishes no usable chronology. This
-separation prevents a long site-wide envelope from flattening many distinct
-dates into one apparently static point.
+The practical rule is simple: use the governed Sweden discovery surface in the
+Nordic Atlas, then return to the normalized temporal-evidence and site-inventory
+products when auditing its source. The discovery surface keeps every Swedish
+site, preserves each eligible linked interval, and represents missing numeric
+chronology explicitly rather than as a static or timeless point.
 
 ## Current Evidence State
 
@@ -132,21 +131,23 @@ flowchart TD
 
 ## How The Atlas Timeline Treats SEAD
 
-The atlas exposes two SEAD toggles. `SEAD temporal evidence` is enabled by
-default and every one of its 9,380 mapped features has numeric BP bounds.
-`SEAD sites` is an optional inventory layer for discovering all 2,172 mapped
-sites, including upstream-undated sites. Once a reader narrows the time
-window:
+The Nordic Atlas exposes one governed Sweden archaeology discovery layer. It
+contains all 2,007 Swedish SEAD sites as 9,149 linked numeric chronology
+features plus 1,230 explicitly unresolved site features. Once a reader narrows
+the time window:
 
-1. temporal-evidence features remain visible only when their own interval
-   overlaps the selected window;
-2. dated site summaries can also be filtered coarsely when the optional site
-   layer is enabled; and
-3. unresolved site-inventory points are withheld because overlap is unknown.
+1. numeric features remain visible only when their own linked interval
+   overlaps the selected window; and
+2. unresolved features are withheld because overlap is unknown.
 
 This is different from declaring unresolved sites absent from the selected
 period. The interface is refusing a comparison it cannot make.
 Static layers such as boundaries are unaffected by this rule.
+
+The Nordic normalized site and temporal-evidence products remain available for
+audit and reuse. They are not loaded beside the discovery layer because doing
+so would duplicate the same SEAD population and obscure the governed
+discovery contract.
 
 ## Compare SEAD With LANDCLIM And AADR Carefully
 
@@ -208,6 +209,10 @@ SEAD does not by itself support:
 - interpreting database density as past population or activity; or
 - merging SEAD and RAÄ into one archaeology truth set.
 
+Continue with [Sweden archaeology site discovery](../publications/archaeology-site-discovery.md)
+for the complete population, readiness order, artifact set, and interpretation
+contract.
+
 ## Governing Surfaces
 
 | Surface | Responsibility |
@@ -215,6 +220,8 @@ SEAD does not by itself support:
 | `data/sead/raw/nordic_sites.json` | captured site rows, relational inventories, source counts, and acquisition lineage |
 | `data/sead/normalized/nordic_environmental_sites.geojson` | mapped features, temporal fields, popup evidence, and country membership |
 | `data/sead/normalized/nordic_temporal_evidence.geojson` | mapped record-level chronology groups used by the atlas time filter |
+| `data/sead/derived/sweden_archaeology_site_discovery.json` | complete Swedish site registry and evidence-readiness contract |
+| `data/sead/derived/sweden_archaeology_site_discovery.geojson` | Atlas-ready exact intervals and explicitly unresolved Swedish sites |
 | `data/sead/review/temporal_review.json` | row-level comparison posture and capture denominators |
 | `data/sead/review/access_model.json` | mirrored versus upstream-only access boundary |
 | `data/sead/review/evidence_legibility_review.json` | interpretability and publication risk |

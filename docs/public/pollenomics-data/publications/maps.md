@@ -168,10 +168,11 @@ It must not silently interpret missing time as outside the selected period.
 
 The Nordic LandClim layer demonstrates the distinction. Its filter operates on
 2,809 separate modeled grid-window features, not on 88 aggregate cells assigned
-one artificial full-Holocene interval. SEAD likewise filters its linked
-chronology features while its upstream-undated site inventory remains explicit
-spatial context. A time control is scientifically meaningful only when the
-published layer preserves those source-owned temporal units.
+one artificial full-Holocene interval. The Sweden archaeology discovery layer
+likewise filters 9,149 linked SEAD chronology features while retaining 1,230
+upstream-undated sites as explicit unresolved spatial context at full extent.
+A time control is scientifically meaningful only when the published layer
+preserves those source-owned temporal units and refuses invented dates.
 
 When a filtered view is empty, distinguish four cases: no product members in
 scope, no members matching the declared condition, members without comparable

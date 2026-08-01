@@ -207,6 +207,7 @@ nav:
           - Neotoma Exports: public/pollenomics-data/publications/neotoma-exports.md
           - RAÄ Exports: public/pollenomics-data/publications/raa-exports.md
           - SEAD Exports: public/pollenomics-data/publications/sead-exports.md
+          - Sweden Archaeology Site Discovery: public/pollenomics-data/publications/archaeology-site-discovery.md
   - Fieldwork:
       - Overview: public/fieldwork/index.md
       - Lyngsjön Lake Fieldwork: public/fieldwork/lyngsjon-lake-fieldwork/index.md

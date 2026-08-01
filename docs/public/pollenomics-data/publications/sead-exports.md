@@ -9,11 +9,12 @@ last_reviewed: 2026-08-01
 
 # SEAD Exports
 
-SEAD exports turn a relational environmental-archaeology source into four
+SEAD exports turn a relational environmental-archaeology source into five
 different products: an auditable capture, a site-inventory layer, a
-record-level temporal-evidence layer, and review
-packets that explain which comparisons are allowed. Choose the product that
-matches the question rather than treating the GeoJSON as the whole database.
+record-level temporal-evidence layer, a governed Sweden discovery surface, and
+review packets that explain which comparisons are allowed. Choose the product
+that matches the question rather than treating one GeoJSON as the whole
+database.
 
 ## Snapshot At A Glance
 
@@ -28,6 +29,10 @@ matches the question rather than treating the GeoJSON as the whole database.
 | mapped temporal-evidence features | 9,380 |
 | captured sites linked to bibliography | 1,300 |
 | captured sites without usable chronology | 1,268 |
+| Swedish discovery-registry sites | 2,007 |
+| Swedish discovery sites with linked numeric chronology | 777 |
+| Swedish discovery sites with unresolved chronology | 1,230 |
+| Swedish discovery map features | 10,379 |
 
 The difference between 27,002 captured and 26,556 mapped chronology records is
 deliberate. Capture and map-country membership are separate decisions. The
@@ -44,6 +49,9 @@ interval, label, and uncertainty agree.
 | tabular exchange | `data/sead/normalized/nordic_environmental_sites.csv` | represents the same normalized point population with serialized temporal semantics |
 | navigate chronology through time | `data/sead/normalized/nordic_temporal_evidence.geojson` | provides interval-preserving features for every mapped linked chronology group |
 | exchange record-level chronology | `data/sead/normalized/nordic_temporal_evidence.csv` | provides the same grouped temporal population in tabular form |
+| discover and prioritize Swedish sites | `data/sead/derived/sweden_archaeology_site_discovery.json` | preserves all 2,007 sites, a transparent evidence-readiness order, and the ranking contract |
+| navigate Swedish discovery through time | `data/sead/derived/sweden_archaeology_site_discovery.geojson` | carries 9,149 exact linked intervals and 1,230 explicitly unresolved site features |
+| exchange the one-row-per-site discovery registry | `data/sead/derived/sweden_archaeology_site_discovery.csv` | keeps chronology, bibliography, dataset, RAÄ-context, and activity-status fields together |
 | decide site-level temporal eligibility | `data/sead/review/temporal_review.json` | classifies each captured site as numeric-plus-context or unresolved |
 | inspect access limits | `data/sead/review/access_model.json` | distinguishes mirrored material from upstream browsing and references |
 | assess interpretability | `data/sead/review/evidence_legibility_review.json` | records capture depth, risk, and publication posture |
@@ -83,12 +91,13 @@ rule.
 
 ## Atlas Behavior
 
-The atlas publishes two SEAD layers with different responsibilities:
+The Nordic Atlas publishes the governed Sweden discovery layer rather than
+loading the two normalized SEAD layers beside it:
 
-| Atlas state | Temporal-evidence layer | Optional site-inventory layer |
+| Atlas state | Numeric discovery features | Unresolved discovery features |
 | --- | --- | --- |
-| full temporal extent | all 9,380 grouped chronology features shown | all 2,172 sites available when enabled |
-| narrowed BP window | shown only on record-interval overlap | dated envelopes can overlap; unresolved sites are withheld |
+| full temporal extent | all 9,149 linked interval features shown | all 1,230 unresolved Swedish sites shown |
+| narrowed BP window | shown only on record-interval overlap | withheld because overlap is unknown |
 
 This makes the full view useful for spatial exploration while keeping a
 narrowed view scientifically honest. A withheld unresolved point is not a
@@ -147,5 +156,6 @@ Before publishing a SEAD-derived result, verify that it retains:
   eligibility.
 
 Continue to [SEAD source guidance](../sources/sead.md) for the full evidence
-model, [maps](maps.md) for atlas interpretation, and
+model, [Sweden archaeology site discovery](archaeology-site-discovery.md) for
+the readiness and coverage contract, [maps](maps.md) for atlas interpretation, and
 [publication limits](limits.md) for refused comparisons.
