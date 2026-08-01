@@ -47,15 +47,13 @@ def test_sweden_land_use_synthesis_keeps_time_and_target_decisions(
                             "time_mean_bp": 1500,
                             "time_label": "1000-2000 BP",
                             "reconstruction_values": {
-                                "land_cover_types": {
-                                    "Evergreen Trees": 0.2,
-                                    "Summergreen Trees": 0.3,
-                                    "Open Grass/Herb": 0.5,
-                                },
-                                "plant_functional_types": {
-                                    "AL": 0.1,
-                                    "GL": 0.4,
-                                },
+                                "ET": 20.0,
+                                "ST": 30.0,
+                                "OL": 50.0,
+                                "AL": 10.0,
+                                "GL": 40.0,
+                                "Cerealia.t": 3.0,
+                                "Secale": 1.0,
                             },
                         },
                     }
@@ -124,9 +122,11 @@ def test_sweden_land_use_synthesis_keeps_time_and_target_decisions(
     assert payload["target_count"] == 6
     assert payload["time_row_count"] == 6
     finja = next(row for row in payload["rows"] if row["target_name"] == "Finjasjön")
-    assert finja["forest_cover"] == 0.5
-    assert finja["agricultural_land_cover"] == 0.1
-    assert finja["cereal_specific_measure"] is None
+    assert finja["forest_cover"] == 50.0
+    assert finja["open_land_cover"] == 50.0
+    assert finja["agricultural_land_cover"] == 10.0
+    assert finja["cereal_type_pollen_cover"] == 3.0
+    assert finja["rye_pollen_cover"] == 1.0
     assert finja["sead_site_count_20km"] == 1
     assert finja["human_adna_sample_count_20km"] == 2
     assert finja["animal_adna_sample_count_20km"] == 1

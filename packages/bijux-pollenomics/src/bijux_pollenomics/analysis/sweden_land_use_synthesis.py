@@ -147,8 +147,6 @@ def build_sweden_land_use_synthesis(
             time_start_bp = int(properties["time_start_bp"])
             time_end_bp = int(properties["time_end_bp"])
             reconstruction = properties.get("reconstruction_values", {})
-            land_cover = reconstruction.get("land_cover_types", {})
-            plant_types = reconstruction.get("plant_functional_types", {})
             sead_context = _overlapping_geojson_context(
                 target=target,
                 features=sead_features,
@@ -167,8 +165,8 @@ def build_sweden_land_use_synthesis(
                 time_start_bp=time_start_bp,
                 time_end_bp=time_end_bp,
             )
-            evergreen = _number(land_cover.get("Evergreen Trees"))
-            summergreen = _number(land_cover.get("Summergreen Trees"))
+            evergreen = _number(reconstruction.get("ET"))
+            summergreen = _number(reconstruction.get("ST"))
             rows.append(
                 {
                     "target_name": target.requested_name,
@@ -187,13 +185,17 @@ def build_sweden_land_use_synthesis(
                     "forest_cover": round(evergreen + summergreen, 6),
                     "evergreen_tree_cover": evergreen,
                     "summergreen_tree_cover": summergreen,
-                    "open_grass_herb_cover": _number(land_cover.get("Open Grass/Herb")),
-                    "agricultural_land_cover": _number(plant_types.get("AL")),
-                    "grassland_cover": _number(plant_types.get("GL")),
-                    "cereal_specific_measure": None,
+                    "open_land_cover": _number(reconstruction.get("OL")),
+                    "agricultural_land_cover": _number(reconstruction.get("AL")),
+                    "grassland_cover": _number(reconstruction.get("GL")),
+                    "cereal_type_pollen_cover": _number(
+                        reconstruction.get("Cerealia.t")
+                    ),
+                    "rye_pollen_cover": _number(reconstruction.get("Secale")),
                     "cereal_interpretation_posture": (
-                        "not_available; AL is agricultural land and must not be "
-                        "relabeled as cereal"
+                        "Cerealia.t and Secale are modeled pollen-cover estimates; "
+                        "they are not observed crop acreage or proof of cultivation "
+                        "at the target"
                     ),
                     "sead_temporal_record_count_20km": sead_context["record_count"],
                     "sead_site_count_20km": sead_context["locality_count"],
@@ -219,12 +221,13 @@ def build_sweden_land_use_synthesis(
         "time_row_count": len(rows),
         "methodology": {
             "land_cover_rule": (
-                "Forest is evergreen plus summergreen tree cover; open land is the "
-                "published Open Grass/Herb value; agricultural land is PFT code AL."
+                "Forest is published ET plus ST cover; open land is OL; grassland is "
+                "GL; and agricultural land is AL. Values are percentage cover."
             ),
             "cereal_rule": (
-                "No cereal-specific series is present in this governed grid. AL remains "
-                "agricultural land and is never relabeled as cereal."
+                "Cerealia.t and Secale retain their published modeled pollen-cover "
+                "values. They are not observed crop acreage or proof of cultivation "
+                "at the named target."
             ),
             "temporal_join_rule": (
                 "SEAD and aDNA context counts require both spatial proximity within 20 "
@@ -270,7 +273,8 @@ def render_sweden_land_use_synthesis_markdown(payload: dict[str, object]) -> str
     )
     synthesis_rows = "\n".join(
         f"| {row['target_name']} | {row['time_label']} | {row['forest_cover']:.3f} | "
-        f"{row['open_grass_herb_cover']:.3f} | {row['agricultural_land_cover']:.3f} | "
+        f"{row['open_land_cover']:.3f} | {row['agricultural_land_cover']:.3f} | "
+        f"{row['cereal_type_pollen_cover']:.3f} | {row['rye_pollen_cover']:.3f} | "
         f"{row['sead_site_count_20km']} | {row['human_adna_locality_count_20km']} | "
         f"{row['animal_adna_locality_count_20km']} | {row['cross_proxy_posture']} |"
         for row in recent_rows
@@ -302,8 +306,8 @@ context. They are excluded only from the lake-sampling ranking.
 
 ## Recent And Late-Holocene Windows
 
-| Target | Window | Forest | Open grass/herb | Agricultural land | SEAD sites | Human aDNA localities | Animal aDNA localities | Posture |
-| --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | --- |
+| Target | Window | Forest | Open land | Agricultural land | Cerealia-type pollen | Rye pollen | SEAD sites | Human aDNA localities | Animal aDNA localities | Posture |
+| --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | --- |
 {synthesis_rows}
 
 The machine-readable JSON and CSV retain every published window, not only the
