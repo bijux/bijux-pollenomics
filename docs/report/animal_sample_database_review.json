@@ -32,12 +32,12 @@
     "locality_dictionary_row_count": 303
   },
   "locality_status_counts": {
-    "direct_sample_site": 820,
+    "direct_sample_site": 836,
     "sample_group_site": 0,
     "project_level_site_only": 0,
     "named_place_inferred": 0,
     "region_only": 32,
-    "unresolved": 16
+    "unresolved": 0
   },
   "locality_completeness_counts": {
     "exact_site_evidence_count": 831,
@@ -45,18 +45,18 @@
     "unresolved_geography_count": 0
   },
   "chronology_status_counts": {
-    "normalized_interval": 296,
-    "normalized_point": 469,
+    "normalized_interval": 303,
+    "normalized_point": 478,
     "text_only_unparsed": 87,
-    "unresolved": 16
+    "unresolved": 0
   },
   "chronology_precision_counts": {
-    "sample_precise_point": 461,
-    "sample_precise_interval": 254,
+    "sample_precise_point": 470,
+    "sample_precise_interval": 261,
     "sample_approximate_or_modeled": 87,
     "contextual_interval": 50,
     "broad_period_only": 0,
-    "unresolved": 16
+    "unresolved": 0
   },
   "intake_recovery_counts": {
     "blocked_projects": 23,
