@@ -120,14 +120,14 @@
 | Homo sapiens | landclim-sites | locality_level_overlap_available | 447 | 0 | 0 | Human locality chronology can be compared directly with time-aware context points. |
 | Homo sapiens | neotoma-pollen | locality_level_overlap_available | 447 | 0 | 0 | Human locality chronology can be compared directly with time-aware context points. |
 | Homo sapiens | sweden-archaeology-site-discovery | locality_level_overlap_available | 447 | 0 | 0 | Human locality chronology can be compared directly with time-aware context points. |
-| Homo sapiens | sweden-lake-10km-top40 | locality_level_overlap_available | 0 | 447 | 0 | Human locality chronology can be compared directly with time-aware context points. |
-| Homo sapiens | sweden-lake-20km-top40 | locality_level_overlap_available | 0 | 447 | 0 | Human locality chronology can be compared directly with time-aware context points. |
-| Homo sapiens | sweden-lake-30km-top40 | locality_level_overlap_available | 0 | 447 | 0 | Human locality chronology can be compared directly with time-aware context points. |
-| Homo sapiens | sweden-lake-40km-top40 | locality_level_overlap_available | 0 | 447 | 0 | Human locality chronology can be compared directly with time-aware context points. |
-| Homo sapiens | sweden-lake-50km-top40 | locality_level_overlap_available | 0 | 447 | 0 | Human locality chronology can be compared directly with time-aware context points. |
-| Homo sapiens | sweden-lake-aggregate-top40 | locality_level_overlap_available | 0 | 447 | 0 | Human locality chronology can be compared directly with time-aware context points. |
-| Homo sapiens | sweden-lake-consensus-top40 | locality_level_overlap_available | 0 | 447 | 0 | Human locality chronology can be compared directly with time-aware context points. |
-| Homo sapiens | sweden-lake-fieldwork-shortlist | locality_level_overlap_available | 0 | 447 | 0 | Human locality chronology can be compared directly with time-aware context points. |
+| Homo sapiens | sweden-lake-10km-top40 | locality_level_overlap_available | 447 | 0 | 0 | Human locality chronology can be compared directly with time-aware context points. |
+| Homo sapiens | sweden-lake-20km-top40 | locality_level_overlap_available | 447 | 0 | 0 | Human locality chronology can be compared directly with time-aware context points. |
+| Homo sapiens | sweden-lake-30km-top40 | locality_level_overlap_available | 447 | 0 | 0 | Human locality chronology can be compared directly with time-aware context points. |
+| Homo sapiens | sweden-lake-40km-top40 | locality_level_overlap_available | 447 | 0 | 0 | Human locality chronology can be compared directly with time-aware context points. |
+| Homo sapiens | sweden-lake-50km-top40 | locality_level_overlap_available | 447 | 0 | 0 | Human locality chronology can be compared directly with time-aware context points. |
+| Homo sapiens | sweden-lake-aggregate-top40 | locality_level_overlap_available | 447 | 0 | 0 | Human locality chronology can be compared directly with time-aware context points. |
+| Homo sapiens | sweden-lake-consensus-top40 | locality_level_overlap_available | 447 | 0 | 0 | Human locality chronology can be compared directly with time-aware context points. |
+| Homo sapiens | sweden-lake-fieldwork-shortlist | locality_level_overlap_available | 447 | 0 | 0 | Human locality chronology can be compared directly with time-aware context points. |
 | Anas platyrhynchos domesticus | animal-equus-caballus | not_comparable_project_level_only | 0 | 0 | 1 | Non-human chronology is still project-level and cannot be aligned to atlas localities honestly. |
 | Anas platyrhynchos domesticus | fieldwork-documentation | not_comparable_project_level_only | 0 | 0 | 1 | Non-human chronology is still project-level and cannot be aligned to atlas localities honestly. |
 | Anas platyrhynchos domesticus | landclim-sites | not_comparable_project_level_only | 0 | 0 | 1 | Non-human chronology is still project-level and cannot be aligned to atlas localities honestly. |
@@ -224,14 +224,14 @@
 | Equus caballus | landclim-sites | mapped_locality_overlap_with_caution | 2 | 0 | 0 | Mapped animal locality leads can be compared with context layers, but only with their stated chronology and precision caveats. |
 | Equus caballus | neotoma-pollen | mapped_locality_overlap_with_caution | 2 | 0 | 0 | Mapped animal locality leads can be compared with context layers, but only with their stated chronology and precision caveats. |
 | Equus caballus | sweden-archaeology-site-discovery | mapped_locality_overlap_with_caution | 2 | 0 | 0 | Mapped animal locality leads can be compared with context layers, but only with their stated chronology and precision caveats. |
-| Equus caballus | sweden-lake-10km-top40 | mapped_locality_overlap_with_caution | 0 | 2 | 0 | Mapped animal locality leads can be compared with context layers, but only with their stated chronology and precision caveats. |
-| Equus caballus | sweden-lake-20km-top40 | mapped_locality_overlap_with_caution | 0 | 2 | 0 | Mapped animal locality leads can be compared with context layers, but only with their stated chronology and precision caveats. |
-| Equus caballus | sweden-lake-30km-top40 | mapped_locality_overlap_with_caution | 0 | 2 | 0 | Mapped animal locality leads can be compared with context layers, but only with their stated chronology and precision caveats. |
-| Equus caballus | sweden-lake-40km-top40 | mapped_locality_overlap_with_caution | 0 | 2 | 0 | Mapped animal locality leads can be compared with context layers, but only with their stated chronology and precision caveats. |
-| Equus caballus | sweden-lake-50km-top40 | mapped_locality_overlap_with_caution | 0 | 2 | 0 | Mapped animal locality leads can be compared with context layers, but only with their stated chronology and precision caveats. |
-| Equus caballus | sweden-lake-aggregate-top40 | mapped_locality_overlap_with_caution | 0 | 2 | 0 | Mapped animal locality leads can be compared with context layers, but only with their stated chronology and precision caveats. |
-| Equus caballus | sweden-lake-consensus-top40 | mapped_locality_overlap_with_caution | 0 | 2 | 0 | Mapped animal locality leads can be compared with context layers, but only with their stated chronology and precision caveats. |
-| Equus caballus | sweden-lake-fieldwork-shortlist | mapped_locality_overlap_with_caution | 0 | 2 | 0 | Mapped animal locality leads can be compared with context layers, but only with their stated chronology and precision caveats. |
+| Equus caballus | sweden-lake-10km-top40 | mapped_locality_overlap_with_caution | 2 | 0 | 0 | Mapped animal locality leads can be compared with context layers, but only with their stated chronology and precision caveats. |
+| Equus caballus | sweden-lake-20km-top40 | mapped_locality_overlap_with_caution | 2 | 0 | 0 | Mapped animal locality leads can be compared with context layers, but only with their stated chronology and precision caveats. |
+| Equus caballus | sweden-lake-30km-top40 | mapped_locality_overlap_with_caution | 2 | 0 | 0 | Mapped animal locality leads can be compared with context layers, but only with their stated chronology and precision caveats. |
+| Equus caballus | sweden-lake-40km-top40 | mapped_locality_overlap_with_caution | 2 | 0 | 0 | Mapped animal locality leads can be compared with context layers, but only with their stated chronology and precision caveats. |
+| Equus caballus | sweden-lake-50km-top40 | mapped_locality_overlap_with_caution | 2 | 0 | 0 | Mapped animal locality leads can be compared with context layers, but only with their stated chronology and precision caveats. |
+| Equus caballus | sweden-lake-aggregate-top40 | mapped_locality_overlap_with_caution | 2 | 0 | 0 | Mapped animal locality leads can be compared with context layers, but only with their stated chronology and precision caveats. |
+| Equus caballus | sweden-lake-consensus-top40 | mapped_locality_overlap_with_caution | 2 | 0 | 0 | Mapped animal locality leads can be compared with context layers, but only with their stated chronology and precision caveats. |
+| Equus caballus | sweden-lake-fieldwork-shortlist | mapped_locality_overlap_with_caution | 2 | 0 | 0 | Mapped animal locality leads can be compared with context layers, but only with their stated chronology and precision caveats. |
 | Felis catus | animal-equus-caballus | not_comparable_project_level_only | 0 | 0 | 2 | Non-human chronology is still project-level and cannot be aligned to atlas localities honestly. |
 | Felis catus | fieldwork-documentation | not_comparable_project_level_only | 0 | 0 | 2 | Non-human chronology is still project-level and cannot be aligned to atlas localities honestly. |
 | Felis catus | landclim-sites | not_comparable_project_level_only | 0 | 0 | 2 | Non-human chronology is still project-level and cannot be aligned to atlas localities honestly. |
