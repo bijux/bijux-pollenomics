@@ -2,7 +2,7 @@
   "schema_version": "country-report-summary.v1",
   "country": "Sweden",
   "version": "v66",
-  "generated_on": "2026-08-01",
+  "generated_on": "2026-08-02",
   "total_unique_samples": 416,
   "total_unique_localities": 77,
   "dataset_row_counts": {
@@ -46,5 +46,15 @@
     "json": "sweden_lake_fieldwork_preparation_v66.json",
     "csv": "sweden_lake_fieldwork_preparation_v66.csv",
     "markdown": "sweden_lake_fieldwork_preparation_v66.md"
+  },
+  "lake_archaeology_sensitivity": {
+    "json": "sweden_lake_archaeology_sensitivity_v66.json",
+    "csv": "sweden_lake_archaeology_sensitivity_v66.csv",
+    "markdown": "sweden_lake_archaeology_sensitivity_v66.md"
+  },
+  "land_use_synthesis": {
+    "json": "sweden_land_use_synthesis_v66.json",
+    "csv": "sweden_land_use_synthesis_v66.csv",
+    "markdown": "sweden_land_use_synthesis_v66.md"
   }
 }

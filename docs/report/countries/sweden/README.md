@@ -1,6 +1,6 @@
 # Sweden Homo sapiens aDNA v66 Report
 
-This bundle was generated from Homo sapiens ancient-DNA release metadata published in AADR `v66` on `2026-08-01`.
+This bundle was generated from Homo sapiens ancient-DNA release metadata published in AADR `v66` on `2026-08-02`.
 It inventories only Homo sapiens aDNA sample rows that match the `Sweden` country filter. Environmental and archaeology context layers are published in the shared map bundle, not duplicated here.
 
 ## Summary
@@ -91,6 +91,21 @@ The report deduplicates samples by `genetic_id` across datasets. Dataset row cou
 - Sweden lake evidence map: [`sweden_lake_evidence_richness_v66_map.html`](./sweden_lake_evidence_richness_v66_map.html)
 - Sweden lake evidence markdown: [`sweden_lake_evidence_richness_v66.md`](./sweden_lake_evidence_richness_v66.md)
 - Chronology caveat: the linked markdown report keeps source-by-source temporal guardrails explicit; zero-interval context layers remain spatial evidence only.
+
+
+## Lake Archaeology-Weight Sensitivity
+
+- Sensitivity JSON: [`sweden_lake_archaeology_sensitivity_v66.json`](./sweden_lake_archaeology_sensitivity_v66.json)
+- Sensitivity CSV: [`sweden_lake_archaeology_sensitivity_v66.csv`](./sweden_lake_archaeology_sensitivity_v66.csv)
+- Reader explanation: [`sweden_lake_archaeology_sensitivity_v66.md`](./sweden_lake_archaeology_sensitivity_v66.md)
+
+
+
+## Southern Sweden Land-Use Synthesis
+
+- Full temporal synthesis JSON: [`sweden_land_use_synthesis_v66.json`](./sweden_land_use_synthesis_v66.json)
+- Full temporal synthesis CSV: [`sweden_land_use_synthesis_v66.csv`](./sweden_land_use_synthesis_v66.csv)
+- Target decisions and reader explanation: [`sweden_land_use_synthesis_v66.md`](./sweden_land_use_synthesis_v66.md)
 
 
 
