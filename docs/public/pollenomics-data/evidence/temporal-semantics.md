@@ -4,7 +4,7 @@ audience: reader
 type: explanation
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-07-22
+last_reviewed: 2026-08-01
 ---
 
 # Temporal Semantics
@@ -211,12 +211,15 @@ not acquire the same interval.
 The checked-in collection currently carries different temporal capability by
 source family:
 
-- **LandClim** site sequences usually carry numeric BP windows and can
-  contribute pollen context to time-aware comparison;
+- **LandClim** site sequences usually carry numeric BP windows, while REVEALS
+  values are retained as separate dataset-cell-window features with numeric
+  bounds; both can contribute time-aware context, but the modeled grid windows
+  are not sample-owned chronologies;
 - **Neotoma** includes many numeric site spans, but the review surface records
   uneven chronology-row capture and sites without BP ranges;
-- **SEAD** currently functions as a site-inventory context layer in the
-  Sweden-facing capture and must not be treated as uniformly time-resolved;
+- **SEAD** publishes linked chronology as interval-preserving temporal
+  features while keeping upstream-undated sites in a separate spatial
+  inventory; the inventory must not be treated as uniformly time-resolved;
 - **RAÄ** contributes spatial archaeology density without repository-owned time
   windows;
 - **SVAR** and boundary layers provide lake identity and geographic framing,

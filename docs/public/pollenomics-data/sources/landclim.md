@@ -270,8 +270,14 @@ when the rendered map looks unchanged.
 - `data/landclim/normalized/landclim_summary.json` records family counts;
 - `data/landclim/normalized/nordic_pollen_site_sequences.geojson` governs
   normalized sequence points;
-- `data/landclim/normalized/nordic_reveals_grid_cells.geojson` governs grid
-  context;
+- `data/landclim/normalized/nordic_reveals_grid_cells.geojson` governs
+  aggregate grid discovery;
+- `data/landclim/normalized/nordic_reveals_temporal_grid_cells.geojson`
+  governs separately filterable reconstruction windows;
+- `data/landclim/normalized/landclim_bibliography.json` governs dataset and
+  publication citations;
+- `data/landclim/review/spatiotemporal_review.json` audits temporal coverage
+  and bibliography linkage;
 - `data/source_spatiotemporal_posture_registry.json` records comparison posture.
 
 Public renderings are derived from these surfaces and cannot strengthen their

@@ -4,7 +4,7 @@ audience: reader
 type: explanation
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-07-22
+last_reviewed: 2026-08-01
 ---
 
 # Maps
@@ -165,6 +165,13 @@ Filters operate over admitted product members. A time filter may exclude rows
 with numeric non-overlap, preserve or separately classify rows with unavailable
 chronology, and leave non-temporal framing untouched according to the contract.
 It must not silently interpret missing time as outside the selected period.
+
+The Nordic LandClim layer demonstrates the distinction. Its filter operates on
+2,500 separate modeled grid-window features, not on 88 aggregate cells assigned
+one artificial full-Holocene interval. SEAD likewise filters its linked
+chronology features while its upstream-undated site inventory remains explicit
+spatial context. A time control is scientifically meaningful only when the
+published layer preserves those source-owned temporal units.
 
 When a filtered view is empty, distinguish four cases: no product members in
 scope, no members matching the declared condition, members without comparable

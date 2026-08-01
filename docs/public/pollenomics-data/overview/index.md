@@ -4,7 +4,7 @@ audience: reader
 type: explanation
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-07-22
+last_reviewed: 2026-08-01
 ---
 
 # Data System
@@ -42,12 +42,12 @@ The Nordic publication illustrates why these counts must remain separate:
 | Published surface | Current members | Meaning |
 | --- | ---: | --- |
 | AADR human aDNA | 1,231 samples | release-pinned human sample metadata selected for four Nordic countries |
-| LandClim | 492 site sequences | primary pollen and vegetation context |
+| LandClim | 492 site sequences | primary pollen context; 482 sequences carry numeric BP bounds |
 | Neotoma | 200 sites | palaeoecological site context with explicit time postures |
 | SEAD | 2,172 mapped sites | environmental-archaeology context; 23 additional reviewed rows lack country assignment |
 | animal aDNA | 2 Nordic localities | admitted animal points in this regional product, not the size of the global animal evidence base |
 | fieldwork | 1 documented location | a checked-in observation at Lyngsjön, not a regional sampling census |
-| REVEALS | 88 grid cells | modelled pollen context |
+| REVEALS | 2,500 dataset-cell-window features across 88 aggregate cells | time-filterable modelled vegetation context |
 | RAÄ | 106 density cells | Sweden-specific archaeology density context |
 | boundaries | 4 country polygons | geographic framing only |
 
