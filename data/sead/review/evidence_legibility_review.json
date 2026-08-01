@@ -2,26 +2,43 @@
   "schema_version": "sead-evidence-legibility-review.v1",
   "generated_on": "2026-08-01",
   "row_count": 2195,
+  "inventory_summary": {
+    "numeric_interval_row_count": 927,
+    "dating_range_row_count": 7775,
+    "dating_range_site_count": 392,
+    "relative_period_row_count": 10950,
+    "relative_period_site_count": 531,
+    "analysis_entity_age_row_count": 852,
+    "analysis_entity_age_site_count": 140,
+    "geochronology_row_count": 104,
+    "geochronology_site_count": 21,
+    "dendro_date_row_count": 7321,
+    "dendro_date_site_count": 386,
+    "chronology_record_count": 27002,
+    "bibliography_row_count": 40981,
+    "bibliography_site_count": 1300,
+    "unresolved_site_count": 1268,
+    "site_inventory_only_row_count": 872,
+    "temporal_capture_posture": "linked_chronology_captured"
+  },
   "temporal_strength_counts": {
-    "inventory_only_or_unresolved": 1294,
-    "numeric_span_with_contextual_caveat": 735,
-    "period_label_only": 12,
-    "numeric_site_span": 154
+    "inventory_only_or_unresolved": 1290,
+    "numeric_span_with_contextual_caveat": 748,
+    "numeric_site_span": 157
   },
   "duration_posture_counts": {
-    "duration_not_available": 1284,
-    "duration_span_visible": 837,
+    "duration_not_available": 1268,
+    "duration_span_visible": 842,
     "broad_context_duration": 22,
-    "point_like_or_single_year": 52
+    "point_like_or_single_year": 63
   },
   "access_visibility_counts": {
     "site_page_only": 2192,
     "site_page_with_reference_links": 3
   },
   "normalization_risk_counts": {
-    "medium_access_constrained": 1448,
-    "medium_contextual_numeric_mix": 735,
-    "medium_period_label_interpretation": 12
+    "medium_access_constrained": 1447,
+    "medium_contextual_numeric_mix": 748
   },
   "rows": [
     {
@@ -983,19 +1000,6 @@
       "normalization_risk": "medium_access_constrained",
       "publication_posture": "context_layer_with_explicit_caveat",
       "site_page_url": "https://browser.sead.se/site/5683",
-      "summary_label": "Unresolved time semantics",
-      "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
-    },
-    {
-      "site_id": "4999",
-      "site_name": "Alvastra",
-      "country": "Sweden",
-      "temporal_strength": "inventory_only_or_unresolved",
-      "duration_posture": "duration_not_available",
-      "access_visibility": "site_page_only",
-      "normalization_risk": "medium_access_constrained",
-      "publication_posture": "context_layer_with_explicit_caveat",
-      "site_page_url": "https://browser.sead.se/site/4999",
       "summary_label": "Unresolved time semantics",
       "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
     },
@@ -5953,19 +5957,6 @@
       "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
     },
     {
-      "site_id": "4917",
-      "site_name": "Hemavan",
-      "country": "Sweden",
-      "temporal_strength": "inventory_only_or_unresolved",
-      "duration_posture": "duration_not_available",
-      "access_visibility": "site_page_only",
-      "normalization_risk": "medium_access_constrained",
-      "publication_posture": "context_layer_with_explicit_caveat",
-      "site_page_url": "https://browser.sead.se/site/4917",
-      "summary_label": "Unresolved time semantics",
-      "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
-    },
-    {
       "site_id": "5877",
       "site_name": "Hembygdsgården",
       "country": "Sweden",
@@ -6963,19 +6954,6 @@
       "normalization_risk": "medium_access_constrained",
       "publication_posture": "context_layer_with_explicit_caveat",
       "site_page_url": "https://browser.sead.se/site/5891",
-      "summary_label": "Unresolved time semantics",
-      "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
-    },
-    {
-      "site_id": "4465",
-      "site_name": "Järavallen 1",
-      "country": "Sweden",
-      "temporal_strength": "inventory_only_or_unresolved",
-      "duration_posture": "duration_not_available",
-      "access_visibility": "site_page_only",
-      "normalization_risk": "medium_access_constrained",
-      "publication_posture": "context_layer_with_explicit_caveat",
-      "site_page_url": "https://browser.sead.se/site/4465",
       "summary_label": "Unresolved time semantics",
       "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
     },
@@ -12830,19 +12808,6 @@
       "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
     },
     {
-      "site_id": "4645",
-      "site_name": "Spjalko",
-      "country": "Sweden",
-      "temporal_strength": "inventory_only_or_unresolved",
-      "duration_posture": "duration_not_available",
-      "access_visibility": "site_page_only",
-      "normalization_risk": "medium_access_constrained",
-      "publication_posture": "context_layer_with_explicit_caveat",
-      "site_page_url": "https://browser.sead.se/site/4645",
-      "summary_label": "Unresolved time semantics",
-      "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
-    },
-    {
       "site_id": "6180",
       "site_name": "Sporrakulla",
       "country": "Sweden",
@@ -16925,6 +16890,19 @@
       "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
     },
     {
+      "site_id": "4999",
+      "site_name": "Alvastra",
+      "country": "Sweden",
+      "temporal_strength": "numeric_site_span",
+      "duration_posture": "duration_span_visible",
+      "access_visibility": "site_page_only",
+      "normalization_risk": "medium_access_constrained",
+      "publication_posture": "context_layer_with_explicit_caveat",
+      "site_page_url": "https://browser.sead.se/site/4999",
+      "summary_label": "3649-6449 BP",
+      "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
+    },
+    {
       "site_id": "4228",
       "site_name": "Appelbergska magasinet",
       "country": "Sweden",
@@ -17458,6 +17436,19 @@
       "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
     },
     {
+      "site_id": "4917",
+      "site_name": "Hemavan",
+      "country": "Sweden",
+      "temporal_strength": "numeric_site_span",
+      "duration_posture": "duration_span_visible",
+      "access_visibility": "site_page_only",
+      "normalization_risk": "medium_access_constrained",
+      "publication_posture": "context_layer_with_explicit_caveat",
+      "site_page_url": "https://browser.sead.se/site/4917",
+      "summary_label": "5050-10115 BP",
+      "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
+    },
+    {
       "site_id": "3908",
       "site_name": "Herrökna gård",
       "country": "Sweden",
@@ -17585,6 +17576,19 @@
       "publication_posture": "context_layer_with_explicit_caveat",
       "site_page_url": "https://browser.sead.se/site/4107",
       "summary_label": "126-189 BP",
+      "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
+    },
+    {
+      "site_id": "4465",
+      "site_name": "Järavallen 1",
+      "country": "Sweden",
+      "temporal_strength": "numeric_site_span",
+      "duration_posture": "duration_span_visible",
+      "access_visibility": "site_page_only",
+      "normalization_risk": "medium_access_constrained",
+      "publication_posture": "context_layer_with_explicit_caveat",
+      "site_page_url": "https://browser.sead.se/site/4465",
+      "summary_label": "5000-7000 BP",
       "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
     },
     {
@@ -18407,6 +18411,19 @@
       "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
     },
     {
+      "site_id": "4645",
+      "site_name": "Spjalko",
+      "country": "Sweden",
+      "temporal_strength": "numeric_site_span",
+      "duration_posture": "duration_span_visible",
+      "access_visibility": "site_page_only",
+      "normalization_risk": "medium_access_constrained",
+      "publication_posture": "context_layer_with_explicit_caveat",
+      "site_page_url": "https://browser.sead.se/site/4645",
+      "summary_label": "2500-7000 BP",
+      "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
+    },
+    {
       "site_id": "3997",
       "site_name": "Stensjö",
       "country": "Sweden",
@@ -18732,19 +18749,6 @@
       "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
     },
     {
-      "site_id": "3838",
-      "site_name": "Väster Lakbäck",
-      "country": "Sweden",
-      "temporal_strength": "numeric_site_span",
-      "duration_posture": "duration_span_visible",
-      "access_visibility": "site_page_only",
-      "normalization_risk": "medium_access_constrained",
-      "publication_posture": "context_layer_with_explicit_caveat",
-      "site_page_url": "https://browser.sead.se/site/3838",
-      "summary_label": "172-442 BP",
-      "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
-    },
-    {
       "site_id": "3944",
       "site_name": "Västerås domkyrka",
       "country": "Sweden",
@@ -18988,7 +18992,7 @@
       "normalization_risk": "medium_contextual_numeric_mix",
       "publication_posture": "context_layer_with_explicit_caveat",
       "site_page_url": "https://browser.sead.se/site/4237",
-      "summary_label": "Early Holocene (7000-10000 BP)",
+      "summary_label": "Early Holocene (6610-7837 BP)",
       "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
     },
     {
@@ -19625,7 +19629,7 @@
       "normalization_risk": "medium_contextual_numeric_mix",
       "publication_posture": "context_layer_with_explicit_caveat",
       "site_page_url": "https://browser.sead.se/site/4805",
-      "summary_label": "Early Holocene; Lateglacial (7000-13500 BP)",
+      "summary_label": "Early Holocene; Lateglacial (7000-18277 BP)",
       "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
     },
     {
@@ -19638,7 +19642,7 @@
       "normalization_risk": "medium_contextual_numeric_mix",
       "publication_posture": "context_layer_with_explicit_caveat",
       "site_page_url": "https://browser.sead.se/site/3781",
-      "summary_label": "Middle neolithic S Scandinavia; Quaternary; CAL_PERIOD_1885-1706_BP; Pre Roman Iron Age; Pre Roman - Roman Iron Age; Bronze Age Period VI - Pre Roman Iron Age (1550-5250 BP)",
+      "summary_label": "Middle neolithic S Scandinavia; Quaternary; CAL_PERIOD_1885-1706_BP; Pre Roman Iron Age; Pre Roman - Roman Iron Age; Bronze Age Period VI - Pre Roman Iron Age (1550-2700000 BP)",
       "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
     },
     {
@@ -19703,7 +19707,7 @@
       "normalization_risk": "medium_contextual_numeric_mix",
       "publication_posture": "context_layer_with_explicit_caveat",
       "site_page_url": "https://browser.sead.se/site/4287",
-      "summary_label": "Early Weichselian (45000-122000 BP)",
+      "summary_label": "Early Weichselian (40600-122000 BP)",
       "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
     },
     {
@@ -19756,6 +19760,19 @@
       "publication_posture": "context_layer_with_explicit_caveat",
       "site_page_url": "https://browser.sead.se/site/3777",
       "summary_label": "Viking (850-1150 BP)",
+      "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
+    },
+    {
+      "site_id": "3776",
+      "site_name": "Borgholm",
+      "country": "Sweden",
+      "temporal_strength": "numeric_span_with_contextual_caveat",
+      "duration_posture": "point_like_or_single_year",
+      "access_visibility": "site_page_only",
+      "normalization_risk": "medium_contextual_numeric_mix",
+      "publication_posture": "context_layer_with_explicit_caveat",
+      "site_page_url": "https://browser.sead.se/site/3776",
+      "summary_label": "Quaternary (2700000 BP)",
       "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
     },
     {
@@ -19924,7 +19941,7 @@
       "normalization_risk": "medium_contextual_numeric_mix",
       "publication_posture": "context_layer_with_explicit_caveat",
       "site_page_url": "https://browser.sead.se/site/4301",
-      "summary_label": "Early Weichselian (45000-122000 BP)",
+      "summary_label": "Early Weichselian (34000-57800 BP)",
       "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
     },
     {
@@ -19989,7 +20006,7 @@
       "normalization_risk": "medium_contextual_numeric_mix",
       "publication_posture": "context_layer_with_explicit_caveat",
       "site_page_url": "https://browser.sead.se/site/3767",
-      "summary_label": "Early Iron Age; Quaternary (1550-2450 BP)",
+      "summary_label": "Early Iron Age; Quaternary (1550-2700000 BP)",
       "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
     },
     {
@@ -20041,7 +20058,7 @@
       "normalization_risk": "medium_contextual_numeric_mix",
       "publication_posture": "context_layer_with_explicit_caveat",
       "site_page_url": "https://browser.sead.se/site/4776",
-      "summary_label": "Lateglacial (10000-13500 BP)",
+      "summary_label": "Lateglacial (11100-13261 BP)",
       "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
     },
     {
@@ -20119,7 +20136,7 @@
       "normalization_risk": "medium_contextual_numeric_mix",
       "publication_posture": "context_layer_with_explicit_caveat",
       "site_page_url": "https://browser.sead.se/site/5528",
-      "summary_label": "Oxygen Isotope Stage 7 (186000-245000 BP)",
+      "summary_label": "Oxygen Isotope Stage 7 (191000-243000 BP)",
       "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
     },
     {
@@ -20309,12 +20326,12 @@
       "site_name": "Egtved",
       "country": "Denmark",
       "temporal_strength": "numeric_span_with_contextual_caveat",
-      "duration_posture": "duration_span_visible",
+      "duration_posture": "point_like_or_single_year",
       "access_visibility": "site_page_only",
       "normalization_risk": "medium_contextual_numeric_mix",
       "publication_posture": "context_layer_with_explicit_caveat",
       "site_page_url": "https://browser.sead.se/site/5461",
-      "summary_label": "Bronze Age Britain; CAL_1370_BC (2500-3320 BP)",
+      "summary_label": "Bronze Age Britain; CAL_1370_BC (3319 BP)",
       "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
     },
     {
@@ -20367,6 +20384,19 @@
       "publication_posture": "context_layer_with_explicit_caveat",
       "site_page_url": "https://browser.sead.se/site/4185",
       "summary_label": "859-1060 BP",
+      "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
+    },
+    {
+      "site_id": "3742",
+      "site_name": "Ekeby",
+      "country": "Sweden",
+      "temporal_strength": "numeric_span_with_contextual_caveat",
+      "duration_posture": "point_like_or_single_year",
+      "access_visibility": "site_page_only",
+      "normalization_risk": "medium_contextual_numeric_mix",
+      "publication_posture": "context_layer_with_explicit_caveat",
+      "site_page_url": "https://browser.sead.se/site/3742",
+      "summary_label": "Quaternary (2700000 BP)",
       "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
     },
     {
@@ -20704,7 +20734,7 @@
       "normalization_risk": "medium_contextual_numeric_mix",
       "publication_posture": "context_layer_with_explicit_caveat",
       "site_page_url": "https://browser.sead.se/site/3732",
-      "summary_label": "Pre Roman Iron Age; Quaternary (1950-2450 BP)",
+      "summary_label": "Pre Roman Iron Age; Quaternary (1950-2700000 BP)",
       "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
     },
     {
@@ -20938,7 +20968,7 @@
       "normalization_risk": "medium_contextual_numeric_mix",
       "publication_posture": "context_layer_with_explicit_caveat",
       "site_page_url": "https://browser.sead.se/site/3725",
-      "summary_label": "Quaternary; Bronze Age Period III - VI; Early neolithic S Scandinavia (2450-5950 BP)",
+      "summary_label": "Quaternary; Bronze Age Period III - VI; Early neolithic S Scandinavia (2450-2700000 BP)",
       "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
     },
     {
@@ -20964,7 +20994,7 @@
       "normalization_risk": "medium_contextual_numeric_mix",
       "publication_posture": "context_layer_with_explicit_caveat",
       "site_page_url": "https://browser.sead.se/site/4416",
-      "summary_label": "Lateglacial Interstadial; Lateglacial (10000-13500 BP)",
+      "summary_label": "Lateglacial Interstadial; Lateglacial (10790-13096 BP)",
       "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
     },
     {
@@ -20972,12 +21002,12 @@
       "site_name": "Goteborg",
       "country": "Sweden",
       "temporal_strength": "numeric_span_with_contextual_caveat",
-      "duration_posture": "duration_span_visible",
+      "duration_posture": "point_like_or_single_year",
       "access_visibility": "site_page_only",
       "normalization_risk": "medium_contextual_numeric_mix",
       "publication_posture": "context_layer_with_explicit_caveat",
       "site_page_url": "https://browser.sead.se/site/4420",
-      "summary_label": "Post Medieval; CAL_1745_AD (0-1550 BP)",
+      "summary_label": "Post Medieval; CAL_1745_AD (205 BP)",
       "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
     },
     {
@@ -20990,7 +21020,7 @@
       "normalization_risk": "medium_contextual_numeric_mix",
       "publication_posture": "context_layer_with_explicit_caveat",
       "site_page_url": "https://browser.sead.se/site/4421",
-      "summary_label": "Post Medieval (0-1550 BP)",
+      "summary_label": "Post Medieval (0-400 BP)",
       "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
     },
     {
@@ -21029,7 +21059,7 @@
       "normalization_risk": "medium_contextual_numeric_mix",
       "publication_posture": "context_layer_with_explicit_caveat",
       "site_page_url": "https://browser.sead.se/site/3721",
-      "summary_label": "Quaternary; Late neolithic S Scandinavia; Bronze Age Period IV - VI; Bronze Age Period VI - Pre Roman Iron Age (1950-4350 BP)",
+      "summary_label": "Quaternary; Late neolithic S Scandinavia; Bronze Age Period IV - VI; Bronze Age Period VI - Pre Roman Iron Age (1950-2700000 BP)",
       "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
     },
     {
@@ -21095,6 +21125,19 @@
       "publication_posture": "context_layer_with_explicit_caveat",
       "site_page_url": "https://browser.sead.se/site/4149",
       "summary_label": "110-357 BP",
+      "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
+    },
+    {
+      "site_id": "3715",
+      "site_name": "Gråfjell lokal Jfp.",
+      "country": "Norway",
+      "temporal_strength": "numeric_span_with_contextual_caveat",
+      "duration_posture": "point_like_or_single_year",
+      "access_visibility": "site_page_only",
+      "normalization_risk": "medium_contextual_numeric_mix",
+      "publication_posture": "context_layer_with_explicit_caveat",
+      "site_page_url": "https://browser.sead.se/site/3715",
+      "summary_label": "Quaternary (2700000 BP)",
       "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
     },
     {
@@ -21432,7 +21475,7 @@
       "normalization_risk": "medium_contextual_numeric_mix",
       "publication_posture": "context_layer_with_explicit_caveat",
       "site_page_url": "https://browser.sead.se/site/4432",
-      "summary_label": "Early Holocene (7000-10000 BP)",
+      "summary_label": "Early Holocene (7000-11190 BP)",
       "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
     },
     {
@@ -21458,7 +21501,7 @@
       "normalization_risk": "medium_contextual_numeric_mix",
       "publication_posture": "context_layer_with_explicit_caveat",
       "site_page_url": "https://browser.sead.se/site/4433",
-      "summary_label": "Early Weichselian (45000-122000 BP)",
+      "summary_label": "Early Weichselian (40000-122000 BP)",
       "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
     },
     {
@@ -21471,7 +21514,7 @@
       "normalization_risk": "medium_contextual_numeric_mix",
       "publication_posture": "context_layer_with_explicit_caveat",
       "site_page_url": "https://browser.sead.se/site/3702",
-      "summary_label": "Roman Iron Age - Migration Period; Quaternary (1400-1950 BP)",
+      "summary_label": "Roman Iron Age - Migration Period; Quaternary (1400-2700000 BP)",
       "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
     },
     {
@@ -21575,7 +21618,7 @@
       "normalization_risk": "medium_contextual_numeric_mix",
       "publication_posture": "context_layer_with_explicit_caveat",
       "site_page_url": "https://browser.sead.se/site/3694",
-      "summary_label": "Quaternary; Bronze Age Period II - VI (2450-3450 BP)",
+      "summary_label": "Quaternary; Bronze Age Period II - VI (2450-2700000 BP)",
       "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
     },
     {
@@ -21978,7 +22021,7 @@
       "normalization_risk": "medium_contextual_numeric_mix",
       "publication_posture": "context_layer_with_explicit_caveat",
       "site_page_url": "https://browser.sead.se/site/3677",
-      "summary_label": "Quaternary; Bronze Age Period VI - Pre Roman Iron Age (1950-2550 BP)",
+      "summary_label": "Quaternary; Bronze Age Period VI - Pre Roman Iron Age (1950-2700000 BP)",
       "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
     },
     {
@@ -22359,6 +22402,19 @@
       "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
     },
     {
+      "site_id": "3663",
+      "site_name": "Järrestad",
+      "country": "Sweden",
+      "temporal_strength": "numeric_span_with_contextual_caveat",
+      "duration_posture": "point_like_or_single_year",
+      "access_visibility": "site_page_only",
+      "normalization_risk": "medium_contextual_numeric_mix",
+      "publication_posture": "context_layer_with_explicit_caveat",
+      "site_page_url": "https://browser.sead.se/site/3663",
+      "summary_label": "Quaternary (2700000 BP)",
+      "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
+    },
+    {
       "site_id": "3662",
       "site_name": "Järrestad SU1",
       "country": "Sweden",
@@ -22511,7 +22567,7 @@
       "normalization_risk": "medium_contextual_numeric_mix",
       "publication_posture": "context_layer_with_explicit_caveat",
       "site_page_url": "https://browser.sead.se/site/3655",
-      "summary_label": "Quaternary; Middle neolithic S Scandinavia; Early neolithic S Scandinavia (4350-5950 BP)",
+      "summary_label": "Quaternary; Middle neolithic S Scandinavia; Early neolithic S Scandinavia (4350-2700000 BP)",
       "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
     },
     {
@@ -22576,7 +22632,7 @@
       "normalization_risk": "medium_contextual_numeric_mix",
       "publication_posture": "context_layer_with_explicit_caveat",
       "site_page_url": "https://browser.sead.se/site/4922",
-      "summary_label": "Viking; CAL_-950_AD; CAL_800_AD (850-1150 BP)",
+      "summary_label": "Viking; CAL_-950_AD; CAL_800_AD (1000-1150 BP)",
       "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
     },
     {
@@ -22675,12 +22731,12 @@
       "site_name": "Klintholm",
       "country": "Denmark",
       "temporal_strength": "numeric_span_with_contextual_caveat",
-      "duration_posture": "point_like_or_single_year",
+      "duration_posture": "duration_span_visible",
       "access_visibility": "site_page_only",
       "normalization_risk": "medium_contextual_numeric_mix",
       "publication_posture": "context_layer_with_explicit_caveat",
       "site_page_url": "https://browser.sead.se/site/5479",
-      "summary_label": "Oxygen Isotope Stage 3 (0 BP)",
+      "summary_label": "Oxygen Isotope Stage 3 (33000-44076 BP)",
       "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
     },
     {
@@ -22836,7 +22892,7 @@
       "normalization_risk": "medium_contextual_numeric_mix",
       "publication_posture": "context_layer_with_explicit_caveat",
       "site_page_url": "https://browser.sead.se/site/4482",
-      "summary_label": "Lateglacial (10000-13500 BP)",
+      "summary_label": "Lateglacial (8620-13500 BP)",
       "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
     },
     {
@@ -23178,6 +23234,19 @@
       "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
     },
     {
+      "site_id": "3617",
+      "site_name": "Kv. Kleopatra",
+      "country": "Sweden",
+      "temporal_strength": "numeric_span_with_contextual_caveat",
+      "duration_posture": "point_like_or_single_year",
+      "access_visibility": "site_page_only",
+      "normalization_risk": "medium_contextual_numeric_mix",
+      "publication_posture": "context_layer_with_explicit_caveat",
+      "site_page_url": "https://browser.sead.se/site/3617",
+      "summary_label": "Post Reformation (450 BP)",
+      "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
+    },
+    {
       "site_id": "3616",
       "site_name": "kv. Specksrum",
       "country": "Sweden",
@@ -23412,6 +23481,19 @@
       "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
     },
     {
+      "site_id": "3611",
+      "site_name": "Kvinnsgröta",
+      "country": "Sweden",
+      "temporal_strength": "numeric_span_with_contextual_caveat",
+      "duration_posture": "point_like_or_single_year",
+      "access_visibility": "site_page_only",
+      "normalization_risk": "medium_contextual_numeric_mix",
+      "publication_posture": "context_layer_with_explicit_caveat",
+      "site_page_url": "https://browser.sead.se/site/3611",
+      "summary_label": "Quaternary (2700000 BP)",
+      "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
+    },
+    {
       "site_id": "3610",
       "site_name": "Kyrkebo",
       "country": "Sweden",
@@ -23461,6 +23543,19 @@
       "publication_posture": "context_layer_with_explicit_caveat",
       "site_page_url": "https://browser.sead.se/site/3608",
       "summary_label": "Pre Roman - Roman Iron Age (1550-2450 BP)",
+      "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
+    },
+    {
+      "site_id": "3607",
+      "site_name": "Källingemöre",
+      "country": "Sweden",
+      "temporal_strength": "numeric_span_with_contextual_caveat",
+      "duration_posture": "point_like_or_single_year",
+      "access_visibility": "site_page_only",
+      "normalization_risk": "medium_contextual_numeric_mix",
+      "publication_posture": "context_layer_with_explicit_caveat",
+      "site_page_url": "https://browser.sead.se/site/3607",
+      "summary_label": "Quaternary (2700000 BP)",
       "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
     },
     {
@@ -23538,7 +23633,7 @@
       "normalization_risk": "medium_contextual_numeric_mix",
       "publication_posture": "context_layer_with_explicit_caveat",
       "site_page_url": "https://browser.sead.se/site/4481",
-      "summary_label": "Lateglacial Interstadial (11500-12500 BP)",
+      "summary_label": "Lateglacial Interstadial (8610-14741 BP)",
       "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
     },
     {
@@ -23889,7 +23984,7 @@
       "normalization_risk": "medium_contextual_numeric_mix",
       "publication_posture": "context_layer_with_explicit_caveat",
       "site_page_url": "https://browser.sead.se/site/3815",
-      "summary_label": "Middle neolithic S Scandinavia; Bronze Age Period II - VI; Quaternary; Pre Roman - Roman Iron Age (1550-5250 BP)",
+      "summary_label": "Middle neolithic S Scandinavia; Bronze Age Period II - VI; Quaternary; Pre Roman - Roman Iron Age (1550-2700000 BP)",
       "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
     },
     {
@@ -23923,12 +24018,12 @@
       "site_name": "Lund Minster",
       "country": "Sweden",
       "temporal_strength": "numeric_span_with_contextual_caveat",
-      "duration_posture": "duration_span_visible",
+      "duration_posture": "point_like_or_single_year",
       "access_visibility": "site_page_only",
       "normalization_risk": "medium_contextual_numeric_mix",
       "publication_posture": "context_layer_with_explicit_caveat",
       "site_page_url": "https://browser.sead.se/site/5554",
-      "summary_label": "Post Medieval; CAL_1679_AD (0-1550 BP)",
+      "summary_label": "Post Medieval; CAL_1679_AD (271 BP)",
       "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
     },
     {
@@ -23942,6 +24037,19 @@
       "publication_posture": "context_layer_with_explicit_caveat",
       "site_page_url": "https://browser.sead.se/site/3580",
       "summary_label": "CAL_PERIOD_1800-1300_BP (1250-1750 BP)",
+      "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
+    },
+    {
+      "site_id": "4519",
+      "site_name": "Lundbacken, Tillinge",
+      "country": "Sweden",
+      "temporal_strength": "numeric_span_with_contextual_caveat",
+      "duration_posture": "duration_span_visible",
+      "access_visibility": "site_page_only",
+      "normalization_risk": "medium_contextual_numeric_mix",
+      "publication_posture": "context_layer_with_explicit_caveat",
+      "site_page_url": "https://browser.sead.se/site/4519",
+      "summary_label": "CAL_-550_AD (1400-1949 BP)",
       "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
     },
     {
@@ -24357,7 +24465,7 @@
       "normalization_risk": "medium_contextual_numeric_mix",
       "publication_posture": "context_layer_with_explicit_caveat",
       "site_page_url": "https://browser.sead.se/site/3561",
-      "summary_label": "Early neolithic S Scandinavia; Quaternary (5250-5950 BP)",
+      "summary_label": "Early neolithic S Scandinavia; Quaternary (5250-2700000 BP)",
       "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
     },
     {
@@ -24552,7 +24660,7 @@
       "normalization_risk": "medium_contextual_numeric_mix",
       "publication_posture": "context_layer_with_explicit_caveat",
       "site_page_url": "https://browser.sead.se/site/5606",
-      "summary_label": "Holocene; Lateglacial (0-13500 BP)",
+      "summary_label": "Holocene; Lateglacial (5020-10440 BP)",
       "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
     },
     {
@@ -24630,7 +24738,7 @@
       "normalization_risk": "medium_contextual_numeric_mix",
       "publication_posture": "context_layer_with_explicit_caveat",
       "site_page_url": "https://browser.sead.se/site/3547",
-      "summary_label": "Quaternary; Late Neolithic - Early Bronze Age S Scandinavia (3050-4350 BP)",
+      "summary_label": "Quaternary; Late Neolithic - Early Bronze Age S Scandinavia (3050-2700000 BP)",
       "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
     },
     {
@@ -24786,7 +24894,7 @@
       "normalization_risk": "medium_contextual_numeric_mix",
       "publication_posture": "context_layer_with_explicit_caveat",
       "site_page_url": "https://browser.sead.se/site/3540",
-      "summary_label": "Quaternary; Middle neolithic S Scandinavia (4350-5250 BP)",
+      "summary_label": "Quaternary; Middle neolithic S Scandinavia (4350-2700000 BP)",
       "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
     },
     {
@@ -25007,7 +25115,7 @@
       "normalization_risk": "medium_contextual_numeric_mix",
       "publication_posture": "context_layer_with_explicit_caveat",
       "site_page_url": "https://browser.sead.se/site/4554",
-      "summary_label": "Lateglacial (10000-13500 BP)",
+      "summary_label": "Lateglacial (11460-13597 BP)",
       "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
     },
     {
@@ -25033,7 +25141,7 @@
       "normalization_risk": "medium_contextual_numeric_mix",
       "publication_posture": "context_layer_with_explicit_caveat",
       "site_page_url": "https://browser.sead.se/site/5524",
-      "summary_label": "Viking; CAL_800-1050_AD (850-1150 BP)",
+      "summary_label": "Viking; CAL_800-1050_AD (900-1150 BP)",
       "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
     },
     {
@@ -25085,7 +25193,7 @@
       "normalization_risk": "medium_contextual_numeric_mix",
       "publication_posture": "context_layer_with_explicit_caveat",
       "site_page_url": "https://browser.sead.se/site/4569",
-      "summary_label": "Medieval; CAL_1242_AD-; CAL_-1300_AD; CAL_1200-1300_AD (400-1550 BP)",
+      "summary_label": "Medieval; CAL_1242_AD-; CAL_-1300_AD; CAL_1200-1300_AD (650-750 BP)",
       "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
     },
     {
@@ -25098,7 +25206,7 @@
       "normalization_risk": "medium_contextual_numeric_mix",
       "publication_posture": "context_layer_with_explicit_caveat",
       "site_page_url": "https://browser.sead.se/site/4570",
-      "summary_label": "Medieval; CAL_1175-1225_AD; CAL_1275-1300_AD; CAL_1150-1200_AD; CAL_-1225_AD; CAL_1175_AD-; CAL_1025-1075_AD; CAL_1050-1100_AD (400-1550 BP)",
+      "summary_label": "Medieval; CAL_1175-1225_AD; CAL_1275-1300_AD; CAL_1150-1200_AD; CAL_-1225_AD; CAL_1175_AD-; CAL_1025-1075_AD; CAL_1050-1100_AD (650-925 BP)",
       "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
     },
     {
@@ -25111,7 +25219,7 @@
       "normalization_risk": "medium_contextual_numeric_mix",
       "publication_posture": "context_layer_with_explicit_caveat",
       "site_page_url": "https://browser.sead.se/site/4571",
-      "summary_label": "Medieval; CAL_1200-1250_AD; CAL_1400-1500_AD; CAL_1150-1225_AD; CAL_1150-1200_AD; CAL_1150-1500_AD (400-1550 BP)",
+      "summary_label": "Medieval; CAL_1200-1250_AD; CAL_1400-1500_AD; CAL_1150-1225_AD; CAL_1150-1200_AD; CAL_1150-1500_AD (450-800 BP)",
       "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
     },
     {
@@ -25124,7 +25232,7 @@
       "normalization_risk": "medium_contextual_numeric_mix",
       "publication_posture": "context_layer_with_explicit_caveat",
       "site_page_url": "https://browser.sead.se/site/3529",
-      "summary_label": "Quaternary; CAL_PERIOD_5200-4800_BP (4750-5150 BP)",
+      "summary_label": "Quaternary; CAL_PERIOD_5200-4800_BP (4750-2700000 BP)",
       "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
     },
     {
@@ -25177,6 +25285,19 @@
       "publication_posture": "context_layer_with_explicit_caveat",
       "site_page_url": "https://browser.sead.se/site/3526",
       "summary_label": "Early neolithic S Scandinavia (5250-5950 BP)",
+      "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
+    },
+    {
+      "site_id": "3523",
+      "site_name": "Parboäng",
+      "country": "Sweden",
+      "temporal_strength": "numeric_span_with_contextual_caveat",
+      "duration_posture": "point_like_or_single_year",
+      "access_visibility": "site_page_only",
+      "normalization_risk": "medium_contextual_numeric_mix",
+      "publication_posture": "context_layer_with_explicit_caveat",
+      "site_page_url": "https://browser.sead.se/site/3523",
+      "summary_label": "Quaternary (2700000 BP)",
       "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
     },
     {
@@ -25271,6 +25392,19 @@
       "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
     },
     {
+      "site_id": "3520",
+      "site_name": "Pinnekulla",
+      "country": "Sweden",
+      "temporal_strength": "numeric_span_with_contextual_caveat",
+      "duration_posture": "point_like_or_single_year",
+      "access_visibility": "site_page_only",
+      "normalization_risk": "medium_contextual_numeric_mix",
+      "publication_posture": "context_layer_with_explicit_caveat",
+      "site_page_url": "https://browser.sead.se/site/3520",
+      "summary_label": "Quaternary (2700000 BP)",
+      "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
+    },
+    {
       "site_id": "5066",
       "site_name": "Piteå: Borgsfors",
       "country": "Sweden",
@@ -25319,7 +25453,7 @@
       "normalization_risk": "medium_contextual_numeric_mix",
       "publication_posture": "context_layer_with_explicit_caveat",
       "site_page_url": "https://browser.sead.se/site/3516",
-      "summary_label": "Quaternary; Pre Roman Iron Age (1950-2450 BP)",
+      "summary_label": "Quaternary; Pre Roman Iron Age (1950-2700000 BP)",
       "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
     },
     {
@@ -25332,7 +25466,7 @@
       "normalization_risk": "medium_contextual_numeric_mix",
       "publication_posture": "context_layer_with_explicit_caveat",
       "site_page_url": "https://browser.sead.se/site/4910",
-      "summary_label": "Mesolithic (5000-10000 BP)",
+      "summary_label": "Mesolithic (5730-6880 BP)",
       "review_note": "This row carries a visible site span, but the span still belongs to archaeology context rather than a sample-owned event."
     },
     {
@@ -25414,6 +25548,19 @@
       "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
     },
     {
+      "site_id": "3512",
+      "site_name": "Ramsättra",
+      "country": "Sweden",
+      "temporal_strength": "numeric_span_with_contextual_caveat",
+      "duration_posture": "point_like_or_single_year",
+      "access_visibility": "site_page_only",
+      "normalization_risk": "medium_contextual_numeric_mix",
+      "publication_posture": "context_layer_with_explicit_caveat",
+      "site_page_url": "https://browser.sead.se/site/3512",
+      "summary_label": "Quaternary (2700000 BP)",
+      "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
+    },
+    {
       "site_id": "5631",
       "site_name": "Ramså",
       "country": "Norway",
@@ -25436,7 +25583,7 @@
       "normalization_risk": "medium_contextual_numeric_mix",
       "publication_posture": "context_layer_with_explicit_caveat",
       "site_page_url": "https://browser.sead.se/site/4598",
-      "summary_label": "Lateglacial (10000-13500 BP)",
+      "summary_label": "Lateglacial (9700-13500 BP)",
       "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
     },
     {
@@ -25566,7 +25713,7 @@
       "normalization_risk": "medium_contextual_numeric_mix",
       "publication_posture": "context_layer_with_explicit_caveat",
       "site_page_url": "https://browser.sead.se/site/3509",
-      "summary_label": "Quaternary; Bronze Age Period IV - VI (2450-3050 BP)",
+      "summary_label": "Quaternary; Bronze Age Period IV - VI (2450-2700000 BP)",
       "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
     },
     {
@@ -25626,12 +25773,12 @@
       "site_name": "Rotheden",
       "country": "Sweden",
       "temporal_strength": "numeric_span_with_contextual_caveat",
-      "duration_posture": "point_like_or_single_year",
+      "duration_posture": "duration_span_visible",
       "access_visibility": "site_page_only",
       "normalization_risk": "medium_contextual_numeric_mix",
       "publication_posture": "context_layer_with_explicit_caveat",
       "site_page_url": "https://browser.sead.se/site/4855",
-      "summary_label": "Oxygen Isotope Stage 3 (0 BP)",
+      "summary_label": "Oxygen Isotope Stage 3 (29000-57000 BP)",
       "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
     },
     {
@@ -25683,7 +25830,7 @@
       "normalization_risk": "medium_contextual_numeric_mix",
       "publication_posture": "context_layer_with_explicit_caveat",
       "site_page_url": "https://browser.sead.se/site/3501",
-      "summary_label": "Quaternary; Bronze Age Period II - IV (2850-3450 BP)",
+      "summary_label": "Quaternary; Bronze Age Period II - IV (2850-2700000 BP)",
       "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
     },
     {
@@ -25826,7 +25973,7 @@
       "normalization_risk": "medium_contextual_numeric_mix",
       "publication_posture": "context_layer_with_explicit_caveat",
       "site_page_url": "https://browser.sead.se/site/4617",
-      "summary_label": "Post Medieval (0-1550 BP)",
+      "summary_label": "Post Medieval (0-400 BP)",
       "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
     },
     {
@@ -25995,7 +26142,7 @@
       "normalization_risk": "medium_contextual_numeric_mix",
       "publication_posture": "context_layer_with_explicit_caveat",
       "site_page_url": "https://browser.sead.se/site/4958",
-      "summary_label": "Mid-Devensian (10000-122000 BP)",
+      "summary_label": "Mid-Devensian (31000-39000 BP)",
       "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
     },
     {
@@ -26129,6 +26276,19 @@
       "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
     },
     {
+      "site_id": "3485",
+      "site_name": "Skedemosse",
+      "country": "Sweden",
+      "temporal_strength": "numeric_span_with_contextual_caveat",
+      "duration_posture": "point_like_or_single_year",
+      "access_visibility": "site_page_only",
+      "normalization_risk": "medium_contextual_numeric_mix",
+      "publication_posture": "context_layer_with_explicit_caveat",
+      "site_page_url": "https://browser.sead.se/site/3485",
+      "summary_label": "Quaternary (2700000 BP)",
+      "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
+    },
+    {
       "site_id": "4012",
       "site_name": "Skeppsås kyrka",
       "country": "Sweden",
@@ -26177,7 +26337,7 @@
       "normalization_risk": "medium_contextual_numeric_mix",
       "publication_posture": "context_layer_with_explicit_caveat",
       "site_page_url": "https://browser.sead.se/site/3483",
-      "summary_label": "Pre Roman Iron Age - Migration Period; Quaternary (1400-2350 BP)",
+      "summary_label": "Pre Roman Iron Age - Migration Period; Quaternary (1400-2700000 BP)",
       "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
     },
     {
@@ -26489,7 +26649,7 @@
       "normalization_risk": "medium_contextual_numeric_mix",
       "publication_posture": "context_layer_with_explicit_caveat",
       "site_page_url": "https://browser.sead.se/site/3472",
-      "summary_label": "Quaternary; Bronze Age Period III - VI; Neolithic S Scandinavia (2450-5100 BP)",
+      "summary_label": "Quaternary; Bronze Age Period III - VI; Neolithic S Scandinavia (2450-2700000 BP)",
       "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
     },
     {
@@ -26580,7 +26740,7 @@
       "normalization_risk": "medium_contextual_numeric_mix",
       "publication_posture": "context_layer_with_explicit_caveat",
       "site_page_url": "https://browser.sead.se/site/4615",
-      "summary_label": "Iron Age (1900-2600 BP)",
+      "summary_label": "Iron Age (1900-2599 BP)",
       "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
     },
     {
@@ -26931,7 +27091,7 @@
       "normalization_risk": "medium_contextual_numeric_mix",
       "publication_posture": "context_layer_with_explicit_caveat",
       "site_page_url": "https://browser.sead.se/site/4667",
-      "summary_label": "Medieval; CAL_1188-1218_AD; CAL_1200-1215_AD (400-1550 BP)",
+      "summary_label": "Medieval; CAL_1188-1218_AD; CAL_1200-1215_AD (732-762 BP)",
       "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
     },
     {
@@ -27061,7 +27221,7 @@
       "normalization_risk": "medium_contextual_numeric_mix",
       "publication_posture": "context_layer_with_explicit_caveat",
       "site_page_url": "https://browser.sead.se/site/3451",
-      "summary_label": "Quaternary; Late Neolithic - Early Bronze Age S Scandinavia (3050-4350 BP)",
+      "summary_label": "Quaternary; Late Neolithic - Early Bronze Age S Scandinavia (3050-2700000 BP)",
       "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
     },
     {
@@ -27074,7 +27234,7 @@
       "normalization_risk": "medium_contextual_numeric_mix",
       "publication_posture": "context_layer_with_explicit_caveat",
       "site_page_url": "https://browser.sead.se/site/3450",
-      "summary_label": "Pre Roman Iron Age; Quaternary (1950-2450 BP)",
+      "summary_label": "Pre Roman Iron Age; Quaternary (1950-2700000 BP)",
       "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
     },
     {
@@ -27329,12 +27489,12 @@
       "site_name": "Tåsjö",
       "country": "Sweden",
       "temporal_strength": "numeric_span_with_contextual_caveat",
-      "duration_posture": "point_like_or_single_year",
+      "duration_posture": "duration_span_visible",
       "access_visibility": "site_page_only",
       "normalization_risk": "medium_contextual_numeric_mix",
       "publication_posture": "context_layer_with_explicit_caveat",
       "site_page_url": "https://browser.sead.se/site/5527",
-      "summary_label": "Oxygen Isotope Stage 3 (0 BP)",
+      "summary_label": "Oxygen Isotope Stage 3 (29000-57000 BP)",
       "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
     },
     {
@@ -27607,7 +27767,7 @@
       "normalization_risk": "medium_contextual_numeric_mix",
       "publication_posture": "context_layer_with_explicit_caveat",
       "site_page_url": "https://browser.sead.se/site/4707",
-      "summary_label": "Medieval; CAL_200-500_AD (400-1750 BP)",
+      "summary_label": "Medieval; CAL_200-500_AD (1450-1750 BP)",
       "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
     },
     {
@@ -27620,7 +27780,7 @@
       "normalization_risk": "medium_contextual_numeric_mix",
       "publication_posture": "context_layer_with_explicit_caveat",
       "site_page_url": "https://browser.sead.se/site/5135",
-      "summary_label": "Early Holocene (7000-10000 BP)",
+      "summary_label": "Early Holocene (8600-10156 BP)",
       "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
     },
     {
@@ -28014,6 +28174,19 @@
       "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
     },
     {
+      "site_id": "3838",
+      "site_name": "Väster Lakbäck",
+      "country": "Sweden",
+      "temporal_strength": "numeric_span_with_contextual_caveat",
+      "duration_posture": "duration_span_visible",
+      "access_visibility": "site_page_only",
+      "normalization_risk": "medium_contextual_numeric_mix",
+      "publication_posture": "context_layer_with_explicit_caveat",
+      "site_page_url": "https://browser.sead.se/site/3838",
+      "summary_label": "172-442 BP",
+      "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
+    },
+    {
       "site_id": "3947",
       "site_name": "Västergarn kyrka",
       "country": "Sweden",
@@ -28401,162 +28574,6 @@
       "publication_posture": "context_layer_with_explicit_caveat",
       "site_page_url": "https://browser.sead.se/site/3930",
       "summary_label": "564-705 BP",
-      "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
-    },
-    {
-      "site_id": "3776",
-      "site_name": "Borgholm",
-      "country": "Sweden",
-      "temporal_strength": "period_label_only",
-      "duration_posture": "duration_not_available",
-      "access_visibility": "site_page_only",
-      "normalization_risk": "medium_period_label_interpretation",
-      "publication_posture": "context_layer_with_explicit_caveat",
-      "site_page_url": "https://browser.sead.se/site/3776",
-      "summary_label": "Quaternary",
-      "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
-    },
-    {
-      "site_id": "3742",
-      "site_name": "Ekeby",
-      "country": "Sweden",
-      "temporal_strength": "period_label_only",
-      "duration_posture": "duration_not_available",
-      "access_visibility": "site_page_only",
-      "normalization_risk": "medium_period_label_interpretation",
-      "publication_posture": "context_layer_with_explicit_caveat",
-      "site_page_url": "https://browser.sead.se/site/3742",
-      "summary_label": "Quaternary",
-      "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
-    },
-    {
-      "site_id": "3715",
-      "site_name": "Gråfjell lokal Jfp.",
-      "country": "Norway",
-      "temporal_strength": "period_label_only",
-      "duration_posture": "duration_not_available",
-      "access_visibility": "site_page_only",
-      "normalization_risk": "medium_period_label_interpretation",
-      "publication_posture": "context_layer_with_explicit_caveat",
-      "site_page_url": "https://browser.sead.se/site/3715",
-      "summary_label": "Quaternary",
-      "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
-    },
-    {
-      "site_id": "3663",
-      "site_name": "Järrestad",
-      "country": "Sweden",
-      "temporal_strength": "period_label_only",
-      "duration_posture": "duration_not_available",
-      "access_visibility": "site_page_only",
-      "normalization_risk": "medium_period_label_interpretation",
-      "publication_posture": "context_layer_with_explicit_caveat",
-      "site_page_url": "https://browser.sead.se/site/3663",
-      "summary_label": "Quaternary",
-      "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
-    },
-    {
-      "site_id": "3617",
-      "site_name": "Kv. Kleopatra",
-      "country": "Sweden",
-      "temporal_strength": "period_label_only",
-      "duration_posture": "duration_not_available",
-      "access_visibility": "site_page_only",
-      "normalization_risk": "medium_period_label_interpretation",
-      "publication_posture": "context_layer_with_explicit_caveat",
-      "site_page_url": "https://browser.sead.se/site/3617",
-      "summary_label": "Post Reformation",
-      "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
-    },
-    {
-      "site_id": "3611",
-      "site_name": "Kvinnsgröta",
-      "country": "Sweden",
-      "temporal_strength": "period_label_only",
-      "duration_posture": "duration_not_available",
-      "access_visibility": "site_page_only",
-      "normalization_risk": "medium_period_label_interpretation",
-      "publication_posture": "context_layer_with_explicit_caveat",
-      "site_page_url": "https://browser.sead.se/site/3611",
-      "summary_label": "Quaternary",
-      "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
-    },
-    {
-      "site_id": "3607",
-      "site_name": "Källingemöre",
-      "country": "Sweden",
-      "temporal_strength": "period_label_only",
-      "duration_posture": "duration_not_available",
-      "access_visibility": "site_page_only",
-      "normalization_risk": "medium_period_label_interpretation",
-      "publication_posture": "context_layer_with_explicit_caveat",
-      "site_page_url": "https://browser.sead.se/site/3607",
-      "summary_label": "Quaternary",
-      "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
-    },
-    {
-      "site_id": "4519",
-      "site_name": "Lundbacken, Tillinge",
-      "country": "Sweden",
-      "temporal_strength": "period_label_only",
-      "duration_posture": "duration_not_available",
-      "access_visibility": "site_page_only",
-      "normalization_risk": "medium_period_label_interpretation",
-      "publication_posture": "context_layer_with_explicit_caveat",
-      "site_page_url": "https://browser.sead.se/site/4519",
-      "summary_label": "CAL_-550_AD",
-      "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
-    },
-    {
-      "site_id": "3523",
-      "site_name": "Parboäng",
-      "country": "Sweden",
-      "temporal_strength": "period_label_only",
-      "duration_posture": "duration_not_available",
-      "access_visibility": "site_page_only",
-      "normalization_risk": "medium_period_label_interpretation",
-      "publication_posture": "context_layer_with_explicit_caveat",
-      "site_page_url": "https://browser.sead.se/site/3523",
-      "summary_label": "Quaternary",
-      "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
-    },
-    {
-      "site_id": "3520",
-      "site_name": "Pinnekulla",
-      "country": "Sweden",
-      "temporal_strength": "period_label_only",
-      "duration_posture": "duration_not_available",
-      "access_visibility": "site_page_only",
-      "normalization_risk": "medium_period_label_interpretation",
-      "publication_posture": "context_layer_with_explicit_caveat",
-      "site_page_url": "https://browser.sead.se/site/3520",
-      "summary_label": "Quaternary",
-      "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
-    },
-    {
-      "site_id": "3512",
-      "site_name": "Ramsättra",
-      "country": "Sweden",
-      "temporal_strength": "period_label_only",
-      "duration_posture": "duration_not_available",
-      "access_visibility": "site_page_only",
-      "normalization_risk": "medium_period_label_interpretation",
-      "publication_posture": "context_layer_with_explicit_caveat",
-      "site_page_url": "https://browser.sead.se/site/3512",
-      "summary_label": "Quaternary",
-      "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
-    },
-    {
-      "site_id": "3485",
-      "site_name": "Skedemosse",
-      "country": "Sweden",
-      "temporal_strength": "period_label_only",
-      "duration_posture": "duration_not_available",
-      "access_visibility": "site_page_only",
-      "normalization_risk": "medium_period_label_interpretation",
-      "publication_posture": "context_layer_with_explicit_caveat",
-      "site_page_url": "https://browser.sead.se/site/3485",
-      "summary_label": "Quaternary",
       "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
     }
   ]

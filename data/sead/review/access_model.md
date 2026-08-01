@@ -3,12 +3,13 @@
 This packet states what the repository mirrors from SEAD, what it only references, and where readers still need to inspect upstream SEAD surfaces directly.
 
 - Reviewed sites: `2195`
-- Repository posture: `mirrored_site_inventory_and_normalized_context`
+- Repository posture: `mirrored_relational_inventory_and_temporal_context`
 
 ## Repository Mirrors
 
 - raw site inventory capture under data/sead/raw/
-- normalized contextual point layers under data/sead/normalized/
+- linked chronology and bibliography relations under data/sead/raw/
+- normalized site and temporal-evidence point layers under data/sead/normalized/
 - review packets under data/sead/review/
 
 ## Repository References

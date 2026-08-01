@@ -194,7 +194,8 @@
         "required": true,
         "purpose": "tracked normalized SEAD context ready for downstream use",
         "example_artifacts": [
-          "data/sead/normalized/nordic_environmental_sites.geojson"
+          "data/sead/normalized/nordic_environmental_sites.geojson",
+          "data/sead/normalized/nordic_temporal_evidence.geojson"
         ]
       },
       "reviewed_layer": {
@@ -213,7 +214,8 @@
         "required": true,
         "purpose": "published archaeology context layers used in atlas outputs",
         "example_artifacts": [
-          "docs/report/regions/nordic/nordic_environmental_sites.geojson"
+          "docs/report/regions/nordic/nordic_environmental_sites.geojson",
+          "docs/report/regions/nordic/nordic_temporal_evidence.geojson"
         ]
       },
       "coverage_metric_keys": [
@@ -235,7 +237,8 @@
           "required": true,
           "purpose": "tracked normalized SEAD context ready for downstream use",
           "example_artifacts": [
-            "data/sead/normalized/nordic_environmental_sites.geojson"
+            "data/sead/normalized/nordic_environmental_sites.geojson",
+            "data/sead/normalized/nordic_temporal_evidence.geojson"
           ]
         },
         "reviewed": {
@@ -254,7 +257,8 @@
           "required": true,
           "purpose": "published archaeology context layers used in atlas outputs",
           "example_artifacts": [
-            "docs/report/regions/nordic/nordic_environmental_sites.geojson"
+            "docs/report/regions/nordic/nordic_environmental_sites.geojson",
+            "docs/report/regions/nordic/nordic_temporal_evidence.geojson"
           ]
         }
       }
