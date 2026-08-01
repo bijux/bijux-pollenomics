@@ -4,7 +4,7 @@ audience: reader
 type: explanation
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-07-22
+last_reviewed: 2026-08-01
 ---
 
 # SMHI SVAR
@@ -39,12 +39,20 @@ locations.
 
 The source-family contract declares a normalized registry at
 `data/svar/normalized/sweden_lake_registry.geojson`. The current repository
-snapshot does not ship that file. It ships:
+snapshot does not ship that complete 40,565-member file. It ships:
 
 - `data/svar/raw/svar_lake_registry_manifest.json`, which records source,
   interface, acquisition date, and matched and normalized counts; and
 - `data/svar/normalized/svar_summary.json`, which records the 40,565-member
-  count and `svar-lakes` layer identity.
+  count and `svar-lakes` layer identity; and
+- `data/svar/review/sweden_lake_candidate_registry.geojson`, a compact
+  evidence-linked review registry with 99 unique official lakes, mapped areas,
+  stable identities, and sampling-readiness gaps.
+
+The compact review registry contains 96 evidence-linked official lakes plus
+the official matches for four named southern Sweden targets; overlap between
+those sets produces 99 unique members. It is deliberately a review surface,
+not a misleading partial replacement for the complete normalized registry.
 
 Published Sweden ranking tables retain member-level SVAR identifiers,
 representative coordinates, source URLs, name diagnostics, water identities,
@@ -57,15 +65,17 @@ flowchart LR
     WFS["SMHI SVAR WFS"] --> Capture["capture manifest<br/>40,565 matched lakes"]
     WFS --> Registry["declared normalized registry"]
     Capture --> Summary["checked-in count summary"]
-    Registry --> Candidate["stable lake candidate identity"]
+    Registry --> Review["99-lake evidence-linked review registry"]
+    Review --> Candidate["stable lake candidate identity"]
     Candidate --> Ranking["Sweden ranking and sensitivity products"]
     Ranking --> FieldReview["identity, basin, access, permit, and field review"]
 ```
 
 The trust boundary is explicit: the manifest and summary establish
-source-scale counts, while a published candidate row
-establishes the identity retained for that product. Neither establishes the
-unpublished members of the absent normalized registry file.
+source-scale counts, the compact registry establishes its 99 reviewed members,
+and a published candidate row establishes the identity retained for that
+product. None establishes the unpublished members of the absent complete
+normalized registry file.
 
 ## Lake Identity Contract
 
@@ -150,6 +160,8 @@ to “the lake.”
 - `data/svar/raw/svar_lake_registry_manifest.json` governs capture identity and
   source-scale counts;
 - `data/svar/normalized/svar_summary.json` governs the checked-in summary;
+- `data/svar/review/sweden_lake_candidate_registry.geojson` governs the
+  evidence-linked candidate population, mapped areas, and sampling gaps;
 - `data/source_family_contracts.json` declares lifecycle ownership;
 - `data/source_spatiotemporal_posture_registry.json` declares sampling-domain,
   distance, and no-time postures; and

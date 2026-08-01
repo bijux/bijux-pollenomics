@@ -312,8 +312,11 @@ def build_source_family_contracts() -> tuple[SourceFamilyContract, ...]:
                 layer_key="reviewed",
                 repository_path="data/svar/review",
                 required=True,
-                purpose="source-specific review of lake-registry freshness and coverage",
-                example_artifacts=("data/svar/review/lake_registry_review.json",),
+                purpose="source-specific review of evidence-linked lake identity, area, and sampling readiness",
+                example_artifacts=(
+                    "data/svar/review/lake_candidate_registry_review.json",
+                    "data/svar/review/sweden_lake_candidate_registry.geojson",
+                ),
             ),
             published_layer=SourceFamilyLayerContract(
                 layer_key="published",

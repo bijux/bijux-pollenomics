@@ -4,7 +4,7 @@ audience: reader
 type: reference
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-07-22
+last_reviewed: 2026-08-01
 ---
 
 # Source Family Matrix
@@ -60,7 +60,7 @@ The current stage matrix reports this materialized state:
 | SEAD | present | present | present | present | 2,172 normalized points; review supports a contextual, not uniformly dated, role |
 | RAÄ | present | present | missing | present | 761,917 registry and 318,265 heritage records; source-specific review is absent |
 | boundaries | present | present | missing | present | four country geometries frame membership without scientific weight |
-| SVAR | present | missing | missing | present | a 40,565-lake summary and retained products exist without the contracted normalized registry and review |
+| SVAR | present | missing | partial | present | a 40,565-lake summary and 99-member evidence-linked review registry exist; the complete contracted normalized registry remains absent |
 | AADR | present | missing | missing | present | three v66 capture files and retained products exist without governed Homo sapiens normalized and review members |
 | animal aDNA | present | present | present | present | 10 species, 40 projects, and 894 species-owned sample-foundation rows are materialized |
 

@@ -101,7 +101,7 @@
       "primary_question": "Which official Sweden lake-register geometries and stable lake identities are available for sampling-oriented ranking?",
       "raw_status": "present",
       "normalized_status": "missing",
-      "reviewed_status": "missing",
+      "reviewed_status": "present",
       "published_status": "present",
       "provenance_depth": "captured_only",
       "publication_posture": "not_publication_ready",
@@ -109,8 +109,7 @@
         "svar_lake_count": 40565
       },
       "blocking_reasons": [
-        "missing_normalized_outputs",
-        "missing_review_surface"
+        "missing_normalized_outputs"
       ]
     },
     {

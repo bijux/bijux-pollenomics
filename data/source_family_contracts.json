@@ -466,9 +466,10 @@
         "layer_key": "reviewed",
         "repository_path": "data/svar/review",
         "required": true,
-        "purpose": "source-specific review of lake-registry freshness and coverage",
+        "purpose": "source-specific review of evidence-linked lake identity, area, and sampling readiness",
         "example_artifacts": [
-          "data/svar/review/lake_registry_review.json"
+          "data/svar/review/lake_candidate_registry_review.json",
+          "data/svar/review/sweden_lake_candidate_registry.geojson"
         ]
       },
       "published_layer": {
@@ -506,9 +507,10 @@
           "layer_key": "reviewed",
           "repository_path": "data/svar/review",
           "required": true,
-          "purpose": "source-specific review of lake-registry freshness and coverage",
+          "purpose": "source-specific review of evidence-linked lake identity, area, and sampling readiness",
           "example_artifacts": [
-            "data/svar/review/lake_registry_review.json"
+            "data/svar/review/lake_candidate_registry_review.json",
+            "data/svar/review/sweden_lake_candidate_registry.geojson"
           ]
         },
         "published": {
