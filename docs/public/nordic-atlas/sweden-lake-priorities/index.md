@@ -59,8 +59,9 @@ archaeology context. Sampling fit and the blended score resolve later ties.
 
 Temporal credit is conditional. Neotoma, LandClim, and SEAD records gain
 stronger chronology contribution only when numeric BP intervals overlap nearby
-human locality windows. The current SEAD layer contains 889 mapped numeric
-site envelopes alongside 1,283 label-only or unresolved sites. Those remaining
+human locality windows. The current SEAD products contain 26,556 mapped
+chronology records in 9,380 time-filterable features alongside an optional
+site inventory with 905 dated and 1,267 unresolved sites. Those unresolved
 sites contribute spatial archaeology context but receive no same-period credit.
 
 ### Score And Rank Are Separate Contracts

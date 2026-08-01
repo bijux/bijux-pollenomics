@@ -25,7 +25,7 @@ authority, but cannot promote it.
 | --- | --- | --- | --- |
 | LandClim | pollen site sequence and REVEALS grid cell | environmental context | time-aware pollen and vegetation-reconstruction coverage |
 | Neotoma | pollen site | environmental context | site-level pollen coverage under explicit temporal posture |
-| SEAD | environmental-archaeology site inventory row | archaeology context | mixed temporal context: 889 mapped numeric site envelopes plus label-only and unresolved sites |
+| SEAD | linked chronology interval for time navigation; site row for spatial discovery | archaeology context | 26,556 mapped chronology records in 9,380 time-filterable features, plus an optional 2,172-site inventory with 1,267 unresolved sites |
 | RAÄ | published heritage record aggregated to density cells | archaeology context | Sweden-specific registry density under a declared classification |
 | AADR | release-pinned human aDNA annotation row | direct human evidence | admitted human sample metadata within a versioned product |
 | animal ancient DNA | project-owned sample and its claim records | direct or qualified animal evidence | sample identity, locality, chronology, and coordinate claims that pass the product contract |

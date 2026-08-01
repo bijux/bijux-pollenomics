@@ -4,7 +4,7 @@ audience: reader
 type: explanation
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-07-31
+last_reviewed: 2026-08-01
 ---
 
 # SEAD
@@ -19,11 +19,12 @@ This source family stays an archaeology context layer: it is strong contextual
 evidence for nearby activity and chronology review, but it is not sample-owned
 proof of one lake event.
 
-The practical rule is simple: **filter a SEAD site through time only when its
-captured relations support a numeric BP interval**. A cultural-period label is
-useful context, but it is not automatically a numeric date. A site with no
-chronology remains visible in the full-extent view and is withheld from a
-narrowed time window because overlap cannot be demonstrated.
+The practical rule is simple: **use the temporal-evidence layer for time
+navigation and the site-inventory layer for spatial discovery**. The first
+keeps the intervals of linked dating records. The second keeps one point per
+site, including sites for which SEAD publishes no usable chronology. This
+separation prevents a long site-wide envelope from flattening many distinct
+dates into one apparently static point.
 
 ## Current Evidence State
 
@@ -35,20 +36,21 @@ map layer.
 | --- | ---: | --- |
 | captured site rows | 2,195 | denominator before map-country membership |
 | mapped Nordic features | 2,172 | sites inside the four governed country geometries |
-| captured rows with numeric interval material | 911 | source rows from which a numeric site envelope can be derived |
-| mapped features with numeric intervals | 889 | points that can participate in atlas time filtering |
-| mapped features with contextual labels only | 12 | points with period language but no eligible numeric interval |
-| mapped features with unresolved time | 1,271 | points retained as spatial context only |
-| captured rows linked to dating ranges | 392 | sites connected through the SEAD dating-range relation |
-| captured rows linked to relative periods | 531 | sites connected through relative-date or relative-age relations |
-| captured rows linked to bibliography | 1,034 | sites with captured site-reference lineage |
-| captured site-inventory-only rows | 1,137 | sites without the linked evidence required for a richer posture |
+| captured sites with numeric interval material | 927 | sites with at least one linked chronology interval |
+| mapped sites with numeric intervals | 905 | mapped site summaries that can participate in coarse site-level filtering |
+| mapped sites with unresolved time | 1,267 | points retained for spatial discovery, not temporal comparison |
+| captured chronology source records | 27,002 | dating ranges, relative periods, modelled ages, geochronology, and dendrochronology rows with normalized BP intervals |
+| mapped temporal-evidence features | 9,380 | coincident chronology rows grouped only when site, kind, interval, label, and uncertainty agree |
+| mapped chronology source records represented | 26,556 | source records carried by the 9,380 time-filterable features |
+| captured sites linked to bibliography | 1,300 | sites with bibliography reached through site, dataset, sample-group, or relative-age relations |
+| captured sites without usable chronology | 1,268 | sites for which the captured upstream relations provide no numeric interval |
 
-These denominators answer different questions. The 911 numeric source rows
-must not be reported as 911 visible timed points: only 889 are members of the
-current mapped population. Likewise, 7,775 raw dating-range relation rows are
-not 7,775 sites. They are linked records from which site-level summaries are
-derived.
+These denominators answer different questions. A site count measures spatial
+coverage. A chronology-record count measures temporal evidence. A grouped
+feature count measures what the browser must render. They must not be used
+interchangeably. The 446 chronology records outside the mapped population are
+retained in the raw capture; their sites fall outside the four governed
+country geometries.
 
 ## From A Relational Database To A Map Point
 
@@ -62,22 +64,31 @@ flowchart LR
     Group --> Sample["physical sample"]
     Sample --> Entity["analysis entity"]
     Entity --> Value["analysis value"]
-    Entity --> Dating["dating ranges"]
+    Value --> Dating["analysis dating ranges"]
     Entity --> Relative["relative dates and ages"]
-    Site --> Reference["site references"]
+    Entity --> Model["modelled entity ages"]
+    Entity --> Geochron["geochronology"]
+    Entity --> Dendro["dendrochronology"]
+    Site --> Reference["site, sample-group, dataset, and period references"]
     Reference --> Bibliography["bibliography"]
-    Dating --> Envelope["reviewed site-level BP envelope"]
-    Relative --> Envelope
-    Envelope --> Point["normalized map point"]
+    Dating --> Evidence["record-level temporal evidence"]
+    Relative --> Evidence
+    Model --> Evidence
+    Geochron --> Evidence
+    Dendro --> Evidence
+    Evidence --> Timeline["time-filterable chronology layer"]
+    Evidence --> Envelope["coarse site envelope"]
+    Envelope --> Point["site-inventory layer"]
 ```
 
-The site envelope is a publication convenience. It expresses the temporal
-coverage captured beneath a site; it does not claim that every sample,
-analysis, or archaeological event at that site shares the whole interval.
-For sample-level reasoning, follow the relation identities in
-`raw/nordic_sites.json` rather than reading the envelope as an event date.
+The site envelope remains a publication convenience for ranking and overview.
+The temporal-evidence layer is the appropriate product for chronological
+navigation: each feature keeps one interval and the identifiers of all source
+rows grouped into it. For sample-level reasoning, continue into
+`raw/nordic_sites.json`; a mapped chronology feature is more precise than a
+site envelope but is still contextual evidence, not proof of a lake event.
 
-## Three Temporal Postures
+## Site Posture And Chronology Posture
 
 ### Numeric interval and context
 
@@ -91,13 +102,14 @@ For example, Agerod V (`4237`) is published with a site envelope of
 interval. It does not prove that every Agerod V observation belongs to every
 year in that span.
 
-### Contextual label only
+### Source label without numeric support
 
-A site has source period language but no stable numeric interval accepted by
-the repository. Borgholm (`3776`), for example, retains the label
-`Quaternary`. The label supports human interpretation and source review, but
-it is too broad to place on the numeric slider without an explicit,
-source-governed conversion.
+A site can have source period language but no stable numeric interval accepted
+by the repository. A self-encoded label such as `CAL_1242_AD-` can be converted
+because the bounds and era are present in the source value. A broad label such
+as `Quaternary` cannot be placed on the slider by name alone. In the current
+snapshot, such sites are part of the unresolved site population rather than a
+separate numeric chronology layer.
 
 ### Unresolved
 
@@ -120,18 +132,20 @@ flowchart TD
 
 ## How The Atlas Timeline Treats SEAD
 
-At the full temporal extent, the atlas shows all admitted SEAD points. This is
-the honest overview of spatial coverage. Once a reader narrows the time
+The atlas exposes two SEAD toggles. `SEAD temporal evidence` is enabled by
+default and every one of its 9,380 mapped features has numeric BP bounds.
+`SEAD sites` is an optional inventory layer for discovering all 2,172 mapped
+sites, including upstream-undated sites. Once a reader narrows the time
 window:
 
-1. numeric SEAD intervals remain visible only when they overlap the selected
-   window;
-2. label-only and unresolved sites are hidden because their overlap is
-   unknown; and
-3. restoring the full extent restores those contextual sites.
+1. temporal-evidence features remain visible only when their own interval
+   overlaps the selected window;
+2. dated site summaries can also be filtered coarsely when the optional site
+   layer is enabled; and
+3. unresolved site-inventory points are withheld because overlap is unknown.
 
-This is different from declaring label-only or unresolved sites absent from
-the selected period. The interface is refusing a comparison it cannot make.
+This is different from declaring unresolved sites absent from the selected
+period. The interface is refusing a comparison it cannot make.
 Static layers such as boundaries are unaffected by this rule.
 
 ## Compare SEAD With LANDCLIM And AADR Carefully
@@ -141,7 +155,7 @@ observation units remain different.
 
 | Source family | Timed map unit | What interval overlap supports | What it does not support |
 | --- | --- | --- | --- |
-| SEAD | derived site envelope | a captured site chronology overlaps the selected window | every sample or event at the site is contemporaneous |
+| SEAD temporal evidence | grouped linked chronology interval | one or more identified source chronology rows overlap the selected window | the chronology proves a lake event or every record at the site is contemporaneous |
 | LANDCLIM | pollen site-sequence interval | the sequence covers part of the selected window | direct association with a nearby archaeological site |
 | AADR | dated human sample or governed locality descendant | the sample chronology overlaps the window | identity between a sample and a nearby site |
 
@@ -162,8 +176,10 @@ flowchart LR
     Capture["2,195 captured sites"] --> Coordinate{"inside a governed country geometry?"}
     Coordinate -->|yes| Map["2,172 mapped features"]
     Coordinate -->|no| Retained["23 retained non-members"]
-    Map --> Timed["889 numeric timeline members"]
-    Map --> Context["1,283 label-only or unresolved members"]
+    Map --> Timed["905 dated site summaries"]
+    Map --> Context["1,267 unresolved site members"]
+    Capture --> Chronology["27,002 captured chronology records"]
+    Chronology --> Timeline["26,556 mapped records in 9,380 temporal features"]
 ```
 
 This is not deduplication or evidence deletion. A boundary or publication
@@ -175,7 +191,7 @@ SEAD supports:
 
 - finding environmental-archaeology sites near a lake, pollen sequence, or
   aDNA locality under a declared distance rule;
-- navigating the 889 mapped numeric site envelopes through BP time;
+- navigating 26,556 mapped chronology records through 9,380 interval-preserving features;
 - retaining relative-period language for human interpretation without
   inventing numeric bounds;
 - identifying sites whose bibliography or deeper relational evidence merits
@@ -198,6 +214,7 @@ SEAD does not by itself support:
 | --- | --- |
 | `data/sead/raw/nordic_sites.json` | captured site rows, relational inventories, source counts, and acquisition lineage |
 | `data/sead/normalized/nordic_environmental_sites.geojson` | mapped features, temporal fields, popup evidence, and country membership |
+| `data/sead/normalized/nordic_temporal_evidence.geojson` | mapped record-level chronology groups used by the atlas time filter |
 | `data/sead/review/temporal_review.json` | row-level comparison posture and capture denominators |
 | `data/sead/review/access_model.json` | mirrored versus upstream-only access boundary |
 | `data/sead/review/evidence_legibility_review.json` | interpretability and publication risk |

@@ -4,15 +4,16 @@ audience: reader
 type: explanation
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-07-31
+last_reviewed: 2026-08-01
 ---
 
 # SEAD Environmental Archaeology Context
 
 This handbook explains how to read SEAD as both spatial and temporal evidence
 without asking the data to say more than it does. The central skill is to
-separate four things that are easy to collapse: a site, the records linked
-beneath it, a derived site-level time envelope, and a map interaction.
+separate five things that are easy to collapse: a site, the records linked
+beneath it, a grouped chronology feature, a derived site-level time envelope,
+and a map interaction.
 
 ## Begin With The Observation Unit
 
@@ -43,13 +44,13 @@ physical samples, analysis entities, datasets, dating ranges, relative
 periods, or references. A high analysis-entity count means a richer captured
 relational neighbourhood, not automatically a stronger chronology.
 
-### 3. Identify the temporal posture
+### 3. Choose the temporal observation unit
 
-| Posture | Reader interpretation | Numeric slider behavior |
+| Product | Reader interpretation | Numeric slider behavior |
 | --- | --- | --- |
-| numeric interval and context | accepted BP bounds plus retained source context | included when intervals overlap |
-| contextual label only | meaningful period language without accepted numeric bounds | withheld from narrowed windows |
-| unresolved | insufficient captured material for temporal comparison | withheld from narrowed windows |
+| temporal-evidence feature | one interval shared by identified linked chronology rows | included when that interval overlaps |
+| dated site summary | the widest captured chronology envelope beneath one site | useful for overview, too coarse for event-level reading |
+| unresolved site inventory | spatial identity without captured numeric chronology | withheld from narrowed windows |
 
 ### 4. Return to the intended claim
 
@@ -74,20 +75,20 @@ flowchart TD
 
 ### Agerod V: numeric interval and context
 
-Agerod V (`4237`) has a normalized site envelope of `7000–10000 BP`. If an
-atlas window is `8000–9000 BP`, the intervals overlap and the point remains
-visible. The defensible conclusion is that captured chronology beneath Agerod
-V intersects that window. The map does not identify which specific analysis
-entity supplies every part of the envelope; inspect the raw relational
-capture for that question.
+Agerod V (`4237`) has a normalized site envelope of `7000–10000 BP`. The
+temporal-evidence layer also publishes the linked chronology as narrower
+features with source-record identifiers. If an atlas window is `8000–9000 BP`,
+only chronology features whose own intervals overlap remain visible. Use the
+site envelope to understand total coverage and the temporal layer to ask which
+captured dates support the window.
 
-### Borgholm: contextual label only
+### Borgholm: source label without an interval
 
 Borgholm (`3776`) retains `Quaternary`. The label is useful for interpreting
 the source and deciding what to inspect next. It is not converted into a BP
 range by this repository, because such a conversion would import a boundary
-that SEAD did not govern for this row. Borgholm is visible in the full map and
-withheld from a narrowed numeric window.
+that SEAD did not govern for this row. Borgholm is available in the optional
+site-inventory layer and absent from the temporal-evidence layer.
 
 ### An unresolved site
 
@@ -102,30 +103,35 @@ in this period.”
 | --- | ---: |
 | captured site inventory | 2,195 |
 | mapped four-country population | 2,172 |
-| numeric mapped features | 889 |
-| contextual-label-only mapped features | 12 |
-| unresolved mapped features | 1,271 |
+| mapped sites with numeric summaries | 905 |
+| unresolved mapped sites | 1,267 |
+| mapped temporal-evidence features | 9,380 |
+| mapped chronology source records represented | 26,556 |
+| captured chronology source records | 27,002 |
 | captured rows outside mapped population | 23 |
 
-The raw relational inventory also records 7,775 dating-range rows, 10,950
-relative-date rows, 142 relative-age rows, and 831 site-reference rows. These
-are relation counts, not additional sites. Report them only when explaining
-capture depth or relational provenance.
+The 27,002 chronology records comprise 7,775 dating ranges, 10,950 relative
+period rows, 852 modelled analysis-entity ages, 104 geochronology rows, and
+7,321 dendrochronology rows. All have normalized BP bounds in the governed
+capture. They become 9,380 mapped features because coincident records are
+grouped only when site, chronology kind, interval, label, and uncertainty
+agree. The raw archive also retains 40,981 site-linked bibliography relations.
 
 ## Use The Timeline Correctly
 
-The full temporal extent is an overview mode. It includes all 2,172 mapped
-SEAD features so the reader can see the spatial evidence population. A
-narrowed extent is a comparison mode. It includes the 497 numeric features
-only when their site envelopes overlap the active window.
+The temporal-evidence layer is the comparison mode and is enabled by default.
+All 9,380 of its mapped features are eligible for interval filtering. The
+site-inventory layer is optional: turn it on to inspect the full 2,172-site
+spatial population, including 1,267 sites that cannot enter a narrowed time
+window.
 
 ```mermaid
 stateDiagram-v2
     [*] --> FullExtent
-    FullExtent: all mapped SEAD sites visible
+    FullExtent: temporal evidence visible; site inventory optional
     FullExtent --> NarrowWindow: reader narrows BP range
-    NarrowWindow: eligible numeric overlaps visible
-    NarrowWindow: label-only and unresolved sites withheld
+    NarrowWindow: record-level interval overlaps visible
+    NarrowWindow: unresolved site inventory withheld
     NarrowWindow --> FullExtent: reader restores full span
 ```
 
@@ -144,9 +150,9 @@ For a SEAD–LANDCLIM–AADR comparison, perform three independent checks:
 3. **Semantic eligibility:** the observation units are not treated as
    interchangeable.
 
-An overlapping SEAD site envelope, pollen sequence, and human-sample interval
-can motivate investigation. It does not prove that the people represented by
-the aDNA sample used the SEAD site or caused the pollen change.
+An overlapping SEAD chronology feature, pollen sequence, and human-sample
+interval can motivate investigation. It does not prove that the people
+represented by the aDNA sample used the SEAD site or caused the pollen change.
 
 ## Reuse Contract
 
@@ -158,7 +164,8 @@ A reusable SEAD-derived statement carries:
 - numeric bounds when present, including BP basis and uncertainty notes;
 - original and normalized period labels when present;
 - the temporal comparison posture;
-- the observation unit, explicitly “site envelope” when using site time; and
+- the observation unit, explicitly “linked chronology interval” or “site
+  envelope”; and
 - the product rule that admitted, withheld, or excluded the feature.
 
 Do not replace this lineage with a point name, distance, or broad period label.
@@ -171,8 +178,8 @@ captured from what remains upstream:
 
 - `data/sead/review/access_model.json` records site-page and reference
   visibility;
-- `data/sead/review/temporal_review.json` records interval, label-only, and
-  unresolved postures;
+- `data/sead/review/temporal_review.json` records numeric and unresolved site
+  postures;
 - `data/sead/review/evidence_legibility_review.json` records whether the
   captured representation is interpretable; and
 - `data/sead/review/recovery_requirements.json` names remaining gaps and the
