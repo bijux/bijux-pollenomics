@@ -4,7 +4,7 @@ audience: reader
 type: explanation
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-07-22
+last_reviewed: 2026-08-01
 ---
 
 # LandClim Exports
@@ -22,7 +22,9 @@ The checked-in normalized state contains:
 | --- | ---: | --- |
 | pollen site-sequence rows | 492 | dataset-specific site sequence |
 | rows with supported numeric time bounds | 482 | site sequence with numeric BP posture |
-| REVEALS grid cells | 88 | reconstructed vegetation coverage cell |
+| aggregate REVEALS grid cells | 88 | discovery summary of reconstructed vegetation coverage |
+| temporal REVEALS grid features | 2,500 | one dataset, cell, and published window |
+| distinct modeled windows | 25 | explicit BP intervals available to the time filter |
 
 The normalized artifacts are:
 
@@ -31,7 +33,13 @@ The normalized artifacts are:
 - `data/landclim/normalized/nordic_pollen_site_sequences.geojson` for site
   locations;
 - `data/landclim/normalized/nordic_reveals_grid_cells.geojson` for
-  reconstruction coverage; and
+  aggregate reconstruction discovery;
+- `data/landclim/normalized/nordic_reveals_temporal_grid_cells.geojson` for
+  time-filterable, dataset-specific reconstruction values and uncertainty;
+- `data/landclim/normalized/landclim_bibliography.json` for dataset citations
+  and linked publications;
+- `data/landclim/review/spatiotemporal_review.json` for coverage and linkage
+  verification; and
 - `data/landclim/normalized/landclim_summary.json` for layer identities and
   counts.
 
@@ -42,11 +50,12 @@ its sequence identity or temporal posture.
 
 ```mermaid
 flowchart LR
-    Datasets["PANGAEA LandClim datasets"] --> Sites["492 site-sequence rows"]
-    Datasets --> Grids["88 REVEALS grid cells"]
+    Datasets["3 cited PANGAEA datasets"] --> Sites["492 site-sequence rows"]
+    Datasets --> Grids["2,500 dataset-cell-window features"]
     Sites --> Time["482 rows with numeric BP bounds"]
     Sites --> Context["pollen-site context layer"]
-    Grids --> Context
+    Grids --> Filter["atlas time filter"]
+    Filter --> Context
     Time --> Compare["qualified temporal comparison"]
 ```
 
@@ -70,9 +79,17 @@ resolution, identical sampling intervals, or event-level contemporaneity with
 an aDNA sample. The remaining rows are not zero-dated; their numeric posture is
 unavailable under the normalized contract.
 
-REVEALS grid cells can span many windows. Use their declared window coverage
-rather than collapsing a cell to a single date. A cell's broad reconstruction
-span must not be treated as a sample-owned chronology.
+REVEALS values are published as separate window features. The atlas selects
+them by their numeric BP bounds instead of filtering one aggregate cell that
+claims the whole Holocene. A selected window is still a modeled vegetation
+estimate, not a sample-owned chronology or evidence of a continuous value
+between adjacent windows.
+
+LandClim I contributes 375 grid-window features across five windows. LandClim
+II contributes 2,125 across 25 windows and retains standard errors and cell
+quality where supplied. All 2,500 features have numeric bounds and bibliography
+links. The ten LandClim II site sequences without upstream numeric bounds remain
+explicitly unresolved rather than receiving synthetic dates.
 
 ## Worked Record: Aal Præstesø
 
@@ -107,9 +124,12 @@ flowchart LR
 
 Keep record identity, source DOI, geometry type, observation unit, dataset,
 time bounds and label, record count, and popup/source details with each row.
-When aggregating, keep site sequences separate from grid cells and state
-whether the denominator is 492 site rows, 482 numerically qualified rows, or
-88 coverage cells.
+When aggregating, keep site sequences, aggregate discovery cells, and temporal
+grid features separate. State whether the denominator is 492 site rows, 482
+numerically qualified site rows, 88 aggregate cells, or 2,500
+dataset-cell-window features. Preserve `dataset_id`, `parent_grid_record_id`,
+numeric BP bounds, reconstruction values, uncertainty, and bibliography keys
+when extracting temporal features.
 
 Continue to [LandClim source guidance](../sources/landclim.md) for acquisition
 and normalization, [maps](maps.md) for layer interpretation, and

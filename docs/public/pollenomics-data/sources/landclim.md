@@ -4,7 +4,7 @@ audience: reader
 type: explanation
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-07-22
+last_reviewed: 2026-08-01
 ---
 
 # LandClim
@@ -22,7 +22,10 @@ The current governed summary records:
 | --- | ---: | --- |
 | normalized site sequences | 492 | pollen-context points retained after family-specific normalization |
 | sequences with numeric BP intervals | 482 | records eligible for bounded temporal comparison at site-sequence level |
-| REVEALS grid cells | 88 | modeled landscape context rather than sample observations |
+| aggregate REVEALS grid cells | 88 | discovery summaries across the captured reconstruction windows |
+| temporal REVEALS grid features | 2,500 | dataset-specific cell and modeled time-window combinations |
+| distinct modeled windows | 25 | explicit windows from `0–100 BP` through `11200–11700 BP` |
+| dataset citations / publication references | 3 / 4 | governed bibliography linked to normalized evidence |
 
 Counts describe the checked-in snapshot, not exhaustive coverage. The family
 contract identifies `data/landclim/raw/` as captured material,
@@ -35,8 +38,10 @@ stage matrix as review, and regional pollen layers as publication.
 | --- | --- | --- |
 | source capture | `raw/landclim_sources.json` and the checked-in workbooks or archive | which LandClim release material entered the repository |
 | sequence normalization | `normalized/nordic_pollen_site_sequences.geojson` | stable site geometry, source identity, and site-level temporal fields |
-| model normalization | `normalized/nordic_reveals_grid_cells.geojson` | REVEALS cells remain areal model context rather than site observations |
+| model normalization | `normalized/nordic_reveals_temporal_grid_cells.geojson` | one dataset, grid cell, and published time window remain a separately filterable areal model feature |
+| bibliography normalization | `normalized/landclim_bibliography.json` | dataset citations, method papers, and feature-level reference keys remain connected |
 | family summary | `normalized/landclim_summary.json` | denominators for sequence, interval, and grid-cell claims |
+| source review | `review/spatiotemporal_review.json` | dataset-by-dataset temporal coverage, unresolved intervals, and bibliography linkage |
 | cross-family review | `data/source_spatiotemporal_posture_registry.json` | whether the family can participate in spatial or temporal comparison |
 
 The split between sequence and model normalization is a scientific boundary,
@@ -75,12 +80,14 @@ time-window definition, or quality evidence changed.
 ```mermaid
 flowchart LR
     Capture["source workbooks and archive"] --> Sites["normalized site sequences"]
-    Capture --> Grid["normalized REVEALS grid cells"]
+    Capture --> Grid["dataset × cell × time-window features"]
+    Sources["dataset and method citations"] --> Grid
     Sites --> Time["site-sequence BP intervals"]
-    Sites --> Review["coverage and publication review"]
+    Sites --> Review["spatiotemporal review"]
     Grid --> Review
+    Sources --> Review
     Time --> Review
-    Review --> Product["pollen-context layers"]
+    Review --> Product["time-filterable pollen-context layers"]
 ```
 
 ## What LandClim Supports
@@ -97,9 +104,17 @@ modeled landscape context; it is not another observation at the cell center.
 
 ## Temporal Interpretation
 
-Numeric BP windows belong to normalized site-sequence records. They support
-comparison at the precision recorded by the sequence, not automatic alignment
-with every sample or event inside the same interval.
+LandClim has two explicit time-bearing units. Site-sequence intervals describe
+the captured temporal coverage of a pollen sequence. REVEALS intervals belong
+to one modeled estimate for one grid cell and published window. Neither is an
+event date, and neither automatically aligns with every sample inside the same
+interval.
+
+The temporal grid keeps 2,500 dataset-cell-window features separate: 375 from
+LandClim I across five windows and 2,125 from LandClim II across 25 windows.
+Each feature carries numeric BP bounds and bibliography keys. Atlas time
+filtering therefore selects published estimates rather than treating a cell's
+full Holocene coverage as one continuous value.
 
 The ten sequences without numeric intervals remain spatial pollen context.
 They are not assigned synthetic dates to make the family appear uniformly
@@ -141,24 +156,44 @@ that sequence. They do not make the interval a date for every archaeological
 or biological record near the site.
 
 The REVEALS cell `10.000000,55.000000,11.000000,56.000000` demonstrates the
-model path. It is a polygon spanning one degree, combines 25 declared time
-windows from LandClim I and II inputs, and summarizes a window range from
-`0–100 BP` through `11200–11700 BP`. Its midpoint is useful for navigation,
-but the cell remains modeled areal context across many windows—not a pollen
-observation at the polygon center and not one continuous sample interval.
+model path. The aggregate grid can show that the polygon has captured
+reconstructions, but temporal interpretation uses separate dataset-window
+features such as LandClim II `0–100 BP`. That feature retains the published
+estimate, standard error, quality evidence, dataset DOI, and method references.
+Its midpoint is useful for navigation, but the polygon remains modeled areal
+context—not a pollen observation at the center and not a continuous value
+between published windows.
 
 ```mermaid
 flowchart LR
     Aal["Aal Præstesø sequence"] --> SiteInterval["100–350 BP site context"]
-    Grid["10°E–11°E, 55°N–56°N cell"] --> Windows["25 modeled windows"]
+    Grid["10°E–11°E, 55°N–56°N cell"] --> Windows["separate modeled windows"]
     SiteInterval --> Compare["qualified comparison"]
     Windows --> Compare
     Compare -. does not merge .-> Observation["single observation identity"]
 ```
 
 This pair exposes a crucial denominator rule: one normalized sequence member,
-one grid cell, 25 model windows, and the source observations behind them are
-different units. A comparison must name which unit it counts.
+one aggregate grid cell, one dataset-cell-window feature, and the source
+observations behind them are different units. A comparison must name which
+unit it counts.
+
+## Bibliography And Attribution
+
+The governed bibliography names the three captured PANGAEA datasets and four
+publications that establish the reconstruction and method lineage. Temporal
+grid features link back to the applicable keys, so a map export does not lose
+the evidence needed to cite or interpret its values.
+
+| Dataset | Captured temporal role | Principal linked reading |
+| --- | --- | --- |
+| PANGAEA 900966 | site-sequence intervals in the Nordic capture; its grid table is not yet normalized into the temporal atlas layer | Marquer et al. (2017) and Sugita (2007) |
+| PANGAEA 897303 | LandClim I grid estimates across five published windows | Trondman et al. (2015) and Sugita (2007) |
+| PANGAEA 937075 | LandClim II estimates and standard errors across 25 published windows | Githumbi et al. (2022), Trondman et al. (2015), and Sugita (2007) |
+
+The absence of normalized temporal polygons for dataset 900966 is explicit in
+the review packet. Its 54 site-sequence rows still carry numeric intervals; it
+is not silently counted among the 2,500 grid-window features.
 
 ### Compare Pollen Families Without Flattening Their Units
 
