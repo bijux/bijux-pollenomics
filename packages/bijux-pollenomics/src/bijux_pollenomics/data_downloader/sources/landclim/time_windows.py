@@ -3,6 +3,7 @@ from __future__ import annotations
 from collections.abc import Mapping
 import csv
 from io import TextIOWrapper
+import math
 from pathlib import Path
 import re
 from zipfile import ZipFile
@@ -26,7 +27,7 @@ from .grid import (
     normalize_landclim_time_window_label,
     summarize_quality_labels,
 )
-from .sites import parse_float, resolve_landclim_country
+from .sites import parse_coordinate, parse_float, resolve_landclim_country
 
 __all__ = [
     "LANDCLIM_TEMPORAL_GRID_LAYER_KEY",
@@ -37,6 +38,7 @@ __all__ = [
 LANDCLIM_TEMPORAL_GRID_LAYER_KEY = "landclim-reveals-temporal-grid"
 _LANDCLIM_I_MEAN_SUFFIX = "meanLC"
 _LANDCLIM_I_STANDARD_ERROR_SUFFIX = "SE"
+_MARQUER_GRID_WINDOW_PATTERN = re.compile(r"GC(?P<cell>\d+)-(?P<window>\d+)")
 
 
 def build_landclim_temporal_grid_geojson(
@@ -46,6 +48,14 @@ def build_landclim_temporal_grid_geojson(
 ) -> dict[str, object]:
     """Build one map-ready polygon feature per LandClim cell and time window."""
     features: dict[tuple[str, str, str], dict[str, object]] = {}
+    marquer_path = raw_paths.get("marquer_2017_reveals_taxa_grid_cells.xlsx")
+    if marquer_path is not None:
+        _merge_marquer_time_windows(
+            features,
+            marquer_path,
+            bbox=bbox,
+            country_boundaries=country_boundaries,
+        )
     _merge_landclim_i_time_windows(
         features,
         raw_paths["landclim_i_land_cover_types.xlsx"],
@@ -83,6 +93,108 @@ def build_landclim_temporal_grid_geojson(
             )
         ],
     }
+
+
+def _merge_marquer_time_windows(
+    features: dict[tuple[str, str, str], dict[str, object]],
+    path: Path,
+    *,
+    bbox: tuple[float, float, float, float],
+    country_boundaries: Mapping[str, Mapping[str, object]],
+) -> None:
+    window_labels = {
+        clean_optional_text(row[1]): normalize_landclim_time_window_label(
+            f"{clean_optional_text(row[0])} BP"
+        )
+        for row in read_xlsx_sheet_rows(path, "Code time windows")[1:]
+        if len(row) > 1
+        and clean_optional_text(row[0])
+        and clean_optional_text(row[1])
+    }
+    cell_geometries = _marquer_cell_geometries(path)
+    estimate_rows = read_xlsx_sheet_rows(path, "REVEALS 36GCs")
+    error_rows = read_xlsx_sheet_rows(path, "SE_REVEALS 36GCs")
+    if not estimate_rows:
+        return
+    headers = estimate_rows[0]
+    standard_errors = {
+        clean_optional_text(row[0]): _numeric_values(headers, row, start_index=1)
+        for row in error_rows[1:]
+        if row and clean_optional_text(row[0])
+    }
+    for row in estimate_rows[1:]:
+        row_id = clean_optional_text(row[0]) if row else ""
+        match = _MARQUER_GRID_WINDOW_PATTERN.fullmatch(row_id)
+        if match is None:
+            continue
+        geometry = cell_geometries.get(match.group("cell"))
+        time_window = window_labels.get(match.group("window"), "")
+        if geometry is None or not time_window:
+            continue
+        center_longitude, center_latitude = _polygon_center(geometry)
+        if not point_in_bbox(center_longitude, center_latitude, bbox):
+            continue
+        country = classify_country(
+            center_longitude,
+            center_latitude,
+            country_boundaries,
+        )
+        if not country:
+            continue
+        estimates = _numeric_values(headers, row, start_index=1)
+        if not estimates:
+            continue
+        cell_id = f"GC{match.group('cell')}"
+        feature = _temporal_grid_feature(
+            dataset_id="900966",
+            cell_id=cell_id,
+            cell_label=f"Marquer {cell_id}",
+            time_window=time_window,
+            country=country,
+            geometry=geometry,
+            provenance_path=f"data/landclim/raw/{path.name}",
+            provenance_locator=f"REVEALS 36GCs:{row_id}",
+            value_unit="proportion_of_plant_cover",
+        )
+        properties = _properties(feature)
+        properties["reconstruction_values"] = estimates
+        properties["standard_errors"] = standard_errors.get(row_id, {})
+        features[("900966", cell_id, time_window)] = feature
+
+
+def _marquer_cell_geometries(path: Path) -> dict[str, dict[str, object]]:
+    grouped_coordinates: dict[str, list[tuple[float, float]]] = {}
+    cell_key = ""
+    for row in read_xlsx_sheet_rows(path, "Metadata")[1:]:
+        if row and clean_optional_text(row[0]):
+            cell_key = re.sub(r"\D", "", clean_optional_text(row[0]))
+        latitude = parse_coordinate(row[3]) if len(row) > 3 else None
+        longitude = parse_coordinate(row[4]) if len(row) > 4 else None
+        if cell_key and latitude is not None and longitude is not None:
+            grouped_coordinates.setdefault(cell_key, []).append(
+                (longitude, latitude)
+            )
+
+    geometries: dict[str, dict[str, object]] = {}
+    for key, coordinates in grouped_coordinates.items():
+        west = _marquer_grid_floor(min(longitude for longitude, _ in coordinates))
+        south = _marquer_grid_floor(min(latitude for _, latitude in coordinates))
+        if any(
+            longitude > west + 1 or latitude > south + 1
+            for longitude, latitude in coordinates
+        ):
+            raise ValueError(
+                f"Marquer grid {key} site coordinates exceed one-degree support"
+            )
+        geometries[key] = grid_geometry_from_center(west + 0.5, south + 0.5)
+    return geometries
+
+
+def _marquer_grid_floor(value: float) -> int:
+    nearest_integer = round(value)
+    if abs(value - nearest_integer) < 0.01:
+        return nearest_integer
+    return math.floor(value)
 
 
 def _merge_landclim_i_time_windows(
@@ -271,12 +383,7 @@ def _temporal_grid_feature(
             "source_url": metadata["doi"],
             "dataset_id": dataset_id,
             "dataset_label": metadata["label"],
-            "bibliography_reference_keys": [
-                "trondman-et-al-2015"
-                if dataset_id == "897303"
-                else "githumbi-et-al-2022",
-                "sugita-2007-reveals",
-            ],
+            "bibliography_reference_keys": _bibliography_reference_keys(dataset_id),
             "value_unit": value_unit,
             "record_count": 1,
             "time_start_bp": interval[0],
@@ -320,6 +427,15 @@ def _landclim_i_values_by_cell(
         for row in rows[header_index + 1 :]
         if len(row) > 2 and clean_optional_text(row[2])
     }
+
+
+def _bibliography_reference_keys(dataset_id: str) -> list[str]:
+    primary_reference_by_dataset = {
+        "900966": "marquer-et-al-2017",
+        "897303": "trondman-et-al-2015",
+        "937075": "githumbi-et-al-2022",
+    }
+    return [primary_reference_by_dataset[dataset_id], "sugita-2007-reveals"]
 
 
 def _landclim_i_header_index(rows: list[list[str]]) -> int:

@@ -188,6 +188,8 @@ class LandClimDataTests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as tmp:
             tmp_path = Path(tmp)
             raw_paths = {
+                "marquer_2017_reveals_taxa_grid_cells.xlsx": tmp_path
+                / "marquer_2017_reveals_taxa_grid_cells.xlsx",
                 "landclim_i_land_cover_types.xlsx": tmp_path
                 / "landclim_i_land_cover_types.xlsx",
                 "landclim_i_plant_functional_types.xlsx": tmp_path
@@ -197,6 +199,27 @@ class LandClimDataTests(unittest.TestCase):
                 "landclim_ii_reveals_results.zip": tmp_path
                 / "landclim_ii_reveals_results.zip",
             }
+            write_xlsx(
+                raw_paths["marquer_2017_reveals_taxa_grid_cells.xlsx"],
+                {
+                    "Metadata": [
+                        ["", "Site", "Source", "Lat.", "Long."],
+                        ["GC-1", "Lake M", "EPD", "59.30.00N", "17.30.00E"],
+                    ],
+                    "Code time windows": [
+                        ["Time window", "Code"],
+                        ["0-100", "1"],
+                    ],
+                    "REVEALS 36GCs": [
+                        ["", "Picea"],
+                        ["GC1-1", "0.20"],
+                    ],
+                    "SE_REVEALS 36GCs": [
+                        ["", "Picea"],
+                        ["GC1-1", "0.02"],
+                    ],
+                },
+            )
             write_xlsx(
                 raw_paths["landclim_i_land_cover_types.xlsx"],
                 {
@@ -269,14 +292,14 @@ class LandClimDataTests(unittest.TestCase):
                 list[GeoJsonFeature],
                 cast(GeoJsonCollection, temporal_geojson)["features"],
             )
-            self.assertEqual(len(temporal_features), 2)
+            self.assertEqual(len(temporal_features), 3)
             temporal_properties = [
                 cast(dict[str, object], feature["properties"])
                 for feature in temporal_features
             ]
             self.assertEqual(
                 {properties["dataset_id"] for properties in temporal_properties},
-                {"897303", "937075"},
+                {"900966", "897303", "937075"},
             )
             self.assertTrue(
                 all(
@@ -299,6 +322,23 @@ class LandClimDataTests(unittest.TestCase):
                     "comparability_posture"
                 ],
                 "numeric_interval_with_caveat",
+            )
+            marquer = next(
+                properties
+                for properties in temporal_properties
+                if properties["dataset_id"] == "900966"
+            )
+            self.assertEqual(
+                cast(dict[str, float], marquer["reconstruction_values"])["Picea"],
+                0.2,
+            )
+            self.assertEqual(
+                cast(dict[str, float], marquer["standard_errors"])["Picea"],
+                0.02,
+            )
+            self.assertEqual(
+                marquer["bibliography_reference_keys"],
+                ["marquer-et-al-2017", "sugita-2007-reveals"],
             )
 
     def test_inspect_landclim_ii_archive_validates_documented_structure(self) -> None:
