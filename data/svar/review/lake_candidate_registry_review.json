@@ -1,0 +1,44 @@
+{
+  "schema_version": "sweden-lake-candidate-registry-review.v1",
+  "generated_on": "2026-08-01",
+  "source": "SMHI SVAR",
+  "source_lake_count": 40523,
+  "candidate_count": 99,
+  "pollen_linked_lake_count": 96,
+  "named_target_match_count": 4,
+  "unresolved_named_target_count": 2,
+  "named_targets": [
+    {
+      "requested_name": "Bj\u00e4resj\u00f6sj\u00f6n",
+      "registry_match": "614958-137018",
+      "registry_status": "matched"
+    },
+    {
+      "requested_name": "Havg\u00e5rdssj\u00f6n",
+      "registry_match": "615365-134524",
+      "registry_status": "matched"
+    },
+    {
+      "requested_name": "Finjasj\u00f6n",
+      "registry_match": "622731-136920",
+      "registry_status": "matched"
+    },
+    {
+      "requested_name": "\u00d6stra Ringsj\u00f6n",
+      "registry_match": "619626-135565",
+      "registry_status": "matched"
+    },
+    {
+      "requested_name": "Gull\u00e5kra",
+      "registry_match": "",
+      "registry_status": "not_present_in_svar_lakes"
+    },
+    {
+      "requested_name": "Vesums mossar",
+      "registry_match": "",
+      "registry_status": "not_present_in_svar_lakes"
+    }
+  ],
+  "sampling_readiness_rule": "registry identity, representative location, and mapped area complete an area screen only; every retained lake still requires bathymetry, sediment, access, permit, hazard, and logistics review",
+  "temporal_rule": "SVAR represents current hydrographic identity. Dated evidence remains on the linked pollen, archaeology, and ancient-DNA records."
+}
