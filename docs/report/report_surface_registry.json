@@ -1,24 +1,24 @@
 {
   "schema_version": "report-surface-registry.v1",
-  "surface_count": 289,
+  "surface_count": 291,
   "family_counts": {
     "caveats": 9,
     "maintenance": 51,
-    "maps": 75,
+    "maps": 78,
     "portal": 2,
     "reviews": 33,
-    "scopes": 119
+    "scopes": 118
   },
   "audience_counts": {
     "maintainer_diagnostic": 53,
-    "public_reading_surface": 128,
-    "scientific_review_surface": 108
+    "public_reading_surface": 127,
+    "scientific_review_surface": 111
   },
   "geography_counts": {
     "denmark": 14,
     "europe_plus": 36,
     "finland": 14,
-    "nordic": 43,
+    "nordic": 45,
     "norway": 14,
     "report_root": 98,
     "sweden": 34,
@@ -2234,18 +2234,6 @@
       "reader_route": "map_detail"
     },
     {
-      "repository_path": "docs/report/regions/nordic/nordic_environmental_sites.geojson",
-      "family": "maps",
-      "family_label": "Map surfaces",
-      "audience": "scientific_review_surface",
-      "audience_label": "Scientific review surface",
-      "format": "geojson",
-      "geography": "nordic",
-      "caution_level": "medium",
-      "explanation": "Governed report artifact.",
-      "reader_route": "map_detail"
-    },
-    {
       "repository_path": "docs/report/regions/nordic/nordic_evidence_surface.json",
       "family": "maps",
       "family_label": "Map surfaces",
@@ -2414,18 +2402,6 @@
       "reader_route": "scope_bundle"
     },
     {
-      "repository_path": "docs/report/regions/nordic/nordic_temporal_evidence.geojson",
-      "family": "scopes",
-      "family_label": "Scope-filtered outputs",
-      "audience": "public_reading_surface",
-      "audience_label": "Public reading surface",
-      "format": "geojson",
-      "geography": "nordic",
-      "caution_level": "high",
-      "explanation": "Governed report artifact.",
-      "reader_route": "scope_bundle"
-    },
-    {
       "repository_path": "docs/report/regions/nordic/sweden_archaeology_density.geojson",
       "family": "maps",
       "family_label": "Map surfaces",
@@ -2444,6 +2420,54 @@
       "audience": "scientific_review_surface",
       "audience_label": "Scientific review surface",
       "format": "json",
+      "geography": "nordic",
+      "caution_level": "medium",
+      "explanation": "Governed report artifact.",
+      "reader_route": "map_detail"
+    },
+    {
+      "repository_path": "docs/report/regions/nordic/sweden_archaeology_site_discovery.csv",
+      "family": "maps",
+      "family_label": "Map surfaces",
+      "audience": "scientific_review_surface",
+      "audience_label": "Scientific review surface",
+      "format": "csv",
+      "geography": "nordic",
+      "caution_level": "medium",
+      "explanation": "Governed report artifact.",
+      "reader_route": "map_detail"
+    },
+    {
+      "repository_path": "docs/report/regions/nordic/sweden_archaeology_site_discovery.geojson",
+      "family": "maps",
+      "family_label": "Map surfaces",
+      "audience": "scientific_review_surface",
+      "audience_label": "Scientific review surface",
+      "format": "geojson",
+      "geography": "nordic",
+      "caution_level": "medium",
+      "explanation": "Governed report artifact.",
+      "reader_route": "map_detail"
+    },
+    {
+      "repository_path": "docs/report/regions/nordic/sweden_archaeology_site_discovery.json",
+      "family": "maps",
+      "family_label": "Map surfaces",
+      "audience": "scientific_review_surface",
+      "audience_label": "Scientific review surface",
+      "format": "json",
+      "geography": "nordic",
+      "caution_level": "medium",
+      "explanation": "Governed report artifact.",
+      "reader_route": "map_detail"
+    },
+    {
+      "repository_path": "docs/report/regions/nordic/sweden_archaeology_site_discovery.md",
+      "family": "maps",
+      "family_label": "Map surfaces",
+      "audience": "scientific_review_surface",
+      "audience_label": "Scientific review surface",
+      "format": "md",
       "geography": "nordic",
       "caution_level": "medium",
       "explanation": "Governed report artifact.",

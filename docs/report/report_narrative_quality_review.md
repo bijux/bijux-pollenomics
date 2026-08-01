@@ -4,13 +4,13 @@ This review checks whether the report-facing Markdown surfaces explain
 themselves in prose or structured reference form instead of behaving like bare
 link farms or coded operator notes.
 
-- Reviewed markdown pages: `95`
+- Reviewed markdown pages: `96`
 
 ## Quality Postures
 
 | Posture | Count |
 | --- | ---: |
-| `reader_ready` | 47 |
+| `reader_ready` | 48 |
 | `structured_reference` | 22 |
 | `thin_structure` | 26 |
 
@@ -70,13 +70,14 @@ link farms or coded operator notes.
 | `docs/report/regions/europe-plus/europe-plus_map_publication_contract.md` | `reader_ready` | 6 | 0 | 6 | 13 | 7 | Page explains its purpose before or alongside artifact links. |
 | `docs/report/regions/europe-plus/europe-plus_point_traceability.md` | `reader_ready` | 1 | 0 | 0 | 42 | 3 | Page explains its purpose before or alongside artifact links. |
 | `docs/report/regions/europe-plus/europe-plus_scientific_review.md` | `reader_ready` | 3 | 0 | 8 | 291 | 10 | Page explains its purpose before or alongside artifact links. |
-| `docs/report/regions/nordic/README.md` | `reader_ready` | 9 | 0 | 55 | 32 | 14 | Page explains its purpose before or alongside artifact links. |
+| `docs/report/regions/nordic/README.md` | `reader_ready` | 9 | 0 | 57 | 31 | 14 | Page explains its purpose before or alongside artifact links. |
 | `docs/report/regions/nordic/nordic_candidate_site_sensitivity.md` | `thin_structure` | 1 | 0 | 0 | 449 | 1 | Page explains itself but still needs stronger internal wayfinding. |
 | `docs/report/regions/nordic/nordic_candidate_sites.md` | `thin_structure` | 4 | 0 | 0 | 449 | 1 | Page explains itself but still needs stronger internal wayfinding. |
 | `docs/report/regions/nordic/nordic_evidence_surface.md` | `reader_ready` | 1 | 0 | 0 | 49 | 4 | Page explains its purpose before or alongside artifact links. |
-| `docs/report/regions/nordic/nordic_map_publication_contract.md` | `reader_ready` | 7 | 0 | 14 | 20 | 7 | Page explains its purpose before or alongside artifact links. |
+| `docs/report/regions/nordic/nordic_map_publication_contract.md` | `reader_ready` | 7 | 0 | 14 | 19 | 7 | Page explains its purpose before or alongside artifact links. |
 | `docs/report/regions/nordic/nordic_point_traceability.md` | `reader_ready` | 1 | 0 | 0 | 42 | 3 | Page explains its purpose before or alongside artifact links. |
-| `docs/report/regions/nordic/nordic_scientific_review.md` | `reader_ready` | 3 | 0 | 8 | 371 | 10 | Page explains its purpose before or alongside artifact links. |
+| `docs/report/regions/nordic/nordic_scientific_review.md` | `reader_ready` | 3 | 0 | 8 | 355 | 10 | Page explains its purpose before or alongside artifact links. |
+| `docs/report/regions/nordic/sweden_archaeology_site_discovery.md` | `reader_ready` | 4 | 0 | 4 | 42 | 4 | Page explains its purpose before or alongside artifact links. |
 | `docs/report/repository_atlas_input_audit.md` | `structured_reference` | 0 | 0 | 0 | 8 | 1 | Page is table-heavy, but it behaves like a reference surface rather than a loose link dump. |
 | `docs/report/repository_brutal_honesty_review.md` | `thin_structure` | 1 | 0 | 2 | 7 | 1 | Page explains itself but still needs stronger internal wayfinding. |
 | `docs/report/repository_claim_audit.md` | `thin_structure` | 1 | 0 | 2 | 9 | 1 | Page explains itself but still needs stronger internal wayfinding. |

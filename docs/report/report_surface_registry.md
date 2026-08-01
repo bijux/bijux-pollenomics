@@ -4,7 +4,7 @@ This registry classifies the current `docs/report/` tree by family, audience,
 scope, and explanation role so the publication system can be navigated as one
 coherent report surface instead of a loose artifact dump.
 
-- Surface count: `289`
+- Surface count: `291`
 
 ## Family Counts
 
@@ -12,18 +12,18 @@ coherent report surface instead of a loose artifact dump.
 | --- | ---: |
 | Scientific caveats | 9 |
 | Maintainer truth surfaces | 51 |
-| Map surfaces | 75 |
+| Map surfaces | 78 |
 | Portal guidance | 2 |
 | Evidence reviews | 33 |
-| Scope-filtered outputs | 119 |
+| Scope-filtered outputs | 118 |
 
 ## Audience Counts
 
 | Audience | Count |
 | --- | ---: |
 | Maintainer diagnostic | 53 |
-| Public reading surface | 128 |
-| Scientific review surface | 108 |
+| Public reading surface | 127 |
+| Scientific review surface | 111 |
 
 ## Classified Surfaces
 
@@ -213,7 +213,6 @@ coherent report surface instead of a loose artifact dump.
 | `docs/report/regions/nordic/nordic_comparator_animal_localities.geojson` | Map surfaces | Scientific review surface | `nordic` | `geojson` | Governed report artifact. |
 | `docs/report/regions/nordic/nordic_country_boundaries.geojson` | Map surfaces | Scientific review surface | `nordic` | `geojson` | Governed report artifact. |
 | `docs/report/regions/nordic/nordic_domesticated_animal_localities.geojson` | Map surfaces | Scientific review surface | `nordic` | `geojson` | Governed report artifact. |
-| `docs/report/regions/nordic/nordic_environmental_sites.geojson` | Map surfaces | Scientific review surface | `nordic` | `geojson` | Governed report artifact. |
 | `docs/report/regions/nordic/nordic_evidence_surface.json` | Map surfaces | Scientific review surface | `nordic` | `json` | Governed report artifact. |
 | `docs/report/regions/nordic/nordic_evidence_surface.md` | Map surfaces | Scientific review surface | `nordic` | `md` | Governed report artifact. |
 | `docs/report/regions/nordic/nordic_map.html` | Map surfaces | Public reading surface | `nordic` | `html` | Interactive map surface for one governed publication scope. |
@@ -228,9 +227,12 @@ coherent report surface instead of a loose artifact dump.
 | `docs/report/regions/nordic/nordic_scientific_review.json` | Map surfaces | Scientific review surface | `nordic` | `json` | Governed report artifact. |
 | `docs/report/regions/nordic/nordic_scientific_review.md` | Map surfaces | Scientific review surface | `nordic` | `md` | Governed report artifact. |
 | `docs/report/regions/nordic/nordic_summary.json` | Scope-filtered outputs | Public reading surface | `nordic` | `json` | Scope summary surface for direct inspection or downstream filtering. |
-| `docs/report/regions/nordic/nordic_temporal_evidence.geojson` | Scope-filtered outputs | Public reading surface | `nordic` | `geojson` | Governed report artifact. |
 | `docs/report/regions/nordic/sweden_archaeology_density.geojson` | Map surfaces | Scientific review surface | `nordic` | `geojson` | Governed report artifact. |
 | `docs/report/regions/nordic/sweden_archaeology_layer.json` | Map surfaces | Scientific review surface | `nordic` | `json` | Governed report artifact. |
+| `docs/report/regions/nordic/sweden_archaeology_site_discovery.csv` | Map surfaces | Scientific review surface | `nordic` | `csv` | Governed report artifact. |
+| `docs/report/regions/nordic/sweden_archaeology_site_discovery.geojson` | Map surfaces | Scientific review surface | `nordic` | `geojson` | Governed report artifact. |
+| `docs/report/regions/nordic/sweden_archaeology_site_discovery.json` | Map surfaces | Scientific review surface | `nordic` | `json` | Governed report artifact. |
+| `docs/report/regions/nordic/sweden_archaeology_site_discovery.md` | Map surfaces | Scientific review surface | `nordic` | `md` | Governed report artifact. |
 | `docs/report/repository_atlas_input_audit.json` | Maintainer truth surfaces | Maintainer diagnostic | `report_root` | `json` | Maintainer-facing truth or governance surface. |
 | `docs/report/repository_atlas_input_audit.md` | Maintainer truth surfaces | Maintainer diagnostic | `report_root` | `md` | Maintainer-facing truth or governance surface. |
 | `docs/report/repository_brutal_honesty_review.json` | Maintainer truth surfaces | Maintainer diagnostic | `report_root` | `json` | Maintainer-facing truth or governance surface. |

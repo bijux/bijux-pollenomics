@@ -1,8 +1,8 @@
 {
   "schema_version": "report-narrative-quality-review.v1",
-  "page_count": 95,
+  "page_count": 96,
   "quality_posture_counts": {
-    "reader_ready": 47,
+    "reader_ready": 48,
     "structured_reference": 22,
     "thin_structure": 26
   },
@@ -531,9 +531,9 @@
       "repository_path": "docs/report/regions/nordic/README.md",
       "prose_paragraph_count": 9,
       "link_bullet_count": 0,
-      "bullet_sentence_count": 55,
+      "bullet_sentence_count": 57,
       "heading_count": 14,
-      "table_line_count": 32,
+      "table_line_count": 31,
       "quality_posture": "reader_ready",
       "note": "Page explains its purpose before or alongside artifact links."
     },
@@ -573,7 +573,7 @@
       "link_bullet_count": 0,
       "bullet_sentence_count": 14,
       "heading_count": 7,
-      "table_line_count": 20,
+      "table_line_count": 19,
       "quality_posture": "reader_ready",
       "note": "Page explains its purpose before or alongside artifact links."
     },
@@ -593,7 +593,17 @@
       "link_bullet_count": 0,
       "bullet_sentence_count": 8,
       "heading_count": 10,
-      "table_line_count": 371,
+      "table_line_count": 355,
+      "quality_posture": "reader_ready",
+      "note": "Page explains its purpose before or alongside artifact links."
+    },
+    {
+      "repository_path": "docs/report/regions/nordic/sweden_archaeology_site_discovery.md",
+      "prose_paragraph_count": 4,
+      "link_bullet_count": 0,
+      "bullet_sentence_count": 4,
+      "heading_count": 4,
+      "table_line_count": 42,
       "quality_posture": "reader_ready",
       "note": "Page explains its purpose before or alongside artifact links."
     },
