@@ -8,22 +8,24 @@
       "governing_surface_path": "data/landclim/normalized/nordic_pollen_site_sequences.geojson",
       "review_surface_paths": [
         "data/landclim/normalized/landclim_summary.json",
+        "data/landclim/normalized/landclim_bibliography.json",
         "data/source_family_evidence_stage_matrix.json"
       ],
-      "spatial_representation": "site-sequence point inventory",
-      "temporal_support_posture": "numeric_site_sequence_intervals",
-      "temporal_support_note": "Checked-in LandClim sequence points carry numeric BP windows in the normalized repository layer.",
-      "temporal_scope": "site-sequence context",
+      "spatial_representation": "site-sequence points plus time-window model polygons",
+      "temporal_support_posture": "numeric_site_and_reveals_window_intervals",
+      "temporal_support_note": "LandClim sequence points carry explicit temporal posture and REVEALS model cells are published as separate, filterable time-window records.",
+      "temporal_scope": "site-sequence coverage and modeled vegetation windows",
       "distance_scoring_posture": "supporting_pollen_context",
       "distance_scoring_note": "Use LandClim to strengthen pollen context around lakes; do not treat it as direct human or archaeological evidence.",
       "record_count": 492,
       "numeric_interval_record_count": 482,
       "detail_metrics": {
         "site_sequence_record_count": 492,
-        "numeric_interval_record_count": 482
+        "numeric_interval_record_count": 482,
+        "temporal_grid_feature_count": 2500
       },
       "caveats": [
-        "The registry reflects normalized site-sequence intervals rather than a separate chronology packet inventory."
+        "REVEALS windows are modeled vegetation estimates, not sample-owned chronologies."
       ]
     },
     {

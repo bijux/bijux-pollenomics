@@ -1,8 +1,12 @@
 {
-  "generated_on": "2026-03-31",
+  "generated_on": "2026-08-01",
   "source": "LandClim",
   "site_count": 492,
+  "numeric_site_interval_count": 482,
   "grid_cell_count": 88,
+  "temporal_grid_feature_count": 2500,
+  "bibliography_dataset_count": 3,
   "site_layer_key": "landclim-sites",
-  "grid_layer_key": "landclim-reveals-grid"
+  "grid_layer_key": "landclim-reveals-grid",
+  "temporal_grid_layer_key": "landclim-reveals-temporal-grid"
 }

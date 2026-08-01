@@ -24,7 +24,9 @@
         "purpose": "tracked pollen-site and grid outputs prepared for interpretation",
         "example_artifacts": [
           "data/landclim/normalized/nordic_pollen_site_sequences.geojson",
-          "data/landclim/normalized/nordic_reveals_grid_cells.geojson"
+          "data/landclim/normalized/nordic_reveals_grid_cells.geojson",
+          "data/landclim/normalized/nordic_reveals_temporal_grid_cells.geojson",
+          "data/landclim/normalized/landclim_bibliography.json"
         ]
       },
       "reviewed_layer": {
@@ -42,7 +44,8 @@
         "required": true,
         "purpose": "published pollen-context layers used in atlas outputs",
         "example_artifacts": [
-          "docs/report/regions/nordic/nordic_pollen_sites.geojson"
+          "docs/report/regions/nordic/nordic_pollen_sites.geojson",
+          "docs/report/regions/nordic/nordic_reveals_temporal_grid_cells.geojson"
         ]
       },
       "coverage_metric_keys": [
@@ -66,7 +69,9 @@
           "purpose": "tracked pollen-site and grid outputs prepared for interpretation",
           "example_artifacts": [
             "data/landclim/normalized/nordic_pollen_site_sequences.geojson",
-            "data/landclim/normalized/nordic_reveals_grid_cells.geojson"
+            "data/landclim/normalized/nordic_reveals_grid_cells.geojson",
+            "data/landclim/normalized/nordic_reveals_temporal_grid_cells.geojson",
+            "data/landclim/normalized/landclim_bibliography.json"
           ]
         },
         "reviewed": {
@@ -84,7 +89,8 @@
           "required": true,
           "purpose": "published pollen-context layers used in atlas outputs",
           "example_artifacts": [
-            "docs/report/regions/nordic/nordic_pollen_sites.geojson"
+            "docs/report/regions/nordic/nordic_pollen_sites.geojson",
+            "docs/report/regions/nordic/nordic_reveals_temporal_grid_cells.geojson"
           ]
         }
       }
