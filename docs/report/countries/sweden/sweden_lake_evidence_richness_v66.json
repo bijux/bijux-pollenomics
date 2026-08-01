@@ -86,7 +86,7 @@
         "detail_metrics": {
           "site_sequence_record_count": 492,
           "numeric_interval_record_count": 482,
-          "temporal_grid_feature_count": 2500
+          "temporal_grid_feature_count": 2809
         },
         "caveats": [
           "REVEALS windows are modeled vegetation estimates, not sample-owned chronologies."

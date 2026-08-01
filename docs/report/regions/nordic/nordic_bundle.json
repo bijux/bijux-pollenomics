@@ -426,7 +426,7 @@
         "label": "LandClim REVEALS time-window grids",
         "source_name": "LandClim",
         "coverage_label": "Time-window-specific REVEALS grid estimates from published LandClim PANGAEA datasets.",
-        "count": 2500,
+        "count": 2809,
         "publication_role": "scope_specific_overlay",
         "scope_visibility": "scope_owned",
         "default_enabled": true,

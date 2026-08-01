@@ -78,7 +78,7 @@ Nordic is the regional detail surface. It keeps the shared human and animal evid
 | Sweden lake 40 km top 40 | `scope_specific_overlay` | Optional Nordic atlas overlay for the top 40 Sweden lakes in the 40 km evidence scenario. | `40` |
 | Sweden lake 50 km top 40 | `scope_specific_overlay` | Optional Nordic atlas overlay for the top 40 Sweden lakes in the 50 km evidence scenario. | `40` |
 | Country boundaries | `region_filtered_layer` | Published country outlines used for framing and scope-aware map filtering. | `4` |
-| LandClim REVEALS time-window grids | `scope_specific_overlay` | Time-window-specific REVEALS grid estimates from published LandClim PANGAEA datasets. | `2500` |
+| LandClim REVEALS time-window grids | `scope_specific_overlay` | Time-window-specific REVEALS grid estimates from published LandClim PANGAEA datasets. | `2809` |
 | RAÄ archaeology density | `scope_specific_overlay` | Sweden only. Density cells summarize `Fornlämning` counts. | `106` |
 
 ## Governed Filters
