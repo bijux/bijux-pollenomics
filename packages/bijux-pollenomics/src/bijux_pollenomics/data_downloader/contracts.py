@@ -83,6 +83,26 @@ SEAD_TEMPORAL_EVIDENCE_GEOJSON = DataArtifactContract(
     label="SEAD temporal evidence GeoJSON",
     relative_parts=("normalized", "nordic_temporal_evidence.geojson"),
 )
+SEAD_ARCHAEOLOGY_DISCOVERY_JSON = DataArtifactContract(
+    source="sead",
+    label="Sweden archaeology site discovery registry",
+    relative_parts=("derived", "sweden_archaeology_site_discovery.json"),
+)
+SEAD_ARCHAEOLOGY_DISCOVERY_CSV = DataArtifactContract(
+    source="sead",
+    label="Sweden archaeology site discovery table",
+    relative_parts=("derived", "sweden_archaeology_site_discovery.csv"),
+)
+SEAD_ARCHAEOLOGY_DISCOVERY_GEOJSON = DataArtifactContract(
+    source="sead",
+    label="Sweden archaeology site discovery GeoJSON",
+    relative_parts=("derived", "sweden_archaeology_site_discovery.geojson"),
+)
+SEAD_ARCHAEOLOGY_DISCOVERY_MARKDOWN = DataArtifactContract(
+    source="sead",
+    label="Sweden archaeology site discovery guide",
+    relative_parts=("derived", "sweden_archaeology_site_discovery.md"),
+)
 RAA_LAYER_METADATA = DataArtifactContract(
     source="raa",
     label="RAÄ archaeology layer metadata",

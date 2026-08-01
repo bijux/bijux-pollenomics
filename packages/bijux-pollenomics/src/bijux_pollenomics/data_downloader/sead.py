@@ -5,6 +5,10 @@ from dataclasses import dataclass
 import json
 from pathlib import Path
 
+from .sources.sead.discovery import (
+    build_sweden_archaeology_site_discovery,
+    write_sweden_archaeology_site_discovery,
+)
 from ..core.files import write_json
 from ..core.http import fetch_json
 from .contracts import (
@@ -17,6 +21,7 @@ from .exports.context_points import (
     write_context_points_csv,
     write_context_points_geojson,
 )
+from .models import ContextPointRecord
 from .shared import load_repository_country_boundaries
 from .sources.sead.archive import SEAD_LINKED_SOURCE_TABLES, write_sead_site_archive
 from .sources.sead.fetch import (
@@ -178,6 +183,12 @@ def collect_sead_data(
         SEAD_TEMPORAL_EVIDENCE_GEOJSON.source_path_under(output_root), temporal_records
     )
     write_sead_review_outputs(output_root, rows=rows, records=records)
+    _write_archaeology_site_discovery(
+        output_root=output_root,
+        rows=rows,
+        records=records,
+        temporal_records=temporal_records,
+    )
 
     return SeadDataReport(
         output_dir=output_root,
@@ -226,6 +237,12 @@ def materialize_sead_repository_surfaces(data_root: Path) -> SeadDataReport:
         SEAD_TEMPORAL_EVIDENCE_GEOJSON.path_under(data_root), temporal_records
     )
     write_sead_review_outputs(output_root, rows=rows, records=records)
+    _write_archaeology_site_discovery(
+        output_root=output_root,
+        rows=rows,
+        records=records,
+        temporal_records=temporal_records,
+    )
     return SeadDataReport(
         output_dir=output_root,
         point_count=len(records),
@@ -307,6 +324,33 @@ def _build_repository_inventory_summary(
         "site_inventory_only_row_count": len(rows) - numeric_interval_row_count,
         "temporal_capture_posture": temporal_capture_posture,
     }
+
+
+def _write_archaeology_site_discovery(
+    *,
+    output_root: Path,
+    rows: list[dict[str, object]],
+    records: list[ContextPointRecord],
+    temporal_records: list[ContextPointRecord],
+) -> None:
+    raa_path = (
+        output_root.parent
+        / "raa"
+        / "normalized"
+        / "sweden_archaeology_density.geojson"
+    )
+    raa_density: dict[str, object] | None = None
+    if raa_path.is_file():
+        payload = json.loads(raa_path.read_text(encoding="utf-8"))
+        if isinstance(payload, dict):
+            raa_density = payload
+    discovery = build_sweden_archaeology_site_discovery(
+        site_records=records,
+        temporal_records=temporal_records,
+        raw_rows=rows,
+        raa_density_geojson=raa_density,
+    )
+    write_sweden_archaeology_site_discovery(output_root, discovery)
 
 
 __all__ = [
