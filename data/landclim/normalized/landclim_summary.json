@@ -4,7 +4,7 @@
   "site_count": 492,
   "numeric_site_interval_count": 482,
   "grid_cell_count": 88,
-  "temporal_grid_feature_count": 2500,
+  "temporal_grid_feature_count": 2809,
   "bibliography_dataset_count": 3,
   "site_layer_key": "landclim-sites",
   "grid_layer_key": "landclim-reveals-grid",
