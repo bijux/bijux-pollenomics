@@ -185,24 +185,34 @@ def publish_country_report_bundle(
             render_lake_archaeology_sensitivity_markdown(lake_archaeology_payload),
             encoding="utf-8",
         )
-        land_use_payload = build_sweden_land_use_synthesis(
-            context_root=context_root,
-            lake_report=lake_report,
-            human_localities=report.localities,
-            animal_localities=animal_localities,
-        )
-        write_sweden_land_use_synthesis_json(
-            bundle_paths.land_use_synthesis_json_path,
-            land_use_payload,
-        )
-        write_sweden_land_use_synthesis_csv(
-            bundle_paths.land_use_synthesis_csv_path,
-            land_use_payload,
-        )
-        bundle_paths.land_use_synthesis_markdown_path.write_text(
-            render_sweden_land_use_synthesis_markdown(land_use_payload),
-            encoding="utf-8",
-        )
+        land_use_section_markdown = ""
+        if _supports_land_use_synthesis(context_root):
+            land_use_payload = build_sweden_land_use_synthesis(
+                context_root=context_root,
+                lake_report=lake_report,
+                human_localities=report.localities,
+                animal_localities=animal_localities,
+            )
+            write_sweden_land_use_synthesis_json(
+                bundle_paths.land_use_synthesis_json_path,
+                land_use_payload,
+            )
+            write_sweden_land_use_synthesis_csv(
+                bundle_paths.land_use_synthesis_csv_path,
+                land_use_payload,
+            )
+            bundle_paths.land_use_synthesis_markdown_path.write_text(
+                render_sweden_land_use_synthesis_markdown(land_use_payload),
+                encoding="utf-8",
+            )
+            land_use_section_markdown = f"""
+
+## Southern Sweden Land-Use Synthesis
+
+- Full temporal synthesis JSON: [`{bundle_paths.land_use_synthesis_json_path.name}`](./{bundle_paths.land_use_synthesis_json_path.name})
+- Full temporal synthesis CSV: [`{bundle_paths.land_use_synthesis_csv_path.name}`](./{bundle_paths.land_use_synthesis_csv_path.name})
+- Target decisions and reader explanation: [`{bundle_paths.land_use_synthesis_markdown_path.name}`](./{bundle_paths.land_use_synthesis_markdown_path.name})
+"""
         lake_section_markdown = render_lake_evidence_richness_section(
             json_name=bundle_paths.lake_evidence_richness_json_path.name,
             registry_csv_name=bundle_paths.lake_evidence_richness_registry_csv_path.name,
@@ -212,7 +222,8 @@ def publish_country_report_bundle(
             map_html_name=bundle_paths.lake_evidence_richness_map_html_path.name,
             markdown_name=bundle_paths.lake_evidence_richness_markdown_path.name,
         )
-        lake_section_markdown += f"""
+        lake_section_markdown += (
+            f"""
 
 ## Lake Archaeology-Weight Sensitivity
 
@@ -220,12 +231,9 @@ def publish_country_report_bundle(
 - Sensitivity CSV: [`{bundle_paths.lake_archaeology_sensitivity_csv_path.name}`](./{bundle_paths.lake_archaeology_sensitivity_csv_path.name})
 - Reader explanation: [`{bundle_paths.lake_archaeology_sensitivity_markdown_path.name}`](./{bundle_paths.lake_archaeology_sensitivity_markdown_path.name})
 
-## Southern Sweden Land-Use Synthesis
-
-- Full temporal synthesis JSON: [`{bundle_paths.land_use_synthesis_json_path.name}`](./{bundle_paths.land_use_synthesis_json_path.name})
-- Full temporal synthesis CSV: [`{bundle_paths.land_use_synthesis_csv_path.name}`](./{bundle_paths.land_use_synthesis_csv_path.name})
-- Target decisions and reader explanation: [`{bundle_paths.land_use_synthesis_markdown_path.name}`](./{bundle_paths.land_use_synthesis_markdown_path.name})
 """
+            + land_use_section_markdown
+        )
         lake_fieldwork_section_markdown = render_lake_fieldwork_preparation_section(
             json_name=bundle_paths.lake_fieldwork_preparation_json_path.name,
             csv_name=bundle_paths.lake_fieldwork_preparation_csv_path.name,
@@ -257,3 +265,14 @@ def publish_country_report_bundle(
         ),
         encoding="utf-8",
     )
+
+
+def _supports_land_use_synthesis(context_root: Path) -> bool:
+    required_paths = (
+        context_root
+        / "landclim"
+        / "normalized"
+        / "nordic_reveals_temporal_grid_cells.geojson",
+        context_root / "sead" / "normalized" / "nordic_temporal_evidence.geojson",
+    )
+    return all(path.is_file() for path in required_paths)
