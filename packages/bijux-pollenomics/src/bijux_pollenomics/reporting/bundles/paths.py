@@ -10,7 +10,23 @@ __all__ = [
     "CountryBundlePaths",
     "build_atlas_bundle_paths",
     "build_country_bundle_paths",
+    "serialize_publication_path",
 ]
+
+
+def serialize_publication_path(path: Path) -> str:
+    """Serialize a public report path without leaking its build-machine prefix."""
+    candidate = Path(path)
+    parts = candidate.parts
+    for index in range(len(parts) - 1):
+        if parts[index : index + 2] == ("docs", "report"):
+            return Path(*parts[index:]).as_posix()
+    if not candidate.is_absolute():
+        return candidate.as_posix()
+    try:
+        return candidate.relative_to(Path.cwd()).as_posix()
+    except ValueError:
+        return candidate.name
 
 
 @dataclass(frozen=True)

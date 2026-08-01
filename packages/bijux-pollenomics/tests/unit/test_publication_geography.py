@@ -6,7 +6,10 @@ import tempfile
 import unittest
 from unittest.mock import patch
 
-from bijux_pollenomics.reporting.bundles.paths import build_atlas_bundle_paths
+from bijux_pollenomics.reporting.bundles.paths import (
+    build_atlas_bundle_paths,
+    serialize_publication_path,
+)
 from bijux_pollenomics.reporting.bundles.published_reports import (
     publish_published_reports_tree,
 )
@@ -27,6 +30,16 @@ from bijux_pollenomics.reporting.models import (
 
 
 class PublicationGeographyTests(unittest.TestCase):
+    def test_publication_paths_do_not_expose_build_machine_prefixes(self) -> None:
+        self.assertEqual(
+            serialize_publication_path(Path("/private/build/docs/report/world")),
+            "docs/report/world",
+        )
+        self.assertEqual(
+            serialize_publication_path(Path("/private/build/report-output")),
+            "report-output",
+        )
+
     def test_infer_publication_scope_prefers_narrowest_governed_region(self) -> None:
         nordic_scope = infer_publication_scope(("Sweden",))
         europe_plus_scope = infer_publication_scope(("Germany",))
@@ -122,6 +135,19 @@ class PublicationGeographyTests(unittest.TestCase):
         )
 
         self.assertEqual(published["geography_bundles"]["world"]["slug"], "world")
+        self.assertEqual(published["shared_map_dir"], "docs/report/world")
+        self.assertEqual(
+            published["regional_output_dirs"],
+            ["docs/report/regions/europe-plus", "docs/report/regions/nordic"],
+        )
+        self.assertEqual(
+            published["country_output_dirs"],
+            ["docs/report/countries/sweden", "docs/report/countries/norway"],
+        )
+        self.assertEqual(
+            published["summary_path"],
+            "docs/report/published_reports_summary.json",
+        )
         self.assertIn("europe-plus", published["geography_bundles"]["regions"])
         self.assertIn("nordic", published["geography_bundles"]["regions"])
         self.assertEqual(

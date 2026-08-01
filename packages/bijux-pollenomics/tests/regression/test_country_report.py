@@ -2083,7 +2083,7 @@ class CountryReportTests(unittest.TestCase):
                 ],
                 "repository_truth_posture.json",
             )
-            self.assertEqual(animal_output_audit["report_root"], str(output))
+            self.assertEqual(animal_output_audit["report_root"], "docs/report")
             self.assertEqual(
                 foundation_review["public_posture"],
                 "governed_metadata_foundation_not_reference_grade",
@@ -2140,11 +2140,11 @@ class CountryReportTests(unittest.TestCase):
             self.assertEqual(sweden_summary["animal_adna"]["total_species"], 1)
             self.assertEqual(
                 atlas_summary["output_dir"],
-                str(output / "regions" / "nordic"),
+                "docs/report/regions/nordic",
             )
             self.assertEqual(
                 sweden_summary["output_dir"],
-                str(output / "countries" / "sweden"),
+                "docs/report/countries/sweden",
             )
             self.assertNotIn(".report.staging", atlas_summary["output_dir"])
             self.assertNotIn(".report.staging", sweden_summary["output_dir"])

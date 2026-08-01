@@ -1,7 +1,7 @@
 from __future__ import annotations
 
 from ...models import MultiCountryMapReport
-from ..paths import AtlasBundlePaths
+from ..paths import AtlasBundlePaths, serialize_publication_path
 
 
 def build_multi_country_map_summary(
@@ -64,7 +64,7 @@ def build_multi_country_map_summary(
         "countries": list(report.countries),
         "country_sample_counts": report.country_sample_counts,
         "total_unique_samples": report.total_unique_samples,
-        "output_dir": str(report.output_dir),
+        "output_dir": serialize_publication_path(report.output_dir),
         "artifacts": artifacts,
         "map_publication_contract": map_publication_contract,
         "animal_atlas": animal_atlas_summary or {},
@@ -137,7 +137,7 @@ def build_multi_country_bundle_manifest(
         "countries": list(report.countries),
         "country_sample_counts": report.country_sample_counts,
         "total_unique_samples": report.total_unique_samples,
-        "output_dir": str(report.output_dir),
+        "output_dir": serialize_publication_path(report.output_dir),
         "artifacts": artifacts,
         "map_publication_contract": map_publication_contract,
         "animal_atlas": animal_atlas_summary or {},

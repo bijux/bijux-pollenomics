@@ -23,7 +23,11 @@ from ..geography import (
 )
 from ..models import CountryReport, MultiCountryMapReport, PublishedReportsReport
 from ..presentation import publish_report_portal
-from .paths import AtlasBundlePaths, build_country_bundle_paths
+from .paths import (
+    AtlasBundlePaths,
+    build_country_bundle_paths,
+    serialize_publication_path,
+)
 
 __all__ = ["publish_published_reports_tree"]
 
@@ -183,7 +187,7 @@ def publish_published_reports_tree(
     animal_output_audit = build_public_animal_output_audit(
         data_root, staging_output_root
     )
-    animal_output_audit["report_root"] = str(output_root)
+    animal_output_audit["report_root"] = serialize_publication_path(output_root)
     write_summary_json_fn(
         staging_output_root / "animal_output_audit.json",
         animal_output_audit,

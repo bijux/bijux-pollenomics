@@ -3,7 +3,7 @@ from __future__ import annotations
 import json
 
 from ...models import CountryReport
-from ..paths import CountryBundlePaths
+from ..paths import CountryBundlePaths, serialize_publication_path
 
 
 def build_country_report_summary(
@@ -18,7 +18,7 @@ def build_country_report_summary(
         "total_unique_samples": report.total_unique_samples,
         "total_unique_localities": report.total_unique_localities,
         "dataset_row_counts": report.dataset_row_counts,
-        "output_dir": str(report.output_dir),
+        "output_dir": serialize_publication_path(report.output_dir),
         "artifacts": {
             "bundle_manifest": bundle_paths.bundle_manifest_path.name,
             "readme": bundle_paths.readme_path.name,
@@ -91,7 +91,7 @@ def build_country_bundle_manifest(
         "dataset_row_counts": report.dataset_row_counts,
         "total_unique_samples": report.total_unique_samples,
         "total_unique_localities": report.total_unique_localities,
-        "output_dir": str(report.output_dir),
+        "output_dir": serialize_publication_path(report.output_dir),
         "artifacts": {
             "readme": bundle_paths.readme_path.name,
             "samples_csv": bundle_paths.samples_csv_path.name,

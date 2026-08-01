@@ -4,6 +4,7 @@ from dataclasses import asdict
 
 from ...geography import PublishedGeographyPlan
 from ...models import MultiCountryMapReport, PublishedReportsReport
+from ..paths import serialize_publication_path
 
 
 def build_published_reports_summary(
@@ -17,14 +18,18 @@ def build_published_reports_summary(
     """Build a machine-readable summary for the current published report set."""
     payload = asdict(report)
     payload["schema_version"] = "published-reports-summary.v1"
-    payload["shared_map_dir"] = str(report.shared_map_dir)
+    payload["shared_map_dir"] = serialize_publication_path(report.shared_map_dir)
     payload["regional_output_dirs"] = [
-        str(path) for path in report.regional_output_dirs
+        serialize_publication_path(path) for path in report.regional_output_dirs
     ]
-    payload["country_output_dirs"] = [str(path) for path in report.country_output_dirs]
-    payload["summary_path"] = str(report.summary_path)
+    payload["country_output_dirs"] = [
+        serialize_publication_path(path) for path in report.country_output_dirs
+    ]
+    payload["summary_path"] = serialize_publication_path(report.summary_path)
     payload["country_output_root"] = (
-        None if report.country_output_root is None else str(report.country_output_root)
+        None
+        if report.country_output_root is None
+        else serialize_publication_path(report.country_output_root)
     )
     regional_output_dirs = {
         scope.slug: path
@@ -40,14 +45,16 @@ def build_published_reports_summary(
     }
     geography_bundles = {
         "world": {
-            "directory": str(report.shared_map_dir),
+            "directory": serialize_publication_path(report.shared_map_dir),
             "slug": plan.world_scope.slug,
             "title": map_report.title,
             "countries": list(plan.world_scope.countries),
         },
         "regions": {
             scope.slug: {
-                "directory": str(regional_output_dirs[scope.slug]),
+                "directory": serialize_publication_path(
+                    regional_output_dirs[scope.slug]
+                ),
                 "slug": scope.slug,
                 "title": scope.map_title,
                 "countries": list(scope.countries),
@@ -57,7 +64,9 @@ def build_published_reports_summary(
         },
         "countries": {
             scope.slug: {
-                "directory": str(country_output_dirs[scope.slug]),
+                "directory": serialize_publication_path(
+                    country_output_dirs[scope.slug]
+                ),
                 "country": scope.countries[0],
                 "parent_scope": scope.parent_key,
             }
@@ -68,7 +77,7 @@ def build_published_reports_summary(
     payload["artifacts"] = {
         "world_bundle": {
             "slug": map_report.slug,
-            "directory": str(report.shared_map_dir),
+            "directory": serialize_publication_path(report.shared_map_dir),
             "bundle_manifest": f"{map_report.slug}_bundle.json",
             "summary_json": f"{map_report.slug}_summary.json",
         },
@@ -85,7 +94,9 @@ def build_published_reports_summary(
         "repository_truth": repository_truth_artifacts or {},
         "country_bundles": {
             scope.slug: {
-                "directory": str(country_output_dirs[scope.slug]),
+                "directory": serialize_publication_path(
+                    country_output_dirs[scope.slug]
+                ),
                 "bundle_manifest": f"{scope.slug}_aadr_{report.version}_bundle.json",
                 "summary_json": f"{scope.slug}_aadr_{report.version}_summary.json",
                 "parent_scope": scope.parent_key,
