@@ -246,16 +246,16 @@ def build_sead_recovery_requirements(
     )
     rows = [
         {
-            "requirement_key": "linked_temporal_capture",
+            "requirement_key": "linked_temporal_promotion",
             "evidence_gap_count": high_risk_count,
-            "required_evidence": "Capture linked dating-range, relative-period, and uncertainty tables into checked-in raw SEAD inventory refreshes.",
-            "satisfaction_signal": "Checked-in raw SEAD rows carry temporal linked tables often enough that the thin-site-inventory risk no longer dominates the review packet.",
+            "required_evidence": "Promote captured SEAD dating-range, calendar-era, and relative-period rows into normalized BP intervals wherever the linked inventory supports it, while keeping unresolved rows explicit.",
+            "satisfaction_signal": "SEAD temporal review shows numeric intervals for chronology-bearing rows and leaves unresolved site inventory rows visibly unresolved instead of implying uniform time support.",
         },
         {
-            "requirement_key": "reference_link_capture",
+            "requirement_key": "reference_visibility_promotion",
             "evidence_gap_count": site_page_only_count,
-            "required_evidence": "Preserve stable bibliography or DOI links wherever SEAD linked records expose them, so readers do not have to begin every review from the generic site page.",
-            "satisfaction_signal": "The access review shows a meaningful shift away from site-page-only visibility.",
+            "required_evidence": "Promote preserved bibliography or DOI links wherever checked-in SEAD linked records expose them, and keep site-page-only rows explicit where upstream link visibility remains thin.",
+            "satisfaction_signal": "The access review distinguishes bibliography-backed rows from site-page-only rows without hiding the remaining upstream access constraint.",
         },
         {
             "requirement_key": "context_layer_republication",

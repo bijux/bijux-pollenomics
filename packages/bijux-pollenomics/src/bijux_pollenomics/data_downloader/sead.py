@@ -32,6 +32,7 @@ from .sources.sead.fetch import (
 from .sources.sead.fetch import (
     populate_sead_site_inventory_fields as populate_sead_site_inventory_fields_from_api,
 )
+from .sources.sead.fetch import refresh_sead_repository_rows
 from .sources.sead.fetch import (
     sead_dating_interval as sead_dating_interval_value,
 )
@@ -180,6 +181,8 @@ def materialize_sead_repository_surfaces(data_root: Path) -> SeadDataReport:
     if not isinstance(raw_rows, list):
         raise ValueError(f"SEAD raw inventory must contain a row list: {raw_path}")
     rows = [row for row in raw_rows if isinstance(row, dict)]
+    refresh_sead_repository_rows(rows)
+    payload["rows"] = rows
     inventory_summary = payload.get("inventory_summary")
     if not isinstance(inventory_summary, dict):
         inventory_summary = _build_repository_inventory_summary(rows)
@@ -203,7 +206,9 @@ def materialize_sead_repository_surfaces(data_root: Path) -> SeadDataReport:
                 "tbl_biblio",
             ],
         )
-        write_json(raw_path, payload)
+    else:
+        payload["inventory_summary"] = _build_repository_inventory_summary(rows)
+    write_json(raw_path, payload)
     country_boundaries = load_repository_country_boundaries(data_root)
     records = normalize_sead_rows(rows, country_boundaries=country_boundaries)
     normalized_csv_path = SEAD_POINT_CSV.path_under(data_root)

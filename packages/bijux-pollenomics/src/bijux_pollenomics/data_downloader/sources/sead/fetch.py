@@ -12,6 +12,7 @@ from .inventory_fields import (
     merge_sead_intervals,
     parse_optional_int,
     populate_sead_site_inventory_fields,
+    refresh_sead_repository_rows,
     sead_dating_interval,
 )
 
@@ -25,5 +26,6 @@ __all__ = [
     "merge_sead_intervals",
     "parse_optional_int",
     "populate_sead_site_inventory_fields",
+    "refresh_sead_repository_rows",
     "sead_dating_interval",
 ]

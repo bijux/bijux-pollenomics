@@ -789,10 +789,10 @@ def build_repository_source_ecosystem_review(
             ],
             "limits": [
                 "context layer, not sample-owned proof of lake identity, chronology, or coordinates",
-                "repository capture still needs stronger temporal links and reference-link preservation",
+                "temporal resolution and reference visibility remain uneven across individual SEAD sites even when linked rows are preserved in the checked-in inventory",
             ],
             "recommended_repository_actions": [
-                "capture stronger linked temporal and bibliography fields in checked-in SEAD refreshes",
+                "keep linked temporal and bibliography fields refreshed in checked-in SEAD inventories and surface them in Sweden review products with explicit context-only caveats",
                 "use SEAD-rich top Sweden lake candidates as review anchors for context validation and ambiguity checks",
             ],
         },
@@ -1304,14 +1304,6 @@ def build_repository_source_acquisition_queue(
         }
     rows = [
         animal_gap_row,
-        {
-            "queue_key": "sead_temporal_reference_capture",
-            "source_family": "sead",
-            "priority": "medium",
-            "current_gap": "checked-in SEAD context is visible, but linked temporal and bibliography capture still lags the repository's archaeology-context use",
-            "required_outcome": "capture SEAD-linked dating and reference fields so Sweden lake context and broader archaeology interpretation can be reviewed without starting from the generic site page",
-            "evidence_anchor": "docs/report/repository_sead_legibility_review.json",
-        },
     ]
     surface_to_source = {
         "landclim_site_count": "landclim",

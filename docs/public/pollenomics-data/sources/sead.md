@@ -15,6 +15,10 @@ relative periods in SEAD's relational database, while others still have no
 usable numeric chronology. The repository preserves that unevenness instead
 of forcing every site into one temporal category.
 
+This source family stays an archaeology context layer: it is strong contextual
+evidence for nearby activity and chronology review, but it is not sample-owned
+proof of one lake event.
+
 The practical rule is simple: **filter a SEAD site through time only when its
 captured relations support a numeric BP interval**. A cultural-period label is
 useful context, but it is not automatically a numeric date. A site with no
@@ -31,17 +35,17 @@ map layer.
 | --- | ---: | --- |
 | captured site rows | 2,195 | denominator before map-country membership |
 | mapped Nordic features | 2,172 | sites inside the four governed country geometries |
-| captured rows with numeric interval material | 519 | source rows from which a numeric site envelope can be derived |
-| mapped features with numeric intervals | 497 | points that can participate in atlas time filtering |
+| captured rows with numeric interval material | 911 | source rows from which a numeric site envelope can be derived |
+| mapped features with numeric intervals | 889 | points that can participate in atlas time filtering |
 | mapped features with contextual labels only | 12 | points with period language but no eligible numeric interval |
-| mapped features with unresolved time | 1,663 | points retained as spatial context only |
+| mapped features with unresolved time | 1,271 | points retained as spatial context only |
 | captured rows linked to dating ranges | 392 | sites connected through the SEAD dating-range relation |
 | captured rows linked to relative periods | 531 | sites connected through relative-date or relative-age relations |
 | captured rows linked to bibliography | 1,034 | sites with captured site-reference lineage |
 | captured site-inventory-only rows | 1,137 | sites without the linked evidence required for a richer posture |
 
-These denominators answer different questions. The 519 numeric source rows
-must not be reported as 519 visible timed points: only 497 are members of the
+These denominators answer different questions. The 911 numeric source rows
+must not be reported as 911 visible timed points: only 889 are members of the
 current mapped population. Likewise, 7,775 raw dating-range relation rows are
 not 7,775 sites. They are linked records from which site-level summaries are
 derived.
@@ -158,8 +162,8 @@ flowchart LR
     Capture["2,195 captured sites"] --> Coordinate{"inside a governed country geometry?"}
     Coordinate -->|yes| Map["2,172 mapped features"]
     Coordinate -->|no| Retained["23 retained non-members"]
-    Map --> Timed["497 numeric timeline members"]
-    Map --> Context["1,675 label-only or unresolved members"]
+    Map --> Timed["889 numeric timeline members"]
+    Map --> Context["1,283 label-only or unresolved members"]
 ```
 
 This is not deduplication or evidence deletion. A boundary or publication
@@ -171,7 +175,7 @@ SEAD supports:
 
 - finding environmental-archaeology sites near a lake, pollen sequence, or
   aDNA locality under a declared distance rule;
-- navigating the 497 mapped numeric site envelopes through BP time;
+- navigating the 889 mapped numeric site envelopes through BP time;
 - retaining relative-period language for human interpretation without
   inventing numeric bounds;
 - identifying sites whose bibliography or deeper relational evidence merits

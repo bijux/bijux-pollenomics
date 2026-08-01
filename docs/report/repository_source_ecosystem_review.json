@@ -20,10 +20,10 @@
       ],
       "limits": [
         "context layer, not sample-owned proof of lake identity, chronology, or coordinates",
-        "repository capture still needs stronger temporal links and reference-link preservation"
+        "temporal resolution and reference visibility remain uneven across individual SEAD sites even when linked rows are preserved in the checked-in inventory"
       ],
       "recommended_repository_actions": [
-        "capture stronger linked temporal and bibliography fields in checked-in SEAD refreshes",
+        "keep linked temporal and bibliography fields refreshed in checked-in SEAD inventories and surface them in Sweden review products with explicit context-only caveats",
         "use SEAD-rich top Sweden lake candidates as review anchors for context validation and ambiguity checks"
       ]
     },

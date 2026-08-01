@@ -67,7 +67,7 @@
       "distance_scoring_posture": "contextual_archaeology_only",
       "distance_scoring_note": "Use SEAD to measure archaeology context around lakes; do not treat it as same-period support unless numeric intervals are explicitly present.",
       "record_count": 2172,
-      "numeric_interval_record_count": 519,
+      "numeric_interval_record_count": 911,
       "detail_metrics": {
         "site_inventory_only_row_count": 1137,
         "dating_range_row_count": 392,
@@ -112,10 +112,10 @@
       "temporal_scope": "lake-anchor registry",
       "distance_scoring_posture": "candidate_lake_anchor",
       "distance_scoring_note": "Use SVAR as the authoritative Sweden lake candidate surface before nearby evidence is counted.",
-      "record_count": 40565,
+      "record_count": 0,
       "numeric_interval_record_count": 0,
       "detail_metrics": {
-        "lake_count": 40565
+        "lake_count": 0
       },
       "caveats": [
         "SVAR governs lake identity and location, not chronology or surrounding evidence completeness."

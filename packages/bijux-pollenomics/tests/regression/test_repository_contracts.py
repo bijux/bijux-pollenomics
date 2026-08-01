@@ -130,7 +130,13 @@ class RepositoryContractRegressionTests(unittest.TestCase):
         self.assertEqual(bijux["nav_mode"], "default")
         self.assertEqual(bijux["theme_key"], "bijux:theme")
         self.assertNotIn("docs_package", bijux)
-        self.assertNotIn("hub_links", bijux)
+        self.assertIn("hub_links", bijux)
+        self.assertTrue(
+            any(
+                link["url"] == "https://bijux.io/bijux-core/"
+                for link in bijux["hub_links"]
+            )
+        )
 
     def test_generated_data_readme_targets_existing_docs_pages(self) -> None:
         readme_text = (REPO_ROOT / "data" / "README.md").read_text(encoding="utf-8")
@@ -1890,10 +1896,14 @@ class RepositoryContractRegressionTests(unittest.TestCase):
 
     def test_mkdocs_uses_main_branch_edit_links_and_local_mermaid_bundle(self) -> None:
         mkdocs_text = (REPO_ROOT / "mkdocs.yml").read_text(encoding="utf-8")
+        shared_mkdocs_text = (REPO_ROOT / "mkdocs.shared.yml").read_text(
+            encoding="utf-8"
+        )
 
         self.assertIn("https://bijux.io/bijux-pollenomics/", mkdocs_text)
         self.assertIn("edit/main/docs/", mkdocs_text)
-        self.assertIn("https://bijux.io/bijux-core/", mkdocs_text)
+        self.assertIn("INHERIT: mkdocs.shared.yml", mkdocs_text)
+        self.assertIn("https://bijux.io/bijux-core/", shared_mkdocs_text)
         self.assertNotIn("bijux-genomics", mkdocs_text)
         self.assertIn("site_dir: artifacts/root/docs/site", mkdocs_text)
         self.assertIn("custom_dir: docs/overrides", mkdocs_text)

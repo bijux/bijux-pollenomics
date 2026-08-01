@@ -20,16 +20,16 @@ matches the question rather than treating the GeoJSON as the whole database.
 | --- | ---: |
 | captured sites | 2,195 |
 | mapped Nordic features | 2,172 |
-| mapped numeric features | 497 |
+| mapped numeric features | 889 |
 | mapped contextual-label-only features | 12 |
-| mapped unresolved features | 1,663 |
-| captured sites with numeric interval material | 519 |
+| mapped unresolved features | 1,271 |
+| captured sites with numeric interval material | 911 |
 | captured sites linked to dating ranges | 392 |
 | captured sites linked to relative periods | 531 |
 | captured sites linked to bibliography | 1,034 |
 | captured site-inventory-only rows | 1,137 |
 
-The difference between 519 captured numeric rows and 497 mapped numeric
+The difference between 911 captured numeric rows and 889 mapped numeric
 features is deliberate. Capture and map-country membership are separate
 decisions. The difference between 2,195 captured sites and 2,172 mapped sites
 is the same kind of publication boundary, not evidence loss.

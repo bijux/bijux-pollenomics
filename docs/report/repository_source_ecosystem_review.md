@@ -15,7 +15,7 @@ growth even when they are not all direct checked-in evidence families.
 ### SEAD
 
 - Official entry points: `https://www.sead.se/`, `https://browser.sead.se/`, `https://www.umu.se/en/staff/philip-buckland/`
-- capture stronger linked temporal and bibliography fields in checked-in SEAD refreshes
+- keep linked temporal and bibliography fields refreshed in checked-in SEAD inventories and surface them in Sweden review products with explicit context-only caveats
 - use SEAD-rich top Sweden lake candidates as review anchors for context validation and ambiguity checks
 
 ### PalaeOpen

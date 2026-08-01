@@ -185,10 +185,10 @@ class RepositoryTruthUnitTests(unittest.TestCase):
             queue_payload["schema_version"], "repository-source-acquisition-queue.v1"
         )
         self.assertEqual(matrix_payload["row_count"], 8)
-        self.assertGreaterEqual(queue_payload["row_count"], 2)
+        self.assertGreaterEqual(queue_payload["row_count"], 1)
         self.assertIn("Animal aDNA papers and supplements", matrix_markdown)
         self.assertIn("animal_adna", queue_markdown)
-        self.assertIn("sead", queue_markdown)
+        self.assertNotIn("sead_temporal_reference_capture", queue_markdown)
 
     def test_source_explainer_atlas_input_and_cross_domain_packets_keep_pollen_first(
         self,
@@ -265,6 +265,7 @@ class RepositoryTruthUnitTests(unittest.TestCase):
         )
         self.assertEqual(sead_row["ecosystem_role"], "direct_source_infrastructure")
         self.assertEqual(palaeopen_row["ecosystem_role"], "open_data_network")
+        self.assertIn("temporal resolution and reference visibility remain uneven", " ".join(sead_row["limits"]))
         self.assertIn("Repository source ecosystem review", markdown)
         self.assertIn("PalaeOpen", markdown)
 

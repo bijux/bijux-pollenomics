@@ -5,9 +5,11 @@ This review keeps SEAD honest about site-level time semantics. It distinguishes 
 - Reviewed sites: `2195`
 - contextual label only: `12`
 - mixed interval and context: `497`
-- unresolved: `1686`
+- numeric interval: `154`
+- numeric interval with caveat: `238`
+- unresolved: `1294`
 - Raw capture posture: `linked_inventory_available`
-- Rows with numeric intervals: `519`
+- Rows with numeric intervals: `911`
 - Rows with linked dating ranges: `392`
 - Rows with linked relative periods: `531`
 - Rows with bibliography links: `1034`
@@ -524,18 +526,406 @@ This review keeps SEAD honest about site-level time semantics. It distinguishes 
 | Öggestorp (`3405`) | Sweden | mixed_interval_and_context | linked_temporal_rows_captured | Roman Iron Age (1550-1950 BP) | iron_age | None |
 | Östra Spång (`3404`) | Sweden | mixed_interval_and_context | linked_temporal_rows_captured | CAL_PERIOD_500-300_BP (250-450 BP) | unmapped_period_label | None |
 | Östra Ve (`3403`) | Sweden | mixed_interval_and_context | linked_temporal_rows_captured | Early Iron Age (1550-2450 BP) | iron_age | None |
+| 12709 Stenkumla (`3827`) | Sweden | numeric_interval | linked_temporal_rows_captured | 250-312 BP | None | None |
+| 17200 Ödeshög (`3823`) | Sweden | numeric_interval | linked_temporal_rows_captured | 152-153 BP | None | None |
+| 62858 Skånela (`3826`) | Sweden | numeric_interval | linked_temporal_rows_captured | 186-191 BP | None | None |
+| 62928 Faringe (`3830`) | Sweden | numeric_interval | linked_temporal_rows_captured | 170-176 BP | None | None |
+| 72257 Lilla Malma (`3829`) | Sweden | numeric_interval | linked_temporal_rows_captured | 148 BP | None | None |
+| Adamsbergs gård (`4232`) | Sweden | numeric_interval | linked_temporal_rows_captured | 156 BP | None | None |
+| Appelbergska magasinet (`4228`) | Sweden | numeric_interval | linked_temporal_rows_captured | 96-217 BP | None | None |
+| Asby kyrka (`4226`) | Sweden | numeric_interval | linked_temporal_rows_captured | 0-130 BP | None | None |
+| Balkåkra kyrkoruin (`4223`) | Sweden | numeric_interval | linked_temporal_rows_captured | 465-495 BP | None | None |
+| Berkinge Herrgård (`4220`) | Sweden | numeric_interval | linked_temporal_rows_captured | 312 BP | None | None |
+| Biby säteri (`3925`) | Sweden | numeric_interval | linked_temporal_rows_captured | 322-350 BP | None | None |
+| Billsta (`3918`) | Sweden | numeric_interval | linked_temporal_rows_captured | 0 BP | None | None |
+| Bisslinge gård (`4217`) | Sweden | numeric_interval | linked_temporal_rows_captured | 184-283 BP | None | None |
+| Bjälbo kyrka (`4216`) | Sweden | numeric_interval | linked_temporal_rows_captured | 710-791 BP | None | None |
+| Bonäs (`4211`) | Sweden | numeric_interval | linked_temporal_rows_captured | 153-175 BP | None | None |
+| Boqvistudden (`4210`) | Sweden | numeric_interval | linked_temporal_rows_captured | 124-159 BP | None | None |
+| Borgholms stadsmuseum (`4208`) | Sweden | numeric_interval | linked_temporal_rows_captured | 270-286 BP | None | None |
+| Borgmästargården (`4207`) | Sweden | numeric_interval | linked_temporal_rows_captured | 154-227 BP | None | None |
+| Borntorp (`3916`) | Sweden | numeric_interval | linked_temporal_rows_captured | 104-153 BP | None | None |
+| Brahekyrkan (`4204`) | Sweden | numeric_interval | linked_temporal_rows_captured | 775-815 BP | None | None |
+| Brunsta gård (`4198`) | Sweden | numeric_interval | linked_temporal_rows_captured | 94-164 BP | None | None |
+| Burge (`4196`) | Sweden | numeric_interval | linked_temporal_rows_captured | 249 BP | None | None |
+| Djursnäs säteri (`4188`) | Sweden | numeric_interval | linked_temporal_rows_captured | 118-190 BP | None | None |
+| Ekeby (`3914`) | Sweden | numeric_interval | linked_temporal_rows_captured | 174-180 BP | None | None |
+| Ekeby kyrka (`4184`) | Sweden | numeric_interval | linked_temporal_rows_captured | 650-728 BP | None | None |
+| Em's herrgård (`4181`) | Sweden | numeric_interval | linked_temporal_rows_captured | 150-247 BP | None | None |
+| Erikskulle (`4180`) | Sweden | numeric_interval | linked_temporal_rows_captured | 354-417 BP | None | None |
+| Fallebo gård (`4177`) | Sweden | numeric_interval | linked_temporal_rows_captured | 58-204 BP | None | None |
+| Farstorps församlingshem (`4175`) | Sweden | numeric_interval | linked_temporal_rows_captured | 225-252 BP | None | None |
+| Finntorp (`4174`) | Sweden | numeric_interval | linked_temporal_rows_captured | 159-227 BP | None | None |
+| Fröjden (`4166`) | Sweden | numeric_interval | linked_temporal_rows_captured | 83-176 BP | None | None |
+| Fröken Löfgrens gård (`4165`) | Sweden | numeric_interval | linked_temporal_rows_captured | 133-236 BP | None | None |
+| Fäbohagen (`4163`) | Sweden | numeric_interval | linked_temporal_rows_captured | 184 BP | None | None |
+| Fåglarp (`3912`) | Sweden | numeric_interval | linked_temporal_rows_captured | 99-111 BP | None | None |
+| Föra (`3911`) | Sweden | numeric_interval | linked_temporal_rows_captured | 136-189 BP | None | None |
+| Gammelgarn kastal (`4158`) | Sweden | numeric_interval | linked_temporal_rows_captured | 501-782 BP | None | None |
+| Gimo Herrgård (`4154`) | Sweden | numeric_interval | linked_temporal_rows_captured | 159-177 BP | None | None |
+| Glabro (`4153`) | Sweden | numeric_interval | linked_temporal_rows_captured | 96-147 BP | None | None |
+| Glömminge prästgård (`3910`) | Sweden | numeric_interval | linked_temporal_rows_captured | 228 BP | None | None |
+| Gothem kyrka (`4151`) | Sweden | numeric_interval | linked_temporal_rows_captured | 734-735 BP | None | None |
+| Grindstu (`4150`) | Sweden | numeric_interval | linked_temporal_rows_captured | 124 BP | None | None |
+| Grisslehamn (`3909`) | Sweden | numeric_interval | linked_temporal_rows_captured | 114-184 BP | None | None |
+| Grönsö gård (`4148`) | Sweden | numeric_interval | linked_temporal_rows_captured | 31-140 BP | None | None |
+| Haneberg säteri (`4134`) | Sweden | numeric_interval | linked_temporal_rows_captured | 96 BP | None | None |
+| Harpsund (`4133`) | Sweden | numeric_interval | linked_temporal_rows_captured | 127 BP | None | None |
+| Heda hembygdsgård (`4132`) | Sweden | numeric_interval | linked_temporal_rows_captured | 139-182 BP | None | None |
+| Hellvi kyrka (`4128`) | Sweden | numeric_interval | linked_temporal_rows_captured | 350-727 BP | None | None |
+| Herrökna gård (`3908`) | Sweden | numeric_interval | linked_temporal_rows_captured | 86-88 BP | None | None |
+| Hester gamla gästgiveri (`4125`) | Sweden | numeric_interval | linked_temporal_rows_captured | 165-185 BP | None | None |
+| Hults kyrka (`4118`) | Sweden | numeric_interval | linked_temporal_rows_captured | 681-751 BP | None | None |
+| Husby (`3905`) | Sweden | numeric_interval | linked_temporal_rows_captured | 142-226 BP | None | None |
+| Häljaryd (`3903`) | Sweden | numeric_interval | linked_temporal_rows_captured | 85-166 BP | None | None |
+| Häverö kyrka (`4111`) | Sweden | numeric_interval | linked_temporal_rows_captured | 351-429 BP | None | None |
+| Hårsbäck Sör (`3904`) | Sweden | numeric_interval | linked_temporal_rows_captured | 147 BP | None | None |
+| Högsjö gård (`3902`) | Sweden | numeric_interval | linked_temporal_rows_captured | 0-191 BP | None | None |
+| Hörja kyrka (`4109`) | Sweden | numeric_interval | linked_temporal_rows_captured | 502-547 BP | None | None |
+| Janssongården (`4107`) | Sweden | numeric_interval | linked_temporal_rows_captured | 126-189 BP | None | None |
+| Karkebo (`3898`) | Sweden | numeric_interval | linked_temporal_rows_captured | 0-413 BP | None | None |
+| Kisa hotell och konferens (`4102`) | Sweden | numeric_interval | linked_temporal_rows_captured | 53-250 BP | None | None |
+| Kleva gård (`4100`) | Sweden | numeric_interval | linked_temporal_rows_captured | 57-180 BP | None | None |
+| Kolstad (`3897`) | Sweden | numeric_interval | linked_temporal_rows_captured | 104 BP | None | None |
+| Krogsfall (`3896`) | Sweden | numeric_interval | linked_temporal_rows_captured | 176 BP | None | None |
+| Kråkvik (`4095`) | Sweden | numeric_interval | linked_temporal_rows_captured | 101-175 BP | None | None |
+| Kulltorps gård (`4093`) | Sweden | numeric_interval | linked_temporal_rows_captured | 69-193 BP | None | None |
+| Kumla kyrka (`4092`) | Sweden | numeric_interval | linked_temporal_rows_captured | 681-770 BP | None | None |
+| Kumlaby kyrka (`4091`) | Sweden | numeric_interval | linked_temporal_rows_captured | 226-848 BP | None | None |
+| Kvarntorp (`4088`) | Sweden | numeric_interval | linked_temporal_rows_captured | 117-137 BP | None | None |
+| Kvarteret Almen (`3894`) | Sweden | numeric_interval | linked_temporal_rows_captured | 139-360 BP | None | None |
+| Kvarteret Båtsmannen (`3891`) | Sweden | numeric_interval | linked_temporal_rows_captured | 175-201 BP | None | None |
+| Kvarteret Fältskären (`3889`) | Sweden | numeric_interval | linked_temporal_rows_captured | 184 BP | None | None |
+| Kvarteret Garvaren (`3887`) | Sweden | numeric_interval | linked_temporal_rows_captured | 280-303 BP | None | None |
+| Kvarteret Hattmakaren (`3885`) | Sweden | numeric_interval | linked_temporal_rows_captured | 148-228 BP | None | None |
+| Kvarteret Krögaren (`3882`) | Sweden | numeric_interval | linked_temporal_rows_captured | 79-99 BP | None | None |
+| Kvarteret Ormen (`3880`) | Sweden | numeric_interval | linked_temporal_rows_captured | 94 BP | None | None |
+| Kvarteret Prelaten (`3879`) | Sweden | numeric_interval | linked_temporal_rows_captured | 152 BP | None | None |
+| Kvarteret Repslagaren (`3878`) | Sweden | numeric_interval | linked_temporal_rows_captured | 165-185 BP | None | None |
+| Kvarteret Skonaren (`3876`) | Sweden | numeric_interval | linked_temporal_rows_captured | 203-211 BP | None | None |
+| Kvarteret Specksrum (`3875`) | Sweden | numeric_interval | linked_temporal_rows_captured | 166 BP | None | None |
+| Kvarteret Vinskänken (`3872`) | Sweden | numeric_interval | linked_temporal_rows_captured | 91-363 BP | None | None |
+| Källa gamla kyrka (`4086`) | Sweden | numeric_interval | linked_temporal_rows_captured | 630-645 BP | None | None |
+| Lilla Lögla (`4079`) | Sweden | numeric_interval | linked_temporal_rows_captured | 80-91 BP | None | None |
+| Lilla Rotsunda (`4078`) | Sweden | numeric_interval | linked_temporal_rows_captured | 145-147 BP | None | None |
+| Lilla Rätö gård (`4077`) | Sweden | numeric_interval | linked_temporal_rows_captured | 164-174 BP | None | None |
+| Linde kyrka (`4076`) | Sweden | numeric_interval | linked_temporal_rows_captured | 672 BP | None | None |
+| Linköpings slott (`4073`) | Sweden | numeric_interval | linked_temporal_rows_captured | 478 BP | None | None |
+| Lohärads Prästgård (`3869`) | Sweden | numeric_interval | linked_temporal_rows_captured | 204 BP | None | None |
+| Länsmansgården (`4067`) | Sweden | numeric_interval | linked_temporal_rows_captured | 122-201 BP | None | None |
+| Låga längan (`3816`) | Sweden | numeric_interval | linked_temporal_rows_captured | 196 BP | None | None |
+| Lögla (`3868`) | Sweden | numeric_interval | linked_temporal_rows_captured | 0 BP | None | None |
+| Mariannelund (`3865`) | Sweden | numeric_interval | linked_temporal_rows_captured | 88-91 BP | None | None |
+| Marjsö (`4063`) | Sweden | numeric_interval | linked_temporal_rows_captured | 111-126 BP | None | None |
+| Mellanköpinge (`3864`) | Sweden | numeric_interval | linked_temporal_rows_captured | 92 BP | None | None |
+| Möllebacken (`4057`) | Sweden | numeric_interval | linked_temporal_rows_captured | 178-196 BP | None | None |
+| Mörbylånga kyrka (`4056`) | Sweden | numeric_interval | linked_temporal_rows_captured | 734-758 BP | None | None |
+| Nedre Hävla bruk (`4055`) | Sweden | numeric_interval | linked_temporal_rows_captured | 208 BP | None | None |
+| Noors Herrgård (`4054`) | Sweden | numeric_interval | linked_temporal_rows_captured | 93-179 BP | None | None |
+| Norrlanda kyrka (`4047`) | Sweden | numeric_interval | linked_temporal_rows_captured | 710-772 BP | None | None |
+| Orkesta kyrka (`4042`) | Sweden | numeric_interval | linked_temporal_rows_captured | 147-366 BP | None | None |
+| Pedersborg (`4040`) | Sweden | numeric_interval | linked_temporal_rows_captured | 87-186 BP | None | None |
+| Prästtorp (`3862`) | Sweden | numeric_interval | linked_temporal_rows_captured | 122-205 BP | None | None |
+| Ristomta gård (`4035`) | Sweden | numeric_interval | linked_temporal_rows_captured | 155-182 BP | None | None |
+| Rydboholms slott (`4032`) | Sweden | numeric_interval | linked_temporal_rows_captured | 214-403 BP | None | None |
+| Ryssebo (`3860`) | Sweden | numeric_interval | linked_temporal_rows_captured | 197 BP | None | None |
+| Ränneslätt (`4030`) | Sweden | numeric_interval | linked_temporal_rows_captured | 119 BP | None | None |
+| Salvarp (`3859`) | Sweden | numeric_interval | linked_temporal_rows_captured | 428 BP | None | None |
+| Sanda kyrka (`4028`) | Sweden | numeric_interval | linked_temporal_rows_captured | 356 BP | None | None |
+| Sandemar slott (`4026`) | Sweden | numeric_interval | linked_temporal_rows_captured | 104 BP | None | None |
+| Sigfridsgården (`4020`) | Sweden | numeric_interval | linked_temporal_rows_captured | 84-215 BP | None | None |
+| Silte kyrka (`4019`) | Sweden | numeric_interval | linked_temporal_rows_captured | 122 BP | None | None |
+| Sisshammar (`4018`) | Sweden | numeric_interval | linked_temporal_rows_captured | 100 BP | None | None |
+| Sjonhem kyrka (`4017`) | Sweden | numeric_interval | linked_temporal_rows_captured | 783-814 BP | None | None |
+| Sjöstugan (`4015`) | Sweden | numeric_interval | linked_temporal_rows_captured | 156 BP | None | None |
+| Skabersjö slott (`4014`) | Sweden | numeric_interval | linked_temporal_rows_captured | 165-371 BP | None | None |
+| Skedshult (`3857`) | Sweden | numeric_interval | linked_temporal_rows_captured | 78-281 BP | None | None |
+| Skålsta (`3855`) | Sweden | numeric_interval | linked_temporal_rows_captured | 174 BP | None | None |
+| Sköldsborg (`3854`) | Sweden | numeric_interval | linked_temporal_rows_captured | 153-154 BP | None | None |
+| Skönberga kyrka (`4010`) | Sweden | numeric_interval | linked_temporal_rows_captured | 733-793 BP | None | None |
+| Snåret (`4003`) | Sweden | numeric_interval | linked_temporal_rows_captured | 126-140 BP | None | None |
+| Solbaddet (`4002`) | Sweden | numeric_interval | linked_temporal_rows_captured | 190-203 BP | None | None |
+| Sonnorps frälsegård (`4001`) | Sweden | numeric_interval | linked_temporal_rows_captured | 124-257 BP | None | None |
+| Stensjö (`3997`) | Sweden | numeric_interval | linked_temporal_rows_captured | 142-148 BP | None | None |
+| Stora Hulterska (`3851`) | Sweden | numeric_interval | linked_temporal_rows_captured | 179-189 BP | None | None |
+| Stora Lund (`3993`) | Sweden | numeric_interval | linked_temporal_rows_captured | 173 BP | None | None |
+| Strömby (`3991`) | Sweden | numeric_interval | linked_temporal_rows_captured | 90-94 BP | None | None |
+| Sundbyviks gård (`3990`) | Sweden | numeric_interval | linked_temporal_rows_captured | 95-214 BP | None | None |
+| Svaneberg (`3848`) | Sweden | numeric_interval | linked_temporal_rows_captured | 147 BP | None | None |
+| Södra Möckleby kyrka (`3985`) | Sweden | numeric_interval | linked_temporal_rows_captured | 257-793 BP | None | None |
+| Tidersrums kyrka (`3984`) | Sweden | numeric_interval | linked_temporal_rows_captured | 614-635 BP | None | None |
+| Tofta (`3847`) | Sweden | numeric_interval | linked_temporal_rows_captured | 170 BP | None | None |
+| Torhult (`3846`) | Sweden | numeric_interval | linked_temporal_rows_captured | 136-223 BP | None | None |
+| Torpa prästgård (`3980`) | Sweden | numeric_interval | linked_temporal_rows_captured | 149-166 BP | None | None |
+| Torö kyrka (`3979`) | Sweden | numeric_interval | linked_temporal_rows_captured | 215-216 BP | None | None |
+| Tovastugan (`3978`) | Sweden | numeric_interval | linked_temporal_rows_captured | 183-330 BP | None | None |
+| Trehörna säteri (`3977`) | Sweden | numeric_interval | linked_temporal_rows_captured | 193-302 BP | None | None |
+| Träne kyrka (`3976`) | Sweden | numeric_interval | linked_temporal_rows_captured | 238-269 BP | None | None |
+| Tuntorps gård (`3974`) | Sweden | numeric_interval | linked_temporal_rows_captured | 167 BP | None | None |
+| Uggelbo (`3845`) | Sweden | numeric_interval | linked_temporal_rows_captured | 124-128 BP | None | None |
+| Vadsbro kyrka (`3968`) | Sweden | numeric_interval | linked_temporal_rows_captured | 300-302 BP | None | None |
+| Vallsnäs (`3844`) | Sweden | numeric_interval | linked_temporal_rows_captured | 219-257 BP | None | None |
+| Viby gård (`3962`) | Sweden | numeric_interval | linked_temporal_rows_captured | 101-128 BP | None | None |
+| Vickleby kyrka (`3961`) | Sweden | numeric_interval | linked_temporal_rows_captured | 211-228 BP | None | None |
+| Viggeby (`3842`) | Sweden | numeric_interval | linked_temporal_rows_captured | 105-146 BP | None | None |
+| Viggesbo säteri (`3960`) | Sweden | numeric_interval | linked_temporal_rows_captured | 102-259 BP | None | None |
+| Vingåker-Kvarngölet (`3841`) | Sweden | numeric_interval | linked_temporal_rows_captured | 171 BP | None | None |
+| Värmdö kyrka (`3951`) | Sweden | numeric_interval | linked_temporal_rows_captured | 246-517 BP | None | None |
+| Väster Lakbäck (`3838`) | Sweden | numeric_interval | linked_temporal_rows_captured | 172-442 BP | None | None |
+| Västerås domkyrka (`3944`) | Sweden | numeric_interval | linked_temporal_rows_captured | 673-719 BP | None | None |
+| Västra trädgårdsgatan 13 (`3941`) | Sweden | numeric_interval | linked_temporal_rows_captured | 146-153 BP | None | None |
+| Wrangelska palatset (`3922`) | Sweden | numeric_interval | linked_temporal_rows_captured | 130-318 BP | None | None |
+| Ängstigen (`3835`) | Sweden | numeric_interval | linked_temporal_rows_captured | 115-128 BP | None | None |
+| Östrabo biskopsgård (`3929`) | Sweden | numeric_interval | linked_temporal_rows_captured | 143-225 BP | None | None |
+| Överselö kyrka (`3928`) | Sweden | numeric_interval | linked_temporal_rows_captured | 114 BP | None | None |
+| Övraby kyrka (`3927`) | Sweden | numeric_interval | linked_temporal_rows_captured | 813-892 BP | None | None |
+| Övre Häfla bruk (`3926`) | Sweden | numeric_interval | linked_temporal_rows_captured | 122 BP | None | None |
+| 12051 Bro (`3833`) | Sweden | numeric_interval_with_caveat | linked_temporal_rows_captured | 100-204 BP | None | from |
+| 12068 Gotland (`3824`) | Sweden | numeric_interval_with_caveat | linked_temporal_rows_captured | 166 BP | None | from |
+| 12076 Ekeby (`3832`) | Sweden | numeric_interval_with_caveat | linked_temporal_rows_captured | 100 BP | None | from |
+| 75246 Eksjö (`3831`) | Sweden | numeric_interval_with_caveat | linked_temporal_rows_captured | 243-293 BP | None | from |
+| 75525 Småland (`3817`) | Sweden | numeric_interval_with_caveat | linked_temporal_rows_captured | 68-71 BP | None | from |
+| 75533 Örsjö (`3825`) | Sweden | numeric_interval_with_caveat | linked_temporal_rows_captured | 141-215 BP | None | from |
+| 75549 Nybro (`3828`) | Sweden | numeric_interval_with_caveat | linked_temporal_rows_captured | 84-169 BP | None | from |
+| 75710 Jönköping (`3822`) | Sweden | numeric_interval_with_caveat | linked_temporal_rows_captured | 171-301 BP | None | from |
+| Ada Blocks hus (`4233`) | Sweden | numeric_interval_with_caveat | linked_temporal_rows_captured | 230-578 BP | None | efter | from |
+| Allemora (`4231`) | Sweden | numeric_interval_with_caveat | linked_temporal_rows_captured | 457-469 BP | None | from |
+| Alskogs kyrka (`4230`) | Sweden | numeric_interval_with_caveat | linked_temporal_rows_captured | 96-97 BP | None | efter | from |
+| Alva kyrka (`4229`) | Sweden | numeric_interval_with_caveat | linked_temporal_rows_captured | 509-573 BP | None | from |
+| Arby kyrka (`4227`) | Sweden | numeric_interval_with_caveat | linked_temporal_rows_captured | 775-857 BP | None | from |
+| Baldringe kyrka (`4224`) | Sweden | numeric_interval_with_caveat | linked_temporal_rows_captured | 255-531 BP | None | from |
+| Bankekinds kyrka (`4222`) | Sweden | numeric_interval_with_caveat | linked_temporal_rows_captured | 288-857 BP | None | from |
+| Bellmanhuset (`4221`) | Sweden | numeric_interval_with_caveat | linked_temporal_rows_captured | 166-202 BP | None | from |
+| Biskops (`4219`) | Sweden | numeric_interval_with_caveat | linked_temporal_rows_captured | 119-392 BP | None | from |
+| Bjäresjö kyrka (`4215`) | Sweden | numeric_interval_with_caveat | linked_temporal_rows_captured | 349-963 BP | None | from |
+| Bjärsjöholms slott (`4214`) | Sweden | numeric_interval_with_caveat | linked_temporal_rows_captured | 359-471 BP | None | from |
+| Björka kyrka (`4213`) | Sweden | numeric_interval_with_caveat | linked_temporal_rows_captured | 640-726 BP | None | from |
+| Björkenäs (`3917`) | Sweden | numeric_interval_with_caveat | linked_temporal_rows_captured | 121-195 BP | None | from |
+| Bonderups kyrka (`4212`) | Sweden | numeric_interval_with_caveat | linked_temporal_rows_captured | 217-611 BP | None | from |
+| Borgarhuset (`4209`) | Sweden | numeric_interval_with_caveat | linked_temporal_rows_captured | 430-464 BP | None | from |
+| Bosarp (`4206`) | Sweden | numeric_interval_with_caveat | linked_temporal_rows_captured | 105-133 BP | None | from |
+| Bosebo kyrka (`4205`) | Sweden | numeric_interval_with_caveat | linked_temporal_rows_captured | 140-783 BP | None | from |
+| Bredsätra kyrka (`4203`) | Sweden | numeric_interval_with_caveat | linked_temporal_rows_captured | 736-789 BP | None | from |
+| Bro kyrka (`4202`) | Sweden | numeric_interval_with_caveat | linked_temporal_rows_captured | 625-736 BP | None | from |
+| Broarps gästgiveri (`4201`) | Sweden | numeric_interval_with_caveat | linked_temporal_rows_captured | 56-194 BP | None | from |
+| Bromma kyrka (`4200`) | Sweden | numeric_interval_with_caveat | linked_temporal_rows_captured | 483-543 BP | None | from |
+| Bruksgatan (`3915`) | Sweden | numeric_interval_with_caveat | linked_temporal_rows_captured | 183-287 BP | None | from |
+| Brunnby kyrka (`4199`) | Sweden | numeric_interval_with_caveat | linked_temporal_rows_captured | 419-582 BP | None | from |
+| Brönnestads kyrka (`4197`) | Sweden | numeric_interval_with_caveat | linked_temporal_rows_captured | 29-509 BP | None | from |
+| Burlövs gamla kyrka (`4195`) | Sweden | numeric_interval_with_caveat | linked_temporal_rows_captured | 263-784 BP | None | from |
+| Burmeisterska huset (`4194`) | Sweden | numeric_interval_with_caveat | linked_temporal_rows_captured | 188-303 BP | None | from |
+| Burs kyrka (`4193`) | Sweden | numeric_interval_with_caveat | linked_temporal_rows_captured | 632-728 BP | None | from |
+| Bäl kyrka (`4192`) | Sweden | numeric_interval_with_caveat | linked_temporal_rows_captured | 675-750 BP | None | from |
+| Cramérska huset (`4191`) | Sweden | numeric_interval_with_caveat | linked_temporal_rows_captured | 121-762 BP | None | from |
+| Dalby kungsgård (`4190`) | Sweden | numeric_interval_with_caveat | linked_temporal_rows_captured | 428-525 BP | None | from |
+| Dalby kyrka (`4189`) | Sweden | numeric_interval_with_caveat | linked_temporal_rows_captured | 438-469 BP | None | from |
+| Drottningholms slott (`4187`) | Sweden | numeric_interval_with_caveat | linked_temporal_rows_captured | 184-345 BP | None | from |
+| Dörby kyrka (`4186`) | Sweden | numeric_interval_with_caveat | linked_temporal_rows_captured | 336-362 BP | None | from |
+| Eke kyrka (`4185`) | Sweden | numeric_interval_with_caveat | linked_temporal_rows_captured | 859-1060 BP | None | from |
+| Ekelunda (`4183`) | Sweden | numeric_interval_with_caveat | linked_temporal_rows_captured | 338-393 BP | None | efter |
+| Ektorpet (`4182`) | Sweden | numeric_interval_with_caveat | linked_temporal_rows_captured | 170-175 BP | None | from |
+| Eriksöre (`4179`) | Sweden | numeric_interval_with_caveat | linked_temporal_rows_captured | 145-242 BP | None | from |
+| Etelhems kyrka (`4178`) | Sweden | numeric_interval_with_caveat | linked_temporal_rows_captured | 0-337 BP | None | from |
+| Farhults kyrka (`4176`) | Sweden | numeric_interval_with_caveat | linked_temporal_rows_captured | 80-855 BP | None | efter | from |
+| Fivelstad kyrka (`4173`) | Sweden | numeric_interval_with_caveat | linked_temporal_rows_captured | 611-804 BP | None | from |
+| Fjellskäfte säteri (`4172`) | Sweden | numeric_interval_with_caveat | linked_temporal_rows_captured | 105-355 BP | None | from |
+| Fleringe kyrka (`4171`) | Sweden | numeric_interval_with_caveat | linked_temporal_rows_captured | 89-291 BP | None | from |
+| Flistads kyrka (`4170`) | Sweden | numeric_interval_with_caveat | linked_temporal_rows_captured | 630-838 BP | None | from |
+| Flöxhult säteri (`4169`) | Sweden | numeric_interval_with_caveat | linked_temporal_rows_captured | 0-199 BP | None | from |
+| Follingbo kyrka (`4168`) | Sweden | numeric_interval_with_caveat | linked_temporal_rows_captured | 188-196 BP | None | from |
+| Fornminnesgården (`4167`) | Sweden | numeric_interval_with_caveat | linked_temporal_rows_captured | 199-302 BP | None | from |
+| Friggestad (`3913`) | Sweden | numeric_interval_with_caveat | linked_temporal_rows_captured | 77-146 BP | None | from |
+| Furingstads kyrka (`4164`) | Sweden | numeric_interval_with_caveat | linked_temporal_rows_captured | 601-868 BP | None | from |
+| Färlövs kyrka (`4162`) | Sweden | numeric_interval_with_caveat | linked_temporal_rows_captured | 439-974 BP | None | from |
+| Föllingsö säteri (`4161`) | Sweden | numeric_interval_with_caveat | linked_temporal_rows_captured | 74-320 BP | None | from |
+| Gamla Apoteket (`4160`) | Sweden | numeric_interval_with_caveat | linked_temporal_rows_captured | 663-683 BP | None | from |
+| Gamla prästgården (`4159`) | Sweden | numeric_interval_with_caveat | linked_temporal_rows_captured | 114-205 BP | None | from |
+| Gammelgarn kyrka (`4157`) | Sweden | numeric_interval_with_caveat | linked_temporal_rows_captured | 251-286 BP | None | from |
+| Garde kyrka (`4156`) | Sweden | numeric_interval_with_caveat | linked_temporal_rows_captured | 816-894 BP | None | from |
+| Genarps kyrka (`4155`) | Sweden | numeric_interval_with_caveat | linked_temporal_rows_captured | 350-467 BP | None | före | from |
+| Glimmingehus (`4152`) | Sweden | numeric_interval_with_caveat | linked_temporal_rows_captured | 58-568 BP | None | efter | from |
+| Grävsten herrgård (`4149`) | Sweden | numeric_interval_with_caveat | linked_temporal_rows_captured | 110-357 BP | None | efter | from |
+| Guldrupe kyrka (`4147`) | Sweden | numeric_interval_with_caveat | linked_temporal_rows_captured | 158-559 BP | None | from |
+| Gällstaö Gård (`4145`) | Sweden | numeric_interval_with_caveat | linked_temporal_rows_captured | 67-95 BP | None | from |
+| Gärdslösa kyrka (`4144`) | Sweden | numeric_interval_with_caveat | linked_temporal_rows_captured | 105-722 BP | None | from |
+| Gålarmora (`4146`) | Sweden | numeric_interval_with_caveat | linked_temporal_rows_captured | 429-457 BP | None | from |
+| Hagby kyrka (`4143`) | Sweden | numeric_interval_with_caveat | linked_temporal_rows_captured | 117-528 BP | None | from |
+| Hagebyhöga kyrka (`4142`) | Sweden | numeric_interval_with_caveat | linked_temporal_rows_captured | 505-888 BP | None | efter | from |
+| Hakarps kyrka (`4141`) | Sweden | numeric_interval_with_caveat | linked_temporal_rows_captured | 248-819 BP | None | from |
+| Hall kyrka (`4140`) | Sweden | numeric_interval_with_caveat | linked_temporal_rows_captured | 67-213 BP | None | efter | from |
+| Halla kyrka, Nyköping (`4139`) | Sweden | numeric_interval_with_caveat | linked_temporal_rows_captured | 429-471 BP | None | from |
+| Halls fiskeläge (`4137`) | Sweden | numeric_interval_with_caveat | linked_temporal_rows_captured | 220-243 BP | None | efter | from |
+| Hallstorps kyrka (`4136`) | Sweden | numeric_interval_with_caveat | linked_temporal_rows_captured | 741-832 BP | None | from |
+| Hammarlunda kyrka (`4135`) | Sweden | numeric_interval_with_caveat | linked_temporal_rows_captured | 467-915 BP | None | from |
+| Hedeskoga kyrka (`4131`) | Sweden | numeric_interval_with_caveat | linked_temporal_rows_captured | 458-838 BP | None | from |
+| Hejde kyrka (`4130`) | Sweden | numeric_interval_with_caveat | linked_temporal_rows_captured | 0-318 BP | None | from |
+| Hemse kyrka (`4127`) | Sweden | numeric_interval_with_caveat | linked_temporal_rows_captured | 802-930 BP | None | from |
+| Herrestad kyrka (`4126`) | Sweden | numeric_interval_with_caveat | linked_temporal_rows_captured | 834-1004 BP | None | from |
+| Hessensteinska huset (`3921`) | Sweden | numeric_interval_with_caveat | linked_temporal_rows_captured | 208-342 BP | None | from |
+| Horns kyrka (`4123`) | Sweden | numeric_interval_with_caveat | linked_temporal_rows_captured | 321-616 BP | None | from |
+| Hossmo kyrka (`4122`) | Sweden | numeric_interval_with_caveat | linked_temporal_rows_captured | 665-866 BP | None | from |
+| Hovdala slott (`4121`) | Sweden | numeric_interval_with_caveat | linked_temporal_rows_captured | 111-358 BP | None | from |
+| Hovs kyrka (`4120`) | Sweden | numeric_interval_with_caveat | linked_temporal_rows_captured | 453-500 BP | None | from | ca. |
+| Hulterstads kyrka (`4119`) | Sweden | numeric_interval_with_caveat | linked_temporal_rows_captured | 778-948 BP | None | from |
+| Hults kulla (`3907`) | Sweden | numeric_interval_with_caveat | linked_temporal_rows_captured | 98-107 BP | None | from |
+| Hunnebergsgatan (`3906`) | Sweden | numeric_interval_with_caveat | linked_temporal_rows_captured | 146-343 BP | None | efter | from |
+| Hunnebergsgatan 30A (`4117`) | Sweden | numeric_interval_with_caveat | linked_temporal_rows_captured | 86-228 BP | None | from |
+| Häglinge (`4116`) | Sweden | numeric_interval_with_caveat | linked_temporal_rows_captured | 228-242 BP | None | from |
+| Häglinge kyrka (`4115`) | Sweden | numeric_interval_with_caveat | linked_temporal_rows_captured | 620-697 BP | None | from |
+| Härads kyrka (`4114`) | Sweden | numeric_interval_with_caveat | linked_temporal_rows_captured | 429-829 BP | None | from |
+| Härlövs kyrka (`4113`) | Sweden | numeric_interval_with_caveat | linked_temporal_rows_captured | 274-516 BP | None | from |
+| Härnevi kyrka (`4112`) | Sweden | numeric_interval_with_caveat | linked_temporal_rows_captured | 237-619 BP | None | ± | from |
+| Hönstorp (`4110`) | Sweden | numeric_interval_with_caveat | linked_temporal_rows_captured | 181-284 BP | None | from |
+| Hörsne kyrka (`4108`) | Sweden | numeric_interval_with_caveat | linked_temporal_rows_captured | 155-729 BP | None | from |
+| Ilnestorp (`3901`) | Sweden | numeric_interval_with_caveat | linked_temporal_rows_captured | 53-151 BP | None | from |
+| Ingatorp (`3900`) | Sweden | numeric_interval_with_caveat | linked_temporal_rows_captured | 174-877 BP | None | from |
+| Juteboda (`3899`) | Sweden | numeric_interval_with_caveat | linked_temporal_rows_captured | 123-385 BP | None | efter |
+| Jönköpings regemente (`4106`) | Sweden | numeric_interval_with_caveat | linked_temporal_rows_captured | 45-122 BP | None | from |
+| Kaga kyrka (`4105`) | Sweden | numeric_interval_with_caveat | linked_temporal_rows_captured | 444-858 BP | None | efter | from |
+| Kapitelhuset (`4104`) | Sweden | numeric_interval_with_caveat | linked_temporal_rows_captured | 259 BP | None | from |
+| Katthamra (`4103`) | Sweden | numeric_interval_with_caveat | linked_temporal_rows_captured | 121-183 BP | None | from |
+| Kista hembygdsgård (`4101`) | Sweden | numeric_interval_with_caveat | linked_temporal_rows_captured | 151-162 BP | None | from |
+| Knappsmåla (`4099`) | Sweden | numeric_interval_with_caveat | linked_temporal_rows_captured | 168 BP | None | from |
+| Krapperups borg (`4098`) | Sweden | numeric_interval_with_caveat | linked_temporal_rows_captured | 119-565 BP | None | from |
+| Kruttornet (`4096`) | Sweden | numeric_interval_with_caveat | linked_temporal_rows_captured | 305-339 BP | None | from |
+| Kullerstads kyrka (`4094`) | Sweden | numeric_interval_with_caveat | linked_temporal_rows_captured | 191-836 BP | None | from |
+| Kummelnäs gård (`4090`) | Sweden | numeric_interval_with_caveat | linked_temporal_rows_captured | 149-290 BP | None | from |
+| Kungsholms kyrka/Ulrika Eleonora kyrka (`4089`) | Sweden | numeric_interval_with_caveat | linked_temporal_rows_captured | 144-233 BP | None | from |
+| Kvarteret Allön (`3895`) | Sweden | numeric_interval_with_caveat | linked_temporal_rows_captured | 139-217 BP | None | from |
+| Kvarteret Boktryckaren (`3893`) | Sweden | numeric_interval_with_caveat | linked_temporal_rows_captured | 103-294 BP | None | from |
+| Kvarteret Borgmästaren (`3892`) | Sweden | numeric_interval_with_caveat | linked_temporal_rows_captured | 71-349 BP | None | efter | from |
+| Kvarteret Ciselören (`3890`) | Sweden | numeric_interval_with_caveat | linked_temporal_rows_captured | 67-344 BP | None | from |
+| Kvarteret Färgaren (`3888`) | Sweden | numeric_interval_with_caveat | linked_temporal_rows_captured | 224-389 BP | None | from |
+| Kvarteret Guldsmeden (`3886`) | Sweden | numeric_interval_with_caveat | linked_temporal_rows_captured | 104-264 BP | None | from |
+| Kvarteret Kassamannen (`3884`) | Sweden | numeric_interval_with_caveat | linked_temporal_rows_captured | 263-321 BP | None | from |
+| Kvarteret Kommendanten (`3883`) | Sweden | numeric_interval_with_caveat | linked_temporal_rows_captured | 136-290 BP | None | from |
+| Kvarteret Museet (`3881`) | Sweden | numeric_interval_with_caveat | linked_temporal_rows_captured | 669-744 BP | None | from |
+| Kvarteret Rådhuset (`3877`) | Sweden | numeric_interval_with_caveat | linked_temporal_rows_captured | 86-101 BP | None | from |
+| Kvarteret Svartbrodern (`3874`) | Sweden | numeric_interval_with_caveat | linked_temporal_rows_captured | 315-318 BP | None | from |
+| Kvarteret Vaxblekaren (`3873`) | Sweden | numeric_interval_with_caveat | linked_temporal_rows_captured | 244-303 BP | None | from |
+| Kvarteret Östergötland (`3871`) | Sweden | numeric_interval_with_caveat | linked_temporal_rows_captured | 320-356 BP | None | from |
+| Kyrkvärdsgården (`4087`) | Sweden | numeric_interval_with_caveat | linked_temporal_rows_captured | 421-424 BP | None | from |
+| Kärnan (`4084`) | Sweden | numeric_interval_with_caveat | linked_temporal_rows_captured | 1-677 BP | None | efter | from |
+| Kävlinge gamla kyrka (`4083`) | Sweden | numeric_interval_with_caveat | linked_temporal_rows_captured | 485-940 BP | None | from |
+| Lassor (`4081`) | Sweden | numeric_interval_with_caveat | linked_temporal_rows_captured | 34-462 BP | None | from |
+| Lau Kyrka (`4080`) | Sweden | numeric_interval_with_caveat | linked_temporal_rows_captured | 196-389 BP | None | from |
+| Lilla Björkudden (`3870`) | Sweden | numeric_interval_with_caveat | linked_temporal_rows_captured | 240-255 BP | None | efter |
+| Linderöds kyrka (`4075`) | Sweden | numeric_interval_with_caveat | linked_temporal_rows_captured | 236-786 BP | None | from |
+| Lojsta kyrka (`4072`) | Sweden | numeric_interval_with_caveat | linked_temporal_rows_captured | 277-344 BP | None | from |
+| Lopperstad (`4071`) | Sweden | numeric_interval_with_caveat | linked_temporal_rows_captured | 146-182 BP | None | from |
+| Lunds domkyrka (`4070`) | Sweden | numeric_interval_with_caveat | linked_temporal_rows_captured | 519-554 BP | None | from |
+| Lärbro kyrka (`4066`) | Sweden | numeric_interval_with_caveat | linked_temporal_rows_captured | 78-646 BP | None | efter | from |
+| Långlöts kyrka (`4068`) | Sweden | numeric_interval_with_caveat | linked_temporal_rows_captured | 214-906 BP | None | from |
+| Löddeköpinge kyrka (`4065`) | Sweden | numeric_interval_with_caveat | linked_temporal_rows_captured | 424-495 BP | None | from |
+| Löts kyrka (`4064`) | Sweden | numeric_interval_with_caveat | linked_temporal_rows_captured | 552-595 BP | None | from |
+| Lövö (`3867`) | Sweden | numeric_interval_with_caveat | linked_temporal_rows_captured | 142-178 BP | None | from |
+| Malmstorp (`3866`) | Sweden | numeric_interval_with_caveat | linked_temporal_rows_captured | 148-266 BP | None | from |
+| Mattemåla (`4062`) | Sweden | numeric_interval_with_caveat | linked_temporal_rows_captured | 111-123 BP | None | from |
+| Mellby kyrka (`4061`) | Sweden | numeric_interval_with_caveat | linked_temporal_rows_captured | 425-811 BP | None | from |
+| Mjölnargården (`3919`) | Sweden | numeric_interval_with_caveat | linked_temporal_rows_captured | 228-233 BP | None | from |
+| Mortorps kyrka (`4060`) | Sweden | numeric_interval_with_caveat | linked_temporal_rows_captured | 119-121 BP | None | from |
+| Måcketorpsboden (`4058`) | Sweden | numeric_interval_with_caveat | linked_temporal_rows_captured | 306-410 BP | None | from |
+| Nora Kyrka (`4053`) | Sweden | numeric_interval_with_caveat | linked_temporal_rows_captured | 578 BP | None | efter |
+| Norra Mellby kyrka (`4052`) | Sweden | numeric_interval_with_caveat | linked_temporal_rows_captured | 120-909 BP | None | efter | from |
+| Norra Rörums kyrka (`4051`) | Sweden | numeric_interval_with_caveat | linked_temporal_rows_captured | 267-520 BP | None | from |
+| Norra Solberga gamla kyrka (`4050`) | Sweden | numeric_interval_with_caveat | linked_temporal_rows_captured | 594-812 BP | None | from |
+| Norra Åsums kyrka (`4049`) | Sweden | numeric_interval_with_caveat | linked_temporal_rows_captured | 227-992 BP | None | efter | from |
+| Norrby (`4048`) | Sweden | numeric_interval_with_caveat | linked_temporal_rows_captured | 393-397 BP | None | from |
+| Norrvidinge kyrka (`4046`) | Sweden | numeric_interval_with_caveat | linked_temporal_rows_captured | 880-910 BP | None | from |
+| Näs (`3863`) | Sweden | numeric_interval_with_caveat | linked_temporal_rows_captured | 142-303 BP | None | efter |
+| Näs kyrka (`4044`) | Sweden | numeric_interval_with_caveat | linked_temporal_rows_captured | 245-286 BP | None | efter | from |
+| Nääs gård (`4043`) | Sweden | numeric_interval_with_caveat | linked_temporal_rows_captured | 128-184 BP | None | from |
+| Ottenby kungsgård (`4041`) | Sweden | numeric_interval_with_caveat | linked_temporal_rows_captured | 81-217 BP | None | efter |
+| Perstorps kyrka (`4039`) | Sweden | numeric_interval_with_caveat | linked_temporal_rows_captured | 170-747 BP | None | from |
+| Qvarnarp (`3861`) | Sweden | numeric_interval_with_caveat | linked_temporal_rows_captured | 151-153 BP | None | from |
+| Ravlunda kyrka (`4037`) | Sweden | numeric_interval_with_caveat | linked_temporal_rows_captured | 384-779 BP | None | from |
+| Resmo kyrka (`4036`) | Sweden | numeric_interval_with_caveat | linked_temporal_rows_captured | 586-989 BP | None | efter | from |
+| Rogslösa kyrka (`4034`) | Sweden | numeric_interval_with_caveat | linked_temporal_rows_captured | 295-1008 BP | None | efter | from |
+| Rusthållargården (`4033`) | Sweden | numeric_interval_with_caveat | linked_temporal_rows_captured | 395-399 BP | None | from |
+| Röhälla (`4029`) | Sweden | numeric_interval_with_caveat | linked_temporal_rows_captured | 169-186 BP | None | from |
+| Sandby prästgård (`4027`) | Sweden | numeric_interval_with_caveat | linked_temporal_rows_captured | 161-235 BP | None | from |
+| Sandemar (`3858`) | Sweden | numeric_interval_with_caveat | linked_temporal_rows_captured | 102-186 BP | None | from |
+| Sankt Clemens kyrkoruin (`4025`) | Sweden | numeric_interval_with_caveat | linked_temporal_rows_captured | 736 BP | None | from |
+| Sankt Lars kyrka (`4024`) | Sweden | numeric_interval_with_caveat | linked_temporal_rows_captured | 616-788 BP | None | from |
+| Sankt Peters klosters kyrka (`4023`) | Sweden | numeric_interval_with_caveat | linked_temporal_rows_captured | 258-276 BP | None | from |
+| Sankta Maria kyrka (`4022`) | Sweden | numeric_interval_with_caveat | linked_temporal_rows_captured | 435-572 BP | None | from |
+| Sibbo (`4021`) | Sweden | numeric_interval_with_caveat | linked_temporal_rows_captured | 402-403 BP | None | from |
+| Sjörups gamla kyrka (`4016`) | Sweden | numeric_interval_with_caveat | linked_temporal_rows_captured | 542-581 BP | None | from |
+| Skarp-Ösby (`4013`) | Sweden | numeric_interval_with_caveat | linked_temporal_rows_captured | 217-473 BP | None | from |
+| Skeppsås kyrka (`4012`) | Sweden | numeric_interval_with_caveat | linked_temporal_rows_captured | 339-388 BP | None | nära | from |
+| Skrickerum (`3856`) | Sweden | numeric_interval_with_caveat | linked_temporal_rows_captured | 115-144 BP | None | from |
+| Skårby kyrka (`4011`) | Sweden | numeric_interval_with_caveat | linked_temporal_rows_captured | 450-556 BP | None | from |
+| Slevringe gård (`4009`) | Sweden | numeric_interval_with_caveat | linked_temporal_rows_captured | 85-261 BP | None | from |
+| Slottsskogen (`4008`) | Sweden | numeric_interval_with_caveat | linked_temporal_rows_captured | 212-355 BP | None | from |
+| Slästorp (`4007`) | Sweden | numeric_interval_with_caveat | linked_temporal_rows_captured | 79-197 BP | None | from |
+| Smedstorp (`4005`) | Sweden | numeric_interval_with_caveat | linked_temporal_rows_captured | 138-254 BP | None | from |
+| Smedstorps slott (`4004`) | Sweden | numeric_interval_with_caveat | linked_temporal_rows_captured | 241-679 BP | None | from |
+| Spargott (`4000`) | Sweden | numeric_interval_with_caveat | linked_temporal_rows_captured | 27-108 BP | None | from |
+| Sproge gamla stavkyrka (`3999`) | Sweden | numeric_interval_with_caveat | linked_temporal_rows_captured | 812-892 BP | None | from |
+| Stallbacksvägen (`3853`) | Sweden | numeric_interval_with_caveat | linked_temporal_rows_captured | 282-284 BP | None | from |
+| Stenbockska palatset (`3923`) | Sweden | numeric_interval_with_caveat | linked_temporal_rows_captured | 284-306 BP | None | from |
+| Steninge slott (`3998`) | Sweden | numeric_interval_with_caveat | linked_temporal_rows_captured | 181-268 BP | None | from |
+| Stockholms Slott (`3920`) | Sweden | numeric_interval_with_caveat | linked_temporal_rows_captured | 76-284 BP | None | from |
+| Stora Harrie (`3852`) | Sweden | numeric_interval_with_caveat | linked_temporal_rows_captured | 106-219 BP | None | efter | from |
+| Stora Kolfly (`3995`) | Sweden | numeric_interval_with_caveat | linked_temporal_rows_captured | 61-255 BP | None | from |
+| Stora Köpinge kyrka (`3994`) | Sweden | numeric_interval_with_caveat | linked_temporal_rows_captured | 515-743 BP | None | efter | from |
+| Stora Rickby (`3992`) | Sweden | numeric_interval_with_caveat | linked_temporal_rows_captured | 71-196 BP | None | from |
+| Stämmeryd (`3849`) | Sweden | numeric_interval_with_caveat | linked_temporal_rows_captured | 142-185 BP | None | from |
+| Särslövs kyrka (`3987`) | Sweden | numeric_interval_with_caveat | linked_temporal_rows_captured | 467-570 BP | None | from |
+| Södermanland-Nerikes nation (`3986`) | Sweden | numeric_interval_with_caveat | linked_temporal_rows_captured | 287-345 BP | None | from |
+| Tingstäde kyrka (`3983`) | Sweden | numeric_interval_with_caveat | linked_temporal_rows_captured | 255-344 BP | None | from |
+| Toresbo (`3982`) | Sweden | numeric_interval_with_caveat | linked_temporal_rows_captured | 92-153 BP | None | from |
+| Torpa kyrka (`3981`) | Sweden | numeric_interval_with_caveat | linked_temporal_rows_captured | 133-465 BP | None | efter | from |
+| Tosterup 32:2 (`3834`) | Sweden | numeric_interval_with_caveat | linked_temporal_rows_captured | 119-502 BP | None | efter |
+| Tumbo kyrka (`3975`) | Sweden | numeric_interval_with_caveat | linked_temporal_rows_captured | 408-855 BP | None | efter |
+| Tvartorps gård (`3973`) | Sweden | numeric_interval_with_caveat | linked_temporal_rows_captured | 61-213 BP | None | from |
+| Tyresö kyrka (`3972`) | Sweden | numeric_interval_with_caveat | linked_temporal_rows_captured | 202-205 BP | None | from |
+| Tångerda gård (`3971`) | Sweden | numeric_interval_with_caveat | linked_temporal_rows_captured | 145-316 BP | None | from |
+| Törnbotten (`3970`) | Sweden | numeric_interval_with_caveat | linked_temporal_rows_captured | 132-178 BP | None | from |
+| Ulriksdals slott (`3969`) | Sweden | numeric_interval_with_caveat | linked_temporal_rows_captured | 141-234 BP | None | from |
+| Vadstena rådhus (`3967`) | Sweden | numeric_interval_with_caveat | linked_temporal_rows_captured | 253-497 BP | None | from |
+| Vall kyrka (`3966`) | Sweden | numeric_interval_with_caveat | linked_temporal_rows_captured | 98-272 BP | None | from |
+| Valla (`3965`) | Sweden | numeric_interval_with_caveat | linked_temporal_rows_captured | 459-543 BP | None | from |
+| Vamlingbo prästgård (`3964`) | Sweden | numeric_interval_with_caveat | linked_temporal_rows_captured | 171-189 BP | None | from |
+| Vanserum (`3963`) | Sweden | numeric_interval_with_caveat | linked_temporal_rows_captured | 127-187 BP | None | from |
+| Verksgatan (`3843`) | Sweden | numeric_interval_with_caveat | linked_temporal_rows_captured | 140-185 BP | None | from |
+| Villie kyrka (`3959`) | Sweden | numeric_interval_with_caveat | linked_temporal_rows_captured | 159-239 BP | None | from |
+| Vippröste (`3840`) | Sweden | numeric_interval_with_caveat | linked_temporal_rows_captured | 82-107 BP | None | from |
+| Vireda kyrka (`3958`) | Sweden | numeric_interval_with_caveat | linked_temporal_rows_captured | 280-634 BP | None | from |
+| Visby domkyrka (`3957`) | Sweden | numeric_interval_with_caveat | linked_temporal_rows_captured | 184-206 BP | None | from |
+| Visseltofta kyrka (`3956`) | Sweden | numeric_interval_with_caveat | linked_temporal_rows_captured | 492-596 BP | None | from |
+| Vita Holmen, Löwenströmska sjukhusområdet (`3955`) | Sweden | numeric_interval_with_caveat | linked_temporal_rows_captured | 140-145 BP | None | from |
+| Vives (`3954`) | Sweden | numeric_interval_with_caveat | linked_temporal_rows_captured | 195-245 BP | None | from |
+| Voxtorps kyrka (`3953`) | Sweden | numeric_interval_with_caveat | linked_temporal_rows_captured | 641-889 BP | None | from |
+| Värdshusbacken (`3839`) | Sweden | numeric_interval_with_caveat | linked_temporal_rows_captured | 185-190 BP | None | from |
+| Värna kyrka (`3950`) | Sweden | numeric_interval_with_caveat | linked_temporal_rows_captured | 160-585 BP | None | ± | from |
+| Väsby kvarn (`3949`) | Sweden | numeric_interval_with_caveat | linked_temporal_rows_captured | 86-109 BP | None | from |
+| Väsby kyrka (`3948`) | Sweden | numeric_interval_with_caveat | linked_temporal_rows_captured | 819-829 BP | None | from |
+| Västergarn kyrka (`3947`) | Sweden | numeric_interval_with_caveat | linked_temporal_rows_captured | 558 BP | None | from |
+| Västergård (`3946`) | Sweden | numeric_interval_with_caveat | linked_temporal_rows_captured | 161-207 BP | None | from |
+| Västra Klagstorps kyrka (`3943`) | Sweden | numeric_interval_with_caveat | linked_temporal_rows_captured | 474-515 BP | None | from |
+| Västra Nöbbelövs kyrka (`3942`) | Sweden | numeric_interval_with_caveat | linked_temporal_rows_captured | 462-855 BP | None | from |
+| Väversunda kyrka (`3940`) | Sweden | numeric_interval_with_caveat | linked_temporal_rows_captured | 732-886 BP | None | from |
+| Våthults kyrka (`3952`) | Sweden | numeric_interval_with_caveat | linked_temporal_rows_captured | 688-789 BP | None | from |
+| Älvestads kyrka (`3938`) | Sweden | numeric_interval_with_caveat | linked_temporal_rows_captured | 304-773 BP | None | from |
+| Åby (`3837`) | Sweden | numeric_interval_with_caveat | linked_temporal_rows_captured | 43-51 BP | None | from |
+| Åkarp (`3836`) | Sweden | numeric_interval_with_caveat | linked_temporal_rows_captured | 177-197 BP | None | from |
+| Önsbo (`3937`) | Sweden | numeric_interval_with_caveat | linked_temporal_rows_captured | 434-438 BP | None | from |
+| Örberga kyrka (`3936`) | Sweden | numeric_interval_with_caveat | linked_temporal_rows_captured | 831-885 BP | None | efter |
+| Örs kyrka (`3935`) | Sweden | numeric_interval_with_caveat | linked_temporal_rows_captured | 651-733 BP | None | from |
+| Ösjöfors handpappersbruk (`3924`) | Sweden | numeric_interval_with_caveat | linked_temporal_rows_captured | 84-214 BP | None | from |
+| Östensbo (`3933`) | Sweden | numeric_interval_with_caveat | linked_temporal_rows_captured | 429-433 BP | None | from |
+| Östra ryds kyrka (`3932`) | Sweden | numeric_interval_with_caveat | linked_temporal_rows_captured | 257-270 BP | None | from |
+| Östra Skrukeby kyrka (`3931`) | Sweden | numeric_interval_with_caveat | linked_temporal_rows_captured | 800-837 BP | None | ~ | from |
+| Östra Vrams kyrka (`3930`) | Sweden | numeric_interval_with_caveat | linked_temporal_rows_captured | 564-705 BP | None | from |
 | 10412 Fjälkinge (`6468`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | 10469 Kvistofta (`6469`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | 10531 Örkelljunga (`6481`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | 10535 Skåne (`6482`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
-| 12051 Bro (`3833`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | from |
-| 12068 Gotland (`3824`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | from |
-| 12076 Ekeby (`3832`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | from |
 | 12590 Hall (`6478`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | 12615 Stelor (`6466`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | 12628 Länna (`6447`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | 12673 Fröjel (`6479`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
-| 12709 Stenkumla (`3827`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | None |
 | 12711 Othem (`6480`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | 14295 Ringarum (`6453`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | 14851 Norrköping (`6470`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
@@ -545,7 +935,6 @@ This review keeps SEAD honest about site-level time semantics. It distinguishes 
 | 16024 Finnerödja (`6332`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | 16560 Hova (`6335`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | 17118 Sörby (`6458`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
-| 17200 Ödeshög (`3823`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | None |
 | 41093 Tranås (`5652`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | 51840 Malung-Sälen (`6341`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | 57333 Yttergran (`6471`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
@@ -556,8 +945,6 @@ This review keeps SEAD honest about site-level time semantics. It distinguishes 
 | 61779 Söderåkra (`5654`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | 62771 Norra Vallby (`6450`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | 62790 Uppsala (`6472`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
-| 62858 Skånela (`3826`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | None |
-| 62928 Faringe (`3830`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | None |
 | 63118 Hovsta (`6336`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | 66401 Västra Karaby (`6473`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | 66501 Lyckeby (`6446`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
@@ -571,9 +958,7 @@ This review keeps SEAD honest about site-level time semantics. It distinguishes 
 | 71410 Voxna (`5674`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | 71502 Gammelbokskogen (`5675`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | 72180 Mariefred (`6475`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
-| 72257 Lilla Malma (`3829`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | None |
 | 72775 Nyköping (`6339`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
-| 75246 Eksjö (`3831`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | from |
 | 75343 Kalmar (`6485`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | 75437 Sjösås (`6476`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | 75501 Kalmar (`5657`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
@@ -582,11 +967,7 @@ This review keeps SEAD honest about site-level time semantics. It distinguishes 
 | 75521 Småland (`3820`) | Sweden | unresolved | bibliography_only | Unresolved time semantics | None | None |
 | 75523 Småland (`3819`) | Sweden | unresolved | bibliography_only | Unresolved time semantics | None | None |
 | 75524 Småland (`3818`) | Sweden | unresolved | bibliography_only | Unresolved time semantics | None | None |
-| 75525 Småland (`3817`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | from |
-| 75533 Örsjö (`3825`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | from |
-| 75549 Nybro (`3828`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | from |
 | 75601 Hälleberga (`5659`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
-| 75710 Jönköping (`3822`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | from |
 | 75847 Mörlunda (`6477`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | 77249 Blekinge (`5661`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | 77321 Blekinge (`5663`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
@@ -601,8 +982,6 @@ This review keeps SEAD honest about site-level time semantics. It distinguishes 
 | Abbotens hus (`4234`) | Sweden | unresolved | bibliography_only | Unresolved time semantics | None | None |
 | Abilds kyrka (`5677`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Acksi (`5678`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
-| Ada Blocks hus (`4233`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | efter | from |
-| Adamsbergs gård (`4232`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | None |
 | Adelsö 119:1 (`6424`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Agges i Flenarna (`5679`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Akademiska sjukhuset (`6427`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
@@ -610,28 +989,22 @@ This review keeps SEAD honest about site-level time semantics. It distinguishes 
 | Albostugan (`5682`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Algutsboda 79:1 (`6363`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Alhammar (`6276`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
-| Allemora (`4231`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | from |
 | Almare-Stäket (`6428`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Alntorpsö (`5684`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Alnö kyrka (`5683`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
-| Alskogs kyrka (`4230`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | efter | from |
-| Alva kyrka (`4229`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | from |
 | Alvastra (`4999`) | Sweden | unresolved | bibliography_only | Unresolved time semantics | None | None |
 | Alväng, Götlunda (`213`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Andersson i Lund (`5685`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Andersson i Sjör (`5686`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Anderssons i Gäle (`5687`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Anderssons i Sidsjö (`5688`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
-| Appelbergska magasinet (`4228`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | None |
 | Arboga Raä 65 (`394`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
-| Arby kyrka (`4227`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | from |
 | Arendals stamgård (`5692`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Arnäs Raä 256 (`131`) | Sweden | unresolved | bibliography_only | Unresolved time semantics | None | None |
 | Arvidsjaur Raä 1877 (`281`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Arvidsjaur Raä 3913 (`270`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Arvidsjaur Raä 3941 (`263`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Arvidsjaur Raä 633 (`265`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
-| Asby kyrka (`4226`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | None |
 | Aschanska gården (`5693`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Askeby 271 (`6405`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Askeby kyrka (`5694`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
@@ -646,13 +1019,9 @@ This review keeps SEAD honest about site-level time semantics. It distinguishes 
 | Axamo flygplats (`3800`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Backollas i Risholn (`5699`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Badelunda kyrka (`5700`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
-| Baldringe kyrka (`4224`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | from |
-| Balkåkra kyrkoruin (`4223`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | None |
 | Ballingstorp (`5701`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
-| Bankekinds kyrka (`4222`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | from |
 | Barsebäcks kyrka (`5702`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Beckombergavägen (`6280`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
-| Bellmanhuset (`4221`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | from |
 | Berg (`5707`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Berghem Raä 10 (`190`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Berghem Raä 100 (`151`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
@@ -661,23 +1030,13 @@ This review keeps SEAD honest about site-level time semantics. It distinguishes 
 | Bergolas i kyrkbyn (`5710`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Bergsbyn (`5711`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Bergskärit (`320`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
-| Berkinge Herrgård (`4220`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | None |
-| Biby säteri (`3925`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | None |
-| Billsta (`3918`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | None |
 | Birka, Settlement (`3789`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
-| Biskops (`4219`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | from |
 | Biskopshuset (`4218`) | Sweden | unresolved | bibliography_only | Unresolved time semantics | None | None |
-| Bisslinge gård (`4217`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | None |
 | Bjurholm Raä 295 (`210`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Bjus i Ygsbo (`5716`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
-| Bjälbo kyrka (`4216`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | None |
 | Bjälbo trädgård (`6429`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
-| Bjäresjö kyrka (`4215`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | from |
-| Bjärsjöholms slott (`4214`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | from |
-| Björka kyrka (`4213`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | from |
 | Björkeli (`91`) | Norway | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Björken i Rälta (`5712`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
-| Björkenäs (`3917`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | from |
 | Björkviks säteri (`5713`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Björlanda 348 (`372`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Björlanda 459 (`261`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
@@ -701,21 +1060,12 @@ This review keeps SEAD honest about site-level time semantics. It distinguishes 
 | Bollnäs (`4775`) | Sweden | unresolved | bibliography_only | Unresolved time semantics | None | None |
 | Bomsarvet (`6282`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Bond Hans i Tallhed (`5729`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
-| Bonderups kyrka (`4212`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | from |
 | Bondes gård i Sundbornsbyn (`5730`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Bondoll i Ersholen (`5731`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Bondrumsgården (`5732`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
-| Bonäs (`4211`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | None |
-| Boqvistudden (`4210`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | None |
-| Borgarhuset (`4209`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | from |
 | Borgeby kyrka (`5734`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
-| Borgholms stadsmuseum (`4208`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | None |
-| Borgmästargården (`4207`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | None |
 | Borgsjö 165:1 (`187`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Borgsjö Raä 165 (`322`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
-| Borntorp (`3916`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | None |
-| Bosarp (`4206`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | from |
-| Bosebo kyrka (`4205`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | from |
 | Bothnia lina JP 62B/62:11 (`232`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Bothnia line JP 22A (`129`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Bothnia line JP 22C (`108`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
@@ -779,41 +1129,27 @@ This review keeps SEAD honest about site-level time semantics. It distinguishes 
 | Bothnia line JP 75E (`251`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Botkyrka kyrka (`5735`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Bottna kyrka (`5736`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
-| Brahekyrkan (`4204`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | None |
 | Brandstorps kyrka (`5738`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Brattbergstorpet (`279`) | Sweden | unresolved | bibliography_only | Unresolved time semantics | None | None |
 | Breareds kyrka (`5739`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
-| Bredsätra kyrka (`4203`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | from |
 | Bremerska gården (`5740`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Brevik kyrka (`5741`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Bricken (`6283`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
-| Bro kyrka (`4202`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | from |
 | Bro Raä 195:1 (`317`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
-| Broarps gästgiveri (`4201`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | from |
 | Broläggning Rickeby (`6430`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
-| Bromma kyrka (`4200`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | from |
-| Bruksgatan (`3915`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | from |
 | Brunflo kastal (`5742`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
-| Brunnby kyrka (`4199`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | from |
-| Brunsta gård (`4198`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | None |
 | Bryktgard i Axi (`5743`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Brynje (`5744`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Brämöns kapell (`5737`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
-| Brönnestads kyrka (`4197`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | from |
 | Budasmyren Nusnäs (`5745`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Bullas i Östnor (`5746`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Bureå Raä 11 (`252`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Bureå Raä 128 (`249`) | Sweden | unresolved | bibliography_only | Unresolved time semantics | None | None |
-| Burge (`4196`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | None |
-| Burlövs gamla kyrka (`4195`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | from |
-| Burmeisterska huset (`4194`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | from |
-| Burs kyrka (`4193`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | from |
 | Burträsk Raä 52 (`207`) | Sweden | unresolved | bibliography_only | Unresolved time semantics | None | None |
 | Byberget (`5747`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Byss Hans i Oljonsbyn (`5748`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Bäckaby gamla kyrka (`5697`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Bäckegården i Västra Utsjö (`5698`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
-| Bäl kyrka (`4192`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | from |
 | Bälinge kyrka (`6431`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Bärsta (`5703`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Bårabygd (`6279`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
@@ -831,15 +1167,12 @@ This review keeps SEAD honest about site-level time semantics. It distinguishes 
 | Citytunnelprojektet delområde 8 (`357`) | Sweden | unresolved | bibliography_only | Unresolved time semantics | None | None |
 | Citytunnelprojektet delområde Hotelltomten (`257`) | Sweden | unresolved | bibliography_only | Unresolved time semantics | None | None |
 | Citytunnelprojektet delområdet Vintrie IP (`260`) | Sweden | unresolved | bibliography_only | Unresolved time semantics | None | None |
-| Cramérska huset (`4191`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | from |
 | Dagstorp 16:1 (`6389`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Dahlbergsladan Skamhed (`5750`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Dahlgrens i Nedre Gärdsjö (`5751`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Dahlström i Sölvsved (`5752`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Dahlströms i Vallavallen (`5753`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Dahlströmska huset (`5754`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
-| Dalby kungsgård (`4190`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | from |
-| Dalby kyrka (`4189`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | from |
 | Dalänger i Öster-Svartåsen (`5755`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Dammen Raä 195:1 (`61`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Daniel Pers i Nedre Gärdsjö (`5756`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
@@ -851,14 +1184,11 @@ This review keeps SEAD honest about site-level time semantics. It distinguishes 
 | Dikmanska gården (`5760`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Djurgårdsbrunn (`6432`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Djurgårdsbrunnsvägen (`6285`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
-| Djursnäs säteri (`4188`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | None |
 | Drottningholm (`6286`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
-| Drottningholms slott (`4187`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | from |
 | Drändj-gard i Färnäs (`5762`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Dubbelbod i Laxvadet (`5763`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Dubbelhärbre Kråkberg (`5764`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Dädesjö gamla kyrka (`5749`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
-| Dörby kyrka (`4186`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | from |
 | Dössgården i Fudal (`5761`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Edestads kyrka (`5766`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Edshults herrgård (`5768`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
@@ -868,17 +1198,11 @@ This review keeps SEAD honest about site-level time semantics. It distinguishes 
 | Eftra Raä 110 (`28`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Eggeby bytomt (`5770`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Egnelius i Östra Pålgård (`5771`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
-| Eke kyrka (`4185`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | from |
 | Ekebo (`6287`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
-| Ekeby (`3914`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | None |
-| Ekeby kyrka (`4184`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | None |
-| Ekelunda (`4183`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | efter |
-| Ektorpet (`4182`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | from |
 | Ekö (`5662`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Eldhus Fageråsen (`5772`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Eldhus Selja (`5773`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Eliasgården i Tasbäck (`5774`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
-| Em's herrgård (`4181`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | None |
 | Emilsson i Tand (`5775`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Endletvatn (`4248`) | Norway | unresolved | bibliography_only | Unresolved time semantics | None | None |
 | Engelsbergs herrgård (`5777`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
@@ -892,48 +1216,34 @@ This review keeps SEAD honest about site-level time semantics. It distinguishes 
 | Erik Laggar i Änderåsen (`5781`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Erik-Anders i Vallsbo (`5782`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Eriksbergs gamla kyrka (`5783`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
-| Erikskulle (`4180`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | None |
 | Erikssons i Bräcke (`5784`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Erikssons i Norrböle (`5785`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Erikssons i Orrviken (`5786`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
-| Eriksöre (`4179`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | from |
 | Erskpers i Vängsbo (`5787`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Erstavik (`6433`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Eskilstuna 554:1 (`6378`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
-| Etelhems kyrka (`4178`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | from |
 | Eura Ä Karäjämäki (`3738`) | Finland | unresolved | bibliography_only | Unresolved time semantics | None | None |
 | Fahlströmsta loftboden (`5788`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Falköping Raä 3 (`202`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
-| Fallebo gård (`4177`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | None |
 | Falsterbo 15:1 (`6390`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Falsterbo kyrka (`5790`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Falun (`4394`) | Sweden | unresolved | bibliography_only | Unresolved time semantics | None | None |
 | Falun Raä 68 (`170`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
-| Farhults kyrka (`4176`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | efter | from |
 | Farstorp (`6288`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
-| Farstorps församlingshem (`4175`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | None |
 | Finja kyrka (`5792`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
-| Finntorp (`4174`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | None |
 | Fiskgårdarna i Noret (`5793`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
-| Fivelstad kyrka (`4173`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | from |
-| Fjellskäfte säteri (`4172`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | from |
 | Fjällsta (`5794`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Fjärdmans i Övre Gärdsjö (`5795`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Fjärås Raä 499 (`21`) | Sweden | unresolved | bibliography_only | Unresolved time semantics | None | None |
 | Fjärås Raä 504 (`13`) | Sweden | unresolved | bibliography_only | Unresolved time semantics | None | None |
 | Fleninge 75:2 (`6381`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Flensburgska gården (`5796`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
-| Fleringe kyrka (`4171`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | from |
 | Flint Johans i Gruddbo (`5797`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
-| Flistads kyrka (`4170`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | from |
 | Flivik (`5798`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Flädie 9:4 (`6388`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
-| Flöxhult säteri (`4169`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | from |
 | Foderbod Fudal Zorns gammelgård (`5799`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Foderbod i Selbäck (`5800`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Foderbod Kansbol (`5801`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
-| Follingbo kyrka (`4168`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | from |
-| Fornminnesgården (`4167`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | from |
 | Fors Raä 125 (`88`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Fors Raä 143 (`118`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Forsa (`318`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
@@ -950,10 +1260,7 @@ This review keeps SEAD honest about site-level time semantics. It distinguishes 
 | Foss Raä 440 (`323`) | Sweden | unresolved | bibliography_only | Unresolved time semantics | None | None |
 | Framgården i Nederhögen (`5805`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Fresta 87:3 (`393`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
-| Friggestad (`3913`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | from |
-| Fröjden (`4166`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | None |
 | Fröjel 380 (`6369`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
-| Fröken Löfgrens gård (`4165`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | None |
 | Frösö kyrka (`5806`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Frövifors bruksherrgård (`5807`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Fudalboden Zorns gammelgård (`5808`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
@@ -961,43 +1268,26 @@ This review keeps SEAD honest about site-level time semantics. It distinguishes 
 | Fulltofta (`5664`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Fulltofta kyrka (`5811`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Fullösa kyrka (`5810`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
-| Furingstads kyrka (`4164`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | from |
-| Fäbohagen (`4163`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | None |
 | Fähus Bomansberg (`5789`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Färjolles i Måga (`5791`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Färlöv (`6434`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
-| Färlövs kyrka (`4162`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | from |
-| Fåglarp (`3912`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | None |
 | Fåröarna (`305`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
-| Föllingsö säteri (`4161`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | from |
-| Föra (`3911`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | None |
 | Församlingshemmet (`5802`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Gagnef gamla prästgård (`5812`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
-| Gamla Apoteket (`4160`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | from |
 | Gamla byvägen (`6289`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Gamla hamnen på Enholmen (`6435`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Gamla Linköping (`5813`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
-| Gamla prästgården (`4159`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | from |
 | Gamla rådhuset (`5814`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Gamla Viker (`6290`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Gamleby 450:1 (`6360`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
-| Gammelgarn kastal (`4158`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | None |
-| Gammelgarn kyrka (`4157`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | from |
 | Gammelgården i Fluren (`5815`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Gammelstad, Luleå (`364`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
-| Garde kyrka (`4156`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | from |
 | Gathenhielmska huset (`5820`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
-| Genarps kyrka (`4155`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | före | from |
 | Getinge Raä 93 (`10`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Getladan i Östanhol (`5821`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
-| Gimo Herrgård (`4154`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | None |
 | Gisselås (`5822`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
-| Glabro (`4153`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | None |
 | Gladhammar 155:1 (`6359`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Gladhammar 277:1 (`6358`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
-| Glimmingehus (`4152`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | efter | from |
-| Glömminge prästgård (`3910`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | None |
-| Gothem kyrka (`4151`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | None |
 | Granbacken i Bagghyttan (`5830`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Grangärdes-Hästberg (`5831`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Granhults kyrka (`5832`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
@@ -1005,9 +1295,7 @@ This review keeps SEAD honest about site-level time semantics. It distinguishes 
 | Grevbäcks kyrka (`5834`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Grimmatorpet (`5835`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Grimsta (`6291`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
-| Grindstu (`4150`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | None |
 | Grisskär (`5836`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
-| Grisslehamn (`3909`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | None |
 | Grobin (`3719`) |  | unresolved | linked_temporal_rows_captured |  | None | None |
 | Grums Raä 41:1 (`167`) | Sweden | unresolved | bibliography_only | Unresolved time semantics | None | None |
 | Grundsunda Raä 121 (`196`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
@@ -1017,26 +1305,20 @@ This review keeps SEAD honest about site-level time semantics. It distinguishes 
 | Grundsunda Raä 364 (`82`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Gruvris i Gulleråsen (`5838`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Gryt 4:2 (`6414`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
-| Grävsten herrgård (`4149`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | efter | from |
 | Grönhult (`5648`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
-| Grönsö gård (`4148`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | None |
 | Grönås (`5837`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Grötlingbo 258:1 (`6373`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Gubbänget i Delsbo (`5839`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
-| Guldrupe kyrka (`4147`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | from |
 | Gullo Lars i Höjen (`5840`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Gumdes i Näset (`5841`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Gunnarskog Raä 595 (`250`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Gunnarsrød 6 (`136`) | Norway | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Guomojávrrit (`85`) | Norway | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Gustavs Torg (`5842`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
-| Gällstaö Gård (`4145`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | from |
 | Gärdsjölindorna i Nedre Gärdsjö (`5818`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
-| Gärdslösa kyrka (`4144`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | from |
 | Gärdås (`5816`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Gästgivaregården i Grådö (`5819`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Gävle Raä 303 (`223`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
-| Gålarmora (`4146`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | from |
 | Gårdby 81 (`6353`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Gården Berget i Backen (`5817`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Gåsinge-Dillnäs Raä 94 (`264`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
@@ -1057,64 +1339,45 @@ This review keeps SEAD honest about site-level time semantics. It distinguishes 
 | Hagaloftet i Rissätra (`5844`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Hagalund (`5845`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Hagaparken (`5670`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
-| Hagby kyrka (`4143`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | from |
-| Hagebyhöga kyrka (`4142`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | efter | from |
 | Hagen i Gällö (`5846`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Hagen, Bäve (`316`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Hagshult 29:1 (`6368`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Hagshult kyrka (`5847`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Hagströms i Norrböle (`5848`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Hagverksmo (`6292`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
-| Hakarps kyrka (`4141`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | from |
 | Hall i Byom (`5849`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
-| Hall kyrka (`4140`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | efter | from |
 | Halla kyrka, Gotland (`4138`) | Sweden | unresolved | bibliography_only | Unresolved time semantics | None | None |
-| Halla kyrka, Nyköping (`4139`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | from |
 | Hallagård, Stomma kulle (`24`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Hallarum (`6293`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Hallen (`5851`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Hallens kyrka (`5852`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Hallingebergs kyrka (`5854`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
-| Halls fiskeläge (`4137`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | efter | from |
-| Hallstorps kyrka (`4136`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | from |
 | Halmstad Raä 44 (`15`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Halmstads slott (`5855`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Halvarssons i Hammarbyn (`5856`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
-| Hammarlunda kyrka (`4135`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | from |
 | Handog (`5857`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Haneberg (`5858`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
-| Haneberg säteri (`4134`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | None |
 | Hanmora gård (`5859`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Hansanders i Sundsjöåsen (`5860`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Hansbacks i Näset (`5861`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Harplinge 155 (`3701`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
-| Harpsund (`4133`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | None |
 | Hasslöv Raä 86 (`23`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Havor Fort (`3698`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Hebbeska huset (`5873`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
-| Heda hembygdsgård (`4132`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | None |
 | Hedeby (`3697`) |  | unresolved | linked_temporal_rows_captured |  | None | None |
-| Hedeskoga kyrka (`4131`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | from |
 | Hedesunda Raä 113 (`205`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Hedningaladan Perlars i Ribbåsen (`5874`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Hedninghuset Erkasjers i Idbäck (`5875`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Hedningsgärdet (`373`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
-| Hejde kyrka (`4130`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | from |
 | Helgelsens gård (`4129`) | Sweden | unresolved | bibliography_only | Unresolved time semantics | None | None |
 | Heliga Kors Kyrka (`5876`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
-| Hellvi kyrka (`4128`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | None |
 | Helsingborg 226:1 (`6392`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Helsingborg 252 (`6380`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Helsingborg 42:1 (`6382`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Hemavan (`4917`) | Sweden | unresolved | bibliography_only | Unresolved time semantics | None | None |
 | Hembygdsgården (`5877`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
-| Hemse kyrka (`4127`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | from |
 | Henriksson i Tångeråsen (`5878`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
-| Herrestad kyrka (`4126`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | from |
 | Herrestad Raä 14 (`286`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
-| Herrökna gård (`3908`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | None |
-| Hessensteinska huset (`3921`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | from |
-| Hester gamla gästgiveri (`4125`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | None |
 | Hill (`6295`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Hilleröd NFH A2039 (`122`) | Denmark | unresolved | bibliography_only | Unresolved time semantics | None | None |
 | Hjelms bod (`5880`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
@@ -1128,30 +1391,16 @@ This review keeps SEAD honest about site-level time semantics. It distinguishes 
 | Hogstorp 327:1 (`60`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Holländarhuset (`5884`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Holmen (`6437`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
-| Horns kyrka (`4123`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | from |
-| Hossmo kyrka (`4122`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | from |
-| Hovdala slott (`4121`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | from |
-| Hovs kyrka (`4120`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | from | ca. |
 | Hucksjöåsen (`6296`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Huddunge 252 (`6342`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Hulevik (`6297`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
-| Hulterstads kyrka (`4119`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | from |
 | Hults gård (`5886`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
-| Hults kulla (`3907`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | from |
-| Hults kyrka (`4118`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | None |
-| Hunnebergsgatan (`3906`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | efter | from |
-| Hunnebergsgatan 30A (`4117`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | from |
 | Husarö (`6298`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
-| Husby (`3905`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | None |
 | Husie bog (`6454`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Hyllie 155 (`262`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
-| Häglinge (`4116`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | from |
-| Häglinge kyrka (`4115`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | from |
-| Häljaryd (`3903`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | None |
 | Hälleberget A (`6294`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Hällekind 1636 (`321`) | Sweden | unresolved | bibliography_only | Unresolved time semantics | None | None |
 | Hällekind 1639 (`327`) | Sweden | unresolved | bibliography_only | Unresolved time semantics | None | None |
-| Härads kyrka (`4114`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | from |
 | Härbre Färnästjärn (`5862`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Härbre Gopshus (`5863`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Härbre Gopsmorsgård (`5864`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
@@ -1163,32 +1412,22 @@ This review keeps SEAD honest about site-level time semantics. It distinguishes 
 | Härbre Vika (`5871`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Härbre Västerberg (`5870`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Härlarsloftet från Idbäck (`5872`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
-| Härlövs kyrka (`4113`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | from |
-| Härnevi kyrka (`4112`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | ± | from |
 | Härnön (`4784`) |  | unresolved | linked_temporal_rows_captured |  | None | None |
 | Härnösand Raä 1 (`211`) | Sweden | unresolved | bibliography_only | Unresolved time semantics | None | None |
 | Härnösand Raä 119 (`166`) | Sweden | unresolved | bibliography_only | Unresolved time semantics | None | None |
-| Häverö kyrka (`4111`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | None |
 | Håby 6:1 (`63`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Håby Raä 4:1 (`391`) | Sweden | unresolved | bibliography_only | Unresolved time semantics | None | None |
 | Hållbus i Selbäck (`5850`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Hållgården Kulåra (`5853`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Hålta Raä 130 (`65`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
-| Hårsbäck Sör (`3904`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | None |
 | Högom grav 4? (`348`) | Sweden | unresolved | bibliography_only | Unresolved time semantics | None | None |
 | Högs kyrka (`5883`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
-| Högsjö gård (`3902`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | None |
 | Höje (`5645`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Hölö 320:1 (`6425`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
-| Hönstorp (`4110`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | from |
-| Hörja kyrka (`4109`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | None |
 | Hörnsjöfors (`5885`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
-| Hörsne kyrka (`4108`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | from |
 | Idre Raä 14 (`214`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Igelsfors (`6438`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Ignaberga gamla kyrka (`5887`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
-| Ilnestorp (`3901`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | from |
-| Ingatorp (`3900`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | from |
 | Ingbergs i Laknäs (`5888`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Ingelsta (`6299`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Ingestorp övre (`6300`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
@@ -1197,7 +1436,6 @@ This review keeps SEAD honest about site-level time semantics. It distinguishes 
 | Jacob Nickelsens hus (`5890`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Jan-Mats i Åsmundshyttan (`5892`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Janngården Änderåsen (`5893`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
-| Janssongården (`4107`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | None |
 | Jedeurska huset (`5895`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | John Bixbo i Bye (`5896`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Johnssons i Bergsbyn (`5897`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
@@ -1213,21 +1451,18 @@ This review keeps SEAD honest about site-level time semantics. It distinguishes 
 | Juleboda (`6439`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Julita gård (`6440`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Juszkowo, pow. Pruszcz (`3666`) |  | unresolved | linked_temporal_rows_captured |  | None | None |
-| Juteboda (`3899`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | efter |
 | Jäla kyrka (`5891`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Järavallen 1 (`4465`) | Sweden | unresolved | bibliography_only | Unresolved time semantics | None | None |
 | Järna kyrka (`5894`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Järrestad 45:1 (`6393`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Jönköping 137:1 (`6367`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Jönköping 50:1 (`6366`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
-| Jönköpings regemente (`4106`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | from |
 | Jönses i Vreta (`5903`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Jönsson i Dille (`5904`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Jönsson i Fanbyn (`5905`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Jönsson i Smedsta (`5907`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Jönssons i Hara (`5908`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Jörlanda Raä 184 (`74`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
-| Kaga kyrka (`4105`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | efter | from |
 | Kall Raä 599 (`335`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Kalles i Persbo (`5912`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Kallsås 426:1 (`69`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
@@ -1238,11 +1473,9 @@ This review keeps SEAD honest about site-level time semantics. It distinguishes 
 | Kanaljorden, Söderköping (`6441`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Kansakoulunmäki (`3658`) | Finland | unresolved | bibliography_only | Unresolved time semantics | None | None |
 | Kapellbacken i Amundsböle (`5915`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
-| Kapitelhuset (`4104`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | from |
 | Kares, Peres och Sandins i Vikarbyn (`5916`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Karin Nyréns i Hulån (`5917`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Karins i Gärde (`5918`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
-| Karkebo (`3898`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | None |
 | Karl Pettersson i Röjeråsen (`5919`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Karleby Raä 105 (`235`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Karlquist i Nybo (`5920`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
@@ -1251,35 +1484,28 @@ This review keeps SEAD honest about site-level time semantics. It distinguishes 
 | Karlssons i Hara (`5923`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Kastalen vid Fellingsbro kyrka (`5925`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Kastelholm (`3652`) |  | unresolved | linked_temporal_rows_captured |  | None | None |
-| Katthamra (`4103`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | from |
 | Kaupang i Skiringssal (`127`) | Norway | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Kestads kyrka (`5926`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Kimsundets fiskarvall (`5927`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Kinnareds kyrka (`5928`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Kinne-Vedums kyrka (`5929`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
-| Kisa hotell och konferens (`4102`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | None |
-| Kista hembygdsgård (`4101`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | from |
 | Kjerringneset (`93`) | Norway | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Klasgården i Laknäs (`5930`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Klaus Mortensens hus (`5931`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
-| Kleva gård (`4100`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | None |
 | Klintahuset (`5932`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Klitten (`5933`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Klockars i Loka (`5934`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Klösta (`5935`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
-| Knappsmåla (`4099`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | from |
 | Knivsta Raä 16 (`312`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Knubba (`153`) | Norway | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Knubbetjern (`143`) | Norway | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Knutssons i Nederhögen (`5936`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Koivusilta (`4882`) | Finland | unresolved | bibliography_only | Unresolved time semantics | None | None |
 | Kolbäck Raä 355 (`356`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
-| Kolstad (`3897`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | None |
 | Konga kyrka (`5937`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Kopparbergs tingshus (`5938`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Korsnäsgården (`5939`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Kosjärv (`291`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
-| Krapperups borg (`4098`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | from |
 | Kreigers Flak (`5277`) |  | unresolved | linked_temporal_rows_captured |  | None | None |
 | Kringelvägen (`6302`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Kristianstad 215:1 (`6395`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
@@ -1287,56 +1513,21 @@ This review keeps SEAD honest about site-level time semantics. It distinguishes 
 | Kristianstad 93:1 (`6401`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Kristoffersson i Mälgåsen (`5941`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Kroa (`5942`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
-| Krogsfall (`3896`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | None |
 | Kropp kyrka (`5943`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Krusenbergs herrgård (`4097`) | Sweden | unresolved | bibliography_only | Unresolved time semantics | None | None |
-| Kruttornet (`4096`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | from |
 | Kråkgården i södra Bomansberg (`5940`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
-| Kråkvik (`4095`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | None |
 | Kullen (`5944`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
-| Kullerstads kyrka (`4094`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | from |
-| Kulltorps gård (`4093`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | None |
-| Kumla kyrka (`4092`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | None |
-| Kumlaby kyrka (`4091`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | None |
-| Kummelnäs gård (`4090`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | from |
-| Kungsholms kyrka/Ulrika Eleonora kyrka (`4089`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | from |
 | Kungslena kyrka (`5945`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Kusens i Österstråsjö (`5946`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Kvarnbacken i Sundborn (`5947`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Kvarnfallet, Uppsala (`6426`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
-| Kvarntorp (`4088`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | None |
 | Kvarter General Ulfeldt (`6303`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
-| Kvarteret Allön (`3895`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | from |
-| Kvarteret Almen (`3894`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | None |
-| Kvarteret Boktryckaren (`3893`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | from |
-| Kvarteret Borgmästaren (`3892`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | efter | from |
-| Kvarteret Båtsmannen (`3891`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | None |
-| Kvarteret Ciselören (`3890`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | from |
-| Kvarteret Fältskären (`3889`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | None |
-| Kvarteret Färgaren (`3888`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | from |
 | Kvarteret Gamla Holmarna (`6463`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
-| Kvarteret Garvaren (`3887`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | None |
-| Kvarteret Guldsmeden (`3886`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | from |
-| Kvarteret Hattmakaren (`3885`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | None |
 | Kvarteret Iphigenia (`6304`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
-| Kvarteret Kassamannen (`3884`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | from |
-| Kvarteret Kommendanten (`3883`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | from |
-| Kvarteret Krögaren (`3882`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | None |
 | Kvarteret Mercurius (`6305`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
-| Kvarteret Museet (`3881`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | from |
-| Kvarteret Ormen (`3880`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | None |
-| Kvarteret Prelaten (`3879`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | None |
-| Kvarteret Repslagaren (`3878`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | None |
-| Kvarteret Rådhuset (`3877`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | from |
-| Kvarteret Skonaren (`3876`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | None |
-| Kvarteret Specksrum (`3875`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | None |
 | Kvarteret Spinnrocken (`6464`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
-| Kvarteret Svartbrodern (`3874`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | from |
-| Kvarteret Vaxblekaren (`3873`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | from |
-| Kvarteret Vinskänken (`3872`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | None |
 | Kvarteret Örtedalen (`308`) | Sweden | unresolved | bibliography_only | Unresolved time semantics | None | None |
 | Kvarteret Örtedalen (`6465`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
-| Kvarteret Östergötland (`3871`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | from |
 | Kvibergsnäs landeri (`5948`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Kvibille Raä 131 (`27`) | Sweden | unresolved | bibliography_only | Unresolved time semantics | None | None |
 | Kvistgården i Lenåsen (`5949`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
@@ -1345,14 +1536,10 @@ This review keeps SEAD honest about site-level time semantics. It distinguishes 
 | Kyrkhärbret Älvdalen (`5952`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Kyrkladan Bur Mats i Tiberget (`5953`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Kyrkladan från Haverö (`5954`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
-| Kyrkvärdsgården (`4087`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | from |
 | Kyrkås gamla kyrka (`5950`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
-| Källa gamla kyrka (`4086`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | None |
 | Källunge kyrka (`4085`) | Sweden | unresolved | bibliography_only | Unresolved time semantics | None | None |
-| Kärnan (`4084`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | efter | from |
 | Kärsämäki: Kintasahonräme (`5086`) | Finland | unresolved | bibliography_only | Unresolved time semantics | None | None |
 | Kärsämäki: Kärsämenneva (`5087`) | Finland | unresolved | bibliography_only | Unresolved time semantics | None | None |
-| Kävlinge gamla kyrka (`4083`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | from |
 | Kågbo (`6301`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Kånna kyrka (`5914`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Kåseholms slott (`5924`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
@@ -1377,9 +1564,7 @@ This review keeps SEAD honest about site-level time semantics. It distinguishes 
 | Larsson i Smedsbo (`5969`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Larsson i Tångeråsen (`5970`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Larssons i By (`5971`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
-| Lassor (`4081`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | from |
 | Lathman i Bodal (`5972`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
-| Lau Kyrka (`4080`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | from |
 | Ledsjö Raä 148 (`160`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Ledsjö Raä 149 (`106`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Ledsjö Raä 153 (`124`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
@@ -1389,27 +1574,20 @@ This review keeps SEAD honest about site-level time semantics. It distinguishes 
 | Lena 7:1 (`6364`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Levene kyrka (`5974`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Lids kyrka (`5975`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
-| Lilla Björkudden (`3870`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | efter |
 | Lilla Främsbacka (`5976`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Lilla Korpebo (`6306`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
-| Lilla Lögla (`4079`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | None |
 | Lilla Pålsjö (`5666`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
-| Lilla Rotsunda (`4078`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | None |
-| Lilla Rätö gård (`4077`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | None |
 | Lillanäs (`6307`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Lillberget (`390`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Limkläloftet från Hallosbacken (`5977`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Lina bog (`6444`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Lindborg i Långsillremon (`5979`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
-| Linde kyrka (`4076`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | None |
-| Linderöds kyrka (`4075`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | from |
 | Lindgren i Tunvågen (`5980`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Lindmansgården i Eggen (`5981`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Lindås (`5978`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Linköping 153:1 (`6413`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Linköping 503 (`6406`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Linköpings domkyrka (`4074`) | Sweden | unresolved | bibliography_only | Unresolved time semantics | None | None |
-| Linköpings slott (`4073`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | None |
 | Lisskvarngården i Malmsta (`5982`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Lithströms i Österuppland (`5983`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Litslena 561 (`3583`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
@@ -1419,9 +1597,6 @@ This review keeps SEAD honest about site-level time semantics. It distinguishes 
 | Lockarp 8:4 (`278`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Loft i Ytterocke (`5985`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Lohärad Raä 167:1 (`395`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
-| Lohärads Prästgård (`3869`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | None |
-| Lojsta kyrka (`4072`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | from |
-| Lopperstad (`4071`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | from |
 | Losgården i Gråda (`5990`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Lovö prästgård (`6308`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Lund (`4518`) | Sweden | unresolved | bibliography_only | Unresolved time semantics | None | None |
@@ -1429,40 +1604,28 @@ This review keeps SEAD honest about site-level time semantics. It distinguishes 
 | Lund i Hov (`5991`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Lundby Raä 8 (`169`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Lundins i Norrskog (`5992`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
-| Lunds domkyrka (`4070`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | from |
 | Lunnahöje (`5993`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Lyckås (`5646`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Lye kyrka (`4069`) | Sweden | unresolved | bibliography_only | Unresolved time semantics | None | None |
 | Lyngsjö kyrka (`5994`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Láksjohka (`159`) | Norway | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Lännavägen (`5961`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
-| Länsmansgården (`4067`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | None |
 | Länsmansgården i Klösta (`5962`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Lärbro 579:1 (`6372`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
-| Lärbro kyrka (`4066`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | efter | from |
-| Låga längan (`3816`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | None |
-| Långlöts kyrka (`4068`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | from |
 | Långsved (`5960`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
-| Löddeköpinge kyrka (`4065`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | from |
-| Lögla (`3868`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | None |
 | Lökes i Skästra (`5986`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Lönneberga kyrka (`5987`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Lörans kapell (`5988`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Lösens kyrka (`5989`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
-| Löts kyrka (`4064`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | from |
 | Lövdalen (`4885`) | Sweden | unresolved | bibliography_only | Unresolved time semantics | None | None |
 | Lövleforsen (`361`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
-| Lövö (`3867`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | from |
 | Maglehem (`6309`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Maglö borg (`5995`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
-| Malmstorp (`3866`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | from |
 | Malungs kyrka (`5996`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Manberg i Sjör (`5997`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Mankas i Torsgård (`5998`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Marby gamla kyrka (`6000`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
-| Mariannelund (`3865`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | None |
 | Mariefred 21:1 (`6377`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
-| Marjsö (`4063`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | None |
 | Marka kyrka (`6001`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Marmaverken (`6002`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Marskärskobben (`358`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
@@ -1471,59 +1634,48 @@ This review keeps SEAD honest about site-level time semantics. It distinguishes 
 | Martin Bränd i Nedre Gärdsjö (`6004`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Marums kyrka (`6005`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Matspers i Fåsås (`6006`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
-| Mattemåla (`4062`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | from |
 | Mattmars kyrka (`6007`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Mattson i Stora Snöån (`6008`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Medåker Raä 176 (`362`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Melins härbre (`6009`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Mellanhärbret från kyrkvallen (`6010`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
-| Mellanköpinge (`3864`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | None |
-| Mellby kyrka (`4061`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | from |
 | Melvold (`111`) | Norway | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Metsäpirtti (`4888`) |  | unresolved | linked_temporal_rows_captured |  | None | None |
 | Mjellrumsgården (`6012`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Mjäldrunga kyrka (`6011`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Mjölingsören (`349`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
-| Mjölnargården (`3919`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | from |
 | Modigs i Ingärdningsbodarna (`6013`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Morbygden (`6312`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Morlanda 367 (`388`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Morlinggården i Utby (`6016`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
-| Mortorps kyrka (`4060`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | from |
 | Motala 173:1 (`6412`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Muréns i Ope (`6018`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Musikskolan (`4059`) | Sweden | unresolved | bibliography_only | Unresolved time semantics | None | None |
 | Mustalampi (`4883`) | Finland | unresolved | bibliography_only | Unresolved time semantics | None | None |
 | Myhrs i Selja (`6019`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Myssjö kyrka (`6020`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
-| Måcketorpsboden (`4058`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | from |
 | Målen (`6310`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Målilla 381 (`6352`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Månstad Raä 81 (`233`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Månstads kyrka (`5999`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Mårtens i Bäck (`6003`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
-| Möllebacken (`4057`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | None |
 | Mölleberga kyrka (`6014`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Mölltorps kyrka (`6015`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Mölndal Raä 79 (`116`) | Sweden | unresolved | bibliography_only | Unresolved time semantics | None | None |
 | Mönsterås 376:1 (`6357`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
-| Mörbylånga kyrka (`4056`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | None |
 | Mörtviksvägen (`6017`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Naverstad 373 (`339`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Naverstads kyrka (`6025`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Nederkalix Raä 722 (`336`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Nederluleå Raä 330 (`266`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Nederluleå Raä 601 (`271`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
-| Nedre Hävla bruk (`4055`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | None |
 | Nicklasson i Järpen (`6026`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Nickösörarna (`332`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Nils Erik Olssons i Noret (`6027`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Njurunda 838 (`398`) | Sweden | unresolved | bibliography_only | Unresolved time semantics | None | None |
 | Njurunda Raä 125 (`380`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Njurunda Raä 837 (`371`) | Sweden | unresolved | bibliography_only | Unresolved time semantics | None | None |
-| Noors Herrgård (`4054`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | None |
 | Nora 416 (`6343`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
-| Nora Kyrka (`4053`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | efter |
 | Nora Raä 5 (`96`) | Sweden | unresolved | bibliography_only | Unresolved time semantics | None | None |
 | Norbergsby (`6313`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Nordanå gård (`6028`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
@@ -1532,19 +1684,12 @@ This review keeps SEAD honest about site-level time semantics. It distinguishes 
 | Noring i Sanne (`6032`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Norra Björke Raä 57 (`102`) | Sweden | unresolved | bibliography_only | Unresolved time semantics | None | None |
 | Norra Fågelås kyrka (`6033`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
-| Norra Mellby kyrka (`4052`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | efter | from |
 | Norra Ryssmasterna (`351`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
-| Norra Rörums kyrka (`4051`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | from |
 | Norra Småholmen (`289`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
-| Norra Solberga gamla kyrka (`4050`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | from |
 | Norra Strö kyrka (`6034`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
-| Norra Åsums kyrka (`4049`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | efter | from |
 | Norrala Raä 177 (`280`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
-| Norrby (`4048`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | from |
 | Norrgården i Östansjö (`6035`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
-| Norrlanda kyrka (`4047`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | None |
 | Norrsunda Raä 185 (`272`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
-| Norrvidinge kyrka (`4046`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | from |
 | Norum 291 (`359`) | Sweden | unresolved | bibliography_only | Unresolved time semantics | None | None |
 | Norum Raä 285 (`66`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Norum Raä 5 (`399`) | Sweden | unresolved | bibliography_only | Unresolved time semantics | None | None |
@@ -1559,16 +1704,13 @@ This review keeps SEAD honest about site-level time semantics. It distinguishes 
 | Nyköping 661 (`6374`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Nyköpingshus (`360`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | När 219 (`6370`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
-| Näs (`3863`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | efter |
 | Näs gård i Persbo (`6021`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Näs Herrgård (`6022`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
-| Näs kyrka (`4044`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | efter | from |
 | Näsjonases i Andtjärabo (`6023`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Näsjons i Åberga (`6024`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Nätra Raä 306 (`89`) | Sweden | unresolved | bibliography_only | Unresolved time semantics | None | None |
 | Nätra Raä 307 (`76`) | Sweden | unresolved | bibliography_only | Unresolved time semantics | None | None |
 | Nätra Raä 359 (`155`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
-| Nääs gård (`4043`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | from |
 | Nösslinge kyrka (`6037`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Nöttja kyrka (`6038`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Oarddojávri (`97`) | Norway | unresolved | site_inventory_only | Unresolved time semantics | None | None |
@@ -1599,16 +1741,13 @@ This review keeps SEAD honest about site-level time semantics. It distinguishes 
 | Onsala 327 (`4`) | Sweden | unresolved | bibliography_only | Unresolved time semantics | None | None |
 | Onsala Raä 369 (`12`) | Sweden | unresolved | bibliography_only | Unresolved time semantics | None | None |
 | Onsjöstugan (`5665`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
-| Orkesta kyrka (`4042`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | None |
 | Ornässtugan (`6063`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Orsa kyrka (`6064`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
-| Ottenby kungsgård (`4041`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | efter |
 | Otterböte (`3528`) |  | unresolved | linked_temporal_rows_captured |  | None | None |
 | Ovansjö Raä 307 (`181`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Oxsjön (`6074`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Pappilanmäki (`3524`) | Finland | unresolved | bibliography_only | Unresolved time semantics | None | None |
 | Parhäbre i Mon (`6076`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
-| Pedersborg (`4040`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | None |
 | Pedersens i Berget (`6077`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Pellas i Färnäs (`6078`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Pellas i Östra Björken (`6079`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
@@ -1625,7 +1764,6 @@ This review keeps SEAD honest about site-level time semantics. It distinguishes 
 | Persson i Lungre (`6089`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Perssons i Borr (`6090`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Perstorp kyrka (`6091`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
-| Perstorps kyrka (`4039`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | from |
 | Petersenska huset (`6092`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Petter Pers i Flatenberg (`6093`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Petterssons i Norrböle (`6094`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
@@ -1635,10 +1773,8 @@ This review keeps SEAD honest about site-level time semantics. It distinguishes 
 | Prostgården (`6100`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Prästgårdsloftet Älvdalen (`6099`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Prästsjödiket Umeå (`186`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
-| Prästtorp (`3862`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | None |
 | Päbul i Östnor (`6075`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Pörte i Burängsberget (`6097`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
-| Qvarnarp (`3861`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | from |
 | Radio Gotland (`4038`) | Sweden | unresolved | bibliography_only | Unresolved time semantics | None | None |
 | Ragunda gamla kyrka (`6101`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Ramsele Raä 160 (`109`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
@@ -1646,10 +1782,8 @@ This review keeps SEAD honest about site-level time semantics. It distinguishes 
 | Ransbergs kyrka (`6103`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Rapptorpen (`6104`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Raunis (`4981`) |  | unresolved | linked_temporal_rows_captured |  | None | None |
-| Ravlunda kyrka (`4037`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | from |
 | Renbergs i Öje (`6107`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Resare-Olssons i Västberg (`6108`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
-| Resmo kyrka (`4036`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | efter | from |
 | Reutersberg (`6316`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Ribetua gård (`6109`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Riga (`5448`) |  | unresolved | linked_temporal_rows_captured |  | None | None |
@@ -1659,9 +1793,7 @@ This review keeps SEAD honest about site-level time semantics. It distinguishes 
 | Ripkallhögen (`343`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Ripsa kyrka (`6111`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Risaloftet (`6112`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
-| Ristomta gård (`4035`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | None |
 | Rjurikovo Gorodisce (`4605`) |  | unresolved | linked_temporal_rows_captured |  | None | None |
-| Rogslösa kyrka (`4034`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | efter | from |
 | Rombins i Östnor (`6113`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Romson-gården i Noret (`6114`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Rosenhof (`3504`) |  | unresolved | linked_temporal_rows_captured |  | None | None |
@@ -1673,23 +1805,18 @@ This review keeps SEAD honest about site-level time semantics. It distinguishes 
 | Ruksesbákti, Indre Sandvik (`100`) | Norway | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Rumskulla 234:1 (`6354`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Runtuna kyrka (`6117`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
-| Rusthållargården (`4033`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | from |
 | Rutå Lars Rutån (`6118`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
-| Rydboholms slott (`4032`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | None |
 | Ryds herrgård (`6119`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Ryssby kyrka (`4031`) | Sweden | unresolved | bibliography_only | Unresolved time semantics | None | None |
-| Ryssebo (`3860`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | None |
 | Ryttartorpet (`6120`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Ryttartorpet bod (`6121`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Ryttartorpet fähus (`6122`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Ryttartorpet tröskloge (`6123`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Ryurik Gorodishche (`3500`) |  | unresolved | linked_temporal_rows_captured |  | None | None |
-| Ränneslätt (`4030`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | None |
 | Rättviks kyrka (`6105`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Rävinge kyrka (`6106`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Råda Raä 101 (`184`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Råneå 414 (`370`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
-| Röhälla (`4029`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | from |
 | Rönnby-Skultuna (`369`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Rød Terrasse (`126`) | Norway | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Rødstranda (`165`) | Norway | unresolved | site_inventory_only | Unresolved time semantics | None | None |
@@ -1698,52 +1825,32 @@ This review keeps SEAD honest about site-level time semantics. It distinguishes 
 | Sakkola (`4886`) |  | unresolved | linked_temporal_rows_captured |  | None | None |
 | Sala sockenkyrka (`6125`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Saltosas i Klappsta (`6127`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
-| Salvarp (`3859`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | None |
 | Samlängan Hjältanstorp (`6128`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
-| Sanda kyrka (`4028`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | None |
-| Sandby prästgård (`4027`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | from |
-| Sandemar (`3858`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | from |
-| Sandemar slott (`4026`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | None |
 | Sandvikshärbret (`6129`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
-| Sankt Clemens kyrkoruin (`4025`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | from |
 | Sankt Johannes 96:1 (`6408`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
-| Sankt Lars kyrka (`4024`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | from |
-| Sankt Peters klosters kyrka (`4023`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | from |
 | Sankt Petri Kyrka (`6130`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Sankta Karins kapell (`6131`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
-| Sankta Maria kyrka (`4022`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | from |
 | Sannagård i Sillerbo (`6132`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Sarasgården Isala (`6133`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Selens fäbod (`6136`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Selånger Raä 136 (`325`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
-| Sibbo (`4021`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | from |
 | Sibbolängena i Nedre Gärdsjö (`6138`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
-| Sigfridsgården (`4020`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | None |
 | Siggeneben (`3487`) |  | unresolved | linked_temporal_rows_captured |  | None | None |
 | Sigtuna 195:1 (`6421`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Silje (`6321`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
-| Silte kyrka (`4019`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | None |
 | Silvåkra 10:1 (`6386`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
-| Sisshammar (`4018`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | None |
-| Sjonhem kyrka (`4017`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | None |
 | Själstuga (`345`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Sjöbloms i Gärde (`6139`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
-| Sjörups gamla kyrka (`4016`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | from |
-| Sjöstugan (`4015`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | None |
 | Sjösås gamla kyrka (`6140`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
-| Skabersjö slott (`4014`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | None |
 | Skagerholms gård (`6141`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Skalunda kyrka (`6144`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Skanör Stubbamölla (`6146`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
-| Skarp-Ösby (`4013`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | from |
 | Skeby Raä 46 (`182`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Skederid 106 (`381`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Skederid Raä 190 (`337`) | Sweden | unresolved | bibliography_only | Unresolved time semantics | None | None |
-| Skedshult (`3857`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | None |
 | Skee 1593:1 (`67`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Skellefteå socken Raä 198 (`204`) | Sweden | unresolved | bibliography_only | Unresolved time semantics | None | None |
 | Skellefteå stad Raä 632 (`255`) | Sweden | unresolved | bibliography_only | Unresolved time semantics | None | None |
-| Skeppsås kyrka (`4012`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | nära | from |
 | Skjærvika (`123`) | Norway | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Skog Raä 7 (`125`) | Sweden | unresolved | bibliography_only | Unresolved time semantics | None | None |
 | Skog-gard i Nusnäs (`6147`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
@@ -1759,24 +1866,16 @@ This review keeps SEAD honest about site-level time semantics. It distinguishes 
 | Skrea Raä 194 (`2`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Skrea Raä 195 (`115`) | Sweden | unresolved | bibliography_only | Unresolved time semantics | None | None |
 | Skrea Raä 77 (`19`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
-| Skrickerum (`3856`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | from |
 | Skräddars (`6152`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Skäggalösa Norregård (`6142`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Skällvik 222:1 (`6455`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Skälvums kyrka (`6145`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Skänninge 52 (`6404`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Skänninge 5:1 (`6411`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
-| Skålsta (`3855`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | None |
 | Skålö (`6143`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
-| Skårby kyrka (`4011`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | from |
-| Sköldsborg (`3854`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | None |
 | Skön Raä 164 (`352`) | Sweden | unresolved | bibliography_only | Unresolved time semantics | None | None |
-| Skönberga kyrka (`4010`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | None |
 | Skörstorps kyrka (`6150`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Skövde Raä 158 (`241`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
-| Slevringe gård (`4009`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | from |
-| Slottsskogen (`4008`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | from |
-| Slästorp (`4007`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | from |
 | Slättåkra (`5660`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Slättåkra lillegård (`4006`) | Sweden | unresolved | bibliography_only | Unresolved time semantics | None | None |
 | Slöinge Raä 114 (`1`) | Sweden | unresolved | bibliography_only | Unresolved time semantics | None | None |
@@ -1784,14 +1883,10 @@ This review keeps SEAD honest about site-level time semantics. It distinguishes 
 | Smedja Nusnäs Zorns gammelgård (`6155`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Smedjan i Läde (`6156`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Smedjegatan 22 (`6157`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
-| Smedstorp (`4005`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | from |
-| Smedstorps slott (`4004`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | from |
 | Smens i Yg (`6158`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Smensgård i Torrbergsbo (`6159`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Smälingsgården (`6154`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
-| Snåret (`4003`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | None |
 | Snöstorp Raä 106 (`26`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
-| Solbaddet (`4002`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | None |
 | Solberg 1:15 (`378`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Solberga (`299`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Solna kyrka (`6164`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
@@ -1800,11 +1895,9 @@ This review keeps SEAD honest about site-level time semantics. It distinguishes 
 | Solviks i kyrkbyn Boda (`6167`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Sommarlagård Hjältanstorp (`6169`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Sonaboda (`6170`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
-| Sonnorps frälsegård (`4001`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | None |
 | Sorsele Raä 277 (`240`) | Sweden | unresolved | bibliography_only | Unresolved time semantics | None | None |
 | Sosserladan Fåsås (`6173`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Sotarskärsviken i Ältebo (`6174`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
-| Spargott (`4000`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | from |
 | Sparreska palatset (`6176`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Sparrgården i Indor (`6177`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Sparvgården i Backa (`6178`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
@@ -1812,7 +1905,6 @@ This review keeps SEAD honest about site-level time semantics. It distinguishes 
 | Spinkarps gård (`6179`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Spjalko (`4645`) | Sweden | unresolved | bibliography_only | Unresolved time semantics | None | None |
 | Sporrakulla (`6180`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
-| Sproge gamla stavkyrka (`3999`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | from |
 | Staffans i Åsen (`6181`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Staffas i Nedre Gärdsjö (`6182`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Staffas i Ovanmyra (`6183`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
@@ -1823,14 +1915,10 @@ This review keeps SEAD honest about site-level time semantics. It distinguishes 
 | Stall i Grönlokshol (`6186`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Stall i Noret (`6187`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Stall Sturhans i Fåsås (`6188`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
-| Stallbacksvägen (`3853`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | from |
 | Stare 1:13 (`62`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Stavsholmen (`6189`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Stavsjöbodarna (`6190`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
-| Stenbockska palatset (`3923`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | from |
 | Steninge kyrka (`6191`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
-| Steninge slott (`3998`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | from |
-| Stensjö (`3997`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | None |
 | Stensmålen (`6323`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Sticko Erik Perssons gård i Färnäs (`6192`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Stockholm 103:1 (`6422`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
@@ -1840,19 +1928,12 @@ This review keeps SEAD honest about site-level time semantics. It distinguishes 
 | Stockholm 707 (`6420`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Stockholm 709 (`6419`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Stockholm 710 (`6415`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
-| Stockholms Slott (`3920`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | from |
 | Stockholmsgården i Gåda (`6193`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Stora Bråmåmyr i Nusnäs (`6194`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Stora Gårda Herrgård (`6195`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Stora Halmören (`350`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
-| Stora Harrie (`3852`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | efter | from |
 | Stora Herrestads kyrka (`3996`) | Sweden | unresolved | bibliography_only | Unresolved time semantics | None | None |
-| Stora Hulterska (`3851`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | None |
-| Stora Kolfly (`3995`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | from |
-| Stora Köpinge kyrka (`3994`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | efter | from |
-| Stora Lund (`3993`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | None |
 | Stora Malm 229:1 (`6375`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
-| Stora Rickby (`3992`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | from |
 | Stora Skedelid (`6196`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Stora skedvi kyrka (`6197`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Stora Träskär (`374`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
@@ -1864,7 +1945,6 @@ This review keeps SEAD honest about site-level time semantics. It distinguishes 
 | Stræten (`140`) | Norway | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Stræten terasse (`132`) | Norway | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Strö kyrka (`6202`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
-| Strömby (`3991`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | None |
 | Strömmen (`6324`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Strömsholms slott (`6203`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Stubbamöllan (`6204`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
@@ -1876,17 +1956,14 @@ This review keeps SEAD honest about site-level time semantics. It distinguishes 
 | Styrsö Raä 117 (`239`) | Sweden | unresolved | bibliography_only | Unresolved time semantics | None | None |
 | Stäket (`6184`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Stäksundet (`6457`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
-| Stämmeryd (`3849`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | from |
 | Stångsmåla (`3850`) | Sweden | unresolved | bibliography_only | Unresolved time semantics | None | None |
 | Stötollas i Lenåsen (`6200`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Sundbergs i Heden (`6210`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
-| Sundbyviks gård (`3990`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | None |
 | Sundkvists i Söderhögen (`6211`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Sundre kyrka (`3989`) | Sweden | unresolved | bibliography_only | Unresolved time semantics | None | None |
 | Sundsaasen 2 (`119`) | Norway | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Sundsvall stad (`342`) | Sweden | unresolved | bibliography_only | Unresolved time semantics | None | None |
 | Sunnanås (`6212`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
-| Svaneberg (`3848`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | None |
 | Svanebäck (`6213`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Svarteborg 585 (`304`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Svarteborg 592 (`315`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
@@ -1912,7 +1989,6 @@ This review keeps SEAD honest about site-level time semantics. It distinguishes 
 | Sälja (`3988`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Sällstorps kyrka (`6126`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Särdal (`6319`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
-| Särslövs kyrka (`3987`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | from |
 | Säternybodarna (`6134`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Sätersfors (`6135`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Sätila Strömma (`6320`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
@@ -1923,9 +1999,7 @@ This review keeps SEAD honest about site-level time semantics. It distinguishes 
 | Söderholm i Grötom (`6162`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Söderköping 14:1 (`6410`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Söderlundska gården (`6163`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
-| Södermanland-Nerikes nation (`3986`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | from |
 | Södra Hee (`296`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
-| Södra Möckleby kyrka (`3985`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | None |
 | Södra Vi 6:1 (`6355`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Sölvsved (`6168`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Söndrum Raä 100 (`14`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
@@ -1947,27 +2021,20 @@ This review keeps SEAD honest about site-level time semantics. It distinguishes 
 | The Prince house (`6452`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Thodéns i Gruvriset (`6227`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Thomsén i Östergrav (`6228`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
-| Tidersrums kyrka (`3984`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | None |
 | Tierp 458 (`6449`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Tiertjern (`121`) | Norway | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Tillinge Raä 314 (`295`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
-| Tingstäde kyrka (`3983`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | from |
 | Tingstäde träsk (`6459`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Tittolles i Stavsätra (`6229`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Tjustgöls gård (`6230`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Tjärby Raä 59 (`8`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Tjärnan (`3447`) |  | unresolved | linked_temporal_rows_captured |  | None | None |
 | Tobaksladan (`6231`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
-| Tofta (`3847`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | None |
 | Tofta 39 (`3445`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Torbjörntorp Raä 86 (`242`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
-| Toresbo (`3982`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | from |
-| Torhult (`3846`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | None |
 | Torkelsbo (`6233`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Torkelsrud (`6325`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Torkstuga Nusnäs Zorns gammelgård (`6234`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
-| Torpa kyrka (`3981`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | efter | from |
-| Torpa prästgård (`3980`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | None |
 | Torpa stenhus (`5647`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Torsby Raä 100 (`275`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Torsklok-härbret i Västra Lillmon (`6236`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
@@ -1979,48 +2046,38 @@ This review keeps SEAD honest about site-level time semantics. It distinguishes 
 | Torsåker Raä 1589 (`156`) | Sweden | unresolved | bibliography_only | Unresolved time semantics | None | None |
 | Torsångs kyrka (`6235`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Torup slott (`6237`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
-| Torö kyrka (`3979`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | None |
 | Torö Raä 75 (`300`) | Sweden | unresolved | bibliography_only | Unresolved time semantics | None | None |
 | Tossene 446 (`375`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Tossene Raä 446 (`310`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
-| Tosterup 32:2 (`3834`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | efter |
-| Tovastugan (`3978`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | None |
 | Transtorpsvägen (`6326`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Trappgården i Mångberg (`6239`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
-| Trehörna säteri (`3977`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | None |
 | Trelleborg 19:1 (`6387`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Trelleborg 48 (`6379`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Trogsta 71 (`284`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Troitski (`3441`) |  | unresolved | linked_temporal_rows_captured |  | None | None |
 | Trulsatorpet (`6242`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Trädgårdsmästarbostaden (`6238`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
-| Träne kyrka (`3976`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | None |
 | Tröinge 4:9 (`25`) | Sweden | unresolved | bibliography_only | Unresolved time semantics | None | None |
 | Trösklada Bergkarlås (`6240`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Trösklada Östnor (`6241`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Tullinge gård (`6243`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Tullsåkra (`6244`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
-| Tumbo kyrka (`3975`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | efter |
 | Tuna (`6327`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Tuna Raä 328:1 (`273`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Tuna Raä 330 (`353`) | Sweden | unresolved | bibliography_only | Unresolved time semantics | None | None |
-| Tuntorps gård (`3974`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | None |
 | Turinge 415 (`396`) | Sweden | unresolved | bibliography_only | Unresolved time semantics | None | None |
-| Tvartorps gård (`3973`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | from |
 | Tvartorps gård (`5650`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Tvärgränd (`6328`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Tvåan, Röda kvarn (`6245`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Tvååker Raä 193 (`30`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Tynderö 27 (`400`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Tynningö (`6246`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
-| Tyresö kyrka (`3972`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | from |
 | Tysk Karin Olsson i Kärvsåsen (`6247`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Tysk Sven i Västra Stumsnäs (`6248`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Tystberga kyrka (`6249`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Täpp Kerstin i Nedre Gärdsjö (`6224`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Tärna hembygdsgård (`6225`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Tåme (`386`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
-| Tångerda gård (`3971`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | from |
 | Tåstarps kyrka (`6226`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Tölö Raä 173 (`161`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Tönnersjö kyrka (`6232`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
@@ -2030,12 +2087,9 @@ This review keeps SEAD honest about site-level time semantics. It distinguishes 
 | Töre 408:1 (`292`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Töre 422 (`384`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Töre Raä 320 (`298`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
-| Törnbotten (`3970`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | from |
 | Uddevalla Raä 133:1 (`58`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
-| Uggelbo (`3845`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | None |
 | Ulfsparregatan 2 (`6250`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Ullbergs i Kall (`6251`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
-| Ulriksdals slott (`3969`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | from |
 | Ulvängen (`6252`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Umeå socken Raä 225 (`244`) | Sweden | unresolved | bibliography_only | Unresolved time semantics | None | None |
 | Umeå socken Raä 227 (`133`) | Sweden | unresolved | bibliography_only | Unresolved time semantics | None | None |
@@ -2052,74 +2106,45 @@ This review keeps SEAD honest about site-level time semantics. It distinguishes 
 | Uppsala: Centrum (`4702`) | Sweden | unresolved | bibliography_only | Unresolved time semantics | None | None |
 | Utatgården på Öhn (`6253`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Utmelanda (`6254`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
-| Vadsbro kyrka (`3968`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | None |
 | Vadstena 21:1 (`6409`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Vadstena 35 (`6442`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
-| Vadstena rådhus (`3967`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | from |
 | Vaksala Raä 300 (`341`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Valbo kyrka (`6257`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Valbo Raä 399 (`246`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
-| Vall kyrka (`3966`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | from |
-| Valla (`3965`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | from |
 | Vallagatan (`6329`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Vallby kyrka (`6258`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Vallda Raä 293 (`5`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Vallen i Gammelsträng (`6259`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Vallentuna 495:1 (`6423`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Vallins i Östansjö (`6260`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
-| Vallsnäs (`3844`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | None |
 | Valtorps kyrka (`6261`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Valö 123:1 (`6345`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
-| Vamlingbo prästgård (`3964`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | from |
-| Vanserum (`3963`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | from |
 | Varbergs fästning (`6263`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Varras i Råsjön (`6264`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Vaterland 1, Oslo (`138`) | Norway | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Veinge kyrka (`6267`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
-| Verksgatan (`3843`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | from |
 | Verkstadsstuga Östnor (`6268`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Verum 4:2 (`6397`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
-| Viby gård (`3962`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | None |
 | Viby Raä 220 (`172`) | Sweden | unresolved | bibliography_only | Unresolved time semantics | None | None |
 | Viby Raä 222 (`215`) | Sweden | unresolved | bibliography_only | Unresolved time semantics | None | None |
 | Viby Raä 225 (`234`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
-| Vickleby kyrka (`3961`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | None |
-| Viggeby (`3842`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | None |
-| Viggesbo säteri (`3960`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | None |
 | Vika Raä 260 (`99`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Vikenhärbret (`6269`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Vikström i Bodsjö (`6270`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Vilhelmina Raä 1647 (`313`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
-| Villie kyrka (`3959`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | from |
 | Vinberg Raä 97 (`231`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
-| Vingåker-Kvarngölet (`3841`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | None |
-| Vippröste (`3840`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | from |
-| Vireda kyrka (`3958`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | from |
 | Visby 107:1 (`6371`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
-| Visby domkyrka (`3957`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | from |
 | Visingsö 182 (`6365`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
-| Visseltofta kyrka (`3956`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | from |
-| Vita Holmen, Löwenströmska sjukhusområdet (`3955`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | from |
 | Vittsjö 24:1 (`6394`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Vittskövle 1:1 (`6399`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
-| Vives (`3954`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | from |
-| Voxtorps kyrka (`3953`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | from |
 | Vretarne Bergmans gård (`6271`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Vä kyrka (`6255`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Vähusen (`6256`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Vänersborg Raä 149 (`144`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Vänge Raä 88:1 (`306`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
-| Värdshusbacken (`3839`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | from |
-| Värmdö kyrka (`3951`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | None |
-| Värna kyrka (`3950`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | ± | from |
 | Värö Raä 323 (`18`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
-| Väsby kvarn (`3949`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | from |
-| Väsby kyrka (`3948`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | from |
-| Väster Lakbäck (`3838`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | None |
 | Västerbitterna 3:17 (`163`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Västerbitterna Raä 34 (`198`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
-| Västergarn kyrka (`3947`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | from |
-| Västergård (`3946`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | from |
 | Västerhaninge Raä 201 (`383`) | Sweden | unresolved | bibliography_only | Unresolved time semantics | None | None |
 | Västerhaninge Raä 479 (`344`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Västerlövsta 395:1 (`6350`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
@@ -2127,24 +2152,17 @@ This review keeps SEAD honest about site-level time semantics. It distinguishes 
 | Västerplana kyrka (`6265`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Västervik 94:1 (`6356`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Västerås 232:1 (`6402`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
-| Västerås domkyrka (`3944`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | None |
 | Västra Eds kyrkoruin (`6266`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Västra Frölunda Raä 411 (`222`) | Sweden | unresolved | bibliography_only | Unresolved time semantics | None | None |
-| Västra Klagstorps kyrka (`3943`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | from |
-| Västra Nöbbelövs kyrka (`3942`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | from |
 | Västra Skälby (`268`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
-| Västra trädgårdsgatan 13 (`3941`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | None |
 | Vättlösa Raä 158 (`107`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
-| Väversunda kyrka (`3940`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | from |
 | Växjö 61:1 (`6351`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Våmb Raä 59 (`174`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Våmhusvägen Bonäs (`6262`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
-| Våthults kyrka (`3952`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | from |
 | Wahléns i Oxberg (`6272`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Waxängs gård (`6273`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Westerland (`4720`) |  | unresolved | bibliography_only |  | None | None |
 | Westööska huset (`3939`) | Sweden | unresolved | bibliography_only | Unresolved time semantics | None | None |
-| Wrangelska palatset (`3922`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | None |
 | Ysby kyrka (`6274`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Ystad 50:1 (`6383`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Ytterby Raä 22 (`302`) | Sweden | unresolved | bibliography_only | Unresolved time semantics | None | None |
@@ -2153,14 +2171,10 @@ This review keeps SEAD honest about site-level time semantics. It distinguishes 
 | Ägglösen (`258`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Älgtjärn (`379`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Älgtjärn, Jovan ekopark (`157`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
-| Älvestads kyrka (`3938`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | from |
 | Älvsbyn Raä 958 (`326`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
-| Ängstigen (`3835`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | None |
 | Äskhult (`5668`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
-| Åby (`3837`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | from |
 | Ågren i Rännberg (`5680`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Åhus 23:1 (`6398`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
-| Åkarp (`3836`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | from |
 | Åker 270:1 (`6376`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Åker 303:1 (`6443`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Åkerblads pensionat (`5681`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
@@ -2175,20 +2189,15 @@ This review keeps SEAD honest about site-level time semantics. It distinguishes 
 | Ödeshög 215:1 (`6407`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Ödskölt Raä 122 (`189`) | Sweden | unresolved | bibliography_only | Unresolved time semantics | None | None |
 | Öhlanders (`6044`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
-| Önsbo (`3937`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | from |
-| Örberga kyrka (`3936`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | efter |
 | Örby Raä 98 (`90`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
-| Örs kyrka (`3935`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | from |
 | Örsaskögle (`6314`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Örsås Raä 291 (`112`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Örtofta slott (`6065`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Örup Stenhus (`6066`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
-| Ösjöfors handpappersbruk (`3924`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | from |
 | Ösmo gamla prästgård (`3934`) | Sweden | unresolved | bibliography_only | Unresolved time semantics | None | None |
 | Östboda (`6067`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Östbyhärbret (`6068`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Östbyvägen (`6315`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
-| Östensbo (`3933`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | from |
 | Österhaninge Raä 230 (`385`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Österhaninge Raä 238 (`340`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Österhaninge Raä 239 (`355`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
@@ -2196,17 +2205,10 @@ This review keeps SEAD honest about site-level time semantics. It distinguishes 
 | Österslövs gamla prästgård (`6069`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Östnorsstugan (`6070`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Östnorsstugan stall och lider (`6071`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
-| Östra ryds kyrka (`3932`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | from |
 | Östra Sallerups kyrka (`6072`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
-| Östra Skrukeby kyrka (`3931`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | ~ | from |
 | Östra Söderåsen (`6073`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
-| Östra Vrams kyrka (`3930`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | from |
-| Östrabo biskopsgård (`3929`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | None |
 | Övergran 280:1 (`6348`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
 | Överlännäs Raä 20 (`94`) | Sweden | unresolved | bibliography_only | Unresolved time semantics | None | None |
-| Överselö kyrka (`3928`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | None |
 | Övertorneå 427 (`397`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
-| Övraby kyrka (`3927`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | None |
 | Övraby Raä 70 (`195`) | Sweden | unresolved | site_inventory_only | Unresolved time semantics | None | None |
-| Övre Häfla bruk (`3926`) | Sweden | unresolved | linked_temporal_rows_captured | Unresolved time semantics | None | None |
 | Øvre Kvilhaugmyra (`4572`) |  | unresolved | linked_temporal_rows_captured |  | None | None |

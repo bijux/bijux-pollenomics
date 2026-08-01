@@ -32,6 +32,7 @@ from bijux_pollenomics.data_downloader.sead import (
     fetch_sead_site_rows,
     materialize_sead_repository_surfaces,
     normalize_sead_rows,
+    sead_dating_interval,
 )
 from bijux_pollenomics.reporting.context import (
     build_aadr_point_layer,
@@ -335,6 +336,107 @@ class ContextDataTests(unittest.TestCase):
         self.assertIn(("site_id", "sample_group_id"), seen_orders)
         self.assertIn(("physical_sample_id", "analysis_entity_id"), seen_orders)
 
+    def test_sead_dating_interval_converts_common_era_years_to_bp(self) -> None:
+        interval = sead_dating_interval(
+            {
+                "low_value": 1754,
+                "high_value": None,
+            },
+            age_type="AD",
+        )
+
+        self.assertEqual(interval, (196, 196))
+
+    def test_fetch_sead_site_rows_preserves_common_era_point_dates(self) -> None:
+        def fake_fetch_json(
+            url: str, params: list[tuple[str, str]] | None = None, **_: object
+        ) -> object:
+            _ = params
+            if url.endswith("/tbl_sites"):
+                return [
+                    {
+                        "site_id": 3816,
+                        "site_name": "Låga längan",
+                        "national_site_identifier": "3816",
+                        "latitude_dd": 56.05,
+                        "longitude_dd": 14.28,
+                        "altitude": 24,
+                        "site_description": "",
+                        "site_uuid": "uuid-3816",
+                    }
+                ]
+            if url.endswith("/tbl_sample_groups"):
+                return [
+                    {
+                        "sample_group_id": 10,
+                        "site_id": 3816,
+                        "sample_group_name": "Historic layer",
+                    }
+                ]
+            if url.endswith("/tbl_physical_samples"):
+                return [{"physical_sample_id": 20, "sample_group_id": 10}]
+            if url.endswith("/tbl_analysis_entities"):
+                return [
+                    {
+                        "analysis_entity_id": 30,
+                        "physical_sample_id": 20,
+                        "dataset_id": 0,
+                    }
+                ]
+            if url.endswith("/tbl_analysis_values"):
+                return [{"analysis_value_id": 35, "analysis_entity_id": 30}]
+            if url.endswith("/tbl_analysis_dating_ranges"):
+                return [
+                    {
+                        "analysis_dating_range_id": 34,
+                        "analysis_value_id": 35,
+                        "low_value": 1754,
+                        "high_value": None,
+                        "age_type_id": 2,
+                        "dating_uncertainty_id": None,
+                        "low_qualifier": "",
+                        "high_qualifier": "",
+                        "low_is_uncertain": False,
+                        "high_is_uncertain": False,
+                    }
+                ]
+            if url.endswith("/tbl_age_types"):
+                return [
+                    {
+                        "age_type_id": 2,
+                        "age_type": "AD",
+                        "description": "Anno Domini",
+                    }
+                ]
+            if url.endswith("/tbl_relative_dates"):
+                return []
+            if url.endswith("/tbl_relative_ages"):
+                return []
+            if url.endswith("/tbl_dating_uncertainty"):
+                return []
+            if url.endswith("/tbl_methods"):
+                return []
+            if url.endswith("/tbl_datasets"):
+                return []
+            if url.endswith("/tbl_site_references"):
+                return []
+            if url.endswith("/tbl_biblio"):
+                return []
+            raise AssertionError(f"Unexpected SEAD request: {url}")
+
+        with patch(
+            "bijux_pollenomics.data_downloader.sead.fetch_json",
+            side_effect=fake_fetch_json,
+        ):
+            rows = fetch_sead_site_rows((4.0, 54.0, 35.0, 72.0))
+
+        self.assertEqual(rows[0]["time_start_bp"], 196)
+        self.assertEqual(rows[0]["time_end_bp"], 196)
+        self.assertEqual(rows[0]["numeric_time_start_bp"], 196)
+        self.assertEqual(rows[0]["numeric_time_end_bp"], 196)
+        self.assertEqual(rows[0]["dating_range_rows"][0]["time_start_bp"], 196)
+        self.assertEqual(rows[0]["dating_range_rows"][0]["time_end_bp"], 196)
+
     def test_fetch_sead_rows_retries_retryable_network_errors(self) -> None:
         with (
             patch(
@@ -549,7 +651,7 @@ class ContextDataTests(unittest.TestCase):
         )
         self.assertEqual(
             recovery_requirements["rows"][0]["requirement_key"],
-            "linked_temporal_capture",
+            "linked_temporal_promotion",
         )
         self.assertEqual(
             raw_payload["inventory_summary"]["temporal_capture_posture"],

@@ -102,9 +102,9 @@ in this period.”
 | --- | ---: |
 | captured site inventory | 2,195 |
 | mapped four-country population | 2,172 |
-| numeric mapped features | 497 |
+| numeric mapped features | 889 |
 | contextual-label-only mapped features | 12 |
-| unresolved mapped features | 1,663 |
+| unresolved mapped features | 1,271 |
 | captured rows outside mapped population | 23 |
 
 The raw relational inventory also records 7,775 dating-range rows, 10,950

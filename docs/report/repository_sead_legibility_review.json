@@ -5,13 +5,20 @@
   "current_posture": "contextual_archaeology_layer_with_explicit_temporal_and_access_limits",
   "row_count": 2195,
   "normalization_risk_counts": {
-    "high_thin_site_inventory": 2195
+    "medium_access_constrained": 1448,
+    "medium_contextual_numeric_mix": 735,
+    "medium_period_label_interpretation": 12
   },
   "access_visibility_counts": {
-    "site_page_only": 2195
+    "site_page_only": 2192,
+    "site_page_with_reference_links": 3
   },
   "comparability_posture_counts": {
-    "unresolved": 2195
+    "unresolved": 1294,
+    "mixed_interval_and_context": 497,
+    "contextual_label_only": 12,
+    "numeric_interval": 154,
+    "numeric_interval_with_caveat": 238
   },
   "direct_links": {
     "source_page": "docs/public/pollenomics-data/sources/sead.md",
@@ -23,16 +30,16 @@
   },
   "requirement_rows": [
     {
-      "requirement_key": "linked_temporal_capture",
-      "evidence_gap_count": 2195,
-      "required_evidence": "Capture linked dating-range, relative-period, and uncertainty tables into checked-in raw SEAD inventory refreshes.",
-      "satisfaction_signal": "Checked-in raw SEAD rows carry temporal linked tables often enough that the thin-site-inventory risk no longer dominates the review packet."
+      "requirement_key": "linked_temporal_promotion",
+      "evidence_gap_count": 0,
+      "required_evidence": "Promote captured SEAD dating-range, calendar-era, and relative-period rows into normalized BP intervals wherever the linked inventory supports it, while keeping unresolved rows explicit.",
+      "satisfaction_signal": "SEAD temporal review shows numeric intervals for chronology-bearing rows and leaves unresolved site inventory rows visibly unresolved instead of implying uniform time support."
     },
     {
-      "requirement_key": "reference_link_capture",
-      "evidence_gap_count": 2195,
-      "required_evidence": "Preserve stable bibliography or DOI links wherever SEAD linked records expose them, so readers do not have to begin every review from the generic site page.",
-      "satisfaction_signal": "The access review shows a meaningful shift away from site-page-only visibility."
+      "requirement_key": "reference_visibility_promotion",
+      "evidence_gap_count": 2192,
+      "required_evidence": "Promote preserved bibliography or DOI links wherever checked-in SEAD linked records expose them, and keep site-page-only rows explicit where upstream link visibility remains thin.",
+      "satisfaction_signal": "The access review distinguishes bibliography-backed rows from site-page-only rows without hiding the remaining upstream access constraint."
     },
     {
       "requirement_key": "context_layer_republication",

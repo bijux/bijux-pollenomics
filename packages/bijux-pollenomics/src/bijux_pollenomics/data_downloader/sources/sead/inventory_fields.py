@@ -7,6 +7,8 @@ from ....core.bp_time import normalize_bp_interval
 from ....core.text import clean_optional_text
 from .api_client import fetch_sead_rows_by_ids
 
+BP_REFERENCE_YEAR = 1950
+
 
 def parse_optional_int(value: object) -> int | None:
     """Parse one optional integer-like SEAD field."""
@@ -28,13 +30,25 @@ def sead_dating_interval(
     *,
     age_type: str,
 ) -> tuple[int, int] | None:
-    """Normalize one SEAD dating range when the age type is expressed in BP."""
-    if "bp" not in age_type.casefold():
-        return None
-    return normalize_bp_interval(
-        parse_optional_int(dating_range.get("low_value")),
-        parse_optional_int(dating_range.get("high_value")),
-    )
+    """Normalize one SEAD dating range into the shared BP interval convention."""
+    low_value = parse_optional_int(dating_range.get("low_value"))
+    high_value = parse_optional_int(dating_range.get("high_value"))
+    age_type_text = age_type.casefold()
+    if "bp" in age_type_text:
+        return _normalize_optional_interval(low_value, high_value)
+    if _is_common_era_age_type(age_type_text):
+        return _calendar_year_interval_to_bp(
+            low_value,
+            high_value,
+            treat_as_bce=False,
+        )
+    if _is_before_common_era_age_type(age_type_text):
+        return _calendar_year_interval_to_bp(
+            low_value,
+            high_value,
+            treat_as_bce=True,
+        )
+    return None
 
 
 def merge_sead_intervals(intervals: list[tuple[int, int]]) -> tuple[int, int] | None:
@@ -615,6 +629,7 @@ __all__ = [
     "merge_sead_intervals",
     "parse_optional_int",
     "parse_required_int",
+    "refresh_sead_repository_rows",
     "populate_sead_site_inventory_fields",
     "sead_dating_interval",
 ]
@@ -644,7 +659,7 @@ def _build_relative_period_row(
 ) -> dict[str, object]:
     label = str(relative_age.get("label", "")).strip()
     description = str(relative_age.get("description", "")).strip()
-    interval = normalize_bp_interval(
+    interval = _normalize_optional_interval(
         parse_optional_int(relative_age.get("cal_age_younger"))
         or parse_optional_int(relative_age.get("c14_age_younger")),
         parse_optional_int(relative_age.get("cal_age_older"))
@@ -674,9 +689,8 @@ def _build_dating_range_row(
     age_type_description: str,
     uncertainty: dict[str, object],
 ) -> dict[str, object]:
-    interval = normalize_bp_interval(
-        parse_optional_int(dating_range.get("low_value")),
-        parse_optional_int(dating_range.get("high_value")),
+    interval = sead_dating_interval(dating_range, age_type=age_type) or (
+        _relative_interval_from_range(dating_range, age_type=age_type)
     )
     return {
         "analysis_dating_range_id": parse_required_int(
@@ -723,10 +737,69 @@ def _relative_interval_from_range(
     text = age_type.casefold()
     if "cal" not in text and "c14" not in text:
         return None
-    return normalize_bp_interval(
+    return _normalize_optional_interval(
         parse_optional_int(dating_range.get("low_value")),
         parse_optional_int(dating_range.get("high_value")),
     )
+
+
+def _normalize_optional_interval(
+    start_value: int | None,
+    end_value: int | None,
+) -> tuple[int, int] | None:
+    if start_value is None and end_value is None:
+        return None
+    if start_value is None:
+        start_value = end_value
+    if end_value is None:
+        end_value = start_value
+    return normalize_bp_interval(start_value, end_value)
+
+
+def _calendar_year_interval_to_bp(
+    start_year: int | None,
+    end_year: int | None,
+    *,
+    treat_as_bce: bool,
+) -> tuple[int, int] | None:
+    if treat_as_bce:
+        return _normalize_optional_interval(
+            _bce_year_to_bp(start_year),
+            _bce_year_to_bp(end_year),
+        )
+    return _normalize_optional_interval(
+        _ce_year_to_bp(start_year),
+        _ce_year_to_bp(end_year),
+    )
+
+
+def _ce_year_to_bp(year_ce: int | None) -> int | None:
+    if year_ce is None:
+        return None
+    return max(0, BP_REFERENCE_YEAR - year_ce)
+
+
+def _bce_year_to_bp(year_bce: int | None) -> int | None:
+    if year_bce is None:
+        return None
+    return year_bce + (BP_REFERENCE_YEAR - 1)
+
+
+def _is_common_era_age_type(age_type_text: str) -> bool:
+    common_era_tokens = (" ad", " ce", "anno domini", "common era")
+    normalized_text = f" {age_type_text} "
+    return any(token in normalized_text for token in common_era_tokens)
+
+
+def _is_before_common_era_age_type(age_type_text: str) -> bool:
+    before_common_era_tokens = (
+        " bc",
+        " bce",
+        "before christ",
+        "before common era",
+    )
+    normalized_text = f" {age_type_text} "
+    return any(token in normalized_text for token in before_common_era_tokens)
 
 
 def _normalized_period_label(label: str, description: str) -> str:
@@ -756,3 +829,80 @@ def _uncertainty_labels(
         if label and label not in labels:
             labels.append(label)
     return labels
+
+
+def refresh_sead_repository_rows(rows: list[dict[str, object]]) -> None:
+    """Backfill repository-owned derived SEAD fields from checked-in linked rows."""
+    for row in rows:
+        relative_rows = [
+            item for item in row.get("relative_period_rows", []) if isinstance(item, dict)
+        ]
+        dating_rows = [
+            item for item in row.get("dating_range_rows", []) if isinstance(item, dict)
+        ]
+        bibliography_rows = [
+            item for item in row.get("bibliography_rows", []) if isinstance(item, dict)
+        ]
+        numeric_intervals: list[tuple[int, int]] = []
+        for dating_row in dating_rows:
+            interval = sead_dating_interval(
+                dating_row,
+                age_type=clean_optional_text(dating_row.get("age_type")),
+            ) or _relative_interval_from_range(
+                dating_row,
+                age_type=clean_optional_text(dating_row.get("age_type")),
+            )
+            dating_row["time_start_bp"] = interval[0] if interval is not None else None
+            dating_row["time_end_bp"] = interval[1] if interval is not None else None
+            if interval is not None:
+                numeric_intervals.append(interval)
+        contextual_intervals: list[tuple[int, int]] = []
+        for relative_row in relative_rows:
+            interval = _normalize_optional_interval(
+                parse_optional_int(relative_row.get("time_start_bp")),
+                parse_optional_int(relative_row.get("time_end_bp")),
+            )
+            relative_row["time_start_bp"] = interval[0] if interval is not None else None
+            relative_row["time_end_bp"] = interval[1] if interval is not None else None
+            if interval is not None:
+                contextual_intervals.append(interval)
+        numeric_time_interval = merge_sead_intervals(numeric_intervals)
+        contextual_time_interval = merge_sead_intervals(contextual_intervals)
+        time_interval = numeric_time_interval or contextual_time_interval
+        row["relative_date_count"] = len(relative_rows)
+        row["dating_range_count"] = len(dating_rows)
+        row["reference_count"] = max(
+            parse_required_int(row.get("reference_count")),
+            len(bibliography_rows),
+        )
+        row["time_start_bp"] = time_interval[0] if time_interval is not None else None
+        row["time_end_bp"] = time_interval[1] if time_interval is not None else None
+        row["numeric_time_start_bp"] = (
+            numeric_time_interval[0] if numeric_time_interval is not None else None
+        )
+        row["numeric_time_end_bp"] = (
+            numeric_time_interval[1] if numeric_time_interval is not None else None
+        )
+        row["contextual_time_start_bp"] = (
+            contextual_time_interval[0]
+            if contextual_time_interval is not None
+            else None
+        )
+        row["contextual_time_end_bp"] = (
+            contextual_time_interval[1]
+            if contextual_time_interval is not None
+            else None
+        )
+        row["temporal_summary"] = {
+            "relative_period_count": len(relative_rows),
+            "dating_range_count": len(dating_rows),
+            "bibliography_count": len(bibliography_rows),
+            "time_start_bp": row["time_start_bp"],
+            "time_end_bp": row["time_end_bp"],
+            "numeric_time_start_bp": row["numeric_time_start_bp"],
+            "numeric_time_end_bp": row["numeric_time_end_bp"],
+            "contextual_time_start_bp": row["contextual_time_start_bp"],
+            "contextual_time_end_bp": row["contextual_time_end_bp"],
+            "normalized_period_labels": _normalized_period_labels(relative_rows),
+            "uncertainty_labels": _uncertainty_labels(relative_rows, dating_rows),
+        }
