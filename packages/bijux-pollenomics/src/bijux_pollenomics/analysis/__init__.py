@@ -15,6 +15,11 @@ from .lake_evidence_richness import (
     LakeEvidenceSourceAnchor,
     build_sweden_lake_evidence_richness_report,
 )
+from .lake_candidate_registry import (
+    SOUTHERN_SWEDEN_LAKE_REVIEW_TARGETS,
+    build_sweden_lake_candidate_registry,
+    write_sweden_lake_candidate_registry,
+)
 from .ranking import (
     CandidateSensitivityReport,
     CandidateSensitivityRow,
@@ -67,10 +72,12 @@ __all__ = [
     "LakeEvidenceRichnessAssessment",
     "LakeEvidenceRichnessReport",
     "LakeEvidenceSourceAnchor",
+    "SOUTHERN_SWEDEN_LAKE_REVIEW_TARGETS",
     "RankingEngineManifest",
     "CandidateSiteContext",
     "CandidateSiteScore",
     "build_candidate_context",
+    "build_sweden_lake_candidate_registry",
     "build_lake_fieldwork_preparation_payload",
     "build_lake_evidence_richness_geojson",
     "build_ranking_engine_manifest",
@@ -91,6 +98,7 @@ __all__ = [
     "score_candidate_site",
     "temporal_overlap",
     "write_candidate_site_sensitivity_json",
+    "write_sweden_lake_candidate_registry",
     "write_candidate_sites_csv",
     "write_candidate_sites_json",
     "write_lake_fieldwork_preparation_csv",

@@ -101,6 +101,8 @@ def write_lake_evidence_richness_band_csv(
         "lake_sampling_posture",
         "lake_sampling_fit",
         "lake_sampling_notes",
+        "lake_sampling_readiness_posture",
+        "lake_sampling_missing_inputs",
         "supporting_source_records",
         "supporting_source_points",
         "direct_pollen_temporal_evidence",
@@ -171,6 +173,10 @@ def write_lake_evidence_richness_band_csv(
                         "lake_sampling_posture": candidate.lake_sampling_posture,
                         "lake_sampling_fit": candidate.lake_sampling_fit,
                         "lake_sampling_notes": "; ".join(candidate.lake_sampling_notes),
+                        "lake_sampling_readiness_posture": candidate.lake_sampling_readiness_posture,
+                        "lake_sampling_missing_inputs": "; ".join(
+                            candidate.lake_sampling_missing_inputs
+                        ),
                         "supporting_source_records": "; ".join(
                             candidate.supporting_source_records
                         ),
@@ -258,6 +264,8 @@ def write_lake_evidence_richness_registry_csv(
         "lake_sampling_posture",
         "lake_sampling_fit",
         "lake_sampling_notes",
+        "lake_sampling_readiness_posture",
+        "lake_sampling_missing_inputs",
         "pollen_sources",
         "supporting_pollen_names",
         "supporting_source_records",
@@ -313,6 +321,10 @@ def write_lake_evidence_richness_registry_csv(
                     "lake_sampling_posture": candidate.lake_sampling_posture,
                     "lake_sampling_fit": candidate.lake_sampling_fit,
                     "lake_sampling_notes": "; ".join(candidate.lake_sampling_notes),
+                    "lake_sampling_readiness_posture": candidate.lake_sampling_readiness_posture,
+                    "lake_sampling_missing_inputs": "; ".join(
+                        candidate.lake_sampling_missing_inputs
+                    ),
                     "pollen_sources": "; ".join(candidate.pollen_sources),
                     "supporting_pollen_names": "; ".join(
                         candidate.supporting_pollen_names
@@ -362,6 +374,8 @@ def write_lake_evidence_richness_scenario_csv(
         "lake_sampling_posture",
         "lake_sampling_fit",
         "lake_sampling_notes",
+        "lake_sampling_readiness_posture",
+        "lake_sampling_missing_inputs",
         "duplicate_name_count",
         "coordinate_spread_km",
         "ambiguity_flags",
@@ -624,6 +638,10 @@ def _scenario_rows(report: LakeEvidenceRichnessReport) -> list[dict[str, object]
                 "lake_sampling_posture": candidate.lake_sampling_posture,
                 "lake_sampling_fit": candidate.lake_sampling_fit,
                 "lake_sampling_notes": "; ".join(candidate.lake_sampling_notes),
+                "lake_sampling_readiness_posture": candidate.lake_sampling_readiness_posture,
+                "lake_sampling_missing_inputs": "; ".join(
+                    candidate.lake_sampling_missing_inputs
+                ),
                 "duplicate_name_count": candidate.duplicate_name_count,
                 "coordinate_spread_km": candidate.coordinate_spread_km,
                 "ambiguity_flags": "; ".join(candidate.ambiguity_flags),
@@ -671,6 +689,10 @@ def _scenario_rows(report: LakeEvidenceRichnessReport) -> list[dict[str, object]
                     "lake_sampling_posture": candidate.lake_sampling_posture,
                     "lake_sampling_fit": candidate.lake_sampling_fit,
                     "lake_sampling_notes": "; ".join(candidate.lake_sampling_notes),
+                    "lake_sampling_readiness_posture": candidate.lake_sampling_readiness_posture,
+                    "lake_sampling_missing_inputs": "; ".join(
+                        candidate.lake_sampling_missing_inputs
+                    ),
                     "duplicate_name_count": candidate.duplicate_name_count,
                     "coordinate_spread_km": candidate.coordinate_spread_km,
                     "ambiguity_flags": "; ".join(candidate.ambiguity_flags),
@@ -713,6 +735,10 @@ def _scenario_rows(report: LakeEvidenceRichnessReport) -> list[dict[str, object]
                 "lake_sampling_posture": candidate.lake_sampling_posture,
                 "lake_sampling_fit": candidate.lake_sampling_fit,
                 "lake_sampling_notes": "; ".join(candidate.lake_sampling_notes),
+                "lake_sampling_readiness_posture": candidate.lake_sampling_readiness_posture,
+                "lake_sampling_missing_inputs": "; ".join(
+                    candidate.lake_sampling_missing_inputs
+                ),
                 "duplicate_name_count": candidate.duplicate_name_count,
                 "coordinate_spread_km": candidate.coordinate_spread_km,
                 "ambiguity_flags": "; ".join(candidate.ambiguity_flags),
@@ -805,6 +831,15 @@ def _candidate_popup_rows(assessment) -> list[dict[str, str]]:
         {
             "label": "Sampling fit",
             "value": f"{candidate.lake_sampling_fit:.4f}",
+        },
+        {
+            "label": "Sampling readiness",
+            "value": candidate.lake_sampling_readiness_posture,
+        },
+        {
+            "label": "Sampling evidence still required",
+            "value": ", ".join(candidate.lake_sampling_missing_inputs)
+            or "Not recorded",
         },
         {
             "label": "Pollen sources",
@@ -1066,6 +1101,17 @@ def _build_scenario_feature_collection(
                             {
                                 "label": "Sampling fit",
                                 "value": f"{candidate.lake_sampling_fit:.4f}",
+                            },
+                            {
+                                "label": "Sampling readiness",
+                                "value": candidate.lake_sampling_readiness_posture,
+                            },
+                            {
+                                "label": "Sampling evidence still required",
+                                "value": ", ".join(
+                                    candidate.lake_sampling_missing_inputs
+                                )
+                                or "Not recorded",
                             },
                             {
                                 "label": "Identity diagnostics",

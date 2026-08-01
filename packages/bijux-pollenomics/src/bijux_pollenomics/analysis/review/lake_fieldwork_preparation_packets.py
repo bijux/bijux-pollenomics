@@ -118,6 +118,8 @@ def write_lake_fieldwork_preparation_csv(
         "identity_posture",
         "sampling_posture",
         "sampling_fit",
+        "sampling_readiness_posture",
+        "sampling_missing_inputs",
         "lake_area_km2",
         "human_context_posture",
         "scenario_consistency_posture",
@@ -165,6 +167,10 @@ def write_lake_fieldwork_preparation_csv(
                     "identity_posture": row["identity_posture"],
                     "sampling_posture": row["sampling_posture"],
                     "sampling_fit": row["sampling_fit"],
+                    "sampling_readiness_posture": row["sampling_readiness_posture"],
+                    "sampling_missing_inputs": "; ".join(
+                        row["sampling_missing_inputs"]
+                    ),
                     "lake_area_km2": row["lake_area_km2"],
                     "human_context_posture": row["human_context_posture"],
                     "scenario_consistency_posture": row["scenario_consistency_posture"],
@@ -219,6 +225,7 @@ def render_lake_fieldwork_preparation_markdown(
                 f"{row['preparation_posture']} | {row['identity_posture']} | "
                 f"{row['sampling_posture']} | {row['human_context_posture']} | "
                 f"{row['sampling_fit']:.4f} | "
+                f"{row['sampling_readiness_posture']} | "
                 f"{row['scenario_consistency_posture']} | "
                 f"{row['sead_context_posture']} | {row['palaeopen_alignment_posture']} | "
                 f"{row['evidence_families_20km']} | {row['scenario_top20_presence_count']} | "
@@ -227,7 +234,7 @@ def render_lake_fieldwork_preparation_markdown(
             )
             for row in payload["rows"]
         )
-        or "| - | - | No reviewed lakes | - | not_available | not_available | - | - | - | - | - | - | - | - | - | 0 | 0 | - | none |"
+        or "| - | - | No reviewed lakes | - | not_available | not_available | - | - | - | - | - | - | - | - | - | - | 0 | 0 | - | none |"
     )
     return f"""# Sweden lake fieldwork preparation
 
@@ -250,8 +257,8 @@ used.
 
 ## Top Lake Preparation Rows
 
-| Fieldwork rank | Aggregate rank | Lake | Coordinates | Lake registry id | Name status | Fieldwork shortlist score | Preparation posture | Identity posture | Sampling posture | Human context | Sampling fit | Scenario consistency | SEAD context | PalaeOpen alignment | Evidence families within 20 km | Top-20 scenario presence | 20 km rank | Required actions |
-| ---: | ---: | --- | --- | --- | --- | ---: | --- | --- | --- | --- | ---: | --- | --- | --- | ---: | ---: | ---: | --- |
+| Fieldwork rank | Aggregate rank | Lake | Coordinates | Lake registry id | Name status | Fieldwork shortlist score | Preparation posture | Identity posture | Sampling posture | Human context | Sampling fit | Sampling readiness | Scenario consistency | SEAD context | PalaeOpen alignment | Evidence families within 20 km | Top-20 scenario presence | 20 km rank | Required actions |
+| ---: | ---: | --- | --- | --- | --- | ---: | --- | --- | --- | --- | ---: | --- | --- | --- | --- | ---: | ---: | ---: | --- |
 {rows}
 """
 
@@ -330,6 +337,8 @@ def _build_fieldwork_preparation_row(
         "sampling_posture": sampling_posture,
         "human_context_posture": lake_human_context_posture,
         "sampling_fit": candidate.lake_sampling_fit,
+        "sampling_readiness_posture": candidate.lake_sampling_readiness_posture,
+        "sampling_missing_inputs": list(candidate.lake_sampling_missing_inputs),
         "lake_area_km2": candidate.lake_area_km2,
         "scenario_consistency_posture": scenario_consistency_posture,
         "sead_context_posture": sead_context_posture,
@@ -424,7 +433,7 @@ def _preparation_posture(
         and evidence_family_count >= 4
         and sead_site_count >= 10
     ):
-        return "fieldwork_preparation_ready"
+        return "fieldwork_review_ready"
     if (
         human_context_posture in {"core_human_adna_context", "near_human_adna_context"}
         and direct_pollen_source_count >= 2
@@ -494,9 +503,13 @@ def _required_actions(
         actions.append(
             "prepare interoperable metadata notes for wider palaeoecological comparison"
         )
-    if not actions and preparation_posture == "fieldwork_preparation_ready":
+    if not actions and preparation_posture == "fieldwork_review_ready":
         actions.append(
             "prepare a site-specific fieldwork review with access, coring, and basin constraints"
+        )
+    if preparation_posture in {"fieldwork_review_ready", "context_review_ready"}:
+        actions.append(
+            "complete bathymetry, sediment, access, permit, hazard, and logistics review before sampling"
         )
     return actions
 

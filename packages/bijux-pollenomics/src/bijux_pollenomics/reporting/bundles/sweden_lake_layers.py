@@ -334,6 +334,20 @@ def _build_feature_collection(
                                 ),
                             },
                             {
+                                "label": "Sampling readiness",
+                                "value": row.get(
+                                    "lake_sampling_readiness_posture", ""
+                                ).strip()
+                                or "Evidence unavailable",
+                            },
+                            {
+                                "label": "Sampling evidence still required",
+                                "value": row.get(
+                                    "lake_sampling_missing_inputs", ""
+                                ).strip()
+                                or "Not recorded",
+                            },
+                            {
                                 "label": "Sampling notes",
                                 "value": row.get("lake_sampling_notes", "").strip()
                                 or "Not available",

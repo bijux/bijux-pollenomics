@@ -270,7 +270,7 @@ def test_lake_fieldwork_preparation_payload_keeps_identity_and_interoperability_
     assert payload["rows"][0]["fieldwork_shortlist_score"] > 0.0
     assert payload["rows"][0]["lake_registry_id"] == "test-lake-clear"
     assert payload["rows"][0]["lake_name_status"] == "official_register_name"
-    assert payload["rows"][0]["preparation_posture"] == "fieldwork_preparation_ready"
+    assert payload["rows"][0]["preparation_posture"] == "fieldwork_review_ready"
     assert payload["rows"][0]["human_context_posture"] == "core_human_adna_context"
     assert payload["rows"][0]["palaeopen_alignment_posture"] == "high"
     assert payload["rows"][0]["scenario_consistency_posture"] == "high"
@@ -314,7 +314,7 @@ def test_lake_fieldwork_preparation_writers_emit_reviewable_files() -> None:
         assert rows[0]["fieldwork_rank"] == "1"
         assert float(rows[0]["fieldwork_shortlist_score"]) > 0.0
         assert rows[0]["lake_registry_id"] == "test-lake-clear"
-        assert rows[0]["preparation_posture"] == "fieldwork_preparation_ready"
+        assert rows[0]["preparation_posture"] == "fieldwork_review_ready"
         assert rows[0]["human_context_posture"] == "core_human_adna_context"
         assert rows[0]["scenario_consistency_posture"] == "high"
         assert (

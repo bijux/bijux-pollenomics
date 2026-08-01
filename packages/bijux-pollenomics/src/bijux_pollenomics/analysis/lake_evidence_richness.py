@@ -121,6 +121,8 @@ class LakeEvidenceCandidate:
     lake_sampling_posture: str = ""
     lake_sampling_fit: float = 0.0
     lake_sampling_notes: tuple[str, ...] = ()
+    lake_sampling_readiness_posture: str = "evidence_unavailable"
+    lake_sampling_missing_inputs: tuple[str, ...] = ()
 
     def as_dict(self) -> dict[str, object]:
         return {
@@ -158,6 +160,8 @@ class LakeEvidenceCandidate:
             "lake_sampling_posture": self.lake_sampling_posture,
             "lake_sampling_fit": self.lake_sampling_fit,
             "lake_sampling_notes": list(self.lake_sampling_notes),
+            "lake_sampling_readiness_posture": self.lake_sampling_readiness_posture,
+            "lake_sampling_missing_inputs": list(self.lake_sampling_missing_inputs),
         }
 
 
@@ -286,6 +290,8 @@ class _SvarLakeRecord:
     lake_water_identity: str
     lake_name_status: str
     lake_area_km2: float | None
+    lake_sampling_readiness_posture: str
+    lake_sampling_missing_inputs: tuple[str, ...]
 
 
 @dataclass(frozen=True)
@@ -327,8 +333,17 @@ def build_sweden_lake_evidence_richness_report(
     raa_cells = _load_sweden_density_cells(
         Path(context_root) / "raa" / "normalized" / "sweden_archaeology_density.geojson"
     )
-    svar_lake_path = (
+    svar_candidate_path = (
+        Path(context_root)
+        / "svar"
+        / "review"
+        / "sweden_lake_candidate_registry.geojson"
+    )
+    svar_registry_path = (
         Path(context_root) / "svar" / "normalized" / "sweden_lake_registry.geojson"
+    )
+    svar_lake_path = (
+        svar_candidate_path if svar_candidate_path.exists() else svar_registry_path
     )
     if svar_lake_path.exists():
         return _build_svar_lake_report(
@@ -1144,6 +1159,16 @@ def _load_sweden_svar_lakes(path: Path) -> tuple[_SvarLakeRecord, ...]:
                 lake_area_km2=float(area_km2)
                 if isinstance(area_km2, (int, float))
                 else None,
+                lake_sampling_readiness_posture=str(
+                    properties.get("sampling_readiness_posture", "site_review_required")
+                ).strip(),
+                lake_sampling_missing_inputs=tuple(
+                    str(value).strip()
+                    for value in properties.get("sampling_missing_inputs", [])
+                    if str(value).strip()
+                )
+                if isinstance(properties.get("sampling_missing_inputs"), list)
+                else (),
             )
         )
     return tuple(
@@ -1559,6 +1584,8 @@ def _derive_svar_lake_candidates(
                 "lake_sampling_posture": lake_sampling_posture,
                 "lake_sampling_fit": lake_sampling_fit,
                 "lake_sampling_notes": lake_sampling_notes,
+                "lake_sampling_readiness_posture": lake.lake_sampling_readiness_posture,
+                "lake_sampling_missing_inputs": lake.lake_sampling_missing_inputs,
             }
         )
 
@@ -1640,6 +1667,12 @@ def _derive_svar_lake_candidates(
                 lake_sampling_fit=float(candidate["lake_sampling_fit"]),
                 lake_sampling_notes=tuple(
                     candidate["lake_sampling_notes"]  # type: ignore[arg-type]
+                ),
+                lake_sampling_readiness_posture=str(
+                    candidate["lake_sampling_readiness_posture"]
+                ),
+                lake_sampling_missing_inputs=tuple(
+                    candidate["lake_sampling_missing_inputs"]  # type: ignore[arg-type]
                 ),
             )
         )
