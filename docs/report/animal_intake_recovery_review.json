@@ -3,8 +3,8 @@
   "public_posture": "sample_recovery_still_partial_and_project_gaps_explicit",
   "stage_review": {
     "tracked_project_count": 40,
-    "ready_for_publication_review": 8,
-    "blocked_projects": 26,
+    "ready_for_publication_review": 11,
+    "blocked_projects": 23,
     "in_progress_projects": 0
   },
   "yield_review": {
@@ -27,16 +27,16 @@
     "Camelus dromedarius": {
       "project_count": 2,
       "projects_with_sample_gap": 1,
-      "projects_with_site_gap": 1,
-      "projects_with_chronology_gap": 1,
-      "projects_blocked_before_publication": 2
+      "projects_with_site_gap": 0,
+      "projects_with_chronology_gap": 0,
+      "projects_blocked_before_publication": 1
     },
     "Canis lupus familiaris": {
       "project_count": 3,
       "projects_with_sample_gap": 0,
-      "projects_with_site_gap": 3,
-      "projects_with_chronology_gap": 2,
-      "projects_blocked_before_publication": 3
+      "projects_with_site_gap": 1,
+      "projects_with_chronology_gap": 0,
+      "projects_blocked_before_publication": 1
     },
     "Capra hircus": {
       "project_count": 3,
@@ -89,9 +89,9 @@
     }
   },
   "manual_curation_counts": {
-    "chronology_recovery": 8,
-    "locality_string_resolution": 6,
-    "site_resolution": 6
+    "chronology_recovery": 5,
+    "locality_string_resolution": 3,
+    "site_resolution": 3
   },
   "missing_source_queue_counts": {
     "sample_recovery_still_thin": 8,
@@ -140,16 +140,6 @@
       ]
     },
     {
-      "project_accession": "KU605068-KU605080",
-      "species_latin_name": "Camelus dromedarius",
-      "recovery_gap_status": "recovered_to_exact_expected_count",
-      "minimum_gap_count": 0,
-      "major_deficit_reasons": [
-        "site_assignment_gap",
-        "chronology_gap"
-      ]
-    },
-    {
       "project_accession": "SRP073444",
       "species_latin_name": "Camelus dromedarius",
       "recovery_gap_status": "extractable_sources_but_no_governed_samples",
@@ -160,16 +150,6 @@
       ]
     },
     {
-      "project_accession": "KX379528-KX379529",
-      "species_latin_name": "Canis lupus familiaris",
-      "recovery_gap_status": "recovered_to_exact_expected_count",
-      "minimum_gap_count": 0,
-      "major_deficit_reasons": [
-        "site_assignment_gap",
-        "chronology_gap"
-      ]
-    },
-    {
       "project_accession": "SRS1407451",
       "species_latin_name": "Canis lupus familiaris",
       "recovery_gap_status": "recovered_to_exact_expected_count",
@@ -177,16 +157,6 @@
       "major_deficit_reasons": [
         "site_assignment_gap",
         "coordinate_precision_gap"
-      ]
-    },
-    {
-      "project_accession": "SRS1407453",
-      "species_latin_name": "Canis lupus familiaris",
-      "recovery_gap_status": "recovered_to_exact_expected_count",
-      "minimum_gap_count": 0,
-      "major_deficit_reasons": [
-        "site_assignment_gap",
-        "chronology_gap"
       ]
     },
     {
@@ -302,6 +272,34 @@
       "minimum_gap_count": null,
       "major_deficit_reasons": [
         "missing_primary_paper_linkage"
+      ]
+    },
+    {
+      "project_accession": "PRJEB69690",
+      "species_latin_name": "Ovis aries",
+      "recovery_gap_status": "extractable_sources_but_no_governed_samples",
+      "minimum_gap_count": null,
+      "major_deficit_reasons": [
+        "missing_primary_paper_linkage"
+      ]
+    },
+    {
+      "project_accession": "PRJEB81145",
+      "species_latin_name": "Ovis aries",
+      "recovery_gap_status": "extractable_sources_but_no_governed_samples",
+      "minimum_gap_count": null,
+      "major_deficit_reasons": [
+        "missing_primary_paper_linkage"
+      ]
+    },
+    {
+      "project_accession": "PRJEB60484",
+      "species_latin_name": "Rangifer tarandus",
+      "recovery_gap_status": "minimum_expected_floor_met",
+      "minimum_gap_count": 0,
+      "major_deficit_reasons": [
+        "site_assignment_gap",
+        "coordinate_precision_gap"
       ]
     }
   ],

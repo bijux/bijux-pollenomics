@@ -1,6 +1,6 @@
 # Animal output audit
 
-- Report root: `docs/report`
+- Report root: `/Users/bijan/bijux/bijux-pollenomics/docs/report`
 - Atlas bundle present: `true`
 - Country bundle count: `4`
 - Point candidate count: `234`

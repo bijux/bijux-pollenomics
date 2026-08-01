@@ -20,8 +20,8 @@
 - Published country bundles: `4`
 - Papers with archived supplements: `18`
 - Mapped sample share: `0.2617`
-- Projects blocked in intake recovery: `26`
-- Projects ready for publication review: `8`
+- Projects blocked in intake recovery: `23`
+- Projects ready for publication review: `11`
 - Implausibly low recovery projects: `8`
 
 ## Thresholds

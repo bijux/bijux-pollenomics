@@ -27,9 +27,9 @@
     "published_country_bundle_count": 4,
     "mapped_sample_share": 0.2617,
     "locality_conflict_row_count": 168,
-    "locality_curation_row_count": 6,
-    "locality_substitution_project_count": 6,
-    "locality_dictionary_row_count": 291
+    "locality_curation_row_count": 3,
+    "locality_substitution_project_count": 4,
+    "locality_dictionary_row_count": 303
   },
   "locality_status_counts": {
     "direct_sample_site": 820,
@@ -40,9 +40,9 @@
     "unresolved": 16
   },
   "locality_completeness_counts": {
-    "exact_site_evidence_count": 815,
+    "exact_site_evidence_count": 831,
     "broader_locality_evidence_count": 37,
-    "unresolved_geography_count": 16
+    "unresolved_geography_count": 0
   },
   "chronology_status_counts": {
     "normalized_interval": 296,
@@ -59,8 +59,8 @@
     "unresolved": 16
   },
   "intake_recovery_counts": {
-    "blocked_projects": 26,
-    "ready_for_publication_review": 8,
+    "blocked_projects": 23,
+    "ready_for_publication_review": 11,
     "implausibly_low_recovery_project_count": 8
   },
   "posture_findings": [
