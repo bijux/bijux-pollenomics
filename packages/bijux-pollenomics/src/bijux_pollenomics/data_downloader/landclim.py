@@ -47,6 +47,7 @@ from .sources.landclim.sites import (
     landclim_ii_site_records,
     parse_coordinate,
 )
+from .sources.landclim.review import write_landclim_review_outputs
 from .sources.landclim.time_windows import (
     LANDCLIM_TEMPORAL_GRID_LAYER_KEY,
     build_landclim_temporal_grid_geojson,
@@ -64,6 +65,7 @@ class LandClimDataReport:
     normalized_grid_geojson_path: Path
     normalized_temporal_grid_geojson_path: Path
     bibliography_path: Path
+    review_path: Path
     summary_path: Path
 
 
@@ -145,7 +147,14 @@ def collect_landclim_data(
     write_context_points_geojson(normalized_sites_geojson_path, site_records)
     write_json(normalized_grid_geojson_path, grid_geojson)
     write_json(normalized_temporal_grid_geojson_path, temporal_grid_geojson)
-    write_json(bibliography_path, build_landclim_bibliography())
+    bibliography = build_landclim_bibliography()
+    write_json(bibliography_path, bibliography)
+    review_path = write_landclim_review_outputs(
+        output_root,
+        records=site_records,
+        temporal_grid_geojson=temporal_grid_geojson,
+        bibliography=bibliography,
+    )
     write_json(
         summary_path,
         {
@@ -176,6 +185,7 @@ def collect_landclim_data(
         normalized_grid_geojson_path=normalized_grid_geojson_path,
         normalized_temporal_grid_geojson_path=normalized_temporal_grid_geojson_path,
         bibliography_path=bibliography_path,
+        review_path=review_path,
         summary_path=summary_path,
     )
 
@@ -220,7 +230,14 @@ def materialize_landclim_repository_surfaces(data_root: Path) -> LandClimDataRep
     write_context_points_geojson(normalized_sites_geojson_path, site_records)
     write_json(normalized_grid_geojson_path, grid_geojson)
     write_json(normalized_temporal_grid_geojson_path, temporal_grid_geojson)
-    write_json(bibliography_path, build_landclim_bibliography())
+    bibliography = build_landclim_bibliography()
+    write_json(bibliography_path, bibliography)
+    review_path = write_landclim_review_outputs(
+        output_root,
+        records=site_records,
+        temporal_grid_geojson=temporal_grid_geojson,
+        bibliography=bibliography,
+    )
     write_json(
         summary_path,
         {
@@ -250,6 +267,7 @@ def materialize_landclim_repository_surfaces(data_root: Path) -> LandClimDataRep
         normalized_grid_geojson_path=normalized_grid_geojson_path,
         normalized_temporal_grid_geojson_path=normalized_temporal_grid_geojson_path,
         bibliography_path=bibliography_path,
+        review_path=review_path,
         summary_path=summary_path,
     )
 

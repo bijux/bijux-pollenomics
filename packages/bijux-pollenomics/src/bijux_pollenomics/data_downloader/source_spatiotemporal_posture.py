@@ -69,6 +69,7 @@ def _build_landclim_row(output_root: Path) -> SourceSpatiotemporalPostureRecord:
         display_name="LandClim pollen context",
         governing_surface_path="data/landclim/normalized/nordic_pollen_site_sequences.geojson",
         review_surface_paths=(
+            "data/landclim/review/spatiotemporal_review.json",
             "data/landclim/normalized/landclim_summary.json",
             "data/landclim/normalized/landclim_bibliography.json",
             "data/source_family_evidence_stage_matrix.json",
