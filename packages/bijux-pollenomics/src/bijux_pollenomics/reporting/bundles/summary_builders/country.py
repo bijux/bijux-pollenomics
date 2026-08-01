@@ -63,6 +63,12 @@ def build_country_report_summary(
             "csv": bundle_paths.lake_fieldwork_preparation_csv_path.name,
             "markdown": bundle_paths.lake_fieldwork_preparation_markdown_path.name,
         }
+    if bundle_paths.lake_archaeology_sensitivity_json_path.exists():
+        payload["lake_archaeology_sensitivity"] = {
+            "json": bundle_paths.lake_archaeology_sensitivity_json_path.name,
+            "csv": bundle_paths.lake_archaeology_sensitivity_csv_path.name,
+            "markdown": bundle_paths.lake_archaeology_sensitivity_markdown_path.name,
+        }
     return payload
 
 
@@ -114,6 +120,12 @@ def build_country_bundle_manifest(
             "json": bundle_paths.lake_fieldwork_preparation_json_path.name,
             "csv": bundle_paths.lake_fieldwork_preparation_csv_path.name,
             "markdown": bundle_paths.lake_fieldwork_preparation_markdown_path.name,
+        }
+    if bundle_paths.lake_archaeology_sensitivity_json_path.exists():
+        payload["lake_archaeology_sensitivity"] = {
+            "json": bundle_paths.lake_archaeology_sensitivity_json_path.name,
+            "csv": bundle_paths.lake_archaeology_sensitivity_csv_path.name,
+            "markdown": bundle_paths.lake_archaeology_sensitivity_markdown_path.name,
         }
     return payload
 

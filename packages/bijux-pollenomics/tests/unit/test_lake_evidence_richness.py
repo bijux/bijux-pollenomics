@@ -12,9 +12,11 @@ from bijux_pollenomics.adna import (
     AdnaLocalitySummary,
 )
 from bijux_pollenomics.analysis import (
+    build_lake_archaeology_sensitivity_payload,
     build_lake_evidence_richness_geojson,
     build_sweden_lake_evidence_richness_report,
     render_lake_evidence_richness_markdown,
+    render_lake_archaeology_sensitivity_markdown,
     write_lake_evidence_richness_band_csv,
     write_lake_evidence_richness_geojson,
     write_lake_evidence_richness_json,
@@ -1272,6 +1274,10 @@ def test_lake_evidence_richness_packets_write_reviewable_outputs() -> None:
         scenario_csv_path = root / "lake_evidence_scenarios.csv"
         geojson_path = root / "lake_evidence.geojson"
         markdown = render_lake_evidence_richness_markdown(report)
+        archaeology_sensitivity = build_lake_archaeology_sensitivity_payload(report)
+        archaeology_markdown = render_lake_archaeology_sensitivity_markdown(
+            archaeology_sensitivity
+        )
         write_lake_evidence_richness_json(json_path, report)
         write_lake_evidence_richness_band_csv(band_csv_path, report)
         write_lake_evidence_richness_registry_csv(registry_csv_path, report)
@@ -1299,6 +1305,13 @@ def test_lake_evidence_richness_packets_write_reviewable_outputs() -> None:
         assert geojson["features"][0]["properties"]["time_start_bp"] == 3600
         assert geojson["features"][0]["properties"]["time_end_bp"] == 2400
         assert markdown.startswith("# Sweden lake evidence richness")
+        assert len(archaeology_sensitivity["profiles"]) == 3
+        assert all(
+            abs(sum(profile["weights"].values()) - 1.0) < 0.000001
+            for profile in archaeology_sensitivity["profiles"]
+        )
+        assert "Why The Baseline Is 0.07" in archaeology_markdown
+        assert "RAÄ density alone" in archaeology_markdown
         assert "## Interpretation guardrails" in markdown
         assert "## 10 km Ranking" in markdown
         assert "Lake registry id" in markdown

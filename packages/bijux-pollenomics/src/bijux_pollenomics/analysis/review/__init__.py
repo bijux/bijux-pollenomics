@@ -22,6 +22,12 @@ from .lake_evidence_richness_packets import (
     write_lake_evidence_richness_registry_csv,
     write_lake_evidence_richness_scenario_csv,
 )
+from .lake_archaeology_sensitivity import (
+    build_lake_archaeology_sensitivity_payload,
+    render_lake_archaeology_sensitivity_markdown,
+    write_lake_archaeology_sensitivity_csv,
+    write_lake_archaeology_sensitivity_json,
+)
 from .lake_fieldwork_preparation_packets import (
     build_lake_fieldwork_preparation_payload,
     render_lake_fieldwork_preparation_markdown,
@@ -33,6 +39,7 @@ from .lake_fieldwork_preparation_packets import (
 __all__ = [
     "build_candidate_site_sensitivity_payload",
     "build_candidate_sites_json_payload",
+    "build_lake_archaeology_sensitivity_payload",
     "build_lake_fieldwork_preparation_payload",
     "build_lake_evidence_richness_geojson",
     "build_lake_evidence_richness_payload",
@@ -41,6 +48,7 @@ __all__ = [
     "render_lake_evidence_richness_map_html",
     "render_candidate_site_markdown",
     "render_candidate_site_sensitivity_markdown",
+    "render_lake_archaeology_sensitivity_markdown",
     "render_lake_evidence_richness_markdown",
     "render_lake_evidence_richness_section",
     "write_lake_fieldwork_preparation_csv",
@@ -48,6 +56,8 @@ __all__ = [
     "write_candidate_site_sensitivity_json",
     "write_candidate_sites_csv",
     "write_candidate_sites_json",
+    "write_lake_archaeology_sensitivity_csv",
+    "write_lake_archaeology_sensitivity_json",
     "write_lake_evidence_richness_band_csv",
     "write_lake_evidence_richness_geojson",
     "write_lake_evidence_richness_json",

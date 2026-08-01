@@ -42,6 +42,9 @@ class CountryBundlePaths:
     lake_fieldwork_preparation_json_path: Path
     lake_fieldwork_preparation_csv_path: Path
     lake_fieldwork_preparation_markdown_path: Path
+    lake_archaeology_sensitivity_json_path: Path
+    lake_archaeology_sensitivity_csv_path: Path
+    lake_archaeology_sensitivity_markdown_path: Path
 
 
 @dataclass(frozen=True)
@@ -129,6 +132,12 @@ def build_country_bundle_paths(
         / f"{country_slug}_lake_fieldwork_preparation_{version}.csv",
         lake_fieldwork_preparation_markdown_path=output_dir
         / f"{country_slug}_lake_fieldwork_preparation_{version}.md",
+        lake_archaeology_sensitivity_json_path=output_dir
+        / f"{country_slug}_lake_archaeology_sensitivity_{version}.json",
+        lake_archaeology_sensitivity_csv_path=output_dir
+        / f"{country_slug}_lake_archaeology_sensitivity_{version}.csv",
+        lake_archaeology_sensitivity_markdown_path=output_dir
+        / f"{country_slug}_lake_archaeology_sensitivity_{version}.md",
     )
 
 

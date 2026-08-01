@@ -4,13 +4,17 @@ from collections.abc import Callable, Iterable
 from pathlib import Path
 
 from ...analysis import (
+    build_lake_archaeology_sensitivity_payload,
     build_lake_fieldwork_preparation_payload,
     build_sweden_lake_evidence_richness_report,
     render_lake_evidence_richness_markdown,
     render_lake_evidence_richness_section,
+    render_lake_archaeology_sensitivity_markdown,
     render_lake_fieldwork_preparation_markdown,
     render_lake_fieldwork_preparation_section,
     write_lake_evidence_richness_band_csv,
+    write_lake_archaeology_sensitivity_csv,
+    write_lake_archaeology_sensitivity_json,
     write_lake_evidence_richness_geojson,
     write_lake_evidence_richness_json,
     write_lake_evidence_richness_map_html,
@@ -162,6 +166,21 @@ def publish_country_report_bundle(
             render_lake_fieldwork_preparation_markdown(lake_fieldwork_payload),
             encoding="utf-8",
         )
+        lake_archaeology_payload = build_lake_archaeology_sensitivity_payload(
+            lake_report
+        )
+        write_lake_archaeology_sensitivity_json(
+            bundle_paths.lake_archaeology_sensitivity_json_path,
+            lake_archaeology_payload,
+        )
+        write_lake_archaeology_sensitivity_csv(
+            bundle_paths.lake_archaeology_sensitivity_csv_path,
+            lake_archaeology_payload,
+        )
+        bundle_paths.lake_archaeology_sensitivity_markdown_path.write_text(
+            render_lake_archaeology_sensitivity_markdown(lake_archaeology_payload),
+            encoding="utf-8",
+        )
         lake_section_markdown = render_lake_evidence_richness_section(
             json_name=bundle_paths.lake_evidence_richness_json_path.name,
             registry_csv_name=bundle_paths.lake_evidence_richness_registry_csv_path.name,
@@ -171,6 +190,14 @@ def publish_country_report_bundle(
             map_html_name=bundle_paths.lake_evidence_richness_map_html_path.name,
             markdown_name=bundle_paths.lake_evidence_richness_markdown_path.name,
         )
+        lake_section_markdown += f"""
+
+## Lake Archaeology-Weight Sensitivity
+
+- Sensitivity JSON: [`{bundle_paths.lake_archaeology_sensitivity_json_path.name}`](./{bundle_paths.lake_archaeology_sensitivity_json_path.name})
+- Sensitivity CSV: [`{bundle_paths.lake_archaeology_sensitivity_csv_path.name}`](./{bundle_paths.lake_archaeology_sensitivity_csv_path.name})
+- Reader explanation: [`{bundle_paths.lake_archaeology_sensitivity_markdown_path.name}`](./{bundle_paths.lake_archaeology_sensitivity_markdown_path.name})
+"""
         lake_fieldwork_section_markdown = render_lake_fieldwork_preparation_section(
             json_name=bundle_paths.lake_fieldwork_preparation_json_path.name,
             csv_name=bundle_paths.lake_fieldwork_preparation_csv_path.name,
