@@ -5,7 +5,7 @@ import re
 
 from ....core.bp_time import normalize_bp_interval
 from ....core.text import clean_optional_text
-from .api_client import fetch_sead_rows_by_ids
+from .api_client import fetch_sead_rows, fetch_sead_rows_by_ids
 
 BP_REFERENCE_YEAR = 1950
 
@@ -124,62 +124,85 @@ def populate_sead_site_inventory_fields(
         for row in analysis_entities
         if row.get("analysis_entity_id") is not None
     ]
-    analysis_entity_ages = (
-        fetch_sead_rows_by_ids(
-            "tbl_analysis_entity_ages",
-            fetch_json_fn=fetch_json_fn,
-            select=(
-                "analysis_entity_age_id,analysis_entity_id,age,age_older,"
-                "age_younger,chronology_id,dating_specifier,age_range"
-            ),
-            filter_field="analysis_entity_id",
-            ids=analysis_entity_ids,
-            order_by=("analysis_entity_id", "analysis_entity_age_id"),
+    analysis_entity_id_set = set(analysis_entity_ids)
+    analysis_entity_ages = [
+        row
+        for row in (
+            fetch_sead_rows(
+                "tbl_analysis_entity_ages",
+                fetch_json_fn=fetch_json_fn,
+                select=(
+                    "analysis_entity_age_id,analysis_entity_id,age,age_older,"
+                    "age_younger,chronology_id,dating_specifier,age_range"
+                ),
+                order_by=("analysis_entity_id", "analysis_entity_age_id"),
+            )
+            if analysis_entity_id_set
+            else []
         )
-        if analysis_entity_ids
-        else []
-    )
-    geochronology_rows = (
-        fetch_sead_rows_by_ids(
-            "tbl_geochronology",
-            fetch_json_fn=fetch_json_fn,
-            select=(
-                "geochron_id,analysis_entity_id,dating_lab_id,lab_number,age,"
-                "error_older,error_younger,notes,dating_uncertainty_id"
-            ),
-            filter_field="analysis_entity_id",
-            ids=analysis_entity_ids,
-            order_by=("analysis_entity_id", "geochron_id"),
+        if parse_required_int(row.get("analysis_entity_id")) in analysis_entity_id_set
+    ]
+    geochronology_rows = [
+        row
+        for row in (
+            fetch_sead_rows(
+                "tbl_geochronology",
+                fetch_json_fn=fetch_json_fn,
+                select=(
+                    "geochron_id,analysis_entity_id,dating_lab_id,lab_number,age,"
+                    "error_older,error_younger,notes,dating_uncertainty_id"
+                ),
+                order_by=("analysis_entity_id", "geochron_id"),
+            )
+            if analysis_entity_id_set
+            else []
         )
-        if analysis_entity_ids
-        else []
-    )
-    dendro_dates = (
-        fetch_sead_rows_by_ids(
-            "tbl_dendro_dates",
-            fetch_json_fn=fetch_json_fn,
-            select=(
-                "dendro_date_id,analysis_entity_id,age_older,age_younger,"
-                "age_type_id,dating_uncertainty_id,dendro_lookup_id,season_id,"
-                "age_range"
-            ),
-            filter_field="analysis_entity_id",
-            ids=analysis_entity_ids,
-            order_by=("analysis_entity_id", "dendro_date_id"),
+        if parse_required_int(row.get("analysis_entity_id")) in analysis_entity_id_set
+    ]
+    dendro_dates = [
+        row
+        for row in (
+            fetch_sead_rows(
+                "tbl_dendro_dates",
+                fetch_json_fn=fetch_json_fn,
+                select=(
+                    "dendro_date_id,analysis_entity_id,age_older,age_younger,"
+                    "age_type_id,dating_uncertainty_id,dendro_lookup_id,season_id,"
+                    "age_range"
+                ),
+                order_by=("analysis_entity_id", "dendro_date_id"),
+            )
+            if analysis_entity_id_set
+            else []
         )
-        if analysis_entity_ids
-        else []
+        if parse_required_int(row.get("analysis_entity_id")) in analysis_entity_id_set
+    ]
+    all_dating_ranges = fetch_sead_rows(
+        "tbl_analysis_dating_ranges",
+        fetch_json_fn=fetch_json_fn,
+        select=(
+            "analysis_dating_range_id,analysis_value_id,low_value,high_value,"
+            "age_type_id,dating_uncertainty_id,low_qualifier,high_qualifier,"
+            "low_is_uncertain,high_is_uncertain"
+        ),
+        order_by=("analysis_value_id",),
     )
+    dating_analysis_value_ids = {
+        analysis_value_id
+        for row in all_dating_ranges
+        if (analysis_value_id := parse_optional_int(row.get("analysis_value_id")))
+        is not None
+    }
     analysis_values = (
         fetch_sead_rows_by_ids(
             "tbl_analysis_values",
             fetch_json_fn=fetch_json_fn,
             select="analysis_value_id,analysis_entity_id",
-            filter_field="analysis_entity_id",
-            ids=analysis_entity_ids,
+            filter_field="analysis_value_id",
+            ids=dating_analysis_value_ids,
             order_by=("analysis_entity_id", "analysis_value_id"),
         )
-        if analysis_entity_ids
+        if dating_analysis_value_ids
         else []
     )
     analysis_entity_id_by_analysis_value_id = {
@@ -189,23 +212,14 @@ def populate_sead_site_inventory_fields(
         for row in analysis_values
         if row.get("analysis_value_id") is not None
         and row.get("analysis_entity_id") is not None
+        and parse_required_int(row["analysis_entity_id"]) in analysis_entity_id_set
     }
-    dating_ranges = (
-        fetch_sead_rows_by_ids(
-            "tbl_analysis_dating_ranges",
-            fetch_json_fn=fetch_json_fn,
-            select=(
-                "analysis_dating_range_id,analysis_value_id,low_value,high_value,"
-                "age_type_id,dating_uncertainty_id,low_qualifier,high_qualifier,"
-                "low_is_uncertain,high_is_uncertain"
-            ),
-            filter_field="analysis_value_id",
-            ids=analysis_entity_id_by_analysis_value_id,
-            order_by=("analysis_value_id",),
-        )
-        if analysis_entity_id_by_analysis_value_id
-        else []
-    )
+    dating_ranges = [
+        row
+        for row in all_dating_ranges
+        if parse_required_int(row.get("analysis_value_id"))
+        in analysis_entity_id_by_analysis_value_id
+    ]
     age_type_ids = [
         parse_required_int(row["age_type_id"])
         for row in (*dating_ranges, *dendro_dates)
@@ -223,21 +237,23 @@ def populate_sead_site_inventory_fields(
         if age_type_ids
         else []
     )
-    relative_dates = (
-        fetch_sead_rows_by_ids(
-            "tbl_relative_dates",
-            fetch_json_fn=fetch_json_fn,
-            select=(
-                "relative_date_id,analysis_entity_id,relative_age_id,"
-                "dating_uncertainty_id,method_id,notes"
-            ),
-            filter_field="analysis_entity_id",
-            ids=analysis_entity_ids,
-            order_by=("analysis_entity_id", "relative_date_id"),
+    relative_dates = [
+        row
+        for row in (
+            fetch_sead_rows(
+                "tbl_relative_dates",
+                fetch_json_fn=fetch_json_fn,
+                select=(
+                    "relative_date_id,analysis_entity_id,relative_age_id,"
+                    "dating_uncertainty_id,method_id,notes"
+                ),
+                order_by=("analysis_entity_id", "relative_date_id"),
+            )
+            if analysis_entity_id_set
+            else []
         )
-        if analysis_entity_ids
-        else []
-    )
+        if parse_required_int(row.get("analysis_entity_id")) in analysis_entity_id_set
+    ]
     dating_uncertainty_ids = sorted(
         {
             parse_required_int(row["dating_uncertainty_id"])
