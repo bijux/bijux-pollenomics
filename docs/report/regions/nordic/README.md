@@ -38,7 +38,7 @@ Nordic is the regional detail surface. It keeps the shared human and animal evid
 - SEAD site GeoJSON: [`nordic_environmental_sites.geojson`](./nordic_environmental_sites.geojson)
 - SEAD temporal evidence GeoJSON: [`nordic_temporal_evidence.geojson`](./nordic_temporal_evidence.geojson)
 - Nordic country boundaries: [`nordic_country_boundaries.geojson`](./nordic_country_boundaries.geojson)
-- LandClim REVEALS grid GeoJSON: [`nordic_reveals_grid_cells.geojson`](./nordic_reveals_grid_cells.geojson)
+- LandClim REVEALS temporal grid GeoJSON: [`nordic_reveals_temporal_grid_cells.geojson`](./nordic_reveals_temporal_grid_cells.geojson)
 - RAÄ archaeology layer metadata: [`sweden_archaeology_layer.json`](./sweden_archaeology_layer.json)
 - RAÄ archaeology density: [`sweden_archaeology_density.geojson`](./sweden_archaeology_density.geojson)
 - Animal locality GeoJSON: [`nordic_animal_localities.geojson`](./nordic_animal_localities.geojson)
@@ -78,7 +78,7 @@ Nordic is the regional detail surface. It keeps the shared human and animal evid
 | Sweden lake 40 km top 40 | `scope_specific_overlay` | Optional Nordic atlas overlay for the top 40 Sweden lakes in the 40 km evidence scenario. | `40` |
 | Sweden lake 50 km top 40 | `scope_specific_overlay` | Optional Nordic atlas overlay for the top 40 Sweden lakes in the 50 km evidence scenario. | `40` |
 | Country boundaries | `region_filtered_layer` | Published country outlines used for framing and scope-aware map filtering. | `4` |
-| LandClim REVEALS grid cells | `scope_specific_overlay` | REVEALS grid cells compiled from published LandClim PANGAEA datasets. | `88` |
+| LandClim REVEALS time-window grids | `scope_specific_overlay` | Time-window-specific REVEALS grid estimates from published LandClim PANGAEA datasets. | `2500` |
 | RAÄ archaeology density | `scope_specific_overlay` | Sweden only. Density cells summarize `Fornlämning` counts. | `106` |
 
 ## Governed Filters

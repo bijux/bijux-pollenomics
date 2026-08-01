@@ -17,7 +17,7 @@
       "documentation_clarity": 4,
       "output_honesty": 3,
       "metrics": {
-        "normalized_file_count": 6,
+        "normalized_file_count": 8,
         "source_pages": 2
       },
       "note": "LandClim and Neotoma are real tracked context layers and now have direct explainer pages."

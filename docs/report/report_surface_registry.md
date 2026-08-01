@@ -223,7 +223,7 @@ coherent report surface instead of a loose artifact dump.
 | `docs/report/regions/nordic/nordic_point_traceability.md` | Map surfaces | Scientific review surface | `nordic` | `md` | Traceability surface for visible mapped points and overlays. |
 | `docs/report/regions/nordic/nordic_pollen_site_sequences.geojson` | Map surfaces | Scientific review surface | `nordic` | `geojson` | Governed report artifact. |
 | `docs/report/regions/nordic/nordic_pollen_sites.geojson` | Map surfaces | Scientific review surface | `nordic` | `geojson` | Governed report artifact. |
-| `docs/report/regions/nordic/nordic_reveals_grid_cells.geojson` | Scope-filtered outputs | Public reading surface | `nordic` | `geojson` | Governed report artifact. |
+| `docs/report/regions/nordic/nordic_reveals_temporal_grid_cells.geojson` | Scope-filtered outputs | Public reading surface | `nordic` | `geojson` | Governed report artifact. |
 | `docs/report/regions/nordic/nordic_samples.geojson` | Map surfaces | Scientific review surface | `nordic` | `geojson` | Governed report artifact. |
 | `docs/report/regions/nordic/nordic_scientific_review.json` | Map surfaces | Scientific review surface | `nordic` | `json` | Governed report artifact. |
 | `docs/report/regions/nordic/nordic_scientific_review.md` | Map surfaces | Scientific review surface | `nordic` | `md` | Governed report artifact. |

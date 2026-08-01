@@ -11,11 +11,13 @@
       ],
       "normalized_paths": [
         "data/landclim/normalized/nordic_pollen_site_sequences.geojson",
-        "data/landclim/normalized/nordic_reveals_grid_cells.geojson"
+        "data/landclim/normalized/nordic_reveals_grid_cells.geojson",
+        "data/landclim/normalized/nordic_reveals_temporal_grid_cells.geojson",
+        "data/landclim/normalized/landclim_bibliography.json"
       ],
       "published_paths": [
         "docs/report/regions/nordic/nordic_pollen_site_sequences.geojson",
-        "docs/report/regions/nordic/nordic_reveals_grid_cells.geojson"
+        "docs/report/regions/nordic/nordic_reveals_temporal_grid_cells.geojson"
       ],
       "refresh_anchor": "data/landclim/normalized/landclim_summary.json",
       "metrics": {

@@ -36,7 +36,7 @@ The opening extent stays tight on Nordic countries so lake, site, and archaeolog
 | Sweden lake 40 km top 40 | `scope_specific_overlay` | Sweden lake evidence | Optional Nordic atlas overlay for the top 40 Sweden lakes in the 40 km evidence scenario. | `40` |
 | Sweden lake 50 km top 40 | `scope_specific_overlay` | Sweden lake evidence | Optional Nordic atlas overlay for the top 40 Sweden lakes in the 50 km evidence scenario. | `40` |
 | Country boundaries | `region_filtered_layer` | Natural Earth country boundaries | Published country outlines used for framing and scope-aware map filtering. | `4` |
-| LandClim REVEALS grid cells | `scope_specific_overlay` | LandClim | REVEALS grid cells compiled from published LandClim PANGAEA datasets. | `88` |
+| LandClim REVEALS time-window grids | `scope_specific_overlay` | LandClim | Time-window-specific REVEALS grid estimates from published LandClim PANGAEA datasets. | `2500` |
 | RAÄ archaeology density | `scope_specific_overlay` | RAÄ Fornsök | Sweden only. Density cells summarize `Fornlämning` counts. | `106` |
 
 ## Filter Surfaces

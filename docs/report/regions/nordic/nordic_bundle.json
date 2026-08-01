@@ -64,8 +64,8 @@
         "filename": "nordic_country_boundaries.geojson"
       },
       {
-        "label": "LandClim REVEALS grid GeoJSON",
-        "filename": "nordic_reveals_grid_cells.geojson"
+        "label": "LandClim REVEALS temporal grid GeoJSON",
+        "filename": "nordic_reveals_temporal_grid_cells.geojson"
       },
       {
         "label": "RA\u00c4 archaeology layer metadata",
@@ -422,11 +422,11 @@
         "scope_caveat": "Derived filter framing layer that follows the active scope country roster."
       },
       {
-        "key": "landclim-reveals-grid",
-        "label": "LandClim REVEALS grid cells",
+        "key": "landclim-reveals-temporal-grid",
+        "label": "LandClim REVEALS time-window grids",
         "source_name": "LandClim",
-        "coverage_label": "REVEALS grid cells compiled from published LandClim PANGAEA datasets.",
-        "count": 88,
+        "coverage_label": "Time-window-specific REVEALS grid estimates from published LandClim PANGAEA datasets.",
+        "count": 2500,
         "publication_role": "scope_specific_overlay",
         "scope_visibility": "scope_owned",
         "default_enabled": true,

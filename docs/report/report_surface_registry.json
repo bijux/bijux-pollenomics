@@ -2354,7 +2354,7 @@
       "reader_route": "map_detail"
     },
     {
-      "repository_path": "docs/report/regions/nordic/nordic_reveals_grid_cells.geojson",
+      "repository_path": "docs/report/regions/nordic/nordic_reveals_temporal_grid_cells.geojson",
       "family": "scopes",
       "family_label": "Scope-filtered outputs",
       "audience": "public_reading_surface",
