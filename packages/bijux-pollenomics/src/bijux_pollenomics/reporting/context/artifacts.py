@@ -13,6 +13,10 @@ from ...data_downloader.contracts import (
     LANDCLIM_TEMPORAL_GRID_GEOJSON,
     RAA_DENSITY_GEOJSON,
     RAA_LAYER_METADATA,
+    SEAD_ARCHAEOLOGY_DISCOVERY_CSV,
+    SEAD_ARCHAEOLOGY_DISCOVERY_GEOJSON,
+    SEAD_ARCHAEOLOGY_DISCOVERY_JSON,
+    SEAD_ARCHAEOLOGY_DISCOVERY_MARKDOWN,
 )
 from ..map_publication import map_allows_context_layer
 
@@ -44,6 +48,19 @@ def stage_context_point_layers(
             build_external_point_layer_fn(geojson, source_path=destination_path)
         )
         extra_artifacts.append((contract.label, destination_path.name))
+        if contract is SEAD_ARCHAEOLOGY_DISCOVERY_GEOJSON:
+            for companion in (
+                SEAD_ARCHAEOLOGY_DISCOVERY_JSON,
+                SEAD_ARCHAEOLOGY_DISCOVERY_CSV,
+                SEAD_ARCHAEOLOGY_DISCOVERY_MARKDOWN,
+            ):
+                companion_path = companion.path_under(context_root)
+                if not companion_path.exists():
+                    continue
+                staged_companion = stage_context_artifact(
+                    source_path=companion_path, output_dir=output_dir
+                )
+                extra_artifacts.append((companion.label, staged_companion.name))
     return point_layers, extra_artifacts
 
 
@@ -152,4 +169,6 @@ def _layer_key_for_point_contract(filename: str) -> str:
         return "sead-sites"
     if filename == "nordic_temporal_evidence.geojson":
         return "sead-temporal-evidence"
+    if filename == "sweden_archaeology_site_discovery.geojson":
+        return "sweden-archaeology-site-discovery"
     raise ValueError(f"Unhandled point artifact contract filename: {filename}")

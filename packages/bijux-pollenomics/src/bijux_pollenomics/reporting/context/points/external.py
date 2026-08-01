@@ -59,6 +59,7 @@ def build_external_point_layer(
                 "subtitle": str(properties.get("category", "")).strip(),
                 "popup_rows": popup_rows,
                 "source_url": str(properties.get("source_url", "")).strip(),
+                "evidence_row_id": str(properties.get("record_id", "")).strip(),
                 "media_links": normalize_media_links(properties.get("media_links", [])),
                 **feature_time_payload(properties),
             }

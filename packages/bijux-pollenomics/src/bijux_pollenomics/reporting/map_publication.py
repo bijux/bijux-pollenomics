@@ -179,6 +179,7 @@ _LAYER_SCOPE_RULES = {
     "neotoma-pollen": _NORDIC_SCOPE_KEYS,
     "sead-sites": _NORDIC_SCOPE_KEYS,
     "sead-temporal-evidence": _NORDIC_SCOPE_KEYS,
+    "sweden-archaeology-site-discovery": _NORDIC_SCOPE_KEYS,
     "landclim-reveals-grid": _NORDIC_SCOPE_KEYS,
     "landclim-reveals-temporal-grid": _NORDIC_SCOPE_KEYS,
     "raa-archaeology": _NORDIC_SCOPE_KEYS,

@@ -186,8 +186,71 @@ class MapPublicationUnitTests(unittest.TestCase):
         self.assertEqual(contract["role_counts"]["region_filtered_layer"], 1)
         self.assertEqual(contract["role_counts"]["scope_specific_overlay"], 1)
 
+    def test_nordic_atlas_stages_complete_archaeology_discovery_surface(self) -> None:
+        plan = build_published_geography_plan(("Sweden", "Norway"))
+        nordic_scope = next(
+            scope for scope in plan.regional_scopes if scope.key == "nordic"
+        )
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            output = root / "nordic-output"
+            output.mkdir()
+            derived = root / "sead" / "derived"
+            self._write_point_geojson(
+                derived / "sweden_archaeology_site_discovery.geojson",
+                layer_key="sweden-archaeology-site-discovery",
+                layer_label="Sweden archaeology site discovery",
+                record_id="10:dating_range:7:discovery",
+                time_start_bp=1000,
+            )
+            for name in (
+                "sweden_archaeology_site_discovery.json",
+                "sweden_archaeology_site_discovery.csv",
+                "sweden_archaeology_site_discovery.md",
+            ):
+                (derived / name).write_text("governed companion\n", encoding="utf-8")
+
+            point_layers, _, extra_artifacts = build_context_layers(
+                samples=(),
+                version="v66",
+                output_dir=output,
+                context_root=root,
+                geography_scope=nordic_scope,
+            )
+
+            discovery = next(
+                layer
+                for layer in point_layers
+                if layer["key"] == "sweden-archaeology-site-discovery"
+            )
+            staged_names = {name for _, name in extra_artifacts}
+            features = discovery["features"]
+
+            self.assertEqual(discovery["group"], "archaeology-discovery")
+            self.assertTrue(discovery["applies_time_filter"])
+            self.assertEqual(
+                features[0]["evidence_row_id"], "10:dating_range:7:discovery"
+            )
+            self.assertEqual(
+                staged_names,
+                {
+                    "sweden_archaeology_site_discovery.geojson",
+                    "sweden_archaeology_site_discovery.json",
+                    "sweden_archaeology_site_discovery.csv",
+                    "sweden_archaeology_site_discovery.md",
+                },
+            )
+            self.assertTrue(all((output / name).is_file() for name in staged_names))
+
     @staticmethod
-    def _write_point_geojson(path: Path, *, layer_key: str, layer_label: str) -> None:
+    def _write_point_geojson(
+        path: Path,
+        *,
+        layer_key: str,
+        layer_label: str,
+        record_id: str = "",
+        time_start_bp: int | None = None,
+    ) -> None:
         path.parent.mkdir(parents=True, exist_ok=True)
         path.write_text(
             json.dumps(
@@ -207,6 +270,8 @@ class MapPublicationUnitTests(unittest.TestCase):
                                 "category": "Context",
                                 "subtitle": "Example context layer",
                                 "country": "Sweden",
+                                "record_id": record_id,
+                                "time_start_bp": time_start_bp,
                             },
                         }
                     ],

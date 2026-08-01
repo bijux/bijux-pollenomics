@@ -34,6 +34,12 @@ POINT_LAYER_STYLES = {
         "circleStroke": "rgba(13, 148, 136, 0.46)",
         "circleFill": "rgba(45, 212, 191, 0.12)",
     },
+    "sweden-archaeology-site-discovery": {
+        "fill": "#7c2d12",
+        "stroke": "#431407",
+        "circleStroke": "rgba(124, 45, 18, 0.48)",
+        "circleFill": "rgba(251, 146, 60, 0.13)",
+    },
     "lake-evidence-aggregate": {
         "fill": "#9a3412",
         "stroke": "#7c2d12",
@@ -145,6 +151,13 @@ POINT_LAYER_METADATA = {
         "source_name": "SEAD",
         "coverage_label": "Linked SEAD dating, relative-period, modelled-age, geochronology, and dendrochronology records grouped only when site, interval, label, and uncertainty agree.",
         "geometry_label": "Time-filterable chronology records",
+        "default_enabled": True,
+    },
+    "sweden-archaeology-site-discovery": {
+        "group": "archaeology-discovery",
+        "source_name": "SEAD with RAÄ density context",
+        "coverage_label": "Every geolocated Swedish SEAD site, represented by each linked numeric chronology interval or by one explicitly unresolved temporal record.",
+        "geometry_label": "Time-aware and unresolved site discovery records",
         "default_enabled": True,
     },
     "lake-evidence-aggregate": {
