@@ -61,7 +61,7 @@
   "role_counts": {
     "shared_world_scale_layer": 2,
     "region_filtered_layer": 1,
-    "scope_specific_overlay": 15
+    "scope_specific_overlay": 14
   },
   "layer_rows": [
     {
@@ -117,24 +117,11 @@
       "scope_caveat": "This overlay is visible only in Nordic scope because its source family is still Nordic-specific."
     },
     {
-      "key": "sead-sites",
-      "label": "SEAD sites",
-      "source_name": "SEAD",
-      "coverage_label": "Environmental archaeology sites staged from the SEAD normalization bundle.",
-      "count": 2172,
-      "publication_role": "scope_specific_overlay",
-      "scope_visibility": "scope_owned",
-      "default_enabled": false,
-      "applies_country_filter": true,
-      "applies_time_filter": true,
-      "scope_caveat": "This overlay is visible only in Nordic scope because its source family is still Nordic-specific."
-    },
-    {
-      "key": "sead-temporal-evidence",
-      "label": "SEAD temporal evidence",
-      "source_name": "SEAD",
-      "coverage_label": "Linked SEAD dating, relative-period, modelled-age, geochronology, and dendrochronology records grouped only when site, interval, label, and uncertainty agree.",
-      "count": 9380,
+      "key": "sweden-archaeology-site-discovery",
+      "label": "Sweden archaeology site discovery",
+      "source_name": "SEAD with RA\u00c4 density context",
+      "coverage_label": "Every geolocated Swedish SEAD site, represented by each linked numeric chronology interval or by one explicitly unresolved temporal record.",
+      "count": 10379,
       "publication_role": "scope_specific_overlay",
       "scope_visibility": "scope_owned",
       "default_enabled": true,
