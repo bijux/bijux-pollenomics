@@ -10,19 +10,19 @@
       "source_surface": "supplementary_table",
       "source_claim_scope": "sample_owned_locality",
       "supporting_sample_count": 1,
-      "original_locality_text": "",
-      "resolved_locality_text": "",
-      "locality_class": "unresolved",
-      "site_name": "",
+      "original_locality_text": "Herxheim",
+      "resolved_locality_text": "Herxheim",
+      "locality_class": "excavation_site",
+      "site_name": "Herxheim",
       "municipality_name": "",
       "region_name": "",
-      "country_name": "",
+      "country_name": "Germany",
       "broader_geography": "",
-      "geocoding_safe_token": "",
-      "source_artifact_path": "",
-      "source_artifact_kind": "",
-      "source_locator": "",
-      "source_excerpt": ""
+      "geocoding_safe_token": "herxheim",
+      "source_artifact_path": "adna/governance/source_library/papers/10.1038-ncomms16082/article.html",
+      "source_artifact_kind": "article_or_archive_text",
+      "source_locator": "Results: Archaeological samples and ancient DNA sequencing; Data availability",
+      "source_excerpt": "SRS1407453 maps to HXH; the article identifies Herxheim and gives a calibrated BCE interval."
     }
   ]
 }
