@@ -197,6 +197,20 @@ class MapPublicationUnitTests(unittest.TestCase):
             output.mkdir()
             derived = root / "sead" / "derived"
             self._write_point_geojson(
+                root
+                / "sead"
+                / "normalized"
+                / "nordic_environmental_sites.geojson",
+                layer_key="sead-sites",
+                layer_label="SEAD sites",
+            )
+            self._write_point_geojson(
+                root / "sead" / "normalized" / "nordic_temporal_evidence.geojson",
+                layer_key="sead-temporal-evidence",
+                layer_label="SEAD temporal evidence",
+                time_start_bp=1000,
+            )
+            self._write_point_geojson(
                 derived / "sweden_archaeology_site_discovery.geojson",
                 layer_key="sweden-archaeology-site-discovery",
                 layer_label="Sweden archaeology site discovery",
@@ -230,6 +244,10 @@ class MapPublicationUnitTests(unittest.TestCase):
             self.assertTrue(discovery["applies_time_filter"])
             self.assertEqual(
                 features[0]["evidence_row_id"], "10:dating_range:7:discovery"
+            )
+            self.assertNotIn("sead-sites", {layer["key"] for layer in point_layers})
+            self.assertNotIn(
+                "sead-temporal-evidence", {layer["key"] for layer in point_layers}
             )
             self.assertEqual(
                 staged_names,

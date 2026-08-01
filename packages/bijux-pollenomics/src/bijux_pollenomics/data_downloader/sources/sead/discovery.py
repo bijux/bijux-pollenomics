@@ -278,7 +278,22 @@ def _map_records_for_site(
                 description="A linked SEAD chronology interval for this archaeology site.",
                 source_url=site.source_url,
                 record_count=item.record_count,
-                popup_rows=(("SEAD site ID", site.record_id),) + popup + item.popup_rows,
+                popup_rows=(
+                    ("SEAD site ID", site.record_id),
+                    *popup,
+                    (
+                        "Chronology kind",
+                        str(
+                            (item.temporal_semantics or {}).get(
+                                "evidence_class", "linked chronology"
+                            )
+                        )
+                        .removeprefix("sead_")
+                        .replace("_", " "),
+                    ),
+                    ("Date coverage", item.time_label),
+                    ("Grouped source records", str(item.record_count)),
+                ),
                 time_start_bp=item.time_start_bp,
                 time_end_bp=item.time_end_bp,
                 time_mean_bp=item.time_mean_bp,

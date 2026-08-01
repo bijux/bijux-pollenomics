@@ -33,7 +33,16 @@ def stage_context_point_layers(
     """Copy external point layers into the bundle and return rendered layer configs."""
     point_layers: list[dict[str, object]] = []
     extra_artifacts: list[tuple[str, str]] = []
+    discovery_available = SEAD_ARCHAEOLOGY_DISCOVERY_GEOJSON.path_under(
+        context_root
+    ).exists()
+    superseded_sead_filenames = {
+        "nordic_environmental_sites.geojson",
+        "nordic_temporal_evidence.geojson",
+    }
     for contract in ATLAS_POINT_ARTIFACTS:
+        if discovery_available and contract.filename in superseded_sead_filenames:
+            continue
         layer_key = _layer_key_for_point_contract(contract.filename)
         if not map_allows_context_layer(scope_key=scope_key, layer_key=layer_key):
             continue
