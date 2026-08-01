@@ -43,6 +43,11 @@ def normalize_sead_rows(
         reference_count = parse_int_or_default(row.get("reference_count"))
         relative_date_count = parse_int_or_default(row.get("relative_date_count"))
         dating_range_count = parse_int_or_default(row.get("dating_range_count"))
+        analysis_entity_age_count = parse_int_or_default(
+            row.get("analysis_entity_age_count")
+        )
+        geochronology_count = parse_int_or_default(row.get("geochronology_count"))
+        dendro_date_count = parse_int_or_default(row.get("dendro_date_count"))
         dataset_names = row.get("dataset_names")
         if not isinstance(dataset_names, list):
             dataset_names = []
@@ -86,6 +91,14 @@ def normalize_sead_rows(
             popup_rows.append(("Relative dates", str(relative_date_count)))
         if dating_range_count:
             popup_rows.append(("Dating ranges", str(dating_range_count)))
+        if analysis_entity_age_count:
+            popup_rows.append(
+                ("Modelled analysis-entity ages", str(analysis_entity_age_count))
+            )
+        if geochronology_count:
+            popup_rows.append(("Geochronology records", str(geochronology_count)))
+        if dendro_date_count:
+            popup_rows.append(("Dendrochronology dates", str(dendro_date_count)))
         if time_interval is not None:
             popup_rows.append(
                 (
@@ -146,7 +159,13 @@ def normalize_sead_rows(
                 description=description,
                 source_url=f"https://browser.sead.se/site/{site_id}",
                 record_count=max(
-                    dataset_count, analysis_entity_count, dating_range_count, 1
+                    dataset_count,
+                    analysis_entity_count,
+                    dating_range_count,
+                    analysis_entity_age_count,
+                    geochronology_count,
+                    dendro_date_count,
+                    1,
                 ),
                 popup_rows=tuple(popup_rows),
                 time_start_bp=time_interval[0] if time_interval is not None else None,
@@ -273,7 +292,13 @@ def _string_values_from_temporal_rows(rows: object, key: str) -> list[str]:
 
 def _collect_uncertainty_notes(row: Mapping[str, object]) -> list[str]:
     notes: list[str] = []
-    for key in ("relative_period_rows", "dating_range_rows"):
+    for key in (
+        "relative_period_rows",
+        "dating_range_rows",
+        "analysis_entity_age_rows",
+        "geochronology_rows",
+        "dendro_date_rows",
+    ):
         rows = row.get(key)
         if not isinstance(rows, list):
             continue

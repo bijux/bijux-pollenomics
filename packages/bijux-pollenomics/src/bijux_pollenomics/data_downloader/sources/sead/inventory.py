@@ -11,14 +11,16 @@ __all__ = ["SeadSiteFetchResult", "build_sead_site_inventory"]
 @dataclass(frozen=True)
 class SeadSiteFetchResult:
     rows: list[dict[str, object]]
-    inventory_summary: dict[str, int]
+    inventory_summary: dict[str, int | str]
 
 
 def build_sead_site_inventory(
     *,
     bbox: tuple[float, float, float, float],
     fetch_sead_rows_fn: Callable[..., list[dict[str, object]]],
-    populate_inventory_fields_fn: Callable[[list[dict[str, object]]], dict[str, int]],
+    populate_inventory_fields_fn: Callable[
+        [list[dict[str, object]]], dict[str, int | str]
+    ],
 ) -> SeadSiteFetchResult:
     """Download SEAD site rows plus an audit summary of linked table coverage."""
     min_longitude, min_latitude, max_longitude, max_latitude = bbox

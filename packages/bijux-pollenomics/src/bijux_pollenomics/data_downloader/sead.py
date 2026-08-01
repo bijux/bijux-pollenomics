@@ -13,7 +13,7 @@ from .exports.context_points import (
     write_context_points_geojson,
 )
 from .shared import load_repository_country_boundaries
-from .sources.sead.archive import write_sead_site_archive
+from .sources.sead.archive import SEAD_LINKED_SOURCE_TABLES, write_sead_site_archive
 from .sources.sead.fetch import (
     build_sead_in_filter as build_sead_in_filter_value,
 )
@@ -130,7 +130,7 @@ def merge_sead_intervals(intervals: list[tuple[int, int]]) -> tuple[int, int] | 
 
 def populate_sead_site_inventory_fields(
     rows: list[dict[str, object]],
-) -> dict[str, int]:
+) -> dict[str, int | str]:
     """Attach linked sample, dataset, and reference counts to SEAD site rows."""
     return populate_sead_site_inventory_fields_from_api(rows, fetch_json_fn=fetch_json)
 
@@ -183,31 +183,8 @@ def materialize_sead_repository_surfaces(data_root: Path) -> SeadDataReport:
     rows = [row for row in raw_rows if isinstance(row, dict)]
     refresh_sead_repository_rows(rows)
     payload["rows"] = rows
-    inventory_summary = payload.get("inventory_summary")
-    if not isinstance(inventory_summary, dict):
-        inventory_summary = _build_repository_inventory_summary(rows)
-        payload["inventory_summary"] = inventory_summary
-        payload.setdefault(
-            "source_tables",
-            [
-                "tbl_sites",
-                "tbl_sample_groups",
-                "tbl_physical_samples",
-                "tbl_analysis_entities",
-                "tbl_analysis_values",
-                "tbl_analysis_dating_ranges",
-                "tbl_age_types",
-                "tbl_relative_dates",
-                "tbl_relative_ages",
-                "tbl_dating_uncertainty",
-                "tbl_methods",
-                "tbl_datasets",
-                "tbl_site_references",
-                "tbl_biblio",
-            ],
-        )
-    else:
-        payload["inventory_summary"] = _build_repository_inventory_summary(rows)
+    payload["source_tables"] = list(SEAD_LINKED_SOURCE_TABLES)
+    payload["inventory_summary"] = _build_repository_inventory_summary(rows)
     write_json(raw_path, payload)
     country_boundaries = load_repository_country_boundaries(data_root)
     records = normalize_sead_rows(rows, country_boundaries=country_boundaries)
@@ -229,7 +206,14 @@ def materialize_sead_repository_surfaces(data_root: Path) -> SeadDataReport:
 def _build_repository_inventory_summary(
     rows: list[dict[str, object]],
 ) -> dict[str, int | str]:
-    def _list_count(key: str) -> int:
+    def _record_count(key: str) -> int:
+        return sum(
+            len(value)
+            for row in rows
+            if isinstance((value := row.get(key)), list)
+        )
+
+    def _site_count(key: str) -> int:
         return sum(
             1
             for row in rows
@@ -242,18 +226,24 @@ def _build_repository_inventory_summary(
         if isinstance(row.get("time_start_bp"), int)
         and isinstance(row.get("time_end_bp"), int)
     )
-    dating_range_row_count = _list_count("dating_range_rows")
-    relative_period_row_count = _list_count("relative_period_rows")
-    bibliography_row_count = _list_count("bibliography_rows")
-    sample_row_count = _list_count("sample_rows")
-    dataset_row_count = _list_count("dataset_rows")
+    dating_range_row_count = _record_count("dating_range_rows")
+    relative_period_row_count = _record_count("relative_period_rows")
+    analysis_entity_age_row_count = _record_count("analysis_entity_age_rows")
+    geochronology_row_count = _record_count("geochronology_rows")
+    dendro_date_row_count = _record_count("dendro_date_rows")
+    bibliography_row_count = _record_count("bibliography_rows")
+    sample_row_count = _record_count("sample_rows")
+    dataset_row_count = _record_count("dataset_rows")
     temporal_capture_posture = (
-        "linked_inventory_available"
+        "linked_chronology_captured"
         if any(
             count > 0
             for count in (
                 dating_range_row_count,
                 relative_period_row_count,
+                analysis_entity_age_row_count,
+                geochronology_row_count,
+                dendro_date_row_count,
                 numeric_interval_row_count,
             )
         )
@@ -264,9 +254,19 @@ def _build_repository_inventory_summary(
         "sample_row_count": sample_row_count,
         "dataset_row_count": dataset_row_count,
         "bibliography_row_count": bibliography_row_count,
+        "bibliography_site_count": _site_count("bibliography_rows"),
         "dating_range_row_count": dating_range_row_count,
+        "dating_range_site_count": _site_count("dating_range_rows"),
         "relative_period_row_count": relative_period_row_count,
+        "relative_period_site_count": _site_count("relative_period_rows"),
+        "analysis_entity_age_row_count": analysis_entity_age_row_count,
+        "analysis_entity_age_site_count": _site_count("analysis_entity_age_rows"),
+        "geochronology_row_count": geochronology_row_count,
+        "geochronology_site_count": _site_count("geochronology_rows"),
+        "dendro_date_row_count": dendro_date_row_count,
+        "dendro_date_site_count": _site_count("dendro_date_rows"),
         "numeric_interval_row_count": numeric_interval_row_count,
+        "site_inventory_only_row_count": len(rows) - numeric_interval_row_count,
         "temporal_capture_posture": temporal_capture_posture,
     }
 
@@ -284,5 +284,6 @@ __all__ = [
     "normalize_sead_rows",
     "parse_optional_int",
     "populate_sead_site_inventory_fields",
+    "refresh_sead_repository_rows",
     "sead_dating_interval",
 ]

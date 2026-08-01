@@ -36,17 +36,17 @@ def sead_dating_interval(
     age_type_text = age_type.casefold()
     if "bp" in age_type_text:
         return _normalize_optional_interval(low_value, high_value)
-    if _is_common_era_age_type(age_type_text):
-        return _calendar_year_interval_to_bp(
-            low_value,
-            high_value,
-            treat_as_bce=False,
-        )
     if _is_before_common_era_age_type(age_type_text):
         return _calendar_year_interval_to_bp(
             low_value,
             high_value,
             treat_as_bce=True,
+        )
+    if _is_common_era_age_type(age_type_text):
+        return _calendar_year_interval_to_bp(
+            low_value,
+            high_value,
+            treat_as_bce=False,
         )
     return None
 
@@ -67,7 +67,7 @@ def populate_sead_site_inventory_fields(
     rows: list[dict[str, object]],
     *,
     fetch_json_fn: Callable[..., object],
-) -> dict[str, int]:
+) -> dict[str, int | str]:
     """Attach linked sample, dataset, and reference counts to SEAD site rows."""
     site_ids = [
         site_id
@@ -124,6 +124,52 @@ def populate_sead_site_inventory_fields(
         for row in analysis_entities
         if row.get("analysis_entity_id") is not None
     ]
+    analysis_entity_ages = (
+        fetch_sead_rows_by_ids(
+            "tbl_analysis_entity_ages",
+            fetch_json_fn=fetch_json_fn,
+            select=(
+                "analysis_entity_age_id,analysis_entity_id,age,age_older,"
+                "age_younger,chronology_id,dating_specifier,age_range"
+            ),
+            filter_field="analysis_entity_id",
+            ids=analysis_entity_ids,
+            order_by=("analysis_entity_id", "analysis_entity_age_id"),
+        )
+        if analysis_entity_ids
+        else []
+    )
+    geochronology_rows = (
+        fetch_sead_rows_by_ids(
+            "tbl_geochronology",
+            fetch_json_fn=fetch_json_fn,
+            select=(
+                "geochron_id,analysis_entity_id,dating_lab_id,lab_number,age,"
+                "error_older,error_younger,notes,dating_uncertainty_id"
+            ),
+            filter_field="analysis_entity_id",
+            ids=analysis_entity_ids,
+            order_by=("analysis_entity_id", "geochron_id"),
+        )
+        if analysis_entity_ids
+        else []
+    )
+    dendro_dates = (
+        fetch_sead_rows_by_ids(
+            "tbl_dendro_dates",
+            fetch_json_fn=fetch_json_fn,
+            select=(
+                "dendro_date_id,analysis_entity_id,age_older,age_younger,"
+                "age_type_id,dating_uncertainty_id,dendro_lookup_id,season_id,"
+                "age_range"
+            ),
+            filter_field="analysis_entity_id",
+            ids=analysis_entity_ids,
+            order_by=("analysis_entity_id", "dendro_date_id"),
+        )
+        if analysis_entity_ids
+        else []
+    )
     analysis_values = (
         fetch_sead_rows_by_ids(
             "tbl_analysis_values",
@@ -162,7 +208,7 @@ def populate_sead_site_inventory_fields(
     )
     age_type_ids = [
         parse_required_int(row["age_type_id"])
-        for row in dating_ranges
+        for row in (*dating_ranges, *dendro_dates)
         if row.get("age_type_id") is not None
     ]
     age_types = (
@@ -195,7 +241,7 @@ def populate_sead_site_inventory_fields(
     dating_uncertainty_ids = sorted(
         {
             parse_required_int(row["dating_uncertainty_id"])
-            for row in dating_ranges
+            for row in (*dating_ranges, *geochronology_rows, *dendro_dates)
             if row.get("dating_uncertainty_id") is not None
         }
     )
@@ -298,10 +344,39 @@ def populate_sead_site_inventory_fields(
         if site_ids
         else []
     )
+    sample_group_references = (
+        fetch_sead_rows_by_ids(
+            "tbl_sample_group_references",
+            fetch_json_fn=fetch_json_fn,
+            select="sample_group_reference_id,sample_group_id,biblio_id",
+            filter_field="sample_group_id",
+            ids=sample_group_by_id,
+            order_by=("sample_group_id", "sample_group_reference_id"),
+        )
+        if sample_group_by_id
+        else []
+    )
+    relative_age_references = (
+        fetch_sead_rows_by_ids(
+            "tbl_relative_age_refs",
+            fetch_json_fn=fetch_json_fn,
+            select="relative_age_ref_id,relative_age_id,biblio_id",
+            filter_field="relative_age_id",
+            ids=relative_age_ids,
+            order_by=("relative_age_id", "relative_age_ref_id"),
+        )
+        if relative_age_ids
+        else []
+    )
     biblio_ids = sorted(
         {
             parse_required_int(row["biblio_id"])
-            for row in (*datasets, *site_references)
+            for row in (
+                *datasets,
+                *site_references,
+                *sample_group_references,
+                *relative_age_references,
+            )
             if row.get("biblio_id") is not None
         }
     )
@@ -374,12 +449,16 @@ def populate_sead_site_inventory_fields(
     dataset_ids_by_site: dict[int, set[int]] = {}
     reference_ids_by_site: dict[int, set[int]] = {}
     relative_date_ids_by_site: dict[int, set[int]] = {}
+    site_ids_by_relative_age_id: dict[int, set[int]] = {}
     dating_range_counts_by_site: dict[int, int] = {}
     numeric_dating_intervals_by_site: dict[int, list[tuple[int, int]]] = {}
     contextual_period_intervals_by_site: dict[int, list[tuple[int, int]]] = {}
     relative_period_rows_by_site: dict[int, list[dict[str, object]]] = {}
     dating_range_rows_by_site: dict[int, list[dict[str, object]]] = {}
     bibliography_rows_by_site: dict[int, list[dict[str, object]]] = {}
+    analysis_entity_age_rows_by_site: dict[int, list[dict[str, object]]] = {}
+    geochronology_rows_by_site: dict[int, list[dict[str, object]]] = {}
+    dendro_date_rows_by_site: dict[int, list[dict[str, object]]] = {}
 
     for sample_group in sample_groups:
         site_id = parse_required_int(sample_group.get("site_id"))
@@ -410,12 +489,72 @@ def populate_sead_site_inventory_fields(
         for site_id, analysis_entity_ids in analysis_entity_ids_by_site.items()
         for analysis_entity_id in analysis_entity_ids
     }
+    for entity_age in analysis_entity_ages:
+        analysis_entity_id = parse_required_int(entity_age.get("analysis_entity_id"))
+        site_id = site_id_by_analysis_entity_id.get(analysis_entity_id, 0)
+        interval = _analysis_entity_age_interval(entity_age)
+        if not site_id:
+            continue
+        analysis_entity_age_rows_by_site.setdefault(site_id, []).append(
+            _build_analysis_entity_age_row(entity_age, interval=interval)
+        )
+        if interval is not None:
+            numeric_dating_intervals_by_site.setdefault(site_id, []).append(interval)
+    for geochronology_row in geochronology_rows:
+        analysis_entity_id = parse_required_int(
+            geochronology_row.get("analysis_entity_id")
+        )
+        site_id = site_id_by_analysis_entity_id.get(analysis_entity_id, 0)
+        interval = _geochronology_interval(geochronology_row)
+        if not site_id:
+            continue
+        geochronology_rows_by_site.setdefault(site_id, []).append(
+            _build_geochronology_row(
+                geochronology_row,
+                interval=interval,
+                uncertainty=uncertainty_by_id.get(
+                    parse_required_int(
+                        geochronology_row.get("dating_uncertainty_id")
+                    ),
+                    {},
+                ),
+            )
+        )
+        if interval is not None:
+            numeric_dating_intervals_by_site.setdefault(site_id, []).append(interval)
+    for dendro_date in dendro_dates:
+        analysis_entity_id = parse_required_int(dendro_date.get("analysis_entity_id"))
+        site_id = site_id_by_analysis_entity_id.get(analysis_entity_id, 0)
+        age_type = age_type_by_id.get(
+            parse_required_int(dendro_date.get("age_type_id")), ""
+        )
+        interval = _dendro_date_interval(dendro_date, age_type=age_type)
+        if not site_id:
+            continue
+        dendro_date_rows_by_site.setdefault(site_id, []).append(
+            _build_dendro_date_row(
+                dendro_date,
+                age_type=age_type,
+                interval=interval,
+                uncertainty=uncertainty_by_id.get(
+                    parse_required_int(dendro_date.get("dating_uncertainty_id")),
+                    {},
+                ),
+            )
+        )
+        if interval is not None:
+            numeric_dating_intervals_by_site.setdefault(site_id, []).append(interval)
     for relative_date in relative_dates:
         analysis_entity_id = parse_required_int(relative_date.get("analysis_entity_id"))
         relative_date_id = parse_required_int(relative_date.get("relative_date_id"))
         site_id = site_id_by_analysis_entity_id.get(analysis_entity_id, 0)
         if site_id and relative_date_id:
             relative_date_ids_by_site.setdefault(site_id, set()).add(relative_date_id)
+            relative_age_id = parse_required_int(relative_date.get("relative_age_id"))
+            if relative_age_id:
+                site_ids_by_relative_age_id.setdefault(relative_age_id, set()).add(
+                    site_id
+                )
             relative_period_rows_by_site.setdefault(site_id, []).append(
                 _build_relative_period_row(
                     relative_date,
@@ -501,14 +640,13 @@ def populate_sead_site_inventory_fields(
                     _build_bibliography_row(
                         biblio_id=parse_required_int(reference.get("biblio_id")),
                         source_kind="site_reference",
+                        source_record_id=reference_id,
+                        source_record_label="",
                         biblio=biblio,
                     )
                 )
-    for entity in analysis_entities:
-        dataset_id = parse_required_int(entity.get("dataset_id"))
-        physical_sample_id = parse_required_int(entity.get("physical_sample_id"))
-        site_id = site_id_by_physical_sample_id.get(physical_sample_id, 0)
-        if site_id and dataset_id:
+    for site_id, dataset_ids_for_site in dataset_ids_by_site.items():
+        for dataset_id in dataset_ids_for_site:
             biblio = dataset_reference_by_id.get(dataset_id, {})
             if biblio:
                 bibliography_rows_by_site.setdefault(site_id, []).append(
@@ -525,9 +663,46 @@ def populate_sead_site_inventory_fields(
                             )
                         ),
                         source_kind="dataset_reference",
+                        source_record_id=dataset_id,
+                        source_record_label=dataset_name_by_id.get(dataset_id, ""),
                         biblio=biblio,
                     )
                 )
+    for reference in sample_group_references:
+        sample_group_id = parse_required_int(reference.get("sample_group_id"))
+        site_id = sample_group_by_id.get(sample_group_id, 0)
+        biblio_id = parse_required_int(reference.get("biblio_id"))
+        biblio = bibliography_by_id.get(biblio_id, {})
+        if site_id and biblio:
+            bibliography_rows_by_site.setdefault(site_id, []).append(
+                _build_bibliography_row(
+                    biblio_id=biblio_id,
+                    source_kind="sample_group_reference",
+                    source_record_id=sample_group_id,
+                    source_record_label="",
+                    biblio=biblio,
+                )
+            )
+    for reference in relative_age_references:
+        relative_age_id = parse_required_int(reference.get("relative_age_id"))
+        biblio_id = parse_required_int(reference.get("biblio_id"))
+        biblio = bibliography_by_id.get(biblio_id, {})
+        relative_age = relative_age_by_id.get(relative_age_id, {})
+        for site_id in site_ids_by_relative_age_id.get(relative_age_id, set()):
+            if biblio:
+                bibliography_rows_by_site.setdefault(site_id, []).append(
+                    _build_bibliography_row(
+                        biblio_id=biblio_id,
+                        source_kind="relative_age_definition",
+                        source_record_id=relative_age_id,
+                        source_record_label=clean_optional_text(
+                            relative_age.get("label")
+                        ),
+                        biblio=biblio,
+                    )
+                )
+    for site_id, site_rows in bibliography_rows_by_site.items():
+        bibliography_rows_by_site[site_id] = _deduplicate_bibliography_rows(site_rows)
     for site_rows in bibliography_rows_by_site.values():
         site_rows.sort(
             key=lambda row: (
@@ -558,9 +733,17 @@ def populate_sead_site_inventory_fields(
         )
         row["dataset_count"] = len(dataset_ids_by_site.get(site_id, set()))
         row["dataset_names"] = dataset_names
-        row["reference_count"] = len(reference_ids_by_site.get(site_id, set()))
+        row["site_reference_count"] = len(reference_ids_by_site.get(site_id, set()))
+        row["reference_count"] = len(bibliography_rows_by_site.get(site_id, []))
         row["relative_date_count"] = len(relative_date_ids_by_site.get(site_id, set()))
         row["dating_range_count"] = dating_range_counts_by_site.get(site_id, 0)
+        row["analysis_entity_age_count"] = len(
+            analysis_entity_age_rows_by_site.get(site_id, [])
+        )
+        row["geochronology_count"] = len(
+            geochronology_rows_by_site.get(site_id, [])
+        )
+        row["dendro_date_count"] = len(dendro_date_rows_by_site.get(site_id, []))
         numeric_time_interval = merge_sead_intervals(
             numeric_dating_intervals_by_site.get(site_id, [])
         )
@@ -588,10 +771,18 @@ def populate_sead_site_inventory_fields(
         )
         row["relative_period_rows"] = relative_period_rows_by_site.get(site_id, [])
         row["dating_range_rows"] = dating_range_rows_by_site.get(site_id, [])
+        row["analysis_entity_age_rows"] = analysis_entity_age_rows_by_site.get(
+            site_id, []
+        )
+        row["geochronology_rows"] = geochronology_rows_by_site.get(site_id, [])
+        row["dendro_date_rows"] = dendro_date_rows_by_site.get(site_id, [])
         row["bibliography_rows"] = bibliography_rows_by_site.get(site_id, [])
         row["temporal_summary"] = {
             "relative_period_count": len(relative_period_rows_by_site.get(site_id, [])),
             "dating_range_count": dating_range_counts_by_site.get(site_id, 0),
+            "analysis_entity_age_count": row["analysis_entity_age_count"],
+            "geochronology_count": row["geochronology_count"],
+            "dendro_date_count": row["dendro_date_count"],
             "bibliography_count": len(bibliography_rows_by_site.get(site_id, [])),
             "time_start_bp": row["time_start_bp"],
             "time_end_bp": row["time_end_bp"],
@@ -605,13 +796,24 @@ def populate_sead_site_inventory_fields(
             "uncertainty_labels": _uncertainty_labels(
                 relative_period_rows_by_site.get(site_id, []),
                 dating_range_rows_by_site.get(site_id, []),
+                analysis_entity_age_rows_by_site.get(site_id, []),
+                geochronology_rows_by_site.get(site_id, []),
+                dendro_date_rows_by_site.get(site_id, []),
             ),
         }
+    numeric_interval_site_count = sum(
+        1
+        for row in rows
+        if row.get("time_start_bp") is not None and row.get("time_end_bp") is not None
+    )
     return {
         "site_row_count": len(rows),
         "sample_group_row_count": len(sample_groups),
         "physical_sample_row_count": len(physical_samples),
         "analysis_entity_row_count": len(analysis_entities),
+        "analysis_entity_age_row_count": len(analysis_entity_ages),
+        "geochronology_row_count": len(geochronology_rows),
+        "dendro_date_row_count": len(dendro_dates),
         "analysis_value_row_count": len(analysis_values),
         "dating_range_row_count": len(dating_ranges),
         "age_type_row_count": len(age_types),
@@ -621,7 +823,21 @@ def populate_sead_site_inventory_fields(
         "method_row_count": len(methods),
         "dataset_row_count": len(datasets),
         "site_reference_row_count": len(site_references),
-        "bibliography_row_count": len(bibliography_rows),
+        "sample_group_reference_row_count": len(sample_group_references),
+        "relative_age_reference_row_count": len(relative_age_references),
+        "bibliography_source_row_count": len(bibliography_rows),
+        "bibliography_row_count": sum(
+            len(site_rows) for site_rows in bibliography_rows_by_site.values()
+        ),
+        "bibliography_site_count": len(bibliography_rows_by_site),
+        "dating_range_site_count": len(dating_range_rows_by_site),
+        "relative_period_site_count": len(relative_period_rows_by_site),
+        "analysis_entity_age_site_count": len(analysis_entity_age_rows_by_site),
+        "geochronology_site_count": len(geochronology_rows_by_site),
+        "dendro_date_site_count": len(dendro_date_rows_by_site),
+        "numeric_interval_row_count": numeric_interval_site_count,
+        "site_inventory_only_row_count": len(rows) - numeric_interval_site_count,
+        "temporal_capture_posture": "linked_chronology_captured",
     }
 
 
@@ -659,12 +875,18 @@ def _build_relative_period_row(
 ) -> dict[str, object]:
     label = str(relative_age.get("label", "")).strip()
     description = str(relative_age.get("description", "")).strip()
+    cal_younger = parse_optional_int(relative_age.get("cal_age_younger"))
+    cal_older = parse_optional_int(relative_age.get("cal_age_older"))
+    c14_younger = parse_optional_int(relative_age.get("c14_age_younger"))
+    c14_older = parse_optional_int(relative_age.get("c14_age_older"))
     interval = _normalize_optional_interval(
-        parse_optional_int(relative_age.get("cal_age_younger"))
-        or parse_optional_int(relative_age.get("c14_age_younger")),
-        parse_optional_int(relative_age.get("cal_age_older"))
-        or parse_optional_int(relative_age.get("c14_age_older")),
+        cal_younger if cal_younger is not None else c14_younger,
+        cal_older if cal_older is not None else c14_older,
     )
+    interval_source = "relative_age_bounds"
+    if interval is None:
+        interval = _interval_from_relative_age_label(label)
+        interval_source = "encoded_relative_age_label" if interval else "unresolved"
     return {
         "site_id": site_id,
         "relative_date_id": parse_required_int(relative_date.get("relative_date_id")),
@@ -677,6 +899,7 @@ def _build_relative_period_row(
         "uncertainty_label": str(uncertainty.get("label", "")).strip(),
         "uncertainty_description": str(uncertainty.get("description", "")).strip(),
         "notes": clean_optional_text(relative_date.get("notes")),
+        "interval_source": interval_source,
         "time_start_bp": interval[0] if interval is not None else None,
         "time_end_bp": interval[1] if interval is not None else None,
     }
@@ -712,21 +935,152 @@ def _build_dating_range_row(
     }
 
 
+def _analysis_entity_age_interval(
+    entity_age: dict[str, object],
+) -> tuple[int, int] | None:
+    age = parse_optional_int(entity_age.get("age"))
+    younger = parse_optional_int(entity_age.get("age_younger"))
+    older = parse_optional_int(entity_age.get("age_older"))
+    return _normalize_optional_interval(
+        younger if younger is not None else age,
+        older if older is not None else age,
+    )
+
+
+def _build_analysis_entity_age_row(
+    entity_age: dict[str, object],
+    *,
+    interval: tuple[int, int] | None,
+) -> dict[str, object]:
+    return {
+        "analysis_entity_age_id": parse_required_int(
+            entity_age.get("analysis_entity_age_id")
+        ),
+        "analysis_entity_id": parse_required_int(
+            entity_age.get("analysis_entity_id")
+        ),
+        "chronology_id": parse_optional_int(entity_age.get("chronology_id")),
+        "dating_specifier": clean_optional_text(entity_age.get("dating_specifier")),
+        "age": parse_optional_int(entity_age.get("age")),
+        "age_older": parse_optional_int(entity_age.get("age_older")),
+        "age_younger": parse_optional_int(entity_age.get("age_younger")),
+        "age_range": clean_optional_text(entity_age.get("age_range")),
+        "time_start_bp": interval[0] if interval is not None else None,
+        "time_end_bp": interval[1] if interval is not None else None,
+    }
+
+
+def _geochronology_interval(
+    geochronology_row: dict[str, object],
+) -> tuple[int, int] | None:
+    age = parse_optional_int(geochronology_row.get("age"))
+    if age is None:
+        return None
+    error_older = parse_optional_int(geochronology_row.get("error_older")) or 0
+    error_younger = parse_optional_int(geochronology_row.get("error_younger")) or 0
+    return normalize_bp_interval(max(0, age - error_younger), age + error_older)
+
+
+def _build_geochronology_row(
+    geochronology_row: dict[str, object],
+    *,
+    interval: tuple[int, int] | None,
+    uncertainty: dict[str, object],
+) -> dict[str, object]:
+    return {
+        "geochron_id": parse_required_int(geochronology_row.get("geochron_id")),
+        "analysis_entity_id": parse_required_int(
+            geochronology_row.get("analysis_entity_id")
+        ),
+        "dating_lab_id": parse_optional_int(geochronology_row.get("dating_lab_id")),
+        "lab_number": clean_optional_text(geochronology_row.get("lab_number")),
+        "age": parse_optional_int(geochronology_row.get("age")),
+        "error_older": parse_optional_int(geochronology_row.get("error_older")),
+        "error_younger": parse_optional_int(geochronology_row.get("error_younger")),
+        "notes": clean_optional_text(geochronology_row.get("notes")),
+        "uncertainty_label": clean_optional_text(uncertainty.get("label")),
+        "uncertainty_description": clean_optional_text(
+            uncertainty.get("description")
+        ),
+        "time_start_bp": interval[0] if interval is not None else None,
+        "time_end_bp": interval[1] if interval is not None else None,
+    }
+
+
+def _dendro_date_interval(
+    dendro_date: dict[str, object],
+    *,
+    age_type: str,
+) -> tuple[int, int] | None:
+    return sead_dating_interval(
+        {
+            "low_value": dendro_date.get("age_younger"),
+            "high_value": dendro_date.get("age_older"),
+        },
+        age_type=age_type,
+    )
+
+
+def _build_dendro_date_row(
+    dendro_date: dict[str, object],
+    *,
+    age_type: str,
+    interval: tuple[int, int] | None,
+    uncertainty: dict[str, object],
+) -> dict[str, object]:
+    return {
+        "dendro_date_id": parse_required_int(dendro_date.get("dendro_date_id")),
+        "analysis_entity_id": parse_required_int(
+            dendro_date.get("analysis_entity_id")
+        ),
+        "age_type": age_type,
+        "age_older": parse_optional_int(dendro_date.get("age_older")),
+        "age_younger": parse_optional_int(dendro_date.get("age_younger")),
+        "age_range": clean_optional_text(dendro_date.get("age_range")),
+        "dendro_lookup_id": parse_optional_int(dendro_date.get("dendro_lookup_id")),
+        "season_id": parse_optional_int(dendro_date.get("season_id")),
+        "uncertainty_label": clean_optional_text(uncertainty.get("label")),
+        "uncertainty_description": clean_optional_text(
+            uncertainty.get("description")
+        ),
+        "time_start_bp": interval[0] if interval is not None else None,
+        "time_end_bp": interval[1] if interval is not None else None,
+    }
+
+
 def _build_bibliography_row(
     *,
     biblio_id: int,
     source_kind: str,
+    source_record_id: int,
+    source_record_label: str,
     biblio: dict[str, object],
 ) -> dict[str, object]:
     return {
         "biblio_id": biblio_id,
         "source_kind": source_kind,
+        "source_record_id": source_record_id,
+        "source_record_label": source_record_label,
         "title": str(biblio.get("title", "")).strip(),
         "full_reference": str(biblio.get("full_reference", "")).strip(),
         "year": str(biblio.get("year", "")).strip(),
         "doi": str(biblio.get("doi", "")).strip(),
         "url": str(biblio.get("url", "")).strip(),
     }
+
+
+def _deduplicate_bibliography_rows(
+    rows: list[dict[str, object]],
+) -> list[dict[str, object]]:
+    unique_rows: dict[tuple[int, str, int], dict[str, object]] = {}
+    for row in rows:
+        key = (
+            parse_required_int(row.get("biblio_id")),
+            clean_optional_text(row.get("source_kind")),
+            parse_required_int(row.get("source_record_id")),
+        )
+        unique_rows.setdefault(key, row)
+    return list(unique_rows.values())
 
 
 def _relative_interval_from_range(
@@ -741,6 +1095,44 @@ def _relative_interval_from_range(
         parse_optional_int(dating_range.get("low_value")),
         parse_optional_int(dating_range.get("high_value")),
     )
+
+
+_RELATIVE_BP_LABEL_PATTERN = re.compile(
+    r"^CAL_PERIOD_(?P<older>\d+)[_-](?P<younger>\d+)_BP$",
+    re.IGNORECASE,
+)
+_RELATIVE_CALENDAR_LABEL_PATTERN = re.compile(
+    r"^CAL_(?P<start>-?\d+)(?:-(?P<end>-?\d+))?_(?P<era>AD|BC)(?P<open>-)?$",
+    re.IGNORECASE,
+)
+
+
+def _interval_from_relative_age_label(label: str) -> tuple[int, int] | None:
+    bp_match = _RELATIVE_BP_LABEL_PATTERN.fullmatch(label.strip())
+    if bp_match:
+        return normalize_bp_interval(
+            int(bp_match.group("younger")),
+            int(bp_match.group("older")),
+        )
+    calendar_match = _RELATIVE_CALENDAR_LABEL_PATTERN.fullmatch(label.strip())
+    if not calendar_match:
+        return None
+    era = calendar_match.group("era").upper()
+    start_year = int(calendar_match.group("start"))
+    end_text = calendar_match.group("end")
+    end_year = int(end_text) if end_text is not None else start_year
+    if calendar_match.group("open"):
+        end_year = BP_REFERENCE_YEAR
+    return normalize_bp_interval(
+        _historical_year_to_bp(start_year, era=era),
+        _historical_year_to_bp(end_year, era=era),
+    )
+
+
+def _historical_year_to_bp(year: int, *, era: str) -> int:
+    if era == "BC" or year < 0:
+        return _bce_year_to_bp(abs(year)) or 0
+    return _ce_year_to_bp(year) or 0
 
 
 def _normalize_optional_interval(
@@ -820,14 +1212,14 @@ def _normalized_period_labels(rows: list[dict[str, object]]) -> list[str]:
 
 
 def _uncertainty_labels(
-    relative_rows: list[dict[str, object]],
-    dating_rows: list[dict[str, object]],
+    *row_groups: list[dict[str, object]],
 ) -> list[str]:
     labels: list[str] = []
-    for row in (*relative_rows, *dating_rows):
-        label = str(row.get("uncertainty_label", "")).strip()
-        if label and label not in labels:
-            labels.append(label)
+    for rows in row_groups:
+        for row in rows:
+            label = str(row.get("uncertainty_label", "")).strip()
+            if label and label not in labels:
+                labels.append(label)
     return labels
 
 
@@ -839,6 +1231,19 @@ def refresh_sead_repository_rows(rows: list[dict[str, object]]) -> None:
         ]
         dating_rows = [
             item for item in row.get("dating_range_rows", []) if isinstance(item, dict)
+        ]
+        entity_age_rows = [
+            item
+            for item in row.get("analysis_entity_age_rows", [])
+            if isinstance(item, dict)
+        ]
+        geochronology_rows = [
+            item
+            for item in row.get("geochronology_rows", [])
+            if isinstance(item, dict)
+        ]
+        dendro_date_rows = [
+            item for item in row.get("dendro_date_rows", []) if isinstance(item, dict)
         ]
         bibliography_rows = [
             item for item in row.get("bibliography_rows", []) if isinstance(item, dict)
@@ -856,12 +1261,51 @@ def refresh_sead_repository_rows(rows: list[dict[str, object]]) -> None:
             dating_row["time_end_bp"] = interval[1] if interval is not None else None
             if interval is not None:
                 numeric_intervals.append(interval)
+        for entity_age_row in entity_age_rows:
+            interval = _analysis_entity_age_interval(entity_age_row)
+            entity_age_row["time_start_bp"] = (
+                interval[0] if interval is not None else None
+            )
+            entity_age_row["time_end_bp"] = (
+                interval[1] if interval is not None else None
+            )
+            if interval is not None:
+                numeric_intervals.append(interval)
+        for geochronology_row in geochronology_rows:
+            interval = _geochronology_interval(geochronology_row)
+            geochronology_row["time_start_bp"] = (
+                interval[0] if interval is not None else None
+            )
+            geochronology_row["time_end_bp"] = (
+                interval[1] if interval is not None else None
+            )
+            if interval is not None:
+                numeric_intervals.append(interval)
+        for dendro_date_row in dendro_date_rows:
+            interval = _dendro_date_interval(
+                dendro_date_row,
+                age_type=clean_optional_text(dendro_date_row.get("age_type")),
+            )
+            dendro_date_row["time_start_bp"] = (
+                interval[0] if interval is not None else None
+            )
+            dendro_date_row["time_end_bp"] = (
+                interval[1] if interval is not None else None
+            )
+            if interval is not None:
+                numeric_intervals.append(interval)
         contextual_intervals: list[tuple[int, int]] = []
         for relative_row in relative_rows:
             interval = _normalize_optional_interval(
                 parse_optional_int(relative_row.get("time_start_bp")),
                 parse_optional_int(relative_row.get("time_end_bp")),
             )
+            if interval is None:
+                interval = _interval_from_relative_age_label(
+                    clean_optional_text(relative_row.get("relative_age_label"))
+                )
+                if interval is not None:
+                    relative_row["interval_source"] = "encoded_relative_age_label"
             relative_row["time_start_bp"] = interval[0] if interval is not None else None
             relative_row["time_end_bp"] = interval[1] if interval is not None else None
             if interval is not None:
@@ -871,6 +1315,9 @@ def refresh_sead_repository_rows(rows: list[dict[str, object]]) -> None:
         time_interval = numeric_time_interval or contextual_time_interval
         row["relative_date_count"] = len(relative_rows)
         row["dating_range_count"] = len(dating_rows)
+        row["analysis_entity_age_count"] = len(entity_age_rows)
+        row["geochronology_count"] = len(geochronology_rows)
+        row["dendro_date_count"] = len(dendro_date_rows)
         row["reference_count"] = max(
             parse_required_int(row.get("reference_count")),
             len(bibliography_rows),
@@ -896,6 +1343,9 @@ def refresh_sead_repository_rows(rows: list[dict[str, object]]) -> None:
         row["temporal_summary"] = {
             "relative_period_count": len(relative_rows),
             "dating_range_count": len(dating_rows),
+            "analysis_entity_age_count": len(entity_age_rows),
+            "geochronology_count": len(geochronology_rows),
+            "dendro_date_count": len(dendro_date_rows),
             "bibliography_count": len(bibliography_rows),
             "time_start_bp": row["time_start_bp"],
             "time_end_bp": row["time_end_bp"],
@@ -904,5 +1354,11 @@ def refresh_sead_repository_rows(rows: list[dict[str, object]]) -> None:
             "contextual_time_start_bp": row["contextual_time_start_bp"],
             "contextual_time_end_bp": row["contextual_time_end_bp"],
             "normalized_period_labels": _normalized_period_labels(relative_rows),
-            "uncertainty_labels": _uncertainty_labels(relative_rows, dating_rows),
+            "uncertainty_labels": _uncertainty_labels(
+                relative_rows,
+                dating_rows,
+                entity_age_rows,
+                geochronology_rows,
+                dendro_date_rows,
+            ),
         }

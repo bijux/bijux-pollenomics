@@ -32,6 +32,7 @@ from bijux_pollenomics.data_downloader.sead import (
     fetch_sead_site_rows,
     materialize_sead_repository_surfaces,
     normalize_sead_rows,
+    refresh_sead_repository_rows,
     sead_dating_interval,
 )
 from bijux_pollenomics.reporting.context import (
@@ -223,6 +224,47 @@ class ContextDataTests(unittest.TestCase):
                         "dataset_id": 40,
                     }
                 ]
+            if url.endswith("/tbl_analysis_entity_ages"):
+                return [
+                    {
+                        "analysis_entity_age_id": 31,
+                        "analysis_entity_id": 30,
+                        "age": None,
+                        "age_older": 1600,
+                        "age_younger": 1500,
+                        "chronology_id": None,
+                        "dating_specifier": "Chosen_Calendar",
+                        "age_range": "[1500,1601)",
+                    }
+                ]
+            if url.endswith("/tbl_geochronology"):
+                return [
+                    {
+                        "geochron_id": 32,
+                        "analysis_entity_id": 30,
+                        "dating_lab_id": 3,
+                        "lab_number": "Lab-32",
+                        "age": 1200,
+                        "error_older": 50,
+                        "error_younger": 50,
+                        "notes": "",
+                        "dating_uncertainty_id": 70,
+                    }
+                ]
+            if url.endswith("/tbl_dendro_dates"):
+                return [
+                    {
+                        "dendro_date_id": 33,
+                        "analysis_entity_id": 30,
+                        "age_older": 1750,
+                        "age_younger": None,
+                        "age_type_id": 1,
+                        "dating_uncertainty_id": 70,
+                        "dendro_lookup_id": 4,
+                        "season_id": None,
+                        "age_range": "[1750,1751)",
+                    }
+                ]
             if url.endswith("/tbl_analysis_values"):
                 return [{"analysis_value_id": 35, "analysis_entity_id": 30}]
             if url.endswith("/tbl_analysis_dating_ranges"):
@@ -242,6 +284,11 @@ class ContextDataTests(unittest.TestCase):
                 ]
             if url.endswith("/tbl_age_types"):
                 return [
+                    {
+                        "age_type_id": 1,
+                        "age_type": "AD",
+                        "description": "Anno Domini",
+                    },
                     {
                         "age_type_id": 2,
                         "age_type": "calibrated years BP",
@@ -295,6 +342,22 @@ class ContextDataTests(unittest.TestCase):
                 ]
             if url.endswith("/tbl_site_references"):
                 return [{"site_reference_id": 50, "site_id": 6468, "biblio_id": 60}]
+            if url.endswith("/tbl_sample_group_references"):
+                return [
+                    {
+                        "sample_group_reference_id": 51,
+                        "sample_group_id": 10,
+                        "biblio_id": 60,
+                    }
+                ]
+            if url.endswith("/tbl_relative_age_refs"):
+                return [
+                    {
+                        "relative_age_ref_id": 52,
+                        "relative_age_id": 80,
+                        "biblio_id": 60,
+                    }
+                ]
             if url.endswith("/tbl_biblio"):
                 return [
                     {
@@ -319,13 +382,20 @@ class ContextDataTests(unittest.TestCase):
         self.assertEqual(rows[0]["analysis_entity_count"], 1)
         self.assertEqual(rows[0]["dataset_count"], 1)
         self.assertEqual(rows[0]["dataset_names"], ["Pollen counts"])
-        self.assertEqual(rows[0]["reference_count"], 1)
+        self.assertEqual(rows[0]["site_reference_count"], 1)
+        self.assertEqual(rows[0]["reference_count"], 4)
         self.assertEqual(rows[0]["relative_date_count"], 1)
         self.assertEqual(rows[0]["dating_range_count"], 1)
+        self.assertEqual(rows[0]["analysis_entity_age_count"], 1)
+        self.assertEqual(rows[0]["geochronology_count"], 1)
+        self.assertEqual(rows[0]["dendro_date_count"], 1)
         self.assertEqual(rows[0]["time_start_bp"], 200)
-        self.assertEqual(rows[0]["time_end_bp"], 800)
+        self.assertEqual(rows[0]["time_end_bp"], 1600)
         self.assertEqual(rows[0]["temporal_summary"]["relative_period_count"], 1)
-        self.assertEqual(rows[0]["temporal_summary"]["bibliography_count"], 2)
+        self.assertEqual(rows[0]["temporal_summary"]["bibliography_count"], 4)
+        self.assertEqual(rows[0]["analysis_entity_age_rows"][0]["time_end_bp"], 1600)
+        self.assertEqual(rows[0]["geochronology_rows"][0]["time_start_bp"], 1150)
+        self.assertEqual(rows[0]["dendro_date_rows"][0]["time_start_bp"], 200)
         self.assertEqual(
             rows[0]["relative_period_rows"][0]["normalized_period_label"], "quaternary"
         )
@@ -346,6 +416,41 @@ class ContextDataTests(unittest.TestCase):
         )
 
         self.assertEqual(interval, (196, 196))
+
+    def test_sead_dating_interval_converts_before_common_era_years_to_bp(self) -> None:
+        interval = sead_dating_interval(
+            {
+                "low_value": 550,
+                "high_value": 500,
+            },
+            age_type="before common era",
+        )
+
+        self.assertEqual(interval, (2449, 2499))
+
+    def test_sead_refresh_recovers_interval_encoded_in_relative_age_label(self) -> None:
+        rows = [
+            {
+                "site_id": 3816,
+                "relative_period_rows": [
+                    {
+                        "relative_age_label": "CAL_1242_AD-",
+                        "normalized_period_label": "unmapped_period_label",
+                        "time_start_bp": None,
+                        "time_end_bp": None,
+                    }
+                ],
+                "dating_range_rows": [],
+                "bibliography_rows": [],
+            }
+        ]
+
+        refresh_sead_repository_rows(rows)
+
+        self.assertEqual(rows[0]["time_start_bp"], 0)
+        self.assertEqual(rows[0]["time_end_bp"], 708)
+        relative_row = rows[0]["relative_period_rows"][0]
+        self.assertEqual(relative_row["interval_source"], "encoded_relative_age_label")
 
     def test_fetch_sead_site_rows_preserves_common_era_point_dates(self) -> None:
         def fake_fetch_json(
@@ -383,6 +488,14 @@ class ContextDataTests(unittest.TestCase):
                         "dataset_id": 0,
                     }
                 ]
+            if url.endswith(
+                (
+                    "/tbl_analysis_entity_ages",
+                    "/tbl_geochronology",
+                    "/tbl_dendro_dates",
+                )
+            ):
+                return []
             if url.endswith("/tbl_analysis_values"):
                 return [{"analysis_value_id": 35, "analysis_entity_id": 30}]
             if url.endswith("/tbl_analysis_dating_ranges"):
@@ -419,6 +532,8 @@ class ContextDataTests(unittest.TestCase):
             if url.endswith("/tbl_datasets"):
                 return []
             if url.endswith("/tbl_site_references"):
+                return []
+            if url.endswith(("/tbl_sample_group_references", "/tbl_relative_age_refs")):
                 return []
             if url.endswith("/tbl_biblio"):
                 return []
