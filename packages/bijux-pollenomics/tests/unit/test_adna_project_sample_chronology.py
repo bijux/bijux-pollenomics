@@ -119,15 +119,20 @@ class AdnaProjectSampleChronologyUnitTests(unittest.TestCase):
         self.assertEqual(sheep_review["sample_owned_interval_count"], 167)
         self.assertEqual(sheep_review["text_only_unparsed_count"], 13)
         self.assertEqual(audit["sample_row_count"], 868)
-        self.assertEqual(audit["normalized_interval_count"], 296)
-        self.assertEqual(audit["normalized_point_count"], 469)
-        self.assertEqual(audit["unresolved_count"], 16)
+        self.assertEqual(audit["normalized_interval_count"], 303)
+        self.assertEqual(audit["normalized_point_count"], 478)
+        self.assertEqual(audit["unresolved_count"], 0)
         self.assertEqual(audit["precision_counts"]["contextual_interval"], 50)
-        self.assertEqual(audit["precision_counts"]["sample_precise_interval"], 254)
-        self.assertTrue(
+        self.assertEqual(audit["precision_counts"]["sample_precise_interval"], 261)
+        self.assertFalse(
             any(
-                row["project_accession"] == "KU605068-KU605080"
-                and row["chronology_strength"] == "unresolved"
+                row["project_accession"]
+                in {
+                    "KU605068-KU605080",
+                    "KX379528-KX379529",
+                    "SRS1407453",
+                }
+                and row["chronology_normalization_status"] == "unresolved"
                 for row in ambiguity_rows
             )
         )
@@ -145,7 +150,7 @@ class AdnaProjectSampleChronologyUnitTests(unittest.TestCase):
             for row in project_rows
             if row["project_accession"] == "KU605068-KU605080"
         )
-        self.assertEqual(camel_project["unresolved_count"], 13)
+        self.assertEqual(camel_project["unresolved_count"], 0)
         goat_project = next(
             row for row in project_rows if row["project_accession"] == "PRJNA1328209"
         )

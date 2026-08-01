@@ -21,6 +21,7 @@ from ..sources.library import (
     build_project_registry,
 )
 from ..species.definitions import resolve_species_definition
+from .article_sample_evidence import resolve_article_sample_evidence
 
 __all__ = [
     "ADNA_SAMPLE_EVIDENCE_STATUSES",
@@ -36,6 +37,7 @@ __all__ = [
 
 ADNA_SAMPLE_EVIDENCE_STATUSES = (
     "direct_table_extracted",
+    "article_text_extracted",
     "appendix_extracted",
     "pdf_text_extracted",
     "archive_native",
@@ -376,6 +378,30 @@ def _archive_native_row(
     project: object,
     accession: str,
 ) -> AdnaProjectSampleMasterRow:
+    article_evidence = resolve_article_sample_evidence(accession)
+    if article_evidence is not None:
+        return AdnaProjectSampleMasterRow(
+            species_latin_name=species.latin_name,
+            species_common_name=species.common_name,
+            project_accession=project.project_accession,
+            repo_stable_sample_id=f"{project.project_accession}:{accession}".casefold(),
+            archive_native_sample_id=accession,
+            paper_native_sample_label=article_evidence.sample_label,
+            supplementary_table_sample_label="",
+            preferred_sample_label=article_evidence.sample_label,
+            sample_basis="primary_article_accession_mapping",
+            sample_evidence_status="article_text_extracted",
+            sample_lineage_path=article_evidence.source_path,
+            sample_lineage_locator=article_evidence.source_locator,
+            sample_lineage_excerpt=article_evidence.source_excerpt,
+            sample_identity_resolution="final",
+            sample_ambiguity_note="",
+            locality_text=article_evidence.locality_text,
+            political_entity=article_evidence.political_entity,
+            latitude_text="",
+            longitude_text="",
+            chronology_text=article_evidence.chronology_text,
+        )
     return AdnaProjectSampleMasterRow(
         species_latin_name=species.latin_name,
         species_common_name=species.common_name,

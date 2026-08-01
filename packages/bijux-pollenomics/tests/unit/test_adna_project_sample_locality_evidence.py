@@ -80,12 +80,10 @@ class AdnaProjectSampleLocalityEvidenceUnitTests(unittest.TestCase):
                 for row in curation
             )
         )
-        self.assertTrue(
+        self.assertFalse(
             any(
                 row["project_accession"] == "KU605068-KU605080"
                 and row["publication_blocked"]
-                and row["reason"]
-                == "project_level_locality_row_cannot_stand_in_for_all_samples"
                 for row in substitution
             )
         )

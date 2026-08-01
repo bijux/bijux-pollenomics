@@ -30,9 +30,39 @@ class AdnaSampleMasterUnitTests(unittest.TestCase):
         self.assertEqual(rows[0].archive_native_sample_id, "KU605068")
         self.assertEqual(rows[-1].archive_native_sample_id, "KU605080")
         self.assertTrue(
-            all(row.sample_evidence_status == "archive_native" for row in rows)
+            all(row.sample_evidence_status == "article_text_extracted" for row in rows)
         )
         self.assertTrue(all(row.sample_identity_resolution == "final" for row in rows))
+
+        palm = next(row for row in rows if row.archive_native_sample_id == "KU605068")
+        self.assertEqual(palm.preferred_sample_label, "Palm152")
+        self.assertEqual(palm.locality_text, "Palmyra")
+        self.assertEqual(palm.political_entity, "Syria")
+        self.assertEqual(palm.chronology_text, "1650-2050 BP")
+
+        modern = next(row for row in rows if row.archive_native_sample_id == "KU605080")
+        self.assertEqual(modern.preferred_sample_label, "Drom820")
+        self.assertEqual(modern.locality_text, "Pakistan")
+        self.assertEqual(modern.chronology_text, "0 BP (modern comparator)")
+
+    def test_dog_accessions_recover_article_owned_sites_and_dates(self) -> None:
+        hx = build_project_sample_master_rows(self.data_root, "SRS1407453")
+        mitogenomes = build_project_sample_master_rows(
+            self.data_root, "KX379528-KX379529"
+        )
+
+        self.assertEqual(len(hx), 1)
+        self.assertEqual(hx[0].preferred_sample_label, "HXH")
+        self.assertEqual(hx[0].locality_text, "Herxheim")
+        self.assertEqual(hx[0].chronology_text, "5223-5040 BCE")
+
+        self.assertEqual(len(mitogenomes), 2)
+        ctc = next(
+            row for row in mitogenomes if row.archive_native_sample_id == "KX379528"
+        )
+        self.assertEqual(ctc.preferred_sample_label, "CTC")
+        self.assertEqual(ctc.locality_text, "Cherry Tree Cave")
+        self.assertEqual(ctc.chronology_text, "2900-2632 BCE")
 
     def test_sheep_project_sample_master_extracts_rows_from_supplementary_tables(
         self,
