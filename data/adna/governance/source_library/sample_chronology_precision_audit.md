@@ -1,12 +1,12 @@
 # Sample chronology precision audit
 
 - Rows audited: `868`
-- Precise point rows: `461`
-- Precise interval rows: `254`
+- Precise point rows: `470`
+- Precise interval rows: `261`
 - Approximate or modeled rows: `87`
 - Contextual rows: `50`
 - Broad period rows: `0`
-- Unresolved rows: `16`
+- Unresolved rows: `0`
 
 | Project accession | Sample id | Evidence class | Precision posture | Normalization | Chronology |
 | --- | --- | --- | --- | --- | --- |
@@ -127,22 +127,6 @@
 | PRJEB90261 | prjeb90261:pgull-2230 | historical_or_recent_date | sample_approximate_or_modeled | text_only_unparsed | 17th - 18th centuries CE (SU201) |
 | PRJEB90261 | prjeb90261:pgull-2235 | historical_or_recent_date | sample_approximate_or_modeled | text_only_unparsed | 11th - 12th centuries (A; SU15) |
 | SRS1407451 | srs1407451:srs1407451 | archaeological_context_date | contextual_interval | normalized_interval | Ancient European dog genomic context |
-| SRS1407453 | srs1407453:srs1407453 | unresolved | unresolved | unresolved |  |
-| KX379528-KX379529 | kx379528-kx379529:kx379528 | unresolved | unresolved | unresolved |  |
-| KX379528-KX379529 | kx379528-kx379529:kx379529 | unresolved | unresolved | unresolved |  |
-| KU605068-KU605080 | ku605068-ku605080:ku605068 | unresolved | unresolved | unresolved |  |
-| KU605068-KU605080 | ku605068-ku605080:ku605069 | unresolved | unresolved | unresolved |  |
-| KU605068-KU605080 | ku605068-ku605080:ku605070 | unresolved | unresolved | unresolved |  |
-| KU605068-KU605080 | ku605068-ku605080:ku605071 | unresolved | unresolved | unresolved |  |
-| KU605068-KU605080 | ku605068-ku605080:ku605072 | unresolved | unresolved | unresolved |  |
-| KU605068-KU605080 | ku605068-ku605080:ku605073 | unresolved | unresolved | unresolved |  |
-| KU605068-KU605080 | ku605068-ku605080:ku605074 | unresolved | unresolved | unresolved |  |
-| KU605068-KU605080 | ku605068-ku605080:ku605075 | unresolved | unresolved | unresolved |  |
-| KU605068-KU605080 | ku605068-ku605080:ku605076 | unresolved | unresolved | unresolved |  |
-| KU605068-KU605080 | ku605068-ku605080:ku605077 | unresolved | unresolved | unresolved |  |
-| KU605068-KU605080 | ku605068-ku605080:ku605078 | unresolved | unresolved | unresolved |  |
-| KU605068-KU605080 | ku605068-ku605080:ku605079 | unresolved | unresolved | unresolved |  |
-| KU605068-KU605080 | ku605068-ku605080:ku605080 | unresolved | unresolved | unresolved |  |
 | PRJEB60484 | prjeb60484:samea112757323 | historical_or_recent_date | contextual_interval | normalized_interval | Ancient Arctic archipelago reindeer context |
 | PRJEB60484 | prjeb60484:samea112757324 | historical_or_recent_date | contextual_interval | normalized_interval | Ancient Arctic archipelago reindeer context |
 | PRJEB60484 | prjeb60484:samea112757325 | historical_or_recent_date | contextual_interval | normalized_interval | Ancient Arctic archipelago reindeer context |

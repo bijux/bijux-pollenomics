@@ -1,4 +1,15 @@
 project_accession,species_latin_name,normalized_display_spelling,geocoding_safe_token,original_source_spellings,alternative_spellings,source_surfaces,locality_classes
+KU605068-KU605080,Camelus dromedarius,Austria,austria,Austria,,supplementary_table,excavation_site
+KU605068-KU605080,Camelus dromedarius,Dubai,dubai,Dubai,,supplementary_table,excavation_site
+KU605068-KU605080,Camelus dromedarius,Kenya,kenya,Kenya,,supplementary_table,excavation_site
+KU605068-KU605080,Camelus dromedarius,Pakistan,pakistan,Pakistan,,supplementary_table,excavation_site
+KU605068-KU605080,Camelus dromedarius,Palmyra,palmyra,Palmyra,,supplementary_table,excavation_site
+KU605068-KU605080,Camelus dromedarius,Qatar-Jordan border,qatarjordanborder,Qatar-Jordan border,,supplementary_table,excavation_site
+KU605068-KU605080,Camelus dromedarius,Sagalassos,sagalassos,Sagalassos,,supplementary_table,excavation_site
+KU605068-KU605080,Camelus dromedarius,Saudi Arabia,saudiarabia,Saudi Arabia,,supplementary_table,excavation_site
+KU605068-KU605080,Camelus dromedarius,Sudan,sudan,Sudan,,supplementary_table,excavation_site
+KX379528-KX379529,Canis lupus familiaris,Cherry Tree Cave,cherrytreecave,Cherry Tree Cave,,supplementary_table,excavation_site
+KX379528-KX379529,Canis lupus familiaris,Herxheim,herxheim,Herxheim,,supplementary_table,excavation_site
 PRJEB19970,Equus caballus,Arzhan I,arzhani,Arzhan I,,supplementary_table,excavation_site
 PRJEB19970,Equus caballus,Berel',berel,Berel',,supplementary_table,excavation_site
 PRJEB19970,Equus caballus,N/A,na,N/A,,supplementary_table,excavation_site
@@ -290,3 +301,4 @@ SRP073444,Camelus dromedarius,Site 1040 near Wadi Halfa,site1040nearwadihalfa,Si
 SRP073444,Camelus dromedarius,Site 1040 near Wadi Halfa dromedary context,site1040nearwadihalfadromedarycontext,Wadi Halfa,Wadi Halfa,coordinate_resolution,country
 SRS1407451,Canis lupus familiaris,Ancient European dog CTC sample context,ancienteuropeandogctcsamplecontext,Ancient European dog CTC sample context;Central Europe multi-site dog context,Central Europe multi-site dog context,article_text;coordinate_resolution;supplementary_table,broader_locality
 SRS1407451,Canis lupus familiaris,Herxheim and Cherry Tree Cave ancient dog contexts,herxheimandcherrytreecaveancientdogcontexts,Herxheim and Cherry Tree Cave ancient dog contexts,,article_text,broader_locality
+SRS1407453,Canis lupus familiaris,Herxheim,herxheim,Herxheim,,supplementary_table,excavation_site

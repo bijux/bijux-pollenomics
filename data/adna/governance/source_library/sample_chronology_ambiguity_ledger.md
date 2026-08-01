@@ -1,6 +1,6 @@
 # Sample chronology ambiguity ledger
 
-- Rows requiring chronology review: `838`
+- Rows requiring chronology review: `827`
 
 | Project accession | Sample id | Strength | Normalization | Chronology | Note |
 | --- | --- | --- | --- | --- | --- |
@@ -806,22 +806,11 @@
 | PRJEB90261 | prjeb90261:pgull-2230 | sample_owned_text_only / sample_approximate_or_modeled | text_only_unparsed | 17th - 18th centuries CE (SU201) | Sample-owned chronology text disagrees with the project-level chronology wording. |
 | PRJEB90261 | prjeb90261:pgull-2235 | sample_owned_text_only / sample_approximate_or_modeled | text_only_unparsed | 11th - 12th centuries (A; SU15) | Sample-owned chronology text disagrees with the project-level chronology wording. |
 | SRS1407451 | srs1407451:srs1407451 | project_context_interval / contextual_interval | normalized_interval | Ancient European dog genomic context | Chronology falls back to the current project-level context row. |
-| SRS1407453 | srs1407453:srs1407453 | unresolved / unresolved | unresolved |  | No chronology claim has been recovered yet for this sample row. |
-| KX379528-KX379529 | kx379528-kx379529:kx379528 | unresolved / unresolved | unresolved |  | No chronology claim has been recovered yet for this sample row. |
-| KX379528-KX379529 | kx379528-kx379529:kx379529 | unresolved / unresolved | unresolved |  | No chronology claim has been recovered yet for this sample row. |
-| KU605068-KU605080 | ku605068-ku605080:ku605068 | unresolved / unresolved | unresolved |  | No chronology claim has been recovered yet for this sample row. |
-| KU605068-KU605080 | ku605068-ku605080:ku605069 | unresolved / unresolved | unresolved |  | No chronology claim has been recovered yet for this sample row. |
-| KU605068-KU605080 | ku605068-ku605080:ku605070 | unresolved / unresolved | unresolved |  | No chronology claim has been recovered yet for this sample row. |
-| KU605068-KU605080 | ku605068-ku605080:ku605071 | unresolved / unresolved | unresolved |  | No chronology claim has been recovered yet for this sample row. |
-| KU605068-KU605080 | ku605068-ku605080:ku605072 | unresolved / unresolved | unresolved |  | No chronology claim has been recovered yet for this sample row. |
-| KU605068-KU605080 | ku605068-ku605080:ku605073 | unresolved / unresolved | unresolved |  | No chronology claim has been recovered yet for this sample row. |
-| KU605068-KU605080 | ku605068-ku605080:ku605074 | unresolved / unresolved | unresolved |  | No chronology claim has been recovered yet for this sample row. |
-| KU605068-KU605080 | ku605068-ku605080:ku605075 | unresolved / unresolved | unresolved |  | No chronology claim has been recovered yet for this sample row. |
-| KU605068-KU605080 | ku605068-ku605080:ku605076 | unresolved / unresolved | unresolved |  | No chronology claim has been recovered yet for this sample row. |
-| KU605068-KU605080 | ku605068-ku605080:ku605077 | unresolved / unresolved | unresolved |  | No chronology claim has been recovered yet for this sample row. |
-| KU605068-KU605080 | ku605068-ku605080:ku605078 | unresolved / unresolved | unresolved |  | No chronology claim has been recovered yet for this sample row. |
-| KU605068-KU605080 | ku605068-ku605080:ku605079 | unresolved / unresolved | unresolved |  | No chronology claim has been recovered yet for this sample row. |
-| KU605068-KU605080 | ku605068-ku605080:ku605080 | unresolved / unresolved | unresolved |  | No chronology claim has been recovered yet for this sample row. |
+| KX379528-KX379529 | kx379528-kx379529:kx379529 | sample_owned_interval / sample_precise_interval | normalized_interval | 5223-5040 BCE | Sample-owned chronology disagrees with the project-level chronology interval. |
+| KU605068-KU605080 | ku605068-ku605080:ku605068 | sample_owned_interval / sample_precise_interval | normalized_interval | 1650-2050 BP | Sample-owned chronology disagrees with the project-level chronology interval. |
+| KU605068-KU605080 | ku605068-ku605080:ku605069 | sample_owned_interval / sample_precise_interval | normalized_interval | 1650-2050 BP | Sample-owned chronology disagrees with the project-level chronology interval. |
+| KU605068-KU605080 | ku605068-ku605080:ku605070 | sample_owned_interval / sample_precise_interval | normalized_interval | 1650-2050 BP | Sample-owned chronology disagrees with the project-level chronology interval. |
+| KU605068-KU605080 | ku605068-ku605080:ku605071 | sample_owned_interval / sample_precise_interval | normalized_interval | 1250-1500 BP | Sample-owned chronology disagrees with the project-level chronology interval. |
 | PRJEB60484 | prjeb60484:samea112757323 | project_context_interval / contextual_interval | normalized_interval | Ancient Arctic archipelago reindeer context | Chronology falls back to the current project-level context row. |
 | PRJEB60484 | prjeb60484:samea112757324 | project_context_interval / contextual_interval | normalized_interval | Ancient Arctic archipelago reindeer context | Chronology falls back to the current project-level context row. |
 | PRJEB60484 | prjeb60484:samea112757325 | project_context_interval / contextual_interval | normalized_interval | Ancient Arctic archipelago reindeer context | Chronology falls back to the current project-level context row. |

@@ -356,27 +356,27 @@
       "project_accession": "SRS1407453",
       "species_latin_name": "Canis lupus familiaris",
       "recovered_sample_row_count": 1,
-      "normalized_row_count": 0,
-      "exact_sample_date_count": 0,
+      "normalized_row_count": 1,
+      "exact_sample_date_count": 1,
       "modeled_or_approximate_sample_date_count": 0,
       "contextual_date_count": 0,
       "broad_label_count": 0,
       "text_only_unparsed_count": 0,
-      "unresolved_count": 1,
-      "chronology_completeness_ratio": 0.0
+      "unresolved_count": 0,
+      "chronology_completeness_ratio": 1.0
     },
     {
       "project_accession": "KX379528-KX379529",
       "species_latin_name": "Canis lupus familiaris",
       "recovered_sample_row_count": 2,
-      "normalized_row_count": 0,
-      "exact_sample_date_count": 0,
+      "normalized_row_count": 2,
+      "exact_sample_date_count": 2,
       "modeled_or_approximate_sample_date_count": 0,
       "contextual_date_count": 0,
       "broad_label_count": 0,
       "text_only_unparsed_count": 0,
-      "unresolved_count": 2,
-      "chronology_completeness_ratio": 0.0
+      "unresolved_count": 0,
+      "chronology_completeness_ratio": 1.0
     },
     {
       "project_accession": "SRP073444",
@@ -395,14 +395,14 @@
       "project_accession": "KU605068-KU605080",
       "species_latin_name": "Camelus dromedarius",
       "recovered_sample_row_count": 13,
-      "normalized_row_count": 0,
-      "exact_sample_date_count": 0,
+      "normalized_row_count": 13,
+      "exact_sample_date_count": 13,
       "modeled_or_approximate_sample_date_count": 0,
       "contextual_date_count": 0,
       "broad_label_count": 0,
       "text_only_unparsed_count": 0,
-      "unresolved_count": 13,
-      "chronology_completeness_ratio": 0.0
+      "unresolved_count": 0,
+      "chronology_completeness_ratio": 1.0
     },
     {
       "project_accession": "PRJEB50952",

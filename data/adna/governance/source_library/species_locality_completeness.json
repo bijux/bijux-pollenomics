@@ -19,32 +19,32 @@
     {
       "species_latin_name": "Camelus dromedarius",
       "recovered_sample_row_count": 13,
-      "exact_site_evidence_count": 0,
+      "exact_site_evidence_count": 13,
       "broader_locality_evidence_count": 0,
-      "unresolved_geography_count": 13,
-      "excavation_site_count": 0,
+      "unresolved_geography_count": 0,
+      "excavation_site_count": 13,
       "broader_locality_count": 0,
       "municipality_count": 0,
       "region_count": 0,
       "country_count": 0,
       "inferred_place_string_count": 0,
-      "locality_unresolved_count": 13,
-      "locality_completeness_ratio": 0.0
+      "locality_unresolved_count": 0,
+      "locality_completeness_ratio": 1.0
     },
     {
       "species_latin_name": "Canis lupus familiaris",
       "recovered_sample_row_count": 4,
-      "exact_site_evidence_count": 0,
+      "exact_site_evidence_count": 3,
       "broader_locality_evidence_count": 1,
-      "unresolved_geography_count": 3,
-      "excavation_site_count": 0,
+      "unresolved_geography_count": 0,
+      "excavation_site_count": 3,
       "broader_locality_count": 1,
       "municipality_count": 0,
       "region_count": 0,
       "country_count": 0,
       "inferred_place_string_count": 0,
-      "locality_unresolved_count": 3,
-      "locality_completeness_ratio": 0.0
+      "locality_unresolved_count": 0,
+      "locality_completeness_ratio": 0.75
     },
     {
       "species_latin_name": "Capra hircus",

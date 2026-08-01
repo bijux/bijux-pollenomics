@@ -26,10 +26,10 @@ PRJNA1328209,Capra hircus,5,5,0,0,0,0,0,0,
 PRJEB81815,Felis catus,0,0,0,0,0,0,0,0,
 PRJNA1178732,Felis catus,0,0,0,0,0,0,0,0,
 SRS1407451,Canis lupus familiaris,1,0,0,0,0,1,0,1,region_only
-SRS1407453,Canis lupus familiaris,1,0,0,0,0,0,1,1,unresolved
-KX379528-KX379529,Canis lupus familiaris,2,0,0,0,0,0,2,2,unresolved
+SRS1407453,Canis lupus familiaris,1,1,0,0,0,0,0,0,
+KX379528-KX379529,Canis lupus familiaris,2,2,0,0,0,0,0,0,
 SRP073444,Camelus dromedarius,0,0,0,0,0,0,0,0,
-KU605068-KU605080,Camelus dromedarius,13,0,0,0,0,0,13,13,unresolved
+KU605068-KU605080,Camelus dromedarius,13,13,0,0,0,0,0,0,
 PRJEB50952,Equus asinus,0,0,0,0,0,0,0,0,
 PRJEB52849,Equus asinus,0,0,0,0,0,0,0,0,
 PRJEB52590,Equus asinus,0,0,0,0,0,0,0,0,

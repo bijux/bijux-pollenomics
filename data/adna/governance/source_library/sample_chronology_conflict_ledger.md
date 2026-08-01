@@ -1,6 +1,6 @@
 # Sample chronology conflict ledger
 
-- Conflicting rows: `771`
+- Conflicting rows: `776`
 
 | Project accession | Sample id | Evidence class | Precision posture | Chronology | Conflict note |
 | --- | --- | --- | --- | --- | --- |
@@ -775,3 +775,8 @@
 | PRJEB90261 | prjeb90261:pgull-2228 | historical_or_recent_date | sample_approximate_or_modeled | 12th - 13th centuries CE (SU3) | Sample-owned chronology text disagrees with the project-level chronology wording. |
 | PRJEB90261 | prjeb90261:pgull-2230 | historical_or_recent_date | sample_approximate_or_modeled | 17th - 18th centuries CE (SU201) | Sample-owned chronology text disagrees with the project-level chronology wording. |
 | PRJEB90261 | prjeb90261:pgull-2235 | historical_or_recent_date | sample_approximate_or_modeled | 11th - 12th centuries (A; SU15) | Sample-owned chronology text disagrees with the project-level chronology wording. |
+| KX379528-KX379529 | kx379528-kx379529:kx379529 | direct_radiocarbon_date | sample_precise_interval | 5223-5040 BCE | Sample-owned chronology disagrees with the project-level chronology interval. |
+| KU605068-KU605080 | ku605068-ku605080:ku605068 | historical_or_recent_date | sample_precise_interval | 1650-2050 BP | Sample-owned chronology disagrees with the project-level chronology interval. |
+| KU605068-KU605080 | ku605068-ku605080:ku605069 | historical_or_recent_date | sample_precise_interval | 1650-2050 BP | Sample-owned chronology disagrees with the project-level chronology interval. |
+| KU605068-KU605080 | ku605068-ku605080:ku605070 | historical_or_recent_date | sample_precise_interval | 1650-2050 BP | Sample-owned chronology disagrees with the project-level chronology interval. |
+| KU605068-KU605080 | ku605068-ku605080:ku605071 | historical_or_recent_date | sample_precise_interval | 1250-1500 BP | Sample-owned chronology disagrees with the project-level chronology interval. |

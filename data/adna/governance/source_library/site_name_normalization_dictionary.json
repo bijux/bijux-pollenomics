@@ -2,6 +2,182 @@
   "schema_version": "animal-site-name-normalization-dictionary.v1",
   "rows": [
     {
+      "project_accession": "KU605068-KU605080",
+      "species_latin_name": "Camelus dromedarius",
+      "normalized_display_spelling": "Austria",
+      "geocoding_safe_token": "austria",
+      "original_source_spellings": [
+        "Austria"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "KU605068-KU605080",
+      "species_latin_name": "Camelus dromedarius",
+      "normalized_display_spelling": "Dubai",
+      "geocoding_safe_token": "dubai",
+      "original_source_spellings": [
+        "Dubai"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "KU605068-KU605080",
+      "species_latin_name": "Camelus dromedarius",
+      "normalized_display_spelling": "Kenya",
+      "geocoding_safe_token": "kenya",
+      "original_source_spellings": [
+        "Kenya"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "KU605068-KU605080",
+      "species_latin_name": "Camelus dromedarius",
+      "normalized_display_spelling": "Pakistan",
+      "geocoding_safe_token": "pakistan",
+      "original_source_spellings": [
+        "Pakistan"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "KU605068-KU605080",
+      "species_latin_name": "Camelus dromedarius",
+      "normalized_display_spelling": "Palmyra",
+      "geocoding_safe_token": "palmyra",
+      "original_source_spellings": [
+        "Palmyra"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "KU605068-KU605080",
+      "species_latin_name": "Camelus dromedarius",
+      "normalized_display_spelling": "Qatar-Jordan border",
+      "geocoding_safe_token": "qatarjordanborder",
+      "original_source_spellings": [
+        "Qatar-Jordan border"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "KU605068-KU605080",
+      "species_latin_name": "Camelus dromedarius",
+      "normalized_display_spelling": "Sagalassos",
+      "geocoding_safe_token": "sagalassos",
+      "original_source_spellings": [
+        "Sagalassos"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "KU605068-KU605080",
+      "species_latin_name": "Camelus dromedarius",
+      "normalized_display_spelling": "Saudi Arabia",
+      "geocoding_safe_token": "saudiarabia",
+      "original_source_spellings": [
+        "Saudi Arabia"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "KU605068-KU605080",
+      "species_latin_name": "Camelus dromedarius",
+      "normalized_display_spelling": "Sudan",
+      "geocoding_safe_token": "sudan",
+      "original_source_spellings": [
+        "Sudan"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "KX379528-KX379529",
+      "species_latin_name": "Canis lupus familiaris",
+      "normalized_display_spelling": "Cherry Tree Cave",
+      "geocoding_safe_token": "cherrytreecave",
+      "original_source_spellings": [
+        "Cherry Tree Cave"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "KX379528-KX379529",
+      "species_latin_name": "Canis lupus familiaris",
+      "normalized_display_spelling": "Herxheim",
+      "geocoding_safe_token": "herxheim",
+      "original_source_spellings": [
+        "Herxheim"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
       "project_accession": "PRJEB19970",
       "species_latin_name": "Equus caballus",
       "normalized_display_spelling": "Arzhan I",
@@ -4698,6 +4874,22 @@
       ],
       "locality_classes": [
         "broader_locality"
+      ]
+    },
+    {
+      "project_accession": "SRS1407453",
+      "species_latin_name": "Canis lupus familiaris",
+      "normalized_display_spelling": "Herxheim",
+      "geocoding_safe_token": "herxheim",
+      "original_source_spellings": [
+        "Herxheim"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
       ]
     }
   ]

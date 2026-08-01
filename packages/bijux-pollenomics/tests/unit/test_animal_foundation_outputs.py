@@ -133,9 +133,9 @@ class AnimalFoundationOutputsUnitTests(unittest.TestCase):
             payload["schema_version"], "animal-sample-chronology-review.v1"
         )
         self.assertEqual(payload["row_count"], 868)
-        self.assertEqual(payload["normalization_counts"]["normalized_interval"], 296)
-        self.assertEqual(payload["normalization_counts"]["normalized_point"], 469)
-        self.assertEqual(payload["normalization_counts"]["unresolved"], 16)
+        self.assertEqual(payload["normalization_counts"]["normalized_interval"], 303)
+        self.assertEqual(payload["normalization_counts"]["normalized_point"], 478)
+        self.assertEqual(payload["normalization_counts"]["unresolved"], 0)
         self.assertEqual(payload["precision_counts"]["contextual_interval"], 50)
         self.assertTrue(
             any(

@@ -1,11 +1,11 @@
 # Sample chronology normalization audit
 
 - Sample rows: `868`
-- Normalized intervals: `296`
-- Normalized points: `469`
+- Normalized intervals: `303`
+- Normalized points: `478`
 - Text-only rows: `87`
-- Unresolved rows: `16`
-- Direct radiocarbon rows: `729`
+- Unresolved rows: `0`
+- Direct radiocarbon rows: `732`
 - Modeled sample-date rows: `0`
 - Archaeological-context rows: `30`
 - Broad period rows: `0`
@@ -19,7 +19,6 @@
 - `PRJEB36540`
 - `PRJEB90141`
 - `PRJEB90261`
-- `SRS1407453`
 - `KX379528-KX379529`
 - `KU605068-KU605080`
 
@@ -52,10 +51,10 @@
 | PRJEB81815 | 0 | 0 | 0 | 0 | 0 | 0 |
 | PRJNA1178732 | 0 | 0 | 0 | 0 | 0 | 0 |
 | SRS1407451 | 1 | 1 | 0 | 0 | 0 | 0 |
-| SRS1407453 | 1 | 0 | 0 | 0 | 1 | 0 |
-| KX379528-KX379529 | 2 | 0 | 0 | 0 | 2 | 0 |
+| SRS1407453 | 1 | 1 | 0 | 0 | 0 | 0 |
+| KX379528-KX379529 | 2 | 2 | 0 | 0 | 0 | 1 |
 | SRP073444 | 0 | 0 | 0 | 0 | 0 | 0 |
-| KU605068-KU605080 | 13 | 0 | 0 | 0 | 13 | 0 |
+| KU605068-KU605080 | 13 | 4 | 9 | 0 | 0 | 4 |
 | PRJEB50952 | 0 | 0 | 0 | 0 | 0 | 0 |
 | PRJEB52849 | 0 | 0 | 0 | 0 | 0 | 0 |
 | PRJEB52590 | 0 | 0 | 0 | 0 | 0 | 0 |
