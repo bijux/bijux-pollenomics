@@ -47,7 +47,7 @@ The Nordic publication illustrates why these counts must remain separate:
 | SEAD | 2,172 mapped sites | environmental-archaeology context; 23 additional reviewed rows lack country assignment |
 | animal aDNA | 2 Nordic localities | admitted animal points in this regional product, not the size of the global animal evidence base |
 | fieldwork | 1 documented location | a checked-in observation at Lyngsjön, not a regional sampling census |
-| REVEALS | 2,500 dataset-cell-window features across 88 aggregate cells | time-filterable modelled vegetation context |
+| REVEALS | 2,809 dataset-cell-window features across 88 aggregate cells | time-filterable modelled vegetation context |
 | RAÄ | 106 density cells | Sweden-specific archaeology density context |
 | boundaries | 4 country polygons | geographic framing only |
 

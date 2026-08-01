@@ -23,7 +23,7 @@ The checked-in normalized state contains:
 | pollen site-sequence rows | 492 | dataset-specific site sequence |
 | rows with supported numeric time bounds | 482 | site sequence with numeric BP posture |
 | aggregate REVEALS grid cells | 88 | discovery summary of reconstructed vegetation coverage |
-| temporal REVEALS grid features | 2,500 | one dataset, cell, and published window |
+| temporal REVEALS grid features | 2,809 | one dataset, cell, and published window |
 | distinct modeled windows | 25 | explicit BP intervals available to the time filter |
 
 The normalized artifacts are:
@@ -51,7 +51,7 @@ its sequence identity or temporal posture.
 ```mermaid
 flowchart LR
     Datasets["3 cited PANGAEA datasets"] --> Sites["492 site-sequence rows"]
-    Datasets --> Grids["2,500 dataset-cell-window features"]
+    Datasets --> Grids["2,809 dataset-cell-window features"]
     Sites --> Time["482 rows with numeric BP bounds"]
     Sites --> Context["pollen-site context layer"]
     Grids --> Filter["atlas time filter"]
@@ -85,11 +85,14 @@ claims the whole Holocene. A selected window is still a modeled vegetation
 estimate, not a sample-owned chronology or evidence of a continuous value
 between adjacent windows.
 
-LandClim I contributes 375 grid-window features across five windows. LandClim
-II contributes 2,125 across 25 windows and retains standard errors and cell
-quality where supplied. All 2,500 features have numeric bounds and bibliography
-links. The ten LandClim II site sequences without upstream numeric bounds remain
-explicitly unresolved rather than receiving synthetic dates.
+The Marquer reconstruction contributes 309 grid-window features across 13
+Nordic cells and 25 windows. LandClim I contributes 375 features across five
+windows. LandClim II contributes 2,125 across 25 windows and retains standard
+errors and cell quality where supplied. All 2,809 features have numeric bounds
+and bibliography links. Missing source estimates remain absent rather than
+becoming zero cover. The ten LandClim II site sequences without upstream
+numeric bounds remain explicitly unresolved rather than receiving synthetic
+dates.
 
 ## Worked Record: Aal Præstesø
 
@@ -126,7 +129,7 @@ Keep record identity, source DOI, geometry type, observation unit, dataset,
 time bounds and label, record count, and popup/source details with each row.
 When aggregating, keep site sequences, aggregate discovery cells, and temporal
 grid features separate. State whether the denominator is 492 site rows, 482
-numerically qualified site rows, 88 aggregate cells, or 2,500
+numerically qualified site rows, 88 aggregate cells, or 2,809
 dataset-cell-window features. Preserve `dataset_id`, `parent_grid_record_id`,
 numeric BP bounds, reconstruction values, uncertainty, and bibliography keys
 when extracting temporal features.

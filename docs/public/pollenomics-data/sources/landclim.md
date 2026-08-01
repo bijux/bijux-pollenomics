@@ -23,7 +23,7 @@ The current governed summary records:
 | normalized site sequences | 492 | pollen-context points retained after family-specific normalization |
 | sequences with numeric BP intervals | 482 | records eligible for bounded temporal comparison at site-sequence level |
 | aggregate REVEALS grid cells | 88 | discovery summaries across the captured reconstruction windows |
-| temporal REVEALS grid features | 2,500 | dataset-specific cell and modeled time-window combinations |
+| temporal REVEALS grid features | 2,809 | dataset-specific cell and modeled time-window combinations |
 | distinct modeled windows | 25 | explicit windows from `0–100 BP` through `11200–11700 BP` |
 | dataset citations / publication references | 3 / 4 | governed bibliography linked to normalized evidence |
 
@@ -110,11 +110,13 @@ to one modeled estimate for one grid cell and published window. Neither is an
 event date, and neither automatically aligns with every sample inside the same
 interval.
 
-The temporal grid keeps 2,500 dataset-cell-window features separate: 375 from
-LandClim I across five windows and 2,125 from LandClim II across 25 windows.
+The temporal grid keeps 2,809 dataset-cell-window features separate: 309 from
+the Marquer reconstruction across 13 Nordic cells and 25 windows, 375 from
+LandClim I across five windows, and 2,125 from LandClim II across 25 windows.
 Each feature carries numeric BP bounds and bibliography keys. Atlas time
 filtering therefore selects published estimates rather than treating a cell's
-full Holocene coverage as one continuous value.
+full Holocene coverage as one continuous value. Source combinations without a
+published estimate remain absent; they are not converted to zero cover.
 
 The ten sequences without numeric intervals remain spatial pollen context.
 They are not assigned synthetic dates to make the family appear uniformly
@@ -187,13 +189,14 @@ the evidence needed to cite or interpret its values.
 
 | Dataset | Captured temporal role | Principal linked reading |
 | --- | --- | --- |
-| PANGAEA 900966 | site-sequence intervals in the Nordic capture; its grid table is not yet normalized into the temporal atlas layer | Marquer et al. (2017) and Sugita (2007) |
+| PANGAEA 900966 | 309 Nordic grid-window estimates across 13 cells and 25 published windows | Marquer et al. (2017) and Sugita (2007) |
 | PANGAEA 897303 | LandClim I grid estimates across five published windows | Trondman et al. (2015) and Sugita (2007) |
 | PANGAEA 937075 | LandClim II estimates and standard errors across 25 published windows | Githumbi et al. (2022), Trondman et al. (2015), and Sugita (2007) |
 
-The absence of normalized temporal polygons for dataset 900966 is explicit in
-the review packet. Its 54 site-sequence rows still carry numeric intervals; it
-is not silently counted among the 2,500 grid-window features.
+The review packet keeps all three datasets visible separately. It also records
+the 54 site-sequence rows associated with dataset 900966, preventing its site
+intervals and 309 modeled grid-window estimates from being collapsed into one
+denominator.
 
 ### Compare Pollen Families Without Flattening Their Units
 
