@@ -436,6 +436,7 @@ def render_lake_evidence_richness_markdown(
     registry_backed = _is_registry_backed_report(report)
     sampling_note = _render_optional_methodology_note(report, "sampling_note")
     sampling_note_row = f"- Sampling note: {sampling_note}" if sampling_note else ""
+    temporal_navigation = _render_temporal_navigation(report)
     overall_rows = (
         "\n".join(
             (
@@ -476,6 +477,7 @@ This report ranks Sweden lake candidates by the richness of tracked pollen, arch
 - Human aDNA weighting: {_render_human_weighting(report)}
 - Ranking decision rule: {_render_ranking_decision_rule(report)}
 - Temporal alignment rule: {_render_temporal_alignment_rule(report)}
+- Time-navigation coverage: {temporal_navigation}
 - Source temporal coverage: {_render_source_temporal_coverage(report)}
 {sampling_note_row}
 - Archaeology note: {report.methodology["archaeology_note"]}
@@ -486,6 +488,7 @@ This report ranks Sweden lake candidates by the richness of tracked pollen, arch
 
 - Human aDNA remains the gatekeeper layer: lakes without at least one nearby human locality inside 50 km do not stay in the ranked candidate set.
 - Spatial context is not the same as chronology support: source layers with zero numeric intervals remain visible for surrounding evidence density, but they do not contribute chronology-overlap strength.
+- Nearby time context is not lake chronology: map windows summarize numeric pollen, SEAD, or aDNA records within 50 km and label that role explicitly. Direct lake pollen chronology remains a separate field in the CSV and JSON.
 - Partial chronology remains explicit: Neotoma records with BP intervals can strengthen time-aware comparisons, while unresolved or label-only records stay visible without being promoted to same-period evidence.
 
 ## Aggregate Ranking
@@ -519,7 +522,9 @@ def render_lake_evidence_richness_map_html(
         eyebrow_label="Sweden Lake Evidence",
         summary=(
             "This map highlights Sweden lake candidates ranked by surrounding pollen, "
-            "archaeology, human aDNA, and domesticated-animal aDNA evidence."
+            "archaeology, human aDNA, and domesticated-animal aDNA evidence. Time "
+            "navigation uses explicitly labeled nearby context windows and does not "
+            "present them as chronology measured from the lake."
         ),
         bounds_summary=(
             "The opening extent follows the Sweden candidate registry rather than the "
@@ -1307,6 +1312,23 @@ def _render_temporal_alignment_rule(report: LakeEvidenceRichnessReport) -> str:
     return (
         "time-aware chronology remains visible where available, but the ranking does "
         "not currently promote chronology overlap as a separate rule"
+    )
+
+
+def _render_temporal_navigation(report: LakeEvidenceRichnessReport) -> str:
+    payload = report.methodology.get("temporal_navigation")
+    if not isinstance(payload, dict):
+        return "no governed candidate-level navigation summary is available"
+    candidates = int(payload.get("candidate_count", 0) or 0)
+    contextual = int(payload.get("candidate_with_numeric_context_count", 0) or 0)
+    direct = int(payload.get("candidate_with_direct_numeric_pollen_count", 0) or 0)
+    summaries = int(payload.get("context_summary_count", 0) or 0)
+    radius = int(payload.get("context_radius_km", 0) or 0)
+    return (
+        f"{contextual}/{candidates} ranked lakes have numeric navigation context; "
+        f"{direct}/{candidates} have direct numeric pollen chronology. The map "
+        f"publishes {summaries} source-family/window summaries within {radius} km, "
+        "with nearby context kept separate from lake-owned chronology"
     )
 
 

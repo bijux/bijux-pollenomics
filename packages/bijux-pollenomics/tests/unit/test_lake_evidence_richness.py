@@ -1311,8 +1311,8 @@ def test_lake_evidence_richness_packets_write_reviewable_outputs() -> None:
         )
         assert geojson["type"] == "FeatureCollection"
         assert geojson["features"][0]["properties"]["name"] == "Alpha"
-        assert geojson["features"][0]["properties"]["time_start_bp"] == 2500
-        assert geojson["features"][0]["properties"]["time_end_bp"] == 3500
+        assert geojson["features"][0]["properties"]["time_start_bp"] == 1001
+        assert geojson["features"][0]["properties"]["time_end_bp"] == 3000
         assert (
             geojson["features"][0]["properties"]["temporal_semantics"]["evidence_class"]
             == "nearby_lake_context_summary"
@@ -1326,6 +1326,8 @@ def test_lake_evidence_richness_packets_write_reviewable_outputs() -> None:
         assert "Why The Baseline Is 0.07" in archaeology_markdown
         assert "RAÄ density alone" in archaeology_markdown
         assert "## Interpretation guardrails" in markdown
+        assert "1/1 ranked lakes have numeric navigation context" in markdown
+        assert "Nearby time context is not lake chronology" in markdown
         assert "## 10 km Ranking" in markdown
         assert "Lake registry id" in markdown
         assert "not_available" in markdown

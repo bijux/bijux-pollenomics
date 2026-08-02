@@ -56,6 +56,11 @@ _POSITION_NOTE_PATTERNS = (
 _GENERIC_LAKE_TOKENS = {"lake"}
 _LAKE_MATCH_DISTANCE_KM = 2.0
 _COORDINATE_SPREAD_FLAG_KM = 0.75
+_TEMPORAL_NAVIGATION_INTERVALS = {
+    "recent_historical": (0, 1000),
+    "late_holocene": (1001, 3000),
+    "mid_holocene": (3001, 6000),
+}
 
 
 @dataclass(frozen=True)
@@ -1121,15 +1126,23 @@ def _summarize_candidate_temporal_context(
             for point in points
             if point.time_start_bp is not None and point.time_end_bp is not None
         ]
-        time_start_bp = min(interval[0] for interval in intervals)
-        time_end_bp = max(interval[1] for interval in intervals)
+        observed_end_bp = max(interval[1] for interval in intervals)
+        governed_interval = _TEMPORAL_NAVIGATION_INTERVALS.get(window_key)
+        if governed_interval is None:
+            time_start_bp = 6001
+            time_end_bp = max(6001, observed_end_bp)
+        else:
+            time_start_bp, time_end_bp = governed_interval
         means = [
             point.time_mean_bp
             if point.time_mean_bp is not None
             else round((interval[0] + interval[1]) / 2)
             for point, interval in zip(points, intervals, strict=True)
         ]
-        time_mean_bp = round(sum(means) / len(means))
+        time_mean_bp = min(
+            time_end_bp,
+            max(time_start_bp, round(sum(means) / len(means))),
+        )
         _, window_label = resolve_temporal_window(
             time_start_bp=points[0].time_start_bp,
             time_end_bp=points[0].time_end_bp,
@@ -1143,8 +1156,8 @@ def _summarize_candidate_temporal_context(
         )
         comparison_note = (
             f"{len(points)} source record(s) within 50 km provide {window_label} "
-            "context. The interval summarizes nearby evidence and must not be read "
-            "as chronology measured from the lake."
+            "context. The published interval is the governed navigation window, "
+            "not a merged date range and not chronology measured from the lake."
         )
         semantics = build_temporal_semantics(
             source_family=source_layer_key,
@@ -1160,7 +1173,8 @@ def _summarize_candidate_temporal_context(
                 sorted({point.time_label for point in points if point.time_label})
             ),
             uncertainty_notes=(
-                "The summary interval spans nearby records and is not a lake-owned date.",
+                "Underlying source intervals may extend beyond this navigation window.",
+                "The summary is nearby context and is not a lake-owned date.",
             ),
         ).as_dict()
         semantics["context_record_count"] = len(points)
