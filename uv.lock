@@ -1,6 +1,6 @@
 version = 1
 revision = 3
-requires-python = ">=3.11"
+requires-python = ">=3.11, <4"
 
 [manifest]
 members = [
@@ -206,7 +206,7 @@ requires-dist = [
     { name = "pip-audit", marker = "extra == 'dev'", specifier = ">=2.7.3" },
     { name = "pymdown-extensions", marker = "extra == 'dev'", specifier = ">=10.15" },
     { name = "pyproj", specifier = ">=3.7.1" },
-    { name = "ruff", marker = "extra == 'dev'", specifier = ">=0.13.0" },
+    { name = "ruff", marker = "extra == 'dev'", specifier = ">=0.13.0,<1.0" },
     { name = "twine", marker = "extra == 'dev'", specifier = ">=6.1.0" },
 ]
 provides-extras = ["dev"]

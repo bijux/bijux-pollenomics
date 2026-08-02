@@ -6,7 +6,7 @@ build-backend = "hatchling.build"
 name = "pollenomics"
 description = "Compatibility alias package for bijux-pollenomics."
 readme = "README.md"
-requires-python = ">=3.11"
+requires-python = ">=3.11,<4"
 license = { text = "Apache-2.0" }
 authors = [
     { name = "Bijan Mousavi", email = "bijan@bijux.io" },
