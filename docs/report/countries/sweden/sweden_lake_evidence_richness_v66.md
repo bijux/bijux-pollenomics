@@ -13,6 +13,7 @@ Coordinates resolve to representative points drawn from official SMHI SVAR lake 
 - Human aDNA weighting: human aDNA contributes 0.59 of each band score, direct pollen contributes 0.14, nearby pollen contributes 0.07, and archaeology contributes 0.07
 - Ranking decision rule: Aggregate and band ranks sort first by human aDNA locality and sample coverage, then by direct pollen support, then by broader pollen and archaeology context, with sampling fit and blended score used as later tie-breakers.
 - Temporal alignment rule: Neotoma pollen and SEAD archaeology remain lake-anchored context layers, but their stronger chronology contribution comes only from records with numeric BP intervals that overlap nearby human locality windows.
+- Time-navigation coverage: 26/26 ranked lakes have numeric navigation context; 15/26 have direct numeric pollen chronology. The map publishes 235 source-family/window summaries within 50 km, with nearby context kept separate from lake-owned chronology
 - Source temporal coverage: Neotoma 81/99 numeric-interval records (BP site spans available; chronology rows absent in checked-in raw capture; use Neotoma to compare pollen context around lakes; only promote it into chronology-aware support when a numeric interval is actually present.), LandClim 190/198 numeric-interval records (LandClim sequence points carry explicit temporal posture and REVEALS model cells are published as separate, filterable time-window records.), SEAD 777/2007 numeric-interval records (partial chronology coverage)
 - Sampling note: Lake suitability remains separate from evidence density. Very small basins stay visible but score lower, while registry names that clearly point to wetlands, pits, ponds, or engineered water bodies do not enter the ranked shortlist.
 - Archaeology note: SEAD contributes site-level point counts and gains stronger weight when those site spans are numerically comparable and overlap nearby human locality windows. RAÄ contributes coarse density cells, so the archaeology term still measures surrounding evidence richness rather than exact site-to-lake proximity.
@@ -23,6 +24,7 @@ Coordinates resolve to representative points drawn from official SMHI SVAR lake 
 
 - Human aDNA remains the gatekeeper layer: lakes without at least one nearby human locality inside 50 km do not stay in the ranked candidate set.
 - Spatial context is not the same as chronology support: source layers with zero numeric intervals remain visible for surrounding evidence density, but they do not contribute chronology-overlap strength.
+- Nearby time context is not lake chronology: map windows summarize numeric pollen, SEAD, or aDNA records within 50 km and label that role explicitly. Direct lake pollen chronology remains a separate field in the CSV and JSON.
 - Partial chronology remains explicit: Neotoma records with BP intervals can strengthen time-aware comparisons, while unresolved or label-only records stay visible without being promoted to same-period evidence.
 
 ## Aggregate Ranking
