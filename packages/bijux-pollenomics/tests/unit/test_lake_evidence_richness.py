@@ -376,6 +376,15 @@ def test_build_sweden_lake_evidence_richness_report_ranks_multi_signal_lakes() -
         assert top.candidate.latitude == 57.0005
         assert top.candidate.longitude == 14.0005
         assert top.candidate.representative_source_record == "landclim-sites:l1"
+        sensitivity = build_lake_archaeology_sensitivity_payload(report)
+        alpha_baseline = next(
+            row
+            for row in sensitivity["rows"]
+            if row["profile_key"] == "baseline" and row["lake_label"] == "Alpha"
+        )
+        assert alpha_baseline["sead_temporal_context_window_count"] == 1
+        assert alpha_baseline["sead_temporal_context_record_count"] == 2
+        assert alpha_baseline["temporal_context_windows"] == "late_holocene"
 
 
 def test_build_sweden_lake_evidence_richness_report_prefers_svar_lakes() -> None:

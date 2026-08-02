@@ -39,6 +39,12 @@ def build_lake_archaeology_sensitivity_payload(
         weights = _profile_weights(archaeology_weight)
         rows = []
         for assessment in report.assessments:
+            temporal_context = assessment.candidate.temporal_context_points
+            sead_temporal_context = tuple(
+                point
+                for point in temporal_context
+                if point.source_layer_key.startswith("sead")
+            )
             band_scores = [
                 _reweighted_band_score(
                     band=band,
@@ -64,6 +70,23 @@ def build_lake_archaeology_sensitivity_payload(
                     "archaeology_signal_20km": _band_20(
                         assessment.band_scores
                     ).archaeology_signal,
+                    "temporal_context_window_count": len(temporal_context),
+                    "temporal_context_windows": "; ".join(
+                        sorted(
+                            {
+                                str(
+                                    (point.temporal_semantics or {}).get(
+                                        "temporal_window_key", "unresolved"
+                                    )
+                                )
+                                for point in temporal_context
+                            }
+                        )
+                    ),
+                    "sead_temporal_context_window_count": len(sead_temporal_context),
+                    "sead_temporal_context_record_count": sum(
+                        point.record_count for point in sead_temporal_context
+                    ),
                 }
             )
         rows.sort(key=lambda row: (-float(row["aggregate_score"]), row["lake_label"]))
@@ -125,6 +148,12 @@ def build_lake_archaeology_sensitivity_payload(
                 "records are inspected and temporally compatible. RAÄ density alone is "
                 "a discovery prompt, never sufficient promotion evidence."
             ),
+            "temporal_qualification_rule": (
+                "Each sensitivity row publishes the candidate's available temporal "
+                "context windows and the count of nearby numeric SEAD records. A "
+                "weight change remains a static robustness check; interpretation in "
+                "a particular period requires a matching SEAD context window."
+            ),
             "ranking_note": (
                 "Sensitivity rank is score-ordered for isolating weight effects; the "
                 "published engine rank separately applies direct-evidence tie-breakers."
@@ -157,6 +186,10 @@ def write_lake_archaeology_sensitivity_csv(
         "rank_shift_from_baseline",
         "aggregate_score",
         "archaeology_signal_20km",
+        "temporal_context_window_count",
+        "temporal_context_windows",
+        "sead_temporal_context_window_count",
+        "sead_temporal_context_record_count",
     )
     with path.open("w", encoding="utf-8", newline="") as handle:
         writer = csv.DictWriter(handle, fieldnames=fieldnames, lineterminator="\n")
@@ -175,6 +208,8 @@ def render_lake_archaeology_sensitivity_markdown(
     rows = "\n".join(
         f"| {row['sensitivity_rank']} | {row['lake_label']} | "
         f"{row['aggregate_score']:.4f} | {row['archaeology_signal_20km']:.4f} | "
+        f"{row['sead_temporal_context_window_count']} | "
+        f"{row['sead_temporal_context_record_count']} | "
         f"{int(row['rank_shift_from_baseline']):+d} |"
         for row in emphasized
     )
@@ -195,6 +230,8 @@ The archaeology component is itself bounded: {methodology["archaeology_signal_co
 
 {methodology["decision_rule"]}
 
+{methodology["temporal_qualification_rule"]}
+
 {methodology["ranking_note"]}
 
 The maximum absolute movement across the tested profiles is
@@ -202,8 +239,8 @@ The maximum absolute movement across the tested profiles is
 
 ## Archaeology-Emphasis Top 20
 
-| Rank | Lake | Score | Archaeology signal at 20 km | Shift from baseline |
-| ---: | --- | ---: | ---: | ---: |
+| Rank | Lake | Score | Archaeology signal at 20 km | SEAD time windows | Numeric SEAD records | Shift from baseline |
+| ---: | --- | ---: | ---: | ---: | ---: | ---: |
 {rows}
 """
 
