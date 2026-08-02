@@ -37,11 +37,16 @@ tag_format = "v$version"
 update_changelog_on_bump = false
 
 [tool.bijux_pollenomics]
+repository = "bijux-pollenomics"
 api_dir = "apis"
 packages = [
     "bijux-pollenomics",
     "pollenomics",
     "bijux-pollenomics-dev",
+]
+badge_packages = [
+    "bijux-pollenomics",
+    "pollenomics",
 ]
 docs_package = "bijux-pollenomics-dev"
 config_dir = "configs"
