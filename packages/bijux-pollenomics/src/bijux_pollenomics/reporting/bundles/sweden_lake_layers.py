@@ -384,16 +384,18 @@ def _build_feature_collection(
 
 
 def _parse_temporal_evidence(row: dict[str, str]) -> tuple[dict[str, object], ...]:
-    payload = row.get("direct_pollen_temporal_evidence", "").strip()
+    field_name = "temporal_context_evidence"
+    payload = row.get(field_name, "").strip()
+    if not payload:
+        field_name = "direct_pollen_temporal_evidence"
+        payload = row.get(field_name, "").strip()
     if not payload:
         return ()
     decoded = json.loads(payload)
     if not isinstance(decoded, list) or not all(
         isinstance(item, dict) for item in decoded
     ):
-        raise ValueError(
-            "direct_pollen_temporal_evidence must be a JSON list of objects"
-        )
+        raise ValueError(f"{field_name} must be a JSON list of objects")
     return tuple(decoded)
 
 
@@ -409,8 +411,8 @@ def _temporal_properties(
             "temporal_semantics": {
                 "comparability_posture": "unresolved",
                 "comparison_note": (
-                    "The lake identity remains visible, but no direct pollen record "
-                    "with a numeric interval supports time filtering."
+                    "The lake identity remains visible, but no numeric direct or "
+                    "nearby contextual interval supports time filtering."
                 ),
             },
         }
@@ -427,17 +429,32 @@ def _temporal_popup_rows(
     evidence: dict[str, object] | None,
 ) -> list[dict[str, str]]:
     if evidence is None:
-        return [
-            {"label": "Temporal support", "value": "No numeric direct-pollen interval"}
-        ]
+        return [{"label": "Temporal support", "value": "No numeric temporal context"}]
     time_label = str(evidence.get("time_label", "")).strip()
     if not time_label:
         time_label = f"{evidence.get('time_start_bp')}–{evidence.get('time_end_bp')} BP"
     return [
-        {"label": "Temporal support", "value": time_label},
+        {
+            "label": "Temporal support",
+            "value": (
+                f"{time_label} ({str(evidence.get('evidence_role', 'direct_lake_evidence')).replace('_', ' ')})"
+            ),
+        },
         {
             "label": "Temporal source",
             "value": str(evidence.get("source_record", "")).strip(),
+        },
+        {
+            "label": "Context records",
+            "value": str(evidence.get("record_count", 1)),
+        },
+        {
+            "label": "Context radius",
+            "value": (
+                f"{evidence.get('context_radius_km')} km"
+                if evidence.get("context_radius_km") is not None
+                else "Direct lake evidence"
+            ),
         },
     ]
 

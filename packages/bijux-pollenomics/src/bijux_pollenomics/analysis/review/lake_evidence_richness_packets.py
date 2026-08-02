@@ -106,6 +106,7 @@ def write_lake_evidence_richness_band_csv(
         "supporting_source_records",
         "supporting_source_points",
         "direct_pollen_temporal_evidence",
+        "temporal_context_evidence",
         "aggregate_rank",
         "aggregate_score",
         "scenario_top20_presence_count",
@@ -185,6 +186,9 @@ def write_lake_evidence_richness_band_csv(
                             for source_point in candidate.supporting_source_points
                         ),
                         "direct_pollen_temporal_evidence": _render_temporal_evidence_json(
+                            candidate
+                        ),
+                        "temporal_context_evidence": _render_context_evidence_json(
                             candidate
                         ),
                         "aggregate_rank": assessment.aggregate_rank,
@@ -271,6 +275,7 @@ def write_lake_evidence_richness_registry_csv(
         "supporting_source_records",
         "supporting_source_points",
         "direct_pollen_temporal_evidence",
+        "temporal_context_evidence",
         "direct_pollen_source_count",
         "direct_pollen_record_count",
         "time_aware_direct_pollen_records",
@@ -339,6 +344,9 @@ def write_lake_evidence_richness_registry_csv(
                     "direct_pollen_temporal_evidence": _render_temporal_evidence_json(
                         candidate
                     ),
+                    "temporal_context_evidence": _render_context_evidence_json(
+                        candidate
+                    ),
                     "direct_pollen_source_count": candidate.direct_pollen_source_count,
                     "direct_pollen_record_count": candidate.direct_pollen_record_count,
                     "time_aware_direct_pollen_records": candidate.time_aware_direct_pollen_records,
@@ -381,6 +389,7 @@ def write_lake_evidence_richness_scenario_csv(
         "ambiguity_flags",
         "ambiguity_note",
         "direct_pollen_temporal_evidence",
+        "temporal_context_evidence",
     )
     with path.open("w", encoding="utf-8", newline="") as handle:
         writer = csv.DictWriter(handle, fieldnames=fieldnames, lineterminator="\n")
@@ -649,6 +658,7 @@ def _scenario_rows(report: LakeEvidenceRichnessReport) -> list[dict[str, object]
                 "direct_pollen_temporal_evidence": _render_temporal_evidence_json(
                     candidate
                 ),
+                "temporal_context_evidence": _render_context_evidence_json(candidate),
             }
         )
     for radius in report.radii_km:
@@ -700,6 +710,9 @@ def _scenario_rows(report: LakeEvidenceRichnessReport) -> list[dict[str, object]
                     "direct_pollen_temporal_evidence": _render_temporal_evidence_json(
                         candidate
                     ),
+                    "temporal_context_evidence": _render_context_evidence_json(
+                        candidate
+                    ),
                 }
             )
     fieldwork_rank_map = _fieldwork_rank_map(report)
@@ -746,6 +759,7 @@ def _scenario_rows(report: LakeEvidenceRichnessReport) -> list[dict[str, object]
                 "direct_pollen_temporal_evidence": _render_temporal_evidence_json(
                     candidate
                 ),
+                "temporal_context_evidence": _render_context_evidence_json(candidate),
             }
         )
     return rows
@@ -887,6 +901,14 @@ def _candidate_popup_rows(assessment) -> list[dict[str, str]]:
 def _candidate_temporal_sources(
     candidate,
 ) -> tuple[LakeEvidenceSourceAnchor, ...]:
+    if candidate.temporal_context_points:
+        return candidate.temporal_context_points
+    return _candidate_direct_temporal_sources(candidate)
+
+
+def _candidate_direct_temporal_sources(
+    candidate,
+) -> tuple[LakeEvidenceSourceAnchor, ...]:
     return tuple(
         source_point
         for source_point in candidate.supporting_source_points
@@ -899,8 +921,17 @@ def _render_temporal_evidence_json(candidate) -> str:
     return json.dumps(
         [
             source_point.as_dict()
-            for source_point in _candidate_temporal_sources(candidate)
+            for source_point in _candidate_direct_temporal_sources(candidate)
         ],
+        ensure_ascii=False,
+        separators=(",", ":"),
+        sort_keys=True,
+    )
+
+
+def _render_context_evidence_json(candidate) -> str:
+    return json.dumps(
+        [source_point.as_dict() for source_point in candidate.temporal_context_points],
         ensure_ascii=False,
         separators=(",", ":"),
         sort_keys=True,
@@ -928,8 +959,8 @@ def _temporal_properties(
             "temporal_semantics": {
                 "comparability_posture": "unresolved",
                 "comparison_note": (
-                    "The lake identity remains visible, but no direct pollen record "
-                    "with a numeric interval supports time filtering."
+                    "The lake identity remains visible, but no numeric direct or "
+                    "nearby contextual interval supports time filtering."
                 ),
             },
         }
@@ -946,15 +977,30 @@ def _temporal_popup_rows(
     source_point: LakeEvidenceSourceAnchor | None,
 ) -> list[dict[str, str]]:
     if source_point is None:
-        return [
-            {"label": "Temporal support", "value": "No numeric direct-pollen interval"}
-        ]
+        return [{"label": "Temporal support", "value": "No numeric temporal context"}]
     interval_label = source_point.time_label or (
         f"{source_point.time_start_bp}–{source_point.time_end_bp} BP"
     )
     return [
-        {"label": "Temporal support", "value": interval_label},
+        {
+            "label": "Temporal support",
+            "value": (
+                f"{interval_label} ({source_point.evidence_role.replace('_', ' ')})"
+            ),
+        },
         {"label": "Temporal source", "value": source_point.source_record},
+        {
+            "label": "Context records",
+            "value": str(source_point.record_count),
+        },
+        {
+            "label": "Context radius",
+            "value": (
+                f"{source_point.context_radius_km} km"
+                if source_point.context_radius_km is not None
+                else "Direct lake evidence"
+            ),
+        },
     ]
 
 

@@ -1302,8 +1302,12 @@ def test_lake_evidence_richness_packets_write_reviewable_outputs() -> None:
         )
         assert geojson["type"] == "FeatureCollection"
         assert geojson["features"][0]["properties"]["name"] == "Alpha"
-        assert geojson["features"][0]["properties"]["time_start_bp"] == 3600
-        assert geojson["features"][0]["properties"]["time_end_bp"] == 2400
+        assert geojson["features"][0]["properties"]["time_start_bp"] == 2500
+        assert geojson["features"][0]["properties"]["time_end_bp"] == 3500
+        assert (
+            geojson["features"][0]["properties"]["temporal_semantics"]["evidence_class"]
+            == "nearby_lake_context_summary"
+        )
         assert markdown.startswith("# Sweden lake evidence richness")
         assert len(archaeology_sensitivity["profiles"]) == 3
         assert all(
@@ -1337,6 +1341,32 @@ def test_lake_evidence_richness_packets_write_reviewable_outputs() -> None:
             scenario_rows[0]["direct_pollen_temporal_evidence"]
         )
         assert scenario_temporal_evidence == registry_temporal_evidence
+        context_evidence = json.loads(registry_rows[0]["temporal_context_evidence"])
+        assert {row["source_layer_key"] for row in context_evidence} == {
+            "human-adna",
+            "neotoma-pollen",
+        }
+        assert all(
+            row["evidence_role"] == "nearby_temporal_context"
+            for row in context_evidence
+        )
+        assert payload["methodology"]["temporal_navigation"] == {
+            "candidate_count": 1,
+            "candidate_with_numeric_context_count": 1,
+            "candidate_with_direct_numeric_pollen_count": 1,
+            "context_summary_count": 2,
+            "context_source_layer_counts": {
+                "human-adna": 1,
+                "neotoma-pollen": 1,
+            },
+            "context_window_counts": {"late_holocene": 2},
+            "context_radius_km": 50,
+            "interpretation_rule": (
+                "Temporal context summaries support time navigation for the ranked "
+                "lake set. They remain explicitly separate from direct lake pollen "
+                "chronology."
+            ),
+        }
 
 
 def test_source_spatiotemporal_registry_does_not_override_scoped_counts() -> None:

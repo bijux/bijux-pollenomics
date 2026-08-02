@@ -2,13 +2,18 @@ from __future__ import annotations
 
 from collections import Counter
 from collections.abc import Iterable, Sequence
-from dataclasses import dataclass
+from dataclasses import dataclass, replace
 import json
 from pathlib import Path
 import re
 import unicodedata
 
-from ..core import haversine_km, temporal_semantics_has_numeric_interval
+from ..core import (
+    build_temporal_semantics,
+    haversine_km,
+    resolve_temporal_window,
+    temporal_semantics_has_numeric_interval,
+)
 from ..data_downloader.models import ContextPointRecord
 from ..data_downloader.spatial.representative_points import (
     geometry_to_representative_point,
@@ -68,6 +73,11 @@ class LakeEvidenceSourceAnchor:
     time_mean_bp: int | None = None
     time_label: str = ""
     temporal_semantics: dict[str, object] | None = None
+    evidence_role: str = "direct_lake_evidence"
+    record_count: int = 1
+    sample_count: int = 0
+    context_radius_km: int | None = None
+    representative_source_records: tuple[str, ...] = ()
 
     def as_dict(self) -> dict[str, object]:
         return {
@@ -82,6 +92,11 @@ class LakeEvidenceSourceAnchor:
             "time_mean_bp": self.time_mean_bp,
             "time_label": self.time_label,
             "temporal_semantics": self.temporal_semantics or {},
+            "evidence_role": self.evidence_role,
+            "record_count": self.record_count,
+            "sample_count": self.sample_count,
+            "context_radius_km": self.context_radius_km,
+            "representative_source_records": list(self.representative_source_records),
         }
 
 
@@ -123,6 +138,7 @@ class LakeEvidenceCandidate:
     lake_sampling_notes: tuple[str, ...] = ()
     lake_sampling_readiness_posture: str = "evidence_unavailable"
     lake_sampling_missing_inputs: tuple[str, ...] = ()
+    temporal_context_points: tuple[LakeEvidenceSourceAnchor, ...] = ()
 
     def as_dict(self) -> dict[str, object]:
         return {
@@ -162,6 +178,9 @@ class LakeEvidenceCandidate:
             "lake_sampling_notes": list(self.lake_sampling_notes),
             "lake_sampling_readiness_posture": self.lake_sampling_readiness_posture,
             "lake_sampling_missing_inputs": list(self.lake_sampling_missing_inputs),
+            "temporal_context_points": [
+                source_point.as_dict() for source_point in self.temporal_context_points
+            ],
         }
 
 
@@ -265,6 +284,12 @@ class _PointEvidence:
     time_start_bp: int | None = None
     time_end_bp: int | None = None
     time_mean_bp: int | None = None
+    source_record: str = ""
+    source_name: str = ""
+    source_layer_key: str = ""
+    source_url: str = ""
+    time_label: str = ""
+    temporal_semantics: dict[str, object] | None = None
 
 
 @dataclass(frozen=True)
@@ -360,6 +385,13 @@ def build_sweden_lake_evidence_richness_report(
     candidates = _derive_lake_candidates(
         pollen_points,
         neotoma_position_notes=neotoma_position_notes,
+    )
+    candidates = _attach_temporal_context(
+        candidates,
+        pollen_points=pollen_points,
+        human_points=human_points,
+        animal_points=animal_points,
+        sead_points=sead_points,
     )
     if not candidates:
         return _build_empty_report(
@@ -615,6 +647,7 @@ def build_sweden_lake_evidence_richness_report(
         methodology=_build_methodology(
             normalized_radii,
             source_temporal_coverage=source_temporal_coverage,
+            candidates=candidates,
         ),
         assessments=assessments,
     )
@@ -644,6 +677,13 @@ def _build_svar_lake_report(
         pollen_points=pollen_points,
         neotoma_position_notes=neotoma_position_notes,
         human_points=human_points,
+    )
+    candidates = _attach_temporal_context(
+        candidates,
+        pollen_points=pollen_points,
+        human_points=human_points,
+        animal_points=animal_points,
+        sead_points=sead_points,
     )
     if not candidates:
         return _build_empty_report(
@@ -914,6 +954,7 @@ def _build_svar_lake_report(
             radii_km,
             candidate_source="svar_lake_registry",
             source_temporal_coverage=source_temporal_coverage,
+            candidates=candidates,
         ),
         assessments=assessments,
     )
@@ -929,6 +970,18 @@ def _extract_human_points(localities: Iterable[object]) -> tuple[_PointEvidence,
         ):
             continue
         sample_count = getattr(locality, "sample_count", 0)
+        locality_token = str(getattr(locality, "locality_token", "")).strip()
+        locality_name = str(getattr(locality, "locality", "") or "").strip()
+        chronology = getattr(locality, "chronology", None)
+        temporal_semantics = None
+        if chronology is not None and hasattr(chronology, "as_temporal_semantics"):
+            temporal_semantics = chronology.as_temporal_semantics(
+                source_family="human_adna",
+                comparison_note=(
+                    "Nearby human aDNA provides dated regional context; it is not "
+                    "chronology measured from the candidate lake."
+                ),
+            )
         rows.append(
             _PointEvidence(
                 latitude=float(latitude),
@@ -937,6 +990,11 @@ def _extract_human_points(localities: Iterable[object]) -> tuple[_PointEvidence,
                 time_start_bp=_optional_int(getattr(locality, "time_start_bp", None)),
                 time_end_bp=_optional_int(getattr(locality, "time_end_bp", None)),
                 time_mean_bp=_optional_int(getattr(locality, "time_mean_bp", None)),
+                source_record=f"human-adna:{locality_token or locality_name}",
+                source_name=locality_name or locality_token or "Human aDNA locality",
+                source_layer_key="human-adna",
+                time_label=str(getattr(locality, "time_label", "")).strip(),
+                temporal_semantics=temporal_semantics,
             )
         )
     return tuple(rows)
@@ -954,6 +1012,12 @@ def _extract_animal_points(
         ):
             continue
         sample_count = locality.get("sample_count", 0)
+        source_token = str(
+            locality.get("site_record_id")
+            or locality.get("feature_id")
+            or locality.get("locality")
+            or "unresolved-locality"
+        ).strip()
         rows.append(
             _PointEvidence(
                 latitude=float(latitude),
@@ -962,9 +1026,171 @@ def _extract_animal_points(
                 time_start_bp=_optional_int(locality.get("time_start_bp")),
                 time_end_bp=_optional_int(locality.get("time_end_bp")),
                 time_mean_bp=_optional_int(locality.get("time_mean_bp")),
+                source_record=f"animal-adna:{source_token}",
+                source_name=str(locality.get("locality") or source_token).strip(),
+                source_layer_key="animal-adna",
+                source_url=str(locality.get("source_url") or "").strip(),
+                time_label=str(locality.get("time_label") or "").strip(),
+                temporal_semantics=(
+                    locality.get("temporal_semantics")
+                    if isinstance(locality.get("temporal_semantics"), dict)
+                    else None
+                ),
             )
         )
     return tuple(rows)
+
+
+def _attach_temporal_context(
+    candidates: Sequence[LakeEvidenceCandidate],
+    *,
+    pollen_points: Sequence[ContextPointRecord],
+    human_points: Sequence[_PointEvidence],
+    animal_points: Sequence[_PointEvidence],
+    sead_points: Sequence[ContextPointRecord],
+) -> tuple[LakeEvidenceCandidate, ...]:
+    evidence = (
+        *(_context_point_evidence(point) for point in pollen_points),
+        *human_points,
+        *animal_points,
+        *(_context_point_evidence(point) for point in sead_points),
+    )
+    numeric_evidence = tuple(
+        point
+        for point in evidence
+        if point.time_start_bp is not None and point.time_end_bp is not None
+    )
+    return tuple(
+        replace(
+            candidate,
+            temporal_context_points=_summarize_candidate_temporal_context(
+                candidate,
+                numeric_evidence,
+            ),
+        )
+        for candidate in candidates
+    )
+
+
+def _context_point_evidence(point: ContextPointRecord) -> _PointEvidence:
+    return _PointEvidence(
+        latitude=point.latitude,
+        longitude=point.longitude,
+        sample_count=max(1, point.record_count),
+        time_start_bp=point.time_start_bp,
+        time_end_bp=point.time_end_bp,
+        time_mean_bp=point.time_mean_bp,
+        source_record=f"{point.layer_key}:{point.record_id}",
+        source_name=point.name,
+        source_layer_key=point.layer_key,
+        source_url=point.source_url,
+        time_label=point.time_label,
+        temporal_semantics=point.temporal_semantics,
+    )
+
+
+def _summarize_candidate_temporal_context(
+    candidate: LakeEvidenceCandidate,
+    evidence: Sequence[_PointEvidence],
+) -> tuple[LakeEvidenceSourceAnchor, ...]:
+    groups: dict[tuple[str, str], list[_PointEvidence]] = {}
+    for point in evidence:
+        if (
+            haversine_km(
+                latitude_a=candidate.latitude,
+                longitude_a=candidate.longitude,
+                latitude_b=point.latitude,
+                longitude_b=point.longitude,
+            )
+            > 50
+        ):
+            continue
+        window_key, _ = resolve_temporal_window(
+            time_start_bp=point.time_start_bp,
+            time_end_bp=point.time_end_bp,
+            time_mean_bp=point.time_mean_bp,
+        )
+        if window_key == "unresolved":
+            continue
+        groups.setdefault((point.source_layer_key, window_key), []).append(point)
+
+    anchors: list[LakeEvidenceSourceAnchor] = []
+    for (source_layer_key, window_key), points in sorted(groups.items()):
+        intervals = [
+            sorted((int(point.time_start_bp), int(point.time_end_bp)))
+            for point in points
+            if point.time_start_bp is not None and point.time_end_bp is not None
+        ]
+        time_start_bp = min(interval[0] for interval in intervals)
+        time_end_bp = max(interval[1] for interval in intervals)
+        means = [
+            point.time_mean_bp
+            if point.time_mean_bp is not None
+            else round((interval[0] + interval[1]) / 2)
+            for point, interval in zip(points, intervals, strict=True)
+        ]
+        time_mean_bp = round(sum(means) / len(means))
+        _, window_label = resolve_temporal_window(
+            time_start_bp=points[0].time_start_bp,
+            time_end_bp=points[0].time_end_bp,
+            time_mean_bp=points[0].time_mean_bp,
+        )
+        source_records = tuple(
+            sorted({point.source_record for point in points if point.source_record})
+        )
+        source_urls = tuple(
+            sorted({point.source_url for point in points if point.source_url})
+        )
+        comparison_note = (
+            f"{len(points)} source record(s) within 50 km provide {window_label} "
+            "context. The interval summarizes nearby evidence and must not be read "
+            "as chronology measured from the lake."
+        )
+        semantics = build_temporal_semantics(
+            source_family=source_layer_key,
+            evidence_class="nearby_lake_context_summary",
+            precision_posture="source_interval_window_summary",
+            comparability_posture="numeric_interval_with_caveat",
+            time_start_bp=time_start_bp,
+            time_end_bp=time_end_bp,
+            time_mean_bp=time_mean_bp,
+            summary_label=window_label,
+            comparison_note=comparison_note,
+            original_labels=tuple(
+                sorted({point.time_label for point in points if point.time_label})
+            ),
+            uncertainty_notes=(
+                "The summary interval spans nearby records and is not a lake-owned date.",
+            ),
+        ).as_dict()
+        semantics["context_record_count"] = len(points)
+        semantics["context_sample_count"] = sum(point.sample_count for point in points)
+        semantics["context_radius_km"] = 50
+        semantics["representative_source_records"] = list(source_records[:25])
+        anchors.append(
+            LakeEvidenceSourceAnchor(
+                source_record=(
+                    f"lake-context:{candidate.lake_registry_id or candidate.lake_token}:"
+                    f"{source_layer_key}:{window_key}"
+                ),
+                source_name=f"{window_label} nearby {source_layer_key} context",
+                source_layer_key=source_layer_key,
+                latitude=candidate.latitude,
+                longitude=candidate.longitude,
+                source_url=source_urls[0] if source_urls else "",
+                time_start_bp=time_start_bp,
+                time_end_bp=time_end_bp,
+                time_mean_bp=time_mean_bp,
+                time_label=window_label,
+                temporal_semantics=semantics,
+                evidence_role="nearby_temporal_context",
+                record_count=len(points),
+                sample_count=sum(point.sample_count for point in points),
+                context_radius_km=50,
+                representative_source_records=source_records[:25],
+            )
+        )
+    return tuple(anchors)
 
 
 def _load_sweden_pollen_points(context_root: Path) -> tuple[ContextPointRecord, ...]:
@@ -2390,6 +2616,7 @@ def _build_methodology(
     *,
     candidate_source: str = "pollen_candidate_points",
     source_temporal_coverage: dict[str, object] | None = None,
+    candidates: Sequence[LakeEvidenceCandidate] = (),
 ) -> dict[str, object]:
     if candidate_source == "svar_lake_registry":
         payload = {
@@ -2468,6 +2695,7 @@ def _build_methodology(
         }
         if source_temporal_coverage:
             payload["source_temporal_coverage"] = source_temporal_coverage
+        payload["temporal_navigation"] = _temporal_navigation_summary(candidates)
         return payload
     payload = {
         "candidate_derivation": (
@@ -2520,7 +2748,47 @@ def _build_methodology(
     }
     if source_temporal_coverage:
         payload["source_temporal_coverage"] = source_temporal_coverage
+    payload["temporal_navigation"] = _temporal_navigation_summary(candidates)
     return payload
+
+
+def _temporal_navigation_summary(
+    candidates: Sequence[LakeEvidenceCandidate],
+) -> dict[str, object]:
+    source_layer_counts = Counter(
+        point.source_layer_key
+        for candidate in candidates
+        for point in candidate.temporal_context_points
+    )
+    window_counts = Counter(
+        str((point.temporal_semantics or {}).get("temporal_window_key", "unresolved"))
+        for candidate in candidates
+        for point in candidate.temporal_context_points
+    )
+    return {
+        "candidate_count": len(candidates),
+        "candidate_with_numeric_context_count": sum(
+            1 for candidate in candidates if candidate.temporal_context_points
+        ),
+        "candidate_with_direct_numeric_pollen_count": sum(
+            1
+            for candidate in candidates
+            if any(
+                point.time_start_bp is not None and point.time_end_bp is not None
+                for point in candidate.supporting_source_points
+            )
+        ),
+        "context_summary_count": sum(
+            len(candidate.temporal_context_points) for candidate in candidates
+        ),
+        "context_source_layer_counts": dict(sorted(source_layer_counts.items())),
+        "context_window_counts": dict(sorted(window_counts.items())),
+        "context_radius_km": 50,
+        "interpretation_rule": (
+            "Temporal context summaries support time navigation for the ranked lake "
+            "set. They remain explicitly separate from direct lake pollen chronology."
+        ),
+    }
 
 
 def _build_context_temporal_coverage_summary(
