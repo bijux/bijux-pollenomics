@@ -85,14 +85,22 @@ def test_sweden_land_use_synthesis_keeps_time_and_target_decisions(
         encoding="utf-8",
     )
     candidates = []
-    for rank, name in enumerate(
-        ("Finjasjön", "Östra Ringsjön", "Havgårdssjön", "Bjäresjö"), start=1
-    ):
+    candidate_rows = (
+        ("Finjasjön", 56.133926, 13.703841),
+        ("Östra Ringsjön", 55.872216, 13.536269),
+        ("Havgårdssjön", 55.485801, 13.354724),
+        ("Bjäresjö", 55.45927, 13.751909),
+        ("Registry Lake", 56.2, 13.8),
+        ("Outside Grid Lake", 58.0, 17.0),
+    )
+    for rank, (name, latitude, longitude) in enumerate(candidate_rows, start=1):
         candidates.append(
             SimpleNamespace(
                 aggregate_rank=rank,
                 candidate=SimpleNamespace(
                     lake_name=name,
+                    latitude=latitude,
+                    longitude=longitude,
                     lake_registry_id=f"registry-{rank}",
                     lake_area_km2=float(rank),
                     lake_sampling_readiness_posture="site_review_required",
@@ -119,8 +127,10 @@ def test_sweden_land_use_synthesis_keeps_time_and_target_decisions(
         animal_localities=(animal,),
     )
 
-    assert payload["target_count"] == 6
-    assert payload["time_row_count"] == 6
+    assert payload["target_count"] == 8
+    assert payload["time_row_count"] == 7
+    assert payload["landclim_covered_target_count"] == 7
+    assert payload["landclim_uncovered_target_count"] == 1
     finja = next(row for row in payload["rows"] if row["target_name"] == "Finjasjön")
     assert finja["forest_cover"] == 50.0
     assert finja["open_land_cover"] == 50.0
@@ -137,3 +147,18 @@ def test_sweden_land_use_synthesis_keeps_time_and_target_decisions(
     )
     assert gullakra["lake_decision"] == "exclude_lake_ranking_include_context"
     assert gullakra["registry_id"] == ""
+    registry_lake = next(
+        row
+        for row in payload["target_decisions"]
+        if row["requested_name"] == "Registry Lake"
+    )
+    assert registry_lake["landclim_coverage_posture"] == "covered_by_governed_grid"
+    assert registry_lake["landclim_window_count"] == 1
+    outside_grid = next(
+        row
+        for row in payload["target_decisions"]
+        if row["requested_name"] == "Outside Grid Lake"
+    )
+    assert outside_grid["landclim_coverage_posture"] == "outside_governed_grid"
+    assert outside_grid["landclim_window_count"] == 0
+    assert not any(row["target_name"] == "Outside Grid Lake" for row in payload["rows"])

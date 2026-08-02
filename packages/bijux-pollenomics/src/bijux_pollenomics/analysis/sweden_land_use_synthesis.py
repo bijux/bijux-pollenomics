@@ -33,7 +33,7 @@ class _Target:
     coordinate_source: str
 
 
-_TARGETS = (
+_GOVERNED_NAMED_TARGETS = (
     _Target(
         requested_name="Finjasjön",
         registry_name="Finjasjön",
@@ -132,16 +132,23 @@ def build_sweden_land_use_synthesis(
     sead_features = _load_features(
         context_root / "sead" / "normalized" / "nordic_temporal_evidence.geojson"
     )
-    lake_candidates = {
-        assessment.candidate.lake_name: assessment
-        for assessment in lake_report.assessments
+    lake_candidates = tuple(lake_report.assessments)
+    targets = _synthesis_targets(lake_report)
+    landclim_by_target = {
+        target: _target_landclim_features(target, landclim_features)
+        for target in targets
     }
     target_rows = [
-        _target_row(target, lake_candidates=lake_candidates) for target in _TARGETS
+        _target_row(
+            target,
+            lake_candidates=lake_candidates,
+            landclim_features=landclim_by_target[target],
+        )
+        for target in targets
     ]
     rows = []
-    for target in _TARGETS:
-        target_landclim = _target_landclim_features(target, landclim_features)
+    for target in targets:
+        target_landclim = landclim_by_target[target]
         for feature in target_landclim:
             properties = feature["properties"]
             time_start_bp = int(properties["time_start_bp"])
@@ -218,6 +225,14 @@ def build_sweden_land_use_synthesis(
         "landclim_source_url": "https://doi.org/10.1594/PANGAEA.937075",
         "context_radius_km": _CONTEXT_RADIUS_KM,
         "target_count": len(target_rows),
+        "landclim_covered_target_count": sum(
+            row["landclim_coverage_posture"] == "covered_by_governed_grid"
+            for row in target_rows
+        ),
+        "landclim_uncovered_target_count": sum(
+            row["landclim_coverage_posture"] == "outside_governed_grid"
+            for row in target_rows
+        ),
         "time_row_count": len(rows),
         "methodology": {
             "land_cover_rule": (
@@ -232,6 +247,12 @@ def build_sweden_land_use_synthesis(
             "temporal_join_rule": (
                 "SEAD and aDNA context counts require both spatial proximity within 20 "
                 "km and numeric interval overlap with the published LandClim window."
+            ),
+            "target_coverage_rule": (
+                "Every ranked SVAR lake is evaluated. Named archaeological wetland "
+                "contexts remain alongside the lake set. Targets outside the "
+                "governed LandClim grid retain an explicit decision row and receive "
+                "no fabricated temporal values."
             ),
             "interpretation_rule": (
                 "Cross-proxy alignment is descriptive context. It does not identify a "
@@ -264,6 +285,7 @@ def render_sweden_land_use_synthesis_markdown(payload: dict[str, object]) -> str
     target_rows = "\n".join(
         f"| {row['requested_name']} | {row['target_class']} | {row['lake_decision']} | "
         f"{row['registry_id'] or 'not_applicable'} | {row['lake_area_km2'] if row['lake_area_km2'] is not None else 'not_applicable'} | "
+        f"{row['landclim_coverage_posture']} | {row['landclim_window_count']} | "
         f"{row['decision_reason']} |"
         for row in payload["target_decisions"]
     )
@@ -283,14 +305,14 @@ def render_sweden_land_use_synthesis_markdown(payload: dict[str, object]) -> str
     return f"""# Southern Sweden temporal land-use synthesis
 
 This surface joins published LandClim time windows to temporally compatible
-archaeology and ancient-DNA context around six named southern Sweden targets.
-It also makes the lake inclusion decision explicit instead of silently dropping
-wetlands or treating every named place as a coring lake.
+archaeology and ancient-DNA context around the complete ranked Sweden lake set
+and the governed southern Sweden wetland contexts. It makes both modeled-grid
+coverage and lake inclusion explicit instead of silently dropping targets.
 
 ## Governed Target Decisions
 
-| Requested target | Class | Decision | SVAR ID | Area km² | Reason |
-| --- | --- | --- | --- | ---: | --- |
+| Requested target | Class | Decision | SVAR ID | Area km² | LandClim coverage | Windows | Reason |
+| --- | --- | --- | --- | ---: | --- | ---: | --- |
 {target_rows}
 
 Gullåkra and Vesums mossar remain in this synthesis because the Höje å
@@ -302,6 +324,7 @@ context. They are excluded only from the lake-sampling ranking.
 - {methodology["land_cover_rule"]}
 - {methodology["cereal_rule"]}
 - {methodology["temporal_join_rule"]}
+- {methodology["target_coverage_rule"]}
 - {methodology["interpretation_rule"]}
 
 ## Recent And Late-Holocene Windows
@@ -315,8 +338,63 @@ recent subset shown here.
 """
 
 
-def _target_row(target: _Target, *, lake_candidates) -> dict[str, object]:
-    assessment = lake_candidates.get(target.registry_name)
+def _synthesis_targets(lake_report) -> tuple[_Target, ...]:
+    named_lake_targets = {
+        target.registry_name: target
+        for target in _GOVERNED_NAMED_TARGETS
+        if target.registry_name
+    }
+    ranked_targets = []
+    for assessment in lake_report.assessments:
+        candidate = assessment.candidate
+        governed_target = named_lake_targets.get(candidate.lake_name)
+        if governed_target is not None:
+            ranked_targets.append(governed_target)
+            continue
+        ranked_targets.append(
+            _Target(
+                requested_name=candidate.lake_name,
+                registry_name=candidate.lake_name,
+                latitude=candidate.latitude,
+                longitude=candidate.longitude,
+                target_class="registered_lake",
+                lake_decision="include_lake_review",
+                decision_reason=(
+                    "Ranked SVAR lake retained in the time-aware synthesis so the "
+                    "published ranking and temporal comparison have the same scope."
+                ),
+                coordinate_source="official SVAR lake representative point",
+            )
+        )
+    context_targets = [
+        target
+        for target in _GOVERNED_NAMED_TARGETS
+        if target.target_class == "archaeological_wetland_context"
+    ]
+    return tuple((*ranked_targets, *context_targets))
+
+
+def _target_row(
+    target: _Target,
+    *,
+    lake_candidates,
+    landclim_features: list[dict[str, object]],
+) -> dict[str, object]:
+    matching_assessments = tuple(
+        assessment
+        for assessment in lake_candidates
+        if assessment.candidate.lake_name == target.registry_name
+    )
+    assessment = min(
+        matching_assessments,
+        key=lambda item: haversine_km(
+            latitude_a=target.latitude,
+            longitude_a=target.longitude,
+            latitude_b=item.candidate.latitude,
+            longitude_b=item.candidate.longitude,
+        ),
+        default=None,
+    )
     candidate = assessment.candidate if assessment is not None else None
     return {
         "requested_name": target.requested_name,
@@ -340,6 +418,10 @@ def _target_row(target: _Target, *, lake_candidates) -> dict[str, object]:
             if candidate is not None
             else _HOJEA_REPORT_URL
         ),
+        "landclim_coverage_posture": (
+            "covered_by_governed_grid" if landclim_features else "outside_governed_grid"
+        ),
+        "landclim_window_count": len(landclim_features),
     }
 
 
@@ -363,10 +445,6 @@ def _target_landclim_features(
             geometry, longitude=target.longitude, latitude=target.latitude
         ):
             selected.append(feature)
-    if not selected:
-        raise ValueError(
-            f"No LandClim {_LANDCLIM_DATASET_ID} grid covers {target.requested_name}"
-        )
     selected.sort(key=lambda feature: int(feature["properties"]["time_start_bp"]))
     return selected
 
