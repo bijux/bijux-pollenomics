@@ -1,79 +1,79 @@
-profile_key,archaeology_weight,lake_token,lake_label,baseline_engine_rank,baseline_sensitivity_rank,sensitivity_rank,rank_shift_from_baseline,aggregate_score,archaeology_signal_20km
-context_conservative,0.03,sweden_lake_registry:646994-137366,Bjärsjön,1,1,1,0,0.7294,0.2252
-context_conservative,0.03,sweden_lake_registry:616410-134992,Häckebergasjön,2,2,2,0,0.4183,0.5692
-context_conservative,0.03,sweden_lake_registry:636053-166363,Sigvaldeträsk,3,3,3,0,0.3988,0.4348
-context_conservative,0.03,sweden_lake_registry:649459-137568,Flarken,5,5,4,1,0.381,0.2604
-context_conservative,0.03,sweden_lake_registry:615375-137087,Krageholmssjön,4,4,5,-1,0.377,0.5873
-context_conservative,0.03,sweden_lake_registry:614958-137018,Bjäresjö,6,6,6,0,0.3406,0.6653
-context_conservative,0.03,sweden_lake_registry:615365-134524,Havgårdssjön,7,7,7,0,0.3375,0.6739
-context_conservative,0.03,sweden_lake_registry:646681-140779,Mullsjön,8,8,8,0,0.2568,0.1718
-context_conservative,0.03,sweden_lake_registry:622492-150312,Färskesjön,9,9,9,0,0.2403,0.179
-context_conservative,0.03,sweden_lake_registry:632901-141943,Åbodasjön,10,10,10,0,0.2169,0.1659
-context_conservative,0.03,sweden_lake_registry:666346-150259,Ungtjärnen,11,11,11,0,0.2054,0.2167
-context_conservative,0.03,sweden_lake_registry:685496-153902,Stömnesjön,12,12,12,0,0.2016,0.0921
-context_conservative,0.03,sweden_lake_registry:633608-141894,Lindhultsgöl,13,13,13,0,0.1885,0.1387
-context_conservative,0.03,sweden_lake_registry:632142-151758,Rummehölj,14,14,14,0,0.1844,0.1882
-context_conservative,0.03,sweden_lake_registry:685509-153253,Norr-Lången,15,15,15,0,0.169,0.1338
-context_conservative,0.03,sweden_lake_registry:633992-152030,Bergakyllen,18,18,16,2,0.1598,0.1
-context_conservative,0.03,sweden_lake_registry:634119-152099,Klogöl,19,19,17,2,0.1598,0.1
-context_conservative,0.03,sweden_lake_registry:640460-129466,Långetjärn,20,20,18,2,0.1587,0.1068
-context_conservative,0.03,sweden_lake_registry:624044-138336,Lilla Sjö,17,17,19,-2,0.1566,0.244
-context_conservative,0.03,sweden_lake_registry:619626-135565,Östra Ringsjön,16,16,20,-4,0.1562,0.295
-context_conservative,0.03,sweden_lake_registry:622731-136920,Finjasjön,21,21,21,0,0.1477,0.3798
-context_conservative,0.03,sweden_lake_registry:624606-135677,Värsjön,22,22,22,0,0.1309,0.1448
-context_conservative,0.03,sweden_lake_registry:624245-140812,Jämningen,24,24,23,1,0.1139,0.2107
-context_conservative,0.03,sweden_lake_registry:649958-125585,Örevattnet,23,23,24,-1,0.1116,0.3399
-context_conservative,0.03,sweden_lake_registry:653734-145755,Kyrksjön,25,25,25,0,0.0843,0.1732
-context_conservative,0.03,sweden_lake_registry:640726-132684,Kyperedssjö,26,26,26,0,0.0686,0.1396
-baseline,0.07,sweden_lake_registry:646994-137366,Bjärsjön,1,1,1,0,0.707,0.2252
-baseline,0.07,sweden_lake_registry:616410-134992,Häckebergasjön,2,2,2,0,0.4204,0.5692
-baseline,0.07,sweden_lake_registry:636053-166363,Sigvaldeträsk,3,3,3,0,0.3981,0.4348
-baseline,0.07,sweden_lake_registry:615375-137087,Krageholmssjön,4,4,4,0,0.3843,0.5873
-baseline,0.07,sweden_lake_registry:649459-137568,Flarken,5,5,5,0,0.3726,0.2604
-baseline,0.07,sweden_lake_registry:614958-137018,Bjäresjö,6,6,6,0,0.3505,0.6653
-baseline,0.07,sweden_lake_registry:615365-134524,Havgårdssjön,7,7,7,0,0.3454,0.6739
-baseline,0.07,sweden_lake_registry:646681-140779,Mullsjön,8,8,8,0,0.2534,0.1718
-baseline,0.07,sweden_lake_registry:622492-150312,Färskesjön,9,9,9,0,0.2364,0.179
-baseline,0.07,sweden_lake_registry:632901-141943,Åbodasjön,10,10,10,0,0.2155,0.1659
-baseline,0.07,sweden_lake_registry:666346-150259,Ungtjärnen,11,11,11,0,0.2037,0.2167
-baseline,0.07,sweden_lake_registry:685496-153902,Stömnesjön,12,12,12,0,0.1976,0.0921
-baseline,0.07,sweden_lake_registry:633608-141894,Lindhultsgöl,13,13,13,0,0.1867,0.1387
-baseline,0.07,sweden_lake_registry:632142-151758,Rummehölj,14,14,14,0,0.1849,0.1882
-baseline,0.07,sweden_lake_registry:685509-153253,Norr-Lången,15,15,15,0,0.1668,0.1338
-baseline,0.07,sweden_lake_registry:619626-135565,Östra Ringsjön,16,16,16,0,0.1619,0.295
-baseline,0.07,sweden_lake_registry:624044-138336,Lilla Sjö,17,17,17,0,0.1608,0.244
-baseline,0.07,sweden_lake_registry:633992-152030,Bergakyllen,18,18,18,0,0.1586,0.1
-baseline,0.07,sweden_lake_registry:634119-152099,Klogöl,19,19,19,0,0.1585,0.1
-baseline,0.07,sweden_lake_registry:640460-129466,Långetjärn,20,20,20,0,0.1583,0.1068
-baseline,0.07,sweden_lake_registry:622731-136920,Finjasjön,21,21,21,0,0.1555,0.3798
-baseline,0.07,sweden_lake_registry:624606-135677,Värsjön,22,22,22,0,0.1325,0.1448
-baseline,0.07,sweden_lake_registry:649958-125585,Örevattnet,23,23,23,0,0.1197,0.3399
-baseline,0.07,sweden_lake_registry:624245-140812,Jämningen,24,24,24,0,0.1175,0.2107
-baseline,0.07,sweden_lake_registry:653734-145755,Kyrksjön,25,25,25,0,0.0871,0.1732
-baseline,0.07,sweden_lake_registry:640726-132684,Kyperedssjö,26,26,26,0,0.0727,0.1396
-context_emphasis,0.15,sweden_lake_registry:646994-137366,Bjärsjön,1,1,1,0,0.6621,0.2252
-context_emphasis,0.15,sweden_lake_registry:616410-134992,Häckebergasjön,2,2,2,0,0.4249,0.5692
-context_emphasis,0.15,sweden_lake_registry:615375-137087,Krageholmssjön,4,4,3,1,0.3989,0.5873
-context_emphasis,0.15,sweden_lake_registry:636053-166363,Sigvaldeträsk,3,3,4,-1,0.3966,0.4348
-context_emphasis,0.15,sweden_lake_registry:614958-137018,Bjäresjö,6,6,5,1,0.3703,0.6653
-context_emphasis,0.15,sweden_lake_registry:615365-134524,Havgårdssjön,7,7,6,1,0.3614,0.6739
-context_emphasis,0.15,sweden_lake_registry:649459-137568,Flarken,5,5,7,-2,0.3557,0.2604
-context_emphasis,0.15,sweden_lake_registry:646681-140779,Mullsjön,8,8,8,0,0.2466,0.1718
-context_emphasis,0.15,sweden_lake_registry:622492-150312,Färskesjön,9,9,9,0,0.2288,0.179
-context_emphasis,0.15,sweden_lake_registry:632901-141943,Åbodasjön,10,10,10,0,0.2126,0.1659
-context_emphasis,0.15,sweden_lake_registry:666346-150259,Ungtjärnen,11,11,11,0,0.2002,0.2167
-context_emphasis,0.15,sweden_lake_registry:685496-153902,Stömnesjön,12,12,12,0,0.1897,0.0921
-context_emphasis,0.15,sweden_lake_registry:632142-151758,Rummehölj,14,14,13,1,0.1859,0.1882
-context_emphasis,0.15,sweden_lake_registry:633608-141894,Lindhultsgöl,13,13,14,-1,0.1831,0.1387
-context_emphasis,0.15,sweden_lake_registry:619626-135565,Östra Ringsjön,16,16,15,1,0.1734,0.295
-context_emphasis,0.15,sweden_lake_registry:622731-136920,Finjasjön,21,21,16,5,0.1711,0.3798
-context_emphasis,0.15,sweden_lake_registry:624044-138336,Lilla Sjö,17,17,17,0,0.1692,0.244
-context_emphasis,0.15,sweden_lake_registry:685509-153253,Norr-Lången,15,15,18,-3,0.1624,0.1338
-context_emphasis,0.15,sweden_lake_registry:640460-129466,Långetjärn,20,20,19,1,0.1575,0.1068
-context_emphasis,0.15,sweden_lake_registry:633992-152030,Bergakyllen,18,18,20,-2,0.1562,0.1
-context_emphasis,0.15,sweden_lake_registry:634119-152099,Klogöl,19,19,21,-2,0.1561,0.1
-context_emphasis,0.15,sweden_lake_registry:649958-125585,Örevattnet,23,23,22,1,0.136,0.3399
-context_emphasis,0.15,sweden_lake_registry:624606-135677,Värsjön,22,22,23,-1,0.1358,0.1448
-context_emphasis,0.15,sweden_lake_registry:624245-140812,Jämningen,24,24,24,0,0.1247,0.2107
-context_emphasis,0.15,sweden_lake_registry:653734-145755,Kyrksjön,25,25,25,0,0.0927,0.1732
-context_emphasis,0.15,sweden_lake_registry:640726-132684,Kyperedssjö,26,26,26,0,0.0807,0.1396
+profile_key,archaeology_weight,lake_token,lake_label,baseline_engine_rank,baseline_sensitivity_rank,sensitivity_rank,rank_shift_from_baseline,aggregate_score,archaeology_signal_20km,temporal_context_window_count,temporal_context_windows,sead_temporal_context_window_count,sead_temporal_context_record_count
+context_conservative,0.03,sweden_lake_registry:646994-137366,Bjärsjön,1,1,1,0,0.7294,0.2252,9,early_holocene_and_older; late_holocene; mid_holocene; recent_historical,3,7
+context_conservative,0.03,sweden_lake_registry:616410-134992,Häckebergasjön,2,2,2,0,0.4183,0.5692,14,early_holocene_and_older; late_holocene; mid_holocene; recent_historical,4,135
+context_conservative,0.03,sweden_lake_registry:636053-166363,Sigvaldeträsk,3,3,3,0,0.3988,0.4348,8,early_holocene_and_older; late_holocene; mid_holocene; recent_historical,3,63
+context_conservative,0.03,sweden_lake_registry:649459-137568,Flarken,5,5,4,1,0.381,0.2604,8,early_holocene_and_older; late_holocene; mid_holocene; recent_historical,2,6
+context_conservative,0.03,sweden_lake_registry:615375-137087,Krageholmssjön,4,4,5,-1,0.377,0.5873,14,early_holocene_and_older; late_holocene; mid_holocene; recent_historical,4,114
+context_conservative,0.03,sweden_lake_registry:614958-137018,Bjäresjö,6,6,6,0,0.3406,0.6653,14,early_holocene_and_older; late_holocene; mid_holocene; recent_historical,4,106
+context_conservative,0.03,sweden_lake_registry:615365-134524,Havgårdssjön,7,7,7,0,0.3375,0.6739,14,early_holocene_and_older; late_holocene; mid_holocene; recent_historical,4,119
+context_conservative,0.03,sweden_lake_registry:646681-140779,Mullsjön,8,8,8,0,0.2568,0.1718,10,early_holocene_and_older; late_holocene; mid_holocene; recent_historical,3,29
+context_conservative,0.03,sweden_lake_registry:622492-150312,Färskesjön,9,9,9,0,0.2403,0.179,8,early_holocene_and_older; late_holocene; mid_holocene; recent_historical,3,18
+context_conservative,0.03,sweden_lake_registry:632901-141943,Åbodasjön,10,10,10,0,0.2169,0.1659,11,early_holocene_and_older; late_holocene; mid_holocene; recent_historical,3,8
+context_conservative,0.03,sweden_lake_registry:666346-150259,Ungtjärnen,11,11,11,0,0.2054,0.2167,4,mid_holocene; recent_historical,1,2
+context_conservative,0.03,sweden_lake_registry:685496-153902,Stömnesjön,12,12,12,0,0.2016,0.0921,3,mid_holocene,0,0
+context_conservative,0.03,sweden_lake_registry:633608-141894,Lindhultsgöl,13,13,13,0,0.1885,0.1387,11,early_holocene_and_older; late_holocene; mid_holocene; recent_historical,3,9
+context_conservative,0.03,sweden_lake_registry:632142-151758,Rummehölj,14,14,14,0,0.1844,0.1882,9,early_holocene_and_older; late_holocene; mid_holocene; recent_historical,4,45
+context_conservative,0.03,sweden_lake_registry:685509-153253,Norr-Lången,15,15,15,0,0.169,0.1338,3,mid_holocene,0,0
+context_conservative,0.03,sweden_lake_registry:633992-152030,Bergakyllen,18,18,16,2,0.1598,0.1,7,early_holocene_and_older; late_holocene; mid_holocene; recent_historical,3,12
+context_conservative,0.03,sweden_lake_registry:634119-152099,Klogöl,19,19,17,2,0.1598,0.1,7,early_holocene_and_older; late_holocene; mid_holocene; recent_historical,3,12
+context_conservative,0.03,sweden_lake_registry:640460-129466,Långetjärn,20,20,18,2,0.1587,0.1068,5,early_holocene_and_older; late_holocene; mid_holocene; recent_historical,3,9
+context_conservative,0.03,sweden_lake_registry:624044-138336,Lilla Sjö,17,17,19,-2,0.1566,0.244,12,early_holocene_and_older; late_holocene; mid_holocene; recent_historical,4,38
+context_conservative,0.03,sweden_lake_registry:619626-135565,Östra Ringsjön,16,16,20,-4,0.1562,0.295,14,early_holocene_and_older; late_holocene; mid_holocene; recent_historical,4,123
+context_conservative,0.03,sweden_lake_registry:622731-136920,Finjasjön,21,21,21,0,0.1477,0.3798,12,early_holocene_and_older; late_holocene; mid_holocene; recent_historical,4,45
+context_conservative,0.03,sweden_lake_registry:624606-135677,Värsjön,22,22,22,0,0.1309,0.1448,12,early_holocene_and_older; late_holocene; mid_holocene; recent_historical,4,28
+context_conservative,0.03,sweden_lake_registry:624245-140812,Jämningen,24,24,23,1,0.1139,0.2107,11,early_holocene_and_older; late_holocene; mid_holocene; recent_historical,4,32
+context_conservative,0.03,sweden_lake_registry:649958-125585,Örevattnet,23,23,24,-1,0.1116,0.3399,5,early_holocene_and_older; mid_holocene,1,1
+context_conservative,0.03,sweden_lake_registry:653734-145755,Kyrksjön,25,25,25,0,0.0843,0.1732,6,early_holocene_and_older; late_holocene; mid_holocene; recent_historical,3,13
+context_conservative,0.03,sweden_lake_registry:640726-132684,Kyperedssjö,26,26,26,0,0.0686,0.1396,4,early_holocene_and_older; late_holocene; recent_historical,2,4
+baseline,0.07,sweden_lake_registry:646994-137366,Bjärsjön,1,1,1,0,0.707,0.2252,9,early_holocene_and_older; late_holocene; mid_holocene; recent_historical,3,7
+baseline,0.07,sweden_lake_registry:616410-134992,Häckebergasjön,2,2,2,0,0.4204,0.5692,14,early_holocene_and_older; late_holocene; mid_holocene; recent_historical,4,135
+baseline,0.07,sweden_lake_registry:636053-166363,Sigvaldeträsk,3,3,3,0,0.3981,0.4348,8,early_holocene_and_older; late_holocene; mid_holocene; recent_historical,3,63
+baseline,0.07,sweden_lake_registry:615375-137087,Krageholmssjön,4,4,4,0,0.3843,0.5873,14,early_holocene_and_older; late_holocene; mid_holocene; recent_historical,4,114
+baseline,0.07,sweden_lake_registry:649459-137568,Flarken,5,5,5,0,0.3726,0.2604,8,early_holocene_and_older; late_holocene; mid_holocene; recent_historical,2,6
+baseline,0.07,sweden_lake_registry:614958-137018,Bjäresjö,6,6,6,0,0.3505,0.6653,14,early_holocene_and_older; late_holocene; mid_holocene; recent_historical,4,106
+baseline,0.07,sweden_lake_registry:615365-134524,Havgårdssjön,7,7,7,0,0.3454,0.6739,14,early_holocene_and_older; late_holocene; mid_holocene; recent_historical,4,119
+baseline,0.07,sweden_lake_registry:646681-140779,Mullsjön,8,8,8,0,0.2534,0.1718,10,early_holocene_and_older; late_holocene; mid_holocene; recent_historical,3,29
+baseline,0.07,sweden_lake_registry:622492-150312,Färskesjön,9,9,9,0,0.2364,0.179,8,early_holocene_and_older; late_holocene; mid_holocene; recent_historical,3,18
+baseline,0.07,sweden_lake_registry:632901-141943,Åbodasjön,10,10,10,0,0.2155,0.1659,11,early_holocene_and_older; late_holocene; mid_holocene; recent_historical,3,8
+baseline,0.07,sweden_lake_registry:666346-150259,Ungtjärnen,11,11,11,0,0.2037,0.2167,4,mid_holocene; recent_historical,1,2
+baseline,0.07,sweden_lake_registry:685496-153902,Stömnesjön,12,12,12,0,0.1976,0.0921,3,mid_holocene,0,0
+baseline,0.07,sweden_lake_registry:633608-141894,Lindhultsgöl,13,13,13,0,0.1867,0.1387,11,early_holocene_and_older; late_holocene; mid_holocene; recent_historical,3,9
+baseline,0.07,sweden_lake_registry:632142-151758,Rummehölj,14,14,14,0,0.1849,0.1882,9,early_holocene_and_older; late_holocene; mid_holocene; recent_historical,4,45
+baseline,0.07,sweden_lake_registry:685509-153253,Norr-Lången,15,15,15,0,0.1668,0.1338,3,mid_holocene,0,0
+baseline,0.07,sweden_lake_registry:619626-135565,Östra Ringsjön,16,16,16,0,0.1619,0.295,14,early_holocene_and_older; late_holocene; mid_holocene; recent_historical,4,123
+baseline,0.07,sweden_lake_registry:624044-138336,Lilla Sjö,17,17,17,0,0.1608,0.244,12,early_holocene_and_older; late_holocene; mid_holocene; recent_historical,4,38
+baseline,0.07,sweden_lake_registry:633992-152030,Bergakyllen,18,18,18,0,0.1586,0.1,7,early_holocene_and_older; late_holocene; mid_holocene; recent_historical,3,12
+baseline,0.07,sweden_lake_registry:634119-152099,Klogöl,19,19,19,0,0.1585,0.1,7,early_holocene_and_older; late_holocene; mid_holocene; recent_historical,3,12
+baseline,0.07,sweden_lake_registry:640460-129466,Långetjärn,20,20,20,0,0.1583,0.1068,5,early_holocene_and_older; late_holocene; mid_holocene; recent_historical,3,9
+baseline,0.07,sweden_lake_registry:622731-136920,Finjasjön,21,21,21,0,0.1555,0.3798,12,early_holocene_and_older; late_holocene; mid_holocene; recent_historical,4,45
+baseline,0.07,sweden_lake_registry:624606-135677,Värsjön,22,22,22,0,0.1325,0.1448,12,early_holocene_and_older; late_holocene; mid_holocene; recent_historical,4,28
+baseline,0.07,sweden_lake_registry:649958-125585,Örevattnet,23,23,23,0,0.1197,0.3399,5,early_holocene_and_older; mid_holocene,1,1
+baseline,0.07,sweden_lake_registry:624245-140812,Jämningen,24,24,24,0,0.1175,0.2107,11,early_holocene_and_older; late_holocene; mid_holocene; recent_historical,4,32
+baseline,0.07,sweden_lake_registry:653734-145755,Kyrksjön,25,25,25,0,0.0871,0.1732,6,early_holocene_and_older; late_holocene; mid_holocene; recent_historical,3,13
+baseline,0.07,sweden_lake_registry:640726-132684,Kyperedssjö,26,26,26,0,0.0727,0.1396,4,early_holocene_and_older; late_holocene; recent_historical,2,4
+context_emphasis,0.15,sweden_lake_registry:646994-137366,Bjärsjön,1,1,1,0,0.6621,0.2252,9,early_holocene_and_older; late_holocene; mid_holocene; recent_historical,3,7
+context_emphasis,0.15,sweden_lake_registry:616410-134992,Häckebergasjön,2,2,2,0,0.4249,0.5692,14,early_holocene_and_older; late_holocene; mid_holocene; recent_historical,4,135
+context_emphasis,0.15,sweden_lake_registry:615375-137087,Krageholmssjön,4,4,3,1,0.3989,0.5873,14,early_holocene_and_older; late_holocene; mid_holocene; recent_historical,4,114
+context_emphasis,0.15,sweden_lake_registry:636053-166363,Sigvaldeträsk,3,3,4,-1,0.3966,0.4348,8,early_holocene_and_older; late_holocene; mid_holocene; recent_historical,3,63
+context_emphasis,0.15,sweden_lake_registry:614958-137018,Bjäresjö,6,6,5,1,0.3703,0.6653,14,early_holocene_and_older; late_holocene; mid_holocene; recent_historical,4,106
+context_emphasis,0.15,sweden_lake_registry:615365-134524,Havgårdssjön,7,7,6,1,0.3614,0.6739,14,early_holocene_and_older; late_holocene; mid_holocene; recent_historical,4,119
+context_emphasis,0.15,sweden_lake_registry:649459-137568,Flarken,5,5,7,-2,0.3557,0.2604,8,early_holocene_and_older; late_holocene; mid_holocene; recent_historical,2,6
+context_emphasis,0.15,sweden_lake_registry:646681-140779,Mullsjön,8,8,8,0,0.2466,0.1718,10,early_holocene_and_older; late_holocene; mid_holocene; recent_historical,3,29
+context_emphasis,0.15,sweden_lake_registry:622492-150312,Färskesjön,9,9,9,0,0.2288,0.179,8,early_holocene_and_older; late_holocene; mid_holocene; recent_historical,3,18
+context_emphasis,0.15,sweden_lake_registry:632901-141943,Åbodasjön,10,10,10,0,0.2126,0.1659,11,early_holocene_and_older; late_holocene; mid_holocene; recent_historical,3,8
+context_emphasis,0.15,sweden_lake_registry:666346-150259,Ungtjärnen,11,11,11,0,0.2002,0.2167,4,mid_holocene; recent_historical,1,2
+context_emphasis,0.15,sweden_lake_registry:685496-153902,Stömnesjön,12,12,12,0,0.1897,0.0921,3,mid_holocene,0,0
+context_emphasis,0.15,sweden_lake_registry:632142-151758,Rummehölj,14,14,13,1,0.1859,0.1882,9,early_holocene_and_older; late_holocene; mid_holocene; recent_historical,4,45
+context_emphasis,0.15,sweden_lake_registry:633608-141894,Lindhultsgöl,13,13,14,-1,0.1831,0.1387,11,early_holocene_and_older; late_holocene; mid_holocene; recent_historical,3,9
+context_emphasis,0.15,sweden_lake_registry:619626-135565,Östra Ringsjön,16,16,15,1,0.1734,0.295,14,early_holocene_and_older; late_holocene; mid_holocene; recent_historical,4,123
+context_emphasis,0.15,sweden_lake_registry:622731-136920,Finjasjön,21,21,16,5,0.1711,0.3798,12,early_holocene_and_older; late_holocene; mid_holocene; recent_historical,4,45
+context_emphasis,0.15,sweden_lake_registry:624044-138336,Lilla Sjö,17,17,17,0,0.1692,0.244,12,early_holocene_and_older; late_holocene; mid_holocene; recent_historical,4,38
+context_emphasis,0.15,sweden_lake_registry:685509-153253,Norr-Lången,15,15,18,-3,0.1624,0.1338,3,mid_holocene,0,0
+context_emphasis,0.15,sweden_lake_registry:640460-129466,Långetjärn,20,20,19,1,0.1575,0.1068,5,early_holocene_and_older; late_holocene; mid_holocene; recent_historical,3,9
+context_emphasis,0.15,sweden_lake_registry:633992-152030,Bergakyllen,18,18,20,-2,0.1562,0.1,7,early_holocene_and_older; late_holocene; mid_holocene; recent_historical,3,12
+context_emphasis,0.15,sweden_lake_registry:634119-152099,Klogöl,19,19,21,-2,0.1561,0.1,7,early_holocene_and_older; late_holocene; mid_holocene; recent_historical,3,12
+context_emphasis,0.15,sweden_lake_registry:649958-125585,Örevattnet,23,23,22,1,0.136,0.3399,5,early_holocene_and_older; mid_holocene,1,1
+context_emphasis,0.15,sweden_lake_registry:624606-135677,Värsjön,22,22,23,-1,0.1358,0.1448,12,early_holocene_and_older; late_holocene; mid_holocene; recent_historical,4,28
+context_emphasis,0.15,sweden_lake_registry:624245-140812,Jämningen,24,24,24,0,0.1247,0.2107,11,early_holocene_and_older; late_holocene; mid_holocene; recent_historical,4,32
+context_emphasis,0.15,sweden_lake_registry:653734-145755,Kyrksjön,25,25,25,0,0.0927,0.1732,6,early_holocene_and_older; late_holocene; mid_holocene; recent_historical,3,13
+context_emphasis,0.15,sweden_lake_registry:640726-132684,Kyperedssjö,26,26,26,0,0.0807,0.1396,4,early_holocene_and_older; late_holocene; recent_historical,2,4
