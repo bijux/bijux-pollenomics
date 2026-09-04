@@ -242,6 +242,9 @@
   },
   "normalization_bundle": {
     "schema_version": "adna-nonhuman-normalization-bundle.v1",
+    "evidence_domain": "animal_ancient_dna",
+    "pollen_eligible": false,
+    "pollen_propagation_eligible": false,
     "species_manifest": {
       "schema_version": "adna-species-manifest.v1",
       "species": {
@@ -277,87 +280,6 @@
       "runtime_scope": "Current runtime normalization and reporting remain human AADR-first until species-specific collectors and archive bridges are implemented."
     },
     "sample_records": [
-      {
-        "identity": {
-          "namespace": "rangifer_tarandus:curated_sample",
-          "stable_token": "rangifer_tarandus:sample:prjeb57293",
-          "accession_lineage": [
-            "species:Rangifer tarandus",
-            "source:ENA",
-            "project:PRJEB57293",
-            "sample:PRJEB57293"
-          ]
-        },
-        "locality_identity": {
-          "namespace": "rangifer_tarandus:sample_locality",
-          "stable_token": "rangifer_tarandus:locality:prjeb57293:sitedetailnotyetextractedfromtrackedsourcesupport",
-          "locality_text": "site detail not yet extracted from tracked source support",
-          "political_entity": null,
-          "source_anchor_tokens": [
-            "PRJEB57293",
-            "project_accession_anchor"
-          ]
-        },
-        "species_latin_name": "Rangifer tarandus",
-        "species_common_name": "reindeer",
-        "source_family": "ENA",
-        "source_release": "PRJEB57293",
-        "record_modality": "mitogenome_only",
-        "review_strength": "comparator_only",
-        "provenance_quality": "manual_curation_only",
-        "master_id": "PRJEB57293",
-        "group_id": "PRJEB57293",
-        "locality": null,
-        "political_entity": null,
-        "coordinates": {
-          "latitude": null,
-          "longitude": null,
-          "latitude_text": "",
-          "longitude_text": "",
-          "confidence": "withheld"
-        },
-        "publication": "",
-        "year_first_published": "",
-        "full_date": "chronology not yet extracted from tracked source support",
-        "chronology": {
-          "original_text": "chronology not yet extracted from tracked source support",
-          "time_start_bp": null,
-          "time_end_bp": null,
-          "time_mean_bp": null,
-          "date_stddev_bp": "",
-          "dating_basis": "modern_sampling",
-          "evidence_class": "historical_or_recent_date",
-          "precision_posture": "sample_approximate_or_modeled"
-        },
-        "data_type": "archive_project_context",
-        "molecular_sex": "",
-        "datasets": [
-          "rangifer_tarandus:project:PRJEB57293"
-        ],
-        "project_accession": "PRJEB57293",
-        "paper_doi": "",
-        "paper_url": "",
-        "supplementary_source": "",
-        "inclusion_status": "sample_context_blocked",
-        "inclusion_note": "This sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support.",
-        "chronology_strength": "project_context_text_only",
-        "chronology_normalization_status": "text_only_unparsed",
-        "chronology_provenance_path": "",
-        "chronology_provenance_kind": "",
-        "chronology_provenance_locator": "",
-        "chronology_provenance_text": "",
-        "chronology_conflict_note": "",
-        "sample_basis": "project_accession_anchor",
-        "archive_native_sample_id": "",
-        "paper_native_sample_label": "",
-        "supplementary_table_sample_label": "",
-        "sample_evidence_status": "not_yet_recoverable",
-        "sample_lineage_path": "",
-        "sample_lineage_locator": "",
-        "sample_lineage_excerpt": "",
-        "sample_identity_resolution": "provisional",
-        "sample_ambiguity_note": "No recoverable project sample-master row is published yet for this project."
-      },
       {
         "identity": {
           "namespace": "rangifer_tarandus:curated_sample",
@@ -1977,168 +1899,6 @@
         "sample_lineage_excerpt": "Archive metadata preserves a distinct project-owned sample accession, but no richer sample-owned chronology row has been extracted yet.",
         "sample_identity_resolution": "final",
         "sample_ambiguity_note": ""
-      },
-      {
-        "identity": {
-          "namespace": "rangifer_tarandus:curated_sample",
-          "stable_token": "rangifer_tarandus:sample:prjeb61721",
-          "accession_lineage": [
-            "species:Rangifer tarandus",
-            "source:ENA",
-            "project:PRJEB61721",
-            "sample:PRJEB61721"
-          ]
-        },
-        "locality_identity": {
-          "namespace": "rangifer_tarandus:sample_locality",
-          "stable_token": "rangifer_tarandus:locality:prjeb61721:sitedetailnotyetextractedfromtrackedsourcesupport",
-          "locality_text": "site detail not yet extracted from tracked source support",
-          "political_entity": null,
-          "source_anchor_tokens": [
-            "PRJEB61721",
-            "project_accession_anchor"
-          ]
-        },
-        "species_latin_name": "Rangifer tarandus",
-        "species_common_name": "reindeer",
-        "source_family": "ENA",
-        "source_release": "PRJEB61721",
-        "record_modality": "mitogenome_only",
-        "review_strength": "comparator_only",
-        "provenance_quality": "manual_curation_only",
-        "master_id": "PRJEB61721",
-        "group_id": "PRJEB61721",
-        "locality": null,
-        "political_entity": null,
-        "coordinates": {
-          "latitude": null,
-          "longitude": null,
-          "latitude_text": "",
-          "longitude_text": "",
-          "confidence": "withheld"
-        },
-        "publication": "",
-        "year_first_published": "",
-        "full_date": "chronology not yet extracted from tracked source support",
-        "chronology": {
-          "original_text": "chronology not yet extracted from tracked source support",
-          "time_start_bp": null,
-          "time_end_bp": null,
-          "time_mean_bp": null,
-          "date_stddev_bp": "",
-          "dating_basis": "modern_sampling",
-          "evidence_class": "historical_or_recent_date",
-          "precision_posture": "sample_approximate_or_modeled"
-        },
-        "data_type": "archive_project_context",
-        "molecular_sex": "",
-        "datasets": [
-          "rangifer_tarandus:project:PRJEB61721"
-        ],
-        "project_accession": "PRJEB61721",
-        "paper_doi": "",
-        "paper_url": "",
-        "supplementary_source": "",
-        "inclusion_status": "sample_context_blocked",
-        "inclusion_note": "This sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support.",
-        "chronology_strength": "project_context_text_only",
-        "chronology_normalization_status": "text_only_unparsed",
-        "chronology_provenance_path": "",
-        "chronology_provenance_kind": "",
-        "chronology_provenance_locator": "",
-        "chronology_provenance_text": "",
-        "chronology_conflict_note": "",
-        "sample_basis": "project_accession_anchor",
-        "archive_native_sample_id": "",
-        "paper_native_sample_label": "",
-        "supplementary_table_sample_label": "",
-        "sample_evidence_status": "not_yet_recoverable",
-        "sample_lineage_path": "",
-        "sample_lineage_locator": "",
-        "sample_lineage_excerpt": "",
-        "sample_identity_resolution": "provisional",
-        "sample_ambiguity_note": "No recoverable project sample-master row is published yet for this project."
-      },
-      {
-        "identity": {
-          "namespace": "rangifer_tarandus:curated_sample",
-          "stable_token": "rangifer_tarandus:sample:prjna634908",
-          "accession_lineage": [
-            "species:Rangifer tarandus",
-            "source:BioProject",
-            "project:PRJNA634908",
-            "sample:PRJNA634908"
-          ]
-        },
-        "locality_identity": {
-          "namespace": "rangifer_tarandus:sample_locality",
-          "stable_token": "rangifer_tarandus:locality:prjna634908:sitedetailnotyetextractedfromtrackedsourcesupport",
-          "locality_text": "site detail not yet extracted from tracked source support",
-          "political_entity": null,
-          "source_anchor_tokens": [
-            "PRJNA634908",
-            "project_accession_anchor"
-          ]
-        },
-        "species_latin_name": "Rangifer tarandus",
-        "species_common_name": "reindeer",
-        "source_family": "BioProject",
-        "source_release": "PRJNA634908",
-        "record_modality": "mitogenome_only",
-        "review_strength": "comparator_only",
-        "provenance_quality": "manual_curation_only",
-        "master_id": "PRJNA634908",
-        "group_id": "PRJNA634908",
-        "locality": null,
-        "political_entity": null,
-        "coordinates": {
-          "latitude": null,
-          "longitude": null,
-          "latitude_text": "",
-          "longitude_text": "",
-          "confidence": "withheld"
-        },
-        "publication": "",
-        "year_first_published": "",
-        "full_date": "chronology not yet extracted from tracked source support",
-        "chronology": {
-          "original_text": "chronology not yet extracted from tracked source support",
-          "time_start_bp": null,
-          "time_end_bp": null,
-          "time_mean_bp": null,
-          "date_stddev_bp": "",
-          "dating_basis": "modern_sampling",
-          "evidence_class": "historical_or_recent_date",
-          "precision_posture": "sample_approximate_or_modeled"
-        },
-        "data_type": "archive_project_context",
-        "molecular_sex": "",
-        "datasets": [
-          "rangifer_tarandus:project:PRJNA634908"
-        ],
-        "project_accession": "PRJNA634908",
-        "paper_doi": "",
-        "paper_url": "",
-        "supplementary_source": "",
-        "inclusion_status": "sample_context_blocked",
-        "inclusion_note": "This sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support.",
-        "chronology_strength": "project_context_text_only",
-        "chronology_normalization_status": "text_only_unparsed",
-        "chronology_provenance_path": "",
-        "chronology_provenance_kind": "",
-        "chronology_provenance_locator": "",
-        "chronology_provenance_text": "",
-        "chronology_conflict_note": "",
-        "sample_basis": "project_accession_anchor",
-        "archive_native_sample_id": "",
-        "paper_native_sample_label": "",
-        "supplementary_table_sample_label": "",
-        "sample_evidence_status": "not_yet_recoverable",
-        "sample_lineage_path": "",
-        "sample_lineage_locator": "",
-        "sample_lineage_excerpt": "",
-        "sample_identity_resolution": "provisional",
-        "sample_ambiguity_note": "No recoverable project sample-master row is published yet for this project."
       }
     ],
     "coordinate_provenance_records": [
@@ -2677,6 +2437,30 @@
       {
         "schema_version": "adna-normalization-refusal.v1",
         "species_latin_name": "Rangifer tarandus",
+        "source_token": "PRJEB57293:PRJEB57293",
+        "record_kind": "sample_record",
+        "reason": "sample_evidence_not_yet_recoverable",
+        "detail": "Source-native project/sample accounting remains available, but this placeholder is refused from normalized sample artifacts because it is not recovered evidence: inclusion_status=sample_context_blocked; sample_evidence_status=not_yet_recoverable; sample_identity_resolution=provisional."
+      },
+      {
+        "schema_version": "adna-normalization-refusal.v1",
+        "species_latin_name": "Rangifer tarandus",
+        "source_token": "PRJEB61721:PRJEB61721",
+        "record_kind": "sample_record",
+        "reason": "sample_evidence_not_yet_recoverable",
+        "detail": "Source-native project/sample accounting remains available, but this placeholder is refused from normalized sample artifacts because it is not recovered evidence: inclusion_status=sample_context_blocked; sample_evidence_status=not_yet_recoverable; sample_identity_resolution=provisional."
+      },
+      {
+        "schema_version": "adna-normalization-refusal.v1",
+        "species_latin_name": "Rangifer tarandus",
+        "source_token": "PRJNA634908:PRJNA634908",
+        "record_kind": "sample_record",
+        "reason": "sample_evidence_not_yet_recoverable",
+        "detail": "Source-native project/sample accounting remains available, but this placeholder is refused from normalized sample artifacts because it is not recovered evidence: inclusion_status=sample_context_blocked; sample_evidence_status=not_yet_recoverable; sample_identity_resolution=provisional."
+      },
+      {
+        "schema_version": "adna-normalization-refusal.v1",
+        "species_latin_name": "Rangifer tarandus",
         "source_token": "PRJEB57293",
         "record_kind": "locality_records",
         "reason": "locality_lead_not_yet_curated",
@@ -2699,6 +2483,6 @@
         "detail": "This project already ships project-level interpretation, but a defensible locality lead has not yet been curated into the species-owned locality artifact."
       }
     ],
-    "normalization_scope": "Non-human normalization currently governs accession-backed sample master rows, project summaries, study summaries, and curated locality summaries. Site and chronology extraction still vary by accession and remain explicit in sample inclusion status rather than being silently flattened."
+    "normalization_scope": "Non-human normalization admits only recovered, final sample identities, plus project summaries, study summaries, and curated locality summaries. Pending and rejected placeholder rows remain source-native accounting and reasoned refusals; they are not normalized sample evidence."
   }
 }

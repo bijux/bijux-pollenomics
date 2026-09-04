@@ -247,6 +247,9 @@
   },
   "normalization_bundle": {
     "schema_version": "adna-nonhuman-normalization-bundle.v1",
+    "evidence_domain": "animal_ancient_dna",
+    "pollen_eligible": false,
+    "pollen_propagation_eligible": false,
     "species_manifest": {
       "schema_version": "adna-species-manifest.v1",
       "species": {
@@ -296,12 +299,12 @@
         },
         "locality_identity": {
           "namespace": "canis_lupus_familiaris:sample_locality",
-          "stable_token": "canis_lupus_familiaris:locality:kx379528-kx379529:unresolved",
-          "locality_text": "",
-          "political_entity": "",
+          "stable_token": "canis_lupus_familiaris:locality:kx379528-kx379529:cherrytreecave:germany",
+          "locality_text": "Cherry Tree Cave",
+          "political_entity": "Germany",
           "source_anchor_tokens": [
             "KX379528-KX379529",
-            "accession_range_anchor"
+            "primary_article_accession_mapping"
           ]
         },
         "species_latin_name": "Canis lupus familiaris",
@@ -313,8 +316,8 @@
         "provenance_quality": "manual_curation_only",
         "master_id": "kx379528-kx379529:kx379528",
         "group_id": "KX379528-KX379529",
-        "locality": "",
-        "political_entity": "",
+        "locality": "Cherry Tree Cave",
+        "political_entity": "Germany",
         "coordinates": {
           "latitude": null,
           "longitude": null,
@@ -324,16 +327,16 @@
         },
         "publication": "Ancient European dog genomes reveal continuity since the Early Neolithic",
         "year_first_published": "2017",
-        "full_date": "",
+        "full_date": "2900-2632 BCE",
         "chronology": {
-          "original_text": "",
-          "time_start_bp": null,
-          "time_end_bp": null,
-          "time_mean_bp": null,
+          "original_text": "2900-2632 BCE",
+          "time_start_bp": 4581,
+          "time_end_bp": 4849,
+          "time_mean_bp": 4715,
           "date_stddev_bp": "",
           "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-          "evidence_class": "unresolved",
-          "precision_posture": "unresolved"
+          "evidence_class": "direct_radiocarbon_date",
+          "precision_posture": "sample_precise_interval"
         },
         "data_type": "archive_accession_range_context",
         "molecular_sex": "",
@@ -345,22 +348,22 @@
         "paper_url": "https://doi.org/10.1038/ncomms16082",
         "supplementary_source": "",
         "inclusion_status": "site_curated",
-        "inclusion_note": "No location evidence has been extracted yet for this recovered sample row.",
-        "chronology_strength": "unresolved",
-        "chronology_normalization_status": "unresolved",
-        "chronology_provenance_path": "",
-        "chronology_provenance_kind": "",
-        "chronology_provenance_locator": "",
-        "chronology_provenance_text": "",
+        "inclusion_note": "Sample-level locality comes directly from the recovered sample source row.",
+        "chronology_strength": "sample_owned_interval",
+        "chronology_normalization_status": "normalized_interval",
+        "chronology_provenance_path": "adna/governance/source_library/papers/10.1038-ncomms16082/article.html",
+        "chronology_provenance_kind": "article_or_archive_text",
+        "chronology_provenance_locator": "Results: Archaeological samples and ancient DNA sequencing; Data availability",
+        "chronology_provenance_text": "KX379528 maps respectively to CTC; the article identifies Cherry Tree Cave and gives a calibrated BCE interval.",
         "chronology_conflict_note": "",
-        "sample_basis": "accession_range_anchor",
+        "sample_basis": "primary_article_accession_mapping",
         "archive_native_sample_id": "KX379528",
-        "paper_native_sample_label": "",
+        "paper_native_sample_label": "CTC",
         "supplementary_table_sample_label": "",
-        "sample_evidence_status": "archive_native",
-        "sample_lineage_path": "data/adna/governance/source_library/projects/KX379528-KX379529/archive_metadata.html",
-        "sample_lineage_locator": "accession:KX379528",
-        "sample_lineage_excerpt": "Archive-native accession KX379528 is tracked directly in the curated intake catalog.",
+        "sample_evidence_status": "article_text_extracted",
+        "sample_lineage_path": "adna/governance/source_library/papers/10.1038-ncomms16082/article.html",
+        "sample_lineage_locator": "Results: Archaeological samples and ancient DNA sequencing; Data availability",
+        "sample_lineage_excerpt": "KX379528 maps respectively to CTC; the article identifies Cherry Tree Cave and gives a calibrated BCE interval.",
         "sample_identity_resolution": "final",
         "sample_ambiguity_note": ""
       },
@@ -377,12 +380,12 @@
         },
         "locality_identity": {
           "namespace": "canis_lupus_familiaris:sample_locality",
-          "stable_token": "canis_lupus_familiaris:locality:kx379528-kx379529:unresolved",
-          "locality_text": "",
-          "political_entity": "",
+          "stable_token": "canis_lupus_familiaris:locality:kx379528-kx379529:herxheim:germany",
+          "locality_text": "Herxheim",
+          "political_entity": "Germany",
           "source_anchor_tokens": [
             "KX379528-KX379529",
-            "accession_range_anchor"
+            "primary_article_accession_mapping"
           ]
         },
         "species_latin_name": "Canis lupus familiaris",
@@ -394,8 +397,8 @@
         "provenance_quality": "manual_curation_only",
         "master_id": "kx379528-kx379529:kx379529",
         "group_id": "KX379528-KX379529",
-        "locality": "",
-        "political_entity": "",
+        "locality": "Herxheim",
+        "political_entity": "Germany",
         "coordinates": {
           "latitude": null,
           "longitude": null,
@@ -405,16 +408,16 @@
         },
         "publication": "Ancient European dog genomes reveal continuity since the Early Neolithic",
         "year_first_published": "2017",
-        "full_date": "",
+        "full_date": "5223-5040 BCE",
         "chronology": {
-          "original_text": "",
-          "time_start_bp": null,
-          "time_end_bp": null,
-          "time_mean_bp": null,
+          "original_text": "5223-5040 BCE",
+          "time_start_bp": 6989,
+          "time_end_bp": 7172,
+          "time_mean_bp": 7080,
           "date_stddev_bp": "",
           "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-          "evidence_class": "unresolved",
-          "precision_posture": "unresolved"
+          "evidence_class": "direct_radiocarbon_date",
+          "precision_posture": "sample_precise_interval"
         },
         "data_type": "archive_accession_range_context",
         "molecular_sex": "",
@@ -426,22 +429,22 @@
         "paper_url": "https://doi.org/10.1038/ncomms16082",
         "supplementary_source": "",
         "inclusion_status": "site_curated",
-        "inclusion_note": "No location evidence has been extracted yet for this recovered sample row.",
-        "chronology_strength": "unresolved",
-        "chronology_normalization_status": "unresolved",
-        "chronology_provenance_path": "",
-        "chronology_provenance_kind": "",
-        "chronology_provenance_locator": "",
-        "chronology_provenance_text": "",
-        "chronology_conflict_note": "",
-        "sample_basis": "accession_range_anchor",
+        "inclusion_note": "Sample-level locality comes directly from the recovered sample source row.",
+        "chronology_strength": "sample_owned_interval",
+        "chronology_normalization_status": "normalized_interval",
+        "chronology_provenance_path": "adna/governance/source_library/papers/10.1038-ncomms16082/article.html",
+        "chronology_provenance_kind": "article_or_archive_text",
+        "chronology_provenance_locator": "Results: Archaeological samples and ancient DNA sequencing; Data availability",
+        "chronology_provenance_text": "KX379529 maps respectively to HXH; the article identifies Herxheim and gives a calibrated BCE interval.",
+        "chronology_conflict_note": "Sample-owned chronology disagrees with the project-level chronology interval.",
+        "sample_basis": "primary_article_accession_mapping",
         "archive_native_sample_id": "KX379529",
-        "paper_native_sample_label": "",
+        "paper_native_sample_label": "HXH",
         "supplementary_table_sample_label": "",
-        "sample_evidence_status": "archive_native",
-        "sample_lineage_path": "data/adna/governance/source_library/projects/KX379528-KX379529/archive_metadata.html",
-        "sample_lineage_locator": "accession:KX379529",
-        "sample_lineage_excerpt": "Archive-native accession KX379529 is tracked directly in the curated intake catalog.",
+        "sample_evidence_status": "article_text_extracted",
+        "sample_lineage_path": "adna/governance/source_library/papers/10.1038-ncomms16082/article.html",
+        "sample_lineage_locator": "Results: Archaeological samples and ancient DNA sequencing; Data availability",
+        "sample_lineage_excerpt": "KX379529 maps respectively to HXH; the article identifies Herxheim and gives a calibrated BCE interval.",
         "sample_identity_resolution": "final",
         "sample_ambiguity_note": ""
       },
@@ -539,12 +542,12 @@
         },
         "locality_identity": {
           "namespace": "canis_lupus_familiaris:sample_locality",
-          "stable_token": "canis_lupus_familiaris:locality:srs1407453:unresolved",
-          "locality_text": "",
-          "political_entity": "",
+          "stable_token": "canis_lupus_familiaris:locality:srs1407453:herxheim:germany",
+          "locality_text": "Herxheim",
+          "political_entity": "Germany",
           "source_anchor_tokens": [
             "SRS1407453",
-            "sample_accession_anchor"
+            "primary_article_accession_mapping"
           ]
         },
         "species_latin_name": "Canis lupus familiaris",
@@ -556,8 +559,8 @@
         "provenance_quality": "archive_project_catalog",
         "master_id": "srs1407453:srs1407453",
         "group_id": "SRS1407453",
-        "locality": "",
-        "political_entity": "",
+        "locality": "Herxheim",
+        "political_entity": "Germany",
         "coordinates": {
           "latitude": null,
           "longitude": null,
@@ -567,16 +570,16 @@
         },
         "publication": "Ancient European dog genomes reveal continuity since the Early Neolithic",
         "year_first_published": "2017",
-        "full_date": "",
+        "full_date": "5223-5040 BCE",
         "chronology": {
-          "original_text": "",
-          "time_start_bp": null,
-          "time_end_bp": null,
-          "time_mean_bp": null,
+          "original_text": "5223-5040 BCE",
+          "time_start_bp": 6989,
+          "time_end_bp": 7172,
+          "time_mean_bp": 7080,
           "date_stddev_bp": "",
           "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-          "evidence_class": "unresolved",
-          "precision_posture": "unresolved"
+          "evidence_class": "direct_radiocarbon_date",
+          "precision_posture": "sample_precise_interval"
         },
         "data_type": "archive_sample_context",
         "molecular_sex": "",
@@ -588,22 +591,22 @@
         "paper_url": "https://doi.org/10.1038/ncomms16082",
         "supplementary_source": "",
         "inclusion_status": "site_curated",
-        "inclusion_note": "No location evidence has been extracted yet for this recovered sample row.",
-        "chronology_strength": "unresolved",
-        "chronology_normalization_status": "unresolved",
-        "chronology_provenance_path": "",
-        "chronology_provenance_kind": "",
-        "chronology_provenance_locator": "",
-        "chronology_provenance_text": "",
+        "inclusion_note": "Sample-level locality comes directly from the recovered sample source row.",
+        "chronology_strength": "sample_owned_interval",
+        "chronology_normalization_status": "normalized_interval",
+        "chronology_provenance_path": "adna/governance/source_library/papers/10.1038-ncomms16082/article.html",
+        "chronology_provenance_kind": "article_or_archive_text",
+        "chronology_provenance_locator": "Results: Archaeological samples and ancient DNA sequencing; Data availability",
+        "chronology_provenance_text": "SRS1407453 maps to HXH; the article identifies Herxheim and gives a calibrated BCE interval.",
         "chronology_conflict_note": "",
-        "sample_basis": "sample_accession_anchor",
+        "sample_basis": "primary_article_accession_mapping",
         "archive_native_sample_id": "SRS1407453",
-        "paper_native_sample_label": "",
+        "paper_native_sample_label": "HXH",
         "supplementary_table_sample_label": "",
-        "sample_evidence_status": "archive_native",
-        "sample_lineage_path": "data/adna/governance/source_library/projects/SRS1407453/archive_metadata.html",
-        "sample_lineage_locator": "accession:SRS1407453",
-        "sample_lineage_excerpt": "Archive-native accession SRS1407453 is tracked directly in the curated intake catalog.",
+        "sample_evidence_status": "article_text_extracted",
+        "sample_lineage_path": "adna/governance/source_library/papers/10.1038-ncomms16082/article.html",
+        "sample_lineage_locator": "Results: Archaeological samples and ancient DNA sequencing; Data availability",
+        "sample_lineage_excerpt": "SRS1407453 maps to HXH; the article identifies Herxheim and gives a calibrated BCE interval.",
         "sample_identity_resolution": "final",
         "sample_ambiguity_note": ""
       }
@@ -642,6 +645,58 @@
     ],
     "site_evidence_records": [
       {
+        "project_accession": "KX379528-KX379529",
+        "species_latin_name": "Canis lupus familiaris",
+        "species_common_name": "dog",
+        "site_label": "Cherry Tree Cave",
+        "political_entity": "Germany",
+        "source_artifact_path": "adna/governance/source_library/papers/10.1038-ncomms16082/article.html",
+        "source_artifact_kind": "supplementary_spreadsheet_row",
+        "source_locator": "Results: Archaeological samples and ancient DNA sequencing; Data availability",
+        "exact_source_text": "KX379528 maps respectively to CTC; the article identifies Cherry Tree Cave and gives a calibrated BCE interval.",
+        "source_support_status": "supplementary_table_row",
+        "paper_doi": "10.1038/ncomms16082",
+        "paper_url": "https://doi.org/10.1038/ncomms16082",
+        "supplementary_source": "",
+        "coordinate_basis": "site_level_localities",
+        "latitude_text": "",
+        "longitude_text": "",
+        "chronology_text": "2900-2632 BCE",
+        "time_start_bp": null,
+        "time_end_bp": null,
+        "dating_basis": "unknown",
+        "comparator_context": false,
+        "domestication_context": "domesticated_core",
+        "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table.",
+        "support_gap_note": ""
+      },
+      {
+        "project_accession": "KX379528-KX379529",
+        "species_latin_name": "Canis lupus familiaris",
+        "species_common_name": "dog",
+        "site_label": "Herxheim",
+        "political_entity": "Germany",
+        "source_artifact_path": "adna/governance/source_library/papers/10.1038-ncomms16082/article.html",
+        "source_artifact_kind": "supplementary_spreadsheet_row",
+        "source_locator": "Results: Archaeological samples and ancient DNA sequencing; Data availability",
+        "exact_source_text": "KX379529 maps respectively to HXH; the article identifies Herxheim and gives a calibrated BCE interval.",
+        "source_support_status": "supplementary_table_row",
+        "paper_doi": "10.1038/ncomms16082",
+        "paper_url": "https://doi.org/10.1038/ncomms16082",
+        "supplementary_source": "",
+        "coordinate_basis": "site_level_localities",
+        "latitude_text": "",
+        "longitude_text": "",
+        "chronology_text": "5223-5040 BCE",
+        "time_start_bp": null,
+        "time_end_bp": null,
+        "dating_basis": "unknown",
+        "comparator_context": false,
+        "domestication_context": "domesticated_core",
+        "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table.",
+        "support_gap_note": ""
+      },
+      {
         "project_accession": "SRS1407451",
         "species_latin_name": "Canis lupus familiaris",
         "species_common_name": "dog",
@@ -666,15 +721,41 @@
         "domestication_context": "domesticated_core",
         "interpretation_note": "The paper gives exact site names, but the shipped point remains a Central Europe centroid until a precise site coordinate workflow is added.",
         "support_gap_note": "The source text names Herxheim and Cherry Tree Cave explicitly, but the current normalized locality still aggregates them into one regional lead."
+      },
+      {
+        "project_accession": "SRS1407453",
+        "species_latin_name": "Canis lupus familiaris",
+        "species_common_name": "dog",
+        "site_label": "Herxheim",
+        "political_entity": "Germany",
+        "source_artifact_path": "adna/governance/source_library/papers/10.1038-ncomms16082/article.html",
+        "source_artifact_kind": "supplementary_spreadsheet_row",
+        "source_locator": "Results: Archaeological samples and ancient DNA sequencing; Data availability",
+        "exact_source_text": "SRS1407453 maps to HXH; the article identifies Herxheim and gives a calibrated BCE interval.",
+        "source_support_status": "supplementary_table_row",
+        "paper_doi": "10.1038/ncomms16082",
+        "paper_url": "https://doi.org/10.1038/ncomms16082",
+        "supplementary_source": "",
+        "coordinate_basis": "site_level_localities",
+        "latitude_text": "",
+        "longitude_text": "",
+        "chronology_text": "5223-5040 BCE",
+        "time_start_bp": null,
+        "time_end_bp": null,
+        "dating_basis": "unknown",
+        "comparator_context": false,
+        "domestication_context": "domesticated_core",
+        "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table.",
+        "support_gap_note": ""
       }
     ],
     "locality_records": [
       {
         "identity": {
           "namespace": "canis_lupus_familiaris:project_locality",
-          "stable_token": "canis_lupus_familiaris:locality:kx379528-kx379529:unresolved",
-          "locality_text": "",
-          "political_entity": "",
+          "stable_token": "canis_lupus_familiaris:locality:kx379528-kx379529:cherrytreecave:germany",
+          "locality_text": "Cherry Tree Cave",
+          "political_entity": "Germany",
           "source_anchor_tokens": [
             "KX379528-KX379529",
             "",
@@ -696,7 +777,7 @@
         "provenance_qualities": [
           "primary_paper_pinned"
         ],
-        "locality": "",
+        "locality": "Cherry Tree Cave",
         "coordinates": {
           "latitude": null,
           "longitude": null,
@@ -704,32 +785,92 @@
           "longitude_text": "",
           "confidence": "unknown"
         },
-        "sample_count": 2,
+        "sample_count": 1,
         "sample_ids": [
-          "kx379528-kx379529:kx379528",
+          "kx379528-kx379529:kx379528"
+        ],
+        "datasets": [
+          "canis_lupus_familiaris:project:KX379528-KX379529"
+        ],
+        "chronology": {
+          "original_text": "4581-4849 BP",
+          "time_start_bp": 4581,
+          "time_end_bp": 4849,
+          "time_mean_bp": 4715,
+          "date_stddev_bp": "",
+          "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+          "evidence_class": "direct_radiocarbon_date",
+          "precision_posture": "sample_precise_interval"
+        },
+        "sample_namespace": "canis_lupus_familiaris:sample_locality",
+        "project_accessions": [
+          "KX379528-KX379529"
+        ],
+        "original_location_text": "Cherry Tree Cave",
+        "nordic_inclusion": false,
+        "nordic_inclusion_reason": "These ancient dog mitogenomes are European comparative context rather than a Nordic-localized animal signal.",
+        "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
+      },
+      {
+        "identity": {
+          "namespace": "canis_lupus_familiaris:project_locality",
+          "stable_token": "canis_lupus_familiaris:locality:kx379528-kx379529:herxheim:germany",
+          "locality_text": "Herxheim",
+          "political_entity": "Germany",
+          "source_anchor_tokens": [
+            "KX379528-KX379529",
+            "",
+            ""
+          ]
+        },
+        "species_latin_name": "Canis lupus familiaris",
+        "species_common_name": "dog",
+        "source_family": "GenBank",
+        "source_releases": [
+          "KX379528-KX379529"
+        ],
+        "record_modalities": [
+          "mitogenome_only"
+        ],
+        "review_strengths": [
+          "primary_paper_pinned"
+        ],
+        "provenance_qualities": [
+          "primary_paper_pinned"
+        ],
+        "locality": "Herxheim",
+        "coordinates": {
+          "latitude": null,
+          "longitude": null,
+          "latitude_text": "",
+          "longitude_text": "",
+          "confidence": "unknown"
+        },
+        "sample_count": 1,
+        "sample_ids": [
           "kx379528-kx379529:kx379529"
         ],
         "datasets": [
           "canis_lupus_familiaris:project:KX379528-KX379529"
         ],
         "chronology": {
-          "original_text": "",
-          "time_start_bp": null,
-          "time_end_bp": null,
-          "time_mean_bp": null,
+          "original_text": "6989-7172 BP",
+          "time_start_bp": 6989,
+          "time_end_bp": 7172,
+          "time_mean_bp": 7080,
           "date_stddev_bp": "",
           "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-          "evidence_class": "unresolved",
-          "precision_posture": "unresolved"
+          "evidence_class": "direct_radiocarbon_date",
+          "precision_posture": "sample_precise_interval"
         },
         "sample_namespace": "canis_lupus_familiaris:sample_locality",
         "project_accessions": [
           "KX379528-KX379529"
         ],
-        "original_location_text": "",
+        "original_location_text": "Herxheim",
         "nordic_inclusion": false,
         "nordic_inclusion_reason": "These ancient dog mitogenomes are European comparative context rather than a Nordic-localized animal signal.",
-        "interpretation_note": "No location evidence has been extracted yet for this recovered sample row."
+        "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
       },
       {
         "identity": {
@@ -795,9 +936,9 @@
       {
         "identity": {
           "namespace": "canis_lupus_familiaris:project_locality",
-          "stable_token": "canis_lupus_familiaris:locality:srs1407453:unresolved",
-          "locality_text": "",
-          "political_entity": "",
+          "stable_token": "canis_lupus_familiaris:locality:srs1407453:herxheim:germany",
+          "locality_text": "Herxheim",
+          "political_entity": "Germany",
           "source_anchor_tokens": [
             "SRS1407453",
             "",
@@ -819,7 +960,7 @@
         "provenance_qualities": [
           "primary_paper_pinned"
         ],
-        "locality": "",
+        "locality": "Herxheim",
         "coordinates": {
           "latitude": null,
           "longitude": null,
@@ -835,23 +976,23 @@
           "canis_lupus_familiaris:project:SRS1407453"
         ],
         "chronology": {
-          "original_text": "",
-          "time_start_bp": null,
-          "time_end_bp": null,
-          "time_mean_bp": null,
+          "original_text": "6989-7172 BP",
+          "time_start_bp": 6989,
+          "time_end_bp": 7172,
+          "time_mean_bp": 7080,
           "date_stddev_bp": "",
           "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-          "evidence_class": "unresolved",
-          "precision_posture": "unresolved"
+          "evidence_class": "direct_radiocarbon_date",
+          "precision_posture": "sample_precise_interval"
         },
         "sample_namespace": "canis_lupus_familiaris:sample_locality",
         "project_accessions": [
           "SRS1407453"
         ],
-        "original_location_text": "",
+        "original_location_text": "Herxheim",
         "nordic_inclusion": false,
         "nordic_inclusion_reason": "This ancient European dog sample informs North European context, but the current curation does not justify a Nordic-localized claim.",
-        "interpretation_note": "No location evidence has been extracted yet for this recovered sample row."
+        "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
       }
     ],
     "project_summaries": [
@@ -1063,6 +1204,6 @@
       }
     ],
     "refusals": [],
-    "normalization_scope": "Non-human normalization currently governs accession-backed sample master rows, project summaries, study summaries, and curated locality summaries. Site and chronology extraction still vary by accession and remain explicit in sample inclusion status rather than being silently flattened."
+    "normalization_scope": "Non-human normalization admits only recovered, final sample identities, plus project summaries, study summaries, and curated locality summaries. Pending and rejected placeholder rows remain source-native accounting and reasoned refusals; they are not normalized sample evidence."
   }
 }

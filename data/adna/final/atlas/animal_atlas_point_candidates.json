@@ -1,76 +1,7 @@
 {
   "schema_version": "animal-atlas-point-candidates.v1",
-  "row_count": 234,
+  "row_count": 233,
   "rows": [
-    {
-      "feature_id": "animal-atlas-feature:camelus-dromedarius-locality-srp073444-site1040nearwadihalfadromedarycontext-sudan",
-      "evidence_row_id": "animal-atlas-row:camelus-dromedarius-srp073444-camelus-dromedarius-locality-srp073444-site1040nearwadihalfadromedarycontext-sudan",
-      "site_record_id": "camelus_dromedarius:locality:srp073444:site1040nearwadihalfadromedarycontext:sudan",
-      "species_latin_name": "Camelus dromedarius",
-      "species_common_name": "dromedary camel",
-      "animal_scope": "domesticated_core",
-      "support_class": "accepted",
-      "support_note": "admissible_for_curated_support",
-      "locality": "Site 1040 near Wadi Halfa dromedary context",
-      "political_entity": "Sudan",
-      "latitude": 21.799142,
-      "longitude": 31.371316,
-      "latitude_text": "21.799142",
-      "longitude_text": "31.371316",
-      "coordinate_basis": "named_site_geocoding",
-      "coordinate_confidence": "approximate",
-      "geocoding_method": "manual_named_place_resolution",
-      "geocoder_or_gazetteer": "named-place resolution to Wadi Halfa city anchor",
-      "confidence_rationale": "The archived article names Site 1040 near Wadi Halfa explicitly. The current coordinate is an approximate city-level geocode for Wadi Halfa rather than a published excavation coordinate pair.",
-      "original_place_text": "Site 1040 near Wadi Halfa",
-      "resolved_place_text": "Wadi Halfa",
-      "coordinate_source_artifact_path": "adna/governance/source_library/papers/10.1111-1755-0998.12551/article.html",
-      "coordinate_source_locator": "introduction",
-      "coordinate_supplementary_source": "",
-      "coordinate_support_gap_note": "",
-      "chronology": {
-        "original_text": "Historical and archaeological dromedary range context",
-        "time_start_bp": null,
-        "time_end_bp": null,
-        "time_mean_bp": null,
-        "date_stddev_bp": "",
-        "dating_basis": "historical_and_archaeological_context",
-        "evidence_class": "historical_or_recent_date",
-        "precision_posture": "contextual_interval"
-      },
-      "project_accessions": [
-        "SRP073444"
-      ],
-      "primary_project_accession": "SRP073444",
-      "sample_record_ids": [
-        "camelus_dromedarius:sample:srp073444"
-      ],
-      "sample_group_ids": [
-        "SRP073444"
-      ],
-      "sample_count": 1,
-      "sample_namespace": "camelus_dromedarius:sample_locality",
-      "inclusion_statuses": [
-        "site_curated"
-      ],
-      "inclusion_notes": [
-        "Camel now keeps one named-place resolution trail instead of only a broad Arabian/Levant centroid."
-      ],
-      "paper_title": "Combined hybridization capture and shotgun sequencing for ancient DNA analysis of extinct wild and domestic dromedary camel",
-      "paper_doi": "10.1111/1755-0998.12551",
-      "publication_year": "2017",
-      "journal_title": "Molecular Ecology Resources",
-      "paper_url": "https://doi.org/10.1111/1755-0998.12551",
-      "supplementary_sources": [],
-      "source_artifact_path": "adna/governance/source_library/papers/10.1111-1755-0998.12551/article.html",
-      "source_artifact_kind": "article_html_body_quote",
-      "source_locator": "abstract and introduction",
-      "source_support_status": "article_exact_quote",
-      "exact_source_text": "The remains of a single large-sized Late Pleistocene camel individual recovered from the Site 1040 near Wadi Halfa were first evaluated by Gautier.",
-      "nordic_inclusion": false,
-      "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
-      "interpretation_note": "Camel now keeps one named-place resolution trail instead of only a broad Arabian/Levant centroid."
-    },
     {
       "feature_id": "animal-atlas-feature:capra-hircus-locality-prjeb90141-acemhyk-aksarayplainturkey",
       "evidence_row_id": "animal-atlas-row:capra-hircus-prjeb90141-capra-hircus-locality-prjeb90141-acemhyk-aksarayplainturkey",

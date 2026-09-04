@@ -1,31 +1,9 @@
 {
   "schema_version": "animal-atlas-candidate-accountability.v1",
-  "candidate_row_count": 234,
+  "candidate_row_count": 233,
   "passed_row_count": 233,
-  "overall_ok": false,
+  "overall_ok": true,
   "rows": [
-    {
-      "evidence_row_id": "animal-atlas-row:camelus-dromedarius-srp073444-camelus-dromedarius-locality-srp073444-site1040nearwadihalfadromedarycontext-sudan",
-      "species_latin_name": "Camelus dromedarius",
-      "project_accession": "SRP073444",
-      "site_record_id": "camelus_dromedarius:locality:srp073444:site1040nearwadihalfadromedarycontext:sudan",
-      "sample_record_ids": [
-        "camelus_dromedarius:sample:srp073444"
-      ],
-      "sample_rows_present": true,
-      "sample_lineage_present": false,
-      "site_evidence_present": true,
-      "chronology_evidence_present": true,
-      "coordinate_provenance_present": true,
-      "sample_locality_matches_site_record": true,
-      "sample_lineage_paths": [],
-      "site_evidence_path": "adna/governance/source_library/papers/10.1111-1755-0998.12551/article.html",
-      "site_evidence_locator": "abstract and introduction",
-      "chronology_provenance_paths": [],
-      "coordinate_provenance_path": "adna/governance/source_library/papers/10.1111-1755-0998.12551/article.html",
-      "coordinate_provenance_locator": "introduction",
-      "fully_accountable": false
-    },
     {
       "evidence_row_id": "animal-atlas-row:capra-hircus-prjeb90141-capra-hircus-locality-prjeb90141-acemhyk-aksarayplainturkey",
       "species_latin_name": "Capra hircus",

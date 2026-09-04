@@ -1,19 +1,19 @@
 # Project recovery stage review
 
 - Tracked projects: `40`
-- Ready for publication review: `8`
-- Blocked projects: `26`
+- Ready for publication review: `11`
+- Blocked projects: `23`
 
 | Project | Species | Recovery status | Next required stage | Blocking stages |
 | --- | --- | --- | --- | --- |
 | `PRJEB31621` | `Bos taurus` | `blocked_projects` | `sample_identity_recovery` | `site_recovery; chronology_recovery; coordinate_derivation; publication_readiness` |
 | `PRJEB75467` | `Bos taurus` | `blocked_projects` | `sample_identity_recovery` | `site_recovery; chronology_recovery; coordinate_derivation; publication_readiness` |
 | `PRJNA705960` | `Bos taurus` | `blocked_projects` | `paper_capture` | `paper_capture; coordinate_derivation; publication_readiness` |
-| `KU605068-KU605080` | `Camelus dromedarius` | `blocked_projects` | `site_recovery` | `coordinate_derivation; publication_readiness` |
+| `KU605068-KU605080` | `Camelus dromedarius` | `ready_for_publication_review` | `coordinate_derivation` | `none` |
 | `SRP073444` | `Camelus dromedarius` | `blocked_projects` | `sample_identity_recovery` | `site_recovery; chronology_recovery; coordinate_derivation; publication_readiness` |
-| `KX379528-KX379529` | `Canis lupus familiaris` | `blocked_projects` | `site_recovery` | `coordinate_derivation; publication_readiness` |
+| `KX379528-KX379529` | `Canis lupus familiaris` | `ready_for_publication_review` | `coordinate_derivation` | `none` |
 | `SRS1407451` | `Canis lupus familiaris` | `blocked_projects` | `site_recovery` | `coordinate_derivation; publication_readiness` |
-| `SRS1407453` | `Canis lupus familiaris` | `blocked_projects` | `site_recovery` | `coordinate_derivation; publication_readiness` |
+| `SRS1407453` | `Canis lupus familiaris` | `ready_for_publication_review` | `coordinate_derivation` | `none` |
 | `PRJEB90141` | `Capra hircus` | `ready_for_publication_review` | `none` | `none` |
 | `PRJEB90261` | `Capra hircus` | `ready_for_publication_review` | `none` | `none` |
 | `PRJNA1328209` | `Capra hircus` | `ready_for_publication_review` | `none` | `none` |

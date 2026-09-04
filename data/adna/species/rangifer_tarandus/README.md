@@ -22,12 +22,12 @@ flowchart LR
 - Product role: `comparator`
 - Dataset bucket: `comparator_only`
 - Curation class: `comparator_only`
-- Curated sample rows: `23`
+- Curated sample rows: `20`
 - Curated projects: `0`
 - Curated site rows: `1`
 - Direct-coordinate rows: `0`
 - Geocoded rows: `0`
-- Unresolved sample rows: `3`
+- Unresolved sample rows: `0`
 - Mapped Nordic rows: `1`
 - Tracked intake projects: `4`
 - Projects with sample recovery gaps: `0`

@@ -1,10 +1,9 @@
 {
   "schema_version": "adna-source-inventory.v1",
-  "reference_stash_visible": true,
+  "reference_stash_visible": false,
   "row_count": 18,
   "counts": {
-    "aligned": 17,
-    "local_reference_ahead_of_repo": 1
+    "repo_ahead_of_local_reference": 18
   },
   "rows": [
     {
@@ -13,11 +12,11 @@
       "paper_registry_present": true,
       "repository_article_capture_status": "archived",
       "repository_supplement_capture_status": "archived",
-      "local_reference_article_status": "local_reference_staged",
-      "local_reference_supplement_status": "local_reference_staged",
+      "local_reference_article_status": "missing",
+      "local_reference_supplement_status": "missing",
       "repository_supplementary_count": 7,
-      "local_reference_supplementary_asset_count": 7,
-      "alignment_status": "aligned"
+      "local_reference_supplementary_asset_count": 0,
+      "alignment_status": "repo_ahead_of_local_reference"
     },
     {
       "stash_slug": "10.1016-j.isci.2025.113771",
@@ -25,11 +24,11 @@
       "paper_registry_present": true,
       "repository_article_capture_status": "archived",
       "repository_supplement_capture_status": "archived",
-      "local_reference_article_status": "local_reference_staged",
-      "local_reference_supplement_status": "local_reference_staged",
+      "local_reference_article_status": "missing",
+      "local_reference_supplement_status": "missing",
       "repository_supplementary_count": 4,
-      "local_reference_supplementary_asset_count": 4,
-      "alignment_status": "aligned"
+      "local_reference_supplementary_asset_count": 0,
+      "alignment_status": "repo_ahead_of_local_reference"
     },
     {
       "stash_slug": "10.1016-j.xgen.2025.101099",
@@ -37,11 +36,11 @@
       "paper_registry_present": true,
       "repository_article_capture_status": "archived",
       "repository_supplement_capture_status": "archived",
-      "local_reference_article_status": "local_reference_staged",
-      "local_reference_supplement_status": "local_reference_staged",
+      "local_reference_article_status": "missing",
+      "local_reference_supplement_status": "missing",
       "repository_supplementary_count": 8,
-      "local_reference_supplementary_asset_count": 8,
-      "alignment_status": "aligned"
+      "local_reference_supplementary_asset_count": 0,
+      "alignment_status": "repo_ahead_of_local_reference"
     },
     {
       "stash_slug": "10.1038-ncomms16082",
@@ -49,11 +48,11 @@
       "paper_registry_present": true,
       "repository_article_capture_status": "archived",
       "repository_supplement_capture_status": "archived",
-      "local_reference_article_status": "local_reference_staged",
-      "local_reference_supplement_status": "local_reference_staged",
+      "local_reference_article_status": "missing",
+      "local_reference_supplement_status": "missing",
       "repository_supplementary_count": 2,
-      "local_reference_supplementary_asset_count": 2,
-      "alignment_status": "aligned"
+      "local_reference_supplementary_asset_count": 0,
+      "alignment_status": "repo_ahead_of_local_reference"
     },
     {
       "stash_slug": "10.1038-s41562-021-01083-y",
@@ -61,11 +60,11 @@
       "paper_registry_present": true,
       "repository_article_capture_status": "archived",
       "repository_supplement_capture_status": "archived",
-      "local_reference_article_status": "local_reference_staged",
-      "local_reference_supplement_status": "local_reference_staged",
+      "local_reference_article_status": "missing",
+      "local_reference_supplement_status": "missing",
       "repository_supplementary_count": 4,
-      "local_reference_supplementary_asset_count": 4,
-      "alignment_status": "aligned"
+      "local_reference_supplementary_asset_count": 0,
+      "alignment_status": "repo_ahead_of_local_reference"
     },
     {
       "stash_slug": "10.1038-s41586-021-04018-9",
@@ -73,11 +72,11 @@
       "paper_registry_present": true,
       "repository_article_capture_status": "archived",
       "repository_supplement_capture_status": "archived",
-      "local_reference_article_status": "local_reference_staged",
-      "local_reference_supplement_status": "local_reference_staged",
+      "local_reference_article_status": "missing",
+      "local_reference_supplement_status": "missing",
       "repository_supplementary_count": 5,
-      "local_reference_supplementary_asset_count": 5,
-      "alignment_status": "aligned"
+      "local_reference_supplementary_asset_count": 0,
+      "alignment_status": "repo_ahead_of_local_reference"
     },
     {
       "stash_slug": "10.1038-s41586-024-08112-6",
@@ -85,11 +84,11 @@
       "paper_registry_present": true,
       "repository_article_capture_status": "archived",
       "repository_supplement_capture_status": "archived",
-      "local_reference_article_status": "local_reference_staged",
-      "local_reference_supplement_status": "local_reference_staged",
+      "local_reference_article_status": "missing",
+      "local_reference_supplement_status": "missing",
       "repository_supplementary_count": 4,
-      "local_reference_supplementary_asset_count": 4,
-      "alignment_status": "aligned"
+      "local_reference_supplementary_asset_count": 0,
+      "alignment_status": "repo_ahead_of_local_reference"
     },
     {
       "stash_slug": "10.1038-s41598-024-54296-2",
@@ -97,11 +96,11 @@
       "paper_registry_present": true,
       "repository_article_capture_status": "archived",
       "repository_supplement_capture_status": "archived",
-      "local_reference_article_status": "local_reference_staged",
-      "local_reference_supplement_status": "local_reference_staged",
+      "local_reference_article_status": "missing",
+      "local_reference_supplement_status": "missing",
       "repository_supplementary_count": 1,
-      "local_reference_supplementary_asset_count": 1,
-      "alignment_status": "aligned"
+      "local_reference_supplementary_asset_count": 0,
+      "alignment_status": "repo_ahead_of_local_reference"
     },
     {
       "stash_slug": "10.1038-s42003-021-02794-8",
@@ -109,11 +108,11 @@
       "paper_registry_present": true,
       "repository_article_capture_status": "archived",
       "repository_supplement_capture_status": "archived",
-      "local_reference_article_status": "local_reference_staged",
-      "local_reference_supplement_status": "local_reference_staged",
+      "local_reference_article_status": "missing",
+      "local_reference_supplement_status": "missing",
       "repository_supplementary_count": 5,
-      "local_reference_supplementary_asset_count": 15,
-      "alignment_status": "local_reference_ahead_of_repo"
+      "local_reference_supplementary_asset_count": 0,
+      "alignment_status": "repo_ahead_of_local_reference"
     },
     {
       "stash_slug": "10.1073-pnas.1901169116",
@@ -121,11 +120,11 @@
       "paper_registry_present": true,
       "repository_article_capture_status": "archived",
       "repository_supplement_capture_status": "archived",
-      "local_reference_article_status": "local_reference_staged",
-      "local_reference_supplement_status": "local_reference_staged",
+      "local_reference_article_status": "missing",
+      "local_reference_supplement_status": "missing",
       "repository_supplementary_count": 3,
-      "local_reference_supplementary_asset_count": 3,
-      "alignment_status": "aligned"
+      "local_reference_supplementary_asset_count": 0,
+      "alignment_status": "repo_ahead_of_local_reference"
     },
     {
       "stash_slug": "10.1093-gbe-evae114",
@@ -133,11 +132,11 @@
       "paper_registry_present": true,
       "repository_article_capture_status": "partial",
       "repository_supplement_capture_status": "archived",
-      "local_reference_article_status": "local_reference_staged",
-      "local_reference_supplement_status": "local_reference_staged",
+      "local_reference_article_status": "missing",
+      "local_reference_supplement_status": "missing",
       "repository_supplementary_count": 2,
-      "local_reference_supplementary_asset_count": 2,
-      "alignment_status": "aligned"
+      "local_reference_supplementary_asset_count": 0,
+      "alignment_status": "repo_ahead_of_local_reference"
     },
     {
       "stash_slug": "10.1093-gbe-evaf181",
@@ -145,11 +144,11 @@
       "paper_registry_present": true,
       "repository_article_capture_status": "partial",
       "repository_supplement_capture_status": "archived",
-      "local_reference_article_status": "local_reference_staged",
-      "local_reference_supplement_status": "local_reference_staged",
+      "local_reference_article_status": "missing",
+      "local_reference_supplement_status": "missing",
       "repository_supplementary_count": 2,
-      "local_reference_supplementary_asset_count": 2,
-      "alignment_status": "aligned"
+      "local_reference_supplementary_asset_count": 0,
+      "alignment_status": "repo_ahead_of_local_reference"
     },
     {
       "stash_slug": "10.1111-1755-0998.12551",
@@ -157,11 +156,11 @@
       "paper_registry_present": true,
       "repository_article_capture_status": "archived",
       "repository_supplement_capture_status": "archived",
-      "local_reference_article_status": "local_reference_staged",
-      "local_reference_supplement_status": "local_reference_staged",
+      "local_reference_article_status": "missing",
+      "local_reference_supplement_status": "missing",
       "repository_supplementary_count": 1,
-      "local_reference_supplementary_asset_count": 1,
-      "alignment_status": "aligned"
+      "local_reference_supplementary_asset_count": 0,
+      "alignment_status": "repo_ahead_of_local_reference"
     },
     {
       "stash_slug": "10.1126-science.aam5298",
@@ -169,11 +168,11 @@
       "paper_registry_present": true,
       "repository_article_capture_status": "archived",
       "repository_supplement_capture_status": "archived",
-      "local_reference_article_status": "local_reference_staged",
-      "local_reference_supplement_status": "local_reference_staged",
+      "local_reference_article_status": "missing",
+      "local_reference_supplement_status": "missing",
       "repository_supplementary_count": 6,
-      "local_reference_supplementary_asset_count": 6,
-      "alignment_status": "aligned"
+      "local_reference_supplementary_asset_count": 0,
+      "alignment_status": "repo_ahead_of_local_reference"
     },
     {
       "stash_slug": "10.1126-science.aao3297",
@@ -181,11 +180,11 @@
       "paper_registry_present": true,
       "repository_article_capture_status": "archived",
       "repository_supplement_capture_status": "archived",
-      "local_reference_article_status": "local_reference_staged",
-      "local_reference_supplement_status": "local_reference_staged",
+      "local_reference_article_status": "missing",
+      "local_reference_supplement_status": "missing",
       "repository_supplementary_count": 12,
-      "local_reference_supplementary_asset_count": 12,
-      "alignment_status": "aligned"
+      "local_reference_supplementary_asset_count": 0,
+      "alignment_status": "repo_ahead_of_local_reference"
     },
     {
       "stash_slug": "10.1126-science.aav1002",
@@ -193,11 +192,11 @@
       "paper_registry_present": true,
       "repository_article_capture_status": "archived",
       "repository_supplement_capture_status": "archived",
-      "local_reference_article_status": "local_reference_staged",
-      "local_reference_supplement_status": "local_reference_staged",
+      "local_reference_article_status": "missing",
+      "local_reference_supplement_status": "missing",
       "repository_supplementary_count": 1,
-      "local_reference_supplementary_asset_count": 1,
-      "alignment_status": "aligned"
+      "local_reference_supplementary_asset_count": 0,
+      "alignment_status": "repo_ahead_of_local_reference"
     },
     {
       "stash_slug": "10.1126-science.adt2642",
@@ -205,11 +204,11 @@
       "paper_registry_present": true,
       "repository_article_capture_status": "archived",
       "repository_supplement_capture_status": "archived",
-      "local_reference_article_status": "local_reference_staged",
-      "local_reference_supplement_status": "local_reference_staged",
+      "local_reference_article_status": "missing",
+      "local_reference_supplement_status": "missing",
       "repository_supplementary_count": 3,
-      "local_reference_supplementary_asset_count": 3,
-      "alignment_status": "aligned"
+      "local_reference_supplementary_asset_count": 0,
+      "alignment_status": "repo_ahead_of_local_reference"
     },
     {
       "stash_slug": "10.24272-j.issn.2095-8137.2025.080",
@@ -217,11 +216,11 @@
       "paper_registry_present": true,
       "repository_article_capture_status": "archived",
       "repository_supplement_capture_status": "archived",
-      "local_reference_article_status": "local_reference_staged",
-      "local_reference_supplement_status": "local_reference_staged",
+      "local_reference_article_status": "missing",
+      "local_reference_supplement_status": "missing",
       "repository_supplementary_count": 2,
-      "local_reference_supplementary_asset_count": 2,
-      "alignment_status": "aligned"
+      "local_reference_supplementary_asset_count": 0,
+      "alignment_status": "repo_ahead_of_local_reference"
     }
   ]
 }

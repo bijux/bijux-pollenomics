@@ -22,12 +22,12 @@ flowchart LR
 - Product role: `domesticated_core`
 - Dataset bucket: `paper_pinned_core`
 - Curation class: `paper_pinned_core`
-- Curated sample rows: `2`
+- Curated sample rows: `0`
 - Curated projects: `2`
 - Curated site rows: `1`
 - Direct-coordinate rows: `0`
 - Geocoded rows: `0`
-- Unresolved sample rows: `1`
+- Unresolved sample rows: `0`
 - Mapped Nordic rows: `0`
 - Tracked intake projects: `2`
 - Projects with sample recovery gaps: `2`

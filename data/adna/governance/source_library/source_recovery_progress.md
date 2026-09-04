@@ -2,28 +2,28 @@
 
 - Tracked projects: `40`
 - Sample identity rows present: `14`
-- Defensible site rows present: `8`
-- Sample-owned chronology present: `11`
+- Defensible site rows present: `11`
+- Sample-owned chronology present: `14`
 - Mappable coordinate projects: `7`
-- Ready for publication review: `8`
+- Ready for publication review: `11`
 
 ## Sample Evidence Depth
 
 - sample identity only: `0`
-- sample with site: `124`
-- sample with site and chronology: `268`
-- sample with site chronology and coordinates: `502`
+- sample with site: `87`
+- sample with site and chronology: `280`
+- sample with site chronology and coordinates: `501`
 
 | Project | Species | Completed stages | Required stages | Recovery depth score |
 | --- | --- | ---: | ---: | ---: |
 | `PRJEB31621` | `Bos taurus` | `2` | `7` | `0.2857` |
 | `PRJEB75467` | `Bos taurus` | `2` | `7` | `0.2857` |
 | `PRJNA705960` | `Bos taurus` | `3` | `7` | `0.4286` |
-| `KU605068-KU605080` | `Camelus dromedarius` | `3` | `7` | `0.4286` |
+| `KU605068-KU605080` | `Camelus dromedarius` | `6` | `7` | `0.8571` |
 | `SRP073444` | `Camelus dromedarius` | `2` | `7` | `0.2857` |
-| `KX379528-KX379529` | `Canis lupus familiaris` | `3` | `7` | `0.4286` |
+| `KX379528-KX379529` | `Canis lupus familiaris` | `6` | `7` | `0.8571` |
 | `SRS1407451` | `Canis lupus familiaris` | `4` | `7` | `0.5714` |
-| `SRS1407453` | `Canis lupus familiaris` | `3` | `7` | `0.4286` |
+| `SRS1407453` | `Canis lupus familiaris` | `6` | `7` | `0.8571` |
 | `PRJEB90141` | `Capra hircus` | `7` | `7` | `1.0` |
 | `PRJEB90261` | `Capra hircus` | `7` | `7` | `1.0` |
 | `PRJNA1328209` | `Capra hircus` | `7` | `7` | `1.0` |

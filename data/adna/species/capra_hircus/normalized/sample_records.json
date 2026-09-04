@@ -1,6 +1,11 @@
 {
   "schema_version": "adna-sample-record-export.v1",
+  "evidence_domain": "animal_ancient_dna",
+  "pollen_eligible": false,
+  "pollen_propagation_eligible": false,
   "species_latin_name": "Capra hircus",
+  "admitted_sample_count": 82,
+  "refused_sample_count": 0,
   "samples": [
     {
       "identity": {
@@ -6644,5 +6649,6 @@
       "sample_identity_resolution": "final",
       "sample_ambiguity_note": ""
     }
-  ]
+  ],
+  "sample_refusals": []
 }

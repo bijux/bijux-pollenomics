@@ -1,12 +1,11 @@
 # Animal atlas candidate accountability
 
-- Candidate rows: `234`
+- Candidate rows: `233`
 - Fully accountable rows: `233`
-- Overall ok: `false`
+- Overall ok: `true`
 
 | Species | Project | Sample rows | Sample lineage | Site evidence | Chronology evidence | Coordinate evidence | Locality match |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| Camelus dromedarius | SRP073444 | true | false | true | true | true | true |
 | Capra hircus | PRJEB90141 | true | true | true | true | true | true |
 | Capra hircus | PRJEB90141 | true | true | true | true | true | true |
 | Capra hircus | PRJEB90141 | true | true | true | true | true | true |

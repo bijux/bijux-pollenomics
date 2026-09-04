@@ -3,16 +3,16 @@
   "project_count": 40,
   "sample_evidence_depth_counts": {
     "sample_identity_only": 0,
-    "sample_with_site": 124,
-    "sample_with_site_and_chronology": 268,
-    "sample_with_site_chronology_and_coordinates": 502
+    "sample_with_site": 87,
+    "sample_with_site_and_chronology": 280,
+    "sample_with_site_chronology_and_coordinates": 501
   },
   "project_counts": {
     "projects_with_sample_identity_rows": 14,
-    "projects_with_defensible_site_rows": 8,
-    "projects_with_sample_owned_chronology": 11,
+    "projects_with_defensible_site_rows": 11,
+    "projects_with_sample_owned_chronology": 14,
     "projects_with_mappable_coordinates": 7,
-    "projects_ready_for_publication_review": 8
+    "projects_ready_for_publication_review": 11
   },
   "rows": [
     {
@@ -48,12 +48,12 @@
     {
       "project_accession": "KU605068-KU605080",
       "species_latin_name": "Camelus dromedarius",
-      "completed_stage_count": 3,
+      "completed_stage_count": 6,
       "required_stage_count": 7,
-      "recovery_depth_score": 0.4286,
+      "recovery_depth_score": 0.8571,
       "final_sample_count": 13,
       "minimum_gap_count": 0,
-      "publication_readiness_status": "blocked"
+      "publication_readiness_status": "complete"
     },
     {
       "project_accession": "SRP073444",
@@ -68,12 +68,12 @@
     {
       "project_accession": "KX379528-KX379529",
       "species_latin_name": "Canis lupus familiaris",
-      "completed_stage_count": 3,
+      "completed_stage_count": 6,
       "required_stage_count": 7,
-      "recovery_depth_score": 0.4286,
+      "recovery_depth_score": 0.8571,
       "final_sample_count": 2,
       "minimum_gap_count": 0,
-      "publication_readiness_status": "blocked"
+      "publication_readiness_status": "complete"
     },
     {
       "project_accession": "SRS1407451",
@@ -88,12 +88,12 @@
     {
       "project_accession": "SRS1407453",
       "species_latin_name": "Canis lupus familiaris",
-      "completed_stage_count": 3,
+      "completed_stage_count": 6,
       "required_stage_count": 7,
-      "recovery_depth_score": 0.4286,
+      "recovery_depth_score": 0.8571,
       "final_sample_count": 1,
       "minimum_gap_count": 0,
-      "publication_readiness_status": "blocked"
+      "publication_readiness_status": "complete"
     },
     {
       "project_accession": "PRJEB90141",

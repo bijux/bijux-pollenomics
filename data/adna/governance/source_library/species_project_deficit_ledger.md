@@ -7,11 +7,11 @@
 | `Bos taurus` | `PRJEB31621` | `1` | `0` | `0` | `blocked` |
 | `Bos taurus` | `PRJEB75467` | `1` | `0` | `0` | `blocked` |
 | `Bos taurus` | `PRJNA705960` | `0` | `11` | `0` | `blocked` |
-| `Camelus dromedarius` | `KU605068-KU605080` | `0` | `13` | `13` | `blocked` |
+| `Camelus dromedarius` | `KU605068-KU605080` | `0` | `0` | `0` | `complete` |
 | `Camelus dromedarius` | `SRP073444` | `1` | `0` | `0` | `blocked` |
-| `Canis lupus familiaris` | `KX379528-KX379529` | `0` | `2` | `2` | `blocked` |
+| `Canis lupus familiaris` | `KX379528-KX379529` | `0` | `0` | `0` | `complete` |
 | `Canis lupus familiaris` | `SRS1407451` | `0` | `1` | `0` | `blocked` |
-| `Canis lupus familiaris` | `SRS1407453` | `0` | `1` | `1` | `blocked` |
+| `Canis lupus familiaris` | `SRS1407453` | `0` | `0` | `0` | `complete` |
 | `Capra hircus` | `PRJEB90141` | `0` | `0` | `0` | `complete` |
 | `Capra hircus` | `PRJEB90261` | `0` | `0` | `0` | `complete` |
 | `Capra hircus` | `PRJNA1328209` | `0` | `0` | `0` | `complete` |
