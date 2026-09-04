@@ -21,6 +21,7 @@ from .normalization import (
     classify_neotoma_site_country,
     normalize_neotoma_rows,
 )
+from .relational import build_neotoma_relational_snapshot
 from .review import (
     build_neotoma_temporal_review,
     render_neotoma_temporal_review_markdown,
@@ -30,6 +31,7 @@ from .review import (
 __all__ = [
     "build_neotoma_bbox_geojson",
     "build_neotoma_download_archive_parts",
+    "build_neotoma_relational_snapshot",
     "build_neotoma_site_rows_from_downloads",
     "build_neotoma_site_snapshot_rows",
     "build_neotoma_temporal_review",

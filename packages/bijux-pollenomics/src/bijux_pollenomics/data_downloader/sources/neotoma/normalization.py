@@ -154,8 +154,15 @@ def build_neotoma_dataset_from_download(
         dataset = {key: copy.deepcopy(value) for key, value in site_dataset.items()}
     else:
         return None
-    dataset["chronologies"] = copy.deepcopy(site.get("chronologies", []))
-    dataset["defaultchronology"] = copy.deepcopy(site.get("defaultchronology"))
+    chronology_owner = collection_unit if isinstance(collection_unit, dict) else site
+    chronologies = chronology_owner.get("chronologies")
+    default_chronology = chronology_owner.get("defaultchronology")
+    if chronologies is None:
+        chronologies = site.get("chronologies", [])
+    if default_chronology is None:
+        default_chronology = site.get("defaultchronology")
+    dataset["chronologies"] = copy.deepcopy(chronologies)
+    dataset["defaultchronology"] = copy.deepcopy(default_chronology)
     return dataset
 
 
