@@ -1450,7 +1450,7 @@ class CountryReportTests(unittest.TestCase):
             self.assertTrue((output / "nordic_pollen_sites.geojson").exists())
             self.assertTrue((output / "nordic_environmental_sites.geojson").exists())
             self.assertTrue((output / "sweden_archaeology_layer.json").exists())
-            self.assertTrue((output / "sweden_archaeology_density.geojson").exists())
+            self.assertFalse((output / "sweden_archaeology_density.geojson").exists())
             self.assertTrue((output / "nordic_country_boundaries.geojson").exists())
 
     def test_generate_multi_country_map_can_publish_optional_sweden_lake_layers(

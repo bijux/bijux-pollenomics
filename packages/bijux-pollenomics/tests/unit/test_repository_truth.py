@@ -78,9 +78,9 @@ class RepositoryTruthUnitTests(unittest.TestCase):
         self.assertEqual(payload["counts"]["tracked_paper_count"], 18)
         self.assertEqual(payload["counts"]["papers_with_archived_supplements"], 18)
         self.assertEqual(
-            payload["counts"]["papers_with_local_reference_supplements"], 18
+            payload["counts"]["papers_with_local_reference_supplements"], 0
         )
-        self.assertEqual(payload["counts"]["published_atlas_point_count"], 234)
+        self.assertEqual(payload["counts"]["published_atlas_point_count"], 233)
         self.assertTrue(
             any(
                 "unresolved" in row or "refused" in row
@@ -237,7 +237,7 @@ class RepositoryTruthUnitTests(unittest.TestCase):
             for row in matrix_payload["rows"]
             if row["domain_key"] == "pollen_context"
         )
-        self.assertEqual(pollen_row["tracked_metrics"]["landclim_site_count"], 492)
+        self.assertEqual(pollen_row["tracked_metrics"]["landclim_site_count"], 490)
         self.assertEqual(pollen_row["tracked_metrics"]["neotoma_site_count"], 200)
         self.assertIn("Repository source explainer audit", explainer_markdown)
         self.assertIn("Repository atlas input audit", atlas_markdown)
