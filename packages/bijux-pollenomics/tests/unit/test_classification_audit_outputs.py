@@ -126,6 +126,7 @@ def _materialize(
         paths=paths or ClassificationAuditOutputPaths.under(output_root),
         allowed_output_parent=allowed_output_parent,
         classification_contract_version="1.0.0",
+        classification_contract_digest=f"sha256:{'a' * 64}",
     )
 
 
@@ -243,6 +244,7 @@ def test_manifest_hashes_and_counts_every_payload(tmp_path: Path) -> None:
     assert first.manifest_sha256 == second.manifest_sha256
     assert second.disposition == "unchanged"
     assert manifest["payload_file_count"] == 8
+    assert manifest["classification_contract_digest"] == f"sha256:{'a' * 64}"
     assert [row["path"] for row in entries] == sorted(row["path"] for row in entries)
     for row in entries:
         payload_bytes = (output_root / row["path"]).read_bytes()
@@ -332,6 +334,22 @@ def test_explicit_unsafe_output_path_is_refused_before_writing(
     assert refusal.value.reason_code == "unsafe_output_path"
     assert not output_root.exists()
     assert not (tmp_path / "escaped-review.json").exists()
+
+
+def test_invalid_contract_digest_is_refused_before_writing(tmp_path: Path) -> None:
+    output_root = tmp_path / "classification-audit"
+
+    with pytest.raises(ClassificationAuditRefusalError) as refusal:
+        materialize_classification_audit(
+            _accounting(),
+            paths=ClassificationAuditOutputPaths.under(output_root),
+            allowed_output_parent=tmp_path,
+            classification_contract_version="1.0.0",
+            classification_contract_digest="not-a-digest",
+        )
+
+    assert refusal.value.reason_code == "invalid_contract_digest"
+    assert not output_root.exists()
 
 
 def test_tampered_reconciliation_is_refused_before_writing(tmp_path: Path) -> None:

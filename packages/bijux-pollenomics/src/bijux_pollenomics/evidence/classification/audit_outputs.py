@@ -7,6 +7,7 @@ import hashlib
 import json
 import os
 from pathlib import Path
+import re
 import shutil
 import tempfile
 
@@ -44,6 +45,7 @@ _OUTPUT_NAMES = (
     "unmapped_mapping_queue.json",
 )
 _MANIFEST_NAME = "manifest.json"
+_SHA256_PATTERN = re.compile(r"sha256:[0-9a-f]{64}\Z")
 
 
 class ClassificationAuditRefusalError(ValueError):
@@ -121,12 +123,17 @@ def materialize_classification_audit(
     paths: ClassificationAuditOutputPaths,
     allowed_output_parent: Path,
     classification_contract_version: str,
+    classification_contract_digest: str,
 ) -> ClassificationAuditMaterializationResult:
     """Reconcile and atomically publish a deterministic classification audit."""
     _validate_output_paths(paths, Path(allowed_output_parent))
     classification_contract_version = _required_text(
         classification_contract_version,
         field_name="classification_contract_version",
+    )
+    classification_contract_digest = _required_digest(
+        classification_contract_digest,
+        field_name="classification_contract_digest",
     )
     concepts, memberships = _validated_accounting_rows(accounting)
     _validate_accounting_reconciliation(accounting, concepts, memberships)
@@ -135,6 +142,7 @@ def materialize_classification_audit(
         concepts=concepts,
         memberships=memberships,
         classification_contract_version=classification_contract_version,
+        classification_contract_digest=classification_contract_digest,
     )
     serialized_payloads = {
         name: _canonical_json_bytes(payload) for name, payload in payloads.items()
@@ -143,6 +151,7 @@ def materialize_classification_audit(
         accounting=accounting,
         serialized_payloads=serialized_payloads,
         classification_contract_version=classification_contract_version,
+        classification_contract_digest=classification_contract_digest,
     )
     manifest_bytes = _canonical_json_bytes(manifest)
     expected_files = {**serialized_payloads, _MANIFEST_NAME: manifest_bytes}
@@ -338,6 +347,7 @@ def _build_payloads(
     concepts: Sequence[Mapping[str, object]],
     memberships: Sequence[Mapping[str, object]],
     classification_contract_version: str,
+    classification_contract_digest: str,
 ) -> tuple[dict[str, dict[str, object]], str]:
     status_concepts = Counter(str(row["mapping_status"]) for row in concepts)
     status_observations = Counter(str(row["mapping_status"]) for row in memberships)
@@ -381,6 +391,7 @@ def _build_payloads(
         "source_snapshot_id": accounting["source_snapshot_id"],
         "build_id": accounting["build_id"],
         "classification_contract_version": classification_contract_version,
+        "classification_contract_digest": classification_contract_digest,
     }
     country_partitions = _country_partitions(memberships)
     return (
@@ -649,6 +660,7 @@ def _build_manifest(
     accounting: Mapping[str, object],
     serialized_payloads: Mapping[str, bytes],
     classification_contract_version: str,
+    classification_contract_digest: str,
 ) -> dict[str, object]:
     entries = tuple(
         {
@@ -668,6 +680,7 @@ def _build_manifest(
         "source_snapshot_id": accounting["source_snapshot_id"],
         "build_id": accounting["build_id"],
         "classification_contract_version": classification_contract_version,
+        "classification_contract_digest": classification_contract_digest,
         "input_accounting_sha256": _sha256(_canonical_json_bytes(accounting)),
         "bundle_digest": _sha256(digest_input),
         "payload_file_count": len(entries),
@@ -833,6 +846,16 @@ def _required_text(value: object, *, field_name: str) -> str:
         _refuse("invalid_accounting_schema", f"{field_name} must be non-empty")
     assert isinstance(value, str)
     return value.strip()
+
+
+def _required_digest(value: object, *, field_name: str) -> str:
+    text = _required_text(value, field_name=field_name)
+    if _SHA256_PATTERN.fullmatch(text) is None:
+        _refuse(
+            "invalid_contract_digest",
+            f"{field_name} must be a prefixed SHA-256 digest",
+        )
+    return text
 
 
 def _nonempty(value: object) -> bool:
