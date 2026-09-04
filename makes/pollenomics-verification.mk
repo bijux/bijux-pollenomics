@@ -15,6 +15,9 @@ POLLENOMICS_SCIENCE_TESTS := \
 	$(POLLENOMICS_TEST_ROOT)/unit/test_ecological_classification.py \
 	$(POLLENOMICS_TEST_ROOT)/unit/test_classification_audit_outputs.py \
 	$(POLLENOMICS_TEST_ROOT)/unit/test_harmonization.py \
+	$(POLLENOMICS_TEST_ROOT)/unit/test_temporal_overlap_consumers.py \
+	$(POLLENOMICS_TEST_ROOT)/unit/test_lake_evidence_richness.py \
+	$(POLLENOMICS_TEST_ROOT)/unit/test_propagation_evidence_domains.py \
 	$(POLLENOMICS_TEST_ROOT)/unit/test_scientific_review.py \
 	$(POLLENOMICS_TEST_ROOT)/unit/test_source_spatiotemporal_posture.py \
 	$(POLLENOMICS_TEST_ROOT)/unit/test_propagation_network.py
@@ -30,12 +33,18 @@ POLLENOMICS_SCIENCE_INPUTS := \
 	$(POLLENOMICS_SCIENCE_TESTS)
 
 POLLENOMICS_DATA_TESTS := \
+	$(POLLENOMICS_TEST_ROOT)/unit/test_adna_normalization.py \
+	$(POLLENOMICS_TEST_ROOT)/unit/test_adna_catalogs.py \
+	$(POLLENOMICS_TEST_ROOT)/unit/test_adna_runtime.py \
+	$(POLLENOMICS_TEST_ROOT)/unit/test_adna_temporal_query.py \
 	$(POLLENOMICS_TEST_ROOT)/unit/test_sead_acquisition.py \
+	$(POLLENOMICS_TEST_ROOT)/unit/test_sead_scoped_acquisition.py \
 	$(POLLENOMICS_TEST_ROOT)/unit/test_neotoma_data.py \
 	$(POLLENOMICS_TEST_ROOT)/unit/test_neotoma_relational.py \
 	$(POLLENOMICS_TEST_ROOT)/unit/test_neotoma_materialization.py \
 	$(POLLENOMICS_TEST_ROOT)/unit/test_neotoma_production.py \
 	$(POLLENOMICS_TEST_ROOT)/unit/test_landclim_data.py \
+	$(POLLENOMICS_TEST_ROOT)/unit/test_landclim_raw_receipt.py \
 	$(POLLENOMICS_TEST_ROOT)/unit/test_raa_data.py \
 	$(POLLENOMICS_TEST_ROOT)/unit/test_raa_authority.py \
 	$(POLLENOMICS_TEST_ROOT)/unit/test_svar_data.py \
@@ -51,6 +60,12 @@ POLLENOMICS_DATA_INPUTS := \
 	configs/pytest.ini \
 	data/source_family_contracts.json \
 	data/source_spatiotemporal_posture_registry.json \
+	data/adna/final \
+	data/adna/governance \
+	$(wildcard data/adna/species/*/manifests) \
+	$(wildcard data/adna/species/*/normalized) \
+	$(wildcard data/adna/species/*/reports) \
+	$(wildcard data/adna/species/*/review) \
 	data/neotoma \
 	data/sead \
 	data/landclim \
@@ -60,6 +75,9 @@ POLLENOMICS_DATA_INPUTS := \
 	$(wildcard $(POLLENOMICS_SOURCE_ROOT)/data_downloader/*.py) \
 	$(wildcard $(POLLENOMICS_SOURCE_ROOT)/data_downloader/*/*.py) \
 	$(wildcard $(POLLENOMICS_SOURCE_ROOT)/data_downloader/*/*/*.py) \
+	$(wildcard $(POLLENOMICS_SOURCE_ROOT)/adna/*.py) \
+	$(wildcard $(POLLENOMICS_SOURCE_ROOT)/adna/*/*.py) \
+	$(wildcard $(POLLENOMICS_SOURCE_ROOT)/adna/*/*/*.py) \
 	$(POLLENOMICS_DATA_TESTS)
 
 POLLENOMICS_MAP_TESTS := \
