@@ -1700,27 +1700,126 @@ MAP_DOCUMENT_TEMPLATE = """
     <script src="__ASSET_BASE_PATH__/markercluster/leaflet.markercluster.js"></script>
     __STATIC_CHUNK_SCRIPT_TAGS__
     <script>
-      const STATIC_ATLAS_CHUNKS = globalThis.__BIJUX_ATLAS_CHUNKS__ || null;
-      function hydrateStaticAtlasLayers(layerKind) {
-        if (!STATIC_ATLAS_CHUNKS || !STATIC_ATLAS_CHUNKS.provenance || !Array.isArray(STATIC_ATLAS_CHUNKS.nodes)) {
-          throw new Error('Static atlas chunks are incomplete');
+      (async () => {
+      const STATIC_ATLAS_BOOTSTRAP = JSON.parse(document.getElementById('atlas-static-bootstrap').textContent || '{}');
+      const STATIC_ATLAS_INLINE = STATIC_ATLAS_BOOTSTRAP.schema_version === 'atlas-inline-bootstrap.v1';
+      globalThis.__BIJUX_ATLAS_RAW_CHUNKS__ = globalThis.__BIJUX_ATLAS_RAW_CHUNKS__ || [];
+      const STATIC_ATLAS_RAW_CHUNKS = globalThis.__BIJUX_ATLAS_RAW_CHUNKS__;
+      const STATIC_ATLAS_CHUNKS = { nodes: [] };
+      const staticAtlasLoadedAssets = new Set();
+      const staticAtlasInFlightAssets = new Map();
+      const STATIC_ATLAS_SCHEMAS = {
+        provenance: 'atlas-provenance-chunk.v1',
+        nodes: 'atlas-node-chunk.v1',
+        edges: 'atlas-edges-chunk.v1',
+        sequences: 'atlas-sequences-chunk.v1',
+        indexes: 'atlas-static-indexes.v1',
+      };
+      function staticAtlasFailure(message) {
+        throw new Error(`Static atlas data cannot be loaded: ${message}. Reload the page; if the problem persists, redeploy the HTML and hashed assets from the same build.`);
+      }
+      function validateStaticAtlasBootstrap() {
+        if (STATIC_ATLAS_BOOTSTRAP.schema_version !== 'atlas-static-bootstrap.v1') staticAtlasFailure('bootstrap schema mismatch');
+        if (STATIC_ATLAS_BOOTSTRAP.version !== __VERSION_JSON__) staticAtlasFailure('bootstrap version mismatch');
+        if (!/^atlas-[a-f0-9]{64}$/.test(String(STATIC_ATLAS_BOOTSTRAP.build_id || ''))) staticAtlasFailure('bootstrap build identity is invalid');
+        if (!Array.isArray(STATIC_ATLAS_BOOTSTRAP.assets)) staticAtlasFailure('bootstrap asset inventory is missing');
+        if (STATIC_ATLAS_BOOTSTRAP.transport_integrity?.http_https !== 'subresource_integrity_plus_payload_sha256' || STATIC_ATLAS_BOOTSTRAP.transport_integrity?.file !== 'payload_sha256_after_script_registration' || STATIC_ATLAS_BOOTSTRAP.transport_integrity?.file_pre_execution_sri !== false) staticAtlasFailure('transport-integrity posture mismatch');
+        const compatibilityKeys = { provenance: 'provenance_schema', nodes: 'node_schema', edges: 'edge_schema', sequences: 'sequence_schema', indexes: 'index_schema' };
+        Object.entries(STATIC_ATLAS_SCHEMAS).forEach(([domain, schema]) => {
+          if (STATIC_ATLAS_BOOTSTRAP.compatibility?.[compatibilityKeys[domain]] !== schema) staticAtlasFailure(`${domain} compatibility declaration mismatch`);
+        });
+        STATIC_ATLAS_BOOTSTRAP.assets.forEach((row) => {
+          if (!/^[a-z0-9][a-z0-9.-]*[.]js$/.test(String(row.path || ''))) staticAtlasFailure(`${row.asset_key || 'unknown asset'} path is invalid`);
+          if (!/^[a-f0-9]{64}$/.test(String(row.sha256 || '')) || !/^[a-f0-9]{64}$/.test(String(row.payload_sha256 || ''))) staticAtlasFailure(`${row.asset_key || 'unknown asset'} digest is invalid`);
+          if (!/^sha256-[A-Za-z0-9+/]{43}=$/.test(String(row.integrity || ''))) staticAtlasFailure(`${row.asset_key || 'unknown asset'} integrity declaration is invalid`);
+        });
+        const keys = STATIC_ATLAS_BOOTSTRAP.assets.map((row) => row.asset_key);
+        if (new Set(keys).size !== keys.length) staticAtlasFailure('bootstrap asset identities are duplicated');
+        const initial = STATIC_ATLAS_BOOTSTRAP.assets.filter((row) => row.initial_load === true);
+        const initialBytes = initial.reduce((total, row) => total + Number(row.byte_count || 0), 0);
+        if (initial.length > Number(STATIC_ATLAS_BOOTSTRAP.budgets.initial_max_requests)) staticAtlasFailure('initial request budget exceeded');
+        if (initialBytes > Number(STATIC_ATLAS_BOOTSTRAP.budgets.initial_max_bytes)) staticAtlasFailure('initial byte budget exceeded');
+      }
+      async function staticAtlasSha256(text) {
+        if (!globalThis.crypto || !globalThis.crypto.subtle || typeof TextEncoder === 'undefined') staticAtlasFailure('browser integrity support is unavailable');
+        const digest = await globalThis.crypto.subtle.digest('SHA-256', new TextEncoder().encode(text));
+        return Array.from(new Uint8Array(digest)).map((value) => value.toString(16).padStart(2, '0')).join('');
+      }
+      function validateStaticAtlasPayload(row, payload) {
+        if (!payload || typeof payload !== 'object') staticAtlasFailure(`${row.asset_key} payload is invalid`);
+        if (payload.asset_key !== row.asset_key) staticAtlasFailure(`${row.asset_key} identity mismatch`);
+        if (payload.build_id !== STATIC_ATLAS_BOOTSTRAP.build_id) staticAtlasFailure(`${row.asset_key} build mismatch`);
+        if (payload.scope_slug !== STATIC_ATLAS_BOOTSTRAP.scope_slug) staticAtlasFailure(`${row.asset_key} scope mismatch`);
+        if (payload.version !== STATIC_ATLAS_BOOTSTRAP.version) staticAtlasFailure(`${row.asset_key} version mismatch`);
+        if (payload.schema_version !== STATIC_ATLAS_SCHEMAS[row.domain]) staticAtlasFailure(`${row.asset_key} schema mismatch`);
+        if (row.domain === 'nodes') {
+          if (!Array.isArray(payload.features) || !Array.isArray(payload.feature_indexes) || payload.features.length !== payload.feature_indexes.length) staticAtlasFailure(`${row.asset_key} feature accounting is invalid`);
+          if (payload.features.length !== row.record_count || payload.layer_key !== row.layer_key || payload.layer_index !== row.layer_index || payload.layer_kind !== row.layer_kind) staticAtlasFailure(`${row.asset_key} layer accounting mismatch`);
         }
+      }
+      async function consumeStaticAtlasAsset(row) {
+        if (staticAtlasLoadedAssets.has(row.asset_key)) return;
+        const matches = STATIC_ATLAS_RAW_CHUNKS.filter((candidate) => candidate.asset_key === row.asset_key);
+        if (matches.length !== 1) staticAtlasFailure(`${row.asset_key} script did not register exactly once`);
+        const envelope = matches[0];
+        if (envelope.payload_sha256 !== row.payload_sha256) staticAtlasFailure(`${row.asset_key} declared payload digest mismatch`);
+        if (await staticAtlasSha256(envelope.payload_json) !== row.payload_sha256) staticAtlasFailure(`${row.asset_key} payload integrity mismatch`);
+        let payload;
+        try {
+          payload = JSON.parse(envelope.payload_json);
+        } catch (error) {
+          staticAtlasFailure(`${row.asset_key} payload JSON is invalid`);
+        }
+        validateStaticAtlasPayload(row, payload);
+        if (row.domain === 'nodes') STATIC_ATLAS_CHUNKS.nodes.push(payload);
+        else STATIC_ATLAS_CHUNKS[row.domain] = payload;
+        staticAtlasLoadedAssets.add(row.asset_key);
+      }
+      function loadStaticAtlasAsset(row) {
+        if (staticAtlasLoadedAssets.has(row.asset_key)) return Promise.resolve();
+        if (staticAtlasInFlightAssets.has(row.asset_key)) return staticAtlasInFlightAssets.get(row.asset_key);
+        const promise = new Promise((resolve, reject) => {
+          const script = document.createElement('script');
+          script.src = `./${row.path}`;
+          if (window.location.protocol === 'http:' || window.location.protocol === 'https:') {
+            script.integrity = row.integrity;
+            script.crossOrigin = 'anonymous';
+          }
+          // file:// cannot reliably enforce transport SRI; the registered envelope is
+          // still checked against its manifest payload digest before it is accepted.
+          script.addEventListener('load', () => consumeStaticAtlasAsset(row).then(resolve, reject), { once: true });
+          script.addEventListener('error', () => reject(new Error(`Static atlas data cannot be loaded: ${row.asset_key} request failed. Reload the page; if the problem persists, redeploy the HTML and hashed assets from the same build.`)), { once: true });
+          document.head.appendChild(script);
+        }).finally(() => staticAtlasInFlightAssets.delete(row.asset_key));
+        staticAtlasInFlightAssets.set(row.asset_key, promise);
+        return promise;
+      }
+      if (!STATIC_ATLAS_INLINE) {
+        validateStaticAtlasBootstrap();
+        for (const row of STATIC_ATLAS_BOOTSTRAP.assets.filter((candidate) => candidate.initial_load === true)) {
+          await loadStaticAtlasAsset(row);
+        }
+        if (!STATIC_ATLAS_CHUNKS.provenance || !STATIC_ATLAS_CHUNKS.indexes || STATIC_ATLAS_CHUNKS.edges?.status !== 'unavailable' || STATIC_ATLAS_CHUNKS.sequences?.status !== 'unavailable') staticAtlasFailure('required metadata domains are incomplete');
+      }
+      function hydrateStaticAtlasLayers(layerKind) {
         const partsByLayer = new Map();
-        [...STATIC_ATLAS_CHUNKS.nodes]
-          .sort((left, right) => left.layer_index - right.layer_index || left.feature_offset - right.feature_offset)
+        STATIC_ATLAS_CHUNKS.nodes
+          .filter((part) => part.layer_kind === layerKind)
           .forEach((part) => {
             const current = partsByLayer.get(part.layer_index) || [];
-            current.push(...part.features);
+            part.features.forEach((feature, index) => current.push([part.feature_indexes[index], feature]));
             partsByLayer.set(part.layer_index, current);
           });
         return [...STATIC_ATLAS_CHUNKS.provenance.layers]
           .filter((entry) => entry.layer_kind === layerKind)
           .sort((left, right) => left.layer_index - right.layer_index)
           .map((entry) => {
-            const features = partsByLayer.get(entry.layer_index) || [];
-            if (features.length !== entry.feature_count) throw new Error(`Static atlas layer ${entry.layer_index} is incomplete`);
-            if (layerKind === 'point') return { ...entry.layer, features };
-            return { ...entry.layer, geojson: { ...(entry.layer.geojson || {}), features } };
+            const indexedFeatures = partsByLayer.get(entry.layer_index) || [];
+            indexedFeatures.sort((left, right) => left[0] - right[0]);
+            const features = indexedFeatures.map((row) => row[1]);
+            const layer = { ...entry.layer, static_loaded_feature_count: features.length, static_complete: features.length === entry.feature_count };
+            if (layerKind === 'point') return { ...layer, features };
+            return { ...layer, geojson: { ...(entry.layer.geojson || {}), features } };
           });
       }
       const COUNTRIES = __COUNTRIES_JSON__;
@@ -1760,14 +1859,14 @@ MAP_DOCUMENT_TEMPLATE = """
         new Set(
           POINT_LAYERS
             .filter((layer) => ANIMAL_LAYER_GROUPS.has(layer.group))
-            .flatMap((layer) => (layer.features || []).map((feature) => String(feature.coordinate_confidence || '').trim()).filter(Boolean))
+            .flatMap((layer) => layer.static_facets?.coordinate_confidences || [])
         )
       );
       const ANIMAL_TEMPORAL_WINDOWS = Array.from(
         new Set(
           POINT_LAYERS
             .filter((layer) => ANIMAL_LAYER_GROUPS.has(layer.group))
-            .flatMap((layer) => (layer.features || []).map((feature) => feature.temporal_window_label).filter(Boolean))
+            .flatMap((layer) => layer.static_facets?.temporal_window_labels || [])
         )
       );
       const TIME_MIN_BP = __TIME_MIN_BP__;
@@ -1965,6 +2064,73 @@ MAP_DOCUMENT_TEMPLATE = """
       const basemapErrorCounts = new Map();
       let legendCollapsed = initialState.legend === 'collapsed';
       let focusState = null;
+      let staticAtlasLoadGeneration = 0;
+      function staticAtlasLayerForRow(row) {
+        return ALL_LAYERS.find((layer) => layer.key === row.layer_key) || null;
+      }
+      function staticAtlasCountryNeeded(row, layer) {
+        if (!layer.applies_country_filter) return true;
+        if (!activeCountries.size) return false;
+        const countryKeys = Array.isArray(row.country_keys) ? row.country_keys : [];
+        if (countryKeys.includes('UNASSIGNED')) return true;
+        return countryKeys.some((country) => activeCountries.has(country));
+      }
+      function staticAtlasTimeNeeded(row, layer) {
+        if (!layer.applies_time_filter || !TIME_HAS_DATA || timeFilterUsesFullExtent()) return true;
+        if (Number(row.untimed_record_count || 0) === Number(row.record_count || 0)) return false;
+        if (row.time_min_bp === null || row.time_max_bp === null) return true;
+        return Number(row.time_max_bp) >= timeStartBp && Number(row.time_min_bp) <= timeWindowEndBp();
+      }
+      function staticAtlasSignalNeeded(layer) {
+        if (!isAnimalLayer(layer)) return true;
+        if (activeAnimalSpecies !== 'all' && layer.species_latin_name !== activeAnimalSpecies) return false;
+        if (activeAnimalScope !== 'all' && layer.animal_scope !== activeAnimalScope) return false;
+        return true;
+      }
+      function staticAtlasViewportNeeded(row) {
+        if (!map._loaded || !Array.isArray(row.bounds)) return true;
+        const bounds = map.getBounds();
+        const [south, west, north, east] = row.bounds.map(Number);
+        return north >= bounds.getSouth() && south <= bounds.getNorth() && east >= bounds.getWest() && west <= bounds.getEast();
+      }
+      function requiredStaticAtlasNodeAssets() {
+        if (STATIC_ATLAS_INLINE) return [];
+        const required = STATIC_ATLAS_BOOTSTRAP.assets.filter((row) => {
+          if (row.domain !== 'nodes' || staticAtlasLoadedAssets.has(row.asset_key)) return false;
+          const layer = staticAtlasLayerForRow(row);
+          return Boolean(
+            layer
+            && activeLayerKeys.has(layer.key)
+            && staticAtlasCountryNeeded(row, layer)
+            && staticAtlasTimeNeeded(row, layer)
+            && staticAtlasSignalNeeded(layer)
+            && staticAtlasViewportNeeded(row)
+          );
+        });
+        if (required.length > Number(STATIC_ATLAS_BOOTSTRAP.budgets.interaction_max_requests)) staticAtlasFailure(`selection requires ${required.length} requests, above the interaction budget`);
+        const requiredBytes = required.reduce((total, row) => total + Number(row.byte_count || 0), 0);
+        if (requiredBytes > Number(STATIC_ATLAS_BOOTSTRAP.budgets.interaction_max_bytes)) staticAtlasFailure(`selection requires ${requiredBytes} bytes, above the interaction budget`);
+        return required;
+      }
+      function refreshStaticAtlasLayers() {
+        if (STATIC_ATLAS_INLINE) return;
+        const refreshedPoints = hydrateStaticAtlasLayers('point');
+        const refreshedPolygons = hydrateStaticAtlasLayers('polygon');
+        for (const current of POINT_LAYERS) {
+          const replacement = refreshedPoints.find((layer) => layer.key === current.key);
+          if (replacement) Object.assign(current, replacement);
+        }
+        for (const current of POLYGON_LAYERS) {
+          const replacement = refreshedPolygons.find((layer) => layer.key === current.key);
+          if (replacement) Object.assign(current, replacement);
+        }
+      }
+      async function ensureStaticAtlasSelectionLoaded() {
+        const required = requiredStaticAtlasNodeAssets();
+        await Promise.all(required.map((row) => loadStaticAtlasAsset(row)));
+        refreshStaticAtlasLayers();
+        return required;
+      }
       const countryColors = {
         Sweden: { fill: '#2563eb', stroke: '#1d4ed8' },
         Norway: { fill: '#0f766e', stroke: '#115e59' },
@@ -2273,9 +2439,13 @@ MAP_DOCUMENT_TEMPLATE = """
         const pointCountsByCountry = Object.fromEntries(
           COUNTRIES.map((country) => [
             country,
-            POINT_LAYERS
-              .filter((layer) => activeLayerKeys.has(layer.key))
-              .reduce((count, layer) => count + layer.features.filter((feature) => pointFeatureVisible(layer, feature) && feature.country === country).length, 0),
+            STATIC_ATLAS_INLINE
+              ? POINT_LAYERS
+                  .filter((layer) => activeLayerKeys.has(layer.key))
+                  .reduce((count, layer) => count + layer.features.filter((feature) => pointFeatureVisible(layer, feature) && feature.country === country).length, 0)
+              : Object.entries(STATIC_ATLAS_CHUNKS.indexes.country_feature_indexes[country] || {})
+                  .filter(([layerKey]) => activeLayerKeys.has(layerKey))
+                  .reduce((count, [, featureIndexes]) => count + featureIndexes.length, 0),
           ])
         );
         countryFilters.innerHTML = COUNTRIES.map((country) => {
@@ -2751,7 +2921,35 @@ MAP_DOCUMENT_TEMPLATE = """
           });
         });
       }
-      function renderMapState() {
+      async function renderMapState() {
+        const generation = ++staticAtlasLoadGeneration;
+        topbarStatePill.textContent = 'Loading selected evidence…';
+        topbarStatePill.setAttribute('aria-live', 'polite');
+        document.getElementById('map').setAttribute('aria-busy', 'true');
+        try {
+          const requested = await ensureStaticAtlasSelectionLoaded();
+          if (generation !== staticAtlasLoadGeneration) return;
+          const started = performance.now();
+          renderLoadedMapState();
+          const duration = performance.now() - started;
+          const loaded = ALL_LAYERS.reduce((total, layer) => total + Number(layer.static_loaded_feature_count || 0), 0);
+          const admitted = ALL_LAYERS.reduce((total, layer) => total + Number(layer.static_feature_count || 0), 0);
+          selectionReadout.dataset.staticLoad = `${loaded}/${admitted}`;
+          if (duration > Number(STATIC_ATLAS_BOOTSTRAP.budgets.filter_main_thread_max_ms)) {
+            topbarStatePill.textContent = `${loaded} of ${admitted} admitted records loaded · filter render ${Math.round(duration)} ms`;
+          } else if (requested.length) {
+            topbarStatePill.textContent = `${loaded} of ${admitted} admitted records loaded`;
+          }
+        } catch (error) {
+          if (generation !== staticAtlasLoadGeneration) return;
+          topbarStatePill.textContent = error instanceof Error ? error.message : 'Static atlas selection failed to load.';
+          topbarStatePill.setAttribute('role', 'alert');
+          console.error(error);
+        } finally {
+          if (generation === staticAtlasLoadGeneration) document.getElementById('map').setAttribute('aria-busy', 'false');
+        }
+      }
+      function renderLoadedMapState() {
         refreshTimeControls();
         removeRenderedLayers();
         renderPointLayers();
@@ -2949,7 +3147,10 @@ MAP_DOCUMENT_TEMPLATE = """
         zoomReadout.textContent = map.getZoom().toFixed(1);
         centerReadout.textContent = `${map.getCenter().lat.toFixed(3)}, ${map.getCenter().lng.toFixed(3)}`;
       });
-      map.on('moveend', () => { centerReadout.textContent = `${map.getCenter().lat.toFixed(3)}, ${map.getCenter().lng.toFixed(3)}`; });
+      map.on('moveend', () => {
+        centerReadout.textContent = `${map.getCenter().lat.toFixed(3)}, ${map.getCenter().lng.toFixed(3)}`;
+        renderMapState();
+      });
       map.on('mousemove', (event) => { cursorReadout.textContent = `${event.latlng.lat.toFixed(3)}, ${event.latlng.lng.toFixed(3)}`; });
       document.addEventListener('fullscreenchange', () => window.setTimeout(() => map.invalidateSize(), 160));
       document.addEventListener('keydown', (event) => {
@@ -2983,12 +3184,21 @@ MAP_DOCUMENT_TEMPLATE = """
       setPanelCollapsed(panelPreferenceFromHash() ?? defaultPanelCollapsed(), false);
       renderCountryControls();
       renderLayerControls();
-      renderMapState();
       setBasemap(currentBasemap, { sync: false });
       setLegendCollapsed(legendCollapsed, false);
       resetView();
+      renderMapState();
       zoomReadout.textContent = map.getZoom().toFixed(1);
       centerReadout.textContent = `${map.getCenter().lat.toFixed(3)}, ${map.getCenter().lng.toFixed(3)}`;
+      })().catch((error) => {
+        const failure = document.createElement('main');
+        failure.setAttribute('role', 'alert');
+        failure.setAttribute('aria-live', 'assertive');
+        failure.style.cssText = 'margin:24px;padding:20px;border:2px solid #b42344;border-radius:16px;background:#fff;color:#18253d;font:16px/1.6 system-ui,sans-serif;';
+        failure.textContent = error instanceof Error ? error.message : 'Static atlas initialization failed. Reload the page or redeploy the complete atlas build.';
+        document.body.prepend(failure);
+        console.error(error);
+      });
     </script>
   </body>
 </html>

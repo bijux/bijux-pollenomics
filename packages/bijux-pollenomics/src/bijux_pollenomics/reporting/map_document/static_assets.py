@@ -1,8 +1,10 @@
 from __future__ import annotations
 
+import base64
 import hashlib
 import json
 import math
+import re
 from collections.abc import Sequence
 from dataclasses import dataclass
 from pathlib import Path
@@ -16,8 +18,12 @@ ATLAS_CHUNK_TARGET_BYTES = 2_097_152
 ATLAS_DOCUMENT_MAX_BYTES = 524_288
 ATLAS_STATIC_ASSETS_MAX_BYTES = 134_217_728
 ATLAS_STATIC_ASSETS_MAX_FILES = 512
-
-_CHUNK_GLOBAL = "__BIJUX_ATLAS_CHUNKS__"
+ATLAS_INITIAL_MAX_REQUESTS = 4
+ATLAS_INITIAL_MAX_BYTES = 1_048_576
+ATLAS_INTERACTION_MAX_REQUESTS = 128
+ATLAS_INTERACTION_MAX_BYTES = 67_108_864
+ATLAS_FILTER_MAIN_THREAD_MAX_MS = 50
+_SAFE_RELEASE_ID = re.compile(r"[A-Za-z0-9][A-Za-z0-9._-]{0,63}")
 
 
 @dataclass(frozen=True)
@@ -27,14 +33,15 @@ class StaticAtlasAssets:
     asset_paths: tuple[Path, ...]
 
     @property
-    def bootstrap_json(self) -> str:
-        return _canonical_json(self.manifest)
-
-    @property
     def script_tags(self) -> str:
-        return "\n".join(
-            f'<script src="./{path.name}"></script>' for path in self.asset_paths
-        )
+        """Return no eager tags; the runtime applies protocol-aware integrity first."""
+        return ""
+
+
+def validate_atlas_release_id(version: str) -> None:
+    """Reject release identifiers that are unsafe in paths or script contexts."""
+    if not isinstance(version, str) or not _SAFE_RELEASE_ID.fullmatch(version):
+        raise ValueError("atlas version must be a safe release identifier")
 
 
 def write_static_atlas_assets(
@@ -51,12 +58,33 @@ def write_static_atlas_assets(
         raise ValueError("static atlas output directory must be an existing directory")
     if not slug or Path(slug).name != slug or not slug.replace("-", "").isalnum():
         raise ValueError("static atlas slug must be a safe filename component")
+    validate_atlas_release_id(version)
 
     layer_metadata, node_payloads = _build_node_payloads(
         slug=slug,
         version=version,
         point_layers=point_layers,
         polygon_layers=polygon_layers,
+    )
+    indexes = _build_indexes(point_layers)
+    build_id = (
+        "atlas-"
+        + hashlib.sha256(
+            _canonical_json(
+                {
+                    "scope_slug": slug,
+                    "version": version,
+                    "layer_metadata": layer_metadata,
+                    "node_payloads": node_payloads,
+                    "indexes": indexes,
+                    "unavailable_domains": {
+                        "edges": "governed_map_edge_model_not_available",
+                        "sequences": "governed_sequence_detail_model_not_available",
+                        "provenance": "record_level_provenance_model_not_available",
+                    },
+                }
+            ).encode("utf-8")
+        ).hexdigest()
     )
     payloads: list[tuple[str, int, dict[str, object]]] = []
     payloads.append(
@@ -67,6 +95,7 @@ def write_static_atlas_assets(
                 "schema_version": "atlas-provenance-chunk.v1",
                 "scope_slug": slug,
                 "version": version,
+                "build_id": build_id,
                 "status": "layer_metadata_only",
                 "reason_code": "record_level_provenance_model_not_available",
                 "layers": layer_metadata,
@@ -85,6 +114,7 @@ def write_static_atlas_assets(
                 "schema_version": f"atlas-{domain}-chunk.v1",
                 "scope_slug": slug,
                 "version": version,
+                "build_id": build_id,
                 "status": "unavailable",
                 "reason_code": reason_code,
                 "records": [],
@@ -95,41 +125,73 @@ def write_static_atlas_assets(
             ("sequences", "governed_sequence_detail_model_not_available"),
         )
     )
-    indexes = _build_indexes(point_layers)
+    indexes = {**indexes, "scope_slug": slug, "version": version, "build_id": build_id}
     payloads.append(("indexes", _index_reference_count(indexes), indexes))
 
     assets: list[dict[str, object]] = []
     asset_paths: list[Path] = []
-    for sequence, (domain, record_count, payload) in enumerate(payloads):
-        script_bytes = _chunk_script_bytes(domain, payload)
+    for sequence, (domain, record_count, source_payload) in enumerate(payloads):
+        asset_key = f"{domain}:{sequence}"
+        payload = {**source_payload, "build_id": build_id, "asset_key": asset_key}
+        payload_json = _canonical_json(payload)
+        payload_sha256 = hashlib.sha256(payload_json.encode("utf-8")).hexdigest()
+        script_bytes = _chunk_script_bytes(
+            asset_key=asset_key,
+            payload_sha256=payload_sha256,
+            payload_json=payload_json,
+        )
         digest = hashlib.sha256(script_bytes).hexdigest()
         filename = f"{slug}.atlas-{domain}.{sequence:04d}.{digest[:16]}.js"
         path = output_dir / filename
         _write_immutable(path, script_bytes)
-        assets.append(
-            {
-                "domain": domain,
-                "sequence": sequence,
-                "path": filename,
-                "sha256": digest,
-                "byte_count": len(script_bytes),
-                "record_count": record_count,
-            }
-        )
+        row: dict[str, object] = {
+            "asset_key": asset_key,
+            "domain": domain,
+            "sequence": sequence,
+            "path": filename,
+            "sha256": digest,
+            "integrity": "sha256-"
+            + base64.b64encode(hashlib.sha256(script_bytes).digest()).decode("ascii"),
+            "payload_sha256": payload_sha256,
+            "byte_count": len(script_bytes),
+            "record_count": record_count,
+            "initial_load": domain != "nodes",
+        }
+        if domain == "nodes":
+            row.update(_node_asset_selection(payload))
+        assets.append(row)
         asset_paths.append(path)
 
     manifest: dict[str, object] = {
         "schema_version": "atlas-static-bootstrap.v1",
         "scope_slug": slug,
         "version": version,
-        "load_strategy": "ordered_static_scripts",
+        "build_id": build_id,
+        "load_strategy": "selection_aware_static_scripts",
         "offline_file_compatible": True,
+        "transport_integrity": {
+            "http_https": "subresource_integrity_plus_payload_sha256",
+            "file": "payload_sha256_after_script_registration",
+            "file_pre_execution_sri": False,
+        },
+        "compatibility": {
+            "provenance_schema": "atlas-provenance-chunk.v1",
+            "node_schema": "atlas-node-chunk.v1",
+            "edge_schema": "atlas-edges-chunk.v1",
+            "sequence_schema": "atlas-sequences-chunk.v1",
+            "index_schema": "atlas-static-indexes.v1",
+        },
         "budgets": {
             "bootstrap_max_bytes": ATLAS_BOOTSTRAP_MAX_BYTES,
             "chunk_max_bytes": ATLAS_CHUNK_MAX_BYTES,
             "document_max_bytes": ATLAS_DOCUMENT_MAX_BYTES,
             "static_assets_max_bytes": ATLAS_STATIC_ASSETS_MAX_BYTES,
             "static_assets_max_files": ATLAS_STATIC_ASSETS_MAX_FILES,
+            "initial_max_requests": ATLAS_INITIAL_MAX_REQUESTS,
+            "initial_max_bytes": ATLAS_INITIAL_MAX_BYTES,
+            "interaction_max_requests": ATLAS_INTERACTION_MAX_REQUESTS,
+            "interaction_max_bytes": ATLAS_INTERACTION_MAX_BYTES,
+            "filter_main_thread_max_ms": ATLAS_FILTER_MAIN_THREAD_MAX_MS,
         },
         "domains": {
             "nodes": {
@@ -186,10 +248,35 @@ def validate_static_atlas_assets(assets: StaticAtlasAssets) -> None:
         raise ValueError("static atlas asset inventory is incomplete")
     if len(rows) > ATLAS_STATIC_ASSETS_MAX_FILES:
         raise ValueError("static atlas asset count exceeds its budget")
+    build_id = assets.manifest.get("build_id")
+    if (
+        not isinstance(build_id, str)
+        or not build_id.startswith("atlas-")
+        or len(build_id) != 70
+    ):
+        raise ValueError("static atlas build identity is invalid")
+    if assets.manifest.get("transport_integrity") != {
+        "http_https": "subresource_integrity_plus_payload_sha256",
+        "file": "payload_sha256_after_script_registration",
+        "file_pre_execution_sri": False,
+    }:
+        raise ValueError("static atlas transport-integrity posture is invalid")
     total_bytes = 0
+    initial_bytes = 0
+    initial_requests = 0
+    asset_keys: set[str] = set()
     for row, path in zip(rows, assets.asset_paths, strict=True):
         if not isinstance(row, dict) or path.name != row.get("path"):
             raise ValueError("static atlas asset order or path changed")
+        asset_key = row.get("asset_key")
+        if not isinstance(asset_key, str) or asset_key in asset_keys:
+            raise ValueError("static atlas asset identity is missing or duplicated")
+        asset_keys.add(asset_key)
+        domain = row.get("domain")
+        if domain not in {"nodes", "edges", "sequences", "provenance", "indexes"}:
+            raise ValueError("static atlas asset domain is invalid")
+        if row.get("initial_load") is not (domain != "nodes"):
+            raise ValueError("static atlas initial-load declaration is invalid")
         payload = path.read_bytes()
         byte_count = len(payload)
         total_bytes += byte_count
@@ -199,8 +286,23 @@ def validate_static_atlas_assets(assets: StaticAtlasAssets) -> None:
             raise ValueError(f"static atlas chunk byte count changed: {path.name}")
         if row.get("sha256") != hashlib.sha256(payload).hexdigest():
             raise ValueError(f"static atlas chunk digest changed: {path.name}")
+        expected_integrity = "sha256-" + base64.b64encode(
+            hashlib.sha256(payload).digest()
+        ).decode("ascii")
+        if row.get("integrity") != expected_integrity:
+            raise ValueError(f"static atlas chunk integrity changed: {path.name}")
+        payload_sha256 = row.get("payload_sha256")
+        if not isinstance(payload_sha256, str) or len(payload_sha256) != 64:
+            raise ValueError(f"static atlas payload digest is invalid: {path.name}")
+        if row.get("initial_load") is True:
+            initial_requests += 1
+            initial_bytes += byte_count
     if total_bytes > ATLAS_STATIC_ASSETS_MAX_BYTES:
         raise ValueError("static atlas assets exceed their total byte budget")
+    if initial_requests > ATLAS_INITIAL_MAX_REQUESTS:
+        raise ValueError("static atlas initial request count exceeds its budget")
+    if initial_bytes > ATLAS_INITIAL_MAX_BYTES:
+        raise ValueError("static atlas initial bytes exceed their budget")
 
 
 def validate_static_atlas_document(document: str) -> None:
@@ -239,6 +341,8 @@ def _build_node_payloads(
             if isinstance(raw_features, list)
             else []
         )
+        layer["static_feature_count"] = len(features)
+        layer["static_facets"] = _layer_facets(layer_kind, features)
         metadata.append(
             {
                 "layer_index": layer_index,
@@ -247,22 +351,31 @@ def _build_node_payloads(
                 "feature_count": len(features),
             }
         )
-        offset = 0
-        for part_number, part in enumerate(_partition_features(features), start=1):
-            payloads.append(
-                {
-                    "schema_version": "atlas-node-chunk.v1",
-                    "scope_slug": slug,
-                    "version": version,
-                    "layer_index": layer_index,
-                    "layer_kind": layer_kind,
-                    "layer_key": str(layer.get("key", "")),
-                    "part_number": part_number,
-                    "feature_offset": offset,
-                    "features": part,
-                }
-            )
-            offset += len(part)
+        grouped_features: dict[str, list[tuple[int, dict[str, object]]]] = {}
+        for feature_index, feature in enumerate(features):
+            grouped_features.setdefault(
+                _feature_country(layer_kind, feature), []
+            ).append((feature_index, feature))
+        part_number = 0
+        for country_key, indexed_features in sorted(grouped_features.items()):
+            for part in _partition_indexed_features(indexed_features):
+                part_number += 1
+                feature_indexes = [index for index, _feature in part]
+                part_features = [feature for _index, feature in part]
+                payloads.append(
+                    {
+                        "schema_version": "atlas-node-chunk.v1",
+                        "scope_slug": slug,
+                        "version": version,
+                        "layer_index": layer_index,
+                        "layer_kind": layer_kind,
+                        "layer_key": str(layer.get("key", "")),
+                        "part_number": part_number,
+                        "country_keys": [country_key],
+                        "feature_indexes": feature_indexes,
+                        "features": part_features,
+                    }
+                )
     return metadata, payloads
 
 
@@ -290,6 +403,50 @@ def _partition_features(
     if current:
         parts.append(current)
     return parts
+
+
+def _partition_indexed_features(
+    features: list[tuple[int, dict[str, object]]],
+) -> list[list[tuple[int, dict[str, object]]]]:
+    feature_rows = [feature for _index, feature in features]
+    partitions = _partition_features(feature_rows)
+    result: list[list[tuple[int, dict[str, object]]]] = []
+    offset = 0
+    for partition in partitions:
+        result.append(features[offset : offset + len(partition)])
+        offset += len(partition)
+    return result
+
+
+def _feature_country(layer_kind: str, feature: dict[str, object]) -> str:
+    source: dict[str, object] = feature
+    if layer_kind == "polygon":
+        properties = feature.get("properties")
+        source = properties if isinstance(properties, dict) else {}
+    return str(source.get("country", "")).strip() or "UNASSIGNED"
+
+
+def _layer_facets(
+    layer_kind: str, features: list[dict[str, object]]
+) -> dict[str, list[str]]:
+    if layer_kind != "point":
+        return {"coordinate_confidences": [], "temporal_window_labels": []}
+    return {
+        "coordinate_confidences": sorted(
+            {
+                str(feature.get("coordinate_confidence", "")).strip()
+                for feature in features
+                if str(feature.get("coordinate_confidence", "")).strip()
+            }
+        ),
+        "temporal_window_labels": sorted(
+            {
+                str(feature.get("temporal_window_label", "")).strip()
+                for feature in features
+                if str(feature.get("temporal_window_label", "")).strip()
+            }
+        ),
+    }
 
 
 def _build_indexes(point_layers: Sequence[JsonObject]) -> dict[str, object]:
@@ -395,18 +552,99 @@ def _node_payload_record_count(payload: dict[str, object]) -> int:
     return len(features)
 
 
-def _chunk_script_bytes(domain: str, payload: dict[str, object]) -> bytes:
-    encoded = _canonical_json(payload)
-    if domain == "nodes":
-        statement = (
-            f"globalThis.{_CHUNK_GLOBAL}=globalThis.{_CHUNK_GLOBAL}||{{nodes:[]}};"
-            f"globalThis.{_CHUNK_GLOBAL}.nodes.push({encoded});\n"
-        )
-    else:
-        statement = (
-            f"globalThis.{_CHUNK_GLOBAL}=globalThis.{_CHUNK_GLOBAL}||{{nodes:[]}};"
-            f"globalThis.{_CHUNK_GLOBAL}.{domain}={encoded};\n"
-        )
+def _node_asset_selection(payload: dict[str, object]) -> dict[str, object]:
+    features = payload.get("features")
+    if not isinstance(features, list):
+        raise TypeError("static atlas node chunk has no feature records")
+    safe_features = [feature for feature in features if isinstance(feature, dict)]
+    intervals = [
+        interval
+        for feature in safe_features
+        if (interval := _node_feature_interval(str(payload["layer_kind"]), feature))
+        is not None
+    ]
+    return {
+        "layer_index": payload["layer_index"],
+        "layer_key": payload["layer_key"],
+        "layer_kind": payload["layer_kind"],
+        "country_keys": payload["country_keys"],
+        "bounds": _node_feature_bounds(str(payload["layer_kind"]), safe_features),
+        "time_min_bp": min((interval[0] for interval in intervals), default=None),
+        "time_max_bp": max((interval[1] for interval in intervals), default=None),
+        "untimed_record_count": len(safe_features) - len(intervals),
+    }
+
+
+def _node_feature_interval(
+    layer_kind: str, feature: dict[str, object]
+) -> tuple[float, float] | None:
+    if layer_kind == "polygon":
+        properties = feature.get("properties")
+        return _feature_interval(properties) if isinstance(properties, dict) else None
+    return _feature_interval(feature)
+
+
+def _node_feature_bounds(
+    layer_kind: str, features: list[dict[str, object]]
+) -> list[float] | None:
+    coordinates: list[tuple[float, float]] = []
+    for feature in features:
+        if layer_kind == "point":
+            latitude = _finite_coordinate(feature.get("latitude"))
+            longitude = _finite_coordinate(feature.get("longitude"))
+            if latitude is not None and longitude is not None:
+                coordinates.append((latitude, longitude))
+            continue
+        geometry = feature.get("geometry")
+        if isinstance(geometry, dict):
+            _collect_geojson_coordinates(geometry.get("coordinates"), coordinates)
+    if not coordinates:
+        return None
+    latitudes = [latitude for latitude, _longitude in coordinates]
+    longitudes = [longitude for _latitude, longitude in coordinates]
+    return [min(latitudes), min(longitudes), max(latitudes), max(longitudes)]
+
+
+def _collect_geojson_coordinates(
+    value: object, coordinates: list[tuple[float, float]]
+) -> None:
+    if not isinstance(value, list):
+        return
+    if len(value) >= 2:
+        longitude = _finite_coordinate(value[0])
+        latitude = _finite_coordinate(value[1])
+        if longitude is not None and latitude is not None:
+            coordinates.append((latitude, longitude))
+            return
+    for item in value:
+        _collect_geojson_coordinates(item, coordinates)
+
+
+def _finite_coordinate(value: object) -> float | None:
+    if value is None or isinstance(value, bool):
+        return None
+    try:
+        number = float(value) if isinstance(value, (int, float, str)) else math.nan
+    except (TypeError, ValueError, OverflowError):
+        return None
+    return number if math.isfinite(number) else None
+
+
+def _chunk_script_bytes(
+    *, asset_key: str, payload_sha256: str, payload_json: str
+) -> bytes:
+    envelope = _canonical_json(
+        {
+            "asset_key": asset_key,
+            "payload_sha256": payload_sha256,
+            "payload_json": payload_json,
+        }
+    )
+    statement = (
+        "globalThis.__BIJUX_ATLAS_RAW_CHUNKS__="
+        "globalThis.__BIJUX_ATLAS_RAW_CHUNKS__||[];"
+        f"globalThis.__BIJUX_ATLAS_RAW_CHUNKS__.push({envelope});\n"
+    )
     return statement.encode("utf-8")
 
 
@@ -432,9 +670,15 @@ __all__ = [
     "ATLAS_BOOTSTRAP_MAX_BYTES",
     "ATLAS_CHUNK_MAX_BYTES",
     "ATLAS_DOCUMENT_MAX_BYTES",
+    "ATLAS_FILTER_MAIN_THREAD_MAX_MS",
+    "ATLAS_INITIAL_MAX_BYTES",
+    "ATLAS_INITIAL_MAX_REQUESTS",
+    "ATLAS_INTERACTION_MAX_BYTES",
+    "ATLAS_INTERACTION_MAX_REQUESTS",
     "ATLAS_STATIC_ASSETS_MAX_BYTES",
     "ATLAS_STATIC_ASSETS_MAX_FILES",
     "StaticAtlasAssets",
+    "validate_atlas_release_id",
     "validate_static_atlas_assets",
     "validate_static_atlas_document",
     "write_static_atlas_assets",

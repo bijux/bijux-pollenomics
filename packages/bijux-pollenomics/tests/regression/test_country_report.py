@@ -35,10 +35,12 @@ def read_static_atlas_payload_text(output_dir: Path, slug: str) -> str:
     manifest = json.loads(
         (output_dir / f"{slug}_map_assets.json").read_text(encoding="utf-8")
     )
-    return "\n".join(
-        (output_dir / row["path"]).read_text(encoding="utf-8")
-        for row in manifest["assets"]
-    )
+    payloads: list[str] = []
+    for row in manifest["assets"]:
+        script = (output_dir / row["path"]).read_text(encoding="utf-8")
+        envelope = json.loads(script[script.index(".push(") + 6 : -3])
+        payloads.append(envelope["payload_json"])
+    return "\n".join(payloads)
 
 
 class CountryReportTests(unittest.TestCase):
