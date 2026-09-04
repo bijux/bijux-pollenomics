@@ -16,6 +16,15 @@ class SourceMetadataUnitTests(unittest.TestCase):
         self.assertEqual(metadata["aadr"].acquisition_method, "collector_pipeline")
         self.assertTrue(metadata["raa"].license)
 
+    def test_boundary_metadata_uses_its_source_version_and_terms(self) -> None:
+        metadata = build_source_metadata(
+            selected_sources=("aadr", "boundaries"), version="v66"
+        )
+
+        self.assertEqual(metadata["aadr"].version, "v66")
+        self.assertEqual(metadata["boundaries"].version, "5.1.1")
+        self.assertEqual(metadata["boundaries"].license, "Natural Earth public domain")
+
 
 if __name__ == "__main__":
     unittest.main()
