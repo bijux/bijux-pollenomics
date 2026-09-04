@@ -1,0 +1,4737 @@
+{
+  "build_id": "sha256:92dd52619837f3641d004a1a5dbe38f9ab6023a79f61989314bb90e612eb58e1",
+  "part_count": 1,
+  "part_number": 1,
+  "relational_snapshot_schema_version": "neotoma-relational-snapshot.v2",
+  "row_count": 150,
+  "rows": [
+    {
+      "conflict_id": "neotoma:conflict:01438170571edb9f18d5cccf",
+      "conflict_kind": "chronology_control_payload_conflict",
+      "detail": {
+        "existing": {
+          "build_id": "sha256:92dd52619837f3641d004a1a5dbe38f9ab6023a79f61989314bb90e612eb58e1",
+          "chronology_control_id": "neotoma:chronology:4151:30600:control:96541",
+          "chronology_id": "neotoma:chronology:4151:30600",
+          "collection_unit_id": "neotoma:collection-unit:4151",
+          "country_code": "FI",
+          "site_id": "neotoma:site:3302",
+          "source_chronology_control_id": 96541,
+          "source_payload": {
+            "agelimitolder": 9080,
+            "agelimityounger": 8700,
+            "chroncontrolage": 8890,
+            "chroncontrolid": 96541,
+            "chroncontroltype": "Radiocarbon",
+            "depth": 247.5,
+            "geochron": {
+              "agetype": "Radiocarbon years BP",
+              "delta13c": null,
+              "delta15n": null,
+              "geochronage": 8890,
+              "geochronerrorolder": 190,
+              "geochronerroryounger": 190,
+              "geochronid": 35609,
+              "geochronmaterialdated": "Soluble humus fraction",
+              "geochronnotes": null,
+              "geochrontype": "Carbon-14",
+              "infinite": false,
+              "labnumber": "Hel-1070",
+              "percentc": null,
+              "percentcollagen": null,
+              "percentn": null,
+              "radiocarbonmethod": "proportional gas counting",
+              "reservoir": null
+            },
+            "thickness": 15
+          },
+          "source_snapshot_id": "sha256:b2bcb99157e10b0c9f13c228acc12eabcb39d96a1f39c86ec25e34aacd78c791"
+        },
+        "incoming": {
+          "build_id": "sha256:92dd52619837f3641d004a1a5dbe38f9ab6023a79f61989314bb90e612eb58e1",
+          "chronology_control_id": "neotoma:chronology:4151:30600:control:96541",
+          "chronology_id": "neotoma:chronology:4151:30600",
+          "collection_unit_id": "neotoma:collection-unit:4151",
+          "country_code": "FI",
+          "site_id": "neotoma:site:3302",
+          "source_chronology_control_id": 96541,
+          "source_payload": {
+            "agelimitolder": 9080,
+            "agelimityounger": 8700,
+            "chroncontrolage": 8890,
+            "chroncontrolid": 96541,
+            "chroncontroltype": "Radiocarbon",
+            "depth": 247.5,
+            "geochron": {
+              "agetype": "Radiocarbon years BP",
+              "delta13c": null,
+              "delta15n": null,
+              "geochronage": 9040,
+              "geochronerrorolder": 140,
+              "geochronerroryounger": 140,
+              "geochronid": 35610,
+              "geochronmaterialdated": "Lake mud",
+              "geochronnotes": null,
+              "geochrontype": "Carbon-14",
+              "infinite": false,
+              "labnumber": "Hel-1069",
+              "percentc": null,
+              "percentcollagen": null,
+              "percentn": null,
+              "radiocarbonmethod": "proportional gas counting",
+              "reservoir": null
+            },
+            "thickness": 15
+          },
+          "source_snapshot_id": "sha256:b2bcb99157e10b0c9f13c228acc12eabcb39d96a1f39c86ec25e34aacd78c791"
+        }
+      },
+      "subject_id": "neotoma:chronology:4151:30600:control:96541"
+    },
+    {
+      "conflict_id": "neotoma:conflict:03111aad7caf259383e2cb41",
+      "conflict_kind": "default_chronology_assertions_conflict",
+      "detail": {
+        "collection_unit_id": "neotoma:collection-unit:32445",
+        "explicit_default_chronology_id": "neotoma:chronology:32445:29866",
+        "governing_selection": "collection_unit.defaultchronology",
+        "source_flagged_default_chronology_ids": [
+          "neotoma:chronology:32445:29866",
+          "neotoma:chronology:32445:29867"
+        ]
+      },
+      "subject_id": "neotoma:dataset:45639"
+    },
+    {
+      "conflict_id": "neotoma:conflict:05ca03626521be74233329f5",
+      "conflict_kind": "default_chronology_assertions_conflict",
+      "detail": {
+        "collection_unit_id": "neotoma:collection-unit:32500",
+        "explicit_default_chronology_id": "neotoma:chronology:32500:29970",
+        "governing_selection": "collection_unit.defaultchronology",
+        "source_flagged_default_chronology_ids": [
+          "neotoma:chronology:32500:29970",
+          "neotoma:chronology:32500:29971"
+        ]
+      },
+      "subject_id": "neotoma:dataset:45728"
+    },
+    {
+      "conflict_id": "neotoma:conflict:069a9e49bf5f186df8a615e2",
+      "conflict_kind": "default_chronology_assertions_conflict",
+      "detail": {
+        "collection_unit_id": "neotoma:collection-unit:3765",
+        "explicit_default_chronology_id": "neotoma:chronology:3765:25912",
+        "governing_selection": "collection_unit.defaultchronology",
+        "source_flagged_default_chronology_ids": [
+          "neotoma:chronology:3765:25912",
+          "neotoma:chronology:3765:25913"
+        ]
+      },
+      "subject_id": "neotoma:dataset:3890"
+    },
+    {
+      "conflict_id": "neotoma:conflict:074b8e0101d0159b3f430c99",
+      "conflict_kind": "default_chronology_assertions_conflict",
+      "detail": {
+        "collection_unit_id": "neotoma:collection-unit:1400",
+        "explicit_default_chronology_id": "neotoma:chronology:1400:25410",
+        "governing_selection": "collection_unit.defaultchronology",
+        "source_flagged_default_chronology_ids": [
+          "neotoma:chronology:1400:25410",
+          "neotoma:chronology:1400:25411"
+        ]
+      },
+      "subject_id": "neotoma:dataset:1438"
+    },
+    {
+      "conflict_id": "neotoma:conflict:08c0a8f4de035f9573fbf4fe",
+      "conflict_kind": "default_chronology_assertions_conflict",
+      "detail": {
+        "collection_unit_id": "neotoma:collection-unit:16391",
+        "explicit_default_chronology_id": "neotoma:chronology:16391:12973",
+        "governing_selection": "collection_unit.defaultchronology",
+        "source_flagged_default_chronology_ids": [
+          "neotoma:chronology:16391:12973",
+          "neotoma:chronology:16391:12974"
+        ]
+      },
+      "subject_id": "neotoma:dataset:22630"
+    },
+    {
+      "conflict_id": "neotoma:conflict:0a6c37ee074aadb5610393f8",
+      "conflict_kind": "default_chronology_assertions_conflict",
+      "detail": {
+        "collection_unit_id": "neotoma:collection-unit:32176",
+        "explicit_default_chronology_id": "neotoma:chronology:32176:29545",
+        "governing_selection": "collection_unit.defaultchronology",
+        "source_flagged_default_chronology_ids": [
+          "neotoma:chronology:32176:29545",
+          "neotoma:chronology:32176:29546"
+        ]
+      },
+      "subject_id": "neotoma:dataset:45331"
+    },
+    {
+      "conflict_id": "neotoma:conflict:0b1388a4e2f4c17fcceb0caf",
+      "conflict_kind": "default_chronology_assertions_conflict",
+      "detail": {
+        "collection_unit_id": "neotoma:collection-unit:32168",
+        "explicit_default_chronology_id": "neotoma:chronology:32168:29527",
+        "governing_selection": "collection_unit.defaultchronology",
+        "source_flagged_default_chronology_ids": [
+          "neotoma:chronology:32168:29527",
+          "neotoma:chronology:32168:29528"
+        ]
+      },
+      "subject_id": "neotoma:dataset:45314"
+    },
+    {
+      "conflict_id": "neotoma:conflict:0bdda488de71bee43e634bde",
+      "conflict_kind": "default_chronology_assertions_conflict",
+      "detail": {
+        "collection_unit_id": "neotoma:collection-unit:3884",
+        "explicit_default_chronology_id": "neotoma:chronology:3884:30604",
+        "governing_selection": "collection_unit.defaultchronology",
+        "source_flagged_default_chronology_ids": [
+          "neotoma:chronology:3884:30604",
+          "neotoma:chronology:3884:30605"
+        ]
+      },
+      "subject_id": "neotoma:dataset:4011"
+    },
+    {
+      "conflict_id": "neotoma:conflict:0c57269e5780624f44db54a9",
+      "conflict_kind": "default_chronology_assertions_conflict",
+      "detail": {
+        "collection_unit_id": "neotoma:collection-unit:14983",
+        "explicit_default_chronology_id": "neotoma:chronology:14983:11590",
+        "governing_selection": "collection_unit.defaultchronology",
+        "source_flagged_default_chronology_ids": [
+          "neotoma:chronology:14983:11590",
+          "neotoma:chronology:14983:11591"
+        ]
+      },
+      "subject_id": "neotoma:dataset:20018"
+    },
+    {
+      "conflict_id": "neotoma:conflict:0e76edd8746befb32dc7fbd4",
+      "conflict_kind": "default_chronology_assertions_conflict",
+      "detail": {
+        "collection_unit_id": "neotoma:collection-unit:4151",
+        "explicit_default_chronology_id": "neotoma:chronology:4151:30601",
+        "governing_selection": "collection_unit.defaultchronology",
+        "source_flagged_default_chronology_ids": [
+          "neotoma:chronology:4151:30601",
+          "neotoma:chronology:4151:30602"
+        ]
+      },
+      "subject_id": "neotoma:dataset:4286"
+    },
+    {
+      "conflict_id": "neotoma:conflict:10861cfc83696f2f200ff29b",
+      "conflict_kind": "default_chronology_assertions_conflict",
+      "detail": {
+        "collection_unit_id": "neotoma:collection-unit:4006",
+        "explicit_default_chronology_id": "neotoma:chronology:4006:25779",
+        "governing_selection": "collection_unit.defaultchronology",
+        "source_flagged_default_chronology_ids": [
+          "neotoma:chronology:4006:25779",
+          "neotoma:chronology:4006:25780"
+        ]
+      },
+      "subject_id": "neotoma:dataset:4135"
+    },
+    {
+      "conflict_id": "neotoma:conflict:1284869e5ec4145c0695a3f8",
+      "conflict_kind": "default_chronology_assertions_conflict",
+      "detail": {
+        "collection_unit_id": "neotoma:collection-unit:4262",
+        "explicit_default_chronology_id": "neotoma:chronology:4262:30016",
+        "governing_selection": "collection_unit.defaultchronology",
+        "source_flagged_default_chronology_ids": [
+          "neotoma:chronology:4262:30016",
+          "neotoma:chronology:4262:30017"
+        ]
+      },
+      "subject_id": "neotoma:dataset:4403"
+    },
+    {
+      "conflict_id": "neotoma:conflict:13d6789eb83e5522102f2d02",
+      "conflict_kind": "chronology_control_payload_conflict",
+      "detail": {
+        "existing": {
+          "build_id": "sha256:92dd52619837f3641d004a1a5dbe38f9ab6023a79f61989314bb90e612eb58e1",
+          "chronology_control_id": "neotoma:chronology:4151:30601:control:96548",
+          "chronology_id": "neotoma:chronology:4151:30601",
+          "collection_unit_id": "neotoma:collection-unit:4151",
+          "country_code": "FI",
+          "site_id": "neotoma:site:3302",
+          "source_chronology_control_id": 96548,
+          "source_payload": {
+            "agelimitolder": 7190,
+            "agelimityounger": 6890,
+            "chroncontrolage": 7040,
+            "chroncontrolid": 96548,
+            "chroncontroltype": "Radiocarbon",
+            "depth": 217.5,
+            "geochron": {
+              "agetype": "Radiocarbon years BP",
+              "delta13c": null,
+              "delta15n": null,
+              "geochronage": 7040,
+              "geochronerrorolder": 150,
+              "geochronerroryounger": 150,
+              "geochronid": 35606,
+              "geochronmaterialdated": "Soluble humus fraction",
+              "geochronnotes": null,
+              "geochrontype": "Carbon-14",
+              "infinite": false,
+              "labnumber": "Hel-1072",
+              "percentc": null,
+              "percentcollagen": null,
+              "percentn": null,
+              "radiocarbonmethod": "proportional gas counting",
+              "reservoir": null
+            },
+            "thickness": 15
+          },
+          "source_snapshot_id": "sha256:b2bcb99157e10b0c9f13c228acc12eabcb39d96a1f39c86ec25e34aacd78c791"
+        },
+        "incoming": {
+          "build_id": "sha256:92dd52619837f3641d004a1a5dbe38f9ab6023a79f61989314bb90e612eb58e1",
+          "chronology_control_id": "neotoma:chronology:4151:30601:control:96548",
+          "chronology_id": "neotoma:chronology:4151:30601",
+          "collection_unit_id": "neotoma:collection-unit:4151",
+          "country_code": "FI",
+          "site_id": "neotoma:site:3302",
+          "source_chronology_control_id": 96548,
+          "source_payload": {
+            "agelimitolder": 7190,
+            "agelimityounger": 6890,
+            "chroncontrolage": 7040,
+            "chroncontrolid": 96548,
+            "chroncontroltype": "Radiocarbon",
+            "depth": 217.5,
+            "geochron": {
+              "agetype": "Radiocarbon years BP",
+              "delta13c": null,
+              "delta15n": null,
+              "geochronage": 7480,
+              "geochronerrorolder": 140,
+              "geochronerroryounger": 140,
+              "geochronid": 35607,
+              "geochronmaterialdated": "Lake mud",
+              "geochronnotes": null,
+              "geochrontype": "Carbon-14",
+              "infinite": false,
+              "labnumber": "Hel-1071",
+              "percentc": null,
+              "percentcollagen": null,
+              "percentn": null,
+              "radiocarbonmethod": "proportional gas counting",
+              "reservoir": null
+            },
+            "thickness": 15
+          },
+          "source_snapshot_id": "sha256:b2bcb99157e10b0c9f13c228acc12eabcb39d96a1f39c86ec25e34aacd78c791"
+        }
+      },
+      "subject_id": "neotoma:chronology:4151:30601:control:96548"
+    },
+    {
+      "conflict_id": "neotoma:conflict:17d84929d88caa82bdf32590",
+      "conflict_kind": "default_chronology_assertions_conflict",
+      "detail": {
+        "collection_unit_id": "neotoma:collection-unit:32190",
+        "explicit_default_chronology_id": "neotoma:chronology:32190:29558",
+        "governing_selection": "collection_unit.defaultchronology",
+        "source_flagged_default_chronology_ids": [
+          "neotoma:chronology:32190:29558",
+          "neotoma:chronology:32190:29559"
+        ]
+      },
+      "subject_id": "neotoma:dataset:45349"
+    },
+    {
+      "conflict_id": "neotoma:conflict:18091fcdd35dac3be67d297a",
+      "conflict_kind": "default_chronology_assertions_conflict",
+      "detail": {
+        "collection_unit_id": "neotoma:collection-unit:39261",
+        "explicit_default_chronology_id": "neotoma:chronology:39261:38443",
+        "governing_selection": "collection_unit.defaultchronology",
+        "source_flagged_default_chronology_ids": [
+          "neotoma:chronology:39261:38443",
+          "neotoma:chronology:39261:38444"
+        ]
+      },
+      "subject_id": "neotoma:dataset:54030"
+    },
+    {
+      "conflict_id": "neotoma:conflict:18460cf232510871cb4dc93a",
+      "conflict_kind": "default_chronology_assertions_conflict",
+      "detail": {
+        "collection_unit_id": "neotoma:collection-unit:4264",
+        "explicit_default_chronology_id": "neotoma:chronology:4264:30636",
+        "governing_selection": "collection_unit.defaultchronology",
+        "source_flagged_default_chronology_ids": [
+          "neotoma:chronology:4264:30636",
+          "neotoma:chronology:4264:30637"
+        ]
+      },
+      "subject_id": "neotoma:dataset:4405"
+    },
+    {
+      "conflict_id": "neotoma:conflict:18df72daf9e295f40ba0fd2f",
+      "conflict_kind": "default_chronology_assertions_conflict",
+      "detail": {
+        "collection_unit_id": "neotoma:collection-unit:310",
+        "explicit_default_chronology_id": "neotoma:chronology:310:25368",
+        "governing_selection": "collection_unit.defaultchronology",
+        "source_flagged_default_chronology_ids": [
+          "neotoma:chronology:310:25368",
+          "neotoma:chronology:310:25369"
+        ]
+      },
+      "subject_id": "neotoma:dataset:317"
+    },
+    {
+      "conflict_id": "neotoma:conflict:1cfd7bffee9415295c7e35dd",
+      "conflict_kind": "default_chronology_assertions_conflict",
+      "detail": {
+        "collection_unit_id": "neotoma:collection-unit:4148",
+        "explicit_default_chronology_id": "neotoma:chronology:4148:30517",
+        "governing_selection": "collection_unit.defaultchronology",
+        "source_flagged_default_chronology_ids": [
+          "neotoma:chronology:4148:30517",
+          "neotoma:chronology:4148:30518"
+        ]
+      },
+      "subject_id": "neotoma:dataset:4283"
+    },
+    {
+      "conflict_id": "neotoma:conflict:1d082f939f3e92c9283a4a19",
+      "conflict_kind": "chronology_control_payload_conflict",
+      "detail": {
+        "existing": {
+          "build_id": "sha256:92dd52619837f3641d004a1a5dbe38f9ab6023a79f61989314bb90e612eb58e1",
+          "chronology_control_id": "neotoma:chronology:4307:30581:control:96271",
+          "chronology_id": "neotoma:chronology:4307:30581",
+          "collection_unit_id": "neotoma:collection-unit:4307",
+          "country_code": "SE",
+          "site_id": "neotoma:site:3435",
+          "source_chronology_control_id": 96271,
+          "source_payload": {
+            "agelimitolder": 12350,
+            "agelimityounger": 12130,
+            "chroncontrolage": 12240,
+            "chroncontrolid": 96271,
+            "chroncontroltype": "Radiocarbon",
+            "depth": 565,
+            "geochron": {
+              "agetype": "Radiocarbon years BP",
+              "delta13c": -20.4,
+              "delta15n": null,
+              "geochronage": 12240,
+              "geochronerrorolder": 110,
+              "geochronerroryounger": 110,
+              "geochronid": 35574,
+              "geochronmaterialdated": "NaOH soluble",
+              "geochronnotes": null,
+              "geochrontype": "Carbon-14",
+              "infinite": false,
+              "labnumber": "Lu-2511b",
+              "percentc": null,
+              "percentcollagen": null,
+              "percentn": null,
+              "radiocarbonmethod": "conventional radiometric",
+              "reservoir": null
+            },
+            "thickness": 5
+          },
+          "source_snapshot_id": "sha256:b2bcb99157e10b0c9f13c228acc12eabcb39d96a1f39c86ec25e34aacd78c791"
+        },
+        "incoming": {
+          "build_id": "sha256:92dd52619837f3641d004a1a5dbe38f9ab6023a79f61989314bb90e612eb58e1",
+          "chronology_control_id": "neotoma:chronology:4307:30581:control:96271",
+          "chronology_id": "neotoma:chronology:4307:30581",
+          "collection_unit_id": "neotoma:collection-unit:4307",
+          "country_code": "SE",
+          "site_id": "neotoma:site:3435",
+          "source_chronology_control_id": 96271,
+          "source_payload": {
+            "agelimitolder": 12350,
+            "agelimityounger": 12130,
+            "chroncontrolage": 12240,
+            "chroncontrolid": 96271,
+            "chroncontroltype": "Radiocarbon",
+            "depth": 565,
+            "geochron": {
+              "agetype": "Radiocarbon years BP",
+              "delta13c": -20.4,
+              "delta15n": null,
+              "geochronage": 12540,
+              "geochronerrorolder": 140,
+              "geochronerroryounger": 140,
+              "geochronid": 35575,
+              "geochronmaterialdated": "NaOH insoluble",
+              "geochronnotes": null,
+              "geochrontype": "Carbon-14",
+              "infinite": false,
+              "labnumber": "Lu-2511a",
+              "percentc": null,
+              "percentcollagen": null,
+              "percentn": null,
+              "radiocarbonmethod": "conventional radiometric",
+              "reservoir": null
+            },
+            "thickness": 5
+          },
+          "source_snapshot_id": "sha256:b2bcb99157e10b0c9f13c228acc12eabcb39d96a1f39c86ec25e34aacd78c791"
+        }
+      },
+      "subject_id": "neotoma:chronology:4307:30581:control:96271"
+    },
+    {
+      "conflict_id": "neotoma:conflict:1d77e5c14e9d567302b3c4b9",
+      "conflict_kind": "default_chronology_assertions_conflict",
+      "detail": {
+        "collection_unit_id": "neotoma:collection-unit:37928",
+        "explicit_default_chronology_id": "neotoma:chronology:37928:37165",
+        "governing_selection": "collection_unit.defaultchronology",
+        "source_flagged_default_chronology_ids": [
+          "neotoma:chronology:37928:37165",
+          "neotoma:chronology:37928:37166"
+        ]
+      },
+      "subject_id": "neotoma:dataset:52088"
+    },
+    {
+      "conflict_id": "neotoma:conflict:1db534a4083ceaea29758e85",
+      "conflict_kind": "default_chronology_assertions_conflict",
+      "detail": {
+        "collection_unit_id": "neotoma:collection-unit:16622",
+        "explicit_default_chronology_id": "neotoma:chronology:16622:13365",
+        "governing_selection": "collection_unit.defaultchronology",
+        "source_flagged_default_chronology_ids": [
+          "neotoma:chronology:16622:13365",
+          "neotoma:chronology:16622:13366"
+        ]
+      },
+      "subject_id": "neotoma:dataset:23013"
+    },
+    {
+      "conflict_id": "neotoma:conflict:1f00d7c5864fbb3497634215",
+      "conflict_kind": "chronology_control_payload_conflict",
+      "detail": {
+        "existing": {
+          "build_id": "sha256:92dd52619837f3641d004a1a5dbe38f9ab6023a79f61989314bb90e612eb58e1",
+          "chronology_control_id": "neotoma:chronology:3798:25729:control:84715",
+          "chronology_id": "neotoma:chronology:3798:25729",
+          "collection_unit_id": "neotoma:collection-unit:3798",
+          "country_code": "SE",
+          "site_id": "neotoma:site:3009",
+          "source_chronology_control_id": 84715,
+          "source_payload": {
+            "agelimitolder": 10750,
+            "agelimityounger": 10490,
+            "chroncontrolage": 10620,
+            "chroncontrolid": 84715,
+            "chroncontroltype": "Radiocarbon",
+            "depth": 9305,
+            "geochron": {
+              "agetype": "Radiocarbon years BP",
+              "delta13c": -26.42,
+              "delta15n": null,
+              "geochronage": 10620,
+              "geochronerrorolder": 130,
+              "geochronerroryounger": 130,
+              "geochronid": 31284,
+              "geochronmaterialdated": "Mosses",
+              "geochronnotes": null,
+              "geochrontype": "Carbon-14",
+              "infinite": false,
+              "labnumber": "Lu-2171",
+              "percentc": null,
+              "percentcollagen": null,
+              "percentn": null,
+              "radiocarbonmethod": "conventional radiometric",
+              "reservoir": null
+            },
+            "thickness": null
+          },
+          "source_snapshot_id": "sha256:b2bcb99157e10b0c9f13c228acc12eabcb39d96a1f39c86ec25e34aacd78c791"
+        },
+        "incoming": {
+          "build_id": "sha256:92dd52619837f3641d004a1a5dbe38f9ab6023a79f61989314bb90e612eb58e1",
+          "chronology_control_id": "neotoma:chronology:3798:25729:control:84715",
+          "chronology_id": "neotoma:chronology:3798:25729",
+          "collection_unit_id": "neotoma:collection-unit:3798",
+          "country_code": "SE",
+          "site_id": "neotoma:site:3009",
+          "source_chronology_control_id": 84715,
+          "source_payload": {
+            "agelimitolder": 10750,
+            "agelimityounger": 10490,
+            "chroncontrolage": 10620,
+            "chroncontrolid": 84715,
+            "chroncontroltype": "Radiocarbon",
+            "depth": 9305,
+            "geochron": {
+              "agetype": "Radiocarbon years BP",
+              "delta13c": -26.49,
+              "delta15n": null,
+              "geochronage": 11260,
+              "geochronerrorolder": 100,
+              "geochronerroryounger": 100,
+              "geochronid": 31285,
+              "geochronmaterialdated": "NaOH-soluble fraction-sediment",
+              "geochronnotes": null,
+              "geochrontype": "Carbon-14",
+              "infinite": false,
+              "labnumber": "Lu-2172A",
+              "percentc": null,
+              "percentcollagen": null,
+              "percentn": null,
+              "radiocarbonmethod": "conventional radiometric",
+              "reservoir": null
+            },
+            "thickness": null
+          },
+          "source_snapshot_id": "sha256:b2bcb99157e10b0c9f13c228acc12eabcb39d96a1f39c86ec25e34aacd78c791"
+        }
+      },
+      "subject_id": "neotoma:chronology:3798:25729:control:84715"
+    },
+    {
+      "conflict_id": "neotoma:conflict:1f92f75bad50f226bf4d68a1",
+      "conflict_kind": "default_chronology_assertions_conflict",
+      "detail": {
+        "collection_unit_id": "neotoma:collection-unit:4230",
+        "explicit_default_chronology_id": "neotoma:chronology:4230:25412",
+        "governing_selection": "collection_unit.defaultchronology",
+        "source_flagged_default_chronology_ids": [
+          "neotoma:chronology:4230:25412",
+          "neotoma:chronology:4230:25413"
+        ]
+      },
+      "subject_id": "neotoma:dataset:4370"
+    },
+    {
+      "conflict_id": "neotoma:conflict:209255aa5ae3302619e6dfb7",
+      "conflict_kind": "default_chronology_assertions_conflict",
+      "detail": {
+        "collection_unit_id": "neotoma:collection-unit:4039",
+        "explicit_default_chronology_id": "neotoma:chronology:4039:30586",
+        "governing_selection": "collection_unit.defaultchronology",
+        "source_flagged_default_chronology_ids": [
+          "neotoma:chronology:4039:30586",
+          "neotoma:chronology:4039:30588"
+        ]
+      },
+      "subject_id": "neotoma:dataset:4168"
+    },
+    {
+      "conflict_id": "neotoma:conflict:241d24fa8686f5881eef1ed3",
+      "conflict_kind": "default_chronology_assertions_conflict",
+      "detail": {
+        "collection_unit_id": "neotoma:collection-unit:4348",
+        "explicit_default_chronology_id": "neotoma:chronology:4348:25772",
+        "governing_selection": "collection_unit.defaultchronology",
+        "source_flagged_default_chronology_ids": [
+          "neotoma:chronology:4348:25772",
+          "neotoma:chronology:4348:25773"
+        ]
+      },
+      "subject_id": "neotoma:dataset:4491"
+    },
+    {
+      "conflict_id": "neotoma:conflict:2551a4da1b41d74b71346e64",
+      "conflict_kind": "default_chronology_assertions_conflict",
+      "detail": {
+        "collection_unit_id": "neotoma:collection-unit:17711",
+        "explicit_default_chronology_id": "neotoma:chronology:17711:14505",
+        "governing_selection": "collection_unit.defaultchronology",
+        "source_flagged_default_chronology_ids": [
+          "neotoma:chronology:17711:14505",
+          "neotoma:chronology:17711:14506"
+        ]
+      },
+      "subject_id": "neotoma:dataset:24155"
+    },
+    {
+      "conflict_id": "neotoma:conflict:26393ea2042b4e2c5b784b3b",
+      "conflict_kind": "chronology_control_payload_conflict",
+      "detail": {
+        "existing": {
+          "build_id": "sha256:92dd52619837f3641d004a1a5dbe38f9ab6023a79f61989314bb90e612eb58e1",
+          "chronology_control_id": "neotoma:chronology:4307:30582:control:96275",
+          "chronology_id": "neotoma:chronology:4307:30582",
+          "collection_unit_id": "neotoma:collection-unit:4307",
+          "country_code": "SE",
+          "site_id": "neotoma:site:3435",
+          "source_chronology_control_id": 96275,
+          "source_payload": {
+            "agelimitolder": 11545,
+            "agelimityounger": 11295,
+            "chroncontrolage": 11420,
+            "chroncontrolid": 96275,
+            "chroncontroltype": "Radiocarbon",
+            "depth": 554.5,
+            "geochron": {
+              "agetype": "Radiocarbon years BP",
+              "delta13c": -20.6,
+              "delta15n": null,
+              "geochronage": 11420,
+              "geochronerrorolder": 125,
+              "geochronerroryounger": 125,
+              "geochronid": 35572,
+              "geochronmaterialdated": "NaOH soluble",
+              "geochronnotes": null,
+              "geochrontype": "Carbon-14",
+              "infinite": false,
+              "labnumber": "Lu-2514b",
+              "percentc": null,
+              "percentcollagen": null,
+              "percentn": null,
+              "radiocarbonmethod": "conventional radiometric",
+              "reservoir": null
+            },
+            "thickness": null
+          },
+          "source_snapshot_id": "sha256:b2bcb99157e10b0c9f13c228acc12eabcb39d96a1f39c86ec25e34aacd78c791"
+        },
+        "incoming": {
+          "build_id": "sha256:92dd52619837f3641d004a1a5dbe38f9ab6023a79f61989314bb90e612eb58e1",
+          "chronology_control_id": "neotoma:chronology:4307:30582:control:96275",
+          "chronology_id": "neotoma:chronology:4307:30582",
+          "collection_unit_id": "neotoma:collection-unit:4307",
+          "country_code": "SE",
+          "site_id": "neotoma:site:3435",
+          "source_chronology_control_id": 96275,
+          "source_payload": {
+            "agelimitolder": 11545,
+            "agelimityounger": 11295,
+            "chroncontrolage": 11420,
+            "chroncontrolid": 96275,
+            "chroncontroltype": "Radiocarbon",
+            "depth": 554.5,
+            "geochron": {
+              "agetype": "Radiocarbon years BP",
+              "delta13c": -20.6,
+              "delta15n": null,
+              "geochronage": 11710,
+              "geochronerrorolder": 140,
+              "geochronerroryounger": 140,
+              "geochronid": 35573,
+              "geochronmaterialdated": "NaOH insoluble",
+              "geochronnotes": null,
+              "geochrontype": "Carbon-14",
+              "infinite": false,
+              "labnumber": "Lu-2514a",
+              "percentc": null,
+              "percentcollagen": null,
+              "percentn": null,
+              "radiocarbonmethod": "conventional radiometric",
+              "reservoir": null
+            },
+            "thickness": null
+          },
+          "source_snapshot_id": "sha256:b2bcb99157e10b0c9f13c228acc12eabcb39d96a1f39c86ec25e34aacd78c791"
+        }
+      },
+      "subject_id": "neotoma:chronology:4307:30582:control:96275"
+    },
+    {
+      "conflict_id": "neotoma:conflict:269f5ecea0537a6c0f516367",
+      "conflict_kind": "chronology_control_payload_conflict",
+      "detail": {
+        "existing": {
+          "build_id": "sha256:92dd52619837f3641d004a1a5dbe38f9ab6023a79f61989314bb90e612eb58e1",
+          "chronology_control_id": "neotoma:chronology:4151:30602:control:96559",
+          "chronology_id": "neotoma:chronology:4151:30602",
+          "collection_unit_id": "neotoma:collection-unit:4151",
+          "country_code": "FI",
+          "site_id": "neotoma:site:3302",
+          "source_chronology_control_id": 96559,
+          "source_payload": {
+            "agelimitolder": 9080,
+            "agelimityounger": 8700,
+            "chroncontrolage": 8890,
+            "chroncontrolid": 96559,
+            "chroncontroltype": "Radiocarbon",
+            "depth": 247.5,
+            "geochron": {
+              "agetype": "Radiocarbon years BP",
+              "delta13c": null,
+              "delta15n": null,
+              "geochronage": 8890,
+              "geochronerrorolder": 190,
+              "geochronerroryounger": 190,
+              "geochronid": 35609,
+              "geochronmaterialdated": "Soluble humus fraction",
+              "geochronnotes": null,
+              "geochrontype": "Carbon-14",
+              "infinite": false,
+              "labnumber": "Hel-1070",
+              "percentc": null,
+              "percentcollagen": null,
+              "percentn": null,
+              "radiocarbonmethod": "proportional gas counting",
+              "reservoir": null
+            },
+            "thickness": 15
+          },
+          "source_snapshot_id": "sha256:b2bcb99157e10b0c9f13c228acc12eabcb39d96a1f39c86ec25e34aacd78c791"
+        },
+        "incoming": {
+          "build_id": "sha256:92dd52619837f3641d004a1a5dbe38f9ab6023a79f61989314bb90e612eb58e1",
+          "chronology_control_id": "neotoma:chronology:4151:30602:control:96559",
+          "chronology_id": "neotoma:chronology:4151:30602",
+          "collection_unit_id": "neotoma:collection-unit:4151",
+          "country_code": "FI",
+          "site_id": "neotoma:site:3302",
+          "source_chronology_control_id": 96559,
+          "source_payload": {
+            "agelimitolder": 9080,
+            "agelimityounger": 8700,
+            "chroncontrolage": 8890,
+            "chroncontrolid": 96559,
+            "chroncontroltype": "Radiocarbon",
+            "depth": 247.5,
+            "geochron": {
+              "agetype": "Radiocarbon years BP",
+              "delta13c": null,
+              "delta15n": null,
+              "geochronage": 9040,
+              "geochronerrorolder": 140,
+              "geochronerroryounger": 140,
+              "geochronid": 35610,
+              "geochronmaterialdated": "Lake mud",
+              "geochronnotes": null,
+              "geochrontype": "Carbon-14",
+              "infinite": false,
+              "labnumber": "Hel-1069",
+              "percentc": null,
+              "percentcollagen": null,
+              "percentn": null,
+              "radiocarbonmethod": "proportional gas counting",
+              "reservoir": null
+            },
+            "thickness": 15
+          },
+          "source_snapshot_id": "sha256:b2bcb99157e10b0c9f13c228acc12eabcb39d96a1f39c86ec25e34aacd78c791"
+        }
+      },
+      "subject_id": "neotoma:chronology:4151:30602:control:96559"
+    },
+    {
+      "conflict_id": "neotoma:conflict:27663c3953232374273520eb",
+      "conflict_kind": "default_chronology_assertions_conflict",
+      "detail": {
+        "collection_unit_id": "neotoma:collection-unit:38015",
+        "explicit_default_chronology_id": "neotoma:chronology:38015:37276",
+        "governing_selection": "collection_unit.defaultchronology",
+        "source_flagged_default_chronology_ids": [
+          "neotoma:chronology:38015:37276",
+          "neotoma:chronology:38015:37277"
+        ]
+      },
+      "subject_id": "neotoma:dataset:52255"
+    },
+    {
+      "conflict_id": "neotoma:conflict:2adfd0ae57a49b1f61654d95",
+      "conflict_kind": "default_chronology_assertions_conflict",
+      "detail": {
+        "collection_unit_id": "neotoma:collection-unit:14998",
+        "explicit_default_chronology_id": "neotoma:chronology:14998:11617",
+        "governing_selection": "collection_unit.defaultchronology",
+        "source_flagged_default_chronology_ids": [
+          "neotoma:chronology:14998:11617",
+          "neotoma:chronology:14998:11618"
+        ]
+      },
+      "subject_id": "neotoma:dataset:20060"
+    },
+    {
+      "conflict_id": "neotoma:conflict:2c6709fe1fd5b1989405c5c4",
+      "conflict_kind": "default_chronology_assertions_conflict",
+      "detail": {
+        "collection_unit_id": "neotoma:collection-unit:32490",
+        "explicit_default_chronology_id": "neotoma:chronology:32490:29940",
+        "governing_selection": "collection_unit.defaultchronology",
+        "source_flagged_default_chronology_ids": [
+          "neotoma:chronology:32490:29940",
+          "neotoma:chronology:32490:29941"
+        ]
+      },
+      "subject_id": "neotoma:dataset:45698"
+    },
+    {
+      "conflict_id": "neotoma:conflict:2d5831b2bc6df61c6ba25f76",
+      "conflict_kind": "chronology_control_payload_conflict",
+      "detail": {
+        "existing": {
+          "build_id": "sha256:92dd52619837f3641d004a1a5dbe38f9ab6023a79f61989314bb90e612eb58e1",
+          "chronology_control_id": "neotoma:chronology:4151:30600:control:96542",
+          "chronology_id": "neotoma:chronology:4151:30600",
+          "collection_unit_id": "neotoma:collection-unit:4151",
+          "country_code": "FI",
+          "site_id": "neotoma:site:3302",
+          "source_chronology_control_id": 96542,
+          "source_payload": {
+            "agelimitolder": 9180,
+            "agelimityounger": 8900,
+            "chroncontrolage": 9040,
+            "chroncontrolid": 96542,
+            "chroncontroltype": "Radiocarbon",
+            "depth": 247.5,
+            "geochron": {
+              "agetype": "Radiocarbon years BP",
+              "delta13c": null,
+              "delta15n": null,
+              "geochronage": 8890,
+              "geochronerrorolder": 190,
+              "geochronerroryounger": 190,
+              "geochronid": 35609,
+              "geochronmaterialdated": "Soluble humus fraction",
+              "geochronnotes": null,
+              "geochrontype": "Carbon-14",
+              "infinite": false,
+              "labnumber": "Hel-1070",
+              "percentc": null,
+              "percentcollagen": null,
+              "percentn": null,
+              "radiocarbonmethod": "proportional gas counting",
+              "reservoir": null
+            },
+            "thickness": 15
+          },
+          "source_snapshot_id": "sha256:b2bcb99157e10b0c9f13c228acc12eabcb39d96a1f39c86ec25e34aacd78c791"
+        },
+        "incoming": {
+          "build_id": "sha256:92dd52619837f3641d004a1a5dbe38f9ab6023a79f61989314bb90e612eb58e1",
+          "chronology_control_id": "neotoma:chronology:4151:30600:control:96542",
+          "chronology_id": "neotoma:chronology:4151:30600",
+          "collection_unit_id": "neotoma:collection-unit:4151",
+          "country_code": "FI",
+          "site_id": "neotoma:site:3302",
+          "source_chronology_control_id": 96542,
+          "source_payload": {
+            "agelimitolder": 9180,
+            "agelimityounger": 8900,
+            "chroncontrolage": 9040,
+            "chroncontrolid": 96542,
+            "chroncontroltype": "Radiocarbon",
+            "depth": 247.5,
+            "geochron": {
+              "agetype": "Radiocarbon years BP",
+              "delta13c": null,
+              "delta15n": null,
+              "geochronage": 9040,
+              "geochronerrorolder": 140,
+              "geochronerroryounger": 140,
+              "geochronid": 35610,
+              "geochronmaterialdated": "Lake mud",
+              "geochronnotes": null,
+              "geochrontype": "Carbon-14",
+              "infinite": false,
+              "labnumber": "Hel-1069",
+              "percentc": null,
+              "percentcollagen": null,
+              "percentn": null,
+              "radiocarbonmethod": "proportional gas counting",
+              "reservoir": null
+            },
+            "thickness": 15
+          },
+          "source_snapshot_id": "sha256:b2bcb99157e10b0c9f13c228acc12eabcb39d96a1f39c86ec25e34aacd78c791"
+        }
+      },
+      "subject_id": "neotoma:chronology:4151:30600:control:96542"
+    },
+    {
+      "conflict_id": "neotoma:conflict:2ebf3376985ba15c0a12bd7c",
+      "conflict_kind": "chronology_control_payload_conflict",
+      "detail": {
+        "existing": {
+          "build_id": "sha256:92dd52619837f3641d004a1a5dbe38f9ab6023a79f61989314bb90e612eb58e1",
+          "chronology_control_id": "neotoma:chronology:3798:25730:control:84722",
+          "chronology_id": "neotoma:chronology:3798:25730",
+          "collection_unit_id": "neotoma:collection-unit:3798",
+          "country_code": "SE",
+          "site_id": "neotoma:site:3009",
+          "source_chronology_control_id": 84722,
+          "source_payload": {
+            "agelimitolder": 11360,
+            "agelimityounger": 11160,
+            "chroncontrolage": 11260,
+            "chroncontrolid": 84722,
+            "chroncontroltype": "Radiocarbon",
+            "depth": 9305,
+            "geochron": {
+              "agetype": "Radiocarbon years BP",
+              "delta13c": -26.42,
+              "delta15n": null,
+              "geochronage": 10620,
+              "geochronerrorolder": 130,
+              "geochronerroryounger": 130,
+              "geochronid": 31284,
+              "geochronmaterialdated": "Mosses",
+              "geochronnotes": null,
+              "geochrontype": "Carbon-14",
+              "infinite": false,
+              "labnumber": "Lu-2171",
+              "percentc": null,
+              "percentcollagen": null,
+              "percentn": null,
+              "radiocarbonmethod": "conventional radiometric",
+              "reservoir": null
+            },
+            "thickness": 5
+          },
+          "source_snapshot_id": "sha256:b2bcb99157e10b0c9f13c228acc12eabcb39d96a1f39c86ec25e34aacd78c791"
+        },
+        "incoming": {
+          "build_id": "sha256:92dd52619837f3641d004a1a5dbe38f9ab6023a79f61989314bb90e612eb58e1",
+          "chronology_control_id": "neotoma:chronology:3798:25730:control:84722",
+          "chronology_id": "neotoma:chronology:3798:25730",
+          "collection_unit_id": "neotoma:collection-unit:3798",
+          "country_code": "SE",
+          "site_id": "neotoma:site:3009",
+          "source_chronology_control_id": 84722,
+          "source_payload": {
+            "agelimitolder": 11360,
+            "agelimityounger": 11160,
+            "chroncontrolage": 11260,
+            "chroncontrolid": 84722,
+            "chroncontroltype": "Radiocarbon",
+            "depth": 9305,
+            "geochron": {
+              "agetype": "Radiocarbon years BP",
+              "delta13c": -26.49,
+              "delta15n": null,
+              "geochronage": 11260,
+              "geochronerrorolder": 100,
+              "geochronerroryounger": 100,
+              "geochronid": 31285,
+              "geochronmaterialdated": "NaOH-soluble fraction-sediment",
+              "geochronnotes": null,
+              "geochrontype": "Carbon-14",
+              "infinite": false,
+              "labnumber": "Lu-2172A",
+              "percentc": null,
+              "percentcollagen": null,
+              "percentn": null,
+              "radiocarbonmethod": "conventional radiometric",
+              "reservoir": null
+            },
+            "thickness": 5
+          },
+          "source_snapshot_id": "sha256:b2bcb99157e10b0c9f13c228acc12eabcb39d96a1f39c86ec25e34aacd78c791"
+        }
+      },
+      "subject_id": "neotoma:chronology:3798:25730:control:84722"
+    },
+    {
+      "conflict_id": "neotoma:conflict:2f665cfd0f403bb8321851d2",
+      "conflict_kind": "default_chronology_assertions_conflict",
+      "detail": {
+        "collection_unit_id": "neotoma:collection-unit:4071",
+        "explicit_default_chronology_id": "neotoma:chronology:4071:29938",
+        "governing_selection": "collection_unit.defaultchronology",
+        "source_flagged_default_chronology_ids": [
+          "neotoma:chronology:4071:29938",
+          "neotoma:chronology:4071:29939"
+        ]
+      },
+      "subject_id": "neotoma:dataset:4200"
+    },
+    {
+      "conflict_id": "neotoma:conflict:30b7cdfc377e6f6aeca0db19",
+      "conflict_kind": "default_chronology_assertions_conflict",
+      "detail": {
+        "collection_unit_id": "neotoma:collection-unit:4252",
+        "explicit_default_chronology_id": "neotoma:chronology:4252:30527",
+        "governing_selection": "collection_unit.defaultchronology",
+        "source_flagged_default_chronology_ids": [
+          "neotoma:chronology:4252:30527",
+          "neotoma:chronology:4252:30528"
+        ]
+      },
+      "subject_id": "neotoma:dataset:4393"
+    },
+    {
+      "conflict_id": "neotoma:conflict:36e75d0276ede6391da74949",
+      "conflict_kind": "chronology_control_payload_conflict",
+      "detail": {
+        "existing": {
+          "build_id": "sha256:92dd52619837f3641d004a1a5dbe38f9ab6023a79f61989314bb90e612eb58e1",
+          "chronology_control_id": "neotoma:chronology:946:25381:control:82522",
+          "chronology_id": "neotoma:chronology:946:25381",
+          "collection_unit_id": "neotoma:collection-unit:946",
+          "country_code": "NO",
+          "site_id": "neotoma:site:947",
+          "source_chronology_control_id": 82522,
+          "source_payload": {
+            "agelimitolder": 9504,
+            "agelimityounger": 9036,
+            "chroncontrolage": 9270,
+            "chroncontrolid": 82522,
+            "chroncontroltype": "Radiocarbon, average of two or more dates",
+            "depth": 365.5,
+            "geochron": {
+              "agetype": "Radiocarbon years BP",
+              "delta13c": -27.7,
+              "delta15n": null,
+              "geochronage": 9210,
+              "geochronerrorolder": 160,
+              "geochronerroryounger": 160,
+              "geochronid": 30303,
+              "geochronmaterialdated": "NaOH-soluble fraction",
+              "geochronnotes": null,
+              "geochrontype": "Carbon-14",
+              "infinite": false,
+              "labnumber": "T-3277 A",
+              "percentc": null,
+              "percentcollagen": null,
+              "percentn": null,
+              "radiocarbonmethod": "conventional radiometric",
+              "reservoir": null
+            },
+            "thickness": 5
+          },
+          "source_snapshot_id": "sha256:b2bcb99157e10b0c9f13c228acc12eabcb39d96a1f39c86ec25e34aacd78c791"
+        },
+        "incoming": {
+          "build_id": "sha256:92dd52619837f3641d004a1a5dbe38f9ab6023a79f61989314bb90e612eb58e1",
+          "chronology_control_id": "neotoma:chronology:946:25381:control:82522",
+          "chronology_id": "neotoma:chronology:946:25381",
+          "collection_unit_id": "neotoma:collection-unit:946",
+          "country_code": "NO",
+          "site_id": "neotoma:site:947",
+          "source_chronology_control_id": 82522,
+          "source_payload": {
+            "agelimitolder": 9504,
+            "agelimityounger": 9036,
+            "chroncontrolage": 9270,
+            "chroncontrolid": 82522,
+            "chroncontroltype": "Radiocarbon, average of two or more dates",
+            "depth": 365.5,
+            "geochron": {
+              "agetype": "Radiocarbon years BP",
+              "delta13c": -27,
+              "delta15n": null,
+              "geochronage": 9330,
+              "geochronerrorolder": 160,
+              "geochronerroryounger": 160,
+              "geochronid": 30304,
+              "geochronmaterialdated": "NaOH-insoluble fraction",
+              "geochronnotes": null,
+              "geochrontype": "Carbon-14",
+              "infinite": false,
+              "labnumber": "T-3277 B",
+              "percentc": null,
+              "percentcollagen": null,
+              "percentn": null,
+              "radiocarbonmethod": "conventional radiometric",
+              "reservoir": null
+            },
+            "thickness": 5
+          },
+          "source_snapshot_id": "sha256:b2bcb99157e10b0c9f13c228acc12eabcb39d96a1f39c86ec25e34aacd78c791"
+        }
+      },
+      "subject_id": "neotoma:chronology:946:25381:control:82522"
+    },
+    {
+      "conflict_id": "neotoma:conflict:3955d6c879b9ff0a113292de",
+      "conflict_kind": "default_chronology_assertions_conflict",
+      "detail": {
+        "collection_unit_id": "neotoma:collection-unit:39259",
+        "explicit_default_chronology_id": "neotoma:chronology:39259:38439",
+        "governing_selection": "collection_unit.defaultchronology",
+        "source_flagged_default_chronology_ids": [
+          "neotoma:chronology:39259:38439",
+          "neotoma:chronology:39259:38440"
+        ]
+      },
+      "subject_id": "neotoma:dataset:54026"
+    },
+    {
+      "conflict_id": "neotoma:conflict:3985f159a6d80a1cd80d8344",
+      "conflict_kind": "default_chronology_assertions_conflict",
+      "detail": {
+        "collection_unit_id": "neotoma:collection-unit:32491",
+        "explicit_default_chronology_id": "neotoma:chronology:32491:29943",
+        "governing_selection": "collection_unit.defaultchronology",
+        "source_flagged_default_chronology_ids": [
+          "neotoma:chronology:32491:29943",
+          "neotoma:chronology:32491:29944"
+        ]
+      },
+      "subject_id": "neotoma:dataset:45701"
+    },
+    {
+      "conflict_id": "neotoma:conflict:39c611baa3c45f1864bf1e6d",
+      "conflict_kind": "default_chronology_assertions_conflict",
+      "detail": {
+        "collection_unit_id": "neotoma:collection-unit:14989",
+        "explicit_default_chronology_id": "neotoma:chronology:14989:11600",
+        "governing_selection": "collection_unit.defaultchronology",
+        "source_flagged_default_chronology_ids": [
+          "neotoma:chronology:14989:11600",
+          "neotoma:chronology:14989:11601"
+        ]
+      },
+      "subject_id": "neotoma:dataset:20034"
+    },
+    {
+      "conflict_id": "neotoma:conflict:3a297df57f1bfcb87af74f37",
+      "conflict_kind": "chronology_control_payload_conflict",
+      "detail": {
+        "existing": {
+          "build_id": "sha256:92dd52619837f3641d004a1a5dbe38f9ab6023a79f61989314bb90e612eb58e1",
+          "chronology_control_id": "neotoma:chronology:3798:25730:control:84723",
+          "chronology_id": "neotoma:chronology:3798:25730",
+          "collection_unit_id": "neotoma:collection-unit:3798",
+          "country_code": "SE",
+          "site_id": "neotoma:site:3009",
+          "source_chronology_control_id": 84723,
+          "source_payload": {
+            "agelimitolder": 11460,
+            "agelimityounger": 11260,
+            "chroncontrolage": 11360,
+            "chroncontrolid": 84723,
+            "chroncontroltype": "Radiocarbon",
+            "depth": 9305,
+            "geochron": {
+              "agetype": "Radiocarbon years BP",
+              "delta13c": -26.42,
+              "delta15n": null,
+              "geochronage": 10620,
+              "geochronerrorolder": 130,
+              "geochronerroryounger": 130,
+              "geochronid": 31284,
+              "geochronmaterialdated": "Mosses",
+              "geochronnotes": null,
+              "geochrontype": "Carbon-14",
+              "infinite": false,
+              "labnumber": "Lu-2171",
+              "percentc": null,
+              "percentcollagen": null,
+              "percentn": null,
+              "radiocarbonmethod": "conventional radiometric",
+              "reservoir": null
+            },
+            "thickness": 5
+          },
+          "source_snapshot_id": "sha256:b2bcb99157e10b0c9f13c228acc12eabcb39d96a1f39c86ec25e34aacd78c791"
+        },
+        "incoming": {
+          "build_id": "sha256:92dd52619837f3641d004a1a5dbe38f9ab6023a79f61989314bb90e612eb58e1",
+          "chronology_control_id": "neotoma:chronology:3798:25730:control:84723",
+          "chronology_id": "neotoma:chronology:3798:25730",
+          "collection_unit_id": "neotoma:collection-unit:3798",
+          "country_code": "SE",
+          "site_id": "neotoma:site:3009",
+          "source_chronology_control_id": 84723,
+          "source_payload": {
+            "agelimitolder": 11460,
+            "agelimityounger": 11260,
+            "chroncontrolage": 11360,
+            "chroncontrolid": 84723,
+            "chroncontroltype": "Radiocarbon",
+            "depth": 9305,
+            "geochron": {
+              "agetype": "Radiocarbon years BP",
+              "delta13c": -26.49,
+              "delta15n": null,
+              "geochronage": 11260,
+              "geochronerrorolder": 100,
+              "geochronerroryounger": 100,
+              "geochronid": 31285,
+              "geochronmaterialdated": "NaOH-soluble fraction-sediment",
+              "geochronnotes": null,
+              "geochrontype": "Carbon-14",
+              "infinite": false,
+              "labnumber": "Lu-2172A",
+              "percentc": null,
+              "percentcollagen": null,
+              "percentn": null,
+              "radiocarbonmethod": "conventional radiometric",
+              "reservoir": null
+            },
+            "thickness": 5
+          },
+          "source_snapshot_id": "sha256:b2bcb99157e10b0c9f13c228acc12eabcb39d96a1f39c86ec25e34aacd78c791"
+        }
+      },
+      "subject_id": "neotoma:chronology:3798:25730:control:84723"
+    },
+    {
+      "conflict_id": "neotoma:conflict:3e9529e074a0a9ad705706eb",
+      "conflict_kind": "default_chronology_assertions_conflict",
+      "detail": {
+        "collection_unit_id": "neotoma:collection-unit:32498",
+        "explicit_default_chronology_id": "neotoma:chronology:32498:29964",
+        "governing_selection": "collection_unit.defaultchronology",
+        "source_flagged_default_chronology_ids": [
+          "neotoma:chronology:32498:29964",
+          "neotoma:chronology:32498:29965"
+        ]
+      },
+      "subject_id": "neotoma:dataset:45722"
+    },
+    {
+      "conflict_id": "neotoma:conflict:420776320212caa141721016",
+      "conflict_kind": "default_chronology_assertions_conflict",
+      "detail": {
+        "collection_unit_id": "neotoma:collection-unit:3957",
+        "explicit_default_chronology_id": "neotoma:chronology:3957:30584",
+        "governing_selection": "collection_unit.defaultchronology",
+        "source_flagged_default_chronology_ids": [
+          "neotoma:chronology:3957:30584",
+          "neotoma:chronology:3957:30585"
+        ]
+      },
+      "subject_id": "neotoma:dataset:4084"
+    },
+    {
+      "conflict_id": "neotoma:conflict:42870b34e4ec0a3df0f99f3c",
+      "conflict_kind": "chronology_control_payload_conflict",
+      "detail": {
+        "existing": {
+          "build_id": "sha256:92dd52619837f3641d004a1a5dbe38f9ab6023a79f61989314bb90e612eb58e1",
+          "chronology_control_id": "neotoma:chronology:4151:30600:control:96538",
+          "chronology_id": "neotoma:chronology:4151:30600",
+          "collection_unit_id": "neotoma:collection-unit:4151",
+          "country_code": "FI",
+          "site_id": "neotoma:site:3302",
+          "source_chronology_control_id": 96538,
+          "source_payload": {
+            "agelimitolder": 7190,
+            "agelimityounger": 6890,
+            "chroncontrolage": 7040,
+            "chroncontrolid": 96538,
+            "chroncontroltype": "Radiocarbon",
+            "depth": 217.5,
+            "geochron": {
+              "agetype": "Radiocarbon years BP",
+              "delta13c": null,
+              "delta15n": null,
+              "geochronage": 7040,
+              "geochronerrorolder": 150,
+              "geochronerroryounger": 150,
+              "geochronid": 35606,
+              "geochronmaterialdated": "Soluble humus fraction",
+              "geochronnotes": null,
+              "geochrontype": "Carbon-14",
+              "infinite": false,
+              "labnumber": "Hel-1072",
+              "percentc": null,
+              "percentcollagen": null,
+              "percentn": null,
+              "radiocarbonmethod": "proportional gas counting",
+              "reservoir": null
+            },
+            "thickness": 15
+          },
+          "source_snapshot_id": "sha256:b2bcb99157e10b0c9f13c228acc12eabcb39d96a1f39c86ec25e34aacd78c791"
+        },
+        "incoming": {
+          "build_id": "sha256:92dd52619837f3641d004a1a5dbe38f9ab6023a79f61989314bb90e612eb58e1",
+          "chronology_control_id": "neotoma:chronology:4151:30600:control:96538",
+          "chronology_id": "neotoma:chronology:4151:30600",
+          "collection_unit_id": "neotoma:collection-unit:4151",
+          "country_code": "FI",
+          "site_id": "neotoma:site:3302",
+          "source_chronology_control_id": 96538,
+          "source_payload": {
+            "agelimitolder": 7190,
+            "agelimityounger": 6890,
+            "chroncontrolage": 7040,
+            "chroncontrolid": 96538,
+            "chroncontroltype": "Radiocarbon",
+            "depth": 217.5,
+            "geochron": {
+              "agetype": "Radiocarbon years BP",
+              "delta13c": null,
+              "delta15n": null,
+              "geochronage": 7480,
+              "geochronerrorolder": 140,
+              "geochronerroryounger": 140,
+              "geochronid": 35607,
+              "geochronmaterialdated": "Lake mud",
+              "geochronnotes": null,
+              "geochrontype": "Carbon-14",
+              "infinite": false,
+              "labnumber": "Hel-1071",
+              "percentc": null,
+              "percentcollagen": null,
+              "percentn": null,
+              "radiocarbonmethod": "proportional gas counting",
+              "reservoir": null
+            },
+            "thickness": 15
+          },
+          "source_snapshot_id": "sha256:b2bcb99157e10b0c9f13c228acc12eabcb39d96a1f39c86ec25e34aacd78c791"
+        }
+      },
+      "subject_id": "neotoma:chronology:4151:30600:control:96538"
+    },
+    {
+      "conflict_id": "neotoma:conflict:44bdbc04440f7ce2f331c745",
+      "conflict_kind": "default_chronology_assertions_conflict",
+      "detail": {
+        "collection_unit_id": "neotoma:collection-unit:4307",
+        "explicit_default_chronology_id": "neotoma:chronology:4307:30581",
+        "governing_selection": "collection_unit.defaultchronology",
+        "source_flagged_default_chronology_ids": [
+          "neotoma:chronology:4307:30581",
+          "neotoma:chronology:4307:30583"
+        ]
+      },
+      "subject_id": "neotoma:dataset:4449"
+    },
+    {
+      "conflict_id": "neotoma:conflict:48037bacef04e6d867e2fd16",
+      "conflict_kind": "default_chronology_assertions_conflict",
+      "detail": {
+        "collection_unit_id": "neotoma:collection-unit:3964",
+        "explicit_default_chronology_id": "neotoma:chronology:3964:30617",
+        "governing_selection": "collection_unit.defaultchronology",
+        "source_flagged_default_chronology_ids": [
+          "neotoma:chronology:3964:30617",
+          "neotoma:chronology:3964:30618"
+        ]
+      },
+      "subject_id": "neotoma:dataset:4092"
+    },
+    {
+      "conflict_id": "neotoma:conflict:4972f40416732dde81ad3fda",
+      "conflict_kind": "default_chronology_assertions_conflict",
+      "detail": {
+        "collection_unit_id": "neotoma:collection-unit:4052",
+        "explicit_default_chronology_id": "neotoma:chronology:4052:30519",
+        "governing_selection": "collection_unit.defaultchronology",
+        "source_flagged_default_chronology_ids": [
+          "neotoma:chronology:4052:30519",
+          "neotoma:chronology:4052:30520"
+        ]
+      },
+      "subject_id": "neotoma:dataset:4181"
+    },
+    {
+      "conflict_id": "neotoma:conflict:4c120d23fff92a55bc39bc0d",
+      "conflict_kind": "default_chronology_assertions_conflict",
+      "detail": {
+        "collection_unit_id": "neotoma:collection-unit:3742",
+        "explicit_default_chronology_id": "neotoma:chronology:3742:30809",
+        "governing_selection": "collection_unit.defaultchronology",
+        "source_flagged_default_chronology_ids": [
+          "neotoma:chronology:3742:30809",
+          "neotoma:chronology:3742:30811"
+        ]
+      },
+      "subject_id": "neotoma:dataset:3866"
+    },
+    {
+      "conflict_id": "neotoma:conflict:4f05b0806ab956937a1ba0aa",
+      "conflict_kind": "default_chronology_assertions_conflict",
+      "detail": {
+        "collection_unit_id": "neotoma:collection-unit:31848",
+        "explicit_default_chronology_id": "neotoma:chronology:31848:29215",
+        "governing_selection": "collection_unit.defaultchronology",
+        "source_flagged_default_chronology_ids": [
+          "neotoma:chronology:31848:29215",
+          "neotoma:chronology:31848:29216"
+        ]
+      },
+      "subject_id": "neotoma:dataset:44941"
+    },
+    {
+      "conflict_id": "neotoma:conflict:50443d55901a4aa507408d2f",
+      "conflict_kind": "default_chronology_assertions_conflict",
+      "detail": {
+        "collection_unit_id": "neotoma:collection-unit:32444",
+        "explicit_default_chronology_id": "neotoma:chronology:32444:29863",
+        "governing_selection": "collection_unit.defaultchronology",
+        "source_flagged_default_chronology_ids": [
+          "neotoma:chronology:32444:29863",
+          "neotoma:chronology:32444:29864"
+        ]
+      },
+      "subject_id": "neotoma:dataset:45636"
+    },
+    {
+      "conflict_id": "neotoma:conflict:54ad84dc9e3bee7e32d35107",
+      "conflict_kind": "default_chronology_assertions_conflict",
+      "detail": {
+        "collection_unit_id": "neotoma:collection-unit:4289",
+        "explicit_default_chronology_id": "neotoma:chronology:4289:25726",
+        "governing_selection": "collection_unit.defaultchronology",
+        "source_flagged_default_chronology_ids": [
+          "neotoma:chronology:4289:25726",
+          "neotoma:chronology:4289:25727"
+        ]
+      },
+      "subject_id": "neotoma:dataset:4431"
+    },
+    {
+      "conflict_id": "neotoma:conflict:56ddc906834340cc4883d438",
+      "conflict_kind": "chronology_control_payload_conflict",
+      "detail": {
+        "existing": {
+          "build_id": "sha256:92dd52619837f3641d004a1a5dbe38f9ab6023a79f61989314bb90e612eb58e1",
+          "chronology_control_id": "neotoma:chronology:3798:25729:control:84717",
+          "chronology_id": "neotoma:chronology:3798:25729",
+          "collection_unit_id": "neotoma:collection-unit:3798",
+          "country_code": "SE",
+          "site_id": "neotoma:site:3009",
+          "source_chronology_control_id": 84717,
+          "source_payload": {
+            "agelimitolder": 11460,
+            "agelimityounger": 11260,
+            "chroncontrolage": 11360,
+            "chroncontrolid": 84717,
+            "chroncontroltype": "Radiocarbon",
+            "depth": 9305,
+            "geochron": {
+              "agetype": "Radiocarbon years BP",
+              "delta13c": -26.42,
+              "delta15n": null,
+              "geochronage": 10620,
+              "geochronerrorolder": 130,
+              "geochronerroryounger": 130,
+              "geochronid": 31284,
+              "geochronmaterialdated": "Mosses",
+              "geochronnotes": null,
+              "geochrontype": "Carbon-14",
+              "infinite": false,
+              "labnumber": "Lu-2171",
+              "percentc": null,
+              "percentcollagen": null,
+              "percentn": null,
+              "radiocarbonmethod": "conventional radiometric",
+              "reservoir": null
+            },
+            "thickness": null
+          },
+          "source_snapshot_id": "sha256:b2bcb99157e10b0c9f13c228acc12eabcb39d96a1f39c86ec25e34aacd78c791"
+        },
+        "incoming": {
+          "build_id": "sha256:92dd52619837f3641d004a1a5dbe38f9ab6023a79f61989314bb90e612eb58e1",
+          "chronology_control_id": "neotoma:chronology:3798:25729:control:84717",
+          "chronology_id": "neotoma:chronology:3798:25729",
+          "collection_unit_id": "neotoma:collection-unit:3798",
+          "country_code": "SE",
+          "site_id": "neotoma:site:3009",
+          "source_chronology_control_id": 84717,
+          "source_payload": {
+            "agelimitolder": 11460,
+            "agelimityounger": 11260,
+            "chroncontrolage": 11360,
+            "chroncontrolid": 84717,
+            "chroncontroltype": "Radiocarbon",
+            "depth": 9305,
+            "geochron": {
+              "agetype": "Radiocarbon years BP",
+              "delta13c": -26.49,
+              "delta15n": null,
+              "geochronage": 11260,
+              "geochronerrorolder": 100,
+              "geochronerroryounger": 100,
+              "geochronid": 31285,
+              "geochronmaterialdated": "NaOH-soluble fraction-sediment",
+              "geochronnotes": null,
+              "geochrontype": "Carbon-14",
+              "infinite": false,
+              "labnumber": "Lu-2172A",
+              "percentc": null,
+              "percentcollagen": null,
+              "percentn": null,
+              "radiocarbonmethod": "conventional radiometric",
+              "reservoir": null
+            },
+            "thickness": null
+          },
+          "source_snapshot_id": "sha256:b2bcb99157e10b0c9f13c228acc12eabcb39d96a1f39c86ec25e34aacd78c791"
+        }
+      },
+      "subject_id": "neotoma:chronology:3798:25729:control:84717"
+    },
+    {
+      "conflict_id": "neotoma:conflict:56de983500da059572090fbc",
+      "conflict_kind": "chronology_control_payload_conflict",
+      "detail": {
+        "existing": {
+          "build_id": "sha256:92dd52619837f3641d004a1a5dbe38f9ab6023a79f61989314bb90e612eb58e1",
+          "chronology_control_id": "neotoma:chronology:3930:25373:control:82460",
+          "chronology_id": "neotoma:chronology:3930:25373",
+          "collection_unit_id": "neotoma:collection-unit:3930",
+          "country_code": "NO",
+          "site_id": "neotoma:site:3115",
+          "source_chronology_control_id": 82460,
+          "source_payload": {
+            "agelimitolder": 4405,
+            "agelimityounger": 4255,
+            "chroncontrolage": 4330,
+            "chroncontrolid": 82460,
+            "chroncontroltype": "Radiocarbon, average of two or more dates",
+            "depth": 40,
+            "geochron": {
+              "agetype": "Radiocarbon years BP",
+              "delta13c": null,
+              "delta15n": null,
+              "geochronage": 3850,
+              "geochronerrorolder": 50,
+              "geochronerroryounger": 50,
+              "geochronid": 30283,
+              "geochronmaterialdated": "bulk sediment",
+              "geochronnotes": null,
+              "geochrontype": "Carbon-14",
+              "infinite": false,
+              "labnumber": "T-3872",
+              "percentc": null,
+              "percentcollagen": null,
+              "percentn": null,
+              "radiocarbonmethod": "conventional radiometric",
+              "reservoir": null
+            },
+            "thickness": null
+          },
+          "source_snapshot_id": "sha256:b2bcb99157e10b0c9f13c228acc12eabcb39d96a1f39c86ec25e34aacd78c791"
+        },
+        "incoming": {
+          "build_id": "sha256:92dd52619837f3641d004a1a5dbe38f9ab6023a79f61989314bb90e612eb58e1",
+          "chronology_control_id": "neotoma:chronology:3930:25373:control:82460",
+          "chronology_id": "neotoma:chronology:3930:25373",
+          "collection_unit_id": "neotoma:collection-unit:3930",
+          "country_code": "NO",
+          "site_id": "neotoma:site:3115",
+          "source_chronology_control_id": 82460,
+          "source_payload": {
+            "agelimitolder": 4405,
+            "agelimityounger": 4255,
+            "chroncontrolage": 4330,
+            "chroncontrolid": 82460,
+            "chroncontroltype": "Radiocarbon, average of two or more dates",
+            "depth": 40,
+            "geochron": {
+              "agetype": "Radiocarbon years BP",
+              "delta13c": null,
+              "delta15n": null,
+              "geochronage": 4810,
+              "geochronerrorolder": 100,
+              "geochronerroryounger": 100,
+              "geochronid": 30284,
+              "geochronmaterialdated": "bulk sediment",
+              "geochronnotes": null,
+              "geochrontype": "Carbon-14",
+              "infinite": false,
+              "labnumber": "T-3873",
+              "percentc": null,
+              "percentcollagen": null,
+              "percentn": null,
+              "radiocarbonmethod": "conventional radiometric",
+              "reservoir": null
+            },
+            "thickness": null
+          },
+          "source_snapshot_id": "sha256:b2bcb99157e10b0c9f13c228acc12eabcb39d96a1f39c86ec25e34aacd78c791"
+        }
+      },
+      "subject_id": "neotoma:chronology:3930:25373:control:82460"
+    },
+    {
+      "conflict_id": "neotoma:conflict:5bc723f2d061d0f33c44add8",
+      "conflict_kind": "default_chronology_assertions_conflict",
+      "detail": {
+        "collection_unit_id": "neotoma:collection-unit:32493",
+        "explicit_default_chronology_id": "neotoma:chronology:32493:29949",
+        "governing_selection": "collection_unit.defaultchronology",
+        "source_flagged_default_chronology_ids": [
+          "neotoma:chronology:32493:29949",
+          "neotoma:chronology:32493:29950"
+        ]
+      },
+      "subject_id": "neotoma:dataset:45707"
+    },
+    {
+      "conflict_id": "neotoma:conflict:5eefc23a80ef773ac1676307",
+      "conflict_kind": "default_chronology_assertions_conflict",
+      "detail": {
+        "collection_unit_id": "neotoma:collection-unit:32446",
+        "explicit_default_chronology_id": "neotoma:chronology:32446:29869",
+        "governing_selection": "collection_unit.defaultchronology",
+        "source_flagged_default_chronology_ids": [
+          "neotoma:chronology:32446:29869",
+          "neotoma:chronology:32446:29870"
+        ]
+      },
+      "subject_id": "neotoma:dataset:45642"
+    },
+    {
+      "conflict_id": "neotoma:conflict:5f819d9f2154be3edfd6021a",
+      "conflict_kind": "default_chronology_assertions_conflict",
+      "detail": {
+        "collection_unit_id": "neotoma:collection-unit:3913",
+        "explicit_default_chronology_id": "neotoma:chronology:3913:29976",
+        "governing_selection": "collection_unit.defaultchronology",
+        "source_flagged_default_chronology_ids": [
+          "neotoma:chronology:3913:29976",
+          "neotoma:chronology:3913:29977"
+        ]
+      },
+      "subject_id": "neotoma:dataset:4040"
+    },
+    {
+      "conflict_id": "neotoma:conflict:6065212ccae39509c89879bd",
+      "conflict_kind": "default_chronology_assertions_conflict",
+      "detail": {
+        "collection_unit_id": "neotoma:collection-unit:4374",
+        "explicit_default_chronology_id": "neotoma:chronology:4374:25718",
+        "governing_selection": "collection_unit.defaultchronology",
+        "source_flagged_default_chronology_ids": [
+          "neotoma:chronology:4374:25718",
+          "neotoma:chronology:4374:25719"
+        ]
+      },
+      "subject_id": "neotoma:dataset:4518"
+    },
+    {
+      "conflict_id": "neotoma:conflict:619e58dd5cd87e01d241cd94",
+      "conflict_kind": "default_chronology_assertions_conflict",
+      "detail": {
+        "collection_unit_id": "neotoma:collection-unit:14992",
+        "explicit_default_chronology_id": "neotoma:chronology:14992:11608",
+        "governing_selection": "collection_unit.defaultchronology",
+        "source_flagged_default_chronology_ids": [
+          "neotoma:chronology:14992:11608",
+          "neotoma:chronology:14992:11609"
+        ]
+      },
+      "subject_id": "neotoma:dataset:20046"
+    },
+    {
+      "conflict_id": "neotoma:conflict:66ebad3663bfbc98f7b8d628",
+      "conflict_kind": "default_chronology_assertions_conflict",
+      "detail": {
+        "collection_unit_id": "neotoma:collection-unit:4172",
+        "explicit_default_chronology_id": "neotoma:chronology:4172:30023",
+        "governing_selection": "collection_unit.defaultchronology",
+        "source_flagged_default_chronology_ids": [
+          "neotoma:chronology:4172:30023",
+          "neotoma:chronology:4172:30024"
+        ]
+      },
+      "subject_id": "neotoma:dataset:4309"
+    },
+    {
+      "conflict_id": "neotoma:conflict:67cbc040f2f8b2d6104a36d9",
+      "conflict_kind": "chronology_control_payload_conflict",
+      "detail": {
+        "existing": {
+          "build_id": "sha256:92dd52619837f3641d004a1a5dbe38f9ab6023a79f61989314bb90e612eb58e1",
+          "chronology_control_id": "neotoma:chronology:4307:30583:control:96281",
+          "chronology_id": "neotoma:chronology:4307:30583",
+          "collection_unit_id": "neotoma:collection-unit:4307",
+          "country_code": "SE",
+          "site_id": "neotoma:site:3435",
+          "source_chronology_control_id": 96281,
+          "source_payload": {
+            "agelimitolder": 12350,
+            "agelimityounger": 12130,
+            "chroncontrolage": 12240,
+            "chroncontrolid": 96281,
+            "chroncontroltype": "Radiocarbon",
+            "depth": 565,
+            "geochron": {
+              "agetype": "Radiocarbon years BP",
+              "delta13c": -20.4,
+              "delta15n": null,
+              "geochronage": 12240,
+              "geochronerrorolder": 110,
+              "geochronerroryounger": 110,
+              "geochronid": 35574,
+              "geochronmaterialdated": "NaOH soluble",
+              "geochronnotes": null,
+              "geochrontype": "Carbon-14",
+              "infinite": false,
+              "labnumber": "Lu-2511b",
+              "percentc": null,
+              "percentcollagen": null,
+              "percentn": null,
+              "radiocarbonmethod": "conventional radiometric",
+              "reservoir": null
+            },
+            "thickness": 5
+          },
+          "source_snapshot_id": "sha256:b2bcb99157e10b0c9f13c228acc12eabcb39d96a1f39c86ec25e34aacd78c791"
+        },
+        "incoming": {
+          "build_id": "sha256:92dd52619837f3641d004a1a5dbe38f9ab6023a79f61989314bb90e612eb58e1",
+          "chronology_control_id": "neotoma:chronology:4307:30583:control:96281",
+          "chronology_id": "neotoma:chronology:4307:30583",
+          "collection_unit_id": "neotoma:collection-unit:4307",
+          "country_code": "SE",
+          "site_id": "neotoma:site:3435",
+          "source_chronology_control_id": 96281,
+          "source_payload": {
+            "agelimitolder": 12350,
+            "agelimityounger": 12130,
+            "chroncontrolage": 12240,
+            "chroncontrolid": 96281,
+            "chroncontroltype": "Radiocarbon",
+            "depth": 565,
+            "geochron": {
+              "agetype": "Radiocarbon years BP",
+              "delta13c": -20.4,
+              "delta15n": null,
+              "geochronage": 12540,
+              "geochronerrorolder": 140,
+              "geochronerroryounger": 140,
+              "geochronid": 35575,
+              "geochronmaterialdated": "NaOH insoluble",
+              "geochronnotes": null,
+              "geochrontype": "Carbon-14",
+              "infinite": false,
+              "labnumber": "Lu-2511a",
+              "percentc": null,
+              "percentcollagen": null,
+              "percentn": null,
+              "radiocarbonmethod": "conventional radiometric",
+              "reservoir": null
+            },
+            "thickness": 5
+          },
+          "source_snapshot_id": "sha256:b2bcb99157e10b0c9f13c228acc12eabcb39d96a1f39c86ec25e34aacd78c791"
+        }
+      },
+      "subject_id": "neotoma:chronology:4307:30583:control:96281"
+    },
+    {
+      "conflict_id": "neotoma:conflict:686f507ff3680c683a43a070",
+      "conflict_kind": "chronology_control_payload_conflict",
+      "detail": {
+        "existing": {
+          "build_id": "sha256:92dd52619837f3641d004a1a5dbe38f9ab6023a79f61989314bb90e612eb58e1",
+          "chronology_control_id": "neotoma:chronology:3798:25729:control:84717",
+          "chronology_id": "neotoma:chronology:3798:25729",
+          "collection_unit_id": "neotoma:collection-unit:3798",
+          "country_code": "SE",
+          "site_id": "neotoma:site:3009",
+          "source_chronology_control_id": 84717,
+          "source_payload": {
+            "agelimitolder": 11460,
+            "agelimityounger": 11260,
+            "chroncontrolage": 11360,
+            "chroncontrolid": 84717,
+            "chroncontroltype": "Radiocarbon",
+            "depth": 9305,
+            "geochron": {
+              "agetype": "Radiocarbon years BP",
+              "delta13c": -26.42,
+              "delta15n": null,
+              "geochronage": 10620,
+              "geochronerrorolder": 130,
+              "geochronerroryounger": 130,
+              "geochronid": 31284,
+              "geochronmaterialdated": "Mosses",
+              "geochronnotes": null,
+              "geochrontype": "Carbon-14",
+              "infinite": false,
+              "labnumber": "Lu-2171",
+              "percentc": null,
+              "percentcollagen": null,
+              "percentn": null,
+              "radiocarbonmethod": "conventional radiometric",
+              "reservoir": null
+            },
+            "thickness": null
+          },
+          "source_snapshot_id": "sha256:b2bcb99157e10b0c9f13c228acc12eabcb39d96a1f39c86ec25e34aacd78c791"
+        },
+        "incoming": {
+          "build_id": "sha256:92dd52619837f3641d004a1a5dbe38f9ab6023a79f61989314bb90e612eb58e1",
+          "chronology_control_id": "neotoma:chronology:3798:25729:control:84717",
+          "chronology_id": "neotoma:chronology:3798:25729",
+          "collection_unit_id": "neotoma:collection-unit:3798",
+          "country_code": "SE",
+          "site_id": "neotoma:site:3009",
+          "source_chronology_control_id": 84717,
+          "source_payload": {
+            "agelimitolder": 11460,
+            "agelimityounger": 11260,
+            "chroncontrolage": 11360,
+            "chroncontrolid": 84717,
+            "chroncontroltype": "Radiocarbon",
+            "depth": 9305,
+            "geochron": {
+              "agetype": "Radiocarbon years BP",
+              "delta13c": -26.99,
+              "delta15n": null,
+              "geochronage": 11360,
+              "geochronerrorolder": 100,
+              "geochronerroryounger": 100,
+              "geochronid": 31286,
+              "geochronmaterialdated": "NaOH-insoluble fraction",
+              "geochronnotes": null,
+              "geochrontype": "Carbon-14",
+              "infinite": false,
+              "labnumber": "Lu-2172",
+              "percentc": null,
+              "percentcollagen": null,
+              "percentn": null,
+              "radiocarbonmethod": "conventional radiometric",
+              "reservoir": null
+            },
+            "thickness": null
+          },
+          "source_snapshot_id": "sha256:b2bcb99157e10b0c9f13c228acc12eabcb39d96a1f39c86ec25e34aacd78c791"
+        }
+      },
+      "subject_id": "neotoma:chronology:3798:25729:control:84717"
+    },
+    {
+      "conflict_id": "neotoma:conflict:6a425f0d88c6a6d7a75ce3e5",
+      "conflict_kind": "chronology_control_payload_conflict",
+      "detail": {
+        "existing": {
+          "build_id": "sha256:92dd52619837f3641d004a1a5dbe38f9ab6023a79f61989314bb90e612eb58e1",
+          "chronology_control_id": "neotoma:chronology:4151:30602:control:96557",
+          "chronology_id": "neotoma:chronology:4151:30602",
+          "collection_unit_id": "neotoma:collection-unit:4151",
+          "country_code": "FI",
+          "site_id": "neotoma:site:3302",
+          "source_chronology_control_id": 96557,
+          "source_payload": {
+            "agelimitolder": 7620,
+            "agelimityounger": 7340,
+            "chroncontrolage": 7480,
+            "chroncontrolid": 96557,
+            "chroncontroltype": "Radiocarbon",
+            "depth": 217.5,
+            "geochron": {
+              "agetype": "Radiocarbon years BP",
+              "delta13c": null,
+              "delta15n": null,
+              "geochronage": 7040,
+              "geochronerrorolder": 150,
+              "geochronerroryounger": 150,
+              "geochronid": 35606,
+              "geochronmaterialdated": "Soluble humus fraction",
+              "geochronnotes": null,
+              "geochrontype": "Carbon-14",
+              "infinite": false,
+              "labnumber": "Hel-1072",
+              "percentc": null,
+              "percentcollagen": null,
+              "percentn": null,
+              "radiocarbonmethod": "proportional gas counting",
+              "reservoir": null
+            },
+            "thickness": 15
+          },
+          "source_snapshot_id": "sha256:b2bcb99157e10b0c9f13c228acc12eabcb39d96a1f39c86ec25e34aacd78c791"
+        },
+        "incoming": {
+          "build_id": "sha256:92dd52619837f3641d004a1a5dbe38f9ab6023a79f61989314bb90e612eb58e1",
+          "chronology_control_id": "neotoma:chronology:4151:30602:control:96557",
+          "chronology_id": "neotoma:chronology:4151:30602",
+          "collection_unit_id": "neotoma:collection-unit:4151",
+          "country_code": "FI",
+          "site_id": "neotoma:site:3302",
+          "source_chronology_control_id": 96557,
+          "source_payload": {
+            "agelimitolder": 7620,
+            "agelimityounger": 7340,
+            "chroncontrolage": 7480,
+            "chroncontrolid": 96557,
+            "chroncontroltype": "Radiocarbon",
+            "depth": 217.5,
+            "geochron": {
+              "agetype": "Radiocarbon years BP",
+              "delta13c": null,
+              "delta15n": null,
+              "geochronage": 7480,
+              "geochronerrorolder": 140,
+              "geochronerroryounger": 140,
+              "geochronid": 35607,
+              "geochronmaterialdated": "Lake mud",
+              "geochronnotes": null,
+              "geochrontype": "Carbon-14",
+              "infinite": false,
+              "labnumber": "Hel-1071",
+              "percentc": null,
+              "percentcollagen": null,
+              "percentn": null,
+              "radiocarbonmethod": "proportional gas counting",
+              "reservoir": null
+            },
+            "thickness": 15
+          },
+          "source_snapshot_id": "sha256:b2bcb99157e10b0c9f13c228acc12eabcb39d96a1f39c86ec25e34aacd78c791"
+        }
+      },
+      "subject_id": "neotoma:chronology:4151:30602:control:96557"
+    },
+    {
+      "conflict_id": "neotoma:conflict:6c419d9b8982c56f2203acea",
+      "conflict_kind": "default_chronology_assertions_conflict",
+      "detail": {
+        "collection_unit_id": "neotoma:collection-unit:28852",
+        "explicit_default_chronology_id": "neotoma:chronology:28852:25909",
+        "governing_selection": "collection_unit.defaultchronology",
+        "source_flagged_default_chronology_ids": [
+          "neotoma:chronology:28852:25909",
+          "neotoma:chronology:28852:25910"
+        ]
+      },
+      "subject_id": "neotoma:dataset:41764"
+    },
+    {
+      "conflict_id": "neotoma:conflict:6fa1d55e0a3dba3bfd53ba07",
+      "conflict_kind": "default_chronology_assertions_conflict",
+      "detail": {
+        "collection_unit_id": "neotoma:collection-unit:4367",
+        "explicit_default_chronology_id": "neotoma:chronology:4367:32235",
+        "governing_selection": "collection_unit.defaultchronology",
+        "source_flagged_default_chronology_ids": [
+          "neotoma:chronology:4367:32235",
+          "neotoma:chronology:4367:32236"
+        ]
+      },
+      "subject_id": "neotoma:dataset:4510"
+    },
+    {
+      "conflict_id": "neotoma:conflict:70ecc3d9bacdd04e9a64efb4",
+      "conflict_kind": "default_chronology_assertions_conflict",
+      "detail": {
+        "collection_unit_id": "neotoma:collection-unit:32191",
+        "explicit_default_chronology_id": "neotoma:chronology:32191:29561",
+        "governing_selection": "collection_unit.defaultchronology",
+        "source_flagged_default_chronology_ids": [
+          "neotoma:chronology:32191:29561",
+          "neotoma:chronology:32191:29562"
+        ]
+      },
+      "subject_id": "neotoma:dataset:45351"
+    },
+    {
+      "conflict_id": "neotoma:conflict:7123aefdbc70798c1d660e6b",
+      "conflict_kind": "chronology_control_payload_conflict",
+      "detail": {
+        "existing": {
+          "build_id": "sha256:92dd52619837f3641d004a1a5dbe38f9ab6023a79f61989314bb90e612eb58e1",
+          "chronology_control_id": "neotoma:chronology:4307:30581:control:96269",
+          "chronology_id": "neotoma:chronology:4307:30581",
+          "collection_unit_id": "neotoma:collection-unit:4307",
+          "country_code": "SE",
+          "site_id": "neotoma:site:3435",
+          "source_chronology_control_id": 96269,
+          "source_payload": {
+            "agelimitolder": 11545,
+            "agelimityounger": 11295,
+            "chroncontrolage": 11420,
+            "chroncontrolid": 96269,
+            "chroncontroltype": "Radiocarbon",
+            "depth": 554.5,
+            "geochron": {
+              "agetype": "Radiocarbon years BP",
+              "delta13c": -20.6,
+              "delta15n": null,
+              "geochronage": 11420,
+              "geochronerrorolder": 125,
+              "geochronerroryounger": 125,
+              "geochronid": 35572,
+              "geochronmaterialdated": "NaOH soluble",
+              "geochronnotes": null,
+              "geochrontype": "Carbon-14",
+              "infinite": false,
+              "labnumber": "Lu-2514b",
+              "percentc": null,
+              "percentcollagen": null,
+              "percentn": null,
+              "radiocarbonmethod": "conventional radiometric",
+              "reservoir": null
+            },
+            "thickness": 3
+          },
+          "source_snapshot_id": "sha256:b2bcb99157e10b0c9f13c228acc12eabcb39d96a1f39c86ec25e34aacd78c791"
+        },
+        "incoming": {
+          "build_id": "sha256:92dd52619837f3641d004a1a5dbe38f9ab6023a79f61989314bb90e612eb58e1",
+          "chronology_control_id": "neotoma:chronology:4307:30581:control:96269",
+          "chronology_id": "neotoma:chronology:4307:30581",
+          "collection_unit_id": "neotoma:collection-unit:4307",
+          "country_code": "SE",
+          "site_id": "neotoma:site:3435",
+          "source_chronology_control_id": 96269,
+          "source_payload": {
+            "agelimitolder": 11545,
+            "agelimityounger": 11295,
+            "chroncontrolage": 11420,
+            "chroncontrolid": 96269,
+            "chroncontroltype": "Radiocarbon",
+            "depth": 554.5,
+            "geochron": {
+              "agetype": "Radiocarbon years BP",
+              "delta13c": -20.6,
+              "delta15n": null,
+              "geochronage": 11710,
+              "geochronerrorolder": 140,
+              "geochronerroryounger": 140,
+              "geochronid": 35573,
+              "geochronmaterialdated": "NaOH insoluble",
+              "geochronnotes": null,
+              "geochrontype": "Carbon-14",
+              "infinite": false,
+              "labnumber": "Lu-2514a",
+              "percentc": null,
+              "percentcollagen": null,
+              "percentn": null,
+              "radiocarbonmethod": "conventional radiometric",
+              "reservoir": null
+            },
+            "thickness": 3
+          },
+          "source_snapshot_id": "sha256:b2bcb99157e10b0c9f13c228acc12eabcb39d96a1f39c86ec25e34aacd78c791"
+        }
+      },
+      "subject_id": "neotoma:chronology:4307:30581:control:96269"
+    },
+    {
+      "conflict_id": "neotoma:conflict:71b9154e5cb0c53fca17180a",
+      "conflict_kind": "default_chronology_assertions_conflict",
+      "detail": {
+        "collection_unit_id": "neotoma:collection-unit:39260",
+        "explicit_default_chronology_id": "neotoma:chronology:39260:38441",
+        "governing_selection": "collection_unit.defaultchronology",
+        "source_flagged_default_chronology_ids": [
+          "neotoma:chronology:39260:38441",
+          "neotoma:chronology:39260:38442"
+        ]
+      },
+      "subject_id": "neotoma:dataset:54028"
+    },
+    {
+      "conflict_id": "neotoma:conflict:75350b21b9924a27ac26badb",
+      "conflict_kind": "default_chronology_assertions_conflict",
+      "detail": {
+        "collection_unit_id": "neotoma:collection-unit:32175",
+        "explicit_default_chronology_id": "neotoma:chronology:32175:29542",
+        "governing_selection": "collection_unit.defaultchronology",
+        "source_flagged_default_chronology_ids": [
+          "neotoma:chronology:32175:29542",
+          "neotoma:chronology:32175:29543"
+        ]
+      },
+      "subject_id": "neotoma:dataset:45329"
+    },
+    {
+      "conflict_id": "neotoma:conflict:7584fb41eaaa12086161efb5",
+      "conflict_kind": "default_chronology_assertions_conflict",
+      "detail": {
+        "collection_unit_id": "neotoma:collection-unit:39236",
+        "explicit_default_chronology_id": "neotoma:chronology:39236:38415",
+        "governing_selection": "collection_unit.defaultchronology",
+        "source_flagged_default_chronology_ids": [
+          "neotoma:chronology:39236:38415",
+          "neotoma:chronology:39236:38416"
+        ]
+      },
+      "subject_id": "neotoma:dataset:53993"
+    },
+    {
+      "conflict_id": "neotoma:conflict:77defde1bd5c42a92a3c5c15",
+      "conflict_kind": "chronology_control_payload_conflict",
+      "detail": {
+        "existing": {
+          "build_id": "sha256:92dd52619837f3641d004a1a5dbe38f9ab6023a79f61989314bb90e612eb58e1",
+          "chronology_control_id": "neotoma:chronology:3798:25729:control:84716",
+          "chronology_id": "neotoma:chronology:3798:25729",
+          "collection_unit_id": "neotoma:collection-unit:3798",
+          "country_code": "SE",
+          "site_id": "neotoma:site:3009",
+          "source_chronology_control_id": 84716,
+          "source_payload": {
+            "agelimitolder": 11360,
+            "agelimityounger": 11160,
+            "chroncontrolage": 11260,
+            "chroncontrolid": 84716,
+            "chroncontroltype": "Radiocarbon",
+            "depth": 9305,
+            "geochron": {
+              "agetype": "Radiocarbon years BP",
+              "delta13c": -26.42,
+              "delta15n": null,
+              "geochronage": 10620,
+              "geochronerrorolder": 130,
+              "geochronerroryounger": 130,
+              "geochronid": 31284,
+              "geochronmaterialdated": "Mosses",
+              "geochronnotes": null,
+              "geochrontype": "Carbon-14",
+              "infinite": false,
+              "labnumber": "Lu-2171",
+              "percentc": null,
+              "percentcollagen": null,
+              "percentn": null,
+              "radiocarbonmethod": "conventional radiometric",
+              "reservoir": null
+            },
+            "thickness": null
+          },
+          "source_snapshot_id": "sha256:b2bcb99157e10b0c9f13c228acc12eabcb39d96a1f39c86ec25e34aacd78c791"
+        },
+        "incoming": {
+          "build_id": "sha256:92dd52619837f3641d004a1a5dbe38f9ab6023a79f61989314bb90e612eb58e1",
+          "chronology_control_id": "neotoma:chronology:3798:25729:control:84716",
+          "chronology_id": "neotoma:chronology:3798:25729",
+          "collection_unit_id": "neotoma:collection-unit:3798",
+          "country_code": "SE",
+          "site_id": "neotoma:site:3009",
+          "source_chronology_control_id": 84716,
+          "source_payload": {
+            "agelimitolder": 11360,
+            "agelimityounger": 11160,
+            "chroncontrolage": 11260,
+            "chroncontrolid": 84716,
+            "chroncontroltype": "Radiocarbon",
+            "depth": 9305,
+            "geochron": {
+              "agetype": "Radiocarbon years BP",
+              "delta13c": -26.99,
+              "delta15n": null,
+              "geochronage": 11360,
+              "geochronerrorolder": 100,
+              "geochronerroryounger": 100,
+              "geochronid": 31286,
+              "geochronmaterialdated": "NaOH-insoluble fraction",
+              "geochronnotes": null,
+              "geochrontype": "Carbon-14",
+              "infinite": false,
+              "labnumber": "Lu-2172",
+              "percentc": null,
+              "percentcollagen": null,
+              "percentn": null,
+              "radiocarbonmethod": "conventional radiometric",
+              "reservoir": null
+            },
+            "thickness": null
+          },
+          "source_snapshot_id": "sha256:b2bcb99157e10b0c9f13c228acc12eabcb39d96a1f39c86ec25e34aacd78c791"
+        }
+      },
+      "subject_id": "neotoma:chronology:3798:25729:control:84716"
+    },
+    {
+      "conflict_id": "neotoma:conflict:77df1934c5a394b9bff8af6c",
+      "conflict_kind": "default_chronology_assertions_conflict",
+      "detail": {
+        "collection_unit_id": "neotoma:collection-unit:32496",
+        "explicit_default_chronology_id": "neotoma:chronology:32496:29958",
+        "governing_selection": "collection_unit.defaultchronology",
+        "source_flagged_default_chronology_ids": [
+          "neotoma:chronology:32496:29958",
+          "neotoma:chronology:32496:29959"
+        ]
+      },
+      "subject_id": "neotoma:dataset:45716"
+    },
+    {
+      "conflict_id": "neotoma:conflict:7c96c7f2fbb61bd05f153d36",
+      "conflict_kind": "default_chronology_assertions_conflict",
+      "detail": {
+        "collection_unit_id": "neotoma:collection-unit:3806",
+        "explicit_default_chronology_id": "neotoma:chronology:3806:30613",
+        "governing_selection": "collection_unit.defaultchronology",
+        "source_flagged_default_chronology_ids": [
+          "neotoma:chronology:3806:30613",
+          "neotoma:chronology:3806:30614"
+        ]
+      },
+      "subject_id": "neotoma:dataset:3931"
+    },
+    {
+      "conflict_id": "neotoma:conflict:7f43b07a9294237d087963fc",
+      "conflict_kind": "default_chronology_assertions_conflict",
+      "detail": {
+        "collection_unit_id": "neotoma:collection-unit:4076",
+        "explicit_default_chronology_id": "neotoma:chronology:4076:30019",
+        "governing_selection": "collection_unit.defaultchronology",
+        "source_flagged_default_chronology_ids": [
+          "neotoma:chronology:4076:30019",
+          "neotoma:chronology:4076:30020"
+        ]
+      },
+      "subject_id": "neotoma:dataset:4205"
+    },
+    {
+      "conflict_id": "neotoma:conflict:7f85457d684441ec160cd7cb",
+      "conflict_kind": "default_chronology_assertions_conflict",
+      "detail": {
+        "collection_unit_id": "neotoma:collection-unit:32494",
+        "explicit_default_chronology_id": "neotoma:chronology:32494:29952",
+        "governing_selection": "collection_unit.defaultchronology",
+        "source_flagged_default_chronology_ids": [
+          "neotoma:chronology:32494:29952",
+          "neotoma:chronology:32494:29953"
+        ]
+      },
+      "subject_id": "neotoma:dataset:45710"
+    },
+    {
+      "conflict_id": "neotoma:conflict:8078a3a2c88fb98e6b26b6d4",
+      "conflict_kind": "chronology_control_payload_conflict",
+      "detail": {
+        "existing": {
+          "build_id": "sha256:92dd52619837f3641d004a1a5dbe38f9ab6023a79f61989314bb90e612eb58e1",
+          "chronology_control_id": "neotoma:chronology:4151:30601:control:96550",
+          "chronology_id": "neotoma:chronology:4151:30601",
+          "collection_unit_id": "neotoma:collection-unit:4151",
+          "country_code": "FI",
+          "site_id": "neotoma:site:3302",
+          "source_chronology_control_id": 96550,
+          "source_payload": {
+            "agelimitolder": 9080,
+            "agelimityounger": 8700,
+            "chroncontrolage": 8890,
+            "chroncontrolid": 96550,
+            "chroncontroltype": "Radiocarbon",
+            "depth": 247.5,
+            "geochron": {
+              "agetype": "Radiocarbon years BP",
+              "delta13c": null,
+              "delta15n": null,
+              "geochronage": 8890,
+              "geochronerrorolder": 190,
+              "geochronerroryounger": 190,
+              "geochronid": 35609,
+              "geochronmaterialdated": "Soluble humus fraction",
+              "geochronnotes": null,
+              "geochrontype": "Carbon-14",
+              "infinite": false,
+              "labnumber": "Hel-1070",
+              "percentc": null,
+              "percentcollagen": null,
+              "percentn": null,
+              "radiocarbonmethod": "proportional gas counting",
+              "reservoir": null
+            },
+            "thickness": 15
+          },
+          "source_snapshot_id": "sha256:b2bcb99157e10b0c9f13c228acc12eabcb39d96a1f39c86ec25e34aacd78c791"
+        },
+        "incoming": {
+          "build_id": "sha256:92dd52619837f3641d004a1a5dbe38f9ab6023a79f61989314bb90e612eb58e1",
+          "chronology_control_id": "neotoma:chronology:4151:30601:control:96550",
+          "chronology_id": "neotoma:chronology:4151:30601",
+          "collection_unit_id": "neotoma:collection-unit:4151",
+          "country_code": "FI",
+          "site_id": "neotoma:site:3302",
+          "source_chronology_control_id": 96550,
+          "source_payload": {
+            "agelimitolder": 9080,
+            "agelimityounger": 8700,
+            "chroncontrolage": 8890,
+            "chroncontrolid": 96550,
+            "chroncontroltype": "Radiocarbon",
+            "depth": 247.5,
+            "geochron": {
+              "agetype": "Radiocarbon years BP",
+              "delta13c": null,
+              "delta15n": null,
+              "geochronage": 9040,
+              "geochronerrorolder": 140,
+              "geochronerroryounger": 140,
+              "geochronid": 35610,
+              "geochronmaterialdated": "Lake mud",
+              "geochronnotes": null,
+              "geochrontype": "Carbon-14",
+              "infinite": false,
+              "labnumber": "Hel-1069",
+              "percentc": null,
+              "percentcollagen": null,
+              "percentn": null,
+              "radiocarbonmethod": "proportional gas counting",
+              "reservoir": null
+            },
+            "thickness": 15
+          },
+          "source_snapshot_id": "sha256:b2bcb99157e10b0c9f13c228acc12eabcb39d96a1f39c86ec25e34aacd78c791"
+        }
+      },
+      "subject_id": "neotoma:chronology:4151:30601:control:96550"
+    },
+    {
+      "conflict_id": "neotoma:conflict:810efbf58cbef80177112ce1",
+      "conflict_kind": "default_chronology_assertions_conflict",
+      "detail": {
+        "collection_unit_id": "neotoma:collection-unit:32189",
+        "explicit_default_chronology_id": "neotoma:chronology:32189:29555",
+        "governing_selection": "collection_unit.defaultchronology",
+        "source_flagged_default_chronology_ids": [
+          "neotoma:chronology:32189:29555",
+          "neotoma:chronology:32189:29556"
+        ]
+      },
+      "subject_id": "neotoma:dataset:45347"
+    },
+    {
+      "conflict_id": "neotoma:conflict:81fc7c9ead8dd3ad3552c43d",
+      "conflict_kind": "chronology_control_payload_conflict",
+      "detail": {
+        "existing": {
+          "build_id": "sha256:92dd52619837f3641d004a1a5dbe38f9ab6023a79f61989314bb90e612eb58e1",
+          "chronology_control_id": "neotoma:chronology:946:25381:control:82520",
+          "chronology_id": "neotoma:chronology:946:25381",
+          "collection_unit_id": "neotoma:collection-unit:946",
+          "country_code": "NO",
+          "site_id": "neotoma:site:947",
+          "source_chronology_control_id": 82520,
+          "source_payload": {
+            "agelimitolder": 5225,
+            "agelimityounger": 4917,
+            "chroncontrolage": 5071,
+            "chroncontrolid": 82520,
+            "chroncontroltype": "Radiocarbon, average of two or more dates",
+            "depth": 221.5,
+            "geochron": {
+              "agetype": "Radiocarbon years BP",
+              "delta13c": -27.7,
+              "delta15n": null,
+              "geochronage": 4870,
+              "geochronerrorolder": 120,
+              "geochronerroryounger": 120,
+              "geochronid": 30299,
+              "geochronmaterialdated": "NaOH-insoluble fraction",
+              "geochronnotes": null,
+              "geochrontype": "Carbon-14",
+              "infinite": false,
+              "labnumber": "T-3279 B",
+              "percentc": null,
+              "percentcollagen": null,
+              "percentn": null,
+              "radiocarbonmethod": "conventional radiometric",
+              "reservoir": null
+            },
+            "thickness": 9
+          },
+          "source_snapshot_id": "sha256:b2bcb99157e10b0c9f13c228acc12eabcb39d96a1f39c86ec25e34aacd78c791"
+        },
+        "incoming": {
+          "build_id": "sha256:92dd52619837f3641d004a1a5dbe38f9ab6023a79f61989314bb90e612eb58e1",
+          "chronology_control_id": "neotoma:chronology:946:25381:control:82520",
+          "chronology_id": "neotoma:chronology:946:25381",
+          "collection_unit_id": "neotoma:collection-unit:946",
+          "country_code": "NO",
+          "site_id": "neotoma:site:947",
+          "source_chronology_control_id": 82520,
+          "source_payload": {
+            "agelimitolder": 5225,
+            "agelimityounger": 4917,
+            "chroncontrolage": 5071,
+            "chroncontrolid": 82520,
+            "chroncontroltype": "Radiocarbon, average of two or more dates",
+            "depth": 221.5,
+            "geochron": {
+              "agetype": "Radiocarbon years BP",
+              "delta13c": -27.7,
+              "delta15n": null,
+              "geochronage": 5210,
+              "geochronerrorolder": 100,
+              "geochronerroryounger": 100,
+              "geochronid": 30300,
+              "geochronmaterialdated": "NaOH-soluble fraction",
+              "geochronnotes": null,
+              "geochrontype": "Carbon-14",
+              "infinite": false,
+              "labnumber": "T-3279 A",
+              "percentc": null,
+              "percentcollagen": null,
+              "percentn": null,
+              "radiocarbonmethod": "conventional radiometric",
+              "reservoir": null
+            },
+            "thickness": 9
+          },
+          "source_snapshot_id": "sha256:b2bcb99157e10b0c9f13c228acc12eabcb39d96a1f39c86ec25e34aacd78c791"
+        }
+      },
+      "subject_id": "neotoma:chronology:946:25381:control:82520"
+    },
+    {
+      "conflict_id": "neotoma:conflict:824f1c8061e432362d869ee6",
+      "conflict_kind": "default_chronology_assertions_conflict",
+      "detail": {
+        "collection_unit_id": "neotoma:collection-unit:32188",
+        "explicit_default_chronology_id": "neotoma:chronology:32188:29552",
+        "governing_selection": "collection_unit.defaultchronology",
+        "source_flagged_default_chronology_ids": [
+          "neotoma:chronology:32188:29552",
+          "neotoma:chronology:32188:29553"
+        ]
+      },
+      "subject_id": "neotoma:dataset:45345"
+    },
+    {
+      "conflict_id": "neotoma:conflict:82534639f32f81b5c0d73d0a",
+      "conflict_kind": "default_chronology_assertions_conflict",
+      "detail": {
+        "collection_unit_id": "neotoma:collection-unit:4303",
+        "explicit_default_chronology_id": "neotoma:chronology:4303:25731",
+        "governing_selection": "collection_unit.defaultchronology",
+        "source_flagged_default_chronology_ids": [
+          "neotoma:chronology:4303:25731",
+          "neotoma:chronology:4303:25732"
+        ]
+      },
+      "subject_id": "neotoma:dataset:4445"
+    },
+    {
+      "conflict_id": "neotoma:conflict:8b9d4efa12bbb0ea4f927bde",
+      "conflict_kind": "default_chronology_assertions_conflict",
+      "detail": {
+        "collection_unit_id": "neotoma:collection-unit:4346",
+        "explicit_default_chronology_id": "neotoma:chronology:4346:25422",
+        "governing_selection": "collection_unit.defaultchronology",
+        "source_flagged_default_chronology_ids": [
+          "neotoma:chronology:4346:25422",
+          "neotoma:chronology:4346:25423"
+        ]
+      },
+      "subject_id": "neotoma:dataset:4489"
+    },
+    {
+      "conflict_id": "neotoma:conflict:8bdbb52426c55c3850e8521c",
+      "conflict_kind": "default_chronology_assertions_conflict",
+      "detail": {
+        "collection_unit_id": "neotoma:collection-unit:4012",
+        "explicit_default_chronology_id": "neotoma:chronology:4012:25453",
+        "governing_selection": "collection_unit.defaultchronology",
+        "source_flagged_default_chronology_ids": [
+          "neotoma:chronology:4012:25453",
+          "neotoma:chronology:4012:25454"
+        ]
+      },
+      "subject_id": "neotoma:dataset:4141"
+    },
+    {
+      "conflict_id": "neotoma:conflict:8cbdddee9fb4cd16f783f4c4",
+      "conflict_kind": "default_chronology_assertions_conflict",
+      "detail": {
+        "collection_unit_id": "neotoma:collection-unit:3986",
+        "explicit_default_chronology_id": "neotoma:chronology:3986:30524",
+        "governing_selection": "collection_unit.defaultchronology",
+        "source_flagged_default_chronology_ids": [
+          "neotoma:chronology:3986:30524",
+          "neotoma:chronology:3986:30525"
+        ]
+      },
+      "subject_id": "neotoma:dataset:4115"
+    },
+    {
+      "conflict_id": "neotoma:conflict:8d078a725c5a98d767e2ca0e",
+      "conflict_kind": "chronology_control_payload_conflict",
+      "detail": {
+        "existing": {
+          "build_id": "sha256:92dd52619837f3641d004a1a5dbe38f9ab6023a79f61989314bb90e612eb58e1",
+          "chronology_control_id": "neotoma:chronology:4151:30602:control:96556",
+          "chronology_id": "neotoma:chronology:4151:30602",
+          "collection_unit_id": "neotoma:collection-unit:4151",
+          "country_code": "FI",
+          "site_id": "neotoma:site:3302",
+          "source_chronology_control_id": 96556,
+          "source_payload": {
+            "agelimitolder": 7190,
+            "agelimityounger": 6890,
+            "chroncontrolage": 7040,
+            "chroncontrolid": 96556,
+            "chroncontroltype": "Radiocarbon",
+            "depth": 217.5,
+            "geochron": {
+              "agetype": "Radiocarbon years BP",
+              "delta13c": null,
+              "delta15n": null,
+              "geochronage": 7040,
+              "geochronerrorolder": 150,
+              "geochronerroryounger": 150,
+              "geochronid": 35606,
+              "geochronmaterialdated": "Soluble humus fraction",
+              "geochronnotes": null,
+              "geochrontype": "Carbon-14",
+              "infinite": false,
+              "labnumber": "Hel-1072",
+              "percentc": null,
+              "percentcollagen": null,
+              "percentn": null,
+              "radiocarbonmethod": "proportional gas counting",
+              "reservoir": null
+            },
+            "thickness": 15
+          },
+          "source_snapshot_id": "sha256:b2bcb99157e10b0c9f13c228acc12eabcb39d96a1f39c86ec25e34aacd78c791"
+        },
+        "incoming": {
+          "build_id": "sha256:92dd52619837f3641d004a1a5dbe38f9ab6023a79f61989314bb90e612eb58e1",
+          "chronology_control_id": "neotoma:chronology:4151:30602:control:96556",
+          "chronology_id": "neotoma:chronology:4151:30602",
+          "collection_unit_id": "neotoma:collection-unit:4151",
+          "country_code": "FI",
+          "site_id": "neotoma:site:3302",
+          "source_chronology_control_id": 96556,
+          "source_payload": {
+            "agelimitolder": 7190,
+            "agelimityounger": 6890,
+            "chroncontrolage": 7040,
+            "chroncontrolid": 96556,
+            "chroncontroltype": "Radiocarbon",
+            "depth": 217.5,
+            "geochron": {
+              "agetype": "Radiocarbon years BP",
+              "delta13c": null,
+              "delta15n": null,
+              "geochronage": 7480,
+              "geochronerrorolder": 140,
+              "geochronerroryounger": 140,
+              "geochronid": 35607,
+              "geochronmaterialdated": "Lake mud",
+              "geochronnotes": null,
+              "geochrontype": "Carbon-14",
+              "infinite": false,
+              "labnumber": "Hel-1071",
+              "percentc": null,
+              "percentcollagen": null,
+              "percentn": null,
+              "radiocarbonmethod": "proportional gas counting",
+              "reservoir": null
+            },
+            "thickness": 15
+          },
+          "source_snapshot_id": "sha256:b2bcb99157e10b0c9f13c228acc12eabcb39d96a1f39c86ec25e34aacd78c791"
+        }
+      },
+      "subject_id": "neotoma:chronology:4151:30602:control:96556"
+    },
+    {
+      "conflict_id": "neotoma:conflict:8f3d1dfe376d38e352648e26",
+      "conflict_kind": "chronology_control_payload_conflict",
+      "detail": {
+        "existing": {
+          "build_id": "sha256:92dd52619837f3641d004a1a5dbe38f9ab6023a79f61989314bb90e612eb58e1",
+          "chronology_control_id": "neotoma:chronology:946:25382:control:82528",
+          "chronology_id": "neotoma:chronology:946:25382",
+          "collection_unit_id": "neotoma:collection-unit:946",
+          "country_code": "NO",
+          "site_id": "neotoma:site:947",
+          "source_chronology_control_id": 82528,
+          "source_payload": {
+            "agelimitolder": 9504,
+            "agelimityounger": 9036,
+            "chroncontrolage": 9270,
+            "chroncontrolid": 82528,
+            "chroncontroltype": "Radiocarbon, average of two or more dates",
+            "depth": 365.5,
+            "geochron": {
+              "agetype": "Radiocarbon years BP",
+              "delta13c": -27.7,
+              "delta15n": null,
+              "geochronage": 9210,
+              "geochronerrorolder": 160,
+              "geochronerroryounger": 160,
+              "geochronid": 30303,
+              "geochronmaterialdated": "NaOH-soluble fraction",
+              "geochronnotes": null,
+              "geochrontype": "Carbon-14",
+              "infinite": false,
+              "labnumber": "T-3277 A",
+              "percentc": null,
+              "percentcollagen": null,
+              "percentn": null,
+              "radiocarbonmethod": "conventional radiometric",
+              "reservoir": null
+            },
+            "thickness": null
+          },
+          "source_snapshot_id": "sha256:b2bcb99157e10b0c9f13c228acc12eabcb39d96a1f39c86ec25e34aacd78c791"
+        },
+        "incoming": {
+          "build_id": "sha256:92dd52619837f3641d004a1a5dbe38f9ab6023a79f61989314bb90e612eb58e1",
+          "chronology_control_id": "neotoma:chronology:946:25382:control:82528",
+          "chronology_id": "neotoma:chronology:946:25382",
+          "collection_unit_id": "neotoma:collection-unit:946",
+          "country_code": "NO",
+          "site_id": "neotoma:site:947",
+          "source_chronology_control_id": 82528,
+          "source_payload": {
+            "agelimitolder": 9504,
+            "agelimityounger": 9036,
+            "chroncontrolage": 9270,
+            "chroncontrolid": 82528,
+            "chroncontroltype": "Radiocarbon, average of two or more dates",
+            "depth": 365.5,
+            "geochron": {
+              "agetype": "Radiocarbon years BP",
+              "delta13c": -27,
+              "delta15n": null,
+              "geochronage": 9330,
+              "geochronerrorolder": 160,
+              "geochronerroryounger": 160,
+              "geochronid": 30304,
+              "geochronmaterialdated": "NaOH-insoluble fraction",
+              "geochronnotes": null,
+              "geochrontype": "Carbon-14",
+              "infinite": false,
+              "labnumber": "T-3277 B",
+              "percentc": null,
+              "percentcollagen": null,
+              "percentn": null,
+              "radiocarbonmethod": "conventional radiometric",
+              "reservoir": null
+            },
+            "thickness": null
+          },
+          "source_snapshot_id": "sha256:b2bcb99157e10b0c9f13c228acc12eabcb39d96a1f39c86ec25e34aacd78c791"
+        }
+      },
+      "subject_id": "neotoma:chronology:946:25382:control:82528"
+    },
+    {
+      "conflict_id": "neotoma:conflict:8fd44f80ed7cce1c24397d62",
+      "conflict_kind": "default_chronology_assertions_conflict",
+      "detail": {
+        "collection_unit_id": "neotoma:collection-unit:32497",
+        "explicit_default_chronology_id": "neotoma:chronology:32497:29961",
+        "governing_selection": "collection_unit.defaultchronology",
+        "source_flagged_default_chronology_ids": [
+          "neotoma:chronology:32497:29961",
+          "neotoma:chronology:32497:29962"
+        ]
+      },
+      "subject_id": "neotoma:dataset:45719"
+    },
+    {
+      "conflict_id": "neotoma:conflict:900a3ea0a898ab04f9ecf3bb",
+      "conflict_kind": "default_chronology_assertions_conflict",
+      "detail": {
+        "collection_unit_id": "neotoma:collection-unit:4251",
+        "explicit_default_chronology_id": "neotoma:chronology:4251:30653",
+        "governing_selection": "collection_unit.defaultchronology",
+        "source_flagged_default_chronology_ids": [
+          "neotoma:chronology:4251:30653",
+          "neotoma:chronology:4251:30654"
+        ]
+      },
+      "subject_id": "neotoma:dataset:4392"
+    },
+    {
+      "conflict_id": "neotoma:conflict:926f0c237b2071771d5295b8",
+      "conflict_kind": "chronology_control_payload_conflict",
+      "detail": {
+        "existing": {
+          "build_id": "sha256:92dd52619837f3641d004a1a5dbe38f9ab6023a79f61989314bb90e612eb58e1",
+          "chronology_control_id": "neotoma:chronology:4307:30583:control:96280",
+          "chronology_id": "neotoma:chronology:4307:30583",
+          "collection_unit_id": "neotoma:collection-unit:4307",
+          "country_code": "SE",
+          "site_id": "neotoma:site:3435",
+          "source_chronology_control_id": 96280,
+          "source_payload": {
+            "agelimitolder": 11850,
+            "agelimityounger": 11570,
+            "chroncontrolage": 11710,
+            "chroncontrolid": 96280,
+            "chroncontroltype": "Radiocarbon",
+            "depth": 554.5,
+            "geochron": {
+              "agetype": "Radiocarbon years BP",
+              "delta13c": -20.6,
+              "delta15n": null,
+              "geochronage": 11420,
+              "geochronerrorolder": 125,
+              "geochronerroryounger": 125,
+              "geochronid": 35572,
+              "geochronmaterialdated": "NaOH soluble",
+              "geochronnotes": null,
+              "geochrontype": "Carbon-14",
+              "infinite": false,
+              "labnumber": "Lu-2514b",
+              "percentc": null,
+              "percentcollagen": null,
+              "percentn": null,
+              "radiocarbonmethod": "conventional radiometric",
+              "reservoir": null
+            },
+            "thickness": 3
+          },
+          "source_snapshot_id": "sha256:b2bcb99157e10b0c9f13c228acc12eabcb39d96a1f39c86ec25e34aacd78c791"
+        },
+        "incoming": {
+          "build_id": "sha256:92dd52619837f3641d004a1a5dbe38f9ab6023a79f61989314bb90e612eb58e1",
+          "chronology_control_id": "neotoma:chronology:4307:30583:control:96280",
+          "chronology_id": "neotoma:chronology:4307:30583",
+          "collection_unit_id": "neotoma:collection-unit:4307",
+          "country_code": "SE",
+          "site_id": "neotoma:site:3435",
+          "source_chronology_control_id": 96280,
+          "source_payload": {
+            "agelimitolder": 11850,
+            "agelimityounger": 11570,
+            "chroncontrolage": 11710,
+            "chroncontrolid": 96280,
+            "chroncontroltype": "Radiocarbon",
+            "depth": 554.5,
+            "geochron": {
+              "agetype": "Radiocarbon years BP",
+              "delta13c": -20.6,
+              "delta15n": null,
+              "geochronage": 11710,
+              "geochronerrorolder": 140,
+              "geochronerroryounger": 140,
+              "geochronid": 35573,
+              "geochronmaterialdated": "NaOH insoluble",
+              "geochronnotes": null,
+              "geochrontype": "Carbon-14",
+              "infinite": false,
+              "labnumber": "Lu-2514a",
+              "percentc": null,
+              "percentcollagen": null,
+              "percentn": null,
+              "radiocarbonmethod": "conventional radiometric",
+              "reservoir": null
+            },
+            "thickness": 3
+          },
+          "source_snapshot_id": "sha256:b2bcb99157e10b0c9f13c228acc12eabcb39d96a1f39c86ec25e34aacd78c791"
+        }
+      },
+      "subject_id": "neotoma:chronology:4307:30583:control:96280"
+    },
+    {
+      "conflict_id": "neotoma:conflict:95caf3b81cb02026e21e2075",
+      "conflict_kind": "default_chronology_assertions_conflict",
+      "detail": {
+        "collection_unit_id": "neotoma:collection-unit:4355",
+        "explicit_default_chronology_id": "neotoma:chronology:4355:30816",
+        "governing_selection": "collection_unit.defaultchronology",
+        "source_flagged_default_chronology_ids": [
+          "neotoma:chronology:4355:30816",
+          "neotoma:chronology:4355:30818"
+        ]
+      },
+      "subject_id": "neotoma:dataset:4498"
+    },
+    {
+      "conflict_id": "neotoma:conflict:9b057a0ffd9d23f66deb73d2",
+      "conflict_kind": "chronology_control_payload_conflict",
+      "detail": {
+        "existing": {
+          "build_id": "sha256:92dd52619837f3641d004a1a5dbe38f9ab6023a79f61989314bb90e612eb58e1",
+          "chronology_control_id": "neotoma:chronology:3798:25729:control:84715",
+          "chronology_id": "neotoma:chronology:3798:25729",
+          "collection_unit_id": "neotoma:collection-unit:3798",
+          "country_code": "SE",
+          "site_id": "neotoma:site:3009",
+          "source_chronology_control_id": 84715,
+          "source_payload": {
+            "agelimitolder": 10750,
+            "agelimityounger": 10490,
+            "chroncontrolage": 10620,
+            "chroncontrolid": 84715,
+            "chroncontroltype": "Radiocarbon",
+            "depth": 9305,
+            "geochron": {
+              "agetype": "Radiocarbon years BP",
+              "delta13c": -26.42,
+              "delta15n": null,
+              "geochronage": 10620,
+              "geochronerrorolder": 130,
+              "geochronerroryounger": 130,
+              "geochronid": 31284,
+              "geochronmaterialdated": "Mosses",
+              "geochronnotes": null,
+              "geochrontype": "Carbon-14",
+              "infinite": false,
+              "labnumber": "Lu-2171",
+              "percentc": null,
+              "percentcollagen": null,
+              "percentn": null,
+              "radiocarbonmethod": "conventional radiometric",
+              "reservoir": null
+            },
+            "thickness": null
+          },
+          "source_snapshot_id": "sha256:b2bcb99157e10b0c9f13c228acc12eabcb39d96a1f39c86ec25e34aacd78c791"
+        },
+        "incoming": {
+          "build_id": "sha256:92dd52619837f3641d004a1a5dbe38f9ab6023a79f61989314bb90e612eb58e1",
+          "chronology_control_id": "neotoma:chronology:3798:25729:control:84715",
+          "chronology_id": "neotoma:chronology:3798:25729",
+          "collection_unit_id": "neotoma:collection-unit:3798",
+          "country_code": "SE",
+          "site_id": "neotoma:site:3009",
+          "source_chronology_control_id": 84715,
+          "source_payload": {
+            "agelimitolder": 10750,
+            "agelimityounger": 10490,
+            "chroncontrolage": 10620,
+            "chroncontrolid": 84715,
+            "chroncontroltype": "Radiocarbon",
+            "depth": 9305,
+            "geochron": {
+              "agetype": "Radiocarbon years BP",
+              "delta13c": -26.99,
+              "delta15n": null,
+              "geochronage": 11360,
+              "geochronerrorolder": 100,
+              "geochronerroryounger": 100,
+              "geochronid": 31286,
+              "geochronmaterialdated": "NaOH-insoluble fraction",
+              "geochronnotes": null,
+              "geochrontype": "Carbon-14",
+              "infinite": false,
+              "labnumber": "Lu-2172",
+              "percentc": null,
+              "percentcollagen": null,
+              "percentn": null,
+              "radiocarbonmethod": "conventional radiometric",
+              "reservoir": null
+            },
+            "thickness": null
+          },
+          "source_snapshot_id": "sha256:b2bcb99157e10b0c9f13c228acc12eabcb39d96a1f39c86ec25e34aacd78c791"
+        }
+      },
+      "subject_id": "neotoma:chronology:3798:25729:control:84715"
+    },
+    {
+      "conflict_id": "neotoma:conflict:9b8fbf6e502ba6f5034ccaf5",
+      "conflict_kind": "default_chronology_assertions_conflict",
+      "detail": {
+        "collection_unit_id": "neotoma:collection-unit:4353",
+        "explicit_default_chronology_id": "neotoma:chronology:4353:31003",
+        "governing_selection": "collection_unit.defaultchronology",
+        "source_flagged_default_chronology_ids": [
+          "neotoma:chronology:4353:31003",
+          "neotoma:chronology:4353:31004"
+        ]
+      },
+      "subject_id": "neotoma:dataset:4496"
+    },
+    {
+      "conflict_id": "neotoma:conflict:a0a92dc3a6e4d1f7a326fcb2",
+      "conflict_kind": "chronology_control_payload_conflict",
+      "detail": {
+        "existing": {
+          "build_id": "sha256:92dd52619837f3641d004a1a5dbe38f9ab6023a79f61989314bb90e612eb58e1",
+          "chronology_control_id": "neotoma:chronology:3798:25730:control:84721",
+          "chronology_id": "neotoma:chronology:3798:25730",
+          "collection_unit_id": "neotoma:collection-unit:3798",
+          "country_code": "SE",
+          "site_id": "neotoma:site:3009",
+          "source_chronology_control_id": 84721,
+          "source_payload": {
+            "agelimitolder": 10750,
+            "agelimityounger": 10490,
+            "chroncontrolage": 10620,
+            "chroncontrolid": 84721,
+            "chroncontroltype": "Radiocarbon",
+            "depth": 9305,
+            "geochron": {
+              "agetype": "Radiocarbon years BP",
+              "delta13c": -26.42,
+              "delta15n": null,
+              "geochronage": 10620,
+              "geochronerrorolder": 130,
+              "geochronerroryounger": 130,
+              "geochronid": 31284,
+              "geochronmaterialdated": "Mosses",
+              "geochronnotes": null,
+              "geochrontype": "Carbon-14",
+              "infinite": false,
+              "labnumber": "Lu-2171",
+              "percentc": null,
+              "percentcollagen": null,
+              "percentn": null,
+              "radiocarbonmethod": "conventional radiometric",
+              "reservoir": null
+            },
+            "thickness": 5
+          },
+          "source_snapshot_id": "sha256:b2bcb99157e10b0c9f13c228acc12eabcb39d96a1f39c86ec25e34aacd78c791"
+        },
+        "incoming": {
+          "build_id": "sha256:92dd52619837f3641d004a1a5dbe38f9ab6023a79f61989314bb90e612eb58e1",
+          "chronology_control_id": "neotoma:chronology:3798:25730:control:84721",
+          "chronology_id": "neotoma:chronology:3798:25730",
+          "collection_unit_id": "neotoma:collection-unit:3798",
+          "country_code": "SE",
+          "site_id": "neotoma:site:3009",
+          "source_chronology_control_id": 84721,
+          "source_payload": {
+            "agelimitolder": 10750,
+            "agelimityounger": 10490,
+            "chroncontrolage": 10620,
+            "chroncontrolid": 84721,
+            "chroncontroltype": "Radiocarbon",
+            "depth": 9305,
+            "geochron": {
+              "agetype": "Radiocarbon years BP",
+              "delta13c": -26.49,
+              "delta15n": null,
+              "geochronage": 11260,
+              "geochronerrorolder": 100,
+              "geochronerroryounger": 100,
+              "geochronid": 31285,
+              "geochronmaterialdated": "NaOH-soluble fraction-sediment",
+              "geochronnotes": null,
+              "geochrontype": "Carbon-14",
+              "infinite": false,
+              "labnumber": "Lu-2172A",
+              "percentc": null,
+              "percentcollagen": null,
+              "percentn": null,
+              "radiocarbonmethod": "conventional radiometric",
+              "reservoir": null
+            },
+            "thickness": 5
+          },
+          "source_snapshot_id": "sha256:b2bcb99157e10b0c9f13c228acc12eabcb39d96a1f39c86ec25e34aacd78c791"
+        }
+      },
+      "subject_id": "neotoma:chronology:3798:25730:control:84721"
+    },
+    {
+      "conflict_id": "neotoma:conflict:a208313368823b8f9e577455",
+      "conflict_kind": "default_chronology_assertions_conflict",
+      "detail": {
+        "collection_unit_id": "neotoma:collection-unit:32499",
+        "explicit_default_chronology_id": "neotoma:chronology:32499:29967",
+        "governing_selection": "collection_unit.defaultchronology",
+        "source_flagged_default_chronology_ids": [
+          "neotoma:chronology:32499:29967",
+          "neotoma:chronology:32499:29968"
+        ]
+      },
+      "subject_id": "neotoma:dataset:45725"
+    },
+    {
+      "conflict_id": "neotoma:conflict:a31ce161ebae8fcdb20fa2eb",
+      "conflict_kind": "default_chronology_assertions_conflict",
+      "detail": {
+        "collection_unit_id": "neotoma:collection-unit:3930",
+        "explicit_default_chronology_id": "neotoma:chronology:3930:25370",
+        "governing_selection": "collection_unit.defaultchronology",
+        "source_flagged_default_chronology_ids": [
+          "neotoma:chronology:3930:25370",
+          "neotoma:chronology:3930:25373"
+        ]
+      },
+      "subject_id": "neotoma:dataset:4057"
+    },
+    {
+      "conflict_id": "neotoma:conflict:a36ab54f0c64174040d01990",
+      "conflict_kind": "default_chronology_assertions_conflict",
+      "detail": {
+        "collection_unit_id": "neotoma:collection-unit:4394",
+        "explicit_default_chronology_id": "neotoma:chronology:4394:30806",
+        "governing_selection": "collection_unit.defaultchronology",
+        "source_flagged_default_chronology_ids": [
+          "neotoma:chronology:4394:30806",
+          "neotoma:chronology:4394:30808"
+        ]
+      },
+      "subject_id": "neotoma:dataset:4539"
+    },
+    {
+      "conflict_id": "neotoma:conflict:a4d01c0b538bc267c4d8464b",
+      "conflict_kind": "chronology_control_payload_conflict",
+      "detail": {
+        "existing": {
+          "build_id": "sha256:92dd52619837f3641d004a1a5dbe38f9ab6023a79f61989314bb90e612eb58e1",
+          "chronology_control_id": "neotoma:chronology:4307:30583:control:96282",
+          "chronology_id": "neotoma:chronology:4307:30583",
+          "collection_unit_id": "neotoma:collection-unit:4307",
+          "country_code": "SE",
+          "site_id": "neotoma:site:3435",
+          "source_chronology_control_id": 96282,
+          "source_payload": {
+            "agelimitolder": 12680,
+            "agelimityounger": 12400,
+            "chroncontrolage": 12540,
+            "chroncontrolid": 96282,
+            "chroncontroltype": "Radiocarbon",
+            "depth": 565,
+            "geochron": {
+              "agetype": "Radiocarbon years BP",
+              "delta13c": -20.4,
+              "delta15n": null,
+              "geochronage": 12240,
+              "geochronerrorolder": 110,
+              "geochronerroryounger": 110,
+              "geochronid": 35574,
+              "geochronmaterialdated": "NaOH soluble",
+              "geochronnotes": null,
+              "geochrontype": "Carbon-14",
+              "infinite": false,
+              "labnumber": "Lu-2511b",
+              "percentc": null,
+              "percentcollagen": null,
+              "percentn": null,
+              "radiocarbonmethod": "conventional radiometric",
+              "reservoir": null
+            },
+            "thickness": 5
+          },
+          "source_snapshot_id": "sha256:b2bcb99157e10b0c9f13c228acc12eabcb39d96a1f39c86ec25e34aacd78c791"
+        },
+        "incoming": {
+          "build_id": "sha256:92dd52619837f3641d004a1a5dbe38f9ab6023a79f61989314bb90e612eb58e1",
+          "chronology_control_id": "neotoma:chronology:4307:30583:control:96282",
+          "chronology_id": "neotoma:chronology:4307:30583",
+          "collection_unit_id": "neotoma:collection-unit:4307",
+          "country_code": "SE",
+          "site_id": "neotoma:site:3435",
+          "source_chronology_control_id": 96282,
+          "source_payload": {
+            "agelimitolder": 12680,
+            "agelimityounger": 12400,
+            "chroncontrolage": 12540,
+            "chroncontrolid": 96282,
+            "chroncontroltype": "Radiocarbon",
+            "depth": 565,
+            "geochron": {
+              "agetype": "Radiocarbon years BP",
+              "delta13c": -20.4,
+              "delta15n": null,
+              "geochronage": 12540,
+              "geochronerrorolder": 140,
+              "geochronerroryounger": 140,
+              "geochronid": 35575,
+              "geochronmaterialdated": "NaOH insoluble",
+              "geochronnotes": null,
+              "geochrontype": "Carbon-14",
+              "infinite": false,
+              "labnumber": "Lu-2511a",
+              "percentc": null,
+              "percentcollagen": null,
+              "percentn": null,
+              "radiocarbonmethod": "conventional radiometric",
+              "reservoir": null
+            },
+            "thickness": 5
+          },
+          "source_snapshot_id": "sha256:b2bcb99157e10b0c9f13c228acc12eabcb39d96a1f39c86ec25e34aacd78c791"
+        }
+      },
+      "subject_id": "neotoma:chronology:4307:30583:control:96282"
+    },
+    {
+      "conflict_id": "neotoma:conflict:a91b37c61e655329fe83f4cb",
+      "conflict_kind": "default_chronology_assertions_conflict",
+      "detail": {
+        "collection_unit_id": "neotoma:collection-unit:4278",
+        "explicit_default_chronology_id": "neotoma:chronology:4278:30819",
+        "governing_selection": "collection_unit.defaultchronology",
+        "source_flagged_default_chronology_ids": [
+          "neotoma:chronology:4278:30819",
+          "neotoma:chronology:4278:30820"
+        ]
+      },
+      "subject_id": "neotoma:dataset:4420"
+    },
+    {
+      "conflict_id": "neotoma:conflict:ace074f86158702dbf705b25",
+      "conflict_kind": "default_chronology_assertions_conflict",
+      "detail": {
+        "collection_unit_id": "neotoma:collection-unit:3812",
+        "explicit_default_chronology_id": "neotoma:chronology:3812:25389",
+        "governing_selection": "collection_unit.defaultchronology",
+        "source_flagged_default_chronology_ids": [
+          "neotoma:chronology:3812:25389",
+          "neotoma:chronology:3812:25391"
+        ]
+      },
+      "subject_id": "neotoma:dataset:3937"
+    },
+    {
+      "conflict_id": "neotoma:conflict:af0ce87e638f41da42bc6d3c",
+      "conflict_kind": "default_chronology_assertions_conflict",
+      "detail": {
+        "collection_unit_id": "neotoma:collection-unit:4033",
+        "explicit_default_chronology_id": "neotoma:chronology:4033:30611",
+        "governing_selection": "collection_unit.defaultchronology",
+        "source_flagged_default_chronology_ids": [
+          "neotoma:chronology:4033:30611",
+          "neotoma:chronology:4033:30612"
+        ]
+      },
+      "subject_id": "neotoma:dataset:4162"
+    },
+    {
+      "conflict_id": "neotoma:conflict:b1dd5ccd80204ed68e4fa56d",
+      "conflict_kind": "default_chronology_assertions_conflict",
+      "detail": {
+        "collection_unit_id": "neotoma:collection-unit:14993",
+        "explicit_default_chronology_id": "neotoma:chronology:14993:11610",
+        "governing_selection": "collection_unit.defaultchronology",
+        "source_flagged_default_chronology_ids": [
+          "neotoma:chronology:14993:11610",
+          "neotoma:chronology:14993:11611"
+        ]
+      },
+      "subject_id": "neotoma:dataset:20050"
+    },
+    {
+      "conflict_id": "neotoma:conflict:b365e12395a31431c8c9ba51",
+      "conflict_kind": "default_chronology_assertions_conflict",
+      "detail": {
+        "collection_unit_id": "neotoma:collection-unit:3915",
+        "explicit_default_chronology_id": "neotoma:chronology:3915:25403",
+        "governing_selection": "collection_unit.defaultchronology",
+        "source_flagged_default_chronology_ids": [
+          "neotoma:chronology:3915:25403",
+          "neotoma:chronology:3915:25404"
+        ]
+      },
+      "subject_id": "neotoma:dataset:4042"
+    },
+    {
+      "conflict_id": "neotoma:conflict:b3b405a46b7239317507db5a",
+      "conflict_kind": "default_chronology_assertions_conflict",
+      "detail": {
+        "collection_unit_id": "neotoma:collection-unit:4023",
+        "explicit_default_chronology_id": "neotoma:chronology:4023:30641",
+        "governing_selection": "collection_unit.defaultchronology",
+        "source_flagged_default_chronology_ids": [
+          "neotoma:chronology:4023:30641",
+          "neotoma:chronology:4023:30642"
+        ]
+      },
+      "subject_id": "neotoma:dataset:4152"
+    },
+    {
+      "conflict_id": "neotoma:conflict:b513dc381ef9ef5feac0a914",
+      "conflict_kind": "default_chronology_assertions_conflict",
+      "detail": {
+        "collection_unit_id": "neotoma:collection-unit:4224",
+        "explicit_default_chronology_id": "neotoma:chronology:4224:30651",
+        "governing_selection": "collection_unit.defaultchronology",
+        "source_flagged_default_chronology_ids": [
+          "neotoma:chronology:4224:30651",
+          "neotoma:chronology:4224:30652",
+          "neotoma:chronology:4224:32234"
+        ]
+      },
+      "subject_id": "neotoma:dataset:4363"
+    },
+    {
+      "conflict_id": "neotoma:conflict:b72b6cda7aeabb3ce8f25117",
+      "conflict_kind": "chronology_control_payload_conflict",
+      "detail": {
+        "existing": {
+          "build_id": "sha256:92dd52619837f3641d004a1a5dbe38f9ab6023a79f61989314bb90e612eb58e1",
+          "chronology_control_id": "neotoma:chronology:946:25381:control:82521",
+          "chronology_id": "neotoma:chronology:946:25381",
+          "collection_unit_id": "neotoma:collection-unit:946",
+          "country_code": "NO",
+          "site_id": "neotoma:site:947",
+          "source_chronology_control_id": 82521,
+          "source_payload": {
+            "agelimitolder": 8129,
+            "agelimityounger": 7761,
+            "chroncontrolage": 7945,
+            "chroncontrolid": 82521,
+            "chroncontroltype": "Radiocarbon, average of two or more dates",
+            "depth": 275,
+            "geochron": {
+              "agetype": "Radiocarbon years BP",
+              "delta13c": -27.7,
+              "delta15n": null,
+              "geochronage": 7840,
+              "geochronerrorolder": 110,
+              "geochronerroryounger": 110,
+              "geochronid": 30301,
+              "geochronmaterialdated": "NaOH-insoluble fraction",
+              "geochronnotes": null,
+              "geochrontype": "Carbon-14",
+              "infinite": false,
+              "labnumber": "T-3278 B",
+              "percentc": null,
+              "percentcollagen": null,
+              "percentn": null,
+              "radiocarbonmethod": "conventional radiometric",
+              "reservoir": null
+            },
+            "thickness": 10
+          },
+          "source_snapshot_id": "sha256:b2bcb99157e10b0c9f13c228acc12eabcb39d96a1f39c86ec25e34aacd78c791"
+        },
+        "incoming": {
+          "build_id": "sha256:92dd52619837f3641d004a1a5dbe38f9ab6023a79f61989314bb90e612eb58e1",
+          "chronology_control_id": "neotoma:chronology:946:25381:control:82521",
+          "chronology_id": "neotoma:chronology:946:25381",
+          "collection_unit_id": "neotoma:collection-unit:946",
+          "country_code": "NO",
+          "site_id": "neotoma:site:947",
+          "source_chronology_control_id": 82521,
+          "source_payload": {
+            "agelimitolder": 8129,
+            "agelimityounger": 7761,
+            "chroncontrolage": 7945,
+            "chroncontrolid": 82521,
+            "chroncontroltype": "Radiocarbon, average of two or more dates",
+            "depth": 275,
+            "geochron": {
+              "agetype": "Radiocarbon years BP",
+              "delta13c": -27.7,
+              "delta15n": null,
+              "geochronage": 8130,
+              "geochronerrorolder": 150,
+              "geochronerroryounger": 150,
+              "geochronid": 30302,
+              "geochronmaterialdated": "NaOH-soluble fraction",
+              "geochronnotes": null,
+              "geochrontype": "Carbon-14",
+              "infinite": false,
+              "labnumber": "T-3278 A",
+              "percentc": null,
+              "percentcollagen": null,
+              "percentn": null,
+              "radiocarbonmethod": "conventional radiometric",
+              "reservoir": null
+            },
+            "thickness": 10
+          },
+          "source_snapshot_id": "sha256:b2bcb99157e10b0c9f13c228acc12eabcb39d96a1f39c86ec25e34aacd78c791"
+        }
+      },
+      "subject_id": "neotoma:chronology:946:25381:control:82521"
+    },
+    {
+      "conflict_id": "neotoma:conflict:b812c072ab5004ae1570ac50",
+      "conflict_kind": "default_chronology_assertions_conflict",
+      "detail": {
+        "collection_unit_id": "neotoma:collection-unit:27224",
+        "explicit_default_chronology_id": "neotoma:chronology:27224:24243",
+        "governing_selection": "collection_unit.defaultchronology",
+        "source_flagged_default_chronology_ids": [
+          "neotoma:chronology:27224:24243",
+          "neotoma:chronology:27224:24244"
+        ]
+      },
+      "subject_id": "neotoma:dataset:39364"
+    },
+    {
+      "conflict_id": "neotoma:conflict:b8fb8b3d58b79bdf0e58fd0a",
+      "conflict_kind": "default_chronology_assertions_conflict",
+      "detail": {
+        "collection_unit_id": "neotoma:collection-unit:3798",
+        "explicit_default_chronology_id": "neotoma:chronology:3798:25729",
+        "governing_selection": "collection_unit.defaultchronology",
+        "source_flagged_default_chronology_ids": [
+          "neotoma:chronology:3798:25729",
+          "neotoma:chronology:3798:25730"
+        ]
+      },
+      "subject_id": "neotoma:dataset:3923"
+    },
+    {
+      "conflict_id": "neotoma:conflict:b925c7c0451b794f64459ea6",
+      "conflict_kind": "chronology_control_payload_conflict",
+      "detail": {
+        "existing": {
+          "build_id": "sha256:92dd52619837f3641d004a1a5dbe38f9ab6023a79f61989314bb90e612eb58e1",
+          "chronology_control_id": "neotoma:chronology:4151:30600:control:96539",
+          "chronology_id": "neotoma:chronology:4151:30600",
+          "collection_unit_id": "neotoma:collection-unit:4151",
+          "country_code": "FI",
+          "site_id": "neotoma:site:3302",
+          "source_chronology_control_id": 96539,
+          "source_payload": {
+            "agelimitolder": 7620,
+            "agelimityounger": 7340,
+            "chroncontrolage": 7480,
+            "chroncontrolid": 96539,
+            "chroncontroltype": "Radiocarbon",
+            "depth": 217.5,
+            "geochron": {
+              "agetype": "Radiocarbon years BP",
+              "delta13c": null,
+              "delta15n": null,
+              "geochronage": 7040,
+              "geochronerrorolder": 150,
+              "geochronerroryounger": 150,
+              "geochronid": 35606,
+              "geochronmaterialdated": "Soluble humus fraction",
+              "geochronnotes": null,
+              "geochrontype": "Carbon-14",
+              "infinite": false,
+              "labnumber": "Hel-1072",
+              "percentc": null,
+              "percentcollagen": null,
+              "percentn": null,
+              "radiocarbonmethod": "proportional gas counting",
+              "reservoir": null
+            },
+            "thickness": 15
+          },
+          "source_snapshot_id": "sha256:b2bcb99157e10b0c9f13c228acc12eabcb39d96a1f39c86ec25e34aacd78c791"
+        },
+        "incoming": {
+          "build_id": "sha256:92dd52619837f3641d004a1a5dbe38f9ab6023a79f61989314bb90e612eb58e1",
+          "chronology_control_id": "neotoma:chronology:4151:30600:control:96539",
+          "chronology_id": "neotoma:chronology:4151:30600",
+          "collection_unit_id": "neotoma:collection-unit:4151",
+          "country_code": "FI",
+          "site_id": "neotoma:site:3302",
+          "source_chronology_control_id": 96539,
+          "source_payload": {
+            "agelimitolder": 7620,
+            "agelimityounger": 7340,
+            "chroncontrolage": 7480,
+            "chroncontrolid": 96539,
+            "chroncontroltype": "Radiocarbon",
+            "depth": 217.5,
+            "geochron": {
+              "agetype": "Radiocarbon years BP",
+              "delta13c": null,
+              "delta15n": null,
+              "geochronage": 7480,
+              "geochronerrorolder": 140,
+              "geochronerroryounger": 140,
+              "geochronid": 35607,
+              "geochronmaterialdated": "Lake mud",
+              "geochronnotes": null,
+              "geochrontype": "Carbon-14",
+              "infinite": false,
+              "labnumber": "Hel-1071",
+              "percentc": null,
+              "percentcollagen": null,
+              "percentn": null,
+              "radiocarbonmethod": "proportional gas counting",
+              "reservoir": null
+            },
+            "thickness": 15
+          },
+          "source_snapshot_id": "sha256:b2bcb99157e10b0c9f13c228acc12eabcb39d96a1f39c86ec25e34aacd78c791"
+        }
+      },
+      "subject_id": "neotoma:chronology:4151:30600:control:96539"
+    },
+    {
+      "conflict_id": "neotoma:conflict:bb2cffb70c3aaf2d021dabf4",
+      "conflict_kind": "default_chronology_assertions_conflict",
+      "detail": {
+        "collection_unit_id": "neotoma:collection-unit:4351",
+        "explicit_default_chronology_id": "neotoma:chronology:4351:25356",
+        "governing_selection": "collection_unit.defaultchronology",
+        "source_flagged_default_chronology_ids": [
+          "neotoma:chronology:4351:25356",
+          "neotoma:chronology:4351:25357"
+        ]
+      },
+      "subject_id": "neotoma:dataset:4494"
+    },
+    {
+      "conflict_id": "neotoma:conflict:c0071d2041da32f026f9204e",
+      "conflict_kind": "default_chronology_assertions_conflict",
+      "detail": {
+        "collection_unit_id": "neotoma:collection-unit:39240",
+        "explicit_default_chronology_id": "neotoma:chronology:39240:38420",
+        "governing_selection": "collection_unit.defaultchronology",
+        "source_flagged_default_chronology_ids": [
+          "neotoma:chronology:39240:38420",
+          "neotoma:chronology:39240:38421"
+        ]
+      },
+      "subject_id": "neotoma:dataset:53999"
+    },
+    {
+      "conflict_id": "neotoma:conflict:c088a273692d8abb8ff0d6a3",
+      "conflict_kind": "chronology_control_payload_conflict",
+      "detail": {
+        "existing": {
+          "build_id": "sha256:92dd52619837f3641d004a1a5dbe38f9ab6023a79f61989314bb90e612eb58e1",
+          "chronology_control_id": "neotoma:chronology:4307:30581:control:96270",
+          "chronology_id": "neotoma:chronology:4307:30581",
+          "collection_unit_id": "neotoma:collection-unit:4307",
+          "country_code": "SE",
+          "site_id": "neotoma:site:3435",
+          "source_chronology_control_id": 96270,
+          "source_payload": {
+            "agelimitolder": 11850,
+            "agelimityounger": 11570,
+            "chroncontrolage": 11710,
+            "chroncontrolid": 96270,
+            "chroncontroltype": "Radiocarbon",
+            "depth": 554.5,
+            "geochron": {
+              "agetype": "Radiocarbon years BP",
+              "delta13c": -20.6,
+              "delta15n": null,
+              "geochronage": 11420,
+              "geochronerrorolder": 125,
+              "geochronerroryounger": 125,
+              "geochronid": 35572,
+              "geochronmaterialdated": "NaOH soluble",
+              "geochronnotes": null,
+              "geochrontype": "Carbon-14",
+              "infinite": false,
+              "labnumber": "Lu-2514b",
+              "percentc": null,
+              "percentcollagen": null,
+              "percentn": null,
+              "radiocarbonmethod": "conventional radiometric",
+              "reservoir": null
+            },
+            "thickness": 3
+          },
+          "source_snapshot_id": "sha256:b2bcb99157e10b0c9f13c228acc12eabcb39d96a1f39c86ec25e34aacd78c791"
+        },
+        "incoming": {
+          "build_id": "sha256:92dd52619837f3641d004a1a5dbe38f9ab6023a79f61989314bb90e612eb58e1",
+          "chronology_control_id": "neotoma:chronology:4307:30581:control:96270",
+          "chronology_id": "neotoma:chronology:4307:30581",
+          "collection_unit_id": "neotoma:collection-unit:4307",
+          "country_code": "SE",
+          "site_id": "neotoma:site:3435",
+          "source_chronology_control_id": 96270,
+          "source_payload": {
+            "agelimitolder": 11850,
+            "agelimityounger": 11570,
+            "chroncontrolage": 11710,
+            "chroncontrolid": 96270,
+            "chroncontroltype": "Radiocarbon",
+            "depth": 554.5,
+            "geochron": {
+              "agetype": "Radiocarbon years BP",
+              "delta13c": -20.6,
+              "delta15n": null,
+              "geochronage": 11710,
+              "geochronerrorolder": 140,
+              "geochronerroryounger": 140,
+              "geochronid": 35573,
+              "geochronmaterialdated": "NaOH insoluble",
+              "geochronnotes": null,
+              "geochrontype": "Carbon-14",
+              "infinite": false,
+              "labnumber": "Lu-2514a",
+              "percentc": null,
+              "percentcollagen": null,
+              "percentn": null,
+              "radiocarbonmethod": "conventional radiometric",
+              "reservoir": null
+            },
+            "thickness": 3
+          },
+          "source_snapshot_id": "sha256:b2bcb99157e10b0c9f13c228acc12eabcb39d96a1f39c86ec25e34aacd78c791"
+        }
+      },
+      "subject_id": "neotoma:chronology:4307:30581:control:96270"
+    },
+    {
+      "conflict_id": "neotoma:conflict:c5f58329bb907dc655d0330e",
+      "conflict_kind": "default_chronology_assertions_conflict",
+      "detail": {
+        "collection_unit_id": "neotoma:collection-unit:32501",
+        "explicit_default_chronology_id": "neotoma:chronology:32501:29973",
+        "governing_selection": "collection_unit.defaultchronology",
+        "source_flagged_default_chronology_ids": [
+          "neotoma:chronology:32501:29973",
+          "neotoma:chronology:32501:29974"
+        ]
+      },
+      "subject_id": "neotoma:dataset:45731"
+    },
+    {
+      "conflict_id": "neotoma:conflict:c9b45d2ea1ff36b626eb1e7c",
+      "conflict_kind": "default_chronology_assertions_conflict",
+      "detail": {
+        "collection_unit_id": "neotoma:collection-unit:946",
+        "explicit_default_chronology_id": "neotoma:chronology:946:25381",
+        "governing_selection": "collection_unit.defaultchronology",
+        "source_flagged_default_chronology_ids": [
+          "neotoma:chronology:946:25381",
+          "neotoma:chronology:946:25382"
+        ]
+      },
+      "subject_id": "neotoma:dataset:977"
+    },
+    {
+      "conflict_id": "neotoma:conflict:caa356939a1e9c5724c3969d",
+      "conflict_kind": "chronology_control_payload_conflict",
+      "detail": {
+        "existing": {
+          "build_id": "sha256:92dd52619837f3641d004a1a5dbe38f9ab6023a79f61989314bb90e612eb58e1",
+          "chronology_control_id": "neotoma:chronology:4307:30583:control:96279",
+          "chronology_id": "neotoma:chronology:4307:30583",
+          "collection_unit_id": "neotoma:collection-unit:4307",
+          "country_code": "SE",
+          "site_id": "neotoma:site:3435",
+          "source_chronology_control_id": 96279,
+          "source_payload": {
+            "agelimitolder": 11545,
+            "agelimityounger": 11295,
+            "chroncontrolage": 11420,
+            "chroncontrolid": 96279,
+            "chroncontroltype": "Radiocarbon",
+            "depth": 554.5,
+            "geochron": {
+              "agetype": "Radiocarbon years BP",
+              "delta13c": -20.6,
+              "delta15n": null,
+              "geochronage": 11420,
+              "geochronerrorolder": 125,
+              "geochronerroryounger": 125,
+              "geochronid": 35572,
+              "geochronmaterialdated": "NaOH soluble",
+              "geochronnotes": null,
+              "geochrontype": "Carbon-14",
+              "infinite": false,
+              "labnumber": "Lu-2514b",
+              "percentc": null,
+              "percentcollagen": null,
+              "percentn": null,
+              "radiocarbonmethod": "conventional radiometric",
+              "reservoir": null
+            },
+            "thickness": 3
+          },
+          "source_snapshot_id": "sha256:b2bcb99157e10b0c9f13c228acc12eabcb39d96a1f39c86ec25e34aacd78c791"
+        },
+        "incoming": {
+          "build_id": "sha256:92dd52619837f3641d004a1a5dbe38f9ab6023a79f61989314bb90e612eb58e1",
+          "chronology_control_id": "neotoma:chronology:4307:30583:control:96279",
+          "chronology_id": "neotoma:chronology:4307:30583",
+          "collection_unit_id": "neotoma:collection-unit:4307",
+          "country_code": "SE",
+          "site_id": "neotoma:site:3435",
+          "source_chronology_control_id": 96279,
+          "source_payload": {
+            "agelimitolder": 11545,
+            "agelimityounger": 11295,
+            "chroncontrolage": 11420,
+            "chroncontrolid": 96279,
+            "chroncontroltype": "Radiocarbon",
+            "depth": 554.5,
+            "geochron": {
+              "agetype": "Radiocarbon years BP",
+              "delta13c": -20.6,
+              "delta15n": null,
+              "geochronage": 11710,
+              "geochronerrorolder": 140,
+              "geochronerroryounger": 140,
+              "geochronid": 35573,
+              "geochronmaterialdated": "NaOH insoluble",
+              "geochronnotes": null,
+              "geochrontype": "Carbon-14",
+              "infinite": false,
+              "labnumber": "Lu-2514a",
+              "percentc": null,
+              "percentcollagen": null,
+              "percentn": null,
+              "radiocarbonmethod": "conventional radiometric",
+              "reservoir": null
+            },
+            "thickness": 3
+          },
+          "source_snapshot_id": "sha256:b2bcb99157e10b0c9f13c228acc12eabcb39d96a1f39c86ec25e34aacd78c791"
+        }
+      },
+      "subject_id": "neotoma:chronology:4307:30583:control:96279"
+    },
+    {
+      "conflict_id": "neotoma:conflict:cdc1e1b5b920c13fcbba6eea",
+      "conflict_kind": "chronology_control_payload_conflict",
+      "detail": {
+        "existing": {
+          "build_id": "sha256:92dd52619837f3641d004a1a5dbe38f9ab6023a79f61989314bb90e612eb58e1",
+          "chronology_control_id": "neotoma:chronology:946:25382:control:82527",
+          "chronology_id": "neotoma:chronology:946:25382",
+          "collection_unit_id": "neotoma:collection-unit:946",
+          "country_code": "NO",
+          "site_id": "neotoma:site:947",
+          "source_chronology_control_id": 82527,
+          "source_payload": {
+            "agelimitolder": 8129,
+            "agelimityounger": 7761,
+            "chroncontrolage": 7945,
+            "chroncontrolid": 82527,
+            "chroncontroltype": "Radiocarbon, average of two or more dates",
+            "depth": 275,
+            "geochron": {
+              "agetype": "Radiocarbon years BP",
+              "delta13c": -27.7,
+              "delta15n": null,
+              "geochronage": 7840,
+              "geochronerrorolder": 110,
+              "geochronerroryounger": 110,
+              "geochronid": 30301,
+              "geochronmaterialdated": "NaOH-insoluble fraction",
+              "geochronnotes": null,
+              "geochrontype": "Carbon-14",
+              "infinite": false,
+              "labnumber": "T-3278 B",
+              "percentc": null,
+              "percentcollagen": null,
+              "percentn": null,
+              "radiocarbonmethod": "conventional radiometric",
+              "reservoir": null
+            },
+            "thickness": null
+          },
+          "source_snapshot_id": "sha256:b2bcb99157e10b0c9f13c228acc12eabcb39d96a1f39c86ec25e34aacd78c791"
+        },
+        "incoming": {
+          "build_id": "sha256:92dd52619837f3641d004a1a5dbe38f9ab6023a79f61989314bb90e612eb58e1",
+          "chronology_control_id": "neotoma:chronology:946:25382:control:82527",
+          "chronology_id": "neotoma:chronology:946:25382",
+          "collection_unit_id": "neotoma:collection-unit:946",
+          "country_code": "NO",
+          "site_id": "neotoma:site:947",
+          "source_chronology_control_id": 82527,
+          "source_payload": {
+            "agelimitolder": 8129,
+            "agelimityounger": 7761,
+            "chroncontrolage": 7945,
+            "chroncontrolid": 82527,
+            "chroncontroltype": "Radiocarbon, average of two or more dates",
+            "depth": 275,
+            "geochron": {
+              "agetype": "Radiocarbon years BP",
+              "delta13c": -27.7,
+              "delta15n": null,
+              "geochronage": 8130,
+              "geochronerrorolder": 150,
+              "geochronerroryounger": 150,
+              "geochronid": 30302,
+              "geochronmaterialdated": "NaOH-soluble fraction",
+              "geochronnotes": null,
+              "geochrontype": "Carbon-14",
+              "infinite": false,
+              "labnumber": "T-3278 A",
+              "percentc": null,
+              "percentcollagen": null,
+              "percentn": null,
+              "radiocarbonmethod": "conventional radiometric",
+              "reservoir": null
+            },
+            "thickness": null
+          },
+          "source_snapshot_id": "sha256:b2bcb99157e10b0c9f13c228acc12eabcb39d96a1f39c86ec25e34aacd78c791"
+        }
+      },
+      "subject_id": "neotoma:chronology:946:25382:control:82527"
+    },
+    {
+      "conflict_id": "neotoma:conflict:cdd503a6b41f9f03bf0eff2a",
+      "conflict_kind": "default_chronology_assertions_conflict",
+      "detail": {
+        "collection_unit_id": "neotoma:collection-unit:4109",
+        "explicit_default_chronology_id": "neotoma:chronology:4109:30649",
+        "governing_selection": "collection_unit.defaultchronology",
+        "source_flagged_default_chronology_ids": [
+          "neotoma:chronology:4109:30649",
+          "neotoma:chronology:4109:30650"
+        ]
+      },
+      "subject_id": "neotoma:dataset:4239"
+    },
+    {
+      "conflict_id": "neotoma:conflict:cefb3f2ee70c2b8c30d3eb2d",
+      "conflict_kind": "default_chronology_assertions_conflict",
+      "detail": {
+        "collection_unit_id": "neotoma:collection-unit:32495",
+        "explicit_default_chronology_id": "neotoma:chronology:32495:29955",
+        "governing_selection": "collection_unit.defaultchronology",
+        "source_flagged_default_chronology_ids": [
+          "neotoma:chronology:32495:29955",
+          "neotoma:chronology:32495:29956"
+        ]
+      },
+      "subject_id": "neotoma:dataset:45713"
+    },
+    {
+      "conflict_id": "neotoma:conflict:d4a6c8c56b30fb21a365bb3a",
+      "conflict_kind": "default_chronology_assertions_conflict",
+      "detail": {
+        "collection_unit_id": "neotoma:collection-unit:17684",
+        "explicit_default_chronology_id": "neotoma:chronology:17684:14478",
+        "governing_selection": "collection_unit.defaultchronology",
+        "source_flagged_default_chronology_ids": [
+          "neotoma:chronology:17684:14478",
+          "neotoma:chronology:17684:14479"
+        ]
+      },
+      "subject_id": "neotoma:dataset:24110"
+    },
+    {
+      "conflict_id": "neotoma:conflict:d51c0f44504a3858f2fac7af",
+      "conflict_kind": "default_chronology_assertions_conflict",
+      "detail": {
+        "collection_unit_id": "neotoma:collection-unit:32166",
+        "explicit_default_chronology_id": "neotoma:chronology:32166:29523",
+        "governing_selection": "collection_unit.defaultchronology",
+        "source_flagged_default_chronology_ids": [
+          "neotoma:chronology:32166:29523",
+          "neotoma:chronology:32166:29524"
+        ]
+      },
+      "subject_id": "neotoma:dataset:45311"
+    },
+    {
+      "conflict_id": "neotoma:conflict:d51f73a46fc255adb8ff8299",
+      "conflict_kind": "default_chronology_assertions_conflict",
+      "detail": {
+        "collection_unit_id": "neotoma:collection-unit:3912",
+        "explicit_default_chronology_id": "neotoma:chronology:3912:25429",
+        "governing_selection": "collection_unit.defaultchronology",
+        "source_flagged_default_chronology_ids": [
+          "neotoma:chronology:3912:25429",
+          "neotoma:chronology:3912:25431"
+        ]
+      },
+      "subject_id": "neotoma:dataset:4039"
+    },
+    {
+      "conflict_id": "neotoma:conflict:d6246a4a4f191cadf8907fab",
+      "conflict_kind": "chronology_control_payload_conflict",
+      "detail": {
+        "existing": {
+          "build_id": "sha256:92dd52619837f3641d004a1a5dbe38f9ab6023a79f61989314bb90e612eb58e1",
+          "chronology_control_id": "neotoma:chronology:3798:25730:control:84723",
+          "chronology_id": "neotoma:chronology:3798:25730",
+          "collection_unit_id": "neotoma:collection-unit:3798",
+          "country_code": "SE",
+          "site_id": "neotoma:site:3009",
+          "source_chronology_control_id": 84723,
+          "source_payload": {
+            "agelimitolder": 11460,
+            "agelimityounger": 11260,
+            "chroncontrolage": 11360,
+            "chroncontrolid": 84723,
+            "chroncontroltype": "Radiocarbon",
+            "depth": 9305,
+            "geochron": {
+              "agetype": "Radiocarbon years BP",
+              "delta13c": -26.42,
+              "delta15n": null,
+              "geochronage": 10620,
+              "geochronerrorolder": 130,
+              "geochronerroryounger": 130,
+              "geochronid": 31284,
+              "geochronmaterialdated": "Mosses",
+              "geochronnotes": null,
+              "geochrontype": "Carbon-14",
+              "infinite": false,
+              "labnumber": "Lu-2171",
+              "percentc": null,
+              "percentcollagen": null,
+              "percentn": null,
+              "radiocarbonmethod": "conventional radiometric",
+              "reservoir": null
+            },
+            "thickness": 5
+          },
+          "source_snapshot_id": "sha256:b2bcb99157e10b0c9f13c228acc12eabcb39d96a1f39c86ec25e34aacd78c791"
+        },
+        "incoming": {
+          "build_id": "sha256:92dd52619837f3641d004a1a5dbe38f9ab6023a79f61989314bb90e612eb58e1",
+          "chronology_control_id": "neotoma:chronology:3798:25730:control:84723",
+          "chronology_id": "neotoma:chronology:3798:25730",
+          "collection_unit_id": "neotoma:collection-unit:3798",
+          "country_code": "SE",
+          "site_id": "neotoma:site:3009",
+          "source_chronology_control_id": 84723,
+          "source_payload": {
+            "agelimitolder": 11460,
+            "agelimityounger": 11260,
+            "chroncontrolage": 11360,
+            "chroncontrolid": 84723,
+            "chroncontroltype": "Radiocarbon",
+            "depth": 9305,
+            "geochron": {
+              "agetype": "Radiocarbon years BP",
+              "delta13c": -26.99,
+              "delta15n": null,
+              "geochronage": 11360,
+              "geochronerrorolder": 100,
+              "geochronerroryounger": 100,
+              "geochronid": 31286,
+              "geochronmaterialdated": "NaOH-insoluble fraction",
+              "geochronnotes": null,
+              "geochrontype": "Carbon-14",
+              "infinite": false,
+              "labnumber": "Lu-2172",
+              "percentc": null,
+              "percentcollagen": null,
+              "percentn": null,
+              "radiocarbonmethod": "conventional radiometric",
+              "reservoir": null
+            },
+            "thickness": 5
+          },
+          "source_snapshot_id": "sha256:b2bcb99157e10b0c9f13c228acc12eabcb39d96a1f39c86ec25e34aacd78c791"
+        }
+      },
+      "subject_id": "neotoma:chronology:3798:25730:control:84723"
+    },
+    {
+      "conflict_id": "neotoma:conflict:d7ae0336101fc7b9a4f3531e",
+      "conflict_kind": "default_chronology_assertions_conflict",
+      "detail": {
+        "collection_unit_id": "neotoma:collection-unit:4232",
+        "explicit_default_chronology_id": "neotoma:chronology:4232:25350",
+        "governing_selection": "collection_unit.defaultchronology",
+        "source_flagged_default_chronology_ids": [
+          "neotoma:chronology:4232:25350",
+          "neotoma:chronology:4232:25351"
+        ]
+      },
+      "subject_id": "neotoma:dataset:4372"
+    },
+    {
+      "conflict_id": "neotoma:conflict:d80a8d03359273f6cd07564e",
+      "conflict_kind": "chronology_control_payload_conflict",
+      "detail": {
+        "existing": {
+          "build_id": "sha256:92dd52619837f3641d004a1a5dbe38f9ab6023a79f61989314bb90e612eb58e1",
+          "chronology_control_id": "neotoma:chronology:3798:25730:control:84722",
+          "chronology_id": "neotoma:chronology:3798:25730",
+          "collection_unit_id": "neotoma:collection-unit:3798",
+          "country_code": "SE",
+          "site_id": "neotoma:site:3009",
+          "source_chronology_control_id": 84722,
+          "source_payload": {
+            "agelimitolder": 11360,
+            "agelimityounger": 11160,
+            "chroncontrolage": 11260,
+            "chroncontrolid": 84722,
+            "chroncontroltype": "Radiocarbon",
+            "depth": 9305,
+            "geochron": {
+              "agetype": "Radiocarbon years BP",
+              "delta13c": -26.42,
+              "delta15n": null,
+              "geochronage": 10620,
+              "geochronerrorolder": 130,
+              "geochronerroryounger": 130,
+              "geochronid": 31284,
+              "geochronmaterialdated": "Mosses",
+              "geochronnotes": null,
+              "geochrontype": "Carbon-14",
+              "infinite": false,
+              "labnumber": "Lu-2171",
+              "percentc": null,
+              "percentcollagen": null,
+              "percentn": null,
+              "radiocarbonmethod": "conventional radiometric",
+              "reservoir": null
+            },
+            "thickness": 5
+          },
+          "source_snapshot_id": "sha256:b2bcb99157e10b0c9f13c228acc12eabcb39d96a1f39c86ec25e34aacd78c791"
+        },
+        "incoming": {
+          "build_id": "sha256:92dd52619837f3641d004a1a5dbe38f9ab6023a79f61989314bb90e612eb58e1",
+          "chronology_control_id": "neotoma:chronology:3798:25730:control:84722",
+          "chronology_id": "neotoma:chronology:3798:25730",
+          "collection_unit_id": "neotoma:collection-unit:3798",
+          "country_code": "SE",
+          "site_id": "neotoma:site:3009",
+          "source_chronology_control_id": 84722,
+          "source_payload": {
+            "agelimitolder": 11360,
+            "agelimityounger": 11160,
+            "chroncontrolage": 11260,
+            "chroncontrolid": 84722,
+            "chroncontroltype": "Radiocarbon",
+            "depth": 9305,
+            "geochron": {
+              "agetype": "Radiocarbon years BP",
+              "delta13c": -26.99,
+              "delta15n": null,
+              "geochronage": 11360,
+              "geochronerrorolder": 100,
+              "geochronerroryounger": 100,
+              "geochronid": 31286,
+              "geochronmaterialdated": "NaOH-insoluble fraction",
+              "geochronnotes": null,
+              "geochrontype": "Carbon-14",
+              "infinite": false,
+              "labnumber": "Lu-2172",
+              "percentc": null,
+              "percentcollagen": null,
+              "percentn": null,
+              "radiocarbonmethod": "conventional radiometric",
+              "reservoir": null
+            },
+            "thickness": 5
+          },
+          "source_snapshot_id": "sha256:b2bcb99157e10b0c9f13c228acc12eabcb39d96a1f39c86ec25e34aacd78c791"
+        }
+      },
+      "subject_id": "neotoma:chronology:3798:25730:control:84722"
+    },
+    {
+      "conflict_id": "neotoma:conflict:d856667f398c8aeb129bd983",
+      "conflict_kind": "default_chronology_assertions_conflict",
+      "detail": {
+        "collection_unit_id": "neotoma:collection-unit:3935",
+        "explicit_default_chronology_id": "neotoma:chronology:3935:25763",
+        "governing_selection": "collection_unit.defaultchronology",
+        "source_flagged_default_chronology_ids": [
+          "neotoma:chronology:3935:25763",
+          "neotoma:chronology:3935:25764"
+        ]
+      },
+      "subject_id": "neotoma:dataset:4062"
+    },
+    {
+      "conflict_id": "neotoma:conflict:d869eb6f83663d590cb09b42",
+      "conflict_kind": "default_chronology_assertions_conflict",
+      "detail": {
+        "collection_unit_id": "neotoma:collection-unit:4325",
+        "explicit_default_chronology_id": "neotoma:chronology:4325:30629",
+        "governing_selection": "collection_unit.defaultchronology",
+        "source_flagged_default_chronology_ids": [
+          "neotoma:chronology:4325:30629",
+          "neotoma:chronology:4325:30630"
+        ]
+      },
+      "subject_id": "neotoma:dataset:4468"
+    },
+    {
+      "conflict_id": "neotoma:conflict:d903e8eefa707991359c1d28",
+      "conflict_kind": "default_chronology_assertions_conflict",
+      "detail": {
+        "collection_unit_id": "neotoma:collection-unit:32187",
+        "explicit_default_chronology_id": "neotoma:chronology:32187:29549",
+        "governing_selection": "collection_unit.defaultchronology",
+        "source_flagged_default_chronology_ids": [
+          "neotoma:chronology:32187:29549",
+          "neotoma:chronology:32187:29550"
+        ]
+      },
+      "subject_id": "neotoma:dataset:45343"
+    },
+    {
+      "conflict_id": "neotoma:conflict:d9b08857db07fdcc54fab1d5",
+      "conflict_kind": "default_chronology_assertions_conflict",
+      "detail": {
+        "collection_unit_id": "neotoma:collection-unit:4004",
+        "explicit_default_chronology_id": "neotoma:chronology:4004:30812",
+        "governing_selection": "collection_unit.defaultchronology",
+        "source_flagged_default_chronology_ids": [
+          "neotoma:chronology:4004:30812",
+          "neotoma:chronology:4004:30815"
+        ]
+      },
+      "subject_id": "neotoma:dataset:4133"
+    },
+    {
+      "conflict_id": "neotoma:conflict:dbc4510e5b8c374a90383223",
+      "conflict_kind": "default_chronology_assertions_conflict",
+      "detail": {
+        "collection_unit_id": "neotoma:collection-unit:4007",
+        "explicit_default_chronology_id": "neotoma:chronology:4007:30847",
+        "governing_selection": "collection_unit.defaultchronology",
+        "source_flagged_default_chronology_ids": [
+          "neotoma:chronology:4007:30847",
+          "neotoma:chronology:4007:30848"
+        ]
+      },
+      "subject_id": "neotoma:dataset:4136"
+    },
+    {
+      "conflict_id": "neotoma:conflict:de9c56d9931536cc974009ec",
+      "conflict_kind": "default_chronology_assertions_conflict",
+      "detail": {
+        "collection_unit_id": "neotoma:collection-unit:700",
+        "explicit_default_chronology_id": "neotoma:chronology:700:25365",
+        "governing_selection": "collection_unit.defaultchronology",
+        "source_flagged_default_chronology_ids": [
+          "neotoma:chronology:700:25365",
+          "neotoma:chronology:700:25366"
+        ]
+      },
+      "subject_id": "neotoma:dataset:720"
+    },
+    {
+      "conflict_id": "neotoma:conflict:df507fd57bb84a734a0a05e6",
+      "conflict_kind": "chronology_control_payload_conflict",
+      "detail": {
+        "existing": {
+          "build_id": "sha256:92dd52619837f3641d004a1a5dbe38f9ab6023a79f61989314bb90e612eb58e1",
+          "chronology_control_id": "neotoma:chronology:4307:30581:control:96272",
+          "chronology_id": "neotoma:chronology:4307:30581",
+          "collection_unit_id": "neotoma:collection-unit:4307",
+          "country_code": "SE",
+          "site_id": "neotoma:site:3435",
+          "source_chronology_control_id": 96272,
+          "source_payload": {
+            "agelimitolder": 12680,
+            "agelimityounger": 12400,
+            "chroncontrolage": 12540,
+            "chroncontrolid": 96272,
+            "chroncontroltype": "Radiocarbon",
+            "depth": 565,
+            "geochron": {
+              "agetype": "Radiocarbon years BP",
+              "delta13c": -20.4,
+              "delta15n": null,
+              "geochronage": 12240,
+              "geochronerrorolder": 110,
+              "geochronerroryounger": 110,
+              "geochronid": 35574,
+              "geochronmaterialdated": "NaOH soluble",
+              "geochronnotes": null,
+              "geochrontype": "Carbon-14",
+              "infinite": false,
+              "labnumber": "Lu-2511b",
+              "percentc": null,
+              "percentcollagen": null,
+              "percentn": null,
+              "radiocarbonmethod": "conventional radiometric",
+              "reservoir": null
+            },
+            "thickness": 5
+          },
+          "source_snapshot_id": "sha256:b2bcb99157e10b0c9f13c228acc12eabcb39d96a1f39c86ec25e34aacd78c791"
+        },
+        "incoming": {
+          "build_id": "sha256:92dd52619837f3641d004a1a5dbe38f9ab6023a79f61989314bb90e612eb58e1",
+          "chronology_control_id": "neotoma:chronology:4307:30581:control:96272",
+          "chronology_id": "neotoma:chronology:4307:30581",
+          "collection_unit_id": "neotoma:collection-unit:4307",
+          "country_code": "SE",
+          "site_id": "neotoma:site:3435",
+          "source_chronology_control_id": 96272,
+          "source_payload": {
+            "agelimitolder": 12680,
+            "agelimityounger": 12400,
+            "chroncontrolage": 12540,
+            "chroncontrolid": 96272,
+            "chroncontroltype": "Radiocarbon",
+            "depth": 565,
+            "geochron": {
+              "agetype": "Radiocarbon years BP",
+              "delta13c": -20.4,
+              "delta15n": null,
+              "geochronage": 12540,
+              "geochronerrorolder": 140,
+              "geochronerroryounger": 140,
+              "geochronid": 35575,
+              "geochronmaterialdated": "NaOH insoluble",
+              "geochronnotes": null,
+              "geochrontype": "Carbon-14",
+              "infinite": false,
+              "labnumber": "Lu-2511a",
+              "percentc": null,
+              "percentcollagen": null,
+              "percentn": null,
+              "radiocarbonmethod": "conventional radiometric",
+              "reservoir": null
+            },
+            "thickness": 5
+          },
+          "source_snapshot_id": "sha256:b2bcb99157e10b0c9f13c228acc12eabcb39d96a1f39c86ec25e34aacd78c791"
+        }
+      },
+      "subject_id": "neotoma:chronology:4307:30581:control:96272"
+    },
+    {
+      "conflict_id": "neotoma:conflict:e10cb5d8dff5487deeb0e70e",
+      "conflict_kind": "default_chronology_assertions_conflict",
+      "detail": {
+        "collection_unit_id": "neotoma:collection-unit:3809",
+        "explicit_default_chronology_id": "neotoma:chronology:3809:29936",
+        "governing_selection": "collection_unit.defaultchronology",
+        "source_flagged_default_chronology_ids": [
+          "neotoma:chronology:3809:29936",
+          "neotoma:chronology:3809:29937"
+        ]
+      },
+      "subject_id": "neotoma:dataset:3934"
+    },
+    {
+      "conflict_id": "neotoma:conflict:e1ccbf7ade2e4320eeee14f7",
+      "conflict_kind": "default_chronology_assertions_conflict",
+      "detail": {
+        "collection_unit_id": "neotoma:collection-unit:3914",
+        "explicit_default_chronology_id": "neotoma:chronology:3914:25689",
+        "governing_selection": "collection_unit.defaultchronology",
+        "source_flagged_default_chronology_ids": [
+          "neotoma:chronology:3914:25689",
+          "neotoma:chronology:3914:25690"
+        ]
+      },
+      "subject_id": "neotoma:dataset:4041"
+    },
+    {
+      "conflict_id": "neotoma:conflict:e20f3b31f18b00f4abc8df23",
+      "conflict_kind": "chronology_control_payload_conflict",
+      "detail": {
+        "existing": {
+          "build_id": "sha256:92dd52619837f3641d004a1a5dbe38f9ab6023a79f61989314bb90e612eb58e1",
+          "chronology_control_id": "neotoma:chronology:946:25382:control:82526",
+          "chronology_id": "neotoma:chronology:946:25382",
+          "collection_unit_id": "neotoma:collection-unit:946",
+          "country_code": "NO",
+          "site_id": "neotoma:site:947",
+          "source_chronology_control_id": 82526,
+          "source_payload": {
+            "agelimitolder": 5225,
+            "agelimityounger": 4917,
+            "chroncontrolage": 5071,
+            "chroncontrolid": 82526,
+            "chroncontroltype": "Radiocarbon, average of two or more dates",
+            "depth": 221.5,
+            "geochron": {
+              "agetype": "Radiocarbon years BP",
+              "delta13c": -27.7,
+              "delta15n": null,
+              "geochronage": 4870,
+              "geochronerrorolder": 120,
+              "geochronerroryounger": 120,
+              "geochronid": 30299,
+              "geochronmaterialdated": "NaOH-insoluble fraction",
+              "geochronnotes": null,
+              "geochrontype": "Carbon-14",
+              "infinite": false,
+              "labnumber": "T-3279 B",
+              "percentc": null,
+              "percentcollagen": null,
+              "percentn": null,
+              "radiocarbonmethod": "conventional radiometric",
+              "reservoir": null
+            },
+            "thickness": null
+          },
+          "source_snapshot_id": "sha256:b2bcb99157e10b0c9f13c228acc12eabcb39d96a1f39c86ec25e34aacd78c791"
+        },
+        "incoming": {
+          "build_id": "sha256:92dd52619837f3641d004a1a5dbe38f9ab6023a79f61989314bb90e612eb58e1",
+          "chronology_control_id": "neotoma:chronology:946:25382:control:82526",
+          "chronology_id": "neotoma:chronology:946:25382",
+          "collection_unit_id": "neotoma:collection-unit:946",
+          "country_code": "NO",
+          "site_id": "neotoma:site:947",
+          "source_chronology_control_id": 82526,
+          "source_payload": {
+            "agelimitolder": 5225,
+            "agelimityounger": 4917,
+            "chroncontrolage": 5071,
+            "chroncontrolid": 82526,
+            "chroncontroltype": "Radiocarbon, average of two or more dates",
+            "depth": 221.5,
+            "geochron": {
+              "agetype": "Radiocarbon years BP",
+              "delta13c": -27.7,
+              "delta15n": null,
+              "geochronage": 5210,
+              "geochronerrorolder": 100,
+              "geochronerroryounger": 100,
+              "geochronid": 30300,
+              "geochronmaterialdated": "NaOH-soluble fraction",
+              "geochronnotes": null,
+              "geochrontype": "Carbon-14",
+              "infinite": false,
+              "labnumber": "T-3279 A",
+              "percentc": null,
+              "percentcollagen": null,
+              "percentn": null,
+              "radiocarbonmethod": "conventional radiometric",
+              "reservoir": null
+            },
+            "thickness": null
+          },
+          "source_snapshot_id": "sha256:b2bcb99157e10b0c9f13c228acc12eabcb39d96a1f39c86ec25e34aacd78c791"
+        }
+      },
+      "subject_id": "neotoma:chronology:946:25382:control:82526"
+    },
+    {
+      "conflict_id": "neotoma:conflict:e2e1b0daaf9bc64e2d1e384a",
+      "conflict_kind": "default_chronology_assertions_conflict",
+      "detail": {
+        "collection_unit_id": "neotoma:collection-unit:3816",
+        "explicit_default_chronology_id": "neotoma:chronology:3816:25702",
+        "governing_selection": "collection_unit.defaultchronology",
+        "source_flagged_default_chronology_ids": [
+          "neotoma:chronology:3816:25702",
+          "neotoma:chronology:3816:25703"
+        ]
+      },
+      "subject_id": "neotoma:dataset:3941"
+    },
+    {
+      "conflict_id": "neotoma:conflict:e48060d2337cb4cec2e8c9c5",
+      "conflict_kind": "chronology_control_payload_conflict",
+      "detail": {
+        "existing": {
+          "build_id": "sha256:92dd52619837f3641d004a1a5dbe38f9ab6023a79f61989314bb90e612eb58e1",
+          "chronology_control_id": "neotoma:chronology:4151:30602:control:96560",
+          "chronology_id": "neotoma:chronology:4151:30602",
+          "collection_unit_id": "neotoma:collection-unit:4151",
+          "country_code": "FI",
+          "site_id": "neotoma:site:3302",
+          "source_chronology_control_id": 96560,
+          "source_payload": {
+            "agelimitolder": 9180,
+            "agelimityounger": 8900,
+            "chroncontrolage": 9040,
+            "chroncontrolid": 96560,
+            "chroncontroltype": "Radiocarbon",
+            "depth": 247.5,
+            "geochron": {
+              "agetype": "Radiocarbon years BP",
+              "delta13c": null,
+              "delta15n": null,
+              "geochronage": 8890,
+              "geochronerrorolder": 190,
+              "geochronerroryounger": 190,
+              "geochronid": 35609,
+              "geochronmaterialdated": "Soluble humus fraction",
+              "geochronnotes": null,
+              "geochrontype": "Carbon-14",
+              "infinite": false,
+              "labnumber": "Hel-1070",
+              "percentc": null,
+              "percentcollagen": null,
+              "percentn": null,
+              "radiocarbonmethod": "proportional gas counting",
+              "reservoir": null
+            },
+            "thickness": 15
+          },
+          "source_snapshot_id": "sha256:b2bcb99157e10b0c9f13c228acc12eabcb39d96a1f39c86ec25e34aacd78c791"
+        },
+        "incoming": {
+          "build_id": "sha256:92dd52619837f3641d004a1a5dbe38f9ab6023a79f61989314bb90e612eb58e1",
+          "chronology_control_id": "neotoma:chronology:4151:30602:control:96560",
+          "chronology_id": "neotoma:chronology:4151:30602",
+          "collection_unit_id": "neotoma:collection-unit:4151",
+          "country_code": "FI",
+          "site_id": "neotoma:site:3302",
+          "source_chronology_control_id": 96560,
+          "source_payload": {
+            "agelimitolder": 9180,
+            "agelimityounger": 8900,
+            "chroncontrolage": 9040,
+            "chroncontrolid": 96560,
+            "chroncontroltype": "Radiocarbon",
+            "depth": 247.5,
+            "geochron": {
+              "agetype": "Radiocarbon years BP",
+              "delta13c": null,
+              "delta15n": null,
+              "geochronage": 9040,
+              "geochronerrorolder": 140,
+              "geochronerroryounger": 140,
+              "geochronid": 35610,
+              "geochronmaterialdated": "Lake mud",
+              "geochronnotes": null,
+              "geochrontype": "Carbon-14",
+              "infinite": false,
+              "labnumber": "Hel-1069",
+              "percentc": null,
+              "percentcollagen": null,
+              "percentn": null,
+              "radiocarbonmethod": "proportional gas counting",
+              "reservoir": null
+            },
+            "thickness": 15
+          },
+          "source_snapshot_id": "sha256:b2bcb99157e10b0c9f13c228acc12eabcb39d96a1f39c86ec25e34aacd78c791"
+        }
+      },
+      "subject_id": "neotoma:chronology:4151:30602:control:96560"
+    },
+    {
+      "conflict_id": "neotoma:conflict:e49a4643a7eac2452b4ffad0",
+      "conflict_kind": "default_chronology_assertions_conflict",
+      "detail": {
+        "collection_unit_id": "neotoma:collection-unit:14984",
+        "explicit_default_chronology_id": "neotoma:chronology:14984:11592",
+        "governing_selection": "collection_unit.defaultchronology",
+        "source_flagged_default_chronology_ids": [
+          "neotoma:chronology:14984:11592",
+          "neotoma:chronology:14984:11619"
+        ]
+      },
+      "subject_id": "neotoma:dataset:20020"
+    },
+    {
+      "conflict_id": "neotoma:conflict:e68cd041e58f19bdb9ea47d8",
+      "conflict_kind": "default_chronology_assertions_conflict",
+      "detail": {
+        "collection_unit_id": "neotoma:collection-unit:14991",
+        "explicit_default_chronology_id": "neotoma:chronology:14991:11604",
+        "governing_selection": "collection_unit.defaultchronology",
+        "source_flagged_default_chronology_ids": [
+          "neotoma:chronology:14991:11604",
+          "neotoma:chronology:14991:11605"
+        ]
+      },
+      "subject_id": "neotoma:dataset:20042"
+    },
+    {
+      "conflict_id": "neotoma:conflict:e6f1bc282094cff0a42d5c54",
+      "conflict_kind": "chronology_control_payload_conflict",
+      "detail": {
+        "existing": {
+          "build_id": "sha256:92dd52619837f3641d004a1a5dbe38f9ab6023a79f61989314bb90e612eb58e1",
+          "chronology_control_id": "neotoma:chronology:3798:25729:control:84716",
+          "chronology_id": "neotoma:chronology:3798:25729",
+          "collection_unit_id": "neotoma:collection-unit:3798",
+          "country_code": "SE",
+          "site_id": "neotoma:site:3009",
+          "source_chronology_control_id": 84716,
+          "source_payload": {
+            "agelimitolder": 11360,
+            "agelimityounger": 11160,
+            "chroncontrolage": 11260,
+            "chroncontrolid": 84716,
+            "chroncontroltype": "Radiocarbon",
+            "depth": 9305,
+            "geochron": {
+              "agetype": "Radiocarbon years BP",
+              "delta13c": -26.42,
+              "delta15n": null,
+              "geochronage": 10620,
+              "geochronerrorolder": 130,
+              "geochronerroryounger": 130,
+              "geochronid": 31284,
+              "geochronmaterialdated": "Mosses",
+              "geochronnotes": null,
+              "geochrontype": "Carbon-14",
+              "infinite": false,
+              "labnumber": "Lu-2171",
+              "percentc": null,
+              "percentcollagen": null,
+              "percentn": null,
+              "radiocarbonmethod": "conventional radiometric",
+              "reservoir": null
+            },
+            "thickness": null
+          },
+          "source_snapshot_id": "sha256:b2bcb99157e10b0c9f13c228acc12eabcb39d96a1f39c86ec25e34aacd78c791"
+        },
+        "incoming": {
+          "build_id": "sha256:92dd52619837f3641d004a1a5dbe38f9ab6023a79f61989314bb90e612eb58e1",
+          "chronology_control_id": "neotoma:chronology:3798:25729:control:84716",
+          "chronology_id": "neotoma:chronology:3798:25729",
+          "collection_unit_id": "neotoma:collection-unit:3798",
+          "country_code": "SE",
+          "site_id": "neotoma:site:3009",
+          "source_chronology_control_id": 84716,
+          "source_payload": {
+            "agelimitolder": 11360,
+            "agelimityounger": 11160,
+            "chroncontrolage": 11260,
+            "chroncontrolid": 84716,
+            "chroncontroltype": "Radiocarbon",
+            "depth": 9305,
+            "geochron": {
+              "agetype": "Radiocarbon years BP",
+              "delta13c": -26.49,
+              "delta15n": null,
+              "geochronage": 11260,
+              "geochronerrorolder": 100,
+              "geochronerroryounger": 100,
+              "geochronid": 31285,
+              "geochronmaterialdated": "NaOH-soluble fraction-sediment",
+              "geochronnotes": null,
+              "geochrontype": "Carbon-14",
+              "infinite": false,
+              "labnumber": "Lu-2172A",
+              "percentc": null,
+              "percentcollagen": null,
+              "percentn": null,
+              "radiocarbonmethod": "conventional radiometric",
+              "reservoir": null
+            },
+            "thickness": null
+          },
+          "source_snapshot_id": "sha256:b2bcb99157e10b0c9f13c228acc12eabcb39d96a1f39c86ec25e34aacd78c791"
+        }
+      },
+      "subject_id": "neotoma:chronology:3798:25729:control:84716"
+    },
+    {
+      "conflict_id": "neotoma:conflict:e6f7b892bd5300d8041c7840",
+      "conflict_kind": "default_chronology_assertions_conflict",
+      "detail": {
+        "collection_unit_id": "neotoma:collection-unit:4329",
+        "explicit_default_chronology_id": "neotoma:chronology:4329:30646",
+        "governing_selection": "collection_unit.defaultchronology",
+        "source_flagged_default_chronology_ids": [
+          "neotoma:chronology:4329:30646",
+          "neotoma:chronology:4329:30648"
+        ]
+      },
+      "subject_id": "neotoma:dataset:4472"
+    },
+    {
+      "conflict_id": "neotoma:conflict:e7039db4fa1210338390cba3",
+      "conflict_kind": "default_chronology_assertions_conflict",
+      "detail": {
+        "collection_unit_id": "neotoma:collection-unit:4022",
+        "explicit_default_chronology_id": "neotoma:chronology:4022:30589",
+        "governing_selection": "collection_unit.defaultchronology",
+        "source_flagged_default_chronology_ids": [
+          "neotoma:chronology:4022:30589",
+          "neotoma:chronology:4022:30590"
+        ]
+      },
+      "subject_id": "neotoma:dataset:4151"
+    },
+    {
+      "conflict_id": "neotoma:conflict:e72ddaacaab63cea673a5f1f",
+      "conflict_kind": "default_chronology_assertions_conflict",
+      "detail": {
+        "collection_unit_id": "neotoma:collection-unit:37925",
+        "explicit_default_chronology_id": "neotoma:chronology:37925:37159",
+        "governing_selection": "collection_unit.defaultchronology",
+        "source_flagged_default_chronology_ids": [
+          "neotoma:chronology:37925:37159",
+          "neotoma:chronology:37925:37160"
+        ]
+      },
+      "subject_id": "neotoma:dataset:52082"
+    },
+    {
+      "conflict_id": "neotoma:conflict:e8a39425a5047670c4e49c60",
+      "conflict_kind": "default_chronology_assertions_conflict",
+      "detail": {
+        "collection_unit_id": "neotoma:collection-unit:4005",
+        "explicit_default_chronology_id": "neotoma:chronology:4005:30577",
+        "governing_selection": "collection_unit.defaultchronology",
+        "source_flagged_default_chronology_ids": [
+          "neotoma:chronology:4005:30577",
+          "neotoma:chronology:4005:30578"
+        ]
+      },
+      "subject_id": "neotoma:dataset:4134"
+    },
+    {
+      "conflict_id": "neotoma:conflict:ec0d24cd0914f64fafff3d21",
+      "conflict_kind": "default_chronology_assertions_conflict",
+      "detail": {
+        "collection_unit_id": "neotoma:collection-unit:4280",
+        "explicit_default_chronology_id": "neotoma:chronology:4280:30644",
+        "governing_selection": "collection_unit.defaultchronology",
+        "source_flagged_default_chronology_ids": [
+          "neotoma:chronology:4280:30644",
+          "neotoma:chronology:4280:30645"
+        ]
+      },
+      "subject_id": "neotoma:dataset:4422"
+    },
+    {
+      "conflict_id": "neotoma:conflict:ef2b957275af1bfc137c54ef",
+      "conflict_kind": "default_chronology_assertions_conflict",
+      "detail": {
+        "collection_unit_id": "neotoma:collection-unit:20",
+        "explicit_default_chronology_id": "neotoma:chronology:20:30634",
+        "governing_selection": "collection_unit.defaultchronology",
+        "source_flagged_default_chronology_ids": [
+          "neotoma:chronology:20:30634",
+          "neotoma:chronology:20:30635"
+        ]
+      },
+      "subject_id": "neotoma:dataset:20"
+    },
+    {
+      "conflict_id": "neotoma:conflict:f361d8a184e91dad41632f60",
+      "conflict_kind": "default_chronology_assertions_conflict",
+      "detail": {
+        "collection_unit_id": "neotoma:collection-unit:4304",
+        "explicit_default_chronology_id": "neotoma:chronology:4304:25739",
+        "governing_selection": "collection_unit.defaultchronology",
+        "source_flagged_default_chronology_ids": [
+          "neotoma:chronology:4304:25739",
+          "neotoma:chronology:4304:25740"
+        ]
+      },
+      "subject_id": "neotoma:dataset:4446"
+    },
+    {
+      "conflict_id": "neotoma:conflict:f46449daba7f8a41f9922221",
+      "conflict_kind": "default_chronology_assertions_conflict",
+      "detail": {
+        "collection_unit_id": "neotoma:collection-unit:4078",
+        "explicit_default_chronology_id": "neotoma:chronology:4078:25427",
+        "governing_selection": "collection_unit.defaultchronology",
+        "source_flagged_default_chronology_ids": [
+          "neotoma:chronology:4078:25427",
+          "neotoma:chronology:4078:25428"
+        ]
+      },
+      "subject_id": "neotoma:dataset:4207"
+    },
+    {
+      "conflict_id": "neotoma:conflict:f635f193572a37b6bd3647c3",
+      "conflict_kind": "default_chronology_assertions_conflict",
+      "detail": {
+        "collection_unit_id": "neotoma:collection-unit:3910",
+        "explicit_default_chronology_id": "neotoma:chronology:3910:30609",
+        "governing_selection": "collection_unit.defaultchronology",
+        "source_flagged_default_chronology_ids": [
+          "neotoma:chronology:3910:30609",
+          "neotoma:chronology:3910:30610"
+        ]
+      },
+      "subject_id": "neotoma:dataset:4037"
+    },
+    {
+      "conflict_id": "neotoma:conflict:f6a3067e13acea0a274a1af2",
+      "conflict_kind": "default_chronology_assertions_conflict",
+      "detail": {
+        "collection_unit_id": "neotoma:collection-unit:32492",
+        "explicit_default_chronology_id": "neotoma:chronology:32492:29946",
+        "governing_selection": "collection_unit.defaultchronology",
+        "source_flagged_default_chronology_ids": [
+          "neotoma:chronology:32492:29946",
+          "neotoma:chronology:32492:29947"
+        ]
+      },
+      "subject_id": "neotoma:dataset:45704"
+    },
+    {
+      "conflict_id": "neotoma:conflict:f750ea0be3af104c379d0607",
+      "conflict_kind": "default_chronology_assertions_conflict",
+      "detail": {
+        "collection_unit_id": "neotoma:collection-unit:39222",
+        "explicit_default_chronology_id": "neotoma:chronology:39222:38400",
+        "governing_selection": "collection_unit.defaultchronology",
+        "source_flagged_default_chronology_ids": [
+          "neotoma:chronology:39222:38400",
+          "neotoma:chronology:39222:38401"
+        ]
+      },
+      "subject_id": "neotoma:dataset:53966"
+    },
+    {
+      "conflict_id": "neotoma:conflict:f93a23cc955c1b104eae3555",
+      "conflict_kind": "default_chronology_assertions_conflict",
+      "detail": {
+        "collection_unit_id": "neotoma:collection-unit:4152",
+        "explicit_default_chronology_id": "neotoma:chronology:4152:30021",
+        "governing_selection": "collection_unit.defaultchronology",
+        "source_flagged_default_chronology_ids": [
+          "neotoma:chronology:4152:30021",
+          "neotoma:chronology:4152:30022"
+        ]
+      },
+      "subject_id": "neotoma:dataset:4287"
+    },
+    {
+      "conflict_id": "neotoma:conflict:fa3b2736c4658b0aaa3b4ae6",
+      "conflict_kind": "default_chronology_assertions_conflict",
+      "detail": {
+        "collection_unit_id": "neotoma:collection-unit:12",
+        "explicit_default_chronology_id": "neotoma:chronology:12:25791",
+        "governing_selection": "collection_unit.defaultchronology",
+        "source_flagged_default_chronology_ids": [
+          "neotoma:chronology:12:25791",
+          "neotoma:chronology:12:25792"
+        ]
+      },
+      "subject_id": "neotoma:dataset:12"
+    },
+    {
+      "conflict_id": "neotoma:conflict:fd407be8f7bbd353e6607925",
+      "conflict_kind": "chronology_control_payload_conflict",
+      "detail": {
+        "existing": {
+          "build_id": "sha256:92dd52619837f3641d004a1a5dbe38f9ab6023a79f61989314bb90e612eb58e1",
+          "chronology_control_id": "neotoma:chronology:3798:25730:control:84721",
+          "chronology_id": "neotoma:chronology:3798:25730",
+          "collection_unit_id": "neotoma:collection-unit:3798",
+          "country_code": "SE",
+          "site_id": "neotoma:site:3009",
+          "source_chronology_control_id": 84721,
+          "source_payload": {
+            "agelimitolder": 10750,
+            "agelimityounger": 10490,
+            "chroncontrolage": 10620,
+            "chroncontrolid": 84721,
+            "chroncontroltype": "Radiocarbon",
+            "depth": 9305,
+            "geochron": {
+              "agetype": "Radiocarbon years BP",
+              "delta13c": -26.42,
+              "delta15n": null,
+              "geochronage": 10620,
+              "geochronerrorolder": 130,
+              "geochronerroryounger": 130,
+              "geochronid": 31284,
+              "geochronmaterialdated": "Mosses",
+              "geochronnotes": null,
+              "geochrontype": "Carbon-14",
+              "infinite": false,
+              "labnumber": "Lu-2171",
+              "percentc": null,
+              "percentcollagen": null,
+              "percentn": null,
+              "radiocarbonmethod": "conventional radiometric",
+              "reservoir": null
+            },
+            "thickness": 5
+          },
+          "source_snapshot_id": "sha256:b2bcb99157e10b0c9f13c228acc12eabcb39d96a1f39c86ec25e34aacd78c791"
+        },
+        "incoming": {
+          "build_id": "sha256:92dd52619837f3641d004a1a5dbe38f9ab6023a79f61989314bb90e612eb58e1",
+          "chronology_control_id": "neotoma:chronology:3798:25730:control:84721",
+          "chronology_id": "neotoma:chronology:3798:25730",
+          "collection_unit_id": "neotoma:collection-unit:3798",
+          "country_code": "SE",
+          "site_id": "neotoma:site:3009",
+          "source_chronology_control_id": 84721,
+          "source_payload": {
+            "agelimitolder": 10750,
+            "agelimityounger": 10490,
+            "chroncontrolage": 10620,
+            "chroncontrolid": 84721,
+            "chroncontroltype": "Radiocarbon",
+            "depth": 9305,
+            "geochron": {
+              "agetype": "Radiocarbon years BP",
+              "delta13c": -26.99,
+              "delta15n": null,
+              "geochronage": 11360,
+              "geochronerrorolder": 100,
+              "geochronerroryounger": 100,
+              "geochronid": 31286,
+              "geochronmaterialdated": "NaOH-insoluble fraction",
+              "geochronnotes": null,
+              "geochrontype": "Carbon-14",
+              "infinite": false,
+              "labnumber": "Lu-2172",
+              "percentc": null,
+              "percentcollagen": null,
+              "percentn": null,
+              "radiocarbonmethod": "conventional radiometric",
+              "reservoir": null
+            },
+            "thickness": 5
+          },
+          "source_snapshot_id": "sha256:b2bcb99157e10b0c9f13c228acc12eabcb39d96a1f39c86ec25e34aacd78c791"
+        }
+      },
+      "subject_id": "neotoma:chronology:3798:25730:control:84721"
+    }
+  ],
+  "schema_version": "neotoma-relational-part.v1",
+  "source_family": "neotoma",
+  "source_snapshot_id": "sha256:b2bcb99157e10b0c9f13c228acc12eabcb39d96a1f39c86ec25e34aacd78c791",
+  "surface": "conflicts",
+  "surface_schema_version": "neotoma-relational-conflicts.v2"
+}

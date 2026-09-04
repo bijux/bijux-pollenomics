@@ -1,0 +1,251 @@
+{
+  "build_id": "sha256:92dd52619837f3641d004a1a5dbe38f9ab6023a79f61989314bb90e612eb58e1",
+  "reconciliation": {
+    "age_comparability_counts": {
+      "comparable": 11526,
+      "context_only": 10622,
+      "refused": 294,
+      "unresolved": 839
+    },
+    "age_reason_counts": {
+      "missing_age_type": 839,
+      "negative_bp": 294,
+      "uncalibrated_radiocarbon": 10525,
+      "ungoverned_varve_basis": 97
+    },
+    "conflict_count": 150,
+    "country_attribution_counts": {
+      "decision_methods": {
+        "boundary_proximity": 6,
+        "strict_boundary_containment": 194
+      },
+      "decision_statuses": {
+        "assigned": 193,
+        "review": 7
+      },
+      "derived_country_codes": {
+        "DK": 5,
+        "FI": 32,
+        "NO": 59,
+        "SE": 98,
+        "UNASSIGNED": 6
+      },
+      "derived_country_values": {
+        "Denmark": 5,
+        "Finland": 32,
+        "Norway": 59,
+        "Sweden": 98,
+        "UNASSIGNED": 6
+      },
+      "final_country_codes": {
+        "DK": 5,
+        "FI": 32,
+        "NO": 58,
+        "SE": 98,
+        "UNASSIGNED": 7
+      },
+      "propagation_eligibility": {
+        "blocked": 7,
+        "eligible": 193
+      },
+      "raw_country_codes": {
+        "DK": 5,
+        "FI": 33,
+        "NO": 61,
+        "SE": 101
+      },
+      "raw_country_values": {
+        "Denmark": 5,
+        "Finland": 33,
+        "Norway": 61,
+        "Sweden": 101
+      },
+      "source_vs_derived_comparisons": {
+        "agrees": 193,
+        "conflicts": 1,
+        "unresolved": 6
+      }
+    },
+    "country_counts": {
+      "DK": {
+        "age_claim_rows": 371,
+        "age_comparable": 91,
+        "age_context_only": 92,
+        "age_refused": 1,
+        "age_unresolved": 187,
+        "assigned_sites": 5,
+        "chronologies": 9,
+        "chronology_controls": 75,
+        "collection_unit_rows": 7,
+        "collection_units": 7,
+        "dataset_rows": 7,
+        "datasets": 7,
+        "observation_rows": 9247,
+        "propagation_eligible_sites": 5,
+        "refused_sites": 0,
+        "review_sites": 0,
+        "sample_rows": 279,
+        "samples": 279,
+        "site_rows": 7,
+        "sites": 5,
+        "unassigned_sites": 0,
+        "variables": 278
+      },
+      "FI": {
+        "age_claim_rows": 4696,
+        "age_comparable": 1891,
+        "age_context_only": 2614,
+        "age_refused": 161,
+        "age_unresolved": 30,
+        "assigned_sites": 32,
+        "chronologies": 74,
+        "chronology_controls": 418,
+        "collection_unit_rows": 33,
+        "collection_units": 33,
+        "dataset_rows": 33,
+        "datasets": 33,
+        "observation_rows": 46241,
+        "propagation_eligible_sites": 32,
+        "refused_sites": 0,
+        "review_sites": 0,
+        "sample_rows": 2184,
+        "samples": 2184,
+        "site_rows": 33,
+        "sites": 32,
+        "unassigned_sites": 0,
+        "variables": 376
+      },
+      "NO": {
+        "age_claim_rows": 8437,
+        "age_comparable": 3692,
+        "age_context_only": 4647,
+        "age_refused": 32,
+        "age_unresolved": 66,
+        "assigned_sites": 58,
+        "chronologies": 131,
+        "chronology_controls": 943,
+        "collection_unit_rows": 59,
+        "collection_units": 58,
+        "dataset_rows": 59,
+        "datasets": 59,
+        "observation_rows": 143065,
+        "propagation_eligible_sites": 58,
+        "refused_sites": 0,
+        "review_sites": 0,
+        "sample_rows": 3884,
+        "samples": 3884,
+        "site_rows": 59,
+        "sites": 58,
+        "unassigned_sites": 0,
+        "variables": 724
+      },
+      "SE": {
+        "age_claim_rows": 9277,
+        "age_comparable": 5626,
+        "age_context_only": 3007,
+        "age_refused": 99,
+        "age_unresolved": 545,
+        "assigned_sites": 98,
+        "chronologies": 157,
+        "chronology_controls": 1264,
+        "collection_unit_rows": 103,
+        "collection_units": 101,
+        "dataset_rows": 103,
+        "datasets": 103,
+        "observation_rows": 162683,
+        "propagation_eligible_sites": 98,
+        "refused_sites": 0,
+        "review_sites": 0,
+        "sample_rows": 5764,
+        "samples": 5764,
+        "site_rows": 103,
+        "sites": 98,
+        "unassigned_sites": 0,
+        "variables": 866
+      },
+      "UNASSIGNED": {
+        "age_claim_rows": 500,
+        "age_comparable": 226,
+        "age_context_only": 262,
+        "age_refused": 1,
+        "age_unresolved": 11,
+        "assigned_sites": 0,
+        "chronologies": 13,
+        "chronology_controls": 98,
+        "collection_unit_rows": 7,
+        "collection_units": 7,
+        "dataset_rows": 7,
+        "datasets": 7,
+        "observation_rows": 9700,
+        "propagation_eligible_sites": 0,
+        "refused_sites": 0,
+        "review_sites": 7,
+        "sample_rows": 277,
+        "samples": 277,
+        "site_rows": 7,
+        "sites": 7,
+        "unassigned_sites": 0,
+        "variables": 212
+      }
+    },
+    "normalized_row_counts": {
+      "age_claims": 23281,
+      "chronologies": 384,
+      "chronology_controls": 2798,
+      "collection_units": 206,
+      "datasets": 209,
+      "observations": 370936,
+      "samples": 12388,
+      "sites": 200,
+      "variables": 1262
+    },
+    "orphan_count": 52,
+    "source_row_counts": {
+      "age_claim_rows": 23281,
+      "chronology_control_rows": 2867,
+      "chronology_rows": 387,
+      "collection_unit_rows": 209,
+      "dataset_rows": 209,
+      "download_rows": 209,
+      "observation_rows": 370936,
+      "sample_rows": 12388,
+      "site_rows": 209
+    },
+    "source_unit_counts": {
+      "NISP": 358016,
+      "NISP digitized": 295,
+      "NISP/tablet": 217,
+      "cm3": 254,
+      "cm^3": 596,
+      "g": 1243,
+      "grains/cm3": 109,
+      "grains/cm²/yr": 161,
+      "grains/g": 1818,
+      "grains/g sample": 72,
+      "grains/mg": 273,
+      "grains/ml": 186,
+      "grains/tablet": 211,
+      "mg": 273,
+      "ml": 3048,
+      "number": 3880,
+      "number/tablet": 32,
+      "particles/cm²/yr": 91,
+      "yr/cm": 161
+    },
+    "unit_family_counts": {
+      "concentration_per_mass": 2163,
+      "concentration_per_volume": 295,
+      "count": 362191,
+      "count_per_tablet": 460,
+      "influx_per_area_time": 252,
+      "mass": 1516,
+      "sedimentation_time_per_depth": 161,
+      "volume": 3898
+    },
+    "variable_semantic_variant_count": 1325
+  },
+  "relational_snapshot_schema_version": "neotoma-relational-snapshot.v2",
+  "schema_version": "neotoma-relational-reconciliation.v2",
+  "source_family": "neotoma",
+  "source_snapshot_id": "sha256:b2bcb99157e10b0c9f13c228acc12eabcb39d96a1f39c86ec25e34aacd78c791"
+}
