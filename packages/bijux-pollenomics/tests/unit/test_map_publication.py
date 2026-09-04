@@ -131,7 +131,7 @@ class MapPublicationUnitTests(unittest.TestCase):
         self.assertIsNotNone(node, "Node.js is required to verify browser semantics")
         block_start = MAP_DOCUMENT_TEMPLATE.index("function finiteTimeValue")
         block_end = MAP_DOCUMENT_TEMPLATE.index(
-            "function featureInTimeWindow", block_start
+            "function pointFeatureInTimeWindow", block_start
         )
         parser_source = MAP_DOCUMENT_TEMPLATE[block_start:block_end]
         cases = [
@@ -142,11 +142,12 @@ class MapPublicationUnitTests(unittest.TestCase):
             {"time_mean_bp": 25},
             {"time_year_bp": -1},
         ]
-        script = (
-            parser_source
-            + "\nconsole.log(JSON.stringify("
-            + json.dumps(cases)
-            + ".map(featureTimeWindow)));"
+        encoded_cases = json.dumps(cases)
+        script = parser_source + (
+            "\nconst cases = " + encoded_cases + "; console.log(JSON.stringify({"
+            "windows: cases.map(featureTimeWindow), "
+            "labels: cases.map((feature) => featureTimeLabel({"
+            "...feature, time_label: 'source label'}))}));"
         )
 
         result = subprocess.run(
@@ -157,7 +158,7 @@ class MapPublicationUnitTests(unittest.TestCase):
         )
 
         self.assertEqual(
-            json.loads(result.stdout),
+            json.loads(result.stdout)["windows"],
             [
                 {"start": 0, "end": 100},
                 None,
@@ -167,6 +168,10 @@ class MapPublicationUnitTests(unittest.TestCase):
                 None,
             ],
         )
+        self.assertEqual(
+            json.loads(result.stdout)["labels"],
+            ["source label", "", "", "", "source label", ""],
+        )
 
     def test_basemap_failure_has_bounded_failover_and_tile_free_mode(self) -> None:
         self.assertIn('data-basemap="none"', MAP_DOCUMENT_TEMPLATE)
@@ -174,7 +179,8 @@ class MapPublicationUnitTests(unittest.TestCase):
         self.assertIn("layer.on('tileerror'", MAP_DOCUMENT_TEMPLATE)
         self.assertIn("failedBasemaps.add(name)", MAP_DOCUMENT_TEMPLATE)
         self.assertIn(
-            "No basemap; evidence layers remain available", MAP_DOCUMENT_TEMPLATE
+            "Basemap degraded: no basemap. Evidence data unaffected.",
+            MAP_DOCUMENT_TEMPLATE,
         )
         self.assertNotIn("apiKey", MAP_DOCUMENT_TEMPLATE)
 

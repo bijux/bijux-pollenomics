@@ -2508,9 +2508,9 @@ MAP_DOCUMENT_TEMPLATE = """
         return featureWindow.end >= activeWindow.start && featureWindow.start <= activeWindow.end;
       }
       function featureTimeLabel(feature) {
-        if (feature.time_label) return String(feature.time_label);
         const window = featureTimeWindow(feature);
         if (!window) return '';
+        if (feature.time_label) return String(feature.time_label);
         return window.start === window.end ? `${window.start} BP` : `${window.start}-${window.end} BP`;
       }
       function pointFeatureInTimeWindow(layer, feature) {
@@ -2767,7 +2767,7 @@ MAP_DOCUMENT_TEMPLATE = """
         currentBasemap = requested;
         activeBasemap = null;
         if (requested === 'none') {
-          updateBasemapReadout(options.reason || 'No basemap; evidence layers remain available');
+          updateBasemapReadout(options.reason || 'Basemap degraded: no basemap. Evidence data unaffected.');
         } else {
           activeBasemap = requested;
           basemaps[requested].addTo(map);
@@ -2795,8 +2795,8 @@ MAP_DOCUMENT_TEMPLATE = """
           const fallback = nextBasemapAfter(name);
           setBasemap(fallback, {
             reason: fallback === 'none'
-              ? `${name} unavailable; no-basemap mode active`
-              : `${name} unavailable; using ${fallback}`,
+              ? `Basemap degraded: ${name} unavailable; no-basemap mode active. Evidence data unaffected.`
+              : `Basemap degraded: ${name} unavailable; using ${fallback}. Evidence data unaffected.`,
           });
         });
       });
