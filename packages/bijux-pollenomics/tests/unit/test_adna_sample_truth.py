@@ -1,12 +1,11 @@
 from __future__ import annotations
 
 import json
-from pathlib import Path
 import tempfile
 import unittest
+from pathlib import Path
 
 import pytest
-
 from bijux_pollenomics.adna import (
     build_animal_sample_aggregation_warnings,
     build_animal_sample_foundation_truth,
@@ -44,20 +43,35 @@ class AdnaSampleTruthUnitTests(unittest.TestCase):
         payload = build_animal_sample_foundation_truth(repo_root / "data")
 
         self.assertEqual(payload["schema_version"], "animal-sample-foundation-truth.v1")
-        self.assertEqual(payload["summary"]["tracked_species_count"], 10)
-        self.assertGreater(payload["summary"]["tracked_project_count"], 0)
-        self.assertGreater(payload["summary"]["sample_row_count"], 0)
-        self.assertGreater(
-            payload["summary"]["blocked_missing_location_detail_count"],
-            0,
+        summary = payload["summary"]
+        self.assertEqual(summary["tracked_species_count"], 10)
+        self.assertEqual(summary["tracked_project_count"], 14)
+        self.assertEqual(summary["sample_row_count"], 868)
+        self.assertEqual(summary["blocked_missing_location_detail_count"], 0)
+        self.assertEqual(
+            sum(
+                int(summary[field])
+                for field in (
+                    "fully_grounded_count",
+                    "partially_grounded_count",
+                    "blocked_missing_metadata_count",
+                    "blocked_missing_location_detail_count",
+                    "blocked_weak_chronology_count",
+                )
+            ),
+            summary["sample_row_count"],
         )
         sheep_row = next(
             row
             for row in payload["species_rows"]
             if row["species_latin_name"] == "Ovis aries"
         )
-        self.assertGreaterEqual(sheep_row["sample_row_count"], 1)
-        self.assertTrue(sheep_row["uses_project_level_sample_anchor"])
+        self.assertEqual(sheep_row["sample_row_count"], 190)
+        self.assertEqual(
+            sheep_row["reported_curated_sample_count"],
+            sheep_row["sample_row_count"],
+        )
+        self.assertFalse(sheep_row["uses_project_level_sample_anchor"])
 
     def test_species_summary_drift_is_clean_for_materialized_species_roots(
         self,
@@ -121,7 +135,7 @@ class AdnaSampleTruthUnitTests(unittest.TestCase):
         self.assertEqual(drift_rows[0]["sample_backed_site_count"], 2)
         self.assertEqual(drift_rows[0]["project_locality_summary_count"], 1)
 
-    def test_sample_aggregation_warnings_count_project_level_dependence(self) -> None:
+    def test_sample_aggregation_warnings_confirm_sample_backed_truth(self) -> None:
         repo_root = Path(__file__).resolve().parents[4]
         payload = build_animal_sample_aggregation_warnings(
             repo_root / "data",
@@ -132,14 +146,81 @@ class AdnaSampleTruthUnitTests(unittest.TestCase):
             payload["schema_version"],
             "animal-sample-aggregation-warnings.v1",
         )
-        self.assertGreater(payload["summary"]["project_accession_anchor_count"], 0)
-        self.assertGreater(
-            payload["summary"]["projects_with_project_level_sample_anchors"],
-            0,
+        self.assertEqual(
+            payload["summary"],
+            {
+                "total_sample_row_count": 868,
+                "project_accession_anchor_count": 0,
+                "accession_range_anchor_count": 0,
+                "sample_accession_anchor_count": 1,
+                "project_locality_summary_count": 0,
+                "projects_with_project_level_sample_anchors": 0,
+                "projects_with_locality_count_drift": 0,
+                "species_with_summary_count_drift": 0,
+            },
         )
-        warning_classes = {row["warning_class"] for row in payload["warning_rows"]}
-        self.assertIn("project_level_sample_anchors", warning_classes)
-        self.assertIn("project_locality_summary_rows", warning_classes)
+        warning_counts = {
+            row["warning_class"]: row["count"] for row in payload["warning_rows"]
+        }
+        self.assertEqual(
+            warning_counts,
+            {
+                "project_level_sample_anchors": 0,
+                "project_locality_summary_rows": 0,
+                "locality_count_drift": 0,
+                "species_summary_count_drift": 0,
+            },
+        )
+
+    def test_sample_aggregation_warnings_detect_project_fallback(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            data_root = Path(tmp) / "data"
+            normalized_root = (
+                data_root / "adna" / "species" / "ovis_aries" / "normalized"
+            )
+            _write_json(
+                normalized_root / "sample_records.json",
+                {
+                    "samples": [
+                        _sample_row(
+                            stable_token="ovis_aries:sample:one",
+                            locality_token="ovis_aries:sample-site:one",
+                            locality_text="Site One",
+                            project_accession="PRJTEST",
+                        )
+                    ]
+                },
+            )
+            _write_json(
+                normalized_root / "locality_summaries.json",
+                {
+                    "localities": [
+                        {
+                            "identity": {
+                                "stable_token": "ovis_aries:sample-site:one",
+                            },
+                            "project_accessions": ["PRJTEST"],
+                            "sample_namespace": "ovis_aries:sample_locality",
+                        }
+                    ]
+                },
+            )
+
+            payload = build_animal_sample_aggregation_warnings(
+                data_root,
+                Path(tmp) / "report",
+            )
+
+        self.assertEqual(payload["summary"]["total_sample_row_count"], 1)
+        self.assertEqual(payload["summary"]["project_accession_anchor_count"], 1)
+        self.assertEqual(
+            payload["summary"]["projects_with_project_level_sample_anchors"],
+            1,
+        )
+        warning_counts = {
+            row["warning_class"]: row["count"] for row in payload["warning_rows"]
+        }
+        self.assertEqual(warning_counts["project_level_sample_anchors"], 1)
 
 
 def _sample_row(
