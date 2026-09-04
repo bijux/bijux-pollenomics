@@ -30,6 +30,7 @@ POLLENOMICS_SCIENCE_INPUTS := \
 	$(POLLENOMICS_SCIENCE_TESTS)
 
 POLLENOMICS_DATA_TESTS := \
+	$(POLLENOMICS_TEST_ROOT)/unit/test_sead_acquisition.py \
 	$(POLLENOMICS_TEST_ROOT)/unit/test_neotoma_data.py \
 	$(POLLENOMICS_TEST_ROOT)/unit/test_neotoma_relational.py \
 	$(POLLENOMICS_TEST_ROOT)/unit/test_neotoma_materialization.py \
