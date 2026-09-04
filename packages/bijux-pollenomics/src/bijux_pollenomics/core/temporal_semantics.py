@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 from dataclasses import dataclass
+from math import isfinite
 
 from .bp_time import (
     build_bp_interval_label,
@@ -9,10 +10,15 @@ from .bp_time import (
 )
 
 __all__ = [
+    "BpInterval",
+    "DirectionalLagBounds",
+    "InvalidBpIntervalError",
     "TEMPORAL_COMPARABILITY_POSTURES",
     "TEMPORAL_WINDOW_ROWS",
     "TemporalSemantics",
     "build_temporal_semantics",
+    "canonical_bp_interval",
+    "directional_lag_bounds",
     "normalize_temporal_semantics_payload",
     "resolve_temporal_window",
     "temporal_semantics_has_numeric_interval",
@@ -32,6 +38,74 @@ TEMPORAL_WINDOW_ROWS = (
     ("early_holocene_and_older", "Early Holocene and older (6001+ BP)", 6001, None),
     ("unresolved", "Unresolved time window", None, None),
 )
+
+
+class InvalidBpIntervalError(ValueError):
+    """Raised when a claimed canonical BP interval violates its contract."""
+
+
+@dataclass(frozen=True)
+class BpInterval:
+    """One closed calendar-BP interval ordered from younger to older."""
+
+    younger_bp: float
+    older_bp: float
+
+    def __post_init__(self) -> None:
+        younger = _canonical_bp_endpoint(self.younger_bp, field_name="younger_bp")
+        older = _canonical_bp_endpoint(self.older_bp, field_name="older_bp")
+        if younger > older:
+            raise InvalidBpIntervalError(
+                "younger_bp must be less than or equal to older_bp"
+            )
+        object.__setattr__(self, "younger_bp", younger)
+        object.__setattr__(self, "older_bp", older)
+
+
+@dataclass(frozen=True)
+class DirectionalLagBounds:
+    """Supported BP lag range for an asserted source-to-target orientation."""
+
+    minimum_lag_years: float
+    maximum_lag_years: float
+
+
+def canonical_bp_interval(
+    younger_bp: float | int | None,
+    older_bp: float | int | None,
+) -> BpInterval | None:
+    """Validate canonical ``[younger_bp, older_bp]`` input without reordering it."""
+    if younger_bp is None and older_bp is None:
+        return None
+    if younger_bp is None or older_bp is None:
+        raise InvalidBpIntervalError(
+            "younger_bp and older_bp must either both be present or both be null"
+        )
+    return BpInterval(younger_bp=younger_bp, older_bp=older_bp)
+
+
+def directional_lag_bounds(
+    source: BpInterval | None,
+    target: BpInterval | None,
+) -> DirectionalLagBounds | None:
+    """Return all supported lags for source (older) to target (younger)."""
+    if source is None or target is None:
+        return None
+    return DirectionalLagBounds(
+        minimum_lag_years=source.younger_bp - target.older_bp,
+        maximum_lag_years=source.older_bp - target.younger_bp,
+    )
+
+
+def _canonical_bp_endpoint(value: object, *, field_name: str) -> float:
+    if isinstance(value, bool) or not isinstance(value, (int, float)):
+        raise InvalidBpIntervalError(f"{field_name} must be a finite number")
+    endpoint = float(value)
+    if not isfinite(endpoint):
+        raise InvalidBpIntervalError(f"{field_name} must be finite")
+    if endpoint < 0:
+        raise InvalidBpIntervalError(f"{field_name} must be non-negative")
+    return endpoint
 
 
 @dataclass(frozen=True)
