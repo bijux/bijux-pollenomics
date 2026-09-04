@@ -20,6 +20,17 @@ def write_landclim_ii_zip(
     populated_writer = csv.DictWriter(populated_buffer, fieldnames=fieldnames)
     populated_writer.writeheader()
     populated_writer.writerows(rows)
+    standard_error_rows = [
+        {
+            key: value if key in {"LCGRID_ID", "lonDD", "latDD"} else "0.01"
+            for key, value in row.items()
+        }
+        for row in rows
+    ]
+    standard_error_buffer = io.StringIO()
+    standard_error_writer = csv.DictWriter(standard_error_buffer, fieldnames=fieldnames)
+    standard_error_writer.writeheader()
+    standard_error_writer.writerows(standard_error_rows)
     empty_buffer = io.StringIO()
     empty_writer = csv.DictWriter(empty_buffer, fieldnames=fieldnames)
     empty_writer.writeheader()
@@ -37,7 +48,12 @@ def write_landclim_ii_zip(
                     f"LANDCLIMII.RV.standarderrors.JUN2021/"
                     f"TW{time_window_index}.standarderrors.jun21.csv"
                 )
-                archive.writestr(standard_errors_name, empty_buffer.getvalue())
+                archive.writestr(
+                    standard_errors_name,
+                    standard_error_buffer.getvalue()
+                    if time_window_index == 1
+                    else empty_buffer.getvalue(),
+                )
 
 
 def write_xlsx(path: Path, sheets: dict[str, list[list[object]]]) -> None:

@@ -26,6 +26,9 @@ from bijux_pollenomics.data_downloader.models import ContextPointRecord
 from bijux_pollenomics.data_downloader.sources.landclim import (
     build_landclim_spatiotemporal_review,
 )
+from bijux_pollenomics.data_downloader.sources.landclim.time_windows import (
+    _require_uncertainty_pair,
+)
 from tests.support.geography import NORDIC_TEST_BBOX, SWEDEN_BOUNDARIES
 from tests.support.workbooks import write_landclim_ii_zip, write_xlsx
 
@@ -35,6 +38,22 @@ CountryBoundaries = Mapping[str, Mapping[str, object]]
 
 
 class LandClimDataTests(unittest.TestCase):
+    def test_model_estimates_require_exact_non_negative_uncertainty(self) -> None:
+        with self.assertRaisesRegex(ValueError, "missing=\\['Picea'\\]"):
+            _require_uncertainty_pair(
+                {"Picea": 0.2},
+                {},
+                dataset_id="900966",
+                record_id="GC1:0-100 BP",
+            )
+        with self.assertRaisesRegex(ValueError, "standard_errors=\\['Picea'\\]"):
+            _require_uncertainty_pair(
+                {"Picea": 0.2},
+                {"Picea": -0.01},
+                dataset_id="900966",
+                record_id="GC1:0-100 BP",
+            )
+
     def test_spatiotemporal_review_links_windows_and_bibliography_by_dataset(
         self,
     ) -> None:
@@ -227,7 +246,12 @@ class LandClimDataTests(unittest.TestCase):
                         ["Country", "", "Grid cell", "", "Open land"],
                         ["", "", "", "", ""],
                         ["SWE", "", "17°E 60°N", "", "0.25"],
-                    ]
+                    ],
+                    "0-100BPSE": [
+                        ["Country", "", "Grid cell", "", "Open land"],
+                        ["", "", "", "", ""],
+                        ["SWE", "", "17°E 60°N", "", "0.03"],
+                    ],
                 },
             )
             write_xlsx(
@@ -237,7 +261,12 @@ class LandClimDataTests(unittest.TestCase):
                         ["Country", "", "Grid cell", "", "PFT"],
                         ["", "", "", "", ""],
                         ["SWE", "", "17°E 60°N", "", "0.10"],
-                    ]
+                    ],
+                    "0-100BPSE": [
+                        ["Country", "", "Grid cell", "", "PFT"],
+                        ["", "", "", "", ""],
+                        ["SWE", "", "17°E 60°N", "", "0.01"],
+                    ],
                 },
             )
             write_xlsx(
@@ -318,11 +347,22 @@ class LandClimDataTests(unittest.TestCase):
                 0.12,
             )
             self.assertEqual(
+                cast(dict[str, float], landclim_ii["standard_errors"])["PICEA"],
+                0.01,
+            )
+            self.assertEqual(
                 cast(dict[str, object], landclim_ii["temporal_semantics"])[
                     "comparability_posture"
                 ],
                 "numeric_interval_with_caveat",
             )
+            self.assertEqual(
+                cast(dict[str, object], landclim_ii["temporal_semantics"])[
+                    "evidence_class"
+                ],
+                "modeled_vegetation_time_window",
+            )
+            self.assertNotEqual(landclim_ii["category"], "Pollen observation")
             marquer = next(
                 properties
                 for properties in temporal_properties

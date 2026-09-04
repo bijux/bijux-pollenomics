@@ -107,9 +107,7 @@ def _merge_marquer_time_windows(
             f"{clean_optional_text(row[0])} BP"
         )
         for row in read_xlsx_sheet_rows(path, "Code time windows")[1:]
-        if len(row) > 1
-        and clean_optional_text(row[0])
-        and clean_optional_text(row[1])
+        if len(row) > 1 and clean_optional_text(row[0]) and clean_optional_text(row[1])
     }
     cell_geometries = _marquer_cell_geometries(path)
     estimate_rows = read_xlsx_sheet_rows(path, "REVEALS 36GCs")
@@ -145,6 +143,13 @@ def _merge_marquer_time_windows(
         if not estimates:
             continue
         cell_id = f"GC{match.group('cell')}"
+        error_values = standard_errors.get(row_id, {})
+        _require_uncertainty_pair(
+            estimates,
+            error_values,
+            dataset_id="900966",
+            record_id=f"{cell_id}:{time_window}",
+        )
         feature = _temporal_grid_feature(
             dataset_id="900966",
             cell_id=cell_id,
@@ -158,7 +163,7 @@ def _merge_marquer_time_windows(
         )
         properties = _properties(feature)
         properties["reconstruction_values"] = estimates
-        properties["standard_errors"] = standard_errors.get(row_id, {})
+        properties["standard_errors"] = error_values
         features[("900966", cell_id, time_window)] = feature
 
 
@@ -171,9 +176,7 @@ def _marquer_cell_geometries(path: Path) -> dict[str, dict[str, object]]:
         latitude = parse_coordinate(row[3]) if len(row) > 3 else None
         longitude = parse_coordinate(row[4]) if len(row) > 4 else None
         if cell_key and latitude is not None and longitude is not None:
-            grouped_coordinates.setdefault(cell_key, []).append(
-                (longitude, latitude)
-            )
+            grouped_coordinates.setdefault(cell_key, []).append((longitude, latitude))
 
     geometries: dict[str, dict[str, object]] = {}
     for key, coordinates in grouped_coordinates.items():
@@ -241,6 +244,13 @@ def _merge_landclim_i_time_windows(
             if not estimates:
                 continue
             cell_id = clean_optional_text(row[1]) or cell_label
+            error_values = standard_errors.get(cell_label, {})
+            _require_uncertainty_pair(
+                estimates,
+                error_values,
+                dataset_id="897303",
+                record_id=f"{cell_id}:{time_window}:{value_group}",
+            )
             key = ("897303", cell_id, time_window)
             feature = features.setdefault(
                 key,
@@ -260,11 +270,7 @@ def _merge_landclim_i_time_windows(
             _grouped_values(properties, "reconstruction_values")[value_group] = (
                 estimates
             )
-            error_values = standard_errors.get(cell_label, {})
-            if error_values:
-                _grouped_values(properties, "standard_errors")[value_group] = (
-                    error_values
-                )
+            _grouped_values(properties, "standard_errors")[value_group] = error_values
 
 
 def _merge_landclim_ii_time_windows(
@@ -318,6 +324,12 @@ def _merge_landclim_ii_time_windows(
                     properties = _properties(feature)
                     properties["reconstruction_values"] = estimates
                     error_values = standard_errors.get((time_window, cell_id), {})
+                    _require_uncertainty_pair(
+                        estimates,
+                        error_values,
+                        dataset_id="937075",
+                        record_id=f"{cell_id}:{time_window}",
+                    )
                     properties["standard_errors"] = error_values
                     quality_label = quality_by_grid.get(cell_id, {}).get(
                         time_window, ""
@@ -490,6 +502,40 @@ def _numeric_mapping(
     }
 
 
+def _require_uncertainty_pair(
+    estimates: Mapping[str, float],
+    standard_errors: Mapping[str, float],
+    *,
+    dataset_id: str,
+    record_id: str,
+) -> None:
+    """Require exact, finite uncertainty coverage for every emitted model estimate."""
+    estimate_variables = set(estimates)
+    uncertainty_variables = set(standard_errors)
+    if estimate_variables != uncertainty_variables:
+        missing = sorted(estimate_variables - uncertainty_variables)
+        unexpected = sorted(uncertainty_variables - estimate_variables)
+        raise ValueError(
+            "LandClim estimate/standard-error variables differ for "
+            f"dataset {dataset_id} record {record_id}: "
+            f"missing={missing}, unexpected={unexpected}"
+        )
+    invalid_estimates = sorted(
+        variable for variable, value in estimates.items() if not math.isfinite(value)
+    )
+    invalid_uncertainties = sorted(
+        variable
+        for variable, value in standard_errors.items()
+        if not math.isfinite(value) or value < 0
+    )
+    if invalid_estimates or invalid_uncertainties:
+        raise ValueError(
+            "LandClim estimate/standard-error values are invalid for "
+            f"dataset {dataset_id} record {record_id}: "
+            f"estimates={invalid_estimates}, standard_errors={invalid_uncertainties}"
+        )
+
+
 def _polygon_center(geometry: Mapping[str, object]) -> tuple[float, float]:
     coordinates = geometry.get("coordinates")
     if not isinstance(coordinates, list) or not coordinates:
@@ -520,7 +566,7 @@ def _grouped_values(
 ) -> dict[str, dict[str, float]]:
     value = properties.get(key)
     if isinstance(value, dict):
-        return value  # type: ignore[return-value]
+        return value
     grouped: dict[str, dict[str, float]] = {}
     properties[key] = grouped
     return grouped
