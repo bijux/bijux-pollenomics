@@ -1257,9 +1257,11 @@ def _render_identity_methodology(report: LakeEvidenceRichnessReport) -> str:
             "duplicate Sweden lake names stay explicit, and registry names that do not "
             "come from the official register field remain flagged for review"
         )
+    name_match_distance = diagnostics.get("name_match_distance_km", "not recorded")
+    coordinate_spread = diagnostics.get("coordinate_spread_flag_km", "not recorded")
     return (
-        f"cleaned-name matching within {diagnostics['name_match_distance_km']} km, "
-        f"coordinate-spread flag at {diagnostics['coordinate_spread_flag_km']} km, "
+        f"cleaned-name matching within {name_match_distance} km, "
+        f"coordinate-spread flag at {coordinate_spread} km, "
         "and explicit source-position notes when raw source notes say the lake "
         "position is uncertain"
     )

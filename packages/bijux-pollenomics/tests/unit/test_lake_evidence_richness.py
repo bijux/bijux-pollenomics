@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import csv
+from dataclasses import replace
 import json
 from pathlib import Path
 import tempfile
@@ -1358,6 +1359,13 @@ def test_lake_evidence_richness_packets_write_reviewable_outputs() -> None:
         scenario_csv_path = root / "lake_evidence_scenarios.csv"
         geojson_path = root / "lake_evidence.geojson"
         markdown = render_lake_evidence_richness_markdown(report)
+        report_without_identity_thresholds = replace(
+            report,
+            methodology={**report.methodology, "identity_diagnostics": {}},
+        )
+        fallback_markdown = render_lake_evidence_richness_markdown(
+            report_without_identity_thresholds
+        )
         archaeology_sensitivity = build_lake_archaeology_sensitivity_payload(report)
         archaeology_markdown = render_lake_archaeology_sensitivity_markdown(
             archaeology_sensitivity
@@ -1378,6 +1386,7 @@ def test_lake_evidence_richness_packets_write_reviewable_outputs() -> None:
         geojson = json.loads(geojson_path.read_text(encoding="utf-8"))
 
         assert payload["candidate_count"] == 1
+        assert "cleaned-name matching within not recorded km" in fallback_markdown
         assert len(band_rows) == len(report.radii_km)
         assert len(registry_rows) == 1
         assert len(scenario_rows) == len(report.radii_km) + 2
