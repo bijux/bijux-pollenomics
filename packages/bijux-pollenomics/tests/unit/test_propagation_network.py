@@ -1,13 +1,10 @@
 from __future__ import annotations
 
-from dataclasses import replace
 import json
+from dataclasses import replace
 
-from hypothesis import given, settings
-from hypothesis import strategies as st
-from pyproj import Geod
 import pytest
-
+from bijux_pollenomics.analysis import propagation_network as propagation_network_module
 from bijux_pollenomics.analysis.propagation_network import (
     COUNTRY_CODES,
     PROPAGATION_SENSITIVITY_SCENARIOS,
@@ -27,6 +24,9 @@ from bijux_pollenomics.analysis.site_candidates import (
     CandidatePropagationScenario,
 )
 from bijux_pollenomics.core.geo_distance import wgs84_inverse_geodesic
+from hypothesis import given, settings
+from hypothesis import strategies as st
+from pyproj import Geod
 
 
 def _event(
@@ -106,6 +106,16 @@ def test_source_native_event_id_is_stable_and_preserves_zero() -> None:
     assert first.interval is not None
     assert first.interval.younger_bp == 0
     assert first.as_dict()["observation_ids"] == ["observation-zero"]
+
+
+def test_publication_schema_excludes_internal_identity_fields() -> None:
+    baseline = _event("identity")
+    changed = replace(baseline, measurement_semantics_id="abundance.v1")
+
+    assert baseline.as_dict() == changed.as_dict()
+    assert propagation_network_module._event_manifest_digest(
+        (baseline,)
+    ) != propagation_network_module._event_manifest_digest((changed,))
 
 
 @pytest.mark.parametrize(

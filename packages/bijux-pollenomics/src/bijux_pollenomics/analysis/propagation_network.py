@@ -1,10 +1,10 @@
 from __future__ import annotations
 
+import hashlib
+import json
 from collections import defaultdict
 from collections.abc import Iterable, Sequence
 from dataclasses import dataclass
-import hashlib
-import json
 from math import cos, floor, isfinite, radians
 
 from ..core.geo_distance import InvalidCoordinateError, wgs84_inverse_geodesic
@@ -231,6 +231,7 @@ class PhenomenonEvent:
         return self.latitude is not None and self.longitude is not None
 
     def as_dict(self) -> dict[str, object]:
+        """Return the normative phenomenon-event publication representation."""
         return {
             "schema_version": self.schema_version,
             "event_id": self.event_id,
@@ -258,14 +259,20 @@ class PhenomenonEvent:
             "config_digest": self.config_digest,
             "producer_version": self.producer_version,
             "build_id": self.build_id,
+            "accepted_taxon_concept_id": self.accepted_taxon_concept_id,
+            "taxonomic_qualifier": self.taxonomic_qualifier,
+        }
+
+    def _identity_dict(self) -> dict[str, object]:
+        """Include internal evaluation semantics in non-public digest identity."""
+        return {
+            **self.as_dict(),
             "measurement_semantics_id": self.measurement_semantics_id,
             "evidence_method_id": self.evidence_method_id,
             "method_compatibility_key": self.method_compatibility_key,
             "subject_granularity": self.subject_granularity,
             "preaggregation_valid": self.preaggregation_valid,
             "role_membership_explicit": self.role_membership_explicit,
-            "accepted_taxon_concept_id": self.accepted_taxon_concept_id,
-            "taxonomic_qualifier": self.taxonomic_qualifier,
             "temporal_contract_version": self.temporal_contract_version,
         }
 
@@ -936,7 +943,7 @@ def _deduplicate_events(
 
 def _event_manifest_digest(events: Sequence[PhenomenonEvent]) -> str:
     payload = [
-        event.as_dict() for event in sorted(events, key=lambda row: row.event_id)
+        event._identity_dict() for event in sorted(events, key=lambda row: row.event_id)
     ]
     return hashlib.sha256(
         json.dumps(payload, sort_keys=True, separators=(",", ":")).encode("utf-8")
