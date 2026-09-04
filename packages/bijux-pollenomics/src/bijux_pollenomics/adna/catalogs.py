@@ -188,6 +188,9 @@ def build_cross_species_map_readiness(data_root: Path) -> dict[str, object]:
     publication_counts, not_materialized_rows = _map_publication_accounting(
         Path(data_root)
     )
+    not_materialized_counts = Counter(
+        str(row["species_latin_name"]) for row in not_materialized_rows
+    )
     rows = []
     totals = {
         "direct_coordinate_backed": 0,
@@ -205,13 +208,19 @@ def build_cross_species_map_readiness(data_root: Path) -> dict[str, object]:
             row["indirectly_geocoded"]
         )
         publication_candidate_count = publication_counts[species_latin_name]
+        not_materialized_count = not_materialized_counts[species_latin_name]
+        if (
+            publication_candidate_count + not_materialized_count
+            != coordinate_mappable_count
+        ):
+            raise ValueError(
+                f"Animal map-readiness counts do not reconcile for {species_latin_name}"
+            )
         row.update(
             {
                 "coordinate_provenance_mappable_count": coordinate_mappable_count,
                 "publication_candidate_count": publication_candidate_count,
-                "not_materialized_count": (
-                    coordinate_mappable_count - publication_candidate_count
-                ),
+                "not_materialized_count": not_materialized_count,
             }
         )
         rows.append(row)
@@ -227,6 +236,7 @@ def build_cross_species_map_readiness(data_root: Path) -> dict[str, object]:
                 totals["coordinate_provenance_mappable_count"]
                 == totals["publication_candidate_count"]
                 + totals["not_materialized_count"]
+                and totals["not_materialized_count"] == len(not_materialized_rows)
             ),
             "coordinate_posture_definition": (
                 "Coordinate provenance rows whose mapping posture is mappable_point."
@@ -904,17 +914,35 @@ def _map_publication_accounting(
     publication_counts = Counter(
         str(row.get("species_latin_name", "")) for row in publication_rows
     )
-    unmatched_candidates = Counter(
+    publication_keys = tuple(
         _map_publication_key(row, project_field="primary_project_accession")
         for row in publication_rows
     )
+    if len(publication_keys) != len(set(publication_keys)):
+        raise ValueError("Animal atlas publication identity is not unique")
+    unmatched_candidates = Counter(publication_keys)
     not_materialized_rows: list[dict[str, object]] = []
+    coordinate_keys: set[tuple[str, ...]] = set()
     for species_name in TRACKED_ADNA_SPECIES:
         species_root = _species_root(data_root, species_name)
         for provenance in _load_coordinate_provenance_rows(species_root):
             if str(provenance.get("mapping_posture", "")) != "mappable_point":
                 continue
+            coordinate_basis = str(provenance.get("coordinate_basis", ""))
+            if coordinate_basis not in {
+                "archive_coordinates",
+                "direct_published_coordinates",
+                "named_site_geocoding",
+                "supplementary_table_coordinates",
+            }:
+                raise ValueError(
+                    "Mappable animal coordinate provenance uses an unsupported basis: "
+                    f"{coordinate_basis or '<empty>'}"
+                )
             key = _map_publication_key(provenance, project_field="project_accession")
+            if key in coordinate_keys:
+                raise ValueError("Mappable animal coordinate provenance is not unique")
+            coordinate_keys.add(key)
             if unmatched_candidates[key]:
                 unmatched_candidates[key] -= 1
                 continue
@@ -952,6 +980,9 @@ def _map_publication_key(
         str(row.get(project_field, "")),
         str(row.get("coordinate_source_locator", row.get("source_locator", ""))),
         str(row.get("coordinate_basis", "")),
+        str(row.get("locality", row.get("site_label", ""))),
+        str(row.get("latitude_text", "")),
+        str(row.get("longitude_text", "")),
         str(row.get("original_place_text", "")),
         str(row.get("resolved_place_text", "")),
     )

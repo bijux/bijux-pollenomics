@@ -19,6 +19,7 @@ from bijux_pollenomics.adna import (
     build_species_freshness_table,
     build_unresolved_site_ledger,
 )
+from bijux_pollenomics.adna import catalogs as adna_catalogs
 from bijux_pollenomics.adna.catalogs import (
     render_coordinate_caveat_surface_markdown,
     render_coordinate_confidence_scale_markdown,
@@ -32,6 +33,37 @@ pytestmark = pytest.mark.generated_artifacts
 
 
 class AdnaCatalogUnitTests(unittest.TestCase):
+    def test_map_publication_identity_separates_sibling_sites(self) -> None:
+        shared = {
+            "species_latin_name": "Equus caballus",
+            "project_accession": "PRJEB1",
+            "source_locator": "table 1",
+            "coordinate_basis": "supplementary_table_coordinates",
+            "original_place_text": "shared context",
+            "resolved_place_text": "shared context",
+        }
+        site_a = {
+            **shared,
+            "site_label": "Site A",
+            "latitude_text": "55.0",
+            "longitude_text": "12.0",
+        }
+        site_b = {
+            **shared,
+            "site_label": "Site B",
+            "latitude_text": "56.0",
+            "longitude_text": "13.0",
+        }
+
+        self.assertNotEqual(
+            adna_catalogs._map_publication_key(
+                site_a, project_field="project_accession"
+            ),
+            adna_catalogs._map_publication_key(
+                site_b, project_field="project_accession"
+            ),
+        )
+
     def test_tracked_species_materialization_reaches_a_fixed_point_in_one_run(
         self,
     ) -> None:
