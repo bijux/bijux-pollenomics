@@ -14,6 +14,7 @@ from typing import Any
 from .propagation_network import (
     COUNTRY_CODES,
     EVIDENCE_DOMAINS,
+    PROPAGATION_CONTRACT_VERSION,
     PROPAGATION_SENSITIVITY_SCENARIOS,
     PhenomenonEvent,
     PropagationNetworkResult,
@@ -80,6 +81,11 @@ def materialize_propagation_outputs(
     classification_contract_version: str,
     classification_review_digest: str,
     accepted_classification_mapping_count: int,
+    propagation_contract_version: str,
+    propagation_contract_digest: str,
+    propagation_producer_id: str,
+    propagation_producer_version: str,
+    propagation_producer_digest: str,
 ) -> PropagationMaterializationResult:
     """Validate and atomically publish one deterministic propagation bundle."""
     output_root = Path(output_root)
@@ -90,9 +96,34 @@ def materialize_propagation_outputs(
         classification_contract_version,
         field_name="classification_contract_version",
     )
+    propagation_contract_version = _required_text(
+        propagation_contract_version,
+        field_name="propagation_contract_version",
+    )
+    if propagation_contract_version != PROPAGATION_CONTRACT_VERSION:
+        _refuse(
+            "invalid_propagation_identity",
+            "propagation_contract_version does not match the implementation",
+        )
+    propagation_producer_id = _required_text(
+        propagation_producer_id,
+        field_name="propagation_producer_id",
+    )
+    propagation_producer_version = _required_text(
+        propagation_producer_version,
+        field_name="propagation_producer_version",
+    )
     _validate_sha256(
         classification_review_digest,
         field_name="classification_review_digest",
+    )
+    _validate_sha256(
+        propagation_contract_digest,
+        field_name="propagation_contract_digest",
+    )
+    _validate_sha256(
+        propagation_producer_digest,
+        field_name="propagation_producer_digest",
     )
     if (
         isinstance(accepted_classification_mapping_count, bool)
@@ -130,6 +161,11 @@ def materialize_propagation_outputs(
         classification_contract_version=classification_contract_version,
         classification_review_digest=classification_review_digest,
         accepted_classification_mapping_count=accepted_classification_mapping_count,
+        propagation_contract_version=propagation_contract_version,
+        propagation_contract_digest=propagation_contract_digest,
+        propagation_producer_id=propagation_producer_id,
+        propagation_producer_version=propagation_producer_version,
+        propagation_producer_digest=propagation_producer_digest,
     )
     serialized_payloads = {
         name: _canonical_json_bytes(payload) for name, payload in payloads.items()
@@ -139,6 +175,11 @@ def materialize_propagation_outputs(
         schemas=schemas,
         build_id=build_id,
         event_manifest_digest=primary_network.event_manifest_digest,
+        propagation_contract_version=propagation_contract_version,
+        propagation_contract_digest=propagation_contract_digest,
+        propagation_producer_id=propagation_producer_id,
+        propagation_producer_version=propagation_producer_version,
+        propagation_producer_digest=propagation_producer_digest,
     )
     manifest_bytes = _canonical_json_bytes(manifest)
     expected_files = {**serialized_payloads, _MANIFEST_NAME: manifest_bytes}
@@ -168,6 +209,11 @@ def _build_payloads(
     classification_contract_version: str,
     classification_review_digest: str,
     accepted_classification_mapping_count: int,
+    propagation_contract_version: str,
+    propagation_contract_digest: str,
+    propagation_producer_id: str,
+    propagation_producer_version: str,
+    propagation_producer_digest: str,
 ) -> dict[str, dict[str, object]]:
     event_schema = schemas[_EVENT_SCHEMA_NAME]
     candidate_schema = schemas[_CANDIDATE_SCHEMA_NAME]
@@ -269,7 +315,7 @@ def _build_payloads(
             "scenarios": sensitivity_summaries,
         },
         "release_metadata.json": {
-            "schema_version": "propagation-release-metadata.v1",
+            "schema_version": "propagation-release-metadata.v2",
             "status_namespace": "propagation_release",
             "release_status": release_status,
             "public_release_allowed": False,
@@ -277,6 +323,11 @@ def _build_payloads(
             "build_id": build_id,
             "classification_contract_version": classification_contract_version,
             "classification_review_digest": classification_review_digest,
+            "propagation_contract_version": propagation_contract_version,
+            "propagation_contract_digest": propagation_contract_digest,
+            "propagation_producer_id": propagation_producer_id,
+            "propagation_producer_version": propagation_producer_version,
+            "propagation_producer_digest": propagation_producer_digest,
             "accepted_classification_mapping_count": (
                 accepted_classification_mapping_count
             ),
@@ -488,6 +539,11 @@ def _build_manifest(
     schemas: Mapping[str, dict[str, Any]],
     build_id: str,
     event_manifest_digest: str,
+    propagation_contract_version: str,
+    propagation_contract_digest: str,
+    propagation_producer_id: str,
+    propagation_producer_version: str,
+    propagation_producer_digest: str,
 ) -> dict[str, object]:
     entries = tuple(
         {
@@ -510,9 +566,14 @@ def _build_manifest(
         for name in sorted(schemas)
     )
     return {
-        "schema_version": "propagation-output-manifest.v1",
+        "schema_version": "propagation-output-manifest.v2",
         "build_id": build_id,
         "event_manifest_digest": event_manifest_digest,
+        "propagation_contract_version": propagation_contract_version,
+        "propagation_contract_digest": propagation_contract_digest,
+        "propagation_producer_id": propagation_producer_id,
+        "propagation_producer_version": propagation_producer_version,
+        "propagation_producer_digest": propagation_producer_digest,
         "bundle_digest": _sha256(digest_input),
         "payload_file_count": len(entries),
         "files": entries,

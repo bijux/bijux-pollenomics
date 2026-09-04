@@ -15,6 +15,13 @@ from bijux_pollenomics.analysis.propagation_outputs import (
 )
 
 _DIGEST = hashlib.sha256(b"classification-review").hexdigest()
+_PROPAGATION_CONTRACT_VERSION = "1.0.0"
+_PROPAGATION_CONTRACT_DIGEST = hashlib.sha256(b"propagation-model").hexdigest()
+_PROPAGATION_PRODUCER_ID = "bijux-pollenomics.propagation-output-materializer"
+_PROPAGATION_PRODUCER_VERSION = "1"
+_PROPAGATION_PRODUCER_DIGEST = hashlib.sha256(
+    b"propagation-output-materializer"
+).hexdigest()
 _EVENT_REQUIRED = (
     "schema_version",
     "event_id",
@@ -205,6 +212,11 @@ def _materialize(
     schema_root: Path,
     events: tuple[PhenomenonEvent, ...] = (),
     accepted_mapping_count: int = 0,
+    propagation_contract_version: str = _PROPAGATION_CONTRACT_VERSION,
+    propagation_contract_digest: str = _PROPAGATION_CONTRACT_DIGEST,
+    propagation_producer_id: str = _PROPAGATION_PRODUCER_ID,
+    propagation_producer_version: str = _PROPAGATION_PRODUCER_VERSION,
+    propagation_producer_digest: str = _PROPAGATION_PRODUCER_DIGEST,
 ) -> PropagationMaterializationResult:
     return materialize_propagation_outputs(
         events,
@@ -215,6 +227,11 @@ def _materialize(
         classification_contract_version="classification.v1",
         classification_review_digest=_DIGEST,
         accepted_classification_mapping_count=accepted_mapping_count,
+        propagation_contract_version=propagation_contract_version,
+        propagation_contract_digest=propagation_contract_digest,
+        propagation_producer_id=propagation_producer_id,
+        propagation_producer_version=propagation_producer_version,
+        propagation_producer_digest=propagation_producer_digest,
     )
 
 
@@ -244,6 +261,7 @@ def test_zero_accepted_mapping_universe_materializes_a_truthful_refusal(
     events = _read_json(output_root / "phenomenon_events.json")
     primary = _read_json(output_root / "primary_scenario_candidates.json")
     sensitivity = _read_json(output_root / "sensitivity_summary.json")
+    manifest = _read_json(output_root / "manifest.json")
     assert created.disposition == "created"
     assert unchanged.disposition == "unchanged"
     assert created.manifest_sha256 == unchanged.manifest_sha256
@@ -265,6 +283,18 @@ def test_zero_accepted_mapping_universe_materializes_a_truthful_refusal(
     assert release["reason_codes"] == ["no_accepted_classification_mappings"]
     assert release["accepted_classification_mapping_count"] == 0
     assert release["candidate_materialization_status"] == "empty_refused"
+    assert release["schema_version"] == "propagation-release-metadata.v2"
+    assert manifest["schema_version"] == "propagation-output-manifest.v2"
+    for payload in (release, manifest):
+        assert payload["propagation_contract_version"] == (
+            _PROPAGATION_CONTRACT_VERSION
+        )
+        assert payload["propagation_contract_digest"] == (_PROPAGATION_CONTRACT_DIGEST)
+        assert payload["propagation_producer_id"] == _PROPAGATION_PRODUCER_ID
+        assert payload["propagation_producer_version"] == (
+            _PROPAGATION_PRODUCER_VERSION
+        )
+        assert payload["propagation_producer_digest"] == (_PROPAGATION_PRODUCER_DIGEST)
 
 
 def test_manifest_hashes_and_counts_every_payload_file(
@@ -382,6 +412,121 @@ def test_materialization_preserves_non_pollen_exclusion_records(
     assert release["input_event_count"] == 2
     assert release["eligible_event_count"] == 1
     assert release["excluded_non_pollen_event_count"] == 1
+
+
+@pytest.mark.parametrize(
+    (
+        "contract_version",
+        "contract_digest",
+        "producer_id",
+        "producer_version",
+        "producer_digest",
+        "reason_code",
+    ),
+    (
+        (
+            "",
+            _PROPAGATION_CONTRACT_DIGEST,
+            _PROPAGATION_PRODUCER_ID,
+            _PROPAGATION_PRODUCER_VERSION,
+            _PROPAGATION_PRODUCER_DIGEST,
+            "invalid_build_identity",
+        ),
+        (
+            "2.0.0",
+            _PROPAGATION_CONTRACT_DIGEST,
+            _PROPAGATION_PRODUCER_ID,
+            _PROPAGATION_PRODUCER_VERSION,
+            _PROPAGATION_PRODUCER_DIGEST,
+            "invalid_propagation_identity",
+        ),
+        (
+            _PROPAGATION_CONTRACT_VERSION,
+            "not-a-digest",
+            _PROPAGATION_PRODUCER_ID,
+            _PROPAGATION_PRODUCER_VERSION,
+            _PROPAGATION_PRODUCER_DIGEST,
+            "invalid_build_identity",
+        ),
+        (
+            _PROPAGATION_CONTRACT_VERSION,
+            _PROPAGATION_CONTRACT_DIGEST,
+            "",
+            _PROPAGATION_PRODUCER_VERSION,
+            _PROPAGATION_PRODUCER_DIGEST,
+            "invalid_build_identity",
+        ),
+        (
+            _PROPAGATION_CONTRACT_VERSION,
+            _PROPAGATION_CONTRACT_DIGEST,
+            _PROPAGATION_PRODUCER_ID,
+            "",
+            _PROPAGATION_PRODUCER_DIGEST,
+            "invalid_build_identity",
+        ),
+        (
+            _PROPAGATION_CONTRACT_VERSION,
+            _PROPAGATION_CONTRACT_DIGEST,
+            _PROPAGATION_PRODUCER_ID,
+            _PROPAGATION_PRODUCER_VERSION,
+            "A" * 64,
+            "invalid_build_identity",
+        ),
+    ),
+)
+def test_missing_or_invalid_propagation_identity_is_refused_before_publication(
+    tmp_path: Path,
+    schema_root: Path,
+    contract_version: str,
+    contract_digest: str,
+    producer_id: str,
+    producer_version: str,
+    producer_digest: str,
+    reason_code: str,
+) -> None:
+    output_root = tmp_path / "propagation"
+
+    with pytest.raises(PropagationOutputRefusalError) as refusal:
+        _materialize(
+            output_root=output_root,
+            allowed_output_parent=tmp_path,
+            schema_root=schema_root,
+            propagation_contract_version=contract_version,
+            propagation_contract_digest=contract_digest,
+            propagation_producer_id=producer_id,
+            propagation_producer_version=producer_version,
+            propagation_producer_digest=producer_digest,
+        )
+
+    assert refusal.value.reason_code == reason_code
+    assert not output_root.exists()
+
+
+def test_changed_propagation_identity_refuses_existing_bundle_without_modification(
+    tmp_path: Path, schema_root: Path
+) -> None:
+    output_root = tmp_path / "propagation"
+    _materialize(
+        output_root=output_root,
+        allowed_output_parent=tmp_path,
+        schema_root=schema_root,
+    )
+    original_manifest = (output_root / "manifest.json").read_bytes()
+    original_release = (output_root / "release_metadata.json").read_bytes()
+
+    with pytest.raises(PropagationOutputRefusalError) as refusal:
+        _materialize(
+            output_root=output_root,
+            allowed_output_parent=tmp_path,
+            schema_root=schema_root,
+            propagation_producer_digest=hashlib.sha256(
+                b"different-propagation-producer"
+            ).hexdigest(),
+        )
+
+    assert refusal.value.reason_code == "non_identical_overwrite_refused"
+    assert (output_root / "manifest.json").read_bytes() == original_manifest
+    assert (output_root / "release_metadata.json").read_bytes() == original_release
 
 
 def test_non_identical_overwrite_is_refused_without_modification(
