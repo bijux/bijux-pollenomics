@@ -510,7 +510,7 @@ class NeotomaDataTests(unittest.TestCase):
 
         self.assertEqual(len(rows), 1)
 
-    def test_normalize_neotoma_rows_recovers_coastal_nordic_sites_without_widening_scope(
+    def test_normalize_neotoma_rows_refuses_coastal_proximity_without_snapping(
         self,
     ) -> None:
         country_boundaries = {
@@ -562,10 +562,7 @@ class NeotomaDataTests(unittest.TestCase):
             rows, (4.0, 54.0, 35.0, 72.0), country_boundaries
         )
 
-        self.assertEqual([record.name for record in records], ["Coastal site"])
-        self.assertEqual(records[0].country, "Norway")
-        self.assertIsNone(records[0].time_start_bp)
-        self.assertIsNone(records[0].time_end_bp)
+        self.assertEqual(records, [])
 
     def test_build_neotoma_site_snapshot_rows_drops_nested_sample_payloads(
         self,

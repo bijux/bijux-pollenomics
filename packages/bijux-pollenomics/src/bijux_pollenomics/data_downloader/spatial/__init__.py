@@ -2,12 +2,19 @@
 
 from .bboxes import point_in_bbox
 from .country_classification import (
+    BOUNDARY_CONTACT_EPSILON,
     COUNTRY_BOUNDARY_PROXIMITY_TOLERANCE,
+    CountryAttributionDecision,
+    CountryDecisionMethod,
+    CountryDecisionStatus,
+    RawCountryComparison,
     classify_country,
+    decide_country_attribution,
     geometry_boundary_distance,
     nearest_country_by_boundary_distance,
     point_in_geometry,
     point_in_geometry_ignoring_holes,
+    point_on_geometry_boundary,
     point_in_outer_ring,
     point_in_polygon,
     point_in_ring,
@@ -26,9 +33,15 @@ from .representative_points import (
 )
 
 __all__ = [
+    "BOUNDARY_CONTACT_EPSILON",
     "flatten_positions",
     "COUNTRY_BOUNDARY_PROXIMITY_TOLERANCE",
+    "CountryAttributionDecision",
+    "CountryDecisionMethod",
+    "CountryDecisionStatus",
+    "RawCountryComparison",
     "classify_country",
+    "decide_country_attribution",
     "build_grid_cell_geometry",
     "geometry_boundary_distance",
     "geometry_bbox",
@@ -39,6 +52,7 @@ __all__ = [
     "point_in_bbox",
     "point_in_geometry",
     "point_in_geometry_ignoring_holes",
+    "point_on_geometry_boundary",
     "point_in_outer_ring",
     "point_in_polygon",
     "point_in_ring",

@@ -1,7 +1,10 @@
 from __future__ import annotations
 
+from collections.abc import Mapping
+from dataclasses import dataclass
 from itertools import pairwise
 import math
+from typing import Literal, TypeAlias
 
 from ...core.geojson import (
     CountryBoundaryCollection,
@@ -15,6 +18,220 @@ from ...core.geojson import (
 )
 
 COUNTRY_BOUNDARY_PROXIMITY_TOLERANCE = 0.15
+BOUNDARY_CONTACT_EPSILON = 1e-12
+
+CountryDecisionStatus: TypeAlias = Literal[
+    "assigned",
+    "review",
+    "unassigned",
+    "refused",
+]
+CountryDecisionMethod: TypeAlias = Literal[
+    "strict_boundary_containment",
+    "point_on_boundary",
+    "multiple_boundary_containment",
+    "boundary_proximity",
+    "no_boundary_containment",
+    "coordinate_validation",
+]
+RawCountryComparison: TypeAlias = Literal[
+    "not_supplied",
+    "agrees",
+    "conflicts",
+    "unresolved",
+]
+
+
+@dataclass(frozen=True)
+class CountryAttributionDecision:
+    """Auditable country-membership decision for one point and boundary artifact."""
+
+    derived_country: str | None
+    decision_status: CountryDecisionStatus
+    decision_method: CountryDecisionMethod
+    ambiguity_reason: str | None
+    refusal_reason: str | None
+    raw_country: str | None
+    raw_country_comparison: RawCountryComparison
+    candidate_countries: tuple[str, ...]
+    boundary_artifact_digest: str
+    boundary_version: str
+
+
+def decide_country_attribution(
+    longitude: float,
+    latitude: float,
+    country_boundaries: CountryBoundaryCollection,
+    *,
+    boundary_artifact_digest: str,
+    boundary_version: str,
+    raw_country: str | None = None,
+    raw_country_aliases: Mapping[str, str] | None = None,
+    proximity_tolerance: float = COUNTRY_BOUNDARY_PROXIMITY_TOLERANCE,
+) -> CountryAttributionDecision:
+    """Return a strict country decision without silently repairing spatial evidence."""
+    digest = boundary_artifact_digest.strip()
+    version = boundary_version.strip()
+    if not digest:
+        raise ValueError("boundary_artifact_digest must be supplied")
+    if not version:
+        raise ValueError("boundary_version must be supplied")
+    if not math.isfinite(proximity_tolerance) or proximity_tolerance < 0:
+        raise ValueError("proximity_tolerance must be a finite non-negative value")
+
+    normalized_raw_country = _optional_country(raw_country)
+    coordinate_refusal = _coordinate_refusal_reason(longitude, latitude)
+    if coordinate_refusal is not None:
+        return CountryAttributionDecision(
+            derived_country=None,
+            decision_status="refused",
+            decision_method="coordinate_validation",
+            ambiguity_reason=None,
+            refusal_reason=coordinate_refusal,
+            raw_country=normalized_raw_country,
+            raw_country_comparison=(
+                "unresolved" if normalized_raw_country is not None else "not_supplied"
+            ),
+            candidate_countries=(),
+            boundary_artifact_digest=digest,
+            boundary_version=version,
+        )
+
+    geometries_by_country = _geometries_by_country(country_boundaries)
+    boundary_countries = tuple(
+        country
+        for country, geometries in geometries_by_country.items()
+        if any(
+            point_on_geometry_boundary(longitude, latitude, geometry)
+            for geometry in geometries
+        )
+    )
+    if boundary_countries:
+        return CountryAttributionDecision(
+            derived_country=None,
+            decision_status="review",
+            decision_method="point_on_boundary",
+            ambiguity_reason="point_on_boundary",
+            refusal_reason=None,
+            raw_country=normalized_raw_country,
+            raw_country_comparison=(
+                "unresolved" if normalized_raw_country is not None else "not_supplied"
+            ),
+            candidate_countries=boundary_countries,
+            boundary_artifact_digest=digest,
+            boundary_version=version,
+        )
+
+    containing_countries = tuple(
+        country
+        for country, geometries in geometries_by_country.items()
+        if any(
+            point_in_geometry(longitude, latitude, geometry) for geometry in geometries
+        )
+    )
+    if len(containing_countries) > 1:
+        return CountryAttributionDecision(
+            derived_country=None,
+            decision_status="review",
+            decision_method="multiple_boundary_containment",
+            ambiguity_reason="multiple_boundary_containment",
+            refusal_reason=None,
+            raw_country=normalized_raw_country,
+            raw_country_comparison=(
+                "unresolved" if normalized_raw_country is not None else "not_supplied"
+            ),
+            candidate_countries=containing_countries,
+            boundary_artifact_digest=digest,
+            boundary_version=version,
+        )
+    if containing_countries:
+        derived_country = containing_countries[0]
+        raw_comparison = _compare_raw_country(
+            raw_country=normalized_raw_country,
+            derived_country=derived_country,
+            raw_country_aliases=raw_country_aliases,
+        )
+        has_raw_conflict = raw_comparison == "conflicts"
+        return CountryAttributionDecision(
+            derived_country=derived_country,
+            decision_status="review" if has_raw_conflict else "assigned",
+            decision_method="strict_boundary_containment",
+            ambiguity_reason="raw_country_conflict" if has_raw_conflict else None,
+            refusal_reason=None,
+            raw_country=normalized_raw_country,
+            raw_country_comparison=raw_comparison,
+            candidate_countries=containing_countries,
+            boundary_artifact_digest=digest,
+            boundary_version=version,
+        )
+
+    hole_countries = tuple(
+        country
+        for country, geometries in geometries_by_country.items()
+        if any(
+            point_in_geometry_ignoring_holes(longitude, latitude, geometry)
+            for geometry in geometries
+        )
+    )
+    if hole_countries:
+        return CountryAttributionDecision(
+            derived_country=None,
+            decision_status="unassigned",
+            decision_method="no_boundary_containment",
+            ambiguity_reason=None,
+            refusal_reason="inside_boundary_hole",
+            raw_country=normalized_raw_country,
+            raw_country_comparison=(
+                "unresolved" if normalized_raw_country is not None else "not_supplied"
+            ),
+            candidate_countries=hole_countries,
+            boundary_artifact_digest=digest,
+            boundary_version=version,
+        )
+
+    nearby_countries = tuple(
+        country
+        for country, geometries in geometries_by_country.items()
+        if any(
+            geometry_boundary_distance(longitude, latitude, geometry)
+            <= proximity_tolerance
+            for geometry in geometries
+        )
+    )
+    if nearby_countries:
+        return CountryAttributionDecision(
+            derived_country=None,
+            decision_status="review",
+            decision_method="boundary_proximity",
+            ambiguity_reason=(
+                "near_multiple_boundaries"
+                if len(nearby_countries) > 1
+                else "near_boundary_without_containment"
+            ),
+            refusal_reason=None,
+            raw_country=normalized_raw_country,
+            raw_country_comparison=(
+                "unresolved" if normalized_raw_country is not None else "not_supplied"
+            ),
+            candidate_countries=nearby_countries,
+            boundary_artifact_digest=digest,
+            boundary_version=version,
+        )
+
+    return CountryAttributionDecision(
+        derived_country=None,
+        decision_status="unassigned",
+        decision_method="no_boundary_containment",
+        ambiguity_reason=None,
+        refusal_reason="outside_governed_boundaries",
+        raw_country=normalized_raw_country,
+        raw_country_comparison=(
+            "unresolved" if normalized_raw_country is not None else "not_supplied"
+        ),
+        candidate_countries=(),
+        boundary_artifact_digest=digest,
+        boundary_version=version,
+    )
 
 
 def classify_country(
@@ -22,32 +239,84 @@ def classify_country(
     latitude: float,
     country_boundaries: CountryBoundaryCollection,
 ) -> str:
-    """Assign a point to one of the Nordic countries based on polygon containment."""
-    for country, payload in country_boundaries.items():
-        for feature in feature_list(payload):
-            geometry = as_mapping(feature.get("geometry"))
-            if geometry is not None and point_in_geometry(
-                longitude, latitude, geometry
-            ):
-                return country
+    """Return a country only for one strict, non-boundary polygon containment."""
+    if _coordinate_refusal_reason(longitude, latitude) is not None:
+        return ""
+    geometries_by_country = _geometries_by_country(country_boundaries)
+    if any(
+        point_on_geometry_boundary(longitude, latitude, geometry)
+        for geometries in geometries_by_country.values()
+        for geometry in geometries
+    ):
+        return ""
+    containing_countries = [
+        country
+        for country, geometries in geometries_by_country.items()
+        if any(
+            point_in_geometry(longitude, latitude, geometry) for geometry in geometries
+        )
+    ]
+    return containing_countries[0] if len(containing_countries) == 1 else ""
 
-    for country, payload in country_boundaries.items():
-        for feature in feature_list(payload):
-            geometry = as_mapping(feature.get("geometry"))
-            if geometry is not None and point_in_geometry_ignoring_holes(
-                longitude, latitude, geometry
-            ):
-                return country
 
-    nearest_country = nearest_country_by_boundary_distance(
-        longitude=longitude,
-        latitude=latitude,
-        country_boundaries=country_boundaries,
-        max_distance=COUNTRY_BOUNDARY_PROXIMITY_TOLERANCE,
-    )
-    if nearest_country:
-        return nearest_country
-    return ""
+def _geometries_by_country(
+    country_boundaries: CountryBoundaryCollection,
+) -> dict[str, tuple[JsonObject, ...]]:
+    geometries_by_country: dict[str, tuple[JsonObject, ...]] = {}
+    for country in sorted(country_boundaries):
+        geometries = tuple(
+            geometry
+            for feature in feature_list(country_boundaries[country])
+            for geometry in (as_mapping(feature.get("geometry")),)
+            if geometry is not None
+        )
+        geometries_by_country[country] = geometries
+    return geometries_by_country
+
+
+def _coordinate_refusal_reason(longitude: float, latitude: float) -> str | None:
+    if (
+        isinstance(longitude, bool)
+        or isinstance(latitude, bool)
+        or not isinstance(longitude, (int, float))
+        or not isinstance(latitude, (int, float))
+    ):
+        return "non_numeric_coordinate"
+    if not math.isfinite(longitude) or not math.isfinite(latitude):
+        return "non_finite_coordinate"
+    if longitude < -180 or longitude > 180:
+        return "longitude_out_of_range"
+    if latitude < -90 or latitude > 90:
+        return "latitude_out_of_range"
+    return None
+
+
+def _optional_country(raw_country: str | None) -> str | None:
+    if raw_country is None:
+        return None
+    normalized = raw_country.strip()
+    return normalized or None
+
+
+def _compare_raw_country(
+    *,
+    raw_country: str | None,
+    derived_country: str,
+    raw_country_aliases: Mapping[str, str] | None,
+) -> RawCountryComparison:
+    if raw_country is None:
+        return "not_supplied"
+    canonical_raw_country = raw_country
+    if raw_country_aliases is not None:
+        aliases = {
+            alias.strip().casefold(): country.strip()
+            for alias, country in raw_country_aliases.items()
+            if alias.strip() and country.strip()
+        }
+        canonical_raw_country = aliases.get(raw_country.casefold(), raw_country)
+    if canonical_raw_country.casefold() == derived_country.casefold():
+        return "agrees"
+    return "conflicts"
 
 
 def point_in_geometry(longitude: float, latitude: float, geometry: JsonObject) -> bool:
@@ -70,10 +339,21 @@ def point_in_geometry(longitude: float, latitude: float, geometry: JsonObject) -
     return False
 
 
+def point_on_geometry_boundary(
+    longitude: float,
+    latitude: float,
+    geometry: JsonObject,
+    *,
+    epsilon: float = BOUNDARY_CONTACT_EPSILON,
+) -> bool:
+    """Return whether a point touches a polygon ring within a numeric epsilon."""
+    return geometry_boundary_distance(longitude, latitude, geometry) <= epsilon
+
+
 def point_in_geometry_ignoring_holes(
     longitude: float, latitude: float, geometry: JsonObject
 ) -> bool:
-    """Check containment using only polygon outer rings for country-assignment fallbacks."""
+    """Check outer-ring containment for diagnostics without assigning a country."""
     geometry_type = geometry.get("type")
     coordinates = geometry.get("coordinates", [])
     if geometry_type == "Polygon":
@@ -110,6 +390,8 @@ def point_in_outer_ring(longitude: float, latitude: float, polygon: Polygon) -> 
 
 def point_in_ring(longitude: float, latitude: float, ring: LinearRing) -> bool:
     """Return True when a point is inside a linear ring."""
+    if len(ring) < 3:
+        return False
     inside = False
     previous = ring[-1]
     for current in ring:
@@ -130,21 +412,34 @@ def nearest_country_by_boundary_distance(
     country_boundaries: CountryBoundaryCollection,
     max_distance: float,
 ) -> str:
-    """Return the nearest country when a point falls just outside tracked boundaries."""
-    nearest_country = ""
-    nearest_distance = math.inf
+    """Return one unique nearest country, leaving equal-distance ties unresolved."""
+    distances_by_country: dict[str, float] = {}
     for country, payload in country_boundaries.items():
         for feature in feature_list(payload):
             geometry = as_mapping(feature.get("geometry"))
             if geometry is None:
                 continue
             distance = geometry_boundary_distance(longitude, latitude, geometry)
-            if distance < nearest_distance:
-                nearest_distance = distance
-                nearest_country = country
-    if nearest_distance <= max_distance:
-        return nearest_country
-    return ""
+            distances_by_country[country] = min(
+                distance,
+                distances_by_country.get(country, math.inf),
+            )
+    if not distances_by_country:
+        return ""
+    nearest_distance = min(distances_by_country.values())
+    if nearest_distance > max_distance:
+        return ""
+    nearest_countries = sorted(
+        country
+        for country, distance in distances_by_country.items()
+        if math.isclose(
+            distance,
+            nearest_distance,
+            rel_tol=0.0,
+            abs_tol=BOUNDARY_CONTACT_EPSILON,
+        )
+    )
+    return nearest_countries[0] if len(nearest_countries) == 1 else ""
 
 
 def geometry_boundary_distance(
@@ -221,12 +516,19 @@ def point_to_segment_distance(
 
 
 __all__ = [
+    "BOUNDARY_CONTACT_EPSILON",
     "COUNTRY_BOUNDARY_PROXIMITY_TOLERANCE",
+    "CountryAttributionDecision",
+    "CountryDecisionMethod",
+    "CountryDecisionStatus",
+    "RawCountryComparison",
     "classify_country",
+    "decide_country_attribution",
     "geometry_boundary_distance",
     "nearest_country_by_boundary_distance",
     "point_in_geometry",
     "point_in_geometry_ignoring_holes",
+    "point_on_geometry_boundary",
     "point_in_outer_ring",
     "point_in_polygon",
     "point_in_ring",
