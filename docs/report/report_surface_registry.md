@@ -4,7 +4,7 @@ This registry classifies the current `docs/report/` tree by family, audience,
 scope, and explanation role so the publication system can be navigated as one
 coherent report surface instead of a loose artifact dump.
 
-- Surface count: `297`
+- Surface count: `296`
 
 ## Family Counts
 
@@ -12,7 +12,7 @@ coherent report surface instead of a loose artifact dump.
 | --- | ---: |
 | Scientific caveats | 9 |
 | Maintainer truth surfaces | 51 |
-| Map surfaces | 78 |
+| Map surfaces | 77 |
 | Portal guidance | 2 |
 | Evidence reviews | 33 |
 | Scope-filtered outputs | 124 |
@@ -23,7 +23,7 @@ coherent report surface instead of a loose artifact dump.
 | --- | ---: |
 | Maintainer diagnostic | 53 |
 | Public reading surface | 133 |
-| Scientific review surface | 111 |
+| Scientific review surface | 110 |
 
 ## Classified Surfaces
 
@@ -233,7 +233,6 @@ coherent report surface instead of a loose artifact dump.
 | `docs/report/regions/nordic/nordic_scientific_review.json` | Map surfaces | Scientific review surface | `nordic` | `json` | Governed report artifact. |
 | `docs/report/regions/nordic/nordic_scientific_review.md` | Map surfaces | Scientific review surface | `nordic` | `md` | Governed report artifact. |
 | `docs/report/regions/nordic/nordic_summary.json` | Scope-filtered outputs | Public reading surface | `nordic` | `json` | Scope summary surface for direct inspection or downstream filtering. |
-| `docs/report/regions/nordic/sweden_archaeology_density.geojson` | Map surfaces | Scientific review surface | `nordic` | `geojson` | Governed report artifact. |
 | `docs/report/regions/nordic/sweden_archaeology_layer.json` | Map surfaces | Scientific review surface | `nordic` | `json` | Governed report artifact. |
 | `docs/report/regions/nordic/sweden_archaeology_site_discovery.csv` | Map surfaces | Scientific review surface | `nordic` | `csv` | Governed report artifact. |
 | `docs/report/regions/nordic/sweden_archaeology_site_discovery.geojson` | Map surfaces | Scientific review surface | `nordic` | `geojson` | Governed report artifact. |

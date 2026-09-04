@@ -28,15 +28,15 @@
 | Sweden | Camelus dromedarius | direct | 0 | 2 | not_country_assignable_from_current_runtime | Current non-human support is species-level review context, not country-resolved locality evidence. |
 | Sweden | Canis lupus familiaris | direct | 0 | 3 | not_country_assignable_from_current_runtime | Current non-human support is species-level review context, not country-resolved locality evidence. |
 | Sweden | Capra hircus | direct | 0 | 3 | not_country_assignable_from_current_runtime | Current non-human support is species-level review context, not country-resolved locality evidence. |
-| Sweden | Equus asinus | direct | 0 | 0 | not_country_assignable_from_current_runtime | Current non-human support is species-level review context, not country-resolved locality evidence. |
+| Sweden | Equus asinus | contextual | 0 | 0 | not_country_assignable_from_current_runtime | Current non-human support is species-level review context, not country-resolved locality evidence. |
 | Sweden | Equus caballus | mapped_direct | 1 | 4 | country_resolved_from_mapped_locality_rows | Mapped animal locality rows remain cautionary leads and can still be approximate, regional, or comparator-only. |
-| Sweden | Felis catus | direct | 0 | 2 | not_country_assignable_from_current_runtime | Current non-human support is species-level review context, not country-resolved locality evidence. |
+| Sweden | Felis catus | contextual | 0 | 2 | not_country_assignable_from_current_runtime | Current non-human support is species-level review context, not country-resolved locality evidence. |
 | Sweden | Gallus gallus domesticus | too_weak | 0 | 0 | not_country_assignable_from_current_runtime | Current non-human support is species-level review context, not country-resolved locality evidence. |
 | Sweden | Meleagris gallopavo | too_weak | 0 | 0 | not_country_assignable_from_current_runtime | Current non-human support is species-level review context, not country-resolved locality evidence. |
 | Sweden | Oryctolagus cuniculus | too_weak | 0 | 0 | not_country_assignable_from_current_runtime | Current non-human support is species-level review context, not country-resolved locality evidence. |
 | Sweden | Ovis aries | direct | 0 | 3 | not_country_assignable_from_current_runtime | Current non-human support is species-level review context, not country-resolved locality evidence. |
 | Sweden | Rangifer tarandus | direct | 0 | 0 | not_country_assignable_from_current_runtime | Current non-human support is species-level review context, not country-resolved locality evidence. |
-| Sweden | Sus scrofa domesticus | direct | 0 | 1 | not_country_assignable_from_current_runtime | Current non-human support is species-level review context, not country-resolved locality evidence. |
+| Sweden | Sus scrofa domesticus | contextual | 0 | 1 | not_country_assignable_from_current_runtime | Current non-human support is species-level review context, not country-resolved locality evidence. |
 | Norway | Homo sapiens | mapped_direct | 69 | 0 | country_filter_from_aadr_metadata | Human country assignment is metadata-derived and remains separate from non-human context. |
 | Norway | Anas platyrhynchos domesticus | too_weak | 0 | 0 | not_country_assignable_from_current_runtime | Current non-human support is species-level review context, not country-resolved locality evidence. |
 | Norway | Bos indicus | too_weak | 0 | 0 | not_country_assignable_from_current_runtime | Current non-human support is species-level review context, not country-resolved locality evidence. |
@@ -44,15 +44,15 @@
 | Norway | Camelus dromedarius | direct | 0 | 2 | not_country_assignable_from_current_runtime | Current non-human support is species-level review context, not country-resolved locality evidence. |
 | Norway | Canis lupus familiaris | direct | 0 | 3 | not_country_assignable_from_current_runtime | Current non-human support is species-level review context, not country-resolved locality evidence. |
 | Norway | Capra hircus | direct | 0 | 3 | not_country_assignable_from_current_runtime | Current non-human support is species-level review context, not country-resolved locality evidence. |
-| Norway | Equus asinus | direct | 0 | 0 | not_country_assignable_from_current_runtime | Current non-human support is species-level review context, not country-resolved locality evidence. |
+| Norway | Equus asinus | contextual | 0 | 0 | not_country_assignable_from_current_runtime | Current non-human support is species-level review context, not country-resolved locality evidence. |
 | Norway | Equus caballus | direct | 0 | 4 | not_country_assignable_from_current_runtime | Current non-human support is species-level review context, not country-resolved locality evidence. |
-| Norway | Felis catus | direct | 0 | 2 | not_country_assignable_from_current_runtime | Current non-human support is species-level review context, not country-resolved locality evidence. |
+| Norway | Felis catus | contextual | 0 | 2 | not_country_assignable_from_current_runtime | Current non-human support is species-level review context, not country-resolved locality evidence. |
 | Norway | Gallus gallus domesticus | too_weak | 0 | 0 | not_country_assignable_from_current_runtime | Current non-human support is species-level review context, not country-resolved locality evidence. |
 | Norway | Meleagris gallopavo | too_weak | 0 | 0 | not_country_assignable_from_current_runtime | Current non-human support is species-level review context, not country-resolved locality evidence. |
 | Norway | Oryctolagus cuniculus | too_weak | 0 | 0 | not_country_assignable_from_current_runtime | Current non-human support is species-level review context, not country-resolved locality evidence. |
 | Norway | Ovis aries | direct | 0 | 3 | not_country_assignable_from_current_runtime | Current non-human support is species-level review context, not country-resolved locality evidence. |
 | Norway | Rangifer tarandus | direct | 0 | 0 | not_country_assignable_from_current_runtime | Current non-human support is species-level review context, not country-resolved locality evidence. |
-| Norway | Sus scrofa domesticus | direct | 0 | 1 | not_country_assignable_from_current_runtime | Current non-human support is species-level review context, not country-resolved locality evidence. |
+| Norway | Sus scrofa domesticus | contextual | 0 | 1 | not_country_assignable_from_current_runtime | Current non-human support is species-level review context, not country-resolved locality evidence. |
 | Finland | Homo sapiens | mapped_direct | 6 | 0 | country_filter_from_aadr_metadata | Human country assignment is metadata-derived and remains separate from non-human context. |
 | Finland | Anas platyrhynchos domesticus | too_weak | 0 | 0 | not_country_assignable_from_current_runtime | Current non-human support is species-level review context, not country-resolved locality evidence. |
 | Finland | Bos indicus | too_weak | 0 | 0 | not_country_assignable_from_current_runtime | Current non-human support is species-level review context, not country-resolved locality evidence. |
@@ -60,15 +60,15 @@
 | Finland | Camelus dromedarius | direct | 0 | 2 | not_country_assignable_from_current_runtime | Current non-human support is species-level review context, not country-resolved locality evidence. |
 | Finland | Canis lupus familiaris | direct | 0 | 3 | not_country_assignable_from_current_runtime | Current non-human support is species-level review context, not country-resolved locality evidence. |
 | Finland | Capra hircus | direct | 0 | 3 | not_country_assignable_from_current_runtime | Current non-human support is species-level review context, not country-resolved locality evidence. |
-| Finland | Equus asinus | direct | 0 | 0 | not_country_assignable_from_current_runtime | Current non-human support is species-level review context, not country-resolved locality evidence. |
+| Finland | Equus asinus | contextual | 0 | 0 | not_country_assignable_from_current_runtime | Current non-human support is species-level review context, not country-resolved locality evidence. |
 | Finland | Equus caballus | direct | 0 | 4 | not_country_assignable_from_current_runtime | Current non-human support is species-level review context, not country-resolved locality evidence. |
-| Finland | Felis catus | direct | 0 | 2 | not_country_assignable_from_current_runtime | Current non-human support is species-level review context, not country-resolved locality evidence. |
+| Finland | Felis catus | contextual | 0 | 2 | not_country_assignable_from_current_runtime | Current non-human support is species-level review context, not country-resolved locality evidence. |
 | Finland | Gallus gallus domesticus | too_weak | 0 | 0 | not_country_assignable_from_current_runtime | Current non-human support is species-level review context, not country-resolved locality evidence. |
 | Finland | Meleagris gallopavo | too_weak | 0 | 0 | not_country_assignable_from_current_runtime | Current non-human support is species-level review context, not country-resolved locality evidence. |
 | Finland | Oryctolagus cuniculus | too_weak | 0 | 0 | not_country_assignable_from_current_runtime | Current non-human support is species-level review context, not country-resolved locality evidence. |
 | Finland | Ovis aries | direct | 0 | 3 | not_country_assignable_from_current_runtime | Current non-human support is species-level review context, not country-resolved locality evidence. |
 | Finland | Rangifer tarandus | direct | 0 | 0 | not_country_assignable_from_current_runtime | Current non-human support is species-level review context, not country-resolved locality evidence. |
-| Finland | Sus scrofa domesticus | direct | 0 | 1 | not_country_assignable_from_current_runtime | Current non-human support is species-level review context, not country-resolved locality evidence. |
+| Finland | Sus scrofa domesticus | contextual | 0 | 1 | not_country_assignable_from_current_runtime | Current non-human support is species-level review context, not country-resolved locality evidence. |
 | Denmark | Homo sapiens | mapped_direct | 295 | 0 | country_filter_from_aadr_metadata | Human country assignment is metadata-derived and remains separate from non-human context. |
 | Denmark | Anas platyrhynchos domesticus | too_weak | 0 | 0 | not_country_assignable_from_current_runtime | Current non-human support is species-level review context, not country-resolved locality evidence. |
 | Denmark | Bos indicus | too_weak | 0 | 0 | not_country_assignable_from_current_runtime | Current non-human support is species-level review context, not country-resolved locality evidence. |
@@ -76,15 +76,15 @@
 | Denmark | Camelus dromedarius | direct | 0 | 2 | not_country_assignable_from_current_runtime | Current non-human support is species-level review context, not country-resolved locality evidence. |
 | Denmark | Canis lupus familiaris | direct | 0 | 3 | not_country_assignable_from_current_runtime | Current non-human support is species-level review context, not country-resolved locality evidence. |
 | Denmark | Capra hircus | direct | 0 | 3 | not_country_assignable_from_current_runtime | Current non-human support is species-level review context, not country-resolved locality evidence. |
-| Denmark | Equus asinus | direct | 0 | 0 | not_country_assignable_from_current_runtime | Current non-human support is species-level review context, not country-resolved locality evidence. |
+| Denmark | Equus asinus | contextual | 0 | 0 | not_country_assignable_from_current_runtime | Current non-human support is species-level review context, not country-resolved locality evidence. |
 | Denmark | Equus caballus | mapped_direct | 1 | 4 | country_resolved_from_mapped_locality_rows | Mapped animal locality rows remain cautionary leads and can still be approximate, regional, or comparator-only. |
-| Denmark | Felis catus | direct | 0 | 2 | not_country_assignable_from_current_runtime | Current non-human support is species-level review context, not country-resolved locality evidence. |
+| Denmark | Felis catus | contextual | 0 | 2 | not_country_assignable_from_current_runtime | Current non-human support is species-level review context, not country-resolved locality evidence. |
 | Denmark | Gallus gallus domesticus | too_weak | 0 | 0 | not_country_assignable_from_current_runtime | Current non-human support is species-level review context, not country-resolved locality evidence. |
 | Denmark | Meleagris gallopavo | too_weak | 0 | 0 | not_country_assignable_from_current_runtime | Current non-human support is species-level review context, not country-resolved locality evidence. |
 | Denmark | Oryctolagus cuniculus | too_weak | 0 | 0 | not_country_assignable_from_current_runtime | Current non-human support is species-level review context, not country-resolved locality evidence. |
 | Denmark | Ovis aries | direct | 0 | 3 | not_country_assignable_from_current_runtime | Current non-human support is species-level review context, not country-resolved locality evidence. |
 | Denmark | Rangifer tarandus | direct | 0 | 0 | not_country_assignable_from_current_runtime | Current non-human support is species-level review context, not country-resolved locality evidence. |
-| Denmark | Sus scrofa domesticus | direct | 0 | 1 | not_country_assignable_from_current_runtime | Current non-human support is species-level review context, not country-resolved locality evidence. |
+| Denmark | Sus scrofa domesticus | contextual | 0 | 1 | not_country_assignable_from_current_runtime | Current non-human support is species-level review context, not country-resolved locality evidence. |
 
 ## Period Coverage
 
@@ -100,165 +100,37 @@
 | Camelus dromedarius | project_level_or_unresolved | direct | 0 | 2 | project_level_chronology_without_locality_alignment | Non-human chronology is not yet resolved to mapped locality periods. |
 | Canis lupus familiaris | project_level_or_unresolved | direct | 0 | 3 | project_level_bp_capable_but_not_locality_bound | Non-human chronology is not yet resolved to mapped locality periods. |
 | Capra hircus | project_level_or_unresolved | direct | 0 | 3 | project_level_chronology_without_locality_alignment | Non-human chronology is not yet resolved to mapped locality periods. |
-| Equus asinus | project_level_or_unresolved | direct | 0 | 0 | project_level_chronology_without_locality_alignment | Non-human chronology is not yet resolved to mapped locality periods. |
+| Equus asinus | project_level_or_unresolved | contextual | 0 | 0 | project_level_chronology_without_locality_alignment | Non-human chronology is not yet resolved to mapped locality periods. |
 | Equus caballus | 1001-3000 BP | mapped_direct | 1 | 4 | mapped_locality_bp_windows_available | Mapped animal chronology remains bounded by locality-lead precision and support-class caveats. |
 | Equus caballus | 3001-6000 BP | mapped_direct | 1 | 4 | mapped_locality_bp_windows_available | Mapped animal chronology remains bounded by locality-lead precision and support-class caveats. |
-| Felis catus | project_level_or_unresolved | direct | 0 | 2 | project_level_chronology_without_locality_alignment | Non-human chronology is not yet resolved to mapped locality periods. |
+| Felis catus | project_level_or_unresolved | contextual | 0 | 2 | project_level_chronology_without_locality_alignment | Non-human chronology is not yet resolved to mapped locality periods. |
 | Gallus gallus domesticus | project_level_or_unresolved | too_weak | 0 | 0 | no_curated_nonhuman_chronology | Non-human chronology is not yet resolved to mapped locality periods. |
 | Meleagris gallopavo | project_level_or_unresolved | too_weak | 0 | 0 | no_curated_nonhuman_chronology | Non-human chronology is not yet resolved to mapped locality periods. |
 | Oryctolagus cuniculus | project_level_or_unresolved | too_weak | 0 | 0 | no_curated_nonhuman_chronology | Non-human chronology is not yet resolved to mapped locality periods. |
 | Ovis aries | project_level_or_unresolved | direct | 0 | 3 | project_level_chronology_without_locality_alignment | Non-human chronology is not yet resolved to mapped locality periods. |
 | Rangifer tarandus | project_level_or_unresolved | direct | 0 | 0 | project_level_chronology_without_locality_alignment | Non-human chronology is not yet resolved to mapped locality periods. |
-| Sus scrofa domesticus | project_level_or_unresolved | direct | 0 | 1 | project_level_chronology_without_locality_alignment | Non-human chronology is not yet resolved to mapped locality periods. |
+| Sus scrofa domesticus | project_level_or_unresolved | contextual | 0 | 1 | project_level_chronology_without_locality_alignment | Non-human chronology is not yet resolved to mapped locality periods. |
 
 ## Chronology Overlap
 
 | Species | Context layer | Overlap status | Overlapping direct localities | Non-overlapping direct localities | Noncomparable records | Rationale |
 | --- | --- | --- | ---: | ---: | ---: | --- |
-| Homo sapiens | animal-equus-caballus | locality_level_overlap_available | 148 | 299 | 0 | Human locality chronology can be compared directly with time-aware context points. |
-| Homo sapiens | sweden-lake-10km-top40 | locality_level_overlap_available | 447 | 0 | 0 | Human locality chronology can be compared directly with time-aware context points. |
-| Homo sapiens | sweden-lake-20km-top40 | locality_level_overlap_available | 447 | 0 | 0 | Human locality chronology can be compared directly with time-aware context points. |
-| Homo sapiens | sweden-lake-30km-top40 | locality_level_overlap_available | 447 | 0 | 0 | Human locality chronology can be compared directly with time-aware context points. |
-| Homo sapiens | sweden-lake-40km-top40 | locality_level_overlap_available | 447 | 0 | 0 | Human locality chronology can be compared directly with time-aware context points. |
-| Homo sapiens | sweden-lake-50km-top40 | locality_level_overlap_available | 447 | 0 | 0 | Human locality chronology can be compared directly with time-aware context points. |
-| Homo sapiens | sweden-lake-aggregate-top40 | locality_level_overlap_available | 447 | 0 | 0 | Human locality chronology can be compared directly with time-aware context points. |
-| Homo sapiens | sweden-lake-consensus-top40 | locality_level_overlap_available | 447 | 0 | 0 | Human locality chronology can be compared directly with time-aware context points. |
-| Homo sapiens | sweden-lake-fieldwork-shortlist | locality_level_overlap_available | 447 | 0 | 0 | Human locality chronology can be compared directly with time-aware context points. |
+| Homo sapiens | animal-equus-caballus | locality_level_overlap_available | 147 | 297 | 3 | Human locality chronology can be compared directly with time-aware context points. |
 | Anas platyrhynchos domesticus | animal-equus-caballus | not_comparable_project_level_only | 0 | 0 | 1 | Non-human chronology is still project-level and cannot be aligned to atlas localities honestly. |
-| Anas platyrhynchos domesticus | sweden-lake-10km-top40 | not_comparable_project_level_only | 0 | 0 | 1 | Non-human chronology is still project-level and cannot be aligned to atlas localities honestly. |
-| Anas platyrhynchos domesticus | sweden-lake-20km-top40 | not_comparable_project_level_only | 0 | 0 | 1 | Non-human chronology is still project-level and cannot be aligned to atlas localities honestly. |
-| Anas platyrhynchos domesticus | sweden-lake-30km-top40 | not_comparable_project_level_only | 0 | 0 | 1 | Non-human chronology is still project-level and cannot be aligned to atlas localities honestly. |
-| Anas platyrhynchos domesticus | sweden-lake-40km-top40 | not_comparable_project_level_only | 0 | 0 | 1 | Non-human chronology is still project-level and cannot be aligned to atlas localities honestly. |
-| Anas platyrhynchos domesticus | sweden-lake-50km-top40 | not_comparable_project_level_only | 0 | 0 | 1 | Non-human chronology is still project-level and cannot be aligned to atlas localities honestly. |
-| Anas platyrhynchos domesticus | sweden-lake-aggregate-top40 | not_comparable_project_level_only | 0 | 0 | 1 | Non-human chronology is still project-level and cannot be aligned to atlas localities honestly. |
-| Anas platyrhynchos domesticus | sweden-lake-consensus-top40 | not_comparable_project_level_only | 0 | 0 | 1 | Non-human chronology is still project-level and cannot be aligned to atlas localities honestly. |
-| Anas platyrhynchos domesticus | sweden-lake-fieldwork-shortlist | not_comparable_project_level_only | 0 | 0 | 1 | Non-human chronology is still project-level and cannot be aligned to atlas localities honestly. |
 | Bos indicus | animal-equus-caballus | not_comparable_project_level_only | 0 | 0 | 1 | Non-human chronology is still project-level and cannot be aligned to atlas localities honestly. |
-| Bos indicus | sweden-lake-10km-top40 | not_comparable_project_level_only | 0 | 0 | 1 | Non-human chronology is still project-level and cannot be aligned to atlas localities honestly. |
-| Bos indicus | sweden-lake-20km-top40 | not_comparable_project_level_only | 0 | 0 | 1 | Non-human chronology is still project-level and cannot be aligned to atlas localities honestly. |
-| Bos indicus | sweden-lake-30km-top40 | not_comparable_project_level_only | 0 | 0 | 1 | Non-human chronology is still project-level and cannot be aligned to atlas localities honestly. |
-| Bos indicus | sweden-lake-40km-top40 | not_comparable_project_level_only | 0 | 0 | 1 | Non-human chronology is still project-level and cannot be aligned to atlas localities honestly. |
-| Bos indicus | sweden-lake-50km-top40 | not_comparable_project_level_only | 0 | 0 | 1 | Non-human chronology is still project-level and cannot be aligned to atlas localities honestly. |
-| Bos indicus | sweden-lake-aggregate-top40 | not_comparable_project_level_only | 0 | 0 | 1 | Non-human chronology is still project-level and cannot be aligned to atlas localities honestly. |
-| Bos indicus | sweden-lake-consensus-top40 | not_comparable_project_level_only | 0 | 0 | 1 | Non-human chronology is still project-level and cannot be aligned to atlas localities honestly. |
-| Bos indicus | sweden-lake-fieldwork-shortlist | not_comparable_project_level_only | 0 | 0 | 1 | Non-human chronology is still project-level and cannot be aligned to atlas localities honestly. |
 | Bos taurus | animal-equus-caballus | not_comparable_project_level_only | 0 | 0 | 1 | Non-human chronology is still project-level and cannot be aligned to atlas localities honestly. |
-| Bos taurus | sweden-lake-10km-top40 | not_comparable_project_level_only | 0 | 0 | 1 | Non-human chronology is still project-level and cannot be aligned to atlas localities honestly. |
-| Bos taurus | sweden-lake-20km-top40 | not_comparable_project_level_only | 0 | 0 | 1 | Non-human chronology is still project-level and cannot be aligned to atlas localities honestly. |
-| Bos taurus | sweden-lake-30km-top40 | not_comparable_project_level_only | 0 | 0 | 1 | Non-human chronology is still project-level and cannot be aligned to atlas localities honestly. |
-| Bos taurus | sweden-lake-40km-top40 | not_comparable_project_level_only | 0 | 0 | 1 | Non-human chronology is still project-level and cannot be aligned to atlas localities honestly. |
-| Bos taurus | sweden-lake-50km-top40 | not_comparable_project_level_only | 0 | 0 | 1 | Non-human chronology is still project-level and cannot be aligned to atlas localities honestly. |
-| Bos taurus | sweden-lake-aggregate-top40 | not_comparable_project_level_only | 0 | 0 | 1 | Non-human chronology is still project-level and cannot be aligned to atlas localities honestly. |
-| Bos taurus | sweden-lake-consensus-top40 | not_comparable_project_level_only | 0 | 0 | 1 | Non-human chronology is still project-level and cannot be aligned to atlas localities honestly. |
-| Bos taurus | sweden-lake-fieldwork-shortlist | not_comparable_project_level_only | 0 | 0 | 1 | Non-human chronology is still project-level and cannot be aligned to atlas localities honestly. |
 | Camelus dromedarius | animal-equus-caballus | not_comparable_project_level_only | 0 | 0 | 2 | Non-human chronology is still project-level and cannot be aligned to atlas localities honestly. |
-| Camelus dromedarius | sweden-lake-10km-top40 | not_comparable_project_level_only | 0 | 0 | 2 | Non-human chronology is still project-level and cannot be aligned to atlas localities honestly. |
-| Camelus dromedarius | sweden-lake-20km-top40 | not_comparable_project_level_only | 0 | 0 | 2 | Non-human chronology is still project-level and cannot be aligned to atlas localities honestly. |
-| Camelus dromedarius | sweden-lake-30km-top40 | not_comparable_project_level_only | 0 | 0 | 2 | Non-human chronology is still project-level and cannot be aligned to atlas localities honestly. |
-| Camelus dromedarius | sweden-lake-40km-top40 | not_comparable_project_level_only | 0 | 0 | 2 | Non-human chronology is still project-level and cannot be aligned to atlas localities honestly. |
-| Camelus dromedarius | sweden-lake-50km-top40 | not_comparable_project_level_only | 0 | 0 | 2 | Non-human chronology is still project-level and cannot be aligned to atlas localities honestly. |
-| Camelus dromedarius | sweden-lake-aggregate-top40 | not_comparable_project_level_only | 0 | 0 | 2 | Non-human chronology is still project-level and cannot be aligned to atlas localities honestly. |
-| Camelus dromedarius | sweden-lake-consensus-top40 | not_comparable_project_level_only | 0 | 0 | 2 | Non-human chronology is still project-level and cannot be aligned to atlas localities honestly. |
-| Camelus dromedarius | sweden-lake-fieldwork-shortlist | not_comparable_project_level_only | 0 | 0 | 2 | Non-human chronology is still project-level and cannot be aligned to atlas localities honestly. |
 | Canis lupus familiaris | animal-equus-caballus | not_comparable_project_level_only | 0 | 0 | 3 | Non-human chronology is still project-level and cannot be aligned to atlas localities honestly. |
-| Canis lupus familiaris | sweden-lake-10km-top40 | not_comparable_project_level_only | 0 | 0 | 3 | Non-human chronology is still project-level and cannot be aligned to atlas localities honestly. |
-| Canis lupus familiaris | sweden-lake-20km-top40 | not_comparable_project_level_only | 0 | 0 | 3 | Non-human chronology is still project-level and cannot be aligned to atlas localities honestly. |
-| Canis lupus familiaris | sweden-lake-30km-top40 | not_comparable_project_level_only | 0 | 0 | 3 | Non-human chronology is still project-level and cannot be aligned to atlas localities honestly. |
-| Canis lupus familiaris | sweden-lake-40km-top40 | not_comparable_project_level_only | 0 | 0 | 3 | Non-human chronology is still project-level and cannot be aligned to atlas localities honestly. |
-| Canis lupus familiaris | sweden-lake-50km-top40 | not_comparable_project_level_only | 0 | 0 | 3 | Non-human chronology is still project-level and cannot be aligned to atlas localities honestly. |
-| Canis lupus familiaris | sweden-lake-aggregate-top40 | not_comparable_project_level_only | 0 | 0 | 3 | Non-human chronology is still project-level and cannot be aligned to atlas localities honestly. |
-| Canis lupus familiaris | sweden-lake-consensus-top40 | not_comparable_project_level_only | 0 | 0 | 3 | Non-human chronology is still project-level and cannot be aligned to atlas localities honestly. |
-| Canis lupus familiaris | sweden-lake-fieldwork-shortlist | not_comparable_project_level_only | 0 | 0 | 3 | Non-human chronology is still project-level and cannot be aligned to atlas localities honestly. |
 | Capra hircus | animal-equus-caballus | not_comparable_project_level_only | 0 | 0 | 3 | Non-human chronology is still project-level and cannot be aligned to atlas localities honestly. |
-| Capra hircus | sweden-lake-10km-top40 | not_comparable_project_level_only | 0 | 0 | 3 | Non-human chronology is still project-level and cannot be aligned to atlas localities honestly. |
-| Capra hircus | sweden-lake-20km-top40 | not_comparable_project_level_only | 0 | 0 | 3 | Non-human chronology is still project-level and cannot be aligned to atlas localities honestly. |
-| Capra hircus | sweden-lake-30km-top40 | not_comparable_project_level_only | 0 | 0 | 3 | Non-human chronology is still project-level and cannot be aligned to atlas localities honestly. |
-| Capra hircus | sweden-lake-40km-top40 | not_comparable_project_level_only | 0 | 0 | 3 | Non-human chronology is still project-level and cannot be aligned to atlas localities honestly. |
-| Capra hircus | sweden-lake-50km-top40 | not_comparable_project_level_only | 0 | 0 | 3 | Non-human chronology is still project-level and cannot be aligned to atlas localities honestly. |
-| Capra hircus | sweden-lake-aggregate-top40 | not_comparable_project_level_only | 0 | 0 | 3 | Non-human chronology is still project-level and cannot be aligned to atlas localities honestly. |
-| Capra hircus | sweden-lake-consensus-top40 | not_comparable_project_level_only | 0 | 0 | 3 | Non-human chronology is still project-level and cannot be aligned to atlas localities honestly. |
-| Capra hircus | sweden-lake-fieldwork-shortlist | not_comparable_project_level_only | 0 | 0 | 3 | Non-human chronology is still project-level and cannot be aligned to atlas localities honestly. |
 | Equus asinus | animal-equus-caballus | not_comparable_project_level_only | 0 | 0 | 1 | Non-human chronology is still project-level and cannot be aligned to atlas localities honestly. |
-| Equus asinus | sweden-lake-10km-top40 | not_comparable_project_level_only | 0 | 0 | 1 | Non-human chronology is still project-level and cannot be aligned to atlas localities honestly. |
-| Equus asinus | sweden-lake-20km-top40 | not_comparable_project_level_only | 0 | 0 | 1 | Non-human chronology is still project-level and cannot be aligned to atlas localities honestly. |
-| Equus asinus | sweden-lake-30km-top40 | not_comparable_project_level_only | 0 | 0 | 1 | Non-human chronology is still project-level and cannot be aligned to atlas localities honestly. |
-| Equus asinus | sweden-lake-40km-top40 | not_comparable_project_level_only | 0 | 0 | 1 | Non-human chronology is still project-level and cannot be aligned to atlas localities honestly. |
-| Equus asinus | sweden-lake-50km-top40 | not_comparable_project_level_only | 0 | 0 | 1 | Non-human chronology is still project-level and cannot be aligned to atlas localities honestly. |
-| Equus asinus | sweden-lake-aggregate-top40 | not_comparable_project_level_only | 0 | 0 | 1 | Non-human chronology is still project-level and cannot be aligned to atlas localities honestly. |
-| Equus asinus | sweden-lake-consensus-top40 | not_comparable_project_level_only | 0 | 0 | 1 | Non-human chronology is still project-level and cannot be aligned to atlas localities honestly. |
-| Equus asinus | sweden-lake-fieldwork-shortlist | not_comparable_project_level_only | 0 | 0 | 1 | Non-human chronology is still project-level and cannot be aligned to atlas localities honestly. |
 | Equus caballus | animal-equus-caballus | mapped_locality_overlap_with_caution | 2 | 0 | 0 | Mapped animal locality leads can be compared with context layers, but only with their stated chronology and precision caveats. |
-| Equus caballus | sweden-lake-10km-top40 | mapped_locality_overlap_with_caution | 2 | 0 | 0 | Mapped animal locality leads can be compared with context layers, but only with their stated chronology and precision caveats. |
-| Equus caballus | sweden-lake-20km-top40 | mapped_locality_overlap_with_caution | 2 | 0 | 0 | Mapped animal locality leads can be compared with context layers, but only with their stated chronology and precision caveats. |
-| Equus caballus | sweden-lake-30km-top40 | mapped_locality_overlap_with_caution | 2 | 0 | 0 | Mapped animal locality leads can be compared with context layers, but only with their stated chronology and precision caveats. |
-| Equus caballus | sweden-lake-40km-top40 | mapped_locality_overlap_with_caution | 2 | 0 | 0 | Mapped animal locality leads can be compared with context layers, but only with their stated chronology and precision caveats. |
-| Equus caballus | sweden-lake-50km-top40 | mapped_locality_overlap_with_caution | 2 | 0 | 0 | Mapped animal locality leads can be compared with context layers, but only with their stated chronology and precision caveats. |
-| Equus caballus | sweden-lake-aggregate-top40 | mapped_locality_overlap_with_caution | 2 | 0 | 0 | Mapped animal locality leads can be compared with context layers, but only with their stated chronology and precision caveats. |
-| Equus caballus | sweden-lake-consensus-top40 | mapped_locality_overlap_with_caution | 2 | 0 | 0 | Mapped animal locality leads can be compared with context layers, but only with their stated chronology and precision caveats. |
-| Equus caballus | sweden-lake-fieldwork-shortlist | mapped_locality_overlap_with_caution | 2 | 0 | 0 | Mapped animal locality leads can be compared with context layers, but only with their stated chronology and precision caveats. |
 | Felis catus | animal-equus-caballus | not_comparable_project_level_only | 0 | 0 | 2 | Non-human chronology is still project-level and cannot be aligned to atlas localities honestly. |
-| Felis catus | sweden-lake-10km-top40 | not_comparable_project_level_only | 0 | 0 | 2 | Non-human chronology is still project-level and cannot be aligned to atlas localities honestly. |
-| Felis catus | sweden-lake-20km-top40 | not_comparable_project_level_only | 0 | 0 | 2 | Non-human chronology is still project-level and cannot be aligned to atlas localities honestly. |
-| Felis catus | sweden-lake-30km-top40 | not_comparable_project_level_only | 0 | 0 | 2 | Non-human chronology is still project-level and cannot be aligned to atlas localities honestly. |
-| Felis catus | sweden-lake-40km-top40 | not_comparable_project_level_only | 0 | 0 | 2 | Non-human chronology is still project-level and cannot be aligned to atlas localities honestly. |
-| Felis catus | sweden-lake-50km-top40 | not_comparable_project_level_only | 0 | 0 | 2 | Non-human chronology is still project-level and cannot be aligned to atlas localities honestly. |
-| Felis catus | sweden-lake-aggregate-top40 | not_comparable_project_level_only | 0 | 0 | 2 | Non-human chronology is still project-level and cannot be aligned to atlas localities honestly. |
-| Felis catus | sweden-lake-consensus-top40 | not_comparable_project_level_only | 0 | 0 | 2 | Non-human chronology is still project-level and cannot be aligned to atlas localities honestly. |
-| Felis catus | sweden-lake-fieldwork-shortlist | not_comparable_project_level_only | 0 | 0 | 2 | Non-human chronology is still project-level and cannot be aligned to atlas localities honestly. |
 | Gallus gallus domesticus | animal-equus-caballus | not_comparable_project_level_only | 0 | 0 | 1 | Non-human chronology is still project-level and cannot be aligned to atlas localities honestly. |
-| Gallus gallus domesticus | sweden-lake-10km-top40 | not_comparable_project_level_only | 0 | 0 | 1 | Non-human chronology is still project-level and cannot be aligned to atlas localities honestly. |
-| Gallus gallus domesticus | sweden-lake-20km-top40 | not_comparable_project_level_only | 0 | 0 | 1 | Non-human chronology is still project-level and cannot be aligned to atlas localities honestly. |
-| Gallus gallus domesticus | sweden-lake-30km-top40 | not_comparable_project_level_only | 0 | 0 | 1 | Non-human chronology is still project-level and cannot be aligned to atlas localities honestly. |
-| Gallus gallus domesticus | sweden-lake-40km-top40 | not_comparable_project_level_only | 0 | 0 | 1 | Non-human chronology is still project-level and cannot be aligned to atlas localities honestly. |
-| Gallus gallus domesticus | sweden-lake-50km-top40 | not_comparable_project_level_only | 0 | 0 | 1 | Non-human chronology is still project-level and cannot be aligned to atlas localities honestly. |
-| Gallus gallus domesticus | sweden-lake-aggregate-top40 | not_comparable_project_level_only | 0 | 0 | 1 | Non-human chronology is still project-level and cannot be aligned to atlas localities honestly. |
-| Gallus gallus domesticus | sweden-lake-consensus-top40 | not_comparable_project_level_only | 0 | 0 | 1 | Non-human chronology is still project-level and cannot be aligned to atlas localities honestly. |
-| Gallus gallus domesticus | sweden-lake-fieldwork-shortlist | not_comparable_project_level_only | 0 | 0 | 1 | Non-human chronology is still project-level and cannot be aligned to atlas localities honestly. |
 | Meleagris gallopavo | animal-equus-caballus | not_comparable_project_level_only | 0 | 0 | 1 | Non-human chronology is still project-level and cannot be aligned to atlas localities honestly. |
-| Meleagris gallopavo | sweden-lake-10km-top40 | not_comparable_project_level_only | 0 | 0 | 1 | Non-human chronology is still project-level and cannot be aligned to atlas localities honestly. |
-| Meleagris gallopavo | sweden-lake-20km-top40 | not_comparable_project_level_only | 0 | 0 | 1 | Non-human chronology is still project-level and cannot be aligned to atlas localities honestly. |
-| Meleagris gallopavo | sweden-lake-30km-top40 | not_comparable_project_level_only | 0 | 0 | 1 | Non-human chronology is still project-level and cannot be aligned to atlas localities honestly. |
-| Meleagris gallopavo | sweden-lake-40km-top40 | not_comparable_project_level_only | 0 | 0 | 1 | Non-human chronology is still project-level and cannot be aligned to atlas localities honestly. |
-| Meleagris gallopavo | sweden-lake-50km-top40 | not_comparable_project_level_only | 0 | 0 | 1 | Non-human chronology is still project-level and cannot be aligned to atlas localities honestly. |
-| Meleagris gallopavo | sweden-lake-aggregate-top40 | not_comparable_project_level_only | 0 | 0 | 1 | Non-human chronology is still project-level and cannot be aligned to atlas localities honestly. |
-| Meleagris gallopavo | sweden-lake-consensus-top40 | not_comparable_project_level_only | 0 | 0 | 1 | Non-human chronology is still project-level and cannot be aligned to atlas localities honestly. |
-| Meleagris gallopavo | sweden-lake-fieldwork-shortlist | not_comparable_project_level_only | 0 | 0 | 1 | Non-human chronology is still project-level and cannot be aligned to atlas localities honestly. |
 | Oryctolagus cuniculus | animal-equus-caballus | not_comparable_project_level_only | 0 | 0 | 1 | Non-human chronology is still project-level and cannot be aligned to atlas localities honestly. |
-| Oryctolagus cuniculus | sweden-lake-10km-top40 | not_comparable_project_level_only | 0 | 0 | 1 | Non-human chronology is still project-level and cannot be aligned to atlas localities honestly. |
-| Oryctolagus cuniculus | sweden-lake-20km-top40 | not_comparable_project_level_only | 0 | 0 | 1 | Non-human chronology is still project-level and cannot be aligned to atlas localities honestly. |
-| Oryctolagus cuniculus | sweden-lake-30km-top40 | not_comparable_project_level_only | 0 | 0 | 1 | Non-human chronology is still project-level and cannot be aligned to atlas localities honestly. |
-| Oryctolagus cuniculus | sweden-lake-40km-top40 | not_comparable_project_level_only | 0 | 0 | 1 | Non-human chronology is still project-level and cannot be aligned to atlas localities honestly. |
-| Oryctolagus cuniculus | sweden-lake-50km-top40 | not_comparable_project_level_only | 0 | 0 | 1 | Non-human chronology is still project-level and cannot be aligned to atlas localities honestly. |
-| Oryctolagus cuniculus | sweden-lake-aggregate-top40 | not_comparable_project_level_only | 0 | 0 | 1 | Non-human chronology is still project-level and cannot be aligned to atlas localities honestly. |
-| Oryctolagus cuniculus | sweden-lake-consensus-top40 | not_comparable_project_level_only | 0 | 0 | 1 | Non-human chronology is still project-level and cannot be aligned to atlas localities honestly. |
-| Oryctolagus cuniculus | sweden-lake-fieldwork-shortlist | not_comparable_project_level_only | 0 | 0 | 1 | Non-human chronology is still project-level and cannot be aligned to atlas localities honestly. |
 | Ovis aries | animal-equus-caballus | not_comparable_project_level_only | 0 | 0 | 3 | Non-human chronology is still project-level and cannot be aligned to atlas localities honestly. |
-| Ovis aries | sweden-lake-10km-top40 | not_comparable_project_level_only | 0 | 0 | 3 | Non-human chronology is still project-level and cannot be aligned to atlas localities honestly. |
-| Ovis aries | sweden-lake-20km-top40 | not_comparable_project_level_only | 0 | 0 | 3 | Non-human chronology is still project-level and cannot be aligned to atlas localities honestly. |
-| Ovis aries | sweden-lake-30km-top40 | not_comparable_project_level_only | 0 | 0 | 3 | Non-human chronology is still project-level and cannot be aligned to atlas localities honestly. |
-| Ovis aries | sweden-lake-40km-top40 | not_comparable_project_level_only | 0 | 0 | 3 | Non-human chronology is still project-level and cannot be aligned to atlas localities honestly. |
-| Ovis aries | sweden-lake-50km-top40 | not_comparable_project_level_only | 0 | 0 | 3 | Non-human chronology is still project-level and cannot be aligned to atlas localities honestly. |
-| Ovis aries | sweden-lake-aggregate-top40 | not_comparable_project_level_only | 0 | 0 | 3 | Non-human chronology is still project-level and cannot be aligned to atlas localities honestly. |
-| Ovis aries | sweden-lake-consensus-top40 | not_comparable_project_level_only | 0 | 0 | 3 | Non-human chronology is still project-level and cannot be aligned to atlas localities honestly. |
-| Ovis aries | sweden-lake-fieldwork-shortlist | not_comparable_project_level_only | 0 | 0 | 3 | Non-human chronology is still project-level and cannot be aligned to atlas localities honestly. |
 | Rangifer tarandus | animal-equus-caballus | not_comparable_project_level_only | 0 | 0 | 1 | Non-human chronology is still project-level and cannot be aligned to atlas localities honestly. |
-| Rangifer tarandus | sweden-lake-10km-top40 | not_comparable_project_level_only | 0 | 0 | 1 | Non-human chronology is still project-level and cannot be aligned to atlas localities honestly. |
-| Rangifer tarandus | sweden-lake-20km-top40 | not_comparable_project_level_only | 0 | 0 | 1 | Non-human chronology is still project-level and cannot be aligned to atlas localities honestly. |
-| Rangifer tarandus | sweden-lake-30km-top40 | not_comparable_project_level_only | 0 | 0 | 1 | Non-human chronology is still project-level and cannot be aligned to atlas localities honestly. |
-| Rangifer tarandus | sweden-lake-40km-top40 | not_comparable_project_level_only | 0 | 0 | 1 | Non-human chronology is still project-level and cannot be aligned to atlas localities honestly. |
-| Rangifer tarandus | sweden-lake-50km-top40 | not_comparable_project_level_only | 0 | 0 | 1 | Non-human chronology is still project-level and cannot be aligned to atlas localities honestly. |
-| Rangifer tarandus | sweden-lake-aggregate-top40 | not_comparable_project_level_only | 0 | 0 | 1 | Non-human chronology is still project-level and cannot be aligned to atlas localities honestly. |
-| Rangifer tarandus | sweden-lake-consensus-top40 | not_comparable_project_level_only | 0 | 0 | 1 | Non-human chronology is still project-level and cannot be aligned to atlas localities honestly. |
-| Rangifer tarandus | sweden-lake-fieldwork-shortlist | not_comparable_project_level_only | 0 | 0 | 1 | Non-human chronology is still project-level and cannot be aligned to atlas localities honestly. |
 | Sus scrofa domesticus | animal-equus-caballus | not_comparable_project_level_only | 0 | 0 | 1 | Non-human chronology is still project-level and cannot be aligned to atlas localities honestly. |
-| Sus scrofa domesticus | sweden-lake-10km-top40 | not_comparable_project_level_only | 0 | 0 | 1 | Non-human chronology is still project-level and cannot be aligned to atlas localities honestly. |
-| Sus scrofa domesticus | sweden-lake-20km-top40 | not_comparable_project_level_only | 0 | 0 | 1 | Non-human chronology is still project-level and cannot be aligned to atlas localities honestly. |
-| Sus scrofa domesticus | sweden-lake-30km-top40 | not_comparable_project_level_only | 0 | 0 | 1 | Non-human chronology is still project-level and cannot be aligned to atlas localities honestly. |
-| Sus scrofa domesticus | sweden-lake-40km-top40 | not_comparable_project_level_only | 0 | 0 | 1 | Non-human chronology is still project-level and cannot be aligned to atlas localities honestly. |
-| Sus scrofa domesticus | sweden-lake-50km-top40 | not_comparable_project_level_only | 0 | 0 | 1 | Non-human chronology is still project-level and cannot be aligned to atlas localities honestly. |
-| Sus scrofa domesticus | sweden-lake-aggregate-top40 | not_comparable_project_level_only | 0 | 0 | 1 | Non-human chronology is still project-level and cannot be aligned to atlas localities honestly. |
-| Sus scrofa domesticus | sweden-lake-consensus-top40 | not_comparable_project_level_only | 0 | 0 | 1 | Non-human chronology is still project-level and cannot be aligned to atlas localities honestly. |
-| Sus scrofa domesticus | sweden-lake-fieldwork-shortlist | not_comparable_project_level_only | 0 | 0 | 1 | Non-human chronology is still project-level and cannot be aligned to atlas localities honestly. |
 
 ## Animal Coordinate Review
 

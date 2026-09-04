@@ -11,15 +11,15 @@
 - Tracked projects: `40`
 - Tracked papers: `18`
 - Tracked supplements: `72`
-- Sample rows: `894`
-- Site evidence rows: `281`
+- Sample rows: `868`
+- Site evidence rows: `293`
 - Sample site rows: `868`
 - Chronology rows: `868`
 - Coordinate rows: `243`
-- Published atlas points: `234`
+- Published atlas points: `233`
 - Published country bundles: `4`
 - Papers with archived supplements: `18`
-- Mapped sample share: `0.2617`
+- Mapped sample share: `0.2684`
 - Projects blocked in intake recovery: `23`
 - Projects ready for publication review: `11`
 - Implausibly low recovery projects: `8`
@@ -73,7 +73,6 @@
 ## Current Blockers
 
 - foundation_validation_not_yet_clean
-- unresolved_site_assignment_rows_remain
 - region_only_geography_rows_remain
 - published_points_still_depend_on_named_site_geocoding
 - project_recovery_release_guard_still_failing

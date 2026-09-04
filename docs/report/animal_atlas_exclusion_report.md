@@ -1,11 +1,9 @@
 # Animal atlas exclusion report
 
-- Excluded tracked sample rows: `339`
+- Excluded tracked sample rows: `314`
 
 | Species | Project | Sample record | Locality | Inclusion status | Mapping posture | Exclusion reason |
 | --- | --- | --- | --- | --- | --- | --- |
-| Bos taurus | PRJEB31621 | bos_taurus:sample:prjeb31621 | site detail not yet extracted from tracked source support | sample_context_blocked |  | sample locality remains unresolved and cannot be mapped honestly |
-| Bos taurus | PRJEB75467 | bos_taurus:sample:prjeb75467 | site detail not yet extracted from tracked source support | sample_context_blocked |  | sample locality remains unresolved and cannot be mapped honestly |
 | Bos taurus | PRJNA705960 | bos_taurus:sample:prjna705960:samn18106827 | Galician mountain cave cattle context | site_curated | refused_region_only | geography remains region-only and the atlas refuses a false point |
 | Bos taurus | PRJNA705960 | bos_taurus:sample:prjna705960:samn18106828 | Galician mountain cave cattle context | site_curated | refused_region_only | geography remains region-only and the atlas refuses a false point |
 | Bos taurus | PRJNA705960 | bos_taurus:sample:prjna705960:samn18106829 | Galician mountain cave cattle context | site_curated | refused_region_only | geography remains region-only and the atlas refuses a false point |
@@ -17,23 +15,23 @@
 | Bos taurus | PRJNA705960 | bos_taurus:sample:prjna705960:samn18106835 | Galician mountain cave cattle context | site_curated | refused_region_only | geography remains region-only and the atlas refuses a false point |
 | Bos taurus | PRJNA705960 | bos_taurus:sample:prjna705960:samn18106836 | Galician mountain cave cattle context | site_curated | refused_region_only | geography remains region-only and the atlas refuses a false point |
 | Bos taurus | PRJNA705960 | bos_taurus:sample:prjna705960:samn18106837 | Galician mountain cave cattle context | site_curated | refused_region_only | geography remains region-only and the atlas refuses a false point |
-| Camelus dromedarius | KU605068-KU605080 | camelus_dromedarius:sample:ku605068-ku605080:ku605068 |  | site_curated |  | chronology remains unresolved enough that the sample stays out of the public map |
-| Camelus dromedarius | KU605068-KU605080 | camelus_dromedarius:sample:ku605068-ku605080:ku605069 |  | site_curated |  | chronology remains unresolved enough that the sample stays out of the public map |
-| Camelus dromedarius | KU605068-KU605080 | camelus_dromedarius:sample:ku605068-ku605080:ku605070 |  | site_curated |  | chronology remains unresolved enough that the sample stays out of the public map |
-| Camelus dromedarius | KU605068-KU605080 | camelus_dromedarius:sample:ku605068-ku605080:ku605071 |  | site_curated |  | chronology remains unresolved enough that the sample stays out of the public map |
-| Camelus dromedarius | KU605068-KU605080 | camelus_dromedarius:sample:ku605068-ku605080:ku605072 |  | site_curated |  | chronology remains unresolved enough that the sample stays out of the public map |
-| Camelus dromedarius | KU605068-KU605080 | camelus_dromedarius:sample:ku605068-ku605080:ku605073 |  | site_curated |  | chronology remains unresolved enough that the sample stays out of the public map |
-| Camelus dromedarius | KU605068-KU605080 | camelus_dromedarius:sample:ku605068-ku605080:ku605074 |  | site_curated |  | chronology remains unresolved enough that the sample stays out of the public map |
-| Camelus dromedarius | KU605068-KU605080 | camelus_dromedarius:sample:ku605068-ku605080:ku605075 |  | site_curated |  | chronology remains unresolved enough that the sample stays out of the public map |
-| Camelus dromedarius | KU605068-KU605080 | camelus_dromedarius:sample:ku605068-ku605080:ku605076 |  | site_curated |  | chronology remains unresolved enough that the sample stays out of the public map |
-| Camelus dromedarius | KU605068-KU605080 | camelus_dromedarius:sample:ku605068-ku605080:ku605077 |  | site_curated |  | chronology remains unresolved enough that the sample stays out of the public map |
-| Camelus dromedarius | KU605068-KU605080 | camelus_dromedarius:sample:ku605068-ku605080:ku605078 |  | site_curated |  | chronology remains unresolved enough that the sample stays out of the public map |
-| Camelus dromedarius | KU605068-KU605080 | camelus_dromedarius:sample:ku605068-ku605080:ku605079 |  | site_curated |  | chronology remains unresolved enough that the sample stays out of the public map |
-| Camelus dromedarius | KU605068-KU605080 | camelus_dromedarius:sample:ku605068-ku605080:ku605080 |  | site_curated |  | chronology remains unresolved enough that the sample stays out of the public map |
-| Canis lupus familiaris | KX379528-KX379529 | canis_lupus_familiaris:sample:kx379528-kx379529:kx379528 |  | site_curated |  | chronology remains unresolved enough that the sample stays out of the public map |
-| Canis lupus familiaris | KX379528-KX379529 | canis_lupus_familiaris:sample:kx379528-kx379529:kx379529 |  | site_curated |  | chronology remains unresolved enough that the sample stays out of the public map |
+| Camelus dromedarius | KU605068-KU605080 | camelus_dromedarius:sample:ku605068-ku605080:ku605068 | Palmyra | site_curated |  | no coordinate provenance row currently supports point publication |
+| Camelus dromedarius | KU605068-KU605080 | camelus_dromedarius:sample:ku605068-ku605080:ku605069 | Palmyra | site_curated |  | no coordinate provenance row currently supports point publication |
+| Camelus dromedarius | KU605068-KU605080 | camelus_dromedarius:sample:ku605068-ku605080:ku605070 | Palmyra | site_curated |  | no coordinate provenance row currently supports point publication |
+| Camelus dromedarius | KU605068-KU605080 | camelus_dromedarius:sample:ku605068-ku605080:ku605071 | Sagalassos | site_curated |  | no coordinate provenance row currently supports point publication |
+| Camelus dromedarius | KU605068-KU605080 | camelus_dromedarius:sample:ku605068-ku605080:ku605072 | Qatar-Jordan border | site_curated |  | no coordinate provenance row currently supports point publication |
+| Camelus dromedarius | KU605068-KU605080 | camelus_dromedarius:sample:ku605068-ku605080:ku605073 | Saudi Arabia | site_curated |  | no coordinate provenance row currently supports point publication |
+| Camelus dromedarius | KU605068-KU605080 | camelus_dromedarius:sample:ku605068-ku605080:ku605074 | Saudi Arabia | site_curated |  | no coordinate provenance row currently supports point publication |
+| Camelus dromedarius | KU605068-KU605080 | camelus_dromedarius:sample:ku605068-ku605080:ku605075 | Saudi Arabia | site_curated |  | no coordinate provenance row currently supports point publication |
+| Camelus dromedarius | KU605068-KU605080 | camelus_dromedarius:sample:ku605068-ku605080:ku605076 | Austria | site_curated |  | no coordinate provenance row currently supports point publication |
+| Camelus dromedarius | KU605068-KU605080 | camelus_dromedarius:sample:ku605068-ku605080:ku605077 | Dubai | site_curated |  | no coordinate provenance row currently supports point publication |
+| Camelus dromedarius | KU605068-KU605080 | camelus_dromedarius:sample:ku605068-ku605080:ku605078 | Kenya | site_curated |  | no coordinate provenance row currently supports point publication |
+| Camelus dromedarius | KU605068-KU605080 | camelus_dromedarius:sample:ku605068-ku605080:ku605079 | Sudan | site_curated |  | no coordinate provenance row currently supports point publication |
+| Camelus dromedarius | KU605068-KU605080 | camelus_dromedarius:sample:ku605068-ku605080:ku605080 | Pakistan | site_curated |  | no coordinate provenance row currently supports point publication |
+| Canis lupus familiaris | KX379528-KX379529 | canis_lupus_familiaris:sample:kx379528-kx379529:kx379528 | Cherry Tree Cave | site_curated |  | no coordinate provenance row currently supports point publication |
+| Canis lupus familiaris | KX379528-KX379529 | canis_lupus_familiaris:sample:kx379528-kx379529:kx379529 | Herxheim | site_curated |  | no coordinate provenance row currently supports point publication |
 | Canis lupus familiaris | SRS1407451 | canis_lupus_familiaris:sample:srs1407451:srs1407451 | Ancient European dog CTC sample context | site_curated | refused_region_only | geography remains region-only and the atlas refuses a false point |
-| Canis lupus familiaris | SRS1407453 | canis_lupus_familiaris:sample:srs1407453:srs1407453 |  | site_curated |  | chronology remains unresolved enough that the sample stays out of the public map |
+| Canis lupus familiaris | SRS1407453 | canis_lupus_familiaris:sample:srs1407453:srs1407453 | Herxheim | site_curated |  | no coordinate provenance row currently supports point publication |
 | Capra hircus | PRJEB90261 | capra_hircus:sample:prjeb90261:pgull-1295 | Lobos | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
 | Capra hircus | PRJEB90261 | capra_hircus:sample:prjeb90261:pgull-1296 | Lobos | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
 | Capra hircus | PRJEB90261 | capra_hircus:sample:prjeb90261:pgull-1299 | Lobos | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
@@ -51,12 +49,6 @@
 | Capra hircus | PRJEB90261 | capra_hircus:sample:prjeb90261:pgull-1317 | Lobos | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
 | Capra hircus | PRJEB90261 | capra_hircus:sample:prjeb90261:pgull-1319 | Lobos | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
 | Capra hircus | PRJEB90261 | capra_hircus:sample:prjeb90261:pgull-1868 | Lobos | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
-| Equus asinus | PRJEB43564 | equus_asinus:sample:prjeb43564 | site detail not yet extracted from tracked source support | sample_context_blocked |  | sample locality remains unresolved and cannot be mapped honestly |
-| Equus asinus | PRJEB50952 | equus_asinus:sample:prjeb50952 | site detail not yet extracted from tracked source support | sample_context_blocked |  | sample locality remains unresolved and cannot be mapped honestly |
-| Equus asinus | PRJEB52590 | equus_asinus:sample:prjeb52590 | site detail not yet extracted from tracked source support | sample_context_blocked |  | sample locality remains unresolved and cannot be mapped honestly |
-| Equus asinus | PRJEB52849 | equus_asinus:sample:prjeb52849 | North African donkey domestication and spread transect | comparator_site_curated | refused_region_only | geography remains region-only and the atlas refuses a false point |
-| Equus asinus | PRJEB55549 | equus_asinus:sample:prjeb55549 | site detail not yet extracted from tracked source support | sample_context_blocked |  | sample locality remains unresolved and cannot be mapped honestly |
-| Equus caballus | PRJEB10854 | equus_caballus:sample:prjeb10854 | site detail not yet extracted from tracked source support | sample_context_blocked |  | sample locality remains unresolved and cannot be mapped honestly |
 | Equus caballus | PRJEB19970 | equus_caballus:sample:prjeb19970:cgg_1_016168 | Berel' | site_curated |  | no coordinate provenance row currently supports point publication |
 | Equus caballus | PRJEB19970 | equus_caballus:sample:prjeb19970:cgg_1_016169 | Berel' | site_curated |  | no coordinate provenance row currently supports point publication |
 | Equus caballus | PRJEB19970 | equus_caballus:sample:prjeb19970:cgg_1_016171 | Berel' | site_curated |  | no coordinate provenance row currently supports point publication |
@@ -116,11 +108,6 @@
 | Equus caballus | PRJEB31613 | equus_caballus:sample:prjeb31613:cgg_1_018495 | museum specimen | site_curated |  | no coordinate provenance row currently supports point publication |
 | Equus caballus | PRJEB31613 | equus_caballus:sample:prjeb31613:cgg_1_018497 | museum specimen | site_curated |  | no coordinate provenance row currently supports point publication |
 | Equus caballus | PRJEB44430 | equus_caballus:sample:prjeb44430:samea9533401 | Museum specimen | site_curated |  | no coordinate provenance row currently supports point publication |
-| Equus caballus | PRJEB56293 | equus_caballus:sample:prjeb56293 | site detail not yet extracted from tracked source support | sample_context_blocked |  | sample locality remains unresolved and cannot be mapped honestly |
-| Equus caballus | PRJEB7537 | equus_caballus:sample:prjeb7537 | site detail not yet extracted from tracked source support | sample_context_blocked |  | sample locality remains unresolved and cannot be mapped honestly |
-| Equus caballus | PRJEB9799 | equus_caballus:sample:prjeb9799 | site detail not yet extracted from tracked source support | sample_context_blocked |  | sample locality remains unresolved and cannot be mapped honestly |
-| Felis catus | PRJEB81815 | felis_catus:sample:prjeb81815 | North Africa to Europe domestic cat dispersal transect | site_curated | refused_region_only | geography remains region-only and the atlas refuses a false point |
-| Felis catus | PRJNA1178732 | felis_catus:sample:prjna1178732 | site detail not yet extracted from tracked source support | sample_context_blocked |  | sample locality remains unresolved and cannot be mapped honestly |
 | Ovis aries | PRJEB36540 | ovis_aries:sample:prjeb36540:bh 28 | Barcın Höyük | site_curated |  | no coordinate provenance row currently supports point publication |
 | Ovis aries | PRJEB36540 | ovis_aries:sample:prjeb36540:bh 29 | Barcın Höyük | site_curated |  | no coordinate provenance row currently supports point publication |
 | Ovis aries | PRJEB36540 | ovis_aries:sample:prjeb36540:bh 33 | Barcın Höyük | site_curated |  | no coordinate provenance row currently supports point publication |
@@ -311,12 +298,6 @@
 | Ovis aries | PRJEB36540 | ovis_aries:sample:prjeb36540:ulu4 | Ulucak Höyük | site_curated |  | no coordinate provenance row currently supports point publication |
 | Ovis aries | PRJEB36540 | ovis_aries:sample:prjeb36540:ulu6 | Ulucak Höyük | site_curated |  | no coordinate provenance row currently supports point publication |
 | Ovis aries | PRJEB36540 | ovis_aries:sample:prjeb36540:ulu9 | Ulucak Höyük | site_curated |  | no coordinate provenance row currently supports point publication |
-| Ovis aries | PRJEB41594 | ovis_aries:sample:prjeb41594 | site detail not yet extracted from tracked source support | sample_context_blocked |  | sample locality remains unresolved and cannot be mapped honestly |
-| Ovis aries | PRJEB59481 | ovis_aries:sample:prjeb59481 | Baltic Sea Region short-tailed sheep context | nordic_lead_site_curated | refused_region_only | geography remains region-only and the atlas refuses a false point |
-| Ovis aries | PRJEB61808 | ovis_aries:sample:prjeb61808 | site detail not yet extracted from tracked source support | sample_context_blocked |  | sample locality remains unresolved and cannot be mapped honestly |
-| Ovis aries | PRJEB69690 | ovis_aries:sample:prjeb69690 | site detail not yet extracted from tracked source support | sample_context_blocked |  | sample locality remains unresolved and cannot be mapped honestly |
-| Ovis aries | PRJEB81145 | ovis_aries:sample:prjeb81145 | site detail not yet extracted from tracked source support | sample_context_blocked |  | sample locality remains unresolved and cannot be mapped honestly |
-| Rangifer tarandus | PRJEB57293 | rangifer_tarandus:sample:prjeb57293 | site detail not yet extracted from tracked source support | sample_context_blocked |  | sample locality remains unresolved and cannot be mapped honestly |
 | Rangifer tarandus | PRJEB60484 | rangifer_tarandus:sample:prjeb60484:samea112757323 | Svalbard ancient reindeer context | comparator_site_curated | refused_region_only | geography remains region-only and the atlas refuses a false point |
 | Rangifer tarandus | PRJEB60484 | rangifer_tarandus:sample:prjeb60484:samea112757324 | Svalbard ancient reindeer context | comparator_site_curated | refused_region_only | geography remains region-only and the atlas refuses a false point |
 | Rangifer tarandus | PRJEB60484 | rangifer_tarandus:sample:prjeb60484:samea112757325 | Svalbard ancient reindeer context | comparator_site_curated | refused_region_only | geography remains region-only and the atlas refuses a false point |
@@ -337,9 +318,3 @@
 | Rangifer tarandus | PRJEB60484 | rangifer_tarandus:sample:prjeb60484:samea112757340 | Svalbard ancient reindeer context | comparator_site_curated | refused_region_only | geography remains region-only and the atlas refuses a false point |
 | Rangifer tarandus | PRJEB60484 | rangifer_tarandus:sample:prjeb60484:samea114857470 | Svalbard ancient reindeer context | comparator_site_curated | refused_region_only | geography remains region-only and the atlas refuses a false point |
 | Rangifer tarandus | PRJEB60484 | rangifer_tarandus:sample:prjeb60484:samea114857471 | Svalbard ancient reindeer context | comparator_site_curated | refused_region_only | geography remains region-only and the atlas refuses a false point |
-| Rangifer tarandus | PRJEB61721 | rangifer_tarandus:sample:prjeb61721 | site detail not yet extracted from tracked source support | sample_context_blocked |  | sample locality remains unresolved and cannot be mapped honestly |
-| Rangifer tarandus | PRJNA634908 | rangifer_tarandus:sample:prjna634908 | site detail not yet extracted from tracked source support | sample_context_blocked |  | sample locality remains unresolved and cannot be mapped honestly |
-| Sus scrofa domesticus | PRJEB30282 | sus_scrofa_domesticus:sample:prjeb30282 | Near East and Europe pig domestication transect | site_curated | refused_region_only | geography remains region-only and the atlas refuses a false point |
-| Sus scrofa domesticus | PRJNA421430 | sus_scrofa_domesticus:sample:prjna421430 | site detail not yet extracted from tracked source support | sample_context_blocked |  | sample locality remains unresolved and cannot be mapped honestly |
-| Sus scrofa domesticus | PRJNA788987 | sus_scrofa_domesticus:sample:prjna788987 | site detail not yet extracted from tracked source support | sample_context_blocked |  | sample locality remains unresolved and cannot be mapped honestly |
-| Sus scrofa domesticus | PRJNA878488 | sus_scrofa_domesticus:sample:prjna878488 | site detail not yet extracted from tracked source support | sample_context_blocked |  | sample locality remains unresolved and cannot be mapped honestly |

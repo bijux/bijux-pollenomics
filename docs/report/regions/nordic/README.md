@@ -42,7 +42,6 @@ Nordic is the regional detail surface. It keeps the shared human and animal evid
 - Nordic country boundaries: [`nordic_country_boundaries.geojson`](./nordic_country_boundaries.geojson)
 - LandClim REVEALS temporal grid GeoJSON: [`nordic_reveals_temporal_grid_cells.geojson`](./nordic_reveals_temporal_grid_cells.geojson)
 - RAÄ archaeology layer metadata: [`sweden_archaeology_layer.json`](./sweden_archaeology_layer.json)
-- RAÄ archaeology density: [`sweden_archaeology_density.geojson`](./sweden_archaeology_density.geojson)
 - Animal locality GeoJSON: [`nordic_animal_localities.geojson`](./nordic_animal_localities.geojson)
 - Domesticated-core animal locality GeoJSON: [`nordic_domesticated_animal_localities.geojson`](./nordic_domesticated_animal_localities.geojson)
 - Comparator animal locality GeoJSON: [`nordic_comparator_animal_localities.geojson`](./nordic_comparator_animal_localities.geojson)
@@ -66,21 +65,12 @@ Nordic is the regional detail surface. It keeps the shared human and animal evid
 | --- | --- | --- | ---: |
 | AADR-v66 aDNA samples | `shared_world_scale_layer` | Country assignment follows the AADR political entity field. | `1231` |
 | Fieldwork documentation | `scope_specific_overlay` | Observed sampling location documented on 2026-02-26 at Lyngsjön Lake. | `1` |
-| LandClim pollen sites | `scope_specific_overlay` | Pollen sequences staged from the LandClim normalization bundle. | `492` |
+| LandClim pollen sites | `scope_specific_overlay` | Pollen sequences staged from the LandClim normalization bundle. | `490` |
 | Neotoma pollen sites | `scope_specific_overlay` | Pollen and paleoecology sites staged from the Neotoma normalization bundle. | `200` |
 | Sweden archaeology site discovery | `scope_specific_overlay` | Every geolocated Swedish SEAD site, represented by each linked numeric chronology interval or by one explicitly unresolved temporal record. | `10379` |
 | Horse aDNA site evidence | `shared_world_scale_layer` | Mapped animal features staged from traceable evidence rows built from species-owned sample, site, coordinate, and citation surfaces. | `2` |
-| Sweden lake aggregate top 40 | `scope_specific_overlay` | Optional Nordic atlas overlay for the top 40 Sweden lakes in the aggregate evidence ranking. | `235` |
-| Sweden lake consensus top 40 | `scope_specific_overlay` | Optional Nordic atlas overlay for the top 40 Sweden lakes that recur across scenario rankings. | `235` |
-| Sweden lake fieldwork shortlist | `scope_specific_overlay` | Optional Nordic atlas overlay for the published Sweden fieldwork shortlist. | `185` |
-| Sweden lake 10 km top 40 | `scope_specific_overlay` | Optional Nordic atlas overlay for the top 40 Sweden lakes in the 10 km evidence scenario. | `235` |
-| Sweden lake 20 km top 40 | `scope_specific_overlay` | Optional Nordic atlas overlay for the top 40 Sweden lakes in the 20 km evidence scenario. | `235` |
-| Sweden lake 30 km top 40 | `scope_specific_overlay` | Optional Nordic atlas overlay for the top 40 Sweden lakes in the 30 km evidence scenario. | `235` |
-| Sweden lake 40 km top 40 | `scope_specific_overlay` | Optional Nordic atlas overlay for the top 40 Sweden lakes in the 40 km evidence scenario. | `235` |
-| Sweden lake 50 km top 40 | `scope_specific_overlay` | Optional Nordic atlas overlay for the top 40 Sweden lakes in the 50 km evidence scenario. | `235` |
 | Country boundaries | `region_filtered_layer` | Published country outlines used for framing and scope-aware map filtering. | `4` |
-| LandClim REVEALS time-window grids | `scope_specific_overlay` | Time-window-specific REVEALS grid estimates from published LandClim PANGAEA datasets. | `2809` |
-| RAÄ archaeology density | `scope_specific_overlay` | Sweden only. Density cells summarize `Fornlämning` counts. | `106` |
+| LandClim REVEALS time-window grids | `scope_specific_overlay` | Time-window-specific REVEALS grid estimates from published LandClim PANGAEA datasets. | `2515` |
 
 ## Governed Filters
 

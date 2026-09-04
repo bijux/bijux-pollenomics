@@ -9,17 +9,16 @@
   ],
   "blockers": [
     "foundation_validation_not_yet_clean",
-    "unresolved_site_assignment_rows_remain",
     "region_only_geography_rows_remain",
     "published_points_still_depend_on_named_site_geocoding"
   ],
   "counts": {
-    "published_point_count": 234,
+    "published_point_count": 233,
     "direct_coordinate_point_count": 234,
     "geocoded_point_count": 2,
-    "unresolved_sample_count": 21,
+    "unresolved_sample_count": 0,
     "region_only_refusal_count": 7,
-    "blocked_project_count": 34
+    "blocked_project_count": 35
   },
   "validation_overall_ok": false,
   "drift_detected": false,

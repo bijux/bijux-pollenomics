@@ -103,9 +103,9 @@
   },
   "sample_evidence_depth_counts": {
     "sample_identity_only": 0,
-    "sample_with_site": 124,
-    "sample_with_site_and_chronology": 268,
-    "sample_with_site_chronology_and_coordinates": 502
+    "sample_with_site": 87,
+    "sample_with_site_and_chronology": 280,
+    "sample_with_site_chronology_and_coordinates": 501
   },
   "top_gap_projects": [
     {

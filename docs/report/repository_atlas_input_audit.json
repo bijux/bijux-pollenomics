@@ -21,8 +21,8 @@
       ],
       "refresh_anchor": "data/landclim/normalized/landclim_summary.json",
       "metrics": {
-        "site_count": 492,
-        "grid_cell_count": 88
+        "site_count": 490,
+        "grid_cell_count": 77
       },
       "note": "LandClim is a first-class pollen context family, not generic map decoration."
     },
@@ -127,8 +127,8 @@
       ],
       "refresh_anchor": "docs/report/animal_sample_database_review.json",
       "metrics": {
-        "published_point_count": 234,
-        "unresolved_row_count": 21
+        "published_point_count": 233,
+        "unresolved_row_count": 0
       },
       "note": "Animal aDNA is still a partial recovery program whose public map surface depends on sample-owned support reviews and release gates."
     }

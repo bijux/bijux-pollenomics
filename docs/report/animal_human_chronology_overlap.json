@@ -22,8 +22,8 @@
       "animal_locality_count": 1,
       "human_locality_count": 295,
       "overlapping_human_localities": 8,
-      "non_overlapping_human_localities": 287,
-      "noncomparable_human_localities": 0,
+      "non_overlapping_human_localities": 284,
+      "noncomparable_human_localities": 3,
       "assignment_confidence": "exact_country",
       "overlap_status": "overlap_detected"
     }

@@ -80,10 +80,6 @@
         "filename": "sweden_archaeology_layer.json"
       },
       {
-        "label": "RA\u00c4 archaeology density",
-        "filename": "sweden_archaeology_density.geojson"
-      },
-      {
         "label": "Animal locality GeoJSON",
         "filename": "nordic_animal_localities.geojson"
       },
@@ -218,7 +214,7 @@
     "role_counts": {
       "shared_world_scale_layer": 2,
       "region_filtered_layer": 1,
-      "scope_specific_overlay": 14
+      "scope_specific_overlay": 5
     },
     "layer_rows": [
       {
@@ -252,7 +248,7 @@
         "label": "LandClim pollen sites",
         "source_name": "LandClim",
         "coverage_label": "Pollen sequences staged from the LandClim normalization bundle.",
-        "count": 492,
+        "count": 490,
         "publication_role": "scope_specific_overlay",
         "scope_visibility": "scope_owned",
         "default_enabled": true,
@@ -300,110 +296,6 @@
         "scope_caveat": "Shared evidence layer across every governed scope."
       },
       {
-        "key": "sweden-lake-aggregate-top40",
-        "label": "Sweden lake aggregate top 40",
-        "source_name": "Sweden lake evidence",
-        "coverage_label": "Optional Nordic atlas overlay for the top 40 Sweden lakes in the aggregate evidence ranking.",
-        "count": 235,
-        "publication_role": "scope_specific_overlay",
-        "scope_visibility": "shared_default",
-        "default_enabled": false,
-        "applies_country_filter": true,
-        "applies_time_filter": true,
-        "scope_caveat": "This overlay is visible only in Nordic scope because its source family is still Nordic-specific."
-      },
-      {
-        "key": "sweden-lake-consensus-top40",
-        "label": "Sweden lake consensus top 40",
-        "source_name": "Sweden lake evidence",
-        "coverage_label": "Optional Nordic atlas overlay for the top 40 Sweden lakes that recur across scenario rankings.",
-        "count": 235,
-        "publication_role": "scope_specific_overlay",
-        "scope_visibility": "shared_default",
-        "default_enabled": false,
-        "applies_country_filter": true,
-        "applies_time_filter": true,
-        "scope_caveat": "This overlay is visible only in Nordic scope because its source family is still Nordic-specific."
-      },
-      {
-        "key": "sweden-lake-fieldwork-shortlist",
-        "label": "Sweden lake fieldwork shortlist",
-        "source_name": "Sweden lake evidence",
-        "coverage_label": "Optional Nordic atlas overlay for the published Sweden fieldwork shortlist.",
-        "count": 185,
-        "publication_role": "scope_specific_overlay",
-        "scope_visibility": "shared_default",
-        "default_enabled": false,
-        "applies_country_filter": true,
-        "applies_time_filter": true,
-        "scope_caveat": "This overlay is visible only in Nordic scope because its source family is still Nordic-specific."
-      },
-      {
-        "key": "sweden-lake-10km-top40",
-        "label": "Sweden lake 10 km top 40",
-        "source_name": "Sweden lake evidence",
-        "coverage_label": "Optional Nordic atlas overlay for the top 40 Sweden lakes in the 10 km evidence scenario.",
-        "count": 235,
-        "publication_role": "scope_specific_overlay",
-        "scope_visibility": "shared_default",
-        "default_enabled": false,
-        "applies_country_filter": true,
-        "applies_time_filter": true,
-        "scope_caveat": "This overlay is visible only in Nordic scope because its source family is still Nordic-specific."
-      },
-      {
-        "key": "sweden-lake-20km-top40",
-        "label": "Sweden lake 20 km top 40",
-        "source_name": "Sweden lake evidence",
-        "coverage_label": "Optional Nordic atlas overlay for the top 40 Sweden lakes in the 20 km evidence scenario.",
-        "count": 235,
-        "publication_role": "scope_specific_overlay",
-        "scope_visibility": "shared_default",
-        "default_enabled": false,
-        "applies_country_filter": true,
-        "applies_time_filter": true,
-        "scope_caveat": "This overlay is visible only in Nordic scope because its source family is still Nordic-specific."
-      },
-      {
-        "key": "sweden-lake-30km-top40",
-        "label": "Sweden lake 30 km top 40",
-        "source_name": "Sweden lake evidence",
-        "coverage_label": "Optional Nordic atlas overlay for the top 40 Sweden lakes in the 30 km evidence scenario.",
-        "count": 235,
-        "publication_role": "scope_specific_overlay",
-        "scope_visibility": "shared_default",
-        "default_enabled": false,
-        "applies_country_filter": true,
-        "applies_time_filter": true,
-        "scope_caveat": "This overlay is visible only in Nordic scope because its source family is still Nordic-specific."
-      },
-      {
-        "key": "sweden-lake-40km-top40",
-        "label": "Sweden lake 40 km top 40",
-        "source_name": "Sweden lake evidence",
-        "coverage_label": "Optional Nordic atlas overlay for the top 40 Sweden lakes in the 40 km evidence scenario.",
-        "count": 235,
-        "publication_role": "scope_specific_overlay",
-        "scope_visibility": "shared_default",
-        "default_enabled": false,
-        "applies_country_filter": true,
-        "applies_time_filter": true,
-        "scope_caveat": "This overlay is visible only in Nordic scope because its source family is still Nordic-specific."
-      },
-      {
-        "key": "sweden-lake-50km-top40",
-        "label": "Sweden lake 50 km top 40",
-        "source_name": "Sweden lake evidence",
-        "coverage_label": "Optional Nordic atlas overlay for the top 40 Sweden lakes in the 50 km evidence scenario.",
-        "count": 235,
-        "publication_role": "scope_specific_overlay",
-        "scope_visibility": "shared_default",
-        "default_enabled": false,
-        "applies_country_filter": true,
-        "applies_time_filter": true,
-        "scope_caveat": "This overlay is visible only in Nordic scope because its source family is still Nordic-specific."
-      },
-      {
         "key": "country-boundaries",
         "label": "Country boundaries",
         "source_name": "Natural Earth country boundaries",
@@ -421,25 +313,12 @@
         "label": "LandClim REVEALS time-window grids",
         "source_name": "LandClim",
         "coverage_label": "Time-window-specific REVEALS grid estimates from published LandClim PANGAEA datasets.",
-        "count": 2809,
+        "count": 2515,
         "publication_role": "scope_specific_overlay",
         "scope_visibility": "scope_owned",
         "default_enabled": true,
         "applies_country_filter": true,
         "applies_time_filter": true,
-        "scope_caveat": "This overlay is visible only in Nordic scope because its source family is still Nordic-specific."
-      },
-      {
-        "key": "raa-archaeology",
-        "label": "RA\u00c4 archaeology density",
-        "source_name": "RA\u00c4 Forns\u00f6k",
-        "coverage_label": "Sweden only. Density cells summarize `Fornl\u00e4mning` counts.",
-        "count": 106,
-        "publication_role": "scope_specific_overlay",
-        "scope_visibility": "scope_owned",
-        "default_enabled": true,
-        "applies_country_filter": true,
-        "applies_time_filter": false,
         "scope_caveat": "This overlay is visible only in Nordic scope because its source family is still Nordic-specific."
       }
     ]

@@ -42,9 +42,7 @@
         "Canis lupus familiaris",
         "Capra hircus",
         "Equus caballus",
-        "Felis catus",
-        "Ovis aries",
-        "Sus scrofa domesticus"
+        "Ovis aries"
       ],
       "layer_role": "mapped_direct",
       "mapped": true,
@@ -71,7 +69,6 @@
       "layer_key": "animal_comparator_direct",
       "label": "Comparator animal direct evidence",
       "species_scope": [
-        "Equus asinus",
         "Rangifer tarandus"
       ],
       "layer_role": "mapped_direct_comparator",
@@ -98,7 +95,11 @@
     {
       "layer_key": "animal_adna_species_context",
       "label": "Animal aDNA species context",
-      "species_scope": [],
+      "species_scope": [
+        "Equus asinus",
+        "Felis catus",
+        "Sus scrofa domesticus"
+      ],
       "layer_role": "unmapped_contextual_review",
       "mapped": false,
       "feature_count": 0,
@@ -135,7 +136,7 @@
       "species_scope": [],
       "layer_role": "mapped_context",
       "mapped": true,
-      "feature_count": 1832,
+      "feature_count": 2,
       "evidence_posture": "non_adna_context",
       "provenance_posture": "normalized_context_layers",
       "popup_contract": [
@@ -161,15 +162,7 @@
       "chronology_posture": "mapped_sample_chronology_available",
       "geography_posture": "mapped_locality_points",
       "contextual_layer_dependencies": [
-        "animal-equus-caballus",
-        "sweden-lake-10km-top40",
-        "sweden-lake-20km-top40",
-        "sweden-lake-30km-top40",
-        "sweden-lake-40km-top40",
-        "sweden-lake-50km-top40",
-        "sweden-lake-aggregate-top40",
-        "sweden-lake-consensus-top40",
-        "sweden-lake-fieldwork-shortlist"
+        "animal-equus-caballus"
       ],
       "blocking_reasons": [],
       "rationale": [
@@ -191,15 +184,7 @@
       "chronology_posture": "no_curated_nonhuman_chronology",
       "geography_posture": "no_curated_nonhuman_geography",
       "contextual_layer_dependencies": [
-        "animal-equus-caballus",
-        "sweden-lake-10km-top40",
-        "sweden-lake-20km-top40",
-        "sweden-lake-30km-top40",
-        "sweden-lake-40km-top40",
-        "sweden-lake-50km-top40",
-        "sweden-lake-aggregate-top40",
-        "sweden-lake-consensus-top40",
-        "sweden-lake-fieldwork-shortlist"
+        "animal-equus-caballus"
       ],
       "blocking_reasons": [],
       "rationale": [
@@ -220,15 +205,7 @@
       "chronology_posture": "no_curated_nonhuman_chronology",
       "geography_posture": "no_curated_nonhuman_geography",
       "contextual_layer_dependencies": [
-        "animal-equus-caballus",
-        "sweden-lake-10km-top40",
-        "sweden-lake-20km-top40",
-        "sweden-lake-30km-top40",
-        "sweden-lake-40km-top40",
-        "sweden-lake-50km-top40",
-        "sweden-lake-aggregate-top40",
-        "sweden-lake-consensus-top40",
-        "sweden-lake-fieldwork-shortlist"
+        "animal-equus-caballus"
       ],
       "blocking_reasons": [
         "missing_archive_projects",
@@ -253,15 +230,7 @@
       "chronology_posture": "project_level_chronology_without_locality_alignment",
       "geography_posture": "project_level_sites_known_but_not_runtime_mapped",
       "contextual_layer_dependencies": [
-        "animal-equus-caballus",
-        "sweden-lake-10km-top40",
-        "sweden-lake-20km-top40",
-        "sweden-lake-30km-top40",
-        "sweden-lake-40km-top40",
-        "sweden-lake-50km-top40",
-        "sweden-lake-aggregate-top40",
-        "sweden-lake-consensus-top40",
-        "sweden-lake-fieldwork-shortlist"
+        "animal-equus-caballus"
       ],
       "blocking_reasons": [
         "missing_primary_paper_pins",
@@ -289,15 +258,7 @@
       "chronology_posture": "project_level_chronology_without_locality_alignment",
       "geography_posture": "project_level_sites_known_but_not_runtime_mapped",
       "contextual_layer_dependencies": [
-        "animal-equus-caballus",
-        "sweden-lake-10km-top40",
-        "sweden-lake-20km-top40",
-        "sweden-lake-30km-top40",
-        "sweden-lake-40km-top40",
-        "sweden-lake-50km-top40",
-        "sweden-lake-aggregate-top40",
-        "sweden-lake-consensus-top40",
-        "sweden-lake-fieldwork-shortlist"
+        "animal-equus-caballus"
       ],
       "blocking_reasons": [],
       "rationale": [
@@ -318,15 +279,7 @@
       "chronology_posture": "project_level_bp_capable_but_not_locality_bound",
       "geography_posture": "project_level_sites_known_but_not_runtime_mapped",
       "contextual_layer_dependencies": [
-        "animal-equus-caballus",
-        "sweden-lake-10km-top40",
-        "sweden-lake-20km-top40",
-        "sweden-lake-30km-top40",
-        "sweden-lake-40km-top40",
-        "sweden-lake-50km-top40",
-        "sweden-lake-aggregate-top40",
-        "sweden-lake-consensus-top40",
-        "sweden-lake-fieldwork-shortlist"
+        "animal-equus-caballus"
       ],
       "blocking_reasons": [],
       "rationale": [
@@ -347,15 +300,7 @@
       "chronology_posture": "project_level_chronology_without_locality_alignment",
       "geography_posture": "project_level_sites_known_but_not_runtime_mapped",
       "contextual_layer_dependencies": [
-        "animal-equus-caballus",
-        "sweden-lake-10km-top40",
-        "sweden-lake-20km-top40",
-        "sweden-lake-30km-top40",
-        "sweden-lake-40km-top40",
-        "sweden-lake-50km-top40",
-        "sweden-lake-aggregate-top40",
-        "sweden-lake-consensus-top40",
-        "sweden-lake-fieldwork-shortlist"
+        "animal-equus-caballus"
       ],
       "blocking_reasons": [],
       "rationale": [
@@ -368,27 +313,21 @@
       "support_status": "comparator_only",
       "product_role": "comparator",
       "dataset_bucket": "comparator_only",
-      "contribution_role": "direct",
-      "interaction_posture": "increases_confidence",
+      "contribution_role": "contextual",
+      "interaction_posture": "suggestive_only",
       "mapped_direct_record_count": 0,
       "curated_project_count": 0,
       "study_summary_count": 5,
       "chronology_posture": "project_level_chronology_without_locality_alignment",
       "geography_posture": "project_level_geography_requires_manual_review",
       "contextual_layer_dependencies": [
-        "animal-equus-caballus",
-        "sweden-lake-10km-top40",
-        "sweden-lake-20km-top40",
-        "sweden-lake-30km-top40",
-        "sweden-lake-40km-top40",
-        "sweden-lake-50km-top40",
-        "sweden-lake-aggregate-top40",
-        "sweden-lake-consensus-top40",
-        "sweden-lake-fieldwork-shortlist"
+        "animal-equus-caballus"
       ],
       "blocking_reasons": [],
       "rationale": [
-        "This species now has tracked mapped locality rows and can act as direct atlas evidence with explicit locality caveats."
+        "This species contributes as contextual review evidence because the runtime owns curated projects and studies, not mapped sample rows.",
+        "Atlas proximity must not be read as co-localized animal evidence until species-owned locality rows exist.",
+        "Non-human geography is still project-level or withheld, so map-level locality claims would overstate the data."
       ]
     },
     {
@@ -405,15 +344,7 @@
       "chronology_posture": "mapped_locality_bp_windows_available",
       "geography_posture": "mapped_locality_points",
       "contextual_layer_dependencies": [
-        "animal-equus-caballus",
-        "sweden-lake-10km-top40",
-        "sweden-lake-20km-top40",
-        "sweden-lake-30km-top40",
-        "sweden-lake-40km-top40",
-        "sweden-lake-50km-top40",
-        "sweden-lake-aggregate-top40",
-        "sweden-lake-consensus-top40",
-        "sweden-lake-fieldwork-shortlist"
+        "animal-equus-caballus"
       ],
       "blocking_reasons": [
         "missing_primary_paper_pins",
@@ -430,27 +361,20 @@
       "support_status": "provisional",
       "product_role": "domesticated_core",
       "dataset_bucket": "paper_pinned_core",
-      "contribution_role": "direct",
-      "interaction_posture": "increases_confidence",
+      "contribution_role": "contextual",
+      "interaction_posture": "suggestive_only",
       "mapped_direct_record_count": 0,
       "curated_project_count": 2,
       "study_summary_count": 2,
       "chronology_posture": "project_level_chronology_without_locality_alignment",
       "geography_posture": "project_level_sites_known_but_not_runtime_mapped",
       "contextual_layer_dependencies": [
-        "animal-equus-caballus",
-        "sweden-lake-10km-top40",
-        "sweden-lake-20km-top40",
-        "sweden-lake-30km-top40",
-        "sweden-lake-40km-top40",
-        "sweden-lake-50km-top40",
-        "sweden-lake-aggregate-top40",
-        "sweden-lake-consensus-top40",
-        "sweden-lake-fieldwork-shortlist"
+        "animal-equus-caballus"
       ],
       "blocking_reasons": [],
       "rationale": [
-        "This species now has tracked mapped locality rows and can act as direct atlas evidence with explicit locality caveats."
+        "This species contributes as contextual review evidence because the runtime owns curated projects and studies, not mapped sample rows.",
+        "Atlas proximity must not be read as co-localized animal evidence until species-owned locality rows exist."
       ]
     },
     {
@@ -467,15 +391,7 @@
       "chronology_posture": "no_curated_nonhuman_chronology",
       "geography_posture": "no_curated_nonhuman_geography",
       "contextual_layer_dependencies": [
-        "animal-equus-caballus",
-        "sweden-lake-10km-top40",
-        "sweden-lake-20km-top40",
-        "sweden-lake-30km-top40",
-        "sweden-lake-40km-top40",
-        "sweden-lake-50km-top40",
-        "sweden-lake-aggregate-top40",
-        "sweden-lake-consensus-top40",
-        "sweden-lake-fieldwork-shortlist"
+        "animal-equus-caballus"
       ],
       "blocking_reasons": [],
       "rationale": [
@@ -496,15 +412,7 @@
       "chronology_posture": "no_curated_nonhuman_chronology",
       "geography_posture": "no_curated_nonhuman_geography",
       "contextual_layer_dependencies": [
-        "animal-equus-caballus",
-        "sweden-lake-10km-top40",
-        "sweden-lake-20km-top40",
-        "sweden-lake-30km-top40",
-        "sweden-lake-40km-top40",
-        "sweden-lake-50km-top40",
-        "sweden-lake-aggregate-top40",
-        "sweden-lake-consensus-top40",
-        "sweden-lake-fieldwork-shortlist"
+        "animal-equus-caballus"
       ],
       "blocking_reasons": [],
       "rationale": [
@@ -525,15 +433,7 @@
       "chronology_posture": "no_curated_nonhuman_chronology",
       "geography_posture": "no_curated_nonhuman_geography",
       "contextual_layer_dependencies": [
-        "animal-equus-caballus",
-        "sweden-lake-10km-top40",
-        "sweden-lake-20km-top40",
-        "sweden-lake-30km-top40",
-        "sweden-lake-40km-top40",
-        "sweden-lake-50km-top40",
-        "sweden-lake-aggregate-top40",
-        "sweden-lake-consensus-top40",
-        "sweden-lake-fieldwork-shortlist"
+        "animal-equus-caballus"
       ],
       "blocking_reasons": [],
       "rationale": [
@@ -554,15 +454,7 @@
       "chronology_posture": "project_level_chronology_without_locality_alignment",
       "geography_posture": "project_level_geography_requires_manual_review",
       "contextual_layer_dependencies": [
-        "animal-equus-caballus",
-        "sweden-lake-10km-top40",
-        "sweden-lake-20km-top40",
-        "sweden-lake-30km-top40",
-        "sweden-lake-40km-top40",
-        "sweden-lake-50km-top40",
-        "sweden-lake-aggregate-top40",
-        "sweden-lake-consensus-top40",
-        "sweden-lake-fieldwork-shortlist"
+        "animal-equus-caballus"
       ],
       "blocking_reasons": [
         "missing_primary_paper_pins",
@@ -587,15 +479,7 @@
       "chronology_posture": "project_level_chronology_without_locality_alignment",
       "geography_posture": "project_level_geography_requires_manual_review",
       "contextual_layer_dependencies": [
-        "animal-equus-caballus",
-        "sweden-lake-10km-top40",
-        "sweden-lake-20km-top40",
-        "sweden-lake-30km-top40",
-        "sweden-lake-40km-top40",
-        "sweden-lake-50km-top40",
-        "sweden-lake-aggregate-top40",
-        "sweden-lake-consensus-top40",
-        "sweden-lake-fieldwork-shortlist"
+        "animal-equus-caballus"
       ],
       "blocking_reasons": [],
       "rationale": [
@@ -608,30 +492,24 @@
       "support_status": "provisional",
       "product_role": "domesticated_core",
       "dataset_bucket": "archive_verified_needs_paper_pinning",
-      "contribution_role": "direct",
-      "interaction_posture": "increases_confidence",
+      "contribution_role": "contextual",
+      "interaction_posture": "suggestive_only",
       "mapped_direct_record_count": 0,
       "curated_project_count": 1,
       "study_summary_count": 4,
       "chronology_posture": "project_level_chronology_without_locality_alignment",
       "geography_posture": "project_level_geography_requires_manual_review",
       "contextual_layer_dependencies": [
-        "animal-equus-caballus",
-        "sweden-lake-10km-top40",
-        "sweden-lake-20km-top40",
-        "sweden-lake-30km-top40",
-        "sweden-lake-40km-top40",
-        "sweden-lake-50km-top40",
-        "sweden-lake-aggregate-top40",
-        "sweden-lake-consensus-top40",
-        "sweden-lake-fieldwork-shortlist"
+        "animal-equus-caballus"
       ],
       "blocking_reasons": [
         "missing_primary_paper_pins",
         "missing_archive_paper_pinning_rationale"
       ],
       "rationale": [
-        "This species now has tracked mapped locality rows and can act as direct atlas evidence with explicit locality caveats."
+        "This species contributes as contextual review evidence because the runtime owns curated projects and studies, not mapped sample rows.",
+        "Atlas proximity must not be read as co-localized animal evidence until species-owned locality rows exist.",
+        "Non-human geography is still project-level or withheld, so map-level locality claims would overstate the data."
       ]
     }
   ],
@@ -645,7 +523,11 @@
       "mapped_animal_direct_species": [
         "Equus caballus"
       ],
-      "unmapped_animal_context_species": [],
+      "unmapped_animal_context_species": [
+        "Equus asinus",
+        "Felis catus",
+        "Sus scrofa domesticus"
+      ],
       "too_weak_animal_species": [
         "Anas platyrhynchos domesticus",
         "Bos indicus",
@@ -665,7 +547,11 @@
         "Homo sapiens"
       ],
       "mapped_animal_direct_species": [],
-      "unmapped_animal_context_species": [],
+      "unmapped_animal_context_species": [
+        "Equus asinus",
+        "Felis catus",
+        "Sus scrofa domesticus"
+      ],
       "too_weak_animal_species": [
         "Anas platyrhynchos domesticus",
         "Bos indicus",
@@ -676,7 +562,7 @@
       "human_locality_count": 69,
       "human_sample_count": 130,
       "mapped_animal_locality_count": 0,
-      "evidence_posture": "human_only_direct",
+      "evidence_posture": "human_direct_plus_unmapped_animal_context",
       "caution_note": "Animal aDNA remains atlas-wide unmapped context unless species-owned locality rows exist. This country profile must not be read as country-assigned animal support."
     },
     {
@@ -685,7 +571,11 @@
         "Homo sapiens"
       ],
       "mapped_animal_direct_species": [],
-      "unmapped_animal_context_species": [],
+      "unmapped_animal_context_species": [
+        "Equus asinus",
+        "Felis catus",
+        "Sus scrofa domesticus"
+      ],
       "too_weak_animal_species": [
         "Anas platyrhynchos domesticus",
         "Bos indicus",
@@ -696,7 +586,7 @@
       "human_locality_count": 6,
       "human_sample_count": 32,
       "mapped_animal_locality_count": 0,
-      "evidence_posture": "human_only_direct",
+      "evidence_posture": "human_direct_plus_unmapped_animal_context",
       "caution_note": "Animal aDNA remains atlas-wide unmapped context unless species-owned locality rows exist. This country profile must not be read as country-assigned animal support."
     },
     {
@@ -708,7 +598,11 @@
       "mapped_animal_direct_species": [
         "Equus caballus"
       ],
-      "unmapped_animal_context_species": [],
+      "unmapped_animal_context_species": [
+        "Equus asinus",
+        "Felis catus",
+        "Sus scrofa domesticus"
+      ],
       "too_weak_animal_species": [
         "Anas platyrhynchos domesticus",
         "Bos indicus",
@@ -776,23 +670,13 @@
     },
     {
       "subject": "Equus asinus",
-      "reason": "mapped_animal_chronology_requires_caution",
-      "detail": "Mapped animal localities exist, but their chronology remains too partial or mixed to support strong time-alignment claims."
-    },
-    {
-      "subject": "Equus asinus",
-      "reason": "mapped_animal_geography_requires_caution",
-      "detail": "Mapped animal localities remain approximate, inferred, or regional and must keep their visible caveat warnings."
+      "reason": "atlas_proximity_is_not_locality_evidence",
+      "detail": "Curated animal project support cannot be promoted to mapped locality evidence without species-owned sample or locality records."
     },
     {
       "subject": "Felis catus",
-      "reason": "mapped_animal_chronology_requires_caution",
-      "detail": "Mapped animal localities exist, but their chronology remains too partial or mixed to support strong time-alignment claims."
-    },
-    {
-      "subject": "Felis catus",
-      "reason": "mapped_animal_geography_requires_caution",
-      "detail": "Mapped animal localities remain approximate, inferred, or regional and must keep their visible caveat warnings."
+      "reason": "atlas_proximity_is_not_locality_evidence",
+      "detail": "Curated animal project support cannot be promoted to mapped locality evidence without species-owned sample or locality records."
     },
     {
       "subject": "Gallus gallus domesticus",
@@ -831,13 +715,8 @@
     },
     {
       "subject": "Sus scrofa domesticus",
-      "reason": "mapped_animal_chronology_requires_caution",
-      "detail": "Mapped animal localities exist, but their chronology remains too partial or mixed to support strong time-alignment claims."
-    },
-    {
-      "subject": "Sus scrofa domesticus",
-      "reason": "mapped_animal_geography_requires_caution",
-      "detail": "Mapped animal localities remain approximate, inferred, or regional and must keep their visible caveat warnings."
+      "reason": "atlas_proximity_is_not_locality_evidence",
+      "detail": "Curated animal project support cannot be promoted to mapped locality evidence without species-owned sample or locality records."
     }
   ],
   "north_star_boundary": "Mapped Homo sapiens localities are direct atlas evidence. Non-human ancient-DNA support becomes direct atlas evidence only where tracked species-owned locality rows exist. Approximate coordinates, regional leads, comparator species, and mixed-species claims still require explicit caution."

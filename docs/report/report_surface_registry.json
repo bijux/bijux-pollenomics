@@ -1,10 +1,10 @@
 {
   "schema_version": "report-surface-registry.v1",
-  "surface_count": 297,
+  "surface_count": 296,
   "family_counts": {
     "caveats": 9,
     "maintenance": 51,
-    "maps": 78,
+    "maps": 77,
     "portal": 2,
     "reviews": 33,
     "scopes": 124
@@ -12,13 +12,13 @@
   "audience_counts": {
     "maintainer_diagnostic": 53,
     "public_reading_surface": 133,
-    "scientific_review_surface": 111
+    "scientific_review_surface": 110
   },
   "geography_counts": {
     "denmark": 14,
     "europe_plus": 36,
     "finland": 14,
-    "nordic": 45,
+    "nordic": 44,
     "norway": 14,
     "report_root": 98,
     "sweden": 40,
@@ -2472,18 +2472,6 @@
       "caution_level": "medium",
       "explanation": "Scope summary surface for direct inspection or downstream filtering.",
       "reader_route": "scope_bundle"
-    },
-    {
-      "repository_path": "docs/report/regions/nordic/sweden_archaeology_density.geojson",
-      "family": "maps",
-      "family_label": "Map surfaces",
-      "audience": "scientific_review_surface",
-      "audience_label": "Scientific review surface",
-      "format": "geojson",
-      "geography": "nordic",
-      "caution_level": "medium",
-      "explanation": "Governed report artifact.",
-      "reader_route": "map_detail"
     },
     {
       "repository_path": "docs/report/regions/nordic/sweden_archaeology_layer.json",

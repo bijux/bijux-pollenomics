@@ -3,7 +3,7 @@
   "rows": [
     {
       "species_latin_name": "Bos taurus",
-      "normalized_sample_row_count": 13,
+      "normalized_sample_row_count": 11,
       "normalized_site_evidence_count": 1,
       "normalized_coordinate_row_count": 1,
       "mappable_coordinate_row_count": 0,
@@ -16,12 +16,12 @@
     },
     {
       "species_latin_name": "Camelus dromedarius",
-      "normalized_sample_row_count": 14,
-      "normalized_site_evidence_count": 1,
+      "normalized_sample_row_count": 13,
+      "normalized_site_evidence_count": 10,
       "normalized_coordinate_row_count": 1,
       "mappable_coordinate_row_count": 1,
-      "atlas_evidence_row_count": 1,
-      "atlas_evidence_sample_count": 1,
+      "atlas_evidence_row_count": 0,
+      "atlas_evidence_sample_count": 0,
       "published_country_sample_count": 0,
       "published_country_locality_count": 0,
       "drift_detected": false,
@@ -30,7 +30,7 @@
     {
       "species_latin_name": "Canis lupus familiaris",
       "normalized_sample_row_count": 4,
-      "normalized_site_evidence_count": 1,
+      "normalized_site_evidence_count": 4,
       "normalized_coordinate_row_count": 1,
       "mappable_coordinate_row_count": 0,
       "atlas_evidence_row_count": 0,
@@ -54,21 +54,8 @@
       "findings": []
     },
     {
-      "species_latin_name": "Equus asinus",
-      "normalized_sample_row_count": 5,
-      "normalized_site_evidence_count": 1,
-      "normalized_coordinate_row_count": 1,
-      "mappable_coordinate_row_count": 0,
-      "atlas_evidence_row_count": 0,
-      "atlas_evidence_sample_count": 0,
-      "published_country_sample_count": 0,
-      "published_country_locality_count": 0,
-      "drift_detected": false,
-      "findings": []
-    },
-    {
       "species_latin_name": "Equus caballus",
-      "normalized_sample_row_count": 552,
+      "normalized_sample_row_count": 548,
       "normalized_site_evidence_count": 240,
       "normalized_coordinate_row_count": 208,
       "mappable_coordinate_row_count": 208,
@@ -80,21 +67,8 @@
       "findings": []
     },
     {
-      "species_latin_name": "Felis catus",
-      "normalized_sample_row_count": 2,
-      "normalized_site_evidence_count": 1,
-      "normalized_coordinate_row_count": 1,
-      "mappable_coordinate_row_count": 0,
-      "atlas_evidence_row_count": 0,
-      "atlas_evidence_sample_count": 0,
-      "published_country_sample_count": 0,
-      "published_country_locality_count": 0,
-      "drift_detected": false,
-      "findings": []
-    },
-    {
       "species_latin_name": "Ovis aries",
-      "normalized_sample_row_count": 195,
+      "normalized_sample_row_count": 190,
       "normalized_site_evidence_count": 7,
       "normalized_coordinate_row_count": 1,
       "mappable_coordinate_row_count": 0,
@@ -107,20 +81,7 @@
     },
     {
       "species_latin_name": "Rangifer tarandus",
-      "normalized_sample_row_count": 23,
-      "normalized_site_evidence_count": 1,
-      "normalized_coordinate_row_count": 1,
-      "mappable_coordinate_row_count": 0,
-      "atlas_evidence_row_count": 0,
-      "atlas_evidence_sample_count": 0,
-      "published_country_sample_count": 0,
-      "published_country_locality_count": 0,
-      "drift_detected": false,
-      "findings": []
-    },
-    {
-      "species_latin_name": "Sus scrofa domesticus",
-      "normalized_sample_row_count": 4,
+      "normalized_sample_row_count": 20,
       "normalized_site_evidence_count": 1,
       "normalized_coordinate_row_count": 1,
       "mappable_coordinate_row_count": 0,

@@ -30,4 +30,4 @@ show.
 
 - interactive maps: `3`
 - traceability surfaces: `9`
-- total map-family artifacts: `77`
+- total map-family artifacts: `76`

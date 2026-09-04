@@ -41,7 +41,7 @@
       "docs_paths": [
         "docs/public/pollenomics-data/sources/landclim.md"
       ],
-      "visible_count": 580,
+      "visible_count": 567,
       "acquisition_posture": "tracked_context_layer",
       "main_gap": "LandClim remains real pollen context and should keep explicit links to its normalized files and REVEALS posture"
     },
