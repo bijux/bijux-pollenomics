@@ -51,10 +51,16 @@ class DataContractSurfaceRegressionTests(unittest.TestCase):
         )
         self.assertEqual(
             matrix_payload["schema_version"],
-            "source-family-evidence-stage-matrix.v1",
+            "source-family-evidence-stage-matrix.v2",
         )
         self.assertEqual(contract_keys, matrix_keys)
         self.assertEqual(contract_payload["row_count"], matrix_payload["row_count"])
+        rows = {row["source_key"]: row for row in matrix_payload["rows"]}
+        self.assertEqual(rows["raa"]["authority_status"], "refused")
+        self.assertIsNone(rows["raa"]["coverage_metrics"]["raa_total_site_count"])
+        self.assertEqual(rows["svar"]["authority_status"], "refused")
+        self.assertIsNone(rows["svar"]["coverage_metrics"]["svar_lake_count"])
+        self.assertEqual(rows["boundaries"]["authority_status"], "review_required")
 
     def test_checked_in_spatiotemporal_registry_keeps_source_limits_explicit(
         self,
@@ -68,7 +74,7 @@ class DataContractSurfaceRegressionTests(unittest.TestCase):
 
         self.assertEqual(
             posture_payload["schema_version"],
-            "source-spatiotemporal-posture-registry.v1",
+            "source-spatiotemporal-posture-registry.v2",
         )
         self.assertEqual(
             rows["neotoma"]["temporal_support_posture"],
@@ -84,8 +90,11 @@ class DataContractSurfaceRegressionTests(unittest.TestCase):
         )
         self.assertEqual(
             rows["svar"]["distance_scoring_posture"],
-            "candidate_lake_anchor",
+            "refused_missing_authority",
         )
+        self.assertIsNone(rows["svar"]["record_count"])
+        self.assertEqual(rows["raa"]["availability_status"], "refused")
+        self.assertEqual(rows["boundaries"]["availability_status"], "review_required")
 
     def test_fact_and_artifact_contract_registries_keep_durable_keys(self) -> None:
         fact_payload = json.loads(
