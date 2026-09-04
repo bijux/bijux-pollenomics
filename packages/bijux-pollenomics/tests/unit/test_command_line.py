@@ -3,6 +3,7 @@ from __future__ import annotations
 import argparse
 from pathlib import Path
 import re
+import tomllib
 import unittest
 from unittest.mock import patch
 
@@ -448,6 +449,7 @@ class CommandLineUnitTests(unittest.TestCase):
         pyproject_text = package_root.joinpath("pyproject.toml").read_text(
             encoding="utf-8"
         )
+        pyproject = tomllib.loads(pyproject_text)
         module_text = package_root.joinpath(
             "src/bijux_pollenomics/__init__.py"
         ).read_text(encoding="utf-8")
@@ -459,7 +461,7 @@ class CommandLineUnitTests(unittest.TestCase):
         )
 
         self.assertIn('dynamic = ["version"]', pyproject_text)
-        self.assertIn('requires-python = ">=3.11"', pyproject_text)
+        self.assertEqual(pyproject["project"]["requires-python"], ">=3.11,<4")
         self.assertIn("[tool.hatch.version]", pyproject_text)
         self.assertIn('source = "vcs"', pyproject_text)
         if pyproject_fallback is None:
