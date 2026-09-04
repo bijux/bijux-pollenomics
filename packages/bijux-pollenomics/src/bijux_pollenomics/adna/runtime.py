@@ -5,6 +5,11 @@ from dataclasses import dataclass
 from pathlib import Path
 
 from ..config import DEFAULT_AADR_VERSION, DEFAULT_DATA_ROOT
+from ..core.temporal_semantics import (
+    InvalidBpIntervalError,
+    canonical_bp_interval,
+    closed_bp_intervals_overlap,
+)
 from .curation import build_species_curation_manifest
 from .manifests import AdnaSpeciesManifest, build_species_manifest
 from .models import AdnaSampleRecord
@@ -20,6 +25,7 @@ __all__ = [
     "AdnaSpeciesRuntimeManifest",
     "build_species_runtime_manifest",
     "load_species_samples",
+    "sample_matches_query",
 ]
 
 ADNA_REVIEW_STRENGTHS = (
@@ -90,7 +96,7 @@ class AdnaSpeciesRuntimeManifest:
 
 @dataclass(frozen=True)
 class AdnaSampleQuery:
-    """Filter contract for loading species-aware ancient-DNA samples."""
+    """Filter contract with optional complete, closed canonical-BP bounds."""
 
     political_entity: str | None = None
     locality_token: str | None = None
@@ -102,6 +108,7 @@ class AdnaSampleQuery:
     time_end_bp: int | None = None
 
     def normalized(self) -> AdnaSampleQuery:
+        canonical_bp_interval(self.time_start_bp, self.time_end_bp)
         return AdnaSampleQuery(
             political_entity=_clean_optional(self.political_entity),
             locality_token=_clean_optional(self.locality_token),
@@ -186,7 +193,7 @@ def load_species_samples(
         for sample in bundle.sample_records
         if (sample.source_family, sample.source_release) in admitted_sources
         and (
-            normalized_query is None or _sample_matches_query(sample, normalized_query)
+            normalized_query is None or sample_matches_query(sample, normalized_query)
         )
     ]
     dataset_counts: Counter[str] = Counter()
@@ -233,7 +240,8 @@ def _source_family_for(project: AdnaSpeciesProjectRow) -> str:
     return project.source_family
 
 
-def _sample_matches_query(sample: AdnaSampleRecord, query: AdnaSampleQuery) -> bool:
+def sample_matches_query(sample: AdnaSampleRecord, query: AdnaSampleQuery) -> bool:
+    """Return whether a sample satisfies a normalized runtime query."""
     if query.political_entity:
         if sample.political_entity is None:
             return False
@@ -254,11 +262,17 @@ def _sample_matches_query(sample: AdnaSampleRecord, query: AdnaSampleQuery) -> b
         return False
     if query.review_strengths and sample.review_strength not in query.review_strengths:
         return False
-    if query.time_start_bp is not None or query.time_end_bp is not None:
-        if sample.time_start_bp is None or sample.time_end_bp is None:
+    query_interval = canonical_bp_interval(query.time_start_bp, query.time_end_bp)
+    if query_interval is not None:
+        try:
+            sample_interval = canonical_bp_interval(
+                sample.time_start_bp,
+                sample.time_end_bp,
+            )
+        except InvalidBpIntervalError:
             return False
-        if query.time_start_bp is not None and sample.time_end_bp < query.time_start_bp:
+        if sample_interval is None:
             return False
-        if query.time_end_bp is not None and sample.time_start_bp > query.time_end_bp:
+        if not closed_bp_intervals_overlap(sample_interval, query_interval):
             return False
     return True

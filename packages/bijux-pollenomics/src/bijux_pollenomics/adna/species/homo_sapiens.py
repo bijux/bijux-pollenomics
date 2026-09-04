@@ -20,7 +20,12 @@ from ..models import (
     AdnaSampleRecord,
 )
 from ..paths import ADNA_SPECIES_DIR
-from ..runtime import AdnaSampleQuery, AdnaSourceBundle, AdnaSpeciesRuntimeManifest
+from ..runtime import (
+    AdnaSampleQuery,
+    AdnaSourceBundle,
+    AdnaSpeciesRuntimeManifest,
+    sample_matches_query,
+)
 from .homo_sapiens_schema import (
     resolve_homo_sapiens_schema,
     sample_time_interval,
@@ -157,7 +162,7 @@ def load_homo_sapiens_samples(
     dataset_counts: Counter[str] = Counter()
 
     for sample in _cached_release_samples(_release_cache_key(bundle)):
-        if not _sample_matches_query(sample, normalized_query):
+        if not sample_matches_query(sample, normalized_query):
             continue
         for dataset_name in sample.datasets:
             dataset_counts[dataset_name] += 1
@@ -568,37 +573,6 @@ def _is_country_only_query(query: AdnaSampleQuery) -> bool:
             query.time_end_bp is not None,
         )
     )
-
-
-def _sample_matches_query(sample: AdnaSampleRecord, query: AdnaSampleQuery) -> bool:
-    if query.political_entity:
-        if sample.political_entity is None:
-            return False
-        if sample.political_entity.casefold() != query.political_entity.casefold():
-            return False
-    if query.locality_token and sample.locality_token != query.locality_token:
-        return False
-    if query.dataset_names and not set(sample.datasets).intersection(
-        query.dataset_names
-    ):
-        return False
-    if query.modalities and sample.record_modality not in query.modalities:
-        return False
-    if (
-        query.provenance_qualities
-        and sample.provenance_quality not in query.provenance_qualities
-    ):
-        return False
-    if query.review_strengths and sample.review_strength not in query.review_strengths:
-        return False
-    if query.time_start_bp is not None or query.time_end_bp is not None:
-        if sample.time_start_bp is None or sample.time_end_bp is None:
-            return False
-        if query.time_start_bp is not None and sample.time_end_bp < query.time_start_bp:
-            return False
-        if query.time_end_bp is not None and sample.time_start_bp > query.time_end_bp:
-            return False
-    return True
 
 
 def _pick_value(left: str, right: str) -> str:
