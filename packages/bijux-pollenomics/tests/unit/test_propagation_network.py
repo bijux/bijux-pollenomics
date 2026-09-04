@@ -5,8 +5,8 @@ import json
 
 from hypothesis import given, settings
 from hypothesis import strategies as st
-import pytest
 from pyproj import Geod
+import pytest
 
 from bijux_pollenomics.analysis.propagation_network import (
     COUNTRY_CODES,

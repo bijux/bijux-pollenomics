@@ -422,8 +422,7 @@ def _build_chronology_overlaps(
                 noncomparable += 1
                 continue
             if any(
-                _locality_overlaps_point(locality, point)
-                for point in comparable_points
+                _locality_overlaps_point(locality, point) for point in comparable_points
             ):
                 overlapping += 1
             else:

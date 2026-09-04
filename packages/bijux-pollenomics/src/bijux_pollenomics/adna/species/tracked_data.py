@@ -25,8 +25,8 @@ from ..integrity import build_archive_integrity_report
 from ..layout import build_species_layout
 from ..manifests import build_species_manifest
 from ..normalization import (
-    AdnaSpeciesNormalizationBundle,
     RECOVERED_SAMPLE_EVIDENCE_STATUSES,
+    AdnaSpeciesNormalizationBundle,
     build_species_normalization_bundle,
 )
 from ..paths import adna_final_root, adna_governance_root

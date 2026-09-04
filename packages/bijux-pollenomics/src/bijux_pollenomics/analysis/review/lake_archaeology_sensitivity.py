@@ -56,7 +56,9 @@ def build_lake_archaeology_sensitivity_payload(
             aggregate_score = round(
                 sum(
                     score * _RADIUS_WEIGHTS.get(band.radius_km, 0.0)
-                    for band, score in zip(assessment.band_scores, band_scores)
+                    for band, score in zip(
+                        assessment.band_scores, band_scores, strict=True
+                    )
                 ),
                 4,
             )
@@ -99,7 +101,7 @@ def build_lake_archaeology_sensitivity_payload(
         for row in profile_rows["baseline"]
     }
     output_rows = []
-    for profile_key, archaeology_weight in _ARCHAEOLOGY_PROFILES:
+    for profile_key, _archaeology_weight in _ARCHAEOLOGY_PROFILES:
         for row in profile_rows[profile_key]:
             baseline_rank = baseline_ranks[str(row["lake_token"])]
             output_rows.append(

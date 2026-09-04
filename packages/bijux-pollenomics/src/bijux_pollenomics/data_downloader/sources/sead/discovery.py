@@ -58,7 +58,9 @@ def build_sweden_archaeology_site_discovery(
 ) -> SwedenArchaeologySiteDiscovery:
     """Build a complete Sweden-only discovery registry without invented dates."""
     sweden_sites = {
-        record.record_id: record for record in site_records if record.country == "Sweden"
+        record.record_id: record
+        for record in site_records
+        if record.country == "Sweden"
     }
     temporal_by_site: dict[str, list[ContextPointRecord]] = defaultdict(list)
     for record in temporal_records:
@@ -82,7 +84,9 @@ def build_sweden_archaeology_site_discovery(
                 .removeprefix("sead_")
                 .strip()
                 for item in chronology
-                if str((item.temporal_semantics or {}).get("evidence_class", "")).strip()
+                if str(
+                    (item.temporal_semantics or {}).get("evidence_class", "")
+                ).strip()
             }
         )
         chronology_record_count = sum(item.record_count for item in chronology)
@@ -116,11 +120,15 @@ def build_sweden_archaeology_site_discovery(
         )
 
     ordered = sorted(unranked, key=_ranking_key)
-    ranked = tuple({**row, "discovery_rank": rank} for rank, row in enumerate(ordered, 1))
+    ranked = tuple(
+        {**row, "discovery_rank": rank} for rank, row in enumerate(ordered, 1)
+    )
     rank_by_site = {str(row["site_id"]): row for row in ranked}
     map_records = tuple(
         record
-        for site_id in sorted(sweden_sites, key=lambda value: rank_by_site[value]["discovery_rank"])
+        for site_id in sorted(
+            sweden_sites, key=lambda value: rank_by_site[value]["discovery_rank"]
+        )
         for record in _map_records_for_site(
             sweden_sites[site_id],
             temporal_by_site.get(site_id, []),
@@ -255,10 +263,16 @@ def _map_records_for_site(
 ) -> list[ContextPointRecord]:
     popup = (
         ("Discovery rank", str(registry_row["discovery_rank"])),
-        ("Discovery readiness", str(registry_row["discovery_readiness"]).replace("_", " ")),
+        (
+            "Discovery readiness",
+            str(registry_row["discovery_readiness"]).replace("_", " "),
+        ),
         ("Linked bibliography records", str(registry_row["bibliography_count"])),
         ("Linked chronology kinds", str(registry_row["chronology_kind_count"])),
-        ("RAÄ density context", str(registry_row["raa_density_context_count"] or "Unavailable")),
+        (
+            "RAÄ density context",
+            str(registry_row["raa_density_context_count"] or "Unavailable"),
+        ),
         ("Current activity", "Not captured by repository sources"),
     )
     if chronology:
@@ -333,7 +347,9 @@ def _map_records_for_site(
             description="This site is retained with explicitly unresolved chronology.",
             source_url=site.source_url,
             record_count=1,
-            popup_rows=(("SEAD site ID", site.record_id),) + popup + (("Time", "Unresolved"),),
+            popup_rows=(("SEAD site ID", site.record_id),)
+            + popup
+            + (("Time", "Unresolved"),),
             temporal_semantics=semantics,
         )
     ]
@@ -384,9 +400,22 @@ def _density_count_for_point(
         ring = coordinates[0]
         if not isinstance(ring, list) or not ring:
             continue
-        xs = [float(point[0]) for point in ring if isinstance(point, list) and len(point) >= 2]
-        ys = [float(point[1]) for point in ring if isinstance(point, list) and len(point) >= 2]
-        if xs and ys and min(xs) <= longitude < max(xs) and min(ys) <= latitude < max(ys):
+        xs = [
+            float(point[0])
+            for point in ring
+            if isinstance(point, list) and len(point) >= 2
+        ]
+        ys = [
+            float(point[1])
+            for point in ring
+            if isinstance(point, list) and len(point) >= 2
+        ]
+        if (
+            xs
+            and ys
+            and min(xs) <= longitude < max(xs)
+            and min(ys) <= latitude < max(ys)
+        ):
             return _integer(properties.get("count"))
     return None
 

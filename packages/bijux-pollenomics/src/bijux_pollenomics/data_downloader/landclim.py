@@ -4,8 +4,7 @@ from dataclasses import dataclass
 from datetime import date
 import hashlib
 import json
-from pathlib import Path
-from pathlib import PurePosixPath
+from pathlib import Path, PurePosixPath
 from zipfile import BadZipFile, ZipFile
 
 from ..config import NORDIC_BBOX
@@ -27,8 +26,8 @@ from .shared import load_repository_country_boundaries
 from .sources.landclim.catalog import (
     LANDCLIM_DATASET_METADATA,
     LandClimRawAssets,
-    build_landclim_raw_asset_summaries,
     build_landclim_bibliography,
+    build_landclim_raw_asset_summaries,
     inspect_landclim_ii_archive,
     resolve_landclim_marquer_asset_urls,
     resolve_landclim_tabular_asset_urls,
@@ -44,6 +43,7 @@ from .sources.landclim.grid import (
     feature_key_from_geometry,
     grid_geometry_from_nw_cell_label,
 )
+from .sources.landclim.review import write_landclim_review_outputs
 from .sources.landclim.sites import (
     LANDCLIM_SITE_LAYER_KEY,
     build_landclim_site_records,
@@ -51,7 +51,6 @@ from .sources.landclim.sites import (
     landclim_ii_site_records,
     parse_coordinate,
 )
-from .sources.landclim.review import write_landclim_review_outputs
 from .sources.landclim.time_windows import (
     LANDCLIM_TEMPORAL_GRID_LAYER_KEY,
     build_landclim_temporal_grid_geojson,
@@ -69,16 +68,13 @@ _LANDCLIM_ASSET_DATASET_IDS = {
 }
 _LANDCLIM_ASSET_SOURCE_URLS = {
     "marquer_2017_reveals_taxa_grid_cells.xlsx": (
-        "https://store.pangaea.de/Publications/Marquer-etal_2017/"
-        "MARQUER_QSR2017.xlsx"
+        "https://store.pangaea.de/Publications/Marquer-etal_2017/MARQUER_QSR2017.xlsx"
     ),
     "landclim_i_land_cover_types.xlsx": (
-        "https://store.pangaea.de/Publications/Gaillard-Lemdahl_2019/"
-        "LandClimILCTs.xlsx"
+        "https://store.pangaea.de/Publications/Gaillard-Lemdahl_2019/LandClimILCTs.xlsx"
     ),
     "landclim_i_plant_functional_types.xlsx": (
-        "https://store.pangaea.de/Publications/Gaillard-Lemdahl_2019/"
-        "LandClimIPFTs.xlsx"
+        "https://store.pangaea.de/Publications/Gaillard-Lemdahl_2019/LandClimIPFTs.xlsx"
     ),
     "landclim_ii_reveals_results.zip": (
         "https://download.pangaea.de/dataset/937075/files/"
@@ -88,8 +84,7 @@ _LANDCLIM_ASSET_SOURCE_URLS = {
         "https://download.pangaea.de/dataset/937075/files/GC_quality_by_TW.xlsx"
     ),
     "landclim_ii_contributors.xlsx": (
-        "https://download.pangaea.de/dataset/937075/files/"
-        "LandClimII_contributors.xlsx"
+        "https://download.pangaea.de/dataset/937075/files/LandClimII_contributors.xlsx"
     ),
     "landclim_ii_site_metadata.xlsx": (
         "https://download.pangaea.de/dataset/937075/files/LandClimII_metadata.xlsx"
@@ -353,9 +348,7 @@ def validate_landclim_raw_receipt(raw_dir: Path) -> dict[str, object]:
         asset_by_filename[filename] = asset
 
     actual_entries = {
-        path.name: path
-        for path in raw_dir.iterdir()
-        if path.name != receipt_path.name
+        path.name: path for path in raw_dir.iterdir() if path.name != receipt_path.name
     }
     declared_names = set(asset_by_filename)
     missing_required = sorted(_LANDCLIM_REQUIRED_ASSETS - declared_names)
@@ -503,7 +496,10 @@ def _validate_landclim_receipt_datasets(
     seen_dataset_ids: set[str] = set()
     for dataset in dataset_rows:
         dataset_id = dataset.get("dataset_id")
-        if not isinstance(dataset_id, str) or dataset_id not in LANDCLIM_DATASET_METADATA:
+        if (
+            not isinstance(dataset_id, str)
+            or dataset_id not in LANDCLIM_DATASET_METADATA
+        ):
             raise LandClimRawReceiptError("LandClim receipt dataset_id is invalid")
         if dataset_id in seen_dataset_ids:
             raise LandClimRawReceiptError(
@@ -602,9 +598,7 @@ def _safe_receipt_filename(value: object) -> str:
         raise LandClimRawReceiptError("LandClim raw receipt filename is invalid")
     path = PurePosixPath(value)
     if path.is_absolute() or len(path.parts) != 1 or path.name != value:
-        raise LandClimRawReceiptError(
-            f"Unsafe LandClim raw receipt filename: {value}"
-        )
+        raise LandClimRawReceiptError(f"Unsafe LandClim raw receipt filename: {value}")
     return value
 
 

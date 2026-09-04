@@ -842,7 +842,7 @@ def _build_reconciliation(
     evaluated: tuple[PropagationCandidate, ...],
     refusals: tuple[PropagationPairRefusal, ...],
 ) -> ScenarioReconciliation:
-    status_counts = {status: 0 for status in _CANDIDATE_STATUSES}
+    status_counts = dict.fromkeys(_CANDIDATE_STATUSES, 0)
     country_counts = {
         f"{source}-{target}": {**status_counts, "refused": 0}
         for source in COUNTRY_CODES

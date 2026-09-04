@@ -1,8 +1,8 @@
 from __future__ import annotations
 
+from dataclasses import replace
 import hashlib
 import json
-from dataclasses import replace
 from pathlib import Path
 
 import pytest
@@ -378,9 +378,7 @@ def test_materialization_preserves_non_pollen_exclusion_records(
         "evidence_domain_not_pollen_propagation_eligible"
     )
     assert exclusion_records[0]["event"]["event_id"] == animal.event_id
-    assert exclusion_records[0]["event"]["evidence_domain"] == (
-        "animal_ancient_dna"
-    )
+    assert exclusion_records[0]["event"]["evidence_domain"] == ("animal_ancient_dna")
     assert release["input_event_count"] == 2
     assert release["eligible_event_count"] == 1
     assert release["excluded_non_pollen_event_count"] == 1

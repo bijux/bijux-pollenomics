@@ -72,9 +72,7 @@ def test_evidence_domain_is_required_and_governed() -> None:
     assert missing.value.reason_code == "invalid_event_schema"
 
 
-@pytest.mark.parametrize(
-    "evidence_domain", ("human_ancient_dna", "animal_ancient_dna")
-)
+@pytest.mark.parametrize("evidence_domain", ("human_ancient_dna", "animal_ancient_dna"))
 def test_non_pollen_domains_cannot_use_pollen_aggregate_resolutions(
     evidence_domain: str,
 ) -> None:
@@ -110,8 +108,7 @@ def test_domain_is_part_of_identity_and_pair_compatibility() -> None:
     assert non_pollen.reason_code == "incompatible_evidence_domain"
     assert isinstance(same_non_pollen, PropagationPairRefusal)
     assert (
-        same_non_pollen.reason_code
-        == "evidence_domain_not_pollen_propagation_eligible"
+        same_non_pollen.reason_code == "evidence_domain_not_pollen_propagation_eligible"
     )
 
 
@@ -141,9 +138,10 @@ def test_network_partitions_domains_before_pollen_pair_accounting() -> None:
         pollen_source.event_id,
         pollen_target.event_id,
     }
-    assert {
-        event.evidence_domain for event in indexed.excluded_non_pollen_events
-    } == {"human_ancient_dna", "animal_ancient_dna"}
+    assert {event.evidence_domain for event in indexed.excluded_non_pollen_events} == {
+        "human_ancient_dna",
+        "animal_ancient_dna",
+    }
 
     scenario = indexed.scenario_results[0]
     reconciliation = scenario.reconciliation

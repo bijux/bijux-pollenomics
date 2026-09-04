@@ -145,9 +145,7 @@ def test_temporal_overlap_refuses_invalid_intervals_without_aborting_report() ->
     )
     assert not temporal_overlap(
         locality,
-        _point(
-            "reversed-context", 59.01, 18.02, time_start_bp=200, time_end_bp=100
-        ),
+        _point("reversed-context", 59.01, 18.02, time_start_bp=200, time_end_bp=100),
     )
 
 

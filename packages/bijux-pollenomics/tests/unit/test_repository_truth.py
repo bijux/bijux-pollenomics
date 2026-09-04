@@ -265,7 +265,10 @@ class RepositoryTruthUnitTests(unittest.TestCase):
         )
         self.assertEqual(sead_row["ecosystem_role"], "direct_source_infrastructure")
         self.assertEqual(palaeopen_row["ecosystem_role"], "open_data_network")
-        self.assertIn("temporal resolution and reference visibility remain uneven", " ".join(sead_row["limits"]))
+        self.assertIn(
+            "temporal resolution and reference visibility remain uneven",
+            " ".join(sead_row["limits"]),
+        )
         self.assertIn("Repository source ecosystem review", markdown)
         self.assertIn("PalaeOpen", markdown)
 

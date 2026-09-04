@@ -162,7 +162,7 @@ def validate_neotoma_relational_materialization(
         observed_ids: list[str] = []
         country_partition: Counter[str] | None = None
         if surface_name in _COUNTRY_SURFACE_COUNT_FIELDS:
-            country_partition = Counter({code: 0 for code in _COUNTRY_CODES})
+            country_partition = Counter(dict.fromkeys(_COUNTRY_CODES, 0))
         for expected_number, part in enumerate(parts, start=1):
             if not isinstance(part, Mapping):
                 raise ValueError(f"Invalid part manifest for surface {surface_name}")
@@ -403,7 +403,7 @@ def _write_materialization(
         )
         surface_row_counts[surface_name] = len(rows)
         if surface_name in _COUNTRY_SURFACE_COUNT_FIELDS:
-            partition: Counter[str] = Counter({code: 0 for code in _COUNTRY_CODES})
+            partition: Counter[str] = Counter(dict.fromkeys(_COUNTRY_CODES, 0))
             _accumulate_country_partition(
                 rows,
                 surface_name=surface_name,

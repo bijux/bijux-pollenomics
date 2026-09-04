@@ -80,7 +80,7 @@ def _snapshot() -> dict[str, object]:
         "observation_rows",
     )
     country_counts = {
-        country_code: {field: 0 for field in country_fields}
+        country_code: dict.fromkeys(country_fields, 0)
         for country_code in ("SE", "DK", "NO", "FI", "UNASSIGNED")
     }
     country_counts["SE"].update({"sites": 1, "collection_units": 1})

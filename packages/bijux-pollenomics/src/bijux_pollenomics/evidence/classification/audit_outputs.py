@@ -881,7 +881,7 @@ def _canonical_json_bytes(payload: object) -> bytes:
             "invalid_output_serialization",
             "classification audit must be finite canonical JSON",
         ) from error
-    return f"{rendered}\n".encode("utf-8")
+    return f"{rendered}\n".encode()
 
 
 def _required_text(value: object, *, field_name: str) -> str:

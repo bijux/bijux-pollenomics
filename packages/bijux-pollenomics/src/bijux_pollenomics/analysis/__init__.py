@@ -6,6 +6,11 @@ from .engine_manifest import (
     build_ranking_engine_manifest,
 )
 from .harmonization import HarmonizationRule, default_harmonization_rules
+from .lake_candidate_registry import (
+    SOUTHERN_SWEDEN_LAKE_REVIEW_TARGETS,
+    build_sweden_lake_candidate_registry,
+    write_sweden_lake_candidate_registry,
+)
 from .lake_evidence_richness import (
     DEFAULT_LAKE_EVIDENCE_RADII_KM,
     LakeEvidenceBandScore,
@@ -14,11 +19,6 @@ from .lake_evidence_richness import (
     LakeEvidenceRichnessReport,
     LakeEvidenceSourceAnchor,
     build_sweden_lake_evidence_richness_report,
-)
-from .lake_candidate_registry import (
-    SOUTHERN_SWEDEN_LAKE_REVIEW_TARGETS,
-    build_sweden_lake_candidate_registry,
-    write_sweden_lake_candidate_registry,
 )
 from .ranking import (
     CandidateSensitivityReport,

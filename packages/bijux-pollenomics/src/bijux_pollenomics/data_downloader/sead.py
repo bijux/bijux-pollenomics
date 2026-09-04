@@ -8,10 +8,6 @@ import os
 from pathlib import Path
 import time
 
-from .sources.sead.discovery import (
-    build_sweden_archaeology_site_discovery,
-    write_sweden_archaeology_site_discovery,
-)
 from ..core.files import write_json
 from ..core.http import fetch_json
 from .contracts import (
@@ -29,6 +25,10 @@ from .shared import load_repository_country_boundaries
 from .sources.sead import api_client as sead_api_client
 from .sources.sead.acquisition import acquire_sead_table
 from .sources.sead.archive import SEAD_LINKED_SOURCE_TABLES
+from .sources.sead.discovery import (
+    build_sweden_archaeology_site_discovery,
+    write_sweden_archaeology_site_discovery,
+)
 from .sources.sead.fetch import (
     build_sead_in_filter as build_sead_in_filter_value,
 )
@@ -581,10 +581,7 @@ def _write_archaeology_site_discovery(
     temporal_records: list[ContextPointRecord],
 ) -> None:
     raa_path = (
-        output_root.parent
-        / "raa"
-        / "normalized"
-        / "sweden_archaeology_density.geojson"
+        output_root.parent / "raa" / "normalized" / "sweden_archaeology_density.geojson"
     )
     raa_density: dict[str, object] | None = None
     if raa_path.is_file():

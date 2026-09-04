@@ -68,7 +68,13 @@ class SwedenArchaeologySiteDiscoveryTests(unittest.TestCase):
                     "geometry": {
                         "type": "Polygon",
                         "coordinates": [
-                            [[17.0, 59.0], [19.0, 59.0], [19.0, 60.0], [17.0, 60.0], [17.0, 59.0]]
+                            [
+                                [17.0, 59.0],
+                                [19.0, 59.0],
+                                [19.0, 60.0],
+                                [17.0, 60.0],
+                                [17.0, 59.0],
+                            ]
                         ],
                     },
                     "properties": {"count": 42},
@@ -100,7 +106,9 @@ class SwedenArchaeologySiteDiscoveryTests(unittest.TestCase):
             discovery.site_rows[1]["current_activity_status"],
             "not_captured_by_repository_sources",
         )
-        self.assertIn("never changes rank", discovery.ranking_contract["raa_density_role"])
+        self.assertIn(
+            "never changes rank", discovery.ranking_contract["raa_density_role"]
+        )
 
     def test_discovery_writes_complete_companion_products(self) -> None:
         discovery = build_sweden_archaeology_site_discovery(

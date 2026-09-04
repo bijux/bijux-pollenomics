@@ -2,15 +2,15 @@
 
 from __future__ import annotations
 
+from collections.abc import Iterable, Mapping, Sequence
+from dataclasses import dataclass
 import hashlib
 import json
 import os
+from pathlib import Path, PurePosixPath
 import re
 import stat
-from dataclasses import dataclass
-from pathlib import Path, PurePosixPath
-from collections.abc import Iterable
-from typing import Final, Literal, Mapping, Sequence, TypeAlias, cast
+from typing import Final, Literal, TypeAlias, cast
 
 ArtifactRole: TypeAlias = Literal[
     "source_receipt",

@@ -280,8 +280,10 @@ def _build_raa_row(output_root: Path) -> SourceSpatiotemporalPostureRecord:
             ),
         },
         caveats=(
-            "The normalized density surface is excluded until its source inventory, "
-            "counts, and qualified review reconcile.",
+            (
+                "The normalized density surface is excluded until its source inventory, "
+                "counts, and qualified review reconcile."
+            ),
         ),
     )
 

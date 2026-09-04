@@ -3,13 +3,14 @@
 from __future__ import annotations
 
 import argparse
+from collections.abc import Mapping, Sequence
+from contextlib import suppress
 import json
 import os
+from pathlib import Path, PurePosixPath
 import stat
 import sys
 import tempfile
-from collections.abc import Mapping, Sequence
-from pathlib import Path, PurePosixPath
 from typing import cast
 
 from .release_evidence import (
@@ -84,7 +85,7 @@ def write_release_evidence_manifest(
             if existing != payload:
                 raise ReleaseEvidenceError(
                     f"release-evidence output appeared with different bytes: {output_path}"
-                )
+                ) from None
         temporary_path.unlink()
         temporary_path = None
         _fsync_directory(destination.parent)
@@ -326,10 +327,8 @@ def _prepare_output_path(root: Path, relative_path: str) -> Path:
         try:
             mode = candidate.lstat().st_mode
         except FileNotFoundError:
-            try:
+            with suppress(FileExistsError):
                 candidate.mkdir(mode=0o755)
-            except FileExistsError:
-                pass
             mode = candidate.lstat().st_mode
         if stat.S_ISLNK(mode) or not stat.S_ISDIR(mode):
             raise ReleaseEvidenceError(f"unsafe output directory: {candidate}")

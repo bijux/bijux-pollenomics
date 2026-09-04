@@ -8,6 +8,7 @@ from urllib.error import URLError
 
 import pytest
 
+from bijux_pollenomics.data_downloader import sead as production_sead
 from bijux_pollenomics.data_downloader.sources.sead.acquisition import (
     SeadAcquisitionError,
     acquire_sead_table,
@@ -16,7 +17,6 @@ from bijux_pollenomics.data_downloader.sources.sead.acquisition import (
     reconcile_sead_countries,
     reconcile_sead_join,
 )
-from bijux_pollenomics.data_downloader import sead as production_sead
 
 _SCOPE = ("SE", "DK", "NO", "FI")
 _BBOX = {"bbox": [4.0, 54.0, 35.0, 72.0], "crs": "EPSG:4326"}

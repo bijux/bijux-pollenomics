@@ -10,8 +10,8 @@ from ....core.bp_time import (
     normalize_bp_interval,
     parse_bp_window_label,
 )
-from ....core.text import clean_optional_text
 from ....core.temporal_semantics import build_temporal_semantics
+from ....core.text import clean_optional_text
 from ...intake.workbooks import read_xlsx_sheet_rows
 from ...models import ContextPointRecord
 from ...spatial import classify_country, point_in_bbox

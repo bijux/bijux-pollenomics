@@ -10,8 +10,8 @@ from unittest.mock import patch
 
 from bijux_pollenomics.data_downloader.boundaries import (
     NATURAL_EARTH_ADMIN0_URL,
-    NATURAL_EARTH_VERSION,
     NATURAL_EARTH_TERMS_URL,
+    NATURAL_EARTH_VERSION,
     build_combined_country_boundaries,
     build_country_boundary_collection,
     collect_boundaries_data,

@@ -192,9 +192,7 @@ def load_species_samples(
         sample
         for sample in bundle.sample_records
         if (sample.source_family, sample.source_release) in admitted_sources
-        and (
-            normalized_query is None or sample_matches_query(sample, normalized_query)
-        )
+        and (normalized_query is None or sample_matches_query(sample, normalized_query))
     ]
     dataset_counts: Counter[str] = Counter()
     for sample in records:

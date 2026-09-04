@@ -136,9 +136,7 @@ def run_neotoma_relational_production(
         raw_country_aliases=aliases,
         proximity_tolerance=production_config.proximity_tolerance,
     )
-    country_inputs: dict[object, CountryAttributionInput] = {
-        site_id: decision for site_id, decision in decisions.items()
-    }
+    country_inputs: dict[object, CountryAttributionInput] = {**decisions}
     snapshot = build_neotoma_relational_snapshot(
         raw_archive.rows,
         source_snapshot_id=raw_archive.source_snapshot_id,

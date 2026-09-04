@@ -386,7 +386,7 @@ def _synthesis_targets(lake_report) -> tuple[_Target, ...]:
         for target in _GOVERNED_NAMED_TARGETS
         if target.target_class == "archaeological_wetland_context"
     ]
-    return tuple((*ranked_targets, *context_targets))
+    return (*ranked_targets, *context_targets)
 
 
 def _target_row(

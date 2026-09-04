@@ -136,7 +136,8 @@ def build_landclim_spatiotemporal_review(
         "all_site_rows_have_explicit_temporal_posture": all(
             bool(record.temporal_semantics) for record in records
         ),
-        "all_temporal_grid_rows_have_numeric_bounds": numeric_grid_count == len(features),
+        "all_temporal_grid_rows_have_numeric_bounds": numeric_grid_count
+        == len(features),
         "all_temporal_grid_rows_have_bibliography_links": (
             bibliography_linked_grid_count == len(features)
         ),
@@ -200,13 +201,13 @@ def render_landclim_spatiotemporal_review_markdown(
 
 This review joins LandClim site-sequence intervals, modeled REVEALS time windows, and the dataset bibliography without flattening them into one observation type.
 
-- Site sequences: `{payload.get('site_sequence_count', 0)}`
-- Site sequences with numeric bounds: `{payload.get('numeric_site_interval_count', 0)}`
-- Explicitly unresolved site intervals: `{payload.get('unresolved_site_interval_count', 0)}`
-- Time-window grid features: `{payload.get('temporal_grid_feature_count', 0)}`
-- Time-window grid features with bibliography links: `{payload.get('bibliography_linked_temporal_grid_feature_count', 0)}`
-- Governed dataset citations: `{payload.get('dataset_count', 0)}`
-- Governed publication references: `{payload.get('reference_count', 0)}`
+- Site sequences: `{payload.get("site_sequence_count", 0)}`
+- Site sequences with numeric bounds: `{payload.get("numeric_site_interval_count", 0)}`
+- Explicitly unresolved site intervals: `{payload.get("unresolved_site_interval_count", 0)}`
+- Time-window grid features: `{payload.get("temporal_grid_feature_count", 0)}`
+- Time-window grid features with bibliography links: `{payload.get("bibliography_linked_temporal_grid_feature_count", 0)}`
+- Governed dataset citations: `{payload.get("dataset_count", 0)}`
+- Governed publication references: `{payload.get("reference_count", 0)}`
 
 | Dataset | Site sequences | Numeric site intervals | Grid cells | Windows | Grid-window features | Temporal posture |
 | --- | ---: | ---: | ---: | ---: | ---: | --- |

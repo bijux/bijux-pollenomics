@@ -148,9 +148,7 @@ def test_landclim_receipt_refuses_ambiguous_accounting(
     if mutation == "non_integer_count":
         receipt["asset_count"] = 7.0
     elif mutation == "non_integer_size":
-        receipt["assets"][0]["size_bytes"] = float(
-            receipt["assets"][0]["size_bytes"]
-        )
+        receipt["assets"][0]["size_bytes"] = float(receipt["assets"][0]["size_bytes"])
     elif mutation == "duplicate_archive":
         receipt["archive_summaries"].append(receipt["archive_summaries"][0])
     else:

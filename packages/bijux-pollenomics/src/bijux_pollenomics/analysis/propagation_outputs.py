@@ -153,9 +153,7 @@ def materialize_propagation_outputs(
         manifest_sha256=_sha256(manifest_bytes),
         file_count=len(expected_files),
         eligible_event_count=len(primary_network.events),
-        excluded_non_pollen_event_count=len(
-            primary_network.excluded_non_pollen_events
-        ),
+        excluded_non_pollen_event_count=len(primary_network.excluded_non_pollen_events),
         primary_directed_candidate_count=len(primary_result.directed_candidates),
     )
 
@@ -652,7 +650,7 @@ def _canonical_json_bytes(payload: object) -> bytes:
             "invalid_output_serialization",
             "propagation output must be finite canonical JSON",
         ) from error
-    return f"{rendered}\n".encode("utf-8")
+    return f"{rendered}\n".encode()
 
 
 def _validate_sha256(value: object, *, field_name: str) -> None:

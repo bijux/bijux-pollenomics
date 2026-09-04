@@ -16,9 +16,11 @@ from bijux_pollenomics.data_downloader.models import ContextPointRecord
 from bijux_pollenomics.evidence.scientific_review import _locality_overlaps_point
 from bijux_pollenomics.reporting.adna.public_outputs import (
     _interval_from_row,
+    _normalize_interval,
+)
+from bijux_pollenomics.reporting.adna.public_outputs import (
     _intervals_overlap as reporting_intervals_overlap,
 )
-from bijux_pollenomics.reporting.adna.public_outputs import _normalize_interval
 
 
 def test_overlap_consumers_preserve_zero_and_closed_endpoint_touch() -> None:
@@ -80,9 +82,7 @@ def test_reporting_interval_normalization_never_repairs_invalid_bounds() -> None
 
 def test_reporting_interval_parser_refuses_text_and_preserves_numeric_zero() -> None:
     assert (
-        _interval_from_row(
-            {"time_start_bp": "relative period", "time_end_bp": "100"}
-        )
+        _interval_from_row({"time_start_bp": "relative period", "time_end_bp": "100"})
         is None
     )
     assert _interval_from_row({"time_start_bp": "0", "time_end_bp": "100"}) == (
@@ -91,9 +91,7 @@ def test_reporting_interval_parser_refuses_text_and_preserves_numeric_zero() -> 
     )
 
 
-def _locality(
-    *, younger_bp: int | None, older_bp: int | None
-) -> AdnaLocalitySummary:
+def _locality(*, younger_bp: int | None, older_bp: int | None) -> AdnaLocalitySummary:
     return AdnaLocalitySummary(
         identity=AdnaLocalityIdentity(
             namespace="test-locality",

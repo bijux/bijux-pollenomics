@@ -256,7 +256,7 @@ def reconcile_sead_countries(
     country_by_site_id: Mapping[str, str],
 ) -> dict[str, object]:
     """Account for every site in the four-country scope or as unassigned."""
-    counts: Counter[str] = Counter({code: 0 for code in NORDIC_COUNTRY_CODES})
+    counts: Counter[str] = Counter(dict.fromkeys(NORDIC_COUNTRY_CODES, 0))
     row_count = 0
     duplicate_site_ids: list[str] = []
     seen: set[str] = set()

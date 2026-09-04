@@ -2,16 +2,17 @@
 
 from __future__ import annotations
 
+from collections.abc import Mapping, Sequence
+from contextlib import suppress
 import hashlib
 import json
 import os
+from pathlib import Path, PurePosixPath
 import re
 import stat
 import subprocess
 import tempfile
 import time
-from collections.abc import Mapping, Sequence
-from pathlib import Path, PurePosixPath
 
 from .release_evidence import ReleaseEvidenceError, hash_repository_object
 
@@ -81,9 +82,7 @@ def run_recorded_gate(
             except OSError as error:
                 exit_code = None
                 reason_code = "command_launch_failed"
-                stderr_stream.write(
-                    f"{type(error).__name__}: {error}\n".encode("utf-8")
-                )
+                stderr_stream.write(f"{type(error).__name__}: {error}\n".encode())
             stdout_stream.flush()
             stderr_stream.flush()
             os.fsync(stdout_stream.fileno())
@@ -189,10 +188,8 @@ def _prepare_artifacts_directory(root: Path, relative_path: str) -> Path:
         try:
             mode = current.lstat().st_mode
         except FileNotFoundError:
-            try:
+            with suppress(FileExistsError):
                 current.mkdir(mode=0o755)
-            except FileExistsError:
-                pass
             mode = current.lstat().st_mode
         if stat.S_ISLNK(mode) or not stat.S_ISDIR(mode):
             raise ReleaseEvidenceError(
