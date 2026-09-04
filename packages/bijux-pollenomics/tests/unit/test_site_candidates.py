@@ -14,6 +14,7 @@ from bijux_pollenomics.analysis.site_candidates import (
     DEFAULT_PROPAGATION_SCENARIO,
     CandidatePairRefusalError,
     CandidateSiteContext,
+    _windows_overlap,
     assess_candidate_propagation,
     classify_candidate_propagation,
     resolve_ranking_profile,
@@ -156,6 +157,34 @@ def test_fieldwork_triage_can_clear_recommendation_gate_with_cross_species_evide
     assert score.sampling_recommendation_ready is True
     assert score.species_diversity_signal >= 0.6
     assert not score.recommendation_blockers
+
+
+@pytest.mark.parametrize(
+    ("left", "right", "expected"),
+    (
+        pytest.param((100, 200, 150), (150, 250, 200), True, id="overlap"),
+        pytest.param((100, 300, 200), (150, 200, 175), True, id="containment"),
+        pytest.param((100, 200, 150), (200, 300, 250), True, id="endpoint-touch"),
+        pytest.param((100, 199, 150), (200, 300, 250), False, id="disjoint"),
+        pytest.param((300, 100, 200), (150, 200, 175), False, id="reversed"),
+        pytest.param((-1, 100, 50), (0, 50, 25), False, id="negative"),
+        pytest.param((None, None, None), (0, 0, 0), False, id="null"),
+        pytest.param((None, 100, None), (0, 0, 0), False, id="partial-null"),
+        pytest.param((0, 0, 0), (0, 0, 0), True, id="zero-bp"),
+    ),
+)
+def test_direct_chronology_overlap_uses_canonical_closed_bp_intervals(
+    left: tuple[int | None, int | None, int | None],
+    right: tuple[int | None, int | None, int | None],
+    expected: bool,
+) -> None:
+    assert (
+        _windows_overlap(
+            _locality(1, chronology=left),
+            _locality(1, chronology=right),
+        )
+        is expected
+    )
 
 
 @pytest.mark.parametrize(

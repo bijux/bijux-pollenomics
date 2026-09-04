@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+from collections.abc import Iterable
 from dataclasses import dataclass, field
 from math import isfinite
 from statistics import fmean
@@ -8,7 +9,9 @@ from typing import TYPE_CHECKING
 from ..core.geo_distance import GeodesicDistance, wgs84_inverse_geodesic
 from ..core.temporal_semantics import (
     BpInterval,
+    InvalidBpIntervalError,
     canonical_bp_interval,
+    closed_bp_intervals_overlap,
     directional_lag_bounds,
 )
 
@@ -734,14 +737,20 @@ def _build_rationale(
 
 
 def _windows_overlap(left: LocalitySummary, right: LocalitySummary) -> bool:
-    return not (
-        left.time_end_bp is None
-        or left.time_start_bp is None
-        or right.time_end_bp is None
-        or right.time_start_bp is None
-        or left.time_end_bp > right.time_start_bp
-        or left.time_start_bp < right.time_end_bp
-    )
+    try:
+        left_interval = canonical_bp_interval(
+            left.time_start_bp,
+            left.time_end_bp,
+        )
+        right_interval = canonical_bp_interval(
+            right.time_start_bp,
+            right.time_end_bp,
+        )
+    except InvalidBpIntervalError:
+        return False
+    if left_interval is None or right_interval is None:
+        return False
+    return closed_bp_intervals_overlap(left_interval, right_interval)
 
 
 def _review_strength_weight(value: str) -> float:
@@ -775,7 +784,7 @@ def _record_modality_weight(value: str) -> float:
     return weights.get(value, 0.4)
 
 
-def _mean_or_zero(values) -> float:
+def _mean_or_zero(values: Iterable[float]) -> float:
     collected = tuple(values)
     return fmean(collected) if collected else 0.0
 
