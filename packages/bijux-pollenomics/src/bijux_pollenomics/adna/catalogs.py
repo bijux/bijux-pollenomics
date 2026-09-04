@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+from collections import Counter
 import csv
 import io
 import json
@@ -17,16 +18,16 @@ __all__ = [
     "build_cross_species_bibliography",
     "build_cross_species_coverage_dashboard",
     "build_cross_species_map_readiness",
+    "build_overbroad_site_ledger",
     "build_public_animal_output_audit",
     "build_public_animal_output_honesty",
     "build_shipped_adna_product_audit",
     "build_species_freshness_table",
-    "build_overbroad_site_ledger",
     "build_unresolved_site_ledger",
-    "render_csv_rows",
     "render_animal_atlas_candidate_accountability_markdown",
     "render_coordinate_caveat_surface_markdown",
     "render_coordinate_confidence_scale_markdown",
+    "render_csv_rows",
     "render_public_animal_output_audit_markdown",
     "render_public_animal_output_honesty_markdown",
 ]
@@ -183,23 +184,61 @@ def build_shipped_adna_product_audit(
 
 
 def build_cross_species_map_readiness(data_root: Path) -> dict[str, object]:
-    """Report point-readiness and refusal posture across tracked animal sample rows."""
+    """Report coordinate posture and publication admission across tracked animals."""
+    publication_counts, not_materialized_rows = _map_publication_accounting(
+        Path(data_root)
+    )
     rows = []
     totals = {
         "direct_coordinate_backed": 0,
         "indirectly_geocoded": 0,
         "unresolved": 0,
         "refused_from_mapping": 0,
+        "coordinate_provenance_mappable_count": 0,
+        "publication_candidate_count": 0,
+        "not_materialized_count": 0,
     }
     for species_name in TRACKED_ADNA_SPECIES:
         row = _build_species_map_readiness_row(Path(data_root), species_name)
+        species_latin_name = str(row["species_latin_name"])
+        coordinate_mappable_count = int(row["direct_coordinate_backed"]) + int(
+            row["indirectly_geocoded"]
+        )
+        publication_candidate_count = publication_counts[species_latin_name]
+        row.update(
+            {
+                "coordinate_provenance_mappable_count": coordinate_mappable_count,
+                "publication_candidate_count": publication_candidate_count,
+                "not_materialized_count": (
+                    coordinate_mappable_count - publication_candidate_count
+                ),
+            }
+        )
         rows.append(row)
         for key in totals:
             totals[key] += int(row[key])
     return {
-        "schema_version": "adna-cross-species-map-readiness.v1",
+        "schema_version": "adna-cross-species-map-readiness.v2",
         "rows": rows,
         "totals": totals,
+        "not_materialized_rows": not_materialized_rows,
+        "publication_accounting": {
+            "overall_ok": (
+                totals["coordinate_provenance_mappable_count"]
+                == totals["publication_candidate_count"]
+                + totals["not_materialized_count"]
+            ),
+            "coordinate_posture_definition": (
+                "Coordinate provenance rows whose mapping posture is mappable_point."
+            ),
+            "publication_candidate_definition": (
+                "Atlas rows backed by an admitted sample and a joined locality."
+            ),
+            "not_materialized_reason_definition": (
+                "A coordinate-ready provenance row did not join to a sample-backed "
+                "locality candidate and remains excluded from point publication."
+            ),
+        },
     }
 
 
@@ -652,18 +691,20 @@ def render_animal_atlas_candidate_accountability_markdown(
 
 def render_coordinate_confidence_scale_markdown() -> str:
     """Render the reader-visible animal coordinate confidence scale."""
-    return "\n".join(
-        [
-            "# Coordinate confidence scale",
-            "",
-            "- `exact`: direct published coordinates or explicit archive coordinate pairs.",
-            "- `approximate`: named-place geocoding where the place is explicit but the archived source does not ship the exact point pair.",
-            "- `inferred`: indirect coordinate derivation retained only for non-public internal context.",
-            "- `withheld`: the repository refuses point-level mapping because the current geography is unresolved or region-only.",
-            "- `unknown`: legacy or foreign records where the confidence basis is not yet normalized.",
-            "",
-            "Animal point publication is currently allowed only for rows whose coordinate provenance keeps an explicit basis and whose mapping posture is `mappable_point`.",
-        ]
+    return (
+        "# Coordinate confidence scale\n\n"
+        "- `exact`: direct published coordinates or explicit archive coordinate pairs.\n"
+        "- `approximate`: named-place geocoding where the place is explicit but the "
+        "archived source does not ship the exact point pair.\n"
+        "- `inferred`: indirect coordinate derivation retained only for non-public "
+        "internal context.\n"
+        "- `withheld`: the repository refuses point-level mapping because the current "
+        "geography is unresolved or region-only.\n"
+        "- `unknown`: legacy or foreign records where the confidence basis is not yet "
+        "normalized.\n\n"
+        "Animal point publication is currently allowed only for rows whose coordinate "
+        "provenance keeps an explicit basis and whose mapping posture is "
+        "`mappable_point`."
     )
 
 
@@ -849,6 +890,71 @@ def _build_species_map_readiness_row(
         "unresolved": unresolved,
         "refused_from_mapping": refused_from_mapping,
     }
+
+
+def _map_publication_accounting(
+    data_root: Path,
+) -> tuple[Counter[str], list[dict[str, object]]]:
+    from ..reporting.adna import build_tracked_animal_atlas_evidence_rows
+
+    publication_rows = tuple(
+        row.as_dict()
+        for row in build_tracked_animal_atlas_evidence_rows(Path(data_root))
+    )
+    publication_counts = Counter(
+        str(row.get("species_latin_name", "")) for row in publication_rows
+    )
+    unmatched_candidates = Counter(
+        _map_publication_key(row, project_field="primary_project_accession")
+        for row in publication_rows
+    )
+    not_materialized_rows: list[dict[str, object]] = []
+    for species_name in TRACKED_ADNA_SPECIES:
+        species_root = _species_root(data_root, species_name)
+        for provenance in _load_coordinate_provenance_rows(species_root):
+            if str(provenance.get("mapping_posture", "")) != "mappable_point":
+                continue
+            key = _map_publication_key(provenance, project_field="project_accession")
+            if unmatched_candidates[key]:
+                unmatched_candidates[key] -= 1
+                continue
+            not_materialized_rows.append(
+                {
+                    "species_latin_name": provenance.get("species_latin_name", ""),
+                    "species_common_name": provenance.get("species_common_name", ""),
+                    "project_accession": provenance.get("project_accession", ""),
+                    "site_label": provenance.get("site_label", ""),
+                    "coordinate_basis": provenance.get("coordinate_basis", ""),
+                    "source_artifact_path": provenance.get("source_artifact_path", ""),
+                    "source_locator": provenance.get("source_locator", ""),
+                    "reason_code": "no_sample_backed_locality_candidate",
+                }
+            )
+    if sum(unmatched_candidates.values()):
+        raise ValueError(
+            "Atlas publication rows do not reconcile to mappable coordinate provenance"
+        )
+    return publication_counts, sorted(
+        not_materialized_rows,
+        key=lambda row: (
+            str(row["species_latin_name"]),
+            str(row["project_accession"]),
+            str(row["site_label"]),
+        ),
+    )
+
+
+def _map_publication_key(
+    row: dict[str, object], *, project_field: str
+) -> tuple[str, ...]:
+    return (
+        str(row.get("species_latin_name", "")),
+        str(row.get(project_field, "")),
+        str(row.get("coordinate_source_locator", row.get("source_locator", ""))),
+        str(row.get("coordinate_basis", "")),
+        str(row.get("original_place_text", "")),
+        str(row.get("resolved_place_text", "")),
+    )
 
 
 def _species_root(data_root: Path, species_name: str) -> Path:

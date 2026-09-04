@@ -210,8 +210,29 @@ class AdnaCatalogUnitTests(unittest.TestCase):
         )
         self.assertEqual(readiness["totals"]["direct_coordinate_backed"], 234)
         self.assertEqual(readiness["totals"]["indirectly_geocoded"], 2)
+        self.assertEqual(
+            readiness["totals"]["coordinate_provenance_mappable_count"], 236
+        )
+        self.assertEqual(readiness["totals"]["publication_candidate_count"], 233)
+        self.assertEqual(readiness["totals"]["not_materialized_count"], 3)
         self.assertEqual(readiness["totals"]["refused_from_mapping"], 7)
         self.assertEqual(readiness["totals"]["unresolved"], 0)
+        self.assertTrue(readiness["publication_accounting"]["overall_ok"])
+        self.assertEqual(
+            {
+                (row["project_accession"], row["site_label"])
+                for row in readiness["not_materialized_rows"]
+            },
+            {
+                ("PRJEB22390", "Botai archaeological site horse context"),
+                ("PRJEB90261", "Lobos"),
+                ("SRP073444", "Site 1040 near Wadi Halfa dromedary context"),
+            },
+        )
+        self.assertEqual(
+            {row["reason_code"] for row in readiness["not_materialized_rows"]},
+            {"no_sample_backed_locality_candidate"},
+        )
         self.assertEqual(horse_row["direct_coordinate_backed"], 207)
         self.assertEqual(horse_row["indirectly_geocoded"], 1)
         self.assertEqual(sheep_row["refused_from_mapping"], 1)
