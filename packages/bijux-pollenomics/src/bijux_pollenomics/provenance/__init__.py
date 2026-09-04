@@ -9,6 +9,7 @@ from .release_evidence import (
     ReleaseEvidenceError,
     build_release_evidence_manifest,
     hash_repository_object,
+    validate_recorded_gate,
     validate_release_evidence_manifest,
 )
 from .writer import main as release_evidence_main
@@ -24,6 +25,7 @@ __all__ = [
     "build_release_evidence_manifest",
     "hash_repository_object",
     "release_evidence_main",
+    "validate_recorded_gate",
     "validate_release_evidence_manifest",
     "write_release_evidence_manifest",
 ]

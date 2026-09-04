@@ -57,7 +57,7 @@ def test_runner_preserves_exact_command_and_returns_success(
     assert result == 0
     assert summary["status"] == "PASS"
     assert record["argv"] == command
-    assert record["environment_keys"] == ["PYTHONIOENCODING"]
+    assert record["environment"] == {"PYTHONIOENCODING": "utf-8"}
     assert (
         tmp_path / "artifacts/execution-control/gates/science.stdout.log"
     ).read_text(encoding="utf-8") == "literal argument with spaces\n"

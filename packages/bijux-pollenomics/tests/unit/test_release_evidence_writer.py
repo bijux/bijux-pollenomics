@@ -1,12 +1,13 @@
 from __future__ import annotations
 
+from dataclasses import asdict
 import hashlib
 import json
-from dataclasses import asdict
 from pathlib import Path
 from typing import cast
 
 import pytest
+
 from bijux_pollenomics.provenance import (
     ArtifactInput,
     ArtifactReference,
@@ -18,6 +19,8 @@ from bijux_pollenomics.provenance import (
     validate_release_evidence_manifest,
     write_release_evidence_manifest,
 )
+from bijux_pollenomics.provenance import gates as gate_module
+from bijux_pollenomics.provenance.gates import RecordedGateSpecification
 
 COMMIT = "3" * 40
 
@@ -44,35 +47,72 @@ def _write_gate_record(root: Path, status: str) -> None:
     gate_input = root / "inputs/gate-input.txt"
     gate_input.parent.mkdir(parents=True, exist_ok=True)
     gate_input.write_text("current gate input\n", encoding="utf-8")
-    stdout = root / "gate-evidence/quality.stdout.log"
-    stderr = root / "gate-evidence/quality.stderr.log"
+    stdout = root / "artifacts/gate-evidence/quality.stdout.log"
+    stderr = root / "artifacts/gate-evidence/quality.stderr.log"
+    junit = root / "artifacts/gate-evidence/quality.junit.xml"
     stdout.parent.mkdir(parents=True, exist_ok=True)
     stdout.write_text("passed\n", encoding="utf-8")
     stderr.write_bytes(b"")
+    junit.write_text('<testsuite failures="0"/>\n', encoding="utf-8")
 
     def repository_record(relative: str) -> dict[str, object]:
         return {"path": relative, **hash_repository_object(root, relative)}
 
     inputs = [repository_record("inputs/gate-input.txt")]
+    specification = _fixture_specification(root, "quality")
+    specification_record = specification.as_record(root)
+    exit_code = 0 if status == "PASS" else 1
+    reason_code = "command_passed" if status == "PASS" else "command_failed"
     content: dict[str, object] = {
-        "schema_version": "recorded-gate.v1",
+        "schema_version": "recorded-gate.v3",
+        "producer": specification_record["producer"],
+        "attestation": specification_record["attestation"],
+        "repository_root_digest": specification_record["repository_root_digest"],
         "gate_id": "quality",
+        "required": specification.required,
         "argv": ["pytest", "-q"],
         "command_digest": _json_digest(["pytest", "-q"]),
         "environment_digest": _json_digest({}),
-        "environment_keys": [],
+        "environment": {},
         "inputs": inputs,
         "input_digest": _json_digest(inputs),
+        "artifacts_directory": specification.artifacts_directory,
+        "specification_digest": _json_digest(specification_record),
         "duration_monotonic_ns": 1,
-        "exit_code": 0 if status == "PASS" else None,
+        "exit_code": exit_code,
         "status": status,
-        "reason_code": "command_passed" if status == "PASS" else status.lower(),
-        "stdout": repository_record("gate-evidence/quality.stdout.log"),
-        "stderr": repository_record("gate-evidence/quality.stderr.log"),
-        "junit": None,
+        "reason_code": reason_code,
+        "stdout": repository_record("artifacts/gate-evidence/quality.stdout.log"),
+        "stderr": repository_record("artifacts/gate-evidence/quality.stderr.log"),
+        "junit": repository_record("artifacts/gate-evidence/quality.junit.xml"),
     }
     record = {"record_digest": _json_digest(content), **content}
-    (root / "inputs/validation.json").write_bytes(_canonical_json(record) + b"\n")
+    (root / "artifacts/gate-evidence/quality.json").write_bytes(
+        _canonical_json(record) + b"\n"
+    )
+
+
+def _fixture_specification(root: Path, gate_id: str) -> RecordedGateSpecification:
+    return RecordedGateSpecification(
+        gate_id=gate_id,
+        required=True,
+        argv=("pytest", "-q"),
+        environment=(),
+        input_paths=("inputs/gate-input.txt",),
+        artifacts_directory="artifacts/gate-evidence",
+        junit_path=f"artifacts/gate-evidence/{gate_id}.junit.xml",
+    )
+
+
+@pytest.fixture(autouse=True)
+def _trusted_fixture_gate_specification(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    monkeypatch.setattr(
+        gate_module,
+        "build_product_gate_specification",
+        _fixture_specification,
+    )
 
 
 def _inputs(
@@ -94,7 +134,8 @@ def _inputs(
         path.parent.mkdir(parents=True, exist_ok=True)
         path.write_bytes(content)
     _write_gate_record(root, gate_status)
-    contents["inputs/validation.json"] = (root / "inputs/validation.json").read_bytes()
+    validation_path = "artifacts/gate-evidence/quality.json"
+    contents[validation_path] = (root / validation_path).read_bytes()
     digests = {
         relative_path: cast(
             str, hash_repository_object(root, relative_path)["output_digest"]
@@ -129,7 +170,7 @@ def _inputs(
         ("producer", "producer", "inputs/producer.py", ()),
         ("lock", "dependency_lock", "inputs/uv.lock", ()),
         ("output", "generated_output", "inputs/output.json", (snapshot,)),
-        ("validation", "validation_result", "inputs/validation.json", (output,)),
+        ("validation", "validation_result", validation_path, (output,)),
     )
     artifacts = [
         ArtifactInput(
@@ -138,7 +179,7 @@ def _inputs(
             path=path,
             media_type="application/octet-stream",
             schema_version=(
-                "recorded-gate.v1" if role == "validation_result" else "fixture.v1"
+                "recorded-gate.v3" if role == "validation_result" else "fixture.v1"
             ),
             parents=parents,
             config_digests=(
@@ -305,8 +346,8 @@ def test_writer_rejects_symlinked_output_directory(tmp_path: Path) -> None:
     arguments = _arguments(tmp_path)
     outside = tmp_path / "outside"
     outside.mkdir()
-    artifacts = tmp_path / "artifacts"
-    artifacts.symlink_to(outside, target_is_directory=True)
+    release_directory = tmp_path / "artifacts/release"
+    release_directory.symlink_to(outside, target_is_directory=True)
 
     with pytest.raises(ReleaseEvidenceError, match="unsafe output directory"):
         _write(tmp_path, "artifacts/release/manifest.json", arguments)
@@ -347,16 +388,16 @@ def test_callable_cli_writes_and_validates_for_a_local_gate(
     )
     validate_output = json.loads(capfd.readouterr().out)
 
-    assert write_status == validate_status == 0
+    assert write_status == validate_status == 1
     assert write_output == validate_output
-    assert write_output["release_ready"] is True
-    assert write_output["status"] == "verified_complete"
+    assert write_output["release_ready"] is False
+    assert write_output["status"] == "implemented_unverified"
 
 
 def test_callable_cli_returns_nonzero_for_nonrelease_evidence(
     tmp_path: Path, capfd: pytest.CaptureFixture[str]
 ) -> None:
-    arguments = _arguments(tmp_path, gate_status="SKIPPED")
+    arguments = _arguments(tmp_path, gate_status="FAIL")
     request_path = tmp_path / "artifacts/requests/release.json"
     request_path.parent.mkdir(parents=True)
     request_path.write_text(json.dumps(_request(arguments)), encoding="utf-8")
@@ -376,7 +417,7 @@ def test_callable_cli_returns_nonzero_for_nonrelease_evidence(
 
     assert result == 1
     assert summary["release_ready"] is False
-    assert summary["status"] == "implemented_unverified"
+    assert summary["status"] == "failed"
     assert (tmp_path / "artifacts/release/manifest.json").is_file()
 
 

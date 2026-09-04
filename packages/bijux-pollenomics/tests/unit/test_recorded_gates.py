@@ -7,12 +7,24 @@ import sys
 
 import pytest
 
+from bijux_pollenomics.provenance import gates as gate_module
 from bijux_pollenomics.provenance.gates import run_recorded_gate
 from bijux_pollenomics.provenance.release_evidence import ReleaseEvidenceError
 
 
 def _digest(content: bytes) -> str:
     return f"sha256:{hashlib.sha256(content).hexdigest()}"
+
+
+def _json_digest(value: object) -> str:
+    payload = json.dumps(
+        value,
+        ensure_ascii=False,
+        allow_nan=False,
+        sort_keys=True,
+        separators=(",", ":"),
+    ).encode("utf-8")
+    return _digest(payload)
 
 
 def _input(root: Path) -> None:
@@ -23,10 +35,16 @@ def _input(root: Path) -> None:
 
 def test_gate_runs_exact_argv_and_records_canonical_logs(tmp_path: Path) -> None:
     _input(tmp_path)
+    junit = "artifacts/gates/unit.junit.xml"
     argv = [
         sys.executable,
         "-c",
-        "import sys; print('out'); print('err', file=sys.stderr)",
+        (
+            "from pathlib import Path; import sys; "
+            "Path(sys.argv[1]).write_text('<testsuite/>\\n'); "
+            "print('out'); print('err', file=sys.stderr)"
+        ),
+        junit,
     ]
 
     record = run_recorded_gate(
@@ -36,6 +54,7 @@ def test_gate_runs_exact_argv_and_records_canonical_logs(tmp_path: Path) -> None
         environment={"PYTHONIOENCODING": "utf-8"},
         input_paths=["inputs/source.txt"],
         artifacts_directory="artifacts/gates",
+        junit_path=junit,
     )
 
     directory = tmp_path / "artifacts/gates"
@@ -43,6 +62,31 @@ def test_gate_runs_exact_argv_and_records_canonical_logs(tmp_path: Path) -> None
     assert record["exit_code"] == 0
     assert record["status"] == "PASS"
     assert record["reason_code"] == "command_passed"
+    assert record["schema_version"] == "recorded-gate.v3"
+    assert record["attestation"] == {
+        "class": "local_self_attestation",
+        "independent_execution_attested": False,
+        "external_authority_id": None,
+    }
+    producer = record["producer"]
+    assert isinstance(producer, dict)
+    source_files = producer["source_files"]
+    assert isinstance(source_files, list)
+    expected_source_files = [
+        {
+            "module": "bijux_pollenomics.provenance.gates",
+            "sha256": _digest(Path(gate_module.__file__).read_bytes()),
+            "byte_count": len(Path(gate_module.__file__).read_bytes()),
+        }
+    ]
+    producer_content = {
+        "identity": "bijux-pollenomics.recorded-gate",
+        "version": "3",
+        "source_files": expected_source_files,
+        "source_digest": _json_digest(expected_source_files),
+    }
+    assert source_files == expected_source_files
+    assert producer == {**producer_content, "digest": _json_digest(producer_content)}
     assert isinstance(record["duration_monotonic_ns"], int)
     assert record["duration_monotonic_ns"] >= 0
     assert (directory / "unit.stdout.log").read_text(encoding="utf-8") == "out\n"
@@ -109,7 +153,7 @@ def test_command_environment_and_input_digests_are_reproducible(tmp_path: Path) 
     assert first["command_digest"] == second["command_digest"]
     assert first["environment_digest"] == second["environment_digest"]
     assert first["input_digest"] == second["input_digest"]
-    assert first["environment_keys"] == ["A", "Z"]
+    assert first["environment"] == {"A": "first", "Z": "last"}
 
 
 def test_gate_uses_only_the_explicit_environment(tmp_path: Path) -> None:
@@ -218,6 +262,40 @@ def test_missing_junit_and_changed_input_force_failure(tmp_path: Path) -> None:
 
 
 @pytest.mark.parametrize(
+    ("payload", "reason_code"),
+    [
+        ('<testsuite failures="1"/>', "junit_failed"),
+        ('<testsuite errors="1"/>', "junit_failed"),
+        ('<testsuite skipped="1"/>', "junit_failed"),
+        ("not XML", "junit_invalid"),
+    ],
+)
+def test_nonpassing_or_invalid_junit_overrides_zero_exit(
+    tmp_path: Path, payload: str, reason_code: str
+) -> None:
+    _input(tmp_path)
+    junit = "artifacts/gates/result.xml"
+    script = (
+        "from pathlib import Path; import sys; "
+        f"Path(sys.argv[1]).write_text({payload!r})"
+    )
+
+    record = run_recorded_gate(
+        tmp_path,
+        gate_id="junit-semantics",
+        argv=[sys.executable, "-c", script, junit],
+        environment={"PYTHONIOENCODING": "utf-8"},
+        input_paths=["inputs/source.txt"],
+        artifacts_directory="artifacts/gates",
+        junit_path=junit,
+    )
+
+    assert record["exit_code"] == 0
+    assert record["status"] == "FAIL"
+    assert record["reason_code"] == reason_code
+
+
+@pytest.mark.parametrize(
     "artifacts_directory",
     ["gate-output", "../artifacts/gates", "artifacts/../gates"],
 )
@@ -249,4 +327,16 @@ def test_gate_refuses_junit_outside_its_artifacts_directory(tmp_path: Path) -> N
             input_paths=["inputs/source.txt"],
             artifacts_directory="artifacts/gates",
             junit_path="artifacts/other/results.xml",
+        )
+
+
+def test_gate_refuses_empty_input_inventory(tmp_path: Path) -> None:
+    with pytest.raises(ReleaseEvidenceError, match="at least one gate input"):
+        run_recorded_gate(
+            tmp_path,
+            gate_id="empty-inputs",
+            argv=[sys.executable, "-c", "raise SystemExit(0)"],
+            environment={},
+            input_paths=[],
+            artifacts_directory="artifacts/gates",
         )
