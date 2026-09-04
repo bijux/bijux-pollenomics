@@ -152,11 +152,11 @@ coverage of the collection.
 
 | Source family | Records | Numeric intervals | Time-aware use |
 | --- | ---: | ---: | --- |
-| LandClim | 492 site sequences | 482 | supporting pollen context at the sequence interval |
+| LandClim | 490 site sequences | 480 | supporting pollen context at the sequence interval |
 | Neotoma | 200 sites | 175 | supporting pollen context where a site span exists |
 | SEAD | 2,172 normalized sites | 0 | archaeology context only in the current capture |
-| RAÄ | 761,917 published sites in the density source | 0 | coarse spatial archaeology context |
-| SVAR | 40,565 lakes | 0 | candidate-lake identity and location |
+| RAÄ | unavailable; authority refused | not applicable | retained density files are excluded from governed evidence |
+| SVAR | unavailable; authority refused | not applicable | source-reported receipt is provenance only until the normalized registry exists |
 | boundaries | 4 polygons | 0 | geographic framing only |
 
 Record volume is not temporal capability. The largest contextual collection

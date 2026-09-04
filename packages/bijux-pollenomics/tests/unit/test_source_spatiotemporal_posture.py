@@ -99,10 +99,17 @@ def test_public_source_indexes_do_not_promote_refused_or_stale_counts() -> None:
         for relative_path in (
             "docs/public/pollenomics/index.md",
             "docs/public/pollenomics-data/overview/index.md",
+            "docs/public/pollenomics-data/overview/cross-domain-evidence-matrix.md",
+            "docs/public/pollenomics-data/evidence/temporal-semantics.md",
             "docs/public/pollenomics-data/sources/landclim.md",
             "docs/public/pollenomics-data/sources/raa.md",
             "docs/public/pollenomics-data/sources/source-family-matrix.md",
             "docs/public/pollenomics-data/sources/svar.md",
+            "docs/public/pollenomics-data/publications/landclim-exports.md",
+            "docs/public/pollenomics-data/publications/map-inputs.md",
+            "docs/public/pollenomics-data/publications/maps.md",
+            "docs/public/pollenomics-data/publications/publication-types.md",
+            "docs/public/pollenomics-data/publications/raa-exports.md",
         )
     }
 
@@ -112,6 +119,11 @@ def test_public_source_indexes_do_not_promote_refused_or_stale_counts() -> None:
     assert "across 88 aggregate cells" not in combined
     assert "RAÄ density source representing 761,917" not in combined
     assert "and 40,565 SVAR lakes" not in combined
+    assert "761,917" not in combined
+    assert "318,265" not in combined
+    assert "416,913" not in combined
+    assert "40,565" not in combined
+    assert "27,450" not in combined
     assert "490 LandClim site sequences" in combined
     assert "2,515 dataset-cell-window features across 77 aggregate cells" in combined
     assert "RAÄ authority is refused" in combined

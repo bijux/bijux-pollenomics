@@ -167,11 +167,12 @@ This rule prevents a downstream map layer from being treated as a convenient
 backup of its own source. Recovery begins at the governing input or review
 surface and then regenerates the scoped export and bundle.
 
-The current input scale is intentionally heterogeneous: 492 LandClim site
-sequences, 200 Neotoma sites, 2,172 normalized SEAD sites, a RAÄ density source
-covering 761,917 published Swedish sites, four Nordic boundary polygons, and
-234 reviewed animal publication points. These counts describe different units
-and roles and must never be summed into one evidence total.
+The current input scale is intentionally heterogeneous: 490 LandClim site
+sequences, 200 Neotoma sites, 2,172 normalized SEAD sites, four Nordic boundary
+polygons, and 234 reviewed animal publication points. RAÄ is withheld because
+its source authority is refused; retained density files are audit material,
+not governed map input. Available counts describe different units and roles
+and must never be summed into one evidence total.
 
 ## One Viewport, Different Scientific Objects
 
@@ -184,7 +185,7 @@ density cell may overlap visually while answering different questions:
 | Neotoma point | one database site such as Abborrtjärnen with nested collections and samples | compare site-level coverage under its temporal posture | count nested samples as independent map points |
 | SEAD point | one captured environmental-archaeology site inventory row | report a declared spatial relation | infer same-period association without recovered chronology |
 | animal point | one product-admitted animal evidence feature | follow sample or project identity and qualification | treat all admitted points as equally complete samples |
-| RAÄ cell | aggregate count of selected registry records in one grid cell | compare declared density cells | reconstruct synthetic archaeological site coordinates |
+| retained RAÄ cell | unauthorised aggregate retained for audit | none until source authority is admitted | present the cell as current public archaeology evidence |
 
 The correct cross-layer join is therefore a typed relation between two named
 members, not a merge on marker position. Its result records the two source

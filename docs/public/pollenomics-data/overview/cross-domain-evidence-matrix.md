@@ -129,16 +129,17 @@ are declared. The checked-in collection contains several instructive cases:
 | --- | --- | --- |
 | 2,195 SEAD inventory rows | captured inventory row | 2,195 distinct normalized map points |
 | 2,172 normalized SEAD records | published site point | complete or uniformly dated archaeology evidence |
-| 761,917 RAÄ records | source registry record | equivalent density or recording effort across space |
-| 106 RAÄ density cells | one-degree aggregate cell | 106 archaeological sites |
+| RAÄ source denominator unavailable | refused source authority | zero archaeology records or equivalent recording effort across space |
+| retained RAÄ density files excluded | unauthorised derived surface | current public archaeology evidence or archaeological-site coordinates |
 | two fieldwork pages | documentation surface | two independent visits |
 | one fieldwork feature | dated visit event | representative lake or regional coverage |
 
 The SEAD difference reflects transformation from source inventory to
-normalized spatial records. The RAÄ difference reflects deliberate
-aggregation. The fieldwork difference separates documentation pages from the
-single event they describe. None is an error when the unit remains attached;
-all become misleading when reduced to an unlabeled total.
+normalized spatial records. RAÄ's unavailable denominator reflects refused
+authority, not a scientific zero; its retained density files are audit
+material, not current governed evidence. The fieldwork difference separates
+documentation pages from the single event they describe. These states become
+misleading when reduced to an unlabeled total.
 
 For any rate or comparison, publish the numerator, eligible denominator,
 excluded or unresolved count, and unit of observation. “Evidence-rich” is not

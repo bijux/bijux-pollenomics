@@ -20,10 +20,10 @@ The checked-in normalized state contains:
 
 | Surface | Count | Observation unit |
 | --- | ---: | --- |
-| pollen site-sequence rows | 492 | dataset-specific site sequence |
-| rows with supported numeric time bounds | 482 | site sequence with numeric BP posture |
-| aggregate REVEALS grid cells | 88 | discovery summary of reconstructed vegetation coverage |
-| temporal REVEALS grid features | 2,809 | one dataset, cell, and published window |
+| pollen site-sequence rows | 490 | dataset-specific site sequence |
+| rows with supported numeric time bounds | 480 | site sequence with numeric BP posture |
+| aggregate REVEALS grid cells | 77 | discovery summary of reconstructed vegetation coverage |
+| temporal REVEALS grid features | 2,515 | one dataset, cell, and published window |
 | distinct modeled windows | 25 | explicit BP intervals available to the time filter |
 
 The normalized artifacts are:
@@ -50,9 +50,9 @@ its sequence identity or temporal posture.
 
 ```mermaid
 flowchart LR
-    Datasets["3 cited PANGAEA datasets"] --> Sites["492 site-sequence rows"]
-    Datasets --> Grids["2,809 dataset-cell-window features"]
-    Sites --> Time["482 rows with numeric BP bounds"]
+    Datasets["3 cited PANGAEA datasets"] --> Sites["490 site-sequence rows"]
+    Datasets --> Grids["2,515 dataset-cell-window features"]
+    Sites --> Time["480 rows with numeric BP bounds"]
     Sites --> Context["pollen-site context layer"]
     Grids --> Filter["atlas time filter"]
     Filter --> Context
@@ -74,7 +74,7 @@ sequences by display label alone.
 ## Temporal Reading
 
 Numeric `time_start_bp` and `time_end_bp` values support interval-aware
-filtering for the 482 qualified rows. They do not guarantee equal dating
+filtering for the 480 qualified rows. They do not guarantee equal dating
 resolution, identical sampling intervals, or event-level contemporaneity with
 an aDNA sample. The remaining rows are not zero-dated; their numeric posture is
 unavailable under the normalized contract.
@@ -86,9 +86,9 @@ estimate, not a sample-owned chronology or evidence of a continuous value
 between adjacent windows.
 
 The Marquer reconstruction contributes 309 grid-window features across 13
-Nordic cells and 25 windows. LandClim I contributes 375 features across five
-windows. LandClim II contributes 2,125 across 25 windows and retains standard
-errors and cell quality where supplied. All 2,809 features have numeric bounds
+Nordic cells and 25 windows. LandClim I contributes 331 features across five
+windows. LandClim II contributes 1,875 across 25 windows and retains standard
+errors and cell quality where supplied. All 2,515 features have numeric bounds
 and bibliography links. Missing source estimates remain absent rather than
 becoming zero cover. The ten LandClim II site sequences without upstream
 numeric bounds remain explicitly unresolved rather than receiving synthetic
@@ -128,8 +128,8 @@ flowchart LR
 Keep record identity, source DOI, geometry type, observation unit, dataset,
 time bounds and label, record count, and popup/source details with each row.
 When aggregating, keep site sequences, aggregate discovery cells, and temporal
-grid features separate. State whether the denominator is 492 site rows, 482
-numerically qualified site rows, 88 aggregate cells, or 2,809
+grid features separate. State whether the denominator is 490 site rows, 480
+numerically qualified site rows, 77 aggregate cells, or 2,515
 dataset-cell-window features. Preserve `dataset_id`, `parent_grid_record_id`,
 numeric BP bounds, reconstruction values, uncertainty, and bibliography keys
 when extracting temporal features.

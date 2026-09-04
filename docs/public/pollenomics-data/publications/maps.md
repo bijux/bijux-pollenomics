@@ -167,7 +167,7 @@ chronology, and leave non-temporal framing untouched according to the contract.
 It must not silently interpret missing time as outside the selected period.
 
 The Nordic LandClim layer demonstrates the distinction. Its filter operates on
-2,809 separate modeled grid-window features, not on 88 aggregate cells assigned
+2,515 separate modeled grid-window features, not on 77 aggregate cells assigned
 one artificial full-Holocene interval. The Sweden archaeology discovery layer
 likewise filters 9,149 linked SEAD chronology features while retaining 1,230
 upstream-undated sites as explicit unresolved spatial context at full extent.
@@ -189,10 +189,9 @@ different conclusions and should not share one “no data” interpretation.
 5. check the exclusion output when an expected feature is absent.
 
 If a visible symbol represents an aggregate, continue from the symbol to its
-member or denominator surface before making a record-level statement. A cell
-with 27,450 registry records is one rendered aggregate and 27,450 selected
-source members; it is neither one archaeological site nor 27,450 independent
-historical events.
+member or denominator surface before making a record-level statement. RAÄ
+density is currently withheld because its retained files lack admitted source
+authority; those files support no current aggregate or record-level claim.
 
 A cluster supports a statement about the visible product, not necessarily
 sampling intensity or historical abundance. An empty area may mean no admitted
