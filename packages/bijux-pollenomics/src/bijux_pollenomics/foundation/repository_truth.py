@@ -3,6 +3,8 @@ from __future__ import annotations
 import json
 from pathlib import Path
 
+from ..data_downloader.sources.raa import assess_raa_density_authority
+
 __all__ = [
     "build_repository_atlas_input_audit",
     "build_repository_claim_audit",
@@ -938,8 +940,17 @@ def build_repository_source_family_matrix(
             ["data/raa/normalized/"],
             ["docs/public/pollenomics-data/sources/raa.md"],
             counts["tracked_raa_published_site_count"],
-            "tracked_context_layer",
-            "RAÄ remains Sweden-scoped archaeology context and should keep its explicit national scope",
+            (
+                "tracked_context_layer"
+                if counts["raa_density_admitted"]
+                else "refused_not_publication_ready"
+            ),
+            (
+                "RAÄ remains Sweden-scoped archaeology context and should keep its explicit national scope"
+                if counts["raa_density_admitted"]
+                else "RAÄ density is excluded until raw inventory, normalized counts, and qualified review reconcile: "
+                + ", ".join(counts["raa_density_reason_codes"])
+            ),
         ),
         _source_family_row(
             "boundaries",
@@ -1051,14 +1062,32 @@ def build_repository_atlas_input_audit(
                 "data/raa/normalized/sweden_archaeology_density.geojson",
                 "data/raa/normalized/sweden_archaeology_layer.json",
             ],
-            [
-                "docs/report/regions/nordic/sweden_archaeology_density.geojson",
-                "docs/report/regions/nordic/sweden_archaeology_layer.json",
-            ],
+            (
+                [
+                    "docs/report/regions/nordic/sweden_archaeology_density.geojson",
+                    "docs/report/regions/nordic/sweden_archaeology_layer.json",
+                ]
+                if counts["raa_density_admitted"]
+                else ["docs/report/regions/nordic/sweden_archaeology_layer.json"]
+            ),
             "data/raa/normalized/sweden_archaeology_layer.json",
             {
-                "published_site_count": counts["tracked_raa_published_site_count"],
-                "density_cell_count": counts["tracked_raa_density_cell_count"],
+                "publication_status": (
+                    "admitted"
+                    if counts["raa_density_admitted"]
+                    else "refused_not_publication_ready"
+                ),
+                "published_site_count": (
+                    counts["tracked_raa_published_site_count"]
+                    if counts["raa_density_admitted"]
+                    else None
+                ),
+                "density_cell_count": (
+                    counts["tracked_raa_density_cell_count"]
+                    if counts["raa_density_admitted"]
+                    else None
+                ),
+                "reason_codes": counts["raa_density_reason_codes"],
             },
             "RAÄ is explicitly Sweden-scoped and should never be mistaken for Nordic-wide archaeology coverage.",
         ),
@@ -1165,8 +1194,22 @@ def build_repository_cross_domain_evidence_matrix(
             ["sead", "raa"],
             {
                 "sead_site_count": counts["tracked_sead_site_count"],
-                "raa_published_site_count": counts["tracked_raa_published_site_count"],
-                "raa_density_cell_count": counts["tracked_raa_density_cell_count"],
+                "raa_publication_status": (
+                    "admitted"
+                    if counts["raa_density_admitted"]
+                    else "refused_not_publication_ready"
+                ),
+                "raa_published_site_count": (
+                    counts["tracked_raa_published_site_count"]
+                    if counts["raa_density_admitted"]
+                    else None
+                ),
+                "raa_density_cell_count": (
+                    counts["tracked_raa_density_cell_count"]
+                    if counts["raa_density_admitted"]
+                    else None
+                ),
+                "raa_reason_codes": counts["raa_density_reason_codes"],
             },
             [
                 "docs/public/pollenomics-data/sources/sead.md",
@@ -1174,12 +1217,20 @@ def build_repository_cross_domain_evidence_matrix(
                 "docs/public/pollenomics-data/publications/sead-exports.md",
                 "docs/public/pollenomics-data/publications/raa-exports.md",
             ],
-            [
-                "docs/report/regions/nordic/nordic_environmental_sites.geojson",
-                "docs/report/regions/nordic/sweden_archaeology_density.geojson",
-            ],
-            "explicit_context_family",
-            "archaeology context is broad but intentionally contextual; readers should not confuse it with direct pollen or sample evidence",
+            (
+                [
+                    "docs/report/regions/nordic/nordic_environmental_sites.geojson",
+                    "docs/report/regions/nordic/sweden_archaeology_density.geojson",
+                ]
+                if counts["raa_density_admitted"]
+                else ["docs/report/regions/nordic/nordic_environmental_sites.geojson"]
+            ),
+            (
+                "explicit_context_family"
+                if counts["raa_density_admitted"]
+                else "raa_density_refused"
+            ),
+            "archaeology context remains contextual; RAÄ density is omitted until its authority decision is admitted",
         ),
         _cross_domain_matrix_row(
             "boundary_framing",
@@ -2465,6 +2516,7 @@ def _build_core_counts(
         data_root / "raa" / "normalized" / "sweden_archaeology_layer.json",
         {"density_feature_count": 0, "counts": {}},
     )
+    raa_authority = assess_raa_density_authority(data_root)
 
     paper_rows = list(paper_registry.get("rows", []))
     totals = dict(map_readiness.get("totals", {}))
@@ -2520,12 +2572,18 @@ def _build_core_counts(
         ),
         "tracked_neotoma_site_count": int(neotoma_sites.get("site_count", 0)),
         "tracked_sead_site_count": int(sead_sites.get("row_count", 0)),
-        "tracked_raa_published_site_count": int(
-            dict(raa_layer.get("counts", {})).get("all_published_sites", 0)
+        "tracked_raa_published_site_count": (
+            int(dict(raa_layer.get("counts", {})).get("all_published_sites", 0))
+            if raa_authority.admitted
+            else 0
         ),
-        "tracked_raa_density_cell_count": int(
-            raa_layer.get("density_feature_count", 0)
+        "tracked_raa_density_cell_count": (
+            int(raa_layer.get("density_feature_count", 0))
+            if raa_authority.admitted
+            else 0
         ),
+        "raa_density_admitted": raa_authority.admitted,
+        "raa_density_reason_codes": list(raa_authority.reason_codes),
         "tracked_boundary_feature_count": _count_geojson_features(
             data_root
             / "boundaries"
@@ -2598,6 +2656,10 @@ def _build_claim_freeze_reasons(counts: dict[str, object]) -> list[str]:
     if counts["zero_collection_summary_surfaces"]:
         reasons.append(
             "collection summary still under-reports several non-aDNA source counts"
+        )
+    if not counts["raa_density_admitted"]:
+        reasons.append(
+            "RAÄ density remains refused until source inventory and qualified review reconcile"
         )
     return reasons
 
@@ -2710,7 +2772,7 @@ def _atlas_input_row(
     normalized_paths: list[str],
     published_paths: list[str],
     refresh_anchor: str,
-    metrics: dict[str, int],
+    metrics: dict[str, object],
     note: str,
 ) -> dict[str, object]:
     return {
@@ -2731,7 +2793,7 @@ def _cross_domain_matrix_row(
     display_name: str,
     domain_role: str,
     source_families: list[str],
-    tracked_metrics: dict[str, int],
+    tracked_metrics: dict[str, object],
     docs_paths: list[str],
     published_paths: list[str],
     coverage_posture: str,

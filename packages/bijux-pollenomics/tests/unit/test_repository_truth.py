@@ -186,6 +186,14 @@ class RepositoryTruthUnitTests(unittest.TestCase):
         )
         self.assertEqual(matrix_payload["row_count"], 8)
         self.assertGreaterEqual(queue_payload["row_count"], 1)
+        raa_row = next(
+            row for row in matrix_payload["rows"] if row["source_key"] == "raa"
+        )
+        self.assertEqual(raa_row["visible_count"], 0)
+        self.assertEqual(
+            raa_row["acquisition_posture"], "refused_not_publication_ready"
+        )
+        self.assertIn("missing_raw_inventory", raa_row["main_gap"])
         self.assertIn("Animal aDNA papers and supplements", matrix_markdown)
         self.assertIn("animal_adna", queue_markdown)
         self.assertNotIn("sead_temporal_reference_capture", queue_markdown)
@@ -239,6 +247,27 @@ class RepositoryTruthUnitTests(unittest.TestCase):
         )
         self.assertEqual(pollen_row["tracked_metrics"]["landclim_site_count"], 490)
         self.assertEqual(pollen_row["tracked_metrics"]["neotoma_site_count"], 200)
+        raa_input = next(
+            row for row in atlas_payload["rows"] if row["input_key"] == "raa"
+        )
+        self.assertEqual(
+            raa_input["metrics"]["publication_status"],
+            "refused_not_publication_ready",
+        )
+        self.assertIsNone(raa_input["metrics"]["published_site_count"])
+        self.assertNotIn(
+            "docs/report/regions/nordic/sweden_archaeology_density.geojson",
+            raa_input["published_paths"],
+        )
+        archaeology_row = next(
+            row
+            for row in matrix_payload["rows"]
+            if row["domain_key"] == "archaeology_context"
+        )
+        self.assertEqual(archaeology_row["coverage_posture"], "raa_density_refused")
+        self.assertIsNone(
+            archaeology_row["tracked_metrics"]["raa_published_site_count"]
+        )
         self.assertIn("Repository source explainer audit", explainer_markdown)
         self.assertIn("Repository atlas input audit", atlas_markdown)
         self.assertIn("Repository cross-domain evidence matrix", matrix_markdown)
