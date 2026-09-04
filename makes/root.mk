@@ -16,6 +16,8 @@ ROOT_PACKAGE_TARGETS += test-all-plus-run-time
 ROOT_TARGET_GROUPS_test-all-plus-run-time ?= check
 ROOT_TARGET_SHARED_ENV_test-all-plus-run-time ?= 1
 
+include $(ROOT_MAKEFILE_DIR)/pollenomics-verification.mk
+
 include $(ROOT_MAKEFILE_DIR)/bijux-py/repository/root.mk
 
 include $(ROOT_MAKEFILE_DIR)/bijux-py/root/package-dispatch.mk
