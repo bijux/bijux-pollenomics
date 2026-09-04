@@ -2,7 +2,9 @@ from __future__ import annotations
 
 from collections.abc import Iterable, Mapping, Sequence
 import copy
+from dataclasses import replace
 import json
+import math
 from typing import TypedDict
 
 from ....core.bp_time import (
@@ -14,12 +16,20 @@ from ....core.bp_time import (
 from ....core.temporal_semantics import build_temporal_semantics
 from ....core.text import clean_optional_text
 from ...models import ContextPointRecord
-from ...spatial import classify_country, geometry_to_representative_point, point_in_bbox
+from ...spatial import (
+    CountryAttributionDecision,
+    classify_country,
+    decide_country_attribution,
+    geometry_to_representative_point,
+    point_in_bbox,
+)
 
 __all__ = [
     "build_neotoma_site_rows_from_downloads",
     "build_neotoma_site_snapshot_rows",
+    "build_neotoma_site_country_decisions",
     "classify_neotoma_site_country",
+    "neotoma_site_raw_country",
     "normalize_neotoma_rows",
 ]
 
@@ -28,6 +38,97 @@ class AgeRangeAggregate(TypedDict):
     units: str
     ageold: float | None
     ageyoung: float | None
+
+
+def build_neotoma_site_country_decisions(
+    rows: Iterable[Mapping[str, object]],
+    country_boundaries: Mapping[str, Mapping[str, object]],
+    *,
+    boundary_artifact_digest: str,
+    boundary_version: str,
+    raw_country_aliases: Mapping[str, str] | None = None,
+    proximity_tolerance: float = 0.15,
+) -> dict[str, CountryAttributionDecision]:
+    """Build evidence-preserving decisions for identified Neotoma site rows."""
+    decisions: dict[str, CountryAttributionDecision] = {}
+    for row in rows:
+        nested_site = row.get("site")
+        site = nested_site if isinstance(nested_site, Mapping) else row
+        site_id = clean_optional_text(site.get("siteid"))
+        if not site_id:
+            raise ValueError("Neotoma country attribution requires siteid")
+        raw_country = neotoma_site_raw_country(
+            site,
+            country_boundaries=country_boundaries,
+            raw_country_aliases=raw_country_aliases,
+        )
+        representative_point = neotoma_site_representative_point(site)
+        if representative_point is None:
+            invalid = decide_country_attribution(
+                math.nan,
+                math.nan,
+                country_boundaries,
+                boundary_artifact_digest=boundary_artifact_digest,
+                boundary_version=boundary_version,
+                raw_country=raw_country,
+                raw_country_aliases=raw_country_aliases,
+                proximity_tolerance=proximity_tolerance,
+            )
+            geography = clean_optional_text(site.get("geography"))
+            decision = replace(
+                invalid,
+                refusal_reason=(
+                    "missing_site_geometry"
+                    if not geography
+                    else "invalid_site_geometry"
+                ),
+            )
+        else:
+            longitude, latitude, _ = representative_point
+            decision = decide_country_attribution(
+                longitude,
+                latitude,
+                country_boundaries,
+                boundary_artifact_digest=boundary_artifact_digest,
+                boundary_version=boundary_version,
+                raw_country=raw_country,
+                raw_country_aliases=raw_country_aliases,
+                proximity_tolerance=proximity_tolerance,
+            )
+        existing = decisions.get(site_id)
+        if existing is not None and existing != decision:
+            raise ValueError(
+                f"Conflicting country decisions for Neotoma site {site_id}"
+            )
+        decisions[site_id] = decision
+    return dict(sorted(decisions.items()))
+
+
+def neotoma_site_raw_country(
+    site: Mapping[str, object],
+    *,
+    country_boundaries: Mapping[str, Mapping[str, object]],
+    raw_country_aliases: Mapping[str, str] | None = None,
+) -> str | None:
+    """Return one explicit source country matching governed boundary vocabulary."""
+    recognized = {country.casefold() for country in country_boundaries}
+    recognized.update(
+        alias.casefold() for alias in (raw_country_aliases or {}) if alias.strip()
+    )
+    values = site.get("geopolitical")
+    if not isinstance(values, list):
+        return None
+    candidates: set[str] = set()
+    for value in values:
+        if isinstance(value, Mapping):
+            candidate = clean_optional_text(value.get("country"))
+        else:
+            candidate = clean_optional_text(value)
+        if candidate and candidate.casefold() in recognized:
+            candidates.add(candidate)
+    if len(candidates) != 1:
+        return None
+    return candidates.pop()
 
 
 def build_neotoma_site_rows_from_downloads(
@@ -288,7 +389,7 @@ def classify_neotoma_site_country(
 
 
 def neotoma_site_representative_point(
-    site: dict[str, object],
+    site: Mapping[str, object],
 ) -> tuple[float, float, str] | None:
     """Return one representative point for a Neotoma site payload."""
     geography_text = clean_optional_text(site.get("geography"))

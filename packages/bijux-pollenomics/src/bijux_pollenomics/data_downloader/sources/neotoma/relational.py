@@ -3,11 +3,14 @@ from __future__ import annotations
 from collections import Counter
 from collections.abc import Iterable, Mapping
 import copy
+from dataclasses import dataclass, replace
 import hashlib
 import json
 import math
+from typing import TypeAlias
 
 from ....core.text import clean_optional_text
+from ...spatial import CountryAttributionDecision
 
 __all__ = ["build_neotoma_relational_snapshot"]
 
@@ -57,7 +60,30 @@ _COUNTRY_COUNT_FIELDS = (
     "age_unresolved",
     "observation_rows",
     "variables",
+    "assigned_sites",
+    "review_sites",
+    "unassigned_sites",
+    "refused_sites",
+    "propagation_eligible_sites",
 )
+
+CountryAttributionInput: TypeAlias = CountryAttributionDecision | str
+
+
+@dataclass(frozen=True)
+class _NeotomaCountryAttribution:
+    raw_country: str | None
+    derived_country: str | None
+    final_country_code: str
+    decision_status: str
+    decision_method: str
+    candidate_countries: tuple[str, ...]
+    ambiguity_reason: str | None
+    refusal_reason: str | None
+    boundary_artifact_digest: str | None
+    boundary_version: str | None
+    source_vs_derived_comparison: str
+    propagation_eligible: bool
 
 
 def build_neotoma_relational_snapshot(
@@ -65,17 +91,20 @@ def build_neotoma_relational_snapshot(
     *,
     source_snapshot_id: str,
     build_id: str,
-    country_by_site_id: Mapping[object, str] | None = None,
+    country_by_site_id: Mapping[object, CountryAttributionInput] | None = None,
 ) -> dict[str, object]:
-    """Preserve Neotoma download detail as joined, source-qualified tables."""
+    """Preserve joined detail with governed country decisions on every site.
+
+    String country values remain accepted only as review-blocked legacy evidence.
+    """
     if not source_snapshot_id.strip():
         raise ValueError("source_snapshot_id must not be empty")
     if not build_id.strip():
         raise ValueError("build_id must not be empty")
 
-    countries = {
-        str(site_id): _country_code(country)
-        for site_id, country in (country_by_site_id or {}).items()
+    country_attribution = {
+        str(site_id): _country_attribution(value)
+        for site_id, value in (country_by_site_id or {}).items()
     }
     tables: dict[str, dict[str, dict[str, object]]] = {
         table_name: {} for table_name in _TABLE_NAMES
@@ -102,7 +131,12 @@ def build_neotoma_relational_snapshot(
         if site_source_id is None:
             continue
         site_id = f"neotoma:site:{site_source_id}"
-        country_code = countries.get(site_source_id, "UNASSIGNED")
+        attribution = country_attribution.get(site_source_id)
+        if attribution is None:
+            attribution = _missing_country_attribution(site)
+        else:
+            attribution = _with_source_country(attribution, site)
+        country_code = attribution.final_country_code
         source_counts["site_rows"] += 1
         country_counts[country_code]["site_rows"] += 1
         _register(
@@ -110,7 +144,20 @@ def build_neotoma_relational_snapshot(
             {
                 "site_id": site_id,
                 "source_site_id": site.get("siteid"),
+                "raw_country": attribution.raw_country,
+                "derived_country": attribution.derived_country,
                 "country_code": country_code,
+                "country_decision_status": attribution.decision_status,
+                "country_decision_method": attribution.decision_method,
+                "country_candidates": list(attribution.candidate_countries),
+                "country_ambiguity_reason": attribution.ambiguity_reason,
+                "country_refusal_reason": attribution.refusal_reason,
+                "boundary_artifact_digest": attribution.boundary_artifact_digest,
+                "boundary_version": attribution.boundary_version,
+                "source_vs_derived_comparison": (
+                    attribution.source_vs_derived_comparison
+                ),
+                "country_propagation_eligible": attribution.propagation_eligible,
                 "source_geopolitical": copy.deepcopy(site.get("geopolitical")),
                 "source_payload": _without(site, "collectionunit", "dataset"),
                 "source_snapshot_id": source_snapshot_id,
@@ -142,6 +189,7 @@ def build_neotoma_relational_snapshot(
                 "collection_unit_id": unit_id,
                 "source_collection_unit_id": unit.get("collectionunitid"),
                 "site_id": site_id,
+                "country_code": country_code,
                 "source_payload": _without(
                     unit, "dataset", "chronologies", "defaultchronology"
                 ),
@@ -173,6 +221,7 @@ def build_neotoma_relational_snapshot(
                 "source_dataset_id": dataset.get("datasetid"),
                 "site_id": site_id,
                 "collection_unit_id": unit_id,
+                "country_code": country_code,
                 "source_payload": _without(dataset, "samples"),
                 "source_site_dataset_payload": copy.deepcopy(site_dataset)
                 if isinstance(site_dataset, Mapping)
@@ -204,9 +253,7 @@ def build_neotoma_relational_snapshot(
                     orphans, "collection_unit", unit_id, "missing_chronology_payload"
                 )
                 continue
-            chronology_source_id = _optional_source_id(
-                chronology.get("chronologyid")
-            )
+            chronology_source_id = _optional_source_id(chronology.get("chronologyid"))
             if chronology_source_id is None:
                 _add_orphan(
                     orphans,
@@ -218,9 +265,7 @@ def build_neotoma_relational_snapshot(
                 chronology_key = f"unidentified:{_digest(dict(chronology))[:20]}"
             else:
                 chronology_key = chronology_source_id
-            chronology_id = (
-                f"neotoma:chronology:{unit_source_id}:{chronology_key}"
-            )
+            chronology_id = f"neotoma:chronology:{unit_source_id}:{chronology_key}"
             if chronology_source_id is not None:
                 chronology_ids_by_source[chronology_source_id] = chronology_id
             chronology_metadata = chronology.get("chronology")
@@ -279,9 +324,7 @@ def build_neotoma_relational_snapshot(
                     tables["chronology_controls"],
                     {
                         "chronology_control_id": control_id,
-                        "source_chronology_control_id": control.get(
-                            "chroncontrolid"
-                        ),
+                        "source_chronology_control_id": control.get("chroncontrolid"),
                         "chronology_id": chronology_id,
                         "collection_unit_id": unit_id,
                         "site_id": site_id,
@@ -304,8 +347,7 @@ def build_neotoma_relational_snapshot(
                     {
                         "collection_unit_id": unit_id,
                         "explicit_default_chronology_id": (
-                            f"neotoma:chronology:{unit_source_id}:"
-                            f"{default_source_id}"
+                            f"neotoma:chronology:{unit_source_id}:{default_source_id}"
                             if default_source_id is not None
                             else None
                         ),
@@ -413,9 +455,7 @@ def build_neotoma_relational_snapshot(
             occurrence_counts: Counter[str] = Counter()
             for datum in datum_rows:
                 if not isinstance(datum, Mapping):
-                    _add_orphan(
-                        orphans, "sample", sample_id, "invalid_observation_row"
-                    )
+                    _add_orphan(orphans, "sample", sample_id, "invalid_observation_row")
                     continue
                 datum_payload = copy.deepcopy(dict(datum))
                 datum_digest = _digest(datum_payload)
@@ -450,15 +490,11 @@ def build_neotoma_relational_snapshot(
                             datum.get("variablename")
                         ),
                         "source_element": copy.deepcopy(datum.get("element")),
-                        "source_element_type": copy.deepcopy(
-                            datum.get("elementtype")
-                        ),
+                        "source_element_type": copy.deepcopy(datum.get("elementtype")),
                         "source_ecological_group": copy.deepcopy(
                             datum.get("ecologicalgroup")
                         ),
-                        "source_taxon_group": copy.deepcopy(
-                            datum.get("taxongroup")
-                        ),
+                        "source_taxon_group": copy.deepcopy(datum.get("taxongroup")),
                         "source_unit": copy.deepcopy(datum.get("units")),
                         "unit_family": _unit_family(source_unit),
                         "aggregation_key": f"neotoma:exact-unit:{source_unit}"
@@ -526,6 +562,19 @@ def build_neotoma_relational_snapshot(
                 if observation.get("country_code") == country_code
             }
         )
+        for status in ("assigned", "review", "unassigned", "refused"):
+            counts[f"{status}_sites"] = sum(
+                1
+                for site in normalized_tables["sites"]
+                if site.get("country_code") == country_code
+                and site.get("country_decision_status") == status
+            )
+        counts["propagation_eligible_sites"] = sum(
+            1
+            for site in normalized_tables["sites"]
+            if site.get("country_code") == country_code
+            and site.get("country_propagation_eligible") is True
+        )
         for field in _COUNTRY_COUNT_FIELDS:
             counts[field] += 0
 
@@ -542,7 +591,7 @@ def build_neotoma_relational_snapshot(
     conflicts.sort(key=lambda item: str(item["conflict_id"]))
     orphans.sort(key=lambda item: str(item["orphan_id"]))
     return {
-        "schema_version": "neotoma-relational-snapshot.v1",
+        "schema_version": "neotoma-relational-snapshot.v2",
         "source_family": "neotoma",
         "source_snapshot_id": source_snapshot_id,
         "build_id": build_id,
@@ -559,6 +608,9 @@ def build_neotoma_relational_snapshot(
                 code: dict(sorted(counts.items()))
                 for code, counts in country_counts.items()
             },
+            "country_attribution_counts": _country_attribution_counts(
+                normalized_tables["sites"]
+            ),
             "conflict_count": len(conflicts),
             "orphan_count": len(orphans),
         },
@@ -608,9 +660,7 @@ def _build_age_claim(
         }
     )
     return {
-        "chronology_claim_id": (
-            f"neotoma:age-claim:{claim_digest[:24]}:{occurrence}"
-        ),
+        "chronology_claim_id": (f"neotoma:age-claim:{claim_digest[:24]}:{occurrence}"),
         "source_family": "neotoma",
         "source_record_id": sample_id,
         "subject_type": "sample",
@@ -701,9 +751,7 @@ def _age_temporal_posture(age: Mapping[str, object]) -> dict[str, object]:
         return _temporal_result(
             calibration_status, "refused", None, None, "reversed_interval"
         )
-    return _temporal_result(
-        calibration_status, "comparable", younger, older, None
-    )
+    return _temporal_result(calibration_status, "comparable", younger, older, None)
 
 
 def _temporal_result(
@@ -750,10 +798,9 @@ def _register_variable(
             "build_id": build_id,
         }
         return
-    if (
-        record.get("source_taxon_id") != datum.get("taxonid")
-        or record.get("source_reported_name") != datum.get("variablename")
-    ):
+    if record.get("source_taxon_id") != datum.get("taxonid") or record.get(
+        "source_reported_name"
+    ) != datum.get("variablename"):
         conflicts.append(
             _conflict_record(
                 "variable_identity_conflict",
@@ -778,9 +825,7 @@ def _finalize_variables(variables: list[dict[str, object]]) -> None:
     for variable in variables:
         semantics = variable.pop("source_semantics_by_digest", {})
         if isinstance(semantics, dict):
-            variable["source_semantics"] = [
-                semantics[key] for key in sorted(semantics)
-            ]
+            variable["source_semantics"] = [semantics[key] for key in sorted(semantics)]
         units = variable.get("source_units")
         if isinstance(units, set):
             variable["source_units"] = sorted(units)
@@ -886,6 +931,141 @@ def _country_code(value: str) -> str:
     return _COUNTRY_CODES.get(cleaned, "UNASSIGNED")
 
 
+def _country_attribution(
+    value: CountryAttributionInput,
+) -> _NeotomaCountryAttribution:
+    if isinstance(value, str):
+        legacy_country = clean_optional_text(value)
+        return _NeotomaCountryAttribution(
+            raw_country=None,
+            derived_country=legacy_country or None,
+            final_country_code="UNASSIGNED",
+            decision_status="review",
+            decision_method="legacy_unproven_country_string",
+            candidate_countries=(legacy_country,) if legacy_country else (),
+            ambiguity_reason="legacy_country_string_without_boundary_provenance",
+            refusal_reason=None if legacy_country else "empty_legacy_country_string",
+            boundary_artifact_digest=None,
+            boundary_version=None,
+            source_vs_derived_comparison="unresolved",
+            propagation_eligible=False,
+        )
+    if not isinstance(value, CountryAttributionDecision):
+        raise TypeError(
+            "country_by_site_id values must be CountryAttributionDecision or str"
+        )
+    derived_code = _country_code(value.derived_country or "")
+    propagation_eligible = (
+        value.decision_status == "assigned"
+        and value.decision_method == "strict_boundary_containment"
+        and value.raw_country_comparison != "conflicts"
+        and derived_code != "UNASSIGNED"
+    )
+    return _NeotomaCountryAttribution(
+        raw_country=value.raw_country,
+        derived_country=value.derived_country,
+        final_country_code=derived_code if propagation_eligible else "UNASSIGNED",
+        decision_status=value.decision_status,
+        decision_method=value.decision_method,
+        candidate_countries=value.candidate_countries,
+        ambiguity_reason=value.ambiguity_reason,
+        refusal_reason=value.refusal_reason,
+        boundary_artifact_digest=value.boundary_artifact_digest,
+        boundary_version=value.boundary_version,
+        source_vs_derived_comparison=value.raw_country_comparison,
+        propagation_eligible=propagation_eligible,
+    )
+
+
+def _missing_country_attribution(
+    site: Mapping[str, object],
+) -> _NeotomaCountryAttribution:
+    return _NeotomaCountryAttribution(
+        raw_country=_source_country(site),
+        derived_country=None,
+        final_country_code="UNASSIGNED",
+        decision_status="unassigned",
+        decision_method="missing_country_decision",
+        candidate_countries=(),
+        ambiguity_reason=None,
+        refusal_reason="missing_country_decision",
+        boundary_artifact_digest=None,
+        boundary_version=None,
+        source_vs_derived_comparison="unresolved",
+        propagation_eligible=False,
+    )
+
+
+def _with_source_country(
+    attribution: _NeotomaCountryAttribution,
+    site: Mapping[str, object],
+) -> _NeotomaCountryAttribution:
+    source_country = _source_country(site)
+    if source_country is None:
+        return attribution
+    if attribution.raw_country is not None and _country_code(
+        attribution.raw_country
+    ) != _country_code(source_country):
+        raise ValueError("Country decision raw country conflicts with Neotoma source")
+    return replace(attribution, raw_country=source_country)
+
+
+def _source_country(site: Mapping[str, object]) -> str | None:
+    geopolitical = site.get("geopolitical")
+    if not isinstance(geopolitical, list):
+        return None
+    candidates: set[str] = set()
+    for value in geopolitical:
+        if isinstance(value, Mapping):
+            candidate = clean_optional_text(value.get("country"))
+        else:
+            candidate = clean_optional_text(value)
+        if _country_code(candidate) != "UNASSIGNED":
+            candidates.add(candidate)
+    if len(candidates) != 1:
+        return None
+    return candidates.pop()
+
+
+def _country_attribution_counts(
+    sites: list[dict[str, object]],
+) -> dict[str, dict[str, int]]:
+    raw_country_values: Counter[str] = Counter()
+    derived_country_values: Counter[str] = Counter()
+    raw_countries: Counter[str] = Counter()
+    derived_countries: Counter[str] = Counter()
+    final_countries: Counter[str] = Counter()
+    statuses: Counter[str] = Counter()
+    methods: Counter[str] = Counter()
+    comparisons: Counter[str] = Counter()
+    eligibility: Counter[str] = Counter()
+    for site in sites:
+        raw_country_values[str(site.get("raw_country") or "UNASSIGNED")] += 1
+        derived_country_values[str(site.get("derived_country") or "UNASSIGNED")] += 1
+        raw_countries[_country_code(str(site.get("raw_country") or ""))] += 1
+        derived_countries[_country_code(str(site.get("derived_country") or ""))] += 1
+        final_countries[str(site.get("country_code", "UNASSIGNED"))] += 1
+        statuses[str(site.get("country_decision_status", "unassigned"))] += 1
+        methods[str(site.get("country_decision_method", "unknown"))] += 1
+        comparisons[str(site.get("source_vs_derived_comparison", "unresolved"))] += 1
+        eligibility[
+            "eligible"
+            if site.get("country_propagation_eligible") is True
+            else "blocked"
+        ] += 1
+    return {
+        "raw_country_values": dict(sorted(raw_country_values.items())),
+        "derived_country_values": dict(sorted(derived_country_values.items())),
+        "raw_country_codes": dict(sorted(raw_countries.items())),
+        "derived_country_codes": dict(sorted(derived_countries.items())),
+        "final_country_codes": dict(sorted(final_countries.items())),
+        "decision_statuses": dict(sorted(statuses.items())),
+        "decision_methods": dict(sorted(methods.items())),
+        "source_vs_derived_comparisons": dict(sorted(comparisons.items())),
+        "propagation_eligibility": dict(sorted(eligibility.items())),
+    }
+
+
 def _parent_country(
     record: Mapping[str, object], sites: list[dict[str, object]]
 ) -> str:
@@ -898,9 +1078,7 @@ def _parent_country(
 
 def _without(payload: Mapping[str, object], *keys: str) -> dict[str, object]:
     return {
-        key: copy.deepcopy(value)
-        for key, value in payload.items()
-        if key not in keys
+        key: copy.deepcopy(value) for key, value in payload.items() if key not in keys
     }
 
 
@@ -940,6 +1118,4 @@ def _add_orphan(
         "reason": reason,
         "source_value": copy.deepcopy(source_value),
     }
-    orphans.append(
-        {"orphan_id": f"neotoma:orphan:{_digest(body)[:24]}", **body}
-    )
+    orphans.append({"orphan_id": f"neotoma:orphan:{_digest(body)[:24]}", **body})
