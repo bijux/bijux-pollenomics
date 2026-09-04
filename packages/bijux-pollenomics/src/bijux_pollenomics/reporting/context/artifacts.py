@@ -18,6 +18,7 @@ from ...data_downloader.contracts import (
     SEAD_ARCHAEOLOGY_DISCOVERY_JSON,
     SEAD_ARCHAEOLOGY_DISCOVERY_MARKDOWN,
 )
+from ...data_downloader.sources.raa import assess_raa_density_authority
 from ..map_publication import map_allows_context_layer
 
 __all__ = ["stage_context_point_layers", "stage_context_polygon_layers"]
@@ -138,7 +139,8 @@ def stage_context_polygon_layers(
         extra_artifacts.append((RAA_LAYER_METADATA.label, destination_path.name))
 
     archaeology_density_path = RAA_DENSITY_GEOJSON.path_under(context_root)
-    if archaeology_density_path.exists() and map_allows_context_layer(
+    raa_authority = assess_raa_density_authority(context_root)
+    if raa_authority.admitted and map_allows_context_layer(
         scope_key=scope_key,
         layer_key="raa-archaeology",
     ):

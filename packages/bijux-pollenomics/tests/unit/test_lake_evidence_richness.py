@@ -141,6 +141,39 @@ def _raa_feature(
     }
 
 
+def _admit_raa_density_fixture(root: Path, *, heritage_site_count: int) -> None:
+    raw_features = [
+        {
+            "type": "Feature",
+            "geometry": {"type": "Point", "coordinates": [14.0, 57.0]},
+            "properties": {"antikvariskbedomningtyp_namn": "Fornlämning"},
+        }
+        for _ in range(heritage_site_count)
+    ]
+    _write_json(
+        root / "raa" / "raw" / "publicerade_lamningar_centrumpunkt.geojson",
+        {"type": "FeatureCollection", "features": raw_features},
+    )
+    _write_json(
+        root / "raa" / "raw" / "publicerade_lamningar_centrumpunkt_summary.json",
+        {
+            "archived_feature_count": heritage_site_count,
+            "heritage_site_count": heritage_site_count,
+        },
+    )
+    _write_json(
+        root / "raa" / "normalized" / "sweden_archaeology_layer.json",
+        {
+            "counts": {"fornlamning": heritage_site_count},
+            "density_feature_count": 2,
+        },
+    )
+    _write_json(
+        root / "raa" / "review" / "spatiotemporal_review.json",
+        {"release_status": "accepted", "reviewer_id": "test-reviewer"},
+    )
+
+
 def _svar_polygon_feature(
     *,
     record_id: str,
@@ -326,18 +359,19 @@ def test_build_sweden_lake_evidence_richness_report_ranks_multi_signal_lakes() -
                         min_latitude=56.5,
                         max_longitude=14.5,
                         max_latitude=57.5,
-                        count=1200,
+                        count=12,
                     ),
                     _raa_feature(
                         min_longitude=15.5,
                         min_latitude=59.5,
                         max_longitude=16.5,
                         max_latitude=60.5,
-                        count=300,
+                        count=3,
                     ),
                 ],
             },
         )
+        _admit_raa_density_fixture(root, heritage_site_count=15)
 
         report = build_sweden_lake_evidence_richness_report(
             context_root=root,
@@ -369,7 +403,16 @@ def test_build_sweden_lake_evidence_richness_report_ranks_multi_signal_lakes() -
         assert top.band_scores[0].human_adna_locality_count == 1
         assert top.band_scores[0].domesticated_animal_locality_count == 1
         assert top.band_scores[0].sead_site_count == 2
-        assert top.band_scores[0].raa_density_site_count == 1200
+        assert top.band_scores[0].raa_density_site_count == 12
+        assert report.methodology["raa_density_authority"] == {
+            "admitted": True,
+            "reason_codes": [],
+            "archived_feature_count": 15,
+            "heritage_site_count": 15,
+            "density_site_count": 15,
+            "density_feature_count": 2,
+            "reviewer_id": "test-reviewer",
+        }
         assert top.candidate.lake_label == "Alpha"
         assert top.candidate.ambiguity_flags == ()
         assert top.candidate.coordinate_resolution_method == "source_coordinate_medoid"

@@ -15,6 +15,7 @@ from ..core import (
     temporal_semantics_has_numeric_interval,
 )
 from ..data_downloader.models import ContextPointRecord
+from ..data_downloader.sources.raa import assess_raa_density_authority
 from ..data_downloader.spatial.representative_points import (
     geometry_to_representative_point,
 )
@@ -360,9 +361,26 @@ def build_sweden_lake_evidence_richness_report(
         context_root=Path(context_root),
         sead_points=sead_points,
     )
-    raa_cells = _load_sweden_density_cells(
-        Path(context_root) / "raa" / "normalized" / "sweden_archaeology_density.geojson"
+    raa_authority = assess_raa_density_authority(context_root)
+    raa_cells = (
+        _load_sweden_density_cells(
+            Path(context_root)
+            / "raa"
+            / "normalized"
+            / "sweden_archaeology_density.geojson"
+        )
+        if raa_authority.admitted
+        else ()
     )
+    raa_authority_summary: dict[str, object] = {
+        "admitted": raa_authority.admitted,
+        "reason_codes": list(raa_authority.reason_codes),
+        "archived_feature_count": raa_authority.archived_feature_count,
+        "heritage_site_count": raa_authority.heritage_site_count,
+        "density_site_count": raa_authority.density_site_count,
+        "density_feature_count": raa_authority.density_feature_count,
+        "reviewer_id": raa_authority.reviewer_id,
+    }
     svar_candidate_path = (
         Path(context_root)
         / "svar"
@@ -377,6 +395,7 @@ def build_sweden_lake_evidence_richness_report(
             normalized_radii,
             candidate_source="svar_registry_authority_unavailable",
             source_temporal_coverage=source_temporal_coverage,
+            raa_authority=raa_authority_summary,
         )
     if svar_registry_path.exists():
         return _build_svar_lake_report(
@@ -388,6 +407,7 @@ def build_sweden_lake_evidence_richness_report(
             animal_points=animal_points,
             sead_points=sead_points,
             raa_cells=raa_cells,
+            raa_authority=raa_authority_summary,
             source_temporal_coverage=source_temporal_coverage,
         )
     candidates = _derive_lake_candidates(
@@ -406,6 +426,7 @@ def build_sweden_lake_evidence_richness_report(
             normalized_radii,
             candidate_source="pollen_candidate_points",
             source_temporal_coverage=source_temporal_coverage,
+            raa_authority=raa_authority_summary,
         )
 
     raw_scores: dict[str, dict[int, dict[str, int]]] = {
@@ -656,6 +677,7 @@ def build_sweden_lake_evidence_richness_report(
             normalized_radii,
             source_temporal_coverage=source_temporal_coverage,
             candidates=candidates,
+            raa_authority=raa_authority_summary,
         ),
         assessments=assessments,
     )
@@ -671,6 +693,7 @@ def _build_svar_lake_report(
     animal_points: Sequence[_PointEvidence],
     sead_points: Sequence[ContextPointRecord],
     raa_cells: Sequence[_DensityCell],
+    raa_authority: dict[str, object],
     source_temporal_coverage: dict[str, object] | None = None,
 ) -> LakeEvidenceRichnessReport:
     svar_lakes = _load_sweden_svar_lakes(svar_lake_path)
@@ -963,6 +986,7 @@ def _build_svar_lake_report(
             candidate_source="svar_lake_registry",
             source_temporal_coverage=source_temporal_coverage,
             candidates=candidates,
+            raa_authority=raa_authority,
         ),
         assessments=assessments,
     )
@@ -2613,6 +2637,7 @@ def _build_empty_report(
     *,
     candidate_source: str = "pollen_candidate_points",
     source_temporal_coverage: dict[str, object] | None = None,
+    raa_authority: dict[str, object] | None = None,
 ) -> LakeEvidenceRichnessReport:
     return LakeEvidenceRichnessReport(
         schema_version="sweden-lake-evidence-richness.v2",
@@ -2622,6 +2647,7 @@ def _build_empty_report(
             radii_km,
             candidate_source=candidate_source,
             source_temporal_coverage=source_temporal_coverage,
+            raa_authority=raa_authority,
         ),
         candidate_count=0,
         assessments=(),
@@ -2634,6 +2660,7 @@ def _build_methodology(
     candidate_source: str = "pollen_candidate_points",
     source_temporal_coverage: dict[str, object] | None = None,
     candidates: Sequence[LakeEvidenceCandidate] = (),
+    raa_authority: dict[str, object] | None = None,
 ) -> dict[str, object]:
     if candidate_source == "svar_registry_authority_unavailable":
         payload: dict[str, object] = {
@@ -2651,6 +2678,8 @@ def _build_methodology(
         }
         if source_temporal_coverage:
             payload["source_temporal_coverage"] = source_temporal_coverage
+        if raa_authority is not None:
+            payload["raa_density_authority"] = raa_authority
         return payload
     if candidate_source == "svar_lake_registry":
         payload = {
@@ -2729,6 +2758,8 @@ def _build_methodology(
         }
         if source_temporal_coverage:
             payload["source_temporal_coverage"] = source_temporal_coverage
+        if raa_authority is not None:
+            payload["raa_density_authority"] = raa_authority
         payload["temporal_navigation"] = _temporal_navigation_summary(candidates)
         return payload
     payload = {
@@ -2782,6 +2813,8 @@ def _build_methodology(
     }
     if source_temporal_coverage:
         payload["source_temporal_coverage"] = source_temporal_coverage
+    if raa_authority is not None:
+        payload["raa_density_authority"] = raa_authority
     payload["temporal_navigation"] = _temporal_navigation_summary(candidates)
     return payload
 
