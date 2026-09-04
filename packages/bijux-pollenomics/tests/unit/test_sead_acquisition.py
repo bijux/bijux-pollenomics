@@ -16,6 +16,7 @@ from bijux_pollenomics.data_downloader.sources.sead.acquisition import (
     reconcile_sead_countries,
     reconcile_sead_join,
 )
+from bijux_pollenomics.data_downloader import sead as production_sead
 
 _SCOPE = ("SE", "DK", "NO", "FI")
 _BBOX = {"bbox": [4.0, 54.0, 35.0, 72.0], "crs": "EPSG:4326"}
@@ -293,3 +294,173 @@ def test_unsafe_or_ambiguous_acquisition_requests_are_refused(
             build_id="build-1",
             clock=_Clock(),
         )
+
+
+@pytest.mark.parametrize(
+    "payload",
+    [
+        {"site_id": 1},
+        [{"site_id": 1}, "not-an-object"],
+    ],
+)
+def test_production_fetch_rejects_malformed_pages(
+    monkeypatch: pytest.MonkeyPatch, payload: object
+) -> None:
+    monkeypatch.setattr(
+        production_sead, "fetch_json", lambda *_args, **_kwargs: payload
+    )
+
+    with pytest.raises(SeadAcquisitionError) as raised:
+        production_sead.fetch_sead_rows("tbl_sites", select="site_id")
+
+    assert raised.value.result.receipt["status"] == "failed"
+    assert raised.value.result.receipt["failure_reason"] == "invalid_page_payload"
+
+
+@pytest.mark.parametrize("site_id", [None, 0, "invalid"])
+def test_production_fetch_rejects_invalid_required_identifiers(
+    monkeypatch: pytest.MonkeyPatch, site_id: object
+) -> None:
+    monkeypatch.setattr(
+        production_sead,
+        "fetch_json",
+        lambda *_args, **_kwargs: [{"site_id": site_id}],
+    )
+
+    with pytest.raises(ValueError, match="Invalid required SEAD tbl_sites.site_id"):
+        production_sead.fetch_sead_rows("tbl_sites", select="site_id")
+
+
+def test_production_fetch_rejects_duplicate_identifiers(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    monkeypatch.setattr(
+        production_sead,
+        "fetch_json",
+        lambda *_args, **_kwargs: [{"site_id": 1}, {"site_id": 1}],
+    )
+
+    with pytest.raises(ValueError, match="Duplicate SEAD tbl_sites.site_id"):
+        production_sead.fetch_sead_rows("tbl_sites", select="site_id")
+
+
+def test_batched_production_fetch_rejects_duplicates_across_batches(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    monkeypatch.setattr(
+        production_sead,
+        "fetch_json",
+        lambda *_args, **_kwargs: [{"sample_group_id": 10, "site_id": 1}],
+    )
+
+    with pytest.raises(ValueError, match="Duplicate SEAD tbl_sample_groups"):
+        production_sead.fetch_sead_rows_by_ids(
+            "tbl_sample_groups",
+            select="sample_group_id,site_id",
+            filter_field="site_id",
+            ids=range(1, 102),
+        )
+
+
+def test_production_fetch_has_a_hard_page_limit(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    monkeypatch.setattr(production_sead, "SEAD_MAX_PAGES", 1)
+    monkeypatch.setattr(
+        production_sead,
+        "fetch_json",
+        lambda *_args, **_kwargs: [{"site_id": value} for value in range(1, 1001)],
+    )
+
+    with pytest.raises(SeadAcquisitionError) as raised:
+        production_sead.fetch_sead_rows("tbl_sites", select="site_id")
+
+    assert raised.value.result.receipt["status"] == "partial"
+    assert raised.value.result.receipt["failure_reason"] == "page_limit_exceeded"
+
+
+def test_relation_traversal_rejects_invalid_foreign_keys(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    def fetch_json(url: str, **_kwargs: object) -> object:
+        if url.endswith("/tbl_sample_groups"):
+            return [{"sample_group_id": 10, "site_id": None}]
+        raise AssertionError(f"Unexpected request after invalid relation: {url}")
+
+    monkeypatch.setattr(production_sead, "fetch_json", fetch_json)
+
+    with pytest.raises(
+        ValueError, match="Invalid required SEAD tbl_sample_groups.site_id"
+    ):
+        production_sead.populate_sead_site_inventory_fields([{"site_id": 1}])
+
+
+def test_production_archive_is_deterministic_and_refuses_changed_overwrite(
+    tmp_path: Path,
+) -> None:
+    raw_dir = tmp_path / "raw"
+    raw_dir.mkdir()
+    rows = [{"site_id": 1, "site_name": "A"}]
+    path = production_sead._write_sead_site_archive(
+        raw_dir,
+        bbox=(4.0, 54.0, 35.0, 72.0),
+        rows=rows,
+        inventory_summary={"site_row_count": 1},
+    )
+    original = path.read_bytes()
+    payload = json.loads(original)
+
+    assert payload["schema_version"] == "sead-site-archive.v2"
+    assert "generated_on" not in payload
+    assert payload["source_snapshot_id"].startswith("sha256:")
+    assert (
+        production_sead._write_sead_site_archive(
+            raw_dir,
+            bbox=(4.0, 54.0, 35.0, 72.0),
+            rows=rows,
+            inventory_summary={"site_row_count": 1},
+        ).read_bytes()
+        == original
+    )
+    with pytest.raises(FileExistsError, match="Non-identical"):
+        production_sead._write_sead_site_archive(
+            raw_dir,
+            bbox=(4.0, 54.0, 35.0, 72.0),
+            rows=[{"site_id": 2, "site_name": "B"}],
+            inventory_summary={"site_row_count": 1},
+        )
+
+
+def test_production_archive_canonicalizes_site_order(tmp_path: Path) -> None:
+    first_dir = tmp_path / "first"
+    second_dir = tmp_path / "second"
+    first_dir.mkdir()
+    second_dir.mkdir()
+    rows = [{"site_id": 2}, {"site_id": 1}]
+
+    first = production_sead._write_sead_site_archive(
+        first_dir,
+        bbox=(4.0, 54.0, 35.0, 72.0),
+        rows=rows,
+        inventory_summary={"site_row_count": 2},
+    )
+    second = production_sead._write_sead_site_archive(
+        second_dir,
+        bbox=(4.0, 54.0, 35.0, 72.0),
+        rows=list(reversed(rows)),
+        inventory_summary={"site_row_count": 2},
+    )
+
+    assert first.read_bytes() == second.read_bytes()
+
+
+def test_repository_materializer_rejects_non_object_raw_rows(tmp_path: Path) -> None:
+    raw_dir = tmp_path / "data" / "sead" / "raw"
+    raw_dir.mkdir(parents=True)
+    (raw_dir / "nordic_sites.json").write_text(
+        json.dumps({"rows": [{"site_id": 1}, "not-an-object"]}),
+        encoding="utf-8",
+    )
+
+    with pytest.raises(ValueError, match="contains a non-object row"):
+        production_sead.materialize_sead_repository_surfaces(tmp_path / "data")

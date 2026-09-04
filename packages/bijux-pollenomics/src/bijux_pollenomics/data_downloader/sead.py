@@ -1,9 +1,12 @@
 from __future__ import annotations
 
-from collections.abc import Iterable, Mapping
+from collections.abc import Callable, Iterable, Mapping, Sequence
 from dataclasses import dataclass
+import hashlib
 import json
+import os
 from pathlib import Path
+import time
 
 from .sources.sead.discovery import (
     build_sweden_archaeology_site_discovery,
@@ -23,15 +26,11 @@ from .exports.context_points import (
 )
 from .models import ContextPointRecord
 from .shared import load_repository_country_boundaries
-from .sources.sead.archive import SEAD_LINKED_SOURCE_TABLES, write_sead_site_archive
+from .sources.sead import api_client as sead_api_client
+from .sources.sead.acquisition import acquire_sead_table
+from .sources.sead.archive import SEAD_LINKED_SOURCE_TABLES
 from .sources.sead.fetch import (
     build_sead_in_filter as build_sead_in_filter_value,
-)
-from .sources.sead.fetch import (
-    fetch_sead_rows as fetch_sead_rows_from_api,
-)
-from .sources.sead.fetch import (
-    fetch_sead_rows_by_ids as fetch_sead_rows_by_ids_from_api,
 )
 from .sources.sead.fetch import (
     merge_sead_intervals as merge_sead_intervals_value,
@@ -46,7 +45,7 @@ from .sources.sead.fetch import refresh_sead_repository_rows
 from .sources.sead.fetch import (
     sead_dating_interval as sead_dating_interval_value,
 )
-from .sources.sead.inventory import SeadSiteFetchResult, build_sead_site_inventory
+from .sources.sead.inventory import SeadSiteFetchResult
 from .sources.sead.normalization import (
     normalize_sead_rows,
     normalize_sead_temporal_evidence,
@@ -63,6 +62,47 @@ class SeadDataReport:
     normalized_geojson_path: Path
 
 
+SEAD_MAX_PAGES = 1_000
+SEAD_ARCHIVE_SCHEMA_VERSION = "sead-site-archive.v2"
+
+_SEAD_PRIMARY_KEYS = {
+    "tbl_sites": "site_id",
+    "tbl_sample_groups": "sample_group_id",
+    "tbl_physical_samples": "physical_sample_id",
+    "tbl_analysis_entities": "analysis_entity_id",
+    "tbl_analysis_entity_ages": "analysis_entity_age_id",
+    "tbl_geochronology": "geochron_id",
+    "tbl_dendro_dates": "dendro_date_id",
+    "tbl_analysis_values": "analysis_value_id",
+    "tbl_analysis_dating_ranges": "analysis_dating_range_id",
+    "tbl_age_types": "age_type_id",
+    "tbl_relative_dates": "relative_date_id",
+    "tbl_relative_ages": "relative_age_id",
+    "tbl_relative_age_refs": "relative_age_ref_id",
+    "tbl_dating_uncertainty": "dating_uncertainty_id",
+    "tbl_methods": "method_id",
+    "tbl_datasets": "dataset_id",
+    "tbl_site_references": "site_reference_id",
+    "tbl_sample_group_references": "sample_group_reference_id",
+    "tbl_biblio": "biblio_id",
+}
+
+_SEAD_REQUIRED_FOREIGN_KEYS = {
+    "tbl_sample_groups": ("site_id",),
+    "tbl_physical_samples": ("sample_group_id",),
+    "tbl_analysis_entities": ("physical_sample_id",),
+    "tbl_analysis_entity_ages": ("analysis_entity_id",),
+    "tbl_geochronology": ("analysis_entity_id",),
+    "tbl_dendro_dates": ("analysis_entity_id",),
+    "tbl_analysis_values": ("analysis_entity_id",),
+    "tbl_analysis_dating_ranges": ("analysis_value_id",),
+    "tbl_relative_dates": ("analysis_entity_id",),
+    "tbl_relative_age_refs": ("relative_age_id",),
+    "tbl_site_references": ("site_id",),
+    "tbl_sample_group_references": ("sample_group_id",),
+}
+
+
 def fetch_sead_site_rows(
     bbox: tuple[float, float, float, float],
 ) -> list[dict[str, object]]:
@@ -74,11 +114,25 @@ def fetch_sead_site_inventory(
     bbox: tuple[float, float, float, float],
 ) -> SeadSiteFetchResult:
     """Download SEAD site rows plus an audit summary of linked table coverage."""
-    return build_sead_site_inventory(
-        bbox=bbox,
-        fetch_sead_rows_fn=fetch_sead_rows,
-        populate_inventory_fields_fn=populate_sead_site_inventory_fields,
+    min_longitude, min_latitude, max_longitude, max_latitude = bbox
+    rows = fetch_sead_rows(
+        "tbl_sites",
+        select=(
+            "site_id,site_name,national_site_identifier,latitude_dd,longitude_dd,"
+            "altitude,site_description,site_uuid"
+        ),
+        filters=(
+            ("latitude_dd", f"gte.{min_latitude}"),
+            ("latitude_dd", f"lte.{max_latitude}"),
+            ("longitude_dd", f"gte.{min_longitude}"),
+            ("longitude_dd", f"lte.{max_longitude}"),
+        ),
+        order_by=("site_id",),
     )
+    _validate_sead_rows("tbl_sites", rows)
+    rows.sort(key=lambda row: _required_positive_int(row, "site_id", "tbl_sites"))
+    inventory_summary = populate_sead_site_inventory_fields(rows)
+    return SeadSiteFetchResult(rows=rows, inventory_summary=inventory_summary)
 
 
 def fetch_sead_rows(
@@ -89,13 +143,29 @@ def fetch_sead_rows(
     order_by: tuple[str, ...] = (),
 ) -> list[dict[str, object]]:
     """Fetch every row from one SEAD PostgREST table for a selected projection."""
-    return fetch_sead_rows_from_api(
+    resolved_order = order_by or (_primary_key_for_table(table_name),)
+    result = acquire_sead_table(
         table_name,
         fetch_json_fn=fetch_json,
         select=select,
-        filters=filters,
-        order_by=order_by,
+        filters=filters or (),
+        order_by=resolved_order,
+        country_scope=("SE", "DK", "NO", "FI"),
+        spatial_scope={
+            "kind": "query_filters",
+            "filters": [list(item) for item in filters or ()],
+        },
+        parent_run_id="sead-production-collection",
+        build_id="bijux-pollenomics-runtime",
+        page_size=sead_api_client.SEAD_LIMIT,
+        max_pages=SEAD_MAX_PAGES,
+        request_retries=sead_api_client.SEAD_REQUEST_RETRIES,
+        request_timeout_seconds=sead_api_client.SEAD_REQUEST_TIMEOUT_SECONDS,
+        sleep_fn=time.sleep,
     )
+    rows = [dict(row) for row in result.rows]
+    _validate_sead_rows(table_name, rows)
+    return rows
 
 
 def fetch_sead_rows_by_ids(
@@ -107,14 +177,20 @@ def fetch_sead_rows_by_ids(
     order_by: tuple[str, ...] = (),
 ) -> list[dict[str, object]]:
     """Fetch SEAD rows in manageable `in.(...)` batches."""
-    return fetch_sead_rows_by_ids_from_api(
-        table_name,
-        fetch_json_fn=fetch_json,
-        select=select,
-        filter_field=filter_field,
-        ids=ids,
-        order_by=order_by,
-    )
+    unique_ids = sorted({_strict_input_identifier(value) for value in ids})
+    rows: list[dict[str, object]] = []
+    for start in range(0, len(unique_ids), sead_api_client.SEAD_FILTER_BATCH_SIZE):
+        batch = unique_ids[start : start + sead_api_client.SEAD_FILTER_BATCH_SIZE]
+        rows.extend(
+            fetch_sead_rows(
+                table_name,
+                select=select,
+                filters=((filter_field, build_sead_in_filter(batch)),),
+                order_by=order_by,
+            )
+        )
+    _validate_sead_rows(table_name, rows)
+    return rows
 
 
 def build_sead_in_filter(values: list[int]) -> str:
@@ -145,7 +221,174 @@ def populate_sead_site_inventory_fields(
     rows: list[dict[str, object]],
 ) -> dict[str, int | str]:
     """Attach linked sample, dataset, and reference counts to SEAD site rows."""
-    return populate_sead_site_inventory_fields_from_api(rows, fetch_json_fn=fetch_json)
+    _validate_sead_rows("tbl_sites", rows)
+    strict_fetch = _StrictSeadPageFetcher(fetch_json)
+    summary = populate_sead_site_inventory_fields_from_api(
+        rows, fetch_json_fn=strict_fetch
+    )
+    _validate_sead_rows("tbl_sites", rows)
+    return summary
+
+
+class _StrictSeadPageFetcher:
+    """Validate every page used by the legacy relation traversal before it is joined."""
+
+    def __init__(self, delegate: Callable[..., object]) -> None:
+        self._delegate = delegate
+        self._seen_ids: dict[str, set[int]] = {}
+
+    def __call__(
+        self,
+        url: str,
+        *,
+        params: object = None,
+        headers: object = None,
+        insecure: bool = False,
+        timeout: float | None = None,
+    ) -> object:
+        table_name = url.rstrip("/").rsplit("/", 1)[-1]
+        _primary_key_for_table(table_name)
+        range_start = _sead_range_start(headers)
+        if range_start >= sead_api_client.SEAD_LIMIT * SEAD_MAX_PAGES:
+            raise ValueError(
+                f"SEAD pagination exceeded {SEAD_MAX_PAGES} pages: {table_name}"
+            )
+        payload = self._delegate(
+            url,
+            params=params,
+            headers=headers,
+            insecure=insecure,
+            timeout=timeout,
+        )
+        if not isinstance(payload, list):
+            raise ValueError(f"SEAD page is not a JSON array: {table_name}")
+        if any(not isinstance(row, Mapping) for row in payload):
+            raise ValueError(f"SEAD page contains a non-object row: {table_name}")
+        rows = [dict(row) for row in payload]
+        _validate_sead_rows(table_name, rows)
+        primary_key = _primary_key_for_table(table_name)
+        seen = self._seen_ids.setdefault(table_name, set())
+        for row in rows:
+            identifier = _required_positive_int(row, primary_key, table_name)
+            if identifier in seen:
+                raise ValueError(
+                    f"Duplicate SEAD {table_name}.{primary_key}: {identifier}"
+                )
+            seen.add(identifier)
+        return rows
+
+
+def _primary_key_for_table(table_name: str) -> str:
+    try:
+        return _SEAD_PRIMARY_KEYS[table_name]
+    except KeyError as exc:
+        raise ValueError(f"Unsupported SEAD table: {table_name}") from exc
+
+
+def _validate_sead_rows(table_name: str, rows: Sequence[Mapping[str, object]]) -> None:
+    primary_key = _primary_key_for_table(table_name)
+    identifiers: set[int] = set()
+    required_fields = (primary_key, *_SEAD_REQUIRED_FOREIGN_KEYS.get(table_name, ()))
+    for row in rows:
+        for field in required_fields:
+            _required_positive_int(row, field, table_name)
+        identifier = _required_positive_int(row, primary_key, table_name)
+        if identifier in identifiers:
+            raise ValueError(f"Duplicate SEAD {table_name}.{primary_key}: {identifier}")
+        identifiers.add(identifier)
+
+
+def _required_positive_int(
+    row: Mapping[str, object], field: str, table_name: str
+) -> int:
+    value = parse_optional_int_value(row.get(field))
+    if value is None or value <= 0:
+        raise ValueError(
+            f"Invalid required SEAD {table_name}.{field}: {row.get(field)!r}"
+        )
+    return value
+
+
+def _strict_input_identifier(value: object) -> int:
+    if isinstance(value, bool) or not isinstance(value, int) or value <= 0:
+        raise ValueError(f"Invalid SEAD filter identifier: {value!r}")
+    return value
+
+
+def _sead_range_start(headers: object) -> int:
+    if not isinstance(headers, Mapping):
+        raise ValueError("SEAD request is missing range headers")
+    range_text = headers.get("Range")
+    if not isinstance(range_text, str):
+        raise ValueError("SEAD request is missing a Range header")
+    start_text, separator, end_text = range_text.partition("-")
+    if not separator:
+        raise ValueError(f"Invalid SEAD Range header: {range_text}")
+    try:
+        start = int(start_text)
+        end = int(end_text)
+    except ValueError as exc:
+        raise ValueError(f"Invalid SEAD Range header: {range_text}") from exc
+    if start < 0 or end < start:
+        raise ValueError(f"Invalid SEAD Range header: {range_text}")
+    return start
+
+
+def _write_sead_site_archive(
+    raw_dir: Path,
+    *,
+    bbox: tuple[float, float, float, float],
+    rows: list[dict[str, object]],
+    inventory_summary: dict[str, int | str],
+) -> Path:
+    """Atomically create a deterministic site archive or accept identical bytes."""
+    _validate_sead_rows("tbl_sites", rows)
+    ordered_rows = sorted(
+        rows,
+        key=lambda row: _required_positive_int(row, "site_id", "tbl_sites"),
+    )
+    row_bytes = _canonical_json_bytes(ordered_rows)
+    raw_path = Path(raw_dir) / "nordic_sites.json"
+    payload = {
+        "schema_version": SEAD_ARCHIVE_SCHEMA_VERSION,
+        "source": "SEAD",
+        "endpoint": "https://browser.sead.se/postgrest/tbl_sites",
+        "source_snapshot_id": f"sha256:{hashlib.sha256(row_bytes).hexdigest()}",
+        "row_count": len(rows),
+        "bbox": list(bbox),
+        "source_tables": list(SEAD_LINKED_SOURCE_TABLES),
+        "inventory_summary": inventory_summary,
+        "rows": ordered_rows,
+    }
+    content = _canonical_json_bytes(payload)
+    if raw_path.exists():
+        if raw_path.is_symlink() or not raw_path.is_file():
+            raise FileExistsError(f"Unsafe existing SEAD archive: {raw_path}")
+        if raw_path.read_bytes() == content:
+            return raw_path
+        raise FileExistsError(f"Non-identical SEAD archive already exists: {raw_path}")
+    staging_path = raw_path.with_name(f".{raw_path.name}.staging-{os.getpid()}")
+    if staging_path.exists() or staging_path.is_symlink():
+        raise FileExistsError(f"SEAD archive staging collision: {staging_path}")
+    try:
+        staging_path.write_bytes(content)
+        os.replace(staging_path, raw_path)
+    finally:
+        if staging_path.exists():
+            staging_path.unlink()
+    return raw_path
+
+
+def _canonical_json_bytes(value: object) -> bytes:
+    return (
+        json.dumps(
+            value,
+            ensure_ascii=False,
+            sort_keys=True,
+            separators=(",", ":"),
+        )
+        + "\n"
+    ).encode("utf-8")
 
 
 def collect_sead_data(
@@ -162,7 +405,7 @@ def collect_sead_data(
 
     fetch_result = fetch_sead_site_inventory(bbox=bbox)
     rows = fetch_result.rows
-    raw_path = write_sead_site_archive(
+    raw_path = _write_sead_site_archive(
         raw_dir,
         bbox=bbox,
         rows=rows,
@@ -208,8 +451,12 @@ def materialize_sead_repository_surfaces(data_root: Path) -> SeadDataReport:
     raw_rows = payload.get("rows", [])
     if not isinstance(raw_rows, list):
         raise ValueError(f"SEAD raw inventory must contain a row list: {raw_path}")
-    rows = [row for row in raw_rows if isinstance(row, dict)]
+    if any(not isinstance(row, dict) for row in raw_rows):
+        raise ValueError(f"SEAD raw inventory contains a non-object row: {raw_path}")
+    rows = [dict(row) for row in raw_rows]
+    _validate_sead_rows("tbl_sites", rows)
     refresh_sead_repository_rows(rows)
+    _validate_sead_rows("tbl_sites", rows)
     payload["rows"] = rows
     payload["source_tables"] = list(SEAD_LINKED_SOURCE_TABLES)
     existing_inventory_summary = payload.get("inventory_summary", {})
@@ -264,7 +511,7 @@ def _build_repository_inventory_summary(
         return sum(
             1
             for row in rows
-            if isinstance(row.get(key), list) and len(row.get(key, [])) > 0
+            if isinstance((value := row.get(key)), list) and len(value) > 0
         )
 
     numeric_interval_row_count = sum(
