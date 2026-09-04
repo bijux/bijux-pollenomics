@@ -26,25 +26,28 @@ source families even when they contribute to a lake ranking.
 | source surface | `https://vattenwebb.smhi.se/svarwebb/` |
 | acquisition interface | WFS `lakes` type |
 | capture date | `2026-06-22` |
-| matched lakes | 40,565 |
-| normalized count reported by the capture | 40,565 |
-| publication layer key | `svar-lakes` |
+| authority status | refused |
+| admitted lake denominator | unavailable |
+| source-reported count | retained in the capture receipt, not admitted as a governed denominator |
+| publication layer key | withheld until authority admission |
 | temporal posture | no time dimension |
 
-The count describes registry members in the governed capture. It is not a
-count of palaeolakes, sampled basins, accessible sites, or viable coring
-locations.
+SVAR authority is refused because the governing normalized registry is absent.
+This unavailable governed denominator is not a claim of zero lakes or zero
+scientific relevance. It prevents source-reported summary counts from being
+promoted into current analytical or publication coverage.
 
 ## Shipped And Declared Surfaces
 
 The source-family contract declares a normalized registry at
 `data/svar/normalized/sweden_lake_registry.geojson`. The current repository
-snapshot does not ship that complete 40,565-member file. It ships:
+snapshot does not ship that complete registry file. It ships:
 
 - `data/svar/raw/svar_lake_registry_manifest.json`, which records source,
   interface, acquisition date, and matched and normalized counts; and
-- `data/svar/normalized/svar_summary.json`, which records the 40,565-member
-  count and `svar-lakes` layer identity; and
+- `data/svar/normalized/svar_summary.json`, which retains a source-reported
+  count and `svar-lakes` layer identity without establishing current authority;
+  and
 - `data/svar/review/sweden_lake_candidate_registry.geojson`, a compact
   evidence-linked review registry with 99 unique official lakes, mapped areas,
   stable identities, and sampling-readiness gaps.
@@ -62,20 +65,20 @@ complete normalized registry.
 
 ```mermaid
 flowchart LR
-    WFS["SMHI SVAR WFS"] --> Capture["capture manifest<br/>40,565 matched lakes"]
+    WFS["SMHI SVAR WFS"] --> Capture["capture manifest<br/>source-reported count"]
     WFS --> Registry["declared normalized registry"]
     Capture --> Summary["checked-in count summary"]
-    Registry --> Review["99-lake evidence-linked review registry"]
+    Registry --> Authority["authority admission"]
+    Authority --> Review["99-lake evidence-linked review registry"]
     Review --> Candidate["stable lake candidate identity"]
     Candidate --> Ranking["Sweden ranking and sensitivity products"]
     Ranking --> FieldReview["identity, basin, access, permit, and field review"]
 ```
 
-The trust boundary is explicit: the manifest and summary establish
-source-scale counts, the compact registry establishes its 99 reviewed members,
-and a published candidate row establishes the identity retained for that
-product. None establishes the unpublished members of the absent complete
-normalized registry file.
+The trust boundary is explicit: the manifest and summary preserve a historical
+source-reported count, while the compact registry establishes only its 99
+reviewed members. Neither establishes the absent complete normalized registry
+or authorizes a source-wide SVAR publication denominator.
 
 ## Lake Identity Contract
 

@@ -20,10 +20,10 @@ The current governed summary records:
 
 | Surface | Count | Meaning |
 | --- | ---: | --- |
-| normalized site sequences | 492 | pollen-context points retained after family-specific normalization |
-| sequences with numeric BP intervals | 482 | records eligible for bounded temporal comparison at site-sequence level |
-| aggregate REVEALS grid cells | 88 | discovery summaries across the captured reconstruction windows |
-| temporal REVEALS grid features | 2,809 | dataset-specific cell and modeled time-window combinations |
+| normalized site sequences | 490 | pollen-context points retained after family-specific normalization |
+| sequences with numeric BP intervals | 480 | records eligible for bounded temporal comparison at site-sequence level |
+| aggregate REVEALS grid cells | 77 | discovery summaries across the captured reconstruction windows |
+| temporal REVEALS grid features | 2,515 | dataset-specific cell and modeled time-window combinations |
 | distinct modeled windows | 25 | explicit windows from `0–100 BP` through `11200–11700 BP` |
 | dataset citations / publication references | 3 / 4 | governed bibliography linked to normalized evidence |
 
@@ -110,9 +110,10 @@ to one modeled estimate for one grid cell and published window. Neither is an
 event date, and neither automatically aligns with every sample inside the same
 interval.
 
-The temporal grid keeps 2,809 dataset-cell-window features separate: 309 from
-the Marquer reconstruction across 13 Nordic cells and 25 windows, 375 from
-LandClim I across five windows, and 2,125 from LandClim II across 25 windows.
+The temporal grid keeps 2,515 dataset-cell-window features separate: 309 from
+the Marquer reconstruction, 331 from LandClim I, and 1,875 from LandClim II.
+Together they cover 77 distinct aggregate cells and retain 25 distinct numeric
+windows where supplied by the source datasets.
 Each feature carries numeric BP bounds and bibliography keys. Atlas time
 filtering therefore selects published estimates rather than treating a cell's
 full Holocene coverage as one continuous value. Source combinations without a

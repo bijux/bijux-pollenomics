@@ -191,9 +191,12 @@ not have to infer product status from prose.
 
 The checked-in state demonstrates all four responsibilities at meaningful
 scale. Collection spans seven independently governed source families. The
-normalized context includes 492 LandClim site sequences, 200 Neotoma sites,
-2,172 SEAD sites, a RAÄ density source representing 761,917 published Swedish
-sites, and 40,565 SVAR lakes.
+normalized context includes 490 LandClim site sequences, 200 Neotoma sites,
+and 2,172 SEAD sites. RAÄ authority is refused because its source inventory,
+summary, and scientific review do not reconcile in the repository. SVAR
+authority is refused because the governing normalized lake registry is absent.
+Their retained receipts and derived review material remain provenance, not
+admitted scientific evidence.
 
 Animal aDNA demonstrates the deeper evidence model. Forty tracked projects
 currently contribute 868 recovered sample rows. The public animal point review

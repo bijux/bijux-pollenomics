@@ -1,7 +1,7 @@
 from __future__ import annotations
 
-from dataclasses import asdict, dataclass
 import json
+from dataclasses import asdict, dataclass
 from pathlib import Path
 
 from .boundaries import (
@@ -72,6 +72,14 @@ def _build_landclim_row(output_root: Path) -> SourceSpatiotemporalPostureRecord:
             / "nordic_reveals_temporal_grid_cells.geojson"
         )
     )
+    grid_features = _geojson_features(
+        _load_json(
+            output_root
+            / "landclim"
+            / "normalized"
+            / "nordic_reveals_grid_cells.geojson"
+        )
+    )
     numeric_interval_count = sum(
         1 for feature in features if _feature_has_numeric_interval(feature)
     )
@@ -104,6 +112,7 @@ def _build_landclim_row(output_root: Path) -> SourceSpatiotemporalPostureRecord:
         detail_metrics={
             "site_sequence_record_count": len(features),
             "numeric_interval_record_count": numeric_interval_count,
+            "grid_cell_count": len(grid_features),
             "temporal_grid_feature_count": len(temporal_grid_features),
         },
         caveats=(

@@ -1,12 +1,14 @@
 from __future__ import annotations
 
 import json
-from pathlib import Path
 import tempfile
+from pathlib import Path
 
 from bijux_pollenomics.data_downloader.source_spatiotemporal_posture import (
     build_source_spatiotemporal_posture_payload,
 )
+
+REPO_ROOT = Path(__file__).resolve().parents[4]
 
 
 def _rows_by_source(payload: dict[str, object]) -> dict[str, dict[str, object]]:
@@ -60,3 +62,57 @@ def test_posture_registry_distinguishes_empty_svar_registry_from_missing_registr
     assert rows["svar"]["availability_status"] == "available"
     assert rows["svar"]["record_count"] == 0
     assert rows["svar"]["refusal_reasons"] == ()
+
+
+def test_repository_posture_uses_governed_landclim_counts_and_refuses_missing_authority() -> (
+    None
+):
+    first = build_source_spatiotemporal_posture_payload(REPO_ROOT / "data")
+    second = build_source_spatiotemporal_posture_payload(REPO_ROOT / "data")
+    rows = _rows_by_source(first)
+
+    assert first == second
+    assert rows["landclim"]["record_count"] == 490
+    assert rows["landclim"]["numeric_interval_record_count"] == 480
+    assert rows["landclim"]["detail_metrics"] == {
+        "site_sequence_record_count": 490,
+        "numeric_interval_record_count": 480,
+        "grid_cell_count": 77,
+        "temporal_grid_feature_count": 2515,
+    }
+    assert rows["raa"]["availability_status"] == "refused"
+    assert rows["raa"]["record_count"] is None
+    assert rows["raa"]["numeric_interval_record_count"] == 0
+    assert rows["raa"]["detail_metrics"] == {
+        "all_published_sites": None,
+        "fornlamning_count": None,
+    }
+    assert rows["svar"]["availability_status"] == "refused"
+    assert rows["svar"]["record_count"] is None
+    assert rows["svar"]["numeric_interval_record_count"] == 0
+    assert rows["svar"]["detail_metrics"] == {"lake_count": None}
+
+
+def test_public_source_indexes_do_not_promote_refused_or_stale_counts() -> None:
+    docs = {
+        relative_path: (REPO_ROOT / relative_path).read_text(encoding="utf-8")
+        for relative_path in (
+            "docs/public/pollenomics/index.md",
+            "docs/public/pollenomics-data/overview/index.md",
+            "docs/public/pollenomics-data/sources/landclim.md",
+            "docs/public/pollenomics-data/sources/raa.md",
+            "docs/public/pollenomics-data/sources/source-family-matrix.md",
+            "docs/public/pollenomics-data/sources/svar.md",
+        )
+    }
+
+    combined = "\n".join(docs.values())
+    assert "492 LandClim" not in combined
+    assert "2,809 dataset-cell-window" not in combined
+    assert "across 88 aggregate cells" not in combined
+    assert "RAÄ density source representing 761,917" not in combined
+    assert "and 40,565 SVAR lakes" not in combined
+    assert "490 LandClim site sequences" in combined
+    assert "2,515 dataset-cell-window features across 77 aggregate cells" in combined
+    assert "RAÄ authority is refused" in combined
+    assert "SVAR authority is refused" in combined

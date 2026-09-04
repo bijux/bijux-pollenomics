@@ -55,12 +55,12 @@ The current stage matrix reports this materialized state:
 
 | Family | Raw | Normalized | Reviewed | Published | Checked-in metric and interpretation |
 | --- | --- | --- | --- | --- | --- |
-| LandClim | present | present | missing | present | 492 sequences and 88 model cells; the source-specific review artifact is absent |
+| LandClim | present | present | present | present | 490 sequences, 77 model cells, and 2,515 temporal model features under source-specific review |
 | Neotoma | present | present | present | present | 200 normalized points; temporal capability remains member-specific |
 | SEAD | present | present | present | present | 2,172 normalized points; review supports a contextual, not uniformly dated, role |
-| RAÄ | present | present | missing | present | 761,917 registry and 318,265 heritage records; source-specific review is absent |
+| RAÄ | present | present | missing | refused | authority is refused; source-scale counts and density files remain excluded until raw inventory, summary, and scientific review reconcile |
 | boundaries | present | present | missing | present | four country geometries frame membership without scientific weight |
-| SVAR | present | missing | partial | present | a 40,565-lake summary and 99-member evidence-linked review registry exist; the complete contracted normalized registry remains absent |
+| SVAR | present | missing | partial | refused | authority is refused; a source-reported summary and 99-member review registry exist, but the complete contracted normalized registry is absent |
 | AADR | present | missing | missing | present | three v66 capture files and retained products exist without governed Homo sapiens normalized and review members |
 | animal aDNA | present | present | present | present | 10 species, 40 projects, and 894 species-owned sample-foundation rows are materialized |
 
