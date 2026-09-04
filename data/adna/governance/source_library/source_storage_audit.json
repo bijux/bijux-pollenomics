@@ -1,0 +1,718 @@
+{
+  "schema_version": "adna-source-library.v1",
+  "archived_artifact_count": 149,
+  "archived_html_artifact_count": 54,
+  "compressed_html_artifact_count": 54,
+  "uncompressed_html_artifact_count": 0,
+  "archived_payload_byte_count": 381997095,
+  "archived_storage_byte_count": 374327790,
+  "html_payload_byte_count": 9222810,
+  "html_storage_byte_count": 1553505,
+  "rows": [
+    {
+      "artifact_id": "PRJEB10854:archive_metadata.html",
+      "artifact_kind": "archive_metadata_html",
+      "paper_doi": null,
+      "local_path": "adna/governance/source_library/projects/PRJEB10854/archive_metadata.html",
+      "storage_path": "adna/governance/source_library/projects/PRJEB10854/archive_metadata.html.gz",
+      "content_encoding": "gzip",
+      "byte_size": 97596,
+      "storage_byte_size": 12402,
+      "project_accessions": [
+        "PRJEB10854"
+      ]
+    },
+    {
+      "artifact_id": "PRJEB43564:archive_metadata.html",
+      "artifact_kind": "archive_metadata_html",
+      "paper_doi": null,
+      "local_path": "adna/governance/source_library/projects/PRJEB43564/archive_metadata.html",
+      "storage_path": "adna/governance/source_library/projects/PRJEB43564/archive_metadata.html.gz",
+      "content_encoding": "gzip",
+      "byte_size": 39806,
+      "storage_byte_size": 5242,
+      "project_accessions": [
+        "PRJEB43564"
+      ]
+    },
+    {
+      "artifact_id": "PRJEB50952:archive_metadata.html",
+      "artifact_kind": "archive_metadata_html",
+      "paper_doi": null,
+      "local_path": "adna/governance/source_library/projects/PRJEB50952/archive_metadata.html",
+      "storage_path": "adna/governance/source_library/projects/PRJEB50952/archive_metadata.html.gz",
+      "content_encoding": "gzip",
+      "byte_size": 37367,
+      "storage_byte_size": 4734,
+      "project_accessions": [
+        "PRJEB50952"
+      ]
+    },
+    {
+      "artifact_id": "PRJEB52590:archive_metadata.html",
+      "artifact_kind": "archive_metadata_html",
+      "paper_doi": null,
+      "local_path": "adna/governance/source_library/projects/PRJEB52590/archive_metadata.html",
+      "storage_path": "adna/governance/source_library/projects/PRJEB52590/archive_metadata.html.gz",
+      "content_encoding": "gzip",
+      "byte_size": 257744,
+      "storage_byte_size": 32007,
+      "project_accessions": [
+        "PRJEB52590"
+      ]
+    },
+    {
+      "artifact_id": "PRJEB52849:archive_metadata.html",
+      "artifact_kind": "archive_metadata_html",
+      "paper_doi": null,
+      "local_path": "adna/governance/source_library/projects/PRJEB52849/archive_metadata.html",
+      "storage_path": "adna/governance/source_library/projects/PRJEB52849/archive_metadata.html.gz",
+      "content_encoding": "gzip",
+      "byte_size": 424356,
+      "storage_byte_size": 53446,
+      "project_accessions": [
+        "PRJEB52849"
+      ]
+    },
+    {
+      "artifact_id": "PRJEB56293:archive_metadata.html",
+      "artifact_kind": "archive_metadata_html",
+      "paper_doi": null,
+      "local_path": "adna/governance/source_library/projects/PRJEB56293/archive_metadata.html",
+      "storage_path": "adna/governance/source_library/projects/PRJEB56293/archive_metadata.html.gz",
+      "content_encoding": "gzip",
+      "byte_size": 18921,
+      "storage_byte_size": 2650,
+      "project_accessions": [
+        "PRJEB56293"
+      ]
+    },
+    {
+      "artifact_id": "PRJEB57293:archive_metadata.html",
+      "artifact_kind": "archive_metadata_html",
+      "paper_doi": null,
+      "local_path": "adna/governance/source_library/projects/PRJEB57293/archive_metadata.html",
+      "storage_path": "adna/governance/source_library/projects/PRJEB57293/archive_metadata.html.gz",
+      "content_encoding": "gzip",
+      "byte_size": 76195,
+      "storage_byte_size": 10271,
+      "project_accessions": [
+        "PRJEB57293"
+      ]
+    },
+    {
+      "artifact_id": "PRJEB61721:archive_metadata.html",
+      "artifact_kind": "archive_metadata_html",
+      "paper_doi": null,
+      "local_path": "adna/governance/source_library/projects/PRJEB61721/archive_metadata.html",
+      "storage_path": "adna/governance/source_library/projects/PRJEB61721/archive_metadata.html.gz",
+      "content_encoding": "gzip",
+      "byte_size": 76233,
+      "storage_byte_size": 9871,
+      "project_accessions": [
+        "PRJEB61721"
+      ]
+    },
+    {
+      "artifact_id": "PRJEB61808:archive_metadata.html",
+      "artifact_kind": "archive_metadata_html",
+      "paper_doi": null,
+      "local_path": "adna/governance/source_library/projects/PRJEB61808/archive_metadata.html",
+      "storage_path": "adna/governance/source_library/projects/PRJEB61808/archive_metadata.html.gz",
+      "content_encoding": "gzip",
+      "byte_size": 214831,
+      "storage_byte_size": 32583,
+      "project_accessions": [
+        "PRJEB61808"
+      ]
+    },
+    {
+      "artifact_id": "PRJEB69690:archive_metadata.html",
+      "artifact_kind": "archive_metadata_html",
+      "paper_doi": null,
+      "local_path": "adna/governance/source_library/projects/PRJEB69690/archive_metadata.html",
+      "storage_path": "adna/governance/source_library/projects/PRJEB69690/archive_metadata.html.gz",
+      "content_encoding": "gzip",
+      "byte_size": 29700,
+      "storage_byte_size": 4889,
+      "project_accessions": [
+        "PRJEB69690"
+      ]
+    },
+    {
+      "artifact_id": "PRJEB7537:archive_metadata.html",
+      "artifact_kind": "archive_metadata_html",
+      "paper_doi": null,
+      "local_path": "adna/governance/source_library/projects/PRJEB7537/archive_metadata.html",
+      "storage_path": "adna/governance/source_library/projects/PRJEB7537/archive_metadata.html.gz",
+      "content_encoding": "gzip",
+      "byte_size": 22259,
+      "storage_byte_size": 3378,
+      "project_accessions": [
+        "PRJEB7537"
+      ]
+    },
+    {
+      "artifact_id": "PRJEB81145:archive_metadata.html",
+      "artifact_kind": "archive_metadata_html",
+      "paper_doi": null,
+      "local_path": "adna/governance/source_library/projects/PRJEB81145/archive_metadata.html",
+      "storage_path": "adna/governance/source_library/projects/PRJEB81145/archive_metadata.html.gz",
+      "content_encoding": "gzip",
+      "byte_size": 2810,
+      "storage_byte_size": 687,
+      "project_accessions": [
+        "PRJEB81145"
+      ]
+    },
+    {
+      "artifact_id": "PRJEB9799:archive_metadata.html",
+      "artifact_kind": "archive_metadata_html",
+      "paper_doi": null,
+      "local_path": "adna/governance/source_library/projects/PRJEB9799/archive_metadata.html",
+      "storage_path": "adna/governance/source_library/projects/PRJEB9799/archive_metadata.html.gz",
+      "content_encoding": "gzip",
+      "byte_size": 2963,
+      "storage_byte_size": 754,
+      "project_accessions": [
+        "PRJEB9799"
+      ]
+    },
+    {
+      "artifact_id": "PRJNA421430:archive_metadata.html",
+      "artifact_kind": "archive_metadata_html",
+      "paper_doi": null,
+      "local_path": "adna/governance/source_library/projects/PRJNA421430/archive_metadata.html",
+      "storage_path": "adna/governance/source_library/projects/PRJNA421430/archive_metadata.html.gz",
+      "content_encoding": "gzip",
+      "byte_size": 4411,
+      "storage_byte_size": 918,
+      "project_accessions": [
+        "PRJNA421430"
+      ]
+    },
+    {
+      "artifact_id": "PRJNA634908:archive_metadata.html",
+      "artifact_kind": "archive_metadata_html",
+      "paper_doi": null,
+      "local_path": "adna/governance/source_library/projects/PRJNA634908/archive_metadata.html",
+      "storage_path": "adna/governance/source_library/projects/PRJNA634908/archive_metadata.html.gz",
+      "content_encoding": "gzip",
+      "byte_size": 56901,
+      "storage_byte_size": 13676,
+      "project_accessions": [
+        "PRJNA634908"
+      ]
+    },
+    {
+      "artifact_id": "PRJNA705960:archive_metadata.html",
+      "artifact_kind": "archive_metadata_html",
+      "paper_doi": null,
+      "local_path": "adna/governance/source_library/projects/PRJNA705960/archive_metadata.html",
+      "storage_path": "adna/governance/source_library/projects/PRJNA705960/archive_metadata.html.gz",
+      "content_encoding": "gzip",
+      "byte_size": 3535,
+      "storage_byte_size": 808,
+      "project_accessions": [
+        "PRJNA705960"
+      ]
+    },
+    {
+      "artifact_id": "PRJNA788987:archive_metadata.html",
+      "artifact_kind": "archive_metadata_html",
+      "paper_doi": null,
+      "local_path": "adna/governance/source_library/projects/PRJNA788987/archive_metadata.html",
+      "storage_path": "adna/governance/source_library/projects/PRJNA788987/archive_metadata.html.gz",
+      "content_encoding": "gzip",
+      "byte_size": 1638,
+      "storage_byte_size": 525,
+      "project_accessions": [
+        "PRJNA788987"
+      ]
+    },
+    {
+      "artifact_id": "PRJNA878488:archive_metadata.html",
+      "artifact_kind": "archive_metadata_html",
+      "paper_doi": null,
+      "local_path": "adna/governance/source_library/projects/PRJNA878488/archive_metadata.html",
+      "storage_path": "adna/governance/source_library/projects/PRJNA878488/archive_metadata.html.gz",
+      "content_encoding": "gzip",
+      "byte_size": 3950,
+      "storage_byte_size": 856,
+      "project_accessions": [
+        "PRJNA878488"
+      ]
+    },
+    {
+      "artifact_id": "10.1016-j.cell.2019.03.049:article.html",
+      "artifact_kind": "article_html",
+      "paper_doi": "10.1016/j.cell.2019.03.049",
+      "local_path": "adna/governance/source_library/papers/10.1016-j.cell.2019.03.049/article.html",
+      "storage_path": "adna/governance/source_library/papers/10.1016-j.cell.2019.03.049/article.html.gz",
+      "content_encoding": "gzip",
+      "byte_size": 551817,
+      "storage_byte_size": 125457,
+      "project_accessions": [
+        "PRJEB31613"
+      ]
+    },
+    {
+      "artifact_id": "PRJEB31613:archive_metadata.html",
+      "artifact_kind": "archive_metadata_html",
+      "paper_doi": "10.1016/j.cell.2019.03.049",
+      "local_path": "adna/governance/source_library/projects/PRJEB31613/archive_metadata.html",
+      "storage_path": "adna/governance/source_library/projects/PRJEB31613/archive_metadata.html.gz",
+      "content_encoding": "gzip",
+      "byte_size": 185063,
+      "storage_byte_size": 23441,
+      "project_accessions": [
+        "PRJEB31613"
+      ]
+    },
+    {
+      "artifact_id": "10.1016-j.isci.2025.113771:article.html",
+      "artifact_kind": "article_html",
+      "paper_doi": "10.1016/j.isci.2025.113771",
+      "local_path": "adna/governance/source_library/papers/10.1016-j.isci.2025.113771/article.html",
+      "storage_path": "adna/governance/source_library/papers/10.1016-j.isci.2025.113771/article.html.gz",
+      "content_encoding": "gzip",
+      "byte_size": 3000,
+      "storage_byte_size": 1229,
+      "project_accessions": [
+        "PRJEB90261"
+      ]
+    },
+    {
+      "artifact_id": "PRJEB90261:archive_metadata.html",
+      "artifact_kind": "archive_metadata_html",
+      "paper_doi": "10.1016/j.isci.2025.113771",
+      "local_path": "adna/governance/source_library/projects/PRJEB90261/archive_metadata.html",
+      "storage_path": "adna/governance/source_library/projects/PRJEB90261/archive_metadata.html.gz",
+      "content_encoding": "gzip",
+      "byte_size": 25552,
+      "storage_byte_size": 3256,
+      "project_accessions": [
+        "PRJEB90261"
+      ]
+    },
+    {
+      "artifact_id": "10.1016-j.xgen.2025.101099:article.html",
+      "artifact_kind": "article_html",
+      "paper_doi": "10.1016/j.xgen.2025.101099",
+      "local_path": "adna/governance/source_library/papers/10.1016-j.xgen.2025.101099/article.html",
+      "storage_path": "adna/governance/source_library/papers/10.1016-j.xgen.2025.101099/article.html.gz",
+      "content_encoding": "gzip",
+      "byte_size": 3025,
+      "storage_byte_size": 1244,
+      "project_accessions": [
+        "PRJNA1178732"
+      ]
+    },
+    {
+      "artifact_id": "PRJNA1178732:archive_metadata.html",
+      "artifact_kind": "archive_metadata_html",
+      "paper_doi": "10.1016/j.xgen.2025.101099",
+      "local_path": "adna/governance/source_library/projects/PRJNA1178732/archive_metadata.html",
+      "storage_path": "adna/governance/source_library/projects/PRJNA1178732/archive_metadata.html.gz",
+      "content_encoding": "gzip",
+      "byte_size": 54574,
+      "storage_byte_size": 12807,
+      "project_accessions": [
+        "PRJNA1178732"
+      ]
+    },
+    {
+      "artifact_id": "10.1038-ncomms16082:article.html",
+      "artifact_kind": "article_html",
+      "paper_doi": "10.1038/ncomms16082",
+      "local_path": "adna/governance/source_library/papers/10.1038-ncomms16082/article.html",
+      "storage_path": "adna/governance/source_library/papers/10.1038-ncomms16082/article.html.gz",
+      "content_encoding": "gzip",
+      "byte_size": 231509,
+      "storage_byte_size": 51633,
+      "project_accessions": [
+        "KX379528-KX379529",
+        "SRS1407451",
+        "SRS1407453"
+      ]
+    },
+    {
+      "artifact_id": "KX379528-KX379529:archive_metadata.html",
+      "artifact_kind": "archive_metadata_html",
+      "paper_doi": "10.1038/ncomms16082",
+      "local_path": "adna/governance/source_library/projects/KX379528-KX379529/archive_metadata.html",
+      "storage_path": "adna/governance/source_library/projects/KX379528-KX379529/archive_metadata.html.gz",
+      "content_encoding": "gzip",
+      "byte_size": 89882,
+      "storage_byte_size": 16768,
+      "project_accessions": [
+        "KX379528-KX379529"
+      ]
+    },
+    {
+      "artifact_id": "SRS1407451:archive_metadata.html",
+      "artifact_kind": "archive_metadata_html",
+      "paper_doi": "10.1038/ncomms16082",
+      "local_path": "adna/governance/source_library/projects/SRS1407451/archive_metadata.html",
+      "storage_path": "adna/governance/source_library/projects/SRS1407451/archive_metadata.html.gz",
+      "content_encoding": "gzip",
+      "byte_size": 55351,
+      "storage_byte_size": 13817,
+      "project_accessions": [
+        "SRS1407451"
+      ]
+    },
+    {
+      "artifact_id": "SRS1407453:archive_metadata.html",
+      "artifact_kind": "archive_metadata_html",
+      "paper_doi": "10.1038/ncomms16082",
+      "local_path": "adna/governance/source_library/projects/SRS1407453/archive_metadata.html",
+      "storage_path": "adna/governance/source_library/projects/SRS1407453/archive_metadata.html.gz",
+      "content_encoding": "gzip",
+      "byte_size": 55354,
+      "storage_byte_size": 13819,
+      "project_accessions": [
+        "SRS1407453"
+      ]
+    },
+    {
+      "artifact_id": "10.1038-s41562-021-01083-y:article.html",
+      "artifact_kind": "article_html",
+      "paper_doi": "10.1038/s41562-021-01083-y",
+      "local_path": "adna/governance/source_library/papers/10.1038-s41562-021-01083-y/article.html",
+      "storage_path": "adna/governance/source_library/papers/10.1038-s41562-021-01083-y/article.html.gz",
+      "content_encoding": "gzip",
+      "byte_size": 458340,
+      "storage_byte_size": 83857,
+      "project_accessions": [
+        "PRJEB41594"
+      ]
+    },
+    {
+      "artifact_id": "PRJEB41594:archive_metadata.html",
+      "artifact_kind": "archive_metadata_html",
+      "paper_doi": "10.1038/s41562-021-01083-y",
+      "local_path": "adna/governance/source_library/projects/PRJEB41594/archive_metadata.html",
+      "storage_path": "adna/governance/source_library/projects/PRJEB41594/archive_metadata.html.gz",
+      "content_encoding": "gzip",
+      "byte_size": 1679,
+      "storage_byte_size": 522,
+      "project_accessions": [
+        "PRJEB41594"
+      ]
+    },
+    {
+      "artifact_id": "10.1038-s41586-021-04018-9:article.html",
+      "artifact_kind": "article_html",
+      "paper_doi": "10.1038/s41586-021-04018-9",
+      "local_path": "adna/governance/source_library/papers/10.1038-s41586-021-04018-9/article.html",
+      "storage_path": "adna/governance/source_library/papers/10.1038-s41586-021-04018-9/article.html.gz",
+      "content_encoding": "gzip",
+      "byte_size": 977802,
+      "storage_byte_size": 146117,
+      "project_accessions": [
+        "PRJEB44430"
+      ]
+    },
+    {
+      "artifact_id": "PRJEB44430:archive_metadata.html",
+      "artifact_kind": "archive_metadata_html",
+      "paper_doi": "10.1038/s41586-021-04018-9",
+      "local_path": "adna/governance/source_library/projects/PRJEB44430/archive_metadata.html",
+      "storage_path": "adna/governance/source_library/projects/PRJEB44430/archive_metadata.html.gz",
+      "content_encoding": "gzip",
+      "byte_size": 742490,
+      "storage_byte_size": 101047,
+      "project_accessions": [
+        "PRJEB44430"
+      ]
+    },
+    {
+      "artifact_id": "10.1038-s41586-024-08112-6:article.html",
+      "artifact_kind": "article_html",
+      "paper_doi": "10.1038/s41586-024-08112-6",
+      "local_path": "adna/governance/source_library/papers/10.1038-s41586-024-08112-6/article.html",
+      "storage_path": "adna/governance/source_library/papers/10.1038-s41586-024-08112-6/article.html.gz",
+      "content_encoding": "gzip",
+      "byte_size": 606869,
+      "storage_byte_size": 99569,
+      "project_accessions": [
+        "PRJEB75467"
+      ]
+    },
+    {
+      "artifact_id": "PRJEB75467:archive_metadata.html",
+      "artifact_kind": "archive_metadata_html",
+      "paper_doi": "10.1038/s41586-024-08112-6",
+      "local_path": "adna/governance/source_library/projects/PRJEB75467/archive_metadata.html",
+      "storage_path": "adna/governance/source_library/projects/PRJEB75467/archive_metadata.html.gz",
+      "content_encoding": "gzip",
+      "byte_size": 274385,
+      "storage_byte_size": 36798,
+      "project_accessions": [
+        "PRJEB75467"
+      ]
+    },
+    {
+      "artifact_id": "10.1038-s41598-024-54296-2:article.html",
+      "artifact_kind": "article_html",
+      "paper_doi": "10.1038/s41598-024-54296-2",
+      "local_path": "adna/governance/source_library/papers/10.1038-s41598-024-54296-2/article.html",
+      "storage_path": "adna/governance/source_library/papers/10.1038-s41598-024-54296-2/article.html.gz",
+      "content_encoding": "gzip",
+      "byte_size": 633827,
+      "storage_byte_size": 115825,
+      "project_accessions": [
+        "PRJEB60484"
+      ]
+    },
+    {
+      "artifact_id": "PRJEB60484:archive_metadata.html",
+      "artifact_kind": "archive_metadata_html",
+      "paper_doi": "10.1038/s41598-024-54296-2",
+      "local_path": "adna/governance/source_library/projects/PRJEB60484/archive_metadata.html",
+      "storage_path": "adna/governance/source_library/projects/PRJEB60484/archive_metadata.html.gz",
+      "content_encoding": "gzip",
+      "byte_size": 55868,
+      "storage_byte_size": 7478,
+      "project_accessions": [
+        "PRJEB60484"
+      ]
+    },
+    {
+      "artifact_id": "PRJEB36540:archive_metadata.html",
+      "artifact_kind": "archive_metadata_html",
+      "paper_doi": "10.1038/s42003-021-02794-8",
+      "local_path": "adna/governance/source_library/projects/PRJEB36540/archive_metadata.html",
+      "storage_path": "adna/governance/source_library/projects/PRJEB36540/archive_metadata.html.gz",
+      "content_encoding": "gzip",
+      "byte_size": 2495,
+      "storage_byte_size": 638,
+      "project_accessions": [
+        "PRJEB36540"
+      ]
+    },
+    {
+      "artifact_id": "10.1073-pnas.1901169116:article.html",
+      "artifact_kind": "article_html",
+      "paper_doi": "10.1073/pnas.1901169116",
+      "local_path": "adna/governance/source_library/papers/10.1073-pnas.1901169116/article.html",
+      "storage_path": "adna/governance/source_library/papers/10.1073-pnas.1901169116/article.html.gz",
+      "content_encoding": "gzip",
+      "byte_size": 291189,
+      "storage_byte_size": 59000,
+      "project_accessions": [
+        "PRJEB30282"
+      ]
+    },
+    {
+      "artifact_id": "PRJEB30282:archive_metadata.html",
+      "artifact_kind": "archive_metadata_html",
+      "paper_doi": "10.1073/pnas.1901169116",
+      "local_path": "adna/governance/source_library/projects/PRJEB30282/archive_metadata.html",
+      "storage_path": "adna/governance/source_library/projects/PRJEB30282/archive_metadata.html.gz",
+      "content_encoding": "gzip",
+      "byte_size": 172426,
+      "storage_byte_size": 24701,
+      "project_accessions": [
+        "PRJEB30282"
+      ]
+    },
+    {
+      "artifact_id": "PRJEB59481:archive_metadata.html",
+      "artifact_kind": "archive_metadata_html",
+      "paper_doi": "10.1093/gbe/evae114",
+      "local_path": "adna/governance/source_library/projects/PRJEB59481/archive_metadata.html",
+      "storage_path": "adna/governance/source_library/projects/PRJEB59481/archive_metadata.html.gz",
+      "content_encoding": "gzip",
+      "byte_size": 21958,
+      "storage_byte_size": 3036,
+      "project_accessions": [
+        "PRJEB59481"
+      ]
+    },
+    {
+      "artifact_id": "PRJEB90141:archive_metadata.html",
+      "artifact_kind": "archive_metadata_html",
+      "paper_doi": "10.1093/gbe/evaf181",
+      "local_path": "adna/governance/source_library/projects/PRJEB90141/archive_metadata.html",
+      "storage_path": "adna/governance/source_library/projects/PRJEB90141/archive_metadata.html.gz",
+      "content_encoding": "gzip",
+      "byte_size": 360361,
+      "storage_byte_size": 52246,
+      "project_accessions": [
+        "PRJEB90141"
+      ]
+    },
+    {
+      "artifact_id": "10.1111-1755-0998.12551:article.html",
+      "artifact_kind": "article_html",
+      "paper_doi": "10.1111/1755-0998.12551",
+      "local_path": "adna/governance/source_library/papers/10.1111-1755-0998.12551/article.html",
+      "storage_path": "adna/governance/source_library/papers/10.1111-1755-0998.12551/article.html.gz",
+      "content_encoding": "gzip",
+      "byte_size": 273976,
+      "storage_byte_size": 57176,
+      "project_accessions": [
+        "KU605068-KU605080",
+        "SRP073444"
+      ]
+    },
+    {
+      "artifact_id": "KU605068-KU605080:archive_metadata.html",
+      "artifact_kind": "archive_metadata_html",
+      "paper_doi": "10.1111/1755-0998.12551",
+      "local_path": "adna/governance/source_library/projects/KU605068-KU605080/archive_metadata.html",
+      "storage_path": "adna/governance/source_library/projects/KU605068-KU605080/archive_metadata.html.gz",
+      "content_encoding": "gzip",
+      "byte_size": 90233,
+      "storage_byte_size": 16824,
+      "project_accessions": [
+        "KU605068-KU605080"
+      ]
+    },
+    {
+      "artifact_id": "SRP073444:archive_metadata.html",
+      "artifact_kind": "archive_metadata_html",
+      "paper_doi": "10.1111/1755-0998.12551",
+      "local_path": "adna/governance/source_library/projects/SRP073444/archive_metadata.html",
+      "storage_path": "adna/governance/source_library/projects/SRP073444/archive_metadata.html.gz",
+      "content_encoding": "gzip",
+      "byte_size": 85258,
+      "storage_byte_size": 16220,
+      "project_accessions": [
+        "SRP073444"
+      ]
+    },
+    {
+      "artifact_id": "10.1126-science.aam5298:article.html",
+      "artifact_kind": "article_html",
+      "paper_doi": "10.1126/science.aam5298",
+      "local_path": "adna/governance/source_library/papers/10.1126-science.aam5298/article.html",
+      "storage_path": "adna/governance/source_library/papers/10.1126-science.aam5298/article.html.gz",
+      "content_encoding": "gzip",
+      "byte_size": 190166,
+      "storage_byte_size": 27592,
+      "project_accessions": [
+        "PRJEB19970"
+      ]
+    },
+    {
+      "artifact_id": "PRJEB19970:archive_metadata.html",
+      "artifact_kind": "archive_metadata_html",
+      "paper_doi": "10.1126/science.aam5298",
+      "local_path": "adna/governance/source_library/projects/PRJEB19970/archive_metadata.html",
+      "storage_path": "adna/governance/source_library/projects/PRJEB19970/archive_metadata.html.gz",
+      "content_encoding": "gzip",
+      "byte_size": 86627,
+      "storage_byte_size": 10796,
+      "project_accessions": [
+        "PRJEB19970"
+      ]
+    },
+    {
+      "artifact_id": "10.1126-science.aao3297:article.html",
+      "artifact_kind": "article_html",
+      "paper_doi": "10.1126/science.aao3297",
+      "local_path": "adna/governance/source_library/papers/10.1126-science.aao3297/article.html",
+      "storage_path": "adna/governance/source_library/papers/10.1126-science.aao3297/article.html.gz",
+      "content_encoding": "gzip",
+      "byte_size": 213349,
+      "storage_byte_size": 30197,
+      "project_accessions": [
+        "PRJEB22390"
+      ]
+    },
+    {
+      "artifact_id": "PRJEB22390:archive_metadata.html",
+      "artifact_kind": "archive_metadata_html",
+      "paper_doi": "10.1126/science.aao3297",
+      "local_path": "adna/governance/source_library/projects/PRJEB22390/archive_metadata.html",
+      "storage_path": "adna/governance/source_library/projects/PRJEB22390/archive_metadata.html.gz",
+      "content_encoding": "gzip",
+      "byte_size": 19564,
+      "storage_byte_size": 2843,
+      "project_accessions": [
+        "PRJEB22390"
+      ]
+    },
+    {
+      "artifact_id": "10.1126-science.aav1002:article.html",
+      "artifact_kind": "article_html",
+      "paper_doi": "10.1126/science.aav1002",
+      "local_path": "adna/governance/source_library/papers/10.1126-science.aav1002/article.html",
+      "storage_path": "adna/governance/source_library/papers/10.1126-science.aav1002/article.html.gz",
+      "content_encoding": "gzip",
+      "byte_size": 202693,
+      "storage_byte_size": 29525,
+      "project_accessions": [
+        "PRJEB31621"
+      ]
+    },
+    {
+      "artifact_id": "PRJEB31621:archive_metadata.html",
+      "artifact_kind": "archive_metadata_html",
+      "paper_doi": "10.1126/science.aav1002",
+      "local_path": "adna/governance/source_library/projects/PRJEB31621/archive_metadata.html",
+      "storage_path": "adna/governance/source_library/projects/PRJEB31621/archive_metadata.html.gz",
+      "content_encoding": "gzip",
+      "byte_size": 99850,
+      "storage_byte_size": 14596,
+      "project_accessions": [
+        "PRJEB31621"
+      ]
+    },
+    {
+      "artifact_id": "10.1126-science.adt2642:article.html",
+      "artifact_kind": "article_html",
+      "paper_doi": "10.1126/science.adt2642",
+      "local_path": "adna/governance/source_library/papers/10.1126-science.adt2642/article.html",
+      "storage_path": "adna/governance/source_library/papers/10.1126-science.adt2642/article.html.gz",
+      "content_encoding": "gzip",
+      "byte_size": 357353,
+      "storage_byte_size": 83336,
+      "project_accessions": [
+        "PRJEB81815"
+      ]
+    },
+    {
+      "artifact_id": "PRJEB81815:archive_metadata.html",
+      "artifact_kind": "archive_metadata_html",
+      "paper_doi": "10.1126/science.adt2642",
+      "local_path": "adna/governance/source_library/projects/PRJEB81815/archive_metadata.html",
+      "storage_path": "adna/governance/source_library/projects/PRJEB81815/archive_metadata.html.gz",
+      "content_encoding": "gzip",
+      "byte_size": 34592,
+      "storage_byte_size": 5032,
+      "project_accessions": [
+        "PRJEB81815"
+      ]
+    },
+    {
+      "artifact_id": "10.24272-j.issn.2095-8137.2025.080:article.html",
+      "artifact_kind": "article_html",
+      "paper_doi": "10.24272/j.issn.2095-8137.2025.080",
+      "local_path": "adna/governance/source_library/papers/10.24272-j.issn.2095-8137.2025.080/article.html",
+      "storage_path": "adna/governance/source_library/papers/10.24272-j.issn.2095-8137.2025.080/article.html.gz",
+      "content_encoding": "gzip",
+      "byte_size": 342896,
+      "storage_byte_size": 75226,
+      "project_accessions": [
+        "PRJNA1328209"
+      ]
+    },
+    {
+      "artifact_id": "PRJNA1328209:archive_metadata.html",
+      "artifact_kind": "archive_metadata_html",
+      "paper_doi": "10.24272/j.issn.2095-8137.2025.080",
+      "local_path": "adna/governance/source_library/projects/PRJNA1328209/archive_metadata.html",
+      "storage_path": "adna/governance/source_library/projects/PRJNA1328209/archive_metadata.html.gz",
+      "content_encoding": "gzip",
+      "byte_size": 221,
+      "storage_byte_size": 140,
+      "project_accessions": [
+        "PRJNA1328209"
+      ]
+    }
+  ]
+}
