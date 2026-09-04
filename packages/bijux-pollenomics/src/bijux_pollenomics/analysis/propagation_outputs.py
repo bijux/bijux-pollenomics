@@ -758,7 +758,7 @@ def _validate_classification_bundle_identity(
     # useful replay guards, but cannot authorize a coherently rehashed bundle.
     if (
         not bundle_root.is_absolute()
-        or bundle_root.is_symlink()
+        or _path_has_symlink_component(bundle_root)
         or not bundle_root.is_dir()
     ):
         _refuse(
@@ -1351,7 +1351,7 @@ def _validate_producer_identity(
     governed_source = repository_root / PROPAGATION_PRODUCER_SOURCE_PATHS[0]
     if (
         not repository_root.is_absolute()
-        or repository_root.is_symlink()
+        or _path_has_symlink_component(repository_root)
         or not repository_root.is_dir()
         or not governed_source.is_file()
         or governed_source.resolve(strict=True) != executing_source
@@ -1715,7 +1715,10 @@ def _validate_output_location(output_root: Path, allowed_output_parent: Path) ->
         )
     if ".." in output_root.parts or ".." in allowed_output_parent.parts:
         _refuse("unsafe_output_path", "parent traversal is not allowed")
-    if allowed_output_parent.is_symlink() or not allowed_output_parent.is_dir():
+    if (
+        _path_has_symlink_component(allowed_output_parent)
+        or not allowed_output_parent.is_dir()
+    ):
         _refuse(
             "unsafe_output_path",
             "allowed_output_parent must be an existing non-symlink directory",
@@ -1728,8 +1731,8 @@ def _validate_output_location(output_root: Path, allowed_output_parent: Path) ->
             "unsafe_output_path",
             "output_root must be one direct child of allowed_output_parent",
         )
-    if output_root.is_symlink():
-        _refuse("unsafe_output_path", "a symlink cannot be an output root")
+    if _path_has_symlink_component(output_root):
+        _refuse("unsafe_output_path", "an output path cannot contain a symlink")
     if output_root.parent.resolve(strict=True) != resolved_parent:
         _refuse("unsafe_output_path", "output_root escapes its allowed parent")
 

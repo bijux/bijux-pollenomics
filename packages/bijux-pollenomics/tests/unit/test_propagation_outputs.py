@@ -1282,6 +1282,65 @@ def test_symlinked_schema_root_and_contract_components_are_refused(
     assert linked_contract.value.reason_code == "invalid_propagation_identity"
 
 
+def test_symlinked_classification_bundle_ancestor_is_refused(
+    tmp_path: Path, schema_root: Path
+) -> None:
+    real_parent = tmp_path / "classification-parent"
+    real_parent.mkdir()
+    classification_root, classification_digest = _classification_bundle(real_parent, 0)
+    linked_parent = tmp_path / "linked-classification-parent"
+    linked_parent.symlink_to(real_parent, target_is_directory=True)
+
+    with pytest.raises(PropagationOutputRefusalError) as refusal:
+        _materialize(
+            output_root=tmp_path / "classification-ancestor-output",
+            allowed_output_parent=tmp_path,
+            schema_root=schema_root,
+            classification_bundle_root=linked_parent / classification_root.name,
+            classification_review_digest=classification_digest,
+        )
+
+    assert refusal.value.reason_code == "invalid_classification_identity"
+
+
+def test_symlinked_repository_root_ancestor_is_refused(
+    tmp_path: Path, schema_root: Path
+) -> None:
+    linked_parent = tmp_path / "linked-repository-parent"
+    linked_parent.symlink_to(_REPOSITORY_ROOT.parent, target_is_directory=True)
+
+    with pytest.raises(PropagationOutputRefusalError) as refusal:
+        _materialize(
+            output_root=tmp_path / "repository-ancestor-output",
+            allowed_output_parent=tmp_path,
+            schema_root=schema_root,
+            repository_root=linked_parent / _REPOSITORY_ROOT.name,
+        )
+
+    assert refusal.value.reason_code == "invalid_propagation_identity"
+
+
+def test_symlinked_output_parent_ancestor_is_refused(
+    tmp_path: Path, schema_root: Path
+) -> None:
+    real_container = tmp_path / "output-container"
+    allowed_parent = real_container / "allowed"
+    allowed_parent.mkdir(parents=True)
+    linked_container = tmp_path / "linked-output-container"
+    linked_container.symlink_to(real_container, target_is_directory=True)
+    linked_parent = linked_container / "allowed"
+
+    with pytest.raises(PropagationOutputRefusalError) as refusal:
+        _materialize(
+            output_root=linked_parent / "published",
+            allowed_output_parent=linked_parent,
+            schema_root=schema_root,
+        )
+
+    assert refusal.value.reason_code == "unsafe_output_path"
+    assert not (allowed_parent / "published").exists()
+
+
 def test_non_identical_overwrite_is_refused_without_modification(
     tmp_path: Path, schema_root: Path
 ) -> None:
