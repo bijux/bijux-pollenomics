@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import hashlib
 import json
 from pathlib import Path
 import tempfile
@@ -10,6 +11,7 @@ from unittest.mock import patch
 from bijux_pollenomics.data_downloader.boundaries import (
     NATURAL_EARTH_ADMIN0_URL,
     NATURAL_EARTH_VERSION,
+    NATURAL_EARTH_TERMS_URL,
     build_combined_country_boundaries,
     build_country_boundary_collection,
     collect_boundaries_data,
@@ -151,9 +153,17 @@ class BoundariesTests(unittest.TestCase):
                 return_value=(
                     natural_earth_payload,
                     {
+                        "schema_version": "natural-earth-boundary-receipt.v1",
                         "source": "Natural Earth",
                         "version": NATURAL_EARTH_VERSION,
                         "asset_url": NATURAL_EARTH_ADMIN0_URL,
+                        "sha256": "a" * 64,
+                        "license": "public_domain",
+                        "license_url": NATURAL_EARTH_TERMS_URL,
+                        "source_crs": "EPSG:4326",
+                        "coordinate_transformation": "none",
+                        "country_selection_field": "ADM0_A3",
+                        "geometry_inclusion_policy": "retain_all_geometry_parts_from_each_selected_admin0_feature",
                     },
                 ),
             ):
@@ -166,6 +176,15 @@ class BoundariesTests(unittest.TestCase):
             self.assertTrue((output_root / "raw" / "sweden.geojson").exists())
             self.assertTrue(report.combined_path.exists())
             self.assertTrue(report.manifest_path.exists())
+            manifest = json.loads(report.manifest_path.read_text(encoding="utf-8"))
+            self.assertEqual(manifest["license"], "public_domain")
+            self.assertEqual(manifest["license_url"], NATURAL_EARTH_TERMS_URL)
+            self.assertEqual(manifest["source_crs"], "EPSG:4326")
+            self.assertEqual(manifest["coordinate_transformation"], "none")
+            self.assertEqual(
+                set(manifest["country_artifacts"]),
+                {"Sweden", "Norway", "Finland", "Denmark"},
+            )
 
             combined = build_combined_country_boundaries(country_boundaries)
             combined_features = cast(
@@ -277,12 +296,36 @@ class BoundariesTests(unittest.TestCase):
 
             self.assertIsNone(load_country_boundaries(output_root))
 
+            country_artifacts = {
+                country: {
+                    "path": filename,
+                    "sha256": hashlib.sha256(
+                        (raw_dir / filename).read_bytes()
+                    ).hexdigest(),
+                }
+                for country, filename in (
+                    ("Sweden", "sweden.geojson"),
+                    ("Norway", "norway.geojson"),
+                    ("Finland", "finland.geojson"),
+                    ("Denmark", "denmark.geojson"),
+                )
+            }
             (raw_dir / "source_manifest.json").write_text(
-                (
-                    "{"
-                    f'"source":"Natural Earth","version":"{NATURAL_EARTH_VERSION}",'
-                    f'"asset_url":"{NATURAL_EARTH_ADMIN0_URL}"'
-                    "}"
+                json.dumps(
+                    {
+                        "schema_version": "natural-earth-boundary-receipt.v1",
+                        "source": "Natural Earth",
+                        "version": NATURAL_EARTH_VERSION,
+                        "asset_url": NATURAL_EARTH_ADMIN0_URL,
+                        "sha256": "a" * 64,
+                        "license": "public_domain",
+                        "license_url": NATURAL_EARTH_TERMS_URL,
+                        "source_crs": "EPSG:4326",
+                        "coordinate_transformation": "none",
+                        "country_selection_field": "ADM0_A3",
+                        "geometry_inclusion_policy": "retain_all_geometry_parts_from_each_selected_admin0_feature",
+                        "country_artifacts": country_artifacts,
+                    }
                 ),
                 encoding="utf-8",
             )
@@ -293,6 +336,53 @@ class BoundariesTests(unittest.TestCase):
         if loaded is None:
             raise AssertionError("Expected boundaries payload to load")
         self.assertEqual(loaded["Sweden"], boundary_payload)
+
+    def test_load_country_boundaries_refuses_tampered_country_artifact(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            output_root = Path(tmp) / "boundaries"
+            with patch(
+                "bijux_pollenomics.data_downloader.boundaries.fetch_natural_earth_admin0_payload",
+                return_value=(
+                    {
+                        "type": "FeatureCollection",
+                        "features": [
+                            {
+                                "type": "Feature",
+                                "geometry": {
+                                    "type": "Polygon",
+                                    "coordinates": [
+                                        [[0, 0], [1, 0], [1, 1], [0, 1], [0, 0]]
+                                    ],
+                                },
+                                "properties": {"ADM0_A3": code},
+                            }
+                            for code in ("SWE", "NOR", "FIN", "DNK")
+                        ],
+                    },
+                    {
+                        "schema_version": "natural-earth-boundary-receipt.v1",
+                        "source": "Natural Earth",
+                        "version": NATURAL_EARTH_VERSION,
+                        "asset_url": NATURAL_EARTH_ADMIN0_URL,
+                        "sha256": "b" * 64,
+                        "license": "public_domain",
+                        "license_url": NATURAL_EARTH_TERMS_URL,
+                        "source_crs": "EPSG:4326",
+                        "coordinate_transformation": "none",
+                        "country_selection_field": "ADM0_A3",
+                        "geometry_inclusion_policy": "retain_all_geometry_parts_from_each_selected_admin0_feature",
+                    },
+                ),
+            ):
+                collect_boundaries_data(output_root)
+            sweden_path = output_root / "raw" / "sweden.geojson"
+            sweden_path.write_text(
+                sweden_path.read_text(encoding="utf-8") + "\n",
+                encoding="utf-8",
+            )
+
+            with self.assertRaisesRegex(ValueError, "digest mismatch"):
+                load_country_boundaries(output_root)
 
 
 if __name__ == "__main__":

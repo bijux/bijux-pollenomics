@@ -22,6 +22,7 @@ from .sources.boundaries.store import (
 
 NATURAL_EARTH_VERSION = "5.1.1"
 NATURAL_EARTH_RELEASE_PAGE_URL = "https://www.naturalearthdata.com/downloads/10m-cultural-vectors/10m-admin-0-countries/"
+NATURAL_EARTH_TERMS_URL = "https://www.naturalearthdata.com/about/terms-of-use/"
 NATURAL_EARTH_ADMIN0_URL = (
     "https://raw.githubusercontent.com/nvkelso/natural-earth-vector/"
     f"v{NATURAL_EARTH_VERSION}/geojson/ne_10m_admin_0_countries.geojson"
@@ -41,6 +42,7 @@ def fetch_natural_earth_admin0_payload() -> tuple[dict[str, object], dict[str, o
     if not isinstance(payload, dict):
         raise ValueError("Natural Earth boundary payload must be a GeoJSON object")
     manifest = {
+        "schema_version": "natural-earth-boundary-receipt.v1",
         "generated_on": str(date.today()),
         "source": "Natural Earth",
         "dataset": "Admin 0 - Countries",
@@ -48,6 +50,14 @@ def fetch_natural_earth_admin0_payload() -> tuple[dict[str, object], dict[str, o
         "release_page_url": NATURAL_EARTH_RELEASE_PAGE_URL,
         "asset_url": NATURAL_EARTH_ADMIN0_URL,
         "sha256": hashlib.sha256(payload_text.encode("utf-8")).hexdigest(),
+        "license": "public_domain",
+        "license_url": NATURAL_EARTH_TERMS_URL,
+        "source_crs": "EPSG:4326",
+        "coordinate_transformation": "none",
+        "country_selection_field": "ADM0_A3",
+        "geometry_inclusion_policy": (
+            "retain_all_geometry_parts_from_each_selected_admin0_feature"
+        ),
         "feature_count": len(payload.get("features", []))
         if isinstance(payload.get("features"), list)
         else 0,
@@ -72,6 +82,7 @@ def load_country_boundaries(output_root: Path) -> dict[str, dict[str, object]] |
         boundary_codes=BOUNDARY_CODES,
         natural_earth_version=NATURAL_EARTH_VERSION,
         natural_earth_admin0_url=NATURAL_EARTH_ADMIN0_URL,
+        natural_earth_terms_url=NATURAL_EARTH_TERMS_URL,
     )
 
 
@@ -127,6 +138,7 @@ __all__ = [
     "BOUNDARY_CODES",
     "BoundariesDataReport",
     "NATURAL_EARTH_ADMIN0_URL",
+    "NATURAL_EARTH_TERMS_URL",
     "NATURAL_EARTH_VERSION",
     "build_combined_country_boundaries",
     "build_country_boundary_collection",

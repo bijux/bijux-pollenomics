@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import hashlib
 import json
 from pathlib import Path
 
@@ -18,17 +19,19 @@ def load_country_boundaries(
     boundary_codes: dict[str, str],
     natural_earth_version: str,
     natural_earth_admin0_url: str,
+    natural_earth_terms_url: str,
 ) -> dict[str, dict[str, object]] | None:
     """Load tracked Nordic country boundaries from a local boundaries directory when present."""
     raw_dir = Path(output_root) / "raw"
     manifest_path = raw_dir / "source_manifest.json"
     if not manifest_path.exists():
         return None
-    validate_boundary_manifest(
+    manifest = validate_boundary_manifest(
         json.loads(manifest_path.read_text(encoding="utf-8")),
         path=manifest_path,
         natural_earth_version=natural_earth_version,
         natural_earth_admin0_url=natural_earth_admin0_url,
+        natural_earth_terms_url=natural_earth_terms_url,
     )
     country_boundaries: dict[str, dict[str, object]] = {}
     for country in boundary_codes:
@@ -41,6 +44,11 @@ def load_country_boundaries(
             country=country,
             country_code=boundary_codes[country],
         )
+        _validate_country_artifact_digest(
+            manifest,
+            country=country,
+            path=path,
+        )
     return country_boundaries
 
 
@@ -50,6 +58,7 @@ def validate_boundary_manifest(
     path: Path,
     natural_earth_version: str,
     natural_earth_admin0_url: str,
+    natural_earth_terms_url: str,
 ) -> dict[str, object]:
     """Validate the stored Natural Earth provenance manifest before local reuse."""
     if not isinstance(payload, dict):
@@ -66,7 +75,43 @@ def validate_boundary_manifest(
         raise ValueError(
             f"Boundary source manifest must record the pinned admin-0 asset URL: {path}"
         )
+    required_values = {
+        "schema_version": "natural-earth-boundary-receipt.v1",
+        "license": "public_domain",
+        "license_url": natural_earth_terms_url,
+        "source_crs": "EPSG:4326",
+        "coordinate_transformation": "none",
+        "country_selection_field": "ADM0_A3",
+        "geometry_inclusion_policy": (
+            "retain_all_geometry_parts_from_each_selected_admin0_feature"
+        ),
+    }
+    for field, expected in required_values.items():
+        if payload.get(field) != expected:
+            raise ValueError(
+                f"Boundary source manifest field {field} must equal {expected}: {path}"
+            )
+    source_digest = payload.get("sha256")
+    if not isinstance(source_digest, str) or len(source_digest) != 64:
+        raise ValueError(f"Boundary source manifest requires source sha256: {path}")
+    if not isinstance(payload.get("country_artifacts"), dict):
+        raise ValueError(f"Boundary source manifest requires country artifacts: {path}")
     return payload
+
+
+def _validate_country_artifact_digest(
+    manifest: dict[str, object], *, country: str, path: Path
+) -> None:
+    artifacts = manifest["country_artifacts"]
+    if not isinstance(artifacts, dict):
+        raise ValueError(f"Boundary artifact manifest is invalid: {path}")
+    record = artifacts.get(country)
+    if not isinstance(record, dict) or record.get("path") != path.name:
+        raise ValueError(f"Boundary manifest does not own {country} artifact: {path}")
+    expected = record.get("sha256")
+    actual = hashlib.sha256(path.read_bytes()).hexdigest()
+    if expected != actual:
+        raise ValueError(f"Boundary artifact digest mismatch for {country}: {path}")
 
 
 def validate_boundary_collection(

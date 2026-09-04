@@ -1,6 +1,8 @@
 from __future__ import annotations
 
 from dataclasses import dataclass
+import hashlib
+import json
 from pathlib import Path
 
 from ....core.files import write_json
@@ -58,13 +60,32 @@ def write_boundary_archive(
     raw_dir.mkdir(parents=True, exist_ok=True)
     normalized_dir.mkdir(parents=True, exist_ok=True)
 
+    country_artifacts: dict[str, dict[str, object]] = {}
     for country_name, payload in country_boundaries.items():
-        write_json(raw_dir / f"{slugify(country_name)}.geojson", payload)
-    manifest_path = raw_dir / "source_manifest.json"
-    write_json(manifest_path, source_manifest)
+        country_path = raw_dir / f"{slugify(country_name)}.geojson"
+        write_json(country_path, payload)
+        country_artifacts[country_name] = {
+            "path": country_path.name,
+            "sha256": _file_sha256(country_path),
+            "feature_count": len(feature_list(payload)),
+        }
 
     combined_path = BOUNDARY_COLLECTION.source_path_under(output_root)
     write_json(combined_path, build_combined_country_boundaries(country_boundaries))
+    manifest_payload = {
+        **source_manifest,
+        "country_artifacts": country_artifacts,
+        "normalized_artifact": {
+            "path": str(combined_path.relative_to(output_root)),
+            "sha256": _file_sha256(combined_path),
+            "feature_count": len(country_boundaries),
+        },
+    }
+    manifest_path = raw_dir / "source_manifest.json"
+    manifest_path.write_text(
+        json.dumps(manifest_payload, indent=2, ensure_ascii=False) + "\n",
+        encoding="utf-8",
+    )
 
     return BoundariesDataReport(
         output_dir=output_root,
@@ -72,3 +93,11 @@ def write_boundary_archive(
         combined_path=combined_path,
         manifest_path=manifest_path,
     )
+
+
+def _file_sha256(path: Path) -> str:
+    digest = hashlib.sha256()
+    with path.open("rb") as handle:
+        for chunk in iter(lambda: handle.read(1024 * 1024), b""):
+            digest.update(chunk)
+    return digest.hexdigest()
