@@ -64,12 +64,39 @@ def validate_collection_summary_payload(payload: Mapping[str, object]) -> None:
             "normalized_status",
             "reviewed_status",
             "published_status",
+            "authority_status",
+            "authority_reasons",
             "coverage_metrics",
         ):
             if key not in row:
                 raise ValueError(
                     f"collection summary source-family state row missing field: {key}"
                 )
+        if row["authority_status"] not in {
+            "admitted",
+            "not_required",
+            "refused",
+            "review_required",
+        }:
+            raise ValueError(
+                "collection summary source-family state row has invalid authority status"
+            )
+        authority_reasons = row["authority_reasons"]
+        if not isinstance(authority_reasons, list) or any(
+            not isinstance(reason, str) or not reason for reason in authority_reasons
+        ):
+            raise ValueError(
+                "collection summary source-family state row has invalid authority reasons"
+            )
+        coverage_metrics = row["coverage_metrics"]
+        if not isinstance(coverage_metrics, Mapping) or any(
+            value is not None
+            and (isinstance(value, bool) or not isinstance(value, int) or value < 0)
+            for value in coverage_metrics.values()
+        ):
+            raise ValueError(
+                "collection summary source-family state row has invalid coverage metrics"
+            )
 
     source_output_roots = cast(Mapping[str, object], payload["source_output_roots"])
     source_metadata = cast(Mapping[str, object], payload["source_metadata"])

@@ -152,7 +152,9 @@ class RepositorySnapshotUnitTests(unittest.TestCase):
         )
         self.assertTrue(summary.source_family_state_rows)
 
-    def test_write_data_contract_surfaces_keeps_svar_coverage_metrics(self) -> None:
+    def test_write_data_contract_surfaces_refuses_unmaterialized_svar_metrics(
+        self,
+    ) -> None:
         with tempfile.TemporaryDirectory() as tmp:
             output_root = Path(tmp) / "data"
             for relative_path in (
@@ -245,8 +247,11 @@ class RepositorySnapshotUnitTests(unittest.TestCase):
                 if row["source_key"] == "neotoma"
             )
 
-        self.assertEqual(svar_row["coverage_metrics"]["svar_lake_count"], 40565)
-        self.assertNotIn("zero_coverage_metrics", svar_row["blocking_reasons"])
+        self.assertIsNone(svar_row["coverage_metrics"]["svar_lake_count"])
+        self.assertEqual(svar_row["authority_status"], "refused")
+        self.assertIn(
+            "unavailable_governed_coverage_metrics", svar_row["blocking_reasons"]
+        )
         self.assertEqual(
             neotoma_row["temporal_support_posture"],
             "unresolved",

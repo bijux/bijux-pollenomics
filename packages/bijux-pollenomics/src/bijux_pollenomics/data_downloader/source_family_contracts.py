@@ -2,6 +2,7 @@ from __future__ import annotations
 
 from collections.abc import Mapping
 from dataclasses import asdict, dataclass
+import hashlib
 import json
 from pathlib import Path
 
@@ -52,8 +53,17 @@ class SourceFamilyStateRow:
     published_status: str
     provenance_depth: str
     publication_posture: str
-    coverage_metrics: dict[str, int]
+    authority_status: str
+    authority_reasons: tuple[str, ...]
+    coverage_metrics: dict[str, int | None]
     blocking_reasons: tuple[str, ...]
+
+
+@dataclass(frozen=True)
+class _SourceAuthorityState:
+    status: str
+    reason_codes: tuple[str, ...]
+    governed_metrics: dict[str, int | None] | None = None
 
 
 def build_source_family_contracts() -> tuple[SourceFamilyContract, ...]:
@@ -456,11 +466,17 @@ def build_source_family_state_rows(
     output_root = Path(output_root)
     states: list[SourceFamilyStateRow] = []
     for contract in build_source_family_contracts():
+        authority = _source_authority_state(output_root, contract.source_key)
         raw_status = _layer_status(output_root, contract.raw_layer)
         normalized_status = _layer_status(output_root, contract.normalized_layer)
         reviewed_status = _layer_status(output_root, contract.reviewed_layer)
         published_status = _layer_status(output_root, contract.published_layer)
-        coverage_metrics = _coverage_metrics(output_root, counts, contract.source_key)
+        coverage_metrics = _coverage_metrics(
+            output_root,
+            counts,
+            contract.source_key,
+            governed_metrics=authority.governed_metrics,
+        )
         states.append(
             SourceFamilyStateRow(
                 source_key=contract.source_key,
@@ -481,7 +497,10 @@ def build_source_family_state_rows(
                     normalized_status=normalized_status,
                     reviewed_status=reviewed_status,
                     published_status=published_status,
+                    authority_status=authority.status,
                 ),
+                authority_status=authority.status,
+                authority_reasons=authority.reason_codes,
                 coverage_metrics=coverage_metrics,
                 blocking_reasons=_blocking_reasons(
                     raw_status=raw_status,
@@ -489,6 +508,8 @@ def build_source_family_state_rows(
                     reviewed_status=reviewed_status,
                     published_status=published_status,
                     coverage_metrics=coverage_metrics,
+                    authority_status=authority.status,
+                    authority_reasons=authority.reason_codes,
                 ),
             )
         )
@@ -506,7 +527,7 @@ def build_source_family_state_matrix_payload(
         for row in build_source_family_state_rows(output_root, counts=counts)
     ]
     return {
-        "schema_version": "source-family-evidence-stage-matrix.v1",
+        "schema_version": "source-family-evidence-stage-matrix.v2",
         "row_count": len(rows),
         "rows": rows,
     }
@@ -562,8 +583,16 @@ def _provenance_depth(
 
 
 def _publication_posture(
-    *, normalized_status: str, reviewed_status: str, published_status: str
+    *,
+    normalized_status: str,
+    reviewed_status: str,
+    published_status: str,
+    authority_status: str,
 ) -> str:
+    if authority_status == "refused":
+        return "refused_not_publication_ready"
+    if authority_status == "review_required":
+        return "review_required_not_publication_ready"
     if (
         normalized_status == "present"
         and reviewed_status == "present"
@@ -583,7 +612,9 @@ def _blocking_reasons(
     normalized_status: str,
     reviewed_status: str,
     published_status: str,
-    coverage_metrics: Mapping[str, int],
+    coverage_metrics: Mapping[str, int | None],
+    authority_status: str,
+    authority_reasons: tuple[str, ...],
 ) -> tuple[str, ...]:
     reasons: list[str] = []
     if raw_status == "missing":
@@ -594,16 +625,179 @@ def _blocking_reasons(
         reasons.append("missing_review_surface")
     if published_status == "missing":
         reasons.append("missing_published_surface")
-    if not coverage_metrics or not any(
-        value > 0 for value in coverage_metrics.values()
-    ):
+    if authority_status == "refused":
+        reasons.append("source_authority_refused")
+    elif authority_status == "review_required":
+        reasons.append("source_authority_review_required")
+    reasons.extend(authority_reasons)
+    governed_values = [
+        value for value in coverage_metrics.values() if value is not None
+    ]
+    if coverage_metrics and not governed_values:
+        reasons.append("unavailable_governed_coverage_metrics")
+    elif not coverage_metrics or not any(value > 0 for value in governed_values):
         reasons.append("zero_coverage_metrics")
-    return tuple(reasons)
+    return tuple(dict.fromkeys(reasons))
+
+
+def _source_authority_state(
+    output_root: Path, source_key: str
+) -> _SourceAuthorityState:
+    if source_key == "raa":
+        from .sources.raa.authority import assess_raa_density_authority
+
+        decision = assess_raa_density_authority(output_root)
+        metrics: dict[str, int | None] = (
+            {
+                "raa_total_site_count": decision.archived_feature_count,
+                "raa_heritage_site_count": decision.heritage_site_count,
+            }
+            if decision.admitted
+            else {
+                "raa_total_site_count": None,
+                "raa_heritage_site_count": None,
+            }
+        )
+        return _SourceAuthorityState(
+            status="admitted" if decision.admitted else "refused",
+            reason_codes=decision.reason_codes,
+            governed_metrics=metrics,
+        )
+    if source_key == "boundaries":
+        return _boundary_authority_state(output_root)
+    if source_key == "svar":
+        return _svar_authority_state(output_root)
+    return _SourceAuthorityState(status="not_required", reason_codes=())
+
+
+def _boundary_authority_state(output_root: Path) -> _SourceAuthorityState:
+    from .boundaries import (
+        BOUNDARY_CODES,
+        NATURAL_EARTH_ADMIN0_URL,
+        NATURAL_EARTH_TERMS_URL,
+        NATURAL_EARTH_VERSION,
+    )
+    from .sources.boundaries.store import load_country_boundaries
+
+    family_root = output_root / "boundaries"
+    normalized_path = family_root / "normalized" / "nordic_country_boundaries.geojson"
+    manifest_path = family_root / "raw" / "source_manifest.json"
+    try:
+        boundaries = load_country_boundaries(
+            output_root=family_root,
+            boundary_codes=BOUNDARY_CODES,
+            natural_earth_version=NATURAL_EARTH_VERSION,
+            natural_earth_admin0_url=NATURAL_EARTH_ADMIN0_URL,
+            natural_earth_terms_url=NATURAL_EARTH_TERMS_URL,
+        )
+        manifest = _load_json_object(manifest_path)
+        normalized = _load_json_object(normalized_path)
+        normalized_record = _object(manifest.get("normalized_artifact"))
+        features = _feature_list(normalized)
+        expected_digest = normalized_record.get("sha256")
+        actual_digest = hashlib.sha256(normalized_path.read_bytes()).hexdigest()
+        if (
+            boundaries is None
+            or set(boundaries) != set(BOUNDARY_CODES)
+            or normalized_record.get("path")
+            != "normalized/nordic_country_boundaries.geojson"
+            or expected_digest != actual_digest
+            or normalized_record.get("feature_count") != len(features)
+            or len(features) != len(BOUNDARY_CODES)
+        ):
+            raise ValueError("boundary authority does not reconcile")
+    except (OSError, UnicodeDecodeError, json.JSONDecodeError, ValueError):
+        return _SourceAuthorityState(
+            status="refused",
+            reason_codes=("missing_or_invalid_boundary_authority",),
+            governed_metrics={"boundary_country_count": None},
+        )
+
+    review_path = family_root / "review" / "framing_review.json"
+    review_accepted = False
+    try:
+        review = _load_json_object(review_path)
+        review_accepted = (
+            review.get("release_status") == "accepted"
+            and isinstance(review.get("reviewer_id"), str)
+            and bool(str(review["reviewer_id"]).strip())
+            and review.get("boundary_version") == NATURAL_EARTH_VERSION
+            and review.get("boundary_artifact_sha256") == actual_digest
+        )
+    except (OSError, UnicodeDecodeError, json.JSONDecodeError, ValueError):
+        pass
+    return _SourceAuthorityState(
+        status="admitted" if review_accepted else "review_required",
+        reason_codes=(
+            () if review_accepted else ("qualified_boundary_inclusion_review_missing",)
+        ),
+        governed_metrics={"boundary_country_count": len(features)},
+    )
+
+
+def _svar_authority_state(output_root: Path) -> _SourceAuthorityState:
+    family_root = output_root / "svar"
+    manifest_path = family_root / "raw" / "svar_lake_registry_manifest.json"
+    registry_path = family_root / "normalized" / "sweden_lake_registry.geojson"
+    summary_path = family_root / "normalized" / "svar_summary.json"
+    try:
+        manifest = _load_json_object(manifest_path)
+        registry = _load_json_object(registry_path)
+        summary = _load_json_object(summary_path)
+        features = _feature_list(registry)
+        lake_count = len(features)
+        if (
+            manifest.get("source") != "SMHI SVAR"
+            or summary.get("source") != "SMHI SVAR"
+            or not features
+            or _non_negative_int(manifest.get("matched_lake_count")) != lake_count
+            or _non_negative_int(manifest.get("normalized_lake_count")) != lake_count
+            or _non_negative_int(summary.get("lake_count")) != lake_count
+        ):
+            raise ValueError("SVAR authority counts do not reconcile")
+    except (OSError, UnicodeDecodeError, json.JSONDecodeError, ValueError):
+        return _SourceAuthorityState(
+            status="refused",
+            reason_codes=("missing_or_invalid_svar_authority",),
+            governed_metrics={"svar_lake_count": None},
+        )
+
+    review_path = family_root / "review" / "lake_candidate_registry_review.json"
+    review_surface = family_root / "review" / "sweden_lake_candidate_registry.geojson"
+    review_accepted = False
+    try:
+        review = _load_json_object(review_path)
+        review_registry = _load_json_object(review_surface)
+        review_accepted = (
+            bool(_feature_list(review_registry))
+            and review.get("source") == "SMHI SVAR"
+            and _non_negative_int(review.get("source_lake_count")) == lake_count
+            and review.get("registry_sha256")
+            == hashlib.sha256(registry_path.read_bytes()).hexdigest()
+            and review.get("release_status") == "accepted"
+            and isinstance(review.get("reviewer_id"), str)
+            and bool(str(review["reviewer_id"]).strip())
+        )
+    except (OSError, UnicodeDecodeError, json.JSONDecodeError, ValueError):
+        pass
+    return _SourceAuthorityState(
+        status="admitted" if review_accepted else "review_required",
+        reason_codes=(
+            () if review_accepted else ("qualified_svar_publication_review_missing",)
+        ),
+        governed_metrics={"svar_lake_count": lake_count},
+    )
 
 
 def _coverage_metrics(
-    output_root: Path, counts: Mapping[str, int], source_key: str
-) -> dict[str, int]:
+    output_root: Path,
+    counts: Mapping[str, int],
+    source_key: str,
+    *,
+    governed_metrics: Mapping[str, int | None] | None,
+) -> dict[str, int | None]:
+    if governed_metrics is not None:
+        return dict(governed_metrics)
     if source_key == "landclim":
         return {
             "landclim_site_count": int(counts.get("landclim_site_count", 0)),
@@ -613,27 +807,39 @@ def _coverage_metrics(
         return {"neotoma_point_count": int(counts.get("neotoma_point_count", 0))}
     if source_key == "sead":
         return {"sead_point_count": int(counts.get("sead_point_count", 0))}
-    if source_key == "raa":
-        return {
-            "raa_total_site_count": int(counts.get("raa_total_site_count", 0)),
-            "raa_heritage_site_count": int(counts.get("raa_heritage_site_count", 0)),
-        }
-    if source_key == "boundaries":
-        return {
-            "boundary_country_count": _geojson_feature_count(
-                output_root
-                / "boundaries"
-                / "normalized"
-                / "nordic_country_boundaries.geojson"
-            )
-        }
     if source_key == "aadr":
         return {"aadr_file_count": int(counts.get("aadr_file_count", 0))}
-    if source_key == "svar":
-        return {"svar_lake_count": int(counts.get("svar_lake_count", 0))}
     if source_key == "animal_adna":
         return _animal_adna_metrics(output_root)
     return {}
+
+
+def _load_json_object(path: Path) -> dict[str, object]:
+    payload = json.loads(path.read_text(encoding="utf-8"))
+    if not isinstance(payload, dict):
+        raise ValueError(f"Authority artifact must be an object: {path}")
+    return payload
+
+
+def _object(value: object) -> dict[str, object]:
+    if not isinstance(value, dict):
+        raise ValueError("Authority manifest record must be an object")
+    return value
+
+
+def _feature_list(payload: Mapping[str, object]) -> list[object]:
+    if payload.get("type") != "FeatureCollection":
+        raise ValueError("Authority geometry must be a FeatureCollection")
+    features = payload.get("features")
+    if not isinstance(features, list):
+        raise ValueError("Authority geometry must contain a feature list")
+    return features
+
+
+def _non_negative_int(value: object) -> int | None:
+    if isinstance(value, bool) or not isinstance(value, int) or value < 0:
+        return None
+    return value
 
 
 def _geojson_feature_count(path: Path) -> int:
@@ -646,7 +852,7 @@ def _geojson_feature_count(path: Path) -> int:
     return len(features)
 
 
-def _animal_adna_metrics(output_root: Path) -> dict[str, int]:
+def _animal_adna_metrics(output_root: Path) -> dict[str, int | None]:
     species_root = output_root / "adna" / "species"
     source_library_root = output_root / "adna" / "governance" / "source_library"
     truth_path = (

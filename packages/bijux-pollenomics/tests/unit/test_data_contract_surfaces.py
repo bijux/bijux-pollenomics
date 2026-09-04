@@ -1,5 +1,7 @@
 from __future__ import annotations
 
+import hashlib
+import json
 from pathlib import Path
 import tempfile
 import unittest
@@ -73,7 +75,7 @@ class DataContractSurfaceUnitTests(unittest.TestCase):
             contract_paths = build_contract_artifact_paths(output_root)
 
         self.assertEqual(
-            matrix_payload["schema_version"], "source-family-evidence-stage-matrix.v1"
+            matrix_payload["schema_version"], "source-family-evidence-stage-matrix.v2"
         )
         self.assertIn("source_family_contracts", contract_paths)
         self.assertIn("source_fact_ownership_registry", contract_paths)
@@ -105,6 +107,134 @@ class DataContractSurfaceUnitTests(unittest.TestCase):
         self.assertIn(
             "missing_normalized_outputs",
             rows["svar"]["blocking_reasons"],
+        )
+
+    def test_stale_raa_and_boundary_files_do_not_admit_publication(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            workspace = Path(tmp)
+            output_root = workspace / "data"
+            artifact_paths = (
+                output_root / "raa/raw/fornsok_domains.json",
+                output_root / "raa/normalized/sweden_archaeology_layer.json",
+                output_root / "raa/review/spatiotemporal_review.json",
+                workspace
+                / "docs/report/regions/nordic/sweden_archaeology_density.geojson",
+                output_root / "boundaries/raw/sweden.geojson",
+                output_root / "boundaries/normalized/nordic_country_boundaries.geojson",
+                output_root / "boundaries/review/framing_review.json",
+                workspace
+                / "docs/report/regions/nordic/nordic_country_boundaries.geojson",
+            )
+            for path in artifact_paths:
+                path.parent.mkdir(parents=True, exist_ok=True)
+                path.write_text("{}", encoding="utf-8")
+
+            payload = build_source_family_state_matrix_payload(
+                output_root,
+                counts={
+                    "raa_total_site_count": 761_917,
+                    "raa_heritage_site_count": 318_265,
+                },
+            )
+
+        rows = {row["source_key"]: row for row in payload["rows"]}
+        for source_key in ("raa", "boundaries"):
+            row = rows[source_key]
+            self.assertEqual(row["published_status"], "present")
+            self.assertEqual(row["authority_status"], "refused")
+            self.assertEqual(
+                row["publication_posture"], "refused_not_publication_ready"
+            )
+            self.assertIn("source_authority_refused", row["blocking_reasons"])
+        self.assertEqual(
+            rows["raa"]["coverage_metrics"],
+            {"raa_total_site_count": None, "raa_heritage_site_count": None},
+        )
+        self.assertEqual(
+            rows["boundaries"]["coverage_metrics"]["boundary_country_count"],
+            None,
+        )
+
+    def test_svar_requires_reconciled_counts_and_digest_bound_review(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            workspace = Path(tmp)
+            output_root = workspace / "data"
+            registry_path = output_root / "svar/normalized/sweden_lake_registry.geojson"
+            registry_path.parent.mkdir(parents=True)
+            registry_payload = {
+                "type": "FeatureCollection",
+                "features": [{"id": "lake-1"}, {"id": "lake-2"}],
+            }
+            registry_path.write_text(json.dumps(registry_payload), encoding="utf-8")
+            manifest_path = output_root / "svar/raw/svar_lake_registry_manifest.json"
+            manifest_path.parent.mkdir(parents=True)
+            manifest_path.write_text(
+                json.dumps(
+                    {
+                        "source": "SMHI SVAR",
+                        "matched_lake_count": 2,
+                        "normalized_lake_count": 2,
+                    }
+                ),
+                encoding="utf-8",
+            )
+            (registry_path.parent / "svar_summary.json").write_text(
+                json.dumps({"source": "SMHI SVAR", "lake_count": 2}),
+                encoding="utf-8",
+            )
+            review_root = output_root / "svar/review"
+            review_root.mkdir(parents=True)
+            (review_root / "sweden_lake_candidate_registry.geojson").write_text(
+                json.dumps({"type": "FeatureCollection", "features": [{"id": 1}]}),
+                encoding="utf-8",
+            )
+            review_path = review_root / "lake_candidate_registry_review.json"
+            review_path.write_text(
+                json.dumps({"source": "SMHI SVAR", "source_lake_count": 2}),
+                encoding="utf-8",
+            )
+            published_path = (
+                workspace
+                / "docs/report/countries/sweden/sweden_lake_evidence_richness_v66.geojson"
+            )
+            published_path.parent.mkdir(parents=True)
+            published_path.write_text("{}", encoding="utf-8")
+
+            pending_payload = build_source_family_state_matrix_payload(
+                output_root, counts={"svar_lake_count": 99_999}
+            )
+            review_path.write_text(
+                json.dumps(
+                    {
+                        "source": "SMHI SVAR",
+                        "source_lake_count": 2,
+                        "registry_sha256": hashlib.sha256(
+                            registry_path.read_bytes()
+                        ).hexdigest(),
+                        "release_status": "accepted",
+                        "reviewer_id": "qualified-reviewer",
+                    }
+                ),
+                encoding="utf-8",
+            )
+            admitted_payload = build_source_family_state_matrix_payload(
+                output_root, counts={"svar_lake_count": 99_999}
+            )
+
+        pending = next(
+            row for row in pending_payload["rows"] if row["source_key"] == "svar"
+        )
+        admitted = next(
+            row for row in admitted_payload["rows"] if row["source_key"] == "svar"
+        )
+        self.assertEqual(pending["authority_status"], "review_required")
+        self.assertEqual(
+            pending["publication_posture"], "review_required_not_publication_ready"
+        )
+        self.assertEqual(pending["coverage_metrics"]["svar_lake_count"], 2)
+        self.assertEqual(admitted["authority_status"], "admitted")
+        self.assertEqual(
+            admitted["publication_posture"], "published_with_review_support"
         )
 
     def test_state_matrix_does_not_use_its_own_output_as_review_evidence(self) -> None:

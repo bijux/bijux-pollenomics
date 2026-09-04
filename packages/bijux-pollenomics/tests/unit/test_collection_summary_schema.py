@@ -41,6 +41,8 @@ class CollectionSummarySchemaUnitTests(unittest.TestCase):
                     "normalized_status": "present",
                     "reviewed_status": "present",
                     "published_status": "present",
+                    "authority_status": "not_required",
+                    "authority_reasons": [],
                     "coverage_metrics": {"aadr_file_count": 2},
                 }
             ],
@@ -48,6 +50,15 @@ class CollectionSummarySchemaUnitTests(unittest.TestCase):
         }
 
         validate_collection_summary_payload(payload)
+        rows = payload["source_family_state_rows"]
+        self.assertIsInstance(rows, list)
+        assert isinstance(rows, list)
+        row = rows[0]
+        self.assertIsInstance(row, dict)
+        assert isinstance(row, dict)
+        row.pop("authority_status")
+        with self.assertRaisesRegex(ValueError, "missing field: authority_status"):
+            validate_collection_summary_payload(payload)
 
     def test_validate_collection_summary_payload_rejects_missing_source_hashes(
         self,
@@ -77,6 +88,8 @@ class CollectionSummarySchemaUnitTests(unittest.TestCase):
                     "normalized_status": "present",
                     "reviewed_status": "present",
                     "published_status": "present",
+                    "authority_status": "not_required",
+                    "authority_reasons": [],
                     "coverage_metrics": {"aadr_file_count": 0},
                 }
             ],
@@ -114,6 +127,8 @@ class CollectionSummarySchemaUnitTests(unittest.TestCase):
                     "normalized_status": "present",
                     "reviewed_status": "present",
                     "published_status": "present",
+                    "authority_status": "not_required",
+                    "authority_reasons": [],
                     "coverage_metrics": {"aadr_file_count": 2},
                 }
             ],
