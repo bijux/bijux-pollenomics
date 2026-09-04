@@ -18,6 +18,7 @@ __all__ = [
     "TemporalSemantics",
     "build_temporal_semantics",
     "canonical_bp_interval",
+    "closed_bp_intervals_overlap",
     "directional_lag_bounds",
     "normalize_temporal_semantics_payload",
     "resolve_temporal_window",
@@ -95,6 +96,11 @@ def directional_lag_bounds(
         minimum_lag_years=source.younger_bp - target.older_bp,
         maximum_lag_years=source.older_bp - target.younger_bp,
     )
+
+
+def closed_bp_intervals_overlap(left: BpInterval, right: BpInterval) -> bool:
+    """Return whether two canonical closed BP intervals share any supported age."""
+    return max(left.younger_bp, right.younger_bp) <= min(left.older_bp, right.older_bp)
 
 
 def _canonical_bp_endpoint(value: object, *, field_name: str) -> float:

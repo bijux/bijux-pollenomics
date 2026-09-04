@@ -7,6 +7,7 @@ import pytest
 from bijux_pollenomics.core.temporal_semantics import (
     InvalidBpIntervalError,
     canonical_bp_interval,
+    closed_bp_intervals_overlap,
     directional_lag_bounds,
 )
 
@@ -50,6 +51,28 @@ def test_missing_interval_remains_unresolved(_fixture_id: str) -> None:
 def test_zero_bp_is_not_missing(_fixture_id: str) -> None:
     assert canonical_bp_interval(0, 0) is not None
     assert canonical_bp_interval(None, None) is None
+
+
+@pytest.mark.parametrize(
+    ("left", "right", "expected"),
+    (
+        ((100, 200), (150, 250), True),
+        ((100, 300), (150, 200), True),
+        ((100, 200), (200, 300), True),
+        ((100, 199.999), (200, 300), False),
+    ),
+)
+def test_closed_bp_interval_overlap(
+    left: tuple[float, float],
+    right: tuple[float, float],
+    expected: bool,
+) -> None:
+    left_interval = canonical_bp_interval(*left)
+    right_interval = canonical_bp_interval(*right)
+
+    assert left_interval is not None
+    assert right_interval is not None
+    assert closed_bp_intervals_overlap(left_interval, right_interval) is expected
 
 
 @pytest.mark.parametrize(

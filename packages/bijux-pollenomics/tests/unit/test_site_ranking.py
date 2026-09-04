@@ -56,8 +56,8 @@ def _locality(
         datasets=("dataset",),
         chronology=AdnaChronology(
             original_text="3000 BP",
-            time_start_bp=3500,
-            time_end_bp=2500,
+            time_start_bp=2500,
+            time_end_bp=3500,
             time_mean_bp=3000,
             dating_basis="bp_window",
         ),
@@ -71,8 +71,8 @@ def _point(
     longitude: float,
     *,
     layer_key: str = "neotoma-sites",
-    time_start_bp: int | None = 3600,
-    time_end_bp: int | None = 2400,
+    time_start_bp: int | None = 2400,
+    time_end_bp: int | None = 3600,
 ) -> ContextPointRecord:
     return ContextPointRecord(
         source="context",
@@ -113,6 +113,26 @@ def test_build_candidate_context_counts_nearby_points_and_layers() -> None:
     assert context.nearby_context_layer_count == 2
     assert context.time_aware_context_points == 2
     assert context.temporal_overlap_points == 2
+
+
+def test_candidate_context_excludes_disjoint_temporal_intervals() -> None:
+    locality = _locality("Lake One", 59.0, 18.0)
+    context = build_candidate_context(
+        locality,
+        (
+            _point(
+                "older-context",
+                59.01,
+                18.02,
+                time_start_bp=3501,
+                time_end_bp=4000,
+            ),
+        ),
+        radius_km=10.0,
+    )
+
+    assert context.time_aware_context_points == 1
+    assert context.temporal_overlap_points == 0
 
 
 def test_rank_localities_groups_co_located_species_evidence() -> None:

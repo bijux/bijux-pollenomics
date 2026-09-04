@@ -6,6 +6,10 @@ from dataclasses import dataclass
 from typing import TYPE_CHECKING
 
 from ..core import haversine_km
+from ..core.temporal_semantics import (
+    canonical_bp_interval,
+    closed_bp_intervals_overlap,
+)
 from ..data_downloader.models import ContextPointRecord
 from .site_candidates import (
     CandidateSiteContext,
@@ -80,10 +84,15 @@ def temporal_overlap(
         return False
     if context_point.time_start_bp is None or context_point.time_end_bp is None:
         return False
-    return not (
-        context_point.time_end_bp > locality.time_start_bp
-        or context_point.time_start_bp < locality.time_end_bp
+    locality_interval = canonical_bp_interval(
+        locality.time_start_bp, locality.time_end_bp
     )
+    context_interval = canonical_bp_interval(
+        context_point.time_start_bp, context_point.time_end_bp
+    )
+    if locality_interval is None or context_interval is None:
+        return False
+    return closed_bp_intervals_overlap(locality_interval, context_interval)
 
 
 def build_candidate_context(
