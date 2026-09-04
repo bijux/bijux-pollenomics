@@ -2,6 +2,8 @@ from __future__ import annotations
 
 import json
 from pathlib import Path
+import shutil
+import subprocess
 import tempfile
 import unittest
 
@@ -115,9 +117,55 @@ class MapPublicationUnitTests(unittest.TestCase):
             "value === null || value === undefined || typeof value === 'boolean'",
             MAP_DOCUMENT_TEMPLATE,
         )
-        self.assertIn("if (start !== null && end !== null)", MAP_DOCUMENT_TEMPLATE)
+        self.assertIn("numeric >= 0", MAP_DOCUMENT_TEMPLATE)
+        self.assertIn("if (intervalDeclared)", MAP_DOCUMENT_TEMPLATE)
+        self.assertIn(
+            "start !== null && end !== null && start <= end", MAP_DOCUMENT_TEMPLATE
+        )
         self.assertNotIn(
             "const start = Number(feature.time_start_bp)", MAP_DOCUMENT_TEMPLATE
+        )
+
+    def test_browser_time_parser_matches_server_interval_refusals(self) -> None:
+        node = shutil.which("node")
+        self.assertIsNotNone(node, "Node.js is required to verify browser semantics")
+        block_start = MAP_DOCUMENT_TEMPLATE.index("function finiteTimeValue")
+        block_end = MAP_DOCUMENT_TEMPLATE.index(
+            "function featureInTimeWindow", block_start
+        )
+        parser_source = MAP_DOCUMENT_TEMPLATE[block_start:block_end]
+        cases = [
+            {"time_start_bp": 0, "time_end_bp": 100},
+            {"time_start_bp": 0, "time_mean_bp": 25},
+            {"time_start_bp": 100, "time_end_bp": 50},
+            {"time_start_bp": -1, "time_end_bp": 50},
+            {"time_mean_bp": 25},
+            {"time_year_bp": -1},
+        ]
+        script = (
+            parser_source
+            + "\nconsole.log(JSON.stringify("
+            + json.dumps(cases)
+            + ".map(featureTimeWindow)));"
+        )
+
+        result = subprocess.run(
+            [str(node), "-e", script],
+            check=True,
+            capture_output=True,
+            text=True,
+        )
+
+        self.assertEqual(
+            json.loads(result.stdout),
+            [
+                {"start": 0, "end": 100},
+                None,
+                None,
+                None,
+                {"start": 25, "end": 25},
+                None,
+            ],
         )
 
     def test_basemap_failure_has_bounded_failover_and_tile_free_mode(self) -> None:
@@ -130,7 +178,9 @@ class MapPublicationUnitTests(unittest.TestCase):
         )
         self.assertNotIn("apiKey", MAP_DOCUMENT_TEMPLATE)
 
-    def test_rendered_map_keeps_policy_default_and_complete_failover_order(self) -> None:
+    def test_rendered_map_keeps_policy_default_and_complete_failover_order(
+        self,
+    ) -> None:
         plan = build_published_geography_plan(("Sweden", "Norway", "Germany"))
         europe_plus_policy = resolve_map_scope_policy(
             next(scope for scope in plan.regional_scopes if scope.key == "europe_plus")
