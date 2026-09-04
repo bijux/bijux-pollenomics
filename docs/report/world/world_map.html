@@ -2471,13 +2471,20 @@
         if (value === null || value === undefined || typeof value === 'boolean') return null;
         if (typeof value === 'string' && !value.trim()) return null;
         const numeric = Number(value);
-        return Number.isFinite(numeric) ? numeric : null;
+        return Number.isFinite(numeric) && numeric >= 0 ? numeric : null;
       }
       function featureTimeWindow(feature) {
         const start = finiteTimeValue(feature.time_start_bp);
         const end = finiteTimeValue(feature.time_end_bp);
-        if (start !== null && end !== null) {
-          return { start: Math.min(start, end), end: Math.max(start, end) };
+        const intervalDeclared = (
+          Object.prototype.hasOwnProperty.call(feature, 'time_start_bp')
+          || Object.prototype.hasOwnProperty.call(feature, 'time_end_bp')
+        );
+        if (intervalDeclared) {
+          if (start !== null && end !== null && start <= end) {
+            return { start, end };
+          }
+          return null;
         }
         const mean = finiteTimeValue(feature.time_mean_bp);
         if (mean !== null) {
