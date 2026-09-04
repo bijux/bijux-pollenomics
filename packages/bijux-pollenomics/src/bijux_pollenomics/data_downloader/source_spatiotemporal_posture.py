@@ -4,6 +4,15 @@ from dataclasses import asdict, dataclass
 import json
 from pathlib import Path
 
+from .boundaries import (
+    BOUNDARY_CODES,
+    NATURAL_EARTH_ADMIN0_URL,
+    NATURAL_EARTH_TERMS_URL,
+    NATURAL_EARTH_VERSION,
+)
+from .sources.boundaries import load_country_boundaries
+from .sources.raa import assess_raa_density_authority
+
 __all__ = [
     "SourceSpatiotemporalPostureRecord",
     "build_source_spatiotemporal_posture_payload",
@@ -22,9 +31,11 @@ class SourceSpatiotemporalPostureRecord:
     temporal_scope: str
     distance_scoring_posture: str
     distance_scoring_note: str
-    record_count: int
+    availability_status: str
+    refusal_reasons: tuple[str, ...]
+    record_count: int | None
     numeric_interval_record_count: int
-    detail_metrics: dict[str, int]
+    detail_metrics: dict[str, int | None]
     caveats: tuple[str, ...]
 
 
@@ -42,7 +53,7 @@ def build_source_spatiotemporal_posture_payload(
         _build_boundaries_row(output_root),
     )
     return {
-        "schema_version": "source-spatiotemporal-posture-registry.v1",
+        "schema_version": "source-spatiotemporal-posture-registry.v2",
         "row_count": len(rows),
         "rows": [asdict(row) for row in rows],
     }
@@ -86,6 +97,8 @@ def _build_landclim_row(output_root: Path) -> SourceSpatiotemporalPostureRecord:
             "Use LandClim to strengthen pollen context around lakes; do not treat it "
             "as direct human or archaeological evidence."
         ),
+        availability_status="available",
+        refusal_reasons=(),
         record_count=len(features),
         numeric_interval_record_count=numeric_interval_count,
         detail_metrics={
@@ -138,6 +151,8 @@ def _build_neotoma_row(output_root: Path) -> SourceSpatiotemporalPostureRecord:
         distance_scoring_note=(
             "Use Neotoma to compare pollen context around lakes; only promote it into chronology-aware support when a numeric interval is actually present."
         ),
+        availability_status="available_with_limitations",
+        refusal_reasons=(),
         record_count=feature_count,
         numeric_interval_record_count=bp_age_range_count,
         detail_metrics={
@@ -201,6 +216,8 @@ def _build_sead_row(output_root: Path) -> SourceSpatiotemporalPostureRecord:
         distance_scoring_note=(
             "Use SEAD to measure archaeology context around lakes; do not treat it as same-period support unless numeric intervals are explicitly present."
         ),
+        availability_status="available_with_limitations",
+        refusal_reasons=(),
         record_count=feature_count,
         numeric_interval_record_count=temporal_feature_count,
         detail_metrics={
@@ -222,39 +239,58 @@ def _build_raa_row(output_root: Path) -> SourceSpatiotemporalPostureRecord:
         output_root / "raa" / "normalized" / "sweden_archaeology_layer.json"
     )
     counts = _dict(payload.get("counts"))
-    all_published_sites = _int(counts.get("all_published_sites", 0))
+    authority = assess_raa_density_authority(output_root)
+    all_published_sites = (
+        _int(counts.get("all_published_sites", 0)) if authority.admitted else None
+    )
     return SourceSpatiotemporalPostureRecord(
         source_key="raa",
-        display_name="RAA archaeology context",
+        display_name="RAÄ archaeology context",
         governing_surface_path="data/raa/normalized/sweden_archaeology_layer.json",
         review_surface_paths=("data/source_family_evidence_stage_matrix.json",),
         spatial_representation="coarse archaeology density surface",
-        temporal_support_posture="spatial_density_without_time",
+        temporal_support_posture=(
+            "spatial_density_without_time"
+            if authority.admitted
+            else "refused_missing_authority"
+        ),
         temporal_support_note=(
-            "Checked-in RAA outputs summarize Swedish archaeology density and site counts without repository-owned time windows."
+            "RAÄ density has no repository-owned time windows and is admitted only "
+            "when raw inventory, summary, normalized counts, and qualified review "
+            "reconcile."
         ),
         temporal_scope="sweden archaeology density context",
-        distance_scoring_posture="coarse_archaeology_context_only",
-        distance_scoring_note=(
-            "Use RAA to compare Swedish archaeology richness around lakes, not to infer exact site-by-site time alignment."
+        distance_scoring_posture=(
+            "coarse_archaeology_context_only"
+            if authority.admitted
+            else "refused_missing_authority"
         ),
+        distance_scoring_note=(
+            "Use RAÄ only after authority admission and only as coarse context, "
+            "never as exact site-by-site time alignment."
+        ),
+        availability_status="available" if authority.admitted else "refused",
+        refusal_reasons=authority.reason_codes,
         record_count=all_published_sites,
         numeric_interval_record_count=0,
         detail_metrics={
             "all_published_sites": all_published_sites,
-            "fornlamning_count": _int(counts.get("fornlamning", 0)),
+            "fornlamning_count": (
+                _int(counts.get("fornlamning", 0)) if authority.admitted else None
+            ),
         },
         caveats=(
-            "The normalized repository surface is density-oriented rather than a direct local-distance inventory of every upstream site row.",
+            "The normalized density surface is excluded until its source inventory, "
+            "counts, and qualified review reconcile.",
         ),
     )
 
 
 def _build_svar_row(output_root: Path) -> SourceSpatiotemporalPostureRecord:
-    payload = _load_json(
-        output_root / "svar" / "normalized" / "sweden_lake_registry.geojson"
-    )
+    registry_path = output_root / "svar" / "normalized" / "sweden_lake_registry.geojson"
+    payload = _load_json(registry_path)
     feature_count = len(_geojson_features(payload))
+    authority_available = registry_path.is_file()
     return SourceSpatiotemporalPostureRecord(
         source_key="svar",
         display_name="SMHI SVAR lake registry",
@@ -264,20 +300,37 @@ def _build_svar_row(output_root: Path) -> SourceSpatiotemporalPostureRecord:
             "data/source_family_evidence_stage_matrix.json",
         ),
         spatial_representation="candidate lake registry",
-        temporal_support_posture="no_time_dimension",
+        temporal_support_posture=(
+            "no_time_dimension" if authority_available else "refused_missing_authority"
+        ),
         temporal_support_note=(
             "SVAR contributes the lake anchors themselves rather than dated evidence around those lakes."
         ),
         temporal_scope="lake-anchor registry",
-        distance_scoring_posture="candidate_lake_anchor",
-        distance_scoring_note=(
-            "Use SVAR as the authoritative Sweden lake candidate surface before nearby evidence is counted."
+        distance_scoring_posture=(
+            "candidate_lake_anchor"
+            if authority_available
+            else "refused_missing_authority"
         ),
-        record_count=feature_count,
+        distance_scoring_note=(
+            "Use SVAR as the authoritative Sweden lake candidate surface only when "
+            "the governing normalized registry is present."
+        ),
+        availability_status="available" if authority_available else "refused",
+        refusal_reasons=(
+            () if authority_available else ("missing_governing_normalized_registry",)
+        ),
+        record_count=feature_count if authority_available else None,
         numeric_interval_record_count=0,
-        detail_metrics={"lake_count": feature_count},
+        detail_metrics={
+            "lake_count": feature_count if authority_available else None,
+        },
         caveats=(
-            "SVAR governs lake identity and location, not chronology or surrounding evidence completeness.",
+            (
+                "SVAR governs lake identity and location, not chronology or "
+                "surrounding evidence completeness. Derived review subsets are "
+                "excluded when the governing registry is absent."
+            ),
         ),
     )
 
@@ -287,6 +340,17 @@ def _build_boundaries_row(output_root: Path) -> SourceSpatiotemporalPostureRecor
         output_root / "boundaries" / "normalized" / "nordic_country_boundaries.geojson"
     )
     feature_count = len(_geojson_features(payload))
+    try:
+        boundary_authority = load_country_boundaries(
+            output_root=output_root / "boundaries",
+            boundary_codes=BOUNDARY_CODES,
+            natural_earth_version=NATURAL_EARTH_VERSION,
+            natural_earth_admin0_url=NATURAL_EARTH_ADMIN0_URL,
+            natural_earth_terms_url=NATURAL_EARTH_TERMS_URL,
+        )
+    except (OSError, UnicodeDecodeError, json.JSONDecodeError, ValueError):
+        boundary_authority = None
+    authority_available = boundary_authority is not None and feature_count == 4
     return SourceSpatiotemporalPostureRecord(
         source_key="boundaries",
         display_name="Boundary framing",
@@ -302,9 +366,17 @@ def _build_boundaries_row(output_root: Path) -> SourceSpatiotemporalPostureRecor
         distance_scoring_note=(
             "Use boundary geometry to constrain reporting scope, not to increase lake evidence scores."
         ),
-        record_count=feature_count,
+        availability_status=("review_required" if authority_available else "refused"),
+        refusal_reasons=(
+            ("qualified_boundary_inclusion_review_missing",)
+            if authority_available
+            else ("missing_or_invalid_boundary_authority",)
+        ),
+        record_count=feature_count if authority_available else None,
         numeric_interval_record_count=0,
-        detail_metrics={"polygon_count": feature_count},
+        detail_metrics={
+            "polygon_count": feature_count if authority_available else None,
+        },
         caveats=(
             "Boundary framing should never be misread as biological, archaeological, or chronological evidence.",
         ),
