@@ -1750,7 +1750,7 @@ MAP_DOCUMENT_TEMPLATE = """
       const DEFAULT_TIME_START_BP = __INITIAL_TIME_START_BP__;
       const DEFAULT_TIME_INTERVAL_YEARS = __INITIAL_TIME_INTERVAL__;
       const TIME_INTERVAL_MAX = __TIME_INTERVAL_MAX__;
-      const map = L.map('map', { preferCanvas: true, zoomControl: false });
+      const map = L.map('map', { preferCanvas: true, zoomControl: false, maxZoom: 20 });
       const basemaps = {
         voyager: L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', { attribution: '&copy; OpenStreetMap contributors &copy; CARTO', subdomains: 'abcd', maxZoom: 20 }),
         light: L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', { attribution: '&copy; OpenStreetMap contributors &copy; CARTO', subdomains: 'abcd', maxZoom: 20 }),

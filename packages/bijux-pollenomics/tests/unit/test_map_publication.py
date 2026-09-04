@@ -175,6 +175,7 @@ class MapPublicationUnitTests(unittest.TestCase):
 
     def test_basemap_failure_has_bounded_failover_and_tile_free_mode(self) -> None:
         self.assertIn('data-basemap="none"', MAP_DOCUMENT_TEMPLATE)
+        self.assertIn("zoomControl: false, maxZoom: 20", MAP_DOCUMENT_TEMPLATE)
         self.assertIn("const MAX_PROVIDER_TILE_ERRORS = 3", MAP_DOCUMENT_TEMPLATE)
         self.assertIn("layer.on('tileerror'", MAP_DOCUMENT_TEMPLATE)
         self.assertIn("failedBasemaps.add(name)", MAP_DOCUMENT_TEMPLATE)
