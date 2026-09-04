@@ -61,6 +61,9 @@ def collect_context_data(output_root: Path) -> ContextDataReport:
         output_root=report.output_root,
         landclim_site_count=report.landclim_site_count,
         landclim_grid_cell_count=report.landclim_grid_cell_count,
+        landclim_temporal_grid_feature_count=(
+            report.landclim_temporal_grid_feature_count
+        ),
         neotoma_point_count=report.neotoma_point_count,
         sead_point_count=report.sead_point_count,
         raa_total_site_count=report.raa_total_site_count,

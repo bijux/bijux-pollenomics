@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import hashlib
 import json
 from pathlib import Path
 import tempfile
@@ -10,6 +11,7 @@ import pytest
 
 from bijux_pollenomics.data_downloader.boundaries import (
     NATURAL_EARTH_ADMIN0_URL,
+    NATURAL_EARTH_TERMS_URL,
     NATURAL_EARTH_VERSION,
 )
 from bijux_pollenomics.data_downloader.collector import (
@@ -20,6 +22,42 @@ from bijux_pollenomics.data_downloader.collector import (
 )
 
 pytestmark = pytest.mark.generated_artifacts
+
+
+def _write_valid_boundary_manifest(raw_dir: Path) -> None:
+    country_artifacts = {
+        country: {
+            "path": filename,
+            "sha256": hashlib.sha256((raw_dir / filename).read_bytes()).hexdigest(),
+        }
+        for country, filename in (
+            ("Sweden", "sweden.geojson"),
+            ("Norway", "norway.geojson"),
+            ("Finland", "finland.geojson"),
+            ("Denmark", "denmark.geojson"),
+        )
+    }
+    (raw_dir / "source_manifest.json").write_text(
+        json.dumps(
+            {
+                "schema_version": "natural-earth-boundary-receipt.v1",
+                "source": "Natural Earth",
+                "version": NATURAL_EARTH_VERSION,
+                "asset_url": NATURAL_EARTH_ADMIN0_URL,
+                "sha256": "a" * 64,
+                "license": "public_domain",
+                "license_url": NATURAL_EARTH_TERMS_URL,
+                "source_crs": "EPSG:4326",
+                "coordinate_transformation": "none",
+                "country_selection_field": "ADM0_A3",
+                "geometry_inclusion_policy": (
+                    "retain_all_geometry_parts_from_each_selected_admin0_feature"
+                ),
+                "country_artifacts": country_artifacts,
+            }
+        ),
+        encoding="utf-8",
+    )
 
 
 class DataCollectorTests(unittest.TestCase):
@@ -473,11 +511,12 @@ class DataCollectorTests(unittest.TestCase):
                 )
 
             readme_text = (output_root / "README.md").read_text(encoding="utf-8")
+            normalized_readme = " ".join(readme_text.split())
             self.assertIn(
-                "Tracked source data and governed species-owned ancient-DNA views live directly",
-                readme_text,
+                "Tracked source data and governed species-owned ancient-DNA views live "
+                "directly under `custom-data/`",
+                normalized_readme,
             )
-            self.assertIn("under `custom-data/`", readme_text)
             self.assertIn("\ncustom-data\n", readme_text)
             self.assertIn("│   └── v62.0", readme_text)
             summary = json.loads(
@@ -531,6 +570,7 @@ class DataCollectorTests(unittest.TestCase):
             )
             self.assertEqual(summary["landclim_site_count"], 0)
             self.assertEqual(summary["landclim_grid_cell_count"], 0)
+            self.assertEqual(summary["landclim_temporal_grid_feature_count"], 0)
             for source_dir in AVAILABLE_SOURCES:
                 self.assertTrue((output_root / source_dir).exists())
 
@@ -583,16 +623,7 @@ class DataCollectorTests(unittest.TestCase):
             }
             for filename, payload in boundary_payloads.items():
                 (raw_dir / filename).write_text(json.dumps(payload), encoding="utf-8")
-            (raw_dir / "source_manifest.json").write_text(
-                json.dumps(
-                    {
-                        "source": "Natural Earth",
-                        "version": NATURAL_EARTH_VERSION,
-                        "asset_url": NATURAL_EARTH_ADMIN0_URL,
-                    }
-                ),
-                encoding="utf-8",
-            )
+            _write_valid_boundary_manifest(raw_dir)
 
             with (
                 patch(
@@ -626,16 +657,7 @@ class DataCollectorTests(unittest.TestCase):
                 (raw_dir / filename).write_text(
                     json.dumps(invalid_payload), encoding="utf-8"
                 )
-            (raw_dir / "source_manifest.json").write_text(
-                json.dumps(
-                    {
-                        "source": "Natural Earth",
-                        "version": NATURAL_EARTH_VERSION,
-                        "asset_url": NATURAL_EARTH_ADMIN0_URL,
-                    }
-                ),
-                encoding="utf-8",
-            )
+            _write_valid_boundary_manifest(raw_dir)
 
             with self.assertRaisesRegex(ValueError, "FeatureCollection"):
                 collect_data(
@@ -657,6 +679,7 @@ class DataCollectorTests(unittest.TestCase):
                 fetch_boundaries.return_value = {"Sweden": {"features": []}}
                 collect_landclim.return_value.site_count = 11
                 collect_landclim.return_value.grid_cell_count = 7
+                collect_landclim.return_value.temporal_grid_feature_count = 23
 
                 report = collect_data(
                     output_root=output_root, sources=("landclim",), version="v62.0"
@@ -670,6 +693,7 @@ class DataCollectorTests(unittest.TestCase):
             )
             self.assertEqual(report.landclim_site_count, 11)
             self.assertEqual(report.landclim_grid_cell_count, 7)
+            self.assertEqual(report.landclim_temporal_grid_feature_count, 23)
 
     def test_collect_data_rejects_unsupported_sources_without_writing_output(
         self,

@@ -11,6 +11,7 @@ from bijux_pollenomics.data_downloader.pipeline.contract_surface_writer import (
 from bijux_pollenomics.data_downloader.repository_snapshot import (
     build_repository_collection_summary,
     build_repository_source_counts,
+    materialize_repository_source_summary_products,
 )
 
 
@@ -29,7 +30,13 @@ class RepositorySnapshotUnitTests(unittest.TestCase):
             (
                 output_root / "landclim" / "normalized" / "landclim_summary.json"
             ).write_text(
-                json.dumps({"site_count": 4, "grid_cell_count": 7}),
+                json.dumps(
+                    {
+                        "site_count": 4,
+                        "grid_cell_count": 7,
+                        "temporal_grid_feature_count": 13,
+                    }
+                ),
                 encoding="utf-8",
             )
             (output_root / "neotoma" / "normalized").mkdir(parents=True, exist_ok=True)
@@ -67,11 +74,83 @@ class RepositorySnapshotUnitTests(unittest.TestCase):
         self.assertEqual(counts["aadr_file_count"], 1)
         self.assertEqual(counts["landclim_site_count"], 4)
         self.assertEqual(counts["landclim_grid_cell_count"], 7)
+        self.assertEqual(counts["landclim_temporal_grid_feature_count"], 13)
         self.assertEqual(counts["neotoma_point_count"], 2)
         self.assertEqual(counts["sead_point_count"], 3)
         self.assertEqual(counts["raa_total_site_count"], 11)
         self.assertEqual(counts["raa_heritage_site_count"], 5)
         self.assertEqual(counts["svar_lake_count"], 40565)
+
+    def test_materialize_repository_source_summary_products_writes_only_owned_surfaces(
+        self,
+    ) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            output_root = Path(tmp) / "data"
+            normalized_root = output_root / "landclim" / "normalized"
+            normalized_root.mkdir(parents=True)
+            (normalized_root / "landclim_summary.json").write_text(
+                json.dumps(
+                    {
+                        "site_count": 490,
+                        "grid_cell_count": 77,
+                        "temporal_grid_feature_count": 2_515,
+                    }
+                ),
+                encoding="utf-8",
+            )
+            unrelated_path = output_root / "evidence_artifact_contracts.json"
+            unrelated_path.write_text("sentinel", encoding="utf-8")
+
+            summary = materialize_repository_source_summary_products(
+                output_root, version="v66"
+            )
+
+            collection_payload = json.loads(
+                (output_root / "collection_summary.json").read_text(encoding="utf-8")
+            )
+            matrix_payload = json.loads(
+                (output_root / "source_family_evidence_stage_matrix.json").read_text(
+                    encoding="utf-8"
+                )
+            )
+            contract_payload = json.loads(
+                (output_root / "source_family_contracts.json").read_text(
+                    encoding="utf-8"
+                )
+            )
+            unrelated_payload = unrelated_path.read_text(encoding="utf-8")
+
+        landclim_row = next(
+            row for row in matrix_payload["rows"] if row["source_key"] == "landclim"
+        )
+        self.assertEqual(summary.landclim_site_count, 490)
+        self.assertEqual(summary.landclim_grid_cell_count, 77)
+        self.assertEqual(summary.landclim_temporal_grid_feature_count, 2_515)
+        self.assertEqual(collection_payload["landclim_site_count"], 490)
+        self.assertEqual(collection_payload["landclim_grid_cell_count"], 77)
+        self.assertEqual(
+            collection_payload["landclim_temporal_grid_feature_count"], 2_515
+        )
+        self.assertEqual(
+            landclim_row["coverage_metrics"],
+            {
+                "landclim_site_count": 490,
+                "landclim_grid_cell_count": 77,
+                "landclim_temporal_grid_feature_count": 2_515,
+            },
+        )
+        landclim_contract = next(
+            row for row in contract_payload["rows"] if row["source_key"] == "landclim"
+        )
+        self.assertEqual(
+            landclim_contract["coverage_metric_keys"],
+            [
+                "landclim_site_count",
+                "landclim_grid_cell_count",
+                "landclim_temporal_grid_feature_count",
+            ],
+        )
+        self.assertEqual(unrelated_payload, "sentinel")
 
     def test_build_repository_collection_summary_adds_contract_artifacts(self) -> None:
         with tempfile.TemporaryDirectory() as tmp:

@@ -56,7 +56,16 @@ class DataContractSurfaceRegressionTests(unittest.TestCase):
         self.assertEqual(contract_keys, matrix_keys)
         self.assertEqual(contract_payload["row_count"], matrix_payload["row_count"])
         rows = {row["source_key"]: row for row in matrix_payload["rows"]}
+        self.assertEqual(
+            rows["landclim"]["coverage_metrics"],
+            {
+                "landclim_site_count": 490,
+                "landclim_grid_cell_count": 77,
+                "landclim_temporal_grid_feature_count": 2_515,
+            },
+        )
         self.assertEqual(rows["raa"]["authority_status"], "refused")
+        self.assertEqual(rows["raa"]["published_status"], "refused")
         self.assertIsNone(rows["raa"]["coverage_metrics"]["raa_total_site_count"])
         self.assertEqual(rows["svar"]["authority_status"], "refused")
         self.assertIsNone(rows["svar"]["coverage_metrics"]["svar_lake_count"])

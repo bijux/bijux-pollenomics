@@ -94,6 +94,7 @@ class ContextDataReport:
     output_root: Path
     landclim_site_count: int
     landclim_grid_cell_count: int
+    landclim_temporal_grid_feature_count: int
     neotoma_point_count: int
     sead_point_count: int
     raa_total_site_count: int
@@ -121,6 +122,7 @@ class DataCollectionSummary:
     aadr_file_count: int
     landclim_site_count: int
     landclim_grid_cell_count: int
+    landclim_temporal_grid_feature_count: int
     neotoma_point_count: int
     sead_point_count: int
     raa_total_site_count: int
@@ -148,6 +150,7 @@ class DataCollectionReport:
     aadr_file_count: int
     landclim_site_count: int
     landclim_grid_cell_count: int
+    landclim_temporal_grid_feature_count: int
     neotoma_point_count: int
     sead_point_count: int
     raa_total_site_count: int

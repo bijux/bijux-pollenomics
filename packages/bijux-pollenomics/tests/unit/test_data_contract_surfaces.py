@@ -77,6 +77,7 @@ class DataContractSurfaceUnitTests(unittest.TestCase):
                     "aadr_file_count": 2,
                     "landclim_site_count": 10,
                     "landclim_grid_cell_count": 20,
+                    "landclim_temporal_grid_feature_count": 30,
                     "neotoma_point_count": 0,
                     "sead_point_count": 0,
                     "raa_total_site_count": 0,
@@ -151,12 +152,13 @@ class DataContractSurfaceUnitTests(unittest.TestCase):
         rows = {row["source_key"]: row for row in payload["rows"]}
         for source_key in ("raa", "boundaries"):
             row = rows[source_key]
-            self.assertEqual(row["published_status"], "present")
             self.assertEqual(row["authority_status"], "refused")
             self.assertEqual(
                 row["publication_posture"], "refused_not_publication_ready"
             )
             self.assertIn("source_authority_refused", row["blocking_reasons"])
+        self.assertEqual(rows["raa"]["published_status"], "refused")
+        self.assertEqual(rows["boundaries"]["published_status"], "present")
         self.assertEqual(
             rows["raa"]["coverage_metrics"],
             {"raa_total_site_count": None, "raa_heritage_site_count": None},

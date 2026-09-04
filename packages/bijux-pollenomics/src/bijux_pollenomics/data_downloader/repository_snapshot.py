@@ -10,7 +10,11 @@ from .pipeline.collection_reports import (
     build_data_collection_summary,
     initialize_source_counts,
 )
-from .pipeline.contract_surface_writer import write_data_contract_surfaces
+from .pipeline.contract_surface_writer import (
+    write_data_contract_surfaces,
+    write_source_family_contract,
+    write_source_family_state_matrix,
+)
 from .pipeline.summary_writer import write_collection_summary
 from .source_hashes import build_source_hashes
 from .source_metadata import build_source_metadata
@@ -22,6 +26,7 @@ __all__ = [
     "build_repository_collection_summary",
     "build_repository_source_counts",
     "materialize_repository_collection_snapshot",
+    "materialize_repository_source_summary_products",
 ]
 
 
@@ -39,6 +44,9 @@ def build_repository_source_counts(output_root: Path) -> dict[str, int]:
         payload = json.loads(landclim_summary.read_text(encoding="utf-8"))
         counts["landclim_site_count"] = int(payload.get("site_count", 0))
         counts["landclim_grid_cell_count"] = int(payload.get("grid_cell_count", 0))
+        counts["landclim_temporal_grid_feature_count"] = int(
+            payload.get("temporal_grid_feature_count", 0)
+        )
     counts["neotoma_point_count"] = _geojson_feature_count(
         output_root / "neotoma" / "normalized" / "nordic_pollen_sites.geojson"
     )
@@ -126,6 +134,19 @@ def materialize_repository_collection_snapshot(
     """Refresh the checked-in collection summary and contract surfaces in place."""
     summary = build_repository_collection_summary(output_root, version=version)
     write_data_contract_surfaces(summary)
+    write_collection_summary(summary)
+    return summary
+
+
+def materialize_repository_source_summary_products(
+    output_root: Path,
+    *,
+    version: str = DEFAULT_AADR_VERSION,
+) -> DataCollectionSummary:
+    """Refresh collection summary products without unrelated contract surfaces."""
+    summary = build_repository_collection_summary(output_root, version=version)
+    write_source_family_contract(summary)
+    write_source_family_state_matrix(summary)
     write_collection_summary(summary)
     return summary
 

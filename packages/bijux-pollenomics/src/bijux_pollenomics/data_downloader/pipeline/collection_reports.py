@@ -27,6 +27,7 @@ def initialize_source_counts() -> dict[str, int]:
         "aadr_file_count": 0,
         "landclim_site_count": 0,
         "landclim_grid_cell_count": 0,
+        "landclim_temporal_grid_feature_count": 0,
         "neotoma_point_count": 0,
         "sead_point_count": 0,
         "raa_total_site_count": 0,
@@ -70,6 +71,9 @@ def build_data_collection_summary(
         aadr_file_count=counts["aadr_file_count"],
         landclim_site_count=counts["landclim_site_count"],
         landclim_grid_cell_count=counts["landclim_grid_cell_count"],
+        landclim_temporal_grid_feature_count=counts[
+            "landclim_temporal_grid_feature_count"
+        ],
         neotoma_point_count=counts["neotoma_point_count"],
         sead_point_count=counts["sead_point_count"],
         raa_total_site_count=counts["raa_total_site_count"],
@@ -99,6 +103,9 @@ def build_data_collection_report(
         aadr_file_count=summary.aadr_file_count,
         landclim_site_count=summary.landclim_site_count,
         landclim_grid_cell_count=summary.landclim_grid_cell_count,
+        landclim_temporal_grid_feature_count=(
+            summary.landclim_temporal_grid_feature_count
+        ),
         neotoma_point_count=summary.neotoma_point_count,
         sead_point_count=summary.sead_point_count,
         raa_total_site_count=summary.raa_total_site_count,

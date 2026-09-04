@@ -114,7 +114,11 @@ def build_source_family_contracts() -> tuple[SourceFamilyContract, ...]:
                     "docs/report/regions/nordic/nordic_reveals_temporal_grid_cells.geojson",
                 ),
             ),
-            coverage_metric_keys=("landclim_site_count", "landclim_grid_cell_count"),
+            coverage_metric_keys=(
+                "landclim_site_count",
+                "landclim_grid_cell_count",
+                "landclim_temporal_grid_feature_count",
+            ),
         ),
         SourceFamilyContract(
             source_key="neotoma",
@@ -470,7 +474,12 @@ def build_source_family_state_rows(
         raw_status = _layer_status(output_root, contract.raw_layer)
         normalized_status = _layer_status(output_root, contract.normalized_layer)
         reviewed_status = _layer_status(output_root, contract.reviewed_layer)
-        published_status = _layer_status(output_root, contract.published_layer)
+        published_layer_status = _layer_status(output_root, contract.published_layer)
+        published_status = (
+            "refused"
+            if contract.source_key == "raa" and authority.status == "refused"
+            else published_layer_status
+        )
         coverage_metrics = _coverage_metrics(
             output_root,
             counts,
@@ -802,6 +811,9 @@ def _coverage_metrics(
         return {
             "landclim_site_count": int(counts.get("landclim_site_count", 0)),
             "landclim_grid_cell_count": int(counts.get("landclim_grid_cell_count", 0)),
+            "landclim_temporal_grid_feature_count": int(
+                counts.get("landclim_temporal_grid_feature_count", 0)
+            ),
         }
     if source_key == "neotoma":
         return {"neotoma_point_count": int(counts.get("neotoma_point_count", 0))}

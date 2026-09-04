@@ -109,6 +109,7 @@ class LandClimDataReport:
     output_dir: Path
     site_count: int
     grid_cell_count: int
+    temporal_grid_feature_count: int
     raw_manifest_path: Path
     normalized_sites_csv_path: Path
     normalized_sites_geojson_path: Path
@@ -198,6 +199,7 @@ def collect_landclim_data(
         output_dir=output_root,
         site_count=len(site_records),
         grid_cell_count=len(feature_list(grid_geojson)),
+        temporal_grid_feature_count=len(feature_list(temporal_grid_geojson)),
         raw_manifest_path=raw_manifest_path,
         normalized_sites_csv_path=normalized_sites_csv_path,
         normalized_sites_geojson_path=normalized_sites_geojson_path,
@@ -281,6 +283,7 @@ def materialize_landclim_repository_surfaces(data_root: Path) -> LandClimDataRep
         output_dir=output_root,
         site_count=len(site_records),
         grid_cell_count=len(feature_list(grid_geojson)),
+        temporal_grid_feature_count=len(feature_list(temporal_grid_geojson)),
         raw_manifest_path=raw_dir / "landclim_sources.json",
         normalized_sites_csv_path=normalized_sites_csv_path,
         normalized_sites_geojson_path=normalized_sites_geojson_path,

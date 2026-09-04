@@ -17,33 +17,19 @@ from ..source_spatiotemporal_posture import (
     build_source_spatiotemporal_posture_payload,
 )
 
-__all__ = ["write_data_contract_surfaces"]
+__all__ = [
+    "write_data_contract_surfaces",
+    "write_source_family_contract",
+    "write_source_family_state_matrix",
+]
 
 
 def write_data_contract_surfaces(summary: DataCollectionSummary) -> None:
     """Write durable data-contract surfaces that explain source ownership and stages."""
     output_root = summary.output_root
     contract_artifacts = summary.contract_artifacts
-    write_json(
-        Path(contract_artifacts["source_family_contracts"]),
-        build_source_family_contract_payload(),
-    )
-    write_json(
-        Path(contract_artifacts["source_family_evidence_stage_matrix"]),
-        build_source_family_state_matrix_payload(
-            output_root,
-            counts={
-                "aadr_file_count": summary.aadr_file_count,
-                "landclim_site_count": summary.landclim_site_count,
-                "landclim_grid_cell_count": summary.landclim_grid_cell_count,
-                "neotoma_point_count": summary.neotoma_point_count,
-                "sead_point_count": summary.sead_point_count,
-                "raa_total_site_count": summary.raa_total_site_count,
-                "raa_heritage_site_count": summary.raa_heritage_site_count,
-                "svar_lake_count": summary.svar_lake_count,
-            },
-        ),
-    )
+    write_source_family_contract(summary)
+    write_source_family_state_matrix(summary)
     write_json(
         Path(contract_artifacts["source_spatiotemporal_posture_registry"]),
         build_source_spatiotemporal_posture_payload(output_root),
@@ -57,3 +43,34 @@ def write_data_contract_surfaces(summary: DataCollectionSummary) -> None:
         build_evidence_artifact_contract_payload(),
     )
     materialize_adna_governance_contracts(output_root)
+
+
+def write_source_family_state_matrix(summary: DataCollectionSummary) -> None:
+    """Write the source-family state matrix from one collection summary."""
+    write_json(
+        Path(summary.contract_artifacts["source_family_evidence_stage_matrix"]),
+        build_source_family_state_matrix_payload(
+            summary.output_root,
+            counts={
+                "aadr_file_count": summary.aadr_file_count,
+                "landclim_site_count": summary.landclim_site_count,
+                "landclim_grid_cell_count": summary.landclim_grid_cell_count,
+                "landclim_temporal_grid_feature_count": (
+                    summary.landclim_temporal_grid_feature_count
+                ),
+                "neotoma_point_count": summary.neotoma_point_count,
+                "sead_point_count": summary.sead_point_count,
+                "raa_total_site_count": summary.raa_total_site_count,
+                "raa_heritage_site_count": summary.raa_heritage_site_count,
+                "svar_lake_count": summary.svar_lake_count,
+            },
+        ),
+    )
+
+
+def write_source_family_contract(summary: DataCollectionSummary) -> None:
+    """Write the source-family contract declared by the collection summary."""
+    write_json(
+        Path(summary.contract_artifacts["source_family_contracts"]),
+        build_source_family_contract_payload(),
+    )

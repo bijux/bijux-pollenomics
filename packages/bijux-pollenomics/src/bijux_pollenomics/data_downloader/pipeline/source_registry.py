@@ -32,6 +32,10 @@ CONTEXT_SOURCE_SPECS = {
         count_attributes=(
             ("landclim_site_count", "site_count"),
             ("landclim_grid_cell_count", "grid_cell_count"),
+            (
+                "landclim_temporal_grid_feature_count",
+                "temporal_grid_feature_count",
+            ),
         ),
     ),
     "neotoma": ContextSourceSpec(
