@@ -452,7 +452,10 @@ def _validate_reconciliations(items: Sequence[CountReconciliation]) -> None:
             raise ReleaseEvidenceError(
                 f"one source reconciliation is required for {key}"
             )
-        if {item.country_code for item in country_rows} != _COUNTRIES:
+        country_codes = {item.country_code for item in country_rows}
+        if len(country_rows) != len(_COUNTRIES) or any(
+            code not in country_codes for code in _COUNTRIES
+        ):
             raise ReleaseEvidenceError(
                 f"complete country reconciliation is required for {key}"
             )

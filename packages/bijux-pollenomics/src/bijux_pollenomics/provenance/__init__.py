@@ -11,6 +11,8 @@ from .release_evidence import (
     hash_repository_object,
     validate_release_evidence_manifest,
 )
+from .writer import main as release_evidence_main
+from .writer import write_release_evidence_manifest
 
 __all__ = [
     "ArtifactInput",
@@ -21,5 +23,7 @@ __all__ = [
     "ReleaseEvidenceError",
     "build_release_evidence_manifest",
     "hash_repository_object",
+    "release_evidence_main",
     "validate_release_evidence_manifest",
+    "write_release_evidence_manifest",
 ]
