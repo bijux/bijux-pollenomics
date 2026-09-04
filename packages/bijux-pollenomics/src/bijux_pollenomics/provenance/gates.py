@@ -2,13 +2,9 @@
 
 from __future__ import annotations
 
-from collections.abc import Mapping, Sequence
-from contextlib import suppress
-from dataclasses import dataclass
 import hashlib
 import json
 import os
-from pathlib import Path, PurePosixPath
 import re
 import shutil
 import stat
@@ -16,6 +12,10 @@ import subprocess
 import tempfile
 import time
 import xml.etree.ElementTree as ET
+from collections.abc import Mapping, Sequence
+from contextlib import suppress
+from dataclasses import dataclass
+from pathlib import Path, PurePosixPath
 
 from .release_evidence import ReleaseEvidenceError, hash_repository_object
 
@@ -145,7 +145,7 @@ _GATE_FIXED_INPUTS: dict[str, tuple[str, ...]] = {
         "data/svar",
         "data/boundaries",
     ),
-    "map": ("configs/pytest.ini",),
+    "map": ("configs/pytest.ini", "docs/report"),
     "provenance": ("configs/pytest.ini",),
     "doc-counts": (
         "configs/pytest.ini",

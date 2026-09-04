@@ -2,13 +2,15 @@ from __future__ import annotations
 
 import hashlib
 import json
-from pathlib import Path
 import sys
+from pathlib import Path
 
 import pytest
-
 from bijux_pollenomics.provenance import gates as gate_module
-from bijux_pollenomics.provenance.gates import run_recorded_gate
+from bijux_pollenomics.provenance.gates import (
+    build_product_gate_specification,
+    run_recorded_gate,
+)
 from bijux_pollenomics.provenance.release_evidence import ReleaseEvidenceError
 
 
@@ -31,6 +33,14 @@ def _input(root: Path) -> None:
     path = root / "inputs/source.txt"
     path.parent.mkdir(parents=True)
     path.write_text("immutable input\n", encoding="utf-8")
+
+
+def test_product_map_gate_binds_generated_report_tree() -> None:
+    repository_root = Path(__file__).resolve().parents[4]
+
+    specification = build_product_gate_specification(repository_root, "map")
+
+    assert "docs/report" in specification.input_paths
 
 
 def test_gate_runs_exact_argv_and_records_canonical_logs(tmp_path: Path) -> None:
