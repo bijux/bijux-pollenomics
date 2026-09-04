@@ -1758,6 +1758,7 @@ MAP_DOCUMENT_TEMPLATE = """
       };
       const BASEMAP_NAMES = [...Object.keys(basemaps), 'none'];
       const BASEMAP_FALLBACK_ORDER = ['voyager', 'light', 'terrain', 'none'];
+      const DEFAULT_BASEMAP = '__INITIAL_BASEMAP__';
       const MAX_PROVIDER_TILE_ERRORS = 3;
       L.control.zoom({ position: 'bottomright' }).addTo(map);
       L.control.scale({ imperial: false }).addTo(map);
@@ -1932,7 +1933,7 @@ MAP_DOCUMENT_TEMPLATE = """
       let timeIntervalYears = TIME_HAS_DATA ? clampTimeInterval(initialState.timeInterval) : DEFAULT_TIME_INTERVAL_YEARS;
       let timeStartBp = TIME_HAS_DATA ? clampTimeStart(initialState.timeStart, timeIntervalYears) : DEFAULT_TIME_START_BP;
       let densityOpacity = Math.max(0, Math.min(1, Number(initialState.density || '60') / 100 || 0.6));
-      let currentBasemap = BASEMAP_NAMES.includes(String(initialState.basemap || '')) ? String(initialState.basemap) : '__INITIAL_BASEMAP__';
+      let currentBasemap = BASEMAP_NAMES.includes(String(initialState.basemap || '')) ? String(initialState.basemap) : DEFAULT_BASEMAP;
       let activeBasemap = null;
       const failedBasemaps = new Set();
       const basemapErrorCounts = new Map();
@@ -2126,7 +2127,7 @@ MAP_DOCUMENT_TEMPLATE = """
         if (TIME_HAS_DATA && timeStartBp !== DEFAULT_TIME_START_BP) params.set('time_start', String(timeStartBp));
         if (TIME_HAS_DATA && timeIntervalYears !== DEFAULT_TIME_INTERVAL_YEARS) params.set('time_interval', String(timeIntervalYears));
         if (Math.round(densityOpacity * 100) !== 60) params.set('density', String(Math.round(densityOpacity * 100)));
-        if (currentBasemap !== 'voyager') params.set('basemap', currentBasemap);
+        if (currentBasemap !== DEFAULT_BASEMAP) params.set('basemap', currentBasemap);
         if (sidebar.classList.contains('is-collapsed') !== defaultPanelCollapsed()) {
           params.set('panel', sidebar.classList.contains('is-collapsed') ? 'collapsed' : 'open');
         }
@@ -2234,7 +2235,7 @@ MAP_DOCUMENT_TEMPLATE = """
         if (TIME_HAS_DATA && (timeStartBp !== DEFAULT_TIME_START_BP || timeIntervalYears !== DEFAULT_TIME_INTERVAL_YEARS)) count += 1;
         if (Number(slider.value) !== __INITIAL_DIAMETER__) count += 1;
         if (Math.round(densityOpacity * 100) !== 60) count += 1;
-        if (currentBasemap !== 'voyager') count += 1;
+        if (currentBasemap !== DEFAULT_BASEMAP) count += 1;
         return count;
       }
       function renderControlPanelSummary() {
@@ -2741,9 +2742,8 @@ MAP_DOCUMENT_TEMPLATE = """
         basemapReadout.textContent = message;
       }
       function nextBasemapAfter(name) {
-        const start = Math.max(0, BASEMAP_FALLBACK_ORDER.indexOf(name));
-        for (let offset = 1; offset <= BASEMAP_FALLBACK_ORDER.length; offset += 1) {
-          const candidate = BASEMAP_FALLBACK_ORDER[(start + offset) % BASEMAP_FALLBACK_ORDER.length];
+        for (const candidate of BASEMAP_FALLBACK_ORDER) {
+          if (candidate === name) continue;
           if (candidate === 'none' || !failedBasemaps.has(candidate)) return candidate;
         }
         return 'none';
@@ -2815,7 +2815,7 @@ MAP_DOCUMENT_TEMPLATE = """
         densityOpacitySlider.value = '60';
         setPanelCollapsed(defaultPanelCollapsed(), false);
         searchInput.value = '';
-        if (currentBasemap !== 'voyager') setBasemap('voyager', { manual: true });
+        if (currentBasemap !== DEFAULT_BASEMAP) setBasemap(DEFAULT_BASEMAP, { manual: true });
         renderCountryControls();
         renderLayerControls();
         renderMapState();

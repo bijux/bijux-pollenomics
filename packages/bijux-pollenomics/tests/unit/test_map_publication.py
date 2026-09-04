@@ -8,6 +8,7 @@ import unittest
 from bijux_pollenomics.reporting.bundles.paths import build_atlas_bundle_paths
 from bijux_pollenomics.reporting.context import build_context_layers
 from bijux_pollenomics.reporting.geography import build_published_geography_plan
+from bijux_pollenomics.reporting.map_document import render_multi_country_map_html
 from bijux_pollenomics.reporting.map_document.state import build_map_document_state
 from bijux_pollenomics.reporting.map_document.template import MAP_DOCUMENT_TEMPLATE
 from bijux_pollenomics.reporting.map_publication import (
@@ -89,6 +90,26 @@ class MapPublicationUnitTests(unittest.TestCase):
         self.assertEqual(state.time_min_bp, 0)
         self.assertEqual(state.time_max_bp, 100)
 
+    def test_map_time_state_refuses_partial_or_reversed_intervals(self) -> None:
+        policy = resolve_map_scope_policy(
+            build_published_geography_plan(("Sweden",)).world_scope
+        )
+        state = build_map_document_state(
+            policy=policy,
+            point_layers=[
+                {
+                    "features": [
+                        {"time_start_bp": 0, "time_mean_bp": 25},
+                        {"time_start_bp": 100, "time_end_bp": 50},
+                    ]
+                }
+            ],
+            polygon_layers=[],
+        )
+
+        self.assertFalse(state.has_time_data)
+        self.assertEqual((state.time_min_bp, state.time_max_bp), (0, 0))
+
     def test_browser_time_parser_distinguishes_null_from_zero(self) -> None:
         self.assertIn(
             "value === null || value === undefined || typeof value === 'boolean'",
@@ -108,6 +129,29 @@ class MapPublicationUnitTests(unittest.TestCase):
             "No basemap; evidence layers remain available", MAP_DOCUMENT_TEMPLATE
         )
         self.assertNotIn("apiKey", MAP_DOCUMENT_TEMPLATE)
+
+    def test_rendered_map_keeps_policy_default_and_complete_failover_order(self) -> None:
+        plan = build_published_geography_plan(("Sweden", "Norway", "Germany"))
+        europe_plus_policy = resolve_map_scope_policy(
+            next(scope for scope in plan.regional_scopes if scope.key == "europe_plus")
+        )
+        html = render_multi_country_map_html(
+            "Europe Plus",
+            "test-build",
+            "2026-09-04",
+            ("Sweden", "Norway", "Germany"),
+            europe_plus_policy,
+            [],
+            [],
+            "../../../assets",
+        )
+
+        self.assertIn("const DEFAULT_BASEMAP = 'light';", html)
+        self.assertIn("currentBasemap !== DEFAULT_BASEMAP", html)
+        self.assertIn("setBasemap(DEFAULT_BASEMAP, { manual: true })", html)
+        self.assertNotIn("currentBasemap !== 'voyager'", html)
+        self.assertIn("for (const candidate of BASEMAP_FALLBACK_ORDER)", html)
+        self.assertIn("if (candidate === name) continue;", html)
 
     def test_context_layers_withhold_nordic_only_overlays_from_broader_scopes(
         self,

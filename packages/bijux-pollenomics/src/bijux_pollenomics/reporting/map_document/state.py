@@ -20,23 +20,34 @@ class MapDocumentState:
     time_min_bp: int
 
 
+def _finite_bp_value(value: object) -> int | None:
+    if value is None or isinstance(value, bool):
+        return None
+    if not isinstance(value, (int, float, str)):
+        return None
+    try:
+        numeric = float(value)
+    except (TypeError, ValueError, OverflowError):
+        return None
+    if not math.isfinite(numeric) or numeric < 0:
+        return None
+    return int(round(numeric))
+
+
 def collect_feature_time_candidates(
     time_candidates: set[int], feature: JsonObject
 ) -> None:
-    """Collect all numeric BP candidates exposed by one point or polygon feature."""
-    for key in ("time_start_bp", "time_end_bp", "time_mean_bp", "time_year_bp"):
-        raw = feature.get(key)
-        if raw is None or isinstance(raw, bool):
-            continue
-        if not isinstance(raw, (int, float, str)):
-            continue
-        try:
-            numeric = float(raw)
-            if not math.isfinite(numeric):
-                continue
-            time_candidates.add(int(round(numeric)))
-        except (TypeError, ValueError, OverflowError):
-            continue
+    """Collect only complete canonical intervals or standalone point ages."""
+    start = _finite_bp_value(feature.get("time_start_bp"))
+    end = _finite_bp_value(feature.get("time_end_bp"))
+    interval_declared = "time_start_bp" in feature or "time_end_bp" in feature
+    if interval_declared:
+        if start is not None and end is not None and start <= end:
+            time_candidates.update((start, end))
+        return
+    for key in ("time_mean_bp", "time_year_bp"):
+        if (point_age := _finite_bp_value(feature.get(key))) is not None:
+            time_candidates.add(point_age)
 
 
 def build_map_document_state(
