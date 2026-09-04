@@ -36,8 +36,11 @@ POLLENOMICS_DATA_TESTS := \
 	$(POLLENOMICS_TEST_ROOT)/unit/test_adna_normalization.py \
 	$(POLLENOMICS_TEST_ROOT)/unit/test_adna_catalogs.py \
 	$(POLLENOMICS_TEST_ROOT)/unit/test_adna_runtime.py \
+	$(POLLENOMICS_TEST_ROOT)/unit/test_adna_sample_truth.py \
+	$(POLLENOMICS_TEST_ROOT)/unit/test_adna_source_library.py \
 	$(POLLENOMICS_TEST_ROOT)/unit/test_adna_temporal_query.py \
 	$(POLLENOMICS_TEST_ROOT)/unit/test_sead_acquisition.py \
+	$(POLLENOMICS_TEST_ROOT)/unit/test_sead_acquisition_admission.py \
 	$(POLLENOMICS_TEST_ROOT)/unit/test_sead_scoped_acquisition.py \
 	$(POLLENOMICS_TEST_ROOT)/unit/test_neotoma_data.py \
 	$(POLLENOMICS_TEST_ROOT)/unit/test_neotoma_relational.py \
