@@ -7,7 +7,6 @@ from pathlib import Path
 from typing import cast
 
 import pytest
-
 from bijux_pollenomics.provenance import (
     ArtifactInput,
     ArtifactReference,
@@ -19,6 +18,7 @@ from bijux_pollenomics.provenance import (
     hash_repository_object,
     validate_release_evidence_manifest,
 )
+from bijux_pollenomics.provenance.release_evidence import validate_recorded_gate
 
 COMMIT = "1" * 40
 
@@ -28,17 +28,78 @@ def _digest(content: bytes) -> str:
 
 
 def _json_digest(value: object) -> str:
-    encoded = json.dumps(
+    return _digest(_canonical_json(value))
+
+
+def _canonical_json(value: object) -> bytes:
+    return json.dumps(
         value,
         ensure_ascii=False,
         allow_nan=False,
         sort_keys=True,
         separators=(",", ":"),
     ).encode("utf-8")
-    return _digest(encoded)
 
 
-def _artifacts(root: Path) -> list[ArtifactInput]:
+def _write_gate_record(
+    root: Path,
+    *,
+    path: str = "validation.json",
+    gate_id: str = "quality",
+    status: str = "PASS",
+) -> str:
+    gate_input = root / "gate-input.txt"
+    gate_input.write_text("current gate input\n", encoding="utf-8")
+    evidence_directory = root / "gate-evidence"
+    evidence_directory.mkdir(exist_ok=True)
+    stdout_path = evidence_directory / f"{gate_id}.stdout.log"
+    stderr_path = evidence_directory / f"{gate_id}.stderr.log"
+    junit_path = evidence_directory / f"{gate_id}.junit.xml"
+    stdout_path.write_text("passed\n", encoding="utf-8")
+    stderr_path.write_bytes(b"")
+    junit_path.write_text('<testsuite failures="0"/>\n', encoding="utf-8")
+
+    def repository_record(relative: str) -> dict[str, object]:
+        return {"path": relative, **hash_repository_object(root, relative)}
+
+    inputs = [repository_record("gate-input.txt")]
+    if status == "PASS":
+        exit_code: int | None = 0
+        reason_code = "command_passed"
+    elif status == "FAIL":
+        exit_code = 1
+        reason_code = "command_failed"
+    else:
+        exit_code = None
+        reason_code = status.lower()
+    content: dict[str, object] = {
+        "schema_version": "recorded-gate.v1",
+        "gate_id": gate_id,
+        "argv": ["pytest", "-q"],
+        "command_digest": _json_digest(["pytest", "-q"]),
+        "environment_digest": _json_digest({}),
+        "environment_keys": [],
+        "inputs": inputs,
+        "input_digest": _json_digest(inputs),
+        "duration_monotonic_ns": 1,
+        "exit_code": exit_code,
+        "status": status,
+        "reason_code": reason_code,
+        "stdout": repository_record(f"gate-evidence/{gate_id}.stdout.log"),
+        "stderr": repository_record(f"gate-evidence/{gate_id}.stderr.log"),
+        "junit": repository_record(f"gate-evidence/{gate_id}.junit.xml"),
+    }
+    record = {"record_digest": _json_digest(content), **content}
+    payload = _canonical_json(record) + b"\n"
+    output = root / path
+    output.parent.mkdir(parents=True, exist_ok=True)
+    output.write_bytes(payload)
+    return _digest(payload)
+
+
+def _artifacts(
+    root: Path, *, gate_id: str = "quality", gate_status: str = "PASS"
+) -> list[ArtifactInput]:
     content = {
         "receipt.json": b"receipt\n",
         "snapshot/data.csv": b"record_id,value\n1,2\n",
@@ -49,13 +110,15 @@ def _artifacts(root: Path) -> list[ArtifactInput]:
         "producer.py": b"def build(): return 1\n",
         "uv.lock": b"version = 1\n",
         "output.json": b'{"records":1}\n',
-        "validation.json": b'{"status":"PASS"}\n',
     }
     for relative, value in content.items():
         path = root / relative
         path.parent.mkdir(parents=True, exist_ok=True)
         path.write_bytes(value)
     digests = {relative: _digest(value) for relative, value in content.items()}
+    digests["validation.json"] = _write_gate_record(
+        root, gate_id=gate_id, status=gate_status
+    )
     producer = digests["producer.py"]
     configs = tuple(
         digests[name]
@@ -100,7 +163,9 @@ def _artifacts(root: Path) -> list[ArtifactInput]:
                 role=role,  # type: ignore[arg-type]
                 path=relative,
                 media_type="application/octet-stream",
-                schema_version="fixture.v1",
+                schema_version=(
+                    "recorded-gate.v1" if role == "validation_result" else "fixture.v1"
+                ),
                 parents=parents,
                 config_digests=configs
                 if role in {"generated_output", "validation_result"}
@@ -154,6 +219,19 @@ def _reconciliations() -> list[CountReconciliation]:
     return rows
 
 
+def _refresh_validation_artifact(root: Path, artifacts: list[ArtifactInput]) -> None:
+    validation = next(item for item in artifacts if item.identity == "validation")
+    artifacts[artifacts.index(validation)] = ArtifactInput(
+        **{
+            **validation.__dict__,
+            "output_digest": cast(
+                str,
+                hash_repository_object(root, validation.path)["output_digest"],
+            ),
+        }
+    )
+
+
 def _build(
     root: Path,
     *,
@@ -185,10 +263,26 @@ def _build(
 
 
 def test_manifest_is_deterministic_for_shuffled_inputs(tmp_path: Path) -> None:
-    artifacts = _artifacts(tmp_path)
+    artifacts = _artifacts(tmp_path, gate_id="alpha")
+    alpha_validation = next(
+        artifact for artifact in artifacts if artifact.identity == "validation"
+    )
+    zeta_digest = _write_gate_record(
+        tmp_path, path="zeta-validation.json", gate_id="zeta"
+    )
+    artifacts.append(
+        ArtifactInput(
+            **{
+                **alpha_validation.__dict__,
+                "identity": "zeta-validation",
+                "path": "zeta-validation.json",
+                "output_digest": zeta_digest,
+            }
+        )
+    )
     gates = [
-        GateResult("zeta", "PASS", False, artifacts[-1].output_digest),
-        GateResult("alpha", "PASS", True, artifacts[-1].output_digest),
+        GateResult("zeta", "PASS", False, zeta_digest),
+        GateResult("alpha", "PASS", True, alpha_validation.output_digest),
     ]
     reconciliations = _reconciliations()
 
@@ -236,6 +330,82 @@ def test_validation_detects_file_and_manifest_tampering(tmp_path: Path) -> None:
         validate_release_evidence_manifest(tmp_path, altered)
 
 
+def test_recorded_gate_validator_binds_identity_status_and_required_policy(
+    tmp_path: Path,
+) -> None:
+    artifacts = _artifacts(tmp_path)
+    validation = next(item for item in artifacts if item.identity == "validation")
+    expected = GateResult("quality", "PASS", True, validation.output_digest)
+
+    record = validate_recorded_gate(tmp_path, validation.path, expected_gate=expected)
+
+    assert record["gate_id"] == "quality"
+    assert record["status"] == "PASS"
+    with pytest.raises(ReleaseEvidenceError, match="identity mismatch"):
+        _build(
+            tmp_path,
+            artifacts=artifacts,
+            gates=[GateResult("other", "PASS", True, validation.output_digest)],
+        )
+    with pytest.raises(ReleaseEvidenceError, match="status mismatch"):
+        _build(
+            tmp_path,
+            artifacts=artifacts,
+            gates=[GateResult("quality", "FAIL", True, validation.output_digest)],
+        )
+    with pytest.raises(ReleaseEvidenceError, match="required flag"):
+        _build(
+            tmp_path,
+            artifacts=artifacts,
+            gates=[
+                GateResult(
+                    "quality",
+                    "PASS",
+                    cast(bool, 1),
+                    validation.output_digest,
+                )
+            ],
+        )
+
+
+def test_recorded_gate_rejects_stale_declared_input(tmp_path: Path) -> None:
+    artifacts = _artifacts(tmp_path)
+    (tmp_path / "gate-input.txt").write_text("changed input\n", encoding="utf-8")
+
+    with pytest.raises(ReleaseEvidenceError, match="input changed"):
+        _build(tmp_path, artifacts=artifacts)
+
+
+def test_recorded_gate_rejects_internal_record_digest_tamper(tmp_path: Path) -> None:
+    artifacts = _artifacts(tmp_path)
+    path = tmp_path / "validation.json"
+    record = json.loads(path.read_text(encoding="utf-8"))
+    record["duration_monotonic_ns"] = 2
+    path.write_bytes(_canonical_json(record) + b"\n")
+    _refresh_validation_artifact(tmp_path, artifacts)
+
+    with pytest.raises(ReleaseEvidenceError, match="record_digest mismatch"):
+        _build(tmp_path, artifacts=artifacts)
+
+
+@pytest.mark.parametrize(
+    "relative_path, expected_message",
+    [
+        ("gate-evidence/quality.stdout.log", "stdout changed"),
+        ("gate-evidence/quality.stderr.log", "stderr changed"),
+        ("gate-evidence/quality.junit.xml", "JUnit changed"),
+    ],
+)
+def test_recorded_gate_rejects_tampered_result_artifact(
+    tmp_path: Path, relative_path: str, expected_message: str
+) -> None:
+    artifacts = _artifacts(tmp_path)
+    (tmp_path / relative_path).write_text("tampered\n", encoding="utf-8")
+
+    with pytest.raises(ReleaseEvidenceError, match=expected_message):
+        _build(tmp_path, artifacts=artifacts)
+
+
 def test_derived_artifact_requires_a_present_digest_matching_parent(
     tmp_path: Path,
 ) -> None:
@@ -261,7 +431,7 @@ def test_null_counts_are_rejected_while_zero_is_valid(tmp_path: Path) -> None:
     reconciliations = _reconciliations()
     fi = next(item for item in reconciliations if item.country_code == "FI")
     reconciliations[reconciliations.index(fi)] = CountReconciliation(
-        **{**fi.__dict__, "candidate_count": None}  # type: ignore[arg-type]
+        **{**fi.__dict__, "candidate_count": None}
     )
     with pytest.raises(ReleaseEvidenceError, match="non-null"):
         _build(tmp_path, reconciliations=reconciliations)
@@ -316,7 +486,7 @@ def test_paths_cannot_escape_or_traverse_symlinks(tmp_path: Path) -> None:
 def test_nonpassing_required_gate_never_claims_release_ready(
     tmp_path: Path, status: str
 ) -> None:
-    artifacts = _artifacts(tmp_path)
+    artifacts = _artifacts(tmp_path, gate_status=status)
     manifest = _build(
         tmp_path,
         artifacts=artifacts,

@@ -2,14 +2,14 @@
 
 from __future__ import annotations
 
-from collections.abc import Iterable, Mapping, Sequence
-from dataclasses import dataclass
 import hashlib
 import json
 import os
-from pathlib import Path, PurePosixPath
 import re
 import stat
+from collections.abc import Iterable, Mapping, Sequence
+from dataclasses import dataclass
+from pathlib import Path, PurePosixPath
 from typing import Final, Literal, TypeAlias, cast
 
 ArtifactRole: TypeAlias = Literal[
@@ -150,7 +150,7 @@ def build_release_evidence_manifest(
     )
 
     ordered_gates = sorted(gates, key=lambda item: item.identity)
-    _validate_gates(ordered_gates, artifact_records)
+    _validate_gates(root, ordered_gates, artifact_records)
     ordered_reconciliations = sorted(
         reconciliations,
         key=lambda item: (
@@ -238,6 +238,214 @@ def hash_repository_object(
 ) -> dict[str, object]:
     """Hash a safe repository-relative regular file or tree canonically."""
     return _hash_repository_object(_repository_root(repository_root), relative_path)
+
+
+def validate_recorded_gate(
+    repository_root: Path,
+    recorded_gate_path: str,
+    *,
+    expected_gate: GateResult | None = None,
+) -> dict[str, object]:
+    """Validate recorded-gate evidence against its current repository inputs.
+
+    ``required`` remains an explicit release-policy property on ``GateResult``;
+    the execution record attests the gate identity and observed status. Passing
+    an expected gate binds those attested fields and its evidence digest while
+    validating the release-policy flag without changing the request shape.
+    """
+    root = _repository_root(repository_root)
+    path = _safe_repository_path(root, recorded_gate_path)
+    payload = _read_stable_file(path)
+    try:
+        value = json.loads(payload)
+    except (UnicodeDecodeError, json.JSONDecodeError) as error:
+        raise ReleaseEvidenceError("recorded gate is not valid JSON") from error
+    record = _mapping(value, "recorded gate")
+    if payload != _canonical_json(record) + b"\n":
+        raise ReleaseEvidenceError("recorded gate is not canonical JSON")
+    _validate_recorded_gate_record(root, record)
+
+    if expected_gate is not None:
+        _require_identity(expected_gate.identity, "gate identity")
+        if expected_gate.status not in _GATE_STATUSES:
+            raise ReleaseEvidenceError(f"invalid gate status: {expected_gate.status}")
+        if type(expected_gate.required) is not bool:
+            raise ReleaseEvidenceError("gate required flag must be a boolean")
+        _require_digest(expected_gate.evidence_digest, "gate evidence digest")
+        if _string_field(record, "gate_id") != expected_gate.identity:
+            raise ReleaseEvidenceError(
+                f"recorded gate identity mismatch: {expected_gate.identity}"
+            )
+        if _string_field(record, "status") != expected_gate.status:
+            raise ReleaseEvidenceError(
+                f"recorded gate status mismatch: {expected_gate.identity}"
+            )
+        observed_digest = f"sha256:{hashlib.sha256(payload).hexdigest()}"
+        if observed_digest != expected_gate.evidence_digest:
+            raise ReleaseEvidenceError(
+                f"recorded gate evidence digest mismatch: {expected_gate.identity}"
+            )
+    return dict(record)
+
+
+def _validate_recorded_gate_record(root: Path, record: Mapping[str, object]) -> None:
+    expected_fields = {
+        "record_digest",
+        "schema_version",
+        "gate_id",
+        "argv",
+        "command_digest",
+        "environment_digest",
+        "environment_keys",
+        "inputs",
+        "input_digest",
+        "duration_monotonic_ns",
+        "exit_code",
+        "status",
+        "reason_code",
+        "stdout",
+        "stderr",
+        "junit",
+    }
+    if set(record) != expected_fields:
+        raise ReleaseEvidenceError("recorded gate fields do not match the v1 contract")
+    if record["schema_version"] != "recorded-gate.v1":
+        raise ReleaseEvidenceError("unsupported recorded-gate schema")
+
+    record_digest = _string_field(record, "record_digest")
+    _require_digest(record_digest, "recorded gate record_digest")
+    content = {key: value for key, value in record.items() if key != "record_digest"}
+    if record_digest != _digest_json(content):
+        raise ReleaseEvidenceError("recorded gate record_digest mismatch")
+
+    gate_id = _string_field(record, "gate_id")
+    _require_identity(gate_id, "recorded gate identity")
+    argv = _string_items(record, "argv")
+    if not argv or any(not item or "\0" in item for item in argv):
+        raise ReleaseEvidenceError("recorded gate argv must contain exact strings")
+    command_digest = _string_field(record, "command_digest")
+    _require_digest(command_digest, "recorded gate command_digest")
+    if command_digest != _digest_json(argv):
+        raise ReleaseEvidenceError("recorded gate command_digest mismatch")
+
+    environment_digest = _string_field(record, "environment_digest")
+    _require_digest(environment_digest, "recorded gate environment_digest")
+    environment_keys = _string_items(record, "environment_keys")
+    if environment_keys != sorted(environment_keys) or len(environment_keys) != len(
+        set(environment_keys)
+    ):
+        raise ReleaseEvidenceError("recorded gate environment_keys are not canonical")
+
+    inputs = _mapping_list(record, "inputs")
+    input_paths = [_string_field(item, "path") for item in inputs]
+    if input_paths != sorted(input_paths) or len(input_paths) != len(set(input_paths)):
+        raise ReleaseEvidenceError("recorded gate inputs are not canonical")
+    for item in inputs:
+        _validate_recorded_object(root, item, "input")
+    input_digest = _string_field(record, "input_digest")
+    _require_digest(input_digest, "recorded gate input_digest")
+    if input_digest != _digest_json(inputs):
+        raise ReleaseEvidenceError("recorded gate input_digest mismatch")
+
+    duration = _int_field(record, "duration_monotonic_ns")
+    if duration < 0:
+        raise ReleaseEvidenceError("recorded gate duration must be non-negative")
+    exit_code = record["exit_code"]
+    if exit_code is not None and type(exit_code) is not int:
+        raise ReleaseEvidenceError("recorded gate exit_code must be an integer or null")
+    status = _string_field(record, "status")
+    if status not in _GATE_STATUSES:
+        raise ReleaseEvidenceError(f"invalid recorded gate status: {status}")
+    reason_code = _string_field(record, "reason_code")
+    _require_identity(reason_code, "recorded gate reason_code")
+    if status == "PASS" and (exit_code != 0 or reason_code != "command_passed"):
+        raise ReleaseEvidenceError(
+            "recorded PASS gate contradicts its execution result"
+        )
+    if status == "FAIL" and exit_code == 0 and reason_code == "command_passed":
+        raise ReleaseEvidenceError(
+            "recorded FAIL gate contradicts its execution result"
+        )
+
+    stdout = _mapping(record["stdout"], "recorded gate stdout")
+    stderr = _mapping(record["stderr"], "recorded gate stderr")
+    _validate_recorded_object(root, stdout, "stdout")
+    _validate_recorded_object(root, stderr, "stderr")
+    junit = record["junit"]
+    if junit is not None:
+        junit_record = _mapping(junit, "recorded gate junit")
+        if set(junit_record) == {"path", "status"}:
+            if junit_record["status"] != "MISSING":
+                raise ReleaseEvidenceError("invalid recorded gate JUnit status")
+            _validate_recorded_missing_path(
+                root, _string_field(junit_record, "path"), "JUnit"
+            )
+            if status == "PASS":
+                raise ReleaseEvidenceError("recorded PASS gate has missing JUnit")
+        else:
+            _validate_recorded_object(root, junit_record, "JUnit")
+
+
+def _validate_recorded_object(
+    root: Path, record: Mapping[str, object], field: str
+) -> None:
+    expected_fields = {
+        "path",
+        "object_type",
+        "output_digest",
+        "byte_size",
+        "file_count",
+    }
+    if set(record) != expected_fields:
+        raise ReleaseEvidenceError(f"recorded gate {field} fields are invalid")
+    path = _string_field(record, "path")
+    object_type = _string_field(record, "object_type")
+    if object_type not in {"file", "tree"}:
+        raise ReleaseEvidenceError(f"recorded gate {field} object_type is invalid")
+    _require_digest(
+        _string_field(record, "output_digest"),
+        f"recorded gate {field} output_digest",
+    )
+    byte_size = _int_field(record, "byte_size")
+    file_count = _int_field(record, "file_count")
+    if byte_size < 0 or file_count < 0:
+        raise ReleaseEvidenceError(f"recorded gate {field} counts must be non-negative")
+    observed = {"path": path, **_hash_repository_object(root, path)}
+    if dict(record) != observed:
+        raise ReleaseEvidenceError(f"recorded gate {field} changed: {path}")
+
+
+def _validate_recorded_missing_path(root: Path, relative_path: str, field: str) -> None:
+    pure = _relative_path(relative_path)
+    current = root
+    for part in pure.parts[:-1]:
+        current /= part
+        try:
+            mode = current.lstat().st_mode
+        except FileNotFoundError as error:
+            raise ReleaseEvidenceError(
+                f"recorded gate missing {field} parent does not exist"
+            ) from error
+        if stat.S_ISLNK(mode) or not stat.S_ISDIR(mode):
+            raise ReleaseEvidenceError(f"recorded gate missing {field} path is unsafe")
+    target = current / pure.parts[-1]
+    if target.exists() or target.is_symlink():
+        raise ReleaseEvidenceError(f"recorded gate missing {field} now exists")
+
+
+def _relative_path(relative_path: str) -> PurePosixPath:
+    if not relative_path or "\\" in relative_path:
+        raise ReleaseEvidenceError(
+            f"invalid repository-relative path: {relative_path!r}"
+        )
+    pure = PurePosixPath(relative_path)
+    if pure.is_absolute() or pure.as_posix() != relative_path:
+        raise ReleaseEvidenceError(
+            f"invalid repository-relative path: {relative_path!r}"
+        )
+    if any(part in {"", ".", ".."} for part in pure.parts):
+        raise ReleaseEvidenceError(f"path escapes repository root: {relative_path!r}")
+    return pure
 
 
 def _artifact_record(root: Path, item: ArtifactInput) -> dict[str, object]:
@@ -375,16 +583,20 @@ def _has_source_ancestor(identity: str, artifacts: Mapping[str, ArtifactInput]) 
 
 
 def _validate_gates(
-    gates: Sequence[GateResult], records: Sequence[Mapping[str, object]]
+    root: Path,
+    gates: Sequence[GateResult],
+    records: Sequence[Mapping[str, object]],
 ) -> None:
     if not gates or not any(gate.required for gate in gates):
         raise ReleaseEvidenceError("at least one required gate result is required")
     _require_unique((gate.identity for gate in gates), "gate identity")
-    evidence_digests = {
-        _string_field(record, "output_digest")
-        for record in records
-        if record["role"] == "validation_result"
-    }
+    _require_unique((gate.evidence_digest for gate in gates), "gate evidence digest")
+    validation_records = [
+        record for record in records if record["role"] == "validation_result"
+    ]
+    by_digest: dict[str, list[Mapping[str, object]]] = {}
+    for record in validation_records:
+        by_digest.setdefault(_string_field(record, "output_digest"), []).append(record)
     for gate in gates:
         _require_identity(gate.identity, "gate identity")
         if gate.status not in _GATE_STATUSES:
@@ -392,10 +604,25 @@ def _validate_gates(
         if type(gate.required) is not bool:
             raise ReleaseEvidenceError("gate required flag must be a boolean")
         _require_digest(gate.evidence_digest, "gate evidence digest")
-        if gate.evidence_digest not in evidence_digests:
+        evidence = by_digest.get(gate.evidence_digest, [])
+        if len(evidence) != 1:
             raise ReleaseEvidenceError(
                 f"gate evidence is not a validation artifact: {gate.identity}"
             )
+        record = evidence[0]
+        if record["schema_version"] != "recorded-gate.v1":
+            raise ReleaseEvidenceError(
+                f"gate evidence is not recorded-gate.v1: {gate.identity}"
+            )
+        validate_recorded_gate(
+            root,
+            _string_field(record, "path"),
+            expected_gate=gate,
+        )
+    if len(validation_records) != len(gates):
+        raise ReleaseEvidenceError(
+            "every validation artifact must map to exactly one gate result"
+        )
 
 
 def _validate_reconciliations(items: Sequence[CountReconciliation]) -> None:
@@ -537,17 +764,7 @@ def _hash_repository_object(root: Path, relative_path: str) -> dict[str, object]
 
 
 def _safe_repository_path(root: Path, relative_path: str) -> Path:
-    if not relative_path or "\\" in relative_path:
-        raise ReleaseEvidenceError(
-            f"invalid repository-relative path: {relative_path!r}"
-        )
-    pure = PurePosixPath(relative_path)
-    if pure.is_absolute() or pure.as_posix() != relative_path:
-        raise ReleaseEvidenceError(
-            f"invalid repository-relative path: {relative_path!r}"
-        )
-    if any(part in {"", ".", ".."} for part in pure.parts):
-        raise ReleaseEvidenceError(f"path escapes repository root: {relative_path!r}")
+    pure = _relative_path(relative_path)
     current = root
     for part in pure.parts:
         current = current / part
@@ -653,6 +870,41 @@ def _hash_file(path: Path) -> tuple[str, int]:
     ):
         raise ReleaseEvidenceError(f"file changed while hashing: {path}")
     return f"sha256:{digest.hexdigest()}", before.st_size
+
+
+def _read_stable_file(path: Path) -> bytes:
+    flags = os.O_RDONLY | getattr(os, "O_NOFOLLOW", 0)
+    try:
+        descriptor = os.open(path, flags)
+    except OSError as error:
+        raise ReleaseEvidenceError(
+            f"could not safely open artifact file: {path}"
+        ) from error
+    try:
+        before = os.fstat(descriptor)
+        if not stat.S_ISREG(before.st_mode):
+            raise ReleaseEvidenceError(f"artifact is not a regular file: {path}")
+        with os.fdopen(descriptor, "rb", closefd=False) as stream:
+            payload = stream.read()
+        after = os.fstat(descriptor)
+    finally:
+        os.close(descriptor)
+    path_after = path.lstat()
+    stable_identity = (before.st_dev, before.st_ino, before.st_size, before.st_mtime_ns)
+    final_identity = (after.st_dev, after.st_ino, after.st_size, after.st_mtime_ns)
+    path_identity = (
+        path_after.st_dev,
+        path_after.st_ino,
+        path_after.st_size,
+        path_after.st_mtime_ns,
+    )
+    if (
+        stable_identity != final_identity
+        or stable_identity != path_identity
+        or not stat.S_ISREG(path_after.st_mode)
+    ):
+        raise ReleaseEvidenceError(f"file changed while reading: {path}")
+    return payload
 
 
 def _gate_record(item: GateResult) -> dict[str, object]:

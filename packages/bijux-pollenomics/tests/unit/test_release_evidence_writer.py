@@ -1,12 +1,12 @@
 from __future__ import annotations
 
-from dataclasses import asdict
+import hashlib
 import json
+from dataclasses import asdict
 from pathlib import Path
 from typing import cast
 
 import pytest
-
 from bijux_pollenomics.provenance import (
     ArtifactInput,
     ArtifactReference,
@@ -22,7 +22,62 @@ from bijux_pollenomics.provenance import (
 COMMIT = "3" * 40
 
 
-def _inputs(root: Path) -> tuple[list[ArtifactInput], list[CountReconciliation]]:
+def _digest(content: bytes) -> str:
+    return f"sha256:{hashlib.sha256(content).hexdigest()}"
+
+
+def _canonical_json(value: object) -> bytes:
+    return json.dumps(
+        value,
+        ensure_ascii=False,
+        allow_nan=False,
+        sort_keys=True,
+        separators=(",", ":"),
+    ).encode("utf-8")
+
+
+def _json_digest(value: object) -> str:
+    return _digest(_canonical_json(value))
+
+
+def _write_gate_record(root: Path, status: str) -> None:
+    gate_input = root / "inputs/gate-input.txt"
+    gate_input.parent.mkdir(parents=True, exist_ok=True)
+    gate_input.write_text("current gate input\n", encoding="utf-8")
+    stdout = root / "gate-evidence/quality.stdout.log"
+    stderr = root / "gate-evidence/quality.stderr.log"
+    stdout.parent.mkdir(parents=True, exist_ok=True)
+    stdout.write_text("passed\n", encoding="utf-8")
+    stderr.write_bytes(b"")
+
+    def repository_record(relative: str) -> dict[str, object]:
+        return {"path": relative, **hash_repository_object(root, relative)}
+
+    inputs = [repository_record("inputs/gate-input.txt")]
+    content: dict[str, object] = {
+        "schema_version": "recorded-gate.v1",
+        "gate_id": "quality",
+        "argv": ["pytest", "-q"],
+        "command_digest": _json_digest(["pytest", "-q"]),
+        "environment_digest": _json_digest({}),
+        "environment_keys": [],
+        "inputs": inputs,
+        "input_digest": _json_digest(inputs),
+        "duration_monotonic_ns": 1,
+        "exit_code": 0 if status == "PASS" else None,
+        "status": status,
+        "reason_code": "command_passed" if status == "PASS" else status.lower(),
+        "stdout": repository_record("gate-evidence/quality.stdout.log"),
+        "stderr": repository_record("gate-evidence/quality.stderr.log"),
+        "junit": None,
+    }
+    record = {"record_digest": _json_digest(content), **content}
+    (root / "inputs/validation.json").write_bytes(_canonical_json(record) + b"\n")
+
+
+def _inputs(
+    root: Path, *, gate_status: str = "PASS"
+) -> tuple[list[ArtifactInput], list[CountReconciliation]]:
     contents = {
         "inputs/receipt.json": b"receipt\n",
         "inputs/snapshot/records.csv": b"record_id,value\n1,2\n",
@@ -33,12 +88,13 @@ def _inputs(root: Path) -> tuple[list[ArtifactInput], list[CountReconciliation]]
         "inputs/producer.py": b"def build(): return 1\n",
         "inputs/uv.lock": b"version = 1\n",
         "inputs/output.json": b'{"records":1}\n',
-        "inputs/validation.json": b'{"status":"PASS"}\n',
     }
     for relative_path, content in contents.items():
         path = root / relative_path
         path.parent.mkdir(parents=True, exist_ok=True)
         path.write_bytes(content)
+    _write_gate_record(root, gate_status)
+    contents["inputs/validation.json"] = (root / "inputs/validation.json").read_bytes()
     digests = {
         relative_path: cast(
             str, hash_repository_object(root, relative_path)["output_digest"]
@@ -81,7 +137,9 @@ def _inputs(root: Path) -> tuple[list[ArtifactInput], list[CountReconciliation]]
             role=role,  # type: ignore[arg-type]
             path=path,
             media_type="application/octet-stream",
-            schema_version="fixture.v1",
+            schema_version=(
+                "recorded-gate.v1" if role == "validation_result" else "fixture.v1"
+            ),
             parents=parents,
             config_digests=(
                 config_digests
@@ -126,7 +184,7 @@ def _inputs(root: Path) -> tuple[list[ArtifactInput], list[CountReconciliation]]
 
 
 def _arguments(root: Path, *, gate_status: str = "PASS") -> dict[str, object]:
-    artifacts, reconciliations = _inputs(root)
+    artifacts, reconciliations = _inputs(root, gate_status=gate_status)
     by_identity = {artifact.identity: artifact for artifact in artifacts}
     return {
         "code_commit": COMMIT,
