@@ -372,13 +372,16 @@ def build_sweden_lake_evidence_richness_report(
     svar_registry_path = (
         Path(context_root) / "svar" / "normalized" / "sweden_lake_registry.geojson"
     )
-    svar_lake_path = (
-        svar_candidate_path if svar_candidate_path.exists() else svar_registry_path
-    )
-    if svar_lake_path.exists():
+    if svar_candidate_path.exists() and not svar_registry_path.exists():
+        return _build_empty_report(
+            normalized_radii,
+            candidate_source="svar_registry_authority_unavailable",
+            source_temporal_coverage=source_temporal_coverage,
+        )
+    if svar_registry_path.exists():
         return _build_svar_lake_report(
             radii_km=normalized_radii,
-            svar_lake_path=svar_lake_path,
+            svar_lake_path=svar_registry_path,
             pollen_points=pollen_points,
             neotoma_position_notes=neotoma_position_notes,
             human_points=human_points,
@@ -2632,6 +2635,23 @@ def _build_methodology(
     source_temporal_coverage: dict[str, object] | None = None,
     candidates: Sequence[LakeEvidenceCandidate] = (),
 ) -> dict[str, object]:
+    if candidate_source == "svar_registry_authority_unavailable":
+        payload: dict[str, object] = {
+            "candidate_derivation": (
+                "No SVAR lake candidates were admitted because the derived review "
+                "subset exists without its governing normalized registry."
+            ),
+            "candidate_source": candidate_source,
+            "availability_status": "blocked",
+            "refusal_reason": "governing_svar_registry_missing",
+            "governing_surface": ("data/svar/normalized/sweden_lake_registry.geojson"),
+            "derived_subset_admitted": False,
+            "distance_bands": list(radii_km),
+            "temporal_navigation": _temporal_navigation_summary(candidates),
+        }
+        if source_temporal_coverage:
+            payload["source_temporal_coverage"] = source_temporal_coverage
+        return payload
     if candidate_source == "svar_lake_registry":
         payload = {
             "candidate_derivation": (

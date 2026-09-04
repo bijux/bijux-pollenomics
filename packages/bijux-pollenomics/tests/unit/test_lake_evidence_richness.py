@@ -586,6 +586,38 @@ def test_build_sweden_lake_evidence_richness_report_prefers_svar_lakes() -> None
         assert popup_rows["Sampling posture"] == "sampling_lake_candidate"
 
 
+def test_lake_evidence_refuses_orphaned_svar_review_subset() -> None:
+    with tempfile.TemporaryDirectory() as tmp:
+        root = Path(tmp)
+        _write_json(
+            root / "svar" / "review" / "sweden_lake_candidate_registry.geojson",
+            {
+                "type": "FeatureCollection",
+                "features": [
+                    _svar_polygon_feature(
+                        record_id="orphan-1001",
+                        name="Lake Orphan",
+                        latitude=57.0,
+                        longitude=14.0,
+                        area_km2=2.3,
+                    )
+                ],
+            },
+        )
+
+        report = build_sweden_lake_evidence_richness_report(
+            context_root=root,
+            human_localities=(),
+            animal_localities=(),
+        )
+
+        assert report.candidate_count == 0
+        assert report.assessments == ()
+        assert report.methodology["availability_status"] == "blocked"
+        assert report.methodology["refusal_reason"] == "governing_svar_registry_missing"
+        assert report.methodology["derived_subset_admitted"] is False
+
+
 def test_svar_lake_candidates_prefer_direct_pollen_when_human_context_is_similar() -> (
     None
 ):
