@@ -50,7 +50,8 @@
       },
       "coverage_metric_keys": [
         "landclim_site_count",
-        "landclim_grid_cell_count"
+        "landclim_grid_cell_count",
+        "landclim_temporal_grid_feature_count"
       ],
       "layer_contracts": {
         "raw": {

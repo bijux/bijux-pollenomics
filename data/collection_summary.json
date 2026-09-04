@@ -82,11 +82,11 @@
       "normalized_sha256": "44c05182fe053907fd8af620ad6d573ff83eeb01219f00ccea2006a8a8b9bd59"
     },
     "landclim": {
-      "snapshot_sha256": "cbe411620d76260eded8f34375f8330baef2192e13b5d8990d0df1b555bbdac1",
-      "normalized_sha256": "52027cf5eecbb9fee71b46cb33974a3f351cb9899b5be7e2d0483be09d19ab7f"
+      "snapshot_sha256": "806c4996bef700b555cbb71eb354ce75bff3ebbe06a65d33e73aad4075a5be54",
+      "normalized_sha256": "0f52f448a2945d742f657ba181efd48966c5b56a6d447c5e231e5f0e2dffee7b"
     },
     "neotoma": {
-      "snapshot_sha256": "918abf1a4251019b7b3d1d3468255b881293d3f0e723023b4f9e5eb9eff98d62",
+      "snapshot_sha256": "e7a744a1935e8d6a99b70fa89c970a7471b0427db6830937355185baeb206e1e",
       "normalized_sha256": "06580ebe2c7d94b8064b75f6a47b2119e516cc985827881a70b13399808e39a9"
     },
     "raa": {
@@ -94,7 +94,7 @@
       "normalized_sha256": "e484c1b9230922cecaa4169dbbc21c3aef82429280cbcf4f36092749b7d4a53a"
     },
     "sead": {
-      "snapshot_sha256": "2d0f86e24019b34510b057e6aea0073c2dd7f98941146198927fe458c0ba3559",
+      "snapshot_sha256": "06b48b34f233b2b755283c42be24af46fa6e55f92a378661f6fae2dad286d832",
       "normalized_sha256": "e5a350fd8124e5ea6986bdbb037b304cad9db28ccb8d0afa23ff7b649b93f3bc"
     },
     "svar": {
@@ -139,8 +139,8 @@
       "acquisition_method": "collector_pipeline",
       "snapshot_root": "data/landclim",
       "normalized_root": "data/landclim/normalized",
-      "snapshot_sha256": "cbe411620d76260eded8f34375f8330baef2192e13b5d8990d0df1b555bbdac1",
-      "normalized_sha256": "52027cf5eecbb9fee71b46cb33974a3f351cb9899b5be7e2d0483be09d19ab7f"
+      "snapshot_sha256": "806c4996bef700b555cbb71eb354ce75bff3ebbe06a65d33e73aad4075a5be54",
+      "normalized_sha256": "0f52f448a2945d742f657ba181efd48966c5b56a6d447c5e231e5f0e2dffee7b"
     },
     "neotoma": {
       "source": "neotoma",
@@ -152,7 +152,7 @@
       "acquisition_method": "collector_pipeline",
       "snapshot_root": "data/neotoma",
       "normalized_root": "data/neotoma/normalized",
-      "snapshot_sha256": "918abf1a4251019b7b3d1d3468255b881293d3f0e723023b4f9e5eb9eff98d62",
+      "snapshot_sha256": "e7a744a1935e8d6a99b70fa89c970a7471b0427db6830937355185baeb206e1e",
       "normalized_sha256": "06580ebe2c7d94b8064b75f6a47b2119e516cc985827881a70b13399808e39a9"
     },
     "raa": {
@@ -178,7 +178,7 @@
       "acquisition_method": "collector_pipeline",
       "snapshot_root": "data/sead",
       "normalized_root": "data/sead/normalized",
-      "snapshot_sha256": "2d0f86e24019b34510b057e6aea0073c2dd7f98941146198927fe458c0ba3559",
+      "snapshot_sha256": "06b48b34f233b2b755283c42be24af46fa6e55f92a378661f6fae2dad286d832",
       "normalized_sha256": "e5a350fd8124e5ea6986bdbb037b304cad9db28ccb8d0afa23ff7b649b93f3bc"
     },
     "svar": {
@@ -274,17 +274,17 @@
       "source": "landclim",
       "source_identity": "landclim",
       "source_version": "v66",
-      "snapshot_sha256": "cbe411620d76260eded8f34375f8330baef2192e13b5d8990d0df1b555bbdac1",
-      "normalized_sha256": "52027cf5eecbb9fee71b46cb33974a3f351cb9899b5be7e2d0483be09d19ab7f",
-      "dispute_token": "landclim@v66:cbe411620d76"
+      "snapshot_sha256": "806c4996bef700b555cbb71eb354ce75bff3ebbe06a65d33e73aad4075a5be54",
+      "normalized_sha256": "0f52f448a2945d742f657ba181efd48966c5b56a6d447c5e231e5f0e2dffee7b",
+      "dispute_token": "landclim@v66:806c4996bef7"
     },
     "neotoma": {
       "source": "neotoma",
       "source_identity": "neotoma",
       "source_version": "v66",
-      "snapshot_sha256": "918abf1a4251019b7b3d1d3468255b881293d3f0e723023b4f9e5eb9eff98d62",
+      "snapshot_sha256": "e7a744a1935e8d6a99b70fa89c970a7471b0427db6830937355185baeb206e1e",
       "normalized_sha256": "06580ebe2c7d94b8064b75f6a47b2119e516cc985827881a70b13399808e39a9",
-      "dispute_token": "neotoma@v66:918abf1a4251"
+      "dispute_token": "neotoma@v66:e7a744a1935e"
     },
     "raa": {
       "source": "raa",
@@ -298,9 +298,9 @@
       "source": "sead",
       "source_identity": "sead",
       "source_version": "v66",
-      "snapshot_sha256": "2d0f86e24019b34510b057e6aea0073c2dd7f98941146198927fe458c0ba3559",
+      "snapshot_sha256": "06b48b34f233b2b755283c42be24af46fa6e55f92a378661f6fae2dad286d832",
       "normalized_sha256": "e5a350fd8124e5ea6986bdbb037b304cad9db28ccb8d0afa23ff7b649b93f3bc",
-      "dispute_token": "sead@v66:2d0f86e24019"
+      "dispute_token": "sead@v66:06b48b34f233"
     },
     "svar": {
       "source": "svar",
@@ -336,8 +336,9 @@
       "authority_status": "not_required",
       "authority_reasons": [],
       "coverage_metrics": {
-        "landclim_site_count": 492,
-        "landclim_grid_cell_count": 88
+        "landclim_site_count": 490,
+        "landclim_grid_cell_count": 77,
+        "landclim_temporal_grid_feature_count": 2515
       },
       "blocking_reasons": []
     },
@@ -390,7 +391,7 @@
       "raw_status": "present",
       "normalized_status": "present",
       "reviewed_status": "missing",
-      "published_status": "present",
+      "published_status": "refused",
       "provenance_depth": "normalized_without_review_layer",
       "publication_posture": "refused_not_publication_ready",
       "authority_status": "refused",
@@ -502,15 +503,16 @@
       "coverage_metrics": {
         "animal_species_count": 10,
         "animal_project_count": 40,
-        "animal_sample_count": 894
+        "animal_sample_count": 868
       },
       "blocking_reasons": []
     }
   ],
   "boundary_source": "boundaries",
   "aadr_file_count": 3,
-  "landclim_site_count": 492,
-  "landclim_grid_cell_count": 88,
+  "landclim_site_count": 490,
+  "landclim_grid_cell_count": 77,
+  "landclim_temporal_grid_feature_count": 2515,
   "neotoma_point_count": 200,
   "sead_point_count": 2172,
   "raa_total_site_count": 761917,
