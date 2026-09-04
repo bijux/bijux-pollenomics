@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 from collections.abc import Iterable, Mapping
+from typing import TypedDict
 
 from ....core.bp_time import (
     build_bp_interval_label,
@@ -14,7 +15,12 @@ from ...spatial import classify_country
 from .access import build_sead_site_access_model
 from .fetch import parse_optional_int
 
-__all__ = ["normalize_sead_rows", "normalize_sead_temporal_evidence"]
+__all__ = [
+    "SeadChronologyClaim",
+    "normalize_sead_chronology_claims",
+    "normalize_sead_rows",
+    "normalize_sead_temporal_evidence",
+]
 
 _TEMPORAL_ROW_SPECS = (
     ("dating_range_rows", "dating_range", "analysis_dating_range_id"),
@@ -35,6 +41,386 @@ _TEMPORAL_KIND_LABELS = {
     "geochronology": "Geochronology measurement",
     "dendrochronology": "Dendrochronology date",
 }
+
+_CHRONOLOGY_CLAIM_SPECS = (
+    (
+        "dating_range_rows",
+        "dating_range",
+        "analysis_dating_range_id",
+        "tbl_analysis_dating_ranges",
+    ),
+    (
+        "relative_period_rows",
+        "relative_period",
+        "relative_date_id",
+        "tbl_relative_dates",
+    ),
+    (
+        "analysis_entity_age_rows",
+        "analysis_entity_age",
+        "analysis_entity_age_id",
+        "tbl_analysis_entity_ages",
+    ),
+    (
+        "geochronology_rows",
+        "geochronology",
+        "geochron_id",
+        "tbl_geochronology",
+    ),
+    (
+        "dendro_date_rows",
+        "dendrochronology",
+        "dendro_date_id",
+        "tbl_dendro_dates",
+    ),
+)
+
+_CALIBRATED_BP_AGE_TYPES = frozenset(
+    {
+        "cal bp",
+        "calibrated years bp",
+        "calendar years before present",
+    }
+)
+_CALENDAR_CE_AGE_TYPES = frozenset({"ad", "ce", "anno domini", "common era"})
+_CALENDAR_BCE_AGE_TYPES = frozenset({"bc", "bce", "before christ", "before common era"})
+
+
+class _TemporalRowGroup(TypedDict):
+    kind: str
+    interval: tuple[int, int]
+    label: str
+    uncertainty_notes: tuple[str, ...]
+    source_record_ids: tuple[int, ...]
+
+
+class SeadRelationStep(TypedDict):
+    table: str
+    key: str
+    value: str | int | None
+
+
+class SeadChronologyClaim(TypedDict):
+    chronology_claim_id: str
+    source_family: str
+    source_table: str
+    source_record_id: str
+    source_native_record_id: str | None
+    site_uuid: str | None
+    source_site_id: str | None
+    subject_type: str
+    subject_id: str
+    sample_group_id: int | None
+    physical_sample_id: int | None
+    analysis_entity_id: int | None
+    analysis_value_id: int | None
+    dataset_id: int | None
+    claim_type: str
+    source_age_type: str
+    source_age_value: dict[str, object]
+    source_age_unit: str
+    calibration_status: str
+    younger_bp: int | None
+    older_bp: int | None
+    comparability_status: str
+    chronology_eligibility: str
+    propagation_eligibility: str
+    propagation_reason_codes: list[str]
+    publication_role: str
+    reason_codes: list[str]
+    transformation_id: str | None
+    provenance_record_id: str
+    build_id: str
+    source_relation_path: list[SeadRelationStep]
+
+
+class _SeadAgePolicy(TypedDict):
+    source_age_type: str
+    source_age_unit: str
+    calibration_status: str
+    comparability_status: str
+    younger_bp: int | None
+    older_bp: int | None
+    reason_codes: tuple[str, ...]
+    transformation_id: str | None
+
+
+def normalize_sead_chronology_claims(
+    rows: Iterable[dict[str, object]],
+    *,
+    provenance_record_id: str,
+    build_id: str,
+) -> list[SeadChronologyClaim]:
+    """Build one typed, source-owned claim for every captured SEAD chronology row."""
+    if not provenance_record_id.strip():
+        raise ValueError("SEAD chronology claims require a provenance record ID")
+    if not build_id.strip():
+        raise ValueError("SEAD chronology claims require a build ID")
+
+    claims: list[SeadChronologyClaim] = []
+    for site_row in rows:
+        site_id = clean_optional_text(site_row.get("site_id"))
+        site_uuid = clean_optional_text(site_row.get("site_uuid"))
+        for row_key, kind, id_key, source_table in _CHRONOLOGY_CLAIM_SPECS:
+            source_rows = site_row.get(row_key, [])
+            if not isinstance(source_rows, list):
+                continue
+            for row_index, source_row in enumerate(source_rows):
+                if not isinstance(source_row, dict):
+                    continue
+                source_record_id = clean_optional_text(source_row.get(id_key))
+                stable_source_record_id = source_record_id or f"missing-{row_index}"
+                analysis_entity_id = parse_optional_int(
+                    source_row.get("analysis_entity_id")
+                )
+                subject_type, subject_id = _sead_claim_subject(
+                    kind,
+                    source_row,
+                    analysis_entity_id=analysis_entity_id,
+                    source_record_id=stable_source_record_id,
+                )
+                age_policy = _sead_claim_age_policy(kind, source_row)
+                reason_codes = list(age_policy["reason_codes"])
+                if not source_record_id:
+                    reason_codes.append("missing_source_record_id")
+                if not site_uuid:
+                    reason_codes.append("missing_site_uuid")
+                chronology_eligibility = "eligible"
+                if age_policy["comparability_status"] != "comparable":
+                    chronology_eligibility = "refused"
+                    reason_codes.append("chronology_not_comparable")
+                if analysis_entity_id is None:
+                    chronology_eligibility = "refused"
+                    reason_codes.append("missing_analysis_entity_lineage")
+                if not site_uuid or not source_record_id:
+                    chronology_eligibility = "refused"
+
+                claim_site_key = site_uuid or f"site-{site_id or 'missing'}"
+                claims.append(
+                    {
+                        "chronology_claim_id": (
+                            f"sead:{claim_site_key}:{kind}:{stable_source_record_id}"
+                        ),
+                        "source_family": "sead",
+                        "source_table": source_table,
+                        "source_record_id": stable_source_record_id,
+                        "source_native_record_id": source_record_id or None,
+                        "site_uuid": site_uuid or None,
+                        "source_site_id": site_id or None,
+                        "subject_type": subject_type,
+                        "subject_id": subject_id,
+                        "sample_group_id": parse_optional_int(
+                            source_row.get("sample_group_id")
+                        ),
+                        "physical_sample_id": parse_optional_int(
+                            source_row.get("physical_sample_id")
+                        ),
+                        "analysis_entity_id": analysis_entity_id,
+                        "analysis_value_id": parse_optional_int(
+                            source_row.get("analysis_value_id")
+                        ),
+                        "dataset_id": parse_optional_int(source_row.get("dataset_id")),
+                        "claim_type": kind,
+                        "source_age_type": age_policy["source_age_type"],
+                        "source_age_value": dict(source_row),
+                        "source_age_unit": age_policy["source_age_unit"],
+                        "calibration_status": age_policy["calibration_status"],
+                        "younger_bp": age_policy["younger_bp"],
+                        "older_bp": age_policy["older_bp"],
+                        "comparability_status": age_policy["comparability_status"],
+                        "chronology_eligibility": chronology_eligibility,
+                        "propagation_eligibility": "refused",
+                        "propagation_reason_codes": [
+                            "observation_link_not_materialized"
+                        ],
+                        "publication_role": (
+                            "chronology_display_only"
+                            if chronology_eligibility == "eligible"
+                            else "review_only"
+                        ),
+                        "reason_codes": sorted(set(reason_codes)),
+                        "transformation_id": age_policy["transformation_id"],
+                        "provenance_record_id": provenance_record_id,
+                        "build_id": build_id,
+                        "source_relation_path": _sead_source_relation_path(
+                            site_id=site_id,
+                            source_table=source_table,
+                            source_key=id_key,
+                            source_record_id=stable_source_record_id,
+                            source_row=source_row,
+                        ),
+                    }
+                )
+    return sorted(claims, key=lambda claim: str(claim["chronology_claim_id"]))
+
+
+def _sead_claim_subject(
+    kind: str,
+    source_row: Mapping[str, object],
+    *,
+    analysis_entity_id: int | None,
+    source_record_id: str,
+) -> tuple[str, str]:
+    if analysis_entity_id is not None:
+        return ("analysis_entity", str(analysis_entity_id))
+    if kind == "dating_range":
+        analysis_value_id = parse_optional_int(source_row.get("analysis_value_id"))
+        if analysis_value_id is not None:
+            return ("analysis_value", str(analysis_value_id))
+    return ("source_chronology_record", source_record_id)
+
+
+def _sead_claim_age_policy(
+    kind: str,
+    source_row: Mapping[str, object],
+) -> _SeadAgePolicy:
+    source_age_type = clean_optional_text(source_row.get("age_type"))
+    normalized_age_type = " ".join(source_age_type.casefold().split())
+    interval = normalize_bp_interval(
+        parse_optional_int(source_row.get("time_start_bp")),
+        parse_optional_int(source_row.get("time_end_bp")),
+    )
+    if kind == "relative_period":
+        return _sead_non_comparable_age_policy(
+            source_age_type="relative_period",
+            source_age_unit="source_relative_period",
+            calibration_status="not_calibrated",
+            comparability_status="context_only",
+            reason_code="relative_period_requires_governed_mapping",
+        )
+    if kind == "geochronology":
+        return _sead_non_comparable_age_policy(
+            source_age_type="radiometric_age_unspecified",
+            source_age_unit="source_years",
+            calibration_status="unknown",
+            comparability_status="context_only",
+            reason_code="geochronology_calibration_posture_unknown",
+        )
+    if kind == "analysis_entity_age":
+        return _sead_non_comparable_age_policy(
+            source_age_type="analysis_entity_age_unspecified",
+            source_age_unit="source_years",
+            calibration_status="unknown",
+            comparability_status="unresolved",
+            reason_code="analysis_entity_age_basis_unspecified",
+        )
+
+    if normalized_age_type in _CALIBRATED_BP_AGE_TYPES:
+        transformation_id = "sead-cal-bp-canonical-interval-v1"
+        source_age_unit = "years_bp"
+        calibration_status = "calibrated"
+    elif normalized_age_type in _CALENDAR_CE_AGE_TYPES | _CALENDAR_BCE_AGE_TYPES:
+        transformation_id = "sead-calendar-year-to-cal-bp-1950-v1"
+        source_age_unit = "calendar_year"
+        calibration_status = "not_applicable"
+    else:
+        return _sead_non_comparable_age_policy(
+            source_age_type=source_age_type or "unknown",
+            source_age_unit="unknown",
+            calibration_status="unknown",
+            comparability_status="unresolved",
+            reason_code="age_type_not_governed",
+        )
+
+    if interval is not None and interval[0] < 0:
+        return _sead_non_comparable_age_policy(
+            source_age_type=source_age_type,
+            source_age_unit=source_age_unit,
+            calibration_status=calibration_status,
+            comparability_status="refused",
+            reason_code="negative_bp",
+            transformation_id=transformation_id,
+        )
+    if interval is None:
+        return _sead_non_comparable_age_policy(
+            source_age_type=source_age_type,
+            source_age_unit=source_age_unit,
+            calibration_status=calibration_status,
+            comparability_status="refused",
+            reason_code="missing_or_invalid_canonical_interval",
+            transformation_id=transformation_id,
+        )
+    return {
+        "source_age_type": source_age_type,
+        "source_age_unit": source_age_unit,
+        "calibration_status": calibration_status,
+        "comparability_status": "comparable",
+        "younger_bp": interval[0],
+        "older_bp": interval[1],
+        "reason_codes": (),
+        "transformation_id": transformation_id,
+    }
+
+
+def _sead_non_comparable_age_policy(
+    *,
+    source_age_type: str,
+    source_age_unit: str,
+    calibration_status: str,
+    comparability_status: str,
+    reason_code: str,
+    transformation_id: str | None = None,
+) -> _SeadAgePolicy:
+    return {
+        "source_age_type": source_age_type,
+        "source_age_unit": source_age_unit,
+        "calibration_status": calibration_status,
+        "comparability_status": comparability_status,
+        "younger_bp": None,
+        "older_bp": None,
+        "reason_codes": (reason_code,),
+        "transformation_id": transformation_id,
+    }
+
+
+def _sead_source_relation_path(
+    *,
+    site_id: str,
+    source_table: str,
+    source_key: str,
+    source_record_id: str,
+    source_row: Mapping[str, object],
+) -> list[SeadRelationStep]:
+    path: list[SeadRelationStep] = [
+        {"table": "tbl_sites", "key": "site_id", "value": site_id or None},
+        {
+            "table": "tbl_sample_groups",
+            "key": "sample_group_id",
+            "value": parse_optional_int(source_row.get("sample_group_id")),
+        },
+        {
+            "table": "tbl_physical_samples",
+            "key": "physical_sample_id",
+            "value": parse_optional_int(source_row.get("physical_sample_id")),
+        },
+        {
+            "table": "tbl_analysis_entities",
+            "key": "analysis_entity_id",
+            "value": parse_optional_int(source_row.get("analysis_entity_id")),
+        },
+        {
+            "table": "tbl_datasets",
+            "key": "dataset_id",
+            "value": parse_optional_int(source_row.get("dataset_id")),
+        },
+    ]
+    analysis_value_id = parse_optional_int(source_row.get("analysis_value_id"))
+    if analysis_value_id is not None:
+        path.append(
+            {
+                "table": "tbl_analysis_values",
+                "key": "analysis_value_id",
+                "value": analysis_value_id,
+            }
+        )
+    path.append(
+        {
+            "table": source_table,
+            "key": source_key,
+            "value": source_record_id,
+        }
+    )
+    return path
 
 
 def normalize_sead_rows(
@@ -223,8 +609,6 @@ def normalize_sead_temporal_evidence(
         for group in _group_site_temporal_rows(site_row):
             kind = str(group["kind"])
             interval = group["interval"]
-            if not isinstance(interval, tuple):
-                continue
             label = str(group["label"])
             uncertainty_notes = tuple(
                 str(value) for value in group["uncertainty_notes"]
@@ -334,7 +718,7 @@ def parse_optional_float(value: object) -> float | None:
 
 def _group_site_temporal_rows(
     site_row: Mapping[str, object],
-) -> list[dict[str, object]]:
+) -> list[_TemporalRowGroup]:
     groups: dict[
         tuple[str, int, int, str, tuple[str, ...]],
         list[int],
