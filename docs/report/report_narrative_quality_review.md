@@ -101,7 +101,7 @@ link farms or coded operator notes.
 | `docs/report/repository_source_ecosystem_review.md` | `reader_ready` | 3 | 0 | 6 | 4 | 4 | Page explains its purpose before or alongside artifact links. |
 | `docs/report/repository_source_explainer_audit.md` | `thin_structure` | 1 | 0 | 1 | 18 | 1 | Page explains itself but still needs stronger internal wayfinding. |
 | `docs/report/repository_source_family_matrix.md` | `structured_reference` | 0 | 0 | 0 | 10 | 1 | Page is table-heavy, but it behaves like a reference surface rather than a loose link dump. |
-| `docs/report/repository_truth_posture.md` | `reader_ready` | 5 | 0 | 17 | 0 | 5 | Page explains its purpose before or alongside artifact links. |
+| `docs/report/repository_truth_posture.md` | `reader_ready` | 5 | 0 | 18 | 0 | 5 | Page explains its purpose before or alongside artifact links. |
 | `docs/report/world/README.md` | `reader_ready` | 8 | 0 | 43 | 19 | 14 | Page explains its purpose before or alongside artifact links. |
 | `docs/report/world/world_candidate_site_sensitivity.md` | `thin_structure` | 1 | 0 | 0 | 449 | 1 | Page explains itself but still needs stronger internal wayfinding. |
 | `docs/report/world/world_candidate_sites.md` | `thin_structure` | 4 | 0 | 0 | 449 | 1 | Page explains itself but still needs stronger internal wayfinding. |

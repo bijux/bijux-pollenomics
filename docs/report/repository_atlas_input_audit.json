@@ -77,13 +77,18 @@
         "data/raa/normalized/sweden_archaeology_layer.json"
       ],
       "published_paths": [
-        "docs/report/regions/nordic/sweden_archaeology_density.geojson",
         "docs/report/regions/nordic/sweden_archaeology_layer.json"
       ],
       "refresh_anchor": "data/raa/normalized/sweden_archaeology_layer.json",
       "metrics": {
-        "published_site_count": 761917,
-        "density_cell_count": 106
+        "publication_status": "refused_not_publication_ready",
+        "published_site_count": null,
+        "density_cell_count": null,
+        "reason_codes": [
+          "missing_raw_inventory",
+          "missing_raw_summary",
+          "missing_scientific_review"
+        ]
       },
       "note": "RA\u00c4 is explicitly Sweden-scoped and should never be mistaken for Nordic-wide archaeology coverage."
     },

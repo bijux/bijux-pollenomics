@@ -35,8 +35,14 @@
     "tracked_landclim_grid_cell_count": 77,
     "tracked_neotoma_site_count": 200,
     "tracked_sead_site_count": 2195,
-    "tracked_raa_published_site_count": 761917,
-    "tracked_raa_density_cell_count": 106,
+    "tracked_raa_published_site_count": 0,
+    "tracked_raa_density_cell_count": 0,
+    "raa_density_admitted": false,
+    "raa_density_reason_codes": [
+      "missing_raw_inventory",
+      "missing_raw_summary",
+      "missing_scientific_review"
+    ],
     "tracked_boundary_feature_count": 4,
     "pollen_normalized_file_count": 8,
     "archaeology_normalized_file_count": 6,
@@ -54,7 +60,8 @@
     "keep pollen, environmental, archaeology, and boundary explanation first-class while animal aDNA recovery continues"
   ],
   "claim_freeze_reasons": [
-    "tracked animal geography still leaves unresolved or refused rows outside the published surface"
+    "tracked animal geography still leaves unresolved or refused rows outside the published surface",
+    "RA\u00c4 density remains refused until source inventory and qualified review reconcile"
   ],
   "do_not_repeat": [
     "do not treat checked-in JSON file count as scientific progress",

@@ -38,8 +38,14 @@
       ],
       "tracked_metrics": {
         "sead_site_count": 2195,
-        "raa_published_site_count": 761917,
-        "raa_density_cell_count": 106
+        "raa_publication_status": "refused_not_publication_ready",
+        "raa_published_site_count": null,
+        "raa_density_cell_count": null,
+        "raa_reason_codes": [
+          "missing_raw_inventory",
+          "missing_raw_summary",
+          "missing_scientific_review"
+        ]
       },
       "docs_paths": [
         "docs/public/pollenomics-data/sources/sead.md",
@@ -48,11 +54,10 @@
         "docs/public/pollenomics-data/publications/raa-exports.md"
       ],
       "published_paths": [
-        "docs/report/regions/nordic/nordic_environmental_sites.geojson",
-        "docs/report/regions/nordic/sweden_archaeology_density.geojson"
+        "docs/report/regions/nordic/nordic_environmental_sites.geojson"
       ],
-      "coverage_posture": "explicit_context_family",
-      "current_gap": "archaeology context is broad but intentionally contextual; readers should not confuse it with direct pollen or sample evidence"
+      "coverage_posture": "raa_density_refused",
+      "current_gap": "archaeology context remains contextual; RA\u00c4 density is omitted until its authority decision is admitted"
     },
     {
       "domain_key": "boundary_framing",

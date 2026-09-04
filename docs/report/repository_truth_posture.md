@@ -17,6 +17,7 @@
 ## Claim Freeze Reasons
 
 - tracked animal geography still leaves unresolved or refused rows outside the published surface
+- RAÄ density remains refused until source inventory and qualified review reconcile
 
 ## Recovery Priorities
 
