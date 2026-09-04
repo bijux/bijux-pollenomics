@@ -175,6 +175,7 @@ name = "bijux-pollenomics"
 source = { editable = "packages/bijux-pollenomics" }
 dependencies = [
     { name = "defusedxml" },
+    { name = "jsonschema" },
     { name = "pyproj" },
 ]
 
@@ -199,6 +200,7 @@ requires-dist = [
     { name = "build", marker = "extra == 'dev'", specifier = ">=1.2.2" },
     { name = "defusedxml", specifier = ">=0.7.1" },
     { name = "hypothesis", marker = "extra == 'dev'", specifier = ">=6.135.0,<7" },
+    { name = "jsonschema", specifier = ">=4.24.0,<5" },
     { name = "mkdocs", marker = "extra == 'dev'", specifier = ">=1.6.1" },
     { name = "mkdocs-autorefs", marker = "extra == 'dev'", specifier = ">=1.4.2" },
     { name = "mkdocs-git-revision-date-localized-plugin", marker = "extra == 'dev'", specifier = ">=1.4.7" },

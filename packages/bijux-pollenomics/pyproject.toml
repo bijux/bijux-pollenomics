@@ -23,6 +23,7 @@ classifiers = [
 ]
 dependencies = [
     "defusedxml>=0.7.1",
+    "jsonschema>=4.24.0,<5",
     "pyproj>=3.7.1",
 ]
 
