@@ -1,15 +1,15 @@
 from __future__ import annotations
 
-from collections import Counter
-from collections.abc import Mapping, Sequence
-from dataclasses import dataclass
 import hashlib
 import json
 import os
-from pathlib import Path
 import shutil
 import tempfile
-from typing import Any
+from collections import Counter
+from collections.abc import Mapping, Sequence
+from dataclasses import dataclass
+from pathlib import Path
+from typing import Any, NoReturn, cast
 
 from .propagation_network import (
     COUNTRY_CODES,
@@ -25,6 +25,9 @@ from .propagation_network import (
 from .site_candidates import DEFAULT_PROPAGATION_SCENARIO
 
 __all__ = [
+    "PROPAGATION_PRODUCER_ID",
+    "PROPAGATION_PRODUCER_SOURCE_PATHS",
+    "PROPAGATION_PRODUCER_VERSION",
     "PropagationMaterializationResult",
     "PropagationOutputRefusalError",
     "materialize_propagation_outputs",
@@ -47,6 +50,31 @@ _OUTPUT_NAMES = (
     "primary_scenario_reconciliation.json",
     "release_metadata.json",
     "sensitivity_summary.json",
+)
+PROPAGATION_PRODUCER_ID = "bijux-pollenomics.propagation-output-materializer"
+PROPAGATION_PRODUCER_VERSION = "1"
+PROPAGATION_PRODUCER_SOURCE_PATHS = (
+    "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/propagation_outputs.py",
+    "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/propagation_network.py",
+    "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/site_candidates.py",
+    "packages/bijux-pollenomics/src/bijux_pollenomics/core/geo_distance.py",
+    "packages/bijux-pollenomics/src/bijux_pollenomics/core/temporal_semantics.py",
+)
+_CLASSIFICATION_MANIFEST_NAME = "manifest.json"
+_CLASSIFICATION_RELEASE_NAME = "release_metadata.json"
+_CLASSIFICATION_ACCEPTED_QUEUE_NAME = "accepted_mapping_queue.json"
+_CLASSIFICATION_PAYLOAD_NAMES = frozenset(
+    {
+        _CLASSIFICATION_ACCEPTED_QUEUE_NAME,
+        "concept_denominators.json",
+        "country_partitions.json",
+        "not_applicable_mapping_queue.json",
+        "observation_denominators.json",
+        "observation_memberships.json",
+        _CLASSIFICATION_RELEASE_NAME,
+        "review_queue.json",
+        "unmapped_mapping_queue.json",
+    }
 )
 
 
@@ -77,6 +105,9 @@ def materialize_propagation_outputs(
     output_root: Path,
     allowed_output_parent: Path,
     schema_root: Path,
+    classification_bundle_root: Path,
+    propagation_contract_path: Path,
+    repository_root: Path,
     build_id: str,
     classification_contract_version: str,
     classification_review_digest: str,
@@ -134,6 +165,25 @@ def materialize_propagation_outputs(
             "invalid_classification_reconciliation",
             "accepted_classification_mapping_count must be a non-negative integer",
         )
+    _validate_classification_bundle_identity(
+        Path(classification_bundle_root),
+        build_id=build_id,
+        classification_contract_version=classification_contract_version,
+        classification_review_digest=classification_review_digest,
+        accepted_classification_mapping_count=accepted_classification_mapping_count,
+    )
+    _validate_propagation_contract_identity(
+        Path(propagation_contract_path),
+        schema_root=Path(schema_root),
+        propagation_contract_version=propagation_contract_version,
+        propagation_contract_digest=propagation_contract_digest,
+    )
+    _validate_producer_identity(
+        Path(repository_root),
+        propagation_producer_id=propagation_producer_id,
+        propagation_producer_version=propagation_producer_version,
+        propagation_producer_digest=propagation_producer_digest,
+    )
     if accepted_classification_mapping_count == 0 and events:
         _refuse(
             "unaccepted_classification_input",
@@ -149,9 +199,13 @@ def materialize_propagation_outputs(
     primary_network = generate_propagation_network(events)
     sensitivity_network = run_propagation_sensitivity(events)
     primary_result = _primary_result(primary_network)
-    _validate_scenario_reconciliation(primary_result)
+    all_events = (
+        *primary_network.events,
+        *primary_network.excluded_non_pollen_events,
+    )
+    _validate_scenario_reconciliation(primary_result, events=all_events)
     for sensitivity_result in sensitivity_network.scenario_results:
-        _validate_scenario_reconciliation(sensitivity_result)
+        _validate_scenario_reconciliation(sensitivity_result, events=all_events)
     payloads = _build_payloads(
         primary_network=primary_network,
         primary_result=primary_result,
@@ -247,9 +301,16 @@ def _build_payloads(
         record_kind="propagation candidate",
     )
     sensitivity_summaries = tuple(
-        _sensitivity_scenario_summary(result)
+        _sensitivity_scenario_summary(
+            result,
+            events=(
+                *sensitivity_network.events,
+                *sensitivity_network.excluded_non_pollen_events,
+            ),
+        )
         for result in sensitivity_network.scenario_results
     )
+    feature_stability = _feature_stability_across_scenarios(sensitivity_network)
     if len(sensitivity_summaries) != len(PROPAGATION_SENSITIVITY_SCENARIOS):
         _refuse(
             "invalid_sensitivity_reconciliation",
@@ -305,7 +366,16 @@ def _build_payloads(
             "event_manifest_digest": primary_network.event_manifest_digest,
             "scenario_id": primary_result.scenario.scenario_id,
             "record_count": 1,
-            "reconciliation": primary_result.reconciliation.as_dict(),
+            "reconciliation": {
+                **primary_result.reconciliation.as_dict(),
+                "denominator_partitions": _denominator_partitions(
+                    (
+                        *primary_network.events,
+                        *primary_network.excluded_non_pollen_events,
+                    ),
+                    primary_result,
+                ),
+            },
         },
         "sensitivity_summary.json": {
             "schema_version": "propagation-sensitivity-summary.v1",
@@ -313,6 +383,7 @@ def _build_payloads(
             "event_manifest_digest": primary_network.event_manifest_digest,
             "record_count": len(sensitivity_summaries),
             "scenarios": sensitivity_summaries,
+            "feature_stability_across_scenarios": feature_stability,
         },
         "release_metadata.json": {
             "schema_version": "propagation-release-metadata.v2",
@@ -374,6 +445,8 @@ def _event_evaluation_metadata(event: PhenomenonEvent) -> dict[str, object]:
 
 def _sensitivity_scenario_summary(
     result: PropagationScenarioResult,
+    *,
+    events: Sequence[PhenomenonEvent],
 ) -> dict[str, object]:
     reconciliation = result.reconciliation.as_dict()
     status_counts = dict(result.reconciliation.status_counts)
@@ -395,8 +468,14 @@ def _sensitivity_scenario_summary(
         "excluded_temporal_too_large_count": status_counts[
             "excluded_temporal_too_large"
         ],
+        "excluded_temporal_count": (
+            status_counts["excluded_temporal_nonpositive"]
+            + status_counts["excluded_temporal_too_large"]
+        ),
         "connected_component_count": result.reconciliation.connected_component_count,
         "ordered_country_pair_counts": reconciliation["ordered_country_pair_counts"],
+        "country_pair_counts": reconciliation["ordered_country_pair_counts"],
+        "denominator_partitions": _denominator_partitions(events, result),
     }
 
 
@@ -414,7 +493,112 @@ def _primary_result(network: PropagationNetworkResult) -> PropagationScenarioRes
     return matches[0]
 
 
-def _validate_scenario_reconciliation(result: PropagationScenarioResult) -> None:
+def _denominator_partitions(
+    events: Sequence[PhenomenonEvent],
+    result: PropagationScenarioResult,
+) -> dict[str, dict[str, object]]:
+    event_fields = {
+        "country_code": Counter(event.country_code for event in events),
+        "source_family": Counter(event.source_family for event in events),
+        "evidence_domain": Counter(event.evidence_domain for event in events),
+        "resolution": Counter(event.resolution for event in events),
+        "feature_key": Counter(event.feature_key for event in events),
+        "threshold_profile_id": Counter(event.threshold_profile_id for event in events),
+    }
+    event_fields["country_code"] = Counter(
+        {code: event_fields["country_code"][code] for code in COUNTRY_CODES}
+    )
+    event_fields["evidence_domain"] = Counter(
+        {domain: event_fields["evidence_domain"][domain] for domain in EVIDENCE_DOMAINS}
+    )
+    ordered_country_pairs = {
+        key: sum(dict(statuses).values())
+        for key, statuses in result.reconciliation.ordered_country_pair_counts
+    }
+    candidate_statuses = dict(result.reconciliation.status_counts)
+    pair_decision_count = (
+        result.reconciliation.evaluated_pair_count
+        + result.reconciliation.refused_pair_count
+    )
+    partitions: dict[str, dict[str, object]] = {
+        name: {
+            "counting_basis": "input_event",
+            "total_count": len(events),
+            "counts": dict(sorted(counts.items())),
+        }
+        for name, counts in event_fields.items()
+    }
+    partitions.update(
+        {
+            "ordered_country_pair": {
+                "counting_basis": "evaluated_or_refused_pair",
+                "total_count": pair_decision_count,
+                "counts": dict(sorted(ordered_country_pairs.items())),
+            },
+            "candidate_status": {
+                "counting_basis": "evaluated_pair",
+                "total_count": result.reconciliation.evaluated_pair_count,
+                "counts": dict(sorted(candidate_statuses.items())),
+            },
+            "scenario_id": {
+                "counting_basis": "evaluated_or_refused_pair",
+                "total_count": pair_decision_count,
+                "counts": {result.scenario.scenario_id: pair_decision_count},
+            },
+        }
+    )
+    return dict(sorted(partitions.items()))
+
+
+def _feature_stability_across_scenarios(
+    network: PropagationNetworkResult,
+) -> tuple[dict[str, object], ...]:
+    event_counts = Counter(
+        (event.resolution, event.feature_key, event.threshold_profile_id)
+        for event in network.events
+    )
+    rows: list[dict[str, object]] = []
+    for resolution, feature_key, threshold_profile_id in sorted(event_counts):
+        scenario_status_counts: dict[str, dict[str, int]] = {}
+        directed_scenarios = 0
+        for result in network.scenario_results:
+            counts = Counter(
+                row.candidate_status
+                for row in result.evaluated_pairs
+                if row.resolution == resolution
+                and row.feature_key == feature_key
+                and row.threshold_profile_id == threshold_profile_id
+            )
+            scenario_status_counts[result.scenario.scenario_id] = {
+                status: counts[status]
+                for status, _ in result.reconciliation.status_counts
+            }
+            if counts["definite_candidate"] + counts["possible_candidate"]:
+                directed_scenarios += 1
+        rows.append(
+            {
+                "resolution": resolution,
+                "feature_key": feature_key,
+                "threshold_profile_id": threshold_profile_id,
+                "eligible_event_count": event_counts[
+                    (resolution, feature_key, threshold_profile_id)
+                ],
+                "scenario_count": len(network.scenario_results),
+                "directed_candidate_scenario_count": directed_scenarios,
+                "directed_candidate_in_every_scenario": (
+                    directed_scenarios == len(network.scenario_results)
+                ),
+                "scenario_status_counts": scenario_status_counts,
+            }
+        )
+    return tuple(rows)
+
+
+def _validate_scenario_reconciliation(
+    result: PropagationScenarioResult,
+    *,
+    events: Sequence[PhenomenonEvent],
+) -> None:
     reconciliation = result.reconciliation
     observed_status_counts = Counter(
         row.candidate_status for row in result.evaluated_pairs
@@ -457,6 +641,418 @@ def _validate_scenario_reconciliation(result: PropagationScenarioResult) -> None
             "invalid_output_reconciliation",
             f"country-pair counts do not reconcile: {result.scenario.scenario_id}",
         )
+    partitions = _denominator_partitions(events, result)
+    required_partitions = {
+        "country_code",
+        "ordered_country_pair",
+        "source_family",
+        "evidence_domain",
+        "resolution",
+        "feature_key",
+        "candidate_status",
+        "scenario_id",
+        "threshold_profile_id",
+    }
+    if set(partitions) != required_partitions:
+        _refuse(
+            "invalid_output_reconciliation",
+            f"denominator partitions are incomplete: {result.scenario.scenario_id}",
+        )
+    for name, partition in partitions.items():
+        counts = partition["counts"]
+        assert isinstance(counts, dict)
+        if sum(counts.values()) != partition["total_count"]:
+            _refuse(
+                "invalid_output_reconciliation",
+                f"denominator partition does not reconcile: {name}",
+            )
+
+
+def _validate_classification_bundle_identity(
+    bundle_root: Path,
+    *,
+    build_id: str,
+    classification_contract_version: str,
+    classification_review_digest: str,
+    accepted_classification_mapping_count: int,
+) -> None:
+    if (
+        not bundle_root.is_absolute()
+        or bundle_root.is_symlink()
+        or not bundle_root.is_dir()
+    ):
+        _refuse(
+            "invalid_classification_identity",
+            "classification_bundle_root must be an absolute non-symlink directory",
+        )
+    manifest_bytes = _read_identity_file(
+        bundle_root / _CLASSIFICATION_MANIFEST_NAME,
+        parent=bundle_root,
+        reason_code="invalid_classification_identity",
+    )
+    if _sha256(manifest_bytes) != classification_review_digest:
+        _refuse(
+            "invalid_classification_identity",
+            "classification_review_digest does not match classification manifest bytes",
+        )
+    manifest = _json_object(
+        manifest_bytes,
+        reason_code="invalid_classification_identity",
+        label="classification manifest",
+    )
+    if manifest.get("schema_version") != "classification-audit-manifest.v1":
+        _refuse(
+            "invalid_classification_identity",
+            "classification manifest schema_version is not governed",
+        )
+    entries = _identity_manifest_entries(
+        manifest,
+        reason_code="invalid_classification_identity",
+    )
+    if {entry[0] for entry in entries} != _CLASSIFICATION_PAYLOAD_NAMES:
+        _refuse(
+            "invalid_classification_identity",
+            "classification manifest does not contain the governed payload set",
+        )
+    expected_names = {_CLASSIFICATION_MANIFEST_NAME, *(entry[0] for entry in entries)}
+    actual_names = {path.name for path in bundle_root.iterdir()}
+    if actual_names != expected_names:
+        _refuse(
+            "invalid_classification_identity",
+            "classification bundle inventory does not match its manifest",
+        )
+    payloads: dict[str, dict[str, Any]] = {}
+    for name, expected_digest, expected_count in entries:
+        payload_bytes = _read_identity_file(
+            bundle_root / name,
+            parent=bundle_root,
+            reason_code="invalid_classification_identity",
+        )
+        if _sha256(payload_bytes) != expected_digest:
+            _refuse(
+                "invalid_classification_identity",
+                f"classification payload digest changed: {name}",
+            )
+        payload = _json_object(
+            payload_bytes,
+            reason_code="invalid_classification_identity",
+            label=f"classification payload {name}",
+        )
+        if payload.get("record_count") != expected_count:
+            _refuse(
+                "invalid_classification_identity",
+                f"classification payload count changed: {name}",
+            )
+        if (
+            payload.get("source_family") != manifest.get("source_family")
+            or payload.get("source_snapshot_id") != manifest.get("source_snapshot_id")
+            or payload.get("build_id") != manifest.get("build_id")
+            or payload.get("classification_contract_version")
+            != manifest.get("classification_contract_version")
+            or payload.get("classification_contract_digest")
+            != manifest.get("classification_contract_digest")
+            or payload.get("classification_producer_id")
+            != manifest.get("classification_producer_id")
+            or payload.get("classification_producer_version")
+            != manifest.get("classification_producer_version")
+            or payload.get("classification_producer_digest")
+            != manifest.get("classification_producer_digest")
+        ):
+            _refuse(
+                "invalid_classification_identity",
+                f"classification payload identity changed: {name}",
+            )
+        payloads[name] = payload
+    digest_input = "".join(
+        f"{name}\0{digest}\0{count}\n" for name, digest, count in entries
+    ).encode("utf-8")
+    if manifest.get("bundle_digest") != _sha256(digest_input):
+        _refuse(
+            "invalid_classification_identity",
+            "classification bundle digest does not reconcile",
+        )
+    if (
+        manifest.get("build_id") != build_id
+        or manifest.get("classification_contract_version")
+        != classification_contract_version
+    ):
+        _refuse(
+            "invalid_classification_identity",
+            "classification manifest build or contract version does not match the pin",
+        )
+    release = payloads.get(_CLASSIFICATION_RELEASE_NAME)
+    accepted_queue = payloads.get(_CLASSIFICATION_ACCEPTED_QUEUE_NAME)
+    if release is None or accepted_queue is None:
+        _refuse(
+            "invalid_classification_identity",
+            "classification release metadata and accepted queue must be manifested",
+        )
+    if (
+        release.get("schema_version") != "classification-release-metadata.v1"
+        or release.get("build_id") != build_id
+        or release.get("classification_contract_version")
+        != classification_contract_version
+        or accepted_queue.get("build_id") != build_id
+        or accepted_queue.get("classification_contract_version")
+        != classification_contract_version
+    ):
+        _refuse(
+            "invalid_classification_identity",
+            "classification release and accepted queue do not match pinned identities",
+        )
+    accepted_records = accepted_queue.get("records")
+    if not isinstance(accepted_records, list):
+        _refuse(
+            "invalid_classification_identity",
+            "classification accepted queue records must be an array",
+        )
+    embedded_count = release.get("accepted_mapping_count")
+    if (
+        isinstance(embedded_count, bool)
+        or not isinstance(embedded_count, int)
+        or embedded_count != accepted_classification_mapping_count
+        or accepted_queue.get("record_count") != embedded_count
+        or len(accepted_records) != embedded_count
+    ):
+        _refuse(
+            "invalid_classification_reconciliation",
+            "accepted classification count does not match the verified bundle",
+        )
+
+
+def _validate_propagation_contract_identity(
+    contract_path: Path,
+    *,
+    schema_root: Path,
+    propagation_contract_version: str,
+    propagation_contract_digest: str,
+) -> None:
+    if (
+        not contract_path.is_absolute()
+        or contract_path.name != "propagation-model.v1.yaml"
+        or contract_path.parent != schema_root
+    ):
+        _refuse(
+            "invalid_propagation_identity",
+            "propagation contract must be the governed file in schema_root",
+        )
+    contract_bytes = _read_identity_file(
+        contract_path,
+        parent=schema_root,
+        reason_code="invalid_propagation_identity",
+    )
+    if _sha256(contract_bytes) != propagation_contract_digest:
+        _refuse(
+            "invalid_propagation_identity",
+            "propagation_contract_digest does not match contract bytes",
+        )
+    try:
+        import yaml
+    except ImportError as error:
+        raise PropagationOutputRefusalError(
+            "invalid_propagation_identity",
+            "PyYAML is required to verify the propagation contract",
+        ) from error
+    try:
+        contract = yaml.safe_load(contract_bytes)
+    except (ValueError, yaml.YAMLError) as error:
+        raise PropagationOutputRefusalError(
+            "invalid_propagation_identity",
+            "propagation contract cannot be parsed",
+        ) from error
+    if not isinstance(contract, dict):
+        _refuse(
+            "invalid_propagation_identity",
+            "propagation contract must be a mapping",
+        )
+    sensitivity = contract.get("sensitivity_analysis")
+    event_contract = contract.get("event_contract")
+    geography = contract.get("geographic_scope")
+    default = contract.get("default_scenario")
+    if not all(
+        isinstance(value, dict)
+        for value in (sensitivity, event_contract, geography, default)
+    ):
+        _refuse(
+            "invalid_propagation_identity",
+            "propagation contract omits governed model sections",
+        )
+    assert isinstance(sensitivity, dict)
+    assert isinstance(event_contract, dict)
+    assert isinstance(geography, dict)
+    assert isinstance(default, dict)
+    spatial = default.get("spatial")
+    temporal = default.get("temporal")
+    required_metrics = sensitivity.get("required_metrics")
+    governed_metrics = {
+        "eligible_event_count",
+        "evaluated_pair_count",
+        "definite_candidate_count",
+        "possible_candidate_count",
+        "indeterminate_order_count",
+        "unresolved_pair_count",
+        "excluded_spatial_count",
+        "excluded_temporal_count",
+        "connected_component_count",
+        "country_pair_counts",
+        "feature_stability_across_scenarios",
+    }
+    if (
+        contract.get("contract_id") != "bijux-pollenomics.propagation-model"
+        or contract.get("contract_version") != propagation_contract_version
+        or event_contract.get("allowed_evidence_domains") != list(EVIDENCE_DOMAINS)
+        or event_contract.get("pollen_candidate_domain") != "pollen_context"
+        or geography.get("countries") != list(COUNTRY_CODES)
+        or default.get("scenario_id") != DEFAULT_PROPAGATION_SCENARIO.scenario_id
+        or not isinstance(spatial, dict)
+        or spatial.get("maximum_distance_km")
+        != DEFAULT_PROPAGATION_SCENARIO.maximum_distance_km
+        or not isinstance(temporal, dict)
+        or temporal.get("maximum_lag_years")
+        != DEFAULT_PROPAGATION_SCENARIO.maximum_lag_years
+        or sensitivity.get("distance_km_values") != [25.0, 50.0, 100.0, 200.0]
+        or sensitivity.get("lag_year_values") != [50.0, 100.0, 200.0, 500.0]
+        or not isinstance(required_metrics, list)
+        or not all(isinstance(metric, str) for metric in required_metrics)
+        or set(required_metrics) != governed_metrics
+    ):
+        _refuse(
+            "invalid_propagation_identity",
+            "propagation contract semantics do not match the implementation",
+        )
+
+
+def _validate_producer_identity(
+    repository_root: Path,
+    *,
+    propagation_producer_id: str,
+    propagation_producer_version: str,
+    propagation_producer_digest: str,
+) -> None:
+    executing_source = Path(__file__).resolve()
+    governed_source = repository_root / PROPAGATION_PRODUCER_SOURCE_PATHS[0]
+    if (
+        not repository_root.is_absolute()
+        or repository_root.is_symlink()
+        or not repository_root.is_dir()
+        or not governed_source.is_file()
+        or governed_source.resolve(strict=True) != executing_source
+    ):
+        _refuse(
+            "invalid_propagation_identity",
+            "repository_root does not own the executing propagation producer",
+        )
+    if (
+        propagation_producer_id != PROPAGATION_PRODUCER_ID
+        or propagation_producer_version != PROPAGATION_PRODUCER_VERSION
+    ):
+        _refuse(
+            "invalid_propagation_identity",
+            "propagation producer id or version is not governed",
+        )
+    records = []
+    for relative_name in PROPAGATION_PRODUCER_SOURCE_PATHS:
+        source_path = repository_root / relative_name
+        source_bytes = _read_identity_file(
+            source_path,
+            parent=repository_root,
+            reason_code="invalid_propagation_identity",
+            allow_descendant=True,
+        )
+        records.append({"path": relative_name, "sha256": _sha256(source_bytes)})
+    computed_digest = _sha256(
+        json.dumps(records, sort_keys=True, separators=(",", ":")).encode("utf-8")
+    )
+    if computed_digest != propagation_producer_digest:
+        _refuse(
+            "invalid_propagation_identity",
+            "propagation_producer_digest does not match governed source bytes",
+        )
+
+
+def _identity_manifest_entries(
+    manifest: Mapping[str, Any],
+    *,
+    reason_code: str,
+) -> tuple[tuple[str, str, int], ...]:
+    raw_entries = manifest.get("files")
+    if not isinstance(raw_entries, list):
+        _refuse(reason_code, "identity manifest files must be an array")
+    entries: list[tuple[str, str, int]] = []
+    for raw_entry in raw_entries:
+        if not isinstance(raw_entry, dict):
+            _refuse(reason_code, "identity manifest entries must be objects")
+        name = raw_entry.get("path")
+        digest = raw_entry.get("sha256")
+        count = raw_entry.get("record_count")
+        if (
+            not isinstance(name, str)
+            or not name
+            or Path(name).name != name
+            or name == _CLASSIFICATION_MANIFEST_NAME
+            or not isinstance(digest, str)
+            or len(digest) != 64
+            or any(character not in "0123456789abcdef" for character in digest)
+            or isinstance(count, bool)
+            or not isinstance(count, int)
+            or count < 0
+        ):
+            _refuse(reason_code, "identity manifest entry is invalid")
+        entries.append((name, digest, count))
+    if (
+        len(entries) != len({entry[0] for entry in entries})
+        or entries != sorted(entries)
+        or manifest.get("payload_file_count") != len(entries)
+    ):
+        _refuse(reason_code, "identity manifest entries are not deterministic")
+    return tuple(entries)
+
+
+def _read_identity_file(
+    path: Path,
+    *,
+    parent: Path,
+    reason_code: str,
+    allow_descendant: bool = False,
+) -> bytes:
+    try:
+        resolved_parent = parent.resolve(strict=True)
+        resolved_path = path.resolve(strict=True)
+    except OSError as error:
+        raise PropagationOutputRefusalError(
+            reason_code,
+            f"identity file cannot be resolved: {path.name}",
+        ) from error
+    direct_parent_matches = (
+        path.parent == parent and resolved_path.parent == resolved_parent
+    )
+    descendant_matches = resolved_path.is_relative_to(resolved_parent)
+    if (
+        path.is_symlink()
+        or not path.is_file()
+        or not (descendant_matches if allow_descendant else direct_parent_matches)
+    ):
+        _refuse(reason_code, f"identity file is unsafe: {path.name}")
+    try:
+        return path.read_bytes()
+    except OSError as error:
+        raise PropagationOutputRefusalError(
+            reason_code,
+            f"identity file cannot be read: {path.name}",
+        ) from error
+
+
+def _json_object(value: bytes, *, reason_code: str, label: str) -> dict[str, Any]:
+    try:
+        payload = json.loads(value)
+    except (UnicodeDecodeError, json.JSONDecodeError) as error:
+        raise PropagationOutputRefusalError(
+            reason_code,
+            f"{label} is not valid JSON",
+        ) from error
+    if not isinstance(payload, dict):
+        _refuse(reason_code, f"{label} must be an object")
+    return cast(dict[str, Any], payload)
 
 
 def _load_and_check_schemas(schema_root: Path) -> dict[str, dict[str, Any]]:
@@ -736,5 +1332,5 @@ def _sha256(value: bytes) -> str:
     return hashlib.sha256(value).hexdigest()
 
 
-def _refuse(reason_code: str, detail: str) -> None:
+def _refuse(reason_code: str, detail: str) -> NoReturn:
     raise PropagationOutputRefusalError(reason_code, detail)
