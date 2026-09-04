@@ -1,14 +1,14 @@
 from __future__ import annotations
 
-import hashlib
-import json
-import os
-import shutil
-import tempfile
 from collections import Counter
 from collections.abc import Mapping, Sequence
 from dataclasses import dataclass
+import hashlib
+import json
+import os
 from pathlib import Path
+import shutil
+import tempfile
 from typing import Any, NoReturn, cast
 
 from .propagation_network import (
@@ -76,6 +76,48 @@ _CLASSIFICATION_PAYLOAD_NAMES = frozenset(
         "unmapped_mapping_queue.json",
     }
 )
+_CLASSIFICATION_QUEUE_NAMES = frozenset(
+    {
+        _CLASSIFICATION_ACCEPTED_QUEUE_NAME,
+        "not_applicable_mapping_queue.json",
+        "observation_memberships.json",
+        "review_queue.json",
+        "unmapped_mapping_queue.json",
+    }
+)
+_CLASSIFICATION_MAPPING_STATUSES = frozenset(
+    {
+        "accepted",
+        "accepted_qualified",
+        "contested",
+        "not_applicable",
+        "refused",
+        "unmapped",
+    }
+)
+_ACCEPTED_CLASSIFICATION_STATUSES = frozenset({"accepted", "accepted_qualified"})
+_CLASSIFICATION_SCHEMA_VERSIONS = {
+    "accepted_mapping_queue.json": "classification-accepted-mapping-queue.v1",
+    "concept_denominators.json": "classification-concept-denominators.v1",
+    "country_partitions.json": "classification-country-partitions.v1",
+    "not_applicable_mapping_queue.json": (
+        "classification-not-applicable-mapping-queue.v1"
+    ),
+    "observation_denominators.json": "classification-observation-denominators.v1",
+    "observation_memberships.json": "classification-observation-memberships.v1",
+    "release_metadata.json": "classification-release-metadata.v1",
+    "review_queue.json": "classification-review-queue.v1",
+    "unmapped_mapping_queue.json": "classification-unmapped-mapping-queue.v1",
+}
+_SCIENTIFIC_CLAIM_BOOLEAN_FIELDS = frozenset(
+    {
+        "establishes_route",
+        "establishes_causation",
+        "establishes_human_migration",
+        "establishes_plant_migration",
+        "establishes_local_cultivation",
+    }
+)
 
 
 class PropagationOutputRefusalError(ValueError):
@@ -97,6 +139,42 @@ class PropagationMaterializationResult:
     eligible_event_count: int
     excluded_non_pollen_event_count: int
     primary_directed_candidate_count: int
+
+
+@dataclass(frozen=True)
+class _ClassificationAuthority:
+    """Product-owned classification identity authorized for propagation input."""
+
+    manifest_sha256: str
+    source_family: str
+    source_snapshot_id: str
+    build_id: str
+    contract_version: str
+    contract_digest: str
+    producer_id: str
+    producer_version: str
+    producer_digest: str
+    accepted_mapping_count: int
+
+
+_CLASSIFICATION_AUTHORITY = _ClassificationAuthority(
+    manifest_sha256="0da8ba04e8a68058723d1eebe1ea49a3047968c47dfbbade581e355ef28ffe97",
+    source_family="neotoma",
+    source_snapshot_id=(
+        "sha256:b2bcb99157e10b0c9f13c228acc12eabcb39d96a1f39c86ec25e34aacd78c791"
+    ),
+    build_id="sha256:92dd52619837f3641d004a1a5dbe38f9ab6023a79f61989314bb90e612eb58e1",
+    contract_version="1.0.0",
+    contract_digest=(
+        "sha256:3b61266d52b4a35ad8e808a730b5e433a0bfb37536ef458fb080263b80a5c671"
+    ),
+    producer_id="bijux-pollenomics.neotoma-classification-audit",
+    producer_version="1",
+    producer_digest=(
+        "sha256:f0e5a830d412bfd34b4920cd3cf4a4ad21dcd6e1bb821f1e54c8eaa426a83bef"
+    ),
+    accepted_mapping_count=0,
+)
 
 
 def materialize_propagation_outputs(
@@ -676,6 +754,8 @@ def _validate_classification_bundle_identity(
     classification_review_digest: str,
     accepted_classification_mapping_count: int,
 ) -> None:
+    # The product-owned authority is the trust anchor.  Caller pins remain
+    # useful replay guards, but cannot authorize a coherently rehashed bundle.
     if (
         not bundle_root.is_absolute()
         or bundle_root.is_symlink()
@@ -690,7 +770,13 @@ def _validate_classification_bundle_identity(
         parent=bundle_root,
         reason_code="invalid_classification_identity",
     )
-    if _sha256(manifest_bytes) != classification_review_digest:
+    observed_manifest_sha256 = _sha256(manifest_bytes)
+    if observed_manifest_sha256 != _CLASSIFICATION_AUTHORITY.manifest_sha256:
+        _refuse(
+            "invalid_classification_authority",
+            "classification manifest is not authorized by the propagation producer",
+        )
+    if observed_manifest_sha256 != classification_review_digest:
         _refuse(
             "invalid_classification_identity",
             "classification_review_digest does not match classification manifest bytes",
@@ -738,11 +824,23 @@ def _validate_classification_bundle_identity(
             reason_code="invalid_classification_identity",
             label=f"classification payload {name}",
         )
+        if payload.get("schema_version") != _CLASSIFICATION_SCHEMA_VERSIONS[name]:
+            _refuse(
+                "invalid_classification_identity",
+                f"classification payload schema is not governed: {name}",
+            )
         if payload.get("record_count") != expected_count:
             _refuse(
                 "invalid_classification_identity",
                 f"classification payload count changed: {name}",
             )
+        if name in _CLASSIFICATION_QUEUE_NAMES:
+            records = payload.get("records")
+            if not isinstance(records, list) or len(records) != expected_count:
+                _refuse(
+                    "invalid_classification_reconciliation",
+                    f"classification records do not match record_count: {name}",
+                )
         if (
             payload.get("source_family") != manifest.get("source_family")
             or payload.get("source_snapshot_id") != manifest.get("source_snapshot_id")
@@ -775,10 +873,24 @@ def _validate_classification_bundle_identity(
         manifest.get("build_id") != build_id
         or manifest.get("classification_contract_version")
         != classification_contract_version
+        or manifest.get("source_family") != _CLASSIFICATION_AUTHORITY.source_family
+        or manifest.get("source_snapshot_id")
+        != _CLASSIFICATION_AUTHORITY.source_snapshot_id
+        or manifest.get("build_id") != _CLASSIFICATION_AUTHORITY.build_id
+        or manifest.get("classification_contract_version")
+        != _CLASSIFICATION_AUTHORITY.contract_version
+        or manifest.get("classification_contract_digest")
+        != _CLASSIFICATION_AUTHORITY.contract_digest
+        or manifest.get("classification_producer_id")
+        != _CLASSIFICATION_AUTHORITY.producer_id
+        or manifest.get("classification_producer_version")
+        != _CLASSIFICATION_AUTHORITY.producer_version
+        or manifest.get("classification_producer_digest")
+        != _CLASSIFICATION_AUTHORITY.producer_digest
     ):
         _refuse(
             "invalid_classification_identity",
-            "classification manifest build or contract version does not match the pin",
+            "classification manifest does not match caller and product authority pins",
         )
     release = payloads.get(_CLASSIFICATION_RELEASE_NAME)
     accepted_queue = payloads.get(_CLASSIFICATION_ACCEPTED_QUEUE_NAME)
@@ -806,18 +918,229 @@ def _validate_classification_bundle_identity(
             "invalid_classification_identity",
             "classification accepted queue records must be an array",
         )
+    concept_denominators = payloads["concept_denominators.json"]
+    observation_denominators = payloads["observation_denominators.json"]
+    observation_memberships = payloads["observation_memberships.json"]
+    not_applicable_queue = payloads["not_applicable_mapping_queue.json"]
+    review_queue = payloads["review_queue.json"]
+    unmapped_queue = payloads["unmapped_mapping_queue.json"]
+    country_partitions = payloads["country_partitions.json"]
+    country_partition_count = 0
+    for field in ("source_country", "governed_country", "country_relation"):
+        country_partition_records = country_partitions.get(field)
+        if not isinstance(country_partition_records, list) or any(
+            not isinstance(record, Mapping) for record in country_partition_records
+        ):
+            _refuse(
+                "invalid_classification_reconciliation",
+                f"classification country partition is invalid: {field}",
+            )
+        country_partition_count += len(country_partition_records)
+    concept_status_counts = _classification_status_counts(
+        concept_denominators.get("mapping_status_counts"),
+        label="concept mapping_status_counts",
+    )
+    observation_status_counts = _classification_status_counts(
+        observation_denominators.get("mapping_status_counts"),
+        label="observation mapping_status_counts",
+    )
+    concept_count = _classification_count(
+        concept_denominators.get("record_count"), label="concept record_count"
+    )
+    observation_count = _classification_count(
+        observation_denominators.get("record_count"),
+        label="observation record_count",
+    )
+    accepted_count = len(accepted_records)
+    unmapped_count = _classification_count(
+        unmapped_queue.get("record_count"), label="unmapped queue record_count"
+    )
+    not_applicable_count = _classification_count(
+        not_applicable_queue.get("record_count"),
+        label="not-applicable queue record_count",
+    )
+    review_count = _classification_count(
+        review_queue.get("record_count"), label="review queue record_count"
+    )
+    observation_records = cast(list[object], observation_memberships["records"])
+    observed_observation_statuses: Counter[str] = Counter()
+    for record in observation_records:
+        if not isinstance(record, Mapping):
+            _refuse(
+                "invalid_classification_reconciliation",
+                "classification observation membership must be an object",
+            )
+        status = record.get("mapping_status")
+        if status not in _CLASSIFICATION_MAPPING_STATUSES:
+            _refuse(
+                "invalid_classification_reconciliation",
+                "classification observation membership status is not governed",
+            )
+        observed_observation_statuses[str(status)] += 1
+    if (
+        concept_denominators.get("total_concept_count") != concept_count
+        or sum(concept_status_counts.values()) != concept_count
+        or concept_denominators.get("accepted_queue_count") != accepted_count
+        or accepted_count
+        != concept_status_counts["accepted"]
+        + concept_status_counts["accepted_qualified"]
+        or concept_denominators.get("unmapped_queue_count") != unmapped_count
+        or unmapped_count != concept_status_counts["unmapped"]
+        or concept_denominators.get("not_applicable_queue_count")
+        != not_applicable_count
+        or not_applicable_count != concept_status_counts["not_applicable"]
+        or concept_denominators.get("review_queue_count") != review_count
+        or review_count
+        != concept_status_counts["unmapped"]
+        + concept_status_counts["contested"]
+        + concept_status_counts["refused"]
+        or observation_denominators.get("total_observation_count") != observation_count
+        or sum(observation_status_counts.values()) != observation_count
+        or observation_memberships.get("record_count") != observation_count
+        or dict(observed_observation_statuses)
+        != {
+            status: count
+            for status, count in observation_status_counts.items()
+            if count
+        }
+        or country_partitions.get("record_count") != country_partition_count
+    ):
+        _refuse(
+            "invalid_classification_reconciliation",
+            "classification queue and denominator counts do not reconcile",
+        )
+    for records, allowed_statuses, label in (
+        (accepted_records, _ACCEPTED_CLASSIFICATION_STATUSES, "accepted"),
+        (cast(list[object], unmapped_queue["records"]), {"unmapped"}, "unmapped"),
+        (
+            cast(list[object], not_applicable_queue["records"]),
+            {"not_applicable"},
+            "not-applicable",
+        ),
+        (
+            cast(list[object], review_queue["records"]),
+            {"unmapped", "contested", "refused"},
+            "review",
+        ),
+    ):
+        _validate_classification_queue_statuses(
+            records, allowed_statuses=allowed_statuses, label=label
+        )
+    review_records = cast(list[object], review_queue["records"])
+    not_applicable_records = cast(list[object], not_applicable_queue["records"])
+    unmapped_records = cast(list[object], unmapped_queue["records"])
+    partition_records = [*accepted_records, *not_applicable_records, *review_records]
+    partition_statuses = Counter(
+        str(cast(Mapping[str, object], record)["mapping_status"])
+        for record in partition_records
+    )
+    partition_ids = [
+        cast(Mapping[str, object], record).get("classification_concept_id")
+        for record in partition_records
+    ]
+    unmapped_ids = {
+        cast(Mapping[str, object], record).get("classification_concept_id")
+        for record in unmapped_records
+    }
+    review_unmapped_ids = {
+        cast(Mapping[str, object], record).get("classification_concept_id")
+        for record in review_records
+        if cast(Mapping[str, object], record).get("mapping_status") == "unmapped"
+    }
+    if (
+        dict(partition_statuses)
+        != {status: count for status, count in concept_status_counts.items() if count}
+        or any(
+            not isinstance(identifier, str) or not identifier
+            for identifier in partition_ids
+        )
+        or len(partition_ids) != len(set(partition_ids))
+        or unmapped_ids != review_unmapped_ids
+    ):
+        _refuse(
+            "invalid_classification_reconciliation",
+            "classification concept queues do not form the declared partition",
+        )
     embedded_count = release.get("accepted_mapping_count")
     if (
         isinstance(embedded_count, bool)
         or not isinstance(embedded_count, int)
         or embedded_count != accepted_classification_mapping_count
+        or embedded_count != _CLASSIFICATION_AUTHORITY.accepted_mapping_count
         or accepted_queue.get("record_count") != embedded_count
         or len(accepted_records) != embedded_count
+        or release.get("reviewed_accepted_mapping_count") != embedded_count
+        or release.get("human_approval_synthesized") is not False
+        or release.get("release_eligible_mapping_count")
+        != sum(
+            cast(Mapping[str, object], record).get("release_eligible") is True
+            for record in accepted_records
+        )
+        or release.get("unmapped_mapping_count") != unmapped_count
+        or release.get("not_applicable_mapping_count") != not_applicable_count
     ):
         _refuse(
             "invalid_classification_reconciliation",
             "accepted classification count does not match the verified bundle",
         )
+    for record in accepted_records:
+        assert isinstance(record, Mapping)
+        citations = record.get("citation_reference_ids")
+        if (
+            record.get("review_complete") is not True
+            or not all(
+                isinstance(record.get(field), str) and bool(record.get(field))
+                for field in (
+                    "mapping_version",
+                    "reviewer_id",
+                    "decision_date",
+                    "accepted_taxon_concept_id",
+                )
+            )
+            or not isinstance(citations, list)
+            or not citations
+            or any(
+                not isinstance(citation, str) or not citation for citation in citations
+            )
+        ):
+            _refuse(
+                "invalid_classification_reconciliation",
+                "accepted classification record lacks complete governed review evidence",
+            )
+
+
+def _classification_count(value: object, *, label: str) -> int:
+    if isinstance(value, bool) or not isinstance(value, int) or value < 0:
+        _refuse("invalid_classification_reconciliation", f"{label} is invalid")
+    return value
+
+
+def _classification_status_counts(value: object, *, label: str) -> dict[str, int]:
+    if not isinstance(value, Mapping) or set(value) != _CLASSIFICATION_MAPPING_STATUSES:
+        _refuse(
+            "invalid_classification_reconciliation",
+            f"{label} does not contain the governed status partition",
+        )
+    return {
+        status: _classification_count(value[status], label=f"{label}.{status}")
+        for status in sorted(_CLASSIFICATION_MAPPING_STATUSES)
+    }
+
+
+def _validate_classification_queue_statuses(
+    records: Sequence[object],
+    *,
+    allowed_statuses: set[str] | frozenset[str],
+    label: str,
+) -> None:
+    for record in records:
+        if not isinstance(record, Mapping) or record.get("mapping_status") not in (
+            allowed_statuses
+        ):
+            _refuse(
+                "invalid_classification_reconciliation",
+                f"classification {label} queue contains an invalid status",
+            )
 
 
 def _validate_propagation_contract_identity(
@@ -827,10 +1150,17 @@ def _validate_propagation_contract_identity(
     propagation_contract_version: str,
     propagation_contract_digest: str,
 ) -> None:
+    governed_contract = schema_root / "propagation-model.v1.yaml"
     if (
-        not contract_path.is_absolute()
+        not schema_root.is_absolute()
+        or _path_has_symlink_component(schema_root)
+        or not schema_root.is_dir()
+        or not contract_path.is_absolute()
         or contract_path.name != "propagation-model.v1.yaml"
-        or contract_path.parent != schema_root
+        or contract_path != governed_contract
+        or _path_has_symlink_component(contract_path)
+        or not contract_path.is_file()
+        or contract_path.resolve(strict=True) != governed_contract.resolve(strict=True)
     ):
         _refuse(
             "invalid_propagation_identity",
@@ -869,9 +1199,26 @@ def _validate_propagation_contract_identity(
     event_contract = contract.get("event_contract")
     geography = contract.get("geographic_scope")
     default = contract.get("default_scenario")
+    scientific_claim = contract.get("scientific_claim")
+    spatial_calculation = contract.get("spatial_calculation")
+    candidate_logic = contract.get("candidate_logic")
+    output_edge_contract = contract.get("output_edge_contract")
+    map_contract = contract.get("map_contract")
+    denominators = contract.get("denominators")
     if not all(
         isinstance(value, dict)
-        for value in (sensitivity, event_contract, geography, default)
+        for value in (
+            sensitivity,
+            event_contract,
+            geography,
+            default,
+            scientific_claim,
+            spatial_calculation,
+            candidate_logic,
+            output_edge_contract,
+            map_contract,
+            denominators,
+        )
     ):
         _refuse(
             "invalid_propagation_identity",
@@ -881,6 +1228,12 @@ def _validate_propagation_contract_identity(
     assert isinstance(event_contract, dict)
     assert isinstance(geography, dict)
     assert isinstance(default, dict)
+    assert isinstance(scientific_claim, dict)
+    assert isinstance(spatial_calculation, dict)
+    assert isinstance(candidate_logic, dict)
+    assert isinstance(output_edge_contract, dict)
+    assert isinstance(map_contract, dict)
+    assert isinstance(denominators, dict)
     spatial = default.get("spatial")
     temporal = default.get("temporal")
     required_metrics = sensitivity.get("required_metrics")
@@ -897,19 +1250,84 @@ def _validate_propagation_contract_identity(
         "country_pair_counts",
         "feature_stability_across_scenarios",
     }
+    expected_country_pairs = [
+        f"{source}-{target}" for source in COUNTRY_CODES for target in COUNTRY_CODES
+    ]
+    scientific_boolean_fields = {
+        key for key, value in scientific_claim.items() if isinstance(value, bool)
+    }
     if (
         contract.get("contract_id") != "bijux-pollenomics.propagation-model"
         or contract.get("contract_version") != propagation_contract_version
+        or contract.get("status") != "normative"
+        or scientific_claim.get("output_class") != "candidate_propagation"
+        or scientific_claim.get("preferred_label") != "candidate propagation link"
+        or scientific_claim.get("alternate_label")
+        != "spatiotemporal succession consistent with spread"
+        or scientific_claim.get("note")
+        != (
+            "An edge is a versioned exploratory relation between evidence events, "
+            "not a physical route or proof of a mechanism."
+        )
+        or scientific_boolean_fields != _SCIENTIFIC_CLAIM_BOOLEAN_FIELDS
+        or any(
+            scientific_claim[field] is not False for field in scientific_boolean_fields
+        )
         or event_contract.get("allowed_evidence_domains") != list(EVIDENCE_DOMAINS)
         or event_contract.get("pollen_candidate_domain") != "pollen_context"
+        or event_contract.get("non_pollen_domain_posture")
+        != "retain as accounted input evidence but exclude from pollen candidate generation"
         or geography.get("countries") != list(COUNTRY_CODES)
+        or geography.get("country_boundaries_partition_candidate_generation")
+        is not False
+        or geography.get("domestic_and_cross_border_rules_identical") is not True
+        or geography.get("required_ordered_country_pair_reporting")
+        != expected_country_pairs
         or default.get("scenario_id") != DEFAULT_PROPAGATION_SCENARIO.scenario_id
         or not isinstance(spatial, dict)
         or spatial.get("maximum_distance_km")
         != DEFAULT_PROPAGATION_SCENARIO.maximum_distance_km
+        or spatial.get("maximum_is_inclusive") is not True
+        or spatial.get("is_diameter") is not False
         or not isinstance(temporal, dict)
+        or temporal.get("minimum_positive_lag_years") != 0.0
+        or temporal.get("minimum_is_exclusive") is not True
         or temporal.get("maximum_lag_years")
         != DEFAULT_PROPAGATION_SCENARIO.maximum_lag_years
+        or temporal.get("maximum_is_inclusive") is not True
+        or temporal.get("direction") != "older_event_to_younger_event"
+        or default.get("geometry") != "rectangular_threshold"
+        or default.get("rate_or_velocity_model") is not False
+        or default.get("biological_law") is not False
+        or spatial_calculation.get("coordinate_reference_system") != "EPSG:4326"
+        or spatial_calculation.get("algorithm") != "WGS84 inverse geodesic"
+        or spatial_calculation.get("ellipsoid") != "WGS84"
+        or spatial_calculation.get("eligibility_distance_field")
+        != "distance_km_unrounded"
+        or spatial_calculation.get("eligibility_value_rounding_allowed") is not False
+        or spatial_calculation.get("eligibility_uses_unrounded_value") is not True
+        or spatial_calculation.get("silent_algorithm_fallback_allowed") is not False
+        or candidate_logic.get("no_midpoint_shortcut") is not True
+        or candidate_logic.get("same_point_age_directional") is not False
+        or output_edge_contract.get("route_interpretation_allowed") is not False
+        or output_edge_contract.get("map_geometry")
+        != "straight geodesic endpoint connection for visualization only"
+        or map_contract.get("merge_selected_features") is not False
+        or map_contract.get("color_alone_is_sufficient") is not False
+        or denominators.get("statuses_are_mutually_exclusive") is not True
+        or denominators.get("all_evaluated_pairs_must_be_accounted_for") is not True
+        or denominators.get("required_partitions")
+        != [
+            "country_code",
+            "ordered_country_pair",
+            "source_family",
+            "evidence_domain",
+            "resolution",
+            "feature_key",
+            "candidate_status",
+            "scenario_id",
+            "threshold_profile_id",
+        ]
         or sensitivity.get("distance_km_values") != [25.0, 50.0, 100.0, 200.0]
         or sensitivity.get("lag_year_values") != [50.0, 100.0, 200.0, 500.0]
         or not isinstance(required_metrics, list)
@@ -1042,6 +1460,21 @@ def _read_identity_file(
         ) from error
 
 
+def _path_has_symlink_component(path: Path) -> bool:
+    """Return whether any existing component in an absolute path is a symlink."""
+    if not path.is_absolute():
+        return True
+    current = Path(path.anchor)
+    for part in path.parts[1:]:
+        current /= part
+        try:
+            if current.is_symlink():
+                return True
+        except OSError:
+            return True
+    return False
+
+
 def _json_object(value: bytes, *, reason_code: str, label: str) -> dict[str, Any]:
     try:
         payload = json.loads(value)
@@ -1056,7 +1489,11 @@ def _json_object(value: bytes, *, reason_code: str, label: str) -> dict[str, Any
 
 
 def _load_and_check_schemas(schema_root: Path) -> dict[str, dict[str, Any]]:
-    if not schema_root.is_absolute() or not schema_root.is_dir():
+    if (
+        not schema_root.is_absolute()
+        or _path_has_symlink_component(schema_root)
+        or not schema_root.is_dir()
+    ):
         _refuse(
             "unsafe_schema_root",
             "schema_root must be an existing absolute directory",
@@ -1073,7 +1510,11 @@ def _load_and_check_schemas(schema_root: Path) -> dict[str, dict[str, Any]]:
     schemas: dict[str, dict[str, Any]] = {}
     for schema_name in (_EVENT_SCHEMA_NAME, _CANDIDATE_SCHEMA_NAME):
         schema_path = schema_root / schema_name
-        if schema_path.parent != schema_root or not schema_path.is_file():
+        if (
+            schema_path.parent != schema_root
+            or _path_has_symlink_component(schema_path)
+            or not schema_path.is_file()
+        ):
             _refuse(
                 "missing_control_schema",
                 f"required control schema is missing: {schema_name}",

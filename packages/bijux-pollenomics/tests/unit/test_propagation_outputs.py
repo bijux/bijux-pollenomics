@@ -1,11 +1,14 @@
 from __future__ import annotations
 
+from dataclasses import replace
 import hashlib
 import json
-from dataclasses import replace
 from pathlib import Path
+from unittest.mock import patch
 
 import pytest
+
+from bijux_pollenomics.analysis import propagation_outputs as propagation_outputs_module
 from bijux_pollenomics.analysis.propagation_network import PhenomenonEvent
 from bijux_pollenomics.analysis.propagation_outputs import (
     PROPAGATION_PRODUCER_ID,
@@ -22,11 +25,57 @@ _MODEL = {
     "schema_version": "1.0.0",
     "contract_id": "bijux-pollenomics.propagation-model",
     "contract_version": _PROPAGATION_CONTRACT_VERSION,
-    "geographic_scope": {"countries": ["SE", "NO", "FI", "DK"]},
+    "status": "normative",
+    "scientific_claim": {
+        "output_class": "candidate_propagation",
+        "preferred_label": "candidate propagation link",
+        "alternate_label": "spatiotemporal succession consistent with spread",
+        "establishes_route": False,
+        "establishes_causation": False,
+        "establishes_human_migration": False,
+        "establishes_plant_migration": False,
+        "establishes_local_cultivation": False,
+        "note": (
+            "An edge is a versioned exploratory relation between evidence events, "
+            "not a physical route or proof of a mechanism."
+        ),
+    },
+    "geographic_scope": {
+        "countries": ["SE", "NO", "FI", "DK"],
+        "country_boundaries_partition_candidate_generation": False,
+        "domestic_and_cross_border_rules_identical": True,
+        "required_ordered_country_pair_reporting": [
+            f"{source}-{target}"
+            for source in ("SE", "NO", "FI", "DK")
+            for target in ("SE", "NO", "FI", "DK")
+        ],
+    },
     "default_scenario": {
         "scenario_id": "rectangular_100km_100yr_v1",
-        "spatial": {"maximum_distance_km": 100.0},
-        "temporal": {"maximum_lag_years": 100.0},
+        "spatial": {
+            "maximum_distance_km": 100.0,
+            "maximum_is_inclusive": True,
+            "is_diameter": False,
+        },
+        "temporal": {
+            "minimum_positive_lag_years": 0.0,
+            "minimum_is_exclusive": True,
+            "maximum_lag_years": 100.0,
+            "maximum_is_inclusive": True,
+            "direction": "older_event_to_younger_event",
+        },
+        "geometry": "rectangular_threshold",
+        "rate_or_velocity_model": False,
+        "biological_law": False,
+    },
+    "spatial_calculation": {
+        "coordinate_reference_system": "EPSG:4326",
+        "algorithm": "WGS84 inverse geodesic",
+        "ellipsoid": "WGS84",
+        "eligibility_distance_field": "distance_km_unrounded",
+        "eligibility_value_rounding_allowed": False,
+        "eligibility_uses_unrounded_value": True,
+        "silent_algorithm_fallback_allowed": False,
     },
     "event_contract": {
         "allowed_evidence_domains": [
@@ -35,6 +84,20 @@ _MODEL = {
             "animal_ancient_dna",
         ],
         "pollen_candidate_domain": "pollen_context",
+        "non_pollen_domain_posture": (
+            "retain as accounted input evidence but exclude from pollen candidate "
+            "generation"
+        ),
+    },
+    "candidate_logic": {
+        "no_midpoint_shortcut": True,
+        "same_point_age_directional": False,
+    },
+    "output_edge_contract": {
+        "map_geometry": (
+            "straight geodesic endpoint connection for visualization only"
+        ),
+        "route_interpretation_allowed": False,
     },
     "sensitivity_analysis": {
         "distance_km_values": [25.0, 50.0, 100.0, 200.0],
@@ -51,6 +114,25 @@ _MODEL = {
             "connected_component_count",
             "country_pair_counts",
             "feature_stability_across_scenarios",
+        ],
+    },
+    "map_contract": {
+        "merge_selected_features": False,
+        "color_alone_is_sufficient": False,
+    },
+    "denominators": {
+        "statuses_are_mutually_exclusive": True,
+        "all_evaluated_pairs_must_be_accounted_for": True,
+        "required_partitions": [
+            "country_code",
+            "ordered_country_pair",
+            "source_family",
+            "evidence_domain",
+            "resolution",
+            "feature_key",
+            "candidate_status",
+            "scenario_id",
+            "threshold_profile_id",
         ],
     },
 }
@@ -287,9 +369,27 @@ def _classification_bundle(parent: Path, accepted_count: int) -> tuple[Path, str
         "classification_producer_digest": f"sha256:{'2' * 64}",
     }
     accepted_records = [
-        {"classification_concept_id": f"accepted-{index}"}
+        {
+            "classification_concept_id": f"accepted-{index}",
+            "mapping_status": "accepted",
+            "mapping_version": "fixture-crosswalk.v1",
+            "reviewer_id": "reviewer-fixture",
+            "decision_date": "2026-09-04",
+            "accepted_taxon_concept_id": f"taxon-{index}",
+            "citation_reference_ids": ["citation-fixture"],
+            "review_complete": True,
+            "release_eligible": True,
+        }
         for index in range(accepted_count)
     ]
+    mapping_status_counts = {
+        "accepted": accepted_count,
+        "accepted_qualified": 0,
+        "contested": 0,
+        "not_applicable": 0,
+        "refused": 0,
+        "unmapped": 0,
+    }
     payloads: dict[str, dict[str, object]] = {
         "accepted_mapping_queue.json": {
             "schema_version": "classification-accepted-mapping-queue.v1",
@@ -301,11 +401,20 @@ def _classification_bundle(parent: Path, accepted_count: int) -> tuple[Path, str
             "schema_version": "classification-concept-denominators.v1",
             **common,
             "record_count": accepted_count,
+            "total_concept_count": accepted_count,
+            "mapping_status_counts": mapping_status_counts,
+            "accepted_queue_count": accepted_count,
+            "unmapped_queue_count": 0,
+            "not_applicable_queue_count": 0,
+            "review_queue_count": 0,
         },
         "country_partitions.json": {
             "schema_version": "classification-country-partitions.v1",
             **common,
             "record_count": 0,
+            "source_country": [],
+            "governed_country": [],
+            "country_relation": [],
         },
         "not_applicable_mapping_queue.json": {
             "schema_version": "classification-not-applicable-mapping-queue.v1",
@@ -317,6 +426,8 @@ def _classification_bundle(parent: Path, accepted_count: int) -> tuple[Path, str
             "schema_version": "classification-observation-denominators.v1",
             **common,
             "record_count": 0,
+            "total_observation_count": 0,
+            "mapping_status_counts": dict.fromkeys(mapping_status_counts, 0),
         },
         "observation_memberships.json": {
             "schema_version": "classification-observation-memberships.v1",
@@ -328,6 +439,11 @@ def _classification_bundle(parent: Path, accepted_count: int) -> tuple[Path, str
             "schema_version": "classification-release-metadata.v1",
             **common,
             "accepted_mapping_count": accepted_count,
+            "reviewed_accepted_mapping_count": accepted_count,
+            "release_eligible_mapping_count": accepted_count,
+            "unmapped_mapping_count": 0,
+            "not_applicable_mapping_count": 0,
+            "human_approval_synthesized": False,
             "record_count": 1,
         },
         "review_queue.json": {
@@ -372,6 +488,30 @@ def _classification_bundle(parent: Path, accepted_count: int) -> tuple[Path, str
     return root, hashlib.sha256(manifest_bytes).hexdigest()
 
 
+def _rehash_classification_bundle(root: Path) -> str:
+    manifest_path = root / "manifest.json"
+    manifest = _read_json(manifest_path)
+    entries = manifest["files"]
+    assert isinstance(entries, list)
+    for entry in entries:
+        assert isinstance(entry, dict)
+        payload_path = root / str(entry["path"])
+        payload = _read_json(payload_path)
+        payload_bytes = _canonical_json_bytes(payload)
+        payload_path.write_bytes(payload_bytes)
+        entry["sha256"] = hashlib.sha256(payload_bytes).hexdigest()
+        entry["record_count"] = payload["record_count"]
+    manifest["bundle_digest"] = hashlib.sha256(
+        "".join(
+            f"{entry['path']}\0{entry['sha256']}\0{entry['record_count']}\n"
+            for entry in entries
+        ).encode()
+    ).hexdigest()
+    manifest_bytes = _canonical_json_bytes(manifest)
+    manifest_path.write_bytes(manifest_bytes)
+    return hashlib.sha256(manifest_bytes).hexdigest()
+
+
 def _materialize(
     *,
     output_root: Path,
@@ -390,6 +530,7 @@ def _materialize(
     propagation_producer_version: str = _PROPAGATION_PRODUCER_VERSION,
     propagation_producer_digest: str | None = None,
     repository_root: Path = _REPOSITORY_ROOT,
+    use_product_classification_authority: bool = False,
 ) -> PropagationMaterializationResult:
     if classification_bundle_root is None:
         classification_bundle_root, observed_review_digest = _classification_bundle(
@@ -406,24 +547,50 @@ def _materialize(
         propagation_producer_digest = _producer_digest()
     if propagation_contract_path is None:
         propagation_contract_path = schema_root / "propagation-model.v1.yaml"
-    return materialize_propagation_outputs(
-        events,
-        output_root=output_root,
-        allowed_output_parent=allowed_output_parent,
-        schema_root=schema_root,
-        classification_bundle_root=classification_bundle_root,
-        propagation_contract_path=propagation_contract_path,
-        repository_root=repository_root,
-        build_id=build_id,
-        classification_contract_version=classification_contract_version,
-        classification_review_digest=classification_review_digest,
-        accepted_classification_mapping_count=accepted_mapping_count,
-        propagation_contract_version=propagation_contract_version,
-        propagation_contract_digest=propagation_contract_digest,
-        propagation_producer_id=propagation_producer_id,
-        propagation_producer_version=propagation_producer_version,
-        propagation_producer_digest=propagation_producer_digest,
+    manifest = _read_json(classification_bundle_root / "manifest.json")
+    release = _read_json(classification_bundle_root / "release_metadata.json")
+    authority_accepted_count = release["accepted_mapping_count"]
+    assert isinstance(authority_accepted_count, int)
+    test_authority = replace(
+        propagation_outputs_module._CLASSIFICATION_AUTHORITY,
+        manifest_sha256=observed_review_digest,
+        source_family=str(manifest["source_family"]),
+        source_snapshot_id=str(manifest["source_snapshot_id"]),
+        build_id=str(manifest["build_id"]),
+        contract_version=str(manifest["classification_contract_version"]),
+        contract_digest=str(manifest["classification_contract_digest"]),
+        producer_id=str(manifest["classification_producer_id"]),
+        producer_version=str(manifest["classification_producer_version"]),
+        producer_digest=str(manifest["classification_producer_digest"]),
+        accepted_mapping_count=authority_accepted_count,
     )
+
+    def invoke() -> PropagationMaterializationResult:
+        return materialize_propagation_outputs(
+            events,
+            output_root=output_root,
+            allowed_output_parent=allowed_output_parent,
+            schema_root=schema_root,
+            classification_bundle_root=classification_bundle_root,
+            propagation_contract_path=propagation_contract_path,
+            repository_root=repository_root,
+            build_id=build_id,
+            classification_contract_version=classification_contract_version,
+            classification_review_digest=classification_review_digest,
+            accepted_classification_mapping_count=accepted_mapping_count,
+            propagation_contract_version=propagation_contract_version,
+            propagation_contract_digest=propagation_contract_digest,
+            propagation_producer_id=propagation_producer_id,
+            propagation_producer_version=propagation_producer_version,
+            propagation_producer_digest=propagation_producer_digest,
+        )
+
+    if use_product_classification_authority:
+        return invoke()
+    with patch.object(
+        propagation_outputs_module, "_CLASSIFICATION_AUTHORITY", test_authority
+    ):
+        return invoke()
 
 
 def _read_json(path: Path) -> dict[str, object]:
@@ -853,6 +1020,109 @@ def test_classification_identity_is_bound_to_manifested_bytes_and_counts(
     assert rehashed_release.value.reason_code == "invalid_classification_reconciliation"
 
 
+@pytest.mark.parametrize(
+    ("payload_name", "mutation"),
+    (
+        (
+            "accepted_mapping_queue.json",
+            lambda payload: payload.update(record_count=1),
+        ),
+        (
+            "release_metadata.json",
+            lambda payload: payload.update(human_approval_synthesized=True),
+        ),
+        (
+            "concept_denominators.json",
+            lambda payload: payload["mapping_status_counts"].update(unmapped=1),
+        ),
+    ),
+)
+def test_coherently_rehashed_classification_accounting_mutations_are_refused(
+    tmp_path: Path,
+    schema_root: Path,
+    payload_name: str,
+    mutation: object,
+) -> None:
+    classification_root, _ = _classification_bundle(tmp_path, 0)
+    payload_path = classification_root / payload_name
+    payload = _read_json(payload_path)
+    assert callable(mutation)
+    mutation(payload)
+    payload_path.write_bytes(_canonical_json_bytes(payload))
+    digest = _rehash_classification_bundle(classification_root)
+
+    with pytest.raises(PropagationOutputRefusalError) as refusal:
+        _materialize(
+            output_root=tmp_path / f"refused-{payload_name}",
+            allowed_output_parent=tmp_path,
+            schema_root=schema_root,
+            classification_bundle_root=classification_root,
+            classification_review_digest=digest,
+        )
+
+    assert refusal.value.reason_code == "invalid_classification_reconciliation"
+
+
+@pytest.mark.parametrize(
+    "mutation",
+    (
+        lambda accepted, release: accepted["records"][0].update(review_complete=False),
+        lambda accepted, release: release.update(reviewed_accepted_mapping_count=0),
+        lambda accepted, release: accepted["records"][0].update(
+            citation_reference_ids=[]
+        ),
+    ),
+)
+def test_coherently_rehashed_accepted_mapping_requires_complete_review_evidence(
+    tmp_path: Path,
+    schema_root: Path,
+    mutation: object,
+) -> None:
+    classification_root, _ = _classification_bundle(tmp_path, 1)
+    accepted_path = classification_root / "accepted_mapping_queue.json"
+    release_path = classification_root / "release_metadata.json"
+    accepted = _read_json(accepted_path)
+    release = _read_json(release_path)
+    assert callable(mutation)
+    mutation(accepted, release)
+    accepted_path.write_bytes(_canonical_json_bytes(accepted))
+    release_path.write_bytes(_canonical_json_bytes(release))
+    digest = _rehash_classification_bundle(classification_root)
+
+    with pytest.raises(PropagationOutputRefusalError) as refusal:
+        _materialize(
+            output_root=tmp_path / "refused-incomplete-review",
+            allowed_output_parent=tmp_path,
+            schema_root=schema_root,
+            classification_bundle_root=classification_root,
+            classification_review_digest=digest,
+            accepted_mapping_count=1,
+        )
+
+    assert refusal.value.reason_code == "invalid_classification_reconciliation"
+
+
+def test_caller_cannot_authorize_a_coherent_fabricated_classification_bundle(
+    tmp_path: Path, schema_root: Path
+) -> None:
+    classification_root, forged_manifest_digest = _classification_bundle(tmp_path, 1)
+
+    with pytest.raises(PropagationOutputRefusalError) as refusal:
+        _materialize(
+            output_root=tmp_path / "forged-accepted-classification",
+            allowed_output_parent=tmp_path,
+            schema_root=schema_root,
+            classification_bundle_root=classification_root,
+            classification_review_digest=forged_manifest_digest,
+            accepted_mapping_count=1,
+            events=(_event("forged-acceptance"),),
+            use_product_classification_authority=True,
+        )
+
+    assert refusal.value.reason_code == "invalid_classification_authority"
+    assert not (tmp_path / "forged-accepted-classification").exists()
+
+
 def test_opaque_classification_and_build_claims_are_refused(
     tmp_path: Path, schema_root: Path
 ) -> None:
@@ -939,6 +1209,77 @@ def test_contract_and_producer_pins_are_recomputed_from_governed_files(
     assert opaque_producer.value.reason_code == "invalid_propagation_identity"
     assert wrong_repository.value.reason_code == "invalid_propagation_identity"
     assert wrong_producer_id.value.reason_code == "invalid_propagation_identity"
+
+
+@pytest.mark.parametrize(
+    ("section", "field", "value"),
+    (
+        ("scientific_claim", "establishes_route", True),
+        ("scientific_claim", "establishes_causation", True),
+        ("scientific_claim", "establishes_human_migration", True),
+        ("scientific_claim", "establishes_plant_migration", True),
+        ("scientific_claim", "establishes_local_cultivation", True),
+        ("scientific_claim", "preferred_label", "propagation route"),
+        ("scientific_claim", "alternate_label", "migration"),
+        ("event_contract", "non_pollen_domain_posture", "merge all evidence"),
+        ("geographic_scope", "domestic_and_cross_border_rules_identical", False),
+        ("candidate_logic", "no_midpoint_shortcut", False),
+        ("output_edge_contract", "route_interpretation_allowed", True),
+    ),
+)
+def test_rehashed_normative_claim_semantic_mutations_are_refused(
+    tmp_path: Path,
+    schema_root: Path,
+    section: str,
+    field: str,
+    value: object,
+) -> None:
+    changed_model = json.loads(json.dumps(_MODEL))
+    changed_section = changed_model[section]
+    assert isinstance(changed_section, dict)
+    changed_section[field] = value
+    changed_bytes = json.dumps(changed_model, sort_keys=True).encode()
+    contract_path = schema_root / "propagation-model.v1.yaml"
+    contract_path.write_bytes(changed_bytes)
+
+    with pytest.raises(PropagationOutputRefusalError) as refusal:
+        _materialize(
+            output_root=tmp_path / f"changed-{section}-{field}",
+            allowed_output_parent=tmp_path,
+            schema_root=schema_root,
+            propagation_contract_digest=hashlib.sha256(changed_bytes).hexdigest(),
+        )
+
+    assert refusal.value.reason_code == "invalid_propagation_identity"
+
+
+def test_symlinked_schema_root_and_contract_components_are_refused(
+    tmp_path: Path, schema_root: Path
+) -> None:
+    linked_schema_root = tmp_path / "linked-schemas"
+    linked_schema_root.symlink_to(schema_root, target_is_directory=True)
+    with pytest.raises(PropagationOutputRefusalError) as linked_root:
+        _materialize(
+            output_root=tmp_path / "linked-root-output",
+            allowed_output_parent=tmp_path,
+            schema_root=linked_schema_root,
+        )
+
+    contract_path = schema_root / "propagation-model.v1.yaml"
+    real_contract = tmp_path / "governed-model.yaml"
+    real_contract.write_bytes(contract_path.read_bytes())
+    contract_path.unlink()
+    contract_path.symlink_to(real_contract)
+    with pytest.raises(PropagationOutputRefusalError) as linked_contract:
+        _materialize(
+            output_root=tmp_path / "linked-contract-output",
+            allowed_output_parent=tmp_path,
+            schema_root=schema_root,
+            propagation_contract_path=contract_path,
+        )
+
+    assert linked_root.value.reason_code == "invalid_propagation_identity"
+    assert linked_contract.value.reason_code == "invalid_propagation_identity"
 
 
 def test_non_identical_overwrite_is_refused_without_modification(
