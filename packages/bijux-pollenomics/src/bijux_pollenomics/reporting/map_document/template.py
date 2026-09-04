@@ -8,6 +8,7 @@ MAP_DOCUMENT_TEMPLATE = """
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>__TITLE__</title>
+    <link rel="icon" href="data:,">
     <link rel="stylesheet" href="__ASSET_BASE_PATH__/leaflet/leaflet.css">
     <link rel="stylesheet" href="__ASSET_BASE_PATH__/markercluster/MarkerCluster.css">
     <link rel="stylesheet" href="__ASSET_BASE_PATH__/markercluster/MarkerCluster.Default.css">

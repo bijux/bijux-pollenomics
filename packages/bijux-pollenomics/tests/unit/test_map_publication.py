@@ -185,6 +185,9 @@ class MapPublicationUnitTests(unittest.TestCase):
         )
         self.assertNotIn("apiKey", MAP_DOCUMENT_TEMPLATE)
 
+    def test_map_document_has_no_favicon_network_dependency(self) -> None:
+        self.assertIn('<link rel="icon" href="data:,">', MAP_DOCUMENT_TEMPLATE)
+
     def test_rendered_map_keeps_policy_default_and_complete_failover_order(
         self,
     ) -> None:
