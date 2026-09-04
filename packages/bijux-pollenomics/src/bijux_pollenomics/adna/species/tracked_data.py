@@ -24,7 +24,11 @@ from ..governance import build_species_dataset_review
 from ..integrity import build_archive_integrity_report
 from ..layout import build_species_layout
 from ..manifests import build_species_manifest
-from ..normalization import build_species_normalization_bundle
+from ..normalization import (
+    AdnaSpeciesNormalizationBundle,
+    RECOVERED_SAMPLE_EVIDENCE_STATUSES,
+    build_species_normalization_bundle,
+)
 from ..paths import adna_final_root, adna_governance_root
 from ..projects.sample_truth import (
     build_animal_sample_aggregation_warnings,
@@ -95,6 +99,7 @@ def materialize_tracked_species_root(output_root: Path, species_name: str) -> No
     project_manifest = build_species_project_manifest(species_name)
     runtime_manifest = build_species_runtime_manifest(species_name)
     normalization_bundle = build_species_normalization_bundle(species_name)
+    _validate_tracked_sample_admission(normalization_bundle)
     review_dossier = build_species_review_dossier(species_name)
     integrity_report = build_archive_integrity_report(species_name=species_name)
     archive_projects = build_species_archive_projects(species_name)
@@ -580,12 +585,41 @@ def _render_sample_records_csv(bundle: object) -> str:
     return _render_csv(fieldnames, rows)
 
 
-def _sample_records_payload(bundle: object) -> dict[str, object]:
+def _sample_records_payload(
+    bundle: AdnaSpeciesNormalizationBundle,
+) -> dict[str, object]:
+    sample_refusals = [
+        refusal.as_dict()
+        for refusal in bundle.refusals
+        if refusal.record_kind == "sample_record"
+    ]
     return {
         "schema_version": "adna-sample-record-export.v1",
+        "evidence_domain": "animal_ancient_dna",
+        "pollen_eligible": False,
+        "pollen_propagation_eligible": False,
         "species_latin_name": bundle.species.latin_name,
+        "admitted_sample_count": len(bundle.sample_records),
+        "refused_sample_count": len(sample_refusals),
         "samples": [record.as_dict() for record in bundle.sample_records],
+        "sample_refusals": sample_refusals,
     }
+
+
+def _validate_tracked_sample_admission(bundle: AdnaSpeciesNormalizationBundle) -> None:
+    """Refuse tracked normalization when placeholder sample rows leak through."""
+    violations = sorted(
+        record.genetic_id
+        for record in bundle.sample_records
+        if record.sample_evidence_status not in RECOVERED_SAMPLE_EVIDENCE_STATUSES
+        or record.sample_identity_resolution != "final"
+        or record.inclusion_status == "sample_context_blocked"
+    )
+    if violations:
+        raise ValueError(
+            "Tracked animal aDNA samples contain non-admissible placeholders: "
+            + ", ".join(violations)
+        )
 
 
 def _project_summaries_payload(bundle: object) -> dict[str, object]:

@@ -190,11 +190,11 @@ class AdnaCatalogUnitTests(unittest.TestCase):
         self.assertEqual(readiness["totals"]["direct_coordinate_backed"], 234)
         self.assertEqual(readiness["totals"]["indirectly_geocoded"], 2)
         self.assertEqual(readiness["totals"]["refused_from_mapping"], 7)
-        self.assertEqual(readiness["totals"]["unresolved"], 21)
+        self.assertEqual(readiness["totals"]["unresolved"], 0)
         self.assertEqual(horse_row["direct_coordinate_backed"], 207)
         self.assertEqual(horse_row["indirectly_geocoded"], 1)
         self.assertEqual(sheep_row["refused_from_mapping"], 1)
-        self.assertEqual(len(unresolved), 21)
+        self.assertEqual(len(unresolved), 0)
         self.assertEqual(len(overbroad), 7)
 
     def test_coordinate_caveat_surface_groups_current_point_and_refused_rows(
@@ -230,6 +230,8 @@ class AdnaCatalogUnitTests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as tmp:
             data_root = Path(tmp) / "data"
             materialize_tracked_species_adna(data_root)
+            admitted_sample_count = 0
+            refused_sample_count = 0
 
             for species_root in (data_root / "adna" / "species").iterdir():
                 if not species_root.is_dir() or species_root.name == "homo_sapiens":
@@ -238,6 +240,17 @@ class AdnaCatalogUnitTests(unittest.TestCase):
                     (species_root / "normalized" / "sample_records.json").read_text(
                         encoding="utf-8"
                     )
+                )
+                self.assertEqual(
+                    sample_payload["evidence_domain"], "animal_ancient_dna"
+                )
+                self.assertFalse(sample_payload["pollen_eligible"])
+                self.assertFalse(sample_payload["pollen_propagation_eligible"])
+                admitted_sample_count += sample_payload["admitted_sample_count"]
+                refused_sample_count += sample_payload["refused_sample_count"]
+                self.assertEqual(
+                    sample_payload["refused_sample_count"],
+                    len(sample_payload["sample_refusals"]),
                 )
                 provenance_payload = json.loads(
                     (
@@ -249,6 +262,13 @@ class AdnaCatalogUnitTests(unittest.TestCase):
                     for row in provenance_payload["coordinate_provenance"]
                 }
                 for sample in sample_payload["samples"]:
+                    self.assertEqual(sample["sample_identity_resolution"], "final")
+                    self.assertNotEqual(
+                        sample["sample_evidence_status"], "not_yet_recoverable"
+                    )
+                    self.assertNotEqual(
+                        sample["inclusion_status"], "sample_context_blocked"
+                    )
                     provenance = provenance_by_accession.get(
                         sample["project_accession"]
                     )
@@ -268,6 +288,8 @@ class AdnaCatalogUnitTests(unittest.TestCase):
                         and provenance["mapping_posture"] == "refused_region_only"
                     ):
                         self.assertFalse(has_coordinates)
+            self.assertEqual(admitted_sample_count, 868)
+            self.assertEqual(refused_sample_count, 26)
 
 
 if __name__ == "__main__":

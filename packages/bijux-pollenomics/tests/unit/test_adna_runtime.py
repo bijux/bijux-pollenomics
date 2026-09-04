@@ -126,19 +126,20 @@ class AdnaRuntimeUnitTests(unittest.TestCase):
     def test_nonhuman_runtime_excludes_rejected_project_placeholder_rows(self) -> None:
         manifest = build_species_runtime_manifest("donkey")
 
-        samples, _ = load_species_samples(manifest)
+        samples, dataset_counts = load_species_samples(manifest)
 
         admitted_sources = {
             (bundle.source_family, bundle.source_release)
             for bundle in manifest.source_bundles
         }
-        self.assertTrue(samples)
         self.assertTrue(
             all(
                 (sample.source_family, sample.source_release) in admitted_sources
                 for sample in samples
             )
         )
+        self.assertEqual(samples, [])
+        self.assertEqual(dataset_counts, {})
         self.assertNotIn("PRJEB55549", {sample.source_release for sample in samples})
 
     def test_species_loader_filters_homo_sapiens_samples_by_country_and_dataset(

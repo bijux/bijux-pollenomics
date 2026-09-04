@@ -13,6 +13,7 @@ from bijux_pollenomics.adna import (
     normalize_explicit_bp_window,
     normalize_species_anchor,
 )
+from bijux_pollenomics.adna.normalization import RECOVERED_SAMPLE_EVIDENCE_STATUSES
 
 pytestmark = pytest.mark.generated_artifacts
 
@@ -34,7 +35,7 @@ class AdnaNormalizationUnitTests(unittest.TestCase):
         self.assertTrue(bundle.study_summaries)
         self.assertTrue(bundle.lineage_records)
         self.assertTrue(bundle.refusals)
-        self.assertEqual(len(bundle.sample_records), 552)
+        self.assertEqual(len(bundle.sample_records), 548)
         self.assertEqual(len(bundle.locality_records), 240)
         self.assertEqual(len(bundle.coordinate_provenance_records), 208)
         project = next(
@@ -133,6 +134,74 @@ class AdnaNormalizationUnitTests(unittest.TestCase):
 
         refusal_kinds = {item.record_kind for item in bundle.refusals}
         self.assertIn("locality_records", refusal_kinds)
+        self.assertIn("sample_record", refusal_kinds)
+        refused_samples = [
+            item for item in bundle.refusals if item.record_kind == "sample_record"
+        ]
+        self.assertEqual(len(refused_samples), 4)
+        self.assertTrue(
+            all(
+                item.reason == "sample_evidence_not_yet_recoverable"
+                for item in refused_samples
+            )
+        )
+        self.assertNotIn(
+            "PRJEB9799",
+            {sample.project_accession for sample in bundle.sample_records},
+        )
+
+    def test_normalized_animal_samples_are_final_non_pollen_evidence(self) -> None:
+        self.assertEqual(
+            RECOVERED_SAMPLE_EVIDENCE_STATUSES,
+            {"archive_native", "article_text_extracted", "direct_table_extracted"},
+        )
+        bundles = [
+            build_species_normalization_bundle(species)
+            for species in (
+                "horse",
+                "pig",
+                "sheep",
+                "cattle",
+                "goat",
+                "dog",
+                "cat",
+                "camel",
+                "reindeer",
+                "donkey",
+            )
+        ]
+        samples = [sample for bundle in bundles for sample in bundle.sample_records]
+
+        self.assertEqual(len(samples), 868)
+        self.assertEqual(
+            sum(
+                1
+                for bundle in bundles
+                for refusal in bundle.refusals
+                if refusal.record_kind == "sample_record"
+            ),
+            26,
+        )
+        self.assertTrue(
+            all(sample.sample_identity_resolution == "final" for sample in samples)
+        )
+        self.assertTrue(
+            all(
+                sample.sample_evidence_status != "not_yet_recoverable"
+                for sample in samples
+            )
+        )
+        self.assertTrue(
+            all(
+                sample.inclusion_status != "sample_context_blocked"
+                for sample in samples
+            )
+        )
+        for bundle in bundles:
+            payload = bundle.as_dict()
+            self.assertEqual(payload["evidence_domain"], "animal_ancient_dna")
+            self.assertFalse(payload["pollen_eligible"])
+            self.assertFalse(payload["pollen_propagation_eligible"])
 
     def test_species_normalization_bundle_marks_unresolved_sample_context_explicitly(
         self,

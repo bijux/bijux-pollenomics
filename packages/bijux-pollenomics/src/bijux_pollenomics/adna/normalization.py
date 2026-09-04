@@ -28,7 +28,10 @@ from .projects.context import resolve_project_context
 from .projects.coordinate_provenance import build_species_coordinate_provenance_rows
 from .projects.localities import build_species_project_locality_leads
 from .projects.sample_chronology import build_project_sample_chronology_rows
-from .projects.sample_registry import build_species_curated_sample_rows
+from .projects.sample_registry import (
+    AdnaCuratedSampleRow,
+    build_species_curated_sample_rows,
+)
 from .projects.site_evidence import build_species_site_evidence_rows
 from .sources.ena import (
     build_species_archive_projects,
@@ -44,6 +47,7 @@ __all__ = [
     "AdnaProjectSummary",
     "AdnaSpeciesNormalizationBundle",
     "AdnaStudySummary",
+    "RECOVERED_SAMPLE_EVIDENCE_STATUSES",
     "build_species_normalization_bundle",
     "build_species_project_locality_records",
     "normalize_chronology_text",
@@ -282,6 +286,9 @@ class AdnaSpeciesNormalizationBundle:
     def as_dict(self) -> dict[str, object]:
         return {
             "schema_version": self.schema_version,
+            "evidence_domain": "animal_ancient_dna",
+            "pollen_eligible": False,
+            "pollen_propagation_eligible": False,
             "species_manifest": self.species_manifest.as_dict(),
             "sample_records": [record.as_dict() for record in self.sample_records],
             "coordinate_provenance_records": [
@@ -315,7 +322,9 @@ def build_species_normalization_bundle(
         species_name,
         curation_manifest.curation_class,
     )
-    sample_records = _build_sample_records(species_name, project_summaries)
+    sample_records, sample_refusals = _build_sample_records(
+        species_name, project_summaries
+    )
     coordinate_provenance_records = build_species_coordinate_provenance_rows(
         tuple(project.project_accession for project in project_summaries)
     )
@@ -342,12 +351,12 @@ def build_species_normalization_bundle(
         project_summaries=project_summaries,
         study_summaries=study_summaries,
         lineage_records=lineage_records,
-        refusals=project_refusals + locality_refusals,
+        refusals=project_refusals + sample_refusals + locality_refusals,
         normalization_scope=(
-            "Non-human normalization currently governs accession-backed sample master rows, "
-            "project summaries, study summaries, and curated locality summaries. "
-            "Site and chronology extraction still vary by accession and remain explicit in "
-            "sample inclusion status rather than being silently flattened."
+            "Non-human normalization admits only recovered, final sample identities, "
+            "plus project summaries, study summaries, and curated locality summaries. "
+            "Pending and rejected placeholder rows remain source-native accounting and "
+            "reasoned refusals; they are not normalized sample evidence."
         ),
     )
 
@@ -545,7 +554,7 @@ def normalize_explicit_bp_window(
 def _build_sample_records(
     species_name: str,
     project_summaries: tuple[AdnaProjectSummary, ...],
-) -> tuple[AdnaSampleRecord, ...]:
+) -> tuple[tuple[AdnaSampleRecord, ...], tuple[AdnaNormalizationRefusal, ...]]:
     species = resolve_species_definition(species_name)
     project_index = {
         project.project_accession: project for project in project_summaries
@@ -561,8 +570,28 @@ def _build_sample_records(
         for project_accession in project_index
     }
     sample_records: list[AdnaSampleRecord] = []
+    refusals: list[AdnaNormalizationRefusal] = []
 
     for row in build_species_curated_sample_rows(species_name):
+        if not _sample_record_is_admissible(row):
+            refusals.append(
+                AdnaNormalizationRefusal(
+                    schema_version="adna-normalization-refusal.v1",
+                    species_latin_name=species.latin_name,
+                    source_token=(f"{row.project_accession}:{row.stable_sample_id}"),
+                    record_kind="sample_record",
+                    reason="sample_evidence_not_yet_recoverable",
+                    detail=(
+                        "Source-native project/sample accounting remains available, "
+                        "but this placeholder is refused from normalized sample "
+                        "artifacts because it is not recovered evidence: "
+                        f"inclusion_status={row.inclusion_status}; "
+                        f"sample_evidence_status={row.sample_evidence_status}; "
+                        f"sample_identity_resolution={row.sample_identity_resolution}."
+                    ),
+                )
+            )
+            continue
         project = project_index[row.project_accession]
         chronology_row = chronology_index.get(row.project_accession, {}).get(
             row.stable_sample_id
@@ -755,7 +784,22 @@ def _build_sample_records(
         )
 
     sample_records.sort(key=lambda item: (item.project_accession, item.genetic_id))
-    return tuple(sample_records)
+    refusals.sort(key=lambda item: item.source_token)
+    return tuple(sample_records), tuple(refusals)
+
+
+RECOVERED_SAMPLE_EVIDENCE_STATUSES = frozenset(
+    {"archive_native", "article_text_extracted", "direct_table_extracted"}
+)
+
+
+def _sample_record_is_admissible(row: AdnaCuratedSampleRow) -> bool:
+    """Admit only recovered, final sample identities to normalized evidence."""
+    return (
+        row.sample_evidence_status in RECOVERED_SAMPLE_EVIDENCE_STATUSES
+        and row.sample_identity_resolution == "final"
+        and row.inclusion_status != "sample_context_blocked"
+    )
 
 
 def _default_data_root() -> Path:

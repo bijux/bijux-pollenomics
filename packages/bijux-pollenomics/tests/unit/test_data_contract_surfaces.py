@@ -43,6 +43,17 @@ class DataContractSurfaceUnitTests(unittest.TestCase):
             },
         )
 
+    def test_adna_contracts_are_excluded_from_pollen_source_domain(self) -> None:
+        contracts = {
+            contract.source_key: contract
+            for contract in build_source_family_contracts()
+        }
+
+        self.assertEqual(contracts["aadr"].domain_group, "human_ancient_dna")
+        self.assertEqual(contracts["animal_adna"].domain_group, "animal_ancient_dna")
+        self.assertNotEqual(contracts["aadr"].domain_group, "pollen_context")
+        self.assertNotEqual(contracts["animal_adna"].domain_group, "pollen_context")
+
     def test_state_matrix_and_contract_registry_use_durable_surface_names(self) -> None:
         with tempfile.TemporaryDirectory() as tmp:
             output_root = Path(tmp) / "data"
