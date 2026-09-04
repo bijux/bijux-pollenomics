@@ -1,5 +1,5 @@
 {
-  "schema_version": "source-family-evidence-stage-matrix.v1",
+  "schema_version": "source-family-evidence-stage-matrix.v2",
   "row_count": 8,
   "rows": [
     {
@@ -14,6 +14,8 @@
       "published_status": "present",
       "provenance_depth": "review_ready",
       "publication_posture": "published_with_review_support",
+      "authority_status": "not_required",
+      "authority_reasons": [],
       "coverage_metrics": {
         "landclim_site_count": 492,
         "landclim_grid_cell_count": 88
@@ -32,6 +34,8 @@
       "published_status": "present",
       "provenance_depth": "review_ready",
       "publication_posture": "published_with_review_support",
+      "authority_status": "not_required",
+      "authority_reasons": [],
       "coverage_metrics": {
         "neotoma_point_count": 200
       },
@@ -46,13 +50,17 @@
       "raw_status": "present",
       "normalized_status": "present",
       "reviewed_status": "present",
-      "published_status": "present",
+      "published_status": "missing",
       "provenance_depth": "review_ready",
-      "publication_posture": "published_with_review_support",
+      "publication_posture": "review_ready_not_yet_published",
+      "authority_status": "not_required",
+      "authority_reasons": [],
       "coverage_metrics": {
         "sead_point_count": 2172
       },
-      "blocking_reasons": []
+      "blocking_reasons": [
+        "missing_published_surface"
+      ]
     },
     {
       "source_key": "raa",
@@ -65,13 +73,24 @@
       "reviewed_status": "missing",
       "published_status": "present",
       "provenance_depth": "normalized_without_review_layer",
-      "publication_posture": "normalized_but_thin",
+      "publication_posture": "refused_not_publication_ready",
+      "authority_status": "refused",
+      "authority_reasons": [
+        "missing_raw_inventory",
+        "missing_raw_summary",
+        "missing_scientific_review"
+      ],
       "coverage_metrics": {
-        "raa_total_site_count": 761917,
-        "raa_heritage_site_count": 318265
+        "raa_total_site_count": null,
+        "raa_heritage_site_count": null
       },
       "blocking_reasons": [
-        "missing_review_surface"
+        "missing_review_surface",
+        "source_authority_refused",
+        "missing_raw_inventory",
+        "missing_raw_summary",
+        "missing_scientific_review",
+        "unavailable_governed_coverage_metrics"
       ]
     },
     {
@@ -85,12 +104,18 @@
       "reviewed_status": "missing",
       "published_status": "present",
       "provenance_depth": "normalized_without_review_layer",
-      "publication_posture": "normalized_but_thin",
+      "publication_posture": "review_required_not_publication_ready",
+      "authority_status": "review_required",
+      "authority_reasons": [
+        "qualified_boundary_inclusion_review_missing"
+      ],
       "coverage_metrics": {
         "boundary_country_count": 4
       },
       "blocking_reasons": [
-        "missing_review_surface"
+        "missing_review_surface",
+        "source_authority_review_required",
+        "qualified_boundary_inclusion_review_missing"
       ]
     },
     {
@@ -104,12 +129,19 @@
       "reviewed_status": "present",
       "published_status": "present",
       "provenance_depth": "captured_only",
-      "publication_posture": "not_publication_ready",
+      "publication_posture": "refused_not_publication_ready",
+      "authority_status": "refused",
+      "authority_reasons": [
+        "missing_or_invalid_svar_authority"
+      ],
       "coverage_metrics": {
-        "svar_lake_count": 40565
+        "svar_lake_count": null
       },
       "blocking_reasons": [
-        "missing_normalized_outputs"
+        "missing_normalized_outputs",
+        "source_authority_refused",
+        "missing_or_invalid_svar_authority",
+        "unavailable_governed_coverage_metrics"
       ]
     },
     {
@@ -124,6 +156,8 @@
       "published_status": "present",
       "provenance_depth": "captured_only",
       "publication_posture": "not_publication_ready",
+      "authority_status": "not_required",
+      "authority_reasons": [],
       "coverage_metrics": {
         "aadr_file_count": 3
       },
@@ -144,6 +178,8 @@
       "published_status": "present",
       "provenance_depth": "review_ready",
       "publication_posture": "published_with_review_support",
+      "authority_status": "not_required",
+      "authority_reasons": [],
       "coverage_metrics": {
         "animal_species_count": 10,
         "animal_project_count": 40,

@@ -1,5 +1,5 @@
 {
-  "schema_version": "source-spatiotemporal-posture-registry.v1",
+  "schema_version": "source-spatiotemporal-posture-registry.v2",
   "row_count": 6,
   "rows": [
     {
@@ -18,6 +18,8 @@
       "temporal_scope": "site-sequence coverage and modeled vegetation windows",
       "distance_scoring_posture": "supporting_pollen_context",
       "distance_scoring_note": "Use LandClim to strengthen pollen context around lakes; do not treat it as direct human or archaeological evidence.",
+      "availability_status": "available",
+      "refusal_reasons": [],
       "record_count": 492,
       "numeric_interval_record_count": 482,
       "detail_metrics": {
@@ -42,6 +44,8 @@
       "temporal_scope": "site-span pollen context",
       "distance_scoring_posture": "supporting_pollen_context",
       "distance_scoring_note": "Use Neotoma to compare pollen context around lakes; only promote it into chronology-aware support when a numeric interval is actually present.",
+      "availability_status": "available_with_limitations",
+      "refusal_reasons": [],
       "record_count": 200,
       "numeric_interval_record_count": 175,
       "detail_metrics": {
@@ -69,6 +73,8 @@
       "temporal_scope": "linked archaeology chronology",
       "distance_scoring_posture": "contextual_archaeology_only",
       "distance_scoring_note": "Use SEAD to measure archaeology context around lakes; do not treat it as same-period support unless numeric intervals are explicitly present.",
+      "availability_status": "available_with_limitations",
+      "refusal_reasons": [],
       "record_count": 2172,
       "numeric_interval_record_count": 9380,
       "detail_metrics": {
@@ -81,25 +87,31 @@
     },
     {
       "source_key": "raa",
-      "display_name": "RAA archaeology context",
+      "display_name": "RAÄ archaeology context",
       "governing_surface_path": "data/raa/normalized/sweden_archaeology_layer.json",
       "review_surface_paths": [
         "data/source_family_evidence_stage_matrix.json"
       ],
       "spatial_representation": "coarse archaeology density surface",
-      "temporal_support_posture": "spatial_density_without_time",
-      "temporal_support_note": "Checked-in RAA outputs summarize Swedish archaeology density and site counts without repository-owned time windows.",
+      "temporal_support_posture": "refused_missing_authority",
+      "temporal_support_note": "RAÄ density has no repository-owned time windows and is admitted only when raw inventory, summary, normalized counts, and qualified review reconcile.",
       "temporal_scope": "sweden archaeology density context",
-      "distance_scoring_posture": "coarse_archaeology_context_only",
-      "distance_scoring_note": "Use RAA to compare Swedish archaeology richness around lakes, not to infer exact site-by-site time alignment.",
-      "record_count": 761917,
+      "distance_scoring_posture": "refused_missing_authority",
+      "distance_scoring_note": "Use RAÄ only after authority admission and only as coarse context, never as exact site-by-site time alignment.",
+      "availability_status": "refused",
+      "refusal_reasons": [
+        "missing_raw_inventory",
+        "missing_raw_summary",
+        "missing_scientific_review"
+      ],
+      "record_count": null,
       "numeric_interval_record_count": 0,
       "detail_metrics": {
-        "all_published_sites": 761917,
-        "fornlamning_count": 318265
+        "all_published_sites": null,
+        "fornlamning_count": null
       },
       "caveats": [
-        "The normalized repository surface is density-oriented rather than a direct local-distance inventory of every upstream site row."
+        "The normalized density surface is excluded until its source inventory, counts, and qualified review reconcile."
       ]
     },
     {
@@ -111,18 +123,22 @@
         "data/source_family_evidence_stage_matrix.json"
       ],
       "spatial_representation": "candidate lake registry",
-      "temporal_support_posture": "no_time_dimension",
+      "temporal_support_posture": "refused_missing_authority",
       "temporal_support_note": "SVAR contributes the lake anchors themselves rather than dated evidence around those lakes.",
       "temporal_scope": "lake-anchor registry",
-      "distance_scoring_posture": "candidate_lake_anchor",
-      "distance_scoring_note": "Use SVAR as the authoritative Sweden lake candidate surface before nearby evidence is counted.",
-      "record_count": 0,
+      "distance_scoring_posture": "refused_missing_authority",
+      "distance_scoring_note": "Use SVAR as the authoritative Sweden lake candidate surface only when the governing normalized registry is present.",
+      "availability_status": "refused",
+      "refusal_reasons": [
+        "missing_governing_normalized_registry"
+      ],
+      "record_count": null,
       "numeric_interval_record_count": 0,
       "detail_metrics": {
-        "lake_count": 0
+        "lake_count": null
       },
       "caveats": [
-        "SVAR governs lake identity and location, not chronology or surrounding evidence completeness."
+        "SVAR governs lake identity and location, not chronology or surrounding evidence completeness. Derived review subsets are excluded when the governing registry is absent."
       ]
     },
     {
@@ -138,6 +154,10 @@
       "temporal_scope": "geographic framing only",
       "distance_scoring_posture": "framing_only",
       "distance_scoring_note": "Use boundary geometry to constrain reporting scope, not to increase lake evidence scores.",
+      "availability_status": "review_required",
+      "refusal_reasons": [
+        "qualified_boundary_inclusion_review_missing"
+      ],
       "record_count": 4,
       "numeric_interval_record_count": 0,
       "detail_metrics": {
