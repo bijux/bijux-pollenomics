@@ -39,6 +39,7 @@ _OUTPUT_NAMES = (
     "concept_denominators.json",
     "country_partitions.json",
     "not_applicable_mapping_queue.json",
+    "observation_memberships.json",
     "observation_denominators.json",
     "release_metadata.json",
     "review_queue.json",
@@ -65,6 +66,7 @@ class ClassificationAuditOutputPaths:
     concept_denominators: Path
     country_partitions: Path
     not_applicable_mapping_queue: Path
+    observation_memberships: Path
     observation_denominators: Path
     release_metadata: Path
     review_queue: Path
@@ -83,6 +85,7 @@ class ClassificationAuditOutputPaths:
             not_applicable_mapping_queue=(
                 output_root / "not_applicable_mapping_queue.json"
             ),
+            observation_memberships=output_root / "observation_memberships.json",
             observation_denominators=output_root / "observation_denominators.json",
             release_metadata=output_root / "release_metadata.json",
             review_queue=output_root / "review_queue.json",
@@ -96,6 +99,7 @@ class ClassificationAuditOutputPaths:
             self.concept_denominators,
             self.country_partitions,
             self.not_applicable_mapping_queue,
+            self.observation_memberships,
             self.observation_denominators,
             self.release_metadata,
             self.review_queue,
@@ -423,6 +427,12 @@ def _build_payloads(
                 "governed_country_counts": _observation_country_counts(
                     memberships, "governed_country_code"
                 ),
+            },
+            "observation_memberships.json": {
+                "schema_version": "classification-observation-memberships.v1",
+                **common,
+                "record_count": len(memberships),
+                "records": tuple(dict(row) for row in memberships),
             },
             "country_partitions.json": {
                 "schema_version": "classification-country-partitions.v1",

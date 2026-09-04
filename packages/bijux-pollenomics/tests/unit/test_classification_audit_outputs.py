@@ -147,6 +147,7 @@ def test_zero_accepted_accounting_emits_lossless_queues_and_release_refusal(
 
     concepts = _read_json(output_root / "concept_denominators.json")
     observations = _read_json(output_root / "observation_denominators.json")
+    memberships = _read_json(output_root / "observation_memberships.json")
     accepted = _read_json(output_root / "accepted_mapping_queue.json")
     unmapped = _read_json(output_root / "unmapped_mapping_queue.json")
     not_applicable = _read_json(output_root / "not_applicable_mapping_queue.json")
@@ -154,7 +155,7 @@ def test_zero_accepted_accounting_emits_lossless_queues_and_release_refusal(
     release = _read_json(output_root / "release_metadata.json")
 
     assert result.disposition == "created"
-    assert result.file_count == 9
+    assert result.file_count == 10
     assert result.concept_count == 3
     assert result.observation_count == 3
     assert result.accepted_mapping_count == 0
@@ -168,6 +169,12 @@ def test_zero_accepted_accounting_emits_lossless_queues_and_release_refusal(
         "unmapped": 2,
     }
     assert observations["total_observation_count"] == 3
+    assert memberships["record_count"] == 3
+    assert {row["observation_id"] for row in memberships["records"]} == {
+        "observation:plantago",
+        "observation:rumex",
+        "observation:laboratory",
+    }
     assert accepted["record_count"] == 0
     assert unmapped["record_count"] == 2
     assert not_applicable["record_count"] == 1
@@ -243,7 +250,7 @@ def test_manifest_hashes_and_counts_every_payload(tmp_path: Path) -> None:
     assert isinstance(entries, list)
     assert first.manifest_sha256 == second.manifest_sha256
     assert second.disposition == "unchanged"
-    assert manifest["payload_file_count"] == 8
+    assert manifest["payload_file_count"] == 9
     assert manifest["classification_contract_digest"] == f"sha256:{'a' * 64}"
     assert [row["path"] for row in entries] == sorted(row["path"] for row in entries)
     for row in entries:
