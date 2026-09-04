@@ -7,6 +7,7 @@ from typing import TYPE_CHECKING
 
 from ..core import haversine_km
 from ..core.temporal_semantics import (
+    InvalidBpIntervalError,
     canonical_bp_interval,
     closed_bp_intervals_overlap,
 )
@@ -84,12 +85,15 @@ def temporal_overlap(
         return False
     if context_point.time_start_bp is None or context_point.time_end_bp is None:
         return False
-    locality_interval = canonical_bp_interval(
-        locality.time_start_bp, locality.time_end_bp
-    )
-    context_interval = canonical_bp_interval(
-        context_point.time_start_bp, context_point.time_end_bp
-    )
+    try:
+        locality_interval = canonical_bp_interval(
+            locality.time_start_bp, locality.time_end_bp
+        )
+        context_interval = canonical_bp_interval(
+            context_point.time_start_bp, context_point.time_end_bp
+        )
+    except InvalidBpIntervalError:
+        return False
     if locality_interval is None or context_interval is None:
         return False
     return closed_bp_intervals_overlap(locality_interval, context_interval)
@@ -120,10 +124,14 @@ def build_candidate_context(
     temporal_overlap_points = 0
     nearest_context_distance_km: float | None = None
     nearby_context_layers: set[str] = set()
+    anchor_latitude = anchor.latitude
+    anchor_longitude = anchor.longitude
     for point in context_points:
+        if anchor_latitude is None or anchor_longitude is None:
+            continue
         distance_km = haversine_km(
-            latitude_a=anchor.latitude,
-            longitude_a=anchor.longitude,
+            latitude_a=anchor_latitude,
+            longitude_a=anchor_longitude,
             latitude_b=point.latitude,
             longitude_b=point.longitude,
         )

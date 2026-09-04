@@ -10,6 +10,7 @@ from bijux_pollenomics.analysis.ranking import (
     build_candidate_context,
     build_ranking_sensitivity_report,
     rank_localities,
+    temporal_overlap,
 )
 from bijux_pollenomics.data_downloader.models import ContextPointRecord
 
@@ -133,6 +134,21 @@ def test_candidate_context_excludes_disjoint_temporal_intervals() -> None:
 
     assert context.time_aware_context_points == 1
     assert context.temporal_overlap_points == 0
+
+
+def test_temporal_overlap_refuses_invalid_intervals_without_aborting_report() -> None:
+    locality = _locality("Lake One", 59.0, 18.0)
+
+    assert not temporal_overlap(
+        locality,
+        _point("negative-context", 59.01, 18.02, time_start_bp=-1, time_end_bp=50),
+    )
+    assert not temporal_overlap(
+        locality,
+        _point(
+            "reversed-context", 59.01, 18.02, time_start_bp=200, time_end_bp=100
+        ),
+    )
 
 
 def test_rank_localities_groups_co_located_species_evidence() -> None:
