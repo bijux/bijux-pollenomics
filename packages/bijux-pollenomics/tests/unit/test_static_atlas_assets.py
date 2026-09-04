@@ -294,6 +294,7 @@ def test_static_map_document_is_small_relative_only_and_offline_loadable(
     )
 
     assert len(html.encode("utf-8")) <= ATLAS_DOCUMENT_MAX_BYTES
+    assert all(line == line.rstrip() for line in html.splitlines())
     assert 'id="atlas-static-bootstrap"' in html
     assert "selection_aware_static_scripts" in html
     assert "evidence-0" not in html

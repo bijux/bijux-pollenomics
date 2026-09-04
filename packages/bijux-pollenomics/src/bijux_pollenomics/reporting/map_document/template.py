@@ -1698,7 +1698,7 @@ MAP_DOCUMENT_TEMPLATE = """
     <script id="atlas-static-bootstrap" type="application/json">__STATIC_BOOTSTRAP_JSON__</script>
     <script src="__ASSET_BASE_PATH__/leaflet/leaflet.js"></script>
     <script src="__ASSET_BASE_PATH__/markercluster/leaflet.markercluster.js"></script>
-    __STATIC_CHUNK_SCRIPT_TAGS__
+__STATIC_CHUNK_SCRIPT_TAGS__
     <script>
       (async () => {
       const STATIC_ATLAS_BOOTSTRAP = JSON.parse(document.getElementById('atlas-static-bootstrap').textContent || '{}');
