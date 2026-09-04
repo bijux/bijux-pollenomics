@@ -21,6 +21,7 @@ from .site_candidates import (
 
 __all__ = [
     "COUNTRY_CODES",
+    "EVIDENCE_DOMAINS",
     "PROPAGATION_SENSITIVITY_SCENARIOS",
     "EventValidationError",
     "PhenomenonEvent",
@@ -36,6 +37,11 @@ __all__ = [
 ]
 
 COUNTRY_CODES = ("SE", "NO", "FI", "DK")
+EVIDENCE_DOMAINS = (
+    "pollen_context",
+    "human_ancient_dna",
+    "animal_ancient_dna",
+)
 PROPAGATION_CONTRACT_VERSION = "1.0.0"
 TEMPORAL_CONTRACT_VERSION = "1.0.0"
 EVENT_SCHEMA_VERSION = "1.0.0"
@@ -82,9 +88,10 @@ class EventValidationError(ValueError):
 
 @dataclass(frozen=True)
 class PhenomenonEvent:
-    """One source-native event eligible for bounded pair comparison."""
+    """One governed source-native event available for domain-specific use."""
 
     source_family: str
+    evidence_domain: str
     source_snapshot_id: str
     source_record_id: str
     site_id: str
@@ -122,6 +129,7 @@ class PhenomenonEvent:
     def __post_init__(self) -> None:
         for field_name in (
             "source_family",
+            "evidence_domain",
             "source_snapshot_id",
             "source_record_id",
             "site_id",
@@ -143,12 +151,22 @@ class PhenomenonEvent:
             )
         if self.schema_version != EVENT_SCHEMA_VERSION:
             _invalid("unsupported phenomenon-event schema_version")
+        if self.evidence_domain not in EVIDENCE_DOMAINS:
+            raise EventValidationError(
+                "unsupported_evidence_domain",
+                "evidence_domain is not governed by the propagation boundary",
+            )
         if self.country_code not in COUNTRY_CODES:
             _invalid("country_code must be one of SE, NO, FI, or DK")
         if self.event_type not in _EVENT_TYPES:
             _invalid("event_type is not governed by propagation-model.v1")
         if self.resolution not in _RESOLUTION_PREFIXES:
             _invalid("resolution is not governed by propagation-model.v1")
+        if self.evidence_domain != "pollen_context" and self.resolution != "taxon":
+            raise EventValidationError(
+                "incompatible_evidence_domain_resolution",
+                "non-pollen evidence domains may only use taxon resolution",
+            )
         feature_prefix = _RESOLUTION_PREFIXES[self.resolution]
         if not self.feature_key.startswith(feature_prefix) or len(
             self.feature_key
@@ -186,6 +204,7 @@ class PhenomenonEvent:
             event_id = _stable_id(
                 "event",
                 self.source_family,
+                self.evidence_domain,
                 self.source_record_id,
                 self.site_id,
                 *self.observation_ids,
@@ -216,6 +235,7 @@ class PhenomenonEvent:
             "schema_version": self.schema_version,
             "event_id": self.event_id,
             "source_family": self.source_family,
+            "evidence_domain": self.evidence_domain,
             "source_snapshot_id": self.source_snapshot_id,
             "source_record_id": self.source_record_id,
             "site_id": self.site_id,
@@ -313,7 +333,10 @@ class PropagationPairRefusal:
 class ScenarioReconciliation:
     """Mutually exclusive scenario and ordered-country-pair denominators."""
 
+    input_event_count: int
     eligible_event_count: int
+    excluded_non_pollen_event_count: int
+    evidence_domain_event_counts: tuple[tuple[str, int], ...]
     evaluated_pair_count: int
     refused_pair_count: int
     status_counts: tuple[tuple[str, int], ...]
@@ -322,7 +345,10 @@ class ScenarioReconciliation:
 
     def as_dict(self) -> dict[str, object]:
         return {
+            "input_event_count": self.input_event_count,
             "eligible_event_count": self.eligible_event_count,
+            "excluded_non_pollen_event_count": self.excluded_non_pollen_event_count,
+            "evidence_domain_event_counts": dict(self.evidence_domain_event_counts),
             "evaluated_pair_count": self.evaluated_pair_count,
             "refused_pair_count": self.refused_pair_count,
             "status_counts": dict(self.status_counts),
@@ -373,6 +399,7 @@ class PropagationScenarioResult:
 class PropagationNetworkResult:
     event_manifest_digest: str
     events: tuple[PhenomenonEvent, ...]
+    excluded_non_pollen_events: tuple[PhenomenonEvent, ...]
     scenario_results: tuple[PropagationScenarioResult, ...]
     duplicate_input_event_count: int
 
@@ -381,6 +408,9 @@ class PropagationNetworkResult:
             "schema_version": "propagation-network.v1",
             "event_manifest_digest": self.event_manifest_digest,
             "events": [event.as_dict() for event in self.events],
+            "excluded_non_pollen_events": [
+                event.as_dict() for event in self.excluded_non_pollen_events
+            ],
             "scenario_results": [result.as_dict() for result in self.scenario_results],
             "duplicate_input_event_count": self.duplicate_input_event_count,
         }
@@ -533,7 +563,13 @@ def _generate_network(
     if len(unique_scenarios) != len(scenarios):
         raise ValueError("scenario_id values must be unique")
     ordered_scenarios = tuple(unique_scenarios[key] for key in sorted(unique_scenarios))
-    manifest_digest = _event_manifest_digest(unique_events)
+    pollen_events = tuple(
+        event for event in unique_events if event.evidence_domain == "pollen_context"
+    )
+    excluded_non_pollen_events = tuple(
+        event for event in unique_events if event.evidence_domain != "pollen_context"
+    )
+    manifest_digest = _event_manifest_digest(pollen_events)
     results = tuple(
         _generate_scenario(
             unique_events,
@@ -545,7 +581,8 @@ def _generate_network(
     )
     return PropagationNetworkResult(
         event_manifest_digest=manifest_digest,
-        events=unique_events,
+        events=pollen_events,
+        excluded_non_pollen_events=excluded_non_pollen_events,
         scenario_results=results,
         duplicate_input_event_count=duplicate_count,
     )
@@ -558,8 +595,11 @@ def _generate_scenario(
     event_manifest_digest: str,
     indexed: bool,
 ) -> PropagationScenarioResult:
+    pollen_events = tuple(
+        event for event in events if event.evidence_domain == "pollen_context"
+    )
     universes: dict[tuple[str, ...], list[PhenomenonEvent]] = defaultdict(list)
-    for event in events:
+    for event in pollen_events:
         universes[_universe_key(event)].append(event)
     evaluated: dict[tuple[str, str], PropagationCandidate] = {}
     refusals: dict[tuple[str, str], PropagationPairRefusal] = {}
@@ -605,7 +645,12 @@ def _generate_scenario(
         scenario=scenario,
         evaluated_pairs=evaluated_rows,
         refusals=refusal_rows,
-        reconciliation=_build_reconciliation(events, evaluated_rows, refusal_rows),
+        reconciliation=_build_reconciliation(
+            events,
+            pollen_events,
+            evaluated_rows,
+            refusal_rows,
+        ),
     )
 
 
@@ -730,6 +775,10 @@ def _pair_refusal_reason(
 ) -> str | None:
     if source.event_id == target.event_id:
         return "duplicate_underlying_observation"
+    if source.evidence_domain != target.evidence_domain:
+        return "incompatible_evidence_domain"
+    if source.evidence_domain != "pollen_context":
+        return "evidence_domain_not_pollen_propagation_eligible"
     if (
         source.resolution != target.resolution
         or source.feature_key != target.feature_key
@@ -789,6 +838,7 @@ def _build_refusal(
 
 def _build_reconciliation(
     events: tuple[PhenomenonEvent, ...],
+    eligible_events: tuple[PhenomenonEvent, ...],
     evaluated: tuple[PropagationCandidate, ...],
     refusals: tuple[PropagationPairRefusal, ...],
 ) -> ScenarioReconciliation:
@@ -808,7 +858,16 @@ def _build_reconciliation(
             "refused"
         ] += 1
     return ScenarioReconciliation(
-        eligible_event_count=len(events),
+        input_event_count=len(events),
+        eligible_event_count=len(eligible_events),
+        excluded_non_pollen_event_count=len(events) - len(eligible_events),
+        evidence_domain_event_counts=tuple(
+            (
+                domain,
+                sum(event.evidence_domain == domain for event in events),
+            )
+            for domain in EVIDENCE_DOMAINS
+        ),
         evaluated_pair_count=len(evaluated),
         refused_pair_count=len(refusals),
         status_counts=tuple(status_counts.items()),
@@ -842,6 +901,7 @@ def _connected_component_count(rows: tuple[PropagationCandidate, ...]) -> int:
 
 def _universe_key(event: PhenomenonEvent) -> tuple[str, ...]:
     return (
+        event.evidence_domain,
         event.resolution,
         event.feature_key,
         event.accepted_taxon_concept_id or "",

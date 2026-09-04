@@ -13,6 +13,7 @@ from typing import Any
 
 from .propagation_network import (
     COUNTRY_CODES,
+    EVIDENCE_DOMAINS,
     PROPAGATION_SENSITIVITY_SCENARIOS,
     PhenomenonEvent,
     PropagationNetworkResult,
@@ -39,6 +40,7 @@ _EXPECTED_SCHEMA_IDS = {
 }
 _OUTPUT_NAMES = (
     "phenomenon_events.json",
+    "excluded_non_pollen_events.json",
     "primary_scenario_candidates.json",
     "primary_scenario_refusals.json",
     "primary_scenario_reconciliation.json",
@@ -64,6 +66,7 @@ class PropagationMaterializationResult:
     manifest_sha256: str
     file_count: int
     eligible_event_count: int
+    excluded_non_pollen_event_count: int
     primary_directed_candidate_count: int
 
 
@@ -150,6 +153,9 @@ def materialize_propagation_outputs(
         manifest_sha256=_sha256(manifest_bytes),
         file_count=len(expected_files),
         eligible_event_count=len(primary_network.events),
+        excluded_non_pollen_event_count=len(
+            primary_network.excluded_non_pollen_events
+        ),
         primary_directed_candidate_count=len(primary_result.directed_candidates),
     )
 
@@ -170,11 +176,27 @@ def _build_payloads(
     event_records = tuple(
         _event_schema_record(event, event_schema) for event in primary_network.events
     )
+    excluded_event_records = tuple(
+        _event_schema_record(event, event_schema)
+        for event in primary_network.excluded_non_pollen_events
+    )
+    excluded_non_pollen_records = tuple(
+        {
+            "reason_code": "evidence_domain_not_pollen_propagation_eligible",
+            "event": event_record,
+        }
+        for event_record in excluded_event_records
+    )
     event_evaluation_metadata = tuple(
         _event_evaluation_metadata(event) for event in primary_network.events
     )
     candidate_records = tuple(row.as_dict() for row in primary_result.evaluated_pairs)
     _validate_records(event_records, event_schema, record_kind="phenomenon event")
+    _validate_records(
+        excluded_event_records,
+        event_schema,
+        record_kind="excluded non-pollen phenomenon event",
+    )
     _validate_records(
         candidate_records,
         candidate_schema,
@@ -207,6 +229,13 @@ def _build_payloads(
             "records": event_records,
             "evaluation_metadata_record_count": len(event_evaluation_metadata),
             "evaluation_metadata": event_evaluation_metadata,
+        },
+        "excluded_non_pollen_events.json": {
+            "schema_version": "propagation-event-exclusions.v1",
+            "record_schema_id": event_schema["$id"],
+            "build_id": build_id,
+            "record_count": len(excluded_non_pollen_records),
+            "records": excluded_non_pollen_records,
         },
         "primary_scenario_candidates.json": {
             "schema_version": "propagation-candidates-artifact.v1",
@@ -254,6 +283,13 @@ def _build_payloads(
                 accepted_classification_mapping_count
             ),
             "eligible_event_count": len(primary_network.events),
+            "input_event_count": (
+                len(primary_network.events)
+                + len(primary_network.excluded_non_pollen_events)
+            ),
+            "excluded_non_pollen_event_count": len(
+                primary_network.excluded_non_pollen_events
+            ),
             "primary_directed_candidate_count": len(primary_result.directed_candidates),
             "candidate_materialization_status": (
                 "empty_refused" if release_refused else "review_only"
@@ -335,8 +371,15 @@ def _validate_scenario_reconciliation(result: PropagationScenarioResult) -> None
         row.candidate_status for row in result.evaluated_pairs
     )
     declared_status_counts = dict(reconciliation.status_counts)
+    domain_counts = dict(reconciliation.evidence_domain_event_counts)
     if (
-        sum(declared_status_counts.values()) != len(result.evaluated_pairs)
+        set(domain_counts) != set(EVIDENCE_DOMAINS)
+        or sum(domain_counts.values()) != reconciliation.input_event_count
+        or domain_counts["pollen_context"] != reconciliation.eligible_event_count
+        or reconciliation.input_event_count
+        != reconciliation.eligible_event_count
+        + reconciliation.excluded_non_pollen_event_count
+        or sum(declared_status_counts.values()) != len(result.evaluated_pairs)
         or reconciliation.evaluated_pair_count != len(result.evaluated_pairs)
         or reconciliation.refused_pair_count != len(result.refusals)
         or any(

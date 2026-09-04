@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import hashlib
 import json
+from dataclasses import replace
 from pathlib import Path
 
 import pytest
@@ -18,6 +19,7 @@ _EVENT_REQUIRED = (
     "schema_version",
     "event_id",
     "source_family",
+    "evidence_domain",
     "source_snapshot_id",
     "source_record_id",
     "site_id",
@@ -87,6 +89,13 @@ def schema_root(tmp_path: Path) -> Path:
         {
             "schema_version": {"const": "1.0.0"},
             "event_id": {"type": "string", "minLength": 1},
+            "evidence_domain": {
+                "enum": [
+                    "pollen_context",
+                    "human_ancient_dna",
+                    "animal_ancient_dna",
+                ]
+            },
             "observation_ids": {
                 "type": "array",
                 "minItems": 1,
@@ -158,6 +167,7 @@ def _event(
 ) -> PhenomenonEvent:
     return PhenomenonEvent(
         source_family="source-native-fixture",
+        evidence_domain="pollen_context",
         source_snapshot_id="snapshot-1",
         source_record_id=f"record-{name}",
         site_id=f"site-{name}",
@@ -237,8 +247,9 @@ def test_zero_accepted_mapping_universe_materializes_a_truthful_refusal(
     assert created.disposition == "created"
     assert unchanged.disposition == "unchanged"
     assert created.manifest_sha256 == unchanged.manifest_sha256
-    assert created.file_count == 7
+    assert created.file_count == 8
     assert created.eligible_event_count == 0
+    assert created.excluded_non_pollen_event_count == 0
     assert events["record_count"] == 0
     assert primary["record_count"] == 0
     assert primary["directed_candidate_count"] == 0
@@ -269,7 +280,7 @@ def test_manifest_hashes_and_counts_every_payload_file(
     manifest = _read_json(output_root / "manifest.json")
     entries = manifest["files"]
     assert isinstance(entries, list)
-    assert manifest["payload_file_count"] == 6
+    assert manifest["payload_file_count"] == 7
     assert [entry["path"] for entry in entries] == sorted(
         entry["path"] for entry in entries
     )
@@ -318,6 +329,12 @@ def test_primary_and_sensitivity_outputs_are_content_deterministic(
     events_payload = _read_json(first / "phenomenon_events.json")
     candidates = _read_json(first / "primary_scenario_candidates.json")
     assert events_payload["record_count"] == 2
+    event_records = events_payload["records"]
+    assert isinstance(event_records, list)
+    assert all(
+        isinstance(row, dict) and row["evidence_domain"] == "pollen_context"
+        for row in event_records
+    )
     assert events_payload["evaluation_metadata_record_count"] == 2
     evaluation_metadata = events_payload["evaluation_metadata"]
     assert isinstance(evaluation_metadata, list)
@@ -327,6 +344,46 @@ def test_primary_and_sensitivity_outputs_are_content_deterministic(
     )
     assert candidates["record_count"] == 2
     assert candidates["directed_candidate_count"] == 1
+
+
+def test_materialization_preserves_non_pollen_exclusion_records(
+    tmp_path: Path, schema_root: Path
+) -> None:
+    pollen = _event("pollen")
+    animal = replace(
+        pollen,
+        evidence_domain="animal_ancient_dna",
+        source_record_id="animal-record",
+        site_id="animal-site",
+        event_id="",
+    )
+    output_root = tmp_path / "propagation"
+
+    result = _materialize(
+        output_root=output_root,
+        allowed_output_parent=tmp_path,
+        schema_root=schema_root,
+        events=(pollen, animal),
+        accepted_mapping_count=1,
+    )
+
+    exclusions = _read_json(output_root / "excluded_non_pollen_events.json")
+    release = _read_json(output_root / "release_metadata.json")
+    assert result.eligible_event_count == 1
+    assert result.excluded_non_pollen_event_count == 1
+    assert exclusions["record_count"] == 1
+    exclusion_records = exclusions["records"]
+    assert isinstance(exclusion_records, list)
+    assert exclusion_records[0]["reason_code"] == (
+        "evidence_domain_not_pollen_propagation_eligible"
+    )
+    assert exclusion_records[0]["event"]["event_id"] == animal.event_id
+    assert exclusion_records[0]["event"]["evidence_domain"] == (
+        "animal_ancient_dna"
+    )
+    assert release["input_event_count"] == 2
+    assert release["eligible_event_count"] == 1
+    assert release["excluded_non_pollen_event_count"] == 1
 
 
 def test_non_identical_overwrite_is_refused_without_modification(

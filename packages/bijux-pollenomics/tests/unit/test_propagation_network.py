@@ -52,6 +52,7 @@ def _event(
 ) -> PhenomenonEvent:
     return PhenomenonEvent(
         source_family="source-native-fixture",
+        evidence_domain="pollen_context",
         source_snapshot_id="snapshot-1",
         source_record_id=f"record-{name}",
         site_id=site_id or f"site-{name}",
