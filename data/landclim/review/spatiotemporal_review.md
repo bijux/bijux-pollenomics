@@ -2,19 +2,19 @@
 
 This review joins LandClim site-sequence intervals, modeled REVEALS time windows, and the dataset bibliography without flattening them into one observation type.
 
-- Site sequences: `492`
-- Site sequences with numeric bounds: `482`
+- Site sequences: `490`
+- Site sequences with numeric bounds: `480`
 - Explicitly unresolved site intervals: `10`
-- Time-window grid features: `2809`
-- Time-window grid features with bibliography links: `2809`
+- Time-window grid features: `2515`
+- Time-window grid features with bibliography links: `2515`
 - Governed dataset citations: `3`
 - Governed publication references: `4`
 
 | Dataset | Site sequences | Numeric site intervals | Grid cells | Windows | Grid-window features | Temporal posture |
 | --- | ---: | ---: | ---: | ---: | ---: | --- |
 | 900966 | 54 | 54 | 13 | 25 | 309 | site_intervals_and_modeled_grid_windows |
-| 897303 | 214 | 214 | 85 | 5 | 375 | site_intervals_and_modeled_grid_windows |
-| 937075 | 224 | 214 | 85 | 25 | 2125 | site_intervals_and_modeled_grid_windows |
+| 897303 | 213 | 213 | 74 | 5 | 331 | site_intervals_and_modeled_grid_windows |
+| 937075 | 223 | 213 | 75 | 25 | 1875 | site_intervals_and_modeled_grid_windows |
 
 ## Interpretation boundaries
 
