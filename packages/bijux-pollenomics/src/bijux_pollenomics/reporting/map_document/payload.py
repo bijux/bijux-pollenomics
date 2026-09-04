@@ -1,11 +1,15 @@
 from __future__ import annotations
 
-from collections.abc import Callable
 import json
+from collections.abc import Callable
+from typing import TYPE_CHECKING
 
 from ...core.geojson import JsonObject
 from ..map_publication import MapScopePolicy
 from .state import build_map_document_state
+
+if TYPE_CHECKING:
+    from .static_assets import StaticAtlasAssets
 
 
 def build_map_document_payload(
@@ -19,6 +23,7 @@ def build_map_document_payload(
     polygon_layers: list[JsonObject],
     asset_base_path: str,
     escape_html_fn: Callable[[str], str],
+    static_assets: StaticAtlasAssets | None = None,
 ) -> dict[str, str]:
     """Build placeholder replacements for the standalone map document template."""
     state = build_map_document_state(
@@ -26,6 +31,22 @@ def build_map_document_payload(
         point_layers=point_layers,
         polygon_layers=polygon_layers,
     )
+    if static_assets is None:
+        bootstrap_json = json.dumps(
+            {
+                "schema_version": "atlas-inline-bootstrap.v1",
+                "status": "inline_test_fixture",
+            },
+            separators=(",", ":"),
+        )
+        chunk_script_tags = ""
+        point_layers_json = json.dumps(point_layers, ensure_ascii=False)
+        polygon_layers_json = json.dumps(polygon_layers, ensure_ascii=False)
+    else:
+        bootstrap_json = static_assets.bootstrap_json
+        chunk_script_tags = static_assets.script_tags
+        point_layers_json = "hydrateStaticAtlasLayers('point')"
+        polygon_layers_json = "hydrateStaticAtlasLayers('polygon')"
     return {
         "__TITLE__": escape_html_fn(title),
         "__SCOPE_BADGE__": escape_html_fn(policy.eyebrow_label),
@@ -33,8 +54,10 @@ def build_map_document_payload(
         "__VERSION__": escape_html_fn(version),
         "__GENERATED_ON__": escape_html_fn(generated_on),
         "__COUNTRIES_JSON__": json.dumps(list(countries), ensure_ascii=False),
-        "__POINT_LAYERS_JSON__": json.dumps(point_layers, ensure_ascii=False),
-        "__POLYGON_LAYERS_JSON__": json.dumps(polygon_layers, ensure_ascii=False),
+        "__POINT_LAYERS_JSON__": point_layers_json,
+        "__POLYGON_LAYERS_JSON__": polygon_layers_json,
+        "__STATIC_BOOTSTRAP_JSON__": bootstrap_json,
+        "__STATIC_CHUNK_SCRIPT_TAGS__": chunk_script_tags,
         "__BOUNDS_JSON__": json.dumps(state.bounds),
         "__ASSET_BASE_PATH__": asset_base_path,
         "__INITIAL_BASEMAP__": escape_html_fn(policy.default_basemap),

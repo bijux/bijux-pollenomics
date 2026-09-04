@@ -1,9 +1,10 @@
 from __future__ import annotations
 
-from collections.abc import Callable, Iterable
 import json
+from collections.abc import Callable, Iterable
 from pathlib import Path
 
+from ...adna import AdnaLocalitySummary
 from ...analysis import (
     build_ranking_engine_manifest,
     build_ranking_sensitivity_report,
@@ -28,6 +29,7 @@ from ...evidence import (
 from ..aadr import summarize_localities
 from ..adna import build_tracked_animal_atlas_bundle
 from ..geography import GeographicScope
+from ..map_document.static_assets import write_static_atlas_assets
 from ..map_publication import (
     build_map_point_traceability,
     build_map_publication_contract,
@@ -83,7 +85,7 @@ def publish_multi_country_map_bundle(
         context_root=context_root,
         geography_scope=geography_scope,
     )
-    animal_localities = ()
+    animal_localities: tuple[AdnaLocalitySummary, ...] = ()
     animal_coordinate_review = AnimalCoordinateVisibilityReview(
         direct_coordinate_feature_count=0,
         named_site_geocoded_feature_count=0,
@@ -112,6 +114,21 @@ def publish_multi_country_map_bundle(
         )
     )
     _attach_traceability_surfaces(point_layers, bundle_paths)
+    static_assets = write_static_atlas_assets(
+        staging_output_dir,
+        slug=report.slug,
+        version=version,
+        point_layers=point_layers,
+        polygon_layers=polygon_layers,
+    )
+    if static_assets.manifest_path != bundle_paths.map_static_assets_manifest_path:
+        raise ValueError("static atlas manifest path does not match bundle ownership")
+    extra_artifacts.append(
+        ("Static atlas bootstrap manifest", static_assets.manifest_path.name)
+    )
+    extra_artifacts.extend(
+        ("Static atlas data chunk", path.name) for path in static_assets.asset_paths
+    )
     animal_atlas_summary = _build_animal_atlas_summary(
         point_layers,
         animal_localities,
@@ -140,6 +157,12 @@ def publish_multi_country_map_bundle(
         summary_json_name=bundle_paths.summary_json_path.name,
         traceability_json_name=bundle_paths.map_point_traceability_json_path.name,
     )
+    map_publication_contract["static_assets"] = {
+        "schema_version": static_assets.manifest["schema_version"],
+        "manifest": static_assets.manifest_path.name,
+        "budgets": static_assets.manifest["budgets"],
+        "domains": static_assets.manifest["domains"],
+    }
     write_summary_json_fn(
         bundle_paths.map_publication_contract_json_path,
         map_publication_contract,
@@ -281,6 +304,7 @@ def publish_multi_country_map_bundle(
             point_layers=point_layers,
             polygon_layers=polygon_layers,
             asset_base_path=asset_base_path,
+            static_assets=static_assets,
         ),
         encoding="utf-8",
     )
@@ -367,7 +391,7 @@ def _as_optional_int(value: object) -> int | None:
 
 def _build_animal_atlas_summary(
     point_layers: list[dict[str, object]],
-    animal_localities: tuple[object, ...],
+    animal_localities: tuple[AdnaLocalitySummary, ...],
     animal_coordinate_review: AnimalCoordinateVisibilityReview,
 ) -> dict[str, object]:
     animal_layers = [
@@ -381,7 +405,7 @@ def _build_animal_atlas_summary(
             "latin_name": str(layer.get("species_latin_name", "")),
             "common_name": str(layer.get("species_common_name", "")),
             "animal_scope": str(layer.get("animal_scope", "")),
-            "locality_count": int(layer.get("count", 0) or 0),
+            "locality_count": _as_optional_int(layer.get("count")) or 0,
         }
         for layer in animal_layers
     ]
@@ -389,16 +413,13 @@ def _build_animal_atlas_summary(
         {
             str(feature.get("temporal_window_label", "")).strip()
             for layer in animal_layers
-            for feature in layer.get("features", [])
-            if isinstance(feature, dict)
-            and str(feature.get("temporal_window_label", "")).strip()
+            for feature in _layer_features(layer)
+            if str(feature.get("temporal_window_label", "")).strip()
         }
     )
     coordinate_confidence_counts: dict[str, int] = {}
     for layer in animal_layers:
-        for feature in layer.get("features", []):
-            if not isinstance(feature, dict):
-                continue
+        for feature in _layer_features(layer):
             confidence = str(feature.get("coordinate_confidence", "")).strip()
             if not confidence:
                 continue
@@ -450,6 +471,13 @@ def _build_animal_atlas_summary(
         "visible_caveats": visible_caveats if species_layers else [],
         "species_layers": species_layers,
     }
+
+
+def _layer_features(layer: dict[str, object]) -> list[dict[str, object]]:
+    features = layer.get("features")
+    if not isinstance(features, list):
+        return []
+    return [feature for feature in features if isinstance(feature, dict)]
 
 
 def _attach_traceability_surfaces(

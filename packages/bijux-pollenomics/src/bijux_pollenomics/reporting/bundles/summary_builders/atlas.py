@@ -16,6 +16,9 @@ def build_multi_country_map_summary(
         "bundle_manifest": bundle_paths.bundle_manifest_path.name,
         "readme": bundle_paths.readme_path.name,
         "map_html": bundle_paths.map_html_path.name,
+        "map_static_assets_manifest": (
+            bundle_paths.map_static_assets_manifest_path.name
+        ),
         "samples_geojson": bundle_paths.samples_geojson_path.name,
         "map_publication_contract_json": bundle_paths.map_publication_contract_json_path.name,
         "map_publication_contract_markdown": bundle_paths.map_publication_contract_markdown_path.name,
@@ -31,10 +34,7 @@ def build_multi_country_map_summary(
             for label, filename in extra_artifacts
         ],
     }
-    if (
-        animal_atlas_summary
-        and int(animal_atlas_summary.get("total_locality_points", 0)) > 0
-    ):
+    if _has_animal_localities(animal_atlas_summary):
         artifacts.update(
             {
                 "animal_localities_geojson": bundle_paths.animal_localities_geojson_path.name,
@@ -82,6 +82,9 @@ def build_multi_country_bundle_manifest(
     artifacts: dict[str, object] = {
         "readme": bundle_paths.readme_path.name,
         "map_html": bundle_paths.map_html_path.name,
+        "map_static_assets_manifest": (
+            bundle_paths.map_static_assets_manifest_path.name
+        ),
         "samples_geojson": bundle_paths.samples_geojson_path.name,
         "map_publication_contract_json": bundle_paths.map_publication_contract_json_path.name,
         "map_publication_contract_markdown": bundle_paths.map_publication_contract_markdown_path.name,
@@ -103,10 +106,7 @@ def build_multi_country_bundle_manifest(
             for label, filename in extra_artifacts
         ],
     }
-    if (
-        animal_atlas_summary
-        and int(animal_atlas_summary.get("total_locality_points", 0)) > 0
-    ):
+    if _has_animal_localities(animal_atlas_summary):
         artifacts.update(
             {
                 "animal_localities_geojson": bundle_paths.animal_localities_geojson_path.name,
@@ -142,6 +142,13 @@ def build_multi_country_bundle_manifest(
         "map_publication_contract": map_publication_contract,
         "animal_atlas": animal_atlas_summary or {},
     }
+
+
+def _has_animal_localities(summary: dict[str, object] | None) -> bool:
+    if summary is None:
+        return False
+    count = summary.get("total_locality_points")
+    return isinstance(count, int) and not isinstance(count, bool) and count > 0
 
 
 __all__ = ["build_multi_country_bundle_manifest", "build_multi_country_map_summary"]

@@ -1695,9 +1695,34 @@ MAP_DOCUMENT_TEMPLATE = """
         </div>
       </div>
     </div>
+    <script id="atlas-static-bootstrap" type="application/json">__STATIC_BOOTSTRAP_JSON__</script>
     <script src="__ASSET_BASE_PATH__/leaflet/leaflet.js"></script>
     <script src="__ASSET_BASE_PATH__/markercluster/leaflet.markercluster.js"></script>
+    __STATIC_CHUNK_SCRIPT_TAGS__
     <script>
+      const STATIC_ATLAS_CHUNKS = globalThis.__BIJUX_ATLAS_CHUNKS__ || null;
+      function hydrateStaticAtlasLayers(layerKind) {
+        if (!STATIC_ATLAS_CHUNKS || !STATIC_ATLAS_CHUNKS.provenance || !Array.isArray(STATIC_ATLAS_CHUNKS.nodes)) {
+          throw new Error('Static atlas chunks are incomplete');
+        }
+        const partsByLayer = new Map();
+        [...STATIC_ATLAS_CHUNKS.nodes]
+          .sort((left, right) => left.layer_index - right.layer_index || left.feature_offset - right.feature_offset)
+          .forEach((part) => {
+            const current = partsByLayer.get(part.layer_index) || [];
+            current.push(...part.features);
+            partsByLayer.set(part.layer_index, current);
+          });
+        return [...STATIC_ATLAS_CHUNKS.provenance.layers]
+          .filter((entry) => entry.layer_kind === layerKind)
+          .sort((left, right) => left.layer_index - right.layer_index)
+          .map((entry) => {
+            const features = partsByLayer.get(entry.layer_index) || [];
+            if (features.length !== entry.feature_count) throw new Error(`Static atlas layer ${entry.layer_index} is incomplete`);
+            if (layerKind === 'point') return { ...entry.layer, features };
+            return { ...entry.layer, geojson: { ...(entry.layer.geojson || {}), features } };
+          });
+      }
       const COUNTRIES = __COUNTRIES_JSON__;
       const POINT_LAYERS = __POINT_LAYERS_JSON__;
       const POLYGON_LAYERS = __POLYGON_LAYERS_JSON__;

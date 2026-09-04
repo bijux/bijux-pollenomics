@@ -1,16 +1,15 @@
 from __future__ import annotations
 
-from collections.abc import Collection
 import csv
 import json
-from pathlib import Path
 import tempfile
-from typing import cast
 import unittest
+from collections.abc import Collection
+from pathlib import Path
+from typing import cast
 from unittest.mock import patch
 
 import pytest
-
 from bijux_pollenomics.reporting import (
     generate_country_report,
     generate_multi_country_map,
@@ -26,9 +25,20 @@ from bijux_pollenomics.reporting.rendering import (
     build_sample_geojson_feature,
     serialize_sample_record,
 )
+
 from tests.support.aadr import AADR_HEADER, write_anno_file
 
 pytestmark = pytest.mark.generated_artifacts
+
+
+def read_static_atlas_payload_text(output_dir: Path, slug: str) -> str:
+    manifest = json.loads(
+        (output_dir / f"{slug}_map_assets.json").read_text(encoding="utf-8")
+    )
+    return "\n".join(
+        (output_dir / row["path"]).read_text(encoding="utf-8")
+        for row in manifest["assets"]
+    )
 
 
 class CountryReportTests(unittest.TestCase):
@@ -109,6 +119,10 @@ class CountryReportTests(unittest.TestCase):
             "sweden_lake_evidence_richness_v62.0.md",
         )
         self.assertEqual(atlas_paths.map_html_path.name, "nordic-atlas_map.html")
+        self.assertEqual(
+            atlas_paths.map_static_assets_manifest_path.name,
+            "nordic-atlas_map_assets.json",
+        )
         self.assertEqual(
             atlas_paths.samples_geojson_path.name, "nordic-atlas_samples.geojson"
         )
@@ -290,25 +304,10 @@ class CountryReportTests(unittest.TestCase):
             anno_path = root / "ho" / "v62.0_HO_public.anno"
             anno_path.parent.mkdir(parents=True, exist_ok=True)
             anno_path.write_text(
-                "\t".join(
-                    [
-                        "Genetic ID",
-                        "Master ID",
-                        "Group ID",
-                        "Locality",
-                        "Political Entity",
-                        "Lat.",
-                        "Long.",
-                        "Publication abbreviation",
-                        "Year first published",
-                        "Full Date",
-                        "Date mean in BP",
-                        "Date standard deviation in BP",
-                        "Data type",
-                        "Molecular Sex",
-                    ]
-                )
-                + "\n"
+                "Genetic ID\tMaster ID\tGroup ID\tLocality\tPolitical Entity\t"
+                "Lat.\tLong.\tPublication abbreviation\tYear first published\t"
+                "Full Date\tDate mean in BP\tDate standard deviation in BP\t"
+                "Data type\tMolecular Sex\n"
                 + "SE1\tSE1\tSweden_Group\tUppsala\tSweden\t59.8586\t17.6389\tPaperA\t2022\t500 BCE\t2450\t125\tHO\tF\n",
                 encoding="utf-8",
             )
@@ -1063,6 +1062,7 @@ class CountryReportTests(unittest.TestCase):
             )
 
             map_html = (output / "nordic-atlas_map.html").read_text(encoding="utf-8")
+            atlas_payload_text = read_static_atlas_payload_text(output, "nordic-atlas")
             readme_text = (output / "README.md").read_text(encoding="utf-8")
             summary = json.loads(
                 (output / "nordic-atlas_summary.json").read_text(encoding="utf-8")
@@ -1104,10 +1104,10 @@ class CountryReportTests(unittest.TestCase):
             self.assertIn("Citation and provenance", map_html)
             self.assertIn("Sample and locality detail", map_html)
             self.assertIn("Warnings and caveats", map_html)
-            self.assertIn("Ovis aries", map_html)
-            self.assertIn("Rangifer tarandus", map_html)
-            self.assertIn("Baltic sheep lead", map_html)
-            self.assertIn("Svalbard reindeer lead", map_html)
+            self.assertIn("Ovis aries", atlas_payload_text)
+            self.assertIn("Rangifer tarandus", atlas_payload_text)
+            self.assertIn("Baltic sheep lead", atlas_payload_text)
+            self.assertIn("Svalbard reindeer lead", atlas_payload_text)
 
             self.assertIn("## Animal aDNA Layers", readme_text)
             self.assertIn("Public Animal Filters", readme_text)
@@ -1401,26 +1401,30 @@ class CountryReportTests(unittest.TestCase):
             )
 
             map_html = (output / "nordic-atlas_map.html").read_text(encoding="utf-8")
+            atlas_payload_text = read_static_atlas_payload_text(output, "nordic-atlas")
             readme_text = (output / "README.md").read_text(encoding="utf-8")
             self.assertIn("Country Filters", map_html)
             self.assertIn("Search points and sites", map_html)
             self.assertIn("Filters", map_html)
             self.assertIn("Date Window", map_html)
             self.assertIn("Copy link", map_html)
-            self.assertIn("Country boundaries", map_html)
+            self.assertIn("Country boundaries", atlas_payload_text)
             self.assertIn("dock-layer-chip", map_html)
             self.assertIn('class="control-panel"', map_html)
             self.assertIn("width: min(288px, calc(100vw - 32px));", map_html)
             self.assertIn('details class="control-group"', map_html)
-            self.assertIn("LandClim pollen sites", map_html)
-            self.assertIn("LandClim REVEALS grid cells", map_html)
-            self.assertIn("Neotoma pollen sites", map_html)
-            self.assertIn("SEAD sites", map_html)
-            self.assertIn("Fieldwork documentation", map_html)
-            self.assertIn("Lyngsjön Lake field sampling", map_html)
-            self.assertIn("../../gallery/2026-02-26-data-collection.mp4", map_html)
+            self.assertIn("LandClim pollen sites", atlas_payload_text)
+            self.assertIn("LandClim REVEALS grid cells", atlas_payload_text)
+            self.assertIn("Neotoma pollen sites", atlas_payload_text)
+            self.assertIn("SEAD sites", atlas_payload_text)
+            self.assertIn("Fieldwork documentation", atlas_payload_text)
+            self.assertIn(r"Lyngsj\u00f6n Lake field sampling", atlas_payload_text)
+            self.assertIn(
+                "../../gallery/2026-02-26-data-collection.mp4",
+                atlas_payload_text,
+            )
             self.assertIn("popup-media-link", map_html)
-            self.assertIn("RAÄ archaeology density", map_html)
+            self.assertNotIn(r"RA\u00c4 archaeology density", atlas_payload_text)
             self.assertNotIn("Search Visible Records", map_html)
             self.assertNotIn(
                 ".sidebar:not(.is-collapsed) ~ .map-stage .floating-legend", map_html
@@ -1538,7 +1542,7 @@ class CountryReportTests(unittest.TestCase):
                 slug="nordic-atlas",
             )
 
-            map_html = (output / "nordic-atlas_map.html").read_text(encoding="utf-8")
+            atlas_payload_text = read_static_atlas_payload_text(output, "nordic-atlas")
             for label in (
                 "Sweden lake aggregate top 40",
                 "Sweden lake consensus top 40",
@@ -1549,15 +1553,15 @@ class CountryReportTests(unittest.TestCase):
                 "Sweden lake 40 km top 40",
                 "Sweden lake 50 km top 40",
             ):
-                self.assertIn(label, map_html)
-            self.assertIn('"default_enabled": false', map_html)
-            self.assertIn('"applies_time_filter": true', map_html)
-            self.assertIn('"time_start_bp": 3600', map_html)
-            self.assertIn("neotoma-pollen:alpha", map_html)
-            self.assertIn("Optional Sweden lake ranking overlay", map_html)
+                self.assertIn(label, atlas_payload_text)
+            self.assertIn('"default_enabled":false', atlas_payload_text)
+            self.assertIn('"applies_time_filter":true', atlas_payload_text)
+            self.assertIn('"time_start_bp":3600', atlas_payload_text)
+            self.assertIn("neotoma-pollen:alpha", atlas_payload_text)
+            self.assertIn("Optional Sweden lake ranking overlay", atlas_payload_text)
             self.assertIn(
                 "sweden_lake_evidence_richness_v62.0_scenarios.csv",
-                map_html,
+                atlas_payload_text,
             )
 
     def test_generate_multi_country_map_uses_context_layer_dates_for_time_window(

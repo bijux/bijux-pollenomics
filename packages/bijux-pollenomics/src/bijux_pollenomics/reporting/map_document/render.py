@@ -4,6 +4,7 @@ from ...core.geojson import JsonObject
 from ..map_publication import MapScopePolicy
 from ..presentation.text import escape_html
 from .payload import build_map_document_payload
+from .static_assets import StaticAtlasAssets, validate_static_atlas_document
 from .template import MAP_DOCUMENT_TEMPLATE
 
 
@@ -16,6 +17,7 @@ def render_multi_country_map_html(
     point_layers: list[JsonObject],
     polygon_layers: list[JsonObject],
     asset_base_path: str,
+    static_assets: StaticAtlasAssets | None = None,
 ) -> str:
     """Render the standalone interactive map document."""
     rendered_document = MAP_DOCUMENT_TEMPLATE
@@ -29,6 +31,9 @@ def render_multi_country_map_html(
         polygon_layers=polygon_layers,
         asset_base_path=asset_base_path,
         escape_html_fn=escape_html,
+        static_assets=static_assets,
     ).items():
         rendered_document = rendered_document.replace(placeholder, value)
+    if static_assets is not None:
+        validate_static_atlas_document(rendered_document)
     return rendered_document
