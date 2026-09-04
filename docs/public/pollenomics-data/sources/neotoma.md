@@ -21,17 +21,38 @@ comparison, or no numeric-time claim.
 
 ## Checked-In Evidence
 
-The current temporal review covers 200 normalized sites:
+The legacy point-layer temporal review covers 200 normalized sites:
 
 | Posture | Count | Interpretation |
 | --- | ---: | --- |
 | site has a numeric BP span | 175 | bounded site-level comparison is possible under the recorded caveat |
 | site lacks a BP span | 25 | spatial context only |
-| captured chronology rows | 0 | the snapshot does not provide a separate chronology-row foundation |
+| point-layer chronology rows | 0 | the compact site layer does not embed relational chronology rows |
 
 Within the review, 63 records are numeric intervals, 107 are numeric intervals
 with caveats, 5 retain contextual labels only, and 25 remain unresolved. These
 categories are more informative than calling all 200 sites “dated.”
+
+### Relational Snapshot
+
+The governed `data/neotoma/relational/` snapshot preserves the detailed
+source relationships omitted from the compact map layer. Its manifested v2
+surfaces contain 200 sites, 206 collection units, 209 datasets, 384
+chronologies, 2,798 chronology controls, 12,388 samples, 23,281 age claims,
+1,262 variables, and 370,936 observations.
+
+The age claims remain partitioned by comparability: 11,526 comparable, 10,622
+context-only, 294 refused, and 839 unresolved. The snapshot also preserves 150
+conflict records and 52 orphan records rather than hiding them. Of the 200
+sites, 193 have assigned governed-country decisions and are spatially eligible;
+7 remain in review under `UNASSIGNED` and are blocked from propagation.
+
+Every multipart surface is bound to source snapshot
+`sha256:b2bcb99157e10b0c9f13c228acc12eabcb39d96a1f39c86ec25e34aacd78c791`
+and build
+`sha256:92dd52619837f3641d004a1a5dbe38f9ab6023a79f61989314bb90e612eb58e1`.
+The manifest validates row counts, stable IDs, country partitions, part hashes,
+and the complete materialization digest.
 
 ### Curation Lineage
 
@@ -94,13 +115,14 @@ flowchart LR
   numeric BP interval;
 - public context layers that preserve site identity and temporal posture.
 
-## Chronology Limit
+## Chronology Boundaries
 
 A site span summarizes captured age coverage. It is not equivalent to a
-chronology table, age-depth model, or sample-level date. The current snapshot
-contains no chronology rows for this Sweden-facing family, so a site with a BP
-span may support a bounded comparison while still carrying a chronology
-caveat.
+chronology table, age-depth model, or sample-level date. The compact point layer
+contains no chronology rows, while the relational snapshot preserves
+chronology, chronology-control, sample, and alternate age-claim records. A
+point-layer BP span must therefore remain a display summary; analyses requiring
+sample time use the relational claims and retain their comparability posture.
 
 Units and interval semantics also matter. A numeric label is not accepted for
 comparison merely because it contains “BP”; the review posture records whether
@@ -233,6 +255,9 @@ published site members. Equal site counts cannot prove equal pollen evidence.
 - `data/neotoma/normalized/nordic_pollen_sites.geojson` governs normalized
   spatial records;
 - `data/neotoma/review/temporal_review.json` governs temporal posture;
+- `data/neotoma/relational/manifest.json` governs the multipart relational
+  snapshot and binds its sites, units, datasets, chronologies, controls,
+  samples, age claims, variables, observations, conflicts, and orphans;
 - `data/source_spatiotemporal_posture_registry.json` summarizes cross-family
   comparison status.
 

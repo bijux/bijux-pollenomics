@@ -10,9 +10,11 @@ last_reviewed: 2026-07-22
 # Neotoma Exports
 
 Neotoma exports provide Nordic pollen-site context from the Neotoma
-Paleoecology Database. The normalized layer combines stable site identity,
-location, collection summaries, source links, and explicit temporal semantics
-without converting site-level age coverage into sample-event chronology.
+Paleoecology Database. The normalized point layer combines stable site
+identity, location, collection summaries, source links, and explicit temporal
+semantics. A separate governed relational snapshot preserves sample, age,
+variable, observation, chronology, and conflict detail without converting a
+site-level age envelope into sample-event chronology.
 
 ## Current Governed Surface
 
@@ -26,10 +28,11 @@ the sites as follows:
 | contextual label only | 5 | display and group as temporal context, not numeric overlap |
 | unresolved | 25 | no temporal comparison |
 
-In total, 175 sites carry BP age-range information, but the five
-contextual-only sites are not promoted into numeric comparability. None of the
-200 sites has captured chronology rows in the current repository state. The
-available bounds are site-level pollen coverage spans, not sample-owned dates.
+In total, 175 point-layer sites carry BP age-range information, but the five
+contextual-only sites are not promoted into numeric comparability. These bounds
+are site-level pollen coverage spans, not sample-owned dates. Detailed
+chronology and age claims are available only through the relational snapshot
+and retain separate comparability decisions.
 
 ```mermaid
 flowchart LR
@@ -50,7 +53,16 @@ flowchart LR
 - `data/neotoma/normalized/nordic_pollen_sites.geojson` is the mapped point
   surface; and
 - `data/neotoma/review/temporal_review.{json,csv,md}` exposes the temporal
-  classification and its denominators.
+  classification and its point-layer denominators;
+- `data/neotoma/relational/manifest.json` binds the multipart v2 relational
+  surfaces and their hashes.
+
+The relational snapshot accounts for 200 sites, 209 datasets, 206 collection
+units, 12,388 samples, 23,281 age claims, 384 chronologies, 2,798 chronology
+controls, 1,262 variables, and 370,936 observations. It preserves 150 conflicts
+and 52 orphans as explicit review surfaces. Country attribution assigns 193
+sites and leaves 7 review-blocked under `UNASSIGNED`; no unresolved site is
+silently assigned for propagation.
 
 The `data/neotoma/normalized/` tree owns the repository representation used by
 publication, while `data/neotoma/review/` owns its temporal fitness findings.
