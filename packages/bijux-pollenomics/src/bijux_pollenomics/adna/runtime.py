@@ -7,6 +7,7 @@ from pathlib import Path
 from ..config import DEFAULT_AADR_VERSION, DEFAULT_DATA_ROOT
 from .curation import build_species_curation_manifest
 from .manifests import AdnaSpeciesManifest, build_species_manifest
+from .models import AdnaSampleRecord
 from .normalization import build_species_normalization_bundle
 from .reviews import AdnaSpeciesProjectRow
 from .species.definitions import AdnaSpeciesDefinition
@@ -165,7 +166,7 @@ def load_species_samples(
     manifest: AdnaSpeciesRuntimeManifest,
     *,
     query: AdnaSampleQuery | None = None,
-):
+) -> tuple[list[AdnaSampleRecord], Counter[str]]:
     """Load normalized sample records for one runtime manifest."""
     if manifest.species.latin_name == "Homo sapiens":
         from .species.homo_sapiens import load_homo_sapiens_samples
@@ -176,10 +177,17 @@ def load_species_samples(
         )
     bundle = build_species_normalization_bundle(manifest.species.latin_name)
     normalized_query = query.normalized() if query is not None else None
+    admitted_sources = {
+        (source_bundle.source_family, source_bundle.source_release)
+        for source_bundle in manifest.source_bundles
+    }
     records = [
         sample
         for sample in bundle.sample_records
-        if normalized_query is None or _sample_matches_query(sample, normalized_query)
+        if (sample.source_family, sample.source_release) in admitted_sources
+        and (
+            normalized_query is None or _sample_matches_query(sample, normalized_query)
+        )
     ]
     dataset_counts: Counter[str] = Counter()
     for sample in records:
@@ -225,7 +233,7 @@ def _source_family_for(project: AdnaSpeciesProjectRow) -> str:
     return project.source_family
 
 
-def _sample_matches_query(sample, query: AdnaSampleQuery) -> bool:
+def _sample_matches_query(sample: AdnaSampleRecord, query: AdnaSampleQuery) -> bool:
     if query.political_entity:
         if sample.political_entity is None:
             return False

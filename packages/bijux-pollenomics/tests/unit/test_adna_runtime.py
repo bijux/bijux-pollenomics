@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 from pathlib import Path
+import hashlib
 import tempfile
 import unittest
 from unittest.mock import patch
@@ -21,6 +22,47 @@ pytestmark = pytest.mark.generated_artifacts
 
 
 class AdnaRuntimeUnitTests(unittest.TestCase):
+    def test_homo_sapiens_runtime_rejects_copied_release_version(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            version_dir = Path(tmp) / "v99.1"
+            write_anno_file(
+                version_dir / "ho" / "v99.1.HO.aadr.PUB.anno",
+                [],
+            )
+            (version_dir / "release_manifest.json").write_text(
+                '{"anno_files":[{"dataset_name":"ho"}],'
+                '"source":"AADR","requested_version":"v66"}',
+                encoding="utf-8",
+            )
+
+            with self.assertRaisesRegex(ValueError, "version does not match"):
+                homo_sapiens_runtime.build_homo_sapiens_runtime_manifest_for_version_dir(
+                    version_dir
+                )
+
+    def test_homo_sapiens_runtime_rejects_tampered_manifest_file(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            version_dir = Path(tmp) / "v99.1"
+            path = version_dir / "ho" / "v99.1.HO.aadr.PUB.anno"
+            write_anno_file(path, [])
+            digest = hashlib.md5(path.read_bytes()).hexdigest()  # noqa: S324
+            (version_dir / "release_manifest.json").write_text(
+                (
+                    '{"anno_files":[{"dataset_name":"ho",'
+                    '"filename":"v99.1.HO.aadr.PUB.anno",'
+                    f'"filesize":{path.stat().st_size},"md5":"{digest}"}}],'
+                    '"source":"AADR","requested_version":"v99.1"}'
+                ),
+                encoding="utf-8",
+            )
+            payload = path.read_bytes()
+            path.write_bytes(b"x" + payload[1:])
+
+            with self.assertRaisesRegex(ValueError, "md5 mismatch"):
+                homo_sapiens_runtime.build_homo_sapiens_runtime_manifest_for_version_dir(
+                    version_dir
+                )
+
     def test_homo_sapiens_runtime_manifest_uses_species_owned_aadr_layout(self) -> None:
         manifest = build_species_runtime_manifest("Homo sapiens", version="v66")
 
@@ -80,6 +122,24 @@ class AdnaRuntimeUnitTests(unittest.TestCase):
             )
         )
         self.assertIn("comparator support", manifest.analysis_boundary)
+
+    def test_nonhuman_runtime_excludes_rejected_project_placeholder_rows(self) -> None:
+        manifest = build_species_runtime_manifest("donkey")
+
+        samples, _ = load_species_samples(manifest)
+
+        admitted_sources = {
+            (bundle.source_family, bundle.source_release)
+            for bundle in manifest.source_bundles
+        }
+        self.assertTrue(samples)
+        self.assertTrue(
+            all(
+                (sample.source_family, sample.source_release) in admitted_sources
+                for sample in samples
+            )
+        )
+        self.assertNotIn("PRJEB55549", {sample.source_release for sample in samples})
 
     def test_species_loader_filters_homo_sapiens_samples_by_country_and_dataset(
         self,

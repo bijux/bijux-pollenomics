@@ -5,8 +5,10 @@ from collections.abc import Iterable, Mapping
 import csv
 from dataclasses import dataclass
 from functools import lru_cache
+import hashlib
 import json
 from pathlib import Path
+import re
 
 from ...core.bp_time import build_bp_interval_label, midpoint_bp_year
 from ..locality import build_locality_identity
@@ -141,9 +143,11 @@ def load_homo_sapiens_samples(
     bundle = _single_human_bundle(manifest)
     normalized_query = query.normalized() if query is not None else AdnaSampleQuery()
     if _is_country_only_query(normalized_query):
+        political_entity = normalized_query.political_entity
+        assert political_entity is not None
         country_records = _cached_country_records(_release_cache_key(bundle))
         cached_records = country_records.get(
-            normalized_query.political_entity.casefold(),
+            political_entity.casefold(),
             _EMPTY_COUNTRY_RECORDS,
         )
         return list(cached_records.samples), Counter(
@@ -166,7 +170,7 @@ def load_homo_sapiens_samples(
     samples = sorted(
         combined.values(),
         key=lambda sample: (
-            sample.locality.casefold(),
+            (sample.locality or "").casefold(),
             sample.master_id.casefold(),
             sample.genetic_id.casefold(),
         ),
@@ -239,7 +243,7 @@ def _cached_country_records(
                 sorted(
                     sample_rows.values(),
                     key=lambda sample: (
-                        sample.locality.casefold(),
+                        (sample.locality or "").casefold(),
                         sample.master_id.casefold(),
                         sample.genetic_id.casefold(),
                     ),
@@ -368,10 +372,8 @@ def merge_duplicate_samples(
         provenance_quality=existing.provenance_quality,
         master_id=_pick_value(existing.master_id, sample.master_id),
         group_id=_pick_value(existing.group_id, sample.group_id),
-        locality=_pick_value(existing.locality, sample.locality),
-        political_entity=_pick_value(
-            existing.political_entity, sample.political_entity
-        ),
+        locality=existing.locality or sample.locality,
+        political_entity=existing.political_entity or sample.political_entity,
         coordinates=AdnaCoordinate(
             latitude=existing.latitude,
             longitude=existing.longitude,
@@ -435,6 +437,9 @@ def _release_dataset_names(
             )
         )
     payload = json.loads(release_manifest_path.read_text(encoding="utf-8"))
+    if not isinstance(payload, dict):
+        raise ValueError("AADR release manifest must be a JSON object")
+    _validate_release_manifest_identity(payload, release_dir)
     anno_files = payload.get("anno_files", [])
     if not isinstance(anno_files, list):
         return ()
@@ -444,6 +449,76 @@ def _release_dataset_names(
         if isinstance(row, dict) and str(row.get("dataset_name", "")).strip()
     }
     return tuple(sorted(names))
+
+
+def _validate_release_manifest_identity(
+    payload: Mapping[str, object], release_dir: Path
+) -> None:
+    """Reject copied release identity and contradictory file lineage metadata."""
+    source = _clean_text(str(payload.get("source", "")))
+    requested_version = _clean_text(str(payload.get("requested_version", "")))
+    if source != "AADR":
+        raise ValueError(f"AADR release manifest has unexpected source: {source!r}")
+    if requested_version != release_dir.name:
+        raise ValueError(
+            "AADR release manifest version does not match its release directory: "
+            f"manifest={requested_version!r}, directory={release_dir.name!r}"
+        )
+
+    anno_files = payload.get("anno_files")
+    if not isinstance(anno_files, list):
+        raise ValueError("AADR release manifest anno_files must be a list")
+    identities: set[tuple[str, str]] = set()
+    declared_paths: set[Path] = set()
+    all_rows_name_files = True
+    for index, raw_row in enumerate(anno_files):
+        if not isinstance(raw_row, dict):
+            raise ValueError(f"AADR anno_files[{index}] must be an object")
+        dataset_name = _clean_text(str(raw_row.get("dataset_name", "")))
+        filename = _clean_text(str(raw_row.get("filename", "")))
+        if not dataset_name or Path(dataset_name).name != dataset_name:
+            raise ValueError(f"AADR anno_files[{index}] has invalid dataset_name")
+        if not filename:
+            all_rows_name_files = False
+            continue
+        if Path(filename).name != filename:
+            raise ValueError(f"AADR anno_files[{index}] has invalid filename")
+        identity = (dataset_name, filename)
+        if identity in identities:
+            raise ValueError(f"AADR release manifest duplicates anno file {identity}")
+        identities.add(identity)
+        path = release_dir / dataset_name / filename
+        if not path.is_file():
+            raise ValueError(f"AADR release manifest file is missing: {path}")
+        declared_paths.add(path.resolve())
+        expected_size = raw_row.get("filesize")
+        if expected_size is not None and (
+            isinstance(expected_size, bool)
+            or not isinstance(expected_size, int)
+            or expected_size < 0
+        ):
+            raise ValueError(f"AADR anno_files[{index}] has invalid filesize")
+        if isinstance(expected_size, int) and path.stat().st_size != expected_size:
+            raise ValueError(f"AADR release manifest filesize mismatch for {path}")
+        expected_md5 = _clean_text(str(raw_row.get("md5", ""))).casefold()
+        if expected_md5:
+            if re.fullmatch(r"[0-9a-f]{32}", expected_md5) is None:
+                raise ValueError(f"AADR anno_files[{index}] has invalid md5")
+            actual_md5 = hashlib.md5(path.read_bytes()).hexdigest()  # noqa: S324
+            if actual_md5 != expected_md5:
+                raise ValueError(f"AADR release manifest md5 mismatch for {path}")
+
+    if all_rows_name_files:
+        actual_paths = {
+            path.resolve() for path in discover_homo_sapiens_anno_files(release_dir)
+        }
+        if declared_paths != actual_paths:
+            missing = sorted(str(path) for path in actual_paths - declared_paths)
+            unexpected = sorted(str(path) for path in declared_paths - actual_paths)
+            raise ValueError(
+                "AADR release manifest file inventory differs from the release directory: "
+                f"undeclared={missing}, absent={unexpected}"
+            )
 
 
 def _single_human_bundle(manifest: AdnaSpeciesRuntimeManifest) -> AdnaSourceBundle:
@@ -496,11 +571,11 @@ def _is_country_only_query(query: AdnaSampleQuery) -> bool:
 
 
 def _sample_matches_query(sample: AdnaSampleRecord, query: AdnaSampleQuery) -> bool:
-    if (
-        query.political_entity
-        and sample.political_entity.casefold() != query.political_entity.casefold()
-    ):
-        return False
+    if query.political_entity:
+        if sample.political_entity is None:
+            return False
+        if sample.political_entity.casefold() != query.political_entity.casefold():
+            return False
     if query.locality_token and sample.locality_token != query.locality_token:
         return False
     if query.dataset_names and not set(sample.datasets).intersection(
