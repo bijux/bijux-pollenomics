@@ -1,9 +1,9 @@
 {
   "schema_version": "repository-output-sustainability-review.v1",
   "balance_counts": {
-    "runtime_python_file_count": 266,
-    "tracked_data_file_count": 1618,
-    "report_file_count": 236,
+    "runtime_python_file_count": 269,
+    "tracked_data_file_count": 1619,
+    "report_file_count": 283,
     "maintainer_root_review_file_count": 0
   },
   "rows": [

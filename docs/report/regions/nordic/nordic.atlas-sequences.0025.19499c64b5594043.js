@@ -1,0 +1,1 @@
+globalThis.__BIJUX_ATLAS_CHUNKS__=globalThis.__BIJUX_ATLAS_CHUNKS__||{nodes:[]};globalThis.__BIJUX_ATLAS_CHUNKS__.sequences={"reason_code":"governed_sequence_detail_model_not_available","records":[],"schema_version":"atlas-sequences-chunk.v1","scope_slug":"nordic","status":"unavailable","version":"v66"};

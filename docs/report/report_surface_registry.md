@@ -4,7 +4,7 @@ This registry classifies the current `docs/report/` tree by family, audience,
 scope, and explanation role so the publication system can be navigated as one
 coherent report surface instead of a loose artifact dump.
 
-- Surface count: `296`
+- Surface count: `343`
 
 ## Family Counts
 
@@ -12,18 +12,18 @@ coherent report surface instead of a loose artifact dump.
 | --- | ---: |
 | Scientific caveats | 9 |
 | Maintainer truth surfaces | 51 |
-| Map surfaces | 77 |
+| Map surfaces | 80 |
 | Portal guidance | 2 |
 | Evidence reviews | 33 |
-| Scope-filtered outputs | 124 |
+| Scope-filtered outputs | 168 |
 
 ## Audience Counts
 
 | Audience | Count |
 | --- | ---: |
 | Maintainer diagnostic | 53 |
-| Public reading surface | 133 |
-| Scientific review surface | 110 |
+| Public reading surface | 177 |
+| Scientific review surface | 113 |
 
 ## Classified Surfaces
 
@@ -169,6 +169,14 @@ coherent report surface instead of a loose artifact dump.
 | `docs/report/regions/europe-plus/_map_assets/markercluster/MarkerCluster.Default.css` | Scope-filtered outputs | Public reading surface | `europe_plus` | `css` | Governed report artifact. |
 | `docs/report/regions/europe-plus/_map_assets/markercluster/MarkerCluster.css` | Scope-filtered outputs | Public reading surface | `europe_plus` | `css` | Governed report artifact. |
 | `docs/report/regions/europe-plus/_map_assets/markercluster/leaflet.markercluster.js` | Scope-filtered outputs | Public reading surface | `europe_plus` | `js` | Governed report artifact. |
+| `docs/report/regions/europe-plus/europe-plus.atlas-edges.0005.90177799d6a462f5.js` | Scope-filtered outputs | Public reading surface | `europe_plus` | `js` | Governed report artifact. |
+| `docs/report/regions/europe-plus/europe-plus.atlas-indexes.0007.1d07174f39ca27bf.js` | Scope-filtered outputs | Public reading surface | `europe_plus` | `js` | Governed report artifact. |
+| `docs/report/regions/europe-plus/europe-plus.atlas-nodes.0001.ea2c1dc9e85c1d35.js` | Scope-filtered outputs | Public reading surface | `europe_plus` | `js` | Governed report artifact. |
+| `docs/report/regions/europe-plus/europe-plus.atlas-nodes.0002.b454c439645408db.js` | Scope-filtered outputs | Public reading surface | `europe_plus` | `js` | Governed report artifact. |
+| `docs/report/regions/europe-plus/europe-plus.atlas-nodes.0003.91e33640d22b9f48.js` | Scope-filtered outputs | Public reading surface | `europe_plus` | `js` | Governed report artifact. |
+| `docs/report/regions/europe-plus/europe-plus.atlas-nodes.0004.9ed1e272c66132cc.js` | Scope-filtered outputs | Public reading surface | `europe_plus` | `js` | Governed report artifact. |
+| `docs/report/regions/europe-plus/europe-plus.atlas-provenance.0000.2aba9278ae722a14.js` | Scope-filtered outputs | Public reading surface | `europe_plus` | `js` | Governed report artifact. |
+| `docs/report/regions/europe-plus/europe-plus.atlas-sequences.0006.7b65b4f3b0d8dc28.js` | Scope-filtered outputs | Public reading surface | `europe_plus` | `js` | Governed report artifact. |
 | `docs/report/regions/europe-plus/europe-plus_animal_atlas_evidence.csv` | Map surfaces | Scientific review surface | `europe_plus` | `csv` | Governed report artifact. |
 | `docs/report/regions/europe-plus/europe-plus_animal_atlas_evidence.json` | Map surfaces | Scientific review surface | `europe_plus` | `json` | Governed report artifact. |
 | `docs/report/regions/europe-plus/europe-plus_animal_localities.geojson` | Map surfaces | Scientific review surface | `europe_plus` | `geojson` | Governed report artifact. |
@@ -185,6 +193,7 @@ coherent report surface instead of a loose artifact dump.
 | `docs/report/regions/europe-plus/europe-plus_evidence_surface.json` | Map surfaces | Scientific review surface | `europe_plus` | `json` | Governed report artifact. |
 | `docs/report/regions/europe-plus/europe-plus_evidence_surface.md` | Map surfaces | Scientific review surface | `europe_plus` | `md` | Governed report artifact. |
 | `docs/report/regions/europe-plus/europe-plus_map.html` | Map surfaces | Public reading surface | `europe_plus` | `html` | Interactive map surface for one governed publication scope. |
+| `docs/report/regions/europe-plus/europe-plus_map_assets.json` | Map surfaces | Scientific review surface | `europe_plus` | `json` | Governed report artifact. |
 | `docs/report/regions/europe-plus/europe-plus_map_publication_contract.json` | Map surfaces | Scientific review surface | `europe_plus` | `json` | Governed publication contract for one map scope. |
 | `docs/report/regions/europe-plus/europe-plus_map_publication_contract.md` | Map surfaces | Scientific review surface | `europe_plus` | `md` | Governed publication contract for one map scope. |
 | `docs/report/regions/europe-plus/europe-plus_point_traceability.json` | Map surfaces | Scientific review surface | `europe_plus` | `json` | Traceability surface for visible mapped points and overlays. |
@@ -205,6 +214,33 @@ coherent report surface instead of a loose artifact dump.
 | `docs/report/regions/nordic/_map_assets/markercluster/MarkerCluster.Default.css` | Scope-filtered outputs | Public reading surface | `nordic` | `css` | Governed report artifact. |
 | `docs/report/regions/nordic/_map_assets/markercluster/MarkerCluster.css` | Scope-filtered outputs | Public reading surface | `nordic` | `css` | Governed report artifact. |
 | `docs/report/regions/nordic/_map_assets/markercluster/leaflet.markercluster.js` | Scope-filtered outputs | Public reading surface | `nordic` | `js` | Governed report artifact. |
+| `docs/report/regions/nordic/nordic.atlas-edges.0024.244f710ccfc88b83.js` | Scope-filtered outputs | Public reading surface | `nordic` | `js` | Governed report artifact. |
+| `docs/report/regions/nordic/nordic.atlas-indexes.0026.c0f1b0ab94e9e199.js` | Scope-filtered outputs | Public reading surface | `nordic` | `js` | Governed report artifact. |
+| `docs/report/regions/nordic/nordic.atlas-nodes.0001.39f5328123ee0676.js` | Scope-filtered outputs | Public reading surface | `nordic` | `js` | Governed report artifact. |
+| `docs/report/regions/nordic/nordic.atlas-nodes.0002.8b244a9f60e62305.js` | Scope-filtered outputs | Public reading surface | `nordic` | `js` | Governed report artifact. |
+| `docs/report/regions/nordic/nordic.atlas-nodes.0003.8c247993821f70f7.js` | Scope-filtered outputs | Public reading surface | `nordic` | `js` | Governed report artifact. |
+| `docs/report/regions/nordic/nordic.atlas-nodes.0004.2048a291e07b041d.js` | Scope-filtered outputs | Public reading surface | `nordic` | `js` | Governed report artifact. |
+| `docs/report/regions/nordic/nordic.atlas-nodes.0005.b593e1d4a3c599bb.js` | Scope-filtered outputs | Public reading surface | `nordic` | `js` | Governed report artifact. |
+| `docs/report/regions/nordic/nordic.atlas-nodes.0006.d71f66b9777cd391.js` | Scope-filtered outputs | Public reading surface | `nordic` | `js` | Governed report artifact. |
+| `docs/report/regions/nordic/nordic.atlas-nodes.0007.682a0e08eacf3120.js` | Scope-filtered outputs | Public reading surface | `nordic` | `js` | Governed report artifact. |
+| `docs/report/regions/nordic/nordic.atlas-nodes.0008.4eab010e9becb091.js` | Scope-filtered outputs | Public reading surface | `nordic` | `js` | Governed report artifact. |
+| `docs/report/regions/nordic/nordic.atlas-nodes.0009.28e919ea8e760d4e.js` | Scope-filtered outputs | Public reading surface | `nordic` | `js` | Governed report artifact. |
+| `docs/report/regions/nordic/nordic.atlas-nodes.0010.e3b051a313295d55.js` | Scope-filtered outputs | Public reading surface | `nordic` | `js` | Governed report artifact. |
+| `docs/report/regions/nordic/nordic.atlas-nodes.0011.3b1c64ba3fdbd682.js` | Scope-filtered outputs | Public reading surface | `nordic` | `js` | Governed report artifact. |
+| `docs/report/regions/nordic/nordic.atlas-nodes.0012.aada6aec1ee0bbdb.js` | Scope-filtered outputs | Public reading surface | `nordic` | `js` | Governed report artifact. |
+| `docs/report/regions/nordic/nordic.atlas-nodes.0013.aca885a46218684c.js` | Scope-filtered outputs | Public reading surface | `nordic` | `js` | Governed report artifact. |
+| `docs/report/regions/nordic/nordic.atlas-nodes.0014.8797b1c7a66f4045.js` | Scope-filtered outputs | Public reading surface | `nordic` | `js` | Governed report artifact. |
+| `docs/report/regions/nordic/nordic.atlas-nodes.0015.8785e47cf21eb84c.js` | Scope-filtered outputs | Public reading surface | `nordic` | `js` | Governed report artifact. |
+| `docs/report/regions/nordic/nordic.atlas-nodes.0016.c7dd605d15a33e6d.js` | Scope-filtered outputs | Public reading surface | `nordic` | `js` | Governed report artifact. |
+| `docs/report/regions/nordic/nordic.atlas-nodes.0017.b48f30cbaeb276ae.js` | Scope-filtered outputs | Public reading surface | `nordic` | `js` | Governed report artifact. |
+| `docs/report/regions/nordic/nordic.atlas-nodes.0018.f39a7457c1e1317d.js` | Scope-filtered outputs | Public reading surface | `nordic` | `js` | Governed report artifact. |
+| `docs/report/regions/nordic/nordic.atlas-nodes.0019.2301d9023ecdd1cb.js` | Scope-filtered outputs | Public reading surface | `nordic` | `js` | Governed report artifact. |
+| `docs/report/regions/nordic/nordic.atlas-nodes.0020.e8abfb7b1a088f15.js` | Scope-filtered outputs | Public reading surface | `nordic` | `js` | Governed report artifact. |
+| `docs/report/regions/nordic/nordic.atlas-nodes.0021.3b64a7290331617d.js` | Scope-filtered outputs | Public reading surface | `nordic` | `js` | Governed report artifact. |
+| `docs/report/regions/nordic/nordic.atlas-nodes.0022.d7d3a1a4df58e814.js` | Scope-filtered outputs | Public reading surface | `nordic` | `js` | Governed report artifact. |
+| `docs/report/regions/nordic/nordic.atlas-nodes.0023.8c3553da40413e21.js` | Scope-filtered outputs | Public reading surface | `nordic` | `js` | Governed report artifact. |
+| `docs/report/regions/nordic/nordic.atlas-provenance.0000.2eddab14e7f1c22f.js` | Scope-filtered outputs | Public reading surface | `nordic` | `js` | Governed report artifact. |
+| `docs/report/regions/nordic/nordic.atlas-sequences.0025.19499c64b5594043.js` | Scope-filtered outputs | Public reading surface | `nordic` | `js` | Governed report artifact. |
 | `docs/report/regions/nordic/nordic_animal_atlas_evidence.csv` | Map surfaces | Scientific review surface | `nordic` | `csv` | Governed report artifact. |
 | `docs/report/regions/nordic/nordic_animal_atlas_evidence.json` | Map surfaces | Scientific review surface | `nordic` | `json` | Governed report artifact. |
 | `docs/report/regions/nordic/nordic_animal_localities.geojson` | Map surfaces | Scientific review surface | `nordic` | `geojson` | Governed report artifact. |
@@ -222,6 +258,7 @@ coherent report surface instead of a loose artifact dump.
 | `docs/report/regions/nordic/nordic_evidence_surface.json` | Map surfaces | Scientific review surface | `nordic` | `json` | Governed report artifact. |
 | `docs/report/regions/nordic/nordic_evidence_surface.md` | Map surfaces | Scientific review surface | `nordic` | `md` | Governed report artifact. |
 | `docs/report/regions/nordic/nordic_map.html` | Map surfaces | Public reading surface | `nordic` | `html` | Interactive map surface for one governed publication scope. |
+| `docs/report/regions/nordic/nordic_map_assets.json` | Map surfaces | Scientific review surface | `nordic` | `json` | Governed report artifact. |
 | `docs/report/regions/nordic/nordic_map_publication_contract.json` | Map surfaces | Scientific review surface | `nordic` | `json` | Governed publication contract for one map scope. |
 | `docs/report/regions/nordic/nordic_map_publication_contract.md` | Map surfaces | Scientific review surface | `nordic` | `md` | Governed publication contract for one map scope. |
 | `docs/report/regions/nordic/nordic_point_traceability.json` | Map surfaces | Scientific review surface | `nordic` | `json` | Traceability surface for visible mapped points and overlays. |
@@ -294,6 +331,15 @@ coherent report surface instead of a loose artifact dump.
 | `docs/report/world/_map_assets/markercluster/MarkerCluster.css` | Scope-filtered outputs | Public reading surface | `world` | `css` | Governed report artifact. |
 | `docs/report/world/_map_assets/markercluster/leaflet.markercluster.js` | Scope-filtered outputs | Public reading surface | `world` | `js` | Governed report artifact. |
 | `docs/report/world/nordic_country_boundaries.geojson` | Map surfaces | Scientific review surface | `world` | `geojson` | Governed report artifact. |
+| `docs/report/world/world.atlas-edges.0006.6a49a31da5d87824.js` | Scope-filtered outputs | Public reading surface | `world` | `js` | Governed report artifact. |
+| `docs/report/world/world.atlas-indexes.0008.4587be441cfe45d4.js` | Scope-filtered outputs | Public reading surface | `world` | `js` | Governed report artifact. |
+| `docs/report/world/world.atlas-nodes.0001.06610afe38eddfd1.js` | Scope-filtered outputs | Public reading surface | `world` | `js` | Governed report artifact. |
+| `docs/report/world/world.atlas-nodes.0002.6a29dbe583811cfc.js` | Scope-filtered outputs | Public reading surface | `world` | `js` | Governed report artifact. |
+| `docs/report/world/world.atlas-nodes.0003.849ca17aaf48ac4a.js` | Scope-filtered outputs | Public reading surface | `world` | `js` | Governed report artifact. |
+| `docs/report/world/world.atlas-nodes.0004.b9333b7ac2b0bcf6.js` | Scope-filtered outputs | Public reading surface | `world` | `js` | Governed report artifact. |
+| `docs/report/world/world.atlas-nodes.0005.e9856acae217f27c.js` | Scope-filtered outputs | Public reading surface | `world` | `js` | Governed report artifact. |
+| `docs/report/world/world.atlas-provenance.0000.55c24f7be06cceb8.js` | Scope-filtered outputs | Public reading surface | `world` | `js` | Governed report artifact. |
+| `docs/report/world/world.atlas-sequences.0007.071a301edda22cad.js` | Scope-filtered outputs | Public reading surface | `world` | `js` | Governed report artifact. |
 | `docs/report/world/world_animal_atlas_evidence.csv` | Map surfaces | Scientific review surface | `world` | `csv` | Governed report artifact. |
 | `docs/report/world/world_animal_atlas_evidence.json` | Map surfaces | Scientific review surface | `world` | `json` | Governed report artifact. |
 | `docs/report/world/world_animal_localities.geojson` | Map surfaces | Scientific review surface | `world` | `geojson` | Governed report artifact. |
@@ -310,6 +356,7 @@ coherent report surface instead of a loose artifact dump.
 | `docs/report/world/world_evidence_surface.json` | Map surfaces | Scientific review surface | `world` | `json` | Governed report artifact. |
 | `docs/report/world/world_evidence_surface.md` | Map surfaces | Scientific review surface | `world` | `md` | Governed report artifact. |
 | `docs/report/world/world_map.html` | Map surfaces | Public reading surface | `world` | `html` | Interactive map surface for one governed publication scope. |
+| `docs/report/world/world_map_assets.json` | Map surfaces | Scientific review surface | `world` | `json` | Governed report artifact. |
 | `docs/report/world/world_map_publication_contract.json` | Map surfaces | Scientific review surface | `world` | `json` | Governed publication contract for one map scope. |
 | `docs/report/world/world_map_publication_contract.md` | Map surfaces | Scientific review surface | `world` | `md` | Governed publication contract for one map scope. |
 | `docs/report/world/world_point_traceability.json` | Map surfaces | Scientific review surface | `world` | `json` | Traceability surface for visible mapped points and overlays. |

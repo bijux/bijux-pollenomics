@@ -2,8 +2,8 @@
   "schema_version": "repository-source-explainer-audit.v1",
   "row_count": 16,
   "status_counts": {
-    "present_useful_form": 16,
-    "restoration_plan_required": 0
+    "present_useful_form": 15,
+    "restoration_plan_required": 1
   },
   "rows": [
     {
@@ -94,8 +94,8 @@
       "surface_kind": "output_family",
       "display_name": "Normalized RA\u00c4 outputs explainer",
       "page_path": "docs/public/pollenomics-data/publications/raa-exports.md",
-      "status": "present_useful_form",
-      "notes": "page exists and keeps the expected source or output anchors visible"
+      "status": "restoration_plan_required",
+      "notes": "missing expected anchors: `Sweden-scoped`"
     },
     {
       "surface_kind": "output_family",

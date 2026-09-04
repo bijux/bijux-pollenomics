@@ -26,6 +26,7 @@
     "bundle_manifest": "europe-plus_bundle.json",
     "readme": "README.md",
     "map_html": "europe-plus_map.html",
+    "map_static_assets_manifest": "europe-plus_map_assets.json",
     "samples_geojson": "europe-plus_samples.geojson",
     "map_publication_contract_json": "europe-plus_map_publication_contract.json",
     "map_publication_contract_markdown": "europe-plus_map_publication_contract.md",
@@ -64,6 +65,42 @@
       {
         "label": "Animal point traceability JSON",
         "filename": "europe-plus_animal_point_traceability.json"
+      },
+      {
+        "label": "Static atlas bootstrap manifest",
+        "filename": "europe-plus_map_assets.json"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "europe-plus.atlas-provenance.0000.2aba9278ae722a14.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "europe-plus.atlas-nodes.0001.ea2c1dc9e85c1d35.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "europe-plus.atlas-nodes.0002.b454c439645408db.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "europe-plus.atlas-nodes.0003.91e33640d22b9f48.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "europe-plus.atlas-nodes.0004.9ed1e272c66132cc.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "europe-plus.atlas-edges.0005.90177799d6a462f5.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "europe-plus.atlas-sequences.0006.7b65b4f3b0d8dc28.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "europe-plus.atlas-indexes.0007.1d07174f39ca27bf.js"
       },
       {
         "label": "Candidate site ranking CSV",
@@ -210,7 +247,43 @@
         "applies_time_filter": false,
         "scope_caveat": "Derived filter framing layer that follows the active scope country roster."
       }
-    ]
+    ],
+    "static_assets": {
+      "schema_version": "atlas-static-bootstrap.v1",
+      "manifest": "europe-plus_map_assets.json",
+      "budgets": {
+        "bootstrap_max_bytes": 65536,
+        "chunk_max_bytes": 4194304,
+        "document_max_bytes": 524288,
+        "static_assets_max_bytes": 134217728,
+        "static_assets_max_files": 512
+      },
+      "domains": {
+        "nodes": {
+          "status": "available",
+          "record_count": 1237
+        },
+        "edges": {
+          "status": "unavailable",
+          "record_count": 0,
+          "reason_code": "governed_map_edge_model_not_available"
+        },
+        "sequences": {
+          "status": "unavailable",
+          "record_count": 0,
+          "reason_code": "governed_sequence_detail_model_not_available"
+        },
+        "provenance": {
+          "status": "layer_metadata_only",
+          "record_count": 3,
+          "reason_code": "record_level_provenance_model_not_available"
+        },
+        "indexes": {
+          "status": "available",
+          "record_count": 1233
+        }
+      }
+    }
   },
   "animal_atlas": {
     "total_locality_points": 2,

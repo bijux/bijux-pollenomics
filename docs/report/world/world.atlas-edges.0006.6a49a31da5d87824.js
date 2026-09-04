@@ -1,0 +1,1 @@
+globalThis.__BIJUX_ATLAS_CHUNKS__=globalThis.__BIJUX_ATLAS_CHUNKS__||{nodes:[]};globalThis.__BIJUX_ATLAS_CHUNKS__.edges={"reason_code":"governed_map_edge_model_not_available","records":[],"schema_version":"atlas-edges-chunk.v1","scope_slug":"world","status":"unavailable","version":"v66"};

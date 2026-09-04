@@ -26,6 +26,7 @@
     "bundle_manifest": "world_bundle.json",
     "readme": "README.md",
     "map_html": "world_map.html",
+    "map_static_assets_manifest": "world_map_assets.json",
     "samples_geojson": "world_samples.geojson",
     "map_publication_contract_json": "world_map_publication_contract.json",
     "map_publication_contract_markdown": "world_map_publication_contract.md",
@@ -64,6 +65,46 @@
       {
         "label": "Animal point traceability JSON",
         "filename": "world_animal_point_traceability.json"
+      },
+      {
+        "label": "Static atlas bootstrap manifest",
+        "filename": "world_map_assets.json"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "world.atlas-provenance.0000.55c24f7be06cceb8.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "world.atlas-nodes.0001.06610afe38eddfd1.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "world.atlas-nodes.0002.6a29dbe583811cfc.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "world.atlas-nodes.0003.849ca17aaf48ac4a.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "world.atlas-nodes.0004.b9333b7ac2b0bcf6.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "world.atlas-nodes.0005.e9856acae217f27c.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "world.atlas-edges.0006.6a49a31da5d87824.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "world.atlas-sequences.0007.071a301edda22cad.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "world.atlas-indexes.0008.4587be441cfe45d4.js"
       },
       {
         "label": "Candidate site ranking CSV",
@@ -223,7 +264,43 @@
         "applies_time_filter": false,
         "scope_caveat": "Derived filter framing layer that follows the active scope country roster."
       }
-    ]
+    ],
+    "static_assets": {
+      "schema_version": "atlas-static-bootstrap.v1",
+      "manifest": "world_map_assets.json",
+      "budgets": {
+        "bootstrap_max_bytes": 65536,
+        "chunk_max_bytes": 4194304,
+        "document_max_bytes": 524288,
+        "static_assets_max_bytes": 134217728,
+        "static_assets_max_files": 512
+      },
+      "domains": {
+        "nodes": {
+          "status": "available",
+          "record_count": 1468
+        },
+        "edges": {
+          "status": "unavailable",
+          "record_count": 0,
+          "reason_code": "governed_map_edge_model_not_available"
+        },
+        "sequences": {
+          "status": "unavailable",
+          "record_count": 0,
+          "reason_code": "governed_sequence_detail_model_not_available"
+        },
+        "provenance": {
+          "status": "layer_metadata_only",
+          "record_count": 4,
+          "reason_code": "record_level_provenance_model_not_available"
+        },
+        "indexes": {
+          "status": "available",
+          "record_count": 1464
+        }
+      }
+    }
   },
   "animal_atlas": {
     "total_locality_points": 233,

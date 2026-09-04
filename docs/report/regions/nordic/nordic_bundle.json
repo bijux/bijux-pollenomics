@@ -26,6 +26,7 @@
   "artifacts": {
     "readme": "README.md",
     "map_html": "nordic_map.html",
+    "map_static_assets_manifest": "nordic_map_assets.json",
     "samples_geojson": "nordic_samples.geojson",
     "map_publication_contract_json": "nordic_map_publication_contract.json",
     "map_publication_contract_markdown": "nordic_map_publication_contract.md",
@@ -102,6 +103,118 @@
       {
         "label": "Animal point traceability JSON",
         "filename": "nordic_animal_point_traceability.json"
+      },
+      {
+        "label": "Static atlas bootstrap manifest",
+        "filename": "nordic_map_assets.json"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "nordic.atlas-provenance.0000.2eddab14e7f1c22f.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "nordic.atlas-nodes.0001.39f5328123ee0676.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "nordic.atlas-nodes.0002.8b244a9f60e62305.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "nordic.atlas-nodes.0003.8c247993821f70f7.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "nordic.atlas-nodes.0004.2048a291e07b041d.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "nordic.atlas-nodes.0005.b593e1d4a3c599bb.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "nordic.atlas-nodes.0006.d71f66b9777cd391.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "nordic.atlas-nodes.0007.682a0e08eacf3120.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "nordic.atlas-nodes.0008.4eab010e9becb091.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "nordic.atlas-nodes.0009.28e919ea8e760d4e.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "nordic.atlas-nodes.0010.e3b051a313295d55.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "nordic.atlas-nodes.0011.3b1c64ba3fdbd682.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "nordic.atlas-nodes.0012.aada6aec1ee0bbdb.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "nordic.atlas-nodes.0013.aca885a46218684c.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "nordic.atlas-nodes.0014.8797b1c7a66f4045.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "nordic.atlas-nodes.0015.8785e47cf21eb84c.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "nordic.atlas-nodes.0016.c7dd605d15a33e6d.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "nordic.atlas-nodes.0017.b48f30cbaeb276ae.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "nordic.atlas-nodes.0018.f39a7457c1e1317d.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "nordic.atlas-nodes.0019.2301d9023ecdd1cb.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "nordic.atlas-nodes.0020.e8abfb7b1a088f15.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "nordic.atlas-nodes.0021.3b64a7290331617d.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "nordic.atlas-nodes.0022.d7d3a1a4df58e814.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "nordic.atlas-nodes.0023.8c3553da40413e21.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "nordic.atlas-edges.0024.244f710ccfc88b83.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "nordic.atlas-sequences.0025.19499c64b5594043.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "nordic.atlas-indexes.0026.c0f1b0ab94e9e199.js"
       },
       {
         "label": "Candidate site ranking CSV",
@@ -321,7 +434,43 @@
         "applies_time_filter": true,
         "scope_caveat": "This overlay is visible only in Nordic scope because its source family is still Nordic-specific."
       }
-    ]
+    ],
+    "static_assets": {
+      "schema_version": "atlas-static-bootstrap.v1",
+      "manifest": "nordic_map_assets.json",
+      "budgets": {
+        "bootstrap_max_bytes": 65536,
+        "chunk_max_bytes": 4194304,
+        "document_max_bytes": 524288,
+        "static_assets_max_bytes": 134217728,
+        "static_assets_max_files": 512
+      },
+      "domains": {
+        "nodes": {
+          "status": "available",
+          "record_count": 14822
+        },
+        "edges": {
+          "status": "unavailable",
+          "record_count": 0,
+          "reason_code": "governed_map_edge_model_not_available"
+        },
+        "sequences": {
+          "status": "unavailable",
+          "record_count": 0,
+          "reason_code": "governed_sequence_detail_model_not_available"
+        },
+        "provenance": {
+          "status": "layer_metadata_only",
+          "record_count": 8,
+          "reason_code": "record_level_provenance_model_not_available"
+        },
+        "indexes": {
+          "status": "available",
+          "record_count": 12303
+        }
+      }
+    }
   },
   "animal_atlas": {
     "total_locality_points": 2,

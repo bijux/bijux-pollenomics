@@ -68,9 +68,10 @@
         "distance_scoring_posture": "supporting_pollen_context",
         "distance_scoring_note": "Use LandClim to strengthen pollen context around lakes; do not treat it as direct human or archaeological evidence.",
         "detail_metrics": {
-          "site_sequence_record_count": 492,
-          "numeric_interval_record_count": 482,
-          "temporal_grid_feature_count": 2809
+          "site_sequence_record_count": 490,
+          "numeric_interval_record_count": 480,
+          "grid_cell_count": 77,
+          "temporal_grid_feature_count": 2515
         },
         "caveats": [
           "REVEALS windows are modeled vegetation estimates, not sample-owned chronologies."

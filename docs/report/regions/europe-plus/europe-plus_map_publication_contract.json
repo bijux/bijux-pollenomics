@@ -95,5 +95,41 @@
       "applies_time_filter": false,
       "scope_caveat": "Derived filter framing layer that follows the active scope country roster."
     }
-  ]
+  ],
+  "static_assets": {
+    "schema_version": "atlas-static-bootstrap.v1",
+    "manifest": "europe-plus_map_assets.json",
+    "budgets": {
+      "bootstrap_max_bytes": 65536,
+      "chunk_max_bytes": 4194304,
+      "document_max_bytes": 524288,
+      "static_assets_max_bytes": 134217728,
+      "static_assets_max_files": 512
+    },
+    "domains": {
+      "nodes": {
+        "status": "available",
+        "record_count": 1237
+      },
+      "edges": {
+        "status": "unavailable",
+        "record_count": 0,
+        "reason_code": "governed_map_edge_model_not_available"
+      },
+      "sequences": {
+        "status": "unavailable",
+        "record_count": 0,
+        "reason_code": "governed_sequence_detail_model_not_available"
+      },
+      "provenance": {
+        "status": "layer_metadata_only",
+        "record_count": 3,
+        "reason_code": "record_level_provenance_model_not_available"
+      },
+      "indexes": {
+        "status": "available",
+        "record_count": 1233
+      }
+    }
+  }
 }
