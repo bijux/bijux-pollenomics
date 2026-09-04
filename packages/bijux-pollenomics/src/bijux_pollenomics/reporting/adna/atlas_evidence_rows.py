@@ -1,8 +1,8 @@
 from __future__ import annotations
 
 import csv
-from dataclasses import dataclass
 import json
+from dataclasses import dataclass
 from pathlib import Path
 
 from ...adna import (
@@ -216,6 +216,9 @@ def build_tracked_animal_atlas_evidence_rows(
                 site_record_id=site_record_id,
                 sample_rows=matched_sample_rows,
             )
+            sample_record_ids = _sample_record_ids_for(matched_sample_rows)
+            if not sample_record_ids:
+                continue
             site_evidence = (
                 _lookup_project_locality_row(
                     site_evidence_lookup,
@@ -228,7 +231,7 @@ def build_tracked_animal_atlas_evidence_rows(
             review = review_lookup.get(primary_project_accession, {})
             feature_token = slugify(site_record_id)
             evidence_token = slugify(
-                ":".join((species.slug, primary_project_accession, site_record_id))
+                f"{species.slug}:{primary_project_accession}:{site_record_id}"
             )
             rows.append(
                 AnimalAtlasEvidenceRow(
@@ -280,14 +283,7 @@ def build_tracked_animal_atlas_evidence_rows(
                     ),
                     project_accessions=project_accessions,
                     primary_project_accession=primary_project_accession,
-                    sample_record_ids=_sample_record_ids_for(
-                        matched_sample_rows,
-                        fallback=tuple(
-                            str(item)
-                            for item in locality.get("sample_ids", [])
-                            if str(item).strip()
-                        ),
-                    ),
+                    sample_record_ids=sample_record_ids,
                     sample_group_ids=_sample_group_ids_for(matched_sample_rows),
                     sample_count=int(locality.get("sample_count", 0) or 0),
                     sample_namespace=str(locality.get("sample_namespace", "")),
@@ -408,7 +404,7 @@ def _parse_locality_summary(payload: dict[str, object]) -> AdnaLocalitySummary:
         or not isinstance(coordinates, dict)
         or not isinstance(chronology, dict)
     ):
-        raise ValueError(
+        raise TypeError(
             "Tracked locality summary must include identity, coordinates, and chronology"
         )
     return AdnaLocalitySummary(
@@ -459,7 +455,7 @@ def _parse_locality_summary(payload: dict[str, object]) -> AdnaLocalitySummary:
 
 def _parse_chronology(payload: object) -> AdnaChronology:
     if not isinstance(payload, dict):
-        raise ValueError("Chronology payload must be a dict")
+        raise TypeError("Chronology payload must be a dict")
     return AdnaChronology(
         original_text=str(payload.get("original_text", "")),
         time_start_bp=_optional_int(payload.get("time_start_bp")),
@@ -633,8 +629,6 @@ def _animal_scope_for(species_root: Path) -> str:
 
 def _sample_record_ids_for(
     sample_rows: tuple[dict[str, object], ...],
-    *,
-    fallback: tuple[str, ...],
 ) -> tuple[str, ...]:
     identifiers = sorted(
         {
@@ -644,7 +638,7 @@ def _sample_record_ids_for(
             and str(row.get("identity", {}).get("stable_token", "")).strip()
         }
     )
-    return tuple(identifiers) if identifiers else fallback
+    return tuple(identifiers)
 
 
 def _sample_group_ids_for(

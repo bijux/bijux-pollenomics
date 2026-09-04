@@ -1,8 +1,8 @@
 from __future__ import annotations
 
 import json
-from pathlib import Path
 import tempfile
+from pathlib import Path
 
 from bijux_pollenomics.reporting.adna import (
     build_tracked_animal_atlas_coordinate_review,
@@ -209,6 +209,16 @@ def test_animal_atlas_evidence_rows_keep_traceability_fields_and_point_filter() 
         rows = build_tracked_animal_atlas_evidence_rows(data_root)
         localities = load_tracked_animal_mappable_localities(data_root)
         coordinate_review = build_tracked_animal_atlas_coordinate_review(rows)
+        _write_json(
+            species_root / "normalized" / "sample_records.json",
+            {
+                "schema_version": "adna-sample-record-export.v1",
+                "species_latin_name": "Ovis aries",
+                "samples": [],
+            },
+        )
+        unbacked_rows = build_tracked_animal_atlas_evidence_rows(data_root)
+        unbacked_localities = load_tracked_animal_mappable_localities(data_root)
 
     assert len(rows) == 1
     assert len(localities) == 1
@@ -231,6 +241,8 @@ def test_animal_atlas_evidence_rows_keep_traceability_fields_and_point_filter() 
     assert coordinate_review.direct_coordinate_feature_count == 0
     assert coordinate_review.named_site_geocoded_feature_count == 1
     assert coordinate_review.weaker_geography_feature_count == 0
+    assert unbacked_rows == ()
+    assert unbacked_localities == ()
 
 
 def test_animal_atlas_evidence_rows_refuse_project_level_flattening_of_multi_site_samples() -> (
