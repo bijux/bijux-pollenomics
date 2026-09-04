@@ -14,6 +14,12 @@ from ..core import (
     resolve_temporal_window,
     temporal_semantics_has_numeric_interval,
 )
+from ..core.temporal_semantics import (
+    BpInterval,
+    InvalidBpIntervalError,
+    canonical_bp_interval,
+    closed_bp_intervals_overlap,
+)
 from ..data_downloader.models import ContextPointRecord
 from ..data_downloader.sources.raa import assess_raa_density_authority
 from ..data_downloader.spatial.representative_points import (
@@ -1090,7 +1096,7 @@ def _attach_temporal_context(
     numeric_evidence = tuple(
         point
         for point in evidence
-        if point.time_start_bp is not None and point.time_end_bp is not None
+        if _validated_interval(point.time_start_bp, point.time_end_bp) is not None
     )
     return tuple(
         replace(
@@ -1125,7 +1131,7 @@ def _summarize_candidate_temporal_context(
     candidate: LakeEvidenceCandidate,
     evidence: Sequence[_PointEvidence],
 ) -> tuple[LakeEvidenceSourceAnchor, ...]:
-    groups: dict[tuple[str, str], list[_PointEvidence]] = {}
+    groups: dict[tuple[str, str], list[tuple[_PointEvidence, BpInterval]]] = {}
     for point in evidence:
         if (
             haversine_km(
@@ -1137,23 +1143,25 @@ def _summarize_candidate_temporal_context(
             > 50
         ):
             continue
+        interval = _validated_interval(point.time_start_bp, point.time_end_bp)
+        if interval is None:
+            continue
         window_key, _ = resolve_temporal_window(
-            time_start_bp=point.time_start_bp,
-            time_end_bp=point.time_end_bp,
+            time_start_bp=int(interval.younger_bp),
+            time_end_bp=int(interval.older_bp),
             time_mean_bp=point.time_mean_bp,
         )
         if window_key == "unresolved":
             continue
-        groups.setdefault((point.source_layer_key, window_key), []).append(point)
+        groups.setdefault((point.source_layer_key, window_key), []).append(
+            (point, interval)
+        )
 
     anchors: list[LakeEvidenceSourceAnchor] = []
-    for (source_layer_key, window_key), points in sorted(groups.items()):
-        intervals = [
-            sorted((int(point.time_start_bp), int(point.time_end_bp)))
-            for point in points
-            if point.time_start_bp is not None and point.time_end_bp is not None
-        ]
-        observed_end_bp = max(interval[1] for interval in intervals)
+    for (source_layer_key, window_key), grouped_evidence in sorted(groups.items()):
+        points = [point for point, _ in grouped_evidence]
+        intervals = [interval for _, interval in grouped_evidence]
+        observed_end_bp = max(int(interval.older_bp) for interval in intervals)
         governed_interval = _TEMPORAL_NAVIGATION_INTERVALS.get(window_key)
         if governed_interval is None:
             time_start_bp = 6001
@@ -1163,7 +1171,7 @@ def _summarize_candidate_temporal_context(
         means = [
             point.time_mean_bp
             if point.time_mean_bp is not None
-            else round((interval[0] + interval[1]) / 2)
+            else round((interval.younger_bp + interval.older_bp) / 2)
             for point, interval in zip(points, intervals, strict=True)
         ]
         time_mean_bp = min(
@@ -1826,7 +1834,8 @@ def _derive_svar_lake_candidates(
                 "time_aware_direct_pollen_records": sum(
                     1
                     for point in direct_pollen_points
-                    if point.time_start_bp is not None and point.time_end_bp is not None
+                    if _validated_interval(point.time_start_bp, point.time_end_bp)
+                    is not None
                 ),
                 "pollen_sources": pollen_sources,
                 "supporting_pollen_names": supporting_pollen_names,
@@ -2441,9 +2450,11 @@ def _time_aware_ratio(points: Sequence[ContextPointRecord]) -> float:
 
 
 def _context_point_has_numeric_interval(point: ContextPointRecord) -> bool:
-    if temporal_semantics_has_numeric_interval(point.temporal_semantics):
-        return True
-    return point.time_start_bp is not None and point.time_end_bp is not None
+    if not temporal_semantics_has_numeric_interval(point.temporal_semantics) and (
+        point.time_start_bp is None or point.time_end_bp is None
+    ):
+        return False
+    return _validated_interval(point.time_start_bp, point.time_end_bp) is not None
 
 
 def _human_context_overlap_ratio(
@@ -2464,8 +2475,6 @@ def _context_point_overlaps_any_human(
 ) -> bool:
     if not _context_point_has_numeric_interval(point):
         return False
-    if point.time_start_bp is None or point.time_end_bp is None:
-        return False
     return any(
         _intervals_overlap(
             point.time_start_bp,
@@ -2474,7 +2483,6 @@ def _context_point_overlaps_any_human(
             human_point.time_end_bp,
         )
         for human_point in human_points
-        if human_point.time_start_bp is not None and human_point.time_end_bp is not None
     )
 
 
@@ -2484,11 +2492,21 @@ def _intervals_overlap(
     start_b: int | None,
     end_b: int | None,
 ) -> bool:
-    if start_a is None or end_a is None or start_b is None or end_b is None:
+    left = _validated_interval(start_a, end_a)
+    right = _validated_interval(start_b, end_b)
+    if left is None or right is None:
         return False
-    left_start, left_end = sorted((start_a, end_a))
-    right_start, right_end = sorted((start_b, end_b))
-    return not (left_end < right_start or left_start > right_end)
+    return closed_bp_intervals_overlap(left, right)
+
+
+def _validated_interval(
+    younger_bp: int | None,
+    older_bp: int | None,
+) -> BpInterval | None:
+    try:
+        return canonical_bp_interval(younger_bp, older_bp)
+    except InvalidBpIntervalError:
+        return None
 
 
 def _distance_between_candidates(
@@ -2841,7 +2859,7 @@ def _temporal_navigation_summary(
             1
             for candidate in candidates
             if any(
-                point.time_start_bp is not None and point.time_end_bp is not None
+                _validated_interval(point.time_start_bp, point.time_end_bp) is not None
                 for point in candidate.supporting_source_points
             )
         ),

@@ -60,8 +60,8 @@ def _locality(
         datasets=("dataset",),
         chronology=AdnaChronology(
             original_text="3000 BP",
-            time_start_bp=3500,
-            time_end_bp=2500,
+            time_start_bp=2500,
+            time_end_bp=3500,
             time_mean_bp=3000,
             dating_basis="bp_window",
         ),
@@ -81,8 +81,8 @@ def _point_feature(
     latitude: float,
     longitude: float,
     description: str,
-    time_start_bp: int | None = 3600,
-    time_end_bp: int | None = 2400,
+    time_start_bp: int | None = 2400,
+    time_end_bp: int | None = 3600,
 ) -> dict[str, object]:
     return {
         "type": "Feature",
@@ -830,8 +830,8 @@ def test_svar_lake_candidates_prefer_direct_pollen_with_human_chronology_overlap
                         latitude=57.0003,
                         longitude=14.0002,
                         description="Direct lake-basin pollen support.",
-                        time_start_bp=3600,
-                        time_end_bp=2400,
+                        time_start_bp=2400,
+                        time_end_bp=3600,
                     ),
                     _point_feature(
                         source="Neotoma",
@@ -844,8 +844,8 @@ def test_svar_lake_candidates_prefer_direct_pollen_with_human_chronology_overlap
                         latitude=57.0403,
                         longitude=14.0402,
                         description="Direct lake-basin pollen support.",
-                        time_start_bp=900,
-                        time_end_bp=100,
+                        time_start_bp=100,
+                        time_end_bp=900,
                     ),
                 ],
             },
@@ -952,8 +952,8 @@ def test_svar_lake_candidates_prefer_sead_sites_with_human_chronology_overlap() 
                         latitude=57.0100,
                         longitude=14.0100,
                         description="Nearby archaeology with overlapping chronology.",
-                        time_start_bp=3400,
-                        time_end_bp=2600,
+                        time_start_bp=2600,
+                        time_end_bp=3400,
                     ),
                     _point_feature(
                         source="SEAD",
@@ -966,8 +966,8 @@ def test_svar_lake_candidates_prefer_sead_sites_with_human_chronology_overlap() 
                         latitude=58.0100,
                         longitude=15.0100,
                         description="Nearby archaeology without chronology overlap.",
-                        time_start_bp=700,
-                        time_end_bp=100,
+                        time_start_bp=100,
+                        time_end_bp=700,
                     ),
                 ],
             },
@@ -1422,7 +1422,8 @@ def test_lake_evidence_richness_packets_write_reviewable_outputs() -> None:
             registry_rows[0]["direct_pollen_temporal_evidence"]
         )
         assert registry_temporal_evidence[0]["source_record"] == "neotoma-pollen:n1"
-        assert registry_temporal_evidence[0]["time_start_bp"] == 3600
+        assert registry_temporal_evidence[0]["time_start_bp"] == 2400
+        assert registry_temporal_evidence[0]["time_end_bp"] == 3600
         scenario_temporal_evidence = json.loads(
             scenario_rows[0]["direct_pollen_temporal_evidence"]
         )

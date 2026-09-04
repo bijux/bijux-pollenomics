@@ -1,5 +1,7 @@
 from __future__ import annotations
 
+from dataclasses import replace
+
 from bijux_pollenomics.adna import AdnaChronology, AdnaCoordinate, AdnaLocalityIdentity
 from bijux_pollenomics.adna.models import AdnaLocalitySummary
 from bijux_pollenomics.data_downloader.models import ContextPointRecord
@@ -39,6 +41,46 @@ def test_scientific_review_surface_keeps_nonhuman_chronology_not_comparable() ->
 
     assert nonhuman_row.overlap_status == "not_comparable_project_level_only"
     assert "project-level" in nonhuman_row.rationale
+
+
+def test_scientific_review_counts_invalid_intervals_as_noncomparable() -> None:
+    valid_locality = build_human_locality(country="Sweden")
+    reversed_locality = replace(
+        valid_locality,
+        chronology=replace(
+            valid_locality.chronology,
+            time_start_bp=2600,
+            time_end_bp=2400,
+        ),
+    )
+    reversed_point = replace(
+        build_context_point(layer_key="reversed-context"),
+        time_start_bp=2600,
+        time_end_bp=2400,
+    )
+
+    reversed_locality_surface = build_scientific_review_surface(
+        countries=("Sweden",),
+        human_localities=(reversed_locality,),
+        include_tracked_nonhuman_review=False,
+        context_points=(build_context_point(layer_key="valid-context"),),
+    )
+    invalid_context_surface = build_scientific_review_surface(
+        countries=("Sweden",),
+        human_localities=(valid_locality,),
+        include_tracked_nonhuman_review=False,
+        context_points=(reversed_point,),
+    )
+
+    for surface in (reversed_locality_surface, invalid_context_surface):
+        row = next(
+            item
+            for item in surface.chronology_overlaps
+            if item.species_latin_name == "Homo sapiens"
+        )
+        assert row.overlapping_direct_localities == 0
+        assert row.non_overlapping_direct_localities == 0
+        assert row.noncomparable_records == 1
 
 
 def test_scientific_review_surface_marks_scenarios_as_scope_limited() -> None:

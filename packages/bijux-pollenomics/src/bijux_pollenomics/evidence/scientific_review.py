@@ -5,6 +5,12 @@ from collections.abc import Iterable
 from dataclasses import dataclass
 
 from ..adna import AdnaLocalitySummary, build_bovine_support_program
+from ..core.temporal_semantics import (
+    BpInterval,
+    InvalidBpIntervalError,
+    canonical_bp_interval,
+    closed_bp_intervals_overlap,
+)
 from ..data_downloader.models import ContextPointRecord
 from .models import AtlasEvidenceSpeciesRow
 from .surfaces import build_atlas_evidence_surface
@@ -408,10 +414,17 @@ def _build_chronology_overlaps(
         non_overlapping = 0
         noncomparable = 0
         for locality in direct_localities:
-            if locality.time_start_bp is None or locality.time_end_bp is None:
+            locality_interval = _locality_interval(locality)
+            comparable_points = tuple(
+                point for point in points if _context_point_interval(point) is not None
+            )
+            if locality_interval is None or not comparable_points:
                 noncomparable += 1
                 continue
-            if any(_locality_overlaps_point(locality, point) for point in points):
+            if any(
+                _locality_overlaps_point(locality, point)
+                for point in comparable_points
+            ):
                 overlapping += 1
             else:
                 non_overlapping += 1
@@ -441,7 +454,13 @@ def _build_chronology_overlaps(
                 noncomparable = 0
                 layer_points = grouped_context.get(layer_key, [])
                 for locality in species_animal_localities:
-                    if locality.time_start_bp is None or locality.time_end_bp is None:
+                    locality_interval = _locality_interval(locality)
+                    comparable_points = tuple(
+                        point
+                        for point in layer_points
+                        if _context_point_interval(point) is not None
+                    )
+                    if locality_interval is None or not comparable_points:
                         noncomparable += 1
                         continue
                     if any(
@@ -637,11 +656,26 @@ def _locality_overlaps_point(
     locality: AdnaLocalitySummary,
     point: ContextPointRecord,
 ) -> bool:
-    if locality.time_start_bp is None or locality.time_end_bp is None:
+    locality_interval = _locality_interval(locality)
+    point_interval = _context_point_interval(point)
+    if locality_interval is None or point_interval is None:
         return False
-    if point.time_start_bp is None or point.time_end_bp is None:
-        return False
-    return not (
-        point.time_end_bp < locality.time_start_bp
-        or point.time_start_bp > locality.time_end_bp
-    )
+    return closed_bp_intervals_overlap(locality_interval, point_interval)
+
+
+def _locality_interval(locality: AdnaLocalitySummary) -> BpInterval | None:
+    return _validated_interval(locality.time_start_bp, locality.time_end_bp)
+
+
+def _context_point_interval(point: ContextPointRecord) -> BpInterval | None:
+    return _validated_interval(point.time_start_bp, point.time_end_bp)
+
+
+def _validated_interval(
+    younger_bp: int | None,
+    older_bp: int | None,
+) -> BpInterval | None:
+    try:
+        return canonical_bp_interval(younger_bp, older_bp)
+    except InvalidBpIntervalError:
+        return None

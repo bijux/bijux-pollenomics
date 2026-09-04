@@ -8,6 +8,11 @@ from ...adna.catalogs import (
     build_public_animal_output_honesty,
 )
 from ...adna.paths import adna_species_dir
+from ...core.temporal_semantics import (
+    InvalidBpIntervalError,
+    canonical_bp_interval,
+    closed_bp_intervals_overlap,
+)
 from ..models import CountryReport
 from .atlas_evidence_rows import build_tracked_animal_atlas_evidence_rows
 
@@ -798,19 +803,29 @@ def _normalize_interval(
     time_end: int | None,
     time_mean: int | None,
 ) -> tuple[int, int] | None:
-    values = [value for value in (time_start, time_end) if value is not None]
-    if values:
-        return (min(values), max(values))
-    if time_mean is not None:
-        return (time_mean, time_mean)
-    return None
+    try:
+        interval = canonical_bp_interval(time_start, time_end)
+        if interval is None and time_mean is not None:
+            interval = canonical_bp_interval(time_mean, time_mean)
+    except InvalidBpIntervalError:
+        return None
+    if interval is None:
+        return None
+    return (int(interval.younger_bp), int(interval.older_bp))
 
 
 def _intervals_overlap(
     left: tuple[int, int],
     right: tuple[int, int],
 ) -> bool:
-    return max(left[0], right[0]) <= min(left[1], right[1])
+    try:
+        left_interval = canonical_bp_interval(*left)
+        right_interval = canonical_bp_interval(*right)
+    except InvalidBpIntervalError:
+        return False
+    if left_interval is None or right_interval is None:
+        return False
+    return closed_bp_intervals_overlap(left_interval, right_interval)
 
 
 def _overlap_status(
@@ -841,10 +856,15 @@ def _first_signal_bp(row: dict[str, object]) -> int:
 
 
 def _optional_int(value: object) -> int | None:
+    if isinstance(value, bool):
+        return None
     if isinstance(value, int):
         return value
     if isinstance(value, str) and value.strip():
-        return int(value)
+        try:
+            return int(value)
+        except ValueError:
+            return None
     return None
 
 

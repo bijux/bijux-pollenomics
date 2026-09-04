@@ -5,6 +5,11 @@ import json
 from pathlib import Path
 
 from ..core import haversine_km
+from ..core.temporal_semantics import (
+    InvalidBpIntervalError,
+    canonical_bp_interval,
+    closed_bp_intervals_overlap,
+)
 
 __all__ = [
     "build_sweden_land_use_synthesis",
@@ -563,14 +568,20 @@ def _within_radius(target: _Target, *, latitude: float, longitude: float) -> boo
     )
 
 
-def _intervals_overlap(start_a, end_a, start_b, end_b) -> bool:
-    if not all(
-        isinstance(value, (int, float)) for value in (start_a, end_a, start_b, end_b)
-    ):
+def _intervals_overlap(
+    start_a: float | int | None,
+    end_a: float | int | None,
+    start_b: float | int | None,
+    end_b: float | int | None,
+) -> bool:
+    try:
+        left = canonical_bp_interval(start_a, end_a)
+        right = canonical_bp_interval(start_b, end_b)
+    except InvalidBpIntervalError:
         return False
-    low_a, high_a = sorted((float(start_a), float(end_a)))
-    low_b, high_b = sorted((float(start_b), float(end_b)))
-    return max(low_a, low_b) <= min(high_a, high_b)
+    if left is None or right is None:
+        return False
+    return closed_bp_intervals_overlap(left, right)
 
 
 def _cross_proxy_posture(
