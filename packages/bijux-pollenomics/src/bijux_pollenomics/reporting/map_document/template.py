@@ -1404,6 +1404,7 @@ MAP_DOCUMENT_TEMPLATE = """
                 <button class="basemap-button is-active" type="button" data-basemap="voyager" title="Balanced roads, labels, and water detail."><span class="basemap-preview basemap-preview--voyager"></span><span class="basemap-title">Voyager</span></button>
                 <button class="basemap-button" type="button" data-basemap="light" title="Minimal contrast for evidence-first inspection."><span class="basemap-preview basemap-preview--light"></span><span class="basemap-title">Light</span></button>
                 <button class="basemap-button" type="button" data-basemap="terrain" title="Relief-focused context for landform reading."><span class="basemap-preview basemap-preview--terrain"></span><span class="basemap-title">Terrain</span></button>
+                <button class="basemap-button" type="button" data-basemap="none" title="Keep evidence and orientation controls usable without network tiles."><span class="basemap-preview"></span><span class="basemap-title">No basemap</span></button>
               </div>
               <div class="map-actions">
                 <button id="fit-active" class="toolbar-button is-primary" type="button">Fit active</button>
@@ -1627,6 +1628,7 @@ MAP_DOCUMENT_TEMPLATE = """
           <div class="status-pill"><span class="status-pill-label">Center</span><span id="center-readout" class="status-pill-value">--</span></div>
           <div class="status-pill"><span class="status-pill-label">Cursor</span><span id="cursor-readout" class="status-pill-value">Move over map</span></div>
           <div class="status-pill"><span class="status-pill-label">Selection</span><span id="selection-readout" class="status-pill-value">No selection</span></div>
+          <div class="status-pill"><span class="status-pill-label">Basemap</span><span id="basemap-readout" class="status-pill-value" aria-live="polite">Starting</span></div>
         </div>
       </main>
     </div>
@@ -1754,7 +1756,9 @@ MAP_DOCUMENT_TEMPLATE = """
         light: L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', { attribution: '&copy; OpenStreetMap contributors &copy; CARTO', subdomains: 'abcd', maxZoom: 20 }),
         terrain: L.tileLayer('https://tile.opentopomap.org/{z}/{x}/{y}.png', { attribution: '&copy; OpenStreetMap contributors, SRTM &copy; OpenTopoMap', maxZoom: 17 })
       };
-      basemaps.__INITIAL_BASEMAP__.addTo(map);
+      const BASEMAP_NAMES = [...Object.keys(basemaps), 'none'];
+      const BASEMAP_FALLBACK_ORDER = ['voyager', 'light', 'terrain', 'none'];
+      const MAX_PROVIDER_TILE_ERRORS = 3;
       L.control.zoom({ position: 'bottomright' }).addTo(map);
       L.control.scale({ imperial: false }).addTo(map);
       map.createPane('pointPane').style.zIndex = 650;
@@ -1822,6 +1826,7 @@ MAP_DOCUMENT_TEMPLATE = """
       const zoomReadout = document.getElementById('zoom-readout');
       const centerReadout = document.getElementById('center-readout');
       const cursorReadout = document.getElementById('cursor-readout');
+      const basemapReadout = document.getElementById('basemap-readout');
       function parseHashState() {
         const raw = window.location.hash.startsWith('#') ? window.location.hash.slice(1) : '';
         const params = new URLSearchParams(raw);
@@ -1927,7 +1932,10 @@ MAP_DOCUMENT_TEMPLATE = """
       let timeIntervalYears = TIME_HAS_DATA ? clampTimeInterval(initialState.timeInterval) : DEFAULT_TIME_INTERVAL_YEARS;
       let timeStartBp = TIME_HAS_DATA ? clampTimeStart(initialState.timeStart, timeIntervalYears) : DEFAULT_TIME_START_BP;
       let densityOpacity = Math.max(0, Math.min(1, Number(initialState.density || '60') / 100 || 0.6));
-      let currentBasemap = basemaps[initialState.basemap || ''] ? String(initialState.basemap) : '__INITIAL_BASEMAP__';
+      let currentBasemap = BASEMAP_NAMES.includes(String(initialState.basemap || '')) ? String(initialState.basemap) : '__INITIAL_BASEMAP__';
+      let activeBasemap = null;
+      const failedBasemaps = new Set();
+      const basemapErrorCounts = new Map();
       let legendCollapsed = initialState.legend === 'collapsed';
       let focusState = null;
       const countryColors = {
@@ -2462,18 +2470,24 @@ MAP_DOCUMENT_TEMPLATE = """
         if (ratio >= 0.08) return '#fca5a5';
         return '#fee2e2';
       }
+      function finiteTimeValue(value) {
+        if (value === null || value === undefined || typeof value === 'boolean') return null;
+        if (typeof value === 'string' && !value.trim()) return null;
+        const numeric = Number(value);
+        return Number.isFinite(numeric) ? numeric : null;
+      }
       function featureTimeWindow(feature) {
-        const start = Number(feature.time_start_bp);
-        const end = Number(feature.time_end_bp);
-        if (Number.isFinite(start) && Number.isFinite(end)) {
+        const start = finiteTimeValue(feature.time_start_bp);
+        const end = finiteTimeValue(feature.time_end_bp);
+        if (start !== null && end !== null) {
           return { start: Math.min(start, end), end: Math.max(start, end) };
         }
-        const mean = Number(feature.time_mean_bp);
-        if (Number.isFinite(mean)) {
+        const mean = finiteTimeValue(feature.time_mean_bp);
+        if (mean !== null) {
           return { start: mean, end: mean };
         }
-        const year = Number(feature.time_year_bp);
-        if (Number.isFinite(year)) {
+        const year = finiteTimeValue(feature.time_year_bp);
+        if (year !== null) {
           return { start: year, end: year };
         }
         return null;
@@ -2723,14 +2737,62 @@ MAP_DOCUMENT_TEMPLATE = """
         emptyState.hidden = visiblePointEntries.length > 0 || renderedPolygonLayers.length > 0;
         syncHashState();
       }
-      function setBasemap(name) {
-        if (name === currentBasemap || !basemaps[name]) return;
-        map.removeLayer(basemaps[currentBasemap]);
-        basemaps[name].addTo(map);
-        currentBasemap = name;
-        document.querySelectorAll('.basemap-button').forEach((button) => button.classList.toggle('is-active', button.dataset.basemap === name));
-        syncHashState();
+      function updateBasemapReadout(message) {
+        basemapReadout.textContent = message;
       }
+      function nextBasemapAfter(name) {
+        const start = Math.max(0, BASEMAP_FALLBACK_ORDER.indexOf(name));
+        for (let offset = 1; offset <= BASEMAP_FALLBACK_ORDER.length; offset += 1) {
+          const candidate = BASEMAP_FALLBACK_ORDER[(start + offset) % BASEMAP_FALLBACK_ORDER.length];
+          if (candidate === 'none' || !failedBasemaps.has(candidate)) return candidate;
+        }
+        return 'none';
+      }
+      function setBasemap(name, options = {}) {
+        const requested = BASEMAP_NAMES.includes(String(name)) ? String(name) : 'none';
+        if (options.manual && requested !== 'none') {
+          failedBasemaps.delete(requested);
+          basemapErrorCounts.set(requested, 0);
+        }
+        if (activeBasemap && basemaps[activeBasemap]) {
+          map.removeLayer(basemaps[activeBasemap]);
+        }
+        currentBasemap = requested;
+        activeBasemap = null;
+        if (requested === 'none') {
+          updateBasemapReadout(options.reason || 'No basemap; evidence layers remain available');
+        } else {
+          activeBasemap = requested;
+          basemaps[requested].addTo(map);
+          updateBasemapReadout(options.reason || `${requested} loading`);
+        }
+        document.querySelectorAll('.basemap-button').forEach((button) => button.classList.toggle('is-active', button.dataset.basemap === requested));
+        if (options.sync !== false) syncHashState();
+      }
+      Object.entries(basemaps).forEach(([name, layer]) => {
+        layer.on('loading', () => {
+          if (activeBasemap === name) updateBasemapReadout(`${name} loading`);
+        });
+        layer.on('load', () => {
+          if (activeBasemap !== name) return;
+          basemapErrorCounts.set(name, 0);
+          updateBasemapReadout(`${name} available`);
+        });
+        layer.on('tileerror', () => {
+          if (activeBasemap !== name) return;
+          const failureCount = (basemapErrorCounts.get(name) || 0) + 1;
+          basemapErrorCounts.set(name, failureCount);
+          updateBasemapReadout(`${name} tile failure ${failureCount}/${MAX_PROVIDER_TILE_ERRORS}`);
+          if (failureCount < MAX_PROVIDER_TILE_ERRORS) return;
+          failedBasemaps.add(name);
+          const fallback = nextBasemapAfter(name);
+          setBasemap(fallback, {
+            reason: fallback === 'none'
+              ? `${name} unavailable; no-basemap mode active`
+              : `${name} unavailable; using ${fallback}`,
+          });
+        });
+      });
       document.querySelectorAll('.basemap-button').forEach((button) => button.classList.toggle('is-active', button.dataset.basemap === currentBasemap));
       function fitToActive() {
         const bounds = activeBounds();
@@ -2753,7 +2815,7 @@ MAP_DOCUMENT_TEMPLATE = """
         densityOpacitySlider.value = '60';
         setPanelCollapsed(defaultPanelCollapsed(), false);
         searchInput.value = '';
-        if (currentBasemap !== 'voyager') setBasemap('voyager');
+        if (currentBasemap !== 'voyager') setBasemap('voyager', { manual: true });
         renderCountryControls();
         renderLayerControls();
         renderMapState();
@@ -2781,7 +2843,7 @@ MAP_DOCUMENT_TEMPLATE = """
         const target = document.querySelector('.map-stage');
         if (!document.fullscreenElement) { await target.requestFullscreen(); } else { await document.exitFullscreen(); }
       });
-      document.querySelectorAll('.basemap-button').forEach((button) => button.addEventListener('click', () => setBasemap(button.dataset.basemap)));
+      document.querySelectorAll('.basemap-button').forEach((button) => button.addEventListener('click', () => setBasemap(button.dataset.basemap, { manual: true })));
       panelToggleButton.addEventListener('click', () => setPanelCollapsed(!sidebar.classList.contains('is-collapsed')));
       helpToggleButton.addEventListener('click', openHelpDialog);
       helpCloseButton.addEventListener('click', closeHelpDialog);
@@ -2889,7 +2951,7 @@ MAP_DOCUMENT_TEMPLATE = """
       renderCountryControls();
       renderLayerControls();
       renderMapState();
-      setBasemap(currentBasemap);
+      setBasemap(currentBasemap, { sync: false });
       setLegendCollapsed(legendCollapsed, false);
       resetView();
       zoomReadout.textContent = map.getZoom().toFixed(1);

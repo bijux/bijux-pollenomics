@@ -9,6 +9,7 @@ from bijux_pollenomics.reporting.bundles.paths import build_atlas_bundle_paths
 from bijux_pollenomics.reporting.context import build_context_layers
 from bijux_pollenomics.reporting.geography import build_published_geography_plan
 from bijux_pollenomics.reporting.map_document.state import build_map_document_state
+from bijux_pollenomics.reporting.map_document.template import MAP_DOCUMENT_TEMPLATE
 from bijux_pollenomics.reporting.map_publication import (
     build_map_publication_contract,
     resolve_map_scope_policy,
@@ -55,6 +56,58 @@ class MapPublicationUnitTests(unittest.TestCase):
         self.assertEqual(state.initial_diameter_km, world_policy.initial_diameter_km)
         self.assertLessEqual(state.bounds[0][1], world_policy.minimum_bounds[0][1])
         self.assertGreaterEqual(state.bounds[1][1], world_policy.minimum_bounds[1][1])
+
+    def test_map_time_state_rejects_non_numeric_values_and_preserves_zero(self) -> None:
+        plan = build_published_geography_plan(("Sweden",))
+        policy = resolve_map_scope_policy(plan.world_scope)
+        state = build_map_document_state(
+            policy=policy,
+            point_layers=[
+                {
+                    "features": [
+                        {
+                            "latitude": 59.33,
+                            "longitude": 18.06,
+                            "time_start_bp": None,
+                            "time_end_bp": "",
+                            "time_mean_bp": False,
+                            "time_year_bp": "nan",
+                        },
+                        {
+                            "latitude": 55.60,
+                            "longitude": 13.00,
+                            "time_start_bp": 0,
+                            "time_end_bp": 100,
+                        },
+                    ]
+                }
+            ],
+            polygon_layers=[],
+        )
+
+        self.assertTrue(state.has_time_data)
+        self.assertEqual(state.time_min_bp, 0)
+        self.assertEqual(state.time_max_bp, 100)
+
+    def test_browser_time_parser_distinguishes_null_from_zero(self) -> None:
+        self.assertIn(
+            "value === null || value === undefined || typeof value === 'boolean'",
+            MAP_DOCUMENT_TEMPLATE,
+        )
+        self.assertIn("if (start !== null && end !== null)", MAP_DOCUMENT_TEMPLATE)
+        self.assertNotIn(
+            "const start = Number(feature.time_start_bp)", MAP_DOCUMENT_TEMPLATE
+        )
+
+    def test_basemap_failure_has_bounded_failover_and_tile_free_mode(self) -> None:
+        self.assertIn('data-basemap="none"', MAP_DOCUMENT_TEMPLATE)
+        self.assertIn("const MAX_PROVIDER_TILE_ERRORS = 3", MAP_DOCUMENT_TEMPLATE)
+        self.assertIn("layer.on('tileerror'", MAP_DOCUMENT_TEMPLATE)
+        self.assertIn("failedBasemaps.add(name)", MAP_DOCUMENT_TEMPLATE)
+        self.assertIn(
+            "No basemap; evidence layers remain available", MAP_DOCUMENT_TEMPLATE
+        )
+        self.assertNotIn("apiKey", MAP_DOCUMENT_TEMPLATE)
 
     def test_context_layers_withhold_nordic_only_overlays_from_broader_scopes(
         self,
@@ -197,10 +250,7 @@ class MapPublicationUnitTests(unittest.TestCase):
             output.mkdir()
             derived = root / "sead" / "derived"
             self._write_point_geojson(
-                root
-                / "sead"
-                / "normalized"
-                / "nordic_environmental_sites.geojson",
+                root / "sead" / "normalized" / "nordic_environmental_sites.geojson",
                 layer_key="sead-sites",
                 layer_label="SEAD sites",
             )

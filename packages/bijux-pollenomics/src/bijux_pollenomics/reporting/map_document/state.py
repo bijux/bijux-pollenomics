@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 from dataclasses import dataclass
+import math
 
 from ...core.geojson import JsonObject, as_mapping, feature_list
 from ..map_publication import MapScopePolicy
@@ -25,13 +26,16 @@ def collect_feature_time_candidates(
     """Collect all numeric BP candidates exposed by one point or polygon feature."""
     for key in ("time_start_bp", "time_end_bp", "time_mean_bp", "time_year_bp"):
         raw = feature.get(key)
-        if raw is None:
+        if raw is None or isinstance(raw, bool):
             continue
         if not isinstance(raw, (int, float, str)):
             continue
         try:
-            time_candidates.add(int(round(float(raw))))
-        except (TypeError, ValueError):
+            numeric = float(raw)
+            if not math.isfinite(numeric):
+                continue
+            time_candidates.add(int(round(numeric)))
+        except (TypeError, ValueError, OverflowError):
             continue
 
 
