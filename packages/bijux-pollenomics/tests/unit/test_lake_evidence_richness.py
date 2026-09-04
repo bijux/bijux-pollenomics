@@ -1374,6 +1374,9 @@ def test_lake_evidence_richness_packets_write_reviewable_outputs() -> None:
         archaeology_markdown = render_lake_archaeology_sensitivity_markdown(
             archaeology_sensitivity
         )
+        empty_archaeology_markdown = render_lake_archaeology_sensitivity_markdown(
+            {**archaeology_sensitivity, "rows": []}
+        )
         write_lake_evidence_richness_json(json_path, report)
         write_lake_evidence_richness_band_csv(band_csv_path, report)
         write_lake_evidence_richness_registry_csv(registry_csv_path, report)
@@ -1413,6 +1416,8 @@ def test_lake_evidence_richness_packets_write_reviewable_outputs() -> None:
         )
         assert "Why The Baseline Is 0.07" in archaeology_markdown
         assert "RAÄ density alone" in archaeology_markdown
+        assert empty_archaeology_markdown.endswith("\n")
+        assert not empty_archaeology_markdown.endswith("\n\n")
         assert "## Interpretation guardrails" in markdown
         assert "1/1 ranked lakes have numeric navigation context" in markdown
         assert "Nearby time context is not lake chronology" in markdown

@@ -215,6 +215,7 @@ def render_lake_archaeology_sensitivity_markdown(
         f"{int(row['rank_shift_from_baseline']):+d} |"
         for row in emphasized
     )
+    table_rows = f"{rows}\n" if rows else ""
     return f"""# Sweden lake archaeology-weight sensitivity
 
 This report isolates how much the lake shortlist changes when archaeology is
@@ -243,8 +244,7 @@ The maximum absolute movement across the tested profiles is
 
 | Rank | Lake | Score | Archaeology signal at 20 km | SEAD time windows | Numeric SEAD records | Shift from baseline |
 | ---: | --- | ---: | ---: | ---: | ---: | ---: |
-{rows}
-"""
+{table_rows}"""
 
 
 def _profile_weights(archaeology_weight: float) -> dict[str, float]:
