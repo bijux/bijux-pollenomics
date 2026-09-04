@@ -2,17 +2,17 @@
 
 from __future__ import annotations
 
-from collections.abc import Iterable, Mapping, Sequence
-from contextlib import suppress
-from dataclasses import dataclass
 import hashlib
 import json
 import os
-from pathlib import Path, PurePosixPath
 import re
 import stat
-from typing import Final, Literal, TypeAlias, cast
 import xml.etree.ElementTree as ET
+from collections.abc import Iterable, Mapping, Sequence
+from contextlib import suppress
+from dataclasses import dataclass
+from pathlib import Path, PurePosixPath
+from typing import Final, Literal, TypeAlias, cast
 
 ArtifactRole: TypeAlias = Literal[
     "source_receipt",
@@ -641,8 +641,8 @@ def _validate_artifact_graph(
         for item in artifacts
         if item.role == "producer"
     }
-    if len(producer_digests) != 1:
-        raise ReleaseEvidenceError("exactly one producer artifact is required")
+    if not producer_digests:
+        raise ReleaseEvidenceError("at least one producer artifact is required")
     lock_digests = {
         digest_by_identity[item.identity]
         for item in artifacts

@@ -1,16 +1,15 @@
 from __future__ import annotations
 
-from collections.abc import Callable
 import copy
 import hashlib
 import json
 import os
-from pathlib import Path
 import shutil
+from collections.abc import Callable
+from pathlib import Path
 from typing import cast
 
 import pytest
-
 from bijux_pollenomics.provenance import (
     ArtifactInput,
     ArtifactReference,
@@ -358,6 +357,43 @@ def test_manifest_is_deterministic_for_shuffled_inputs(tmp_path: Path) -> None:
         ],
     }
     validate_release_evidence_manifest(tmp_path, first)
+
+
+def test_artifacts_may_bind_distinct_governed_producers(tmp_path: Path) -> None:
+    artifacts = _artifacts(tmp_path)
+    second_path = tmp_path / "secondary-producer.py"
+    second_path.write_bytes(b"def render(): return 2\n")
+    second_digest = _digest(second_path.read_bytes())
+    artifacts.append(
+        ArtifactInput(
+            identity="secondary-producer",
+            role="producer",
+            path="secondary-producer.py",
+            media_type="text/x-python",
+            schema_version="fixture.v1",
+            parents=(),
+            config_digests=(),
+            producer_digest=second_digest,
+            output_digest=second_digest,
+        )
+    )
+    output = next(item for item in artifacts if item.identity == "output")
+    artifacts[artifacts.index(output)] = ArtifactInput(
+        **{**output.__dict__, "producer_digest": second_digest}
+    )
+
+    manifest = _build(tmp_path, artifacts=artifacts)
+
+    producer_digests = {
+        artifact["output_digest"]
+        for artifact in cast(list[dict[str, object]], manifest["artifacts"])
+        if artifact["role"] == "producer"
+    }
+    assert producer_digests == {
+        _digest(b"def build(): return 1\n"),
+        second_digest,
+    }
+    validate_release_evidence_manifest(tmp_path, manifest)
 
 
 def test_tree_hash_is_stable_and_accounts_for_members(tmp_path: Path) -> None:
