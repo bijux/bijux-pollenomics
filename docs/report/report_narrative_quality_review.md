@@ -57,10 +57,10 @@ link farms or coded operator notes.
 | `docs/report/countries/sweden/sweden_animal_adna_v66_citations.md` | `thin_structure` | 1 | 0 | 0 | 3 | 1 | Page explains itself but still needs stronger internal wayfinding. |
 | `docs/report/countries/sweden/sweden_animal_adna_v66_samples.md` | `thin_structure` | 1 | 0 | 0 | 3 | 1 | Page explains itself but still needs stronger internal wayfinding. |
 | `docs/report/countries/sweden/sweden_animal_adna_v66_warnings.md` | `thin_structure` | 1 | 0 | 0 | 0 | 1 | Page explains itself but still needs stronger internal wayfinding. |
-| `docs/report/countries/sweden/sweden_lake_archaeology_sensitivity_v66.md` | `reader_ready` | 5 | 0 | 0 | 22 | 4 | Page explains its purpose before or alongside artifact links. |
-| `docs/report/countries/sweden/sweden_lake_evidence_richness_v66.md` | `reader_ready` | 4 | 0 | 14 | 176 | 11 | Page explains its purpose before or alongside artifact links. |
+| `docs/report/countries/sweden/sweden_lake_archaeology_sensitivity_v66.md` | `reader_ready` | 6 | 0 | 0 | 22 | 4 | Page explains its purpose before or alongside artifact links. |
+| `docs/report/countries/sweden/sweden_lake_evidence_richness_v66.md` | `reader_ready` | 4 | 0 | 16 | 176 | 11 | Page explains its purpose before or alongside artifact links. |
 | `docs/report/countries/sweden/sweden_lake_fieldwork_preparation_v66.md` | `reader_ready` | 2 | 0 | 9 | 22 | 3 | Page explains its purpose before or alongside artifact links. |
-| `docs/report/countries/sweden/sweden_land_use_synthesis_v66.md` | `reader_ready` | 4 | 0 | 4 | 34 | 4 | Page explains its purpose before or alongside artifact links. |
+| `docs/report/countries/sweden/sweden_land_use_synthesis_v66.md` | `reader_ready` | 5 | 0 | 5 | 57 | 4 | Page explains its purpose before or alongside artifact links. |
 | `docs/report/nordic_farming_history_scenario.md` | `reader_ready` | 3 | 0 | 8 | 0 | 4 | Page explains its purpose before or alongside artifact links. |
 | `docs/report/publication_country_onboarding_contract.md` | `reader_ready` | 7 | 0 | 16 | 0 | 9 | Page explains its purpose before or alongside artifact links. |
 | `docs/report/publication_geography_registry.md` | `reader_ready` | 2 | 0 | 0 | 9 | 3 | Page explains its purpose before or alongside artifact links. |

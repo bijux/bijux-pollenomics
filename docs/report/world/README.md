@@ -1,6 +1,6 @@
 # World Evidence Surface
 
-This shared interactive map bundle was generated on `2026-08-02` from Homo
+This shared interactive map bundle was generated on `2026-09-04` from Homo
 sapiens AADR `v66` plus any governed contextual and animal surfaces that
 the active scope contract allows.
 
@@ -59,14 +59,14 @@ World is the governing publication surface. It keeps every published country ins
 | Dromedary Camel aDNA site evidence | `shared_world_scale_layer` | Mapped animal features staged from traceable evidence rows built from species-owned sample, site, coordinate, and citation surfaces. | `1` |
 | Goat aDNA site evidence | `shared_world_scale_layer` | Mapped animal features staged from traceable evidence rows built from species-owned sample, site, coordinate, and citation surfaces. | `26` |
 | Horse aDNA site evidence | `shared_world_scale_layer` | Mapped animal features staged from traceable evidence rows built from species-owned sample, site, coordinate, and citation surfaces. | `207` |
-| Sweden lake aggregate top 40 | `scope_specific_overlay` | Optional Nordic atlas overlay for the top 40 Sweden lakes in the aggregate evidence ranking. | `52` |
-| Sweden lake consensus top 40 | `scope_specific_overlay` | Optional Nordic atlas overlay for the top 40 Sweden lakes that recur across scenario rankings. | `52` |
-| Sweden lake fieldwork shortlist | `scope_specific_overlay` | Optional Nordic atlas overlay for the published Sweden fieldwork shortlist. | `41` |
-| Sweden lake 10 km top 40 | `scope_specific_overlay` | Optional Nordic atlas overlay for the top 40 Sweden lakes in the 10 km evidence scenario. | `52` |
-| Sweden lake 20 km top 40 | `scope_specific_overlay` | Optional Nordic atlas overlay for the top 40 Sweden lakes in the 20 km evidence scenario. | `52` |
-| Sweden lake 30 km top 40 | `scope_specific_overlay` | Optional Nordic atlas overlay for the top 40 Sweden lakes in the 30 km evidence scenario. | `52` |
-| Sweden lake 40 km top 40 | `scope_specific_overlay` | Optional Nordic atlas overlay for the top 40 Sweden lakes in the 40 km evidence scenario. | `52` |
-| Sweden lake 50 km top 40 | `scope_specific_overlay` | Optional Nordic atlas overlay for the top 40 Sweden lakes in the 50 km evidence scenario. | `52` |
+| Sweden lake aggregate top 40 | `scope_specific_overlay` | Optional Nordic atlas overlay for the top 40 Sweden lakes in the aggregate evidence ranking. | `235` |
+| Sweden lake consensus top 40 | `scope_specific_overlay` | Optional Nordic atlas overlay for the top 40 Sweden lakes that recur across scenario rankings. | `235` |
+| Sweden lake fieldwork shortlist | `scope_specific_overlay` | Optional Nordic atlas overlay for the published Sweden fieldwork shortlist. | `185` |
+| Sweden lake 10 km top 40 | `scope_specific_overlay` | Optional Nordic atlas overlay for the top 40 Sweden lakes in the 10 km evidence scenario. | `235` |
+| Sweden lake 20 km top 40 | `scope_specific_overlay` | Optional Nordic atlas overlay for the top 40 Sweden lakes in the 20 km evidence scenario. | `235` |
+| Sweden lake 30 km top 40 | `scope_specific_overlay` | Optional Nordic atlas overlay for the top 40 Sweden lakes in the 30 km evidence scenario. | `235` |
+| Sweden lake 40 km top 40 | `scope_specific_overlay` | Optional Nordic atlas overlay for the top 40 Sweden lakes in the 40 km evidence scenario. | `235` |
+| Sweden lake 50 km top 40 | `scope_specific_overlay` | Optional Nordic atlas overlay for the top 40 Sweden lakes in the 50 km evidence scenario. | `235` |
 | Country boundaries | `region_filtered_layer` | Published country outlines used for framing and scope-aware map filtering. | `4` |
 
 ## Governed Filters

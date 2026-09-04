@@ -7,7 +7,7 @@ for deeper source-family review files.
 ## Summary
 
 - Scope key: `europe_plus`
-- Visible point rows: `1638`
+- Visible point rows: `3063`
 - Visible point layers: `10`
 
 ## Example Rows
