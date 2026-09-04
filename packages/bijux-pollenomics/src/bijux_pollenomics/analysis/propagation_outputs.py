@@ -1,14 +1,14 @@
 from __future__ import annotations
 
-from collections import Counter
-from collections.abc import Mapping, Sequence
-from dataclasses import dataclass
 import hashlib
 import json
 import os
-from pathlib import Path
 import shutil
 import tempfile
+from collections import Counter
+from collections.abc import Mapping, Sequence
+from dataclasses import dataclass
+from pathlib import Path
 from typing import Any, NoReturn, cast
 
 from .propagation_network import (
@@ -235,8 +235,7 @@ def materialize_propagation_outputs(
         field_name="propagation_producer_digest",
     )
     if (
-        isinstance(accepted_classification_mapping_count, bool)
-        or not isinstance(accepted_classification_mapping_count, int)
+        type(accepted_classification_mapping_count) is not int
         or accepted_classification_mapping_count < 0
     ):
         _refuse(
@@ -307,6 +306,23 @@ def materialize_propagation_outputs(
         schemas=schemas,
         build_id=build_id,
         event_manifest_digest=primary_network.event_manifest_digest,
+        classification_contract_version=classification_contract_version,
+        classification_review_digest=classification_review_digest,
+        accepted_classification_mapping_count=accepted_classification_mapping_count,
+        propagation_contract_version=propagation_contract_version,
+        propagation_contract_digest=propagation_contract_digest,
+        propagation_producer_id=propagation_producer_id,
+        propagation_producer_version=propagation_producer_version,
+        propagation_producer_digest=propagation_producer_digest,
+    )
+    _validate_scenario_artifact_lineage(
+        serialized_payloads=serialized_payloads,
+        manifest=manifest,
+        build_id=build_id,
+        event_manifest_digest=primary_network.event_manifest_digest,
+        classification_contract_version=classification_contract_version,
+        classification_review_digest=classification_review_digest,
+        accepted_classification_mapping_count=accepted_classification_mapping_count,
         propagation_contract_version=propagation_contract_version,
         propagation_contract_digest=propagation_contract_digest,
         propagation_producer_id=propagation_producer_id,
@@ -459,6 +475,16 @@ def _build_payloads(
             "schema_version": "propagation-sensitivity-summary.v1",
             "build_id": build_id,
             "event_manifest_digest": primary_network.event_manifest_digest,
+            "classification_contract_version": classification_contract_version,
+            "classification_review_digest": classification_review_digest,
+            "accepted_classification_mapping_count": (
+                accepted_classification_mapping_count
+            ),
+            "propagation_contract_version": propagation_contract_version,
+            "propagation_contract_digest": propagation_contract_digest,
+            "propagation_producer_id": propagation_producer_id,
+            "propagation_producer_version": propagation_producer_version,
+            "propagation_producer_digest": propagation_producer_digest,
             "record_count": len(sensitivity_summaries),
             "scenarios": sensitivity_summaries,
             "feature_stability_across_scenarios": feature_stability,
@@ -470,6 +496,7 @@ def _build_payloads(
             "public_release_allowed": False,
             "reason_codes": release_reason_codes,
             "build_id": build_id,
+            "event_manifest_digest": primary_network.event_manifest_digest,
             "classification_contract_version": classification_contract_version,
             "classification_review_digest": classification_review_digest,
             "propagation_contract_version": propagation_contract_version,
@@ -1576,6 +1603,9 @@ def _build_manifest(
     schemas: Mapping[str, dict[str, Any]],
     build_id: str,
     event_manifest_digest: str,
+    classification_contract_version: str,
+    classification_review_digest: str,
+    accepted_classification_mapping_count: int,
     propagation_contract_version: str,
     propagation_contract_digest: str,
     propagation_producer_id: str,
@@ -1606,6 +1636,11 @@ def _build_manifest(
         "schema_version": "propagation-output-manifest.v2",
         "build_id": build_id,
         "event_manifest_digest": event_manifest_digest,
+        "classification_contract_version": classification_contract_version,
+        "classification_review_digest": classification_review_digest,
+        "accepted_classification_mapping_count": (
+            accepted_classification_mapping_count
+        ),
         "propagation_contract_version": propagation_contract_version,
         "propagation_contract_digest": propagation_contract_digest,
         "propagation_producer_id": propagation_producer_id,
@@ -1616,6 +1651,121 @@ def _build_manifest(
         "files": entries,
         "validated_record_schemas": schema_entries,
     }
+
+
+def _validate_scenario_artifact_lineage(
+    *,
+    serialized_payloads: Mapping[str, bytes],
+    manifest: Mapping[str, object],
+    build_id: str,
+    event_manifest_digest: str,
+    classification_contract_version: str,
+    classification_review_digest: str,
+    accepted_classification_mapping_count: int,
+    propagation_contract_version: str,
+    propagation_contract_digest: str,
+    propagation_producer_id: str,
+    propagation_producer_version: str,
+    propagation_producer_digest: str,
+) -> None:
+    reason_code = "invalid_scenario_artifact_lineage"
+    sensitivity = _json_object(
+        serialized_payloads["sensitivity_summary.json"],
+        reason_code=reason_code,
+        label="sensitivity summary",
+    )
+    release = _json_object(
+        serialized_payloads["release_metadata.json"],
+        reason_code=reason_code,
+        label="propagation release metadata",
+    )
+    parsed_manifest = _json_object(
+        _canonical_json_bytes(manifest),
+        reason_code=reason_code,
+        label="propagation manifest",
+    )
+    expected_lineage: dict[str, object] = {
+        "build_id": build_id,
+        "event_manifest_digest": event_manifest_digest,
+        "classification_contract_version": classification_contract_version,
+        "classification_review_digest": classification_review_digest,
+        "accepted_classification_mapping_count": (
+            accepted_classification_mapping_count
+        ),
+        "propagation_contract_version": propagation_contract_version,
+        "propagation_contract_digest": propagation_contract_digest,
+        "propagation_producer_id": propagation_producer_id,
+        "propagation_producer_version": propagation_producer_version,
+        "propagation_producer_digest": propagation_producer_digest,
+    }
+    digest_fields = {
+        "event_manifest_digest",
+        "classification_review_digest",
+        "propagation_contract_digest",
+        "propagation_producer_digest",
+    }
+    artifacts = (
+        (
+            "sensitivity summary",
+            sensitivity,
+            "propagation-sensitivity-summary.v1",
+            len(PROPAGATION_SENSITIVITY_SCENARIOS),
+        ),
+        (
+            "release metadata",
+            release,
+            "propagation-release-metadata.v2",
+            1,
+        ),
+        (
+            "manifest",
+            parsed_manifest,
+            "propagation-output-manifest.v2",
+            None,
+        ),
+    )
+    for label, artifact, schema_version, record_count in artifacts:
+        if (
+            type(artifact.get("schema_version")) is not str
+            or artifact.get("schema_version") != schema_version
+        ):
+            _refuse(reason_code, f"{label} schema_version is not governed")
+        if record_count is not None and (
+            type(artifact.get("record_count")) is not int
+            or artifact.get("record_count") != record_count
+        ):
+            _refuse(reason_code, f"{label} record_count is invalid")
+        for field_name, expected in expected_lineage.items():
+            observed = artifact.get(field_name)
+            if field_name == "accepted_classification_mapping_count":
+                valid_type = type(observed) is int and observed >= 0
+            else:
+                valid_type = type(observed) is str and bool(observed.strip())
+            if (
+                not valid_type
+                or field_name in digest_fields
+                and not _is_sha256_digest(observed)
+                or observed != expected
+            ):
+                _refuse(
+                    reason_code,
+                    f"{label} {field_name} does not match governed lineage",
+                )
+
+    entries = _identity_manifest_entries(parsed_manifest, reason_code=reason_code)
+    if {name for name, _, _ in entries} != set(serialized_payloads):
+        _refuse(reason_code, "manifest payload inventory is incomplete")
+    for name, digest, count in entries:
+        payload_bytes = serialized_payloads[name]
+        if digest != _sha256(payload_bytes) or count != _payload_record_count(
+            payload_bytes
+        ):
+            _refuse(reason_code, f"manifest entry is not content-bound: {name}")
+    digest_input = "".join(
+        f"{name}\0{digest}\0{count}\n" for name, digest, count in entries
+    ).encode("utf-8")
+    if parsed_manifest.get("bundle_digest") != _sha256(digest_input):
+        _refuse(reason_code, "manifest bundle_digest does not reconcile")
 
 
 def _payload_record_count(payload_bytes: bytes) -> int:
@@ -1755,18 +1905,20 @@ def _canonical_json_bytes(payload: object) -> bytes:
 
 
 def _validate_sha256(value: object, *, field_name: str) -> None:
-    if not isinstance(value, str) or len(value) != 64:
+    if not _is_sha256_digest(value):
         _refuse("invalid_build_identity", f"{field_name} must be a SHA-256 digest")
-    assert isinstance(value, str)
-    if any(character not in "0123456789abcdef" for character in value):
-        _refuse(
-            "invalid_build_identity",
-            f"{field_name} must use lowercase hexadecimal",
-        )
+
+
+def _is_sha256_digest(value: object) -> bool:
+    return (
+        type(value) is str
+        and len(value) == 64
+        and all(character in "0123456789abcdef" for character in value)
+    )
 
 
 def _required_text(value: object, *, field_name: str) -> str:
-    if not isinstance(value, str) or not value.strip():
+    if type(value) is not str or not value.strip():
         _refuse("invalid_build_identity", f"{field_name} must be non-empty")
     assert isinstance(value, str)
     return value.strip()

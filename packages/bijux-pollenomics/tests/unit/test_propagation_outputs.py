@@ -1,13 +1,12 @@
 from __future__ import annotations
 
-from dataclasses import replace
 import hashlib
 import json
+from dataclasses import replace
 from pathlib import Path
 from unittest.mock import patch
 
 import pytest
-
 from bijux_pollenomics.analysis import propagation_outputs as propagation_outputs_module
 from bijux_pollenomics.analysis.propagation_network import PhenomenonEvent
 from bijux_pollenomics.analysis.propagation_outputs import (
@@ -678,7 +677,15 @@ def test_zero_accepted_mapping_universe_materializes_a_truthful_refusal(
     assert release["candidate_materialization_status"] == "empty_refused"
     assert release["schema_version"] == "propagation-release-metadata.v2"
     assert manifest["schema_version"] == "propagation-output-manifest.v2"
-    for payload in (release, manifest):
+    for payload in (sensitivity, release, manifest):
+        assert payload["build_id"] == "build-1"
+        assert payload["event_manifest_digest"] == events["event_manifest_digest"]
+        assert payload["classification_contract_version"] == "classification.v1"
+        assert (
+            payload["classification_review_digest"]
+            == (release["classification_review_digest"])
+        )
+        assert payload["accepted_classification_mapping_count"] == 0
         assert payload["propagation_contract_version"] == (
             _PROPAGATION_CONTRACT_VERSION
         )
@@ -712,6 +719,147 @@ def test_manifest_hashes_and_counts_every_payload_file(
         payload = json.loads(payload_bytes)
         assert hashlib.sha256(payload_bytes).hexdigest() == entry["sha256"]
         assert payload["record_count"] == entry["record_count"]
+
+
+def test_sensitivity_summary_has_content_bound_standalone_lineage(
+    tmp_path: Path, schema_root: Path
+) -> None:
+    output_root = tmp_path / "propagation"
+    _materialize(
+        output_root=output_root,
+        allowed_output_parent=tmp_path,
+        schema_root=schema_root,
+    )
+    sensitivity = _read_json(output_root / "sensitivity_summary.json")
+    release = _read_json(output_root / "release_metadata.json")
+    manifest = _read_json(output_root / "manifest.json")
+    lineage_fields = {
+        "build_id",
+        "event_manifest_digest",
+        "classification_contract_version",
+        "classification_review_digest",
+        "accepted_classification_mapping_count",
+        "propagation_contract_version",
+        "propagation_contract_digest",
+        "propagation_producer_id",
+        "propagation_producer_version",
+        "propagation_producer_digest",
+    }
+
+    for field_name in lineage_fields:
+        assert sensitivity[field_name] == release[field_name] == manifest[field_name]
+    entries = manifest["files"]
+    assert isinstance(entries, list)
+    sensitivity_entry = next(
+        entry
+        for entry in entries
+        if isinstance(entry, dict) and entry.get("path") == "sensitivity_summary.json"
+    )
+    sensitivity_bytes = (output_root / "sensitivity_summary.json").read_bytes()
+    assert sensitivity_entry["sha256"] == hashlib.sha256(sensitivity_bytes).hexdigest()
+    assert sensitivity_entry["record_count"] == sensitivity["record_count"] == 16
+
+
+@pytest.mark.parametrize(
+    ("artifact_name", "field_name", "invalid_value"),
+    (
+        ("sensitivity_summary.json", "accepted_classification_mapping_count", True),
+        ("sensitivity_summary.json", "propagation_contract_digest", "A" * 64),
+        ("sensitivity_summary.json", "propagation_producer_id", 1),
+        ("release_metadata.json", "event_manifest_digest", "0" * 64),
+        ("manifest.json", "classification_review_digest", "0" * 64),
+        ("manifest.json", "build_id", 1),
+    ),
+)
+def test_scenario_lineage_runtime_types_and_consistency_fail_closed(
+    tmp_path: Path,
+    schema_root: Path,
+    artifact_name: str,
+    field_name: str,
+    invalid_value: object,
+) -> None:
+    output_root = tmp_path / "propagation"
+    _materialize(
+        output_root=output_root,
+        allowed_output_parent=tmp_path,
+        schema_root=schema_root,
+    )
+    serialized_payloads = {
+        name: (output_root / name).read_bytes()
+        for name in propagation_outputs_module._OUTPUT_NAMES
+    }
+    manifest = _read_json(output_root / "manifest.json")
+    if artifact_name == "manifest.json":
+        manifest[field_name] = invalid_value
+    else:
+        artifact = _read_json(output_root / artifact_name)
+        artifact[field_name] = invalid_value
+        serialized_payloads[artifact_name] = _canonical_json_bytes(artifact)
+    release = _read_json(output_root / "release_metadata.json")
+    event_manifest_digest = release["event_manifest_digest"]
+    classification_review_digest = release["classification_review_digest"]
+    assert isinstance(event_manifest_digest, str)
+    assert isinstance(classification_review_digest, str)
+
+    with pytest.raises(PropagationOutputRefusalError) as refusal:
+        propagation_outputs_module._validate_scenario_artifact_lineage(
+            serialized_payloads=serialized_payloads,
+            manifest=manifest,
+            build_id="build-1",
+            event_manifest_digest=event_manifest_digest,
+            classification_contract_version="classification.v1",
+            classification_review_digest=classification_review_digest,
+            accepted_classification_mapping_count=0,
+            propagation_contract_version=_PROPAGATION_CONTRACT_VERSION,
+            propagation_contract_digest=_PROPAGATION_CONTRACT_DIGEST,
+            propagation_producer_id=_PROPAGATION_PRODUCER_ID,
+            propagation_producer_version=_PROPAGATION_PRODUCER_VERSION,
+            propagation_producer_digest=_producer_digest(),
+        )
+
+    assert refusal.value.reason_code == "invalid_scenario_artifact_lineage"
+
+
+def test_sensitivity_content_tampering_fails_manifest_binding(
+    tmp_path: Path, schema_root: Path
+) -> None:
+    output_root = tmp_path / "propagation"
+    _materialize(
+        output_root=output_root,
+        allowed_output_parent=tmp_path,
+        schema_root=schema_root,
+    )
+    serialized_payloads = {
+        name: (output_root / name).read_bytes()
+        for name in propagation_outputs_module._OUTPUT_NAMES
+    }
+    sensitivity = _read_json(output_root / "sensitivity_summary.json")
+    sensitivity["feature_stability_across_scenarios"] = [{"tampered": True}]
+    serialized_payloads["sensitivity_summary.json"] = _canonical_json_bytes(sensitivity)
+    manifest = _read_json(output_root / "manifest.json")
+    release = _read_json(output_root / "release_metadata.json")
+    event_manifest_digest = release["event_manifest_digest"]
+    classification_review_digest = release["classification_review_digest"]
+    assert isinstance(event_manifest_digest, str)
+    assert isinstance(classification_review_digest, str)
+
+    with pytest.raises(PropagationOutputRefusalError) as refusal:
+        propagation_outputs_module._validate_scenario_artifact_lineage(
+            serialized_payloads=serialized_payloads,
+            manifest=manifest,
+            build_id="build-1",
+            event_manifest_digest=event_manifest_digest,
+            classification_contract_version="classification.v1",
+            classification_review_digest=classification_review_digest,
+            accepted_classification_mapping_count=0,
+            propagation_contract_version=_PROPAGATION_CONTRACT_VERSION,
+            propagation_contract_digest=_PROPAGATION_CONTRACT_DIGEST,
+            propagation_producer_id=_PROPAGATION_PRODUCER_ID,
+            propagation_producer_version=_PROPAGATION_PRODUCER_VERSION,
+            propagation_producer_digest=_producer_digest(),
+        )
+
+    assert refusal.value.reason_code == "invalid_scenario_artifact_lineage"
 
 
 def test_primary_and_sensitivity_outputs_are_content_deterministic(
