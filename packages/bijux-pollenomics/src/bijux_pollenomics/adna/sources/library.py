@@ -2,7 +2,9 @@ from __future__ import annotations
 
 from collections.abc import Callable
 from dataclasses import dataclass
+from enum import Enum
 from functools import cache
+import hashlib
 import json
 import os
 from pathlib import Path
@@ -16,6 +18,8 @@ from ...core.http import validate_http_url
 from ..governance_contracts import materialize_adna_governance_contracts
 from ..paths import ADNA_SOURCE_LIBRARY_DIR, adna_source_library_root
 from ..source_artifact_storage import (
+    SourceArtifactContentDriftError,
+    read_source_artifact_bytes,
     resolve_source_artifact_path,
     source_artifact_exists,
     write_source_artifact_bytes,
@@ -32,13 +36,13 @@ __all__ = [
     "build_missing_source_blockers",
     "build_paper_registry",
     "build_project_registry",
-    "build_source_intake_audit",
-    "build_source_intake_release_guard",
     "build_project_source_bundles",
     "build_source_artifact_index",
+    "build_source_intake_audit",
+    "build_source_intake_release_guard",
+    "build_source_storage_audit",
     "build_supplement_registry",
     "build_supplement_zip_member_registry",
-    "build_source_storage_audit",
     "materialize_source_library",
     "refresh_source_library",
 ]
@@ -318,7 +322,27 @@ class _ProjectIntakeExpectation:
     blocker_categories: tuple[str, ...] = ()
 
 
+@dataclass(frozen=True)
+class _PendingSourceCapture:
+    logical_path: Path
+    payload: bytes
+    metadata: dict[str, object]
+
+
+class _SourceCaptureDisposition(Enum):
+    NEW_CAPTURE = "new_capture"
+    IDENTICAL_EXISTING = "identical_existing"
+    REFUSED = "refused"
+
+
+@dataclass(frozen=True)
+class _SourceCaptureAssessment:
+    disposition: _SourceCaptureDisposition
+    refusal_path: Path | None = None
+
+
 SOURCE_LIBRARY_SCHEMA_VERSION = "adna-source-library.v1"
+_CAPTURE_REFUSAL_SCHEMA_VERSION = "adna-source-capture-refusal.v1"
 _USER_AGENT = "Mozilla/5.0 (compatible; bijux-pollenomics/1.0)"
 _NATURE_DOI_RE = re.compile(
     r"https?://www\.nature\.com/articles/(?P<slug>[A-Za-z0-9_.-]+)"
@@ -404,9 +428,7 @@ def _build_source_artifact_index_uncached(
     output_root: Path,
 ) -> tuple[AdnaSourceArtifact, ...]:
     output_root = Path(output_root)
-    rows: list[AdnaSourceArtifact] = []
-    for artifact in _iter_materialized_artifacts(output_root):
-        rows.append(artifact)
+    rows = list(_iter_materialized_artifacts(output_root))
     return tuple(
         sorted(rows, key=lambda item: (item.paper_doi or "", item.artifact_id))
     )
@@ -1348,58 +1370,250 @@ def refresh_source_library(
     downloader = _download_url if downloader is None else downloader
     source_root = adna_source_library_root(output_root)
     source_root.mkdir(parents=True, exist_ok=True)
+    refusal_paths: list[Path] = []
+    pending_captures: list[_PendingSourceCapture] = []
 
     for project in build_archive_project_catalog():
         project_dir = source_root / "projects" / project.project_accession
-        project_dir.mkdir(parents=True, exist_ok=True)
         try:
             payload, content_type = downloader(project.metadata_url)
         except (HTTPError, URLError, TimeoutError, ValueError):
             pass
         else:
             archive_path = project_dir / "archive_metadata.html"
-            stored_path = write_source_artifact_bytes(archive_path, payload)
-            write_json(
-                archive_path.with_suffix(archive_path.suffix + ".metadata.json"),
-                {
-                    "schema_version": SOURCE_LIBRARY_SCHEMA_VERSION,
-                    "source_url": project.metadata_url,
-                    "artifact_kind": "archive_metadata_html",
-                    "content_type": content_type,
-                    "byte_size": len(payload),
-                    "storage_byte_size": stored_path.stat().st_size,
-                    "storage_path": str(stored_path.relative_to(output_root)),
-                    "content_encoding": (
-                        "gzip" if stored_path.suffix == ".gz" else None
-                    ),
-                    "project_accession": project.project_accession,
-                },
+            assessment = _assess_downloaded_source_capture(
+                output_root=output_root,
+                logical_path=archive_path,
+                source_url=project.metadata_url,
+                payload=payload,
+                content_type=content_type,
+            )
+            if assessment.disposition is _SourceCaptureDisposition.REFUSED:
+                if assessment.refusal_path is None:
+                    raise RuntimeError("aDNA source refusal lacks an evidence path")
+                refusal_paths.append(assessment.refusal_path)
+                continue
+            if assessment.disposition is _SourceCaptureDisposition.IDENTICAL_EXISTING:
+                continue
+            pending_captures.append(
+                _PendingSourceCapture(
+                    logical_path=archive_path,
+                    payload=payload,
+                    metadata={
+                        "schema_version": SOURCE_LIBRARY_SCHEMA_VERSION,
+                        "source_url": project.metadata_url,
+                        "artifact_kind": "archive_metadata_html",
+                        "content_type": content_type,
+                        "byte_size": len(payload),
+                        "project_accession": project.project_accession,
+                    },
+                )
             )
 
     for doi, spec in _paper_source_specs().items():
         for asset in _expand_remote_assets(spec, build_archive_project_catalog()):
             local_path = source_root / asset.relative_path
-            local_path.parent.mkdir(parents=True, exist_ok=True)
             try:
                 payload, content_type = downloader(asset.source_url)
             except (HTTPError, URLError, TimeoutError, ValueError):
                 continue
-            stored_path = write_source_artifact_bytes(local_path, payload)
-            metadata = {
-                "schema_version": SOURCE_LIBRARY_SCHEMA_VERSION,
-                "source_url": asset.source_url,
-                "artifact_kind": asset.artifact_kind,
-                "content_type": content_type,
-                "byte_size": len(payload),
-                "storage_byte_size": stored_path.stat().st_size,
-                "storage_path": str(stored_path.relative_to(output_root)),
-                "content_encoding": "gzip" if stored_path.suffix == ".gz" else None,
-                "paper_doi": doi,
-            }
-            write_json(
-                local_path.with_suffix(local_path.suffix + ".metadata.json"), metadata
+            assessment = _assess_downloaded_source_capture(
+                output_root=output_root,
+                logical_path=local_path,
+                source_url=asset.source_url,
+                payload=payload,
+                content_type=content_type,
             )
+            if assessment.disposition is _SourceCaptureDisposition.REFUSED:
+                if assessment.refusal_path is None:
+                    raise RuntimeError("aDNA source refusal lacks an evidence path")
+                refusal_paths.append(assessment.refusal_path)
+                continue
+            if assessment.disposition is _SourceCaptureDisposition.IDENTICAL_EXISTING:
+                continue
+            pending_captures.append(
+                _PendingSourceCapture(
+                    logical_path=local_path,
+                    payload=payload,
+                    metadata={
+                        "schema_version": SOURCE_LIBRARY_SCHEMA_VERSION,
+                        "source_url": asset.source_url,
+                        "artifact_kind": asset.artifact_kind,
+                        "content_type": content_type,
+                        "byte_size": len(payload),
+                        "paper_doi": doi,
+                    },
+                )
+            )
+    if refusal_paths:
+        _clear_source_library_caches()
+        relative_paths = sorted(
+            str(path.relative_to(output_root)) for path in refusal_paths
+        )
+        raise ValueError(
+            "aDNA source refresh refused capture(s): " + ", ".join(relative_paths)
+        )
+    _publish_source_captures(output_root, pending_captures)
     _clear_source_library_caches()
+
+
+def _assess_downloaded_source_capture(
+    *,
+    output_root: Path,
+    logical_path: Path,
+    source_url: str,
+    payload: bytes,
+    content_type: str,
+) -> _SourceCaptureAssessment:
+    refusal_reason = _http_success_refusal_reason(payload, content_type)
+    if refusal_reason is not None:
+        refusal_path = _write_source_capture_refusal(
+            output_root=output_root,
+            logical_path=logical_path,
+            source_url=source_url,
+            payload=payload,
+            content_type=content_type,
+            reason_code=refusal_reason,
+        )
+        return _SourceCaptureAssessment(
+            disposition=_SourceCaptureDisposition.REFUSED,
+            refusal_path=refusal_path,
+        )
+    if source_artifact_exists(logical_path):
+        existing_payload = read_source_artifact_bytes(logical_path)
+        if existing_payload == payload:
+            return _SourceCaptureAssessment(
+                disposition=_SourceCaptureDisposition.IDENTICAL_EXISTING
+            )
+        stored_path = resolve_source_artifact_path(logical_path)
+        exc = SourceArtifactContentDriftError(
+            logical_path=logical_path,
+            stored_path=stored_path,
+            existing_payload=existing_payload,
+            candidate_payload=payload,
+        )
+        refusal_path = _write_source_capture_refusal(
+            output_root=output_root,
+            logical_path=logical_path,
+            source_url=source_url,
+            payload=payload,
+            content_type=content_type,
+            reason_code="content_drift",
+            existing_sha256=exc.existing_sha256,
+            existing_byte_size=exc.existing_byte_size,
+            stored_path=exc.stored_path,
+        )
+        return _SourceCaptureAssessment(
+            disposition=_SourceCaptureDisposition.REFUSED,
+            refusal_path=refusal_path,
+        )
+    return _SourceCaptureAssessment(disposition=_SourceCaptureDisposition.NEW_CAPTURE)
+
+
+def _publish_source_captures(
+    output_root: Path, pending_captures: list[_PendingSourceCapture]
+) -> None:
+    captures_by_path: dict[Path, _PendingSourceCapture] = {}
+    for pending in pending_captures:
+        previous = captures_by_path.get(pending.logical_path)
+        if previous is not None and previous != pending:
+            raise ValueError(
+                f"Conflicting aDNA refresh candidates for {pending.logical_path}"
+            )
+        captures_by_path[pending.logical_path] = pending
+    for pending in captures_by_path.values():
+        stored_path = write_source_artifact_bytes(pending.logical_path, pending.payload)
+        metadata = {
+            **pending.metadata,
+            "storage_byte_size": stored_path.stat().st_size,
+            "storage_path": str(stored_path.relative_to(output_root)),
+            "content_encoding": "gzip" if stored_path.suffix == ".gz" else None,
+        }
+        write_json(
+            pending.logical_path.with_suffix(
+                pending.logical_path.suffix + ".metadata.json"
+            ),
+            metadata,
+        )
+
+
+def _http_success_refusal_reason(payload: bytes, content_type: str) -> str | None:
+    if not payload:
+        return "empty_http_success_payload"
+    head = payload[:262_144].lstrip().lower()
+    looks_like_html = "text/html" in content_type.lower() or head.startswith(
+        (b"<!doctype html", b"<html")
+    )
+    if not looks_like_html:
+        return None
+    markers = (
+        b"<title>access denied",
+        b"<h1>access denied",
+        b"<title>attention required",
+        b"<title>bad gateway",
+        b"<title>service unavailable",
+        b"cf-chl-captcha",
+        b"cf-error-details",
+        b"google.com/recaptcha/challengepage",
+        b"recaptchachallengepageui",
+        b"cookies must be enabled",
+        b"the request could not be satisfied",
+    )
+    if any(marker in head for marker in markers):
+        return "http_success_block_or_error_page"
+    return None
+
+
+def _write_source_capture_refusal(
+    *,
+    output_root: Path,
+    logical_path: Path,
+    source_url: str,
+    payload: bytes,
+    content_type: str,
+    reason_code: str,
+    existing_sha256: str | None = None,
+    existing_byte_size: int | None = None,
+    stored_path: Path | None = None,
+) -> Path:
+    candidate_sha256 = hashlib.sha256(payload).hexdigest()
+    if source_artifact_exists(logical_path) and existing_sha256 is None:
+        existing_payload = read_source_artifact_bytes(logical_path)
+        existing_sha256 = hashlib.sha256(existing_payload).hexdigest()
+        existing_byte_size = len(existing_payload)
+        stored_path = resolve_source_artifact_path(logical_path)
+    refusal_path = logical_path.with_suffix(
+        logical_path.suffix + f".capture-refusal-{candidate_sha256}.json"
+    )
+    record = {
+        "schema_version": _CAPTURE_REFUSAL_SCHEMA_VERSION,
+        "status": "refused",
+        "reason_code": reason_code,
+        "source_url": source_url,
+        "logical_path": str(logical_path.relative_to(output_root)),
+        "content_type": content_type,
+        "candidate_sha256": candidate_sha256,
+        "candidate_byte_size": len(payload),
+        "existing_sha256": existing_sha256,
+        "existing_byte_size": existing_byte_size,
+        "existing_storage_path": (
+            str(stored_path.relative_to(output_root))
+            if stored_path is not None
+            else None
+        ),
+    }
+    record_bytes = json.dumps(record, indent=2, ensure_ascii=False).encode("utf-8")
+    try:
+        write_source_artifact_bytes(
+            refusal_path,
+            record_bytes,
+            compress_html=False,
+        )
+    except SourceArtifactContentDriftError as exc:
+        raise FileExistsError(
+            f"Non-identical aDNA source refusal exists: {refusal_path}"
+        ) from exc
+    return refusal_path
 
 
 def materialize_source_library(output_root: Path) -> None:
