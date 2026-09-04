@@ -32,6 +32,27 @@ pytestmark = pytest.mark.generated_artifacts
 
 
 class AdnaCatalogUnitTests(unittest.TestCase):
+    def test_tracked_species_materialization_reaches_a_fixed_point_in_one_run(
+        self,
+    ) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            data_root = Path(tmp) / "data"
+            materialize_tracked_species_adna(data_root)
+            first = {
+                path.relative_to(data_root): path.read_bytes()
+                for path in data_root.rglob("*")
+                if path.is_file()
+            }
+
+            materialize_tracked_species_adna(data_root)
+            second = {
+                path.relative_to(data_root): path.read_bytes()
+                for path in data_root.rglob("*")
+                if path.is_file()
+            }
+
+            self.assertEqual(second, first)
+
     def test_cross_species_bibliography_deduplicates_shared_literature(self) -> None:
         bibliography = build_cross_species_bibliography()
 

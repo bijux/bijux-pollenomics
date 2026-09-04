@@ -70,6 +70,9 @@ def materialize_tracked_species_adna(
     materialize_source_library(Path(output_root))
     for species_name in species_names:
         materialize_tracked_species_root(output_root, species_name)
+    # Source-library audits consume species-owned generated data. Refresh them after
+    # every species root so one invocation reaches the same state as a replay.
+    materialize_source_library(Path(output_root))
     _materialize_cross_species_adna_artifacts(Path(output_root))
 
 
