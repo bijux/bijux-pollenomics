@@ -222,6 +222,7 @@ def _reconciliations() -> list[CountReconciliation]:
         "NO": (1, 0, 0, 1, 0, 0),
         "FI": (0, 0, 0, 0, 0, 0),
         "UNASSIGNED": (1, 0, 0, 0, 1, 0),
+        "OUTSIDE": (0, 0, 0, 0, 0, 0),
     }
     rows = [
         CountReconciliation(
@@ -772,6 +773,12 @@ def test_country_totals_must_reconcile_to_source_without_omission(
     )
     with pytest.raises(ReleaseEvidenceError, match="country/source count mismatch"):
         _build(tmp_path, reconciliations=reconciliations)
+
+    missing_outside = [
+        item for item in _reconciliations() if item.country_code != "OUTSIDE"
+    ]
+    with pytest.raises(ReleaseEvidenceError, match="complete country reconciliation"):
+        _build(tmp_path, reconciliations=missing_outside)
 
 
 def test_paths_cannot_escape_or_traverse_symlinks(tmp_path: Path) -> None:

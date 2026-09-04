@@ -1,13 +1,12 @@
 from __future__ import annotations
 
-from dataclasses import asdict
 import hashlib
 import json
+from dataclasses import asdict
 from pathlib import Path
 from typing import cast
 
 import pytest
-
 from bijux_pollenomics.provenance import (
     ArtifactInput,
     ArtifactReference,
@@ -210,7 +209,7 @@ def _inputs(
             **zero_counts,
         )
     ]
-    for country in ("SE", "DK", "NO", "FI", "UNASSIGNED"):
+    for country in ("SE", "DK", "NO", "FI", "UNASSIGNED", "OUTSIDE"):
         reconciliations.append(
             CountReconciliation(
                 identity=f"neotoma.samples.{country.lower()}",

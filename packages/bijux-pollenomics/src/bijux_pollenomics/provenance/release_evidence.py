@@ -56,7 +56,7 @@ _OUTPUT_ROLES: Final = frozenset({"generated_output", "validation_result"})
 _GATE_STATUSES: Final = frozenset(
     {"PASS", "FAIL", "BLOCKED_EXTERNAL", "NOT_APPLICABLE", "SKIPPED"}
 )
-_COUNTRIES: Final = frozenset({"SE", "DK", "NO", "FI", "UNASSIGNED"})
+_COUNTRIES: Final = frozenset({"SE", "DK", "NO", "FI", "UNASSIGNED", "OUTSIDE"})
 _DIGEST_PATTERN: Final = re.compile(r"sha256:[0-9a-f]{64}\Z")
 _COMMIT_PATTERN: Final = re.compile(r"(?:[0-9a-f]{40}|[0-9a-f]{64})\Z")
 _IDENTITY_PATTERN: Final = re.compile(r"[a-z0-9][a-z0-9._:-]*\Z")
