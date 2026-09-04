@@ -128,6 +128,9 @@ def materialize_classification_audit(
     allowed_output_parent: Path,
     classification_contract_version: str,
     classification_contract_digest: str,
+    classification_producer_id: str,
+    classification_producer_version: str,
+    classification_producer_digest: str,
 ) -> ClassificationAuditMaterializationResult:
     """Reconcile and atomically publish a deterministic classification audit."""
     _validate_output_paths(paths, Path(allowed_output_parent))
@@ -139,6 +142,18 @@ def materialize_classification_audit(
         classification_contract_digest,
         field_name="classification_contract_digest",
     )
+    classification_producer_id = _required_text(
+        classification_producer_id,
+        field_name="classification_producer_id",
+    )
+    classification_producer_version = _required_text(
+        classification_producer_version,
+        field_name="classification_producer_version",
+    )
+    classification_producer_digest = _required_digest(
+        classification_producer_digest,
+        field_name="classification_producer_digest",
+    )
     concepts, memberships = _validated_accounting_rows(accounting)
     _validate_accounting_reconciliation(accounting, concepts, memberships)
     payloads, release_status = _build_payloads(
@@ -147,6 +162,9 @@ def materialize_classification_audit(
         memberships=memberships,
         classification_contract_version=classification_contract_version,
         classification_contract_digest=classification_contract_digest,
+        classification_producer_id=classification_producer_id,
+        classification_producer_version=classification_producer_version,
+        classification_producer_digest=classification_producer_digest,
     )
     serialized_payloads = {
         name: _canonical_json_bytes(payload) for name, payload in payloads.items()
@@ -156,6 +174,9 @@ def materialize_classification_audit(
         serialized_payloads=serialized_payloads,
         classification_contract_version=classification_contract_version,
         classification_contract_digest=classification_contract_digest,
+        classification_producer_id=classification_producer_id,
+        classification_producer_version=classification_producer_version,
+        classification_producer_digest=classification_producer_digest,
     )
     manifest_bytes = _canonical_json_bytes(manifest)
     expected_files = {**serialized_payloads, _MANIFEST_NAME: manifest_bytes}
@@ -352,6 +373,9 @@ def _build_payloads(
     memberships: Sequence[Mapping[str, object]],
     classification_contract_version: str,
     classification_contract_digest: str,
+    classification_producer_id: str,
+    classification_producer_version: str,
+    classification_producer_digest: str,
 ) -> tuple[dict[str, dict[str, object]], str]:
     status_concepts = Counter(str(row["mapping_status"]) for row in concepts)
     status_observations = Counter(str(row["mapping_status"]) for row in memberships)
@@ -396,6 +420,9 @@ def _build_payloads(
         "build_id": accounting["build_id"],
         "classification_contract_version": classification_contract_version,
         "classification_contract_digest": classification_contract_digest,
+        "classification_producer_id": classification_producer_id,
+        "classification_producer_version": classification_producer_version,
+        "classification_producer_digest": classification_producer_digest,
     }
     country_partitions = _country_partitions(memberships)
     return (
@@ -671,6 +698,9 @@ def _build_manifest(
     serialized_payloads: Mapping[str, bytes],
     classification_contract_version: str,
     classification_contract_digest: str,
+    classification_producer_id: str,
+    classification_producer_version: str,
+    classification_producer_digest: str,
 ) -> dict[str, object]:
     entries = tuple(
         {
@@ -691,6 +721,9 @@ def _build_manifest(
         "build_id": accounting["build_id"],
         "classification_contract_version": classification_contract_version,
         "classification_contract_digest": classification_contract_digest,
+        "classification_producer_id": classification_producer_id,
+        "classification_producer_version": classification_producer_version,
+        "classification_producer_digest": classification_producer_digest,
         "input_accounting_sha256": _sha256(_canonical_json_bytes(accounting)),
         "bundle_digest": _sha256(digest_input),
         "payload_file_count": len(entries),

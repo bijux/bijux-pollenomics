@@ -127,6 +127,9 @@ def _materialize(
         allowed_output_parent=allowed_output_parent,
         classification_contract_version="1.0.0",
         classification_contract_digest=f"sha256:{'a' * 64}",
+        classification_producer_id="bijux-pollenomics.classification-audit",
+        classification_producer_version="1",
+        classification_producer_digest=f"sha256:{'b' * 64}",
     )
 
 
@@ -252,6 +255,7 @@ def test_manifest_hashes_and_counts_every_payload(tmp_path: Path) -> None:
     assert second.disposition == "unchanged"
     assert manifest["payload_file_count"] == 9
     assert manifest["classification_contract_digest"] == f"sha256:{'a' * 64}"
+    assert manifest["classification_producer_digest"] == f"sha256:{'b' * 64}"
     assert [row["path"] for row in entries] == sorted(row["path"] for row in entries)
     for row in entries:
         payload_bytes = (output_root / row["path"]).read_bytes()
@@ -353,6 +357,9 @@ def test_invalid_contract_digest_is_refused_before_writing(tmp_path: Path) -> No
             allowed_output_parent=tmp_path,
             classification_contract_version="1.0.0",
             classification_contract_digest="not-a-digest",
+            classification_producer_id="bijux-pollenomics.classification-audit",
+            classification_producer_version="1",
+            classification_producer_digest=f"sha256:{'b' * 64}",
         )
 
     assert refusal.value.reason_code == "invalid_contract_digest"
