@@ -654,12 +654,16 @@ def test_lake_evidence_refuses_orphaned_svar_review_subset() -> None:
             human_localities=(),
             animal_localities=(),
         )
+        markdown = render_lake_evidence_richness_markdown(report)
 
         assert report.candidate_count == 0
         assert report.assessments == ()
         assert report.methodology["availability_status"] == "blocked"
         assert report.methodology["refusal_reason"] == "governing_svar_registry_missing"
         assert report.methodology["derived_subset_admitted"] is False
+        assert "contains `0` admitted candidates" in markdown
+        assert "`governing_svar_registry_missing`" in markdown
+        assert "No derived review subset is promoted" in markdown
 
 
 def test_svar_lake_candidates_prefer_direct_pollen_when_human_context_is_similar() -> (

@@ -432,6 +432,8 @@ def render_lake_evidence_richness_markdown(
     report: LakeEvidenceRichnessReport,
 ) -> str:
     """Render the Sweden lake evidence richness report as markdown."""
+    if report.methodology.get("availability_status") == "blocked":
+        return _render_blocked_lake_evidence_richness(report)
     scenario_metrics = _scenario_metric_map(report)
     registry_backed = _is_registry_backed_report(report)
     sampling_note = _render_optional_methodology_note(report, "sampling_note")
@@ -502,6 +504,23 @@ This report ranks Sweden lake candidates by the richness of tracked pollen, arch
 {fieldwork_section}
 
 {band_sections}
+"""
+
+
+def _render_blocked_lake_evidence_richness(
+    report: LakeEvidenceRichnessReport,
+) -> str:
+    methodology = report.methodology
+    return f"""# Sweden lake evidence richness
+
+The lake-ranking surface is blocked and contains `{report.candidate_count}` admitted candidates.
+
+- Availability status: `{methodology.get("availability_status", "blocked")}`
+- Refusal reason: `{methodology.get("refusal_reason", "not recorded")}`
+- Governing surface: `{methodology.get("governing_surface", "not recorded")}`
+- Candidate derivation: {methodology.get("candidate_derivation", "Not recorded.")}
+
+No derived review subset is promoted to a scientific ranking while its governing registry is unavailable.
 """
 
 
