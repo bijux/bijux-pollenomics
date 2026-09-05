@@ -27,11 +27,12 @@ from .acquisition import (
     reconcile_sead_join,
 )
 from .api_client import SEAD_FILTER_BATCH_SIZE, SEAD_LIMIT, build_sead_in_filter
-from .archive import SEAD_LINKED_SOURCE_TABLES
+from .archive import SEAD_FULL_EVIDENCE_SOURCE_TABLES, SEAD_LINKED_SOURCE_TABLES
 
 SCOPED_RECEIPT_SCHEMA_VERSION = "sead-scoped-acquisition-receipt.v1"
 SCOPED_RESULT_SCHEMA_VERSION = "sead-scoped-acquisition-result.v1"
 SCOPED_ORCHESTRATOR_VERSION = "sead-scoped-relation-acquisition.v1"
+FULL_EVIDENCE_ORCHESTRATOR_VERSION = "sead-full-evidence-acquisition.v1"
 NORDIC_TARGET_COUNTRIES = tuple(NORDIC_COUNTRY_CODES[:-1])
 
 _SAFE_RUN_ID = re.compile(r"[A-Za-z0-9][A-Za-z0-9._-]{0,127}\Z")
@@ -246,6 +247,453 @@ SEAD_SCOPED_TABLE_PLANS = (
             SeadDependency("tbl_site_references", "biblio_id"),
             SeadDependency("tbl_sample_group_references", "biblio_id"),
             SeadDependency("tbl_relative_age_refs", "biblio_id"),
+        ),
+    ),
+)
+
+_SCOPED_PLAN_BY_TABLE = {plan.table: plan for plan in SEAD_SCOPED_TABLE_PLANS}
+
+
+def _scoped_plan(table: str) -> SeadScopedTablePlan:
+    return _SCOPED_PLAN_BY_TABLE[table]
+
+
+SEAD_FULL_EVIDENCE_TABLE_PLANS = (
+    _scoped_plan("tbl_sample_groups"),
+    _scoped_plan("tbl_physical_samples"),
+    _scoped_plan("tbl_analysis_entities"),
+    _scoped_plan("tbl_analysis_entity_ages"),
+    _scoped_plan("tbl_geochronology"),
+    _scoped_plan("tbl_dendro_dates"),
+    SeadScopedTablePlan(
+        "tbl_analysis_values",
+        "analysis_value_id",
+        (
+            "analysis_value_id,analysis_entity_id,value_class_id,analysis_value,"
+            "boolean_value,is_boolean,is_uncertain,is_undefined,is_not_analyzed,"
+            "is_indeterminable,is_anomaly"
+        ),
+        "analysis_entity_id",
+        (SeadDependency("tbl_analysis_entities", "analysis_entity_id"),),
+    ),
+    _scoped_plan("tbl_analysis_dating_ranges"),
+    _scoped_plan("tbl_relative_dates"),
+    _scoped_plan("tbl_age_types"),
+    _scoped_plan("tbl_relative_ages"),
+    _scoped_plan("tbl_relative_age_refs"),
+    _scoped_plan("tbl_dating_uncertainty"),
+    SeadScopedTablePlan(
+        "tbl_datasets",
+        "dataset_id",
+        (
+            "dataset_id,master_set_id,data_type_id,method_id,biblio_id,"
+            "dataset_name,date_updated,dataset_uuid"
+        ),
+        "dataset_id",
+        (SeadDependency("tbl_analysis_entities", "dataset_id"),),
+    ),
+    _scoped_plan("tbl_site_references"),
+    _scoped_plan("tbl_sample_group_references"),
+    SeadScopedTablePlan(
+        "tbl_abundances",
+        "abundance_id",
+        (
+            "abundance_id,taxon_id,analysis_entity_id,abundance_element_id,"
+            "abundance,date_updated"
+        ),
+        "analysis_entity_id",
+        (SeadDependency("tbl_analysis_entities", "analysis_entity_id"),),
+    ),
+    SeadScopedTablePlan(
+        "tbl_analysis_taxon_counts",
+        "analysis_taxon_count_id",
+        "analysis_taxon_count_id,analysis_value_id,taxon_id,value",
+        "analysis_value_id",
+        (SeadDependency("tbl_analysis_values", "analysis_value_id"),),
+    ),
+    SeadScopedTablePlan(
+        "tbl_analysis_numerical_values",
+        "analysis_numerical_value_id",
+        "analysis_numerical_value_id,analysis_value_id,qualifier,value,is_variant",
+        "analysis_value_id",
+        (SeadDependency("tbl_analysis_values", "analysis_value_id"),),
+    ),
+    SeadScopedTablePlan(
+        "tbl_analysis_integer_values",
+        "analysis_integer_value_id",
+        "analysis_integer_value_id,analysis_value_id,qualifier,value,is_variant",
+        "analysis_value_id",
+        (SeadDependency("tbl_analysis_values", "analysis_value_id"),),
+    ),
+    SeadScopedTablePlan(
+        "tbl_analysis_categorical_values",
+        "analysis_categorical_value_id",
+        (
+            "analysis_categorical_value_id,analysis_value_id,value_type_item_id,"
+            "value,is_variant"
+        ),
+        "analysis_value_id",
+        (SeadDependency("tbl_analysis_values", "analysis_value_id"),),
+    ),
+    SeadScopedTablePlan(
+        "tbl_analysis_boolean_values",
+        "analysis_boolean_value_id",
+        "analysis_boolean_value_id,analysis_value_id,qualifier,value",
+        "analysis_value_id",
+        (SeadDependency("tbl_analysis_values", "analysis_value_id"),),
+    ),
+    SeadScopedTablePlan(
+        "tbl_analysis_value_dimensions",
+        "analysis_value_dimension_id",
+        "analysis_value_dimension_id,analysis_value_id,dimension_id,value",
+        "analysis_value_id",
+        (SeadDependency("tbl_analysis_values", "analysis_value_id"),),
+    ),
+    SeadScopedTablePlan(
+        "tbl_measured_values",
+        "measured_value_id",
+        "measured_value_id,analysis_entity_id,measured_value,date_updated",
+        "analysis_entity_id",
+        (SeadDependency("tbl_analysis_entities", "analysis_entity_id"),),
+    ),
+    SeadScopedTablePlan(
+        "tbl_measured_value_dimensions",
+        "measured_value_dimension_id",
+        (
+            "measured_value_dimension_id,measured_value_id,dimension_id,"
+            "dimension_value,date_updated"
+        ),
+        "measured_value_id",
+        (SeadDependency("tbl_measured_values", "measured_value_id"),),
+    ),
+    SeadScopedTablePlan(
+        "tbl_analysis_entity_dimensions",
+        "analysis_entity_dimension_id",
+        (
+            "analysis_entity_dimension_id,analysis_entity_id,dimension_id,"
+            "dimension_value,date_updated"
+        ),
+        "analysis_entity_id",
+        (SeadDependency("tbl_analysis_entities", "analysis_entity_id"),),
+    ),
+    SeadScopedTablePlan(
+        "tbl_sample_dimensions",
+        "sample_dimension_id",
+        (
+            "sample_dimension_id,physical_sample_id,dimension_id,dimension_value,"
+            "method_id,qualifier_id,date_updated"
+        ),
+        "physical_sample_id",
+        (SeadDependency("tbl_physical_samples", "physical_sample_id"),),
+    ),
+    SeadScopedTablePlan(
+        "tbl_sample_group_dimensions",
+        "sample_group_dimension_id",
+        (
+            "sample_group_dimension_id,sample_group_id,dimension_id,"
+            "dimension_value,qualifier_id,date_updated"
+        ),
+        "sample_group_id",
+        (SeadDependency("tbl_sample_groups", "sample_group_id"),),
+    ),
+    SeadScopedTablePlan(
+        "tbl_value_qualifiers",
+        "qualifier_id",
+        "qualifier_id,qualifier_uuid,symbol,description",
+        "qualifier_id",
+        (
+            SeadDependency("tbl_sample_dimensions", "qualifier_id"),
+            SeadDependency("tbl_sample_group_dimensions", "qualifier_id"),
+        ),
+    ),
+    SeadScopedTablePlan(
+        "tbl_abundance_ident_levels",
+        "abundance_ident_level_id",
+        ("abundance_ident_level_id,abundance_id,identification_level_id,date_updated"),
+        "abundance_id",
+        (SeadDependency("tbl_abundances", "abundance_id"),),
+    ),
+    SeadScopedTablePlan(
+        "tbl_abundance_modifications",
+        "abundance_modification_id",
+        "abundance_modification_id,abundance_id,modification_type_id,date_updated",
+        "abundance_id",
+        (SeadDependency("tbl_abundances", "abundance_id"),),
+    ),
+    SeadScopedTablePlan(
+        "tbl_abundance_properties",
+        "abundance_property_id",
+        "abundance_property_id,abundance_id,property_type_id,property_value",
+        "abundance_id",
+        (SeadDependency("tbl_abundances", "abundance_id"),),
+    ),
+    SeadScopedTablePlan(
+        "tbl_abundance_elements",
+        "abundance_element_id",
+        (
+            "abundance_element_id,record_type_id,element_name,"
+            "element_description,date_updated"
+        ),
+        "abundance_element_id",
+        (SeadDependency("tbl_abundances", "abundance_element_id"),),
+    ),
+    SeadScopedTablePlan(
+        "tbl_identification_levels",
+        "identification_level_id",
+        (
+            "identification_level_id,identification_level_abbrev,"
+            "identification_level_name,notes,date_updated"
+        ),
+        "identification_level_id",
+        (SeadDependency("tbl_abundance_ident_levels", "identification_level_id"),),
+    ),
+    SeadScopedTablePlan(
+        "tbl_modification_types",
+        "modification_type_id",
+        (
+            "modification_type_id,modification_type_name,"
+            "modification_type_description,date_updated"
+        ),
+        "modification_type_id",
+        (SeadDependency("tbl_abundance_modifications", "modification_type_id"),),
+    ),
+    SeadScopedTablePlan(
+        "tbl_property_types",
+        "property_type_id",
+        (
+            "property_type_id,property_type_name,description,value_type_id,"
+            "value_class_id,uuid"
+        ),
+        "property_type_id",
+        (SeadDependency("tbl_abundance_properties", "property_type_id"),),
+    ),
+    SeadScopedTablePlan(
+        "tbl_taxa_tree_master",
+        "taxon_id",
+        "taxon_id,author_id,date_updated,genus_id,species",
+        "taxon_id",
+        (
+            SeadDependency("tbl_abundances", "taxon_id"),
+            SeadDependency("tbl_analysis_taxon_counts", "taxon_id"),
+        ),
+    ),
+    SeadScopedTablePlan(
+        "tbl_taxa_tree_authors",
+        "author_id",
+        "author_id,author_name,date_updated",
+        "author_id",
+        (SeadDependency("tbl_taxa_tree_master", "author_id"),),
+    ),
+    SeadScopedTablePlan(
+        "tbl_taxa_tree_genera",
+        "genus_id",
+        "genus_id,family_id,genus_name,date_updated",
+        "genus_id",
+        (SeadDependency("tbl_taxa_tree_master", "genus_id"),),
+    ),
+    SeadScopedTablePlan(
+        "tbl_taxa_tree_families",
+        "family_id",
+        "family_id,family_name,order_id,date_updated",
+        "family_id",
+        (SeadDependency("tbl_taxa_tree_genera", "family_id"),),
+    ),
+    SeadScopedTablePlan(
+        "tbl_taxa_tree_orders",
+        "order_id",
+        "order_id,order_name,record_type_id,sort_order,date_updated",
+        "order_id",
+        (SeadDependency("tbl_taxa_tree_families", "order_id"),),
+    ),
+    SeadScopedTablePlan(
+        "tbl_record_types",
+        "record_type_id",
+        ("record_type_id,record_type_name,record_type_description,date_updated"),
+        "record_type_id",
+        (
+            SeadDependency("tbl_abundance_elements", "record_type_id"),
+            SeadDependency("tbl_taxa_tree_orders", "record_type_id"),
+        ),
+    ),
+    SeadScopedTablePlan(
+        "tbl_ecocodes",
+        "ecocode_id",
+        "ecocode_id,date_updated,ecocode_definition_id,taxon_id",
+        "taxon_id",
+        (SeadDependency("tbl_taxa_tree_master", "taxon_id"),),
+    ),
+    SeadScopedTablePlan(
+        "tbl_ecocode_definitions",
+        "ecocode_definition_id",
+        (
+            "ecocode_definition_id,abbreviation,date_updated,definition,"
+            "ecocode_group_id,name,notes,sort_order"
+        ),
+        "ecocode_definition_id",
+        (SeadDependency("tbl_ecocodes", "ecocode_definition_id"),),
+    ),
+    SeadScopedTablePlan(
+        "tbl_ecocode_groups",
+        "ecocode_group_id",
+        (
+            "ecocode_group_id,date_updated,definition,ecocode_system_id,name,"
+            "abbreviation"
+        ),
+        "ecocode_group_id",
+        (SeadDependency("tbl_ecocode_definitions", "ecocode_group_id"),),
+    ),
+    SeadScopedTablePlan(
+        "tbl_ecocode_systems",
+        "ecocode_system_id",
+        (
+            "ecocode_system_id,biblio_id,date_updated,definition,name,notes,"
+            "ecocode_system_uuid"
+        ),
+        "ecocode_system_id",
+        (SeadDependency("tbl_ecocode_groups", "ecocode_system_id"),),
+    ),
+    SeadScopedTablePlan(
+        "tbl_value_classes",
+        "value_class_id",
+        ("value_class_id,value_type_id,method_id,name,description,value_class_uuid"),
+        "value_class_id",
+        (
+            SeadDependency("tbl_analysis_values", "value_class_id"),
+            SeadDependency("tbl_property_types", "value_class_id"),
+        ),
+    ),
+    SeadScopedTablePlan(
+        "tbl_value_types",
+        "value_type_id",
+        (
+            "value_type_id,unit_id,data_type_id,name,base_type,precision,"
+            "description,value_type_uuid"
+        ),
+        "value_type_id",
+        (
+            SeadDependency("tbl_value_classes", "value_type_id"),
+            SeadDependency("tbl_property_types", "value_type_id"),
+        ),
+    ),
+    SeadScopedTablePlan(
+        "tbl_value_type_items",
+        "value_type_item_id",
+        "value_type_item_id,value_type_id,name,description",
+        "value_type_id",
+        (SeadDependency("tbl_value_types", "value_type_id"),),
+    ),
+    SeadScopedTablePlan(
+        "tbl_dimensions",
+        "dimension_id",
+        (
+            "dimension_id,date_updated,dimension_abbrev,dimension_description,"
+            "dimension_name,unit_id"
+        ),
+        "dimension_id",
+        (
+            SeadDependency("tbl_analysis_value_dimensions", "dimension_id"),
+            SeadDependency("tbl_measured_value_dimensions", "dimension_id"),
+            SeadDependency("tbl_analysis_entity_dimensions", "dimension_id"),
+            SeadDependency("tbl_sample_dimensions", "dimension_id"),
+            SeadDependency("tbl_sample_group_dimensions", "dimension_id"),
+        ),
+    ),
+    SeadScopedTablePlan(
+        "tbl_units",
+        "unit_id",
+        "unit_id,date_updated,description,unit_abbrev,unit_name",
+        "unit_id",
+        (
+            SeadDependency("tbl_value_types", "unit_id"),
+            SeadDependency("tbl_dimensions", "unit_id"),
+        ),
+    ),
+    SeadScopedTablePlan(
+        "tbl_data_types",
+        "data_type_id",
+        ("data_type_id,data_type_group_id,data_type_name,date_updated,definition"),
+        "data_type_id",
+        (
+            SeadDependency("tbl_datasets", "data_type_id"),
+            SeadDependency("tbl_value_types", "data_type_id"),
+        ),
+    ),
+    SeadScopedTablePlan(
+        "tbl_data_type_groups",
+        "data_type_group_id",
+        "data_type_group_id,data_type_group_name,date_updated,description",
+        "data_type_group_id",
+        (SeadDependency("tbl_data_types", "data_type_group_id"),),
+    ),
+    SeadScopedTablePlan(
+        "tbl_dataset_methods",
+        "dataset_method_id",
+        "dataset_method_id,dataset_id,method_id,date_updated",
+        "dataset_id",
+        (SeadDependency("tbl_datasets", "dataset_id"),),
+    ),
+    SeadScopedTablePlan(
+        "tbl_dataset_masters",
+        "master_set_id",
+        (
+            "master_set_id,master_set_uuid,master_name,master_notes,biblio_id,"
+            "contact_id,url,date_updated"
+        ),
+        "master_set_id",
+        (SeadDependency("tbl_datasets", "master_set_id"),),
+    ),
+    SeadScopedTablePlan(
+        "tbl_dataset_contacts",
+        "dataset_contact_id",
+        "dataset_contact_id,dataset_id,contact_id,contact_type_id,date_updated",
+        "dataset_id",
+        (SeadDependency("tbl_datasets", "dataset_id"),),
+    ),
+    SeadScopedTablePlan(
+        "tbl_contacts",
+        "contact_id",
+        (
+            "contact_id,first_name,last_name,address_1,address_2,"
+            "phone_number,email,url,date_updated"
+        ),
+        "contact_id",
+        (
+            SeadDependency("tbl_dataset_contacts", "contact_id"),
+            SeadDependency("tbl_dataset_masters", "contact_id"),
+        ),
+    ),
+    SeadScopedTablePlan(
+        "tbl_contact_types",
+        "contact_type_id",
+        "contact_type_id,contact_type_name,description,date_updated",
+        "contact_type_id",
+        (SeadDependency("tbl_dataset_contacts", "contact_type_id"),),
+    ),
+    SeadScopedTablePlan(
+        "tbl_methods",
+        "method_id",
+        "method_id,method_name,method_abbrev_or_alt_name,description",
+        "method_id",
+        (
+            SeadDependency("tbl_relative_dates", "method_id"),
+            SeadDependency("tbl_datasets", "method_id"),
+            SeadDependency("tbl_dataset_methods", "method_id"),
+            SeadDependency("tbl_value_classes", "method_id"),
+            SeadDependency("tbl_sample_dimensions", "method_id"),
+        ),
+    ),
+    SeadScopedTablePlan(
+        "tbl_biblio",
+        "biblio_id",
+        "biblio_id,title,full_reference,year,doi,url",
+        "biblio_id",
+        (
+            SeadDependency("tbl_datasets", "biblio_id"),
+            SeadDependency("tbl_site_references", "biblio_id"),
+            SeadDependency("tbl_sample_group_references", "biblio_id"),
+            SeadDependency("tbl_relative_age_refs", "biblio_id"),
+            SeadDependency("tbl_dataset_masters", "biblio_id"),
+            SeadDependency("tbl_ecocode_systems", "biblio_id"),
         ),
     ),
 )
@@ -481,6 +929,522 @@ _LOOKUP_JOIN_PLANS = (
     ),
 )
 
+SEAD_FULL_EVIDENCE_JOIN_PLANS = (
+    *_CORE_JOIN_PLANS,
+    *_LOOKUP_JOIN_PLANS,
+    SeadJoinPlan(
+        "analysis_entities.abundances",
+        "tbl_analysis_entities",
+        "tbl_abundances",
+        "analysis_entity_id",
+        "abundance_id",
+        "analysis_entity_id",
+        True,
+    ),
+    SeadJoinPlan(
+        "analysis_values.analysis_taxon_counts",
+        "tbl_analysis_values",
+        "tbl_analysis_taxon_counts",
+        "analysis_value_id",
+        "analysis_taxon_count_id",
+        "analysis_value_id",
+        True,
+    ),
+    *(
+        SeadJoinPlan(
+            f"analysis_values.{table.removeprefix('tbl_')}",
+            "tbl_analysis_values",
+            table,
+            "analysis_value_id",
+            primary_key,
+            "analysis_value_id",
+            True,
+        )
+        for table, primary_key in (
+            ("tbl_analysis_numerical_values", "analysis_numerical_value_id"),
+            ("tbl_analysis_integer_values", "analysis_integer_value_id"),
+            ("tbl_analysis_categorical_values", "analysis_categorical_value_id"),
+            ("tbl_analysis_boolean_values", "analysis_boolean_value_id"),
+            ("tbl_analysis_value_dimensions", "analysis_value_dimension_id"),
+        )
+    ),
+    SeadJoinPlan(
+        "analysis_entities.measured_values",
+        "tbl_analysis_entities",
+        "tbl_measured_values",
+        "analysis_entity_id",
+        "measured_value_id",
+        "analysis_entity_id",
+        True,
+    ),
+    SeadJoinPlan(
+        "measured_values.dimensions",
+        "tbl_measured_values",
+        "tbl_measured_value_dimensions",
+        "measured_value_id",
+        "measured_value_dimension_id",
+        "measured_value_id",
+        True,
+    ),
+    SeadJoinPlan(
+        "analysis_entities.dimensions",
+        "tbl_analysis_entities",
+        "tbl_analysis_entity_dimensions",
+        "analysis_entity_id",
+        "analysis_entity_dimension_id",
+        "analysis_entity_id",
+        True,
+    ),
+    SeadJoinPlan(
+        "physical_samples.dimensions",
+        "tbl_physical_samples",
+        "tbl_sample_dimensions",
+        "physical_sample_id",
+        "sample_dimension_id",
+        "physical_sample_id",
+        True,
+    ),
+    SeadJoinPlan(
+        "sample_groups.dimensions",
+        "tbl_sample_groups",
+        "tbl_sample_group_dimensions",
+        "sample_group_id",
+        "sample_group_dimension_id",
+        "sample_group_id",
+        True,
+    ),
+    SeadJoinPlan(
+        "value_qualifiers.sample_dimensions",
+        "tbl_value_qualifiers",
+        "tbl_sample_dimensions",
+        "qualifier_id",
+        "sample_dimension_id",
+        "qualifier_id",
+        False,
+    ),
+    SeadJoinPlan(
+        "value_qualifiers.sample_group_dimensions",
+        "tbl_value_qualifiers",
+        "tbl_sample_group_dimensions",
+        "qualifier_id",
+        "sample_group_dimension_id",
+        "qualifier_id",
+        False,
+    ),
+    *(
+        SeadJoinPlan(
+            f"abundances.{table.removeprefix('tbl_abundance_')}",
+            "tbl_abundances",
+            table,
+            "abundance_id",
+            primary_key,
+            "abundance_id",
+            True,
+        )
+        for table, primary_key in (
+            ("tbl_abundance_ident_levels", "abundance_ident_level_id"),
+            ("tbl_abundance_modifications", "abundance_modification_id"),
+            ("tbl_abundance_properties", "abundance_property_id"),
+        )
+    ),
+    SeadJoinPlan(
+        "abundance_elements.abundances",
+        "tbl_abundance_elements",
+        "tbl_abundances",
+        "abundance_element_id",
+        "abundance_id",
+        "abundance_element_id",
+        False,
+    ),
+    SeadJoinPlan(
+        "identification_levels.abundance_ident_levels",
+        "tbl_identification_levels",
+        "tbl_abundance_ident_levels",
+        "identification_level_id",
+        "abundance_ident_level_id",
+        "identification_level_id",
+        False,
+    ),
+    SeadJoinPlan(
+        "modification_types.abundance_modifications",
+        "tbl_modification_types",
+        "tbl_abundance_modifications",
+        "modification_type_id",
+        "abundance_modification_id",
+        "modification_type_id",
+        False,
+    ),
+    SeadJoinPlan(
+        "property_types.abundance_properties",
+        "tbl_property_types",
+        "tbl_abundance_properties",
+        "property_type_id",
+        "abundance_property_id",
+        "property_type_id",
+        False,
+    ),
+    SeadJoinPlan(
+        "taxa.abundances",
+        "tbl_taxa_tree_master",
+        "tbl_abundances",
+        "taxon_id",
+        "abundance_id",
+        "taxon_id",
+        False,
+    ),
+    SeadJoinPlan(
+        "taxa.analysis_taxon_counts",
+        "tbl_taxa_tree_master",
+        "tbl_analysis_taxon_counts",
+        "taxon_id",
+        "analysis_taxon_count_id",
+        "taxon_id",
+        False,
+    ),
+    SeadJoinPlan(
+        "taxon_authors.taxa",
+        "tbl_taxa_tree_authors",
+        "tbl_taxa_tree_master",
+        "author_id",
+        "taxon_id",
+        "author_id",
+        False,
+    ),
+    SeadJoinPlan(
+        "taxon_genera.taxa",
+        "tbl_taxa_tree_genera",
+        "tbl_taxa_tree_master",
+        "genus_id",
+        "taxon_id",
+        "genus_id",
+        False,
+    ),
+    SeadJoinPlan(
+        "taxon_families.genera",
+        "tbl_taxa_tree_families",
+        "tbl_taxa_tree_genera",
+        "family_id",
+        "genus_id",
+        "family_id",
+        False,
+    ),
+    SeadJoinPlan(
+        "taxon_orders.families",
+        "tbl_taxa_tree_orders",
+        "tbl_taxa_tree_families",
+        "order_id",
+        "family_id",
+        "order_id",
+        False,
+    ),
+    SeadJoinPlan(
+        "record_types.taxon_orders",
+        "tbl_record_types",
+        "tbl_taxa_tree_orders",
+        "record_type_id",
+        "order_id",
+        "record_type_id",
+        False,
+    ),
+    SeadJoinPlan(
+        "record_types.abundance_elements",
+        "tbl_record_types",
+        "tbl_abundance_elements",
+        "record_type_id",
+        "abundance_element_id",
+        "record_type_id",
+        False,
+    ),
+    SeadJoinPlan(
+        "taxa.ecocodes",
+        "tbl_taxa_tree_master",
+        "tbl_ecocodes",
+        "taxon_id",
+        "ecocode_id",
+        "taxon_id",
+        True,
+    ),
+    SeadJoinPlan(
+        "ecocode_definitions.ecocodes",
+        "tbl_ecocode_definitions",
+        "tbl_ecocodes",
+        "ecocode_definition_id",
+        "ecocode_id",
+        "ecocode_definition_id",
+        False,
+    ),
+    SeadJoinPlan(
+        "ecocode_groups.definitions",
+        "tbl_ecocode_groups",
+        "tbl_ecocode_definitions",
+        "ecocode_group_id",
+        "ecocode_definition_id",
+        "ecocode_group_id",
+        False,
+    ),
+    SeadJoinPlan(
+        "ecocode_systems.groups",
+        "tbl_ecocode_systems",
+        "tbl_ecocode_groups",
+        "ecocode_system_id",
+        "ecocode_group_id",
+        "ecocode_system_id",
+        False,
+    ),
+    SeadJoinPlan(
+        "value_classes.analysis_values",
+        "tbl_value_classes",
+        "tbl_analysis_values",
+        "value_class_id",
+        "analysis_value_id",
+        "value_class_id",
+        False,
+    ),
+    SeadJoinPlan(
+        "value_classes.property_types",
+        "tbl_value_classes",
+        "tbl_property_types",
+        "value_class_id",
+        "property_type_id",
+        "value_class_id",
+        False,
+    ),
+    SeadJoinPlan(
+        "value_types.value_classes",
+        "tbl_value_types",
+        "tbl_value_classes",
+        "value_type_id",
+        "value_class_id",
+        "value_type_id",
+        False,
+    ),
+    SeadJoinPlan(
+        "value_types.property_types",
+        "tbl_value_types",
+        "tbl_property_types",
+        "value_type_id",
+        "property_type_id",
+        "value_type_id",
+        False,
+    ),
+    SeadJoinPlan(
+        "value_types.items",
+        "tbl_value_types",
+        "tbl_value_type_items",
+        "value_type_id",
+        "value_type_item_id",
+        "value_type_id",
+        True,
+    ),
+    SeadJoinPlan(
+        "value_type_items.categorical_values",
+        "tbl_value_type_items",
+        "tbl_analysis_categorical_values",
+        "value_type_item_id",
+        "analysis_categorical_value_id",
+        "value_type_item_id",
+        False,
+    ),
+    SeadJoinPlan(
+        "dimensions.analysis_value_dimensions",
+        "tbl_dimensions",
+        "tbl_analysis_value_dimensions",
+        "dimension_id",
+        "analysis_value_dimension_id",
+        "dimension_id",
+        False,
+    ),
+    SeadJoinPlan(
+        "dimensions.measured_value_dimensions",
+        "tbl_dimensions",
+        "tbl_measured_value_dimensions",
+        "dimension_id",
+        "measured_value_dimension_id",
+        "dimension_id",
+        False,
+    ),
+    SeadJoinPlan(
+        "dimensions.analysis_entity_dimensions",
+        "tbl_dimensions",
+        "tbl_analysis_entity_dimensions",
+        "dimension_id",
+        "analysis_entity_dimension_id",
+        "dimension_id",
+        False,
+    ),
+    SeadJoinPlan(
+        "dimensions.sample_dimensions",
+        "tbl_dimensions",
+        "tbl_sample_dimensions",
+        "dimension_id",
+        "sample_dimension_id",
+        "dimension_id",
+        False,
+    ),
+    SeadJoinPlan(
+        "dimensions.sample_group_dimensions",
+        "tbl_dimensions",
+        "tbl_sample_group_dimensions",
+        "dimension_id",
+        "sample_group_dimension_id",
+        "dimension_id",
+        False,
+    ),
+    SeadJoinPlan(
+        "units.value_types",
+        "tbl_units",
+        "tbl_value_types",
+        "unit_id",
+        "value_type_id",
+        "unit_id",
+        False,
+    ),
+    SeadJoinPlan(
+        "units.dimensions",
+        "tbl_units",
+        "tbl_dimensions",
+        "unit_id",
+        "dimension_id",
+        "unit_id",
+        False,
+    ),
+    SeadJoinPlan(
+        "data_types.datasets",
+        "tbl_data_types",
+        "tbl_datasets",
+        "data_type_id",
+        "dataset_id",
+        "data_type_id",
+        False,
+    ),
+    SeadJoinPlan(
+        "data_types.value_types",
+        "tbl_data_types",
+        "tbl_value_types",
+        "data_type_id",
+        "value_type_id",
+        "data_type_id",
+        False,
+    ),
+    SeadJoinPlan(
+        "data_type_groups.data_types",
+        "tbl_data_type_groups",
+        "tbl_data_types",
+        "data_type_group_id",
+        "data_type_id",
+        "data_type_group_id",
+        False,
+    ),
+    SeadJoinPlan(
+        "datasets.dataset_methods",
+        "tbl_datasets",
+        "tbl_dataset_methods",
+        "dataset_id",
+        "dataset_method_id",
+        "dataset_id",
+        True,
+    ),
+    SeadJoinPlan(
+        "dataset_masters.datasets",
+        "tbl_dataset_masters",
+        "tbl_datasets",
+        "master_set_id",
+        "dataset_id",
+        "master_set_id",
+        False,
+    ),
+    SeadJoinPlan(
+        "datasets.dataset_contacts",
+        "tbl_datasets",
+        "tbl_dataset_contacts",
+        "dataset_id",
+        "dataset_contact_id",
+        "dataset_id",
+        True,
+    ),
+    SeadJoinPlan(
+        "contacts.dataset_contacts",
+        "tbl_contacts",
+        "tbl_dataset_contacts",
+        "contact_id",
+        "dataset_contact_id",
+        "contact_id",
+        False,
+    ),
+    SeadJoinPlan(
+        "contacts.dataset_masters",
+        "tbl_contacts",
+        "tbl_dataset_masters",
+        "contact_id",
+        "master_set_id",
+        "contact_id",
+        False,
+    ),
+    SeadJoinPlan(
+        "contact_types.dataset_contacts",
+        "tbl_contact_types",
+        "tbl_dataset_contacts",
+        "contact_type_id",
+        "dataset_contact_id",
+        "contact_type_id",
+        False,
+    ),
+    SeadJoinPlan(
+        "methods.datasets",
+        "tbl_methods",
+        "tbl_datasets",
+        "method_id",
+        "dataset_id",
+        "method_id",
+        False,
+    ),
+    SeadJoinPlan(
+        "methods.dataset_methods",
+        "tbl_methods",
+        "tbl_dataset_methods",
+        "method_id",
+        "dataset_method_id",
+        "method_id",
+        False,
+    ),
+    SeadJoinPlan(
+        "methods.value_classes",
+        "tbl_methods",
+        "tbl_value_classes",
+        "method_id",
+        "value_class_id",
+        "method_id",
+        False,
+    ),
+    SeadJoinPlan(
+        "methods.sample_dimensions",
+        "tbl_methods",
+        "tbl_sample_dimensions",
+        "method_id",
+        "sample_dimension_id",
+        "method_id",
+        False,
+    ),
+    SeadJoinPlan(
+        "biblio.dataset_masters",
+        "tbl_biblio",
+        "tbl_dataset_masters",
+        "biblio_id",
+        "master_set_id",
+        "biblio_id",
+        False,
+    ),
+    SeadJoinPlan(
+        "biblio.ecocode_systems",
+        "tbl_biblio",
+        "tbl_ecocode_systems",
+        "biblio_id",
+        "ecocode_system_id",
+        "biblio_id",
+        False,
+    ),
+)
+
 
 def acquire_scoped_sead_relations(
     output_root: Path,
@@ -502,7 +1466,101 @@ def acquire_scoped_sead_relations(
     request_timeout_seconds: float = 60.0,
 ) -> SeadScopedAcquisitionResult:
     """Acquire and atomically materialize the declared chronology relation graph."""
-    _validate_declared_table_coverage()
+    return _acquire_sead_relations(
+        output_root,
+        bbox=bbox,
+        governed_country_by_site_id=governed_country_by_site_id,
+        country_assignment_id=country_assignment_id,
+        scope_id=scope_id,
+        run_id=run_id,
+        parent_run_id=parent_run_id,
+        build_id=build_id,
+        fetch_json_fn=fetch_json_fn,
+        clock=clock,
+        sleep_fn=sleep_fn,
+        id_batch_size=id_batch_size,
+        page_size=page_size,
+        max_pages=max_pages,
+        request_retries=request_retries,
+        request_timeout_seconds=request_timeout_seconds,
+        relation_scope="chronology_relations",
+        table_plans=SEAD_SCOPED_TABLE_PLANS,
+        join_plans=(*_CORE_JOIN_PLANS, *_LOOKUP_JOIN_PLANS),
+        required_tables=SEAD_LINKED_SOURCE_TABLES,
+        orchestrator_version=SCOPED_ORCHESTRATOR_VERSION,
+    )
+
+
+def acquire_full_evidence_sead_relations(
+    output_root: Path,
+    *,
+    bbox: tuple[float, float, float, float],
+    governed_country_by_site_id: Mapping[object, str],
+    country_assignment_id: str,
+    scope_id: str,
+    run_id: str,
+    parent_run_id: str,
+    build_id: str,
+    fetch_json_fn: Callable[..., object],
+    clock: Callable[[], datetime] | None = None,
+    sleep_fn: Callable[[float], None] = time.sleep,
+    id_batch_size: int = SEAD_FILTER_BATCH_SIZE,
+    page_size: int = SEAD_LIMIT,
+    max_pages: int = 10_000,
+    request_retries: int = 5,
+    request_timeout_seconds: float = 60.0,
+) -> SeadScopedAcquisitionResult:
+    """Acquire source-native chronology and observation evidence relations."""
+    return _acquire_sead_relations(
+        output_root,
+        bbox=bbox,
+        governed_country_by_site_id=governed_country_by_site_id,
+        country_assignment_id=country_assignment_id,
+        scope_id=scope_id,
+        run_id=run_id,
+        parent_run_id=parent_run_id,
+        build_id=build_id,
+        fetch_json_fn=fetch_json_fn,
+        clock=clock,
+        sleep_fn=sleep_fn,
+        id_batch_size=id_batch_size,
+        page_size=page_size,
+        max_pages=max_pages,
+        request_retries=request_retries,
+        request_timeout_seconds=request_timeout_seconds,
+        relation_scope="full_evidence_relations",
+        table_plans=SEAD_FULL_EVIDENCE_TABLE_PLANS,
+        join_plans=SEAD_FULL_EVIDENCE_JOIN_PLANS,
+        required_tables=SEAD_FULL_EVIDENCE_SOURCE_TABLES,
+        orchestrator_version=FULL_EVIDENCE_ORCHESTRATOR_VERSION,
+    )
+
+
+def _acquire_sead_relations(
+    output_root: Path,
+    *,
+    bbox: tuple[float, float, float, float],
+    governed_country_by_site_id: Mapping[object, str],
+    country_assignment_id: str,
+    scope_id: str,
+    run_id: str,
+    parent_run_id: str,
+    build_id: str,
+    fetch_json_fn: Callable[..., object],
+    clock: Callable[[], datetime] | None,
+    sleep_fn: Callable[[float], None],
+    id_batch_size: int,
+    page_size: int,
+    max_pages: int,
+    request_retries: int,
+    request_timeout_seconds: float,
+    relation_scope: str,
+    table_plans: Sequence[SeadScopedTablePlan],
+    join_plans: Sequence[SeadJoinPlan],
+    required_tables: Sequence[str],
+    orchestrator_version: str,
+) -> SeadScopedAcquisitionResult:
+    _validate_declared_table_coverage(table_plans, required_tables, relation_scope)
     _validate_bbox(bbox)
     _validate_identity(scope_id, "scope_id")
     _validate_identity(run_id, "run_id", path_segment=True)
@@ -521,7 +1579,7 @@ def acquire_scoped_sead_relations(
     assignment_sha256 = hashlib.sha256(_canonical_bytes(assignment_payload)).hexdigest()
     scope = {
         "scope_id": scope_id,
-        "relation_scope": "chronology_relations",
+        "relation_scope": relation_scope,
         "countries": list(NORDIC_TARGET_COUNTRIES),
         "bbox": list(bbox),
         "country_assignment_id": country_assignment_id,
@@ -588,6 +1646,7 @@ def acquire_scoped_sead_relations(
             "scope_exclusion_reason": "country_assignment_unassigned",
             "governed_country_assignments": assignment_payload,
         },
+        orchestrator_version=orchestrator_version,
         clock=resolved_clock,
     )
 
@@ -595,7 +1654,7 @@ def acquire_scoped_sead_relations(
     rows_by_table: dict[str, tuple[dict[str, object], ...]] = {
         "tbl_sites": site_acquisition.rows
     }
-    for plan in SEAD_SCOPED_TABLE_PLANS:
+    for plan in table_plans:
         requested_ids = _dependency_ids(plan.dependencies, rows_by_table)
         acquisition = _acquire_dependency_scoped_table(
             plan,
@@ -612,6 +1671,7 @@ def acquire_scoped_sead_relations(
             max_pages=max_pages,
             request_retries=request_retries,
             request_timeout_seconds=request_timeout_seconds,
+            orchestrator_version=orchestrator_version,
         )
         acquisitions.append(acquisition)
         rows_by_table[plan.table] = acquisition.rows
@@ -652,7 +1712,7 @@ def acquire_scoped_sead_relations(
             parent_run_id=parent_run_id,
             build_id=build_id,
         )
-        for plan in (*_CORE_JOIN_PLANS, *_LOOKUP_JOIN_PLANS)
+        for plan in join_plans
     )
     for reconciliation in join_reconciliations:
         assert_sead_join_complete(reconciliation)
@@ -660,7 +1720,7 @@ def acquire_scoped_sead_relations(
     manifest_path = materialize_sead_acquisition(
         Path(output_root) / run_id,
         acquisitions=acquisitions,
-        required_tables=SEAD_LINKED_SOURCE_TABLES,
+        required_tables=required_tables,
         country_reconciliation=country_reconciliation,
         join_reconciliations=join_reconciliations,
     )
@@ -696,6 +1756,7 @@ def _acquire_dependency_scoped_table(
     max_pages: int,
     request_retries: int,
     request_timeout_seconds: float,
+    orchestrator_version: str,
 ) -> SeadTableAcquisition:
     query_acquisitions: list[SeadTableAcquisition] = []
     rows: list[dict[str, object]] = []
@@ -752,6 +1813,7 @@ def _acquire_dependency_scoped_table(
             else "empty_dependency_identity_set"
         ),
         extra_receipt_fields={},
+        orchestrator_version=orchestrator_version,
         clock=clock,
     )
 
@@ -771,6 +1833,7 @@ def _aggregate_table_acquisition(
     build_id: str,
     completion_basis: str,
     extra_receipt_fields: Mapping[str, object],
+    orchestrator_version: str,
     clock: Callable[[], datetime],
 ) -> SeadTableAcquisition:
     if any(item.receipt.get("status") != "complete" for item in query_acquisitions):
@@ -809,7 +1872,7 @@ def _aggregate_table_acquisition(
         "canonical_schema": schema,
         "canonical_schema_sha256": hashlib.sha256(_canonical_bytes(schema)).hexdigest(),
         "content_sha256": hashlib.sha256(payload).hexdigest(),
-        "tool_version": SCOPED_ORCHESTRATOR_VERSION,
+        "tool_version": orchestrator_version,
         "status": "complete",
         "failure_reason": None,
         **dict(extra_receipt_fields),
@@ -982,13 +2045,16 @@ def _mapping_site_id(value: object) -> int:
     raise ValueError(f"Invalid governed SEAD site ID: {value!r}")
 
 
-def _validate_declared_table_coverage() -> None:
-    planned = ("tbl_sites", *(plan.table for plan in SEAD_SCOPED_TABLE_PLANS))
-    if len(planned) != len(set(planned)) or set(planned) != set(
-        SEAD_LINKED_SOURCE_TABLES
-    ):
+def _validate_declared_table_coverage(
+    table_plans: Sequence[SeadScopedTablePlan],
+    required_tables: Sequence[str],
+    relation_scope: str,
+) -> None:
+    planned = ("tbl_sites", *(plan.table for plan in table_plans))
+    if len(planned) != len(set(planned)) or set(planned) != set(required_tables):
         raise RuntimeError(
-            "Scoped SEAD acquisition plans do not exactly cover declared source tables"
+            f"SEAD {relation_scope} acquisition plans do not exactly cover "
+            "declared source tables"
         )
 
 
@@ -1096,11 +2162,15 @@ def _utc_text(value: datetime) -> str:
 
 
 __all__ = [
+    "FULL_EVIDENCE_ORCHESTRATOR_VERSION",
     "NORDIC_TARGET_COUNTRIES",
     "SCOPED_ORCHESTRATOR_VERSION",
     "SCOPED_RECEIPT_SCHEMA_VERSION",
     "SCOPED_RESULT_SCHEMA_VERSION",
+    "SEAD_FULL_EVIDENCE_TABLE_PLANS",
+    "SEAD_FULL_EVIDENCE_JOIN_PLANS",
     "SEAD_SCOPED_TABLE_PLANS",
     "SeadScopedAcquisitionResult",
+    "acquire_full_evidence_sead_relations",
     "acquire_scoped_sead_relations",
 ]
