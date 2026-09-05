@@ -6,8 +6,8 @@ from dataclasses import dataclass
 
 from bijux_pollenomics.core.text import clean_optional_text
 
+from ..values import parse_optional_int, parse_required_int
 from .source_tables import SeadInventorySourceRows
-from .values import parse_optional_int, parse_required_int
 
 
 @dataclass(frozen=True, slots=True)
@@ -93,9 +93,7 @@ def build_lookup_index(source: SeadInventorySourceRows) -> SeadLookupIndex:
         if row.get("dataset_id") is not None
     }
     dataset_bibliography_id_by_id = {
-        parse_required_int(row["dataset_id"]): parse_required_int(
-            row.get("biblio_id")
-        )
+        parse_required_int(row["dataset_id"]): parse_required_int(row.get("biblio_id"))
         for row in source.datasets
         if row.get("dataset_id") is not None
     }

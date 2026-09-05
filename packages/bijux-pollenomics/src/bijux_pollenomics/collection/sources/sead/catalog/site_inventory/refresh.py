@@ -20,6 +20,7 @@ from .temporal import (
     sead_dating_interval,
 )
 
+
 def _dict_rows(value: object) -> list[dict[str, object]]:
     if not isinstance(value, list):
         return []
@@ -151,5 +152,6 @@ def refresh_sead_repository_rows(rows: list[dict[str, object]]) -> None:
                 dendro_date_rows,
             ),
         }
+
 
 __all__ = ["refresh_sead_repository_rows"]

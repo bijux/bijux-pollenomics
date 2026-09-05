@@ -16,6 +16,7 @@ from .temporal import (
     sead_dating_interval,
 )
 
+
 def _build_relative_period_row(
     relative_date: dict[str, object],
     *,

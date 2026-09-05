@@ -5,7 +5,7 @@ from __future__ import annotations
 from dataclasses import dataclass
 
 from .source_tables import SeadInventorySourceRows
-from .values import parse_optional_int, parse_required_int
+from ..values import parse_optional_int, parse_required_int
 
 
 @dataclass(frozen=True, slots=True)
@@ -68,8 +68,7 @@ def build_relation_index(source: SeadInventorySourceRows) -> SeadRelationIndex:
         for row in source.analysis_values
         if row.get("analysis_value_id") is not None
         and row.get("analysis_entity_id") is not None
-        and parse_required_int(row["analysis_entity_id"])
-        in admitted_analysis_entities
+        and parse_required_int(row["analysis_entity_id"]) in admitted_analysis_entities
     }
 
     sample_groups_by_site: dict[int, set[int]] = {}
@@ -90,9 +89,7 @@ def build_relation_index(source: SeadInventorySourceRows) -> SeadRelationIndex:
         if not site_id:
             continue
         if analysis_entity_id:
-            analysis_entities_by_site.setdefault(site_id, set()).add(
-                analysis_entity_id
-            )
+            analysis_entities_by_site.setdefault(site_id, set()).add(analysis_entity_id)
         if dataset_id:
             datasets_by_site.setdefault(site_id, set()).add(dataset_id)
     site_by_analysis_entity = {

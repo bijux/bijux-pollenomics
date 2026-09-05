@@ -2,7 +2,7 @@ from __future__ import annotations
 
 import unittest
 
-from bijux_pollenomics.collection.sources.sead.catalog.site_inventory.table_readers import (
+from bijux_pollenomics.collection.sources.sead.catalog.site_inventory.source_data.table_readers import (
     MappingSeadTableReader,
 )
 

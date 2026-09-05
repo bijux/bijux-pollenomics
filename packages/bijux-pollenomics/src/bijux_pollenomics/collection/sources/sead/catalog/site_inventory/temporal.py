@@ -65,7 +65,6 @@ def merge_sead_intervals(intervals: list[tuple[int, int]]) -> tuple[int, int] | 
     return (min(start for start, _ in intervals), max(end for _, end in intervals))
 
 
-
 def _relative_interval_from_range(
     dating_range: dict[str, object],
     *,
@@ -195,7 +194,6 @@ def _uncertainty_labels(
             if label and label not in labels:
                 labels.append(label)
     return labels
-
 
 
 __all__ = ["merge_sead_intervals", "sead_dating_interval"]

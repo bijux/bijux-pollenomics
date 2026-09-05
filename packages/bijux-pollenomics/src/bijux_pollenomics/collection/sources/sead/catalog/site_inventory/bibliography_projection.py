@@ -7,11 +7,11 @@ from dataclasses import dataclass
 from bijux_pollenomics.core.text import clean_optional_text
 
 from .chronology_projection import SeadChronologyProjection
-from .lookups import SeadLookupIndex
+from .source_data.lookups import SeadLookupIndex
 from .values import parse_required_int
 from .chronology_records import _build_bibliography_row, _deduplicate_bibliography_rows
-from .source_tables import SeadInventorySourceRows
-from .relations import SeadRelationIndex
+from .source_data.relations import SeadRelationIndex
+from .source_data.source_tables import SeadInventorySourceRows
 
 Row = dict[str, object]
 
@@ -54,10 +54,14 @@ def project_site_bibliography(
             if biblio:
                 bibliography_rows_by_site.setdefault(site_id, []).append(
                     _build_bibliography_row(
-                        biblio_id=lookups.dataset_bibliography_id_by_id.get(dataset_id, 0),
+                        biblio_id=lookups.dataset_bibliography_id_by_id.get(
+                            dataset_id, 0
+                        ),
                         source_kind="dataset_reference",
                         source_record_id=dataset_id,
-                        source_record_label=lookups.dataset_name_by_id.get(dataset_id, ""),
+                        source_record_label=lookups.dataset_name_by_id.get(
+                            dataset_id, ""
+                        ),
                         biblio=biblio,
                     )
                 )
@@ -81,7 +85,9 @@ def project_site_bibliography(
         biblio_id = parse_required_int(reference.get("biblio_id"))
         biblio = lookups.bibliography_by_id.get(biblio_id, {})
         relative_age = lookups.relative_age_by_id.get(relative_age_id, {})
-        for site_id in chronology.site_ids_by_relative_age_id.get(relative_age_id, set()):
+        for site_id in chronology.site_ids_by_relative_age_id.get(
+            relative_age_id, set()
+        ):
             if biblio:
                 bibliography_rows_by_site.setdefault(site_id, []).append(
                     _build_bibliography_row(

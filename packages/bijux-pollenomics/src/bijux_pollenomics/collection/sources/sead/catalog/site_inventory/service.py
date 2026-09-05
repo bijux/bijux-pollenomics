@@ -6,12 +6,16 @@ from collections.abc import Callable, Mapping, Sequence
 
 from .bibliography_projection import project_site_bibliography
 from .chronology_projection import project_site_chronology
-from .lookups import build_lookup_index
+from .source_data.lookups import build_lookup_index
 from .values import parse_optional_int
-from .table_readers import ApiSeadTableReader, MappingSeadTableReader, SeadTableReader
+from .source_data.table_readers import (
+    ApiSeadTableReader,
+    MappingSeadTableReader,
+    SeadTableReader,
+)
 from .site_projection import apply_site_inventory_projection
-from .source_tables import load_inventory_source_rows
-from .relations import build_relation_index
+from .source_data.relations import build_relation_index
+from .source_data.source_tables import load_inventory_source_rows
 
 _REQUIRED_ACQUISITION_TABLES = frozenset(
     {
@@ -108,23 +112,29 @@ def populate_sead_site_inventory_from_reader(
         "relative_age_reference_row_count": len(source.relative_age_references),
         "bibliography_source_row_count": len(source.bibliography_rows),
         "bibliography_row_count": sum(
-            len(site_rows) for site_rows in bibliography.bibliography_rows_by_site.values()
+            len(site_rows)
+            for site_rows in bibliography.bibliography_rows_by_site.values()
         ),
         "bibliography_site_count": len(bibliography.bibliography_rows_by_site),
         "dating_range_site_count": len(chronology.dating_range_rows_by_site),
         "relative_period_site_count": len(chronology.relative_period_rows_by_site),
-        "analysis_entity_age_site_count": len(chronology.analysis_entity_age_rows_by_site),
+        "analysis_entity_age_site_count": len(
+            chronology.analysis_entity_age_rows_by_site
+        ),
         "geochronology_site_count": len(chronology.geochronology_rows_by_site),
         "dendro_date_site_count": len(chronology.dendro_date_rows_by_site),
         "numeric_interval_row_count": len(coverage.numeric_interval_site_ids),
         "contextual_only_site_count": len(
-            coverage.contextual_interval_site_ids
-            - coverage.numeric_interval_site_ids
+            coverage.contextual_interval_site_ids - coverage.numeric_interval_site_ids
         ),
         "unresolved_site_count": len(rows)
-        - len(coverage.numeric_interval_site_ids | coverage.contextual_interval_site_ids),
+        - len(
+            coverage.numeric_interval_site_ids | coverage.contextual_interval_site_ids
+        ),
         "site_inventory_only_row_count": len(rows)
-        - len(coverage.numeric_interval_site_ids | coverage.contextual_interval_site_ids),
+        - len(
+            coverage.numeric_interval_site_ids | coverage.contextual_interval_site_ids
+        ),
         "temporal_capture_posture": "linked_chronology_captured",
     }
 

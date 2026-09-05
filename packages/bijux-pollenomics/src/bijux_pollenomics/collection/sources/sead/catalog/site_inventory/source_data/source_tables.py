@@ -4,7 +4,7 @@ from __future__ import annotations
 
 from dataclasses import dataclass
 
-from .values import parse_optional_int, parse_required_int
+from ..values import parse_optional_int, parse_required_int
 from .table_readers import SeadTableReader
 
 Row = dict[str, object]

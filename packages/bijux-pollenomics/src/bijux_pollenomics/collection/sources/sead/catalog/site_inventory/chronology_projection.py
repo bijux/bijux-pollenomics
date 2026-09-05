@@ -6,7 +6,7 @@ from dataclasses import dataclass
 
 from bijux_pollenomics.core.bp_time import normalize_bp_interval
 
-from .lookups import SeadLookupIndex
+from .source_data.lookups import SeadLookupIndex
 from .values import parse_optional_int, parse_required_int
 from .chronology_records import (
     _analysis_entity_age_interval,
@@ -19,9 +19,9 @@ from .chronology_records import (
     _dendro_date_interval,
     _geochronology_interval,
 )
-from .source_tables import SeadInventorySourceRows
+from .source_data.source_tables import SeadInventorySourceRows
 from .temporal import _relative_interval_from_range, sead_dating_interval
-from .relations import SeadRelationIndex
+from .source_data.relations import SeadRelationIndex
 
 Row = dict[str, object]
 

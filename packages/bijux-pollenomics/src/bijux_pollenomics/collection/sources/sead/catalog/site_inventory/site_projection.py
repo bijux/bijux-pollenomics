@@ -6,14 +6,15 @@ from dataclasses import dataclass
 
 from .bibliography_projection import SeadBibliographyProjection
 from .chronology_projection import SeadChronologyProjection
-from .lookups import SeadLookupIndex
-from .relations import SeadRelationIndex
+from .source_data.lookups import SeadLookupIndex
+from .source_data.relations import SeadRelationIndex
 from .values import parse_required_int
 from .temporal import (
     _normalized_period_labels,
     _uncertainty_labels,
     merge_sead_intervals,
 )
+
 
 @dataclass(frozen=True, slots=True)
 class SeadSiteCoverage:
@@ -41,7 +42,9 @@ def apply_site_inventory_projection(
             )
             if name
         ]
-        row["sample_group_count"] = len(relations.sample_groups_by_site.get(site_id, set()))
+        row["sample_group_count"] = len(
+            relations.sample_groups_by_site.get(site_id, set())
+        )
         row["physical_sample_count"] = len(
             relations.physical_samples_by_site.get(site_id, set())
         )
@@ -50,15 +53,27 @@ def apply_site_inventory_projection(
         )
         row["dataset_count"] = len(relations.datasets_by_site.get(site_id, set()))
         row["dataset_names"] = dataset_names
-        row["site_reference_count"] = len(bibliography.reference_ids_by_site.get(site_id, set()))
-        row["reference_count"] = len(bibliography.bibliography_rows_by_site.get(site_id, []))
-        row["relative_date_count"] = len(chronology.relative_date_ids_by_site.get(site_id, set()))
-        row["dating_range_count"] = chronology.dating_range_counts_by_site.get(site_id, 0)
+        row["site_reference_count"] = len(
+            bibliography.reference_ids_by_site.get(site_id, set())
+        )
+        row["reference_count"] = len(
+            bibliography.bibliography_rows_by_site.get(site_id, [])
+        )
+        row["relative_date_count"] = len(
+            chronology.relative_date_ids_by_site.get(site_id, set())
+        )
+        row["dating_range_count"] = chronology.dating_range_counts_by_site.get(
+            site_id, 0
+        )
         row["analysis_entity_age_count"] = len(
             chronology.analysis_entity_age_rows_by_site.get(site_id, [])
         )
-        row["geochronology_count"] = len(chronology.geochronology_rows_by_site.get(site_id, []))
-        row["dendro_date_count"] = len(chronology.dendro_date_rows_by_site.get(site_id, []))
+        row["geochronology_count"] = len(
+            chronology.geochronology_rows_by_site.get(site_id, [])
+        )
+        row["dendro_date_count"] = len(
+            chronology.dendro_date_rows_by_site.get(site_id, [])
+        )
         numeric_time_interval = merge_sead_intervals(
             chronology.numeric_dating_intervals_by_site.get(site_id, [])
         )
@@ -84,21 +99,33 @@ def apply_site_inventory_projection(
             if contextual_time_interval is not None
             else None
         )
-        row["relative_period_rows"] = chronology.relative_period_rows_by_site.get(site_id, [])
-        row["dating_range_rows"] = chronology.dating_range_rows_by_site.get(site_id, [])
-        row["analysis_entity_age_rows"] = chronology.analysis_entity_age_rows_by_site.get(
+        row["relative_period_rows"] = chronology.relative_period_rows_by_site.get(
             site_id, []
         )
-        row["geochronology_rows"] = chronology.geochronology_rows_by_site.get(site_id, [])
+        row["dating_range_rows"] = chronology.dating_range_rows_by_site.get(site_id, [])
+        row["analysis_entity_age_rows"] = (
+            chronology.analysis_entity_age_rows_by_site.get(site_id, [])
+        )
+        row["geochronology_rows"] = chronology.geochronology_rows_by_site.get(
+            site_id, []
+        )
         row["dendro_date_rows"] = chronology.dendro_date_rows_by_site.get(site_id, [])
-        row["bibliography_rows"] = bibliography.bibliography_rows_by_site.get(site_id, [])
+        row["bibliography_rows"] = bibliography.bibliography_rows_by_site.get(
+            site_id, []
+        )
         row["temporal_summary"] = {
-            "relative_period_count": len(chronology.relative_period_rows_by_site.get(site_id, [])),
-            "dating_range_count": chronology.dating_range_counts_by_site.get(site_id, 0),
+            "relative_period_count": len(
+                chronology.relative_period_rows_by_site.get(site_id, [])
+            ),
+            "dating_range_count": chronology.dating_range_counts_by_site.get(
+                site_id, 0
+            ),
             "analysis_entity_age_count": row["analysis_entity_age_count"],
             "geochronology_count": row["geochronology_count"],
             "dendro_date_count": row["dendro_date_count"],
-            "bibliography_count": len(bibliography.bibliography_rows_by_site.get(site_id, [])),
+            "bibliography_count": len(
+                bibliography.bibliography_rows_by_site.get(site_id, [])
+            ),
             "time_start_bp": row["time_start_bp"],
             "time_end_bp": row["time_end_bp"],
             "numeric_time_start_bp": row["numeric_time_start_bp"],
