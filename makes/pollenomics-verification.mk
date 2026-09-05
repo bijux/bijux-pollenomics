@@ -111,6 +111,7 @@ POLLENOMICS_MAP_INPUTS := \
 POLLENOMICS_PROVENANCE_TESTS := \
 	$(POLLENOMICS_TEST_ROOT)/unit/provenance/test_release_evidence \
 	$(POLLENOMICS_TEST_ROOT)/unit/provenance/release_evidence_writer \
+	$(POLLENOMICS_TEST_ROOT)/unit/provenance/gates \
 	$(POLLENOMICS_TEST_ROOT)/unit/provenance/test_recorded_gates.py \
 	$(POLLENOMICS_TEST_ROOT)/unit/provenance/test_pollenomics_gate_runner.py
 POLLENOMICS_PROVENANCE_INPUTS := \

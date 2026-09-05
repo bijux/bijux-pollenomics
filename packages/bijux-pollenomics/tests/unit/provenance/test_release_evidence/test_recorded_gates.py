@@ -12,7 +12,7 @@ from bijux_pollenomics.provenance import (
     hash_repository_object,
     validate_recorded_gate,
 )
-from bijux_pollenomics.provenance import gates as gate_module
+from bijux_pollenomics.provenance.gates import producer as gate_producer
 from .conftest import (
     _artifacts,
     _build,
@@ -88,12 +88,14 @@ def test_recorded_gate_rejects_internal_record_digest_tamper(tmp_path: Path) -> 
         _build(tmp_path, artifacts=artifacts)
 
 
-def test_recorded_gate_producer_is_bound_to_executing_source_bytes(
+def test_recorded_gate_producer_is_bound_to_complete_source_closure(
     tmp_path: Path, monkeypatch: pytest.MonkeyPatch
 ) -> None:
-    monkeypatch.setattr(gate_module, "_read_executing_source_bytes", lambda: b"A")
+    source_a = [{"module": "producer.a", "sha256": "sha256:a", "byte_count": 1}]
+    source_b = [{"module": "producer.b", "sha256": "sha256:b", "byte_count": 1}]
+    monkeypatch.setattr(gate_producer, "_producer_source_files", lambda: source_a)
     artifacts = _artifacts(tmp_path)
-    monkeypatch.setattr(gate_module, "_read_executing_source_bytes", lambda: b"B")
+    monkeypatch.setattr(gate_producer, "_producer_source_files", lambda: source_b)
 
     with pytest.raises(ReleaseEvidenceError, match="producer identity mismatch"):
         _build(tmp_path, artifacts=artifacts)

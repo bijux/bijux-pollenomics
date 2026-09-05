@@ -36,6 +36,30 @@ def _json_digest(value: object) -> str:
     return _digest(payload)
 
 
+def _gate_producer_source_files() -> list[dict[str, object]]:
+    package_root = Path(gate_module.__file__).parent
+    source_files: list[dict[str, object]] = []
+    for path in sorted(
+        package_root.rglob("*.py"),
+        key=lambda item: item.relative_to(package_root).as_posix(),
+    ):
+        relative = path.relative_to(package_root)
+        components = list(relative.parts)
+        if components[-1] == "__init__.py":
+            components.pop()
+        else:
+            components[-1] = path.stem
+        payload = path.read_bytes()
+        source_files.append(
+            {
+                "module": ".".join(("bijux_pollenomics.provenance.gates", *components)),
+                "sha256": _digest(payload),
+                "byte_count": len(payload),
+            }
+        )
+    return source_files
+
+
 def _input(root: Path) -> None:
     path = root / "inputs/source.txt"
     path.parent.mkdir(parents=True)
@@ -210,13 +234,7 @@ def test_gate_runs_exact_argv_and_records_canonical_logs(tmp_path: Path) -> None
     assert isinstance(producer, dict)
     source_files = producer["source_files"]
     assert isinstance(source_files, list)
-    expected_source_files = [
-        {
-            "module": "bijux_pollenomics.provenance.gates",
-            "sha256": _digest(Path(gate_module.__file__).read_bytes()),
-            "byte_count": len(Path(gate_module.__file__).read_bytes()),
-        }
-    ]
+    expected_source_files = _gate_producer_source_files()
     producer_content = {
         "identity": "bijux-pollenomics.recorded-gate",
         "version": "4",

@@ -1,0 +1,157 @@
+"""Product-owned gate inventories and source boundaries."""
+
+from __future__ import annotations
+
+from ...governance.country_coverage import INPUT_PATHS as _COUNTRY_COVERAGE_INPUT_PATHS
+
+_GATE_TESTS: dict[str, tuple[str, ...]] = {
+    "science": (
+        "core/test_temporal_semantics.py",
+        "collection/sources/sead/evidence/test_chronology.py",
+        "analysis/classification/test_ecological_classification.py",
+        "evidence/test_classification_audit_outputs.py",
+        "analysis/classification/test_classification_events",
+        "analysis/classification/test_harmonization.py",
+        "core/test_temporal_overlap_consumers.py",
+        "analysis/fieldwork/evidence_richness",
+        "analysis/propagation/test_propagation_evidence_domains.py",
+        "evidence/test_scientific_review.py",
+        "evidence/scientific_review",
+        "collection/catalog/spatiotemporal/test_posture.py",
+        "analysis/propagation/network",
+    ),
+    "data": (
+        "adna/workflow/test_adna_normalization.py",
+        "adna/governance/audit_catalogs",
+        "adna/species/tracked_data",
+        "adna/projects/evidence/test_localities.py",
+        "adna/workflow/test_adna_runtime.py",
+        "adna/projects/sample_master",
+        "adna/projects/registry",
+        "adna/sources/library",
+        "adna/sources/test_adna_source_recovery.py",
+        "adna/domain/test_adna_temporal_query.py",
+        "collection/sources/sead/acquisition/test_full.py",
+        "collection/sources/sead/acquisition/test_admission",
+        "collection/sources/sead/evidence/test_claims.py",
+        "collection/sources/sead/evidence/test_observations",
+        "collection/sources/sead/acquisition/test_scoped.py",
+        "collection/sources/neotoma",
+        "collection/sources/landclim",
+        "collection/sources/raa/test_raa_data.py",
+        "collection/sources/raa/test_raa_authority.py",
+        "collection/sources/svar/test_svar_data.py",
+        "collection/sources/boundaries/test_boundaries.py",
+        "collection/sources/boundaries/test_boundary_country_review.py",
+        "collection/contracts/test_data_contract_surfaces.py",
+        "collection/workflow/planning/test_layout.py",
+        "collection/catalog/test_source_identity.py",
+        "collection/contracts/test_source_family_contracts",
+        "collection/contracts/test_source_layout_contract.py",
+        "collection/catalog/test_source_provenance.py",
+        "collection/catalog/test_source_traceability.py",
+        "collection/catalog/test_source_validation.py",
+    ),
+    "map": (
+        "reporting/map_document/evidence_projection",
+        "reporting/atlas/test_map_publication.py",
+        "reporting/atlas/static_assets",
+        "reporting/atlas/test_publication_geography.py",
+        "reporting/portal/test_reporting_artifacts.py",
+        "reporting/portal/test_report_portal.py",
+        "evidence/test_evidence_surface.py",
+        "analysis/propagation/test_propagation_outputs",
+        "governance/test_public_artifact_language.py",
+    ),
+    "provenance": (
+        "provenance/test_release_evidence",
+        "provenance/release_evidence_writer",
+        "provenance/gates",
+        "provenance/test_recorded_gates.py",
+        "provenance/test_pollenomics_gate_runner.py",
+    ),
+    "doc-counts": (
+        "governance/country_coverage",
+        "governance/test_data_reference_docs.py",
+        "collection/catalog/spatiotemporal/test_posture.py",
+        "collection/workflow/materialization/test_repository_snapshot.py",
+        "governance/repository_truth/test_assessments.py",
+        "../regression/test_docs_breadth.py",
+    ),
+}
+
+_GATE_TRUST_INPUTS = (
+    "Makefile",
+    "makes/pollenomics-verification.mk",
+    "packages/bijux-pollenomics/pyproject.toml",
+    "pyproject.toml",
+    "uv.lock",
+)
+
+_GATE_FIXED_INPUTS: dict[str, tuple[str, ...]] = {
+    "science": (
+        *_GATE_TRUST_INPUTS,
+        "configs/pytest.ini",
+        "data/neotoma/raw",
+        "data/sead/raw",
+    ),
+    "data": (
+        *_GATE_TRUST_INPUTS,
+        "configs/pytest.ini",
+        "data/source_family_contracts.json",
+        "data/source_spatiotemporal_posture_registry.json",
+        "data/adna/final",
+        "data/adna/governance",
+        "data/neotoma",
+        "data/sead",
+        "data/landclim",
+        "data/raa",
+        "data/svar",
+        "data/boundaries",
+    ),
+    "map": (*_GATE_TRUST_INPUTS, "configs/pytest.ini", "docs/report"),
+    "provenance": (
+        *_GATE_TRUST_INPUTS,
+        "configs/pytest.ini",
+        "configs/release_evidence_policy.json",
+    ),
+    "doc-counts": (
+        *_GATE_TRUST_INPUTS,
+        "configs/pytest.ini",
+        "data/country_dimension_coverage.json",
+        *_COUNTRY_COVERAGE_INPUT_PATHS,
+        "data/evidence_artifact_contracts.json",
+        "data/source_fact_ownership_registry.json",
+        "data/source_family_contracts.json",
+        "data/source_family_evidence_stage_matrix.json",
+        "data/source_spatiotemporal_posture_registry.json",
+        "docs/public/pollenomics-data",
+    ),
+}
+
+_GATE_GLOBS: dict[str, tuple[str, ...]] = {
+    "science": (
+        "packages/bijux-pollenomics/src/bijux_pollenomics/core/**/*.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/evidence/**/*.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/**/*.py",
+    ),
+    "data": (
+        "data/adna/species/*/manifests",
+        "data/adna/species/*/normalized",
+        "data/adna/species/*/reports",
+        "data/adna/species/*/review",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/collection/**/*.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/adna/**/*.py",
+    ),
+    "map": (
+        "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/**/*.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/evidence/**/*.py",
+    ),
+    "provenance": (
+        "packages/bijux-pollenomics/src/bijux_pollenomics/provenance/**/*.py",
+    ),
+    "doc-counts": (
+        "packages/bijux-pollenomics/src/bijux_pollenomics/governance/**/*.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/review/**/*.py",
+    ),
+}
