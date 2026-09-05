@@ -496,13 +496,13 @@ class SeadAcquisitionAdmissionTests(unittest.TestCase):
             with self.assertRaisesRegex(ValueError, "overlaps acquisition source"):
                 _materialize(snapshot, decisions, snapshot / "admitted")
 
-            independent_decisions = root / "decisions" / "country-decisions.json"
-            independent_decisions.parent.mkdir()
+            independent_decisions = (
+                root / "decisions" / _RUN_ID / "country-decisions.json"
+            )
+            independent_decisions.parent.mkdir(parents=True)
             independent_decisions.write_bytes(decisions.read_bytes())
             with self.assertRaisesRegex(ValueError, "overlaps country decisions"):
-                _materialize(
-                    snapshot, independent_decisions, independent_decisions.parent
-                )
+                _materialize(snapshot, independent_decisions, root / "decisions")
 
     def test_aggregate_receipt_contract_fields_are_exactly_pinned(self) -> None:
         for mutation, message in (

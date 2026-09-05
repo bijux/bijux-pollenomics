@@ -566,6 +566,45 @@ def test_full_evidence_admission_validates_exact_profile_and_parent(
     )
 
 
+def test_full_evidence_admission_allows_sibling_parent_evidence(
+    tmp_path: Path,
+) -> None:
+    result = _acquire(tmp_path / "capture", _FullEvidencePostgrestFixture())
+    snapshot = result.manifest_path.parent.resolve()
+    decisions, parent_admission, expected = _full_admission_inputs(snapshot, tmp_path)
+    acquisition_parent = (tmp_path / "admitted").resolve()
+    parent_root = acquisition_parent / expected.parent_run_id
+    parent_root.mkdir(parents=True)
+    governed_decisions = parent_root / "country-decisions.json"
+    governed_parent_admission = parent_root / "admission.json"
+    governed_decisions.write_bytes(decisions.read_bytes())
+    governed_parent_admission.write_bytes(parent_admission.read_bytes())
+
+    with (
+        patch.object(
+            admission_module,
+            "_load_validated_boundary_authority",
+            return_value=object(),
+        ),
+        patch.object(
+            admission_module,
+            "_validate_country_accounting",
+            return_value={"reconciles": True},
+        ),
+    ):
+        admitted = materialize_sead_full_evidence_admission(
+            snapshot,
+            country_decisions_path=governed_decisions,
+            parent_admission_path=governed_parent_admission,
+            output_root=acquisition_parent,
+            expected_identity=expected,
+        )
+
+    assert admitted.output_root == acquisition_parent / expected.run_id
+    assert governed_decisions.is_file()
+    assert governed_parent_admission.is_file()
+
+
 def test_full_evidence_admission_recomputes_all_join_ledgers(tmp_path: Path) -> None:
     result = _acquire(tmp_path / "capture", _FullEvidencePostgrestFixture())
     snapshot = result.manifest_path.parent.resolve()

@@ -655,13 +655,13 @@ def _materialize_validated_admission(
 ) -> SeadAcquisitionAdmission:
     admission = validated.admission
     run_id = _required_text(admission.get("run_id"), "admission run_id")
+    parent = _validated_output_parent(output_root)
+    final_root = parent / run_id
     _reject_output_overlap(
-        output_root,
+        final_root,
         source_root=validated.source_root,
         decisions_path=validated.decisions_path,
     )
-    parent = _validated_output_parent(output_root)
-    final_root = parent / run_id
     expected_files = dict(validated.copied_files)
     expected_files["admission.json"] = _canonical_bytes(admission)
 
