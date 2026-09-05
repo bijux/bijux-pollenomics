@@ -3,8 +3,8 @@
   "producer": {
     "id": "bijux-pollenomics.boundary-country-review",
     "version": "1",
-    "path": "packages/bijux-pollenomics/src/bijux_pollenomics/data_downloader/sources/boundaries/review.py",
-    "sha256": "a64db78ad461aa65d777c7995636e731189084f3b2b0e18c2eabee6b3c53abac"
+    "path": "packages/bijux-pollenomics/src/bijux_pollenomics/collection/sources/boundaries/review/publication.py",
+    "sha256": "7badf5fddde8712db84a983a5b0dc3cb9fe5e33fe153df38e2e06d3e5ced8146"
   },
   "boundary_authority": {
     "source": "Natural Earth",
