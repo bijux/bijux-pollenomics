@@ -60,6 +60,9 @@ class AdnaProjectSampleMasterRow:
     latitude_text: str
     longitude_text: str
     chronology_text: str
+    chronology_dating_basis: str = ""
+    chronology_evidence_class: str = ""
+    chronology_precision_posture: str = ""
     source_native_tax_id: str = ""
     source_native_scientific_name: str = ""
     taxon_alignment_status: str = "not_reported"

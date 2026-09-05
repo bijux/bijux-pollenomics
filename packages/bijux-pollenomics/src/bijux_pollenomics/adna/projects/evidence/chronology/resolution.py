@@ -46,6 +46,11 @@ def _resolve_chronology_source(
             chronology_strength=chronology_strength,
             dating_basis=dating_basis,
         )
+        explicit_evidence_class = str(
+            getattr(master_row, "chronology_evidence_class", "")
+        ).strip()
+        if explicit_evidence_class:
+            evidence_class = explicit_evidence_class
         precision_posture = _precision_posture_for(
             chronology_text=sample_text,
             chronology=chronology,
@@ -53,6 +58,11 @@ def _resolve_chronology_source(
             chronology_evidence_class=evidence_class,
             chronology_normalization_status=normalization_status,
         )
+        explicit_precision_posture = str(
+            getattr(master_row, "chronology_precision_posture", "")
+        ).strip()
+        if explicit_precision_posture:
+            precision_posture = explicit_precision_posture
         return _ResolvedChronologySource(
             chronology_text=sample_text,
             chronology_strength=chronology_strength,

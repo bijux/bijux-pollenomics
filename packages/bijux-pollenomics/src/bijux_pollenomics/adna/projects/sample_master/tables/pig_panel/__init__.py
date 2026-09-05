@@ -8,7 +8,12 @@ from dataclasses import asdict, dataclass
 from bijux_pollenomics.adna.sources.archive import AdnaArchiveProject
 from bijux_pollenomics.adna.species.definitions import AdnaSpeciesDefinition
 
-from ..models import AdnaProjectSampleMasterRow
+from ...models import AdnaProjectSampleMasterRow
+from .site_coordinates import (
+    PIG_SITE_COORDINATE_EVIDENCE_PATH as PIG_SITE_COORDINATE_EVIDENCE_PATH,
+    PigSiteCoordinateEvidence as PigSiteCoordinateEvidence,
+    load_pig_site_coordinate_evidence as load_pig_site_coordinate_evidence,
+)
 
 _EXPECTED_ARCHIVE_IDENTITIES = {
     "AA014": "SAMEA5160866",
@@ -54,6 +59,11 @@ class PigPanelJoinAuditRow:
     latitude_text: str = ""
     longitude_text: str = ""
     map_admission: str = "refused_missing_source_coordinates"
+    coordinate_basis: str = ""
+    coordinate_confidence: str = ""
+    coordinate_source_url: str = ""
+    coordinate_source_locator: str = ""
+    coordinate_spatial_scope: str = ""
 
     def as_dict(self) -> dict[str, object]:
         """Return a serialization-ready audit record."""
@@ -66,11 +76,13 @@ def build_pig_panel_join_audit(
     rows: tuple[tuple[str, ...], ...],
     archive_source_path: str,
     archive_text: str,
+    coordinate_evidence: tuple[PigSiteCoordinateEvidence, ...] = (),
 ) -> tuple[PigPanelJoinAuditRow, ...]:
     """Reconcile the eight source-proven pig identities without broad admission."""
     _validate_workbook_header(rows)
     workbook_rows = _indexed_workbook_rows(rows)
     archive_identities = _archive_identity_evidence(archive_text)
+    coordinates_by_label = {row.sample_label: row for row in coordinate_evidence}
 
     audit_rows = []
     for sample_label, expected_accession in _EXPECTED_ARCHIVE_IDENTITIES.items():
@@ -84,6 +96,14 @@ def build_pig_panel_join_audit(
         statuses = tuple(_cell(row, index) for index in _STATUS_INDEXES)
         status, disposition, reason = _classify_domestication(sample_label, statuses)
         mean_bp = _canonical_bp_text(_cell(row, 28), sample_label=sample_label)
+        site_coordinate = coordinates_by_label.get(sample_label)
+        if site_coordinate is not None:
+            _validate_site_coordinate_join(
+                evidence=site_coordinate,
+                archive_accession=accession,
+                locality_text=_required_cell(row, 31, sample_label),
+                political_entity=_required_cell(row, 32, sample_label),
+            )
         audit_rows.append(
             PigPanelJoinAuditRow(
                 sample_label=sample_label,
@@ -99,6 +119,32 @@ def build_pig_panel_join_audit(
                 workbook_source_locator=f"Sheet1!row{row_number}",
                 archive_source_path=archive_source_path,
                 archive_source_locators=locators,
+                latitude_text=""
+                if site_coordinate is None
+                else site_coordinate.latitude_text,
+                longitude_text=""
+                if site_coordinate is None
+                else site_coordinate.longitude_text,
+                map_admission=(
+                    "refused_missing_source_coordinates"
+                    if site_coordinate is None
+                    else "admitted_approximate_site_anchor"
+                ),
+                coordinate_basis=""
+                if site_coordinate is None
+                else site_coordinate.coordinate_basis,
+                coordinate_confidence=""
+                if site_coordinate is None
+                else site_coordinate.coordinate_confidence,
+                coordinate_source_url=""
+                if site_coordinate is None
+                else site_coordinate.coordinate_source_url,
+                coordinate_source_locator=""
+                if site_coordinate is None
+                else site_coordinate.coordinate_source_locator,
+                coordinate_spatial_scope=""
+                if site_coordinate is None
+                else site_coordinate.spatial_scope,
             )
         )
     return tuple(audit_rows)
@@ -112,6 +158,7 @@ def _build_pig_panel_rows(
     rows: tuple[tuple[str, ...], ...],
     archive_source_path: str,
     archive_text: str,
+    coordinate_evidence: tuple[PigSiteCoordinateEvidence, ...],
 ) -> tuple[AdnaProjectSampleMasterRow, ...]:
     if species.latin_name != "Sus scrofa domesticus":
         raise ValueError("Pig-panel admission requires Sus scrofa domesticus")
@@ -122,6 +169,7 @@ def _build_pig_panel_rows(
         rows=rows,
         archive_source_path=archive_source_path,
         archive_text=archive_text,
+        coordinate_evidence=coordinate_evidence,
     )
     return tuple(
         _master_row(species=species, project=project, audit=row)
@@ -160,10 +208,34 @@ def _master_row(
         sample_ambiguity_note="",
         locality_text=audit.locality_text,
         political_entity=audit.political_entity,
-        latitude_text="",
-        longitude_text="",
+        latitude_text=audit.latitude_text,
+        longitude_text=audit.longitude_text,
         chronology_text=audit.chronology_text,
+        chronology_dating_basis="archaeological_context",
+        chronology_evidence_class="archaeological_context_date",
+        chronology_precision_posture="sample_approximate_or_modeled",
     )
+
+
+def _validate_site_coordinate_join(
+    *,
+    evidence: PigSiteCoordinateEvidence,
+    archive_accession: str,
+    locality_text: str,
+    political_entity: str,
+) -> None:
+    if evidence.archive_native_sample_id != archive_accession:
+        raise ValueError(
+            f"Pig site-coordinate archive identity drift for {evidence.sample_label}"
+        )
+    if evidence.locality_text != locality_text:
+        raise ValueError(
+            f"Pig site-coordinate locality drift for {evidence.sample_label}"
+        )
+    if evidence.political_entity != political_entity:
+        raise ValueError(
+            f"Pig site-coordinate political entity drift for {evidence.sample_label}"
+        )
 
 
 def _validate_workbook_header(rows: tuple[tuple[str, ...], ...]) -> None:

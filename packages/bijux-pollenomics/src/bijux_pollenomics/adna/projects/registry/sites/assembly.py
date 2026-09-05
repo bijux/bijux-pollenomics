@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 from pathlib import Path
+from typing import TypeVar
 
 from ...evidence.coordinates import resolve_project_coordinate_provenance
 from ...evidence.sites import resolve_project_site_evidence
@@ -16,6 +17,8 @@ from .evidence import (
 from .hierarchy import _project_hierarchy_profiles, _resolve_hierarchy
 from .records import AdnaProjectSampleSiteRow
 
+_RowT = TypeVar("_RowT")
+
 
 def build_project_sample_site_rows(
     output_root: Path,
@@ -24,9 +27,7 @@ def build_project_sample_site_rows(
     output_root = Path(output_root)
     master_rows = build_project_sample_master_rows(output_root, project_accession)
     site_rows = resolve_project_site_evidence(project_accession)
-    site_row = site_rows[0] if site_rows else None
     provenance_rows = resolve_project_coordinate_provenance(project_accession)
-    provenance_row = provenance_rows[0] if provenance_rows else None
     hierarchy_profiles = _project_hierarchy_profiles(output_root, project_accession)
 
     rows: list[AdnaProjectSampleSiteRow] = []
@@ -35,6 +36,12 @@ def build_project_sample_site_rows(
             continue
         locality_text = master_row.locality_text.strip()
         chronology_text = master_row.chronology_text.strip()
+        site_row = _matching_locality_row(
+            site_rows, locality_text, master_row.political_entity
+        )
+        provenance_row = _matching_locality_row(
+            provenance_rows, locality_text, master_row.political_entity
+        )
         if locality_text:
             hierarchy = _resolve_hierarchy(
                 hierarchy_profiles=hierarchy_profiles,
@@ -66,23 +73,15 @@ def build_project_sample_site_rows(
                     country_name=hierarchy.country_name,
                     broader_geography=hierarchy.broader_geography,
                     coordinate_basis=(
-                        "supplementary_table_coordinates"
-                        if master_row.latitude_text and master_row.longitude_text
-                        else ""
+                        ""
                         if provenance_row is None
                         else provenance_row.coordinate_basis
                     ),
                     coordinate_mapping_posture=(
-                        "mappable_point"
-                        if master_row.latitude_text and master_row.longitude_text
-                        else ""
-                        if provenance_row is None
-                        else provenance_row.mapping_posture
+                        "" if provenance_row is None else provenance_row.mapping_posture
                     ),
                     coordinate_confidence=(
-                        "exact"
-                        if master_row.latitude_text and master_row.longitude_text
-                        else ""
+                        ""
                         if provenance_row is None
                         else provenance_row.coordinate_confidence
                     ),
@@ -147,6 +146,29 @@ def build_project_sample_site_rows(
         )
     rows.sort(key=lambda row: (row.project_accession, row.repo_stable_sample_id))
     return tuple(rows)
+
+
+def _matching_locality_row(
+    rows: tuple[_RowT, ...], locality_text: str, political_entity: str
+) -> _RowT | None:
+    target = (_normalize_text(locality_text), _normalize_text(political_entity))
+    matches: list[_RowT] = []
+    for row in rows:
+        row_locality = str(
+            getattr(row, "site_label", getattr(row, "locality_text", ""))
+        )
+        row_entity = str(getattr(row, "political_entity", "") or "")
+        if (_normalize_text(row_locality), _normalize_text(row_entity)) == target:
+            matches.append(row)
+    if len(matches) > 1:
+        raise ValueError("Multiple site evidence rows match the same sample locality")
+    if matches:
+        return matches[0]
+    return rows[0] if len(rows) == 1 else None
+
+
+def _normalize_text(value: str) -> str:
+    return "".join(character for character in value.casefold() if character.isalnum())
 
 
 def _project_by_accession(project_accession: str) -> object:

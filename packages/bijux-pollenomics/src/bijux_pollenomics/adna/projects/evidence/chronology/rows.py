@@ -2,8 +2,10 @@ from __future__ import annotations
 
 from pathlib import Path
 
+from bijux_pollenomics.adna.domain.models import AdnaSiteEvidenceRecord
 from bijux_pollenomics.adna.projects.evidence.sites import resolve_project_site_evidence
 from bijux_pollenomics.adna.projects.sample_master import (
+    AdnaProjectSampleMasterRow,
     build_project_sample_master_rows,
 )
 from bijux_pollenomics.adna.sources.archive import (
@@ -23,16 +25,19 @@ def build_project_sample_chronology_rows(
     project = _project_by_accession(project_accession)
     master_rows = build_project_sample_master_rows(output_root, project_accession)
     site_rows = resolve_project_site_evidence(project_accession)
-    site_row = site_rows[0] if site_rows else None
     rows: list[AdnaProjectSampleChronologyRow] = []
 
     for master_row in master_rows:
         if master_row.source_native_identity_kind == "sequencing_experiment_accession":
             continue
+        site_row = _matching_site_row(master_row, site_rows)
+        dating_basis = (
+            master_row.chronology_dating_basis or project.dating_basis or "unknown"
+        )
         source = _resolve_chronology_source(
             master_row=master_row,
             site_row=site_row,
-            dating_basis=project.dating_basis or "unknown",
+            dating_basis=dating_basis,
         )
         rows.append(
             AdnaProjectSampleChronologyRow(
@@ -57,7 +62,7 @@ def build_project_sample_chronology_rows(
                 time_start_bp=source.time_start_bp,
                 time_end_bp=source.time_end_bp,
                 time_mean_bp=source.time_mean_bp,
-                dating_basis=project.dating_basis or "unknown",
+                dating_basis=dating_basis,
                 chronology_conflict_note=source.chronology_conflict_note,
                 review_note=source.review_note,
             )
@@ -65,6 +70,39 @@ def build_project_sample_chronology_rows(
 
     rows.sort(key=lambda row: (row.project_accession, row.repo_stable_sample_id))
     return tuple(rows)
+
+
+def _matching_site_row(
+    master_row: AdnaProjectSampleMasterRow,
+    site_rows: tuple[AdnaSiteEvidenceRecord, ...],
+) -> AdnaSiteEvidenceRecord | None:
+    """Prefer each pig sample's site without changing legacy single-lead projects."""
+    if master_row.project_accession != "PRJEB30282":
+        return site_rows[0] if site_rows else None
+    master_key = _normalized_place_key(
+        master_row.locality_text, master_row.political_entity
+    )
+    if master_key[0]:
+        matches = [
+            row
+            for row in site_rows
+            if _normalized_place_key(
+                str(getattr(row, "site_label", "")),
+                str(getattr(row, "political_entity", "")),
+            )
+            == master_key
+        ]
+        if len(matches) == 1:
+            return matches[0]
+    return None
+
+
+def _normalized_place_key(locality: str, political_entity: str) -> tuple[str, str]:
+    return _normalize_place(locality), _normalize_place(political_entity)
+
+
+def _normalize_place(value: str) -> str:
+    return "".join(character for character in value.casefold() if character.isalnum())
 
 
 def _project_by_accession(project_accession: str) -> AdnaArchiveProject:

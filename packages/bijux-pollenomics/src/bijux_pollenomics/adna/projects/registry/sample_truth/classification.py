@@ -139,6 +139,11 @@ def has_any_linkage(sample_row: dict[str, object]) -> bool:
 def sample_backed_site_count(sample_rows: list[dict[str, object]]) -> int:
     site_tokens: set[str] = set()
     for row in sample_rows:
+        if str(row.get("inclusion_status", "")) == "archive_identity_only":
+            # Archive-only identities preserve the project denominator but do not
+            # assert a sample-owned locality. Their placeholder token therefore
+            # cannot contribute to locality-summary reconciliation.
+            continue
         locality_identity = row.get("locality_identity")
         if not isinstance(locality_identity, dict):
             continue

@@ -4,11 +4,13 @@ from dataclasses import dataclass
 from pathlib import Path
 
 from ....core.repository import repository_data_root
+from bijux_pollenomics.adna.domain.models import AdnaCoordinateProvenanceRecord
 from bijux_pollenomics.adna.projects.evidence.coordinates import (
     build_species_coordinate_provenance_rows,
     resolve_project_coordinate_provenance,
 )
 from bijux_pollenomics.adna.projects.registry.sites import (
+    AdnaProjectSampleSiteRow,
     build_project_sample_site_rows,
 )
 
@@ -65,7 +67,7 @@ def build_species_project_locality_leads(
     project_accessions: tuple[str, ...],
 ) -> tuple[AdnaProjectLocalityLead, ...]:
     """Collect all curated locality leads for one species in stable accession order."""
-    sample_site_rows = []
+    sample_site_rows: list[AdnaProjectSampleSiteRow] = []
     for accession in project_accessions:
         try:
             sample_site_rows.extend(
@@ -81,8 +83,8 @@ def build_species_project_locality_leads(
 
 def _lead_rows(
     *,
-    sample_site_rows: tuple[object, ...],
-    coordinate_rows: tuple[object, ...],
+    sample_site_rows: tuple[AdnaProjectSampleSiteRow, ...],
+    coordinate_rows: tuple[AdnaCoordinateProvenanceRecord, ...],
 ) -> tuple[AdnaProjectLocalityLead, ...]:
     coordinate_lookup = {
         (
@@ -91,8 +93,15 @@ def _lead_rows(
         ): row
         for row in coordinate_rows
     }
-    grouped_rows: dict[tuple[str, str, str], list[object]] = {}
+    grouped_rows: dict[
+        tuple[str, tuple[str, str], str], list[AdnaProjectSampleSiteRow]
+    ] = {}
     for row in sample_site_rows:
+        if row.project_accession == "PRJEB30282" and (
+            not row.locality_text.strip()
+            or row.locality_resolution_status == "unresolved"
+        ):
+            continue
         key = (
             row.project_accession,
             _normalized_group_key(
@@ -148,32 +157,34 @@ def _lead_rows(
                 interpretation_note=interpretation_note,
             )
         )
-    for row in coordinate_rows:
-        if any(lead.project_accession == row.project_accession for lead in leads):
+    for coordinate in coordinate_rows:
+        if any(
+            lead.project_accession == coordinate.project_accession for lead in leads
+        ):
             continue
         if any(
-            lead.project_accession == row.project_accession
+            lead.project_accession == coordinate.project_accession
             and _normalized_group_key(lead.locality_text, lead.political_entity)
-            == _normalized_group_key(row.site_label, row.political_entity)
+            == _normalized_group_key(coordinate.site_label, coordinate.political_entity)
             for lead in leads
         ):
             continue
         leads.append(
             AdnaProjectLocalityLead(
-                project_accession=row.project_accession,
-                locality_text=row.site_label,
-                political_entity=row.political_entity or "",
+                project_accession=coordinate.project_accession,
+                locality_text=coordinate.site_label,
+                political_entity=coordinate.political_entity or "",
                 latitude_text=""
-                if row.mapping_posture != "mappable_point"
-                else row.latitude_text,
+                if coordinate.mapping_posture != "mappable_point"
+                else coordinate.latitude_text,
                 longitude_text=""
-                if row.mapping_posture != "mappable_point"
-                else row.longitude_text,
-                coordinate_basis=row.coordinate_basis,
-                chronology_text=row.chronology_text,
-                time_start_bp=row.time_start_bp,
-                time_end_bp=row.time_end_bp,
-                interpretation_note=row.interpretation_note,
+                if coordinate.mapping_posture != "mappable_point"
+                else coordinate.longitude_text,
+                coordinate_basis=coordinate.coordinate_basis,
+                chronology_text=coordinate.chronology_text,
+                time_start_bp=coordinate.time_start_bp,
+                time_end_bp=coordinate.time_end_bp,
+                interpretation_note=coordinate.interpretation_note,
             )
         )
     leads.sort(

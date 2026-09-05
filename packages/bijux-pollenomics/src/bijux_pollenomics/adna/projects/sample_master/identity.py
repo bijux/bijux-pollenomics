@@ -117,6 +117,15 @@ def _merge_sample_row_group(
         latitude_text=_first_non_empty(*(row.latitude_text for row in group)),
         longitude_text=_first_non_empty(*(row.longitude_text for row in group)),
         chronology_text=_first_non_empty(*(row.chronology_text for row in group)),
+        chronology_dating_basis=_first_non_empty(
+            *(row.chronology_dating_basis for row in group)
+        ),
+        chronology_evidence_class=_first_non_empty(
+            *(row.chronology_evidence_class for row in group)
+        ),
+        chronology_precision_posture=_first_non_empty(
+            *(row.chronology_precision_posture for row in group)
+        ),
         source_native_tax_id=_join_distinct(
             *(row.source_native_tax_id for row in group)
         ),

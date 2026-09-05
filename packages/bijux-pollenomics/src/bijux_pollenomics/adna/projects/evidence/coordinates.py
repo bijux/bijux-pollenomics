@@ -5,7 +5,12 @@ from pathlib import Path
 from ....core.repository import repository_data_root
 from bijux_pollenomics.adna.domain.models import AdnaCoordinateProvenanceRecord
 from ...sources.library import build_project_registry
-from ..sample_master import build_project_sample_master_rows
+from ..sample_master import AdnaProjectSampleMasterRow, build_project_sample_master_rows
+from ..sample_master.tables.pig_panel import (
+    PIG_SITE_COORDINATE_EVIDENCE_PATH,
+    PigSiteCoordinateEvidence,
+    load_pig_site_coordinate_evidence,
+)
 
 __all__ = [
     "build_species_coordinate_provenance_rows",
@@ -385,7 +390,7 @@ def _project_paper_lookup(project_accession: str) -> tuple[str, str]:
 def _direct_sample_coordinate_rows(
     project_accession: str,
 ) -> tuple[AdnaCoordinateProvenanceRecord, ...]:
-    grouped: dict[tuple[str, str], list[object]] = {}
+    grouped: dict[tuple[str, str], list[AdnaProjectSampleMasterRow]] = {}
     try:
         sample_rows = build_project_sample_master_rows(
             _default_data_root(), project_accession
@@ -400,9 +405,19 @@ def _direct_sample_coordinate_rows(
     if not grouped:
         return ()
     paper_doi, paper_url = _project_paper_lookup(project_accession)
+    pig_evidence = (
+        {
+            _normalized_group_key(row.locality_text, row.political_entity): row
+            for row in load_pig_site_coordinate_evidence(_default_data_root())
+        }
+        if project_accession == "PRJEB30282"
+        else {}
+    )
     records: list[AdnaCoordinateProvenanceRecord] = []
-    for rows in grouped.values():
+    for group_key, rows in grouped.items():
         first = rows[0]
+        pig_site = pig_evidence.get(group_key)
+        pig_chronology_bp = _pig_chronology_bp(first.chronology_text, pig_site)
         records.append(
             AdnaCoordinateProvenanceRecord(
                 project_accession=project_accession,
@@ -412,25 +427,65 @@ def _direct_sample_coordinate_rows(
                 original_place_text=first.locality_text,
                 resolved_place_text=first.locality_text,
                 political_entity=first.political_entity or None,
-                source_artifact_path=first.sample_lineage_path,
-                source_locator=first.sample_lineage_locator,
-                coordinate_basis="supplementary_table_coordinates",
+                source_artifact_path=(
+                    first.sample_lineage_path
+                    if pig_site is None
+                    else PIG_SITE_COORDINATE_EVIDENCE_PATH
+                ),
+                source_locator=(
+                    first.sample_lineage_locator
+                    if pig_site is None
+                    else pig_site.coordinate_source_locator
+                ),
+                coordinate_basis=(
+                    "supplementary_table_coordinates"
+                    if pig_site is None
+                    else pig_site.coordinate_basis
+                ),
                 mapping_posture="mappable_point",
                 latitude_text=first.latitude_text,
                 longitude_text=first.longitude_text,
-                geocoding_method="direct_supplementary_coordinate_capture",
-                geocoder_or_gazetteer="not required because the supplementary table ships coordinates",
+                geocoding_method=(
+                    "direct_supplementary_coordinate_capture"
+                    if pig_site is None
+                    else pig_site.coordinate_source_kind
+                ),
+                geocoder_or_gazetteer=(
+                    "not required because the supplementary table ships coordinates"
+                    if pig_site is None
+                    else pig_site.coordinate_source_url
+                ),
                 confidence_rationale=(
                     "The published supplementary table provides direct coordinates for this locality."
+                    if pig_site is None
+                    else pig_site.confidence_rationale
                 ),
-                coordinate_confidence="exact",
+                coordinate_confidence=(
+                    "exact" if pig_site is None else pig_site.coordinate_confidence
+                ),
                 paper_doi=paper_doi,
                 paper_url=paper_url,
+                supplementary_source=(
+                    "" if pig_site is None else pig_site.sample_site_source_url
+                ),
                 chronology_text=first.chronology_text,
+                time_start_bp=pig_chronology_bp,
+                time_end_bp=pig_chronology_bp,
+                dating_basis=(
+                    "archaeological_context"
+                    if pig_chronology_bp is not None
+                    else "unknown"
+                ),
                 comparator_context=False,
                 domestication_context="domesticated_core",
                 interpretation_note=(
                     "This locality is mapped from direct supplementary coordinates rather than a project-level geocode."
+                    if pig_site is None
+                    else (
+                        "The primary supplement binds the sample to the named archaeological site; "
+                        "the displayed coordinate is a separate official site-level anchor and not "
+                        "a specimen findspot."
+                    )
                 ),
             )
         )
@@ -441,6 +496,17 @@ def _direct_sample_coordinate_rows(
         )
     )
     return tuple(records)
+
+
+def _pig_chronology_bp(
+    chronology_text: str, pig_site: PigSiteCoordinateEvidence | None
+) -> int | None:
+    if pig_site is None:
+        return None
+    value, separator, unit = chronology_text.partition(" ")
+    if separator != " " or unit != "BP" or not value.isdecimal():
+        raise ValueError("Pig site chronology must be a canonical integer BP point")
+    return int(value)
 
 
 def _normalized_group_key(

@@ -25,18 +25,18 @@ class AdnaCoordinateProvenanceUnitTests(unittest.TestCase):
         self.assertEqual(row.latitude_text, "52.99")
         self.assertEqual(row.longitude_text, "69.15")
 
-    def test_resolve_project_coordinate_provenance_refuses_region_only_pig_point_mapping(
+    def test_resolve_project_coordinate_provenance_maps_two_site_anchored_pig_samples(
         self,
     ) -> None:
         rows = resolve_project_coordinate_provenance("PRJEB30282")
 
-        self.assertEqual(len(rows), 1)
-        row = rows[0]
-        self.assertEqual(row.coordinate_basis, "region_centroid_fallback")
-        self.assertEqual(row.mapping_posture, "refused_region_only")
-        self.assertEqual(row.coordinate_confidence, "withheld")
-        self.assertEqual(row.latitude_text, "")
-        self.assertEqual(row.longitude_text, "")
+        self.assertEqual(len(rows), 2)
+        self.assertEqual({row.site_label for row in rows}, {"Bundsø", "Trelleborg"})
+        self.assertTrue(
+            all(row.coordinate_basis == "named_site_geocoding" for row in rows)
+        )
+        self.assertTrue(all(row.mapping_posture == "mappable_point" for row in rows))
+        self.assertTrue(all(row.coordinate_confidence == "approximate" for row in rows))
 
     def test_resolve_project_coordinate_provenance_keeps_named_place_geocoding_details(
         self,

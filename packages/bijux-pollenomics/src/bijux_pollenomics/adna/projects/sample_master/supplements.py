@@ -36,7 +36,7 @@ from .tables import (
     _read_xlsx_member_rows,
     _read_xlsx_rows,
 )
-from .tables.pig_panel import _build_pig_panel_rows
+from .tables.pig_panel import _build_pig_panel_rows, load_pig_site_coordinate_evidence
 
 
 def _project_specific_sample_rows(
@@ -111,6 +111,7 @@ def _pig_supplementary_sample_rows(
         rows=_read_xlsx_rows(workbook_path, sheet_name="Sheet1"),
         archive_source_path=archive_source_path,
         archive_text=read_source_artifact_text(archive_path),
+        coordinate_evidence=load_pig_site_coordinate_evidence(output_root),
     )
 
 

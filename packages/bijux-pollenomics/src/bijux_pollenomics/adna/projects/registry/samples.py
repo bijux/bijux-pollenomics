@@ -4,13 +4,17 @@ from dataclasses import dataclass
 from pathlib import Path
 
 from ....core.repository import repository_data_root
-from ...sources.archive import build_species_archive_projects
+from ...sources.archive import AdnaArchiveProject, build_species_archive_projects
 from ...species.definitions import resolve_species_definition
-from bijux_pollenomics.adna.projects.registry.context import resolve_project_context
+from bijux_pollenomics.adna.projects.registry.context import (
+    AdnaProjectContext,
+    resolve_project_context,
+)
 from bijux_pollenomics.adna.projects.registry.localities import (
+    AdnaProjectLocalityLead,
     resolve_project_locality_leads,
 )
-from ..sample_master import build_project_sample_master_rows
+from ..sample_master import AdnaProjectSampleMasterRow, build_project_sample_master_rows
 
 __all__ = [
     "AdnaCuratedSampleRow",
@@ -130,7 +134,6 @@ def build_species_curated_sample_rows(
     for project in build_species_archive_projects(species_name):
         linkage = project.paper_linkage
         leads = resolve_project_locality_leads(project.project_accession)
-        lead = leads[0] if leads else None
         project_context = resolve_project_context(project)
         paper_doi = "" if linkage is None or linkage.doi is None else linkage.doi
         paper_url = f"https://doi.org/{paper_doi}" if paper_doi else ""
@@ -139,6 +142,17 @@ def build_species_curated_sample_rows(
         )
         if master_rows:
             for master_row in master_rows:
+                lead = (
+                    _matching_locality_lead(
+                        leads,
+                        master_row.locality_text,
+                        master_row.political_entity,
+                    )
+                    if project.project_accession == "PRJEB30282"
+                    else leads[0]
+                    if leads
+                    else None
+                )
                 (
                     site_label,
                     political_entity,
@@ -156,6 +170,16 @@ def build_species_curated_sample_rows(
                     project=project,
                     project_context=project_context,
                 )
+                if (
+                    project.project_accession == "PRJEB30282"
+                    and not master_row.supplementary_table_sample_label
+                ):
+                    inclusion_status = "archive_identity_only"
+                    inclusion_note = (
+                        "Archive identity is retained for denominator accounting; "
+                        "no domestication classification, sample-owned locality, "
+                        "coordinate, or chronology has been accepted for this sample."
+                    )
                 rows.append(
                     AdnaCuratedSampleRow(
                         species_latin_name=species.latin_name,
@@ -180,7 +204,11 @@ def build_species_curated_sample_rows(
                         chronology_text=chronology_text,
                         time_start_bp=time_start_bp,
                         time_end_bp=time_end_bp,
-                        dating_basis=project.dating_basis or "unknown",
+                        dating_basis=(
+                            master_row.chronology_dating_basis
+                            or project.dating_basis
+                            or "unknown"
+                        ),
                         publication="" if linkage is None else linkage.paper_title,
                         publication_year=""
                         if linkage is None or linkage.publication_year is None
@@ -220,6 +248,7 @@ def build_species_curated_sample_rows(
                 )
             continue
 
+        lead = leads[0] if len(leads) == 1 else None
         (
             site_label,
             political_entity,
@@ -232,7 +261,10 @@ def build_species_curated_sample_rows(
             inclusion_status,
             inclusion_note,
         ) = _resolve_row_context(
-            master_row=None, lead=lead, project=project, project_context=project_context
+            master_row=None,
+            lead=lead,
+            project=project,
+            project_context=project_context,
         )
         rows.append(
             AdnaCuratedSampleRow(
@@ -292,10 +324,10 @@ def build_species_curated_sample_rows(
 
 def _resolve_row_context(
     *,
-    master_row: object | None,
-    lead: object | None,
-    project: object,
-    project_context: object,
+    master_row: AdnaProjectSampleMasterRow | None,
+    lead: AdnaProjectLocalityLead | None,
+    project: AdnaArchiveProject,
+    project_context: AdnaProjectContext,
 ) -> tuple[str, str | None, str, str, str, str, int | None, int | None, str, str]:
     if lead is None:
         site_label = "site detail not yet extracted from tracked source support"
@@ -333,11 +365,13 @@ def _resolve_row_context(
             site_label = master_row.locality_text
         if getattr(master_row, "political_entity", ""):
             political_entity = master_row.political_entity
-        if getattr(master_row, "latitude_text", ""):
+        if getattr(master_row, "latitude_text", "") and getattr(
+            master_row, "longitude_text", ""
+        ):
             latitude_text = master_row.latitude_text
-        if getattr(master_row, "longitude_text", ""):
             longitude_text = master_row.longitude_text
-            coordinate_basis = "supplementary_table_coordinates"
+            if not coordinate_basis:
+                coordinate_basis = "supplementary_table_coordinates"
         if getattr(master_row, "chronology_text", ""):
             chronology_text = master_row.chronology_text
             if lead is None:
@@ -362,6 +396,31 @@ def _resolve_row_context(
         inclusion_status,
         inclusion_note,
     )
+
+
+def _matching_locality_lead(
+    leads: tuple[AdnaProjectLocalityLead, ...],
+    locality_text: str,
+    political_entity: str,
+) -> AdnaProjectLocalityLead | None:
+    target = (_normalize_place(locality_text), _normalize_place(political_entity))
+    matches = []
+    for lead in leads:
+        key = (
+            _normalize_place(str(getattr(lead, "locality_text", ""))),
+            _normalize_place(str(getattr(lead, "political_entity", "") or "")),
+        )
+        if key == target:
+            matches.append(lead)
+    if len(matches) > 1:
+        raise ValueError("Multiple locality leads match the same sample locality")
+    if matches:
+        return matches[0]
+    return leads[0] if len(leads) == 1 else None
+
+
+def _normalize_place(value: str) -> str:
+    return "".join(character for character in value.casefold() if character.isalnum())
 
 
 def _default_data_root() -> Path:

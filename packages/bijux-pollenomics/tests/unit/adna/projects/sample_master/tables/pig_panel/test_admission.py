@@ -38,9 +38,13 @@ def test_project_master_enriches_only_two_domestic_archive_samples() -> None:
         "SAMEA5160867": ("AA015", "Bundsø", "Denmark", "4700 BP"),
         "SAMEA5160868": ("AA016", "Trelleborg", "Denmark", "1000 BP"),
     }
-    assert all(
-        row.latitude_text == row.longitude_text == "" for row in admitted.values()
-    )
+    assert {
+        accession: (row.latitude_text, row.longitude_text)
+        for accession, row in admitted.items()
+    } == {
+        "SAMEA5160867": ("55.02158609", "9.77344984"),
+        "SAMEA5160868": ("55.39416667", "11.26527778"),
+    }
 
 
 def test_wild_unknown_and_unmatched_rows_do_not_enter_core_chronology() -> None:

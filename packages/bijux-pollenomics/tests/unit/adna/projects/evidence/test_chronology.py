@@ -129,10 +129,11 @@ class AdnaProjectSampleChronologyUnitTests(unittest.TestCase):
         self.assertEqual(sheep_review["sample_owned_interval_count"], 167)
         self.assertEqual(sheep_review["text_only_unparsed_count"], 13)
         self.assertEqual(audit["sample_row_count"], 1451)
-        self.assertEqual(audit["normalized_interval_count"], 753)
-        self.assertEqual(audit["normalized_point_count"], 480)
-        self.assertEqual(audit["unresolved_count"], 126)
-        self.assertEqual(audit["precision_counts"]["contextual_interval"], 485)
+        self.assertEqual(audit["normalized_interval_count"], 410)
+        self.assertEqual(audit["normalized_point_count"], 482)
+        self.assertEqual(audit["unresolved_count"], 467)
+        self.assertEqual(audit["precision_counts"]["contextual_interval"], 142)
+        self.assertEqual(audit["precision_counts"]["sample_approximate_or_modeled"], 94)
         self.assertEqual(audit["precision_counts"]["sample_precise_interval"], 276)
         self.assertFalse(
             any(
@@ -149,7 +150,7 @@ class AdnaProjectSampleChronologyUnitTests(unittest.TestCase):
         self.assertTrue(any(row["chronology_conflict_note"] for row in conflict_rows))
         self.assertEqual(
             precision_audit["precision_counts"]["sample_approximate_or_modeled"],
-            92,
+            94,
         )
         sheep_species = next(
             row for row in species_rows if row["species_latin_name"] == "Ovis aries"
