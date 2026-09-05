@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-from collections.abc import Iterable
+from collections.abc import Callable, Iterable
 from datetime import date
 from pathlib import Path
 
@@ -16,6 +16,7 @@ from ..adna.species.tracked_data import materialize_tracked_species_adna
 from ..adna.species.tracked_species import TRACKED_ADNA_SPECIES
 from ..config import DEFAULT_ATLAS_SLUG, DEFAULT_ATLAS_TITLE
 from .adna.atlas_evidence_rows import build_tracked_animal_atlas_evidence_rows
+from .adna.materialization import materialize_animal_publication_artifacts
 from .bundles.atlas_bundle import publish_multi_country_map_bundle
 from .bundles.country_bundle import publish_country_report_bundle
 from .bundles.country_selection import normalize_requested_countries
@@ -243,7 +244,7 @@ def refresh_animal_adna_foundation(
     version: str,
     context_root: Path | None = None,
     species_names: Iterable[str] = TRACKED_ADNA_SPECIES,
-    source_downloader=None,
+    source_downloader: Callable[[str], tuple[bytes, str]] | None = None,
 ) -> AnimalFoundationRefreshReport:
     """Refresh tracked animal source capture, normalized data roots, and published report outputs."""
     data_root = Path(data_root)
@@ -255,6 +256,7 @@ def refresh_animal_adna_foundation(
         refresh_kwargs["downloader"] = source_downloader
     refresh_source_library(data_root, **refresh_kwargs)
     materialize_tracked_species_adna(data_root, species_names=normalized_species)
+    materialize_animal_publication_artifacts(data_root)
     generate_published_reports(
         version_dir=aadr_root / version,
         countries=countries,
