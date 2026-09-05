@@ -59,7 +59,7 @@ _GATE_TESTS: dict[str, tuple[str, ...]] = {
         "reporting/atlas/test_publication_geography.py",
         "reporting/portal/test_reporting_artifacts.py",
         "reporting/portal/test_report_portal.py",
-        "evidence/test_evidence_surface.py",
+        "evidence/surfaces",
         "analysis/propagation/test_propagation_outputs",
         "governance/test_public_artifact_language.py",
     ),
@@ -67,7 +67,7 @@ _GATE_TESTS: dict[str, tuple[str, ...]] = {
         "provenance/test_release_evidence",
         "provenance/release_evidence_writer",
         "provenance/gates",
-        "provenance/test_recorded_gates.py",
+        "provenance/recorded_gates",
         "provenance/test_pollenomics_gate_runner.py",
     ),
     "doc-counts": (
@@ -75,7 +75,7 @@ _GATE_TESTS: dict[str, tuple[str, ...]] = {
         "governance/test_data_reference_docs.py",
         "collection/catalog/spatiotemporal/test_posture.py",
         "collection/workflow/materialization/test_repository_snapshot.py",
-        "governance/repository_truth/test_assessments.py",
+        "governance/repository_truth/assessments",
         "../regression/test_docs_breadth.py",
     ),
 }
