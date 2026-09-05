@@ -15,7 +15,7 @@ from ...exports.context_points import (
     write_context_points_csv,
     write_context_points_geojson,
 )
-from ...shared import load_repository_country_boundaries
+from ..boundaries.store import load_repository_country_boundaries
 from .archive import (
     build_neotoma_download_archive_parts as build_neotoma_download_archive_parts_from_archive,
 )

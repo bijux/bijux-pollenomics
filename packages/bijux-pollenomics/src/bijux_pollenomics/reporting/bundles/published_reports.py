@@ -11,7 +11,7 @@ from ...adna.governance.audit_catalogs import (
 )
 from ..adna.foundation_outputs import publish_animal_foundation_outputs
 from ..adna.public_outputs import publish_public_animal_reporting_outputs
-from ..foundation import publish_repository_truth_outputs
+from ..review.repository_truth_outputs import publish_repository_truth_outputs
 from ..geography import (
     GeographicScope,
     PublishedGeographyPlan,

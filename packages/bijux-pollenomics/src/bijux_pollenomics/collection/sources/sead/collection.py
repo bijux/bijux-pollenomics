@@ -20,7 +20,7 @@ from ...exports.context_points import (
     write_context_points_geojson,
 )
 from ...contracts.models import ContextPointRecord
-from ...shared import load_repository_country_boundaries
+from ..boundaries.store import load_repository_country_boundaries
 from . import api_client as sead_api_client
 from .acquisition import acquire_sead_table
 from .archive import SEAD_LINKED_SOURCE_TABLES

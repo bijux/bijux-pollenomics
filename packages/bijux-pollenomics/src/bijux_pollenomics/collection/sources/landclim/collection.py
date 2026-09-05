@@ -22,7 +22,7 @@ from ...exports.context_points import (
     write_context_points_csv,
     write_context_points_geojson,
 )
-from ...shared import load_repository_country_boundaries
+from ..boundaries.store import load_repository_country_boundaries
 from .catalog import (
     LANDCLIM_DATASET_METADATA,
     LandClimRawAssets,
