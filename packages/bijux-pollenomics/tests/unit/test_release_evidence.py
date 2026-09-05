@@ -253,7 +253,7 @@ def test_product_policy_binds_exact_release_inventory_and_producer_authority() -
         "boundary",
         "classification",
         "neotoma-snapshot",
-        "sead-claims",
+        "sead-evidence",
     }
     assert set(artifacts["gate-map"]["required_parent_identities"]) == {
         "country-coverage",
