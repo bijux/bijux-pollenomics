@@ -1,8 +1,8 @@
 from __future__ import annotations
 
+from collections.abc import Callable
 import json
 import os
-from collections.abc import Callable
 from pathlib import Path
 
 from ...adna.catalogs import (

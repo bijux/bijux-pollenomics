@@ -1,10 +1,11 @@
 from __future__ import annotations
 
+from pathlib import Path
 import tempfile
 import unittest
-from pathlib import Path
 
 import pytest
+
 from bijux_pollenomics.foundation import (
     build_repository_atlas_input_audit,
     build_repository_brutal_honesty_review,
