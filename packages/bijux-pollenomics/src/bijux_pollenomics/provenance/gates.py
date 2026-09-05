@@ -99,7 +99,7 @@ _GATE_TESTS: dict[str, tuple[str, ...]] = {
         "adna/sources/test_adna_source_recovery.py",
         "adna/domain/test_adna_temporal_query.py",
         "collection/sources/sead/acquisition/test_full.py",
-        "collection/sources/sead/acquisition/test_admission.py",
+        "collection/sources/sead/acquisition/test_admission",
         "collection/sources/sead/evidence/test_claims.py",
         "collection/sources/sead/evidence/test_observations.py",
         "collection/sources/sead/acquisition/test_scoped.py",
