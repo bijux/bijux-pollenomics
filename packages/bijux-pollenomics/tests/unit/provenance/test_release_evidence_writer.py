@@ -25,10 +25,20 @@ from bijux_pollenomics.provenance import (
     write_release_evidence_request,
 )
 from bijux_pollenomics.provenance import gates as gate_module
-from bijux_pollenomics.provenance import release_evidence as release_evidence_module
 from bijux_pollenomics.provenance import request as request_module
 from bijux_pollenomics.provenance import writer as writer_module
 from bijux_pollenomics.provenance.gates import RecordedGateSpecification
+from bijux_pollenomics.provenance.release_evidence import artifacts as release_artifacts
+from bijux_pollenomics.provenance.release_evidence import (
+    assessment as release_assessment,
+)
+from bijux_pollenomics.provenance.release_evidence import embedded as release_embedded
+from bijux_pollenomics.provenance.release_evidence import models as release_models
+from bijux_pollenomics.provenance.release_evidence import policy as release_policy
+from bijux_pollenomics.provenance.release_evidence import (
+    repository as release_repository,
+)
+from bijux_pollenomics.provenance.release_evidence import service as release_service
 
 COMMIT = "3" * 40
 
@@ -700,7 +710,7 @@ def test_request_derivation_rejects_concurrent_input_mutation(
     tmp_path: Path, monkeypatch: pytest.MonkeyPatch
 ) -> None:
     _inputs(tmp_path)
-    original = request_module.evidence._hash_repository_object
+    original = release_repository._hash_repository_object
     mutated = False
 
     def mutating_hash(
@@ -717,9 +727,7 @@ def test_request_derivation_rejects_concurrent_input_mutation(
             mutated = True
         return result
 
-    monkeypatch.setattr(
-        request_module.evidence, "_hash_repository_object", mutating_hash
-    )
+    monkeypatch.setattr(request_module, "_hash_repository_object", mutating_hash)
 
     with pytest.raises(ReleaseEvidenceError, match="digest changed"):
         derive_release_evidence_request(tmp_path)
@@ -741,7 +749,7 @@ def test_request_derivation_records_observed_dirty_state(
         "untracked_objects": [],
     }
     monkeypatch.setattr(
-        request_module.evidence,
+        request_module,
         "_repository_state",
         lambda _root, _mode: dict(state),
     )
@@ -762,7 +770,7 @@ def test_exact_request_validation_rejects_hand_authored_change(tmp_path: Path) -
 
 def test_product_request_policy_has_exact_inventory_and_reconciliation_counts() -> None:
     root = REPOSITORY_ROOT
-    policy = request_module.evidence._load_release_evidence_policy(root)
+    policy = release_policy._load_release_evidence_policy(root)
 
     rows = request_module._reconciliations(root, policy)
     by_identity = {row.identity: row for row in rows}
@@ -776,7 +784,7 @@ def test_product_request_policy_has_exact_inventory_and_reconciliation_counts() 
         status: sum(row.count_status == status for row in rows)
         for status in ("reported", "unavailable", "refused")
     } == {"reported": 334, "unavailable": 42, "refused": 14}
-    request_module.evidence._validate_reconciliations(rows, policy)
+    release_assessment._validate_reconciliations(rows, policy)
     classification_metrics = {
         requirement.entity: requirement.derivation_metric
         for requirement in policy.required_reconciliations
@@ -835,34 +843,33 @@ def test_product_request_policy_has_coherent_full_artifact_graph(
     monkeypatch: pytest.MonkeyPatch,
 ) -> None:
     root = REPOSITORY_ROOT
-    policy = release_evidence_module._load_release_evidence_policy(root)
+    policy = release_policy._load_release_evidence_policy(root)
     artifacts, digests = request_module._artifact_inputs(root, policy)
     records = [
-        release_evidence_module._artifact_record(root, artifact)
-        for artifact in artifacts
+        release_artifacts._artifact_record(root, artifact) for artifact in artifacts
     ]
     dependency_lock = next(
         digests[item.identity]
         for item in policy.required_artifacts
         if item.role == "dependency_lock"
     )
-    validate_schema = release_evidence_module._validate_embedded_schema_identity
+    validate_schema = release_embedded._validate_embedded_schema_identity
 
     def allow_pre_refresh_gate_schema(
         repository_root: Path,
         artifact: ArtifactInput,
-        requirement: release_evidence_module._RequiredArtifact,
+        requirement: release_models._RequiredArtifact,
     ) -> None:
         if artifact.role != "validation_result":
             validate_schema(repository_root, artifact, requirement)
 
     monkeypatch.setattr(
-        release_evidence_module,
+        release_artifacts,
         "_validate_embedded_schema_identity",
         allow_pre_refresh_gate_schema,
     )
 
-    release_evidence_module._validate_artifact_graph(
+    release_artifacts._validate_artifact_graph(
         root,
         artifacts,
         records,
@@ -885,7 +892,7 @@ def test_product_manifest_validation_rejects_caller_supplied_reconciliations(
         reconciliations=cast(list[CountReconciliation], arguments["reconciliations"]),
         blockers=(),
     )
-    fixture_policy = release_evidence_module._load_release_evidence_policy(tmp_path)
+    fixture_policy = release_policy._load_release_evidence_policy(tmp_path)
     product_policy = replace(fixture_policy, mode="product")
     governed = tuple(cast(list[CountReconciliation], arguments["reconciliations"]))
     forged = cast(list[dict[str, object]], manifest["reconciliations"])
@@ -893,7 +900,7 @@ def test_product_manifest_validation_rejects_caller_supplied_reconciliations(
     forged[0]["eligible_count"] = cast(int, forged[0]["eligible_count"]) + 1
     forged[0]["accepted_count"] = cast(int, forged[0]["accepted_count"]) + 1
     monkeypatch.setattr(
-        release_evidence_module,
+        release_service,
         "_load_release_evidence_policy",
         lambda _root: product_policy,
     )
@@ -907,7 +914,7 @@ def test_product_manifest_validation_rejects_caller_supplied_reconciliations(
 
 def test_country_adapter_rejects_dimension_substitution(tmp_path: Path) -> None:
     root = REPOSITORY_ROOT
-    policy = request_module.evidence._load_release_evidence_policy(root)
+    policy = release_policy._load_release_evidence_policy(root)
     requirement = next(
         item
         for item in policy.required_reconciliations
@@ -922,7 +929,7 @@ def test_country_adapter_rejects_dimension_substitution(tmp_path: Path) -> None:
             "counts": {"sites": 0},
             "reason_codes": [],
         }
-        for country in request_module.evidence._COUNTRIES
+        for country in release_models._COUNTRIES
     ]
     ledger = tmp_path / "data/country_dimension_coverage.json"
     ledger.parent.mkdir(parents=True)

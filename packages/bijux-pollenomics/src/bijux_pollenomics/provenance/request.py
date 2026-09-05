@@ -16,6 +16,19 @@ from ..collection.sources.sead.evidence.reader import (
     read_validated_sead_evidence_document,
 )
 import bijux_pollenomics.provenance.release_evidence as evidence
+from .release_evidence.models import (
+    _COUNTRIES,
+    _GATE_STATUSES,
+    _ReleaseEvidencePolicy,
+    _RequiredReconciliation,
+)
+from .release_evidence.policy import _load_release_evidence_policy
+from .release_evidence.repository import (
+    _hash_repository_object,
+    _read_repository_file,
+    _repository_root,
+    _repository_state,
+)
 
 __all__ = ["derive_release_evidence_request", "validate_release_evidence_request"]
 
@@ -33,9 +46,9 @@ class _DerivedCount:
 
 def derive_release_evidence_request(repository_root: Path) -> dict[str, object]:
     """Derive and validate the exact request for the current repository state."""
-    root = evidence._repository_root(repository_root)
-    policy = evidence._load_release_evidence_policy(root)
-    state = evidence._repository_state(root, policy.mode)
+    root = _repository_root(repository_root)
+    policy = _load_release_evidence_policy(root)
+    state = _repository_state(root, policy.mode)
     code_commit = _code_commit(state)
     dirty = _dirty_state(state)
 
@@ -54,7 +67,7 @@ def derive_release_evidence_request(repository_root: Path) -> dict[str, object]:
             "release policy must govern exactly one dependency lock"
         )
     dependency_lock_digest = digests[lock_requirements[0].identity]
-    if evidence._repository_state(root, policy.mode) != state:
+    if _repository_state(root, policy.mode) != state:
         raise evidence.ReleaseEvidenceError(
             "repository identity changed while deriving release-evidence request"
         )
@@ -84,13 +97,13 @@ def derive_release_evidence_request(repository_root: Path) -> dict[str, object]:
 
 
 def _artifact_inputs(
-    root: Path, policy: evidence._ReleaseEvidencePolicy
+    root: Path, policy: _ReleaseEvidencePolicy
 ) -> tuple[tuple[evidence.ArtifactInput, ...], dict[str, str]]:
     """Bind the exact governed artifact graph to its current repository objects."""
     digests = {
         requirement.identity: cast(
             str,
-            evidence._hash_repository_object(
+            _hash_repository_object(
                 root,
                 requirement.path,
                 exclude_python_cache=requirement.role == "producer",
@@ -158,7 +171,7 @@ def _dirty_state(state: Mapping[str, object]) -> bool:
 
 def _gate_results(
     root: Path,
-    policy: evidence._ReleaseEvidencePolicy,
+    policy: _ReleaseEvidencePolicy,
     artifacts: Mapping[str, evidence.ArtifactInput],
 ) -> tuple[evidence.GateResult, ...]:
     gates: list[evidence.GateResult] = []
@@ -188,7 +201,7 @@ def _gate_results(
             )
         status = record.get("status")
         required = record.get("required")
-        if status not in evidence._GATE_STATUSES or type(required) is not bool:
+        if status not in _GATE_STATUSES or type(required) is not bool:
             raise evidence.ReleaseEvidenceError(
                 f"recorded gate result is invalid: {gate_id}"
             )
@@ -206,7 +219,7 @@ def _gate_results(
 
 
 def _reconciliations(
-    root: Path, policy: evidence._ReleaseEvidencePolicy
+    root: Path, policy: _ReleaseEvidencePolicy
 ) -> tuple[evidence.CountReconciliation, ...]:
     rows: list[evidence.CountReconciliation] = []
     for requirement in policy.required_reconciliations:
@@ -214,7 +227,7 @@ def _reconciliations(
         if requirement.dimension == "country":
             values = _governed_country_values(root, requirement)
             partitions: list[evidence.CountReconciliation] = []
-            for country_code in sorted(evidence._COUNTRIES):
+            for country_code in sorted(_COUNTRIES):
                 if values is None:
                     partition = _unavailable_count(
                         f"{stem}.country.{country_code.lower()}",
@@ -260,7 +273,7 @@ def _reconciliations(
 
 
 def _governed_country_values(
-    root: Path, requirement: evidence._RequiredReconciliation
+    root: Path, requirement: _RequiredReconciliation
 ) -> dict[str, _DerivedCount] | None:
     if requirement.derivation_adapter == "classification_observation_memberships":
         return _classification_country_values(root, requirement.derivation_metric)
@@ -280,7 +293,7 @@ def _governed_country_values(
         )
         if isinstance(country_counts, Mapping):
             values: dict[str, _DerivedCount] = {}
-            for country in evidence._COUNTRIES:
+            for country in _COUNTRIES:
                 if country == "OUTSIDE":
                     values[country] = _partition_posture(country, 0, ())
                     continue
@@ -301,7 +314,7 @@ def _governed_country_values(
     if not isinstance(cells, list):
         return None
     values = {}
-    for country in evidence._COUNTRIES:
+    for country in _COUNTRIES:
         matches = [
             cell
             for cell in cells
@@ -366,7 +379,7 @@ def _sead_chronology_claim_values(
         return None
     counts = {
         country: {"accepted": 0, "unresolved": 0, "refused": 0}
-        for country in evidence._COUNTRIES
+        for country in _COUNTRIES
     }
     for claim in claims:
         if not isinstance(claim, Mapping):
@@ -423,7 +436,7 @@ def _classification_country_values(
             "excluded": set(),
             "refused": set(),
         }
-        for country in evidence._COUNTRIES
+        for country in _COUNTRIES
     }
     for record in records:
         if not isinstance(record, Mapping):
@@ -479,7 +492,7 @@ def _partition_posture(
 
 
 def _propagation_scope_counts(
-    root: Path, requirement: evidence._RequiredReconciliation
+    root: Path, requirement: _RequiredReconciliation
 ) -> list[evidence.CountReconciliation] | None:
     if requirement.derivation_adapter != "propagation_primary_reconciliation":
         return None
@@ -529,7 +542,7 @@ def _propagation_scope_counts(
 
 
 def _required_scopes(
-    requirement: evidence._RequiredReconciliation,
+    requirement: _RequiredReconciliation,
 ) -> tuple[tuple[tuple[str, str], ...], ...]:
     keys = tuple(key for key, _values in requirement.scope_values)
     return tuple(
@@ -544,7 +557,7 @@ def _scope_suffix(scope: tuple[tuple[str, str], ...]) -> str:
 
 def _propagation_status_count(
     stem: str,
-    requirement: evidence._RequiredReconciliation,
+    requirement: _RequiredReconciliation,
     scope: tuple[tuple[str, str], ...],
     status: str,
     value: int,
@@ -579,7 +592,7 @@ def _propagation_status_count(
 
 def _reported_count(
     identity: str,
-    requirement: evidence._RequiredReconciliation,
+    requirement: _RequiredReconciliation,
     dimension: evidence.ReconciliationDimension,
     value: int,
     *,
@@ -606,7 +619,7 @@ def _reported_count(
 
 def _derived_count(
     identity: str,
-    requirement: evidence._RequiredReconciliation,
+    requirement: _RequiredReconciliation,
     dimension: evidence.ReconciliationDimension,
     value: _DerivedCount,
     *,
@@ -633,7 +646,7 @@ def _derived_count(
 
 def _aggregate_source_count(
     identity: str,
-    requirement: evidence._RequiredReconciliation,
+    requirement: _RequiredReconciliation,
     partitions: list[evidence.CountReconciliation],
 ) -> evidence.CountReconciliation:
     if any(item.count_status != "reported" for item in partitions):
@@ -664,7 +677,7 @@ def _aggregate_source_count(
 
 def _unavailable_count(
     identity: str,
-    requirement: evidence._RequiredReconciliation,
+    requirement: _RequiredReconciliation,
     dimension: evidence.ReconciliationDimension,
     *,
     country_code: str | None = None,
@@ -692,7 +705,7 @@ def _optional_json_object(
     root: Path, relative_path: str
 ) -> Mapping[str, object] | None:
     try:
-        value = json.loads(evidence._read_repository_file(root, relative_path))
+        value = json.loads(_read_repository_file(root, relative_path))
     except (evidence.ReleaseEvidenceError, UnicodeDecodeError, json.JSONDecodeError):
         return None
     return value if isinstance(value, Mapping) else None

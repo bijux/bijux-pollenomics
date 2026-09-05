@@ -136,7 +136,7 @@ _GATE_TESTS: dict[str, tuple[str, ...]] = {
         "governance/test_public_artifact_language.py",
     ),
     "provenance": (
-        "provenance/test_release_evidence.py",
+        "provenance/test_release_evidence",
         "provenance/test_release_evidence_writer.py",
         "provenance/test_recorded_gates.py",
         "provenance/test_pollenomics_gate_runner.py",
