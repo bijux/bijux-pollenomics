@@ -15,7 +15,8 @@ import re
 import stat
 import subprocess
 from typing import Final, Literal, TypeAlias, cast
-import xml.etree.ElementTree as ET
+
+from defusedxml import ElementTree as ET
 
 ArtifactRole: TypeAlias = Literal[
     "source_receipt",

@@ -509,7 +509,9 @@ def _validate_release_manifest_identity(
         if expected_md5:
             if re.fullmatch(r"[0-9a-f]{32}", expected_md5) is None:
                 raise ValueError(f"AADR anno_files[{index}] has invalid md5")
-            actual_md5 = hashlib.md5(path.read_bytes()).hexdigest()  # noqa: S324
+            actual_md5 = hashlib.md5(
+                path.read_bytes(), usedforsecurity=False
+            ).hexdigest()
             if actual_md5 != expected_md5:
                 raise ValueError(f"AADR release manifest md5 mismatch for {path}")
 

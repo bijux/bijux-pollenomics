@@ -17,7 +17,8 @@ import subprocess
 import sys
 import tempfile
 import time
-import xml.etree.ElementTree as ET
+
+from defusedxml import ElementTree as ET
 
 from ..foundation.country_coverage import INPUT_PATHS as _COUNTRY_COVERAGE_INPUT_PATHS
 from .release_evidence import ReleaseEvidenceError, hash_repository_object
