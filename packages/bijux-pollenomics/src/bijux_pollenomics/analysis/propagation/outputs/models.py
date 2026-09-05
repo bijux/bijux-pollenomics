@@ -52,7 +52,7 @@ PROPAGATION_PRODUCER_SOURCE_PATHS = (
     "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/propagation/candidates/profiles.py",
     "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/propagation/candidates/rules.py",
     "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/propagation/candidates/scoring.py",
-    "packages/bijux-pollenomics/src/bijux_pollenomics/core/geo_distance.py",
+    "packages/bijux-pollenomics/src/bijux_pollenomics/core/geospatial/distance.py",
     "packages/bijux-pollenomics/src/bijux_pollenomics/core/temporal_semantics.py",
 )
 _CLASSIFICATION_MANIFEST_NAME = "manifest.json"
