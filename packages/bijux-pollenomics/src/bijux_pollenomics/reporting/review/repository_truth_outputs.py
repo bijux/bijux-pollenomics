@@ -391,7 +391,7 @@ def _build_repository_output_specs(
             information_role="SEAD legibility review",
             coexistence_rule="coexists with source-family and temporal reviews as the SEAD-specific honesty surface",
             docs_anchor="docs/public/pollenomics-data/sources/sead.md",
-            test_anchor="packages/bijux-pollenomics/tests/unit/test_context_data.py",
+            test_anchor="packages/bijux-pollenomics/tests/unit/collection/workflow/test_context_data.py",
         ),
     ]
 

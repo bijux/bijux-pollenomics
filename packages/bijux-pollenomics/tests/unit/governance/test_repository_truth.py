@@ -1,6 +1,8 @@
 from __future__ import annotations
 
 from pathlib import Path
+
+from tests.support.repository import REPOSITORY_ROOT
 import tempfile
 import unittest
 
@@ -55,7 +57,7 @@ pytestmark = pytest.mark.generated_artifacts
 
 class RepositoryTruthUnitTests(unittest.TestCase):
     def setUp(self) -> None:
-        self.repo_root = Path(__file__).resolve().parents[5]
+        self.repo_root = REPOSITORY_ROOT
         self.data_root = self.repo_root / "data"
         self.docs_root = self.repo_root / "docs"
         self.report_root = self.docs_root / "report"

@@ -5,6 +5,8 @@ from copy import deepcopy
 import hashlib
 import json
 from pathlib import Path
+
+from tests.support.repository import REPOSITORY_ROOT
 import tempfile
 from typing import cast
 
@@ -26,7 +28,7 @@ from bijux_pollenomics.governance.country_coverage import (
 
 _READ_BYTES = Path.read_bytes
 
-_REPOSITORY_ROOT = Path(__file__).resolve().parents[5]
+_REPOSITORY_ROOT = REPOSITORY_ROOT
 _CELL_SCHEMA_PATH = (
     _REPOSITORY_ROOT.parent
     / "bijux-pollenomics-execution-control/contracts/country-coverage.schema.json"

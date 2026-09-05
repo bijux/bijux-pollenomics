@@ -214,7 +214,7 @@ a claim-bearing change even though it has no runtime write:
 ```bash
 artifacts/root/check-venv/bin/mkdocs build --strict --site-dir artifacts/docs-site
 artifacts/root/check-venv/bin/pytest -q \
-  packages/bijux-pollenomics/tests/unit/test_public_artifact_language.py \
+  packages/bijux-pollenomics/tests/unit/governance/test_public_artifact_language.py \
   packages/bijux-pollenomics/tests/regression/test_repository_contracts.py::RepositoryContractRegressionTests::test_docs_mermaid_diagrams_avoid_reserved_node_ids
 ```
 

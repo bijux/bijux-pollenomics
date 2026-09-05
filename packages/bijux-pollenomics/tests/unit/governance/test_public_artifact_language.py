@@ -1,6 +1,7 @@
 from __future__ import annotations
 
-from pathlib import Path
+
+from tests.support.repository import REPOSITORY_ROOT
 import unittest
 
 import pytest
@@ -18,7 +19,7 @@ pytestmark = pytest.mark.generated_artifacts
 
 class PublicArtifactLanguageUnitTests(unittest.TestCase):
     def setUp(self) -> None:
-        self.repo_root = Path(__file__).resolve().parents[5]
+        self.repo_root = REPOSITORY_ROOT
 
     def test_role_taxonomy_and_disallowed_tokens_stay_explicit(self) -> None:
         self.assertIn("review", PUBLIC_INFORMATION_ROLE_MEANINGS)

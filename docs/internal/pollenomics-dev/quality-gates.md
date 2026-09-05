@@ -75,8 +75,8 @@ affected contract.
 | end to end | `tests/e2e/` | installed command paths and complete operator-visible effects |
 
 Representative anchors include
-`tests/unit/test_command_line.py`, `tests/unit/test_data_layout.py`,
-`tests/unit/test_reporting_artifacts.py`,
+`tests/unit/command_line/test_command_line.py`, `tests/unit/collection/workflow/test_data_layout.py`,
+`tests/unit/reporting/portal/test_reporting_artifacts.py`,
 `tests/regression/test_repository_contracts.py`, and
 `tests/e2e/test_cli.py`.
 

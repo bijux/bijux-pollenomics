@@ -14,18 +14,18 @@ POLLENOMICS_GATE_PATH := $(abspath $(ROOT_CHECK_VENV))/bin$(if $(POLLENOMICS_NOD
 POLLENOMICS_GATE_TRUST_INPUTS := Makefile makes/pollenomics-verification.mk pyproject.toml packages/bijux-pollenomics/pyproject.toml uv.lock
 
 POLLENOMICS_SCIENCE_TESTS := \
-	$(POLLENOMICS_TEST_ROOT)/unit/test_temporal_semantics.py \
-	$(POLLENOMICS_TEST_ROOT)/unit/test_sead_chronology.py \
-	$(POLLENOMICS_TEST_ROOT)/unit/test_ecological_classification.py \
-	$(POLLENOMICS_TEST_ROOT)/unit/test_classification_audit_outputs.py \
-	$(POLLENOMICS_TEST_ROOT)/unit/test_classification_events.py \
-	$(POLLENOMICS_TEST_ROOT)/unit/test_harmonization.py \
-	$(POLLENOMICS_TEST_ROOT)/unit/test_temporal_overlap_consumers.py \
-	$(POLLENOMICS_TEST_ROOT)/unit/test_lake_evidence_richness.py \
-	$(POLLENOMICS_TEST_ROOT)/unit/test_propagation_evidence_domains.py \
-	$(POLLENOMICS_TEST_ROOT)/unit/test_scientific_review.py \
-	$(POLLENOMICS_TEST_ROOT)/unit/test_source_spatiotemporal_posture.py \
-	$(POLLENOMICS_TEST_ROOT)/unit/test_propagation_network.py
+	$(POLLENOMICS_TEST_ROOT)/unit/core/test_temporal_semantics.py \
+	$(POLLENOMICS_TEST_ROOT)/unit/collection/sources/sead/test_sead_chronology.py \
+	$(POLLENOMICS_TEST_ROOT)/unit/analysis/classification/test_ecological_classification.py \
+	$(POLLENOMICS_TEST_ROOT)/unit/evidence/test_classification_audit_outputs.py \
+	$(POLLENOMICS_TEST_ROOT)/unit/analysis/classification/test_classification_events.py \
+	$(POLLENOMICS_TEST_ROOT)/unit/analysis/classification/test_harmonization.py \
+	$(POLLENOMICS_TEST_ROOT)/unit/core/test_temporal_overlap_consumers.py \
+	$(POLLENOMICS_TEST_ROOT)/unit/analysis/fieldwork/test_lake_evidence_richness.py \
+	$(POLLENOMICS_TEST_ROOT)/unit/analysis/propagation/test_propagation_evidence_domains.py \
+	$(POLLENOMICS_TEST_ROOT)/unit/evidence/test_scientific_review.py \
+	$(POLLENOMICS_TEST_ROOT)/unit/collection/catalog/test_source_spatiotemporal_posture.py \
+	$(POLLENOMICS_TEST_ROOT)/unit/analysis/propagation/test_propagation_network.py
 POLLENOMICS_SCIENCE_INPUTS := \
 	$(POLLENOMICS_GATE_TRUST_INPUTS) \
 	configs/pytest.ini \
@@ -39,40 +39,40 @@ POLLENOMICS_SCIENCE_INPUTS := \
 	$(POLLENOMICS_SCIENCE_TESTS)
 
 POLLENOMICS_DATA_TESTS := \
-	$(POLLENOMICS_TEST_ROOT)/unit/test_adna_normalization.py \
-	$(POLLENOMICS_TEST_ROOT)/unit/test_adna_catalogs.py \
-	$(POLLENOMICS_TEST_ROOT)/unit/test_adna_project_sample_locality_evidence.py \
-	$(POLLENOMICS_TEST_ROOT)/unit/test_adna_runtime.py \
-	$(POLLENOMICS_TEST_ROOT)/unit/test_adna_sample_master.py \
-	$(POLLENOMICS_TEST_ROOT)/unit/test_adna_sample_truth.py \
-	$(POLLENOMICS_TEST_ROOT)/unit/test_adna_source_library.py \
-	$(POLLENOMICS_TEST_ROOT)/unit/test_adna_source_recovery.py \
-	$(POLLENOMICS_TEST_ROOT)/unit/test_adna_temporal_query.py \
-	$(POLLENOMICS_TEST_ROOT)/unit/test_sead_acquisition.py \
-	$(POLLENOMICS_TEST_ROOT)/unit/test_sead_acquisition_admission.py \
-	$(POLLENOMICS_TEST_ROOT)/unit/test_sead_claim_bundle.py \
-	$(POLLENOMICS_TEST_ROOT)/unit/test_sead_observation_acquisition.py \
-	$(POLLENOMICS_TEST_ROOT)/unit/test_sead_scoped_acquisition.py \
-	$(POLLENOMICS_TEST_ROOT)/unit/test_neotoma_data.py \
-	$(POLLENOMICS_TEST_ROOT)/unit/test_neotoma_lineage_review.py \
-	$(POLLENOMICS_TEST_ROOT)/unit/test_neotoma_relational.py \
-	$(POLLENOMICS_TEST_ROOT)/unit/test_neotoma_materialization.py \
-	$(POLLENOMICS_TEST_ROOT)/unit/test_neotoma_production.py \
-	$(POLLENOMICS_TEST_ROOT)/unit/test_landclim_data.py \
-	$(POLLENOMICS_TEST_ROOT)/unit/test_landclim_raw_receipt.py \
-	$(POLLENOMICS_TEST_ROOT)/unit/test_raa_data.py \
-	$(POLLENOMICS_TEST_ROOT)/unit/test_raa_authority.py \
-	$(POLLENOMICS_TEST_ROOT)/unit/test_svar_data.py \
-	$(POLLENOMICS_TEST_ROOT)/unit/test_boundaries.py \
-	$(POLLENOMICS_TEST_ROOT)/unit/test_boundary_country_review.py \
-	$(POLLENOMICS_TEST_ROOT)/unit/test_data_contract_surfaces.py \
-	$(POLLENOMICS_TEST_ROOT)/unit/test_data_layout.py \
-	$(POLLENOMICS_TEST_ROOT)/unit/test_source_identity.py \
-	$(POLLENOMICS_TEST_ROOT)/unit/test_source_family_contracts.py \
-	$(POLLENOMICS_TEST_ROOT)/unit/test_source_layout_contract.py \
-	$(POLLENOMICS_TEST_ROOT)/unit/test_source_provenance.py \
-	$(POLLENOMICS_TEST_ROOT)/unit/test_source_traceability.py \
-	$(POLLENOMICS_TEST_ROOT)/unit/test_source_validation.py
+	$(POLLENOMICS_TEST_ROOT)/unit/adna/workflow/test_adna_normalization.py \
+	$(POLLENOMICS_TEST_ROOT)/unit/adna/species/test_adna_catalogs.py \
+	$(POLLENOMICS_TEST_ROOT)/unit/adna/projects/test_adna_project_sample_locality_evidence.py \
+	$(POLLENOMICS_TEST_ROOT)/unit/adna/workflow/test_adna_runtime.py \
+	$(POLLENOMICS_TEST_ROOT)/unit/adna/projects/test_adna_sample_master.py \
+	$(POLLENOMICS_TEST_ROOT)/unit/adna/projects/test_adna_sample_truth.py \
+	$(POLLENOMICS_TEST_ROOT)/unit/adna/sources/test_adna_source_library.py \
+	$(POLLENOMICS_TEST_ROOT)/unit/adna/sources/test_adna_source_recovery.py \
+	$(POLLENOMICS_TEST_ROOT)/unit/adna/domain/test_adna_temporal_query.py \
+	$(POLLENOMICS_TEST_ROOT)/unit/collection/sources/sead/test_sead_acquisition.py \
+	$(POLLENOMICS_TEST_ROOT)/unit/collection/sources/sead/test_sead_acquisition_admission.py \
+	$(POLLENOMICS_TEST_ROOT)/unit/collection/sources/sead/test_sead_claim_bundle.py \
+	$(POLLENOMICS_TEST_ROOT)/unit/collection/sources/sead/test_sead_observation_acquisition.py \
+	$(POLLENOMICS_TEST_ROOT)/unit/collection/sources/sead/test_sead_scoped_acquisition.py \
+	$(POLLENOMICS_TEST_ROOT)/unit/collection/sources/neotoma/test_neotoma_data.py \
+	$(POLLENOMICS_TEST_ROOT)/unit/collection/sources/neotoma/test_neotoma_lineage_review.py \
+	$(POLLENOMICS_TEST_ROOT)/unit/collection/sources/neotoma/test_neotoma_relational.py \
+	$(POLLENOMICS_TEST_ROOT)/unit/collection/sources/neotoma/test_neotoma_materialization.py \
+	$(POLLENOMICS_TEST_ROOT)/unit/collection/sources/neotoma/test_neotoma_production.py \
+	$(POLLENOMICS_TEST_ROOT)/unit/collection/sources/landclim/test_landclim_data.py \
+	$(POLLENOMICS_TEST_ROOT)/unit/collection/sources/landclim/test_landclim_raw_receipt.py \
+	$(POLLENOMICS_TEST_ROOT)/unit/collection/sources/raa/test_raa_data.py \
+	$(POLLENOMICS_TEST_ROOT)/unit/collection/sources/raa/test_raa_authority.py \
+	$(POLLENOMICS_TEST_ROOT)/unit/collection/sources/svar/test_svar_data.py \
+	$(POLLENOMICS_TEST_ROOT)/unit/collection/sources/boundaries/test_boundaries.py \
+	$(POLLENOMICS_TEST_ROOT)/unit/collection/sources/boundaries/test_boundary_country_review.py \
+	$(POLLENOMICS_TEST_ROOT)/unit/collection/contracts/test_data_contract_surfaces.py \
+	$(POLLENOMICS_TEST_ROOT)/unit/collection/workflow/test_data_layout.py \
+	$(POLLENOMICS_TEST_ROOT)/unit/collection/catalog/test_source_identity.py \
+	$(POLLENOMICS_TEST_ROOT)/unit/collection/contracts/test_source_family_contracts.py \
+	$(POLLENOMICS_TEST_ROOT)/unit/collection/contracts/test_source_layout_contract.py \
+	$(POLLENOMICS_TEST_ROOT)/unit/collection/catalog/test_source_provenance.py \
+	$(POLLENOMICS_TEST_ROOT)/unit/collection/catalog/test_source_traceability.py \
+	$(POLLENOMICS_TEST_ROOT)/unit/collection/catalog/test_source_validation.py
 POLLENOMICS_DATA_INPUTS := \
 	$(POLLENOMICS_GATE_TRUST_INPUTS) \
 	configs/pytest.ini \
@@ -99,14 +99,14 @@ POLLENOMICS_DATA_INPUTS := \
 	$(POLLENOMICS_DATA_TESTS)
 
 POLLENOMICS_MAP_TESTS := \
-	$(POLLENOMICS_TEST_ROOT)/unit/test_map_evidence_projection.py \
-	$(POLLENOMICS_TEST_ROOT)/unit/test_map_publication.py \
-	$(POLLENOMICS_TEST_ROOT)/unit/test_static_atlas_assets.py \
-	$(POLLENOMICS_TEST_ROOT)/unit/test_publication_geography.py \
-	$(POLLENOMICS_TEST_ROOT)/unit/test_reporting_artifacts.py \
-	$(POLLENOMICS_TEST_ROOT)/unit/test_report_portal.py \
-	$(POLLENOMICS_TEST_ROOT)/unit/test_evidence_surface.py \
-	$(POLLENOMICS_TEST_ROOT)/unit/test_propagation_outputs.py \
+	$(POLLENOMICS_TEST_ROOT)/unit/reporting/atlas/test_map_evidence_projection.py \
+	$(POLLENOMICS_TEST_ROOT)/unit/reporting/atlas/test_map_publication.py \
+	$(POLLENOMICS_TEST_ROOT)/unit/reporting/atlas/test_static_atlas_assets.py \
+	$(POLLENOMICS_TEST_ROOT)/unit/reporting/atlas/test_publication_geography.py \
+	$(POLLENOMICS_TEST_ROOT)/unit/reporting/portal/test_reporting_artifacts.py \
+	$(POLLENOMICS_TEST_ROOT)/unit/reporting/portal/test_report_portal.py \
+	$(POLLENOMICS_TEST_ROOT)/unit/evidence/test_evidence_surface.py \
+	$(POLLENOMICS_TEST_ROOT)/unit/analysis/propagation/test_propagation_outputs.py \
 	$(POLLENOMICS_TEST_ROOT)/unit/governance/test_public_artifact_language.py
 POLLENOMICS_MAP_INPUTS := \
 	$(POLLENOMICS_GATE_TRUST_INPUTS) \
@@ -119,10 +119,10 @@ POLLENOMICS_MAP_INPUTS := \
 	$(POLLENOMICS_MAP_TESTS)
 
 POLLENOMICS_PROVENANCE_TESTS := \
-	$(POLLENOMICS_TEST_ROOT)/unit/test_release_evidence.py \
-	$(POLLENOMICS_TEST_ROOT)/unit/test_release_evidence_writer.py \
-	$(POLLENOMICS_TEST_ROOT)/unit/test_recorded_gates.py \
-	$(POLLENOMICS_TEST_ROOT)/unit/test_pollenomics_gate_runner.py
+	$(POLLENOMICS_TEST_ROOT)/unit/provenance/test_release_evidence.py \
+	$(POLLENOMICS_TEST_ROOT)/unit/provenance/test_release_evidence_writer.py \
+	$(POLLENOMICS_TEST_ROOT)/unit/provenance/test_recorded_gates.py \
+	$(POLLENOMICS_TEST_ROOT)/unit/provenance/test_pollenomics_gate_runner.py
 POLLENOMICS_PROVENANCE_INPUTS := \
 	$(POLLENOMICS_GATE_TRUST_INPUTS) \
 	configs/pytest.ini \
@@ -132,9 +132,9 @@ POLLENOMICS_PROVENANCE_INPUTS := \
 
 POLLENOMICS_DOC_COUNT_TESTS := \
 	$(POLLENOMICS_TEST_ROOT)/unit/governance/test_country_coverage.py \
-	$(POLLENOMICS_TEST_ROOT)/unit/test_data_reference_docs.py \
-	$(POLLENOMICS_TEST_ROOT)/unit/test_source_spatiotemporal_posture.py \
-	$(POLLENOMICS_TEST_ROOT)/unit/test_repository_snapshot.py \
+	$(POLLENOMICS_TEST_ROOT)/unit/governance/test_data_reference_docs.py \
+	$(POLLENOMICS_TEST_ROOT)/unit/collection/catalog/test_source_spatiotemporal_posture.py \
+	$(POLLENOMICS_TEST_ROOT)/unit/collection/workflow/test_repository_snapshot.py \
 	$(POLLENOMICS_TEST_ROOT)/unit/governance/test_repository_truth.py \
 	$(POLLENOMICS_TEST_ROOT)/regression/test_docs_breadth.py
 POLLENOMICS_DOC_COUNT_INPUTS := \
