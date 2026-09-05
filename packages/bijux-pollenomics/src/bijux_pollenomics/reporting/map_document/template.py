@@ -948,7 +948,9 @@ MAP_DOCUMENT_TEMPLATE = """
         left: 16px;
         bottom: 24px;
         z-index: 1100;
-        width: min(360px, calc(100vw - 32px));
+        width: min(560px, calc(100vw - 32px));
+        max-height: min(78vh, 760px);
+        overflow: auto;
         padding: 16px;
         border-radius: 22px;
       }
@@ -1016,6 +1018,83 @@ MAP_DOCUMENT_TEMPLATE = """
         display: flex;
         flex-wrap: wrap;
         gap: 10px;
+      }
+      .focus-tabs {
+        display: flex;
+        gap: 6px;
+        overflow-x: auto;
+        margin: 0 0 10px;
+        padding-bottom: 4px;
+      }
+      .focus-tab {
+        appearance: none;
+        flex: 0 0 auto;
+        padding: 7px 9px;
+        border: 1px solid rgba(20, 33, 61, 0.12);
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.78);
+        color: var(--ink-soft);
+        font: inherit;
+        font-size: 11px;
+        font-weight: 700;
+        cursor: pointer;
+      }
+      .focus-tab[aria-selected="true"] {
+        border-color: rgba(37, 99, 235, 0.42);
+        background: rgba(37, 99, 235, 0.10);
+        color: #1d4ed8;
+      }
+      .focus-detail {
+        display: grid;
+        gap: 8px;
+        margin-bottom: 12px;
+        padding: 12px;
+        border: 1px solid rgba(20, 33, 61, 0.10);
+        border-radius: 14px;
+        background: rgba(255, 255, 255, 0.78);
+        color: var(--ink-soft);
+        font-size: 12px;
+        line-height: 1.5;
+      }
+      .focus-detail-row {
+        display: grid;
+        grid-template-columns: minmax(105px, 0.35fr) minmax(0, 1fr);
+        gap: 10px;
+      }
+      .focus-detail-key { color: var(--muted); font-weight: 700; }
+      .scientific-cue {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 20px;
+        height: 20px;
+        border: 2px solid currentColor;
+        background: rgba(255, 255, 255, 0.82);
+        font-size: 12px;
+        font-weight: 800;
+      }
+      .scientific-cue[data-cue="circle"], .scientific-cue[data-cue="ring"] { border-radius: 999px; }
+      .scientific-cue[data-cue="triangle"] { clip-path: polygon(50% 0, 100% 100%, 0 100%); }
+      .scientific-cue[data-cue="diamond"] { transform: rotate(45deg); }
+      .scientific-cue[data-cue="cross"] { border-style: dashed; }
+      .atlas-scientific-marker {
+        display: flex;
+        align-items: center;
+        gap: 2px;
+        width: max-content !important;
+        height: 24px !important;
+        margin: -12px 0 0 -12px !important;
+        filter: drop-shadow(0 1px 2px rgba(20, 33, 61, 0.34));
+      }
+      .atlas-scientific-marker.is-focused { transform: scale(1.28); z-index: 2; }
+      .atlas-scientific-marker .scientific-cue { background: #fff; }
+      .scientific-status {
+        padding: 9px 10px;
+        border-radius: 12px;
+        background: rgba(180, 83, 9, 0.08);
+        color: #7c2d12;
+        font-size: 11px;
+        line-height: 1.45;
       }
       .focus-nav {
         display: flex;
@@ -1480,6 +1559,41 @@ MAP_DOCUMENT_TEMPLATE = """
               <details class="control-group" open>
                 <summary class="control-group-head">
                   <div>
+                    <span class="control-group-label">Scientific resolution</span>
+                    <h3>Signal Comparison</h3>
+                  </div>
+                  <span id="scientific-summary" class="control-group-summary" aria-live="polite">Checking accepted classifications</span>
+                </summary>
+                <div class="control-group-body">
+                  <div id="scientific-status" class="scientific-status"></div>
+                  <div id="scientific-filters" class="dock-layer-grid" aria-label="Accepted scientific signal comparison"></div>
+                  <div class="inline-actions">
+                    <button id="scientific-whole" class="inline-button is-primary" type="button">Whole pollen</button>
+                    <button id="scientific-clear" class="inline-button" type="button">Clear comparison</button>
+                  </div>
+                </div>
+              </details>
+              <details class="control-group">
+                <summary class="control-group-head">
+                  <div>
+                    <span class="control-group-label">Candidate relations</span>
+                    <h3>Cross-border Filters</h3>
+                  </div>
+                  <span id="relation-summary" class="control-group-summary" aria-live="polite">Checking governed candidates</span>
+                </summary>
+                <div class="control-group-body">
+                  <label class="field-label" for="country-pair-filter"><span>Country pair</span><span>Direction-neutral</span></label>
+                  <select id="country-pair-filter" class="search-input" aria-label="Filter candidate relations by country pair"></select>
+                  <label class="chip-toggle">
+                    <input id="cross-border-only" type="checkbox" aria-label="Show cross-border candidate relations only">
+                    <span class="chip-swatch" style="background:rgba(124,58,237,0.18);border-color:#6d28d9;"></span>
+                    <span>Cross-border only</span>
+                  </label>
+                </div>
+              </details>
+              <details class="control-group" open>
+                <summary class="control-group-head">
+                  <div>
                     <span class="control-group-label">Evidence</span>
                     <h3>Layer Selection</h3>
                   </div>
@@ -1615,6 +1729,8 @@ MAP_DOCUMENT_TEMPLATE = """
             <button id="focus-close" class="toolbar-button focus-close" type="button">Clear</button>
           </div>
           <div id="focus-meta" class="focus-meta"></div>
+          <div id="focus-tabs" class="focus-tabs" role="tablist" aria-label="Evidence detail sections"></div>
+          <div id="focus-detail" class="focus-detail" role="tabpanel"></div>
           <div class="focus-nav">
             <button id="focus-previous" class="toolbar-button" type="button">Previous</button>
             <button id="focus-next" class="toolbar-button" type="button">Next</button>
@@ -1709,7 +1825,7 @@ __STATIC_CHUNK_SCRIPT_TAGS__
       const staticAtlasLoadedAssets = new Set();
       const staticAtlasInFlightAssets = new Map();
       const STATIC_ATLAS_SCHEMAS = {
-        provenance: 'atlas-provenance-chunk.v1',
+        provenance: 'atlas-provenance-chunk.v2',
         nodes: 'atlas-node-chunk.v1',
         edges: 'atlas-edges-chunk.v1',
         sequences: 'atlas-sequences-chunk.v1',
@@ -1756,6 +1872,8 @@ __STATIC_CHUNK_SCRIPT_TAGS__
           if (!Array.isArray(payload.features) || !Array.isArray(payload.feature_indexes) || payload.features.length !== payload.feature_indexes.length) staticAtlasFailure(`${row.asset_key} feature accounting is invalid`);
           if (payload.features.length !== row.record_count || payload.layer_key !== row.layer_key || payload.layer_index !== row.layer_index || payload.layer_kind !== row.layer_kind) staticAtlasFailure(`${row.asset_key} layer accounting mismatch`);
         }
+        if ((row.domain === 'edges' || row.domain === 'sequences') && (!Array.isArray(payload.records) || payload.records.length !== row.record_count)) staticAtlasFailure(`${row.asset_key} record accounting mismatch`);
+        if (row.domain === 'provenance' && (!Array.isArray(payload.layers) || !Array.isArray(payload.detail_records) || !Array.isArray(payload.scientific_signals))) staticAtlasFailure(`${row.asset_key} evidence accounting mismatch`);
       }
       async function consumeStaticAtlasAsset(row) {
         if (staticAtlasLoadedAssets.has(row.asset_key)) return;
@@ -1799,7 +1917,14 @@ __STATIC_CHUNK_SCRIPT_TAGS__
         for (const row of STATIC_ATLAS_BOOTSTRAP.assets.filter((candidate) => candidate.initial_load === true)) {
           await loadStaticAtlasAsset(row);
         }
-        if (!STATIC_ATLAS_CHUNKS.provenance || !STATIC_ATLAS_CHUNKS.indexes || STATIC_ATLAS_CHUNKS.edges?.status !== 'unavailable' || STATIC_ATLAS_CHUNKS.sequences?.status !== 'unavailable') staticAtlasFailure('required metadata domains are incomplete');
+        if (!STATIC_ATLAS_CHUNKS.provenance || !STATIC_ATLAS_CHUNKS.indexes || !STATIC_ATLAS_CHUNKS.edges || !STATIC_ATLAS_CHUNKS.sequences) staticAtlasFailure('required metadata domains are incomplete');
+        for (const domain of ['edges', 'sequences']) {
+          const payload = STATIC_ATLAS_CHUNKS[domain];
+          if (!['available', 'unavailable'].includes(payload.status) || !Array.isArray(payload.records)) staticAtlasFailure(`${domain} availability declaration is invalid`);
+          if (payload.status === 'unavailable' && payload.records.length) staticAtlasFailure(`${domain} unavailable payload is not empty`);
+          if (payload.status === 'available' && !payload.records.length) staticAtlasFailure(`${domain} available payload is empty`);
+        }
+        if (!Array.isArray(STATIC_ATLAS_CHUNKS.provenance.detail_records) || !Array.isArray(STATIC_ATLAS_CHUNKS.provenance.scientific_signals)) staticAtlasFailure('evidence metadata domains are incomplete');
       }
       function hydrateStaticAtlasLayers(layerKind) {
         const partsByLayer = new Map();
@@ -1827,6 +1952,25 @@ __STATIC_CHUNK_SCRIPT_TAGS__
       const POLYGON_LAYERS = __POLYGON_LAYERS_JSON__;
       const INITIAL_BOUNDS = __BOUNDS_JSON__;
       const ALL_LAYERS = [...POINT_LAYERS, ...POLYGON_LAYERS];
+      const ATLAS_EVIDENCE = STATIC_ATLAS_INLINE
+        ? { details_status: 'unavailable', details_reason_code: 'record_level_evidence_not_available', classifications_status: 'unavailable', classifications_reason_code: 'accepted_scientific_classifications_not_available', detail_records: [], scientific_signals: [] }
+        : STATIC_ATLAS_CHUNKS.provenance;
+      const SCIENTIFIC_SIGNALS = Object.freeze([...(ATLAS_EVIDENCE.scientific_signals || [])]);
+      const SCIENTIFIC_SIGNAL_IDS = SCIENTIFIC_SIGNALS.map((signal) => signal.signal_id);
+      const DEFAULT_SCIENTIFIC_SIGNAL_IDS = SCIENTIFIC_SIGNALS.filter((signal) => signal.resolution === 'whole').map((signal) => signal.signal_id);
+      const DETAIL_RECORDS = new Map((ATLAS_EVIDENCE.detail_records || []).map((record) => [record.record_id, record]));
+      const GOVERNED_EDGE_RECORDS = Object.freeze(STATIC_ATLAS_INLINE ? [] : STATIC_ATLAS_CHUNKS.edges.records.map((edge) => Object.freeze({ ...edge })));
+      const GOVERNED_SEQUENCE_RECORDS = Object.freeze(STATIC_ATLAS_INLINE ? [] : STATIC_ATLAS_CHUNKS.sequences.records.map((sequence) => Object.freeze({ ...sequence })));
+      const GOVERNED_EDGE_ELIGIBILITY_COUNT = GOVERNED_EDGE_RECORDS.length;
+      const DETAIL_TAB_DEFINITIONS = [
+        ['overview', 'Overview'],
+        ['samples', 'Samples'],
+        ['chronology', 'Chronology'],
+        ['pollen_composition', 'Pollen/composition'],
+        ['relation', 'Relation'],
+        ['classification', 'Classification'],
+        ['provenance', 'Provenance'],
+      ];
       const DEFAULT_COUNTRIES = [...COUNTRIES];
       const DEFAULT_LAYER_KEYS = ALL_LAYERS.filter((layer) => layer.default_enabled !== false).map((layer) => layer.key);
       const LAYER_GROUP_DEFINITIONS = [
@@ -1889,10 +2033,12 @@ __STATIC_CHUNK_SCRIPT_TAGS__
       L.control.scale({ imperial: false }).addTo(map);
       map.createPane('pointPane').style.zIndex = 650;
       map.createPane('circlePane').style.zIndex = 500;
+      map.createPane('edgePane').style.zIndex = 540;
       map.createPane('polygonPane').style.zIndex = 420;
       map.createPane('boundaryPane').style.zIndex = 430;
       const circleLayerGroup = L.layerGroup().addTo(map);
       let renderedPointGroups = [];
+      let renderedEdgeLayers = [];
       let renderedPolygonLayers = [];
       let visiblePointEntries = [];
       let highlightedPointEntry = null;
@@ -1907,6 +2053,12 @@ __STATIC_CHUNK_SCRIPT_TAGS__
       const legendBody = document.getElementById('legend-body');
       const legendToggleButton = document.getElementById('legend-toggle');
       const countryFilters = document.getElementById('country-filters');
+      const scientificFilters = document.getElementById('scientific-filters');
+      const scientificStatus = document.getElementById('scientific-status');
+      const scientificSummary = document.getElementById('scientific-summary');
+      const countryPairFilter = document.getElementById('country-pair-filter');
+      const crossBorderOnlyCheckbox = document.getElementById('cross-border-only');
+      const relationSummary = document.getElementById('relation-summary');
       const layerFilters = document.getElementById('dock-layer-filters');
       const animalFilterSummary = document.getElementById('animal-filter-summary');
       const animalScopeFilters = document.getElementById('animal-scope-filters');
@@ -1943,6 +2095,8 @@ __STATIC_CHUNK_SCRIPT_TAGS__
       const focusTitle = document.getElementById('focus-title');
       const focusSubtitle = document.getElementById('focus-subtitle');
       const focusMeta = document.getElementById('focus-meta');
+      const focusTabs = document.getElementById('focus-tabs');
+      const focusDetail = document.getElementById('focus-detail');
       const focusPreviousButton = document.getElementById('focus-previous');
       const focusNextButton = document.getElementById('focus-next');
       const focusZoomButton = document.getElementById('focus-zoom');
@@ -1959,6 +2113,9 @@ __STATIC_CHUNK_SCRIPT_TAGS__
         return {
           countries: params.get('countries'),
           layers: params.get('layers'),
+          scientificSignals: params.get('scientific_signals'),
+          countryPair: params.get('country_pair'),
+          crossBorder: params.get('cross_border'),
           animalSpecies: params.get('animal_species'),
           animalScope: params.get('animal_scope'),
           animalConfidence: params.get('animal_confidence'),
@@ -1985,6 +2142,29 @@ __STATIC_CHUNK_SCRIPT_TAGS__
       function normalizedSingleValue(raw, allowed, fallbackValue) {
         const value = String(raw || '').trim();
         return allowed.includes(value) ? value : fallbackValue;
+      }
+      function atlasCountryPairKey(leftCountry, rightCountry) {
+        return [String(leftCountry || ''), String(rightCountry || '')].sort().join('|');
+      }
+      function atlasEdgeVisible(edge, countries, countryPair, crossBorder, signalIds) {
+        if (!edge || !countries.has(edge.source_country) || !countries.has(edge.target_country)) return false;
+        if (countryPair !== 'all' && atlasCountryPairKey(edge.source_country, edge.target_country) !== countryPair) return false;
+        if (crossBorder && edge.source_country === edge.target_country) return false;
+        return signalIds.has(edge.signal_id);
+      }
+      function atlasFilterStateSnapshot(countries, signalIds, countryPair, crossBorder) {
+        return {
+          countries: [...countries].sort(),
+          scientific_signal_ids: [...signalIds].sort(),
+          country_pair: countryPair,
+          cross_border_only: Boolean(crossBorder),
+        };
+      }
+      function atlasFilterStateEquals(left, right) {
+        return JSON.stringify(left) === JSON.stringify(right);
+      }
+      function scientificCueGlyph(cue) {
+        return { circle: '●', square: '■', triangle: '▲', diamond: '◆', cross: '✚', ring: '◎' }[cue] || '●';
       }
       function clampTimeInterval(value) {
         return Math.max(1, Math.min(TIME_INTERVAL_MAX, Math.round(Number(value) || DEFAULT_TIME_INTERVAL_YEARS)));
@@ -2034,6 +2214,27 @@ __STATIC_CHUNK_SCRIPT_TAGS__
       const initialState = parseHashState();
       let activeCountries = normalizedSetFromList(initialState.countries, COUNTRIES, DEFAULT_COUNTRIES);
       let activeLayerKeys = normalizedSetFromList(initialState.layers, ALL_LAYERS.map((layer) => layer.key), DEFAULT_LAYER_KEYS);
+      let activeScientificSignalIds = normalizedSetFromList(
+        initialState.scientificSignals,
+        SCIENTIFIC_SIGNAL_IDS,
+        DEFAULT_SCIENTIFIC_SIGNAL_IDS
+      );
+      const COUNTRY_PAIR_KEYS = Array.from(new Set(GOVERNED_EDGE_RECORDS.map((edge) => atlasCountryPairKey(edge.source_country, edge.target_country)))).sort();
+      let activeCountryPair = normalizedSingleValue(initialState.countryPair, ['all', ...COUNTRY_PAIR_KEYS], 'all');
+      let crossBorderOnly = initialState.crossBorder === 'only';
+      const DEFAULT_ATLAS_FILTER_STATE = atlasFilterStateSnapshot(
+        new Set(DEFAULT_COUNTRIES),
+        new Set(DEFAULT_SCIENTIFIC_SIGNAL_IDS),
+        'all',
+        false
+      );
+      const DEFAULT_GOVERNED_EDGE_VISIBLE_COUNT = GOVERNED_EDGE_RECORDS.filter((edge) => atlasEdgeVisible(
+        edge,
+        new Set(DEFAULT_COUNTRIES),
+        'all',
+        false,
+        new Set(DEFAULT_SCIENTIFIC_SIGNAL_IDS)
+      )).length;
       let activeAnimalSpecies = normalizedSingleValue(
         initialState.animalSpecies,
         ['all', ...ANIMAL_SPECIES.map((species) => species.latinName)],
@@ -2064,6 +2265,7 @@ __STATIC_CHUNK_SCRIPT_TAGS__
       const basemapErrorCounts = new Map();
       let legendCollapsed = initialState.legend === 'collapsed';
       let focusState = null;
+      let activeFocusTab = 'overview';
       let staticAtlasLoadGeneration = 0;
       function staticAtlasLayerForRow(row) {
         return ALL_LAYERS.find((layer) => layer.key === row.layer_key) || null;
@@ -2081,11 +2283,14 @@ __STATIC_CHUNK_SCRIPT_TAGS__
         if (row.time_min_bp === null || row.time_max_bp === null) return true;
         return Number(row.time_max_bp) >= timeStartBp && Number(row.time_min_bp) <= timeWindowEndBp();
       }
-      function staticAtlasSignalNeeded(layer) {
-        if (!isAnimalLayer(layer)) return true;
-        if (activeAnimalSpecies !== 'all' && layer.species_latin_name !== activeAnimalSpecies) return false;
-        if (activeAnimalScope !== 'all' && layer.animal_scope !== activeAnimalScope) return false;
-        return true;
+      function staticAtlasSignalNeeded(row, layer) {
+        if (isAnimalLayer(layer)) {
+          if (activeAnimalSpecies !== 'all' && layer.species_latin_name !== activeAnimalSpecies) return false;
+          if (activeAnimalScope !== 'all' && layer.animal_scope !== activeAnimalScope) return false;
+        }
+        if (!layer.scientific_selection_enabled || !SCIENTIFIC_SIGNALS.length) return true;
+        const rowSignals = Array.isArray(row.scientific_signal_ids) ? row.scientific_signal_ids : [];
+        return activeScientificSignalIds.size > 0 && rowSignals.some((signalId) => activeScientificSignalIds.has(signalId));
       }
       function staticAtlasViewportNeeded(row) {
         if (!map._loaded || !Array.isArray(row.bounds)) return true;
@@ -2103,7 +2308,7 @@ __STATIC_CHUNK_SCRIPT_TAGS__
             && activeLayerKeys.has(layer.key)
             && staticAtlasCountryNeeded(row, layer)
             && staticAtlasTimeNeeded(row, layer)
-            && staticAtlasSignalNeeded(layer)
+            && staticAtlasSignalNeeded(row, layer)
             && staticAtlasViewportNeeded(row)
           );
         });
@@ -2310,6 +2515,9 @@ __STATIC_CHUNK_SCRIPT_TAGS__
         const params = new URLSearchParams();
         if (activeCountries.size !== COUNTRIES.length) params.set('countries', activeCountries.size ? [...activeCountries].join(',') : 'none');
         if (activeLayerKeys.size !== DEFAULT_LAYER_KEYS.length || DEFAULT_LAYER_KEYS.some((key) => !activeLayerKeys.has(key))) params.set('layers', activeLayerKeys.size ? [...activeLayerKeys].join(',') : 'none');
+        if (activeScientificSignalIds.size !== DEFAULT_SCIENTIFIC_SIGNAL_IDS.length || DEFAULT_SCIENTIFIC_SIGNAL_IDS.some((signalId) => !activeScientificSignalIds.has(signalId))) params.set('scientific_signals', activeScientificSignalIds.size ? [...activeScientificSignalIds].join(',') : 'none');
+        if (activeCountryPair !== 'all') params.set('country_pair', activeCountryPair);
+        if (crossBorderOnly) params.set('cross_border', 'only');
         if (activeAnimalSpecies !== 'all') params.set('animal_species', activeAnimalSpecies);
         if (activeAnimalScope !== 'all') params.set('animal_scope', activeAnimalScope);
         if (activeAnimalConfidence !== 'all') params.set('animal_confidence', activeAnimalConfidence);
@@ -2331,29 +2539,38 @@ __STATIC_CHUNK_SCRIPT_TAGS__
       function clearHighlightedPoint() {
         if (!highlightedPointEntry || !highlightedPointEntry.marker) return;
         const entry = highlightedPointEntry;
-        entry.marker.setStyle({
-          radius: entry.layer.key === 'aadr' ? 4.5 : 6,
-          weight: 1.3,
-          color: entry.layer.style.stroke,
-          fillColor: entry.layer.style.fill,
-          fillOpacity: 0.92,
-        });
+        if (typeof entry.marker.setStyle === 'function') {
+          entry.marker.setStyle({
+            radius: entry.layer.key === 'aadr' ? 4.5 : 6,
+            weight: 1.3,
+            color: entry.layer.style.stroke,
+            fillColor: entry.layer.style.fill,
+            fillOpacity: 0.92,
+          });
+        } else if (entry.marker.getElement()) {
+          entry.marker.getElement().classList.remove('is-focused');
+        }
         highlightedPointEntry = null;
       }
       function highlightPointEntry(entry) {
         clearHighlightedPoint();
         if (!entry || !entry.marker) return;
-        entry.marker.setStyle({
-          radius: (entry.layer.key === 'aadr' ? 4.5 : 6) + 2,
-          weight: 2.4,
-          color: '#ffffff',
-          fillColor: entry.layer.style.fill,
-          fillOpacity: 1,
-        });
+        if (typeof entry.marker.setStyle === 'function') {
+          entry.marker.setStyle({
+            radius: (entry.layer.key === 'aadr' ? 4.5 : 6) + 2,
+            weight: 2.4,
+            color: '#ffffff',
+            fillColor: entry.layer.style.fill,
+            fillOpacity: 1,
+          });
+        } else if (entry.marker.getElement()) {
+          entry.marker.getElement().classList.add('is-focused');
+        }
         highlightedPointEntry = entry;
       }
       function setFocusState(nextState) {
         focusState = nextState;
+        activeFocusTab = 'overview';
         if (focusState && focusState.kind === 'point' && Number.isInteger(focusState.visiblePointIndex)) {
           highlightPointEntry(visiblePointEntries[focusState.visiblePointIndex] || null);
         } else {
@@ -2361,15 +2578,55 @@ __STATIC_CHUNK_SCRIPT_TAGS__
         }
         renderFocusCard();
       }
+      function unavailableDetailTabs(reasonCode) {
+        return Object.fromEntries(DETAIL_TAB_DEFINITIONS.map(([key]) => [key, { status: 'unavailable', reason_code: reasonCode }]));
+      }
+      function detailTabsForFeature(feature) {
+        const recordId = String(feature.record_id || '');
+        const record = DETAIL_RECORDS.get(recordId);
+        return record && record.tabs
+          ? record.tabs
+          : unavailableDetailTabs(ATLAS_EVIDENCE.details_reason_code || 'record_level_evidence_not_available');
+      }
+      function renderDetailValue(value) {
+        if (value === null || value === undefined || value === '') return '<span>Unavailable</span>';
+        if (Array.isArray(value)) {
+          if (!value.length) return '<span>No governed rows available.</span>';
+          return value.map((item) => `<div class="focus-detail-row"><span class="focus-detail-key">Record</span><span>${escapeHtml(typeof item === 'object' ? JSON.stringify(item) : String(item))}</span></div>`).join('');
+        }
+        if (typeof value === 'object') {
+          if (value.status === 'unavailable') return `<div class="scientific-status">Unavailable: ${escapeHtml(value.reason_code || 'evidence_not_available')}</div>`;
+          return Object.entries(value).map(([key, item]) => `<div class="focus-detail-row"><span class="focus-detail-key">${escapeHtml(key.replaceAll('_', ' '))}</span><span>${escapeHtml(typeof item === 'object' ? JSON.stringify(item) : String(item))}</span></div>`).join('');
+        }
+        return `<span>${escapeHtml(String(value))}</span>`;
+      }
+      function renderFocusDetail() {
+        const tabs = focusState && focusState.detailTabs ? focusState.detailTabs : unavailableDetailTabs('record_level_evidence_not_available');
+        if (!Object.prototype.hasOwnProperty.call(tabs, activeFocusTab)) activeFocusTab = 'overview';
+        focusTabs.innerHTML = DETAIL_TAB_DEFINITIONS.map(([key, label]) => `<button class="focus-tab" type="button" role="tab" data-focus-tab="${key}" aria-selected="${String(activeFocusTab === key)}">${escapeHtml(label)}</button>`).join('');
+        focusDetail.innerHTML = renderDetailValue(tabs[activeFocusTab]);
+        focusDetail.dataset.detailStatus = tabs[activeFocusTab] && tabs[activeFocusTab].status === 'unavailable' ? 'unavailable' : 'available';
+        focusTabs.querySelectorAll('[data-focus-tab]').forEach((button) => {
+          button.addEventListener('click', () => {
+            activeFocusTab = button.dataset.focusTab;
+            renderFocusDetail();
+          });
+        });
+      }
       function renderFocusCard() {
         const pointEntry = focusState && focusState.kind === 'point' && Number.isInteger(focusState.visiblePointIndex)
           ? visiblePointEntries[focusState.visiblePointIndex]
           : null;
-        if (!focusState || !activeLayerKeys.has(focusState.layerKey) || (focusState.kind === 'point' && !pointEntry)) {
+        const edgeVisible = focusState && focusState.kind === 'edge'
+          ? visibleGovernedEdges().some((edge) => edge.edge_id === focusState.edgeId)
+          : true;
+        if (!focusState || !activeLayerKeys.has(focusState.layerKey) || (focusState.kind === 'point' && !pointEntry) || !edgeVisible) {
           focusCard.hidden = true;
           focusSourceLink.hidden = true;
           focusPreviousButton.disabled = true;
           focusNextButton.disabled = true;
+          focusTabs.innerHTML = '';
+          focusDetail.innerHTML = '';
           return;
         }
         focusCard.hidden = false;
@@ -2379,6 +2636,7 @@ __STATIC_CHUNK_SCRIPT_TAGS__
         focusTitle.textContent = focusState.title;
         focusSubtitle.textContent = focusState.subtitle;
         focusMeta.innerHTML = focusState.meta.map((row) => `<div class="focus-meta-row"><span class="focus-meta-label">${escapeHtml(row.label)}</span><span class="focus-meta-value">${escapeHtml(row.value)}</span></div>`).join('');
+        renderFocusDetail();
         focusSourceLink.textContent = focusState.sourceLabel || 'Open source';
         focusSourceLink.hidden = !focusState.sourceUrl;
         focusSourceLink.href = focusState.sourceUrl || '#';
@@ -2413,12 +2671,16 @@ __STATIC_CHUNK_SCRIPT_TAGS__
           sourceLabel: primaryAction ? primaryAction.label : 'Open source',
           latitude: Number(entry.feature.latitude),
           longitude: Number(entry.feature.longitude),
+          detailTabs: detailTabsForFeature(entry.feature),
         });
       }
       function countActiveOverrides() {
         let count = 0;
         if (activeCountries.size !== COUNTRIES.length) count += 1;
         if (activeLayerKeys.size !== DEFAULT_LAYER_KEYS.length || DEFAULT_LAYER_KEYS.some((key) => !activeLayerKeys.has(key))) count += 1;
+        if (activeScientificSignalIds.size !== DEFAULT_SCIENTIFIC_SIGNAL_IDS.length || DEFAULT_SCIENTIFIC_SIGNAL_IDS.some((signalId) => !activeScientificSignalIds.has(signalId))) count += 1;
+        if (activeCountryPair !== 'all') count += 1;
+        if (crossBorderOnly) count += 1;
         if (activeAnimalSpecies !== 'all') count += 1;
         if (activeAnimalScope !== 'all') count += 1;
         if (activeAnimalConfidence !== 'all') count += 1;
@@ -2459,6 +2721,45 @@ __STATIC_CHUNK_SCRIPT_TAGS__
             renderMapState();
           });
         });
+      }
+      function renderScientificControls() {
+        const available = ATLAS_EVIDENCE.classifications_status === 'available' && SCIENTIFIC_SIGNALS.length > 0;
+        scientificStatus.textContent = available
+          ? 'Only accepted, versioned classifications are selectable. Color is always paired with a shape cue.'
+          : `Scientific comparison unavailable: ${ATLAS_EVIDENCE.classifications_reason_code || 'accepted_scientific_classifications_not_available'}. Source layers remain inspectable.`;
+        scientificFilters.innerHTML = available
+          ? ['whole', 'group', 'role', 'taxon'].map((resolution) => {
+              const signals = SCIENTIFIC_SIGNALS.filter((signal) => signal.resolution === resolution);
+              if (!signals.length) return '';
+              return `<div class="legend-group"><div class="legend-group-label">${escapeHtml(resolution)}</div><div class="dock-layer-grid">${signals.map((signal) => `<label class="dock-layer-chip"><input class="scientific-checkbox" type="checkbox" value="${escapeHtml(signal.signal_id)}" ${activeScientificSignalIds.has(signal.signal_id) ? 'checked' : ''}><span class="scientific-cue" data-cue="${escapeHtml(signal.non_color_cue)}" style="color:${escapeHtml(signal.color)}">${escapeHtml(scientificCueGlyph(signal.non_color_cue))}</span><span>${escapeHtml(signal.label)}</span></label>`).join('')}</div></div>`;
+            }).join('')
+          : '';
+        scientificSummary.textContent = available
+          ? `${activeScientificSignalIds.size} of ${SCIENTIFIC_SIGNALS.length} accepted signals selected`
+          : 'No accepted classifications';
+        document.querySelectorAll('.scientific-checkbox').forEach((checkbox) => {
+          checkbox.addEventListener('change', () => {
+            if (checkbox.checked) activeScientificSignalIds.add(checkbox.value); else activeScientificSignalIds.delete(checkbox.value);
+            renderMapState();
+          });
+        });
+      }
+      function visibleGovernedEdges() {
+        return GOVERNED_EDGE_RECORDS.filter((edge) => atlasEdgeVisible(edge, activeCountries, activeCountryPair, crossBorderOnly, activeScientificSignalIds));
+      }
+      function renderRelationControls() {
+        const available = !STATIC_ATLAS_INLINE && STATIC_ATLAS_CHUNKS.edges.status === 'available';
+        const sequencePosture = STATIC_ATLAS_INLINE || STATIC_ATLAS_CHUNKS.sequences.status === 'unavailable'
+          ? `sequences unavailable: ${STATIC_ATLAS_INLINE ? 'governed_sequence_detail_model_not_available' : STATIC_ATLAS_CHUNKS.sequences.reason_code}`
+          : `${GOVERNED_SEQUENCE_RECORDS.length} governed sequences available`;
+        countryPairFilter.disabled = !available;
+        crossBorderOnlyCheckbox.disabled = !available;
+        crossBorderOnlyCheckbox.checked = crossBorderOnly;
+        countryPairFilter.innerHTML = '<option value="all">All country pairs</option>' + COUNTRY_PAIR_KEYS.map((key) => `<option value="${escapeHtml(key)}" ${activeCountryPair === key ? 'selected' : ''}>${escapeHtml(key.replace('|', ' ↔ '))}</option>`).join('');
+        relationSummary.textContent = available
+          ? `${visibleGovernedEdges().length} of ${GOVERNED_EDGE_ELIGIBILITY_COUNT} governed candidates visible · ${sequencePosture}`
+          : `Candidates unavailable: ${STATIC_ATLAS_INLINE ? 'governed_map_edge_model_not_available' : STATIC_ATLAS_CHUNKS.edges.reason_code} · ${sequencePosture}`;
+        relationSummary.dataset.sequenceStatus = STATIC_ATLAS_INLINE ? 'unavailable' : STATIC_ATLAS_CHUNKS.sequences.status;
       }
       function renderLayerControls() {
         layerFilters.innerHTML = LAYER_GROUP_DEFINITIONS
@@ -2619,13 +2920,20 @@ __STATIC_CHUNK_SCRIPT_TAGS__
               `<div class="legend-group"><div class="legend-group-label">Tracked species</div><div class="legend-list">${activeAnimalLayers.map((layer) => `<div class="legend-item legend-item--compact"><span class="legend-swatch" style="background:${escapeHtml(layerColor(layer))};border-color:${escapeHtml(layer.style.stroke || layerColor(layer))};"></span><span class="legend-item-copy"><span class="legend-item-title">${escapeHtml(layer.species_common_name || layer.label)}</span><span class="legend-item-meta">${escapeHtml(formatAnimalScope(layer.animal_scope || ''))} · ${escapeHtml(String(layer.count || 0))} mapped point${Number(layer.count || 0) === 1 ? '' : 's'}</span></span></div>`).join('')}</div></div>`,
             ].join('')
           : '';
-        legendItems.innerHTML = `${animalLegendSections}${LAYER_GROUP_DEFINITIONS
+        const scientificLegendSection = SCIENTIFIC_SIGNALS.length
+          ? `<div class="legend-group"><div class="legend-group-label">Accepted scientific comparison</div><div class="legend-list">${SCIENTIFIC_SIGNALS.filter((signal) => activeScientificSignalIds.has(signal.signal_id)).map((signal) => `<div class="legend-item"><span class="scientific-cue" data-cue="${escapeHtml(signal.non_color_cue)}" style="color:${escapeHtml(signal.color)}">${escapeHtml(scientificCueGlyph(signal.non_color_cue))}</span><span>${escapeHtml(signal.label)} · ${escapeHtml(signal.resolution)} · ${escapeHtml(signal.feature_key)}</span></div>`).join('') || '<div class="legend-item"><span>No accepted scientific signals selected.</span></div>'}</div></div>`
+          : '';
+        legendItems.innerHTML = `${scientificLegendSection}${animalLegendSections}${LAYER_GROUP_DEFINITIONS
           .map((group) => renderGroup(group.label, activeLegendLayers.filter((layer) => layer.group === group.key)))
           .join('')}` || '<div class="legend-item"><span>No layers are visible. Restore defaults or enable one or more layers.</span></div>';
         densityRamp.hidden = !activeLayerKeys.has('raa-archaeology');
       }
       function popupHtml(feature) {
         const rows = Array.isArray(feature.popup_rows) ? feature.popup_rows : [];
+        const scientificRows = scientificSignalsForFeature(feature);
+        const scientificHtml = scientificRows.length
+          ? `<div class="popup-section"><span class="popup-section-title">Accepted scientific signals</span>${scientificRows.map((signal) => `<div class="popup-row"><span class="popup-row-label">${escapeHtml(signal.resolution)}</span><span class="popup-row-value"><span class="scientific-cue" data-cue="${escapeHtml(signal.non_color_cue)}" style="color:${escapeHtml(signal.color)}">${escapeHtml(scientificCueGlyph(signal.non_color_cue))}</span> ${escapeHtml(signal.label)} · ${escapeHtml(signal.feature_key)}</span></div>`).join('')}</div>`
+          : '';
         if (feature.species_latin_name) {
           const warningRows = rows.filter((row) => row && row.label === 'Warning' && row.value);
           const detailRows = rows.filter((row) => row && row.value && row.label !== 'Warning');
@@ -2647,10 +2955,10 @@ __STATIC_CHUNK_SCRIPT_TAGS__
             { label: 'Source evidence text', value: feature.exact_source_text || '' },
           ].filter((row) => row.value);
           const renderRows = (items) => items.map((row) => `<div class="popup-row"><span class="popup-row-label">${escapeHtml(row.label)}</span><span class="popup-row-value">${escapeHtml(row.value)}</span></div>`).join('');
-          return `<div class="popup-card"><div class="popup-headline"><span class="popup-kicker">Animal atlas evidence</span><div class="popup-title">${escapeHtml(feature.title || '')}</div><div class="popup-subtitle">${escapeHtml(feature.subtitle || '')}</div></div><div class="popup-badges"><span class="popup-badge">${escapeHtml(feature.species_common_name || feature.species_latin_name || 'Animal evidence')}</span><span class="popup-badge">${escapeHtml(formatAnimalScope(feature.animal_scope || ''))}</span><span class="popup-badge">${escapeHtml(formatCoordinateConfidence(feature.coordinate_confidence || ''))}</span>${feature.nordic_inclusion ? '<span class="popup-badge">Nordic lead</span>' : '<span class="popup-badge popup-badge--warning">Non-Nordic context</span>'}</div><div class="popup-section"><span class="popup-section-title">Citation and provenance</span>${renderRows(primaryRows)}</div><div class="popup-section"><span class="popup-section-title">Sample and locality detail</span>${renderRows(secondaryRows)}<div class="popup-row"><span class="popup-row-label">Coordinates</span><span class="popup-row-value">${Number(feature.latitude).toFixed(6)}, ${Number(feature.longitude).toFixed(6)}</span></div>${mediaLinksHtml(feature.media_links)}</div>${warningRows.length ? `<div class="popup-section"><span class="popup-section-title">Warnings and caveats</span><div class="popup-warning-list">${warningRows.map((row) => `<div class="popup-warning">${escapeHtml(row.value || '')}</div>`).join('')}</div></div>` : ''}${feature.source_url ? `<div class="popup-section"><span class="popup-section-title">Source link</span><div class="popup-row"><span class="popup-row-value"><a href="${escapeHtml(feature.source_url)}" target="_blank" rel="noreferrer">Open article or source record</a></span></div></div>` : ''}</div>`;
+          return `<div class="popup-card"><div class="popup-headline"><span class="popup-kicker">Animal atlas evidence</span><div class="popup-title">${escapeHtml(feature.title || '')}</div><div class="popup-subtitle">${escapeHtml(feature.subtitle || '')}</div></div><div class="popup-badges"><span class="popup-badge">${escapeHtml(feature.species_common_name || feature.species_latin_name || 'Animal evidence')}</span><span class="popup-badge">${escapeHtml(formatAnimalScope(feature.animal_scope || ''))}</span><span class="popup-badge">${escapeHtml(formatCoordinateConfidence(feature.coordinate_confidence || ''))}</span>${feature.nordic_inclusion ? '<span class="popup-badge">Nordic lead</span>' : '<span class="popup-badge popup-badge--warning">Non-Nordic context</span>'}</div><div class="popup-section"><span class="popup-section-title">Citation and provenance</span>${renderRows(primaryRows)}</div><div class="popup-section"><span class="popup-section-title">Sample and locality detail</span>${renderRows(secondaryRows)}<div class="popup-row"><span class="popup-row-label">Coordinates</span><span class="popup-row-value">${Number(feature.latitude).toFixed(6)}, ${Number(feature.longitude).toFixed(6)}</span></div>${mediaLinksHtml(feature.media_links)}</div>${scientificHtml}${warningRows.length ? `<div class="popup-section"><span class="popup-section-title">Warnings and caveats</span><div class="popup-warning-list">${warningRows.map((row) => `<div class="popup-warning">${escapeHtml(row.value || '')}</div>`).join('')}</div></div>` : ''}${feature.source_url ? `<div class="popup-section"><span class="popup-section-title">Source link</span><div class="popup-row"><span class="popup-row-value"><a href="${escapeHtml(feature.source_url)}" target="_blank" rel="noreferrer">Open article or source record</a></span></div></div>` : ''}</div>`;
         }
         const rowHtml = rows.filter((row) => row && row.value).map((row) => `<div><strong>${escapeHtml(row.label || '')}</strong> ${escapeHtml(row.value || '')}</div>`).join('');
-        return `<div class="popup-grid"><div><strong>Name</strong> ${escapeHtml(feature.title || '')}</div><div><strong>Type</strong> ${escapeHtml(feature.subtitle || '')}</div>${rowHtml}<div><strong>Coords</strong> ${Number(feature.latitude).toFixed(6)}, ${Number(feature.longitude).toFixed(6)}</div>${mediaLinksHtml(feature.media_links)}${feature.source_url ? `<div><strong>Source</strong> <a href="${escapeHtml(feature.source_url)}" target="_blank" rel="noreferrer">Open</a></div>` : ''}</div>`;
+        return `<div class="popup-grid"><div><strong>Name</strong> ${escapeHtml(feature.title || '')}</div><div><strong>Type</strong> ${escapeHtml(feature.subtitle || '')}</div>${rowHtml}${scientificHtml}<div><strong>Coords</strong> ${Number(feature.latitude).toFixed(6)}, ${Number(feature.longitude).toFixed(6)}</div>${mediaLinksHtml(feature.media_links)}${feature.source_url ? `<div><strong>Source</strong> <a href="${escapeHtml(feature.source_url)}" target="_blank" rel="noreferrer">Open</a></div>` : ''}</div>`;
       }
       function polygonPopupHtml(layer, properties) {
         const rows = Array.isArray(properties.popup_rows) ? properties.popup_rows : [];
@@ -2712,12 +3020,22 @@ __STATIC_CHUNK_SCRIPT_TAGS__
       function pointFeatureInTimeWindow(layer, feature) {
         return featureInTimeWindow(layer, feature);
       }
+      function featureMatchesScientificSelection(layer, feature) {
+        if (!layer.scientific_selection_enabled || !SCIENTIFIC_SIGNALS.length) return true;
+        const signalIds = Array.isArray(feature.scientific_signal_ids) ? feature.scientific_signal_ids : [];
+        return activeScientificSignalIds.size > 0 && signalIds.some((signalId) => activeScientificSignalIds.has(signalId));
+      }
+      function scientificSignalsForFeature(feature) {
+        const signalIds = Array.isArray(feature.scientific_signal_ids) ? feature.scientific_signal_ids : [];
+        return SCIENTIFIC_SIGNALS.filter((signal) => activeScientificSignalIds.has(signal.signal_id) && signalIds.includes(signal.signal_id));
+      }
       function pointFeatureVisible(layer, feature) {
         return (
           activeLayerKeys.has(layer.key)
           && (!layer.applies_country_filter || !feature.country || activeCountries.has(feature.country))
           && pointFeatureInTimeWindow(layer, feature)
           && featureMatchesAnimalFilters(layer, feature)
+          && featureMatchesScientificSelection(layer, feature)
         );
       }
       function polygonFeatureVisible(layer, properties) {
@@ -2730,8 +3048,10 @@ __STATIC_CHUNK_SCRIPT_TAGS__
       }
       function removeRenderedLayers() {
         renderedPointGroups.forEach((group) => map.removeLayer(group));
+        renderedEdgeLayers.forEach((layer) => map.removeLayer(layer));
         renderedPolygonLayers.forEach((layer) => map.removeLayer(layer));
         renderedPointGroups = [];
+        renderedEdgeLayers = [];
         renderedPolygonLayers = [];
         circleLayerGroup.clearLayers();
         visiblePointEntries = [];
@@ -2757,7 +3077,17 @@ __STATIC_CHUNK_SCRIPT_TAGS__
           const clusterGroup = createClusterGroup(layer);
           layer.features.forEach((feature) => {
             if (!pointFeatureVisible(layer, feature)) return;
-            const marker = L.circleMarker([feature.latitude, feature.longitude], { pane: 'pointPane', radius: layer.key === 'aadr' ? 4.5 : 6, color: layer.style.stroke, weight: 1.3, fillColor: layer.style.fill, fillOpacity: 0.92 });
+            const scientificSignals = scientificSignalsForFeature(feature);
+            const marker = scientificSignals.length
+              ? L.marker([feature.latitude, feature.longitude], {
+                  pane: 'pointPane',
+                  icon: L.divIcon({
+                    className: 'atlas-scientific-marker',
+                    html: scientificSignals.map((signal) => `<span class="scientific-cue" data-cue="${escapeHtml(signal.non_color_cue)}" style="color:${escapeHtml(signal.color)}" title="${escapeHtml(signal.label)}">${escapeHtml(scientificCueGlyph(signal.non_color_cue))}</span>`).join(''),
+                    iconSize: [Math.max(24, scientificSignals.length * 22), 24],
+                  }),
+                })
+              : L.circleMarker([feature.latitude, feature.longitude], { pane: 'pointPane', radius: layer.key === 'aadr' ? 4.5 : 6, color: layer.style.stroke, weight: 1.3, fillColor: layer.style.fill, fillOpacity: 0.92 });
             marker.bindPopup(popupHtml(feature), { maxWidth: 360 });
             const entry = { layer, feature, marker };
             marker.on('click', () => {
@@ -2771,6 +3101,68 @@ __STATIC_CHUNK_SCRIPT_TAGS__
             }
           });
           if (clusterGroup.getLayers().length > 0) { clusterGroup.addTo(map); renderedPointGroups.push(clusterGroup); }
+        });
+      }
+      function scientificSignalById(signalId) {
+        return SCIENTIFIC_SIGNALS.find((signal) => signal.signal_id === signalId) || null;
+      }
+      function renderEdgeLayers() {
+        if (STATIC_ATLAS_INLINE || STATIC_ATLAS_CHUNKS.edges.status !== 'available') return;
+        const entriesByRecordId = new Map(
+          visiblePointEntries
+            .filter((entry) => entry.feature.record_id)
+            .map((entry) => [String(entry.feature.record_id), entry])
+        );
+        visibleGovernedEdges().forEach((edge) => {
+          const source = entriesByRecordId.get(String(edge.source_record_id));
+          const target = entriesByRecordId.get(String(edge.target_record_id));
+          if (!source || !target) return;
+          const signal = scientificSignalById(edge.signal_id);
+          const color = signal ? signal.color : '#6d28d9';
+          const line = L.polyline(
+            [[source.feature.latitude, source.feature.longitude], [target.feature.latitude, target.feature.longitude]],
+            {
+              pane: 'edgePane',
+              color,
+              weight: 2.5,
+              opacity: 0.82,
+              dashArray: edge.status === 'possible_candidate' ? '10 7' : null,
+            }
+          );
+          line.bindPopup(`<div class="popup-grid"><div><strong>Candidate relation</strong> ${escapeHtml(edge.edge_id)}</div><div><strong>Signal</strong> ${escapeHtml(signal ? signal.label : edge.signal_id)}</div><div><strong>Countries</strong> ${escapeHtml(edge.source_country)} → ${escapeHtml(edge.target_country)}</div><div><strong>Interpretation</strong> Candidate succession under the governed rule; not proof of migration or causation.</div></div>`);
+          line.on('click', () => {
+            const stored = DETAIL_RECORDS.get(String(edge.edge_id));
+            const tabs = stored && stored.tabs ? { ...stored.tabs } : unavailableDetailTabs('edge_detail_evidence_not_available');
+            tabs.overview = {
+              edge_id: edge.edge_id,
+              signal: signal ? signal.label : edge.signal_id,
+              interpretation: 'Candidate succession under the governed rule; not proof of migration or causation.',
+            };
+            tabs.relation = {
+              source_record_id: edge.source_record_id,
+              target_record_id: edge.target_record_id,
+              source_country: edge.source_country,
+              target_country: edge.target_country,
+              status: edge.status || 'candidate',
+              predicates: edge.predicates || [],
+            };
+            setFocusState({
+              kind: 'edge',
+              edgeId: edge.edge_id,
+              layerKey: source.layer.key,
+              title: signal ? signal.label : edge.signal_id,
+              subtitle: `${edge.source_country} → ${edge.target_country} candidate relation`,
+              meta: [
+                { label: 'Relation ID', value: edge.edge_id },
+                { label: 'Status', value: edge.status || 'candidate' },
+                { label: 'Cue', value: signal ? `${scientificCueGlyph(signal.non_color_cue)} ${signal.non_color_cue}` : 'Unassigned' },
+              ],
+              sourceUrl: '',
+              detailTabs: tabs,
+            });
+          });
+          line.addTo(map);
+          renderedEdgeLayers.push(line);
         });
       }
       function renderPolygonLayers() {
@@ -2894,6 +3286,8 @@ __STATIC_CHUNK_SCRIPT_TAGS__
           : 'No time-aware records are available for BP filtering.';
         const visiblePolygonLayers = renderedPolygonLayers.length;
         selectionReadout.textContent = `${visiblePointEntries.length} points · ${visibleAnimalCount} animal · ${visiblePolygonLayers} overlays`;
+        selectionReadout.dataset.governedEdgeEligibility = String(GOVERNED_EDGE_ELIGIBILITY_COUNT);
+        selectionReadout.dataset.visibleGovernedEdges = String(renderedEdgeLayers.length);
         topbarStatePill.textContent = `${activeCountries.size} countries · ${enabledLayers} layers · ${visiblePointEntries.length} visible points`;
         countrySummary.textContent = activeCountries.size === COUNTRIES.length ? 'All countries visible' : activeCountries.size ? `${activeCountries.size} countries active` : 'No countries active';
       }
@@ -2953,8 +3347,11 @@ __STATIC_CHUNK_SCRIPT_TAGS__
         refreshTimeControls();
         removeRenderedLayers();
         renderPointLayers();
+        renderEdgeLayers();
         renderPolygonLayers();
         renderCountryControls();
+        renderScientificControls();
+        renderRelationControls();
         renderAnimalControls();
         renderLegend();
         renderControlPanelSummary();
@@ -3030,9 +3427,13 @@ __STATIC_CHUNK_SCRIPT_TAGS__
         if (bounds && bounds.isValid()) map.fitBounds(bounds, { padding: [36, 36] });
       }
       function resetView() { map.fitBounds(INITIAL_BOUNDS, { padding: [36, 36] }); }
-      function restoreDefaults() {
+      async function restoreDefaults() {
         activeCountries = new Set(DEFAULT_COUNTRIES);
         activeLayerKeys = new Set(DEFAULT_LAYER_KEYS);
+        activeScientificSignalIds = new Set(DEFAULT_SCIENTIFIC_SIGNAL_IDS);
+        activeCountryPair = 'all';
+        crossBorderOnly = false;
+        crossBorderOnlyCheckbox.checked = false;
         activeAnimalSpecies = 'all';
         activeAnimalScope = 'all';
         activeAnimalConfidence = 'all';
@@ -3049,12 +3450,33 @@ __STATIC_CHUNK_SCRIPT_TAGS__
         if (currentBasemap !== DEFAULT_BASEMAP) setBasemap(DEFAULT_BASEMAP, { manual: true });
         renderCountryControls();
         renderLayerControls();
-        renderMapState();
+        await renderMapState();
+        const restoredState = atlasFilterStateSnapshot(activeCountries, activeScientificSignalIds, activeCountryPair, crossBorderOnly);
+        if (!atlasFilterStateEquals(restoredState, DEFAULT_ATLAS_FILTER_STATE)) throw new Error('Atlas default filter state did not restore exactly.');
+        if (visibleGovernedEdges().length !== DEFAULT_GOVERNED_EDGE_VISIBLE_COUNT) throw new Error('Atlas default candidate count did not restore exactly.');
+        selectionReadout.dataset.resetRestoredEligibility = String(GOVERNED_EDGE_ELIGIBILITY_COUNT);
+        selectionReadout.dataset.resetRestoredVisibleEdges = String(DEFAULT_GOVERNED_EDGE_VISIBLE_COUNT);
         resetView();
       }
       document.getElementById('countries-all').addEventListener('click', () => { activeCountries = new Set(COUNTRIES); renderCountryControls(); renderMapState(); });
       document.getElementById('countries-none').addEventListener('click', () => { activeCountries = new Set(); renderCountryControls(); renderMapState(); });
       document.getElementById('countries-fit').addEventListener('click', fitToActive);
+      document.getElementById('scientific-whole').addEventListener('click', () => {
+        activeScientificSignalIds = new Set(DEFAULT_SCIENTIFIC_SIGNAL_IDS);
+        renderMapState();
+      });
+      document.getElementById('scientific-clear').addEventListener('click', () => {
+        activeScientificSignalIds = new Set();
+        renderMapState();
+      });
+      countryPairFilter.addEventListener('change', () => {
+        activeCountryPair = normalizedSingleValue(countryPairFilter.value, ['all', ...COUNTRY_PAIR_KEYS], 'all');
+        renderMapState();
+      });
+      crossBorderOnlyCheckbox.addEventListener('change', () => {
+        crossBorderOnly = crossBorderOnlyCheckbox.checked;
+        renderMapState();
+      });
       document.getElementById('fit-active').addEventListener('click', fitToActive);
       document.getElementById('reset-view').addEventListener('click', resetView);
       document.getElementById('restore-defaults').addEventListener('click', restoreDefaults);

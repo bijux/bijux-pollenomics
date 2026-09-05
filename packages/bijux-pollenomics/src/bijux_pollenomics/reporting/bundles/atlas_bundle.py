@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-from collections.abc import Callable, Iterable
+from collections.abc import Callable, Iterable, Sequence
 import json
 from pathlib import Path
 
@@ -69,6 +69,10 @@ def publish_multi_country_map_bundle(
     render_multi_country_map_html_fn: Callable[..., str],
     render_multi_country_map_markdown_fn: Callable[..., str],
     write_summary_json_fn: Callable[[Path, dict[str, object]], None],
+    atlas_detail_records: Sequence[JsonObject] | None = None,
+    atlas_scientific_signals: Sequence[JsonObject] | None = None,
+    atlas_edge_records: Sequence[JsonObject] | None = None,
+    atlas_sequence_records: Sequence[JsonObject] | None = None,
 ) -> None:
     """Write the full atlas bundle into one staging directory."""
     bundle_paths = build_atlas_bundle_paths_fn(
@@ -121,6 +125,10 @@ def publish_multi_country_map_bundle(
         version=version,
         point_layers=point_layers,
         polygon_layers=polygon_layers,
+        detail_records=atlas_detail_records,
+        scientific_signals=atlas_scientific_signals,
+        edge_records=atlas_edge_records,
+        sequence_records=atlas_sequence_records,
     )
     if static_assets.manifest_path != bundle_paths.map_static_assets_manifest_path:
         raise ValueError("static atlas manifest path does not match bundle ownership")

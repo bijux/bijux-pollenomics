@@ -11,6 +11,7 @@ import re
 from typing import Any
 
 from ...core.geojson import JsonObject
+from .evidence import normalize_atlas_evidence, validate_feature_signal_references
 
 ATLAS_BOOTSTRAP_MAX_BYTES = 65_536
 ATLAS_CHUNK_MAX_BYTES = 4_194_304
@@ -51,6 +52,10 @@ def write_static_atlas_assets(
     version: str,
     point_layers: Sequence[JsonObject],
     polygon_layers: Sequence[JsonObject],
+    detail_records: Sequence[JsonObject] | None = None,
+    scientific_signals: Sequence[JsonObject] | None = None,
+    edge_records: Sequence[JsonObject] | None = None,
+    sequence_records: Sequence[JsonObject] | None = None,
 ) -> StaticAtlasAssets:
     """Write deterministic hashed map chunks and their small bootstrap manifest."""
     output_dir = Path(output_dir)
@@ -59,6 +64,14 @@ def write_static_atlas_assets(
     if not slug or Path(slug).name != slug or not slug.replace("-", "").isalnum():
         raise ValueError("static atlas slug must be a safe filename component")
     validate_atlas_release_id(version)
+
+    evidence = normalize_atlas_evidence(
+        detail_records=detail_records,
+        scientific_signals=scientific_signals,
+        edge_records=edge_records,
+        sequence_records=sequence_records,
+    )
+    validate_feature_signal_references(point_layers, evidence.scientific_signals)
 
     layer_metadata, node_payloads = _build_node_payloads(
         slug=slug,
@@ -77,11 +90,10 @@ def write_static_atlas_assets(
                     "layer_metadata": layer_metadata,
                     "node_payloads": node_payloads,
                     "indexes": indexes,
-                    "unavailable_domains": {
-                        "edges": "governed_map_edge_model_not_available",
-                        "sequences": "governed_sequence_detail_model_not_available",
-                        "provenance": "record_level_provenance_model_not_available",
-                    },
+                    "detail_records": evidence.detail_records,
+                    "scientific_signals": evidence.scientific_signals,
+                    "edge_records": evidence.edge_records,
+                    "sequence_records": evidence.sequence_records,
                 }
             ).encode("utf-8")
         ).hexdigest()
@@ -92,13 +104,39 @@ def write_static_atlas_assets(
             "provenance",
             len(layer_metadata),
             {
-                "schema_version": "atlas-provenance-chunk.v1",
+                "schema_version": "atlas-provenance-chunk.v2",
                 "scope_slug": slug,
                 "version": version,
                 "build_id": build_id,
-                "status": "layer_metadata_only",
-                "reason_code": "record_level_provenance_model_not_available",
+                "status": (
+                    "record_level_available"
+                    if evidence.detail_records
+                    else "layer_metadata_only"
+                ),
+                "reason_code": (
+                    None
+                    if evidence.detail_records
+                    else "record_level_provenance_model_not_available"
+                ),
                 "layers": layer_metadata,
+                "detail_records": list(evidence.detail_records),
+                "scientific_signals": list(evidence.scientific_signals),
+                "details_status": (
+                    "available" if evidence.detail_records else "unavailable"
+                ),
+                "details_reason_code": (
+                    None
+                    if evidence.detail_records
+                    else "record_level_evidence_not_available"
+                ),
+                "classifications_status": (
+                    "available" if evidence.scientific_signals else "unavailable"
+                ),
+                "classifications_reason_code": (
+                    None
+                    if evidence.scientific_signals
+                    else "accepted_scientific_classifications_not_available"
+                ),
             },
         )
     )
@@ -106,25 +144,33 @@ def write_static_atlas_assets(
         ("nodes", _node_payload_record_count(payload), payload)
         for payload in node_payloads
     )
-    payloads.extend(
+    for domain, records, reason_code in (
         (
-            domain,
-            0,
-            {
-                "schema_version": f"atlas-{domain}-chunk.v1",
-                "scope_slug": slug,
-                "version": version,
-                "build_id": build_id,
-                "status": "unavailable",
-                "reason_code": reason_code,
-                "records": [],
-            },
+            "edges",
+            evidence.edge_records,
+            "governed_map_edge_model_not_available",
+        ),
+        (
+            "sequences",
+            evidence.sequence_records,
+            "governed_sequence_detail_model_not_available",
+        ),
+    ):
+        payloads.append(
+            (
+                domain,
+                len(records),
+                {
+                    "schema_version": f"atlas-{domain}-chunk.v1",
+                    "scope_slug": slug,
+                    "version": version,
+                    "build_id": build_id,
+                    "status": "available" if records else "unavailable",
+                    "reason_code": None if records else reason_code,
+                    "records": list(records),
+                },
+            )
         )
-        for domain, reason_code in (
-            ("edges", "governed_map_edge_model_not_available"),
-            ("sequences", "governed_sequence_detail_model_not_available"),
-        )
-    )
     indexes = {**indexes, "scope_slug": slug, "version": version, "build_id": build_id}
     payloads.append(("indexes", _index_reference_count(indexes), indexes))
 
@@ -175,7 +221,7 @@ def write_static_atlas_assets(
             "file_pre_execution_sri": False,
         },
         "compatibility": {
-            "provenance_schema": "atlas-provenance-chunk.v1",
+            "provenance_schema": "atlas-provenance-chunk.v2",
             "node_schema": "atlas-node-chunk.v1",
             "edge_schema": "atlas-edges-chunk.v1",
             "sequence_schema": "atlas-sequences-chunk.v1",
@@ -201,19 +247,59 @@ def write_static_atlas_assets(
                 ),
             },
             "edges": {
-                "status": "unavailable",
-                "record_count": 0,
-                "reason_code": "governed_map_edge_model_not_available",
+                "status": "available" if evidence.edge_records else "unavailable",
+                "record_count": len(evidence.edge_records),
+                "reason_code": (
+                    None
+                    if evidence.edge_records
+                    else "governed_map_edge_model_not_available"
+                ),
             },
             "sequences": {
-                "status": "unavailable",
-                "record_count": 0,
-                "reason_code": "governed_sequence_detail_model_not_available",
+                "status": ("available" if evidence.sequence_records else "unavailable"),
+                "record_count": len(evidence.sequence_records),
+                "reason_code": (
+                    None
+                    if evidence.sequence_records
+                    else "governed_sequence_detail_model_not_available"
+                ),
             },
             "provenance": {
-                "status": "layer_metadata_only",
-                "record_count": len(layer_metadata),
-                "reason_code": "record_level_provenance_model_not_available",
+                "status": (
+                    "record_level_available"
+                    if evidence.detail_records
+                    else "layer_metadata_only"
+                ),
+                "record_count": (
+                    len(evidence.detail_records)
+                    if evidence.detail_records
+                    else len(layer_metadata)
+                ),
+                "reason_code": (
+                    None
+                    if evidence.detail_records
+                    else "record_level_provenance_model_not_available"
+                ),
+            },
+            "details": {
+                "status": "available" if evidence.detail_records else "unavailable",
+                "record_count": len(evidence.detail_records),
+                "reason_code": (
+                    None
+                    if evidence.detail_records
+                    else "record_level_evidence_not_available"
+                ),
+            },
+            "classifications": {
+                "status": (
+                    "available" if evidence.scientific_signals else "unavailable"
+                ),
+                "record_count": len(evidence.scientific_signals),
+                "reason_code": (
+                    None
+                    if evidence.scientific_signals
+                    else "accepted_scientific_classifications_not_available"
+                ),
             },
             "indexes": {
                 "status": "available",
@@ -561,6 +647,13 @@ def _node_asset_selection(payload: dict[str, object]) -> dict[str, object]:
         if (interval := _node_feature_interval(str(payload["layer_kind"]), feature))
         is not None
     ]
+    scientific_signal_ids: set[str] = set()
+    for feature in safe_features:
+        references = feature.get("scientific_signal_ids", [])
+        if isinstance(references, list):
+            scientific_signal_ids.update(
+                signal_id for signal_id in references if isinstance(signal_id, str)
+            )
     return {
         "layer_index": payload["layer_index"],
         "layer_key": payload["layer_key"],
@@ -570,6 +663,7 @@ def _node_asset_selection(payload: dict[str, object]) -> dict[str, object]:
         "time_min_bp": min((interval[0] for interval in intervals), default=None),
         "time_max_bp": max((interval[1] for interval in intervals), default=None),
         "untimed_record_count": len(safe_features) - len(intervals),
+        "scientific_signal_ids": sorted(scientific_signal_ids),
     }
 
 

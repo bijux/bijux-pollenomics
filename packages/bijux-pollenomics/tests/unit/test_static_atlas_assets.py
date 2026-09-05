@@ -3,6 +3,7 @@ from __future__ import annotations
 import hashlib
 import json
 from pathlib import Path
+import re
 import shutil
 import subprocess
 
@@ -12,6 +13,7 @@ from bijux_pollenomics.core.geojson import JsonObject
 from bijux_pollenomics.reporting.bundles.paths import build_atlas_bundle_paths
 from bijux_pollenomics.reporting.geography import build_published_geography_plan
 from bijux_pollenomics.reporting.map_document import render_multi_country_map_html
+from bijux_pollenomics.reporting.map_document.evidence import DETAIL_TAB_KEYS
 from bijux_pollenomics.reporting.map_document.payload import serialize_json_for_script
 from bijux_pollenomics.reporting.map_document.static_assets import (
     ATLAS_BOOTSTRAP_MAX_BYTES,
@@ -23,6 +25,7 @@ from bijux_pollenomics.reporting.map_document.static_assets import (
     validate_static_atlas_assets,
     write_static_atlas_assets,
 )
+from bijux_pollenomics.reporting.map_document.template import MAP_DOCUMENT_TEMPLATE
 from bijux_pollenomics.reporting.map_publication import resolve_map_scope_policy
 
 
@@ -82,6 +85,118 @@ def _polygon_layers() -> list[JsonObject]:
                 ],
             },
         }
+    ]
+
+
+def _scientific_signals() -> list[JsonObject]:
+    return [
+        {
+            "signal_id": "pollen:taxon:triticum",
+            "feature_key": "taxon:triticum",
+            "label": "Triticum",
+            "resolution": "taxon",
+            "parent_signal_id": "pollen:group:cereals",
+            "status": "accepted",
+        },
+        {
+            "signal_id": "pollen:whole",
+            "feature_key": "whole:pollen",
+            "label": "All accepted pollen",
+            "resolution": "whole",
+            "status": "accepted",
+        },
+        {
+            "signal_id": "pollen:group:cereals",
+            "feature_key": "group:cereals",
+            "label": "Cereals",
+            "resolution": "group",
+            "parent_signal_id": "pollen:whole",
+            "status": "accepted",
+        },
+        {
+            "signal_id": "pollen:role:direct-crop",
+            "feature_key": "role:direct-crop",
+            "label": "Direct crop evidence",
+            "resolution": "role",
+            "parent_signal_id": "pollen:group:cereals",
+            "status": "accepted",
+        },
+    ]
+
+
+def _scientific_point_layers() -> list[JsonObject]:
+    layers = _point_layers()
+    layer = layers[0]
+    layer["scientific_selection_enabled"] = True
+    features = layer["features"]
+    assert isinstance(features, list)
+    for index, feature in enumerate(features):
+        assert isinstance(feature, dict)
+        feature["record_id"] = f"site:{index + 1}"
+        feature["scientific_signal_ids"] = [
+            "pollen:whole",
+            "pollen:group:cereals",
+            "pollen:role:direct-crop",
+            "pollen:taxon:triticum",
+        ]
+    return layers
+
+
+def _detail_records() -> list[JsonObject]:
+    return [
+        {
+            "record_id": "site:1",
+            "tabs": {
+                "overview": {"site_id": "site:1", "dataset_id": "dataset:1"},
+                "samples": [{"sample_id": "sample:1", "depth_cm": 10}],
+                "chronology": {
+                    "age_basis": "cal BP",
+                    "younger_bp": 100,
+                    "older_bp": 200,
+                },
+                "pollen_composition": [
+                    {"feature_key": "taxon:triticum", "value": 4, "unit": "count"}
+                ],
+                "relation": {"status": "no_selected_relation"},
+                "classification": {
+                    "feature_key": "taxon:triticum",
+                    "mapping_version": "fixture-1",
+                },
+                "provenance": {
+                    "source_snapshot": "snapshot:1",
+                    "raw_locator": "raw/sites.json#site:1",
+                    "build_id": "fixture-build",
+                    "sha256": "0" * 64,
+                },
+            },
+        }
+    ]
+
+
+def _edge_records() -> list[JsonObject]:
+    return [
+        {
+            "edge_id": "edge:se-no",
+            "signal_id": "pollen:whole",
+            "source_record_id": "site:1",
+            "target_record_id": "site:2",
+            "source_country": "Sweden",
+            "target_country": "Norway",
+            "status": "definite_candidate",
+            "predicates": [
+                {"predicate": "distance_within_threshold", "status": "pass"}
+            ],
+        },
+        {
+            "edge_id": "edge:se-se",
+            "signal_id": "pollen:group:cereals",
+            "source_record_id": "site:1",
+            "target_record_id": "site:1",
+            "source_country": "Sweden",
+            "target_country": "Sweden",
+            "status": "possible_candidate",
+            "predicates": [],
+        },
     ]
 
 
@@ -151,6 +266,16 @@ def test_static_assets_are_deterministic_hashed_and_domain_accounted(
         "reason_code": "governed_sequence_detail_model_not_available",
     }
     assert domains["provenance"]["status"] == "layer_metadata_only"
+    assert domains["details"] == {
+        "status": "unavailable",
+        "record_count": 0,
+        "reason_code": "record_level_evidence_not_available",
+    }
+    assert domains["classifications"] == {
+        "status": "unavailable",
+        "record_count": 0,
+        "reason_code": "accepted_scientific_classifications_not_available",
+    }
     assets = first.manifest["assets"]
     assert isinstance(assets, list)
     node_assets = [row for row in assets if row["domain"] == "nodes"]
@@ -172,6 +297,119 @@ def test_static_assets_are_deterministic_hashed_and_domain_accounted(
         assert row["byte_count"] == len(payload)
         assert row["sha256"] == hashlib.sha256(payload).hexdigest()
         assert str(row["sha256"])[:16] in path.name
+
+
+def test_accepted_scientific_fixture_populates_truthful_atlas_domains(
+    tmp_path: Path,
+) -> None:
+    point_layers = _scientific_point_layers()
+    signals = _scientific_signals()
+    details = _detail_records()
+    edges = _edge_records()
+    sequences: list[JsonObject] = [
+        {
+            "sequence_id": "sequence:1",
+            "signal_id": "pollen:whole",
+            "record_ids": ["site:1", "site:2"],
+        }
+    ]
+    first_root = tmp_path / "first"
+    second_root = tmp_path / "second"
+    first_root.mkdir()
+    second_root.mkdir()
+
+    first = write_static_atlas_assets(
+        first_root,
+        slug="nordic",
+        version="v66",
+        point_layers=point_layers,
+        polygon_layers=[],
+        detail_records=details,
+        scientific_signals=signals,
+        edge_records=edges,
+        sequence_records=sequences,
+    )
+    second = write_static_atlas_assets(
+        second_root,
+        slug="nordic",
+        version="v66",
+        point_layers=point_layers,
+        polygon_layers=[],
+        detail_records=list(reversed(details)),
+        scientific_signals=list(reversed(signals)),
+        edge_records=list(reversed(edges)),
+        sequence_records=list(reversed(sequences)),
+    )
+
+    assert first.manifest == second.manifest
+    domains = first.manifest["domains"]
+    assert isinstance(domains, dict)
+    assert domains["classifications"] == {
+        "status": "available",
+        "record_count": 4,
+        "reason_code": None,
+    }
+    assert domains["details"] == {
+        "status": "available",
+        "record_count": 1,
+        "reason_code": None,
+    }
+    assert domains["edges"] == {
+        "status": "available",
+        "record_count": 2,
+        "reason_code": None,
+    }
+    assert domains["sequences"] == {
+        "status": "available",
+        "record_count": 1,
+        "reason_code": None,
+    }
+    payloads = {
+        _payload(path)["schema_version"]: _payload(path) for path in first.asset_paths
+    }
+    provenance = payloads["atlas-provenance-chunk.v2"]
+    assert provenance["details_status"] == "available"
+    assert provenance["classifications_status"] == "available"
+    detail_tabs = provenance["detail_records"][0]["tabs"]
+    assert set(detail_tabs) == set(DETAIL_TAB_KEYS)
+    observed_signals = provenance["scientific_signals"]
+    assert [row["signal_id"] for row in observed_signals] == sorted(
+        row["signal_id"] for row in signals
+    )
+    assert len({row["color"] for row in observed_signals}) == len(observed_signals)
+    assert all(row["non_color_cue"] for row in observed_signals)
+    assert payloads["atlas-edges-chunk.v1"]["records"][0]["cross_border"] is True
+
+
+def test_scientific_fixture_refuses_unaccepted_or_unknown_signals(
+    tmp_path: Path,
+) -> None:
+    signals = _scientific_signals()
+    signals[0]["status"] = "review"
+    with pytest.raises(ValueError, match="not accepted"):
+        write_static_atlas_assets(
+            tmp_path,
+            slug="nordic",
+            version="v66",
+            point_layers=_scientific_point_layers(),
+            polygon_layers=[],
+            scientific_signals=signals,
+        )
+
+    point_layers = _scientific_point_layers()
+    features = point_layers[0]["features"]
+    assert isinstance(features, list)
+    assert isinstance(features[0], dict)
+    features[0]["scientific_signal_ids"] = ["pollen:unreviewed"]
+    with pytest.raises(ValueError, match="unaccepted scientific signals"):
+        write_static_atlas_assets(
+            tmp_path,
+            slug="nordic",
+            version="v66",
+            point_layers=point_layers,
+            polygon_layers=[],
+            scientific_signals=_scientific_signals(),
+        )
 
 
 def test_static_node_chunks_preserve_every_source_feature_exactly_once(
@@ -317,6 +555,124 @@ def test_static_map_document_is_small_relative_only_and_offline_loadable(
     assert "compatibility declaration mismatch" in html
     assert "path is invalid" in html
     assert "aria-busy" in html
+
+
+def test_scientific_atlas_document_exposes_comparison_relations_and_detail_drawer(
+    tmp_path: Path,
+) -> None:
+    point_layers = _scientific_point_layers()
+    assets = write_static_atlas_assets(
+        tmp_path,
+        slug="nordic",
+        version="v66",
+        point_layers=point_layers,
+        polygon_layers=[],
+        detail_records=_detail_records(),
+        scientific_signals=_scientific_signals(),
+        edge_records=_edge_records(),
+    )
+    policy = resolve_map_scope_policy(
+        next(
+            scope
+            for scope in build_published_geography_plan(
+                ("Sweden", "Norway")
+            ).regional_scopes
+            if scope.key == "nordic"
+        )
+    )
+    html = render_multi_country_map_html(
+        "Nordic",
+        "v66",
+        "2026-09-05",
+        ("Sweden", "Norway"),
+        policy,
+        point_layers,
+        [],
+        "./_map_assets",
+        static_assets=assets,
+    )
+
+    for element_id in (
+        "scientific-filters",
+        "country-pair-filter",
+        "cross-border-only",
+        "focus-tabs",
+        "focus-detail",
+    ):
+        assert f'id="{element_id}"' in html
+    for label in (
+        "Overview",
+        "Samples",
+        "Chronology",
+        "Pollen/composition",
+        "Relation",
+        "Classification",
+        "Provenance",
+    ):
+        assert label in html
+    assert "accepted_scientific_classifications_not_available" in html
+    assert "record_level_evidence_not_available" in html
+    assert "not proof of migration or causation" in html
+    assert "atlas-scientific-marker" in html
+    assert "edge) => Object.freeze({ ...edge })" in html
+    assert "resetRestoredVisibleEdges" in html
+    assert "STATIC_ATLAS_CHUNKS.edges?.status !== 'unavailable'" not in html
+    inline_scripts = re.findall(r"<script(?: [^>]*)?>(.*?)</script>", html, re.DOTALL)
+    assert inline_scripts
+    node = shutil.which("node")
+    assert node is not None
+    subprocess.run(
+        [node, "--check", "-"],
+        input=inline_scripts[-1],
+        check=True,
+        capture_output=True,
+        text=True,
+    )
+
+
+def test_browser_filter_helpers_preserve_eligibility_and_restore_exact_state() -> None:
+    node = shutil.which("node")
+    assert node is not None
+
+    start = MAP_DOCUMENT_TEMPLATE.index("function atlasCountryPairKey")
+    end = MAP_DOCUMENT_TEMPLATE.index("function clampTimeInterval", start)
+    helper_source = MAP_DOCUMENT_TEMPLATE[start:end]
+    probe = (
+        helper_source
+        + """
+const edges = [
+  {edge_id:'cross', source_country:'Sweden', target_country:'Norway', signal_id:'whole'},
+  {edge_id:'domestic', source_country:'Sweden', target_country:'Sweden', signal_id:'group'},
+];
+const allCountries = new Set(['Sweden', 'Norway']);
+const allSignals = new Set(['whole', 'group']);
+const defaults = atlasFilterStateSnapshot(allCountries, allSignals, 'all', false);
+const changed = atlasFilterStateSnapshot(new Set(['Sweden']), new Set(['group']), 'Sweden|Sweden', true);
+const restored = atlasFilterStateSnapshot(new Set(['Norway', 'Sweden']), new Set(['group', 'whole']), 'all', false);
+console.log(JSON.stringify({
+  eligibility: edges.length,
+  all: edges.filter((edge) => atlasEdgeVisible(edge, allCountries, 'all', false, allSignals)).length,
+  cross: edges.filter((edge) => atlasEdgeVisible(edge, allCountries, 'all', true, allSignals)).length,
+  pair: edges.filter((edge) => atlasEdgeVisible(edge, allCountries, 'Norway|Sweden', false, allSignals)).length,
+  sweden: edges.filter((edge) => atlasEdgeVisible(edge, new Set(['Sweden']), 'all', false, allSignals)).length,
+  defaults_equal_restored: atlasFilterStateEquals(defaults, restored),
+  defaults_equal_changed: atlasFilterStateEquals(defaults, changed),
+}));
+"""
+    )
+    result = subprocess.run(
+        [node, "-e", probe], check=True, capture_output=True, text=True
+    )
+
+    assert json.loads(result.stdout) == {
+        "eligibility": 2,
+        "all": 2,
+        "cross": 1,
+        "pair": 1,
+        "sweden": 1,
+        "defaults_equal_restored": True,
+        "defaults_equal_changed": False,
+    }
 
 
 def test_script_json_escaping_round_trips_and_hostile_versions_are_refused(
