@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+from collections import Counter
 
 import pytest
 
@@ -80,8 +81,56 @@ class AnimalFoundationReviewReportTests(AnimalFoundationOutputsTestCase):
         )
 
         self.assertEqual(payload["schema_version"], "animal-point-evidence-review.v1")
-        self.assertEqual(payload["row_count"], 233)
+        self.assertEqual(payload["row_count"], 235)
+        self.assertEqual(
+            Counter(row["species_latin_name"] for row in payload["rows"]),
+            {
+                "Capra hircus": 26,
+                "Equus caballus": 207,
+                "Sus scrofa domesticus": 2,
+            },
+        )
         self.assertTrue(all(row["sample_rows"] for row in payload["rows"]))
+        pig_rows = {
+            row["locality"]: row
+            for row in payload["rows"]
+            if row["project_accession"] == "PRJEB30282"
+        }
+        self.assertEqual(set(pig_rows), {"Bundsø", "Trelleborg"})
+        self.assertEqual(
+            {
+                locality: (
+                    row["sample_rows"][0]["archive_native_sample_id"],
+                    row["sample_rows"][0]["chronology"]["time_start_bp"],
+                    row["sample_rows"][0]["chronology"]["time_end_bp"],
+                    row["sample_rows"][0]["chronology"]["evidence_class"],
+                    row["sample_rows"][0]["chronology"]["precision_posture"],
+                    row["site_evidence"]["site_label"],
+                    row["coordinate_provenance"]["site_label"],
+                )
+                for locality, row in pig_rows.items()
+            },
+            {
+                "Bundsø": (
+                    "SAMEA5160867",
+                    4700,
+                    4700,
+                    "archaeological_context_date",
+                    "sample_approximate_or_modeled",
+                    "Bundsø",
+                    "Bundsø",
+                ),
+                "Trelleborg": (
+                    "SAMEA5160868",
+                    1000,
+                    1000,
+                    "archaeological_context_date",
+                    "sample_approximate_or_modeled",
+                    "Trelleborg",
+                    "Trelleborg",
+                ),
+            },
+        )
         first_row = payload["rows"][0]
         self.assertTrue(first_row["sample_rows"])
         self.assertTrue(first_row["site_evidence"])

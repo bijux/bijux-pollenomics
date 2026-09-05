@@ -57,16 +57,63 @@ class AnimalFoundationEvidenceReviewTests(AnimalFoundationOutputsTestCase):
             payload["schema_version"], "animal-sample-chronology-review.v1"
         )
         self.assertEqual(payload["row_count"], 1451)
-        self.assertEqual(payload["normalization_counts"]["normalized_interval"], 753)
-        self.assertEqual(payload["normalization_counts"]["normalized_point"], 480)
-        self.assertEqual(payload["normalization_counts"]["unresolved"], 126)
-        self.assertEqual(payload["precision_counts"]["contextual_interval"], 485)
+        self.assertEqual(payload["normalization_counts"]["normalized_interval"], 410)
+        self.assertEqual(payload["normalization_counts"]["normalized_point"], 482)
+        self.assertEqual(payload["normalization_counts"]["unresolved"], 467)
+        self.assertEqual(payload["precision_counts"]["contextual_interval"], 142)
         self.assertEqual(payload["comparability_counts"]["numeric_interval"], 748)
         self.assertEqual(
-            payload["comparability_counts"]["numeric_interval_with_caveat"], 485
+            payload["comparability_counts"]["numeric_interval_with_caveat"], 144
         )
         self.assertEqual(payload["comparability_counts"]["contextual_label_only"], 92)
-        self.assertEqual(payload["comparability_counts"]["unresolved"], 126)
+        self.assertEqual(payload["comparability_counts"]["unresolved"], 467)
+        pig_rows = [
+            row for row in payload["rows"] if row["project_accession"] == "PRJEB30282"
+        ]
+        admitted_pig_rows = {
+            row["repo_stable_sample_id"]: row
+            for row in pig_rows
+            if row["chronology_normalization_status"] == "normalized_point"
+        }
+        self.assertEqual(len(pig_rows), 343)
+        self.assertEqual(
+            sum(
+                row["chronology_normalization_status"] == "unresolved"
+                for row in pig_rows
+            ),
+            341,
+        )
+        self.assertEqual(
+            {
+                sample_id: (
+                    row["chronology_text"],
+                    row["time_start_bp"],
+                    row["time_end_bp"],
+                    row["chronology_evidence_class"],
+                    row["chronology_precision_posture"],
+                    row["dating_basis"],
+                )
+                for sample_id, row in admitted_pig_rows.items()
+            },
+            {
+                "prjeb30282:samea5160867": (
+                    "4700 BP",
+                    4700,
+                    4700,
+                    "archaeological_context_date",
+                    "sample_approximate_or_modeled",
+                    "archaeological_context",
+                ),
+                "prjeb30282:samea5160868": (
+                    "1000 BP",
+                    1000,
+                    1000,
+                    "archaeological_context_date",
+                    "sample_approximate_or_modeled",
+                    "archaeological_context",
+                ),
+            },
+        )
         self.assertTrue(
             any(
                 row["project_accession"] == "PRJEB36540"
@@ -119,9 +166,28 @@ class AnimalFoundationEvidenceReviewTests(AnimalFoundationOutputsTestCase):
         self.assertTrue(payload["sample_database_claim_supported"])
         self.assertTrue(payload["nordic_view_supported_now"])
         self.assertFalse(payload["region_agnostic_contract_ready"])
-        self.assertEqual(payload["counts"]["published_atlas_point_count"], 233)
-        self.assertEqual(payload["counts"]["mapped_sample_count"], 554)
-        self.assertEqual(payload["counts"]["mapped_sample_share"], 0.3818)
+        self.assertEqual(payload["counts"]["published_atlas_point_count"], 235)
+        self.assertEqual(payload["counts"]["mapped_sample_count"], 556)
+        self.assertEqual(payload["counts"]["mapped_sample_share"], 0.3832)
+        pig_points = [
+            row
+            for row in point_payload["rows"]
+            if row["project_accession"] == "PRJEB30282"
+        ]
+        self.assertEqual(
+            {
+                (
+                    row["locality"],
+                    row["sample_rows"][0]["archive_native_sample_id"],
+                    row["sample_rows"][0]["chronology"]["dating_basis"],
+                )
+                for row in pig_points
+            },
+            {
+                ("Bundsø", "SAMEA5160867", "archaeological_context"),
+                ("Trelleborg", "SAMEA5160868", "archaeological_context"),
+            },
+        )
         self.assertEqual(payload["counts"]["papers_with_archived_supplements"], 18)
         self.assertGreater(payload["counts"]["locality_conflict_row_count"], 0)
         self.assertGreater(payload["counts"]["locality_dictionary_row_count"], 0)

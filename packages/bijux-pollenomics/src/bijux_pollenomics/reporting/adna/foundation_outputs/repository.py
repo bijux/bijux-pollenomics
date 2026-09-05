@@ -16,6 +16,9 @@ from ....adna.projects.registry.sites import (
 from ....adna.sources.archive import build_archive_project_catalog
 
 
+_EvidenceIdentity = tuple[str, str, str]
+
+
 def _load_json_rows(path: Path, key: str) -> list[dict[str, Any]]:
     if not path.is_file():
         return []
@@ -168,20 +171,40 @@ def _build_sample_lookup(data_root: Path) -> dict[str, dict[str, Any]]:
     return lookup
 
 
-def _build_site_lookup(data_root: Path) -> dict[str, dict[str, Any]]:
+def _evidence_identity(row: dict[str, Any]) -> _EvidenceIdentity | None:
+    project_accession = str(row.get("project_accession", "")).strip()
+    site_label = str(row.get("site_label", "")).strip()
+    political_entity = str(row.get("political_entity", "")).strip()
+    if not project_accession or not site_label or not political_entity:
+        return None
+    return project_accession, site_label, political_entity
+
+
+def _build_exact_evidence_lookup(
+    rows: list[dict[str, Any]],
+) -> dict[_EvidenceIdentity, dict[str, Any]]:
+    grouped: dict[_EvidenceIdentity, list[dict[str, Any]]] = {}
+    for row in rows:
+        identity = _evidence_identity(row)
+        if identity is not None:
+            grouped.setdefault(identity, []).append(row)
     return {
-        str(row.get("project_accession", "")).strip(): row
-        for row in _load_all_site_evidence_rows(data_root)
-        if str(row.get("project_accession", "")).strip()
+        identity: matches[0]
+        for identity, matches in grouped.items()
+        if len(matches) == 1
     }
 
 
-def _build_coordinate_lookup(data_root: Path) -> dict[str, dict[str, Any]]:
-    return {
-        str(row.get("project_accession", "")).strip(): row
-        for row in _load_all_coordinate_rows(data_root)
-        if str(row.get("project_accession", "")).strip()
-    }
+def _build_site_lookup(
+    data_root: Path,
+) -> dict[_EvidenceIdentity, dict[str, Any]]:
+    return _build_exact_evidence_lookup(_load_all_site_evidence_rows(data_root))
+
+
+def _build_coordinate_lookup(
+    data_root: Path,
+) -> dict[_EvidenceIdentity, dict[str, Any]]:
+    return _build_exact_evidence_lookup(_load_all_coordinate_rows(data_root))
 
 
 def _count_rows_by_project(rows: tuple[dict[str, Any], ...]) -> dict[str, int]:

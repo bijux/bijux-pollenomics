@@ -109,6 +109,11 @@ def build_animal_point_evidence_review(
             str(item) for item in row.get("sample_record_ids", []) if str(item).strip()
         ]
         primary_project = str(row.get("primary_project_accession", "")).strip()
+        evidence_identity = (
+            primary_project,
+            str(row.get("locality", "")).strip(),
+            str(row.get("political_entity", "")).strip(),
+        )
         packets.append(
             {
                 "feature_id": row["feature_id"],
@@ -129,8 +134,8 @@ def build_animal_point_evidence_review(
                 "sample_rows": [
                     sample_lookup[item] for item in sample_ids if item in sample_lookup
                 ],
-                "site_evidence": site_lookup.get(primary_project, {}),
-                "coordinate_provenance": provenance_lookup.get(primary_project, {}),
+                "site_evidence": site_lookup.get(evidence_identity, {}),
+                "coordinate_provenance": provenance_lookup.get(evidence_identity, {}),
                 "project_registry_row": (
                     project_lookup[primary_project].as_dict()
                     if primary_project in project_lookup
