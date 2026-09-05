@@ -6,8 +6,8 @@ from collections.abc import Mapping, MutableMapping
 import hashlib
 from pathlib import Path
 from typing import cast
-from bijux_pollenomics.collection.sources.neotoma.materialization import (
-    validate_neotoma_relational_materialization,
+from bijux_pollenomics.evidence.sources.neotoma import (
+    read_validated_neotoma_relational_manifest,
 )
 from .constants import _UNAVAILABLE_CLASSIFICATION, _UNAVAILABLE_RELATION
 from .io import (
@@ -32,7 +32,7 @@ def _project_neotoma(
     layer: MutableMapping[str, object],
 ) -> tuple[list[dict[str, object]], dict[str, object]]:
     relational_root = context_root / "neotoma" / "relational"
-    manifest = validate_neotoma_relational_materialization(relational_root.absolute())
+    manifest = read_validated_neotoma_relational_manifest(relational_root.absolute())
     sites = _unique_rows(
         _load_neotoma_surface(relational_root, manifest, "sites"),
         "site_id",

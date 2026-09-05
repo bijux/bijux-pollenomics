@@ -12,7 +12,7 @@ from bijux_pollenomics.collection.sources.sead.collection import (
 from bijux_pollenomics.collection.sources.sead.evidence.claims import (
     build_sead_chronology_claim_bundle,
 )
-from bijux_pollenomics.collection.sources.sead.evidence.reader import (
+from bijux_pollenomics.evidence.sources.sead import (
     SEAD_GOVERNED_EVIDENCE_MANIFEST_SHA256,
     governed_sead_evidence_root,
     read_validated_sead_evidence_document,

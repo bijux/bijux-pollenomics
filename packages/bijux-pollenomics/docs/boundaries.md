@@ -96,6 +96,8 @@ Primary modules:
 
 - `bijux_pollenomics.adna.governance.reviews`
 - `bijux_pollenomics.evidence`
+- `bijux_pollenomics.evidence.sources` validates governed source materializations
+  before governance or publication consumers read them
 - `bijux_pollenomics.analysis.review.fieldwork`
 - `bijux_pollenomics.governance`
 

@@ -8,7 +8,7 @@ import json
 from pathlib import Path
 from typing import cast
 import pytest
-from bijux_pollenomics.collection.sources.sead.evidence.reader import (
+from bijux_pollenomics.evidence.sources.sead import (
     SEAD_GOVERNED_EVIDENCE_RUN_ID,
 )
 from bijux_pollenomics.reporting.map_document.evidence_projection import (

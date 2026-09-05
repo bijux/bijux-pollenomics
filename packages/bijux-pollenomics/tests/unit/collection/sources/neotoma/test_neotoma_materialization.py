@@ -11,7 +11,13 @@ from unittest.mock import patch
 from bijux_pollenomics.collection.sources.neotoma import materialization
 from bijux_pollenomics.collection.sources.neotoma.materialization import (
     materialize_neotoma_relational_snapshot,
+)
+from bijux_pollenomics.evidence.sources.neotoma import (
     validate_neotoma_relational_materialization,
+)
+from bijux_pollenomics.evidence.sources.neotoma.contract import (
+    canonical_json_bytes,
+    materialization_digest,
 )
 
 
@@ -283,7 +289,7 @@ class NeotomaMaterializationTests(unittest.TestCase):
             site_part_path = output_root / site_part_record["path"]
             site_part = json.loads(site_part_path.read_text())
             site_part["rows"][0]["country_code"] = "UNASSIGNED"
-            site_content = materialization._canonical_json(site_part)
+            site_content = canonical_json_bytes(site_part)
             site_part_path.write_bytes(site_content)
             site_part_record["sha256"] = hashlib.sha256(site_content).hexdigest()
             digest_records = [
@@ -297,10 +303,8 @@ class NeotomaMaterializationTests(unittest.TestCase):
                     "sha256": manifest["reconciliation"]["sha256"],
                 }
             )
-            manifest["materialization_sha256"] = (
-                materialization._materialization_digest(digest_records)
-            )
-            manifest_path.write_bytes(materialization._canonical_json(manifest))
+            manifest["materialization_sha256"] = materialization_digest(digest_records)
+            manifest_path.write_bytes(canonical_json_bytes(manifest))
 
             with self.assertRaisesRegex(ValueError, "sites SE country partition"):
                 validate_neotoma_relational_materialization(output_root)

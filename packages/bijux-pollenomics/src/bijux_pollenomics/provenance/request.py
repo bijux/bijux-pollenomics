@@ -9,7 +9,7 @@ import json
 from pathlib import Path
 from typing import cast
 
-from ..collection.sources.sead.evidence.reader import (
+from ..evidence.sources.sead import (
     SEAD_GOVERNED_EVIDENCE_MANIFEST_SHA256,
     SEAD_GOVERNED_EVIDENCE_RUN_ID,
     governed_sead_evidence_root,

@@ -9,7 +9,7 @@ from pathlib import Path
 from tests.support.repository import REPOSITORY_ROOT
 from typing import cast
 import pytest
-from bijux_pollenomics.collection.sources.sead.evidence.reader import (
+from bijux_pollenomics.evidence.sources.sead import (
     SEAD_GOVERNED_EVIDENCE_RUN_ID,
 )
 from bijux_pollenomics.governance.country_coverage import (

@@ -15,10 +15,7 @@ from .client import (
     neotoma_download_dataset_id,
     validate_neotoma_download_coverage,
 )
-from .materialization import (
-    materialize_neotoma_relational_snapshot,
-    validate_neotoma_relational_materialization,
-)
+from .materialization import materialize_neotoma_relational_snapshot
 from .normalization import (
     build_neotoma_site_country_decisions,
     build_neotoma_site_rows_from_downloads,
@@ -55,7 +52,6 @@ __all__ = [
     "normalize_neotoma_rows",
     "render_neotoma_temporal_review_markdown",
     "validate_neotoma_download_coverage",
-    "validate_neotoma_relational_materialization",
     "write_neotoma_download_archive",
     "write_neotoma_review_outputs",
 ]

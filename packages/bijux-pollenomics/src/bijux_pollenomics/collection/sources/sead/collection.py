@@ -35,8 +35,10 @@ from bijux_pollenomics.collection.sources.sead.catalog.discovery import (
     build_sweden_archaeology_site_discovery,
     write_sweden_archaeology_site_discovery,
 )
-from bijux_pollenomics.collection.sources.sead.evidence.reader import (
+from bijux_pollenomics.evidence.sources.sead import (
     SEAD_GOVERNED_EVIDENCE_RUN_ID,
+)
+from bijux_pollenomics.collection.sources.sead.acquisition.governed import (
     validate_governed_sead_admission,
 )
 from bijux_pollenomics.collection.sources.sead.acquisition.fetch import (

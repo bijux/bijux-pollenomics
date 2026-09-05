@@ -2,7 +2,6 @@
 
 from __future__ import annotations
 
-from __future__ import annotations
 import hashlib
 from pathlib import Path
 import pytest
@@ -131,6 +130,6 @@ def _neotoma_fixture(root: Path, monkeypatch: pytest.MonkeyPatch) -> None:
     }
     monkeypatch.setattr(
         neotoma_projection,
-        "validate_neotoma_relational_materialization",
+        "read_validated_neotoma_relational_manifest",
         lambda _root: manifest,
     )

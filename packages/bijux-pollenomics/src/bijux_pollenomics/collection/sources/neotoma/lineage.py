@@ -8,7 +8,9 @@ import hashlib
 import json
 from pathlib import Path, PurePosixPath
 
-from .materialization import validate_neotoma_relational_materialization
+from bijux_pollenomics.evidence.sources.neotoma import (
+    validate_neotoma_relational_materialization,
+)
 
 __all__ = [
     "build_neotoma_compact_lineage",

@@ -44,6 +44,10 @@ separate execution planning from repository writes. `collection/sources/`,
 `collection/intake/`, and `collection/exports/` separate source interpretation,
 payload decoding, and source-owned output writing.
 
+`evidence/sources/` owns validated readers for those governed source
+materializations, so publication code consumes evidence contracts without
+depending on collection implementation modules.
+
 Within analysis, `analysis/classification/`, `analysis/propagation/`, and
 `analysis/fieldwork/` separate classification, candidate propagation, and
 fieldwork decisions. `analysis/review/fieldwork/` owns candidate-site review

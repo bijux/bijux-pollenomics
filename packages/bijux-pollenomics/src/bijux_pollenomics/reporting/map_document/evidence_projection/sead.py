@@ -8,7 +8,7 @@ from collections.abc import Mapping, MutableMapping, Sequence
 import hashlib
 from pathlib import Path
 from typing import cast
-from bijux_pollenomics.collection.sources.sead.evidence.reader import (
+from bijux_pollenomics.evidence.sources.sead import (
     SEAD_GOVERNED_ADMISSION_SHA256,
     SEAD_GOVERNED_EVIDENCE_MANIFEST_SHA256,
     SEAD_GOVERNED_EVIDENCE_RUN_ID,

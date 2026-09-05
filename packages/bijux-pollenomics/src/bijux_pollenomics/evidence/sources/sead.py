@@ -1,4 +1,4 @@
-"""Read governed SEAD logical documents from a validated multipart bundle."""
+"""Read governed SEAD evidence from validated source materializations."""
 
 from __future__ import annotations
 
@@ -7,12 +7,6 @@ import hashlib
 import json
 from pathlib import Path
 from typing import Final, cast
-
-from bijux_pollenomics.collection.sources.sead.acquisition.admission import (
-    SeadAdmissionExpectedIdentity,
-    SeadMaterializedAdmissionSnapshot,
-    read_materialized_sead_full_evidence_admission,
-)
 
 _MANIFEST_NAME: Final = "evidence_materialization_manifest.json"
 _MANIFEST_SCHEMA: Final = "sead-evidence-materialization-manifest.v1"
@@ -70,32 +64,6 @@ def governed_sead_evidence_root(data_root: Path) -> Path:
         / "normalized"
         / "acquisitions"
         / SEAD_GOVERNED_EVIDENCE_RUN_ID
-    )
-
-
-def validate_governed_sead_admission(
-    acquisition_root: Path, *, data_root: Path
-) -> SeadMaterializedAdmissionSnapshot:
-    """Validate every raw file against the exact governed admission authority."""
-    root = Path(acquisition_root)
-    admission_bytes = _read_regular_file(root / "admission.json", "admission.json")
-    if hashlib.sha256(admission_bytes).hexdigest() != SEAD_GOVERNED_ADMISSION_SHA256:
-        raise ValueError("governed SEAD admission identity changed")
-    return read_materialized_sead_full_evidence_admission(
-        root,
-        expected_identity=SeadAdmissionExpectedIdentity(
-            scope_id=SEAD_GOVERNED_EVIDENCE_SCOPE_ID,
-            run_id=SEAD_GOVERNED_EVIDENCE_RUN_ID,
-            parent_run_id=SEAD_GOVERNED_PARENT_RUN_ID,
-            build_id=SEAD_GOVERNED_BUILD_ID,
-            country_authority_id=SEAD_GOVERNED_COUNTRY_AUTHORITY_ID,
-            country_authority_artifact_digest=(SEAD_GOVERNED_COUNTRY_AUTHORITY_DIGEST),
-            country_authority_root=(Path(data_root) / "boundaries").resolve(),
-            bbox_payload_sha256=SEAD_GOVERNED_BBOX_PAYLOAD_SHA256,
-            acquisition_manifest_sha256=(SEAD_GOVERNED_ACQUISITION_MANIFEST_SHA256),
-            country_decisions_sha256=SEAD_GOVERNED_COUNTRY_DECISIONS_SHA256,
-            parent_admission_sha256=SEAD_GOVERNED_PARENT_ADMISSION_SHA256,
-        ),
     )
 
 
@@ -389,5 +357,4 @@ __all__ = [
     "governed_sead_evidence_root",
     "read_validated_sead_evidence_document",
     "read_validated_sead_evidence_documents",
-    "validate_governed_sead_admission",
 ]

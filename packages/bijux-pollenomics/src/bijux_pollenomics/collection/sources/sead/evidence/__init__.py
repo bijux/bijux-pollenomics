@@ -1,1 +1,1 @@
-"""SEAD normalization, claim bundles, and evidence readers."""
+"""SEAD normalization and governed claim-bundle production."""
