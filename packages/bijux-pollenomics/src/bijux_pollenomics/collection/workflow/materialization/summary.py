@@ -2,8 +2,8 @@ from __future__ import annotations
 
 from dataclasses import asdict
 
-from ...core.files import write_json
-from ..contracts.models import DataCollectionSummary
+from ....core.files import write_json
+from ...contracts.models import DataCollectionSummary
 
 __all__ = ["write_collection_summary"]
 

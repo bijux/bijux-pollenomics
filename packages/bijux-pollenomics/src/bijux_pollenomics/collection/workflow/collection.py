@@ -10,7 +10,7 @@ from ..sources.boundaries.collection import (
     fetch_country_boundaries,
     load_country_boundaries,
 )
-from .layout import (
+from .planning.layout import (
     AVAILABLE_SOURCES,
     build_source_output_roots,
     ensure_curated_species_adna_layout,
@@ -20,17 +20,17 @@ from .layout import (
 from ..sources.landclim.collection import collect_landclim_data
 from ..contracts.models import DataCollectionReport
 from ..sources.neotoma.collection import collect_neotoma_data
-from .collection_reports import (
+from .materialization.reports import (
     build_data_collection_report,
     build_data_collection_summary,
     initialize_source_counts,
 )
 from .context_collection import collect_context_source
-from .contract_surface_writer import write_data_contract_surfaces
-from .requested_sources import normalize_requested_sources
-from .source_registry import CONTEXT_SOURCE_SPECS
-from .staging import build_staging_output_dir, collect_into_staging_dir
-from .summary_writer import write_collection_summary
+from .materialization.contracts import write_data_contract_surfaces
+from .planning.requests import normalize_requested_sources
+from .planning.source_registry import CONTEXT_SOURCE_SPECS
+from .materialization.staging import build_staging_output_dir, collect_into_staging_dir
+from .materialization.summary import write_collection_summary
 from ..sources.raa.collection import collect_raa_data
 from ..sources.sead.collection import collect_sead_data
 from ..catalog.hashes import build_source_hashes

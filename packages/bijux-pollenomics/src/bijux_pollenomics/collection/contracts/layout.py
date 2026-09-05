@@ -4,7 +4,7 @@ from dataclasses import dataclass
 from pathlib import Path
 
 from ...adna.workflow.paths import ADNA_SPECIES_DIR
-from ..workflow.layout import AVAILABLE_SOURCES
+from ..workflow.planning.layout import AVAILABLE_SOURCES
 from .repository import build_contract_artifact_paths
 
 __all__ = [

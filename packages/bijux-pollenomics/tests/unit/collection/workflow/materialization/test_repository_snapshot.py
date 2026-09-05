@@ -5,10 +5,10 @@ from pathlib import Path
 import tempfile
 import unittest
 
-from bijux_pollenomics.collection.workflow.contract_surface_writer import (
+from bijux_pollenomics.collection.workflow.materialization.contracts import (
     write_data_contract_surfaces,
 )
-from bijux_pollenomics.collection.workflow.repository_snapshot import (
+from bijux_pollenomics.collection.workflow.materialization.repository_snapshot import (
     build_repository_collection_summary,
     build_repository_source_counts,
     materialize_repository_source_summary_products,

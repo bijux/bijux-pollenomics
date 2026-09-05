@@ -3,24 +3,24 @@ from __future__ import annotations
 import json
 from pathlib import Path
 
-from ...config import DEFAULT_AADR_VERSION
-from .layout import AVAILABLE_SOURCES, build_source_output_roots
-from ..contracts.models import DataCollectionSummary
-from .collection_reports import (
+from ....config import DEFAULT_AADR_VERSION
+from ..planning.layout import AVAILABLE_SOURCES, build_source_output_roots
+from ...contracts.models import DataCollectionSummary
+from .reports import (
     build_data_collection_summary,
     initialize_source_counts,
 )
-from .contract_surface_writer import (
+from .contracts import (
     write_data_contract_surfaces,
     write_source_family_contract,
     write_source_family_state_matrix,
 )
-from .summary_writer import write_collection_summary
-from ..catalog.hashes import build_source_hashes
-from ..catalog.metadata import build_source_metadata
-from ..catalog.provenance import build_source_provenance
-from ..catalog.replacement import build_source_replacement_rules
-from ..catalog.traceability import build_source_traceability_records
+from .summary import write_collection_summary
+from ...catalog.hashes import build_source_hashes
+from ...catalog.metadata import build_source_metadata
+from ...catalog.provenance import build_source_provenance
+from ...catalog.replacement import build_source_replacement_rules
+from ...catalog.traceability import build_source_traceability_records
 
 __all__ = [
     "build_repository_collection_summary",

@@ -4,7 +4,7 @@ from collections.abc import Callable
 from pathlib import Path
 from typing import TypeVar
 
-from ...core.owned_tree import (
+from ....core.owned_tree import (
     build_staging_output_dir,
     remove_output_tree,
     replace_output_tree,

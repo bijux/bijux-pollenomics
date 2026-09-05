@@ -35,7 +35,8 @@ POLLENOMICS_SCIENCE_INPUTS := \
 	$(wildcard $(POLLENOMICS_SOURCE_ROOT)/evidence/*.py) \
 	$(wildcard $(POLLENOMICS_SOURCE_ROOT)/evidence/classification/*.py) \
 	$(wildcard $(POLLENOMICS_SOURCE_ROOT)/analysis/*.py) \
-	$(wildcard $(POLLENOMICS_SOURCE_ROOT)/analysis/fieldwork/review/*.py) \
+	$(wildcard $(POLLENOMICS_SOURCE_ROOT)/analysis/*/*.py) \
+	$(wildcard $(POLLENOMICS_SOURCE_ROOT)/analysis/*/*/*.py) \
 	$(POLLENOMICS_SCIENCE_TESTS)
 
 POLLENOMICS_DATA_TESTS := \
@@ -66,7 +67,7 @@ POLLENOMICS_DATA_TESTS := \
 	$(POLLENOMICS_TEST_ROOT)/unit/collection/sources/boundaries/test_boundaries.py \
 	$(POLLENOMICS_TEST_ROOT)/unit/collection/sources/boundaries/test_boundary_country_review.py \
 	$(POLLENOMICS_TEST_ROOT)/unit/collection/contracts/test_data_contract_surfaces.py \
-	$(POLLENOMICS_TEST_ROOT)/unit/collection/workflow/test_data_layout.py \
+	$(POLLENOMICS_TEST_ROOT)/unit/collection/workflow/planning/test_layout.py \
 	$(POLLENOMICS_TEST_ROOT)/unit/collection/catalog/test_source_identity.py \
 	$(POLLENOMICS_TEST_ROOT)/unit/collection/contracts/test_source_family_contracts.py \
 	$(POLLENOMICS_TEST_ROOT)/unit/collection/contracts/test_source_layout_contract.py \
@@ -134,7 +135,7 @@ POLLENOMICS_DOC_COUNT_TESTS := \
 	$(POLLENOMICS_TEST_ROOT)/unit/governance/test_country_coverage.py \
 	$(POLLENOMICS_TEST_ROOT)/unit/governance/test_data_reference_docs.py \
 	$(POLLENOMICS_TEST_ROOT)/unit/collection/catalog/test_source_spatiotemporal_posture.py \
-	$(POLLENOMICS_TEST_ROOT)/unit/collection/workflow/test_repository_snapshot.py \
+	$(POLLENOMICS_TEST_ROOT)/unit/collection/workflow/materialization/test_repository_snapshot.py \
 	$(POLLENOMICS_TEST_ROOT)/unit/governance/test_repository_truth.py \
 	$(POLLENOMICS_TEST_ROOT)/regression/test_docs_breadth.py
 POLLENOMICS_DOC_COUNT_INPUTS := \

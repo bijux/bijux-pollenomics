@@ -27,7 +27,7 @@ from ...collection import (
     collect_data,
     validate_collection_summary_file,
 )
-from ...collection.workflow.repository_snapshot import (
+from ...collection.workflow.materialization.repository_snapshot import (
     materialize_repository_collection_snapshot,
 )
 from ...governance import build_release_bar, build_release_readiness_report
