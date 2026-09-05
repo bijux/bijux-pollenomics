@@ -2,12 +2,16 @@
 
 from __future__ import annotations
 
+from hashlib import sha256
 from pathlib import Path
 
 from bijux_pollenomics.adna.sources.archive import AdnaArchiveProject
 from bijux_pollenomics.adna.sources.library import ADNA_SOURCE_LIBRARY_DIR
 from bijux_pollenomics.adna.species.definitions import AdnaSpeciesDefinition
-from bijux_pollenomics.adna.workflow.source_artifacts import read_source_artifact_text
+from bijux_pollenomics.adna.workflow.source_artifacts import (
+    read_source_artifact_bytes,
+    read_source_artifact_text,
+)
 
 from .archive import (
     _build_archive_sample_accession_lookup,
@@ -41,6 +45,7 @@ from .tables.european_cats import (
     EUROPEAN_CAT_WORKBOOK_MEMBER,
     _build_european_cat_rows,
 )
+from .tables.fertile_crescent_cattle import _build_fertile_crescent_cattle_rows
 from .tables.pig_panel import _build_pig_panel_rows, load_pig_site_coordinate_evidence
 
 
@@ -80,9 +85,52 @@ def _project_specific_sample_rows(
         return _baltic_sheep_supplementary_sample_rows(output_root, species, project)
     if project.project_accession == "PRJEB81815":
         return _european_cat_supplementary_sample_rows(output_root, species, project)
+    if project.project_accession == "PRJEB31621":
+        return _fertile_crescent_cattle_supplementary_sample_rows(
+            output_root, species, project
+        )
     if project.project_accession in _ARCHIVE_PROJECT_SAMPLE_ACCESSIONS:
         return _project_scope_archive_sample_rows(output_root, species, project)
     return ()
+
+
+def _fertile_crescent_cattle_supplementary_sample_rows(
+    output_root: Path,
+    species: AdnaSpeciesDefinition,
+    project: AdnaArchiveProject,
+) -> tuple[AdnaProjectSampleMasterRow, ...]:
+    paper_row = _paper_row_by_project(output_root, project.project_accession)
+    supplement_artifact = next(
+        (
+            artifact
+            for artifact in paper_row.expected_supplementary_artifacts
+            if artifact.endswith("aav1002_verdugo_sm.pdf")
+        ),
+        None,
+    )
+    if supplement_artifact is None:
+        return ()
+    archive_source_path = (
+        f"{ADNA_SOURCE_LIBRARY_DIR}/projects/{project.project_accession}/"
+        "archive_metadata.html"
+    )
+    supplement_source_path = (
+        f"{ADNA_SOURCE_LIBRARY_DIR}/papers/10.1126-science.aav1002/"
+        "supplementary/aav1002_verdugo_sm.pdf"
+    )
+    archive_path = _resolve_data_relative_path(output_root, archive_source_path)
+    supplement_path = _resolve_data_relative_path(output_root, supplement_artifact)
+    if not archive_path.is_file() or not supplement_path.is_file():
+        return ()
+    supplement_payload = read_source_artifact_bytes(supplement_path)
+    return _build_fertile_crescent_cattle_rows(
+        species=species,
+        project=project,
+        archive_source_path=archive_source_path,
+        archive_text=read_source_artifact_text(archive_path),
+        supplement_source_path=supplement_source_path,
+        supplement_sha256=sha256(supplement_payload).hexdigest(),
+    )
 
 
 def _european_cat_supplementary_sample_rows(

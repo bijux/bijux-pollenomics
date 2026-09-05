@@ -43,7 +43,7 @@ class AdnaNormalizationUnitTests(unittest.TestCase):
                 for refusal in bundle.refusals
                 if refusal.record_kind == "sample_record"
             ),
-            41,
+            42,
         )
         camel = next(
             bundle
@@ -76,7 +76,7 @@ class AdnaNormalizationUnitTests(unittest.TestCase):
             for sample in samples
             if sample.inclusion_status == "sample_context_blocked"
         ]
-        self.assertEqual(len(blocked_context), 160)
+        self.assertEqual(len(blocked_context), 95)
         self.assertTrue(
             all(
                 sample.coordinates.latitude is None

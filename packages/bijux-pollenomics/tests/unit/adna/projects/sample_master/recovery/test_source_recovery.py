@@ -113,8 +113,7 @@ class SourceRecoveryTests(SampleMasterRecoveryTestCase):
         registration_missing = {
             row.preferred_sample_label: row
             for row in time_series_rows
-            if row.preferred_sample_label
-            in {"Batagai_5155", "Przewalski_Paratype_118"}
+            if row.preferred_sample_label in {"Batagai_5155", "Przewalski_Paratype_118"}
         }
         self.assertEqual(
             {row.repo_stable_sample_id for row in registration_missing.values()},
@@ -160,10 +159,7 @@ class SourceRecoveryTests(SampleMasterRecoveryTestCase):
             set(missing_registration_rows), {"Connemara_0004A", "Somali_0226A"}
         )
         self.assertEqual(
-            {
-                row.repo_stable_sample_id
-                for row in missing_registration_rows.values()
-            },
+            {row.repo_stable_sample_id for row in missing_registration_rows.values()},
             {"prjeb19970:connemara_0004a", "prjeb19970:somali_0226a"},
         )
         self.assertTrue(
@@ -211,7 +207,7 @@ class SourceRecoveryTests(SampleMasterRecoveryTestCase):
     ) -> None:
         expected_counts = {
             "PRJEB30282": 343,
-            "PRJEB31621": 77,
+            "PRJEB31621": 78,
             "PRJEB41594": 5,
             "PRJEB59481": 5,
             "PRJEB75467": 44,
@@ -228,6 +224,11 @@ class SourceRecoveryTests(SampleMasterRecoveryTestCase):
                     self.assertEqual(
                         Counter(row.sample_identity_resolution for row in rows),
                         {"final": 84, "ambiguous": 3},
+                    )
+                elif project_accession == "PRJEB31621":
+                    self.assertEqual(
+                        Counter(row.sample_identity_resolution for row in rows),
+                        {"final": 77, "provisional": 1},
                     )
                 else:
                     self.assertTrue(

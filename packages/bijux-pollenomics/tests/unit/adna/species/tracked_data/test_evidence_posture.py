@@ -63,4 +63,4 @@ def test_sample_rows_require_matching_coordinate_provenance_for_mapping(
             if provenance and provenance["mapping_posture"] == "refused_region_only":
                 assert not has_coordinates
     assert admitted_sample_count == 1450
-    assert refused_sample_count == 41
+    assert refused_sample_count == 42

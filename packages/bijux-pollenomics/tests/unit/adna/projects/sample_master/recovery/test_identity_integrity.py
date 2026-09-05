@@ -103,6 +103,10 @@ class IdentityIntegrityTests(SampleMasterRecoveryTestCase):
                 or row.supplementary_table_sample_label,
             ): row
             for row in master_rows
+            if not (
+                row.project_accession == "PRJEB31621"
+                and row.sample_identity_resolution == "provisional"
+            )
         }
         self.assertEqual(len(raw_expected), 634)
         self.assertEqual(set(master_by_source_identity), set(raw_expected))
@@ -157,7 +161,7 @@ class IdentityIntegrityTests(SampleMasterRecoveryTestCase):
             if row.sample_identity_resolution == "final"
             and row.sample_evidence_status != "experiment_level_only"
         }
-        self.assertEqual(len(all_master_rows), 1473)
+        self.assertEqual(len(all_master_rows), 1474)
         self.assertEqual(len(admitted_master_by_identity), 1450)
         self.assertEqual(set(normalized_by_master), set(admitted_master_by_identity))
         for key, normalized in normalized_by_master.items():
