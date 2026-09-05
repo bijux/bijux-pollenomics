@@ -38,7 +38,7 @@ from bijux_pollenomics.analysis.fieldwork.ranking import (
     rank_localities,
     temporal_overlap,
 )
-from bijux_pollenomics.analysis.fieldwork.review import (
+from bijux_pollenomics.analysis.review.fieldwork import (
     build_lake_archaeology_sensitivity_payload,
     build_lake_evidence_richness_geojson,
     build_lake_fieldwork_preparation_payload,

@@ -3,8 +3,10 @@ from __future__ import annotations
 import csv
 import json
 from pathlib import Path
+from typing import Any
 
 from bijux_pollenomics.analysis.fieldwork.evidence_richness import (
+    LakeEvidenceBandScore,
     LakeEvidenceRichnessReport,
 )
 
@@ -34,12 +36,12 @@ _RADIUS_WEIGHTS = {10: 0.35, 20: 0.27, 30: 0.18, 40: 0.12, 50: 0.08}
 
 def build_lake_archaeology_sensitivity_payload(
     report: LakeEvidenceRichnessReport,
-) -> dict[str, object]:
+) -> dict[str, Any]:
     """Re-rank lakes under bounded archaeology-context weight profiles."""
-    profile_rows: dict[str, list[dict[str, object]]] = {}
+    profile_rows: dict[str, list[dict[str, Any]]] = {}
     for profile_key, archaeology_weight in _ARCHAEOLOGY_PROFILES:
         weights = _profile_weights(archaeology_weight)
-        rows = []
+        rows: list[dict[str, Any]] = []
         for assessment in report.assessments:
             temporal_context = assessment.candidate.temporal_context_points
             sead_temporal_context = tuple(
@@ -102,7 +104,7 @@ def build_lake_archaeology_sensitivity_payload(
         str(row["lake_token"]): int(row["sensitivity_rank"])
         for row in profile_rows["baseline"]
     }
-    output_rows = []
+    output_rows: list[dict[str, Any]] = []
     for profile_key, _archaeology_weight in _ARCHAEOLOGY_PROFILES:
         for row in profile_rows[profile_key]:
             baseline_rank = baseline_ranks[str(row["lake_token"])]
@@ -170,14 +172,14 @@ def build_lake_archaeology_sensitivity_payload(
 
 def write_lake_archaeology_sensitivity_json(
     path: Path,
-    payload: dict[str, object],
+    payload: dict[str, Any],
 ) -> None:
     path.write_text(json.dumps(payload, indent=2), encoding="utf-8")
 
 
 def write_lake_archaeology_sensitivity_csv(
     path: Path,
-    payload: dict[str, object],
+    payload: dict[str, Any],
 ) -> None:
     fieldnames = (
         "profile_key",
@@ -202,7 +204,7 @@ def write_lake_archaeology_sensitivity_csv(
 
 
 def render_lake_archaeology_sensitivity_markdown(
-    payload: dict[str, object],
+    payload: dict[str, Any],
 ) -> str:
     methodology = payload["methodology"]
     emphasized = sorted(
@@ -263,7 +265,12 @@ def _profile_weights(archaeology_weight: float) -> dict[str, float]:
     }
 
 
-def _reweighted_band_score(*, band, sampling_fit: float, weights) -> float:
+def _reweighted_band_score(
+    *,
+    band: LakeEvidenceBandScore,
+    sampling_fit: float,
+    weights: dict[str, float],
+) -> float:
     return round(
         band.human_signal * weights["human"]
         + band.nearby_pollen_signal * weights["nearby_pollen"]
@@ -277,7 +284,11 @@ def _reweighted_band_score(*, band, sampling_fit: float, weights) -> float:
     )
 
 
-def _direct_pollen_signal_from_band(band, *, sampling_fit: float) -> float:
+def _direct_pollen_signal_from_band(
+    band: LakeEvidenceBandScore,
+    *,
+    sampling_fit: float,
+) -> float:
     total_weighted = (
         band.total_score
         - band.human_signal * _BASELINE_WEIGHTS["human"]
@@ -290,5 +301,7 @@ def _direct_pollen_signal_from_band(band, *, sampling_fit: float) -> float:
     return max(0.0, total_weighted / _BASELINE_WEIGHTS["direct_pollen"])
 
 
-def _band_20(bands):
+def _band_20(
+    bands: tuple[LakeEvidenceBandScore, ...],
+) -> LakeEvidenceBandScore:
     return next(band for band in bands if band.radius_km == 20)

@@ -1689,7 +1689,7 @@ class RepositoryContractRegressionTests(unittest.TestCase):
         )
         self.assertIn("`collection/workflow/`, `collection/sources/`", module_map)
         self.assertIn(
-            "`analysis/fieldwork/review/` owns candidate-site ranking reviews",
+            "`analysis/review/fieldwork/` owns candidate-site ranking reviews",
             module_map,
         )
         self.assertIn("`reporting/presentation/`", module_map)

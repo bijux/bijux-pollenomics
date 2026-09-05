@@ -273,7 +273,7 @@ def _atlas_bundle_contract_ok() -> bool:
 
 def _ranking_provenance_ok() -> bool:
     from ..analysis import build_ranking_engine_manifest
-    from ..analysis.fieldwork.review import (
+    from ..analysis.review.fieldwork import (
         build_candidate_site_sensitivity_payload,
         build_candidate_sites_json_payload,
     )

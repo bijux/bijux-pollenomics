@@ -4,6 +4,7 @@ import csv
 import json
 from pathlib import Path
 from statistics import mean
+from typing import Any
 
 from bijux_pollenomics.analysis.fieldwork.evidence_richness import (
     LakeEvidenceRichnessAssessment,
@@ -29,7 +30,7 @@ def build_lake_fieldwork_preparation_payload(
     report: LakeEvidenceRichnessReport,
     *,
     top_n: int = 20,
-) -> dict[str, object]:
+) -> dict[str, Any]:
     """Build a refusal-prone Sweden lake fieldwork-preparation packet."""
     ordered_assessments = fieldwork_rows(report, top_n=top_n)
     rows = [
@@ -211,7 +212,7 @@ def write_lake_fieldwork_preparation_csv(
 
 
 def render_lake_fieldwork_preparation_markdown(
-    payload: dict[str, object],
+    payload: dict[str, Any],
 ) -> str:
     """Render the Sweden lake fieldwork-preparation packet as markdown."""
     rows = (

@@ -6,7 +6,7 @@ from bijux_pollenomics.analysis.fieldwork.engine_manifest import (
 from bijux_pollenomics.analysis.fieldwork.ranking import (
     build_ranking_sensitivity_report,
 )
-from bijux_pollenomics.analysis.fieldwork.review import (
+from bijux_pollenomics.analysis.review.fieldwork import (
     build_candidate_sites_json_payload,
     render_candidate_site_sensitivity_markdown,
 )

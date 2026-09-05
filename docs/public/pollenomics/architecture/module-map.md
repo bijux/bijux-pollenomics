@@ -46,7 +46,7 @@ payload decoding, and source-owned output writing.
 
 Within analysis, `analysis/classification/`, `analysis/propagation/`, and
 `analysis/fieldwork/` separate classification, candidate propagation, and
-fieldwork decisions. `analysis/fieldwork/review/` owns candidate-site review
+fieldwork decisions. `analysis/review/fieldwork/` owns candidate-site review
 packets and their sensitivity evidence. Within publication, `reporting/bundles/` owns
 bundle assembly, `reporting/presentation/` owns human-facing formatting,
 `reporting/rendering/` writes structured and narrative artifacts, and
@@ -123,7 +123,7 @@ flowchart LR
     Sources["adna/sources"] --> Projects["adna/projects"]
     Projects --> Species["adna/species"]
     Species --> Fitness["evidence"]
-    Fitness --> Review["analysis/fieldwork/review"]
+    Fitness --> Review["analysis/review/fieldwork"]
     Fitness --> Reports["reporting"]
     Review --> Reports
 ```

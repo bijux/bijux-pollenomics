@@ -13,7 +13,7 @@ compatibility forwarding does not own runtime behavior.
 flowchart LR
     Command["command_line"] --> Intake["collection and adna.sources"]
     Intake --> Evidence["adna.projects and adna.workflow"]
-    Evidence --> Review["evidence and analysis.fieldwork.review"]
+    Evidence --> Review["evidence and analysis.review.fieldwork"]
     Review --> Product["architecture, governance, and analysis"]
     Product --> Assembly["reporting assembly and bundles"]
     Assembly --> Render["reporting presentation and rendering"]
@@ -96,7 +96,7 @@ Primary modules:
 
 - `bijux_pollenomics.adna.governance.reviews`
 - `bijux_pollenomics.evidence`
-- `bijux_pollenomics.analysis.fieldwork.review`
+- `bijux_pollenomics.analysis.review.fieldwork`
 - `bijux_pollenomics.governance`
 
 ### `adna` Intent
