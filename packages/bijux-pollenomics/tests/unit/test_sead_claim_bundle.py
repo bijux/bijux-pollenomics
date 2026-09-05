@@ -1,6 +1,5 @@
 from __future__ import annotations
 
-import json
 from pathlib import Path
 from typing import cast
 
@@ -10,20 +9,29 @@ from bijux_pollenomics.data_downloader.sead import SEAD_GOVERNED_ACQUISITION_ID
 from bijux_pollenomics.data_downloader.sources.sead.claim_bundle import (
     build_sead_chronology_claim_bundle,
 )
+from bijux_pollenomics.data_downloader.sources.sead.evidence_reader import (
+    SEAD_GOVERNED_EVIDENCE_MANIFEST_SHA256,
+    governed_sead_evidence_root,
+    read_validated_sead_evidence_document,
+)
 
 pytestmark = pytest.mark.generated_artifacts
 
 _REPOSITORY_ROOT = Path(__file__).resolve().parents[4]
 _ACQUISITION_ROOT = (
-    _REPOSITORY_ROOT
-    / "data/sead/raw/acquisitions"
-    / SEAD_GOVERNED_ACQUISITION_ID
+    _REPOSITORY_ROOT / "data/sead/raw/acquisitions" / SEAD_GOVERNED_ACQUISITION_ID
 )
-_CLAIM_PATH = _REPOSITORY_ROOT / "data/sead/normalized/chronology_claims.json"
+_EVIDENCE_ROOT = governed_sead_evidence_root(_REPOSITORY_ROOT / "data")
 
 
 def test_admitted_sead_claims_reconcile_and_match_the_generated_bundle() -> None:
     bundle = build_sead_chronology_claim_bundle(_ACQUISITION_ROOT)
+    authoritative = read_validated_sead_evidence_document(
+        _EVIDENCE_ROOT,
+        "chronology_claims.json",
+        expected_run_id=SEAD_GOVERNED_ACQUISITION_ID,
+        expected_manifest_sha256=SEAD_GOVERNED_EVIDENCE_MANIFEST_SHA256,
+    )
 
     assert bundle["claim_count"] == 25_109
     assert bundle["country_counts"] == {
@@ -49,8 +57,27 @@ def test_admitted_sead_claims_reconcile_and_match_the_generated_bundle() -> None
         "refused": 10_785,
     }
     assert bundle["propagation_status"] == "refused"
-    assert bundle["propagation_reason_code"] == "observation_relations_not_captured"
-    assert json.loads(_CLAIM_PATH.read_bytes()) == bundle
+    assert bundle["propagation_reason_code"] == "source_classification_not_accepted"
+    assert authoritative["propagation_status"] == "refused"
+    assert (
+        authoritative["propagation_reason_code"] == "source_classification_not_accepted"
+    )
+    assert authoritative["claim_count"] == bundle["claim_count"]
+    source_claims = cast(list[dict[str, object]], bundle["claims"])
+    authoritative_claims = cast(list[dict[str, object]], authoritative["claims"])
+    assert [claim["chronology_claim_id"] for claim in authoritative_claims] == [
+        claim["chronology_claim_id"] for claim in source_claims
+    ]
+    assert all(
+        claim["propagation_eligibility"] == "refused"
+        and isinstance(claim["observation_relation_id"], str)
+        and claim["propagation_reason_codes"]
+        in (
+            ["source_classification_not_accepted"],
+            ["source_native_observation_unavailable_at_analysis_entity"],
+        )
+        for claim in authoritative_claims
+    )
 
 
 def test_every_sead_claim_retains_subject_geography_and_raw_parent_identity() -> None:

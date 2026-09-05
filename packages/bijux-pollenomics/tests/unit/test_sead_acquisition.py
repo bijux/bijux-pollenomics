@@ -20,6 +20,7 @@ from bijux_pollenomics.data_downloader.sources.sead.acquisition import (
 
 _SCOPE = ("SE", "DK", "NO", "FI")
 _BBOX = {"bbox": [4.0, 54.0, 35.0, 72.0], "crs": "EPSG:4326"}
+_REPOSITORY_ROOT = Path(__file__).resolve().parents[4]
 
 
 class _Clock:
@@ -464,3 +465,50 @@ def test_repository_materializer_rejects_non_object_raw_rows(tmp_path: Path) -> 
 
     with pytest.raises(ValueError, match="contains a non-object row"):
         production_sead.materialize_sead_repository_surfaces(tmp_path / "data")
+
+
+def test_repository_materializer_rejects_unbound_governed_admission(
+    tmp_path: Path,
+) -> None:
+    data_root = tmp_path / "data"
+    raw_dir = data_root / "sead" / "raw"
+    raw_dir.mkdir(parents=True)
+    (raw_dir / "nordic_sites.json").write_text(
+        json.dumps({"rows": []}), encoding="utf-8"
+    )
+    admission_path = (
+        raw_dir
+        / "acquisitions"
+        / production_sead.SEAD_GOVERNED_ACQUISITION_ID
+        / "admission.json"
+    )
+    admission_path.parent.mkdir(parents=True)
+    admission_path.write_text("{}", encoding="utf-8")
+
+    with pytest.raises(ValueError, match="admission identity changed"):
+        production_sead.materialize_sead_repository_surfaces(data_root)
+
+
+def test_governed_admission_rejects_symlinked_raw_payload_tree(
+    tmp_path: Path,
+) -> None:
+    source = (
+        _REPOSITORY_ROOT
+        / "data/sead/raw/acquisitions"
+        / production_sead.SEAD_GOVERNED_ACQUISITION_ID
+    )
+    data_root = tmp_path / "data"
+    mirror = (
+        data_root
+        / "sead/raw/acquisitions"
+        / production_sead.SEAD_GOVERNED_ACQUISITION_ID
+    )
+    mirror.mkdir(parents=True)
+    (mirror / "admission.json").write_bytes((source / "admission.json").read_bytes())
+    (mirror / "country-decisions.json").symlink_to(source / "country-decisions.json")
+
+    with pytest.raises(ValueError, match="symlink"):
+        production_sead.validate_governed_sead_admission(
+            mirror,
+            data_root=data_root,
+        )

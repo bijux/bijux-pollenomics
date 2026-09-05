@@ -12,6 +12,7 @@ import os
 from pathlib import Path, PurePosixPath
 import re
 import shutil
+from types import MappingProxyType
 
 from .acquisition import (
     ACQUISITION_MANIFEST_SCHEMA_VERSION,
@@ -24,8 +25,8 @@ from .api_client import SEAD_LIMIT, SEAD_POSTGREST_ROOT, build_sead_in_filter
 from .archive import SEAD_FULL_EVIDENCE_SOURCE_TABLES, SEAD_LINKED_SOURCE_TABLES
 from .scoped_acquisition import (
     FULL_EVIDENCE_ORCHESTRATOR_VERSION,
-    SCOPED_RECEIPT_SCHEMA_VERSION,
     SCOPED_ORCHESTRATOR_VERSION,
+    SCOPED_RECEIPT_SCHEMA_VERSION,
     SEAD_FULL_EVIDENCE_JOIN_PLANS,
     SEAD_FULL_EVIDENCE_TABLE_PLANS,
     SEAD_SCOPED_TABLE_PLANS,
@@ -41,9 +42,11 @@ __all__ = [
     "ADMISSION_SCHEMA_VERSION",
     "SeadAcquisitionAdmission",
     "SeadAdmissionExpectedIdentity",
+    "SeadMaterializedAdmissionSnapshot",
     "materialize_sead_full_evidence_admission",
     "materialize_sead_acquisition_admission",
     "validate_materialized_sead_full_evidence_admission",
+    "read_materialized_sead_full_evidence_admission",
     "validate_sead_full_evidence_admission",
     "validate_sead_acquisition_admission",
 ]
@@ -342,6 +345,14 @@ class SeadAdmissionExpectedIdentity:
 
 
 @dataclass(frozen=True)
+class SeadMaterializedAdmissionSnapshot:
+    """Admission metadata and the exact bytes verified in one validation pass."""
+
+    admission: Mapping[str, object]
+    copied_files: Mapping[str, bytes]
+
+
+@dataclass(frozen=True)
 class _ValidatedAdmission:
     source_root: Path
     decisions_path: Path
@@ -401,6 +412,20 @@ def validate_materialized_sead_full_evidence_admission(
     expected_identity: SeadAdmissionExpectedIdentity,
 ) -> dict[str, object]:
     """Recompute and validate an already materialized full-evidence admission."""
+    return dict(
+        read_materialized_sead_full_evidence_admission(
+            acquisition_root,
+            expected_identity=expected_identity,
+        ).admission
+    )
+
+
+def read_materialized_sead_full_evidence_admission(
+    acquisition_root: Path,
+    *,
+    expected_identity: SeadAdmissionExpectedIdentity,
+) -> SeadMaterializedAdmissionSnapshot:
+    """Return only bytes retained by the full materialized-admission validation."""
     root = _validated_source_directory(acquisition_root)
     observed_bytes = _read_regular_file(root / "admission.json")
     observed = _json_object(observed_bytes, "admission.json")
@@ -420,7 +445,10 @@ def validate_materialized_sead_full_evidence_admission(
         _canonical_bytes(validated.admission),
         "independently recomputed full-evidence admission",
     )
-    return validated.admission
+    return SeadMaterializedAdmissionSnapshot(
+        admission=MappingProxyType(dict(validated.admission)),
+        copied_files=MappingProxyType(dict(validated.copied_files)),
+    )
 
 
 def _validate_cached_admission(

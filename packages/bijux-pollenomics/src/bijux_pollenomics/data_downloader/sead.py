@@ -1,12 +1,12 @@
 from __future__ import annotations
 
+from collections.abc import Callable, Iterable, Mapping, Sequence
+from dataclasses import dataclass
 import hashlib
 import json
 import os
-import time
-from collections.abc import Callable, Iterable, Mapping, Sequence
-from dataclasses import dataclass
 from pathlib import Path
+import time
 
 from ..core.http import fetch_json
 from .contracts import (
@@ -24,10 +24,14 @@ from .shared import load_repository_country_boundaries
 from .sources.sead import api_client as sead_api_client
 from .sources.sead.acquisition import acquire_sead_table
 from .sources.sead.archive import SEAD_LINKED_SOURCE_TABLES
-from .sources.sead.claim_bundle import write_sead_chronology_claim_bundle
+from .sources.sead.claim_bundle import write_sead_chronology_claim_bundle_from_snapshot
 from .sources.sead.discovery import (
     build_sweden_archaeology_site_discovery,
     write_sweden_archaeology_site_discovery,
+)
+from .sources.sead.evidence_reader import (
+    SEAD_GOVERNED_EVIDENCE_RUN_ID,
+    validate_governed_sead_admission,
 )
 from .sources.sead.fetch import (
     build_sead_in_filter as build_sead_in_filter_value,
@@ -67,8 +71,12 @@ class SeadDataReport:
 
 SEAD_MAX_PAGES = 1_000
 SEAD_ARCHIVE_SCHEMA_VERSION = "sead-site-archive.v2"
-SEAD_GOVERNED_ACQUISITION_ID = (
-    "sead-live-d1fd2058913372eda1c12e526e0eb7c8a6cec415e9f9e9b5b92b8896597b35ac"
+SEAD_GOVERNED_ACQUISITION_ID = SEAD_GOVERNED_EVIDENCE_RUN_ID
+SEAD_GOVERNED_EVIDENCE_RELATIVE_PATH = (
+    Path("sead/normalized/acquisitions") / SEAD_GOVERNED_ACQUISITION_ID
+)
+SEAD_LEGACY_CHRONOLOGY_SUMMARY_RELATIVE_PATH = Path(
+    "sead/normalized/chronology_claims.json"
 )
 
 _SEAD_PRIMARY_KEYS = {
@@ -449,7 +457,7 @@ def collect_sead_data(
 
 
 def materialize_sead_repository_surfaces(data_root: Path) -> SeadDataReport:
-    """Refresh public SEAD surfaces from the admitted immutable acquisition."""
+    """Refresh legacy public surfaces from the authoritative admitted acquisition."""
     data_root = Path(data_root)
     output_root = data_root / "sead"
     raw_path = output_root / "raw" / "nordic_sites.json"
@@ -457,16 +465,19 @@ def materialize_sead_repository_surfaces(data_root: Path) -> SeadDataReport:
     acquisition_root = (
         output_root / "raw" / "acquisitions" / SEAD_GOVERNED_ACQUISITION_ID
     )
+    validated_snapshot = validate_governed_sead_admission(
+        acquisition_root, data_root=data_root
+    )
     rows_by_table = {
-        table: _load_sead_acquisition_rows(acquisition_root, table)
+        table: _load_sead_acquisition_rows(validated_snapshot.copied_files, table)
         for table in SEAD_LINKED_SOURCE_TABLES
     }
     rows, _ = build_sead_site_rows_from_acquisition_tables(rows_by_table)
-    _attach_sead_country_decisions(acquisition_root, rows)
+    _attach_sead_country_decisions(validated_snapshot.copied_files, rows)
     _validate_sead_rows("tbl_sites", rows)
-    write_sead_chronology_claim_bundle(
-        acquisition_root,
-        output_root / "normalized" / "chronology_claims.json",
+    write_sead_chronology_claim_bundle_from_snapshot(
+        validated_snapshot,
+        data_root / SEAD_LEGACY_CHRONOLOGY_SUMMARY_RELATIVE_PATH,
     )
     country_boundaries = load_repository_country_boundaries(data_root)
     records = normalize_sead_rows(rows, country_boundaries=country_boundaries)
@@ -514,10 +525,13 @@ def _validate_repository_site_archive(raw_path: Path) -> None:
 
 
 def _load_sead_acquisition_rows(
-    acquisition_root: Path, table: str
+    copied_files: Mapping[str, bytes], table: str
 ) -> list[dict[str, object]]:
-    payload_path = acquisition_root / "payloads" / f"{table}.json"
-    payload = json.loads(payload_path.read_text(encoding="utf-8"))
+    payload_path = f"payloads/{table}.json"
+    payload_bytes = copied_files.get(payload_path)
+    if payload_bytes is None:
+        raise ValueError(f"SEAD acquisition table is missing: {payload_path}")
+    payload = json.loads(payload_bytes)
     if not isinstance(payload, dict) or payload.get("table") != table:
         raise ValueError(f"SEAD acquisition table identity is invalid: {payload_path}")
     rows = payload.get("rows")
@@ -527,10 +541,13 @@ def _load_sead_acquisition_rows(
 
 
 def _attach_sead_country_decisions(
-    acquisition_root: Path, rows: list[dict[str, object]]
+    copied_files: Mapping[str, bytes], rows: list[dict[str, object]]
 ) -> None:
-    decision_path = acquisition_root / "country-decisions.json"
-    payload = json.loads(decision_path.read_text(encoding="utf-8"))
+    decision_path = "country-decisions.json"
+    decision_bytes = copied_files.get(decision_path)
+    if decision_bytes is None:
+        raise ValueError("SEAD country decisions are missing")
+    payload = json.loads(decision_bytes)
     decisions = payload.get("decisions") if isinstance(payload, dict) else None
     if not isinstance(decisions, list) or any(
         not isinstance(decision, dict) for decision in decisions

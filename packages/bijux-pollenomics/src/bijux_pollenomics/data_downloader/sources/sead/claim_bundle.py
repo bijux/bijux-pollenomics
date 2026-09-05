@@ -2,14 +2,15 @@
 
 from __future__ import annotations
 
-import hashlib
-import json
 from collections import Counter
 from collections.abc import Mapping
+import hashlib
+import json
 from pathlib import Path
 from typing import Final, cast
 
 from ....core.files import write_json
+from .acquisition_admission import SeadMaterializedAdmissionSnapshot
 from .archive import SEAD_LINKED_SOURCE_TABLES
 from .inventory_fields import build_sead_site_rows_from_acquisition_tables
 from .normalization import SeadChronologyClaim, normalize_sead_chronology_claims
@@ -30,10 +31,6 @@ def build_sead_chronology_claim_bundle(
         raise ValueError("SEAD admission schema is unsupported")
     if admission.get("source_family") != "sead":
         raise ValueError("SEAD admission source family is inconsistent")
-    build_id = _required_text(admission, "build_id")
-    manifest_sha256 = _required_raw_sha256(
-        admission, "acquisition_manifest_sha256"
-    )
     copied_records = admission.get("copied_files")
     if not isinstance(copied_records, list):
         raise TypeError("SEAD admission copied-file inventory is missing")
@@ -53,6 +50,24 @@ def build_sead_chronology_claim_bundle(
         if _sha256(payload) != expected_digest:
             raise ValueError(f"SEAD admitted digest changed: {relative_path}")
         copied[relative_path] = payload
+
+    return build_sead_chronology_claim_bundle_from_snapshot(
+        SeadMaterializedAdmissionSnapshot(admission=admission, copied_files=copied)
+    )
+
+
+def build_sead_chronology_claim_bundle_from_snapshot(
+    snapshot: SeadMaterializedAdmissionSnapshot,
+) -> dict[str, object]:
+    """Build claims exclusively from bytes retained by admission validation."""
+    admission = snapshot.admission
+    copied = snapshot.copied_files
+    if admission.get("schema_version") != "sead-acquisition-admission.v1":
+        raise ValueError("SEAD admission schema is unsupported")
+    if admission.get("source_family") != "sead":
+        raise ValueError("SEAD admission source family is inconsistent")
+    build_id = _required_text(admission, "build_id")
+    manifest_sha256 = _required_raw_sha256(admission, "acquisition_manifest_sha256")
 
     manifest_bytes = copied.get("manifest.json")
     if manifest_bytes is None or _sha256(manifest_bytes) != manifest_sha256:
@@ -122,9 +137,14 @@ def build_sead_chronology_claim_bundle(
     comparability_counts = _partition_counts(claims, "comparability_status")
     eligibility_counts = _partition_counts(claims, "chronology_eligibility")
     refusal_reasons = Counter(
-        reason
-        for claim in claims
-        for reason in claim["reason_codes"]
+        reason for claim in claims for reason in claim["reason_codes"]
+    )
+    declared_scope = admission.get("declared_scope")
+    full_evidence_admission = (
+        isinstance(declared_scope, Mapping)
+        and declared_scope.get("scope_key") == "full_evidence_relations"
+        and declared_scope.get("table_count") == 61
+        and declared_scope.get("join_count") == 86
     )
     return {
         "schema_version": CLAIM_BUNDLE_SCHEMA_VERSION,
@@ -146,7 +166,11 @@ def build_sead_chronology_claim_bundle(
         "chronology_eligibility_counts": eligibility_counts,
         "refusal_reason_counts": dict(sorted(refusal_reasons.items())),
         "propagation_status": "refused",
-        "propagation_reason_code": "observation_relations_not_captured",
+        "propagation_reason_code": (
+            "source_classification_not_accepted"
+            if full_evidence_admission
+            else "observation_relations_not_captured"
+        ),
         "selection_policy": {
             "rule_version": "sead-retain-all-source-chronologies-v1",
             "posture": "retain_all_without_preferred_model",
@@ -164,9 +188,16 @@ def write_sead_chronology_claim_bundle(
     return destination
 
 
-def _partition_counts(
-    claims: list[SeadChronologyClaim], field: str
-) -> dict[str, int]:
+def write_sead_chronology_claim_bundle_from_snapshot(
+    snapshot: SeadMaterializedAdmissionSnapshot, output_path: Path
+) -> Path:
+    """Write a claim bundle without reopening admission-controlled inputs."""
+    destination = output_path.resolve()
+    write_json(destination, build_sead_chronology_claim_bundle_from_snapshot(snapshot))
+    return destination
+
+
+def _partition_counts(claims: list[SeadChronologyClaim], field: str) -> dict[str, int]:
     return dict(
         sorted(
             Counter(
@@ -191,16 +222,18 @@ def _decode_object(payload: bytes, label: str) -> dict[str, object]:
     return document
 
 
-def _required_text(document: dict[str, object], field: str) -> str:
+def _required_text(document: Mapping[str, object], field: str) -> str:
     value = document.get(field)
     if not isinstance(value, str) or not value.strip():
         raise ValueError(f"SEAD {field} must be nonempty text")
     return value.strip()
 
 
-def _required_raw_sha256(document: dict[str, object], field: str) -> str:
+def _required_raw_sha256(document: Mapping[str, object], field: str) -> str:
     value = _required_text(document, field)
-    if len(value) != 64 or any(character not in "0123456789abcdef" for character in value):
+    if len(value) != 64 or any(
+        character not in "0123456789abcdef" for character in value
+    ):
         raise ValueError(f"SEAD {field} must be a lowercase SHA-256")
     return value
 

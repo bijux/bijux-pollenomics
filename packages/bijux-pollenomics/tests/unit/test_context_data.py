@@ -802,6 +802,10 @@ class ContextDataTests(unittest.TestCase):
             )["rows"]
             with (
                 patch(
+                    "bijux_pollenomics.data_downloader.sead."
+                    "validate_governed_sead_admission"
+                ),
+                patch(
                     "bijux_pollenomics.data_downloader.sead._load_sead_acquisition_rows",
                     return_value=[],
                 ),
@@ -816,7 +820,7 @@ class ContextDataTests(unittest.TestCase):
                 ),
                 patch(
                     "bijux_pollenomics.data_downloader.sead."
-                    "write_sead_chronology_claim_bundle"
+                    "write_sead_chronology_claim_bundle_from_snapshot"
                 ),
             ):
                 report = materialize_sead_repository_surfaces(data_root)

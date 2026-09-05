@@ -10,6 +10,9 @@ from typing import cast
 
 import pytest
 
+from bijux_pollenomics.data_downloader.sources.sead.evidence_reader import (
+    SEAD_GOVERNED_EVIDENCE_RUN_ID,
+)
 import bijux_pollenomics.foundation.country_coverage as country_coverage_module
 from bijux_pollenomics.foundation.country_coverage import (
     CELL_SCHEMA_ID,
@@ -29,10 +32,7 @@ _CELL_SCHEMA_PATH = (
     / "bijux-pollenomics-execution-control/contracts/country-coverage.schema.json"
 )
 _LEDGER_PATH = _REPOSITORY_ROOT / "data/country_dimension_coverage.json"
-_SEAD_ACQUISITION_ROOT = (
-    "data/sead/raw/acquisitions/"
-    "sead-live-d1fd2058913372eda1c12e526e0eb7c8a6cec415e9f9e9b5b92b8896597b35ac"
-)
+_SEAD_ACQUISITION_ROOT = f"data/sead/raw/acquisitions/{SEAD_GOVERNED_EVIDENCE_RUN_ID}"
 _SEAD_ADMISSION_PATH = f"{_SEAD_ACQUISITION_ROOT}/admission.json"
 _SEAD_DECISIONS_PATH = f"{_SEAD_ACQUISITION_ROOT}/country-decisions.json"
 _SEAD_SITES_PATH = f"{_SEAD_ACQUISITION_ROOT}/payloads/tbl_sites.json"
@@ -315,10 +315,7 @@ def test_sead_preserves_assigned_review_and_refused_partitions() -> None:
     assert (
         _measure_total(ledger, "sead", "governed_assignment", "excluded_records") == 23
     )
-    assert (
-        _measure_total(ledger, "sead", "governed_assignment", "age_claims")
-        == 25_109
-    )
+    assert _measure_total(ledger, "sead", "governed_assignment", "age_claims") == 25_109
     review = _cell(ledger, "sead", "governed_assignment", "UNASSIGNED")
     refused = _cell(ledger, "sead", "governed_assignment", "OUTSIDE")
     assert _counts(review)["unresolved_records"] == 103
@@ -522,8 +519,8 @@ def test_aadr_summary_country_must_match_its_partition(
         ("data/boundaries/raw/source_manifest.json", ("normalized_artifact", "sha256")),
         ("data/neotoma/relational/reconciliation.json", ("source_snapshot_id",)),
         (
-            _SEAD_ADMISSION_PATH,
-            ("acquisition_bundle_sha256",),
+            "data/collection_summary.json",
+            ("source_hashes", "sead", "snapshot_sha256"),
         ),
     ),
 )
@@ -582,13 +579,13 @@ def test_boundary_manifest_digest_must_match_artifact_bytes(
             _SEAD_ADMISSION_PATH,
             ("country_accounting", "admitted_site_count"),
             2_068,
-            "admitted_site_count",
+            "admission identity changed",
         ),
         (
             _SEAD_ADMISSION_PATH,
             ("scope_id",),
             f"sha256:{'f' * 64}",
-            "disagree on scope_id",
+            "admission identity changed",
         ),
     ),
 )
@@ -797,7 +794,7 @@ def test_sead_country_assignment_digest_is_recomputed(
         monkeypatch, _SEAD_ADMISSION_PATH, corrupt_assignment_digest
     )
 
-    with pytest.raises(ValueError, match="country assignment digest"):
+    with pytest.raises(ValueError, match="admission identity changed"):
         _build()
 
 
@@ -822,7 +819,7 @@ def test_sead_bundle_digest_binds_copied_file_inventory(
 
     _replace_input_document(monkeypatch, _SEAD_ADMISSION_PATH, corrupt_bundle)
 
-    with pytest.raises(ValueError, match="acquisition bundle digest"):
+    with pytest.raises(ValueError, match="admission identity changed"):
         _build()
 
 

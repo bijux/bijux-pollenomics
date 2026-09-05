@@ -9,6 +9,12 @@ import json
 from pathlib import Path
 from typing import cast
 
+from ..data_downloader.sources.sead.evidence_reader import (
+    SEAD_GOVERNED_EVIDENCE_MANIFEST_SHA256,
+    SEAD_GOVERNED_EVIDENCE_RUN_ID,
+    governed_sead_evidence_root,
+    read_validated_sead_evidence_document,
+)
 from . import release_evidence as evidence
 
 __all__ = ["derive_release_evidence_request", "validate_release_evidence_request"]
@@ -339,12 +345,20 @@ def _sead_chronology_claim_values(
 ) -> dict[str, _DerivedCount] | None:
     if metric != "chronology_eligibility":
         return None
-    document = _optional_json_object(
-        root, "data/sead/normalized/chronology_claims.json"
-    )
+    try:
+        document = read_validated_sead_evidence_document(
+            governed_sead_evidence_root(root / "data"),
+            "chronology_claims.json",
+            expected_run_id=SEAD_GOVERNED_EVIDENCE_RUN_ID,
+            expected_manifest_sha256=SEAD_GOVERNED_EVIDENCE_MANIFEST_SHA256,
+        )
+    except (OSError, TypeError, ValueError):
+        return None
     if (
-        document is None
-        or document.get("schema_version") != "sead-chronology-claim-bundle.v1"
+        document.get("schema_version") != "sead-chronology-claim-bundle.v1"
+        or document.get("propagation_status") != "refused"
+        or document.get("propagation_reason_code")
+        != "source_classification_not_accepted"
     ):
         return None
     claims = document.get("claims")

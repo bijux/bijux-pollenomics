@@ -15,6 +15,14 @@ import stat
 from typing import Any, Final, cast
 
 from ..core.geojson import CountryBoundaryCollection
+from ..data_downloader.sources.sead.evidence_reader import (
+    SEAD_GOVERNED_ADMISSION_SHA256,
+    SEAD_GOVERNED_EVIDENCE_MANIFEST_SHA256,
+    SEAD_GOVERNED_EVIDENCE_RUN_ID,
+    SEAD_GOVERNED_EVIDENCE_SCOPE_ID,
+    governed_sead_evidence_root,
+    read_validated_sead_evidence_document,
+)
 from ..data_downloader.spatial import (
     COUNTRY_BOUNDARY_PROXIMITY_TOLERANCE,
     CountryAttributionDecision,
@@ -49,14 +57,18 @@ BOUNDARY_ARTIFACT_PATH: Final = (
     "data/boundaries/normalized/nordic_country_boundaries.geojson"
 )
 SEAD_ACQUISITION_ROOT: Final = (
-    "data/sead/raw/acquisitions/"
-    "sead-live-d1fd2058913372eda1c12e526e0eb7c8a6cec415e9f9e9b5b92b8896597b35ac"
+    f"data/sead/raw/acquisitions/{SEAD_GOVERNED_EVIDENCE_RUN_ID}"
 )
 SEAD_ADMISSION_PATH: Final = f"{SEAD_ACQUISITION_ROOT}/admission.json"
 SEAD_DECISIONS_PATH: Final = f"{SEAD_ACQUISITION_ROOT}/country-decisions.json"
 SEAD_SITES_PATH: Final = f"{SEAD_ACQUISITION_ROOT}/payloads/tbl_sites.json"
-SEAD_CLAIMS_PATH: Final = "data/sead/normalized/chronology_claims.json"
-SEAD_PUBLIC_SITES_PATH: Final = "data/sead/normalized/nordic_environmental_sites.geojson"
+SEAD_EVIDENCE_MANIFEST_PATH: Final = (
+    "data/sead/normalized/acquisitions/"
+    f"{SEAD_GOVERNED_EVIDENCE_RUN_ID}/evidence_materialization_manifest.json"
+)
+SEAD_PUBLIC_SITES_PATH: Final = (
+    "data/sead/normalized/nordic_environmental_sites.geojson"
+)
 COUNTRY_COVERAGE_OUTPUT_PATH: Final = "data/country_dimension_coverage.json"
 COUNTRY_COVERAGE_ARTIFACT_ROOT: Final = "artifacts/execution-control/country-coverage"
 
@@ -107,7 +119,7 @@ INPUT_PATHS: Final = (
     "docs/report/countries/finland/finland_aadr_v66_summary.json",
     "docs/report/animal_country_species_coverage.json",
     BOUNDARY_ARTIFACT_PATH,
-    SEAD_CLAIMS_PATH,
+    SEAD_EVIDENCE_MANIFEST_PATH,
     SEAD_PUBLIC_SITES_PATH,
 )
 
@@ -173,6 +185,8 @@ def build_country_dimension_coverage_ledger(
         raise CountryCoverageError("country coverage schema identity is not v2")
 
     input_bytes = {path: _read_governed_input(root, path) for path in INPUT_PATHS}
+    if _sha256(input_bytes[SEAD_ADMISSION_PATH]) != SEAD_GOVERNED_ADMISSION_SHA256:
+        raise CountryCoverageError("SEAD admission identity changed")
     input_documents = {
         path: _decode_object(payload, (root / path).as_posix())
         for path, payload in input_bytes.items()
@@ -198,6 +212,7 @@ def build_country_dimension_coverage_ledger(
         "source_families": list(SOURCE_FAMILIES),
         "count_fields": list(COUNT_FIELDS),
         "input_paths": list(INPUT_PATHS),
+        "sead_logical_document": "chronology_claims.json",
     }
     config_digest = f"sha256:{_sha256(_canonical_bytes(configuration))}"
     identity = {
@@ -237,6 +252,12 @@ def build_country_dimension_coverage_ledger(
             input_documents[BOUNDARY_ARTIFACT_PATH],
         )
     )
+    sead_claim_document = read_validated_sead_evidence_document(
+        governed_sead_evidence_root(root / "data"),
+        "chronology_claims.json",
+        expected_run_id=SEAD_GOVERNED_EVIDENCE_RUN_ID,
+        expected_manifest_sha256=SEAD_GOVERNED_EVIDENCE_MANIFEST_SHA256,
+    )
 
     evidence = _coverage_evidence(
         input_documents,
@@ -245,6 +266,7 @@ def build_country_dimension_coverage_ledger(
         boundary_version=boundary_version,
         boundary_collections=boundary_collections,
         boundary_counts=boundary_counts,
+        sead_claim_document=sead_claim_document,
     )
     snapshot_ids = _source_snapshot_ids(collection, input_documents, input_bytes)
     cells: list[dict[str, object]] = []
@@ -810,6 +832,7 @@ def _coverage_evidence(
     boundary_version: str,
     boundary_collections: CountryBoundaryCollection,
     boundary_counts: Mapping[str, int],
+    sead_claim_document: Mapping[str, object],
 ) -> dict[tuple[str, str, str], dict[str, int | None]]:
     evidence: dict[tuple[str, str, str], dict[str, int | None]] = {}
 
@@ -1087,9 +1110,21 @@ def _coverage_evidence(
         payload=input_bytes[SEAD_SITES_PATH],
     )
     _site_partition(evidence, "sead", "governed_assignment", governed)
-    claim_document = documents[SEAD_CLAIMS_PATH]
+    claim_document = sead_claim_document
     if claim_document.get("schema_version") != "sead-chronology-claim-bundle.v1":
         raise CountryCoverageError("SEAD chronology claim schema is inconsistent")
+    if claim_document.get("source_run_id") != SEAD_GOVERNED_EVIDENCE_RUN_ID:
+        raise CountryCoverageError(
+            "SEAD chronology claims do not bind the governed run"
+        )
+    if (
+        claim_document.get("propagation_status") != "refused"
+        or claim_document.get("propagation_reason_code")
+        != "source_classification_not_accepted"
+    ):
+        raise CountryCoverageError(
+            "SEAD chronology claims do not preserve classification refusal"
+        )
     if claim_document.get("acquisition_manifest_sha256") != admission_document.get(
         "acquisition_manifest_sha256"
     ):
@@ -1125,9 +1160,9 @@ def _coverage_evidence(
         published=True,
     )
     for country in _NORDIC_COUNTRY_CODES:
-        evidence[("sead", "publication", country)]["age_claims"] = (
-            claim_country_counts[country]
-        )
+        evidence[("sead", "publication", country)]["age_claims"] = claim_country_counts[
+            country
+        ]
     for country in ("UNASSIGNED", "OUTSIDE"):
         evidence[("sead", "publication", country)]["age_claims"] = 0
 
@@ -1250,16 +1285,21 @@ def _validate_sead_country_summaries(
     _require_sha256_id(
         _required_text(admission, "build_id"), "SEAD admission build identity"
     )
-    for admission_field, decision_field in (
-        ("scope_id", "input_id"),
-        ("parent_run_id", "job_id"),
-        ("run_id", "run_id"),
-        ("build_id", "build_id"),
+    if admission.get("scope_id") != SEAD_GOVERNED_EVIDENCE_SCOPE_ID:
+        raise CountryCoverageError("SEAD admission governed scope identity changed")
+    declared_scope = _object(admission.get("declared_scope"), "SEAD declared scope")
+    if (
+        declared_scope.get("scope_key") != "full_evidence_relations"
+        or declared_scope.get("table_count") != 61
+        or declared_scope.get("join_count") != 86
     ):
-        if admission.get(admission_field) != decisions.get(decision_field):
-            raise CountryCoverageError(
-                f"SEAD admission and country decisions disagree on {admission_field}"
-            )
+        raise CountryCoverageError("SEAD admission is not the full evidence scope")
+    if admission.get("run_id") != SEAD_GOVERNED_EVIDENCE_RUN_ID:
+        raise CountryCoverageError("SEAD admission governed run identity changed")
+    if admission.get("parent_run_id") != decisions.get("run_id"):
+        raise CountryCoverageError(
+            "SEAD admission and country decisions disagree on parent run identity"
+        )
     authority = _object(decisions.get("boundary_authority"), "boundary authority")
     if authority.get("artifact_digest") != boundary_digest:
         raise CountryCoverageError("SEAD boundary authority digest is inconsistent")
