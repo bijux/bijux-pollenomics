@@ -765,7 +765,7 @@ def test_product_request_policy_has_exact_inventory_and_reconciliation_counts() 
     rows = request_module._reconciliations(root, policy)
     by_identity = {row.identity: row for row in rows}
 
-    assert len(policy.required_artifacts) == 24
+    assert len(policy.required_artifacts) == 26
     assert len(policy.required_gate_ids) == 5
     assert len(policy.required_reconciliations) == 28
     assert len(rows) == 390
@@ -773,7 +773,7 @@ def test_product_request_policy_has_exact_inventory_and_reconciliation_counts() 
     assert {
         status: sum(row.count_status == status for row in rows)
         for status in ("reported", "unavailable", "refused")
-    } == {"reported": 327, "unavailable": 49, "refused": 14}
+    } == {"reported": 334, "unavailable": 42, "refused": 14}
     request_module.evidence._validate_reconciliations(rows, policy)
     classification_metrics = {
         requirement.entity: requirement.derivation_metric
@@ -797,6 +797,15 @@ def test_product_request_policy_has_exact_inventory_and_reconciliation_counts() 
     ) == (2195, 2069, 2069, 103, 23)
     assert by_identity["sead.sites.country.unassigned"].unresolved_count == 103
     assert by_identity["sead.sites.country.outside"].excluded_count == 23
+    chronology_claims = by_identity["sead.chronology_claims.source"]
+    assert (
+        chronology_claims.candidate_count,
+        chronology_claims.eligible_count,
+        chronology_claims.accepted_count,
+        chronology_claims.unresolved_count,
+        chronology_claims.excluded_count,
+        chronology_claims.refused_count,
+    ) == (25_109, 24_468, 14_324, 641, 0, 10_144)
 
     observations = by_identity["neotoma.observations.country.unassigned"]
     assert observations.count_status == "reported"

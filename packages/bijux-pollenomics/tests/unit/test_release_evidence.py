@@ -253,6 +253,7 @@ def test_product_policy_binds_exact_release_inventory_and_producer_authority() -
         "boundary",
         "classification",
         "neotoma-snapshot",
+        "sead-claims",
     }
     assert set(artifacts["gate-map"]["required_parent_identities"]) == {
         "country-coverage",
@@ -263,7 +264,7 @@ def test_product_policy_binds_exact_release_inventory_and_producer_authority() -
     country_document = json.loads(
         (repository_root / artifacts["country-coverage"]["path"]).read_text()
     )
-    assert len(country_inputs) == 16
+    assert len(country_inputs) == 18
     assert set(country_inputs) == {
         item["path"] for item in country_document["input_artifacts"]
     }

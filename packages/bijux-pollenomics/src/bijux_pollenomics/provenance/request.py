@@ -258,6 +258,8 @@ def _governed_country_values(
 ) -> dict[str, _DerivedCount] | None:
     if requirement.derivation_adapter == "classification_observation_memberships":
         return _classification_country_values(root, requirement.derivation_metric)
+    if requirement.derivation_adapter == "sead_chronology_claims":
+        return _sead_chronology_claim_values(root, requirement.derivation_metric)
     if requirement.derivation_adapter == "unavailable":
         return None
     if requirement.derivation_adapter == "neotoma_relational_reconciliation":
@@ -329,6 +331,66 @@ def _governed_country_values(
         values[country] = _partition_posture(
             country, value, tuple(sorted(cast(list[str], reason_codes)))
         )
+    return values
+
+
+def _sead_chronology_claim_values(
+    root: Path, metric: str
+) -> dict[str, _DerivedCount] | None:
+    if metric != "chronology_eligibility":
+        return None
+    document = _optional_json_object(
+        root, "data/sead/normalized/chronology_claims.json"
+    )
+    if (
+        document is None
+        or document.get("schema_version") != "sead-chronology-claim-bundle.v1"
+    ):
+        return None
+    claims = document.get("claims")
+    if not isinstance(claims, list):
+        return None
+    counts = {
+        country: {"accepted": 0, "unresolved": 0, "refused": 0}
+        for country in evidence._COUNTRIES
+    }
+    for claim in claims:
+        if not isinstance(claim, Mapping):
+            return None
+        country = claim.get("country_code")
+        comparability = claim.get("comparability_status")
+        eligibility = claim.get("chronology_eligibility")
+        if country not in counts:
+            return None
+        if comparability == "comparable" and eligibility == "eligible":
+            bucket = "accepted"
+        elif comparability == "context_only" and eligibility == "refused":
+            bucket = "refused"
+        elif comparability == "unresolved" and eligibility == "refused":
+            bucket = "unresolved"
+        else:
+            return None
+        counts[cast(str, country)][bucket] += 1
+    values = {}
+    for country, partition in counts.items():
+        accepted = partition["accepted"]
+        unresolved = partition["unresolved"]
+        refused = partition["refused"]
+        values[country] = _DerivedCount(
+            candidate=accepted + unresolved + refused,
+            eligible=accepted + refused,
+            accepted=accepted,
+            unresolved=unresolved,
+            excluded=0,
+            refused=refused,
+        )
+    declared_count = document.get("claim_count")
+    if (
+        isinstance(declared_count, bool)
+        or not isinstance(declared_count, int)
+        or declared_count != sum(value.candidate for value in values.values())
+    ):
+        return None
     return values
 
 

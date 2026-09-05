@@ -1237,6 +1237,7 @@ def _load_release_evidence_policy(root: Path) -> _ReleaseEvidencePolicy:
             "country_coverage",
             "neotoma_relational_reconciliation",
             "propagation_primary_reconciliation",
+            "sead_chronology_claims",
             "unavailable",
         }:
             raise ReleaseEvidenceError("invalid reconciliation derivation adapter")
