@@ -25,6 +25,7 @@ POLLENOMICS_SCIENCE_TESTS := \
 	$(POLLENOMICS_TEST_ROOT)/unit/analysis/fieldwork/evidence_richness \
 	$(POLLENOMICS_TEST_ROOT)/unit/analysis/propagation/test_propagation_evidence_domains.py \
 	$(POLLENOMICS_TEST_ROOT)/unit/evidence/test_scientific_review.py \
+	$(POLLENOMICS_TEST_ROOT)/unit/evidence/scientific_review \
 	$(POLLENOMICS_TEST_ROOT)/unit/collection/catalog/spatiotemporal/test_posture.py \
 	$(POLLENOMICS_TEST_ROOT)/unit/analysis/propagation/network
 POLLENOMICS_SCIENCE_INPUTS := \
