@@ -5,8 +5,8 @@ from __future__ import annotations
 from collections.abc import Callable
 from pathlib import Path
 
-from ..catalog import LANDCLIM_DATASET_METADATA
-from .authority import LANDCLIM_ARCHIVE_FILENAME, LANDCLIM_ASSET_DATASET_IDS
+from ...catalog import LANDCLIM_DATASET_METADATA
+from ..authority import LANDCLIM_ARCHIVE_FILENAME, LANDCLIM_ASSET_DATASET_IDS
 
 AssetSummaryBuilder = Callable[
     [dict[str, Path], dict[str, str]], list[dict[str, object]]

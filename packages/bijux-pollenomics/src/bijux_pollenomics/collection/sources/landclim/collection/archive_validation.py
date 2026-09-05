@@ -7,7 +7,7 @@ from pathlib import Path
 from .archive_identity import build_landclim_archive_receipt
 from .authority import LANDCLIM_ARCHIVE_FILENAME
 from .model import LandClimRawReceiptError
-from .receipt_structure import object_rows, safe_receipt_filename
+from .receipt.structure import object_rows, safe_receipt_filename
 
 
 def validate_archive_identities(

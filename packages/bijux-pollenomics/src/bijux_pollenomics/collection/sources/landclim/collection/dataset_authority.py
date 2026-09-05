@@ -4,7 +4,7 @@ from __future__ import annotations
 
 from ..catalog import LANDCLIM_DATASET_METADATA
 from .model import LandClimRawReceiptError
-from .receipt_structure import object_rows, safe_receipt_filename
+from .receipt.structure import object_rows, safe_receipt_filename
 
 
 def validate_landclim_receipt_datasets(

@@ -14,11 +14,15 @@ EXPECTED_MODULES = {
     "authority.py",
     "dataset_authority.py",
     "model.py",
-    "raw_receipt.py",
-    "receipt_publication.py",
-    "receipt_structure.py",
     "surface_summary.py",
     "surfaces.py",
+}
+
+EXPECTED_RECEIPT_MODULES = {
+    "__init__.py",
+    "publication.py",
+    "structure.py",
+    "validation.py",
 }
 
 
@@ -30,6 +34,15 @@ def test_collection_is_an_intent_owned_bounded_package() -> None:
         max(
             len(path.read_text(encoding="utf-8").splitlines())
             for path in package_root.glob("*.py")
+        )
+        <= 220
+    )
+    receipt_root = package_root / "receipt"
+    assert {path.name for path in receipt_root.glob("*.py")} == EXPECTED_RECEIPT_MODULES
+    assert (
+        max(
+            len(path.read_text(encoding="utf-8").splitlines())
+            for path in receipt_root.glob("*.py")
         )
         <= 220
     )

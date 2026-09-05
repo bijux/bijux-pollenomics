@@ -66,13 +66,13 @@ from .authority import (
     LANDCLIM_REQUIRED_ASSETS as _LANDCLIM_REQUIRED_ASSETS,
 )
 from .model import LandClimDataReport, LandClimRawReceiptError
-from .raw_receipt import (
+from .receipt.validation import (
     object_rows,
     safe_receipt_filename,
     validate_landclim_raw_receipt as _validate_raw_receipt,
     validate_landclim_receipt_datasets,
 )
-from .receipt_publication import build_landclim_raw_receipt
+from .receipt.publication import build_landclim_raw_receipt
 from .surfaces import (
     collect_landclim_data as _collect_landclim_data,
     materialize_landclim_repository_surfaces as _materialize_repository_surfaces,

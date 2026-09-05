@@ -5,7 +5,7 @@ from __future__ import annotations
 import json
 from pathlib import Path, PurePosixPath
 
-from .model import LandClimRawReceiptError
+from ..model import LandClimRawReceiptError
 
 
 def load_raw_receipt(raw_dir: Path) -> dict[str, object]:
