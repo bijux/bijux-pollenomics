@@ -1096,7 +1096,8 @@ class RepositoryContractRegressionTests(unittest.TestCase):
         )
         self.assertIn("ROOT_VENV ?= $(ROOT_ARTIFACTS_DIR)/venv", root_env_text)
         self.assertIn(
-            "export PYTHONPYCACHEPREFIX ?= $(ROOT_PYCACHE_DIR)", root_env_text
+            "export PYTHONPYCACHEPREFIX := $(abspath $(ROOT_PYCACHE_DIR))",
+            root_env_text,
         )
 
     def test_readme_and_docs_separate_reader_proof_from_test_selection(self) -> None:
