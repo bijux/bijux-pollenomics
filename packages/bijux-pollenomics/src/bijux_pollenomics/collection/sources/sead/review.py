@@ -6,7 +6,9 @@ from pathlib import Path
 
 from ....core.files import write_json
 from ...contracts.models import ContextPointRecord
-from .access import build_sead_site_access_model
+from bijux_pollenomics.collection.sources.sead.acquisition.access import (
+    build_sead_site_access_model,
+)
 
 __all__ = [
     "build_sead_access_model_packet",

@@ -3,7 +3,7 @@ from __future__ import annotations
 from collections.abc import Callable
 from dataclasses import dataclass
 
-from .inventory_fields import parse_optional_int
+from bijux_pollenomics.collection.sources.sead.catalog.fields import parse_optional_int
 
 __all__ = ["SeadSiteFetchResult", "build_sead_site_inventory"]
 

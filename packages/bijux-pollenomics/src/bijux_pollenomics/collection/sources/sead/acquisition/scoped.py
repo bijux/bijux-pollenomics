@@ -17,7 +17,7 @@ from pathlib import Path
 import re
 import time
 
-from .acquisition import (
+from bijux_pollenomics.collection.sources.sead.acquisition.full import (
     NORDIC_COUNTRY_CODES,
     SeadTableAcquisition,
     acquire_sead_table,
@@ -26,8 +26,15 @@ from .acquisition import (
     reconcile_sead_countries,
     reconcile_sead_join,
 )
-from .api_client import SEAD_FILTER_BATCH_SIZE, SEAD_LIMIT, build_sead_in_filter
-from .archive import SEAD_FULL_EVIDENCE_SOURCE_TABLES, SEAD_LINKED_SOURCE_TABLES
+from bijux_pollenomics.collection.sources.sead.acquisition.client import (
+    SEAD_FILTER_BATCH_SIZE,
+    SEAD_LIMIT,
+    build_sead_in_filter,
+)
+from bijux_pollenomics.collection.sources.sead.acquisition.archive import (
+    SEAD_FULL_EVIDENCE_SOURCE_TABLES,
+    SEAD_LINKED_SOURCE_TABLES,
+)
 
 SCOPED_RECEIPT_SCHEMA_VERSION = "sead-scoped-acquisition-receipt.v1"
 SCOPED_RESULT_SCHEMA_VERSION = "sead-scoped-acquisition-result.v1"

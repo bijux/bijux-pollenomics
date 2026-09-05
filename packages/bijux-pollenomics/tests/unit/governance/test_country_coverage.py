@@ -12,7 +12,7 @@ from typing import cast
 
 import pytest
 
-from bijux_pollenomics.collection.sources.sead.evidence_reader import (
+from bijux_pollenomics.collection.sources.sead.evidence.reader import (
     SEAD_GOVERNED_EVIDENCE_RUN_ID,
 )
 import bijux_pollenomics.governance.country_coverage as country_coverage_module

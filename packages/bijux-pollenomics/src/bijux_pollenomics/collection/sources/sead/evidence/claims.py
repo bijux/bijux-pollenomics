@@ -9,11 +9,20 @@ import json
 from pathlib import Path
 from typing import Final, cast
 
-from ....core.files import write_json
-from .acquisition_admission import SeadMaterializedAdmissionSnapshot
-from .archive import SEAD_LINKED_SOURCE_TABLES
-from .inventory_fields import build_sead_site_rows_from_acquisition_tables
-from .normalization import SeadChronologyClaim, normalize_sead_chronology_claims
+from .....core.files import write_json
+from bijux_pollenomics.collection.sources.sead.acquisition.admission import (
+    SeadMaterializedAdmissionSnapshot,
+)
+from bijux_pollenomics.collection.sources.sead.acquisition.archive import (
+    SEAD_LINKED_SOURCE_TABLES,
+)
+from bijux_pollenomics.collection.sources.sead.catalog.fields import (
+    build_sead_site_rows_from_acquisition_tables,
+)
+from bijux_pollenomics.collection.sources.sead.evidence.normalization import (
+    SeadChronologyClaim,
+    normalize_sead_chronology_claims,
+)
 
 CLAIM_BUNDLE_SCHEMA_VERSION: Final = "sead-chronology-claim-bundle.v1"
 CLAIM_SCHEMA_VERSION: Final = "sead-chronology-claim.v1"

@@ -4,9 +4,12 @@ import math
 import re
 from collections.abc import Callable, Mapping, Sequence
 
-from ....core.bp_time import normalize_bp_interval
-from ....core.text import clean_optional_text
-from .api_client import fetch_sead_rows, fetch_sead_rows_by_ids
+from .....core.bp_time import normalize_bp_interval
+from .....core.text import clean_optional_text
+from bijux_pollenomics.collection.sources.sead.acquisition.client import (
+    fetch_sead_rows,
+    fetch_sead_rows_by_ids,
+)
 
 BP_REFERENCE_YEAR = 1950
 _CALIBRATED_BP_AGE_TYPES = frozenset(

@@ -18,31 +18,31 @@ from bijux_pollenomics.collection.sources.boundaries.collection import (
     NATURAL_EARTH_TERMS_URL,
     NATURAL_EARTH_VERSION,
 )
-from bijux_pollenomics.collection.sources.sead import (
-    acquisition_admission as admission_module,
-)
 from bijux_pollenomics.collection.sources.sead.acquisition import (
+    admission as admission_module,
+)
+from bijux_pollenomics.collection.sources.sead.acquisition.full import (
     ACQUISITION_MANIFEST_SCHEMA_VERSION,
     ACQUISITION_RECEIPT_SCHEMA_VERSION,
     TABLE_PAYLOAD_SCHEMA_VERSION,
     reconcile_sead_join,
 )
-from bijux_pollenomics.collection.sources.sead.acquisition_admission import (
+from bijux_pollenomics.collection.sources.sead.acquisition.admission import (
     ADMISSION_SCHEMA_VERSION,
     SeadAcquisitionAdmission,
     SeadAdmissionExpectedIdentity,
     materialize_sead_acquisition_admission,
     validate_sead_acquisition_admission,
 )
-from bijux_pollenomics.collection.sources.sead.api_client import (
+from bijux_pollenomics.collection.sources.sead.acquisition.client import (
     SEAD_LIMIT,
     SEAD_POSTGREST_ROOT,
     build_sead_in_filter,
 )
-from bijux_pollenomics.collection.sources.sead.archive import (
+from bijux_pollenomics.collection.sources.sead.acquisition.archive import (
     SEAD_LINKED_SOURCE_TABLES,
 )
-from bijux_pollenomics.collection.sources.sead.scoped_acquisition import (
+from bijux_pollenomics.collection.sources.sead.acquisition.scoped import (
     SCOPED_RECEIPT_SCHEMA_VERSION,
     SEAD_SCOPED_TABLE_PLANS,
 )
@@ -311,7 +311,7 @@ class SeadAcquisitionAdmissionTests(unittest.TestCase):
             with (
                 patch(
                     "bijux_pollenomics.collection.sources.sead."
-                    "acquisition_admission.os.replace",
+                    "acquisition.admission.os.replace",
                     side_effect=OSError("injected rename failure"),
                 ),
                 self.assertRaisesRegex(OSError, "injected rename failure"),
@@ -334,7 +334,7 @@ class SeadAcquisitionAdmissionTests(unittest.TestCase):
 
             with patch(
                 "bijux_pollenomics.collection.sources.sead."
-                "acquisition_admission.os.replace",
+                "acquisition.admission.os.replace",
                 side_effect=mutate_source_then_publish,
             ):
                 result = _materialize(snapshot, decisions, root / "admitted")

@@ -652,7 +652,9 @@ class ContextDataTests(unittest.TestCase):
                     [{"site_id": 6468}],
                 ],
             ),
-            patch("bijux_pollenomics.collection.sources.sead.api_client.time.sleep"),
+            patch(
+                "bijux_pollenomics.collection.sources.sead.acquisition.client.time.sleep"
+            ),
         ):
             rows = fetch_sead_rows("tbl_sites", select="site_id")
 

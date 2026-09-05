@@ -8,7 +8,7 @@ import json
 from pathlib import Path
 from typing import Final, cast
 
-from .acquisition_admission import (
+from bijux_pollenomics.collection.sources.sead.acquisition.admission import (
     SeadAdmissionExpectedIdentity,
     SeadMaterializedAdmissionSnapshot,
     read_materialized_sead_full_evidence_admission,

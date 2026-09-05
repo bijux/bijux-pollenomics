@@ -9,13 +9,13 @@ from typing import Any
 
 import pytest
 
-from bijux_pollenomics.collection.sources.sead.acquisition import (
+from bijux_pollenomics.collection.sources.sead.acquisition.full import (
     SeadAcquisitionError,
 )
-from bijux_pollenomics.collection.sources.sead.archive import (
+from bijux_pollenomics.collection.sources.sead.acquisition.archive import (
     SEAD_LINKED_SOURCE_TABLES,
 )
-from bijux_pollenomics.collection.sources.sead.scoped_acquisition import (
+from bijux_pollenomics.collection.sources.sead.acquisition.scoped import (
     acquire_scoped_sead_relations,
 )
 

@@ -3,17 +3,21 @@ from __future__ import annotations
 from collections.abc import Iterable, Mapping
 from typing import TypedDict
 
-from ....core.bp_time import (
+from .....core.bp_time import (
     build_bp_interval_label,
     mean_bp_year_from_interval,
     normalize_bp_interval,
 )
-from ....core.temporal_semantics import build_temporal_semantics
-from ....core.text import clean_optional_text
-from ...contracts.models import ContextPointRecord
-from ...spatial import classify_country
-from .access import build_sead_site_access_model
-from .fetch import parse_optional_int
+from .....core.temporal_semantics import build_temporal_semantics
+from .....core.text import clean_optional_text
+from ....contracts.models import ContextPointRecord
+from ....spatial import classify_country
+from bijux_pollenomics.collection.sources.sead.acquisition.access import (
+    build_sead_site_access_model,
+)
+from bijux_pollenomics.collection.sources.sead.acquisition.fetch import (
+    parse_optional_int,
+)
 
 __all__ = [
     "SeadChronologyClaim",

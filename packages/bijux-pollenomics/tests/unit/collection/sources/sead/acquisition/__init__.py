@@ -1,0 +1,1 @@
+"""SEAD acquisition unit tests."""

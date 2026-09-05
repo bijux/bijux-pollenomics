@@ -1037,7 +1037,7 @@ def _valid_sead_evidence_manifest(path: Path, payload: Mapping[str, object]) -> 
     try:
         # Lazy import is deliberate: the SEAD package imports model contracts that
         # themselves import this module. Validation only runs after package startup.
-        from ..sources.sead.evidence_bundle import (
+        from ..sources.sead.evidence.bundle import (
             validate_sead_source_native_evidence_materialization,
         )
 
@@ -1215,7 +1215,7 @@ def _exact_mapping_keys(value: object, expected: set[str]) -> bool:
 def _sead_full_source_tables() -> frozenset[str]:
     # Lazy loading avoids the SEAD package's model imports while this module is
     # itself initializing through source-family contracts.
-    from ..sources.sead.archive import SEAD_FULL_EVIDENCE_SOURCE_TABLES
+    from ..sources.sead.acquisition.archive import SEAD_FULL_EVIDENCE_SOURCE_TABLES
 
     return frozenset(SEAD_FULL_EVIDENCE_SOURCE_TABLES)
 

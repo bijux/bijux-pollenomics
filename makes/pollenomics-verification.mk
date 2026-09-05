@@ -15,7 +15,7 @@ POLLENOMICS_GATE_TRUST_INPUTS := Makefile makes/pollenomics-verification.mk pypr
 
 POLLENOMICS_SCIENCE_TESTS := \
 	$(POLLENOMICS_TEST_ROOT)/unit/core/test_temporal_semantics.py \
-	$(POLLENOMICS_TEST_ROOT)/unit/collection/sources/sead/test_sead_chronology.py \
+	$(POLLENOMICS_TEST_ROOT)/unit/collection/sources/sead/evidence/test_chronology.py \
 	$(POLLENOMICS_TEST_ROOT)/unit/analysis/classification/test_ecological_classification.py \
 	$(POLLENOMICS_TEST_ROOT)/unit/evidence/test_classification_audit_outputs.py \
 	$(POLLENOMICS_TEST_ROOT)/unit/analysis/classification/test_classification_events.py \
@@ -49,11 +49,11 @@ POLLENOMICS_DATA_TESTS := \
 	$(POLLENOMICS_TEST_ROOT)/unit/adna/sources/test_adna_source_library.py \
 	$(POLLENOMICS_TEST_ROOT)/unit/adna/sources/test_adna_source_recovery.py \
 	$(POLLENOMICS_TEST_ROOT)/unit/adna/domain/test_adna_temporal_query.py \
-	$(POLLENOMICS_TEST_ROOT)/unit/collection/sources/sead/test_sead_acquisition.py \
-	$(POLLENOMICS_TEST_ROOT)/unit/collection/sources/sead/test_sead_acquisition_admission.py \
-	$(POLLENOMICS_TEST_ROOT)/unit/collection/sources/sead/test_sead_claim_bundle.py \
-	$(POLLENOMICS_TEST_ROOT)/unit/collection/sources/sead/test_sead_observation_acquisition.py \
-	$(POLLENOMICS_TEST_ROOT)/unit/collection/sources/sead/test_sead_scoped_acquisition.py \
+	$(POLLENOMICS_TEST_ROOT)/unit/collection/sources/sead/acquisition/test_full.py \
+	$(POLLENOMICS_TEST_ROOT)/unit/collection/sources/sead/acquisition/test_admission.py \
+	$(POLLENOMICS_TEST_ROOT)/unit/collection/sources/sead/evidence/test_claims.py \
+	$(POLLENOMICS_TEST_ROOT)/unit/collection/sources/sead/evidence/test_observations.py \
+	$(POLLENOMICS_TEST_ROOT)/unit/collection/sources/sead/acquisition/test_scoped.py \
 	$(POLLENOMICS_TEST_ROOT)/unit/collection/sources/neotoma/test_neotoma_data.py \
 	$(POLLENOMICS_TEST_ROOT)/unit/collection/sources/neotoma/test_neotoma_lineage_review.py \
 	$(POLLENOMICS_TEST_ROOT)/unit/collection/sources/neotoma/test_neotoma_relational.py \
@@ -94,6 +94,7 @@ POLLENOMICS_DATA_INPUTS := \
 	$(wildcard $(POLLENOMICS_SOURCE_ROOT)/collection/*.py) \
 	$(wildcard $(POLLENOMICS_SOURCE_ROOT)/collection/*/*.py) \
 	$(wildcard $(POLLENOMICS_SOURCE_ROOT)/collection/*/*/*.py) \
+	$(wildcard $(POLLENOMICS_SOURCE_ROOT)/collection/*/*/*/*.py) \
 	$(wildcard $(POLLENOMICS_SOURCE_ROOT)/adna/*.py) \
 	$(wildcard $(POLLENOMICS_SOURCE_ROOT)/adna/*/*.py) \
 	$(wildcard $(POLLENOMICS_SOURCE_ROOT)/adna/*/*/*.py) \

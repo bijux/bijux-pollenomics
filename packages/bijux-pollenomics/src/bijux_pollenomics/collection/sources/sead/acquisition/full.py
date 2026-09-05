@@ -15,7 +15,10 @@ import time
 from typing import Any
 from urllib.error import HTTPError, URLError
 
-from .api_client import SEAD_POSTGREST_ROOT, sead_retryable_error
+from bijux_pollenomics.collection.sources.sead.acquisition.client import (
+    SEAD_POSTGREST_ROOT,
+    sead_retryable_error,
+)
 
 ACQUISITION_RECEIPT_SCHEMA_VERSION = "sead-acquisition-receipt.v1"
 TABLE_PAYLOAD_SCHEMA_VERSION = "sead-table-payload.v1"

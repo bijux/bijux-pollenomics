@@ -3,7 +3,7 @@ from __future__ import annotations
 from collections.abc import Mapping
 from urllib.parse import quote
 
-from ....core.text import clean_optional_text
+from .....core.text import clean_optional_text
 
 __all__ = [
     "SEAD_BROWSER_ROOT",

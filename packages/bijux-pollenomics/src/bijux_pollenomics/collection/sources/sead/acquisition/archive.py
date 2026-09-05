@@ -3,7 +3,7 @@ from __future__ import annotations
 from datetime import date
 from pathlib import Path
 
-from ....core.files import write_json
+from .....core.files import write_json
 
 SEAD_LINKED_SOURCE_TABLES = (
     "tbl_sites",

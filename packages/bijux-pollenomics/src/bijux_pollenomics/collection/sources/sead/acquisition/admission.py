@@ -14,16 +14,23 @@ import re
 import shutil
 from types import MappingProxyType
 
-from .acquisition import (
+from bijux_pollenomics.collection.sources.sead.acquisition.full import (
     ACQUISITION_MANIFEST_SCHEMA_VERSION,
     ACQUISITION_RECEIPT_SCHEMA_VERSION,
     NORDIC_COUNTRY_CODES,
     TABLE_PAYLOAD_SCHEMA_VERSION,
     reconcile_sead_join,
 )
-from .api_client import SEAD_LIMIT, SEAD_POSTGREST_ROOT, build_sead_in_filter
-from .archive import SEAD_FULL_EVIDENCE_SOURCE_TABLES, SEAD_LINKED_SOURCE_TABLES
-from .scoped_acquisition import (
+from bijux_pollenomics.collection.sources.sead.acquisition.client import (
+    SEAD_LIMIT,
+    SEAD_POSTGREST_ROOT,
+    build_sead_in_filter,
+)
+from bijux_pollenomics.collection.sources.sead.acquisition.archive import (
+    SEAD_FULL_EVIDENCE_SOURCE_TABLES,
+    SEAD_LINKED_SOURCE_TABLES,
+)
+from bijux_pollenomics.collection.sources.sead.acquisition.scoped import (
     FULL_EVIDENCE_ORCHESTRATOR_VERSION,
     SCOPED_ORCHESTRATOR_VERSION,
     SCOPED_RECEIPT_SCHEMA_VERSION,
@@ -1282,7 +1289,7 @@ def _validate_country_accounting(
     boundary_authority: _BoundaryAuthority,
     profile: _AdmissionProfile,
 ) -> dict[str, object]:
-    from ...spatial import decide_country_attribution
+    from ....spatial import decide_country_attribution
 
     _expect_equal(
         reconciliation.get("schema_version"),
@@ -1887,14 +1894,14 @@ def _release_reason_codes(profile: _AdmissionProfile) -> set[str]:
 def _load_validated_boundary_authority(
     boundary_root: Path, *, expected_identity: SeadAdmissionExpectedIdentity
 ) -> _BoundaryAuthority:
-    from ..boundaries.collection import (
+    from ...boundaries.collection import (
         BOUNDARY_CODES,
         NATURAL_EARTH_ADMIN0_URL,
         NATURAL_EARTH_RELEASE_PAGE_URL,
         NATURAL_EARTH_TERMS_URL,
         NATURAL_EARTH_VERSION,
     )
-    from ..boundaries.store import load_country_boundaries
+    from ...boundaries.store import load_country_boundaries
 
     root = _validated_source_directory(boundary_root)
     manifest_path = root / "raw" / "source_manifest.json"

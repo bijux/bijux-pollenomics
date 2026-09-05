@@ -15,7 +15,7 @@ import stat
 from typing import Any, Final, cast
 
 from ..core.geojson import CountryBoundaryCollection
-from ..collection.sources.sead.evidence_reader import (
+from ..collection.sources.sead.evidence.reader import (
     SEAD_GOVERNED_ADMISSION_SHA256,
     SEAD_GOVERNED_EVIDENCE_MANIFEST_SHA256,
     SEAD_GOVERNED_EVIDENCE_RUN_ID,

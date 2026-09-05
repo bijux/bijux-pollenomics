@@ -27,7 +27,7 @@ from bijux_pollenomics.collection.contracts.families import (
     build_source_family_contracts,
     build_source_family_state_matrix_payload,
 )
-from bijux_pollenomics.collection.sources.sead.archive import (
+from bijux_pollenomics.collection.sources.sead.acquisition.archive import (
     SEAD_FULL_EVIDENCE_SOURCE_TABLES,
 )
 

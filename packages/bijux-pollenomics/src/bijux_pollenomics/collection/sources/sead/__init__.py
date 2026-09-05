@@ -1,6 +1,6 @@
 """SEAD source collectors, normalization rules, and review helpers."""
 
-from .acquisition_admission import (
+from bijux_pollenomics.collection.sources.sead.acquisition.admission import (
     SeadAcquisitionAdmission,
     SeadAdmissionExpectedIdentity,
     SeadMaterializedAdmissionSnapshot,
@@ -11,7 +11,7 @@ from .acquisition_admission import (
     validate_sead_acquisition_admission,
     validate_sead_full_evidence_admission,
 )
-from .api_client import (
+from bijux_pollenomics.collection.sources.sead.acquisition.client import (
     SEAD_FILTER_BATCH_SIZE,
     SEAD_LIMIT,
     SEAD_POSTGREST_ROOT,
@@ -19,20 +19,27 @@ from .api_client import (
     fetch_sead_rows,
     fetch_sead_rows_by_ids,
 )
-from .archive import write_sead_site_archive
-from .evidence_bundle import (
+from bijux_pollenomics.collection.sources.sead.acquisition.archive import (
+    write_sead_site_archive,
+)
+from bijux_pollenomics.collection.sources.sead.evidence.bundle import (
     build_sead_source_native_evidence_bundle,
     validate_sead_source_native_evidence_materialization,
     write_sead_source_native_evidence_bundle,
 )
-from .fetch import (
+from bijux_pollenomics.collection.sources.sead.acquisition.fetch import (
     merge_sead_intervals,
     parse_optional_int,
     populate_sead_site_inventory_fields,
     sead_dating_interval,
 )
-from .inventory import SeadSiteFetchResult, build_sead_site_inventory
-from .normalization import normalize_sead_rows
+from bijux_pollenomics.collection.sources.sead.catalog.inventory import (
+    SeadSiteFetchResult,
+    build_sead_site_inventory,
+)
+from bijux_pollenomics.collection.sources.sead.evidence.normalization import (
+    normalize_sead_rows,
+)
 
 __all__ = [
     "SEAD_FILTER_BATCH_SIZE",
