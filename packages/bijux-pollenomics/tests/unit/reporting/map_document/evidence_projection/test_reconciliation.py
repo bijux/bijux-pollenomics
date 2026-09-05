@@ -72,7 +72,19 @@ def test_projection_is_fixed_point_lossless_and_four_country_reconciled(
     details = {str(row["record_id"]): row for row in first.detail_records}
     neotoma_tabs = cast(dict[str, object], details["neotoma:site:10"]["tabs"])
     samples = cast(dict[str, object], neotoma_tabs["samples"])
-    assert cast(dict[str, object], samples["samples"])["record_count"] == 1
+    sample_table = cast(dict[str, object], samples["samples"])
+    assert sample_table["record_count"] == 1
+    sample_row = dict(
+        zip(
+            cast(list[str], sample_table["fields"]),
+            cast(list[list[object]], sample_table["records"])[0],
+            strict=True,
+        )
+    )
+    assert sample_row["source_analysis_unit_name"] == "12 cm"
+    assert sample_row["source_depth"] == 12
+    assert sample_row["source_thickness"] is None
+    assert sample_row["source_sample_analysts"] == [{"contactid": 42}]
     chronology = cast(dict[str, object], neotoma_tabs["chronology"])
     assert chronology["interval_semantics"] == "[younger_bp, older_bp]"
     age_row = dict(

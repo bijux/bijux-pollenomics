@@ -49,6 +49,12 @@ def _neotoma_fixture(root: Path, monkeypatch: pytest.MonkeyPatch) -> None:
                 "dataset_id": "neotoma:dataset:30",
                 "source_sample_id": 40,
                 "source_analysis_unit_id": 41,
+                "source_analysis_unit_name": "12 cm",
+                "source_sample_name": None,
+                "source_igsn": None,
+                "source_depth": 12,
+                "source_thickness": None,
+                "source_sample_analysts": [{"contactid": 42}],
                 "source_payload": {"depth": 12, "thickness": None},
             }
         ],

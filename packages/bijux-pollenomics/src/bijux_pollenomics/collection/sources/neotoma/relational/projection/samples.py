@@ -4,6 +4,7 @@ from __future__ import annotations
 
 from collections import Counter
 from collections.abc import Mapping
+import copy
 
 from ..chronology import build_age_claim
 from ..diagnostics import add_orphan, register_record, required_source_id
@@ -45,6 +46,16 @@ def project_samples(
                 "sample_id": sample_id,
                 "source_sample_id": sample.get("sampleid"),
                 "source_analysis_unit_id": sample.get("analysisunitid"),
+                "source_analysis_unit_name": copy.deepcopy(
+                    sample.get("analysisunitname")
+                ),
+                "source_sample_name": copy.deepcopy(sample.get("samplename")),
+                "source_igsn": copy.deepcopy(sample.get("igsn")),
+                "source_depth": copy.deepcopy(sample.get("depth")),
+                "source_thickness": copy.deepcopy(sample.get("thickness")),
+                "source_sample_analysts": copy.deepcopy(
+                    sample.get("sampleanalyst")
+                ),
                 "dataset_id": dataset_id,
                 "collection_unit_id": unit_id,
                 "site_id": site_id,
