@@ -109,9 +109,6 @@ def _european_cat_supplementary_sample_rows(
         f"{ADNA_SOURCE_LIBRARY_DIR}/papers/10.1126-science.adt2642/"
         "supplementary/science.adt2642_tables s1_to_s8.zip"
     )
-    workbook_source_path = (
-        f"{workbook_bundle_source_path}#{EUROPEAN_CAT_WORKBOOK_MEMBER}"
-    )
     archive_path = _resolve_data_relative_path(output_root, archive_source_path)
     workbook_bundle_path = _resolve_data_relative_path(
         output_root, workbook_bundle_artifact
@@ -123,7 +120,7 @@ def _european_cat_supplementary_sample_rows(
         project=project,
         archive_source_path=archive_source_path,
         archive_text=read_source_artifact_text(archive_path),
-        workbook_source_path=workbook_source_path,
+        workbook_source_path=workbook_bundle_source_path,
         table_s1_rows=_read_xlsx_member_rows(
             workbook_bundle_path,
             member_name=EUROPEAN_CAT_WORKBOOK_MEMBER,

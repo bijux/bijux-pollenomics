@@ -226,3 +226,11 @@ class SourceRecoveryTests(SampleMasterRecoveryTestCase):
         self.assertTrue(
             all("transect" not in row.locality_text.casefold() for row in rows)
         )
+        exact = tuple(row for row in rows if row.sample_identity_resolution == "final")
+        self.assertTrue(all(row.sample_lineage_path.endswith(".zip") for row in exact))
+        self.assertTrue(
+            all(
+                "science.adt2642_tables s1_to_s8.xlsx" in row.sample_lineage_locator
+                for row in exact
+            )
+        )
