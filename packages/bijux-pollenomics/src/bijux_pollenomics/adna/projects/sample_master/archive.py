@@ -7,7 +7,7 @@ import re
 from bijux_pollenomics.adna.workflow.source_artifacts import (
     read_source_artifact_text,
 )
-from bijux_pollenomics.adna.sources.ena import (
+from bijux_pollenomics.adna.sources.archive import (
     AdnaArchiveProject,
     build_archive_project_catalog,
 )

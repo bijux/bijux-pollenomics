@@ -8,7 +8,7 @@ from bijux_pollenomics.adna.domain.models import (
     ADNA_CHRONOLOGY_EVIDENCE_CLASSES,
     ADNA_CHRONOLOGY_PRECISION_POSTURES,
 )
-from bijux_pollenomics.adna.sources.ena import build_archive_project_catalog
+from bijux_pollenomics.adna.sources.archive import build_archive_project_catalog
 
 from .constants import (
     ADNA_CHRONOLOGY_NORMALIZATION_STATUSES,

@@ -2,7 +2,7 @@ from __future__ import annotations
 
 from pathlib import Path
 
-from bijux_pollenomics.adna.sources.ena import build_archive_project_catalog
+from bijux_pollenomics.adna.sources.archive import build_archive_project_catalog
 from bijux_pollenomics.core.files import write_json, write_text
 from bijux_pollenomics.core.tabular import render_csv_rows
 

@@ -7,7 +7,7 @@ from io import BytesIO
 from pathlib import Path
 import zipfile
 from defusedxml import ElementTree as ET  # type: ignore[import-untyped]
-from bijux_pollenomics.adna.sources.ena import AdnaArchiveProject
+from bijux_pollenomics.adna.sources.archive import AdnaArchiveProject
 from bijux_pollenomics.adna.species.definitions import AdnaSpeciesDefinition
 from .identity import (
     _cell_value,

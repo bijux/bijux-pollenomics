@@ -6,7 +6,7 @@ from bijux_pollenomics.adna.projects.evidence.sites import resolve_project_site_
 from bijux_pollenomics.adna.projects.sample_master import (
     build_project_sample_master_rows,
 )
-from bijux_pollenomics.adna.sources.ena import (
+from bijux_pollenomics.adna.sources.archive import (
     AdnaArchiveProject,
     build_archive_project_catalog,
 )

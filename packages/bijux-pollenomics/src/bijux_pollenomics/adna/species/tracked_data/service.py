@@ -9,7 +9,7 @@ from bijux_pollenomics.adna.governance.reviews import (
     build_species_project_manifest,
     build_species_review_dossier,
 )
-from bijux_pollenomics.adna.sources.ena import build_species_archive_projects
+from bijux_pollenomics.adna.sources.archive import build_species_archive_projects
 from bijux_pollenomics.adna.sources.library import materialize_source_library
 from bijux_pollenomics.adna.workflow.layout import build_species_layout
 from bijux_pollenomics.adna.workflow.manifests import build_species_manifest

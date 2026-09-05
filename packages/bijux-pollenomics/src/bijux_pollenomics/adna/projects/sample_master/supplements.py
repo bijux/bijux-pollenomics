@@ -4,7 +4,7 @@ from __future__ import annotations
 
 from pathlib import Path
 from bijux_pollenomics.adna.sources.library import ADNA_SOURCE_LIBRARY_DIR
-from bijux_pollenomics.adna.sources.ena import AdnaArchiveProject
+from bijux_pollenomics.adna.sources.archive import AdnaArchiveProject
 from bijux_pollenomics.adna.species.definitions import AdnaSpeciesDefinition
 from .archive import (
     _build_archive_sample_accession_lookup,

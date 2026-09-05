@@ -4,7 +4,7 @@ import json
 from pathlib import Path
 from typing import Any, cast
 
-from bijux_pollenomics.adna.sources.ena import build_archive_project_catalog
+from bijux_pollenomics.adna.sources.archive import build_archive_project_catalog
 
 
 def _dynamic_row(row: dict[str, object]) -> dict[str, Any]:

@@ -4,7 +4,7 @@ from dataclasses import dataclass
 from pathlib import Path
 
 from ....core.repository import repository_data_root
-from ...sources.ena import build_species_archive_projects
+from ...sources.archive import build_species_archive_projects
 from ...species.definitions import resolve_species_definition
 from bijux_pollenomics.adna.projects.registry.context import resolve_project_context
 from bijux_pollenomics.adna.projects.registry.localities import (

@@ -36,8 +36,8 @@ from bijux_pollenomics.adna.workflow.source_artifacts import (
     read_source_artifact_bytes,
     resolve_source_artifact_path,
 )
-from bijux_pollenomics.adna.sources.ena import build_archive_project_catalog
-from bijux_pollenomics.adna.species.tracked_data import (
+from bijux_pollenomics.adna.sources.archive import build_archive_project_catalog
+from bijux_pollenomics.adna.workflow.normalization import (
     build_species_normalization_bundle,
 )
 

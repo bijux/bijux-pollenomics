@@ -14,7 +14,7 @@ from ...projects.registry.samples import (
     AdnaCuratedSampleRow,
     build_species_curated_sample_rows,
 )
-from ...sources.ena import (
+from ...sources.archive import (
     build_species_archive_projects,
 )
 from ...species.definitions import resolve_species_definition

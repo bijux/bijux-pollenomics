@@ -20,7 +20,7 @@ from bijux_pollenomics.adna.workflow.source_artifacts import (
     source_artifact_exists,
     write_source_artifact_bytes,
 )
-from bijux_pollenomics.adna.sources.ena import build_archive_project_catalog
+from bijux_pollenomics.adna.sources.archive import build_archive_project_catalog
 from .cache_control import _clear_source_library_caches
 from .models import (
     SOURCE_LIBRARY_SCHEMA_VERSION,

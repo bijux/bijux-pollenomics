@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-from bijux_pollenomics.adna.sources.ena import (
+from bijux_pollenomics.adna.sources.archive import (
     AdnaArchiveProject,
     classify_archive_project_evidence,
 )

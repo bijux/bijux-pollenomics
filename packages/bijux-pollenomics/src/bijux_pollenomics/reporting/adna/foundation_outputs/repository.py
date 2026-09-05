@@ -13,7 +13,7 @@ from ....adna.projects.registry.sites import (
     ADNA_LOCALITY_RESOLUTION_STATUSES,
     build_project_sample_site_rows,
 )
-from ....adna.sources.ena import build_archive_project_catalog
+from ....adna.sources.archive import build_archive_project_catalog
 
 
 def _load_json_rows(path: Path, key: str) -> list[dict[str, Any]]:

@@ -3,7 +3,7 @@
 from __future__ import annotations
 
 from pathlib import Path
-from bijux_pollenomics.adna.sources.ena import build_archive_project_catalog
+from bijux_pollenomics.adna.sources.archive import build_archive_project_catalog
 from bijux_pollenomics.adna.sources.library import build_project_registry
 from bijux_pollenomics.adna.species.definitions import resolve_species_definition
 from .archive import (

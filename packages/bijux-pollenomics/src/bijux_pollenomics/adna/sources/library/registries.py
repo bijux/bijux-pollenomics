@@ -10,7 +10,7 @@ import zipfile
 from bijux_pollenomics.adna.workflow.paths import (
     ADNA_SOURCE_LIBRARY_DIR,
 )
-from bijux_pollenomics.adna.sources.ena import (
+from bijux_pollenomics.adna.sources.archive import (
     AdnaArchiveProject,
     build_archive_project_catalog,
     classify_archive_project_evidence,

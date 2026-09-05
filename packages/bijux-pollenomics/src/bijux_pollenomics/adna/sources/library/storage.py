@@ -13,7 +13,7 @@ from bijux_pollenomics.adna.workflow.source_artifacts import (
     resolve_source_artifact_path,
     source_artifact_exists,
 )
-from bijux_pollenomics.adna.sources.ena import build_archive_project_catalog
+from bijux_pollenomics.adna.sources.archive import build_archive_project_catalog
 from .models import (
     AdnaSourceArtifact,
     SOURCE_LIBRARY_SCHEMA_VERSION,

@@ -10,7 +10,7 @@ from bijux_pollenomics.adna.governance.contracts import (
 from bijux_pollenomics.adna.workflow.paths import (
     adna_source_library_root,
 )
-from bijux_pollenomics.adna.sources.ena import build_archive_project_catalog
+from bijux_pollenomics.adna.sources.archive import build_archive_project_catalog
 from .audits import (
     build_cross_project_source_audit,
     build_missing_source_blockers,

@@ -3,7 +3,7 @@ from __future__ import annotations
 from dataclasses import dataclass
 
 from ..sources.accessions import resolve_accession_reference
-from ..sources.ena import (
+from ..sources.archive import (
     AdnaArchiveProject,
     AdnaEnaRecord,
     build_archive_project_catalog,

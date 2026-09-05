@@ -5,7 +5,7 @@ from collections import defaultdict
 import re
 from bijux_pollenomics.adna.workflow.paths import ADNA_SPECIES_DIR
 from ...projects.registry.context import AdnaProjectContext, resolve_project_context
-from ...sources.ena import (
+from ...sources.archive import (
     AdnaArchiveProject,
     build_species_archive_projects,
     classify_archive_project_evidence,

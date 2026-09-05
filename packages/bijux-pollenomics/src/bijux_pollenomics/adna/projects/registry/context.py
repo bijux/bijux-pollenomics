@@ -2,7 +2,7 @@ from __future__ import annotations
 
 from dataclasses import dataclass
 
-from ...sources.ena import AdnaArchiveProject
+from ...sources.archive import AdnaArchiveProject
 
 __all__ = [
     "ADNA_NORDIC_RELEVANCE",

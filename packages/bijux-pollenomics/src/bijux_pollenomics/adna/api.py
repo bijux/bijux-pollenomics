@@ -136,7 +136,7 @@ from .sources.accessions import (
     resolve_accession_lineage,
     resolve_accession_reference,
 )
-from .sources.ena import (
+from .sources.archive import (
     ADNA_ENA_RESULT_KINDS,
     ADNA_PROJECT_EVIDENCE_STRENGTHS,
     AdnaArchiveProject,
@@ -153,7 +153,10 @@ from .sources.snapshots import (
     resolve_archive_source_snapshot,
     build_species_source_snapshots,
 )
-from .sources.ena import build_archive_project_catalog, build_species_archive_projects
+from .sources.archive import (
+    build_archive_project_catalog,
+    build_species_archive_projects,
+)
 from .species.bovines import (
     BovineCombinedClaimRule,
     BovineSpeciesSupportRow,

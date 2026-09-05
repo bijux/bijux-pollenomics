@@ -2,7 +2,7 @@ from __future__ import annotations
 
 from typing import Any
 
-from bijux_pollenomics.adna.sources.ena import AdnaArchiveProject
+from bijux_pollenomics.adna.sources.archive import AdnaArchiveProject
 
 
 def _empty_sample_chronology_row(project: AdnaArchiveProject) -> dict[str, object]:
