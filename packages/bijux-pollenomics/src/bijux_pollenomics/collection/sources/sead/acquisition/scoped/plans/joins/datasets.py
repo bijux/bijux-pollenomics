@@ -1,0 +1,149 @@
+"""Dataset type, contact, method, and bibliography join plans."""
+
+from __future__ import annotations
+
+from ...models import SeadJoinPlan
+
+_JoinDefinition = tuple[str, str, str, str, str, str, bool]
+
+_DATASET_JOIN_DEFINITIONS: tuple[_JoinDefinition, ...] = (
+    (
+        "data_types.datasets",
+        "tbl_data_types",
+        "tbl_datasets",
+        "data_type_id",
+        "dataset_id",
+        "data_type_id",
+        False,
+    ),
+    (
+        "data_types.value_types",
+        "tbl_data_types",
+        "tbl_value_types",
+        "data_type_id",
+        "value_type_id",
+        "data_type_id",
+        False,
+    ),
+    (
+        "data_type_groups.data_types",
+        "tbl_data_type_groups",
+        "tbl_data_types",
+        "data_type_group_id",
+        "data_type_id",
+        "data_type_group_id",
+        False,
+    ),
+    (
+        "datasets.dataset_methods",
+        "tbl_datasets",
+        "tbl_dataset_methods",
+        "dataset_id",
+        "dataset_method_id",
+        "dataset_id",
+        True,
+    ),
+    (
+        "dataset_masters.datasets",
+        "tbl_dataset_masters",
+        "tbl_datasets",
+        "master_set_id",
+        "dataset_id",
+        "master_set_id",
+        False,
+    ),
+    (
+        "datasets.dataset_contacts",
+        "tbl_datasets",
+        "tbl_dataset_contacts",
+        "dataset_id",
+        "dataset_contact_id",
+        "dataset_id",
+        True,
+    ),
+    (
+        "contacts.dataset_contacts",
+        "tbl_contacts",
+        "tbl_dataset_contacts",
+        "contact_id",
+        "dataset_contact_id",
+        "contact_id",
+        False,
+    ),
+    (
+        "contacts.dataset_masters",
+        "tbl_contacts",
+        "tbl_dataset_masters",
+        "contact_id",
+        "master_set_id",
+        "contact_id",
+        False,
+    ),
+    (
+        "contact_types.dataset_contacts",
+        "tbl_contact_types",
+        "tbl_dataset_contacts",
+        "contact_type_id",
+        "dataset_contact_id",
+        "contact_type_id",
+        False,
+    ),
+    (
+        "methods.datasets",
+        "tbl_methods",
+        "tbl_datasets",
+        "method_id",
+        "dataset_id",
+        "method_id",
+        False,
+    ),
+    (
+        "methods.dataset_methods",
+        "tbl_methods",
+        "tbl_dataset_methods",
+        "method_id",
+        "dataset_method_id",
+        "method_id",
+        False,
+    ),
+    (
+        "methods.value_classes",
+        "tbl_methods",
+        "tbl_value_classes",
+        "method_id",
+        "value_class_id",
+        "method_id",
+        False,
+    ),
+    (
+        "methods.sample_dimensions",
+        "tbl_methods",
+        "tbl_sample_dimensions",
+        "method_id",
+        "sample_dimension_id",
+        "method_id",
+        False,
+    ),
+    (
+        "biblio.dataset_masters",
+        "tbl_biblio",
+        "tbl_dataset_masters",
+        "biblio_id",
+        "master_set_id",
+        "biblio_id",
+        False,
+    ),
+    (
+        "biblio.ecocode_systems",
+        "tbl_biblio",
+        "tbl_ecocode_systems",
+        "biblio_id",
+        "ecocode_system_id",
+        "biblio_id",
+        False,
+    ),
+)
+
+_DATASET_JOIN_PLANS = tuple(
+    SeadJoinPlan(*definition) for definition in _DATASET_JOIN_DEFINITIONS
+)

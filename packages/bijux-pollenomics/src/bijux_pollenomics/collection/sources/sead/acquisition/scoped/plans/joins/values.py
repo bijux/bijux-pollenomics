@@ -1,0 +1,131 @@
+"""Typed value, dimension, and unit join plans."""
+
+from __future__ import annotations
+
+from ...models import SeadJoinPlan
+
+_JoinDefinition = tuple[str, str, str, str, str, str, bool]
+
+_VALUE_JOIN_DEFINITIONS: tuple[_JoinDefinition, ...] = (
+    (
+        "value_classes.analysis_values",
+        "tbl_value_classes",
+        "tbl_analysis_values",
+        "value_class_id",
+        "analysis_value_id",
+        "value_class_id",
+        False,
+    ),
+    (
+        "value_classes.property_types",
+        "tbl_value_classes",
+        "tbl_property_types",
+        "value_class_id",
+        "property_type_id",
+        "value_class_id",
+        False,
+    ),
+    (
+        "value_types.value_classes",
+        "tbl_value_types",
+        "tbl_value_classes",
+        "value_type_id",
+        "value_class_id",
+        "value_type_id",
+        False,
+    ),
+    (
+        "value_types.property_types",
+        "tbl_value_types",
+        "tbl_property_types",
+        "value_type_id",
+        "property_type_id",
+        "value_type_id",
+        False,
+    ),
+    (
+        "value_types.items",
+        "tbl_value_types",
+        "tbl_value_type_items",
+        "value_type_id",
+        "value_type_item_id",
+        "value_type_id",
+        True,
+    ),
+    (
+        "value_type_items.categorical_values",
+        "tbl_value_type_items",
+        "tbl_analysis_categorical_values",
+        "value_type_item_id",
+        "analysis_categorical_value_id",
+        "value_type_item_id",
+        False,
+    ),
+    (
+        "dimensions.analysis_value_dimensions",
+        "tbl_dimensions",
+        "tbl_analysis_value_dimensions",
+        "dimension_id",
+        "analysis_value_dimension_id",
+        "dimension_id",
+        False,
+    ),
+    (
+        "dimensions.measured_value_dimensions",
+        "tbl_dimensions",
+        "tbl_measured_value_dimensions",
+        "dimension_id",
+        "measured_value_dimension_id",
+        "dimension_id",
+        False,
+    ),
+    (
+        "dimensions.analysis_entity_dimensions",
+        "tbl_dimensions",
+        "tbl_analysis_entity_dimensions",
+        "dimension_id",
+        "analysis_entity_dimension_id",
+        "dimension_id",
+        False,
+    ),
+    (
+        "dimensions.sample_dimensions",
+        "tbl_dimensions",
+        "tbl_sample_dimensions",
+        "dimension_id",
+        "sample_dimension_id",
+        "dimension_id",
+        False,
+    ),
+    (
+        "dimensions.sample_group_dimensions",
+        "tbl_dimensions",
+        "tbl_sample_group_dimensions",
+        "dimension_id",
+        "sample_group_dimension_id",
+        "dimension_id",
+        False,
+    ),
+    (
+        "units.value_types",
+        "tbl_units",
+        "tbl_value_types",
+        "unit_id",
+        "value_type_id",
+        "unit_id",
+        False,
+    ),
+    (
+        "units.dimensions",
+        "tbl_units",
+        "tbl_dimensions",
+        "unit_id",
+        "dimension_id",
+        "unit_id",
+        False,
+    ),
+)
+
+_VALUE_JOIN_PLANS = tuple(
+    SeadJoinPlan(*definition) for definition in _VALUE_JOIN_DEFINITIONS
+)
