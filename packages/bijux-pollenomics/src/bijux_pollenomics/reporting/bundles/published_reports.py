@@ -149,6 +149,20 @@ def publish_published_reports_tree(
         data_root=data_root,
         docs_root=docs_root,
     )
+    animal_output_audit = build_public_animal_output_audit(
+        data_root, staging_output_root
+    )
+    animal_output_audit["report_root"] = serialize_publication_path(
+        published_output_root
+    )
+    write_summary_json_fn(
+        staging_output_root / "animal_output_audit.json",
+        animal_output_audit,
+    )
+    (staging_output_root / "animal_output_audit.md").write_text(
+        render_public_animal_output_audit_markdown(animal_output_audit),
+        encoding="utf-8",
+    )
     repository_truth_artifacts = publish_repository_truth_outputs(
         staging_output_root,
         data_root=data_root,
@@ -195,20 +209,6 @@ def publish_published_reports_tree(
             scientific_artifacts=scientific_artifacts,
             repository_truth_artifacts=repository_truth_artifacts,
         ),
-    )
-    animal_output_audit = build_public_animal_output_audit(
-        data_root, staging_output_root
-    )
-    animal_output_audit["report_root"] = serialize_publication_path(
-        published_output_root
-    )
-    write_summary_json_fn(
-        staging_output_root / "animal_output_audit.json",
-        animal_output_audit,
-    )
-    (staging_output_root / "animal_output_audit.md").write_text(
-        render_public_animal_output_audit_markdown(animal_output_audit),
-        encoding="utf-8",
     )
     report_portal_artifacts = publish_report_portal(staging_output_root)
     repository_claim_audit = json.loads(

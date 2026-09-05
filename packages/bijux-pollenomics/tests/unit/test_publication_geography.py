@@ -186,6 +186,7 @@ class PublicationGeographyTests(unittest.TestCase):
                 output_root: Path, *, docs_root: Path, **_: object
             ) -> dict[str, str]:
                 observed_docs_roots.append(docs_root)
+                self.assertTrue((output_root / "animal_output_audit.json").is_file())
                 (output_root / "repository_claim_audit.json").write_text(
                     json.dumps({"overall_ok": True}), encoding="utf-8"
                 )
