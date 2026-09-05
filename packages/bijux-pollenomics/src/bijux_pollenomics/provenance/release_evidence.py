@@ -53,9 +53,7 @@ _REQUIRED_ROLES: Final = _ARTIFACT_ROLES
 _CONFIG_ROLES: Final = frozenset(
     {"configuration", "classification", "scenario", "boundary", "dependency_lock"}
 )
-_DERIVED_ROLES: Final = frozenset(
-    {"source_snapshot", "generated_output", "validation_result"}
-)
+_DERIVED_ROLES: Final = frozenset({"generated_output", "validation_result"})
 _OUTPUT_ROLES: Final = frozenset({"generated_output", "validation_result"})
 _GATE_STATUSES: Final = frozenset(
     {"PASS", "FAIL", "BLOCKED_EXTERNAL", "NOT_APPLICABLE", "SKIPPED"}
@@ -206,6 +204,10 @@ class _RequiredReconciliation:
     entity: str
     dimension: Literal["country", "scope"]
     scope_values: tuple[tuple[str, tuple[str, ...]], ...]
+    derivation_adapter: str
+    derivation_metric: str
+    unavailable_status: Literal["unavailable", "refused"]
+    unavailable_reason_code: str
 
 
 @dataclass(frozen=True)
@@ -340,6 +342,19 @@ def validate_release_evidence_manifest(
             _parse_reconciliation(item)
             for item in _record_list(manifest, "reconciliations")
         )
+        policy = _load_release_evidence_policy(_repository_root(repository_root))
+        if policy.mode == "product":
+            from .request import _reconciliations
+
+            governed_reconciliations = _reconciliations(
+                _repository_root(repository_root), policy
+            )
+            if tuple(sorted(reconciliations, key=_reconciliation_sort_key)) != tuple(
+                sorted(governed_reconciliations, key=_reconciliation_sort_key)
+            ):
+                raise ReleaseEvidenceError(
+                    "manifest reconciliations differ from current governed derivation"
+                )
         blockers = tuple(
             _parse_blocker(item) for item in _record_list(manifest, "blockers")
         )
@@ -361,6 +376,18 @@ def validate_release_evidence_manifest(
         raise ReleaseEvidenceError(
             "manifest does not satisfy the v3 contract"
         ) from error
+
+
+def _reconciliation_sort_key(
+    item: CountReconciliation,
+) -> tuple[str, str, str, str, tuple[tuple[str, str], ...]]:
+    return (
+        item.source,
+        item.entity,
+        item.dimension,
+        item.country_code or "",
+        item.scope,
+    )
 
 
 def hash_repository_object(
@@ -1178,15 +1205,42 @@ def _load_release_evidence_policy(root: Path) -> _ReleaseEvidencePolicy:
 
     required: list[_RequiredReconciliation] = []
     for item in _mapping_list(record, "required_reconciliations"):
-        if set(item) != {"source", "entity", "dimension", "scope_values"}:
+        if set(item) != {
+            "source",
+            "entity",
+            "dimension",
+            "scope_values",
+            "derivation_adapter",
+            "derivation_metric",
+            "unavailable_status",
+            "unavailable_reason_code",
+        }:
             raise ReleaseEvidenceError(
                 "required reconciliation policy fields are invalid"
             )
         source = _string_field(item, "source")
         entity = _string_field(item, "entity")
         dimension = _string_field(item, "dimension")
+        derivation_adapter = _string_field(item, "derivation_adapter")
+        derivation_metric = _string_field(item, "derivation_metric")
+        unavailable_status = _string_field(item, "unavailable_status")
+        unavailable_reason_code = _string_field(item, "unavailable_reason_code")
         if dimension not in {"country", "scope"}:
             raise ReleaseEvidenceError("invalid required reconciliation dimension")
+        if derivation_adapter not in {
+            "classification_observation_memberships",
+            "country_coverage",
+            "neotoma_relational_reconciliation",
+            "propagation_primary_reconciliation",
+            "unavailable",
+        }:
+            raise ReleaseEvidenceError("invalid reconciliation derivation adapter")
+        if unavailable_status not in {"unavailable", "refused"}:
+            raise ReleaseEvidenceError("invalid reconciliation unavailable status")
+        _require_identity(derivation_metric, "reconciliation derivation metric")
+        _require_identity(
+            unavailable_reason_code, "reconciliation unavailable reason code"
+        )
         raw_scope_values = _mapping(item["scope_values"], "scope values")
         scope_values: list[tuple[str, tuple[str, ...]]] = []
         for key, values in sorted(raw_scope_values.items()):
@@ -1213,6 +1267,12 @@ def _load_release_evidence_policy(root: Path) -> _ReleaseEvidencePolicy:
                 entity=entity,
                 dimension=cast(Literal["country", "scope"], dimension),
                 scope_values=tuple(scope_values),
+                derivation_adapter=derivation_adapter,
+                derivation_metric=derivation_metric,
+                unavailable_status=cast(
+                    Literal["unavailable", "refused"], unavailable_status
+                ),
+                unavailable_reason_code=unavailable_reason_code,
             )
         )
     if not required:
@@ -1466,7 +1526,7 @@ def _validate_artifact_graph(
     if policy.mode == "product":
         _validate_propagation_contract_binding(root, by_identity, policy)
     for item in artifacts:
-        if item.role in _OUTPUT_ROLES and not _has_source_ancestor(
+        if item.role == "generated_output" and not _has_source_ancestor(
             item.identity, by_identity
         ):
             raise ReleaseEvidenceError(f"output lacks source lineage: {item.identity}")
@@ -1940,16 +2000,17 @@ def _validate_gates(
     records: Sequence[Mapping[str, object]],
     policy: _ReleaseEvidencePolicy,
 ) -> None:
-    if not gates or not any(gate.required for gate in gates):
+    if not gates:
         raise ReleaseEvidenceError("at least one required gate result is required")
     _require_unique((gate.identity for gate in gates), "gate identity")
     _require_unique((gate.evidence_digest for gate in gates), "gate evidence digest")
     validation_records = [
         record for record in records if record["role"] == "validation_result"
     ]
-    if {gate.identity for gate in gates} != policy.required_gate_ids:
+    if frozenset(gate.identity for gate in gates) != policy.required_gate_ids:
         raise ReleaseEvidenceError("gate inventory does not match product policy")
-    if any(not gate.required for gate in gates):
+    required_flags = {gate.required for gate in gates}
+    if required_flags != {True}:
         raise ReleaseEvidenceError("every product-policy gate must be required")
     by_digest: dict[str, list[Mapping[str, object]]] = {}
     for record in validation_records:

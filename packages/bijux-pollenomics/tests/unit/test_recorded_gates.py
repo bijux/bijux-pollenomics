@@ -106,6 +106,38 @@ def test_make_gate_inputs_and_timeout_match_product_specifications() -> None:
     )
 
 
+def test_make_release_evidence_does_not_rerun_recorded_gates() -> None:
+    repository_root = Path(__file__).resolve().parents[4]
+
+    completed = subprocess.run(
+        ["make", "-n", "release-evidence"],
+        cwd=repository_root,
+        check=True,
+        capture_output=True,
+        text=True,
+    )
+
+    assert " -m pytest" not in completed.stdout
+    assert "provenance.gates" not in completed.stdout
+    assert "provenance request" in completed.stdout
+    assert "provenance write" in completed.stdout
+
+
+def test_make_has_explicit_gate_refresh_and_candidate_addressed_outputs() -> None:
+    repository_root = Path(__file__).resolve().parents[4]
+    makefile = (repository_root / "makes/pollenomics-verification.mk").read_text(
+        encoding="utf-8"
+    )
+
+    assert (
+        "refresh-release-gates: verify-science verify-data verify-map "
+        "verify-provenance verify-doc-counts"
+    ) in makefile
+    assert "release-evidence: release-evidence-request" in makefile
+    assert "release-evidence: verify-science" not in makefile
+    assert "release-evidence/$(POLLENOMICS_RELEASE_CANDIDATE_ID)" in makefile
+
+
 def test_gate_runs_exact_argv_and_records_canonical_logs(tmp_path: Path) -> None:
     _input(tmp_path)
     junit = "artifacts/gates/unit.junit.xml"

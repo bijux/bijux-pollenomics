@@ -3,7 +3,7 @@
 from __future__ import annotations
 
 import argparse
-from collections.abc import Mapping, Sequence
+from collections.abc import Callable, Mapping, Sequence
 from contextlib import suppress
 import json
 import os
@@ -28,7 +28,11 @@ from .release_evidence import (
     validate_release_evidence_manifest,
 )
 
-__all__ = ["main", "write_release_evidence_manifest"]
+__all__ = [
+    "main",
+    "write_release_evidence_manifest",
+    "write_release_evidence_request",
+]
 
 
 def write_release_evidence_manifest(
@@ -56,7 +60,48 @@ def write_release_evidence_manifest(
         blockers=blockers,
     )
     validate_release_evidence_manifest(root, manifest)
-    payload = _canonical_bytes(manifest)
+    _publish_canonical_document(
+        root,
+        output_path,
+        manifest,
+        document_name="release-evidence output",
+        validate_payload=lambda payload: _validate_written_manifest(root, payload),
+    )
+    return manifest
+
+
+def write_release_evidence_request(
+    repository_root: Path, output_path: str
+) -> dict[str, object]:
+    """Derive, validate, and atomically publish the current canonical request."""
+    from .request import (
+        derive_release_evidence_request,
+        validate_release_evidence_request,
+    )
+
+    root = _repository_root(repository_root)
+    request = derive_release_evidence_request(root)
+    _publish_canonical_document(
+        root,
+        output_path,
+        request,
+        document_name="release-evidence request",
+        validate_payload=lambda payload: validate_release_evidence_request(
+            root, _load_json(payload)
+        ),
+    )
+    return request
+
+
+def _publish_canonical_document(
+    root: Path,
+    output_path: str,
+    document: Mapping[str, object],
+    *,
+    document_name: str,
+    validate_payload: Callable[[bytes], None],
+) -> None:
+    payload = _canonical_bytes(document)
     parent_descriptor, destination_name, parent_parts = _open_output_parent(
         root, output_path
     )
@@ -68,11 +113,11 @@ def write_release_evidence_manifest(
         if existing is not None:
             if existing != payload:
                 raise ReleaseEvidenceError(
-                    f"release-evidence output exists with different bytes: {output_path}"
+                    f"{document_name} exists with different bytes: {output_path}"
                 )
             _verify_output_parent(root, parent_parts, parent_descriptor)
-            _validate_written_manifest(root, existing)
-            return manifest
+            validate_payload(existing)
+            return
 
         flags = os.O_WRONLY | os.O_CREAT | os.O_EXCL | getattr(os, "O_NOFOLLOW", 0)
         descriptor = os.open(temporary_name, flags, 0o600, dir_fd=parent_descriptor)
@@ -98,7 +143,7 @@ def write_release_evidence_manifest(
             )
             if existing != payload:
                 raise ReleaseEvidenceError(
-                    f"release-evidence output appeared with different bytes: {output_path}"
+                    f"{document_name} appeared with different bytes: {output_path}"
                 ) from None
         os.unlink(temporary_name, dir_fd=parent_descriptor)
         temporary_name = ""
@@ -108,12 +153,9 @@ def write_release_evidence_manifest(
             parent_descriptor, destination_name, missing_ok=False
         )
         if written != payload:
-            raise ReleaseEvidenceError(
-                "release-evidence output changed during atomic write"
-            )
+            raise ReleaseEvidenceError(f"{document_name} changed during atomic write")
         _verify_output_parent(root, parent_parts, parent_descriptor)
-        _validate_written_manifest(root, written)
-        return manifest
+        validate_payload(written)
     finally:
         if temporary_name:
             with suppress(FileNotFoundError):
@@ -127,6 +169,19 @@ def main(argv: Sequence[str] | None = None) -> int:
     try:
         root = Path(args.repository_root)
         manifest: Mapping[str, object]
+        if args.command == "request":
+            generated_request = write_release_evidence_request(root, args.output)
+            summary = {
+                "artifact_count": len(_list_field(generated_request, "artifacts")),
+                "gate_count": len(_list_field(generated_request, "gates")),
+                "output": args.output,
+                "reconciliation_count": len(
+                    _list_field(generated_request, "reconciliations")
+                ),
+                "schema_version": _string_field(generated_request, "schema_version"),
+            }
+            sys.stdout.buffer.write(_canonical_bytes(summary))
+            return 0
         if args.command == "write":
             request = _read_repository_json(root, args.request, require_artifacts=False)
             manifest = _write_request(root, args.output, request)
@@ -155,6 +210,8 @@ def main(argv: Sequence[str] | None = None) -> int:
 def _write_request(
     root: Path, output_path: str, request: Mapping[str, object]
 ) -> dict[str, object]:
+    from .request import validate_release_evidence_request
+
     expected = {
         "schema_version",
         "code_commit",
@@ -169,6 +226,7 @@ def _write_request(
         raise ReleaseEvidenceError("write request fields do not match the v3 contract")
     if request["schema_version"] != "release-evidence-request.v3":
         raise ReleaseEvidenceError("unsupported release-evidence request schema")
+    validate_release_evidence_request(root, request)
     return write_release_evidence_manifest(
         root,
         output_path,
@@ -661,6 +719,11 @@ def _optional_int_field(record: Mapping[str, object], field: str) -> int | None:
 def _parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(prog="bijux-pollenomics-release-evidence")
     subparsers = parser.add_subparsers(dest="command", required=True)
+    request = subparsers.add_parser(
+        "request", help="derive the exact release-evidence request"
+    )
+    request.add_argument("--repository-root", default=".")
+    request.add_argument("--output", required=True)
     write = subparsers.add_parser("write", help="build and atomically write evidence")
     write.add_argument("--repository-root", required=True)
     write.add_argument(

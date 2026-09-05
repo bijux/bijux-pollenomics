@@ -3,8 +3,10 @@ POLLENOMICS_VERIFICATION_PYTEST := $(abspath $(ROOT_CHECK_VENV))/bin/pytest
 POLLENOMICS_SOURCE_ROOT := packages/bijux-pollenomics/src/bijux_pollenomics
 POLLENOMICS_TEST_ROOT := packages/bijux-pollenomics/tests
 POLLENOMICS_GATE_ARTIFACTS := artifacts/execution-control/gates
-POLLENOMICS_RELEASE_EVIDENCE_REQUEST ?= artifacts/execution-control/release-evidence-request.json
-POLLENOMICS_RELEASE_EVIDENCE_OUTPUT ?= artifacts/execution-control/release-evidence.json
+POLLENOMICS_RELEASE_CANDIDATE_ID ?= $(shell git rev-parse HEAD 2>/dev/null)
+POLLENOMICS_RELEASE_EVIDENCE_DIRECTORY ?= artifacts/execution-control/release-evidence/$(POLLENOMICS_RELEASE_CANDIDATE_ID)
+POLLENOMICS_RELEASE_EVIDENCE_REQUEST ?= $(POLLENOMICS_RELEASE_EVIDENCE_DIRECTORY)/request.json
+POLLENOMICS_RELEASE_EVIDENCE_OUTPUT ?= $(POLLENOMICS_RELEASE_EVIDENCE_DIRECTORY)/manifest.json
 POLLENOMICS_GATE_TIMEOUT_SECONDS ?= 900
 POLLENOMICS_NODE_DIRECTORY := $(patsubst %/,%,$(dir $(shell command -v node 2>/dev/null)))
 POLLENOMICS_GATE_PATH := $(abspath $(ROOT_CHECK_VENV))/bin$(if $(POLLENOMICS_NODE_DIRECTORY),:$(POLLENOMICS_NODE_DIRECTORY)):/usr/bin:/bin
@@ -182,7 +184,7 @@ define run_pollenomics_pytest_gate
 		$(2)
 endef
 
-.PHONY: verify-science verify-data verify-map verify-provenance verify-doc-counts release-evidence verify-release-candidate
+.PHONY: verify-science verify-data verify-map verify-provenance verify-doc-counts refresh-release-gates release-evidence-request release-evidence verify-release-candidate
 
 verify-science: root-check-env ## Record focused scientific-semantics verification
 	$(call run_pollenomics_pytest_gate,science,$(POLLENOMICS_SCIENCE_TESTS),$(POLLENOMICS_SCIENCE_INPUTS))
@@ -199,7 +201,16 @@ verify-provenance: root-check-env ## Record provenance and release-evidence veri
 verify-doc-counts: root-check-env ## Record documentation and governed-count verification
 	$(call run_pollenomics_pytest_gate,doc-counts,$(POLLENOMICS_DOC_COUNT_TESTS),$(POLLENOMICS_DOC_COUNT_INPUTS))
 
-release-evidence: verify-science verify-data verify-map verify-provenance verify-doc-counts ## Build canonical evidence after every required gate passes
+refresh-release-gates: verify-science verify-data verify-map verify-provenance verify-doc-counts ## Force-run and record every required local gate
+
+release-evidence-request: root-check-env ## Derive a request only from fresh existing gate records and governed inputs
+	@PYTHONPATH="$(CURDIR)/packages/bijux-pollenomics/src" \
+	PYTHONPYCACHEPREFIX="$(CURDIR)/$(POLLENOMICS_GATE_ARTIFACTS)/runner-pycache/release-evidence" \
+	"$(POLLENOMICS_VERIFICATION_PYTHON)" -m bijux_pollenomics.provenance request \
+		--repository-root "$(CURDIR)" \
+		--output "$(POLLENOMICS_RELEASE_EVIDENCE_REQUEST)"
+
+release-evidence: release-evidence-request ## Build canonical evidence without rerunning recorded gates
 	@PYTHONPATH="$(CURDIR)/packages/bijux-pollenomics/src" \
 	PYTHONPYCACHEPREFIX="$(CURDIR)/$(POLLENOMICS_GATE_ARTIFACTS)/runner-pycache/release-evidence" \
 	"$(POLLENOMICS_VERIFICATION_PYTHON)" -m bijux_pollenomics.provenance write \

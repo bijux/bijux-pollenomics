@@ -160,6 +160,21 @@ def test_product_policy_binds_exact_release_inventory_and_producer_authority() -
         "required_parent_identities" in item and "schema_identity_field" in item
         for item in artifacts.values()
     )
+    for artifact in artifacts.values():
+        producer_path = artifact["producer_path"]
+        if producer_path is None:
+            continue
+        ownership_matches = [
+            rule
+            for rule in policy["artifact_ownership"]
+            if rule["artifact_role"] == artifact["role"]
+            and (
+                artifact["path"] == rule["artifact_path_prefix"]
+                or artifact["path"].startswith(rule["artifact_path_prefix"] + "/")
+            )
+        ]
+        assert len(ownership_matches) == 1
+        assert ownership_matches[0]["producer_path"] == producer_path
     assert set(artifacts["country-coverage"]["required_parent_identities"]) == {
         "aadr-snapshot",
         "boundary",
@@ -345,6 +360,10 @@ def _write_fixture_policy(
                 "entity": "samples",
                 "dimension": "country",
                 "scope_values": {},
+                "derivation_adapter": "unavailable",
+                "derivation_metric": "samples",
+                "unavailable_status": "unavailable",
+                "unavailable_reason_code": "fixture_count_not_materialized",
             }
         ],
     }
@@ -1416,6 +1435,10 @@ def test_policy_change_invalidates_existing_manifest(tmp_path: Path) -> None:
             "entity": "sites",
             "dimension": "country",
             "scope_values": {},
+            "derivation_adapter": "unavailable",
+            "derivation_metric": "sites",
+            "unavailable_status": "unavailable",
+            "unavailable_reason_code": "fixture_count_not_materialized",
         }
     )
     path.write_bytes(_canonical_json(policy) + b"\n")

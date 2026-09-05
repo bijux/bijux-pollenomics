@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-from dataclasses import asdict
+from dataclasses import replace
 import hashlib
 import json
 import os
@@ -15,12 +15,17 @@ from bijux_pollenomics.provenance import (
     CountReconciliation,
     GateResult,
     ReleaseEvidenceError,
+    derive_release_evidence_request,
     hash_repository_object,
     release_evidence_main,
     validate_release_evidence_manifest,
     write_release_evidence_manifest,
+    write_release_evidence_request,
 )
 from bijux_pollenomics.provenance import gates as gate_module
+from bijux_pollenomics.provenance import release_evidence as release_evidence_module
+from bijux_pollenomics.provenance import request as request_module
+from bijux_pollenomics.provenance import writer as writer_module
 from bijux_pollenomics.provenance.gates import RecordedGateSpecification
 
 COMMIT = "3" * 40
@@ -151,6 +156,10 @@ def _write_fixture_policy(root: Path) -> bytes:
                 "entity": "samples",
                 "dimension": "country",
                 "scope_values": {},
+                "derivation_adapter": "unavailable",
+                "derivation_metric": "samples",
+                "unavailable_status": "unavailable",
+                "unavailable_reason_code": "fixture_count_not_materialized",
             }
         ],
     }
@@ -391,25 +400,6 @@ def _write(
     )
 
 
-def _request(arguments: dict[str, object]) -> dict[str, object]:
-    return {
-        "schema_version": "release-evidence-request.v3",
-        "code_commit": arguments["code_commit"],
-        "dirty": arguments["dirty"],
-        "dependency_lock_digest": arguments["dependency_lock_digest"],
-        "artifacts": [
-            asdict(artifact)
-            for artifact in cast(list[ArtifactInput], arguments["artifacts"])
-        ],
-        "gates": [asdict(gate) for gate in cast(list[GateResult], arguments["gates"])],
-        "reconciliations": [
-            {**asdict(item), "scope": dict(item.scope)}
-            for item in cast(list[CountReconciliation], arguments["reconciliations"])
-        ],
-        "blockers": [],
-    }
-
-
 def test_writer_emits_canonical_json_and_validates_immediately(tmp_path: Path) -> None:
     arguments = _arguments(tmp_path)
     manifest = _write(tmp_path, "artifacts/release/manifest.json", arguments)
@@ -526,13 +516,17 @@ def test_writer_refuses_output_parent_substitution_during_publication(
 def test_callable_cli_writes_and_validates_for_a_local_gate(
     tmp_path: Path, capfd: pytest.CaptureFixture[str]
 ) -> None:
-    arguments = _arguments(tmp_path)
-    request_path = tmp_path / "artifacts/requests/release.json"
-    request_path.parent.mkdir(parents=True)
-    request_path.write_text(
-        json.dumps(_request(arguments), sort_keys=True, separators=(",", ":")) + "\n",
-        encoding="utf-8",
+    _inputs(tmp_path)
+    request_status = release_evidence_main(
+        [
+            "request",
+            "--repository-root",
+            str(tmp_path),
+            "--output",
+            "artifacts/requests/release.json",
+        ]
     )
+    request_summary = json.loads(capfd.readouterr().out)
     output_path = "artifacts/release/manifest.json"
 
     write_status = release_evidence_main(
@@ -558,6 +552,8 @@ def test_callable_cli_writes_and_validates_for_a_local_gate(
     )
     validate_output = json.loads(capfd.readouterr().out)
 
+    assert request_status == 0
+    assert request_summary["schema_version"] == "release-evidence-request.v3"
     assert write_status == validate_status == 1
     assert write_output == validate_output
     assert write_output["release_ready"] is False
@@ -567,10 +563,8 @@ def test_callable_cli_writes_and_validates_for_a_local_gate(
 def test_callable_cli_returns_nonzero_for_nonrelease_evidence(
     tmp_path: Path, capfd: pytest.CaptureFixture[str]
 ) -> None:
-    arguments = _arguments(tmp_path, gate_status="FAIL")
-    request_path = tmp_path / "artifacts/requests/release.json"
-    request_path.parent.mkdir(parents=True)
-    request_path.write_text(json.dumps(_request(arguments)), encoding="utf-8")
+    _inputs(tmp_path, gate_status="FAIL")
+    write_release_evidence_request(tmp_path, "artifacts/requests/release.json")
 
     result = release_evidence_main(
         [
@@ -613,3 +607,308 @@ def test_validate_cli_detects_changed_immutable_input(
     assert result == 2
     assert captured.out == ""
     assert "release evidence refused" in captured.err
+
+
+def test_request_derivation_is_deterministic_and_locally_unverified(
+    tmp_path: Path,
+) -> None:
+    _inputs(tmp_path)
+
+    first = derive_release_evidence_request(tmp_path)
+    second = derive_release_evidence_request(tmp_path)
+
+    assert first == second
+    assert first["schema_version"] == "release-evidence-request.v3"
+    assert len(cast(list[object], first["artifacts"])) == 11
+    assert len(cast(list[object], first["gates"])) == 1
+    assert len(cast(list[object], first["reconciliations"])) == 7
+    assert first["blockers"] == []
+    manifest = _write_request_document(tmp_path, first)
+    decision = cast(dict[str, object], manifest["release_decision"])
+    assert decision["status"] == "implemented_unverified"
+    assert decision["release_ready"] is False
+
+
+def _write_request_document(
+    root: Path, request: dict[str, object]
+) -> dict[str, object]:
+    path = root / "artifacts/requests/generated.json"
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_bytes(_canonical_json(request) + b"\n")
+    return writer_module._write_request(
+        root, "artifacts/release/generated.json", request
+    )
+
+
+@pytest.mark.parametrize("failure", ["missing", "stale", "old_schema"])
+def test_request_derivation_rejects_invalid_recorded_gate(
+    tmp_path: Path, failure: str
+) -> None:
+    _inputs(tmp_path)
+    gate = tmp_path / "artifacts/gate-evidence/quality.json"
+    if failure == "missing":
+        gate.unlink()
+    elif failure == "stale":
+        (tmp_path / "inputs/gate-input.txt").write_text(
+            "changed after gate\n", encoding="utf-8"
+        )
+    else:
+        record = json.loads(gate.read_text(encoding="utf-8"))
+        record["schema_version"] = "recorded-gate.v1"
+        gate.write_bytes(_canonical_json(record) + b"\n")
+
+    with pytest.raises(ReleaseEvidenceError):
+        derive_release_evidence_request(tmp_path)
+
+
+def test_request_writer_is_idempotent_and_refuses_different_bytes(
+    tmp_path: Path,
+) -> None:
+    _inputs(tmp_path)
+    relative = "artifacts/release-candidate/request.json"
+    first = write_release_evidence_request(tmp_path, relative)
+    output = tmp_path / relative
+    before = output.stat()
+
+    second = write_release_evidence_request(tmp_path, relative)
+    after = output.stat()
+    assert first == second
+    assert (after.st_ino, after.st_mtime_ns) == (before.st_ino, before.st_mtime_ns)
+
+    (tmp_path / "inputs/output.json").write_text('{"records":2}\n', encoding="utf-8")
+    with pytest.raises(ReleaseEvidenceError, match="different bytes"):
+        write_release_evidence_request(tmp_path, relative)
+
+
+def test_request_writer_rejects_symlinked_output_parent(tmp_path: Path) -> None:
+    _inputs(tmp_path)
+    outside = tmp_path / "outside"
+    outside.mkdir()
+    (tmp_path / "artifacts/release-candidate").symlink_to(
+        outside, target_is_directory=True
+    )
+
+    with pytest.raises(ReleaseEvidenceError, match="unsafe output directory"):
+        write_release_evidence_request(
+            tmp_path, "artifacts/release-candidate/request.json"
+        )
+
+
+def test_request_derivation_rejects_concurrent_input_mutation(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    _inputs(tmp_path)
+    original = request_module.evidence.hash_repository_object
+    mutated = False
+
+    def mutating_hash(root: Path, relative_path: str) -> dict[str, object]:
+        nonlocal mutated
+        result = original(root, relative_path)
+        if relative_path == "inputs/config.json" and not mutated:
+            (root / relative_path).write_text('{"changed":true}\n', encoding="utf-8")
+            mutated = True
+        return result
+
+    monkeypatch.setattr(
+        request_module.evidence, "hash_repository_object", mutating_hash
+    )
+
+    with pytest.raises(ReleaseEvidenceError, match="digest changed"):
+        derive_release_evidence_request(tmp_path)
+    assert mutated is True
+
+
+def test_request_derivation_records_observed_dirty_state(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    _inputs(tmp_path)
+    state = {
+        "mode": "fixture",
+        "head_commit": None,
+        "head_tree": None,
+        "dirty": True,
+        "status_digest": "sha256:" + "1" * 64,
+        "tracked_paths_digest": None,
+        "tracked_diff_digest": None,
+        "untracked_objects": [],
+    }
+    monkeypatch.setattr(
+        request_module.evidence,
+        "_repository_state",
+        lambda _root, _mode: dict(state),
+    )
+
+    request = derive_release_evidence_request(tmp_path)
+
+    assert request["dirty"] is True
+
+
+def test_exact_request_validation_rejects_hand_authored_change(tmp_path: Path) -> None:
+    _inputs(tmp_path)
+    request = derive_release_evidence_request(tmp_path)
+    request["dirty"] = True
+
+    with pytest.raises(ReleaseEvidenceError, match="differs from current"):
+        request_module.validate_release_evidence_request(tmp_path, request)
+
+
+def test_product_request_policy_has_exact_inventory_and_reconciliation_counts() -> None:
+    root = Path(__file__).resolve().parents[4]
+    policy = request_module.evidence._load_release_evidence_policy(root)
+
+    rows = request_module._reconciliations(root, policy)
+    by_identity = {row.identity: row for row in rows}
+
+    assert len(policy.required_artifacts) == 24
+    assert len(policy.required_gate_ids) == 5
+    assert len(policy.required_reconciliations) == 28
+    assert len(rows) == 390
+    assert len({(row.source, row.entity) for row in rows}) == 28
+    assert {
+        status: sum(row.count_status == status for row in rows)
+        for status in ("reported", "unavailable", "refused")
+    } == {"reported": 327, "unavailable": 49, "refused": 14}
+    request_module.evidence._validate_reconciliations(rows, policy)
+    classification_metrics = {
+        requirement.entity: requirement.derivation_metric
+        for requirement in policy.required_reconciliations
+        if requirement.source == "classification"
+    }
+    assert classification_metrics == {
+        "ambiguous": "ambiguous_concepts",
+        "concepts": "distinct_concepts",
+        "mapped": "mapped_concepts",
+        "unmapped": "unmapped_concepts",
+    }
+
+    sead = by_identity["sead.sites.source"]
+    assert (
+        sead.candidate_count,
+        sead.eligible_count,
+        sead.accepted_count,
+        sead.unresolved_count,
+        sead.excluded_count,
+    ) == (2195, 2069, 2069, 103, 23)
+    assert by_identity["sead.sites.country.unassigned"].unresolved_count == 103
+    assert by_identity["sead.sites.country.outside"].excluded_count == 23
+
+    observations = by_identity["neotoma.observations.country.unassigned"]
+    assert observations.count_status == "reported"
+    assert (observations.candidate_count, observations.unresolved_count) == (9700, 9700)
+    outside = by_identity["neotoma.observations.country.outside"]
+    assert outside.count_status == "reported"
+    assert (outside.candidate_count, outside.excluded_count) == (0, 0)
+
+    concepts = by_identity["classification.concepts.source"]
+    unmapped = by_identity["classification.unmapped.source"]
+    assert (
+        concepts.candidate_count,
+        concepts.accepted_count,
+        concepts.unresolved_count,
+        concepts.excluded_count,
+    ) == (2555, 0, 2481, 74)
+    assert concepts.candidate_count > 1351  # Country memberships, not global concepts.
+    assert (unmapped.candidate_count, unmapped.unresolved_count) == (2481, 2481)
+    assert by_identity["raa.records.source"].count_status == "refused"
+    assert by_identity["raa.records.source"].candidate_count is None
+    assert by_identity["propagation.evaluated_pairs.source"].candidate_count == 0
+
+
+def test_product_request_policy_has_coherent_full_artifact_graph(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    root = Path(__file__).resolve().parents[4]
+    policy = release_evidence_module._load_release_evidence_policy(root)
+    artifacts, digests = request_module._artifact_inputs(root, policy)
+    records = [
+        release_evidence_module._artifact_record(root, artifact)
+        for artifact in artifacts
+    ]
+    dependency_lock = next(
+        digests[item.identity]
+        for item in policy.required_artifacts
+        if item.role == "dependency_lock"
+    )
+    validate_schema = release_evidence_module._validate_embedded_schema_identity
+
+    def allow_pre_refresh_gate_schema(
+        repository_root: Path,
+        artifact: ArtifactInput,
+        requirement: release_evidence_module._RequiredArtifact,
+    ) -> None:
+        if artifact.role != "validation_result":
+            validate_schema(repository_root, artifact, requirement)
+
+    monkeypatch.setattr(
+        release_evidence_module,
+        "_validate_embedded_schema_identity",
+        allow_pre_refresh_gate_schema,
+    )
+
+    release_evidence_module._validate_artifact_graph(
+        root,
+        artifacts,
+        records,
+        dependency_lock,
+        policy,
+    )
+
+
+def test_product_manifest_validation_rejects_caller_supplied_reconciliations(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    arguments = _arguments(tmp_path)
+    manifest = writer_module.build_release_evidence_manifest(
+        tmp_path,
+        code_commit=cast(str, arguments["code_commit"]),
+        dirty=cast(bool, arguments["dirty"]),
+        dependency_lock_digest=cast(str, arguments["dependency_lock_digest"]),
+        artifacts=cast(list[ArtifactInput], arguments["artifacts"]),
+        gates=cast(list[GateResult], arguments["gates"]),
+        reconciliations=cast(list[CountReconciliation], arguments["reconciliations"]),
+        blockers=(),
+    )
+    fixture_policy = release_evidence_module._load_release_evidence_policy(tmp_path)
+    product_policy = replace(fixture_policy, mode="product")
+    governed = tuple(cast(list[CountReconciliation], arguments["reconciliations"]))
+    forged = cast(list[dict[str, object]], manifest["reconciliations"])
+    forged[0]["candidate_count"] = cast(int, forged[0]["candidate_count"]) + 1
+    forged[0]["eligible_count"] = cast(int, forged[0]["eligible_count"]) + 1
+    forged[0]["accepted_count"] = cast(int, forged[0]["accepted_count"]) + 1
+    monkeypatch.setattr(
+        release_evidence_module,
+        "_load_release_evidence_policy",
+        lambda _root: product_policy,
+    )
+    monkeypatch.setattr(
+        request_module, "_reconciliations", lambda _root, _policy: governed
+    )
+
+    with pytest.raises(ReleaseEvidenceError, match="governed derivation"):
+        validate_release_evidence_manifest(tmp_path, manifest)
+
+
+def test_country_adapter_rejects_dimension_substitution(tmp_path: Path) -> None:
+    root = Path(__file__).resolve().parents[4]
+    policy = request_module.evidence._load_release_evidence_policy(root)
+    requirement = next(
+        item
+        for item in policy.required_reconciliations
+        if (item.source, item.entity) == ("sead", "sites")
+    )
+    cells = [
+        {
+            "source_family": "sead",
+            "country_dimension": "source_reported",
+            "resolution": "source",
+            "country_code": country,
+            "counts": {"sites": 0},
+            "reason_codes": [],
+        }
+        for country in request_module.evidence._COUNTRIES
+    ]
+    ledger = tmp_path / "data/country_dimension_coverage.json"
+    ledger.parent.mkdir(parents=True)
+    ledger.write_bytes(_canonical_json({"cells": cells}) + b"\n")
+
+    assert request_module._governed_country_values(tmp_path, requirement) is None
