@@ -127,7 +127,7 @@ _GATE_TESTS: dict[str, tuple[str, ...]] = {
     "map": (
         "reporting/map_document/evidence_projection",
         "reporting/atlas/test_map_publication.py",
-        "reporting/atlas/test_static_atlas_assets.py",
+        "reporting/atlas/static_assets",
         "reporting/atlas/test_publication_geography.py",
         "reporting/portal/test_reporting_artifacts.py",
         "reporting/portal/test_report_portal.py",
