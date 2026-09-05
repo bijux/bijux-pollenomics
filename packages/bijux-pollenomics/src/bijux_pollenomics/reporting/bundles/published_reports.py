@@ -1,8 +1,8 @@
 from __future__ import annotations
 
-from collections.abc import Callable
 import json
 import os
+from collections.abc import Callable
 from pathlib import Path
 
 from ...adna.catalogs import (
@@ -59,7 +59,7 @@ def publish_published_reports_tree(
     data_root = (
         context_root if context_root is not None else output_root.parents[1] / "data"
     )
-    docs_root = output_root.parent
+    docs_root = published_output_root.parent
     enforce_release_gates = _looks_like_repository_publication_run(
         data_root=Path(data_root),
         docs_root=docs_root,
