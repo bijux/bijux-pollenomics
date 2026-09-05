@@ -5,6 +5,7 @@ import gzip
 import hashlib
 import json
 from pathlib import Path
+import random
 import re
 import shutil
 import subprocess
@@ -20,6 +21,7 @@ from bijux_pollenomics.reporting.map_document.payload import serialize_json_for_
 from bijux_pollenomics.reporting.map_document.static_assets import (
     ATLAS_BOOTSTRAP_MAX_BYTES,
     ATLAS_CHUNK_MAX_BYTES,
+    ATLAS_CHUNK_TARGET_BYTES,
     ATLAS_DOCUMENT_MAX_BYTES,
     ATLAS_INITIAL_MAX_BYTES,
     ATLAS_INITIAL_MAX_REQUESTS,
@@ -436,6 +438,58 @@ def test_compressed_detail_chunk_round_trips_in_web_runtime(tmp_path: Path) -> N
         "digest": detail_row["payload_sha256"],
         "record_id": "site:1",
     }
+
+
+def test_compressed_details_use_the_decoded_chunk_budget_without_eager_loading(
+    tmp_path: Path,
+) -> None:
+    details: list[JsonObject] = []
+    for index in range(6):
+        payload = random.Random(index).randbytes(225_000).hex()
+        details.append(
+            {
+                "record_id": f"site:{index:03d}",
+                "tabs": {"overview": {"source_payload": payload}},
+            }
+        )
+
+    assets = write_static_atlas_assets(
+        tmp_path,
+        slug="nordic",
+        version="v66",
+        point_layers=_point_layers(),
+        polygon_layers=[],
+        detail_records=details,
+    )
+
+    rows = assets.manifest["assets"]
+    assert isinstance(rows, list)
+    detail_rows = [row for row in rows if row["domain"] == "details"]
+    assert len(detail_rows) == 1
+    assert detail_rows[0]["initial_load"] is False
+    detail_path = assets.asset_paths[rows.index(detail_rows[0])]
+    decoded_payload = _payload(detail_path)
+    decoded_bytes = len(
+        json.dumps(
+            decoded_payload,
+            ensure_ascii=True,
+            allow_nan=False,
+            sort_keys=True,
+            separators=(",", ":"),
+        ).encode("utf-8")
+    )
+    assert ATLAS_CHUNK_TARGET_BYTES < decoded_bytes <= ATLAS_CHUNK_MAX_BYTES
+    assert detail_path.stat().st_size <= ATLAS_CHUNK_MAX_BYTES
+    indexes = next(
+        _payload(path)
+        for row, path in zip(rows, assets.asset_paths, strict=True)
+        if row["domain"] == "indexes"
+    )
+    detail_record_asset_keys = indexes["detail_record_asset_keys"]
+    assert isinstance(detail_record_asset_keys, dict)
+    assert set(detail_record_asset_keys.values()) == {detail_rows[0]["asset_key"]}
+    assert len(assets.manifest_path.read_bytes()) <= ATLAS_BOOTSTRAP_MAX_BYTES
+    validate_static_atlas_assets(assets)
 
 
 def test_scientific_fixture_refuses_unaccepted_or_unknown_signals(

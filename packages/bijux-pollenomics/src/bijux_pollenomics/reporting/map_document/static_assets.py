@@ -18,6 +18,10 @@ from .evidence import normalize_atlas_evidence, validate_feature_signal_referenc
 ATLAS_BOOTSTRAP_MAX_BYTES = 65_536
 ATLAS_CHUNK_MAX_BYTES = 4_194_304
 ATLAS_CHUNK_TARGET_BYTES = 2_097_152
+# Compressed detail chunks can safely use more of the decoded-payload budget than
+# JSON node chunks, whose script wrapper expands quotes and escape sequences.
+# The margin also bounds gzip/base64 overhead for an incompressible detail payload.
+ATLAS_DETAIL_CHUNK_TARGET_BYTES = 3_140_000
 ATLAS_DOCUMENT_MAX_BYTES = 524_288
 ATLAS_STATIC_ASSETS_MAX_BYTES = 134_217_728
 ATLAS_STATIC_ASSETS_MAX_FILES = 512
@@ -82,7 +86,8 @@ def write_static_atlas_assets(
         polygon_layers=polygon_layers,
     )
     detail_partitions = _partition_features(
-        [dict(record) for record in evidence.detail_records]
+        [dict(record) for record in evidence.detail_records],
+        target_bytes=ATLAS_DETAIL_CHUNK_TARGET_BYTES,
     )
     first_detail_sequence = 1 + len(node_payloads)
     detail_asset_keys = [
@@ -212,6 +217,7 @@ def write_static_atlas_assets(
         asset_key = f"{domain}:{sequence}"
         payload = {**source_payload, "build_id": build_id, "asset_key": asset_key}
         payload_json = _canonical_json(payload)
+        _validate_decoded_payload_size(payload_json, asset_key=asset_key)
         payload_sha256 = hashlib.sha256(payload_json.encode("utf-8")).hexdigest()
         payload_encoding = "gzip_base64" if domain == "details" else "json"
         script_bytes = _chunk_script_bytes(
@@ -521,6 +527,8 @@ def _build_node_payloads(
 
 def _partition_features(
     features: list[dict[str, object]],
+    *,
+    target_bytes: int = ATLAS_CHUNK_TARGET_BYTES,
 ) -> list[list[dict[str, object]]]:
     if not features:
         return []
@@ -531,7 +539,7 @@ def _partition_features(
         feature_bytes = len(_canonical_json(feature).encode("utf-8"))
         separator_bytes = 1 if current else 0
         candidate_bytes = current_bytes + separator_bytes + feature_bytes
-        if current and candidate_bytes > ATLAS_CHUNK_TARGET_BYTES:
+        if current and candidate_bytes > target_bytes:
             parts.append(current)
             current = [feature]
             current_bytes = feature_bytes + 2
@@ -853,6 +861,10 @@ def _decode_chunk_script(
             raise ValueError("static atlas compressed payload is invalid") from exc
     else:
         raise ValueError("static atlas chunk envelope encoding is unsupported")
+    _validate_decoded_payload_size(
+        payload_json,
+        asset_key=expected_asset_key,
+    )
     if (
         hashlib.sha256(payload_json.encode("utf-8")).hexdigest()
         != expected_payload_sha256
@@ -865,6 +877,13 @@ def _decode_chunk_script(
     if not isinstance(decoded, dict):
         raise ValueError("static atlas chunk payload must be an object")
     return decoded
+
+
+def _validate_decoded_payload_size(payload_json: str, *, asset_key: str) -> None:
+    if len(payload_json.encode("utf-8")) > ATLAS_CHUNK_MAX_BYTES:
+        raise ValueError(
+            f"static atlas decoded payload exceeds its byte budget: {asset_key}"
+        )
 
 
 def _validate_static_payloads(
