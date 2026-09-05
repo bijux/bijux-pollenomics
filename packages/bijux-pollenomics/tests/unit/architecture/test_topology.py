@@ -25,8 +25,8 @@ def test_topology_policy_keeps_public_facades_narrow_and_packages_bounded() -> N
 
     assert policy.maximum_direct_modules == 10
     assert policy.maximum_direct_test_modules == 10
-    assert policy.maximum_source_module_lines == 720
-    assert policy.maximum_unit_test_module_lines == 660
+    assert policy.maximum_source_module_lines == 680
+    assert policy.maximum_unit_test_module_lines == 610
     assert policy.forbidden_package_names == {
         "common",
         "foundation",
@@ -65,14 +65,14 @@ def test_topology_audit_reports_all_structural_failure_classes(
     _write(source / "shared/__init__.py", "")
     _write(source / "unmarked/behavior.py", "")
     _write(source / "wild/__init__.py", "from sibling import *\n")
-    _write(source / "oversized/__init__.py", "\n" * 721)
+    _write(source / "oversized/__init__.py", "\n" * 681)
     for index in range(11):
         _write(source / f"crowded/behavior_{index}.py", "")
     _write(tests / "test_flat.py", "")
     _write(tests / "orphan/test_behavior.py", "")
     _write(tests / "adna/__init__.py", "")
     _write(tests / "adna/crowded/__init__.py", "")
-    _write(tests / "adna/oversized/test_behavior.py", "\n" * 661)
+    _write(tests / "adna/oversized/test_behavior.py", "\n" * 611)
     for index in range(11):
         _write(tests / f"adna/crowded/test_behavior_{index}.py", "")
 

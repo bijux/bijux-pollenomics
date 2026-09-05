@@ -65,8 +65,8 @@ def repository_topology_policy() -> RepositoryTopologyPolicy:
     return RepositoryTopologyPolicy(
         maximum_direct_modules=10,
         maximum_direct_test_modules=10,
-        maximum_source_module_lines=720,
-        maximum_unit_test_module_lines=660,
+        maximum_source_module_lines=680,
+        maximum_unit_test_module_lines=610,
         forbidden_package_names=frozenset(
             {
                 "common",
