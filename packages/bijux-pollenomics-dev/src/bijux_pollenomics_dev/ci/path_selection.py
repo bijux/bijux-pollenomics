@@ -3,11 +3,11 @@
 from __future__ import annotations
 
 import argparse
-from dataclasses import dataclass
 import hashlib
 import json
-from pathlib import Path, PurePosixPath
 import re
+from dataclasses import dataclass
+from pathlib import Path, PurePosixPath
 from typing import Any
 
 REQUIRED_SURFACE_IDS = frozenset(
@@ -105,18 +105,21 @@ class ChangeImpact:
 
 
 def _required_mapping(value: object, *, field: str) -> dict[str, Any]:
+    """Return a contract object or reject the named field."""
     if not isinstance(value, dict):
         raise ContractError(f"{field} must be an object")
     return value
 
 
 def _required_string(value: object, *, field: str) -> str:
+    """Return a non-empty contract string or reject the named field."""
     if not isinstance(value, str) or not value.strip():
         raise ContractError(f"{field} must be a non-empty string")
     return value
 
 
 def _required_string_list(value: object, *, field: str) -> tuple[str, ...]:
+    """Return a unique non-empty string tuple from the named field."""
     if not isinstance(value, list) or not value:
         raise ContractError(f"{field} must be a non-empty array")
     if not all(isinstance(item, str) and item.strip() for item in value):
@@ -128,6 +131,7 @@ def _required_string_list(value: object, *, field: str) -> tuple[str, ...]:
 
 
 def _validate_pattern(pattern: str) -> None:
+    """Reject path patterns that can escape repository-relative matching."""
     if (
         pattern.startswith("/")
         or "\\" in pattern
@@ -138,6 +142,7 @@ def _validate_pattern(pattern: str) -> None:
 
 
 def _parse_gate(gate_id: str, raw: object) -> Gate:
+    """Parse one gate while enforcing its availability contract."""
     document = _required_mapping(raw, field=f"gates.{gate_id}")
     availability = _required_string(
         document.get("availability"), field=f"gates.{gate_id}.availability"
@@ -158,6 +163,7 @@ def _parse_gate(gate_id: str, raw: object) -> Gate:
 
 
 def _parse_surface(raw: object, *, gate_ids: frozenset[str]) -> Surface:
+    """Parse one surface and require references to declared gates."""
     document = _required_mapping(raw, field="surfaces entry")
     surface_id = _required_string(document.get("id"), field="surfaces.id")
     paths = _required_string_list(
@@ -250,6 +256,7 @@ def _glob_regex(pattern: str) -> re.Pattern[str]:
 
 
 def _normalize_path(raw_path: str) -> str | None:
+    """Return a canonical repository-relative path or ``None`` if unsafe."""
     if not raw_path or raw_path != raw_path.strip():
         return None
     if "\\" in raw_path or "\x00" in raw_path or "//" in raw_path:
@@ -264,6 +271,7 @@ def _normalize_path(raw_path: str) -> str | None:
 
 
 def _ordered_subset(order: tuple[str, ...], selected: set[str]) -> tuple[str, ...]:
+    """Project selected identifiers through their canonical order."""
     return tuple(item for item in order if item in selected)
 
 
@@ -347,6 +355,7 @@ def select_changed_paths(
 
 
 def _write_json(path: Path, payload: dict[str, object]) -> None:
+    """Write stable indented JSON, creating its parent directory."""
     path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text(
         json.dumps(payload, indent=2, sort_keys=True) + "\n", encoding="utf-8"
@@ -354,6 +363,7 @@ def _write_json(path: Path, payload: dict[str, object]) -> None:
 
 
 def _write_github_outputs(path: Path, impact: ChangeImpact) -> None:
+    """Append compact gate selections to a GitHub Actions output file."""
     outputs = {
         "selected_gates": list(impact.selected_gates),
         "available_gates": list(impact.available_gates),
@@ -369,6 +379,7 @@ def _write_github_outputs(path: Path, impact: ChangeImpact) -> None:
 
 
 def _parser() -> argparse.ArgumentParser:
+    """Build the command-line parser for change-impact selection."""
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--contract", type=Path, required=True)
     parser.add_argument("--changed-path", action="append", default=[])

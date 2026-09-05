@@ -3,18 +3,18 @@
 from __future__ import annotations
 
 import argparse
-from collections.abc import Callable, Mapping, Sequence
-from dataclasses import dataclass
-from datetime import UTC, datetime
 import hashlib
 import json
 import os
-from pathlib import Path, PurePosixPath
 import re
 import shutil
 import stat
 import sys
 import time
+from collections.abc import Callable, Mapping, Sequence
+from dataclasses import dataclass
+from datetime import UTC, datetime
+from pathlib import Path, PurePosixPath
 from typing import cast
 
 from bijux_pollenomics_dev.trusted_process import run_text
@@ -64,16 +64,19 @@ Runner = Callable[[Sequence[str], Path], CommandResult]
 
 
 def _sha256(payload: bytes) -> str:
+    """Return the lowercase SHA-256 digest of a byte payload."""
     return hashlib.sha256(payload).hexdigest()
 
 
 def _mapping(value: object, label: str) -> JsonObject:
+    """Return a string-keyed JSON object or reject the labeled value."""
     if not isinstance(value, dict) or not all(isinstance(key, str) for key in value):
         raise ReproducibleReportError(f"{label} must be an object")
     return cast(JsonObject, value)
 
 
 def _string_list(value: object, label: str) -> tuple[str, ...]:
+    """Return a unique tuple of non-empty strings from a policy field."""
     if not isinstance(value, list) or not all(
         isinstance(item, str) and item for item in value
     ):
@@ -138,6 +141,7 @@ def load_policy(path: Path) -> JsonObject:
 
 
 def _safe_relative_path(value: str, label: str) -> Path:
+    """Return a path confined to the repository-relative namespace."""
     path = Path(value)
     if path.is_absolute() or not path.parts or ".." in path.parts:
         raise ReproducibleReportError(f"{label} is not a safe relative path: {value}")
@@ -145,6 +149,7 @@ def _safe_relative_path(value: str, label: str) -> Path:
 
 
 def _canonical_bytes(path: str, payload: bytes, policy: JsonObject) -> bytes:
+    """Normalize only policy-declared volatile text before comparison."""
     try:
         text = payload.decode("utf-8")
     except UnicodeDecodeError:
@@ -160,6 +165,7 @@ def _canonical_bytes(path: str, payload: bytes, policy: JsonObject) -> bytes:
 
 
 def _matches_glob(path: str, pattern: str) -> bool:
+    """Match a POSIX path while supporting leading recursive globs."""
     candidate = PurePosixPath(path)
     return candidate.match(pattern) or (
         pattern.startswith("**/") and candidate.match(pattern.removeprefix("**/"))
@@ -167,6 +173,7 @@ def _matches_glob(path: str, pattern: str) -> bool:
 
 
 def _regular_entry(path: Path, relative: str, policy: JsonObject) -> InventoryEntry:
+    """Content-bind one regular file as an inventory entry."""
     mode = path.lstat().st_mode
     if not stat.S_ISREG(mode):
         raise ReproducibleReportError(f"inventory member is not regular: {relative}")
@@ -188,6 +195,7 @@ def _inventory_tree(
     allowed_symlinks: Mapping[str, str],
     exclude_inputs: bool,
 ) -> tuple[InventoryEntry, ...]:
+    """Inventory a tree deterministically without following symlinks."""
     entries: list[InventoryEntry] = []
     for directory, directory_names, file_names in os.walk(root, followlinks=False):
         directory_path = Path(directory)
@@ -215,6 +223,7 @@ def _inventory_tree(
 
 
 def _input_is_excluded(path: str, policy: JsonObject) -> bool:
+    """Return whether policy explicitly excludes an input inventory path."""
     return any(
         _matches_glob(path, pattern)
         for pattern in _string_list(
@@ -226,6 +235,7 @@ def _input_is_excluded(path: str, policy: JsonObject) -> bool:
 def _symlink_entry(
     path: Path, relative: str, allowed_symlinks: Mapping[str, str]
 ) -> InventoryEntry:
+    """Content-bind an explicitly allowlisted input symlink."""
     target = os.readlink(path)
     if allowed_symlinks.get(relative) != target:
         raise ReproducibleReportError(f"unapproved input symlink: {relative}")
@@ -291,6 +301,7 @@ def _compare(
     *,
     canonical: bool,
 ) -> list[JsonObject]:
+    """Return path and content differences between two inventories."""
     expected_by_path = {entry.path: entry for entry in expected}
     observed_by_path = {entry.path: entry for entry in observed}
     differences: list[JsonObject] = []
@@ -317,11 +328,13 @@ def _compare(
 
 
 def _default_runner(command: Sequence[str], cwd: Path) -> CommandResult:
+    """Run one generator command and capture its complete text result."""
     completed = run_text(command, cwd=cwd, check=False, capture_output=True)
     return CommandResult(completed.returncode, completed.stdout, completed.stderr)
 
 
 def _repository_identity(repo_root: Path, *, required: bool) -> JsonObject:
+    """Bind evidence to a clean Git commit and tree when policy requires it."""
     if not required:
         return {"mode": "fixture"}
     git = shutil.which("git")
@@ -329,6 +342,7 @@ def _repository_identity(repo_root: Path, *, required: bool) -> JsonObject:
         raise ReproducibleReportError("Git is required to bind repository identity")
 
     def run(*arguments: str) -> str:
+        """Run a repository identity probe and return its standard output."""
         completed = run_text(
             (git, "-C", str(repo_root), *arguments),
             check=False,
@@ -357,6 +371,7 @@ def _repository_identity(repo_root: Path, *, required: bool) -> JsonObject:
 
 
 def _timing(started_at: datetime, started_monotonic: float) -> JsonObject:
+    """Return UTC timestamps and monotonic elapsed duration for evidence."""
     return {
         "started_at": started_at.isoformat().replace("+00:00", "Z"),
         "finished_at": datetime.now(UTC).isoformat().replace("+00:00", "Z"),
@@ -370,6 +385,7 @@ def _command(
     output_root: Path,
     import_cache_root: Path,
 ) -> tuple[str, ...]:
+    """Build an isolated generator command from the governed policy."""
     generator = _mapping(policy["generator"], "generator")
     module = cast(str, generator["module"])
     values = {"repo_root": str(repo_root), "output_root": str(output_root)}
@@ -394,6 +410,7 @@ def _command(
 
 
 def _atomic_write(path: Path, payload: bytes) -> None:
+    """Persist evidence through an exclusive sibling staging file."""
     staging = path.with_name(f".{path.name}.writing")
     if staging.exists() or staging.is_symlink():
         raise ReproducibleReportError(f"staging output already exists: {staging}")
@@ -405,6 +422,7 @@ def _atomic_write(path: Path, payload: bytes) -> None:
 
 
 def _write_evidence(root: Path, report: JsonObject) -> None:
+    """Write JSON, JUnit, and plain-text views of one verification report."""
     differences = cast(list[JsonObject], report["differences"])
     status = cast(str, report["status"])
     lines = [f"status: {status}", f"difference_count: {len(differences)}"]
@@ -413,6 +431,7 @@ def _write_evidence(root: Path, report: JsonObject) -> None:
     )
 
     def escaped(value: object) -> str:
+        """Escape evidence text for its XML element context."""
         return (
             str(value).replace("&", "&amp;").replace('"', "&quot;").replace("<", "&lt;")
         )
