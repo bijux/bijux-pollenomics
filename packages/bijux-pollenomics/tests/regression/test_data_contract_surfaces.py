@@ -6,7 +6,7 @@ import unittest
 
 import pytest
 
-from bijux_pollenomics.adna.governance_contracts import (
+from bijux_pollenomics.adna.governance.contracts import (
     validate_source_library_project_surfaces,
 )
 from bijux_pollenomics.collection.contracts.summary import (

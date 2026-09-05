@@ -5,7 +5,7 @@ from functools import cache
 from pathlib import Path
 
 from ...core.files import write_json, write_text
-from ..catalogs import render_csv_rows
+from bijux_pollenomics.adna.governance.audit_catalogs import render_csv_rows
 from ..sources.ena import build_archive_project_catalog
 from .coordinate_provenance import resolve_project_context_coordinate_provenance
 from .sample_sites import (

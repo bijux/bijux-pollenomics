@@ -4,19 +4,19 @@ from collections import defaultdict
 from collections.abc import Iterable
 import re
 
-from ..core.bp_time import (
+from ...core.bp_time import (
     build_bp_interval_label,
     merge_bp_intervals,
     midpoint_bp_year,
 )
-from .models import (
+from bijux_pollenomics.adna.domain.models import (
     AdnaChronology,
     AdnaCoordinate,
     AdnaLocalityIdentity,
     AdnaLocalitySummary,
     AdnaSampleRecord,
 )
-from .species.definitions import resolve_species_definition
+from ..species.definitions import resolve_species_definition
 
 __all__ = ["build_locality_identity", "summarize_sample_localities"]
 

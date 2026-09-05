@@ -5,7 +5,7 @@ import io
 from pathlib import Path
 
 from ...core.files import write_json, write_text
-from ..catalogs import (
+from bijux_pollenomics.adna.governance.audit_catalogs import (
     build_coordinate_caveat_surface,
     build_cross_species_archive_inventory,
     build_cross_species_bibliography,
@@ -19,17 +19,17 @@ from ..catalogs import (
     render_coordinate_confidence_scale_markdown,
     render_csv_rows,
 )
-from ..curation import build_species_curation_manifest
-from ..governance import build_species_dataset_review
-from ..integrity import build_archive_integrity_report
-from ..layout import build_species_layout
-from ..manifests import build_species_manifest
-from ..normalization import (
+from bijux_pollenomics.adna.governance.curation import build_species_curation_manifest
+from bijux_pollenomics.adna.governance.admission import build_species_dataset_review
+from bijux_pollenomics.adna.governance.integrity import build_archive_integrity_report
+from bijux_pollenomics.adna.workflow.layout import build_species_layout
+from bijux_pollenomics.adna.workflow.manifests import build_species_manifest
+from bijux_pollenomics.adna.workflow.normalization import (
     RECOVERED_SAMPLE_EVIDENCE_STATUSES,
     AdnaSpeciesNormalizationBundle,
     build_species_normalization_bundle,
 )
-from ..paths import adna_final_root, adna_governance_root
+from bijux_pollenomics.adna.workflow.paths import adna_final_root, adna_governance_root
 from ..projects.sample_truth import (
     build_animal_sample_aggregation_warnings,
     build_animal_sample_foundation_truth,
@@ -38,8 +38,11 @@ from ..projects.sample_truth import (
     render_animal_sample_foundation_truth_markdown,
     render_animal_sample_product_contract_markdown,
 )
-from ..reviews import build_species_project_manifest, build_species_review_dossier
-from ..runtime import build_species_runtime_manifest
+from bijux_pollenomics.adna.governance.reviews import (
+    build_species_project_manifest,
+    build_species_review_dossier,
+)
+from bijux_pollenomics.adna.workflow.runtime import build_species_runtime_manifest
 from ..sources.ena import (
     build_species_archive_projects,
     classify_archive_project_evidence,
@@ -1348,7 +1351,7 @@ def _materialize_final_adna_artifacts(output_root: Path, final_root: Path) -> No
         build_tracked_animal_atlas_evidence_rows,
     )
     from ...reporting.adna.country_outputs import build_country_animal_output_bundle
-    from ..catalogs import (
+    from bijux_pollenomics.adna.governance.audit_catalogs import (
         build_animal_atlas_candidate_accountability,
         render_animal_atlas_candidate_accountability_markdown,
     )

@@ -4,18 +4,23 @@ from collections import Counter
 from dataclasses import dataclass
 from pathlib import Path
 
-from ..config import DEFAULT_AADR_VERSION, DEFAULT_DATA_ROOT
-from ..core.temporal_semantics import (
+from ...config import DEFAULT_AADR_VERSION, DEFAULT_DATA_ROOT
+from ...core.temporal_semantics import (
     InvalidBpIntervalError,
     canonical_bp_interval,
     closed_bp_intervals_overlap,
 )
-from .curation import build_species_curation_manifest
-from .manifests import AdnaSpeciesManifest, build_species_manifest
-from .models import AdnaSampleRecord
-from .normalization import build_species_normalization_bundle
-from .reviews import AdnaSpeciesProjectRow
-from .species.definitions import AdnaSpeciesDefinition
+from bijux_pollenomics.adna.governance.curation import build_species_curation_manifest
+from bijux_pollenomics.adna.workflow.manifests import (
+    AdnaSpeciesManifest,
+    build_species_manifest,
+)
+from bijux_pollenomics.adna.domain.models import AdnaSampleRecord
+from bijux_pollenomics.adna.workflow.normalization import (
+    build_species_normalization_bundle,
+)
+from bijux_pollenomics.adna.governance.reviews import AdnaSpeciesProjectRow
+from ..species.definitions import AdnaSpeciesDefinition
 
 __all__ = [
     "ADNA_PROVENANCE_QUALITIES",
@@ -131,7 +136,7 @@ def build_species_runtime_manifest(
     species_manifest = build_species_manifest(species_name)
     species = species_manifest.species
     if species.latin_name == "Homo sapiens":
-        from .species.homo_sapiens import build_homo_sapiens_runtime_manifest
+        from ..species.homo_sapiens import build_homo_sapiens_runtime_manifest
 
         return build_homo_sapiens_runtime_manifest(data_root=data_root, version=version)
 
@@ -176,7 +181,7 @@ def load_species_samples(
 ) -> tuple[list[AdnaSampleRecord], Counter[str]]:
     """Load normalized sample records for one runtime manifest."""
     if manifest.species.latin_name == "Homo sapiens":
-        from .species.homo_sapiens import load_homo_sapiens_samples
+        from ..species.homo_sapiens import load_homo_sapiens_samples
 
         return load_homo_sapiens_samples(
             manifest=manifest,

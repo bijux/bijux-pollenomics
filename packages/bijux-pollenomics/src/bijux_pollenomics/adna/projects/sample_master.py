@@ -9,7 +9,7 @@ import zipfile
 
 from defusedxml import ElementTree as ET  # type: ignore[import-untyped]
 
-from ..source_artifact_storage import (
+from bijux_pollenomics.adna.workflow.source_artifacts import (
     read_source_artifact_text,
     resolve_source_artifact_path,
 )
@@ -290,7 +290,7 @@ def build_sample_identity_ambiguity_ledger(
 
 def materialize_sample_master_library(output_root: Path) -> None:
     from ...core.files import write_json, write_text
-    from ..catalogs import render_csv_rows
+    from bijux_pollenomics.adna.governance.audit_catalogs import render_csv_rows
 
     output_root = Path(output_root)
     source_root = output_root / "adna" / "governance" / "source_library"

@@ -2,8 +2,8 @@ from __future__ import annotations
 
 from dataclasses import dataclass
 
-from .paths import ADNA_SPECIES_DIR
-from .species.definitions import AdnaSpeciesDefinition, resolve_species_definition
+from bijux_pollenomics.adna.workflow.paths import ADNA_SPECIES_DIR
+from ..species.definitions import AdnaSpeciesDefinition, resolve_species_definition
 
 __all__ = [
     "ADNA_LAYOUT_SEGMENTS",

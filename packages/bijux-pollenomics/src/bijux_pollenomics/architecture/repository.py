@@ -192,9 +192,10 @@ def build_repository_architecture_contract() -> RepositoryArchitectureContract:
         ),
         ArchitectureStage(
             stage_key="animal_adna_normalization",
-            owner_module="bijux_pollenomics.adna.normalization",
+            owner_module="bijux_pollenomics.adna.workflow.normalization",
             owner_path=(
-                "packages/bijux-pollenomics/src/bijux_pollenomics/adna/normalization.py"
+                "packages/bijux-pollenomics/src/"
+                "bijux_pollenomics/adna/workflow/normalization.py"
             ),
             purpose="materialize species-owned normalized sample and locality records",
             tracked_inputs=("sample-owned evidence rows",),
@@ -204,8 +205,11 @@ def build_repository_architecture_contract() -> RepositoryArchitectureContract:
         ),
         ArchitectureStage(
             stage_key="animal_adna_validation",
-            owner_module="bijux_pollenomics.adna.reviews",
-            owner_path="packages/bijux-pollenomics/src/bijux_pollenomics/adna/reviews.py",
+            owner_module="bijux_pollenomics.adna.governance.reviews",
+            owner_path=(
+                "packages/bijux-pollenomics/src/"
+                "bijux_pollenomics/adna/governance/reviews.py"
+            ),
             purpose="classify blockers, conflicts, and evidence honesty before publication",
             tracked_inputs=("normalized species bundles", "review ledgers"),
             tracked_outputs=("governance review surfaces", "release gates"),

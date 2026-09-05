@@ -5,7 +5,7 @@ from dataclasses import dataclass
 import json
 from pathlib import Path
 
-from ...adna.paths import adna_species_dir
+from ...adna.workflow.paths import adna_species_dir
 from ..geography import (
     REGIONAL_COUNTRY_ASSIGNMENTS,
     TERRITORY_COUNTRY_ASSIGNMENTS,

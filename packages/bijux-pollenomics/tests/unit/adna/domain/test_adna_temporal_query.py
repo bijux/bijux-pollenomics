@@ -8,8 +8,8 @@ from bijux_pollenomics.adna import (
     load_species_samples,
 )
 from bijux_pollenomics.adna import homo_sapiens as homo_sapiens_runtime
-from bijux_pollenomics.adna import runtime as adna_runtime
-from bijux_pollenomics.adna.models import (
+from bijux_pollenomics.adna.workflow import runtime as adna_runtime
+from bijux_pollenomics.adna.domain.models import (
     AdnaChronology,
     AdnaCoordinate,
     AdnaLocalityIdentity,

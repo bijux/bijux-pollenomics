@@ -6,10 +6,10 @@ import io
 import json
 from pathlib import Path
 
-from .paths import adna_species_dir, adna_species_root
-from .projects.context import build_species_freshness_rows, resolve_project_context
-from .sources.ena import build_archive_project_catalog
-from .species.tracked_species import TRACKED_ADNA_SPECIES
+from bijux_pollenomics.adna.workflow.paths import adna_species_dir, adna_species_root
+from ..projects.context import build_species_freshness_rows, resolve_project_context
+from ..sources.ena import build_archive_project_catalog
+from ..species.tracked_species import TRACKED_ADNA_SPECIES
 
 __all__ = [
     "build_animal_atlas_candidate_accountability",
@@ -788,7 +788,7 @@ def _build_species_coverage_row(
     report_root: Path,
     species_name: str,
 ) -> dict[str, object]:
-    from .species.definitions import resolve_species_definition
+    from ..species.definitions import resolve_species_definition
 
     species = resolve_species_definition(species_name)
     species_root = adna_species_root(data_root, species_name)
@@ -860,7 +860,7 @@ def _build_species_coverage_row(
 def _build_species_map_readiness_row(
     data_root: Path, species_name: str
 ) -> dict[str, object]:
-    from .species.definitions import resolve_species_definition
+    from ..species.definitions import resolve_species_definition
 
     species = resolve_species_definition(species_name)
     species_root = _species_root(data_root, species_name)

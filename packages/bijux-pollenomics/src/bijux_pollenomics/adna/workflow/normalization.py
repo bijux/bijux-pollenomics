@@ -5,15 +5,18 @@ from dataclasses import dataclass
 from pathlib import Path
 import re
 
-from ..core.bp_time import (
+from ...core.bp_time import (
     build_bp_interval_label,
     midpoint_bp_year,
     normalize_bp_interval,
     parse_bp_window_label,
 )
-from .curation import build_species_curation_manifest
-from .manifests import AdnaSpeciesManifest, build_species_manifest
-from .models import (
+from bijux_pollenomics.adna.governance.curation import build_species_curation_manifest
+from bijux_pollenomics.adna.workflow.manifests import (
+    AdnaSpeciesManifest,
+    build_species_manifest,
+)
+from bijux_pollenomics.adna.domain.models import (
     AdnaChronology,
     AdnaCoordinate,
     AdnaCoordinateProvenanceRecord,
@@ -23,21 +26,21 @@ from .models import (
     AdnaSampleRecord,
     AdnaSiteEvidenceRecord,
 )
-from .paths import ADNA_SPECIES_DIR
-from .projects.context import resolve_project_context
-from .projects.coordinate_provenance import build_species_coordinate_provenance_rows
-from .projects.localities import build_species_project_locality_leads
-from .projects.sample_chronology import build_project_sample_chronology_rows
-from .projects.sample_registry import (
+from bijux_pollenomics.adna.workflow.paths import ADNA_SPECIES_DIR
+from ..projects.context import resolve_project_context
+from ..projects.coordinate_provenance import build_species_coordinate_provenance_rows
+from ..projects.localities import build_species_project_locality_leads
+from ..projects.sample_chronology import build_project_sample_chronology_rows
+from ..projects.sample_registry import (
     AdnaCuratedSampleRow,
     build_species_curated_sample_rows,
 )
-from .projects.site_evidence import build_species_site_evidence_rows
-from .sources.ena import (
+from ..projects.site_evidence import build_species_site_evidence_rows
+from ..sources.ena import (
     build_species_archive_projects,
     classify_archive_project_evidence,
 )
-from .species.definitions import AdnaSpeciesDefinition, resolve_species_definition
+from ..species.definitions import AdnaSpeciesDefinition, resolve_species_definition
 
 __all__ = [
     "ADNA_DOMESTICATION_STATUSES",

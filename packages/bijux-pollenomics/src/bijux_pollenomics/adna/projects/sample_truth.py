@@ -4,7 +4,7 @@ import json
 from pathlib import Path
 import re
 
-from ..paths import adna_species_root
+from bijux_pollenomics.adna.workflow.paths import adna_species_root
 from ..species.definitions import resolve_species_definition
 from ..species.tracked_species import TRACKED_ADNA_SPECIES
 

@@ -23,7 +23,7 @@ from bijux_pollenomics.adna.projects.sample_master import (
     build_project_sample_master_rows,
     build_sample_identity_ambiguity_ledger,
 )
-from bijux_pollenomics.adna.source_artifact_storage import (
+from bijux_pollenomics.adna.workflow.source_artifacts import (
     read_source_artifact_bytes,
     resolve_source_artifact_path,
 )

@@ -4,7 +4,7 @@ import json
 from pathlib import Path
 
 from ...core.files import write_json, write_text
-from ..paths import ADNA_SOURCE_LIBRARY_DIR
+from bijux_pollenomics.adna.workflow.paths import ADNA_SOURCE_LIBRARY_DIR
 from .library import (
     _doi_slug,
     _reference_stash_records,

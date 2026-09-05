@@ -19,8 +19,8 @@ from bijux_pollenomics.adna import (
     build_species_freshness_table,
     build_unresolved_site_ledger,
 )
-from bijux_pollenomics.adna import catalogs as adna_catalogs
-from bijux_pollenomics.adna.catalogs import (
+from bijux_pollenomics.adna.governance import audit_catalogs as adna_catalogs
+from bijux_pollenomics.adna.governance.audit_catalogs import (
     render_coordinate_caveat_surface_markdown,
     render_coordinate_confidence_scale_markdown,
     render_public_animal_output_audit_markdown,

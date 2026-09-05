@@ -12,7 +12,7 @@ from ...adna import (
     AdnaLocalitySummary,
     build_species_support_matrix,
 )
-from ...adna.paths import adna_species_dir
+from ...adna.workflow.paths import adna_species_dir
 from ..presentation.text import slugify
 
 __all__ = [

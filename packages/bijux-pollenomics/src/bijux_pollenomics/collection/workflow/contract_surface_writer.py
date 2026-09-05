@@ -2,7 +2,7 @@ from __future__ import annotations
 
 from pathlib import Path
 
-from ...adna.governance_contracts import materialize_adna_governance_contracts
+from ...adna.governance.contracts import materialize_adna_governance_contracts
 from ...core.files import write_json
 from ..contracts.repository import (
     build_evidence_artifact_contract_payload,

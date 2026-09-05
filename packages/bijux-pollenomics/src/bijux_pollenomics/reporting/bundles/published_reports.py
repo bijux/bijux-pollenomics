@@ -5,7 +5,7 @@ import json
 import os
 from pathlib import Path
 
-from ...adna.catalogs import (
+from ...adna.governance.audit_catalogs import (
     build_public_animal_output_audit,
     render_public_animal_output_audit_markdown,
 )

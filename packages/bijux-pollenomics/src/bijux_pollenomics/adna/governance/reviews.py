@@ -2,16 +2,19 @@ from __future__ import annotations
 
 from dataclasses import dataclass
 
-from .governance import (
+from bijux_pollenomics.adna.governance.admission import (
     AdnaProjectAdmissionReview,
     AdnaSpeciesDatasetReview,
     build_project_admission_review,
     build_species_dataset_review,
     classify_species_product_role,
 )
-from .manifests import AdnaSpeciesManifest, build_species_manifest
-from .projects.context import resolve_project_context
-from .sources.ena import (
+from bijux_pollenomics.adna.workflow.manifests import (
+    AdnaSpeciesManifest,
+    build_species_manifest,
+)
+from ..projects.context import resolve_project_context
+from ..sources.ena import (
     build_species_archive_projects,
     classify_archive_project_evidence,
 )

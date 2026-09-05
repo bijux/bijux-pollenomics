@@ -5,7 +5,7 @@ from html import unescape
 from pathlib import Path
 import re
 
-from ..source_artifact_storage import read_source_artifact_text
+from bijux_pollenomics.adna.workflow.source_artifacts import read_source_artifact_text
 
 __all__ = [
     "AdnaArchiveProjectSample",

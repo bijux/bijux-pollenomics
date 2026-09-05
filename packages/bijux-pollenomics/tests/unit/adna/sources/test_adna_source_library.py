@@ -9,7 +9,7 @@ import unittest
 from unittest.mock import patch
 import zipfile
 
-from bijux_pollenomics.adna.source_artifact_storage import (
+from bijux_pollenomics.adna.workflow.source_artifacts import (
     SourceArtifactContentDriftError,
     migrate_html_source_artifact,
     read_source_artifact_text,

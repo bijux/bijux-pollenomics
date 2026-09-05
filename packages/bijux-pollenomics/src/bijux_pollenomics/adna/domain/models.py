@@ -2,7 +2,7 @@ from __future__ import annotations
 
 from dataclasses import dataclass
 
-from ..core.temporal_semantics import build_temporal_semantics
+from ...core.temporal_semantics import build_temporal_semantics
 
 __all__ = [
     "ADNA_COORDINATE_CONFIDENCE",

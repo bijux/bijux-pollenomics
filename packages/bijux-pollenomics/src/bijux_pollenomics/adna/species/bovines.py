@@ -2,9 +2,9 @@ from __future__ import annotations
 
 from dataclasses import dataclass
 
-from ..curation import build_species_curation_manifest
-from ..governance import build_species_dataset_review
-from ..reviews import build_species_project_manifest
+from bijux_pollenomics.adna.governance.curation import build_species_curation_manifest
+from bijux_pollenomics.adna.governance.admission import build_species_dataset_review
+from bijux_pollenomics.adna.governance.reviews import build_species_project_manifest
 from .definitions import resolve_species_definition
 
 __all__ = [

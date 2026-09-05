@@ -1,6 +1,6 @@
-"""Compatibility exports for the repository-owned aDNA workflow surface."""
+"""Stable public API for repository-owned aDNA evidence workflows."""
 
-from .catalogs import (
+from bijux_pollenomics.adna.governance.audit_catalogs import (
     build_coordinate_caveat_surface,
     build_cross_species_archive_inventory,
     build_cross_species_bibliography,
@@ -12,7 +12,7 @@ from .catalogs import (
     build_species_freshness_table,
     build_unresolved_site_ledger,
 )
-from .curation import (
+from bijux_pollenomics.adna.governance.curation import (
     ADNA_COVERAGE_POSTURES,
     ADNA_CURATION_CLASSES,
     AdnaDomesticationCoverageReport,
@@ -22,7 +22,7 @@ from .curation import (
     build_domestication_coverage_report,
     build_species_curation_manifest,
 )
-from .governance import (
+from bijux_pollenomics.adna.governance.admission import (
     ADNA_ASSIGNMENT_RULES,
     ADNA_DATASET_BUCKETS,
     ADNA_PRODUCT_ROLES,
@@ -33,16 +33,26 @@ from .governance import (
     classify_species_assignment_rule,
     classify_species_product_role,
 )
-from .integrity import (
+from bijux_pollenomics.adna.governance.integrity import (
     AdnaArchiveDuplicate,
     AdnaArchiveIntegrityReport,
     AdnaSpeciesMismatch,
     build_archive_integrity_report,
 )
-from .layout import ADNA_LAYOUT_SEGMENTS, AdnaSpeciesLayout, build_species_layout
-from .locality import build_locality_identity, summarize_sample_localities
-from .manifests import AdnaSpeciesManifest, build_species_manifest
-from .models import (
+from bijux_pollenomics.adna.workflow.layout import (
+    ADNA_LAYOUT_SEGMENTS,
+    AdnaSpeciesLayout,
+    build_species_layout,
+)
+from bijux_pollenomics.adna.domain.locality import (
+    build_locality_identity,
+    summarize_sample_localities,
+)
+from bijux_pollenomics.adna.workflow.manifests import (
+    AdnaSpeciesManifest,
+    build_species_manifest,
+)
+from bijux_pollenomics.adna.domain.models import (
     ADNA_COORDINATE_CONFIDENCE,
     ADNA_COORDINATE_PROVENANCE_CLASSES,
     ADNA_DATING_BASES,
@@ -56,7 +66,7 @@ from .models import (
     AdnaSampleRecord,
     AdnaSiteEvidenceRecord,
 )
-from .normalization import (
+from bijux_pollenomics.adna.workflow.normalization import (
     ADNA_DOMESTICATION_STATUSES,
     AdnaCoordinateResolution,
     AdnaNormalizationLineage,
@@ -97,12 +107,12 @@ from .projects import (
     resolve_project_coordinate_provenance,
     resolve_project_site_evidence,
 )
-from .rebuild import (
+from bijux_pollenomics.adna.workflow.rebuild import (
     AdnaArtifactPlanEntry,
     AdnaSpeciesArtifactPlan,
     build_species_artifact_plan,
 )
-from .reviews import (
+from bijux_pollenomics.adna.governance.reviews import (
     AdnaProjectManifestChange,
     AdnaSpeciesManifestDiff,
     AdnaSpeciesProjectManifest,
@@ -112,7 +122,7 @@ from .reviews import (
     build_species_project_manifest,
     build_species_review_dossier,
 )
-from .runtime import (
+from bijux_pollenomics.adna.workflow.runtime import (
     ADNA_PROVENANCE_QUALITIES,
     ADNA_REVIEW_STRENGTHS,
     AdnaSampleQuery,
@@ -121,44 +131,56 @@ from .runtime import (
     build_species_runtime_manifest,
     load_species_samples,
 )
-from .sources import (
+from .sources.accessions import (
+    AdnaAccessionReference,
+    resolve_accession_lineage,
+    resolve_accession_reference,
+)
+from .sources.ena import (
     ADNA_ENA_RESULT_KINDS,
     ADNA_PROJECT_EVIDENCE_STRENGTHS,
-    ADNA_SOURCE_CAPTURE_BASES,
-    AdnaAccessionReference,
     AdnaArchiveProject,
-    AdnaArchiveSourceSnapshot,
     AdnaEnaQuery,
     AdnaEnaRecord,
     AdnaPaperLinkage,
     build_ena_filereport_url,
-    build_species_source_snapshots,
     classify_archive_project_evidence,
     parse_ena_filereport_tsv,
-    resolve_accession_lineage,
-    resolve_accession_reference,
+)
+from .sources.snapshots import (
+    ADNA_SOURCE_CAPTURE_BASES,
+    AdnaArchiveSourceSnapshot,
     resolve_archive_source_snapshot,
+    build_species_source_snapshots,
 )
 from .sources.ena import build_archive_project_catalog, build_species_archive_projects
-from .species import (
-    ADNA_MODALITIES,
-    ADNA_SUPPORT_STATUSES,
-    AdnaSpeciesDefinition,
+from .species.bovines import (
     BovineCombinedClaimRule,
     BovineSpeciesSupportRow,
     BovineSupportProgram,
-    HomoSapiensGenotypeArtifact,
-    HomoSapiensGenotypeContract,
     build_bovine_support_program,
-    build_homo_sapiens_genotype_contract,
+)
+from .species.definitions import (
+    ADNA_MODALITIES,
+    ADNA_SUPPORT_STATUSES,
+    AdnaSpeciesDefinition,
+    resolve_species_definition,
+)
+from .species.homo_sapiens import (
     build_homo_sapiens_runtime_manifest,
     build_homo_sapiens_runtime_manifest_for_version_dir,
     discover_homo_sapiens_anno_files,
     iter_homo_sapiens_samples_from_anno,
     load_homo_sapiens_country_samples,
     load_homo_sapiens_samples,
+)
+from .species.homo_sapiens_genotypes import (
+    HomoSapiensGenotypeArtifact,
+    HomoSapiensGenotypeContract,
+    build_homo_sapiens_genotype_contract,
+)
+from .species.homo_sapiens_schema import (
     resolve_homo_sapiens_schema,
-    resolve_species_definition,
     sample_time_interval,
     sample_time_label,
     sample_time_mean,

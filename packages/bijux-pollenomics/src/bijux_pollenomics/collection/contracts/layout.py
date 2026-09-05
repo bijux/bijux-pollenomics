@@ -3,7 +3,7 @@ from __future__ import annotations
 from dataclasses import dataclass
 from pathlib import Path
 
-from ...adna.paths import ADNA_SPECIES_DIR
+from ...adna.workflow.paths import ADNA_SPECIES_DIR
 from ..workflow.layout import AVAILABLE_SOURCES
 from .repository import build_contract_artifact_paths
 

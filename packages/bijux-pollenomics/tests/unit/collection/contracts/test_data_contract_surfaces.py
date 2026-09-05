@@ -6,7 +6,7 @@ from pathlib import Path
 import tempfile
 import unittest
 
-from bijux_pollenomics.adna.governance_contracts import (
+from bijux_pollenomics.adna.governance.contracts import (
     build_adna_governance_role_registry,
     build_source_library_project_surface_contract,
     materialize_adna_governance_contracts,

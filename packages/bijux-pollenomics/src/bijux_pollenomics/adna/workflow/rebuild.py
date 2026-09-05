@@ -2,13 +2,18 @@ from __future__ import annotations
 
 from dataclasses import dataclass
 
-from .curation import build_species_curation_manifest
-from .integrity import build_archive_integrity_report
-from .layout import build_species_layout
-from .manifests import build_species_manifest
-from .normalization import build_species_normalization_bundle
-from .reviews import build_species_project_manifest, build_species_review_dossier
-from .runtime import build_species_runtime_manifest
+from bijux_pollenomics.adna.governance.curation import build_species_curation_manifest
+from bijux_pollenomics.adna.governance.integrity import build_archive_integrity_report
+from bijux_pollenomics.adna.workflow.layout import build_species_layout
+from bijux_pollenomics.adna.workflow.manifests import build_species_manifest
+from bijux_pollenomics.adna.workflow.normalization import (
+    build_species_normalization_bundle,
+)
+from bijux_pollenomics.adna.governance.reviews import (
+    build_species_project_manifest,
+    build_species_review_dossier,
+)
+from bijux_pollenomics.adna.workflow.runtime import build_species_runtime_manifest
 
 __all__ = [
     "AdnaArtifactPlanEntry",

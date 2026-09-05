@@ -13,7 +13,9 @@ from bijux_pollenomics.adna import (
     normalize_explicit_bp_window,
     normalize_species_anchor,
 )
-from bijux_pollenomics.adna.normalization import RECOVERED_SAMPLE_EVIDENCE_STATUSES
+from bijux_pollenomics.adna.workflow.normalization import (
+    RECOVERED_SAMPLE_EVIDENCE_STATUSES,
+)
 
 pytestmark = pytest.mark.generated_artifacts
 

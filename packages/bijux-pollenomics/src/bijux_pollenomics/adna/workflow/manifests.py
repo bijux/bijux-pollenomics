@@ -2,8 +2,11 @@ from __future__ import annotations
 
 from dataclasses import dataclass
 
-from .layout import ADNA_LAYOUT_SEGMENTS, build_species_layout
-from .species.definitions import AdnaSpeciesDefinition, resolve_species_definition
+from bijux_pollenomics.adna.workflow.layout import (
+    ADNA_LAYOUT_SEGMENTS,
+    build_species_layout,
+)
+from ..species.definitions import AdnaSpeciesDefinition, resolve_species_definition
 
 __all__ = [
     "AdnaSpeciesManifest",

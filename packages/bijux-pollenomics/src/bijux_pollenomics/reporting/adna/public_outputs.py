@@ -3,11 +3,11 @@ from __future__ import annotations
 import json
 from pathlib import Path
 
-from ...adna.catalogs import (
+from ...adna.governance.audit_catalogs import (
     build_cross_species_map_readiness,
     build_public_animal_output_honesty,
 )
-from ...adna.paths import adna_species_dir
+from ...adna.workflow.paths import adna_species_dir
 from ...core.temporal_semantics import (
     InvalidBpIntervalError,
     canonical_bp_interval,

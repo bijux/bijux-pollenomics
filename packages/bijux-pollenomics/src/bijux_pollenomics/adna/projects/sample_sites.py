@@ -7,7 +7,7 @@ import shutil
 import subprocess  # nosec B404
 
 from ...core.files import write_json, write_text
-from ..catalogs import render_csv_rows
+from bijux_pollenomics.adna.governance.audit_catalogs import render_csv_rows
 from ..sources.ena import build_archive_project_catalog
 from .coordinate_provenance import resolve_project_coordinate_provenance
 from .sample_master import build_project_sample_master_rows

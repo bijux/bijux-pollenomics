@@ -3,7 +3,7 @@ from __future__ import annotations
 from pathlib import Path
 
 from ...adna import resolve_species_definition
-from ...adna.paths import (
+from ...adna.workflow.paths import (
     ADNA_FINAL_DIR,
     ADNA_GOVERNANCE_DIR,
     ADNA_SOURCE_LIBRARY_DIR,

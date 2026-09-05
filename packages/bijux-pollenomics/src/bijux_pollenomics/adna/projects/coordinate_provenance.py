@@ -2,7 +2,7 @@ from __future__ import annotations
 
 from pathlib import Path
 
-from ..models import AdnaCoordinateProvenanceRecord
+from bijux_pollenomics.adna.domain.models import AdnaCoordinateProvenanceRecord
 from ..sources.library import build_project_registry
 from .sample_master import build_project_sample_master_rows
 

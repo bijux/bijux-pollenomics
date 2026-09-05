@@ -3,9 +3,15 @@ from __future__ import annotations
 from dataclasses import dataclass
 from typing import Final
 
-from .manifests import AdnaSpeciesManifest, build_species_manifest
-from .reviews import AdnaSpeciesProjectRow, build_species_project_manifest
-from .species.definitions import AdnaSpeciesDefinition
+from bijux_pollenomics.adna.workflow.manifests import (
+    AdnaSpeciesManifest,
+    build_species_manifest,
+)
+from bijux_pollenomics.adna.governance.reviews import (
+    AdnaSpeciesProjectRow,
+    build_species_project_manifest,
+)
+from ..species.definitions import AdnaSpeciesDefinition
 
 __all__ = [
     "ADNA_CURATION_CLASSES",

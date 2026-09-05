@@ -6,8 +6,8 @@ import re
 
 from ...core.files import write_json, write_text
 from ...core.temporal_semantics import build_temporal_semantics
-from ..catalogs import render_csv_rows
-from ..models import (
+from bijux_pollenomics.adna.governance.audit_catalogs import render_csv_rows
+from bijux_pollenomics.adna.domain.models import (
     ADNA_CHRONOLOGY_EVIDENCE_CLASSES,
     ADNA_CHRONOLOGY_PRECISION_POSTURES,
 )
@@ -824,7 +824,7 @@ def _resolve_chronology_source(
     site_row: object | None,
     dating_basis: str,
 ) -> _ResolvedChronologySource:
-    from ..normalization import normalize_chronology_text
+    from bijux_pollenomics.adna.workflow.normalization import normalize_chronology_text
 
     sample_text = str(getattr(master_row, "chronology_text", "")).strip()
     site_text = (
@@ -947,7 +947,7 @@ def _resolve_chronology_source(
 
 
 def _site_chronology(site_row: object | None, *, dating_basis: str) -> object:
-    from ..normalization import (
+    from bijux_pollenomics.adna.workflow.normalization import (
         normalize_chronology_text,
         normalize_explicit_bp_window,
     )

@@ -3,12 +3,12 @@ from __future__ import annotations
 import json
 from pathlib import Path
 
-from ...adna.catalogs import (
+from ...adna.governance.audit_catalogs import (
     build_cross_species_map_readiness,
     build_overbroad_site_ledger,
     build_unresolved_site_ledger,
 )
-from ...adna.paths import adna_species_dir
+from ...adna.workflow.paths import adna_species_dir
 from ...adna.projects.sample_chronology import (
     ADNA_CHRONOLOGY_EVIDENCE_CLASSES,
     ADNA_CHRONOLOGY_NORMALIZATION_STATUSES,
