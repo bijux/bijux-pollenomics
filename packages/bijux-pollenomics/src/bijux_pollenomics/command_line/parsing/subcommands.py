@@ -24,23 +24,23 @@ __all__ = [
     "build_adna_curation_manifest_parser",
     "build_adna_domestication_coverage_parser",
     "build_adna_layout_parser",
+    "build_adna_normalization_bundle_parser",
     "build_adna_release_bar_parser",
     "build_adna_release_readiness_parser",
-    "build_adna_normalization_bundle_parser",
     "build_adna_runtime_manifest_parser",
-    "build_adna_species_review_parser",
     "build_adna_species_parser",
-    "build_refresh_animal_adna_foundation_parser",
+    "build_adna_species_review_parser",
     "build_collect_data_parser",
-    "build_refresh_data_contract_surfaces_parser",
     "build_multi_country_map_parser",
-    "build_publish_reports_parser",
     "build_ownership_map_parser",
-    "build_report_country_parser",
     "build_product_scope_parser",
-    "build_validate_collection_summary_parser",
+    "build_publish_reports_parser",
+    "build_refresh_animal_adna_foundation_parser",
+    "build_refresh_data_contract_surfaces_parser",
+    "build_report_country_parser",
     "build_source_support_parser",
     "build_surface_map_parser",
+    "build_validate_collection_summary_parser",
     "register_subcommands",
 ]
 
@@ -396,6 +396,14 @@ def build_publish_reports_parser(
     add_output_root_argument(
         parser,
         help_text="Directory where published report bundles should be written. Default: docs/report",
+    )
+    parser.add_argument(
+        "--published-output-root",
+        type=Path,
+        help=(
+            "Stable public path recorded inside generated bundles when physical "
+            "output is isolated for reproducibility verification."
+        ),
     )
     add_context_root_argument(parser)
     return parser

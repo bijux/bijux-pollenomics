@@ -197,10 +197,16 @@ def generate_published_reports(
     title: str = DEFAULT_ATLAS_TITLE,
     slug: str = DEFAULT_ATLAS_SLUG,
     context_root: Path | None = None,
+    published_output_root: Path | None = None,
 ) -> PublishedReportsReport:
     """Generate the current published report set: one shared map and one bundle per country."""
     version_dir = Path(version_dir)
     output_root = Path(output_root)
+    published_output_root = (
+        Path(published_output_root)
+        if published_output_root is not None
+        else output_root
+    )
 
     normalized_countries = normalize_requested_countries(countries)
     if not normalized_countries:
@@ -213,6 +219,7 @@ def generate_published_reports(
             staging_output_root,
             version_dir=version_dir,
             output_root=output_root,
+            published_output_root=published_output_root,
             normalized_countries=normalized_countries,
             title=title,
             atlas_slug=atlas_slug,

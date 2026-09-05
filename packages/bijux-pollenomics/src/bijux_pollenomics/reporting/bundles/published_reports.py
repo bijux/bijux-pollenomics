@@ -37,6 +37,7 @@ def publish_published_reports_tree(
     *,
     version_dir: Path,
     output_root: Path,
+    published_output_root: Path | None = None,
     normalized_countries: tuple[str, ...],
     title: str,
     atlas_slug: str,
@@ -49,6 +50,11 @@ def publish_published_reports_tree(
     write_summary_json_fn: Callable[[Path, dict[str, object]], None],
 ) -> PublishedReportsReport:
     """Publish the full report tree as one world surface plus derived regional and country views."""
+    published_output_root = (
+        Path(published_output_root)
+        if published_output_root is not None
+        else output_root
+    )
     plan = build_published_geography_plan(normalized_countries)
     data_root = (
         context_root if context_root is not None else output_root.parents[1] / "data"
@@ -68,7 +74,9 @@ def publish_published_reports_tree(
         title=world_scope.map_title,
         slug=world_scope.slug,
         context_root=context_root,
-        published_output_dir=output_root.joinpath(*world_scope.output_dir_parts),
+        published_output_dir=published_output_root.joinpath(
+            *world_scope.output_dir_parts
+        ),
         geography_scope=world_scope,
     )
     scope_reports[world_scope.key] = map_report
@@ -83,7 +91,9 @@ def publish_published_reports_tree(
             title=scope.map_title,
             slug=scope.slug,
             context_root=context_root,
-            published_output_dir=output_root.joinpath(*scope.output_dir_parts),
+            published_output_dir=published_output_root.joinpath(
+                *scope.output_dir_parts
+            ),
             geography_scope=scope,
         )
         scope_reports[scope.key] = scope_report
@@ -116,7 +126,9 @@ def publish_published_reports_tree(
             country=country_scope.countries[0],
             output_dir=country_dir,
             map_reference=(parent_report.title, parent_map_path),
-            published_output_dir=output_root.joinpath(*country_scope.output_dir_parts),
+            published_output_dir=published_output_root.joinpath(
+                *country_scope.output_dir_parts
+            ),
             context_root=context_root,
         )
         country_output_dirs.append(country_dir)
@@ -162,17 +174,17 @@ def publish_published_reports_tree(
         version=map_report.version,
         generated_on=map_report.generated_on,
         countries=normalized_countries,
-        shared_map_dir=output_root.joinpath(*world_scope.output_dir_parts),
+        shared_map_dir=published_output_root.joinpath(*world_scope.output_dir_parts),
         country_output_dirs=tuple(
-            output_root.joinpath(*scope.output_dir_parts)
+            published_output_root.joinpath(*scope.output_dir_parts)
             for scope in plan.country_scopes
         ),
-        summary_path=output_root / summary_path.name,
+        summary_path=published_output_root / summary_path.name,
         regional_output_dirs=tuple(
-            output_root.joinpath(*scope.output_dir_parts)
+            published_output_root.joinpath(*scope.output_dir_parts)
             for scope in plan.regional_scopes
         ),
-        country_output_root=output_root.joinpath("countries"),
+        country_output_root=published_output_root.joinpath("countries"),
     )
     write_summary_json_fn(
         summary_path,
@@ -187,7 +199,9 @@ def publish_published_reports_tree(
     animal_output_audit = build_public_animal_output_audit(
         data_root, staging_output_root
     )
-    animal_output_audit["report_root"] = serialize_publication_path(output_root)
+    animal_output_audit["report_root"] = serialize_publication_path(
+        published_output_root
+    )
     write_summary_json_fn(
         staging_output_root / "animal_output_audit.json",
         animal_output_audit,

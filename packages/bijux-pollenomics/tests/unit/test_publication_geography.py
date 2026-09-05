@@ -162,9 +162,11 @@ class PublicationGeographyTests(unittest.TestCase):
     def test_publish_published_reports_tree_writes_geography_packets(self) -> None:
         with tempfile.TemporaryDirectory() as tmp:
             staging_output_root = Path(tmp) / "staging"
-            output_root = Path(tmp) / "docs" / "report"
+            output_root = Path(tmp) / "isolated" / "report"
+            published_output_root = Path("docs/report")
             version_dir = Path(tmp) / "v66"
             version_dir.mkdir(parents=True, exist_ok=True)
+            observed_published_dirs: list[Path] = []
 
             def fake_generate_multi_country_map_fn(
                 *,
@@ -177,7 +179,9 @@ class PublicationGeographyTests(unittest.TestCase):
                 published_output_dir: Path | None,
                 geography_scope,
             ) -> MultiCountryMapReport:
-                del version_dir, context_root, published_output_dir
+                del version_dir, context_root
+                assert published_output_dir is not None
+                observed_published_dirs.append(published_output_dir)
                 output_dir.mkdir(parents=True, exist_ok=True)
                 build_atlas_bundle_paths(output_dir, slug, "v66")
                 (output_dir / "README.md").write_text(f"# {title}\n", encoding="utf-8")
@@ -219,7 +223,7 @@ class PublicationGeographyTests(unittest.TestCase):
                     countries=tuple(countries),
                     country_sample_counts=dict.fromkeys(countries, 1),
                     total_unique_samples=len(countries),
-                    output_dir=output_dir,
+                    output_dir=published_output_dir,
                     scope_key=geography_scope.key,
                     scope_label=geography_scope.label,
                     scope_kind=geography_scope.kind,
@@ -235,7 +239,9 @@ class PublicationGeographyTests(unittest.TestCase):
                 published_output_dir: Path | None,
                 context_root: Path | None,
             ) -> CountryReport:
-                del version_dir, published_output_dir, context_root
+                del version_dir, context_root
+                assert published_output_dir is not None
+                observed_published_dirs.append(published_output_dir)
                 output_dir.mkdir(parents=True, exist_ok=True)
                 (output_dir / f"{country.lower()}_aadr_v66_samples.geojson").write_text(
                     json.dumps(
@@ -277,7 +283,7 @@ class PublicationGeographyTests(unittest.TestCase):
                     dataset_row_counts={"1240k": 1},
                     samples=(),
                     localities=(),
-                    output_dir=output_dir,
+                    output_dir=published_output_dir,
                 )
 
             with (
@@ -324,6 +330,7 @@ class PublicationGeographyTests(unittest.TestCase):
                     staging_output_root,
                     version_dir=version_dir,
                     output_root=output_root,
+                    published_output_root=published_output_root,
                     normalized_countries=("Sweden", "Norway"),
                     title="World Evidence Surface",
                     atlas_slug="world",
@@ -338,15 +345,24 @@ class PublicationGeographyTests(unittest.TestCase):
                     ),
                 )
 
-            self.assertEqual(report.shared_map_dir, output_root / "world")
+            self.assertEqual(report.shared_map_dir, published_output_root / "world")
             self.assertEqual(
                 report.regional_output_dirs,
                 (
-                    output_root / "regions" / "europe-plus",
-                    output_root / "regions" / "nordic",
+                    published_output_root / "regions" / "europe-plus",
+                    published_output_root / "regions" / "nordic",
                 ),
             )
-            self.assertEqual(report.country_output_root, output_root / "countries")
+            self.assertEqual(
+                report.country_output_root, published_output_root / "countries"
+            )
+            self.assertEqual(len(observed_published_dirs), 5)
+            self.assertTrue(
+                all(
+                    directory.is_relative_to(published_output_root)
+                    for directory in observed_published_dirs
+                )
+            )
             self.assertTrue(
                 (staging_output_root / "publication_geography_registry.json").is_file()
             )
