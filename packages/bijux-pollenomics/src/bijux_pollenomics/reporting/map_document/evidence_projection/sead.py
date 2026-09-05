@@ -2,12 +2,12 @@
 
 from __future__ import annotations
 
-from __future__ import annotations
 from collections import Counter, defaultdict
 from collections.abc import Mapping, MutableMapping, Sequence
 import hashlib
 from pathlib import Path
 from typing import cast
+
 from bijux_pollenomics.evidence.sources.sead import (
     SEAD_GOVERNED_ADMISSION_SHA256,
     SEAD_GOVERNED_EVIDENCE_MANIFEST_SHA256,
@@ -15,6 +15,7 @@ from bijux_pollenomics.evidence.sources.sead import (
     governed_sead_evidence_root,
     read_validated_sead_evidence_documents,
 )
+
 from .constants import (
     _SEAD_DATASET_SEMANTIC_FIELDS,
     _SEAD_DIMENSION_FIELDS,
