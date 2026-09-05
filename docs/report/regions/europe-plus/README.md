@@ -1,6 +1,6 @@
 # Europe-plus Evidence Surface
 
-This shared interactive map bundle was generated on `2026-09-04` from Homo
+This shared interactive map bundle was generated on `2026-09-05` from Homo
 sapiens AADR `v66` plus any governed contextual and animal surfaces that
 the active scope contract allows.
 
@@ -41,14 +41,20 @@ Europe-plus is a governed regional filter view. It keeps only Europe-plus countr
 - Animal atlas evidence JSON: [`europe-plus_animal_atlas_evidence.json`](./europe-plus_animal_atlas_evidence.json)
 - Animal point traceability JSON: [`europe-plus_animal_point_traceability.json`](./europe-plus_animal_point_traceability.json)
 - Static atlas bootstrap manifest: [`europe-plus_map_assets.json`](./europe-plus_map_assets.json)
-- Static atlas data chunk: [`europe-plus.atlas-provenance.0000.2aba9278ae722a14.js`](./europe-plus.atlas-provenance.0000.2aba9278ae722a14.js)
-- Static atlas data chunk: [`europe-plus.atlas-nodes.0001.ea2c1dc9e85c1d35.js`](./europe-plus.atlas-nodes.0001.ea2c1dc9e85c1d35.js)
-- Static atlas data chunk: [`europe-plus.atlas-nodes.0002.b454c439645408db.js`](./europe-plus.atlas-nodes.0002.b454c439645408db.js)
-- Static atlas data chunk: [`europe-plus.atlas-nodes.0003.91e33640d22b9f48.js`](./europe-plus.atlas-nodes.0003.91e33640d22b9f48.js)
-- Static atlas data chunk: [`europe-plus.atlas-nodes.0004.9ed1e272c66132cc.js`](./europe-plus.atlas-nodes.0004.9ed1e272c66132cc.js)
-- Static atlas data chunk: [`europe-plus.atlas-edges.0005.90177799d6a462f5.js`](./europe-plus.atlas-edges.0005.90177799d6a462f5.js)
-- Static atlas data chunk: [`europe-plus.atlas-sequences.0006.7b65b4f3b0d8dc28.js`](./europe-plus.atlas-sequences.0006.7b65b4f3b0d8dc28.js)
-- Static atlas data chunk: [`europe-plus.atlas-indexes.0007.1d07174f39ca27bf.js`](./europe-plus.atlas-indexes.0007.1d07174f39ca27bf.js)
+- Static atlas data chunk: [`europe-plus.atlas-provenance.0000.3b8af256939fe027.js`](./europe-plus.atlas-provenance.0000.3b8af256939fe027.js)
+- Static atlas data chunk: [`europe-plus.atlas-nodes.0001.912887f012b0d190.js`](./europe-plus.atlas-nodes.0001.912887f012b0d190.js)
+- Static atlas data chunk: [`europe-plus.atlas-nodes.0002.08289269e1cc4476.js`](./europe-plus.atlas-nodes.0002.08289269e1cc4476.js)
+- Static atlas data chunk: [`europe-plus.atlas-nodes.0003.6b3dd169d3171032.js`](./europe-plus.atlas-nodes.0003.6b3dd169d3171032.js)
+- Static atlas data chunk: [`europe-plus.atlas-nodes.0004.ab560e9d8fff6c5c.js`](./europe-plus.atlas-nodes.0004.ab560e9d8fff6c5c.js)
+- Static atlas data chunk: [`europe-plus.atlas-nodes.0005.f9d5f140e48791df.js`](./europe-plus.atlas-nodes.0005.f9d5f140e48791df.js)
+- Static atlas data chunk: [`europe-plus.atlas-nodes.0006.b70440ff5c061699.js`](./europe-plus.atlas-nodes.0006.b70440ff5c061699.js)
+- Static atlas data chunk: [`europe-plus.atlas-nodes.0007.da93dbeb1bc16291.js`](./europe-plus.atlas-nodes.0007.da93dbeb1bc16291.js)
+- Static atlas data chunk: [`europe-plus.atlas-nodes.0008.1b3dfeed8238630d.js`](./europe-plus.atlas-nodes.0008.1b3dfeed8238630d.js)
+- Static atlas data chunk: [`europe-plus.atlas-nodes.0009.1225ba5af271391f.js`](./europe-plus.atlas-nodes.0009.1225ba5af271391f.js)
+- Static atlas data chunk: [`europe-plus.atlas-nodes.0010.c0d8ce794f452aef.js`](./europe-plus.atlas-nodes.0010.c0d8ce794f452aef.js)
+- Static atlas data chunk: [`europe-plus.atlas-edges.0011.4a045d7238d88532.js`](./europe-plus.atlas-edges.0011.4a045d7238d88532.js)
+- Static atlas data chunk: [`europe-plus.atlas-sequences.0012.d41103405968948e.js`](./europe-plus.atlas-sequences.0012.d41103405968948e.js)
+- Static atlas data chunk: [`europe-plus.atlas-indexes.0013.fa3d5f9ba39227d1.js`](./europe-plus.atlas-indexes.0013.fa3d5f9ba39227d1.js)
 - Candidate site ranking CSV: [`europe-plus_candidate_sites.csv`](./europe-plus_candidate_sites.csv)
 - Candidate site ranking JSON: [`europe-plus_candidate_sites.json`](./europe-plus_candidate_sites.json)
 - Candidate site ranking markdown: [`europe-plus_candidate_sites.md`](./europe-plus_candidate_sites.md)

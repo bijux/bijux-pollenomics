@@ -4,7 +4,7 @@ This registry classifies the current `docs/report/` tree by family, audience,
 scope, and explanation role so the publication system can be navigated as one
 coherent report surface instead of a loose artifact dump.
 
-- Surface count: `343`
+- Surface count: `411`
 
 ## Family Counts
 
@@ -15,14 +15,14 @@ coherent report surface instead of a loose artifact dump.
 | Map surfaces | 80 |
 | Portal guidance | 2 |
 | Evidence reviews | 33 |
-| Scope-filtered outputs | 168 |
+| Scope-filtered outputs | 236 |
 
 ## Audience Counts
 
 | Audience | Count |
 | --- | ---: |
 | Maintainer diagnostic | 53 |
-| Public reading surface | 177 |
+| Public reading surface | 245 |
 | Scientific review surface | 113 |
 
 ## Classified Surfaces
@@ -169,14 +169,20 @@ coherent report surface instead of a loose artifact dump.
 | `docs/report/regions/europe-plus/_map_assets/markercluster/MarkerCluster.Default.css` | Scope-filtered outputs | Public reading surface | `europe_plus` | `css` | Governed report artifact. |
 | `docs/report/regions/europe-plus/_map_assets/markercluster/MarkerCluster.css` | Scope-filtered outputs | Public reading surface | `europe_plus` | `css` | Governed report artifact. |
 | `docs/report/regions/europe-plus/_map_assets/markercluster/leaflet.markercluster.js` | Scope-filtered outputs | Public reading surface | `europe_plus` | `js` | Governed report artifact. |
-| `docs/report/regions/europe-plus/europe-plus.atlas-edges.0005.90177799d6a462f5.js` | Scope-filtered outputs | Public reading surface | `europe_plus` | `js` | Governed report artifact. |
-| `docs/report/regions/europe-plus/europe-plus.atlas-indexes.0007.1d07174f39ca27bf.js` | Scope-filtered outputs | Public reading surface | `europe_plus` | `js` | Governed report artifact. |
-| `docs/report/regions/europe-plus/europe-plus.atlas-nodes.0001.ea2c1dc9e85c1d35.js` | Scope-filtered outputs | Public reading surface | `europe_plus` | `js` | Governed report artifact. |
-| `docs/report/regions/europe-plus/europe-plus.atlas-nodes.0002.b454c439645408db.js` | Scope-filtered outputs | Public reading surface | `europe_plus` | `js` | Governed report artifact. |
-| `docs/report/regions/europe-plus/europe-plus.atlas-nodes.0003.91e33640d22b9f48.js` | Scope-filtered outputs | Public reading surface | `europe_plus` | `js` | Governed report artifact. |
-| `docs/report/regions/europe-plus/europe-plus.atlas-nodes.0004.9ed1e272c66132cc.js` | Scope-filtered outputs | Public reading surface | `europe_plus` | `js` | Governed report artifact. |
-| `docs/report/regions/europe-plus/europe-plus.atlas-provenance.0000.2aba9278ae722a14.js` | Scope-filtered outputs | Public reading surface | `europe_plus` | `js` | Governed report artifact. |
-| `docs/report/regions/europe-plus/europe-plus.atlas-sequences.0006.7b65b4f3b0d8dc28.js` | Scope-filtered outputs | Public reading surface | `europe_plus` | `js` | Governed report artifact. |
+| `docs/report/regions/europe-plus/europe-plus.atlas-edges.0011.4a045d7238d88532.js` | Scope-filtered outputs | Public reading surface | `europe_plus` | `js` | Governed report artifact. |
+| `docs/report/regions/europe-plus/europe-plus.atlas-indexes.0013.fa3d5f9ba39227d1.js` | Scope-filtered outputs | Public reading surface | `europe_plus` | `js` | Governed report artifact. |
+| `docs/report/regions/europe-plus/europe-plus.atlas-nodes.0001.912887f012b0d190.js` | Scope-filtered outputs | Public reading surface | `europe_plus` | `js` | Governed report artifact. |
+| `docs/report/regions/europe-plus/europe-plus.atlas-nodes.0002.08289269e1cc4476.js` | Scope-filtered outputs | Public reading surface | `europe_plus` | `js` | Governed report artifact. |
+| `docs/report/regions/europe-plus/europe-plus.atlas-nodes.0003.6b3dd169d3171032.js` | Scope-filtered outputs | Public reading surface | `europe_plus` | `js` | Governed report artifact. |
+| `docs/report/regions/europe-plus/europe-plus.atlas-nodes.0004.ab560e9d8fff6c5c.js` | Scope-filtered outputs | Public reading surface | `europe_plus` | `js` | Governed report artifact. |
+| `docs/report/regions/europe-plus/europe-plus.atlas-nodes.0005.f9d5f140e48791df.js` | Scope-filtered outputs | Public reading surface | `europe_plus` | `js` | Governed report artifact. |
+| `docs/report/regions/europe-plus/europe-plus.atlas-nodes.0006.b70440ff5c061699.js` | Scope-filtered outputs | Public reading surface | `europe_plus` | `js` | Governed report artifact. |
+| `docs/report/regions/europe-plus/europe-plus.atlas-nodes.0007.da93dbeb1bc16291.js` | Scope-filtered outputs | Public reading surface | `europe_plus` | `js` | Governed report artifact. |
+| `docs/report/regions/europe-plus/europe-plus.atlas-nodes.0008.1b3dfeed8238630d.js` | Scope-filtered outputs | Public reading surface | `europe_plus` | `js` | Governed report artifact. |
+| `docs/report/regions/europe-plus/europe-plus.atlas-nodes.0009.1225ba5af271391f.js` | Scope-filtered outputs | Public reading surface | `europe_plus` | `js` | Governed report artifact. |
+| `docs/report/regions/europe-plus/europe-plus.atlas-nodes.0010.c0d8ce794f452aef.js` | Scope-filtered outputs | Public reading surface | `europe_plus` | `js` | Governed report artifact. |
+| `docs/report/regions/europe-plus/europe-plus.atlas-provenance.0000.3b8af256939fe027.js` | Scope-filtered outputs | Public reading surface | `europe_plus` | `js` | Governed report artifact. |
+| `docs/report/regions/europe-plus/europe-plus.atlas-sequences.0012.d41103405968948e.js` | Scope-filtered outputs | Public reading surface | `europe_plus` | `js` | Governed report artifact. |
 | `docs/report/regions/europe-plus/europe-plus_animal_atlas_evidence.csv` | Map surfaces | Scientific review surface | `europe_plus` | `csv` | Governed report artifact. |
 | `docs/report/regions/europe-plus/europe-plus_animal_atlas_evidence.json` | Map surfaces | Scientific review surface | `europe_plus` | `json` | Governed report artifact. |
 | `docs/report/regions/europe-plus/europe-plus_animal_localities.geojson` | Map surfaces | Scientific review surface | `europe_plus` | `geojson` | Governed report artifact. |
@@ -214,33 +220,46 @@ coherent report surface instead of a loose artifact dump.
 | `docs/report/regions/nordic/_map_assets/markercluster/MarkerCluster.Default.css` | Scope-filtered outputs | Public reading surface | `nordic` | `css` | Governed report artifact. |
 | `docs/report/regions/nordic/_map_assets/markercluster/MarkerCluster.css` | Scope-filtered outputs | Public reading surface | `nordic` | `css` | Governed report artifact. |
 | `docs/report/regions/nordic/_map_assets/markercluster/leaflet.markercluster.js` | Scope-filtered outputs | Public reading surface | `nordic` | `js` | Governed report artifact. |
-| `docs/report/regions/nordic/nordic.atlas-edges.0024.244f710ccfc88b83.js` | Scope-filtered outputs | Public reading surface | `nordic` | `js` | Governed report artifact. |
-| `docs/report/regions/nordic/nordic.atlas-indexes.0026.c0f1b0ab94e9e199.js` | Scope-filtered outputs | Public reading surface | `nordic` | `js` | Governed report artifact. |
-| `docs/report/regions/nordic/nordic.atlas-nodes.0001.39f5328123ee0676.js` | Scope-filtered outputs | Public reading surface | `nordic` | `js` | Governed report artifact. |
-| `docs/report/regions/nordic/nordic.atlas-nodes.0002.8b244a9f60e62305.js` | Scope-filtered outputs | Public reading surface | `nordic` | `js` | Governed report artifact. |
-| `docs/report/regions/nordic/nordic.atlas-nodes.0003.8c247993821f70f7.js` | Scope-filtered outputs | Public reading surface | `nordic` | `js` | Governed report artifact. |
-| `docs/report/regions/nordic/nordic.atlas-nodes.0004.2048a291e07b041d.js` | Scope-filtered outputs | Public reading surface | `nordic` | `js` | Governed report artifact. |
-| `docs/report/regions/nordic/nordic.atlas-nodes.0005.b593e1d4a3c599bb.js` | Scope-filtered outputs | Public reading surface | `nordic` | `js` | Governed report artifact. |
-| `docs/report/regions/nordic/nordic.atlas-nodes.0006.d71f66b9777cd391.js` | Scope-filtered outputs | Public reading surface | `nordic` | `js` | Governed report artifact. |
-| `docs/report/regions/nordic/nordic.atlas-nodes.0007.682a0e08eacf3120.js` | Scope-filtered outputs | Public reading surface | `nordic` | `js` | Governed report artifact. |
-| `docs/report/regions/nordic/nordic.atlas-nodes.0008.4eab010e9becb091.js` | Scope-filtered outputs | Public reading surface | `nordic` | `js` | Governed report artifact. |
-| `docs/report/regions/nordic/nordic.atlas-nodes.0009.28e919ea8e760d4e.js` | Scope-filtered outputs | Public reading surface | `nordic` | `js` | Governed report artifact. |
-| `docs/report/regions/nordic/nordic.atlas-nodes.0010.e3b051a313295d55.js` | Scope-filtered outputs | Public reading surface | `nordic` | `js` | Governed report artifact. |
-| `docs/report/regions/nordic/nordic.atlas-nodes.0011.3b1c64ba3fdbd682.js` | Scope-filtered outputs | Public reading surface | `nordic` | `js` | Governed report artifact. |
-| `docs/report/regions/nordic/nordic.atlas-nodes.0012.aada6aec1ee0bbdb.js` | Scope-filtered outputs | Public reading surface | `nordic` | `js` | Governed report artifact. |
-| `docs/report/regions/nordic/nordic.atlas-nodes.0013.aca885a46218684c.js` | Scope-filtered outputs | Public reading surface | `nordic` | `js` | Governed report artifact. |
-| `docs/report/regions/nordic/nordic.atlas-nodes.0014.8797b1c7a66f4045.js` | Scope-filtered outputs | Public reading surface | `nordic` | `js` | Governed report artifact. |
-| `docs/report/regions/nordic/nordic.atlas-nodes.0015.8785e47cf21eb84c.js` | Scope-filtered outputs | Public reading surface | `nordic` | `js` | Governed report artifact. |
-| `docs/report/regions/nordic/nordic.atlas-nodes.0016.c7dd605d15a33e6d.js` | Scope-filtered outputs | Public reading surface | `nordic` | `js` | Governed report artifact. |
-| `docs/report/regions/nordic/nordic.atlas-nodes.0017.b48f30cbaeb276ae.js` | Scope-filtered outputs | Public reading surface | `nordic` | `js` | Governed report artifact. |
-| `docs/report/regions/nordic/nordic.atlas-nodes.0018.f39a7457c1e1317d.js` | Scope-filtered outputs | Public reading surface | `nordic` | `js` | Governed report artifact. |
-| `docs/report/regions/nordic/nordic.atlas-nodes.0019.2301d9023ecdd1cb.js` | Scope-filtered outputs | Public reading surface | `nordic` | `js` | Governed report artifact. |
-| `docs/report/regions/nordic/nordic.atlas-nodes.0020.e8abfb7b1a088f15.js` | Scope-filtered outputs | Public reading surface | `nordic` | `js` | Governed report artifact. |
-| `docs/report/regions/nordic/nordic.atlas-nodes.0021.3b64a7290331617d.js` | Scope-filtered outputs | Public reading surface | `nordic` | `js` | Governed report artifact. |
-| `docs/report/regions/nordic/nordic.atlas-nodes.0022.d7d3a1a4df58e814.js` | Scope-filtered outputs | Public reading surface | `nordic` | `js` | Governed report artifact. |
-| `docs/report/regions/nordic/nordic.atlas-nodes.0023.8c3553da40413e21.js` | Scope-filtered outputs | Public reading surface | `nordic` | `js` | Governed report artifact. |
-| `docs/report/regions/nordic/nordic.atlas-provenance.0000.2eddab14e7f1c22f.js` | Scope-filtered outputs | Public reading surface | `nordic` | `js` | Governed report artifact. |
-| `docs/report/regions/nordic/nordic.atlas-sequences.0025.19499c64b5594043.js` | Scope-filtered outputs | Public reading surface | `nordic` | `js` | Governed report artifact. |
+| `docs/report/regions/nordic/nordic.atlas-edges.0037.410297acd754b375.js` | Scope-filtered outputs | Public reading surface | `nordic` | `js` | Governed report artifact. |
+| `docs/report/regions/nordic/nordic.atlas-indexes.0039.0e32530c548708f3.js` | Scope-filtered outputs | Public reading surface | `nordic` | `js` | Governed report artifact. |
+| `docs/report/regions/nordic/nordic.atlas-nodes.0001.ad285cf1890d8e0a.js` | Scope-filtered outputs | Public reading surface | `nordic` | `js` | Governed report artifact. |
+| `docs/report/regions/nordic/nordic.atlas-nodes.0002.492399b2c4e9a3e0.js` | Scope-filtered outputs | Public reading surface | `nordic` | `js` | Governed report artifact. |
+| `docs/report/regions/nordic/nordic.atlas-nodes.0003.657b7b516b04f6ed.js` | Scope-filtered outputs | Public reading surface | `nordic` | `js` | Governed report artifact. |
+| `docs/report/regions/nordic/nordic.atlas-nodes.0004.df18bbe5a46f2178.js` | Scope-filtered outputs | Public reading surface | `nordic` | `js` | Governed report artifact. |
+| `docs/report/regions/nordic/nordic.atlas-nodes.0005.5c8af8ae7b9769b1.js` | Scope-filtered outputs | Public reading surface | `nordic` | `js` | Governed report artifact. |
+| `docs/report/regions/nordic/nordic.atlas-nodes.0006.fe080233bdd24fda.js` | Scope-filtered outputs | Public reading surface | `nordic` | `js` | Governed report artifact. |
+| `docs/report/regions/nordic/nordic.atlas-nodes.0007.5c0d6f9c7ce4e971.js` | Scope-filtered outputs | Public reading surface | `nordic` | `js` | Governed report artifact. |
+| `docs/report/regions/nordic/nordic.atlas-nodes.0008.0288d6980ccdbd89.js` | Scope-filtered outputs | Public reading surface | `nordic` | `js` | Governed report artifact. |
+| `docs/report/regions/nordic/nordic.atlas-nodes.0009.e974300588256696.js` | Scope-filtered outputs | Public reading surface | `nordic` | `js` | Governed report artifact. |
+| `docs/report/regions/nordic/nordic.atlas-nodes.0010.005bda9e3c4ffd84.js` | Scope-filtered outputs | Public reading surface | `nordic` | `js` | Governed report artifact. |
+| `docs/report/regions/nordic/nordic.atlas-nodes.0011.9c076f0cac4eed10.js` | Scope-filtered outputs | Public reading surface | `nordic` | `js` | Governed report artifact. |
+| `docs/report/regions/nordic/nordic.atlas-nodes.0012.12bd5760375df3dc.js` | Scope-filtered outputs | Public reading surface | `nordic` | `js` | Governed report artifact. |
+| `docs/report/regions/nordic/nordic.atlas-nodes.0013.66e5b312a8396705.js` | Scope-filtered outputs | Public reading surface | `nordic` | `js` | Governed report artifact. |
+| `docs/report/regions/nordic/nordic.atlas-nodes.0014.fea15a19202152c8.js` | Scope-filtered outputs | Public reading surface | `nordic` | `js` | Governed report artifact. |
+| `docs/report/regions/nordic/nordic.atlas-nodes.0015.6c20eddf0318f3b6.js` | Scope-filtered outputs | Public reading surface | `nordic` | `js` | Governed report artifact. |
+| `docs/report/regions/nordic/nordic.atlas-nodes.0016.3353ff7cff747a4b.js` | Scope-filtered outputs | Public reading surface | `nordic` | `js` | Governed report artifact. |
+| `docs/report/regions/nordic/nordic.atlas-nodes.0017.318465c7c042122f.js` | Scope-filtered outputs | Public reading surface | `nordic` | `js` | Governed report artifact. |
+| `docs/report/regions/nordic/nordic.atlas-nodes.0018.9d36e9688f9edc8f.js` | Scope-filtered outputs | Public reading surface | `nordic` | `js` | Governed report artifact. |
+| `docs/report/regions/nordic/nordic.atlas-nodes.0019.4b1878e15b653602.js` | Scope-filtered outputs | Public reading surface | `nordic` | `js` | Governed report artifact. |
+| `docs/report/regions/nordic/nordic.atlas-nodes.0020.05022997a8524d35.js` | Scope-filtered outputs | Public reading surface | `nordic` | `js` | Governed report artifact. |
+| `docs/report/regions/nordic/nordic.atlas-nodes.0021.4066ded336b6c95d.js` | Scope-filtered outputs | Public reading surface | `nordic` | `js` | Governed report artifact. |
+| `docs/report/regions/nordic/nordic.atlas-nodes.0022.54ed4b2c05619ffa.js` | Scope-filtered outputs | Public reading surface | `nordic` | `js` | Governed report artifact. |
+| `docs/report/regions/nordic/nordic.atlas-nodes.0023.fe98f0a5f43872fa.js` | Scope-filtered outputs | Public reading surface | `nordic` | `js` | Governed report artifact. |
+| `docs/report/regions/nordic/nordic.atlas-nodes.0024.3c70322c736568ee.js` | Scope-filtered outputs | Public reading surface | `nordic` | `js` | Governed report artifact. |
+| `docs/report/regions/nordic/nordic.atlas-nodes.0025.f5e0f7da9da77142.js` | Scope-filtered outputs | Public reading surface | `nordic` | `js` | Governed report artifact. |
+| `docs/report/regions/nordic/nordic.atlas-nodes.0026.5e328100967dfc77.js` | Scope-filtered outputs | Public reading surface | `nordic` | `js` | Governed report artifact. |
+| `docs/report/regions/nordic/nordic.atlas-nodes.0027.930af5a040355c0d.js` | Scope-filtered outputs | Public reading surface | `nordic` | `js` | Governed report artifact. |
+| `docs/report/regions/nordic/nordic.atlas-nodes.0028.1b958674303537b4.js` | Scope-filtered outputs | Public reading surface | `nordic` | `js` | Governed report artifact. |
+| `docs/report/regions/nordic/nordic.atlas-nodes.0029.293b3508b1eb2ab8.js` | Scope-filtered outputs | Public reading surface | `nordic` | `js` | Governed report artifact. |
+| `docs/report/regions/nordic/nordic.atlas-nodes.0030.a9b9e06f7ff94130.js` | Scope-filtered outputs | Public reading surface | `nordic` | `js` | Governed report artifact. |
+| `docs/report/regions/nordic/nordic.atlas-nodes.0031.1e6e7343c9e2dbf1.js` | Scope-filtered outputs | Public reading surface | `nordic` | `js` | Governed report artifact. |
+| `docs/report/regions/nordic/nordic.atlas-nodes.0032.658246536515db1c.js` | Scope-filtered outputs | Public reading surface | `nordic` | `js` | Governed report artifact. |
+| `docs/report/regions/nordic/nordic.atlas-nodes.0033.665188dada2a1378.js` | Scope-filtered outputs | Public reading surface | `nordic` | `js` | Governed report artifact. |
+| `docs/report/regions/nordic/nordic.atlas-nodes.0034.15249ebf0a475425.js` | Scope-filtered outputs | Public reading surface | `nordic` | `js` | Governed report artifact. |
+| `docs/report/regions/nordic/nordic.atlas-nodes.0035.d87912a77359248e.js` | Scope-filtered outputs | Public reading surface | `nordic` | `js` | Governed report artifact. |
+| `docs/report/regions/nordic/nordic.atlas-nodes.0036.3687b66f0a05532b.js` | Scope-filtered outputs | Public reading surface | `nordic` | `js` | Governed report artifact. |
+| `docs/report/regions/nordic/nordic.atlas-provenance.0000.5092d520424d4bf4.js` | Scope-filtered outputs | Public reading surface | `nordic` | `js` | Governed report artifact. |
+| `docs/report/regions/nordic/nordic.atlas-sequences.0038.e6eff734a6b30945.js` | Scope-filtered outputs | Public reading surface | `nordic` | `js` | Governed report artifact. |
 | `docs/report/regions/nordic/nordic_animal_atlas_evidence.csv` | Map surfaces | Scientific review surface | `nordic` | `csv` | Governed report artifact. |
 | `docs/report/regions/nordic/nordic_animal_atlas_evidence.json` | Map surfaces | Scientific review surface | `nordic` | `json` | Governed report artifact. |
 | `docs/report/regions/nordic/nordic_animal_localities.geojson` | Map surfaces | Scientific review surface | `nordic` | `geojson` | Governed report artifact. |
@@ -331,15 +350,64 @@ coherent report surface instead of a loose artifact dump.
 | `docs/report/world/_map_assets/markercluster/MarkerCluster.css` | Scope-filtered outputs | Public reading surface | `world` | `css` | Governed report artifact. |
 | `docs/report/world/_map_assets/markercluster/leaflet.markercluster.js` | Scope-filtered outputs | Public reading surface | `world` | `js` | Governed report artifact. |
 | `docs/report/world/nordic_country_boundaries.geojson` | Map surfaces | Scientific review surface | `world` | `geojson` | Governed report artifact. |
-| `docs/report/world/world.atlas-edges.0006.6a49a31da5d87824.js` | Scope-filtered outputs | Public reading surface | `world` | `js` | Governed report artifact. |
-| `docs/report/world/world.atlas-indexes.0008.4587be441cfe45d4.js` | Scope-filtered outputs | Public reading surface | `world` | `js` | Governed report artifact. |
-| `docs/report/world/world.atlas-nodes.0001.06610afe38eddfd1.js` | Scope-filtered outputs | Public reading surface | `world` | `js` | Governed report artifact. |
-| `docs/report/world/world.atlas-nodes.0002.6a29dbe583811cfc.js` | Scope-filtered outputs | Public reading surface | `world` | `js` | Governed report artifact. |
-| `docs/report/world/world.atlas-nodes.0003.849ca17aaf48ac4a.js` | Scope-filtered outputs | Public reading surface | `world` | `js` | Governed report artifact. |
-| `docs/report/world/world.atlas-nodes.0004.b9333b7ac2b0bcf6.js` | Scope-filtered outputs | Public reading surface | `world` | `js` | Governed report artifact. |
-| `docs/report/world/world.atlas-nodes.0005.e9856acae217f27c.js` | Scope-filtered outputs | Public reading surface | `world` | `js` | Governed report artifact. |
-| `docs/report/world/world.atlas-provenance.0000.55c24f7be06cceb8.js` | Scope-filtered outputs | Public reading surface | `world` | `js` | Governed report artifact. |
-| `docs/report/world/world.atlas-sequences.0007.071a301edda22cad.js` | Scope-filtered outputs | Public reading surface | `world` | `js` | Governed report artifact. |
+| `docs/report/world/world.atlas-edges.0055.b295250f16a6d465.js` | Scope-filtered outputs | Public reading surface | `world` | `js` | Governed report artifact. |
+| `docs/report/world/world.atlas-indexes.0057.a29da189eeab509a.js` | Scope-filtered outputs | Public reading surface | `world` | `js` | Governed report artifact. |
+| `docs/report/world/world.atlas-nodes.0001.40068718f81d6f6d.js` | Scope-filtered outputs | Public reading surface | `world` | `js` | Governed report artifact. |
+| `docs/report/world/world.atlas-nodes.0002.4e776d6c63d9d35b.js` | Scope-filtered outputs | Public reading surface | `world` | `js` | Governed report artifact. |
+| `docs/report/world/world.atlas-nodes.0003.2a233d6c0512a7ec.js` | Scope-filtered outputs | Public reading surface | `world` | `js` | Governed report artifact. |
+| `docs/report/world/world.atlas-nodes.0004.10997bc56ecfcad5.js` | Scope-filtered outputs | Public reading surface | `world` | `js` | Governed report artifact. |
+| `docs/report/world/world.atlas-nodes.0005.b7197f3b3282e498.js` | Scope-filtered outputs | Public reading surface | `world` | `js` | Governed report artifact. |
+| `docs/report/world/world.atlas-nodes.0006.2694faa04e0362c6.js` | Scope-filtered outputs | Public reading surface | `world` | `js` | Governed report artifact. |
+| `docs/report/world/world.atlas-nodes.0007.528cd62227abb9eb.js` | Scope-filtered outputs | Public reading surface | `world` | `js` | Governed report artifact. |
+| `docs/report/world/world.atlas-nodes.0008.59b4a37b35eec9ad.js` | Scope-filtered outputs | Public reading surface | `world` | `js` | Governed report artifact. |
+| `docs/report/world/world.atlas-nodes.0009.b1d32bb8ac26a9ea.js` | Scope-filtered outputs | Public reading surface | `world` | `js` | Governed report artifact. |
+| `docs/report/world/world.atlas-nodes.0010.39a0a9d96a7840ff.js` | Scope-filtered outputs | Public reading surface | `world` | `js` | Governed report artifact. |
+| `docs/report/world/world.atlas-nodes.0011.f6ef51fd4e2ff959.js` | Scope-filtered outputs | Public reading surface | `world` | `js` | Governed report artifact. |
+| `docs/report/world/world.atlas-nodes.0012.b6da653b049dfc64.js` | Scope-filtered outputs | Public reading surface | `world` | `js` | Governed report artifact. |
+| `docs/report/world/world.atlas-nodes.0013.6dd848d03df797a6.js` | Scope-filtered outputs | Public reading surface | `world` | `js` | Governed report artifact. |
+| `docs/report/world/world.atlas-nodes.0014.b5c2d2e7fe1e4925.js` | Scope-filtered outputs | Public reading surface | `world` | `js` | Governed report artifact. |
+| `docs/report/world/world.atlas-nodes.0015.37b1532ad9d8e39e.js` | Scope-filtered outputs | Public reading surface | `world` | `js` | Governed report artifact. |
+| `docs/report/world/world.atlas-nodes.0016.9f740274aa55e972.js` | Scope-filtered outputs | Public reading surface | `world` | `js` | Governed report artifact. |
+| `docs/report/world/world.atlas-nodes.0017.a932081f75c7c8cc.js` | Scope-filtered outputs | Public reading surface | `world` | `js` | Governed report artifact. |
+| `docs/report/world/world.atlas-nodes.0018.0fb202ea161dbf44.js` | Scope-filtered outputs | Public reading surface | `world` | `js` | Governed report artifact. |
+| `docs/report/world/world.atlas-nodes.0019.f417f495896932bb.js` | Scope-filtered outputs | Public reading surface | `world` | `js` | Governed report artifact. |
+| `docs/report/world/world.atlas-nodes.0020.1a8619999bb678ee.js` | Scope-filtered outputs | Public reading surface | `world` | `js` | Governed report artifact. |
+| `docs/report/world/world.atlas-nodes.0021.a245d4ebaaa93b66.js` | Scope-filtered outputs | Public reading surface | `world` | `js` | Governed report artifact. |
+| `docs/report/world/world.atlas-nodes.0022.e1068c4b2497112d.js` | Scope-filtered outputs | Public reading surface | `world` | `js` | Governed report artifact. |
+| `docs/report/world/world.atlas-nodes.0023.f99e3d252b36535d.js` | Scope-filtered outputs | Public reading surface | `world` | `js` | Governed report artifact. |
+| `docs/report/world/world.atlas-nodes.0024.adec2277a750c1c7.js` | Scope-filtered outputs | Public reading surface | `world` | `js` | Governed report artifact. |
+| `docs/report/world/world.atlas-nodes.0025.0c3803939638532f.js` | Scope-filtered outputs | Public reading surface | `world` | `js` | Governed report artifact. |
+| `docs/report/world/world.atlas-nodes.0026.23356f63fed82db2.js` | Scope-filtered outputs | Public reading surface | `world` | `js` | Governed report artifact. |
+| `docs/report/world/world.atlas-nodes.0027.2bcd127352af4930.js` | Scope-filtered outputs | Public reading surface | `world` | `js` | Governed report artifact. |
+| `docs/report/world/world.atlas-nodes.0028.8038a8c3245a34cb.js` | Scope-filtered outputs | Public reading surface | `world` | `js` | Governed report artifact. |
+| `docs/report/world/world.atlas-nodes.0029.db37c4158b07c310.js` | Scope-filtered outputs | Public reading surface | `world` | `js` | Governed report artifact. |
+| `docs/report/world/world.atlas-nodes.0030.272913d093cc0b87.js` | Scope-filtered outputs | Public reading surface | `world` | `js` | Governed report artifact. |
+| `docs/report/world/world.atlas-nodes.0031.d5da318307a86baa.js` | Scope-filtered outputs | Public reading surface | `world` | `js` | Governed report artifact. |
+| `docs/report/world/world.atlas-nodes.0032.aab0b0c5fdb28e5f.js` | Scope-filtered outputs | Public reading surface | `world` | `js` | Governed report artifact. |
+| `docs/report/world/world.atlas-nodes.0033.5fc9703310ebd098.js` | Scope-filtered outputs | Public reading surface | `world` | `js` | Governed report artifact. |
+| `docs/report/world/world.atlas-nodes.0034.4cf77bce2f9d64ce.js` | Scope-filtered outputs | Public reading surface | `world` | `js` | Governed report artifact. |
+| `docs/report/world/world.atlas-nodes.0035.555b55bad1d6bfad.js` | Scope-filtered outputs | Public reading surface | `world` | `js` | Governed report artifact. |
+| `docs/report/world/world.atlas-nodes.0036.f5cee46f893bfb2a.js` | Scope-filtered outputs | Public reading surface | `world` | `js` | Governed report artifact. |
+| `docs/report/world/world.atlas-nodes.0037.a9350037ebd824c9.js` | Scope-filtered outputs | Public reading surface | `world` | `js` | Governed report artifact. |
+| `docs/report/world/world.atlas-nodes.0038.c55ed2a6161ebecb.js` | Scope-filtered outputs | Public reading surface | `world` | `js` | Governed report artifact. |
+| `docs/report/world/world.atlas-nodes.0039.7068ffec08d05943.js` | Scope-filtered outputs | Public reading surface | `world` | `js` | Governed report artifact. |
+| `docs/report/world/world.atlas-nodes.0040.ed9ba115f470bb51.js` | Scope-filtered outputs | Public reading surface | `world` | `js` | Governed report artifact. |
+| `docs/report/world/world.atlas-nodes.0041.e67e4e020f8818ea.js` | Scope-filtered outputs | Public reading surface | `world` | `js` | Governed report artifact. |
+| `docs/report/world/world.atlas-nodes.0042.b06ed86bbf8964b3.js` | Scope-filtered outputs | Public reading surface | `world` | `js` | Governed report artifact. |
+| `docs/report/world/world.atlas-nodes.0043.aa9429fbf0fcc671.js` | Scope-filtered outputs | Public reading surface | `world` | `js` | Governed report artifact. |
+| `docs/report/world/world.atlas-nodes.0044.cc819179120e5f0f.js` | Scope-filtered outputs | Public reading surface | `world` | `js` | Governed report artifact. |
+| `docs/report/world/world.atlas-nodes.0045.bc8b1160d6d084b6.js` | Scope-filtered outputs | Public reading surface | `world` | `js` | Governed report artifact. |
+| `docs/report/world/world.atlas-nodes.0046.7ec0de301e4dd7ac.js` | Scope-filtered outputs | Public reading surface | `world` | `js` | Governed report artifact. |
+| `docs/report/world/world.atlas-nodes.0047.29e20ec5c56ae98f.js` | Scope-filtered outputs | Public reading surface | `world` | `js` | Governed report artifact. |
+| `docs/report/world/world.atlas-nodes.0048.32fe1096962097ed.js` | Scope-filtered outputs | Public reading surface | `world` | `js` | Governed report artifact. |
+| `docs/report/world/world.atlas-nodes.0049.62f1a6d0b42634a3.js` | Scope-filtered outputs | Public reading surface | `world` | `js` | Governed report artifact. |
+| `docs/report/world/world.atlas-nodes.0050.d847c1c274df9718.js` | Scope-filtered outputs | Public reading surface | `world` | `js` | Governed report artifact. |
+| `docs/report/world/world.atlas-nodes.0051.570c19bd8a09feca.js` | Scope-filtered outputs | Public reading surface | `world` | `js` | Governed report artifact. |
+| `docs/report/world/world.atlas-nodes.0052.7791746372b2489a.js` | Scope-filtered outputs | Public reading surface | `world` | `js` | Governed report artifact. |
+| `docs/report/world/world.atlas-nodes.0053.bee1742c1a6b0651.js` | Scope-filtered outputs | Public reading surface | `world` | `js` | Governed report artifact. |
+| `docs/report/world/world.atlas-nodes.0054.d56d88ea60b4f630.js` | Scope-filtered outputs | Public reading surface | `world` | `js` | Governed report artifact. |
+| `docs/report/world/world.atlas-provenance.0000.c76411f1c17a7e51.js` | Scope-filtered outputs | Public reading surface | `world` | `js` | Governed report artifact. |
+| `docs/report/world/world.atlas-sequences.0056.db797f70a3712c03.js` | Scope-filtered outputs | Public reading surface | `world` | `js` | Governed report artifact. |
 | `docs/report/world/world_animal_atlas_evidence.csv` | Map surfaces | Scientific review surface | `world` | `csv` | Governed report artifact. |
 | `docs/report/world/world_animal_atlas_evidence.json` | Map surfaces | Scientific review surface | `world` | `json` | Governed report artifact. |
 | `docs/report/world/world_animal_localities.geojson` | Map surfaces | Scientific review surface | `world` | `geojson` | Governed report artifact. |

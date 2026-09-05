@@ -1,6 +1,6 @@
 # Sweden Homo sapiens aDNA v66 Sample Inventory
 
-Generated on `2026-09-04`. Total Homo sapiens aDNA samples: `416`.
+Generated on `2026-09-05`. Total Homo sapiens aDNA samples: `416`.
 
 | Genetic ID | Master ID | Group ID | Locality | Latitude | Longitude | Publication | Full Date | Data Type | Sex | Datasets |
 | --- | --- | --- | --- | ---: | ---: | --- | --- | --- | --- | --- |

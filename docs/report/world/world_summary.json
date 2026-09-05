@@ -3,7 +3,7 @@
   "title": "World Evidence Surface",
   "slug": "world",
   "version": "v66",
-  "generated_on": "2026-09-04",
+  "generated_on": "2026-09-05",
   "scope_key": "world",
   "scope_label": "World",
   "scope_kind": "world",
@@ -72,39 +72,235 @@
       },
       {
         "label": "Static atlas data chunk",
-        "filename": "world.atlas-provenance.0000.55c24f7be06cceb8.js"
+        "filename": "world.atlas-provenance.0000.c76411f1c17a7e51.js"
       },
       {
         "label": "Static atlas data chunk",
-        "filename": "world.atlas-nodes.0001.06610afe38eddfd1.js"
+        "filename": "world.atlas-nodes.0001.40068718f81d6f6d.js"
       },
       {
         "label": "Static atlas data chunk",
-        "filename": "world.atlas-nodes.0002.6a29dbe583811cfc.js"
+        "filename": "world.atlas-nodes.0002.4e776d6c63d9d35b.js"
       },
       {
         "label": "Static atlas data chunk",
-        "filename": "world.atlas-nodes.0003.849ca17aaf48ac4a.js"
+        "filename": "world.atlas-nodes.0003.2a233d6c0512a7ec.js"
       },
       {
         "label": "Static atlas data chunk",
-        "filename": "world.atlas-nodes.0004.b9333b7ac2b0bcf6.js"
+        "filename": "world.atlas-nodes.0004.10997bc56ecfcad5.js"
       },
       {
         "label": "Static atlas data chunk",
-        "filename": "world.atlas-nodes.0005.e9856acae217f27c.js"
+        "filename": "world.atlas-nodes.0005.b7197f3b3282e498.js"
       },
       {
         "label": "Static atlas data chunk",
-        "filename": "world.atlas-edges.0006.6a49a31da5d87824.js"
+        "filename": "world.atlas-nodes.0006.2694faa04e0362c6.js"
       },
       {
         "label": "Static atlas data chunk",
-        "filename": "world.atlas-sequences.0007.071a301edda22cad.js"
+        "filename": "world.atlas-nodes.0007.528cd62227abb9eb.js"
       },
       {
         "label": "Static atlas data chunk",
-        "filename": "world.atlas-indexes.0008.4587be441cfe45d4.js"
+        "filename": "world.atlas-nodes.0008.59b4a37b35eec9ad.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "world.atlas-nodes.0009.b1d32bb8ac26a9ea.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "world.atlas-nodes.0010.39a0a9d96a7840ff.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "world.atlas-nodes.0011.f6ef51fd4e2ff959.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "world.atlas-nodes.0012.b6da653b049dfc64.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "world.atlas-nodes.0013.6dd848d03df797a6.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "world.atlas-nodes.0014.b5c2d2e7fe1e4925.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "world.atlas-nodes.0015.37b1532ad9d8e39e.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "world.atlas-nodes.0016.9f740274aa55e972.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "world.atlas-nodes.0017.a932081f75c7c8cc.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "world.atlas-nodes.0018.0fb202ea161dbf44.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "world.atlas-nodes.0019.f417f495896932bb.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "world.atlas-nodes.0020.1a8619999bb678ee.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "world.atlas-nodes.0021.a245d4ebaaa93b66.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "world.atlas-nodes.0022.e1068c4b2497112d.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "world.atlas-nodes.0023.f99e3d252b36535d.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "world.atlas-nodes.0024.adec2277a750c1c7.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "world.atlas-nodes.0025.0c3803939638532f.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "world.atlas-nodes.0026.23356f63fed82db2.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "world.atlas-nodes.0027.2bcd127352af4930.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "world.atlas-nodes.0028.8038a8c3245a34cb.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "world.atlas-nodes.0029.db37c4158b07c310.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "world.atlas-nodes.0030.272913d093cc0b87.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "world.atlas-nodes.0031.d5da318307a86baa.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "world.atlas-nodes.0032.aab0b0c5fdb28e5f.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "world.atlas-nodes.0033.5fc9703310ebd098.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "world.atlas-nodes.0034.4cf77bce2f9d64ce.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "world.atlas-nodes.0035.555b55bad1d6bfad.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "world.atlas-nodes.0036.f5cee46f893bfb2a.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "world.atlas-nodes.0037.a9350037ebd824c9.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "world.atlas-nodes.0038.c55ed2a6161ebecb.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "world.atlas-nodes.0039.7068ffec08d05943.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "world.atlas-nodes.0040.ed9ba115f470bb51.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "world.atlas-nodes.0041.e67e4e020f8818ea.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "world.atlas-nodes.0042.b06ed86bbf8964b3.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "world.atlas-nodes.0043.aa9429fbf0fcc671.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "world.atlas-nodes.0044.cc819179120e5f0f.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "world.atlas-nodes.0045.bc8b1160d6d084b6.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "world.atlas-nodes.0046.7ec0de301e4dd7ac.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "world.atlas-nodes.0047.29e20ec5c56ae98f.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "world.atlas-nodes.0048.32fe1096962097ed.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "world.atlas-nodes.0049.62f1a6d0b42634a3.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "world.atlas-nodes.0050.d847c1c274df9718.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "world.atlas-nodes.0051.570c19bd8a09feca.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "world.atlas-nodes.0052.7791746372b2489a.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "world.atlas-nodes.0053.bee1742c1a6b0651.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "world.atlas-nodes.0054.d56d88ea60b4f630.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "world.atlas-edges.0055.b295250f16a6d465.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "world.atlas-sequences.0056.db797f70a3712c03.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "world.atlas-indexes.0057.a29da189eeab509a.js"
       },
       {
         "label": "Candidate site ranking CSV",
@@ -273,7 +469,12 @@
         "chunk_max_bytes": 4194304,
         "document_max_bytes": 524288,
         "static_assets_max_bytes": 134217728,
-        "static_assets_max_files": 512
+        "static_assets_max_files": 512,
+        "initial_max_requests": 4,
+        "initial_max_bytes": 1048576,
+        "interaction_max_requests": 128,
+        "interaction_max_bytes": 67108864,
+        "filter_main_thread_max_ms": 50
       },
       "domains": {
         "nodes": {

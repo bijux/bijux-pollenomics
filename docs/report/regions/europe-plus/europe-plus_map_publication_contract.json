@@ -104,7 +104,12 @@
       "chunk_max_bytes": 4194304,
       "document_max_bytes": 524288,
       "static_assets_max_bytes": 134217728,
-      "static_assets_max_files": 512
+      "static_assets_max_files": 512,
+      "initial_max_requests": 4,
+      "initial_max_bytes": 1048576,
+      "interaction_max_requests": 128,
+      "interaction_max_bytes": 67108864,
+      "filter_main_thread_max_ms": 50
     },
     "domains": {
       "nodes": {
