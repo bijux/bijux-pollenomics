@@ -1,8 +1,6 @@
 """Compact and validate SEAD chronology claims."""
 
 from __future__ import annotations
-
-from __future__ import annotations
 from collections.abc import Mapping, Sequence
 import hashlib
 from pathlib import Path

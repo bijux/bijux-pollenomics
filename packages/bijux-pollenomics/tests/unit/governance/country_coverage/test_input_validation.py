@@ -1,8 +1,6 @@
 """Country-coverage governed-input refusal tests."""
 
 from __future__ import annotations
-
-from __future__ import annotations
 from copy import deepcopy
 import hashlib
 import json

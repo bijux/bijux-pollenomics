@@ -1,8 +1,6 @@
 """Compact SEAD observation and relation records."""
 
 from __future__ import annotations
-
-from __future__ import annotations
 from collections.abc import Mapping, Sequence
 from typing import cast
 from .constants import (

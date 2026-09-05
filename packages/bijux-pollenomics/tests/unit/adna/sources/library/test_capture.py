@@ -1,8 +1,6 @@
 """aDNA source capture, storage, and drift-refusal tests."""
 
 from __future__ import annotations
-
-from __future__ import annotations
 import gzip
 import io
 import json

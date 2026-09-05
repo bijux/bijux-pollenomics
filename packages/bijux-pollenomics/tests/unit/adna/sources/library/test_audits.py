@@ -1,8 +1,6 @@
 """aDNA cross-project source audit tests."""
 
 from __future__ import annotations
-
-from __future__ import annotations
 from pathlib import Path
 import tempfile
 import unittest

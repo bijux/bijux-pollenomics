@@ -1,8 +1,6 @@
 """Atlas context-discovery projection tests."""
 
 from __future__ import annotations
-
-from __future__ import annotations
 from pathlib import Path
 from bijux_pollenomics.reporting.context.artifacts import stage_context_point_layers
 from .fixtures.common import _write_json

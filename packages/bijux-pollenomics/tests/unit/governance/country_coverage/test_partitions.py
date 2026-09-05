@@ -1,8 +1,6 @@
 """Country and source-dimension partition tests."""
 
 from __future__ import annotations
-
-from __future__ import annotations
 import hashlib
 import json
 from typing import cast
