@@ -58,7 +58,17 @@ def _sample_identity_key(row: AdnaProjectSampleMasterRow) -> str:
 
 
 def _normalize_sample_label(value: str) -> str:
+    if _is_missing_source_value(value):
+        return ""
     return re.sub(r"[^a-z0-9]+", "", value.casefold())
+
+
+def _is_missing_source_value(value: str) -> bool:
+    return value.strip().casefold() in {"", "-", "n/a", "na", "not available"}
+
+
+def _clean_optional_source_text(value: str) -> str:
+    return "" if _is_missing_source_value(value) else value.strip()
 
 
 def _merge_sample_row_group(
@@ -196,7 +206,7 @@ def _format_bp_point_text(value: str) -> str:
 
 def _format_horse_age_text(value: str) -> str:
     text = value.replace(",", "").strip()
-    if not text or text == "-":
+    if _is_missing_source_value(text):
         return ""
     if re.fullmatch(r"\d+\s*-\s*\d+", text):
         range_text = re.sub(r"\s+", "", text)

@@ -53,5 +53,23 @@ class CompletenessTests(SampleMasterRecoveryTestCase):
             if row["project_accession"]
             in {"PRJEB19970", "PRJEB22390", "PRJEB31613", "PRJEB44430"}
         )
-        self.assertEqual(horse_counts, Counter({14: 1, 42: 1, 244: 1, 248: 1}))
-        self.assertEqual(ambiguity_rows, ())
+        self.assertEqual(horse_counts, Counter({15: 1, 42: 1, 245: 1, 248: 1}))
+        self.assertEqual(
+            {
+                (row["project_accession"], row["repo_stable_sample_id"])
+                for row in ambiguity_rows
+            },
+            {
+                ("PRJEB81815", "prjeb81815:samea120246597"),
+                ("PRJEB81815", "prjeb81815:samea120246598"),
+                ("PRJEB81815", "prjeb81815:samea120246599"),
+            },
+        )
+        self.assertTrue(
+            all(
+                row["sample_ambiguity_note"]
+                and row["sample_lineage_path"]
+                and row["sample_lineage_locator"]
+                for row in ambiguity_rows
+            )
+        )

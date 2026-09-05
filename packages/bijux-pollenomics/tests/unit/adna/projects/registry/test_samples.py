@@ -19,9 +19,9 @@ class AdnaSampleRegistryUnitTests(unittest.TestCase):
             Counter(
                 {
                     "PRJEB10854": 1,
-                    "PRJEB19970": 14,
+                    "PRJEB19970": 15,
                     "PRJEB22390": 42,
-                    "PRJEB31613": 244,
+                    "PRJEB31613": 245,
                     "PRJEB44430": 248,
                     "PRJEB56293": 1,
                     "PRJEB7537": 1,
@@ -158,7 +158,10 @@ class AdnaSampleRegistryUnitTests(unittest.TestCase):
         )
 
         self.assertEqual(connemara.inclusion_status, "sample_context_blocked")
-        self.assertEqual(connemara.site_label, "N/A")
+        self.assertEqual(
+            connemara.site_label,
+            "site detail not yet extracted from tracked source support",
+        )
         self.assertEqual(connemara.latitude_text, "")
         self.assertEqual(connemara.longitude_text, "")
 

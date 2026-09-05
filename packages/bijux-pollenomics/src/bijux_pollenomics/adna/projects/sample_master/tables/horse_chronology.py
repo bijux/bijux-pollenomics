@@ -5,7 +5,12 @@ from __future__ import annotations
 from bijux_pollenomics.adna.sources.archive import AdnaArchiveProject
 from bijux_pollenomics.adna.species.definitions import AdnaSpeciesDefinition
 
-from ..identity import _cell_value, _clean_coordinate_text, _format_horse_age_text
+from ..identity import (
+    _cell_value,
+    _clean_coordinate_text,
+    _clean_optional_source_text,
+    _format_horse_age_text,
+)
 from ..models import AdnaProjectSampleMasterRow
 
 
@@ -36,23 +41,24 @@ def _build_horse_time_series_rows(
     built_rows: list[AdnaProjectSampleMasterRow] = []
     for row_number, row in enumerate(rows[4:], start=5):
         sample_label = _cell_value(row, sample_index)
-        registration = _cell_value(row, registration_index)
+        registration = _clean_optional_source_text(
+            _cell_value(row, registration_index)
+        )
         species_label = (
             "" if species_index is None else _cell_value(row, species_index).casefold()
         )
         if (
-            not sample_label
-            or not registration
-            or (species_label and species_label != "horse")
+            not sample_label or (species_label and species_label != "horse")
         ):
             continue
+        stable_anchor = registration or sample_label
         excerpt = " | ".join(value for value in row if value)[:300]
         built_rows.append(
             AdnaProjectSampleMasterRow(
                 species_latin_name=species.latin_name,
                 species_common_name=species.common_name,
                 project_accession=project.project_accession,
-                repo_stable_sample_id=f"{project.project_accession}:{registration}".casefold(),
+                repo_stable_sample_id=f"{project.project_accession}:{stable_anchor}".casefold(),
                 archive_native_sample_id=registration,
                 paper_native_sample_label=sample_label,
                 supplementary_table_sample_label=sample_label,
@@ -66,10 +72,10 @@ def _build_horse_time_series_rows(
                 sample_ambiguity_note="",
                 locality_text=""
                 if site_index is None
-                else _cell_value(row, site_index),
+                else _clean_optional_source_text(_cell_value(row, site_index)),
                 political_entity=""
                 if country_index is None
-                else _cell_value(row, country_index),
+                else _clean_optional_source_text(_cell_value(row, country_index)),
                 latitude_text=""
                 if latitude_index is None
                 else _clean_coordinate_text(_cell_value(row, latitude_index)),
@@ -113,7 +119,9 @@ def _build_horse_comparative_panel_rows(
         if not sample_label or accession != project.project_accession:
             continue
         registration = (
-            "" if registration_index is None else _cell_value(row, registration_index)
+            ""
+            if registration_index is None
+            else _clean_optional_source_text(_cell_value(row, registration_index))
         )
         stable_anchor = registration or sample_label
         excerpt = " | ".join(value for value in row if value)[:300]
@@ -134,10 +142,12 @@ def _build_horse_comparative_panel_rows(
                 sample_lineage_excerpt=excerpt,
                 sample_identity_resolution="final",
                 sample_ambiguity_note="",
-                locality_text=_cell_value(row, site_index),
+                locality_text=_clean_optional_source_text(
+                    _cell_value(row, site_index)
+                ),
                 political_entity=""
                 if country_index is None
-                else _cell_value(row, country_index),
+                else _clean_optional_source_text(_cell_value(row, country_index)),
                 latitude_text="",
                 longitude_text="",
                 chronology_text=""

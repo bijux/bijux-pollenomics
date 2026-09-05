@@ -95,9 +95,9 @@ class SourceRecoveryTests(SampleMasterRecoveryTestCase):
             self.data_root, "PRJEB19970"
         )
 
-        self.assertEqual(len(time_series_rows), 244)
+        self.assertEqual(len(time_series_rows), 245)
         self.assertEqual(len(dom2_rows), 248)
-        self.assertEqual(len(domestication_rows), 14)
+        self.assertEqual(len(domestication_rows), 15)
 
         uppsala = next(
             row
@@ -109,6 +109,26 @@ class SourceRecoveryTests(SampleMasterRecoveryTestCase):
         self.assertEqual(uppsala.latitude_text, "59.860999999999997")
         self.assertEqual(uppsala.longitude_text, "17.638999999999999")
         self.assertEqual(uppsala.chronology_text, "1217-1417 BP")
+
+        registration_missing = {
+            row.preferred_sample_label: row
+            for row in time_series_rows
+            if row.preferred_sample_label
+            in {"Batagai_5155", "Przewalski_Paratype_118"}
+        }
+        self.assertEqual(
+            {row.repo_stable_sample_id for row in registration_missing.values()},
+            {
+                "prjeb31613:batagai_5155",
+                "prjeb31613:przewalski_paratype_118",
+            },
+        )
+        self.assertTrue(
+            all(
+                row.archive_native_sample_id == ""
+                for row in registration_missing.values()
+            )
+        )
 
         ginnerup = next(
             row
@@ -130,6 +150,31 @@ class SourceRecoveryTests(SampleMasterRecoveryTestCase):
         self.assertEqual(berel.locality_text, "Berel'")
         self.assertEqual(berel.political_entity, "Kazakhstan")
         self.assertEqual(berel.chronology_text, "2300 BP")
+
+        missing_registration_rows = {
+            row.preferred_sample_label: row
+            for row in domestication_rows
+            if row.preferred_sample_label in {"Connemara_0004A", "Somali_0226A"}
+        }
+        self.assertEqual(
+            set(missing_registration_rows), {"Connemara_0004A", "Somali_0226A"}
+        )
+        self.assertEqual(
+            {
+                row.repo_stable_sample_id
+                for row in missing_registration_rows.values()
+            },
+            {"prjeb19970:connemara_0004a", "prjeb19970:somali_0226a"},
+        )
+        self.assertTrue(
+            all(
+                row.archive_native_sample_id == ""
+                and row.locality_text == ""
+                and row.political_entity == ""
+                and row.chronology_text == ""
+                for row in missing_registration_rows.values()
+            )
+        )
 
     def test_goat_cattle_and_reindeer_projects_publish_source_backed_sample_rows(
         self,
