@@ -86,7 +86,7 @@ _GATE_TESTS: dict[str, tuple[str, ...]] = {
         "analysis/propagation/test_propagation_evidence_domains.py",
         "evidence/test_scientific_review.py",
         "collection/catalog/spatiotemporal/test_posture.py",
-        "analysis/propagation/test_propagation_network.py",
+        "analysis/propagation/network",
     ),
     "data": (
         "adna/workflow/test_adna_normalization.py",
