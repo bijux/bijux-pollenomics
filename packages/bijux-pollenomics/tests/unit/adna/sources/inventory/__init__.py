@@ -1,0 +1,1 @@
+"""Source-inventory package tests."""
