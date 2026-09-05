@@ -3,11 +3,12 @@
 from __future__ import annotations
 
 import json
-import re
 from pathlib import Path
+import re
 
 import pytest
 import yaml
+
 from bijux_pollenomics_dev.ci.path_selection import (
     REQUIRED_SURFACE_IDS,
     ChangeImpactContract,
@@ -185,6 +186,22 @@ def test_workflow_has_no_path_filter_and_uses_selector_as_authority() -> None:
     assert "needs.impact.outputs.available_gates" in run_step["if"]
 
 
+def test_workflow_preserves_both_rename_endpoints_and_push_endpoint_diffs() -> None:
+    workflow = yaml.load(
+        WORKFLOW_PATH.read_text(encoding="utf-8"), Loader=yaml.BaseLoader
+    )
+    resolve_step = next(
+        step
+        for step in workflow["jobs"]["impact"]["steps"]
+        if step.get("id") == "changes"
+    )
+    script = resolve_step["run"]
+
+    assert script.count("--no-renames") == 4
+    assert '"${PUSH_BEFORE_SHA}" "${CANDIDATE_SHA}"' in script
+    assert '"${PUSH_BEFORE_SHA}...${CANDIDATE_SHA}"' not in script
+
+
 def test_workflow_pr_jobs_skip_dependabot_before_runner_allocation() -> None:
     workflow = yaml.load(
         WORKFLOW_PATH.read_text(encoding="utf-8"), Loader=yaml.BaseLoader
@@ -223,4 +240,4 @@ def test_contract_is_canonical_json() -> None:
     document = json.loads(CONTRACT_PATH.read_text(encoding="utf-8"))
 
     assert document["schema_version"] == "scientific-change-impact.v1"
-    assert document["unknown_path_policy"] == "all_available_gates"
+    assert document["unknown_path_policy"] == "all_declared_gates"

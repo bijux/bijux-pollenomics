@@ -10,6 +10,8 @@
       "v66",
       "--output-root",
       "{output_root}",
+      "--published-output-root",
+      "docs/report",
       "--context-root",
       "{repo_root}/data"
     ]
@@ -19,6 +21,8 @@
     "data",
     "packages/bijux-pollenomics/pyproject.toml",
     "packages/bijux-pollenomics/src/bijux_pollenomics",
+    "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/rebuild_reports.py",
+    "makes/pollenomics-verification.mk",
     "pyproject.toml",
     "uv.lock"
   ],
@@ -30,6 +34,7 @@
     "**/__pycache__/**",
     "**/*.pyc"
   ],
+  "require_clean_repository": true,
   "tracked_report_root": "docs/report",
   "volatile_text_rules": [
     {

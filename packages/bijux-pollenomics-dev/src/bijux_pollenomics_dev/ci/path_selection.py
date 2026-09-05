@@ -3,11 +3,11 @@
 from __future__ import annotations
 
 import argparse
+from dataclasses import dataclass
 import hashlib
 import json
-import re
-from dataclasses import dataclass
 from pathlib import Path, PurePosixPath
+import re
 from typing import Any
 
 REQUIRED_SURFACE_IDS = frozenset(
@@ -189,8 +189,8 @@ def load_contract(path: Path) -> ChangeImpactContract:
     )
     if schema_version != "scientific-change-impact.v1":
         raise ContractError(f"unsupported schema_version: {schema_version}")
-    if root.get("unknown_path_policy") != "all_available_gates":
-        raise ContractError("unknown_path_policy must be all_available_gates")
+    if root.get("unknown_path_policy") != "all_declared_gates":
+        raise ContractError("unknown_path_policy must be all_declared_gates")
 
     gate_order = _required_string_list(root.get("gate_order"), field="gate_order")
     raw_gates = _required_mapping(root.get("gates"), field="gates")

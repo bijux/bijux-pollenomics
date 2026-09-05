@@ -1,12 +1,13 @@
 from __future__ import annotations
 
-import json
-import sys
 from collections.abc import Sequence
+import json
 from pathlib import Path
+import sys
 from typing import cast
 
 import pytest
+
 from bijux_pollenomics_dev.ci.rebuild_reports import (
     CommandResult,
     ReproducibleReportError,
@@ -42,6 +43,7 @@ def _write_policy(root: Path, *, volatile: bool = False) -> Path:
                 "input_paths": ["policy.json", "source.txt"],
                 "allowed_input_symlinks": {},
                 "excluded_input_globs": ["**/__pycache__", "**/*.pyc"],
+                "require_clean_repository": False,
                 "tracked_report_root": "docs/report",
                 "volatile_text_rules": rule,
             }
@@ -58,11 +60,19 @@ def _fixture_repo(tmp_path: Path, *, volatile: bool = False) -> tuple[Path, Path
     return tmp_path, policy
 
 
+def _assert_isolated_command(command: Sequence[str]) -> None:
+    assert command[1:4] == ("-I", "-B", "-X")
+    cache_option = command[4]
+    assert cache_option.startswith("pycache_prefix=")
+    assert not Path(cache_option.removeprefix("pycache_prefix=")).exists()
+
+
 def _runner_with(payloads: list[dict[str, object]]) -> Runner:
     calls = iter(payloads)
 
     def run(command: Sequence[str], cwd: Path) -> CommandResult:
         del cwd
+        _assert_isolated_command(command)
         output = Path(command[command.index("--output-root") + 1])
         output.mkdir()
         (output / "report.json").write_text(
@@ -245,6 +255,8 @@ def test_repository_policy_binds_canonical_report_command() -> None:
         "v66",
         "--output-root",
         "{output_root}",
+        "--published-output-root",
+        "docs/report",
         "--context-root",
         "{repo_root}/data",
     ]

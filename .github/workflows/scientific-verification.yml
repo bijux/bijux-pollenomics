@@ -52,16 +52,16 @@ jobs:
           mkdir -p "$(dirname "${output}")"
           case "${EVENT_NAME}" in
             pull_request)
-              git diff --name-only "${PR_BASE_SHA}...${PR_HEAD_SHA}" > "${output}"
+              git diff --no-renames --name-only "${PR_BASE_SHA}...${PR_HEAD_SHA}" > "${output}"
               ;;
             merge_group)
-              git diff --name-only "${MERGE_BASE_SHA}...${MERGE_HEAD_SHA}" > "${output}"
+              git diff --no-renames --name-only "${MERGE_BASE_SHA}...${MERGE_HEAD_SHA}" > "${output}"
               ;;
             push)
               if [[ -n "${PUSH_BEFORE_SHA}" && "${PUSH_BEFORE_SHA}" != "0000000000000000000000000000000000000000" ]]; then
-                git diff --name-only "${PUSH_BEFORE_SHA}...${CANDIDATE_SHA}" > "${output}"
+                git diff --no-renames --name-only "${PUSH_BEFORE_SHA}" "${CANDIDATE_SHA}" > "${output}"
               else
-                git diff-tree --no-commit-id --name-only -r "${CANDIDATE_SHA}" > "${output}"
+                git diff-tree --root --no-renames --no-commit-id --name-only -r "${CANDIDATE_SHA}" > "${output}"
               fi
               ;;
             workflow_dispatch)
@@ -127,13 +127,13 @@ jobs:
 
       - name: Set up Python
         if: ${{ contains(fromJSON(needs.impact.outputs.available_gates), matrix.gate) }}
-        uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v6.2.0
+        uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
         with:
           python-version: "3.11"
 
       - name: Set up uv
         if: ${{ contains(fromJSON(needs.impact.outputs.available_gates), matrix.gate) }}
-        uses: astral-sh/setup-uv@c771a70e6277c0a99b617c7a806ffedaca235ff9 # v7.5.0
+        uses: astral-sh/setup-uv@c771a70e6277c0a99b617c7a806ffedaca235ff9 # v9.0.0
         with:
           enable-cache: true
           cache-dependency-glob: uv.lock

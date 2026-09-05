@@ -1,6 +1,6 @@
 {
   "schema_version": "scientific-change-impact.v1",
-  "unknown_path_policy": "all_available_gates",
+  "unknown_path_policy": "all_declared_gates",
   "gate_order": [
     "path-selection",
     "science",

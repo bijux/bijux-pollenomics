@@ -3,15 +3,18 @@
 from __future__ import annotations
 
 import argparse
+from collections.abc import Callable, Mapping, Sequence
+from dataclasses import dataclass
+from datetime import UTC, datetime
 import hashlib
 import json
 import os
+from pathlib import Path, PurePosixPath
 import re
+import shutil
 import stat
 import sys
-from collections.abc import Callable, Mapping, Sequence
-from dataclasses import dataclass
-from pathlib import Path, PurePosixPath
+import time
 from typing import cast
 
 from bijux_pollenomics_dev.trusted_process import run_text
@@ -94,6 +97,7 @@ def load_policy(path: Path) -> JsonObject:
         "input_paths",
         "allowed_input_symlinks",
         "excluded_input_globs",
+        "require_clean_repository",
         "tracked_report_root",
         "volatile_text_rules",
     }
@@ -104,6 +108,8 @@ def load_policy(path: Path) -> JsonObject:
     _string_list(policy["input_paths"], "input_paths")
     _mapping(policy["allowed_input_symlinks"], "allowed_input_symlinks")
     _string_list(policy["excluded_input_globs"], "excluded_input_globs")
+    if not isinstance(policy["require_clean_repository"], bool):
+        raise ReproducibleReportError("require_clean_repository must be boolean")
     generator = _mapping(policy["generator"], "generator")
     if set(generator) != {"module", "arguments"} or not isinstance(
         generator["module"], str
@@ -315,7 +321,55 @@ def _default_runner(command: Sequence[str], cwd: Path) -> CommandResult:
     return CommandResult(completed.returncode, completed.stdout, completed.stderr)
 
 
-def _command(policy: JsonObject, repo_root: Path, output_root: Path) -> tuple[str, ...]:
+def _repository_identity(repo_root: Path, *, required: bool) -> JsonObject:
+    if not required:
+        return {"mode": "fixture"}
+    git = shutil.which("git")
+    if git is None:
+        raise ReproducibleReportError("Git is required to bind repository identity")
+
+    def run(*arguments: str) -> str:
+        completed = run_text(
+            (git, "-C", str(repo_root), *arguments),
+            check=False,
+            capture_output=True,
+        )
+        if completed.returncode != 0:
+            raise ReproducibleReportError(
+                f"Git repository identity probe failed: {arguments[0]}"
+            )
+        return completed.stdout
+
+    top_level = Path(run("rev-parse", "--show-toplevel").strip()).resolve()
+    if top_level != repo_root:
+        raise ReproducibleReportError("repository root is not the Git worktree root")
+    status = run("status", "--porcelain=v1", "--untracked-files=all")
+    if status:
+        raise ReproducibleReportError(
+            "reproducible report verification requires a clean repository"
+        )
+    return {
+        "mode": "git",
+        "head_commit": run("rev-parse", "HEAD").strip(),
+        "head_tree": run("rev-parse", "HEAD^{tree}").strip(),
+        "status_sha256": _sha256(status.encode()),
+    }
+
+
+def _timing(started_at: datetime, started_monotonic: float) -> JsonObject:
+    return {
+        "started_at": started_at.isoformat().replace("+00:00", "Z"),
+        "finished_at": datetime.now(UTC).isoformat().replace("+00:00", "Z"),
+        "duration_seconds": round(time.monotonic() - started_monotonic, 6),
+    }
+
+
+def _command(
+    policy: JsonObject,
+    repo_root: Path,
+    output_root: Path,
+    import_cache_root: Path,
+) -> tuple[str, ...]:
     generator = _mapping(policy["generator"], "generator")
     module = cast(str, generator["module"])
     values = {"repo_root": str(repo_root), "output_root": str(output_root)}
@@ -323,7 +377,20 @@ def _command(policy: JsonObject, repo_root: Path, output_root: Path) -> tuple[st
         argument.format_map(values)
         for argument in _string_list(generator["arguments"], "generator.arguments")
     )
-    return (sys.executable, "-B", "-m", module, *arguments)
+    if import_cache_root.exists() or import_cache_root.is_symlink():
+        raise ReproducibleReportError(
+            f"isolated import cache already exists: {import_cache_root}"
+        )
+    return (
+        sys.executable,
+        "-I",
+        "-B",
+        "-X",
+        f"pycache_prefix={import_cache_root}",
+        "-m",
+        module,
+        *arguments,
+    )
 
 
 def _atomic_write(path: Path, payload: bytes) -> None:
@@ -377,8 +444,13 @@ def verify_reproducible_reports(
     runner: Runner = _default_runner,
 ) -> JsonObject:
     """Build twice, compare exact outputs, and compare tracked canonical content."""
+    started_at = datetime.now(UTC)
+    started_monotonic = time.monotonic()
     repo_root = repo_root.resolve()
     policy = load_policy(policy_path)
+    repository_before = _repository_identity(
+        repo_root, required=cast(bool, policy["require_clean_repository"])
+    )
     allowed_evidence_root = (repo_root / "artifacts").resolve()
     resolved_evidence_root = evidence_root.resolve()
     try:
@@ -393,13 +465,19 @@ def verify_reproducible_reports(
     evidence_root.mkdir(parents=True)
     reference_root = evidence_root / "reference-build"
     replay_root = evidence_root / "replay-build"
+    import_cache_root = evidence_root / "isolated-import-cache"
     inputs_before = inventory_inputs(repo_root, policy)
     command_results: list[JsonObject] = []
     for output_root in (reference_root, replay_root):
-        command = _command(policy, repo_root, output_root)
+        command = _command(policy, repo_root, output_root, import_cache_root)
+        command_started = time.monotonic()
         result = runner(command, repo_root)
         command_results.append(
-            {"command": list(command), "returncode": result.returncode}
+            {
+                "command": list(command),
+                "returncode": result.returncode,
+                "duration_seconds": round(time.monotonic() - command_started, 6),
+            }
         )
         _atomic_write(
             evidence_root / f"{output_root.name}.stdout.log", result.stdout.encode()
@@ -413,6 +491,8 @@ def verify_reproducible_reports(
                 "status": "FAIL",
                 "policy_path": policy_path.resolve().relative_to(repo_root).as_posix(),
                 "policy_sha256": _sha256(policy_path.read_bytes()),
+                "repository": repository_before,
+                "timing": _timing(started_at, started_monotonic),
                 "commands": command_results,
                 "inputs": [entry.as_json() for entry in inputs_before],
                 "inventories": {},
@@ -434,10 +514,17 @@ def verify_reproducible_reports(
     )
     tracked = inventory_reports(tracked_path, policy)
     inputs_after = inventory_inputs(repo_root, policy)
+    repository_after = _repository_identity(
+        repo_root, required=cast(bool, policy["require_clean_repository"])
+    )
     differences: list[JsonObject] = []
     if inputs_before != inputs_after:
         differences.append(
             {"comparison": "inputs", "path": "*", "kind": "changed_during_build"}
+        )
+    if repository_before != repository_after:
+        differences.append(
+            {"comparison": "repository", "path": "*", "kind": "changed_during_build"}
         )
     for row in _compare(reference, replay, canonical=False):
         differences.append({"comparison": "reference_vs_replay", **row})
@@ -448,6 +535,8 @@ def verify_reproducible_reports(
         "status": "PASS" if not differences else "FAIL",
         "policy_path": policy_path.resolve().relative_to(repo_root).as_posix(),
         "policy_sha256": _sha256(policy_path.read_bytes()),
+        "repository": repository_before,
+        "timing": _timing(started_at, started_monotonic),
         "runtime": {
             "python": sys.version.split()[0],
             "executable": sys.executable,
