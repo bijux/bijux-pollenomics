@@ -2,7 +2,7 @@ from __future__ import annotations
 
 import unittest
 
-from bijux_pollenomics.data_downloader.source_replacement_rules import (
+from bijux_pollenomics.collection.source_replacement_rules import (
     build_source_replacement_rules,
 )
 

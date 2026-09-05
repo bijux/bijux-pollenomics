@@ -11,38 +11,38 @@ from typing import cast
 import unittest
 from unittest.mock import patch
 
-from bijux_pollenomics.data_downloader.boundaries import (
+from bijux_pollenomics.collection.boundaries import (
     BOUNDARY_CODES,
     NATURAL_EARTH_ADMIN0_URL,
     NATURAL_EARTH_RELEASE_PAGE_URL,
     NATURAL_EARTH_TERMS_URL,
     NATURAL_EARTH_VERSION,
 )
-from bijux_pollenomics.data_downloader.sources.sead import (
+from bijux_pollenomics.collection.sources.sead import (
     acquisition_admission as admission_module,
 )
-from bijux_pollenomics.data_downloader.sources.sead.acquisition import (
+from bijux_pollenomics.collection.sources.sead.acquisition import (
     ACQUISITION_MANIFEST_SCHEMA_VERSION,
     ACQUISITION_RECEIPT_SCHEMA_VERSION,
     TABLE_PAYLOAD_SCHEMA_VERSION,
     reconcile_sead_join,
 )
-from bijux_pollenomics.data_downloader.sources.sead.acquisition_admission import (
+from bijux_pollenomics.collection.sources.sead.acquisition_admission import (
     ADMISSION_SCHEMA_VERSION,
     SeadAcquisitionAdmission,
     SeadAdmissionExpectedIdentity,
     materialize_sead_acquisition_admission,
     validate_sead_acquisition_admission,
 )
-from bijux_pollenomics.data_downloader.sources.sead.api_client import (
+from bijux_pollenomics.collection.sources.sead.api_client import (
     SEAD_LIMIT,
     SEAD_POSTGREST_ROOT,
     build_sead_in_filter,
 )
-from bijux_pollenomics.data_downloader.sources.sead.archive import (
+from bijux_pollenomics.collection.sources.sead.archive import (
     SEAD_LINKED_SOURCE_TABLES,
 )
-from bijux_pollenomics.data_downloader.sources.sead.scoped_acquisition import (
+from bijux_pollenomics.collection.sources.sead.scoped_acquisition import (
     SCOPED_RECEIPT_SCHEMA_VERSION,
     SEAD_SCOPED_TABLE_PLANS,
 )
@@ -310,7 +310,7 @@ class SeadAcquisitionAdmissionTests(unittest.TestCase):
             output_root = root / "admitted"
             with (
                 patch(
-                    "bijux_pollenomics.data_downloader.sources.sead."
+                    "bijux_pollenomics.collection.sources.sead."
                     "acquisition_admission.os.replace",
                     side_effect=OSError("injected rename failure"),
                 ),
@@ -333,7 +333,7 @@ class SeadAcquisitionAdmissionTests(unittest.TestCase):
                 real_replace(source, destination)
 
             with patch(
-                "bijux_pollenomics.data_downloader.sources.sead."
+                "bijux_pollenomics.collection.sources.sead."
                 "acquisition_admission.os.replace",
                 side_effect=mutate_source_then_publish,
             ):

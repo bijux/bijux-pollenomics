@@ -7,7 +7,7 @@ import unittest
 from bijux_pollenomics.adna.species.tracked_data import (
     materialize_tracked_species_root,
 )
-from bijux_pollenomics.data_downloader.data_layout import (
+from bijux_pollenomics.collection.data_layout import (
     AVAILABLE_SOURCES,
     DATA_LAYOUT_INDEX,
     DATA_SOURCE_INDEX,

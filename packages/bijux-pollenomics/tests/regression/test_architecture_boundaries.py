@@ -9,7 +9,7 @@ from bijux_pollenomics.architecture import build_repository_architecture_contrac
 
 REPO_ROOT = Path(__file__).resolve().parents[4]
 RUNTIME_SRC = REPO_ROOT / "packages" / "bijux-pollenomics" / "src" / "bijux_pollenomics"
-DATA_DOWNLOADER_SRC = RUNTIME_SRC / "data_downloader"
+DATA_DOWNLOADER_SRC = RUNTIME_SRC / "collection"
 REPORTING_SRC = RUNTIME_SRC / "reporting"
 ADNA_SRC = RUNTIME_SRC / "adna"
 EVIDENCE_SRC = RUNTIME_SRC / "evidence"
@@ -38,7 +38,7 @@ def test_collection_and_publication_import_boundaries_are_separate() -> None:
     )
     report_failures = _find_forbidden_imports(
         _python_files(REPORTING_SRC),
-        r"(^|\n)\s*(from|import)\s+bijux_pollenomics\.data_downloader(\.|\s|$)",
+        r"(^|\n)\s*(from|import)\s+bijux_pollenomics\.collection(\.|\s|$)",
     )
 
     failures = data_failures + report_failures

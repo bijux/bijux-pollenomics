@@ -11,7 +11,7 @@ compatibility forwarding does not own runtime behavior.
 
 ```mermaid
 flowchart LR
-    Command["command_line"] --> Intake["data_downloader and adna.sources"]
+    Command["command_line"] --> Intake["collection and adna.sources"]
     Intake --> Evidence["adna.projects and adna.normalization"]
     Evidence --> Review["evidence and analysis.review"]
     Review --> Product["foundation and analysis"]
@@ -44,16 +44,16 @@ the runtime.
 
 Primary modules:
 
-- `bijux_pollenomics.data_downloader.pipeline`
-- `bijux_pollenomics.data_downloader.sources`
-- `bijux_pollenomics.data_downloader.intake`
-- `bijux_pollenomics.data_downloader.exports`
+- `bijux_pollenomics.collection.pipeline`
+- `bijux_pollenomics.collection.sources`
+- `bijux_pollenomics.collection.intake`
+- `bijux_pollenomics.collection.exports`
 - `bijux_pollenomics.adna.sources.library`
 - `bijux_pollenomics.adna.sources.ena`
 
-### `data_downloader` Intent
+### `collection` Intent
 
-`data_downloader` should read like the source-admission side of the runtime,
+`collection` should read like the source-admission side of the runtime,
 with subtrees that answer different intake questions cleanly:
 
 - `pipeline/`: orchestration and collection-flow assembly

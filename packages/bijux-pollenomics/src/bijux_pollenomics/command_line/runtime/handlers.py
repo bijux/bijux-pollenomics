@@ -22,12 +22,12 @@ from ...architecture import (
     build_product_scope,
     build_surface_map,
 )
-from ...data_downloader import (
+from ...collection import (
     build_source_support_matrix,
     collect_data,
     validate_collection_summary_file,
 )
-from ...data_downloader.repository_snapshot import (
+from ...collection.repository_snapshot import (
     materialize_repository_collection_snapshot,
 )
 from ...governance import build_release_bar, build_release_readiness_report

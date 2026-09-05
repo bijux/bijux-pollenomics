@@ -10,7 +10,7 @@ from typing import cast
 import pytest
 
 from bijux_pollenomics.core.geojson import JsonObject
-from bijux_pollenomics.data_downloader.sources.sead.evidence_reader import (
+from bijux_pollenomics.collection.sources.sead.evidence_reader import (
     SEAD_GOVERNED_EVIDENCE_RUN_ID,
 )
 from bijux_pollenomics.reporting.context.artifacts import stage_context_point_layers

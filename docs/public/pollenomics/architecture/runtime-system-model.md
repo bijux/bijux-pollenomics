@@ -242,7 +242,7 @@ review criteria, write scope, and publication effect. A generic parser or
 renderer is not a sufficient architecture for a new scientific domain.
 
 Code navigation begins with the boundary that owns the decision:
-`command_line/` for dispatch, `data_downloader/` for acquisition,
+`command_line/` for dispatch, `collection/` for acquisition,
 `adna/` for animal sample evidence, `evidence/` for fitness,
 `analysis/` for comparison, and `reporting/` for publication. Shared mechanics
 belong in `core/` only when they carry no source- or product-specific meaning.
@@ -254,7 +254,7 @@ Trace a behavior from its public boundary toward the narrowest owner:
 | Behavior to inspect | Start at | Continue to |
 | --- | --- | --- |
 | command parsing, defaults, or exit behavior | `command_line/` | the handler and domain request it invokes |
-| source capture or decoding | `data_downloader/` or `adna/sources/` | family contract, retrieval identity, and normalized owner |
+| source capture or decoding | `collection/` or `adna/sources/` | family contract, retrieval identity, and normalized owner |
 | sample, locality, chronology, or coordinate meaning | `adna/` and `evidence/` | governed record, relation, conflict, and admission rule |
 | comparison or ranking | `analysis/` | declared population, feature contract, scenario, and sensitivity result |
 | bundle membership or rendering | `reporting/` | product contract, member assembly, manifest, and presentation adapter |

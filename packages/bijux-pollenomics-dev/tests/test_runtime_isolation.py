@@ -11,7 +11,7 @@ FORBIDDEN_RUNTIME_IMPORTS = (
     "bijux_pollenomics.adna",
     "bijux_pollenomics.analysis",
     "bijux_pollenomics.command_line",
-    "bijux_pollenomics.data_downloader",
+    "bijux_pollenomics.collection",
     "bijux_pollenomics.evidence",
     "bijux_pollenomics.foundation",
     "bijux_pollenomics.reporting",

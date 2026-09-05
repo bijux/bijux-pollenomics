@@ -112,8 +112,8 @@ def build_repository_architecture_contract() -> RepositoryArchitectureContract:
         ),
         ArchitectureStage(
             stage_key="source_collection",
-            owner_module="bijux_pollenomics.data_downloader",
-            owner_path="packages/bijux-pollenomics/src/bijux_pollenomics/data_downloader",
+            owner_module="bijux_pollenomics.collection",
+            owner_path="packages/bijux-pollenomics/src/bijux_pollenomics/collection",
             purpose="collect source-family data and normalize raw context artifacts",
             tracked_inputs=("source APIs", "tracked source inventories"),
             tracked_outputs=("data/*/raw", "data/*/normalized"),
@@ -259,7 +259,7 @@ def build_repository_architecture_contract() -> RepositoryArchitectureContract:
             surface_key="tracked_source_state",
             repository_path="data/",
             owner_modules=(
-                "bijux_pollenomics.data_downloader",
+                "bijux_pollenomics.collection",
                 "bijux_pollenomics.adna",
             ),
             purpose="checked-in raw, normalized, and reviewed evidence surfaces",

@@ -14,7 +14,7 @@ from .architecture import (
     compatibility_alias_contract,
     runtime_surface_contract,
 )
-from .data_downloader.api import (
+from .collection.api import (
     ContextDataReport,
     DataCollectionReport,
     collect_context_data,

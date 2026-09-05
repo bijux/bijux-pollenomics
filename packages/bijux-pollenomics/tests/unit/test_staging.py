@@ -5,7 +5,7 @@ import tempfile
 import unittest
 from unittest.mock import patch
 
-from bijux_pollenomics.data_downloader.pipeline import (
+from bijux_pollenomics.collection.pipeline import (
     build_staging_output_dir,
     collect_into_staging_dir,
 )

@@ -3,7 +3,7 @@ from __future__ import annotations
 import json
 from pathlib import Path
 
-from ..data_downloader.sources.raa import assess_raa_density_authority
+from ..collection.sources.raa import assess_raa_density_authority
 
 __all__ = [
     "build_repository_atlas_input_audit",

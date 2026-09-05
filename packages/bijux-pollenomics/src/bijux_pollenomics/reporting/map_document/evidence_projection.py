@@ -11,10 +11,10 @@ from pathlib import Path, PurePosixPath
 from typing import Final, cast
 
 from ...core.geojson import JsonObject
-from ...data_downloader.sources.neotoma.materialization import (
+from ...collection.sources.neotoma.materialization import (
     validate_neotoma_relational_materialization,
 )
-from ...data_downloader.sources.sead.evidence_reader import (
+from ...collection.sources.sead.evidence_reader import (
     SEAD_GOVERNED_ADMISSION_SHA256,
     SEAD_GOVERNED_EVIDENCE_MANIFEST_SHA256,
     SEAD_GOVERNED_EVIDENCE_RUN_ID,

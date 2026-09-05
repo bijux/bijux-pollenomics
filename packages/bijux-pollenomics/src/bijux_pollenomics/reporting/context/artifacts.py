@@ -6,7 +6,7 @@ from pathlib import Path
 import shutil
 
 from ...core.geojson import as_mapping
-from ...data_downloader.contracts import (
+from ...collection.contracts import (
     ATLAS_POINT_ARTIFACTS,
     BOUNDARY_COLLECTION,
     LANDCLIM_GRID_GEOJSON,
@@ -18,7 +18,7 @@ from ...data_downloader.contracts import (
     SEAD_ARCHAEOLOGY_DISCOVERY_JSON,
     SEAD_ARCHAEOLOGY_DISCOVERY_MARKDOWN,
 )
-from ...data_downloader.sources.raa import assess_raa_density_authority
+from ...collection.sources.raa import assess_raa_density_authority
 from ..map_publication import map_allows_context_layer
 
 __all__ = ["stage_context_point_layers", "stage_context_polygon_layers"]

@@ -15,19 +15,19 @@ from bijux_pollenomics.adna import (
     AdnaSampleIdentity,
     AdnaSampleRecord,
 )
-from bijux_pollenomics.data_downloader.contracts import (
+from bijux_pollenomics.collection.contracts import (
     BOUNDARY_COLLECTION,
     LANDCLIM_GRID_GEOJSON,
     LANDCLIM_TEMPORAL_GRID_GEOJSON,
     NEOTOMA_POINT_GEOJSON,
 )
-from bijux_pollenomics.data_downloader.exports import (
+from bijux_pollenomics.collection.exports import (
     write_context_points_csv,
     write_context_points_geojson,
 )
-from bijux_pollenomics.data_downloader.models import ContextPointRecord
-from bijux_pollenomics.data_downloader.neotoma import normalize_neotoma_rows
-from bijux_pollenomics.data_downloader.sead import (
+from bijux_pollenomics.collection.models import ContextPointRecord
+from bijux_pollenomics.collection.neotoma import normalize_neotoma_rows
+from bijux_pollenomics.collection.sead import (
     collect_sead_data,
     fetch_sead_rows,
     fetch_sead_site_rows,
@@ -451,7 +451,7 @@ class ContextDataTests(unittest.TestCase):
             raise AssertionError(f"Unexpected SEAD request: {url} params={params}")
 
         with patch(
-            "bijux_pollenomics.data_downloader.sead.fetch_json",
+            "bijux_pollenomics.collection.sead.fetch_json",
             side_effect=fake_fetch_json,
         ):
             rows = fetch_sead_site_rows((4.0, 54.0, 35.0, 72.0))
@@ -629,7 +629,7 @@ class ContextDataTests(unittest.TestCase):
             raise AssertionError(f"Unexpected SEAD request: {url}")
 
         with patch(
-            "bijux_pollenomics.data_downloader.sead.fetch_json",
+            "bijux_pollenomics.collection.sead.fetch_json",
             side_effect=fake_fetch_json,
         ):
             rows = fetch_sead_site_rows((4.0, 54.0, 35.0, 72.0))
@@ -644,15 +644,13 @@ class ContextDataTests(unittest.TestCase):
     def test_fetch_sead_rows_retries_retryable_network_errors(self) -> None:
         with (
             patch(
-                "bijux_pollenomics.data_downloader.sead.fetch_json",
+                "bijux_pollenomics.collection.sead.fetch_json",
                 side_effect=[
                     URLError(OSError(51, "Network is unreachable")),
                     [{"site_id": 6468}],
                 ],
             ),
-            patch(
-                "bijux_pollenomics.data_downloader.sources.sead.api_client.time.sleep"
-            ),
+            patch("bijux_pollenomics.collection.sources.sead.api_client.time.sleep"),
         ):
             rows = fetch_sead_rows("tbl_sites", select="site_id")
 
@@ -676,7 +674,7 @@ class ContextDataTests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as tmp:
             output_root = Path(tmp) / "sead"
             with patch(
-                "bijux_pollenomics.data_downloader.sead.fetch_sead_site_inventory",
+                "bijux_pollenomics.collection.sead.fetch_sead_site_inventory",
                 return_value=type(
                     "FetchResult",
                     (),
@@ -802,24 +800,22 @@ class ContextDataTests(unittest.TestCase):
             )["rows"]
             with (
                 patch(
-                    "bijux_pollenomics.data_downloader.sead."
-                    "validate_governed_sead_admission"
+                    "bijux_pollenomics.collection.sead.validate_governed_sead_admission"
                 ),
                 patch(
-                    "bijux_pollenomics.data_downloader.sead._load_sead_acquisition_rows",
+                    "bijux_pollenomics.collection.sead._load_sead_acquisition_rows",
                     return_value=[],
                 ),
                 patch(
-                    "bijux_pollenomics.data_downloader.sead."
+                    "bijux_pollenomics.collection.sead."
                     "build_sead_site_rows_from_acquisition_tables",
                     return_value=(fixture_rows, {}),
                 ),
                 patch(
-                    "bijux_pollenomics.data_downloader.sead."
-                    "_attach_sead_country_decisions"
+                    "bijux_pollenomics.collection.sead._attach_sead_country_decisions"
                 ),
                 patch(
-                    "bijux_pollenomics.data_downloader.sead."
+                    "bijux_pollenomics.collection.sead."
                     "write_sead_chronology_claim_bundle_from_snapshot"
                 ),
             ):

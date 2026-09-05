@@ -11,19 +11,19 @@ from bijux_pollenomics.adna.governance_contracts import (
     build_source_library_project_surface_contract,
     materialize_adna_governance_contracts,
 )
-from bijux_pollenomics.data_downloader.data_contracts import (
+from bijux_pollenomics.collection.data_contracts import (
     build_contract_artifact_paths,
     build_evidence_artifact_contract_payload,
     build_source_fact_ownership_payload,
 )
-from bijux_pollenomics.data_downloader.source_capabilities import (
+from bijux_pollenomics.collection.source_capabilities import (
     SEAD_ADMITTED_ACQUISITION_ADMISSION,
     SEAD_NORMALIZED_EVIDENCE_EVENTS,
     SEAD_NORMALIZED_EVIDENCE_MANIFEST,
     SEAD_NORMALIZED_OBSERVATIONS,
     SEAD_NORMALIZED_RELATIONS,
 )
-from bijux_pollenomics.data_downloader.source_family_contracts import (
+from bijux_pollenomics.collection.source_family_contracts import (
     build_source_family_contract_payload,
     build_source_family_contracts,
     build_source_family_state_matrix_payload,

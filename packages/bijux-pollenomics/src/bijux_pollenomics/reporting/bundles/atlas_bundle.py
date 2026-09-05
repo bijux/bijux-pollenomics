@@ -16,7 +16,7 @@ from ...analysis import (
     write_candidate_sites_json,
 )
 from ...core.geojson import JsonObject
-from ...data_downloader.models import ContextPointRecord
+from ...collection.models import ContextPointRecord
 from ...evidence import (
     AnimalCoordinateVisibilityReview,
     build_atlas_evidence_surface,

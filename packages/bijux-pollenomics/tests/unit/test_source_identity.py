@@ -2,7 +2,7 @@ from __future__ import annotations
 
 import unittest
 
-from bijux_pollenomics.data_downloader.source_identity import (
+from bijux_pollenomics.collection.source_identity import (
     SOURCE_IDENTITIES,
     resolve_source_identity,
 )

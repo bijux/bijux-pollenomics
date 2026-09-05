@@ -2,7 +2,7 @@ from __future__ import annotations
 
 import unittest
 
-from bijux_pollenomics.data_downloader.pipeline import (
+from bijux_pollenomics.collection.pipeline import (
     CONTEXT_SOURCE_SPECS,
     resolve_context_collect_function,
 )

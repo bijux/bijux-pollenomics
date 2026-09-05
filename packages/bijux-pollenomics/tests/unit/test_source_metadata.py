@@ -2,7 +2,7 @@ from __future__ import annotations
 
 import unittest
 
-from bijux_pollenomics.data_downloader.source_metadata import build_source_metadata
+from bijux_pollenomics.collection.source_metadata import build_source_metadata
 
 
 class SourceMetadataUnitTests(unittest.TestCase):

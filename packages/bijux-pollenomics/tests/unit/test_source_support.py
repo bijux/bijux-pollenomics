@@ -2,7 +2,7 @@ from __future__ import annotations
 
 import unittest
 
-from bijux_pollenomics.data_downloader.source_support import build_source_support_matrix
+from bijux_pollenomics.collection.source_support import build_source_support_matrix
 
 
 class SourceSupportUnitTests(unittest.TestCase):

@@ -8,8 +8,8 @@ import tempfile
 import unittest
 from unittest.mock import patch
 
-from bijux_pollenomics.data_downloader.sources.neotoma import materialization
-from bijux_pollenomics.data_downloader.sources.neotoma.materialization import (
+from bijux_pollenomics.collection.sources.neotoma import materialization
+from bijux_pollenomics.collection.sources.neotoma.materialization import (
     materialize_neotoma_relational_snapshot,
     validate_neotoma_relational_materialization,
 )

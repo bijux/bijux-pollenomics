@@ -10,7 +10,7 @@ import unittest
 from unittest.mock import patch
 from urllib.error import HTTPError
 
-from bijux_pollenomics.data_downloader.neotoma import (
+from bijux_pollenomics.collection.neotoma import (
     build_neotoma_download_archive_parts,
     build_neotoma_site_snapshot_rows,
     collect_neotoma_data,
@@ -52,7 +52,7 @@ class NeotomaDataTests(unittest.TestCase):
         )
 
         with patch(
-            "bijux_pollenomics.data_downloader.neotoma.fetch_json",
+            "bijux_pollenomics.collection.neotoma.fetch_json",
             side_effect=[
                 retry_error,
                 {"data": [{"site": {"siteid": 20, "datasets": [{"datasetid": 201}]}}]},
@@ -65,7 +65,7 @@ class NeotomaDataTests(unittest.TestCase):
 
     def test_fetch_neotoma_api_rows_retries_retryable_timeouts(self) -> None:
         with patch(
-            "bijux_pollenomics.data_downloader.neotoma.fetch_json",
+            "bijux_pollenomics.collection.neotoma.fetch_json",
             side_effect=[
                 TimeoutError("read timed out"),
                 {"data": [{"site": {"siteid": 20, "datasets": [{"datasetid": 201}]}}]},
@@ -80,7 +80,7 @@ class NeotomaDataTests(unittest.TestCase):
         self,
     ) -> None:
         with patch(
-            "bijux_pollenomics.data_downloader.neotoma.fetch_json",
+            "bijux_pollenomics.collection.neotoma.fetch_json",
             return_value={
                 "data": [
                     {
@@ -133,7 +133,7 @@ class NeotomaDataTests(unittest.TestCase):
             }
 
         with patch(
-            "bijux_pollenomics.data_downloader.neotoma.fetch_json",
+            "bijux_pollenomics.collection.neotoma.fetch_json",
             side_effect=fake_fetch_json,
         ):
             rows = fetch_neotoma_dataset_inventory_rows((4.0, 54.0, 35.0, 72.0))
@@ -173,27 +173,27 @@ class NeotomaDataTests(unittest.TestCase):
             output_root = Path(tmp) / "neotoma"
             with (
                 patch(
-                    "bijux_pollenomics.data_downloader.neotoma.fetch_neotoma_dataset_inventory_rows",
+                    "bijux_pollenomics.collection.neotoma.fetch_neotoma_dataset_inventory_rows",
                     return_value=inventory_rows,
                 ),
                 patch(
-                    "bijux_pollenomics.data_downloader.neotoma.filter_neotoma_dataset_inventory_rows",
+                    "bijux_pollenomics.collection.neotoma.filter_neotoma_dataset_inventory_rows",
                     return_value=matched_inventory_rows,
                 ),
                 patch(
-                    "bijux_pollenomics.data_downloader.neotoma.extract_neotoma_dataset_ids",
+                    "bijux_pollenomics.collection.neotoma.extract_neotoma_dataset_ids",
                     return_value=[201],
                 ),
                 patch(
-                    "bijux_pollenomics.data_downloader.neotoma.fetch_neotoma_dataset_download_rows",
+                    "bijux_pollenomics.collection.neotoma.fetch_neotoma_dataset_download_rows",
                     return_value=download_rows,
                 ),
                 patch(
-                    "bijux_pollenomics.data_downloader.neotoma.build_neotoma_site_rows_from_downloads",
+                    "bijux_pollenomics.collection.neotoma.build_neotoma_site_rows_from_downloads",
                     return_value=rows,
                 ),
                 patch(
-                    "bijux_pollenomics.data_downloader.neotoma.normalize_neotoma_rows",
+                    "bijux_pollenomics.collection.neotoma.normalize_neotoma_rows",
                     return_value=[],
                 ),
             ):
@@ -410,7 +410,7 @@ class NeotomaDataTests(unittest.TestCase):
             raise AssertionError(f"Unexpected URL: {url}")
 
         with patch(
-            "bijux_pollenomics.data_downloader.neotoma.fetch_json",
+            "bijux_pollenomics.collection.neotoma.fetch_json",
             side_effect=fake_fetch_json,
         ):
             rows = fetch_neotoma_pollen_rows(
@@ -456,7 +456,7 @@ class NeotomaDataTests(unittest.TestCase):
     ) -> None:
         with (
             patch(
-                "bijux_pollenomics.data_downloader.neotoma.fetch_neotoma_dataset_download_row",
+                "bijux_pollenomics.collection.neotoma.fetch_neotoma_dataset_download_row",
                 side_effect=[
                     [{"site": {"collectionunit": {"dataset": {"datasetid": 201}}}}],
                     [],
@@ -478,7 +478,7 @@ class NeotomaDataTests(unittest.TestCase):
         )
 
         with patch(
-            "bijux_pollenomics.data_downloader.neotoma.fetch_json",
+            "bijux_pollenomics.collection.neotoma.fetch_json",
             side_effect=[
                 retry_error,
                 {
@@ -496,7 +496,7 @@ class NeotomaDataTests(unittest.TestCase):
         self,
     ) -> None:
         with patch(
-            "bijux_pollenomics.data_downloader.neotoma.fetch_json",
+            "bijux_pollenomics.collection.neotoma.fetch_json",
             side_effect=[
                 TimeoutError("read timed out"),
                 {
@@ -710,27 +710,27 @@ class NeotomaDataTests(unittest.TestCase):
             output_root = Path(tmp) / "neotoma"
             with (
                 patch(
-                    "bijux_pollenomics.data_downloader.neotoma.fetch_neotoma_dataset_inventory_rows",
+                    "bijux_pollenomics.collection.neotoma.fetch_neotoma_dataset_inventory_rows",
                     return_value=inventory_rows,
                 ),
                 patch(
-                    "bijux_pollenomics.data_downloader.neotoma.filter_neotoma_dataset_inventory_rows",
+                    "bijux_pollenomics.collection.neotoma.filter_neotoma_dataset_inventory_rows",
                     return_value=inventory_rows,
                 ),
                 patch(
-                    "bijux_pollenomics.data_downloader.neotoma.extract_neotoma_dataset_ids",
+                    "bijux_pollenomics.collection.neotoma.extract_neotoma_dataset_ids",
                     return_value=[201],
                 ),
                 patch(
-                    "bijux_pollenomics.data_downloader.neotoma.fetch_neotoma_dataset_download_rows",
+                    "bijux_pollenomics.collection.neotoma.fetch_neotoma_dataset_download_rows",
                     return_value=download_rows,
                 ),
                 patch(
-                    "bijux_pollenomics.data_downloader.neotoma.build_neotoma_site_rows_from_downloads",
+                    "bijux_pollenomics.collection.neotoma.build_neotoma_site_rows_from_downloads",
                     return_value=[],
                 ),
                 patch(
-                    "bijux_pollenomics.data_downloader.neotoma.normalize_neotoma_rows",
+                    "bijux_pollenomics.collection.neotoma.normalize_neotoma_rows",
                     return_value=[],
                 ),
             ):

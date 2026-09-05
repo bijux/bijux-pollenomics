@@ -9,7 +9,7 @@ from ...config import (
     DEFAULT_DATA_ROOT,
     DEFAULT_PUBLISHED_COUNTRIES,
 )
-from ...data_downloader import AVAILABLE_SOURCES
+from ...collection import AVAILABLE_SOURCES
 from .options import (
     add_aadr_root_argument,
     add_atlas_identity_arguments,

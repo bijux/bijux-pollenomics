@@ -6,7 +6,7 @@ import shutil
 
 import pytest
 
-from bijux_pollenomics.data_downloader.landclim import (
+from bijux_pollenomics.collection.landclim import (
     LandClimRawReceiptError,
     validate_landclim_raw_receipt,
 )

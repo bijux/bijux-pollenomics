@@ -3,10 +3,10 @@ from __future__ import annotations
 import unittest
 from unittest.mock import patch
 
-from bijux_pollenomics.data_downloader.sources.sead.inventory_fields import (
+from bijux_pollenomics.collection.sources.sead.inventory_fields import (
     populate_sead_site_inventory_fields,
 )
-from bijux_pollenomics.data_downloader.sources.sead.normalization import (
+from bijux_pollenomics.collection.sources.sead.normalization import (
     normalize_sead_chronology_claims,
 )
 
@@ -353,11 +353,11 @@ class SeadChronologyAcquisitionTests(unittest.TestCase):
 
         with (
             patch(
-                "bijux_pollenomics.data_downloader.sources.sead.inventory_fields.fetch_sead_rows_by_ids",
+                "bijux_pollenomics.collection.sources.sead.inventory_fields.fetch_sead_rows_by_ids",
                 side_effect=rows_by_ids,
             ),
             patch(
-                "bijux_pollenomics.data_downloader.sources.sead.inventory_fields.fetch_sead_rows",
+                "bijux_pollenomics.collection.sources.sead.inventory_fields.fetch_sead_rows",
                 side_effect=all_rows,
             ),
         ):

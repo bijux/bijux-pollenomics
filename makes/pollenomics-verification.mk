@@ -90,9 +90,9 @@ POLLENOMICS_DATA_INPUTS := \
 	data/raa \
 	data/svar \
 	data/boundaries \
-	$(wildcard $(POLLENOMICS_SOURCE_ROOT)/data_downloader/*.py) \
-	$(wildcard $(POLLENOMICS_SOURCE_ROOT)/data_downloader/*/*.py) \
-	$(wildcard $(POLLENOMICS_SOURCE_ROOT)/data_downloader/*/*/*.py) \
+	$(wildcard $(POLLENOMICS_SOURCE_ROOT)/collection/*.py) \
+	$(wildcard $(POLLENOMICS_SOURCE_ROOT)/collection/*/*.py) \
+	$(wildcard $(POLLENOMICS_SOURCE_ROOT)/collection/*/*/*.py) \
 	$(wildcard $(POLLENOMICS_SOURCE_ROOT)/adna/*.py) \
 	$(wildcard $(POLLENOMICS_SOURCE_ROOT)/adna/*/*.py) \
 	$(wildcard $(POLLENOMICS_SOURCE_ROOT)/adna/*/*/*.py) \

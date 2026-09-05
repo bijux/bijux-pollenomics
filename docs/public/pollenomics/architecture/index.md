@@ -19,7 +19,7 @@ that can be inspected without trusting the final rendering.
 
 ```mermaid
 flowchart TB
-    CLI["command_line\nparse and dispatch"] --> Collect["data_downloader\ncollect source families"]
+    CLI["command_line\nparse and dispatch"] --> Collect["collection\ncollect source families"]
     CLI --> Animal["adna\ncurate animal evidence"]
     Collect --> Data[("tracked data state")]
     Animal --> Data
@@ -61,7 +61,7 @@ flowchart LR
 | Boundary | Responsibility | Representative outputs |
 | --- | --- | --- |
 | `command_line/` | CLI parsing, subcommand registration, runtime dispatch | exit status and selected action |
-| `data_downloader/` | source acquisition, staging swaps, normalization, hashes, provenance, and source-family contracts | raw and normalized source trees, `collection_summary.json` |
+| `collection/` | source acquisition, staging swaps, normalization, hashes, provenance, and source-family contracts | raw and normalized source trees, `collection_summary.json` |
 | `adna/` | animal project intake, supplement recovery, sample identity, locality, chronology, coordinate provenance, species normalization, and integrity checks | project evidence surfaces and species records |
 | `analysis/review/` | candidate ranking, sensitivity analysis, and review-oriented comparisons | ranking and sensitivity records |
 | `evidence/` | atlas evidence rows and scientific review surfaces | evidence tables and fitness assessments |

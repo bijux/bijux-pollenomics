@@ -11,7 +11,7 @@ from ..core.temporal_semantics import (
     canonical_bp_interval,
     closed_bp_intervals_overlap,
 )
-from ..data_downloader.models import ContextPointRecord
+from ..collection.models import ContextPointRecord
 from .models import AtlasEvidenceSpeciesRow
 from .surfaces import build_atlas_evidence_surface
 

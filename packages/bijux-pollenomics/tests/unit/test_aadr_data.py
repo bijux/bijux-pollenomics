@@ -6,7 +6,7 @@ import tempfile
 import unittest
 from unittest.mock import patch
 
-from bijux_pollenomics.data_downloader.sources.aadr import (
+from bijux_pollenomics.collection.sources.aadr import (
     dataset_directory_name,
     download_aadr_anno_files,
     is_requested_anno_filename,
@@ -177,11 +177,11 @@ class AadrDataTests(unittest.TestCase):
             output_root = Path(tmp)
             with (
                 patch(
-                    "bijux_pollenomics.data_downloader.sources.aadr.fetch_release_history_metadata",
+                    "bijux_pollenomics.collection.sources.aadr.fetch_release_history_metadata",
                     return_value=metadata,
                 ),
                 patch(
-                    "bijux_pollenomics.data_downloader.sources.aadr.fetch_binary",
+                    "bijux_pollenomics.collection.sources.aadr.fetch_binary",
                     side_effect=[first_payload, second_payload],
                 ),
             ):
@@ -224,11 +224,11 @@ class AadrDataTests(unittest.TestCase):
             output_root = Path(tmp)
             with (
                 patch(
-                    "bijux_pollenomics.data_downloader.sources.aadr.fetch_release_history_metadata",
+                    "bijux_pollenomics.collection.sources.aadr.fetch_release_history_metadata",
                     return_value=metadata,
                 ),
                 patch(
-                    "bijux_pollenomics.data_downloader.sources.aadr.fetch_binary",
+                    "bijux_pollenomics.collection.sources.aadr.fetch_binary",
                     return_value=b"second",
                 ),
                 self.assertRaisesRegex(ValueError, "checksum mismatch"),

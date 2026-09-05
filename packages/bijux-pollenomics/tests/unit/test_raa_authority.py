@@ -4,7 +4,7 @@ import json
 from pathlib import Path
 import tempfile
 
-from bijux_pollenomics.data_downloader.sources.raa import (
+from bijux_pollenomics.collection.sources.raa import (
     assess_raa_density_authority,
 )
 

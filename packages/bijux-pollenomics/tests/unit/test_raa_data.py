@@ -7,7 +7,7 @@ from typing import cast
 import unittest
 from unittest.mock import patch
 
-from bijux_pollenomics.data_downloader.raa import (
+from bijux_pollenomics.collection.raa import (
     build_raa_density_geojson,
     collect_raa_data,
     count_raa_features,
@@ -96,7 +96,7 @@ class RaaDataTests(unittest.TestCase):
 
     def test_fetch_raa_feature_page_uses_explicit_sort_key(self) -> None:
         with patch(
-            "bijux_pollenomics.data_downloader.raa.fetch_json",
+            "bijux_pollenomics.collection.raa.fetch_json",
             return_value={"type": "FeatureCollection", "features": []},
         ) as fetch_json:
             fetch_raa_feature_page(start_index=0)
@@ -139,7 +139,7 @@ class RaaDataTests(unittest.TestCase):
         ]
 
         with patch(
-            "bijux_pollenomics.data_downloader.raa.fetch_raa_feature_page",
+            "bijux_pollenomics.collection.raa.fetch_raa_feature_page",
             side_effect=pages,
         ):
             payload = fetch_raa_feature_inventory()
@@ -172,7 +172,7 @@ class RaaDataTests(unittest.TestCase):
 
         with (
             patch(
-                "bijux_pollenomics.data_downloader.raa.fetch_raa_feature_page",
+                "bijux_pollenomics.collection.raa.fetch_raa_feature_page",
                 side_effect=pages,
             ),
             self.assertRaisesRegex(ValueError, "paging ended before"),
@@ -211,11 +211,11 @@ class RaaDataTests(unittest.TestCase):
             output_root = Path(tmp) / "raa"
             with (
                 patch(
-                    "bijux_pollenomics.data_downloader.raa.fetch_raa_feature_inventory",
+                    "bijux_pollenomics.collection.raa.fetch_raa_feature_inventory",
                     return_value=feature_inventory,
                 ),
                 patch(
-                    "bijux_pollenomics.data_downloader.raa.fetch_raa_archaeology_metadata",
+                    "bijux_pollenomics.collection.raa.fetch_raa_archaeology_metadata",
                     return_value=metadata,
                 ) as fetch_metadata,
             ):

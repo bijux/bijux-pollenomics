@@ -52,7 +52,7 @@ from bijux_pollenomics import (
 
 The root also exports result types and product, ownership, surface, runtime,
 and alias contracts. Specialized integrations may use
-`bijux_pollenomics.data_downloader`, `bijux_pollenomics.reporting`, and
+`bijux_pollenomics.collection`, `bijux_pollenomics.reporting`, and
 `bijux_pollenomics.command_line`; deeper modules remain implementation detail
 unless their owning API explicitly exports a name.
 

@@ -8,14 +8,14 @@ from pathlib import Path
 import tempfile
 import unittest
 
-from bijux_pollenomics.data_downloader.boundaries import (
+from bijux_pollenomics.collection.boundaries import (
     BOUNDARY_CODES,
     NATURAL_EARTH_ADMIN0_URL,
     NATURAL_EARTH_RELEASE_PAGE_URL,
     NATURAL_EARTH_TERMS_URL,
     NATURAL_EARTH_VERSION,
 )
-from bijux_pollenomics.data_downloader.sources.neotoma.production import (
+from bijux_pollenomics.collection.sources.neotoma.production import (
     NeotomaProductionConfig,
     load_validated_neotoma_raw_archive,
     main,

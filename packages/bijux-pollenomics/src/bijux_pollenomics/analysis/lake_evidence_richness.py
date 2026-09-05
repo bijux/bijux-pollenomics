@@ -20,9 +20,9 @@ from ..core.temporal_semantics import (
     canonical_bp_interval,
     closed_bp_intervals_overlap,
 )
-from ..data_downloader.models import ContextPointRecord
-from ..data_downloader.sources.raa import assess_raa_density_authority
-from ..data_downloader.spatial.representative_points import (
+from ..collection.models import ContextPointRecord
+from ..collection.sources.raa import assess_raa_density_authority
+from ..collection.spatial.representative_points import (
     geometry_to_representative_point,
 )
 

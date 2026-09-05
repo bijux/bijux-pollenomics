@@ -14,7 +14,7 @@ from unittest.mock import patch
 
 import pytest
 
-from bijux_pollenomics.data_downloader.sources.neotoma.materialization import (
+from bijux_pollenomics.collection.sources.neotoma.materialization import (
     materialize_neotoma_relational_snapshot,
 )
 from bijux_pollenomics.reporting import (

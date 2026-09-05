@@ -4,8 +4,8 @@ from pathlib import Path
 import tempfile
 import unittest
 
-from bijux_pollenomics.data_downloader.models import SourceAcquisitionMetadata
-from bijux_pollenomics.data_downloader.source_validation import validate_source_snapshot
+from bijux_pollenomics.collection.models import SourceAcquisitionMetadata
+from bijux_pollenomics.collection.source_validation import validate_source_snapshot
 
 
 class SourceValidationUnitTests(unittest.TestCase):

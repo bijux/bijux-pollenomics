@@ -21,7 +21,7 @@ evidence boundary is `src/bijux_pollenomics/adna/`.
 | Namespace | Durable responsibility | Governed outputs or decisions |
 | --- | --- | --- |
 | `command_line/` | parsing, dispatch, and the durable command registry | selected action, validated arguments, exit behavior, and declared write root |
-| `data_downloader/` | source-family acquisition and context normalization | capture metadata, normalized context, traceability, hashes, and collection summary |
+| `collection/` | source-family acquisition and context normalization | capture metadata, normalized context, traceability, hashes, and collection summary |
 | `adna/` | animal project recovery and sample-owned evidence | project library, sample identity, locality, chronology, coordinates, species records, and archive findings |
 | `evidence/` | product-facing evidence fitness and evidence rows | scientific review and atlas evidence surfaces |
 | `analysis/` | explicit comparison and ranking methods | candidate rankings, sensitivity, lake evidence, and review packets |
@@ -36,8 +36,8 @@ publication rules. Scientific behavior still belongs to the domain package
 that owns the decision.
 
 `command_line/` owns parsing, dispatch, and the durable command registry.
-Within acquisition, `data_downloader/pipeline/`, `data_downloader/sources/`,
-`data_downloader/intake/`, and `data_downloader/exports/` separate orchestration,
+Within acquisition, `collection/pipeline/`, `collection/sources/`,
+`collection/intake/`, and `collection/exports/` separate orchestration,
 source interpretation, payload decoding, and owned output writing.
 
 Within analysis, `analysis/review/` owns candidate-site ranking reviews and
@@ -50,7 +50,7 @@ bundle assembly, `reporting/presentation/` owns human-facing formatting,
 
 ```mermaid
 flowchart TB
-    Command["command_line"] --> Collection["data_downloader"]
+    Command["command_line"] --> Collection["collection"]
     Command --> Animal["adna"]
     Command --> Publication["reporting"]
     Collection --> Evidence["evidence"]
@@ -96,7 +96,7 @@ it happens to read or write:
 
 | Invariant | Owning boundary |
 | --- | --- |
-| an upstream member is acquired with recoverable identity and bytes | `data_downloader/` or `adna/sources/` |
+| an upstream member is acquired with recoverable identity and bytes | `collection/` or `adna/sources/` |
 | a sample, place, chronology, coordinate, or relation retains scientific meaning | `adna/` and its evidence contracts |
 | a record supports a declared use or remains qualified | `evidence/` |
 | a declared population is ranked under explicit features and scenarios | `analysis/` |
@@ -149,7 +149,7 @@ Start from the observable surface and move inward:
 | Observation | First owner | Continue with |
 | --- | --- | --- |
 | command option or exit | `command_line/` | resolved handler, then the invoked domain API |
-| collected family file | `data_downloader/` | family source adapter, normalization, and export contract |
+| collected family file | `collection/` | family source adapter, normalization, and export contract |
 | animal sample claim | `adna/` | project, paper, sample, locality, chronology, and coordinate evidence |
 | evidence qualification | `evidence/` | governing record and target product rule |
 | ranking or sensitivity result | `analysis/review/` | declared inputs, scenarios, and stability output |
@@ -166,7 +166,7 @@ the earliest decision that is wrong and correct it there:
 
 | Observed mismatch | Owning correction | Downstream consequence |
 | --- | --- | --- |
-| source version, retrieval URL, or payload hash is wrong | `data_downloader/` capture and family contract | normalize again, then rebuild affected evidence and products |
+| source version, retrieval URL, or payload hash is wrong | `collection/` capture and family contract | normalize again, then rebuild affected evidence and products |
 | recovered animal identifier, locality, chronology, or coordinate is wrong | `adna/` project or sample evidence | review admission again before republishing |
 | evidence role or fitness posture is wrong | `evidence/` and its product rule | regenerate review and every product that consumes the decision |
 | ranking changes under the wrong scenario or interval rule | `analysis/review/` | regenerate ranking, sensitivity, and fieldwork-preparation packets |

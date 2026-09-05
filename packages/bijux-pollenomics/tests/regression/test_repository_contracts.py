@@ -1687,9 +1687,7 @@ class RepositoryContractRegressionTests(unittest.TestCase):
             "`command_line/` owns parsing, dispatch, and the durable command registry",
             module_map,
         )
-        self.assertIn(
-            "`data_downloader/pipeline/`, `data_downloader/sources/`", module_map
-        )
+        self.assertIn("`collection/pipeline/`, `collection/sources/`", module_map)
         self.assertIn(
             "`analysis/review/` owns candidate-site ranking reviews", module_map
         )

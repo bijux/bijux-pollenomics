@@ -7,7 +7,7 @@ from typing import cast
 import unittest
 from unittest.mock import patch
 
-from bijux_pollenomics.data_downloader.landclim import (
+from bijux_pollenomics.collection.landclim import (
     build_landclim_grid_geojson,
     build_landclim_raw_asset_summaries,
     build_landclim_site_records,
@@ -22,11 +22,11 @@ from bijux_pollenomics.data_downloader.landclim import (
     resolve_landclim_marquer_asset_urls,
     resolve_landclim_tabular_asset_urls,
 )
-from bijux_pollenomics.data_downloader.models import ContextPointRecord
-from bijux_pollenomics.data_downloader.sources.landclim import (
+from bijux_pollenomics.collection.models import ContextPointRecord
+from bijux_pollenomics.collection.sources.landclim import (
     build_landclim_spatiotemporal_review,
 )
-from bijux_pollenomics.data_downloader.sources.landclim.time_windows import (
+from bijux_pollenomics.collection.sources.landclim.time_windows import (
     _require_uncertainty_pair,
 )
 from tests.support.geography import NORDIC_TEST_BBOX, SWEDEN_BOUNDARIES
@@ -558,7 +558,7 @@ class LandClimDataTests(unittest.TestCase):
                 },
             )
 
-            from bijux_pollenomics.data_downloader.landclim import (
+            from bijux_pollenomics.collection.landclim import (
                 landclim_ii_site_records,
             )
 
@@ -612,13 +612,13 @@ class LandClimDataTests(unittest.TestCase):
         with (
             tempfile.TemporaryDirectory() as tmp,
             patch(
-                "bijux_pollenomics.data_downloader.landclim.resolve_landclim_asset_urls",
+                "bijux_pollenomics.collection.landclim.resolve_landclim_asset_urls",
                 return_value={
                     "landclim_i_land_cover_types.xlsx": "https://example.test/lct.xlsx"
                 },
             ),
             patch(
-                "bijux_pollenomics.data_downloader.landclim.fetch_binary",
+                "bijux_pollenomics.collection.landclim.fetch_binary",
                 return_value=b"",
             ),
             self.assertRaisesRegex(

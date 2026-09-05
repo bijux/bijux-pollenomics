@@ -8,8 +8,8 @@ from urllib.error import URLError
 
 import pytest
 
-from bijux_pollenomics.data_downloader import sead as production_sead
-from bijux_pollenomics.data_downloader.sources.sead.acquisition import (
+from bijux_pollenomics.collection import sead as production_sead
+from bijux_pollenomics.collection.sources.sead.acquisition import (
     SeadAcquisitionError,
     acquire_sead_table,
     assert_sead_join_complete,

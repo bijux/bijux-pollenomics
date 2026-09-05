@@ -202,7 +202,7 @@ def materialize_boundary_country_review(
             "version": "1",
             "path": (
                 "packages/bijux-pollenomics/src/bijux_pollenomics/"
-                "data_downloader/sources/boundaries/review.py"
+                "collection/sources/boundaries/review.py"
             ),
             "sha256": _file_sha256(Path(__file__)),
         },

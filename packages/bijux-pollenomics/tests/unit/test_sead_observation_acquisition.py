@@ -8,27 +8,27 @@ from unittest.mock import patch
 
 import pytest
 
-from bijux_pollenomics.data_downloader.sources.sead.archive import (
+from bijux_pollenomics.collection.sources.sead.archive import (
     SEAD_FULL_EVIDENCE_SOURCE_TABLES,
     SEAD_LINKED_SOURCE_TABLES,
 )
-from bijux_pollenomics.data_downloader.sources.sead.acquisition_admission import (
+from bijux_pollenomics.collection.sources.sead.acquisition_admission import (
     SeadAdmissionExpectedIdentity,
     materialize_sead_full_evidence_admission,
     validate_sead_full_evidence_admission,
 )
-from bijux_pollenomics.data_downloader.sources.sead import (
+from bijux_pollenomics.collection.sources.sead import (
     acquisition_admission as admission_module,
 )
-from bijux_pollenomics.data_downloader.sources.sead import (
+from bijux_pollenomics.collection.sources.sead import (
     evidence_bundle as evidence_module,
 )
-from bijux_pollenomics.data_downloader.sources.sead.evidence_bundle import (
+from bijux_pollenomics.collection.sources.sead.evidence_bundle import (
     build_sead_source_native_evidence_bundle,
     validate_sead_source_native_evidence_materialization,
     write_sead_source_native_evidence_bundle,
 )
-from bijux_pollenomics.data_downloader.sources.sead.scoped_acquisition import (
+from bijux_pollenomics.collection.sources.sead.scoped_acquisition import (
     FULL_EVIDENCE_ORCHESTRATOR_VERSION,
     SEAD_FULL_EVIDENCE_JOIN_PLANS,
     SEAD_FULL_EVIDENCE_TABLE_PLANS,

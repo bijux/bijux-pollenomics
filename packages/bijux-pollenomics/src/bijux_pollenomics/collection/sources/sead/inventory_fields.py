@@ -46,8 +46,7 @@ def build_sead_site_rows_from_acquisition_tables(
     if set(rows_by_table) != required_tables:
         raise ValueError("SEAD chronology materialization requires the exact table set")
     tables = {
-        table: [dict(row) for row in rows]
-        for table, rows in rows_by_table.items()
+        table: [dict(row) for row in rows] for table, rows in rows_by_table.items()
     }
     sites = tables["tbl_sites"]
     summary = populate_sead_site_inventory_fields(
@@ -112,11 +111,7 @@ class _AcquisitionTablePageFetcher:
                     raise ValueError("SEAD cached request filter is unsupported")
                 if not expression.endswith(")"):
                     raise ValueError("SEAD cached request filter is invalid")
-                values = {
-                    int(value)
-                    for value in expression[4:-1].split(",")
-                    if value
-                }
+                values = {int(value) for value in expression[4:-1].split(",") if value}
                 index = self._index(table, field)
                 rows = [row for value in sorted(values) for row in index.get(value, [])]
 
@@ -138,15 +133,11 @@ class _AcquisitionTablePageFetcher:
                     raise ValueError(
                         f"SEAD cached {table} row misses projected fields: {sorted(missing)}"
                     )
-                projected_rows.append(
-                    {field: row[field] for field in projected_fields}
-                )
+                projected_rows.append({field: row[field] for field in projected_fields})
             self._query_cache[query_key] = projected_rows
         return self._query_cache[query_key][start : end + 1]
 
-    def _index(
-        self, table: str, field: str
-    ) -> dict[object, list[dict[str, object]]]:
+    def _index(self, table: str, field: str) -> dict[object, list[dict[str, object]]]:
         key = (table, field)
         if key not in self._indexes:
             index: dict[object, list[dict[str, object]]] = {}
@@ -638,9 +629,7 @@ def populate_sead_site_inventory_fields(
         if row.get("dataset_id") is not None
     }
     dataset_biblio_id_by_id = {
-        parse_required_int(row["dataset_id"]): parse_required_int(
-            row.get("biblio_id")
-        )
+        parse_required_int(row["dataset_id"]): parse_required_int(row.get("biblio_id"))
         for row in datasets
         if row.get("dataset_id") is not None
     }

@@ -5,11 +5,11 @@ from typing import cast
 
 import pytest
 
-from bijux_pollenomics.data_downloader.sead import SEAD_GOVERNED_ACQUISITION_ID
-from bijux_pollenomics.data_downloader.sources.sead.claim_bundle import (
+from bijux_pollenomics.collection.sead import SEAD_GOVERNED_ACQUISITION_ID
+from bijux_pollenomics.collection.sources.sead.claim_bundle import (
     build_sead_chronology_claim_bundle,
 )
-from bijux_pollenomics.data_downloader.sources.sead.evidence_reader import (
+from bijux_pollenomics.collection.sources.sead.evidence_reader import (
     SEAD_GOVERNED_EVIDENCE_MANIFEST_SHA256,
     governed_sead_evidence_root,
     read_validated_sead_evidence_document,

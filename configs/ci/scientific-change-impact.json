@@ -102,7 +102,7 @@
     {
       "id": "source-adapters-and-normalizers",
       "paths": [
-        "packages/bijux-pollenomics/src/bijux_pollenomics/data_downloader/**",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/collection/**",
         "packages/bijux-pollenomics/src/bijux_pollenomics/adna/**"
       ],
       "gates": [
@@ -173,7 +173,7 @@
       "id": "country-boundaries-and-scope",
       "paths": [
         "data/boundaries/**",
-        "packages/bijux-pollenomics/src/bijux_pollenomics/data_downloader/boundaries.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/collection/boundaries.py",
         "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/geography.py"
       ],
       "gates": [

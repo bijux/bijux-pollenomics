@@ -6,7 +6,7 @@ from pathlib import Path
 from typing import cast
 import unittest
 
-from bijux_pollenomics.data_downloader.sources.boundaries.review import (
+from bijux_pollenomics.collection.sources.boundaries.review import (
     BoundaryAuthority,
     PointEvidence,
     _build_boundary_review,

@@ -46,7 +46,7 @@ def _contract() -> ChangeImpactContract:
         ("governed-data", "data/collection_summary.json"),
         (
             "source-adapters-and-normalizers",
-            "packages/bijux-pollenomics/src/bijux_pollenomics/data_downloader/neotoma.py",
+            "packages/bijux-pollenomics/src/bijux_pollenomics/collection/neotoma.py",
         ),
         (
             "temporal-and-spatial-core",

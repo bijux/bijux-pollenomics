@@ -7,7 +7,7 @@ from pathlib import Path
 import unicodedata
 
 from ..core import haversine_km
-from ..data_downloader.spatial.representative_points import (
+from ..collection.spatial.representative_points import (
     geometry_to_representative_point,
 )
 

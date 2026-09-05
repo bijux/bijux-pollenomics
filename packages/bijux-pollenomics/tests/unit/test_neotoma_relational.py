@@ -3,14 +3,14 @@ from __future__ import annotations
 import copy
 import unittest
 
-from bijux_pollenomics.data_downloader.sources.neotoma.normalization import (
+from bijux_pollenomics.collection.sources.neotoma.normalization import (
     build_neotoma_site_country_decisions,
     build_neotoma_site_rows_from_downloads,
 )
-from bijux_pollenomics.data_downloader.sources.neotoma.relational import (
+from bijux_pollenomics.collection.sources.neotoma.relational import (
     build_neotoma_relational_snapshot,
 )
-from bijux_pollenomics.data_downloader.spatial import CountryAttributionDecision
+from bijux_pollenomics.collection.spatial import CountryAttributionDecision
 
 
 def _download_row(dataset_id: int = 201) -> dict[str, object]:

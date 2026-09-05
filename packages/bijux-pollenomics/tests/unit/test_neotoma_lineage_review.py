@@ -7,25 +7,25 @@ from pathlib import Path
 
 import pytest
 
-from bijux_pollenomics.data_downloader.sources.neotoma.lineage import (
+from bijux_pollenomics.collection.sources.neotoma.lineage import (
     LINEAGE_SCHEMA_VERSION,
     build_neotoma_compact_lineage,
     write_neotoma_compact_lineage,
 )
-from bijux_pollenomics.data_downloader.sources.neotoma.materialization import (
+from bijux_pollenomics.collection.sources.neotoma.materialization import (
     materialize_neotoma_relational_snapshot,
 )
-from bijux_pollenomics.data_downloader.sources.neotoma.production import (
+from bijux_pollenomics.collection.sources.neotoma.production import (
     load_validated_neotoma_raw_archive,
 )
-from bijux_pollenomics.data_downloader.sources.neotoma.refresh_review import (
+from bijux_pollenomics.collection.sources.neotoma.refresh_review import (
     BASELINE_SCHEMA_VERSION,
     build_neotoma_refresh_baseline,
     build_neotoma_refresh_review,
     write_neotoma_refresh_baseline,
     write_neotoma_refresh_review,
 )
-from bijux_pollenomics.data_downloader.sources.neotoma.relational import (
+from bijux_pollenomics.collection.sources.neotoma.relational import (
     build_neotoma_relational_snapshot,
 )
 

@@ -26,7 +26,7 @@ def build_ownership_map() -> tuple[OwnershipMapEntry, ...]:
     return (
         OwnershipMapEntry(
             concern="source_data_logic",
-            owner_module="bijux_pollenomics.data_downloader",
+            owner_module="bijux_pollenomics.collection",
             reason="collects and normalizes tracked evidence sources",
         ),
         OwnershipMapEntry(

@@ -9,12 +9,12 @@ from unittest.mock import patch
 
 import pytest
 
-from bijux_pollenomics.data_downloader.boundaries import (
+from bijux_pollenomics.collection.boundaries import (
     NATURAL_EARTH_ADMIN0_URL,
     NATURAL_EARTH_TERMS_URL,
     NATURAL_EARTH_VERSION,
 )
-from bijux_pollenomics.data_downloader.collector import (
+from bijux_pollenomics.collection.collector import (
     AVAILABLE_SOURCES,
     build_staging_output_dir,
     collect_data,
@@ -76,25 +76,25 @@ class DataCollectorTests(unittest.TestCase):
 
             with (
                 patch(
-                    "bijux_pollenomics.data_downloader.collector.download_aadr_anno_files"
+                    "bijux_pollenomics.collection.collector.download_aadr_anno_files"
                 ) as download_aadr,
                 patch(
-                    "bijux_pollenomics.data_downloader.collector.fetch_country_boundaries"
+                    "bijux_pollenomics.collection.collector.fetch_country_boundaries"
                 ) as fetch_boundaries,
                 patch(
-                    "bijux_pollenomics.data_downloader.collector.collect_boundaries_data"
+                    "bijux_pollenomics.collection.collector.collect_boundaries_data"
                 ) as collect_boundaries,
                 patch(
-                    "bijux_pollenomics.data_downloader.collector.collect_landclim_data"
+                    "bijux_pollenomics.collection.collector.collect_landclim_data"
                 ) as collect_landclim,
                 patch(
-                    "bijux_pollenomics.data_downloader.collector.collect_neotoma_data"
+                    "bijux_pollenomics.collection.collector.collect_neotoma_data"
                 ) as collect_neotoma,
                 patch(
-                    "bijux_pollenomics.data_downloader.collector.collect_sead_data"
+                    "bijux_pollenomics.collection.collector.collect_sead_data"
                 ) as collect_sead,
                 patch(
-                    "bijux_pollenomics.data_downloader.collector.collect_raa_data"
+                    "bijux_pollenomics.collection.collector.collect_raa_data"
                 ) as collect_raa,
             ):
                 download_aadr.return_value.downloaded_files = (Path("a"), Path("b"))
@@ -331,22 +331,22 @@ class DataCollectorTests(unittest.TestCase):
 
             with (
                 patch(
-                    "bijux_pollenomics.data_downloader.collector.download_aadr_anno_files"
+                    "bijux_pollenomics.collection.collector.download_aadr_anno_files"
                 ) as download_aadr,
                 patch(
-                    "bijux_pollenomics.data_downloader.collector.collect_boundaries_data"
+                    "bijux_pollenomics.collection.collector.collect_boundaries_data"
                 ) as collect_boundaries,
                 patch(
-                    "bijux_pollenomics.data_downloader.collector.collect_landclim_data"
+                    "bijux_pollenomics.collection.collector.collect_landclim_data"
                 ) as collect_landclim,
                 patch(
-                    "bijux_pollenomics.data_downloader.collector.collect_neotoma_data"
+                    "bijux_pollenomics.collection.collector.collect_neotoma_data"
                 ) as collect_neotoma,
                 patch(
-                    "bijux_pollenomics.data_downloader.collector.collect_sead_data"
+                    "bijux_pollenomics.collection.collector.collect_sead_data"
                 ) as collect_sead,
                 patch(
-                    "bijux_pollenomics.data_downloader.collector.collect_raa_data"
+                    "bijux_pollenomics.collection.collector.collect_raa_data"
                 ) as collect_raa,
             ):
                 download_aadr.return_value.downloaded_files = (Path("a"), Path("b"))
@@ -398,10 +398,10 @@ class DataCollectorTests(unittest.TestCase):
 
             with (
                 patch(
-                    "bijux_pollenomics.data_downloader.collector.fetch_country_boundaries"
+                    "bijux_pollenomics.collection.collector.fetch_country_boundaries"
                 ) as fetch_boundaries,
                 patch(
-                    "bijux_pollenomics.data_downloader.collector.collect_neotoma_data"
+                    "bijux_pollenomics.collection.collector.collect_neotoma_data"
                 ) as collect_neotoma,
             ):
                 fetch_boundaries.return_value = {"Sweden": {"features": []}}
@@ -442,10 +442,10 @@ class DataCollectorTests(unittest.TestCase):
 
             with (
                 patch(
-                    "bijux_pollenomics.data_downloader.collector.fetch_country_boundaries"
+                    "bijux_pollenomics.collection.collector.fetch_country_boundaries"
                 ) as fetch_boundaries,
                 patch(
-                    "bijux_pollenomics.data_downloader.collector.collect_neotoma_data"
+                    "bijux_pollenomics.collection.collector.collect_neotoma_data"
                 ) as collect_neotoma,
             ):
                 fetch_boundaries.return_value = {"Sweden": {"features": []}}
@@ -484,7 +484,7 @@ class DataCollectorTests(unittest.TestCase):
             summary_path.write_text('{"status": "kept"}', encoding="utf-8")
 
             with patch(
-                "bijux_pollenomics.data_downloader.collector.download_aadr_anno_files"
+                "bijux_pollenomics.collection.collector.download_aadr_anno_files"
             ) as download_aadr:
                 download_aadr.side_effect = RuntimeError("download failure")
 
@@ -503,7 +503,7 @@ class DataCollectorTests(unittest.TestCase):
             output_root = Path(tmp) / "custom-data"
 
             with patch(
-                "bijux_pollenomics.data_downloader.collector.download_aadr_anno_files"
+                "bijux_pollenomics.collection.collector.download_aadr_anno_files"
             ) as download_aadr:
                 download_aadr.return_value.downloaded_files = ()
                 collect_data(
@@ -627,10 +627,10 @@ class DataCollectorTests(unittest.TestCase):
 
             with (
                 patch(
-                    "bijux_pollenomics.data_downloader.collector.fetch_country_boundaries"
+                    "bijux_pollenomics.collection.collector.fetch_country_boundaries"
                 ) as fetch_boundaries,
                 patch(
-                    "bijux_pollenomics.data_downloader.collector.collect_neotoma_data"
+                    "bijux_pollenomics.collection.collector.collect_neotoma_data"
                 ) as collect_neotoma,
             ):
                 collect_neotoma.return_value.point_count = 6
@@ -670,10 +670,10 @@ class DataCollectorTests(unittest.TestCase):
 
             with (
                 patch(
-                    "bijux_pollenomics.data_downloader.collector.fetch_country_boundaries"
+                    "bijux_pollenomics.collection.collector.fetch_country_boundaries"
                 ) as fetch_boundaries,
                 patch(
-                    "bijux_pollenomics.data_downloader.collector.collect_landclim_data"
+                    "bijux_pollenomics.collection.collector.collect_landclim_data"
                 ) as collect_landclim,
             ):
                 fetch_boundaries.return_value = {"Sweden": {"features": []}}
