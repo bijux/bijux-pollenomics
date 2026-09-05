@@ -118,7 +118,7 @@ _GATE_TESTS: dict[str, tuple[str, ...]] = {
         "collection/contracts/test_data_contract_surfaces.py",
         "collection/workflow/planning/test_layout.py",
         "collection/catalog/test_source_identity.py",
-        "collection/contracts/test_source_family_contracts.py",
+        "collection/contracts/test_source_family_contracts",
         "collection/contracts/test_source_layout_contract.py",
         "collection/catalog/test_source_provenance.py",
         "collection/catalog/test_source_traceability.py",

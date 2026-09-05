@@ -69,7 +69,7 @@ POLLENOMICS_DATA_TESTS := \
 	$(POLLENOMICS_TEST_ROOT)/unit/collection/contracts/test_data_contract_surfaces.py \
 	$(POLLENOMICS_TEST_ROOT)/unit/collection/workflow/planning/test_layout.py \
 	$(POLLENOMICS_TEST_ROOT)/unit/collection/catalog/test_source_identity.py \
-	$(POLLENOMICS_TEST_ROOT)/unit/collection/contracts/test_source_family_contracts.py \
+	$(POLLENOMICS_TEST_ROOT)/unit/collection/contracts/test_source_family_contracts \
 	$(POLLENOMICS_TEST_ROOT)/unit/collection/contracts/test_source_layout_contract.py \
 	$(POLLENOMICS_TEST_ROOT)/unit/collection/catalog/test_source_provenance.py \
 	$(POLLENOMICS_TEST_ROOT)/unit/collection/catalog/test_source_traceability.py \
