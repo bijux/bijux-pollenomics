@@ -23,8 +23,9 @@ from ..projects.registry.sites import (
     build_sample_site_manual_curation_queue,
 )
 from .ena import build_archive_project_catalog
-from .library import (
-    ADNA_SOURCE_LIBRARY_DIR,
+from bijux_pollenomics.adna.workflow.paths import ADNA_SOURCE_LIBRARY_DIR
+
+from .library.registries import (
     build_paper_registry,
     build_project_registry,
     build_project_source_bundles,

@@ -5,13 +5,15 @@ from pathlib import Path
 
 from ...core.files import write_json, write_text
 from bijux_pollenomics.adna.workflow.paths import ADNA_SOURCE_LIBRARY_DIR
-from .library import (
-    _doi_slug,
-    _reference_stash_records,
-    _resolve_reference_stash_root,
+from .library.registries import (
     build_paper_registry,
     build_project_registry,
     build_project_source_bundles,
+)
+from .library.specifications import _doi_slug
+from .library.storage import (
+    _reference_stash_records,
+    _resolve_reference_stash_root,
 )
 from .recovery import (
     build_manual_curation_worklist,

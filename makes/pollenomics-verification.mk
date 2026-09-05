@@ -46,7 +46,7 @@ POLLENOMICS_DATA_TESTS := \
 	$(POLLENOMICS_TEST_ROOT)/unit/adna/workflow/test_adna_runtime.py \
 	$(POLLENOMICS_TEST_ROOT)/unit/adna/projects/test_adna_sample_master.py \
 	$(POLLENOMICS_TEST_ROOT)/unit/adna/projects/registry/test_sample_truth.py \
-	$(POLLENOMICS_TEST_ROOT)/unit/adna/sources/test_adna_source_library.py \
+	$(POLLENOMICS_TEST_ROOT)/unit/adna/sources/library \
 	$(POLLENOMICS_TEST_ROOT)/unit/adna/sources/test_adna_source_recovery.py \
 	$(POLLENOMICS_TEST_ROOT)/unit/adna/domain/test_adna_temporal_query.py \
 	$(POLLENOMICS_TEST_ROOT)/unit/collection/sources/sead/acquisition/test_full.py \

@@ -168,8 +168,7 @@ def build_repository_architecture_contract() -> RepositoryArchitectureContract:
             stage_key="animal_adna_intake",
             owner_module="bijux_pollenomics.adna.sources.library",
             owner_path=(
-                "packages/bijux-pollenomics/src/"
-                "bijux_pollenomics/adna/sources/library.py"
+                "packages/bijux-pollenomics/src/bijux_pollenomics/adna/sources/library"
             ),
             purpose="admit projects, papers, and supplements into tracked intake",
             tracked_inputs=("ENA accessions", "paper DOIs", "supplements"),
