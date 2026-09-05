@@ -2,7 +2,7 @@
 
 This packet states what the repository mirrors from SEAD, what it only references, and where readers still need to inspect upstream SEAD surfaces directly.
 
-- Reviewed sites: `2195`
+- Reviewed sites: `2069`
 - Repository posture: `mirrored_relational_inventory_and_temporal_context`
 
 ## Repository Mirrors
@@ -24,7 +24,7 @@ This packet states what the repository mirrors from SEAD, what it only reference
 
 ## Access Visibility
 
-- site page only: `2192`
+- site page only: `2066`
 - site page with reference links: `3`
 
 | Site | Access visibility | Reference links | Stable site page |
@@ -55,9 +55,7 @@ This packet states what the repository mirrors from SEAD, what it only reference
 | 51840 Malung-Sälen (`6341`) | site_page_only | 0 | https://browser.sead.se/site/6341 |
 | 57333 Yttergran (`6471`) | site_page_only | 0 | https://browser.sead.se/site/6471 |
 | 58060 Ölands värdshus (`6445`) | site_page_only | 0 | https://browser.sead.se/site/6445 |
-| 58194 Kalmar (`6484`) | site_page_only | 0 | https://browser.sead.se/site/6484 |
 | 58195 Böda (`5653`) | site_page_only | 0 | https://browser.sead.se/site/5653 |
-| 61094 Kronobäck (`6462`) | site_page_only | 0 | https://browser.sead.se/site/6462 |
 | 61779 Söderåkra (`5654`) | site_page_only | 0 | https://browser.sead.se/site/5654 |
 | 62771 Norra Vallby (`6450`) | site_page_only | 0 | https://browser.sead.se/site/6450 |
 | 62790 Uppsala (`6472`) | site_page_only | 0 | https://browser.sead.se/site/6472 |
@@ -101,7 +99,6 @@ This packet states what the repository mirrors from SEAD, what it only reference
 | 80848 Harplinge (`6333`) | site_page_only | 0 | https://browser.sead.se/site/6333 |
 | 82191 Falun (`6331`) | site_page_only | 0 | https://browser.sead.se/site/6331 |
 | 82864 Malung (`6338`) | site_page_only | 0 | https://browser.sead.se/site/6338 |
-| 93139 Ljusterö (`6337`) | site_page_only | 0 | https://browser.sead.se/site/6337 |
 | 93279 Österlövsta (`5669`) | site_page_only | 0 | https://browser.sead.se/site/5669 |
 | Abbotens hus (`4234`) | site_page_only | 0 | https://browser.sead.se/site/4234 |
 | Abilds kyrka (`5677`) | site_page_only | 0 | https://browser.sead.se/site/5677 |
@@ -126,7 +123,6 @@ This packet states what the repository mirrors from SEAD, what it only reference
 | Almare-Stäket (`6428`) | site_page_only | 0 | https://browser.sead.se/site/6428 |
 | Almhov subarea 1 (`3811`) | site_page_only | 0 | https://browser.sead.se/site/3811 |
 | Alntorpsö (`5684`) | site_page_only | 0 | https://browser.sead.se/site/5684 |
-| Alnö kyrka (`5683`) | site_page_only | 0 | https://browser.sead.se/site/5683 |
 | Alskogs kyrka (`4230`) | site_page_only | 0 | https://browser.sead.se/site/4230 |
 | Alva kyrka (`4229`) | site_page_only | 0 | https://browser.sead.se/site/4229 |
 | Alvajarvi: Pihtipudas (`4890`) | site_page_only | 0 | https://browser.sead.se/site/4890 |
@@ -193,7 +189,6 @@ This packet states what the repository mirrors from SEAD, what it only reference
 | Bergmanska gården (`5709`) | site_page_only | 0 | https://browser.sead.se/site/5709 |
 | Bergolas i kyrkbyn (`5710`) | site_page_only | 0 | https://browser.sead.se/site/5710 |
 | Bergsbyn (`5711`) | site_page_only | 0 | https://browser.sead.se/site/5711 |
-| Bergskärit (`320`) | site_page_only | 0 | https://browser.sead.se/site/320 |
 | Berkinge Herrgård (`4220`) | site_page_only | 0 | https://browser.sead.se/site/4220 |
 | Biby säteri (`3925`) | site_page_only | 0 | https://browser.sead.se/site/3925 |
 | Billsta (`3918`) | site_page_only | 0 | https://browser.sead.se/site/3918 |
@@ -238,11 +233,9 @@ This packet states what the repository mirrors from SEAD, what it only reference
 | Blekingegården (`5719`) | site_page_only | 0 | https://browser.sead.se/site/5719 |
 | Blomstugan i Lindbodarna (`5720`) | site_page_only | 0 | https://browser.sead.se/site/5720 |
 | Blomtorpet i Hara (`5721`) | site_page_only | 0 | https://browser.sead.se/site/5721 |
-| Blomøy (`4911`) | site_page_only | 0 | https://browser.sead.se/site/4911 |
 | BMR 3054 Vestre Indlæg (`128`) | site_page_only | 0 | https://browser.sead.se/site/128 |
 | Boarp (`5722`) | site_page_only | 0 | https://browser.sead.se/site/5722 |
 | Bobergs i Nyhyttan (`5723`) | site_page_only | 0 | https://browser.sead.se/site/5723 |
-| Bobergska gården (`5724`) | site_page_only | 0 | https://browser.sead.se/site/5724 |
 | Bodarps kyrka (`5725`) | site_page_only | 0 | https://browser.sead.se/site/5725 |
 | Boddas bönhus (`5726`) | site_page_only | 0 | https://browser.sead.se/site/5726 |
 | Bois i Biskopsbyn (`5727`) | site_page_only | 0 | https://browser.sead.se/site/5727 |
@@ -257,7 +250,6 @@ This packet states what the repository mirrors from SEAD, what it only reference
 | Bondoll i Ersholen (`5731`) | site_page_only | 0 | https://browser.sead.se/site/5731 |
 | Bondrumsgården (`5732`) | site_page_only | 0 | https://browser.sead.se/site/5732 |
 | Bonäs (`4211`) | site_page_only | 0 | https://browser.sead.se/site/4211 |
-| Boqvistudden (`4210`) | site_page_only | 0 | https://browser.sead.se/site/4210 |
 | Borgarhuset (`4209`) | site_page_only | 0 | https://browser.sead.se/site/4209 |
 | Borgeby (`3777`) | site_page_only | 0 | https://browser.sead.se/site/3777 |
 | Borgeby kyrka (`5734`) | site_page_only | 0 | https://browser.sead.se/site/5734 |
@@ -358,7 +350,6 @@ This packet states what the repository mirrors from SEAD, what it only reference
 | Bryggen (`3769`) | site_page_only | 0 | https://browser.sead.se/site/3769 |
 | Bryktgard i Axi (`5743`) | site_page_only | 0 | https://browser.sead.se/site/5743 |
 | Brynje (`5744`) | site_page_only | 0 | https://browser.sead.se/site/5744 |
-| Brämöns kapell (`5737`) | site_page_only | 0 | https://browser.sead.se/site/5737 |
 | Brönnestads kyrka (`4197`) | site_page_only | 0 | https://browser.sead.se/site/4197 |
 | Budasmyren Nusnäs (`5745`) | site_page_only | 0 | https://browser.sead.se/site/5745 |
 | Bullas i Östnor (`5746`) | site_page_only | 0 | https://browser.sead.se/site/5746 |
@@ -423,9 +414,6 @@ This packet states what the repository mirrors from SEAD, what it only reference
 | Deckers i Kyrkbyn (`5759`) | site_page_only | 0 | https://browser.sead.se/site/5759 |
 | Deset Knubben (`243`) | site_page_only | 0 | https://browser.sead.se/site/243 |
 | Dikmanska gården (`5760`) | site_page_only | 0 | https://browser.sead.se/site/5760 |
-| Djurgårdsbrunn (`6432`) | site_page_only | 0 | https://browser.sead.se/site/6432 |
-| Djurgårdsbrunnsvägen (`6285`) | site_page_only | 0 | https://browser.sead.se/site/6285 |
-| Djursnäs säteri (`4188`) | site_page_only | 0 | https://browser.sead.se/site/4188 |
 | Dragby (`3747`) | site_page_only | 0 | https://browser.sead.se/site/3747 |
 | Drottningholm (`6286`) | site_page_only | 0 | https://browser.sead.se/site/6286 |
 | Drottningholms slott (`4187`) | site_page_only | 0 | https://browser.sead.se/site/4187 |
@@ -458,7 +446,6 @@ This packet states what the repository mirrors from SEAD, what it only reference
 | Eklundshov (`3741`) | site_page_only | 0 | https://browser.sead.se/site/3741 |
 | Eknäs (`3740`) | site_page_only | 0 | https://browser.sead.se/site/3740 |
 | Ektorpet (`4182`) | site_page_only | 0 | https://browser.sead.se/site/4182 |
-| Ekö (`5662`) | site_page_only | 0 | https://browser.sead.se/site/5662 |
 | Eldhus Fageråsen (`5772`) | site_page_only | 0 | https://browser.sead.se/site/5772 |
 | Eldhus Selja (`5773`) | site_page_only | 0 | https://browser.sead.se/site/5773 |
 | Eliasgården i Tasbäck (`5774`) | site_page_only | 0 | https://browser.sead.se/site/5774 |
@@ -466,7 +453,6 @@ This packet states what the repository mirrors from SEAD, what it only reference
 | Em's herrgård (`4181`) | site_page_only | 0 | https://browser.sead.se/site/4181 |
 | Emilsson i Tand (`5775`) | site_page_only | 0 | https://browser.sead.se/site/5775 |
 | Empohultet (`4856`) | site_page_only | 0 | https://browser.sead.se/site/4856 |
-| Endletvatn (`4248`) | site_page_only | 0 | https://browser.sead.se/site/4248 |
 | Engelsbergs herrgård (`5777`) | site_page_only | 0 | https://browser.sead.se/site/5777 |
 | Enköping 26:1 (`6349`) | site_page_only | 0 | https://browser.sead.se/site/6349 |
 | Enån Färnäs (`5776`) | site_page_only | 0 | https://browser.sead.se/site/5776 |
@@ -493,7 +479,6 @@ This packet states what the repository mirrors from SEAD, what it only reference
 | Evertsberg (`5064`) | site_page_only | 0 | https://browser.sead.se/site/5064 |
 | Fagervik (`3737`) | site_page_only | 0 | https://browser.sead.se/site/3737 |
 | Fahlströmsta loftboden (`5788`) | site_page_only | 0 | https://browser.sead.se/site/5788 |
-| Fakse Bugt (`4392`) | site_page_only | 0 | https://browser.sead.se/site/4392 |
 | Falköping Raä 3 (`202`) | site_page_only | 0 | https://browser.sead.se/site/202 |
 | Fallebo gård (`4177`) | site_page_only | 0 | https://browser.sead.se/site/4177 |
 | Falsterbo 15:1 (`6390`) | site_page_only | 0 | https://browser.sead.se/site/6390 |
@@ -567,14 +552,12 @@ This packet states what the repository mirrors from SEAD, what it only reference
 | Färlövs kyrka (`4162`) | site_page_only | 0 | https://browser.sead.se/site/4162 |
 | Fågelsjö (`3729`) | site_page_only | 0 | https://browser.sead.se/site/3729 |
 | Fåglarp (`3912`) | site_page_only | 0 | https://browser.sead.se/site/3912 |
-| Fåröarna (`305`) | site_page_only | 0 | https://browser.sead.se/site/305 |
 | Föllingsö säteri (`4161`) | site_page_only | 0 | https://browser.sead.se/site/4161 |
 | Föra (`3911`) | site_page_only | 0 | https://browser.sead.se/site/3911 |
 | Församlingshemmet (`5802`) | site_page_only | 0 | https://browser.sead.se/site/5802 |
 | Gagnef gamla prästgård (`5812`) | site_page_only | 0 | https://browser.sead.se/site/5812 |
 | Gamla Apoteket (`4160`) | site_page_only | 0 | https://browser.sead.se/site/4160 |
 | Gamla byvägen (`6289`) | site_page_only | 0 | https://browser.sead.se/site/6289 |
-| Gamla hamnen på Enholmen (`6435`) | site_page_only | 0 | https://browser.sead.se/site/6435 |
 | Gamla Linköping (`5813`) | site_page_only | 0 | https://browser.sead.se/site/5813 |
 | Gamla prästgården (`4159`) | site_page_only | 0 | https://browser.sead.se/site/4159 |
 | Gamla rådhuset (`5814`) | site_page_only | 0 | https://browser.sead.se/site/5814 |
@@ -602,11 +585,9 @@ This packet states what the repository mirrors from SEAD, what it only reference
 | Glädjen (`3725`) | site_page_only | 0 | https://browser.sead.se/site/3725 |
 | Gläntan (`3724`) | site_page_only | 0 | https://browser.sead.se/site/3724 |
 | Glömminge prästgård (`3910`) | site_page_only | 0 | https://browser.sead.se/site/3910 |
-| Godøy (`4416`) | site_page_only | 0 | https://browser.sead.se/site/4416 |
 | Goteborg (`4420`) | site_page_only | 0 | https://browser.sead.se/site/4420 |
 | Gothem kyrka (`4151`) | site_page_only | 0 | https://browser.sead.se/site/4151 |
 | Gothenburg (`4421`) | site_page_only | 0 | https://browser.sead.se/site/4421 |
-| Gotska Sandön (`3723`) | site_page_only | 0 | https://browser.sead.se/site/3723 |
 | Granbacken i Bagghyttan (`5830`) | site_page_only | 0 | https://browser.sead.se/site/5830 |
 | Grangärdes-Hästberg (`5831`) | site_page_only | 0 | https://browser.sead.se/site/5831 |
 | Granhults kyrka (`5832`) | site_page_only | 0 | https://browser.sead.se/site/5832 |
@@ -618,11 +599,8 @@ This packet states what the repository mirrors from SEAD, what it only reference
 | Grimmatorpet (`5835`) | site_page_only | 0 | https://browser.sead.se/site/5835 |
 | Grimsta (`6291`) | site_page_only | 0 | https://browser.sead.se/site/6291 |
 | Grindstu (`4150`) | site_page_only | 0 | https://browser.sead.se/site/4150 |
-| Grisskär (`5836`) | site_page_only | 0 | https://browser.sead.se/site/5836 |
 | Grisslehamn (`3909`) | site_page_only | 0 | https://browser.sead.se/site/3909 |
-| Grobin (`3719`) | site_page_only | 0 | https://browser.sead.se/site/3719 |
 | Grums Raä 41:1 (`167`) | site_page_only | 0 | https://browser.sead.se/site/167 |
-| Grundskatan (`3717`) | site_page_only | 0 | https://browser.sead.se/site/3717 |
 | Grundsunda Raä 121 (`196`) | site_page_only | 0 | https://browser.sead.se/site/196 |
 | Grundsunda Raä 126 (`218`) | site_page_only | 0 | https://browser.sead.se/site/218 |
 | Grundsunda Raä 30 (`254`) | site_page_only | 0 | https://browser.sead.se/site/254 |
@@ -630,12 +608,10 @@ This packet states what the repository mirrors from SEAD, what it only reference
 | Grundsunda Raä 364 (`82`) | site_page_only | 0 | https://browser.sead.se/site/82 |
 | Gruvris i Gulleråsen (`5838`) | site_page_only | 0 | https://browser.sead.se/site/5838 |
 | Gryagervej (`3716`) | site_page_only | 0 | https://browser.sead.se/site/3716 |
-| Gryt 4:2 (`6414`) | site_page_only | 0 | https://browser.sead.se/site/6414 |
 | Gräne (`3714`) | site_page_only | 0 | https://browser.sead.se/site/3714 |
 | Grävsten herrgård (`4149`) | site_page_only | 0 | https://browser.sead.se/site/4149 |
 | Gråfjell lokal Jfp. (`3715`) | site_page_only | 0 | https://browser.sead.se/site/3715 |
 | Grönhult (`5648`) | site_page_only | 0 | https://browser.sead.se/site/5648 |
-| Grönsö gård (`4148`) | site_page_only | 0 | https://browser.sead.se/site/4148 |
 | Grönås (`5837`) | site_page_only | 0 | https://browser.sead.se/site/5837 |
 | Grötlingbo 258:1 (`6373`) | site_page_only | 0 | https://browser.sead.se/site/6373 |
 | Gualöv (`3713`) | site_page_only | 0 | https://browser.sead.se/site/3713 |
@@ -700,7 +676,6 @@ This packet states what the repository mirrors from SEAD, what it only reference
 | Hallen (`5851`) | site_page_only | 0 | https://browser.sead.se/site/5851 |
 | Hallens kyrka (`5852`) | site_page_only | 0 | https://browser.sead.se/site/5852 |
 | Hallingebergs kyrka (`5854`) | site_page_only | 0 | https://browser.sead.se/site/5854 |
-| Halls fiskeläge (`4137`) | site_page_only | 0 | https://browser.sead.se/site/4137 |
 | Hallstorps kyrka (`4136`) | site_page_only | 0 | https://browser.sead.se/site/4136 |
 | Hallunda (`3706`) | site_page_only | 0 | https://browser.sead.se/site/3706 |
 | Halmstad (`4431`) | site_page_only | 0 | https://browser.sead.se/site/4431 |
@@ -716,7 +691,6 @@ This packet states what the repository mirrors from SEAD, what it only reference
 | Hanmora gård (`5859`) | site_page_only | 0 | https://browser.sead.se/site/5859 |
 | Hansanders i Sundsjöåsen (`5860`) | site_page_only | 0 | https://browser.sead.se/site/5860 |
 | Hansbacks i Näset (`5861`) | site_page_only | 0 | https://browser.sead.se/site/5861 |
-| Hanö (`4432`) | site_page_only | 0 | https://browser.sead.se/site/4432 |
 | Hareskoven (`4867`) | site_page_only | 0 | https://browser.sead.se/site/4867 |
 | Harnosand (`4433`) | site_page_only | 0 | https://browser.sead.se/site/4433 |
 | Harplinge 151 (`3702`) | site_page_only | 0 | https://browser.sead.se/site/3702 |
@@ -729,7 +703,6 @@ This packet states what the repository mirrors from SEAD, what it only reference
 | Havor Fort (`3698`) | site_page_only | 0 | https://browser.sead.se/site/3698 |
 | Hebbeska huset (`5873`) | site_page_only | 0 | https://browser.sead.se/site/5873 |
 | Heda hembygdsgård (`4132`) | site_page_only | 0 | https://browser.sead.se/site/4132 |
-| Hedeby (`3697`) | site_page_only | 0 | https://browser.sead.se/site/3697 |
 | Hedeskoga kyrka (`4131`) | site_page_only | 0 | https://browser.sead.se/site/4131 |
 | Hedesunda Raä 113 (`205`) | site_page_only | 0 | https://browser.sead.se/site/205 |
 | Hedningaladan Perlars i Ribbåsen (`5874`) | site_page_only | 0 | https://browser.sead.se/site/5874 |
@@ -744,8 +717,6 @@ This packet states what the repository mirrors from SEAD, what it only reference
 | Hellum (`3693`) | site_page_only | 0 | https://browser.sead.se/site/3693 |
 | Hellvi kyrka (`4128`) | site_page_only | 0 | https://browser.sead.se/site/4128 |
 | Helsingborg 226:1 (`6392`) | site_page_only | 0 | https://browser.sead.se/site/6392 |
-| Helsingborg 252 (`6380`) | site_page_only | 0 | https://browser.sead.se/site/6380 |
-| Helsingborg 42:1 (`6382`) | site_page_only | 0 | https://browser.sead.se/site/6382 |
 | Helsinge (`3692`) | site_page_only | 0 | https://browser.sead.se/site/3692 |
 | Hemavan (`4917`) | site_page_only | 0 | https://browser.sead.se/site/4917 |
 | Hembygdsgården (`5877`) | site_page_only | 0 | https://browser.sead.se/site/5877 |
@@ -761,7 +732,6 @@ This packet states what the repository mirrors from SEAD, what it only reference
 | Hilleröd NFH A2039 (`122`) | site_page_only | 0 | https://browser.sead.se/site/122 |
 | Himlingöje (`3691`) | site_page_only | 0 | https://browser.sead.se/site/3691 |
 | Hirvijärvi (`4857`) | site_page_only | 0 | https://browser.sead.se/site/4857 |
-| Hirvineva (Oulais) (`5082`) | site_page_only | 0 | https://browser.sead.se/site/5082 |
 | Hjelms bod (`5880`) | site_page_only | 0 | https://browser.sead.se/site/5880 |
 | Hjortgården i Lenåsen (`5881`) | site_page_only | 0 | https://browser.sead.se/site/5881 |
 | Hjortsberga kyrka (`5882`) | site_page_only | 0 | https://browser.sead.se/site/5882 |
@@ -791,7 +761,6 @@ This packet states what the repository mirrors from SEAD, what it only reference
 | Hunneberget (`3684`) | site_page_only | 0 | https://browser.sead.se/site/3684 |
 | Hunnebergsgatan (`3906`) | site_page_only | 0 | https://browser.sead.se/site/3906 |
 | Hunnebergsgatan 30A (`4117`) | site_page_only | 0 | https://browser.sead.se/site/4117 |
-| Husarö (`6298`) | site_page_only | 0 | https://browser.sead.se/site/6298 |
 | Husby (`3683`) | site_page_only | 0 | https://browser.sead.se/site/3683 |
 | Husby (`3905`) | site_page_only | 0 | https://browser.sead.se/site/3905 |
 | Husby, Ingjaldshögen (`3682`) | site_page_only | 0 | https://browser.sead.se/site/3682 |
@@ -822,7 +791,6 @@ This packet states what the repository mirrors from SEAD, what it only reference
 | Härlarsloftet från Idbäck (`5872`) | site_page_only | 0 | https://browser.sead.se/site/5872 |
 | Härlövs kyrka (`4113`) | site_page_only | 0 | https://browser.sead.se/site/4113 |
 | Härnevi kyrka (`4112`) | site_page_only | 0 | https://browser.sead.se/site/4112 |
-| Härnön (`4784`) | site_page_only | 0 | https://browser.sead.se/site/4784 |
 | Härnösand Raä 1 (`211`) | site_page_only | 0 | https://browser.sead.se/site/211 |
 | Härnösand Raä 119 (`166`) | site_page_only | 0 | https://browser.sead.se/site/166 |
 | Hässeldala Port (`5484`) | site_page_only | 0 | https://browser.sead.se/site/5484 |
@@ -831,7 +799,6 @@ This packet states what the repository mirrors from SEAD, what it only reference
 | Håby 6:1 (`63`) | site_page_only | 0 | https://browser.sead.se/site/63 |
 | Håby Raä 4:1 (`391`) | site_page_only | 0 | https://browser.sead.se/site/391 |
 | Håga (`3678`) | site_page_only | 0 | https://browser.sead.se/site/3678 |
-| Håkulls Mosse, Kullaberg (`4430`) | site_page_only | 0 | https://browser.sead.se/site/4430 |
 | Hållbus i Selbäck (`5850`) | site_page_only | 0 | https://browser.sead.se/site/5850 |
 | Hållgården Kulåra (`5853`) | site_page_only | 0 | https://browser.sead.se/site/5853 |
 | Hålta Raä 130 (`65`) | site_page_only | 0 | https://browser.sead.se/site/65 |
@@ -841,7 +808,6 @@ This packet states what the repository mirrors from SEAD, what it only reference
 | Högs kyrka (`5883`) | site_page_only | 0 | https://browser.sead.se/site/5883 |
 | Högsjö gård (`3902`) | site_page_only | 0 | https://browser.sead.se/site/3902 |
 | Höje (`5645`) | site_page_only | 0 | https://browser.sead.se/site/5645 |
-| Hölö 320:1 (`6425`) | site_page_only | 0 | https://browser.sead.se/site/6425 |
 | Hönstorp (`4110`) | site_page_only | 0 | https://browser.sead.se/site/4110 |
 | Hörja kyrka (`4109`) | site_page_only | 0 | https://browser.sead.se/site/4109 |
 | Hörnsjöfors (`5885`) | site_page_only | 0 | https://browser.sead.se/site/5885 |
@@ -851,7 +817,6 @@ This packet states what the repository mirrors from SEAD, what it only reference
 | Igelsfors (`6438`) | site_page_only | 0 | https://browser.sead.se/site/6438 |
 | Ignaberga gamla kyrka (`5887`) | site_page_only | 0 | https://browser.sead.se/site/5887 |
 | Ii Hamina (`5564`) | site_page_only | 0 | https://browser.sead.se/site/5564 |
-| Ilmola (`4889`) | site_page_only | 0 | https://browser.sead.se/site/4889 |
 | Ilnestorp (`3901`) | site_page_only | 0 | https://browser.sead.se/site/3901 |
 | Ingatorp (`3900`) | site_page_only | 0 | https://browser.sead.se/site/3900 |
 | Ingbergs i Laknäs (`5888`) | site_page_only | 0 | https://browser.sead.se/site/5888 |
@@ -862,8 +827,6 @@ This packet states what the repository mirrors from SEAD, what it only reference
 | Ingelstorp: Cemetery 4 (`3670`) | site_page_only | 0 | https://browser.sead.se/site/3670 |
 | Ingelstorp: Granhill (`3669`) | site_page_only | 0 | https://browser.sead.se/site/3669 |
 | Ingestorp övre (`6300`) | site_page_only | 0 | https://browser.sead.se/site/6300 |
-| Ingoy (`5436`) | site_page_only | 0 | https://browser.sead.se/site/5436 |
-| Ire (`3668`) | site_page_only | 0 | https://browser.sead.se/site/3668 |
 | Ivarshärbret från Utsälje (`5889`) | site_page_only | 0 | https://browser.sead.se/site/5889 |
 | Ivetofta (`3667`) | site_page_only | 0 | https://browser.sead.se/site/3667 |
 | Jacob Nickelsens hus (`5890`) | site_page_only | 0 | https://browser.sead.se/site/5890 |
@@ -886,7 +849,6 @@ This packet states what the repository mirrors from SEAD, what it only reference
 | Julita gård (`6440`) | site_page_only | 0 | https://browser.sead.se/site/6440 |
 | Juomajärvi (`4467`) | site_page_only | 0 | https://browser.sead.se/site/4467 |
 | Juomajärvi 1 (`4852`) | site_page_only | 0 | https://browser.sead.se/site/4852 |
-| Juszkowo, pow. Pruszcz (`3666`) | site_page_only | 0 | https://browser.sead.se/site/3666 |
 | Juteboda (`3899`) | site_page_only | 0 | https://browser.sead.se/site/3899 |
 | Juurikorpi (`3665`) | site_page_only | 0 | https://browser.sead.se/site/3665 |
 | Jyderup (`5299`) | site_page_only | 0 | https://browser.sead.se/site/5299 |
@@ -919,7 +881,6 @@ This packet states what the repository mirrors from SEAD, what it only reference
 | Kalmar 93:1 (`6362`) | site_page_only | 0 | https://browser.sead.se/site/6362 |
 | Kalmar 94:1 (`6361`) | site_page_only | 0 | https://browser.sead.se/site/6361 |
 | Kalmar slottsfjärd (`3660`) | site_page_only | 0 | https://browser.sead.se/site/3660 |
-| Kalverev (`5614`) | site_page_only | 0 | https://browser.sead.se/site/5614 |
 | Kanaljorden, Söderköping (`6441`) | site_page_only | 0 | https://browser.sead.se/site/6441 |
 | Kandestederne (`5313`) | site_page_only | 0 | https://browser.sead.se/site/5313 |
 | Kansakoulunmäki (`3658`) | site_page_only | 0 | https://browser.sead.se/site/3658 |
@@ -934,17 +895,14 @@ This packet states what the repository mirrors from SEAD, what it only reference
 | Karleby Raä 105 (`235`) | site_page_only | 0 | https://browser.sead.se/site/235 |
 | Karlquist i Nybo (`5920`) | site_page_only | 0 | https://browser.sead.se/site/5920 |
 | Karlsfält (`3655`) | site_page_only | 0 | https://browser.sead.se/site/3655 |
-| Karlskrona (`3654`) | site_page_only | 0 | https://browser.sead.se/site/3654 |
 | Karlsson i Börön (`5921`) | site_page_only | 0 | https://browser.sead.se/site/5921 |
 | Karlsson i Edsäng (`5922`) | site_page_only | 0 | https://browser.sead.se/site/5922 |
 | Karlssons i Hara (`5923`) | site_page_only | 0 | https://browser.sead.se/site/5923 |
 | Kasin/Ørvik (`3653`) | site_page_only | 0 | https://browser.sead.se/site/3653 |
 | Kastalen vid Fellingsbro kyrka (`5925`) | site_page_only | 0 | https://browser.sead.se/site/5925 |
-| Kastelholm (`3652`) | site_page_only | 0 | https://browser.sead.se/site/3652 |
 | Katarina (`3651`) | site_page_only | 0 | https://browser.sead.se/site/3651 |
 | Katthamra (`4103`) | site_page_only | 0 | https://browser.sead.se/site/4103 |
 | Kaupang (`4922`) | site_page_only | 0 | https://browser.sead.se/site/4922 |
-| Kaupang i Skiringssal (`127`) | site_page_only | 0 | https://browser.sead.se/site/127 |
 | Kaustinen (`5093`) | site_page_only | 0 | https://browser.sead.se/site/5093 |
 | Kerola (`3650`) | site_page_only | 0 | https://browser.sead.se/site/3650 |
 | Kestads kyrka (`5926`) | site_page_only | 0 | https://browser.sead.se/site/5926 |
@@ -961,7 +919,6 @@ This packet states what the repository mirrors from SEAD, what it only reference
 | Klasgården i Laknäs (`5930`) | site_page_only | 0 | https://browser.sead.se/site/5930 |
 | Klaus Mortensens hus (`5931`) | site_page_only | 0 | https://browser.sead.se/site/5931 |
 | Kleva gård (`4100`) | site_page_only | 0 | https://browser.sead.se/site/4100 |
-| Klintahuset (`5932`) | site_page_only | 0 | https://browser.sead.se/site/5932 |
 | Klintholm (`5479`) | site_page_only | 0 | https://browser.sead.se/site/5479 |
 | Klitten (`5933`) | site_page_only | 0 | https://browser.sead.se/site/5933 |
 | Klockars i Loka (`5934`) | site_page_only | 0 | https://browser.sead.se/site/5934 |
@@ -973,7 +930,6 @@ This packet states what the repository mirrors from SEAD, what it only reference
 | Knubba (`153`) | site_page_only | 0 | https://browser.sead.se/site/153 |
 | Knubbetjern (`143`) | site_page_only | 0 | https://browser.sead.se/site/143 |
 | Knutssons i Nederhögen (`5936`) | site_page_only | 0 | https://browser.sead.se/site/5936 |
-| Kobbelgård (`4479`) | site_page_only | 0 | https://browser.sead.se/site/4479 |
 | Koivula et al (`4916`) | site_page_only | 0 | https://browser.sead.se/site/4916 |
 | Koivusilta (`4882`) | site_page_only | 0 | https://browser.sead.se/site/4882 |
 | Kolbäck Raä 355 (`356`) | site_page_only | 0 | https://browser.sead.se/site/356 |
@@ -984,9 +940,7 @@ This packet states what the repository mirrors from SEAD, what it only reference
 | Kosjärv (`291`) | site_page_only | 0 | https://browser.sead.se/site/291 |
 | Kragelund (`3643`) | site_page_only | 0 | https://browser.sead.se/site/3643 |
 | Krapperups borg (`4098`) | site_page_only | 0 | https://browser.sead.se/site/4098 |
-| Kreigers Flak (`5277`) | site_page_only | 0 | https://browser.sead.se/site/5277 |
 | Kriminalvårdsanstalten (`3642`) | site_page_only | 0 | https://browser.sead.se/site/3642 |
-| Kringelvägen (`6302`) | site_page_only | 0 | https://browser.sead.se/site/6302 |
 | Kristiansand (`3641`) | site_page_only | 0 | https://browser.sead.se/site/3641 |
 | Kristianstad 215:1 (`6395`) | site_page_only | 0 | https://browser.sead.se/site/6395 |
 | Kristianstad 217:1 (`6396`) | site_page_only | 0 | https://browser.sead.se/site/6396 |
@@ -1045,7 +999,6 @@ This packet states what the repository mirrors from SEAD, what it only reference
 | Kvarteret Almen (`3894`) | site_page_only | 0 | https://browser.sead.se/site/3894 |
 | Kvarteret Boktryckaren (`3893`) | site_page_only | 0 | https://browser.sead.se/site/3893 |
 | Kvarteret Borgmästaren (`3892`) | site_page_only | 0 | https://browser.sead.se/site/3892 |
-| Kvarteret Båtsmannen (`3891`) | site_page_only | 0 | https://browser.sead.se/site/3891 |
 | Kvarteret Ciselören (`3890`) | site_page_only | 0 | https://browser.sead.se/site/3890 |
 | Kvarteret Fältskären (`3889`) | site_page_only | 0 | https://browser.sead.se/site/3889 |
 | Kvarteret Färgaren (`3888`) | site_page_only | 0 | https://browser.sead.se/site/3888 |
@@ -1062,8 +1015,6 @@ This packet states what the repository mirrors from SEAD, what it only reference
 | Kvarteret Ormen (`3880`) | site_page_only | 0 | https://browser.sead.se/site/3880 |
 | Kvarteret Prelaten (`3879`) | site_page_only | 0 | https://browser.sead.se/site/3879 |
 | Kvarteret Repslagaren (`3878`) | site_page_only | 0 | https://browser.sead.se/site/3878 |
-| Kvarteret Rådhuset (`3877`) | site_page_only | 0 | https://browser.sead.se/site/3877 |
-| Kvarteret Skonaren (`3876`) | site_page_only | 0 | https://browser.sead.se/site/3876 |
 | Kvarteret Specksrum (`3875`) | site_page_only | 0 | https://browser.sead.se/site/3875 |
 | Kvarteret Spinnrocken (`6464`) | site_page_only | 0 | https://browser.sead.se/site/6464 |
 | Kvarteret Svartbrodern (`3874`) | site_page_only | 0 | https://browser.sead.se/site/3874 |
@@ -1088,10 +1039,8 @@ This packet states what the repository mirrors from SEAD, what it only reference
 | Kyrkvärdsgården (`4087`) | site_page_only | 0 | https://browser.sead.se/site/4087 |
 | Kyrkås gamla kyrka (`5950`) | site_page_only | 0 | https://browser.sead.se/site/5950 |
 | Kyrsta (`3608`) | site_page_only | 0 | https://browser.sead.se/site/3608 |
-| Källa gamla kyrka (`4086`) | site_page_only | 0 | https://browser.sead.se/site/4086 |
 | Källingemöre (`3607`) | site_page_only | 0 | https://browser.sead.se/site/3607 |
 | Källunge kyrka (`4085`) | site_page_only | 0 | https://browser.sead.se/site/4085 |
-| Kärnan (`4084`) | site_page_only | 0 | https://browser.sead.se/site/4084 |
 | Kärringsjön (`3606`) | site_page_only | 0 | https://browser.sead.se/site/3606 |
 | Kärsämäki: Kintasahonräme (`5086`) | site_page_only | 0 | https://browser.sead.se/site/5086 |
 | Kärsämäki: Kärsämenneva (`5087`) | site_page_only | 0 | https://browser.sead.se/site/5087 |
@@ -1111,10 +1060,8 @@ This packet states what the repository mirrors from SEAD, what it only reference
 | Landbybon Vänjan (`5957`) | site_page_only | 0 | https://browser.sead.se/site/5957 |
 | Landgren i Bye (`5959`) | site_page_only | 0 | https://browser.sead.se/site/5959 |
 | Landgården i Mon (`5958`) | site_page_only | 0 | https://browser.sead.se/site/5958 |
-| Landskrona 12:1 (`6384`) | site_page_only | 0 | https://browser.sead.se/site/6384 |
 | Landsnora kvarn (`4082`) | site_page_only | 0 | https://browser.sead.se/site/4082 |
 | Langagergård TAK 1402 (`75`) | site_page_only | 0 | https://browser.sead.se/site/75 |
-| Langanes1 (`4487`) | site_page_only | 0 | https://browser.sead.se/site/4487 |
 | Lantbruksstyrelsen i Ede (`5963`) | site_page_only | 0 | https://browser.sead.se/site/5963 |
 | Lappvallen (`3599`) | site_page_only | 0 | https://browser.sead.se/site/3599 |
 | Lappviken (`3598`) | site_page_only | 0 | https://browser.sead.se/site/3598 |
@@ -1150,10 +1097,8 @@ This packet states what the repository mirrors from SEAD, what it only reference
 | Lilla Björkudden (`3870`) | site_page_only | 0 | https://browser.sead.se/site/3870 |
 | Lilla Främsbacka (`5976`) | site_page_only | 0 | https://browser.sead.se/site/5976 |
 | Lilla Korpebo (`6306`) | site_page_only | 0 | https://browser.sead.se/site/6306 |
-| Lilla Lögla (`4079`) | site_page_only | 0 | https://browser.sead.se/site/4079 |
 | Lilla Pålsjö (`5666`) | site_page_only | 0 | https://browser.sead.se/site/5666 |
 | Lilla Rotsunda (`4078`) | site_page_only | 0 | https://browser.sead.se/site/4078 |
-| Lilla Rätö gård (`4077`) | site_page_only | 0 | https://browser.sead.se/site/4077 |
 | Lilla Tvären (`3591`) | site_page_only | 0 | https://browser.sead.se/site/3591 |
 | Lilla Ulvgryt (`3590`) | site_page_only | 0 | https://browser.sead.se/site/3590 |
 | Lillanäs (`6307`) | site_page_only | 0 | https://browser.sead.se/site/6307 |
@@ -1208,7 +1153,6 @@ This packet states what the repository mirrors from SEAD, what it only reference
 | Lundins i Norrskog (`5992`) | site_page_only | 0 | https://browser.sead.se/site/5992 |
 | Lunds domkyrka (`4070`) | site_page_only | 0 | https://browser.sead.se/site/4070 |
 | Lundströms plats (`3576`) | site_page_only | 0 | https://browser.sead.se/site/3576 |
-| Lundåkra (`3575`) | site_page_only | 0 | https://browser.sead.se/site/3575 |
 | Lunnahöje (`5993`) | site_page_only | 0 | https://browser.sead.se/site/5993 |
 | Lyckås (`5646`) | site_page_only | 0 | https://browser.sead.se/site/5646 |
 | Lye kyrka (`4069`) | site_page_only | 0 | https://browser.sead.se/site/4069 |
@@ -1233,20 +1177,14 @@ This packet states what the repository mirrors from SEAD, what it only reference
 | Löderup 27 (`3568`) | site_page_only | 0 | https://browser.sead.se/site/3568 |
 | Löderup 3 (`3567`) | site_page_only | 0 | https://browser.sead.se/site/3567 |
 | Löderup 36 (`3566`) | site_page_only | 0 | https://browser.sead.se/site/3566 |
-| Lögla (`3868`) | site_page_only | 0 | https://browser.sead.se/site/3868 |
 | Lökes i Skästra (`5986`) | site_page_only | 0 | https://browser.sead.se/site/5986 |
 | Lönneberga kyrka (`5987`) | site_page_only | 0 | https://browser.sead.se/site/5987 |
-| Lörans kapell (`5988`) | site_page_only | 0 | https://browser.sead.se/site/5988 |
 | Lösens kyrka (`5989`) | site_page_only | 0 | https://browser.sead.se/site/5989 |
 | Löts kyrka (`4064`) | site_page_only | 0 | https://browser.sead.se/site/4064 |
-| Lövdalen (`4885`) | site_page_only | 0 | https://browser.sead.se/site/4885 |
 | Lövleforsen (`361`) | site_page_only | 0 | https://browser.sead.se/site/361 |
 | Lövstaholm (`3564`) | site_page_only | 0 | https://browser.sead.se/site/3564 |
-| Lövö (`3867`) | site_page_only | 0 | https://browser.sead.se/site/3867 |
 | Løgtved (`5306`) | site_page_only | 0 | https://browser.sead.se/site/5306 |
 | Løkkebjerggård (`3565`) | site_page_only | 0 | https://browser.sead.se/site/3565 |
-| Lønstrup (`5310`) | site_page_only | 0 | https://browser.sead.se/site/5310 |
-| Maarup (`5309`) | site_page_only | 0 | https://browser.sead.se/site/5309 |
 | Maglehem (`6309`) | site_page_only | 0 | https://browser.sead.se/site/6309 |
 | Maglö borg (`5995`) | site_page_only | 0 | https://browser.sead.se/site/5995 |
 | Maksjön (`3563`) | site_page_only | 0 | https://browser.sead.se/site/3563 |
@@ -1265,11 +1203,8 @@ This packet states what the repository mirrors from SEAD, what it only reference
 | Mark (`3557`) | site_page_only | 0 | https://browser.sead.se/site/3557 |
 | Marka kyrka (`6001`) | site_page_only | 0 | https://browser.sead.se/site/6001 |
 | Marmaverken (`6002`) | site_page_only | 0 | https://browser.sead.se/site/6002 |
-| Marskärskobben (`358`) | site_page_only | 0 | https://browser.sead.se/site/358 |
-| Marstrand (`6311`) | site_page_only | 0 | https://browser.sead.se/site/6311 |
 | Martebomyr (`6448`) | site_page_only | 0 | https://browser.sead.se/site/6448 |
 | Martin Bränd i Nedre Gärdsjö (`6004`) | site_page_only | 0 | https://browser.sead.se/site/6004 |
-| Martørv-Bakker (`5098`) | site_page_only | 0 | https://browser.sead.se/site/5098 |
 | Marums kyrka (`6005`) | site_page_only | 0 | https://browser.sead.se/site/6005 |
 | Masmo (`3556`) | site_page_only | 0 | https://browser.sead.se/site/3556 |
 | Matspers i Fåsås (`6006`) | site_page_only | 0 | https://browser.sead.se/site/6006 |
@@ -1284,14 +1219,12 @@ This packet states what the repository mirrors from SEAD, what it only reference
 | Mellerud (`5061`) | site_page_only | 0 | https://browser.sead.se/site/5061 |
 | Melvold (`111`) | site_page_only | 0 | https://browser.sead.se/site/111 |
 | Merikarvia (`5091`) | site_page_only | 0 | https://browser.sead.se/site/5091 |
-| Metsäpirtti (`4888`) | site_page_only | 0 | https://browser.sead.se/site/4888 |
 | Mickelsmossen (`4531`) | site_page_only | 0 | https://browser.sead.se/site/4531 |
 | Millingsmossen 1 (`3553`) | site_page_only | 0 | https://browser.sead.se/site/3553 |
 | Missesberget (`4853`) | site_page_only | 0 | https://browser.sead.se/site/4853 |
 | Mjellrumsgården (`6012`) | site_page_only | 0 | https://browser.sead.se/site/6012 |
 | Mjäla (`3551`) | site_page_only | 0 | https://browser.sead.se/site/3551 |
 | Mjäldrunga kyrka (`6011`) | site_page_only | 0 | https://browser.sead.se/site/6011 |
-| Mjölingsören (`349`) | site_page_only | 0 | https://browser.sead.se/site/349 |
 | Mjölnargården (`3919`) | site_page_only | 0 | https://browser.sead.se/site/3919 |
 | Moarna (`5606`) | site_page_only | 0 | https://browser.sead.se/site/5606 |
 | Modigs i Ingärdningsbodarna (`6013`) | site_page_only | 0 | https://browser.sead.se/site/6013 |
@@ -1299,7 +1232,6 @@ This packet states what the repository mirrors from SEAD, what it only reference
 | Morlanda 367 (`388`) | site_page_only | 0 | https://browser.sead.se/site/388 |
 | Morlinggården i Utby (`6016`) | site_page_only | 0 | https://browser.sead.se/site/6016 |
 | Mortorps kyrka (`4060`) | site_page_only | 0 | https://browser.sead.se/site/4060 |
-| Mossby (`5294`) | site_page_only | 0 | https://browser.sead.se/site/5294 |
 | Motala 173:1 (`6412`) | site_page_only | 0 | https://browser.sead.se/site/6412 |
 | Muréns i Ope (`6018`) | site_page_only | 0 | https://browser.sead.se/site/6018 |
 | Musikskolan (`4059`) | site_page_only | 0 | https://browser.sead.se/site/4059 |
@@ -1314,14 +1246,12 @@ This packet states what the repository mirrors from SEAD, what it only reference
 | Månstad Raä 81 (`233`) | site_page_only | 0 | https://browser.sead.se/site/233 |
 | Månstads kyrka (`5999`) | site_page_only | 0 | https://browser.sead.se/site/5999 |
 | Mårtens i Bäck (`6003`) | site_page_only | 0 | https://browser.sead.se/site/6003 |
-| Möllebacken (`4057`) | site_page_only | 0 | https://browser.sead.se/site/4057 |
 | Mölleberga kyrka (`6014`) | site_page_only | 0 | https://browser.sead.se/site/6014 |
 | Mölltorps kyrka (`6015`) | site_page_only | 0 | https://browser.sead.se/site/6015 |
 | Mölndal Raä 79 (`116`) | site_page_only | 0 | https://browser.sead.se/site/116 |
 | Mönsterås 376:1 (`6357`) | site_page_only | 0 | https://browser.sead.se/site/6357 |
 | Mörbylånga kyrka (`4056`) | site_page_only | 0 | https://browser.sead.se/site/4056 |
 | Mören (`3547`) | site_page_only | 0 | https://browser.sead.se/site/3547 |
-| Mörtviksvägen (`6017`) | site_page_only | 0 | https://browser.sead.se/site/6017 |
 | Mötesstation Kosjärv (`3546`) | site_page_only | 0 | https://browser.sead.se/site/3546 |
 | Møllegårdsmarken (`3548`) | site_page_only | 0 | https://browser.sead.se/site/3548 |
 | Møn unlocated 1896 (`5303`) | site_page_only | 0 | https://browser.sead.se/site/5303 |
@@ -1333,10 +1263,8 @@ This packet states what the repository mirrors from SEAD, what it only reference
 | Nedervetil (`5073`) | site_page_only | 0 | https://browser.sead.se/site/5073 |
 | Nedre Hervavatnet (`5122`) | site_page_only | 0 | https://browser.sead.se/site/5122 |
 | Nedre Hävla bruk (`4055`) | site_page_only | 0 | https://browser.sead.se/site/4055 |
-| Neukirchen-Bostholm (`3545`) | site_page_only | 0 | https://browser.sead.se/site/3545 |
 | Nibble (`3543`) | site_page_only | 0 | https://browser.sead.se/site/3543 |
 | Nicklasson i Järpen (`6026`) | site_page_only | 0 | https://browser.sead.se/site/6026 |
-| Nickösörarna (`332`) | site_page_only | 0 | https://browser.sead.se/site/332 |
 | Nils Erik Olssons i Noret (`6027`) | site_page_only | 0 | https://browser.sead.se/site/6027 |
 | Niskanperä (`3542`) | site_page_only | 0 | https://browser.sead.se/site/3542 |
 | Njurunda 838 (`398`) | site_page_only | 0 | https://browser.sead.se/site/398 |
@@ -1358,7 +1286,6 @@ This packet states what the repository mirrors from SEAD, what it only reference
 | Norra Nöbbelöv (`3540`) | site_page_only | 0 | https://browser.sead.se/site/3540 |
 | Norra Ryssmasterna (`351`) | site_page_only | 0 | https://browser.sead.se/site/351 |
 | Norra Rörums kyrka (`4051`) | site_page_only | 0 | https://browser.sead.se/site/4051 |
-| Norra Småholmen (`289`) | site_page_only | 0 | https://browser.sead.se/site/289 |
 | Norra Solberga gamla kyrka (`4050`) | site_page_only | 0 | https://browser.sead.se/site/4050 |
 | Norra Strö kyrka (`6034`) | site_page_only | 0 | https://browser.sead.se/site/6034 |
 | Norra Åsums kyrka (`4049`) | site_page_only | 0 | https://browser.sead.se/site/4049 |
@@ -1377,7 +1304,6 @@ This packet states what the repository mirrors from SEAD, what it only reference
 | Norum Raä 5 (`399`) | site_page_only | 0 | https://browser.sead.se/site/399 |
 | Norup (`6036`) | site_page_only | 0 | https://browser.sead.se/site/6036 |
 | Norén i Trusta (`6031`) | site_page_only | 0 | https://browser.sead.se/site/6031 |
-| Novgorod: Troitsky (`4562`) | site_page_only | 0 | https://browser.sead.se/site/4562 |
 | Nurmo: Paukaneva (`5094`) | site_page_only | 0 | https://browser.sead.se/site/5094 |
 | Nybygget (`5379`) | site_page_only | 0 | https://browser.sead.se/site/5379 |
 | Nybölle 4 (`3535`) | site_page_only | 0 | https://browser.sead.se/site/3535 |
@@ -1411,7 +1337,6 @@ This packet states what the repository mirrors from SEAD, what it only reference
 | Odlaren 1:1 (`387`) | site_page_only | 0 | https://browser.sead.se/site/387 |
 | Ods kyrka (`6042`) | site_page_only | 0 | https://browser.sead.se/site/6042 |
 | Offerdals kyrka (`6043`) | site_page_only | 0 | https://browser.sead.se/site/6043 |
-| Oksnes (`5524`) | site_page_only | 0 | https://browser.sead.se/site/5524 |
 | Olaloftet från norra Mon (`6045`) | site_page_only | 0 | https://browser.sead.se/site/6045 |
 | Olars i Holen Västra Öje (`6046`) | site_page_only | 0 | https://browser.sead.se/site/6046 |
 | Olars i Knåda (`6047`) | site_page_only | 0 | https://browser.sead.se/site/6047 |
@@ -1430,8 +1355,6 @@ This packet states what the repository mirrors from SEAD, what it only reference
 | Olssons i Harabygden (`6060`) | site_page_only | 0 | https://browser.sead.se/site/6060 |
 | Olssons i Ringsta (`6061`) | site_page_only | 0 | https://browser.sead.se/site/6061 |
 | Olvarberget (`6062`) | site_page_only | 0 | https://browser.sead.se/site/6062 |
-| Onsala 327 (`4`) | site_page_only | 0 | https://browser.sead.se/site/4 |
-| Onsala Raä 369 (`12`) | site_page_only | 0 | https://browser.sead.se/site/12 |
 | Onsjöstugan (`5665`) | site_page_only | 0 | https://browser.sead.se/site/5665 |
 | Onttoharjut (`4848`) | site_page_only | 0 | https://browser.sead.se/site/4848 |
 | Onttovaara (`4566`) | site_page_only | 0 | https://browser.sead.se/site/4566 |
@@ -1439,12 +1362,9 @@ This packet states what the repository mirrors from SEAD, what it only reference
 | Ornässtugan (`6063`) | site_page_only | 0 | https://browser.sead.se/site/6063 |
 | Orraryd (`3531`) | site_page_only | 0 | https://browser.sead.se/site/3531 |
 | Orsa kyrka (`6064`) | site_page_only | 0 | https://browser.sead.se/site/6064 |
-| Oskarshamn wreck (`4569`) | site_page_only | 0 | https://browser.sead.se/site/4569 |
 | Oslo: Gamlebyen (`4570`) | site_page_only | 0 | https://browser.sead.se/site/4570 |
 | Oslo: Oslogate 3 & 7 (`4571`) | site_page_only | 0 | https://browser.sead.se/site/4571 |
-| Ottenby (`3529`) | site_page_only | 0 | https://browser.sead.se/site/3529 |
 | Ottenby kungsgård (`4041`) | site_page_only | 0 | https://browser.sead.se/site/4041 |
-| Otterböte (`3528`) | site_page_only | 0 | https://browser.sead.se/site/3528 |
 | Outojärvi (`4847`) | site_page_only | 0 | https://browser.sead.se/site/4847 |
 | Ovansjö Raä 307 (`181`) | site_page_only | 0 | https://browser.sead.se/site/181 |
 | Oxiegården (`3527`) | site_page_only | 0 | https://browser.sead.se/site/3527 |
@@ -1510,7 +1430,6 @@ This packet states what the repository mirrors from SEAD, what it only reference
 | Ranstad (`4598`) | site_page_only | 0 | https://browser.sead.se/site/4598 |
 | Rappasundet (`3511`) | site_page_only | 0 | https://browser.sead.se/site/3511 |
 | Rapptorpen (`6104`) | site_page_only | 0 | https://browser.sead.se/site/6104 |
-| Raunis (`4981`) | site_page_only | 0 | https://browser.sead.se/site/4981 |
 | Rautio: Kärkiskylä (`5071`) | site_page_only | 0 | https://browser.sead.se/site/5071 |
 | Rautio: Osmina (`5075`) | site_page_only | 0 | https://browser.sead.se/site/5075 |
 | Rautu (`4887`) | site_page_only | 0 | https://browser.sead.se/site/4887 |
@@ -1522,25 +1441,20 @@ This packet states what the repository mirrors from SEAD, what it only reference
 | Reutersberg (`6316`) | site_page_only | 0 | https://browser.sead.se/site/6316 |
 | Ribe: Posthustorvet (`5638`) | site_page_only | 0 | https://browser.sead.se/site/5638 |
 | Ribetua gård (`6109`) | site_page_only | 0 | https://browser.sead.se/site/6109 |
-| Riga (`5448`) | site_page_only | 0 | https://browser.sead.se/site/5448 |
 | Riipiharju (`4844`) | site_page_only | 0 | https://browser.sead.se/site/4844 |
 | Ringeby (`3509`) | site_page_only | 0 | https://browser.sead.se/site/3509 |
 | Ringestena (`6317`) | site_page_only | 0 | https://browser.sead.se/site/6317 |
 | Ringkloster (`3508`) | site_page_only | 0 | https://browser.sead.se/site/3508 |
 | Ringsta (`6110`) | site_page_only | 0 | https://browser.sead.se/site/6110 |
-| Ringsö (`6318`) | site_page_only | 0 | https://browser.sead.se/site/6318 |
 | Ripkallhögen (`343`) | site_page_only | 0 | https://browser.sead.se/site/343 |
 | Ripsa kyrka (`6111`) | site_page_only | 0 | https://browser.sead.se/site/6111 |
 | Risaloftet (`6112`) | site_page_only | 0 | https://browser.sead.se/site/6112 |
 | Ristomta gård (`4035`) | site_page_only | 0 | https://browser.sead.se/site/4035 |
-| Rjurikovo Gorodisce (`4605`) | site_page_only | 0 | https://browser.sead.se/site/4605 |
 | Roes (`3507`) | site_page_only | 0 | https://browser.sead.se/site/3507 |
 | Rognlien IV/Langangen (`3506`) | site_page_only | 0 | https://browser.sead.se/site/3506 |
 | Rogslösa kyrka (`4034`) | site_page_only | 0 | https://browser.sead.se/site/4034 |
 | Rombins i Östnor (`6113`) | site_page_only | 0 | https://browser.sead.se/site/6113 |
 | Romson-gården i Noret (`6114`) | site_page_only | 0 | https://browser.sead.se/site/6114 |
-| Rosenhof (`3504`) | site_page_only | 0 | https://browser.sead.se/site/3504 |
-| Rosenhof (`3505`) | site_page_only | 0 | https://browser.sead.se/site/3505 |
 | Rosenvingeska huset (`6115`) | site_page_only | 0 | https://browser.sead.se/site/6115 |
 | Roslättsgård (`5656`) | site_page_only | 0 | https://browser.sead.se/site/5656 |
 | Roth i Sterte (`6116`) | site_page_only | 0 | https://browser.sead.se/site/6116 |
@@ -1553,7 +1467,6 @@ This packet states what the repository mirrors from SEAD, what it only reference
 | Rusthållargården (`4033`) | site_page_only | 0 | https://browser.sead.se/site/4033 |
 | Rutå Lars Rutån (`6118`) | site_page_only | 0 | https://browser.sead.se/site/6118 |
 | Rya (`3502`) | site_page_only | 0 | https://browser.sead.se/site/3502 |
-| Rydboholms slott (`4032`) | site_page_only | 0 | https://browser.sead.se/site/4032 |
 | Ryds herrgård (`6119`) | site_page_only | 0 | https://browser.sead.se/site/6119 |
 | Ryssby kyrka (`4031`) | site_page_only | 0 | https://browser.sead.se/site/4031 |
 | Ryssebo (`3860`) | site_page_only | 0 | https://browser.sead.se/site/3860 |
@@ -1562,7 +1475,6 @@ This packet states what the repository mirrors from SEAD, what it only reference
 | Ryttartorpet bod (`6121`) | site_page_only | 0 | https://browser.sead.se/site/6121 |
 | Ryttartorpet fähus (`6122`) | site_page_only | 0 | https://browser.sead.se/site/6122 |
 | Ryttartorpet tröskloge (`6123`) | site_page_only | 0 | https://browser.sead.se/site/6123 |
-| Ryurik Gorodishche (`3500`) | site_page_only | 0 | https://browser.sead.se/site/3500 |
 | Ränneslätt (`4030`) | site_page_only | 0 | https://browser.sead.se/site/4030 |
 | Rättviks kyrka (`6105`) | site_page_only | 0 | https://browser.sead.se/site/6105 |
 | Rävinge kyrka (`6106`) | site_page_only | 0 | https://browser.sead.se/site/6106 |
@@ -1571,11 +1483,9 @@ This packet states what the repository mirrors from SEAD, what it only reference
 | Råinget (`3498`) | site_page_only | 0 | https://browser.sead.se/site/3498 |
 | Råneå 414 (`370`) | site_page_only | 0 | https://browser.sead.se/site/370 |
 | Röetved II (`3496`) | site_page_only | 0 | https://browser.sead.se/site/3496 |
-| Röhälla (`4029`) | site_page_only | 0 | https://browser.sead.se/site/4029 |
 | Rönnby-Skultuna (`369`) | site_page_only | 0 | https://browser.sead.se/site/369 |
 | Rörstrand, Bottna Herrgård (`3494`) | site_page_only | 0 | https://browser.sead.se/site/3494 |
 | Rössberga Megalithic (`3493`) | site_page_only | 0 | https://browser.sead.se/site/3493 |
-| Rössvik (`3492`) | site_page_only | 0 | https://browser.sead.se/site/3492 |
 | Rød Terrasse (`126`) | site_page_only | 0 | https://browser.sead.se/site/126 |
 | Rødskjær/Halvarp (`3497`) | site_page_only | 0 | https://browser.sead.se/site/3497 |
 | Rødstranda (`165`) | site_page_only | 0 | https://browser.sead.se/site/165 |
@@ -1583,7 +1493,6 @@ This packet states what the repository mirrors from SEAD, what it only reference
 | Rørarød (`3495`) | site_page_only | 0 | https://browser.sead.se/site/3495 |
 | S'Ers-gården i Österby (`6137`) | site_page_only | 0 | https://browser.sead.se/site/6137 |
 | Sahréns i Färnäs (`6124`) | site_page_only | 0 | https://browser.sead.se/site/6124 |
-| Sakkola (`4886`) | site_page_only | 0 | https://browser.sead.se/site/4886 |
 | Sala sockenkyrka (`6125`) | site_page_only | 0 | https://browser.sead.se/site/6125 |
 | Saltosas i Klappsta (`6127`) | site_page_only | 0 | https://browser.sead.se/site/6127 |
 | Salvarp (`3859`) | site_page_only | 0 | https://browser.sead.se/site/3859 |
@@ -1592,8 +1501,6 @@ This packet states what the repository mirrors from SEAD, what it only reference
 | Sanda (`3491`) | site_page_only | 0 | https://browser.sead.se/site/3491 |
 | Sanda kyrka (`4028`) | site_page_only | 0 | https://browser.sead.se/site/4028 |
 | Sandby prästgård (`4027`) | site_page_only | 0 | https://browser.sead.se/site/4027 |
-| Sandemar (`3858`) | site_page_only | 0 | https://browser.sead.se/site/3858 |
-| Sandemar slott (`4026`) | site_page_only | 0 | https://browser.sead.se/site/4026 |
 | Sandvikshärbret (`6129`) | site_page_only | 0 | https://browser.sead.se/site/6129 |
 | Sandåkra (`5290`) | site_page_only | 0 | https://browser.sead.se/site/5290 |
 | Sankt Clemens kyrkoruin (`4025`) | site_page_only | 0 | https://browser.sead.se/site/4025 |
@@ -1602,26 +1509,22 @@ This packet states what the repository mirrors from SEAD, what it only reference
 | Sankt Peters klosters kyrka (`4023`) | site_page_only | 0 | https://browser.sead.se/site/4023 |
 | Sankt Petri Kyrka (`6130`) | site_page_only | 0 | https://browser.sead.se/site/6130 |
 | Sankta Karins kapell (`6131`) | site_page_only | 0 | https://browser.sead.se/site/6131 |
-| Sankta Maria kyrka (`4022`) | site_page_only | 0 | https://browser.sead.se/site/4022 |
 | Sannagård i Sillerbo (`6132`) | site_page_only | 0 | https://browser.sead.se/site/6132 |
 | Santa Maria (`3490`) | site_page_only | 0 | https://browser.sead.se/site/3490 |
 | Sarasgården Isala (`6133`) | site_page_only | 0 | https://browser.sead.se/site/6133 |
 | Sarkasvaara (`4846`) | site_page_only | 0 | https://browser.sead.se/site/4846 |
 | Saxtorp (SU 8) (`3489`) | site_page_only | 0 | https://browser.sead.se/site/3489 |
 | Schweitzergränd (`3488`) | site_page_only | 0 | https://browser.sead.se/site/3488 |
-| Sejerø (`4958`) | site_page_only | 0 | https://browser.sead.se/site/4958 |
 | Selens fäbod (`6136`) | site_page_only | 0 | https://browser.sead.se/site/6136 |
 | Selånger Raä 136 (`325`) | site_page_only | 0 | https://browser.sead.se/site/325 |
 | Sibbo (`4021`) | site_page_only | 0 | https://browser.sead.se/site/4021 |
 | Sibbolängena i Nedre Gärdsjö (`6138`) | site_page_only | 0 | https://browser.sead.se/site/6138 |
 | Sigfridsgården (`4020`) | site_page_only | 0 | https://browser.sead.se/site/4020 |
-| Siggeneben (`3487`) | site_page_only | 0 | https://browser.sead.se/site/3487 |
 | Sigtuna (`5049`) | site_page_only | 0 | https://browser.sead.se/site/5049 |
 | Sigtuna 195:1 (`6421`) | site_page_only | 0 | https://browser.sead.se/site/6421 |
 | Silje (`6321`) | site_page_only | 0 | https://browser.sead.se/site/6321 |
 | Silte kyrka (`4019`) | site_page_only | 0 | https://browser.sead.se/site/4019 |
 | Silvåkra 10:1 (`6386`) | site_page_only | 0 | https://browser.sead.se/site/6386 |
-| Siretorp (`3486`) | site_page_only | 0 | https://browser.sead.se/site/3486 |
 | Sisshammar (`4018`) | site_page_only | 0 | https://browser.sead.se/site/4018 |
 | Sivakkojärvi (`4845`) | site_page_only | 0 | https://browser.sead.se/site/4845 |
 | Sjonhem kyrka (`4017`) | site_page_only | 0 | https://browser.sead.se/site/4017 |
@@ -1637,7 +1540,6 @@ This packet states what the repository mirrors from SEAD, what it only reference
 | Skalunda kyrka (`6144`) | site_page_only | 0 | https://browser.sead.se/site/6144 |
 | Skanör Stubbamölla (`6146`) | site_page_only | 0 | https://browser.sead.se/site/6146 |
 | Skarp-Ösby (`4013`) | site_page_only | 0 | https://browser.sead.se/site/4013 |
-| Skateholm (`5295`) | site_page_only | 0 | https://browser.sead.se/site/5295 |
 | Skattmansö (`5062`) | site_page_only | 0 | https://browser.sead.se/site/5062 |
 | Skeby Raä 46 (`182`) | site_page_only | 0 | https://browser.sead.se/site/182 |
 | Skedemosse (`3485`) | site_page_only | 0 | https://browser.sead.se/site/3485 |
@@ -1649,7 +1551,6 @@ This packet states what the repository mirrors from SEAD, what it only reference
 | Skellefteå stad Raä 632 (`255`) | site_page_only | 0 | https://browser.sead.se/site/255 |
 | Skeppsås kyrka (`4012`) | site_page_only | 0 | https://browser.sead.se/site/4012 |
 | Skjaervika (`5171`) | site_page_only | 0 | https://browser.sead.se/site/5171 |
-| Skjærvika (`123`) | site_page_only | 0 | https://browser.sead.se/site/123 |
 | Skog Raä 7 (`125`) | site_page_only | 0 | https://browser.sead.se/site/125 |
 | Skog-gard i Nusnäs (`6147`) | site_page_only | 0 | https://browser.sead.se/site/6147 |
 | Skogsmossen (`3484`) | site_page_only | 0 | https://browser.sead.se/site/3484 |
@@ -1663,7 +1564,6 @@ This packet states what the repository mirrors from SEAD, what it only reference
 | Skrea Raä 177 (`3`) | site_page_only | 0 | https://browser.sead.se/site/3 |
 | Skrea Raä 191 (`22`) | site_page_only | 0 | https://browser.sead.se/site/22 |
 | Skrea Raä 193 (`77`) | site_page_only | 0 | https://browser.sead.se/site/77 |
-| Skrea Raä 194 (`2`) | site_page_only | 0 | https://browser.sead.se/site/2 |
 | Skrea Raä 195 (`115`) | site_page_only | 0 | https://browser.sead.se/site/115 |
 | Skrea Raä 77 (`19`) | site_page_only | 0 | https://browser.sead.se/site/19 |
 | Skrickerum (`3856`) | site_page_only | 0 | https://browser.sead.se/site/3856 |
@@ -1674,7 +1574,6 @@ This packet states what the repository mirrors from SEAD, what it only reference
 | Skurup: Saritslöv (`5078`) | site_page_only | 0 | https://browser.sead.se/site/5078 |
 | Skäggalösa Norregård (`6142`) | site_page_only | 0 | https://browser.sead.se/site/6142 |
 | Skälby (`3479`) | site_page_only | 0 | https://browser.sead.se/site/3479 |
-| Skällvik 222:1 (`6455`) | site_page_only | 0 | https://browser.sead.se/site/6455 |
 | Skälvums kyrka (`6145`) | site_page_only | 0 | https://browser.sead.se/site/6145 |
 | Skänninge 52 (`6404`) | site_page_only | 0 | https://browser.sead.se/site/6404 |
 | Skänninge 5:1 (`6411`) | site_page_only | 0 | https://browser.sead.se/site/6411 |
@@ -1720,11 +1619,9 @@ This packet states what the repository mirrors from SEAD, what it only reference
 | Solberg 1:15 (`378`) | site_page_only | 0 | https://browser.sead.se/site/378 |
 | Solberga (`299`) | site_page_only | 0 | https://browser.sead.se/site/299 |
 | Solberga, Linköping (`3469`) | site_page_only | 0 | https://browser.sead.se/site/3469 |
-| Soldattorpet (Limhamn) (`3468`) | site_page_only | 0 | https://browser.sead.se/site/3468 |
 | Solheim (`3467`) | site_page_only | 0 | https://browser.sead.se/site/3467 |
 | Solna kyrka (`6164`) | site_page_only | 0 | https://browser.sead.se/site/6164 |
 | Solna kyrka ladan (`6165`) | site_page_only | 0 | https://browser.sead.se/site/6165 |
-| Solumnshamn (`6166`) | site_page_only | 0 | https://browser.sead.se/site/6166 |
 | Solviks i kyrkbyn Boda (`6167`) | site_page_only | 0 | https://browser.sead.se/site/6167 |
 | Sommarlagård Hjältanstorp (`6169`) | site_page_only | 0 | https://browser.sead.se/site/6169 |
 | Sommaränge Skog (`3466`) | site_page_only | 0 | https://browser.sead.se/site/3466 |
@@ -1781,7 +1678,6 @@ This packet states what the repository mirrors from SEAD, what it only reference
 | Stockholmsgården i Gåda (`6193`) | site_page_only | 0 | https://browser.sead.se/site/6193 |
 | Stora Bråmåmyr i Nusnäs (`6194`) | site_page_only | 0 | https://browser.sead.se/site/6194 |
 | Stora Gårda Herrgård (`6195`) | site_page_only | 0 | https://browser.sead.se/site/6195 |
-| Stora Halmören (`350`) | site_page_only | 0 | https://browser.sead.se/site/350 |
 | Stora Harrie (`3852`) | site_page_only | 0 | https://browser.sead.se/site/3852 |
 | Stora Herrestads kyrka (`3996`) | site_page_only | 0 | https://browser.sead.se/site/3996 |
 | Stora Hulterska (`3851`) | site_page_only | 0 | https://browser.sead.se/site/3851 |
@@ -1792,12 +1688,10 @@ This packet states what the repository mirrors from SEAD, what it only reference
 | Stora Rickby (`3992`) | site_page_only | 0 | https://browser.sead.se/site/3992 |
 | Stora Skedelid (`6196`) | site_page_only | 0 | https://browser.sead.se/site/6196 |
 | Stora skedvi kyrka (`6197`) | site_page_only | 0 | https://browser.sead.se/site/6197 |
-| Stora Träskär (`374`) | site_page_only | 0 | https://browser.sead.se/site/374 |
 | Stora Tuna Skärsjö (`5065`) | site_page_only | 0 | https://browser.sead.se/site/5065 |
 | Storasjö (`5519`) | site_page_only | 0 | https://browser.sead.se/site/5519 |
 | Storpers i Södra Kättbo (`6198`) | site_page_only | 0 | https://browser.sead.se/site/6198 |
 | Storsved i Berge (`6199`) | site_page_only | 0 | https://browser.sead.se/site/6199 |
-| Stralsund (`5154`) | site_page_only | 0 | https://browser.sead.se/site/5154 |
 | Strängnäs Raä 443 (`311`) | site_page_only | 0 | https://browser.sead.se/site/311 |
 | Stråvalla kyrka (`6201`) | site_page_only | 0 | https://browser.sead.se/site/6201 |
 | Stræten (`140`) | site_page_only | 0 | https://browser.sead.se/site/140 |
@@ -1812,9 +1706,7 @@ This packet states what the repository mirrors from SEAD, what it only reference
 | Stuga Selja (`6207`) | site_page_only | 0 | https://browser.sead.se/site/6207 |
 | Stuga Skålö by (`6208`) | site_page_only | 0 | https://browser.sead.se/site/6208 |
 | Sturhanslars Olovs i Fåsås (`6209`) | site_page_only | 0 | https://browser.sead.se/site/6209 |
-| Styrsö Raä 117 (`239`) | site_page_only | 0 | https://browser.sead.se/site/239 |
 | Stäket (`6184`) | site_page_only | 0 | https://browser.sead.se/site/6184 |
-| Stäksundet (`6457`) | site_page_only | 0 | https://browser.sead.se/site/6457 |
 | Ställverksboplatsen (`3462`) | site_page_only | 0 | https://browser.sead.se/site/3462 |
 | Stämmeryd (`3849`) | site_page_only | 0 | https://browser.sead.se/site/3849 |
 | Stävie 3:1 (`3461`) | site_page_only | 0 | https://browser.sead.se/site/3461 |
@@ -1829,7 +1721,6 @@ This packet states what the repository mirrors from SEAD, what it only reference
 | Sundsvall stad (`342`) | site_page_only | 0 | https://browser.sead.se/site/342 |
 | Sunnanås (`6212`) | site_page_only | 0 | https://browser.sead.se/site/6212 |
 | Svaneberg (`3848`) | site_page_only | 0 | https://browser.sead.se/site/3848 |
-| Svanebäck (`6213`) | site_page_only | 0 | https://browser.sead.se/site/6213 |
 | Svarteborg 585 (`304`) | site_page_only | 0 | https://browser.sead.se/site/304 |
 | Svarteborg 592 (`315`) | site_page_only | 0 | https://browser.sead.se/site/315 |
 | Svarteborg 593 (`276`) | site_page_only | 0 | https://browser.sead.se/site/276 |
@@ -1851,9 +1742,7 @@ This packet states what the repository mirrors from SEAD, what it only reference
 | Svensåsen (`6220`) | site_page_only | 0 | https://browser.sead.se/site/6220 |
 | Svälinge, Tåkern (`3458`) | site_page_only | 0 | https://browser.sead.se/site/3458 |
 | Svågertorp 8B-C (`3459`) | site_page_only | 0 | https://browser.sead.se/site/3459 |
-| Sværholt (`135`) | site_page_only | 0 | https://browser.sead.se/site/135 |
 | Sydöstra härbret Zorns gammelgård (`6221`) | site_page_only | 0 | https://browser.sead.se/site/6221 |
-| Syllöda (`3457`) | site_page_only | 0 | https://browser.sead.se/site/3457 |
 | Sysslomansgården (`6222`) | site_page_only | 0 | https://browser.sead.se/site/6222 |
 | Säby 5 (`3456`) | site_page_only | 0 | https://browser.sead.se/site/3456 |
 | Säbyholm (`3455`) | site_page_only | 0 | https://browser.sead.se/site/3455 |
@@ -1863,7 +1752,6 @@ This packet states what the repository mirrors from SEAD, what it only reference
 | Särkivuoma (`4858`) | site_page_only | 0 | https://browser.sead.se/site/4858 |
 | Särslöv (`3454`) | site_page_only | 0 | https://browser.sead.se/site/3454 |
 | Särslövs kyrka (`3987`) | site_page_only | 0 | https://browser.sead.se/site/3987 |
-| Säter (`3453`) | site_page_only | 0 | https://browser.sead.se/site/3453 |
 | Säternybodarna (`6134`) | site_page_only | 0 | https://browser.sead.se/site/6134 |
 | Sätersfors (`6135`) | site_page_only | 0 | https://browser.sead.se/site/6135 |
 | Sätila Strömma (`6320`) | site_page_only | 0 | https://browser.sead.se/site/6320 |
@@ -1913,7 +1801,6 @@ This packet states what the repository mirrors from SEAD, what it only reference
 | Tittolles i Stavsätra (`6229`) | site_page_only | 0 | https://browser.sead.se/site/6229 |
 | Tjustgöls gård (`6230`) | site_page_only | 0 | https://browser.sead.se/site/6230 |
 | Tjärby Raä 59 (`8`) | site_page_only | 0 | https://browser.sead.se/site/8 |
-| Tjärnan (`3447`) | site_page_only | 0 | https://browser.sead.se/site/3447 |
 | Tobaksladan (`6231`) | site_page_only | 0 | https://browser.sead.se/site/6231 |
 | Tofta (`3847`) | site_page_only | 0 | https://browser.sead.se/site/3847 |
 | Tofta 19 (`3446`) | site_page_only | 0 | https://browser.sead.se/site/3446 |
@@ -1939,8 +1826,6 @@ This packet states what the repository mirrors from SEAD, what it only reference
 | Torsåker Raä 1589 (`156`) | site_page_only | 0 | https://browser.sead.se/site/156 |
 | Torsångs kyrka (`6235`) | site_page_only | 0 | https://browser.sead.se/site/6235 |
 | Torup slott (`6237`) | site_page_only | 0 | https://browser.sead.se/site/6237 |
-| Torö kyrka (`3979`) | site_page_only | 0 | https://browser.sead.se/site/3979 |
-| Torö Raä 75 (`300`) | site_page_only | 0 | https://browser.sead.se/site/300 |
 | Tossene 446 (`375`) | site_page_only | 0 | https://browser.sead.se/site/375 |
 | Tossene Raä 446 (`310`) | site_page_only | 0 | https://browser.sead.se/site/310 |
 | Tosterup 32:2 (`3834`) | site_page_only | 0 | https://browser.sead.se/site/3834 |
@@ -1953,7 +1838,6 @@ This packet states what the repository mirrors from SEAD, what it only reference
 | Trelleborg 48 (`6379`) | site_page_only | 0 | https://browser.sead.se/site/6379 |
 | Trelleborg: brick pit (`5285`) | site_page_only | 0 | https://browser.sead.se/site/5285 |
 | Trogsta 71 (`284`) | site_page_only | 0 | https://browser.sead.se/site/284 |
-| Troitski (`3441`) | site_page_only | 0 | https://browser.sead.se/site/3441 |
 | Trollasten (`3440`) | site_page_only | 0 | https://browser.sead.se/site/3440 |
 | Trulsatorpet (`6242`) | site_page_only | 0 | https://browser.sead.se/site/6242 |
 | Trädgårdsmästarbostaden (`6238`) | site_page_only | 0 | https://browser.sead.se/site/6238 |
@@ -1964,7 +1848,6 @@ This packet states what the repository mirrors from SEAD, what it only reference
 | Tullinge gård (`6243`) | site_page_only | 0 | https://browser.sead.se/site/6243 |
 | Tullsåkra (`6244`) | site_page_only | 0 | https://browser.sead.se/site/6244 |
 | Tumbo kyrka (`3975`) | site_page_only | 0 | https://browser.sead.se/site/3975 |
-| Tuna (`6327`) | site_page_only | 0 | https://browser.sead.se/site/6327 |
 | Tuna Raä 328:1 (`273`) | site_page_only | 0 | https://browser.sead.se/site/273 |
 | Tuna Raä 330 (`353`) | site_page_only | 0 | https://browser.sead.se/site/353 |
 | Tuntorps gård (`3974`) | site_page_only | 0 | https://browser.sead.se/site/3974 |
@@ -1976,7 +1859,6 @@ This packet states what the repository mirrors from SEAD, what it only reference
 | Tvååker Raä 193 (`30`) | site_page_only | 0 | https://browser.sead.se/site/30 |
 | Tygapil (`3439`) | site_page_only | 0 | https://browser.sead.se/site/3439 |
 | Tynderö 27 (`400`) | site_page_only | 0 | https://browser.sead.se/site/400 |
-| Tynningö (`6246`) | site_page_only | 0 | https://browser.sead.se/site/6246 |
 | Tyresö kyrka (`3972`) | site_page_only | 0 | https://browser.sead.se/site/3972 |
 | Tysk Karin Olsson i Kärvsåsen (`6247`) | site_page_only | 0 | https://browser.sead.se/site/6247 |
 | Tysk Sven i Västra Stumsnäs (`6248`) | site_page_only | 0 | https://browser.sead.se/site/6248 |
@@ -1997,7 +1879,6 @@ This packet states what the repository mirrors from SEAD, what it only reference
 | Töre 422 (`384`) | site_page_only | 0 | https://browser.sead.se/site/384 |
 | Töre Raä 320 (`298`) | site_page_only | 0 | https://browser.sead.se/site/298 |
 | Törnbotten (`3970`) | site_page_only | 0 | https://browser.sead.se/site/3970 |
-| Tønsberg, Essotomten (`3437`) | site_page_only | 0 | https://browser.sead.se/site/3437 |
 | Tønsberg, Peterskirken (`3436`) | site_page_only | 0 | https://browser.sead.se/site/3436 |
 | Tønsberg, Teglhagen (`3435`) | site_page_only | 0 | https://browser.sead.se/site/3435 |
 | Tønsnes (`5632`) | site_page_only | 0 | https://browser.sead.se/site/5632 |
@@ -2041,7 +1922,6 @@ This packet states what the repository mirrors from SEAD, what it only reference
 | Valje (`3428`) | site_page_only | 0 | https://browser.sead.se/site/3428 |
 | Vall kyrka (`3966`) | site_page_only | 0 | https://browser.sead.se/site/3966 |
 | Valla (`3965`) | site_page_only | 0 | https://browser.sead.se/site/3965 |
-| Vallagatan (`6329`) | site_page_only | 0 | https://browser.sead.se/site/6329 |
 | Vallby (`3427`) | site_page_only | 0 | https://browser.sead.se/site/3427 |
 | Vallby kyrka (`6258`) | site_page_only | 0 | https://browser.sead.se/site/6258 |
 | Vallby, Tillberga (`4707`) | site_page_only | 0 | https://browser.sead.se/site/4707 |
@@ -2124,7 +2004,6 @@ This packet states what the repository mirrors from SEAD, what it only reference
 | Västerlövsta 395:1 (`6350`) | site_page_only | 0 | https://browser.sead.se/site/6350 |
 | Västermo kyrka (`3945`) | site_page_only | 0 | https://browser.sead.se/site/3945 |
 | Västerplana kyrka (`6265`) | site_page_only | 0 | https://browser.sead.se/site/6265 |
-| Västervik 94:1 (`6356`) | site_page_only | 0 | https://browser.sead.se/site/6356 |
 | Västervång (`3413`) | site_page_only | 0 | https://browser.sead.se/site/3413 |
 | Västerås 232:1 (`6402`) | site_page_only | 0 | https://browser.sead.se/site/6402 |
 | Västerås domkyrka (`3944`) | site_page_only | 0 | https://browser.sead.se/site/3944 |
@@ -2142,7 +2021,6 @@ This packet states what the repository mirrors from SEAD, what it only reference
 | Våthults kyrka (`3952`) | site_page_only | 0 | https://browser.sead.se/site/3952 |
 | Wahléns i Oxberg (`6272`) | site_page_only | 0 | https://browser.sead.se/site/6272 |
 | Waxängs gård (`6273`) | site_page_only | 0 | https://browser.sead.se/site/6273 |
-| Westerland (`4720`) | site_page_only | 0 | https://browser.sead.se/site/4720 |
 | Westööska huset (`3939`) | site_page_only | 0 | https://browser.sead.se/site/3939 |
 | Wrangelska palatset (`3922`) | site_page_only | 0 | https://browser.sead.se/site/3922 |
 | Ysby kyrka (`6274`) | site_page_only | 0 | https://browser.sead.se/site/6274 |
@@ -2151,7 +2029,6 @@ This packet states what the repository mirrors from SEAD, what it only reference
 | Ytterby Raä 22 (`302`) | site_page_only | 0 | https://browser.sead.se/site/302 |
 | Ytterselö kyrka (`6275`) | site_page_only | 0 | https://browser.sead.se/site/6275 |
 | Yttre Medväga (`178`) | site_page_only | 0 | https://browser.sead.se/site/178 |
-| Ägglösen (`258`) | site_page_only | 0 | https://browser.sead.se/site/258 |
 | Älgtjärn (`379`) | site_page_only | 0 | https://browser.sead.se/site/379 |
 | Älgtjärn, Jovan ekopark (`157`) | site_page_only | 0 | https://browser.sead.se/site/157 |
 | Älvestads kyrka (`3938`) | site_page_only | 0 | https://browser.sead.se/site/3938 |
@@ -2172,7 +2049,6 @@ This packet states what the repository mirrors from SEAD, what it only reference
 | Årdala kyrka (`5689`) | site_page_only | 0 | https://browser.sead.se/site/5689 |
 | Åre gamla kyrka (`5690`) | site_page_only | 0 | https://browser.sead.se/site/5690 |
 | Årebergs gård (`5691`) | site_page_only | 0 | https://browser.sead.se/site/5691 |
-| Årsta (`3409`) | site_page_only | 0 | https://browser.sead.se/site/3409 |
 | Årstad Raä 3 (`7`) | site_page_only | 0 | https://browser.sead.se/site/7 |
 | Årup (Skräbeån) (`3408`) | site_page_only | 0 | https://browser.sead.se/site/3408 |
 | Årups norre vång (`3407`) | site_page_only | 0 | https://browser.sead.se/site/3407 |
@@ -2205,7 +2081,6 @@ This packet states what the repository mirrors from SEAD, what it only reference
 | Österslövs gamla prästgård (`6069`) | site_page_only | 0 | https://browser.sead.se/site/6069 |
 | Östnorsstugan (`6070`) | site_page_only | 0 | https://browser.sead.se/site/6070 |
 | Östnorsstugan stall och lider (`6071`) | site_page_only | 0 | https://browser.sead.se/site/6071 |
-| Östra ryds kyrka (`3932`) | site_page_only | 0 | https://browser.sead.se/site/3932 |
 | Östra Sallerups kyrka (`6072`) | site_page_only | 0 | https://browser.sead.se/site/6072 |
 | Östra Skrukeby kyrka (`3931`) | site_page_only | 0 | https://browser.sead.se/site/3931 |
 | Östra Spång (`3404`) | site_page_only | 0 | https://browser.sead.se/site/3404 |
@@ -2220,7 +2095,6 @@ This packet states what the repository mirrors from SEAD, what it only reference
 | Övraby kyrka (`3927`) | site_page_only | 0 | https://browser.sead.se/site/3927 |
 | Övraby Raä 70 (`195`) | site_page_only | 0 | https://browser.sead.se/site/195 |
 | Övre Häfla bruk (`3926`) | site_page_only | 0 | https://browser.sead.se/site/3926 |
-| Øvre Kvilhaugmyra (`4572`) | site_page_only | 0 | https://browser.sead.se/site/4572 |
 | Præstelyngen i Åmosen (`4910`) | site_page_with_reference_links | 1 | https://browser.sead.se/site/4910 |
 | Skänninge Abbey (`6486`) | site_page_with_reference_links | 11 | https://browser.sead.se/site/6486 |
 | Stavsåkra (`4905`) | site_page_with_reference_links | 1 | https://browser.sead.se/site/4905 |

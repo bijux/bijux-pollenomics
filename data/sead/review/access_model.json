@@ -1,7 +1,7 @@
 {
   "schema_version": "sead-access-model.v1",
-  "generated_on": "2026-08-01",
-  "row_count": 2195,
+  "generated_on": "2026-09-05",
+  "row_count": 2069,
   "repository_posture": "mirrored_relational_inventory_and_temporal_context",
   "what_the_repository_mirrors": [
     "raw site inventory capture under data/sead/raw/",
@@ -18,7 +18,7 @@
     "full source browsing experience beyond the linked site and reference pages"
   ],
   "access_visibility_counts": {
-    "site_page_only": 2192,
+    "site_page_only": 2066,
     "site_page_with_reference_links": 3
   },
   "rows": [
@@ -382,38 +382,10 @@
       ]
     },
     {
-      "site_id": "6484",
-      "site_name": "58194 Kalmar",
-      "access_visibility": "site_page_only",
-      "site_page_url": "https://browser.sead.se/site/6484",
-      "reference_link_count": 0,
-      "redistribution_posture": "reference_upstream_pages_and_publish_repository_derived_context_only",
-      "reader_action": "Inspect the SEAD site page when captured chronology or bibliography does not answer the research question.",
-      "access_limits": [
-        "The repository mirrors the scoped site inventory, linked chronology and bibliography relations, and derived context layers, not the full upstream relational SEAD database.",
-        "Captured bibliography for this row exposes no directly followable DOI or URL, so readers may need to inspect the SEAD site page directly.",
-        "No linked upstream chronology is captured for this site, so it remains spatial context rather than a dated map observation."
-      ]
-    },
-    {
       "site_id": "5653",
       "site_name": "58195 Böda",
       "access_visibility": "site_page_only",
       "site_page_url": "https://browser.sead.se/site/5653",
-      "reference_link_count": 0,
-      "redistribution_posture": "reference_upstream_pages_and_publish_repository_derived_context_only",
-      "reader_action": "Inspect the SEAD site page when captured chronology or bibliography does not answer the research question.",
-      "access_limits": [
-        "The repository mirrors the scoped site inventory, linked chronology and bibliography relations, and derived context layers, not the full upstream relational SEAD database.",
-        "Captured bibliography for this row exposes no directly followable DOI or URL, so readers may need to inspect the SEAD site page directly.",
-        "No linked upstream chronology is captured for this site, so it remains spatial context rather than a dated map observation."
-      ]
-    },
-    {
-      "site_id": "6462",
-      "site_name": "61094 Kronobäck",
-      "access_visibility": "site_page_only",
-      "site_page_url": "https://browser.sead.se/site/6462",
       "reference_link_count": 0,
       "redistribution_posture": "reference_upstream_pages_and_publish_repository_derived_context_only",
       "reader_action": "Inspect the SEAD site page when captured chronology or bibliography does not answer the research question.",
@@ -1018,20 +990,6 @@
       ]
     },
     {
-      "site_id": "6337",
-      "site_name": "93139 Ljusterö",
-      "access_visibility": "site_page_only",
-      "site_page_url": "https://browser.sead.se/site/6337",
-      "reference_link_count": 0,
-      "redistribution_posture": "reference_upstream_pages_and_publish_repository_derived_context_only",
-      "reader_action": "Inspect the SEAD site page when captured chronology or bibliography does not answer the research question.",
-      "access_limits": [
-        "The repository mirrors the scoped site inventory, linked chronology and bibliography relations, and derived context layers, not the full upstream relational SEAD database.",
-        "Captured bibliography for this row exposes no directly followable DOI or URL, so readers may need to inspect the SEAD site page directly.",
-        "No linked upstream chronology is captured for this site, so it remains spatial context rather than a dated map observation."
-      ]
-    },
-    {
       "site_id": "5669",
       "site_name": "93279 Österlövsta",
       "access_visibility": "site_page_only",
@@ -1347,20 +1305,6 @@
       "site_name": "Alntorpsö",
       "access_visibility": "site_page_only",
       "site_page_url": "https://browser.sead.se/site/5684",
-      "reference_link_count": 0,
-      "redistribution_posture": "reference_upstream_pages_and_publish_repository_derived_context_only",
-      "reader_action": "Inspect the SEAD site page when captured chronology or bibliography does not answer the research question.",
-      "access_limits": [
-        "The repository mirrors the scoped site inventory, linked chronology and bibliography relations, and derived context layers, not the full upstream relational SEAD database.",
-        "Captured bibliography for this row exposes no directly followable DOI or URL, so readers may need to inspect the SEAD site page directly.",
-        "No linked upstream chronology is captured for this site, so it remains spatial context rather than a dated map observation."
-      ]
-    },
-    {
-      "site_id": "5683",
-      "site_name": "Alnö kyrka",
-      "access_visibility": "site_page_only",
-      "site_page_url": "https://browser.sead.se/site/5683",
       "reference_link_count": 0,
       "redistribution_posture": "reference_upstream_pages_and_publish_repository_derived_context_only",
       "reader_action": "Inspect the SEAD site page when captured chronology or bibliography does not answer the research question.",
@@ -2265,20 +2209,6 @@
       ]
     },
     {
-      "site_id": "320",
-      "site_name": "Bergskärit",
-      "access_visibility": "site_page_only",
-      "site_page_url": "https://browser.sead.se/site/320",
-      "reference_link_count": 0,
-      "redistribution_posture": "reference_upstream_pages_and_publish_repository_derived_context_only",
-      "reader_action": "Inspect the SEAD site page when captured chronology or bibliography does not answer the research question.",
-      "access_limits": [
-        "The repository mirrors the scoped site inventory, linked chronology and bibliography relations, and derived context layers, not the full upstream relational SEAD database.",
-        "Captured bibliography for this row exposes no directly followable DOI or URL, so readers may need to inspect the SEAD site page directly.",
-        "No linked upstream chronology is captured for this site, so it remains spatial context rather than a dated map observation."
-      ]
-    },
-    {
       "site_id": "4220",
       "site_name": "Berkinge Herrgård",
       "access_visibility": "site_page_only",
@@ -2870,19 +2800,6 @@
       ]
     },
     {
-      "site_id": "4911",
-      "site_name": "Blomøy",
-      "access_visibility": "site_page_only",
-      "site_page_url": "https://browser.sead.se/site/4911",
-      "reference_link_count": 0,
-      "redistribution_posture": "reference_upstream_pages_and_publish_repository_derived_context_only",
-      "reader_action": "Inspect the SEAD site page when captured chronology or bibliography does not answer the research question.",
-      "access_limits": [
-        "The repository mirrors the scoped site inventory, linked chronology and bibliography relations, and derived context layers, not the full upstream relational SEAD database.",
-        "Captured bibliography for this row exposes no directly followable DOI or URL, so readers may need to inspect the SEAD site page directly."
-      ]
-    },
-    {
       "site_id": "128",
       "site_name": "BMR 3054 Vestre Indlæg",
       "access_visibility": "site_page_only",
@@ -2915,20 +2832,6 @@
       "site_name": "Bobergs i Nyhyttan",
       "access_visibility": "site_page_only",
       "site_page_url": "https://browser.sead.se/site/5723",
-      "reference_link_count": 0,
-      "redistribution_posture": "reference_upstream_pages_and_publish_repository_derived_context_only",
-      "reader_action": "Inspect the SEAD site page when captured chronology or bibliography does not answer the research question.",
-      "access_limits": [
-        "The repository mirrors the scoped site inventory, linked chronology and bibliography relations, and derived context layers, not the full upstream relational SEAD database.",
-        "Captured bibliography for this row exposes no directly followable DOI or URL, so readers may need to inspect the SEAD site page directly.",
-        "No linked upstream chronology is captured for this site, so it remains spatial context rather than a dated map observation."
-      ]
-    },
-    {
-      "site_id": "5724",
-      "site_name": "Bobergska gården",
-      "access_visibility": "site_page_only",
-      "site_page_url": "https://browser.sead.se/site/5724",
       "reference_link_count": 0,
       "redistribution_posture": "reference_upstream_pages_and_publish_repository_derived_context_only",
       "reader_action": "Inspect the SEAD site page when captured chronology or bibliography does not answer the research question.",
@@ -3122,19 +3025,6 @@
       "site_name": "Bonäs",
       "access_visibility": "site_page_only",
       "site_page_url": "https://browser.sead.se/site/4211",
-      "reference_link_count": 0,
-      "redistribution_posture": "reference_upstream_pages_and_publish_repository_derived_context_only",
-      "reader_action": "Inspect the SEAD site page when captured chronology or bibliography does not answer the research question.",
-      "access_limits": [
-        "The repository mirrors the scoped site inventory, linked chronology and bibliography relations, and derived context layers, not the full upstream relational SEAD database.",
-        "Captured bibliography for this row exposes no directly followable DOI or URL, so readers may need to inspect the SEAD site page directly."
-      ]
-    },
-    {
-      "site_id": "4210",
-      "site_name": "Boqvistudden",
-      "access_visibility": "site_page_only",
-      "site_page_url": "https://browser.sead.se/site/4210",
       "reference_link_count": 0,
       "redistribution_posture": "reference_upstream_pages_and_publish_repository_derived_context_only",
       "reader_action": "Inspect the SEAD site page when captured chronology or bibliography does not answer the research question.",
@@ -4521,20 +4411,6 @@
       ]
     },
     {
-      "site_id": "5737",
-      "site_name": "Brämöns kapell",
-      "access_visibility": "site_page_only",
-      "site_page_url": "https://browser.sead.se/site/5737",
-      "reference_link_count": 0,
-      "redistribution_posture": "reference_upstream_pages_and_publish_repository_derived_context_only",
-      "reader_action": "Inspect the SEAD site page when captured chronology or bibliography does not answer the research question.",
-      "access_limits": [
-        "The repository mirrors the scoped site inventory, linked chronology and bibliography relations, and derived context layers, not the full upstream relational SEAD database.",
-        "Captured bibliography for this row exposes no directly followable DOI or URL, so readers may need to inspect the SEAD site page directly.",
-        "No linked upstream chronology is captured for this site, so it remains spatial context rather than a dated map observation."
-      ]
-    },
-    {
       "site_id": "4197",
       "site_name": "Brönnestads kyrka",
       "access_visibility": "site_page_only",
@@ -5408,47 +5284,6 @@
       ]
     },
     {
-      "site_id": "6432",
-      "site_name": "Djurgårdsbrunn",
-      "access_visibility": "site_page_only",
-      "site_page_url": "https://browser.sead.se/site/6432",
-      "reference_link_count": 0,
-      "redistribution_posture": "reference_upstream_pages_and_publish_repository_derived_context_only",
-      "reader_action": "Inspect the SEAD site page when captured chronology or bibliography does not answer the research question.",
-      "access_limits": [
-        "The repository mirrors the scoped site inventory, linked chronology and bibliography relations, and derived context layers, not the full upstream relational SEAD database.",
-        "Captured bibliography for this row exposes no directly followable DOI or URL, so readers may need to inspect the SEAD site page directly.",
-        "No linked upstream chronology is captured for this site, so it remains spatial context rather than a dated map observation."
-      ]
-    },
-    {
-      "site_id": "6285",
-      "site_name": "Djurgårdsbrunnsvägen",
-      "access_visibility": "site_page_only",
-      "site_page_url": "https://browser.sead.se/site/6285",
-      "reference_link_count": 0,
-      "redistribution_posture": "reference_upstream_pages_and_publish_repository_derived_context_only",
-      "reader_action": "Inspect the SEAD site page when captured chronology or bibliography does not answer the research question.",
-      "access_limits": [
-        "The repository mirrors the scoped site inventory, linked chronology and bibliography relations, and derived context layers, not the full upstream relational SEAD database.",
-        "Captured bibliography for this row exposes no directly followable DOI or URL, so readers may need to inspect the SEAD site page directly.",
-        "No linked upstream chronology is captured for this site, so it remains spatial context rather than a dated map observation."
-      ]
-    },
-    {
-      "site_id": "4188",
-      "site_name": "Djursnäs säteri",
-      "access_visibility": "site_page_only",
-      "site_page_url": "https://browser.sead.se/site/4188",
-      "reference_link_count": 0,
-      "redistribution_posture": "reference_upstream_pages_and_publish_repository_derived_context_only",
-      "reader_action": "Inspect the SEAD site page when captured chronology or bibliography does not answer the research question.",
-      "access_limits": [
-        "The repository mirrors the scoped site inventory, linked chronology and bibliography relations, and derived context layers, not the full upstream relational SEAD database.",
-        "Captured bibliography for this row exposes no directly followable DOI or URL, so readers may need to inspect the SEAD site page directly."
-      ]
-    },
-    {
       "site_id": "3747",
       "site_name": "Dragby",
       "access_visibility": "site_page_only",
@@ -5880,20 +5715,6 @@
       ]
     },
     {
-      "site_id": "5662",
-      "site_name": "Ekö",
-      "access_visibility": "site_page_only",
-      "site_page_url": "https://browser.sead.se/site/5662",
-      "reference_link_count": 0,
-      "redistribution_posture": "reference_upstream_pages_and_publish_repository_derived_context_only",
-      "reader_action": "Inspect the SEAD site page when captured chronology or bibliography does not answer the research question.",
-      "access_limits": [
-        "The repository mirrors the scoped site inventory, linked chronology and bibliography relations, and derived context layers, not the full upstream relational SEAD database.",
-        "Captured bibliography for this row exposes no directly followable DOI or URL, so readers may need to inspect the SEAD site page directly.",
-        "No linked upstream chronology is captured for this site, so it remains spatial context rather than a dated map observation."
-      ]
-    },
-    {
       "site_id": "5772",
       "site_name": "Eldhus Fageråsen",
       "access_visibility": "site_page_only",
@@ -5986,20 +5807,6 @@
       "access_limits": [
         "The repository mirrors the scoped site inventory, linked chronology and bibliography relations, and derived context layers, not the full upstream relational SEAD database.",
         "Captured bibliography for this row exposes no directly followable DOI or URL, so readers may need to inspect the SEAD site page directly."
-      ]
-    },
-    {
-      "site_id": "4248",
-      "site_name": "Endletvatn",
-      "access_visibility": "site_page_only",
-      "site_page_url": "https://browser.sead.se/site/4248",
-      "reference_link_count": 0,
-      "redistribution_posture": "reference_upstream_pages_and_publish_repository_derived_context_only",
-      "reader_action": "Inspect the SEAD site page when captured chronology or bibliography does not answer the research question.",
-      "access_limits": [
-        "The repository mirrors the scoped site inventory, linked chronology and bibliography relations, and derived context layers, not the full upstream relational SEAD database.",
-        "Captured bibliography for this row exposes no directly followable DOI or URL, so readers may need to inspect the SEAD site page directly.",
-        "No linked upstream chronology is captured for this site, so it remains spatial context rather than a dated map observation."
       ]
     },
     {
@@ -6357,19 +6164,6 @@
         "The repository mirrors the scoped site inventory, linked chronology and bibliography relations, and derived context layers, not the full upstream relational SEAD database.",
         "Captured bibliography for this row exposes no directly followable DOI or URL, so readers may need to inspect the SEAD site page directly.",
         "No linked upstream chronology is captured for this site, so it remains spatial context rather than a dated map observation."
-      ]
-    },
-    {
-      "site_id": "4392",
-      "site_name": "Fakse Bugt",
-      "access_visibility": "site_page_only",
-      "site_page_url": "https://browser.sead.se/site/4392",
-      "reference_link_count": 0,
-      "redistribution_posture": "reference_upstream_pages_and_publish_repository_derived_context_only",
-      "reader_action": "Inspect the SEAD site page when captured chronology or bibliography does not answer the research question.",
-      "access_limits": [
-        "The repository mirrors the scoped site inventory, linked chronology and bibliography relations, and derived context layers, not the full upstream relational SEAD database.",
-        "Captured bibliography for this row exposes no directly followable DOI or URL, so readers may need to inspect the SEAD site page directly."
       ]
     },
     {
@@ -7369,20 +7163,6 @@
       ]
     },
     {
-      "site_id": "305",
-      "site_name": "Fåröarna",
-      "access_visibility": "site_page_only",
-      "site_page_url": "https://browser.sead.se/site/305",
-      "reference_link_count": 0,
-      "redistribution_posture": "reference_upstream_pages_and_publish_repository_derived_context_only",
-      "reader_action": "Inspect the SEAD site page when captured chronology or bibliography does not answer the research question.",
-      "access_limits": [
-        "The repository mirrors the scoped site inventory, linked chronology and bibliography relations, and derived context layers, not the full upstream relational SEAD database.",
-        "Captured bibliography for this row exposes no directly followable DOI or URL, so readers may need to inspect the SEAD site page directly.",
-        "No linked upstream chronology is captured for this site, so it remains spatial context rather than a dated map observation."
-      ]
-    },
-    {
       "site_id": "4161",
       "site_name": "Föllingsö säteri",
       "access_visibility": "site_page_only",
@@ -7454,20 +7234,6 @@
       "site_name": "Gamla byvägen",
       "access_visibility": "site_page_only",
       "site_page_url": "https://browser.sead.se/site/6289",
-      "reference_link_count": 0,
-      "redistribution_posture": "reference_upstream_pages_and_publish_repository_derived_context_only",
-      "reader_action": "Inspect the SEAD site page when captured chronology or bibliography does not answer the research question.",
-      "access_limits": [
-        "The repository mirrors the scoped site inventory, linked chronology and bibliography relations, and derived context layers, not the full upstream relational SEAD database.",
-        "Captured bibliography for this row exposes no directly followable DOI or URL, so readers may need to inspect the SEAD site page directly.",
-        "No linked upstream chronology is captured for this site, so it remains spatial context rather than a dated map observation."
-      ]
-    },
-    {
-      "site_id": "6435",
-      "site_name": "Gamla hamnen på Enholmen",
-      "access_visibility": "site_page_only",
-      "site_page_url": "https://browser.sead.se/site/6435",
       "reference_link_count": 0,
       "redistribution_posture": "reference_upstream_pages_and_publish_repository_derived_context_only",
       "reader_action": "Inspect the SEAD site page when captured chronology or bibliography does not answer the research question.",
@@ -7841,19 +7607,6 @@
       ]
     },
     {
-      "site_id": "4416",
-      "site_name": "Godøy",
-      "access_visibility": "site_page_only",
-      "site_page_url": "https://browser.sead.se/site/4416",
-      "reference_link_count": 0,
-      "redistribution_posture": "reference_upstream_pages_and_publish_repository_derived_context_only",
-      "reader_action": "Inspect the SEAD site page when captured chronology or bibliography does not answer the research question.",
-      "access_limits": [
-        "The repository mirrors the scoped site inventory, linked chronology and bibliography relations, and derived context layers, not the full upstream relational SEAD database.",
-        "Captured bibliography for this row exposes no directly followable DOI or URL, so readers may need to inspect the SEAD site page directly."
-      ]
-    },
-    {
       "site_id": "4420",
       "site_name": "Goteborg",
       "access_visibility": "site_page_only",
@@ -7884,19 +7637,6 @@
       "site_name": "Gothenburg",
       "access_visibility": "site_page_only",
       "site_page_url": "https://browser.sead.se/site/4421",
-      "reference_link_count": 0,
-      "redistribution_posture": "reference_upstream_pages_and_publish_repository_derived_context_only",
-      "reader_action": "Inspect the SEAD site page when captured chronology or bibliography does not answer the research question.",
-      "access_limits": [
-        "The repository mirrors the scoped site inventory, linked chronology and bibliography relations, and derived context layers, not the full upstream relational SEAD database.",
-        "Captured bibliography for this row exposes no directly followable DOI or URL, so readers may need to inspect the SEAD site page directly."
-      ]
-    },
-    {
-      "site_id": "3723",
-      "site_name": "Gotska Sandön",
-      "access_visibility": "site_page_only",
-      "site_page_url": "https://browser.sead.se/site/3723",
       "reference_link_count": 0,
       "redistribution_posture": "reference_upstream_pages_and_publish_repository_derived_context_only",
       "reader_action": "Inspect the SEAD site page when captured chronology or bibliography does not answer the research question.",
@@ -8056,37 +7796,10 @@
       ]
     },
     {
-      "site_id": "5836",
-      "site_name": "Grisskär",
-      "access_visibility": "site_page_only",
-      "site_page_url": "https://browser.sead.se/site/5836",
-      "reference_link_count": 0,
-      "redistribution_posture": "reference_upstream_pages_and_publish_repository_derived_context_only",
-      "reader_action": "Inspect the SEAD site page when captured chronology or bibliography does not answer the research question.",
-      "access_limits": [
-        "The repository mirrors the scoped site inventory, linked chronology and bibliography relations, and derived context layers, not the full upstream relational SEAD database.",
-        "Captured bibliography for this row exposes no directly followable DOI or URL, so readers may need to inspect the SEAD site page directly.",
-        "No linked upstream chronology is captured for this site, so it remains spatial context rather than a dated map observation."
-      ]
-    },
-    {
       "site_id": "3909",
       "site_name": "Grisslehamn",
       "access_visibility": "site_page_only",
       "site_page_url": "https://browser.sead.se/site/3909",
-      "reference_link_count": 0,
-      "redistribution_posture": "reference_upstream_pages_and_publish_repository_derived_context_only",
-      "reader_action": "Inspect the SEAD site page when captured chronology or bibliography does not answer the research question.",
-      "access_limits": [
-        "The repository mirrors the scoped site inventory, linked chronology and bibliography relations, and derived context layers, not the full upstream relational SEAD database.",
-        "Captured bibliography for this row exposes no directly followable DOI or URL, so readers may need to inspect the SEAD site page directly."
-      ]
-    },
-    {
-      "site_id": "3719",
-      "site_name": "Grobin",
-      "access_visibility": "site_page_only",
-      "site_page_url": "https://browser.sead.se/site/3719",
       "reference_link_count": 0,
       "redistribution_posture": "reference_upstream_pages_and_publish_repository_derived_context_only",
       "reader_action": "Inspect the SEAD site page when captured chronology or bibliography does not answer the research question.",
@@ -8107,19 +7820,6 @@
         "The repository mirrors the scoped site inventory, linked chronology and bibliography relations, and derived context layers, not the full upstream relational SEAD database.",
         "Captured bibliography for this row exposes no directly followable DOI or URL, so readers may need to inspect the SEAD site page directly.",
         "No linked upstream chronology is captured for this site, so it remains spatial context rather than a dated map observation."
-      ]
-    },
-    {
-      "site_id": "3717",
-      "site_name": "Grundskatan",
-      "access_visibility": "site_page_only",
-      "site_page_url": "https://browser.sead.se/site/3717",
-      "reference_link_count": 0,
-      "redistribution_posture": "reference_upstream_pages_and_publish_repository_derived_context_only",
-      "reader_action": "Inspect the SEAD site page when captured chronology or bibliography does not answer the research question.",
-      "access_limits": [
-        "The repository mirrors the scoped site inventory, linked chronology and bibliography relations, and derived context layers, not the full upstream relational SEAD database.",
-        "Captured bibliography for this row exposes no directly followable DOI or URL, so readers may need to inspect the SEAD site page directly."
       ]
     },
     {
@@ -8220,20 +7920,6 @@
       ]
     },
     {
-      "site_id": "6414",
-      "site_name": "Gryt 4:2",
-      "access_visibility": "site_page_only",
-      "site_page_url": "https://browser.sead.se/site/6414",
-      "reference_link_count": 0,
-      "redistribution_posture": "reference_upstream_pages_and_publish_repository_derived_context_only",
-      "reader_action": "Inspect the SEAD site page when captured chronology or bibliography does not answer the research question.",
-      "access_limits": [
-        "The repository mirrors the scoped site inventory, linked chronology and bibliography relations, and derived context layers, not the full upstream relational SEAD database.",
-        "Captured bibliography for this row exposes no directly followable DOI or URL, so readers may need to inspect the SEAD site page directly.",
-        "No linked upstream chronology is captured for this site, so it remains spatial context rather than a dated map observation."
-      ]
-    },
-    {
       "site_id": "3714",
       "site_name": "Gräne",
       "access_visibility": "site_page_only",
@@ -8284,19 +7970,6 @@
         "The repository mirrors the scoped site inventory, linked chronology and bibliography relations, and derived context layers, not the full upstream relational SEAD database.",
         "Captured bibliography for this row exposes no directly followable DOI or URL, so readers may need to inspect the SEAD site page directly.",
         "No linked upstream chronology is captured for this site, so it remains spatial context rather than a dated map observation."
-      ]
-    },
-    {
-      "site_id": "4148",
-      "site_name": "Grönsö gård",
-      "access_visibility": "site_page_only",
-      "site_page_url": "https://browser.sead.se/site/4148",
-      "reference_link_count": 0,
-      "redistribution_posture": "reference_upstream_pages_and_publish_repository_derived_context_only",
-      "reader_action": "Inspect the SEAD site page when captured chronology or bibliography does not answer the research question.",
-      "access_limits": [
-        "The repository mirrors the scoped site inventory, linked chronology and bibliography relations, and derived context layers, not the full upstream relational SEAD database.",
-        "Captured bibliography for this row exposes no directly followable DOI or URL, so readers may need to inspect the SEAD site page directly."
       ]
     },
     {
@@ -9178,19 +8851,6 @@
       ]
     },
     {
-      "site_id": "4137",
-      "site_name": "Halls fiskeläge",
-      "access_visibility": "site_page_only",
-      "site_page_url": "https://browser.sead.se/site/4137",
-      "reference_link_count": 0,
-      "redistribution_posture": "reference_upstream_pages_and_publish_repository_derived_context_only",
-      "reader_action": "Inspect the SEAD site page when captured chronology or bibliography does not answer the research question.",
-      "access_limits": [
-        "The repository mirrors the scoped site inventory, linked chronology and bibliography relations, and derived context layers, not the full upstream relational SEAD database.",
-        "Captured bibliography for this row exposes no directly followable DOI or URL, so readers may need to inspect the SEAD site page directly."
-      ]
-    },
-    {
       "site_id": "4136",
       "site_name": "Hallstorps kyrka",
       "access_visibility": "site_page_only",
@@ -9394,19 +9054,6 @@
       ]
     },
     {
-      "site_id": "4432",
-      "site_name": "Hanö",
-      "access_visibility": "site_page_only",
-      "site_page_url": "https://browser.sead.se/site/4432",
-      "reference_link_count": 0,
-      "redistribution_posture": "reference_upstream_pages_and_publish_repository_derived_context_only",
-      "reader_action": "Inspect the SEAD site page when captured chronology or bibliography does not answer the research question.",
-      "access_limits": [
-        "The repository mirrors the scoped site inventory, linked chronology and bibliography relations, and derived context layers, not the full upstream relational SEAD database.",
-        "Captured bibliography for this row exposes no directly followable DOI or URL, so readers may need to inspect the SEAD site page directly."
-      ]
-    },
-    {
       "site_id": "4867",
       "site_name": "Hareskoven",
       "access_visibility": "site_page_only",
@@ -9558,19 +9205,6 @@
       "site_name": "Heda hembygdsgård",
       "access_visibility": "site_page_only",
       "site_page_url": "https://browser.sead.se/site/4132",
-      "reference_link_count": 0,
-      "redistribution_posture": "reference_upstream_pages_and_publish_repository_derived_context_only",
-      "reader_action": "Inspect the SEAD site page when captured chronology or bibliography does not answer the research question.",
-      "access_limits": [
-        "The repository mirrors the scoped site inventory, linked chronology and bibliography relations, and derived context layers, not the full upstream relational SEAD database.",
-        "Captured bibliography for this row exposes no directly followable DOI or URL, so readers may need to inspect the SEAD site page directly."
-      ]
-    },
-    {
-      "site_id": "3697",
-      "site_name": "Hedeby",
-      "access_visibility": "site_page_only",
-      "site_page_url": "https://browser.sead.se/site/3697",
       "reference_link_count": 0,
       "redistribution_posture": "reference_upstream_pages_and_publish_repository_derived_context_only",
       "reader_action": "Inspect the SEAD site page when captured chronology or bibliography does not answer the research question.",
@@ -9759,34 +9393,6 @@
       "site_name": "Helsingborg 226:1",
       "access_visibility": "site_page_only",
       "site_page_url": "https://browser.sead.se/site/6392",
-      "reference_link_count": 0,
-      "redistribution_posture": "reference_upstream_pages_and_publish_repository_derived_context_only",
-      "reader_action": "Inspect the SEAD site page when captured chronology or bibliography does not answer the research question.",
-      "access_limits": [
-        "The repository mirrors the scoped site inventory, linked chronology and bibliography relations, and derived context layers, not the full upstream relational SEAD database.",
-        "Captured bibliography for this row exposes no directly followable DOI or URL, so readers may need to inspect the SEAD site page directly.",
-        "No linked upstream chronology is captured for this site, so it remains spatial context rather than a dated map observation."
-      ]
-    },
-    {
-      "site_id": "6380",
-      "site_name": "Helsingborg 252",
-      "access_visibility": "site_page_only",
-      "site_page_url": "https://browser.sead.se/site/6380",
-      "reference_link_count": 0,
-      "redistribution_posture": "reference_upstream_pages_and_publish_repository_derived_context_only",
-      "reader_action": "Inspect the SEAD site page when captured chronology or bibliography does not answer the research question.",
-      "access_limits": [
-        "The repository mirrors the scoped site inventory, linked chronology and bibliography relations, and derived context layers, not the full upstream relational SEAD database.",
-        "Captured bibliography for this row exposes no directly followable DOI or URL, so readers may need to inspect the SEAD site page directly.",
-        "No linked upstream chronology is captured for this site, so it remains spatial context rather than a dated map observation."
-      ]
-    },
-    {
-      "site_id": "6382",
-      "site_name": "Helsingborg 42:1",
-      "access_visibility": "site_page_only",
-      "site_page_url": "https://browser.sead.se/site/6382",
       "reference_link_count": 0,
       "redistribution_posture": "reference_upstream_pages_and_publish_repository_derived_context_only",
       "reader_action": "Inspect the SEAD site page when captured chronology or bibliography does not answer the research question.",
@@ -9988,19 +9594,6 @@
       "site_name": "Hirvijärvi",
       "access_visibility": "site_page_only",
       "site_page_url": "https://browser.sead.se/site/4857",
-      "reference_link_count": 0,
-      "redistribution_posture": "reference_upstream_pages_and_publish_repository_derived_context_only",
-      "reader_action": "Inspect the SEAD site page when captured chronology or bibliography does not answer the research question.",
-      "access_limits": [
-        "The repository mirrors the scoped site inventory, linked chronology and bibliography relations, and derived context layers, not the full upstream relational SEAD database.",
-        "Captured bibliography for this row exposes no directly followable DOI or URL, so readers may need to inspect the SEAD site page directly."
-      ]
-    },
-    {
-      "site_id": "5082",
-      "site_name": "Hirvineva (Oulais)",
-      "access_visibility": "site_page_only",
-      "site_page_url": "https://browser.sead.se/site/5082",
       "reference_link_count": 0,
       "redistribution_posture": "reference_upstream_pages_and_publish_repository_derived_context_only",
       "reader_action": "Inspect the SEAD site page when captured chronology or bibliography does not answer the research question.",
@@ -10399,20 +9992,6 @@
       "access_limits": [
         "The repository mirrors the scoped site inventory, linked chronology and bibliography relations, and derived context layers, not the full upstream relational SEAD database.",
         "Captured bibliography for this row exposes no directly followable DOI or URL, so readers may need to inspect the SEAD site page directly."
-      ]
-    },
-    {
-      "site_id": "6298",
-      "site_name": "Husarö",
-      "access_visibility": "site_page_only",
-      "site_page_url": "https://browser.sead.se/site/6298",
-      "reference_link_count": 0,
-      "redistribution_posture": "reference_upstream_pages_and_publish_repository_derived_context_only",
-      "reader_action": "Inspect the SEAD site page when captured chronology or bibliography does not answer the research question.",
-      "access_limits": [
-        "The repository mirrors the scoped site inventory, linked chronology and bibliography relations, and derived context layers, not the full upstream relational SEAD database.",
-        "Captured bibliography for this row exposes no directly followable DOI or URL, so readers may need to inspect the SEAD site page directly.",
-        "No linked upstream chronology is captured for this site, so it remains spatial context rather than a dated map observation."
       ]
     },
     {
@@ -10822,19 +10401,6 @@
       ]
     },
     {
-      "site_id": "4784",
-      "site_name": "Härnön",
-      "access_visibility": "site_page_only",
-      "site_page_url": "https://browser.sead.se/site/4784",
-      "reference_link_count": 0,
-      "redistribution_posture": "reference_upstream_pages_and_publish_repository_derived_context_only",
-      "reader_action": "Inspect the SEAD site page when captured chronology or bibliography does not answer the research question.",
-      "access_limits": [
-        "The repository mirrors the scoped site inventory, linked chronology and bibliography relations, and derived context layers, not the full upstream relational SEAD database.",
-        "Captured bibliography for this row exposes no directly followable DOI or URL, so readers may need to inspect the SEAD site page directly."
-      ]
-    },
-    {
       "site_id": "211",
       "site_name": "Härnösand Raä 1",
       "access_visibility": "site_page_only",
@@ -10934,19 +10500,6 @@
       "site_name": "Håga",
       "access_visibility": "site_page_only",
       "site_page_url": "https://browser.sead.se/site/3678",
-      "reference_link_count": 0,
-      "redistribution_posture": "reference_upstream_pages_and_publish_repository_derived_context_only",
-      "reader_action": "Inspect the SEAD site page when captured chronology or bibliography does not answer the research question.",
-      "access_limits": [
-        "The repository mirrors the scoped site inventory, linked chronology and bibliography relations, and derived context layers, not the full upstream relational SEAD database.",
-        "Captured bibliography for this row exposes no directly followable DOI or URL, so readers may need to inspect the SEAD site page directly."
-      ]
-    },
-    {
-      "site_id": "4430",
-      "site_name": "Håkulls Mosse, Kullaberg",
-      "access_visibility": "site_page_only",
-      "site_page_url": "https://browser.sead.se/site/4430",
       "reference_link_count": 0,
       "redistribution_posture": "reference_upstream_pages_and_publish_repository_derived_context_only",
       "reader_action": "Inspect the SEAD site page when captured chronology or bibliography does not answer the research question.",
@@ -11079,20 +10632,6 @@
       ]
     },
     {
-      "site_id": "6425",
-      "site_name": "Hölö 320:1",
-      "access_visibility": "site_page_only",
-      "site_page_url": "https://browser.sead.se/site/6425",
-      "reference_link_count": 0,
-      "redistribution_posture": "reference_upstream_pages_and_publish_repository_derived_context_only",
-      "reader_action": "Inspect the SEAD site page when captured chronology or bibliography does not answer the research question.",
-      "access_limits": [
-        "The repository mirrors the scoped site inventory, linked chronology and bibliography relations, and derived context layers, not the full upstream relational SEAD database.",
-        "Captured bibliography for this row exposes no directly followable DOI or URL, so readers may need to inspect the SEAD site page directly.",
-        "No linked upstream chronology is captured for this site, so it remains spatial context rather than a dated map observation."
-      ]
-    },
-    {
       "site_id": "4110",
       "site_name": "Hönstorp",
       "access_visibility": "site_page_only",
@@ -11205,19 +10744,6 @@
       "site_name": "Ii Hamina",
       "access_visibility": "site_page_only",
       "site_page_url": "https://browser.sead.se/site/5564",
-      "reference_link_count": 0,
-      "redistribution_posture": "reference_upstream_pages_and_publish_repository_derived_context_only",
-      "reader_action": "Inspect the SEAD site page when captured chronology or bibliography does not answer the research question.",
-      "access_limits": [
-        "The repository mirrors the scoped site inventory, linked chronology and bibliography relations, and derived context layers, not the full upstream relational SEAD database.",
-        "Captured bibliography for this row exposes no directly followable DOI or URL, so readers may need to inspect the SEAD site page directly."
-      ]
-    },
-    {
-      "site_id": "4889",
-      "site_name": "Ilmola",
-      "access_visibility": "site_page_only",
-      "site_page_url": "https://browser.sead.se/site/4889",
       "reference_link_count": 0,
       "redistribution_posture": "reference_upstream_pages_and_publish_repository_derived_context_only",
       "reader_action": "Inspect the SEAD site page when captured chronology or bibliography does not answer the research question.",
@@ -11357,33 +10883,6 @@
         "The repository mirrors the scoped site inventory, linked chronology and bibliography relations, and derived context layers, not the full upstream relational SEAD database.",
         "Captured bibliography for this row exposes no directly followable DOI or URL, so readers may need to inspect the SEAD site page directly.",
         "No linked upstream chronology is captured for this site, so it remains spatial context rather than a dated map observation."
-      ]
-    },
-    {
-      "site_id": "5436",
-      "site_name": "Ingoy",
-      "access_visibility": "site_page_only",
-      "site_page_url": "https://browser.sead.se/site/5436",
-      "reference_link_count": 0,
-      "redistribution_posture": "reference_upstream_pages_and_publish_repository_derived_context_only",
-      "reader_action": "Inspect the SEAD site page when captured chronology or bibliography does not answer the research question.",
-      "access_limits": [
-        "The repository mirrors the scoped site inventory, linked chronology and bibliography relations, and derived context layers, not the full upstream relational SEAD database.",
-        "Captured bibliography for this row exposes no directly followable DOI or URL, so readers may need to inspect the SEAD site page directly.",
-        "No linked upstream chronology is captured for this site, so it remains spatial context rather than a dated map observation."
-      ]
-    },
-    {
-      "site_id": "3668",
-      "site_name": "Ire",
-      "access_visibility": "site_page_only",
-      "site_page_url": "https://browser.sead.se/site/3668",
-      "reference_link_count": 0,
-      "redistribution_posture": "reference_upstream_pages_and_publish_repository_derived_context_only",
-      "reader_action": "Inspect the SEAD site page when captured chronology or bibliography does not answer the research question.",
-      "access_limits": [
-        "The repository mirrors the scoped site inventory, linked chronology and bibliography relations, and derived context layers, not the full upstream relational SEAD database.",
-        "Captured bibliography for this row exposes no directly followable DOI or URL, so readers may need to inspect the SEAD site page directly."
       ]
     },
     {
@@ -11682,19 +11181,6 @@
       "site_name": "Juomajärvi 1",
       "access_visibility": "site_page_only",
       "site_page_url": "https://browser.sead.se/site/4852",
-      "reference_link_count": 0,
-      "redistribution_posture": "reference_upstream_pages_and_publish_repository_derived_context_only",
-      "reader_action": "Inspect the SEAD site page when captured chronology or bibliography does not answer the research question.",
-      "access_limits": [
-        "The repository mirrors the scoped site inventory, linked chronology and bibliography relations, and derived context layers, not the full upstream relational SEAD database.",
-        "Captured bibliography for this row exposes no directly followable DOI or URL, so readers may need to inspect the SEAD site page directly."
-      ]
-    },
-    {
-      "site_id": "3666",
-      "site_name": "Juszkowo, pow. Pruszcz",
-      "access_visibility": "site_page_only",
-      "site_page_url": "https://browser.sead.se/site/3666",
       "reference_link_count": 0,
       "redistribution_posture": "reference_upstream_pages_and_publish_repository_derived_context_only",
       "reader_action": "Inspect the SEAD site page when captured chronology or bibliography does not answer the research question.",
@@ -12138,19 +11624,6 @@
       ]
     },
     {
-      "site_id": "5614",
-      "site_name": "Kalverev",
-      "access_visibility": "site_page_only",
-      "site_page_url": "https://browser.sead.se/site/5614",
-      "reference_link_count": 0,
-      "redistribution_posture": "reference_upstream_pages_and_publish_repository_derived_context_only",
-      "reader_action": "Inspect the SEAD site page when captured chronology or bibliography does not answer the research question.",
-      "access_limits": [
-        "The repository mirrors the scoped site inventory, linked chronology and bibliography relations, and derived context layers, not the full upstream relational SEAD database.",
-        "Captured bibliography for this row exposes no directly followable DOI or URL, so readers may need to inspect the SEAD site page directly."
-      ]
-    },
-    {
       "site_id": "6441",
       "site_name": "Kanaljorden, Söderköping",
       "access_visibility": "site_page_only",
@@ -12342,19 +11815,6 @@
       ]
     },
     {
-      "site_id": "3654",
-      "site_name": "Karlskrona",
-      "access_visibility": "site_page_only",
-      "site_page_url": "https://browser.sead.se/site/3654",
-      "reference_link_count": 0,
-      "redistribution_posture": "reference_upstream_pages_and_publish_repository_derived_context_only",
-      "reader_action": "Inspect the SEAD site page when captured chronology or bibliography does not answer the research question.",
-      "access_limits": [
-        "The repository mirrors the scoped site inventory, linked chronology and bibliography relations, and derived context layers, not the full upstream relational SEAD database.",
-        "Captured bibliography for this row exposes no directly followable DOI or URL, so readers may need to inspect the SEAD site page directly."
-      ]
-    },
-    {
       "site_id": "5921",
       "site_name": "Karlsson i Börön",
       "access_visibility": "site_page_only",
@@ -12424,19 +11884,6 @@
       ]
     },
     {
-      "site_id": "3652",
-      "site_name": "Kastelholm",
-      "access_visibility": "site_page_only",
-      "site_page_url": "https://browser.sead.se/site/3652",
-      "reference_link_count": 0,
-      "redistribution_posture": "reference_upstream_pages_and_publish_repository_derived_context_only",
-      "reader_action": "Inspect the SEAD site page when captured chronology or bibliography does not answer the research question.",
-      "access_limits": [
-        "The repository mirrors the scoped site inventory, linked chronology and bibliography relations, and derived context layers, not the full upstream relational SEAD database.",
-        "Captured bibliography for this row exposes no directly followable DOI or URL, so readers may need to inspect the SEAD site page directly."
-      ]
-    },
-    {
       "site_id": "3651",
       "site_name": "Katarina",
       "access_visibility": "site_page_only",
@@ -12473,20 +11920,6 @@
       "access_limits": [
         "The repository mirrors the scoped site inventory, linked chronology and bibliography relations, and derived context layers, not the full upstream relational SEAD database.",
         "Captured bibliography for this row exposes no directly followable DOI or URL, so readers may need to inspect the SEAD site page directly."
-      ]
-    },
-    {
-      "site_id": "127",
-      "site_name": "Kaupang i Skiringssal",
-      "access_visibility": "site_page_only",
-      "site_page_url": "https://browser.sead.se/site/127",
-      "reference_link_count": 0,
-      "redistribution_posture": "reference_upstream_pages_and_publish_repository_derived_context_only",
-      "reader_action": "Inspect the SEAD site page when captured chronology or bibliography does not answer the research question.",
-      "access_limits": [
-        "The repository mirrors the scoped site inventory, linked chronology and bibliography relations, and derived context layers, not the full upstream relational SEAD database.",
-        "Captured bibliography for this row exposes no directly followable DOI or URL, so readers may need to inspect the SEAD site page directly.",
-        "No linked upstream chronology is captured for this site, so it remains spatial context rather than a dated map observation."
       ]
     },
     {
@@ -12705,20 +12138,6 @@
       ]
     },
     {
-      "site_id": "5932",
-      "site_name": "Klintahuset",
-      "access_visibility": "site_page_only",
-      "site_page_url": "https://browser.sead.se/site/5932",
-      "reference_link_count": 0,
-      "redistribution_posture": "reference_upstream_pages_and_publish_repository_derived_context_only",
-      "reader_action": "Inspect the SEAD site page when captured chronology or bibliography does not answer the research question.",
-      "access_limits": [
-        "The repository mirrors the scoped site inventory, linked chronology and bibliography relations, and derived context layers, not the full upstream relational SEAD database.",
-        "Captured bibliography for this row exposes no directly followable DOI or URL, so readers may need to inspect the SEAD site page directly.",
-        "No linked upstream chronology is captured for this site, so it remains spatial context rather than a dated map observation."
-      ]
-    },
-    {
       "site_id": "5479",
       "site_name": "Klintholm",
       "access_visibility": "site_page_only",
@@ -12869,19 +12288,6 @@
       ]
     },
     {
-      "site_id": "4479",
-      "site_name": "Kobbelgård",
-      "access_visibility": "site_page_only",
-      "site_page_url": "https://browser.sead.se/site/4479",
-      "reference_link_count": 0,
-      "redistribution_posture": "reference_upstream_pages_and_publish_repository_derived_context_only",
-      "reader_action": "Inspect the SEAD site page when captured chronology or bibliography does not answer the research question.",
-      "access_limits": [
-        "The repository mirrors the scoped site inventory, linked chronology and bibliography relations, and derived context layers, not the full upstream relational SEAD database.",
-        "Captured bibliography for this row exposes no directly followable DOI or URL, so readers may need to inspect the SEAD site page directly."
-      ]
-    },
-    {
       "site_id": "4916",
       "site_name": "Koivula et al",
       "access_visibility": "site_page_only",
@@ -13018,19 +12424,6 @@
       ]
     },
     {
-      "site_id": "5277",
-      "site_name": "Kreigers Flak",
-      "access_visibility": "site_page_only",
-      "site_page_url": "https://browser.sead.se/site/5277",
-      "reference_link_count": 0,
-      "redistribution_posture": "reference_upstream_pages_and_publish_repository_derived_context_only",
-      "reader_action": "Inspect the SEAD site page when captured chronology or bibliography does not answer the research question.",
-      "access_limits": [
-        "The repository mirrors the scoped site inventory, linked chronology and bibliography relations, and derived context layers, not the full upstream relational SEAD database.",
-        "Captured bibliography for this row exposes no directly followable DOI or URL, so readers may need to inspect the SEAD site page directly."
-      ]
-    },
-    {
       "site_id": "3642",
       "site_name": "Kriminalvårdsanstalten",
       "access_visibility": "site_page_only",
@@ -13041,20 +12434,6 @@
       "access_limits": [
         "The repository mirrors the scoped site inventory, linked chronology and bibliography relations, and derived context layers, not the full upstream relational SEAD database.",
         "Captured bibliography for this row exposes no directly followable DOI or URL, so readers may need to inspect the SEAD site page directly."
-      ]
-    },
-    {
-      "site_id": "6302",
-      "site_name": "Kringelvägen",
-      "access_visibility": "site_page_only",
-      "site_page_url": "https://browser.sead.se/site/6302",
-      "reference_link_count": 0,
-      "redistribution_posture": "reference_upstream_pages_and_publish_repository_derived_context_only",
-      "reader_action": "Inspect the SEAD site page when captured chronology or bibliography does not answer the research question.",
-      "access_limits": [
-        "The repository mirrors the scoped site inventory, linked chronology and bibliography relations, and derived context layers, not the full upstream relational SEAD database.",
-        "Captured bibliography for this row exposes no directly followable DOI or URL, so readers may need to inspect the SEAD site page directly.",
-        "No linked upstream chronology is captured for this site, so it remains spatial context rather than a dated map observation."
       ]
     },
     {
@@ -13826,19 +13205,6 @@
       ]
     },
     {
-      "site_id": "3891",
-      "site_name": "Kvarteret Båtsmannen",
-      "access_visibility": "site_page_only",
-      "site_page_url": "https://browser.sead.se/site/3891",
-      "reference_link_count": 0,
-      "redistribution_posture": "reference_upstream_pages_and_publish_repository_derived_context_only",
-      "reader_action": "Inspect the SEAD site page when captured chronology or bibliography does not answer the research question.",
-      "access_limits": [
-        "The repository mirrors the scoped site inventory, linked chronology and bibliography relations, and derived context layers, not the full upstream relational SEAD database.",
-        "Captured bibliography for this row exposes no directly followable DOI or URL, so readers may need to inspect the SEAD site page directly."
-      ]
-    },
-    {
       "site_id": "3890",
       "site_name": "Kvarteret Ciselören",
       "access_visibility": "site_page_only",
@@ -14041,32 +13407,6 @@
       "site_name": "Kvarteret Repslagaren",
       "access_visibility": "site_page_only",
       "site_page_url": "https://browser.sead.se/site/3878",
-      "reference_link_count": 0,
-      "redistribution_posture": "reference_upstream_pages_and_publish_repository_derived_context_only",
-      "reader_action": "Inspect the SEAD site page when captured chronology or bibliography does not answer the research question.",
-      "access_limits": [
-        "The repository mirrors the scoped site inventory, linked chronology and bibliography relations, and derived context layers, not the full upstream relational SEAD database.",
-        "Captured bibliography for this row exposes no directly followable DOI or URL, so readers may need to inspect the SEAD site page directly."
-      ]
-    },
-    {
-      "site_id": "3877",
-      "site_name": "Kvarteret Rådhuset",
-      "access_visibility": "site_page_only",
-      "site_page_url": "https://browser.sead.se/site/3877",
-      "reference_link_count": 0,
-      "redistribution_posture": "reference_upstream_pages_and_publish_repository_derived_context_only",
-      "reader_action": "Inspect the SEAD site page when captured chronology or bibliography does not answer the research question.",
-      "access_limits": [
-        "The repository mirrors the scoped site inventory, linked chronology and bibliography relations, and derived context layers, not the full upstream relational SEAD database.",
-        "Captured bibliography for this row exposes no directly followable DOI or URL, so readers may need to inspect the SEAD site page directly."
-      ]
-    },
-    {
-      "site_id": "3876",
-      "site_name": "Kvarteret Skonaren",
-      "access_visibility": "site_page_only",
-      "site_page_url": "https://browser.sead.se/site/3876",
       "reference_link_count": 0,
       "redistribution_posture": "reference_upstream_pages_and_publish_repository_derived_context_only",
       "reader_action": "Inspect the SEAD site page when captured chronology or bibliography does not answer the research question.",
@@ -14400,19 +13740,6 @@
       ]
     },
     {
-      "site_id": "4086",
-      "site_name": "Källa gamla kyrka",
-      "access_visibility": "site_page_only",
-      "site_page_url": "https://browser.sead.se/site/4086",
-      "reference_link_count": 0,
-      "redistribution_posture": "reference_upstream_pages_and_publish_repository_derived_context_only",
-      "reader_action": "Inspect the SEAD site page when captured chronology or bibliography does not answer the research question.",
-      "access_limits": [
-        "The repository mirrors the scoped site inventory, linked chronology and bibliography relations, and derived context layers, not the full upstream relational SEAD database.",
-        "Captured bibliography for this row exposes no directly followable DOI or URL, so readers may need to inspect the SEAD site page directly."
-      ]
-    },
-    {
       "site_id": "3607",
       "site_name": "Källingemöre",
       "access_visibility": "site_page_only",
@@ -14437,19 +13764,6 @@
         "The repository mirrors the scoped site inventory, linked chronology and bibliography relations, and derived context layers, not the full upstream relational SEAD database.",
         "Captured bibliography for this row exposes no directly followable DOI or URL, so readers may need to inspect the SEAD site page directly.",
         "No linked upstream chronology is captured for this site, so it remains spatial context rather than a dated map observation."
-      ]
-    },
-    {
-      "site_id": "4084",
-      "site_name": "Kärnan",
-      "access_visibility": "site_page_only",
-      "site_page_url": "https://browser.sead.se/site/4084",
-      "reference_link_count": 0,
-      "redistribution_posture": "reference_upstream_pages_and_publish_repository_derived_context_only",
-      "reader_action": "Inspect the SEAD site page when captured chronology or bibliography does not answer the research question.",
-      "access_limits": [
-        "The repository mirrors the scoped site inventory, linked chronology and bibliography relations, and derived context layers, not the full upstream relational SEAD database.",
-        "Captured bibliography for this row exposes no directly followable DOI or URL, so readers may need to inspect the SEAD site page directly."
       ]
     },
     {
@@ -14714,20 +14028,6 @@
       ]
     },
     {
-      "site_id": "6384",
-      "site_name": "Landskrona 12:1",
-      "access_visibility": "site_page_only",
-      "site_page_url": "https://browser.sead.se/site/6384",
-      "reference_link_count": 0,
-      "redistribution_posture": "reference_upstream_pages_and_publish_repository_derived_context_only",
-      "reader_action": "Inspect the SEAD site page when captured chronology or bibliography does not answer the research question.",
-      "access_limits": [
-        "The repository mirrors the scoped site inventory, linked chronology and bibliography relations, and derived context layers, not the full upstream relational SEAD database.",
-        "Captured bibliography for this row exposes no directly followable DOI or URL, so readers may need to inspect the SEAD site page directly.",
-        "No linked upstream chronology is captured for this site, so it remains spatial context rather than a dated map observation."
-      ]
-    },
-    {
       "site_id": "4082",
       "site_name": "Landsnora kvarn",
       "access_visibility": "site_page_only",
@@ -14753,19 +14053,6 @@
         "The repository mirrors the scoped site inventory, linked chronology and bibliography relations, and derived context layers, not the full upstream relational SEAD database.",
         "Captured bibliography for this row exposes no directly followable DOI or URL, so readers may need to inspect the SEAD site page directly.",
         "No linked upstream chronology is captured for this site, so it remains spatial context rather than a dated map observation."
-      ]
-    },
-    {
-      "site_id": "4487",
-      "site_name": "Langanes1",
-      "access_visibility": "site_page_only",
-      "site_page_url": "https://browser.sead.se/site/4487",
-      "reference_link_count": 0,
-      "redistribution_posture": "reference_upstream_pages_and_publish_repository_derived_context_only",
-      "reader_action": "Inspect the SEAD site page when captured chronology or bibliography does not answer the research question.",
-      "access_limits": [
-        "The repository mirrors the scoped site inventory, linked chronology and bibliography relations, and derived context layers, not the full upstream relational SEAD database.",
-        "Captured bibliography for this row exposes no directly followable DOI or URL, so readers may need to inspect the SEAD site page directly."
       ]
     },
     {
@@ -15245,19 +14532,6 @@
       ]
     },
     {
-      "site_id": "4079",
-      "site_name": "Lilla Lögla",
-      "access_visibility": "site_page_only",
-      "site_page_url": "https://browser.sead.se/site/4079",
-      "reference_link_count": 0,
-      "redistribution_posture": "reference_upstream_pages_and_publish_repository_derived_context_only",
-      "reader_action": "Inspect the SEAD site page when captured chronology or bibliography does not answer the research question.",
-      "access_limits": [
-        "The repository mirrors the scoped site inventory, linked chronology and bibliography relations, and derived context layers, not the full upstream relational SEAD database.",
-        "Captured bibliography for this row exposes no directly followable DOI or URL, so readers may need to inspect the SEAD site page directly."
-      ]
-    },
-    {
       "site_id": "5666",
       "site_name": "Lilla Pålsjö",
       "access_visibility": "site_page_only",
@@ -15276,19 +14550,6 @@
       "site_name": "Lilla Rotsunda",
       "access_visibility": "site_page_only",
       "site_page_url": "https://browser.sead.se/site/4078",
-      "reference_link_count": 0,
-      "redistribution_posture": "reference_upstream_pages_and_publish_repository_derived_context_only",
-      "reader_action": "Inspect the SEAD site page when captured chronology or bibliography does not answer the research question.",
-      "access_limits": [
-        "The repository mirrors the scoped site inventory, linked chronology and bibliography relations, and derived context layers, not the full upstream relational SEAD database.",
-        "Captured bibliography for this row exposes no directly followable DOI or URL, so readers may need to inspect the SEAD site page directly."
-      ]
-    },
-    {
-      "site_id": "4077",
-      "site_name": "Lilla Rätö gård",
-      "access_visibility": "site_page_only",
-      "site_page_url": "https://browser.sead.se/site/4077",
       "reference_link_count": 0,
       "redistribution_posture": "reference_upstream_pages_and_publish_repository_derived_context_only",
       "reader_action": "Inspect the SEAD site page when captured chronology or bibliography does not answer the research question.",
@@ -16027,19 +15288,6 @@
       ]
     },
     {
-      "site_id": "3575",
-      "site_name": "Lundåkra",
-      "access_visibility": "site_page_only",
-      "site_page_url": "https://browser.sead.se/site/3575",
-      "reference_link_count": 0,
-      "redistribution_posture": "reference_upstream_pages_and_publish_repository_derived_context_only",
-      "reader_action": "Inspect the SEAD site page when captured chronology or bibliography does not answer the research question.",
-      "access_limits": [
-        "The repository mirrors the scoped site inventory, linked chronology and bibliography relations, and derived context layers, not the full upstream relational SEAD database.",
-        "Captured bibliography for this row exposes no directly followable DOI or URL, so readers may need to inspect the SEAD site page directly."
-      ]
-    },
-    {
       "site_id": "5993",
       "site_name": "Lunnahöje",
       "access_visibility": "site_page_only",
@@ -16361,19 +15609,6 @@
       ]
     },
     {
-      "site_id": "3868",
-      "site_name": "Lögla",
-      "access_visibility": "site_page_only",
-      "site_page_url": "https://browser.sead.se/site/3868",
-      "reference_link_count": 0,
-      "redistribution_posture": "reference_upstream_pages_and_publish_repository_derived_context_only",
-      "reader_action": "Inspect the SEAD site page when captured chronology or bibliography does not answer the research question.",
-      "access_limits": [
-        "The repository mirrors the scoped site inventory, linked chronology and bibliography relations, and derived context layers, not the full upstream relational SEAD database.",
-        "Captured bibliography for this row exposes no directly followable DOI or URL, so readers may need to inspect the SEAD site page directly."
-      ]
-    },
-    {
       "site_id": "5986",
       "site_name": "Lökes i Skästra",
       "access_visibility": "site_page_only",
@@ -16392,20 +15627,6 @@
       "site_name": "Lönneberga kyrka",
       "access_visibility": "site_page_only",
       "site_page_url": "https://browser.sead.se/site/5987",
-      "reference_link_count": 0,
-      "redistribution_posture": "reference_upstream_pages_and_publish_repository_derived_context_only",
-      "reader_action": "Inspect the SEAD site page when captured chronology or bibliography does not answer the research question.",
-      "access_limits": [
-        "The repository mirrors the scoped site inventory, linked chronology and bibliography relations, and derived context layers, not the full upstream relational SEAD database.",
-        "Captured bibliography for this row exposes no directly followable DOI or URL, so readers may need to inspect the SEAD site page directly.",
-        "No linked upstream chronology is captured for this site, so it remains spatial context rather than a dated map observation."
-      ]
-    },
-    {
-      "site_id": "5988",
-      "site_name": "Lörans kapell",
-      "access_visibility": "site_page_only",
-      "site_page_url": "https://browser.sead.se/site/5988",
       "reference_link_count": 0,
       "redistribution_posture": "reference_upstream_pages_and_publish_repository_derived_context_only",
       "reader_action": "Inspect the SEAD site page when captured chronology or bibliography does not answer the research question.",
@@ -16443,20 +15664,6 @@
       ]
     },
     {
-      "site_id": "4885",
-      "site_name": "Lövdalen",
-      "access_visibility": "site_page_only",
-      "site_page_url": "https://browser.sead.se/site/4885",
-      "reference_link_count": 0,
-      "redistribution_posture": "reference_upstream_pages_and_publish_repository_derived_context_only",
-      "reader_action": "Inspect the SEAD site page when captured chronology or bibliography does not answer the research question.",
-      "access_limits": [
-        "The repository mirrors the scoped site inventory, linked chronology and bibliography relations, and derived context layers, not the full upstream relational SEAD database.",
-        "Captured bibliography for this row exposes no directly followable DOI or URL, so readers may need to inspect the SEAD site page directly.",
-        "No linked upstream chronology is captured for this site, so it remains spatial context rather than a dated map observation."
-      ]
-    },
-    {
       "site_id": "361",
       "site_name": "Lövleforsen",
       "access_visibility": "site_page_only",
@@ -16484,19 +15691,6 @@
       ]
     },
     {
-      "site_id": "3867",
-      "site_name": "Lövö",
-      "access_visibility": "site_page_only",
-      "site_page_url": "https://browser.sead.se/site/3867",
-      "reference_link_count": 0,
-      "redistribution_posture": "reference_upstream_pages_and_publish_repository_derived_context_only",
-      "reader_action": "Inspect the SEAD site page when captured chronology or bibliography does not answer the research question.",
-      "access_limits": [
-        "The repository mirrors the scoped site inventory, linked chronology and bibliography relations, and derived context layers, not the full upstream relational SEAD database.",
-        "Captured bibliography for this row exposes no directly followable DOI or URL, so readers may need to inspect the SEAD site page directly."
-      ]
-    },
-    {
       "site_id": "5306",
       "site_name": "Løgtved",
       "access_visibility": "site_page_only",
@@ -16514,32 +15708,6 @@
       "site_name": "Løkkebjerggård",
       "access_visibility": "site_page_only",
       "site_page_url": "https://browser.sead.se/site/3565",
-      "reference_link_count": 0,
-      "redistribution_posture": "reference_upstream_pages_and_publish_repository_derived_context_only",
-      "reader_action": "Inspect the SEAD site page when captured chronology or bibliography does not answer the research question.",
-      "access_limits": [
-        "The repository mirrors the scoped site inventory, linked chronology and bibliography relations, and derived context layers, not the full upstream relational SEAD database.",
-        "Captured bibliography for this row exposes no directly followable DOI or URL, so readers may need to inspect the SEAD site page directly."
-      ]
-    },
-    {
-      "site_id": "5310",
-      "site_name": "Lønstrup",
-      "access_visibility": "site_page_only",
-      "site_page_url": "https://browser.sead.se/site/5310",
-      "reference_link_count": 0,
-      "redistribution_posture": "reference_upstream_pages_and_publish_repository_derived_context_only",
-      "reader_action": "Inspect the SEAD site page when captured chronology or bibliography does not answer the research question.",
-      "access_limits": [
-        "The repository mirrors the scoped site inventory, linked chronology and bibliography relations, and derived context layers, not the full upstream relational SEAD database.",
-        "Captured bibliography for this row exposes no directly followable DOI or URL, so readers may need to inspect the SEAD site page directly."
-      ]
-    },
-    {
-      "site_id": "5309",
-      "site_name": "Maarup",
-      "access_visibility": "site_page_only",
-      "site_page_url": "https://browser.sead.se/site/5309",
       "reference_link_count": 0,
       "redistribution_posture": "reference_upstream_pages_and_publish_repository_derived_context_only",
       "reader_action": "Inspect the SEAD site page when captured chronology or bibliography does not answer the research question.",
@@ -16792,34 +15960,6 @@
       ]
     },
     {
-      "site_id": "358",
-      "site_name": "Marskärskobben",
-      "access_visibility": "site_page_only",
-      "site_page_url": "https://browser.sead.se/site/358",
-      "reference_link_count": 0,
-      "redistribution_posture": "reference_upstream_pages_and_publish_repository_derived_context_only",
-      "reader_action": "Inspect the SEAD site page when captured chronology or bibliography does not answer the research question.",
-      "access_limits": [
-        "The repository mirrors the scoped site inventory, linked chronology and bibliography relations, and derived context layers, not the full upstream relational SEAD database.",
-        "Captured bibliography for this row exposes no directly followable DOI or URL, so readers may need to inspect the SEAD site page directly.",
-        "No linked upstream chronology is captured for this site, so it remains spatial context rather than a dated map observation."
-      ]
-    },
-    {
-      "site_id": "6311",
-      "site_name": "Marstrand",
-      "access_visibility": "site_page_only",
-      "site_page_url": "https://browser.sead.se/site/6311",
-      "reference_link_count": 0,
-      "redistribution_posture": "reference_upstream_pages_and_publish_repository_derived_context_only",
-      "reader_action": "Inspect the SEAD site page when captured chronology or bibliography does not answer the research question.",
-      "access_limits": [
-        "The repository mirrors the scoped site inventory, linked chronology and bibliography relations, and derived context layers, not the full upstream relational SEAD database.",
-        "Captured bibliography for this row exposes no directly followable DOI or URL, so readers may need to inspect the SEAD site page directly.",
-        "No linked upstream chronology is captured for this site, so it remains spatial context rather than a dated map observation."
-      ]
-    },
-    {
       "site_id": "6448",
       "site_name": "Martebomyr",
       "access_visibility": "site_page_only",
@@ -16845,19 +15985,6 @@
         "The repository mirrors the scoped site inventory, linked chronology and bibliography relations, and derived context layers, not the full upstream relational SEAD database.",
         "Captured bibliography for this row exposes no directly followable DOI or URL, so readers may need to inspect the SEAD site page directly.",
         "No linked upstream chronology is captured for this site, so it remains spatial context rather than a dated map observation."
-      ]
-    },
-    {
-      "site_id": "5098",
-      "site_name": "Martørv-Bakker",
-      "access_visibility": "site_page_only",
-      "site_page_url": "https://browser.sead.se/site/5098",
-      "reference_link_count": 0,
-      "redistribution_posture": "reference_upstream_pages_and_publish_repository_derived_context_only",
-      "reader_action": "Inspect the SEAD site page when captured chronology or bibliography does not answer the research question.",
-      "access_limits": [
-        "The repository mirrors the scoped site inventory, linked chronology and bibliography relations, and derived context layers, not the full upstream relational SEAD database.",
-        "Captured bibliography for this row exposes no directly followable DOI or URL, so readers may need to inspect the SEAD site page directly."
       ]
     },
     {
@@ -17051,19 +16178,6 @@
       ]
     },
     {
-      "site_id": "4888",
-      "site_name": "Metsäpirtti",
-      "access_visibility": "site_page_only",
-      "site_page_url": "https://browser.sead.se/site/4888",
-      "reference_link_count": 0,
-      "redistribution_posture": "reference_upstream_pages_and_publish_repository_derived_context_only",
-      "reader_action": "Inspect the SEAD site page when captured chronology or bibliography does not answer the research question.",
-      "access_limits": [
-        "The repository mirrors the scoped site inventory, linked chronology and bibliography relations, and derived context layers, not the full upstream relational SEAD database.",
-        "Captured bibliography for this row exposes no directly followable DOI or URL, so readers may need to inspect the SEAD site page directly."
-      ]
-    },
-    {
       "site_id": "4531",
       "site_name": "Mickelsmossen",
       "access_visibility": "site_page_only",
@@ -17134,20 +16248,6 @@
       "site_name": "Mjäldrunga kyrka",
       "access_visibility": "site_page_only",
       "site_page_url": "https://browser.sead.se/site/6011",
-      "reference_link_count": 0,
-      "redistribution_posture": "reference_upstream_pages_and_publish_repository_derived_context_only",
-      "reader_action": "Inspect the SEAD site page when captured chronology or bibliography does not answer the research question.",
-      "access_limits": [
-        "The repository mirrors the scoped site inventory, linked chronology and bibliography relations, and derived context layers, not the full upstream relational SEAD database.",
-        "Captured bibliography for this row exposes no directly followable DOI or URL, so readers may need to inspect the SEAD site page directly.",
-        "No linked upstream chronology is captured for this site, so it remains spatial context rather than a dated map observation."
-      ]
-    },
-    {
-      "site_id": "349",
-      "site_name": "Mjölingsören",
-      "access_visibility": "site_page_only",
-      "site_page_url": "https://browser.sead.se/site/349",
       "reference_link_count": 0,
       "redistribution_posture": "reference_upstream_pages_and_publish_repository_derived_context_only",
       "reader_action": "Inspect the SEAD site page when captured chronology or bibliography does not answer the research question.",
@@ -17244,19 +16344,6 @@
       "site_name": "Mortorps kyrka",
       "access_visibility": "site_page_only",
       "site_page_url": "https://browser.sead.se/site/4060",
-      "reference_link_count": 0,
-      "redistribution_posture": "reference_upstream_pages_and_publish_repository_derived_context_only",
-      "reader_action": "Inspect the SEAD site page when captured chronology or bibliography does not answer the research question.",
-      "access_limits": [
-        "The repository mirrors the scoped site inventory, linked chronology and bibliography relations, and derived context layers, not the full upstream relational SEAD database.",
-        "Captured bibliography for this row exposes no directly followable DOI or URL, so readers may need to inspect the SEAD site page directly."
-      ]
-    },
-    {
-      "site_id": "5294",
-      "site_name": "Mossby",
-      "access_visibility": "site_page_only",
-      "site_page_url": "https://browser.sead.se/site/5294",
       "reference_link_count": 0,
       "redistribution_posture": "reference_upstream_pages_and_publish_repository_derived_context_only",
       "reader_action": "Inspect the SEAD site page when captured chronology or bibliography does not answer the research question.",
@@ -17459,19 +16546,6 @@
       ]
     },
     {
-      "site_id": "4057",
-      "site_name": "Möllebacken",
-      "access_visibility": "site_page_only",
-      "site_page_url": "https://browser.sead.se/site/4057",
-      "reference_link_count": 0,
-      "redistribution_posture": "reference_upstream_pages_and_publish_repository_derived_context_only",
-      "reader_action": "Inspect the SEAD site page when captured chronology or bibliography does not answer the research question.",
-      "access_limits": [
-        "The repository mirrors the scoped site inventory, linked chronology and bibliography relations, and derived context layers, not the full upstream relational SEAD database.",
-        "Captured bibliography for this row exposes no directly followable DOI or URL, so readers may need to inspect the SEAD site page directly."
-      ]
-    },
-    {
       "site_id": "6014",
       "site_name": "Mölleberga kyrka",
       "access_visibility": "site_page_only",
@@ -17551,20 +16625,6 @@
       "access_limits": [
         "The repository mirrors the scoped site inventory, linked chronology and bibliography relations, and derived context layers, not the full upstream relational SEAD database.",
         "Captured bibliography for this row exposes no directly followable DOI or URL, so readers may need to inspect the SEAD site page directly."
-      ]
-    },
-    {
-      "site_id": "6017",
-      "site_name": "Mörtviksvägen",
-      "access_visibility": "site_page_only",
-      "site_page_url": "https://browser.sead.se/site/6017",
-      "reference_link_count": 0,
-      "redistribution_posture": "reference_upstream_pages_and_publish_repository_derived_context_only",
-      "reader_action": "Inspect the SEAD site page when captured chronology or bibliography does not answer the research question.",
-      "access_limits": [
-        "The repository mirrors the scoped site inventory, linked chronology and bibliography relations, and derived context layers, not the full upstream relational SEAD database.",
-        "Captured bibliography for this row exposes no directly followable DOI or URL, so readers may need to inspect the SEAD site page directly.",
-        "No linked upstream chronology is captured for this site, so it remains spatial context rather than a dated map observation."
       ]
     },
     {
@@ -17716,19 +16776,6 @@
       ]
     },
     {
-      "site_id": "3545",
-      "site_name": "Neukirchen-Bostholm",
-      "access_visibility": "site_page_only",
-      "site_page_url": "https://browser.sead.se/site/3545",
-      "reference_link_count": 0,
-      "redistribution_posture": "reference_upstream_pages_and_publish_repository_derived_context_only",
-      "reader_action": "Inspect the SEAD site page when captured chronology or bibliography does not answer the research question.",
-      "access_limits": [
-        "The repository mirrors the scoped site inventory, linked chronology and bibliography relations, and derived context layers, not the full upstream relational SEAD database.",
-        "Captured bibliography for this row exposes no directly followable DOI or URL, so readers may need to inspect the SEAD site page directly."
-      ]
-    },
-    {
       "site_id": "3543",
       "site_name": "Nibble",
       "access_visibility": "site_page_only",
@@ -17746,20 +16793,6 @@
       "site_name": "Nicklasson i Järpen",
       "access_visibility": "site_page_only",
       "site_page_url": "https://browser.sead.se/site/6026",
-      "reference_link_count": 0,
-      "redistribution_posture": "reference_upstream_pages_and_publish_repository_derived_context_only",
-      "reader_action": "Inspect the SEAD site page when captured chronology or bibliography does not answer the research question.",
-      "access_limits": [
-        "The repository mirrors the scoped site inventory, linked chronology and bibliography relations, and derived context layers, not the full upstream relational SEAD database.",
-        "Captured bibliography for this row exposes no directly followable DOI or URL, so readers may need to inspect the SEAD site page directly.",
-        "No linked upstream chronology is captured for this site, so it remains spatial context rather than a dated map observation."
-      ]
-    },
-    {
-      "site_id": "332",
-      "site_name": "Nickösörarna",
-      "access_visibility": "site_page_only",
-      "site_page_url": "https://browser.sead.se/site/332",
       "reference_link_count": 0,
       "redistribution_posture": "reference_upstream_pages_and_publish_repository_derived_context_only",
       "reader_action": "Inspect the SEAD site page when captured chronology or bibliography does not answer the research question.",
@@ -18057,20 +17090,6 @@
       ]
     },
     {
-      "site_id": "289",
-      "site_name": "Norra Småholmen",
-      "access_visibility": "site_page_only",
-      "site_page_url": "https://browser.sead.se/site/289",
-      "reference_link_count": 0,
-      "redistribution_posture": "reference_upstream_pages_and_publish_repository_derived_context_only",
-      "reader_action": "Inspect the SEAD site page when captured chronology or bibliography does not answer the research question.",
-      "access_limits": [
-        "The repository mirrors the scoped site inventory, linked chronology and bibliography relations, and derived context layers, not the full upstream relational SEAD database.",
-        "Captured bibliography for this row exposes no directly followable DOI or URL, so readers may need to inspect the SEAD site page directly.",
-        "No linked upstream chronology is captured for this site, so it remains spatial context rather than a dated map observation."
-      ]
-    },
-    {
       "site_id": "4050",
       "site_name": "Norra Solberga gamla kyrka",
       "access_visibility": "site_page_only",
@@ -18311,19 +17330,6 @@
         "The repository mirrors the scoped site inventory, linked chronology and bibliography relations, and derived context layers, not the full upstream relational SEAD database.",
         "Captured bibliography for this row exposes no directly followable DOI or URL, so readers may need to inspect the SEAD site page directly.",
         "No linked upstream chronology is captured for this site, so it remains spatial context rather than a dated map observation."
-      ]
-    },
-    {
-      "site_id": "4562",
-      "site_name": "Novgorod: Troitsky",
-      "access_visibility": "site_page_only",
-      "site_page_url": "https://browser.sead.se/site/4562",
-      "reference_link_count": 0,
-      "redistribution_posture": "reference_upstream_pages_and_publish_repository_derived_context_only",
-      "reader_action": "Inspect the SEAD site page when captured chronology or bibliography does not answer the research question.",
-      "access_limits": [
-        "The repository mirrors the scoped site inventory, linked chronology and bibliography relations, and derived context layers, not the full upstream relational SEAD database.",
-        "Captured bibliography for this row exposes no directly followable DOI or URL, so readers may need to inspect the SEAD site page directly."
       ]
     },
     {
@@ -18780,19 +17786,6 @@
       ]
     },
     {
-      "site_id": "5524",
-      "site_name": "Oksnes",
-      "access_visibility": "site_page_only",
-      "site_page_url": "https://browser.sead.se/site/5524",
-      "reference_link_count": 0,
-      "redistribution_posture": "reference_upstream_pages_and_publish_repository_derived_context_only",
-      "reader_action": "Inspect the SEAD site page when captured chronology or bibliography does not answer the research question.",
-      "access_limits": [
-        "The repository mirrors the scoped site inventory, linked chronology and bibliography relations, and derived context layers, not the full upstream relational SEAD database.",
-        "Captured bibliography for this row exposes no directly followable DOI or URL, so readers may need to inspect the SEAD site page directly."
-      ]
-    },
-    {
       "site_id": "6045",
       "site_name": "Olaloftet från norra Mon",
       "access_visibility": "site_page_only",
@@ -19045,34 +18038,6 @@
       ]
     },
     {
-      "site_id": "4",
-      "site_name": "Onsala 327",
-      "access_visibility": "site_page_only",
-      "site_page_url": "https://browser.sead.se/site/4",
-      "reference_link_count": 0,
-      "redistribution_posture": "reference_upstream_pages_and_publish_repository_derived_context_only",
-      "reader_action": "Inspect the SEAD site page when captured chronology or bibliography does not answer the research question.",
-      "access_limits": [
-        "The repository mirrors the scoped site inventory, linked chronology and bibliography relations, and derived context layers, not the full upstream relational SEAD database.",
-        "Captured bibliography for this row exposes no directly followable DOI or URL, so readers may need to inspect the SEAD site page directly.",
-        "No linked upstream chronology is captured for this site, so it remains spatial context rather than a dated map observation."
-      ]
-    },
-    {
-      "site_id": "12",
-      "site_name": "Onsala Raä 369",
-      "access_visibility": "site_page_only",
-      "site_page_url": "https://browser.sead.se/site/12",
-      "reference_link_count": 0,
-      "redistribution_posture": "reference_upstream_pages_and_publish_repository_derived_context_only",
-      "reader_action": "Inspect the SEAD site page when captured chronology or bibliography does not answer the research question.",
-      "access_limits": [
-        "The repository mirrors the scoped site inventory, linked chronology and bibliography relations, and derived context layers, not the full upstream relational SEAD database.",
-        "Captured bibliography for this row exposes no directly followable DOI or URL, so readers may need to inspect the SEAD site page directly.",
-        "No linked upstream chronology is captured for this site, so it remains spatial context rather than a dated map observation."
-      ]
-    },
-    {
       "site_id": "5665",
       "site_name": "Onsjöstugan",
       "access_visibility": "site_page_only",
@@ -19167,19 +18132,6 @@
       ]
     },
     {
-      "site_id": "4569",
-      "site_name": "Oskarshamn wreck",
-      "access_visibility": "site_page_only",
-      "site_page_url": "https://browser.sead.se/site/4569",
-      "reference_link_count": 0,
-      "redistribution_posture": "reference_upstream_pages_and_publish_repository_derived_context_only",
-      "reader_action": "Inspect the SEAD site page when captured chronology or bibliography does not answer the research question.",
-      "access_limits": [
-        "The repository mirrors the scoped site inventory, linked chronology and bibliography relations, and derived context layers, not the full upstream relational SEAD database.",
-        "Captured bibliography for this row exposes no directly followable DOI or URL, so readers may need to inspect the SEAD site page directly."
-      ]
-    },
-    {
       "site_id": "4570",
       "site_name": "Oslo: Gamlebyen",
       "access_visibility": "site_page_only",
@@ -19206,36 +18158,10 @@
       ]
     },
     {
-      "site_id": "3529",
-      "site_name": "Ottenby",
-      "access_visibility": "site_page_only",
-      "site_page_url": "https://browser.sead.se/site/3529",
-      "reference_link_count": 0,
-      "redistribution_posture": "reference_upstream_pages_and_publish_repository_derived_context_only",
-      "reader_action": "Inspect the SEAD site page when captured chronology or bibliography does not answer the research question.",
-      "access_limits": [
-        "The repository mirrors the scoped site inventory, linked chronology and bibliography relations, and derived context layers, not the full upstream relational SEAD database.",
-        "Captured bibliography for this row exposes no directly followable DOI or URL, so readers may need to inspect the SEAD site page directly."
-      ]
-    },
-    {
       "site_id": "4041",
       "site_name": "Ottenby kungsgård",
       "access_visibility": "site_page_only",
       "site_page_url": "https://browser.sead.se/site/4041",
-      "reference_link_count": 0,
-      "redistribution_posture": "reference_upstream_pages_and_publish_repository_derived_context_only",
-      "reader_action": "Inspect the SEAD site page when captured chronology or bibliography does not answer the research question.",
-      "access_limits": [
-        "The repository mirrors the scoped site inventory, linked chronology and bibliography relations, and derived context layers, not the full upstream relational SEAD database.",
-        "Captured bibliography for this row exposes no directly followable DOI or URL, so readers may need to inspect the SEAD site page directly."
-      ]
-    },
-    {
-      "site_id": "3528",
-      "site_name": "Otterböte",
-      "access_visibility": "site_page_only",
-      "site_page_url": "https://browser.sead.se/site/3528",
       "reference_link_count": 0,
       "redistribution_posture": "reference_upstream_pages_and_publish_repository_derived_context_only",
       "reader_action": "Inspect the SEAD site page when captured chronology or bibliography does not answer the research question.",
@@ -20127,19 +19053,6 @@
       ]
     },
     {
-      "site_id": "4981",
-      "site_name": "Raunis",
-      "access_visibility": "site_page_only",
-      "site_page_url": "https://browser.sead.se/site/4981",
-      "reference_link_count": 0,
-      "redistribution_posture": "reference_upstream_pages_and_publish_repository_derived_context_only",
-      "reader_action": "Inspect the SEAD site page when captured chronology or bibliography does not answer the research question.",
-      "access_limits": [
-        "The repository mirrors the scoped site inventory, linked chronology and bibliography relations, and derived context layers, not the full upstream relational SEAD database.",
-        "Captured bibliography for this row exposes no directly followable DOI or URL, so readers may need to inspect the SEAD site page directly."
-      ]
-    },
-    {
       "site_id": "5071",
       "site_name": "Rautio: Kärkiskylä",
       "access_visibility": "site_page_only",
@@ -20287,19 +19200,6 @@
       ]
     },
     {
-      "site_id": "5448",
-      "site_name": "Riga",
-      "access_visibility": "site_page_only",
-      "site_page_url": "https://browser.sead.se/site/5448",
-      "reference_link_count": 0,
-      "redistribution_posture": "reference_upstream_pages_and_publish_repository_derived_context_only",
-      "reader_action": "Inspect the SEAD site page when captured chronology or bibliography does not answer the research question.",
-      "access_limits": [
-        "The repository mirrors the scoped site inventory, linked chronology and bibliography relations, and derived context layers, not the full upstream relational SEAD database.",
-        "Captured bibliography for this row exposes no directly followable DOI or URL, so readers may need to inspect the SEAD site page directly."
-      ]
-    },
-    {
       "site_id": "4844",
       "site_name": "Riipiharju",
       "access_visibility": "site_page_only",
@@ -20367,20 +19267,6 @@
       ]
     },
     {
-      "site_id": "6318",
-      "site_name": "Ringsö",
-      "access_visibility": "site_page_only",
-      "site_page_url": "https://browser.sead.se/site/6318",
-      "reference_link_count": 0,
-      "redistribution_posture": "reference_upstream_pages_and_publish_repository_derived_context_only",
-      "reader_action": "Inspect the SEAD site page when captured chronology or bibliography does not answer the research question.",
-      "access_limits": [
-        "The repository mirrors the scoped site inventory, linked chronology and bibliography relations, and derived context layers, not the full upstream relational SEAD database.",
-        "Captured bibliography for this row exposes no directly followable DOI or URL, so readers may need to inspect the SEAD site page directly.",
-        "No linked upstream chronology is captured for this site, so it remains spatial context rather than a dated map observation."
-      ]
-    },
-    {
       "site_id": "343",
       "site_name": "Ripkallhögen",
       "access_visibility": "site_page_only",
@@ -20427,19 +19313,6 @@
       "site_name": "Ristomta gård",
       "access_visibility": "site_page_only",
       "site_page_url": "https://browser.sead.se/site/4035",
-      "reference_link_count": 0,
-      "redistribution_posture": "reference_upstream_pages_and_publish_repository_derived_context_only",
-      "reader_action": "Inspect the SEAD site page when captured chronology or bibliography does not answer the research question.",
-      "access_limits": [
-        "The repository mirrors the scoped site inventory, linked chronology and bibliography relations, and derived context layers, not the full upstream relational SEAD database.",
-        "Captured bibliography for this row exposes no directly followable DOI or URL, so readers may need to inspect the SEAD site page directly."
-      ]
-    },
-    {
-      "site_id": "4605",
-      "site_name": "Rjurikovo Gorodisce",
-      "access_visibility": "site_page_only",
-      "site_page_url": "https://browser.sead.se/site/4605",
       "reference_link_count": 0,
       "redistribution_posture": "reference_upstream_pages_and_publish_repository_derived_context_only",
       "reader_action": "Inspect the SEAD site page when captured chronology or bibliography does not answer the research question.",
@@ -20513,32 +19386,6 @@
         "The repository mirrors the scoped site inventory, linked chronology and bibliography relations, and derived context layers, not the full upstream relational SEAD database.",
         "Captured bibliography for this row exposes no directly followable DOI or URL, so readers may need to inspect the SEAD site page directly.",
         "No linked upstream chronology is captured for this site, so it remains spatial context rather than a dated map observation."
-      ]
-    },
-    {
-      "site_id": "3504",
-      "site_name": "Rosenhof",
-      "access_visibility": "site_page_only",
-      "site_page_url": "https://browser.sead.se/site/3504",
-      "reference_link_count": 0,
-      "redistribution_posture": "reference_upstream_pages_and_publish_repository_derived_context_only",
-      "reader_action": "Inspect the SEAD site page when captured chronology or bibliography does not answer the research question.",
-      "access_limits": [
-        "The repository mirrors the scoped site inventory, linked chronology and bibliography relations, and derived context layers, not the full upstream relational SEAD database.",
-        "Captured bibliography for this row exposes no directly followable DOI or URL, so readers may need to inspect the SEAD site page directly."
-      ]
-    },
-    {
-      "site_id": "3505",
-      "site_name": "Rosenhof",
-      "access_visibility": "site_page_only",
-      "site_page_url": "https://browser.sead.se/site/3505",
-      "reference_link_count": 0,
-      "redistribution_posture": "reference_upstream_pages_and_publish_repository_derived_context_only",
-      "reader_action": "Inspect the SEAD site page when captured chronology or bibliography does not answer the research question.",
-      "access_limits": [
-        "The repository mirrors the scoped site inventory, linked chronology and bibliography relations, and derived context layers, not the full upstream relational SEAD database.",
-        "Captured bibliography for this row exposes no directly followable DOI or URL, so readers may need to inspect the SEAD site page directly."
       ]
     },
     {
@@ -20706,19 +19553,6 @@
       ]
     },
     {
-      "site_id": "4032",
-      "site_name": "Rydboholms slott",
-      "access_visibility": "site_page_only",
-      "site_page_url": "https://browser.sead.se/site/4032",
-      "reference_link_count": 0,
-      "redistribution_posture": "reference_upstream_pages_and_publish_repository_derived_context_only",
-      "reader_action": "Inspect the SEAD site page when captured chronology or bibliography does not answer the research question.",
-      "access_limits": [
-        "The repository mirrors the scoped site inventory, linked chronology and bibliography relations, and derived context layers, not the full upstream relational SEAD database.",
-        "Captured bibliography for this row exposes no directly followable DOI or URL, so readers may need to inspect the SEAD site page directly."
-      ]
-    },
-    {
       "site_id": "6119",
       "site_name": "Ryds herrgård",
       "access_visibility": "site_page_only",
@@ -20826,19 +19660,6 @@
         "The repository mirrors the scoped site inventory, linked chronology and bibliography relations, and derived context layers, not the full upstream relational SEAD database.",
         "Captured bibliography for this row exposes no directly followable DOI or URL, so readers may need to inspect the SEAD site page directly.",
         "No linked upstream chronology is captured for this site, so it remains spatial context rather than a dated map observation."
-      ]
-    },
-    {
-      "site_id": "3500",
-      "site_name": "Ryurik Gorodishche",
-      "access_visibility": "site_page_only",
-      "site_page_url": "https://browser.sead.se/site/3500",
-      "reference_link_count": 0,
-      "redistribution_posture": "reference_upstream_pages_and_publish_repository_derived_context_only",
-      "reader_action": "Inspect the SEAD site page when captured chronology or bibliography does not answer the research question.",
-      "access_limits": [
-        "The repository mirrors the scoped site inventory, linked chronology and bibliography relations, and derived context layers, not the full upstream relational SEAD database.",
-        "Captured bibliography for this row exposes no directly followable DOI or URL, so readers may need to inspect the SEAD site page directly."
       ]
     },
     {
@@ -20950,19 +19771,6 @@
       ]
     },
     {
-      "site_id": "4029",
-      "site_name": "Röhälla",
-      "access_visibility": "site_page_only",
-      "site_page_url": "https://browser.sead.se/site/4029",
-      "reference_link_count": 0,
-      "redistribution_posture": "reference_upstream_pages_and_publish_repository_derived_context_only",
-      "reader_action": "Inspect the SEAD site page when captured chronology or bibliography does not answer the research question.",
-      "access_limits": [
-        "The repository mirrors the scoped site inventory, linked chronology and bibliography relations, and derived context layers, not the full upstream relational SEAD database.",
-        "Captured bibliography for this row exposes no directly followable DOI or URL, so readers may need to inspect the SEAD site page directly."
-      ]
-    },
-    {
       "site_id": "369",
       "site_name": "Rönnby-Skultuna",
       "access_visibility": "site_page_only",
@@ -20994,19 +19802,6 @@
       "site_name": "Rössberga Megalithic",
       "access_visibility": "site_page_only",
       "site_page_url": "https://browser.sead.se/site/3493",
-      "reference_link_count": 0,
-      "redistribution_posture": "reference_upstream_pages_and_publish_repository_derived_context_only",
-      "reader_action": "Inspect the SEAD site page when captured chronology or bibliography does not answer the research question.",
-      "access_limits": [
-        "The repository mirrors the scoped site inventory, linked chronology and bibliography relations, and derived context layers, not the full upstream relational SEAD database.",
-        "Captured bibliography for this row exposes no directly followable DOI or URL, so readers may need to inspect the SEAD site page directly."
-      ]
-    },
-    {
-      "site_id": "3492",
-      "site_name": "Rössvik",
-      "access_visibility": "site_page_only",
-      "site_page_url": "https://browser.sead.se/site/3492",
       "reference_link_count": 0,
       "redistribution_posture": "reference_upstream_pages_and_publish_repository_derived_context_only",
       "reader_action": "Inspect the SEAD site page when captured chronology or bibliography does not answer the research question.",
@@ -21111,19 +19906,6 @@
       ]
     },
     {
-      "site_id": "4886",
-      "site_name": "Sakkola",
-      "access_visibility": "site_page_only",
-      "site_page_url": "https://browser.sead.se/site/4886",
-      "reference_link_count": 0,
-      "redistribution_posture": "reference_upstream_pages_and_publish_repository_derived_context_only",
-      "reader_action": "Inspect the SEAD site page when captured chronology or bibliography does not answer the research question.",
-      "access_limits": [
-        "The repository mirrors the scoped site inventory, linked chronology and bibliography relations, and derived context layers, not the full upstream relational SEAD database.",
-        "Captured bibliography for this row exposes no directly followable DOI or URL, so readers may need to inspect the SEAD site page directly."
-      ]
-    },
-    {
       "site_id": "6125",
       "site_name": "Sala sockenkyrka",
       "access_visibility": "site_page_only",
@@ -21222,32 +20004,6 @@
       "site_name": "Sandby prästgård",
       "access_visibility": "site_page_only",
       "site_page_url": "https://browser.sead.se/site/4027",
-      "reference_link_count": 0,
-      "redistribution_posture": "reference_upstream_pages_and_publish_repository_derived_context_only",
-      "reader_action": "Inspect the SEAD site page when captured chronology or bibliography does not answer the research question.",
-      "access_limits": [
-        "The repository mirrors the scoped site inventory, linked chronology and bibliography relations, and derived context layers, not the full upstream relational SEAD database.",
-        "Captured bibliography for this row exposes no directly followable DOI or URL, so readers may need to inspect the SEAD site page directly."
-      ]
-    },
-    {
-      "site_id": "3858",
-      "site_name": "Sandemar",
-      "access_visibility": "site_page_only",
-      "site_page_url": "https://browser.sead.se/site/3858",
-      "reference_link_count": 0,
-      "redistribution_posture": "reference_upstream_pages_and_publish_repository_derived_context_only",
-      "reader_action": "Inspect the SEAD site page when captured chronology or bibliography does not answer the research question.",
-      "access_limits": [
-        "The repository mirrors the scoped site inventory, linked chronology and bibliography relations, and derived context layers, not the full upstream relational SEAD database.",
-        "Captured bibliography for this row exposes no directly followable DOI or URL, so readers may need to inspect the SEAD site page directly."
-      ]
-    },
-    {
-      "site_id": "4026",
-      "site_name": "Sandemar slott",
-      "access_visibility": "site_page_only",
-      "site_page_url": "https://browser.sead.se/site/4026",
       "reference_link_count": 0,
       "redistribution_posture": "reference_upstream_pages_and_publish_repository_derived_context_only",
       "reader_action": "Inspect the SEAD site page when captured chronology or bibliography does not answer the research question.",
@@ -21365,19 +20121,6 @@
       ]
     },
     {
-      "site_id": "4022",
-      "site_name": "Sankta Maria kyrka",
-      "access_visibility": "site_page_only",
-      "site_page_url": "https://browser.sead.se/site/4022",
-      "reference_link_count": 0,
-      "redistribution_posture": "reference_upstream_pages_and_publish_repository_derived_context_only",
-      "reader_action": "Inspect the SEAD site page when captured chronology or bibliography does not answer the research question.",
-      "access_limits": [
-        "The repository mirrors the scoped site inventory, linked chronology and bibliography relations, and derived context layers, not the full upstream relational SEAD database.",
-        "Captured bibliography for this row exposes no directly followable DOI or URL, so readers may need to inspect the SEAD site page directly."
-      ]
-    },
-    {
       "site_id": "6132",
       "site_name": "Sannagård i Sillerbo",
       "access_visibility": "site_page_only",
@@ -21458,19 +20201,6 @@
       ]
     },
     {
-      "site_id": "4958",
-      "site_name": "Sejerø",
-      "access_visibility": "site_page_only",
-      "site_page_url": "https://browser.sead.se/site/4958",
-      "reference_link_count": 0,
-      "redistribution_posture": "reference_upstream_pages_and_publish_repository_derived_context_only",
-      "reader_action": "Inspect the SEAD site page when captured chronology or bibliography does not answer the research question.",
-      "access_limits": [
-        "The repository mirrors the scoped site inventory, linked chronology and bibliography relations, and derived context layers, not the full upstream relational SEAD database.",
-        "Captured bibliography for this row exposes no directly followable DOI or URL, so readers may need to inspect the SEAD site page directly."
-      ]
-    },
-    {
       "site_id": "6136",
       "site_name": "Selens fäbod",
       "access_visibility": "site_page_only",
@@ -21530,19 +20260,6 @@
       "site_name": "Sigfridsgården",
       "access_visibility": "site_page_only",
       "site_page_url": "https://browser.sead.se/site/4020",
-      "reference_link_count": 0,
-      "redistribution_posture": "reference_upstream_pages_and_publish_repository_derived_context_only",
-      "reader_action": "Inspect the SEAD site page when captured chronology or bibliography does not answer the research question.",
-      "access_limits": [
-        "The repository mirrors the scoped site inventory, linked chronology and bibliography relations, and derived context layers, not the full upstream relational SEAD database.",
-        "Captured bibliography for this row exposes no directly followable DOI or URL, so readers may need to inspect the SEAD site page directly."
-      ]
-    },
-    {
-      "site_id": "3487",
-      "site_name": "Siggeneben",
-      "access_visibility": "site_page_only",
-      "site_page_url": "https://browser.sead.se/site/3487",
       "reference_link_count": 0,
       "redistribution_posture": "reference_upstream_pages_and_publish_repository_derived_context_only",
       "reader_action": "Inspect the SEAD site page when captured chronology or bibliography does not answer the research question.",
@@ -21617,19 +20334,6 @@
         "The repository mirrors the scoped site inventory, linked chronology and bibliography relations, and derived context layers, not the full upstream relational SEAD database.",
         "Captured bibliography for this row exposes no directly followable DOI or URL, so readers may need to inspect the SEAD site page directly.",
         "No linked upstream chronology is captured for this site, so it remains spatial context rather than a dated map observation."
-      ]
-    },
-    {
-      "site_id": "3486",
-      "site_name": "Siretorp",
-      "access_visibility": "site_page_only",
-      "site_page_url": "https://browser.sead.se/site/3486",
-      "reference_link_count": 0,
-      "redistribution_posture": "reference_upstream_pages_and_publish_repository_derived_context_only",
-      "reader_action": "Inspect the SEAD site page when captured chronology or bibliography does not answer the research question.",
-      "access_limits": [
-        "The repository mirrors the scoped site inventory, linked chronology and bibliography relations, and derived context layers, not the full upstream relational SEAD database.",
-        "Captured bibliography for this row exposes no directly followable DOI or URL, so readers may need to inspect the SEAD site page directly."
       ]
     },
     {
@@ -21834,19 +20538,6 @@
       ]
     },
     {
-      "site_id": "5295",
-      "site_name": "Skateholm",
-      "access_visibility": "site_page_only",
-      "site_page_url": "https://browser.sead.se/site/5295",
-      "reference_link_count": 0,
-      "redistribution_posture": "reference_upstream_pages_and_publish_repository_derived_context_only",
-      "reader_action": "Inspect the SEAD site page when captured chronology or bibliography does not answer the research question.",
-      "access_limits": [
-        "The repository mirrors the scoped site inventory, linked chronology and bibliography relations, and derived context layers, not the full upstream relational SEAD database.",
-        "Captured bibliography for this row exposes no directly followable DOI or URL, so readers may need to inspect the SEAD site page directly."
-      ]
-    },
-    {
       "site_id": "5062",
       "site_name": "Skattmansö",
       "access_visibility": "site_page_only",
@@ -21993,20 +20684,6 @@
       "access_limits": [
         "The repository mirrors the scoped site inventory, linked chronology and bibliography relations, and derived context layers, not the full upstream relational SEAD database.",
         "Captured bibliography for this row exposes no directly followable DOI or URL, so readers may need to inspect the SEAD site page directly."
-      ]
-    },
-    {
-      "site_id": "123",
-      "site_name": "Skjærvika",
-      "access_visibility": "site_page_only",
-      "site_page_url": "https://browser.sead.se/site/123",
-      "reference_link_count": 0,
-      "redistribution_posture": "reference_upstream_pages_and_publish_repository_derived_context_only",
-      "reader_action": "Inspect the SEAD site page when captured chronology or bibliography does not answer the research question.",
-      "access_limits": [
-        "The repository mirrors the scoped site inventory, linked chronology and bibliography relations, and derived context layers, not the full upstream relational SEAD database.",
-        "Captured bibliography for this row exposes no directly followable DOI or URL, so readers may need to inspect the SEAD site page directly.",
-        "No linked upstream chronology is captured for this site, so it remains spatial context rather than a dated map observation."
       ]
     },
     {
@@ -22190,20 +20867,6 @@
       ]
     },
     {
-      "site_id": "2",
-      "site_name": "Skrea Raä 194",
-      "access_visibility": "site_page_only",
-      "site_page_url": "https://browser.sead.se/site/2",
-      "reference_link_count": 0,
-      "redistribution_posture": "reference_upstream_pages_and_publish_repository_derived_context_only",
-      "reader_action": "Inspect the SEAD site page when captured chronology or bibliography does not answer the research question.",
-      "access_limits": [
-        "The repository mirrors the scoped site inventory, linked chronology and bibliography relations, and derived context layers, not the full upstream relational SEAD database.",
-        "Captured bibliography for this row exposes no directly followable DOI or URL, so readers may need to inspect the SEAD site page directly.",
-        "No linked upstream chronology is captured for this site, so it remains spatial context rather than a dated map observation."
-      ]
-    },
-    {
       "site_id": "115",
       "site_name": "Skrea Raä 195",
       "access_visibility": "site_page_only",
@@ -22335,20 +20998,6 @@
       "access_limits": [
         "The repository mirrors the scoped site inventory, linked chronology and bibliography relations, and derived context layers, not the full upstream relational SEAD database.",
         "Captured bibliography for this row exposes no directly followable DOI or URL, so readers may need to inspect the SEAD site page directly."
-      ]
-    },
-    {
-      "site_id": "6455",
-      "site_name": "Skällvik 222:1",
-      "access_visibility": "site_page_only",
-      "site_page_url": "https://browser.sead.se/site/6455",
-      "reference_link_count": 0,
-      "redistribution_posture": "reference_upstream_pages_and_publish_repository_derived_context_only",
-      "reader_action": "Inspect the SEAD site page when captured chronology or bibliography does not answer the research question.",
-      "access_limits": [
-        "The repository mirrors the scoped site inventory, linked chronology and bibliography relations, and derived context layers, not the full upstream relational SEAD database.",
-        "Captured bibliography for this row exposes no directly followable DOI or URL, so readers may need to inspect the SEAD site page directly.",
-        "No linked upstream chronology is captured for this site, so it remains spatial context rather than a dated map observation."
       ]
     },
     {
@@ -22957,19 +21606,6 @@
       ]
     },
     {
-      "site_id": "3468",
-      "site_name": "Soldattorpet (Limhamn)",
-      "access_visibility": "site_page_only",
-      "site_page_url": "https://browser.sead.se/site/3468",
-      "reference_link_count": 0,
-      "redistribution_posture": "reference_upstream_pages_and_publish_repository_derived_context_only",
-      "reader_action": "Inspect the SEAD site page when captured chronology or bibliography does not answer the research question.",
-      "access_limits": [
-        "The repository mirrors the scoped site inventory, linked chronology and bibliography relations, and derived context layers, not the full upstream relational SEAD database.",
-        "Captured bibliography for this row exposes no directly followable DOI or URL, so readers may need to inspect the SEAD site page directly."
-      ]
-    },
-    {
       "site_id": "3467",
       "site_name": "Solheim",
       "access_visibility": "site_page_only",
@@ -23001,20 +21637,6 @@
       "site_name": "Solna kyrka ladan",
       "access_visibility": "site_page_only",
       "site_page_url": "https://browser.sead.se/site/6165",
-      "reference_link_count": 0,
-      "redistribution_posture": "reference_upstream_pages_and_publish_repository_derived_context_only",
-      "reader_action": "Inspect the SEAD site page when captured chronology or bibliography does not answer the research question.",
-      "access_limits": [
-        "The repository mirrors the scoped site inventory, linked chronology and bibliography relations, and derived context layers, not the full upstream relational SEAD database.",
-        "Captured bibliography for this row exposes no directly followable DOI or URL, so readers may need to inspect the SEAD site page directly.",
-        "No linked upstream chronology is captured for this site, so it remains spatial context rather than a dated map observation."
-      ]
-    },
-    {
-      "site_id": "6166",
-      "site_name": "Solumnshamn",
-      "access_visibility": "site_page_only",
-      "site_page_url": "https://browser.sead.se/site/6166",
       "reference_link_count": 0,
       "redistribution_posture": "reference_upstream_pages_and_publish_repository_derived_context_only",
       "reader_action": "Inspect the SEAD site page when captured chronology or bibliography does not answer the research question.",
@@ -23791,20 +22413,6 @@
       ]
     },
     {
-      "site_id": "350",
-      "site_name": "Stora Halmören",
-      "access_visibility": "site_page_only",
-      "site_page_url": "https://browser.sead.se/site/350",
-      "reference_link_count": 0,
-      "redistribution_posture": "reference_upstream_pages_and_publish_repository_derived_context_only",
-      "reader_action": "Inspect the SEAD site page when captured chronology or bibliography does not answer the research question.",
-      "access_limits": [
-        "The repository mirrors the scoped site inventory, linked chronology and bibliography relations, and derived context layers, not the full upstream relational SEAD database.",
-        "Captured bibliography for this row exposes no directly followable DOI or URL, so readers may need to inspect the SEAD site page directly.",
-        "No linked upstream chronology is captured for this site, so it remains spatial context rather than a dated map observation."
-      ]
-    },
-    {
       "site_id": "3852",
       "site_name": "Stora Harrie",
       "access_visibility": "site_page_only",
@@ -23939,20 +22547,6 @@
       ]
     },
     {
-      "site_id": "374",
-      "site_name": "Stora Träskär",
-      "access_visibility": "site_page_only",
-      "site_page_url": "https://browser.sead.se/site/374",
-      "reference_link_count": 0,
-      "redistribution_posture": "reference_upstream_pages_and_publish_repository_derived_context_only",
-      "reader_action": "Inspect the SEAD site page when captured chronology or bibliography does not answer the research question.",
-      "access_limits": [
-        "The repository mirrors the scoped site inventory, linked chronology and bibliography relations, and derived context layers, not the full upstream relational SEAD database.",
-        "Captured bibliography for this row exposes no directly followable DOI or URL, so readers may need to inspect the SEAD site page directly.",
-        "No linked upstream chronology is captured for this site, so it remains spatial context rather than a dated map observation."
-      ]
-    },
-    {
       "site_id": "5065",
       "site_name": "Stora Tuna Skärsjö",
       "access_visibility": "site_page_only",
@@ -24004,19 +22598,6 @@
         "The repository mirrors the scoped site inventory, linked chronology and bibliography relations, and derived context layers, not the full upstream relational SEAD database.",
         "Captured bibliography for this row exposes no directly followable DOI or URL, so readers may need to inspect the SEAD site page directly.",
         "No linked upstream chronology is captured for this site, so it remains spatial context rather than a dated map observation."
-      ]
-    },
-    {
-      "site_id": "5154",
-      "site_name": "Stralsund",
-      "access_visibility": "site_page_only",
-      "site_page_url": "https://browser.sead.se/site/5154",
-      "reference_link_count": 0,
-      "redistribution_posture": "reference_upstream_pages_and_publish_repository_derived_context_only",
-      "reader_action": "Inspect the SEAD site page when captured chronology or bibliography does not answer the research question.",
-      "access_limits": [
-        "The repository mirrors the scoped site inventory, linked chronology and bibliography relations, and derived context layers, not the full upstream relational SEAD database.",
-        "Captured bibliography for this row exposes no directly followable DOI or URL, so readers may need to inspect the SEAD site page directly."
       ]
     },
     {
@@ -24215,38 +22796,10 @@
       ]
     },
     {
-      "site_id": "239",
-      "site_name": "Styrsö Raä 117",
-      "access_visibility": "site_page_only",
-      "site_page_url": "https://browser.sead.se/site/239",
-      "reference_link_count": 0,
-      "redistribution_posture": "reference_upstream_pages_and_publish_repository_derived_context_only",
-      "reader_action": "Inspect the SEAD site page when captured chronology or bibliography does not answer the research question.",
-      "access_limits": [
-        "The repository mirrors the scoped site inventory, linked chronology and bibliography relations, and derived context layers, not the full upstream relational SEAD database.",
-        "Captured bibliography for this row exposes no directly followable DOI or URL, so readers may need to inspect the SEAD site page directly.",
-        "No linked upstream chronology is captured for this site, so it remains spatial context rather than a dated map observation."
-      ]
-    },
-    {
       "site_id": "6184",
       "site_name": "Stäket",
       "access_visibility": "site_page_only",
       "site_page_url": "https://browser.sead.se/site/6184",
-      "reference_link_count": 0,
-      "redistribution_posture": "reference_upstream_pages_and_publish_repository_derived_context_only",
-      "reader_action": "Inspect the SEAD site page when captured chronology or bibliography does not answer the research question.",
-      "access_limits": [
-        "The repository mirrors the scoped site inventory, linked chronology and bibliography relations, and derived context layers, not the full upstream relational SEAD database.",
-        "Captured bibliography for this row exposes no directly followable DOI or URL, so readers may need to inspect the SEAD site page directly.",
-        "No linked upstream chronology is captured for this site, so it remains spatial context rather than a dated map observation."
-      ]
-    },
-    {
-      "site_id": "6457",
-      "site_name": "Stäksundet",
-      "access_visibility": "site_page_only",
-      "site_page_url": "https://browser.sead.se/site/6457",
       "reference_link_count": 0,
       "redistribution_posture": "reference_upstream_pages_and_publish_repository_derived_context_only",
       "reader_action": "Inspect the SEAD site page when captured chronology or bibliography does not answer the research question.",
@@ -24444,20 +22997,6 @@
       "access_limits": [
         "The repository mirrors the scoped site inventory, linked chronology and bibliography relations, and derived context layers, not the full upstream relational SEAD database.",
         "Captured bibliography for this row exposes no directly followable DOI or URL, so readers may need to inspect the SEAD site page directly."
-      ]
-    },
-    {
-      "site_id": "6213",
-      "site_name": "Svanebäck",
-      "access_visibility": "site_page_only",
-      "site_page_url": "https://browser.sead.se/site/6213",
-      "reference_link_count": 0,
-      "redistribution_posture": "reference_upstream_pages_and_publish_repository_derived_context_only",
-      "reader_action": "Inspect the SEAD site page when captured chronology or bibliography does not answer the research question.",
-      "access_limits": [
-        "The repository mirrors the scoped site inventory, linked chronology and bibliography relations, and derived context layers, not the full upstream relational SEAD database.",
-        "Captured bibliography for this row exposes no directly followable DOI or URL, so readers may need to inspect the SEAD site page directly.",
-        "No linked upstream chronology is captured for this site, so it remains spatial context rather than a dated map observation."
       ]
     },
     {
@@ -24750,20 +23289,6 @@
       ]
     },
     {
-      "site_id": "135",
-      "site_name": "Sværholt",
-      "access_visibility": "site_page_only",
-      "site_page_url": "https://browser.sead.se/site/135",
-      "reference_link_count": 0,
-      "redistribution_posture": "reference_upstream_pages_and_publish_repository_derived_context_only",
-      "reader_action": "Inspect the SEAD site page when captured chronology or bibliography does not answer the research question.",
-      "access_limits": [
-        "The repository mirrors the scoped site inventory, linked chronology and bibliography relations, and derived context layers, not the full upstream relational SEAD database.",
-        "Captured bibliography for this row exposes no directly followable DOI or URL, so readers may need to inspect the SEAD site page directly.",
-        "No linked upstream chronology is captured for this site, so it remains spatial context rather than a dated map observation."
-      ]
-    },
-    {
       "site_id": "6221",
       "site_name": "Sydöstra härbret Zorns gammelgård",
       "access_visibility": "site_page_only",
@@ -24775,19 +23300,6 @@
         "The repository mirrors the scoped site inventory, linked chronology and bibliography relations, and derived context layers, not the full upstream relational SEAD database.",
         "Captured bibliography for this row exposes no directly followable DOI or URL, so readers may need to inspect the SEAD site page directly.",
         "No linked upstream chronology is captured for this site, so it remains spatial context rather than a dated map observation."
-      ]
-    },
-    {
-      "site_id": "3457",
-      "site_name": "Syllöda",
-      "access_visibility": "site_page_only",
-      "site_page_url": "https://browser.sead.se/site/3457",
-      "reference_link_count": 0,
-      "redistribution_posture": "reference_upstream_pages_and_publish_repository_derived_context_only",
-      "reader_action": "Inspect the SEAD site page when captured chronology or bibliography does not answer the research question.",
-      "access_limits": [
-        "The repository mirrors the scoped site inventory, linked chronology and bibliography relations, and derived context layers, not the full upstream relational SEAD database.",
-        "Captured bibliography for this row exposes no directly followable DOI or URL, so readers may need to inspect the SEAD site page directly."
       ]
     },
     {
@@ -24904,19 +23416,6 @@
       "site_name": "Särslövs kyrka",
       "access_visibility": "site_page_only",
       "site_page_url": "https://browser.sead.se/site/3987",
-      "reference_link_count": 0,
-      "redistribution_posture": "reference_upstream_pages_and_publish_repository_derived_context_only",
-      "reader_action": "Inspect the SEAD site page when captured chronology or bibliography does not answer the research question.",
-      "access_limits": [
-        "The repository mirrors the scoped site inventory, linked chronology and bibliography relations, and derived context layers, not the full upstream relational SEAD database.",
-        "Captured bibliography for this row exposes no directly followable DOI or URL, so readers may need to inspect the SEAD site page directly."
-      ]
-    },
-    {
-      "site_id": "3453",
-      "site_name": "Säter",
-      "access_visibility": "site_page_only",
-      "site_page_url": "https://browser.sead.se/site/3453",
       "reference_link_count": 0,
       "redistribution_posture": "reference_upstream_pages_and_publish_repository_derived_context_only",
       "reader_action": "Inspect the SEAD site page when captured chronology or bibliography does not answer the research question.",
@@ -25602,19 +24101,6 @@
       ]
     },
     {
-      "site_id": "3447",
-      "site_name": "Tjärnan",
-      "access_visibility": "site_page_only",
-      "site_page_url": "https://browser.sead.se/site/3447",
-      "reference_link_count": 0,
-      "redistribution_posture": "reference_upstream_pages_and_publish_repository_derived_context_only",
-      "reader_action": "Inspect the SEAD site page when captured chronology or bibliography does not answer the research question.",
-      "access_limits": [
-        "The repository mirrors the scoped site inventory, linked chronology and bibliography relations, and derived context layers, not the full upstream relational SEAD database.",
-        "Captured bibliography for this row exposes no directly followable DOI or URL, so readers may need to inspect the SEAD site page directly."
-      ]
-    },
-    {
       "site_id": "6231",
       "site_name": "Tobaksladan",
       "access_visibility": "site_page_only",
@@ -25957,33 +24443,6 @@
       ]
     },
     {
-      "site_id": "3979",
-      "site_name": "Torö kyrka",
-      "access_visibility": "site_page_only",
-      "site_page_url": "https://browser.sead.se/site/3979",
-      "reference_link_count": 0,
-      "redistribution_posture": "reference_upstream_pages_and_publish_repository_derived_context_only",
-      "reader_action": "Inspect the SEAD site page when captured chronology or bibliography does not answer the research question.",
-      "access_limits": [
-        "The repository mirrors the scoped site inventory, linked chronology and bibliography relations, and derived context layers, not the full upstream relational SEAD database.",
-        "Captured bibliography for this row exposes no directly followable DOI or URL, so readers may need to inspect the SEAD site page directly."
-      ]
-    },
-    {
-      "site_id": "300",
-      "site_name": "Torö Raä 75",
-      "access_visibility": "site_page_only",
-      "site_page_url": "https://browser.sead.se/site/300",
-      "reference_link_count": 0,
-      "redistribution_posture": "reference_upstream_pages_and_publish_repository_derived_context_only",
-      "reader_action": "Inspect the SEAD site page when captured chronology or bibliography does not answer the research question.",
-      "access_limits": [
-        "The repository mirrors the scoped site inventory, linked chronology and bibliography relations, and derived context layers, not the full upstream relational SEAD database.",
-        "Captured bibliography for this row exposes no directly followable DOI or URL, so readers may need to inspect the SEAD site page directly.",
-        "No linked upstream chronology is captured for this site, so it remains spatial context rather than a dated map observation."
-      ]
-    },
-    {
       "site_id": "375",
       "site_name": "Tossene 446",
       "access_visibility": "site_page_only",
@@ -26147,19 +24606,6 @@
       ]
     },
     {
-      "site_id": "3441",
-      "site_name": "Troitski",
-      "access_visibility": "site_page_only",
-      "site_page_url": "https://browser.sead.se/site/3441",
-      "reference_link_count": 0,
-      "redistribution_posture": "reference_upstream_pages_and_publish_repository_derived_context_only",
-      "reader_action": "Inspect the SEAD site page when captured chronology or bibliography does not answer the research question.",
-      "access_limits": [
-        "The repository mirrors the scoped site inventory, linked chronology and bibliography relations, and derived context layers, not the full upstream relational SEAD database.",
-        "Captured bibliography for this row exposes no directly followable DOI or URL, so readers may need to inspect the SEAD site page directly."
-      ]
-    },
-    {
       "site_id": "3440",
       "site_name": "Trollasten",
       "access_visibility": "site_page_only",
@@ -26294,20 +24740,6 @@
       "access_limits": [
         "The repository mirrors the scoped site inventory, linked chronology and bibliography relations, and derived context layers, not the full upstream relational SEAD database.",
         "Captured bibliography for this row exposes no directly followable DOI or URL, so readers may need to inspect the SEAD site page directly."
-      ]
-    },
-    {
-      "site_id": "6327",
-      "site_name": "Tuna",
-      "access_visibility": "site_page_only",
-      "site_page_url": "https://browser.sead.se/site/6327",
-      "reference_link_count": 0,
-      "redistribution_posture": "reference_upstream_pages_and_publish_repository_derived_context_only",
-      "reader_action": "Inspect the SEAD site page when captured chronology or bibliography does not answer the research question.",
-      "access_limits": [
-        "The repository mirrors the scoped site inventory, linked chronology and bibliography relations, and derived context layers, not the full upstream relational SEAD database.",
-        "Captured bibliography for this row exposes no directly followable DOI or URL, so readers may need to inspect the SEAD site page directly.",
-        "No linked upstream chronology is captured for this site, so it remains spatial context rather than a dated map observation."
       ]
     },
     {
@@ -26452,20 +24884,6 @@
       "site_name": "Tynderö 27",
       "access_visibility": "site_page_only",
       "site_page_url": "https://browser.sead.se/site/400",
-      "reference_link_count": 0,
-      "redistribution_posture": "reference_upstream_pages_and_publish_repository_derived_context_only",
-      "reader_action": "Inspect the SEAD site page when captured chronology or bibliography does not answer the research question.",
-      "access_limits": [
-        "The repository mirrors the scoped site inventory, linked chronology and bibliography relations, and derived context layers, not the full upstream relational SEAD database.",
-        "Captured bibliography for this row exposes no directly followable DOI or URL, so readers may need to inspect the SEAD site page directly.",
-        "No linked upstream chronology is captured for this site, so it remains spatial context rather than a dated map observation."
-      ]
-    },
-    {
-      "site_id": "6246",
-      "site_name": "Tynningö",
-      "access_visibility": "site_page_only",
-      "site_page_url": "https://browser.sead.se/site/6246",
       "reference_link_count": 0,
       "redistribution_posture": "reference_upstream_pages_and_publish_repository_derived_context_only",
       "reader_action": "Inspect the SEAD site page when captured chronology or bibliography does not answer the research question.",
@@ -26742,19 +25160,6 @@
       "site_name": "Törnbotten",
       "access_visibility": "site_page_only",
       "site_page_url": "https://browser.sead.se/site/3970",
-      "reference_link_count": 0,
-      "redistribution_posture": "reference_upstream_pages_and_publish_repository_derived_context_only",
-      "reader_action": "Inspect the SEAD site page when captured chronology or bibliography does not answer the research question.",
-      "access_limits": [
-        "The repository mirrors the scoped site inventory, linked chronology and bibliography relations, and derived context layers, not the full upstream relational SEAD database.",
-        "Captured bibliography for this row exposes no directly followable DOI or URL, so readers may need to inspect the SEAD site page directly."
-      ]
-    },
-    {
-      "site_id": "3437",
-      "site_name": "Tønsberg, Essotomten",
-      "access_visibility": "site_page_only",
-      "site_page_url": "https://browser.sead.se/site/3437",
       "reference_link_count": 0,
       "redistribution_posture": "reference_upstream_pages_and_publish_repository_derived_context_only",
       "reader_action": "Inspect the SEAD site page when captured chronology or bibliography does not answer the research question.",
@@ -27344,20 +25749,6 @@
       "access_limits": [
         "The repository mirrors the scoped site inventory, linked chronology and bibliography relations, and derived context layers, not the full upstream relational SEAD database.",
         "Captured bibliography for this row exposes no directly followable DOI or URL, so readers may need to inspect the SEAD site page directly."
-      ]
-    },
-    {
-      "site_id": "6329",
-      "site_name": "Vallagatan",
-      "access_visibility": "site_page_only",
-      "site_page_url": "https://browser.sead.se/site/6329",
-      "reference_link_count": 0,
-      "redistribution_posture": "reference_upstream_pages_and_publish_repository_derived_context_only",
-      "reader_action": "Inspect the SEAD site page when captured chronology or bibliography does not answer the research question.",
-      "access_limits": [
-        "The repository mirrors the scoped site inventory, linked chronology and bibliography relations, and derived context layers, not the full upstream relational SEAD database.",
-        "Captured bibliography for this row exposes no directly followable DOI or URL, so readers may need to inspect the SEAD site page directly.",
-        "No linked upstream chronology is captured for this site, so it remains spatial context rather than a dated map observation."
       ]
     },
     {
@@ -28465,20 +26856,6 @@
       ]
     },
     {
-      "site_id": "6356",
-      "site_name": "Västervik 94:1",
-      "access_visibility": "site_page_only",
-      "site_page_url": "https://browser.sead.se/site/6356",
-      "reference_link_count": 0,
-      "redistribution_posture": "reference_upstream_pages_and_publish_repository_derived_context_only",
-      "reader_action": "Inspect the SEAD site page when captured chronology or bibliography does not answer the research question.",
-      "access_limits": [
-        "The repository mirrors the scoped site inventory, linked chronology and bibliography relations, and derived context layers, not the full upstream relational SEAD database.",
-        "Captured bibliography for this row exposes no directly followable DOI or URL, so readers may need to inspect the SEAD site page directly.",
-        "No linked upstream chronology is captured for this site, so it remains spatial context rather than a dated map observation."
-      ]
-    },
-    {
       "site_id": "3413",
       "site_name": "Västervång",
       "access_visibility": "site_page_only",
@@ -28710,20 +27087,6 @@
       ]
     },
     {
-      "site_id": "4720",
-      "site_name": "Westerland",
-      "access_visibility": "site_page_only",
-      "site_page_url": "https://browser.sead.se/site/4720",
-      "reference_link_count": 0,
-      "redistribution_posture": "reference_upstream_pages_and_publish_repository_derived_context_only",
-      "reader_action": "Inspect the SEAD site page when captured chronology or bibliography does not answer the research question.",
-      "access_limits": [
-        "The repository mirrors the scoped site inventory, linked chronology and bibliography relations, and derived context layers, not the full upstream relational SEAD database.",
-        "Captured bibliography for this row exposes no directly followable DOI or URL, so readers may need to inspect the SEAD site page directly.",
-        "No linked upstream chronology is captured for this site, so it remains spatial context rather than a dated map observation."
-      ]
-    },
-    {
       "site_id": "3939",
       "site_name": "Westööska huset",
       "access_visibility": "site_page_only",
@@ -28824,20 +27187,6 @@
       "site_name": "Yttre Medväga",
       "access_visibility": "site_page_only",
       "site_page_url": "https://browser.sead.se/site/178",
-      "reference_link_count": 0,
-      "redistribution_posture": "reference_upstream_pages_and_publish_repository_derived_context_only",
-      "reader_action": "Inspect the SEAD site page when captured chronology or bibliography does not answer the research question.",
-      "access_limits": [
-        "The repository mirrors the scoped site inventory, linked chronology and bibliography relations, and derived context layers, not the full upstream relational SEAD database.",
-        "Captured bibliography for this row exposes no directly followable DOI or URL, so readers may need to inspect the SEAD site page directly.",
-        "No linked upstream chronology is captured for this site, so it remains spatial context rather than a dated map observation."
-      ]
-    },
-    {
-      "site_id": "258",
-      "site_name": "Ägglösen",
-      "access_visibility": "site_page_only",
-      "site_page_url": "https://browser.sead.se/site/258",
       "reference_link_count": 0,
       "redistribution_posture": "reference_upstream_pages_and_publish_repository_derived_context_only",
       "reader_action": "Inspect the SEAD site page when captured chronology or bibliography does not answer the research question.",
@@ -29118,19 +27467,6 @@
         "The repository mirrors the scoped site inventory, linked chronology and bibliography relations, and derived context layers, not the full upstream relational SEAD database.",
         "Captured bibliography for this row exposes no directly followable DOI or URL, so readers may need to inspect the SEAD site page directly.",
         "No linked upstream chronology is captured for this site, so it remains spatial context rather than a dated map observation."
-      ]
-    },
-    {
-      "site_id": "3409",
-      "site_name": "Årsta",
-      "access_visibility": "site_page_only",
-      "site_page_url": "https://browser.sead.se/site/3409",
-      "reference_link_count": 0,
-      "redistribution_posture": "reference_upstream_pages_and_publish_repository_derived_context_only",
-      "reader_action": "Inspect the SEAD site page when captured chronology or bibliography does not answer the research question.",
-      "access_limits": [
-        "The repository mirrors the scoped site inventory, linked chronology and bibliography relations, and derived context layers, not the full upstream relational SEAD database.",
-        "Captured bibliography for this row exposes no directly followable DOI or URL, so readers may need to inspect the SEAD site page directly."
       ]
     },
     {
@@ -29573,19 +27909,6 @@
       ]
     },
     {
-      "site_id": "3932",
-      "site_name": "Östra ryds kyrka",
-      "access_visibility": "site_page_only",
-      "site_page_url": "https://browser.sead.se/site/3932",
-      "reference_link_count": 0,
-      "redistribution_posture": "reference_upstream_pages_and_publish_repository_derived_context_only",
-      "reader_action": "Inspect the SEAD site page when captured chronology or bibliography does not answer the research question.",
-      "access_limits": [
-        "The repository mirrors the scoped site inventory, linked chronology and bibliography relations, and derived context layers, not the full upstream relational SEAD database.",
-        "Captured bibliography for this row exposes no directly followable DOI or URL, so readers may need to inspect the SEAD site page directly."
-      ]
-    },
-    {
       "site_id": "6072",
       "site_name": "Östra Sallerups kyrka",
       "access_visibility": "site_page_only",
@@ -29765,19 +28088,6 @@
       "site_name": "Övre Häfla bruk",
       "access_visibility": "site_page_only",
       "site_page_url": "https://browser.sead.se/site/3926",
-      "reference_link_count": 0,
-      "redistribution_posture": "reference_upstream_pages_and_publish_repository_derived_context_only",
-      "reader_action": "Inspect the SEAD site page when captured chronology or bibliography does not answer the research question.",
-      "access_limits": [
-        "The repository mirrors the scoped site inventory, linked chronology and bibliography relations, and derived context layers, not the full upstream relational SEAD database.",
-        "Captured bibliography for this row exposes no directly followable DOI or URL, so readers may need to inspect the SEAD site page directly."
-      ]
-    },
-    {
-      "site_id": "4572",
-      "site_name": "Øvre Kvilhaugmyra",
-      "access_visibility": "site_page_only",
-      "site_page_url": "https://browser.sead.se/site/4572",
       "reference_link_count": 0,
       "redistribution_posture": "reference_upstream_pages_and_publish_repository_derived_context_only",
       "reader_action": "Inspect the SEAD site page when captured chronology or bibliography does not answer the research question.",

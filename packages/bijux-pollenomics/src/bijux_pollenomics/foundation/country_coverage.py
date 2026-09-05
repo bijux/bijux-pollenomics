@@ -55,6 +55,8 @@ SEAD_ACQUISITION_ROOT: Final = (
 SEAD_ADMISSION_PATH: Final = f"{SEAD_ACQUISITION_ROOT}/admission.json"
 SEAD_DECISIONS_PATH: Final = f"{SEAD_ACQUISITION_ROOT}/country-decisions.json"
 SEAD_SITES_PATH: Final = f"{SEAD_ACQUISITION_ROOT}/payloads/tbl_sites.json"
+SEAD_CLAIMS_PATH: Final = "data/sead/normalized/chronology_claims.json"
+SEAD_PUBLIC_SITES_PATH: Final = "data/sead/normalized/nordic_environmental_sites.geojson"
 COUNTRY_COVERAGE_OUTPUT_PATH: Final = "data/country_dimension_coverage.json"
 COUNTRY_COVERAGE_ARTIFACT_ROOT: Final = "artifacts/execution-control/country-coverage"
 
@@ -105,6 +107,8 @@ INPUT_PATHS: Final = (
     "docs/report/countries/finland/finland_aadr_v66_summary.json",
     "docs/report/animal_country_species_coverage.json",
     BOUNDARY_ARTIFACT_PATH,
+    SEAD_CLAIMS_PATH,
+    SEAD_PUBLIC_SITES_PATH,
 )
 
 _NAME_TO_CODE: Final = {
@@ -1083,21 +1087,49 @@ def _coverage_evidence(
         payload=input_bytes[SEAD_SITES_PATH],
     )
     _site_partition(evidence, "sead", "governed_assignment", governed)
+    claim_document = documents[SEAD_CLAIMS_PATH]
+    if claim_document.get("schema_version") != "sead-chronology-claim-bundle.v1":
+        raise CountryCoverageError("SEAD chronology claim schema is inconsistent")
+    if claim_document.get("acquisition_manifest_sha256") != admission_document.get(
+        "acquisition_manifest_sha256"
+    ):
+        raise CountryCoverageError("SEAD chronology claims do not bind the admission")
+    claim_country_counts = _integer_counts(
+        claim_document.get("country_counts"), "SEAD claim countries"
+    )
+    if set(claim_country_counts) != set(_NORDIC_COUNTRY_CODES):
+        raise CountryCoverageError("SEAD claim country partitions are incomplete")
     for country in ("SE", "DK", "NO", "FI"):
         counts = evidence[("sead", "governed_assignment", country)]
         counts["accepted_records"] = counts["sites"]
         counts["unresolved_records"] = 0
         counts["excluded_records"] = 0
+        counts["age_claims"] = claim_country_counts[country]
     evidence[("sead", "governed_assignment", "UNASSIGNED")]["accepted_records"] = 0
+    evidence[("sead", "governed_assignment", "UNASSIGNED")]["age_claims"] = 0
     evidence[("sead", "governed_assignment", "UNASSIGNED")]["unresolved_records"] = (
         governed["UNASSIGNED"]
     )
     evidence[("sead", "governed_assignment", "UNASSIGNED")]["excluded_records"] = 0
     evidence[("sead", "governed_assignment", "OUTSIDE")]["accepted_records"] = 0
+    evidence[("sead", "governed_assignment", "OUTSIDE")]["age_claims"] = 0
     evidence[("sead", "governed_assignment", "OUTSIDE")]["unresolved_records"] = 0
     evidence[("sead", "governed_assignment", "OUTSIDE")]["excluded_records"] = governed[
         "OUTSIDE"
     ]
+    _site_partition(
+        evidence,
+        "sead",
+        "publication",
+        _geojson_country_counts(documents[SEAD_PUBLIC_SITES_PATH]),
+        published=True,
+    )
+    for country in _NORDIC_COUNTRY_CODES:
+        evidence[("sead", "publication", country)]["age_claims"] = (
+            claim_country_counts[country]
+        )
+    for country in ("UNASSIGNED", "OUTSIDE"):
+        evidence[("sead", "publication", country)]["age_claims"] = 0
 
     _record_partition(evidence, "boundaries", "source_reported", boundary_counts)
     _record_partition(evidence, "boundaries", "governed_assignment", boundary_counts)
@@ -1373,10 +1405,6 @@ def _cell(
             lifecycle = "refused"
             availability = "available_partial"
             reasons.append("outside_governed_boundaries")
-    elif source_family == "sead" and dimension == "publication":
-        lifecycle = "unavailable"
-        availability = "blocked"
-        reasons.append("missing_published_surface")
     elif source_family == "aadr":
         lifecycle = "review_required"
         reasons.extend(blocking)

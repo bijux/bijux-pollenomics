@@ -315,17 +315,34 @@ def test_sead_preserves_assigned_review_and_refused_partitions() -> None:
     assert (
         _measure_total(ledger, "sead", "governed_assignment", "excluded_records") == 23
     )
+    assert (
+        _measure_total(ledger, "sead", "governed_assignment", "age_claims")
+        == 25_109
+    )
     review = _cell(ledger, "sead", "governed_assignment", "UNASSIGNED")
     refused = _cell(ledger, "sead", "governed_assignment", "OUTSIDE")
     assert _counts(review)["unresolved_records"] == 103
     assert review["lifecycle_status"] == "review_required"
     assert _counts(refused)["excluded_records"] == 23
     assert refused["lifecycle_status"] == "refused"
-    for country in COUNTRIES:
+    for country, site_count, claim_count in (
+        ("SE", 1_925, 22_643),
+        ("DK", 59, 1_939),
+        ("NO", 45, 468),
+        ("FI", 40, 59),
+    ):
         publication = _cell(ledger, "sead", "publication", country)
-        assert publication["availability_status"] == "blocked"
-        assert publication["lifecycle_status"] == "unavailable"
-        assert all(value is None for value in _counts(publication).values())
+        assert publication["availability_status"] == "available_collected"
+        assert publication["lifecycle_status"] == "admitted"
+        assert _counts(publication)["sites"] == site_count
+        assert _counts(publication)["published_records"] == site_count
+        assert _counts(publication)["age_claims"] == claim_count
+    for country in ("UNASSIGNED", "OUTSIDE"):
+        publication = _cell(ledger, "sead", "publication", country)
+        assert publication["availability_status"] == "zero_observations"
+        assert publication["lifecycle_status"] == "admitted"
+        assert _counts(publication)["sites"] == 0
+        assert _counts(publication)["age_claims"] == 0
 
 
 def test_source_specific_absence_and_review_are_not_encoded_as_zero() -> None:

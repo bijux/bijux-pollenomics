@@ -1,14 +1,159 @@
 from __future__ import annotations
 
-from collections.abc import Callable, Mapping
 import math
 import re
+from collections.abc import Callable, Mapping, Sequence
 
 from ....core.bp_time import normalize_bp_interval
 from ....core.text import clean_optional_text
 from .api_client import fetch_sead_rows, fetch_sead_rows_by_ids
 
 BP_REFERENCE_YEAR = 1950
+_CALIBRATED_BP_AGE_TYPES = frozenset(
+    {"cal bp", "calibrated years bp", "calendar years before present"}
+)
+_COMMON_ERA_AGE_TYPES = frozenset({"ad", "ce", "anno domini", "common era"})
+_BEFORE_COMMON_ERA_AGE_TYPES = frozenset(
+    {"bc", "bce", "before christ", "before common era"}
+)
+
+
+def build_sead_site_rows_from_acquisition_tables(
+    rows_by_table: Mapping[str, Sequence[Mapping[str, object]]],
+) -> tuple[list[dict[str, object]], dict[str, int | str]]:
+    """Rebuild linked site rows solely from one validated acquisition snapshot."""
+    required_tables = {
+        "tbl_sites",
+        "tbl_sample_groups",
+        "tbl_physical_samples",
+        "tbl_analysis_entities",
+        "tbl_analysis_entity_ages",
+        "tbl_geochronology",
+        "tbl_dendro_dates",
+        "tbl_analysis_values",
+        "tbl_analysis_dating_ranges",
+        "tbl_age_types",
+        "tbl_relative_dates",
+        "tbl_relative_ages",
+        "tbl_relative_age_refs",
+        "tbl_dating_uncertainty",
+        "tbl_methods",
+        "tbl_datasets",
+        "tbl_site_references",
+        "tbl_sample_group_references",
+        "tbl_biblio",
+    }
+    if set(rows_by_table) != required_tables:
+        raise ValueError("SEAD chronology materialization requires the exact table set")
+    tables = {
+        table: [dict(row) for row in rows]
+        for table, rows in rows_by_table.items()
+    }
+    sites = tables["tbl_sites"]
+    summary = populate_sead_site_inventory_fields(
+        sites,
+        fetch_json_fn=_AcquisitionTablePageFetcher(tables),
+    )
+    return sites, summary
+
+
+class _AcquisitionTablePageFetcher:
+    """Serve PostgREST-shaped reads from already admitted immutable table rows."""
+
+    def __init__(self, rows_by_table: Mapping[str, list[dict[str, object]]]) -> None:
+        self._rows_by_table = rows_by_table
+        self._indexes: dict[tuple[str, str], dict[object, list[dict[str, object]]]] = {}
+        self._query_cache: dict[
+            tuple[str, tuple[tuple[str, str], ...]], list[dict[str, object]]
+        ] = {}
+
+    def __call__(
+        self,
+        url: str,
+        *,
+        params: object = None,
+        headers: object = None,
+        **_: object,
+    ) -> list[dict[str, object]]:
+        table = url.rstrip("/").rsplit("/", 1)[-1]
+        if table not in self._rows_by_table:
+            raise ValueError(f"SEAD acquisition table is unavailable: {table}")
+        if not isinstance(params, list) or any(
+            not isinstance(item, tuple) or len(item) != 2 for item in params
+        ):
+            raise ValueError("SEAD cached request parameters are invalid")
+        if not isinstance(headers, Mapping):
+            raise TypeError("SEAD cached request range is missing")
+        range_header = headers.get("Range")
+        if not isinstance(range_header, str):
+            raise TypeError("SEAD cached request Range header is missing")
+        start_text, separator, end_text = range_header.partition("-")
+        if not separator:
+            raise ValueError("SEAD cached request Range header is invalid")
+        try:
+            start, end = int(start_text), int(end_text)
+        except ValueError as exc:
+            raise ValueError("SEAD cached request Range header is invalid") from exc
+        if start < 0 or end < start:
+            raise ValueError("SEAD cached request Range header is invalid")
+
+        typed_params = tuple((str(field), str(value)) for field, value in params)
+        request = dict(typed_params)
+        projection = request.get("select")
+        if not isinstance(projection, str) or not projection:
+            raise ValueError("SEAD cached request projection is missing")
+        query_key = (table, typed_params)
+        if query_key not in self._query_cache:
+            rows = self._rows_by_table[table]
+            for field, expression in typed_params:
+                if field in {"select", "order"}:
+                    continue
+                if not expression.startswith("in.("):
+                    raise ValueError("SEAD cached request filter is unsupported")
+                if not expression.endswith(")"):
+                    raise ValueError("SEAD cached request filter is invalid")
+                values = {
+                    int(value)
+                    for value in expression[4:-1].split(",")
+                    if value
+                }
+                index = self._index(table, field)
+                rows = [row for value in sorted(values) for row in index.get(value, [])]
+
+            order = request.get("order")
+            if order:
+                order_fields = order.split(",")
+                rows = sorted(
+                    rows,
+                    key=lambda row: tuple(
+                        (row.get(field) is None, row.get(field))
+                        for field in order_fields
+                    ),
+                )
+            projected_fields = projection.split(",")
+            projected_rows = []
+            for row in rows:
+                missing = set(projected_fields) - set(row)
+                if missing:
+                    raise ValueError(
+                        f"SEAD cached {table} row misses projected fields: {sorted(missing)}"
+                    )
+                projected_rows.append(
+                    {field: row[field] for field in projected_fields}
+                )
+            self._query_cache[query_key] = projected_rows
+        return self._query_cache[query_key][start : end + 1]
+
+    def _index(
+        self, table: str, field: str
+    ) -> dict[object, list[dict[str, object]]]:
+        key = (table, field)
+        if key not in self._indexes:
+            index: dict[object, list[dict[str, object]]] = {}
+            for row in self._rows_by_table[table]:
+                index.setdefault(row.get(field), []).append(row)
+            self._indexes[key] = index
+        return self._indexes[key]
 
 
 def parse_optional_int(value: object) -> int | None:
@@ -38,8 +183,8 @@ def sead_dating_interval(
     """Normalize one SEAD dating range into the shared BP interval convention."""
     low_value = parse_optional_int(dating_range.get("low_value"))
     high_value = parse_optional_int(dating_range.get("high_value"))
-    age_type_text = age_type.casefold()
-    if "bp" in age_type_text:
+    age_type_text = " ".join(age_type.casefold().split())
+    if age_type_text in _CALIBRATED_BP_AGE_TYPES:
         return _normalize_optional_interval(low_value, high_value)
     if _is_before_common_era_age_type(age_type_text):
         return _calendar_year_interval_to_bp(
@@ -315,6 +460,13 @@ def populate_sead_site_inventory_fields(
         for row in age_types
         if row.get("age_type_id") is not None
     }
+    age_type_description_by_id = {
+        parse_required_int(row["age_type_id"]): clean_optional_text(
+            row.get("description")
+        )
+        for row in age_types
+        if row.get("age_type_id") is not None
+    }
     relative_age_ids = [
         parse_required_int(row["relative_age_id"])
         for row in relative_dates
@@ -481,6 +633,13 @@ def populate_sead_site_inventory_fields(
         parse_required_int(row["dataset_id"]): bibliography_by_id.get(
             parse_required_int(row.get("biblio_id")),
             {},
+        )
+        for row in datasets
+        if row.get("dataset_id") is not None
+    }
+    dataset_biblio_id_by_id = {
+        parse_required_int(row["dataset_id"]): parse_required_int(
+            row.get("biblio_id")
         )
         for row in datasets
         if row.get("dataset_id") is not None
@@ -662,16 +821,8 @@ def populate_sead_site_inventory_fields(
                 _build_dating_range_row(
                     dating_range,
                     age_type=age_type,
-                    age_type_description=clean_optional_text(
-                        next(
-                            (
-                                row.get("description")
-                                for row in age_types
-                                if parse_required_int(row.get("age_type_id"))
-                                == parse_required_int(dating_range.get("age_type_id"))
-                            ),
-                            "",
-                        )
+                    age_type_description=age_type_description_by_id.get(
+                        parse_required_int(dating_range.get("age_type_id")), ""
                     ),
                     uncertainty=uncertainty_by_id.get(
                         parse_required_int(dating_range.get("dating_uncertainty_id")),
@@ -726,17 +877,7 @@ def populate_sead_site_inventory_fields(
             if biblio:
                 bibliography_rows_by_site.setdefault(site_id, []).append(
                     _build_bibliography_row(
-                        biblio_id=parse_required_int(
-                            next(
-                                (
-                                    row.get("biblio_id")
-                                    for row in datasets
-                                    if parse_required_int(row.get("dataset_id"))
-                                    == dataset_id
-                                ),
-                                0,
-                            )
-                        ),
+                        biblio_id=dataset_biblio_id_by_id.get(dataset_id, 0),
                         source_kind="dataset_reference",
                         source_record_id=dataset_id,
                         source_record_label=dataset_name_by_id.get(dataset_id, ""),
@@ -929,8 +1070,8 @@ __all__ = [
     "merge_sead_intervals",
     "parse_optional_int",
     "parse_required_int",
-    "refresh_sead_repository_rows",
     "populate_sead_site_inventory_fields",
+    "refresh_sead_repository_rows",
     "sead_dating_interval",
 ]
 
@@ -1214,8 +1355,8 @@ def _relative_interval_from_range(
     *,
     age_type: str,
 ) -> tuple[int, int] | None:
-    text = age_type.casefold()
-    if "cal" not in text and "c14" not in text:
+    text = " ".join(age_type.casefold().split())
+    if text not in _CALIBRATED_BP_AGE_TYPES:
         return None
     return _normalize_optional_interval(
         parse_optional_int(dating_range.get("low_value")),
@@ -1304,20 +1445,11 @@ def _bce_year_to_bp(year_bce: int | None) -> int | None:
 
 
 def _is_common_era_age_type(age_type_text: str) -> bool:
-    common_era_tokens = (" ad", " ce", "anno domini", "common era")
-    normalized_text = f" {age_type_text} "
-    return any(token in normalized_text for token in common_era_tokens)
+    return " ".join(age_type_text.split()) in _COMMON_ERA_AGE_TYPES
 
 
 def _is_before_common_era_age_type(age_type_text: str) -> bool:
-    before_common_era_tokens = (
-        " bc",
-        " bce",
-        "before christ",
-        "before common era",
-    )
-    normalized_text = f" {age_type_text} "
-    return any(token in normalized_text for token in before_common_era_tokens)
+    return " ".join(age_type_text.split()) in _BEFORE_COMMON_ERA_AGE_TYPES
 
 
 def _normalized_period_label(label: str, description: str) -> str:

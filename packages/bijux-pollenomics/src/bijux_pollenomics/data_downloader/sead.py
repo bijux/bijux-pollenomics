@@ -1,14 +1,13 @@
 from __future__ import annotations
 
-from collections.abc import Callable, Iterable, Mapping, Sequence
-from dataclasses import dataclass
 import hashlib
 import json
 import os
-from pathlib import Path
 import time
+from collections.abc import Callable, Iterable, Mapping, Sequence
+from dataclasses import dataclass
+from pathlib import Path
 
-from ..core.files import write_json
 from ..core.http import fetch_json
 from .contracts import (
     SEAD_POINT_CSV,
@@ -25,6 +24,7 @@ from .shared import load_repository_country_boundaries
 from .sources.sead import api_client as sead_api_client
 from .sources.sead.acquisition import acquire_sead_table
 from .sources.sead.archive import SEAD_LINKED_SOURCE_TABLES
+from .sources.sead.claim_bundle import write_sead_chronology_claim_bundle
 from .sources.sead.discovery import (
     build_sweden_archaeology_site_discovery,
     write_sweden_archaeology_site_discovery,
@@ -46,6 +46,9 @@ from .sources.sead.fetch import (
     sead_dating_interval as sead_dating_interval_value,
 )
 from .sources.sead.inventory import SeadSiteFetchResult
+from .sources.sead.inventory_fields import (
+    build_sead_site_rows_from_acquisition_tables,
+)
 from .sources.sead.normalization import (
     normalize_sead_rows,
     normalize_sead_temporal_evidence,
@@ -64,6 +67,9 @@ class SeadDataReport:
 
 SEAD_MAX_PAGES = 1_000
 SEAD_ARCHIVE_SCHEMA_VERSION = "sead-site-archive.v2"
+SEAD_GOVERNED_ACQUISITION_ID = (
+    "sead-live-d1fd2058913372eda1c12e526e0eb7c8a6cec415e9f9e9b5b92b8896597b35ac"
+)
 
 _SEAD_PRIMARY_KEYS = {
     "tbl_sites": "site_id",
@@ -443,30 +449,24 @@ def collect_sead_data(
 
 
 def materialize_sead_repository_surfaces(data_root: Path) -> SeadDataReport:
-    """Refresh normalized and review SEAD surfaces from the checked-in raw inventory."""
+    """Refresh public SEAD surfaces from the admitted immutable acquisition."""
     data_root = Path(data_root)
     output_root = data_root / "sead"
     raw_path = output_root / "raw" / "nordic_sites.json"
-    payload = json.loads(raw_path.read_text(encoding="utf-8"))
-    raw_rows = payload.get("rows", [])
-    if not isinstance(raw_rows, list):
-        raise ValueError(f"SEAD raw inventory must contain a row list: {raw_path}")
-    if any(not isinstance(row, dict) for row in raw_rows):
-        raise ValueError(f"SEAD raw inventory contains a non-object row: {raw_path}")
-    rows = [dict(row) for row in raw_rows]
-    _validate_sead_rows("tbl_sites", rows)
-    refresh_sead_repository_rows(rows)
-    _validate_sead_rows("tbl_sites", rows)
-    payload["rows"] = rows
-    payload["source_tables"] = list(SEAD_LINKED_SOURCE_TABLES)
-    existing_inventory_summary = payload.get("inventory_summary", {})
-    if not isinstance(existing_inventory_summary, dict):
-        existing_inventory_summary = {}
-    payload["inventory_summary"] = {
-        **existing_inventory_summary,
-        **_build_repository_inventory_summary(rows),
+    acquisition_root = (
+        output_root / "raw" / "acquisitions" / SEAD_GOVERNED_ACQUISITION_ID
+    )
+    rows_by_table = {
+        table: _load_sead_acquisition_rows(acquisition_root, table)
+        for table in SEAD_LINKED_SOURCE_TABLES
     }
-    write_json(raw_path, payload)
+    rows, _ = build_sead_site_rows_from_acquisition_tables(rows_by_table)
+    _attach_sead_country_decisions(acquisition_root, rows)
+    _validate_sead_rows("tbl_sites", rows)
+    write_sead_chronology_claim_bundle(
+        acquisition_root,
+        output_root / "normalized" / "chronology_claims.json",
+    )
     country_boundaries = load_repository_country_boundaries(data_root)
     records = normalize_sead_rows(rows, country_boundaries=country_boundaries)
     temporal_records = normalize_sead_temporal_evidence(
@@ -497,6 +497,50 @@ def materialize_sead_repository_surfaces(data_root: Path) -> SeadDataReport:
         normalized_csv_path=normalized_csv_path,
         normalized_geojson_path=normalized_geojson_path,
     )
+
+
+def _load_sead_acquisition_rows(
+    acquisition_root: Path, table: str
+) -> list[dict[str, object]]:
+    payload_path = acquisition_root / "payloads" / f"{table}.json"
+    payload = json.loads(payload_path.read_text(encoding="utf-8"))
+    if not isinstance(payload, dict) or payload.get("table") != table:
+        raise ValueError(f"SEAD acquisition table identity is invalid: {payload_path}")
+    rows = payload.get("rows")
+    if not isinstance(rows, list) or any(not isinstance(row, dict) for row in rows):
+        raise ValueError(f"SEAD acquisition rows are invalid: {payload_path}")
+    return [dict(row) for row in rows]
+
+
+def _attach_sead_country_decisions(
+    acquisition_root: Path, rows: list[dict[str, object]]
+) -> None:
+    decision_path = acquisition_root / "country-decisions.json"
+    payload = json.loads(decision_path.read_text(encoding="utf-8"))
+    decisions = payload.get("decisions") if isinstance(payload, dict) else None
+    if not isinstance(decisions, list) or any(
+        not isinstance(decision, dict) for decision in decisions
+    ):
+        raise ValueError(f"SEAD country decisions are invalid: {decision_path}")
+    decisions_by_site_id = {
+        decision.get("site_id"): decision for decision in decisions
+    }
+    for row in rows:
+        site_id = row.get("site_id")
+        decision = decisions_by_site_id.get(site_id)
+        if not isinstance(decision, dict):
+            raise ValueError(f"SEAD admitted site lacks country decision: {site_id}")
+        decision_detail = decision.get("decision")
+        country_code = decision.get("governed_country_code")
+        if country_code not in {"SE", "DK", "NO", "FI"} or not isinstance(
+            decision_detail, dict
+        ):
+            raise ValueError(f"SEAD admitted site is not assigned: {site_id}")
+        assignment_method = decision_detail.get("decision_method")
+        if not isinstance(assignment_method, str) or not assignment_method:
+            raise ValueError(f"SEAD country assignment method is missing: {site_id}")
+        row["country_code"] = country_code
+        row["country_assignment_method"] = assignment_method
 
 
 def _build_repository_inventory_summary(

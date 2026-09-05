@@ -203,22 +203,43 @@ class ContextDataTests(unittest.TestCase):
                 "dating_range_rows": [
                     {
                         "analysis_dating_range_id": 34,
+                        "analysis_entity_id": 30,
                         "age_type": "calibrated years BP",
                         "time_start_bp": 200,
                         "time_end_bp": 800,
                     },
                     {
                         "analysis_dating_range_id": 35,
+                        "analysis_entity_id": 30,
                         "age_type": "calibrated years BP",
                         "time_start_bp": 200,
                         "time_end_bp": 800,
                     },
                     {
                         "analysis_dating_range_id": 36,
+                        "analysis_entity_id": 30,
                         "age_type": "calibrated years BP",
                         "time_start_bp": 900,
                         "time_end_bp": 1000,
                     },
+                ],
+                "relative_period_rows": [
+                    {
+                        "relative_date_id": 37,
+                        "analysis_entity_id": 30,
+                        "relative_age_label": "Neolithic",
+                        "time_start_bp": 4000,
+                        "time_end_bp": 6000,
+                    }
+                ],
+                "geochronology_rows": [
+                    {
+                        "geochron_id": 38,
+                        "analysis_entity_id": 30,
+                        "age": 1200,
+                        "time_start_bp": 1100,
+                        "time_end_bp": 1300,
+                    }
                 ],
             }
         ]
@@ -485,6 +506,16 @@ class ContextDataTests(unittest.TestCase):
         )
 
         self.assertEqual(interval, (2449, 2499))
+
+    def test_sead_dating_interval_rejects_substring_age_type_heuristics(self) -> None:
+        for age_type in ("possibly cal-ish BP", "uncertain C14", "shadow AD value"):
+            with self.subTest(age_type=age_type):
+                self.assertIsNone(
+                    sead_dating_interval(
+                        {"low_value": 500, "high_value": 600},
+                        age_type=age_type,
+                    )
+                )
 
     def test_sead_refresh_recovers_interval_encoded_in_relative_age_label(self) -> None:
         rows = [
@@ -764,7 +795,31 @@ class ContextDataTests(unittest.TestCase):
                     encoding="utf-8",
                 )
 
-            report = materialize_sead_repository_surfaces(data_root)
+            fixture_rows = json.loads(
+                (data_root / "sead" / "raw" / "nordic_sites.json").read_text(
+                    encoding="utf-8"
+                )
+            )["rows"]
+            with (
+                patch(
+                    "bijux_pollenomics.data_downloader.sead._load_sead_acquisition_rows",
+                    return_value=[],
+                ),
+                patch(
+                    "bijux_pollenomics.data_downloader.sead."
+                    "build_sead_site_rows_from_acquisition_tables",
+                    return_value=(fixture_rows, {}),
+                ),
+                patch(
+                    "bijux_pollenomics.data_downloader.sead."
+                    "_attach_sead_country_decisions"
+                ),
+                patch(
+                    "bijux_pollenomics.data_downloader.sead."
+                    "write_sead_chronology_claim_bundle"
+                ),
+            ):
+                report = materialize_sead_repository_surfaces(data_root)
 
             normalized_payload = json.loads(
                 report.normalized_geojson_path.read_text(encoding="utf-8")
@@ -789,11 +844,6 @@ class ContextDataTests(unittest.TestCase):
                 (
                     data_root / "sead" / "review" / "recovery_requirements.json"
                 ).read_text(encoding="utf-8")
-            )
-            raw_payload = json.loads(
-                (data_root / "sead" / "raw" / "nordic_sites.json").read_text(
-                    encoding="utf-8"
-                )
             )
             temporal_geojson = json.loads(
                 (
@@ -843,15 +893,6 @@ class ContextDataTests(unittest.TestCase):
             recovery_requirements["rows"][0]["requirement_key"],
             "unresolved_chronology_boundary",
         )
-        self.assertEqual(
-            raw_payload["inventory_summary"]["temporal_capture_posture"],
-            "site_inventory_only",
-        )
-        self.assertEqual(
-            raw_payload["inventory_summary"]["analysis_entity_row_count"],
-            4,
-        )
-        self.assertEqual(raw_payload["inventory_summary"]["dataset_row_count"], 9)
         self.assertEqual(recovery_requirements["rows"][0]["evidence_gap_count"], 1)
 
     def test_context_point_exports_preserve_temporal_fields(self) -> None:

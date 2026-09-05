@@ -1,44 +1,43 @@
 {
   "schema_version": "sead-evidence-legibility-review.v1",
-  "generated_on": "2026-08-01",
-  "row_count": 2195,
+  "generated_on": "2026-09-05",
+  "row_count": 2069,
   "inventory_summary": {
-    "numeric_interval_row_count": 927,
-    "dating_range_row_count": 7775,
-    "dating_range_site_count": 392,
-    "relative_period_row_count": 10950,
-    "relative_period_site_count": 531,
-    "analysis_entity_age_row_count": 852,
-    "analysis_entity_age_site_count": 140,
-    "geochronology_row_count": 104,
-    "geochronology_site_count": 21,
-    "dendro_date_row_count": 7321,
-    "dendro_date_site_count": 386,
-    "chronology_record_count": 27002,
-    "bibliography_row_count": 40981,
-    "bibliography_site_count": 1300,
-    "unresolved_site_count": 1268,
-    "site_inventory_only_row_count": 872,
+    "numeric_interval_row_count": 853,
+    "dating_range_row_count": 7377,
+    "dating_range_site_count": 371,
+    "relative_period_row_count": 10057,
+    "relative_period_site_count": 478,
+    "analysis_entity_age_row_count": 641,
+    "analysis_entity_age_site_count": 116,
+    "geochronology_row_count": 87,
+    "geochronology_site_count": 17,
+    "dendro_date_row_count": 6947,
+    "dendro_date_site_count": 365,
+    "chronology_record_count": 25109,
+    "bibliography_row_count": 39024,
+    "bibliography_site_count": 1211,
+    "unresolved_site_count": 1216,
+    "site_inventory_only_row_count": 838,
     "temporal_capture_posture": "linked_chronology_captured"
   },
   "temporal_strength_counts": {
-    "inventory_only_or_unresolved": 1290,
-    "numeric_span_with_contextual_caveat": 748,
-    "numeric_site_span": 157
+    "inventory_only_or_unresolved": 1216,
+    "numeric_span_with_contextual_caveat": 709,
+    "numeric_site_span": 144
   },
   "duration_posture_counts": {
-    "duration_not_available": 1268,
-    "duration_span_visible": 842,
-    "broad_context_duration": 22,
-    "point_like_or_single_year": 63
+    "duration_not_available": 1216,
+    "duration_span_visible": 792,
+    "point_like_or_single_year": 61
   },
   "access_visibility_counts": {
-    "site_page_only": 2192,
+    "site_page_only": 2066,
     "site_page_with_reference_links": 3
   },
   "normalization_risk_counts": {
-    "medium_access_constrained": 1447,
-    "medium_contextual_numeric_mix": 748
+    "medium_access_constrained": 1360,
+    "medium_contextual_numeric_mix": 709
   },
   "rows": [
     {
@@ -315,19 +314,6 @@
       "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
     },
     {
-      "site_id": "6484",
-      "site_name": "58194 Kalmar",
-      "country": "Sweden",
-      "temporal_strength": "inventory_only_or_unresolved",
-      "duration_posture": "duration_not_available",
-      "access_visibility": "site_page_only",
-      "normalization_risk": "medium_access_constrained",
-      "publication_posture": "context_layer_with_explicit_caveat",
-      "site_page_url": "https://browser.sead.se/site/6484",
-      "summary_label": "Unresolved time semantics",
-      "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
-    },
-    {
       "site_id": "5653",
       "site_name": "58195 Böda",
       "country": "Sweden",
@@ -337,19 +323,6 @@
       "normalization_risk": "medium_access_constrained",
       "publication_posture": "context_layer_with_explicit_caveat",
       "site_page_url": "https://browser.sead.se/site/5653",
-      "summary_label": "Unresolved time semantics",
-      "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
-    },
-    {
-      "site_id": "6462",
-      "site_name": "61094 Kronobäck",
-      "country": "Sweden",
-      "temporal_strength": "inventory_only_or_unresolved",
-      "duration_posture": "duration_not_available",
-      "access_visibility": "site_page_only",
-      "normalization_risk": "medium_access_constrained",
-      "publication_posture": "context_layer_with_explicit_caveat",
-      "site_page_url": "https://browser.sead.se/site/6462",
       "summary_label": "Unresolved time semantics",
       "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
     },
@@ -809,19 +782,6 @@
       "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
     },
     {
-      "site_id": "6337",
-      "site_name": "93139 Ljusterö",
-      "country": "Sweden",
-      "temporal_strength": "inventory_only_or_unresolved",
-      "duration_posture": "duration_not_available",
-      "access_visibility": "site_page_only",
-      "normalization_risk": "medium_access_constrained",
-      "publication_posture": "context_layer_with_explicit_caveat",
-      "site_page_url": "https://browser.sead.se/site/6337",
-      "summary_label": "Unresolved time semantics",
-      "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
-    },
-    {
       "site_id": "5669",
       "site_name": "93279 Österlövsta",
       "country": "Sweden",
@@ -987,19 +947,6 @@
       "normalization_risk": "medium_access_constrained",
       "publication_posture": "context_layer_with_explicit_caveat",
       "site_page_url": "https://browser.sead.se/site/5684",
-      "summary_label": "Unresolved time semantics",
-      "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
-    },
-    {
-      "site_id": "5683",
-      "site_name": "Alnö kyrka",
-      "country": "Sweden",
-      "temporal_strength": "inventory_only_or_unresolved",
-      "duration_posture": "duration_not_available",
-      "access_visibility": "site_page_only",
-      "normalization_risk": "medium_access_constrained",
-      "publication_posture": "context_layer_with_explicit_caveat",
-      "site_page_url": "https://browser.sead.se/site/5683",
       "summary_label": "Unresolved time semantics",
       "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
     },
@@ -1472,19 +1419,6 @@
       "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
     },
     {
-      "site_id": "320",
-      "site_name": "Bergskärit",
-      "country": "Sweden",
-      "temporal_strength": "inventory_only_or_unresolved",
-      "duration_posture": "duration_not_available",
-      "access_visibility": "site_page_only",
-      "normalization_risk": "medium_access_constrained",
-      "publication_posture": "context_layer_with_explicit_caveat",
-      "site_page_url": "https://browser.sead.se/site/320",
-      "summary_label": "Unresolved time semantics",
-      "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
-    },
-    {
       "site_id": "3789",
       "site_name": "Birka, Settlement",
       "country": "Sweden",
@@ -1767,19 +1701,6 @@
       "normalization_risk": "medium_access_constrained",
       "publication_posture": "context_layer_with_explicit_caveat",
       "site_page_url": "https://browser.sead.se/site/5723",
-      "summary_label": "Unresolved time semantics",
-      "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
-    },
-    {
-      "site_id": "5724",
-      "site_name": "Bobergska gården",
-      "country": "Sweden",
-      "temporal_strength": "inventory_only_or_unresolved",
-      "duration_posture": "duration_not_available",
-      "access_visibility": "site_page_only",
-      "normalization_risk": "medium_access_constrained",
-      "publication_posture": "context_layer_with_explicit_caveat",
-      "site_page_url": "https://browser.sead.se/site/5724",
       "summary_label": "Unresolved time semantics",
       "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
     },
@@ -2915,19 +2836,6 @@
       "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
     },
     {
-      "site_id": "5737",
-      "site_name": "Brämöns kapell",
-      "country": "Sweden",
-      "temporal_strength": "inventory_only_or_unresolved",
-      "duration_posture": "duration_not_available",
-      "access_visibility": "site_page_only",
-      "normalization_risk": "medium_access_constrained",
-      "publication_posture": "context_layer_with_explicit_caveat",
-      "site_page_url": "https://browser.sead.se/site/5737",
-      "summary_label": "Unresolved time semantics",
-      "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
-    },
-    {
       "site_id": "5745",
       "site_name": "Budasmyren Nusnäs",
       "country": "Sweden",
@@ -3461,32 +3369,6 @@
       "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
     },
     {
-      "site_id": "6432",
-      "site_name": "Djurgårdsbrunn",
-      "country": "Sweden",
-      "temporal_strength": "inventory_only_or_unresolved",
-      "duration_posture": "duration_not_available",
-      "access_visibility": "site_page_only",
-      "normalization_risk": "medium_access_constrained",
-      "publication_posture": "context_layer_with_explicit_caveat",
-      "site_page_url": "https://browser.sead.se/site/6432",
-      "summary_label": "Unresolved time semantics",
-      "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
-    },
-    {
-      "site_id": "6285",
-      "site_name": "Djurgårdsbrunnsvägen",
-      "country": "Sweden",
-      "temporal_strength": "inventory_only_or_unresolved",
-      "duration_posture": "duration_not_available",
-      "access_visibility": "site_page_only",
-      "normalization_risk": "medium_access_constrained",
-      "publication_posture": "context_layer_with_explicit_caveat",
-      "site_page_url": "https://browser.sead.se/site/6285",
-      "summary_label": "Unresolved time semantics",
-      "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
-    },
-    {
       "site_id": "6286",
       "site_name": "Drottningholm",
       "country": "Sweden",
@@ -3682,19 +3564,6 @@
       "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
     },
     {
-      "site_id": "5662",
-      "site_name": "Ekö",
-      "country": "Sweden",
-      "temporal_strength": "inventory_only_or_unresolved",
-      "duration_posture": "duration_not_available",
-      "access_visibility": "site_page_only",
-      "normalization_risk": "medium_access_constrained",
-      "publication_posture": "context_layer_with_explicit_caveat",
-      "site_page_url": "https://browser.sead.se/site/5662",
-      "summary_label": "Unresolved time semantics",
-      "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
-    },
-    {
       "site_id": "5772",
       "site_name": "Eldhus Fageråsen",
       "country": "Sweden",
@@ -3743,19 +3612,6 @@
       "normalization_risk": "medium_access_constrained",
       "publication_posture": "context_layer_with_explicit_caveat",
       "site_page_url": "https://browser.sead.se/site/5775",
-      "summary_label": "Unresolved time semantics",
-      "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
-    },
-    {
-      "site_id": "4248",
-      "site_name": "Endletvatn",
-      "country": "Norway",
-      "temporal_strength": "inventory_only_or_unresolved",
-      "duration_posture": "duration_not_available",
-      "access_visibility": "site_page_only",
-      "normalization_risk": "medium_access_constrained",
-      "publication_posture": "context_layer_with_explicit_caveat",
-      "site_page_url": "https://browser.sead.se/site/4248",
       "summary_label": "Unresolved time semantics",
       "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
     },
@@ -4618,19 +4474,6 @@
       "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
     },
     {
-      "site_id": "305",
-      "site_name": "Fåröarna",
-      "country": "Sweden",
-      "temporal_strength": "inventory_only_or_unresolved",
-      "duration_posture": "duration_not_available",
-      "access_visibility": "site_page_only",
-      "normalization_risk": "medium_access_constrained",
-      "publication_posture": "context_layer_with_explicit_caveat",
-      "site_page_url": "https://browser.sead.se/site/305",
-      "summary_label": "Unresolved time semantics",
-      "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
-    },
-    {
       "site_id": "5802",
       "site_name": "Församlingshemmet",
       "country": "Sweden",
@@ -4666,19 +4509,6 @@
       "normalization_risk": "medium_access_constrained",
       "publication_posture": "context_layer_with_explicit_caveat",
       "site_page_url": "https://browser.sead.se/site/6289",
-      "summary_label": "Unresolved time semantics",
-      "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
-    },
-    {
-      "site_id": "6435",
-      "site_name": "Gamla hamnen på Enholmen",
-      "country": "Sweden",
-      "temporal_strength": "inventory_only_or_unresolved",
-      "duration_posture": "duration_not_available",
-      "access_visibility": "site_page_only",
-      "normalization_risk": "medium_access_constrained",
-      "publication_posture": "context_layer_with_explicit_caveat",
-      "site_page_url": "https://browser.sead.se/site/6435",
       "summary_label": "Unresolved time semantics",
       "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
     },
@@ -4930,32 +4760,6 @@
       "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
     },
     {
-      "site_id": "5836",
-      "site_name": "Grisskär",
-      "country": "Sweden",
-      "temporal_strength": "inventory_only_or_unresolved",
-      "duration_posture": "duration_not_available",
-      "access_visibility": "site_page_only",
-      "normalization_risk": "medium_access_constrained",
-      "publication_posture": "context_layer_with_explicit_caveat",
-      "site_page_url": "https://browser.sead.se/site/5836",
-      "summary_label": "Unresolved time semantics",
-      "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
-    },
-    {
-      "site_id": "3719",
-      "site_name": "Grobin",
-      "country": "",
-      "temporal_strength": "inventory_only_or_unresolved",
-      "duration_posture": "broad_context_duration",
-      "access_visibility": "site_page_only",
-      "normalization_risk": "medium_access_constrained",
-      "publication_posture": "context_layer_with_explicit_caveat",
-      "site_page_url": "https://browser.sead.se/site/3719",
-      "summary_label": "",
-      "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
-    },
-    {
       "site_id": "167",
       "site_name": "Grums Raä 41:1",
       "country": "Sweden",
@@ -5043,19 +4847,6 @@
       "normalization_risk": "medium_access_constrained",
       "publication_posture": "context_layer_with_explicit_caveat",
       "site_page_url": "https://browser.sead.se/site/5838",
-      "summary_label": "Unresolved time semantics",
-      "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
-    },
-    {
-      "site_id": "6414",
-      "site_name": "Gryt 4:2",
-      "country": "Sweden",
-      "temporal_strength": "inventory_only_or_unresolved",
-      "duration_posture": "duration_not_available",
-      "access_visibility": "site_page_only",
-      "normalization_risk": "medium_access_constrained",
-      "publication_posture": "context_layer_with_explicit_caveat",
-      "site_page_url": "https://browser.sead.se/site/6414",
       "summary_label": "Unresolved time semantics",
       "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
     },
@@ -5827,19 +5618,6 @@
       "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
     },
     {
-      "site_id": "3697",
-      "site_name": "Hedeby",
-      "country": "",
-      "temporal_strength": "inventory_only_or_unresolved",
-      "duration_posture": "broad_context_duration",
-      "access_visibility": "site_page_only",
-      "normalization_risk": "medium_access_constrained",
-      "publication_posture": "context_layer_with_explicit_caveat",
-      "site_page_url": "https://browser.sead.se/site/3697",
-      "summary_label": "",
-      "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
-    },
-    {
       "site_id": "205",
       "site_name": "Hedesunda Raä 113",
       "country": "Sweden",
@@ -5927,32 +5705,6 @@
       "normalization_risk": "medium_access_constrained",
       "publication_posture": "context_layer_with_explicit_caveat",
       "site_page_url": "https://browser.sead.se/site/6392",
-      "summary_label": "Unresolved time semantics",
-      "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
-    },
-    {
-      "site_id": "6380",
-      "site_name": "Helsingborg 252",
-      "country": "Sweden",
-      "temporal_strength": "inventory_only_or_unresolved",
-      "duration_posture": "duration_not_available",
-      "access_visibility": "site_page_only",
-      "normalization_risk": "medium_access_constrained",
-      "publication_posture": "context_layer_with_explicit_caveat",
-      "site_page_url": "https://browser.sead.se/site/6380",
-      "summary_label": "Unresolved time semantics",
-      "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
-    },
-    {
-      "site_id": "6382",
-      "site_name": "Helsingborg 42:1",
-      "country": "Sweden",
-      "temporal_strength": "inventory_only_or_unresolved",
-      "duration_posture": "duration_not_available",
-      "access_visibility": "site_page_only",
-      "normalization_risk": "medium_access_constrained",
-      "publication_posture": "context_layer_with_explicit_caveat",
-      "site_page_url": "https://browser.sead.se/site/6382",
       "summary_label": "Unresolved time semantics",
       "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
     },
@@ -6217,19 +5969,6 @@
       "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
     },
     {
-      "site_id": "6298",
-      "site_name": "Husarö",
-      "country": "Sweden",
-      "temporal_strength": "inventory_only_or_unresolved",
-      "duration_posture": "duration_not_available",
-      "access_visibility": "site_page_only",
-      "normalization_risk": "medium_access_constrained",
-      "publication_posture": "context_layer_with_explicit_caveat",
-      "site_page_url": "https://browser.sead.se/site/6298",
-      "summary_label": "Unresolved time semantics",
-      "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
-    },
-    {
       "site_id": "6454",
       "site_name": "Husie bog",
       "country": "Sweden",
@@ -6438,19 +6177,6 @@
       "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
     },
     {
-      "site_id": "4784",
-      "site_name": "Härnön",
-      "country": "",
-      "temporal_strength": "inventory_only_or_unresolved",
-      "duration_posture": "broad_context_duration",
-      "access_visibility": "site_page_only",
-      "normalization_risk": "medium_access_constrained",
-      "publication_posture": "context_layer_with_explicit_caveat",
-      "site_page_url": "https://browser.sead.se/site/4784",
-      "summary_label": "",
-      "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
-    },
-    {
       "site_id": "211",
       "site_name": "Härnösand Raä 1",
       "country": "Sweden",
@@ -6581,19 +6307,6 @@
       "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
     },
     {
-      "site_id": "6425",
-      "site_name": "Hölö 320:1",
-      "country": "Sweden",
-      "temporal_strength": "inventory_only_or_unresolved",
-      "duration_posture": "duration_not_available",
-      "access_visibility": "site_page_only",
-      "normalization_risk": "medium_access_constrained",
-      "publication_posture": "context_layer_with_explicit_caveat",
-      "site_page_url": "https://browser.sead.se/site/6425",
-      "summary_label": "Unresolved time semantics",
-      "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
-    },
-    {
       "site_id": "5885",
       "site_name": "Hörnsjöfors",
       "country": "Sweden",
@@ -6681,19 +6394,6 @@
       "normalization_risk": "medium_access_constrained",
       "publication_posture": "context_layer_with_explicit_caveat",
       "site_page_url": "https://browser.sead.se/site/6300",
-      "summary_label": "Unresolved time semantics",
-      "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
-    },
-    {
-      "site_id": "5436",
-      "site_name": "Ingoy",
-      "country": "Norway",
-      "temporal_strength": "inventory_only_or_unresolved",
-      "duration_posture": "duration_not_available",
-      "access_visibility": "site_page_only",
-      "normalization_risk": "medium_access_constrained",
-      "publication_posture": "context_layer_with_explicit_caveat",
-      "site_page_url": "https://browser.sead.se/site/5436",
       "summary_label": "Unresolved time semantics",
       "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
     },
@@ -6929,19 +6629,6 @@
       "publication_posture": "context_layer_with_explicit_caveat",
       "site_page_url": "https://browser.sead.se/site/6440",
       "summary_label": "Unresolved time semantics",
-      "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
-    },
-    {
-      "site_id": "3666",
-      "site_name": "Juszkowo, pow. Pruszcz",
-      "country": "",
-      "temporal_strength": "inventory_only_or_unresolved",
-      "duration_posture": "broad_context_duration",
-      "access_visibility": "site_page_only",
-      "normalization_risk": "medium_access_constrained",
-      "publication_posture": "context_layer_with_explicit_caveat",
-      "site_page_url": "https://browser.sead.se/site/3666",
-      "summary_label": "",
       "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
     },
     {
@@ -7348,32 +7035,6 @@
       "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
     },
     {
-      "site_id": "3652",
-      "site_name": "Kastelholm",
-      "country": "",
-      "temporal_strength": "inventory_only_or_unresolved",
-      "duration_posture": "broad_context_duration",
-      "access_visibility": "site_page_only",
-      "normalization_risk": "medium_access_constrained",
-      "publication_posture": "context_layer_with_explicit_caveat",
-      "site_page_url": "https://browser.sead.se/site/3652",
-      "summary_label": "",
-      "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
-    },
-    {
-      "site_id": "127",
-      "site_name": "Kaupang i Skiringssal",
-      "country": "Norway",
-      "temporal_strength": "inventory_only_or_unresolved",
-      "duration_posture": "duration_not_available",
-      "access_visibility": "site_page_only",
-      "normalization_risk": "medium_access_constrained",
-      "publication_posture": "context_layer_with_explicit_caveat",
-      "site_page_url": "https://browser.sead.se/site/127",
-      "summary_label": "Unresolved time semantics",
-      "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
-    },
-    {
       "site_id": "5926",
       "site_name": "Kestads kyrka",
       "country": "Sweden",
@@ -7461,19 +7122,6 @@
       "normalization_risk": "medium_access_constrained",
       "publication_posture": "context_layer_with_explicit_caveat",
       "site_page_url": "https://browser.sead.se/site/5931",
-      "summary_label": "Unresolved time semantics",
-      "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
-    },
-    {
-      "site_id": "5932",
-      "site_name": "Klintahuset",
-      "country": "Sweden",
-      "temporal_strength": "inventory_only_or_unresolved",
-      "duration_posture": "duration_not_available",
-      "access_visibility": "site_page_only",
-      "normalization_risk": "medium_access_constrained",
-      "publication_posture": "context_layer_with_explicit_caveat",
-      "site_page_url": "https://browser.sead.se/site/5932",
       "summary_label": "Unresolved time semantics",
       "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
     },
@@ -7643,32 +7291,6 @@
       "normalization_risk": "medium_access_constrained",
       "publication_posture": "context_layer_with_explicit_caveat",
       "site_page_url": "https://browser.sead.se/site/291",
-      "summary_label": "Unresolved time semantics",
-      "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
-    },
-    {
-      "site_id": "5277",
-      "site_name": "Kreigers Flak",
-      "country": "",
-      "temporal_strength": "inventory_only_or_unresolved",
-      "duration_posture": "broad_context_duration",
-      "access_visibility": "site_page_only",
-      "normalization_risk": "medium_access_constrained",
-      "publication_posture": "context_layer_with_explicit_caveat",
-      "site_page_url": "https://browser.sead.se/site/5277",
-      "summary_label": "",
-      "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
-    },
-    {
-      "site_id": "6302",
-      "site_name": "Kringelvägen",
-      "country": "Sweden",
-      "temporal_strength": "inventory_only_or_unresolved",
-      "duration_posture": "duration_not_available",
-      "access_visibility": "site_page_only",
-      "normalization_risk": "medium_access_constrained",
-      "publication_posture": "context_layer_with_explicit_caveat",
-      "site_page_url": "https://browser.sead.se/site/6302",
       "summary_label": "Unresolved time semantics",
       "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
     },
@@ -8241,19 +7863,6 @@
       "normalization_risk": "medium_access_constrained",
       "publication_posture": "context_layer_with_explicit_caveat",
       "site_page_url": "https://browser.sead.se/site/5958",
-      "summary_label": "Unresolved time semantics",
-      "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
-    },
-    {
-      "site_id": "6384",
-      "site_name": "Landskrona 12:1",
-      "country": "Sweden",
-      "temporal_strength": "inventory_only_or_unresolved",
-      "duration_posture": "duration_not_available",
-      "access_visibility": "site_page_only",
-      "normalization_risk": "medium_access_constrained",
-      "publication_posture": "context_layer_with_explicit_caveat",
-      "site_page_url": "https://browser.sead.se/site/6384",
       "summary_label": "Unresolved time semantics",
       "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
     },
@@ -9064,19 +8673,6 @@
       "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
     },
     {
-      "site_id": "5988",
-      "site_name": "Lörans kapell",
-      "country": "Sweden",
-      "temporal_strength": "inventory_only_or_unresolved",
-      "duration_posture": "duration_not_available",
-      "access_visibility": "site_page_only",
-      "normalization_risk": "medium_access_constrained",
-      "publication_posture": "context_layer_with_explicit_caveat",
-      "site_page_url": "https://browser.sead.se/site/5988",
-      "summary_label": "Unresolved time semantics",
-      "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
-    },
-    {
       "site_id": "5989",
       "site_name": "Lösens kyrka",
       "country": "Sweden",
@@ -9086,19 +8682,6 @@
       "normalization_risk": "medium_access_constrained",
       "publication_posture": "context_layer_with_explicit_caveat",
       "site_page_url": "https://browser.sead.se/site/5989",
-      "summary_label": "Unresolved time semantics",
-      "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
-    },
-    {
-      "site_id": "4885",
-      "site_name": "Lövdalen",
-      "country": "Sweden",
-      "temporal_strength": "inventory_only_or_unresolved",
-      "duration_posture": "duration_not_available",
-      "access_visibility": "site_page_only",
-      "normalization_risk": "medium_access_constrained",
-      "publication_posture": "context_layer_with_explicit_caveat",
-      "site_page_url": "https://browser.sead.se/site/4885",
       "summary_label": "Unresolved time semantics",
       "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
     },
@@ -9233,32 +8816,6 @@
       "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
     },
     {
-      "site_id": "358",
-      "site_name": "Marskärskobben",
-      "country": "Sweden",
-      "temporal_strength": "inventory_only_or_unresolved",
-      "duration_posture": "duration_not_available",
-      "access_visibility": "site_page_only",
-      "normalization_risk": "medium_access_constrained",
-      "publication_posture": "context_layer_with_explicit_caveat",
-      "site_page_url": "https://browser.sead.se/site/358",
-      "summary_label": "Unresolved time semantics",
-      "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
-    },
-    {
-      "site_id": "6311",
-      "site_name": "Marstrand",
-      "country": "Sweden",
-      "temporal_strength": "inventory_only_or_unresolved",
-      "duration_posture": "duration_not_available",
-      "access_visibility": "site_page_only",
-      "normalization_risk": "medium_access_constrained",
-      "publication_posture": "context_layer_with_explicit_caveat",
-      "site_page_url": "https://browser.sead.se/site/6311",
-      "summary_label": "Unresolved time semantics",
-      "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
-    },
-    {
       "site_id": "6448",
       "site_name": "Martebomyr",
       "country": "Sweden",
@@ -9389,19 +8946,6 @@
       "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
     },
     {
-      "site_id": "4888",
-      "site_name": "Metsäpirtti",
-      "country": "",
-      "temporal_strength": "inventory_only_or_unresolved",
-      "duration_posture": "broad_context_duration",
-      "access_visibility": "site_page_only",
-      "normalization_risk": "medium_access_constrained",
-      "publication_posture": "context_layer_with_explicit_caveat",
-      "site_page_url": "https://browser.sead.se/site/4888",
-      "summary_label": "",
-      "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
-    },
-    {
       "site_id": "6012",
       "site_name": "Mjellrumsgården",
       "country": "Sweden",
@@ -9424,19 +8968,6 @@
       "normalization_risk": "medium_access_constrained",
       "publication_posture": "context_layer_with_explicit_caveat",
       "site_page_url": "https://browser.sead.se/site/6011",
-      "summary_label": "Unresolved time semantics",
-      "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
-    },
-    {
-      "site_id": "349",
-      "site_name": "Mjölingsören",
-      "country": "Sweden",
-      "temporal_strength": "inventory_only_or_unresolved",
-      "duration_posture": "duration_not_available",
-      "access_visibility": "site_page_only",
-      "normalization_risk": "medium_access_constrained",
-      "publication_posture": "context_layer_with_explicit_caveat",
-      "site_page_url": "https://browser.sead.se/site/349",
       "summary_label": "Unresolved time semantics",
       "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
     },
@@ -9688,19 +9219,6 @@
       "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
     },
     {
-      "site_id": "6017",
-      "site_name": "Mörtviksvägen",
-      "country": "Sweden",
-      "temporal_strength": "inventory_only_or_unresolved",
-      "duration_posture": "duration_not_available",
-      "access_visibility": "site_page_only",
-      "normalization_risk": "medium_access_constrained",
-      "publication_posture": "context_layer_with_explicit_caveat",
-      "site_page_url": "https://browser.sead.se/site/6017",
-      "summary_label": "Unresolved time semantics",
-      "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
-    },
-    {
       "site_id": "339",
       "site_name": "Naverstad 373",
       "country": "Sweden",
@@ -9775,19 +9293,6 @@
       "normalization_risk": "medium_access_constrained",
       "publication_posture": "context_layer_with_explicit_caveat",
       "site_page_url": "https://browser.sead.se/site/6026",
-      "summary_label": "Unresolved time semantics",
-      "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
-    },
-    {
-      "site_id": "332",
-      "site_name": "Nickösörarna",
-      "country": "Sweden",
-      "temporal_strength": "inventory_only_or_unresolved",
-      "duration_posture": "duration_not_available",
-      "access_visibility": "site_page_only",
-      "normalization_risk": "medium_access_constrained",
-      "publication_posture": "context_layer_with_explicit_caveat",
-      "site_page_url": "https://browser.sead.se/site/332",
       "summary_label": "Unresolved time semantics",
       "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
     },
@@ -9974,19 +9479,6 @@
       "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
     },
     {
-      "site_id": "289",
-      "site_name": "Norra Småholmen",
-      "country": "Sweden",
-      "temporal_strength": "inventory_only_or_unresolved",
-      "duration_posture": "duration_not_available",
-      "access_visibility": "site_page_only",
-      "normalization_risk": "medium_access_constrained",
-      "publication_posture": "context_layer_with_explicit_caveat",
-      "site_page_url": "https://browser.sead.se/site/289",
-      "summary_label": "Unresolved time semantics",
-      "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
-    },
-    {
       "site_id": "6034",
       "site_name": "Norra Strö kyrka",
       "country": "Sweden",
@@ -10101,19 +9593,6 @@
       "publication_posture": "context_layer_with_explicit_caveat",
       "site_page_url": "https://browser.sead.se/site/6031",
       "summary_label": "Unresolved time semantics",
-      "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
-    },
-    {
-      "site_id": "4562",
-      "site_name": "Novgorod: Troitsky",
-      "country": "",
-      "temporal_strength": "inventory_only_or_unresolved",
-      "duration_posture": "broad_context_duration",
-      "access_visibility": "site_page_only",
-      "normalization_risk": "medium_access_constrained",
-      "publication_posture": "context_layer_with_explicit_caveat",
-      "site_page_url": "https://browser.sead.se/site/4562",
-      "summary_label": "",
       "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
     },
     {
@@ -10663,32 +10142,6 @@
       "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
     },
     {
-      "site_id": "4",
-      "site_name": "Onsala 327",
-      "country": "Sweden",
-      "temporal_strength": "inventory_only_or_unresolved",
-      "duration_posture": "duration_not_available",
-      "access_visibility": "site_page_only",
-      "normalization_risk": "medium_access_constrained",
-      "publication_posture": "context_layer_with_explicit_caveat",
-      "site_page_url": "https://browser.sead.se/site/4",
-      "summary_label": "Unresolved time semantics",
-      "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
-    },
-    {
-      "site_id": "12",
-      "site_name": "Onsala Raä 369",
-      "country": "Sweden",
-      "temporal_strength": "inventory_only_or_unresolved",
-      "duration_posture": "duration_not_available",
-      "access_visibility": "site_page_only",
-      "normalization_risk": "medium_access_constrained",
-      "publication_posture": "context_layer_with_explicit_caveat",
-      "site_page_url": "https://browser.sead.se/site/12",
-      "summary_label": "Unresolved time semantics",
-      "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
-    },
-    {
       "site_id": "5665",
       "site_name": "Onsjöstugan",
       "country": "Sweden",
@@ -10725,19 +10178,6 @@
       "publication_posture": "context_layer_with_explicit_caveat",
       "site_page_url": "https://browser.sead.se/site/6064",
       "summary_label": "Unresolved time semantics",
-      "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
-    },
-    {
-      "site_id": "3528",
-      "site_name": "Otterböte",
-      "country": "",
-      "temporal_strength": "inventory_only_or_unresolved",
-      "duration_posture": "broad_context_duration",
-      "access_visibility": "site_page_only",
-      "normalization_risk": "medium_access_constrained",
-      "publication_posture": "context_layer_with_explicit_caveat",
-      "site_page_url": "https://browser.sead.se/site/3528",
-      "summary_label": "",
       "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
     },
     {
@@ -11222,19 +10662,6 @@
       "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
     },
     {
-      "site_id": "4981",
-      "site_name": "Raunis",
-      "country": "",
-      "temporal_strength": "inventory_only_or_unresolved",
-      "duration_posture": "broad_context_duration",
-      "access_visibility": "site_page_only",
-      "normalization_risk": "medium_access_constrained",
-      "publication_posture": "context_layer_with_explicit_caveat",
-      "site_page_url": "https://browser.sead.se/site/4981",
-      "summary_label": "",
-      "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
-    },
-    {
       "site_id": "6107",
       "site_name": "Renbergs i Öje",
       "country": "Sweden",
@@ -11287,19 +10714,6 @@
       "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
     },
     {
-      "site_id": "5448",
-      "site_name": "Riga",
-      "country": "",
-      "temporal_strength": "inventory_only_or_unresolved",
-      "duration_posture": "broad_context_duration",
-      "access_visibility": "site_page_only",
-      "normalization_risk": "medium_access_constrained",
-      "publication_posture": "context_layer_with_explicit_caveat",
-      "site_page_url": "https://browser.sead.se/site/5448",
-      "summary_label": "",
-      "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
-    },
-    {
       "site_id": "6317",
       "site_name": "Ringestena",
       "country": "Sweden",
@@ -11322,19 +10736,6 @@
       "normalization_risk": "medium_access_constrained",
       "publication_posture": "context_layer_with_explicit_caveat",
       "site_page_url": "https://browser.sead.se/site/6110",
-      "summary_label": "Unresolved time semantics",
-      "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
-    },
-    {
-      "site_id": "6318",
-      "site_name": "Ringsö",
-      "country": "Sweden",
-      "temporal_strength": "inventory_only_or_unresolved",
-      "duration_posture": "duration_not_available",
-      "access_visibility": "site_page_only",
-      "normalization_risk": "medium_access_constrained",
-      "publication_posture": "context_layer_with_explicit_caveat",
-      "site_page_url": "https://browser.sead.se/site/6318",
       "summary_label": "Unresolved time semantics",
       "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
     },
@@ -11378,19 +10779,6 @@
       "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
     },
     {
-      "site_id": "4605",
-      "site_name": "Rjurikovo Gorodisce",
-      "country": "",
-      "temporal_strength": "inventory_only_or_unresolved",
-      "duration_posture": "broad_context_duration",
-      "access_visibility": "site_page_only",
-      "normalization_risk": "medium_access_constrained",
-      "publication_posture": "context_layer_with_explicit_caveat",
-      "site_page_url": "https://browser.sead.se/site/4605",
-      "summary_label": "",
-      "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
-    },
-    {
       "site_id": "6113",
       "site_name": "Rombins i Östnor",
       "country": "Sweden",
@@ -11414,32 +10802,6 @@
       "publication_posture": "context_layer_with_explicit_caveat",
       "site_page_url": "https://browser.sead.se/site/6114",
       "summary_label": "Unresolved time semantics",
-      "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
-    },
-    {
-      "site_id": "3504",
-      "site_name": "Rosenhof",
-      "country": "",
-      "temporal_strength": "inventory_only_or_unresolved",
-      "duration_posture": "broad_context_duration",
-      "access_visibility": "site_page_only",
-      "normalization_risk": "medium_access_constrained",
-      "publication_posture": "context_layer_with_explicit_caveat",
-      "site_page_url": "https://browser.sead.se/site/3504",
-      "summary_label": "",
-      "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
-    },
-    {
-      "site_id": "3505",
-      "site_name": "Rosenhof",
-      "country": "",
-      "temporal_strength": "inventory_only_or_unresolved",
-      "duration_posture": "broad_context_duration",
-      "access_visibility": "site_page_only",
-      "normalization_risk": "medium_access_constrained",
-      "publication_posture": "context_layer_with_explicit_caveat",
-      "site_page_url": "https://browser.sead.se/site/3505",
-      "summary_label": "",
       "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
     },
     {
@@ -11625,19 +10987,6 @@
       "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
     },
     {
-      "site_id": "3500",
-      "site_name": "Ryurik Gorodishche",
-      "country": "",
-      "temporal_strength": "inventory_only_or_unresolved",
-      "duration_posture": "broad_context_duration",
-      "access_visibility": "site_page_only",
-      "normalization_risk": "medium_access_constrained",
-      "publication_posture": "context_layer_with_explicit_caveat",
-      "site_page_url": "https://browser.sead.se/site/3500",
-      "summary_label": "",
-      "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
-    },
-    {
       "site_id": "6105",
       "site_name": "Rättviks kyrka",
       "country": "Sweden",
@@ -11752,19 +11101,6 @@
       "publication_posture": "context_layer_with_explicit_caveat",
       "site_page_url": "https://browser.sead.se/site/6124",
       "summary_label": "Unresolved time semantics",
-      "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
-    },
-    {
-      "site_id": "4886",
-      "site_name": "Sakkola",
-      "country": "",
-      "temporal_strength": "inventory_only_or_unresolved",
-      "duration_posture": "broad_context_duration",
-      "access_visibility": "site_page_only",
-      "normalization_risk": "medium_access_constrained",
-      "publication_posture": "context_layer_with_explicit_caveat",
-      "site_page_url": "https://browser.sead.se/site/4886",
-      "summary_label": "",
       "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
     },
     {
@@ -11921,19 +11257,6 @@
       "publication_posture": "context_layer_with_explicit_caveat",
       "site_page_url": "https://browser.sead.se/site/6138",
       "summary_label": "Unresolved time semantics",
-      "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
-    },
-    {
-      "site_id": "3487",
-      "site_name": "Siggeneben",
-      "country": "",
-      "temporal_strength": "inventory_only_or_unresolved",
-      "duration_posture": "broad_context_duration",
-      "access_visibility": "site_page_only",
-      "normalization_risk": "medium_access_constrained",
-      "publication_posture": "context_layer_with_explicit_caveat",
-      "site_page_url": "https://browser.sead.se/site/3487",
-      "summary_label": "",
       "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
     },
     {
@@ -12132,19 +11455,6 @@
       "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
     },
     {
-      "site_id": "123",
-      "site_name": "Skjærvika",
-      "country": "Norway",
-      "temporal_strength": "inventory_only_or_unresolved",
-      "duration_posture": "duration_not_available",
-      "access_visibility": "site_page_only",
-      "normalization_risk": "medium_access_constrained",
-      "publication_posture": "context_layer_with_explicit_caveat",
-      "site_page_url": "https://browser.sead.se/site/123",
-      "summary_label": "Unresolved time semantics",
-      "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
-    },
-    {
       "site_id": "125",
       "site_name": "Skog Raä 7",
       "country": "Sweden",
@@ -12288,19 +11598,6 @@
       "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
     },
     {
-      "site_id": "2",
-      "site_name": "Skrea Raä 194",
-      "country": "Sweden",
-      "temporal_strength": "inventory_only_or_unresolved",
-      "duration_posture": "duration_not_available",
-      "access_visibility": "site_page_only",
-      "normalization_risk": "medium_access_constrained",
-      "publication_posture": "context_layer_with_explicit_caveat",
-      "site_page_url": "https://browser.sead.se/site/2",
-      "summary_label": "Unresolved time semantics",
-      "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
-    },
-    {
       "site_id": "115",
       "site_name": "Skrea Raä 195",
       "country": "Sweden",
@@ -12349,19 +11646,6 @@
       "normalization_risk": "medium_access_constrained",
       "publication_posture": "context_layer_with_explicit_caveat",
       "site_page_url": "https://browser.sead.se/site/6142",
-      "summary_label": "Unresolved time semantics",
-      "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
-    },
-    {
-      "site_id": "6455",
-      "site_name": "Skällvik 222:1",
-      "country": "Sweden",
-      "temporal_strength": "inventory_only_or_unresolved",
-      "duration_posture": "duration_not_available",
-      "access_visibility": "site_page_only",
-      "normalization_risk": "medium_access_constrained",
-      "publication_posture": "context_layer_with_explicit_caveat",
-      "site_page_url": "https://browser.sead.se/site/6455",
       "summary_label": "Unresolved time semantics",
       "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
     },
@@ -12648,19 +11932,6 @@
       "normalization_risk": "medium_access_constrained",
       "publication_posture": "context_layer_with_explicit_caveat",
       "site_page_url": "https://browser.sead.se/site/6165",
-      "summary_label": "Unresolved time semantics",
-      "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
-    },
-    {
-      "site_id": "6166",
-      "site_name": "Solumnshamn",
-      "country": "Sweden",
-      "temporal_strength": "inventory_only_or_unresolved",
-      "duration_posture": "duration_not_available",
-      "access_visibility": "site_page_only",
-      "normalization_risk": "medium_access_constrained",
-      "publication_posture": "context_layer_with_explicit_caveat",
-      "site_page_url": "https://browser.sead.se/site/6166",
       "summary_label": "Unresolved time semantics",
       "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
     },
@@ -13159,19 +12430,6 @@
       "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
     },
     {
-      "site_id": "350",
-      "site_name": "Stora Halmören",
-      "country": "Sweden",
-      "temporal_strength": "inventory_only_or_unresolved",
-      "duration_posture": "duration_not_available",
-      "access_visibility": "site_page_only",
-      "normalization_risk": "medium_access_constrained",
-      "publication_posture": "context_layer_with_explicit_caveat",
-      "site_page_url": "https://browser.sead.se/site/350",
-      "summary_label": "Unresolved time semantics",
-      "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
-    },
-    {
       "site_id": "3996",
       "site_name": "Stora Herrestads kyrka",
       "country": "Sweden",
@@ -13224,19 +12482,6 @@
       "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
     },
     {
-      "site_id": "374",
-      "site_name": "Stora Träskär",
-      "country": "Sweden",
-      "temporal_strength": "inventory_only_or_unresolved",
-      "duration_posture": "duration_not_available",
-      "access_visibility": "site_page_only",
-      "normalization_risk": "medium_access_constrained",
-      "publication_posture": "context_layer_with_explicit_caveat",
-      "site_page_url": "https://browser.sead.se/site/374",
-      "summary_label": "Unresolved time semantics",
-      "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
-    },
-    {
       "site_id": "6198",
       "site_name": "Storpers i Södra Kättbo",
       "country": "Sweden",
@@ -13260,19 +12505,6 @@
       "publication_posture": "context_layer_with_explicit_caveat",
       "site_page_url": "https://browser.sead.se/site/6199",
       "summary_label": "Unresolved time semantics",
-      "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
-    },
-    {
-      "site_id": "5154",
-      "site_name": "Stralsund",
-      "country": "",
-      "temporal_strength": "inventory_only_or_unresolved",
-      "duration_posture": "broad_context_duration",
-      "access_visibility": "site_page_only",
-      "normalization_risk": "medium_access_constrained",
-      "publication_posture": "context_layer_with_explicit_caveat",
-      "site_page_url": "https://browser.sead.se/site/5154",
-      "summary_label": "",
       "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
     },
     {
@@ -13445,19 +12677,6 @@
       "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
     },
     {
-      "site_id": "239",
-      "site_name": "Styrsö Raä 117",
-      "country": "Sweden",
-      "temporal_strength": "inventory_only_or_unresolved",
-      "duration_posture": "duration_not_available",
-      "access_visibility": "site_page_only",
-      "normalization_risk": "medium_access_constrained",
-      "publication_posture": "context_layer_with_explicit_caveat",
-      "site_page_url": "https://browser.sead.se/site/239",
-      "summary_label": "Unresolved time semantics",
-      "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
-    },
-    {
       "site_id": "6184",
       "site_name": "Stäket",
       "country": "Sweden",
@@ -13467,19 +12686,6 @@
       "normalization_risk": "medium_access_constrained",
       "publication_posture": "context_layer_with_explicit_caveat",
       "site_page_url": "https://browser.sead.se/site/6184",
-      "summary_label": "Unresolved time semantics",
-      "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
-    },
-    {
-      "site_id": "6457",
-      "site_name": "Stäksundet",
-      "country": "Sweden",
-      "temporal_strength": "inventory_only_or_unresolved",
-      "duration_posture": "duration_not_available",
-      "access_visibility": "site_page_only",
-      "normalization_risk": "medium_access_constrained",
-      "publication_posture": "context_layer_with_explicit_caveat",
-      "site_page_url": "https://browser.sead.se/site/6457",
       "summary_label": "Unresolved time semantics",
       "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
     },
@@ -13584,19 +12790,6 @@
       "normalization_risk": "medium_access_constrained",
       "publication_posture": "context_layer_with_explicit_caveat",
       "site_page_url": "https://browser.sead.se/site/6212",
-      "summary_label": "Unresolved time semantics",
-      "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
-    },
-    {
-      "site_id": "6213",
-      "site_name": "Svanebäck",
-      "country": "Sweden",
-      "temporal_strength": "inventory_only_or_unresolved",
-      "duration_posture": "duration_not_available",
-      "access_visibility": "site_page_only",
-      "normalization_risk": "medium_access_constrained",
-      "publication_posture": "context_layer_with_explicit_caveat",
-      "site_page_url": "https://browser.sead.se/site/6213",
       "summary_label": "Unresolved time semantics",
       "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
     },
@@ -13809,19 +13002,6 @@
       "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
     },
     {
-      "site_id": "135",
-      "site_name": "Sværholt",
-      "country": "Norway",
-      "temporal_strength": "inventory_only_or_unresolved",
-      "duration_posture": "duration_not_available",
-      "access_visibility": "site_page_only",
-      "normalization_risk": "medium_access_constrained",
-      "publication_posture": "context_layer_with_explicit_caveat",
-      "site_page_url": "https://browser.sead.se/site/135",
-      "summary_label": "Unresolved time semantics",
-      "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
-    },
-    {
       "site_id": "6221",
       "site_name": "Sydöstra härbret Zorns gammelgård",
       "country": "Sweden",
@@ -13832,19 +13012,6 @@
       "publication_posture": "context_layer_with_explicit_caveat",
       "site_page_url": "https://browser.sead.se/site/6221",
       "summary_label": "Unresolved time semantics",
-      "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
-    },
-    {
-      "site_id": "3457",
-      "site_name": "Syllöda",
-      "country": "",
-      "temporal_strength": "inventory_only_or_unresolved",
-      "duration_posture": "broad_context_duration",
-      "access_visibility": "site_page_only",
-      "normalization_risk": "medium_access_constrained",
-      "publication_posture": "context_layer_with_explicit_caveat",
-      "site_page_url": "https://browser.sead.se/site/3457",
-      "summary_label": "",
       "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
     },
     {
@@ -14420,19 +13587,6 @@
       "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
     },
     {
-      "site_id": "3447",
-      "site_name": "Tjärnan",
-      "country": "",
-      "temporal_strength": "inventory_only_or_unresolved",
-      "duration_posture": "broad_context_duration",
-      "access_visibility": "site_page_only",
-      "normalization_risk": "medium_access_constrained",
-      "publication_posture": "context_layer_with_explicit_caveat",
-      "site_page_url": "https://browser.sead.se/site/3447",
-      "summary_label": "",
-      "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
-    },
-    {
       "site_id": "6231",
       "site_name": "Tobaksladan",
       "country": "Sweden",
@@ -14654,19 +13808,6 @@
       "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
     },
     {
-      "site_id": "300",
-      "site_name": "Torö Raä 75",
-      "country": "Sweden",
-      "temporal_strength": "inventory_only_or_unresolved",
-      "duration_posture": "duration_not_available",
-      "access_visibility": "site_page_only",
-      "normalization_risk": "medium_access_constrained",
-      "publication_posture": "context_layer_with_explicit_caveat",
-      "site_page_url": "https://browser.sead.se/site/300",
-      "summary_label": "Unresolved time semantics",
-      "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
-    },
-    {
       "site_id": "375",
       "site_name": "Tossene 446",
       "country": "Sweden",
@@ -14758,19 +13899,6 @@
       "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
     },
     {
-      "site_id": "3441",
-      "site_name": "Troitski",
-      "country": "",
-      "temporal_strength": "inventory_only_or_unresolved",
-      "duration_posture": "broad_context_duration",
-      "access_visibility": "site_page_only",
-      "normalization_risk": "medium_access_constrained",
-      "publication_posture": "context_layer_with_explicit_caveat",
-      "site_page_url": "https://browser.sead.se/site/3441",
-      "summary_label": "",
-      "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
-    },
-    {
       "site_id": "6242",
       "site_name": "Trulsatorpet",
       "country": "Sweden",
@@ -14858,19 +13986,6 @@
       "normalization_risk": "medium_access_constrained",
       "publication_posture": "context_layer_with_explicit_caveat",
       "site_page_url": "https://browser.sead.se/site/6244",
-      "summary_label": "Unresolved time semantics",
-      "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
-    },
-    {
-      "site_id": "6327",
-      "site_name": "Tuna",
-      "country": "Sweden",
-      "temporal_strength": "inventory_only_or_unresolved",
-      "duration_posture": "duration_not_available",
-      "access_visibility": "site_page_only",
-      "normalization_risk": "medium_access_constrained",
-      "publication_posture": "context_layer_with_explicit_caveat",
-      "site_page_url": "https://browser.sead.se/site/6327",
       "summary_label": "Unresolved time semantics",
       "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
     },
@@ -14975,19 +14090,6 @@
       "normalization_risk": "medium_access_constrained",
       "publication_posture": "context_layer_with_explicit_caveat",
       "site_page_url": "https://browser.sead.se/site/400",
-      "summary_label": "Unresolved time semantics",
-      "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
-    },
-    {
-      "site_id": "6246",
-      "site_name": "Tynningö",
-      "country": "Sweden",
-      "temporal_strength": "inventory_only_or_unresolved",
-      "duration_posture": "duration_not_available",
-      "access_visibility": "site_page_only",
-      "normalization_risk": "medium_access_constrained",
-      "publication_posture": "context_layer_with_explicit_caveat",
-      "site_page_url": "https://browser.sead.se/site/6246",
       "summary_label": "Unresolved time semantics",
       "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
     },
@@ -15499,19 +14601,6 @@
       "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
     },
     {
-      "site_id": "6329",
-      "site_name": "Vallagatan",
-      "country": "Sweden",
-      "temporal_strength": "inventory_only_or_unresolved",
-      "duration_posture": "duration_not_available",
-      "access_visibility": "site_page_only",
-      "normalization_risk": "medium_access_constrained",
-      "publication_posture": "context_layer_with_explicit_caveat",
-      "site_page_url": "https://browser.sead.se/site/6329",
-      "summary_label": "Unresolved time semantics",
-      "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
-    },
-    {
       "site_id": "6258",
       "site_name": "Vallby kyrka",
       "country": "Sweden",
@@ -16006,19 +15095,6 @@
       "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
     },
     {
-      "site_id": "6356",
-      "site_name": "Västervik 94:1",
-      "country": "Sweden",
-      "temporal_strength": "inventory_only_or_unresolved",
-      "duration_posture": "duration_not_available",
-      "access_visibility": "site_page_only",
-      "normalization_risk": "medium_access_constrained",
-      "publication_posture": "context_layer_with_explicit_caveat",
-      "site_page_url": "https://browser.sead.se/site/6356",
-      "summary_label": "Unresolved time semantics",
-      "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
-    },
-    {
       "site_id": "6402",
       "site_name": "Västerås 232:1",
       "country": "Sweden",
@@ -16149,19 +15225,6 @@
       "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
     },
     {
-      "site_id": "4720",
-      "site_name": "Westerland",
-      "country": "",
-      "temporal_strength": "inventory_only_or_unresolved",
-      "duration_posture": "duration_not_available",
-      "access_visibility": "site_page_only",
-      "normalization_risk": "medium_access_constrained",
-      "publication_posture": "context_layer_with_explicit_caveat",
-      "site_page_url": "https://browser.sead.se/site/4720",
-      "summary_label": "",
-      "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
-    },
-    {
       "site_id": "3939",
       "site_name": "Westööska huset",
       "country": "Sweden",
@@ -16236,19 +15299,6 @@
       "normalization_risk": "medium_access_constrained",
       "publication_posture": "context_layer_with_explicit_caveat",
       "site_page_url": "https://browser.sead.se/site/178",
-      "summary_label": "Unresolved time semantics",
-      "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
-    },
-    {
-      "site_id": "258",
-      "site_name": "Ägglösen",
-      "country": "Sweden",
-      "temporal_strength": "inventory_only_or_unresolved",
-      "duration_posture": "duration_not_available",
-      "access_visibility": "site_page_only",
-      "normalization_risk": "medium_access_constrained",
-      "publication_posture": "context_layer_with_explicit_caveat",
-      "site_page_url": "https://browser.sead.se/site/258",
       "summary_label": "Unresolved time semantics",
       "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
     },
@@ -16799,19 +15849,6 @@
       "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
     },
     {
-      "site_id": "4572",
-      "site_name": "Øvre Kvilhaugmyra",
-      "country": "",
-      "temporal_strength": "inventory_only_or_unresolved",
-      "duration_posture": "broad_context_duration",
-      "access_visibility": "site_page_only",
-      "normalization_risk": "medium_access_constrained",
-      "publication_posture": "context_layer_with_explicit_caveat",
-      "site_page_url": "https://browser.sead.se/site/4572",
-      "summary_label": "",
-      "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
-    },
-    {
       "site_id": "3827",
       "site_name": "12709 Stenkumla",
       "country": "Sweden",
@@ -17020,19 +16057,6 @@
       "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
     },
     {
-      "site_id": "4210",
-      "site_name": "Boqvistudden",
-      "country": "Sweden",
-      "temporal_strength": "numeric_site_span",
-      "duration_posture": "duration_span_visible",
-      "access_visibility": "site_page_only",
-      "normalization_risk": "medium_access_constrained",
-      "publication_posture": "context_layer_with_explicit_caveat",
-      "site_page_url": "https://browser.sead.se/site/4210",
-      "summary_label": "124-159 BP",
-      "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
-    },
-    {
       "site_id": "4208",
       "site_name": "Borgholms stadsmuseum",
       "country": "Sweden",
@@ -17108,19 +16132,6 @@
       "publication_posture": "context_layer_with_explicit_caveat",
       "site_page_url": "https://browser.sead.se/site/4196",
       "summary_label": "249 BP",
-      "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
-    },
-    {
-      "site_id": "4188",
-      "site_name": "Djursnäs säteri",
-      "country": "Sweden",
-      "temporal_strength": "numeric_site_span",
-      "duration_posture": "duration_span_visible",
-      "access_visibility": "site_page_only",
-      "normalization_risk": "medium_access_constrained",
-      "publication_posture": "context_layer_with_explicit_caveat",
-      "site_page_url": "https://browser.sead.se/site/4188",
-      "summary_label": "118-190 BP",
       "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
     },
     {
@@ -17368,19 +16379,6 @@
       "publication_posture": "context_layer_with_explicit_caveat",
       "site_page_url": "https://browser.sead.se/site/3909",
       "summary_label": "114-184 BP",
-      "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
-    },
-    {
-      "site_id": "4148",
-      "site_name": "Grönsö gård",
-      "country": "Sweden",
-      "temporal_strength": "numeric_site_span",
-      "duration_posture": "duration_span_visible",
-      "access_visibility": "site_page_only",
-      "normalization_risk": "medium_access_constrained",
-      "publication_posture": "context_layer_with_explicit_caveat",
-      "site_page_url": "https://browser.sead.se/site/4148",
-      "summary_label": "31-140 BP",
       "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
     },
     {
@@ -17735,19 +16733,6 @@
       "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
     },
     {
-      "site_id": "3891",
-      "site_name": "Kvarteret Båtsmannen",
-      "country": "Sweden",
-      "temporal_strength": "numeric_site_span",
-      "duration_posture": "duration_span_visible",
-      "access_visibility": "site_page_only",
-      "normalization_risk": "medium_access_constrained",
-      "publication_posture": "context_layer_with_explicit_caveat",
-      "site_page_url": "https://browser.sead.se/site/3891",
-      "summary_label": "175-201 BP",
-      "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
-    },
-    {
       "site_id": "3889",
       "site_name": "Kvarteret Fältskären",
       "country": "Sweden",
@@ -17839,19 +16824,6 @@
       "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
     },
     {
-      "site_id": "3876",
-      "site_name": "Kvarteret Skonaren",
-      "country": "Sweden",
-      "temporal_strength": "numeric_site_span",
-      "duration_posture": "duration_span_visible",
-      "access_visibility": "site_page_only",
-      "normalization_risk": "medium_access_constrained",
-      "publication_posture": "context_layer_with_explicit_caveat",
-      "site_page_url": "https://browser.sead.se/site/3876",
-      "summary_label": "203-211 BP",
-      "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
-    },
-    {
       "site_id": "3875",
       "site_name": "Kvarteret Specksrum",
       "country": "Sweden",
@@ -17878,32 +16850,6 @@
       "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
     },
     {
-      "site_id": "4086",
-      "site_name": "Källa gamla kyrka",
-      "country": "Sweden",
-      "temporal_strength": "numeric_site_span",
-      "duration_posture": "duration_span_visible",
-      "access_visibility": "site_page_only",
-      "normalization_risk": "medium_access_constrained",
-      "publication_posture": "context_layer_with_explicit_caveat",
-      "site_page_url": "https://browser.sead.se/site/4086",
-      "summary_label": "630-645 BP",
-      "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
-    },
-    {
-      "site_id": "4079",
-      "site_name": "Lilla Lögla",
-      "country": "Sweden",
-      "temporal_strength": "numeric_site_span",
-      "duration_posture": "duration_span_visible",
-      "access_visibility": "site_page_only",
-      "normalization_risk": "medium_access_constrained",
-      "publication_posture": "context_layer_with_explicit_caveat",
-      "site_page_url": "https://browser.sead.se/site/4079",
-      "summary_label": "80-91 BP",
-      "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
-    },
-    {
       "site_id": "4078",
       "site_name": "Lilla Rotsunda",
       "country": "Sweden",
@@ -17914,19 +16860,6 @@
       "publication_posture": "context_layer_with_explicit_caveat",
       "site_page_url": "https://browser.sead.se/site/4078",
       "summary_label": "145-147 BP",
-      "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
-    },
-    {
-      "site_id": "4077",
-      "site_name": "Lilla Rätö gård",
-      "country": "Sweden",
-      "temporal_strength": "numeric_site_span",
-      "duration_posture": "duration_span_visible",
-      "access_visibility": "site_page_only",
-      "normalization_risk": "medium_access_constrained",
-      "publication_posture": "context_layer_with_explicit_caveat",
-      "site_page_url": "https://browser.sead.se/site/4077",
-      "summary_label": "164-174 BP",
       "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
     },
     {
@@ -17995,19 +16928,6 @@
       "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
     },
     {
-      "site_id": "3868",
-      "site_name": "Lögla",
-      "country": "Sweden",
-      "temporal_strength": "numeric_site_span",
-      "duration_posture": "point_like_or_single_year",
-      "access_visibility": "site_page_only",
-      "normalization_risk": "medium_access_constrained",
-      "publication_posture": "context_layer_with_explicit_caveat",
-      "site_page_url": "https://browser.sead.se/site/3868",
-      "summary_label": "0 BP",
-      "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
-    },
-    {
       "site_id": "3865",
       "site_name": "Mariannelund",
       "country": "Sweden",
@@ -18044,19 +16964,6 @@
       "publication_posture": "context_layer_with_explicit_caveat",
       "site_page_url": "https://browser.sead.se/site/3864",
       "summary_label": "92 BP",
-      "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
-    },
-    {
-      "site_id": "4057",
-      "site_name": "Möllebacken",
-      "country": "Sweden",
-      "temporal_strength": "numeric_site_span",
-      "duration_posture": "duration_span_visible",
-      "access_visibility": "site_page_only",
-      "normalization_risk": "medium_access_constrained",
-      "publication_posture": "context_layer_with_explicit_caveat",
-      "site_page_url": "https://browser.sead.se/site/4057",
-      "summary_label": "178-196 BP",
       "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
     },
     {
@@ -18164,19 +17071,6 @@
       "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
     },
     {
-      "site_id": "4032",
-      "site_name": "Rydboholms slott",
-      "country": "Sweden",
-      "temporal_strength": "numeric_site_span",
-      "duration_posture": "duration_span_visible",
-      "access_visibility": "site_page_only",
-      "normalization_risk": "medium_access_constrained",
-      "publication_posture": "context_layer_with_explicit_caveat",
-      "site_page_url": "https://browser.sead.se/site/4032",
-      "summary_label": "214-403 BP",
-      "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
-    },
-    {
       "site_id": "3860",
       "site_name": "Ryssebo",
       "country": "Sweden",
@@ -18226,19 +17120,6 @@
       "publication_posture": "context_layer_with_explicit_caveat",
       "site_page_url": "https://browser.sead.se/site/4028",
       "summary_label": "356 BP",
-      "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
-    },
-    {
-      "site_id": "4026",
-      "site_name": "Sandemar slott",
-      "country": "Sweden",
-      "temporal_strength": "numeric_site_span",
-      "duration_posture": "point_like_or_single_year",
-      "access_visibility": "site_page_only",
-      "normalization_risk": "medium_access_constrained",
-      "publication_posture": "context_layer_with_explicit_caveat",
-      "site_page_url": "https://browser.sead.se/site/4026",
-      "summary_label": "104 BP",
       "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
     },
     {
@@ -18564,19 +17445,6 @@
       "publication_posture": "context_layer_with_explicit_caveat",
       "site_page_url": "https://browser.sead.se/site/3980",
       "summary_label": "149-166 BP",
-      "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
-    },
-    {
-      "site_id": "3979",
-      "site_name": "Torö kyrka",
-      "country": "Sweden",
-      "temporal_strength": "numeric_site_span",
-      "duration_posture": "duration_span_visible",
-      "access_visibility": "site_page_only",
-      "normalization_risk": "medium_access_constrained",
-      "publication_posture": "context_layer_with_explicit_caveat",
-      "site_page_url": "https://browser.sead.se/site/3979",
-      "summary_label": "215-216 BP",
       "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
     },
     {
@@ -19685,19 +18553,6 @@
       "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
     },
     {
-      "site_id": "4911",
-      "site_name": "Blomøy",
-      "country": "Norway",
-      "temporal_strength": "numeric_span_with_contextual_caveat",
-      "duration_posture": "duration_span_visible",
-      "access_visibility": "site_page_only",
-      "normalization_risk": "medium_contextual_numeric_mix",
-      "publication_posture": "context_layer_with_explicit_caveat",
-      "site_page_url": "https://browser.sead.se/site/4911",
-      "summary_label": "Lateglacial (10000-13500 BP)",
-      "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
-    },
-    {
       "site_id": "4287",
       "site_name": "Boliden",
       "country": "Sweden",
@@ -20556,19 +19411,6 @@
       "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
     },
     {
-      "site_id": "4392",
-      "site_name": "Fakse Bugt",
-      "country": "Denmark",
-      "temporal_strength": "numeric_span_with_contextual_caveat",
-      "duration_posture": "duration_span_visible",
-      "access_visibility": "site_page_only",
-      "normalization_risk": "medium_contextual_numeric_mix",
-      "publication_posture": "context_layer_with_explicit_caveat",
-      "site_page_url": "https://browser.sead.se/site/4392",
-      "summary_label": "Lateglacial (10000-13500 BP)",
-      "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
-    },
-    {
       "site_id": "4176",
       "site_name": "Farhults kyrka",
       "country": "Sweden",
@@ -20985,19 +19827,6 @@
       "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
     },
     {
-      "site_id": "4416",
-      "site_name": "Godøy",
-      "country": "Norway",
-      "temporal_strength": "numeric_span_with_contextual_caveat",
-      "duration_posture": "duration_span_visible",
-      "access_visibility": "site_page_only",
-      "normalization_risk": "medium_contextual_numeric_mix",
-      "publication_posture": "context_layer_with_explicit_caveat",
-      "site_page_url": "https://browser.sead.se/site/4416",
-      "summary_label": "Lateglacial Interstadial; Lateglacial (10790-13096 BP)",
-      "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
-    },
-    {
       "site_id": "4420",
       "site_name": "Goteborg",
       "country": "Sweden",
@@ -21021,19 +19850,6 @@
       "publication_posture": "context_layer_with_explicit_caveat",
       "site_page_url": "https://browser.sead.se/site/4421",
       "summary_label": "Post Medieval (0-400 BP)",
-      "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
-    },
-    {
-      "site_id": "3723",
-      "site_name": "Gotska Sandön",
-      "country": "Sweden",
-      "temporal_strength": "numeric_span_with_contextual_caveat",
-      "duration_posture": "duration_span_visible",
-      "access_visibility": "site_page_only",
-      "normalization_risk": "medium_contextual_numeric_mix",
-      "publication_posture": "context_layer_with_explicit_caveat",
-      "site_page_url": "https://browser.sead.se/site/3723",
-      "summary_label": "Viking (850-1150 BP)",
       "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
     },
     {
@@ -21073,19 +19889,6 @@
       "publication_posture": "context_layer_with_explicit_caveat",
       "site_page_url": "https://browser.sead.se/site/3720",
       "summary_label": "Viking (850-1150 BP)",
-      "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
-    },
-    {
-      "site_id": "3717",
-      "site_name": "Grundskatan",
-      "country": "Sweden",
-      "temporal_strength": "numeric_span_with_contextual_caveat",
-      "duration_posture": "duration_span_visible",
-      "access_visibility": "site_page_only",
-      "normalization_risk": "medium_contextual_numeric_mix",
-      "publication_posture": "context_layer_with_explicit_caveat",
-      "site_page_url": "https://browser.sead.se/site/3717",
-      "summary_label": "Medieval Scandinavia (450-900 BP)",
       "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
     },
     {
@@ -21375,19 +20178,6 @@
       "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
     },
     {
-      "site_id": "4137",
-      "site_name": "Halls fiskeläge",
-      "country": "Sweden",
-      "temporal_strength": "numeric_span_with_contextual_caveat",
-      "duration_posture": "duration_span_visible",
-      "access_visibility": "site_page_only",
-      "normalization_risk": "medium_contextual_numeric_mix",
-      "publication_posture": "context_layer_with_explicit_caveat",
-      "site_page_url": "https://browser.sead.se/site/4137",
-      "summary_label": "220-243 BP",
-      "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
-    },
-    {
       "site_id": "4136",
       "site_name": "Hallstorps kyrka",
       "country": "Sweden",
@@ -21463,19 +20253,6 @@
       "publication_posture": "context_layer_with_explicit_caveat",
       "site_page_url": "https://browser.sead.se/site/3704",
       "summary_label": "Migration period Scandinavia; Roman Iron Age (1400-1950 BP)",
-      "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
-    },
-    {
-      "site_id": "4432",
-      "site_name": "Hanö",
-      "country": "Sweden",
-      "temporal_strength": "numeric_span_with_contextual_caveat",
-      "duration_posture": "duration_span_visible",
-      "access_visibility": "site_page_only",
-      "normalization_risk": "medium_contextual_numeric_mix",
-      "publication_posture": "context_layer_with_explicit_caveat",
-      "site_page_url": "https://browser.sead.se/site/4432",
-      "summary_label": "Early Holocene (7000-11190 BP)",
       "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
     },
     {
@@ -21723,19 +20500,6 @@
       "publication_posture": "context_layer_with_explicit_caveat",
       "site_page_url": "https://browser.sead.se/site/4857",
       "summary_label": "Early Weichselian (45000-122000 BP)",
-      "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
-    },
-    {
-      "site_id": "5082",
-      "site_name": "Hirvineva (Oulais)",
-      "country": "Finland",
-      "temporal_strength": "numeric_span_with_contextual_caveat",
-      "duration_posture": "duration_span_visible",
-      "access_visibility": "site_page_only",
-      "normalization_risk": "medium_contextual_numeric_mix",
-      "publication_posture": "context_layer_with_explicit_caveat",
-      "site_page_url": "https://browser.sead.se/site/5082",
-      "summary_label": "Holocene (0-10000 BP)",
       "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
     },
     {
@@ -22103,19 +20867,6 @@
       "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
     },
     {
-      "site_id": "4430",
-      "site_name": "Håkulls Mosse, Kullaberg",
-      "country": "Sweden",
-      "temporal_strength": "numeric_span_with_contextual_caveat",
-      "duration_posture": "duration_span_visible",
-      "access_visibility": "site_page_only",
-      "normalization_risk": "medium_contextual_numeric_mix",
-      "publication_posture": "context_layer_with_explicit_caveat",
-      "site_page_url": "https://browser.sead.se/site/4430",
-      "summary_label": "Lateglacial (10000-13500 BP)",
-      "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
-    },
-    {
       "site_id": "3675",
       "site_name": "Högom",
       "country": "Sweden",
@@ -22178,19 +20929,6 @@
       "publication_posture": "context_layer_with_explicit_caveat",
       "site_page_url": "https://browser.sead.se/site/5564",
       "summary_label": "Medieval (400-1550 BP)",
-      "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
-    },
-    {
-      "site_id": "4889",
-      "site_name": "Ilmola",
-      "country": "Finland",
-      "temporal_strength": "numeric_span_with_contextual_caveat",
-      "duration_posture": "duration_span_visible",
-      "access_visibility": "site_page_only",
-      "normalization_risk": "medium_contextual_numeric_mix",
-      "publication_posture": "context_layer_with_explicit_caveat",
-      "site_page_url": "https://browser.sead.se/site/4889",
-      "summary_label": "Holocene (0-10000 BP)",
       "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
     },
     {
@@ -22282,19 +21020,6 @@
       "publication_posture": "context_layer_with_explicit_caveat",
       "site_page_url": "https://browser.sead.se/site/3669",
       "summary_label": "Bronze Age Period II - VI (2450-3450 BP)",
-      "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
-    },
-    {
-      "site_id": "3668",
-      "site_name": "Ire",
-      "country": "Sweden",
-      "temporal_strength": "numeric_span_with_contextual_caveat",
-      "duration_posture": "duration_span_visible",
-      "access_visibility": "site_page_only",
-      "normalization_risk": "medium_contextual_numeric_mix",
-      "publication_posture": "context_layer_with_explicit_caveat",
-      "site_page_url": "https://browser.sead.se/site/3668",
-      "summary_label": "Middle neolithic S Scandinavia (4350-5250 BP)",
       "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
     },
     {
@@ -22506,19 +21231,6 @@
       "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
     },
     {
-      "site_id": "5614",
-      "site_name": "Kalverev",
-      "country": "Denmark",
-      "temporal_strength": "numeric_span_with_contextual_caveat",
-      "duration_posture": "duration_span_visible",
-      "access_visibility": "site_page_only",
-      "normalization_risk": "medium_contextual_numeric_mix",
-      "publication_posture": "context_layer_with_explicit_caveat",
-      "site_page_url": "https://browser.sead.se/site/5614",
-      "summary_label": "Medieval; CAL_1250-1255_AD (400-1550 BP)",
-      "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
-    },
-    {
       "site_id": "5313",
       "site_name": "Kandestederne",
       "country": "Denmark",
@@ -22568,19 +21280,6 @@
       "publication_posture": "context_layer_with_explicit_caveat",
       "site_page_url": "https://browser.sead.se/site/3655",
       "summary_label": "Quaternary; Middle neolithic S Scandinavia; Early neolithic S Scandinavia (4350-2700000 BP)",
-      "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
-    },
-    {
-      "site_id": "3654",
-      "site_name": "Karlskrona",
-      "country": "Sweden",
-      "temporal_strength": "numeric_span_with_contextual_caveat",
-      "duration_posture": "duration_span_visible",
-      "access_visibility": "site_page_only",
-      "normalization_risk": "medium_contextual_numeric_mix",
-      "publication_posture": "context_layer_with_explicit_caveat",
-      "site_page_url": "https://browser.sead.se/site/3654",
-      "summary_label": "CAL_PERIOD_300-200_BP (150-250 BP)",
       "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
     },
     {
@@ -22776,19 +21475,6 @@
       "publication_posture": "context_layer_with_explicit_caveat",
       "site_page_url": "https://browser.sead.se/site/4099",
       "summary_label": "168 BP",
-      "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
-    },
-    {
-      "site_id": "4479",
-      "site_name": "Kobbelgård",
-      "country": "Denmark",
-      "temporal_strength": "numeric_span_with_contextual_caveat",
-      "duration_posture": "duration_span_visible",
-      "access_visibility": "site_page_only",
-      "normalization_risk": "medium_contextual_numeric_mix",
-      "publication_posture": "context_layer_with_explicit_caveat",
-      "site_page_url": "https://browser.sead.se/site/4479",
-      "summary_label": "Weichselian (10000-122000 BP)",
       "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
     },
     {
@@ -23403,19 +22089,6 @@
       "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
     },
     {
-      "site_id": "3877",
-      "site_name": "Kvarteret Rådhuset",
-      "country": "Sweden",
-      "temporal_strength": "numeric_span_with_contextual_caveat",
-      "duration_posture": "duration_span_visible",
-      "access_visibility": "site_page_only",
-      "normalization_risk": "medium_contextual_numeric_mix",
-      "publication_posture": "context_layer_with_explicit_caveat",
-      "site_page_url": "https://browser.sead.se/site/3877",
-      "summary_label": "86-101 BP",
-      "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
-    },
-    {
       "site_id": "3874",
       "site_name": "Kvarteret Svartbrodern",
       "country": "Sweden",
@@ -23559,19 +22232,6 @@
       "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
     },
     {
-      "site_id": "4084",
-      "site_name": "Kärnan",
-      "country": "Sweden",
-      "temporal_strength": "numeric_span_with_contextual_caveat",
-      "duration_posture": "duration_span_visible",
-      "access_visibility": "site_page_only",
-      "normalization_risk": "medium_contextual_numeric_mix",
-      "publication_posture": "context_layer_with_explicit_caveat",
-      "site_page_url": "https://browser.sead.se/site/4084",
-      "summary_label": "1-677 BP",
-      "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
-    },
-    {
       "site_id": "3606",
       "site_name": "Kärringsjön",
       "country": "Sweden",
@@ -23634,19 +22294,6 @@
       "publication_posture": "context_layer_with_explicit_caveat",
       "site_page_url": "https://browser.sead.se/site/4481",
       "summary_label": "Lateglacial Interstadial (8610-14741 BP)",
-      "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
-    },
-    {
-      "site_id": "4487",
-      "site_name": "Langanes1",
-      "country": "Norway",
-      "temporal_strength": "numeric_span_with_contextual_caveat",
-      "duration_posture": "duration_span_visible",
-      "access_visibility": "site_page_only",
-      "normalization_risk": "medium_contextual_numeric_mix",
-      "publication_posture": "context_layer_with_explicit_caveat",
-      "site_page_url": "https://browser.sead.se/site/4487",
-      "summary_label": "Medieval (400-1550 BP)",
       "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
     },
     {
@@ -24144,19 +22791,6 @@
       "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
     },
     {
-      "site_id": "3575",
-      "site_name": "Lundåkra",
-      "country": "Sweden",
-      "temporal_strength": "numeric_span_with_contextual_caveat",
-      "duration_posture": "duration_span_visible",
-      "access_visibility": "site_page_only",
-      "normalization_risk": "medium_contextual_numeric_mix",
-      "publication_posture": "context_layer_with_explicit_caveat",
-      "site_page_url": "https://browser.sead.se/site/3575",
-      "summary_label": "Bronze Age Period IV - VI (2450-3050 BP)",
-      "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
-    },
-    {
       "site_id": "3574",
       "site_name": "Lyngåkra",
       "country": "Sweden",
@@ -24352,19 +22986,6 @@
       "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
     },
     {
-      "site_id": "3867",
-      "site_name": "Lövö",
-      "country": "Sweden",
-      "temporal_strength": "numeric_span_with_contextual_caveat",
-      "duration_posture": "duration_span_visible",
-      "access_visibility": "site_page_only",
-      "normalization_risk": "medium_contextual_numeric_mix",
-      "publication_posture": "context_layer_with_explicit_caveat",
-      "site_page_url": "https://browser.sead.se/site/3867",
-      "summary_label": "142-178 BP",
-      "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
-    },
-    {
       "site_id": "5306",
       "site_name": "Løgtved",
       "country": "Denmark",
@@ -24388,32 +23009,6 @@
       "publication_posture": "context_layer_with_explicit_caveat",
       "site_page_url": "https://browser.sead.se/site/3565",
       "summary_label": "Roman Iron Age (1550-1950 BP)",
-      "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
-    },
-    {
-      "site_id": "5310",
-      "site_name": "Lønstrup",
-      "country": "Denmark",
-      "temporal_strength": "numeric_span_with_contextual_caveat",
-      "duration_posture": "duration_span_visible",
-      "access_visibility": "site_page_only",
-      "normalization_risk": "medium_contextual_numeric_mix",
-      "publication_posture": "context_layer_with_explicit_caveat",
-      "site_page_url": "https://browser.sead.se/site/5310",
-      "summary_label": "Holocene (0-10000 BP)",
-      "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
-    },
-    {
-      "site_id": "5309",
-      "site_name": "Maarup",
-      "country": "Denmark",
-      "temporal_strength": "numeric_span_with_contextual_caveat",
-      "duration_posture": "duration_span_visible",
-      "access_visibility": "site_page_only",
-      "normalization_risk": "medium_contextual_numeric_mix",
-      "publication_posture": "context_layer_with_explicit_caveat",
-      "site_page_url": "https://browser.sead.se/site/5309",
-      "summary_label": "Weichselian (10000-122000 BP)",
       "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
     },
     {
@@ -24505,19 +23100,6 @@
       "publication_posture": "context_layer_with_explicit_caveat",
       "site_page_url": "https://browser.sead.se/site/3557",
       "summary_label": "Viking (850-1150 BP)",
-      "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
-    },
-    {
-      "site_id": "5098",
-      "site_name": "Martørv-Bakker",
-      "country": "Denmark",
-      "temporal_strength": "numeric_span_with_contextual_caveat",
-      "duration_posture": "duration_span_visible",
-      "access_visibility": "site_page_only",
-      "normalization_risk": "medium_contextual_numeric_mix",
-      "publication_posture": "context_layer_with_explicit_caveat",
-      "site_page_url": "https://browser.sead.se/site/5098",
-      "summary_label": "Lateglacial (10000-13500 BP)",
       "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
     },
     {
@@ -24677,19 +23259,6 @@
       "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
     },
     {
-      "site_id": "5294",
-      "site_name": "Mossby",
-      "country": "Sweden",
-      "temporal_strength": "numeric_span_with_contextual_caveat",
-      "duration_posture": "duration_span_visible",
-      "access_visibility": "site_page_only",
-      "normalization_risk": "medium_contextual_numeric_mix",
-      "publication_posture": "context_layer_with_explicit_caveat",
-      "site_page_url": "https://browser.sead.se/site/5294",
-      "summary_label": "Lateglacial; Holocene (0-13500 BP)",
-      "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
-    },
-    {
       "site_id": "4544",
       "site_name": "Myrby trask, Tunåsen",
       "country": "Sweden",
@@ -24804,19 +23373,6 @@
       "publication_posture": "context_layer_with_explicit_caveat",
       "site_page_url": "https://browser.sead.se/site/5122",
       "summary_label": "Early Holocene (7000-10000 BP)",
-      "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
-    },
-    {
-      "site_id": "3545",
-      "site_name": "Neukirchen-Bostholm",
-      "country": "Denmark",
-      "temporal_strength": "numeric_span_with_contextual_caveat",
-      "duration_posture": "duration_span_visible",
-      "access_visibility": "site_page_only",
-      "normalization_risk": "medium_contextual_numeric_mix",
-      "publication_posture": "context_layer_with_explicit_caveat",
-      "site_page_url": "https://browser.sead.se/site/3545",
-      "summary_label": "Middle neolithic Germany (6200-6750 BP)",
       "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
     },
     {
@@ -25132,19 +23688,6 @@
       "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
     },
     {
-      "site_id": "5524",
-      "site_name": "Oksnes",
-      "country": "Norway",
-      "temporal_strength": "numeric_span_with_contextual_caveat",
-      "duration_posture": "duration_span_visible",
-      "access_visibility": "site_page_only",
-      "normalization_risk": "medium_contextual_numeric_mix",
-      "publication_posture": "context_layer_with_explicit_caveat",
-      "site_page_url": "https://browser.sead.se/site/5524",
-      "summary_label": "Viking; CAL_800-1050_AD (900-1150 BP)",
-      "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
-    },
-    {
       "site_id": "4848",
       "site_name": "Onttoharjut",
       "country": "Sweden",
@@ -25184,19 +23727,6 @@
       "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
     },
     {
-      "site_id": "4569",
-      "site_name": "Oskarshamn wreck",
-      "country": "Sweden",
-      "temporal_strength": "numeric_span_with_contextual_caveat",
-      "duration_posture": "duration_span_visible",
-      "access_visibility": "site_page_only",
-      "normalization_risk": "medium_contextual_numeric_mix",
-      "publication_posture": "context_layer_with_explicit_caveat",
-      "site_page_url": "https://browser.sead.se/site/4569",
-      "summary_label": "Medieval; CAL_1242_AD-; CAL_-1300_AD; CAL_1200-1300_AD (650-750 BP)",
-      "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
-    },
-    {
       "site_id": "4570",
       "site_name": "Oslo: Gamlebyen",
       "country": "Norway",
@@ -25220,19 +23750,6 @@
       "publication_posture": "context_layer_with_explicit_caveat",
       "site_page_url": "https://browser.sead.se/site/4571",
       "summary_label": "Medieval; CAL_1200-1250_AD; CAL_1400-1500_AD; CAL_1150-1225_AD; CAL_1150-1200_AD; CAL_1150-1500_AD (450-800 BP)",
-      "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
-    },
-    {
-      "site_id": "3529",
-      "site_name": "Ottenby",
-      "country": "Sweden",
-      "temporal_strength": "numeric_span_with_contextual_caveat",
-      "duration_posture": "duration_span_visible",
-      "access_visibility": "site_page_only",
-      "normalization_risk": "medium_contextual_numeric_mix",
-      "publication_posture": "context_layer_with_explicit_caveat",
-      "site_page_url": "https://browser.sead.se/site/3529",
-      "summary_label": "Quaternary; CAL_PERIOD_5200-4800_BP (4750-2700000 BP)",
       "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
     },
     {
@@ -25873,19 +24390,6 @@
       "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
     },
     {
-      "site_id": "4029",
-      "site_name": "Röhälla",
-      "country": "Sweden",
-      "temporal_strength": "numeric_span_with_contextual_caveat",
-      "duration_posture": "duration_span_visible",
-      "access_visibility": "site_page_only",
-      "normalization_risk": "medium_contextual_numeric_mix",
-      "publication_posture": "context_layer_with_explicit_caveat",
-      "site_page_url": "https://browser.sead.se/site/4029",
-      "summary_label": "169-186 BP",
-      "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
-    },
-    {
       "site_id": "3494",
       "site_name": "Rörstrand, Bottna Herrgård",
       "country": "Sweden",
@@ -25909,19 +24413,6 @@
       "publication_posture": "context_layer_with_explicit_caveat",
       "site_page_url": "https://browser.sead.se/site/3493",
       "summary_label": "Middle neolithic S Scandinavia (4350-5250 BP)",
-      "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
-    },
-    {
-      "site_id": "3492",
-      "site_name": "Rössvik",
-      "country": "Norway",
-      "temporal_strength": "numeric_span_with_contextual_caveat",
-      "duration_posture": "duration_span_visible",
-      "access_visibility": "site_page_only",
-      "normalization_risk": "medium_contextual_numeric_mix",
-      "publication_posture": "context_layer_with_explicit_caveat",
-      "site_page_url": "https://browser.sead.se/site/3492",
-      "summary_label": "Migration period Scandinavia (1400-1550 BP)",
       "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
     },
     {
@@ -26003,19 +24494,6 @@
       "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
     },
     {
-      "site_id": "3858",
-      "site_name": "Sandemar",
-      "country": "Sweden",
-      "temporal_strength": "numeric_span_with_contextual_caveat",
-      "duration_posture": "duration_span_visible",
-      "access_visibility": "site_page_only",
-      "normalization_risk": "medium_contextual_numeric_mix",
-      "publication_posture": "context_layer_with_explicit_caveat",
-      "site_page_url": "https://browser.sead.se/site/3858",
-      "summary_label": "102-186 BP",
-      "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
-    },
-    {
       "site_id": "5290",
       "site_name": "Sandåkra",
       "country": "Sweden",
@@ -26065,19 +24543,6 @@
       "publication_posture": "context_layer_with_explicit_caveat",
       "site_page_url": "https://browser.sead.se/site/4023",
       "summary_label": "258-276 BP",
-      "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
-    },
-    {
-      "site_id": "4022",
-      "site_name": "Sankta Maria kyrka",
-      "country": "Sweden",
-      "temporal_strength": "numeric_span_with_contextual_caveat",
-      "duration_posture": "duration_span_visible",
-      "access_visibility": "site_page_only",
-      "normalization_risk": "medium_contextual_numeric_mix",
-      "publication_posture": "context_layer_with_explicit_caveat",
-      "site_page_url": "https://browser.sead.se/site/4022",
-      "summary_label": "435-572 BP",
       "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
     },
     {
@@ -26133,19 +24598,6 @@
       "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
     },
     {
-      "site_id": "4958",
-      "site_name": "Sejerø",
-      "country": "Denmark",
-      "temporal_strength": "numeric_span_with_contextual_caveat",
-      "duration_posture": "duration_span_visible",
-      "access_visibility": "site_page_only",
-      "normalization_risk": "medium_contextual_numeric_mix",
-      "publication_posture": "context_layer_with_explicit_caveat",
-      "site_page_url": "https://browser.sead.se/site/4958",
-      "summary_label": "Mid-Devensian (31000-39000 BP)",
-      "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
-    },
-    {
       "site_id": "4021",
       "site_name": "Sibbo",
       "country": "Sweden",
@@ -26169,19 +24621,6 @@
       "publication_posture": "context_layer_with_explicit_caveat",
       "site_page_url": "https://browser.sead.se/site/5049",
       "summary_label": "Medieval (400-1550 BP)",
-      "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
-    },
-    {
-      "site_id": "3486",
-      "site_name": "Siretorp",
-      "country": "Sweden",
-      "temporal_strength": "numeric_span_with_contextual_caveat",
-      "duration_posture": "duration_span_visible",
-      "access_visibility": "site_page_only",
-      "normalization_risk": "medium_contextual_numeric_mix",
-      "publication_posture": "context_layer_with_explicit_caveat",
-      "site_page_url": "https://browser.sead.se/site/3486",
-      "summary_label": "Middle neolithic S Scandinavia; Early neolithic S Scandinavia; Mesolithic  - Early Neolithic Scandinavia (4350-12950 BP)",
       "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
     },
     {
@@ -26247,19 +24686,6 @@
       "publication_posture": "context_layer_with_explicit_caveat",
       "site_page_url": "https://browser.sead.se/site/4013",
       "summary_label": "217-473 BP",
-      "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
-    },
-    {
-      "site_id": "5295",
-      "site_name": "Skateholm",
-      "country": "Sweden",
-      "temporal_strength": "numeric_span_with_contextual_caveat",
-      "duration_posture": "duration_span_visible",
-      "access_visibility": "site_page_only",
-      "normalization_risk": "medium_contextual_numeric_mix",
-      "publication_posture": "context_layer_with_explicit_caveat",
-      "site_page_url": "https://browser.sead.se/site/5295",
-      "summary_label": "Holocene (0-10000 BP)",
       "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
     },
     {
@@ -26689,19 +25115,6 @@
       "publication_posture": "context_layer_with_explicit_caveat",
       "site_page_url": "https://browser.sead.se/site/3469",
       "summary_label": "Viking (850-1150 BP)",
-      "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
-    },
-    {
-      "site_id": "3468",
-      "site_name": "Soldattorpet (Limhamn)",
-      "country": "Sweden",
-      "temporal_strength": "numeric_span_with_contextual_caveat",
-      "duration_posture": "duration_span_visible",
-      "access_visibility": "site_page_only",
-      "normalization_risk": "medium_contextual_numeric_mix",
-      "publication_posture": "context_layer_with_explicit_caveat",
-      "site_page_url": "https://browser.sead.se/site/3468",
-      "summary_label": "Mesolithic  - Early Neolithic Scandinavia (5250-12950 BP)",
       "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
     },
     {
@@ -27173,19 +25586,6 @@
       "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
     },
     {
-      "site_id": "3453",
-      "site_name": "Säter",
-      "country": "Sweden",
-      "temporal_strength": "numeric_span_with_contextual_caveat",
-      "duration_posture": "duration_span_visible",
-      "access_visibility": "site_page_only",
-      "normalization_risk": "medium_contextual_numeric_mix",
-      "publication_posture": "context_layer_with_explicit_caveat",
-      "site_page_url": "https://browser.sead.se/site/3453",
-      "summary_label": "Middle neolithic S Scandinavia (4350-5250 BP)",
-      "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
-    },
-    {
       "site_id": "3452",
       "site_name": "Söderby",
       "country": "Sweden",
@@ -27508,19 +25908,6 @@
       "publication_posture": "context_layer_with_explicit_caveat",
       "site_page_url": "https://browser.sead.se/site/3970",
       "summary_label": "132-178 BP",
-      "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
-    },
-    {
-      "site_id": "3437",
-      "site_name": "Tønsberg, Essotomten",
-      "country": "Norway",
-      "temporal_strength": "numeric_span_with_contextual_caveat",
-      "duration_posture": "duration_span_visible",
-      "access_visibility": "site_page_only",
-      "normalization_risk": "medium_contextual_numeric_mix",
-      "publication_posture": "context_layer_with_explicit_caveat",
-      "site_page_url": "https://browser.sead.se/site/3437",
-      "summary_label": "Medieval Norway (413-900 BP)",
       "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
     },
     {
@@ -28382,19 +26769,6 @@
       "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
     },
     {
-      "site_id": "3409",
-      "site_name": "Årsta",
-      "country": "Sweden",
-      "temporal_strength": "numeric_span_with_contextual_caveat",
-      "duration_posture": "duration_span_visible",
-      "access_visibility": "site_page_only",
-      "normalization_risk": "medium_contextual_numeric_mix",
-      "publication_posture": "context_layer_with_explicit_caveat",
-      "site_page_url": "https://browser.sead.se/site/3409",
-      "summary_label": "Viking (850-1150 BP)",
-      "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
-    },
-    {
       "site_id": "3408",
       "site_name": "Årup (Skräbeån)",
       "country": "Sweden",
@@ -28509,19 +26883,6 @@
       "publication_posture": "context_layer_with_explicit_caveat",
       "site_page_url": "https://browser.sead.se/site/3933",
       "summary_label": "429-433 BP",
-      "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
-    },
-    {
-      "site_id": "3932",
-      "site_name": "Östra ryds kyrka",
-      "country": "Sweden",
-      "temporal_strength": "numeric_span_with_contextual_caveat",
-      "duration_posture": "duration_span_visible",
-      "access_visibility": "site_page_only",
-      "normalization_risk": "medium_contextual_numeric_mix",
-      "publication_posture": "context_layer_with_explicit_caveat",
-      "site_page_url": "https://browser.sead.se/site/3932",
-      "summary_label": "257-270 BP",
       "review_note": "Readers may need to inspect the upstream SEAD site page because the repository does not currently expose stronger reference links."
     },
     {

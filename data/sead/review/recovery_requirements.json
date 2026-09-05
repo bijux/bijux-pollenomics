@@ -1,29 +1,29 @@
 {
   "schema_version": "sead-recovery-requirements.v1",
-  "generated_on": "2026-08-01",
+  "generated_on": "2026-09-05",
   "row_count": 4,
   "rows": [
     {
       "requirement_key": "unresolved_chronology_boundary",
-      "evidence_gap_count": 1268,
+      "evidence_gap_count": 1216,
       "required_evidence": "Retain sites without captured upstream chronology as an explicit spatial-only population; add dates only when a linked SEAD chronology record supplies defensible bounds.",
       "satisfaction_signal": "Every captured chronology row has normalized BP bounds, the temporal-evidence layer is fully time-filterable, and upstream-undated sites remain visibly unresolved."
     },
     {
       "requirement_key": "unreferenced_site_boundary",
-      "evidence_gap_count": 2192,
+      "evidence_gap_count": 2066,
       "required_evidence": "Retain site-page-only access where captured bibliography rows expose no directly followable DOI or URL; add links only from identified SEAD bibliography values.",
       "satisfaction_signal": "All captured bibliography relations preserve their source relation and sites without directly followable upstream links remain explicit instead of receiving inferred URLs."
     },
     {
       "requirement_key": "context_layer_republication",
-      "evidence_gap_count": 2195,
+      "evidence_gap_count": 2069,
       "required_evidence": "Republish the normalized SEAD context layer with explicit temporal semantics, access posture, and context-only caveats on every feature.",
       "satisfaction_signal": "Normalized and published SEAD GeoJSON no longer trigger missing-temporal-semantics findings in report review surfaces."
     },
     {
       "requirement_key": "published_scope_refresh",
-      "evidence_gap_count": 2195,
+      "evidence_gap_count": 2069,
       "required_evidence": "Refresh published world, Europe-plus, and Nordic report bundles so SEAD appears as a bounded archaeology context layer rather than a generic environmental blob.",
       "satisfaction_signal": "Published map and review bundles expose SEAD with stable caveats, access wording, and bounded contextual role labels."
     }

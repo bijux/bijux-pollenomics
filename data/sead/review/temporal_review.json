@@ -1,30 +1,30 @@
 {
   "schema_version": "sead-temporal-review.v2",
-  "generated_on": "2026-08-01",
-  "row_count": 2195,
+  "generated_on": "2026-09-05",
+  "row_count": 2069,
   "comparability_posture_counts": {
-    "unresolved": 1290,
-    "mixed_interval_and_context": 509,
-    "numeric_interval": 157,
-    "numeric_interval_with_caveat": 239
+    "unresolved": 1216,
+    "mixed_interval_and_context": 478,
+    "numeric_interval": 144,
+    "numeric_interval_with_caveat": 231
   },
   "inventory_summary": {
-    "numeric_interval_row_count": 927,
-    "dating_range_row_count": 7775,
-    "dating_range_site_count": 392,
-    "relative_period_row_count": 10950,
-    "relative_period_site_count": 531,
-    "analysis_entity_age_row_count": 852,
-    "analysis_entity_age_site_count": 140,
-    "geochronology_row_count": 104,
-    "geochronology_site_count": 21,
-    "dendro_date_row_count": 7321,
-    "dendro_date_site_count": 386,
-    "chronology_record_count": 27002,
-    "bibliography_row_count": 40981,
-    "bibliography_site_count": 1300,
-    "unresolved_site_count": 1268,
-    "site_inventory_only_row_count": 872,
+    "numeric_interval_row_count": 853,
+    "dating_range_row_count": 7377,
+    "dating_range_site_count": 371,
+    "relative_period_row_count": 10057,
+    "relative_period_site_count": 478,
+    "analysis_entity_age_row_count": 641,
+    "analysis_entity_age_site_count": 116,
+    "geochronology_row_count": 87,
+    "geochronology_site_count": 17,
+    "dendro_date_row_count": 6947,
+    "dendro_date_site_count": 365,
+    "chronology_record_count": 25109,
+    "bibliography_row_count": 39024,
+    "bibliography_site_count": 1211,
+    "unresolved_site_count": 1216,
+    "site_inventory_only_row_count": 838,
     "temporal_capture_posture": "linked_chronology_captured"
   },
   "rows": [
@@ -1032,29 +1032,6 @@
       "comparison_note": "SEAD combines numeric dating ranges with site-level cultural or geologic period labels. Treat the point as contextual archaeology evidence, not as one directly sample-dated event."
     },
     {
-      "site_id": "4911",
-      "site_name": "Blomøy",
-      "country": "Norway",
-      "comparability_posture": "mixed_interval_and_context",
-      "raw_capture_posture": "linked_temporal_rows_captured",
-      "temporal_window_label": "Early Holocene and older (6001+ BP)",
-      "summary_label": "Lateglacial (10000-13500 BP)",
-      "normalized_period_labels": [
-        "unmapped_period_label"
-      ],
-      "original_period_labels": [
-        "Lateglacial"
-      ],
-      "uncertainty_notes": [],
-      "dating_range_count": 0,
-      "relative_period_count": 1,
-      "analysis_entity_age_count": 1,
-      "geochronology_count": 0,
-      "dendro_date_count": 0,
-      "bibliography_count": 2,
-      "comparison_note": "SEAD combines numeric dating ranges with site-level cultural or geologic period labels. Treat the point as contextual archaeology evidence, not as one directly sample-dated event."
-    },
-    {
       "site_id": "4287",
       "site_name": "Boliden",
       "country": "Sweden",
@@ -2021,29 +1998,6 @@
       "comparison_note": "SEAD combines numeric dating ranges with site-level cultural or geologic period labels. Treat the point as contextual archaeology evidence, not as one directly sample-dated event."
     },
     {
-      "site_id": "4392",
-      "site_name": "Fakse Bugt",
-      "country": "Denmark",
-      "comparability_posture": "mixed_interval_and_context",
-      "raw_capture_posture": "linked_temporal_rows_captured",
-      "temporal_window_label": "Early Holocene and older (6001+ BP)",
-      "summary_label": "Lateglacial (10000-13500 BP)",
-      "normalized_period_labels": [
-        "unmapped_period_label"
-      ],
-      "original_period_labels": [
-        "Lateglacial"
-      ],
-      "uncertainty_notes": [],
-      "dating_range_count": 0,
-      "relative_period_count": 3,
-      "analysis_entity_age_count": 3,
-      "geochronology_count": 0,
-      "dendro_date_count": 0,
-      "bibliography_count": 2,
-      "comparison_note": "SEAD combines numeric dating ranges with site-level cultural or geologic period labels. Treat the point as contextual archaeology evidence, not as one directly sample-dated event."
-    },
-    {
       "site_id": "4398",
       "site_name": "Femsølyng",
       "country": "Denmark",
@@ -2374,30 +2328,6 @@
       "comparison_note": "SEAD combines numeric dating ranges with site-level cultural or geologic period labels. Treat the point as contextual archaeology evidence, not as one directly sample-dated event."
     },
     {
-      "site_id": "4416",
-      "site_name": "Godøy",
-      "country": "Norway",
-      "comparability_posture": "mixed_interval_and_context",
-      "raw_capture_posture": "linked_temporal_rows_captured",
-      "temporal_window_label": "Early Holocene and older (6001+ BP)",
-      "summary_label": "Lateglacial Interstadial; Lateglacial (10790-13096 BP)",
-      "normalized_period_labels": [
-        "unmapped_period_label"
-      ],
-      "original_period_labels": [
-        "Lateglacial Interstadial",
-        "Lateglacial"
-      ],
-      "uncertainty_notes": [],
-      "dating_range_count": 0,
-      "relative_period_count": 4,
-      "analysis_entity_age_count": 4,
-      "geochronology_count": 5,
-      "dendro_date_count": 0,
-      "bibliography_count": 3,
-      "comparison_note": "SEAD combines numeric dating ranges with site-level cultural or geologic period labels. Treat the point as contextual archaeology evidence, not as one directly sample-dated event."
-    },
-    {
       "site_id": "4420",
       "site_name": "Goteborg",
       "country": "Sweden",
@@ -2443,29 +2373,6 @@
       "geochronology_count": 0,
       "dendro_date_count": 0,
       "bibliography_count": 1,
-      "comparison_note": "SEAD combines numeric dating ranges with site-level cultural or geologic period labels. Treat the point as contextual archaeology evidence, not as one directly sample-dated event."
-    },
-    {
-      "site_id": "3723",
-      "site_name": "Gotska Sandön",
-      "country": "Sweden",
-      "comparability_posture": "mixed_interval_and_context",
-      "raw_capture_posture": "linked_temporal_rows_captured",
-      "temporal_window_label": "Recent and historical (0-1000 BP)",
-      "summary_label": "Viking (850-1150 BP)",
-      "normalized_period_labels": [
-        "viking_age"
-      ],
-      "original_period_labels": [
-        "Viking"
-      ],
-      "uncertainty_notes": [],
-      "dating_range_count": 0,
-      "relative_period_count": 3,
-      "analysis_entity_age_count": 0,
-      "geochronology_count": 0,
-      "dendro_date_count": 0,
-      "bibliography_count": 4,
       "comparison_note": "SEAD combines numeric dating ranges with site-level cultural or geologic period labels. Treat the point as contextual archaeology evidence, not as one directly sample-dated event."
     },
     {
@@ -2542,29 +2449,6 @@
       "geochronology_count": 0,
       "dendro_date_count": 0,
       "bibliography_count": 4,
-      "comparison_note": "SEAD combines numeric dating ranges with site-level cultural or geologic period labels. Treat the point as contextual archaeology evidence, not as one directly sample-dated event."
-    },
-    {
-      "site_id": "3717",
-      "site_name": "Grundskatan",
-      "country": "Sweden",
-      "comparability_posture": "mixed_interval_and_context",
-      "raw_capture_posture": "linked_temporal_rows_captured",
-      "temporal_window_label": "Recent and historical (0-1000 BP)",
-      "summary_label": "Medieval Scandinavia (450-900 BP)",
-      "normalized_period_labels": [
-        "medieval"
-      ],
-      "original_period_labels": [
-        "Medieval Scandinavia"
-      ],
-      "uncertainty_notes": [],
-      "dating_range_count": 0,
-      "relative_period_count": 2,
-      "analysis_entity_age_count": 0,
-      "geochronology_count": 0,
-      "dendro_date_count": 0,
-      "bibliography_count": 3,
       "comparison_note": "SEAD combines numeric dating ranges with site-level cultural or geologic period labels. Treat the point as contextual archaeology evidence, not as one directly sample-dated event."
     },
     {
@@ -2941,29 +2825,6 @@
       "comparison_note": "SEAD combines numeric dating ranges with site-level cultural or geologic period labels. Treat the point as contextual archaeology evidence, not as one directly sample-dated event."
     },
     {
-      "site_id": "4432",
-      "site_name": "Hanö",
-      "country": "Sweden",
-      "comparability_posture": "mixed_interval_and_context",
-      "raw_capture_posture": "linked_temporal_rows_captured",
-      "temporal_window_label": "Early Holocene and older (6001+ BP)",
-      "summary_label": "Early Holocene (7000-11190 BP)",
-      "normalized_period_labels": [
-        "holocene"
-      ],
-      "original_period_labels": [
-        "Early Holocene"
-      ],
-      "uncertainty_notes": [],
-      "dating_range_count": 0,
-      "relative_period_count": 9,
-      "analysis_entity_age_count": 9,
-      "geochronology_count": 7,
-      "dendro_date_count": 0,
-      "bibliography_count": 2,
-      "comparison_note": "SEAD combines numeric dating ranges with site-level cultural or geologic period labels. Treat the point as contextual archaeology evidence, not as one directly sample-dated event."
-    },
-    {
       "site_id": "4867",
       "site_name": "Hareskoven",
       "country": "Denmark",
@@ -3297,29 +3158,6 @@
       "geochronology_count": 0,
       "dendro_date_count": 0,
       "bibliography_count": 4,
-      "comparison_note": "SEAD combines numeric dating ranges with site-level cultural or geologic period labels. Treat the point as contextual archaeology evidence, not as one directly sample-dated event."
-    },
-    {
-      "site_id": "5082",
-      "site_name": "Hirvineva (Oulais)",
-      "country": "Finland",
-      "comparability_posture": "mixed_interval_and_context",
-      "raw_capture_posture": "linked_temporal_rows_captured",
-      "temporal_window_label": "Mid-Holocene (3001-6000 BP)",
-      "summary_label": "Holocene (0-10000 BP)",
-      "normalized_period_labels": [
-        "holocene"
-      ],
-      "original_period_labels": [
-        "Holocene"
-      ],
-      "uncertainty_notes": [],
-      "dating_range_count": 0,
-      "relative_period_count": 1,
-      "analysis_entity_age_count": 0,
-      "geochronology_count": 0,
-      "dendro_date_count": 0,
-      "bibliography_count": 2,
       "comparison_note": "SEAD combines numeric dating ranges with site-level cultural or geologic period labels. Treat the point as contextual archaeology evidence, not as one directly sample-dated event."
     },
     {
@@ -3672,29 +3510,6 @@
       "comparison_note": "SEAD combines numeric dating ranges with site-level cultural or geologic period labels. Treat the point as contextual archaeology evidence, not as one directly sample-dated event."
     },
     {
-      "site_id": "4430",
-      "site_name": "Håkulls Mosse, Kullaberg",
-      "country": "Sweden",
-      "comparability_posture": "mixed_interval_and_context",
-      "raw_capture_posture": "linked_temporal_rows_captured",
-      "temporal_window_label": "Early Holocene and older (6001+ BP)",
-      "summary_label": "Lateglacial (10000-13500 BP)",
-      "normalized_period_labels": [
-        "unmapped_period_label"
-      ],
-      "original_period_labels": [
-        "Lateglacial"
-      ],
-      "uncertainty_notes": [],
-      "dating_range_count": 0,
-      "relative_period_count": 114,
-      "analysis_entity_age_count": 114,
-      "geochronology_count": 0,
-      "dendro_date_count": 0,
-      "bibliography_count": 4,
-      "comparison_note": "SEAD combines numeric dating ranges with site-level cultural or geologic period labels. Treat the point as contextual archaeology evidence, not as one directly sample-dated event."
-    },
-    {
       "site_id": "3675",
       "site_name": "Högom",
       "country": "Sweden",
@@ -3763,29 +3578,6 @@
       "geochronology_count": 0,
       "dendro_date_count": 0,
       "bibliography_count": 1,
-      "comparison_note": "SEAD combines numeric dating ranges with site-level cultural or geologic period labels. Treat the point as contextual archaeology evidence, not as one directly sample-dated event."
-    },
-    {
-      "site_id": "4889",
-      "site_name": "Ilmola",
-      "country": "Finland",
-      "comparability_posture": "mixed_interval_and_context",
-      "raw_capture_posture": "linked_temporal_rows_captured",
-      "temporal_window_label": "Mid-Holocene (3001-6000 BP)",
-      "summary_label": "Holocene (0-10000 BP)",
-      "normalized_period_labels": [
-        "holocene"
-      ],
-      "original_period_labels": [
-        "Holocene"
-      ],
-      "uncertainty_notes": [],
-      "dating_range_count": 0,
-      "relative_period_count": 1,
-      "analysis_entity_age_count": 1,
-      "geochronology_count": 0,
-      "dendro_date_count": 0,
-      "bibliography_count": 3,
       "comparison_note": "SEAD combines numeric dating ranges with site-level cultural or geologic period labels. Treat the point as contextual archaeology evidence, not as one directly sample-dated event."
     },
     {
@@ -3903,29 +3695,6 @@
       "geochronology_count": 0,
       "dendro_date_count": 0,
       "bibliography_count": 20,
-      "comparison_note": "SEAD combines numeric dating ranges with site-level cultural or geologic period labels. Treat the point as contextual archaeology evidence, not as one directly sample-dated event."
-    },
-    {
-      "site_id": "3668",
-      "site_name": "Ire",
-      "country": "Sweden",
-      "comparability_posture": "mixed_interval_and_context",
-      "raw_capture_posture": "linked_temporal_rows_captured",
-      "temporal_window_label": "Mid-Holocene (3001-6000 BP)",
-      "summary_label": "Middle neolithic S Scandinavia (4350-5250 BP)",
-      "normalized_period_labels": [
-        "neolithic"
-      ],
-      "original_period_labels": [
-        "Middle neolithic S Scandinavia"
-      ],
-      "uncertainty_notes": [],
-      "dating_range_count": 0,
-      "relative_period_count": 59,
-      "analysis_entity_age_count": 0,
-      "geochronology_count": 0,
-      "dendro_date_count": 0,
-      "bibliography_count": 1,
       "comparison_note": "SEAD combines numeric dating ranges with site-level cultural or geologic period labels. Treat the point as contextual archaeology evidence, not as one directly sample-dated event."
     },
     {
@@ -4237,31 +4006,6 @@
       "comparison_note": "SEAD combines numeric dating ranges with site-level cultural or geologic period labels. Treat the point as contextual archaeology evidence, not as one directly sample-dated event."
     },
     {
-      "site_id": "5614",
-      "site_name": "Kalverev",
-      "country": "Denmark",
-      "comparability_posture": "mixed_interval_and_context",
-      "raw_capture_posture": "linked_temporal_rows_captured",
-      "temporal_window_label": "Recent and historical (0-1000 BP)",
-      "summary_label": "Medieval; CAL_1250-1255_AD (400-1550 BP)",
-      "normalized_period_labels": [
-        "medieval",
-        "unmapped_period_label"
-      ],
-      "original_period_labels": [
-        "Medieval",
-        "CAL_1250-1255_AD"
-      ],
-      "uncertainty_notes": [],
-      "dating_range_count": 0,
-      "relative_period_count": 2,
-      "analysis_entity_age_count": 0,
-      "geochronology_count": 0,
-      "dendro_date_count": 0,
-      "bibliography_count": 2,
-      "comparison_note": "SEAD combines numeric dating ranges with site-level cultural or geologic period labels. Treat the point as contextual archaeology evidence, not as one directly sample-dated event."
-    },
-    {
       "site_id": "5313",
       "site_name": "Kandestederne",
       "country": "Denmark",
@@ -4331,29 +4075,6 @@
       "geochronology_count": 0,
       "dendro_date_count": 0,
       "bibliography_count": 58,
-      "comparison_note": "SEAD combines numeric dating ranges with site-level cultural or geologic period labels. Treat the point as contextual archaeology evidence, not as one directly sample-dated event."
-    },
-    {
-      "site_id": "3654",
-      "site_name": "Karlskrona",
-      "country": "Sweden",
-      "comparability_posture": "mixed_interval_and_context",
-      "raw_capture_posture": "linked_temporal_rows_captured",
-      "temporal_window_label": "Recent and historical (0-1000 BP)",
-      "summary_label": "CAL_PERIOD_300-200_BP (150-250 BP)",
-      "normalized_period_labels": [
-        "unmapped_period_label"
-      ],
-      "original_period_labels": [
-        "CAL_PERIOD_300-200_BP"
-      ],
-      "uncertainty_notes": [],
-      "dating_range_count": 0,
-      "relative_period_count": 2,
-      "analysis_entity_age_count": 0,
-      "geochronology_count": 0,
-      "dendro_date_count": 0,
-      "bibliography_count": 3,
       "comparison_note": "SEAD combines numeric dating ranges with site-level cultural or geologic period labels. Treat the point as contextual archaeology evidence, not as one directly sample-dated event."
     },
     {
@@ -4635,29 +4356,6 @@
       "geochronology_count": 0,
       "dendro_date_count": 0,
       "bibliography_count": 3,
-      "comparison_note": "SEAD combines numeric dating ranges with site-level cultural or geologic period labels. Treat the point as contextual archaeology evidence, not as one directly sample-dated event."
-    },
-    {
-      "site_id": "4479",
-      "site_name": "Kobbelgård",
-      "country": "Denmark",
-      "comparability_posture": "mixed_interval_and_context",
-      "raw_capture_posture": "linked_temporal_rows_captured",
-      "temporal_window_label": "Early Holocene and older (6001+ BP)",
-      "summary_label": "Weichselian (10000-122000 BP)",
-      "normalized_period_labels": [
-        "unmapped_period_label"
-      ],
-      "original_period_labels": [
-        "Weichselian"
-      ],
-      "uncertainty_notes": [],
-      "dating_range_count": 0,
-      "relative_period_count": 8,
-      "analysis_entity_age_count": 8,
-      "geochronology_count": 0,
-      "dendro_date_count": 0,
-      "bibliography_count": 1,
       "comparison_note": "SEAD combines numeric dating ranges with site-level cultural or geologic period labels. Treat the point as contextual archaeology evidence, not as one directly sample-dated event."
     },
     {
@@ -5694,29 +5392,6 @@
       "comparison_note": "SEAD combines numeric dating ranges with site-level cultural or geologic period labels. Treat the point as contextual archaeology evidence, not as one directly sample-dated event."
     },
     {
-      "site_id": "4487",
-      "site_name": "Langanes1",
-      "country": "Norway",
-      "comparability_posture": "mixed_interval_and_context",
-      "raw_capture_posture": "linked_temporal_rows_captured",
-      "temporal_window_label": "Recent and historical (0-1000 BP)",
-      "summary_label": "Medieval (400-1550 BP)",
-      "normalized_period_labels": [
-        "medieval"
-      ],
-      "original_period_labels": [
-        "Medieval"
-      ],
-      "uncertainty_notes": [],
-      "dating_range_count": 0,
-      "relative_period_count": 18,
-      "analysis_entity_age_count": 18,
-      "geochronology_count": 0,
-      "dendro_date_count": 0,
-      "bibliography_count": 1,
-      "comparison_note": "SEAD combines numeric dating ranges with site-level cultural or geologic period labels. Treat the point as contextual archaeology evidence, not as one directly sample-dated event."
-    },
-    {
       "site_id": "3599",
       "site_name": "Lappvallen",
       "country": "Sweden",
@@ -6448,29 +6123,6 @@
       "comparison_note": "SEAD combines numeric dating ranges with site-level cultural or geologic period labels. Treat the point as contextual archaeology evidence, not as one directly sample-dated event."
     },
     {
-      "site_id": "3575",
-      "site_name": "Lundåkra",
-      "country": "Sweden",
-      "comparability_posture": "mixed_interval_and_context",
-      "raw_capture_posture": "linked_temporal_rows_captured",
-      "temporal_window_label": "Late Holocene (1001-3000 BP)",
-      "summary_label": "Bronze Age Period IV - VI (2450-3050 BP)",
-      "normalized_period_labels": [
-        "bronze_age"
-      ],
-      "original_period_labels": [
-        "Bronze Age Period IV - VI"
-      ],
-      "uncertainty_notes": [],
-      "dating_range_count": 0,
-      "relative_period_count": 18,
-      "analysis_entity_age_count": 0,
-      "geochronology_count": 0,
-      "dendro_date_count": 0,
-      "bibliography_count": 1,
-      "comparison_note": "SEAD combines numeric dating ranges with site-level cultural or geologic period labels. Treat the point as contextual archaeology evidence, not as one directly sample-dated event."
-    },
-    {
       "site_id": "3574",
       "site_name": "Lyngåkra",
       "country": "Sweden",
@@ -6789,52 +6441,6 @@
       "comparison_note": "SEAD combines numeric dating ranges with site-level cultural or geologic period labels. Treat the point as contextual archaeology evidence, not as one directly sample-dated event."
     },
     {
-      "site_id": "5310",
-      "site_name": "Lønstrup",
-      "country": "Denmark",
-      "comparability_posture": "mixed_interval_and_context",
-      "raw_capture_posture": "linked_temporal_rows_captured",
-      "temporal_window_label": "Mid-Holocene (3001-6000 BP)",
-      "summary_label": "Holocene (0-10000 BP)",
-      "normalized_period_labels": [
-        "holocene"
-      ],
-      "original_period_labels": [
-        "Holocene"
-      ],
-      "uncertainty_notes": [],
-      "dating_range_count": 0,
-      "relative_period_count": 1,
-      "analysis_entity_age_count": 1,
-      "geochronology_count": 0,
-      "dendro_date_count": 0,
-      "bibliography_count": 2,
-      "comparison_note": "SEAD combines numeric dating ranges with site-level cultural or geologic period labels. Treat the point as contextual archaeology evidence, not as one directly sample-dated event."
-    },
-    {
-      "site_id": "5309",
-      "site_name": "Maarup",
-      "country": "Denmark",
-      "comparability_posture": "mixed_interval_and_context",
-      "raw_capture_posture": "linked_temporal_rows_captured",
-      "temporal_window_label": "Early Holocene and older (6001+ BP)",
-      "summary_label": "Weichselian (10000-122000 BP)",
-      "normalized_period_labels": [
-        "unmapped_period_label"
-      ],
-      "original_period_labels": [
-        "Weichselian"
-      ],
-      "uncertainty_notes": [],
-      "dating_range_count": 0,
-      "relative_period_count": 1,
-      "analysis_entity_age_count": 1,
-      "geochronology_count": 0,
-      "dendro_date_count": 0,
-      "bibliography_count": 1,
-      "comparison_note": "SEAD combines numeric dating ranges with site-level cultural or geologic period labels. Treat the point as contextual archaeology evidence, not as one directly sample-dated event."
-    },
-    {
       "site_id": "3563",
       "site_name": "Maksjön",
       "country": "Sweden",
@@ -6968,29 +6574,6 @@
       "uncertainty_notes": [],
       "dating_range_count": 0,
       "relative_period_count": 3,
-      "analysis_entity_age_count": 0,
-      "geochronology_count": 0,
-      "dendro_date_count": 0,
-      "bibliography_count": 4,
-      "comparison_note": "SEAD combines numeric dating ranges with site-level cultural or geologic period labels. Treat the point as contextual archaeology evidence, not as one directly sample-dated event."
-    },
-    {
-      "site_id": "5098",
-      "site_name": "Martørv-Bakker",
-      "country": "Denmark",
-      "comparability_posture": "mixed_interval_and_context",
-      "raw_capture_posture": "linked_temporal_rows_captured",
-      "temporal_window_label": "Early Holocene and older (6001+ BP)",
-      "summary_label": "Lateglacial (10000-13500 BP)",
-      "normalized_period_labels": [
-        "unmapped_period_label"
-      ],
-      "original_period_labels": [
-        "Lateglacial"
-      ],
-      "uncertainty_notes": [],
-      "dating_range_count": 0,
-      "relative_period_count": 1,
       "analysis_entity_age_count": 0,
       "geochronology_count": 0,
       "dendro_date_count": 0,
@@ -7192,31 +6775,6 @@
       "comparison_note": "SEAD combines numeric dating ranges with site-level cultural or geologic period labels. Treat the point as contextual archaeology evidence, not as one directly sample-dated event."
     },
     {
-      "site_id": "5294",
-      "site_name": "Mossby",
-      "country": "Sweden",
-      "comparability_posture": "mixed_interval_and_context",
-      "raw_capture_posture": "linked_temporal_rows_captured",
-      "temporal_window_label": "Early Holocene and older (6001+ BP)",
-      "summary_label": "Lateglacial; Holocene (0-13500 BP)",
-      "normalized_period_labels": [
-        "unmapped_period_label",
-        "holocene"
-      ],
-      "original_period_labels": [
-        "Lateglacial",
-        "Holocene"
-      ],
-      "uncertainty_notes": [],
-      "dating_range_count": 0,
-      "relative_period_count": 2,
-      "analysis_entity_age_count": 2,
-      "geochronology_count": 0,
-      "dendro_date_count": 0,
-      "bibliography_count": 5,
-      "comparison_note": "SEAD combines numeric dating ranges with site-level cultural or geologic period labels. Treat the point as contextual archaeology evidence, not as one directly sample-dated event."
-    },
-    {
       "site_id": "4544",
       "site_name": "Myrby trask, Tunåsen",
       "country": "Sweden",
@@ -7400,29 +6958,6 @@
       "geochronology_count": 0,
       "dendro_date_count": 0,
       "bibliography_count": 1,
-      "comparison_note": "SEAD combines numeric dating ranges with site-level cultural or geologic period labels. Treat the point as contextual archaeology evidence, not as one directly sample-dated event."
-    },
-    {
-      "site_id": "3545",
-      "site_name": "Neukirchen-Bostholm",
-      "country": "Denmark",
-      "comparability_posture": "mixed_interval_and_context",
-      "raw_capture_posture": "linked_temporal_rows_captured",
-      "temporal_window_label": "Early Holocene and older (6001+ BP)",
-      "summary_label": "Middle neolithic Germany (6200-6750 BP)",
-      "normalized_period_labels": [
-        "neolithic"
-      ],
-      "original_period_labels": [
-        "Middle neolithic Germany"
-      ],
-      "uncertainty_notes": [],
-      "dating_range_count": 0,
-      "relative_period_count": 75,
-      "analysis_entity_age_count": 0,
-      "geochronology_count": 0,
-      "dendro_date_count": 0,
-      "bibliography_count": 76,
       "comparison_note": "SEAD combines numeric dating ranges with site-level cultural or geologic period labels. Treat the point as contextual archaeology evidence, not as one directly sample-dated event."
     },
     {
@@ -7756,33 +7291,6 @@
       "comparison_note": "SEAD combines numeric dating ranges with site-level cultural or geologic period labels. Treat the point as contextual archaeology evidence, not as one directly sample-dated event."
     },
     {
-      "site_id": "5524",
-      "site_name": "Oksnes",
-      "country": "Norway",
-      "comparability_posture": "mixed_interval_and_context",
-      "raw_capture_posture": "linked_temporal_rows_captured",
-      "temporal_window_label": "Late Holocene (1001-3000 BP)",
-      "summary_label": "Viking; CAL_800-1050_AD (900-1150 BP)",
-      "normalized_period_labels": [
-        "viking_age",
-        "unmapped_period_label"
-      ],
-      "original_period_labels": [
-        "Viking",
-        "CAL_800-1050_AD"
-      ],
-      "uncertainty_notes": [
-        "Ca.: Indication that the date is approximate, with unspecified or unquantifiable errors."
-      ],
-      "dating_range_count": 0,
-      "relative_period_count": 2,
-      "analysis_entity_age_count": 1,
-      "geochronology_count": 0,
-      "dendro_date_count": 0,
-      "bibliography_count": 1,
-      "comparison_note": "SEAD combines numeric dating ranges with site-level cultural or geologic period labels. Treat the point as contextual archaeology evidence, not as one directly sample-dated event."
-    },
-    {
       "site_id": "4848",
       "site_name": "Onttoharjut",
       "country": "Sweden",
@@ -7852,35 +7360,6 @@
       "comparison_note": "SEAD combines numeric dating ranges with site-level cultural or geologic period labels. Treat the point as contextual archaeology evidence, not as one directly sample-dated event."
     },
     {
-      "site_id": "4569",
-      "site_name": "Oskarshamn wreck",
-      "country": "Sweden",
-      "comparability_posture": "mixed_interval_and_context",
-      "raw_capture_posture": "linked_temporal_rows_captured",
-      "temporal_window_label": "Recent and historical (0-1000 BP)",
-      "summary_label": "Medieval; CAL_1242_AD-; CAL_-1300_AD; CAL_1200-1300_AD (650-750 BP)",
-      "normalized_period_labels": [
-        "medieval",
-        "unmapped_period_label"
-      ],
-      "original_period_labels": [
-        "Medieval",
-        "CAL_1242_AD-",
-        "CAL_-1300_AD",
-        "CAL_1200-1300_AD"
-      ],
-      "uncertainty_notes": [
-        "Ca.: Indication that the date is approximate, with unspecified or unquantifiable errors."
-      ],
-      "dating_range_count": 0,
-      "relative_period_count": 30,
-      "analysis_entity_age_count": 10,
-      "geochronology_count": 0,
-      "dendro_date_count": 0,
-      "bibliography_count": 2,
-      "comparison_note": "SEAD combines numeric dating ranges with site-level cultural or geologic period labels. Treat the point as contextual archaeology evidence, not as one directly sample-dated event."
-    },
-    {
       "site_id": "4570",
       "site_name": "Oslo: Gamlebyen",
       "country": "Norway",
@@ -7943,31 +7422,6 @@
       "geochronology_count": 0,
       "dendro_date_count": 0,
       "bibliography_count": 1,
-      "comparison_note": "SEAD combines numeric dating ranges with site-level cultural or geologic period labels. Treat the point as contextual archaeology evidence, not as one directly sample-dated event."
-    },
-    {
-      "site_id": "3529",
-      "site_name": "Ottenby",
-      "country": "Sweden",
-      "comparability_posture": "mixed_interval_and_context",
-      "raw_capture_posture": "linked_temporal_rows_captured",
-      "temporal_window_label": "Early Holocene and older (6001+ BP)",
-      "summary_label": "Quaternary; CAL_PERIOD_5200-4800_BP (4750-2700000 BP)",
-      "normalized_period_labels": [
-        "quaternary",
-        "unmapped_period_label"
-      ],
-      "original_period_labels": [
-        "Quaternary",
-        "CAL_PERIOD_5200-4800_BP"
-      ],
-      "uncertainty_notes": [],
-      "dating_range_count": 0,
-      "relative_period_count": 75,
-      "analysis_entity_age_count": 0,
-      "geochronology_count": 0,
-      "dendro_date_count": 0,
-      "bibliography_count": 78,
       "comparison_note": "SEAD combines numeric dating ranges with site-level cultural or geologic period labels. Treat the point as contextual archaeology evidence, not as one directly sample-dated event."
     },
     {
@@ -9001,29 +8455,6 @@
       "comparison_note": "SEAD combines numeric dating ranges with site-level cultural or geologic period labels. Treat the point as contextual archaeology evidence, not as one directly sample-dated event."
     },
     {
-      "site_id": "3492",
-      "site_name": "Rössvik",
-      "country": "Norway",
-      "comparability_posture": "mixed_interval_and_context",
-      "raw_capture_posture": "linked_temporal_rows_captured",
-      "temporal_window_label": "Late Holocene (1001-3000 BP)",
-      "summary_label": "Migration period Scandinavia (1400-1550 BP)",
-      "normalized_period_labels": [
-        "unmapped_period_label"
-      ],
-      "original_period_labels": [
-        "Migration period Scandinavia"
-      ],
-      "uncertainty_notes": [],
-      "dating_range_count": 0,
-      "relative_period_count": 4,
-      "analysis_entity_age_count": 0,
-      "geochronology_count": 0,
-      "dendro_date_count": 0,
-      "bibliography_count": 0,
-      "comparison_note": "SEAD combines numeric dating ranges with site-level cultural or geologic period labels. Treat the point as contextual archaeology evidence, not as one directly sample-dated event."
-    },
-    {
       "site_id": "3497",
       "site_name": "Rødskjær/Halvarp",
       "country": "Norway",
@@ -9254,29 +8685,6 @@
       "comparison_note": "SEAD combines numeric dating ranges with site-level cultural or geologic period labels. Treat the point as contextual archaeology evidence, not as one directly sample-dated event."
     },
     {
-      "site_id": "4958",
-      "site_name": "Sejerø",
-      "country": "Denmark",
-      "comparability_posture": "mixed_interval_and_context",
-      "raw_capture_posture": "linked_temporal_rows_captured",
-      "temporal_window_label": "Early Holocene and older (6001+ BP)",
-      "summary_label": "Mid-Devensian (31000-39000 BP)",
-      "normalized_period_labels": [
-        "unmapped_period_label"
-      ],
-      "original_period_labels": [
-        "Mid-Devensian"
-      ],
-      "uncertainty_notes": [],
-      "dating_range_count": 0,
-      "relative_period_count": 1,
-      "analysis_entity_age_count": 0,
-      "geochronology_count": 4,
-      "dendro_date_count": 0,
-      "bibliography_count": 1,
-      "comparison_note": "SEAD combines numeric dating ranges with site-level cultural or geologic period labels. Treat the point as contextual archaeology evidence, not as one directly sample-dated event."
-    },
-    {
       "site_id": "5049",
       "site_name": "Sigtuna",
       "country": "Sweden",
@@ -9297,32 +8705,6 @@
       "geochronology_count": 0,
       "dendro_date_count": 0,
       "bibliography_count": 1,
-      "comparison_note": "SEAD combines numeric dating ranges with site-level cultural or geologic period labels. Treat the point as contextual archaeology evidence, not as one directly sample-dated event."
-    },
-    {
-      "site_id": "3486",
-      "site_name": "Siretorp",
-      "country": "Sweden",
-      "comparability_posture": "mixed_interval_and_context",
-      "raw_capture_posture": "linked_temporal_rows_captured",
-      "temporal_window_label": "Early Holocene and older (6001+ BP)",
-      "summary_label": "Middle neolithic S Scandinavia; Early neolithic S Scandinavia; Mesolithic  - Early Neolithic Scandinavia (4350-12950 BP)",
-      "normalized_period_labels": [
-        "neolithic",
-        "mesolithic"
-      ],
-      "original_period_labels": [
-        "Middle neolithic S Scandinavia",
-        "Early neolithic S Scandinavia",
-        "Mesolithic  - Early Neolithic Scandinavia"
-      ],
-      "uncertainty_notes": [],
-      "dating_range_count": 0,
-      "relative_period_count": 16,
-      "analysis_entity_age_count": 0,
-      "geochronology_count": 0,
-      "dendro_date_count": 0,
-      "bibliography_count": 18,
       "comparison_note": "SEAD combines numeric dating ranges with site-level cultural or geologic period labels. Treat the point as contextual archaeology evidence, not as one directly sample-dated event."
     },
     {
@@ -9389,29 +8771,6 @@
       "dating_range_count": 0,
       "relative_period_count": 2,
       "analysis_entity_age_count": 0,
-      "geochronology_count": 0,
-      "dendro_date_count": 0,
-      "bibliography_count": 3,
-      "comparison_note": "SEAD combines numeric dating ranges with site-level cultural or geologic period labels. Treat the point as contextual archaeology evidence, not as one directly sample-dated event."
-    },
-    {
-      "site_id": "5295",
-      "site_name": "Skateholm",
-      "country": "Sweden",
-      "comparability_posture": "mixed_interval_and_context",
-      "raw_capture_posture": "linked_temporal_rows_captured",
-      "temporal_window_label": "Mid-Holocene (3001-6000 BP)",
-      "summary_label": "Holocene (0-10000 BP)",
-      "normalized_period_labels": [
-        "holocene"
-      ],
-      "original_period_labels": [
-        "Holocene"
-      ],
-      "uncertainty_notes": [],
-      "dating_range_count": 0,
-      "relative_period_count": 1,
-      "analysis_entity_age_count": 1,
       "geochronology_count": 0,
       "dendro_date_count": 0,
       "bibliography_count": 3,
@@ -10000,29 +9359,6 @@
       "comparison_note": "SEAD combines numeric dating ranges with site-level cultural or geologic period labels. Treat the point as contextual archaeology evidence, not as one directly sample-dated event."
     },
     {
-      "site_id": "3468",
-      "site_name": "Soldattorpet (Limhamn)",
-      "country": "Sweden",
-      "comparability_posture": "mixed_interval_and_context",
-      "raw_capture_posture": "linked_temporal_rows_captured",
-      "temporal_window_label": "Early Holocene and older (6001+ BP)",
-      "summary_label": "Mesolithic  - Early Neolithic Scandinavia (5250-12950 BP)",
-      "normalized_period_labels": [
-        "mesolithic"
-      ],
-      "original_period_labels": [
-        "Mesolithic  - Early Neolithic Scandinavia"
-      ],
-      "uncertainty_notes": [],
-      "dating_range_count": 0,
-      "relative_period_count": 15,
-      "analysis_entity_age_count": 0,
-      "geochronology_count": 0,
-      "dendro_date_count": 0,
-      "bibliography_count": 16,
-      "comparison_note": "SEAD combines numeric dating ranges with site-level cultural or geologic period labels. Treat the point as contextual archaeology evidence, not as one directly sample-dated event."
-    },
-    {
       "site_id": "3467",
       "site_name": "Solheim",
       "country": "Denmark",
@@ -10587,29 +9923,6 @@
       "comparison_note": "SEAD combines numeric dating ranges with site-level cultural or geologic period labels. Treat the point as contextual archaeology evidence, not as one directly sample-dated event."
     },
     {
-      "site_id": "3453",
-      "site_name": "Säter",
-      "country": "Sweden",
-      "comparability_posture": "mixed_interval_and_context",
-      "raw_capture_posture": "linked_temporal_rows_captured",
-      "temporal_window_label": "Mid-Holocene (3001-6000 BP)",
-      "summary_label": "Middle neolithic S Scandinavia (4350-5250 BP)",
-      "normalized_period_labels": [
-        "neolithic"
-      ],
-      "original_period_labels": [
-        "Middle neolithic S Scandinavia"
-      ],
-      "uncertainty_notes": [],
-      "dating_range_count": 0,
-      "relative_period_count": 9,
-      "analysis_entity_age_count": 0,
-      "geochronology_count": 0,
-      "dendro_date_count": 0,
-      "bibliography_count": 0,
-      "comparison_note": "SEAD combines numeric dating ranges with site-level cultural or geologic period labels. Treat the point as contextual archaeology evidence, not as one directly sample-dated event."
-    },
-    {
       "site_id": "3452",
       "site_name": "Söderby",
       "country": "Sweden",
@@ -10966,29 +10279,6 @@
       "geochronology_count": 6,
       "dendro_date_count": 0,
       "bibliography_count": 1,
-      "comparison_note": "SEAD combines numeric dating ranges with site-level cultural or geologic period labels. Treat the point as contextual archaeology evidence, not as one directly sample-dated event."
-    },
-    {
-      "site_id": "3437",
-      "site_name": "Tønsberg, Essotomten",
-      "country": "Norway",
-      "comparability_posture": "mixed_interval_and_context",
-      "raw_capture_posture": "linked_temporal_rows_captured",
-      "temporal_window_label": "Recent and historical (0-1000 BP)",
-      "summary_label": "Medieval Norway (413-900 BP)",
-      "normalized_period_labels": [
-        "medieval"
-      ],
-      "original_period_labels": [
-        "Medieval Norway"
-      ],
-      "uncertainty_notes": [],
-      "dating_range_count": 0,
-      "relative_period_count": 4,
-      "analysis_entity_age_count": 0,
-      "geochronology_count": 0,
-      "dendro_date_count": 0,
-      "bibliography_count": 0,
       "comparison_note": "SEAD combines numeric dating ranges with site-level cultural or geologic period labels. Treat the point as contextual archaeology evidence, not as one directly sample-dated event."
     },
     {
@@ -11859,29 +11149,6 @@
       "comparison_note": "SEAD combines numeric dating ranges with site-level cultural or geologic period labels. Treat the point as contextual archaeology evidence, not as one directly sample-dated event."
     },
     {
-      "site_id": "3409",
-      "site_name": "Årsta",
-      "country": "Sweden",
-      "comparability_posture": "mixed_interval_and_context",
-      "raw_capture_posture": "linked_temporal_rows_captured",
-      "temporal_window_label": "Recent and historical (0-1000 BP)",
-      "summary_label": "Viking (850-1150 BP)",
-      "normalized_period_labels": [
-        "viking_age"
-      ],
-      "original_period_labels": [
-        "Viking"
-      ],
-      "uncertainty_notes": [],
-      "dating_range_count": 0,
-      "relative_period_count": 3,
-      "analysis_entity_age_count": 0,
-      "geochronology_count": 0,
-      "dendro_date_count": 0,
-      "bibliography_count": 4,
-      "comparison_note": "SEAD combines numeric dating ranges with site-level cultural or geologic period labels. Treat the point as contextual archaeology evidence, not as one directly sample-dated event."
-    },
-    {
       "site_id": "3408",
       "site_name": "Årup (Skräbeån)",
       "country": "Sweden",
@@ -12324,25 +11591,6 @@
       "comparison_note": "SEAD publishes one numeric site span here. The interval remains site-level archaeology context rather than one sample-owned date."
     },
     {
-      "site_id": "4210",
-      "site_name": "Boqvistudden",
-      "country": "Sweden",
-      "comparability_posture": "numeric_interval",
-      "raw_capture_posture": "linked_temporal_rows_captured",
-      "temporal_window_label": "Recent and historical (0-1000 BP)",
-      "summary_label": "124-159 BP",
-      "normalized_period_labels": [],
-      "original_period_labels": [],
-      "uncertainty_notes": [],
-      "dating_range_count": 6,
-      "relative_period_count": 0,
-      "analysis_entity_age_count": 0,
-      "geochronology_count": 0,
-      "dendro_date_count": 6,
-      "bibliography_count": 18,
-      "comparison_note": "SEAD publishes one numeric site span here. The interval remains site-level archaeology context rather than one sample-owned date."
-    },
-    {
       "site_id": "4208",
       "site_name": "Borgholms stadsmuseum",
       "country": "Sweden",
@@ -12454,25 +11702,6 @@
       "geochronology_count": 0,
       "dendro_date_count": 2,
       "bibliography_count": 7,
-      "comparison_note": "SEAD publishes one numeric site span here. The interval remains site-level archaeology context rather than one sample-owned date."
-    },
-    {
-      "site_id": "4188",
-      "site_name": "Djursnäs säteri",
-      "country": "Sweden",
-      "comparability_posture": "numeric_interval",
-      "raw_capture_posture": "linked_temporal_rows_captured",
-      "temporal_window_label": "Recent and historical (0-1000 BP)",
-      "summary_label": "118-190 BP",
-      "normalized_period_labels": [],
-      "original_period_labels": [],
-      "uncertainty_notes": [],
-      "dating_range_count": 16,
-      "relative_period_count": 0,
-      "analysis_entity_age_count": 0,
-      "geochronology_count": 0,
-      "dendro_date_count": 16,
-      "bibliography_count": 61,
       "comparison_note": "SEAD publishes one numeric site span here. The interval remains site-level archaeology context rather than one sample-owned date."
     },
     {
@@ -12834,25 +12063,6 @@
       "geochronology_count": 0,
       "dendro_date_count": 8,
       "bibliography_count": 35,
-      "comparison_note": "SEAD publishes one numeric site span here. The interval remains site-level archaeology context rather than one sample-owned date."
-    },
-    {
-      "site_id": "4148",
-      "site_name": "Grönsö gård",
-      "country": "Sweden",
-      "comparability_posture": "numeric_interval",
-      "raw_capture_posture": "linked_temporal_rows_captured",
-      "temporal_window_label": "Recent and historical (0-1000 BP)",
-      "summary_label": "31-140 BP",
-      "normalized_period_labels": [],
-      "original_period_labels": [],
-      "uncertainty_notes": [],
-      "dating_range_count": 5,
-      "relative_period_count": 0,
-      "analysis_entity_age_count": 0,
-      "geochronology_count": 0,
-      "dendro_date_count": 4,
-      "bibliography_count": 24,
       "comparison_note": "SEAD publishes one numeric site span here. The interval remains site-level archaeology context rather than one sample-owned date."
     },
     {
@@ -13369,25 +12579,6 @@
       "comparison_note": "SEAD publishes one numeric site span here. The interval remains site-level archaeology context rather than one sample-owned date."
     },
     {
-      "site_id": "3891",
-      "site_name": "Kvarteret Båtsmannen",
-      "country": "Sweden",
-      "comparability_posture": "numeric_interval",
-      "raw_capture_posture": "linked_temporal_rows_captured",
-      "temporal_window_label": "Recent and historical (0-1000 BP)",
-      "summary_label": "175-201 BP",
-      "normalized_period_labels": [],
-      "original_period_labels": [],
-      "uncertainty_notes": [],
-      "dating_range_count": 4,
-      "relative_period_count": 0,
-      "analysis_entity_age_count": 0,
-      "geochronology_count": 0,
-      "dendro_date_count": 4,
-      "bibliography_count": 14,
-      "comparison_note": "SEAD publishes one numeric site span here. The interval remains site-level archaeology context rather than one sample-owned date."
-    },
-    {
       "site_id": "3889",
       "site_name": "Kvarteret Fältskären",
       "country": "Sweden",
@@ -13521,25 +12712,6 @@
       "comparison_note": "SEAD publishes one numeric site span here. The interval remains site-level archaeology context rather than one sample-owned date."
     },
     {
-      "site_id": "3876",
-      "site_name": "Kvarteret Skonaren",
-      "country": "Sweden",
-      "comparability_posture": "numeric_interval",
-      "raw_capture_posture": "linked_temporal_rows_captured",
-      "temporal_window_label": "Recent and historical (0-1000 BP)",
-      "summary_label": "203-211 BP",
-      "normalized_period_labels": [],
-      "original_period_labels": [],
-      "uncertainty_notes": [],
-      "dating_range_count": 12,
-      "relative_period_count": 0,
-      "analysis_entity_age_count": 0,
-      "geochronology_count": 0,
-      "dendro_date_count": 12,
-      "bibliography_count": 42,
-      "comparison_note": "SEAD publishes one numeric site span here. The interval remains site-level archaeology context rather than one sample-owned date."
-    },
-    {
       "site_id": "3875",
       "site_name": "Kvarteret Specksrum",
       "country": "Sweden",
@@ -13578,44 +12750,6 @@
       "comparison_note": "SEAD publishes one numeric site span here. The interval remains site-level archaeology context rather than one sample-owned date."
     },
     {
-      "site_id": "4086",
-      "site_name": "Källa gamla kyrka",
-      "country": "Sweden",
-      "comparability_posture": "numeric_interval",
-      "raw_capture_posture": "linked_temporal_rows_captured",
-      "temporal_window_label": "Recent and historical (0-1000 BP)",
-      "summary_label": "630-645 BP",
-      "normalized_period_labels": [],
-      "original_period_labels": [],
-      "uncertainty_notes": [],
-      "dating_range_count": 2,
-      "relative_period_count": 0,
-      "analysis_entity_age_count": 0,
-      "geochronology_count": 0,
-      "dendro_date_count": 2,
-      "bibliography_count": 6,
-      "comparison_note": "SEAD publishes one numeric site span here. The interval remains site-level archaeology context rather than one sample-owned date."
-    },
-    {
-      "site_id": "4079",
-      "site_name": "Lilla Lögla",
-      "country": "Sweden",
-      "comparability_posture": "numeric_interval",
-      "raw_capture_posture": "linked_temporal_rows_captured",
-      "temporal_window_label": "Recent and historical (0-1000 BP)",
-      "summary_label": "80-91 BP",
-      "normalized_period_labels": [],
-      "original_period_labels": [],
-      "uncertainty_notes": [],
-      "dating_range_count": 8,
-      "relative_period_count": 0,
-      "analysis_entity_age_count": 0,
-      "geochronology_count": 0,
-      "dendro_date_count": 8,
-      "bibliography_count": 28,
-      "comparison_note": "SEAD publishes one numeric site span here. The interval remains site-level archaeology context rather than one sample-owned date."
-    },
-    {
       "site_id": "4078",
       "site_name": "Lilla Rotsunda",
       "country": "Sweden",
@@ -13632,25 +12766,6 @@
       "geochronology_count": 0,
       "dendro_date_count": 30,
       "bibliography_count": 102,
-      "comparison_note": "SEAD publishes one numeric site span here. The interval remains site-level archaeology context rather than one sample-owned date."
-    },
-    {
-      "site_id": "4077",
-      "site_name": "Lilla Rätö gård",
-      "country": "Sweden",
-      "comparability_posture": "numeric_interval",
-      "raw_capture_posture": "linked_temporal_rows_captured",
-      "temporal_window_label": "Recent and historical (0-1000 BP)",
-      "summary_label": "164-174 BP",
-      "normalized_period_labels": [],
-      "original_period_labels": [],
-      "uncertainty_notes": [],
-      "dating_range_count": 12,
-      "relative_period_count": 0,
-      "analysis_entity_age_count": 0,
-      "geochronology_count": 0,
-      "dendro_date_count": 12,
-      "bibliography_count": 42,
       "comparison_note": "SEAD publishes one numeric site span here. The interval remains site-level archaeology context rather than one sample-owned date."
     },
     {
@@ -13749,25 +12864,6 @@
       "comparison_note": "SEAD publishes one numeric site span here. The interval remains site-level archaeology context rather than one sample-owned date."
     },
     {
-      "site_id": "3868",
-      "site_name": "Lögla",
-      "country": "Sweden",
-      "comparability_posture": "numeric_interval",
-      "raw_capture_posture": "linked_temporal_rows_captured",
-      "temporal_window_label": "Recent and historical (0-1000 BP)",
-      "summary_label": "0 BP",
-      "normalized_period_labels": [],
-      "original_period_labels": [],
-      "uncertainty_notes": [],
-      "dating_range_count": 2,
-      "relative_period_count": 0,
-      "analysis_entity_age_count": 0,
-      "geochronology_count": 0,
-      "dendro_date_count": 2,
-      "bibliography_count": 12,
-      "comparison_note": "SEAD publishes one numeric site span here. The interval remains site-level archaeology context rather than one sample-owned date."
-    },
-    {
       "site_id": "3865",
       "site_name": "Mariannelund",
       "country": "Sweden",
@@ -13822,25 +12918,6 @@
       "geochronology_count": 0,
       "dendro_date_count": 2,
       "bibliography_count": 7,
-      "comparison_note": "SEAD publishes one numeric site span here. The interval remains site-level archaeology context rather than one sample-owned date."
-    },
-    {
-      "site_id": "4057",
-      "site_name": "Möllebacken",
-      "country": "Sweden",
-      "comparability_posture": "numeric_interval",
-      "raw_capture_posture": "linked_temporal_rows_captured",
-      "temporal_window_label": "Recent and historical (0-1000 BP)",
-      "summary_label": "178-196 BP",
-      "normalized_period_labels": [],
-      "original_period_labels": [],
-      "uncertainty_notes": [],
-      "dating_range_count": 2,
-      "relative_period_count": 0,
-      "analysis_entity_age_count": 0,
-      "geochronology_count": 0,
-      "dendro_date_count": 2,
-      "bibliography_count": 12,
       "comparison_note": "SEAD publishes one numeric site span here. The interval remains site-level archaeology context rather than one sample-owned date."
     },
     {
@@ -13996,25 +13073,6 @@
       "comparison_note": "SEAD publishes one numeric site span here. The interval remains site-level archaeology context rather than one sample-owned date."
     },
     {
-      "site_id": "4032",
-      "site_name": "Rydboholms slott",
-      "country": "Sweden",
-      "comparability_posture": "numeric_interval",
-      "raw_capture_posture": "linked_temporal_rows_captured",
-      "temporal_window_label": "Recent and historical (0-1000 BP)",
-      "summary_label": "214-403 BP",
-      "normalized_period_labels": [],
-      "original_period_labels": [],
-      "uncertainty_notes": [],
-      "dating_range_count": 38,
-      "relative_period_count": 0,
-      "analysis_entity_age_count": 0,
-      "geochronology_count": 0,
-      "dendro_date_count": 38,
-      "bibliography_count": 115,
-      "comparison_note": "SEAD publishes one numeric site span here. The interval remains site-level archaeology context rather than one sample-owned date."
-    },
-    {
       "site_id": "3860",
       "site_name": "Ryssebo",
       "country": "Sweden",
@@ -14088,25 +13146,6 @@
       "geochronology_count": 0,
       "dendro_date_count": 0,
       "bibliography_count": 12,
-      "comparison_note": "SEAD publishes one numeric site span here. The interval remains site-level archaeology context rather than one sample-owned date."
-    },
-    {
-      "site_id": "4026",
-      "site_name": "Sandemar slott",
-      "country": "Sweden",
-      "comparability_posture": "numeric_interval",
-      "raw_capture_posture": "linked_temporal_rows_captured",
-      "temporal_window_label": "Recent and historical (0-1000 BP)",
-      "summary_label": "104 BP",
-      "normalized_period_labels": [],
-      "original_period_labels": [],
-      "uncertainty_notes": [],
-      "dating_range_count": 2,
-      "relative_period_count": 0,
-      "analysis_entity_age_count": 0,
-      "geochronology_count": 0,
-      "dendro_date_count": 2,
-      "bibliography_count": 7,
       "comparison_note": "SEAD publishes one numeric site span here. The interval remains site-level archaeology context rather than one sample-owned date."
     },
     {
@@ -14582,25 +13621,6 @@
       "geochronology_count": 0,
       "dendro_date_count": 18,
       "bibliography_count": 63,
-      "comparison_note": "SEAD publishes one numeric site span here. The interval remains site-level archaeology context rather than one sample-owned date."
-    },
-    {
-      "site_id": "3979",
-      "site_name": "Torö kyrka",
-      "country": "Sweden",
-      "comparability_posture": "numeric_interval",
-      "raw_capture_posture": "linked_temporal_rows_captured",
-      "temporal_window_label": "Recent and historical (0-1000 BP)",
-      "summary_label": "215-216 BP",
-      "normalized_period_labels": [],
-      "original_period_labels": [],
-      "uncertainty_notes": [],
-      "dating_range_count": 10,
-      "relative_period_count": 0,
-      "analysis_entity_age_count": 0,
-      "geochronology_count": 0,
-      "dendro_date_count": 10,
-      "bibliography_count": 35,
       "comparison_note": "SEAD publishes one numeric site span here. The interval remains site-level archaeology context rather than one sample-owned date."
     },
     {
@@ -16638,29 +15658,6 @@
       "comparison_note": "SEAD publishes one numeric site span here, but the upstream dating rows carry qualifiers or uncertainty notes."
     },
     {
-      "site_id": "4137",
-      "site_name": "Halls fiskeläge",
-      "country": "Sweden",
-      "comparability_posture": "numeric_interval_with_caveat",
-      "raw_capture_posture": "linked_temporal_rows_captured",
-      "temporal_window_label": "Recent and historical (0-1000 BP)",
-      "summary_label": "220-243 BP",
-      "normalized_period_labels": [],
-      "original_period_labels": [],
-      "uncertainty_notes": [
-        "efter",
-        "from",
-        "From: Oldest possible age of sample, usually part of a from-to pair, but could be used to represent open ended dating."
-      ],
-      "dating_range_count": 45,
-      "relative_period_count": 0,
-      "analysis_entity_age_count": 0,
-      "geochronology_count": 0,
-      "dendro_date_count": 34,
-      "bibliography_count": 138,
-      "comparison_note": "SEAD publishes one numeric site span here, but the upstream dating rows carry qualifiers or uncertainty notes."
-    },
-    {
       "site_id": "4136",
       "site_name": "Hallstorps kyrka",
       "country": "Sweden",
@@ -17656,28 +16653,6 @@
       "comparison_note": "SEAD publishes one numeric site span here, but the upstream dating rows carry qualifiers or uncertainty notes."
     },
     {
-      "site_id": "3877",
-      "site_name": "Kvarteret Rådhuset",
-      "country": "Sweden",
-      "comparability_posture": "numeric_interval_with_caveat",
-      "raw_capture_posture": "linked_temporal_rows_captured",
-      "temporal_window_label": "Recent and historical (0-1000 BP)",
-      "summary_label": "86-101 BP",
-      "normalized_period_labels": [],
-      "original_period_labels": [],
-      "uncertainty_notes": [
-        "from",
-        "From: Oldest possible age of sample, usually part of a from-to pair, but could be used to represent open ended dating."
-      ],
-      "dating_range_count": 4,
-      "relative_period_count": 0,
-      "analysis_entity_age_count": 0,
-      "geochronology_count": 0,
-      "dendro_date_count": 4,
-      "bibliography_count": 14,
-      "comparison_note": "SEAD publishes one numeric site span here, but the upstream dating rows carry qualifiers or uncertainty notes."
-    },
-    {
       "site_id": "3874",
       "site_name": "Kvarteret Svartbrodern",
       "country": "Sweden",
@@ -17763,29 +16738,6 @@
       "geochronology_count": 0,
       "dendro_date_count": 24,
       "bibliography_count": 78,
-      "comparison_note": "SEAD publishes one numeric site span here, but the upstream dating rows carry qualifiers or uncertainty notes."
-    },
-    {
-      "site_id": "4084",
-      "site_name": "Kärnan",
-      "country": "Sweden",
-      "comparability_posture": "numeric_interval_with_caveat",
-      "raw_capture_posture": "linked_temporal_rows_captured",
-      "temporal_window_label": "Recent and historical (0-1000 BP)",
-      "summary_label": "1-677 BP",
-      "normalized_period_labels": [],
-      "original_period_labels": [],
-      "uncertainty_notes": [
-        "efter",
-        "from",
-        "From: Oldest possible age of sample, usually part of a from-to pair, but could be used to represent open ended dating."
-      ],
-      "dating_range_count": 29,
-      "relative_period_count": 0,
-      "analysis_entity_age_count": 0,
-      "geochronology_count": 0,
-      "dendro_date_count": 26,
-      "bibliography_count": 180,
       "comparison_note": "SEAD publishes one numeric site span here, but the upstream dating rows carry qualifiers or uncertainty notes."
     },
     {
@@ -18050,28 +17002,6 @@
       "geochronology_count": 0,
       "dendro_date_count": 14,
       "bibliography_count": 66,
-      "comparison_note": "SEAD publishes one numeric site span here, but the upstream dating rows carry qualifiers or uncertainty notes."
-    },
-    {
-      "site_id": "3867",
-      "site_name": "Lövö",
-      "country": "Sweden",
-      "comparability_posture": "numeric_interval_with_caveat",
-      "raw_capture_posture": "linked_temporal_rows_captured",
-      "temporal_window_label": "Recent and historical (0-1000 BP)",
-      "summary_label": "142-178 BP",
-      "normalized_period_labels": [],
-      "original_period_labels": [],
-      "uncertainty_notes": [
-        "from",
-        "From: Oldest possible age of sample, usually part of a from-to pair, but could be used to represent open ended dating."
-      ],
-      "dating_range_count": 20,
-      "relative_period_count": 0,
-      "analysis_entity_age_count": 0,
-      "geochronology_count": 0,
-      "dendro_date_count": 20,
-      "bibliography_count": 77,
       "comparison_note": "SEAD publishes one numeric site span here, but the upstream dating rows carry qualifiers or uncertainty notes."
     },
     {
@@ -18583,28 +17513,6 @@
       "comparison_note": "SEAD publishes one numeric site span here, but the upstream dating rows carry qualifiers or uncertainty notes."
     },
     {
-      "site_id": "4029",
-      "site_name": "Röhälla",
-      "country": "Sweden",
-      "comparability_posture": "numeric_interval_with_caveat",
-      "raw_capture_posture": "linked_temporal_rows_captured",
-      "temporal_window_label": "Recent and historical (0-1000 BP)",
-      "summary_label": "169-186 BP",
-      "normalized_period_labels": [],
-      "original_period_labels": [],
-      "uncertainty_notes": [
-        "from",
-        "From: Oldest possible age of sample, usually part of a from-to pair, but could be used to represent open ended dating."
-      ],
-      "dating_range_count": 6,
-      "relative_period_count": 0,
-      "analysis_entity_age_count": 0,
-      "geochronology_count": 0,
-      "dendro_date_count": 6,
-      "bibliography_count": 36,
-      "comparison_note": "SEAD publishes one numeric site span here, but the upstream dating rows carry qualifiers or uncertainty notes."
-    },
-    {
       "site_id": "4027",
       "site_name": "Sandby prästgård",
       "country": "Sweden",
@@ -18624,28 +17532,6 @@
       "geochronology_count": 0,
       "dendro_date_count": 18,
       "bibliography_count": 60,
-      "comparison_note": "SEAD publishes one numeric site span here, but the upstream dating rows carry qualifiers or uncertainty notes."
-    },
-    {
-      "site_id": "3858",
-      "site_name": "Sandemar",
-      "country": "Sweden",
-      "comparability_posture": "numeric_interval_with_caveat",
-      "raw_capture_posture": "linked_temporal_rows_captured",
-      "temporal_window_label": "Recent and historical (0-1000 BP)",
-      "summary_label": "102-186 BP",
-      "normalized_period_labels": [],
-      "original_period_labels": [],
-      "uncertainty_notes": [
-        "from",
-        "From: Oldest possible age of sample, usually part of a from-to pair, but could be used to represent open ended dating."
-      ],
-      "dating_range_count": 18,
-      "relative_period_count": 0,
-      "analysis_entity_age_count": 0,
-      "geochronology_count": 0,
-      "dendro_date_count": 18,
-      "bibliography_count": 66,
       "comparison_note": "SEAD publishes one numeric site span here, but the upstream dating rows carry qualifiers or uncertainty notes."
     },
     {
@@ -18712,28 +17598,6 @@
       "geochronology_count": 0,
       "dendro_date_count": 10,
       "bibliography_count": 48,
-      "comparison_note": "SEAD publishes one numeric site span here, but the upstream dating rows carry qualifiers or uncertainty notes."
-    },
-    {
-      "site_id": "4022",
-      "site_name": "Sankta Maria kyrka",
-      "country": "Sweden",
-      "comparability_posture": "numeric_interval_with_caveat",
-      "raw_capture_posture": "linked_temporal_rows_captured",
-      "temporal_window_label": "Recent and historical (0-1000 BP)",
-      "summary_label": "435-572 BP",
-      "normalized_period_labels": [],
-      "original_period_labels": [],
-      "uncertainty_notes": [
-        "from",
-        "From: Oldest possible age of sample, usually part of a from-to pair, but could be used to represent open ended dating."
-      ],
-      "dating_range_count": 137,
-      "relative_period_count": 0,
-      "analysis_entity_age_count": 0,
-      "geochronology_count": 0,
-      "dendro_date_count": 128,
-      "bibliography_count": 450,
       "comparison_note": "SEAD publishes one numeric site span here, but the upstream dating rows carry qualifiers or uncertainty notes."
     },
     {
@@ -20212,28 +19076,6 @@
       "comparison_note": "SEAD publishes one numeric site span here, but the upstream dating rows carry qualifiers or uncertainty notes."
     },
     {
-      "site_id": "3932",
-      "site_name": "Östra ryds kyrka",
-      "country": "Sweden",
-      "comparability_posture": "numeric_interval_with_caveat",
-      "raw_capture_posture": "linked_temporal_rows_captured",
-      "temporal_window_label": "Recent and historical (0-1000 BP)",
-      "summary_label": "257-270 BP",
-      "normalized_period_labels": [],
-      "original_period_labels": [],
-      "uncertainty_notes": [
-        "from",
-        "From: Oldest possible age of sample, usually part of a from-to pair, but could be used to represent open ended dating."
-      ],
-      "dating_range_count": 20,
-      "relative_period_count": 0,
-      "analysis_entity_age_count": 0,
-      "geochronology_count": 0,
-      "dendro_date_count": 20,
-      "bibliography_count": 118,
-      "comparison_note": "SEAD publishes one numeric site span here, but the upstream dating rows carry qualifiers or uncertainty notes."
-    },
-    {
       "site_id": "3931",
       "site_name": "Östra Skrukeby kyrka",
       "country": "Sweden",
@@ -20678,46 +19520,8 @@
       "comparison_note": "SEAD did not publish enough dating detail here to support temporal comparison."
     },
     {
-      "site_id": "6484",
-      "site_name": "58194 Kalmar",
-      "country": "Sweden",
-      "comparability_posture": "unresolved",
-      "raw_capture_posture": "site_inventory_only",
-      "temporal_window_label": "Unresolved time window",
-      "summary_label": "Unresolved time semantics",
-      "normalized_period_labels": [],
-      "original_period_labels": [],
-      "uncertainty_notes": [],
-      "dating_range_count": 0,
-      "relative_period_count": 0,
-      "analysis_entity_age_count": 0,
-      "geochronology_count": 0,
-      "dendro_date_count": 0,
-      "bibliography_count": 0,
-      "comparison_note": "SEAD did not publish enough dating detail here to support temporal comparison."
-    },
-    {
       "site_id": "5653",
       "site_name": "58195 Böda",
-      "country": "Sweden",
-      "comparability_posture": "unresolved",
-      "raw_capture_posture": "site_inventory_only",
-      "temporal_window_label": "Unresolved time window",
-      "summary_label": "Unresolved time semantics",
-      "normalized_period_labels": [],
-      "original_period_labels": [],
-      "uncertainty_notes": [],
-      "dating_range_count": 0,
-      "relative_period_count": 0,
-      "analysis_entity_age_count": 0,
-      "geochronology_count": 0,
-      "dendro_date_count": 0,
-      "bibliography_count": 0,
-      "comparison_note": "SEAD did not publish enough dating detail here to support temporal comparison."
-    },
-    {
-      "site_id": "6462",
-      "site_name": "61094 Kronobäck",
       "country": "Sweden",
       "comparability_posture": "unresolved",
       "raw_capture_posture": "site_inventory_only",
@@ -21400,25 +20204,6 @@
       "comparison_note": "SEAD did not publish enough dating detail here to support temporal comparison."
     },
     {
-      "site_id": "6337",
-      "site_name": "93139 Ljusterö",
-      "country": "Sweden",
-      "comparability_posture": "unresolved",
-      "raw_capture_posture": "site_inventory_only",
-      "temporal_window_label": "Unresolved time window",
-      "summary_label": "Unresolved time semantics",
-      "normalized_period_labels": [],
-      "original_period_labels": [],
-      "uncertainty_notes": [],
-      "dating_range_count": 0,
-      "relative_period_count": 0,
-      "analysis_entity_age_count": 0,
-      "geochronology_count": 0,
-      "dendro_date_count": 0,
-      "bibliography_count": 0,
-      "comparison_note": "SEAD did not publish enough dating detail here to support temporal comparison."
-    },
-    {
       "site_id": "5669",
       "site_name": "93279 Österlövsta",
       "country": "Sweden",
@@ -21649,25 +20434,6 @@
     {
       "site_id": "5684",
       "site_name": "Alntorpsö",
-      "country": "Sweden",
-      "comparability_posture": "unresolved",
-      "raw_capture_posture": "site_inventory_only",
-      "temporal_window_label": "Unresolved time window",
-      "summary_label": "Unresolved time semantics",
-      "normalized_period_labels": [],
-      "original_period_labels": [],
-      "uncertainty_notes": [],
-      "dating_range_count": 0,
-      "relative_period_count": 0,
-      "analysis_entity_age_count": 0,
-      "geochronology_count": 0,
-      "dendro_date_count": 0,
-      "bibliography_count": 0,
-      "comparison_note": "SEAD did not publish enough dating detail here to support temporal comparison."
-    },
-    {
-      "site_id": "5683",
-      "site_name": "Alnö kyrka",
       "country": "Sweden",
       "comparability_posture": "unresolved",
       "raw_capture_posture": "site_inventory_only",
@@ -22369,25 +21135,6 @@
       "comparison_note": "SEAD did not publish enough dating detail here to support temporal comparison."
     },
     {
-      "site_id": "320",
-      "site_name": "Bergskärit",
-      "country": "Sweden",
-      "comparability_posture": "unresolved",
-      "raw_capture_posture": "bibliography_only",
-      "temporal_window_label": "Unresolved time window",
-      "summary_label": "Unresolved time semantics",
-      "normalized_period_labels": [],
-      "original_period_labels": [],
-      "uncertainty_notes": [],
-      "dating_range_count": 0,
-      "relative_period_count": 0,
-      "analysis_entity_age_count": 0,
-      "geochronology_count": 0,
-      "dendro_date_count": 0,
-      "bibliography_count": 1,
-      "comparison_note": "SEAD did not publish enough dating detail here to support temporal comparison."
-    },
-    {
       "site_id": "3789",
       "site_name": "Birka, Settlement",
       "country": "Sweden",
@@ -22789,25 +21536,6 @@
     {
       "site_id": "5723",
       "site_name": "Bobergs i Nyhyttan",
-      "country": "Sweden",
-      "comparability_posture": "unresolved",
-      "raw_capture_posture": "site_inventory_only",
-      "temporal_window_label": "Unresolved time window",
-      "summary_label": "Unresolved time semantics",
-      "normalized_period_labels": [],
-      "original_period_labels": [],
-      "uncertainty_notes": [],
-      "dating_range_count": 0,
-      "relative_period_count": 0,
-      "analysis_entity_age_count": 0,
-      "geochronology_count": 0,
-      "dendro_date_count": 0,
-      "bibliography_count": 0,
-      "comparison_note": "SEAD did not publish enough dating detail here to support temporal comparison."
-    },
-    {
-      "site_id": "5724",
-      "site_name": "Bobergska gården",
       "country": "Sweden",
       "comparability_posture": "unresolved",
       "raw_capture_posture": "site_inventory_only",
@@ -24478,25 +23206,6 @@
       "comparison_note": "SEAD did not publish enough dating detail here to support temporal comparison."
     },
     {
-      "site_id": "5737",
-      "site_name": "Brämöns kapell",
-      "country": "Sweden",
-      "comparability_posture": "unresolved",
-      "raw_capture_posture": "site_inventory_only",
-      "temporal_window_label": "Unresolved time window",
-      "summary_label": "Unresolved time semantics",
-      "normalized_period_labels": [],
-      "original_period_labels": [],
-      "uncertainty_notes": [],
-      "dating_range_count": 0,
-      "relative_period_count": 0,
-      "analysis_entity_age_count": 0,
-      "geochronology_count": 0,
-      "dendro_date_count": 0,
-      "bibliography_count": 0,
-      "comparison_note": "SEAD did not publish enough dating detail here to support temporal comparison."
-    },
-    {
       "site_id": "5745",
       "site_name": "Budasmyren Nusnäs",
       "country": "Sweden",
@@ -25276,44 +23985,6 @@
       "comparison_note": "SEAD did not publish enough dating detail here to support temporal comparison."
     },
     {
-      "site_id": "6432",
-      "site_name": "Djurgårdsbrunn",
-      "country": "Sweden",
-      "comparability_posture": "unresolved",
-      "raw_capture_posture": "site_inventory_only",
-      "temporal_window_label": "Unresolved time window",
-      "summary_label": "Unresolved time semantics",
-      "normalized_period_labels": [],
-      "original_period_labels": [],
-      "uncertainty_notes": [],
-      "dating_range_count": 0,
-      "relative_period_count": 0,
-      "analysis_entity_age_count": 0,
-      "geochronology_count": 0,
-      "dendro_date_count": 0,
-      "bibliography_count": 0,
-      "comparison_note": "SEAD did not publish enough dating detail here to support temporal comparison."
-    },
-    {
-      "site_id": "6285",
-      "site_name": "Djurgårdsbrunnsvägen",
-      "country": "Sweden",
-      "comparability_posture": "unresolved",
-      "raw_capture_posture": "site_inventory_only",
-      "temporal_window_label": "Unresolved time window",
-      "summary_label": "Unresolved time semantics",
-      "normalized_period_labels": [],
-      "original_period_labels": [],
-      "uncertainty_notes": [],
-      "dating_range_count": 0,
-      "relative_period_count": 0,
-      "analysis_entity_age_count": 0,
-      "geochronology_count": 0,
-      "dendro_date_count": 0,
-      "bibliography_count": 0,
-      "comparison_note": "SEAD did not publish enough dating detail here to support temporal comparison."
-    },
-    {
       "site_id": "6286",
       "site_name": "Drottningholm",
       "country": "Sweden",
@@ -25599,25 +24270,6 @@
       "comparison_note": "SEAD did not publish enough dating detail here to support temporal comparison."
     },
     {
-      "site_id": "5662",
-      "site_name": "Ekö",
-      "country": "Sweden",
-      "comparability_posture": "unresolved",
-      "raw_capture_posture": "site_inventory_only",
-      "temporal_window_label": "Unresolved time window",
-      "summary_label": "Unresolved time semantics",
-      "normalized_period_labels": [],
-      "original_period_labels": [],
-      "uncertainty_notes": [],
-      "dating_range_count": 0,
-      "relative_period_count": 0,
-      "analysis_entity_age_count": 0,
-      "geochronology_count": 0,
-      "dendro_date_count": 0,
-      "bibliography_count": 0,
-      "comparison_note": "SEAD did not publish enough dating detail here to support temporal comparison."
-    },
-    {
       "site_id": "5772",
       "site_name": "Eldhus Fageråsen",
       "country": "Sweden",
@@ -25691,25 +24343,6 @@
       "geochronology_count": 0,
       "dendro_date_count": 0,
       "bibliography_count": 0,
-      "comparison_note": "SEAD did not publish enough dating detail here to support temporal comparison."
-    },
-    {
-      "site_id": "4248",
-      "site_name": "Endletvatn",
-      "country": "Norway",
-      "comparability_posture": "unresolved",
-      "raw_capture_posture": "bibliography_only",
-      "temporal_window_label": "Unresolved time window",
-      "summary_label": "Unresolved time semantics",
-      "normalized_period_labels": [],
-      "original_period_labels": [],
-      "uncertainty_notes": [],
-      "dating_range_count": 0,
-      "relative_period_count": 0,
-      "analysis_entity_age_count": 0,
-      "geochronology_count": 0,
-      "dendro_date_count": 0,
-      "bibliography_count": 1,
       "comparison_note": "SEAD did not publish enough dating detail here to support temporal comparison."
     },
     {
@@ -26967,25 +25600,6 @@
       "comparison_note": "SEAD did not publish enough dating detail here to support temporal comparison."
     },
     {
-      "site_id": "305",
-      "site_name": "Fåröarna",
-      "country": "Sweden",
-      "comparability_posture": "unresolved",
-      "raw_capture_posture": "bibliography_only",
-      "temporal_window_label": "Unresolved time window",
-      "summary_label": "Unresolved time semantics",
-      "normalized_period_labels": [],
-      "original_period_labels": [],
-      "uncertainty_notes": [],
-      "dating_range_count": 0,
-      "relative_period_count": 0,
-      "analysis_entity_age_count": 0,
-      "geochronology_count": 0,
-      "dendro_date_count": 0,
-      "bibliography_count": 2,
-      "comparison_note": "SEAD did not publish enough dating detail here to support temporal comparison."
-    },
-    {
       "site_id": "5802",
       "site_name": "Församlingshemmet",
       "country": "Sweden",
@@ -27026,25 +25640,6 @@
     {
       "site_id": "6289",
       "site_name": "Gamla byvägen",
-      "country": "Sweden",
-      "comparability_posture": "unresolved",
-      "raw_capture_posture": "site_inventory_only",
-      "temporal_window_label": "Unresolved time window",
-      "summary_label": "Unresolved time semantics",
-      "normalized_period_labels": [],
-      "original_period_labels": [],
-      "uncertainty_notes": [],
-      "dating_range_count": 0,
-      "relative_period_count": 0,
-      "analysis_entity_age_count": 0,
-      "geochronology_count": 0,
-      "dendro_date_count": 0,
-      "bibliography_count": 0,
-      "comparison_note": "SEAD did not publish enough dating detail here to support temporal comparison."
-    },
-    {
-      "site_id": "6435",
-      "site_name": "Gamla hamnen på Enholmen",
       "country": "Sweden",
       "comparability_posture": "unresolved",
       "raw_capture_posture": "site_inventory_only",
@@ -27423,44 +26018,6 @@
       "comparison_note": "SEAD did not publish enough dating detail here to support temporal comparison."
     },
     {
-      "site_id": "5836",
-      "site_name": "Grisskär",
-      "country": "Sweden",
-      "comparability_posture": "unresolved",
-      "raw_capture_posture": "site_inventory_only",
-      "temporal_window_label": "Unresolved time window",
-      "summary_label": "Unresolved time semantics",
-      "normalized_period_labels": [],
-      "original_period_labels": [],
-      "uncertainty_notes": [],
-      "dating_range_count": 0,
-      "relative_period_count": 0,
-      "analysis_entity_age_count": 0,
-      "geochronology_count": 0,
-      "dendro_date_count": 0,
-      "bibliography_count": 0,
-      "comparison_note": "SEAD did not publish enough dating detail here to support temporal comparison."
-    },
-    {
-      "site_id": "3719",
-      "site_name": "Grobin",
-      "country": "",
-      "comparability_posture": "unresolved",
-      "raw_capture_posture": "linked_temporal_rows_captured",
-      "temporal_window_label": "",
-      "summary_label": "",
-      "normalized_period_labels": [],
-      "original_period_labels": [],
-      "uncertainty_notes": [],
-      "dating_range_count": 0,
-      "relative_period_count": 54,
-      "analysis_entity_age_count": 0,
-      "geochronology_count": 0,
-      "dendro_date_count": 0,
-      "bibliography_count": 2,
-      "comparison_note": ""
-    },
-    {
       "site_id": "167",
       "site_name": "Grums Raä 41:1",
       "country": "Sweden",
@@ -27577,25 +26134,6 @@
     {
       "site_id": "5838",
       "site_name": "Gruvris i Gulleråsen",
-      "country": "Sweden",
-      "comparability_posture": "unresolved",
-      "raw_capture_posture": "site_inventory_only",
-      "temporal_window_label": "Unresolved time window",
-      "summary_label": "Unresolved time semantics",
-      "normalized_period_labels": [],
-      "original_period_labels": [],
-      "uncertainty_notes": [],
-      "dating_range_count": 0,
-      "relative_period_count": 0,
-      "analysis_entity_age_count": 0,
-      "geochronology_count": 0,
-      "dendro_date_count": 0,
-      "bibliography_count": 0,
-      "comparison_note": "SEAD did not publish enough dating detail here to support temporal comparison."
-    },
-    {
-      "site_id": "6414",
-      "site_name": "Gryt 4:2",
       "country": "Sweden",
       "comparability_posture": "unresolved",
       "raw_capture_posture": "site_inventory_only",
@@ -28734,25 +27272,6 @@
       "comparison_note": "SEAD did not publish enough dating detail here to support temporal comparison."
     },
     {
-      "site_id": "3697",
-      "site_name": "Hedeby",
-      "country": "",
-      "comparability_posture": "unresolved",
-      "raw_capture_posture": "linked_temporal_rows_captured",
-      "temporal_window_label": "",
-      "summary_label": "",
-      "normalized_period_labels": [],
-      "original_period_labels": [],
-      "uncertainty_notes": [],
-      "dating_range_count": 0,
-      "relative_period_count": 3,
-      "analysis_entity_age_count": 0,
-      "geochronology_count": 0,
-      "dendro_date_count": 0,
-      "bibliography_count": 4,
-      "comparison_note": ""
-    },
-    {
       "site_id": "205",
       "site_name": "Hedesunda Raä 113",
       "country": "Sweden",
@@ -28869,44 +27388,6 @@
     {
       "site_id": "6392",
       "site_name": "Helsingborg 226:1",
-      "country": "Sweden",
-      "comparability_posture": "unresolved",
-      "raw_capture_posture": "site_inventory_only",
-      "temporal_window_label": "Unresolved time window",
-      "summary_label": "Unresolved time semantics",
-      "normalized_period_labels": [],
-      "original_period_labels": [],
-      "uncertainty_notes": [],
-      "dating_range_count": 0,
-      "relative_period_count": 0,
-      "analysis_entity_age_count": 0,
-      "geochronology_count": 0,
-      "dendro_date_count": 0,
-      "bibliography_count": 0,
-      "comparison_note": "SEAD did not publish enough dating detail here to support temporal comparison."
-    },
-    {
-      "site_id": "6380",
-      "site_name": "Helsingborg 252",
-      "country": "Sweden",
-      "comparability_posture": "unresolved",
-      "raw_capture_posture": "site_inventory_only",
-      "temporal_window_label": "Unresolved time window",
-      "summary_label": "Unresolved time semantics",
-      "normalized_period_labels": [],
-      "original_period_labels": [],
-      "uncertainty_notes": [],
-      "dating_range_count": 0,
-      "relative_period_count": 0,
-      "analysis_entity_age_count": 0,
-      "geochronology_count": 0,
-      "dendro_date_count": 0,
-      "bibliography_count": 0,
-      "comparison_note": "SEAD did not publish enough dating detail here to support temporal comparison."
-    },
-    {
-      "site_id": "6382",
-      "site_name": "Helsingborg 42:1",
       "country": "Sweden",
       "comparability_posture": "unresolved",
       "raw_capture_posture": "site_inventory_only",
@@ -29304,25 +27785,6 @@
       "comparison_note": "SEAD did not publish enough dating detail here to support temporal comparison."
     },
     {
-      "site_id": "6298",
-      "site_name": "Husarö",
-      "country": "Sweden",
-      "comparability_posture": "unresolved",
-      "raw_capture_posture": "site_inventory_only",
-      "temporal_window_label": "Unresolved time window",
-      "summary_label": "Unresolved time semantics",
-      "normalized_period_labels": [],
-      "original_period_labels": [],
-      "uncertainty_notes": [],
-      "dating_range_count": 0,
-      "relative_period_count": 0,
-      "analysis_entity_age_count": 0,
-      "geochronology_count": 0,
-      "dendro_date_count": 0,
-      "bibliography_count": 0,
-      "comparison_note": "SEAD did not publish enough dating detail here to support temporal comparison."
-    },
-    {
       "site_id": "6454",
       "site_name": "Husie bog",
       "country": "Sweden",
@@ -29627,25 +28089,6 @@
       "comparison_note": "SEAD did not publish enough dating detail here to support temporal comparison."
     },
     {
-      "site_id": "4784",
-      "site_name": "Härnön",
-      "country": "",
-      "comparability_posture": "unresolved",
-      "raw_capture_posture": "linked_temporal_rows_captured",
-      "temporal_window_label": "",
-      "summary_label": "",
-      "normalized_period_labels": [],
-      "original_period_labels": [],
-      "uncertainty_notes": [],
-      "dating_range_count": 0,
-      "relative_period_count": 2,
-      "analysis_entity_age_count": 2,
-      "geochronology_count": 0,
-      "dendro_date_count": 0,
-      "bibliography_count": 3,
-      "comparison_note": ""
-    },
-    {
       "site_id": "211",
       "site_name": "Härnösand Raä 1",
       "country": "Sweden",
@@ -29836,25 +28279,6 @@
       "comparison_note": "SEAD did not publish enough dating detail here to support temporal comparison."
     },
     {
-      "site_id": "6425",
-      "site_name": "Hölö 320:1",
-      "country": "Sweden",
-      "comparability_posture": "unresolved",
-      "raw_capture_posture": "site_inventory_only",
-      "temporal_window_label": "Unresolved time window",
-      "summary_label": "Unresolved time semantics",
-      "normalized_period_labels": [],
-      "original_period_labels": [],
-      "uncertainty_notes": [],
-      "dating_range_count": 0,
-      "relative_period_count": 0,
-      "analysis_entity_age_count": 0,
-      "geochronology_count": 0,
-      "dendro_date_count": 0,
-      "bibliography_count": 0,
-      "comparison_note": "SEAD did not publish enough dating detail here to support temporal comparison."
-    },
-    {
       "site_id": "5885",
       "site_name": "Hörnsjöfors",
       "country": "Sweden",
@@ -29972,25 +28396,6 @@
       "site_id": "6300",
       "site_name": "Ingestorp övre",
       "country": "Sweden",
-      "comparability_posture": "unresolved",
-      "raw_capture_posture": "site_inventory_only",
-      "temporal_window_label": "Unresolved time window",
-      "summary_label": "Unresolved time semantics",
-      "normalized_period_labels": [],
-      "original_period_labels": [],
-      "uncertainty_notes": [],
-      "dating_range_count": 0,
-      "relative_period_count": 0,
-      "analysis_entity_age_count": 0,
-      "geochronology_count": 0,
-      "dendro_date_count": 0,
-      "bibliography_count": 0,
-      "comparison_note": "SEAD did not publish enough dating detail here to support temporal comparison."
-    },
-    {
-      "site_id": "5436",
-      "site_name": "Ingoy",
-      "country": "Norway",
       "comparability_posture": "unresolved",
       "raw_capture_posture": "site_inventory_only",
       "temporal_window_label": "Unresolved time window",
@@ -30347,25 +28752,6 @@
       "dendro_date_count": 0,
       "bibliography_count": 0,
       "comparison_note": "SEAD did not publish enough dating detail here to support temporal comparison."
-    },
-    {
-      "site_id": "3666",
-      "site_name": "Juszkowo, pow. Pruszcz",
-      "country": "",
-      "comparability_posture": "unresolved",
-      "raw_capture_posture": "linked_temporal_rows_captured",
-      "temporal_window_label": "",
-      "summary_label": "",
-      "normalized_period_labels": [],
-      "original_period_labels": [],
-      "uncertainty_notes": [],
-      "dating_range_count": 0,
-      "relative_period_count": 3,
-      "analysis_entity_age_count": 0,
-      "geochronology_count": 0,
-      "dendro_date_count": 0,
-      "bibliography_count": 1,
-      "comparison_note": ""
     },
     {
       "site_id": "5891",
@@ -30957,44 +29343,6 @@
       "comparison_note": "SEAD did not publish enough dating detail here to support temporal comparison."
     },
     {
-      "site_id": "3652",
-      "site_name": "Kastelholm",
-      "country": "",
-      "comparability_posture": "unresolved",
-      "raw_capture_posture": "linked_temporal_rows_captured",
-      "temporal_window_label": "",
-      "summary_label": "",
-      "normalized_period_labels": [],
-      "original_period_labels": [],
-      "uncertainty_notes": [],
-      "dating_range_count": 0,
-      "relative_period_count": 16,
-      "analysis_entity_age_count": 0,
-      "geochronology_count": 0,
-      "dendro_date_count": 0,
-      "bibliography_count": 18,
-      "comparison_note": ""
-    },
-    {
-      "site_id": "127",
-      "site_name": "Kaupang i Skiringssal",
-      "country": "Norway",
-      "comparability_posture": "unresolved",
-      "raw_capture_posture": "bibliography_only",
-      "temporal_window_label": "Unresolved time window",
-      "summary_label": "Unresolved time semantics",
-      "normalized_period_labels": [],
-      "original_period_labels": [],
-      "uncertainty_notes": [],
-      "dating_range_count": 0,
-      "relative_period_count": 0,
-      "analysis_entity_age_count": 0,
-      "geochronology_count": 0,
-      "dendro_date_count": 0,
-      "bibliography_count": 1,
-      "comparison_note": "SEAD did not publish enough dating detail here to support temporal comparison."
-    },
-    {
       "site_id": "5926",
       "site_name": "Kestads kyrka",
       "country": "Sweden",
@@ -31111,25 +29459,6 @@
     {
       "site_id": "5931",
       "site_name": "Klaus Mortensens hus",
-      "country": "Sweden",
-      "comparability_posture": "unresolved",
-      "raw_capture_posture": "site_inventory_only",
-      "temporal_window_label": "Unresolved time window",
-      "summary_label": "Unresolved time semantics",
-      "normalized_period_labels": [],
-      "original_period_labels": [],
-      "uncertainty_notes": [],
-      "dating_range_count": 0,
-      "relative_period_count": 0,
-      "analysis_entity_age_count": 0,
-      "geochronology_count": 0,
-      "dendro_date_count": 0,
-      "bibliography_count": 0,
-      "comparison_note": "SEAD did not publish enough dating detail here to support temporal comparison."
-    },
-    {
-      "site_id": "5932",
-      "site_name": "Klintahuset",
       "country": "Sweden",
       "comparability_posture": "unresolved",
       "raw_capture_posture": "site_inventory_only",
@@ -31391,44 +29720,6 @@
       "geochronology_count": 0,
       "dendro_date_count": 0,
       "bibliography_count": 1,
-      "comparison_note": "SEAD did not publish enough dating detail here to support temporal comparison."
-    },
-    {
-      "site_id": "5277",
-      "site_name": "Kreigers Flak",
-      "country": "",
-      "comparability_posture": "unresolved",
-      "raw_capture_posture": "linked_temporal_rows_captured",
-      "temporal_window_label": "",
-      "summary_label": "",
-      "normalized_period_labels": [],
-      "original_period_labels": [],
-      "uncertainty_notes": [],
-      "dating_range_count": 0,
-      "relative_period_count": 2,
-      "analysis_entity_age_count": 2,
-      "geochronology_count": 0,
-      "dendro_date_count": 0,
-      "bibliography_count": 2,
-      "comparison_note": ""
-    },
-    {
-      "site_id": "6302",
-      "site_name": "Kringelvägen",
-      "country": "Sweden",
-      "comparability_posture": "unresolved",
-      "raw_capture_posture": "site_inventory_only",
-      "temporal_window_label": "Unresolved time window",
-      "summary_label": "Unresolved time semantics",
-      "normalized_period_labels": [],
-      "original_period_labels": [],
-      "uncertainty_notes": [],
-      "dating_range_count": 0,
-      "relative_period_count": 0,
-      "analysis_entity_age_count": 0,
-      "geochronology_count": 0,
-      "dendro_date_count": 0,
-      "bibliography_count": 0,
       "comparison_note": "SEAD did not publish enough dating detail here to support temporal comparison."
     },
     {
@@ -32251,25 +30542,6 @@
     {
       "site_id": "5958",
       "site_name": "Landgården i Mon",
-      "country": "Sweden",
-      "comparability_posture": "unresolved",
-      "raw_capture_posture": "site_inventory_only",
-      "temporal_window_label": "Unresolved time window",
-      "summary_label": "Unresolved time semantics",
-      "normalized_period_labels": [],
-      "original_period_labels": [],
-      "uncertainty_notes": [],
-      "dating_range_count": 0,
-      "relative_period_count": 0,
-      "analysis_entity_age_count": 0,
-      "geochronology_count": 0,
-      "dendro_date_count": 0,
-      "bibliography_count": 0,
-      "comparison_note": "SEAD did not publish enough dating detail here to support temporal comparison."
-    },
-    {
-      "site_id": "6384",
-      "site_name": "Landskrona 12:1",
       "country": "Sweden",
       "comparability_posture": "unresolved",
       "raw_capture_posture": "site_inventory_only",
@@ -33465,25 +31737,6 @@
       "comparison_note": "SEAD did not publish enough dating detail here to support temporal comparison."
     },
     {
-      "site_id": "5988",
-      "site_name": "Lörans kapell",
-      "country": "Sweden",
-      "comparability_posture": "unresolved",
-      "raw_capture_posture": "site_inventory_only",
-      "temporal_window_label": "Unresolved time window",
-      "summary_label": "Unresolved time semantics",
-      "normalized_period_labels": [],
-      "original_period_labels": [],
-      "uncertainty_notes": [],
-      "dating_range_count": 0,
-      "relative_period_count": 0,
-      "analysis_entity_age_count": 0,
-      "geochronology_count": 0,
-      "dendro_date_count": 0,
-      "bibliography_count": 0,
-      "comparison_note": "SEAD did not publish enough dating detail here to support temporal comparison."
-    },
-    {
       "site_id": "5989",
       "site_name": "Lösens kyrka",
       "country": "Sweden",
@@ -33500,25 +31753,6 @@
       "geochronology_count": 0,
       "dendro_date_count": 0,
       "bibliography_count": 0,
-      "comparison_note": "SEAD did not publish enough dating detail here to support temporal comparison."
-    },
-    {
-      "site_id": "4885",
-      "site_name": "Lövdalen",
-      "country": "Sweden",
-      "comparability_posture": "unresolved",
-      "raw_capture_posture": "bibliography_only",
-      "temporal_window_label": "Unresolved time window",
-      "summary_label": "Unresolved time semantics",
-      "normalized_period_labels": [],
-      "original_period_labels": [],
-      "uncertainty_notes": [],
-      "dating_range_count": 0,
-      "relative_period_count": 0,
-      "analysis_entity_age_count": 0,
-      "geochronology_count": 0,
-      "dendro_date_count": 0,
-      "bibliography_count": 1,
       "comparison_note": "SEAD did not publish enough dating detail here to support temporal comparison."
     },
     {
@@ -33695,44 +31929,6 @@
     {
       "site_id": "6002",
       "site_name": "Marmaverken",
-      "country": "Sweden",
-      "comparability_posture": "unresolved",
-      "raw_capture_posture": "site_inventory_only",
-      "temporal_window_label": "Unresolved time window",
-      "summary_label": "Unresolved time semantics",
-      "normalized_period_labels": [],
-      "original_period_labels": [],
-      "uncertainty_notes": [],
-      "dating_range_count": 0,
-      "relative_period_count": 0,
-      "analysis_entity_age_count": 0,
-      "geochronology_count": 0,
-      "dendro_date_count": 0,
-      "bibliography_count": 0,
-      "comparison_note": "SEAD did not publish enough dating detail here to support temporal comparison."
-    },
-    {
-      "site_id": "358",
-      "site_name": "Marskärskobben",
-      "country": "Sweden",
-      "comparability_posture": "unresolved",
-      "raw_capture_posture": "bibliography_only",
-      "temporal_window_label": "Unresolved time window",
-      "summary_label": "Unresolved time semantics",
-      "normalized_period_labels": [],
-      "original_period_labels": [],
-      "uncertainty_notes": [],
-      "dating_range_count": 0,
-      "relative_period_count": 0,
-      "analysis_entity_age_count": 0,
-      "geochronology_count": 0,
-      "dendro_date_count": 0,
-      "bibliography_count": 2,
-      "comparison_note": "SEAD did not publish enough dating detail here to support temporal comparison."
-    },
-    {
-      "site_id": "6311",
-      "site_name": "Marstrand",
       "country": "Sweden",
       "comparability_posture": "unresolved",
       "raw_capture_posture": "site_inventory_only",
@@ -33940,25 +32136,6 @@
       "comparison_note": "SEAD did not publish enough dating detail here to support temporal comparison."
     },
     {
-      "site_id": "4888",
-      "site_name": "Metsäpirtti",
-      "country": "",
-      "comparability_posture": "unresolved",
-      "raw_capture_posture": "linked_temporal_rows_captured",
-      "temporal_window_label": "",
-      "summary_label": "",
-      "normalized_period_labels": [],
-      "original_period_labels": [],
-      "uncertainty_notes": [],
-      "dating_range_count": 0,
-      "relative_period_count": 1,
-      "analysis_entity_age_count": 1,
-      "geochronology_count": 0,
-      "dendro_date_count": 0,
-      "bibliography_count": 3,
-      "comparison_note": ""
-    },
-    {
       "site_id": "6012",
       "site_name": "Mjellrumsgården",
       "country": "Sweden",
@@ -33994,25 +32171,6 @@
       "geochronology_count": 0,
       "dendro_date_count": 0,
       "bibliography_count": 0,
-      "comparison_note": "SEAD did not publish enough dating detail here to support temporal comparison."
-    },
-    {
-      "site_id": "349",
-      "site_name": "Mjölingsören",
-      "country": "Sweden",
-      "comparability_posture": "unresolved",
-      "raw_capture_posture": "bibliography_only",
-      "temporal_window_label": "Unresolved time window",
-      "summary_label": "Unresolved time semantics",
-      "normalized_period_labels": [],
-      "original_period_labels": [],
-      "uncertainty_notes": [],
-      "dating_range_count": 0,
-      "relative_period_count": 0,
-      "analysis_entity_age_count": 0,
-      "geochronology_count": 0,
-      "dendro_date_count": 0,
-      "bibliography_count": 2,
       "comparison_note": "SEAD did not publish enough dating detail here to support temporal comparison."
     },
     {
@@ -34377,25 +32535,6 @@
       "comparison_note": "SEAD did not publish enough dating detail here to support temporal comparison."
     },
     {
-      "site_id": "6017",
-      "site_name": "Mörtviksvägen",
-      "country": "Sweden",
-      "comparability_posture": "unresolved",
-      "raw_capture_posture": "site_inventory_only",
-      "temporal_window_label": "Unresolved time window",
-      "summary_label": "Unresolved time semantics",
-      "normalized_period_labels": [],
-      "original_period_labels": [],
-      "uncertainty_notes": [],
-      "dating_range_count": 0,
-      "relative_period_count": 0,
-      "analysis_entity_age_count": 0,
-      "geochronology_count": 0,
-      "dendro_date_count": 0,
-      "bibliography_count": 0,
-      "comparison_note": "SEAD did not publish enough dating detail here to support temporal comparison."
-    },
-    {
       "site_id": "339",
       "site_name": "Naverstad 373",
       "country": "Sweden",
@@ -34507,25 +32646,6 @@
       "geochronology_count": 0,
       "dendro_date_count": 0,
       "bibliography_count": 0,
-      "comparison_note": "SEAD did not publish enough dating detail here to support temporal comparison."
-    },
-    {
-      "site_id": "332",
-      "site_name": "Nickösörarna",
-      "country": "Sweden",
-      "comparability_posture": "unresolved",
-      "raw_capture_posture": "bibliography_only",
-      "temporal_window_label": "Unresolved time window",
-      "summary_label": "Unresolved time semantics",
-      "normalized_period_labels": [],
-      "original_period_labels": [],
-      "uncertainty_notes": [],
-      "dating_range_count": 0,
-      "relative_period_count": 0,
-      "analysis_entity_age_count": 0,
-      "geochronology_count": 0,
-      "dendro_date_count": 0,
-      "bibliography_count": 2,
       "comparison_note": "SEAD did not publish enough dating detail here to support temporal comparison."
     },
     {
@@ -34795,25 +32915,6 @@
       "comparison_note": "SEAD did not publish enough dating detail here to support temporal comparison."
     },
     {
-      "site_id": "289",
-      "site_name": "Norra Småholmen",
-      "country": "Sweden",
-      "comparability_posture": "unresolved",
-      "raw_capture_posture": "bibliography_only",
-      "temporal_window_label": "Unresolved time window",
-      "summary_label": "Unresolved time semantics",
-      "normalized_period_labels": [],
-      "original_period_labels": [],
-      "uncertainty_notes": [],
-      "dating_range_count": 0,
-      "relative_period_count": 0,
-      "analysis_entity_age_count": 0,
-      "geochronology_count": 0,
-      "dendro_date_count": 0,
-      "bibliography_count": 2,
-      "comparison_note": "SEAD did not publish enough dating detail here to support temporal comparison."
-    },
-    {
       "site_id": "6034",
       "site_name": "Norra Strö kyrka",
       "country": "Sweden",
@@ -34983,25 +33084,6 @@
       "dendro_date_count": 0,
       "bibliography_count": 0,
       "comparison_note": "SEAD did not publish enough dating detail here to support temporal comparison."
-    },
-    {
-      "site_id": "4562",
-      "site_name": "Novgorod: Troitsky",
-      "country": "",
-      "comparability_posture": "unresolved",
-      "raw_capture_posture": "linked_temporal_rows_captured",
-      "temporal_window_label": "",
-      "summary_label": "",
-      "normalized_period_labels": [],
-      "original_period_labels": [],
-      "uncertainty_notes": [],
-      "dating_range_count": 0,
-      "relative_period_count": 23,
-      "analysis_entity_age_count": 23,
-      "geochronology_count": 0,
-      "dendro_date_count": 0,
-      "bibliography_count": 2,
-      "comparison_note": ""
     },
     {
       "site_id": "5094",
@@ -35802,44 +33884,6 @@
       "comparison_note": "SEAD did not publish enough dating detail here to support temporal comparison."
     },
     {
-      "site_id": "4",
-      "site_name": "Onsala 327",
-      "country": "Sweden",
-      "comparability_posture": "unresolved",
-      "raw_capture_posture": "bibliography_only",
-      "temporal_window_label": "Unresolved time window",
-      "summary_label": "Unresolved time semantics",
-      "normalized_period_labels": [],
-      "original_period_labels": [],
-      "uncertainty_notes": [],
-      "dating_range_count": 0,
-      "relative_period_count": 0,
-      "analysis_entity_age_count": 0,
-      "geochronology_count": 0,
-      "dendro_date_count": 0,
-      "bibliography_count": 6,
-      "comparison_note": "SEAD did not publish enough dating detail here to support temporal comparison."
-    },
-    {
-      "site_id": "12",
-      "site_name": "Onsala Raä 369",
-      "country": "Sweden",
-      "comparability_posture": "unresolved",
-      "raw_capture_posture": "bibliography_only",
-      "temporal_window_label": "Unresolved time window",
-      "summary_label": "Unresolved time semantics",
-      "normalized_period_labels": [],
-      "original_period_labels": [],
-      "uncertainty_notes": [],
-      "dating_range_count": 0,
-      "relative_period_count": 0,
-      "analysis_entity_age_count": 0,
-      "geochronology_count": 0,
-      "dendro_date_count": 0,
-      "bibliography_count": 2,
-      "comparison_note": "SEAD did not publish enough dating detail here to support temporal comparison."
-    },
-    {
       "site_id": "5665",
       "site_name": "Onsjöstugan",
       "country": "Sweden",
@@ -35895,25 +33939,6 @@
       "dendro_date_count": 0,
       "bibliography_count": 0,
       "comparison_note": "SEAD did not publish enough dating detail here to support temporal comparison."
-    },
-    {
-      "site_id": "3528",
-      "site_name": "Otterböte",
-      "country": "",
-      "comparability_posture": "unresolved",
-      "raw_capture_posture": "linked_temporal_rows_captured",
-      "temporal_window_label": "",
-      "summary_label": "",
-      "normalized_period_labels": [],
-      "original_period_labels": [],
-      "uncertainty_notes": [],
-      "dating_range_count": 0,
-      "relative_period_count": 72,
-      "analysis_entity_age_count": 0,
-      "geochronology_count": 0,
-      "dendro_date_count": 0,
-      "bibliography_count": 1,
-      "comparison_note": ""
     },
     {
       "site_id": "181",
@@ -36619,25 +34644,6 @@
       "comparison_note": "SEAD did not publish enough dating detail here to support temporal comparison."
     },
     {
-      "site_id": "4981",
-      "site_name": "Raunis",
-      "country": "",
-      "comparability_posture": "unresolved",
-      "raw_capture_posture": "linked_temporal_rows_captured",
-      "temporal_window_label": "",
-      "summary_label": "",
-      "normalized_period_labels": [],
-      "original_period_labels": [],
-      "uncertainty_notes": [],
-      "dating_range_count": 0,
-      "relative_period_count": 1,
-      "analysis_entity_age_count": 1,
-      "geochronology_count": 1,
-      "dendro_date_count": 0,
-      "bibliography_count": 2,
-      "comparison_note": ""
-    },
-    {
       "site_id": "6107",
       "site_name": "Renbergs i Öje",
       "country": "Sweden",
@@ -36714,25 +34720,6 @@
       "comparison_note": "SEAD did not publish enough dating detail here to support temporal comparison."
     },
     {
-      "site_id": "5448",
-      "site_name": "Riga",
-      "country": "",
-      "comparability_posture": "unresolved",
-      "raw_capture_posture": "linked_temporal_rows_captured",
-      "temporal_window_label": "",
-      "summary_label": "",
-      "normalized_period_labels": [],
-      "original_period_labels": [],
-      "uncertainty_notes": [],
-      "dating_range_count": 0,
-      "relative_period_count": 6,
-      "analysis_entity_age_count": 2,
-      "geochronology_count": 0,
-      "dendro_date_count": 0,
-      "bibliography_count": 2,
-      "comparison_note": ""
-    },
-    {
       "site_id": "6317",
       "site_name": "Ringestena",
       "country": "Sweden",
@@ -36754,25 +34741,6 @@
     {
       "site_id": "6110",
       "site_name": "Ringsta",
-      "country": "Sweden",
-      "comparability_posture": "unresolved",
-      "raw_capture_posture": "site_inventory_only",
-      "temporal_window_label": "Unresolved time window",
-      "summary_label": "Unresolved time semantics",
-      "normalized_period_labels": [],
-      "original_period_labels": [],
-      "uncertainty_notes": [],
-      "dating_range_count": 0,
-      "relative_period_count": 0,
-      "analysis_entity_age_count": 0,
-      "geochronology_count": 0,
-      "dendro_date_count": 0,
-      "bibliography_count": 0,
-      "comparison_note": "SEAD did not publish enough dating detail here to support temporal comparison."
-    },
-    {
-      "site_id": "6318",
-      "site_name": "Ringsö",
       "country": "Sweden",
       "comparability_posture": "unresolved",
       "raw_capture_posture": "site_inventory_only",
@@ -36847,25 +34815,6 @@
       "comparison_note": "SEAD did not publish enough dating detail here to support temporal comparison."
     },
     {
-      "site_id": "4605",
-      "site_name": "Rjurikovo Gorodisce",
-      "country": "",
-      "comparability_posture": "unresolved",
-      "raw_capture_posture": "linked_temporal_rows_captured",
-      "temporal_window_label": "",
-      "summary_label": "",
-      "normalized_period_labels": [],
-      "original_period_labels": [],
-      "uncertainty_notes": [],
-      "dating_range_count": 0,
-      "relative_period_count": 6,
-      "analysis_entity_age_count": 3,
-      "geochronology_count": 0,
-      "dendro_date_count": 0,
-      "bibliography_count": 1,
-      "comparison_note": ""
-    },
-    {
       "site_id": "6113",
       "site_name": "Rombins i Östnor",
       "country": "Sweden",
@@ -36902,44 +34851,6 @@
       "dendro_date_count": 0,
       "bibliography_count": 0,
       "comparison_note": "SEAD did not publish enough dating detail here to support temporal comparison."
-    },
-    {
-      "site_id": "3504",
-      "site_name": "Rosenhof",
-      "country": "",
-      "comparability_posture": "unresolved",
-      "raw_capture_posture": "linked_temporal_rows_captured",
-      "temporal_window_label": "",
-      "summary_label": "",
-      "normalized_period_labels": [],
-      "original_period_labels": [],
-      "uncertainty_notes": [],
-      "dating_range_count": 0,
-      "relative_period_count": 16,
-      "analysis_entity_age_count": 0,
-      "geochronology_count": 0,
-      "dendro_date_count": 0,
-      "bibliography_count": 18,
-      "comparison_note": ""
-    },
-    {
-      "site_id": "3505",
-      "site_name": "Rosenhof",
-      "country": "",
-      "comparability_posture": "unresolved",
-      "raw_capture_posture": "linked_temporal_rows_captured",
-      "temporal_window_label": "",
-      "summary_label": "",
-      "normalized_period_labels": [],
-      "original_period_labels": [],
-      "uncertainty_notes": [],
-      "dating_range_count": 0,
-      "relative_period_count": 4,
-      "analysis_entity_age_count": 0,
-      "geochronology_count": 0,
-      "dendro_date_count": 0,
-      "bibliography_count": 6,
-      "comparison_note": ""
     },
     {
       "site_id": "6115",
@@ -37208,25 +35119,6 @@
       "comparison_note": "SEAD did not publish enough dating detail here to support temporal comparison."
     },
     {
-      "site_id": "3500",
-      "site_name": "Ryurik Gorodishche",
-      "country": "",
-      "comparability_posture": "unresolved",
-      "raw_capture_posture": "linked_temporal_rows_captured",
-      "temporal_window_label": "",
-      "summary_label": "",
-      "normalized_period_labels": [],
-      "original_period_labels": [],
-      "uncertainty_notes": [],
-      "dating_range_count": 0,
-      "relative_period_count": 90,
-      "analysis_entity_age_count": 0,
-      "geochronology_count": 0,
-      "dendro_date_count": 0,
-      "bibliography_count": 1,
-      "comparison_note": ""
-    },
-    {
       "site_id": "6105",
       "site_name": "Rättviks kyrka",
       "country": "Sweden",
@@ -37396,25 +35288,6 @@
       "dendro_date_count": 0,
       "bibliography_count": 0,
       "comparison_note": "SEAD did not publish enough dating detail here to support temporal comparison."
-    },
-    {
-      "site_id": "4886",
-      "site_name": "Sakkola",
-      "country": "",
-      "comparability_posture": "unresolved",
-      "raw_capture_posture": "linked_temporal_rows_captured",
-      "temporal_window_label": "",
-      "summary_label": "",
-      "normalized_period_labels": [],
-      "original_period_labels": [],
-      "uncertainty_notes": [],
-      "dating_range_count": 0,
-      "relative_period_count": 1,
-      "analysis_entity_age_count": 1,
-      "geochronology_count": 0,
-      "dendro_date_count": 0,
-      "bibliography_count": 3,
-      "comparison_note": ""
     },
     {
       "site_id": "6125",
@@ -37643,25 +35516,6 @@
       "dendro_date_count": 0,
       "bibliography_count": 0,
       "comparison_note": "SEAD did not publish enough dating detail here to support temporal comparison."
-    },
-    {
-      "site_id": "3487",
-      "site_name": "Siggeneben",
-      "country": "",
-      "comparability_posture": "unresolved",
-      "raw_capture_posture": "linked_temporal_rows_captured",
-      "temporal_window_label": "",
-      "summary_label": "",
-      "normalized_period_labels": [],
-      "original_period_labels": [],
-      "uncertainty_notes": [],
-      "dating_range_count": 0,
-      "relative_period_count": 34,
-      "analysis_entity_age_count": 0,
-      "geochronology_count": 0,
-      "dendro_date_count": 0,
-      "bibliography_count": 35,
-      "comparison_note": ""
     },
     {
       "site_id": "6421",
@@ -37949,25 +35803,6 @@
       "comparison_note": "SEAD did not publish enough dating detail here to support temporal comparison."
     },
     {
-      "site_id": "123",
-      "site_name": "Skjærvika",
-      "country": "Norway",
-      "comparability_posture": "unresolved",
-      "raw_capture_posture": "bibliography_only",
-      "temporal_window_label": "Unresolved time window",
-      "summary_label": "Unresolved time semantics",
-      "normalized_period_labels": [],
-      "original_period_labels": [],
-      "uncertainty_notes": [],
-      "dating_range_count": 0,
-      "relative_period_count": 0,
-      "analysis_entity_age_count": 0,
-      "geochronology_count": 0,
-      "dendro_date_count": 0,
-      "bibliography_count": 5,
-      "comparison_note": "SEAD did not publish enough dating detail here to support temporal comparison."
-    },
-    {
       "site_id": "125",
       "site_name": "Skog Raä 7",
       "country": "Sweden",
@@ -38177,25 +36012,6 @@
       "comparison_note": "SEAD did not publish enough dating detail here to support temporal comparison."
     },
     {
-      "site_id": "2",
-      "site_name": "Skrea Raä 194",
-      "country": "Sweden",
-      "comparability_posture": "unresolved",
-      "raw_capture_posture": "bibliography_only",
-      "temporal_window_label": "Unresolved time window",
-      "summary_label": "Unresolved time semantics",
-      "normalized_period_labels": [],
-      "original_period_labels": [],
-      "uncertainty_notes": [],
-      "dating_range_count": 0,
-      "relative_period_count": 0,
-      "analysis_entity_age_count": 0,
-      "geochronology_count": 0,
-      "dendro_date_count": 0,
-      "bibliography_count": 10,
-      "comparison_note": "SEAD did not publish enough dating detail here to support temporal comparison."
-    },
-    {
       "site_id": "115",
       "site_name": "Skrea Raä 195",
       "country": "Sweden",
@@ -38255,25 +36071,6 @@
     {
       "site_id": "6142",
       "site_name": "Skäggalösa Norregård",
-      "country": "Sweden",
-      "comparability_posture": "unresolved",
-      "raw_capture_posture": "site_inventory_only",
-      "temporal_window_label": "Unresolved time window",
-      "summary_label": "Unresolved time semantics",
-      "normalized_period_labels": [],
-      "original_period_labels": [],
-      "uncertainty_notes": [],
-      "dating_range_count": 0,
-      "relative_period_count": 0,
-      "analysis_entity_age_count": 0,
-      "geochronology_count": 0,
-      "dendro_date_count": 0,
-      "bibliography_count": 0,
-      "comparison_note": "SEAD did not publish enough dating detail here to support temporal comparison."
-    },
-    {
-      "site_id": "6455",
-      "site_name": "Skällvik 222:1",
       "country": "Sweden",
       "comparability_posture": "unresolved",
       "raw_capture_posture": "site_inventory_only",
@@ -38692,25 +36489,6 @@
     {
       "site_id": "6165",
       "site_name": "Solna kyrka ladan",
-      "country": "Sweden",
-      "comparability_posture": "unresolved",
-      "raw_capture_posture": "site_inventory_only",
-      "temporal_window_label": "Unresolved time window",
-      "summary_label": "Unresolved time semantics",
-      "normalized_period_labels": [],
-      "original_period_labels": [],
-      "uncertainty_notes": [],
-      "dating_range_count": 0,
-      "relative_period_count": 0,
-      "analysis_entity_age_count": 0,
-      "geochronology_count": 0,
-      "dendro_date_count": 0,
-      "bibliography_count": 0,
-      "comparison_note": "SEAD did not publish enough dating detail here to support temporal comparison."
-    },
-    {
-      "site_id": "6166",
-      "site_name": "Solumnshamn",
       "country": "Sweden",
       "comparability_posture": "unresolved",
       "raw_capture_posture": "site_inventory_only",
@@ -39450,25 +37228,6 @@
       "comparison_note": "SEAD did not publish enough dating detail here to support temporal comparison."
     },
     {
-      "site_id": "350",
-      "site_name": "Stora Halmören",
-      "country": "Sweden",
-      "comparability_posture": "unresolved",
-      "raw_capture_posture": "site_inventory_only",
-      "temporal_window_label": "Unresolved time window",
-      "summary_label": "Unresolved time semantics",
-      "normalized_period_labels": [],
-      "original_period_labels": [],
-      "uncertainty_notes": [],
-      "dating_range_count": 0,
-      "relative_period_count": 0,
-      "analysis_entity_age_count": 0,
-      "geochronology_count": 0,
-      "dendro_date_count": 0,
-      "bibliography_count": 0,
-      "comparison_note": "SEAD did not publish enough dating detail here to support temporal comparison."
-    },
-    {
       "site_id": "3996",
       "site_name": "Stora Herrestads kyrka",
       "country": "Sweden",
@@ -39545,25 +37304,6 @@
       "comparison_note": "SEAD did not publish enough dating detail here to support temporal comparison."
     },
     {
-      "site_id": "374",
-      "site_name": "Stora Träskär",
-      "country": "Sweden",
-      "comparability_posture": "unresolved",
-      "raw_capture_posture": "site_inventory_only",
-      "temporal_window_label": "Unresolved time window",
-      "summary_label": "Unresolved time semantics",
-      "normalized_period_labels": [],
-      "original_period_labels": [],
-      "uncertainty_notes": [],
-      "dating_range_count": 0,
-      "relative_period_count": 0,
-      "analysis_entity_age_count": 0,
-      "geochronology_count": 0,
-      "dendro_date_count": 0,
-      "bibliography_count": 0,
-      "comparison_note": "SEAD did not publish enough dating detail here to support temporal comparison."
-    },
-    {
       "site_id": "6198",
       "site_name": "Storpers i Södra Kättbo",
       "country": "Sweden",
@@ -39600,25 +37340,6 @@
       "dendro_date_count": 0,
       "bibliography_count": 0,
       "comparison_note": "SEAD did not publish enough dating detail here to support temporal comparison."
-    },
-    {
-      "site_id": "5154",
-      "site_name": "Stralsund",
-      "country": "",
-      "comparability_posture": "unresolved",
-      "raw_capture_posture": "linked_temporal_rows_captured",
-      "temporal_window_label": "",
-      "summary_label": "",
-      "normalized_period_labels": [],
-      "original_period_labels": [],
-      "uncertainty_notes": [],
-      "dating_range_count": 0,
-      "relative_period_count": 2,
-      "analysis_entity_age_count": 1,
-      "geochronology_count": 0,
-      "dendro_date_count": 0,
-      "bibliography_count": 1,
-      "comparison_note": ""
     },
     {
       "site_id": "311",
@@ -39868,46 +37589,8 @@
       "comparison_note": "SEAD did not publish enough dating detail here to support temporal comparison."
     },
     {
-      "site_id": "239",
-      "site_name": "Styrsö Raä 117",
-      "country": "Sweden",
-      "comparability_posture": "unresolved",
-      "raw_capture_posture": "bibliography_only",
-      "temporal_window_label": "Unresolved time window",
-      "summary_label": "Unresolved time semantics",
-      "normalized_period_labels": [],
-      "original_period_labels": [],
-      "uncertainty_notes": [],
-      "dating_range_count": 0,
-      "relative_period_count": 0,
-      "analysis_entity_age_count": 0,
-      "geochronology_count": 0,
-      "dendro_date_count": 0,
-      "bibliography_count": 2,
-      "comparison_note": "SEAD did not publish enough dating detail here to support temporal comparison."
-    },
-    {
       "site_id": "6184",
       "site_name": "Stäket",
-      "country": "Sweden",
-      "comparability_posture": "unresolved",
-      "raw_capture_posture": "site_inventory_only",
-      "temporal_window_label": "Unresolved time window",
-      "summary_label": "Unresolved time semantics",
-      "normalized_period_labels": [],
-      "original_period_labels": [],
-      "uncertainty_notes": [],
-      "dating_range_count": 0,
-      "relative_period_count": 0,
-      "analysis_entity_age_count": 0,
-      "geochronology_count": 0,
-      "dendro_date_count": 0,
-      "bibliography_count": 0,
-      "comparison_note": "SEAD did not publish enough dating detail here to support temporal comparison."
-    },
-    {
-      "site_id": "6457",
-      "site_name": "Stäksundet",
       "country": "Sweden",
       "comparability_posture": "unresolved",
       "raw_capture_posture": "site_inventory_only",
@@ -40060,25 +37743,6 @@
     {
       "site_id": "6212",
       "site_name": "Sunnanås",
-      "country": "Sweden",
-      "comparability_posture": "unresolved",
-      "raw_capture_posture": "site_inventory_only",
-      "temporal_window_label": "Unresolved time window",
-      "summary_label": "Unresolved time semantics",
-      "normalized_period_labels": [],
-      "original_period_labels": [],
-      "uncertainty_notes": [],
-      "dating_range_count": 0,
-      "relative_period_count": 0,
-      "analysis_entity_age_count": 0,
-      "geochronology_count": 0,
-      "dendro_date_count": 0,
-      "bibliography_count": 0,
-      "comparison_note": "SEAD did not publish enough dating detail here to support temporal comparison."
-    },
-    {
-      "site_id": "6213",
-      "site_name": "Svanebäck",
       "country": "Sweden",
       "comparability_posture": "unresolved",
       "raw_capture_posture": "site_inventory_only",
@@ -40400,25 +38064,6 @@
       "comparison_note": "SEAD did not publish enough dating detail here to support temporal comparison."
     },
     {
-      "site_id": "135",
-      "site_name": "Sværholt",
-      "country": "Norway",
-      "comparability_posture": "unresolved",
-      "raw_capture_posture": "bibliography_only",
-      "temporal_window_label": "Unresolved time window",
-      "summary_label": "Unresolved time semantics",
-      "normalized_period_labels": [],
-      "original_period_labels": [],
-      "uncertainty_notes": [],
-      "dating_range_count": 0,
-      "relative_period_count": 0,
-      "analysis_entity_age_count": 0,
-      "geochronology_count": 0,
-      "dendro_date_count": 0,
-      "bibliography_count": 3,
-      "comparison_note": "SEAD did not publish enough dating detail here to support temporal comparison."
-    },
-    {
       "site_id": "6221",
       "site_name": "Sydöstra härbret Zorns gammelgård",
       "country": "Sweden",
@@ -40436,25 +38081,6 @@
       "dendro_date_count": 0,
       "bibliography_count": 0,
       "comparison_note": "SEAD did not publish enough dating detail here to support temporal comparison."
-    },
-    {
-      "site_id": "3457",
-      "site_name": "Syllöda",
-      "country": "",
-      "comparability_posture": "unresolved",
-      "raw_capture_posture": "linked_temporal_rows_captured",
-      "temporal_window_label": "",
-      "summary_label": "",
-      "normalized_period_labels": [],
-      "original_period_labels": [],
-      "uncertainty_notes": [],
-      "dating_range_count": 0,
-      "relative_period_count": 3,
-      "analysis_entity_age_count": 0,
-      "geochronology_count": 0,
-      "dendro_date_count": 0,
-      "bibliography_count": 1,
-      "comparison_note": ""
     },
     {
       "site_id": "6222",
@@ -41293,25 +38919,6 @@
       "comparison_note": "SEAD did not publish enough dating detail here to support temporal comparison."
     },
     {
-      "site_id": "3447",
-      "site_name": "Tjärnan",
-      "country": "",
-      "comparability_posture": "unresolved",
-      "raw_capture_posture": "linked_temporal_rows_captured",
-      "temporal_window_label": "",
-      "summary_label": "",
-      "normalized_period_labels": [],
-      "original_period_labels": [],
-      "uncertainty_notes": [],
-      "dating_range_count": 0,
-      "relative_period_count": 9,
-      "analysis_entity_age_count": 0,
-      "geochronology_count": 0,
-      "dendro_date_count": 0,
-      "bibliography_count": 2,
-      "comparison_note": ""
-    },
-    {
       "site_id": "6231",
       "site_name": "Tobaksladan",
       "country": "Sweden",
@@ -41635,25 +39242,6 @@
       "comparison_note": "SEAD did not publish enough dating detail here to support temporal comparison."
     },
     {
-      "site_id": "300",
-      "site_name": "Torö Raä 75",
-      "country": "Sweden",
-      "comparability_posture": "unresolved",
-      "raw_capture_posture": "bibliography_only",
-      "temporal_window_label": "Unresolved time window",
-      "summary_label": "Unresolved time semantics",
-      "normalized_period_labels": [],
-      "original_period_labels": [],
-      "uncertainty_notes": [],
-      "dating_range_count": 0,
-      "relative_period_count": 0,
-      "analysis_entity_age_count": 0,
-      "geochronology_count": 0,
-      "dendro_date_count": 0,
-      "bibliography_count": 2,
-      "comparison_note": "SEAD did not publish enough dating detail here to support temporal comparison."
-    },
-    {
       "site_id": "375",
       "site_name": "Tossene 446",
       "country": "Sweden",
@@ -41787,25 +39375,6 @@
       "comparison_note": "SEAD did not publish enough dating detail here to support temporal comparison."
     },
     {
-      "site_id": "3441",
-      "site_name": "Troitski",
-      "country": "",
-      "comparability_posture": "unresolved",
-      "raw_capture_posture": "linked_temporal_rows_captured",
-      "temporal_window_label": "",
-      "summary_label": "",
-      "normalized_period_labels": [],
-      "original_period_labels": [],
-      "uncertainty_notes": [],
-      "dating_range_count": 0,
-      "relative_period_count": 59,
-      "analysis_entity_age_count": 0,
-      "geochronology_count": 0,
-      "dendro_date_count": 0,
-      "bibliography_count": 59,
-      "comparison_note": ""
-    },
-    {
       "site_id": "6242",
       "site_name": "Trulsatorpet",
       "country": "Sweden",
@@ -41922,25 +39491,6 @@
     {
       "site_id": "6244",
       "site_name": "Tullsåkra",
-      "country": "Sweden",
-      "comparability_posture": "unresolved",
-      "raw_capture_posture": "site_inventory_only",
-      "temporal_window_label": "Unresolved time window",
-      "summary_label": "Unresolved time semantics",
-      "normalized_period_labels": [],
-      "original_period_labels": [],
-      "uncertainty_notes": [],
-      "dating_range_count": 0,
-      "relative_period_count": 0,
-      "analysis_entity_age_count": 0,
-      "geochronology_count": 0,
-      "dendro_date_count": 0,
-      "bibliography_count": 0,
-      "comparison_note": "SEAD did not publish enough dating detail here to support temporal comparison."
-    },
-    {
-      "site_id": "6327",
-      "site_name": "Tuna",
       "country": "Sweden",
       "comparability_posture": "unresolved",
       "raw_capture_posture": "site_inventory_only",
@@ -42107,25 +39657,6 @@
       "geochronology_count": 0,
       "dendro_date_count": 0,
       "bibliography_count": 1,
-      "comparison_note": "SEAD did not publish enough dating detail here to support temporal comparison."
-    },
-    {
-      "site_id": "6246",
-      "site_name": "Tynningö",
-      "country": "Sweden",
-      "comparability_posture": "unresolved",
-      "raw_capture_posture": "site_inventory_only",
-      "temporal_window_label": "Unresolved time window",
-      "summary_label": "Unresolved time semantics",
-      "normalized_period_labels": [],
-      "original_period_labels": [],
-      "uncertainty_notes": [],
-      "dating_range_count": 0,
-      "relative_period_count": 0,
-      "analysis_entity_age_count": 0,
-      "geochronology_count": 0,
-      "dendro_date_count": 0,
-      "bibliography_count": 0,
       "comparison_note": "SEAD did not publish enough dating detail here to support temporal comparison."
     },
     {
@@ -42870,25 +40401,6 @@
       "comparison_note": "SEAD did not publish enough dating detail here to support temporal comparison."
     },
     {
-      "site_id": "6329",
-      "site_name": "Vallagatan",
-      "country": "Sweden",
-      "comparability_posture": "unresolved",
-      "raw_capture_posture": "site_inventory_only",
-      "temporal_window_label": "Unresolved time window",
-      "summary_label": "Unresolved time semantics",
-      "normalized_period_labels": [],
-      "original_period_labels": [],
-      "uncertainty_notes": [],
-      "dating_range_count": 0,
-      "relative_period_count": 0,
-      "analysis_entity_age_count": 0,
-      "geochronology_count": 0,
-      "dendro_date_count": 0,
-      "bibliography_count": 0,
-      "comparison_note": "SEAD did not publish enough dating detail here to support temporal comparison."
-    },
-    {
       "site_id": "6258",
       "site_name": "Vallby kyrka",
       "country": "Sweden",
@@ -43611,25 +41123,6 @@
       "comparison_note": "SEAD did not publish enough dating detail here to support temporal comparison."
     },
     {
-      "site_id": "6356",
-      "site_name": "Västervik 94:1",
-      "country": "Sweden",
-      "comparability_posture": "unresolved",
-      "raw_capture_posture": "site_inventory_only",
-      "temporal_window_label": "Unresolved time window",
-      "summary_label": "Unresolved time semantics",
-      "normalized_period_labels": [],
-      "original_period_labels": [],
-      "uncertainty_notes": [],
-      "dating_range_count": 0,
-      "relative_period_count": 0,
-      "analysis_entity_age_count": 0,
-      "geochronology_count": 0,
-      "dendro_date_count": 0,
-      "bibliography_count": 0,
-      "comparison_note": "SEAD did not publish enough dating detail here to support temporal comparison."
-    },
-    {
       "site_id": "6402",
       "site_name": "Västerås 232:1",
       "country": "Sweden",
@@ -43820,25 +41313,6 @@
       "comparison_note": "SEAD did not publish enough dating detail here to support temporal comparison."
     },
     {
-      "site_id": "4720",
-      "site_name": "Westerland",
-      "country": "",
-      "comparability_posture": "unresolved",
-      "raw_capture_posture": "bibliography_only",
-      "temporal_window_label": "",
-      "summary_label": "",
-      "normalized_period_labels": [],
-      "original_period_labels": [],
-      "uncertainty_notes": [],
-      "dating_range_count": 0,
-      "relative_period_count": 0,
-      "analysis_entity_age_count": 0,
-      "geochronology_count": 0,
-      "dendro_date_count": 0,
-      "bibliography_count": 1,
-      "comparison_note": ""
-    },
-    {
       "site_id": "3939",
       "site_name": "Westööska huset",
       "country": "Sweden",
@@ -43950,25 +41424,6 @@
       "geochronology_count": 0,
       "dendro_date_count": 0,
       "bibliography_count": 1,
-      "comparison_note": "SEAD did not publish enough dating detail here to support temporal comparison."
-    },
-    {
-      "site_id": "258",
-      "site_name": "Ägglösen",
-      "country": "Sweden",
-      "comparability_posture": "unresolved",
-      "raw_capture_posture": "bibliography_only",
-      "temporal_window_label": "Unresolved time window",
-      "summary_label": "Unresolved time semantics",
-      "normalized_period_labels": [],
-      "original_period_labels": [],
-      "uncertainty_notes": [],
-      "dating_range_count": 0,
-      "relative_period_count": 0,
-      "analysis_entity_age_count": 0,
-      "geochronology_count": 0,
-      "dendro_date_count": 0,
-      "bibliography_count": 2,
       "comparison_note": "SEAD did not publish enough dating detail here to support temporal comparison."
     },
     {
@@ -44768,25 +42223,6 @@
       "dendro_date_count": 0,
       "bibliography_count": 1,
       "comparison_note": "SEAD did not publish enough dating detail here to support temporal comparison."
-    },
-    {
-      "site_id": "4572",
-      "site_name": "Øvre Kvilhaugmyra",
-      "country": "",
-      "comparability_posture": "unresolved",
-      "raw_capture_posture": "linked_temporal_rows_captured",
-      "temporal_window_label": "",
-      "summary_label": "",
-      "normalized_period_labels": [],
-      "original_period_labels": [],
-      "uncertainty_notes": [],
-      "dating_range_count": 0,
-      "relative_period_count": 1,
-      "analysis_entity_age_count": 1,
-      "geochronology_count": 0,
-      "dendro_date_count": 0,
-      "bibliography_count": 3,
-      "comparison_note": ""
     }
   ]
 }

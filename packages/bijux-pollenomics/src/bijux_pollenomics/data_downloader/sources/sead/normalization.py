@@ -108,6 +108,10 @@ class SeadChronologyClaim(TypedDict):
     source_native_record_id: str | None
     site_uuid: str | None
     source_site_id: str | None
+    country_code: str | None
+    latitude_dd: float | None
+    longitude_dd: float | None
+    country_assignment_method: str | None
     subject_type: str
     subject_id: str
     sample_group_id: int | None
@@ -129,6 +133,9 @@ class SeadChronologyClaim(TypedDict):
     publication_role: str
     reason_codes: list[str]
     transformation_id: str | None
+    original_interval_orientation: str
+    selection_status: str
+    selection_rule_version: str
     provenance_record_id: str
     build_id: str
     source_relation_path: list[SeadRelationStep]
@@ -207,6 +214,20 @@ def normalize_sead_chronology_claims(
                         "source_native_record_id": source_record_id or None,
                         "site_uuid": site_uuid or None,
                         "source_site_id": site_id or None,
+                        "country_code": clean_optional_text(
+                            site_row.get("country_code")
+                        )
+                        or None,
+                        "latitude_dd": parse_optional_float(
+                            site_row.get("latitude_dd")
+                        ),
+                        "longitude_dd": parse_optional_float(
+                            site_row.get("longitude_dd")
+                        ),
+                        "country_assignment_method": clean_optional_text(
+                            site_row.get("country_assignment_method")
+                        )
+                        or None,
                         "subject_type": subject_type,
                         "subject_id": subject_id,
                         "sample_group_id": parse_optional_int(
@@ -240,6 +261,13 @@ def normalize_sead_chronology_claims(
                         ),
                         "reason_codes": sorted(set(reason_codes)),
                         "transformation_id": age_policy["transformation_id"],
+                        "original_interval_orientation": (
+                            _source_interval_orientation(source_row)
+                        ),
+                        "selection_status": "retained_unselected",
+                        "selection_rule_version": (
+                            "sead-retain-all-source-chronologies-v1"
+                        ),
                         "provenance_record_id": provenance_record_id,
                         "build_id": build_id,
                         "source_relation_path": _sead_source_relation_path(
@@ -373,6 +401,18 @@ def _sead_non_comparable_age_policy(
     }
 
 
+def _source_interval_orientation(source_row: Mapping[str, object]) -> str:
+    start = parse_optional_int(source_row.get("time_start_bp"))
+    end = parse_optional_int(source_row.get("time_end_bp"))
+    if start is None or end is None:
+        return "unavailable"
+    if start < end:
+        return "younger_to_older"
+    if start > end:
+        return "older_to_younger"
+    return "point"
+
+
 def _sead_source_relation_path(
     *,
     site_id: str,
@@ -438,6 +478,10 @@ def normalize_sead_rows(
         if not country:
             continue
         site_id = str(row.get("site_id", "")).strip()
+        site_uuid = clean_optional_text(row.get("site_uuid"))
+        country_assignment_method = clean_optional_text(
+            row.get("country_assignment_method")
+        )
         site_name = str(row.get("site_name", "")).strip() or f"SEAD site {site_id}"
         national_identifier = str(row.get("national_site_identifier", "") or "").strip()
         altitude = clean_optional_text(row.get("altitude"))
@@ -469,6 +513,11 @@ def normalize_sead_rows(
 
         popup_rows = [
             ("Site ID", site_id),
+            ("Site UUID", site_uuid or "Unavailable"),
+            (
+                "Country assignment",
+                country_assignment_method or "Unavailable",
+            ),
             ("Category", "Environmental archaeology"),
             ("Source", "SEAD"),
             ("Country", country),
@@ -601,6 +650,10 @@ def normalize_sead_temporal_evidence(
         if not country:
             continue
         site_id = str(site_row.get("site_id", "")).strip()
+        site_uuid = clean_optional_text(site_row.get("site_uuid"))
+        country_assignment_method = clean_optional_text(
+            site_row.get("country_assignment_method")
+        )
         site_name = str(site_row.get("site_name", "")).strip() or f"SEAD site {site_id}"
         bibliography_rows = site_row.get("bibliography_rows", [])
         bibliography_count = (
@@ -644,11 +697,25 @@ def normalize_sead_temporal_evidence(
             ).as_dict()
             temporal_semantics["source_record_count"] = len(source_record_ids)
             temporal_semantics["source_record_ids"] = list(source_record_ids)
+            temporal_semantics["chronology_claim_ids"] = [
+                f"sead:{site_uuid or f'site-{site_id}'}:{kind}:{record_id}"
+                for record_id in source_record_ids
+            ]
+            temporal_semantics["claim_bundle_path"] = (
+                "data/sead/normalized/chronology_claims.json"
+            )
             popup_rows = [
                 ("Site", site_name),
                 ("Site ID", site_id),
+                ("Site UUID", site_uuid or "Unavailable"),
+                (
+                    "Country assignment",
+                    country_assignment_method or "Unavailable",
+                ),
                 ("Chronology kind", kind_label),
                 ("Date coverage", time_label),
+                ("Chronology eligibility", "Eligible numeric comparison"),
+                ("Selection posture", "All source chronologies retained"),
                 ("Grouped source records", str(len(source_record_ids))),
                 (
                     "Source record IDs",
@@ -729,6 +796,11 @@ def _group_site_temporal_rows(
             continue
         for value in values:
             if not isinstance(value, dict):
+                continue
+            age_policy = _sead_claim_age_policy(kind, value)
+            if age_policy["comparability_status"] != "comparable":
+                continue
+            if parse_optional_int(value.get("analysis_entity_id")) is None:
                 continue
             interval = normalize_bp_interval(
                 parse_optional_int(value.get("time_start_bp")),
