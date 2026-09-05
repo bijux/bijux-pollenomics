@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-from bijux_pollenomics.collection.svar import (
+from bijux_pollenomics.collection.sources.svar.collection import (
     _parse_pos_list,
     _parse_svar_lake_features,
 )

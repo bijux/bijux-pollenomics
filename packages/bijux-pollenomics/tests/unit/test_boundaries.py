@@ -8,7 +8,7 @@ from typing import cast
 import unittest
 from unittest.mock import patch
 
-from bijux_pollenomics.collection.boundaries import (
+from bijux_pollenomics.collection.sources.boundaries.collection import (
     NATURAL_EARTH_ADMIN0_URL,
     NATURAL_EARTH_TERMS_URL,
     NATURAL_EARTH_VERSION,
@@ -149,7 +149,7 @@ class BoundariesTests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as tmp:
             output_root = Path(tmp) / "boundaries"
             with patch(
-                "bijux_pollenomics.collection.boundaries.fetch_natural_earth_admin0_payload",
+                "bijux_pollenomics.collection.sources.boundaries.collection.fetch_natural_earth_admin0_payload",
                 return_value=(
                     natural_earth_payload,
                     {
@@ -341,7 +341,7 @@ class BoundariesTests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as tmp:
             output_root = Path(tmp) / "boundaries"
             with patch(
-                "bijux_pollenomics.collection.boundaries.fetch_natural_earth_admin0_payload",
+                "bijux_pollenomics.collection.sources.boundaries.collection.fetch_natural_earth_admin0_payload",
                 return_value=(
                     {
                         "type": "FeatureCollection",

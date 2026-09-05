@@ -321,19 +321,19 @@ class CliTests(unittest.TestCase):
             stdout = io.StringIO()
             with (
                 patch(
-                    "bijux_pollenomics.collection.collector.download_aadr_anno_files"
+                    "bijux_pollenomics.collection.workflow.collection.download_aadr_anno_files"
                 ) as download_aadr,
                 patch(
-                    "bijux_pollenomics.collection.collector.materialize_tracked_species_adna"
+                    "bijux_pollenomics.collection.workflow.collection.materialize_tracked_species_adna"
                 ) as materialize_tracked_species_adna,
                 patch(
-                    "bijux_pollenomics.collection.collector.write_data_contract_surfaces"
+                    "bijux_pollenomics.collection.workflow.collection.write_data_contract_surfaces"
                 ) as write_data_contract_surfaces,
                 patch(
-                    "bijux_pollenomics.collection.collector.validate_source_layout_contract"
+                    "bijux_pollenomics.collection.workflow.collection.validate_source_layout_contract"
                 ) as validate_source_layout_contract,
                 patch(
-                    "bijux_pollenomics.collection.collector.validate_source_snapshot"
+                    "bijux_pollenomics.collection.workflow.collection.validate_source_snapshot"
                 ) as validate_source_snapshot,
             ):
                 download_aadr.return_value.downloaded_files = (Path("a"), Path("b"))
@@ -361,19 +361,19 @@ class CliTests(unittest.TestCase):
             output_root = Path(tmp) / "data"
             with (
                 patch(
-                    "bijux_pollenomics.collection.collector.download_aadr_anno_files"
+                    "bijux_pollenomics.collection.workflow.collection.download_aadr_anno_files"
                 ) as download_aadr,
                 patch(
-                    "bijux_pollenomics.collection.collector.materialize_tracked_species_adna"
+                    "bijux_pollenomics.collection.workflow.collection.materialize_tracked_species_adna"
                 ) as materialize_tracked_species_adna,
                 patch(
-                    "bijux_pollenomics.collection.collector.write_data_contract_surfaces"
+                    "bijux_pollenomics.collection.workflow.collection.write_data_contract_surfaces"
                 ) as write_data_contract_surfaces,
                 patch(
-                    "bijux_pollenomics.collection.collector.validate_source_layout_contract"
+                    "bijux_pollenomics.collection.workflow.collection.validate_source_layout_contract"
                 ) as validate_source_layout_contract,
                 patch(
-                    "bijux_pollenomics.collection.collector.validate_source_snapshot"
+                    "bijux_pollenomics.collection.workflow.collection.validate_source_snapshot"
                 ) as validate_source_snapshot,
             ):
                 download_aadr.return_value.downloaded_files = ()

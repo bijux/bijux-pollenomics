@@ -4,7 +4,7 @@ from dataclasses import asdict, dataclass
 import json
 from pathlib import Path
 
-from ..boundaries import (
+from ..sources.boundaries.collection import (
     BOUNDARY_CODES,
     NATURAL_EARTH_ADMIN0_URL,
     NATURAL_EARTH_TERMS_URL,

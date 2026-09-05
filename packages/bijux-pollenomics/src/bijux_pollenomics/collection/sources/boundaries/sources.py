@@ -4,8 +4,6 @@ from collections.abc import Callable
 from pathlib import Path
 from typing import TypeAlias
 
-from ...pipeline.source_registry import CONTEXT_SOURCE_SPECS
-
 __all__ = ["resolve_country_boundaries"]
 
 CountryBoundaries: TypeAlias = dict[str, dict[str, object]]
@@ -15,6 +13,7 @@ def resolve_country_boundaries(
     *,
     output_root: Path,
     selected_sources: tuple[str, ...],
+    context_source_names: tuple[str, ...],
     collect_boundaries_data: Callable[[Path], tuple[CountryBoundaries, object]],
     collect_into_staging_dir: Callable[..., tuple[CountryBoundaries, object]],
     fetch_country_boundaries: Callable[[], CountryBoundaries],
@@ -22,7 +21,7 @@ def resolve_country_boundaries(
 ) -> tuple[CountryBoundaries | None, str | None]:
     """Resolve the country-boundary set needed by context collectors."""
     need_boundaries = any(
-        source in selected_sources for source in ("boundaries", *CONTEXT_SOURCE_SPECS)
+        source in selected_sources for source in ("boundaries", *context_source_names)
     )
     if not need_boundaries:
         return None, None

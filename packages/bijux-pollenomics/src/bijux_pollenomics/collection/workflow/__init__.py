@@ -1,4 +1,4 @@
-"""Public pipeline helpers for collecting and staging context sources."""
+"""Collection orchestration and repository materialization workflows."""
 
 from .collection_reports import (
     build_data_collection_report,

@@ -6,7 +6,7 @@ from .contracts.summary import (
     validate_collection_summary_file,
     validate_collection_summary_payload,
 )
-from .collector import AVAILABLE_SOURCES, DataCollectionReport, collect_data
+from .workflow.collection import AVAILABLE_SOURCES, DataCollectionReport, collect_data
 from .contracts.models import (
     ContextDataReport,
     DataCollectionSummary,

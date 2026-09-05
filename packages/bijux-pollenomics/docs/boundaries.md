@@ -46,7 +46,7 @@ Primary modules:
 
 - `bijux_pollenomics.collection.contracts`
 - `bijux_pollenomics.collection.catalog`
-- `bijux_pollenomics.collection.pipeline`
+- `bijux_pollenomics.collection.workflow`
 - `bijux_pollenomics.collection.sources`
 - `bijux_pollenomics.collection.intake`
 - `bijux_pollenomics.collection.exports`
@@ -60,7 +60,7 @@ with subtrees that answer different intake questions cleanly:
 
 - `contracts/`: stable data shapes, artifact names, and source-family capability rules
 - `catalog/`: source identity, provenance, support, replacement, and validation state
-- `pipeline/`: orchestration and collection-flow assembly
+- `workflow/`: orchestration, staging, and repository materialization
 - `sources/`: one subtree per external source family
 - `intake/`: workbook, archive, or payload decoding helpers
 - `shared/` and `spatial/`: truly shared source-intake utilities only

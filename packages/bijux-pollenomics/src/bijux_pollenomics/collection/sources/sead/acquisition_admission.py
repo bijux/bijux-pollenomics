@@ -1887,7 +1887,7 @@ def _release_reason_codes(profile: _AdmissionProfile) -> set[str]:
 def _load_validated_boundary_authority(
     boundary_root: Path, *, expected_identity: SeadAdmissionExpectedIdentity
 ) -> _BoundaryAuthority:
-    from ...boundaries import (
+    from ..boundaries.collection import (
         BOUNDARY_CODES,
         NATURAL_EARTH_ADMIN0_URL,
         NATURAL_EARTH_RELEASE_PAGE_URL,

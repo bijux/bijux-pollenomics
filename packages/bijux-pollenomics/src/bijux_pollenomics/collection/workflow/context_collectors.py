@@ -2,11 +2,11 @@ from __future__ import annotations
 
 from collections.abc import Callable
 
-from ..landclim import collect_landclim_data
-from ..neotoma import collect_neotoma_data
-from ..raa import collect_raa_data
-from ..sead import collect_sead_data
-from ..svar import collect_svar_data
+from ..sources.landclim.collection import collect_landclim_data
+from ..sources.neotoma.collection import collect_neotoma_data
+from ..sources.raa.collection import collect_raa_data
+from ..sources.sead.collection import collect_sead_data
+from ..sources.svar.collection import collect_svar_data
 
 ContextCollectFunction = Callable[..., object]
 

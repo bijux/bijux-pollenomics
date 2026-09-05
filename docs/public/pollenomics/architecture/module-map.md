@@ -38,7 +38,7 @@ that owns the decision.
 `command_line/` owns parsing, dispatch, and the durable command registry.
 Within acquisition, `collection/contracts/` defines stable boundary shapes,
 `collection/catalog/` owns source identity and provenance, and
-`collection/pipeline/`, `collection/sources/`, `collection/intake/`, and
+`collection/workflow/`, `collection/sources/`, `collection/intake/`, and
 `collection/exports/` separate orchestration, source interpretation, payload
 decoding, and owned output writing.
 

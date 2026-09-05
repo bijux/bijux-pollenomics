@@ -7,7 +7,7 @@ from typing import cast
 import unittest
 from unittest.mock import patch
 
-from bijux_pollenomics.collection.landclim import (
+from bijux_pollenomics.collection.sources.landclim.collection import (
     build_landclim_grid_geojson,
     build_landclim_raw_asset_summaries,
     build_landclim_site_records,
@@ -558,7 +558,7 @@ class LandClimDataTests(unittest.TestCase):
                 },
             )
 
-            from bijux_pollenomics.collection.landclim import (
+            from bijux_pollenomics.collection.sources.landclim.collection import (
                 landclim_ii_site_records,
             )
 
@@ -612,13 +612,13 @@ class LandClimDataTests(unittest.TestCase):
         with (
             tempfile.TemporaryDirectory() as tmp,
             patch(
-                "bijux_pollenomics.collection.landclim.resolve_landclim_asset_urls",
+                "bijux_pollenomics.collection.sources.landclim.collection.resolve_landclim_asset_urls",
                 return_value={
                     "landclim_i_land_cover_types.xlsx": "https://example.test/lct.xlsx"
                 },
             ),
             patch(
-                "bijux_pollenomics.collection.landclim.fetch_binary",
+                "bijux_pollenomics.collection.sources.landclim.collection.fetch_binary",
                 return_value=b"",
             ),
             self.assertRaisesRegex(

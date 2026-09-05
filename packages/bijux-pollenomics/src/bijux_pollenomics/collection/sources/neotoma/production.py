@@ -12,7 +12,7 @@ from pathlib import Path
 import re
 import sys
 
-from ...boundaries import (
+from ..boundaries.collection import (
     BOUNDARY_CODES,
     NATURAL_EARTH_ADMIN0_URL,
     NATURAL_EARTH_RELEASE_PAGE_URL,

@@ -7,23 +7,23 @@ import json
 from pathlib import Path, PurePosixPath
 from zipfile import BadZipFile, ZipFile
 
-from ..config import NORDIC_BBOX
-from ..core.files import write_json
-from ..core.geojson import feature_list
-from ..core.http import fetch_binary
-from .contracts.artifacts import (
+from ....config import NORDIC_BBOX
+from ....core.files import write_json
+from ....core.geojson import feature_list
+from ....core.http import fetch_binary
+from ...contracts.artifacts import (
     LANDCLIM_BIBLIOGRAPHY_JSON,
     LANDCLIM_GRID_GEOJSON,
     LANDCLIM_SITE_CSV,
     LANDCLIM_SITE_GEOJSON,
     LANDCLIM_TEMPORAL_GRID_GEOJSON,
 )
-from .exports.context_points import (
+from ...exports.context_points import (
     write_context_points_csv,
     write_context_points_geojson,
 )
-from .shared import load_repository_country_boundaries
-from .sources.landclim.catalog import (
+from ...shared import load_repository_country_boundaries
+from .catalog import (
     LANDCLIM_DATASET_METADATA,
     LandClimRawAssets,
     build_landclim_bibliography,
@@ -33,25 +33,25 @@ from .sources.landclim.catalog import (
     resolve_landclim_tabular_asset_urls,
     validate_landclim_raw_asset,
 )
-from .sources.landclim.catalog import (
+from .catalog import (
     resolve_landclim_asset_urls as _resolve_landclim_asset_urls,
 )
-from .sources.landclim.grid import (
+from .grid import (
     LANDCLIM_GRID_LAYER_KEY,
     build_landclim_grid_geojson,
     feature_key_from_center,
     feature_key_from_geometry,
     grid_geometry_from_nw_cell_label,
 )
-from .sources.landclim.review import write_landclim_review_outputs
-from .sources.landclim.sites import (
+from .review import write_landclim_review_outputs
+from .sites import (
     LANDCLIM_SITE_LAYER_KEY,
     build_landclim_site_records,
     landclim_i_site_records,
     landclim_ii_site_records,
     parse_coordinate,
 )
-from .sources.landclim.time_windows import (
+from .time_windows import (
     LANDCLIM_TEMPORAL_GRID_LAYER_KEY,
     build_landclim_temporal_grid_geojson,
 )

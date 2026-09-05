@@ -8,56 +8,56 @@ import os
 from pathlib import Path
 import time
 
-from ..core.http import fetch_json
-from .contracts.artifacts import (
+from ....core.http import fetch_json
+from ...contracts.artifacts import (
     SEAD_POINT_CSV,
     SEAD_POINT_GEOJSON,
     SEAD_TEMPORAL_EVIDENCE_CSV,
     SEAD_TEMPORAL_EVIDENCE_GEOJSON,
 )
-from .exports.context_points import (
+from ...exports.context_points import (
     write_context_points_csv,
     write_context_points_geojson,
 )
-from .contracts.models import ContextPointRecord
-from .shared import load_repository_country_boundaries
-from .sources.sead import api_client as sead_api_client
-from .sources.sead.acquisition import acquire_sead_table
-from .sources.sead.archive import SEAD_LINKED_SOURCE_TABLES
-from .sources.sead.claim_bundle import write_sead_chronology_claim_bundle_from_snapshot
-from .sources.sead.discovery import (
+from ...contracts.models import ContextPointRecord
+from ...shared import load_repository_country_boundaries
+from . import api_client as sead_api_client
+from .acquisition import acquire_sead_table
+from .archive import SEAD_LINKED_SOURCE_TABLES
+from .claim_bundle import write_sead_chronology_claim_bundle_from_snapshot
+from .discovery import (
     build_sweden_archaeology_site_discovery,
     write_sweden_archaeology_site_discovery,
 )
-from .sources.sead.evidence_reader import (
+from .evidence_reader import (
     SEAD_GOVERNED_EVIDENCE_RUN_ID,
     validate_governed_sead_admission,
 )
-from .sources.sead.fetch import (
+from .fetch import (
     build_sead_in_filter as build_sead_in_filter_value,
 )
-from .sources.sead.fetch import (
+from .fetch import (
     merge_sead_intervals as merge_sead_intervals_value,
 )
-from .sources.sead.fetch import (
+from .fetch import (
     parse_optional_int as parse_optional_int_value,
 )
-from .sources.sead.fetch import (
+from .fetch import (
     populate_sead_site_inventory_fields as populate_sead_site_inventory_fields_from_api,
 )
-from .sources.sead.fetch import refresh_sead_repository_rows
-from .sources.sead.fetch import (
+from .fetch import refresh_sead_repository_rows
+from .fetch import (
     sead_dating_interval as sead_dating_interval_value,
 )
-from .sources.sead.inventory import SeadSiteFetchResult
-from .sources.sead.inventory_fields import (
+from .inventory import SeadSiteFetchResult
+from .inventory_fields import (
     build_sead_site_rows_from_acquisition_tables,
 )
-from .sources.sead.normalization import (
+from .normalization import (
     normalize_sead_rows,
     normalize_sead_temporal_evidence,
 )
-from .sources.sead.review import write_sead_review_outputs
+from .review import write_sead_review_outputs
 
 
 @dataclass(frozen=True)

@@ -8,7 +8,7 @@ from pathlib import Path
 import tempfile
 import unittest
 
-from bijux_pollenomics.collection.boundaries import (
+from bijux_pollenomics.collection.sources.boundaries.collection import (
     BOUNDARY_CODES,
     NATURAL_EARTH_ADMIN0_URL,
     NATURAL_EARTH_RELEASE_PAGE_URL,

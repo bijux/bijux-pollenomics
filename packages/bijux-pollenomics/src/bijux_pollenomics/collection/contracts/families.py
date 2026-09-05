@@ -767,7 +767,7 @@ def _animal_adna_authority_state(output_root: Path) -> _SourceAuthorityState:
 
 
 def _boundary_authority_state(output_root: Path) -> _SourceAuthorityState:
-    from ..boundaries import (
+    from ..sources.boundaries.collection import (
         BOUNDARY_CODES,
         NATURAL_EARTH_ADMIN0_URL,
         NATURAL_EARTH_TERMS_URL,

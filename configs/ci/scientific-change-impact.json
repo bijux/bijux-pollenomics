@@ -173,7 +173,7 @@
       "id": "country-boundaries-and-scope",
       "paths": [
         "data/boundaries/**",
-        "packages/bijux-pollenomics/src/bijux_pollenomics/collection/boundaries.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/collection/sources/boundaries/collection.py",
         "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/geography.py"
       ],
       "gates": [

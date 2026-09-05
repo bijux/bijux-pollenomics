@@ -2,7 +2,7 @@ from __future__ import annotations
 
 from collections.abc import Iterable
 
-from ..data_layout import AVAILABLE_SOURCES
+from .layout import AVAILABLE_SOURCES
 
 __all__ = ["normalize_requested_sources"]
 

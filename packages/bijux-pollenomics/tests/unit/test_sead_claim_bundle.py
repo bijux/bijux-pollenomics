@@ -5,7 +5,9 @@ from typing import cast
 
 import pytest
 
-from bijux_pollenomics.collection.sead import SEAD_GOVERNED_ACQUISITION_ID
+from bijux_pollenomics.collection.sources.sead.collection import (
+    SEAD_GOVERNED_ACQUISITION_ID,
+)
 from bijux_pollenomics.collection.sources.sead.claim_bundle import (
     build_sead_chronology_claim_bundle,
 )

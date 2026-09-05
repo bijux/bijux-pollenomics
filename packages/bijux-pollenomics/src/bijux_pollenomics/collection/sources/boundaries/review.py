@@ -17,7 +17,7 @@ from ....core.geojson import (
     parse_multipolygon,
     parse_polygon,
 )
-from ...boundaries import (
+from .collection import (
     BOUNDARY_CODES,
     NATURAL_EARTH_ADMIN0_URL,
     NATURAL_EARTH_TERMS_URL,

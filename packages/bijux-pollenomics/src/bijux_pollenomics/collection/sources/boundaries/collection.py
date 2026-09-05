@@ -6,16 +6,16 @@ import hashlib
 import json
 from pathlib import Path
 
-from ..core.http import fetch_text
-from .sources.boundaries.archive import (
+from ....core.http import fetch_text
+from .archive import (
     BoundariesDataReport,
     build_combined_country_boundaries,
     write_boundary_archive,
 )
-from .sources.boundaries.store import (
+from .store import (
     load_country_boundaries as load_country_boundaries_from_store,
 )
-from .sources.boundaries.store import (
+from .store import (
     validate_boundary_collection,
     validate_boundary_manifest,
 )
