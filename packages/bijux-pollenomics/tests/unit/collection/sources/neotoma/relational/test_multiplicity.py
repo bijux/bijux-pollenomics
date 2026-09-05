@@ -9,7 +9,7 @@ from bijux_pollenomics.collection.sources.neotoma.relational import (
 from tests.support.neotoma import download_row
 
 
-class NeotomaRelationalTests(unittest.TestCase):
+class NeotomaRelationalMultiplicityTests(unittest.TestCase):
     def test_identical_source_rows_preserve_multiplicity_with_stable_ids(self) -> None:
         row = download_row()
         sample = row["site"]["collectionunit"]["dataset"]["samples"][0]

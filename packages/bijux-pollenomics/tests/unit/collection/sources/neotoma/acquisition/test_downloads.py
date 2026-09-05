@@ -11,7 +11,7 @@ from bijux_pollenomics.collection.sources.neotoma.collection import (
 )
 
 
-class NeotomaDataTests(unittest.TestCase):
+class NeotomaDownloadTests(unittest.TestCase):
     def test_fetch_neotoma_dataset_download_rows_rejects_missing_dataset_payloads(
         self,
     ) -> None:

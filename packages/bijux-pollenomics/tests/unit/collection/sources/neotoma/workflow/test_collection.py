@@ -11,7 +11,7 @@ from bijux_pollenomics.collection.sources.neotoma.collection import (
 )
 
 
-class NeotomaDataTests(unittest.TestCase):
+class NeotomaCollectionWorkflowTests(unittest.TestCase):
     def test_collect_neotoma_data_preserves_full_inventory_and_retained_subset(
         self,
     ) -> None:

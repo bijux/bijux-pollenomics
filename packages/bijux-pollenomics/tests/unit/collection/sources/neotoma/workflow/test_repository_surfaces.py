@@ -10,7 +10,7 @@ from bijux_pollenomics.collection.sources.neotoma.collection import (
 )
 
 
-class NeotomaDataTests(unittest.TestCase):
+class NeotomaRepositorySurfaceTests(unittest.TestCase):
     def test_materialize_neotoma_repository_surfaces_writes_temporal_review(
         self,
     ) -> None:

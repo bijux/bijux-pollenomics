@@ -8,7 +8,7 @@ from bijux_pollenomics.collection.sources.neotoma.relational import (
 from tests.support.neotoma import download_row
 
 
-class NeotomaRelationalTests(unittest.TestCase):
+class NeotomaChronologyClaimAdmissionTests(unittest.TestCase):
     def test_refuses_negative_bp_without_turning_missing_age_into_zero(self) -> None:
         row = download_row()
         sample = row["site"]["collectionunit"]["dataset"]["samples"][0]

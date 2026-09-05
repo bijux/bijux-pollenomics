@@ -8,7 +8,7 @@ from bijux_pollenomics.collection.sources.neotoma.relational import (
 from tests.support.neotoma import download_row
 
 
-class NeotomaRelationalTests(unittest.TestCase):
+class NeotomaRelationalDiagnosticTests(unittest.TestCase):
     def test_missing_chronology_identifiers_are_preserved_and_reported(self) -> None:
         row = download_row()
         chronology = row["site"]["collectionunit"]["chronologies"][0]["chronology"]

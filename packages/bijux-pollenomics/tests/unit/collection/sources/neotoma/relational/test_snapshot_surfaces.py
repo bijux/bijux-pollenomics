@@ -8,7 +8,7 @@ from bijux_pollenomics.collection.sources.neotoma.relational import (
 from tests.support.neotoma import country_decisions, download_row
 
 
-class NeotomaRelationalTests(unittest.TestCase):
+class NeotomaRelationalSnapshotSurfaceTests(unittest.TestCase):
     def test_preserves_joined_entities_alternate_ages_units_and_zero(self) -> None:
         payload = build_neotoma_relational_snapshot(
             [download_row()],

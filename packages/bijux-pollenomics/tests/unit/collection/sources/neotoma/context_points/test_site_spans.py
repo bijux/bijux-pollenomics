@@ -7,7 +7,7 @@ from bijux_pollenomics.collection.sources.neotoma.collection import (
 )
 
 
-class NeotomaDataTests(unittest.TestCase):
+class NeotomaSiteSpanProjectionTests(unittest.TestCase):
     def test_normalize_neotoma_rows_derives_bp_interval_from_age_ranges(self) -> None:
         country_boundaries = {
             "Sweden": {

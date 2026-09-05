@@ -11,7 +11,7 @@ from bijux_pollenomics.collection.sources.neotoma.relational import (
 from tests.support.neotoma import download_row
 
 
-class NeotomaRelationalTests(unittest.TestCase):
+class NeotomaDefaultChronologySelectionTests(unittest.TestCase):
     def test_site_rows_retain_collection_unit_owned_chronologies(self) -> None:
         rows = build_neotoma_site_rows_from_downloads([download_row()])
 

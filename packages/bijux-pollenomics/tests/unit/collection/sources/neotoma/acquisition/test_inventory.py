@@ -9,7 +9,7 @@ from bijux_pollenomics.collection.sources.neotoma.collection import (
 )
 
 
-class NeotomaDataTests(unittest.TestCase):
+class NeotomaInventoryTests(unittest.TestCase):
     def test_fetch_neotoma_dataset_inventory_rows_reads_dataset_inventory_rows(
         self,
     ) -> None:

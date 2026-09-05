@@ -10,7 +10,7 @@ from bijux_pollenomics.collection.sources.neotoma.collection import (
 )
 
 
-class NeotomaDataTests(unittest.TestCase):
+class NeotomaSiteSourceProjectionTests(unittest.TestCase):
     def test_fetch_neotoma_pollen_rows_hydrates_full_dataset_downloads(self) -> None:
         country_boundaries = {
             "Sweden": {

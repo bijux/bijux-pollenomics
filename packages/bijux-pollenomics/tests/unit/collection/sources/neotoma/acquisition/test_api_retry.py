@@ -11,7 +11,7 @@ from bijux_pollenomics.collection.sources.neotoma.collection import (
 )
 
 
-class NeotomaDataTests(unittest.TestCase):
+class NeotomaApiRetryTests(unittest.TestCase):
     def test_fetch_neotoma_api_rows_retries_retryable_http_errors(self) -> None:
         retry_error = HTTPError(
             url="https://api.neotomadb.org/v2.0/data/datasets",

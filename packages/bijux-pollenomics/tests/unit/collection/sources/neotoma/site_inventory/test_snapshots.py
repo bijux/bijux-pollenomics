@@ -8,7 +8,7 @@ from bijux_pollenomics.collection.sources.neotoma.collection import (
 )
 
 
-class NeotomaDataTests(unittest.TestCase):
+class NeotomaSiteInventorySnapshotTests(unittest.TestCase):
     def test_build_neotoma_site_snapshot_rows_drops_nested_sample_payloads(
         self,
     ) -> None:

@@ -13,7 +13,7 @@ from tests.support.neotoma import (
 )
 
 
-class NeotomaRelationalTests(unittest.TestCase):
+class NeotomaCountryPropagationTests(unittest.TestCase):
     def test_source_country_conflict_retains_membership_but_blocks_propagation(
         self,
     ) -> None:

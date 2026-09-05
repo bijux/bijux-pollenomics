@@ -11,7 +11,7 @@ from tests.support.neotoma import (
 )
 
 
-class NeotomaRelationalTests(unittest.TestCase):
+class NeotomaRelationalDeterminismTests(unittest.TestCase):
     def test_output_is_invariant_to_download_row_order(self) -> None:
         first = download_row(201)
         second = download_row(202)

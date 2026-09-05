@@ -8,7 +8,7 @@ from bijux_pollenomics.collection.sources.neotoma.relational import (
 from tests.support.neotoma import country_decisions, download_row
 
 
-class NeotomaRelationalTests(unittest.TestCase):
+class NeotomaRelationalReferenceTests(unittest.TestCase):
     def test_every_emitted_relational_reference_targets_its_table(self) -> None:
         payload = build_neotoma_relational_snapshot(
             [download_row()],

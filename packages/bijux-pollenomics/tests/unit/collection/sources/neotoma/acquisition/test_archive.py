@@ -7,7 +7,7 @@ from bijux_pollenomics.collection.sources.neotoma.collection import (
 )
 
 
-class NeotomaDataTests(unittest.TestCase):
+class NeotomaArchiveTests(unittest.TestCase):
     def test_build_neotoma_download_archive_parts_splits_rows_into_stable_part_files(
         self,
     ) -> None:
