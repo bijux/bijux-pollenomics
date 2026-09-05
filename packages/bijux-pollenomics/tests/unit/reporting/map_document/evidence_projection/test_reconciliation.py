@@ -2,7 +2,6 @@
 
 from __future__ import annotations
 
-from __future__ import annotations
 import hashlib
 from pathlib import Path
 from typing import cast
@@ -15,7 +14,10 @@ from bijux_pollenomics.reporting.map_document.evidence_projection import (
 )
 from .fixtures.common import _decode_dictionary_table, _decode_sead_claim_table
 from .fixtures.neotoma import _neotoma_fixture
-from .fixtures.sead import _install_sead_fixture, _projection_layers
+from tests.support.sead_evidence import (
+    install_sead_projection_fixture,
+    sead_projection_layers,
+)
 
 
 def test_projection_is_fixed_point_lossless_and_four_country_reconciled(
@@ -23,9 +25,9 @@ def test_projection_is_fixed_point_lossless_and_four_country_reconciled(
 ) -> None:
     root = tmp_path.absolute()
     _neotoma_fixture(root, monkeypatch)
-    _install_sead_fixture(root, monkeypatch)
-    first_layers = _projection_layers()
-    second_layers = _projection_layers()
+    install_sead_projection_fixture(root, monkeypatch)
+    first_layers = sead_projection_layers()
+    second_layers = sead_projection_layers()
 
     first = build_map_evidence_projection(root, first_layers)
     second = build_map_evidence_projection(root, second_layers)
@@ -262,12 +264,12 @@ def test_projection_refuses_changed_governed_surface_bytes(
 ) -> None:
     root = tmp_path.absolute()
     _neotoma_fixture(root, monkeypatch)
-    _install_sead_fixture(root, monkeypatch)
+    install_sead_projection_fixture(root, monkeypatch)
     path = root / "neotoma" / "relational" / "surfaces" / "sites" / "part-00001.json"
     path.write_text(path.read_text() + " ", encoding="utf-8")
 
     with pytest.raises(ValueError, match="surface digest changed"):
-        build_map_evidence_projection(root, _projection_layers())
+        build_map_evidence_projection(root, sead_projection_layers())
 
 
 def test_projection_refuses_tampered_sead_multipart_bytes(
@@ -275,7 +277,7 @@ def test_projection_refuses_tampered_sead_multipart_bytes(
 ) -> None:
     root = tmp_path.absolute()
     _neotoma_fixture(root, monkeypatch)
-    _install_sead_fixture(root, monkeypatch)
+    install_sead_projection_fixture(root, monkeypatch)
     path = (
         root
         / "sead"
@@ -288,7 +290,7 @@ def test_projection_refuses_tampered_sead_multipart_bytes(
     path.write_text(path.read_text(encoding="utf-8") + " ", encoding="utf-8")
 
     with pytest.raises(ValueError, match="evidence (byte count|digest) changed"):
-        build_map_evidence_projection(root, _projection_layers())
+        build_map_evidence_projection(root, sead_projection_layers())
 
 
 def test_projection_refuses_self_consistent_evidence_with_unknown_entity(
@@ -296,11 +298,11 @@ def test_projection_refuses_self_consistent_evidence_with_unknown_entity(
 ) -> None:
     root = tmp_path.absolute()
     _neotoma_fixture(root, monkeypatch)
-    _install_sead_fixture(
+    install_sead_projection_fixture(
         root,
         monkeypatch,
         observation_entity_id="sead-analysis-entity:forged",
     )
 
     with pytest.raises(ValueError, match="unknown entity relation"):
-        build_map_evidence_projection(root, _projection_layers())
+        build_map_evidence_projection(root, sead_projection_layers())
