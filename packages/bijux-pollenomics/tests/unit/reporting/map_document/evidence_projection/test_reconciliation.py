@@ -5,19 +5,22 @@ from __future__ import annotations
 import hashlib
 from pathlib import Path
 from typing import cast
+
 import pytest
+
 from bijux_pollenomics.evidence.sources.sead import (
     SEAD_GOVERNED_EVIDENCE_RUN_ID,
 )
 from bijux_pollenomics.reporting.map_document.evidence_projection import (
     build_map_evidence_projection,
 )
-from .fixtures.common import _decode_dictionary_table, _decode_sead_claim_table
-from .fixtures.neotoma import _neotoma_fixture
 from tests.support.sead_evidence import (
     install_sead_projection_fixture,
     sead_projection_layers,
 )
+
+from .fixtures.common import _decode_dictionary_table, _decode_sead_claim_table
+from .fixtures.neotoma import _neotoma_fixture
 
 
 def test_projection_is_fixed_point_lossless_and_four_country_reconciled(
@@ -105,7 +108,7 @@ def test_projection_is_fixed_point_lossless_and_four_country_reconciled(
     assert age_prefixes["dataset_id"] + str(age_row["dataset_id"]) == (
         "neotoma:dataset:30"
     )
-    assert age_row["provenance_record_id"] == "sha256:" + "s" * 64
+    assert age_row["provenance_record_id"] == "sha256:" + "c" * 64
     composition = cast(dict[str, object], neotoma_tabs["pollen_composition"])
     assert composition["record_count"] == 1
     assert composition["aggregation_posture"] == (

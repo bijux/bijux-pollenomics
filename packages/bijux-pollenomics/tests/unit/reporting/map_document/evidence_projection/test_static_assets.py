@@ -1,15 +1,23 @@
 """Atlas detail partitioning tests."""
 
 from __future__ import annotations
+
 import base64
 import gzip
 import json
 from pathlib import Path
 from typing import cast
+
 from bijux_pollenomics.core.geospatial.geojson import JsonObject
 from bijux_pollenomics.reporting.map_document.static_assets import (
     ATLAS_CHUNK_MAX_BYTES,
     write_static_atlas_assets,
+)
+from bijux_pollenomics.reporting.map_document.static_assets.asset_inventory import (
+    normalize_asset_inventory,
+)
+from bijux_pollenomics.reporting.map_document.static_assets.index_bundles import (
+    decode_index_bundle,
 )
 from bijux_pollenomics.reporting.map_document.template import MAP_DOCUMENT_TEMPLATE
 
@@ -64,7 +72,7 @@ def test_high_volume_details_are_lazy_partitioned_and_exactly_indexed(
     assert [path.read_bytes() for path in first.asset_paths] == [
         path.read_bytes() for path in second.asset_paths
     ]
-    asset_rows = cast(list[dict[str, object]], first.manifest["assets"])
+    asset_rows = normalize_asset_inventory(first.manifest["assets"])
     detail_rows = [row for row in asset_rows if row["domain"] == "details"]
     assert len(detail_rows) > 1
     assert all(row["initial_load"] is False for row in detail_rows)
@@ -89,7 +97,9 @@ def test_high_volume_details_are_lazy_partitioned_and_exactly_indexed(
         for row, path in zip(asset_rows, first.asset_paths, strict=True)
     }
     index_row = next(row for row in asset_rows if row["domain"] == "indexes")
-    index_payload = _payload(paths_by_key[str(index_row["asset_key"])])
+    index_payload = decode_index_bundle(
+        _payload(paths_by_key[str(index_row["asset_key"])])
+    )
     detail_index = cast(dict[str, str], index_payload["detail_record_asset_keys"])
     assert set(detail_index) == {str(row["record_id"]) for row in details}
     reconstructed = {

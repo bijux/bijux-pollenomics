@@ -9,6 +9,7 @@ from pathlib import Path
 
 from ....core.geospatial.geojson import JsonObject
 from ..evidence import normalize_atlas_evidence, validate_feature_signal_references
+from .asset_inventory import encode_asset_inventory
 from .budgets import (
     ATLAS_BOOTSTRAP_MAX_BYTES,
     ATLAS_CHUNK_MAX_BYTES,
@@ -22,6 +23,7 @@ from .budgets import (
     ATLAS_STATIC_ASSETS_MAX_BYTES,
     ATLAS_STATIC_ASSETS_MAX_FILES,
 )
+from .index_bundles import INDEX_BUNDLE_SCHEMA, build_index_bundle
 from .indexes import build_indexes, index_reference_count
 from .models import StaticAtlasAssets, validate_atlas_release_id
 from .nodes import (
@@ -191,8 +193,19 @@ def write_static_atlas_assets(
                 },
             )
         )
-    indexes = {**indexes, "scope_slug": slug, "version": version, "build_id": build_id}
-    payloads.append(("indexes", index_reference_count(indexes), indexes))
+    logical_indexes = {
+        **indexes,
+        "scope_slug": slug,
+        "version": version,
+        "build_id": build_id,
+    }
+    payloads.append(
+        (
+            "indexes",
+            index_reference_count(logical_indexes),
+            build_index_bundle(logical_indexes),
+        )
+    )
 
     assets: list[dict[str, object]] = []
     asset_paths: list[Path] = []
@@ -202,7 +215,9 @@ def write_static_atlas_assets(
         payload_json = canonical_json(payload)
         validate_decoded_payload_size(payload_json, asset_key=asset_key)
         payload_sha256 = hashlib.sha256(payload_json.encode("utf-8")).hexdigest()
-        payload_encoding = "gzip_base64" if domain == "details" else "json"
+        payload_encoding = (
+            "gzip_base64" if domain in {"nodes", "details", "provenance"} else "json"
+        )
         script_bytes = chunk_script_bytes(
             asset_key=asset_key,
             payload_sha256=payload_sha256,
@@ -223,6 +238,7 @@ def write_static_atlas_assets(
             + base64.b64encode(hashlib.sha256(script_bytes).digest()).decode("ascii"),
             "payload_sha256": payload_sha256,
             "payload_encoding": payload_encoding,
+            "decoded_byte_count": len(payload_json.encode("utf-8")),
             "byte_count": len(script_bytes),
             "record_count": record_count,
             "initial_load": domain not in {"nodes", "details"},
@@ -233,7 +249,7 @@ def write_static_atlas_assets(
         asset_paths.append(path)
 
     manifest: dict[str, object] = {
-        "schema_version": "atlas-static-bootstrap.v1",
+        "schema_version": "atlas-static-bootstrap.v2",
         "scope_slug": slug,
         "version": version,
         "build_id": build_id,
@@ -250,7 +266,7 @@ def write_static_atlas_assets(
             "detail_schema": "atlas-details-chunk.v1",
             "edge_schema": "atlas-edges-chunk.v1",
             "sequence_schema": "atlas-sequences-chunk.v1",
-            "index_schema": "atlas-static-indexes.v2",
+            "index_schema": INDEX_BUNDLE_SCHEMA,
         },
         "budgets": {
             "bootstrap_max_bytes": ATLAS_BOOTSTRAP_MAX_BYTES,
@@ -328,10 +344,10 @@ def write_static_atlas_assets(
             },
             "indexes": {
                 "status": "available",
-                "record_count": index_reference_count(indexes),
+                "record_count": index_reference_count(logical_indexes),
             },
         },
-        "assets": assets,
+        "assets": encode_asset_inventory(assets),
     }
     manifest_bytes = (canonical_json(manifest) + "\n").encode("utf-8")
     if len(manifest_bytes) > ATLAS_BOOTSTRAP_MAX_BYTES:

@@ -58,6 +58,7 @@ def decode_chunk_script(
     expected_asset_key: str,
     expected_payload_sha256: str,
     expected_payload_encoding: str,
+    expected_decoded_byte_count: int | None = None,
 ) -> dict[str, object]:
     """Decode and authenticate one runtime registration script."""
     prefix = (
@@ -93,12 +94,20 @@ def decode_chunk_script(
             raise ValueError("static atlas compressed payload is missing")
         try:
             compressed = base64.b64decode(payload_gzip_base64, validate=True)
-            payload_json = gzip.decompress(compressed).decode("utf-8")
-        except (ValueError, OSError, EOFError, UnicodeDecodeError, zlib.error) as exc:
+        except ValueError as exc:
+            raise ValueError("static atlas compressed payload is invalid") from exc
+        try:
+            payload_json = _bounded_gzip_decompress(compressed).decode("utf-8")
+        except (UnicodeDecodeError, zlib.error) as exc:
             raise ValueError("static atlas compressed payload is invalid") from exc
     else:
         raise ValueError("static atlas chunk envelope encoding is unsupported")
     validate_decoded_payload_size(payload_json, asset_key=expected_asset_key)
+    if (
+        expected_decoded_byte_count is not None
+        and len(payload_json.encode("utf-8")) != expected_decoded_byte_count
+    ):
+        raise ValueError("static atlas decoded payload byte count changed")
     if (
         hashlib.sha256(payload_json.encode("utf-8")).hexdigest()
         != expected_payload_sha256
@@ -110,6 +119,22 @@ def decode_chunk_script(
         raise ValueError("static atlas chunk payload JSON is invalid") from exc
     if not isinstance(decoded, dict):
         raise ValueError("static atlas chunk payload must be an object")
+    return decoded
+
+
+def _bounded_gzip_decompress(payload: bytes) -> bytes:
+    decoder = zlib.decompressobj(16 + zlib.MAX_WBITS)
+    decoded = decoder.decompress(payload, ATLAS_CHUNK_MAX_BYTES + 1)
+    if len(decoded) > ATLAS_CHUNK_MAX_BYTES or decoder.unconsumed_tail:
+        raise ValueError("static atlas compressed payload exceeds its decoded budget")
+    decoded += decoder.flush(ATLAS_CHUNK_MAX_BYTES + 1 - len(decoded))
+    if (
+        len(decoded) > ATLAS_CHUNK_MAX_BYTES
+        or not decoder.eof
+        or decoder.unused_data
+        or decoder.unconsumed_tail
+    ):
+        raise ValueError("static atlas compressed payload exceeds its decoded budget")
     return decoded
 
 

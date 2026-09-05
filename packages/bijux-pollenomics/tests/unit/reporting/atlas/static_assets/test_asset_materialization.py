@@ -7,7 +7,6 @@ import random
 import shutil
 import subprocess
 
-
 from bijux_pollenomics.core.geospatial.geojson import JsonObject
 from bijux_pollenomics.reporting.map_document.evidence import DETAIL_TAB_KEYS
 from bijux_pollenomics.reporting.map_document.static_assets import (
@@ -19,6 +18,12 @@ from bijux_pollenomics.reporting.map_document.static_assets import (
     ATLAS_INTERACTION_MAX_BYTES,
     validate_static_atlas_assets,
     write_static_atlas_assets,
+)
+from bijux_pollenomics.reporting.map_document.static_assets.index_bundles import (
+    decode_index_bundle,
+)
+from bijux_pollenomics.reporting.map_document.static_assets.asset_inventory import (
+    normalize_asset_inventory,
 )
 
 from .fixtures.layers import build_point_layers, build_polygon_layers
@@ -90,8 +95,7 @@ def test_static_assets_are_deterministic_hashed_and_domain_accounted(
         "record_count": 0,
         "reason_code": "accepted_scientific_classifications_not_available",
     }
-    assets = first.manifest["assets"]
-    assert isinstance(assets, list)
+    assets = normalize_asset_inventory(first.manifest["assets"])
     node_assets = [row for row in assets if row["domain"] == "nodes"]
     assert len(node_assets) > 1
     assert {tuple(row["country_keys"]) for row in node_assets} >= {
@@ -156,11 +160,19 @@ def test_accepted_scientific_fixture_populates_truthful_atlas_domains(
     )
 
     assert first.manifest == second.manifest
-    asset_rows = first.manifest["assets"]
-    assert isinstance(asset_rows, list)
+    asset_rows = normalize_asset_inventory(first.manifest["assets"])
+    assert all(
+        isinstance(row["decoded_byte_count"], int)
+        and row["decoded_byte_count"] <= ATLAS_CHUNK_MAX_BYTES
+        for row in asset_rows
+    )
     assert all(
         row["payload_encoding"]
-        == ("gzip_base64" if row["domain"] == "details" else "json")
+        == (
+            "gzip_base64"
+            if row["domain"] in {"nodes", "details", "provenance"}
+            else "json"
+        )
         for row in asset_rows
     )
     domains = first.manifest["domains"]
@@ -228,8 +240,7 @@ def test_compressed_details_use_the_decoded_chunk_budget_without_eager_loading(
         detail_records=details,
     )
 
-    rows = assets.manifest["assets"]
-    assert isinstance(rows, list)
+    rows = normalize_asset_inventory(assets.manifest["assets"])
     detail_rows = [row for row in rows if row["domain"] == "details"]
     assert len(detail_rows) == 1
     assert detail_rows[0]["initial_load"] is False
@@ -251,7 +262,7 @@ def test_compressed_details_use_the_decoded_chunk_budget_without_eager_loading(
         for row, path in zip(rows, assets.asset_paths, strict=True)
         if row["domain"] == "indexes"
     )
-    detail_record_asset_keys = indexes["detail_record_asset_keys"]
+    detail_record_asset_keys = decode_index_bundle(indexes)["detail_record_asset_keys"]
     assert isinstance(detail_record_asset_keys, dict)
     assert set(detail_record_asset_keys.values()) == {detail_rows[0]["asset_key"]}
     assert len(assets.manifest_path.read_bytes()) <= ATLAS_BOOTSTRAP_MAX_BYTES
@@ -271,8 +282,7 @@ def test_static_node_chunks_preserve_every_source_feature_exactly_once(
         polygon_layers=polygon_layers,
     )
     reconstructed: dict[int, list[tuple[int, object]]] = {}
-    manifest_assets = assets.manifest["assets"]
-    assert isinstance(manifest_assets, list)
+    manifest_assets = normalize_asset_inventory(assets.manifest["assets"])
     for row, path in zip(manifest_assets, assets.asset_paths, strict=True):
         assert isinstance(row, dict)
         if row["domain"] != "nodes":
@@ -319,17 +329,27 @@ def test_static_assets_ship_build_time_indexes_and_execute_without_fetch(
         polygon_layers=build_polygon_layers(),
     )
     scripts = "\n".join(path.read_text(encoding="utf-8") for path in assets.asset_paths)
-    assert "country_feature_indexes" in scripts
-    assert "spatial_degree_feature_indexes" in scripts
-    assert "time_interval_feature_indexes" in scripts
-    assert "signal_layer_indexes" in scripts
+    rows = normalize_asset_inventory(assets.manifest["assets"])
+    index_path = next(
+        path
+        for row, path in zip(rows, assets.asset_paths, strict=True)
+        if row["domain"] == "indexes"
+    )
+    indexes = decode_index_bundle(read_static_asset_payload(index_path))
+    assert set(indexes) >= {
+        "country_feature_indexes",
+        "spatial_degree_feature_indexes",
+        "time_interval_feature_indexes",
+        "signal_layer_indexes",
+    }
     assert "fetch(" not in scripts
 
     node = shutil.which("node")
     assert node is not None
     probe = (
         scripts
-        + "\nconst payloads=globalThis.__BIJUX_ATLAS_RAW_CHUNKS__.map((row)=>JSON.parse(row.payload_json));"
+        + "\nconst zlib=require('node:zlib');"
+        + "const payloads=globalThis.__BIJUX_ATLAS_RAW_CHUNKS__.map((row)=>JSON.parse(row.payload_encoding==='gzip_base64'?zlib.gunzipSync(Buffer.from(row.payload_gzip_base64,'base64')).toString('utf8'):row.payload_json));"
         + "const nodes=payloads.filter((row)=>row.schema_version==='atlas-node-chunk.v1');"
         + "const edges=payloads.find((row)=>row.schema_version==='atlas-edges-chunk.v1');"
         + "const sequences=payloads.find((row)=>row.schema_version==='atlas-sequences-chunk.v1');"

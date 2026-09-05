@@ -9,6 +9,9 @@ import subprocess
 from bijux_pollenomics.reporting.map_document.static_assets import (
     write_static_atlas_assets,
 )
+from bijux_pollenomics.reporting.map_document.static_assets.asset_inventory import (
+    normalize_asset_inventory,
+)
 from bijux_pollenomics.reporting.map_document.template import MAP_DOCUMENT_TEMPLATE
 
 from .fixtures.scientific_evidence import (
@@ -16,6 +19,7 @@ from .fixtures.scientific_evidence import (
     build_scientific_point_layers,
     build_scientific_signals,
 )
+
 
 def test_compressed_detail_chunk_round_trips_in_web_runtime(tmp_path: Path) -> None:
     assets = write_static_atlas_assets(
@@ -27,8 +31,7 @@ def test_compressed_detail_chunk_round_trips_in_web_runtime(tmp_path: Path) -> N
         detail_records=build_detail_records(),
         scientific_signals=build_scientific_signals(),
     )
-    rows = assets.manifest["assets"]
-    assert isinstance(rows, list)
+    rows = normalize_asset_inventory(assets.manifest["assets"])
     detail_index = next(
         index for index, row in enumerate(rows) if row["domain"] == "details"
     )

@@ -13,3 +13,4 @@ class MapEvidenceProjection:
 
     detail_records: tuple[JsonObject, ...]
     reconciliation: JsonObject
+    point_layers: tuple[JsonObject, ...] = ()

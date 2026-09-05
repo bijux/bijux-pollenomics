@@ -15,6 +15,9 @@ from bijux_pollenomics.reporting.map_document.static_assets import (
     ATLAS_DOCUMENT_MAX_BYTES,
     write_static_atlas_assets,
 )
+from bijux_pollenomics.reporting.map_document.static_assets.asset_inventory import (
+    normalize_asset_inventory,
+)
 from bijux_pollenomics.reporting.map_publication import resolve_map_scope_policy
 
 from .fixtures.layers import build_point_layers, build_polygon_layers
@@ -24,6 +27,7 @@ from .fixtures.scientific_evidence import (
     build_scientific_point_layers,
     build_scientific_signals,
 )
+
 
 def test_static_map_document_is_small_relative_only_and_offline_loadable(
     tmp_path: Path,
@@ -64,8 +68,7 @@ def test_static_map_document_is_small_relative_only_and_offline_loadable(
     assert "selection_aware_static_scripts" in html
     assert "evidence-0" not in html
     assert "fetch(" not in html
-    manifest_assets = assets.manifest["assets"]
-    assert isinstance(manifest_assets, list)
+    manifest_assets = normalize_asset_inventory(assets.manifest["assets"])
     for _row, path in zip(manifest_assets, assets.asset_paths, strict=True):
         expected_tag = f'<script src="./{path.name}"></script>'
         assert expected_tag not in html

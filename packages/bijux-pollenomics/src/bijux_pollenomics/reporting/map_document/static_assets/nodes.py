@@ -4,7 +4,11 @@ from collections.abc import Sequence
 
 from ....core.geospatial.geojson import JsonObject
 from ..coordinates import finite_coordinate, point_coordinate_pair
-from .budgets import ATLAS_CHUNK_MAX_BYTES, ATLAS_CHUNK_TARGET_BYTES
+from .budgets import (
+    ATLAS_CHUNK_MAX_BYTES,
+    ATLAS_CHUNK_TARGET_BYTES,
+    ATLAS_COMPRESSED_CHUNK_TARGET_BYTES,
+)
 from .indexes import feature_interval
 from .serialization import canonical_json
 
@@ -148,7 +152,10 @@ def _partition_indexed_features(
     features: list[tuple[int, dict[str, object]]],
 ) -> list[list[tuple[int, dict[str, object]]]]:
     feature_rows = [feature for _index, feature in features]
-    partitions = partition_features(feature_rows)
+    partitions = partition_features(
+        feature_rows,
+        target_bytes=ATLAS_COMPRESSED_CHUNK_TARGET_BYTES,
+    )
     result: list[list[tuple[int, dict[str, object]]]] = []
     offset = 0
     for partition in partitions:

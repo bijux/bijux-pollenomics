@@ -4,17 +4,20 @@ from __future__ import annotations
 
 import hashlib
 from pathlib import Path
+
 import pytest
+
 from bijux_pollenomics.reporting.map_document.evidence_projection import (
     neotoma as neotoma_projection,
 )
+
 from .common import _write_json
 
 
 def _neotoma_fixture(root: Path, monkeypatch: pytest.MonkeyPatch) -> None:
     relational = root / "neotoma" / "relational"
     build_id = "sha256:" + "b" * 64
-    snapshot_id = "sha256:" + "s" * 64
+    snapshot_id = "sha256:" + "c" * 64
     surfaces: dict[str, object] = {}
     surface_rows: dict[str, list[dict[str, object]]] = {
         "sites": [
@@ -131,7 +134,7 @@ def _neotoma_fixture(root: Path, monkeypatch: pytest.MonkeyPatch) -> None:
     manifest = {
         "source_snapshot_id": snapshot_id,
         "build_id": build_id,
-        "materialization_sha256": "m" * 64,
+        "materialization_sha256": "d" * 64,
         "surfaces": surfaces,
     }
     monkeypatch.setattr(

@@ -3,10 +3,11 @@
 ATLAS_BOOTSTRAP_MAX_BYTES = 65_536
 ATLAS_CHUNK_MAX_BYTES = 4_194_304
 ATLAS_CHUNK_TARGET_BYTES = 2_097_152
-# Compressed detail chunks can safely use more of the decoded-payload budget than
-# JSON node chunks, whose script wrapper expands quotes and escape sequences.
-# The margin also bounds gzip/base64 overhead for an incompressible detail payload.
-ATLAS_DETAIL_CHUNK_TARGET_BYTES = 3_140_000
+# Compressed chunks can safely use more of the decoded-payload budget. The margin
+# still bounds gzip/base64 overhead for an incompressible payload.
+ATLAS_COMPRESSED_CHUNK_TARGET_BYTES = 3_140_000
+# Preserve direct imports of the original detail-owned tuning name.
+ATLAS_DETAIL_CHUNK_TARGET_BYTES = ATLAS_COMPRESSED_CHUNK_TARGET_BYTES
 ATLAS_DOCUMENT_MAX_BYTES = 524_288
 ATLAS_STATIC_ASSETS_MAX_BYTES = 134_217_728
 ATLAS_STATIC_ASSETS_MAX_FILES = 512

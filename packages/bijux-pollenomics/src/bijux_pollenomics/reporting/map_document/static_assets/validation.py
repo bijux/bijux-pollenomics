@@ -14,6 +14,8 @@ from .budgets import (
     ATLAS_STATIC_ASSETS_MAX_BYTES,
     ATLAS_STATIC_ASSETS_MAX_FILES,
 )
+from .asset_inventory import normalize_asset_inventory
+from .index_bundles import decode_index_bundle
 from .models import StaticAtlasAssets
 from .serialization import decode_chunk_script
 
@@ -25,8 +27,18 @@ def validate_static_atlas_assets(assets: StaticAtlasAssets) -> None:
         raise ValueError("static atlas bootstrap exceeds its byte budget")
     if json.loads(manifest_bytes) != assets.manifest:
         raise ValueError("static atlas bootstrap bytes do not match the manifest")
-    rows = assets.manifest.get("assets")
-    if not isinstance(rows, list) or len(rows) != len(assets.asset_paths):
+    bootstrap_schema = assets.manifest.get("schema_version")
+    inventory = assets.manifest.get("assets")
+    if bootstrap_schema == "atlas-static-bootstrap.v1":
+        if not isinstance(inventory, list):
+            raise ValueError("static atlas v1 asset inventory is invalid")
+    elif bootstrap_schema == "atlas-static-bootstrap.v2":
+        if not isinstance(inventory, Mapping):
+            raise ValueError("static atlas v2 asset inventory is invalid")
+    else:
+        raise ValueError("static atlas bootstrap schema is invalid")
+    rows = normalize_asset_inventory(inventory)
+    if len(rows) != len(assets.asset_paths):
         raise ValueError("static atlas asset inventory is incomplete")
     if len(rows) > ATLAS_STATIC_ASSETS_MAX_FILES:
         raise ValueError("static atlas asset count exceeds its budget")
@@ -37,6 +49,11 @@ def validate_static_atlas_assets(assets: StaticAtlasAssets) -> None:
         or len(build_id) != 70
     ):
         raise ValueError("static atlas build identity is invalid")
+    compatibility = assets.manifest.get("compatibility")
+    requires_decoded_counts = (
+        isinstance(compatibility, Mapping)
+        and compatibility.get("index_schema") == "atlas-static-indexes.v3"
+    )
     if assets.manifest.get("transport_integrity") != {
         "http_https": "subresource_integrity_plus_payload_sha256",
         "file": "payload_sha256_after_script_registration",
@@ -67,9 +84,27 @@ def validate_static_atlas_assets(assets: StaticAtlasAssets) -> None:
             raise ValueError("static atlas asset domain is invalid")
         if row.get("initial_load") is not (domain not in {"nodes", "details"}):
             raise ValueError("static atlas initial-load declaration is invalid")
-        expected_payload_encoding = "gzip_base64" if domain == "details" else "json"
-        if row.get("payload_encoding") != expected_payload_encoding:
+        expected_payload_encodings = (
+            {"gzip_base64", "json"}
+            if domain in {"nodes", "provenance"}
+            else {"gzip_base64"}
+            if domain == "details"
+            else {"json"}
+        )
+        payload_encoding = row.get("payload_encoding")
+        if not isinstance(payload_encoding, str) or payload_encoding not in (
+            expected_payload_encodings
+        ):
             raise ValueError("static atlas payload encoding declaration is invalid")
+        expected_decoded_byte_count = row.get("decoded_byte_count")
+        if expected_decoded_byte_count is None and requires_decoded_counts:
+            raise ValueError("static atlas decoded payload byte count is missing")
+        if expected_decoded_byte_count is not None and (
+            isinstance(expected_decoded_byte_count, bool)
+            or not isinstance(expected_decoded_byte_count, int)
+            or not 0 < expected_decoded_byte_count <= ATLAS_CHUNK_MAX_BYTES
+        ):
+            raise ValueError("static atlas decoded payload byte count is invalid")
         payload = path.read_bytes()
         byte_count = len(payload)
         total_bytes += byte_count
@@ -94,7 +129,8 @@ def validate_static_atlas_assets(assets: StaticAtlasAssets) -> None:
             payload,
             expected_asset_key=asset_key,
             expected_payload_sha256=payload_sha256,
-            expected_payload_encoding=expected_payload_encoding,
+            expected_payload_encoding=payload_encoding,
+            expected_decoded_byte_count=expected_decoded_byte_count,
         )
     if total_bytes > ATLAS_STATIC_ASSETS_MAX_BYTES:
         raise ValueError("static atlas assets exceed their total byte budget")
@@ -169,7 +205,7 @@ def _validate_static_payloads(
         elif domain == "indexes":
             if index_payload is not None:
                 raise ValueError("static atlas index payload is duplicated")
-            index_payload = payload
+            index_payload = decode_index_bundle(payload)
     if detail_record_order != sorted(detail_record_order):
         raise ValueError("static atlas detail records are not stably ordered")
     if index_payload is None:

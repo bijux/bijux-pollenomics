@@ -6,9 +6,19 @@ from collections.abc import Mapping, MutableMapping
 import hashlib
 from pathlib import Path
 from typing import cast
+
+from bijux_pollenomics.analysis.propagation.source_chronology import (
+    SOURCE_NODE_CONFIG_DIGEST,
+    SourceNodeContext,
+    derive_neotoma_source_chronology_nodes,
+)
 from bijux_pollenomics.evidence.sources.neotoma import (
     read_validated_neotoma_relational_manifest,
 )
+from bijux_pollenomics.reporting.source_chronology import (
+    build_source_chronology_atlas_projection,
+)
+
 from .constants import _UNAVAILABLE_CLASSIFICATION, _UNAVAILABLE_RELATION
 from .io import (
     _decode_json_object,
@@ -30,21 +40,38 @@ from .records import (
 def _project_neotoma(
     context_root: Path,
     layer: MutableMapping[str, object],
-) -> tuple[list[dict[str, object]], dict[str, object]]:
+) -> tuple[
+    list[dict[str, object]],
+    dict[str, object],
+    list[dict[str, object]],
+]:
     relational_root = context_root / "neotoma" / "relational"
     manifest = read_validated_neotoma_relational_manifest(relational_root.absolute())
+    loaded_surfaces = {
+        name: _load_neotoma_surface(relational_root, manifest, name)
+        for name in (
+            "sites",
+            "collection_units",
+            "datasets",
+            "samples",
+            "age_claims",
+            "variables",
+            "observations",
+        )
+    }
+    surfaces = {name: loaded[0] for name, loaded in loaded_surfaces.items()}
     sites = _unique_rows(
-        _load_neotoma_surface(relational_root, manifest, "sites"),
+        surfaces["sites"],
         "site_id",
         "Neotoma sites",
     )
     collection_rows = _compact_rows_by_site(
-        _load_neotoma_surface(relational_root, manifest, "collection_units"),
+        surfaces["collection_units"],
         fields=("collection_unit_id", "source_collection_unit_id", "source_payload"),
         label="Neotoma collection unit",
     )
     dataset_rows = _compact_rows_by_site(
-        _load_neotoma_surface(relational_root, manifest, "datasets"),
+        surfaces["datasets"],
         fields=(
             "dataset_id",
             "collection_unit_id",
@@ -54,7 +81,7 @@ def _project_neotoma(
         label="Neotoma dataset",
     )
     sample_rows = _compact_rows_by_site(
-        _load_neotoma_surface(relational_root, manifest, "samples"),
+        surfaces["samples"],
         fields=(
             "sample_id",
             "collection_unit_id",
@@ -96,7 +123,7 @@ def _project_neotoma(
         "source_relation_path",
     )
     age_rows = _compact_rows_by_site(
-        _load_neotoma_surface(relational_root, manifest, "age_claims"),
+        surfaces["age_claims"],
         fields=age_fields,
         label="Neotoma age claim",
     )
@@ -119,10 +146,23 @@ def _project_neotoma(
         "source_part_number",
     )
     observation_rows = _compact_rows_by_site(
-        _load_neotoma_surface(relational_root, manifest, "observations"),
+        surfaces["observations"],
         fields=observation_fields,
         label="Neotoma observation",
     )
+    observation_part_numbers = {
+        _required_text(row.get("observation_id"), "Neotoma observation ID"): part
+        for row, part in zip(
+            surfaces["observations"],
+            loaded_surfaces["observations"][1],
+            strict=True,
+        )
+    }
+    for rows in observation_rows.values():
+        for row in rows:
+            row[-1] = observation_part_numbers[
+                _required_text(row[0], "Neotoma observation ID")
+            ]
     variable_fields = (
         "variable_id",
         "source_taxon_id",
@@ -131,7 +171,7 @@ def _project_neotoma(
         "source_units",
     )
     variables = _unique_rows(
-        _load_neotoma_surface(relational_root, manifest, "variables"),
+        surfaces["variables"],
         "variable_id",
         "Neotoma variables",
     )
@@ -315,7 +355,23 @@ def _project_neotoma(
         "observations": sum(len(rows) for rows in observation_rows.values()),
         "variables": len(variables),
     }
-    return records, {
+    source_node_result = derive_neotoma_source_chronology_nodes(
+        observations=surfaces["observations"],
+        samples=surfaces["samples"],
+        sites=surfaces["sites"],
+        variables=surfaces["variables"],
+        chronologies=surfaces["age_claims"],
+        context=SourceNodeContext(
+            config_digest=SOURCE_NODE_CONFIG_DIGEST,
+            source_snapshot_id=source_snapshot_id,
+            build_id=build_id,
+        ),
+    )
+    source_projection = build_source_chronology_atlas_projection(
+        source_node_result,
+        detail_record_ids=sites.keys(),
+    )
+    accounting = {
         "source_feature_count": len(features),
         "source_site_denominator": len(sites),
         "projected_site_count": len(records),
@@ -325,12 +381,18 @@ def _project_neotoma(
         "materialization_sha256": materialization_sha256,
         "detail_row_counts": detail_row_counts,
         "detail_row_denominators": dict(detail_row_counts),
+        "source_chronology": source_projection.reconciliation,
     }
+    return (
+        records,
+        accounting,
+        [dict(layer) for layer in source_projection.point_layers],
+    )
 
 
 def _load_neotoma_surface(
     root: Path, manifest: Mapping[str, object], surface_name: str
-) -> list[Mapping[str, object]]:
+) -> tuple[list[Mapping[str, object]], tuple[int, ...]]:
     surfaces = _mapping(manifest.get("surfaces"), "Neotoma surfaces")
     surface = _mapping(surfaces.get(surface_name), f"Neotoma {surface_name} surface")
     parts = surface.get("parts")
@@ -339,6 +401,7 @@ def _load_neotoma_surface(
     ):
         raise ValueError(f"Neotoma {surface_name} parts are invalid")
     rows: list[Mapping[str, object]] = []
+    part_numbers: list[int] = []
     for part_number, part_row in enumerate(
         cast(list[Mapping[str, object]], parts), start=1
     ):
@@ -357,10 +420,8 @@ def _load_neotoma_surface(
             raise ValueError(f"Neotoma surface rows are invalid: {relative_path}")
         if payload.get("row_count") != len(raw_rows):
             raise ValueError(f"Neotoma surface row count changed: {relative_path}")
-        rows.extend(
-            {**row, "source_part_number": part_number}
-            for row in cast(list[Mapping[str, object]], raw_rows)
-        )
+        rows.extend(cast(list[Mapping[str, object]], raw_rows))
+        part_numbers.extend([part_number] * len(raw_rows))
     if surface.get("row_count") != len(rows):
         raise ValueError(f"Neotoma {surface_name} row count does not reconcile")
-    return rows
+    return rows, tuple(part_numbers)

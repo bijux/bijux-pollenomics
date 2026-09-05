@@ -66,7 +66,6 @@ def prepare_layers(
             published_output_dir=report.output_dir,
         )
     )
-    surface._attach_traceability_surfaces(point_layers, bundle_paths)
     detail_projection_reconciliation = None
     if context_root is not None and atlas_detail_records is None:
         detail_projection = surface.build_map_evidence_projection(
@@ -74,6 +73,8 @@ def prepare_layers(
         )
         atlas_detail_records = detail_projection.detail_records
         detail_projection_reconciliation = detail_projection.reconciliation
+        point_layers.extend(detail_projection.point_layers)
+    surface._attach_traceability_surfaces(point_layers, bundle_paths)
     static_assets = surface.write_static_atlas_assets(
         staging_output_dir,
         slug=report.slug,
