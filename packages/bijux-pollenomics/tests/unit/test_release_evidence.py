@@ -36,6 +36,79 @@ def _digest(content: bytes) -> str:
     return f"sha256:{hashlib.sha256(content).hexdigest()}"
 
 
+def test_producer_tree_digest_excludes_python_runtime_cache(tmp_path: Path) -> None:
+    producer = tmp_path / "producer"
+    producer.mkdir()
+    (producer / "source.py").write_text("VALUE = 1\n", encoding="utf-8")
+    cache = producer / "__pycache__"
+    cache.mkdir()
+    cached_bytecode = cache / "source.cpython-311.pyc"
+    cached_bytecode.write_bytes(b"first runtime cache")
+    optimized_bytecode = cache / "source.cpython-311.pyo"
+    optimized_bytecode.write_bytes(b"first optimized runtime cache")
+    nested_source = cache / "real_source.py"
+    nested_source.write_text("CACHE_HELPER = 1\n", encoding="utf-8")
+    suffix_directory = producer / "owned.pyc"
+    suffix_directory.mkdir()
+    suffix_source = suffix_directory / "real_source.py"
+    suffix_source.write_text("SUFFIX_HELPER = 1\n", encoding="utf-8")
+    digest = cast(
+        str,
+        release_evidence_module._hash_repository_object(
+            tmp_path,
+            "producer",
+            exclude_python_cache=True,
+        )["output_digest"],
+    )
+    artifact = ArtifactInput(
+        identity="producer",
+        role="producer",
+        path="producer",
+        media_type="text/x-python",
+        schema_version="producer.v1",
+        parents=(),
+        config_digests=(),
+        producer_digest=digest,
+        output_digest=digest,
+    )
+
+    before = release_evidence_module._artifact_record(tmp_path, artifact)
+    generic_before = hash_repository_object(tmp_path, "producer")
+    cached_bytecode.write_bytes(b"different runtime cache")
+    optimized_bytecode.write_bytes(b"different optimized runtime cache")
+    after = release_evidence_module._artifact_record(tmp_path, artifact)
+
+    assert before == after
+    assert hash_repository_object(tmp_path, "producer") != generic_before
+    nested_source.write_text("CACHE_HELPER = 2\n", encoding="utf-8")
+    with pytest.raises(ReleaseEvidenceError, match="artifact digest changed"):
+        release_evidence_module._artifact_record(tmp_path, artifact)
+    nested_source.write_text("CACHE_HELPER = 1\n", encoding="utf-8")
+    suffix_source.write_text("SUFFIX_HELPER = 2\n", encoding="utf-8")
+    with pytest.raises(ReleaseEvidenceError, match="artifact digest changed"):
+        release_evidence_module._artifact_record(tmp_path, artifact)
+    suffix_source.write_text("SUFFIX_HELPER = 1\n", encoding="utf-8")
+    (producer / "source.py").write_text("VALUE = 2\n", encoding="utf-8")
+    with pytest.raises(ReleaseEvidenceError, match="artifact digest changed"):
+        release_evidence_module._artifact_record(tmp_path, artifact)
+
+
+def test_producer_tree_cache_exclusion_does_not_hide_symlink(
+    tmp_path: Path,
+) -> None:
+    producer = tmp_path / "producer"
+    producer.mkdir()
+    (producer / "source.py").write_text("VALUE = 1\n", encoding="utf-8")
+    (producer / "linked.pyc").symlink_to(producer / "source.py")
+
+    with pytest.raises(ReleaseEvidenceError, match="safely open"):
+        release_evidence_module._hash_repository_object(
+            tmp_path,
+            "producer",
+            exclude_python_cache=True,
+        )
+
+
 def _json_digest(value: object) -> str:
     return _digest(_canonical_json(value))
 

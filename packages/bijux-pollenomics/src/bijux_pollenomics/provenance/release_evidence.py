@@ -767,7 +767,11 @@ def _artifact_record(root: Path, item: ArtifactInput) -> dict[str, object]:
     for digest in item.config_digests:
         _require_digest(digest, "config digest")
 
-    observed = _hash_repository_object(root, item.path)
+    observed = _hash_repository_object(
+        root,
+        item.path,
+        exclude_python_cache=item.role == "producer",
+    )
     if observed["output_digest"] != item.output_digest:
         raise ReleaseEvidenceError(f"artifact digest changed: {item.identity}")
     return {
@@ -2424,7 +2428,12 @@ def _release_decision(
     }
 
 
-def _hash_repository_object(root: Path, relative_path: str) -> dict[str, object]:
+def _hash_repository_object(
+    root: Path,
+    relative_path: str,
+    *,
+    exclude_python_cache: bool = False,
+) -> dict[str, object]:
     descriptor = _open_repository_object(root, relative_path)
     try:
         mode = os.fstat(descriptor).st_mode
@@ -2437,7 +2446,9 @@ def _hash_repository_object(root: Path, relative_path: str) -> dict[str, object]
                 "file_count": 1,
             }
         if stat.S_ISDIR(mode):
-            entries = _tree_entries_descriptor(descriptor)
+            entries = _tree_entries_descriptor(
+                descriptor, exclude_python_cache=exclude_python_cache
+            )
             return {
                 "object_type": "tree",
                 "output_digest": _digest_json(entries),
@@ -2524,7 +2535,10 @@ def _hash_file_descriptor(descriptor: int, label: str) -> tuple[str, int]:
 
 
 def _tree_entries_descriptor(
-    descriptor: int, prefix: PurePosixPath | None = None
+    descriptor: int,
+    prefix: PurePosixPath | None = None,
+    *,
+    exclude_python_cache: bool = False,
 ) -> list[dict[str, object]]:
     if prefix is None:
         prefix = PurePosixPath()
@@ -2553,6 +2567,12 @@ def _tree_entries_descriptor(
                 raise ReleaseEvidenceError(
                     f"artifact tree member changed: {relative.as_posix()}"
                 )
+            if (
+                stat.S_ISREG(member.st_mode)
+                and exclude_python_cache
+                and name.endswith((".pyc", ".pyo"))
+            ):
+                continue
             if stat.S_ISREG(member.st_mode):
                 digest, byte_size = _hash_file_descriptor(child, relative.as_posix())
                 entries.append(
@@ -2563,7 +2583,13 @@ def _tree_entries_descriptor(
                     }
                 )
             elif stat.S_ISDIR(member.st_mode):
-                entries.extend(_tree_entries_descriptor(child, relative))
+                entries.extend(
+                    _tree_entries_descriptor(
+                        child,
+                        relative,
+                        exclude_python_cache=exclude_python_cache,
+                    )
+                )
             else:
                 raise ReleaseEvidenceError(
                     f"special file in artifact tree: {relative.as_posix()}"

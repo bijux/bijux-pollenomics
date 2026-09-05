@@ -84,7 +84,11 @@ def _artifact_inputs(
     digests = {
         requirement.identity: cast(
             str,
-            evidence.hash_repository_object(root, requirement.path)["output_digest"],
+            evidence._hash_repository_object(
+                root,
+                requirement.path,
+                exclude_python_cache=requirement.role == "producer",
+            )["output_digest"],
         )
         for requirement in policy.required_artifacts
     }

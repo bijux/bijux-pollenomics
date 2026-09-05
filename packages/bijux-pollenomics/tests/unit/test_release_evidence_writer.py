@@ -698,19 +698,25 @@ def test_request_derivation_rejects_concurrent_input_mutation(
     tmp_path: Path, monkeypatch: pytest.MonkeyPatch
 ) -> None:
     _inputs(tmp_path)
-    original = request_module.evidence.hash_repository_object
+    original = request_module.evidence._hash_repository_object
     mutated = False
 
-    def mutating_hash(root: Path, relative_path: str) -> dict[str, object]:
+    def mutating_hash(
+        root: Path, relative_path: str, *, exclude_python_cache: bool = False
+    ) -> dict[str, object]:
         nonlocal mutated
-        result = original(root, relative_path)
+        result = original(
+            root,
+            relative_path,
+            exclude_python_cache=exclude_python_cache,
+        )
         if relative_path == "inputs/config.json" and not mutated:
             (root / relative_path).write_text('{"changed":true}\n', encoding="utf-8")
             mutated = True
         return result
 
     monkeypatch.setattr(
-        request_module.evidence, "hash_repository_object", mutating_hash
+        request_module.evidence, "_hash_repository_object", mutating_hash
     )
 
     with pytest.raises(ReleaseEvidenceError, match="digest changed"):
