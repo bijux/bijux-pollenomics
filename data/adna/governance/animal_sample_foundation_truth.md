@@ -2,24 +2,24 @@
 
 - Tracked species: `10`
 - Tracked projects: `21`
-- Sample rows: `1451`
-- Fully grounded rows: `501`
-- Partially grounded rows: `721`
+- Sample rows: `1450`
+- Fully grounded rows: `527`
+- Partially grounded rows: `269`
 - Blocked by missing metadata: `11`
-- Blocked by missing location detail: `0`
-- Blocked by weak chronology: `218`
+- Blocked by missing location detail: `149`
+- Blocked by weak chronology: `494`
 
 ## Species rows
 
 | Species | Sample rows | Fully grounded | Missing metadata | Missing location detail | Weak chronology |
 | --- | ---: | ---: | ---: | ---: | ---: |
-| Equus caballus | 548 | 492 | 0 | 0 | 1 |
-| Sus scrofa domesticus | 343 | 0 | 0 | 0 | 0 |
-| Ovis aries | 200 | 0 | 0 | 0 | 18 |
-| Bos taurus | 132 | 0 | 11 | 0 | 121 |
+| Equus caballus | 550 | 481 | 0 | 2 | 8 |
+| Sus scrofa domesticus | 343 | 2 | 0 | 0 | 341 |
+| Ovis aries | 200 | 0 | 0 | 5 | 28 |
+| Bos taurus | 132 | 0 | 11 | 121 | 0 |
 | Capra hircus | 82 | 9 | 0 | 0 | 73 |
-| Canis lupus familiaris | 4 | 0 | 0 | 0 | 0 |
-| Felis catus | 109 | 0 | 0 | 0 | 5 |
+| Canis lupus familiaris | 4 | 0 | 0 | 1 | 0 |
+| Felis catus | 106 | 35 | 0 | 0 | 44 |
 | Camelus dromedarius | 13 | 0 | 0 | 0 | 0 |
-| Rangifer tarandus | 20 | 0 | 0 | 0 | 0 |
+| Rangifer tarandus | 20 | 0 | 0 | 20 | 0 |
 | Equus asinus | 0 | 0 | 0 | 0 | 0 |

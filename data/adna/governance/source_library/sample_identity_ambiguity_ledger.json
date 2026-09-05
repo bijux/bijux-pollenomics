@@ -1,4 +1,32 @@
 {
   "schema_version": "animal-sample-identity-ambiguity-ledger.v1",
-  "rows": []
+  "rows": [
+    {
+      "project_accession": "PRJEB81815",
+      "species_latin_name": "Felis catus",
+      "repo_stable_sample_id": "prjeb81815:samea120246597",
+      "preferred_sample_label": "SAMEA120246597",
+      "sample_ambiguity_note": "archive and workbook taxonomic suffixes conflict: archive 778_Fsl_chrINT.bam; workbook 778_Fss",
+      "sample_lineage_path": "data/adna/governance/source_library/projects/PRJEB81815/archive_metadata.html.gz",
+      "sample_lineage_locator": "sample_accession:SAMEA120246597"
+    },
+    {
+      "project_accession": "PRJEB81815",
+      "species_latin_name": "Felis catus",
+      "repo_stable_sample_id": "prjeb81815:samea120246598",
+      "preferred_sample_label": "SAMEA120246598",
+      "sample_ambiguity_note": "archive and workbook taxonomic suffixes conflict: archive 779_Fsl_chrINT.bam; workbook 779_Fss",
+      "sample_lineage_path": "data/adna/governance/source_library/projects/PRJEB81815/archive_metadata.html.gz",
+      "sample_lineage_locator": "sample_accession:SAMEA120246598"
+    },
+    {
+      "project_accession": "PRJEB81815",
+      "species_latin_name": "Felis catus",
+      "repo_stable_sample_id": "prjeb81815:samea120246599",
+      "preferred_sample_label": "SAMEA120246599",
+      "sample_ambiguity_note": "archive and workbook identifiers conflict by zero padding: archive BG5_DpS_AF_chrINT_q1.bam; workbook BG05",
+      "sample_lineage_path": "data/adna/governance/source_library/projects/PRJEB81815/archive_metadata.html.gz",
+      "sample_lineage_locator": "sample_accession:SAMEA120246599"
+    }
+  ]
 }

@@ -11,16 +11,15 @@
     "paper_capture": "complete",
     "supplement_capture": "not_required",
     "sample_identity_recovery": "complete",
-    "site_recovery": "in_progress",
-    "chronology_recovery": "complete",
-    "coordinate_derivation": "blocked",
+    "site_recovery": "complete",
+    "chronology_recovery": "in_progress",
+    "coordinate_derivation": "in_progress",
     "publication_readiness": "blocked"
   },
   "blocking_stages": [
-    "coordinate_derivation",
     "publication_readiness"
   ],
-  "next_required_stage": "site_recovery",
+  "next_required_stage": "chronology_recovery",
   "publication_readiness_status": "blocked",
   "expected_sample_count": null,
   "expected_sample_count_status": "not_yet_curated",
@@ -45,13 +44,12 @@
     "data/adna/governance/source_library/projects/PRJEB59481/sample_locality_evidence.json"
   ],
   "missing_assets": [
-    "Some recovered sample rows still lack a defensible site assignment."
+    "Some recovered sample rows still lack sample-level chronology."
   ],
   "expected_contributions": [
     "sample_identities",
     "taxonomic_context",
-    "site_evidence",
-    "coordinate_candidates"
+    "sample_chronology"
   ],
   "expected_contribution_surfaces": [
     "data/adna/governance/source_library/projects/PRJEB59481/archive_metadata.html",
@@ -59,9 +57,7 @@
     "adna/governance/source_library/papers/10.1093-gbe-evae114/supplementary/Supplementary Figures Baltic Sheep.pdf",
     "adna/governance/source_library/papers/10.1093-gbe-evae114/supplementary/SupplementaryTables_Revision2.xlsx"
   ],
-  "contradictory_evidence": [
-    "Locality substitution review still blocks publication because project-level geography would flatten distinct sample evidence."
-  ],
+  "contradictory_evidence": [],
   "inferred_claims": [],
   "manual_curation_work_units": [
     {
@@ -69,40 +65,16 @@
       "species_latin_name": "Ovis aries",
       "work_unit_type": "chronology_recovery",
       "work_unit_state": "pending_source_recovery",
-      "open_item_count": 5,
-      "rationale": "no_sample_owned_chronology_recovered; project_context_dates_still_dominate",
+      "open_item_count": 10,
+      "rationale": "no_sample_owned_chronology_recovered; missing_sample_level_date_evidence",
       "downstream_impact": "blocks chronology honesty and publication precision",
       "recommended_source_surfaces": [
         "data/adna/governance/source_library/projects/PRJEB59481/sample_chronology.json",
         "data/adna/governance/source_library/projects/PRJEB59481/intake_dossier.json"
       ]
-    },
-    {
-      "project_accession": "PRJEB59481",
-      "species_latin_name": "Ovis aries",
-      "work_unit_type": "locality_string_resolution",
-      "work_unit_state": "pending_manual_curation",
-      "open_item_count": 5,
-      "rationale": "region_only",
-      "downstream_impact": "blocks coordinate derivation and exact locality publication",
-      "recommended_source_surfaces": [
-        "coordinate_resolution",
-        "crossref_metadata"
-      ]
-    },
-    {
-      "project_accession": "PRJEB59481",
-      "species_latin_name": "Ovis aries",
-      "work_unit_type": "site_resolution",
-      "work_unit_state": "pending_manual_curation",
-      "open_item_count": 5,
-      "rationale": "region_only_rows_require_finer_location_evidence",
-      "downstream_impact": "blocks exact site, coordinate, and publication recovery",
-      "recommended_source_surfaces": []
     }
   ],
   "major_deficit_reasons": [
-    "site_assignment_gap",
-    "coordinate_precision_gap"
+    "chronology_gap"
   ]
 }

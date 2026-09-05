@@ -4,7 +4,7 @@
 
 | Paper DOI | Projects | Sample extractability | Recovered rows | Unknown expected totals | Implausibly low projects |
 | --- | --- | --- | ---: | ---: | ---: |
-| `10.1016/j.cell.2019.03.049` | `PRJEB31613` | `supplement_extractable` | `244` | `1` | `0` |
+| `10.1016/j.cell.2019.03.049` | `PRJEB31613` | `supplement_extractable` | `245` | `1` | `0` |
 | `10.1016/j.isci.2025.113771` | `PRJEB90261` | `supplement_extractable` | `73` | `1` | `0` |
 | `10.1016/j.xgen.2025.101099` | `PRJNA1178732` | `supplement_extractable` | `22` | `1` | `0` |
 | `10.1038/ncomms16082` | `KX379528-KX379529; SRS1407451; SRS1407453` | `supplement_extractable` | `4` | `0` | `0` |
@@ -17,8 +17,8 @@
 | `10.1093/gbe/evae114` | `PRJEB59481` | `supplement_extractable` | `5` | `1` | `0` |
 | `10.1093/gbe/evaf181` | `PRJEB90141` | `supplement_extractable` | `4` | `1` | `0` |
 | `10.1111/1755-0998.12551` | `KU605068-KU605080; SRP073444` | `supplement_extractable` | `13` | `1` | `0` |
-| `10.1126/science.aam5298` | `PRJEB19970` | `supplement_extractable` | `14` | `1` | `0` |
+| `10.1126/science.aam5298` | `PRJEB19970` | `supplement_extractable` | `15` | `1` | `0` |
 | `10.1126/science.aao3297` | `PRJEB22390` | `supplement_extractable` | `42` | `1` | `0` |
 | `10.1126/science.aav1002` | `PRJEB31621` | `supplement_extractable` | `77` | `1` | `0` |
-| `10.1126/science.adt2642` | `PRJEB81815` | `supplement_extractable` | `87` | `1` | `0` |
+| `10.1126/science.adt2642` | `PRJEB81815` | `supplement_extractable` | `84` | `1` | `0` |
 | `10.24272/j.issn.2095-8137.2025.080` | `PRJNA1328209` | `supplement_extractable` | `5` | `1` | `0` |

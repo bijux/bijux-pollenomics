@@ -212,22 +212,6 @@
     {
       "project_accession": "PRJEB19970",
       "species_latin_name": "Equus caballus",
-      "normalized_display_spelling": "N/A",
-      "geocoding_safe_token": "na",
-      "original_source_spellings": [
-        "N/A"
-      ],
-      "alternative_spellings": [],
-      "source_surfaces": [
-        "supplementary_table"
-      ],
-      "locality_classes": [
-        "excavation_site"
-      ]
-    },
-    {
-      "project_accession": "PRJEB19970",
-      "species_latin_name": "Equus caballus",
       "normalized_display_spelling": "Sintashta",
       "geocoding_safe_token": "sintashta",
       "original_source_spellings": [
@@ -726,6 +710,22 @@
     {
       "project_accession": "PRJEB30282",
       "species_latin_name": "Sus scrofa domesticus",
+      "normalized_display_spelling": "Bundsø",
+      "geocoding_safe_token": "bundsø",
+      "original_source_spellings": [
+        "Bundsø"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB30282",
+      "species_latin_name": "Sus scrofa domesticus",
       "normalized_display_spelling": "Near East and Europe pig domestication transect",
       "geocoding_safe_token": "neareastandeuropepigdomesticationtransect",
       "original_source_spellings": [
@@ -741,6 +741,22 @@
       ],
       "locality_classes": [
         "broader_locality"
+      ]
+    },
+    {
+      "project_accession": "PRJEB30282",
+      "species_latin_name": "Sus scrofa domesticus",
+      "normalized_display_spelling": "Trelleborg",
+      "geocoding_safe_token": "trelleborg",
+      "original_source_spellings": [
+        "Trelleborg"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
       ]
     },
     {
@@ -4222,21 +4238,37 @@
     {
       "project_accession": "PRJEB59481",
       "species_latin_name": "Ovis aries",
-      "normalized_display_spelling": "Baltic Sea Region short-tailed sheep context",
-      "geocoding_safe_token": "balticsearegionshorttailedsheepcontext",
+      "normalized_display_spelling": "Kastelholm",
+      "geocoding_safe_token": "kastelholm",
       "original_source_spellings": [
-        "Baltic Sea Region",
-        "Baltic Sea Region short-tailed sheep context"
+        "Kastelholm"
       ],
-      "alternative_spellings": [
-        "Baltic Sea Region"
-      ],
+      "alternative_spellings": [],
       "source_surfaces": [
         "coordinate_resolution",
-        "crossref_metadata"
+        "supplementary_table"
       ],
       "locality_classes": [
-        "broader_locality"
+        "country",
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB59481",
+      "species_latin_name": "Ovis aries",
+      "normalized_display_spelling": "Stora Förvar",
+      "geocoding_safe_token": "storaförvar",
+      "original_source_spellings": [
+        "Stora Förvar"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "coordinate_resolution",
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "country",
+        "excavation_site"
       ]
     },
     {
@@ -4278,11 +4310,459 @@
     {
       "project_accession": "PRJEB81815",
       "species_latin_name": "Felis catus",
-      "normalized_display_spelling": "North Africa to Europe domestic cat dispersal transect",
-      "geocoding_safe_token": "northafricatoeuropedomesticcatdispersaltransect",
+      "normalized_display_spelling": "Alba Fucens -Cisterna (Fucino, Abruzzi)",
+      "geocoding_safe_token": "albafucenscisternafucinoabruzzi",
       "original_source_spellings": [
-        "North Africa to Europe dispersal extent",
-        "North Africa to Europe domestic cat dispersal transect"
+        "Alba Fucens -Cisterna (Fucino, Abruzzi)"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB81815",
+      "species_latin_name": "Felis catus",
+      "normalized_display_spelling": "Arene Candide (Finale Ligure, Savona, Liguria)",
+      "geocoding_safe_token": "arenecandidefinaleliguresavonaliguria",
+      "original_source_spellings": [
+        "Arene Candide (Finale Ligure, Savona, Liguria)"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB81815",
+      "species_latin_name": "Felis catus",
+      "normalized_display_spelling": "Aşıklı Höyük",
+      "geocoding_safe_token": "aşıklıhöyük",
+      "original_source_spellings": [
+        "Aşıklı Höyük"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB81815",
+      "species_latin_name": "Felis catus",
+      "normalized_display_spelling": "Bademağacı",
+      "geocoding_safe_token": "bademağacı",
+      "original_source_spellings": [
+        "Bademağacı"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB81815",
+      "species_latin_name": "Felis catus",
+      "normalized_display_spelling": "Bank of Portugal",
+      "geocoding_safe_token": "bankofportugal",
+      "original_source_spellings": [
+        "Bank of Portugal"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB81815",
+      "species_latin_name": "Felis catus",
+      "normalized_display_spelling": "Bernhardsthal",
+      "geocoding_safe_token": "bernhardsthal",
+      "original_source_spellings": [
+        "Bernhardsthal"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB81815",
+      "species_latin_name": "Felis catus",
+      "normalized_display_spelling": "Bremen; 201-Altstadt, Marktplatz",
+      "geocoding_safe_token": "bremen201altstadtmarktplatz",
+      "original_source_spellings": [
+        "Bremen; 201-Altstadt, Marktplatz"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB81815",
+      "species_latin_name": "Felis catus",
+      "normalized_display_spelling": "Bremen; 253-Altstadt, Am Wall",
+      "geocoding_safe_token": "bremen253altstadtamwall",
+      "original_source_spellings": [
+        "Bremen; 253-Altstadt, Am Wall"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB81815",
+      "species_latin_name": "Felis catus",
+      "normalized_display_spelling": "Castiglione in Sabina",
+      "geocoding_safe_token": "castiglioneinsabina",
+      "original_source_spellings": [
+        "Castiglione in Sabina"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB81815",
+      "species_latin_name": "Felis catus",
+      "normalized_display_spelling": "Cova de Els Trocs, Huesca",
+      "geocoding_safe_token": "covadeelstrocshuesca",
+      "original_source_spellings": [
+        "Cova de Els Trocs, Huesca"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB81815",
+      "species_latin_name": "Felis catus",
+      "normalized_display_spelling": "Demircihüyük",
+      "geocoding_safe_token": "demircihüyük",
+      "original_source_spellings": [
+        "Demircihüyük"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB81815",
+      "species_latin_name": "Felis catus",
+      "normalized_display_spelling": "Durankulak",
+      "geocoding_safe_token": "durankulak",
+      "original_source_spellings": [
+        "Durankulak"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB81815",
+      "species_latin_name": "Felis catus",
+      "normalized_display_spelling": "Ecly",
+      "geocoding_safe_token": "ecly",
+      "original_source_spellings": [
+        "Ecly"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB81815",
+      "species_latin_name": "Felis catus",
+      "normalized_display_spelling": "Galgenbühel/Dos de la Forca-Salorno",
+      "geocoding_safe_token": "galgenbüheldosdelaforcasalorno",
+      "original_source_spellings": [
+        "Galgenbühel/Dos de la Forca-Salorno"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB81815",
+      "species_latin_name": "Felis catus",
+      "normalized_display_spelling": "Genoni Santu Antine, Sardinia",
+      "geocoding_safe_token": "genonisantuantinesardinia",
+      "original_source_spellings": [
+        "Genoni Santu Antine, Sardinia"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB81815",
+      "species_latin_name": "Felis catus",
+      "normalized_display_spelling": "Glencurran Cave, Co. Clare",
+      "geocoding_safe_token": "glencurrancavecoclare",
+      "original_source_spellings": [
+        "Glencurran Cave, Co. Clare"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB81815",
+      "species_latin_name": "Felis catus",
+      "normalized_display_spelling": "Graffignano (Viterbo, Latium)",
+      "geocoding_safe_token": "graffignanoviterbolatium",
+      "original_source_spellings": [
+        "Graffignano (Viterbo, Latium)"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB81815",
+      "species_latin_name": "Felis catus",
+      "normalized_display_spelling": "Grotta del Cocci (Narni, Umbria)",
+      "geocoding_safe_token": "grottadelcoccinarniumbria",
+      "original_source_spellings": [
+        "Grotta del Cocci (Narni, Umbria)"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB81815",
+      "species_latin_name": "Felis catus",
+      "normalized_display_spelling": "Haithabu, settlement area",
+      "geocoding_safe_token": "haithabusettlementarea",
+      "original_source_spellings": [
+        "Haithabu, settlement area"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB81815",
+      "species_latin_name": "Felis catus",
+      "normalized_display_spelling": "Iznik - Roman theatre",
+      "geocoding_safe_token": "iznikromantheatre",
+      "original_source_spellings": [
+        "Iznik - Roman theatre"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB81815",
+      "species_latin_name": "Felis catus",
+      "normalized_display_spelling": "Kassope",
+      "geocoding_safe_token": "kassope",
+      "original_source_spellings": [
+        "Kassope"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB81815",
+      "species_latin_name": "Felis catus",
+      "normalized_display_spelling": "Koprivec",
+      "geocoding_safe_token": "koprivec",
+      "original_source_spellings": [
+        "Koprivec"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB81815",
+      "species_latin_name": "Felis catus",
+      "normalized_display_spelling": "Labastida",
+      "geocoding_safe_token": "labastida",
+      "original_source_spellings": [
+        "Labastida"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB81815",
+      "species_latin_name": "Felis catus",
+      "normalized_display_spelling": "Lauchheim-Mittelhofen",
+      "geocoding_safe_token": "lauchheimmittelhofen",
+      "original_source_spellings": [
+        "Lauchheim-Mittelhofen"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB81815",
+      "species_latin_name": "Felis catus",
+      "normalized_display_spelling": "Mautern - vicus Ost",
+      "geocoding_safe_token": "mauternvicusost",
+      "original_source_spellings": [
+        "Mautern - vicus Ost"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB81815",
+      "species_latin_name": "Felis catus",
+      "normalized_display_spelling": "Menteşe",
+      "geocoding_safe_token": "menteşe",
+      "original_source_spellings": [
+        "Menteşe"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB81815",
+      "species_latin_name": "Felis catus",
+      "normalized_display_spelling": "Musarna (Viterbo, Latium)",
+      "geocoding_safe_token": "musarnaviterbolatium",
+      "original_source_spellings": [
+        "Musarna (Viterbo, Latium)"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB81815",
+      "species_latin_name": "Felis catus",
+      "normalized_display_spelling": "Nardò “torre santa Caterina”",
+      "geocoding_safe_token": "nardòtorresantacaterina",
+      "original_source_spellings": [
+        "Nardò “torre santa Caterina”"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB81815",
+      "species_latin_name": "Felis catus",
+      "normalized_display_spelling": "North Africa to Europe cat population context",
+      "geocoding_safe_token": "northafricatoeuropecatpopulationcontext",
+      "original_source_spellings": [
+        "North Africa to Europe cat population context",
+        "North Africa to Europe dispersal extent"
       ],
       "alternative_spellings": [
         "North Africa to Europe dispersal extent"
@@ -4293,6 +4773,534 @@
       ],
       "locality_classes": [
         "broader_locality"
+      ]
+    },
+    {
+      "project_accession": "PRJEB81815",
+      "species_latin_name": "Felis catus",
+      "normalized_display_spelling": "nuraghe Flumenelongu, Sardinia",
+      "geocoding_safe_token": "nuragheflumenelongusardinia",
+      "original_source_spellings": [
+        "nuraghe Flumenelongu, Sardinia"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB81815",
+      "species_latin_name": "Felis catus",
+      "normalized_display_spelling": "Padova Via Cesare Battisti (Veneto)",
+      "geocoding_safe_token": "padovaviacesarebattistiveneto",
+      "original_source_spellings": [
+        "Padova Via Cesare Battisti (Veneto)"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB81815",
+      "species_latin_name": "Felis catus",
+      "normalized_display_spelling": "Palatino North East slope (Rome)",
+      "geocoding_safe_token": "palatinonortheastsloperome",
+      "original_source_spellings": [
+        "Palatino North East slope (Rome)"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB81815",
+      "species_latin_name": "Felis catus",
+      "normalized_display_spelling": "Palmela Castle",
+      "geocoding_safe_token": "palmelacastle",
+      "original_source_spellings": [
+        "Palmela Castle"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB81815",
+      "species_latin_name": "Felis catus",
+      "normalized_display_spelling": "Parco delle Dolomiti Lucane",
+      "geocoding_safe_token": "parcodelledolomitilucane",
+      "original_source_spellings": [
+        "Parco delle Dolomiti Lucane"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB81815",
+      "species_latin_name": "Felis catus",
+      "normalized_display_spelling": "Parking 58, Brussels",
+      "geocoding_safe_token": "parking58brussels",
+      "original_source_spellings": [
+        "Parking 58, Brussels"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB81815",
+      "species_latin_name": "Felis catus",
+      "normalized_display_spelling": "Partanna C. da Capo d'acqua",
+      "geocoding_safe_token": "partannacdacapodacqua",
+      "original_source_spellings": [
+        "Partanna C. da Capo d'acqua"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB81815",
+      "species_latin_name": "Felis catus",
+      "normalized_display_spelling": "Petronell-Carnuntum",
+      "geocoding_safe_token": "petronellcarnuntum",
+      "original_source_spellings": [
+        "Petronell-Carnuntum"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB81815",
+      "species_latin_name": "Felis catus",
+      "normalized_display_spelling": "Pomorie, Forestry station (Поморие, горско стопанство)",
+      "geocoding_safe_token": "pomorieforestrystationпомориегорскостопанство",
+      "original_source_spellings": [
+        "Pomorie, Forestry station (Поморие, горско стопанство)"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB81815",
+      "species_latin_name": "Felis catus",
+      "normalized_display_spelling": "Probabilly Sicily",
+      "geocoding_safe_token": "probabillysicily",
+      "original_source_spellings": [
+        "Probabilly Sicily"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB81815",
+      "species_latin_name": "Felis catus",
+      "normalized_display_spelling": "Roca vecchia (Melendugno, Lecce)",
+      "geocoding_safe_token": "rocavecchiamelendugnolecce",
+      "original_source_spellings": [
+        "Roca vecchia (Melendugno, Lecce)"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB81815",
+      "species_latin_name": "Felis catus",
+      "normalized_display_spelling": "Rome, S. Cecilia in Trastevere",
+      "geocoding_safe_token": "romesceciliaintrastevere",
+      "original_source_spellings": [
+        "Rome, S. Cecilia in Trastevere"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB81815",
+      "species_latin_name": "Felis catus",
+      "normalized_display_spelling": "Rugo Storto, Fanna, PN",
+      "geocoding_safe_token": "rugostortofannapn",
+      "original_source_spellings": [
+        "Rugo Storto, Fanna, PN"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB81815",
+      "species_latin_name": "Felis catus",
+      "normalized_display_spelling": "Sagalassos",
+      "geocoding_safe_token": "sagalassos",
+      "original_source_spellings": [
+        "Sagalassos"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB81815",
+      "species_latin_name": "Felis catus",
+      "normalized_display_spelling": "Salzburg - Residenz",
+      "geocoding_safe_token": "salzburgresidenz",
+      "original_source_spellings": [
+        "Salzburg - Residenz"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB81815",
+      "species_latin_name": "Felis catus",
+      "normalized_display_spelling": "Saracena (Cosenza, Calabria)",
+      "geocoding_safe_token": "saracenacosenzacalabria",
+      "original_source_spellings": [
+        "Saracena (Cosenza, Calabria)"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB81815",
+      "species_latin_name": "Felis catus",
+      "normalized_display_spelling": "Sardinia",
+      "geocoding_safe_token": "sardinia",
+      "original_source_spellings": [
+        "Sardinia"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB81815",
+      "species_latin_name": "Felis catus",
+      "normalized_display_spelling": "Sardinia, Monte Arcosu",
+      "geocoding_safe_token": "sardiniamontearcosu",
+      "original_source_spellings": [
+        "Sardinia, Monte Arcosu"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB81815",
+      "species_latin_name": "Felis catus",
+      "normalized_display_spelling": "Sardinia, Nuoro - around Bitti",
+      "geocoding_safe_token": "sardinianuoroaroundbitti",
+      "original_source_spellings": [
+        "Sardinia, Nuoro - around Bitti"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB81815",
+      "species_latin_name": "Felis catus",
+      "normalized_display_spelling": "Sassari, palazzo ducale, Sardinia",
+      "geocoding_safe_token": "sassaripalazzoducalesardinia",
+      "original_source_spellings": [
+        "Sassari, palazzo ducale, Sardinia"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB81815",
+      "species_latin_name": "Felis catus",
+      "normalized_display_spelling": "Sicily, monti Nebrodi",
+      "geocoding_safe_token": "sicilymontinebrodi",
+      "original_source_spellings": [
+        "Sicily, monti Nebrodi"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB81815",
+      "species_latin_name": "Felis catus",
+      "normalized_display_spelling": "Tabernas, Spain",
+      "geocoding_safe_token": "tabernasspain",
+      "original_source_spellings": [
+        "Tabernas, Spain"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB81815",
+      "species_latin_name": "Felis catus",
+      "normalized_display_spelling": "Tertenia, Sardinia",
+      "geocoding_safe_token": "terteniasardinia",
+      "original_source_spellings": [
+        "Tertenia, Sardinia"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB81815",
+      "species_latin_name": "Felis catus",
+      "normalized_display_spelling": "Tongeren, Industrie Oost",
+      "geocoding_safe_token": "tongerenindustrieoost",
+      "original_source_spellings": [
+        "Tongeren, Industrie Oost"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB81815",
+      "species_latin_name": "Felis catus",
+      "normalized_display_spelling": "Traismauer",
+      "geocoding_safe_token": "traismauer",
+      "original_source_spellings": [
+        "Traismauer"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB81815",
+      "species_latin_name": "Felis catus",
+      "normalized_display_spelling": "Tuscany",
+      "geocoding_safe_token": "tuscany",
+      "original_source_spellings": [
+        "Tuscany"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB81815",
+      "species_latin_name": "Felis catus",
+      "normalized_display_spelling": "Tuscany - Maremma - Bivio Gavorrano",
+      "geocoding_safe_token": "tuscanymaremmabiviogavorrano",
+      "original_source_spellings": [
+        "Tuscany - Maremma - Bivio Gavorrano"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB81815",
+      "species_latin_name": "Felis catus",
+      "normalized_display_spelling": "Umbria - Perugia - Cascia",
+      "geocoding_safe_token": "umbriaperugiacascia",
+      "original_source_spellings": [
+        "Umbria - Perugia - Cascia"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB81815",
+      "species_latin_name": "Felis catus",
+      "normalized_display_spelling": "Umbria - Perugia - Vallo di Nera",
+      "geocoding_safe_token": "umbriaperugiavallodinera",
+      "original_source_spellings": [
+        "Umbria - Perugia - Vallo di Nera"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB81815",
+      "species_latin_name": "Felis catus",
+      "normalized_display_spelling": "village Belene, Svishtov district (с. Белене, Свищовско)",
+      "geocoding_safe_token": "villagebelenesvishtovdistrictсбеленесвищовско",
+      "original_source_spellings": [
+        "village Belene, Svishtov district (с. Белене, Свищовско)"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB81815",
+      "species_latin_name": "Felis catus",
+      "normalized_display_spelling": "Viminacium-Nad Klepačkom",
+      "geocoding_safe_token": "viminaciumnadklepačkom",
+      "original_source_spellings": [
+        "Viminacium-Nad Klepačkom"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB81815",
+      "species_latin_name": "Felis catus",
+      "normalized_display_spelling": "Viminacium/Amphitheatre",
+      "geocoding_safe_token": "viminaciumamphitheatre",
+      "original_source_spellings": [
+        "Viminacium/Amphitheatre"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB81815",
+      "species_latin_name": "Felis catus",
+      "normalized_display_spelling": "Yenikapı, Marmaray exc.",
+      "geocoding_safe_token": "yenikapımarmarayexc",
+      "original_source_spellings": [
+        "Yenikapı, Marmaray exc."
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
       ]
     },
     {
@@ -5014,22 +6022,6 @@
     {
       "project_accession": "SRP073444",
       "species_latin_name": "Camelus dromedarius",
-      "normalized_display_spelling": "Arabian Peninsula and Levant dromedary context",
-      "geocoding_safe_token": "arabianpeninsulaandlevantdromedarycontext",
-      "original_source_spellings": [
-        "Arabian Peninsula and Levant dromedary context"
-      ],
-      "alternative_spellings": [],
-      "source_surfaces": [
-        "article_text"
-      ],
-      "locality_classes": [
-        "broader_locality"
-      ]
-    },
-    {
-      "project_accession": "SRP073444",
-      "species_latin_name": "Camelus dromedarius",
       "normalized_display_spelling": "Site 1040 near Wadi Halfa",
       "geocoding_safe_token": "site1040nearwadihalfa",
       "original_source_spellings": [
@@ -5049,15 +6041,18 @@
       "normalized_display_spelling": "Site 1040 near Wadi Halfa dromedary context",
       "geocoding_safe_token": "site1040nearwadihalfadromedarycontext",
       "original_source_spellings": [
+        "Site 1040 near Wadi Halfa dromedary context",
         "Wadi Halfa"
       ],
       "alternative_spellings": [
         "Wadi Halfa"
       ],
       "source_surfaces": [
+        "article_text",
         "coordinate_resolution"
       ],
       "locality_classes": [
+        "broader_locality",
         "country"
       ]
     },

@@ -194,7 +194,7 @@
       "chronology_provenance_kind": "article_or_archive_text",
       "chronology_provenance_locator": "Results: Archaeological samples and ancient DNA sequencing; Data availability",
       "chronology_provenance_text": "KX379529 maps respectively to HXH; the article identifies Herxheim and gives a calibrated BCE interval.",
-      "chronology_conflict_note": "Sample-owned chronology disagrees with the project-level chronology interval.",
+      "chronology_conflict_note": "",
       "sample_basis": "primary_article_accession_mapping",
       "archive_native_sample_id": "KX379529",
       "paper_native_sample_label": "HXH",
@@ -224,9 +224,9 @@
       },
       "locality_identity": {
         "namespace": "canis_lupus_familiaris:sample_locality",
-        "stable_token": "canis_lupus_familiaris:locality:srs1407451:ancienteuropeandogctcsamplecontext:centraleurope",
-        "locality_text": "Ancient European dog CTC sample context",
-        "political_entity": "Central Europe",
+        "stable_token": "canis_lupus_familiaris:locality:srs1407451:sitedetailnotyetextractedfromtrackedsourcesupport",
+        "locality_text": "site detail not yet extracted from tracked source support",
+        "political_entity": null,
         "source_anchor_tokens": [
           "SRS1407451",
           "sample_accession_anchor"
@@ -238,11 +238,11 @@
       "source_release": "SRS1407451",
       "record_modality": "archive_reads",
       "review_strength": "primary_paper_pinned",
-      "provenance_quality": "archive_project_catalog",
+      "provenance_quality": "manual_curation_only",
       "master_id": "srs1407451:srs1407451",
       "group_id": "SRS1407451",
-      "locality": "Ancient European dog CTC sample context",
-      "political_entity": "Central Europe",
+      "locality": null,
+      "political_entity": null,
       "coordinates": {
         "latitude": null,
         "longitude": null,
@@ -252,16 +252,16 @@
       },
       "publication": "Ancient European dog genomes reveal continuity since the Early Neolithic",
       "year_first_published": "2017",
-      "full_date": "Ancient European dog genomic context",
+      "full_date": "chronology not yet extracted from tracked source support",
       "chronology": {
-        "original_text": "Ancient European dog genomic context",
-        "time_start_bp": 4500,
-        "time_end_bp": 7000,
-        "time_mean_bp": 5750,
+        "original_text": "",
+        "time_start_bp": null,
+        "time_end_bp": null,
+        "time_mean_bp": null,
         "date_stddev_bp": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-        "evidence_class": "archaeological_context_date",
-        "precision_posture": "contextual_interval"
+        "evidence_class": "unresolved",
+        "precision_posture": "unresolved"
       },
       "data_type": "archive_sample_context",
       "molecular_sex": "",
@@ -272,14 +272,14 @@
       "paper_doi": "10.1038/ncomms16082",
       "paper_url": "https://doi.org/10.1038/ncomms16082",
       "supplementary_source": "",
-      "inclusion_status": "site_curated",
-      "inclusion_note": "Current evidence stays at region or transect scale and must not masquerade as exact sample-site truth.",
-      "chronology_strength": "project_context_interval",
-      "chronology_normalization_status": "normalized_interval",
-      "chronology_provenance_path": "adna/governance/source_library/papers/10.1038-ncomms16082/article.html",
-      "chronology_provenance_kind": "article_html_body_quote",
-      "chronology_provenance_locator": "results text",
-      "chronology_provenance_text": "The older specimen, which we refer to hereafter as HXH, was found at the Early Neolithic site of Herxheim and is dated to 5,223-5,040 cal. BCE. The younger specimen, CTC, was found in Cherry Tree Cave and corresponds to the End Neolithic period in Central Europe.",
+      "inclusion_status": "sample_context_blocked",
+      "inclusion_note": "This sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support.",
+      "chronology_strength": "unresolved",
+      "chronology_normalization_status": "unresolved",
+      "chronology_provenance_path": "",
+      "chronology_provenance_kind": "",
+      "chronology_provenance_locator": "",
+      "chronology_provenance_text": "",
       "chronology_conflict_note": "",
       "sample_basis": "sample_accession_anchor",
       "archive_native_sample_id": "SRS1407451",
@@ -406,10 +406,10 @@
       "paper_doi": "10.1038/ncomms16082",
       "paper_url": "https://doi.org/10.1038/ncomms16082",
       "supplementary_source": "",
-      "chronology_text": "Ancient European dog genomic context",
-      "time_start_bp": 4500,
-      "time_end_bp": 7000,
-      "dating_basis": "archaeological_period",
+      "chronology_text": "End Neolithic period in Central Europe",
+      "time_start_bp": null,
+      "time_end_bp": null,
+      "dating_basis": "relative_period",
       "comparator_context": false,
       "domestication_context": "domesticated_core",
       "interpretation_note": "Dog stays sample-context-rich but point-refused until the repo splits the multi-site context into exact site rows.",
@@ -440,7 +440,7 @@
       "dating_basis": "unknown",
       "comparator_context": false,
       "domestication_context": "domesticated_core",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table.",
+      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table; chronology remains sample-owned when its records have different dates.",
       "support_gap_note": ""
     },
     {
@@ -466,7 +466,7 @@
       "dating_basis": "unknown",
       "comparator_context": false,
       "domestication_context": "domesticated_core",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table.",
+      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table; chronology remains sample-owned when its records have different dates.",
       "support_gap_note": ""
     },
     {
@@ -483,13 +483,13 @@
       "paper_doi": "10.1038/ncomms16082",
       "paper_url": "https://doi.org/10.1038/ncomms16082",
       "supplementary_source": "",
-      "coordinate_basis": "inferred_region_centroid",
-      "latitude_text": "50.00",
-      "longitude_text": "10.00",
-      "chronology_text": "Ancient European dog genomic context",
-      "time_start_bp": 4500,
-      "time_end_bp": 7000,
-      "dating_basis": "archaeological_period",
+      "coordinate_basis": "unresolved_location_state",
+      "latitude_text": "",
+      "longitude_text": "",
+      "chronology_text": "End Neolithic period in Central Europe",
+      "time_start_bp": null,
+      "time_end_bp": null,
+      "dating_basis": "relative_period",
       "comparator_context": false,
       "domestication_context": "domesticated_core",
       "interpretation_note": "The paper gives exact site names, but the shipped point remains a Central Europe centroid until a precise site coordinate workflow is added.",
@@ -518,7 +518,7 @@
       "dating_basis": "unknown",
       "comparator_context": false,
       "domestication_context": "domesticated_core",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table.",
+      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table; chronology remains sample-owned when its records have different dates.",
       "support_gap_note": ""
     }
   ],
@@ -648,9 +648,9 @@
     {
       "identity": {
         "namespace": "canis_lupus_familiaris:project_locality",
-        "stable_token": "canis_lupus_familiaris:locality:srs1407451:ancienteuropeandogctcsamplecontext:centraleurope",
-        "locality_text": "Ancient European dog CTC sample context",
-        "political_entity": "Central Europe",
+        "stable_token": "canis_lupus_familiaris:locality:srs1407451:unresolved",
+        "locality_text": "",
+        "political_entity": "",
         "source_anchor_tokens": [
           "SRS1407451",
           "",
@@ -672,13 +672,13 @@
       "provenance_qualities": [
         "primary_paper_pinned"
       ],
-      "locality": "Ancient European dog CTC sample context",
+      "locality": "",
       "coordinates": {
         "latitude": null,
         "longitude": null,
         "latitude_text": "",
         "longitude_text": "",
-        "confidence": "withheld"
+        "confidence": "unknown"
       },
       "sample_count": 1,
       "sample_ids": [
@@ -688,23 +688,23 @@
         "canis_lupus_familiaris:project:SRS1407451"
       ],
       "chronology": {
-        "original_text": "4500-7000 BP",
-        "time_start_bp": 4500,
-        "time_end_bp": 7000,
-        "time_mean_bp": 5750,
+        "original_text": "",
+        "time_start_bp": null,
+        "time_end_bp": null,
+        "time_mean_bp": null,
         "date_stddev_bp": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-        "evidence_class": "archaeological_context_date",
-        "precision_posture": "contextual_interval"
+        "evidence_class": "unresolved",
+        "precision_posture": "unresolved"
       },
       "sample_namespace": "canis_lupus_familiaris:sample_locality",
       "project_accessions": [
         "SRS1407451"
       ],
-      "original_location_text": "Ancient European dog CTC sample context",
+      "original_location_text": "",
       "nordic_inclusion": false,
       "nordic_inclusion_reason": "This ancient European dog sample informs North European context, but the current curation does not justify a Nordic-localized claim.",
-      "interpretation_note": "Current evidence stays at region or transect scale and must not masquerade as exact sample-site truth."
+      "interpretation_note": "No location evidence has been extracted yet for this recovered sample row."
     },
     {
       "identity": {

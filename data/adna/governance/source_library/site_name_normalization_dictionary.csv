@@ -12,7 +12,6 @@ KX379528-KX379529,Canis lupus familiaris,Cherry Tree Cave,cherrytreecave,Cherry 
 KX379528-KX379529,Canis lupus familiaris,Herxheim,herxheim,Herxheim,,archive_metadata,excavation_site
 PRJEB19970,Equus caballus,Arzhan I,arzhani,Arzhan I,,supplementary_table,excavation_site
 PRJEB19970,Equus caballus,Berel',berel,Berel',,supplementary_table,excavation_site
-PRJEB19970,Equus caballus,N/A,na,N/A,,supplementary_table,excavation_site
 PRJEB19970,Equus caballus,Sintashta,sintashta,Sintashta,,supplementary_table,excavation_site
 PRJEB22390,Equus caballus,Actiparc,actiparc,Actiparc,,supplementary_table,excavation_site
 PRJEB22390,Equus caballus,Bateni,bateni,Bateni,,supplementary_table,excavation_site
@@ -44,7 +43,9 @@ PRJEB22390,Equus caballus,TepeHasanlu,tepehasanlu,TepeHasanlu,,supplementary_tab
 PRJEB22390,Equus caballus,UushgiinUvur,uushgiinuvur,UushgiinUvur,,supplementary_table,excavation_site
 PRJEB22390,Equus caballus,Yenikapi,yenikapi,Yenikapi,,supplementary_table,excavation_site
 PRJEB22390,Equus caballus,Zhanaturmus,zhanaturmus,Zhanaturmus,,supplementary_table,excavation_site
+PRJEB30282,Sus scrofa domesticus,Bundsø,bundsø,Bundsø,,supplementary_table,excavation_site
 PRJEB30282,Sus scrofa domesticus,Near East and Europe pig domestication transect,neareastandeuropepigdomesticationtransect,Near East and Europe pig domestication transect;Near East to Europe regional study extent,Near East to Europe regional study extent,article_text;coordinate_resolution,broader_locality
+PRJEB30282,Sus scrofa domesticus,Trelleborg,trelleborg,Trelleborg,,supplementary_table,excavation_site
 PRJEB31613,Equus caballus,Actiparc,actiparc,Actiparc,,supplementary_table,excavation_site
 PRJEB31613,Equus caballus,Alcáçova de Santarém,alcáçovadesantarém,Alcáçova de Santarém,,supplementary_table,excavation_site
 PRJEB31613,Equus caballus,Altata,altata,Altata,,supplementary_table,excavation_site
@@ -262,10 +263,72 @@ PRJEB44430,Equus caballus,Çadır Höyük,çadırhöyük,Çadır Höyük,,supple
 PRJEB44430,Equus caballus,Černý Vůl,černývůl,Černý Vůl,,supplementary_table,excavation_site
 PRJEB52849,Equus asinus,Africa to Europe and Asia donkey spread context,africatoeuropeandasiadonkeyspreadcontext,Africa to Europe and Asia donkey spread context,,archive_metadata,broader_locality
 PRJEB52849,Equus asinus,North African donkey domestication and spread transect,northafricandonkeydomesticationandspreadtransect,North Africa and Levant dispersal extent;North African donkey domestication and spread transect,North Africa and Levant dispersal extent,archive_metadata;coordinate_resolution,broader_locality
-PRJEB59481,Ovis aries,Baltic Sea Region short-tailed sheep context,balticsearegionshorttailedsheepcontext,Baltic Sea Region;Baltic Sea Region short-tailed sheep context,Baltic Sea Region,coordinate_resolution;crossref_metadata,broader_locality
+PRJEB59481,Ovis aries,Kastelholm,kastelholm,Kastelholm,,coordinate_resolution;supplementary_table,country;excavation_site
+PRJEB59481,Ovis aries,Stora Förvar,storaförvar,Stora Förvar,,coordinate_resolution;supplementary_table,country;excavation_site
 PRJEB60484,Rangifer tarandus,Svalbard ancient reindeer context,svalbardancientreindeercontext,Svalbard ancient reindeer context;Svalbard archipelago,Svalbard archipelago,archive_metadata;coordinate_resolution,broader_locality
 PRJEB60484,Rangifer tarandus,Svalbard archipelago reindeer context,svalbardarchipelagoreindeercontext,Svalbard archipelago reindeer context,,archive_metadata,broader_locality
-PRJEB81815,Felis catus,North Africa to Europe domestic cat dispersal transect,northafricatoeuropedomesticcatdispersaltransect,North Africa to Europe dispersal extent;North Africa to Europe domestic cat dispersal transect,North Africa to Europe dispersal extent,article_text;coordinate_resolution,broader_locality
+PRJEB81815,Felis catus,"Alba Fucens -Cisterna (Fucino, Abruzzi)",albafucenscisternafucinoabruzzi,"Alba Fucens -Cisterna (Fucino, Abruzzi)",,supplementary_table,excavation_site
+PRJEB81815,Felis catus,"Arene Candide (Finale Ligure, Savona, Liguria)",arenecandidefinaleliguresavonaliguria,"Arene Candide (Finale Ligure, Savona, Liguria)",,supplementary_table,excavation_site
+PRJEB81815,Felis catus,Aşıklı Höyük,aşıklıhöyük,Aşıklı Höyük,,supplementary_table,excavation_site
+PRJEB81815,Felis catus,Bademağacı,bademağacı,Bademağacı,,supplementary_table,excavation_site
+PRJEB81815,Felis catus,Bank of Portugal,bankofportugal,Bank of Portugal,,supplementary_table,excavation_site
+PRJEB81815,Felis catus,Bernhardsthal,bernhardsthal,Bernhardsthal,,supplementary_table,excavation_site
+PRJEB81815,Felis catus,"Bremen; 201-Altstadt, Marktplatz",bremen201altstadtmarktplatz,"Bremen; 201-Altstadt, Marktplatz",,supplementary_table,excavation_site
+PRJEB81815,Felis catus,"Bremen; 253-Altstadt, Am Wall",bremen253altstadtamwall,"Bremen; 253-Altstadt, Am Wall",,supplementary_table,excavation_site
+PRJEB81815,Felis catus,Castiglione in Sabina,castiglioneinsabina,Castiglione in Sabina,,supplementary_table,excavation_site
+PRJEB81815,Felis catus,"Cova de Els Trocs, Huesca",covadeelstrocshuesca,"Cova de Els Trocs, Huesca",,supplementary_table,excavation_site
+PRJEB81815,Felis catus,Demircihüyük,demircihüyük,Demircihüyük,,supplementary_table,excavation_site
+PRJEB81815,Felis catus,Durankulak,durankulak,Durankulak,,supplementary_table,excavation_site
+PRJEB81815,Felis catus,Ecly,ecly,Ecly,,supplementary_table,excavation_site
+PRJEB81815,Felis catus,Galgenbühel/Dos de la Forca-Salorno,galgenbüheldosdelaforcasalorno,Galgenbühel/Dos de la Forca-Salorno,,supplementary_table,excavation_site
+PRJEB81815,Felis catus,"Genoni Santu Antine, Sardinia",genonisantuantinesardinia,"Genoni Santu Antine, Sardinia",,supplementary_table,excavation_site
+PRJEB81815,Felis catus,"Glencurran Cave, Co. Clare",glencurrancavecoclare,"Glencurran Cave, Co. Clare",,supplementary_table,excavation_site
+PRJEB81815,Felis catus,"Graffignano (Viterbo, Latium)",graffignanoviterbolatium,"Graffignano (Viterbo, Latium)",,supplementary_table,excavation_site
+PRJEB81815,Felis catus,"Grotta del Cocci (Narni, Umbria)",grottadelcoccinarniumbria,"Grotta del Cocci (Narni, Umbria)",,supplementary_table,excavation_site
+PRJEB81815,Felis catus,"Haithabu, settlement area",haithabusettlementarea,"Haithabu, settlement area",,supplementary_table,excavation_site
+PRJEB81815,Felis catus,Iznik - Roman theatre,iznikromantheatre,Iznik - Roman theatre,,supplementary_table,excavation_site
+PRJEB81815,Felis catus,Kassope,kassope,Kassope,,supplementary_table,excavation_site
+PRJEB81815,Felis catus,Koprivec,koprivec,Koprivec,,supplementary_table,excavation_site
+PRJEB81815,Felis catus,Labastida,labastida,Labastida,,supplementary_table,excavation_site
+PRJEB81815,Felis catus,Lauchheim-Mittelhofen,lauchheimmittelhofen,Lauchheim-Mittelhofen,,supplementary_table,excavation_site
+PRJEB81815,Felis catus,Mautern - vicus Ost,mauternvicusost,Mautern - vicus Ost,,supplementary_table,excavation_site
+PRJEB81815,Felis catus,Menteşe,menteşe,Menteşe,,supplementary_table,excavation_site
+PRJEB81815,Felis catus,"Musarna (Viterbo, Latium)",musarnaviterbolatium,"Musarna (Viterbo, Latium)",,supplementary_table,excavation_site
+PRJEB81815,Felis catus,Nardò “torre santa Caterina”,nardòtorresantacaterina,Nardò “torre santa Caterina”,,supplementary_table,excavation_site
+PRJEB81815,Felis catus,North Africa to Europe cat population context,northafricatoeuropecatpopulationcontext,North Africa to Europe cat population context;North Africa to Europe dispersal extent,North Africa to Europe dispersal extent,article_text;coordinate_resolution,broader_locality
+PRJEB81815,Felis catus,"nuraghe Flumenelongu, Sardinia",nuragheflumenelongusardinia,"nuraghe Flumenelongu, Sardinia",,supplementary_table,excavation_site
+PRJEB81815,Felis catus,Padova Via Cesare Battisti (Veneto),padovaviacesarebattistiveneto,Padova Via Cesare Battisti (Veneto),,supplementary_table,excavation_site
+PRJEB81815,Felis catus,Palatino North East slope (Rome),palatinonortheastsloperome,Palatino North East slope (Rome),,supplementary_table,excavation_site
+PRJEB81815,Felis catus,Palmela Castle,palmelacastle,Palmela Castle,,supplementary_table,excavation_site
+PRJEB81815,Felis catus,Parco delle Dolomiti Lucane,parcodelledolomitilucane,Parco delle Dolomiti Lucane,,supplementary_table,excavation_site
+PRJEB81815,Felis catus,"Parking 58, Brussels",parking58brussels,"Parking 58, Brussels",,supplementary_table,excavation_site
+PRJEB81815,Felis catus,Partanna C. da Capo d'acqua,partannacdacapodacqua,Partanna C. da Capo d'acqua,,supplementary_table,excavation_site
+PRJEB81815,Felis catus,Petronell-Carnuntum,petronellcarnuntum,Petronell-Carnuntum,,supplementary_table,excavation_site
+PRJEB81815,Felis catus,"Pomorie, Forestry station (Поморие, горско стопанство)",pomorieforestrystationпомориегорскостопанство,"Pomorie, Forestry station (Поморие, горско стопанство)",,supplementary_table,excavation_site
+PRJEB81815,Felis catus,Probabilly Sicily,probabillysicily,Probabilly Sicily,,supplementary_table,excavation_site
+PRJEB81815,Felis catus,"Roca vecchia (Melendugno, Lecce)",rocavecchiamelendugnolecce,"Roca vecchia (Melendugno, Lecce)",,supplementary_table,excavation_site
+PRJEB81815,Felis catus,"Rome, S. Cecilia in Trastevere",romesceciliaintrastevere,"Rome, S. Cecilia in Trastevere",,supplementary_table,excavation_site
+PRJEB81815,Felis catus,"Rugo Storto, Fanna, PN",rugostortofannapn,"Rugo Storto, Fanna, PN",,supplementary_table,excavation_site
+PRJEB81815,Felis catus,Sagalassos,sagalassos,Sagalassos,,supplementary_table,excavation_site
+PRJEB81815,Felis catus,Salzburg - Residenz,salzburgresidenz,Salzburg - Residenz,,supplementary_table,excavation_site
+PRJEB81815,Felis catus,"Saracena (Cosenza, Calabria)",saracenacosenzacalabria,"Saracena (Cosenza, Calabria)",,supplementary_table,excavation_site
+PRJEB81815,Felis catus,Sardinia,sardinia,Sardinia,,supplementary_table,excavation_site
+PRJEB81815,Felis catus,"Sardinia, Monte Arcosu",sardiniamontearcosu,"Sardinia, Monte Arcosu",,supplementary_table,excavation_site
+PRJEB81815,Felis catus,"Sardinia, Nuoro - around Bitti",sardinianuoroaroundbitti,"Sardinia, Nuoro - around Bitti",,supplementary_table,excavation_site
+PRJEB81815,Felis catus,"Sassari, palazzo ducale, Sardinia",sassaripalazzoducalesardinia,"Sassari, palazzo ducale, Sardinia",,supplementary_table,excavation_site
+PRJEB81815,Felis catus,"Sicily, monti Nebrodi",sicilymontinebrodi,"Sicily, monti Nebrodi",,supplementary_table,excavation_site
+PRJEB81815,Felis catus,"Tabernas, Spain",tabernasspain,"Tabernas, Spain",,supplementary_table,excavation_site
+PRJEB81815,Felis catus,"Tertenia, Sardinia",terteniasardinia,"Tertenia, Sardinia",,supplementary_table,excavation_site
+PRJEB81815,Felis catus,"Tongeren, Industrie Oost",tongerenindustrieoost,"Tongeren, Industrie Oost",,supplementary_table,excavation_site
+PRJEB81815,Felis catus,Traismauer,traismauer,Traismauer,,supplementary_table,excavation_site
+PRJEB81815,Felis catus,Tuscany,tuscany,Tuscany,,supplementary_table,excavation_site
+PRJEB81815,Felis catus,Tuscany - Maremma - Bivio Gavorrano,tuscanymaremmabiviogavorrano,Tuscany - Maremma - Bivio Gavorrano,,supplementary_table,excavation_site
+PRJEB81815,Felis catus,Umbria - Perugia - Cascia,umbriaperugiacascia,Umbria - Perugia - Cascia,,supplementary_table,excavation_site
+PRJEB81815,Felis catus,Umbria - Perugia - Vallo di Nera,umbriaperugiavallodinera,Umbria - Perugia - Vallo di Nera,,supplementary_table,excavation_site
+PRJEB81815,Felis catus,"village Belene, Svishtov district (с. Белене, Свищовско)",villagebelenesvishtovdistrictсбеленесвищовско,"village Belene, Svishtov district (с. Белене, Свищовско)",,supplementary_table,excavation_site
+PRJEB81815,Felis catus,Viminacium-Nad Klepačkom,viminaciumnadklepačkom,Viminacium-Nad Klepačkom,,supplementary_table,excavation_site
+PRJEB81815,Felis catus,Viminacium/Amphitheatre,viminaciumamphitheatre,Viminacium/Amphitheatre,,supplementary_table,excavation_site
+PRJEB81815,Felis catus,"Yenikapı, Marmaray exc.",yenikapımarmarayexc,"Yenikapı, Marmaray exc.",,supplementary_table,excavation_site
 PRJEB90141,Capra hircus,Acemhöyük,acemhöyük,Acemhöyük,,supplementary_table,excavation_site
 PRJEB90141,Capra hircus,Blagotin-Poljna,blagotinpoljna,Blagotin-Poljna,,supplementary_table,excavation_site
 PRJEB90141,Capra hircus,Direkli Cave,direklicave,Direkli Cave,,supplementary_table,excavation_site
@@ -310,9 +373,8 @@ PRJNA1328209,Capra hircus,Lake Qinghai Basin,lakeqinghaibasin,Lake Qinghai Basin
 PRJNA1328209,Capra hircus,Lake Qinghai Basin ancient goat context,lakeqinghaibasinancientgoatcontext,"Lake Qinghai Basin ancient goat context;Lake Qinghai Basin, Qinghai-Xizang Plateau","Lake Qinghai Basin, Qinghai-Xizang Plateau",article_text;coordinate_resolution,broader_locality
 PRJNA705960,Bos taurus,different mountain caves in Galicia,differentmountaincavesingalicia,different mountain caves in Galicia,,archive_metadata,broader_locality
 PRJNA705960,Bos taurus,Galician mountain cave cattle context,galicianmountaincavecattlecontext,"Galicia, Spain;Galician mountain cave cattle context","Galicia, Spain",archive_metadata;coordinate_resolution,broader_locality
-SRP073444,Camelus dromedarius,Arabian Peninsula and Levant dromedary context,arabianpeninsulaandlevantdromedarycontext,Arabian Peninsula and Levant dromedary context,,article_text,broader_locality
 SRP073444,Camelus dromedarius,Site 1040 near Wadi Halfa,site1040nearwadihalfa,Site 1040 near Wadi Halfa,,article_text,country
-SRP073444,Camelus dromedarius,Site 1040 near Wadi Halfa dromedary context,site1040nearwadihalfadromedarycontext,Wadi Halfa,Wadi Halfa,coordinate_resolution,country
+SRP073444,Camelus dromedarius,Site 1040 near Wadi Halfa dromedary context,site1040nearwadihalfadromedarycontext,Site 1040 near Wadi Halfa dromedary context;Wadi Halfa,Wadi Halfa,article_text;coordinate_resolution,broader_locality;country
 SRS1407451,Canis lupus familiaris,Ancient European dog CTC sample context,ancienteuropeandogctcsamplecontext,Ancient European dog CTC sample context;Central Europe multi-site dog context,Central Europe multi-site dog context,article_text;coordinate_resolution,broader_locality
 SRS1407451,Canis lupus familiaris,Herxheim and Cherry Tree Cave ancient dog contexts,herxheimandcherrytreecaveancientdogcontexts,Herxheim and Cherry Tree Cave ancient dog contexts,,article_text,broader_locality
 SRS1407453,Canis lupus familiaris,Herxheim,herxheim,Herxheim,,archive_metadata,excavation_site

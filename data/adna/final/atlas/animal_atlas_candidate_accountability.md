@@ -1,8 +1,8 @@
 # Animal atlas candidate accountability
 
-- Candidate rows: `233`
-- Fully accountable rows: `233`
-- Overall ok: `true`
+- Candidate rows: `275`
+- Fully accountable rows: `271`
+- Overall ok: `false`
 
 | Species | Project | Sample rows | Sample lineage | Site evidence | Chronology evidence | Coordinate evidence | Locality match |
 | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -38,6 +38,7 @@
 | Equus caballus | PRJEB44430 | true | true | true | true | true | true |
 | Equus caballus | PRJEB31613 | true | true | true | true | true | true |
 | Equus caballus | PRJEB31613 | true | true | true | true | true | true |
+| Equus caballus | PRJEB31613 | true | true | true | false | true | true |
 | Equus caballus | PRJEB31613 | true | true | true | true | true | true |
 | Equus caballus | PRJEB31613 | true | true | true | true | true | true |
 | Equus caballus | PRJEB31613 | true | true | true | true | true | true |
@@ -49,6 +50,7 @@
 | Equus caballus | PRJEB31613 | true | true | true | true | true | true |
 | Equus caballus | PRJEB31613 | true | true | true | true | true | true |
 | Equus caballus | PRJEB31613 | true | true | true | true | true | true |
+| Equus caballus | PRJEB31613 | true | true | true | false | true | true |
 | Equus caballus | PRJEB31613 | true | true | true | true | true | true |
 | Equus caballus | PRJEB31613 | true | true | true | true | true | true |
 | Equus caballus | PRJEB31613 | true | true | true | true | true | true |
@@ -62,6 +64,7 @@
 | Equus caballus | PRJEB31613 | true | true | true | true | true | true |
 | Equus caballus | PRJEB31613 | true | true | true | true | true | true |
 | Equus caballus | PRJEB31613 | true | true | true | true | true | true |
+| Equus caballus | PRJEB31613 | true | true | true | false | true | true |
 | Equus caballus | PRJEB31613 | true | true | true | true | true | true |
 | Equus caballus | PRJEB31613 | true | true | true | true | true | true |
 | Equus caballus | PRJEB31613 | true | true | true | true | true | true |
@@ -83,6 +86,7 @@
 | Equus caballus | PRJEB31613 | true | true | true | true | true | true |
 | Equus caballus | PRJEB31613 | true | true | true | true | true | true |
 | Equus caballus | PRJEB31613 | true | true | true | true | true | true |
+| Equus caballus | PRJEB31613 | true | true | true | false | true | true |
 | Equus caballus | PRJEB31613 | true | true | true | true | true | true |
 | Equus caballus | PRJEB31613 | true | true | true | true | true | true |
 | Equus caballus | PRJEB31613 | true | true | true | true | true | true |
@@ -123,10 +127,6 @@
 | Equus caballus | PRJEB31613 | true | true | true | true | true | true |
 | Equus caballus | PRJEB31613 | true | true | true | true | true | true |
 | Equus caballus | PRJEB31613 | true | true | true | true | true | true |
-| Equus caballus | PRJEB31613 | true | true | true | true | true | true |
-| Equus caballus | PRJEB31613 | true | true | true | true | true | true |
-| Equus caballus | PRJEB31613 | true | true | true | true | true | true |
-| Equus caballus | PRJEB31613 | true | true | true | true | true | true |
 | Equus caballus | PRJEB44430 | true | true | true | true | true | true |
 | Equus caballus | PRJEB44430 | true | true | true | true | true | true |
 | Equus caballus | PRJEB44430 | true | true | true | true | true | true |
@@ -239,3 +239,45 @@
 | Equus caballus | PRJEB44430 | true | true | true | true | true | true |
 | Equus caballus | PRJEB44430 | true | true | true | true | true | true |
 | Equus caballus | PRJEB44430 | true | true | true | true | true | true |
+| Felis catus | PRJEB81815 | true | true | true | true | true | true |
+| Felis catus | PRJEB81815 | true | true | true | true | true | true |
+| Felis catus | PRJEB81815 | true | true | true | true | true | true |
+| Felis catus | PRJEB81815 | true | true | true | true | true | true |
+| Felis catus | PRJEB81815 | true | true | true | true | true | true |
+| Felis catus | PRJEB81815 | true | true | true | true | true | true |
+| Felis catus | PRJEB81815 | true | true | true | true | true | true |
+| Felis catus | PRJEB81815 | true | true | true | true | true | true |
+| Felis catus | PRJEB81815 | true | true | true | true | true | true |
+| Felis catus | PRJEB81815 | true | true | true | true | true | true |
+| Felis catus | PRJEB81815 | true | true | true | true | true | true |
+| Felis catus | PRJEB81815 | true | true | true | true | true | true |
+| Felis catus | PRJEB81815 | true | true | true | true | true | true |
+| Felis catus | PRJEB81815 | true | true | true | true | true | true |
+| Felis catus | PRJEB81815 | true | true | true | true | true | true |
+| Felis catus | PRJEB81815 | true | true | true | true | true | true |
+| Felis catus | PRJEB81815 | true | true | true | true | true | true |
+| Felis catus | PRJEB81815 | true | true | true | true | true | true |
+| Felis catus | PRJEB81815 | true | true | true | true | true | true |
+| Felis catus | PRJEB81815 | true | true | true | true | true | true |
+| Felis catus | PRJEB81815 | true | true | true | true | true | true |
+| Felis catus | PRJEB81815 | true | true | true | true | true | true |
+| Felis catus | PRJEB81815 | true | true | true | true | true | true |
+| Felis catus | PRJEB81815 | true | true | true | true | true | true |
+| Felis catus | PRJEB81815 | true | true | true | true | true | true |
+| Felis catus | PRJEB81815 | true | true | true | true | true | true |
+| Felis catus | PRJEB81815 | true | true | true | true | true | true |
+| Felis catus | PRJEB81815 | true | true | true | true | true | true |
+| Felis catus | PRJEB81815 | true | true | true | true | true | true |
+| Felis catus | PRJEB81815 | true | true | true | true | true | true |
+| Felis catus | PRJEB81815 | true | true | true | true | true | true |
+| Felis catus | PRJEB81815 | true | true | true | true | true | true |
+| Felis catus | PRJEB81815 | true | true | true | true | true | true |
+| Felis catus | PRJEB81815 | true | true | true | true | true | true |
+| Felis catus | PRJEB81815 | true | true | true | true | true | true |
+| Felis catus | PRJEB81815 | true | true | true | true | true | true |
+| Felis catus | PRJEB81815 | true | true | true | true | true | true |
+| Felis catus | PRJEB81815 | true | true | true | true | true | true |
+| Felis catus | PRJEB81815 | true | true | true | true | true | true |
+| Felis catus | PRJEB81815 | true | true | true | true | true | true |
+| Sus scrofa domesticus | PRJEB30282 | true | true | true | true | true | true |
+| Sus scrofa domesticus | PRJEB30282 | true | true | true | true | true | true |

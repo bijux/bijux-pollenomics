@@ -30008,7 +30008,7 @@
           "time_end_bp": 4700,
           "time_mean_bp": 4700,
           "date_stddev_bp": "",
-          "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+          "dating_basis": "archaeological_context",
           "evidence_class": "archaeological_context_date",
           "precision_posture": "sample_approximate_or_modeled"
         },
@@ -30069,7 +30069,7 @@
           "time_end_bp": 1000,
           "time_mean_bp": 1000,
           "date_stddev_bp": "",
-          "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+          "dating_basis": "archaeological_context",
           "evidence_class": "archaeological_context_date",
           "precision_posture": "sample_approximate_or_modeled"
         },

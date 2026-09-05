@@ -1,11 +1,11 @@
 species_latin_name,recovered_sample_row_count,exact_site_evidence_count,broader_locality_evidence_count,unresolved_geography_count,excavation_site_count,broader_locality_count,municipality_count,region_count,country_count,inferred_place_string_count,locality_unresolved_count,locality_completeness_ratio
-Bos taurus,132,0,11,121,0,11,0,0,0,0,121,0.0
+Bos taurus,132,0,0,132,0,0,0,0,0,0,132,0.0
 Camelus dromedarius,13,13,0,0,13,0,0,0,0,0,0,1.0
-Canis lupus familiaris,4,3,1,0,3,1,0,0,0,0,0,0.75
+Canis lupus familiaris,4,3,0,1,3,0,0,0,0,0,1,0.75
 Capra hircus,82,77,5,0,77,5,0,0,0,0,0,0.939
 Equus asinus,0,0,0,0,0,0,0,0,0,0,0,0.0
-Equus caballus,548,548,0,0,548,0,0,0,0,0,0,1.0
-Felis catus,109,22,87,0,22,87,0,0,0,0,0,0.2018
-Ovis aries,200,190,5,5,190,5,0,0,0,0,5,0.95
-Rangifer tarandus,20,0,20,0,0,20,0,0,0,0,0,0.0
-Sus scrofa domesticus,343,0,343,0,0,343,0,0,0,0,0,0.0
+Equus caballus,550,548,0,2,548,0,0,0,0,0,2,0.9964
+Felis catus,109,106,0,3,106,0,0,0,0,0,3,0.9725
+Ovis aries,200,195,0,5,195,0,0,0,0,0,5,0.975
+Rangifer tarandus,20,0,0,20,0,0,0,0,0,0,20,0.0
+Sus scrofa domesticus,343,2,0,341,2,0,0,0,0,0,341,0.0058

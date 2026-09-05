@@ -50,26 +50,6 @@
       "source_surface": "supplementary_table",
       "source_claim_scope": "sample_owned_locality",
       "supporting_sample_count": 1,
-      "original_locality_text": "N/A",
-      "resolved_locality_text": "N/A",
-      "locality_class": "excavation_site",
-      "site_name": "N/A",
-      "municipality_name": "",
-      "region_name": "",
-      "country_name": "",
-      "broader_geography": "N/A",
-      "geocoding_safe_token": "na",
-      "source_artifact_path": "data/adna/governance/source_library/papers/10.1016-j.cell.2019.03.049/supplementary/1-s2.0-S0092867419303848-mmc3.xlsx",
-      "source_artifact_kind": "supplementary_spreadsheet_row",
-      "source_locator": "Sheet1!row46 || Sheet1!row75",
-      "source_excerpt": "Connemara_0004A | N/A | modern | N/A | Connemara Pony | N/A | N/A | male | PRJEB19970 | Finno et al. 2015 | 173 | 5.38 || Somali_0226A | N/A | modern | N/A | Somali wild ass | N/A | N/A | female | PRJEB19970 | Jónsson et al. 2014 | 88 | 21.5"
-    },
-    {
-      "project_accession": "PRJEB19970",
-      "species_latin_name": "Equus caballus",
-      "source_surface": "supplementary_table",
-      "source_claim_scope": "sample_owned_locality",
-      "supporting_sample_count": 1,
       "original_locality_text": "Sintashta",
       "resolved_locality_text": "Sintashta",
       "locality_class": "excavation_site",
@@ -83,6 +63,26 @@
       "source_artifact_kind": "supplementary_spreadsheet_row",
       "source_locator": "Sheet1!row35",
       "source_excerpt": "Sintashta_NB46_4023 | CGG_1_017038 | Bronze Age | 4023 | Sintashta | Sintashta | Russia | female | PRJEB19970 | Librado et al. 2017 | 6.09 | 431"
+    },
+    {
+      "project_accession": "PRJEB19970",
+      "species_latin_name": "Equus caballus",
+      "source_surface": "tracked_source_artifact",
+      "source_claim_scope": "project_context_site",
+      "supporting_sample_count": 2,
+      "original_locality_text": "",
+      "resolved_locality_text": "",
+      "locality_class": "unresolved",
+      "site_name": "",
+      "municipality_name": "",
+      "region_name": "",
+      "country_name": "",
+      "broader_geography": "",
+      "geocoding_safe_token": "",
+      "source_artifact_path": "",
+      "source_artifact_kind": "",
+      "source_locator": "",
+      "source_excerpt": ""
     }
   ]
 }

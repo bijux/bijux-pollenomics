@@ -2,4 +2,4 @@ country,sample_row_count,species_count,locality_count,citation_count,warning_cou
 Sweden,1,1,1,1,2
 Norway,0,0,0,0,1
 Finland,0,0,0,0,1
-Denmark,2,1,1,1,2
+Denmark,4,2,3,2,4

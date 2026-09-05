@@ -2,21 +2,43 @@
   "schema_version": "animal-sample-locality-manual-curation-workflow.v1",
   "rows": [
     {
-      "project_accession": "PRJEB30282",
-      "species_latin_name": "Sus scrofa domesticus",
+      "project_accession": "PRJEB19970",
+      "species_latin_name": "Equus caballus",
       "decision_status": "pending_manual_curation",
-      "locality_resolution_status": "region_only",
-      "unresolved_place_string": "Near East and Europe pig domestication transect",
+      "locality_resolution_status": "unresolved",
+      "unresolved_place_string": "",
       "candidate_matches": [
-        "Near East and Europe pig domestication transect"
+        "Arzhan I",
+        "Berel'",
+        "Sintashta"
       ],
       "final_decision": "",
       "decision_rationale": "",
-      "queued_sample_count": 343,
+      "queued_sample_count": 2,
+      "queued_sample_ids": [
+        "prjeb19970:connemara_0004a",
+        "prjeb19970:somali_0226a"
+      ],
+      "recommended_source_surfaces": [
+        "tracked_source_artifact"
+      ]
+    },
+    {
+      "project_accession": "PRJEB30282",
+      "species_latin_name": "Sus scrofa domesticus",
+      "decision_status": "pending_manual_curation",
+      "locality_resolution_status": "unresolved",
+      "unresolved_place_string": "",
+      "candidate_matches": [
+        "Bundsø",
+        "Near East and Europe pig domestication transect",
+        "Trelleborg"
+      ],
+      "final_decision": "",
+      "decision_rationale": "",
+      "queued_sample_count": 341,
       "queued_sample_ids": [
         "prjeb30282:samea5160866",
-        "prjeb30282:samea5160867",
-        "prjeb30282:samea5160868",
         "prjeb30282:samea5160869",
         "prjeb30282:samea5160870",
         "prjeb30282:samea5160871",
@@ -360,7 +382,8 @@
       ],
       "recommended_source_surfaces": [
         "article_text",
-        "coordinate_resolution"
+        "coordinate_resolution",
+        "tracked_source_artifact"
       ]
     },
     {
@@ -478,37 +501,14 @@
       ]
     },
     {
-      "project_accession": "PRJEB59481",
-      "species_latin_name": "Ovis aries",
-      "decision_status": "pending_manual_curation",
-      "locality_resolution_status": "region_only",
-      "unresolved_place_string": "Baltic Sea Region short-tailed sheep context",
-      "candidate_matches": [
-        "Baltic Sea Region short-tailed sheep context"
-      ],
-      "final_decision": "",
-      "decision_rationale": "",
-      "queued_sample_count": 5,
-      "queued_sample_ids": [
-        "prjeb59481:samea112960291",
-        "prjeb59481:samea112960292",
-        "prjeb59481:samea112960293",
-        "prjeb59481:samea112960294",
-        "prjeb59481:samea112960295"
-      ],
-      "recommended_source_surfaces": [
-        "coordinate_resolution",
-        "crossref_metadata"
-      ]
-    },
-    {
       "project_accession": "PRJEB60484",
       "species_latin_name": "Rangifer tarandus",
       "decision_status": "pending_manual_curation",
-      "locality_resolution_status": "region_only",
-      "unresolved_place_string": "Svalbard ancient reindeer context",
+      "locality_resolution_status": "unresolved",
+      "unresolved_place_string": "",
       "candidate_matches": [
-        "Svalbard ancient reindeer context"
+        "Svalbard ancient reindeer context",
+        "Svalbard archipelago reindeer context"
       ],
       "final_decision": "",
       "decision_rationale": "",
@@ -537,7 +537,8 @@
       ],
       "recommended_source_surfaces": [
         "archive_metadata",
-        "coordinate_resolution"
+        "coordinate_resolution",
+        "tracked_source_artifact"
       ]
     },
     {
@@ -604,116 +605,95 @@
       "project_accession": "PRJEB81815",
       "species_latin_name": "Felis catus",
       "decision_status": "pending_manual_curation",
-      "locality_resolution_status": "region_only",
-      "unresolved_place_string": "North Africa to Europe domestic cat dispersal transect",
+      "locality_resolution_status": "unresolved",
+      "unresolved_place_string": "",
       "candidate_matches": [
-        "North Africa to Europe domestic cat dispersal transect"
+        "Alba Fucens -Cisterna (Fucino, Abruzzi)",
+        "Arene Candide (Finale Ligure, Savona, Liguria)",
+        "Aşıklı Höyük",
+        "Bademağacı",
+        "Bank of Portugal",
+        "Bernhardsthal",
+        "Bremen; 201-Altstadt, Marktplatz",
+        "Bremen; 253-Altstadt, Am Wall",
+        "Castiglione in Sabina",
+        "Cova de Els Trocs, Huesca",
+        "Demircihüyük",
+        "Durankulak",
+        "Ecly",
+        "Galgenbühel/Dos de la Forca-Salorno",
+        "Genoni Santu Antine, Sardinia",
+        "Glencurran Cave, Co. Clare",
+        "Graffignano (Viterbo, Latium)",
+        "Grotta del Cocci (Narni, Umbria)",
+        "Haithabu, settlement area",
+        "Iznik - Roman theatre",
+        "Kassope",
+        "Koprivec",
+        "Labastida",
+        "Lauchheim-Mittelhofen",
+        "Mautern - vicus Ost",
+        "Menteşe",
+        "Musarna (Viterbo, Latium)",
+        "Nardò “torre santa Caterina”",
+        "North Africa to Europe cat population context",
+        "Padova Via Cesare Battisti (Veneto)",
+        "Palatino North East slope (Rome)",
+        "Palmela Castle",
+        "Parco delle Dolomiti Lucane",
+        "Parking 58, Brussels",
+        "Partanna C. da Capo d'acqua",
+        "Petronell-Carnuntum",
+        "Pomorie, Forestry station (Поморие, горско стопанство)",
+        "Probabilly Sicily",
+        "Roca vecchia (Melendugno, Lecce)",
+        "Rome, S. Cecilia in Trastevere",
+        "Rugo Storto, Fanna, PN",
+        "Sagalassos",
+        "Salzburg - Residenz",
+        "Saracena (Cosenza, Calabria)",
+        "Sardinia",
+        "Sardinia, Monte Arcosu",
+        "Sardinia, Nuoro - around Bitti",
+        "Sassari, palazzo ducale, Sardinia",
+        "Sicily, monti Nebrodi",
+        "Tabernas, Spain",
+        "Tertenia, Sardinia",
+        "Tongeren, Industrie Oost",
+        "Traismauer",
+        "Tuscany",
+        "Tuscany - Maremma - Bivio Gavorrano",
+        "Umbria - Perugia - Cascia",
+        "Umbria - Perugia - Vallo di Nera",
+        "Viminacium-Nad Klepačkom",
+        "Viminacium/Amphitheatre",
+        "Yenikapı, Marmaray exc.",
+        "nuraghe Flumenelongu, Sardinia",
+        "village Belene, Svishtov district (с. Белене, Свищовско)"
       ],
       "final_decision": "",
       "decision_rationale": "",
-      "queued_sample_count": 87,
+      "queued_sample_count": 3,
       "queued_sample_ids": [
-        "prjeb81815:samea120246515",
-        "prjeb81815:samea120246516",
-        "prjeb81815:samea120246517",
-        "prjeb81815:samea120246518",
-        "prjeb81815:samea120246519",
-        "prjeb81815:samea120246520",
-        "prjeb81815:samea120246521",
-        "prjeb81815:samea120246522",
-        "prjeb81815:samea120246523",
-        "prjeb81815:samea120246524",
-        "prjeb81815:samea120246525",
-        "prjeb81815:samea120246526",
-        "prjeb81815:samea120246527",
-        "prjeb81815:samea120246528",
-        "prjeb81815:samea120246529",
-        "prjeb81815:samea120246530",
-        "prjeb81815:samea120246531",
-        "prjeb81815:samea120246532",
-        "prjeb81815:samea120246533",
-        "prjeb81815:samea120246534",
-        "prjeb81815:samea120246535",
-        "prjeb81815:samea120246536",
-        "prjeb81815:samea120246537",
-        "prjeb81815:samea120246538",
-        "prjeb81815:samea120246539",
-        "prjeb81815:samea120246540",
-        "prjeb81815:samea120246541",
-        "prjeb81815:samea120246542",
-        "prjeb81815:samea120246543",
-        "prjeb81815:samea120246544",
-        "prjeb81815:samea120246545",
-        "prjeb81815:samea120246546",
-        "prjeb81815:samea120246547",
-        "prjeb81815:samea120246548",
-        "prjeb81815:samea120246549",
-        "prjeb81815:samea120246550",
-        "prjeb81815:samea120246551",
-        "prjeb81815:samea120246552",
-        "prjeb81815:samea120246553",
-        "prjeb81815:samea120246554",
-        "prjeb81815:samea120246555",
-        "prjeb81815:samea120246556",
-        "prjeb81815:samea120246557",
-        "prjeb81815:samea120246558",
-        "prjeb81815:samea120246559",
-        "prjeb81815:samea120246560",
-        "prjeb81815:samea120246561",
-        "prjeb81815:samea120246562",
-        "prjeb81815:samea120246563",
-        "prjeb81815:samea120246564",
-        "prjeb81815:samea120246565",
-        "prjeb81815:samea120246566",
-        "prjeb81815:samea120246567",
-        "prjeb81815:samea120246568",
-        "prjeb81815:samea120246569",
-        "prjeb81815:samea120246570",
-        "prjeb81815:samea120246571",
-        "prjeb81815:samea120246572",
-        "prjeb81815:samea120246573",
-        "prjeb81815:samea120246574",
-        "prjeb81815:samea120246575",
-        "prjeb81815:samea120246576",
-        "prjeb81815:samea120246577",
-        "prjeb81815:samea120246578",
-        "prjeb81815:samea120246579",
-        "prjeb81815:samea120246580",
-        "prjeb81815:samea120246581",
-        "prjeb81815:samea120246582",
-        "prjeb81815:samea120246583",
-        "prjeb81815:samea120246584",
-        "prjeb81815:samea120246585",
-        "prjeb81815:samea120246586",
-        "prjeb81815:samea120246587",
-        "prjeb81815:samea120246588",
-        "prjeb81815:samea120246589",
-        "prjeb81815:samea120246590",
-        "prjeb81815:samea120246591",
-        "prjeb81815:samea120246592",
-        "prjeb81815:samea120246593",
-        "prjeb81815:samea120246594",
-        "prjeb81815:samea120246595",
-        "prjeb81815:samea120246596",
         "prjeb81815:samea120246597",
         "prjeb81815:samea120246598",
-        "prjeb81815:samea120246599",
-        "prjeb81815:samea120246600",
-        "prjeb81815:samea120246601"
+        "prjeb81815:samea120246599"
       ],
       "recommended_source_surfaces": [
         "article_text",
-        "coordinate_resolution"
+        "coordinate_resolution",
+        "tracked_source_artifact"
       ]
     },
     {
       "project_accession": "PRJNA705960",
       "species_latin_name": "Bos taurus",
       "decision_status": "pending_manual_curation",
-      "locality_resolution_status": "region_only",
-      "unresolved_place_string": "Galician mountain cave cattle context",
+      "locality_resolution_status": "unresolved",
+      "unresolved_place_string": "",
       "candidate_matches": [
-        "Galician mountain cave cattle context"
+        "Galician mountain cave cattle context",
+        "different mountain caves in Galicia"
       ],
       "final_decision": "",
       "decision_rationale": "",
@@ -733,17 +713,19 @@
       ],
       "recommended_source_surfaces": [
         "archive_metadata",
-        "coordinate_resolution"
+        "coordinate_resolution",
+        "tracked_source_artifact"
       ]
     },
     {
       "project_accession": "SRS1407451",
       "species_latin_name": "Canis lupus familiaris",
       "decision_status": "pending_manual_curation",
-      "locality_resolution_status": "region_only",
-      "unresolved_place_string": "Ancient European dog CTC sample context",
+      "locality_resolution_status": "unresolved",
+      "unresolved_place_string": "",
       "candidate_matches": [
-        "Ancient European dog CTC sample context"
+        "Ancient European dog CTC sample context",
+        "Herxheim and Cherry Tree Cave ancient dog contexts"
       ],
       "final_decision": "",
       "decision_rationale": "",
@@ -753,7 +735,8 @@
       ],
       "recommended_source_surfaces": [
         "article_text",
-        "coordinate_resolution"
+        "coordinate_resolution",
+        "tracked_source_artifact"
       ]
     }
   ]

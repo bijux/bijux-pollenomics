@@ -9,15 +9,14 @@
   "stage_statuses": {
     "project_admission": "complete",
     "paper_capture": "complete",
-    "supplement_capture": "not_required",
+    "supplement_capture": "complete",
     "sample_identity_recovery": "complete",
     "site_recovery": "in_progress",
-    "chronology_recovery": "complete",
-    "coordinate_derivation": "blocked",
+    "chronology_recovery": "in_progress",
+    "coordinate_derivation": "complete",
     "publication_readiness": "blocked"
   },
   "blocking_stages": [
-    "coordinate_derivation",
     "publication_readiness"
   ],
   "next_required_stage": "site_recovery",
@@ -28,7 +27,7 @@
   "expected_sample_count_artifact_path": "",
   "minimum_expected_sample_count": 1,
   "recovered_sample_count": 87,
-  "final_sample_count": 87,
+  "final_sample_count": 84,
   "unresolved_sample_count": null,
   "minimum_gap_count": 0,
   "recovery_gap_status": "minimum_expected_floor_met",
@@ -47,13 +46,15 @@
     "data/adna/governance/source_library/projects/PRJEB81815/sample_locality_evidence.json"
   ],
   "missing_assets": [
-    "Some recovered sample rows still lack a defensible site assignment."
+    "Some recovered sample rows still lack a defensible site assignment.",
+    "Some recovered sample rows still lack sample-level chronology."
   ],
   "expected_contributions": [
     "sample_identities",
     "taxonomic_context",
     "site_evidence",
-    "coordinate_candidates"
+    "coordinate_candidates",
+    "sample_chronology"
   ],
   "expected_contribution_surfaces": [
     "data/adna/governance/source_library/projects/PRJEB81815/archive_metadata.html",
@@ -62,9 +63,7 @@
     "adna/governance/source_library/papers/10.1126-science.adt2642/supplementary/science.adt2642_sm.pdf",
     "adna/governance/source_library/papers/10.1126-science.adt2642/supplementary/science.adt2642_tables s1_to_s8.zip"
   ],
-  "contradictory_evidence": [
-    "Locality substitution review still blocks publication because project-level geography would flatten distinct sample evidence."
-  ],
+  "contradictory_evidence": [],
   "inferred_claims": [],
   "manual_curation_work_units": [
     {
@@ -72,8 +71,8 @@
       "species_latin_name": "Felis catus",
       "work_unit_type": "chronology_recovery",
       "work_unit_state": "pending_source_recovery",
-      "open_item_count": 87,
-      "rationale": "no_sample_owned_chronology_recovered; project_context_dates_still_dominate",
+      "open_item_count": 90,
+      "rationale": "missing_sample_level_date_evidence; broad_period_labels_still_need_stronger_date_support; project_context_dates_still_dominate",
       "downstream_impact": "blocks chronology honesty and publication precision",
       "recommended_source_surfaces": [
         "data/adna/governance/source_library/projects/PRJEB81815/sample_chronology.json",
@@ -85,12 +84,25 @@
       "species_latin_name": "Felis catus",
       "work_unit_type": "locality_string_resolution",
       "work_unit_state": "pending_manual_curation",
-      "open_item_count": 87,
-      "rationale": "region_only",
+      "open_item_count": 3,
+      "rationale": "unresolved",
       "downstream_impact": "blocks coordinate derivation and exact locality publication",
       "recommended_source_surfaces": [
         "article_text",
-        "coordinate_resolution"
+        "coordinate_resolution",
+        "tracked_source_artifact"
+      ]
+    },
+    {
+      "project_accession": "PRJEB81815",
+      "species_latin_name": "Felis catus",
+      "work_unit_type": "sample_identity_resolution",
+      "work_unit_state": "pending_manual_curation",
+      "open_item_count": 3,
+      "rationale": "Stable sample identity rows still carry unresolved ambiguity.",
+      "downstream_impact": "blocks trustworthy project-level sample recovery counts",
+      "recommended_source_surfaces": [
+        "data/adna/governance/source_library/projects/PRJEB81815/sample_master.json"
       ]
     },
     {
@@ -98,14 +110,14 @@
       "species_latin_name": "Felis catus",
       "work_unit_type": "site_resolution",
       "work_unit_state": "pending_manual_curation",
-      "open_item_count": 87,
-      "rationale": "region_only_rows_require_finer_location_evidence",
+      "open_item_count": 3,
+      "rationale": "recovered_sample_rows_still_lack_any_location_claim",
       "downstream_impact": "blocks exact site, coordinate, and publication recovery",
       "recommended_source_surfaces": []
     }
   ],
   "major_deficit_reasons": [
     "site_assignment_gap",
-    "coordinate_precision_gap"
+    "chronology_gap"
   ]
 }

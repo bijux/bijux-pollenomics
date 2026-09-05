@@ -8,7 +8,7 @@
 - Next required stage: `site_recovery`
 - Exact expected sample count: `unknown`
 - Minimum expected sample count: `1`
-- Final recovered sample rows: `87`
+- Final recovered sample rows: `84`
 - Minimum recovery gap: `0`
 - Implausibly low recovery: `false`
 
@@ -16,11 +16,11 @@
 
 - `project_admission`: `complete`
 - `paper_capture`: `complete`
-- `supplement_capture`: `not_required`
+- `supplement_capture`: `complete`
 - `sample_identity_recovery`: `complete`
 - `site_recovery`: `in_progress`
-- `chronology_recovery`: `complete`
-- `coordinate_derivation`: `blocked`
+- `chronology_recovery`: `in_progress`
+- `coordinate_derivation`: `complete`
 - `publication_readiness`: `blocked`
 
 ## Expected Contributions
@@ -29,6 +29,7 @@
 - `taxonomic_context`
 - `site_evidence`
 - `coordinate_candidates`
+- `sample_chronology`
 
 ## Known Assets
 
@@ -46,13 +47,11 @@
 ## Missing Assets
 
 - Some recovered sample rows still lack a defensible site assignment.
-
-## Contradictory Evidence
-
-- Locality substitution review still blocks publication because project-level geography would flatten distinct sample evidence.
+- Some recovered sample rows still lack sample-level chronology.
 
 ## Manual Curation Work Units
 
-- `chronology_recovery`: 87 item(s), blocks chronology honesty and publication precision
-- `locality_string_resolution`: 87 item(s), blocks coordinate derivation and exact locality publication
-- `site_resolution`: 87 item(s), blocks exact site, coordinate, and publication recovery
+- `chronology_recovery`: 90 item(s), blocks chronology honesty and publication precision
+- `locality_string_resolution`: 3 item(s), blocks coordinate derivation and exact locality publication
+- `sample_identity_resolution`: 3 item(s), blocks trustworthy project-level sample recovery counts
+- `site_resolution`: 3 item(s), blocks exact site, coordinate, and publication recovery

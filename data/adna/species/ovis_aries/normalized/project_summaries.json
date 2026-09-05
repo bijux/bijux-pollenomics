@@ -100,7 +100,7 @@
       "paper_doi": "10.1093/gbe/evae114",
       "paper_url": "https://doi.org/10.1093/gbe/evae114",
       "nordic_relevance": "nordic_relevant_unmapped",
-      "nordic_relevance_reason": "The Baltic Sea Region sheep dataset is Nordic-relevant, but the repository still lacks shipped animal locality rows and atlas points for it.",
+      "nordic_relevance_reason": "The Nordic-relevant primary supplement resolves the five Baltic sheep samples to Kastelholm and Stora Förvar, but neither site has admitted primary coordinates for atlas point publication.",
       "interpretation_caveat": "Baltic ancient sheep genomes across four millennia. Nordic-relevant lead remains unmapped in the shipped public atlas.",
       "notes": "Baltic ancient sheep genomes across four millennia."
     },

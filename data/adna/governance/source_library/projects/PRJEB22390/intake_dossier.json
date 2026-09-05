@@ -74,9 +74,7 @@
     "adna/governance/source_library/papers/10.1126-science.aao3297/supplementary/aao3297_tables8.xlsx",
     "adna/governance/source_library/papers/10.1126-science.aao3297/supplementary/aao3297_tables9.xlsx"
   ],
-  "contradictory_evidence": [
-    "41 chronology row(s) still disagree between sample-owned and context-level evidence."
-  ],
+  "contradictory_evidence": [],
   "inferred_claims": [],
   "manual_curation_work_units": [],
   "major_deficit_reasons": []

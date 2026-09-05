@@ -19,8 +19,8 @@
       "minimum_gap_count": 0,
       "lacking_defensible_site_assignment_count": 0,
       "missing_chronology_count": 0,
-      "chronology_conflict_count": 4,
-      "chronology_ambiguity_count": 4,
+      "chronology_conflict_count": 0,
+      "chronology_ambiguity_count": 0,
       "coordinate_blocked_count": 0,
       "publication_readiness_status": "complete",
       "major_deficit_reasons": []

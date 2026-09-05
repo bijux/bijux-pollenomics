@@ -12,20 +12,22 @@
     "supplement_capture": "not_required",
     "sample_identity_recovery": "complete",
     "site_recovery": "complete",
-    "chronology_recovery": "complete",
+    "chronology_recovery": "in_progress",
     "coordinate_derivation": "complete",
-    "publication_readiness": "complete"
+    "publication_readiness": "blocked"
   },
-  "blocking_stages": [],
-  "next_required_stage": null,
-  "publication_readiness_status": "complete",
+  "blocking_stages": [
+    "publication_readiness"
+  ],
+  "next_required_stage": "chronology_recovery",
+  "publication_readiness_status": "blocked",
   "expected_sample_count": null,
   "expected_sample_count_status": "not_yet_curated",
   "expected_sample_count_provenance": "The project is paper-pinned, but the expected sample count still needs to be recovered from the listed article or supplementary targets.",
   "expected_sample_count_artifact_path": "",
   "minimum_expected_sample_count": 1,
-  "recovered_sample_count": 244,
-  "final_sample_count": 244,
+  "recovered_sample_count": 245,
+  "final_sample_count": 245,
   "unresolved_sample_count": null,
   "minimum_gap_count": 0,
   "recovery_gap_status": "minimum_expected_floor_met",
@@ -47,10 +49,13 @@
     "data/adna/governance/source_library/projects/PRJEB31613/sample_chronology.json",
     "data/adna/governance/source_library/projects/PRJEB31613/sample_locality_evidence.json"
   ],
-  "missing_assets": [],
+  "missing_assets": [
+    "Some recovered sample rows still lack sample-level chronology."
+  ],
   "expected_contributions": [
     "sample_identities",
-    "taxonomic_context"
+    "taxonomic_context",
+    "sample_chronology"
   ],
   "expected_contribution_surfaces": [
     "data/adna/governance/source_library/projects/PRJEB31613/archive_metadata.html",
@@ -63,9 +68,7 @@
     "adna/governance/source_library/papers/10.1016-j.cell.2019.03.049/supplementary/1-s2.0-S0092867419303848-mmc6.xlsx",
     "adna/governance/source_library/papers/10.1016-j.cell.2019.03.049/supplementary/1-s2.0-S0092867419303848-mmc7.xlsx"
   ],
-  "contradictory_evidence": [
-    "235 chronology row(s) still disagree between sample-owned and context-level evidence."
-  ],
+  "contradictory_evidence": [],
   "inferred_claims": [],
   "manual_curation_work_units": [
     {
@@ -73,8 +76,8 @@
       "species_latin_name": "Equus caballus",
       "work_unit_type": "chronology_recovery",
       "work_unit_state": "pending_source_recovery",
-      "open_item_count": 478,
-      "rationale": "",
+      "open_item_count": 16,
+      "rationale": "missing_sample_level_date_evidence",
       "downstream_impact": "blocks chronology honesty and publication precision",
       "recommended_source_surfaces": [
         "data/adna/governance/source_library/projects/PRJEB31613/sample_chronology.json",
@@ -82,5 +85,7 @@
       ]
     }
   ],
-  "major_deficit_reasons": []
+  "major_deficit_reasons": [
+    "chronology_gap"
+  ]
 }

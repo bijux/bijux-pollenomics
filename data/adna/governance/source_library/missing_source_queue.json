@@ -12,7 +12,8 @@
       "queue_category": "missing_primary_paper_linkage",
       "expected_contributions": [
         "site_evidence",
-        "coordinate_candidates"
+        "coordinate_candidates",
+        "sample_chronology"
       ],
       "expected_contribution_surfaces": [
         "data/adna/governance/source_library/projects/PRJNA705960/archive_metadata.html"

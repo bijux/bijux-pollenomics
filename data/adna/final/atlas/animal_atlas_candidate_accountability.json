@@ -1,8 +1,8 @@
 {
   "schema_version": "animal-atlas-candidate-accountability.v1",
-  "candidate_row_count": 233,
-  "passed_row_count": 233,
-  "overall_ok": true,
+  "candidate_row_count": 275,
+  "passed_row_count": 271,
+  "overall_ok": false,
   "rows": [
     {
       "evidence_row_id": "animal-atlas-row:capra-hircus-prjeb90141-capra-hircus-locality-prjeb90141-acemhyk-aksarayplainturkey",
@@ -892,7 +892,7 @@
       "sample_rows_present": true,
       "sample_lineage_present": true,
       "site_evidence_present": true,
-      "chronology_evidence_present": true,
+      "chronology_evidence_present": false,
       "coordinate_provenance_present": true,
       "sample_locality_matches_site_record": true,
       "sample_lineage_paths": [
@@ -900,12 +900,10 @@
       ],
       "site_evidence_path": "data/adna/governance/source_library/papers/10.1016-j.cell.2019.03.049/supplementary/1-s2.0-S0092867419303848-mmc1.xlsx",
       "site_evidence_locator": "Sheet1!row11",
-      "chronology_provenance_paths": [
-        "data/adna/governance/source_library/papers/10.1016-j.cell.2019.03.049/supplementary/1-s2.0-S0092867419303848-mmc1.xlsx"
-      ],
+      "chronology_provenance_paths": [],
       "coordinate_provenance_path": "data/adna/governance/source_library/papers/10.1016-j.cell.2019.03.049/supplementary/1-s2.0-S0092867419303848-mmc1.xlsx",
       "coordinate_provenance_locator": "Sheet1!row11",
-      "fully_accountable": true
+      "fully_accountable": false
     },
     {
       "evidence_row_id": "animal-atlas-row:equus-caballus-prjeb31613-equus-caballus-locality-prjeb31613-arzhani-russia",
@@ -1075,7 +1073,7 @@
       "project_accession": "PRJEB31613",
       "site_record_id": "equus_caballus:locality:prjeb31613:batagai:russia",
       "sample_record_ids": [
-        "equus_caballus:sample:prjeb31613:n/a"
+        "equus_caballus:sample:prjeb31613:batagai_5155"
       ],
       "sample_rows_present": true,
       "sample_lineage_present": true,
@@ -1212,7 +1210,7 @@
       "sample_rows_present": true,
       "sample_lineage_present": true,
       "site_evidence_present": true,
-      "chronology_evidence_present": true,
+      "chronology_evidence_present": false,
       "coordinate_provenance_present": true,
       "sample_locality_matches_site_record": true,
       "sample_lineage_paths": [
@@ -1220,12 +1218,10 @@
       ],
       "site_evidence_path": "data/adna/governance/source_library/papers/10.1016-j.cell.2019.03.049/supplementary/1-s2.0-S0092867419303848-mmc1.xlsx",
       "site_evidence_locator": "Sheet1!row30",
-      "chronology_provenance_paths": [
-        "data/adna/governance/source_library/papers/10.1016-j.cell.2019.03.049/supplementary/1-s2.0-S0092867419303848-mmc1.xlsx"
-      ],
+      "chronology_provenance_paths": [],
       "coordinate_provenance_path": "data/adna/governance/source_library/papers/10.1016-j.cell.2019.03.049/supplementary/1-s2.0-S0092867419303848-mmc1.xlsx",
       "coordinate_provenance_locator": "Sheet1!row30",
-      "fully_accountable": true
+      "fully_accountable": false
     },
     {
       "evidence_row_id": "animal-atlas-row:equus-caballus-prjeb31613-equus-caballus-locality-prjeb31613-berel-kazakhstan",
@@ -1638,7 +1634,7 @@
       "sample_rows_present": true,
       "sample_lineage_present": true,
       "site_evidence_present": true,
-      "chronology_evidence_present": true,
+      "chronology_evidence_present": false,
       "coordinate_provenance_present": true,
       "sample_locality_matches_site_record": true,
       "sample_lineage_paths": [
@@ -1646,12 +1642,10 @@
       ],
       "site_evidence_path": "data/adna/governance/source_library/papers/10.1016-j.cell.2019.03.049/supplementary/1-s2.0-S0092867419303848-mmc1.xlsx",
       "site_evidence_locator": "Sheet1!row115",
-      "chronology_provenance_paths": [
-        "data/adna/governance/source_library/papers/10.1016-j.cell.2019.03.049/supplementary/1-s2.0-S0092867419303848-mmc1.xlsx"
-      ],
+      "chronology_provenance_paths": [],
       "coordinate_provenance_path": "data/adna/governance/source_library/papers/10.1016-j.cell.2019.03.049/supplementary/1-s2.0-S0092867419303848-mmc1.xlsx",
       "coordinate_provenance_locator": "Sheet1!row115",
-      "fully_accountable": true
+      "fully_accountable": false
     },
     {
       "evidence_row_id": "animal-atlas-row:equus-caballus-prjeb31613-equus-caballus-locality-prjeb31613-dunajvros-hungary",
@@ -2222,7 +2216,7 @@
       "sample_rows_present": true,
       "sample_lineage_present": true,
       "site_evidence_present": true,
-      "chronology_evidence_present": true,
+      "chronology_evidence_present": false,
       "coordinate_provenance_present": true,
       "sample_locality_matches_site_record": true,
       "sample_lineage_paths": [
@@ -2230,12 +2224,10 @@
       ],
       "site_evidence_path": "data/adna/governance/source_library/papers/10.1016-j.cell.2019.03.049/supplementary/1-s2.0-S0092867419303848-mmc1.xlsx",
       "site_evidence_locator": "Sheet1!row153",
-      "chronology_provenance_paths": [
-        "data/adna/governance/source_library/papers/10.1016-j.cell.2019.03.049/supplementary/1-s2.0-S0092867419303848-mmc1.xlsx"
-      ],
+      "chronology_provenance_paths": [],
       "coordinate_provenance_path": "data/adna/governance/source_library/papers/10.1016-j.cell.2019.03.049/supplementary/1-s2.0-S0092867419303848-mmc1.xlsx",
       "coordinate_provenance_locator": "Sheet1!row153",
-      "fully_accountable": true
+      "fully_accountable": false
     },
     {
       "evidence_row_id": "animal-atlas-row:equus-caballus-prjeb31613-equus-caballus-locality-prjeb31613-longueilannel-france",
@@ -6381,6 +6373,1114 @@
       ],
       "coordinate_provenance_path": "data/adna/governance/source_library/papers/10.1038-s41586-021-04018-9/supplementary/41586_2021_4018_MOESM5_ESM.xlsx",
       "coordinate_provenance_locator": "SI Table 1!row98",
+      "fully_accountable": true
+    },
+    {
+      "evidence_row_id": "animal-atlas-row:felis-catus-prjeb81815-felis-catus-locality-prjeb81815-aklhyk-turkey",
+      "species_latin_name": "Felis catus",
+      "project_accession": "PRJEB81815",
+      "site_record_id": "felis_catus:locality:prjeb81815:aklhyk:turkey",
+      "sample_record_ids": [
+        "felis_catus:sample:prjeb81815:samea120246517"
+      ],
+      "sample_rows_present": true,
+      "sample_lineage_present": true,
+      "site_evidence_present": true,
+      "chronology_evidence_present": true,
+      "coordinate_provenance_present": true,
+      "sample_locality_matches_site_record": true,
+      "sample_lineage_paths": [
+        "data/adna/governance/source_library/papers/10.1126-science.adt2642/supplementary/science.adt2642_tables s1_to_s8.zip"
+      ],
+      "site_evidence_path": "data/adna/governance/source_library/papers/10.1126-science.adt2642/supplementary/science.adt2642_tables s1_to_s8.zip",
+      "site_evidence_locator": "sample_accession:SAMEA120246517 || science.adt2642_tables s1_to_s8.xlsx#Table_S3!row6 -> Table_S1!row196",
+      "chronology_provenance_paths": [
+        "data/adna/governance/source_library/papers/10.1126-science.adt2642/supplementary/science.adt2642_tables s1_to_s8.zip"
+      ],
+      "coordinate_provenance_path": "data/adna/governance/source_library/papers/10.1126-science.adt2642/supplementary/science.adt2642_tables s1_to_s8.zip",
+      "coordinate_provenance_locator": "sample_accession:SAMEA120246517 || science.adt2642_tables s1_to_s8.xlsx#Table_S3!row6 -> Table_S1!row196",
+      "fully_accountable": true
+    },
+    {
+      "evidence_row_id": "animal-atlas-row:felis-catus-prjeb81815-felis-catus-locality-prjeb81815-albafucenscisternafucinoabruzzi-italy",
+      "species_latin_name": "Felis catus",
+      "project_accession": "PRJEB81815",
+      "site_record_id": "felis_catus:locality:prjeb81815:albafucenscisternafucinoabruzzi:italy",
+      "sample_record_ids": [
+        "felis_catus:sample:prjeb81815:samea120246516"
+      ],
+      "sample_rows_present": true,
+      "sample_lineage_present": true,
+      "site_evidence_present": true,
+      "chronology_evidence_present": true,
+      "coordinate_provenance_present": true,
+      "sample_locality_matches_site_record": true,
+      "sample_lineage_paths": [
+        "data/adna/governance/source_library/papers/10.1126-science.adt2642/supplementary/science.adt2642_tables s1_to_s8.zip"
+      ],
+      "site_evidence_path": "data/adna/governance/source_library/papers/10.1126-science.adt2642/supplementary/science.adt2642_tables s1_to_s8.zip",
+      "site_evidence_locator": "sample_accession:SAMEA120246516 || science.adt2642_tables s1_to_s8.xlsx#Table_S3!row5 -> Table_S1!row68",
+      "chronology_provenance_paths": [
+        "data/adna/governance/source_library/papers/10.1126-science.adt2642/supplementary/science.adt2642_tables s1_to_s8.zip"
+      ],
+      "coordinate_provenance_path": "data/adna/governance/source_library/papers/10.1126-science.adt2642/supplementary/science.adt2642_tables s1_to_s8.zip",
+      "coordinate_provenance_locator": "sample_accession:SAMEA120246516 || science.adt2642_tables s1_to_s8.xlsx#Table_S3!row5 -> Table_S1!row68",
+      "fully_accountable": true
+    },
+    {
+      "evidence_row_id": "animal-atlas-row:felis-catus-prjeb81815-felis-catus-locality-prjeb81815-arenecandidefinaleliguresavonaliguria-italy",
+      "species_latin_name": "Felis catus",
+      "project_accession": "PRJEB81815",
+      "site_record_id": "felis_catus:locality:prjeb81815:arenecandidefinaleliguresavonaliguria:italy",
+      "sample_record_ids": [
+        "felis_catus:sample:prjeb81815:samea120246515"
+      ],
+      "sample_rows_present": true,
+      "sample_lineage_present": true,
+      "site_evidence_present": true,
+      "chronology_evidence_present": true,
+      "coordinate_provenance_present": true,
+      "sample_locality_matches_site_record": true,
+      "sample_lineage_paths": [
+        "data/adna/governance/source_library/papers/10.1126-science.adt2642/supplementary/science.adt2642_tables s1_to_s8.zip"
+      ],
+      "site_evidence_path": "data/adna/governance/source_library/papers/10.1126-science.adt2642/supplementary/science.adt2642_tables s1_to_s8.zip",
+      "site_evidence_locator": "sample_accession:SAMEA120246515 || science.adt2642_tables s1_to_s8.xlsx#Table_S3!row3 -> Table_S1!row66",
+      "chronology_provenance_paths": [
+        "data/adna/governance/source_library/papers/10.1126-science.adt2642/supplementary/science.adt2642_tables s1_to_s8.zip"
+      ],
+      "coordinate_provenance_path": "data/adna/governance/source_library/papers/10.1126-science.adt2642/supplementary/science.adt2642_tables s1_to_s8.zip",
+      "coordinate_provenance_locator": "sample_accession:SAMEA120246515 || science.adt2642_tables s1_to_s8.xlsx#Table_S3!row3 -> Table_S1!row66",
+      "fully_accountable": true
+    },
+    {
+      "evidence_row_id": "animal-atlas-row:felis-catus-prjeb81815-felis-catus-locality-prjeb81815-bademaac-turkey",
+      "species_latin_name": "Felis catus",
+      "project_accession": "PRJEB81815",
+      "site_record_id": "felis_catus:locality:prjeb81815:bademaac:turkey",
+      "sample_record_ids": [
+        "felis_catus:sample:prjeb81815:samea120246518",
+        "felis_catus:sample:prjeb81815:samea120246519"
+      ],
+      "sample_rows_present": true,
+      "sample_lineage_present": true,
+      "site_evidence_present": true,
+      "chronology_evidence_present": true,
+      "coordinate_provenance_present": true,
+      "sample_locality_matches_site_record": true,
+      "sample_lineage_paths": [
+        "data/adna/governance/source_library/papers/10.1126-science.adt2642/supplementary/science.adt2642_tables s1_to_s8.zip"
+      ],
+      "site_evidence_path": "data/adna/governance/source_library/papers/10.1126-science.adt2642/supplementary/science.adt2642_tables s1_to_s8.zip",
+      "site_evidence_locator": "sample_accession:SAMEA120246518 || science.adt2642_tables s1_to_s8.xlsx#Table_S3!row7 -> Table_S1!row197",
+      "chronology_provenance_paths": [
+        "data/adna/governance/source_library/papers/10.1126-science.adt2642/supplementary/science.adt2642_tables s1_to_s8.zip"
+      ],
+      "coordinate_provenance_path": "data/adna/governance/source_library/papers/10.1126-science.adt2642/supplementary/science.adt2642_tables s1_to_s8.zip",
+      "coordinate_provenance_locator": "sample_accession:SAMEA120246518 || science.adt2642_tables s1_to_s8.xlsx#Table_S3!row7 -> Table_S1!row197",
+      "fully_accountable": true
+    },
+    {
+      "evidence_row_id": "animal-atlas-row:felis-catus-prjeb81815-felis-catus-locality-prjeb81815-bankofportugal-portugal",
+      "species_latin_name": "Felis catus",
+      "project_accession": "PRJEB81815",
+      "site_record_id": "felis_catus:locality:prjeb81815:bankofportugal:portugal",
+      "sample_record_ids": [
+        "felis_catus:sample:prjeb81815:samea120246522",
+        "felis_catus:sample:prjeb81815:samea120246523",
+        "felis_catus:sample:prjeb81815:samea120246524"
+      ],
+      "sample_rows_present": true,
+      "sample_lineage_present": true,
+      "site_evidence_present": true,
+      "chronology_evidence_present": true,
+      "coordinate_provenance_present": true,
+      "sample_locality_matches_site_record": true,
+      "sample_lineage_paths": [
+        "data/adna/governance/source_library/papers/10.1126-science.adt2642/supplementary/science.adt2642_tables s1_to_s8.zip"
+      ],
+      "site_evidence_path": "data/adna/governance/source_library/papers/10.1126-science.adt2642/supplementary/science.adt2642_tables s1_to_s8.zip",
+      "site_evidence_locator": "sample_accession:SAMEA120246522 || science.adt2642_tables s1_to_s8.xlsx#Table_S3!row13 -> Table_S1!row153",
+      "chronology_provenance_paths": [
+        "data/adna/governance/source_library/papers/10.1126-science.adt2642/supplementary/science.adt2642_tables s1_to_s8.zip"
+      ],
+      "coordinate_provenance_path": "data/adna/governance/source_library/papers/10.1126-science.adt2642/supplementary/science.adt2642_tables s1_to_s8.zip",
+      "coordinate_provenance_locator": "sample_accession:SAMEA120246522 || science.adt2642_tables s1_to_s8.xlsx#Table_S3!row13 -> Table_S1!row153",
+      "fully_accountable": true
+    },
+    {
+      "evidence_row_id": "animal-atlas-row:felis-catus-prjeb81815-felis-catus-locality-prjeb81815-bernhardsthal-austria",
+      "species_latin_name": "Felis catus",
+      "project_accession": "PRJEB81815",
+      "site_record_id": "felis_catus:locality:prjeb81815:bernhardsthal:austria",
+      "sample_record_ids": [
+        "felis_catus:sample:prjeb81815:samea120246520",
+        "felis_catus:sample:prjeb81815:samea120246521"
+      ],
+      "sample_rows_present": true,
+      "sample_lineage_present": true,
+      "site_evidence_present": true,
+      "chronology_evidence_present": true,
+      "coordinate_provenance_present": true,
+      "sample_locality_matches_site_record": true,
+      "sample_lineage_paths": [
+        "data/adna/governance/source_library/papers/10.1126-science.adt2642/supplementary/science.adt2642_tables s1_to_s8.zip"
+      ],
+      "site_evidence_path": "data/adna/governance/source_library/papers/10.1126-science.adt2642/supplementary/science.adt2642_tables s1_to_s8.zip",
+      "site_evidence_locator": "sample_accession:SAMEA120246520 || science.adt2642_tables s1_to_s8.xlsx#Table_S3!row10 -> Table_S1!row3",
+      "chronology_provenance_paths": [
+        "data/adna/governance/source_library/papers/10.1126-science.adt2642/supplementary/science.adt2642_tables s1_to_s8.zip"
+      ],
+      "coordinate_provenance_path": "data/adna/governance/source_library/papers/10.1126-science.adt2642/supplementary/science.adt2642_tables s1_to_s8.zip",
+      "coordinate_provenance_locator": "sample_accession:SAMEA120246520 || science.adt2642_tables s1_to_s8.xlsx#Table_S3!row10 -> Table_S1!row3",
+      "fully_accountable": true
+    },
+    {
+      "evidence_row_id": "animal-atlas-row:felis-catus-prjeb81815-felis-catus-locality-prjeb81815-bremen201altstadtmarktplatz-germany",
+      "species_latin_name": "Felis catus",
+      "project_accession": "PRJEB81815",
+      "site_record_id": "felis_catus:locality:prjeb81815:bremen201altstadtmarktplatz:germany",
+      "sample_record_ids": [
+        "felis_catus:sample:prjeb81815:samea120246525"
+      ],
+      "sample_rows_present": true,
+      "sample_lineage_present": true,
+      "site_evidence_present": true,
+      "chronology_evidence_present": true,
+      "coordinate_provenance_present": true,
+      "sample_locality_matches_site_record": true,
+      "sample_lineage_paths": [
+        "data/adna/governance/source_library/papers/10.1126-science.adt2642/supplementary/science.adt2642_tables s1_to_s8.zip"
+      ],
+      "site_evidence_path": "data/adna/governance/source_library/papers/10.1126-science.adt2642/supplementary/science.adt2642_tables s1_to_s8.zip",
+      "site_evidence_locator": "sample_accession:SAMEA120246525 || science.adt2642_tables s1_to_s8.xlsx#Table_S3!row16 -> Table_S1!row44",
+      "chronology_provenance_paths": [
+        "data/adna/governance/source_library/papers/10.1126-science.adt2642/supplementary/science.adt2642_tables s1_to_s8.zip"
+      ],
+      "coordinate_provenance_path": "data/adna/governance/source_library/papers/10.1126-science.adt2642/supplementary/science.adt2642_tables s1_to_s8.zip",
+      "coordinate_provenance_locator": "sample_accession:SAMEA120246525 || science.adt2642_tables s1_to_s8.xlsx#Table_S3!row16 -> Table_S1!row44",
+      "fully_accountable": true
+    },
+    {
+      "evidence_row_id": "animal-atlas-row:felis-catus-prjeb81815-felis-catus-locality-prjeb81815-bremen253altstadtamwall-germany",
+      "species_latin_name": "Felis catus",
+      "project_accession": "PRJEB81815",
+      "site_record_id": "felis_catus:locality:prjeb81815:bremen253altstadtamwall:germany",
+      "sample_record_ids": [
+        "felis_catus:sample:prjeb81815:samea120246526"
+      ],
+      "sample_rows_present": true,
+      "sample_lineage_present": true,
+      "site_evidence_present": true,
+      "chronology_evidence_present": true,
+      "coordinate_provenance_present": true,
+      "sample_locality_matches_site_record": true,
+      "sample_lineage_paths": [
+        "data/adna/governance/source_library/papers/10.1126-science.adt2642/supplementary/science.adt2642_tables s1_to_s8.zip"
+      ],
+      "site_evidence_path": "data/adna/governance/source_library/papers/10.1126-science.adt2642/supplementary/science.adt2642_tables s1_to_s8.zip",
+      "site_evidence_locator": "sample_accession:SAMEA120246526 || science.adt2642_tables s1_to_s8.xlsx#Table_S3!row17 -> Table_S1!row45",
+      "chronology_provenance_paths": [
+        "data/adna/governance/source_library/papers/10.1126-science.adt2642/supplementary/science.adt2642_tables s1_to_s8.zip"
+      ],
+      "coordinate_provenance_path": "data/adna/governance/source_library/papers/10.1126-science.adt2642/supplementary/science.adt2642_tables s1_to_s8.zip",
+      "coordinate_provenance_locator": "sample_accession:SAMEA120246526 || science.adt2642_tables s1_to_s8.xlsx#Table_S3!row17 -> Table_S1!row45",
+      "fully_accountable": true
+    },
+    {
+      "evidence_row_id": "animal-atlas-row:felis-catus-prjeb81815-felis-catus-locality-prjeb81815-castiglioneinsabina-italy",
+      "species_latin_name": "Felis catus",
+      "project_accession": "PRJEB81815",
+      "site_record_id": "felis_catus:locality:prjeb81815:castiglioneinsabina:italy",
+      "sample_record_ids": [
+        "felis_catus:sample:prjeb81815:samea120246529"
+      ],
+      "sample_rows_present": true,
+      "sample_lineage_present": true,
+      "site_evidence_present": true,
+      "chronology_evidence_present": true,
+      "coordinate_provenance_present": true,
+      "sample_locality_matches_site_record": true,
+      "sample_lineage_paths": [
+        "data/adna/governance/source_library/papers/10.1126-science.adt2642/supplementary/science.adt2642_tables s1_to_s8.zip"
+      ],
+      "site_evidence_path": "data/adna/governance/source_library/papers/10.1126-science.adt2642/supplementary/science.adt2642_tables s1_to_s8.zip",
+      "site_evidence_locator": "sample_accession:SAMEA120246529 || science.adt2642_tables s1_to_s8.xlsx#Table_S3!row22 -> Table_S1!row74",
+      "chronology_provenance_paths": [
+        "data/adna/governance/source_library/papers/10.1126-science.adt2642/supplementary/science.adt2642_tables s1_to_s8.zip"
+      ],
+      "coordinate_provenance_path": "data/adna/governance/source_library/papers/10.1126-science.adt2642/supplementary/science.adt2642_tables s1_to_s8.zip",
+      "coordinate_provenance_locator": "sample_accession:SAMEA120246529 || science.adt2642_tables s1_to_s8.xlsx#Table_S3!row22 -> Table_S1!row74",
+      "fully_accountable": true
+    },
+    {
+      "evidence_row_id": "animal-atlas-row:felis-catus-prjeb81815-felis-catus-locality-prjeb81815-covadeelstrocshuesca-spain",
+      "species_latin_name": "Felis catus",
+      "project_accession": "PRJEB81815",
+      "site_record_id": "felis_catus:locality:prjeb81815:covadeelstrocshuesca:spain",
+      "sample_record_ids": [
+        "felis_catus:sample:prjeb81815:samea120246531"
+      ],
+      "sample_rows_present": true,
+      "sample_lineage_present": true,
+      "site_evidence_present": true,
+      "chronology_evidence_present": true,
+      "coordinate_provenance_present": true,
+      "sample_locality_matches_site_record": true,
+      "sample_lineage_paths": [
+        "data/adna/governance/source_library/papers/10.1126-science.adt2642/supplementary/science.adt2642_tables s1_to_s8.zip"
+      ],
+      "site_evidence_path": "data/adna/governance/source_library/papers/10.1126-science.adt2642/supplementary/science.adt2642_tables s1_to_s8.zip",
+      "site_evidence_locator": "sample_accession:SAMEA120246531 || science.adt2642_tables s1_to_s8.xlsx#Table_S3!row25 -> Table_S1!row186",
+      "chronology_provenance_paths": [
+        "data/adna/governance/source_library/papers/10.1126-science.adt2642/supplementary/science.adt2642_tables s1_to_s8.zip"
+      ],
+      "coordinate_provenance_path": "data/adna/governance/source_library/papers/10.1126-science.adt2642/supplementary/science.adt2642_tables s1_to_s8.zip",
+      "coordinate_provenance_locator": "sample_accession:SAMEA120246531 || science.adt2642_tables s1_to_s8.xlsx#Table_S3!row25 -> Table_S1!row186",
+      "fully_accountable": true
+    },
+    {
+      "evidence_row_id": "animal-atlas-row:felis-catus-prjeb81815-felis-catus-locality-prjeb81815-demircihyk-turkey",
+      "species_latin_name": "Felis catus",
+      "project_accession": "PRJEB81815",
+      "site_record_id": "felis_catus:locality:prjeb81815:demircihyk:turkey",
+      "sample_record_ids": [
+        "felis_catus:sample:prjeb81815:samea120246533"
+      ],
+      "sample_rows_present": true,
+      "sample_lineage_present": true,
+      "site_evidence_present": true,
+      "chronology_evidence_present": true,
+      "coordinate_provenance_present": true,
+      "sample_locality_matches_site_record": true,
+      "sample_lineage_paths": [
+        "data/adna/governance/source_library/papers/10.1126-science.adt2642/supplementary/science.adt2642_tables s1_to_s8.zip"
+      ],
+      "site_evidence_path": "data/adna/governance/source_library/papers/10.1126-science.adt2642/supplementary/science.adt2642_tables s1_to_s8.zip",
+      "site_evidence_locator": "sample_accession:SAMEA120246533 || science.adt2642_tables s1_to_s8.xlsx#Table_S3!row28 -> Table_S1!row205",
+      "chronology_provenance_paths": [
+        "data/adna/governance/source_library/papers/10.1126-science.adt2642/supplementary/science.adt2642_tables s1_to_s8.zip"
+      ],
+      "coordinate_provenance_path": "data/adna/governance/source_library/papers/10.1126-science.adt2642/supplementary/science.adt2642_tables s1_to_s8.zip",
+      "coordinate_provenance_locator": "sample_accession:SAMEA120246533 || science.adt2642_tables s1_to_s8.xlsx#Table_S3!row28 -> Table_S1!row205",
+      "fully_accountable": true
+    },
+    {
+      "evidence_row_id": "animal-atlas-row:felis-catus-prjeb81815-felis-catus-locality-prjeb81815-durankulak-bulgaria",
+      "species_latin_name": "Felis catus",
+      "project_accession": "PRJEB81815",
+      "site_record_id": "felis_catus:locality:prjeb81815:durankulak:bulgaria",
+      "sample_record_ids": [
+        "felis_catus:sample:prjeb81815:samea120246536",
+        "felis_catus:sample:prjeb81815:samea120246537",
+        "felis_catus:sample:prjeb81815:samea120246538",
+        "felis_catus:sample:prjeb81815:samea120246539"
+      ],
+      "sample_rows_present": true,
+      "sample_lineage_present": true,
+      "site_evidence_present": true,
+      "chronology_evidence_present": true,
+      "coordinate_provenance_present": true,
+      "sample_locality_matches_site_record": true,
+      "sample_lineage_paths": [
+        "data/adna/governance/source_library/papers/10.1126-science.adt2642/supplementary/science.adt2642_tables s1_to_s8.zip"
+      ],
+      "site_evidence_path": "data/adna/governance/source_library/papers/10.1126-science.adt2642/supplementary/science.adt2642_tables s1_to_s8.zip",
+      "site_evidence_locator": "sample_accession:SAMEA120246536 || science.adt2642_tables s1_to_s8.xlsx#Table_S3!row34 -> Table_S1!row30",
+      "chronology_provenance_paths": [
+        "data/adna/governance/source_library/papers/10.1126-science.adt2642/supplementary/science.adt2642_tables s1_to_s8.zip"
+      ],
+      "coordinate_provenance_path": "data/adna/governance/source_library/papers/10.1126-science.adt2642/supplementary/science.adt2642_tables s1_to_s8.zip",
+      "coordinate_provenance_locator": "sample_accession:SAMEA120246536 || science.adt2642_tables s1_to_s8.xlsx#Table_S3!row34 -> Table_S1!row30",
+      "fully_accountable": true
+    },
+    {
+      "evidence_row_id": "animal-atlas-row:felis-catus-prjeb81815-felis-catus-locality-prjeb81815-genonisantuantinesardinia-italy",
+      "species_latin_name": "Felis catus",
+      "project_accession": "PRJEB81815",
+      "site_record_id": "felis_catus:locality:prjeb81815:genonisantuantinesardinia:italy",
+      "sample_record_ids": [
+        "felis_catus:sample:prjeb81815:samea120246544"
+      ],
+      "sample_rows_present": true,
+      "sample_lineage_present": true,
+      "site_evidence_present": true,
+      "chronology_evidence_present": true,
+      "coordinate_provenance_present": true,
+      "sample_locality_matches_site_record": true,
+      "sample_lineage_paths": [
+        "data/adna/governance/source_library/papers/10.1126-science.adt2642/supplementary/science.adt2642_tables s1_to_s8.zip"
+      ],
+      "site_evidence_path": "data/adna/governance/source_library/papers/10.1126-science.adt2642/supplementary/science.adt2642_tables s1_to_s8.zip",
+      "site_evidence_locator": "sample_accession:SAMEA120246544 || science.adt2642_tables s1_to_s8.xlsx#Table_S3!row45 -> Table_S1!row92",
+      "chronology_provenance_paths": [
+        "data/adna/governance/source_library/papers/10.1126-science.adt2642/supplementary/science.adt2642_tables s1_to_s8.zip"
+      ],
+      "coordinate_provenance_path": "data/adna/governance/source_library/papers/10.1126-science.adt2642/supplementary/science.adt2642_tables s1_to_s8.zip",
+      "coordinate_provenance_locator": "sample_accession:SAMEA120246544 || science.adt2642_tables s1_to_s8.xlsx#Table_S3!row45 -> Table_S1!row92",
+      "fully_accountable": true
+    },
+    {
+      "evidence_row_id": "animal-atlas-row:felis-catus-prjeb81815-felis-catus-locality-prjeb81815-graffignanoviterbolatium-italy",
+      "species_latin_name": "Felis catus",
+      "project_accession": "PRJEB81815",
+      "site_record_id": "felis_catus:locality:prjeb81815:graffignanoviterbolatium:italy",
+      "sample_record_ids": [
+        "felis_catus:sample:prjeb81815:samea120246543"
+      ],
+      "sample_rows_present": true,
+      "sample_lineage_present": true,
+      "site_evidence_present": true,
+      "chronology_evidence_present": true,
+      "coordinate_provenance_present": true,
+      "sample_locality_matches_site_record": true,
+      "sample_lineage_paths": [
+        "data/adna/governance/source_library/papers/10.1126-science.adt2642/supplementary/science.adt2642_tables s1_to_s8.zip"
+      ],
+      "site_evidence_path": "data/adna/governance/source_library/papers/10.1126-science.adt2642/supplementary/science.adt2642_tables s1_to_s8.zip",
+      "site_evidence_locator": "sample_accession:SAMEA120246543 || science.adt2642_tables s1_to_s8.xlsx#Table_S3!row42 -> Table_S1!row91",
+      "chronology_provenance_paths": [
+        "data/adna/governance/source_library/papers/10.1126-science.adt2642/supplementary/science.adt2642_tables s1_to_s8.zip"
+      ],
+      "coordinate_provenance_path": "data/adna/governance/source_library/papers/10.1126-science.adt2642/supplementary/science.adt2642_tables s1_to_s8.zip",
+      "coordinate_provenance_locator": "sample_accession:SAMEA120246543 || science.adt2642_tables s1_to_s8.xlsx#Table_S3!row42 -> Table_S1!row91",
+      "fully_accountable": true
+    },
+    {
+      "evidence_row_id": "animal-atlas-row:felis-catus-prjeb81815-felis-catus-locality-prjeb81815-grottadelcoccinarniumbria-italy",
+      "species_latin_name": "Felis catus",
+      "project_accession": "PRJEB81815",
+      "site_record_id": "felis_catus:locality:prjeb81815:grottadelcoccinarniumbria:italy",
+      "sample_record_ids": [
+        "felis_catus:sample:prjeb81815:samea120246532"
+      ],
+      "sample_rows_present": true,
+      "sample_lineage_present": true,
+      "site_evidence_present": true,
+      "chronology_evidence_present": true,
+      "coordinate_provenance_present": true,
+      "sample_locality_matches_site_record": true,
+      "sample_lineage_paths": [
+        "data/adna/governance/source_library/papers/10.1126-science.adt2642/supplementary/science.adt2642_tables s1_to_s8.zip"
+      ],
+      "site_evidence_path": "data/adna/governance/source_library/papers/10.1126-science.adt2642/supplementary/science.adt2642_tables s1_to_s8.zip",
+      "site_evidence_locator": "sample_accession:SAMEA120246532 || science.adt2642_tables s1_to_s8.xlsx#Table_S3!row26 -> Table_S1!row76",
+      "chronology_provenance_paths": [
+        "data/adna/governance/source_library/papers/10.1126-science.adt2642/supplementary/science.adt2642_tables s1_to_s8.zip"
+      ],
+      "coordinate_provenance_path": "data/adna/governance/source_library/papers/10.1126-science.adt2642/supplementary/science.adt2642_tables s1_to_s8.zip",
+      "coordinate_provenance_locator": "sample_accession:SAMEA120246532 || science.adt2642_tables s1_to_s8.xlsx#Table_S3!row26 -> Table_S1!row76",
+      "fully_accountable": true
+    },
+    {
+      "evidence_row_id": "animal-atlas-row:felis-catus-prjeb81815-felis-catus-locality-prjeb81815-iznikromantheatre-turkey",
+      "species_latin_name": "Felis catus",
+      "project_accession": "PRJEB81815",
+      "site_record_id": "felis_catus:locality:prjeb81815:iznikromantheatre:turkey",
+      "sample_record_ids": [
+        "felis_catus:sample:prjeb81815:samea120246548"
+      ],
+      "sample_rows_present": true,
+      "sample_lineage_present": true,
+      "site_evidence_present": true,
+      "chronology_evidence_present": true,
+      "coordinate_provenance_present": true,
+      "sample_locality_matches_site_record": true,
+      "sample_lineage_paths": [
+        "data/adna/governance/source_library/papers/10.1126-science.adt2642/supplementary/science.adt2642_tables s1_to_s8.zip"
+      ],
+      "site_evidence_path": "data/adna/governance/source_library/papers/10.1126-science.adt2642/supplementary/science.adt2642_tables s1_to_s8.zip",
+      "site_evidence_locator": "sample_accession:SAMEA120246548 || science.adt2642_tables s1_to_s8.xlsx#Table_S3!row51 -> Table_S1!row207",
+      "chronology_provenance_paths": [
+        "data/adna/governance/source_library/papers/10.1126-science.adt2642/supplementary/science.adt2642_tables s1_to_s8.zip"
+      ],
+      "coordinate_provenance_path": "data/adna/governance/source_library/papers/10.1126-science.adt2642/supplementary/science.adt2642_tables s1_to_s8.zip",
+      "coordinate_provenance_locator": "sample_accession:SAMEA120246548 || science.adt2642_tables s1_to_s8.xlsx#Table_S3!row51 -> Table_S1!row207",
+      "fully_accountable": true
+    },
+    {
+      "evidence_row_id": "animal-atlas-row:felis-catus-prjeb81815-felis-catus-locality-prjeb81815-kassope-greece",
+      "species_latin_name": "Felis catus",
+      "project_accession": "PRJEB81815",
+      "site_record_id": "felis_catus:locality:prjeb81815:kassope:greece",
+      "sample_record_ids": [
+        "felis_catus:sample:prjeb81815:samea120246549",
+        "felis_catus:sample:prjeb81815:samea120246550"
+      ],
+      "sample_rows_present": true,
+      "sample_lineage_present": true,
+      "site_evidence_present": true,
+      "chronology_evidence_present": true,
+      "coordinate_provenance_present": true,
+      "sample_locality_matches_site_record": true,
+      "sample_lineage_paths": [
+        "data/adna/governance/source_library/papers/10.1126-science.adt2642/supplementary/science.adt2642_tables s1_to_s8.zip"
+      ],
+      "site_evidence_path": "data/adna/governance/source_library/papers/10.1126-science.adt2642/supplementary/science.adt2642_tables s1_to_s8.zip",
+      "site_evidence_locator": "sample_accession:SAMEA120246549 || science.adt2642_tables s1_to_s8.xlsx#Table_S3!row52 -> Table_S1!row63",
+      "chronology_provenance_paths": [
+        "data/adna/governance/source_library/papers/10.1126-science.adt2642/supplementary/science.adt2642_tables s1_to_s8.zip"
+      ],
+      "coordinate_provenance_path": "data/adna/governance/source_library/papers/10.1126-science.adt2642/supplementary/science.adt2642_tables s1_to_s8.zip",
+      "coordinate_provenance_locator": "sample_accession:SAMEA120246549 || science.adt2642_tables s1_to_s8.xlsx#Table_S3!row52 -> Table_S1!row63",
+      "fully_accountable": true
+    },
+    {
+      "evidence_row_id": "animal-atlas-row:felis-catus-prjeb81815-felis-catus-locality-prjeb81815-koprivec-bulgaria",
+      "species_latin_name": "Felis catus",
+      "project_accession": "PRJEB81815",
+      "site_record_id": "felis_catus:locality:prjeb81815:koprivec:bulgaria",
+      "sample_record_ids": [
+        "felis_catus:sample:prjeb81815:samea120246551"
+      ],
+      "sample_rows_present": true,
+      "sample_lineage_present": true,
+      "site_evidence_present": true,
+      "chronology_evidence_present": true,
+      "coordinate_provenance_present": true,
+      "sample_locality_matches_site_record": true,
+      "sample_lineage_paths": [
+        "data/adna/governance/source_library/papers/10.1126-science.adt2642/supplementary/science.adt2642_tables s1_to_s8.zip"
+      ],
+      "site_evidence_path": "data/adna/governance/source_library/papers/10.1126-science.adt2642/supplementary/science.adt2642_tables s1_to_s8.zip",
+      "site_evidence_locator": "sample_accession:SAMEA120246551 || science.adt2642_tables s1_to_s8.xlsx#Table_S3!row55 -> Table_S1!row37",
+      "chronology_provenance_paths": [
+        "data/adna/governance/source_library/papers/10.1126-science.adt2642/supplementary/science.adt2642_tables s1_to_s8.zip"
+      ],
+      "coordinate_provenance_path": "data/adna/governance/source_library/papers/10.1126-science.adt2642/supplementary/science.adt2642_tables s1_to_s8.zip",
+      "coordinate_provenance_locator": "sample_accession:SAMEA120246551 || science.adt2642_tables s1_to_s8.xlsx#Table_S3!row55 -> Table_S1!row37",
+      "fully_accountable": true
+    },
+    {
+      "evidence_row_id": "animal-atlas-row:felis-catus-prjeb81815-felis-catus-locality-prjeb81815-labastida-spain",
+      "species_latin_name": "Felis catus",
+      "project_accession": "PRJEB81815",
+      "site_record_id": "felis_catus:locality:prjeb81815:labastida:spain",
+      "sample_record_ids": [
+        "felis_catus:sample:prjeb81815:samea120246552"
+      ],
+      "sample_rows_present": true,
+      "sample_lineage_present": true,
+      "site_evidence_present": true,
+      "chronology_evidence_present": true,
+      "coordinate_provenance_present": true,
+      "sample_locality_matches_site_record": true,
+      "sample_lineage_paths": [
+        "data/adna/governance/source_library/papers/10.1126-science.adt2642/supplementary/science.adt2642_tables s1_to_s8.zip"
+      ],
+      "site_evidence_path": "data/adna/governance/source_library/papers/10.1126-science.adt2642/supplementary/science.adt2642_tables s1_to_s8.zip",
+      "site_evidence_locator": "sample_accession:SAMEA120246552 || science.adt2642_tables s1_to_s8.xlsx#Table_S3!row57 -> Table_S1!row187",
+      "chronology_provenance_paths": [
+        "data/adna/governance/source_library/papers/10.1126-science.adt2642/supplementary/science.adt2642_tables s1_to_s8.zip"
+      ],
+      "coordinate_provenance_path": "data/adna/governance/source_library/papers/10.1126-science.adt2642/supplementary/science.adt2642_tables s1_to_s8.zip",
+      "coordinate_provenance_locator": "sample_accession:SAMEA120246552 || science.adt2642_tables s1_to_s8.xlsx#Table_S3!row57 -> Table_S1!row187",
+      "fully_accountable": true
+    },
+    {
+      "evidence_row_id": "animal-atlas-row:felis-catus-prjeb81815-felis-catus-locality-prjeb81815-mauternvicusost-austria",
+      "species_latin_name": "Felis catus",
+      "project_accession": "PRJEB81815",
+      "site_record_id": "felis_catus:locality:prjeb81815:mauternvicusost:austria",
+      "sample_record_ids": [
+        "felis_catus:sample:prjeb81815:samea120246560"
+      ],
+      "sample_rows_present": true,
+      "sample_lineage_present": true,
+      "site_evidence_present": true,
+      "chronology_evidence_present": true,
+      "coordinate_provenance_present": true,
+      "sample_locality_matches_site_record": true,
+      "sample_lineage_paths": [
+        "data/adna/governance/source_library/papers/10.1126-science.adt2642/supplementary/science.adt2642_tables s1_to_s8.zip"
+      ],
+      "site_evidence_path": "data/adna/governance/source_library/papers/10.1126-science.adt2642/supplementary/science.adt2642_tables s1_to_s8.zip",
+      "site_evidence_locator": "sample_accession:SAMEA120246560 || science.adt2642_tables s1_to_s8.xlsx#Table_S3!row65 -> Table_S1!row6",
+      "chronology_provenance_paths": [
+        "data/adna/governance/source_library/papers/10.1126-science.adt2642/supplementary/science.adt2642_tables s1_to_s8.zip"
+      ],
+      "coordinate_provenance_path": "data/adna/governance/source_library/papers/10.1126-science.adt2642/supplementary/science.adt2642_tables s1_to_s8.zip",
+      "coordinate_provenance_locator": "sample_accession:SAMEA120246560 || science.adt2642_tables s1_to_s8.xlsx#Table_S3!row65 -> Table_S1!row6",
+      "fully_accountable": true
+    },
+    {
+      "evidence_row_id": "animal-atlas-row:felis-catus-prjeb81815-felis-catus-locality-prjeb81815-mentee-turkey",
+      "species_latin_name": "Felis catus",
+      "project_accession": "PRJEB81815",
+      "site_record_id": "felis_catus:locality:prjeb81815:mentee:turkey",
+      "sample_record_ids": [
+        "felis_catus:sample:prjeb81815:samea120246555"
+      ],
+      "sample_rows_present": true,
+      "sample_lineage_present": true,
+      "site_evidence_present": true,
+      "chronology_evidence_present": true,
+      "coordinate_provenance_present": true,
+      "sample_locality_matches_site_record": true,
+      "sample_lineage_paths": [
+        "data/adna/governance/source_library/papers/10.1126-science.adt2642/supplementary/science.adt2642_tables s1_to_s8.zip"
+      ],
+      "site_evidence_path": "data/adna/governance/source_library/papers/10.1126-science.adt2642/supplementary/science.adt2642_tables s1_to_s8.zip",
+      "site_evidence_locator": "sample_accession:SAMEA120246555 || science.adt2642_tables s1_to_s8.xlsx#Table_S3!row60 -> Table_S1!row209",
+      "chronology_provenance_paths": [
+        "data/adna/governance/source_library/papers/10.1126-science.adt2642/supplementary/science.adt2642_tables s1_to_s8.zip"
+      ],
+      "coordinate_provenance_path": "data/adna/governance/source_library/papers/10.1126-science.adt2642/supplementary/science.adt2642_tables s1_to_s8.zip",
+      "coordinate_provenance_locator": "sample_accession:SAMEA120246555 || science.adt2642_tables s1_to_s8.xlsx#Table_S3!row60 -> Table_S1!row209",
+      "fully_accountable": true
+    },
+    {
+      "evidence_row_id": "animal-atlas-row:felis-catus-prjeb81815-felis-catus-locality-prjeb81815-musarnaviterbolatium-italy",
+      "species_latin_name": "Felis catus",
+      "project_accession": "PRJEB81815",
+      "site_record_id": "felis_catus:locality:prjeb81815:musarnaviterbolatium:italy",
+      "sample_record_ids": [
+        "felis_catus:sample:prjeb81815:samea120246561"
+      ],
+      "sample_rows_present": true,
+      "sample_lineage_present": true,
+      "site_evidence_present": true,
+      "chronology_evidence_present": true,
+      "coordinate_provenance_present": true,
+      "sample_locality_matches_site_record": true,
+      "sample_lineage_paths": [
+        "data/adna/governance/source_library/papers/10.1126-science.adt2642/supplementary/science.adt2642_tables s1_to_s8.zip"
+      ],
+      "site_evidence_path": "data/adna/governance/source_library/papers/10.1126-science.adt2642/supplementary/science.adt2642_tables s1_to_s8.zip",
+      "site_evidence_locator": "sample_accession:SAMEA120246561 || science.adt2642_tables s1_to_s8.xlsx#Table_S3!row68 -> Table_S1!row105",
+      "chronology_provenance_paths": [
+        "data/adna/governance/source_library/papers/10.1126-science.adt2642/supplementary/science.adt2642_tables s1_to_s8.zip"
+      ],
+      "coordinate_provenance_path": "data/adna/governance/source_library/papers/10.1126-science.adt2642/supplementary/science.adt2642_tables s1_to_s8.zip",
+      "coordinate_provenance_locator": "sample_accession:SAMEA120246561 || science.adt2642_tables s1_to_s8.xlsx#Table_S3!row68 -> Table_S1!row105",
+      "fully_accountable": true
+    },
+    {
+      "evidence_row_id": "animal-atlas-row:felis-catus-prjeb81815-felis-catus-locality-prjeb81815-nardtorresantacaterina-italy",
+      "species_latin_name": "Felis catus",
+      "project_accession": "PRJEB81815",
+      "site_record_id": "felis_catus:locality:prjeb81815:nardtorresantacaterina:italy",
+      "sample_record_ids": [
+        "felis_catus:sample:prjeb81815:samea120246576"
+      ],
+      "sample_rows_present": true,
+      "sample_lineage_present": true,
+      "site_evidence_present": true,
+      "chronology_evidence_present": true,
+      "coordinate_provenance_present": true,
+      "sample_locality_matches_site_record": true,
+      "sample_lineage_paths": [
+        "data/adna/governance/source_library/papers/10.1126-science.adt2642/supplementary/science.adt2642_tables s1_to_s8.zip"
+      ],
+      "site_evidence_path": "data/adna/governance/source_library/papers/10.1126-science.adt2642/supplementary/science.adt2642_tables s1_to_s8.zip",
+      "site_evidence_locator": "sample_accession:SAMEA120246576 || science.adt2642_tables s1_to_s8.xlsx#Table_S3!row91 -> Table_S1!row132",
+      "chronology_provenance_paths": [
+        "data/adna/governance/source_library/papers/10.1126-science.adt2642/supplementary/science.adt2642_tables s1_to_s8.zip"
+      ],
+      "coordinate_provenance_path": "data/adna/governance/source_library/papers/10.1126-science.adt2642/supplementary/science.adt2642_tables s1_to_s8.zip",
+      "coordinate_provenance_locator": "sample_accession:SAMEA120246576 || science.adt2642_tables s1_to_s8.xlsx#Table_S3!row91 -> Table_S1!row132",
+      "fully_accountable": true
+    },
+    {
+      "evidence_row_id": "animal-atlas-row:felis-catus-prjeb81815-felis-catus-locality-prjeb81815-padovaviacesarebattistiveneto-italy",
+      "species_latin_name": "Felis catus",
+      "project_accession": "PRJEB81815",
+      "site_record_id": "felis_catus:locality:prjeb81815:padovaviacesarebattistiveneto:italy",
+      "sample_record_ids": [
+        "felis_catus:sample:prjeb81815:samea120246562"
+      ],
+      "sample_rows_present": true,
+      "sample_lineage_present": true,
+      "site_evidence_present": true,
+      "chronology_evidence_present": true,
+      "coordinate_provenance_present": true,
+      "sample_locality_matches_site_record": true,
+      "sample_lineage_paths": [
+        "data/adna/governance/source_library/papers/10.1126-science.adt2642/supplementary/science.adt2642_tables s1_to_s8.zip"
+      ],
+      "site_evidence_path": "data/adna/governance/source_library/papers/10.1126-science.adt2642/supplementary/science.adt2642_tables s1_to_s8.zip",
+      "site_evidence_locator": "sample_accession:SAMEA120246562 || science.adt2642_tables s1_to_s8.xlsx#Table_S3!row70 -> Table_S1!row106",
+      "chronology_provenance_paths": [
+        "data/adna/governance/source_library/papers/10.1126-science.adt2642/supplementary/science.adt2642_tables s1_to_s8.zip"
+      ],
+      "coordinate_provenance_path": "data/adna/governance/source_library/papers/10.1126-science.adt2642/supplementary/science.adt2642_tables s1_to_s8.zip",
+      "coordinate_provenance_locator": "sample_accession:SAMEA120246562 || science.adt2642_tables s1_to_s8.xlsx#Table_S3!row70 -> Table_S1!row106",
+      "fully_accountable": true
+    },
+    {
+      "evidence_row_id": "animal-atlas-row:felis-catus-prjeb81815-felis-catus-locality-prjeb81815-palatinonortheastsloperome-italy",
+      "species_latin_name": "Felis catus",
+      "project_accession": "PRJEB81815",
+      "site_record_id": "felis_catus:locality:prjeb81815:palatinonortheastsloperome:italy",
+      "sample_record_ids": [
+        "felis_catus:sample:prjeb81815:samea120246567",
+        "felis_catus:sample:prjeb81815:samea120246568"
+      ],
+      "sample_rows_present": true,
+      "sample_lineage_present": true,
+      "site_evidence_present": true,
+      "chronology_evidence_present": true,
+      "coordinate_provenance_present": true,
+      "sample_locality_matches_site_record": true,
+      "sample_lineage_paths": [
+        "data/adna/governance/source_library/papers/10.1126-science.adt2642/supplementary/science.adt2642_tables s1_to_s8.zip"
+      ],
+      "site_evidence_path": "data/adna/governance/source_library/papers/10.1126-science.adt2642/supplementary/science.adt2642_tables s1_to_s8.zip",
+      "site_evidence_locator": "sample_accession:SAMEA120246567 || science.adt2642_tables s1_to_s8.xlsx#Table_S3!row77 -> Table_S1!row114",
+      "chronology_provenance_paths": [
+        "data/adna/governance/source_library/papers/10.1126-science.adt2642/supplementary/science.adt2642_tables s1_to_s8.zip"
+      ],
+      "coordinate_provenance_path": "data/adna/governance/source_library/papers/10.1126-science.adt2642/supplementary/science.adt2642_tables s1_to_s8.zip",
+      "coordinate_provenance_locator": "sample_accession:SAMEA120246567 || science.adt2642_tables s1_to_s8.xlsx#Table_S3!row77 -> Table_S1!row114",
+      "fully_accountable": true
+    },
+    {
+      "evidence_row_id": "animal-atlas-row:felis-catus-prjeb81815-felis-catus-locality-prjeb81815-palmelacastle-portugal",
+      "species_latin_name": "Felis catus",
+      "project_accession": "PRJEB81815",
+      "site_record_id": "felis_catus:locality:prjeb81815:palmelacastle:portugal",
+      "sample_record_ids": [
+        "felis_catus:sample:prjeb81815:samea120246563",
+        "felis_catus:sample:prjeb81815:samea120246564"
+      ],
+      "sample_rows_present": true,
+      "sample_lineage_present": true,
+      "site_evidence_present": true,
+      "chronology_evidence_present": true,
+      "coordinate_provenance_present": true,
+      "sample_locality_matches_site_record": true,
+      "sample_lineage_paths": [
+        "data/adna/governance/source_library/papers/10.1126-science.adt2642/supplementary/science.adt2642_tables s1_to_s8.zip"
+      ],
+      "site_evidence_path": "data/adna/governance/source_library/papers/10.1126-science.adt2642/supplementary/science.adt2642_tables s1_to_s8.zip",
+      "site_evidence_locator": "sample_accession:SAMEA120246563 || science.adt2642_tables s1_to_s8.xlsx#Table_S3!row71 -> Table_S1!row161",
+      "chronology_provenance_paths": [
+        "data/adna/governance/source_library/papers/10.1126-science.adt2642/supplementary/science.adt2642_tables s1_to_s8.zip"
+      ],
+      "coordinate_provenance_path": "data/adna/governance/source_library/papers/10.1126-science.adt2642/supplementary/science.adt2642_tables s1_to_s8.zip",
+      "coordinate_provenance_locator": "sample_accession:SAMEA120246563 || science.adt2642_tables s1_to_s8.xlsx#Table_S3!row71 -> Table_S1!row161",
+      "fully_accountable": true
+    },
+    {
+      "evidence_row_id": "animal-atlas-row:felis-catus-prjeb81815-felis-catus-locality-prjeb81815-parking58brussels-belgium",
+      "species_latin_name": "Felis catus",
+      "project_accession": "PRJEB81815",
+      "site_record_id": "felis_catus:locality:prjeb81815:parking58brussels:belgium",
+      "sample_record_ids": [
+        "felis_catus:sample:prjeb81815:samea120246527",
+        "felis_catus:sample:prjeb81815:samea120246528"
+      ],
+      "sample_rows_present": true,
+      "sample_lineage_present": true,
+      "site_evidence_present": true,
+      "chronology_evidence_present": true,
+      "coordinate_provenance_present": true,
+      "sample_locality_matches_site_record": true,
+      "sample_lineage_paths": [
+        "data/adna/governance/source_library/papers/10.1126-science.adt2642/supplementary/science.adt2642_tables s1_to_s8.zip"
+      ],
+      "site_evidence_path": "data/adna/governance/source_library/papers/10.1126-science.adt2642/supplementary/science.adt2642_tables s1_to_s8.zip",
+      "site_evidence_locator": "sample_accession:SAMEA120246527 || science.adt2642_tables s1_to_s8.xlsx#Table_S3!row18 -> Table_S1!row23",
+      "chronology_provenance_paths": [
+        "data/adna/governance/source_library/papers/10.1126-science.adt2642/supplementary/science.adt2642_tables s1_to_s8.zip"
+      ],
+      "coordinate_provenance_path": "data/adna/governance/source_library/papers/10.1126-science.adt2642/supplementary/science.adt2642_tables s1_to_s8.zip",
+      "coordinate_provenance_locator": "sample_accession:SAMEA120246527 || science.adt2642_tables s1_to_s8.xlsx#Table_S3!row18 -> Table_S1!row23",
+      "fully_accountable": true
+    },
+    {
+      "evidence_row_id": "animal-atlas-row:felis-catus-prjeb81815-felis-catus-locality-prjeb81815-petronellcarnuntum-austria",
+      "species_latin_name": "Felis catus",
+      "project_accession": "PRJEB81815",
+      "site_record_id": "felis_catus:locality:prjeb81815:petronellcarnuntum:austria",
+      "sample_record_ids": [
+        "felis_catus:sample:prjeb81815:samea120246565",
+        "felis_catus:sample:prjeb81815:samea120246566"
+      ],
+      "sample_rows_present": true,
+      "sample_lineage_present": true,
+      "site_evidence_present": true,
+      "chronology_evidence_present": true,
+      "coordinate_provenance_present": true,
+      "sample_locality_matches_site_record": true,
+      "sample_lineage_paths": [
+        "data/adna/governance/source_library/papers/10.1126-science.adt2642/supplementary/science.adt2642_tables s1_to_s8.zip"
+      ],
+      "site_evidence_path": "data/adna/governance/source_library/papers/10.1126-science.adt2642/supplementary/science.adt2642_tables s1_to_s8.zip",
+      "site_evidence_locator": "sample_accession:SAMEA120246565 || science.adt2642_tables s1_to_s8.xlsx#Table_S3!row75 -> Table_S1!row14",
+      "chronology_provenance_paths": [
+        "data/adna/governance/source_library/papers/10.1126-science.adt2642/supplementary/science.adt2642_tables s1_to_s8.zip"
+      ],
+      "coordinate_provenance_path": "data/adna/governance/source_library/papers/10.1126-science.adt2642/supplementary/science.adt2642_tables s1_to_s8.zip",
+      "coordinate_provenance_locator": "sample_accession:SAMEA120246565 || science.adt2642_tables s1_to_s8.xlsx#Table_S3!row75 -> Table_S1!row14",
+      "fully_accountable": true
+    },
+    {
+      "evidence_row_id": "animal-atlas-row:felis-catus-prjeb81815-felis-catus-locality-prjeb81815-romesceciliaintrastevere-italy",
+      "species_latin_name": "Felis catus",
+      "project_accession": "PRJEB81815",
+      "site_record_id": "felis_catus:locality:prjeb81815:romesceciliaintrastevere:italy",
+      "sample_record_ids": [
+        "felis_catus:sample:prjeb81815:samea120246530"
+      ],
+      "sample_rows_present": true,
+      "sample_lineage_present": true,
+      "site_evidence_present": true,
+      "chronology_evidence_present": true,
+      "coordinate_provenance_present": true,
+      "sample_locality_matches_site_record": true,
+      "sample_lineage_paths": [
+        "data/adna/governance/source_library/papers/10.1126-science.adt2642/supplementary/science.adt2642_tables s1_to_s8.zip"
+      ],
+      "site_evidence_path": "data/adna/governance/source_library/papers/10.1126-science.adt2642/supplementary/science.adt2642_tables s1_to_s8.zip",
+      "site_evidence_locator": "sample_accession:SAMEA120246530 || science.adt2642_tables s1_to_s8.xlsx#Table_S3!row23 -> Table_S1!row75",
+      "chronology_provenance_paths": [
+        "data/adna/governance/source_library/papers/10.1126-science.adt2642/supplementary/science.adt2642_tables s1_to_s8.zip"
+      ],
+      "coordinate_provenance_path": "data/adna/governance/source_library/papers/10.1126-science.adt2642/supplementary/science.adt2642_tables s1_to_s8.zip",
+      "coordinate_provenance_locator": "sample_accession:SAMEA120246530 || science.adt2642_tables s1_to_s8.xlsx#Table_S3!row23 -> Table_S1!row75",
+      "fully_accountable": true
+    },
+    {
+      "evidence_row_id": "animal-atlas-row:felis-catus-prjeb81815-felis-catus-locality-prjeb81815-sagalassos-turkey",
+      "species_latin_name": "Felis catus",
+      "project_accession": "PRJEB81815",
+      "site_record_id": "felis_catus:locality:prjeb81815:sagalassos:turkey",
+      "sample_record_ids": [
+        "felis_catus:sample:prjeb81815:samea120246573"
+      ],
+      "sample_rows_present": true,
+      "sample_lineage_present": true,
+      "site_evidence_present": true,
+      "chronology_evidence_present": true,
+      "coordinate_provenance_present": true,
+      "sample_locality_matches_site_record": true,
+      "sample_lineage_paths": [
+        "data/adna/governance/source_library/papers/10.1126-science.adt2642/supplementary/science.adt2642_tables s1_to_s8.zip"
+      ],
+      "site_evidence_path": "data/adna/governance/source_library/papers/10.1126-science.adt2642/supplementary/science.adt2642_tables s1_to_s8.zip",
+      "site_evidence_locator": "sample_accession:SAMEA120246573 || science.adt2642_tables s1_to_s8.xlsx#Table_S3!row87 -> Table_S1!row215",
+      "chronology_provenance_paths": [
+        "data/adna/governance/source_library/papers/10.1126-science.adt2642/supplementary/science.adt2642_tables s1_to_s8.zip"
+      ],
+      "coordinate_provenance_path": "data/adna/governance/source_library/papers/10.1126-science.adt2642/supplementary/science.adt2642_tables s1_to_s8.zip",
+      "coordinate_provenance_locator": "sample_accession:SAMEA120246573 || science.adt2642_tables s1_to_s8.xlsx#Table_S3!row87 -> Table_S1!row215",
+      "fully_accountable": true
+    },
+    {
+      "evidence_row_id": "animal-atlas-row:felis-catus-prjeb81815-felis-catus-locality-prjeb81815-salzburgresidenz-austria",
+      "species_latin_name": "Felis catus",
+      "project_accession": "PRJEB81815",
+      "site_record_id": "felis_catus:locality:prjeb81815:salzburgresidenz:austria",
+      "sample_record_ids": [
+        "felis_catus:sample:prjeb81815:samea120246575"
+      ],
+      "sample_rows_present": true,
+      "sample_lineage_present": true,
+      "site_evidence_present": true,
+      "chronology_evidence_present": true,
+      "coordinate_provenance_present": true,
+      "sample_locality_matches_site_record": true,
+      "sample_lineage_paths": [
+        "data/adna/governance/source_library/papers/10.1126-science.adt2642/supplementary/science.adt2642_tables s1_to_s8.zip"
+      ],
+      "site_evidence_path": "data/adna/governance/source_library/papers/10.1126-science.adt2642/supplementary/science.adt2642_tables s1_to_s8.zip",
+      "site_evidence_locator": "sample_accession:SAMEA120246575 || science.adt2642_tables s1_to_s8.xlsx#Table_S3!row89 -> Table_S1!row17",
+      "chronology_provenance_paths": [
+        "data/adna/governance/source_library/papers/10.1126-science.adt2642/supplementary/science.adt2642_tables s1_to_s8.zip"
+      ],
+      "coordinate_provenance_path": "data/adna/governance/source_library/papers/10.1126-science.adt2642/supplementary/science.adt2642_tables s1_to_s8.zip",
+      "coordinate_provenance_locator": "sample_accession:SAMEA120246575 || science.adt2642_tables s1_to_s8.xlsx#Table_S3!row89 -> Table_S1!row17",
+      "fully_accountable": true
+    },
+    {
+      "evidence_row_id": "animal-atlas-row:felis-catus-prjeb81815-felis-catus-locality-prjeb81815-saracenacosenzacalabria-italy",
+      "species_latin_name": "Felis catus",
+      "project_accession": "PRJEB81815",
+      "site_record_id": "felis_catus:locality:prjeb81815:saracenacosenzacalabria:italy",
+      "sample_record_ids": [
+        "felis_catus:sample:prjeb81815:samea120246574"
+      ],
+      "sample_rows_present": true,
+      "sample_lineage_present": true,
+      "site_evidence_present": true,
+      "chronology_evidence_present": true,
+      "coordinate_provenance_present": true,
+      "sample_locality_matches_site_record": true,
+      "sample_lineage_paths": [
+        "data/adna/governance/source_library/papers/10.1126-science.adt2642/supplementary/science.adt2642_tables s1_to_s8.zip"
+      ],
+      "site_evidence_path": "data/adna/governance/source_library/papers/10.1126-science.adt2642/supplementary/science.adt2642_tables s1_to_s8.zip",
+      "site_evidence_locator": "sample_accession:SAMEA120246574 || science.adt2642_tables s1_to_s8.xlsx#Table_S3!row88 -> Table_S1!row130",
+      "chronology_provenance_paths": [
+        "data/adna/governance/source_library/papers/10.1126-science.adt2642/supplementary/science.adt2642_tables s1_to_s8.zip"
+      ],
+      "coordinate_provenance_path": "data/adna/governance/source_library/papers/10.1126-science.adt2642/supplementary/science.adt2642_tables s1_to_s8.zip",
+      "coordinate_provenance_locator": "sample_accession:SAMEA120246574 || science.adt2642_tables s1_to_s8.xlsx#Table_S3!row88 -> Table_S1!row130",
+      "fully_accountable": true
+    },
+    {
+      "evidence_row_id": "animal-atlas-row:felis-catus-prjeb81815-felis-catus-locality-prjeb81815-sassaripalazzoducalesardinia-italy",
+      "species_latin_name": "Felis catus",
+      "project_accession": "PRJEB81815",
+      "site_record_id": "felis_catus:locality:prjeb81815:sassaripalazzoducalesardinia:italy",
+      "sample_record_ids": [
+        "felis_catus:sample:prjeb81815:samea120246577"
+      ],
+      "sample_rows_present": true,
+      "sample_lineage_present": true,
+      "site_evidence_present": true,
+      "chronology_evidence_present": true,
+      "coordinate_provenance_present": true,
+      "sample_locality_matches_site_record": true,
+      "sample_lineage_paths": [
+        "data/adna/governance/source_library/papers/10.1126-science.adt2642/supplementary/science.adt2642_tables s1_to_s8.zip"
+      ],
+      "site_evidence_path": "data/adna/governance/source_library/papers/10.1126-science.adt2642/supplementary/science.adt2642_tables s1_to_s8.zip",
+      "site_evidence_locator": "sample_accession:SAMEA120246577 || science.adt2642_tables s1_to_s8.xlsx#Table_S3!row92 -> Table_S1!row135",
+      "chronology_provenance_paths": [
+        "data/adna/governance/source_library/papers/10.1126-science.adt2642/supplementary/science.adt2642_tables s1_to_s8.zip"
+      ],
+      "coordinate_provenance_path": "data/adna/governance/source_library/papers/10.1126-science.adt2642/supplementary/science.adt2642_tables s1_to_s8.zip",
+      "coordinate_provenance_locator": "sample_accession:SAMEA120246577 || science.adt2642_tables s1_to_s8.xlsx#Table_S3!row92 -> Table_S1!row135",
+      "fully_accountable": true
+    },
+    {
+      "evidence_row_id": "animal-atlas-row:felis-catus-prjeb81815-felis-catus-locality-prjeb81815-tabernasspain-spain",
+      "species_latin_name": "Felis catus",
+      "project_accession": "PRJEB81815",
+      "site_record_id": "felis_catus:locality:prjeb81815:tabernasspain:spain",
+      "sample_record_ids": [
+        "felis_catus:sample:prjeb81815:samea120246578"
+      ],
+      "sample_rows_present": true,
+      "sample_lineage_present": true,
+      "site_evidence_present": true,
+      "chronology_evidence_present": true,
+      "coordinate_provenance_present": true,
+      "sample_locality_matches_site_record": true,
+      "sample_lineage_paths": [
+        "data/adna/governance/source_library/papers/10.1126-science.adt2642/supplementary/science.adt2642_tables s1_to_s8.zip"
+      ],
+      "site_evidence_path": "data/adna/governance/source_library/papers/10.1126-science.adt2642/supplementary/science.adt2642_tables s1_to_s8.zip",
+      "site_evidence_locator": "sample_accession:SAMEA120246578 || science.adt2642_tables s1_to_s8.xlsx#Table_S3!row93 -> Table_S1!row192",
+      "chronology_provenance_paths": [
+        "data/adna/governance/source_library/papers/10.1126-science.adt2642/supplementary/science.adt2642_tables s1_to_s8.zip"
+      ],
+      "coordinate_provenance_path": "data/adna/governance/source_library/papers/10.1126-science.adt2642/supplementary/science.adt2642_tables s1_to_s8.zip",
+      "coordinate_provenance_locator": "sample_accession:SAMEA120246578 || science.adt2642_tables s1_to_s8.xlsx#Table_S3!row93 -> Table_S1!row192",
+      "fully_accountable": true
+    },
+    {
+      "evidence_row_id": "animal-atlas-row:felis-catus-prjeb81815-felis-catus-locality-prjeb81815-terteniasardinia-italy",
+      "species_latin_name": "Felis catus",
+      "project_accession": "PRJEB81815",
+      "site_record_id": "felis_catus:locality:prjeb81815:terteniasardinia:italy",
+      "sample_record_ids": [
+        "felis_catus:sample:prjeb81815:samea120246579"
+      ],
+      "sample_rows_present": true,
+      "sample_lineage_present": true,
+      "site_evidence_present": true,
+      "chronology_evidence_present": true,
+      "coordinate_provenance_present": true,
+      "sample_locality_matches_site_record": true,
+      "sample_lineage_paths": [
+        "data/adna/governance/source_library/papers/10.1126-science.adt2642/supplementary/science.adt2642_tables s1_to_s8.zip"
+      ],
+      "site_evidence_path": "data/adna/governance/source_library/papers/10.1126-science.adt2642/supplementary/science.adt2642_tables s1_to_s8.zip",
+      "site_evidence_locator": "sample_accession:SAMEA120246579 || science.adt2642_tables s1_to_s8.xlsx#Table_S3!row95 -> Table_S1!row144",
+      "chronology_provenance_paths": [
+        "data/adna/governance/source_library/papers/10.1126-science.adt2642/supplementary/science.adt2642_tables s1_to_s8.zip"
+      ],
+      "coordinate_provenance_path": "data/adna/governance/source_library/papers/10.1126-science.adt2642/supplementary/science.adt2642_tables s1_to_s8.zip",
+      "coordinate_provenance_locator": "sample_accession:SAMEA120246579 || science.adt2642_tables s1_to_s8.xlsx#Table_S3!row95 -> Table_S1!row144",
+      "fully_accountable": true
+    },
+    {
+      "evidence_row_id": "animal-atlas-row:felis-catus-prjeb81815-felis-catus-locality-prjeb81815-tongerenindustrieoost-belgium",
+      "species_latin_name": "Felis catus",
+      "project_accession": "PRJEB81815",
+      "site_record_id": "felis_catus:locality:prjeb81815:tongerenindustrieoost:belgium",
+      "sample_record_ids": [
+        "felis_catus:sample:prjeb81815:samea120246580"
+      ],
+      "sample_rows_present": true,
+      "sample_lineage_present": true,
+      "site_evidence_present": true,
+      "chronology_evidence_present": true,
+      "coordinate_provenance_present": true,
+      "sample_locality_matches_site_record": true,
+      "sample_lineage_paths": [
+        "data/adna/governance/source_library/papers/10.1126-science.adt2642/supplementary/science.adt2642_tables s1_to_s8.zip"
+      ],
+      "site_evidence_path": "data/adna/governance/source_library/papers/10.1126-science.adt2642/supplementary/science.adt2642_tables s1_to_s8.zip",
+      "site_evidence_locator": "sample_accession:SAMEA120246580 || science.adt2642_tables s1_to_s8.xlsx#Table_S3!row96 -> Table_S1!row25",
+      "chronology_provenance_paths": [
+        "data/adna/governance/source_library/papers/10.1126-science.adt2642/supplementary/science.adt2642_tables s1_to_s8.zip"
+      ],
+      "coordinate_provenance_path": "data/adna/governance/source_library/papers/10.1126-science.adt2642/supplementary/science.adt2642_tables s1_to_s8.zip",
+      "coordinate_provenance_locator": "sample_accession:SAMEA120246580 || science.adt2642_tables s1_to_s8.xlsx#Table_S3!row96 -> Table_S1!row25",
+      "fully_accountable": true
+    },
+    {
+      "evidence_row_id": "animal-atlas-row:felis-catus-prjeb81815-felis-catus-locality-prjeb81815-traismauer-austria",
+      "species_latin_name": "Felis catus",
+      "project_accession": "PRJEB81815",
+      "site_record_id": "felis_catus:locality:prjeb81815:traismauer:austria",
+      "sample_record_ids": [
+        "felis_catus:sample:prjeb81815:samea120246581"
+      ],
+      "sample_rows_present": true,
+      "sample_lineage_present": true,
+      "site_evidence_present": true,
+      "chronology_evidence_present": true,
+      "coordinate_provenance_present": true,
+      "sample_locality_matches_site_record": true,
+      "sample_lineage_paths": [
+        "data/adna/governance/source_library/papers/10.1126-science.adt2642/supplementary/science.adt2642_tables s1_to_s8.zip"
+      ],
+      "site_evidence_path": "data/adna/governance/source_library/papers/10.1126-science.adt2642/supplementary/science.adt2642_tables s1_to_s8.zip",
+      "site_evidence_locator": "sample_accession:SAMEA120246581 || science.adt2642_tables s1_to_s8.xlsx#Table_S3!row97 -> Table_S1!row18",
+      "chronology_provenance_paths": [
+        "data/adna/governance/source_library/papers/10.1126-science.adt2642/supplementary/science.adt2642_tables s1_to_s8.zip"
+      ],
+      "coordinate_provenance_path": "data/adna/governance/source_library/papers/10.1126-science.adt2642/supplementary/science.adt2642_tables s1_to_s8.zip",
+      "coordinate_provenance_locator": "sample_accession:SAMEA120246581 || science.adt2642_tables s1_to_s8.xlsx#Table_S3!row97 -> Table_S1!row18",
+      "fully_accountable": true
+    },
+    {
+      "evidence_row_id": "animal-atlas-row:felis-catus-prjeb81815-felis-catus-locality-prjeb81815-viminaciumamphitheatre-serbia",
+      "species_latin_name": "Felis catus",
+      "project_accession": "PRJEB81815",
+      "site_record_id": "felis_catus:locality:prjeb81815:viminaciumamphitheatre:serbia",
+      "sample_record_ids": [
+        "felis_catus:sample:prjeb81815:samea120246582",
+        "felis_catus:sample:prjeb81815:samea120246583"
+      ],
+      "sample_rows_present": true,
+      "sample_lineage_present": true,
+      "site_evidence_present": true,
+      "chronology_evidence_present": true,
+      "coordinate_provenance_present": true,
+      "sample_locality_matches_site_record": true,
+      "sample_lineage_paths": [
+        "data/adna/governance/source_library/papers/10.1126-science.adt2642/supplementary/science.adt2642_tables s1_to_s8.zip"
+      ],
+      "site_evidence_path": "data/adna/governance/source_library/papers/10.1126-science.adt2642/supplementary/science.adt2642_tables s1_to_s8.zip",
+      "site_evidence_locator": "sample_accession:SAMEA120246582 || science.adt2642_tables s1_to_s8.xlsx#Table_S3!row98 -> Table_S1!row172",
+      "chronology_provenance_paths": [
+        "data/adna/governance/source_library/papers/10.1126-science.adt2642/supplementary/science.adt2642_tables s1_to_s8.zip"
+      ],
+      "coordinate_provenance_path": "data/adna/governance/source_library/papers/10.1126-science.adt2642/supplementary/science.adt2642_tables s1_to_s8.zip",
+      "coordinate_provenance_locator": "sample_accession:SAMEA120246582 || science.adt2642_tables s1_to_s8.xlsx#Table_S3!row98 -> Table_S1!row172",
+      "fully_accountable": true
+    },
+    {
+      "evidence_row_id": "animal-atlas-row:felis-catus-prjeb81815-felis-catus-locality-prjeb81815-viminaciumnadklepakom-serbia",
+      "species_latin_name": "Felis catus",
+      "project_accession": "PRJEB81815",
+      "site_record_id": "felis_catus:locality:prjeb81815:viminaciumnadklepakom:serbia",
+      "sample_record_ids": [
+        "felis_catus:sample:prjeb81815:samea120246584"
+      ],
+      "sample_rows_present": true,
+      "sample_lineage_present": true,
+      "site_evidence_present": true,
+      "chronology_evidence_present": true,
+      "coordinate_provenance_present": true,
+      "sample_locality_matches_site_record": true,
+      "sample_lineage_paths": [
+        "data/adna/governance/source_library/papers/10.1126-science.adt2642/supplementary/science.adt2642_tables s1_to_s8.zip"
+      ],
+      "site_evidence_path": "data/adna/governance/source_library/papers/10.1126-science.adt2642/supplementary/science.adt2642_tables s1_to_s8.zip",
+      "site_evidence_locator": "sample_accession:SAMEA120246584 || science.adt2642_tables s1_to_s8.xlsx#Table_S3!row100 -> Table_S1!row179",
+      "chronology_provenance_paths": [
+        "data/adna/governance/source_library/papers/10.1126-science.adt2642/supplementary/science.adt2642_tables s1_to_s8.zip"
+      ],
+      "coordinate_provenance_path": "data/adna/governance/source_library/papers/10.1126-science.adt2642/supplementary/science.adt2642_tables s1_to_s8.zip",
+      "coordinate_provenance_locator": "sample_accession:SAMEA120246584 || science.adt2642_tables s1_to_s8.xlsx#Table_S3!row100 -> Table_S1!row179",
+      "fully_accountable": true
+    },
+    {
+      "evidence_row_id": "animal-atlas-row:felis-catus-prjeb81815-felis-catus-locality-prjeb81815-yenikapmarmarayexc-turkey",
+      "species_latin_name": "Felis catus",
+      "project_accession": "PRJEB81815",
+      "site_record_id": "felis_catus:locality:prjeb81815:yenikapmarmarayexc:turkey",
+      "sample_record_ids": [
+        "felis_catus:sample:prjeb81815:samea120246556",
+        "felis_catus:sample:prjeb81815:samea120246557",
+        "felis_catus:sample:prjeb81815:samea120246558",
+        "felis_catus:sample:prjeb81815:samea120246559"
+      ],
+      "sample_rows_present": true,
+      "sample_lineage_present": true,
+      "site_evidence_present": true,
+      "chronology_evidence_present": true,
+      "coordinate_provenance_present": true,
+      "sample_locality_matches_site_record": true,
+      "sample_lineage_paths": [
+        "data/adna/governance/source_library/papers/10.1126-science.adt2642/supplementary/science.adt2642_tables s1_to_s8.zip"
+      ],
+      "site_evidence_path": "data/adna/governance/source_library/papers/10.1126-science.adt2642/supplementary/science.adt2642_tables s1_to_s8.zip",
+      "site_evidence_locator": "sample_accession:SAMEA120246556 || science.adt2642_tables s1_to_s8.xlsx#Table_S3!row61 -> Table_S1!row210",
+      "chronology_provenance_paths": [
+        "data/adna/governance/source_library/papers/10.1126-science.adt2642/supplementary/science.adt2642_tables s1_to_s8.zip"
+      ],
+      "coordinate_provenance_path": "data/adna/governance/source_library/papers/10.1126-science.adt2642/supplementary/science.adt2642_tables s1_to_s8.zip",
+      "coordinate_provenance_locator": "sample_accession:SAMEA120246556 || science.adt2642_tables s1_to_s8.xlsx#Table_S3!row61 -> Table_S1!row210",
+      "fully_accountable": true
+    },
+    {
+      "evidence_row_id": "animal-atlas-row:sus-scrofa-domesticus-prjeb30282-sus-scrofa-domesticus-locality-prjeb30282-bunds-denmark",
+      "species_latin_name": "Sus scrofa domesticus",
+      "project_accession": "PRJEB30282",
+      "site_record_id": "sus_scrofa_domesticus:locality:prjeb30282:bunds:denmark",
+      "sample_record_ids": [
+        "sus_scrofa_domesticus:sample:prjeb30282:samea5160867"
+      ],
+      "sample_rows_present": true,
+      "sample_lineage_present": true,
+      "site_evidence_present": true,
+      "chronology_evidence_present": true,
+      "coordinate_provenance_present": true,
+      "sample_locality_matches_site_record": true,
+      "sample_lineage_paths": [
+        "data/adna/governance/source_library/projects/PRJEB30282/archive_metadata.html || data/adna/governance/source_library/papers/10.1073-pnas.1901169116/supplementary/pnas.1901169116.sd01.xlsx"
+      ],
+      "site_evidence_path": "data/adna/governance/source_library/projects/PRJEB30282/archive_metadata.html || data/adna/governance/source_library/papers/10.1073-pnas.1901169116/supplementary/pnas.1901169116.sd01.xlsx",
+      "site_evidence_locator": "sample_accession:SAMEA5160867 || Sheet1!row1212",
+      "chronology_provenance_paths": [
+        "data/adna/governance/source_library/projects/PRJEB30282/archive_metadata.html || data/adna/governance/source_library/papers/10.1073-pnas.1901169116/supplementary/pnas.1901169116.sd01.xlsx"
+      ],
+      "coordinate_provenance_path": "adna/species/sus_scrofa_domesticus/raw/site_coordinate_evidence.json",
+      "coordinate_provenance_locator": "Fund og Fortidsminder systemnr 86607, stednr 230102, loknr 48; WFS feature fundogfortidsminder_punkt_ikkefredet.1509047",
+      "fully_accountable": true
+    },
+    {
+      "evidence_row_id": "animal-atlas-row:sus-scrofa-domesticus-prjeb30282-sus-scrofa-domesticus-locality-prjeb30282-trelleborg-denmark",
+      "species_latin_name": "Sus scrofa domesticus",
+      "project_accession": "PRJEB30282",
+      "site_record_id": "sus_scrofa_domesticus:locality:prjeb30282:trelleborg:denmark",
+      "sample_record_ids": [
+        "sus_scrofa_domesticus:sample:prjeb30282:samea5160868"
+      ],
+      "sample_rows_present": true,
+      "sample_lineage_present": true,
+      "site_evidence_present": true,
+      "chronology_evidence_present": true,
+      "coordinate_provenance_present": true,
+      "sample_locality_matches_site_record": true,
+      "sample_lineage_paths": [
+        "data/adna/governance/source_library/projects/PRJEB30282/archive_metadata.html || data/adna/governance/source_library/papers/10.1073-pnas.1901169116/supplementary/pnas.1901169116.sd01.xlsx"
+      ],
+      "site_evidence_path": "data/adna/governance/source_library/projects/PRJEB30282/archive_metadata.html || data/adna/governance/source_library/papers/10.1073-pnas.1901169116/supplementary/pnas.1901169116.sd01.xlsx",
+      "site_evidence_locator": "sample_accession:SAMEA5160868 || Sheet1!row1215",
+      "chronology_provenance_paths": [
+        "data/adna/governance/source_library/projects/PRJEB30282/archive_metadata.html || data/adna/governance/source_library/papers/10.1073-pnas.1901169116/supplementary/pnas.1901169116.sd01.xlsx"
+      ],
+      "coordinate_provenance_path": "adna/species/sus_scrofa_domesticus/raw/site_coordinate_evidence.json",
+      "coordinate_provenance_locator": "Management Plan page 22, component part 4 Trelleborg, central point N55°23′39″ E11°15′55″",
       "fully_accountable": true
     }
   ]

@@ -24,14 +24,14 @@
 | `PRJEB52849` | `Equus asinus` | - | - | 0 | `extractable_sources_but_no_governed_samples` | `false` |
 | `PRJEB55549` | `Equus asinus` | - | - | 0 | `out_of_scope_reference` | `false` |
 | `PRJEB10854` | `Equus caballus` | - | - | 0 | `extractable_sources_but_no_governed_samples` | `false` |
-| `PRJEB19970` | `Equus caballus` | - | 1 | 14 | `minimum_expected_floor_met` | `false` |
+| `PRJEB19970` | `Equus caballus` | - | 1 | 15 | `minimum_expected_floor_met` | `false` |
 | `PRJEB22390` | `Equus caballus` | - | 1 | 42 | `minimum_expected_floor_met` | `false` |
-| `PRJEB31613` | `Equus caballus` | - | 1 | 244 | `minimum_expected_floor_met` | `false` |
+| `PRJEB31613` | `Equus caballus` | - | 1 | 245 | `minimum_expected_floor_met` | `false` |
 | `PRJEB44430` | `Equus caballus` | - | 1 | 248 | `minimum_expected_floor_met` | `false` |
 | `PRJEB56293` | `Equus caballus` | - | - | 0 | `extractable_sources_but_no_governed_samples` | `false` |
 | `PRJEB7537` | `Equus caballus` | - | - | 0 | `extractable_sources_but_no_governed_samples` | `false` |
 | `PRJEB9799` | `Equus caballus` | - | - | 0 | `out_of_scope_reference` | `false` |
-| `PRJEB81815` | `Felis catus` | - | 1 | 87 | `minimum_expected_floor_met` | `false` |
+| `PRJEB81815` | `Felis catus` | - | 1 | 84 | `minimum_expected_floor_met` | `false` |
 | `PRJNA1178732` | `Felis catus` | - | 1 | 22 | `minimum_expected_floor_met` | `false` |
 | `PRJEB36540` | `Ovis aries` | - | 1 | 190 | `minimum_expected_floor_met` | `false` |
 | `PRJEB41594` | `Ovis aries` | - | 1 | 5 | `minimum_expected_floor_met` | `false` |

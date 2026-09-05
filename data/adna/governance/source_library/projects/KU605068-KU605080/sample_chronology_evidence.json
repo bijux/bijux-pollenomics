@@ -27,8 +27,8 @@
       "time_end_bp": 2050,
       "time_mean_bp": 1850,
       "dating_basis": "historical_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology disagrees with the project-level chronology interval.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Camelus dromedarius",
@@ -53,8 +53,8 @@
       "time_end_bp": 2050,
       "time_mean_bp": 1850,
       "dating_basis": "historical_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology disagrees with the project-level chronology interval.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Camelus dromedarius",
@@ -79,8 +79,8 @@
       "time_end_bp": 2050,
       "time_mean_bp": 1850,
       "dating_basis": "historical_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology disagrees with the project-level chronology interval.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Camelus dromedarius",
@@ -105,8 +105,8 @@
       "time_end_bp": 1500,
       "time_mean_bp": 1375,
       "dating_basis": "historical_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology disagrees with the project-level chronology interval.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Camelus dromedarius",

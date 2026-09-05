@@ -5803,9 +5803,9 @@
       "region_name": "",
       "country_name": "",
       "broader_geography": "-",
-      "coordinate_basis": "supplementary_table_coordinates",
-      "coordinate_mapping_posture": "mappable_point",
-      "coordinate_confidence": "exact",
+      "coordinate_basis": "",
+      "coordinate_mapping_posture": "",
+      "coordinate_confidence": "",
       "chronology_text": "82 BP",
       "review_note": "Sample-level locality comes directly from the recovered sample source row."
     },

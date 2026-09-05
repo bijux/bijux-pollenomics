@@ -620,9 +620,9 @@
     {
       "identity": {
         "namespace": "ovis_aries:project_locality",
-        "stable_token": "ovis_aries:locality:prjeb59481:balticsearegionshorttailedsheepcontext:balticsearegion",
-        "locality_text": "Baltic Sea Region short-tailed sheep context",
-        "political_entity": "Baltic Sea Region",
+        "stable_token": "ovis_aries:locality:prjeb59481:kastelholm",
+        "locality_text": "Kastelholm",
+        "political_entity": "",
         "source_anchor_tokens": [
           "PRJEB59481",
           "",
@@ -644,7 +644,7 @@
       "provenance_qualities": [
         "primary_paper_pinned"
       ],
-      "locality": "Baltic Sea Region short-tailed sheep context",
+      "locality": "Kastelholm",
       "coordinates": {
         "latitude": null,
         "longitude": null,
@@ -652,10 +652,70 @@
         "longitude_text": "",
         "confidence": "withheld"
       },
-      "sample_count": 5,
+      "sample_count": 2,
       "sample_ids": [
         "prjeb59481:samea112960291",
-        "prjeb59481:samea112960292",
+        "prjeb59481:samea112960292"
+      ],
+      "datasets": [
+        "ovis_aries:project:PRJEB59481"
+      ],
+      "chronology": {
+        "original_text": "",
+        "time_start_bp": null,
+        "time_end_bp": null,
+        "time_mean_bp": null,
+        "date_stddev_bp": "",
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+        "evidence_class": "unresolved",
+        "precision_posture": "unresolved"
+      },
+      "sample_namespace": "ovis_aries:sample_locality",
+      "project_accessions": [
+        "PRJEB59481"
+      ],
+      "original_location_text": "Kastelholm",
+      "nordic_inclusion": true,
+      "nordic_inclusion_reason": "The Nordic-relevant primary supplement resolves the five Baltic sheep samples to Kastelholm and Stora Förvar, but neither site has admitted primary coordinates for atlas point publication.",
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
+    },
+    {
+      "identity": {
+        "namespace": "ovis_aries:project_locality",
+        "stable_token": "ovis_aries:locality:prjeb59481:storafrvar",
+        "locality_text": "Stora Förvar",
+        "political_entity": "",
+        "source_anchor_tokens": [
+          "PRJEB59481",
+          "",
+          ""
+        ]
+      },
+      "species_latin_name": "Ovis aries",
+      "species_common_name": "sheep",
+      "source_family": "ENA",
+      "source_releases": [
+        "PRJEB59481"
+      ],
+      "record_modalities": [
+        "archive_reads"
+      ],
+      "review_strengths": [
+        "primary_paper_pinned"
+      ],
+      "provenance_qualities": [
+        "primary_paper_pinned"
+      ],
+      "locality": "Stora Förvar",
+      "coordinates": {
+        "latitude": null,
+        "longitude": null,
+        "latitude_text": "",
+        "longitude_text": "",
+        "confidence": "withheld"
+      },
+      "sample_count": 3,
+      "sample_ids": [
         "prjeb59481:samea112960293",
         "prjeb59481:samea112960294",
         "prjeb59481:samea112960295"
@@ -664,23 +724,23 @@
         "ovis_aries:project:PRJEB59481"
       ],
       "chronology": {
-        "original_text": "0-4000 BP",
-        "time_start_bp": 0,
-        "time_end_bp": 4000,
-        "time_mean_bp": 2000,
+        "original_text": "",
+        "time_start_bp": null,
+        "time_end_bp": null,
+        "time_mean_bp": null,
         "date_stddev_bp": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-        "evidence_class": "archaeological_context_date",
-        "precision_posture": "contextual_interval"
+        "evidence_class": "unresolved",
+        "precision_posture": "unresolved"
       },
       "sample_namespace": "ovis_aries:sample_locality",
       "project_accessions": [
         "PRJEB59481"
       ],
-      "original_location_text": "Baltic Sea Region short-tailed sheep context",
+      "original_location_text": "Stora Förvar",
       "nordic_inclusion": true,
-      "nordic_inclusion_reason": "This locality is retained for Nordic publication because the Baltic Sea Region bundle is explicitly assigned into Nordic country outputs.",
-      "interpretation_note": "Current evidence stays at region or transect scale and must not masquerade as exact sample-site truth."
+      "nordic_inclusion_reason": "The Nordic-relevant primary supplement resolves the five Baltic sheep samples to Kastelholm and Stora Förvar, but neither site has admitted primary coordinates for atlas point publication.",
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
     }
   ]
 }

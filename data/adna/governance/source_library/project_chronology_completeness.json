@@ -30,28 +30,28 @@
     {
       "project_accession": "PRJEB31613",
       "species_latin_name": "Equus caballus",
-      "recovered_sample_row_count": 244,
-      "normalized_row_count": 244,
-      "exact_sample_date_count": 236,
+      "recovered_sample_row_count": 245,
+      "normalized_row_count": 237,
+      "exact_sample_date_count": 237,
       "modeled_or_approximate_sample_date_count": 0,
-      "contextual_date_count": 8,
+      "contextual_date_count": 0,
       "broad_label_count": 0,
       "text_only_unparsed_count": 0,
-      "unresolved_count": 0,
-      "chronology_completeness_ratio": 1.0
+      "unresolved_count": 8,
+      "chronology_completeness_ratio": 0.9673
     },
     {
       "project_accession": "PRJEB19970",
       "species_latin_name": "Equus caballus",
-      "recovered_sample_row_count": 14,
-      "normalized_row_count": 14,
+      "recovered_sample_row_count": 15,
+      "normalized_row_count": 13,
       "exact_sample_date_count": 13,
-      "modeled_or_approximate_sample_date_count": 1,
+      "modeled_or_approximate_sample_date_count": 0,
       "contextual_date_count": 0,
       "broad_label_count": 0,
-      "text_only_unparsed_count": 1,
-      "unresolved_count": 0,
-      "chronology_completeness_ratio": 1.0
+      "text_only_unparsed_count": 0,
+      "unresolved_count": 2,
+      "chronology_completeness_ratio": 0.8667
     },
     {
       "project_accession": "PRJEB56293",
@@ -109,14 +109,14 @@
       "project_accession": "PRJEB36540",
       "species_latin_name": "Ovis aries",
       "recovered_sample_row_count": 190,
-      "normalized_row_count": 190,
+      "normalized_row_count": 180,
       "exact_sample_date_count": 167,
       "modeled_or_approximate_sample_date_count": 13,
-      "contextual_date_count": 10,
+      "contextual_date_count": 0,
       "broad_label_count": 0,
       "text_only_unparsed_count": 13,
-      "unresolved_count": 0,
-      "chronology_completeness_ratio": 1.0
+      "unresolved_count": 10,
+      "chronology_completeness_ratio": 0.9474
     },
     {
       "project_accession": "PRJEB41594",
@@ -135,14 +135,14 @@
       "project_accession": "PRJEB59481",
       "species_latin_name": "Ovis aries",
       "recovered_sample_row_count": 5,
-      "normalized_row_count": 5,
+      "normalized_row_count": 0,
       "exact_sample_date_count": 0,
       "modeled_or_approximate_sample_date_count": 0,
-      "contextual_date_count": 5,
+      "contextual_date_count": 0,
       "broad_label_count": 0,
       "text_only_unparsed_count": 0,
-      "unresolved_count": 0,
-      "chronology_completeness_ratio": 1.0
+      "unresolved_count": 5,
+      "chronology_completeness_ratio": 0.0
     },
     {
       "project_accession": "PRJEB61808",
@@ -187,14 +187,14 @@
       "project_accession": "PRJEB30282",
       "species_latin_name": "Sus scrofa domesticus",
       "recovered_sample_row_count": 343,
-      "normalized_row_count": 343,
+      "normalized_row_count": 2,
       "exact_sample_date_count": 0,
-      "modeled_or_approximate_sample_date_count": 0,
-      "contextual_date_count": 343,
+      "modeled_or_approximate_sample_date_count": 2,
+      "contextual_date_count": 0,
       "broad_label_count": 0,
       "text_only_unparsed_count": 0,
-      "unresolved_count": 0,
-      "chronology_completeness_ratio": 1.0
+      "unresolved_count": 341,
+      "chronology_completeness_ratio": 0.0058
     },
     {
       "project_accession": "PRJNA788987",
@@ -265,14 +265,14 @@
       "project_accession": "PRJNA705960",
       "species_latin_name": "Bos taurus",
       "recovered_sample_row_count": 11,
-      "normalized_row_count": 11,
+      "normalized_row_count": 0,
       "exact_sample_date_count": 0,
       "modeled_or_approximate_sample_date_count": 0,
-      "contextual_date_count": 11,
+      "contextual_date_count": 0,
       "broad_label_count": 0,
       "text_only_unparsed_count": 0,
-      "unresolved_count": 0,
-      "chronology_completeness_ratio": 1.0
+      "unresolved_count": 11,
+      "chronology_completeness_ratio": 0.0
     },
     {
       "project_accession": "PRJEB90141",
@@ -317,14 +317,14 @@
       "project_accession": "PRJEB81815",
       "species_latin_name": "Felis catus",
       "recovered_sample_row_count": 87,
-      "normalized_row_count": 87,
+      "normalized_row_count": 45,
       "exact_sample_date_count": 0,
-      "modeled_or_approximate_sample_date_count": 0,
-      "contextual_date_count": 87,
-      "broad_label_count": 0,
-      "text_only_unparsed_count": 0,
-      "unresolved_count": 0,
-      "chronology_completeness_ratio": 1.0
+      "modeled_or_approximate_sample_date_count": 37,
+      "contextual_date_count": 8,
+      "broad_label_count": 39,
+      "text_only_unparsed_count": 39,
+      "unresolved_count": 3,
+      "chronology_completeness_ratio": 0.5172
     },
     {
       "project_accession": "PRJNA1178732",
@@ -343,14 +343,14 @@
       "project_accession": "SRS1407451",
       "species_latin_name": "Canis lupus familiaris",
       "recovered_sample_row_count": 1,
-      "normalized_row_count": 1,
+      "normalized_row_count": 0,
       "exact_sample_date_count": 0,
       "modeled_or_approximate_sample_date_count": 0,
-      "contextual_date_count": 1,
+      "contextual_date_count": 0,
       "broad_label_count": 0,
       "text_only_unparsed_count": 0,
-      "unresolved_count": 0,
-      "chronology_completeness_ratio": 1.0
+      "unresolved_count": 1,
+      "chronology_completeness_ratio": 0.0
     },
     {
       "project_accession": "SRS1407453",
@@ -473,14 +473,14 @@
       "project_accession": "PRJEB60484",
       "species_latin_name": "Rangifer tarandus",
       "recovered_sample_row_count": 20,
-      "normalized_row_count": 20,
+      "normalized_row_count": 0,
       "exact_sample_date_count": 0,
       "modeled_or_approximate_sample_date_count": 0,
-      "contextual_date_count": 20,
+      "contextual_date_count": 0,
       "broad_label_count": 0,
       "text_only_unparsed_count": 0,
-      "unresolved_count": 0,
-      "chronology_completeness_ratio": 1.0
+      "unresolved_count": 20,
+      "chronology_completeness_ratio": 0.0
     },
     {
       "project_accession": "PRJEB57293",

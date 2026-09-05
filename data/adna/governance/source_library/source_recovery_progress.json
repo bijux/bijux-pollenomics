@@ -3,16 +3,16 @@
   "project_count": 40,
   "sample_evidence_depth_counts": {
     "sample_identity_only": 0,
-    "sample_with_site": 218,
-    "sample_with_site_and_chronology": 732,
-    "sample_with_site_chronology_and_coordinates": 501
+    "sample_with_site": 654,
+    "sample_with_site_and_chronology": 269,
+    "sample_with_site_chronology_and_coordinates": 527
   },
   "project_counts": {
     "projects_with_sample_identity_rows": 21,
     "projects_with_defensible_site_rows": 12,
-    "projects_with_sample_owned_chronology": 18,
-    "projects_with_mappable_coordinates": 7,
-    "projects_ready_for_publication_review": 12
+    "projects_with_sample_owned_chronology": 9,
+    "projects_with_mappable_coordinates": 9,
+    "projects_ready_for_publication_review": 9
   },
   "rows": [
     {
@@ -38,9 +38,9 @@
     {
       "project_accession": "PRJNA705960",
       "species_latin_name": "Bos taurus",
-      "completed_stage_count": 3,
+      "completed_stage_count": 2,
       "required_stage_count": 7,
-      "recovery_depth_score": 0.4286,
+      "recovery_depth_score": 0.2857,
       "final_sample_count": 11,
       "minimum_gap_count": 0,
       "publication_readiness_status": "blocked"
@@ -78,9 +78,9 @@
     {
       "project_accession": "SRS1407451",
       "species_latin_name": "Canis lupus familiaris",
-      "completed_stage_count": 4,
+      "completed_stage_count": 3,
       "required_stage_count": 7,
-      "recovery_depth_score": 0.5714,
+      "recovery_depth_score": 0.4286,
       "final_sample_count": 1,
       "minimum_gap_count": 0,
       "publication_readiness_status": "blocked"
@@ -188,12 +188,12 @@
     {
       "project_accession": "PRJEB19970",
       "species_latin_name": "Equus caballus",
-      "completed_stage_count": 6,
+      "completed_stage_count": 3,
       "required_stage_count": 7,
-      "recovery_depth_score": 0.8571,
-      "final_sample_count": 14,
+      "recovery_depth_score": 0.4286,
+      "final_sample_count": 15,
       "minimum_gap_count": 0,
-      "publication_readiness_status": "complete"
+      "publication_readiness_status": "blocked"
     },
     {
       "project_accession": "PRJEB22390",
@@ -208,12 +208,12 @@
     {
       "project_accession": "PRJEB31613",
       "species_latin_name": "Equus caballus",
-      "completed_stage_count": 7,
+      "completed_stage_count": 5,
       "required_stage_count": 7,
-      "recovery_depth_score": 1.0,
-      "final_sample_count": 244,
+      "recovery_depth_score": 0.7143,
+      "final_sample_count": 245,
       "minimum_gap_count": 0,
-      "publication_readiness_status": "complete"
+      "publication_readiness_status": "blocked"
     },
     {
       "project_accession": "PRJEB44430",
@@ -258,10 +258,10 @@
     {
       "project_accession": "PRJEB81815",
       "species_latin_name": "Felis catus",
-      "completed_stage_count": 4,
-      "required_stage_count": 7,
-      "recovery_depth_score": 0.5714,
-      "final_sample_count": 87,
+      "completed_stage_count": 5,
+      "required_stage_count": 8,
+      "recovery_depth_score": 0.625,
+      "final_sample_count": 84,
       "minimum_gap_count": 0,
       "publication_readiness_status": "blocked"
     },
@@ -278,12 +278,12 @@
     {
       "project_accession": "PRJEB36540",
       "species_latin_name": "Ovis aries",
-      "completed_stage_count": 7,
+      "completed_stage_count": 5,
       "required_stage_count": 8,
-      "recovery_depth_score": 0.875,
+      "recovery_depth_score": 0.625,
       "final_sample_count": 190,
       "minimum_gap_count": 0,
-      "publication_readiness_status": "complete"
+      "publication_readiness_status": "blocked"
     },
     {
       "project_accession": "PRJEB41594",
@@ -348,9 +348,9 @@
     {
       "project_accession": "PRJEB60484",
       "species_latin_name": "Rangifer tarandus",
-      "completed_stage_count": 4,
+      "completed_stage_count": 3,
       "required_stage_count": 7,
-      "recovery_depth_score": 0.5714,
+      "recovery_depth_score": 0.4286,
       "final_sample_count": 20,
       "minimum_gap_count": 0,
       "publication_readiness_status": "blocked"

@@ -137,67 +137,6 @@
     {
       "identity": {
         "namespace": "equus_caballus:project_locality",
-        "stable_token": "equus_caballus:locality:prjeb19970:na",
-        "locality_text": "N/A",
-        "political_entity": "",
-        "source_anchor_tokens": [
-          "PRJEB19970",
-          "",
-          ""
-        ]
-      },
-      "species_latin_name": "Equus caballus",
-      "species_common_name": "horse",
-      "source_family": "ENA",
-      "source_releases": [
-        "PRJEB19970"
-      ],
-      "record_modalities": [
-        "archive_reads"
-      ],
-      "review_strengths": [
-        "primary_paper_pinned"
-      ],
-      "provenance_qualities": [
-        "primary_paper_pinned"
-      ],
-      "locality": "N/A",
-      "coordinates": {
-        "latitude": null,
-        "longitude": null,
-        "latitude_text": "",
-        "longitude_text": "",
-        "confidence": "unknown"
-      },
-      "sample_count": 1,
-      "sample_ids": [
-        "prjeb19970:n/a"
-      ],
-      "datasets": [
-        "equus_caballus:project:PRJEB19970"
-      ],
-      "chronology": {
-        "original_text": "N/A",
-        "time_start_bp": null,
-        "time_end_bp": null,
-        "time_mean_bp": null,
-        "date_stddev_bp": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-        "evidence_class": "unresolved",
-        "precision_posture": "sample_approximate_or_modeled"
-      },
-      "sample_namespace": "equus_caballus:sample_locality",
-      "project_accessions": [
-        "PRJEB19970"
-      ],
-      "original_location_text": "N/A",
-      "nordic_inclusion": false,
-      "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
-      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
-    },
-    {
-      "identity": {
-        "namespace": "equus_caballus:project_locality",
         "stable_token": "equus_caballus:locality:prjeb19970:sintashta:russia",
         "locality_text": "Sintashta",
         "political_entity": "Russia",
@@ -255,6 +194,81 @@
       "nordic_inclusion": false,
       "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
       "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
+    },
+    {
+      "identity": {
+        "namespace": "equus_caballus:project_locality",
+        "stable_token": "equus_caballus:locality:prjeb19970:unresolved",
+        "locality_text": "",
+        "political_entity": "",
+        "source_anchor_tokens": [
+          "PRJEB19970",
+          "",
+          ""
+        ]
+      },
+      "species_latin_name": "Equus caballus",
+      "species_common_name": "horse",
+      "source_family": "ENA",
+      "source_releases": [
+        "PRJEB19970"
+      ],
+      "record_modalities": [
+        "archive_reads"
+      ],
+      "review_strengths": [
+        "primary_paper_pinned"
+      ],
+      "provenance_qualities": [
+        "primary_paper_pinned"
+      ],
+      "locality": "",
+      "coordinates": {
+        "latitude": null,
+        "longitude": null,
+        "latitude_text": "",
+        "longitude_text": "",
+        "confidence": "unknown"
+      },
+      "sample_count": 15,
+      "sample_ids": [
+        "prjeb19970:cgg_1_016168",
+        "prjeb19970:cgg_1_016169",
+        "prjeb19970:cgg_1_016171",
+        "prjeb19970:cgg_1_016172",
+        "prjeb19970:cgg_1_016173",
+        "prjeb19970:cgg_1_016174",
+        "prjeb19970:cgg_1_016175",
+        "prjeb19970:cgg_1_016176",
+        "prjeb19970:cgg_1_016177",
+        "prjeb19970:cgg_1_016179",
+        "prjeb19970:cgg_1_017038",
+        "prjeb19970:cgg_1_017079",
+        "prjeb19970:cgg_1_017088",
+        "prjeb19970:connemara_0004a",
+        "prjeb19970:somali_0226a"
+      ],
+      "datasets": [
+        "equus_caballus:project:PRJEB19970"
+      ],
+      "chronology": {
+        "original_text": "2300-4023 BP",
+        "time_start_bp": 2300,
+        "time_end_bp": 4023,
+        "time_mean_bp": 3162,
+        "date_stddev_bp": "",
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+        "evidence_class": "direct_radiocarbon_date",
+        "precision_posture": "sample_precise_interval"
+      },
+      "sample_namespace": "equus_caballus:sample_locality",
+      "project_accessions": [
+        "PRJEB19970"
+      ],
+      "original_location_text": "",
+      "nordic_inclusion": false,
+      "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
+      "interpretation_note": "No location evidence has been extracted yet for this recovered sample row."
     },
     {
       "identity": {
@@ -2088,14 +2102,14 @@
         "equus_caballus:project:PRJEB31613"
       ],
       "chronology": {
-        "original_text": "2143 BP",
-        "time_start_bp": 2143,
-        "time_end_bp": 2143,
-        "time_mean_bp": 2143,
+        "original_text": "",
+        "time_start_bp": null,
+        "time_end_bp": null,
+        "time_mean_bp": null,
         "date_stddev_bp": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-        "evidence_class": "archaeological_context_date",
-        "precision_posture": "contextual_interval"
+        "evidence_class": "unresolved",
+        "precision_posture": "unresolved"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -2515,7 +2529,7 @@
       },
       "sample_count": 1,
       "sample_ids": [
-        "prjeb31613:n/a"
+        "prjeb31613:batagai_5155"
       ],
       "datasets": [
         "equus_caballus:project:PRJEB31613"
@@ -2828,14 +2842,14 @@
         "equus_caballus:project:PRJEB31613"
       ],
       "chronology": {
-        "original_text": "2143 BP",
-        "time_start_bp": 2143,
-        "time_end_bp": 2143,
-        "time_mean_bp": 2143,
+        "original_text": "",
+        "time_start_bp": null,
+        "time_end_bp": null,
+        "time_mean_bp": null,
         "date_stddev_bp": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-        "evidence_class": "archaeological_context_date",
-        "precision_posture": "contextual_interval"
+        "evidence_class": "unresolved",
+        "precision_posture": "unresolved"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -3805,14 +3819,14 @@
         "equus_caballus:project:PRJEB31613"
       ],
       "chronology": {
-        "original_text": "2143 BP",
-        "time_start_bp": 2143,
-        "time_end_bp": 2143,
-        "time_mean_bp": 2143,
+        "original_text": "",
+        "time_start_bp": null,
+        "time_end_bp": null,
+        "time_mean_bp": null,
         "date_stddev_bp": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-        "evidence_class": "archaeological_context_date",
-        "precision_posture": "contextual_interval"
+        "evidence_class": "unresolved",
+        "precision_posture": "unresolved"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -4487,10 +4501,10 @@
         "equus_caballus:project:PRJEB31613"
       ],
       "chronology": {
-        "original_text": "2143-35870 BP",
-        "time_start_bp": 2143,
+        "original_text": "31750-35870 BP",
+        "time_start_bp": 31750,
         "time_end_bp": 35870,
-        "time_mean_bp": 19006,
+        "time_mean_bp": 33810,
         "date_stddev_bp": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "direct_radiocarbon_date",
@@ -5220,14 +5234,14 @@
         "equus_caballus:project:PRJEB31613"
       ],
       "chronology": {
-        "original_text": "2143 BP",
-        "time_start_bp": 2143,
-        "time_end_bp": 2143,
-        "time_mean_bp": 2143,
+        "original_text": "",
+        "time_start_bp": null,
+        "time_end_bp": null,
+        "time_mean_bp": null,
         "date_stddev_bp": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-        "evidence_class": "archaeological_context_date",
-        "precision_posture": "contextual_interval"
+        "evidence_class": "unresolved",
+        "precision_posture": "unresolved"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -5676,9 +5690,9 @@
     {
       "identity": {
         "namespace": "equus_caballus:project_locality",
-        "stable_token": "equus_caballus:locality:prjeb31613:museumspecimen:na",
+        "stable_token": "equus_caballus:locality:prjeb31613:museumspecimen",
         "locality_text": "museum specimen",
-        "political_entity": "N/A",
+        "political_entity": "",
         "source_anchor_tokens": [
           "PRJEB31613",
           "",
@@ -5706,21 +5720,22 @@
         "longitude": null,
         "latitude_text": "",
         "longitude_text": "",
-        "confidence": "exact"
+        "confidence": "unknown"
       },
-      "sample_count": 2,
+      "sample_count": 3,
       "sample_ids": [
         "prjeb31613:cgg_1_018495",
-        "prjeb31613:cgg_1_018497"
+        "prjeb31613:cgg_1_018497",
+        "prjeb31613:przewalski_paratype_118"
       ],
       "datasets": [
         "equus_caballus:project:PRJEB31613"
       ],
       "chronology": {
-        "original_text": "89-105 BP",
+        "original_text": "89-118 BP",
         "time_start_bp": 89,
-        "time_end_bp": 105,
-        "time_mean_bp": 97,
+        "time_end_bp": 118,
+        "time_mean_bp": 104,
         "date_stddev_bp": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "direct_radiocarbon_date",
@@ -11894,7 +11909,7 @@
         "longitude": null,
         "latitude_text": "",
         "longitude_text": "",
-        "confidence": "exact"
+        "confidence": "unknown"
       },
       "sample_count": 1,
       "sample_ids": [

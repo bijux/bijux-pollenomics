@@ -6877,9 +6877,9 @@
       "location_evidence_artifact_kind": "supplementary_spreadsheet_row",
       "location_evidence_locator": "SI Table 1!row8",
       "location_evidence_text": "Tarpan_Ukr_1868 | - | Museum specimen | - | TARP | museum specimen, date of death = 1,868 CE | - | - | - | - | - | 1868 CE | 82 | M | this study | 1 | 4 | 4 | 292370796 | 204254276 | 496625072 | - | - | - | 348.664289994 | 2.6388497371000001 | 5.3899999999999998E-4 | 1.76591730368 | 2.79999999999999",
-      "coordinate_basis": "supplementary_table_coordinates",
-      "coordinate_mapping_posture": "mappable_point",
-      "coordinate_confidence": "exact",
+      "coordinate_basis": "",
+      "coordinate_mapping_posture": "",
+      "coordinate_confidence": "",
       "chronology_text": "82 BP",
       "locality_evidence_bucket": "exact_site_evidence",
       "review_note": "Sample-level locality comes directly from the recovered sample source row."

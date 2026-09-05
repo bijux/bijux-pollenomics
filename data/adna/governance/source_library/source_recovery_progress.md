@@ -3,26 +3,26 @@
 - Tracked projects: `40`
 - Sample identity rows present: `21`
 - Defensible site rows present: `12`
-- Sample-owned chronology present: `18`
-- Mappable coordinate projects: `7`
-- Ready for publication review: `12`
+- Sample-owned chronology present: `9`
+- Mappable coordinate projects: `9`
+- Ready for publication review: `9`
 
 ## Sample Evidence Depth
 
 - sample identity only: `0`
-- sample with site: `218`
-- sample with site and chronology: `732`
-- sample with site chronology and coordinates: `501`
+- sample with site: `654`
+- sample with site and chronology: `269`
+- sample with site chronology and coordinates: `527`
 
 | Project | Species | Completed stages | Required stages | Recovery depth score |
 | --- | --- | ---: | ---: | ---: |
 | `PRJEB31621` | `Bos taurus` | `3` | `7` | `0.4286` |
 | `PRJEB75467` | `Bos taurus` | `3` | `7` | `0.4286` |
-| `PRJNA705960` | `Bos taurus` | `3` | `7` | `0.4286` |
+| `PRJNA705960` | `Bos taurus` | `2` | `7` | `0.2857` |
 | `KU605068-KU605080` | `Camelus dromedarius` | `6` | `7` | `0.8571` |
 | `SRP073444` | `Camelus dromedarius` | `2` | `7` | `0.2857` |
 | `KX379528-KX379529` | `Canis lupus familiaris` | `6` | `7` | `0.8571` |
-| `SRS1407451` | `Canis lupus familiaris` | `4` | `7` | `0.5714` |
+| `SRS1407451` | `Canis lupus familiaris` | `3` | `7` | `0.4286` |
 | `SRS1407453` | `Canis lupus familiaris` | `6` | `7` | `0.8571` |
 | `PRJEB90141` | `Capra hircus` | `7` | `7` | `1.0` |
 | `PRJEB90261` | `Capra hircus` | `7` | `7` | `1.0` |
@@ -33,23 +33,23 @@
 | `PRJEB52849` | `Equus asinus` | `1` | `7` | `0.1429` |
 | `PRJEB55549` | `Equus asinus` | `1` | `1` | `1.0` |
 | `PRJEB10854` | `Equus caballus` | `1` | `7` | `0.1429` |
-| `PRJEB19970` | `Equus caballus` | `6` | `7` | `0.8571` |
+| `PRJEB19970` | `Equus caballus` | `3` | `7` | `0.4286` |
 | `PRJEB22390` | `Equus caballus` | `7` | `7` | `1.0` |
-| `PRJEB31613` | `Equus caballus` | `7` | `7` | `1.0` |
+| `PRJEB31613` | `Equus caballus` | `5` | `7` | `0.7143` |
 | `PRJEB44430` | `Equus caballus` | `7` | `7` | `1.0` |
 | `PRJEB56293` | `Equus caballus` | `1` | `7` | `0.1429` |
 | `PRJEB7537` | `Equus caballus` | `1` | `7` | `0.1429` |
 | `PRJEB9799` | `Equus caballus` | `1` | `1` | `1.0` |
-| `PRJEB81815` | `Felis catus` | `4` | `7` | `0.5714` |
+| `PRJEB81815` | `Felis catus` | `5` | `8` | `0.625` |
 | `PRJNA1178732` | `Felis catus` | `6` | `7` | `0.8571` |
-| `PRJEB36540` | `Ovis aries` | `7` | `8` | `0.875` |
+| `PRJEB36540` | `Ovis aries` | `5` | `8` | `0.625` |
 | `PRJEB41594` | `Ovis aries` | `3` | `7` | `0.4286` |
 | `PRJEB59481` | `Ovis aries` | `4` | `7` | `0.5714` |
 | `PRJEB61808` | `Ovis aries` | `1` | `7` | `0.1429` |
 | `PRJEB69690` | `Ovis aries` | `1` | `7` | `0.1429` |
 | `PRJEB81145` | `Ovis aries` | `1` | `7` | `0.1429` |
 | `PRJEB57293` | `Rangifer tarandus` | `1` | `1` | `1.0` |
-| `PRJEB60484` | `Rangifer tarandus` | `4` | `7` | `0.5714` |
+| `PRJEB60484` | `Rangifer tarandus` | `3` | `7` | `0.4286` |
 | `PRJEB61721` | `Rangifer tarandus` | `1` | `1` | `1.0` |
 | `PRJNA634908` | `Rangifer tarandus` | `1` | `1` | `1.0` |
 | `PRJEB30282` | `Sus scrofa domesticus` | `4` | `7` | `0.5714` |

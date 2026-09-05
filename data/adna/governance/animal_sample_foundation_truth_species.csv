@@ -1,11 +1,11 @@
 species_latin_name,species_common_name,sample_row_count,fully_grounded_count,partially_grounded_count,blocked_missing_metadata_count,blocked_missing_location_detail_count,blocked_weak_chronology_count,project_count,reported_curated_sample_count,uses_project_level_sample_anchor
-Equus caballus,horse,548,492,55,0,0,1,4,548,false
-Sus scrofa domesticus,pig,343,0,343,0,0,0,1,343,false
-Ovis aries,sheep,200,0,182,0,0,18,3,200,false
-Bos taurus,cattle,132,0,0,11,0,121,3,132,false
+Equus caballus,horse,550,481,59,0,2,8,4,550,false
+Sus scrofa domesticus,pig,343,2,0,0,0,341,1,343,false
+Ovis aries,sheep,200,0,167,0,5,28,3,200,false
+Bos taurus,cattle,132,0,0,11,121,0,3,132,false
 Capra hircus,goat,82,9,0,0,0,73,3,82,false
-Canis lupus familiaris,dog,4,0,4,0,0,0,3,4,false
-Felis catus,cat,109,0,104,0,0,5,2,109,false
+Canis lupus familiaris,dog,4,0,3,0,1,0,3,4,false
+Felis catus,cat,106,35,27,0,0,44,2,106,false
 Camelus dromedarius,dromedary camel,13,0,13,0,0,0,1,13,false
-Rangifer tarandus,reindeer,20,0,20,0,0,0,1,20,false
+Rangifer tarandus,reindeer,20,0,0,0,20,0,1,20,false
 Equus asinus,donkey,0,0,0,0,0,0,0,0,false

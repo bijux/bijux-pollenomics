@@ -27,12 +27,12 @@ flowchart LR
 - Curated site rows: `4`
 - Direct-coordinate rows: `0`
 - Geocoded rows: `0`
-- Unresolved sample rows: `0`
+- Unresolved sample rows: `1`
 - Mapped Nordic rows: `0`
 - Tracked intake projects: `3`
 - Projects with sample recovery gaps: `0`
 - Projects with site-recovery gaps: `1`
-- Projects with chronology gaps: `0`
+- Projects with chronology gaps: `1`
 - Projects blocked before publication review: `1`
 - Pending projects: `0`
 - Rejected projects: `0`

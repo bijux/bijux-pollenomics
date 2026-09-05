@@ -2,6 +2,18 @@
   "schema_version": "animal-sample-site-manual-curation-queue.v1",
   "rows": [
     {
+      "project_accession": "PRJEB19970",
+      "species_latin_name": "Equus caballus",
+      "queued_sample_count": 2,
+      "queue_reasons": [
+        "recovered_sample_rows_still_lack_any_location_claim"
+      ],
+      "sample_site_targets": [],
+      "expected_supplementary_artifacts": [],
+      "local_artifact_paths": [],
+      "recommended_next_surface": ""
+    },
+    {
       "project_accession": "PRJEB41594",
       "species_latin_name": "Ovis aries",
       "queued_sample_count": 5,
@@ -14,23 +26,11 @@
       "recommended_next_surface": ""
     },
     {
-      "project_accession": "PRJEB59481",
-      "species_latin_name": "Ovis aries",
-      "queued_sample_count": 5,
-      "queue_reasons": [
-        "region_only_rows_require_finer_location_evidence"
-      ],
-      "sample_site_targets": [],
-      "expected_supplementary_artifacts": [],
-      "local_artifact_paths": [],
-      "recommended_next_surface": ""
-    },
-    {
       "project_accession": "PRJEB30282",
       "species_latin_name": "Sus scrofa domesticus",
-      "queued_sample_count": 343,
+      "queued_sample_count": 341,
       "queue_reasons": [
-        "region_only_rows_require_finer_location_evidence"
+        "recovered_sample_rows_still_lack_any_location_claim"
       ],
       "sample_site_targets": [],
       "expected_supplementary_artifacts": [],
@@ -66,7 +66,7 @@
       "species_latin_name": "Bos taurus",
       "queued_sample_count": 11,
       "queue_reasons": [
-        "region_only_rows_require_finer_location_evidence"
+        "recovered_sample_rows_still_lack_any_location_claim"
       ],
       "sample_site_targets": [],
       "expected_supplementary_artifacts": [],
@@ -76,9 +76,9 @@
     {
       "project_accession": "PRJEB81815",
       "species_latin_name": "Felis catus",
-      "queued_sample_count": 87,
+      "queued_sample_count": 3,
       "queue_reasons": [
-        "region_only_rows_require_finer_location_evidence"
+        "recovered_sample_rows_still_lack_any_location_claim"
       ],
       "sample_site_targets": [],
       "expected_supplementary_artifacts": [],
@@ -90,7 +90,7 @@
       "species_latin_name": "Canis lupus familiaris",
       "queued_sample_count": 1,
       "queue_reasons": [
-        "region_only_rows_require_finer_location_evidence"
+        "recovered_sample_rows_still_lack_any_location_claim"
       ],
       "sample_site_targets": [],
       "expected_supplementary_artifacts": [],
@@ -102,7 +102,7 @@
       "species_latin_name": "Rangifer tarandus",
       "queued_sample_count": 20,
       "queue_reasons": [
-        "region_only_rows_require_finer_location_evidence"
+        "recovered_sample_rows_still_lack_any_location_claim"
       ],
       "sample_site_targets": [],
       "expected_supplementary_artifacts": [],

@@ -12,7 +12,7 @@
     "supplement_capture": "not_required",
     "sample_identity_recovery": "complete",
     "site_recovery": "in_progress",
-    "chronology_recovery": "complete",
+    "chronology_recovery": "in_progress",
     "coordinate_derivation": "blocked",
     "publication_readiness": "blocked"
   },
@@ -45,11 +45,13 @@
   "missing_assets": [
     "Readable repository paper capture is still missing.",
     "Some recovered sample rows still lack a defensible site assignment.",
+    "Some recovered sample rows still lack sample-level chronology.",
     "The tracked project still lacks a pinned primary paper linkage."
   ],
   "expected_contributions": [
     "site_evidence",
-    "coordinate_candidates"
+    "coordinate_candidates",
+    "sample_chronology"
   ],
   "expected_contribution_surfaces": [
     "data/adna/governance/source_library/projects/PRJNA705960/archive_metadata.html"
@@ -64,8 +66,8 @@
       "species_latin_name": "Bos taurus",
       "work_unit_type": "chronology_recovery",
       "work_unit_state": "pending_source_recovery",
-      "open_item_count": 11,
-      "rationale": "no_sample_owned_chronology_recovered; project_context_dates_still_dominate",
+      "open_item_count": 22,
+      "rationale": "no_sample_owned_chronology_recovered; missing_sample_level_date_evidence",
       "downstream_impact": "blocks chronology honesty and publication precision",
       "recommended_source_surfaces": [
         "data/adna/governance/source_library/projects/PRJNA705960/sample_chronology.json",
@@ -78,11 +80,12 @@
       "work_unit_type": "locality_string_resolution",
       "work_unit_state": "pending_manual_curation",
       "open_item_count": 11,
-      "rationale": "region_only",
+      "rationale": "unresolved",
       "downstream_impact": "blocks coordinate derivation and exact locality publication",
       "recommended_source_surfaces": [
         "archive_metadata",
-        "coordinate_resolution"
+        "coordinate_resolution",
+        "tracked_source_artifact"
       ]
     },
     {
@@ -91,13 +94,14 @@
       "work_unit_type": "site_resolution",
       "work_unit_state": "pending_manual_curation",
       "open_item_count": 11,
-      "rationale": "region_only_rows_require_finer_location_evidence",
+      "rationale": "recovered_sample_rows_still_lack_any_location_claim",
       "downstream_impact": "blocks exact site, coordinate, and publication recovery",
       "recommended_source_surfaces": []
     }
   ],
   "major_deficit_reasons": [
     "site_assignment_gap",
+    "chronology_gap",
     "coordinate_precision_gap",
     "missing_primary_paper_linkage"
   ]

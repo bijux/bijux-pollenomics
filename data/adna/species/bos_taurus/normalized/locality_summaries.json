@@ -246,9 +246,9 @@
     {
       "identity": {
         "namespace": "bos_taurus:project_locality",
-        "stable_token": "bos_taurus:locality:prjna705960:galicianmountaincavecattlecontext:galiciaspain",
-        "locality_text": "Galician mountain cave cattle context",
-        "political_entity": "Galicia, Spain",
+        "stable_token": "bos_taurus:locality:prjna705960:unresolved",
+        "locality_text": "",
+        "political_entity": "",
         "source_anchor_tokens": [
           "PRJNA705960",
           "",
@@ -270,13 +270,13 @@
       "provenance_qualities": [
         "archive_only"
       ],
-      "locality": "Galician mountain cave cattle context",
+      "locality": "",
       "coordinates": {
         "latitude": null,
         "longitude": null,
         "latitude_text": "",
         "longitude_text": "",
-        "confidence": "withheld"
+        "confidence": "unknown"
       },
       "sample_count": 11,
       "sample_ids": [
@@ -296,23 +296,23 @@
         "bos_taurus:project:PRJNA705960"
       ],
       "chronology": {
-        "original_text": "1500-7000 BP",
-        "time_start_bp": 1500,
-        "time_end_bp": 7000,
-        "time_mean_bp": 4250,
+        "original_text": "",
+        "time_start_bp": null,
+        "time_end_bp": null,
+        "time_mean_bp": null,
         "date_stddev_bp": "",
         "dating_basis": "archaeological_period_assignment",
-        "evidence_class": "archaeological_context_date",
-        "precision_posture": "contextual_interval"
+        "evidence_class": "unresolved",
+        "precision_posture": "unresolved"
       },
       "sample_namespace": "bos_taurus:sample_locality",
       "project_accessions": [
         "PRJNA705960"
       ],
-      "original_location_text": "Galician mountain cave cattle context",
+      "original_location_text": "",
       "nordic_inclusion": false,
       "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
-      "interpretation_note": "Current evidence stays at region or transect scale and must not masquerade as exact sample-site truth."
+      "interpretation_note": "No location evidence has been extracted yet for this recovered sample row."
     }
   ]
 }

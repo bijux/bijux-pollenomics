@@ -617,14 +617,14 @@
         "camelus_dromedarius:project:SRP073444"
       ],
       "chronology": {
-        "original_text": "Historical and archaeological dromedary range context",
-        "time_start_bp": 1400,
-        "time_end_bp": 3000,
-        "time_mean_bp": 2200,
+        "original_text": "Late Pleistocene",
+        "time_start_bp": null,
+        "time_end_bp": null,
+        "time_mean_bp": null,
         "date_stddev_bp": "",
         "dating_basis": "historical_and_archaeological_context",
         "evidence_class": "historical_or_recent_date",
-        "precision_posture": "contextual_interval"
+        "precision_posture": "sample_approximate_or_modeled"
       },
       "sample_namespace": "camelus_dromedarius:sample_locality",
       "project_accessions": [

@@ -4,12 +4,12 @@
 
 | Project accession | Status | Unresolved place string | Candidate matches | Queued samples |
 | --- | --- | --- | --- | ---: |
-| PRJEB30282 | region_only | Near East and Europe pig domestication transect | Near East and Europe pig domestication transect | 343 |
+| PRJEB19970 | unresolved |  | Arzhan I, Berel', Sintashta | 2 |
+| PRJEB30282 | unresolved |  | Bundsø, Near East and Europe pig domestication transect, Trelleborg | 341 |
 | PRJEB31621 | unresolved |  | - | 77 |
 | PRJEB41594 | unresolved |  | - | 5 |
-| PRJEB59481 | region_only | Baltic Sea Region short-tailed sheep context | Baltic Sea Region short-tailed sheep context | 5 |
-| PRJEB60484 | region_only | Svalbard ancient reindeer context | Svalbard ancient reindeer context | 20 |
+| PRJEB60484 | unresolved |  | Svalbard ancient reindeer context, Svalbard archipelago reindeer context | 20 |
 | PRJEB75467 | unresolved |  | - | 44 |
-| PRJEB81815 | region_only | North Africa to Europe domestic cat dispersal transect | North Africa to Europe domestic cat dispersal transect | 87 |
-| PRJNA705960 | region_only | Galician mountain cave cattle context | Galician mountain cave cattle context | 11 |
-| SRS1407451 | region_only | Ancient European dog CTC sample context | Ancient European dog CTC sample context | 1 |
+| PRJEB81815 | unresolved |  | Alba Fucens -Cisterna (Fucino, Abruzzi), Arene Candide (Finale Ligure, Savona, Liguria), Aşıklı Höyük, Bademağacı, Bank of Portugal, Bernhardsthal, Bremen; 201-Altstadt, Marktplatz, Bremen; 253-Altstadt, Am Wall, Castiglione in Sabina, Cova de Els Trocs, Huesca, Demircihüyük, Durankulak, Ecly, Galgenbühel/Dos de la Forca-Salorno, Genoni Santu Antine, Sardinia, Glencurran Cave, Co. Clare, Graffignano (Viterbo, Latium), Grotta del Cocci (Narni, Umbria), Haithabu, settlement area, Iznik - Roman theatre, Kassope, Koprivec, Labastida, Lauchheim-Mittelhofen, Mautern - vicus Ost, Menteşe, Musarna (Viterbo, Latium), Nardò “torre santa Caterina”, North Africa to Europe cat population context, Padova Via Cesare Battisti (Veneto), Palatino North East slope (Rome), Palmela Castle, Parco delle Dolomiti Lucane, Parking 58, Brussels, Partanna C. da Capo d'acqua, Petronell-Carnuntum, Pomorie, Forestry station (Поморие, горско стопанство), Probabilly Sicily, Roca vecchia (Melendugno, Lecce), Rome, S. Cecilia in Trastevere, Rugo Storto, Fanna, PN, Sagalassos, Salzburg - Residenz, Saracena (Cosenza, Calabria), Sardinia, Sardinia, Monte Arcosu, Sardinia, Nuoro - around Bitti, Sassari, palazzo ducale, Sardinia, Sicily, monti Nebrodi, Tabernas, Spain, Tertenia, Sardinia, Tongeren, Industrie Oost, Traismauer, Tuscany, Tuscany - Maremma - Bivio Gavorrano, Umbria - Perugia - Cascia, Umbria - Perugia - Vallo di Nera, Viminacium-Nad Klepačkom, Viminacium/Amphitheatre, Yenikapı, Marmaray exc., nuraghe Flumenelongu, Sardinia, village Belene, Svishtov district (с. Белене, Свищовско) | 3 |
+| PRJNA705960 | unresolved |  | Galician mountain cave cattle context, different mountain caves in Galicia | 11 |
+| SRS1407451 | unresolved |  | Ancient European dog CTC sample context, Herxheim and Cherry Tree Cave ancient dog contexts | 1 |

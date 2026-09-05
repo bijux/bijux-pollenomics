@@ -5,7 +5,7 @@
 - Inventory disposition: `tracked_intake_candidate`
 - Paper DOI: `10.1093/gbe/evae114`
 - Publication readiness: `blocked`
-- Next required stage: `site_recovery`
+- Next required stage: `chronology_recovery`
 - Exact expected sample count: `unknown`
 - Minimum expected sample count: `1`
 - Final recovered sample rows: `5`
@@ -18,17 +18,16 @@
 - `paper_capture`: `complete`
 - `supplement_capture`: `not_required`
 - `sample_identity_recovery`: `complete`
-- `site_recovery`: `in_progress`
-- `chronology_recovery`: `complete`
-- `coordinate_derivation`: `blocked`
+- `site_recovery`: `complete`
+- `chronology_recovery`: `in_progress`
+- `coordinate_derivation`: `in_progress`
 - `publication_readiness`: `blocked`
 
 ## Expected Contributions
 
 - `sample_identities`
 - `taxonomic_context`
-- `site_evidence`
-- `coordinate_candidates`
+- `sample_chronology`
 
 ## Known Assets
 
@@ -43,14 +42,8 @@
 
 ## Missing Assets
 
-- Some recovered sample rows still lack a defensible site assignment.
-
-## Contradictory Evidence
-
-- Locality substitution review still blocks publication because project-level geography would flatten distinct sample evidence.
+- Some recovered sample rows still lack sample-level chronology.
 
 ## Manual Curation Work Units
 
-- `chronology_recovery`: 5 item(s), blocks chronology honesty and publication precision
-- `locality_string_resolution`: 5 item(s), blocks coordinate derivation and exact locality publication
-- `site_resolution`: 5 item(s), blocks exact site, coordinate, and publication recovery
+- `chronology_recovery`: 10 item(s), blocks chronology honesty and publication precision

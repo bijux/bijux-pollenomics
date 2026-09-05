@@ -46,7 +46,3 @@
 ## Missing Assets
 
 - none
-
-## Contradictory Evidence
-
-- 247 chronology row(s) still disagree between sample-owned and context-level evidence.

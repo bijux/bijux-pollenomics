@@ -2,7 +2,7 @@
   "schema_version": "animal-project-locality-worksheet.v1",
   "project_accession": "PRJNA705960",
   "species_latin_name": "Bos taurus",
-  "row_count": 3,
+  "row_count": 4,
   "rows": [
     {
       "project_accession": "PRJNA705960",
@@ -29,11 +29,11 @@
       "species_latin_name": "Bos taurus",
       "source_surface": "archive_metadata",
       "source_claim_scope": "project_context_site",
-      "supporting_sample_count": 11,
+      "supporting_sample_count": 0,
       "original_locality_text": "Galician mountain cave cattle context",
       "resolved_locality_text": "Galician mountain cave cattle context",
       "locality_class": "broader_locality",
-      "site_name": "Galician mountain cave cattle context",
+      "site_name": "",
       "municipality_name": "",
       "region_name": "",
       "country_name": "",
@@ -63,6 +63,26 @@
       "source_artifact_kind": "coordinate_provenance_resolved_place",
       "source_locator": "source description snapshot",
       "source_excerpt": "The current local evidence names a multi-cave Galician context rather than one site, so the row stays refused from point mapping."
+    },
+    {
+      "project_accession": "PRJNA705960",
+      "species_latin_name": "Bos taurus",
+      "source_surface": "tracked_source_artifact",
+      "source_claim_scope": "project_context_site",
+      "supporting_sample_count": 11,
+      "original_locality_text": "",
+      "resolved_locality_text": "",
+      "locality_class": "unresolved",
+      "site_name": "",
+      "municipality_name": "",
+      "region_name": "",
+      "country_name": "",
+      "broader_geography": "",
+      "geocoding_safe_token": "",
+      "source_artifact_path": "",
+      "source_artifact_kind": "",
+      "source_locator": "",
+      "source_excerpt": ""
     }
   ]
 }

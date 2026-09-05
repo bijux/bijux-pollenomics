@@ -8,7 +8,7 @@
 - Paper download status: `archived`
 - Supplement download status: `archived`
 
-Paper-level evidence is required for this project, but no supplementary artifact is currently curated.
+Paper and supplementary materials are required to recover sample and site detail.
 
 ## Local artifacts
 

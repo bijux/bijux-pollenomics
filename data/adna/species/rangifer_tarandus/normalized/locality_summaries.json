@@ -5,9 +5,9 @@
     {
       "identity": {
         "namespace": "rangifer_tarandus:project_locality",
-        "stable_token": "rangifer_tarandus:locality:prjeb60484:svalbardancientreindeercontext:svalbard",
-        "locality_text": "Svalbard ancient reindeer context",
-        "political_entity": "Svalbard",
+        "stable_token": "rangifer_tarandus:locality:prjeb60484:unresolved",
+        "locality_text": "",
+        "political_entity": "",
         "source_anchor_tokens": [
           "PRJEB60484",
           "",
@@ -29,13 +29,13 @@
       "provenance_qualities": [
         "primary_paper_pinned"
       ],
-      "locality": "Svalbard ancient reindeer context",
+      "locality": "",
       "coordinates": {
         "latitude": null,
         "longitude": null,
         "latitude_text": "",
         "longitude_text": "",
-        "confidence": "withheld"
+        "confidence": "unknown"
       },
       "sample_count": 20,
       "sample_ids": [
@@ -64,23 +64,23 @@
         "rangifer_tarandus:project:PRJEB60484"
       ],
       "chronology": {
-        "original_text": "500-2500 BP",
-        "time_start_bp": 500,
-        "time_end_bp": 2500,
-        "time_mean_bp": 1500,
+        "original_text": "",
+        "time_start_bp": null,
+        "time_end_bp": null,
+        "time_mean_bp": null,
         "date_stddev_bp": "",
         "dating_basis": "historical_and_archaeological_context",
-        "evidence_class": "historical_or_recent_date",
-        "precision_posture": "contextual_interval"
+        "evidence_class": "unresolved",
+        "precision_posture": "unresolved"
       },
       "sample_namespace": "rangifer_tarandus:sample_locality",
       "project_accessions": [
         "PRJEB60484"
       ],
-      "original_location_text": "Svalbard ancient reindeer context",
+      "original_location_text": "",
       "nordic_inclusion": true,
-      "nordic_inclusion_reason": "This locality falls inside the Nordic publication footprint through direct Svalbard evidence.",
-      "interpretation_note": "Current evidence stays at region or transect scale and must not masquerade as exact sample-site truth."
+      "nordic_inclusion_reason": "The ancient Svalbard reindeer comparator is a real Nordic lead, but it is still not promoted into shipped mapped animal locality outputs.",
+      "interpretation_note": "No location evidence has been extracted yet for this recovered sample row."
     }
   ]
 }
