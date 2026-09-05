@@ -1620,6 +1620,28 @@
                   </div>
                 </div>
               </details>
+              <details id="modeled-context-controls" class="control-group" hidden>
+                <summary class="control-group-head">
+                  <div>
+                    <span class="control-group-label">Modeled context</span>
+                    <h3>Open Land Reconstruction</h3>
+                  </div>
+                  <span id="modeled-context-summary" class="control-group-summary">PANGAEA 937075</span>
+                </summary>
+                <div class="control-group-body">
+                  <div class="search-meta">Discrete REVEALS estimates from PANGAEA 937075. This is modeled environmental context, not an observed pollen event, propagation path, or continuous interpolation.</div>
+                  <label class="field-label" for="modeled-context-window"><span>Published source window</span><span>oldest → present</span></label>
+                  <select id="modeled-context-window" class="search-input" aria-label="Select a PANGAEA 937075 modeled open-land window"></select>
+                  <div class="inline-actions">
+                    <button id="modeled-context-toggle" class="inline-button" type="button" aria-pressed="false">Show open-land model</button>
+                    <button id="modeled-context-playback" class="inline-button" type="button" aria-pressed="false" disabled>Play 25 source windows</button>
+                    <button id="modeled-context-download" class="inline-button" type="button" disabled>Download visible frame</button>
+                  </div>
+                  <div id="modeled-context-state" class="search-meta" aria-live="polite">Context mode is off.</div>
+                  <div id="modeled-context-legend" class="legend-list" aria-label="Open-land percentage-cover scale" hidden></div>
+                  <div class="search-meta"><a href="https://doi.org/10.1594/PANGAEA.937075" target="_blank" rel="noreferrer">PANGAEA 937075</a> · <a href="https://doi.org/10.5194/essd-14-1581-2022" target="_blank" rel="noreferrer">Githumbi et al. (2022)</a> · context only · propagation use: false</div>
+                </div>
+              </details>
               <details class="control-group">
                 <summary class="control-group-head">
                   <div>
@@ -2066,6 +2088,7 @@ __STATIC_CHUNK_SCRIPT_TAGS__
       const COUNTRIES = __COUNTRIES_JSON__;
       const POINT_LAYERS = __POINT_LAYERS_JSON__;
       const POLYGON_LAYERS = __POLYGON_LAYERS_JSON__;
+      const MODELED_CONTEXT = __MODELED_CONTEXT_JSON__;
       const INITIAL_BOUNDS = __BOUNDS_JSON__;
       const ALL_LAYERS = [...POINT_LAYERS, ...POLYGON_LAYERS];
       const ATLAS_EVIDENCE = STATIC_ATLAS_INLINE
@@ -2203,6 +2226,14 @@ __STATIC_CHUNK_SCRIPT_TAGS__
       const timeIntervalValue = document.getElementById('time-interval-value');
       const timePlaybackToggle = document.getElementById('time-playback-toggle');
       const timeRecordCount = document.getElementById('time-record-count');
+      const modeledContextControls = document.getElementById('modeled-context-controls');
+      const modeledContextSummary = document.getElementById('modeled-context-summary');
+      const modeledContextWindow = document.getElementById('modeled-context-window');
+      const modeledContextToggle = document.getElementById('modeled-context-toggle');
+      const modeledContextPlayback = document.getElementById('modeled-context-playback');
+      const modeledContextDownload = document.getElementById('modeled-context-download');
+      const modeledContextState = document.getElementById('modeled-context-state');
+      const modeledContextLegend = document.getElementById('modeled-context-legend');
       const densityOpacitySlider = document.getElementById('density-opacity-slider');
       const densityOpacityValue = document.getElementById('density-opacity-value');
       const emptyState = document.getElementById('empty-state');
@@ -2242,6 +2273,7 @@ __STATIC_CHUNK_SCRIPT_TAGS__
           diameter: params.get('diameter'),
           timeStart: params.get('time_start'),
           timeInterval: params.get('time_interval'),
+          modeledContext: params.get('modeled_context'),
           density: params.get('density'),
           basemap: params.get('basemap'),
           panel: params.get('panel'),
@@ -2348,6 +2380,7 @@ __STATIC_CHUNK_SCRIPT_TAGS__
       }
       async function startTimePlayback() {
         if (!TIME_HAS_DATA || timeIntervalYears >= TIME_INTERVAL_MAX) return;
+        deactivateModeledContext();
         timeStartBp = oldestPlaybackStart(timeIntervalYears);
         timePlaybackToggle.setAttribute('aria-pressed', 'true');
         timePlaybackToggle.textContent = 'Pause playback';
@@ -2382,6 +2415,179 @@ __STATIC_CHUNK_SCRIPT_TAGS__
         timePlaybackToggle.disabled = timeIntervalYears >= TIME_INTERVAL_MAX;
       }
       const initialState = parseHashState();
+      const MODELED_CONTEXT_WINDOWS = Object.freeze([...(MODELED_CONTEXT.windows_oldest_to_present || [])]);
+      let modeledContextActive = false;
+      let modeledContextWindowIndex = 0;
+      let modeledContextPlaybackTimer = null;
+      let modeledContextPreviousTime = null;
+      function modeledContextAvailable() {
+        return MODELED_CONTEXT.status === 'available' && MODELED_CONTEXT_WINDOWS.length === 25;
+      }
+      function currentModeledContextWindow() {
+        return MODELED_CONTEXT_WINDOWS[modeledContextWindowIndex] || null;
+      }
+      function isModeledContextFeature(layer, properties) {
+        return Boolean(
+          layer.key === MODELED_CONTEXT.layer_key
+          && String(properties.dataset_id || '') === String(MODELED_CONTEXT.dataset_id || '')
+        );
+      }
+      function modeledContextFeatureVisible(layer, properties) {
+        if (!modeledContextActive || layer.key !== MODELED_CONTEXT.layer_key) return true;
+        const window = currentModeledContextWindow();
+        return Boolean(window && isModeledContextFeature(layer, properties) && properties.time_label === window.label);
+      }
+      function modeledContextNumber(value) {
+        if (value === null || value === undefined || typeof value === 'boolean') return null;
+        const number = Number(value);
+        return Number.isFinite(number) ? number : null;
+      }
+      function modeledContextOpenLand(properties) {
+        const values = properties && properties.reconstruction_values;
+        return values && typeof values === 'object'
+          ? modeledContextNumber(values[MODELED_CONTEXT.metric_key])
+          : null;
+      }
+      function modeledContextStandardError(properties) {
+        const values = properties && properties.standard_errors;
+        return values && typeof values === 'object'
+          ? modeledContextNumber(values[MODELED_CONTEXT.metric_key])
+          : null;
+      }
+      function modeledContextFillColor(value) {
+        if (value === null) return '#cbd5e1';
+        const entry = (MODELED_CONTEXT.palette || []).find((candidate) => value <= Number(candidate.maximum));
+        return entry ? entry.color : '#d97706';
+      }
+      function stopModeledContextPlayback() {
+        if (modeledContextPlaybackTimer !== null) window.clearTimeout(modeledContextPlaybackTimer);
+        modeledContextPlaybackTimer = null;
+        modeledContextPlayback.setAttribute('aria-pressed', 'false');
+        modeledContextPlayback.textContent = 'Play 25 source windows';
+      }
+      function deactivateModeledContext({ restoreTime = true } = {}) {
+        stopModeledContextPlayback();
+        modeledContextActive = false;
+        const previousTime = modeledContextPreviousTime;
+        modeledContextPreviousTime = null;
+        if (restoreTime && previousTime) {
+          timeStartBp = previousTime.timeStartBp;
+          timeIntervalYears = previousTime.timeIntervalYears;
+        }
+      }
+      async function selectModeledContextWindow(index) {
+        if (!modeledContextAvailable()) return;
+        if (!modeledContextActive) {
+          modeledContextPreviousTime = { timeStartBp, timeIntervalYears };
+        }
+        const nextIndex = Math.max(0, Math.min(MODELED_CONTEXT_WINDOWS.length - 1, Number(index) || 0));
+        modeledContextWindowIndex = nextIndex;
+        modeledContextActive = true;
+        const sourceWindow = currentModeledContextWindow();
+        timeStartBp = sourceWindow.time_start_bp;
+        timeIntervalYears = Math.max(1, sourceWindow.time_end_bp - sourceWindow.time_start_bp);
+        activeLayerKeys.add(MODELED_CONTEXT.layer_key);
+        await renderMapState();
+      }
+      async function advanceModeledContextPlayback() {
+        if (modeledContextPlaybackTimer === null) return;
+        if (modeledContextWindowIndex >= MODELED_CONTEXT_WINDOWS.length - 1) {
+          stopModeledContextPlayback();
+          return;
+        }
+        await selectModeledContextWindow(modeledContextWindowIndex + 1);
+        if (modeledContextPlaybackTimer !== null) {
+          modeledContextPlaybackTimer = window.setTimeout(advanceModeledContextPlayback, 900);
+        }
+      }
+      async function startModeledContextPlayback() {
+        if (!modeledContextAvailable()) return;
+        stopTimePlayback();
+        modeledContextPlaybackTimer = -1;
+        modeledContextPlayback.setAttribute('aria-pressed', 'true');
+        modeledContextPlayback.textContent = 'Pause source-window playback';
+        await selectModeledContextWindow(0);
+        if (modeledContextPlaybackTimer !== null) {
+          modeledContextPlaybackTimer = window.setTimeout(advanceModeledContextPlayback, 900);
+        }
+      }
+      function modeledContextFrameFeatures() {
+        const sourceWindow = currentModeledContextWindow();
+        if (!modeledContextActive || !sourceWindow) return [];
+        const layer = POLYGON_LAYERS.find((candidate) => candidate.key === MODELED_CONTEXT.layer_key);
+        if (!layer || !layer.geojson || !Array.isArray(layer.geojson.features)) return [];
+        return layer.geojson.features
+          .filter((feature) => {
+            const properties = feature && feature.properties ? feature.properties : {};
+            return polygonGeometryIsAdmitted(feature)
+              && isModeledContextFeature(layer, properties)
+              && properties.time_label === sourceWindow.label
+              && (!properties.country || activeCountries.has(properties.country));
+          })
+          .sort((left, right) => String(left.properties.record_id || '').localeCompare(String(right.properties.record_id || '')));
+      }
+      function modeledContextFrameGeoJson() {
+        const sourceWindow = currentModeledContextWindow();
+        const features = modeledContextFrameFeatures();
+        const countryCounts = {};
+        features.forEach((feature) => {
+          const country = String(feature.properties.country || 'UNASSIGNED');
+          countryCounts[country] = (countryCounts[country] || 0) + 1;
+        });
+        return {
+          type: 'FeatureCollection',
+          schema_version: MODELED_CONTEXT.download_schema_version,
+          modeled_context: {
+            dataset_id: MODELED_CONTEXT.dataset_id,
+            dataset_doi: MODELED_CONTEXT.dataset_doi,
+            method_citation: MODELED_CONTEXT.method_citation,
+            method_doi: MODELED_CONTEXT.method_doi,
+            metric_key: MODELED_CONTEXT.metric_key,
+            metric_label: MODELED_CONTEXT.metric_label,
+            value_unit: MODELED_CONTEXT.value_unit,
+            source_window: sourceWindow,
+            country_counts: Object.fromEntries(Object.entries(countryCounts).sort()),
+            evidence_role: 'context_only',
+            propagation_use_allowed: false,
+            interpolation_allowed: false,
+          },
+          features,
+        };
+      }
+      function downloadModeledContextFrame() {
+        if (!modeledContextActive) return;
+        const payload = modeledContextFrameGeoJson();
+        const sourceWindow = currentModeledContextWindow();
+        const slug = String(sourceWindow.label).toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+        const blob = new Blob([`${JSON.stringify(payload, null, 2)}\n`], { type: 'application/geo+json' });
+        const url = URL.createObjectURL(blob);
+        const link = document.createElement('a');
+        link.href = url;
+        link.download = `pangaea-937075-open-land-${slug}.geojson`;
+        document.body.appendChild(link);
+        link.click();
+        link.remove();
+        URL.revokeObjectURL(url);
+      }
+      function renderModeledContextControls() {
+        const available = modeledContextAvailable();
+        modeledContextControls.hidden = !available;
+        if (!available) return;
+        modeledContextWindow.innerHTML = MODELED_CONTEXT_WINDOWS.map((sourceWindow, index) => `<option value="${index}" ${index === modeledContextWindowIndex ? 'selected' : ''}>${escapeHtml(sourceWindow.label)} · ${sourceWindow.feature_count} cells</option>`).join('');
+        modeledContextToggle.setAttribute('aria-pressed', String(modeledContextActive));
+        modeledContextToggle.textContent = modeledContextActive ? 'Hide open-land model' : 'Show open-land model';
+        modeledContextPlayback.disabled = !modeledContextActive;
+        modeledContextDownload.disabled = !modeledContextActive || modeledContextFrameFeatures().length === 0;
+        const sourceWindow = currentModeledContextWindow();
+        modeledContextSummary.textContent = modeledContextActive && sourceWindow ? sourceWindow.label : 'PANGAEA 937075';
+        modeledContextState.textContent = modeledContextActive && sourceWindow
+          ? `${modeledContextFrameFeatures().length} visible cells · OL percentage cover with source standard error · context only · no interpolation or propagation`
+          : 'Context mode is off. Select Show open-land model to inspect exact published windows.';
+        modeledContextLegend.hidden = !modeledContextActive;
+        modeledContextLegend.innerHTML = modeledContextActive && sourceWindow
+          ? `<div class="legend-group-label">${escapeHtml(sourceWindow.label)} · OL (${escapeHtml(MODELED_CONTEXT.value_unit)})</div>${(MODELED_CONTEXT.palette || []).map((entry) => `<div class="legend-item legend-item--compact"><span class="legend-swatch" style="background:${escapeHtml(entry.color)};border-color:#334155;"></span><span>${escapeHtml(entry.label)}</span></div>`).join('')}`
+          : '';
+      }
       let activeCountries = normalizedSetFromList(initialState.countries, COUNTRIES, DEFAULT_COUNTRIES);
       let activeLayerKeys = normalizedSetFromList(initialState.layers, ALL_LAYERS.map((layer) => layer.key), DEFAULT_LAYER_KEYS);
       let activeScientificSignalIds = normalizedSetFromList(
@@ -2428,6 +2634,21 @@ __STATIC_CHUNK_SCRIPT_TAGS__
       let animalNordicOnly = initialState.animalNordic === 'only';
       let timeIntervalYears = TIME_HAS_DATA ? clampTimeInterval(initialState.timeInterval) : DEFAULT_TIME_INTERVAL_YEARS;
       let timeStartBp = TIME_HAS_DATA ? clampTimeStart(initialState.timeStart, timeIntervalYears) : DEFAULT_TIME_START_BP;
+      const initialModeledContextIndex = MODELED_CONTEXT_WINDOWS.findIndex(
+        (sourceWindow) => sourceWindow.label === initialState.modeledContext
+      );
+      if (modeledContextAvailable() && initialModeledContextIndex >= 0) {
+        modeledContextActive = true;
+        modeledContextWindowIndex = initialModeledContextIndex;
+        modeledContextPreviousTime = {
+          timeStartBp: DEFAULT_TIME_START_BP,
+          timeIntervalYears: DEFAULT_TIME_INTERVAL_YEARS,
+        };
+        const sourceWindow = currentModeledContextWindow();
+        timeStartBp = sourceWindow.time_start_bp;
+        timeIntervalYears = Math.max(1, sourceWindow.time_end_bp - sourceWindow.time_start_bp);
+        activeLayerKeys.add(MODELED_CONTEXT.layer_key);
+      }
       const initialDensityPercent = finiteControlNumber(initialState.density);
       let densityOpacity = Math.max(0, Math.min(1, (initialDensityPercent === null ? 60 : initialDensityPercent) / 100));
       let currentBasemap = BASEMAP_NAMES.includes(String(initialState.basemap || '')) ? String(initialState.basemap) : DEFAULT_BASEMAP;
@@ -2699,8 +2920,13 @@ __STATIC_CHUNK_SCRIPT_TAGS__
         if (activeAnimalTemporalWindow !== 'all') params.set('animal_time_window', activeAnimalTemporalWindow);
         if (animalNordicOnly) params.set('animal_nordic', 'only');
         if (Number(slider.value) !== __INITIAL_DIAMETER__) params.set('diameter', String(Number(slider.value)));
-        if (TIME_HAS_DATA && timeStartBp !== DEFAULT_TIME_START_BP) params.set('time_start', String(timeStartBp));
-        if (TIME_HAS_DATA && timeIntervalYears !== DEFAULT_TIME_INTERVAL_YEARS) params.set('time_interval', String(timeIntervalYears));
+        const modeledWindow = currentModeledContextWindow();
+        if (modeledContextActive && modeledWindow) {
+          params.set('modeled_context', modeledWindow.label);
+        } else {
+          if (TIME_HAS_DATA && timeStartBp !== DEFAULT_TIME_START_BP) params.set('time_start', String(timeStartBp));
+          if (TIME_HAS_DATA && timeIntervalYears !== DEFAULT_TIME_INTERVAL_YEARS) params.set('time_interval', String(timeIntervalYears));
+        }
         if (Math.round(densityOpacity * 100) !== 60) params.set('density', String(Math.round(densityOpacity * 100)));
         if (currentBasemap !== DEFAULT_BASEMAP) params.set('basemap', currentBasemap);
         if (sidebar.classList.contains('is-collapsed') !== defaultPanelCollapsed()) {
@@ -3295,7 +3521,13 @@ __STATIC_CHUNK_SCRIPT_TAGS__
       function polygonPopupHtml(layer, properties) {
         const rows = Array.isArray(properties.popup_rows) ? properties.popup_rows : [];
         const rowHtml = availablePopupRows(rows).map((row) => `<div><strong>${escapeHtml(row.label || '')}</strong> ${escapeHtml(row.value)}</div>`).join('');
-        return `<div class="popup-grid"><div><strong>Layer</strong> ${escapeHtml(layer.label)}</div><div><strong>Name</strong> ${escapeHtml(properties.name || '')}</div><div><strong>Type</strong> ${escapeHtml(properties.category || properties.geometry_type || '')}</div>${rowHtml}${properties.source_url ? `<div><strong>Source</strong> <a href="${escapeHtml(properties.source_url)}" target="_blank" rel="noreferrer">Open</a></div>` : ''}</div>`;
+        const isOpenLandModel = isModeledContextFeature(layer, properties);
+        const openLandValue = modeledContextOpenLand(properties);
+        const standardError = modeledContextStandardError(properties);
+        const modeledRows = isOpenLandModel
+          ? `<div><strong>Open land (OL)</strong> ${openLandValue === null ? 'Unavailable' : `${escapeHtml(openLandValue.toFixed(2))}%`}</div><div><strong>Source standard error</strong> ${standardError === null ? 'Unavailable' : `${escapeHtml(standardError.toFixed(2))} percentage points`}</div><div><strong>Evidence role</strong> Context only; not a pollen observation or propagation input</div><div><strong>Interpolation</strong> Not allowed between published windows</div><div><strong>Method</strong> <a href="${escapeHtml(MODELED_CONTEXT.method_doi)}" target="_blank" rel="noreferrer">${escapeHtml(MODELED_CONTEXT.method_citation)}</a></div><div><strong>Quality class</strong> ${escapeHtml(properties.quality_class || 'Unavailable in normalized row')}</div>`
+          : '';
+        return `<div class="popup-grid"><div><strong>Layer</strong> ${escapeHtml(layer.label)}</div><div><strong>Name</strong> ${escapeHtml(properties.name || '')}</div><div><strong>Type</strong> ${escapeHtml(properties.category || properties.geometry_type || '')}</div>${rowHtml}${modeledRows}${properties.source_url ? `<div><strong>Source</strong> <a href="${escapeHtml(properties.source_url)}" target="_blank" rel="noreferrer">Open</a></div>` : ''}</div>`;
       }
       function densityFillColor(count, maxCount) {
         if (count === null || maxCount === null) return '#cbd5e1';
@@ -3413,6 +3645,7 @@ __STATIC_CHUNK_SCRIPT_TAGS__
         return (
           activeLayerKeys.has(layer.key)
           && (!layer.applies_country_filter || !country || activeCountries.has(country))
+          && modeledContextFeatureVisible(layer, properties)
           && featureInTimeWindow(layer, properties)
         );
       }
@@ -3627,7 +3860,11 @@ __STATIC_CHUNK_SCRIPT_TAGS__
           } else {
             geoJsonLayer = L.geoJSON({ type: 'FeatureCollection', features: visibleFeatures }, {
               pane: 'polygonPane',
-              style() {
+              style(feature) {
+                const properties = feature && feature.properties ? feature.properties : {};
+                if (modeledContextActive && isModeledContextFeature(layer, properties)) {
+                  return { color: '#334155', weight: 0.9, fillColor: modeledContextFillColor(modeledContextOpenLand(properties)), fillOpacity: 0.72, opacity: 0.88 };
+                }
                 return { color: layer.style.stroke, weight: 1.1, fillColor: layer.style.fill || 'rgba(100, 116, 139, 0.14)', fillOpacity: 0.28, opacity: 0.85 };
               },
               onEachFeature(feature, featureLayer) {
@@ -3762,6 +3999,7 @@ __STATIC_CHUNK_SCRIPT_TAGS__
         renderScientificControls();
         renderRelationControls();
         renderAnimalControls();
+        renderModeledContextControls();
         renderLegend();
         renderControlPanelSummary();
         updateStats();
@@ -3838,6 +4076,7 @@ __STATIC_CHUNK_SCRIPT_TAGS__
       function resetView() { map.fitBounds(INITIAL_BOUNDS, { padding: [36, 36] }); }
       async function restoreDefaults() {
         stopTimePlayback();
+        deactivateModeledContext();
         activeCountries = new Set(DEFAULT_COUNTRIES);
         activeLayerKeys = new Set(DEFAULT_LAYER_KEYS);
         activeScientificSignalIds = new Set(DEFAULT_SCIENTIFIC_SIGNAL_IDS);
@@ -3916,11 +4155,28 @@ __STATIC_CHUNK_SCRIPT_TAGS__
       mobilePanelCloseButton.addEventListener('click', () => setPanelCollapsed(true));
       mobileScrim.addEventListener('click', () => setPanelCollapsed(true));
       slider.addEventListener('input', renderMapState);
-      timeStartSlider.addEventListener('input', () => { stopTimePlayback(); timeStartBp = clampTimeStart(timeStartSlider.value, timeIntervalYears); renderMapState(); });
-      timeIntervalSlider.addEventListener('input', () => { stopTimePlayback(); timeIntervalYears = clampTimeInterval(timeIntervalSlider.value); renderMapState(); });
+      timeStartSlider.addEventListener('input', () => { stopTimePlayback(); deactivateModeledContext(); timeStartBp = clampTimeStart(timeStartSlider.value, timeIntervalYears); renderMapState(); });
+      timeIntervalSlider.addEventListener('input', () => { stopTimePlayback(); deactivateModeledContext(); timeIntervalYears = clampTimeInterval(timeIntervalSlider.value); renderMapState(); });
       timePlaybackToggle.addEventListener('click', () => {
         if (timePlaybackTimer === null) startTimePlayback(); else stopTimePlayback();
       });
+      modeledContextToggle.addEventListener('click', () => {
+        if (modeledContextActive) {
+          deactivateModeledContext();
+          renderMapState();
+        } else {
+          stopTimePlayback();
+          selectModeledContextWindow(modeledContextWindowIndex);
+        }
+      });
+      modeledContextWindow.addEventListener('change', () => {
+        stopModeledContextPlayback();
+        selectModeledContextWindow(Number(modeledContextWindow.value));
+      });
+      modeledContextPlayback.addEventListener('click', () => {
+        if (modeledContextPlaybackTimer === null) startModeledContextPlayback(); else stopModeledContextPlayback();
+      });
+      modeledContextDownload.addEventListener('click', downloadModeledContextFrame);
       densityOpacitySlider.addEventListener('input', () => { densityOpacity = Number(densityOpacitySlider.value) / 100; renderMapState(); });
       animalNordicOnlyCheckbox.addEventListener('change', () => {
         animalNordicOnly = animalNordicOnlyCheckbox.checked;
@@ -3935,6 +4191,7 @@ __STATIC_CHUNK_SCRIPT_TAGS__
       document.querySelectorAll('[data-time-interval]').forEach((button) => {
         button.addEventListener('click', () => {
           stopTimePlayback();
+          deactivateModeledContext();
           const preset = button.dataset.timeInterval;
           timeIntervalYears = preset === 'full' ? TIME_INTERVAL_MAX : Number(preset);
           renderMapState();

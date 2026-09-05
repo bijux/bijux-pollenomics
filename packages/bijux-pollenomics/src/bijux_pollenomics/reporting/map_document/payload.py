@@ -5,6 +5,7 @@ import json
 from typing import TYPE_CHECKING
 
 from ...core.geospatial.geojson import JsonObject
+from ..modeled_context import build_modeled_context_manifest
 from ..map_publication import MapScopePolicy
 from .state import build_map_document_state
 from .static_assets.budgets import ATLAS_FILTER_MAIN_THREAD_MAX_MS
@@ -74,6 +75,9 @@ def build_map_document_payload(
         "__COUNTRIES_JSON__": serialize_json_for_script(list(countries)),
         "__POINT_LAYERS_JSON__": point_layers_json,
         "__POLYGON_LAYERS_JSON__": polygon_layers_json,
+        "__MODELED_CONTEXT_JSON__": serialize_json_for_script(
+            build_modeled_context_manifest(polygon_layers)
+        ),
         "__STATIC_BOOTSTRAP_JSON__": bootstrap_json,
         "__STATIC_CHUNK_SCRIPT_TAGS__": chunk_script_tags,
         "__BOUNDS_JSON__": serialize_json_for_script(state.bounds),
