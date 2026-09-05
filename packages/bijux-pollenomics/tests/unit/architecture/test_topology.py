@@ -25,8 +25,8 @@ def test_topology_policy_keeps_public_facades_narrow_and_packages_bounded() -> N
 
     assert policy.maximum_direct_modules == 10
     assert policy.maximum_direct_test_modules == 10
-    assert policy.maximum_source_module_lines == 680
-    assert policy.maximum_unit_test_module_lines == 610
+    assert policy.maximum_source_module_lines == 540
+    assert policy.maximum_unit_test_module_lines == 480
     assert policy.forbidden_package_names == {
         "common",
         "foundation",

@@ -65,8 +65,8 @@ def repository_topology_policy() -> RepositoryTopologyPolicy:
     return RepositoryTopologyPolicy(
         maximum_direct_modules=10,
         maximum_direct_test_modules=10,
-        maximum_source_module_lines=680,
-        maximum_unit_test_module_lines=610,
+        maximum_source_module_lines=540,
+        maximum_unit_test_module_lines=480,
         forbidden_package_names=frozenset(
             {
                 "common",
@@ -417,11 +417,13 @@ def _audit_conftest_imports(
             filename=path.as_posix(),
         )
         for node in ast.walk(syntax_tree):
-            imported_modules: tuple[str, ...] = ()
+            imported_modules: tuple[str, ...]
             if isinstance(node, ast.ImportFrom) and node.module:
                 imported_modules = (node.module,)
             elif isinstance(node, ast.Import):
                 imported_modules = tuple(alias.name for alias in node.names)
+            else:
+                continue
             if not any(
                 module == "conftest" or module.endswith(".conftest")
                 for module in imported_modules
