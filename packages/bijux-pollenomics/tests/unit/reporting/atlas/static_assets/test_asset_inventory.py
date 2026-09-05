@@ -59,7 +59,7 @@ def test_columnar_inventory_reconstructs_exact_ordered_rows(tmp_path: Path) -> N
     )
 
 
-def test_checked_in_v1_inventory_remains_normalizable() -> None:
+def test_checked_in_inventory_reconciles_to_manifest_contract() -> None:
     manifest = json.loads(
         (ROOT / "docs/report/regions/nordic/nordic_map_assets.json").read_text(
             encoding="utf-8"
@@ -67,11 +67,28 @@ def test_checked_in_v1_inventory_remains_normalizable() -> None:
     )
 
     rows = normalize_asset_inventory(manifest["assets"])
+    inventory = cast(dict[str, object], manifest["assets"])
+    domains = cast(dict[str, dict[str, object]], manifest["domains"])
 
-    assert len(rows) == 110
-    assert [row["sequence"] for row in rows] == list(range(110))
+    assert len(rows) == inventory["record_count"]
+    assert [row["sequence"] for row in rows] == list(range(len(rows)))
+    assert len({row["asset_key"] for row in rows}) == len(rows)
+    assert len({row["path"] for row in rows}) == len(rows)
     assert any(row["domain"] == "nodes" for row in rows)
-    assert all("decoded_byte_count" not in row for row in rows)
+    for domain in ("nodes", "details", "edges", "sequences"):
+        assert (
+            sum(
+                cast(int, row["record_count"])
+                for row in rows
+                if row["domain"] == domain
+            )
+            == domains[domain]["record_count"]
+        )
+    assert all(
+        isinstance(row["decoded_byte_count"], int)
+        for row in rows
+        if row["payload_encoding"] == "gzip_base64"
+    )
 
 
 @pytest.mark.parametrize(

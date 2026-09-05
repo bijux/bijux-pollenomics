@@ -120,13 +120,25 @@ def test_committed_source_nodes_reconcile_and_fit_static_budgets(
         existing_edges,
         existing_sequences,
     ) = committed_nordic_inputs(ROOT)
+    committed_source_layers = {
+        str(layer["key"]): layer
+        for layer in existing_points
+        if layer.get("semantic_role") == "source_chronology_context"
+    }
+    assert {
+        key: cast(int, layer["count"]) for key, layer in committed_source_layers.items()
+    } == layer_counts
+    assert {
+        str(layer["node_level"]): len(cast(list[object], layer["features"]))
+        for layer in committed_source_layers.values()
+    } == source_accounting["layer_counts"]
     combined_root = tmp_path / "combined"
     combined_root.mkdir()
     combined = write_static_atlas_assets(
         combined_root,
         slug="nordic-combined",
         version="committed-snapshot",
-        point_layers=[*existing_points, *source_layers],
+        point_layers=existing_points,
         polygon_layers=existing_polygons,
         detail_records=existing_details,
         scientific_signals=existing_signals,
