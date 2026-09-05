@@ -12,6 +12,7 @@ from .sample_support import (
     _inclusion_statuses_for,
     _sample_group_ids_for,
     _sample_record_ids_for,
+    _source_native_taxonomy_for,
     _supplementary_sources_for,
 )
 
@@ -39,6 +40,12 @@ def _build_evidence_row(
         f"{species_slug}:{primary_project_accession}:{site_record_id}"
     )
     paper_doi = str(citation.get("paper_doi") or review.get("paper_doi", ""))
+    (
+        source_native_taxon_labels,
+        source_native_tax_ids,
+        source_native_scientific_names,
+        taxon_alignment_statuses,
+    ) = _source_native_taxonomy_for(sample_rows)
     return AnimalAtlasEvidenceRow(
         feature_id=f"animal-atlas-feature:{feature_token}",
         evidence_row_id=f"animal-atlas-row:{evidence_token}",
@@ -77,6 +84,10 @@ def _build_evidence_row(
         primary_project_accession=primary_project_accession,
         sample_record_ids=_sample_record_ids_for(sample_rows),
         sample_group_ids=_sample_group_ids_for(sample_rows),
+        source_native_taxon_labels=source_native_taxon_labels,
+        source_native_tax_ids=source_native_tax_ids,
+        source_native_scientific_names=source_native_scientific_names,
+        taxon_alignment_statuses=taxon_alignment_statuses,
         sample_count=int(cast(str, locality.get("sample_count", 0) or 0)),
         sample_namespace=str(locality.get("sample_namespace", "")),
         inclusion_statuses=_inclusion_statuses_for(sample_rows),

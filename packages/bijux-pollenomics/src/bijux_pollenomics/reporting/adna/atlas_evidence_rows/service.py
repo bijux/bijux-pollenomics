@@ -93,14 +93,13 @@ def build_tracked_animal_atlas_evidence_rows(
             )
             if not _sample_record_ids_for(matched_sample_rows):
                 continue
-            site_evidence = (
-                _lookup_project_locality_row(
-                    site_evidence_lookup,
-                    project_accession=primary_project_accession,
-                    locality_text=locality_label,
-                )
-                or {}
+            site_evidence = _lookup_project_locality_row(
+                site_evidence_lookup,
+                project_accession=primary_project_accession,
+                locality_text=locality_label,
             )
+            if site_evidence is None:
+                continue
             rows.append(
                 _build_evidence_row(
                     species_slug=species.slug,

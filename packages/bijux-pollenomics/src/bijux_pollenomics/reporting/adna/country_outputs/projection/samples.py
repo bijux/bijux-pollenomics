@@ -29,6 +29,15 @@ def build_sample_rows(
                     "country": country,
                     "species_latin_name": str(locality.get("species_latin_name", "")),
                     "species_common_name": str(locality.get("species_common_name", "")),
+                    "source_native_tax_id": str(
+                        sample.get("source_native_tax_id", "")
+                    ),
+                    "source_native_scientific_name": str(
+                        sample.get("source_native_scientific_name", "")
+                    ),
+                    "taxon_alignment_status": str(
+                        sample.get("taxon_alignment_status", "")
+                    ),
                     "sample_record_id": sample_id,
                     "sample_group_id": str(
                         sample.get("group_id")

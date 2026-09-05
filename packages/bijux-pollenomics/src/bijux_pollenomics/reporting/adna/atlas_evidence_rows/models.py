@@ -41,6 +41,10 @@ class AnimalAtlasEvidenceRow:
     primary_project_accession: str
     sample_record_ids: tuple[str, ...]
     sample_group_ids: tuple[str, ...]
+    source_native_taxon_labels: tuple[str, ...]
+    source_native_tax_ids: tuple[str, ...]
+    source_native_scientific_names: tuple[str, ...]
+    taxon_alignment_statuses: tuple[str, ...]
     sample_count: int
     sample_namespace: str
     inclusion_statuses: tuple[str, ...]
@@ -92,6 +96,12 @@ class AnimalAtlasEvidenceRow:
             "primary_project_accession": self.primary_project_accession,
             "sample_record_ids": list(self.sample_record_ids),
             "sample_group_ids": list(self.sample_group_ids),
+            "source_native_taxon_labels": list(self.source_native_taxon_labels),
+            "source_native_tax_ids": list(self.source_native_tax_ids),
+            "source_native_scientific_names": list(
+                self.source_native_scientific_names
+            ),
+            "taxon_alignment_statuses": list(self.taxon_alignment_statuses),
             "sample_count": self.sample_count,
             "sample_namespace": self.sample_namespace,
             "inclusion_statuses": list(self.inclusion_statuses),

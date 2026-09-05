@@ -102,6 +102,12 @@ def build_country_animal_output_bundle(
                 "sample_count": row.sample_count,
                 "sample_record_ids": list(row.sample_record_ids),
                 "sample_group_ids": list(row.sample_group_ids),
+                "source_native_taxon_labels": list(row.source_native_taxon_labels),
+                "source_native_tax_ids": list(row.source_native_tax_ids),
+                "source_native_scientific_names": list(
+                    row.source_native_scientific_names
+                ),
+                "taxon_alignment_statuses": list(row.taxon_alignment_statuses),
                 "sample_namespace": row.sample_namespace,
                 "inclusion_statuses": list(row.inclusion_statuses),
                 "inclusion_notes": list(row.inclusion_notes),

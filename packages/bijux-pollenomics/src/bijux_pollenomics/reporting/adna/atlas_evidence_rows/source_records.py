@@ -42,7 +42,6 @@ def _load_coordinate_provenance_lookup(
             continue
         site_label = str(row.get("site_label", "")).strip()
         lookup[(project_accession, site_label)] = row
-        lookup.setdefault((project_accession, ""), row)
     return lookup
 
 
@@ -63,7 +62,6 @@ def _load_site_evidence_lookup(
             continue
         site_label = str(row.get("site_label", "")).strip()
         lookup[(project_accession, site_label)] = row
-        lookup.setdefault((project_accession, ""), row)
     return lookup
 
 
@@ -73,9 +71,7 @@ def _lookup_project_locality_row(
     project_accession: str,
     locality_text: str,
 ) -> dict[str, object] | None:
-    return lookup.get((project_accession, locality_text)) or lookup.get(
-        (project_accession, "")
-    )
+    return lookup.get((project_accession, locality_text))
 
 
 def _load_citation_lookup(species_root: Path) -> dict[str, dict[str, str]]:

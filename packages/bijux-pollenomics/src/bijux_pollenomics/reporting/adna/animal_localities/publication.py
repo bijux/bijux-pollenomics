@@ -55,6 +55,16 @@ def _write_feature_collection(
                     "sample_count": feature["sample_count"],
                     "sample_record_ids": feature["sample_record_ids"],
                     "sample_group_ids": feature["sample_group_ids"],
+                    "source_native_taxon_labels": feature[
+                        "source_native_taxon_labels"
+                    ],
+                    "source_native_tax_ids": feature["source_native_tax_ids"],
+                    "source_native_scientific_names": feature[
+                        "source_native_scientific_names"
+                    ],
+                    "taxon_alignment_statuses": feature[
+                        "taxon_alignment_statuses"
+                    ],
                     "sample_namespace": feature["sample_namespace"],
                     "inclusion_notes": feature["inclusion_notes"],
                     "latitude_text": feature["latitude_text"],
@@ -121,6 +131,10 @@ def _write_animal_atlas_evidence_csv(
         "coordinate_confidence",
         "sample_count",
         "sample_record_ids",
+        "source_native_taxon_labels",
+        "source_native_tax_ids",
+        "source_native_scientific_names",
+        "taxon_alignment_statuses",
         "project_accessions",
         "paper_doi",
         "supplementary_sources",
@@ -148,6 +162,16 @@ def _write_animal_atlas_evidence_csv(
                     "coordinate_confidence": row.coordinate_confidence,
                     "sample_count": row.sample_count,
                     "sample_record_ids": ";".join(row.sample_record_ids),
+                    "source_native_taxon_labels": ";".join(
+                        row.source_native_taxon_labels
+                    ),
+                    "source_native_tax_ids": ";".join(row.source_native_tax_ids),
+                    "source_native_scientific_names": ";".join(
+                        row.source_native_scientific_names
+                    ),
+                    "taxon_alignment_statuses": ";".join(
+                        row.taxon_alignment_statuses
+                    ),
                     "project_accessions": ";".join(row.project_accessions),
                     "paper_doi": row.paper_doi,
                     "supplementary_sources": ";".join(row.supplementary_sources),
@@ -188,6 +212,8 @@ def _write_animal_point_traceability_json(
                 "primary_project_accession": row.primary_project_accession,
                 "sample_record_ids": list(row.sample_record_ids),
                 "sample_group_ids": list(row.sample_group_ids),
+                "source_native_taxon_labels": list(row.source_native_taxon_labels),
+                "taxon_alignment_statuses": list(row.taxon_alignment_statuses),
                 "sample_count": row.sample_count,
                 "coordinate_basis": row.coordinate_basis,
                 "coordinate_confidence": row.coordinate_confidence,

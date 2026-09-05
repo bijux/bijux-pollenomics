@@ -4217,6 +4217,12 @@ __STATIC_CHUNK_SCRIPT_TAGS__
           ].filter((row) => valueIsAvailable(row.value));
           const secondaryRows = [
             { label: 'Chronology', value: feature.time_label || '' },
+            { label: 'Chronology evidence class', value: feature.temporal_semantics?.evidence_class || '' },
+            { label: 'Chronology precision posture', value: feature.temporal_semantics?.precision_posture || '' },
+            { label: 'Temporal comparison posture', value: feature.temporal_comparability_posture || feature.temporal_semantics?.comparability_posture || '' },
+            { label: 'Temporal comparison note', value: feature.temporal_comparison_note || feature.temporal_semantics?.comparison_note || '' },
+            { label: 'Source-native taxa', value: Array.isArray(feature.source_native_taxon_labels) ? feature.source_native_taxon_labels.join(', ') : '' },
+            { label: 'Taxon alignment', value: Array.isArray(feature.taxon_alignment_statuses) ? feature.taxon_alignment_statuses.join(', ').replaceAll('_', ' ') : '' },
             { label: 'Mapped sample identifiers', value: Array.isArray(feature.sample_record_ids) ? feature.sample_record_ids.join(', ') : '' },
             { label: 'Original place text', value: feature.original_place_text || '' },
             { label: 'Resolved place text', value: feature.resolved_place_text || '' },

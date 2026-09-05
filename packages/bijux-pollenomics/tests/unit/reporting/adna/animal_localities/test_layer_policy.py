@@ -36,7 +36,7 @@ def test_species_style_and_alpha_fallbacks_are_stable() -> None:
     assert animal_localities._alpha("invalid", 0.1) == "invalid"
 
 
-def test_real_animal_layers_retain_caveated_time_without_inventing_radiocarbon(
+def test_real_animal_layers_withhold_context_dates_from_numeric_playback(
     tmp_path: Path,
 ) -> None:
     bundle = animal_localities.build_tracked_animal_atlas_bundle(
@@ -48,7 +48,7 @@ def test_real_animal_layers_retain_caveated_time_without_inventing_radiocarbon(
     pig_layer = layers["Sus scrofa domesticus"]
     pig_features = cast(list[dict[str, object]], pig_layer["features"])
 
-    assert pig_layer["applies_time_filter"] is True
+    assert pig_layer["applies_time_filter"] is False
     assert {
         str(feature["title"]): (
             feature["time_start_bp"],
@@ -59,13 +59,9 @@ def test_real_animal_layers_retain_caveated_time_without_inventing_radiocarbon(
         )
         for feature in pig_features
     } == {
-        "Bundsø": (4700, 4700, "numeric_interval_with_caveat"),
-        "Trelleborg": (1000, 1000, "numeric_interval_with_caveat"),
+        "Bundsø": (None, None, "contextual_label_only"),
+        "Trelleborg": (None, None, "contextual_label_only"),
     }
-    assert {
-        min(cast(int, feature["time_start_bp"]) for feature in pig_features),
-        max(cast(int, feature["time_end_bp"]) for feature in pig_features),
-    } == {1000, 4700}
 
     all_features = [
         feature
@@ -86,13 +82,32 @@ def test_real_animal_layers_retain_caveated_time_without_inventing_radiocarbon(
         if feature["time_start_bp"] is None and feature["time_end_bp"] is None
     ]
 
-    assert len(numeric_caveated) == 6
-    assert all(feature["time_start_bp"] is not None for feature in numeric_caveated)
-    assert len(untimed) == 21
+    assert numeric_caveated == []
+    assert len(untimed) == 67
     assert {
         cast(dict[str, object], feature["temporal_semantics"])["comparability_posture"]
         for feature in untimed
-    } == {"contextual_label_only"}
+    } == {"contextual_label_only", "unresolved"}
+
+    cat_layer = layers["Felis catus"]
+    cat_features = cast(list[dict[str, object]], cat_layer["features"])
+    wildcat_feature = next(
+        feature
+        for feature in cat_features
+        if "Felis silvestris silvestris"
+        in cast(list[str], feature["source_native_scientific_names"])
+    )
+    wildcat_popup = {
+        str(item["label"]): str(item["value"])
+        for item in cast(list[dict[str, object]], wildcat_feature["popup_rows"])
+    }
+    assert "Felis silvestris silvestris" in wildcat_popup["Source-native taxa"]
+    assert "project species mismatch" in wildcat_popup["Taxon alignment"]
+    assert any(
+        "different from the configured project species" in str(item["value"])
+        for item in cast(list[dict[str, object]], wildcat_feature["popup_rows"])
+        if item["label"] == "Warning"
+    )
 
     for feature in pig_features:
         popup = {

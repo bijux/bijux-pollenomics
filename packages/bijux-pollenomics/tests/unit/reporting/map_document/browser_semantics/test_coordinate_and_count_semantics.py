@@ -78,12 +78,22 @@ function formatCoordinateBasis(value){return value}
 const generic=popupHtml({latitude:0,longitude:0,popup_rows:[{label:'Count',value:0}]});
 const animal=popupHtml({
   species_latin_name:'Bos taurus',latitude:0,longitude:0,
+  temporal_semantics:{
+    evidence_class:'archaeological_context_date',
+    precision_posture:'sample_approximate_or_modeled',
+    comparability_posture:'contextual_label_only',
+    comparison_note:'Numeric publication is withheld.',
+  },
   popup_rows:[{label:'Interpretation',value:0},{label:'Warning',value:0}],
 });
 console.log(JSON.stringify({
   genericZero:generic.includes('<strong>Count</strong> 0'),
   animalInterpretationZero:animal.includes('popup-row-value">0</span>'),
   animalWarningZero:animal.includes('popup-warning">0</div>'),
+  animalEvidenceClass:animal.includes('archaeological_context_date'),
+  animalPrecisionPosture:animal.includes('sample_approximate_or_modeled'),
+  animalComparisonPosture:animal.includes('contextual_label_only'),
+  animalComparisonNote:animal.includes('Numeric publication is withheld.'),
 }));
 """
     )
@@ -92,6 +102,10 @@ console.log(JSON.stringify({
         "genericZero": True,
         "animalInterpretationZero": True,
         "animalWarningZero": True,
+        "animalEvidenceClass": True,
+        "animalPrecisionPosture": True,
+        "animalComparisonPosture": True,
+        "animalComparisonNote": True,
     }
 
 

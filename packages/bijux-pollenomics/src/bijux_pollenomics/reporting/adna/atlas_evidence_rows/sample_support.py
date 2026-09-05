@@ -38,6 +38,43 @@ def _sample_group_ids_for(
     )
 
 
+def _source_native_taxonomy_for(
+    sample_rows: tuple[dict[str, object], ...],
+) -> tuple[tuple[str, ...], tuple[str, ...], tuple[str, ...], tuple[str, ...]]:
+    taxon_pairs = {
+        (
+            str(row.get("source_native_tax_id", "")).strip(),
+            str(row.get("source_native_scientific_name", "")).strip(),
+        )
+        for row in sample_rows
+        if str(row.get("source_native_tax_id", "")).strip()
+        or str(row.get("source_native_scientific_name", "")).strip()
+    }
+    ordered_pairs = tuple(sorted(taxon_pairs, key=lambda pair: (pair[1], pair[0])))
+    labels = tuple(
+        (
+            f"{scientific_name} (tax_id {tax_id})"
+            if scientific_name and tax_id
+            else scientific_name or f"tax_id {tax_id}"
+        )
+        for tax_id, scientific_name in ordered_pairs
+    )
+    tax_ids = tuple(sorted({tax_id for tax_id, _ in ordered_pairs if tax_id}))
+    scientific_names = tuple(
+        sorted({name for _, name in ordered_pairs if name})
+    )
+    alignment_statuses = tuple(
+        sorted(
+            {
+                str(row.get("taxon_alignment_status", "")).strip()
+                for row in sample_rows
+                if str(row.get("taxon_alignment_status", "")).strip()
+            }
+        )
+    )
+    return labels, tax_ids, scientific_names, alignment_statuses
+
+
 def _inclusion_statuses_for(
     sample_rows: tuple[dict[str, object], ...],
 ) -> tuple[str, ...]:

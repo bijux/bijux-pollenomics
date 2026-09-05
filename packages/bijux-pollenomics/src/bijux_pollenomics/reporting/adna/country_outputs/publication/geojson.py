@@ -24,8 +24,27 @@ def write_country_animal_localities_geojson(
             if isinstance(sample_record_ids, list)
             else ""
         )
+        source_native_taxon_labels = row.get("source_native_taxon_labels", [])
+        if not isinstance(source_native_taxon_labels, list):
+            source_native_taxon_labels = []
+        taxon_alignment_statuses = row.get("taxon_alignment_statuses", [])
+        if not isinstance(taxon_alignment_statuses, list):
+            taxon_alignment_statuses = []
         popup_rows: list[dict[str, object]] = [
             {"label": "Species", "value": row["species_latin_name"]},
+            {
+                "label": "Source-native taxa",
+                "value": ", ".join(
+                    str(item) for item in source_native_taxon_labels
+                ),
+            },
+            {
+                "label": "Taxon alignment",
+                "value": ", ".join(
+                    str(item).replace("_", " ")
+                    for item in taxon_alignment_statuses
+                ),
+            },
             {
                 "label": "Animal scope",
                 "value": str(row["animal_scope"]).replace("_", " "),
@@ -93,6 +112,14 @@ def write_country_animal_localities_geojson(
                     "sample_count": row["sample_count"],
                     "sample_record_ids": row["sample_record_ids"],
                     "sample_group_ids": row["sample_group_ids"],
+                    "source_native_taxon_labels": row[
+                        "source_native_taxon_labels"
+                    ],
+                    "source_native_tax_ids": row["source_native_tax_ids"],
+                    "source_native_scientific_names": row[
+                        "source_native_scientific_names"
+                    ],
+                    "taxon_alignment_statuses": row["taxon_alignment_statuses"],
                     "sample_namespace": row["sample_namespace"],
                     "source_artifact_path": row["source_artifact_path"],
                     "source_artifact_kind": row["source_artifact_kind"],

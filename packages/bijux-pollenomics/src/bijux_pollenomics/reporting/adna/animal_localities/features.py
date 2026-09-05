@@ -35,6 +35,14 @@ def _build_point_feature(
             "value": ", ".join(row.sample_record_ids),
         },
         {
+            "label": "Source-native taxa",
+            "value": ", ".join(row.source_native_taxon_labels),
+        },
+        {
+            "label": "Taxon alignment",
+            "value": ", ".join(row.taxon_alignment_statuses).replace("_", " "),
+        },
+        {
             "label": "Project accession",
             "value": ", ".join(row.project_accessions) or "No project accession",
         },
@@ -113,6 +121,12 @@ def _build_point_feature(
         "sample_count": row.sample_count,
         "sample_record_ids": list(row.sample_record_ids),
         "sample_group_ids": list(row.sample_group_ids),
+        "source_native_taxon_labels": list(row.source_native_taxon_labels),
+        "source_native_tax_ids": list(row.source_native_tax_ids),
+        "source_native_scientific_names": list(
+            row.source_native_scientific_names
+        ),
+        "taxon_alignment_statuses": list(row.taxon_alignment_statuses),
         "sample_namespace": row.sample_namespace,
         "paper_title": row.paper_title,
         "publication_year": row.publication_year,
@@ -160,6 +174,12 @@ def _warning_rows_for(
     if dataset_review.get("product_role") == "comparator":
         warnings.append(
             "Comparator-only evidence: use for comparison, not domesticated-core claims."
+        )
+    if "project_species_mismatch" in row.taxon_alignment_statuses:
+        warnings.append(
+            "One or more mapped biological samples have a source-native taxon "
+            "different from the configured project species; inspect Source-native "
+            "taxa before making domestication claims."
         )
     if not row.nordic_inclusion:
         warnings.append(

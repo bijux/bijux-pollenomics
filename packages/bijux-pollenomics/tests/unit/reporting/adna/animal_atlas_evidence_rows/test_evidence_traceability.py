@@ -8,8 +8,26 @@ from bijux_pollenomics.reporting.adna import (
     build_tracked_animal_atlas_evidence_rows,
     load_tracked_animal_mappable_localities,
 )
+from bijux_pollenomics.reporting.adna.atlas_evidence_rows.source_records import (
+    _lookup_project_locality_row,
+)
 
 from .support import _write_json
+
+
+def test_atlas_source_lookup_requires_exact_project_locality() -> None:
+    lookup = {
+        ("PRJTEST", "Site One"): {"source_locator": "row one"},
+    }
+
+    assert (
+        _lookup_project_locality_row(
+            lookup,
+            project_accession="PRJTEST",
+            locality_text="Site Two",
+        )
+        is None
+    )
 
 
 def test_animal_atlas_evidence_rows_keep_traceability_fields_and_point_filter() -> None:
@@ -92,6 +110,9 @@ def test_animal_atlas_evidence_rows_keep_traceability_fields_and_point_filter() 
                         },
                         "group_id": "PRJEB59481",
                         "project_accession": "PRJEB59481",
+                        "source_native_tax_id": "9940",
+                        "source_native_scientific_name": "Ovis aries",
+                        "taxon_alignment_status": "project_species_match",
                         "supplementary_source": "supplementary/prjeb59481.pdf",
                         "inclusion_status": "nordic_lead_site_curated",
                         "inclusion_note": "Curated into the atlas evidence contract.",
@@ -234,6 +255,10 @@ def test_animal_atlas_evidence_rows_keep_traceability_fields_and_point_filter() 
     assert row.coordinate_basis == "named_site_geocoding"
     assert row.sample_record_ids == ("ovis_aries:sample:prjeb59481",)
     assert row.sample_group_ids == ("PRJEB59481",)
+    assert row.source_native_taxon_labels == ("Ovis aries (tax_id 9940)",)
+    assert row.source_native_tax_ids == ("9940",)
+    assert row.source_native_scientific_names == ("Ovis aries",)
+    assert row.taxon_alignment_statuses == ("project_species_match",)
     assert row.paper_doi == "10.1000/sheep"
     assert row.source_locator == "supplementary table"
     assert row.exact_source_text == "Baltic sheep lead named in the source support."
