@@ -12,7 +12,10 @@ from bijux_pollenomics.reporting.context import build_context_layers
 from bijux_pollenomics.reporting.geography import build_published_geography_plan
 from bijux_pollenomics.reporting.map_document import render_multi_country_map_html
 from bijux_pollenomics.reporting.map_document.state import build_map_document_state
-from bijux_pollenomics.reporting.map_document.template import MAP_DOCUMENT_TEMPLATE
+from bijux_pollenomics.reporting.map_document.template import (
+    MAP_DOCUMENT_TEMPLATE,
+    load_map_document_template,
+)
 from bijux_pollenomics.reporting.map_publication import (
     build_map_publication_contract,
     resolve_map_scope_policy,
@@ -21,6 +24,11 @@ from bijux_pollenomics.reporting.models import MultiCountryMapReport
 
 
 class MapPublicationUnitTests(unittest.TestCase):
+    def test_map_document_template_is_loaded_from_the_packaged_resource(self) -> None:
+        self.assertEqual(load_map_document_template(), MAP_DOCUMENT_TEMPLATE)
+        self.assertTrue(MAP_DOCUMENT_TEMPLATE.startswith('\n<html lang="en">'))
+        self.assertTrue(MAP_DOCUMENT_TEMPLATE.endswith("</html>\n"))
+
     def test_scope_policies_keep_distinct_bounds_and_basemaps(self) -> None:
         plan = build_published_geography_plan(("Sweden", "Norway", "Germany"))
         world_policy = resolve_map_scope_policy(plan.world_scope)
