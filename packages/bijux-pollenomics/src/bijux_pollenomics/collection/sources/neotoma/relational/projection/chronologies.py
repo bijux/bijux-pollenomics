@@ -5,7 +5,7 @@ from __future__ import annotations
 from collections.abc import Mapping
 import copy
 
-from ..diagnostics import add_orphan, conflict_record, register_record
+from ..diagnostics import add_conflict, add_orphan, register_record
 from ..identifiers import digest, optional_source_id
 from ..source_payloads import copy_source_payload_excluding
 from ..state import RelationalBuildState
@@ -97,24 +97,23 @@ def project_chronologies(
 
     expected_flags = [default_source_id] if default_source_id is not None else []
     if sorted(flagged_default_ids) != expected_flags:
-        state.conflicts.append(
-            conflict_record(
-                "default_chronology_assertions_conflict",
-                dataset_id,
-                {
-                    "collection_unit_id": unit_id,
-                    "explicit_default_chronology_id": (
-                        f"neotoma:chronology:{unit_source_id}:{default_source_id}"
-                        if default_source_id is not None
-                        else None
-                    ),
-                    "source_flagged_default_chronology_ids": [
-                        f"neotoma:chronology:{unit_source_id}:{source_id}"
-                        for source_id in sorted(flagged_default_ids)
-                    ],
-                    "governing_selection": "collection_unit.defaultchronology",
-                },
-            )
+        add_conflict(
+            state.conflicts,
+            "default_chronology_assertions_conflict",
+            dataset_id,
+            {
+                "collection_unit_id": unit_id,
+                "explicit_default_chronology_id": (
+                    f"neotoma:chronology:{unit_source_id}:{default_source_id}"
+                    if default_source_id is not None
+                    else None
+                ),
+                "source_flagged_default_chronology_ids": [
+                    f"neotoma:chronology:{unit_source_id}:{source_id}"
+                    for source_id in sorted(flagged_default_ids)
+                ],
+                "governing_selection": "collection_unit.defaultchronology",
+            },
         )
     if (
         default_source_id is not None
