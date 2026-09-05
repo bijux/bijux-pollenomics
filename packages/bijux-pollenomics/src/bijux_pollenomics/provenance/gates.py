@@ -79,7 +79,7 @@ _GATE_TESTS: dict[str, tuple[str, ...]] = {
         "collection/sources/sead/evidence/test_chronology.py",
         "analysis/classification/test_ecological_classification.py",
         "evidence/test_classification_audit_outputs.py",
-        "analysis/classification/test_classification_events.py",
+        "analysis/classification/test_classification_events",
         "analysis/classification/test_harmonization.py",
         "core/test_temporal_overlap_consumers.py",
         "analysis/fieldwork/evidence_richness/test_report.py",

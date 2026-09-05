@@ -18,7 +18,7 @@ POLLENOMICS_SCIENCE_TESTS := \
 	$(POLLENOMICS_TEST_ROOT)/unit/collection/sources/sead/evidence/test_chronology.py \
 	$(POLLENOMICS_TEST_ROOT)/unit/analysis/classification/test_ecological_classification.py \
 	$(POLLENOMICS_TEST_ROOT)/unit/evidence/test_classification_audit_outputs.py \
-	$(POLLENOMICS_TEST_ROOT)/unit/analysis/classification/test_classification_events.py \
+	$(POLLENOMICS_TEST_ROOT)/unit/analysis/classification/test_classification_events \
 	$(POLLENOMICS_TEST_ROOT)/unit/analysis/classification/test_harmonization.py \
 	$(POLLENOMICS_TEST_ROOT)/unit/core/test_temporal_overlap_consumers.py \
 	$(POLLENOMICS_TEST_ROOT)/unit/analysis/fieldwork/evidence_richness/test_report.py \
