@@ -2,14 +2,23 @@ from __future__ import annotations
 
 import json
 from pathlib import Path
+from typing import cast
 
 from .atlas_accountability import build_animal_atlas_candidate_accountability
+from .contracts import (
+    AnimalOutputHonesty,
+    AtlasAccountability,
+    HonestyRow,
+    HonestyTotals,
+    PublicAnimalOutputAudit,
+)
 from .coverage import build_cross_species_coverage_dashboard
 from .repository import (
     _load_coordinate_provenance_rows,
     _load_country_sample_ids_by_species,
     _load_mapped_sample_ids_by_species,
     _load_sample_rows,
+    _nested_string,
     _species_roots,
 )
 
@@ -17,7 +26,7 @@ from .repository import (
 def build_public_animal_output_audit(
     data_root: Path,
     report_root: Path,
-) -> dict[str, object]:
+) -> PublicAnimalOutputAudit:
     """Summarize what the shipped public report tree currently exposes for animal aDNA."""
     report_root = Path(report_root)
     country_root = report_root / "countries"
@@ -40,7 +49,10 @@ def build_public_animal_output_audit(
         / "animal_atlas_candidate_accountability.json"
     )
     if accountability_path.is_file():
-        accountability = json.loads(accountability_path.read_text(encoding="utf-8"))
+        accountability = cast(
+            AtlasAccountability,
+            json.loads(accountability_path.read_text(encoding="utf-8")),
+        )
     else:
         accountability = build_animal_atlas_candidate_accountability(data_root)
     return {
@@ -66,13 +78,13 @@ def build_public_animal_output_audit(
 def build_public_animal_output_honesty(
     data_root: Path,
     report_root: Path,
-) -> dict[str, object]:
+) -> AnimalOutputHonesty:
     """Compare tracked, mapped, blocked, and unresolved sample counts in one place."""
     report_root = Path(report_root)
     country_sample_ids_by_species = _load_country_sample_ids_by_species(report_root)
     mapped_sample_ids_by_species = _load_mapped_sample_ids_by_species(Path(data_root))
-    rows = []
-    totals = {
+    rows: list[HonestyRow] = []
+    totals: HonestyTotals = {
         "tracked_sample_count": 0,
         "mapped_sample_count": 0,
         "blocked_sample_count": 0,
@@ -89,9 +101,9 @@ def build_public_animal_output_honesty(
         species_name = str(sample_rows[0].get("species_latin_name", "")).strip()
         common_name = str(sample_rows[0].get("species_common_name", "")).strip()
         tracked_sample_ids = {
-            str(row.get("identity", {}).get("stable_token", "")).strip()
+            _nested_string(row, "identity", "stable_token")
             for row in sample_rows
-            if str(row.get("identity", {}).get("stable_token", "")).strip()
+            if _nested_string(row, "identity", "stable_token")
         }
         mapped_sample_ids = mapped_sample_ids_by_species.get(species_name, set())
         unresolved_sample_count = sum(
@@ -108,7 +120,7 @@ def build_public_animal_output_honesty(
             country_sample_ids_by_species.get(species_name, set())
         )
         blocked_sample_count = len(tracked_sample_ids - mapped_sample_ids)
-        row = {
+        row: HonestyRow = {
             "species_latin_name": species_name,
             "species_common_name": common_name,
             "tracked_sample_count": len(tracked_sample_ids),
@@ -119,8 +131,14 @@ def build_public_animal_output_honesty(
             "region_refused_count": region_refused_count,
         }
         rows.append(row)
-        for key in totals:
-            totals[key] += int(row[key])
+        totals["tracked_sample_count"] += row["tracked_sample_count"]
+        totals["mapped_sample_count"] += row["mapped_sample_count"]
+        totals["blocked_sample_count"] += row["blocked_sample_count"]
+        totals["unresolved_sample_count"] += row["unresolved_sample_count"]
+        totals["country_published_sample_count"] += row[
+            "country_published_sample_count"
+        ]
+        totals["region_refused_count"] += row["region_refused_count"]
     return {
         "schema_version": "animal-output-honesty.v1",
         "totals": totals,

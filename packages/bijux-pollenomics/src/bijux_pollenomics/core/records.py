@@ -2,9 +2,11 @@
 
 from __future__ import annotations
 
+from collections.abc import Mapping
+
 
 def require_record_rows(
-    payload: dict[str, object],
+    payload: Mapping[str, object],
     key: str,
 ) -> tuple[dict[str, object], ...]:
     """Return object rows from a dynamic payload or reject its malformed boundary."""

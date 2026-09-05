@@ -7,6 +7,7 @@ from ...adna.governance.audit_catalogs import (
     build_cross_species_map_readiness,
     build_public_animal_output_honesty,
 )
+from ...adna.governance.audit_catalogs.contracts import AnimalOutputHonesty
 from ...adna.workflow.paths import adna_species_dir
 from ...core.temporal_semantics import (
     InvalidBpIntervalError,
@@ -1044,7 +1045,7 @@ def _render_animal_atlas_readiness_markdown(payload: dict[str, object]) -> str:
     return "\n".join(lines)
 
 
-def _render_output_honesty_markdown(payload: dict[str, object]) -> str:
+def _render_output_honesty_markdown(payload: AnimalOutputHonesty) -> str:
     lines = [
         "# Animal output honesty",
         "",
@@ -1056,7 +1057,7 @@ def _render_output_honesty_markdown(payload: dict[str, object]) -> str:
         "| Species | Tracked samples | Mapped samples | Blocked samples | Unresolved samples | Country-published samples | Region-refused rows |",
         "| --- | ---: | ---: | ---: | ---: | ---: | ---: |",
     ]
-    for row in payload.get("rows", []):
+    for row in payload["rows"]:
         lines.append(
             f"| {row['species_latin_name']} | {row['tracked_sample_count']} | "
             f"{row['mapped_sample_count']} | {row['blocked_sample_count']} | "

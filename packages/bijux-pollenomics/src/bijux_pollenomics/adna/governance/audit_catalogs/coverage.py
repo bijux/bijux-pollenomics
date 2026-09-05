@@ -7,6 +7,7 @@ from bijux_pollenomics.adna.workflow.paths import adna_species_root
 from bijux_pollenomics.adna.projects.registry.context import resolve_project_context
 from bijux_pollenomics.adna.sources.ena import build_archive_project_catalog
 from bijux_pollenomics.adna.species.tracked_species import TRACKED_ADNA_SPECIES
+from .contracts import CoverageDashboard, CoverageRow, ShippedProductAudit
 from .repository import (
     _atlas_layer_count,
     _count_sample_rows_by_mapping_posture,
@@ -18,7 +19,7 @@ from .repository import (
 def build_cross_species_coverage_dashboard(
     data_root: Path,
     report_root: Path,
-) -> dict[str, object]:
+) -> CoverageDashboard:
     """Report which animal evidence surfaces are actually shipped per species."""
     rows = [
         _build_species_coverage_row(
@@ -37,7 +38,7 @@ def build_cross_species_coverage_dashboard(
 def build_shipped_adna_product_audit(
     data_root: Path,
     report_root: Path,
-) -> dict[str, object]:
+) -> ShippedProductAudit:
     """Build a fuller product audit for what animal aDNA the repo really ships."""
     dashboard = build_cross_species_coverage_dashboard(data_root, report_root)
     rows = dashboard["rows"]
@@ -73,7 +74,7 @@ def _build_species_coverage_row(
     data_root: Path,
     report_root: Path,
     species_name: str,
-) -> dict[str, object]:
+) -> CoverageRow:
     from bijux_pollenomics.adna.species.definitions import resolve_species_definition
 
     species = resolve_species_definition(species_name)

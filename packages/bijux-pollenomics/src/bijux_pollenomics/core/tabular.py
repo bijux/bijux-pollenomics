@@ -2,11 +2,12 @@
 
 from __future__ import annotations
 
+from collections.abc import Mapping, Sequence
 import csv
 import io
 
 
-def render_csv_rows(rows: tuple[dict[str, object], ...]) -> str:
+def render_csv_rows(rows: Sequence[Mapping[str, object]]) -> str:
     """Render homogeneous record rows as deterministic CSV text."""
     if not rows:
         return ""

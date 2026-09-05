@@ -1,15 +1,39 @@
 from __future__ import annotations
 
+from typing import TypedDict
+
 from bijux_pollenomics.adna.projects.registry.context import (
     build_species_freshness_rows,
 )
 from bijux_pollenomics.adna.sources.ena import build_archive_project_catalog
 from bijux_pollenomics.adna.species.tracked_species import TRACKED_ADNA_SPECIES
+from .contracts import ArchiveInventoryRow, BibliographyRow
 
 
-def build_cross_species_bibliography() -> tuple[dict[str, object], ...]:
+class _BibliographyGroup(TypedDict):
+    paper_title: str
+    paper_doi: str | None
+    journal_title: str | None
+    publication_year: int | None
+    reference_kind: str
+    species_latin_names: set[str]
+    project_accessions: set[str]
+
+
+class _ArchiveGroup(TypedDict):
+    source_family: str
+    project_accession: str
+    metadata_url: str
+    result_kind: str
+    archive_status: str
+    evidence_strength: object
+    access_policy: str
+    species_latin_names: set[str]
+
+
+def build_cross_species_bibliography() -> tuple[BibliographyRow, ...]:
     """Deduplicate cited animal aDNA literature across all tracked species."""
-    grouped: dict[str, dict[str, object]] = {}
+    grouped: dict[str, _BibliographyGroup] = {}
     for project in build_archive_project_catalog():
         linkage = project.paper_linkage
         if linkage is None:
@@ -29,7 +53,7 @@ def build_cross_species_bibliography() -> tuple[dict[str, object], ...]:
         )
         current["species_latin_names"].add(project.species_latin_name)
         current["project_accessions"].add(project.project_accession)
-    rows = []
+    rows: list[BibliographyRow] = []
     for row in grouped.values():
         rows.append(
             {
@@ -56,9 +80,9 @@ def build_cross_species_bibliography() -> tuple[dict[str, object], ...]:
     )
 
 
-def build_cross_species_archive_inventory() -> tuple[dict[str, object], ...]:
+def build_cross_species_archive_inventory() -> tuple[ArchiveInventoryRow, ...]:
     """Deduplicate the tracked cross-species archive inventory."""
-    grouped: dict[tuple[str, str], dict[str, object]] = {}
+    grouped: dict[tuple[str, str], _ArchiveGroup] = {}
     for project in build_archive_project_catalog():
         key = (project.source_family, project.project_accession)
         current = grouped.setdefault(
@@ -75,7 +99,7 @@ def build_cross_species_archive_inventory() -> tuple[dict[str, object], ...]:
             },
         )
         current["species_latin_names"].add(project.species_latin_name)
-    rows = []
+    rows: list[ArchiveInventoryRow] = []
     for row in grouped.values():
         rows.append(
             {

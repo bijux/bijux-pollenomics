@@ -4,6 +4,12 @@ from collections import Counter
 from pathlib import Path
 
 from bijux_pollenomics.adna.species.tracked_species import TRACKED_ADNA_SPECIES
+from .contracts import (
+    MapReadinessAudit,
+    MapReadinessPostureRow,
+    MapReadinessRow,
+    MapReadinessTotals,
+)
 from .repository import (
     _load_coordinate_provenance_rows,
     _load_sample_rows,
@@ -11,7 +17,7 @@ from .repository import (
 )
 
 
-def build_cross_species_map_readiness(data_root: Path) -> dict[str, object]:
+def build_cross_species_map_readiness(data_root: Path) -> MapReadinessAudit:
     """Report coordinate posture and publication admission across tracked animals."""
     publication_counts, not_materialized_rows = _map_publication_accounting(
         Path(data_root)
@@ -19,8 +25,8 @@ def build_cross_species_map_readiness(data_root: Path) -> dict[str, object]:
     not_materialized_counts = Counter(
         str(row["species_latin_name"]) for row in not_materialized_rows
     )
-    rows = []
-    totals = {
+    rows: list[MapReadinessRow] = []
+    totals: MapReadinessTotals = {
         "direct_coordinate_backed": 0,
         "indirectly_geocoded": 0,
         "unresolved": 0,
@@ -30,10 +36,10 @@ def build_cross_species_map_readiness(data_root: Path) -> dict[str, object]:
         "not_materialized_count": 0,
     }
     for species_name in TRACKED_ADNA_SPECIES:
-        row = _build_species_map_readiness_row(Path(data_root), species_name)
-        species_latin_name = str(row["species_latin_name"])
-        coordinate_mappable_count = int(row["direct_coordinate_backed"]) + int(
-            row["indirectly_geocoded"]
+        posture = _build_species_map_readiness_row(Path(data_root), species_name)
+        species_latin_name = posture["species_latin_name"]
+        coordinate_mappable_count = (
+            posture["direct_coordinate_backed"] + posture["indirectly_geocoded"]
         )
         publication_candidate_count = publication_counts[species_latin_name]
         not_materialized_count = not_materialized_counts[species_latin_name]
@@ -44,16 +50,22 @@ def build_cross_species_map_readiness(data_root: Path) -> dict[str, object]:
             raise ValueError(
                 f"Animal map-readiness counts do not reconcile for {species_latin_name}"
             )
-        row.update(
-            {
-                "coordinate_provenance_mappable_count": coordinate_mappable_count,
-                "publication_candidate_count": publication_candidate_count,
-                "not_materialized_count": not_materialized_count,
-            }
-        )
+        row: MapReadinessRow = {
+            **posture,
+            "coordinate_provenance_mappable_count": coordinate_mappable_count,
+            "publication_candidate_count": publication_candidate_count,
+            "not_materialized_count": not_materialized_count,
+        }
         rows.append(row)
-        for key in totals:
-            totals[key] += int(row[key])
+        totals["direct_coordinate_backed"] += row["direct_coordinate_backed"]
+        totals["indirectly_geocoded"] += row["indirectly_geocoded"]
+        totals["unresolved"] += row["unresolved"]
+        totals["refused_from_mapping"] += row["refused_from_mapping"]
+        totals["coordinate_provenance_mappable_count"] += row[
+            "coordinate_provenance_mappable_count"
+        ]
+        totals["publication_candidate_count"] += row["publication_candidate_count"]
+        totals["not_materialized_count"] += row["not_materialized_count"]
     return {
         "schema_version": "adna-cross-species-map-readiness.v2",
         "rows": rows,
@@ -82,7 +94,7 @@ def build_cross_species_map_readiness(data_root: Path) -> dict[str, object]:
 
 def _build_species_map_readiness_row(
     data_root: Path, species_name: str
-) -> dict[str, object]:
+) -> MapReadinessPostureRow:
     from bijux_pollenomics.adna.species.definitions import resolve_species_definition
 
     species = resolve_species_definition(species_name)

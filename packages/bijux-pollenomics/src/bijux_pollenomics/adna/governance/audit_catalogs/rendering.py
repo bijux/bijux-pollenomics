@@ -1,7 +1,14 @@
 from __future__ import annotations
 
+from .contracts import (
+    AnimalOutputHonesty,
+    AtlasAccountability,
+    CoordinateCaveatSurface,
+    PublicAnimalOutputAudit,
+)
 
-def render_public_animal_output_audit_markdown(payload: dict[str, object]) -> str:
+
+def render_public_animal_output_audit_markdown(payload: PublicAnimalOutputAudit) -> str:
     """Render the shipped public animal-output audit as reader-facing markdown."""
     rows = payload["species_rows"]
     atlas_layer_total = sum(int(row["atlas_layer_count"]) for row in rows)
@@ -83,7 +90,7 @@ def render_public_animal_output_audit_markdown(payload: dict[str, object]) -> st
     return "\n".join(lines)
 
 
-def render_public_animal_output_honesty_markdown(payload: dict[str, object]) -> str:
+def render_public_animal_output_honesty_markdown(payload: AnimalOutputHonesty) -> str:
     """Render one honesty review for tracked versus published animal sample counts."""
     totals = payload["totals"]
     rows = payload["rows"]
@@ -114,7 +121,7 @@ def render_public_animal_output_honesty_markdown(payload: dict[str, object]) -> 
 
 
 def render_animal_atlas_candidate_accountability_markdown(
-    payload: dict[str, object],
+    payload: AtlasAccountability,
 ) -> str:
     """Render one accountability table for final atlas candidate rows."""
     lines = [
@@ -160,7 +167,9 @@ def render_coordinate_confidence_scale_markdown() -> str:
     )
 
 
-def render_coordinate_caveat_surface_markdown(payload: dict[str, object]) -> str:
+def render_coordinate_caveat_surface_markdown(
+    payload: CoordinateCaveatSurface,
+) -> str:
     """Render grouped animal coordinate caveats as reader-facing markdown."""
     lines = [
         "# Coordinate caveat surface",

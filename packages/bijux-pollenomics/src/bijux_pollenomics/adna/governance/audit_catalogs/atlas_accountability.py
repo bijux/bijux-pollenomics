@@ -2,17 +2,18 @@ from __future__ import annotations
 
 from pathlib import Path
 
-from .repository import _load_all_sample_rows_by_id
+from .contracts import AtlasAccountability, AtlasAccountabilityRow
+from .repository import _load_all_sample_rows_by_id, _nested_string
 
 
-def build_animal_atlas_candidate_accountability(data_root: Path) -> dict[str, object]:
+def build_animal_atlas_candidate_accountability(data_root: Path) -> AtlasAccountability:
     """Require every checked-in final atlas candidate row to keep full evidence anchors."""
     from bijux_pollenomics.reporting.adna import (
         build_tracked_animal_atlas_evidence_rows,
     )
 
     sample_lookup = _load_all_sample_rows_by_id(Path(data_root))
-    rows = []
+    rows: list[AtlasAccountabilityRow] = []
     passed_row_count = 0
     for row in build_tracked_animal_atlas_evidence_rows(Path(data_root)):
         matched_samples = [
@@ -22,11 +23,9 @@ def build_animal_atlas_candidate_accountability(data_root: Path) -> dict[str, ob
         ]
         sample_locality_tokens = sorted(
             {
-                str(sample.get("locality_identity", {}).get("stable_token", "")).strip()
+                _nested_string(sample, "locality_identity", "stable_token")
                 for sample in matched_samples
-                if str(
-                    sample.get("locality_identity", {}).get("stable_token", "")
-                ).strip()
+                if _nested_string(sample, "locality_identity", "stable_token")
             }
         )
         chronology_paths = sorted(
@@ -43,7 +42,7 @@ def build_animal_atlas_candidate_accountability(data_root: Path) -> dict[str, ob
                 if str(sample.get("sample_lineage_path", "")).strip()
             }
         )
-        row_payload = {
+        row_payload: AtlasAccountabilityRow = {
             "evidence_row_id": row.evidence_row_id,
             "species_latin_name": row.species_latin_name,
             "project_accession": row.primary_project_accession,
@@ -71,6 +70,7 @@ def build_animal_atlas_candidate_accountability(data_root: Path) -> dict[str, ob
             "chronology_provenance_paths": chronology_paths,
             "coordinate_provenance_path": row.coordinate_source_artifact_path,
             "coordinate_provenance_locator": row.coordinate_source_locator,
+            "fully_accountable": False,
         }
         row_payload["fully_accountable"] = all(
             (

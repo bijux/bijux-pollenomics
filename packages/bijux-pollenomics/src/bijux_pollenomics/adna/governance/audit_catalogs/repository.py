@@ -41,7 +41,7 @@ def _load_all_sample_rows_by_id(data_root: Path) -> dict[str, dict[str, object]]
     for sample_path in species_root.glob("*/normalized/sample_records.json"):
         rows = _load_sample_rows(sample_path.parent.parent)
         for row in rows:
-            stable_token = str(row.get("identity", {}).get("stable_token", "")).strip()
+            stable_token = _nested_string(row, "identity", "stable_token")
             if stable_token:
                 lookup[stable_token] = row
     return lookup
@@ -158,3 +158,10 @@ def _atlas_layer_count(
                     if str(row.get("latin_name", "")).strip() == latin_name:
                         return int(row.get("locality_count", 0) or 0)
     return _species_output_count(atlas_root, latin_name, common_name)
+
+
+def _nested_string(row: dict[str, object], parent: str, key: str) -> str:
+    nested = row.get(parent)
+    if not isinstance(nested, dict):
+        return ""
+    return str(nested.get(key, "")).strip()

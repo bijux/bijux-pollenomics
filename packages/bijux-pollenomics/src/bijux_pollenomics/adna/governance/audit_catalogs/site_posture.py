@@ -3,9 +3,11 @@ from __future__ import annotations
 from pathlib import Path
 
 from bijux_pollenomics.adna.species.tracked_species import TRACKED_ADNA_SPECIES
+from .contracts import CoordinateCaveatRow, CoordinateCaveatSurface
 from .repository import (
     _load_coordinate_provenance_rows,
     _load_sample_rows,
+    _nested_string,
     _species_root,
 )
 
@@ -23,11 +25,11 @@ def build_unresolved_site_ledger(data_root: Path) -> tuple[dict[str, object], ..
                     "species_latin_name": sample.get("species_latin_name", ""),
                     "species_common_name": sample.get("species_common_name", ""),
                     "project_accession": sample.get("project_accession", ""),
-                    "stable_sample_id": sample.get("identity", {}).get(
-                        "stable_token", ""
+                    "stable_sample_id": _nested_string(
+                        sample, "identity", "stable_token"
                     ),
-                    "site_label": sample.get("locality_identity", {}).get(
-                        "locality_text", ""
+                    "site_label": _nested_string(
+                        sample, "locality_identity", "locality_text"
                     ),
                     "paper_doi": sample.get("paper_doi", ""),
                     "supplementary_source": sample.get("supplementary_source", ""),
@@ -77,15 +79,15 @@ def build_overbroad_site_ledger(data_root: Path) -> tuple[dict[str, object], ...
     )
 
 
-def build_coordinate_caveat_surface(data_root: Path) -> dict[str, object]:
+def build_coordinate_caveat_surface(data_root: Path) -> CoordinateCaveatSurface:
     """Group current animal coordinate posture into reader-visible categories."""
-    direct_coordinates: list[dict[str, object]] = []
-    point_resolution: list[dict[str, object]] = []
-    weak_geography: list[dict[str, object]] = []
+    direct_coordinates: list[CoordinateCaveatRow] = []
+    point_resolution: list[CoordinateCaveatRow] = []
+    weak_geography: list[CoordinateCaveatRow] = []
     for species_name in TRACKED_ADNA_SPECIES:
         species_root = _species_root(Path(data_root), species_name)
         for provenance in _load_coordinate_provenance_rows(species_root):
-            row = {
+            row: CoordinateCaveatRow = {
                 "species_latin_name": provenance.get("species_latin_name", ""),
                 "species_common_name": provenance.get("species_common_name", ""),
                 "project_accession": provenance.get("project_accession", ""),
