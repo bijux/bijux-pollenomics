@@ -60,9 +60,9 @@ stage remain unavailable until that stage is governed and materialized.
 | Runtime boundary | Owns | Durable result |
 | --- | --- | --- |
 | `collection` and `adna.sources` | retrieval, decoding, source identity, and captured artifacts | versioned family trees and animal source dossiers |
-| `adna.projects` and normalization modules | stable samples, sites, chronology, coordinates, and family records | repository-owned evidence state |
-| `evidence` and `analysis.review` | ambiguity, precision, comparability, recovery, and refusal | review ledgers and fitness outcomes |
-| `foundation` and analysis modules | product scope, evidence role, admission, ranking, and sensitivity policy | machine-readable product and decision contracts |
+| `adna.projects` and `adna.workflow` | stable samples, sites, chronology, coordinates, and family records | repository-owned evidence state |
+| `evidence` and `analysis.fieldwork.review` | ambiguity, precision, comparability, recovery, and refusal | review ledgers and fitness outcomes |
+| `architecture`, `governance`, and analysis modules | product scope, evidence role, admission, ranking, and sensitivity policy | machine-readable product and decision contracts |
 | `reporting` assembly | member relationships, bundles, and structured public rows | world, regional, country, and specialized product state |
 | `reporting` presentation | Markdown, HTML, tables, maps, and reader navigation | derived human-facing artifacts |
 

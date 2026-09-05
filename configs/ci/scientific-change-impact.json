@@ -137,7 +137,7 @@
       "id": "taxon-group-role-classification",
       "paths": [
         "packages/bijux-pollenomics/src/bijux_pollenomics/evidence/classification/**",
-        "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/classification_events.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/classification/events.py",
         "data/**/*crosswalk*",
         "data/**/*classification*"
       ],

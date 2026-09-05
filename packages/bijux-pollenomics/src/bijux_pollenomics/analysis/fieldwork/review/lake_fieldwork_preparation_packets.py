@@ -5,7 +5,7 @@ import json
 from pathlib import Path
 from statistics import mean
 
-from ..lake_evidence_richness import (
+from bijux_pollenomics.analysis.fieldwork.evidence_richness import (
     LakeEvidenceRichnessAssessment,
     LakeEvidenceRichnessReport,
 )

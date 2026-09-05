@@ -6,7 +6,7 @@ from bijux_pollenomics.adna import (
     AdnaLocalityIdentity,
     AdnaLocalitySummary,
 )
-from bijux_pollenomics.analysis.ranking import (
+from bijux_pollenomics.analysis.fieldwork.ranking import (
     build_candidate_context,
     build_ranking_sensitivity_report,
     rank_localities,

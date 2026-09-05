@@ -5,14 +5,14 @@ from collections.abc import Iterable
 from dataclasses import dataclass
 from typing import TYPE_CHECKING
 
-from ..core import haversine_km
-from ..core.temporal_semantics import (
+from ...core import haversine_km
+from ...core.temporal_semantics import (
     InvalidBpIntervalError,
     canonical_bp_interval,
     closed_bp_intervals_overlap,
 )
-from ..collection.contracts.models import ContextPointRecord
-from .site_candidates import (
+from ...collection.contracts.models import ContextPointRecord
+from bijux_pollenomics.analysis.propagation.candidates import (
     CandidateSiteContext,
     CandidateSiteScore,
     build_ranking_profiles,

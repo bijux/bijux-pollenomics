@@ -35,7 +35,7 @@ POLLENOMICS_SCIENCE_INPUTS := \
 	$(wildcard $(POLLENOMICS_SOURCE_ROOT)/evidence/*.py) \
 	$(wildcard $(POLLENOMICS_SOURCE_ROOT)/evidence/classification/*.py) \
 	$(wildcard $(POLLENOMICS_SOURCE_ROOT)/analysis/*.py) \
-	$(wildcard $(POLLENOMICS_SOURCE_ROOT)/analysis/review/*.py) \
+	$(wildcard $(POLLENOMICS_SOURCE_ROOT)/analysis/fieldwork/review/*.py) \
 	$(POLLENOMICS_SCIENCE_TESTS)
 
 POLLENOMICS_DATA_TESTS := \

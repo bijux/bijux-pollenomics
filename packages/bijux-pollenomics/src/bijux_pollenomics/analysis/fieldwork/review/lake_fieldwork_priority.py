@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-from ..lake_evidence_richness import (
+from bijux_pollenomics.analysis.fieldwork.evidence_richness import (
     LakeEvidenceBandScore,
     LakeEvidenceRichnessAssessment,
     LakeEvidenceRichnessReport,

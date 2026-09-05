@@ -8,13 +8,13 @@ import json
 from math import cos, floor, isfinite, radians
 from typing import Never
 
-from ..core.geo_distance import InvalidCoordinateError, wgs84_inverse_geodesic
-from ..core.temporal_semantics import (
+from ...core.geo_distance import InvalidCoordinateError, wgs84_inverse_geodesic
+from ...core.temporal_semantics import (
     BpInterval,
     InvalidBpIntervalError,
     canonical_bp_interval,
 )
-from .site_candidates import (
+from bijux_pollenomics.analysis.propagation.candidates import (
     DEFAULT_PROPAGATION_SCENARIO,
     CandidatePropagationScenario,
     classify_candidate_propagation,

@@ -8,8 +8,11 @@ import json
 from math import isfinite
 from typing import cast
 
-from ..core.temporal_semantics import InvalidBpIntervalError, canonical_bp_interval
-from .propagation_network import EventValidationError, PhenomenonEvent
+from ...core.temporal_semantics import InvalidBpIntervalError, canonical_bp_interval
+from bijux_pollenomics.analysis.propagation.network import (
+    EventValidationError,
+    PhenomenonEvent,
+)
 
 __all__ = [
     "ClassificationEventContext",

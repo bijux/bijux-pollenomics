@@ -2,7 +2,10 @@ from __future__ import annotations
 
 from dataclasses import dataclass
 
-from .site_candidates import CandidateRankingProfile, build_ranking_profiles
+from bijux_pollenomics.analysis.propagation.candidates import (
+    CandidateRankingProfile,
+    build_ranking_profiles,
+)
 
 __all__ = [
     "LakeSelectionRequirement",

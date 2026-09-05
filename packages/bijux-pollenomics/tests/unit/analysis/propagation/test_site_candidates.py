@@ -10,7 +10,7 @@ from bijux_pollenomics.adna import (
     AdnaLocalityIdentity,
     AdnaLocalitySummary,
 )
-from bijux_pollenomics.analysis.site_candidates import (
+from bijux_pollenomics.analysis.propagation.candidates import (
     DEFAULT_PROPAGATION_SCENARIO,
     CandidatePairRefusalError,
     CandidateSiteContext,

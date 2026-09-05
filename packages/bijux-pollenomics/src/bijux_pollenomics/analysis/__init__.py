@@ -1,24 +1,27 @@
 """Analysis exports for harmonization, scoring, and reporting helpers."""
 
-from .classification_events import (
+from bijux_pollenomics.analysis.classification.events import (
     ClassificationEventContext,
     ClassificationEventDerivationResult,
     ClassificationEventReconciliation,
     ClassificationEventRefusal,
     derive_classification_events,
 )
-from .engine_manifest import (
+from bijux_pollenomics.analysis.fieldwork.engine_manifest import (
     LakeSelectionRequirement,
     RankingEngineManifest,
     build_ranking_engine_manifest,
 )
-from .harmonization import HarmonizationRule, default_harmonization_rules
-from .lake_candidate_registry import (
+from bijux_pollenomics.analysis.classification.harmonization import (
+    HarmonizationRule,
+    default_harmonization_rules,
+)
+from bijux_pollenomics.analysis.fieldwork.candidate_registry import (
     SOUTHERN_SWEDEN_LAKE_REVIEW_TARGETS,
     build_sweden_lake_candidate_registry,
     write_sweden_lake_candidate_registry,
 )
-from .lake_evidence_richness import (
+from bijux_pollenomics.analysis.fieldwork.evidence_richness import (
     DEFAULT_LAKE_EVIDENCE_RADII_KM,
     LakeEvidenceBandScore,
     LakeEvidenceCandidate,
@@ -27,7 +30,7 @@ from .lake_evidence_richness import (
     LakeEvidenceSourceAnchor,
     build_sweden_lake_evidence_richness_report,
 )
-from .ranking import (
+from bijux_pollenomics.analysis.fieldwork.ranking import (
     CandidateSensitivityReport,
     CandidateSensitivityRow,
     build_candidate_context,
@@ -35,7 +38,7 @@ from .ranking import (
     rank_localities,
     temporal_overlap,
 )
-from .review import (
+from bijux_pollenomics.analysis.fieldwork.review import (
     build_lake_archaeology_sensitivity_payload,
     build_lake_evidence_richness_geojson,
     build_lake_fieldwork_preparation_payload,
@@ -61,7 +64,7 @@ from .review import (
     write_lake_fieldwork_preparation_csv,
     write_lake_fieldwork_preparation_json,
 )
-from .site_candidates import (
+from bijux_pollenomics.analysis.propagation.candidates import (
     CandidateRankingProfile,
     CandidateSiteContext,
     CandidateSiteScore,
@@ -70,7 +73,7 @@ from .site_candidates import (
     resolve_ranking_profile,
     score_candidate_site,
 )
-from .sweden_land_use_synthesis import (
+from bijux_pollenomics.analysis.fieldwork.land_use import (
     build_sweden_land_use_synthesis,
     render_sweden_land_use_synthesis_markdown,
     write_sweden_land_use_synthesis_csv,

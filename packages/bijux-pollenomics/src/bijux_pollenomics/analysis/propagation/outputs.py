@@ -11,7 +11,7 @@ import shutil
 import tempfile
 from typing import Any, NoReturn, cast
 
-from .propagation_network import (
+from bijux_pollenomics.analysis.propagation.network import (
     COUNTRY_CODES,
     EVIDENCE_DOMAINS,
     PROPAGATION_CONTRACT_VERSION,
@@ -22,7 +22,9 @@ from .propagation_network import (
     generate_propagation_network,
     run_propagation_sensitivity,
 )
-from .site_candidates import DEFAULT_PROPAGATION_SCENARIO
+from bijux_pollenomics.analysis.propagation.candidates import (
+    DEFAULT_PROPAGATION_SCENARIO,
+)
 
 __all__ = [
     "PROPAGATION_PRODUCER_ID",
@@ -54,9 +56,9 @@ _OUTPUT_NAMES = (
 PROPAGATION_PRODUCER_ID = "bijux-pollenomics.propagation-output-materializer"
 PROPAGATION_PRODUCER_VERSION = "1"
 PROPAGATION_PRODUCER_SOURCE_PATHS = (
-    "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/propagation_outputs.py",
-    "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/propagation_network.py",
-    "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/site_candidates.py",
+    "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/propagation/outputs.py",
+    "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/propagation/network.py",
+    "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/propagation/candidates.py",
     "packages/bijux-pollenomics/src/bijux_pollenomics/core/geo_distance.py",
     "packages/bijux-pollenomics/src/bijux_pollenomics/core/temporal_semantics.py",
 )

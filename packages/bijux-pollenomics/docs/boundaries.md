@@ -12,9 +12,9 @@ compatibility forwarding does not own runtime behavior.
 ```mermaid
 flowchart LR
     Command["command_line"] --> Intake["collection and adna.sources"]
-    Intake --> Evidence["adna.projects and adna.normalization"]
-    Evidence --> Review["evidence and analysis.review"]
-    Review --> Product["foundation and analysis"]
+    Intake --> Evidence["adna.projects and adna.workflow"]
+    Evidence --> Review["evidence and analysis.fieldwork.review"]
+    Review --> Product["architecture, governance, and analysis"]
     Product --> Assembly["reporting assembly and bundles"]
     Assembly --> Render["reporting presentation and rendering"]
     Render -. no authority flows backward .-> Evidence
@@ -84,8 +84,8 @@ Primary modules:
 - `bijux_pollenomics.adna.projects.sample_chronology`
 - `bijux_pollenomics.adna.projects.sample_locality_evidence`
 - `bijux_pollenomics.adna.projects.coordinate_provenance`
-- `bijux_pollenomics.adna.normalization`
-- `bijux_pollenomics.adna.catalogs`
+- `bijux_pollenomics.adna.workflow.normalization`
+- `bijux_pollenomics.adna.governance.audit_catalogs`
 
 ## Evidence Review
 
@@ -94,10 +94,10 @@ and which review surfaces or ranking surfaces must exist before publication.
 
 Primary modules:
 
-- `bijux_pollenomics.adna.reviews`
+- `bijux_pollenomics.adna.governance.reviews`
 - `bijux_pollenomics.evidence`
-- `bijux_pollenomics.analysis.review`
-- `bijux_pollenomics.foundation`
+- `bijux_pollenomics.analysis.fieldwork.review`
+- `bijux_pollenomics.governance`
 
 ### `adna` Intent
 
@@ -107,7 +107,11 @@ should separate responsibilities that answer different evidence questions:
 - `sources/`: source-library intake and acquisition-side recovery work
 - `projects/`: project- and sample-level evidence shaping
 - `species/`: species-aware runtime and curated species surfaces
-- top-level review and normalization modules: cross-project evidence decisions
+- `domain/`: scientific value objects and locality semantics
+- `governance/`: admission, curation, integrity, and review decisions
+- `workflow/`: repository layout, normalization, rebuild, and runtime orchestration
+
+Only `api.py` and the package initializer belong at the `adna` package root.
 
 That means `adna` should not blur source acquisition, sample truth, cross-
 species review, and publication-facing outputs into one flat module story. The

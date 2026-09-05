@@ -4,7 +4,7 @@ from dataclasses import replace
 
 import pytest
 
-from bijux_pollenomics.analysis.propagation_network import (
+from bijux_pollenomics.analysis.propagation.network import (
     EVIDENCE_DOMAINS,
     EventValidationError,
     PhenomenonEvent,

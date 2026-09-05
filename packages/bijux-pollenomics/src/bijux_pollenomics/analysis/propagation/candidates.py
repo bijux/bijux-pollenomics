@@ -6,8 +6,8 @@ from math import isfinite
 from statistics import fmean
 from typing import TYPE_CHECKING
 
-from ..core.geo_distance import GeodesicDistance, wgs84_inverse_geodesic
-from ..core.temporal_semantics import (
+from ...core.geo_distance import GeodesicDistance, wgs84_inverse_geodesic
+from ...core.temporal_semantics import (
     BpInterval,
     InvalidBpIntervalError,
     canonical_bp_interval,

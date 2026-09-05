@@ -10,9 +10,9 @@ from unittest.mock import patch
 
 import pytest
 
-from bijux_pollenomics.analysis import propagation_outputs as propagation_outputs_module
-from bijux_pollenomics.analysis.propagation_network import PhenomenonEvent
-from bijux_pollenomics.analysis.propagation_outputs import (
+from bijux_pollenomics.analysis.propagation import outputs as propagation_outputs_module
+from bijux_pollenomics.analysis.propagation.network import PhenomenonEvent
+from bijux_pollenomics.analysis.propagation.outputs import (
     PROPAGATION_PRODUCER_ID,
     PROPAGATION_PRODUCER_SOURCE_PATHS,
     PROPAGATION_PRODUCER_VERSION,
@@ -1528,7 +1528,7 @@ def test_staging_failure_leaves_no_partial_bundle(
         raise OSError("injected staging write failure")
 
     monkeypatch.setattr(
-        "bijux_pollenomics.analysis.propagation_outputs.os.fsync",
+        "bijux_pollenomics.analysis.propagation.outputs.os.fsync",
         refuse_fsync,
     )
 

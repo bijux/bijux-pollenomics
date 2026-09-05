@@ -273,7 +273,7 @@ def _atlas_bundle_contract_ok() -> bool:
 
 def _ranking_provenance_ok() -> bool:
     from ..analysis import build_ranking_engine_manifest
-    from ..analysis.review import (
+    from ..analysis.fieldwork.review import (
         build_candidate_site_sensitivity_payload,
         build_candidate_sites_json_payload,
     )
@@ -295,7 +295,7 @@ def _ranking_provenance_ok() -> bool:
 
 
 def _build_candidate_sensitivity_stub():
-    from ..analysis.ranking import CandidateSensitivityReport
+    from ..analysis.fieldwork.ranking import CandidateSensitivityReport
 
     return CandidateSensitivityReport(
         schema_version="candidate-site-sensitivity.v1",

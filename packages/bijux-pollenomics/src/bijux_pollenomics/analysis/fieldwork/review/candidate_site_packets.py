@@ -5,12 +5,12 @@ import json
 from pathlib import Path
 from typing import TYPE_CHECKING
 
-from ...publication_policy import build_site_ranking_policy
-from ..site_candidates import resolve_ranking_profile
+from ....publication_policy import build_site_ranking_policy
+from bijux_pollenomics.analysis.propagation.candidates import resolve_ranking_profile
 
 if TYPE_CHECKING:
-    from ..ranking import CandidateSensitivityReport
-    from ..site_candidates import CandidateSiteScore
+    from bijux_pollenomics.analysis.fieldwork.ranking import CandidateSensitivityReport
+    from bijux_pollenomics.analysis.propagation.candidates import CandidateSiteScore
 
 __all__ = [
     "build_candidate_site_sensitivity_payload",

@@ -23,7 +23,7 @@ flowchart TB
     CLI --> Animal["adna\ncurate animal evidence"]
     Collect --> Data[("tracked data state")]
     Animal --> Data
-    Data --> Evidence["evidence + analysis/review\nevaluate scientific fitness"]
+    Data --> Evidence["evidence + analysis/fieldwork/review\nevaluate scientific fitness"]
     Evidence --> Gate{"publication policy"}
     Gate -->|admit with posture| Reporting["reporting\nassemble and render"]
     Gate -->|refuse or qualify| Reviews["caveats, ledgers, and recovery surfaces"]
@@ -63,10 +63,11 @@ flowchart LR
 | `command_line/` | CLI parsing, subcommand registration, runtime dispatch | exit status and selected action |
 | `collection/` | source acquisition, staging swaps, normalization, hashes, provenance, and source-family contracts | raw and normalized source trees, `collection_summary.json` |
 | `adna/` | animal project intake, supplement recovery, sample identity, locality, chronology, coordinate provenance, species normalization, and integrity checks | project evidence surfaces and species records |
-| `analysis/review/` | candidate ranking, sensitivity analysis, and review-oriented comparisons | ranking and sensitivity records |
+| `analysis/fieldwork/review/` | candidate ranking, sensitivity analysis, and review-oriented comparisons | ranking and sensitivity records |
 | `evidence/` | atlas evidence rows and scientific review surfaces | evidence tables and fitness assessments |
 | `reporting/` | geography selection, bundle assembly, map documents, reports, and review publication | world, region, country, and lake outputs |
-| `foundation/` | architecture contracts, ownership, repository truth, release posture, and public claim language | release and credibility assessments |
+| `architecture/` | product, ownership, runtime, and repository-structure contracts | stable architectural boundaries |
+| `governance/` | repository truth, release posture, country accountability, and public claim language | release and credibility assessments |
 
 ## Persisted Authority Surfaces
 

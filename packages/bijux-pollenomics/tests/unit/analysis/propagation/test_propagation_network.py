@@ -8,8 +8,8 @@ from hypothesis import strategies as st
 from pyproj import Geod
 import pytest
 
-from bijux_pollenomics.analysis import propagation_network as propagation_network_module
-from bijux_pollenomics.analysis.propagation_network import (
+from bijux_pollenomics.analysis.propagation import network as propagation_network_module
+from bijux_pollenomics.analysis.propagation.network import (
     COUNTRY_CODES,
     PROPAGATION_SENSITIVITY_SCENARIOS,
     EventValidationError,
@@ -23,7 +23,7 @@ from bijux_pollenomics.analysis.propagation_network import (
     generate_propagation_network_exhaustive,
     run_propagation_sensitivity,
 )
-from bijux_pollenomics.analysis.site_candidates import (
+from bijux_pollenomics.analysis.propagation.candidates import (
     DEFAULT_PROPAGATION_SCENARIO,
     CandidatePropagationScenario,
 )

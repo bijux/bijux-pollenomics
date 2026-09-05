@@ -206,7 +206,7 @@ _GATE_GLOBS: dict[str, tuple[str, ...]] = {
         "packages/bijux-pollenomics/src/bijux_pollenomics/evidence/*.py",
         "packages/bijux-pollenomics/src/bijux_pollenomics/evidence/classification/*.py",
         "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/*.py",
-        "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/review/*.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/fieldwork/review/*.py",
     ),
     "data": (
         "data/adna/species/*/manifests",

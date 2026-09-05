@@ -4,7 +4,9 @@ import csv
 import json
 from pathlib import Path
 
-from ..lake_evidence_richness import LakeEvidenceRichnessReport
+from bijux_pollenomics.analysis.fieldwork.evidence_richness import (
+    LakeEvidenceRichnessReport,
+)
 
 __all__ = [
     "build_lake_archaeology_sensitivity_payload",

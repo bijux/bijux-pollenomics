@@ -6,11 +6,11 @@ import json
 from pathlib import Path
 from statistics import mean
 
-from ...reporting.context.points import build_external_point_layer
-from ...reporting.map_document import render_multi_country_map_html
-from ...reporting.map_publication import resolve_map_scope_policy
-from ...reporting.rendering.artifacts import copy_map_assets
-from ..lake_evidence_richness import (
+from ....reporting.context.points import build_external_point_layer
+from ....reporting.map_document import render_multi_country_map_html
+from ....reporting.map_publication import resolve_map_scope_policy
+from ....reporting.rendering.artifacts import copy_map_assets
+from bijux_pollenomics.analysis.fieldwork.evidence_richness import (
     LakeEvidenceRichnessReport,
     LakeEvidenceSourceAnchor,
 )

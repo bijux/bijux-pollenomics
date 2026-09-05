@@ -8,10 +8,10 @@ from bijux_pollenomics.adna import (
     AdnaLocalityIdentity,
     AdnaLocalitySummary,
 )
-from bijux_pollenomics.analysis.lake_evidence_richness import (
+from bijux_pollenomics.analysis.fieldwork.evidence_richness import (
     _intervals_overlap as lake_intervals_overlap,
 )
-from bijux_pollenomics.analysis.sweden_land_use_synthesis import (
+from bijux_pollenomics.analysis.fieldwork.land_use import (
     _intervals_overlap as synthesis_intervals_overlap,
 )
 from bijux_pollenomics.collection.contracts.models import ContextPointRecord

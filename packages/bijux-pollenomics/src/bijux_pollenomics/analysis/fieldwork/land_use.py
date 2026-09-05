@@ -4,8 +4,8 @@ from dataclasses import dataclass
 import json
 from pathlib import Path
 
-from ..core import haversine_km
-from ..core.temporal_semantics import (
+from ...core import haversine_km
+from ...core.temporal_semantics import (
     InvalidBpIntervalError,
     canonical_bp_interval,
     closed_bp_intervals_overlap,

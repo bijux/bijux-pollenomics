@@ -15,10 +15,10 @@ from hypothesis import strategies as st
 from jsonschema import Draft202012Validator  # type: ignore[import-untyped]
 import pytest
 
-from bijux_pollenomics.analysis import (
-    classification_events as classification_events_module,
+from bijux_pollenomics.analysis.classification import (
+    events as classification_events_module,
 )
-from bijux_pollenomics.analysis.classification_events import (
+from bijux_pollenomics.analysis.classification.events import (
     ClassificationEventContext,
     ClassificationEventDerivationResult,
     derive_classification_events,
