@@ -1,5 +1,7 @@
 from __future__ import annotations
 
+from typing import cast
+
 
 def download_row(dataset_id: int = 201) -> dict[str, object]:
     chronologies = [
@@ -111,13 +113,15 @@ def download_row(dataset_id: int = 201) -> dict[str, object]:
 
 
 def set_row_identity(row: dict[str, object], identifier: int) -> None:
-    site = row["site"]
+    site = cast(dict[str, object], row["site"])
     site["siteid"] = identifier
-    unit = site["collectionunit"]
+    unit = cast(dict[str, object], site["collectionunit"])
     unit["collectionunitid"] = identifier + 1000
-    dataset = unit["dataset"]
+    dataset = cast(dict[str, object], unit["dataset"])
     dataset["datasetid"] = identifier + 2000
-    site["dataset"]["datasetid"] = identifier + 2000
-    sample = dataset["samples"][0]
+    site_dataset = cast(dict[str, object], site["dataset"])
+    site_dataset["datasetid"] = identifier + 2000
+    samples = cast(list[dict[str, object]], dataset["samples"])
+    sample = samples[0]
     sample["sampleid"] = identifier + 3000
     sample["analysisunitid"] = identifier + 4000

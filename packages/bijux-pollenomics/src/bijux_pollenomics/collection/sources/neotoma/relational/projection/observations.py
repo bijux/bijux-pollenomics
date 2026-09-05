@@ -13,6 +13,14 @@ from ..state import RelationalBuildState
 from ..variables import register_variable, unit_family, variable_id
 
 
+def _detection_status(datum: Mapping[str, object]) -> str:
+    if "value" not in datum:
+        return "not_provided_by_source"
+    if datum["value"] is None:
+        return "source_null"
+    return "reported_value"
+
+
 def project_observations(
     state: RelationalBuildState,
     *,
@@ -74,7 +82,7 @@ def project_observations(
                 if source_unit
                 else None,
                 "source_value": copy.deepcopy(datum.get("value")),
-                "detection_status": "reported_value",
+                "detection_status": _detection_status(datum),
                 "source_denominator": None,
                 "denominator_status": "not_provided_by_source",
                 "source_context": copy.deepcopy(datum.get("context")),
