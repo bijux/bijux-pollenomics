@@ -96,8 +96,8 @@
       "mapped_sample_count": 1,
       "assignment_confidence": "exact_country",
       "coordinate_posture": "exact;supplementary_table_coordinates",
-      "oldest_signal_bp": 1217,
-      "youngest_signal_bp": 1417,
+      "oldest_signal_bp": 1417,
+      "youngest_signal_bp": 1217,
       "project_accessions": [
         "PRJEB31613"
       ],

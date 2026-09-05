@@ -9,9 +9,9 @@
 ## Sample Evidence Depth
 
 - sample identity only: `0`
-- sample with site: `218`
-- sample with site and chronology: `732`
-- sample with site chronology and coordinates: `501`
+- sample with site: `559`
+- sample with site and chronology: `389`
+- sample with site chronology and coordinates: `503`
 
 ## Top Gap Projects
 
@@ -36,7 +36,7 @@
 | `PRJEB69690` | `Ovis aries` | `extractable_sources_but_no_governed_samples` | `0` | `missing_primary_paper_linkage` |
 | `PRJEB81145` | `Ovis aries` | `extractable_sources_but_no_governed_samples` | `0` | `missing_primary_paper_linkage` |
 | `PRJEB60484` | `Rangifer tarandus` | `minimum_expected_floor_met` | `0` | `site_assignment_gap; coordinate_precision_gap` |
-| `PRJEB30282` | `Sus scrofa domesticus` | `minimum_expected_floor_met` | `0` | `site_assignment_gap; coordinate_precision_gap` |
+| `PRJEB30282` | `Sus scrofa domesticus` | `minimum_expected_floor_met` | `0` | `site_assignment_gap; chronology_gap` |
 
 ## Direct Links
 

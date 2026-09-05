@@ -8,8 +8,9 @@
       "row_count": 1451,
       "comparability_counts": {
         "numeric_interval": 748,
-        "numeric_interval_with_caveat": 577,
-        "unresolved": 126
+        "contextual_label_only": 92,
+        "unresolved": 467,
+        "numeric_interval_with_caveat": 144
       },
       "comparison_policy": "Animal rows only support interval comparison when sample-owned chronology survives publication without false precision."
     },
@@ -27,6 +28,7 @@
     }
   ],
   "unsafe_comparison_findings": [
+    "Animal broad-period chronology rows remain visible in governance outputs and must not be treated as sample-owned numeric dates.",
     "SEAD rows that mix numeric spans with cultural or geologic labels remain contextual archaeology evidence, not direct event dates."
   ],
   "published_feature_guard_findings": [],

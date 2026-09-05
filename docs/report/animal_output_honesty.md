@@ -1,8 +1,8 @@
 # Animal output honesty
 
 - Tracked sample rows: `1451`
-- Mapped sample rows: `554`
-- Blocked sample rows: `897`
+- Mapped sample rows: `556`
+- Blocked sample rows: `895`
 - Unresolved sample rows: `0`
 
 | Species | Tracked samples | Mapped samples | Blocked samples | Unresolved samples | Country-published samples | Region-refused rows |
@@ -15,4 +15,4 @@
 | Felis catus | 109 | 0 | 109 | 0 | 0 | 1 |
 | Ovis aries | 200 | 0 | 200 | 0 | 0 | 1 |
 | Rangifer tarandus | 20 | 0 | 20 | 0 | 0 | 1 |
-| Sus scrofa domesticus | 343 | 0 | 343 | 0 | 0 | 1 |
+| Sus scrofa domesticus | 343 | 2 | 341 | 0 | 2 | 0 |

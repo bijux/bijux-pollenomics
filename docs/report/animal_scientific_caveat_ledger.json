@@ -4,7 +4,7 @@
     "missing_supplement_count": 0,
     "unreadable_table_count": 3,
     "uncertain_site_assignment_count": 593,
-    "region_only_geography_count": 7,
+    "region_only_geography_count": 6,
     "comparator_only_evidence_count": 0
   },
   "categories": {
@@ -16115,17 +16115,6 @@
         "coordinate_basis": "region_centroid_fallback",
         "confidence_rationale": "The local archive supports Svalbard archipelago context rather than one named reindeer site, so the row stays refused from point mapping.",
         "support_gap_note": ""
-      },
-      {
-        "species_latin_name": "Sus scrofa domesticus",
-        "species_common_name": "pig",
-        "project_accession": "PRJEB30282",
-        "site_label": "Near East and Europe pig domestication transect",
-        "original_place_text": "Near East and Europe pig domestication transect",
-        "resolved_place_text": "Near East to Europe regional study extent",
-        "coordinate_basis": "region_centroid_fallback",
-        "confidence_rationale": "The archived source supports a domestication transect across the Near East and Europe rather than one site, so point-level mapping would bluff precision.",
-        "support_gap_note": "The current pig lead is explicitly regional and therefore refused from point publication."
       }
     ],
     "comparator_only_evidence": []

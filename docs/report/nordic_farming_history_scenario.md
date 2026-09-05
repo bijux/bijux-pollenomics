@@ -11,7 +11,6 @@ What does the currently shipped Nordic animal aDNA surface actually support abou
 
 ## Non-support
 
-- The shipped Nordic country outputs still do not support a country-localized claim for `Sus scrofa domesticus`.
 - The shipped Nordic country outputs still do not support a country-localized claim for `Bos taurus`.
 - The shipped Nordic country outputs still do not support a country-localized claim for `Capra hircus`.
 - The shipped Nordic country outputs still do not support a country-localized claim for `Canis lupus familiaris`.

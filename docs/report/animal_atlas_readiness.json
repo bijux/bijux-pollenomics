@@ -2,7 +2,8 @@
   "schema_version": "animal-atlas-readiness.v1",
   "status_counts": {
     "publishable": 2,
-    "blocked": 7,
+    "thin": 1,
+    "blocked": 6,
     "absent": 1
   },
   "rows": [
@@ -33,21 +34,23 @@
       "species_latin_name": "Sus scrofa domesticus",
       "species_common_name": "pig",
       "direct_coordinate_backed": 0,
-      "indirectly_geocoded": 0,
+      "indirectly_geocoded": 2,
       "unresolved": 0,
-      "refused_from_mapping": 1,
-      "coordinate_provenance_mappable_count": 0,
-      "publication_candidate_count": 0,
+      "refused_from_mapping": 0,
+      "coordinate_provenance_mappable_count": 2,
+      "publication_candidate_count": 2,
       "not_materialized_count": 0,
-      "candidate_point_count": 0,
-      "mapped_sample_count": 0,
-      "blocked_sample_count": 343,
-      "map_ready_count": 0,
-      "total_curated_rows": 1,
-      "map_ready_share": 0.0,
-      "readiness_status": "blocked",
-      "status_reason": "343 blocked sample rows still fail atlas publication.",
-      "country_mapped_locality_counts": {}
+      "candidate_point_count": 2,
+      "mapped_sample_count": 2,
+      "blocked_sample_count": 341,
+      "map_ready_count": 2,
+      "total_curated_rows": 2,
+      "map_ready_share": 1.0,
+      "readiness_status": "thin",
+      "status_reason": "2 candidate point rows remain too thin for broad atlas claims.",
+      "country_mapped_locality_counts": {
+        "Denmark": 2
+      }
     },
     {
       "species_latin_name": "Ovis aries",

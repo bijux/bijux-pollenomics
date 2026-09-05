@@ -26,6 +26,19 @@
       "noncomparable_human_localities": 3,
       "assignment_confidence": "exact_country",
       "overlap_status": "overlap_detected"
+    },
+    {
+      "country": "Denmark",
+      "species_latin_name": "Sus scrofa domesticus",
+      "species_common_name": "pig",
+      "animal_scope": "domesticated_core",
+      "animal_locality_count": 2,
+      "human_locality_count": 295,
+      "overlapping_human_localities": 0,
+      "non_overlapping_human_localities": 0,
+      "noncomparable_human_localities": 295,
+      "assignment_confidence": "exact_country",
+      "overlap_status": "chronology_not_comparable"
     }
   ],
   "comparison_contract": {
@@ -76,7 +89,7 @@
     "reason_codes": [
       "qualified_comparison_review_missing"
     ],
-    "right_record_comparison_denominator": 372,
+    "right_record_comparison_denominator": 667,
     "comparable_right_record_comparison_denominator": 369,
     "qualified_scientific_review_required": true
   }

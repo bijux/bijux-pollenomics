@@ -9,6 +9,7 @@ This review names the temporal comparisons that remain safe and the ones that wo
 
 ## Unsafe Comparison Findings
 
+- Animal broad-period chronology rows remain visible in governance outputs and must not be treated as sample-owned numeric dates.
 - SEAD rows that mix numeric spans with cultural or geologic labels remain contextual archaeology evidence, not direct event dates.
 
 ## Direct Links

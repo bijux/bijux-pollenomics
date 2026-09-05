@@ -13,12 +13,12 @@
     "published_points_still_depend_on_named_site_geocoding"
   ],
   "counts": {
-    "published_point_count": 233,
+    "published_point_count": 235,
     "direct_coordinate_point_count": 234,
-    "geocoded_point_count": 2,
+    "geocoded_point_count": 4,
     "unresolved_sample_count": 0,
-    "region_only_refusal_count": 7,
-    "blocked_project_count": 35
+    "region_only_refusal_count": 6,
+    "blocked_project_count": 34
   },
   "validation_overall_ok": false,
   "drift_detected": false,
@@ -26,7 +26,7 @@
     "missing_supplement_count": 0,
     "unreadable_table_count": 3,
     "uncertain_site_assignment_count": 593,
-    "region_only_geography_count": 7,
+    "region_only_geography_count": 6,
     "comparator_only_evidence_count": 0
   }
 }

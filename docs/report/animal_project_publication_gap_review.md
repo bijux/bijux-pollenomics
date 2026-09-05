@@ -1,6 +1,6 @@
 # Animal project publication gap review
 
-- Non-published project count: `35`
+- Non-published project count: `34`
 
 | Project | Species | Absence stage | Blockers |
 | --- | --- | --- | --- |
@@ -35,7 +35,6 @@
 | PRJEB60484 | Rangifer tarandus | coordinate_resolution | region_only_geography |
 | PRJEB61721 | Rangifer tarandus | paper_or_metadata_capture | paper_linkage_not_curated |
 | PRJNA634908 | Rangifer tarandus | paper_or_metadata_capture | paper_linkage_not_curated |
-| PRJEB30282 | Sus scrofa domesticus | coordinate_resolution | region_only_geography |
 | PRJNA421430 | Sus scrofa domesticus | paper_or_metadata_capture | paper_linkage_not_curated |
 | PRJNA788987 | Sus scrofa domesticus | paper_or_metadata_capture | missing_local_paper_evidence, paper_linkage_not_curated |
 | PRJNA878488 | Sus scrofa domesticus | paper_or_metadata_capture | missing_local_paper_evidence, paper_linkage_not_curated |

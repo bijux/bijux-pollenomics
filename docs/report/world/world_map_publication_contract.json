@@ -51,7 +51,7 @@
     "point_traceability_json": "world_point_traceability.json"
   },
   "role_counts": {
-    "shared_world_scale_layer": 3,
+    "shared_world_scale_layer": 4,
     "region_filtered_layer": 1,
     "scope_specific_overlay": 0
   },
@@ -96,6 +96,19 @@
       "scope_caveat": "Shared evidence layer across every governed scope."
     },
     {
+      "key": "animal-sus-scrofa-domesticus",
+      "label": "Pig aDNA site evidence",
+      "source_name": "Tracked animal aDNA localities",
+      "coverage_label": "Mapped animal features staged from traceable evidence rows built from species-owned sample, site, coordinate, and citation surfaces.",
+      "count": 2,
+      "publication_role": "shared_world_scale_layer",
+      "scope_visibility": "shared_default",
+      "default_enabled": true,
+      "applies_country_filter": true,
+      "applies_time_filter": false,
+      "scope_caveat": "Shared evidence layer across every governed scope."
+    },
+    {
       "key": "country-boundaries",
       "label": "Country boundaries",
       "source_name": "Natural Earth country boundaries",
@@ -110,7 +123,7 @@
     }
   ],
   "static_assets": {
-    "schema_version": "atlas-static-bootstrap.v1",
+    "schema_version": "atlas-static-bootstrap.v2",
     "manifest": "world_map_assets.json",
     "budgets": {
       "bootstrap_max_bytes": 65536,
@@ -127,7 +140,7 @@
     "domains": {
       "nodes": {
         "status": "available",
-        "record_count": 1468
+        "record_count": 1470
       },
       "edges": {
         "status": "unavailable",
@@ -141,7 +154,7 @@
       },
       "provenance": {
         "status": "layer_metadata_only",
-        "record_count": 4,
+        "record_count": 5,
         "reason_code": "record_level_provenance_model_not_available"
       },
       "details": {
@@ -156,7 +169,7 @@
       },
       "indexes": {
         "status": "available",
-        "record_count": 1464
+        "record_count": 1466
       }
     }
   },

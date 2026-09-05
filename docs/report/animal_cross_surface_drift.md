@@ -12,4 +12,4 @@
 | Felis catus | 109 | 0 | 0 | `false` |
 | Ovis aries | 200 | 0 | 0 | `false` |
 | Rangifer tarandus | 20 | 0 | 0 | `false` |
-| Sus scrofa domesticus | 343 | 0 | 0 | `false` |
+| Sus scrofa domesticus | 343 | 2 | 2 | `false` |

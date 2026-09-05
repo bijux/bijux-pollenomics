@@ -108,13 +108,13 @@
     {
       "species_latin_name": "Sus scrofa domesticus",
       "normalized_sample_row_count": 343,
-      "normalized_site_evidence_count": 1,
-      "normalized_coordinate_row_count": 1,
-      "mappable_coordinate_row_count": 0,
-      "atlas_evidence_row_count": 0,
-      "atlas_evidence_sample_count": 0,
-      "published_country_sample_count": 0,
-      "published_country_locality_count": 0,
+      "normalized_site_evidence_count": 3,
+      "normalized_coordinate_row_count": 2,
+      "mappable_coordinate_row_count": 2,
+      "atlas_evidence_row_count": 2,
+      "atlas_evidence_sample_count": 2,
+      "published_country_sample_count": 2,
+      "published_country_locality_count": 2,
       "drift_detected": false,
       "findings": []
     }

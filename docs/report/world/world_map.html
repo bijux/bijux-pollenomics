@@ -375,6 +375,7 @@
       .range-input,
       .search-input { width: 100%; }
       .range-input { accent-color: var(--gold); }
+      .time-position-slider { direction: rtl; }
       .search-shell {
         position: relative;
       }
@@ -1619,6 +1620,57 @@
                   </div>
                 </div>
               </details>
+              <details id="source-chronology-controls" class="control-group" hidden>
+                <summary class="control-group-head">
+                  <div>
+                    <span class="control-group-label">Source chronology</span>
+                    <h3>Neotoma Source Context</h3>
+                  </div>
+                  <span id="source-chronology-summary" class="control-group-summary" aria-live="polite">Checking source facets</span>
+                </summary>
+                <div class="control-group-body">
+                  <div class="search-meta">Inspect source-native sample presence, literal ecological codes, or source-reported taxon and pollen-type labels. Dense code and taxon views are opt-in. These records are chronology context only and are not propagation evidence.</div>
+                  <label class="field-label" for="source-chronology-level"><span>Source node level</span><span>one layer at a time</span></label>
+                  <select id="source-chronology-level" class="search-input" aria-label="Select a Neotoma source chronology node level"></select>
+                  <div id="source-chronology-code-fields" hidden>
+                    <label class="field-label" for="source-chronology-code"><span>Literal source ecological code</span><span>all by default</span></label>
+                    <select id="source-chronology-code" class="search-input" aria-label="Filter by literal Neotoma ecological code"></select>
+                  </div>
+                  <div id="source-chronology-taxon-fields" hidden>
+                    <label class="field-label" for="source-chronology-taxon-query"><span>Find source-reported taxon or pollen type</span><span>not a species assertion</span></label>
+                    <input id="source-chronology-taxon-query" class="search-input" type="search" autocomplete="off" placeholder="Search source labels" aria-controls="source-chronology-taxon">
+                    <label class="field-label" for="source-chronology-taxon"><span>Exact source label</span><span>all by default</span></label>
+                    <select id="source-chronology-taxon" class="search-input" aria-label="Filter by exact source-reported Neotoma label"></select>
+                  </div>
+                  <div id="source-chronology-state" class="search-meta" aria-live="polite">Source chronology metadata unavailable.</div>
+                </div>
+              </details>
+              <details id="modeled-context-controls" class="control-group" hidden>
+                <summary class="control-group-head">
+                  <div>
+                    <span class="control-group-label">Modeled context</span>
+                    <h3>REVEALS Metric Reconstruction</h3>
+                  </div>
+                  <span id="modeled-context-summary" class="control-group-summary">PANGAEA 937075</span>
+                </summary>
+                <div class="control-group-body">
+                  <div class="search-meta">Discrete REVEALS estimates from PANGAEA 937075. Exact taxa, source PFT codes, and source land-cover types remain separate. This is modeled environmental context, not an observed pollen event, propagation path, or continuous interpolation.</div>
+                  <label class="field-label" for="modeled-context-family"><span>Metric family</span><span>source-evidenced</span></label>
+                  <select id="modeled-context-family" class="search-input" aria-label="Select a PANGAEA 937075 metric family"></select>
+                  <label class="field-label" for="modeled-context-metric"><span>Published metric</span><span>percentage cover</span></label>
+                  <select id="modeled-context-metric" class="search-input" aria-label="Select a PANGAEA 937075 published metric"></select>
+                  <label class="field-label" for="modeled-context-window"><span>Published source window</span><span>oldest → present</span></label>
+                  <select id="modeled-context-window" class="search-input" aria-label="Select a PANGAEA 937075 modeled source window"></select>
+                  <div class="inline-actions">
+                    <button id="modeled-context-toggle" class="inline-button" type="button" aria-pressed="false">Show modeled metric</button>
+                    <button id="modeled-context-playback" class="inline-button" type="button" aria-pressed="false" disabled>Play 25 source windows</button>
+                    <button id="modeled-context-download" class="inline-button" type="button" disabled>Download visible frame</button>
+                  </div>
+                  <div id="modeled-context-state" class="search-meta" aria-live="polite">Context mode is off.</div>
+                  <div id="modeled-context-legend" class="legend-list" aria-label="Modeled percentage-cover scale" hidden></div>
+                  <div class="search-meta"><a href="https://doi.org/10.1594/PANGAEA.937075" target="_blank" rel="noreferrer">PANGAEA 937075</a> · <a href="https://doi.org/10.5194/essd-14-1581-2022" target="_blank" rel="noreferrer">Githumbi et al. (2022)</a> · context only · propagation use: false</div>
+                </div>
+              </details>
               <details class="control-group">
                 <summary class="control-group-head">
                   <div>
@@ -1712,9 +1764,9 @@
                 <div class="control-group-body">
                   <div class="dock-range-stack">
                     <div>
-                      <div class="field-label"><span>Window start</span><span id="time-start-value">0 BP</span></div>
-                      <label class="sr-only" for="time-start-slider">Time window start in years BP</label>
-                      <input id="time-start-slider" class="range-input" type="range" min="0" max="52200" step="1" value="0">
+                      <div class="field-label"><span>Oldest → present position</span><span id="time-start-value">0 BP</span></div>
+                      <label class="sr-only" for="time-start-slider">Move the BP window from oldest evidence toward the present</label>
+                      <input id="time-start-slider" class="range-input time-position-slider" type="range" min="0" max="52200" step="1" value="0">
                     </div>
                     <div>
                       <div class="field-label"><span>Window span</span><span id="time-interval-value">52200 years</span></div>
@@ -1731,6 +1783,7 @@
                     <button class="preset-button" type="button" data-time-interval="50000">50000 years</button>
                     <button class="preset-button is-active" type="button" data-time-interval="full">Full span</button>
                   </div>
+                  <button id="time-playback-toggle" class="inline-button" type="button" aria-pressed="false">Play oldest → present</button>
                   <div id="time-record-count" class="search-meta">Calculating time-aware records in the active BP window.</div>
                 </div>
               </details>
@@ -1857,13 +1910,21 @@
         </div>
       </div>
     </div>
-    <script id="atlas-static-bootstrap" type="application/json">{"schema_version":"atlas-static-bootstrap.v1","scope_slug":"world","version":"v66","build_id":"atlas-9529ed05eceb43db9160f4a88fe7ab1c52b7af4128d4808117011536acd0316f","load_strategy":"selection_aware_static_scripts","offline_file_compatible":true,"transport_integrity":{"http_https":"subresource_integrity_plus_payload_sha256","file":"payload_sha256_after_script_registration","file_pre_execution_sri":false},"compatibility":{"provenance_schema":"atlas-provenance-chunk.v3","node_schema":"atlas-node-chunk.v1","detail_schema":"atlas-details-chunk.v1","edge_schema":"atlas-edges-chunk.v1","sequence_schema":"atlas-sequences-chunk.v1","index_schema":"atlas-static-indexes.v2"},"budgets":{"bootstrap_max_bytes":65536,"chunk_max_bytes":4194304,"document_max_bytes":524288,"static_assets_max_bytes":134217728,"static_assets_max_files":512,"initial_max_requests":4,"initial_max_bytes":1048576,"interaction_max_requests":128,"interaction_max_bytes":67108864,"filter_main_thread_max_ms":50},"domains":{"nodes":{"status":"available","record_count":1468},"edges":{"status":"unavailable","record_count":0,"reason_code":"governed_map_edge_model_not_available"},"sequences":{"status":"unavailable","record_count":0,"reason_code":"governed_sequence_detail_model_not_available"},"provenance":{"status":"layer_metadata_only","record_count":4,"reason_code":"record_level_provenance_model_not_available"},"details":{"status":"unavailable","record_count":0,"reason_code":"record_level_evidence_not_available"},"classifications":{"status":"unavailable","record_count":0,"reason_code":"accepted_scientific_classifications_not_available"},"indexes":{"status":"available","record_count":1464}},"assets":[{"asset_key":"provenance:0","domain":"provenance","sequence":0,"path":"world.atlas-provenance.0000.834fe7aebd90bd20.js","sha256":"834fe7aebd90bd20e1952cb004f6a1f12d73510adad5e038782cd433e89880f6","integrity":"sha256-g0/nrr2QvSDhlSywBPah8S1zUQra1eA4eCzUM+iYgPY=","payload_sha256":"107c014ec838bd93bc207525043d1283128df88f71bc4f20d11b51c583d64b05","payload_encoding":"json","byte_count":5643,"record_count":4,"initial_load":true},{"asset_key":"nodes:1","domain":"nodes","sequence":1,"path":"world.atlas-nodes.0001.95e723e7e53abd04.js","sha256":"95e723e7e53abd04675878e79ed878d64c94761409021c05cea29a43e60a2291","integrity":"sha256-lecj5+U6vQRnWHjnnth41kyUdhQJAhwFzqKaQ+YKIpE=","payload_sha256":"0db1e3e80a2060fba4d41b7e94c3b25f15c2cc55a96ccbcfaa4ee12372fd9131","payload_encoding":"json","byte_count":1676597,"record_count":653,"initial_load":false,"layer_index":0,"layer_key":"aadr","layer_kind":"point","country_keys":["Denmark"],"bounds":[54.623,8.728229,57.5065361,14.99854],"time_min_bp":73.0,"time_max_bp":10520.0,"untimed_record_count":4,"scientific_signal_ids":[]},{"asset_key":"nodes:2","domain":"nodes","sequence":2,"path":"world.atlas-nodes.0002.a6b8101fedc02329.js","sha256":"a6b8101fedc023297df4215ccddaad821435c3c7e6132b05e7da18924ec904b0","integrity":"sha256-prgQH+3AIyl99CFczdqtghQ1w8fmEysF59oYkk7JBLA=","payload_sha256":"176de85b10fcec84a42a1e6e7c7954421b32470141b8463cbe6aafc3cdc08f8f","payload_encoding":"json","byte_count":77375,"record_count":32,"initial_load":false,"layer_index":0,"layer_key":"aadr","layer_kind":"point","country_keys":["Finland"],"bounds":[60.2,22.178,69.91,27.03],"time_min_bp":0.0,"time_max_bp":1688.0,"untimed_record_count":0,"scientific_signal_ids":[]},{"asset_key":"nodes:3","domain":"nodes","sequence":3,"path":"world.atlas-nodes.0003.9cc6c3124fedf3c8.js","sha256":"9cc6c3124fedf3c8c48c09935ff700182c7171487662676496d139b58b83257a","integrity":"sha256-nMbDEk/t88jEjAmTX/cAGCxxcUh2YmdkltE5tYuDJXo=","payload_sha256":"48fad3c306a172629c6735ae8c54c105f526b66f6a2b6047d301cac42d238a4f","payload_encoding":"json","byte_count":333877,"record_count":130,"initial_load":false,"layer_index":0,"layer_key":"aadr","layer_kind":"point","country_keys":["Norway"],"bounds":[58.064,5.126940543,70.117388,19.017706],"time_min_bp":0.0,"time_max_bp":9486.0,"untimed_record_count":0,"scientific_signal_ids":[]},{"asset_key":"nodes:4","domain":"nodes","sequence":4,"path":"world.atlas-nodes.0004.5b6021181cfc05b7.js","sha256":"5b6021181cfc05b7b0cd97ff2d4508952478ecc72846de6fd04697b7eb586881","integrity":"sha256-W2AhGBz8BbewzZf/LUUIlSR47McoRt5v0EaXt+tYaIE=","payload_sha256":"8ecc140ab6cf8e41411d79870183d679f4195b83b1c77f24ee260506a2ced460","payload_encoding":"json","byte_count":1078458,"record_count":416,"initial_load":false,"layer_index":0,"layer_key":"aadr","layer_kind":"point","country_keys":["Sweden"],"bounds":[55.37774,11.3007,63.2,18.7],"time_min_bp":274.0,"time_max_bp":10010.0,"untimed_record_count":0,"scientific_signal_ids":[]},{"asset_key":"nodes:5","domain":"nodes","sequence":5,"path":"world.atlas-nodes.0005.d4906bf577b9e6d0.js","sha256":"d4906bf577b9e6d012e601db48854aae0a2f5264042168222c881d6da58f465b","integrity":"sha256-1JBr9Xe55tAS5gHbSIVKrgovUmQEIWgiLIgdbaWPRls=","payload_sha256":"29ca0ce1c09b51f2dffa02d5176915293c0fd98625a26a84cbd0c535f2ec3931","payload_encoding":"json","byte_count":7702,"record_count":1,"initial_load":false,"layer_index":1,"layer_key":"animal-capra-hircus","layer_kind":"point","country_keys":["Aksaray Plain, Turkey"],"bounds":[38.540978,33.771234,38.540978,33.771234],"time_min_bp":3833.0,"time_max_bp":3984.0,"untimed_record_count":0,"scientific_signal_ids":[]},{"asset_key":"nodes:6","domain":"nodes","sequence":6,"path":"world.atlas-nodes.0006.fdd48764d37a629a.js","sha256":"fdd48764d37a629a8033167ce115864b74b6ca2b5dd803ba71e1e19791155fde","integrity":"sha256-/dSHZNN6YpqAMxZ84RWGS3S2yitd2AO6ceHhl5EVX94=","payload_sha256":"e89a664a327d8f6a9890933e8539d2e699bdf20c2fc7c331679f770b071af716","payload_encoding":"json","byte_count":7807,"record_count":1,"initial_load":false,"layer_index":1,"layer_key":"animal-capra-hircus","layer_kind":"point","country_keys":["Burgos"],"bounds":[42.2853,-3.8335,42.2853,-3.8335],"time_min_bp":null,"time_max_bp":null,"untimed_record_count":1,"scientific_signal_ids":[]},{"asset_key":"nodes:7","domain":"nodes","sequence":7,"path":"world.atlas-nodes.0007.de95334870909344.js","sha256":"de953348709093449b8096ecf0d61a73517ae4ba8f8b6a283e54800552b6e22a","integrity":"sha256-3pUzSHCQk0SbgJbs8NYac1F65LqPi2ooPlSABVK24io=","payload_sha256":"f0874b54b7a3cbdec88d38dcefc3831b97e1c18879e21ee502a33503e0963bab","payload_encoding":"json","byte_count":8022,"record_count":1,"initial_load":false,"layer_index":1,"layer_key":"animal-capra-hircus","layer_kind":"point","country_keys":["China"],"bounds":[36.584302,100.502975,36.584302,100.502975],"time_min_bp":3480.0,"time_max_bp":3580.0,"untimed_record_count":0,"scientific_signal_ids":[]},{"asset_key":"nodes:8","domain":"nodes","sequence":8,"path":"world.atlas-nodes.0008.a5bb76850cdb921a.js","sha256":"a5bb76850cdb921ad58be99abfff798aa4f118cd67f66e8f2eac92f7030dcb9b","integrity":"sha256-pbt2hQzbkhrVi+mav/95iqTxGM1n9m6PLqyS9wMNy5s=","payload_sha256":"194f8daf1fd4bde4cf92a733057bf1d90f8533dd7b26695622cf02ca192f3579","payload_encoding":"json","byte_count":8065,"record_count":1,"initial_load":false,"layer_index":1,"layer_key":"animal-capra-hircus","layer_kind":"point","country_keys":["El Hierro"],"bounds":[27.640201,-17.989809,27.640201,-17.989809],"time_min_bp":null,"time_max_bp":null,"untimed_record_count":1,"scientific_signal_ids":[]},{"asset_key":"nodes:9","domain":"nodes","sequence":9,"path":"world.atlas-nodes.0009.55cfa2e04b1ae408.js","sha256":"55cfa2e04b1ae4087cab4ba3bc52a37a72bd49a0f44ab2d70b7e892468c7c29e","integrity":"sha256-Vc+i4Esa5Ah8q0ujvFKjenK9SaD0SrLXC36JJGjHwp4=","payload_sha256":"3506d0f2dfb773c18fc22d2bc0e5177186e89bb24a940a182f0a2ba8f275b8d7","payload_encoding":"json","byte_count":23947,"record_count":3,"initial_load":false,"layer_index":1,"layer_key":"animal-capra-hircus","layer_kind":"point","country_keys":["Fuerteventura"],"bounds":[28.408761,-14.125189,28.665573,-13.899854],"time_min_bp":null,"time_max_bp":null,"untimed_record_count":3,"scientific_signal_ids":[]},{"asset_key":"nodes:10","domain":"nodes","sequence":10,"path":"world.atlas-nodes.0010.33f6b1e89e79e9f5.js","sha256":"33f6b1e89e79e9f506481dd8dc91fb519c5533bd4d8a958a296ae7432d6b659d","integrity":"sha256-M/ax6J556fUGSB3Y3JH7UZxVM71NipWKKWrnQy1rZZ0=","payload_sha256":"bdcdfa3342c2f7af772e7ba8513057dca28b5f55d466666cf781c94b4b50aa4e","payload_encoding":"json","byte_count":37515,"record_count":5,"initial_load":false,"layer_index":1,"layer_key":"animal-capra-hircus","layer_kind":"point","country_keys":["Gran Canaria"],"bounds":[27.8812894086404,-15.813492,28.151167,-15.381412],"time_min_bp":null,"time_max_bp":null,"untimed_record_count":5,"scientific_signal_ids":[]},{"asset_key":"nodes:11","domain":"nodes","sequence":11,"path":"world.atlas-nodes.0011.a24ca35eb9b092f9.js","sha256":"a24ca35eb9b092f9ed9f0b24a49128fc5f64142b5c102f2135f71fcb7670e7bb","integrity":"sha256-okyjXrmwkvntnwskpJEo/F9kFCtcEC8hNfcfy3Zw57s=","payload_sha256":"a4a702077fa4ad8a2c5ab11ea50e9816f3a9e9cbd7545dba5b60ef17de9bf6ce","payload_encoding":"json","byte_count":22961,"record_count":3,"initial_load":false,"layer_index":1,"layer_key":"animal-capra-hircus","layer_kind":"point","country_keys":["La Gomera"],"bounds":[28.085573,-17.323679,28.178344,-17.149227],"time_min_bp":null,"time_max_bp":null,"untimed_record_count":3,"scientific_signal_ids":[]},{"asset_key":"nodes:12","domain":"nodes","sequence":12,"path":"world.atlas-nodes.0012.8c9665cb21a3ebe9.js","sha256":"8c9665cb21a3ebe95604572e025e00002a3d9a9d32c02615480621b371ac5b1f","integrity":"sha256-jJZlyyGj6+lWBFcuAl4AACo9mp0ywCYVSAYhs3GsWx8=","payload_sha256":"5b0e817fb18d93317c662cf9ea26b1a8f9e749fdb9c7a04d582d932bff2ac361","payload_encoding":"json","byte_count":29374,"record_count":4,"initial_load":false,"layer_index":1,"layer_key":"animal-capra-hircus","layer_kind":"point","country_keys":["La Palma"],"bounds":[28.552055,-17.9765,28.7924,-17.765601],"time_min_bp":null,"time_max_bp":null,"untimed_record_count":4,"scientific_signal_ids":[]},{"asset_key":"nodes:13","domain":"nodes","sequence":13,"path":"world.atlas-nodes.0013.0ce053331b77bebb.js","sha256":"0ce053331b77bebb4ce6754488bb042e320e5b768ca023dd1a3aad5f29bb2aa3","integrity":"sha256-DOBTMxt3vrtM5nVEiLsELjIOW3aMoCPdGjqtXym7KqM=","payload_sha256":"5829dd93cd4a7f8518c985f1dff842d358d5f0e3aee465777d8c22e05f8d7428","payload_encoding":"json","byte_count":7796,"record_count":1,"initial_load":false,"layer_index":1,"layer_key":"animal-capra-hircus","layer_kind":"point","country_keys":["Lanzarote"],"bounds":[29.078038,-13.596783,29.078038,-13.596783],"time_min_bp":null,"time_max_bp":null,"untimed_record_count":1,"scientific_signal_ids":[]},{"asset_key":"nodes:14","domain":"nodes","sequence":14,"path":"world.atlas-nodes.0014.9d2c14593a1a7553.js","sha256":"9d2c14593a1a755395aa555076376780124ae4d5abfb4eb8dd54b540ac5be3dd","integrity":"sha256-nSwUWToadVOVqlVQdjdngBJK5NWr+0643VS1QKxb490=","payload_sha256":"add506b20944e6c00cc9ecdee31958f5258c1cc01221a21c751513ea017ddb09","payload_encoding":"json","byte_count":7640,"record_count":1,"initial_load":false,"layer_index":1,"layer_key":"animal-capra-hircus","layer_kind":"point","country_keys":["Semnan, Iran"],"bounds":[36.504158,55.000786,36.504158,55.000786],"time_min_bp":7939.0,"time_max_bp":8170.0,"untimed_record_count":0,"scientific_signal_ids":[]},{"asset_key":"nodes:15","domain":"nodes","sequence":15,"path":"world.atlas-nodes.0015.a6c6a01d570cd2c2.js","sha256":"a6c6a01d570cd2c2d116942ee400d27804925160e2495abfc6e0a5bb67b6402f","integrity":"sha256-psagHVcM0sLRFpQu5ADSeASSUWDiSVq/xuClu2e2QC8=","payload_sha256":"e94f00c527c539e34b30211bac65b8343d39cfe660e7f63739ef8e4c124cb7cc","payload_encoding":"json","byte_count":7746,"record_count":1,"initial_load":false,"layer_index":1,"layer_key":"animal-capra-hircus","layer_kind":"point","country_keys":["Taurus Mountains, Turkey"],"bounds":[37.8578,36.653883,37.8578,36.653883],"time_min_bp":13169.0,"time_max_bp":13316.0,"untimed_record_count":0,"scientific_signal_ids":[]},{"asset_key":"nodes:16","domain":"nodes","sequence":16,"path":"world.atlas-nodes.0016.dcd7a4194c0db22c.js","sha256":"dcd7a4194c0db22cad88fba488856fbdf4625cd75fbcc826a554c1ef2e36437a","integrity":"sha256-3NekGUwNsiytiPukiIVvvfRiXNdfvMgmpVTB7y42Q3o=","payload_sha256":"d5e911be719406e80748684b465161f058e044d2f7f8ad8425c6136d7fd746ae","payload_encoding":"json","byte_count":22168,"record_count":3,"initial_load":false,"layer_index":1,"layer_key":"animal-capra-hircus","layer_kind":"point","country_keys":["Tenerife"],"bounds":[28.0842,-16.5289,28.422,-16.3133],"time_min_bp":null,"time_max_bp":null,"untimed_record_count":3,"scientific_signal_ids":[]},{"asset_key":"nodes:17","domain":"nodes","sequence":17,"path":"world.atlas-nodes.0017.6127b745d3bf84bc.js","sha256":"6127b745d3bf84bc3ad085df6e699ea7fac7765c59c95106239cde01ef1bb658","integrity":"sha256-YSe3RdO/hLw60IXfbmmep/rHdlxZyVEGI5zeAe8btlg=","payload_sha256":"832eef256457564d6820c234b8f989a1fc2d32a14f7552a54115e4bddfd18162","payload_encoding":"json","byte_count":7632,"record_count":1,"initial_load":false,"layer_index":1,"layer_key":"animal-capra-hircus","layer_kind":"point","country_keys":["Trstenik, Serbia"],"bounds":[43.723286,21.099449,43.723286,21.099449],"time_min_bp":7840.0,"time_max_bp":8030.0,"untimed_record_count":0,"scientific_signal_ids":[]},{"asset_key":"nodes:18","domain":"nodes","sequence":18,"path":"world.atlas-nodes.0018.7ef99277cf69274c.js","sha256":"7ef99277cf69274ced437deaa56c4ed064baffe63738a5d86c07ecf86f81e229","integrity":"sha256-fvmSd89pJ0ztQ33qpWxO0GS6/+Y3OKXYbAfs+G+B4ik=","payload_sha256":"c156ed7ec2e076413e0e74f3ebaa4dbdc080bd287f2c772ad58dc877954bf8e1","payload_encoding":"json","byte_count":7661,"record_count":1,"initial_load":false,"layer_index":2,"layer_key":"animal-equus-caballus","layer_kind":"point","country_keys":["Austria"],"bounds":[48.451361,16.599992,48.451361,16.599992],"time_min_bp":2535.0,"time_max_bp":2535.0,"untimed_record_count":0,"scientific_signal_ids":[]},{"asset_key":"nodes:19","domain":"nodes","sequence":19,"path":"world.atlas-nodes.0019.cb8bd51e84e717e2.js","sha256":"cb8bd51e84e717e215cfe436aedbee1ad26888876d2952f5157028ed2b10820c","integrity":"sha256-y4vVHoTnF+IVz+Q2rtvuGtJoiIdtKVL1FXAo7SsQggw=","payload_sha256":"95125f4d891db45af50553d4db31f336b9ec5d6ca65d528c40ee3cd5d8f3d6c2","payload_encoding":"json","byte_count":7725,"record_count":1,"initial_load":false,"layer_index":2,"layer_key":"animal-equus-caballus","layer_kind":"point","country_keys":["Belgium"],"bounds":[50.44667,5.00911,50.44667,5.00911],"time_min_bp":2143.0,"time_max_bp":35870.0,"untimed_record_count":0,"scientific_signal_ids":[]},{"asset_key":"nodes:20","domain":"nodes","sequence":20,"path":"world.atlas-nodes.0020.d57333226b3a7ce1.js","sha256":"d57333226b3a7ce14df65307a8cbe6a01181ddc4c53c78a49ef16786f4e282df","integrity":"sha256-1XMzIms6fOFN9lMHqMvmoBGB3cTFPHiknvFnhvTigt8=","payload_sha256":"f0d8067146c52b82c1395fbebaed16efbc0e8f7b876f027b9e8570373c92bc84","payload_encoding":"json","byte_count":7403,"record_count":1,"initial_load":false,"layer_index":2,"layer_key":"animal-equus-caballus","layer_kind":"point","country_keys":["China"],"bounds":[36.8406667,101.9584722,36.8406667,101.9584722],"time_min_bp":2820.0,"time_max_bp":2820.0,"untimed_record_count":0,"scientific_signal_ids":[]},{"asset_key":"nodes:21","domain":"nodes","sequence":21,"path":"world.atlas-nodes.0021.c9c00d9491ee1ce9.js","sha256":"c9c00d9491ee1ce9a9ad8bee6326e05dfda83671051ebd46db1d9cb7ddfcebf1","integrity":"sha256-ycANlJHuHOmprYvuYybgXf2oNnEFHr1G2x2ct9386/E=","payload_sha256":"dd1a41cd5b691afd63d5c94f30c12be72cae44331e2bea0e814e3a04248db5f9","payload_encoding":"json","byte_count":14506,"record_count":2,"initial_load":false,"layer_index":2,"layer_key":"animal-equus-caballus","layer_kind":"point","country_keys":["Croatia"],"bounds":[45.1973255,18.8414917,45.3325281,19.2624907],"time_min_bp":1187.0,"time_max_bp":1305.0,"untimed_record_count":0,"scientific_signal_ids":[]},{"asset_key":"nodes:22","domain":"nodes","sequence":22,"path":"world.atlas-nodes.0022.0a05ab6ef83f40fc.js","sha256":"0a05ab6ef83f40fcf8563214b5852120ce315e356a0b3cad0e83860e3a1b9f0e","integrity":"sha256-CgWrbvg/QPz4VjIUtYUhIM4xXjVqCzytDoOGDjobnw4=","payload_sha256":"716b6a828988687686abcdfea95697e3fe2ac89ee08755f488ab32a185b9b061","payload_encoding":"json","byte_count":71967,"record_count":10,"initial_load":false,"layer_index":2,"layer_key":"animal-equus-caballus","layer_kind":"point","country_keys":["Czech Republic"],"bounds":[49.19081,13.74354,50.36361,17.15314],"time_min_bp":2574.0,"time_max_bp":5186.0,"untimed_record_count":0,"scientific_signal_ids":[]},{"asset_key":"nodes:23","domain":"nodes","sequence":23,"path":"world.atlas-nodes.0023.1f2dd34f38706f84.js","sha256":"1f2dd34f38706f84f7f34c44781f1c47669ab7fd38fdbf855201b58f6ed9d0dd","integrity":"sha256-Hy3TTzhwb4T380xEeB8cR2aat/04/b+FUgG1j27Z0N0=","payload_sha256":"334b3ddc31d5ae9aa0af11f785cf364eaf203347f6a7a7e97bbe45838441dfdb","payload_encoding":"json","byte_count":7563,"record_count":1,"initial_load":false,"layer_index":2,"layer_key":"animal-equus-caballus","layer_kind":"point","country_keys":["Denmark"],"bounds":[56.41134,10.74481,56.41134,10.74481],"time_min_bp":4944.0,"time_max_bp":4961.0,"untimed_record_count":0,"scientific_signal_ids":[]},{"asset_key":"nodes:24","domain":"nodes","sequence":24,"path":"world.atlas-nodes.0024.e8548dd92629350b.js","sha256":"e8548dd92629350bee4579a631db77785c882ce1d6cc8d02a1846e82b5d16f50","integrity":"sha256-6FSN2SYpNQvuRXmmMdt3eFyILOHWzI0CoYRugrXRb1A=","payload_sha256":"62dfa1d3eebc07948f68e54cb87ceac0e2d0089a6a34b71f0238430ecb25d175","payload_encoding":"json","byte_count":35263,"record_count":5,"initial_load":false,"layer_index":2,"layer_key":"animal-equus-caballus","layer_kind":"point","country_keys":["Estonia"],"bounds":[58.058048,23.016137,58.5431999,26.6781],"time_min_bp":1017.0,"time_max_bp":2817.0,"untimed_record_count":0,"scientific_signal_ids":[]},{"asset_key":"nodes:25","domain":"nodes","sequence":25,"path":"world.atlas-nodes.0025.9731b07dfcfc1fe8.js","sha256":"9731b07dfcfc1fe8e0dd3ff25ee9d4723439fb1b6e093bf71a5e667cacc9a580","integrity":"sha256-lzGwffz8H+jg3T/yXunUcjQ5+xtuCTv3Gl5mfKzJpYA=","payload_sha256":"7f8b87b15f8f41dedb276fce0426ccb57162560cbb79b65fb8362c3aa253f975","payload_encoding":"json","byte_count":135662,"record_count":19,"initial_load":false,"layer_index":2,"layer_key":"animal-equus-caballus","layer_kind":"point","country_keys":["France"],"bounds":[43.3667,1.1589729,50.31503,6.172751],"time_min_bp":217.0,"time_max_bp":23605.0,"untimed_record_count":0,"scientific_signal_ids":[]},{"asset_key":"nodes:26","domain":"nodes","sequence":26,"path":"world.atlas-nodes.0026.854f647032153a2f.js","sha256":"854f647032153a2fd6dcad2e11914e3e62fb6bfd54670da81e615b70b5084827","integrity":"sha256-hU9kcDIVOi/W3K0uEZFOPmL7a/1UZw2oHmFbcLUISCc=","payload_sha256":"521c540a4d07227e2f5d732e0c672e3efa6ea62257a2f04ebcdd03d7f7333be3","payload_encoding":"json","byte_count":14239,"record_count":2,"initial_load":false,"layer_index":2,"layer_key":"animal-equus-caballus","layer_kind":"point","country_keys":["Georgia"],"bounds":[41.466667,44.62016419,42.74016371,46.016667],"time_min_bp":17.0,"time_max_bp":3604.0,"untimed_record_count":0,"scientific_signal_ids":[]},{"asset_key":"nodes:27","domain":"nodes","sequence":27,"path":"world.atlas-nodes.0027.7214d85de0e83344.js","sha256":"7214d85de0e83344cfa41471c204ddaa37b3cec3502982797eac43ff0b2fa603","integrity":"sha256-chTYXeDoM0TPpBRxwgTdqjezzsNQKYJ5fqxD/wsvpgM=","payload_sha256":"3c0ee44425d21c4a0e5577e266291c424d26259573596329214555f395815ce7","payload_encoding":"json","byte_count":35407,"record_count":5,"initial_load":false,"layer_index":2,"layer_key":"animal-equus-caballus","layer_kind":"point","country_keys":["Germany"],"bounds":[48.3079118,8.26,51.104,11.145],"time_min_bp":1373.0,"time_max_bp":4669.0,"untimed_record_count":0,"scientific_signal_ids":[]},{"asset_key":"nodes:28","domain":"nodes","sequence":28,"path":"world.atlas-nodes.0028.eab7b96fbecf61d7.js","sha256":"eab7b96fbecf61d7bfac723e9418c6aceba5610fd865a79904c18599d9c2a5bd","integrity":"sha256-6re5b77PYde/rHI+lBjGrOulYQ/YZaeZBMGFmdnCpb0=","payload_sha256":"2a3c0b815f0c0b397c753747d1cb13acc23c12de5872ebf099a35487e8c20a5b","payload_encoding":"json","byte_count":7538,"record_count":1,"initial_load":false,"layer_index":2,"layer_key":"animal-equus-caballus","layer_kind":"point","country_keys":["Guadeloupe (France)"],"bounds":[16.049578,-61.569156,16.049578,-61.569156],"time_min_bp":317.0,"time_max_bp":517.0,"untimed_record_count":0,"scientific_signal_ids":[]},{"asset_key":"nodes:29","domain":"nodes","sequence":29,"path":"world.atlas-nodes.0029.907c531a3d5b9f63.js","sha256":"907c531a3d5b9f63f55aaebda2776f39a48d8f86c3dd13812e58c3dad99beac1","integrity":"sha256-kHxTGj1bn2P1Wq69ondvOaSNj4bD3ROBLljD2tmb6sE=","payload_sha256":"7ff1f94b03b5a492bce504fcb9ef77269c91082e5c63ce50559578a487577897","payload_encoding":"json","byte_count":14552,"record_count":2,"initial_load":false,"layer_index":2,"layer_key":"animal-equus-caballus","layer_kind":"point","country_keys":["Hungary"],"bounds":[46.362,17.731,46.9619059,18.9355227],"time_min_bp":4077.0,"time_max_bp":4408.0,"untimed_record_count":0,"scientific_signal_ids":[]},{"asset_key":"nodes:30","domain":"nodes","sequence":30,"path":"world.atlas-nodes.0030.3564772acfe145fe.js","sha256":"3564772acfe145feff04515183a355ce732b5b2908af15a4b5c96583d4a384cc","integrity":"sha256-NWR3Ks/hRf7/BFFRg6NVznMrWykIrxWktcllg9SjhMw=","payload_sha256":"cf7572823d00341ca25ae5c625c0459e38d711ce21a5c26ec08b2d1a0185f9db","payload_encoding":"json","byte_count":13795,"record_count":2,"initial_load":false,"layer_index":2,"layer_key":"animal-equus-caballus","layer_kind":"point","country_keys":["Iceland"],"bounds":[65.268,-22.117,65.53,-18.24],"time_min_bp":917.0,"time_max_bp":1217.0,"untimed_record_count":0,"scientific_signal_ids":[]},{"asset_key":"nodes:31","domain":"nodes","sequence":31,"path":"world.atlas-nodes.0031.e2057668f643fea0.js","sha256":"e2057668f643fea038c7a34bbf571bb0275cb20538c8b7839afaeb2d1ebaad22","integrity":"sha256-4gV2aPZD/qA4x6NLv1cbsCdcsgU4yLeDmvrrLR66rSI=","payload_sha256":"9f3c57b3928531ad235cff9510435c6c1799ca8029d9ccc833f6c1bcbd5a017b","payload_encoding":"json","byte_count":49846,"record_count":7,"initial_load":false,"layer_index":2,"layer_key":"animal-equus-caballus","layer_kind":"point","country_keys":["Iran"],"bounds":[34.730428,45.458817,37.0424531,57.4715652],"time_min_bp":485.0,"time_max_bp":3117.0,"untimed_record_count":0,"scientific_signal_ids":[]},{"asset_key":"nodes:32","domain":"nodes","sequence":32,"path":"world.atlas-nodes.0032.fbf4f62580e28a9b.js","sha256":"fbf4f62580e28a9bf64256a7c4cbc76e661e638d425d2280de33001df95cbeae","integrity":"sha256-+/T2JYDiipv2QlanxMvHbmYeY41CXSKA3jMAHflcvq4=","payload_sha256":"cee87972758a48ae28e55d99e4ace7b019646a14c4ff24170d46ceeb2cb0edc2","payload_encoding":"json","byte_count":7624,"record_count":1,"initial_load":false,"layer_index":2,"layer_key":"animal-equus-caballus","layer_kind":"point","country_keys":["Italy"],"bounds":[42.249167,11.756111,42.249167,11.756111],"time_min_bp":2607.0,"time_max_bp":2607.0,"untimed_record_count":0,"scientific_signal_ids":[]},{"asset_key":"nodes:33","domain":"nodes","sequence":33,"path":"world.atlas-nodes.0033.788880df39486fa5.js","sha256":"788880df39486fa598b3355d924cdb93c06231db13b08690140d49c95c6019ff","integrity":"sha256-eIiA3zlIb6WYszVdkkzbk8BiMdsTsIaQFA1JyVxgGf8=","payload_sha256":"f58fffe08d43c323c2c0d0d1e945e845b5e1cccfc1299356f12c9379a79a979b","payload_encoding":"json","byte_count":166251,"record_count":23,"initial_load":false,"layer_index":2,"layer_key":"animal-equus-caballus","layer_kind":"point","country_keys":["Kazakhstan"],"bounds":[43.1836111,18.8838649,53.325935,86.4272922],"time_min_bp":1143.0,"time_max_bp":12408.0,"untimed_record_count":1,"scientific_signal_ids":[]},{"asset_key":"nodes:34","domain":"nodes","sequence":34,"path":"world.atlas-nodes.0034.5e31b51e1eef1bbb.js","sha256":"5e31b51e1eef1bbbe21a8f59b9631f554062dee5b3cc9afc072649fa68cf4c5c","integrity":"sha256-XjG1Hh7vG7viGo9ZuWMfVUBi3uWzzJr8ByZJ+mjPTFw=","payload_sha256":"4ec3234355ecbede2bf8853520c9b98de9fd8b6cc9679169d37e603323a2db89","payload_encoding":"json","byte_count":7443,"record_count":1,"initial_load":false,"layer_index":2,"layer_key":"animal-equus-caballus","layer_kind":"point","country_keys":["Kyrgyzstan"],"bounds":[39.9983333,71.0733333,39.9983333,71.0733333],"time_min_bp":1217.0,"time_max_bp":1217.0,"untimed_record_count":0,"scientific_signal_ids":[]},{"asset_key":"nodes:35","domain":"nodes","sequence":35,"path":"world.atlas-nodes.0035.8d99b33aaa58cd5a.js","sha256":"8d99b33aaa58cd5a2031ca85907a74e53d528cfac3fb6ecf0804e66c28ddafa1","integrity":"sha256-jZmzOqpYzVogMcqFkHp05T1SjPrD+27PCATmbCjdr6E=","payload_sha256":"a02bcb6c4b3993dd17bca9312cf0305129a51ab994cb5c5fbfba684d7ebccf44","payload_encoding":"json","byte_count":8278,"record_count":1,"initial_load":false,"layer_index":2,"layer_key":"animal-equus-caballus","layer_kind":"point","country_keys":["Lithuania"],"bounds":[54.89674,23.87248,54.89674,23.87248],"time_min_bp":1087.0,"time_max_bp":1189.0,"untimed_record_count":0,"scientific_signal_ids":[]},{"asset_key":"nodes:36","domain":"nodes","sequence":36,"path":"world.atlas-nodes.0036.3787419656161d96.js","sha256":"3787419656161d9631cf07afa6d7b52649165107ffaeda91d6577e583e12ab6a","integrity":"sha256-N4dBllYWHZYxzwevpte1JkkWUQf/rtqR1ld+WD4Sq2o=","payload_sha256":"be99c3d71cfa01a73bb09d3e14c6135d0ccff5964e6cee95e6f208cd28293189","payload_encoding":"json","byte_count":21445,"record_count":3,"initial_load":false,"layer_index":2,"layer_key":"animal-equus-caballus","layer_kind":"point","country_keys":["Moldova"],"bounds":[47.986875,27.169232,48.159923,27.790131],"time_min_bp":3017.0,"time_max_bp":4013.0,"untimed_record_count":0,"scientific_signal_ids":[]},{"asset_key":"nodes:37","domain":"nodes","sequence":37,"path":"world.atlas-nodes.0037.34602184048dcac3.js","sha256":"34602184048dcac3a3403819eb41a1f4551761ab1b8a51a83171b656f9f6c035","integrity":"sha256-NGAhhASNysOjQDgZ60Gh9FUXYasbilGoMXG2Vvn2wDU=","payload_sha256":"aeacf4299aa2e16db733267822dc7991a5bc55ac12bf2c57f0b5444544151754","payload_encoding":"json","byte_count":142189,"record_count":20,"initial_load":false,"layer_index":2,"layer_key":"animal-equus-caballus","layer_kind":"point","country_keys":["Mongolia"],"bounds":[45.0997222,88.3488611,51.421361,112.7196944],"time_min_bp":649.0,"time_max_bp":3130.0,"untimed_record_count":0,"scientific_signal_ids":[]},{"asset_key":"nodes:38","domain":"nodes","sequence":38,"path":"world.atlas-nodes.0038.5ca5f6b019cecd47.js","sha256":"5ca5f6b019cecd470cf469e9d2a2cd9d85be7fb6cff703626bd47f58bfb60255","integrity":"sha256-XKX2sBnOzUcM9Gnp0qLNnYW+f7bP9wNia9R/WL+2AlU=","payload_sha256":"0c69597616f58711cde3788a1d20b3c5f8816e67c20f1f5850604bcea66b3ea2","payload_encoding":"json","byte_count":36150,"record_count":5,"initial_load":false,"layer_index":2,"layer_key":"animal-equus-caballus","layer_kind":"point","country_keys":["Poland"],"bounds":[50.143,16.562,52.007,20.51853],"time_min_bp":2599.0,"time_max_bp":5751.0,"untimed_record_count":0,"scientific_signal_ids":[]},{"asset_key":"nodes:39","domain":"nodes","sequence":39,"path":"world.atlas-nodes.0039.3c34cfeca6f89c90.js","sha256":"3c34cfeca6f89c90e3294400befa61d2ca7fa24b9df9426acaebe1cf93492de9","integrity":"sha256-PDTP7Kb4nJDjKUQAvvph0sp/okud+UJqyuvhz5NJLek=","payload_sha256":"983a81420a0760c0b1dc210c4a7e95843c80597ac0f88f35be7480986d0b4f49","payload_encoding":"json","byte_count":14535,"record_count":2,"initial_load":false,"layer_index":2,"layer_key":"animal-equus-caballus","layer_kind":"point","country_keys":["Portugal"],"bounds":[39.0744,-8.692,39.241,9.2857],"time_min_bp":817.0,"time_max_bp":4509.0,"untimed_record_count":0,"scientific_signal_ids":[]},{"asset_key":"nodes:40","domain":"nodes","sequence":40,"path":"world.atlas-nodes.0040.0374cd506c5a29a3.js","sha256":"0374cd506c5a29a397d9cf951c3f2ed3c7b798cb965fd92239c4db7289fa7b2c","integrity":"sha256-A3TNUGxaKaOX2c+VHD8u08e3mMuWX9kiOcTbcon6eyw=","payload_sha256":"813357e6bd0a2a491d767aa83ded392b86998324b4e5e1e7cedd89a5180f98ea","payload_encoding":"json","byte_count":28850,"record_count":4,"initial_load":false,"layer_index":2,"layer_key":"animal-equus-caballus","layer_kind":"point","country_keys":["Romania"],"bounds":[44.067779,22.0079387,45.807945,26.4696],"time_min_bp":3574.0,"time_max_bp":36751.0,"untimed_record_count":0,"scientific_signal_ids":[]},{"asset_key":"nodes:41","domain":"nodes","sequence":41,"path":"world.atlas-nodes.0041.e08040e43867b25f.js","sha256":"e08040e43867b25f2e2f281a9a82e17302c701f386315051be0359cfdc3d80ce","integrity":"sha256-4IBA5Dhnsl8uLygamoLhcwLHAfOGMVBRvgNZz9w9gM4=","payload_sha256":"ef8f7e0783b1a5db0f13d3ff2d5aadde1afe5e0acf5794510bdd65cc3a963e7f","payload_encoding":"json","byte_count":394258,"record_count":56,"initial_load":false,"layer_index":2,"layer_key":"animal-equus-caballus","layer_kind":"point","country_keys":["Russia"],"bounds":[43.79028,8.85,73.046,142.821769],"time_min_bp":192.0,"time_max_bp":52200.0,"untimed_record_count":3,"scientific_signal_ids":[]},{"asset_key":"nodes:42","domain":"nodes","sequence":42,"path":"world.atlas-nodes.0042.6fd61d75fff50c18.js","sha256":"6fd61d75fff50c1819d114a2a01ec4769ff8e4e2ded1c23a290515987177104e","integrity":"sha256-b9Yddf/1DBgZ0RSioB7Edp/45OLe0cI6KQUVmHF3EE4=","payload_sha256":"3d0251c2d99a190c9ac0c455d76f9eaea088adad6cc2804e277a844f5944d11b","payload_encoding":"json","byte_count":14553,"record_count":2,"initial_load":false,"layer_index":2,"layer_key":"animal-equus-caballus","layer_kind":"point","country_keys":["Slovakia"],"bounds":[48.069502,18.200384,48.655,21.268],"time_min_bp":1217.0,"time_max_bp":3633.0,"untimed_record_count":0,"scientific_signal_ids":[]},{"asset_key":"nodes:43","domain":"nodes","sequence":43,"path":"world.atlas-nodes.0043.758da036479a3ba8.js","sha256":"758da036479a3ba89f72977853de53a50f10db3eb084072165e4b69b13159e9c","integrity":"sha256-dY2gNkeaO6ifcpd4U95TpQ8Q2z6whAchZeS2mxMVnpw=","payload_sha256":"20d2ad4d8ec2c14421290bba8cdab47c5758339eb1eb9c5da7bf59c3efc8c692","payload_encoding":"json","byte_count":69896,"record_count":10,"initial_load":false,"layer_index":2,"layer_key":"animal-equus-caballus","layer_kind":"point","country_keys":["Spain"],"bounds":[38.0982811,-7.5592897,43.0092829,6.064916],"time_min_bp":1617.0,"time_max_bp":7130.0,"untimed_record_count":0,"scientific_signal_ids":[]},{"asset_key":"nodes:44","domain":"nodes","sequence":44,"path":"world.atlas-nodes.0044.c6a1b9d79f15d803.js","sha256":"c6a1b9d79f15d803605117007c6844409bcfefe462c487a154b86c84ab559555","integrity":"sha256-xqG5158V2ANgURcAfGhEQJvP7+RixIehVLhshKtVlVU=","payload_sha256":"9d21dcd43a73f1783d045e84db312c8a88c5fe5f72c8e86a0a6da1c024c3d600","payload_encoding":"json","byte_count":7142,"record_count":1,"initial_load":false,"layer_index":2,"layer_key":"animal-equus-caballus","layer_kind":"point","country_keys":["Sweden"],"bounds":[59.861,17.639,59.861,17.639],"time_min_bp":1217.0,"time_max_bp":1417.0,"untimed_record_count":0,"scientific_signal_ids":[]},{"asset_key":"nodes:45","domain":"nodes","sequence":45,"path":"world.atlas-nodes.0045.a78a99f01bad3511.js","sha256":"a78a99f01bad3511de2c61ea7935f594d64113d441b7efa76720a04bfab88c50","integrity":"sha256-p4qZ8ButNRHeLGHqeTX1lNZBE9RBt++nZyCgS/q4jFA=","payload_sha256":"35f1cf625ea9a75b03aa697ed94079278a291e03bf6f2b4685d735484dea41e1","payload_encoding":"json","byte_count":28408,"record_count":4,"initial_load":false,"layer_index":2,"layer_key":"animal-equus-caballus","layer_kind":"point","country_keys":["Switzerland"],"bounds":[47.2333,7.5167,47.65,8.85],"time_min_bp":1617.0,"time_max_bp":2017.0,"untimed_record_count":0,"scientific_signal_ids":[]},{"asset_key":"nodes:46","domain":"nodes","sequence":46,"path":"world.atlas-nodes.0046.b05256b9094a1f97.js","sha256":"b05256b9094a1f97a031d5530b9d3b8738413fd33e9b9c46266f03c865376a20","integrity":"sha256-sFJWuQlKH5egMdVTC507hzhBP9M+m5xGJm8DyGU3aiA=","payload_sha256":"cfc5fac77f0208de9c03a5947fb0fecc5e7b519c2e974bc5fac9a82ebb1bbc55","payload_encoding":"json","byte_count":7852,"record_count":1,"initial_load":false,"layer_index":2,"layer_key":"animal-equus-caballus","layer_kind":"point","country_keys":["Tunisia"],"bounds":[35.873429,8.78621,35.873429,8.78621],"time_min_bp":2531.0,"time_max_bp":2610.0,"untimed_record_count":0,"scientific_signal_ids":[]},{"asset_key":"nodes:47","domain":"nodes","sequence":47,"path":"world.atlas-nodes.0047.34358d07d35035a5.js","sha256":"34358d07d35035a5c7eca13e62cd2f81fa8d8712ae941d4c49fd93ff433196d8","integrity":"sha256-NDWNB9NQNaXH7KE+Ys0vgfqNhxKulB1MSf2T/0Mxltg=","payload_sha256":"2d236b023bc1ae0194af2fa9e009f1b99e32aabd0ea1d963a9159b0e385d2a58","payload_encoding":"json","byte_count":37907,"record_count":5,"initial_load":false,"layer_index":2,"layer_key":"animal-equus-caballus","layer_kind":"point","country_keys":["Turkey"],"bounds":[37.847803,27.225306,41.721357,35.1436],"time_min_bp":1156.0,"time_max_bp":8269.0,"untimed_record_count":0,"scientific_signal_ids":[]},{"asset_key":"nodes:48","domain":"nodes","sequence":48,"path":"world.atlas-nodes.0048.c86ea9ea19ed1471.js","sha256":"c86ea9ea19ed1471aa2613b11626f6722bdec6cf3d8cc338169cfa5cb18c9700","integrity":"sha256-yG6p6hntFHGqJhOxFib2civexs89jMM4Fpz6XLGMlwA=","payload_sha256":"602cb3dd4650851f70ae4db50ebe0bc5aa359fcc3fe6dae2002473af4ccc07b8","payload_encoding":"json","byte_count":7698,"record_count":1,"initial_load":false,"layer_index":2,"layer_key":"animal-equus-caballus","layer_kind":"point","country_keys":["Ukraine"],"bounds":[46.86888889,35.43305556,46.86888889,35.43305556],"time_min_bp":6135.0,"time_max_bp":6135.0,"untimed_record_count":0,"scientific_signal_ids":[]},{"asset_key":"nodes:49","domain":"nodes","sequence":49,"path":"world.atlas-nodes.0049.3d71cb4fc02a7f4f.js","sha256":"3d71cb4fc02a7f4f1f5a277dac113829ddf46e5d598f6eb007beaec80aa8835a","integrity":"sha256-PXHLT8Aqf08fWid9rBE4Kd30bl1Zj26wB76uyAqog1o=","payload_sha256":"d4bc4e829455f255846768a8ac9db0c4d75675ac35cb6806bfafa2df3349ee70","payload_encoding":"json","byte_count":49898,"record_count":7,"initial_load":false,"layer_index":2,"layer_key":"animal-equus-caballus","layer_kind":"point","country_keys":["United Kingdom"],"bounds":[50.467709,-2.97,59.337156,3.502667],"time_min_bp":117.0,"time_max_bp":14616.0,"untimed_record_count":0,"scientific_signal_ids":[]},{"asset_key":"nodes:50","domain":"nodes","sequence":50,"path":"world.atlas-nodes.0050.4999c677daf6b960.js","sha256":"4999c677daf6b960f59338b69212088436e94646e63d1a853fa1d95c77f6c43c","integrity":"sha256-SZnGd9r2uWD1kzi2khIIhDbpRkbmPRqFP6HZXHf2xDw=","payload_sha256":"2838acf461ba4c7db6bdb882ccad29f807ff9fc20e729e7e9e02b061add62ecc","payload_encoding":"json","byte_count":7359,"record_count":1,"initial_load":false,"layer_index":2,"layer_key":"animal-equus-caballus","layer_kind":"point","country_keys":["Uzbekistan"],"bounds":[38.867278,65.800161,38.867278,65.800161],"time_min_bp":2853.0,"time_max_bp":2853.0,"untimed_record_count":0,"scientific_signal_ids":[]},{"asset_key":"nodes:51","domain":"nodes","sequence":51,"path":"world.atlas-nodes.0051.e99653e8289b98f1.js","sha256":"e99653e8289b98f16181f7725cbcf2df213ebc8b2245276670745edb266d29de","integrity":"sha256-6ZZT6CibmPFhgfdyXLzy3yE+vIsiRSdmcHRe2yZtKd4=","payload_sha256":"ffcf27c402b5896210441e8e174e739ad1450a25774df713c85ae040db9cb07b","payload_encoding":"json","byte_count":47489,"record_count":1,"initial_load":false,"layer_index":3,"layer_key":"country-boundaries","layer_kind":"polygon","country_keys":["Denmark"],"bounds":[54.56859,8.094005,57.751166,15.151378],"time_min_bp":null,"time_max_bp":null,"untimed_record_count":1,"scientific_signal_ids":[]},{"asset_key":"nodes:52","domain":"nodes","sequence":52,"path":"world.atlas-nodes.0052.a6e287c1afd926c2.js","sha256":"a6e287c1afd926c290775d3c91d117762fcf5ecb0445fecdd8c79ba6fbb6129c","integrity":"sha256-puKHwa/ZJsKQd108kdEXdi/PXssERf7N2Mebpvu2Epw=","payload_sha256":"d17e4c7eec09dccbfaf00b7264724f00fb1c1830292a4cb4b1fb27a9477c05a6","payload_encoding":"json","byte_count":71229,"record_count":1,"initial_load":false,"layer_index":3,"layer_key":"country-boundaries","layer_kind":"polygon","country_keys":["Finland"],"bounds":[59.811225,20.623165,70.07531,31.569525],"time_min_bp":null,"time_max_bp":null,"untimed_record_count":1,"scientific_signal_ids":[]},{"asset_key":"nodes:53","domain":"nodes","sequence":53,"path":"world.atlas-nodes.0053.0ec1540508c4338e.js","sha256":"0ec1540508c4338e5698704b3bed6f23b4143a08569ee00bd9a31da156f6590f","integrity":"sha256-DsFUBQjEM45WmHBLO+1vI7QUOghWnuAL2aMdoVb2WQ8=","payload_sha256":"5506e7a5dd81572b04ea615661c36168ed6244fd51cbf64ed45932ce21108b63","payload_encoding":"json","byte_count":341624,"record_count":1,"initial_load":false,"layer_index":3,"layer_key":"country-boundaries","layer_kind":"polygon","country_keys":["Norway"],"bounds":[-54.462498,-9.117421,80.770087,33.640391],"time_min_bp":null,"time_max_bp":null,"untimed_record_count":1,"scientific_signal_ids":[]},{"asset_key":"nodes:54","domain":"nodes","sequence":54,"path":"world.atlas-nodes.0054.098ee66512f8f273.js","sha256":"098ee66512f8f273f295eef1b8899a5abb81d33693913667db1359ec1f60d2b1","integrity":"sha256-CY7mZRL48nPyle7xuImaWruB0zaTkTZn2xNZ7B9g0rE=","payload_sha256":"90b1026c9ebd1efd401462ba5073f170b749c14d735c29d556600fbba0b37c24","payload_encoding":"json","byte_count":102648,"record_count":1,"initial_load":false,"layer_index":3,"layer_key":"country-boundaries","layer_kind":"polygon","country_keys":["Sweden"],"bounds":[55.342678,11.108165,69.036356,24.163414],"time_min_bp":null,"time_max_bp":null,"untimed_record_count":1,"scientific_signal_ids":[]},{"asset_key":"edges:55","domain":"edges","sequence":55,"path":"world.atlas-edges.0055.3b7583a0d544bc4d.js","sha256":"3b7583a0d544bc4d51310cc275acf6af1507c27229af505ec46995579a5e95cd","integrity":"sha256-O3WDoNVEvE1RMQzCdaz2rxUHwnIpr1BexGmVV5pelc0=","payload_sha256":"e388042f0488edf910e131b4ebe7eb5873514229b323bfaf46464197bd2467bf","payload_encoding":"json","byte_count":583,"record_count":0,"initial_load":true},{"asset_key":"sequences:56","domain":"sequences","sequence":56,"path":"world.atlas-sequences.0056.0322d445f162aa7c.js","sha256":"0322d445f162aa7c95e3a8f5e89ad9ce7c64693aeff0c96732877db1b1c303c6","integrity":"sha256-AyLURfFiqnyV46j16JrZznxkaTrv8MlnMod9sbHDA8Y=","payload_sha256":"cf7b9b71b3a8d9b38f3b9cdc377aa8a2802306eb5b529d2a66cd55962d841606","payload_encoding":"json","byte_count":602,"record_count":0,"initial_load":true},{"asset_key":"indexes:57","domain":"indexes","sequence":57,"path":"world.atlas-indexes.0057.0e2694cfcfb86cf4.js","sha256":"0e2694cfcfb86cf499566d59ecdaf7dadb533bbcc6bea619696fe6ff136e616d","integrity":"sha256-DiaUz8+4bPSZVm1Z7Nr32ttTO7zGvqYZaW/m/xNuYW0=","payload_sha256":"fe0b218670a1d23648728640f5748bb98b0292be036445d1e0f1b0d90695b95b","payload_encoding":"json","byte_count":66256,"record_count":1464,"initial_load":true}]}</script>
+    <script id="atlas-static-bootstrap" type="application/json">{"schema_version":"atlas-static-bootstrap.v2","scope_slug":"world","version":"v66","build_id":"atlas-4270a2acb9c1590b12b800d6059adfd48bee88988f64828aafb450a411f6d135","load_strategy":"selection_aware_static_scripts","offline_file_compatible":true,"transport_integrity":{"http_https":"subresource_integrity_plus_payload_sha256","file":"payload_sha256_after_script_registration","file_pre_execution_sri":false},"compatibility":{"provenance_schema":"atlas-provenance-chunk.v3","node_schema":"atlas-node-chunk.v1","detail_schema":"atlas-details-chunk.v1","edge_schema":"atlas-edges-chunk.v1","sequence_schema":"atlas-sequences-chunk.v1","index_schema":"atlas-static-indexes.v3"},"budgets":{"bootstrap_max_bytes":65536,"chunk_max_bytes":4194304,"document_max_bytes":524288,"static_assets_max_bytes":134217728,"static_assets_max_files":512,"initial_max_requests":4,"initial_max_bytes":1048576,"interaction_max_requests":128,"interaction_max_bytes":67108864,"filter_main_thread_max_ms":50},"domains":{"nodes":{"status":"available","record_count":1470},"edges":{"status":"unavailable","record_count":0,"reason_code":"governed_map_edge_model_not_available"},"sequences":{"status":"unavailable","record_count":0,"reason_code":"governed_sequence_detail_model_not_available"},"provenance":{"status":"layer_metadata_only","record_count":5,"reason_code":"record_level_provenance_model_not_available"},"details":{"status":"unavailable","record_count":0,"reason_code":"record_level_evidence_not_available"},"classifications":{"status":"unavailable","record_count":0,"reason_code":"accepted_scientific_classifications_not_available"},"indexes":{"status":"available","record_count":1466}},"assets":{"schema_version":"atlas-static-asset-table.v1","fields":["asset_key","domain","sequence","path","sha256","integrity","payload_sha256","payload_encoding","decoded_byte_count","byte_count","record_count","initial_load","layer_index","layer_key","layer_kind","country_keys","bounds","time_min_bp","time_max_bp","untimed_record_count","scientific_signal_ids"],"record_count":59,"records":[["provenance:0","provenance",0,"world.atlas-provenance.0000.3e775997194d8c8d.js","3e775997194d8c8d08091f1829c811ac1e1d0a95ff7c1980ca802ade643e2cb5","sha256-PndZlxlNjI0ICR8YKcgRrB4dCpX/fBmAyoAq3mQ+LLU=","8fc3c4e271f39537cd3245e63b1f8130a2f81a4b2cd0148f90625687f2257921","gzip_base64",6162,2332,5,true,null,null,null,null,null,null,null,null,null],["nodes:1","nodes",1,"world.atlas-nodes.0001.6b709491f1020dcb.js","6b709491f1020dcb9bf77aa0dd73b7f507ea40ab87bc14ca781c140425acf902","sha256-a3CUkfECDcub93qg3XO39QfqQKuHvBTKeBwUBCWs+QI=","641c619864278d8cb582b27fe9cb178f347c97b2e9358856090982dc3b2bcbb6","gzip_base64",1490376,80283,653,false,0,"aadr","point",["Denmark"],[54.623,8.728229,57.5065361,14.99854],73.0,10520.0,4,[]],["nodes:2","nodes",2,"world.atlas-nodes.0002.a566d8157a774505.js","a566d8157a774505736dd605c53160e9c4b09fff6b4b5ad87e7e9d6363a03417","sha256-pWbYFXp3RQVzbdYFxTFg6cSwn/9rS1rYfn6dY2OgNBc=","434cd5ca562a76da3ca762a557cd13d370c2d9fcccb293e2d37bdb08dec01390","gzip_base64",68075,3851,32,false,0,"aadr","point",["Finland"],[60.2,22.178,69.91,27.03],0.0,1688.0,0,[]],["nodes:3","nodes",3,"world.atlas-nodes.0003.944cbd3aba6f7ba1.js","944cbd3aba6f7ba13d8624139c383dd47264665469a1620d10dd8c1ce5efade6","sha256-lEy9Orpve6E9hiQTnDg91HJkZlRpoWINEN2MHOXvreY=","7da522aa858db6203edf584ddd2ea675874a96829517301a9d89388f3befd497","gzip_base64",296581,18195,130,false,0,"aadr","point",["Norway"],[58.064,5.126940543,70.117388,19.017706],0.0,9486.0,0,[]],["nodes:4","nodes",4,"world.atlas-nodes.0004.2728c1f96a44540d.js","2728c1f96a44540dacde73180d8d4f3aea274d483758617357e33fd96fce3cb1","sha256-JyjB+WpEVA2s3nMYDY1POuonTUg3WGFzV+M/2W/OPLE=","f358009c34e1d384f227030bda853a39e0b0021b80eaab50cf2762a6cafa0971","gzip_base64",957977,45911,416,false,0,"aadr","point",["Sweden"],[55.37774,11.3007,63.2,18.7],274.0,10010.0,0,[]],["nodes:5","nodes",5,"world.atlas-nodes.0005.dae4a101e76e1bf5.js","dae4a101e76e1bf5f16d17bf3bd8d8dc0726f9c7d6b8c1c54cae571f9c7ec9a8","sha256-2uShAeduG/XxbRe/O9jY3Acm+cfWuMHFTK5XH5x+yag=","92b844141f3928840c284fc9c53139291a0fb59184c64a03a904e122165fa362","gzip_base64",6869,3027,1,false,1,"animal-capra-hircus","point",["Aksaray Plain, Turkey"],[38.540978,33.771234,38.540978,33.771234],3833.0,3984.0,0,[]],["nodes:6","nodes",6,"world.atlas-nodes.0006.eeb371084933bc10.js","eeb371084933bc1045e9cf0ea62608bb34a4eed9363e253c093a23eadefd0faf","sha256-7rNxCEkzvBBF6c8OpiYIuzSk7tk2PiU8CToj6t79D68=","cb79e3570af6f60220a645cb6e1c5ef846bedabe34b3ae8d7bde821c8e56b14b","gzip_base64",6982,3047,1,false,1,"animal-capra-hircus","point",["Burgos"],[42.2853,-3.8335,42.2853,-3.8335],null,null,1,[]],["nodes:7","nodes",7,"world.atlas-nodes.0007.94f3356e501fb3ca.js","94f3356e501fb3ca530ac7c6b8eb69ae7fddb94a43854e873a859afbcc6cf360","sha256-lPM1blAfs8pTCsfGuOtprn/duUpDhU6HOoWa+8xs82A=","3cfabf880698cdf8563812c9ef85c3cbdb609dfe9b20725c9b39f414486359b5","gzip_base64",7194,3059,1,false,1,"animal-capra-hircus","point",["China"],[36.584302,100.502975,36.584302,100.502975],3480.0,3580.0,0,[]],["nodes:8","nodes",8,"world.atlas-nodes.0008.3245c2f622bb90b5.js","3245c2f622bb90b52f42143ee49663f8ff8d1e6c9a19e23391a7fe75f923f090","sha256-MkXC9iK7kLUvQhQ+5JZj+P+NHmyaGeIzkaf+dfkj8JA=","fbeb664e4347e71dc490a335ff039cf8fac0d6f7405a98580e688409872886bd","gzip_base64",7244,3103,1,false,1,"animal-capra-hircus","point",["El Hierro"],[27.640201,-17.989809,27.640201,-17.989809],null,null,1,[]],["nodes:9","nodes",9,"world.atlas-nodes.0009.8272192c45dfd1cc.js","8272192c45dfd1cc70dca9216e51f98b204854f3e7724f06e33545f3f86d8c9a","sha256-gnIZLEXf0cxw3KkhblH5iyBIVPPnck8G4zVF8/htjJo=","15b87d1a120903eb3db5b4b5a3c331d3a80d6b778da2560c3cd75ad5621b3786","gzip_base64",22088,4095,3,false,1,"animal-capra-hircus","point",["Fuerteventura"],[28.408761,-14.125189,28.665573,-13.899854],null,null,3,[]],["nodes:10","nodes",10,"world.atlas-nodes.0010.8967cdb665a0d39a.js","8967cdb665a0d39a9e14c9a3810d123e44a44b0b714ae9822afee3a23b995ea9","sha256-iWfNtmWg05qeFMmjgQ0SPkSkSwtxSumCKv7jojuZXqk=","2881881207918e863ce3394009f3f5307a42b6821594c511dd973734dc523f12","gzip_base64",34681,4748,5,false,1,"animal-capra-hircus","point",["Gran Canaria"],[27.8812894086404,-15.813492,28.151167,-15.381412],null,null,5,[]],["nodes:11","nodes",11,"world.atlas-nodes.0011.cd0b35f9a890f0a2.js","cd0b35f9a890f0a2bf34e636ba8a43456e23e580e779fb271810464a3bff70e1","sha256-zQs1+aiQ8KK/NOY2uopDRW4j5YDnefsnGBBGSjv/cOE=","d3c9bd6b3e09c054e2daf3cef6f1ae69dc2eda6282c683d4e7ea7903f971bbff","gzip_base64",21115,3996,3,false,1,"animal-capra-hircus","point",["La Gomera"],[28.085573,-17.323679,28.178344,-17.149227],null,null,3,[]],["nodes:12","nodes",12,"world.atlas-nodes.0012.afdc8ec3597091c0.js","afdc8ec3597091c0cf2cea69bf79fdc58605ef0da54a60abebe771701921a006","sha256-r9yOw1lwkcDPLOppv3n9xYYF7w2lSmCr6+dxcBkhoAY=","2765260b88984737e65d809bc80f1ff7ef805e8760193976e6587024dc34dbe2","gzip_base64",27052,4264,4,false,1,"animal-capra-hircus","point",["La Palma"],[28.552055,-17.9765,28.7924,-17.765601],null,null,4,[]],["nodes:13","nodes",13,"world.atlas-nodes.0013.f6a0ccd11eca58dd.js","f6a0ccd11eca58dd5ba727248864434a48141888b2adf6616e63de50cc458ccf","sha256-9qDM0R7KWN1bpyckiGRDSkgUGIiyrfZhbmPeUMxFjM8=","79f4b74a488d4db7560f050e08e24926c06daf1da791000846a2489c1c0421c3","gzip_base64",6978,3064,1,false,1,"animal-capra-hircus","point",["Lanzarote"],[29.078038,-13.596783,29.078038,-13.596783],null,null,1,[]],["nodes:14","nodes",14,"world.atlas-nodes.0014.a94594cb7ee2d9f2.js","a94594cb7ee2d9f2d64b61ba33c104c57e87383f27d159a59c92c7a15a7a064d","sha256-qUWUy37i2fLWS2G6M8EExX6HOD8n0VmlnJLHoVp6Bk0=","e9e2afcbc66912984fbdcdec26e5a4b6ab606703b219de8c7bb6cf590df4c41c","gzip_base64",6822,3024,1,false,1,"animal-capra-hircus","point",["Semnan, Iran"],[36.504158,55.000786,36.504158,55.000786],7939.0,8170.0,0,[]],["nodes:15","nodes",15,"world.atlas-nodes.0015.54ca3c71183e6cc8.js","54ca3c71183e6cc81def7b59ba5696ab3d5fcbeb4384be7ca3c674ab96169589","sha256-VMo8cRg+bMgd73tZulaWqz1fy+tDhL58o8Z0q5YWlYk=","d73858666159fe28536f074181381b827e4836af662f355f9884d06ae43cb50e","gzip_base64",6928,3036,1,false,1,"animal-capra-hircus","point",["Taurus Mountains, Turkey"],[37.8578,36.653883,37.8578,36.653883],13169.0,13316.0,0,[]],["nodes:16","nodes",16,"world.atlas-nodes.0016.67eb96f10bf14ab0.js","67eb96f10bf14ab0fb59ca8fddfe208efdba1a69cbc2bb5c9bb99a3957f69afe","sha256-Z+uW8QvxSrD7WcqP3f4gjv26GmnLwrtcm7maOVf2mv4=","b614aea0a3eba5cff9c5c847b38c287c9da2d9c6e0fcc593c0e21b54bd07ed07","gzip_base64",20350,3876,3,false,1,"animal-capra-hircus","point",["Tenerife"],[28.0842,-16.5289,28.422,-16.3133],null,null,3,[]],["nodes:17","nodes",17,"world.atlas-nodes.0017.ccf57f155e50b5fd.js","ccf57f155e50b5fdc4e4bf12c79f0be947eed902df46d18da08344979ce2fc59","sha256-zPV/FV5Qtf3E5L8Sx58L6Ufu2QLfRtGNoINEl5zi/Fk=","5b0c900ca4b5f74dab4289da3f507f658dd258bcf58d01ece3d88aeeea468430","gzip_base64",6814,3024,1,false,1,"animal-capra-hircus","point",["Trstenik, Serbia"],[43.723286,21.099449,43.723286,21.099449],7840.0,8030.0,0,[]],["nodes:18","nodes",18,"world.atlas-nodes.0018.475f43419dcc2179.js","475f43419dcc217929264079bca415efaa8b2f807733e40760cfee60121ce2ac","sha256-R19DQZ3MIXkpJkB5vKQV76qLL4B3M+QHYM/uYBIc4qw=","a5fbc9748e58034599b14e43e5f3d7abab4b13a17eb1f017257f6deab42724b1","gzip_base64",6843,3036,1,false,2,"animal-equus-caballus","point",["Austria"],[48.451361,16.599992,48.451361,16.599992],2535.0,2535.0,0,[]],["nodes:19","nodes",19,"world.atlas-nodes.0019.280c3236bfaf8101.js","280c3236bfaf81010749ae4dcf86e99d03e03397fb3e4874e584f78f6b9e32d9","sha256-KAwyNr+vgQEHSa5Nz4bpnQPgM5f7Pkh05YT3j2ueMtk=","3942f8cf61a1285a7cdc3e84c0cfcb46fb68a2fa16953dc3319d10baf6da9528","gzip_base64",6901,3036,1,false,2,"animal-equus-caballus","point",["Belgium"],[50.44667,5.00911,50.44667,5.00911],2143.0,35870.0,0,[]],["nodes:20","nodes",20,"world.atlas-nodes.0020.58b2aa25515cd045.js","58b2aa25515cd04575dc3cb04d4d29b60840035fba038a5453f4ddd6df8437c4","sha256-WLKqJVFc0EV13DywTU0ptghAA1+6A4pUU/Td1t+EN8Q=","60ff0e86db162e9f31d7f334d67dc94ebdfd81b2ef65cfbb5064c8cc87e5a394","gzip_base64",6585,2968,1,false,2,"animal-equus-caballus","point",["China"],[36.8406667,101.9584722,36.8406667,101.9584722],2820.0,2820.0,0,[]],["nodes:21","nodes",21,"world.atlas-nodes.0021.0897a9bb451c3b29.js","0897a9bb451c3b29b0fc6d133169668489fcd9b4e1a2c3efcb31bf85a3eb643b","sha256-CJepu0UcOymw/G0TMWlmhIn82bThosPvyzG/haPrZDs=","cde84f4e79c29e680451f0ca3bd4b0e60e3886632f6f51677a7471cd3183e4ad","gzip_base64",13178,3440,2,false,2,"animal-equus-caballus","point",["Croatia"],[45.1973255,18.8414917,45.3325281,19.2624907],1187.0,1305.0,0,[]],["nodes:22","nodes",22,"world.atlas-nodes.0022.ab26037e49e97add.js","ab26037e49e97add27a31c2bcb78f7dfdd45d339772ca7dbbb3f6a5371bc0f25","sha256-qyYDfknpet0noxwry3j3391F0zl3LKfbuz9qU3G8DyU=","18d11c6891802a2b64300c773c2f00293b8eb8d092ff26248480078235643c44","gzip_base64",66444,6804,10,false,2,"animal-equus-caballus","point",["Czech Republic"],[49.19081,13.74354,50.36361,17.15314],2574.0,5186.0,0,[]],["nodes:23","nodes",23,"world.atlas-nodes.0023.acd7d3cf9f418d4b.js","acd7d3cf9f418d4b4612a474665be5e7510518aaaa7c62bde858cdaed2119f0e","sha256-rNfTz59BjUtGEqR0Zlvl51EFGKqqfGK96FjNrtIRnw4=","71b75bcd084cfc6de2657ce07f05a65c6d072323659bd607c6ec32d7e5be38e6","gzip_base64",6751,2988,1,false,2,"animal-equus-caballus","point",["Denmark"],[56.41134,10.74481,56.41134,10.74481],4944.0,4961.0,0,[]],["nodes:24","nodes",24,"world.atlas-nodes.0024.79295988279a3ffe.js","79295988279a3ffed3abb23d97d5c6727feb12137491fc3bba5aff6ada0a0cd1","sha256-eSlZiCeaP/7Tq7I9l9XGcn/rEhN0kfw7ulr/atoKDNE=","2ccfe00da67e69d06e8346d00f3224815c3ffa000209b0b65c7ba5f14d760faa","gzip_base64",32413,4908,5,false,2,"animal-equus-caballus","point",["Estonia"],[58.058048,23.016137,58.5431999,26.6781],1017.0,2817.0,0,[]],["nodes:25","nodes",25,"world.atlas-nodes.0025.0c09335633a30db3.js","0c09335633a30db3a9a93d4a9b3f164714a9bc8f3d2aab705cb4e61c35fbd202","sha256-DAkzVjOjDbOpqT1Kmz8WRxSpvI89KqtwXLTmHDX70gI=","dfba66f3e32bf3a43bf6ba6fdeea4b9d3220211f17c66846e425da9e524b5e98","gzip_base64",125718,11092,19,false,2,"animal-equus-caballus","point",["France"],[43.3667,1.1589729,50.31503,6.172751],217.0,23605.0,0,[]],["nodes:26","nodes",26,"world.atlas-nodes.0026.8f6494936ddcab78.js","8f6494936ddcab78e100ae160c395ffe6059d233f7134e57ddfba3e46ae0d996","sha256-j2SUk23cq3jhAK4WDDlf/mBZ0jP3E05X3fuj5Grg2ZY=","f6d845323ac5cabe13e11a6ff151a3e3094331093c77829765140c8aca35f948","gzip_base64",12921,3444,2,false,2,"animal-equus-caballus","point",["Georgia"],[41.466667,44.62016419,42.74016371,46.016667],17.0,3604.0,0,[]],["nodes:27","nodes",27,"world.atlas-nodes.0027.e605bbca6571e3f8.js","e605bbca6571e3f8180424520992d6311fbd3367f1b30d3d0a77e844a2d7971c","sha256-5gW7ymVx4/gYBCRSCZLWMR+9M2fxsw09CnfoRKLXlxw=","305fe2fb261d8936ea9b08dec5815cf16a1fdc09967acd4c1ccf60cbfcfaf79a","gzip_base64",32568,4968,5,false,2,"animal-equus-caballus","point",["Germany"],[48.3079118,8.26,51.104,11.145],1373.0,4669.0,0,[]],["nodes:28","nodes",28,"world.atlas-nodes.0028.190707f6a6e28ef5.js","190707f6a6e28ef5174299a66e087a524435036e0e28be6f46a93a8930282064","sha256-GQcH9qbijvUXQpmmbgh6UkQ1A24OKL5vRqk6iTAoIGQ=","8b92568bb144f6e6d150be1833d519ef473695f5e387ef6755fed2f71a1cb3ef","gzip_base64",6720,3008,1,false,2,"animal-equus-caballus","point",["Guadeloupe (France)"],[16.049578,-61.569156,16.049578,-61.569156],317.0,517.0,0,[]],["nodes:29","nodes",29,"world.atlas-nodes.0029.7bec2310258ffaec.js","7bec2310258ffaece68895c85331d36afdbedcb4b6d0296d0a46fb252eba0843","sha256-e+wjECWP+uzmiJXIUzHTav2+3LS20CltCkb7JS66CEM=","e2ecc3b0403bc1c688803164a97b063ce670ba3fed83c1b4b19ae51268d5f6cc","gzip_base64",13199,3724,2,false,2,"animal-equus-caballus","point",["Hungary"],[46.362,17.731,46.9619059,18.9355227],4077.0,4408.0,0,[]],["nodes:30","nodes",30,"world.atlas-nodes.0030.957541a392b0e43c.js","957541a392b0e43cd4c72dac44020e95d5510118218ce3418da83460b3a9070f","sha256-lXVBo5Kw5DzUxy2sRAIOldVRARghjONBjag0YLOpBw8=","a7c5b0f35b23f9505c1aea3cacebaa41cadec8cc405e631f65ccd881dd7a6c44","gzip_base64",12485,3200,2,false,2,"animal-equus-caballus","point",["Iceland"],[65.268,-22.117,65.53,-18.24],917.0,1217.0,0,[]],["nodes:31","nodes",31,"world.atlas-nodes.0031.c95562e5a6b981e6.js","c95562e5a6b981e6e8c4a1b7e6282ad55c29e3b6e9abdfb612d1c95121c57f60","sha256-yVVi5aa5geboxKG35igq1Vwp47bpq9+2EtHJUSHFf2A=","c1c2a51bbc16846970f389d34d7fb1c7cdebeebbd6a1cbaa30744ac7404a650c","gzip_base64",46006,5816,7,false,2,"animal-equus-caballus","point",["Iran"],[34.730428,45.458817,37.0424531,57.4715652],485.0,3117.0,0,[]],["nodes:32","nodes",32,"world.atlas-nodes.0032.628c398da575bcf2.js","628c398da575bcf2a4f52a784b2cc7291c0a7226d012e1f79966e64f91a81064","sha256-Yow5jaV1vPKk9Sp4SyzHKRwKcibQEuH3mWbmT5GoEGQ=","ebc6bed03ec1a77df28acee191a8e02992e6b4d24550f90fc3ce121959cb4939","gzip_base64",6806,3024,1,false,2,"animal-equus-caballus","point",["Italy"],[42.249167,11.756111,42.249167,11.756111],2607.0,2607.0,0,[]],["nodes:33","nodes",33,"world.atlas-nodes.0033.96ee8b0fa24195c5.js","96ee8b0fa24195c5c09a64ff21085f35f58caa66560a9805946f223c0796959b","sha256-lu6LD6JBlcXAmmT/IQhfNfWMqmZWCpgFlG8iPAeWlZs=","b02a2f3072725fe5d409467cf158fc4ccb4d93f40c9bb45a8245e9b9075c65cd","gzip_base64",154279,13360,23,false,2,"animal-equus-caballus","point",["Kazakhstan"],[43.1836111,18.8838649,53.325935,86.4272922],1143.0,12408.0,1,[]],["nodes:34","nodes",34,"world.atlas-nodes.0034.b24558f9b59f4306.js","b24558f9b59f4306ebb732d6a9ea007eab0c6836045d6c7cadd4688a89df41b1","sha256-skVY+bWfQwbrtzLWqeoAfqsMaDYEXWx8rdRoionfQbE=","faec463126d30dc9fd81fe91dde2f78d12ed7214e4d2bcc118503fa33a31058f","gzip_base64",6623,2988,1,false,2,"animal-equus-caballus","point",["Kyrgyzstan"],[39.9983333,71.0733333,39.9983333,71.0733333],1217.0,1217.0,0,[]],["nodes:35","nodes",35,"world.atlas-nodes.0035.3397ce9ae6647c36.js","3397ce9ae6647c36776f88a088311f443b2cfdd1b6090b0bf901a4701ce22769","sha256-M5fOmuZkfDZ3b4igiDEfRDss/dG2CQsL+QGkcBziJ2k=","891b723b4554d30151c39a64d46de12cf8a1e0a8c72c7f418c8ba95b792c389a","gzip_base64",7436,3084,1,false,2,"animal-equus-caballus","point",["Lithuania"],[54.89674,23.87248,54.89674,23.87248],1087.0,1189.0,0,[]],["nodes:36","nodes",36,"world.atlas-nodes.0036.c28bc2715c756a43.js","c28bc2715c756a43dc91eb6fe419e7f3ebcda013a9c2eae2675207bb84ec744d","sha256-wovCcVx1akPcketv5Bnn8+vNoBOpwuriZ1IHu4TsdE0=","d2564dcbb12c3f0f73a4885bb606a23027d2e20c4106d703e961fcb849fa1380","gzip_base64",19625,4156,3,false,2,"animal-equus-caballus","point",["Moldova"],[47.986875,27.169232,48.159923,27.790131],3017.0,4013.0,0,[]],["nodes:37","nodes",37,"world.atlas-nodes.0037.55558e0c20e8d839.js","55558e0c20e8d839fe4f527ec6f2c14c024fa31a03a04c8603e42d8666709bdc","sha256-VVWODCDo2Dn+T1J+xvLBTAJPoxoDoEyGA+QthmZwm9w=","9010d8030c194a5f59470d9564165b820c7f20e17a51c50c3464e2fc9e7d2d2c","gzip_base64",131811,11056,20,false,2,"animal-equus-caballus","point",["Mongolia"],[45.0997222,88.3488611,51.421361,112.7196944],649.0,3130.0,0,[]],["nodes:38","nodes",38,"world.atlas-nodes.0038.2f6bc6135b3fb370.js","2f6bc6135b3fb370dd5f0450ffc2de73466f40ccb567b14fc0ba061433bb996f","sha256-L2vGE1s/s3DdXwRQ/8Lec0ZvQMy1Z7FPwLoGFDO7mW8=","bfd7d5f95efa7db2abb25c3d064e9ff1bce50c541e94d42c3bb0e6a6eba76a60","gzip_base64",33310,5092,5,false,2,"animal-equus-caballus","point",["Poland"],[50.143,16.562,52.007,20.51853],2599.0,5751.0,0,[]],["nodes:39","nodes",39,"world.atlas-nodes.0039.767dae97cc1b09fa.js","767dae97cc1b09fa0741eea7dafcdf37011adb366571912c4188bf27a1dbff0e","sha256-dn2ul8wbCfoHQe6n2vzfNwEa2zZlcZEsQYi/J6Hb/w4=","da53a4e92498945a58e0d31e19d25706996e5e7a42d3953fe1da3b46a5f5263d","gzip_base64",13193,3764,2,false,2,"animal-equus-caballus","point",["Portugal"],[39.0744,-8.692,39.241,9.2857],817.0,4509.0,0,[]],["nodes:40","nodes",40,"world.atlas-nodes.0040.f52e5bc428d6cb0a.js","f52e5bc428d6cb0a98f394b188c6e93cef29447bbc4fbc7a358a8a3291810daa","sha256-9S5bxCjWywqY85SxiMbpPO8pRHu8T7x6NYqKMpGBDao=","84354ba0e2a56223bee784acbda12a4421aa883dbfa87d94276be7e913a5615b","gzip_base64",26498,4744,4,false,2,"animal-equus-caballus","point",["Romania"],[44.067779,22.0079387,45.807945,26.4696],3574.0,36751.0,0,[]],["nodes:41","nodes",41,"world.atlas-nodes.0041.182e7fd607fd2e8a.js","182e7fd607fd2e8a12c1aee7523de5a364987ff749d8e014940b5913adf66a13","sha256-GC5/1gf9LooSwa7nUj3lo2SYf/dJ2OAUlAtZE632ahM=","ed6d6c2ca60f3a3a32442ffe4efbf94189ed3c503e8ed2ed7f44644183be895a","gzip_base64",365810,27572,56,false,2,"animal-equus-caballus","point",["Russia"],[43.79028,8.85,73.046,142.821769],192.0,52200.0,3,[]],["nodes:42","nodes",42,"world.atlas-nodes.0042.47568e40c4e8cfff.js","47568e40c4e8cfffc9b185d36e6e8e436abcb45f491728da0e1a19dda7eb88a2","sha256-R1aOQMToz//JsYXTbm6OQ2q8tF9JFyjaDhoZ3afriKI=","768334cb7b4b50b6be5d4fdf3d53f2fbd83fea5e0041c42b0a5fe2b0cfde4423","gzip_base64",13216,3768,2,false,2,"animal-equus-caballus","point",["Slovakia"],[48.069502,18.200384,48.655,21.268],1217.0,3633.0,0,[]],["nodes:43","nodes",43,"world.atlas-nodes.0043.d8f48ef258ab83eb.js","d8f48ef258ab83ebd1bb7f5fd98a50b2dd20d999c1e487e2c74c7cfce9dc6c8e","sha256-2PSO8lirg+vRu39f2YpQst0g2ZnB5Ifix0x8/OncbI4=","b4dd15fbde31b02db270f7c4bf26115740cd9b6c2222af270af65e3ddb8c93dc","gzip_base64",64556,7120,10,false,2,"animal-equus-caballus","point",["Spain"],[38.0982811,-7.5592897,43.0092829,6.064916],1617.0,7130.0,0,[]],["nodes:44","nodes",44,"world.atlas-nodes.0044.fd63925bab170b67.js","fd63925bab170b67da13863850a9effe625dc6fba0dfaf1a3829a8aae9ea6c4e","sha256-/WOSW6sXC2faE4Y4UKnv/mJdxvug368aOCmoqunqbE4=","71bb478b940fac60020f217c026950697437f42316762363fdb656309d35b0c0","gzip_base64",6332,2872,1,false,2,"animal-equus-caballus","point",["Sweden"],[59.861,17.639,59.861,17.639],1217.0,1417.0,0,[]],["nodes:45","nodes",45,"world.atlas-nodes.0045.e8abb72bc6c0776f.js","e8abb72bc6c0776fef8ad7c657352d751ef9dca4c352bcfe73732a632c9ef0e1","sha256-6Ku3K8bAd2/vitfGVzUtdR753KTDUrz+c3MqYyye8OE=","f06e59e2224045dd2c91121534c8582151cf64eddff97be1daf56ba13b27d50d","gzip_base64",26086,4108,4,false,2,"animal-equus-caballus","point",["Switzerland"],[47.2333,7.5167,47.65,8.85],1617.0,2017.0,0,[]],["nodes:46","nodes",46,"world.atlas-nodes.0046.7c04a86b3a28e705.js","7c04a86b3a28e70502c2173546e085ad16d2f467ddda778dd876d79cee54f9f2","sha256-fASoazoo5wUCwhc1RuCFrRbS9Gfd2neN2HbXnO5U+fI=","fee8c68b21a14f49fd881a8832c59892135e4ccb0c11b7f89efc0f582a7fb6af","gzip_base64",7030,3080,1,false,2,"animal-equus-caballus","point",["Tunisia"],[35.873429,8.78621,35.873429,8.78621],2531.0,2610.0,0,[]],["nodes:47","nodes",47,"world.atlas-nodes.0047.284381268abf813d.js","284381268abf813d7e1e727bd8d7c294cdc54b446f7d8ea833b52a16dd2f72c8","sha256-KEOBJoq/gT1+HnJ72NfClM3FS0RvfY6oM7UqFt0vcsg=","bf010294d3fabbda33a26d855620731513c52d433bccc5949a018dd731841957","gzip_base64",34985,5480,5,false,2,"animal-equus-caballus","point",["Turkey"],[37.847803,27.225306,41.721357,35.1436],1156.0,8269.0,0,[]],["nodes:48","nodes",48,"world.atlas-nodes.0048.9229f25a914ea33f.js","9229f25a914ea33f42eabe768decc5d364aa0a9c25368185d15e5f0f6e633cae","sha256-kinyWpFOoz9C6r52jezF02SqCpwlNoGF0V5fD25jPK4=","efbdb741a028296685ff172f8bd2c50c2a37baa31f231b1d94cb47b08503589c","gzip_base64",6880,3036,1,false,2,"animal-equus-caballus","point",["Ukraine"],[46.86888889,35.43305556,46.86888889,35.43305556],6135.0,6135.0,0,[]],["nodes:49","nodes",49,"world.atlas-nodes.0049.7e3913d35a0f3e72.js","7e3913d35a0f3e72a46d32a8f8093c0dae92c888345b5af2aed82845aa97cb7a","sha256-fjkT01oPPnKkbTKo+Ak8Da6SyIg0W1ryrtgoRaqXy3o=","6f2a7e4ec659c26c971317b17494046312961ec180d1e037adf0a6fcd28ffa1c","gzip_base64",46062,5964,7,false,2,"animal-equus-caballus","point",["United Kingdom"],[50.467709,-2.97,59.337156,3.502667],117.0,14616.0,0,[]],["nodes:50","nodes",50,"world.atlas-nodes.0050.c94be03388751fc0.js","c94be03388751fc0afab3b354df9c6649e9a1cb08d68c414f02374118b24ce2c","sha256-yUvgM4h1H8Cvqzs1TfnGZJ6aHLCNaMQU8CN0EYskziw=","f20b2520c44009b9dc4a7636d63b96372a2d614a6f442f2debc7cecca359a200","gzip_base64",6541,2948,1,false,2,"animal-equus-caballus","point",["Uzbekistan"],[38.867278,65.800161,38.867278,65.800161],2853.0,2853.0,0,[]],["nodes:51","nodes",51,"world.atlas-nodes.0051.def1857848f8a3a3.js","def1857848f8a3a3d66f4af5f42c5f51b814cb2c8a1f6d1eeff1d13c6dce1e24","sha256-3vGFeEj4o6PWb0r19CxfUbgUyyyKH20e7/HRPG3OHiQ=","114035e25c00ff390f53b50d8443d3f2ed2159958c5e4e72779a7d6821b0a5b4","gzip_base64",15431,4004,2,false,3,"animal-sus-scrofa-domesticus","point",["Denmark"],[55.02158609,9.77344984,55.39416667,11.26527778],null,null,2,[]],["nodes:52","nodes",52,"world.atlas-nodes.0052.70df81b488740dba.js","70df81b488740dba30bd2faf6bb4a3c376536edaadb0ddbe583bd89ccd5474a1","sha256-cN+BtIh0DbowvS+va7Sjw3ZTbtqtsN2+WDvYnM1UdKE=","f74fac109f8bae124b113267a6b1ba0053e8bd61e6944f30b9e06341e7648fda","gzip_base64",47141,23432,1,false,4,"country-boundaries","polygon",["Denmark"],[54.56859,8.094005,57.751166,15.151378],null,null,1,[]],["nodes:53","nodes",53,"world.atlas-nodes.0053.2a1746c7a5815117.js","2a1746c7a58151179991634fe813babed02427623a571e3aa15ae96205f76b2e","sha256-KhdGx6WBUReZkWNP6BO6vtAkJ2I6Vx46oVrpYgX3ay4=","2cf9f36d54252f2714f99b5de1207b737db2227dccd2e1209aa400ef4fb3d491","gzip_base64",70881,35308,1,false,4,"country-boundaries","polygon",["Finland"],[59.811225,20.623165,70.07531,31.569525],null,null,1,[]],["nodes:54","nodes",54,"world.atlas-nodes.0054.134f05d033eab9fd.js","134f05d033eab9fd8cb40e1a222ca5f34dace60d98d186d75a1369e55887dd9a","sha256-E08F0DPquf2MtA4aIiyl802s5g2Y0YbXWhNp5ViH3Zo=","da77b366d65142060f3eecc9345a3836c508b52fb47ce31735caa96f2baa36ec","gzip_base64",341276,165776,1,false,4,"country-boundaries","polygon",["Norway"],[-54.462498,-9.117421,80.770087,33.640391],null,null,1,[]],["nodes:55","nodes",55,"world.atlas-nodes.0055.3f8b1c32e727c3c3.js","3f8b1c32e727c3c37a7473791cb24725d09f2aaaa568b9c608cd8d271b0e23f4","sha256-P4scMucnw8N6dHN5HLJHJdCfKqqlaLnGCM2NJxsOI/Q=","5dcd6c9ba6c49a4955e94e664b933ccf6cc3eaf02700c3afd8dcddb11b649984","gzip_base64",102300,49996,1,false,4,"country-boundaries","polygon",["Sweden"],[55.342678,11.108165,69.036356,24.163414],null,null,1,[]],["edges:56","edges",56,"world.atlas-edges.0056.7f1b35eb0effd7ea.js","7f1b35eb0effd7eaa1a832c924b954da0eb583cff55c1e0780e0f7f4474c337e","sha256-fxs16w7/1+qhqDLJJLlU2g61g8/1XB4HgOD39EdMM34=","b05cc88537d5babd7067000fdae0328f49f45cb2369f1a6361ab06f26c6e31cf","json",275,583,0,true,null,null,null,null,null,null,null,null,null],["sequences:57","sequences",57,"world.atlas-sequences.0057.0cd6162dde5f2a2c.js","0cd6162dde5f2a2c7022a73b2fa104f940544da617ecf62aba375e04625ee937","sha256-DNYWLd5fKixwIqc7L6EE+UBUTaYX7PYqujdeBGJe6Tc=","bedc3f820d129b17e5354122900452c6f892a4f9df90d1a6412f9f5e09628ca3","json",290,602,0,true,null,null,null,null,null,null,null,null,null],["indexes:58","indexes",58,"world.atlas-indexes.0058.e6929affb87fa3e0.js","e6929affb87fa3e0a7c6fef774d10c71ad383e09a28b731d591fff140ac0deae","sha256-5pKa/7h/o+Cnxv73dNEMca04Pgmii3MdWR//FArA3q4=","0aef2de3f85b2a45bb0a3d5923d86bdaf8bf723e207ca5a5231a6d73d1381719","json",23062,23482,1466,true,null,null,null,null,null,null,null,null,null]]}}</script>
     <script src="./_map_assets/leaflet/leaflet.js"></script>
     <script src="./_map_assets/markercluster/leaflet.markercluster.js"></script>
 
     <script>
       (async () => {
-      const STATIC_ATLAS_BOOTSTRAP = JSON.parse(document.getElementById('atlas-static-bootstrap').textContent || '{}');
+      const STATIC_ATLAS_ASSET_TABLE_FIELDS = Object.freeze([
+        'asset_key', 'domain', 'sequence', 'path', 'sha256', 'integrity',
+        'payload_sha256', 'payload_encoding', 'decoded_byte_count', 'byte_count',
+        'record_count', 'initial_load', 'layer_index', 'layer_key', 'layer_kind',
+        'country_keys', 'bounds', 'time_min_bp', 'time_max_bp',
+        'untimed_record_count', 'scientific_signal_ids',
+      ]);
+      const STATIC_ATLAS_ASSET_CORE_FIELD_COUNT = 12;
+      const STATIC_ATLAS_BOOTSTRAP = normalizeStaticAtlasBootstrap(JSON.parse(document.getElementById('atlas-static-bootstrap').textContent || '{}'));
       const STATIC_ATLAS_INLINE = STATIC_ATLAS_BOOTSTRAP.schema_version === 'atlas-inline-bootstrap.v1';
       globalThis.__BIJUX_ATLAS_RAW_CHUNKS__ = globalThis.__BIJUX_ATLAS_RAW_CHUNKS__ || [];
       const STATIC_ATLAS_RAW_CHUNKS = globalThis.__BIJUX_ATLAS_RAW_CHUNKS__;
@@ -1876,13 +1937,62 @@
         details: ['atlas-details-chunk.v1'],
         edges: ['atlas-edges-chunk.v1'],
         sequences: ['atlas-sequences-chunk.v1'],
-        indexes: ['atlas-static-indexes.v1', 'atlas-static-indexes.v2'],
+        indexes: ['atlas-static-indexes.v1', 'atlas-static-indexes.v2', 'atlas-static-indexes.v3'],
       };
       function staticAtlasFailure(message) {
         throw new Error(`Static atlas data cannot be loaded: ${message}. Reload the page; if the problem persists, redeploy the HTML and hashed assets from the same build.`);
       }
+      function staticAtlasNonnegativeInteger(value, label) {
+        if (value === null || value === undefined || typeof value === 'boolean' || (typeof value === 'string' && !value.trim())) staticAtlasFailure(`${label} is missing`);
+        const numeric = Number(value);
+        if (!Number.isSafeInteger(numeric) || numeric < 0) staticAtlasFailure(`${label} is invalid`);
+        return numeric;
+      }
+      function staticAtlasNullableFiniteNumber(value, label, minimum, maximum) {
+        if (value === null) return null;
+        if (value === undefined || typeof value === 'boolean' || (typeof value === 'string' && !value.trim())) staticAtlasFailure(`${label} is missing`);
+        const numeric = Number(value);
+        if (!Number.isFinite(numeric) || numeric < minimum || numeric > maximum) staticAtlasFailure(`${label} is invalid`);
+        return numeric;
+      }
+      function normalizeStaticAtlasBootstrap(bootstrap) {
+        if (!bootstrap || typeof bootstrap !== 'object' || bootstrap.schema_version !== 'atlas-static-bootstrap.v2') return bootstrap;
+        const table = bootstrap.assets;
+        const expectedTableKeys = ['fields', 'record_count', 'records', 'schema_version'];
+        if (!table || typeof table !== 'object' || Object.keys(table).sort().join('|') !== expectedTableKeys.join('|')) staticAtlasFailure('asset table shape is invalid');
+        if (table.schema_version !== 'atlas-static-asset-table.v1' || !Array.isArray(table.fields) || table.fields.length !== STATIC_ATLAS_ASSET_TABLE_FIELDS.length) staticAtlasFailure('asset table schema is invalid');
+        if (table.fields.some((field, index) => field !== STATIC_ATLAS_ASSET_TABLE_FIELDS[index]) || new Set(table.fields).size !== table.fields.length) staticAtlasFailure('asset table fields are invalid');
+        if (!Number.isSafeInteger(table.record_count) || table.record_count < 0 || !Array.isArray(table.records) || table.records.length !== table.record_count) staticAtlasFailure('asset table record count is invalid');
+        const assetKeys = new Set();
+        const paths = new Set();
+        const sequences = new Set();
+        const assets = table.records.map((record, recordIndex) => {
+          if (!Array.isArray(record) || record.length !== STATIC_ATLAS_ASSET_TABLE_FIELDS.length) staticAtlasFailure(`asset table row ${recordIndex} width is invalid`);
+          const row = Object.fromEntries(STATIC_ATLAS_ASSET_TABLE_FIELDS.map((field, index) => [field, record[index]]));
+          if (STATIC_ATLAS_ASSET_TABLE_FIELDS.slice(0, STATIC_ATLAS_ASSET_CORE_FIELD_COUNT).some((field) => row[field] === null || row[field] === undefined)) staticAtlasFailure(`asset table row ${recordIndex} core field is missing`);
+          if (typeof row.asset_key !== 'string' || !row.asset_key || typeof row.domain !== 'string' || !row.domain || typeof row.path !== 'string' || !row.path) staticAtlasFailure(`asset table row ${recordIndex} identity is invalid`);
+          if (!['provenance', 'nodes', 'details', 'edges', 'sequences', 'indexes'].includes(row.domain)) staticAtlasFailure(`asset table row ${recordIndex} domain is invalid`);
+          if (['sha256', 'integrity', 'payload_sha256', 'payload_encoding'].some((field) => typeof row[field] !== 'string' || !row[field])) staticAtlasFailure(`asset table row ${recordIndex} transport field is invalid`);
+          if (['decoded_byte_count', 'byte_count', 'record_count'].some((field) => !Number.isSafeInteger(row[field]) || row[field] < 0) || typeof row.initial_load !== 'boolean') staticAtlasFailure(`asset table row ${recordIndex} accounting field is invalid`);
+          if (!Number.isSafeInteger(row.sequence) || row.sequence !== recordIndex || sequences.has(row.sequence)) staticAtlasFailure(`asset table row ${recordIndex} sequence is invalid`);
+          if (assetKeys.has(row.asset_key) || paths.has(row.path)) staticAtlasFailure(`asset table row ${recordIndex} identity is duplicated`);
+          assetKeys.add(row.asset_key);
+          paths.add(row.path);
+          sequences.add(row.sequence);
+          const optionalFields = STATIC_ATLAS_ASSET_TABLE_FIELDS.slice(STATIC_ATLAS_ASSET_CORE_FIELD_COUNT);
+          if (row.domain === 'nodes') {
+            if (!Number.isSafeInteger(row.layer_index) || row.layer_index < 0 || typeof row.layer_key !== 'string' || !row.layer_key || !['point', 'polygon'].includes(row.layer_kind)) staticAtlasFailure(`asset table row ${recordIndex} node identity is invalid`);
+            if (!Array.isArray(row.country_keys) || row.country_keys.some((country) => typeof country !== 'string' || !country) || !Array.isArray(row.scientific_signal_ids) || row.scientific_signal_ids.some((signalId) => typeof signalId !== 'string' || !signalId)) staticAtlasFailure(`asset table row ${recordIndex} node selection field is invalid`);
+          } else {
+            if (optionalFields.some((field) => row[field] !== null)) staticAtlasFailure(`asset table row ${recordIndex} non-node selection field is not null`);
+            optionalFields.forEach((field) => delete row[field]);
+          }
+          return row;
+        });
+        return { ...bootstrap, assets };
+      }
       function validateStaticAtlasBootstrap() {
-        if (STATIC_ATLAS_BOOTSTRAP.schema_version !== 'atlas-static-bootstrap.v1') staticAtlasFailure('bootstrap schema mismatch');
+        if (!['atlas-static-bootstrap.v1', 'atlas-static-bootstrap.v2'].includes(STATIC_ATLAS_BOOTSTRAP.schema_version)) staticAtlasFailure('bootstrap schema mismatch');
         if (STATIC_ATLAS_BOOTSTRAP.version !== "v66") staticAtlasFailure('bootstrap version mismatch');
         if (!/^atlas-[a-f0-9]{64}$/.test(String(STATIC_ATLAS_BOOTSTRAP.build_id || ''))) staticAtlasFailure('bootstrap build identity is invalid');
         if (!Array.isArray(STATIC_ATLAS_BOOTSTRAP.assets)) staticAtlasFailure('bootstrap asset inventory is missing');
@@ -1899,19 +2009,236 @@
           if (!/^sha256-[A-Za-z0-9+/]{43}=$/.test(String(row.integrity || ''))) staticAtlasFailure(`${row.asset_key || 'unknown asset'} integrity declaration is invalid`);
           const payloadEncoding = row.payload_encoding || 'json';
           if (!['json', 'gzip_base64'].includes(payloadEncoding)) staticAtlasFailure(`${row.asset_key || 'unknown asset'} payload encoding is invalid`);
-          if (payloadEncoding === 'gzip_base64' && row.domain !== 'details') staticAtlasFailure(`${row.asset_key || 'unknown asset'} compressed payload domain is invalid`);
+          if (payloadEncoding === 'gzip_base64' && !['provenance', 'nodes', 'details'].includes(row.domain)) staticAtlasFailure(`${row.asset_key || 'unknown asset'} compressed payload domain is invalid`);
+          const requiresDecodedByteCount = STATIC_ATLAS_BOOTSTRAP.compatibility?.index_schema === 'atlas-static-indexes.v3' || (['provenance', 'nodes', 'details'].includes(row.domain) && payloadEncoding === 'gzip_base64');
+          if (requiresDecodedByteCount && (!Number.isSafeInteger(row.decoded_byte_count) || row.decoded_byte_count <= 0)) staticAtlasFailure(`${row.asset_key || 'unknown asset'} decoded byte count is invalid`);
+          if (row.decoded_byte_count !== undefined && (!Number.isSafeInteger(row.decoded_byte_count) || row.decoded_byte_count <= 0 || row.decoded_byte_count > Number(STATIC_ATLAS_BOOTSTRAP.budgets?.chunk_max_bytes))) staticAtlasFailure(`${row.asset_key || 'unknown asset'} decoded byte count exceeds its byte budget`);
+          const recordCount = staticAtlasNonnegativeInteger(row.record_count, `${row.asset_key || 'unknown asset'} record count`);
+          staticAtlasNonnegativeInteger(row.byte_count, `${row.asset_key || 'unknown asset'} byte count`);
+          if (row.domain === 'nodes') {
+            const untimedCount = staticAtlasNonnegativeInteger(row.untimed_record_count, `${row.asset_key || 'unknown asset'} untimed record count`);
+            if (untimedCount > recordCount) staticAtlasFailure(`${row.asset_key || 'unknown asset'} untimed record count exceeds its record count`);
+            const timeMinimum = staticAtlasNullableFiniteNumber(row.time_min_bp, `${row.asset_key || 'unknown asset'} minimum BP`, 0, Number.MAX_SAFE_INTEGER);
+            const timeMaximum = staticAtlasNullableFiniteNumber(row.time_max_bp, `${row.asset_key || 'unknown asset'} maximum BP`, 0, Number.MAX_SAFE_INTEGER);
+            if ((timeMinimum === null) !== (timeMaximum === null) || (timeMinimum !== null && timeMinimum > timeMaximum)) staticAtlasFailure(`${row.asset_key || 'unknown asset'} BP interval is invalid`);
+            if (row.bounds !== null) {
+              if (!Array.isArray(row.bounds) || row.bounds.length !== 4) staticAtlasFailure(`${row.asset_key || 'unknown asset'} bounds are invalid`);
+              const [south, west, north, east] = row.bounds;
+              const validSouth = staticAtlasNullableFiniteNumber(south, `${row.asset_key || 'unknown asset'} south bound`, -90, 90);
+              const validWest = staticAtlasNullableFiniteNumber(west, `${row.asset_key || 'unknown asset'} west bound`, -180, 180);
+              const validNorth = staticAtlasNullableFiniteNumber(north, `${row.asset_key || 'unknown asset'} north bound`, -90, 90);
+              const validEast = staticAtlasNullableFiniteNumber(east, `${row.asset_key || 'unknown asset'} east bound`, -180, 180);
+              if ([validSouth, validWest, validNorth, validEast].some((value) => value === null) || validSouth > validNorth || validWest > validEast) staticAtlasFailure(`${row.asset_key || 'unknown asset'} bounds ordering is invalid`);
+            }
+          }
         });
         const keys = STATIC_ATLAS_BOOTSTRAP.assets.map((row) => row.asset_key);
         if (new Set(keys).size !== keys.length) staticAtlasFailure('bootstrap asset identities are duplicated');
+        const paths = STATIC_ATLAS_BOOTSTRAP.assets.map((row) => row.path);
+        if (new Set(paths).size !== paths.length) staticAtlasFailure('bootstrap asset paths are duplicated');
+        const sequences = STATIC_ATLAS_BOOTSTRAP.assets.map((row) => row.sequence);
+        if (sequences.some((sequence, index) => !Number.isSafeInteger(sequence) || sequence !== index) || new Set(sequences).size !== sequences.length) staticAtlasFailure('bootstrap asset sequences are invalid');
         const initial = STATIC_ATLAS_BOOTSTRAP.assets.filter((row) => row.initial_load === true);
-        const initialBytes = initial.reduce((total, row) => total + Number(row.byte_count || 0), 0);
-        if (initial.length > Number(STATIC_ATLAS_BOOTSTRAP.budgets.initial_max_requests)) staticAtlasFailure('initial request budget exceeded');
-        if (initialBytes > Number(STATIC_ATLAS_BOOTSTRAP.budgets.initial_max_bytes)) staticAtlasFailure('initial byte budget exceeded');
+        const initialBytes = initial.reduce((total, row) => total + staticAtlasNonnegativeInteger(row.byte_count, `${row.asset_key} byte count`), 0);
+        const initialRequestBudget = staticAtlasNonnegativeInteger(STATIC_ATLAS_BOOTSTRAP.budgets?.initial_max_requests, 'initial request budget');
+        const initialByteBudget = staticAtlasNonnegativeInteger(STATIC_ATLAS_BOOTSTRAP.budgets?.initial_max_bytes, 'initial byte budget');
+        staticAtlasNonnegativeInteger(STATIC_ATLAS_BOOTSTRAP.budgets?.interaction_max_requests, 'interaction request budget');
+        staticAtlasNonnegativeInteger(STATIC_ATLAS_BOOTSTRAP.budgets?.interaction_max_bytes, 'interaction byte budget');
+        staticAtlasNonnegativeInteger(STATIC_ATLAS_BOOTSTRAP.budgets?.chunk_max_bytes, 'chunk byte budget');
+        staticAtlasNonnegativeInteger(STATIC_ATLAS_BOOTSTRAP.budgets?.filter_main_thread_max_ms, 'filter main-thread budget');
+        if (initial.length > initialRequestBudget) staticAtlasFailure('initial request budget exceeded');
+        if (initialBytes > initialByteBudget) staticAtlasFailure('initial byte budget exceeded');
       }
       async function staticAtlasSha256(text) {
         if (!globalThis.crypto || !globalThis.crypto.subtle || typeof TextEncoder === 'undefined') staticAtlasFailure('browser integrity support is unavailable');
         const digest = await globalThis.crypto.subtle.digest('SHA-256', new TextEncoder().encode(text));
         return Array.from(new Uint8Array(digest)).map((value) => value.toString(16).padStart(2, '0')).join('');
+      }
+      const STATIC_ATLAS_INDEX_KINDS = Object.freeze([
+        'country_feature_indexes',
+        'spatial_degree_feature_indexes',
+        'time_interval_feature_indexes',
+        'signal_layer_indexes',
+        'detail_record_asset_keys',
+      ]);
+      async function staticAtlasBoundedGunzip(encoded, expectedByteCount, label) {
+        if (typeof encoded !== 'string' || !encoded.length || encoded.length % 4 !== 0 || !/^[A-Za-z0-9+/]*={0,2}$/.test(encoded)) staticAtlasFailure(`${label} compressed payload is invalid`);
+        if (typeof DecompressionStream === 'undefined' || typeof atob === 'undefined' || typeof TextDecoder === 'undefined') staticAtlasFailure(`${label} gzip decoding support is unavailable`);
+        const limit = staticAtlasNonnegativeInteger(STATIC_ATLAS_BOOTSTRAP.budgets.chunk_max_bytes, 'chunk byte budget');
+        const hasExpectedByteCount = expectedByteCount !== null && expectedByteCount !== undefined;
+        const expected = hasExpectedByteCount ? staticAtlasNonnegativeInteger(expectedByteCount, `${label} decoded byte count`) : null;
+        if (expected !== null && (!expected || expected > limit)) staticAtlasFailure(`${label} decoded byte count exceeds its byte budget`);
+        let compressed;
+        try {
+          const binary = atob(encoded);
+          compressed = Uint8Array.from(binary, (character) => character.charCodeAt(0));
+        } catch (error) {
+          staticAtlasFailure(`${label} compressed payload is invalid`);
+        }
+        const reader = new Blob([compressed]).stream().pipeThrough(new DecompressionStream('gzip')).getReader();
+        const chunks = [];
+        let actual = 0;
+        try {
+          while (true) {
+            const { done, value } = await reader.read();
+            if (done) break;
+            actual += value.byteLength;
+            if (actual > limit) {
+              await reader.cancel();
+              staticAtlasFailure(`${label} decoded payload exceeds its byte budget`);
+            }
+            if (expected !== null && actual > expected) {
+              await reader.cancel();
+              staticAtlasFailure(`${label} decoded payload exceeds its declared byte count`);
+            }
+            chunks.push(value);
+          }
+        } catch (error) {
+          if (error instanceof Error && error.message.startsWith('Static atlas data cannot be loaded:')) throw error;
+          staticAtlasFailure(`${label} compressed payload is invalid`);
+        }
+        if (expected !== null && actual !== expected) staticAtlasFailure(`${label} decoded byte count mismatch`);
+        const decoded = new Uint8Array(actual);
+        let offset = 0;
+        chunks.forEach((chunk) => {
+          decoded.set(chunk, offset);
+          offset += chunk.byteLength;
+        });
+        try {
+          return new TextDecoder('utf-8', { fatal: true }).decode(decoded);
+        } catch (error) {
+          staticAtlasFailure(`${label} decoded payload is not valid UTF-8`);
+        }
+      }
+      function staticAtlasIndexShardEnvelopes(row, payload) {
+        if (payload.shard_schema !== 'atlas-static-index-shard.v1' || !Array.isArray(payload.shards)) staticAtlasFailure(`${row.asset_key} index shard declaration is invalid`);
+        if (!Number.isSafeInteger(payload.shard_count) || payload.shard_count <= 0) staticAtlasFailure(`${row.asset_key} shard count is invalid`);
+        if (!Number.isSafeInteger(payload.reference_count) || payload.reference_count < 0) staticAtlasFailure(`${row.asset_key} reference count is invalid`);
+        const shardCount = payload.shard_count;
+        const referenceCount = payload.reference_count;
+        if (!shardCount || payload.shards.length !== shardCount) staticAtlasFailure(`${row.asset_key} shard count mismatch`);
+        if (referenceCount !== staticAtlasNonnegativeInteger(row.record_count, `${row.asset_key} record count`)) staticAtlasFailure(`${row.asset_key} reference count mismatch`);
+        let previousKindIndex = -1;
+        const seenKinds = new Set();
+        payload.shards.forEach((shard, index) => {
+          const label = `${row.asset_key} shard ${index + 1}`;
+          if (!shard || typeof shard !== 'object' || shard.shard_number !== index + 1) staticAtlasFailure(`${label} sequence is invalid`);
+          const kindIndex = STATIC_ATLAS_INDEX_KINDS.indexOf(shard.index_kind);
+          if (kindIndex < 0 || kindIndex < previousKindIndex) staticAtlasFailure(`${label} kind ordering is invalid`);
+          previousKindIndex = kindIndex;
+          seenKinds.add(shard.index_kind);
+          if (shard.payload_encoding !== 'gzip_base64') staticAtlasFailure(`${label} payload encoding is invalid`);
+          if (!Number.isSafeInteger(shard.record_count) || shard.record_count < 0) staticAtlasFailure(`${label} record count is invalid`);
+          if (!Number.isSafeInteger(shard.decoded_byte_count) || shard.decoded_byte_count <= 0 || shard.decoded_byte_count > Number(STATIC_ATLAS_BOOTSTRAP.budgets.chunk_max_bytes)) staticAtlasFailure(`${label} decoded byte count exceeds its byte budget`);
+          if (!/^[a-f0-9]{64}$/.test(String(shard.payload_sha256 || ''))) staticAtlasFailure(`${label} payload digest is invalid`);
+          if (typeof shard.payload_gzip_base64 !== 'string' || !shard.payload_gzip_base64) staticAtlasFailure(`${label} compressed payload is missing`);
+        });
+        if (STATIC_ATLAS_INDEX_KINDS.some((kind) => !seenKinds.has(kind))) staticAtlasFailure(`${row.asset_key} index shard kind is missing`);
+        return payload.shards;
+      }
+      async function staticAtlasDecodeIndexShard(row, shard) {
+        const label = `${row.asset_key} shard ${shard.shard_number}`;
+        const payloadJson = await staticAtlasBoundedGunzip(shard.payload_gzip_base64, shard.decoded_byte_count, label);
+        if (await staticAtlasSha256(payloadJson) !== shard.payload_sha256) staticAtlasFailure(`${label} payload integrity mismatch`);
+        let decoded;
+        try {
+          decoded = JSON.parse(payloadJson);
+        } catch (error) {
+          staticAtlasFailure(`${label} payload JSON is invalid`);
+        }
+        if (!decoded || decoded.schema_version !== 'atlas-static-index-shard.v1' || decoded.index_kind !== shard.index_kind || !Array.isArray(decoded.entries)) staticAtlasFailure(`${label} decoded contract is invalid`);
+        if (decoded.entries.length !== shard.record_count) staticAtlasFailure(`${label} record count mismatch`);
+        return decoded;
+      }
+      function staticAtlasIndexTupleCompare(left, right) {
+        for (let index = 0; index < Math.max(left.length, right.length); index += 1) {
+          if (left[index] === right[index]) continue;
+          return left[index] < right[index] ? -1 : 1;
+        }
+        return 0;
+      }
+      function staticAtlasValidateFeatureIndexes(value, label) {
+        if (!Array.isArray(value) || !value.length) staticAtlasFailure(`${label} feature indexes are invalid`);
+        let previous = -1;
+        value.forEach((featureIndex) => {
+          if (!Number.isSafeInteger(featureIndex) || featureIndex < 0 || featureIndex <= previous) staticAtlasFailure(`${label} feature indexes are invalid`);
+          previous = featureIndex;
+        });
+        return [...value];
+      }
+      async function staticAtlasMergeIndexShards(row, payload) {
+        const envelopes = staticAtlasIndexShardEnvelopes(row, payload);
+        const decodedShards = [];
+        for (const shard of envelopes) {
+          decodedShards.push(await staticAtlasDecodeIndexShard(row, shard));
+        }
+        const merged = {
+          schema_version: 'atlas-static-indexes.v2',
+          scope_slug: payload.scope_slug,
+          version: payload.version,
+          build_id: payload.build_id,
+          asset_key: payload.asset_key,
+          reference_count: payload.reference_count,
+          country_feature_indexes: Object.create(null),
+          spatial_degree_feature_indexes: Object.create(null),
+          time_interval_feature_indexes: [],
+          signal_layer_indexes: Object.create(null),
+          detail_record_asset_keys: Object.create(null),
+        };
+        const previousKeys = new Map();
+        const featureReferences = new Map([
+          ['country_feature_indexes', new Set()],
+          ['spatial_degree_feature_indexes', new Set()],
+          ['time_interval_feature_indexes', new Set()],
+        ]);
+        const assertOrderedUnique = (kind, key, label) => {
+          const previous = previousKeys.get(kind);
+          if (previous && staticAtlasIndexTupleCompare(previous, key) >= 0) staticAtlasFailure(`${label} entries are duplicated or out of order`);
+          previousKeys.set(kind, key);
+        };
+        decodedShards.forEach((shard, shardIndex) => {
+          const kind = shard.index_kind;
+          shard.entries.forEach((entry, entryIndex) => {
+            const label = `${row.asset_key} shard ${shardIndex + 1} entry ${entryIndex + 1}`;
+            if (!Array.isArray(entry)) staticAtlasFailure(`${label} is malformed`);
+            if (kind === 'country_feature_indexes' || kind === 'spatial_degree_feature_indexes') {
+              if (entry.length !== 3 || typeof entry[0] !== 'string' || !entry[0] || typeof entry[1] !== 'string' || !entry[1]) staticAtlasFailure(`${label} is malformed`);
+              assertOrderedUnique(kind, [entry[0], entry[1]], label);
+              const outer = merged[kind][entry[0]] || Object.create(null);
+              const indexes = staticAtlasValidateFeatureIndexes(entry[2], label);
+              indexes.forEach((featureIndex) => {
+                const reference = `${entry[1]}\u0000${featureIndex}`;
+                if (featureReferences.get(kind).has(reference)) staticAtlasFailure(`${label} feature reference overlaps another shard`);
+                featureReferences.get(kind).add(reference);
+              });
+              outer[entry[1]] = indexes;
+              merged[kind][entry[0]] = outer;
+            } else if (kind === 'time_interval_feature_indexes') {
+              if (entry.length !== 4 || !Number.isFinite(entry[0]) || entry[0] < 0 || !Number.isFinite(entry[1]) || entry[1] < entry[0] || typeof entry[2] !== 'string' || !entry[2] || !Number.isSafeInteger(entry[3]) || entry[3] < 0) staticAtlasFailure(`${label} is malformed`);
+              assertOrderedUnique(kind, entry, label);
+              const reference = `${entry[2]}\u0000${entry[3]}`;
+              if (featureReferences.get(kind).has(reference)) staticAtlasFailure(`${label} feature reference overlaps another shard`);
+              featureReferences.get(kind).add(reference);
+              merged.time_interval_feature_indexes.push([...entry]);
+            } else if (kind === 'signal_layer_indexes') {
+              if (entry.length !== 2 || typeof entry[0] !== 'string' || !entry[0] || !Array.isArray(entry[1]) || !entry[1].length) staticAtlasFailure(`${label} is malformed`);
+              assertOrderedUnique(kind, [entry[0]], label);
+              const layers = entry[1];
+              if (layers.some((layerKey, index) => typeof layerKey !== 'string' || !layerKey || (index > 0 && layers[index - 1] >= layerKey))) staticAtlasFailure(`${label} layer keys are invalid`);
+              merged.signal_layer_indexes[entry[0]] = [...layers];
+            } else if (kind === 'detail_record_asset_keys') {
+              if (entry.length !== 2 || typeof entry[0] !== 'string' || !entry[0] || typeof entry[1] !== 'string' || !entry[1]) staticAtlasFailure(`${label} is malformed`);
+              assertOrderedUnique(kind, [entry[0]], label);
+              merged.detail_record_asset_keys[entry[0]] = entry[1];
+            } else staticAtlasFailure(`${label} kind is unsupported`);
+          });
+        });
+        const referenceCount = Object.values(merged.country_feature_indexes).reduce(
+          (total, layers) => total + Object.values(layers).reduce((subtotal, indexes) => subtotal + indexes.length, 0),
+          0
+        ) + Object.keys(merged.detail_record_asset_keys).length;
+        if (referenceCount !== payload.reference_count) staticAtlasFailure(`${row.asset_key} merged reference count mismatch`);
+        return merged;
       }
       function validateStaticAtlasPayload(row, payload) {
         if (!payload || typeof payload !== 'object') staticAtlasFailure(`${row.asset_key} payload is invalid`);
@@ -1927,6 +2254,7 @@
         if ((row.domain === 'edges' || row.domain === 'sequences') && (!Array.isArray(payload.records) || payload.records.length !== row.record_count)) staticAtlasFailure(`${row.asset_key} record accounting mismatch`);
         if (row.domain === 'details' && (!Array.isArray(payload.records) || payload.records.length !== row.record_count || payload.records.some((record) => !record || typeof record.record_id !== 'string'))) staticAtlasFailure(`${row.asset_key} detail accounting mismatch`);
         if (row.domain === 'provenance' && (!Array.isArray(payload.layers) || !Array.isArray(payload.scientific_signals) || (payload.schema_version === 'atlas-provenance-chunk.v2' && !Array.isArray(payload.detail_records)))) staticAtlasFailure(`${row.asset_key} evidence accounting mismatch`);
+        if (row.domain === 'indexes' && payload.schema_version === 'atlas-static-indexes.v3') staticAtlasIndexShardEnvelopes(row, payload);
       }
       async function consumeStaticAtlasAsset(row) {
         if (staticAtlasLoadedAssets.has(row.asset_key)) return;
@@ -1942,19 +2270,13 @@
           payloadJson = envelope.payload_json;
         } else if (payloadEncoding === 'gzip_base64') {
           if (typeof envelope.payload_gzip_base64 !== 'string') staticAtlasFailure(`${row.asset_key} compressed payload is missing`);
-          if (typeof DecompressionStream === 'undefined' || typeof atob === 'undefined') staticAtlasFailure(`${row.asset_key} gzip decoding support is unavailable`);
-          try {
-            const binary = atob(envelope.payload_gzip_base64);
-            const compressed = Uint8Array.from(binary, (character) => character.charCodeAt(0));
-            const stream = new Blob([compressed]).stream().pipeThrough(new DecompressionStream('gzip'));
-            payloadJson = await new Response(stream).text();
-          } catch (error) {
-            staticAtlasFailure(`${row.asset_key} compressed payload is invalid`);
-          }
+          payloadJson = await staticAtlasBoundedGunzip(envelope.payload_gzip_base64, row.decoded_byte_count ?? null, row.asset_key);
         } else {
           staticAtlasFailure(`${row.asset_key} payload encoding is unsupported`);
         }
-        if (new TextEncoder().encode(payloadJson).byteLength > Number(STATIC_ATLAS_BOOTSTRAP.budgets.chunk_max_bytes)) staticAtlasFailure(`${row.asset_key} decoded payload exceeds its byte budget`);
+        const decodedByteCount = new TextEncoder().encode(payloadJson).byteLength;
+        if (decodedByteCount > Number(STATIC_ATLAS_BOOTSTRAP.budgets.chunk_max_bytes)) staticAtlasFailure(`${row.asset_key} decoded payload exceeds its byte budget`);
+        if (row.decoded_byte_count !== undefined && decodedByteCount !== row.decoded_byte_count) staticAtlasFailure(`${row.asset_key} decoded byte count mismatch`);
         if (await staticAtlasSha256(payloadJson) !== row.payload_sha256) staticAtlasFailure(`${row.asset_key} payload integrity mismatch`);
         let payload;
         try {
@@ -1963,9 +2285,12 @@
           staticAtlasFailure(`${row.asset_key} payload JSON is invalid`);
         }
         validateStaticAtlasPayload(row, payload);
+        const acceptedPayload = row.domain === 'indexes' && payload.schema_version === 'atlas-static-indexes.v3'
+          ? await staticAtlasMergeIndexShards(row, payload)
+          : payload;
         if (row.domain === 'nodes') STATIC_ATLAS_CHUNKS.nodes.push(payload);
         else if (row.domain === 'details') STATIC_ATLAS_CHUNKS.details.push(payload);
-        else STATIC_ATLAS_CHUNKS[row.domain] = payload;
+        else STATIC_ATLAS_CHUNKS[row.domain] = acceptedPayload;
         staticAtlasLoadedAssets.add(row.asset_key);
       }
       function loadStaticAtlasAsset(row) {
@@ -2027,6 +2352,7 @@
       const COUNTRIES = ["Sweden","Norway","Finland","Denmark"];
       const POINT_LAYERS = hydrateStaticAtlasLayers('point');
       const POLYGON_LAYERS = hydrateStaticAtlasLayers('polygon');
+      const MODELED_CONTEXT = {"schema_version":"modeled-context-manifest.v2","status":"unavailable","reason_code":"pangaea_937075_temporal_grid_not_available","evidence_role":"context_only","propagation_use_allowed":false,"metric_families":[],"windows_oldest_to_present":[]};
       const INITIAL_BOUNDS = [[-20.0,-165.0],[82.0,180.0]];
       const ALL_LAYERS = [...POINT_LAYERS, ...POLYGON_LAYERS];
       const ATLAS_EVIDENCE = STATIC_ATLAS_INLINE
@@ -2035,6 +2361,7 @@
       const SCIENTIFIC_SIGNALS = Object.freeze([...(ATLAS_EVIDENCE.scientific_signals || [])]);
       const SCIENTIFIC_SIGNAL_IDS = SCIENTIFIC_SIGNALS.map((signal) => signal.signal_id);
       const DEFAULT_SCIENTIFIC_SIGNAL_IDS = SCIENTIFIC_SIGNALS.filter((signal) => signal.resolution === 'whole').map((signal) => signal.signal_id);
+      const SCIENTIFIC_RESOLUTION_ORDER = Object.freeze(['whole', 'group', 'subgroup', 'role', 'taxon']);
       const DETAIL_RECORDS = new Map((ATLAS_EVIDENCE.detail_records || []).map((record) => [record.record_id, record]));
       const GOVERNED_EDGE_RECORDS = Object.freeze(STATIC_ATLAS_INLINE ? [] : STATIC_ATLAS_CHUNKS.edges.records.map((edge) => Object.freeze({ ...edge })));
       const GOVERNED_SEQUENCE_RECORDS = Object.freeze(STATIC_ATLAS_INLINE ? [] : STATIC_ATLAS_CHUNKS.sequences.records.map((sequence) => Object.freeze({ ...sequence })));
@@ -2161,7 +2488,27 @@
       const timeStartValue = document.getElementById('time-start-value');
       const timeIntervalSlider = document.getElementById('time-interval-slider');
       const timeIntervalValue = document.getElementById('time-interval-value');
+      const timePlaybackToggle = document.getElementById('time-playback-toggle');
       const timeRecordCount = document.getElementById('time-record-count');
+      const sourceChronologyControls = document.getElementById('source-chronology-controls');
+      const sourceChronologySummary = document.getElementById('source-chronology-summary');
+      const sourceChronologyLevel = document.getElementById('source-chronology-level');
+      const sourceChronologyCodeFields = document.getElementById('source-chronology-code-fields');
+      const sourceChronologyCode = document.getElementById('source-chronology-code');
+      const sourceChronologyTaxonFields = document.getElementById('source-chronology-taxon-fields');
+      const sourceChronologyTaxonQuery = document.getElementById('source-chronology-taxon-query');
+      const sourceChronologyTaxon = document.getElementById('source-chronology-taxon');
+      const sourceChronologyState = document.getElementById('source-chronology-state');
+      const modeledContextControls = document.getElementById('modeled-context-controls');
+      const modeledContextSummary = document.getElementById('modeled-context-summary');
+      const modeledContextFamily = document.getElementById('modeled-context-family');
+      const modeledContextMetric = document.getElementById('modeled-context-metric');
+      const modeledContextWindow = document.getElementById('modeled-context-window');
+      const modeledContextToggle = document.getElementById('modeled-context-toggle');
+      const modeledContextPlayback = document.getElementById('modeled-context-playback');
+      const modeledContextDownload = document.getElementById('modeled-context-download');
+      const modeledContextState = document.getElementById('modeled-context-state');
+      const modeledContextLegend = document.getElementById('modeled-context-legend');
       const densityOpacitySlider = document.getElementById('density-opacity-slider');
       const densityOpacityValue = document.getElementById('density-opacity-value');
       const emptyState = document.getElementById('empty-state');
@@ -2201,6 +2548,12 @@
           diameter: params.get('diameter'),
           timeStart: params.get('time_start'),
           timeInterval: params.get('time_interval'),
+          modeledContext: params.get('modeled_context'),
+          modeledFamily: params.get('modeled_family'),
+          modeledMetric: params.get('modeled_metric'),
+          sourceChronologyLevel: params.get('source_chronology_level'),
+          sourceChronologyCode: params.get('source_ecological_code'),
+          sourceChronologyTaxon: params.get('source_taxon'),
           density: params.get('density'),
           basemap: params.get('basemap'),
           panel: params.get('panel'),
@@ -2243,8 +2596,16 @@
       function scientificCueGlyph(cue) {
         return { circle: '●', square: '■', triangle: '▲', diamond: '◆', cross: '✚', ring: '◎' }[cue] || '●';
       }
+      function finiteControlNumber(value) {
+        if (value === null || value === undefined || typeof value === 'boolean') return null;
+        if (typeof value === 'string' && !value.trim()) return null;
+        const numeric = Number(value);
+        return Number.isFinite(numeric) ? numeric : null;
+      }
       function clampTimeInterval(value) {
-        return Math.max(1, Math.min(TIME_INTERVAL_MAX, Math.round(Number(value) || DEFAULT_TIME_INTERVAL_YEARS)));
+        const numeric = finiteControlNumber(value);
+        const selected = numeric === null ? DEFAULT_TIME_INTERVAL_YEARS : numeric;
+        return Math.max(1, Math.min(TIME_INTERVAL_MAX, Math.round(selected)));
       }
       function defaultPanelCollapsed() {
         return mobileLayoutQuery.matches;
@@ -2258,7 +2619,9 @@
       }
       function clampTimeStart(value, intervalYears) {
         const maxStart = Math.max(TIME_MIN_BP, TIME_MAX_BP - intervalYears);
-        return Math.max(TIME_MIN_BP, Math.min(maxStart, Math.round(Number(value) || DEFAULT_TIME_START_BP)));
+        const numeric = finiteControlNumber(value);
+        const selected = numeric === null ? DEFAULT_TIME_START_BP : numeric;
+        return Math.max(TIME_MIN_BP, Math.min(maxStart, Math.round(selected)));
       }
       function timeWindowEndBp() {
         return Math.min(TIME_MAX_BP, timeStartBp + timeIntervalYears);
@@ -2266,10 +2629,52 @@
       function timeFilterUsesFullExtent() {
         return timeStartBp <= TIME_MIN_BP && timeWindowEndBp() >= TIME_MAX_BP;
       }
+      function oldestPlaybackStart(intervalYears) {
+        return Math.max(TIME_MIN_BP, TIME_MAX_BP - clampTimeInterval(intervalYears));
+      }
+      function nextPlaybackTimeStart(currentStart, intervalYears) {
+        const start = clampTimeStart(currentStart, intervalYears);
+        return Math.max(TIME_MIN_BP, start - clampTimeInterval(intervalYears));
+      }
+      let timePlaybackTimer = null;
+      function stopTimePlayback() {
+        if (timePlaybackTimer !== null) window.clearTimeout(timePlaybackTimer);
+        timePlaybackTimer = null;
+        timePlaybackToggle.setAttribute('aria-pressed', 'false');
+        timePlaybackToggle.textContent = 'Play oldest → present';
+      }
+      async function advanceTimePlayback() {
+        if (timePlaybackTimer === null) return;
+        const nextStart = nextPlaybackTimeStart(timeStartBp, timeIntervalYears);
+        if (nextStart === timeStartBp) {
+          stopTimePlayback();
+          return;
+        }
+        timeStartBp = nextStart;
+        await renderMapState();
+        if (timePlaybackTimer !== null && timeStartBp <= TIME_MIN_BP) {
+          stopTimePlayback();
+        } else if (timePlaybackTimer !== null) {
+          timePlaybackTimer = window.setTimeout(advanceTimePlayback, 900);
+        }
+      }
+      async function startTimePlayback() {
+        if (!TIME_HAS_DATA || timeIntervalYears >= TIME_INTERVAL_MAX) return;
+        deactivateModeledContext();
+        timeStartBp = oldestPlaybackStart(timeIntervalYears);
+        timePlaybackToggle.setAttribute('aria-pressed', 'true');
+        timePlaybackToggle.textContent = 'Pause playback';
+        timePlaybackTimer = -1;
+        await renderMapState();
+        if (timePlaybackTimer !== null) {
+          timePlaybackTimer = window.setTimeout(advanceTimePlayback, 900);
+        }
+      }
       function refreshTimeControls() {
         if (!TIME_HAS_DATA) {
           timeStartSlider.disabled = true;
           timeIntervalSlider.disabled = true;
+          timePlaybackToggle.disabled = true;
           dockTimeSummary.textContent = 'No BP dates available';
           timeStartValue.textContent = '--';
           timeIntervalValue.textContent = '--';
@@ -2284,13 +2689,343 @@
         timeIntervalSlider.max = String(TIME_INTERVAL_MAX);
         timeIntervalSlider.value = String(timeIntervalYears);
         const endBp = timeWindowEndBp();
-        dockTimeSummary.textContent = `${timeStartBp}-${endBp} BP`;
-        timeStartValue.textContent = `${timeStartBp} BP`;
+        dockTimeSummary.textContent = `[${timeStartBp}, ${endBp}] BP`;
+        timeStartValue.textContent = `[${timeStartBp}, ${endBp}] BP`;
         timeIntervalValue.textContent = `${timeIntervalYears} years`;
+        timePlaybackToggle.disabled = timeIntervalYears >= TIME_INTERVAL_MAX;
       }
       const initialState = parseHashState();
+      const MODELED_CONTEXT_WINDOWS = Object.freeze([...(MODELED_CONTEXT.windows_oldest_to_present || [])]);
+      const MODELED_CONTEXT_FAMILIES = Object.freeze([...(MODELED_CONTEXT.metric_families || [])]);
+      function modeledContextFamilyByKey(key) {
+        return MODELED_CONTEXT_FAMILIES.find((family) => family.key === key) || null;
+      }
+      const defaultModeledContextFamily = modeledContextFamilyByKey(MODELED_CONTEXT.default_metric_family_key) || MODELED_CONTEXT_FAMILIES[0] || null;
+      const initialModeledContextFamily = modeledContextFamilyByKey(initialState.modeledFamily) || defaultModeledContextFamily;
+      let modeledContextFamilyKey = initialModeledContextFamily ? initialModeledContextFamily.key : '';
+      let modeledContextMetricKey = initialModeledContextFamily && initialModeledContextFamily.metrics.some((metric) => metric.key === initialState.modeledMetric)
+        ? initialState.modeledMetric
+        : (initialModeledContextFamily ? initialModeledContextFamily.default_metric_key : '');
+      let modeledContextActive = false;
+      let modeledContextWindowIndex = 0;
+      let modeledContextPlaybackTimer = null;
+      let modeledContextPreviousTime = null;
+      function modeledContextAvailable() {
+        return MODELED_CONTEXT.status === 'available'
+          && MODELED_CONTEXT_WINDOWS.length === 25
+          && MODELED_CONTEXT_FAMILIES.length === 3
+          && currentModeledContextMetric() !== null;
+      }
+      function currentModeledContextWindow() {
+        return MODELED_CONTEXT_WINDOWS[modeledContextWindowIndex] || null;
+      }
+      function currentModeledContextFamily() {
+        return modeledContextFamilyByKey(modeledContextFamilyKey);
+      }
+      function currentModeledContextMetric() {
+        const family = currentModeledContextFamily();
+        return family ? family.metrics.find((metric) => metric.key === modeledContextMetricKey) || null : null;
+      }
+      function isModeledContextFeature(layer, properties) {
+        return Boolean(
+          layer.key === MODELED_CONTEXT.layer_key
+          && String(properties.dataset_id || '') === String(MODELED_CONTEXT.dataset_id || '')
+        );
+      }
+      function modeledContextFeatureVisible(layer, properties) {
+        if (!modeledContextActive || layer.key !== MODELED_CONTEXT.layer_key) return true;
+        const window = currentModeledContextWindow();
+        return Boolean(window && isModeledContextFeature(layer, properties) && properties.time_label === window.label);
+      }
+      function modeledContextNumber(value) {
+        if (value === null || value === undefined || typeof value === 'boolean') return null;
+        const number = Number(value);
+        return Number.isFinite(number) ? number : null;
+      }
+      function modeledContextEstimate(properties) {
+        const values = properties && properties.reconstruction_values;
+        return values && typeof values === 'object'
+          ? modeledContextNumber(values[modeledContextMetricKey])
+          : null;
+      }
+      function modeledContextStandardError(properties) {
+        const values = properties && properties.standard_errors;
+        return values && typeof values === 'object'
+          ? modeledContextNumber(values[modeledContextMetricKey])
+          : null;
+      }
+      function modeledContextFillColor(value) {
+        if (value === null) return '#cbd5e1';
+        const entry = (MODELED_CONTEXT.palette || []).find((candidate) => value <= Number(candidate.maximum));
+        return entry ? entry.color : '#d97706';
+      }
+      function stopModeledContextPlayback() {
+        if (modeledContextPlaybackTimer !== null) window.clearTimeout(modeledContextPlaybackTimer);
+        modeledContextPlaybackTimer = null;
+        modeledContextPlayback.setAttribute('aria-pressed', 'false');
+        modeledContextPlayback.textContent = 'Play 25 source windows';
+      }
+      function deactivateModeledContext({ restoreTime = true } = {}) {
+        stopModeledContextPlayback();
+        modeledContextActive = false;
+        const previousTime = modeledContextPreviousTime;
+        modeledContextPreviousTime = null;
+        if (restoreTime && previousTime) {
+          timeStartBp = previousTime.timeStartBp;
+          timeIntervalYears = previousTime.timeIntervalYears;
+        }
+      }
+      async function selectModeledContextWindow(index) {
+        if (!modeledContextAvailable()) return;
+        if (!modeledContextActive) {
+          modeledContextPreviousTime = { timeStartBp, timeIntervalYears };
+        }
+        const nextIndex = Math.max(0, Math.min(MODELED_CONTEXT_WINDOWS.length - 1, Number(index) || 0));
+        modeledContextWindowIndex = nextIndex;
+        modeledContextActive = true;
+        const sourceWindow = currentModeledContextWindow();
+        timeStartBp = sourceWindow.time_start_bp;
+        timeIntervalYears = Math.max(1, sourceWindow.time_end_bp - sourceWindow.time_start_bp);
+        activeLayerKeys.add(MODELED_CONTEXT.layer_key);
+        await renderMapState();
+      }
+      async function advanceModeledContextPlayback() {
+        if (modeledContextPlaybackTimer === null) return;
+        if (modeledContextWindowIndex >= MODELED_CONTEXT_WINDOWS.length - 1) {
+          stopModeledContextPlayback();
+          return;
+        }
+        await selectModeledContextWindow(modeledContextWindowIndex + 1);
+        if (modeledContextPlaybackTimer !== null) {
+          modeledContextPlaybackTimer = window.setTimeout(advanceModeledContextPlayback, 900);
+        }
+      }
+      async function startModeledContextPlayback() {
+        if (!modeledContextAvailable()) return;
+        stopTimePlayback();
+        modeledContextPlaybackTimer = -1;
+        modeledContextPlayback.setAttribute('aria-pressed', 'true');
+        modeledContextPlayback.textContent = 'Pause source-window playback';
+        await selectModeledContextWindow(0);
+        if (modeledContextPlaybackTimer !== null) {
+          modeledContextPlaybackTimer = window.setTimeout(advanceModeledContextPlayback, 900);
+        }
+      }
+      function modeledContextFrameFeatures() {
+        const sourceWindow = currentModeledContextWindow();
+        if (!modeledContextActive || !sourceWindow) return [];
+        const layer = POLYGON_LAYERS.find((candidate) => candidate.key === MODELED_CONTEXT.layer_key);
+        if (!layer || !layer.geojson || !Array.isArray(layer.geojson.features)) return [];
+        return layer.geojson.features
+          .filter((feature) => {
+            const properties = feature && feature.properties ? feature.properties : {};
+            return polygonGeometryIsAdmitted(feature)
+              && isModeledContextFeature(layer, properties)
+              && properties.time_label === sourceWindow.label
+              && (!properties.country || activeCountries.has(properties.country));
+          })
+          .sort((left, right) => String(left.properties.record_id || '').localeCompare(String(right.properties.record_id || '')));
+      }
+      function modeledContextFrameGeoJson() {
+        const sourceWindow = currentModeledContextWindow();
+        const metricFamily = currentModeledContextFamily();
+        const metric = currentModeledContextMetric();
+        const features = modeledContextFrameFeatures();
+        const countryCounts = {};
+        features.forEach((feature) => {
+          const country = String(feature.properties.country || 'UNASSIGNED');
+          countryCounts[country] = (countryCounts[country] || 0) + 1;
+        });
+        return {
+          type: 'FeatureCollection',
+          schema_version: MODELED_CONTEXT.download_schema_version,
+          modeled_context: {
+            dataset_id: MODELED_CONTEXT.dataset_id,
+            dataset_doi: MODELED_CONTEXT.dataset_doi,
+            method_citation: MODELED_CONTEXT.method_citation,
+            method_doi: MODELED_CONTEXT.method_doi,
+            metric_family_key: metricFamily.key,
+            metric_family_label: metricFamily.label,
+            metric_key: metric.key,
+            metric_label: metric.label,
+            metric_source_label: metric.source_label,
+            metric_definition: metric.definition,
+            value_unit: MODELED_CONTEXT.value_unit,
+            metric_count_denominator: MODELED_CONTEXT.metric_count,
+            estimate_standard_error_pair_count_denominator: MODELED_CONTEXT.estimate_standard_error_pair_count,
+            land_cover_pft_reconciliation_count_denominator: MODELED_CONTEXT.land_cover_pft_reconciliation_count,
+            source_window: sourceWindow,
+            country_counts: Object.fromEntries(Object.entries(countryCounts).sort()),
+            evidence_role: 'context_only',
+            propagation_use_allowed: false,
+            interpolation_allowed: false,
+          },
+          features,
+        };
+      }
+      function downloadModeledContextFrame() {
+        if (!modeledContextActive) return;
+        const payload = modeledContextFrameGeoJson();
+        const sourceWindow = currentModeledContextWindow();
+        const windowSlug = String(sourceWindow.label).toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+        const metricSlug = String(modeledContextMetricKey).toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+        const blob = new Blob([`${JSON.stringify(payload, null, 2)}\n`], { type: 'application/geo+json' });
+        const url = URL.createObjectURL(blob);
+        const link = document.createElement('a');
+        link.href = url;
+        link.download = `pangaea-937075-${metricSlug}-${windowSlug}.geojson`;
+        document.body.appendChild(link);
+        link.click();
+        link.remove();
+        URL.revokeObjectURL(url);
+      }
+      function renderModeledContextControls() {
+        const available = modeledContextAvailable();
+        modeledContextControls.hidden = !available;
+        if (!available) return;
+        const metricFamily = currentModeledContextFamily();
+        const metric = currentModeledContextMetric();
+        modeledContextFamily.innerHTML = MODELED_CONTEXT_FAMILIES.map((family) => `<option value="${escapeHtml(family.key)}" ${family.key === modeledContextFamilyKey ? 'selected' : ''}>${escapeHtml(family.label)} · ${family.metric_count} metrics</option>`).join('');
+        modeledContextMetric.innerHTML = metricFamily.metrics.map((candidate) => `<option value="${escapeHtml(candidate.key)}" ${candidate.key === modeledContextMetricKey ? 'selected' : ''}>${escapeHtml(candidate.source_label)} · ${escapeHtml(candidate.key)}</option>`).join('');
+        modeledContextWindow.innerHTML = MODELED_CONTEXT_WINDOWS.map((sourceWindow, index) => `<option value="${index}" ${index === modeledContextWindowIndex ? 'selected' : ''}>${escapeHtml(sourceWindow.label)} · ${sourceWindow.feature_count} cells</option>`).join('');
+        modeledContextToggle.setAttribute('aria-pressed', String(modeledContextActive));
+        modeledContextToggle.textContent = modeledContextActive ? 'Hide modeled metric' : 'Show modeled metric';
+        modeledContextPlayback.disabled = !modeledContextActive;
+        modeledContextDownload.disabled = !modeledContextActive || modeledContextFrameFeatures().length === 0;
+        const sourceWindow = currentModeledContextWindow();
+        modeledContextSummary.textContent = modeledContextActive && sourceWindow ? `${metric.key} · ${sourceWindow.label}` : `PANGAEA 937075 · ${metric.key}`;
+        modeledContextState.textContent = modeledContextActive && sourceWindow
+          ? `${modeledContextFrameFeatures().length} visible cells · ${metric.source_label} (${metric.key}) percentage cover with source standard error · ${MODELED_CONTEXT.metric_count} source metrics reconciled · context only · no interpolation or propagation`
+          : 'Context mode is off. Select Show modeled metric to inspect exact published windows.';
+        modeledContextLegend.hidden = !modeledContextActive;
+        modeledContextLegend.innerHTML = modeledContextActive && sourceWindow
+          ? `<div class="legend-group-label">${escapeHtml(sourceWindow.label)} · ${escapeHtml(metric.source_label)} (${escapeHtml(metric.key)}) · ${escapeHtml(MODELED_CONTEXT.value_unit)}</div>${(MODELED_CONTEXT.palette || []).map((entry) => `<div class="legend-item legend-item--compact"><span class="legend-swatch" style="background:${escapeHtml(entry.color)};border-color:#334155;"></span><span>${escapeHtml(entry.label)}</span></div>`).join('')}`
+          : '';
+      }
+      const SOURCE_CHRONOLOGY_LEVEL_ORDER = Object.freeze([
+        'source_sample_presence',
+        'source_ecological_code',
+        'source_taxon',
+      ]);
+      const SOURCE_CHRONOLOGY_LEVEL_LABELS = Object.freeze({
+        source_sample_presence: 'Source sample pollen presence',
+        source_ecological_code: 'Literal source ecological code',
+        source_taxon: 'Source-reported taxon or pollen type',
+      });
+      function sourceChronologyCount(value) {
+        return Number.isSafeInteger(value) && value >= 0 ? value : null;
+      }
+      function sourceChronologyFacetRowsAreValid(rows, { featureKey = false, taxon = false } = {}) {
+        if (!Array.isArray(rows)) return false;
+        const values = new Set();
+        return rows.every((row) => {
+          if (!row || typeof row !== 'object' || typeof row.value !== 'string' || !row.value.trim() || values.has(row.value)) return false;
+          values.add(row.value);
+          if (sourceChronologyCount(row.node_count) === null || sourceChronologyCount(row.observation_denominator) === null) return false;
+          if (featureKey && (typeof row.feature_key !== 'string' || !row.feature_key.trim())) return false;
+          if (taxon && (typeof row.source_taxon_id !== 'string' || !row.source_taxon_id.trim() || typeof row.label !== 'string' || !row.label.trim())) return false;
+          return true;
+        });
+      }
+      function sourceChronologyLayerIsValid(layer) {
+        if (!layer || layer.semantic_role !== 'source_chronology_context') return false;
+        if (!SOURCE_CHRONOLOGY_LEVEL_ORDER.includes(layer.node_level)) return false;
+        if (layer.propagation_status !== 'refused' || layer.edge_count !== 0) return false;
+        if (layer.temporal_direction !== 'oldest_to_present' || layer.interval_semantics !== '[younger_bp, older_bp]') return false;
+        const facets = layer.facet_metadata;
+        if (!facets || facets.schema_version !== 'neotoma-source-chronology-facets.v1' || facets.node_level !== layer.node_level) return false;
+        if (sourceChronologyCount(facets.node_count) === null || sourceChronologyCount(facets.observation_denominator) === null) return false;
+        if (sourceChronologyCount(layer.count) !== facets.node_count) return false;
+        if (!sourceChronologyFacetRowsAreValid(facets.country_counts) || !sourceChronologyFacetRowsAreValid(facets.source_unit_counts)) return false;
+        if (facets.country_counts.map((row) => row.value).join('|') !== 'Sweden|Denmark|Norway|Finland') return false;
+        if (layer.node_level === 'source_sample_presence' && layer.default_enabled !== true) return false;
+        if (layer.node_level === 'source_ecological_code') {
+          if (layer.default_enabled !== false || !sourceChronologyFacetRowsAreValid(facets.source_ecological_codes, { featureKey: true })) return false;
+        } else if (!Array.isArray(facets.source_ecological_codes) || facets.source_ecological_codes.length !== 0) return false;
+        if (layer.node_level === 'source_taxon') {
+          if (layer.default_enabled !== false || !sourceChronologyFacetRowsAreValid(facets.source_taxa, { taxon: true })) return false;
+        } else if (!Array.isArray(facets.source_taxa) || facets.source_taxa.length !== 0) return false;
+        return true;
+      }
+      function sourceChronologyLayers() {
+        return POINT_LAYERS
+          .filter(sourceChronologyLayerIsValid)
+          .sort((left, right) => SOURCE_CHRONOLOGY_LEVEL_ORDER.indexOf(left.node_level) - SOURCE_CHRONOLOGY_LEVEL_ORDER.indexOf(right.node_level));
+      }
+      function sourceChronologyLayerForLevel(level) {
+        return sourceChronologyLayers().find((layer) => layer.node_level === level) || null;
+      }
+      function sourceChronologyFacetForSelection(layer, code, taxon) {
+        if (!layer) return null;
+        const facets = layer.facet_metadata;
+        if (layer.node_level === 'source_ecological_code' && code !== 'all') {
+          return facets.source_ecological_codes.find((row) => row.value === code) || null;
+        }
+        if (layer.node_level === 'source_taxon' && taxon !== 'all') {
+          return facets.source_taxa.find((row) => row.value === taxon) || null;
+        }
+        return { node_count: facets.node_count, observation_denominator: facets.observation_denominator };
+      }
+      function sourceChronologyFeatureMatches(layer, feature, code = activeSourceChronologyCode, taxon = activeSourceChronologyTaxon) {
+        if (layer.semantic_role !== 'source_chronology_context') return true;
+        if (!sourceChronologyLayerIsValid(layer) || !feature || feature.semantic_role !== 'source_chronology_context') return false;
+        if (feature.node_level !== layer.node_level || feature.propagation_eligible !== false || feature.candidate_generation_status !== 'refused') return false;
+        if (typeof feature.candidate_refusal_reason !== 'string' || !feature.candidate_refusal_reason.trim()) return false;
+        if (typeof feature.feature_key !== 'string' || !feature.feature_key.trim() || typeof feature.source_unit !== 'string' || !feature.source_unit.trim()) return false;
+        if (layer.node_level === 'source_ecological_code') {
+          if (typeof feature.source_ecological_code !== 'string' || !feature.source_ecological_code.trim()) return false;
+          if (feature.source_taxon_id !== null || feature.source_reported_name !== null) return false;
+          return code === 'all' || feature.source_ecological_code === code;
+        }
+        if (layer.node_level === 'source_taxon') {
+          if (typeof feature.source_reported_name !== 'string' || !feature.source_reported_name.trim()) return false;
+          if (typeof feature.source_taxon_id !== 'string' || !feature.source_taxon_id.trim()) return false;
+          if (feature.source_ecological_code !== null) return false;
+          return taxon === 'all' || feature.feature_key === taxon;
+        }
+        return feature.source_ecological_code === null && feature.source_taxon_id === null && feature.source_reported_name === null;
+      }
       let activeCountries = normalizedSetFromList(initialState.countries, COUNTRIES, DEFAULT_COUNTRIES);
       let activeLayerKeys = normalizedSetFromList(initialState.layers, ALL_LAYERS.map((layer) => layer.key), DEFAULT_LAYER_KEYS);
+      const availableSourceChronologyLevels = sourceChronologyLayers().map((layer) => layer.node_level);
+      const defaultSourceChronologyLevel = availableSourceChronologyLevels.includes('source_sample_presence')
+        ? 'source_sample_presence'
+        : (availableSourceChronologyLevels[0] || '');
+      let activeSourceChronologyLevel = normalizedSingleValue(
+        initialState.sourceChronologyLevel,
+        availableSourceChronologyLevels,
+        defaultSourceChronologyLevel
+      );
+      let activeSourceChronologyCode = 'all';
+      let activeSourceChronologyTaxon = 'all';
+      const initialSourceChronologyLayer = sourceChronologyLayerForLevel(activeSourceChronologyLevel);
+      if (initialSourceChronologyLayer && initialSourceChronologyLayer.node_level === 'source_ecological_code') {
+        activeSourceChronologyCode = normalizedSingleValue(
+          initialState.sourceChronologyCode,
+          ['all', ...initialSourceChronologyLayer.facet_metadata.source_ecological_codes.map((row) => row.value)],
+          'all'
+        );
+      }
+      if (initialSourceChronologyLayer && initialSourceChronologyLayer.node_level === 'source_taxon') {
+        activeSourceChronologyTaxon = normalizedSingleValue(
+          initialState.sourceChronologyTaxon,
+          ['all', ...initialSourceChronologyLayer.facet_metadata.source_taxa.map((row) => row.value)],
+          'all'
+        );
+      }
+      let sourceChronologyTaxonSearch = '';
+      if (initialState.sourceChronologyLevel && initialSourceChronologyLayer && initialState.layers === null) {
+        sourceChronologyLayers().forEach((layer) => activeLayerKeys.delete(layer.key));
+        activeLayerKeys.add(initialSourceChronologyLayer.key);
+      }
+      const initiallyActiveSourceChronologyLayers = sourceChronologyLayers().filter((layer) => activeLayerKeys.has(layer.key));
+      if (!initialState.sourceChronologyLevel && initiallyActiveSourceChronologyLayers.length === 1) {
+        activeSourceChronologyLevel = initiallyActiveSourceChronologyLayers[0].node_level;
+      }
+      if (initiallyActiveSourceChronologyLayers.length > 1) {
+        sourceChronologyLayers().forEach((layer) => activeLayerKeys.delete(layer.key));
+        if (initialSourceChronologyLayer) activeLayerKeys.add(initialSourceChronologyLayer.key);
+      }
       let activeScientificSignalIds = normalizedSetFromList(
         initialState.scientificSignals,
         SCIENTIFIC_SIGNAL_IDS,
@@ -2335,7 +3070,23 @@
       let animalNordicOnly = initialState.animalNordic === 'only';
       let timeIntervalYears = TIME_HAS_DATA ? clampTimeInterval(initialState.timeInterval) : DEFAULT_TIME_INTERVAL_YEARS;
       let timeStartBp = TIME_HAS_DATA ? clampTimeStart(initialState.timeStart, timeIntervalYears) : DEFAULT_TIME_START_BP;
-      let densityOpacity = Math.max(0, Math.min(1, Number(initialState.density || '60') / 100 || 0.6));
+      const initialModeledContextIndex = MODELED_CONTEXT_WINDOWS.findIndex(
+        (sourceWindow) => sourceWindow.label === initialState.modeledContext
+      );
+      if (modeledContextAvailable() && initialModeledContextIndex >= 0) {
+        modeledContextActive = true;
+        modeledContextWindowIndex = initialModeledContextIndex;
+        modeledContextPreviousTime = {
+          timeStartBp: DEFAULT_TIME_START_BP,
+          timeIntervalYears: DEFAULT_TIME_INTERVAL_YEARS,
+        };
+        const sourceWindow = currentModeledContextWindow();
+        timeStartBp = sourceWindow.time_start_bp;
+        timeIntervalYears = Math.max(1, sourceWindow.time_end_bp - sourceWindow.time_start_bp);
+        activeLayerKeys.add(MODELED_CONTEXT.layer_key);
+      }
+      const initialDensityPercent = finiteControlNumber(initialState.density);
+      let densityOpacity = Math.max(0, Math.min(1, (initialDensityPercent === null ? 60 : initialDensityPercent) / 100));
       let currentBasemap = BASEMAP_NAMES.includes(String(initialState.basemap || '')) ? String(initialState.basemap) : DEFAULT_BASEMAP;
       let activeBasemap = null;
       const failedBasemaps = new Set();
@@ -2358,7 +3109,7 @@
       }
       function staticAtlasTimeNeeded(row, layer) {
         if (!layer.applies_time_filter || !TIME_HAS_DATA || timeFilterUsesFullExtent()) return true;
-        if (Number(row.untimed_record_count || 0) === Number(row.record_count || 0)) return false;
+        if (staticAtlasNonnegativeInteger(row.untimed_record_count, `${row.asset_key} untimed record count`) === staticAtlasNonnegativeInteger(row.record_count, `${row.asset_key} record count`)) return false;
         if (row.time_min_bp === null || row.time_max_bp === null) return true;
         return Number(row.time_max_bp) >= timeStartBp && Number(row.time_min_bp) <= timeWindowEndBp();
       }
@@ -2391,9 +3142,11 @@
             && staticAtlasViewportNeeded(row)
           );
         });
-        if (required.length > Number(STATIC_ATLAS_BOOTSTRAP.budgets.interaction_max_requests)) staticAtlasFailure(`selection requires ${required.length} requests, above the interaction budget`);
-        const requiredBytes = required.reduce((total, row) => total + Number(row.byte_count || 0), 0);
-        if (requiredBytes > Number(STATIC_ATLAS_BOOTSTRAP.budgets.interaction_max_bytes)) staticAtlasFailure(`selection requires ${requiredBytes} bytes, above the interaction budget`);
+        const interactionRequestBudget = staticAtlasNonnegativeInteger(STATIC_ATLAS_BOOTSTRAP.budgets.interaction_max_requests, 'interaction request budget');
+        if (required.length > interactionRequestBudget) staticAtlasFailure(`selection requires ${required.length} requests, above the interaction budget`);
+        const requiredBytes = required.reduce((total, row) => total + staticAtlasNonnegativeInteger(row.byte_count, `${row.asset_key} byte count`), 0);
+        const interactionByteBudget = staticAtlasNonnegativeInteger(STATIC_ATLAS_BOOTSTRAP.budgets.interaction_max_bytes, 'interaction byte budget');
+        if (requiredBytes > interactionByteBudget) staticAtlasFailure(`selection requires ${requiredBytes} bytes, above the interaction budget`);
         return required;
       }
       function refreshStaticAtlasLayers() {
@@ -2602,9 +3355,21 @@
         if (activeAnimalConfidence !== 'all') params.set('animal_confidence', activeAnimalConfidence);
         if (activeAnimalTemporalWindow !== 'all') params.set('animal_time_window', activeAnimalTemporalWindow);
         if (animalNordicOnly) params.set('animal_nordic', 'only');
+        if (sourceChronologyLayerForLevel(activeSourceChronologyLevel)) {
+          if (activeSourceChronologyLevel !== defaultSourceChronologyLevel) params.set('source_chronology_level', activeSourceChronologyLevel);
+          if (activeSourceChronologyCode !== 'all') params.set('source_ecological_code', activeSourceChronologyCode);
+          if (activeSourceChronologyTaxon !== 'all') params.set('source_taxon', activeSourceChronologyTaxon);
+        }
         if (Number(slider.value) !== 40) params.set('diameter', String(Number(slider.value)));
-        if (TIME_HAS_DATA && timeStartBp !== DEFAULT_TIME_START_BP) params.set('time_start', String(timeStartBp));
-        if (TIME_HAS_DATA && timeIntervalYears !== DEFAULT_TIME_INTERVAL_YEARS) params.set('time_interval', String(timeIntervalYears));
+        const modeledWindow = currentModeledContextWindow();
+        if (modeledContextActive && modeledWindow) {
+          params.set('modeled_context', modeledWindow.label);
+          params.set('modeled_family', modeledContextFamilyKey);
+          params.set('modeled_metric', modeledContextMetricKey);
+        } else {
+          if (TIME_HAS_DATA && timeStartBp !== DEFAULT_TIME_START_BP) params.set('time_start', String(timeStartBp));
+          if (TIME_HAS_DATA && timeIntervalYears !== DEFAULT_TIME_INTERVAL_YEARS) params.set('time_interval', String(timeIntervalYears));
+        }
         if (Math.round(densityOpacity * 100) !== 60) params.set('density', String(Math.round(densityOpacity * 100)));
         if (currentBasemap !== DEFAULT_BASEMAP) params.set('basemap', currentBasemap);
         if (sidebar.classList.contains('is-collapsed') !== defaultPanelCollapsed()) {
@@ -2673,7 +3438,7 @@
         const candidates = STATIC_ATLAS_BOOTSTRAP.assets.filter((row) => row.asset_key === assetKey && row.domain === 'details');
         if (candidates.length !== 1) return unavailableDetailTabs('detail_chunk_index_invalid');
         const row = candidates[0];
-        if (Number(row.byte_count || 0) > Number(STATIC_ATLAS_BOOTSTRAP.budgets.interaction_max_bytes)) return unavailableDetailTabs('detail_chunk_interaction_budget_exceeded');
+        if (staticAtlasNonnegativeInteger(row.byte_count, `${row.asset_key} byte count`) > staticAtlasNonnegativeInteger(STATIC_ATLAS_BOOTSTRAP.budgets.interaction_max_bytes, 'interaction byte budget')) return unavailableDetailTabs('detail_chunk_interaction_budget_exceeded');
         try {
           await loadStaticAtlasAsset(row);
         } catch (error) {
@@ -2874,6 +3639,8 @@
       async function focusPointAtVisibleIndex(index) {
         const entry = visiblePointEntries[index];
         if (!entry) return;
+        const coordinates = featureCoordinatePair(entry.feature);
+        if (!coordinates) return;
         const mediaLinks = normalizedMediaLinks(entry.feature.media_links);
         const primaryAction = entry.feature.source_url
           ? { label: 'Open source', url: entry.feature.source_url }
@@ -2881,7 +3648,7 @@
         const meta = [
           { label: 'Layer', value: entry.layer.label },
           { label: 'Country', value: entry.feature.country || 'Unassigned' },
-          { label: 'Coordinates', value: `${Number(entry.feature.latitude).toFixed(4)}, ${Number(entry.feature.longitude).toFixed(4)}` },
+          { label: 'Coordinates', value: coordinateLabel(entry.feature, 4) },
         ];
         const timeLabel = featureTimeLabel(entry.feature);
         if (timeLabel) {
@@ -2896,8 +3663,8 @@
           meta,
           sourceUrl: primaryAction ? primaryAction.url : '',
           sourceLabel: primaryAction ? primaryAction.label : 'Open source',
-          latitude: Number(entry.feature.latitude),
-          longitude: Number(entry.feature.longitude),
+          latitude: coordinates.latitude,
+          longitude: coordinates.longitude,
           recordId: String(entry.feature.record_id || ''),
           detailTabs: unavailableDetailTabs('detail_record_loading'),
         };
@@ -2962,7 +3729,7 @@
           ? 'Only accepted, versioned classifications are selectable. Color is always paired with a shape cue.'
           : `Scientific comparison unavailable: ${ATLAS_EVIDENCE.classifications_reason_code || 'accepted_scientific_classifications_not_available'}. Source layers remain inspectable.`;
         scientificFilters.innerHTML = available
-          ? ['whole', 'group', 'role', 'taxon'].map((resolution) => {
+          ? SCIENTIFIC_RESOLUTION_ORDER.map((resolution) => {
               const signals = SCIENTIFIC_SIGNALS.filter((signal) => signal.resolution === resolution);
               if (!signals.length) return '';
               return `<div class="legend-group"><div class="legend-group-label">${escapeHtml(resolution)}</div><div class="dock-layer-grid">${signals.map((signal) => `<label class="dock-layer-chip"><input class="scientific-checkbox" type="checkbox" value="${escapeHtml(signal.signal_id)}" ${activeScientificSignalIds.has(signal.signal_id) ? 'checked' : ''}><span class="scientific-cue" data-cue="${escapeHtml(signal.non_color_cue)}" style="color:${escapeHtml(signal.color)}">${escapeHtml(scientificCueGlyph(signal.non_color_cue))}</span><span>${escapeHtml(signal.label)}</span></label>`).join('')}</div></div>`;
@@ -2995,6 +3762,59 @@
           : `Candidates unavailable: ${STATIC_ATLAS_INLINE ? 'governed_map_edge_model_not_available' : STATIC_ATLAS_CHUNKS.edges.reason_code} · ${sequencePosture}`;
         relationSummary.dataset.sequenceStatus = STATIC_ATLAS_INLINE ? 'unavailable' : STATIC_ATLAS_CHUNKS.sequences.status;
       }
+      function selectSourceChronologyLevel(level) {
+        const layer = sourceChronologyLayerForLevel(level);
+        if (!layer) return false;
+        activeSourceChronologyLevel = layer.node_level;
+        sourceChronologyLayers().forEach((candidate) => activeLayerKeys.delete(candidate.key));
+        activeLayerKeys.add(layer.key);
+        return true;
+      }
+      function toggleLayerSelection(layerKey, enabled) {
+        const layer = ALL_LAYERS.find((candidate) => candidate.key === layerKey);
+        if (!layer) return false;
+        if (enabled && layer.semantic_role === 'source_chronology_context') {
+          return selectSourceChronologyLevel(layer.node_level);
+        }
+        if (enabled) activeLayerKeys.add(layer.key); else activeLayerKeys.delete(layer.key);
+        return true;
+      }
+      function renderSourceChronologyControls() {
+        const layers = sourceChronologyLayers();
+        const selectedLayer = sourceChronologyLayerForLevel(activeSourceChronologyLevel);
+        sourceChronologyControls.hidden = layers.length === 0;
+        if (!layers.length || !selectedLayer) {
+          sourceChronologySummary.textContent = 'Source facets unavailable';
+          sourceChronologyState.textContent = 'Source chronology controls remain unavailable because governed facet metadata is absent or invalid.';
+          return;
+        }
+        sourceChronologyLevel.innerHTML = layers.map((layer) => `<option value="${escapeHtml(layer.node_level)}" ${layer.node_level === activeSourceChronologyLevel ? 'selected' : ''}>${escapeHtml(SOURCE_CHRONOLOGY_LEVEL_LABELS[layer.node_level])}</option>`).join('');
+        const codeRows = selectedLayer.node_level === 'source_ecological_code' ? selectedLayer.facet_metadata.source_ecological_codes : [];
+        const validCodes = ['all', ...codeRows.map((row) => row.value)];
+        activeSourceChronologyCode = normalizedSingleValue(activeSourceChronologyCode, validCodes, 'all');
+        sourceChronologyCodeFields.hidden = selectedLayer.node_level !== 'source_ecological_code';
+        sourceChronologyCode.innerHTML = '<option value="all">All literal source codes</option>' + codeRows.map((row) => `<option value="${escapeHtml(row.value)}" ${row.value === activeSourceChronologyCode ? 'selected' : ''}>${escapeHtml(row.label)} · ${row.node_count} nodes · ${row.observation_denominator} observations</option>`).join('');
+        const taxonRows = selectedLayer.node_level === 'source_taxon' ? selectedLayer.facet_metadata.source_taxa : [];
+        const validTaxa = ['all', ...taxonRows.map((row) => row.value)];
+        activeSourceChronologyTaxon = normalizedSingleValue(activeSourceChronologyTaxon, validTaxa, 'all');
+        const query = sourceChronologyTaxonSearch.trim().toLowerCase();
+        const visibleTaxa = taxonRows.filter((row) => (
+          row.value === activeSourceChronologyTaxon
+          || !query
+          || `${row.label} ${row.source_taxon_id}`.toLowerCase().includes(query)
+        ));
+        sourceChronologyTaxonFields.hidden = selectedLayer.node_level !== 'source_taxon';
+        sourceChronologyTaxon.innerHTML = `<option value="all">All source-reported labels · ${taxonRows.length} facets</option>` + visibleTaxa.map((row) => `<option value="${escapeHtml(row.value)}" ${row.value === activeSourceChronologyTaxon ? 'selected' : ''}>${escapeHtml(row.label)} · source taxon ${escapeHtml(row.source_taxon_id)} · ${row.node_count} nodes · ${row.observation_denominator} observations</option>`).join('');
+        const selectedFacet = sourceChronologyFacetForSelection(selectedLayer, activeSourceChronologyCode, activeSourceChronologyTaxon);
+        if (!selectedFacet) {
+          sourceChronologySummary.textContent = 'Source facet unavailable';
+          sourceChronologyState.textContent = 'The selected source facet is absent from governed metadata; no source chronology records are shown.';
+          return;
+        }
+        const unitCount = selectedLayer.facet_metadata.source_unit_counts.length;
+        sourceChronologySummary.textContent = `${selectedFacet.node_count} nodes · ${selectedFacet.observation_denominator} observations`;
+        sourceChronologyState.textContent = `${selectedFacet.node_count} source nodes · ${selectedFacet.observation_denominator} contributing observations · ${unitCount} literal source units · denominator before country and BP-window filters · chronology context only`;
+      }
       function renderLayerControls() {
         layerFilters.innerHTML = LAYER_GROUP_DEFINITIONS
           .map((group) => {
@@ -3002,9 +3822,10 @@
             if (!layers.length) return '';
             const cards = layers.map((layer) => {
               const checked = activeLayerKeys.has(layer.key) ? 'checked' : '';
+              const sourceChronologyInvalid = layer.semantic_role === 'source_chronology_context' && !sourceChronologyLayerIsValid(layer);
               const swatchColor = layerColor(layer);
               const swatchBorder = layer.style && layer.style.stroke ? layer.style.stroke : swatchColor;
-              return `<label class="dock-layer-chip"><input class="layer-checkbox" type="checkbox" value="${escapeHtml(layer.key)}" ${checked} aria-label="Toggle ${escapeHtml(layer.label)}"><span class="chip-swatch" style="background:${escapeHtml(swatchColor)};border-color:${escapeHtml(swatchBorder)};"></span><span>${escapeHtml(layer.label)}</span></label>`;
+              return `<label class="dock-layer-chip"><input class="layer-checkbox" type="checkbox" value="${escapeHtml(layer.key)}" ${checked} ${sourceChronologyInvalid ? 'disabled' : ''} aria-label="Toggle ${escapeHtml(layer.label)}"><span class="chip-swatch" style="background:${escapeHtml(swatchColor)};border-color:${escapeHtml(swatchBorder)};"></span><span>${escapeHtml(layer.label)}</span></label>`;
             }).join('');
             return `<div class="legend-group"><div class="legend-group-label">${escapeHtml(group.label)}</div><div class="dock-layer-grid">${cards}</div></div>`;
           })
@@ -3012,7 +3833,9 @@
         dockLayerSummary.textContent = activeLayerKeys.size ? `${activeLayerKeys.size} layers enabled` : 'No layers enabled';
         document.querySelectorAll('.layer-checkbox').forEach((checkbox) => {
           checkbox.addEventListener('change', () => {
-            if (checkbox.checked) { activeLayerKeys.add(checkbox.value); } else { activeLayerKeys.delete(checkbox.value); }
+            const layer = ALL_LAYERS.find((candidate) => candidate.key === checkbox.value);
+            if (!toggleLayerSelection(checkbox.value, checkbox.checked)) return;
+            if (layer && layer.semantic_role === 'source_chronology_context') renderLayerControls();
             renderMapState();
           });
         });
@@ -3137,6 +3960,12 @@
         if (preset === 'all') {
           activeLayerKeys = new Set(ALL_LAYERS.map((layer) => layer.key));
         }
+        const selectedSourceLayer = sourceChronologyLayerForLevel(activeSourceChronologyLevel);
+        const activeSourceLayerCount = sourceChronologyLayers().filter((layer) => activeLayerKeys.has(layer.key)).length;
+        if (activeSourceLayerCount > 1) {
+          sourceChronologyLayers().forEach((layer) => activeLayerKeys.delete(layer.key));
+          if (selectedSourceLayer) activeLayerKeys.add(selectedSourceLayer.key);
+        }
         renderLayerControls();
         renderMapState();
       }
@@ -3151,7 +3980,7 @@
           ? [
               `<div class="legend-group"><div class="legend-group-label">Animal scope</div><div class="legend-pill-list"><span class="legend-pill"><span class="legend-swatch" style="background: rgba(176, 133, 42, 0.18); border-color: #8a5b11;"></span><span>Domesticated-core</span><span class="legend-pill-note">tracked support surface</span></span><span class="legend-pill"><span class="legend-swatch" style="background: rgba(20, 184, 166, 0.18); border-color: #0f766e;"></span><span>Comparator</span><span class="legend-pill-note">comparison only</span></span></div></div>`,
               `<div class="legend-group"><div class="legend-group-label">Coordinate trust</div><div class="legend-list">${Object.entries(animalMetrics.confidenceCounts).sort((left, right) => right[1] - left[1]).map(([confidence, count]) => `<div class="legend-item legend-item--compact"><span class="legend-swatch" style="background: rgba(20, 33, 61, 0.08); border-color: rgba(20, 33, 61, 0.22);"></span><span class="legend-item-copy"><span class="legend-item-title">${escapeHtml(formatCoordinateConfidence(confidence))}</span><span class="legend-item-meta">${escapeHtml(String(count))} visible points</span></span></div>`).join('') || '<div class="legend-item"><span>No visible animal points for the current filter state.</span></div>'}</div></div>`,
-              `<div class="legend-group"><div class="legend-group-label">Tracked species</div><div class="legend-list">${activeAnimalLayers.map((layer) => `<div class="legend-item legend-item--compact"><span class="legend-swatch" style="background:${escapeHtml(layerColor(layer))};border-color:${escapeHtml(layer.style.stroke || layerColor(layer))};"></span><span class="legend-item-copy"><span class="legend-item-title">${escapeHtml(layer.species_common_name || layer.label)}</span><span class="legend-item-meta">${escapeHtml(formatAnimalScope(layer.animal_scope || ''))} · ${escapeHtml(String(layer.count || 0))} mapped point${Number(layer.count || 0) === 1 ? '' : 's'}</span></span></div>`).join('')}</div></div>`,
+              `<div class="legend-group"><div class="legend-group-label">Tracked species</div><div class="legend-list">${activeAnimalLayers.map((layer) => `<div class="legend-item legend-item--compact"><span class="legend-swatch" style="background:${escapeHtml(layerColor(layer))};border-color:${escapeHtml(layer.style.stroke || layerColor(layer))};"></span><span class="legend-item-copy"><span class="legend-item-title">${escapeHtml(layer.species_common_name || layer.label)}</span><span class="legend-item-meta">${escapeHtml(formatAnimalScope(layer.animal_scope || ''))} · ${escapeHtml(mappedPointCountLabel(layer.count))}</span></span></div>`).join('')}</div></div>`,
             ].join('')
           : '';
         const scientificLegendSection = SCIENTIFIC_SIGNALS.length
@@ -3162,15 +3991,34 @@
           .join('')}` || '<div class="legend-item"><span>No layers are visible. Restore defaults or enable one or more layers.</span></div>';
         densityRamp.hidden = !activeLayerKeys.has('raa-archaeology');
       }
+      function sourceChronologyPopupHtml(feature) {
+        if (!feature || feature.semantic_role !== 'source_chronology_context') return '';
+        const values = [
+          ['Node level', SOURCE_CHRONOLOGY_LEVEL_LABELS[feature.node_level] || feature.node_level],
+          ['Source record', feature.source_record_id],
+          ['Feature key', feature.feature_key],
+          ['Literal ecological code', feature.source_ecological_code],
+          ['Source-reported label', feature.source_reported_name],
+          ['Source taxon identifier', feature.source_taxon_id],
+          ['Literal source unit', feature.source_unit],
+          ['Contributing observations', feature.observation_denominator],
+          ['Chronology', featureTimeLabel(feature)],
+        ].filter(([, value]) => valueIsAvailable(value));
+        const rows = values.map(([label, value]) => `<div class="popup-row"><span class="popup-row-label">${escapeHtml(label)}</span><span class="popup-row-value">${escapeHtml(value)}</span></div>`).join('');
+        return `<div class="popup-section"><span class="popup-section-title">Source-native chronology context</span>${rows}<div class="popup-row"><span class="popup-row-label">Interpretation posture</span><span class="popup-row-value">Chronology context only; propagation use refused.</span></div></div>`;
+      }
       function popupHtml(feature) {
         const rows = Array.isArray(feature.popup_rows) ? feature.popup_rows : [];
         const scientificRows = scientificSignalsForFeature(feature);
+        const sourceChronologyHtml = typeof sourceChronologyPopupHtml === 'function'
+          ? sourceChronologyPopupHtml(feature)
+          : '';
         const scientificHtml = scientificRows.length
           ? `<div class="popup-section"><span class="popup-section-title">Accepted scientific signals</span>${scientificRows.map((signal) => `<div class="popup-row"><span class="popup-row-label">${escapeHtml(signal.resolution)}</span><span class="popup-row-value"><span class="scientific-cue" data-cue="${escapeHtml(signal.non_color_cue)}" style="color:${escapeHtml(signal.color)}">${escapeHtml(scientificCueGlyph(signal.non_color_cue))}</span> ${escapeHtml(signal.label)} · ${escapeHtml(signal.feature_key)}</span></div>`).join('')}</div>`
           : '';
         if (feature.species_latin_name) {
-          const warningRows = rows.filter((row) => row && row.label === 'Warning' && row.value);
-          const detailRows = rows.filter((row) => row && row.value && row.label !== 'Warning');
+          const warningRows = availablePopupRows(rows).filter((row) => row.label === 'Warning');
+          const detailRows = availablePopupRows(rows).filter((row) => row.label !== 'Warning');
           const primaryRows = [
             { label: 'Paper', value: feature.paper_title || '' },
             { label: 'DOI', value: feature.paper_doi || '' },
@@ -3178,28 +4026,36 @@
             { label: 'Coordinate basis', value: formatCoordinateBasis(feature.coordinate_basis || '') },
             { label: 'Coordinate confidence', value: formatCoordinateConfidence(feature.coordinate_confidence || '') },
             { label: 'Source locator', value: feature.source_locator || '' },
-          ].filter((row) => row.value);
+          ].filter((row) => valueIsAvailable(row.value));
           const secondaryRows = [
             { label: 'Chronology', value: feature.time_label || '' },
             { label: 'Mapped sample identifiers', value: Array.isArray(feature.sample_record_ids) ? feature.sample_record_ids.join(', ') : '' },
             { label: 'Original place text', value: feature.original_place_text || '' },
             { label: 'Resolved place text', value: feature.resolved_place_text || '' },
             { label: 'Source support', value: feature.source_support_status || '' },
-            { label: 'Interpretation', value: detailRows.find((row) => row.label === 'Interpretation')?.value || '' },
+            { label: 'Interpretation', value: detailRows.find((row) => row.label === 'Interpretation')?.value ?? '' },
             { label: 'Source evidence text', value: feature.exact_source_text || '' },
-          ].filter((row) => row.value);
+          ].filter((row) => valueIsAvailable(row.value));
           const renderRows = (items) => items.map((row) => `<div class="popup-row"><span class="popup-row-label">${escapeHtml(row.label)}</span><span class="popup-row-value">${escapeHtml(row.value)}</span></div>`).join('');
-          return `<div class="popup-card"><div class="popup-headline"><span class="popup-kicker">Animal atlas evidence</span><div class="popup-title">${escapeHtml(feature.title || '')}</div><div class="popup-subtitle">${escapeHtml(feature.subtitle || '')}</div></div><div class="popup-badges"><span class="popup-badge">${escapeHtml(feature.species_common_name || feature.species_latin_name || 'Animal evidence')}</span><span class="popup-badge">${escapeHtml(formatAnimalScope(feature.animal_scope || ''))}</span><span class="popup-badge">${escapeHtml(formatCoordinateConfidence(feature.coordinate_confidence || ''))}</span>${feature.nordic_inclusion ? '<span class="popup-badge">Nordic lead</span>' : '<span class="popup-badge popup-badge--warning">Non-Nordic context</span>'}</div><div class="popup-section"><span class="popup-section-title">Citation and provenance</span>${renderRows(primaryRows)}</div><div class="popup-section"><span class="popup-section-title">Sample and locality detail</span>${renderRows(secondaryRows)}<div class="popup-row"><span class="popup-row-label">Coordinates</span><span class="popup-row-value">${Number(feature.latitude).toFixed(6)}, ${Number(feature.longitude).toFixed(6)}</span></div>${mediaLinksHtml(feature.media_links)}</div>${scientificHtml}${warningRows.length ? `<div class="popup-section"><span class="popup-section-title">Warnings and caveats</span><div class="popup-warning-list">${warningRows.map((row) => `<div class="popup-warning">${escapeHtml(row.value || '')}</div>`).join('')}</div></div>` : ''}${feature.source_url ? `<div class="popup-section"><span class="popup-section-title">Source link</span><div class="popup-row"><span class="popup-row-value"><a href="${escapeHtml(feature.source_url)}" target="_blank" rel="noreferrer">Open article or source record</a></span></div></div>` : ''}</div>`;
+          return `<div class="popup-card"><div class="popup-headline"><span class="popup-kicker">Animal atlas evidence</span><div class="popup-title">${escapeHtml(feature.title || '')}</div><div class="popup-subtitle">${escapeHtml(feature.subtitle || '')}</div></div><div class="popup-badges"><span class="popup-badge">${escapeHtml(feature.species_common_name || feature.species_latin_name || 'Animal evidence')}</span><span class="popup-badge">${escapeHtml(formatAnimalScope(feature.animal_scope || ''))}</span><span class="popup-badge">${escapeHtml(formatCoordinateConfidence(feature.coordinate_confidence || ''))}</span>${feature.nordic_inclusion ? '<span class="popup-badge">Nordic lead</span>' : '<span class="popup-badge popup-badge--warning">Non-Nordic context</span>'}</div><div class="popup-section"><span class="popup-section-title">Citation and provenance</span>${renderRows(primaryRows)}</div><div class="popup-section"><span class="popup-section-title">Sample and locality detail</span>${renderRows(secondaryRows)}<div class="popup-row"><span class="popup-row-label">Coordinates</span><span class="popup-row-value">${escapeHtml(coordinateLabel(feature, 6))}</span></div>${mediaLinksHtml(feature.media_links)}</div>${scientificHtml}${warningRows.length ? `<div class="popup-section"><span class="popup-section-title">Warnings and caveats</span><div class="popup-warning-list">${warningRows.map((row) => `<div class="popup-warning">${escapeHtml(row.value)}</div>`).join('')}</div></div>` : ''}${feature.source_url ? `<div class="popup-section"><span class="popup-section-title">Source link</span><div class="popup-row"><span class="popup-row-value"><a href="${escapeHtml(feature.source_url)}" target="_blank" rel="noreferrer">Open article or source record</a></span></div></div>` : ''}</div>`;
         }
-        const rowHtml = rows.filter((row) => row && row.value).map((row) => `<div><strong>${escapeHtml(row.label || '')}</strong> ${escapeHtml(row.value || '')}</div>`).join('');
-        return `<div class="popup-grid"><div><strong>Name</strong> ${escapeHtml(feature.title || '')}</div><div><strong>Type</strong> ${escapeHtml(feature.subtitle || '')}</div>${rowHtml}${scientificHtml}<div><strong>Coords</strong> ${Number(feature.latitude).toFixed(6)}, ${Number(feature.longitude).toFixed(6)}</div>${mediaLinksHtml(feature.media_links)}${feature.source_url ? `<div><strong>Source</strong> <a href="${escapeHtml(feature.source_url)}" target="_blank" rel="noreferrer">Open</a></div>` : ''}</div>`;
+        const rowHtml = availablePopupRows(rows).map((row) => `<div><strong>${escapeHtml(row.label || '')}</strong> ${escapeHtml(row.value)}</div>`).join('');
+        return `<div class="popup-grid"><div><strong>Name</strong> ${escapeHtml(feature.title || '')}</div><div><strong>Type</strong> ${escapeHtml(feature.subtitle || '')}</div>${rowHtml}${sourceChronologyHtml}${scientificHtml}<div><strong>Coords</strong> ${escapeHtml(coordinateLabel(feature, 6))}</div>${mediaLinksHtml(feature.media_links)}${feature.source_url ? `<div><strong>Source</strong> <a href="${escapeHtml(feature.source_url)}" target="_blank" rel="noreferrer">Open</a></div>` : ''}</div>`;
       }
       function polygonPopupHtml(layer, properties) {
         const rows = Array.isArray(properties.popup_rows) ? properties.popup_rows : [];
-        const rowHtml = rows.filter((row) => row && row.value).map((row) => `<div><strong>${escapeHtml(row.label || '')}</strong> ${escapeHtml(row.value || '')}</div>`).join('');
-        return `<div class="popup-grid"><div><strong>Layer</strong> ${escapeHtml(layer.label)}</div><div><strong>Name</strong> ${escapeHtml(properties.name || '')}</div><div><strong>Type</strong> ${escapeHtml(properties.category || properties.geometry_type || '')}</div>${rowHtml}${properties.source_url ? `<div><strong>Source</strong> <a href="${escapeHtml(properties.source_url)}" target="_blank" rel="noreferrer">Open</a></div>` : ''}</div>`;
+        const rowHtml = availablePopupRows(rows).map((row) => `<div><strong>${escapeHtml(row.label || '')}</strong> ${escapeHtml(row.value)}</div>`).join('');
+        const isPublishedModel = isModeledContextFeature(layer, properties);
+        const metric = currentModeledContextMetric();
+        const estimate = modeledContextEstimate(properties);
+        const standardError = modeledContextStandardError(properties);
+        const modeledRows = isPublishedModel && metric
+          ? `<div><strong>Selected source metric</strong> ${escapeHtml(metric.source_label)} (${escapeHtml(metric.key)})</div><div><strong>Estimate</strong> ${estimate === null ? 'Unavailable' : `${escapeHtml(estimate.toFixed(2))}%`}</div><div><strong>Source standard error</strong> ${standardError === null ? 'Unavailable' : `${escapeHtml(standardError.toFixed(2))} percentage points`}</div><div><strong>Metric definition</strong> ${escapeHtml(metric.definition || 'Unavailable in the companion source mapping table')}</div><div><strong>Evidence role</strong> Context only; not a pollen observation or propagation input</div><div><strong>Interpolation</strong> Not allowed between published windows</div><div><strong>Method</strong> <a href="${escapeHtml(MODELED_CONTEXT.method_doi)}" target="_blank" rel="noreferrer">${escapeHtml(MODELED_CONTEXT.method_citation)}</a></div><div><strong>Quality class</strong> ${escapeHtml(properties.quality_class || 'Unavailable in normalized row')}</div>`
+          : '';
+        return `<div class="popup-grid"><div><strong>Layer</strong> ${escapeHtml(layer.label)}</div><div><strong>Name</strong> ${escapeHtml(properties.name || '')}</div><div><strong>Type</strong> ${escapeHtml(properties.category || properties.geometry_type || '')}</div>${rowHtml}${modeledRows}${properties.source_url ? `<div><strong>Source</strong> <a href="${escapeHtml(properties.source_url)}" target="_blank" rel="noreferrer">Open</a></div>` : ''}</div>`;
       }
       function densityFillColor(count, maxCount) {
+        if (count === null || maxCount === null) return '#cbd5e1';
         if (!maxCount || count <= 0) return '#fee2e2';
         const ratio = count / maxCount;
         if (ratio >= 0.75) return '#7f1d1d';
@@ -3214,6 +4070,42 @@
         if (typeof value === 'string' && !value.trim()) return null;
         const numeric = Number(value);
         return Number.isFinite(numeric) && numeric >= 0 ? numeric : null;
+      }
+      function valueIsAvailable(value) {
+        return value !== null && value !== undefined && !(typeof value === 'string' && !value.trim());
+      }
+      function availablePopupRows(rows) {
+        return rows.filter((row) => row && valueIsAvailable(row.value));
+      }
+      function finiteCoordinateValue(value, minimum, maximum) {
+        if (value === null || value === undefined || typeof value === 'boolean') return null;
+        if (typeof value === 'string' && !value.trim()) return null;
+        const numeric = Number(value);
+        return Number.isFinite(numeric) && numeric >= minimum && numeric <= maximum ? numeric : null;
+      }
+      function featureCoordinatePair(feature) {
+        const latitude = finiteCoordinateValue(feature.latitude, -90, 90);
+        const longitude = finiteCoordinateValue(feature.longitude, -180, 180);
+        return latitude === null || longitude === null ? null : { latitude, longitude };
+      }
+      function coordinateLabel(feature, precision) {
+        const coordinates = featureCoordinatePair(feature);
+        return coordinates ? `${coordinates.latitude.toFixed(precision)}, ${coordinates.longitude.toFixed(precision)}` : 'Unavailable';
+      }
+      function finiteCountValue(value) {
+        if (value === null || value === undefined || typeof value === 'boolean') return null;
+        if (typeof value === 'string' && !value.trim()) return null;
+        const numeric = Number(value);
+        return Number.isSafeInteger(numeric) && numeric >= 0 ? numeric : null;
+      }
+      function countDisplayValue(count, countLabel) {
+        if (typeof countLabel === 'string' && countLabel.trim()) return countLabel.trim();
+        const numeric = finiteCountValue(count);
+        return numeric === null ? 'Unavailable' : String(numeric);
+      }
+      function mappedPointCountLabel(value) {
+        const count = finiteCountValue(value);
+        return count === null ? 'mapped count unavailable' : `${count} mapped point${count === 1 ? '' : 's'}`;
       }
       function featureTimeWindow(feature) {
         const start = finiteTimeValue(feature.time_start_bp);
@@ -3266,8 +4158,10 @@
       function pointFeatureVisible(layer, feature) {
         return (
           activeLayerKeys.has(layer.key)
+          && featureCoordinatePair(feature) !== null
           && (!layer.applies_country_filter || !feature.country || activeCountries.has(feature.country))
           && pointFeatureInTimeWindow(layer, feature)
+          && sourceChronologyFeatureMatches(layer, feature)
           && featureMatchesAnimalFilters(layer, feature)
           && featureMatchesScientificSelection(layer, feature)
         );
@@ -3277,8 +4171,32 @@
         return (
           activeLayerKeys.has(layer.key)
           && (!layer.applies_country_filter || !country || activeCountries.has(country))
+          && modeledContextFeatureVisible(layer, properties)
           && featureInTimeWindow(layer, properties)
         );
+      }
+      function geoJsonPositionIsAdmitted(value) {
+        return Boolean(
+          Array.isArray(value)
+          && value.length >= 2
+          && finiteCoordinateValue(value[0], -180, 180) !== null
+          && finiteCoordinateValue(value[1], -90, 90) !== null
+        );
+      }
+      function geoJsonRingIsAdmitted(value) {
+        if (!Array.isArray(value) || value.length < 4 || !value.every((position) => geoJsonPositionIsAdmitted(position))) return false;
+        const first = value[0];
+        const last = value[value.length - 1];
+        return Number(first[0]) === Number(last[0]) && Number(first[1]) === Number(last[1]);
+      }
+      function polygonGeometryIsAdmitted(feature) {
+        const geometry = feature && feature.geometry;
+        if (!geometry || !Array.isArray(geometry.coordinates) || !geometry.coordinates.length) return false;
+        if (geometry.type === 'Polygon') return geometry.coordinates.every((ring) => geoJsonRingIsAdmitted(ring));
+        if (geometry.type === 'MultiPolygon') {
+          return geometry.coordinates.every((polygon) => Array.isArray(polygon) && polygon.length > 0 && polygon.every((ring) => geoJsonRingIsAdmitted(ring)));
+        }
+        return false;
       }
       function removeRenderedLayers() {
         renderedPointGroups.forEach((group) => map.removeLayer(group));
@@ -3311,9 +4229,12 @@
           const clusterGroup = createClusterGroup(layer);
           layer.features.forEach((feature) => {
             if (!pointFeatureVisible(layer, feature)) return;
+            const coordinates = featureCoordinatePair(feature);
+            if (!coordinates) return;
+            const latLng = [coordinates.latitude, coordinates.longitude];
             const scientificSignals = scientificSignalsForFeature(feature);
             const marker = scientificSignals.length
-              ? L.marker([feature.latitude, feature.longitude], {
+              ? L.marker(latLng, {
                   pane: 'pointPane',
                   icon: L.divIcon({
                     className: 'atlas-scientific-marker',
@@ -3321,7 +4242,7 @@
                     iconSize: [Math.max(24, scientificSignals.length * 22), 24],
                   }),
                 })
-              : L.circleMarker([feature.latitude, feature.longitude], { pane: 'pointPane', radius: layer.key === 'aadr' ? 4.5 : 6, color: layer.style.stroke, weight: 1.3, fillColor: layer.style.fill, fillOpacity: 0.92 });
+              : L.circleMarker(latLng, { pane: 'pointPane', radius: layer.key === 'aadr' ? 4.5 : 6, color: layer.style.stroke, weight: 1.3, fillColor: layer.style.fill, fillOpacity: 0.92 });
             marker.bindPopup(popupHtml(feature), { maxWidth: 360 });
             const entry = { layer, feature, marker };
             marker.on('click', () => {
@@ -3330,7 +4251,7 @@
             clusterGroup.addLayer(marker);
             visiblePointEntries.push(entry);
             if (layer.circle_enabled && diameterKm > 0) {
-              const circle = L.circle([feature.latitude, feature.longitude], { pane: 'circlePane', radius: radiusMeters, color: layer.style.circleStroke, weight: 1, opacity: 0.55, fillColor: layer.style.circleFill, fillOpacity: 0.12, interactive: false });
+              const circle = L.circle(latLng, { pane: 'circlePane', radius: radiusMeters, color: layer.style.circleStroke, weight: 1, opacity: 0.55, fillColor: layer.style.circleFill, fillOpacity: 0.12, interactive: false });
               circleLayerGroup.addLayer(circle);
             }
           });
@@ -3354,7 +4275,7 @@
           const signal = scientificSignalById(edge.signal_id);
           const color = signal ? signal.color : '#6d28d9';
           const line = L.polyline(
-            [[source.feature.latitude, source.feature.longitude], [target.feature.latitude, target.feature.longitude]],
+            [featureCoordinatePair(source.feature), featureCoordinatePair(target.feature)].map((coordinates) => [coordinates.latitude, coordinates.longitude]),
             {
               pane: 'edgePane',
               color,
@@ -3403,7 +4324,7 @@
       }
       function renderPolygonLayers() {
         POLYGON_LAYERS.forEach((layer) => {
-          const visibleFeatures = (layer.geojson.features || []).filter((feature) => polygonFeatureVisible(layer, feature.properties || {}));
+          const visibleFeatures = (layer.geojson.features || []).filter((feature) => polygonGeometryIsAdmitted(feature) && polygonFeatureVisible(layer, feature.properties || {}));
           if (!visibleFeatures.length) return;
           let geoJsonLayer;
           if (layer.kind === 'country-boundaries') {
@@ -3438,11 +4359,12 @@
             geoJsonLayer = L.geoJSON({ type: 'FeatureCollection', features: visibleFeatures }, {
               pane: 'polygonPane',
               style(feature) {
-                const count = Number(feature.properties.count || 0);
-                return { color: layer.style.stroke, weight: 1.1, fillColor: densityFillColor(count, Number(layer.max_count || 0)), fillOpacity: densityOpacity, opacity: 0.75 };
+                const count = finiteCountValue(feature.properties.count);
+                const maxCount = finiteCountValue(layer.max_count);
+                return { color: layer.style.stroke, weight: 1.1, fillColor: densityFillColor(count, maxCount), fillOpacity: densityOpacity, opacity: 0.75 };
               },
               onEachFeature(feature, featureLayer) {
-                featureLayer.bindPopup(`<div class="popup-grid"><div><strong>Layer</strong> ${escapeHtml(layer.label)}</div><div><strong>Country</strong> ${escapeHtml(feature.properties.country || '')}</div><div><strong>Records</strong> ${escapeHtml(String(feature.properties.count_label || feature.properties.count || '0'))}</div></div>`);
+                featureLayer.bindPopup(`<div class="popup-grid"><div><strong>Layer</strong> ${escapeHtml(layer.label)}</div><div><strong>Country</strong> ${escapeHtml(feature.properties.country || '')}</div><div><strong>Records</strong> ${escapeHtml(countDisplayValue(feature.properties.count, feature.properties.count_label))}</div></div>`);
                 featureLayer.on('click', () => {
                   const bounds = featureLayer.getBounds();
                   setFocusState({
@@ -3453,7 +4375,7 @@
                     meta: [
                       { label: 'Layer', value: layer.label },
                       { label: 'Country', value: feature.properties.country || 'Unassigned' },
-                      { label: 'Records', value: String(feature.properties.count_label || feature.properties.count || '0') },
+                      { label: 'Records', value: countDisplayValue(feature.properties.count, feature.properties.count_label) },
                     ],
                     sourceUrl: '',
                     bounds: bounds.isValid() ? [[bounds.getSouth(), bounds.getWest()], [bounds.getNorth(), bounds.getEast()]] : null,
@@ -3464,7 +4386,11 @@
           } else {
             geoJsonLayer = L.geoJSON({ type: 'FeatureCollection', features: visibleFeatures }, {
               pane: 'polygonPane',
-              style() {
+              style(feature) {
+                const properties = feature && feature.properties ? feature.properties : {};
+                if (modeledContextActive && isModeledContextFeature(layer, properties)) {
+                  return { color: '#334155', weight: 0.9, fillColor: modeledContextFillColor(modeledContextEstimate(properties)), fillOpacity: 0.72, opacity: 0.88 };
+                }
                 return { color: layer.style.stroke, weight: 1.1, fillColor: layer.style.fill || 'rgba(100, 116, 139, 0.14)', fillOpacity: 0.28, opacity: 0.85 };
               },
               onEachFeature(feature, featureLayer) {
@@ -3494,7 +4420,10 @@
         });
       }
       function activeBounds() {
-        const latLngs = visiblePointEntries.map((entry) => [entry.feature.latitude, entry.feature.longitude]);
+        const latLngs = visiblePointEntries
+          .map((entry) => featureCoordinatePair(entry.feature))
+          .filter((coordinates) => coordinates !== null)
+          .map((coordinates) => [coordinates.latitude, coordinates.longitude]);
         renderedPolygonLayers.forEach((layer) => {
           const bounds = layer.getBounds();
           if (bounds.isValid()) {
@@ -3544,8 +4473,10 @@
           button.addEventListener('click', () => {
             const match = matches[index];
             if (!match) return;
+            const coordinates = featureCoordinatePair(match.feature);
+            if (!coordinates) return;
             focusPointAtVisibleIndex(visiblePointEntries.indexOf(match));
-            map.flyTo([match.feature.latitude, match.feature.longitude], Math.max(map.getZoom(), 8), { duration: 0.7 });
+            map.flyTo([coordinates.latitude, coordinates.longitude], Math.max(map.getZoom(), 8), { duration: 0.7 });
             window.setTimeout(() => match.marker.openPopup(), 250);
             searchResults.hidden = true;
           });
@@ -3562,8 +4493,13 @@
           const started = performance.now();
           renderLoadedMapState();
           const duration = performance.now() - started;
-          const loaded = ALL_LAYERS.reduce((total, layer) => total + Number(layer.static_loaded_feature_count || 0), 0);
-          const admitted = ALL_LAYERS.reduce((total, layer) => total + Number(layer.static_feature_count || 0), 0);
+          const loaded = STATIC_ATLAS_INLINE
+            ? POINT_LAYERS.reduce((total, layer) => total + (Array.isArray(layer.features) ? layer.features.length : 0), 0)
+              + POLYGON_LAYERS.reduce((total, layer) => total + (Array.isArray(layer.geojson?.features) ? layer.geojson.features.length : 0), 0)
+            : ALL_LAYERS.reduce((total, layer) => total + staticAtlasNonnegativeInteger(layer.static_loaded_feature_count, `${layer.key} loaded feature count`), 0);
+          const admitted = STATIC_ATLAS_INLINE
+            ? loaded
+            : ALL_LAYERS.reduce((total, layer) => total + staticAtlasNonnegativeInteger(layer.static_feature_count, `${layer.key} admitted feature count`), 0);
           selectionReadout.dataset.staticLoad = `${loaded}/${admitted}`;
           if (duration > Number(STATIC_ATLAS_BOOTSTRAP.budgets.filter_main_thread_max_ms)) {
             topbarStatePill.textContent = `${loaded} of ${admitted} admitted records loaded · filter render ${Math.round(duration)} ms`;
@@ -3589,6 +4525,8 @@
         renderScientificControls();
         renderRelationControls();
         renderAnimalControls();
+        renderSourceChronologyControls();
+        renderModeledContextControls();
         renderLegend();
         renderControlPanelSummary();
         updateStats();
@@ -3664,6 +4602,8 @@
       }
       function resetView() { map.fitBounds(INITIAL_BOUNDS, { padding: [36, 36] }); }
       async function restoreDefaults() {
+        stopTimePlayback();
+        deactivateModeledContext();
         activeCountries = new Set(DEFAULT_COUNTRIES);
         activeLayerKeys = new Set(DEFAULT_LAYER_KEYS);
         activeScientificSignalIds = new Set(DEFAULT_SCIENTIFIC_SIGNAL_IDS);
@@ -3676,6 +4616,11 @@
         activeAnimalTemporalWindow = 'all';
         animalNordicOnly = false;
         animalNordicOnlyCheckbox.checked = false;
+        activeSourceChronologyLevel = defaultSourceChronologyLevel;
+        activeSourceChronologyCode = 'all';
+        activeSourceChronologyTaxon = 'all';
+        sourceChronologyTaxonSearch = '';
+        sourceChronologyTaxonQuery.value = '';
         slider.value = 40;
         timeStartBp = DEFAULT_TIME_START_BP;
         timeIntervalYears = DEFAULT_TIME_INTERVAL_YEARS;
@@ -3742,8 +4687,70 @@
       mobilePanelCloseButton.addEventListener('click', () => setPanelCollapsed(true));
       mobileScrim.addEventListener('click', () => setPanelCollapsed(true));
       slider.addEventListener('input', renderMapState);
-      timeStartSlider.addEventListener('input', () => { timeStartBp = Number(timeStartSlider.value); renderMapState(); });
-      timeIntervalSlider.addEventListener('input', () => { timeIntervalYears = Number(timeIntervalSlider.value); renderMapState(); });
+      timeStartSlider.addEventListener('input', () => { stopTimePlayback(); deactivateModeledContext(); timeStartBp = clampTimeStart(timeStartSlider.value, timeIntervalYears); renderMapState(); });
+      timeIntervalSlider.addEventListener('input', () => { stopTimePlayback(); deactivateModeledContext(); timeIntervalYears = clampTimeInterval(timeIntervalSlider.value); renderMapState(); });
+      timePlaybackToggle.addEventListener('click', () => {
+        if (timePlaybackTimer === null) startTimePlayback(); else stopTimePlayback();
+      });
+      modeledContextFamily.addEventListener('change', () => {
+        const family = modeledContextFamilyByKey(modeledContextFamily.value);
+        if (!family) return;
+        modeledContextFamilyKey = family.key;
+        modeledContextMetricKey = family.default_metric_key;
+        renderMapState();
+      });
+      modeledContextMetric.addEventListener('change', () => {
+        const family = currentModeledContextFamily();
+        if (!family || !family.metrics.some((metric) => metric.key === modeledContextMetric.value)) return;
+        modeledContextMetricKey = modeledContextMetric.value;
+        renderMapState();
+      });
+      modeledContextToggle.addEventListener('click', () => {
+        if (modeledContextActive) {
+          deactivateModeledContext();
+          renderMapState();
+        } else {
+          stopTimePlayback();
+          selectModeledContextWindow(modeledContextWindowIndex);
+        }
+      });
+      modeledContextWindow.addEventListener('change', () => {
+        stopModeledContextPlayback();
+        selectModeledContextWindow(Number(modeledContextWindow.value));
+      });
+      modeledContextPlayback.addEventListener('click', () => {
+        if (modeledContextPlaybackTimer === null) startModeledContextPlayback(); else stopModeledContextPlayback();
+      });
+      modeledContextDownload.addEventListener('click', downloadModeledContextFrame);
+      sourceChronologyLevel.addEventListener('change', () => {
+        if (!selectSourceChronologyLevel(sourceChronologyLevel.value)) return;
+        renderLayerControls();
+        renderMapState();
+      });
+      sourceChronologyCode.addEventListener('change', () => {
+        const layer = sourceChronologyLayerForLevel('source_ecological_code');
+        if (!layer) return;
+        activeSourceChronologyCode = normalizedSingleValue(
+          sourceChronologyCode.value,
+          ['all', ...layer.facet_metadata.source_ecological_codes.map((row) => row.value)],
+          'all'
+        );
+        renderMapState();
+      });
+      sourceChronologyTaxonQuery.addEventListener('input', () => {
+        sourceChronologyTaxonSearch = sourceChronologyTaxonQuery.value;
+        renderSourceChronologyControls();
+      });
+      sourceChronologyTaxon.addEventListener('change', () => {
+        const layer = sourceChronologyLayerForLevel('source_taxon');
+        if (!layer) return;
+        activeSourceChronologyTaxon = normalizedSingleValue(
+          sourceChronologyTaxon.value,
+          ['all', ...layer.facet_metadata.source_taxa.map((row) => row.value)],
+          'all'
+        );
+        renderMapState();
+      });
       densityOpacitySlider.addEventListener('input', () => { densityOpacity = Number(densityOpacitySlider.value) / 100; renderMapState(); });
       animalNordicOnlyCheckbox.addEventListener('change', () => {
         animalNordicOnly = animalNordicOnlyCheckbox.checked;
@@ -3757,6 +4764,8 @@
       });
       document.querySelectorAll('[data-time-interval]').forEach((button) => {
         button.addEventListener('click', () => {
+          stopTimePlayback();
+          deactivateModeledContext();
           const preset = button.dataset.timeInterval;
           timeIntervalYears = preset === 'full' ? TIME_INTERVAL_MAX : Number(preset);
           renderMapState();

@@ -19,17 +19,18 @@
     "tracked_supplement_count": 72,
     "papers_with_archived_supplements": 18,
     "sample_row_count": 1451,
-    "site_evidence_row_count": 307,
+    "site_evidence_row_count": 309,
     "sample_site_row_count": 1451,
     "chronology_row_count": 1451,
-    "coordinate_row_count": 243,
-    "published_atlas_point_count": 233,
+    "coordinate_row_count": 244,
+    "published_atlas_point_count": 235,
+    "mapped_sample_count": 556,
     "published_country_bundle_count": 4,
-    "mapped_sample_share": 0.1606,
-    "locality_conflict_row_count": 168,
+    "mapped_sample_share": 0.3832,
+    "locality_conflict_row_count": 176,
     "locality_curation_row_count": 9,
     "locality_substitution_project_count": 10,
-    "locality_dictionary_row_count": 317
+    "locality_dictionary_row_count": 319
   },
   "locality_status_counts": {
     "direct_sample_site": 858,
@@ -40,9 +41,9 @@
     "unresolved": 126
   },
   "locality_completeness_counts": {
-    "exact_site_evidence_count": 853,
-    "broader_locality_evidence_count": 472,
-    "unresolved_geography_count": 126
+    "exact_site_evidence_count": 855,
+    "broader_locality_evidence_count": 129,
+    "unresolved_geography_count": 467
   },
   "chronology_status_counts": {
     "normalized_interval": 753,

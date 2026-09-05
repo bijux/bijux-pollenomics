@@ -2,11 +2,11 @@
   "schema_version": "animal-output-honesty.v1",
   "totals": {
     "tracked_sample_count": 1451,
-    "mapped_sample_count": 554,
-    "blocked_sample_count": 897,
+    "mapped_sample_count": 556,
+    "blocked_sample_count": 895,
     "unresolved_sample_count": 0,
-    "country_published_sample_count": 3,
-    "region_refused_count": 6
+    "country_published_sample_count": 5,
+    "region_refused_count": 5
   },
   "rows": [
     {
@@ -93,11 +93,11 @@
       "species_latin_name": "Sus scrofa domesticus",
       "species_common_name": "pig",
       "tracked_sample_count": 343,
-      "mapped_sample_count": 0,
-      "blocked_sample_count": 343,
+      "mapped_sample_count": 2,
+      "blocked_sample_count": 341,
       "unresolved_sample_count": 0,
-      "country_published_sample_count": 0,
-      "region_refused_count": 1
+      "country_published_sample_count": 2,
+      "region_refused_count": 0
     }
   ]
 }

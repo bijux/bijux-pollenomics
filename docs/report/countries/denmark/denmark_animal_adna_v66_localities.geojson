@@ -115,6 +115,230 @@
           }
         ]
       }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          9.77344984,
+          55.02158609
+        ]
+      },
+      "properties": {
+        "name": "Bunds\u00f8",
+        "country": "Denmark",
+        "feature_id": "animal-atlas-feature:sus-scrofa-domesticus-locality-prjeb30282-bunds-denmark",
+        "evidence_row_id": "animal-atlas-row:sus-scrofa-domesticus-prjeb30282-sus-scrofa-domesticus-locality-prjeb30282-bunds-denmark",
+        "site_record_id": "sus_scrofa_domesticus:locality:prjeb30282:bunds:denmark",
+        "species_latin_name": "Sus scrofa domesticus",
+        "species_common_name": "pig",
+        "animal_scope": "domesticated_core",
+        "project_accession": "PRJEB30282",
+        "project_accessions": [
+          "PRJEB30282"
+        ],
+        "support_class": "accepted",
+        "country_assignment_confidence": "exact_country",
+        "country_assignment_reason": "The tracked locality lead is already labeled `Denmark`.",
+        "coordinate_basis": "named_site_geocoding",
+        "coordinate_confidence": "approximate",
+        "sample_count": 1,
+        "sample_record_ids": [
+          "sus_scrofa_domesticus:sample:prjeb30282:samea5160867"
+        ],
+        "sample_group_ids": [
+          "PRJEB30282"
+        ],
+        "sample_namespace": "sus_scrofa_domesticus:sample_locality",
+        "source_artifact_path": "data/adna/governance/source_library/projects/PRJEB30282/archive_metadata.html || data/adna/governance/source_library/papers/10.1073-pnas.1901169116/supplementary/pnas.1901169116.sd01.xlsx",
+        "source_artifact_kind": "supplementary_spreadsheet_row",
+        "source_locator": "sample_accession:SAMEA5160867 || Sheet1!row1212",
+        "source_support_status": "supplementary_table_row",
+        "coordinate_source_artifact_path": "adna/species/sus_scrofa_domesticus/raw/site_coordinate_evidence.json",
+        "coordinate_source_locator": "Fund og Fortidsminder systemnr 86607, stednr 230102, loknr 48; WFS feature fundogfortidsminder_punkt_ikkefredet.1509047",
+        "coordinate_supplementary_source": "https://eprints.bournemouth.ac.uk/32649/13/Franz%20et%20al.%2C%202019%20-%20PNAS%20-%20Suppl%20Info.pdf",
+        "coordinate_support_gap_note": "",
+        "time_start_bp": null,
+        "time_end_bp": null,
+        "time_mean_bp": null,
+        "time_label": "4700 BP",
+        "chronology_evidence_class": "archaeological_context_date",
+        "chronology_precision_posture": "sample_approximate_or_modeled",
+        "paper_title": "Ancient pigs reveal a near-complete genomic turnover following their introduction to Europe",
+        "paper_doi": "10.1073/pnas.1901169116",
+        "source_url": "https://doi.org/10.1073/pnas.1901169116",
+        "popup_rows": [
+          {
+            "label": "Species",
+            "value": "Sus scrofa domesticus"
+          },
+          {
+            "label": "Animal scope",
+            "value": "domesticated core"
+          },
+          {
+            "label": "Project accession",
+            "value": "PRJEB30282"
+          },
+          {
+            "label": "Country assignment",
+            "value": "exact_country"
+          },
+          {
+            "label": "Assignment note",
+            "value": "The tracked locality lead is already labeled `Denmark`."
+          },
+          {
+            "label": "Chronology",
+            "value": "4700 BP"
+          },
+          {
+            "label": "Chronology class",
+            "value": "archaeological_context_date"
+          },
+          {
+            "label": "Chronology posture",
+            "value": "sample_approximate_or_modeled"
+          },
+          {
+            "label": "Coordinate basis",
+            "value": "named_site_geocoding"
+          },
+          {
+            "label": "Coordinate confidence",
+            "value": "approximate"
+          },
+          {
+            "label": "Mapped sample identifiers",
+            "value": "sus_scrofa_domesticus:sample:prjeb30282:samea5160867"
+          },
+          {
+            "label": "Site evidence locator",
+            "value": "data/adna/governance/source_library/projects/PRJEB30282/archive_metadata.html || data/adna/governance/source_library/papers/10.1073-pnas.1901169116/supplementary/pnas.1901169116.sd01.xlsx#sample_accession:SAMEA5160867 || Sheet1!row1212"
+          },
+          {
+            "label": "Coordinate evidence locator",
+            "value": "adna/species/sus_scrofa_domesticus/raw/site_coordinate_evidence.json#Fund og Fortidsminder systemnr 86607, stednr 230102, loknr 48; WFS feature fundogfortidsminder_punkt_ikkefredet.1509047"
+          },
+          {
+            "label": "Interpretation",
+            "value": "Sample-level locality comes directly from the recovered sample source row."
+          }
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.26527778,
+          55.39416667
+        ]
+      },
+      "properties": {
+        "name": "Trelleborg",
+        "country": "Denmark",
+        "feature_id": "animal-atlas-feature:sus-scrofa-domesticus-locality-prjeb30282-trelleborg-denmark",
+        "evidence_row_id": "animal-atlas-row:sus-scrofa-domesticus-prjeb30282-sus-scrofa-domesticus-locality-prjeb30282-trelleborg-denmark",
+        "site_record_id": "sus_scrofa_domesticus:locality:prjeb30282:trelleborg:denmark",
+        "species_latin_name": "Sus scrofa domesticus",
+        "species_common_name": "pig",
+        "animal_scope": "domesticated_core",
+        "project_accession": "PRJEB30282",
+        "project_accessions": [
+          "PRJEB30282"
+        ],
+        "support_class": "accepted",
+        "country_assignment_confidence": "exact_country",
+        "country_assignment_reason": "The tracked locality lead is already labeled `Denmark`.",
+        "coordinate_basis": "named_site_geocoding",
+        "coordinate_confidence": "approximate",
+        "sample_count": 1,
+        "sample_record_ids": [
+          "sus_scrofa_domesticus:sample:prjeb30282:samea5160868"
+        ],
+        "sample_group_ids": [
+          "PRJEB30282"
+        ],
+        "sample_namespace": "sus_scrofa_domesticus:sample_locality",
+        "source_artifact_path": "data/adna/governance/source_library/projects/PRJEB30282/archive_metadata.html || data/adna/governance/source_library/papers/10.1073-pnas.1901169116/supplementary/pnas.1901169116.sd01.xlsx",
+        "source_artifact_kind": "supplementary_spreadsheet_row",
+        "source_locator": "sample_accession:SAMEA5160868 || Sheet1!row1215",
+        "source_support_status": "supplementary_table_row",
+        "coordinate_source_artifact_path": "adna/species/sus_scrofa_domesticus/raw/site_coordinate_evidence.json",
+        "coordinate_source_locator": "Management Plan page 22, component part 4 Trelleborg, central point N55\u00b023\u203239\u2033 E11\u00b015\u203255\u2033",
+        "coordinate_supplementary_source": "https://eprints.bournemouth.ac.uk/32649/13/Franz%20et%20al.%2C%202019%20-%20PNAS%20-%20Suppl%20Info.pdf",
+        "coordinate_support_gap_note": "",
+        "time_start_bp": null,
+        "time_end_bp": null,
+        "time_mean_bp": null,
+        "time_label": "1000 BP",
+        "chronology_evidence_class": "archaeological_context_date",
+        "chronology_precision_posture": "sample_approximate_or_modeled",
+        "paper_title": "Ancient pigs reveal a near-complete genomic turnover following their introduction to Europe",
+        "paper_doi": "10.1073/pnas.1901169116",
+        "source_url": "https://doi.org/10.1073/pnas.1901169116",
+        "popup_rows": [
+          {
+            "label": "Species",
+            "value": "Sus scrofa domesticus"
+          },
+          {
+            "label": "Animal scope",
+            "value": "domesticated core"
+          },
+          {
+            "label": "Project accession",
+            "value": "PRJEB30282"
+          },
+          {
+            "label": "Country assignment",
+            "value": "exact_country"
+          },
+          {
+            "label": "Assignment note",
+            "value": "The tracked locality lead is already labeled `Denmark`."
+          },
+          {
+            "label": "Chronology",
+            "value": "1000 BP"
+          },
+          {
+            "label": "Chronology class",
+            "value": "archaeological_context_date"
+          },
+          {
+            "label": "Chronology posture",
+            "value": "sample_approximate_or_modeled"
+          },
+          {
+            "label": "Coordinate basis",
+            "value": "named_site_geocoding"
+          },
+          {
+            "label": "Coordinate confidence",
+            "value": "approximate"
+          },
+          {
+            "label": "Mapped sample identifiers",
+            "value": "sus_scrofa_domesticus:sample:prjeb30282:samea5160868"
+          },
+          {
+            "label": "Site evidence locator",
+            "value": "data/adna/governance/source_library/projects/PRJEB30282/archive_metadata.html || data/adna/governance/source_library/papers/10.1073-pnas.1901169116/supplementary/pnas.1901169116.sd01.xlsx#sample_accession:SAMEA5160868 || Sheet1!row1215"
+          },
+          {
+            "label": "Coordinate evidence locator",
+            "value": "adna/species/sus_scrofa_domesticus/raw/site_coordinate_evidence.json#Management Plan page 22, component part 4 Trelleborg, central point N55\u00b023\u203239\u2033 E11\u00b015\u203255\u2033"
+          },
+          {
+            "label": "Interpretation",
+            "value": "Sample-level locality comes directly from the recovered sample source row."
+          }
+        ]
+      }
     }
   ]
 }

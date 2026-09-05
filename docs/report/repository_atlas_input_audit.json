@@ -132,7 +132,7 @@
       ],
       "refresh_anchor": "docs/report/animal_sample_database_review.json",
       "metrics": {
-        "published_point_count": 233,
+        "published_point_count": 235,
         "unresolved_row_count": 0
       },
       "note": "Animal aDNA is still a partial recovery program whose public map surface depends on sample-owned support reviews and release gates."

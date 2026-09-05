@@ -3,10 +3,11 @@
   "title": "Europe-plus Evidence Surface",
   "scope_key": "europe_plus",
   "scope_label": "Europe-plus",
-  "row_count": 1233,
+  "row_count": 1235,
   "layer_counts": {
     "aadr": 1231,
-    "animal-equus-caballus": 2
+    "animal-equus-caballus": 2,
+    "animal-sus-scrofa-domesticus": 2
   },
   "rows": [
     {
@@ -20969,6 +20970,40 @@
       "species_latin_name": "Equus caballus",
       "animal_scope": "domesticated_core",
       "coordinate_confidence": "exact"
+    },
+    {
+      "scope_key": "europe_plus",
+      "scope_label": "Europe-plus",
+      "layer_key": "animal-sus-scrofa-domesticus",
+      "layer_label": "Pig aDNA site evidence",
+      "group": "animal-domesticated-evidence",
+      "source_name": "Tracked animal aDNA localities",
+      "source_artifact": "europe-plus_animal_point_traceability.json",
+      "source_reference": "",
+      "record_id": "animal-atlas-row:sus-scrofa-domesticus-prjeb30282-sus-scrofa-domesticus-locality-prjeb30282-bunds-denmark",
+      "title": "Bunds\u00f8",
+      "country": "Denmark",
+      "source_url": "https://doi.org/10.1073/pnas.1901169116",
+      "species_latin_name": "Sus scrofa domesticus",
+      "animal_scope": "domesticated_core",
+      "coordinate_confidence": "approximate"
+    },
+    {
+      "scope_key": "europe_plus",
+      "scope_label": "Europe-plus",
+      "layer_key": "animal-sus-scrofa-domesticus",
+      "layer_label": "Pig aDNA site evidence",
+      "group": "animal-domesticated-evidence",
+      "source_name": "Tracked animal aDNA localities",
+      "source_artifact": "europe-plus_animal_point_traceability.json",
+      "source_reference": "",
+      "record_id": "animal-atlas-row:sus-scrofa-domesticus-prjeb30282-sus-scrofa-domesticus-locality-prjeb30282-trelleborg-denmark",
+      "title": "Trelleborg",
+      "country": "Denmark",
+      "source_url": "https://doi.org/10.1073/pnas.1901169116",
+      "species_latin_name": "Sus scrofa domesticus",
+      "animal_scope": "domesticated_core",
+      "coordinate_confidence": "approximate"
     }
   ]
 }

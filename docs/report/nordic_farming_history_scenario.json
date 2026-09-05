@@ -6,7 +6,6 @@
   ],
   "weak_support_statements": [],
   "non_support_statements": [
-    "The shipped Nordic country outputs still do not support a country-localized claim for `Sus scrofa domesticus`.",
     "The shipped Nordic country outputs still do not support a country-localized claim for `Bos taurus`.",
     "The shipped Nordic country outputs still do not support a country-localized claim for `Capra hircus`.",
     "The shipped Nordic country outputs still do not support a country-localized claim for `Canis lupus familiaris`.",
@@ -15,9 +14,9 @@
     "The shipped Nordic country outputs still do not support a country-localized claim for `Equus asinus`."
   ],
   "evidence_anchors": {
-    "country_species_coverage_rows": 2,
-    "animal_human_overlap_rows": 2,
-    "animal_pollen_overlap_rows": 2,
+    "country_species_coverage_rows": 3,
+    "animal_human_overlap_rows": 3,
+    "animal_pollen_overlap_rows": 3,
     "first_appearance_rows": 2
   }
 }

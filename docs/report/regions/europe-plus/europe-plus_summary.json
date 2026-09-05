@@ -72,59 +72,63 @@
       },
       {
         "label": "Static atlas data chunk",
-        "filename": "europe-plus.atlas-provenance.0000.8efd074eb2e48603.js"
+        "filename": "europe-plus.atlas-provenance.0000.733bef5c3e718cc8.js"
       },
       {
         "label": "Static atlas data chunk",
-        "filename": "europe-plus.atlas-nodes.0001.06214db0e8df1533.js"
+        "filename": "europe-plus.atlas-nodes.0001.500db74efe6c1704.js"
       },
       {
         "label": "Static atlas data chunk",
-        "filename": "europe-plus.atlas-nodes.0002.4f59ad540632ed53.js"
+        "filename": "europe-plus.atlas-nodes.0002.74f61fd545ca4263.js"
       },
       {
         "label": "Static atlas data chunk",
-        "filename": "europe-plus.atlas-nodes.0003.5e6f8aaeb283de91.js"
+        "filename": "europe-plus.atlas-nodes.0003.d84d679adce10156.js"
       },
       {
         "label": "Static atlas data chunk",
-        "filename": "europe-plus.atlas-nodes.0004.c4a520e87962bbee.js"
+        "filename": "europe-plus.atlas-nodes.0004.34ed1a1c91a74890.js"
       },
       {
         "label": "Static atlas data chunk",
-        "filename": "europe-plus.atlas-nodes.0005.0b2308c2a95bc004.js"
+        "filename": "europe-plus.atlas-nodes.0005.0ea6a6ded5a68389.js"
       },
       {
         "label": "Static atlas data chunk",
-        "filename": "europe-plus.atlas-nodes.0006.312eccf9ffb7b0bd.js"
+        "filename": "europe-plus.atlas-nodes.0006.7f2e5a64e8facb77.js"
       },
       {
         "label": "Static atlas data chunk",
-        "filename": "europe-plus.atlas-nodes.0007.dfa521bd20bc8b26.js"
+        "filename": "europe-plus.atlas-nodes.0007.aaf7a4bb739e4655.js"
       },
       {
         "label": "Static atlas data chunk",
-        "filename": "europe-plus.atlas-nodes.0008.ebe0d900b5b70555.js"
+        "filename": "europe-plus.atlas-nodes.0008.8b37aee1300072ed.js"
       },
       {
         "label": "Static atlas data chunk",
-        "filename": "europe-plus.atlas-nodes.0009.b18b4be59d2c035d.js"
+        "filename": "europe-plus.atlas-nodes.0009.1bd5fa489eb6ea94.js"
       },
       {
         "label": "Static atlas data chunk",
-        "filename": "europe-plus.atlas-nodes.0010.bf8daa8180debd32.js"
+        "filename": "europe-plus.atlas-nodes.0010.d708ddc6a9cde288.js"
       },
       {
         "label": "Static atlas data chunk",
-        "filename": "europe-plus.atlas-edges.0011.b33f098c2658a940.js"
+        "filename": "europe-plus.atlas-nodes.0011.b85f24c84aec4c4d.js"
       },
       {
         "label": "Static atlas data chunk",
-        "filename": "europe-plus.atlas-sequences.0012.47104628407dd47d.js"
+        "filename": "europe-plus.atlas-edges.0012.fe3b1fe1fcb5e905.js"
       },
       {
         "label": "Static atlas data chunk",
-        "filename": "europe-plus.atlas-indexes.0013.e7b09809e78619c6.js"
+        "filename": "europe-plus.atlas-sequences.0013.6f447108e0e946e4.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "europe-plus.atlas-indexes.0014.10629763b7697a26.js"
       },
       {
         "label": "Candidate site ranking CSV",
@@ -227,7 +231,7 @@
       "point_traceability_json": "europe-plus_point_traceability.json"
     },
     "role_counts": {
-      "shared_world_scale_layer": 2,
+      "shared_world_scale_layer": 3,
       "region_filtered_layer": 1,
       "scope_specific_overlay": 0
     },
@@ -259,6 +263,19 @@
         "scope_caveat": "Shared evidence layer across every governed scope."
       },
       {
+        "key": "animal-sus-scrofa-domesticus",
+        "label": "Pig aDNA site evidence",
+        "source_name": "Tracked animal aDNA localities",
+        "coverage_label": "Mapped animal features staged from traceable evidence rows built from species-owned sample, site, coordinate, and citation surfaces.",
+        "count": 2,
+        "publication_role": "shared_world_scale_layer",
+        "scope_visibility": "shared_default",
+        "default_enabled": true,
+        "applies_country_filter": true,
+        "applies_time_filter": false,
+        "scope_caveat": "Shared evidence layer across every governed scope."
+      },
+      {
         "key": "country-boundaries",
         "label": "Country boundaries",
         "source_name": "Natural Earth country boundaries",
@@ -273,7 +290,7 @@
       }
     ],
     "static_assets": {
-      "schema_version": "atlas-static-bootstrap.v1",
+      "schema_version": "atlas-static-bootstrap.v2",
       "manifest": "europe-plus_map_assets.json",
       "budgets": {
         "bootstrap_max_bytes": 65536,
@@ -290,7 +307,7 @@
       "domains": {
         "nodes": {
           "status": "available",
-          "record_count": 1237
+          "record_count": 1239
         },
         "edges": {
           "status": "unavailable",
@@ -304,7 +321,7 @@
         },
         "provenance": {
           "status": "layer_metadata_only",
-          "record_count": 3,
+          "record_count": 4,
           "reason_code": "record_level_provenance_model_not_available"
         },
         "details": {
@@ -319,7 +336,7 @@
         },
         "indexes": {
           "status": "available",
-          "record_count": 1233
+          "record_count": 1235
         }
       }
     },
@@ -375,12 +392,12 @@
     }
   },
   "animal_atlas": {
-    "total_locality_points": 2,
+    "total_locality_points": 4,
     "direct_coordinate_feature_count": 2,
-    "named_site_geocoded_feature_count": 0,
+    "named_site_geocoded_feature_count": 2,
     "weaker_geography_feature_count": 0,
-    "total_species": 1,
-    "domesticated_species_count": 1,
+    "total_species": 2,
+    "domesticated_species_count": 2,
     "comparator_species_count": 0,
     "layer_groups": [
       "Domesticated-core animal evidence",
@@ -400,10 +417,12 @@
     ],
     "temporal_windows": [
       "Late Holocene (1001-3000 BP)",
-      "Mid-Holocene (3001-6000 BP)"
+      "Mid-Holocene (3001-6000 BP)",
+      "Unresolved time window"
     ],
     "coordinate_confidence_counts": {
-      "exact": 2
+      "exact": 2,
+      "approximate": 2
     },
     "visible_caveats": [
       "Approximate or inferred coordinates remain visible with explicit warnings.",
@@ -415,6 +434,12 @@
       {
         "latin_name": "Equus caballus",
         "common_name": "horse",
+        "animal_scope": "domesticated_core",
+        "locality_count": 2
+      },
+      {
+        "latin_name": "Sus scrofa domesticus",
+        "common_name": "pig",
         "animal_scope": "domesticated_core",
         "locality_count": 2
       }

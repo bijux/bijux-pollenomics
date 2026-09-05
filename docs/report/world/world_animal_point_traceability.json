@@ -4981,6 +4981,52 @@
       "source_locator": "SI Table 1!row98",
       "paper_doi": "10.1038/s41586-021-04018-9",
       "supplementary_sources": []
+    },
+    {
+      "feature_id": "animal-atlas-feature:sus-scrofa-domesticus-locality-prjeb30282-bunds-denmark",
+      "evidence_row_id": "animal-atlas-row:sus-scrofa-domesticus-prjeb30282-sus-scrofa-domesticus-locality-prjeb30282-bunds-denmark",
+      "site_record_id": "sus_scrofa_domesticus:locality:prjeb30282:bunds:denmark",
+      "species_latin_name": "Sus scrofa domesticus",
+      "primary_project_accession": "PRJEB30282",
+      "sample_record_ids": [
+        "sus_scrofa_domesticus:sample:prjeb30282:samea5160867"
+      ],
+      "sample_group_ids": [
+        "PRJEB30282"
+      ],
+      "sample_count": 1,
+      "coordinate_basis": "named_site_geocoding",
+      "coordinate_confidence": "approximate",
+      "source_artifact_path": "data/adna/governance/source_library/projects/PRJEB30282/archive_metadata.html || data/adna/governance/source_library/papers/10.1073-pnas.1901169116/supplementary/pnas.1901169116.sd01.xlsx",
+      "source_locator": "sample_accession:SAMEA5160867 || Sheet1!row1212",
+      "paper_doi": "10.1073/pnas.1901169116",
+      "supplementary_sources": [
+        "https://eprints.bournemouth.ac.uk/32649/13/Franz%20et%20al.%2C%202019%20-%20PNAS%20-%20Suppl%20Info.pdf",
+        "https://www.kulturarv.dk/ffpublic/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=fundogfortidsminder:fundogfortidsminder_punkt_ikkefredet&outputFormat=application/json&srsName=EPSG:4326&CQL_FILTER=systemnr%3D86607"
+      ]
+    },
+    {
+      "feature_id": "animal-atlas-feature:sus-scrofa-domesticus-locality-prjeb30282-trelleborg-denmark",
+      "evidence_row_id": "animal-atlas-row:sus-scrofa-domesticus-prjeb30282-sus-scrofa-domesticus-locality-prjeb30282-trelleborg-denmark",
+      "site_record_id": "sus_scrofa_domesticus:locality:prjeb30282:trelleborg:denmark",
+      "species_latin_name": "Sus scrofa domesticus",
+      "primary_project_accession": "PRJEB30282",
+      "sample_record_ids": [
+        "sus_scrofa_domesticus:sample:prjeb30282:samea5160868"
+      ],
+      "sample_group_ids": [
+        "PRJEB30282"
+      ],
+      "sample_count": 1,
+      "coordinate_basis": "named_site_geocoding",
+      "coordinate_confidence": "approximate",
+      "source_artifact_path": "data/adna/governance/source_library/projects/PRJEB30282/archive_metadata.html || data/adna/governance/source_library/papers/10.1073-pnas.1901169116/supplementary/pnas.1901169116.sd01.xlsx",
+      "source_locator": "sample_accession:SAMEA5160868 || Sheet1!row1215",
+      "paper_doi": "10.1073/pnas.1901169116",
+      "supplementary_sources": [
+        "https://en.natmus.dk/fileadmin/user_upload/Editor/ManagementPlan_Web_lille.pdf",
+        "https://eprints.bournemouth.ac.uk/32649/13/Franz%20et%20al.%2C%202019%20-%20PNAS%20-%20Suppl%20Info.pdf"
+      ]
     }
   ]
 }

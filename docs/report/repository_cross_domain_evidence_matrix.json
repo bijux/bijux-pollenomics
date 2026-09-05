@@ -107,7 +107,7 @@
       ],
       "tracked_metrics": {
         "tracked_paper_count": 18,
-        "published_atlas_point_count": 233,
+        "published_atlas_point_count": 235,
         "unresolved_map_rows": 0
       },
       "docs_paths": [
@@ -132,7 +132,7 @@
       ],
       "tracked_metrics": {
         "country_bundle_count": 4,
-        "animal_point_count": 233
+        "animal_point_count": 235
       },
       "docs_paths": [
         "docs/public/pollenomics-data/publications/reports.md",

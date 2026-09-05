@@ -51103,6 +51103,456 @@
         "time_year_bp": 1317,
         "time_label": "1217-1417 BP"
       }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          9.77344984,
+          55.02158609
+        ]
+      },
+      "properties": {
+        "name": "Bunds\u00f8",
+        "feature_id": "animal-atlas-feature:sus-scrofa-domesticus-locality-prjeb30282-bunds-denmark",
+        "evidence_row_id": "animal-atlas-row:sus-scrofa-domesticus-prjeb30282-sus-scrofa-domesticus-locality-prjeb30282-bunds-denmark",
+        "site_record_id": "sus_scrofa_domesticus:locality:prjeb30282:bunds:denmark",
+        "category": "Pig atlas evidence row",
+        "country": "Denmark",
+        "layer_key": "animal-localities",
+        "layer_label": "Animal aDNA atlas evidence",
+        "source_url": "https://doi.org/10.1073/pnas.1901169116",
+        "popup_rows": [
+          {
+            "label": "Species",
+            "value": "Sus scrofa domesticus"
+          },
+          {
+            "label": "Support class",
+            "value": "accepted"
+          },
+          {
+            "label": "Animal scope",
+            "value": "domesticated core"
+          },
+          {
+            "label": "Mapped sample count",
+            "value": "1"
+          },
+          {
+            "label": "Mapped sample identifiers",
+            "value": "sus_scrofa_domesticus:sample:prjeb30282:samea5160867"
+          },
+          {
+            "label": "Project accession",
+            "value": "PRJEB30282"
+          },
+          {
+            "label": "Paper title",
+            "value": "Ancient pigs reveal a near-complete genomic turnover following their introduction to Europe"
+          },
+          {
+            "label": "Paper DOI",
+            "value": "10.1073/pnas.1901169116"
+          },
+          {
+            "label": "Publication year",
+            "value": "2019"
+          },
+          {
+            "label": "Journal",
+            "value": "Proceedings of the National Academy of Sciences"
+          },
+          {
+            "label": "Chronology",
+            "value": "4700 BP"
+          },
+          {
+            "label": "Temporal window",
+            "value": "Unresolved time window"
+          },
+          {
+            "label": "Temporal comparison posture",
+            "value": "numeric interval with caveat"
+          },
+          {
+            "label": "Temporal comparison note",
+            "value": "This chronology carries numeric values, but its evidence class or precision posture still requires caution."
+          },
+          {
+            "label": "Support note",
+            "value": "admissible_for_curated_support"
+          },
+          {
+            "label": "Coordinate basis",
+            "value": "named_site_geocoding"
+          },
+          {
+            "label": "Coordinate confidence",
+            "value": "approximate"
+          },
+          {
+            "label": "Coordinate method",
+            "value": "official_danish_archaeological_register_wfs_point"
+          },
+          {
+            "label": "Coordinate gazetteer",
+            "value": "https://www.kulturarv.dk/ffpublic/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=fundogfortidsminder:fundogfortidsminder_punkt_ikkefredet&outputFormat=application/json&srsName=EPSG:4326&CQL_FILTER=systemnr%3D86607"
+          },
+          {
+            "label": "Original place text",
+            "value": "Bunds\u00f8"
+          },
+          {
+            "label": "Resolved place text",
+            "value": "Bunds\u00f8"
+          },
+          {
+            "label": "Supplementary location source",
+            "value": "https://eprints.bournemouth.ac.uk/32649/13/Franz%20et%20al.%2C%202019%20-%20PNAS%20-%20Suppl%20Info.pdf, https://www.kulturarv.dk/ffpublic/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=fundogfortidsminder:fundogfortidsminder_punkt_ikkefredet&outputFormat=application/json&srsName=EPSG:4326&CQL_FILTER=systemnr%3D86607"
+          },
+          {
+            "label": "Coordinate rationale",
+            "value": "The primary supplement places AA015 at the Bunds\u00f8 settlement on the Flintholm peninsula. The official Danish archaeological register identifies the matching southern Bunds\u00f8 settlement as 230102-48 and publishes this site point. It is a site-level anchor, not an excavated specimen coordinate."
+          },
+          {
+            "label": "Source locator",
+            "value": "sample_accession:SAMEA5160867 || Sheet1!row1212"
+          },
+          {
+            "label": "Source support status",
+            "value": "supplementary_table_row"
+          },
+          {
+            "label": "Source evidence text",
+            "value": "ENA archive metadata identifies sample SAMEA5160867 as Sus scrofa (tax_id 9823). || AA015 | Bunds\u00f8 | Denmark | 2800-2600 BC | 4700 BP | Domestic"
+          },
+          {
+            "label": "Nordic relevance",
+            "value": "nordic_lead"
+          },
+          {
+            "label": "Nordic note",
+            "value": "This locality falls inside the Nordic publication footprint through direct Denmark sample evidence."
+          },
+          {
+            "label": "Interpretation",
+            "value": "Sample-level locality comes directly from the recovered sample source row."
+          },
+          {
+            "label": "Warning",
+            "value": "Coordinates are approximate, not excavation-grade exact points."
+          },
+          {
+            "label": "Warning",
+            "value": "admissible_for_curated_support"
+          }
+        ],
+        "species_latin_name": "Sus scrofa domesticus",
+        "species_common_name": "pig",
+        "animal_scope": "domesticated_core",
+        "support_class": "accepted",
+        "temporal_semantics": {
+          "schema_version": "temporal-semantics.v1",
+          "source_family": "animal_adna",
+          "evidence_class": "archaeological_context_date",
+          "precision_posture": "sample_approximate_or_modeled",
+          "comparability_posture": "numeric_interval_with_caveat",
+          "summary_label": "4700 BP",
+          "temporal_window_key": "unresolved",
+          "temporal_window_label": "Unresolved time window",
+          "time_start_bp": null,
+          "time_end_bp": null,
+          "time_mean_bp": null,
+          "duration_years": null,
+          "comparison_note": "This chronology carries numeric values, but its evidence class or precision posture still requires caution.",
+          "provenance_path": "data/adna/governance/source_library/projects/PRJEB30282/archive_metadata.html || data/adna/governance/source_library/papers/10.1073-pnas.1901169116/supplementary/pnas.1901169116.sd01.xlsx",
+          "provenance_locator": "sample_accession:SAMEA5160867 || Sheet1!row1212",
+          "provenance_excerpt": "ENA archive metadata identifies sample SAMEA5160867 as Sus scrofa (tax_id 9823). || AA015 | Bunds\u00f8 | Denmark | 2800-2600 BC | 4700 BP | Domestic",
+          "original_labels": [
+            "4700 BP"
+          ],
+          "normalized_labels": [],
+          "uncertainty_notes": []
+        },
+        "temporal_window_key": "unresolved",
+        "temporal_window_label": "Unresolved time window",
+        "temporal_comparability_posture": "numeric_interval_with_caveat",
+        "temporal_comparison_note": "This chronology carries numeric values, but its evidence class or precision posture still requires caution.",
+        "nordic_inclusion": true,
+        "nordic_inclusion_reason": "This locality falls inside the Nordic publication footprint through direct Denmark sample evidence.",
+        "coordinate_basis": "named_site_geocoding",
+        "coordinate_confidence": "approximate",
+        "sample_count": 1,
+        "sample_record_ids": [
+          "sus_scrofa_domesticus:sample:prjeb30282:samea5160867"
+        ],
+        "sample_group_ids": [
+          "PRJEB30282"
+        ],
+        "sample_namespace": "sus_scrofa_domesticus:sample_locality",
+        "inclusion_notes": [
+          "Sample-level locality comes directly from the recovered sample source row."
+        ],
+        "latitude_text": "55.02158609",
+        "longitude_text": "9.77344984",
+        "geocoding_method": "official_danish_archaeological_register_wfs_point",
+        "geocoder_or_gazetteer": "https://www.kulturarv.dk/ffpublic/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=fundogfortidsminder:fundogfortidsminder_punkt_ikkefredet&outputFormat=application/json&srsName=EPSG:4326&CQL_FILTER=systemnr%3D86607",
+        "confidence_rationale": "The primary supplement places AA015 at the Bunds\u00f8 settlement on the Flintholm peninsula. The official Danish archaeological register identifies the matching southern Bunds\u00f8 settlement as 230102-48 and publishes this site point. It is a site-level anchor, not an excavated specimen coordinate.",
+        "original_place_text": "Bunds\u00f8",
+        "resolved_place_text": "Bunds\u00f8",
+        "paper_title": "Ancient pigs reveal a near-complete genomic turnover following their introduction to Europe",
+        "paper_doi": "10.1073/pnas.1901169116",
+        "journal_title": "Proceedings of the National Academy of Sciences",
+        "publication_year": "2019",
+        "supplementary_sources": [
+          "https://eprints.bournemouth.ac.uk/32649/13/Franz%20et%20al.%2C%202019%20-%20PNAS%20-%20Suppl%20Info.pdf",
+          "https://www.kulturarv.dk/ffpublic/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=fundogfortidsminder:fundogfortidsminder_punkt_ikkefredet&outputFormat=application/json&srsName=EPSG:4326&CQL_FILTER=systemnr%3D86607"
+        ],
+        "project_accessions": [
+          "PRJEB30282"
+        ],
+        "primary_project_accession": "PRJEB30282",
+        "inclusion_statuses": [
+          "site_curated"
+        ],
+        "source_artifact_path": "data/adna/governance/source_library/projects/PRJEB30282/archive_metadata.html || data/adna/governance/source_library/papers/10.1073-pnas.1901169116/supplementary/pnas.1901169116.sd01.xlsx",
+        "source_artifact_kind": "supplementary_spreadsheet_row",
+        "source_locator": "sample_accession:SAMEA5160867 || Sheet1!row1212",
+        "source_support_status": "supplementary_table_row",
+        "exact_source_text": "ENA archive metadata identifies sample SAMEA5160867 as Sus scrofa (tax_id 9823). || AA015 | Bunds\u00f8 | Denmark | 2800-2600 BC | 4700 BP | Domestic",
+        "time_start_bp": null,
+        "time_end_bp": null,
+        "time_mean_bp": null,
+        "time_year_bp": null,
+        "time_label": "4700 BP"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.26527778,
+          55.39416667
+        ]
+      },
+      "properties": {
+        "name": "Trelleborg",
+        "feature_id": "animal-atlas-feature:sus-scrofa-domesticus-locality-prjeb30282-trelleborg-denmark",
+        "evidence_row_id": "animal-atlas-row:sus-scrofa-domesticus-prjeb30282-sus-scrofa-domesticus-locality-prjeb30282-trelleborg-denmark",
+        "site_record_id": "sus_scrofa_domesticus:locality:prjeb30282:trelleborg:denmark",
+        "category": "Pig atlas evidence row",
+        "country": "Denmark",
+        "layer_key": "animal-localities",
+        "layer_label": "Animal aDNA atlas evidence",
+        "source_url": "https://doi.org/10.1073/pnas.1901169116",
+        "popup_rows": [
+          {
+            "label": "Species",
+            "value": "Sus scrofa domesticus"
+          },
+          {
+            "label": "Support class",
+            "value": "accepted"
+          },
+          {
+            "label": "Animal scope",
+            "value": "domesticated core"
+          },
+          {
+            "label": "Mapped sample count",
+            "value": "1"
+          },
+          {
+            "label": "Mapped sample identifiers",
+            "value": "sus_scrofa_domesticus:sample:prjeb30282:samea5160868"
+          },
+          {
+            "label": "Project accession",
+            "value": "PRJEB30282"
+          },
+          {
+            "label": "Paper title",
+            "value": "Ancient pigs reveal a near-complete genomic turnover following their introduction to Europe"
+          },
+          {
+            "label": "Paper DOI",
+            "value": "10.1073/pnas.1901169116"
+          },
+          {
+            "label": "Publication year",
+            "value": "2019"
+          },
+          {
+            "label": "Journal",
+            "value": "Proceedings of the National Academy of Sciences"
+          },
+          {
+            "label": "Chronology",
+            "value": "1000 BP"
+          },
+          {
+            "label": "Temporal window",
+            "value": "Unresolved time window"
+          },
+          {
+            "label": "Temporal comparison posture",
+            "value": "numeric interval with caveat"
+          },
+          {
+            "label": "Temporal comparison note",
+            "value": "This chronology carries numeric values, but its evidence class or precision posture still requires caution."
+          },
+          {
+            "label": "Support note",
+            "value": "admissible_for_curated_support"
+          },
+          {
+            "label": "Coordinate basis",
+            "value": "named_site_geocoding"
+          },
+          {
+            "label": "Coordinate confidence",
+            "value": "approximate"
+          },
+          {
+            "label": "Coordinate method",
+            "value": "official_national_museum_component_central_point"
+          },
+          {
+            "label": "Coordinate gazetteer",
+            "value": "https://en.natmus.dk/fileadmin/user_upload/Editor/ManagementPlan_Web_lille.pdf"
+          },
+          {
+            "label": "Original place text",
+            "value": "Trelleborg"
+          },
+          {
+            "label": "Resolved place text",
+            "value": "Trelleborg"
+          },
+          {
+            "label": "Supplementary location source",
+            "value": "https://en.natmus.dk/fileadmin/user_upload/Editor/ManagementPlan_Web_lille.pdf, https://eprints.bournemouth.ac.uk/32649/13/Franz%20et%20al.%2C%202019%20-%20PNAS%20-%20Suppl%20Info.pdf"
+          },
+          {
+            "label": "Coordinate rationale",
+            "value": "The primary supplement identifies AA016 as a Trelleborg domestic pig. The National Museum of Denmark management plan publishes the central point of the Trelleborg component to the nearest second. It is a site-level anchor, not an excavated specimen coordinate."
+          },
+          {
+            "label": "Source locator",
+            "value": "sample_accession:SAMEA5160868 || Sheet1!row1215"
+          },
+          {
+            "label": "Source support status",
+            "value": "supplementary_table_row"
+          },
+          {
+            "label": "Source evidence text",
+            "value": "ENA archive metadata identifies sample SAMEA5160868 as Sus scrofa (tax_id 9823). || AA016 | Trelleborg | Denmark | c. AD 1000 | 1000 BP | Domestic"
+          },
+          {
+            "label": "Nordic relevance",
+            "value": "nordic_lead"
+          },
+          {
+            "label": "Nordic note",
+            "value": "This locality falls inside the Nordic publication footprint through direct Denmark sample evidence."
+          },
+          {
+            "label": "Interpretation",
+            "value": "Sample-level locality comes directly from the recovered sample source row."
+          },
+          {
+            "label": "Warning",
+            "value": "Coordinates are approximate, not excavation-grade exact points."
+          },
+          {
+            "label": "Warning",
+            "value": "admissible_for_curated_support"
+          }
+        ],
+        "species_latin_name": "Sus scrofa domesticus",
+        "species_common_name": "pig",
+        "animal_scope": "domesticated_core",
+        "support_class": "accepted",
+        "temporal_semantics": {
+          "schema_version": "temporal-semantics.v1",
+          "source_family": "animal_adna",
+          "evidence_class": "archaeological_context_date",
+          "precision_posture": "sample_approximate_or_modeled",
+          "comparability_posture": "numeric_interval_with_caveat",
+          "summary_label": "1000 BP",
+          "temporal_window_key": "unresolved",
+          "temporal_window_label": "Unresolved time window",
+          "time_start_bp": null,
+          "time_end_bp": null,
+          "time_mean_bp": null,
+          "duration_years": null,
+          "comparison_note": "This chronology carries numeric values, but its evidence class or precision posture still requires caution.",
+          "provenance_path": "data/adna/governance/source_library/projects/PRJEB30282/archive_metadata.html || data/adna/governance/source_library/papers/10.1073-pnas.1901169116/supplementary/pnas.1901169116.sd01.xlsx",
+          "provenance_locator": "sample_accession:SAMEA5160868 || Sheet1!row1215",
+          "provenance_excerpt": "ENA archive metadata identifies sample SAMEA5160868 as Sus scrofa (tax_id 9823). || AA016 | Trelleborg | Denmark | c. AD 1000 | 1000 BP | Domestic",
+          "original_labels": [
+            "1000 BP"
+          ],
+          "normalized_labels": [],
+          "uncertainty_notes": []
+        },
+        "temporal_window_key": "unresolved",
+        "temporal_window_label": "Unresolved time window",
+        "temporal_comparability_posture": "numeric_interval_with_caveat",
+        "temporal_comparison_note": "This chronology carries numeric values, but its evidence class or precision posture still requires caution.",
+        "nordic_inclusion": true,
+        "nordic_inclusion_reason": "This locality falls inside the Nordic publication footprint through direct Denmark sample evidence.",
+        "coordinate_basis": "named_site_geocoding",
+        "coordinate_confidence": "approximate",
+        "sample_count": 1,
+        "sample_record_ids": [
+          "sus_scrofa_domesticus:sample:prjeb30282:samea5160868"
+        ],
+        "sample_group_ids": [
+          "PRJEB30282"
+        ],
+        "sample_namespace": "sus_scrofa_domesticus:sample_locality",
+        "inclusion_notes": [
+          "Sample-level locality comes directly from the recovered sample source row."
+        ],
+        "latitude_text": "55.39416667",
+        "longitude_text": "11.26527778",
+        "geocoding_method": "official_national_museum_component_central_point",
+        "geocoder_or_gazetteer": "https://en.natmus.dk/fileadmin/user_upload/Editor/ManagementPlan_Web_lille.pdf",
+        "confidence_rationale": "The primary supplement identifies AA016 as a Trelleborg domestic pig. The National Museum of Denmark management plan publishes the central point of the Trelleborg component to the nearest second. It is a site-level anchor, not an excavated specimen coordinate.",
+        "original_place_text": "Trelleborg",
+        "resolved_place_text": "Trelleborg",
+        "paper_title": "Ancient pigs reveal a near-complete genomic turnover following their introduction to Europe",
+        "paper_doi": "10.1073/pnas.1901169116",
+        "journal_title": "Proceedings of the National Academy of Sciences",
+        "publication_year": "2019",
+        "supplementary_sources": [
+          "https://en.natmus.dk/fileadmin/user_upload/Editor/ManagementPlan_Web_lille.pdf",
+          "https://eprints.bournemouth.ac.uk/32649/13/Franz%20et%20al.%2C%202019%20-%20PNAS%20-%20Suppl%20Info.pdf"
+        ],
+        "project_accessions": [
+          "PRJEB30282"
+        ],
+        "primary_project_accession": "PRJEB30282",
+        "inclusion_statuses": [
+          "site_curated"
+        ],
+        "source_artifact_path": "data/adna/governance/source_library/projects/PRJEB30282/archive_metadata.html || data/adna/governance/source_library/papers/10.1073-pnas.1901169116/supplementary/pnas.1901169116.sd01.xlsx",
+        "source_artifact_kind": "supplementary_spreadsheet_row",
+        "source_locator": "sample_accession:SAMEA5160868 || Sheet1!row1215",
+        "source_support_status": "supplementary_table_row",
+        "exact_source_text": "ENA archive metadata identifies sample SAMEA5160868 as Sus scrofa (tax_id 9823). || AA016 | Trelleborg | Denmark | c. AD 1000 | 1000 BP | Domestic",
+        "time_start_bp": null,
+        "time_end_bp": null,
+        "time_mean_bp": null,
+        "time_year_bp": null,
+        "time_label": "1000 BP"
+      }
     }
   ]
 }

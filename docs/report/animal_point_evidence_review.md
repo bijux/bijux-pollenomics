@@ -1,6 +1,6 @@
 # Animal point evidence review
 
-- Published point count: `233`
+- Published point count: `235`
 
 ## animal-atlas-feature:capra-hircus-locality-prjeb90141-acemhyk-aksarayplainturkey
 
@@ -2097,5 +2097,23 @@
 - Paper DOI: `10.1038/s41586-021-04018-9`
 - Coordinate basis: `supplementary_table_coordinates`
 - Coordinate confidence: `exact`
+- Sample rows: `1`
+
+## animal-atlas-feature:sus-scrofa-domesticus-locality-prjeb30282-bunds-denmark
+
+- Species: `Sus scrofa domesticus`
+- Project accession: `PRJEB30282`
+- Paper DOI: `10.1073/pnas.1901169116`
+- Coordinate basis: `named_site_geocoding`
+- Coordinate confidence: `approximate`
+- Sample rows: `1`
+
+## animal-atlas-feature:sus-scrofa-domesticus-locality-prjeb30282-trelleborg-denmark
+
+- Species: `Sus scrofa domesticus`
+- Project accession: `PRJEB30282`
+- Paper DOI: `10.1073/pnas.1901169116`
+- Coordinate basis: `named_site_geocoding`
+- Coordinate confidence: `approximate`
 - Sample rows: `1`
 

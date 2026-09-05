@@ -6,3 +6,4 @@
 | --- | --- | ---: | ---: | ---: | ---: | --- |
 | Sweden | Equus caballus | 0 | 0 | 0 | 0 | no_context_rows |
 | Denmark | Equus caballus | 0 | 0 | 0 | 0 | no_context_rows |
+| Denmark | Sus scrofa domesticus | 0 | 0 | 0 | 0 | no_context_rows |

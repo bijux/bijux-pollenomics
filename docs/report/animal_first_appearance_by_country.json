@@ -1,11 +1,11 @@
 {
   "schema_version": "animal-first-appearance-by-country.v1",
   "reconciliation": {
-    "input_locality_count": 2,
+    "input_locality_count": 4,
     "dated_locality_count": 2,
-    "undated_locality_count": 0,
+    "undated_locality_count": 2,
     "refusal_reason_counts": {
-      "chronology_unavailable": 0
+      "chronology_unavailable": 2
     }
   },
   "rows": [
