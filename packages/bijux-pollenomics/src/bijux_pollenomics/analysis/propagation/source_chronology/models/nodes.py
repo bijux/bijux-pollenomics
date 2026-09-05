@@ -88,12 +88,22 @@ class SourceChronologyNode:
             and self.source_ecological_group is None
         ):
             raise ValueError("source-code node requires a literal source code")
+        if self.node_level == "source_ecological_code" and any(
+            value is not None
+            for value in (self.source_taxon_id, self.source_reported_name)
+        ):
+            raise ValueError("source-code node must not claim a source taxon")
         if self.node_level == "source_taxon" and (
             not self.source_variable_ids
             or self.source_taxon_id is None
             or self.source_reported_name is None
         ):
             raise ValueError("source-taxon node requires exact source identity")
+        if (
+            self.node_level == "source_taxon"
+            and self.source_ecological_group is not None
+        ):
+            raise ValueError("source-taxon node must not claim an ecological code")
         if self.node_level != "source_taxon" and self.source_variable_ids:
             raise ValueError("non-taxon node must not claim source variables")
 

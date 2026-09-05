@@ -65,7 +65,7 @@ def _features(
                 f"source:neotoma:taxon:{taxon_id}",
                 taxon_id,
                 taxon_name,
-                code,
+                None,
             )
         )
     return tuple(features), tuple(refusals)

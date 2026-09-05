@@ -15,7 +15,6 @@ class CountrySourceNodeReconciliation:
     eligible_observation_count: int
     refused_observation_count: int
     chronology_node_count: int
-    source_taxon_identity_enrichment_count: int
     propagation_eligible_event_count: int
     node_counts_by_level: tuple[tuple[str, int], ...]
     node_observation_counts_by_level: tuple[tuple[str, int], ...]
@@ -54,7 +53,6 @@ class SourceNodeReconciliation:
     eligible_observation_count: int
     refused_observation_count: int
     chronology_node_count: int
-    source_taxon_identity_enrichment_count: int
     propagation_eligible_event_count: int
     node_counts_by_level: tuple[tuple[str, int], ...]
     country_reconciliations: tuple[CountrySourceNodeReconciliation, ...]

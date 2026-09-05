@@ -14,10 +14,7 @@ from .models import (
     SourceNodeDerivationResult,
 )
 from .reconciliation import build_reconciliation
-from .source_identity import (
-    enrich_source_identity,
-    source_taxon_identity_was_enriched,
-)
+from .source_identity import enrich_source_identity
 
 
 def derive_neotoma_source_chronology_nodes(
@@ -43,7 +40,6 @@ def derive_neotoma_source_chronology_nodes(
     variable_index, variable_conflicts = unique_index(variables, "variable_id")
     default_chronologies = source_default_chronologies(chronologies)
     refusals: list[SourceNodeAdmissionRefusal] = []
-    source_taxon_enriched_ids: set[str] = set()
     admitted: list[
         tuple[
             Mapping[str, object],
@@ -85,10 +81,6 @@ def derive_neotoma_source_chronology_nodes(
             reason = "missing_variable"
         if reason is None and variable is not None:
             enriched_observation, reason = enrich_source_identity(observation, variable)
-            if reason is None and source_taxon_identity_was_enriched(
-                observation, enriched_observation
-            ):
-                source_taxon_enriched_ids.add(observation_id)
         if reason is None and (
             optional_text(observation.get("source_snapshot_id"))
             != context.source_snapshot_id
@@ -121,7 +113,6 @@ def derive_neotoma_source_chronology_nodes(
         nodes=nodes,
         admission_refusals=refusals_tuple,
         facet_refusals=facet_refusals,
-        source_taxon_enriched_observation_ids=source_taxon_enriched_ids,
     )
     status = (
         "materialized_with_refusals"

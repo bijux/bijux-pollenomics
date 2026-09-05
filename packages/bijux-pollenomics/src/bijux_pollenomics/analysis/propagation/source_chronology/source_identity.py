@@ -81,19 +81,4 @@ def enrich_source_identity(
     return enriched, None
 
 
-def source_taxon_identity_was_enriched(
-    source: Mapping[str, object], enriched: Mapping[str, object]
-) -> bool:
-    """Return whether the variable relation completed a source taxon identity."""
-    source_identity = (
-        _taxon_id(source.get("source_taxon_id")),
-        optional_text(source.get("source_reported_name")),
-    )
-    enriched_identity = (
-        _taxon_id(enriched.get("source_taxon_id")),
-        optional_text(enriched.get("source_reported_name")),
-    )
-    return None in source_identity and None not in enriched_identity
-
-
-__all__ = ["enrich_source_identity", "source_taxon_identity_was_enriched"]
+__all__ = ["enrich_source_identity"]

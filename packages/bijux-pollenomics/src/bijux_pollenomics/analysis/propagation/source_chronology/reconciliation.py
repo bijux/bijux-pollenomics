@@ -3,7 +3,7 @@
 from __future__ import annotations
 
 from collections import Counter
-from collections.abc import Collection, Mapping, Sequence
+from collections.abc import Mapping, Sequence
 
 from .admission import canonical_claim_interval, chronology_reason
 from .constants import COUNTRY_CODES
@@ -26,7 +26,6 @@ def build_reconciliation(
     nodes: Sequence[SourceChronologyNode],
     admission_refusals: Sequence[SourceNodeAdmissionRefusal],
     facet_refusals: Sequence[SourceNodeFacetRefusal],
-    source_taxon_enriched_observation_ids: Collection[str],
 ) -> SourceNodeReconciliation:
     """Build and verify exact country-owned denominator partitions."""
     country_rows: list[CountrySourceNodeReconciliation] = []
@@ -57,7 +56,6 @@ def build_reconciliation(
             if node.node_level == "source_sample_presence"
             for observation_id in node.observation_ids
         }
-        enriched_ids = eligible_ids.intersection(source_taxon_enriched_observation_ids)
         if len(country_observations) != len(eligible_ids) + len(country_refusals):
             raise AssertionError(f"{country} source-node denominator is incomplete")
         status_counts = Counter(
@@ -91,7 +89,6 @@ def build_reconciliation(
                 eligible_observation_count=len(eligible_ids),
                 refused_observation_count=len(country_refusals),
                 chronology_node_count=len(country_nodes),
-                source_taxon_identity_enrichment_count=len(enriched_ids),
                 propagation_eligible_event_count=0,
                 node_counts_by_level=tuple(sorted(node_counts.items())),
                 node_observation_counts_by_level=tuple(
@@ -134,10 +131,6 @@ def build_reconciliation(
         raise AssertionError("source-node denominator partition is incomplete")
     if input_observation_row_count != unique_count + duplicate_observation_row_count:
         raise AssertionError("source-node duplicate accounting is incomplete")
-    if not set(source_taxon_enriched_observation_ids) <= eligible_ids:
-        raise AssertionError(
-            "source taxon enrichment includes an ineligible observation"
-        )
     node_counts = Counter(node.node_level for node in nodes)
     if any(node.propagation_eligible for node in nodes):
         raise AssertionError(
@@ -152,9 +145,6 @@ def build_reconciliation(
         eligible_observation_count=len(eligible_ids),
         refused_observation_count=len(admission_refusals),
         chronology_node_count=len(nodes),
-        source_taxon_identity_enrichment_count=len(
-            source_taxon_enriched_observation_ids
-        ),
         propagation_eligible_event_count=0,
         node_counts_by_level=tuple(sorted(node_counts.items())),
         country_reconciliations=tuple(country_rows),

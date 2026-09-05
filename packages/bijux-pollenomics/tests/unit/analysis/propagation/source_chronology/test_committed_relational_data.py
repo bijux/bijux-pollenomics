@@ -27,8 +27,9 @@ def _surface(manifest: dict[str, Any], name: str) -> list[dict[str, object]]:
 
 def test_committed_snapshot_reconciles_country_nodes_and_refusals() -> None:
     manifest = json.loads((RELATIONAL / "manifest.json").read_text(encoding="utf-8"))
+    observations = _surface(manifest, "observations")
     result = derive_neotoma_source_chronology_nodes(
-        observations=_surface(manifest, "observations"),
+        observations=observations,
         samples=_surface(manifest, "samples"),
         sites=_surface(manifest, "sites"),
         variables=_surface(manifest, "variables"),
@@ -71,7 +72,7 @@ def test_committed_snapshot_reconciles_country_nodes_and_refusals() -> None:
         "NO": {
             "source_ecological_code": 2_307,
             "source_sample_presence": 966,
-            "source_taxon": 23_447,
+            "source_taxon": 23_430,
         },
         "FI": {
             "source_ecological_code": 307,
@@ -79,11 +80,29 @@ def test_committed_snapshot_reconciles_country_nodes_and_refusals() -> None:
             "source_taxon": 1_735,
         },
     }
+    observation_by_id = {str(row["observation_id"]): row for row in observations}
+    merged_no_taxa = [
+        node
+        for node in result.nodes
+        if node.country_code == "NO"
+        and node.node_level == "source_taxon"
+        and len(node.observation_ids) > 1
+    ]
+    assert len(merged_no_taxa) == 17
+    assert sum(len(node.observation_ids) - 1 for node in merged_no_taxa) == 17
     assert {
-        country: row.source_taxon_identity_enrichment_count
-        for country, row in countries.items()
-    } == {"SE": 0, "DK": 0, "NO": 17, "FI": 0}
-    assert result.reconciliation.source_taxon_identity_enrichment_count == 17
+        (node.source_taxon_id, node.source_reported_name, node.source_variable_ids)
+        for node in merged_no_taxa
+    } == {(27884, "cf. Larix", ("neotoma:variable:27884",))}
+    assert all(node.source_ecological_group is None for node in merged_no_taxa)
+    assert all(
+        {
+            observation_by_id[observation_id]["source_ecological_group"]
+            for observation_id in node.observation_ids
+        }
+        == {"TRSH", "UNID"}
+        for node in merged_no_taxa
+    )
     codes = Counter(
         node.source_ecological_group
         for node in result.nodes

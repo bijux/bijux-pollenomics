@@ -110,7 +110,7 @@ def test_source_taxon_groups_variables_with_the_same_exact_taxon_identity() -> N
     assert taxon.observation_ids == ("observation-1", "observation-2")
 
 
-def test_taxon_node_identity_distinguishes_literal_source_codes() -> None:
+def test_taxon_identity_is_independent_of_the_separate_source_code_level() -> None:
     rows = source_rows()
     second = deepcopy(rows["observations"][0])
     second["observation_id"] = "observation-2"
@@ -126,10 +126,14 @@ def test_taxon_node_identity_distinguishes_literal_source_codes() -> None:
 
     result = derive(rows)
     taxa = [node for node in result.nodes if node.node_level == "source_taxon"]
+    source_codes = [
+        node for node in result.nodes if node.node_level == "source_ecological_code"
+    ]
 
-    assert len(taxa) == 2
-    assert len({node.node_id for node in taxa}) == 2
-    assert {node.source_ecological_group for node in taxa} == {"TRSH", "UPHE"}
+    assert len(taxa) == 1
+    assert taxa[0].observation_ids == ("observation-1", "observation-2")
+    assert taxa[0].source_ecological_group is None
+    assert {node.source_ecological_group for node in source_codes} == {"TRSH", "UPHE"}
 
 
 def test_null_source_facets_remain_null_and_are_reconciled() -> None:
@@ -163,5 +167,4 @@ def test_nullable_observation_identity_is_enriched_from_matching_variable() -> N
     assert not result.facet_refusals
     assert taxon.source_taxon_id == 1
     assert taxon.source_reported_name == "Abies"
-    assert taxon.source_ecological_group == "TRSH"
-    assert result.reconciliation.source_taxon_identity_enrichment_count == 1
+    assert taxon.source_ecological_group is None
