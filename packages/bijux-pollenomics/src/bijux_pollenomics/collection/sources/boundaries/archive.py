@@ -6,7 +6,7 @@ import json
 from pathlib import Path
 
 from ....core.files import write_json
-from ....core.geojson import CountryBoundaryCollection, feature_list
+from ....core.geospatial.geojson import CountryBoundaryCollection, feature_list
 from ....core.text import slugify
 from ...contracts.artifacts import BOUNDARY_COLLECTION
 

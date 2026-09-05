@@ -2,7 +2,7 @@ from __future__ import annotations
 
 import unittest
 
-from bijux_pollenomics.core.geojson import CountryBoundaryCollection
+from bijux_pollenomics.core.geospatial.geojson import CountryBoundaryCollection
 from bijux_pollenomics.collection.spatial import (
     CountryAttributionDecision,
     classify_country,

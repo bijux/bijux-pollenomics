@@ -4,7 +4,12 @@ from collections.abc import Mapping
 from datetime import date
 import math
 
-from ....core.geojson import JsonObject, as_mapping, feature_list, parse_linear_ring
+from ....core.geospatial.geojson import (
+    JsonObject,
+    as_mapping,
+    feature_list,
+    parse_linear_ring,
+)
 from ....core.http import fetch_json, fetch_text
 from ....core.text import clean_optional_text
 from ...spatial import (

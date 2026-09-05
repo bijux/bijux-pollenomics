@@ -6,7 +6,7 @@ from itertools import pairwise
 import math
 from typing import Literal, TypeAlias
 
-from ...core.geojson import (
+from ...core.geospatial.geojson import (
     CountryBoundaryCollection,
     JsonObject,
     LinearRing,

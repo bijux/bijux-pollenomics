@@ -5,7 +5,7 @@ import json
 from pathlib import Path
 import shutil
 
-from ...core.geojson import as_mapping
+from ...core.geospatial.geojson import as_mapping
 from ...collection.contracts.artifacts import (
     ATLAS_POINT_ARTIFACTS,
     BOUNDARY_COLLECTION,

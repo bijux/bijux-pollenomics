@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-from ...core.geojson import JsonObject
+from ...core.geospatial.geojson import JsonObject
 from ..map_publication import MapScopePolicy
 from ..presentation.text import escape_html
 from .payload import build_map_document_payload

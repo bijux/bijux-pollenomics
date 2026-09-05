@@ -8,7 +8,7 @@ import shutil
 import subprocess
 
 
-from bijux_pollenomics.core.geojson import JsonObject
+from bijux_pollenomics.core.geospatial.geojson import JsonObject
 from bijux_pollenomics.reporting.map_document.evidence import DETAIL_TAB_KEYS
 from bijux_pollenomics.reporting.map_document.static_assets import (
     ATLAS_BOOTSTRAP_MAX_BYTES,
@@ -29,6 +29,7 @@ from .fixtures.scientific_evidence import (
     build_scientific_signals,
 )
 from .payloads import read_static_asset_payload
+
 
 def test_static_assets_are_deterministic_hashed_and_domain_accounted(
     tmp_path: Path,
@@ -185,7 +186,10 @@ def test_accepted_scientific_fixture_populates_truthful_atlas_domains(
         "reason_code": None,
     }
     payloads = {
-        read_static_asset_payload(path)["schema_version"]: read_static_asset_payload(path) for path in first.asset_paths
+        read_static_asset_payload(path)["schema_version"]: read_static_asset_payload(
+            path
+        )
+        for path in first.asset_paths
     }
     provenance = payloads["atlas-provenance-chunk.v3"]
     assert provenance["details_status"] == "available"

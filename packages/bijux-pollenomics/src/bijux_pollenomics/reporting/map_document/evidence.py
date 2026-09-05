@@ -5,7 +5,7 @@ from dataclasses import dataclass
 import hashlib
 import re
 
-from ...core.geojson import JsonObject
+from ...core.geospatial.geojson import JsonObject
 
 DETAIL_TAB_KEYS = (
     "overview",

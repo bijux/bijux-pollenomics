@@ -5,7 +5,7 @@ from dataclasses import dataclass
 from pathlib import Path
 
 from ....core.files import write_json, write_text
-from ....core.geojson import as_mapping
+from ....core.geospatial.geojson import as_mapping
 from ....core.http import fetch_json
 from ....core.text import clean_optional_text
 from ...contracts.artifacts import RAA_DENSITY_GEOJSON, RAA_LAYER_METADATA

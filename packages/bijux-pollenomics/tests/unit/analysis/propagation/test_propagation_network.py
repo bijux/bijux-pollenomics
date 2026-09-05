@@ -29,7 +29,7 @@ from bijux_pollenomics.analysis.propagation.candidates import (
     DEFAULT_PROPAGATION_SCENARIO,
     CandidatePropagationScenario,
 )
-from bijux_pollenomics.core.geo_distance import wgs84_inverse_geodesic
+from bijux_pollenomics.core.geospatial.distance import wgs84_inverse_geodesic
 
 
 def _event(

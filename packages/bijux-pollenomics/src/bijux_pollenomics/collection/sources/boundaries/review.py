@@ -12,7 +12,7 @@ from pathlib import Path
 import tempfile
 from typing import Literal, TypeAlias, cast
 
-from ....core.geojson import (
+from ....core.geospatial.geojson import (
     feature_list,
     parse_multipolygon,
     parse_polygon,

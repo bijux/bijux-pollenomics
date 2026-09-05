@@ -2,7 +2,7 @@ from __future__ import annotations
 
 from itertools import pairwise
 
-from ...core.geojson import (
+from ...core.geospatial.geojson import (
     JsonObject,
     LinearRing,
     MultiPolygon,

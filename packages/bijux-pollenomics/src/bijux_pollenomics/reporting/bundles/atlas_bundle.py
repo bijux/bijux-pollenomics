@@ -15,7 +15,7 @@ from ...analysis import (
     write_candidate_sites_csv,
     write_candidate_sites_json,
 )
-from ...core.geojson import JsonObject
+from ...core.geospatial.geojson import JsonObject
 from ...collection.contracts.models import ContextPointRecord
 from ...evidence import (
     AnimalCoordinateVisibilityReview,

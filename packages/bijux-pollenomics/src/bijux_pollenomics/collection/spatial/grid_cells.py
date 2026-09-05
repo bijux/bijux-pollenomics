@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-from ...core.geojson import JsonObject, LinearRing
+from ...core.geospatial.geojson import JsonObject, LinearRing
 from .country_classification import point_in_geometry
 from .representative_points import flatten_positions
 

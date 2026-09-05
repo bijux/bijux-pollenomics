@@ -8,7 +8,7 @@ import gzip
 import json
 from pathlib import Path
 from typing import cast
-from bijux_pollenomics.core.geojson import JsonObject
+from bijux_pollenomics.core.geospatial.geojson import JsonObject
 from bijux_pollenomics.reporting.map_document.static_assets import (
     ATLAS_CHUNK_MAX_BYTES,
     write_static_atlas_assets,

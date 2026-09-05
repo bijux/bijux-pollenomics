@@ -4,7 +4,7 @@ from collections.abc import Callable
 import json
 from typing import TYPE_CHECKING
 
-from ...core.geojson import JsonObject
+from ...core.geospatial.geojson import JsonObject
 from ..map_publication import MapScopePolicy
 from .state import build_map_document_state
 

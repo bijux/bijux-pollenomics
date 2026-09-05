@@ -6,7 +6,7 @@ from bijux_pollenomics.analysis.propagation.candidates import (
     CandidatePropagationScenario,
     classify_candidate_propagation,
 )
-from bijux_pollenomics.core.geo_distance import (
+from bijux_pollenomics.core.geospatial.distance import (
     InvalidCoordinateError,
     wgs84_inverse_geodesic,
 )

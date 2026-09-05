@@ -4,7 +4,7 @@ from dataclasses import dataclass
 import json
 from pathlib import Path
 
-from ....core.geojson import as_mapping, feature_list
+from ....core.geospatial.geojson import as_mapping, feature_list
 from ....core.text import clean_optional_text
 
 __all__ = ["RaaDensityAuthorityDecision", "assess_raa_density_authority"]

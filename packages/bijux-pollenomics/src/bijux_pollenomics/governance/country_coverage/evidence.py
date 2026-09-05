@@ -4,7 +4,7 @@ from __future__ import annotations
 
 from collections import Counter
 from collections.abc import Mapping
-from bijux_pollenomics.core.geojson import CountryBoundaryCollection
+from bijux_pollenomics.core.geospatial.geojson import CountryBoundaryCollection
 from bijux_pollenomics.evidence.sources.sead import (
     SEAD_GOVERNED_EVIDENCE_RUN_ID,
     SEAD_GOVERNED_EVIDENCE_SCOPE_ID,

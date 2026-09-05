@@ -3,7 +3,7 @@ from __future__ import annotations
 from dataclasses import dataclass
 import math
 
-from ...core.geojson import JsonObject, as_mapping, feature_list
+from ...core.geospatial.geojson import JsonObject, as_mapping, feature_list
 from ..map_publication import MapScopePolicy
 
 

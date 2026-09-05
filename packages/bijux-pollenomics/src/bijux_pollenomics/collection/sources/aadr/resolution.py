@@ -4,7 +4,7 @@ from collections.abc import Callable, Mapping
 import json
 import re
 
-from ....core.geojson import as_mapping
+from ....core.geospatial.geojson import as_mapping
 from .constants import AADR_DATAVERSE_PERSISTENT_ID, AADR_DATAVERSE_VERSIONS_URL
 from .models import AadrAnnoFile, AadrReleaseResolution
 

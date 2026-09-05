@@ -9,7 +9,7 @@ from zipfile import BadZipFile, ZipFile
 
 from ....config import NORDIC_BBOX
 from ....core.files import write_json
-from ....core.geojson import feature_list
+from ....core.geospatial.geojson import feature_list
 from ....core.http import fetch_binary
 from ...contracts.artifacts import (
     LANDCLIM_BIBLIOGRAPHY_JSON,

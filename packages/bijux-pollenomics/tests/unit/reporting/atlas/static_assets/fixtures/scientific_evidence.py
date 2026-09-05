@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-from bijux_pollenomics.core.geojson import JsonObject
+from bijux_pollenomics.core.geospatial.geojson import JsonObject
 
 from .layers import build_point_layers
 

@@ -12,7 +12,7 @@ import re
 from typing import Any
 import zlib
 
-from ...core.geojson import JsonObject
+from ...core.geospatial.geojson import JsonObject
 from .evidence import normalize_atlas_evidence, validate_feature_signal_references
 
 ATLAS_BOOTSTRAP_MAX_BYTES = 65_536

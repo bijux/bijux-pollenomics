@@ -5,7 +5,7 @@ from __future__ import annotations
 from collections.abc import MutableMapping, Sequence
 from pathlib import Path
 from typing import cast
-from bijux_pollenomics.core.geojson import JsonObject
+from bijux_pollenomics.core.geospatial.geojson import JsonObject
 from bijux_pollenomics.reporting.map_document.evidence import DETAIL_TAB_KEYS
 from .constants import PROJECTION_SCHEMA_VERSION, _NEOTOMA_LAYER_KEY, _SEAD_LAYER_KEYS
 from .io import _regular_absolute_directory, _required_text

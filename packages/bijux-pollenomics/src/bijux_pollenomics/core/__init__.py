@@ -1,7 +1,7 @@
 """Shared infrastructure used across package domains."""
 
-from .geo_distance import EARTH_RADIUS_KM, haversine_km
-from .geojson import (
+from .geospatial.distance import EARTH_RADIUS_KM, haversine_km
+from .geospatial.geojson import (
     CountryBoundaryCollection,
     GeoJsonFeature,
     GeoJsonFeatureCollection,

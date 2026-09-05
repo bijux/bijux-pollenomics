@@ -5,7 +5,7 @@ from __future__ import annotations
 from dataclasses import dataclass
 from math import isfinite
 
-from ....core.geo_distance import GeodesicDistance, wgs84_inverse_geodesic
+from ....core.geospatial.distance import GeodesicDistance, wgs84_inverse_geodesic
 from ....core.temporal_semantics import (
     BpInterval,
     canonical_bp_interval,

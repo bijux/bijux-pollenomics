@@ -7,7 +7,7 @@ from ...core.bp_time import (
     midpoint_bp_year,
     parse_numeric_bp_year,
 )
-from ...core.geojson import JsonObject, as_mapping
+from ...core.geospatial.geojson import JsonObject, as_mapping
 from ...core.temporal_semantics import (
     normalize_temporal_semantics_payload,
     resolve_temporal_window,
