@@ -49,7 +49,7 @@ POLLENOMICS_DATA_TESTS := \
 	$(POLLENOMICS_TEST_ROOT)/unit/adna/sources/library \
 	$(POLLENOMICS_TEST_ROOT)/unit/adna/sources/test_adna_source_recovery.py \
 	$(POLLENOMICS_TEST_ROOT)/unit/adna/domain/test_adna_temporal_query.py \
-	$(POLLENOMICS_TEST_ROOT)/unit/collection/sources/sead/acquisition/test_full.py \
+	$(POLLENOMICS_TEST_ROOT)/unit/collection/sources/sead/acquisition/full \
 	$(POLLENOMICS_TEST_ROOT)/unit/collection/sources/sead/acquisition/test_admission \
 	$(POLLENOMICS_TEST_ROOT)/unit/collection/sources/sead/evidence/test_claims.py \
 	$(POLLENOMICS_TEST_ROOT)/unit/collection/sources/sead/evidence/test_observations \
