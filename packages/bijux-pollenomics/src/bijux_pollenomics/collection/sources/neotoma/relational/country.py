@@ -32,9 +32,18 @@ class NeotomaCountryAttribution:
 
 def country_code(value: str) -> str:
     cleaned = clean_optional_text(value)
-    if cleaned in {"SE", "DK", "NO", "FI"}:
-        return cleaned
-    return COUNTRY_NAMES_TO_CODES.get(cleaned, "UNASSIGNED")
+    normalized_code = cleaned.upper()
+    if normalized_code in {"SE", "DK", "NO", "FI"}:
+        return normalized_code
+    normalized_name = cleaned.casefold()
+    return next(
+        (
+            code
+            for name, code in COUNTRY_NAMES_TO_CODES.items()
+            if name.casefold() == normalized_name
+        ),
+        "UNASSIGNED",
+    )
 
 
 def country_attribution(value: CountryAttributionInput) -> NeotomaCountryAttribution:
