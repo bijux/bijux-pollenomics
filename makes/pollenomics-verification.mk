@@ -8,12 +8,14 @@ POLLENOMICS_RELEASE_EVIDENCE_OUTPUT ?= artifacts/execution-control/release-evide
 POLLENOMICS_GATE_TIMEOUT_SECONDS ?= 900
 POLLENOMICS_NODE_DIRECTORY := $(patsubst %/,%,$(dir $(shell command -v node 2>/dev/null)))
 POLLENOMICS_GATE_PATH := $(abspath $(ROOT_CHECK_VENV))/bin$(if $(POLLENOMICS_NODE_DIRECTORY),:$(POLLENOMICS_NODE_DIRECTORY)):/usr/bin:/bin
+POLLENOMICS_GATE_TRUST_INPUTS := Makefile makes/pollenomics-verification.mk pyproject.toml packages/bijux-pollenomics/pyproject.toml uv.lock
 
 POLLENOMICS_SCIENCE_TESTS := \
 	$(POLLENOMICS_TEST_ROOT)/unit/test_temporal_semantics.py \
 	$(POLLENOMICS_TEST_ROOT)/unit/test_sead_chronology.py \
 	$(POLLENOMICS_TEST_ROOT)/unit/test_ecological_classification.py \
 	$(POLLENOMICS_TEST_ROOT)/unit/test_classification_audit_outputs.py \
+	$(POLLENOMICS_TEST_ROOT)/unit/test_classification_events.py \
 	$(POLLENOMICS_TEST_ROOT)/unit/test_harmonization.py \
 	$(POLLENOMICS_TEST_ROOT)/unit/test_temporal_overlap_consumers.py \
 	$(POLLENOMICS_TEST_ROOT)/unit/test_lake_evidence_richness.py \
@@ -22,6 +24,7 @@ POLLENOMICS_SCIENCE_TESTS := \
 	$(POLLENOMICS_TEST_ROOT)/unit/test_source_spatiotemporal_posture.py \
 	$(POLLENOMICS_TEST_ROOT)/unit/test_propagation_network.py
 POLLENOMICS_SCIENCE_INPUTS := \
+	$(POLLENOMICS_GATE_TRUST_INPUTS) \
 	configs/pytest.ini \
 	data/neotoma/raw \
 	data/sead/raw \
@@ -60,6 +63,7 @@ POLLENOMICS_DATA_TESTS := \
 	$(POLLENOMICS_TEST_ROOT)/unit/test_source_traceability.py \
 	$(POLLENOMICS_TEST_ROOT)/unit/test_source_validation.py
 POLLENOMICS_DATA_INPUTS := \
+	$(POLLENOMICS_GATE_TRUST_INPUTS) \
 	configs/pytest.ini \
 	data/source_family_contracts.json \
 	data/source_spatiotemporal_posture_registry.json \
@@ -85,6 +89,7 @@ POLLENOMICS_DATA_INPUTS := \
 
 POLLENOMICS_MAP_TESTS := \
 	$(POLLENOMICS_TEST_ROOT)/unit/test_map_publication.py \
+	$(POLLENOMICS_TEST_ROOT)/unit/test_static_atlas_assets.py \
 	$(POLLENOMICS_TEST_ROOT)/unit/test_publication_geography.py \
 	$(POLLENOMICS_TEST_ROOT)/unit/test_reporting_artifacts.py \
 	$(POLLENOMICS_TEST_ROOT)/unit/test_report_portal.py \
@@ -92,7 +97,9 @@ POLLENOMICS_MAP_TESTS := \
 	$(POLLENOMICS_TEST_ROOT)/unit/test_propagation_outputs.py \
 	$(POLLENOMICS_TEST_ROOT)/unit/test_public_artifact_language.py
 POLLENOMICS_MAP_INPUTS := \
+	$(POLLENOMICS_GATE_TRUST_INPUTS) \
 	configs/pytest.ini \
+	docs/report \
 	$(wildcard $(POLLENOMICS_SOURCE_ROOT)/reporting/*.py) \
 	$(wildcard $(POLLENOMICS_SOURCE_ROOT)/reporting/*/*.py) \
 	$(wildcard $(POLLENOMICS_SOURCE_ROOT)/reporting/*/*/*.py) \
@@ -105,18 +112,38 @@ POLLENOMICS_PROVENANCE_TESTS := \
 	$(POLLENOMICS_TEST_ROOT)/unit/test_recorded_gates.py \
 	$(POLLENOMICS_TEST_ROOT)/unit/test_pollenomics_gate_runner.py
 POLLENOMICS_PROVENANCE_INPUTS := \
+	$(POLLENOMICS_GATE_TRUST_INPUTS) \
 	configs/pytest.ini \
+	configs/release_evidence_policy.json \
 	$(wildcard $(POLLENOMICS_SOURCE_ROOT)/provenance/*.py) \
 	$(POLLENOMICS_PROVENANCE_TESTS)
 
 POLLENOMICS_DOC_COUNT_TESTS := \
+	$(POLLENOMICS_TEST_ROOT)/unit/test_country_coverage.py \
 	$(POLLENOMICS_TEST_ROOT)/unit/test_data_reference_docs.py \
+	$(POLLENOMICS_TEST_ROOT)/unit/test_source_spatiotemporal_posture.py \
 	$(POLLENOMICS_TEST_ROOT)/unit/test_repository_snapshot.py \
 	$(POLLENOMICS_TEST_ROOT)/unit/test_repository_truth.py \
 	$(POLLENOMICS_TEST_ROOT)/regression/test_docs_breadth.py
 POLLENOMICS_DOC_COUNT_INPUTS := \
+	$(POLLENOMICS_GATE_TRUST_INPUTS) \
 	configs/pytest.ini \
 	data/collection_summary.json \
+	data/country_dimension_coverage.json \
+	data/boundaries/raw/source_manifest.json \
+	data/boundaries/normalized/nordic_country_boundaries.geojson \
+	data/landclim/normalized/nordic_pollen_site_sequences.geojson \
+	data/neotoma/relational/reconciliation.json \
+	data/sead/raw/acquisitions/sead-live-d1fd2058913372eda1c12e526e0eb7c8a6cec415e9f9e9b5b92b8896597b35ac/admission.json \
+	data/sead/raw/acquisitions/sead-live-d1fd2058913372eda1c12e526e0eb7c8a6cec415e9f9e9b5b92b8896597b35ac/country-decisions.json \
+	data/sead/raw/acquisitions/sead-live-d1fd2058913372eda1c12e526e0eb7c8a6cec415e9f9e9b5b92b8896597b35ac/payloads/tbl_sites.json \
+	docs/report/regions/nordic/nordic_pollen_site_sequences.geojson \
+	docs/report/regions/nordic/nordic_pollen_sites.geojson \
+	docs/report/countries/sweden/sweden_aadr_v66_summary.json \
+	docs/report/countries/denmark/denmark_aadr_v66_summary.json \
+	docs/report/countries/norway/norway_aadr_v66_summary.json \
+	docs/report/countries/finland/finland_aadr_v66_summary.json \
+	docs/report/animal_country_species_coverage.json \
 	data/evidence_artifact_contracts.json \
 	data/source_fact_ownership_registry.json \
 	data/source_family_contracts.json \

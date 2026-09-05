@@ -8,10 +8,10 @@ from contextlib import suppress
 import json
 import os
 from pathlib import Path, PurePosixPath
+import secrets
 import stat
 import sys
-import tempfile
-from typing import cast
+from typing import Literal, cast
 
 from .release_evidence import (
     ArtifactInput,
@@ -19,6 +19,7 @@ from .release_evidence import (
     ArtifactRole,
     Blocker,
     CountReconciliation,
+    CountStatus,
     GateResult,
     GateStatus,
     ReconciliationDimension,
@@ -56,50 +57,68 @@ def write_release_evidence_manifest(
     )
     validate_release_evidence_manifest(root, manifest)
     payload = _canonical_bytes(manifest)
-    destination = _prepare_output_path(root, output_path)
-
-    if destination.exists() or destination.is_symlink():
-        existing = _read_regular_bytes(destination)
-        if existing != payload:
-            raise ReleaseEvidenceError(
-                f"release-evidence output exists with different bytes: {output_path}"
-            )
-        _validate_written_manifest(root, existing)
-        return manifest
-
-    temporary_path: Path | None = None
+    parent_descriptor, destination_name, parent_parts = _open_output_parent(
+        root, output_path
+    )
+    temporary_name = f".{destination_name}.{secrets.token_hex(16)}.writing"
     try:
-        descriptor, temporary_name = tempfile.mkstemp(
-            prefix=f".{destination.name}.", suffix=".writing", dir=destination.parent
+        existing = _read_regular_bytes_at(
+            parent_descriptor, destination_name, missing_ok=True
         )
-        temporary_path = Path(temporary_name)
-        with os.fdopen(descriptor, "wb") as stream:
-            stream.write(payload)
-            stream.flush()
-            os.fsync(stream.fileno())
-            os.fchmod(stream.fileno(), 0o644)
+        if existing is not None:
+            if existing != payload:
+                raise ReleaseEvidenceError(
+                    f"release-evidence output exists with different bytes: {output_path}"
+                )
+            _verify_output_parent(root, parent_parts, parent_descriptor)
+            _validate_written_manifest(root, existing)
+            return manifest
+
+        flags = os.O_WRONLY | os.O_CREAT | os.O_EXCL | getattr(os, "O_NOFOLLOW", 0)
+        descriptor = os.open(temporary_name, flags, 0o600, dir_fd=parent_descriptor)
         try:
-            os.link(temporary_path, destination, follow_symlinks=False)
+            with os.fdopen(descriptor, "wb", closefd=False) as stream:
+                stream.write(payload)
+                stream.flush()
+            os.fchmod(descriptor, 0o644)
+            os.fsync(descriptor)
+        finally:
+            os.close(descriptor)
+        try:
+            os.link(
+                temporary_name,
+                destination_name,
+                src_dir_fd=parent_descriptor,
+                dst_dir_fd=parent_descriptor,
+                follow_symlinks=False,
+            )
         except FileExistsError:
-            existing = _read_regular_bytes(destination)
+            existing = _read_regular_bytes_at(
+                parent_descriptor, destination_name, missing_ok=False
+            )
             if existing != payload:
                 raise ReleaseEvidenceError(
                     f"release-evidence output appeared with different bytes: {output_path}"
                 ) from None
-        temporary_path.unlink()
-        temporary_path = None
-        _fsync_directory(destination.parent)
-    finally:
-        if temporary_path is not None and temporary_path.exists():
-            temporary_path.unlink()
+        os.unlink(temporary_name, dir_fd=parent_descriptor)
+        temporary_name = ""
+        os.fsync(parent_descriptor)
 
-    written = _read_regular_bytes(destination)
-    if written != payload:
-        raise ReleaseEvidenceError(
-            "release-evidence output changed during atomic write"
+        written = _read_regular_bytes_at(
+            parent_descriptor, destination_name, missing_ok=False
         )
-    _validate_written_manifest(root, written)
-    return manifest
+        if written != payload:
+            raise ReleaseEvidenceError(
+                "release-evidence output changed during atomic write"
+            )
+        _verify_output_parent(root, parent_parts, parent_descriptor)
+        _validate_written_manifest(root, written)
+        return manifest
+    finally:
+        if temporary_name:
+            with suppress(FileNotFoundError):
+                os.unlink(temporary_name, dir_fd=parent_descriptor)
+        os.close(parent_descriptor)
 
 
 def main(argv: Sequence[str] | None = None) -> int:
@@ -147,8 +166,8 @@ def _write_request(
         "blockers",
     }
     if set(request) != expected:
-        raise ReleaseEvidenceError("write request fields do not match the v1 contract")
-    if request["schema_version"] != "release-evidence-request.v1":
+        raise ReleaseEvidenceError("write request fields do not match the v3 contract")
+    if request["schema_version"] != "release-evidence-request.v3":
         raise ReleaseEvidenceError("unsupported release-evidence request schema")
     return write_release_evidence_manifest(
         root,
@@ -180,13 +199,16 @@ def _artifact(value: object) -> ArtifactInput:
     }
     if set(record) != expected:
         raise ReleaseEvidenceError(
-            "artifact request fields do not match the v1 contract"
+            "artifact request fields do not match the v3 contract"
         )
     parents = tuple(_parent(item) for item in _list_field(record, "parents"))
     config_digests = tuple(
         _string_value(item, "config digest")
         for item in _list_field(record, "config_digests")
     )
+    producer_digest = record["producer_digest"]
+    if producer_digest is not None and not isinstance(producer_digest, str):
+        raise ReleaseEvidenceError("artifact producer_digest must be a string or null")
     return ArtifactInput(
         identity=_string_field(record, "identity"),
         role=cast(ArtifactRole, _string_field(record, "role")),
@@ -195,7 +217,7 @@ def _artifact(value: object) -> ArtifactInput:
         schema_version=_string_field(record, "schema_version"),
         parents=parents,
         config_digests=config_digests,
-        producer_digest=_string_field(record, "producer_digest"),
+        producer_digest=producer_digest,
         output_digest=_string_field(record, "output_digest"),
     )
 
@@ -203,7 +225,7 @@ def _artifact(value: object) -> ArtifactInput:
 def _parent(value: object) -> ArtifactReference:
     record = _mapping(value, "parent")
     if set(record) != {"identity", "output_digest"}:
-        raise ReleaseEvidenceError("parent fields do not match the v1 contract")
+        raise ReleaseEvidenceError("parent fields do not match the v3 contract")
     return ArtifactReference(
         identity=_string_field(record, "identity"),
         output_digest=_string_field(record, "output_digest"),
@@ -212,13 +234,32 @@ def _parent(value: object) -> ArtifactReference:
 
 def _gate(value: object) -> GateResult:
     record = _mapping(value, "gate")
-    if set(record) != {"identity", "status", "required", "evidence_digest"}:
-        raise ReleaseEvidenceError("gate request fields do not match the v1 contract")
+    if set(record) != {
+        "identity",
+        "status",
+        "required",
+        "evidence_digest",
+        "attestation",
+        "authority_id",
+    }:
+        raise ReleaseEvidenceError("gate request fields do not match the v3 contract")
+    authority_id = record["authority_id"]
+    if authority_id is not None and not isinstance(authority_id, str):
+        raise ReleaseEvidenceError("gate authority_id must be a string or null")
     return GateResult(
         identity=_string_field(record, "identity"),
         status=cast(GateStatus, _string_field(record, "status")),
         required=_bool_field(record, "required"),
         evidence_digest=_string_field(record, "evidence_digest"),
+        attestation=cast(
+            Literal[
+                "local_self_attestation",
+                "independent_execution_attestation",
+                "external_authority_attestation",
+            ],
+            _string_field(record, "attestation"),
+        ),
+        authority_id=authority_id,
     )
 
 
@@ -238,16 +279,25 @@ def _reconciliation(value: object) -> CountReconciliation:
         "source",
         "entity",
         "country_code",
+        "scope",
+        "count_status",
+        "reason_codes",
         *count_fields,
     }
     if set(record) != expected:
         raise ReleaseEvidenceError(
-            "reconciliation request fields do not match the v1 contract"
+            "reconciliation request fields do not match the v3 contract"
         )
     country_code = record["country_code"]
     if country_code is not None and not isinstance(country_code, str):
         raise ReleaseEvidenceError("country_code must be a string or null")
-    counts = {field: _int_field(record, field) for field in count_fields}
+    counts = {field: _optional_int_field(record, field) for field in count_fields}
+    scope = _mapping(record["scope"], "reconciliation scope")
+    if any(
+        not isinstance(key, str) or not isinstance(value, str)
+        for key, value in scope.items()
+    ):
+        raise ReleaseEvidenceError("reconciliation scope must contain strings")
     return CountReconciliation(
         identity=_string_field(record, "identity"),
         dimension=cast(ReconciliationDimension, _string_field(record, "dimension")),
@@ -260,19 +310,77 @@ def _reconciliation(value: object) -> CountReconciliation:
         unresolved_count=counts["unresolved_count"],
         excluded_count=counts["excluded_count"],
         refused_count=counts["refused_count"],
+        scope=tuple(sorted(cast(Mapping[str, str], scope).items())),
+        count_status=cast(CountStatus, _string_field(record, "count_status")),
+        reason_codes=tuple(
+            _string_value(item, "reason code")
+            for item in _list_field(record, "reason_codes")
+        ),
     )
 
 
 def _blocker(value: object) -> Blocker:
     record = _mapping(value, "blocker")
-    if set(record) != {"identity", "reason_code", "evidence_digest"}:
+    expected = {
+        "identity",
+        "reason_code",
+        "evidence_digest",
+        "kind",
+        "required_scope",
+        "owner",
+        "first_observed_at",
+        "last_observed_at",
+        "request_status",
+        "request_artifact_identity",
+        "request_fingerprint",
+        "response_class",
+        "observations",
+        "attempts",
+        "impact",
+        "expected_artifact",
+        "impacted_gates",
+        "next_action",
+        "recheck_condition",
+    }
+    if set(record) != expected:
         raise ReleaseEvidenceError(
-            "blocker request fields do not match the v1 contract"
+            "blocker request fields do not match the v3 contract"
         )
     return Blocker(
         identity=_string_field(record, "identity"),
         reason_code=_string_field(record, "reason_code"),
         evidence_digest=_string_field(record, "evidence_digest"),
+        kind=cast(
+            Literal["external", "unverified", "refused", "reduced_scope"],
+            _string_field(record, "kind"),
+        ),
+        required_scope=_string_field(record, "required_scope"),
+        owner=_string_field(record, "owner"),
+        first_observed_at=_string_field(record, "first_observed_at"),
+        last_observed_at=_string_field(record, "last_observed_at"),
+        request_status=cast(
+            Literal["governed", "refused"], _string_field(record, "request_status")
+        ),
+        request_artifact_identity=_optional_string_field(
+            record, "request_artifact_identity"
+        ),
+        request_fingerprint=_optional_string_field(record, "request_fingerprint"),
+        response_class=_string_field(record, "response_class"),
+        observations=tuple(
+            _string_value(item, "observation")
+            for item in _list_field(record, "observations")
+        ),
+        attempts=tuple(
+            _string_value(item, "attempt") for item in _list_field(record, "attempts")
+        ),
+        impact=_string_field(record, "impact"),
+        expected_artifact=_string_field(record, "expected_artifact"),
+        impacted_gates=tuple(
+            _string_value(item, "impacted gate")
+            for item in _list_field(record, "impacted_gates")
+        ),
+        next_action=_string_field(record, "next_action"),
+        recheck_condition=_string_field(record, "recheck_condition"),
     )
 
 
@@ -319,28 +427,85 @@ def _canonical_bytes(value: Mapping[str, object]) -> bytes:
         raise ReleaseEvidenceError("release evidence is not canonical JSON") from error
 
 
-def _prepare_output_path(root: Path, relative_path: str) -> Path:
+def _open_output_parent(
+    root: Path, relative_path: str
+) -> tuple[int, str, tuple[str, ...]]:
     parts = _relative_parts(relative_path, require_artifacts=True)
-    parent = root
+    flags = os.O_RDONLY | getattr(os, "O_DIRECTORY", 0) | getattr(os, "O_NOFOLLOW", 0)
+    descriptor = os.open(root, flags)
     for part in parts[:-1]:
-        candidate = parent / part
         try:
-            mode = candidate.lstat().st_mode
+            next_descriptor = os.open(part, flags, dir_fd=descriptor)
         except FileNotFoundError:
             with suppress(FileExistsError):
-                candidate.mkdir(mode=0o755)
-            mode = candidate.lstat().st_mode
-        if stat.S_ISLNK(mode) or not stat.S_ISDIR(mode):
-            raise ReleaseEvidenceError(f"unsafe output directory: {candidate}")
-        parent = candidate
-    destination = parent / parts[-1]
-    if destination.exists() or destination.is_symlink():
-        mode = destination.lstat().st_mode
-        if stat.S_ISLNK(mode) or not stat.S_ISREG(mode):
+                os.mkdir(part, mode=0o755, dir_fd=descriptor)
+            next_descriptor = os.open(part, flags, dir_fd=descriptor)
+        except OSError as error:
+            os.close(descriptor)
             raise ReleaseEvidenceError(
-                f"unsafe release-evidence output: {relative_path}"
-            )
-    return destination
+                f"unsafe output directory for: {relative_path}"
+            ) from error
+        os.close(descriptor)
+        descriptor = next_descriptor
+    return descriptor, parts[-1], parts[:-1]
+
+
+def _verify_output_parent(
+    root: Path, parent_parts: tuple[str, ...], expected_descriptor: int
+) -> None:
+    flags = os.O_RDONLY | getattr(os, "O_DIRECTORY", 0) | getattr(os, "O_NOFOLLOW", 0)
+    current = os.open(root, flags)
+    try:
+        for part in parent_parts:
+            following = os.open(part, flags, dir_fd=current)
+            os.close(current)
+            current = following
+        expected = os.fstat(expected_descriptor)
+        observed = os.fstat(current)
+        if (expected.st_dev, expected.st_ino) != (observed.st_dev, observed.st_ino):
+            raise ReleaseEvidenceError("release-evidence output parent was substituted")
+    except OSError as error:
+        raise ReleaseEvidenceError(
+            "release-evidence output parent became unsafe"
+        ) from error
+    finally:
+        os.close(current)
+
+
+def _read_regular_bytes_at(
+    parent_descriptor: int, name: str, *, missing_ok: bool
+) -> bytes | None:
+    flags = os.O_RDONLY | getattr(os, "O_NOFOLLOW", 0)
+    try:
+        descriptor = os.open(name, flags, dir_fd=parent_descriptor)
+    except FileNotFoundError:
+        if missing_ok:
+            return None
+        raise ReleaseEvidenceError("release-evidence output disappeared") from None
+    except OSError as error:
+        raise ReleaseEvidenceError("release-evidence output is unsafe") from error
+    try:
+        before = os.fstat(descriptor)
+        if not stat.S_ISREG(before.st_mode):
+            raise ReleaseEvidenceError("release-evidence output is not a regular file")
+        with os.fdopen(os.dup(descriptor), "rb") as stream:
+            payload = stream.read()
+        after = os.fstat(descriptor)
+        if (
+            before.st_dev,
+            before.st_ino,
+            before.st_size,
+            before.st_mtime_ns,
+        ) != (
+            after.st_dev,
+            after.st_ino,
+            after.st_size,
+            after.st_mtime_ns,
+        ):
+            raise ReleaseEvidenceError("release-evidence output changed while reading")
+        return payload
+    finally:
+        os.close(descriptor)
 
 
 def _existing_repository_path(
@@ -472,10 +637,24 @@ def _bool_field(record: Mapping[str, object], field: str) -> bool:
     return value
 
 
+def _optional_string_field(record: Mapping[str, object], field: str) -> str | None:
+    value = record[field]
+    if value is not None and not isinstance(value, str):
+        raise ReleaseEvidenceError(f"{field} must be a string or null")
+    return value
+
+
 def _int_field(record: Mapping[str, object], field: str) -> int:
     value = record[field]
     if type(value) is not int:
         raise ReleaseEvidenceError(f"{field} must be an integer")
+    return value
+
+
+def _optional_int_field(record: Mapping[str, object], field: str) -> int | None:
+    value = record[field]
+    if value is not None and type(value) is not int:
+        raise ReleaseEvidenceError(f"{field} must be an integer or null")
     return value
 
 

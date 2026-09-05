@@ -1,12 +1,14 @@
 from __future__ import annotations
 
+from dataclasses import asdict
 import hashlib
 import json
-from dataclasses import asdict
+import os
 from pathlib import Path
 from typing import cast
 
 import pytest
+
 from bijux_pollenomics.provenance import (
     ArtifactInput,
     ArtifactReference,
@@ -42,6 +44,123 @@ def _json_digest(value: object) -> str:
     return _digest(_canonical_json(value))
 
 
+def _write_fixture_policy(root: Path) -> bytes:
+    producer = "inputs/producer.py"
+    ownership = [
+        ("source_receipt", "inputs/receipt.json"),
+        ("source_snapshot", "inputs/snapshot"),
+        ("configuration", "inputs/config.json"),
+        ("configuration", "configs/release_evidence_policy.json"),
+        ("classification", "inputs/classification.csv"),
+        ("scenario", "inputs/scenario.json"),
+        ("boundary", "inputs/boundary.geojson"),
+        ("producer", producer),
+        ("dependency_lock", "inputs/uv.lock"),
+        ("generated_output", "inputs/output.json"),
+        ("validation_result", "artifacts/gate-evidence"),
+    ]
+    inventory = [
+        ("boundary", "boundary", "inputs/boundary.geojson"),
+        ("classification", "classification", "inputs/classification.csv"),
+        ("config", "configuration", "inputs/config.json"),
+        ("lock", "dependency_lock", "inputs/uv.lock"),
+        ("output", "generated_output", "inputs/output.json"),
+        ("producer", "producer", producer),
+        (
+            "release-evidence-policy",
+            "configuration",
+            "configs/release_evidence_policy.json",
+        ),
+        ("receipt", "source_receipt", "inputs/receipt.json"),
+        ("scenario", "scenario", "inputs/scenario.json"),
+        ("snapshot", "source_snapshot", "inputs/snapshot"),
+        (
+            "validation",
+            "validation_result",
+            "artifacts/gate-evidence/quality.json",
+        ),
+    ]
+    config_identities = [
+        "boundary",
+        "classification",
+        "config",
+        "lock",
+        "release-evidence-policy",
+        "scenario",
+    ]
+    policy = {
+        "schema_version": "release-evidence-policy.v3",
+        "mode": "fixture",
+        "recording_authority_path": producer,
+        "authorized_producer_paths": [producer],
+        "artifact_ownership": [
+            {
+                "artifact_role": role,
+                "artifact_path_prefix": prefix,
+                "producer_path": producer,
+            }
+            for role, prefix in sorted(ownership, key=lambda item: (item[1], item[0]))
+        ],
+        "required_artifacts": [
+            {
+                "identity": identity,
+                "role": role,
+                "path": path,
+                "media_type": "application/octet-stream",
+                "schema_version": (
+                    "recorded-gate.v4" if role == "validation_result" else "fixture.v1"
+                ),
+                "schema_identity_field": None,
+                "producer_path": producer,
+                "required_config_identities": (
+                    config_identities
+                    if role in {"generated_output", "validation_result"}
+                    else []
+                ),
+                "required_parent_identities": (
+                    ["receipt"]
+                    if identity == "snapshot"
+                    else ["snapshot"]
+                    if identity == "output"
+                    else ["output"]
+                    if role == "validation_result"
+                    else []
+                ),
+                "required_embedded_input_paths": [],
+            }
+            for identity, role, path in sorted(inventory)
+        ],
+        "embedded_producer_identities": [],
+        "bundle_inventories": [],
+        "allowed_cross_role_digest_aliases": [],
+        "required_gate_ids": ["quality"],
+        "governed_request_artifact_ids": ["receipt"],
+        "propagation_contract": {
+            "contract_id": "fixture.propagation",
+            "contract_version": "1",
+            "sha256": "sha256:" + "0" * 64,
+            "default_scenario": {
+                "scenario_id": "fixture",
+                "maximum_distance_km": 1.0,
+                "maximum_lag_years": 1.0,
+            },
+        },
+        "required_reconciliations": [
+            {
+                "source": "neotoma",
+                "entity": "samples",
+                "dimension": "country",
+                "scope_values": {},
+            }
+        ],
+    }
+    payload = _canonical_json(policy) + b"\n"
+    path = root / "configs/release_evidence_policy.json"
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_bytes(payload)
+    return payload
+
+
 def _write_gate_record(root: Path, status: str) -> None:
     gate_input = root / "inputs/gate-input.txt"
     gate_input.parent.mkdir(parents=True, exist_ok=True)
@@ -63,7 +182,7 @@ def _write_gate_record(root: Path, status: str) -> None:
     exit_code = 0 if status == "PASS" else 1
     reason_code = "command_passed" if status == "PASS" else "command_failed"
     content: dict[str, object] = {
-        "schema_version": "recorded-gate.v3",
+        "schema_version": "recorded-gate.v4",
         "producer": specification_record["producer"],
         "attestation": specification_record["attestation"],
         "repository_root_digest": specification_record["repository_root_digest"],
@@ -77,6 +196,7 @@ def _write_gate_record(root: Path, status: str) -> None:
         "input_digest": _json_digest(inputs),
         "artifacts_directory": specification.artifacts_directory,
         "specification_digest": _json_digest(specification_record),
+        "timeout_seconds": specification.timeout_seconds,
         "duration_monotonic_ns": 1,
         "exit_code": exit_code,
         "status": status,
@@ -117,6 +237,7 @@ def _trusted_fixture_gate_specification(
 def _inputs(
     root: Path, *, gate_status: str = "PASS"
 ) -> tuple[list[ArtifactInput], list[CountReconciliation]]:
+    policy_payload = _write_fixture_policy(root)
     contents = {
         "inputs/receipt.json": b"receipt\n",
         "inputs/snapshot/records.csv": b"record_id,value\n1,2\n",
@@ -127,6 +248,7 @@ def _inputs(
         "inputs/producer.py": b"def build(): return 1\n",
         "inputs/uv.lock": b"version = 1\n",
         "inputs/output.json": b'{"records":1}\n',
+        "configs/release_evidence_policy.json": policy_payload,
     }
     for relative_path, content in contents.items():
         path = root / relative_path
@@ -154,6 +276,7 @@ def _inputs(
             "inputs/scenario.json",
             "inputs/boundary.geojson",
             "inputs/uv.lock",
+            "configs/release_evidence_policy.json",
         )
     )
     receipt = ArtifactReference("receipt", digests["inputs/receipt.json"])
@@ -163,6 +286,12 @@ def _inputs(
         ("receipt", "source_receipt", "inputs/receipt.json", ()),
         ("snapshot", "source_snapshot", "inputs/snapshot", (receipt,)),
         ("config", "configuration", "inputs/config.json", ()),
+        (
+            "release-evidence-policy",
+            "configuration",
+            "configs/release_evidence_policy.json",
+            (),
+        ),
         ("classification", "classification", "inputs/classification.csv", ()),
         ("scenario", "scenario", "inputs/scenario.json", ()),
         ("boundary", "boundary", "inputs/boundary.geojson", ()),
@@ -178,7 +307,7 @@ def _inputs(
             path=path,
             media_type="application/octet-stream",
             schema_version=(
-                "recorded-gate.v3" if role == "validation_result" else "fixture.v1"
+                "recorded-gate.v4" if role == "validation_result" else "fixture.v1"
             ),
             parents=parents,
             config_digests=(
@@ -186,19 +315,11 @@ def _inputs(
                 if role in {"generated_output", "validation_result"}
                 else ()
             ),
-            producer_digest=producer_digest,
+            producer_digest=(digests[path] if role == "producer" else producer_digest),
             output_digest=digests[path],
         )
         for identity, role, path, parents in definitions
     ]
-    zero_counts = {
-        "candidate_count": 0,
-        "eligible_count": 0,
-        "accepted_count": 0,
-        "unresolved_count": 0,
-        "excluded_count": 0,
-        "refused_count": 0,
-    }
     reconciliations = [
         CountReconciliation(
             identity="neotoma.samples.source",
@@ -206,7 +327,12 @@ def _inputs(
             source="neotoma",
             entity="samples",
             country_code=None,
-            **zero_counts,
+            candidate_count=0,
+            eligible_count=0,
+            accepted_count=0,
+            unresolved_count=0,
+            excluded_count=0,
+            refused_count=0,
         )
     ]
     for country in ("SE", "DK", "NO", "FI", "UNASSIGNED", "OUTSIDE"):
@@ -217,7 +343,12 @@ def _inputs(
                 source="neotoma",
                 entity="samples",
                 country_code=country,
-                **zero_counts,
+                candidate_count=0,
+                eligible_count=0,
+                accepted_count=0,
+                unresolved_count=0,
+                excluded_count=0,
+                refused_count=0,
             )
         )
     return artifacts, reconciliations
@@ -262,7 +393,7 @@ def _write(
 
 def _request(arguments: dict[str, object]) -> dict[str, object]:
     return {
-        "schema_version": "release-evidence-request.v1",
+        "schema_version": "release-evidence-request.v3",
         "code_commit": arguments["code_commit"],
         "dirty": arguments["dirty"],
         "dependency_lock_digest": arguments["dependency_lock_digest"],
@@ -272,7 +403,7 @@ def _request(arguments: dict[str, object]) -> dict[str, object]:
         ],
         "gates": [asdict(gate) for gate in cast(list[GateResult], arguments["gates"])],
         "reconciliations": [
-            asdict(item)
+            {**asdict(item), "scope": dict(item.scope)}
             for item in cast(list[CountReconciliation], arguments["reconciliations"])
         ],
         "blockers": [],
@@ -350,6 +481,46 @@ def test_writer_rejects_symlinked_output_directory(tmp_path: Path) -> None:
 
     with pytest.raises(ReleaseEvidenceError, match="unsafe output directory"):
         _write(tmp_path, "artifacts/release/manifest.json", arguments)
+
+
+def test_writer_refuses_output_parent_substitution_during_publication(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    arguments = _arguments(tmp_path)
+    release = tmp_path / "artifacts/release"
+    release.mkdir(parents=True)
+    replacement = tmp_path / "replacement"
+    replacement.mkdir()
+    original_link = os.link
+    substituted = False
+
+    def substituting_link(
+        source: str,
+        destination: str,
+        *,
+        src_dir_fd: int | None = None,
+        dst_dir_fd: int | None = None,
+        follow_symlinks: bool = True,
+    ) -> None:
+        nonlocal substituted
+        release.rename(tmp_path / "artifacts/release-original")
+        release.symlink_to(replacement, target_is_directory=True)
+        substituted = True
+        original_link(
+            source,
+            destination,
+            src_dir_fd=src_dir_fd,
+            dst_dir_fd=dst_dir_fd,
+            follow_symlinks=follow_symlinks,
+        )
+
+    monkeypatch.setattr(os, "link", substituting_link)
+
+    with pytest.raises(ReleaseEvidenceError, match="output parent"):
+        _write(tmp_path, "artifacts/release/manifest.json", arguments)
+
+    assert substituted is True
+    assert not (replacement / "manifest.json").exists()
 
 
 def test_callable_cli_writes_and_validates_for_a_local_gate(

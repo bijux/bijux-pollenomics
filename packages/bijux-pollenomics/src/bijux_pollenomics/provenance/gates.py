@@ -2,21 +2,24 @@
 
 from __future__ import annotations
 
+from collections.abc import Mapping, Sequence
+from contextlib import suppress
+from dataclasses import dataclass
 import hashlib
 import json
 import os
+from pathlib import Path, PurePosixPath
+import platform
 import re
 import shutil
 import stat
 import subprocess
+import sys
 import tempfile
 import time
 import xml.etree.ElementTree as ET
-from collections.abc import Mapping, Sequence
-from contextlib import suppress
-from dataclasses import dataclass
-from pathlib import Path, PurePosixPath
 
+from ..foundation.country_coverage import INPUT_PATHS as _COUNTRY_COVERAGE_INPUT_PATHS
 from .release_evidence import ReleaseEvidenceError, hash_repository_object
 
 __all__ = [
@@ -27,7 +30,7 @@ __all__ = [
 
 _IDENTITY_PATTERN = re.compile(r"[a-z0-9][a-z0-9._-]*\Z")
 _PRODUCER_ID = "bijux-pollenomics.recorded-gate"
-_PRODUCER_VERSION = "3"
+_PRODUCER_VERSION = "4"
 _PRODUCER_MODULE = "bijux_pollenomics.provenance.gates"
 _LOCAL_ATTESTATION = {
     "class": "local_self_attestation",
@@ -47,6 +50,8 @@ class RecordedGateSpecification:
     input_paths: tuple[str, ...]
     artifacts_directory: str
     junit_path: str
+    timeout_seconds: float | None = None
+    runtime_identity: tuple[tuple[str, str], ...] = ()
 
     def as_record(self, repository_root: Path) -> dict[str, object]:
         """Return the canonical root-bound specification record."""
@@ -59,6 +64,8 @@ class RecordedGateSpecification:
             "input_paths": list(self.input_paths),
             "artifacts_directory": self.artifacts_directory,
             "junit_path": self.junit_path,
+            "timeout_seconds": self.timeout_seconds,
+            "runtime_identity": dict(self.runtime_identity),
             "repository_root_digest": _digest_json(root.as_posix()),
             "producer": _producer_record(),
             "attestation": dict(_LOCAL_ATTESTATION),
@@ -71,6 +78,7 @@ _GATE_TESTS: dict[str, tuple[str, ...]] = {
         "test_sead_chronology.py",
         "test_ecological_classification.py",
         "test_classification_audit_outputs.py",
+        "test_classification_events.py",
         "test_harmonization.py",
         "test_temporal_overlap_consumers.py",
         "test_lake_evidence_richness.py",
@@ -109,6 +117,7 @@ _GATE_TESTS: dict[str, tuple[str, ...]] = {
     ),
     "map": (
         "test_map_publication.py",
+        "test_static_atlas_assets.py",
         "test_publication_geography.py",
         "test_reporting_artifacts.py",
         "test_report_portal.py",
@@ -123,16 +132,32 @@ _GATE_TESTS: dict[str, tuple[str, ...]] = {
         "test_pollenomics_gate_runner.py",
     ),
     "doc-counts": (
+        "test_country_coverage.py",
         "test_data_reference_docs.py",
+        "test_source_spatiotemporal_posture.py",
         "test_repository_snapshot.py",
         "test_repository_truth.py",
         "../regression/test_docs_breadth.py",
     ),
 }
 
+_GATE_TRUST_INPUTS = (
+    "Makefile",
+    "makes/pollenomics-verification.mk",
+    "packages/bijux-pollenomics/pyproject.toml",
+    "pyproject.toml",
+    "uv.lock",
+)
+
 _GATE_FIXED_INPUTS: dict[str, tuple[str, ...]] = {
-    "science": ("configs/pytest.ini", "data/neotoma/raw", "data/sead/raw"),
+    "science": (
+        *_GATE_TRUST_INPUTS,
+        "configs/pytest.ini",
+        "data/neotoma/raw",
+        "data/sead/raw",
+    ),
     "data": (
+        *_GATE_TRUST_INPUTS,
         "configs/pytest.ini",
         "data/source_family_contracts.json",
         "data/source_spatiotemporal_posture_registry.json",
@@ -145,11 +170,17 @@ _GATE_FIXED_INPUTS: dict[str, tuple[str, ...]] = {
         "data/svar",
         "data/boundaries",
     ),
-    "map": ("configs/pytest.ini", "docs/report"),
-    "provenance": ("configs/pytest.ini",),
-    "doc-counts": (
+    "map": (*_GATE_TRUST_INPUTS, "configs/pytest.ini", "docs/report"),
+    "provenance": (
+        *_GATE_TRUST_INPUTS,
         "configs/pytest.ini",
-        "data/collection_summary.json",
+        "configs/release_evidence_policy.json",
+    ),
+    "doc-counts": (
+        *_GATE_TRUST_INPUTS,
+        "configs/pytest.ini",
+        "data/country_dimension_coverage.json",
+        *_COUNTRY_COVERAGE_INPUT_PATHS,
         "data/evidence_artifact_contracts.json",
         "data/source_fact_ownership_registry.json",
         "data/source_family_contracts.json",
@@ -257,6 +288,8 @@ def build_product_gate_specification(
         input_paths=tuple(sorted(inputs)),
         artifacts_directory=artifacts_directory,
         junit_path=junit_path,
+        timeout_seconds=900.0,
+        runtime_identity=_runtime_identity(str(pytest_path), node_path),
     )
 
 
@@ -295,6 +328,8 @@ def run_recorded_gate(
         input_paths=tuple(sorted(input_paths)),
         artifacts_directory=artifacts_directory,
         junit_path=junit_path or "",
+        timeout_seconds=timeout_seconds,
+        runtime_identity=_runtime_identity(command[0], shutil.which("node")),
     )
     specification_record = specification.as_record(root)
     stdout_path = directory / f"{gate_id}.stdout.log"
@@ -373,7 +408,7 @@ def run_recorded_gate(
         reason_code = "input_changed_during_gate"
     status = "PASS" if exit_code == 0 and reason_code == "command_passed" else "FAIL"
     record_content: dict[str, object] = {
-        "schema_version": "recorded-gate.v3",
+        "schema_version": "recorded-gate.v4",
         "producer": specification_record["producer"],
         "attestation": specification_record["attestation"],
         "repository_root_digest": _digest_json(root.as_posix()),
@@ -387,6 +422,7 @@ def run_recorded_gate(
         "input_digest": _digest_json(inputs),
         "artifacts_directory": artifacts_directory,
         "specification_digest": _digest_json(specification_record),
+        "timeout_seconds": timeout_seconds,
         "duration_monotonic_ns": duration,
         "exit_code": exit_code,
         "status": status,
@@ -417,6 +453,30 @@ def _producer_record() -> dict[str, object]:
         "source_digest": source_digest,
     }
     return {**content, "digest": _digest_json(content)}
+
+
+def _runtime_identity(
+    executable: str, node_path: str | None
+) -> tuple[tuple[str, str], ...]:
+    path = Path(executable).resolve(strict=False)
+    identity = {
+        "command_executable_path": path.as_posix(),
+        "command_executable_sha256": (
+            f"sha256:{hashlib.sha256(path.read_bytes()).hexdigest()}"
+            if path.is_file()
+            else "unavailable"
+        ),
+        "python_implementation": platform.python_implementation(),
+        "python_version": platform.python_version(),
+        "runner_python": Path(sys.executable).resolve(strict=True).as_posix(),
+    }
+    if node_path is not None:
+        node = Path(node_path).resolve(strict=True)
+        identity["node_path"] = node.as_posix()
+        identity["node_sha256"] = (
+            f"sha256:{hashlib.sha256(node.read_bytes()).hexdigest()}"
+        )
+    return tuple(sorted(identity.items()))
 
 
 def _read_executing_source_bytes() -> bytes:

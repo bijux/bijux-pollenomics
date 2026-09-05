@@ -2,10 +2,15 @@ from __future__ import annotations
 
 import hashlib
 import json
-import sys
+import os
 from pathlib import Path
+import re
+import subprocess
+import sys
 
 import pytest
+
+from bijux_pollenomics.foundation.country_coverage import INPUT_PATHS
 from bijux_pollenomics.provenance import gates as gate_module
 from bijux_pollenomics.provenance.gates import (
     build_product_gate_specification,
@@ -41,6 +46,64 @@ def test_product_map_gate_binds_generated_report_tree() -> None:
     specification = build_product_gate_specification(repository_root, "map")
 
     assert "docs/report" in specification.input_paths
+    assert specification.timeout_seconds == 900.0
+    runtime_identity = dict(specification.runtime_identity)
+    assert runtime_identity["command_executable_path"].endswith("/pytest")
+    assert runtime_identity["command_executable_sha256"].startswith("sha256:")
+    assert runtime_identity["runner_python"]
+    assert runtime_identity["python_implementation"]
+    assert runtime_identity["python_version"]
+
+
+def test_make_gate_inputs_and_timeout_match_product_specifications() -> None:
+    repository_root = Path(__file__).resolve().parents[4]
+    environment = {
+        key: value
+        for key, value in os.environ.items()
+        if key != "POLLENOMICS_GATE_TIMEOUT_SECONDS"
+    }
+    completed = subprocess.run(
+        ["make", "-pn"],
+        cwd=repository_root,
+        env=environment,
+        check=True,
+        capture_output=True,
+        text=True,
+    )
+
+    prefixes = {
+        "science": "SCIENCE",
+        "data": "DATA",
+        "map": "MAP",
+        "provenance": "PROVENANCE",
+        "doc-counts": "DOC_COUNT",
+    }
+    for gate_id, prefix in prefixes.items():
+        match = re.search(
+            rf"^POLLENOMICS_{prefix}_INPUTS := (.*)$",
+            completed.stdout,
+            flags=re.MULTILINE,
+        )
+        assert match is not None
+        make_inputs = tuple(sorted(match.group(1).split()))
+        specification = build_product_gate_specification(repository_root, gate_id)
+        assert make_inputs == specification.input_paths
+        assert specification.timeout_seconds == 900.0
+        assert {
+            "Makefile",
+            "makes/pollenomics-verification.mk",
+            "packages/bijux-pollenomics/pyproject.toml",
+            "pyproject.toml",
+            "uv.lock",
+        } <= set(specification.input_paths)
+        if gate_id == "doc-counts":
+            assert set(INPUT_PATHS) <= set(specification.input_paths)
+
+    assert re.search(
+        r"^POLLENOMICS_GATE_TIMEOUT_SECONDS = 900$",
+        completed.stdout,
+        flags=re.MULTILINE,
+    )
 
 
 def test_gate_runs_exact_argv_and_records_canonical_logs(tmp_path: Path) -> None:
@@ -72,7 +135,7 @@ def test_gate_runs_exact_argv_and_records_canonical_logs(tmp_path: Path) -> None
     assert record["exit_code"] == 0
     assert record["status"] == "PASS"
     assert record["reason_code"] == "command_passed"
-    assert record["schema_version"] == "recorded-gate.v3"
+    assert record["schema_version"] == "recorded-gate.v4"
     assert record["attestation"] == {
         "class": "local_self_attestation",
         "independent_execution_attested": False,
@@ -91,13 +154,14 @@ def test_gate_runs_exact_argv_and_records_canonical_logs(tmp_path: Path) -> None
     ]
     producer_content = {
         "identity": "bijux-pollenomics.recorded-gate",
-        "version": "3",
+        "version": "4",
         "source_files": expected_source_files,
         "source_digest": _json_digest(expected_source_files),
     }
     assert source_files == expected_source_files
     assert producer == {**producer_content, "digest": _json_digest(producer_content)}
     assert isinstance(record["duration_monotonic_ns"], int)
+    assert record["timeout_seconds"] is None
     assert record["duration_monotonic_ns"] >= 0
     assert (directory / "unit.stdout.log").read_text(encoding="utf-8") == "out\n"
     assert (directory / "unit.stderr.log").read_text(encoding="utf-8") == "err\n"
