@@ -1,3 +1,5 @@
+"""Source-family spatiotemporal posture behavior."""
+
 from __future__ import annotations
 
 import json
