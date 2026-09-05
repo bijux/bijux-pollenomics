@@ -20,8 +20,8 @@ from ..boundaries.collection import (
     NATURAL_EARTH_VERSION,
 )
 from ..boundaries.store import load_country_boundaries
+from .country import build_neotoma_site_country_decisions
 from .materialization import materialize_neotoma_relational_snapshot
-from .normalization import build_neotoma_site_country_decisions
 from .relational import CountryAttributionInput, build_neotoma_relational_snapshot
 
 __all__ = [
@@ -136,7 +136,9 @@ def run_neotoma_relational_production(
         raw_country_aliases=aliases,
         proximity_tolerance=production_config.proximity_tolerance,
     )
-    country_inputs: dict[object, CountryAttributionInput] = {**decisions}
+    country_inputs: dict[object, CountryAttributionInput] = {
+        site_id: decision for site_id, decision in decisions.items()
+    }
     snapshot = build_neotoma_relational_snapshot(
         raw_archive.rows,
         source_snapshot_id=raw_archive.source_snapshot_id,

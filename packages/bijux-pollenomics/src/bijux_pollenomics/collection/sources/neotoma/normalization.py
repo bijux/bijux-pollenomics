@@ -1,134 +1,38 @@
 from __future__ import annotations
 
-from collections.abc import Iterable, Mapping, Sequence
+from collections.abc import Iterable, Mapping
 import copy
-from dataclasses import replace
-import json
-import math
-from typing import TypedDict
 
-from ....core.bp_time import (
-    build_bp_interval_label,
-    clamp_bp_year,
-    midpoint_bp_year,
-    normalize_bp_interval,
-)
-from ....core.temporal_semantics import build_temporal_semantics
+from ....core.bp_time import midpoint_bp_year
 from ....core.text import clean_optional_text
 from ...contracts.models import ContextPointRecord
 from ...spatial import (
-    CountryAttributionDecision,
     classify_country,
-    decide_country_attribution,
-    geometry_to_representative_point,
     point_in_bbox,
+)
+from .chronology import (
+    AgeRangeAggregate,
+    format_neotoma_age_range,
+    merge_age_ranges,
+    neotoma_time_interval,
+    neotoma_time_label,
+)
+from .chronology.semantics import _build_neotoma_temporal_semantics
+from .country import (
+    build_neotoma_site_country_decisions,
+    classify_neotoma_site_country,
+    neotoma_site_raw_country,
+    neotoma_site_representative_point,
 )
 
 __all__ = [
+    "build_neotoma_site_country_decisions",
     "build_neotoma_site_rows_from_downloads",
     "build_neotoma_site_snapshot_rows",
-    "build_neotoma_site_country_decisions",
     "classify_neotoma_site_country",
     "neotoma_site_raw_country",
     "normalize_neotoma_rows",
 ]
-
-
-class AgeRangeAggregate(TypedDict):
-    units: str
-    ageold: float | None
-    ageyoung: float | None
-
-
-def build_neotoma_site_country_decisions(
-    rows: Iterable[Mapping[str, object]],
-    country_boundaries: Mapping[str, Mapping[str, object]],
-    *,
-    boundary_artifact_digest: str,
-    boundary_version: str,
-    raw_country_aliases: Mapping[str, str] | None = None,
-    proximity_tolerance: float = 0.15,
-) -> dict[str, CountryAttributionDecision]:
-    """Build evidence-preserving decisions for identified Neotoma site rows."""
-    decisions: dict[str, CountryAttributionDecision] = {}
-    for row in rows:
-        nested_site = row.get("site")
-        site = nested_site if isinstance(nested_site, Mapping) else row
-        site_id = clean_optional_text(site.get("siteid"))
-        if not site_id:
-            raise ValueError("Neotoma country attribution requires siteid")
-        raw_country = neotoma_site_raw_country(
-            site,
-            country_boundaries=country_boundaries,
-            raw_country_aliases=raw_country_aliases,
-        )
-        representative_point = neotoma_site_representative_point(site)
-        if representative_point is None:
-            invalid = decide_country_attribution(
-                math.nan,
-                math.nan,
-                country_boundaries,
-                boundary_artifact_digest=boundary_artifact_digest,
-                boundary_version=boundary_version,
-                raw_country=raw_country,
-                raw_country_aliases=raw_country_aliases,
-                proximity_tolerance=proximity_tolerance,
-            )
-            geography = clean_optional_text(site.get("geography"))
-            decision = replace(
-                invalid,
-                refusal_reason=(
-                    "missing_site_geometry"
-                    if not geography
-                    else "invalid_site_geometry"
-                ),
-            )
-        else:
-            longitude, latitude, _ = representative_point
-            decision = decide_country_attribution(
-                longitude,
-                latitude,
-                country_boundaries,
-                boundary_artifact_digest=boundary_artifact_digest,
-                boundary_version=boundary_version,
-                raw_country=raw_country,
-                raw_country_aliases=raw_country_aliases,
-                proximity_tolerance=proximity_tolerance,
-            )
-        existing = decisions.get(site_id)
-        if existing is not None and existing != decision:
-            raise ValueError(
-                f"Conflicting country decisions for Neotoma site {site_id}"
-            )
-        decisions[site_id] = decision
-    return dict(sorted(decisions.items()))
-
-
-def neotoma_site_raw_country(
-    site: Mapping[str, object],
-    *,
-    country_boundaries: Mapping[str, Mapping[str, object]],
-    raw_country_aliases: Mapping[str, str] | None = None,
-) -> str | None:
-    """Return one explicit source country matching governed boundary vocabulary."""
-    recognized = {country.casefold() for country in country_boundaries}
-    recognized.update(
-        alias.casefold() for alias in (raw_country_aliases or {}) if alias.strip()
-    )
-    values = site.get("geopolitical")
-    if not isinstance(values, list):
-        return None
-    candidates: set[str] = set()
-    for value in values:
-        if isinstance(value, Mapping):
-            candidate = clean_optional_text(value.get("country"))
-        else:
-            candidate = clean_optional_text(value)
-        if candidate and candidate.casefold() in recognized:
-            candidates.add(candidate)
-    if len(candidates) != 1:
-        return None
-    return candidates.pop()
 
 
 def build_neotoma_site_rows_from_downloads(
@@ -373,37 +277,6 @@ def normalize_datasets(value: object) -> list[dict[str, object]]:
     return [copy.deepcopy(dataset) for dataset in value if isinstance(dataset, dict)]
 
 
-def classify_neotoma_site_country(
-    site: dict[str, object],
-    bbox: tuple[float, float, float, float],
-    country_boundaries: Mapping[str, Mapping[str, object]],
-) -> str:
-    """Resolve a Neotoma site payload to one tracked Nordic country, if any."""
-    representative_point = neotoma_site_representative_point(site)
-    if representative_point is None:
-        return ""
-    longitude, latitude, _ = representative_point
-    if not point_in_bbox(longitude=longitude, latitude=latitude, bbox=bbox):
-        return ""
-    return classify_country(longitude, latitude, country_boundaries)
-
-
-def neotoma_site_representative_point(
-    site: Mapping[str, object],
-) -> tuple[float, float, str] | None:
-    """Return one representative point for a Neotoma site payload."""
-    geography_text = clean_optional_text(site.get("geography"))
-    if not geography_text:
-        return None
-    try:
-        geography = json.loads(geography_text)
-    except json.JSONDecodeError:
-        return None
-    if not isinstance(geography, dict):
-        return None
-    return geometry_to_representative_point(geography)
-
-
 def collection_unit_key(unit: dict[str, object]) -> tuple[str, ...]:
     """Build a stable identity key for one Neotoma collection unit."""
     collection_unit_id = clean_optional_text(unit.get("collectionunitid"))
@@ -599,248 +472,6 @@ def chronology_key(chronology: dict[str, object]) -> str:
     return ""
 
 
-def merge_age_ranges(
-    age_ranges_by_units: dict[str, AgeRangeAggregate],
-    values: object,
-) -> None:
-    """Aggregate Neotoma age ranges by units."""
-    if not isinstance(values, list):
-        return
-    for item in values:
-        if not isinstance(item, dict):
-            continue
-        units = clean_optional_text(item.get("units") or item.get("agetype"))
-        if not units:
-            continue
-        target = age_ranges_by_units.setdefault(
-            units,
-            {"units": units, "ageold": None, "ageyoung": None},
-        )
-        age_old = numeric_age_value(
-            item.get("ageold") or item.get("ageolder") or item.get("older")
-        )
-        age_young = numeric_age_value(
-            item.get("ageyoung") or item.get("ageyounger") or item.get("younger")
-        )
-        if age_old is not None and (
-            target["ageold"] is None or age_old > target["ageold"]
-        ):
-            target["ageold"] = age_old
-        if age_young is not None and (
-            target["ageyoung"] is None or age_young < target["ageyoung"]
-        ):
-            target["ageyoung"] = age_young
-
-
-def numeric_age_value(value: object) -> float | None:
-    """Return a numeric age value when a payload field is populated."""
-    if isinstance(value, (int, float)):
-        return float(value)
-    text = clean_optional_text(value)
-    if not text:
-        return None
-    try:
-        return float(text)
-    except ValueError:
-        return None
-
-
-def format_neotoma_age_range(age_range: Mapping[str, object]) -> str:
-    """Render one aggregated Neotoma age range for popup display."""
-    younger = numeric_age_value(age_range.get("ageyoung"))
-    older = numeric_age_value(age_range.get("ageold"))
-    if younger is None and older is None:
-        return ""
-    if younger is None:
-        return format_neotoma_age_value(older)
-    if older is None:
-        return format_neotoma_age_value(younger)
-    return f"{format_neotoma_age_value(younger)} to {format_neotoma_age_value(older)}"
-
-
-def format_neotoma_age_value(value: float | None) -> str:
-    """Render a Neotoma numeric age without unnecessary decimal places."""
-    if value is None:
-        return ""
-    rounded = round(value)
-    if abs(value - rounded) < 1e-9:
-        return str(int(rounded))
-    return f"{value:.2f}".rstrip("0").rstrip(".")
-
-
-def neotoma_time_interval(
-    age_ranges: Sequence[Mapping[str, object]],
-) -> tuple[int, int] | None:
-    """Choose a filterable BP interval from Neotoma site age coverage."""
-    preferred_ranges = sorted(
-        [
-            age_range
-            for age_range in age_ranges
-            if neotoma_age_range_units_supported(
-                clean_optional_text(age_range.get("units"))
-            )
-        ],
-        key=neotoma_age_range_priority,
-    )
-    intervals: list[tuple[int, int]] = []
-    for age_range in preferred_ranges:
-        older = clamp_bp_year(round_age_value(age_range.get("ageold")))
-        younger = clamp_bp_year(round_age_value(age_range.get("ageyoung")))
-        interval = normalize_bp_interval(younger, older)
-        if interval is not None:
-            intervals.append(interval)
-    if not intervals:
-        return None
-    return (
-        min(start for start, _ in intervals),
-        max(end for _, end in intervals),
-    )
-
-
-def neotoma_time_label(
-    age_ranges: Sequence[Mapping[str, object]],
-    interval: tuple[int, int] | None,
-) -> str:
-    """Render a human-readable Neotoma age-coverage label."""
-    preferred_ranges = sorted(
-        [
-            age_range
-            for age_range in age_ranges
-            if neotoma_age_range_units_supported(
-                clean_optional_text(age_range.get("units"))
-            )
-        ],
-        key=neotoma_age_range_priority,
-    )
-    if preferred_ranges:
-        units = clean_optional_text(preferred_ranges[0].get("units"))
-        older = clamp_bp_year(round_age_value(preferred_ranges[0].get("ageold")))
-        younger = clamp_bp_year(round_age_value(preferred_ranges[0].get("ageyoung")))
-        preferred_interval = normalize_bp_interval(younger, older)
-        value = (
-            build_bp_interval_label(
-                preferred_interval[0], preferred_interval[1]
-            ).replace(" BP", "")
-            if preferred_interval is not None
-            else format_neotoma_age_range(preferred_ranges[0])
-        )
-        if units and value:
-            return f"{value} {units}"
-    if interval is None:
-        return ""
-    return build_bp_interval_label(interval[0], interval[1])
-
-
-def neotoma_age_range_units_supported(units: str) -> bool:
-    """Return whether a Neotoma age range is expressed in BP units."""
-    return "bp" in units.casefold()
-
-
-def neotoma_age_range_priority(age_range: Mapping[str, object]) -> tuple[int, str]:
-    """Prefer calibrated BP ranges over uncalibrated BP ranges."""
-    units = clean_optional_text(age_range.get("units"))
-    normalized = units.casefold()
-    if "cal" in normalized and "bp" in normalized:
-        return (0, normalized)
-    if "bp" in normalized:
-        return (1, normalized)
-    return (2, normalized)
-
-
-def round_age_value(value: object) -> int | None:
-    """Round one Neotoma numeric age value to an integer BP year."""
-    numeric = numeric_age_value(value)
-    if numeric is None:
-        return None
-    return int(round(numeric))
-
-
-def _build_neotoma_temporal_semantics(
-    age_ranges: Sequence[Mapping[str, object]],
-    *,
-    time_interval: tuple[int, int] | None,
-    time_label: str,
-) -> dict[str, object]:
-    supported_ranges = [
-        age_range
-        for age_range in age_ranges
-        if neotoma_age_range_units_supported(
-            clean_optional_text(age_range.get("units"))
-        )
-    ]
-    supported_units = tuple(
-        clean_optional_text(age_range.get("units"))
-        for age_range in supported_ranges
-        if clean_optional_text(age_range.get("units"))
-    )
-    all_units = tuple(
-        clean_optional_text(age_range.get("units"))
-        for age_range in age_ranges
-        if clean_optional_text(age_range.get("units"))
-    )
-    uncertainty_notes: tuple[str, ...] = ()
-    if len(supported_units) > 1:
-        uncertainty_notes = (
-            "Multiple BP age-range conventions contribute to this site span.",
-        )
-    if time_interval is not None and len(supported_ranges) > 1:
-        comparability_posture = "numeric_interval_with_caveat"
-        evidence_class = "neotoma_aggregated_bp_ranges"
-        precision_posture = "site_interval_with_uncertainty"
-        comparison_note = (
-            "Neotoma coverage merges more than one BP age-range convention for this "
-            "site, so the interval remains comparable but should be treated as a "
-            "site-level summary span."
-        )
-    elif time_interval is not None:
-        comparability_posture = "numeric_interval"
-        evidence_class = "neotoma_bp_range"
-        precision_posture = "site_interval"
-        comparison_note = (
-            "Neotoma publishes BP age coverage here, but the interval remains a "
-            "site-level pollen context span rather than a sample-owned event date."
-        )
-    elif all_units:
-        comparability_posture = "contextual_label_only"
-        evidence_class = "neotoma_non_bp_age_range"
-        precision_posture = "non_bp_age_units_only"
-        comparison_note = (
-            "Neotoma age coverage is present, but not in a BP form that this "
-            "repository compares numerically."
-        )
-    else:
-        comparability_posture = "unresolved"
-        evidence_class = "unresolved"
-        precision_posture = "unresolved"
-        comparison_note = (
-            "Neotoma did not publish enough age-range detail here to support "
-            "temporal comparison."
-        )
-    summary_label = time_label.strip() or build_bp_interval_label(
-        time_interval[0] if time_interval is not None else None,
-        time_interval[1] if time_interval is not None else None,
-    )
-    if not summary_label:
-        summary_label = "; ".join(all_units)
-    return build_temporal_semantics(
-        source_family="neotoma",
-        evidence_class=evidence_class,
-        precision_posture=precision_posture,
-        comparability_posture=comparability_posture,
-        time_start_bp=time_interval[0] if time_interval is not None else None,
-        time_end_bp=time_interval[1] if time_interval is not None else None,
-        time_mean_bp=midpoint_bp_year(time_interval[0], time_interval[1])
-        if time_interval is not None
-        else None,
-        summary_label=summary_label,
-        comparison_note=comparison_note,
-        provenance_locator="site_age_ranges",
-        original_labels=all_units,
-        normalized_labels=supported_units,
-        uncertainty_notes=uncertainty_notes,
-    ).as_dict()
-
-
 def normalize_neotoma_rows(
     rows: Iterable[dict[str, object]],
     bbox: tuple[float, float, float, float],
@@ -1011,11 +642,3 @@ def parse_int_or_default(value: object, *, default: int = 0) -> int:
         return int(text)
     except ValueError:
         return default
-
-
-__all__ = [
-    "build_neotoma_site_rows_from_downloads",
-    "build_neotoma_site_snapshot_rows",
-    "classify_neotoma_site_country",
-    "normalize_neotoma_rows",
-]

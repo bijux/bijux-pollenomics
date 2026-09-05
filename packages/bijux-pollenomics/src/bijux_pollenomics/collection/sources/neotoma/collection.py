@@ -49,10 +49,10 @@ from .client import (
 from .client import (
     validate_neotoma_download_coverage as validate_neotoma_download_coverage_from_client,
 )
+from .country import classify_neotoma_site_country
 from .normalization import (
     build_neotoma_site_rows_from_downloads,
     build_neotoma_site_snapshot_rows,
-    classify_neotoma_site_country,
     normalize_neotoma_rows,
 )
 from .review import write_neotoma_review_outputs
