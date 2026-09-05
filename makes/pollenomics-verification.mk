@@ -184,7 +184,14 @@ define run_pollenomics_pytest_gate
 		$(2)
 endef
 
-.PHONY: verify-science verify-data verify-map verify-provenance verify-doc-counts refresh-release-gates release-evidence-request release-evidence verify-release-candidate
+.PHONY: verify-science verify-data verify-map verify-provenance verify-doc-counts verify-rebuild refresh-release-gates release-evidence-request release-evidence verify-release-candidate
+
+verify-rebuild: root-check-env ## Prove tracked reports rebuild deterministically
+	@evidence_parent="$$(mktemp -d "$(CURDIR)/artifacts/execution-control/reproducible-report-build.XXXXXX")"; \
+	$(DEV_RUN) -m bijux_pollenomics_dev.ci.rebuild_reports \
+		--repo-root "$(CURDIR)" \
+		--policy "$(CURDIR)/configs/ci/reproducible-report-build.json" \
+		--evidence-root "$$evidence_parent/evidence"
 
 verify-science: root-check-env ## Record focused scientific-semantics verification
 	$(call run_pollenomics_pytest_gate,science,$(POLLENOMICS_SCIENCE_TESTS),$(POLLENOMICS_SCIENCE_INPUTS))
