@@ -5,6 +5,7 @@ import math
 
 from ...core.geospatial.geojson import JsonObject, as_mapping, feature_list
 from ..map_publication import MapScopePolicy
+from .coordinates import point_coordinate_pair
 
 
 @dataclass(frozen=True)
@@ -90,19 +91,14 @@ def build_map_document_state(
         time_max_bp, initial_time_start_bp + initial_time_interval_years
     )
     if map_points:
-        latitude_values = [
-            float(latitude)
+        coordinate_pairs = [
+            pair
             for feature in map_points
-            for latitude in [feature.get("latitude")]
-            if isinstance(latitude, (int, float, str))
+            if (pair := point_coordinate_pair(feature)) is not None
         ]
-        longitude_values = [
-            float(longitude)
-            for feature in map_points
-            for longitude in [feature.get("longitude")]
-            if isinstance(longitude, (int, float, str))
-        ]
-        if latitude_values and longitude_values:
+        if coordinate_pairs:
+            latitude_values = [latitude for latitude, _longitude in coordinate_pairs]
+            longitude_values = [longitude for _latitude, longitude in coordinate_pairs]
             data_bounds = [
                 [min(latitude_values), min(longitude_values)],
                 [max(latitude_values), max(longitude_values)],

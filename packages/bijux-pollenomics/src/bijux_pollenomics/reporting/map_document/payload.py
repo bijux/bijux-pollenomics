@@ -7,6 +7,7 @@ from typing import TYPE_CHECKING
 from ...core.geospatial.geojson import JsonObject
 from ..map_publication import MapScopePolicy
 from .state import build_map_document_state
+from .static_assets.budgets import ATLAS_FILTER_MAIN_THREAD_MAX_MS
 
 if TYPE_CHECKING:
     from .static_assets import StaticAtlasAssets
@@ -51,6 +52,9 @@ def build_map_document_payload(
             {
                 "schema_version": "atlas-inline-bootstrap.v1",
                 "status": "inline_test_fixture",
+                "budgets": {
+                    "filter_main_thread_max_ms": ATLAS_FILTER_MAIN_THREAD_MAX_MS,
+                },
             },
         )
         chunk_script_tags = ""

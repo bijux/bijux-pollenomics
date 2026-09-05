@@ -1,9 +1,9 @@
 """Country-partitioned node chunks and their selection metadata."""
 
 from collections.abc import Sequence
-import math
 
 from ....core.geospatial.geojson import JsonObject
+from ..coordinates import finite_coordinate, point_coordinate_pair
 from .budgets import ATLAS_CHUNK_MAX_BYTES, ATLAS_CHUNK_TARGET_BYTES
 from .indexes import feature_interval
 from .serialization import canonical_json
@@ -203,10 +203,8 @@ def _node_feature_bounds(
     coordinates: list[tuple[float, float]] = []
     for feature in features:
         if layer_kind == "point":
-            latitude = _finite_coordinate(feature.get("latitude"))
-            longitude = _finite_coordinate(feature.get("longitude"))
-            if latitude is not None and longitude is not None:
-                coordinates.append((latitude, longitude))
+            if (coordinate_pair := point_coordinate_pair(feature)) is not None:
+                coordinates.append(coordinate_pair)
             continue
         geometry = feature.get("geometry")
         if isinstance(geometry, dict):
@@ -224,23 +222,13 @@ def _collect_geojson_coordinates(
     if not isinstance(value, list):
         return
     if len(value) >= 2:
-        longitude = _finite_coordinate(value[0])
-        latitude = _finite_coordinate(value[1])
+        longitude = finite_coordinate(value[0], minimum=-180, maximum=180)
+        latitude = finite_coordinate(value[1], minimum=-90, maximum=90)
         if longitude is not None and latitude is not None:
             coordinates.append((latitude, longitude))
             return
     for item in value:
         _collect_geojson_coordinates(item, coordinates)
-
-
-def _finite_coordinate(value: object) -> float | None:
-    if value is None or isinstance(value, bool):
-        return None
-    try:
-        number = float(value) if isinstance(value, (int, float, str)) else math.nan
-    except (TypeError, ValueError, OverflowError):
-        return None
-    return number if math.isfinite(number) else None
 
 
 __all__ = [

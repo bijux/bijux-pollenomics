@@ -4,6 +4,7 @@ from collections.abc import Sequence
 import math
 
 from ....core.geospatial.geojson import JsonObject
+from ..coordinates import point_coordinate_pair
 
 
 def build_indexes(point_layers: Sequence[JsonObject]) -> dict[str, object]:
@@ -29,9 +30,9 @@ def build_indexes(point_layers: Sequence[JsonObject]) -> dict[str, object]:
             countries.setdefault(country, {}).setdefault(layer_key, []).append(
                 feature_index
             )
-            latitude = finite_number(feature.get("latitude"))
-            longitude = finite_number(feature.get("longitude"))
-            if latitude is not None and longitude is not None:
+            coordinate_pair = point_coordinate_pair(feature)
+            if coordinate_pair is not None:
+                latitude, longitude = coordinate_pair
                 cell = f"{math.floor(latitude)}:{math.floor(longitude)}"
                 spatial_cells.setdefault(cell, {}).setdefault(layer_key, []).append(
                     feature_index

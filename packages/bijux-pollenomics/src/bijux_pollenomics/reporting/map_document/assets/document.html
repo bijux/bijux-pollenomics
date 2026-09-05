@@ -375,6 +375,7 @@
       .range-input,
       .search-input { width: 100%; }
       .range-input { accent-color: var(--gold); }
+      .time-position-slider { direction: rtl; }
       .search-shell {
         position: relative;
       }
@@ -1712,9 +1713,9 @@
                 <div class="control-group-body">
                   <div class="dock-range-stack">
                     <div>
-                      <div class="field-label"><span>Window start</span><span id="time-start-value">__INITIAL_TIME_START_BP__ BP</span></div>
-                      <label class="sr-only" for="time-start-slider">Time window start in years BP</label>
-                      <input id="time-start-slider" class="range-input" type="range" min="__TIME_MIN_BP__" max="__TIME_MAX_BP__" step="1" value="__INITIAL_TIME_START_BP__">
+                      <div class="field-label"><span>Oldest → present position</span><span id="time-start-value">__INITIAL_TIME_START_BP__ BP</span></div>
+                      <label class="sr-only" for="time-start-slider">Move the BP window from oldest evidence toward the present</label>
+                      <input id="time-start-slider" class="range-input time-position-slider" type="range" min="__TIME_MIN_BP__" max="__TIME_MAX_BP__" step="1" value="__INITIAL_TIME_START_BP__">
                     </div>
                     <div>
                       <div class="field-label"><span>Window span</span><span id="time-interval-value">__INITIAL_TIME_INTERVAL__ years</span></div>
@@ -1731,6 +1732,7 @@
                     <button class="preset-button" type="button" data-time-interval="50000">50000 years</button>
                     <button class="preset-button is-active" type="button" data-time-interval="full">Full span</button>
                   </div>
+                  <button id="time-playback-toggle" class="inline-button" type="button" aria-pressed="false">Play oldest → present</button>
                   <div id="time-record-count" class="search-meta">Calculating time-aware records in the active BP window.</div>
                 </div>
               </details>
@@ -1881,6 +1883,19 @@ __STATIC_CHUNK_SCRIPT_TAGS__
       function staticAtlasFailure(message) {
         throw new Error(`Static atlas data cannot be loaded: ${message}. Reload the page; if the problem persists, redeploy the HTML and hashed assets from the same build.`);
       }
+      function staticAtlasNonnegativeInteger(value, label) {
+        if (value === null || value === undefined || typeof value === 'boolean' || (typeof value === 'string' && !value.trim())) staticAtlasFailure(`${label} is missing`);
+        const numeric = Number(value);
+        if (!Number.isSafeInteger(numeric) || numeric < 0) staticAtlasFailure(`${label} is invalid`);
+        return numeric;
+      }
+      function staticAtlasNullableFiniteNumber(value, label, minimum, maximum) {
+        if (value === null) return null;
+        if (value === undefined || typeof value === 'boolean' || (typeof value === 'string' && !value.trim())) staticAtlasFailure(`${label} is missing`);
+        const numeric = Number(value);
+        if (!Number.isFinite(numeric) || numeric < minimum || numeric > maximum) staticAtlasFailure(`${label} is invalid`);
+        return numeric;
+      }
       function validateStaticAtlasBootstrap() {
         if (STATIC_ATLAS_BOOTSTRAP.schema_version !== 'atlas-static-bootstrap.v1') staticAtlasFailure('bootstrap schema mismatch');
         if (STATIC_ATLAS_BOOTSTRAP.version !== __VERSION_JSON__) staticAtlasFailure('bootstrap version mismatch');
@@ -1900,13 +1915,37 @@ __STATIC_CHUNK_SCRIPT_TAGS__
           const payloadEncoding = row.payload_encoding || 'json';
           if (!['json', 'gzip_base64'].includes(payloadEncoding)) staticAtlasFailure(`${row.asset_key || 'unknown asset'} payload encoding is invalid`);
           if (payloadEncoding === 'gzip_base64' && row.domain !== 'details') staticAtlasFailure(`${row.asset_key || 'unknown asset'} compressed payload domain is invalid`);
+          const recordCount = staticAtlasNonnegativeInteger(row.record_count, `${row.asset_key || 'unknown asset'} record count`);
+          staticAtlasNonnegativeInteger(row.byte_count, `${row.asset_key || 'unknown asset'} byte count`);
+          if (row.domain === 'nodes') {
+            const untimedCount = staticAtlasNonnegativeInteger(row.untimed_record_count, `${row.asset_key || 'unknown asset'} untimed record count`);
+            if (untimedCount > recordCount) staticAtlasFailure(`${row.asset_key || 'unknown asset'} untimed record count exceeds its record count`);
+            const timeMinimum = staticAtlasNullableFiniteNumber(row.time_min_bp, `${row.asset_key || 'unknown asset'} minimum BP`, 0, Number.MAX_SAFE_INTEGER);
+            const timeMaximum = staticAtlasNullableFiniteNumber(row.time_max_bp, `${row.asset_key || 'unknown asset'} maximum BP`, 0, Number.MAX_SAFE_INTEGER);
+            if ((timeMinimum === null) !== (timeMaximum === null) || (timeMinimum !== null && timeMinimum > timeMaximum)) staticAtlasFailure(`${row.asset_key || 'unknown asset'} BP interval is invalid`);
+            if (row.bounds !== null) {
+              if (!Array.isArray(row.bounds) || row.bounds.length !== 4) staticAtlasFailure(`${row.asset_key || 'unknown asset'} bounds are invalid`);
+              const [south, west, north, east] = row.bounds;
+              const validSouth = staticAtlasNullableFiniteNumber(south, `${row.asset_key || 'unknown asset'} south bound`, -90, 90);
+              const validWest = staticAtlasNullableFiniteNumber(west, `${row.asset_key || 'unknown asset'} west bound`, -180, 180);
+              const validNorth = staticAtlasNullableFiniteNumber(north, `${row.asset_key || 'unknown asset'} north bound`, -90, 90);
+              const validEast = staticAtlasNullableFiniteNumber(east, `${row.asset_key || 'unknown asset'} east bound`, -180, 180);
+              if ([validSouth, validWest, validNorth, validEast].some((value) => value === null) || validSouth > validNorth || validWest > validEast) staticAtlasFailure(`${row.asset_key || 'unknown asset'} bounds ordering is invalid`);
+            }
+          }
         });
         const keys = STATIC_ATLAS_BOOTSTRAP.assets.map((row) => row.asset_key);
         if (new Set(keys).size !== keys.length) staticAtlasFailure('bootstrap asset identities are duplicated');
         const initial = STATIC_ATLAS_BOOTSTRAP.assets.filter((row) => row.initial_load === true);
-        const initialBytes = initial.reduce((total, row) => total + Number(row.byte_count || 0), 0);
-        if (initial.length > Number(STATIC_ATLAS_BOOTSTRAP.budgets.initial_max_requests)) staticAtlasFailure('initial request budget exceeded');
-        if (initialBytes > Number(STATIC_ATLAS_BOOTSTRAP.budgets.initial_max_bytes)) staticAtlasFailure('initial byte budget exceeded');
+        const initialBytes = initial.reduce((total, row) => total + staticAtlasNonnegativeInteger(row.byte_count, `${row.asset_key} byte count`), 0);
+        const initialRequestBudget = staticAtlasNonnegativeInteger(STATIC_ATLAS_BOOTSTRAP.budgets?.initial_max_requests, 'initial request budget');
+        const initialByteBudget = staticAtlasNonnegativeInteger(STATIC_ATLAS_BOOTSTRAP.budgets?.initial_max_bytes, 'initial byte budget');
+        staticAtlasNonnegativeInteger(STATIC_ATLAS_BOOTSTRAP.budgets?.interaction_max_requests, 'interaction request budget');
+        staticAtlasNonnegativeInteger(STATIC_ATLAS_BOOTSTRAP.budgets?.interaction_max_bytes, 'interaction byte budget');
+        staticAtlasNonnegativeInteger(STATIC_ATLAS_BOOTSTRAP.budgets?.chunk_max_bytes, 'chunk byte budget');
+        staticAtlasNonnegativeInteger(STATIC_ATLAS_BOOTSTRAP.budgets?.filter_main_thread_max_ms, 'filter main-thread budget');
+        if (initial.length > initialRequestBudget) staticAtlasFailure('initial request budget exceeded');
+        if (initialBytes > initialByteBudget) staticAtlasFailure('initial byte budget exceeded');
       }
       async function staticAtlasSha256(text) {
         if (!globalThis.crypto || !globalThis.crypto.subtle || typeof TextEncoder === 'undefined') staticAtlasFailure('browser integrity support is unavailable');
@@ -2035,6 +2074,7 @@ __STATIC_CHUNK_SCRIPT_TAGS__
       const SCIENTIFIC_SIGNALS = Object.freeze([...(ATLAS_EVIDENCE.scientific_signals || [])]);
       const SCIENTIFIC_SIGNAL_IDS = SCIENTIFIC_SIGNALS.map((signal) => signal.signal_id);
       const DEFAULT_SCIENTIFIC_SIGNAL_IDS = SCIENTIFIC_SIGNALS.filter((signal) => signal.resolution === 'whole').map((signal) => signal.signal_id);
+      const SCIENTIFIC_RESOLUTION_ORDER = Object.freeze(['whole', 'group', 'subgroup', 'role', 'taxon']);
       const DETAIL_RECORDS = new Map((ATLAS_EVIDENCE.detail_records || []).map((record) => [record.record_id, record]));
       const GOVERNED_EDGE_RECORDS = Object.freeze(STATIC_ATLAS_INLINE ? [] : STATIC_ATLAS_CHUNKS.edges.records.map((edge) => Object.freeze({ ...edge })));
       const GOVERNED_SEQUENCE_RECORDS = Object.freeze(STATIC_ATLAS_INLINE ? [] : STATIC_ATLAS_CHUNKS.sequences.records.map((sequence) => Object.freeze({ ...sequence })));
@@ -2161,6 +2201,7 @@ __STATIC_CHUNK_SCRIPT_TAGS__
       const timeStartValue = document.getElementById('time-start-value');
       const timeIntervalSlider = document.getElementById('time-interval-slider');
       const timeIntervalValue = document.getElementById('time-interval-value');
+      const timePlaybackToggle = document.getElementById('time-playback-toggle');
       const timeRecordCount = document.getElementById('time-record-count');
       const densityOpacitySlider = document.getElementById('density-opacity-slider');
       const densityOpacityValue = document.getElementById('density-opacity-value');
@@ -2243,8 +2284,16 @@ __STATIC_CHUNK_SCRIPT_TAGS__
       function scientificCueGlyph(cue) {
         return { circle: '●', square: '■', triangle: '▲', diamond: '◆', cross: '✚', ring: '◎' }[cue] || '●';
       }
+      function finiteControlNumber(value) {
+        if (value === null || value === undefined || typeof value === 'boolean') return null;
+        if (typeof value === 'string' && !value.trim()) return null;
+        const numeric = Number(value);
+        return Number.isFinite(numeric) ? numeric : null;
+      }
       function clampTimeInterval(value) {
-        return Math.max(1, Math.min(TIME_INTERVAL_MAX, Math.round(Number(value) || DEFAULT_TIME_INTERVAL_YEARS)));
+        const numeric = finiteControlNumber(value);
+        const selected = numeric === null ? DEFAULT_TIME_INTERVAL_YEARS : numeric;
+        return Math.max(1, Math.min(TIME_INTERVAL_MAX, Math.round(selected)));
       }
       function defaultPanelCollapsed() {
         return mobileLayoutQuery.matches;
@@ -2258,7 +2307,9 @@ __STATIC_CHUNK_SCRIPT_TAGS__
       }
       function clampTimeStart(value, intervalYears) {
         const maxStart = Math.max(TIME_MIN_BP, TIME_MAX_BP - intervalYears);
-        return Math.max(TIME_MIN_BP, Math.min(maxStart, Math.round(Number(value) || DEFAULT_TIME_START_BP)));
+        const numeric = finiteControlNumber(value);
+        const selected = numeric === null ? DEFAULT_TIME_START_BP : numeric;
+        return Math.max(TIME_MIN_BP, Math.min(maxStart, Math.round(selected)));
       }
       function timeWindowEndBp() {
         return Math.min(TIME_MAX_BP, timeStartBp + timeIntervalYears);
@@ -2266,10 +2317,51 @@ __STATIC_CHUNK_SCRIPT_TAGS__
       function timeFilterUsesFullExtent() {
         return timeStartBp <= TIME_MIN_BP && timeWindowEndBp() >= TIME_MAX_BP;
       }
+      function oldestPlaybackStart(intervalYears) {
+        return Math.max(TIME_MIN_BP, TIME_MAX_BP - clampTimeInterval(intervalYears));
+      }
+      function nextPlaybackTimeStart(currentStart, intervalYears) {
+        const start = clampTimeStart(currentStart, intervalYears);
+        return Math.max(TIME_MIN_BP, start - clampTimeInterval(intervalYears));
+      }
+      let timePlaybackTimer = null;
+      function stopTimePlayback() {
+        if (timePlaybackTimer !== null) window.clearTimeout(timePlaybackTimer);
+        timePlaybackTimer = null;
+        timePlaybackToggle.setAttribute('aria-pressed', 'false');
+        timePlaybackToggle.textContent = 'Play oldest → present';
+      }
+      async function advanceTimePlayback() {
+        if (timePlaybackTimer === null) return;
+        const nextStart = nextPlaybackTimeStart(timeStartBp, timeIntervalYears);
+        if (nextStart === timeStartBp) {
+          stopTimePlayback();
+          return;
+        }
+        timeStartBp = nextStart;
+        await renderMapState();
+        if (timePlaybackTimer !== null && timeStartBp <= TIME_MIN_BP) {
+          stopTimePlayback();
+        } else if (timePlaybackTimer !== null) {
+          timePlaybackTimer = window.setTimeout(advanceTimePlayback, 900);
+        }
+      }
+      async function startTimePlayback() {
+        if (!TIME_HAS_DATA || timeIntervalYears >= TIME_INTERVAL_MAX) return;
+        timeStartBp = oldestPlaybackStart(timeIntervalYears);
+        timePlaybackToggle.setAttribute('aria-pressed', 'true');
+        timePlaybackToggle.textContent = 'Pause playback';
+        timePlaybackTimer = -1;
+        await renderMapState();
+        if (timePlaybackTimer !== null) {
+          timePlaybackTimer = window.setTimeout(advanceTimePlayback, 900);
+        }
+      }
       function refreshTimeControls() {
         if (!TIME_HAS_DATA) {
           timeStartSlider.disabled = true;
           timeIntervalSlider.disabled = true;
+          timePlaybackToggle.disabled = true;
           dockTimeSummary.textContent = 'No BP dates available';
           timeStartValue.textContent = '--';
           timeIntervalValue.textContent = '--';
@@ -2284,9 +2376,10 @@ __STATIC_CHUNK_SCRIPT_TAGS__
         timeIntervalSlider.max = String(TIME_INTERVAL_MAX);
         timeIntervalSlider.value = String(timeIntervalYears);
         const endBp = timeWindowEndBp();
-        dockTimeSummary.textContent = `${timeStartBp}-${endBp} BP`;
-        timeStartValue.textContent = `${timeStartBp} BP`;
+        dockTimeSummary.textContent = `[${timeStartBp}, ${endBp}] BP`;
+        timeStartValue.textContent = `[${timeStartBp}, ${endBp}] BP`;
         timeIntervalValue.textContent = `${timeIntervalYears} years`;
+        timePlaybackToggle.disabled = timeIntervalYears >= TIME_INTERVAL_MAX;
       }
       const initialState = parseHashState();
       let activeCountries = normalizedSetFromList(initialState.countries, COUNTRIES, DEFAULT_COUNTRIES);
@@ -2335,7 +2428,8 @@ __STATIC_CHUNK_SCRIPT_TAGS__
       let animalNordicOnly = initialState.animalNordic === 'only';
       let timeIntervalYears = TIME_HAS_DATA ? clampTimeInterval(initialState.timeInterval) : DEFAULT_TIME_INTERVAL_YEARS;
       let timeStartBp = TIME_HAS_DATA ? clampTimeStart(initialState.timeStart, timeIntervalYears) : DEFAULT_TIME_START_BP;
-      let densityOpacity = Math.max(0, Math.min(1, Number(initialState.density || '60') / 100 || 0.6));
+      const initialDensityPercent = finiteControlNumber(initialState.density);
+      let densityOpacity = Math.max(0, Math.min(1, (initialDensityPercent === null ? 60 : initialDensityPercent) / 100));
       let currentBasemap = BASEMAP_NAMES.includes(String(initialState.basemap || '')) ? String(initialState.basemap) : DEFAULT_BASEMAP;
       let activeBasemap = null;
       const failedBasemaps = new Set();
@@ -2358,7 +2452,7 @@ __STATIC_CHUNK_SCRIPT_TAGS__
       }
       function staticAtlasTimeNeeded(row, layer) {
         if (!layer.applies_time_filter || !TIME_HAS_DATA || timeFilterUsesFullExtent()) return true;
-        if (Number(row.untimed_record_count || 0) === Number(row.record_count || 0)) return false;
+        if (staticAtlasNonnegativeInteger(row.untimed_record_count, `${row.asset_key} untimed record count`) === staticAtlasNonnegativeInteger(row.record_count, `${row.asset_key} record count`)) return false;
         if (row.time_min_bp === null || row.time_max_bp === null) return true;
         return Number(row.time_max_bp) >= timeStartBp && Number(row.time_min_bp) <= timeWindowEndBp();
       }
@@ -2391,9 +2485,11 @@ __STATIC_CHUNK_SCRIPT_TAGS__
             && staticAtlasViewportNeeded(row)
           );
         });
-        if (required.length > Number(STATIC_ATLAS_BOOTSTRAP.budgets.interaction_max_requests)) staticAtlasFailure(`selection requires ${required.length} requests, above the interaction budget`);
-        const requiredBytes = required.reduce((total, row) => total + Number(row.byte_count || 0), 0);
-        if (requiredBytes > Number(STATIC_ATLAS_BOOTSTRAP.budgets.interaction_max_bytes)) staticAtlasFailure(`selection requires ${requiredBytes} bytes, above the interaction budget`);
+        const interactionRequestBudget = staticAtlasNonnegativeInteger(STATIC_ATLAS_BOOTSTRAP.budgets.interaction_max_requests, 'interaction request budget');
+        if (required.length > interactionRequestBudget) staticAtlasFailure(`selection requires ${required.length} requests, above the interaction budget`);
+        const requiredBytes = required.reduce((total, row) => total + staticAtlasNonnegativeInteger(row.byte_count, `${row.asset_key} byte count`), 0);
+        const interactionByteBudget = staticAtlasNonnegativeInteger(STATIC_ATLAS_BOOTSTRAP.budgets.interaction_max_bytes, 'interaction byte budget');
+        if (requiredBytes > interactionByteBudget) staticAtlasFailure(`selection requires ${requiredBytes} bytes, above the interaction budget`);
         return required;
       }
       function refreshStaticAtlasLayers() {
@@ -2673,7 +2769,7 @@ __STATIC_CHUNK_SCRIPT_TAGS__
         const candidates = STATIC_ATLAS_BOOTSTRAP.assets.filter((row) => row.asset_key === assetKey && row.domain === 'details');
         if (candidates.length !== 1) return unavailableDetailTabs('detail_chunk_index_invalid');
         const row = candidates[0];
-        if (Number(row.byte_count || 0) > Number(STATIC_ATLAS_BOOTSTRAP.budgets.interaction_max_bytes)) return unavailableDetailTabs('detail_chunk_interaction_budget_exceeded');
+        if (staticAtlasNonnegativeInteger(row.byte_count, `${row.asset_key} byte count`) > staticAtlasNonnegativeInteger(STATIC_ATLAS_BOOTSTRAP.budgets.interaction_max_bytes, 'interaction byte budget')) return unavailableDetailTabs('detail_chunk_interaction_budget_exceeded');
         try {
           await loadStaticAtlasAsset(row);
         } catch (error) {
@@ -2874,6 +2970,8 @@ __STATIC_CHUNK_SCRIPT_TAGS__
       async function focusPointAtVisibleIndex(index) {
         const entry = visiblePointEntries[index];
         if (!entry) return;
+        const coordinates = featureCoordinatePair(entry.feature);
+        if (!coordinates) return;
         const mediaLinks = normalizedMediaLinks(entry.feature.media_links);
         const primaryAction = entry.feature.source_url
           ? { label: 'Open source', url: entry.feature.source_url }
@@ -2881,7 +2979,7 @@ __STATIC_CHUNK_SCRIPT_TAGS__
         const meta = [
           { label: 'Layer', value: entry.layer.label },
           { label: 'Country', value: entry.feature.country || 'Unassigned' },
-          { label: 'Coordinates', value: `${Number(entry.feature.latitude).toFixed(4)}, ${Number(entry.feature.longitude).toFixed(4)}` },
+          { label: 'Coordinates', value: coordinateLabel(entry.feature, 4) },
         ];
         const timeLabel = featureTimeLabel(entry.feature);
         if (timeLabel) {
@@ -2896,8 +2994,8 @@ __STATIC_CHUNK_SCRIPT_TAGS__
           meta,
           sourceUrl: primaryAction ? primaryAction.url : '',
           sourceLabel: primaryAction ? primaryAction.label : 'Open source',
-          latitude: Number(entry.feature.latitude),
-          longitude: Number(entry.feature.longitude),
+          latitude: coordinates.latitude,
+          longitude: coordinates.longitude,
           recordId: String(entry.feature.record_id || ''),
           detailTabs: unavailableDetailTabs('detail_record_loading'),
         };
@@ -2962,7 +3060,7 @@ __STATIC_CHUNK_SCRIPT_TAGS__
           ? 'Only accepted, versioned classifications are selectable. Color is always paired with a shape cue.'
           : `Scientific comparison unavailable: ${ATLAS_EVIDENCE.classifications_reason_code || 'accepted_scientific_classifications_not_available'}. Source layers remain inspectable.`;
         scientificFilters.innerHTML = available
-          ? ['whole', 'group', 'role', 'taxon'].map((resolution) => {
+          ? SCIENTIFIC_RESOLUTION_ORDER.map((resolution) => {
               const signals = SCIENTIFIC_SIGNALS.filter((signal) => signal.resolution === resolution);
               if (!signals.length) return '';
               return `<div class="legend-group"><div class="legend-group-label">${escapeHtml(resolution)}</div><div class="dock-layer-grid">${signals.map((signal) => `<label class="dock-layer-chip"><input class="scientific-checkbox" type="checkbox" value="${escapeHtml(signal.signal_id)}" ${activeScientificSignalIds.has(signal.signal_id) ? 'checked' : ''}><span class="scientific-cue" data-cue="${escapeHtml(signal.non_color_cue)}" style="color:${escapeHtml(signal.color)}">${escapeHtml(scientificCueGlyph(signal.non_color_cue))}</span><span>${escapeHtml(signal.label)}</span></label>`).join('')}</div></div>`;
@@ -3151,7 +3249,7 @@ __STATIC_CHUNK_SCRIPT_TAGS__
           ? [
               `<div class="legend-group"><div class="legend-group-label">Animal scope</div><div class="legend-pill-list"><span class="legend-pill"><span class="legend-swatch" style="background: rgba(176, 133, 42, 0.18); border-color: #8a5b11;"></span><span>Domesticated-core</span><span class="legend-pill-note">tracked support surface</span></span><span class="legend-pill"><span class="legend-swatch" style="background: rgba(20, 184, 166, 0.18); border-color: #0f766e;"></span><span>Comparator</span><span class="legend-pill-note">comparison only</span></span></div></div>`,
               `<div class="legend-group"><div class="legend-group-label">Coordinate trust</div><div class="legend-list">${Object.entries(animalMetrics.confidenceCounts).sort((left, right) => right[1] - left[1]).map(([confidence, count]) => `<div class="legend-item legend-item--compact"><span class="legend-swatch" style="background: rgba(20, 33, 61, 0.08); border-color: rgba(20, 33, 61, 0.22);"></span><span class="legend-item-copy"><span class="legend-item-title">${escapeHtml(formatCoordinateConfidence(confidence))}</span><span class="legend-item-meta">${escapeHtml(String(count))} visible points</span></span></div>`).join('') || '<div class="legend-item"><span>No visible animal points for the current filter state.</span></div>'}</div></div>`,
-              `<div class="legend-group"><div class="legend-group-label">Tracked species</div><div class="legend-list">${activeAnimalLayers.map((layer) => `<div class="legend-item legend-item--compact"><span class="legend-swatch" style="background:${escapeHtml(layerColor(layer))};border-color:${escapeHtml(layer.style.stroke || layerColor(layer))};"></span><span class="legend-item-copy"><span class="legend-item-title">${escapeHtml(layer.species_common_name || layer.label)}</span><span class="legend-item-meta">${escapeHtml(formatAnimalScope(layer.animal_scope || ''))} · ${escapeHtml(String(layer.count || 0))} mapped point${Number(layer.count || 0) === 1 ? '' : 's'}</span></span></div>`).join('')}</div></div>`,
+              `<div class="legend-group"><div class="legend-group-label">Tracked species</div><div class="legend-list">${activeAnimalLayers.map((layer) => `<div class="legend-item legend-item--compact"><span class="legend-swatch" style="background:${escapeHtml(layerColor(layer))};border-color:${escapeHtml(layer.style.stroke || layerColor(layer))};"></span><span class="legend-item-copy"><span class="legend-item-title">${escapeHtml(layer.species_common_name || layer.label)}</span><span class="legend-item-meta">${escapeHtml(formatAnimalScope(layer.animal_scope || ''))} · ${escapeHtml(mappedPointCountLabel(layer.count))}</span></span></div>`).join('')}</div></div>`,
             ].join('')
           : '';
         const scientificLegendSection = SCIENTIFIC_SIGNALS.length
@@ -3169,8 +3267,8 @@ __STATIC_CHUNK_SCRIPT_TAGS__
           ? `<div class="popup-section"><span class="popup-section-title">Accepted scientific signals</span>${scientificRows.map((signal) => `<div class="popup-row"><span class="popup-row-label">${escapeHtml(signal.resolution)}</span><span class="popup-row-value"><span class="scientific-cue" data-cue="${escapeHtml(signal.non_color_cue)}" style="color:${escapeHtml(signal.color)}">${escapeHtml(scientificCueGlyph(signal.non_color_cue))}</span> ${escapeHtml(signal.label)} · ${escapeHtml(signal.feature_key)}</span></div>`).join('')}</div>`
           : '';
         if (feature.species_latin_name) {
-          const warningRows = rows.filter((row) => row && row.label === 'Warning' && row.value);
-          const detailRows = rows.filter((row) => row && row.value && row.label !== 'Warning');
+          const warningRows = availablePopupRows(rows).filter((row) => row.label === 'Warning');
+          const detailRows = availablePopupRows(rows).filter((row) => row.label !== 'Warning');
           const primaryRows = [
             { label: 'Paper', value: feature.paper_title || '' },
             { label: 'DOI', value: feature.paper_doi || '' },
@@ -3178,28 +3276,29 @@ __STATIC_CHUNK_SCRIPT_TAGS__
             { label: 'Coordinate basis', value: formatCoordinateBasis(feature.coordinate_basis || '') },
             { label: 'Coordinate confidence', value: formatCoordinateConfidence(feature.coordinate_confidence || '') },
             { label: 'Source locator', value: feature.source_locator || '' },
-          ].filter((row) => row.value);
+          ].filter((row) => valueIsAvailable(row.value));
           const secondaryRows = [
             { label: 'Chronology', value: feature.time_label || '' },
             { label: 'Mapped sample identifiers', value: Array.isArray(feature.sample_record_ids) ? feature.sample_record_ids.join(', ') : '' },
             { label: 'Original place text', value: feature.original_place_text || '' },
             { label: 'Resolved place text', value: feature.resolved_place_text || '' },
             { label: 'Source support', value: feature.source_support_status || '' },
-            { label: 'Interpretation', value: detailRows.find((row) => row.label === 'Interpretation')?.value || '' },
+            { label: 'Interpretation', value: detailRows.find((row) => row.label === 'Interpretation')?.value ?? '' },
             { label: 'Source evidence text', value: feature.exact_source_text || '' },
-          ].filter((row) => row.value);
+          ].filter((row) => valueIsAvailable(row.value));
           const renderRows = (items) => items.map((row) => `<div class="popup-row"><span class="popup-row-label">${escapeHtml(row.label)}</span><span class="popup-row-value">${escapeHtml(row.value)}</span></div>`).join('');
-          return `<div class="popup-card"><div class="popup-headline"><span class="popup-kicker">Animal atlas evidence</span><div class="popup-title">${escapeHtml(feature.title || '')}</div><div class="popup-subtitle">${escapeHtml(feature.subtitle || '')}</div></div><div class="popup-badges"><span class="popup-badge">${escapeHtml(feature.species_common_name || feature.species_latin_name || 'Animal evidence')}</span><span class="popup-badge">${escapeHtml(formatAnimalScope(feature.animal_scope || ''))}</span><span class="popup-badge">${escapeHtml(formatCoordinateConfidence(feature.coordinate_confidence || ''))}</span>${feature.nordic_inclusion ? '<span class="popup-badge">Nordic lead</span>' : '<span class="popup-badge popup-badge--warning">Non-Nordic context</span>'}</div><div class="popup-section"><span class="popup-section-title">Citation and provenance</span>${renderRows(primaryRows)}</div><div class="popup-section"><span class="popup-section-title">Sample and locality detail</span>${renderRows(secondaryRows)}<div class="popup-row"><span class="popup-row-label">Coordinates</span><span class="popup-row-value">${Number(feature.latitude).toFixed(6)}, ${Number(feature.longitude).toFixed(6)}</span></div>${mediaLinksHtml(feature.media_links)}</div>${scientificHtml}${warningRows.length ? `<div class="popup-section"><span class="popup-section-title">Warnings and caveats</span><div class="popup-warning-list">${warningRows.map((row) => `<div class="popup-warning">${escapeHtml(row.value || '')}</div>`).join('')}</div></div>` : ''}${feature.source_url ? `<div class="popup-section"><span class="popup-section-title">Source link</span><div class="popup-row"><span class="popup-row-value"><a href="${escapeHtml(feature.source_url)}" target="_blank" rel="noreferrer">Open article or source record</a></span></div></div>` : ''}</div>`;
+          return `<div class="popup-card"><div class="popup-headline"><span class="popup-kicker">Animal atlas evidence</span><div class="popup-title">${escapeHtml(feature.title || '')}</div><div class="popup-subtitle">${escapeHtml(feature.subtitle || '')}</div></div><div class="popup-badges"><span class="popup-badge">${escapeHtml(feature.species_common_name || feature.species_latin_name || 'Animal evidence')}</span><span class="popup-badge">${escapeHtml(formatAnimalScope(feature.animal_scope || ''))}</span><span class="popup-badge">${escapeHtml(formatCoordinateConfidence(feature.coordinate_confidence || ''))}</span>${feature.nordic_inclusion ? '<span class="popup-badge">Nordic lead</span>' : '<span class="popup-badge popup-badge--warning">Non-Nordic context</span>'}</div><div class="popup-section"><span class="popup-section-title">Citation and provenance</span>${renderRows(primaryRows)}</div><div class="popup-section"><span class="popup-section-title">Sample and locality detail</span>${renderRows(secondaryRows)}<div class="popup-row"><span class="popup-row-label">Coordinates</span><span class="popup-row-value">${escapeHtml(coordinateLabel(feature, 6))}</span></div>${mediaLinksHtml(feature.media_links)}</div>${scientificHtml}${warningRows.length ? `<div class="popup-section"><span class="popup-section-title">Warnings and caveats</span><div class="popup-warning-list">${warningRows.map((row) => `<div class="popup-warning">${escapeHtml(row.value)}</div>`).join('')}</div></div>` : ''}${feature.source_url ? `<div class="popup-section"><span class="popup-section-title">Source link</span><div class="popup-row"><span class="popup-row-value"><a href="${escapeHtml(feature.source_url)}" target="_blank" rel="noreferrer">Open article or source record</a></span></div></div>` : ''}</div>`;
         }
-        const rowHtml = rows.filter((row) => row && row.value).map((row) => `<div><strong>${escapeHtml(row.label || '')}</strong> ${escapeHtml(row.value || '')}</div>`).join('');
-        return `<div class="popup-grid"><div><strong>Name</strong> ${escapeHtml(feature.title || '')}</div><div><strong>Type</strong> ${escapeHtml(feature.subtitle || '')}</div>${rowHtml}${scientificHtml}<div><strong>Coords</strong> ${Number(feature.latitude).toFixed(6)}, ${Number(feature.longitude).toFixed(6)}</div>${mediaLinksHtml(feature.media_links)}${feature.source_url ? `<div><strong>Source</strong> <a href="${escapeHtml(feature.source_url)}" target="_blank" rel="noreferrer">Open</a></div>` : ''}</div>`;
+        const rowHtml = availablePopupRows(rows).map((row) => `<div><strong>${escapeHtml(row.label || '')}</strong> ${escapeHtml(row.value)}</div>`).join('');
+        return `<div class="popup-grid"><div><strong>Name</strong> ${escapeHtml(feature.title || '')}</div><div><strong>Type</strong> ${escapeHtml(feature.subtitle || '')}</div>${rowHtml}${scientificHtml}<div><strong>Coords</strong> ${escapeHtml(coordinateLabel(feature, 6))}</div>${mediaLinksHtml(feature.media_links)}${feature.source_url ? `<div><strong>Source</strong> <a href="${escapeHtml(feature.source_url)}" target="_blank" rel="noreferrer">Open</a></div>` : ''}</div>`;
       }
       function polygonPopupHtml(layer, properties) {
         const rows = Array.isArray(properties.popup_rows) ? properties.popup_rows : [];
-        const rowHtml = rows.filter((row) => row && row.value).map((row) => `<div><strong>${escapeHtml(row.label || '')}</strong> ${escapeHtml(row.value || '')}</div>`).join('');
+        const rowHtml = availablePopupRows(rows).map((row) => `<div><strong>${escapeHtml(row.label || '')}</strong> ${escapeHtml(row.value)}</div>`).join('');
         return `<div class="popup-grid"><div><strong>Layer</strong> ${escapeHtml(layer.label)}</div><div><strong>Name</strong> ${escapeHtml(properties.name || '')}</div><div><strong>Type</strong> ${escapeHtml(properties.category || properties.geometry_type || '')}</div>${rowHtml}${properties.source_url ? `<div><strong>Source</strong> <a href="${escapeHtml(properties.source_url)}" target="_blank" rel="noreferrer">Open</a></div>` : ''}</div>`;
       }
       function densityFillColor(count, maxCount) {
+        if (count === null || maxCount === null) return '#cbd5e1';
         if (!maxCount || count <= 0) return '#fee2e2';
         const ratio = count / maxCount;
         if (ratio >= 0.75) return '#7f1d1d';
@@ -3214,6 +3313,42 @@ __STATIC_CHUNK_SCRIPT_TAGS__
         if (typeof value === 'string' && !value.trim()) return null;
         const numeric = Number(value);
         return Number.isFinite(numeric) && numeric >= 0 ? numeric : null;
+      }
+      function valueIsAvailable(value) {
+        return value !== null && value !== undefined && !(typeof value === 'string' && !value.trim());
+      }
+      function availablePopupRows(rows) {
+        return rows.filter((row) => row && valueIsAvailable(row.value));
+      }
+      function finiteCoordinateValue(value, minimum, maximum) {
+        if (value === null || value === undefined || typeof value === 'boolean') return null;
+        if (typeof value === 'string' && !value.trim()) return null;
+        const numeric = Number(value);
+        return Number.isFinite(numeric) && numeric >= minimum && numeric <= maximum ? numeric : null;
+      }
+      function featureCoordinatePair(feature) {
+        const latitude = finiteCoordinateValue(feature.latitude, -90, 90);
+        const longitude = finiteCoordinateValue(feature.longitude, -180, 180);
+        return latitude === null || longitude === null ? null : { latitude, longitude };
+      }
+      function coordinateLabel(feature, precision) {
+        const coordinates = featureCoordinatePair(feature);
+        return coordinates ? `${coordinates.latitude.toFixed(precision)}, ${coordinates.longitude.toFixed(precision)}` : 'Unavailable';
+      }
+      function finiteCountValue(value) {
+        if (value === null || value === undefined || typeof value === 'boolean') return null;
+        if (typeof value === 'string' && !value.trim()) return null;
+        const numeric = Number(value);
+        return Number.isSafeInteger(numeric) && numeric >= 0 ? numeric : null;
+      }
+      function countDisplayValue(count, countLabel) {
+        if (typeof countLabel === 'string' && countLabel.trim()) return countLabel.trim();
+        const numeric = finiteCountValue(count);
+        return numeric === null ? 'Unavailable' : String(numeric);
+      }
+      function mappedPointCountLabel(value) {
+        const count = finiteCountValue(value);
+        return count === null ? 'mapped count unavailable' : `${count} mapped point${count === 1 ? '' : 's'}`;
       }
       function featureTimeWindow(feature) {
         const start = finiteTimeValue(feature.time_start_bp);
@@ -3266,6 +3401,7 @@ __STATIC_CHUNK_SCRIPT_TAGS__
       function pointFeatureVisible(layer, feature) {
         return (
           activeLayerKeys.has(layer.key)
+          && featureCoordinatePair(feature) !== null
           && (!layer.applies_country_filter || !feature.country || activeCountries.has(feature.country))
           && pointFeatureInTimeWindow(layer, feature)
           && featureMatchesAnimalFilters(layer, feature)
@@ -3279,6 +3415,29 @@ __STATIC_CHUNK_SCRIPT_TAGS__
           && (!layer.applies_country_filter || !country || activeCountries.has(country))
           && featureInTimeWindow(layer, properties)
         );
+      }
+      function geoJsonPositionIsAdmitted(value) {
+        return Boolean(
+          Array.isArray(value)
+          && value.length >= 2
+          && finiteCoordinateValue(value[0], -180, 180) !== null
+          && finiteCoordinateValue(value[1], -90, 90) !== null
+        );
+      }
+      function geoJsonRingIsAdmitted(value) {
+        if (!Array.isArray(value) || value.length < 4 || !value.every((position) => geoJsonPositionIsAdmitted(position))) return false;
+        const first = value[0];
+        const last = value[value.length - 1];
+        return Number(first[0]) === Number(last[0]) && Number(first[1]) === Number(last[1]);
+      }
+      function polygonGeometryIsAdmitted(feature) {
+        const geometry = feature && feature.geometry;
+        if (!geometry || !Array.isArray(geometry.coordinates) || !geometry.coordinates.length) return false;
+        if (geometry.type === 'Polygon') return geometry.coordinates.every((ring) => geoJsonRingIsAdmitted(ring));
+        if (geometry.type === 'MultiPolygon') {
+          return geometry.coordinates.every((polygon) => Array.isArray(polygon) && polygon.length > 0 && polygon.every((ring) => geoJsonRingIsAdmitted(ring)));
+        }
+        return false;
       }
       function removeRenderedLayers() {
         renderedPointGroups.forEach((group) => map.removeLayer(group));
@@ -3311,9 +3470,12 @@ __STATIC_CHUNK_SCRIPT_TAGS__
           const clusterGroup = createClusterGroup(layer);
           layer.features.forEach((feature) => {
             if (!pointFeatureVisible(layer, feature)) return;
+            const coordinates = featureCoordinatePair(feature);
+            if (!coordinates) return;
+            const latLng = [coordinates.latitude, coordinates.longitude];
             const scientificSignals = scientificSignalsForFeature(feature);
             const marker = scientificSignals.length
-              ? L.marker([feature.latitude, feature.longitude], {
+              ? L.marker(latLng, {
                   pane: 'pointPane',
                   icon: L.divIcon({
                     className: 'atlas-scientific-marker',
@@ -3321,7 +3483,7 @@ __STATIC_CHUNK_SCRIPT_TAGS__
                     iconSize: [Math.max(24, scientificSignals.length * 22), 24],
                   }),
                 })
-              : L.circleMarker([feature.latitude, feature.longitude], { pane: 'pointPane', radius: layer.key === 'aadr' ? 4.5 : 6, color: layer.style.stroke, weight: 1.3, fillColor: layer.style.fill, fillOpacity: 0.92 });
+              : L.circleMarker(latLng, { pane: 'pointPane', radius: layer.key === 'aadr' ? 4.5 : 6, color: layer.style.stroke, weight: 1.3, fillColor: layer.style.fill, fillOpacity: 0.92 });
             marker.bindPopup(popupHtml(feature), { maxWidth: 360 });
             const entry = { layer, feature, marker };
             marker.on('click', () => {
@@ -3330,7 +3492,7 @@ __STATIC_CHUNK_SCRIPT_TAGS__
             clusterGroup.addLayer(marker);
             visiblePointEntries.push(entry);
             if (layer.circle_enabled && diameterKm > 0) {
-              const circle = L.circle([feature.latitude, feature.longitude], { pane: 'circlePane', radius: radiusMeters, color: layer.style.circleStroke, weight: 1, opacity: 0.55, fillColor: layer.style.circleFill, fillOpacity: 0.12, interactive: false });
+              const circle = L.circle(latLng, { pane: 'circlePane', radius: radiusMeters, color: layer.style.circleStroke, weight: 1, opacity: 0.55, fillColor: layer.style.circleFill, fillOpacity: 0.12, interactive: false });
               circleLayerGroup.addLayer(circle);
             }
           });
@@ -3354,7 +3516,7 @@ __STATIC_CHUNK_SCRIPT_TAGS__
           const signal = scientificSignalById(edge.signal_id);
           const color = signal ? signal.color : '#6d28d9';
           const line = L.polyline(
-            [[source.feature.latitude, source.feature.longitude], [target.feature.latitude, target.feature.longitude]],
+            [featureCoordinatePair(source.feature), featureCoordinatePair(target.feature)].map((coordinates) => [coordinates.latitude, coordinates.longitude]),
             {
               pane: 'edgePane',
               color,
@@ -3403,7 +3565,7 @@ __STATIC_CHUNK_SCRIPT_TAGS__
       }
       function renderPolygonLayers() {
         POLYGON_LAYERS.forEach((layer) => {
-          const visibleFeatures = (layer.geojson.features || []).filter((feature) => polygonFeatureVisible(layer, feature.properties || {}));
+          const visibleFeatures = (layer.geojson.features || []).filter((feature) => polygonGeometryIsAdmitted(feature) && polygonFeatureVisible(layer, feature.properties || {}));
           if (!visibleFeatures.length) return;
           let geoJsonLayer;
           if (layer.kind === 'country-boundaries') {
@@ -3438,11 +3600,12 @@ __STATIC_CHUNK_SCRIPT_TAGS__
             geoJsonLayer = L.geoJSON({ type: 'FeatureCollection', features: visibleFeatures }, {
               pane: 'polygonPane',
               style(feature) {
-                const count = Number(feature.properties.count || 0);
-                return { color: layer.style.stroke, weight: 1.1, fillColor: densityFillColor(count, Number(layer.max_count || 0)), fillOpacity: densityOpacity, opacity: 0.75 };
+                const count = finiteCountValue(feature.properties.count);
+                const maxCount = finiteCountValue(layer.max_count);
+                return { color: layer.style.stroke, weight: 1.1, fillColor: densityFillColor(count, maxCount), fillOpacity: densityOpacity, opacity: 0.75 };
               },
               onEachFeature(feature, featureLayer) {
-                featureLayer.bindPopup(`<div class="popup-grid"><div><strong>Layer</strong> ${escapeHtml(layer.label)}</div><div><strong>Country</strong> ${escapeHtml(feature.properties.country || '')}</div><div><strong>Records</strong> ${escapeHtml(String(feature.properties.count_label || feature.properties.count || '0'))}</div></div>`);
+                featureLayer.bindPopup(`<div class="popup-grid"><div><strong>Layer</strong> ${escapeHtml(layer.label)}</div><div><strong>Country</strong> ${escapeHtml(feature.properties.country || '')}</div><div><strong>Records</strong> ${escapeHtml(countDisplayValue(feature.properties.count, feature.properties.count_label))}</div></div>`);
                 featureLayer.on('click', () => {
                   const bounds = featureLayer.getBounds();
                   setFocusState({
@@ -3453,7 +3616,7 @@ __STATIC_CHUNK_SCRIPT_TAGS__
                     meta: [
                       { label: 'Layer', value: layer.label },
                       { label: 'Country', value: feature.properties.country || 'Unassigned' },
-                      { label: 'Records', value: String(feature.properties.count_label || feature.properties.count || '0') },
+                      { label: 'Records', value: countDisplayValue(feature.properties.count, feature.properties.count_label) },
                     ],
                     sourceUrl: '',
                     bounds: bounds.isValid() ? [[bounds.getSouth(), bounds.getWest()], [bounds.getNorth(), bounds.getEast()]] : null,
@@ -3494,7 +3657,10 @@ __STATIC_CHUNK_SCRIPT_TAGS__
         });
       }
       function activeBounds() {
-        const latLngs = visiblePointEntries.map((entry) => [entry.feature.latitude, entry.feature.longitude]);
+        const latLngs = visiblePointEntries
+          .map((entry) => featureCoordinatePair(entry.feature))
+          .filter((coordinates) => coordinates !== null)
+          .map((coordinates) => [coordinates.latitude, coordinates.longitude]);
         renderedPolygonLayers.forEach((layer) => {
           const bounds = layer.getBounds();
           if (bounds.isValid()) {
@@ -3544,8 +3710,10 @@ __STATIC_CHUNK_SCRIPT_TAGS__
           button.addEventListener('click', () => {
             const match = matches[index];
             if (!match) return;
+            const coordinates = featureCoordinatePair(match.feature);
+            if (!coordinates) return;
             focusPointAtVisibleIndex(visiblePointEntries.indexOf(match));
-            map.flyTo([match.feature.latitude, match.feature.longitude], Math.max(map.getZoom(), 8), { duration: 0.7 });
+            map.flyTo([coordinates.latitude, coordinates.longitude], Math.max(map.getZoom(), 8), { duration: 0.7 });
             window.setTimeout(() => match.marker.openPopup(), 250);
             searchResults.hidden = true;
           });
@@ -3562,8 +3730,13 @@ __STATIC_CHUNK_SCRIPT_TAGS__
           const started = performance.now();
           renderLoadedMapState();
           const duration = performance.now() - started;
-          const loaded = ALL_LAYERS.reduce((total, layer) => total + Number(layer.static_loaded_feature_count || 0), 0);
-          const admitted = ALL_LAYERS.reduce((total, layer) => total + Number(layer.static_feature_count || 0), 0);
+          const loaded = STATIC_ATLAS_INLINE
+            ? POINT_LAYERS.reduce((total, layer) => total + (Array.isArray(layer.features) ? layer.features.length : 0), 0)
+              + POLYGON_LAYERS.reduce((total, layer) => total + (Array.isArray(layer.geojson?.features) ? layer.geojson.features.length : 0), 0)
+            : ALL_LAYERS.reduce((total, layer) => total + staticAtlasNonnegativeInteger(layer.static_loaded_feature_count, `${layer.key} loaded feature count`), 0);
+          const admitted = STATIC_ATLAS_INLINE
+            ? loaded
+            : ALL_LAYERS.reduce((total, layer) => total + staticAtlasNonnegativeInteger(layer.static_feature_count, `${layer.key} admitted feature count`), 0);
           selectionReadout.dataset.staticLoad = `${loaded}/${admitted}`;
           if (duration > Number(STATIC_ATLAS_BOOTSTRAP.budgets.filter_main_thread_max_ms)) {
             topbarStatePill.textContent = `${loaded} of ${admitted} admitted records loaded · filter render ${Math.round(duration)} ms`;
@@ -3664,6 +3837,7 @@ __STATIC_CHUNK_SCRIPT_TAGS__
       }
       function resetView() { map.fitBounds(INITIAL_BOUNDS, { padding: [36, 36] }); }
       async function restoreDefaults() {
+        stopTimePlayback();
         activeCountries = new Set(DEFAULT_COUNTRIES);
         activeLayerKeys = new Set(DEFAULT_LAYER_KEYS);
         activeScientificSignalIds = new Set(DEFAULT_SCIENTIFIC_SIGNAL_IDS);
@@ -3742,8 +3916,11 @@ __STATIC_CHUNK_SCRIPT_TAGS__
       mobilePanelCloseButton.addEventListener('click', () => setPanelCollapsed(true));
       mobileScrim.addEventListener('click', () => setPanelCollapsed(true));
       slider.addEventListener('input', renderMapState);
-      timeStartSlider.addEventListener('input', () => { timeStartBp = Number(timeStartSlider.value); renderMapState(); });
-      timeIntervalSlider.addEventListener('input', () => { timeIntervalYears = Number(timeIntervalSlider.value); renderMapState(); });
+      timeStartSlider.addEventListener('input', () => { stopTimePlayback(); timeStartBp = clampTimeStart(timeStartSlider.value, timeIntervalYears); renderMapState(); });
+      timeIntervalSlider.addEventListener('input', () => { stopTimePlayback(); timeIntervalYears = clampTimeInterval(timeIntervalSlider.value); renderMapState(); });
+      timePlaybackToggle.addEventListener('click', () => {
+        if (timePlaybackTimer === null) startTimePlayback(); else stopTimePlayback();
+      });
       densityOpacitySlider.addEventListener('input', () => { densityOpacity = Number(densityOpacitySlider.value) / 100; renderMapState(); });
       animalNordicOnlyCheckbox.addEventListener('change', () => {
         animalNordicOnly = animalNordicOnlyCheckbox.checked;
@@ -3757,6 +3934,7 @@ __STATIC_CHUNK_SCRIPT_TAGS__
       });
       document.querySelectorAll('[data-time-interval]').forEach((button) => {
         button.addEventListener('click', () => {
+          stopTimePlayback();
           const preset = button.dataset.timeInterval;
           timeIntervalYears = preset === 'full' ? TIME_INTERVAL_MAX : Number(preset);
           renderMapState();

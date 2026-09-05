@@ -16,7 +16,7 @@ DETAIL_TAB_KEYS = (
     "classification",
     "provenance",
 )
-SCIENTIFIC_RESOLUTIONS = ("whole", "group", "role", "taxon")
+SCIENTIFIC_RESOLUTIONS = ("whole", "group", "subgroup", "role", "taxon")
 _CUE_REGISTRY = ("circle", "square", "triangle", "diamond", "cross", "ring")
 _COLOR_REGISTRY = (
     "#2563eb",
