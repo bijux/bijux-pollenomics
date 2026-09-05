@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 from collections.abc import Callable
+from dataclasses import replace
 import json
 import os
 from pathlib import Path
@@ -55,7 +56,15 @@ def publish_published_reports_tree(
         if published_output_root is not None
         else output_root
     )
-    plan = build_published_geography_plan(normalized_countries)
+    default_plan = build_published_geography_plan(normalized_countries)
+    plan = replace(
+        default_plan,
+        world_scope=replace(
+            default_plan.world_scope,
+            slug=slugify_fn(atlas_slug),
+            map_title=title,
+        ),
+    )
     data_root = (
         context_root if context_root is not None else output_root.parents[1] / "data"
     )

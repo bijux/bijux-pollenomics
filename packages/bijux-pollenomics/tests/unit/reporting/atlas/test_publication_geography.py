@@ -342,14 +342,14 @@ class PublicationGeographyTests(unittest.TestCase):
                     output_root=output_root,
                     published_output_root=published_output_root,
                     normalized_countries=("Sweden", "Norway"),
-                    title="World Evidence Surface",
-                    atlas_slug="world",
+                    title="Comparative World Evidence",
+                    atlas_slug="Comparative World",
                     context_root=Path(tmp) / "data",
                     build_atlas_bundle_paths_fn=build_atlas_bundle_paths,
                     build_published_reports_summary_fn=build_published_reports_summary,
                     generate_country_report_fn=fake_generate_country_report_fn,
                     generate_multi_country_map_fn=fake_generate_multi_country_map_fn,
-                    slugify_fn=lambda value: value.lower(),
+                    slugify_fn=lambda value: value.lower().replace(" ", "-"),
                     write_summary_json_fn=lambda path, payload: path.write_text(
                         json.dumps(payload, indent=2), encoding="utf-8"
                     ),
@@ -376,6 +376,15 @@ class PublicationGeographyTests(unittest.TestCase):
             )
             self.assertTrue(
                 (staging_output_root / "publication_geography_registry.json").is_file()
+            )
+            self.assertTrue(
+                (staging_output_root / "world" / "comparative-world_map.html").is_file()
+            )
+            self.assertEqual(
+                (staging_output_root / "world" / "README.md").read_text(
+                    encoding="utf-8"
+                ),
+                "# Comparative World Evidence\n",
             )
             self.assertTrue(
                 (
