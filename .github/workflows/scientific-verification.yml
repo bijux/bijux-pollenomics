@@ -1,0 +1,238 @@
+name: scientific verification
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+  merge_group:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: scientific-verification-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  impact:
+    name: scientific / change impact
+    if: "${{ github.event_name != 'pull_request' || github.event.pull_request.user.login != 'dependabot[bot]' }}"
+    runs-on: ubuntu-latest
+    outputs:
+      available_gates: ${{ steps.select.outputs.available_gates }}
+      has_available: ${{ steps.select.outputs.has_available }}
+      has_unavailable: ${{ steps.select.outputs.has_unavailable }}
+      unavailable_gates: ${{ steps.select.outputs.unavailable_gates }}
+    steps:
+      - name: Checkout candidate
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          fetch-depth: 0
+
+      - name: Resolve changed paths
+        id: changes
+        shell: bash
+        env:
+          EVENT_NAME: ${{ github.event_name }}
+          PR_BASE_SHA: ${{ github.event.pull_request.base.sha }}
+          PR_HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+          MERGE_BASE_SHA: ${{ github.event.merge_group.base_sha }}
+          MERGE_HEAD_SHA: ${{ github.event.merge_group.head_sha }}
+          PUSH_BEFORE_SHA: ${{ github.event.before }}
+          CANDIDATE_SHA: ${{ github.sha }}
+        run: |
+          set -euo pipefail
+          output="artifacts/execution-control/ci/changed-paths.txt"
+          mkdir -p "$(dirname "${output}")"
+          case "${EVENT_NAME}" in
+            pull_request)
+              git diff --name-only "${PR_BASE_SHA}...${PR_HEAD_SHA}" > "${output}"
+              ;;
+            merge_group)
+              git diff --name-only "${MERGE_BASE_SHA}...${MERGE_HEAD_SHA}" > "${output}"
+              ;;
+            push)
+              if [[ -n "${PUSH_BEFORE_SHA}" && "${PUSH_BEFORE_SHA}" != "0000000000000000000000000000000000000000" ]]; then
+                git diff --name-only "${PUSH_BEFORE_SHA}...${CANDIDATE_SHA}" > "${output}"
+              else
+                git diff-tree --no-commit-id --name-only -r "${CANDIDATE_SHA}" > "${output}"
+              fi
+              ;;
+            workflow_dispatch)
+              : > "${output}"
+              echo "select_all=true" >> "${GITHUB_OUTPUT}"
+              ;;
+            *)
+              echo "Unsupported event: ${EVENT_NAME}" >&2
+              exit 2
+              ;;
+          esac
+          if [[ "${EVENT_NAME}" != "workflow_dispatch" ]]; then
+            echo "select_all=false" >> "${GITHUB_OUTPUT}"
+          fi
+
+      - name: Select mandatory gates
+        id: select
+        shell: bash
+        env:
+          SELECT_ALL: ${{ steps.changes.outputs.select_all }}
+        run: |
+          set -euo pipefail
+          arguments=(
+            --contract configs/ci/scientific-change-impact.json
+            --changed-paths-file artifacts/execution-control/ci/changed-paths.txt
+            --output artifacts/execution-control/ci/path-impact-results.json
+            --github-output "${GITHUB_OUTPUT}"
+          )
+          if [[ "${SELECT_ALL}" == "true" ]]; then
+            arguments+=(--all)
+          fi
+          PYTHONPATH="packages/bijux-pollenomics-dev/src" \
+            python3 -m bijux_pollenomics_dev.ci.path_selection "${arguments[@]}"
+
+      - name: Upload change-impact evidence
+        if: always()
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        with:
+          name: scientific-change-impact
+          path: artifacts/execution-control/ci
+          if-no-files-found: error
+
+  gates:
+    name: scientific / ${{ matrix.gate }}
+    needs: impact
+    if: "${{ (github.event_name != 'pull_request' || github.event.pull_request.user.login != 'dependabot[bot]') && needs.impact.outputs.has_available == 'true' }}"
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        gate:
+          - path-selection
+          - science
+          - data
+          - rebuild
+          - provenance
+          - doc-counts
+          - map
+    steps:
+      - name: Checkout candidate
+        if: ${{ contains(fromJSON(needs.impact.outputs.available_gates), matrix.gate) }}
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+
+      - name: Set up Python
+        if: ${{ contains(fromJSON(needs.impact.outputs.available_gates), matrix.gate) }}
+        uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v6.2.0
+        with:
+          python-version: "3.11"
+
+      - name: Set up uv
+        if: ${{ contains(fromJSON(needs.impact.outputs.available_gates), matrix.gate) }}
+        uses: astral-sh/setup-uv@c771a70e6277c0a99b617c7a806ffedaca235ff9 # v7.5.0
+        with:
+          enable-cache: true
+          cache-dependency-glob: uv.lock
+
+      - name: Install locked verification environment
+        if: ${{ contains(fromJSON(needs.impact.outputs.available_gates), matrix.gate) }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          UV_PROJECT_ENVIRONMENT="${PWD}/artifacts/root/check-venv" \
+            uv sync --frozen --group dev --python python3
+
+      - name: Run selected gate
+        if: ${{ contains(fromJSON(needs.impact.outputs.available_gates), matrix.gate) }}
+        shell: bash
+        env:
+          SELECTED_GATE: ${{ matrix.gate }}
+        run: |
+          set -euo pipefail
+          case "${SELECTED_GATE}" in
+            path-selection)
+              PYTHONPATH="packages/bijux-pollenomics-dev/src" \
+                artifacts/root/check-venv/bin/pytest \
+                --rootdir "${PWD}" \
+                -c configs/pytest.ini \
+                -q \
+                -o cache_dir=artifacts/execution-control/ci/pytest-cache \
+                --junitxml=artifacts/execution-control/ci/path-selection.junit.xml \
+                packages/bijux-pollenomics-dev/tests/test_scientific_change_impact.py
+              ;;
+            science) make verify-science ;;
+            data) make verify-data ;;
+            rebuild) make verify-rebuild ;;
+            provenance) make verify-provenance ;;
+            doc-counts) make verify-doc-counts ;;
+            map) make verify-map ;;
+            *)
+              echo "Selector returned an unimplemented available gate: ${SELECTED_GATE}" >&2
+              exit 2
+              ;;
+          esac
+
+      - name: Upload gate evidence
+        if: ${{ always() && contains(fromJSON(needs.impact.outputs.available_gates), matrix.gate) }}
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        with:
+          name: scientific-gate-${{ matrix.gate }}
+          path: artifacts/execution-control
+          if-no-files-found: error
+
+  unavailable:
+    name: scientific / unavailable requirements
+    needs: impact
+    if: "${{ (github.event_name != 'pull_request' || github.event.pull_request.user.login != 'dependabot[bot]') && needs.impact.outputs.has_unavailable == 'true' }}"
+    runs-on: ubuntu-latest
+    steps:
+      - name: Refuse unavailable mandatory gates
+        shell: bash
+        env:
+          UNAVAILABLE_GATES: ${{ needs.impact.outputs.unavailable_gates }}
+        run: |
+          set -euo pipefail
+          echo "Mandatory gates are selected but unavailable: ${UNAVAILABLE_GATES}" >&2
+          exit 1
+
+  final:
+    name: scientific / required
+    needs:
+      - impact
+      - gates
+      - unavailable
+    if: "${{ always() && (github.event_name != 'pull_request' || github.event.pull_request.user.login != 'dependabot[bot]') }}"
+    runs-on: ubuntu-latest
+    steps:
+      - name: Resolve scientific verification signal
+        shell: bash
+        env:
+          IMPACT_RESULT: ${{ needs.impact.result }}
+          GATES_RESULT: ${{ needs.gates.result }}
+          UNAVAILABLE_RESULT: ${{ needs.unavailable.result }}
+          HAS_AVAILABLE: ${{ needs.impact.outputs.has_available }}
+          HAS_UNAVAILABLE: ${{ needs.impact.outputs.has_unavailable }}
+          UNAVAILABLE_GATES: ${{ needs.impact.outputs.unavailable_gates }}
+        run: |
+          set -euo pipefail
+          if [[ "${IMPACT_RESULT}" != "success" ]]; then
+            echo "Change-impact selection did not succeed." >&2
+            exit 1
+          fi
+          if [[ "${HAS_AVAILABLE}" == "true" && "${GATES_RESULT}" != "success" ]]; then
+            echo "At least one selected executable gate did not pass." >&2
+            exit 1
+          fi
+          if [[ "${HAS_UNAVAILABLE}" == "true" ]]; then
+            echo "Release signal refused; mandatory gates remain unavailable: ${UNAVAILABLE_GATES}" >&2
+            exit 1
+          fi
+          if [[ "${UNAVAILABLE_RESULT}" != "skipped" ]]; then
+            echo "Unavailable-gate posture was not resolved consistently." >&2
+            exit 1
+          fi
+          echo "Every selected mandatory gate passed."
