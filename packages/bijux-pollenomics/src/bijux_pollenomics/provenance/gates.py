@@ -13,12 +13,12 @@ import platform
 import re
 import shutil
 import stat
-import subprocess
+import subprocess  # nosec B404
 import sys
 import tempfile
 import time
 
-from defusedxml import ElementTree as ET
+from defusedxml import ElementTree as ET  # type: ignore[import-untyped]
 
 from ..foundation.country_coverage import INPUT_PATHS as _COUNTRY_COVERAGE_INPUT_PATHS
 from .release_evidence import ReleaseEvidenceError, hash_repository_object
@@ -348,7 +348,8 @@ def run_recorded_gate(
             stderr_temporary.open("wb") as stderr_stream,
         ):
             try:
-                completed = subprocess.run(
+                # The complete argv and executable were validated before this call.
+                completed = subprocess.run(  # nosec B603
                     command,
                     cwd=root,
                     env=execution_environment,

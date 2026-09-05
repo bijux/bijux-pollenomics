@@ -13,10 +13,10 @@ import os
 from pathlib import Path, PurePosixPath
 import re
 import stat
-import subprocess
+import subprocess  # nosec B404
 from typing import Final, Literal, TypeAlias, cast
 
-from defusedxml import ElementTree as ET
+from defusedxml import ElementTree as ET  # type: ignore[import-untyped]
 
 ArtifactRole: TypeAlias = Literal[
     "source_receipt",
@@ -2633,7 +2633,8 @@ def _repository_state(root: Path, mode: str) -> dict[str, object]:
 
     def run(*arguments: str) -> bytes:
         try:
-            completed = subprocess.run(
+            # The executable is fixed and arguments are internal repository probes.
+            completed = subprocess.run(  # nosec B603
                 ("git", "-C", str(root), *arguments),
                 check=True,
                 stdin=subprocess.DEVNULL,

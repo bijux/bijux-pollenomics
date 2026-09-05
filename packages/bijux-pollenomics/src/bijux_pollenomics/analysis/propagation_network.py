@@ -6,6 +6,7 @@ from dataclasses import dataclass
 import hashlib
 import json
 from math import cos, floor, isfinite, radians
+from typing import Never
 
 from ..core.geo_distance import InvalidCoordinateError, wgs84_inverse_geodesic
 from ..core.temporal_semantics import (
@@ -454,8 +455,10 @@ def evaluate_propagation_pair(
     refusal_reason = _pair_refusal_reason(source, target)
     if refusal_reason is not None:
         return _build_refusal(source, target, scenario, refusal_reason)
-    assert source.latitude is not None and source.longitude is not None
-    assert target.latitude is not None and target.longitude is not None
+    if source.latitude is None or source.longitude is None:
+        return _build_refusal(source, target, scenario, "invalid_or_missing_coordinate")
+    if target.latitude is None or target.longitude is None:
+        return _build_refusal(source, target, scenario, "invalid_or_missing_coordinate")
     try:
         distance = wgs84_inverse_geodesic(
             latitude_a=source.latitude,
@@ -670,8 +673,8 @@ def _indexed_pair_rows(
             list
         )
         for event in located:
-            assert event.latitude is not None and event.longitude is not None
-            by_location[(event.latitude, event.longitude)].append(event)
+            latitude, longitude = _required_event_coordinates(event)
+            by_location[(latitude, longitude)].append(event)
         for location in sorted(by_location):
             rows = sorted(by_location[location], key=lambda event: event.event_id)
             for source in rows:
@@ -682,13 +685,13 @@ def _indexed_pair_rows(
     cell_degrees = maximum_distance_km / 110.0
     bands: dict[int, list[PhenomenonEvent]] = defaultdict(list)
     for event in located:
-        assert event.latitude is not None
-        bands[floor((event.latitude + 90.0) / cell_degrees)].append(event)
+        latitude, _ = _required_event_coordinates(event)
+        bands[floor((latitude + 90.0) / cell_degrees)].append(event)
     for rows in bands.values():
         rows.sort(key=lambda event: event.event_id)
     for source in located:
-        assert source.latitude is not None
-        band = floor((source.latitude + 90.0) / cell_degrees)
+        source_latitude, _ = _required_event_coordinates(source)
+        band = floor((source_latitude + 90.0) / cell_degrees)
         for neighbor_band in range(band - 1, band + 2):
             for target in bands.get(neighbor_band, ()):
                 if source.event_id == target.event_id:
@@ -715,24 +718,32 @@ def _within_search_envelope(
     target: PhenomenonEvent,
     maximum_distance_km: float,
 ) -> bool:
-    assert source.latitude is not None and source.longitude is not None
-    assert target.latitude is not None and target.longitude is not None
+    source_latitude, source_longitude = _required_event_coordinates(source)
+    target_latitude, target_longitude = _required_event_coordinates(target)
     if maximum_distance_km == 0:
         return (
-            source.latitude == target.latitude and source.longitude == target.longitude
+            source_latitude == target_latitude and source_longitude == target_longitude
         )
     latitude_limit = maximum_distance_km / 110.0
-    if abs(source.latitude - target.latitude) > latitude_limit:
+    if abs(source_latitude - target_latitude) > latitude_limit:
         return False
-    maximum_absolute_latitude = max(abs(source.latitude), abs(target.latitude))
+    maximum_absolute_latitude = max(abs(source_latitude), abs(target_latitude))
     if maximum_absolute_latitude + latitude_limit >= 89.0:
         longitude_limit = 180.0
     else:
         longitude_km_per_degree = 110.0 * cos(radians(maximum_absolute_latitude))
         longitude_limit = min(180.0, maximum_distance_km / longitude_km_per_degree)
-    longitude_delta = abs(source.longitude - target.longitude)
+    longitude_delta = abs(source_longitude - target_longitude)
     longitude_delta = min(longitude_delta, 360.0 - longitude_delta)
     return longitude_delta <= longitude_limit
+
+
+def _required_event_coordinates(event: PhenomenonEvent) -> tuple[float, float]:
+    latitude = event.latitude
+    longitude = event.longitude
+    if latitude is None or longitude is None:
+        _invalid("propagation pair requires complete coordinates")
+    return latitude, longitude
 
 
 def _preindexed_refusals(
@@ -965,7 +976,6 @@ def _stable_digest(*values: str) -> str:
 def _required_text(value: object) -> str:
     if not isinstance(value, str) or not value.strip():
         _invalid("required source identity and provenance fields must be non-empty")
-    assert isinstance(value, str)
     return value.strip()
 
 
@@ -987,15 +997,12 @@ def _validate_resolution_requirements(event: PhenomenonEvent) -> None:
     if event.resolution == "taxon":
         accepted_taxon_concept_id = event.accepted_taxon_concept_id
         taxonomic_qualifier = event.taxonomic_qualifier
-        if not (
-            isinstance(accepted_taxon_concept_id, str)
-            and accepted_taxon_concept_id.strip()
-            and isinstance(taxonomic_qualifier, str)
-            and taxonomic_qualifier.strip()
+        if not isinstance(accepted_taxon_concept_id, str) or not (
+            accepted_taxon_concept_id.strip()
         ):
             _invalid("taxon events require accepted concept and qualifier identity")
-        assert isinstance(accepted_taxon_concept_id, str)
-        assert isinstance(taxonomic_qualifier, str)
+        if not isinstance(taxonomic_qualifier, str) or not taxonomic_qualifier.strip():
+            _invalid("taxon events require accepted concept and qualifier identity")
         object.__setattr__(
             event,
             "accepted_taxon_concept_id",
@@ -1013,7 +1020,6 @@ def _validate_coordinates(latitude: float | None, longitude: float | None) -> No
         return
     if latitude is None or longitude is None:
         _invalid("coordinates must either both be present or both be null")
-    assert latitude is not None and longitude is not None
     for value, minimum, maximum, field_name in (
         (latitude, -90.0, 90.0, "latitude"),
         (longitude, -180.0, 180.0, "longitude"),
@@ -1025,5 +1031,5 @@ def _validate_coordinates(latitude: float | None, longitude: float | None) -> No
             _invalid(f"{field_name} is outside the valid EPSG:4326 range")
 
 
-def _invalid(detail: str) -> None:
+def _invalid(detail: str) -> Never:
     raise EventValidationError("invalid_event_schema", detail)

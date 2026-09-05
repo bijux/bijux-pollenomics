@@ -149,7 +149,8 @@ def load_homo_sapiens_samples(
     normalized_query = query.normalized() if query is not None else AdnaSampleQuery()
     if _is_country_only_query(normalized_query):
         political_entity = normalized_query.political_entity
-        assert political_entity is not None
+        if political_entity is None:
+            raise ValueError("Country-only AADR queries require a political entity")
         country_records = _cached_country_records(_release_cache_key(bundle))
         cached_records = country_records.get(
             political_entity.casefold(),

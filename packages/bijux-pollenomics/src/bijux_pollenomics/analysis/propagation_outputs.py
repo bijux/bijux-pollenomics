@@ -158,7 +158,7 @@ class _ClassificationAuthority:
 
 
 _CLASSIFICATION_AUTHORITY = _ClassificationAuthority(
-    manifest_sha256="0da8ba04e8a68058723d1eebe1ea49a3047968c47dfbbade581e355ef28ffe97",
+    manifest_sha256="f09e5740c9b68232e3e6bfed069964f95abe2c9fc13251c94b6bdda7eadfda6f",
     source_family="neotoma",
     source_snapshot_id=(
         "sha256:b2bcb99157e10b0c9f13c228acc12eabcb39d96a1f39c86ec25e34aacd78c791"
@@ -171,7 +171,7 @@ _CLASSIFICATION_AUTHORITY = _ClassificationAuthority(
     producer_id="bijux-pollenomics.neotoma-classification-audit",
     producer_version="1",
     producer_digest=(
-        "sha256:f0e5a830d412bfd34b4920cd3cf4a4ad21dcd6e1bb821f1e54c8eaa426a83bef"
+        "sha256:7bdba3d4c9d7cc6fbb154ce638ec538c54c72971062aa86afd9e942edc0852e8"
     ),
     accepted_mapping_count=0,
 )
@@ -530,7 +530,6 @@ def _event_schema_record(
     properties = schema.get("properties")
     if not isinstance(properties, dict):
         _refuse("invalid_control_schema", "event schema has no properties object")
-    assert isinstance(properties, dict)
     event_payload = event.as_dict()
     return {key: event_payload[key] for key in properties if key in event_payload}
 
@@ -765,7 +764,11 @@ def _validate_scenario_reconciliation(
         )
     for name, partition in partitions.items():
         counts = partition["counts"]
-        assert isinstance(counts, dict)
+        if not isinstance(counts, dict):
+            _refuse(
+                "invalid_output_reconciliation",
+                f"denominator partition counts are invalid: {name}",
+            )
         if sum(counts.values()) != partition["total_count"]:
             _refuse(
                 "invalid_output_reconciliation",
@@ -822,7 +825,10 @@ def _validate_classification_bundle_identity(
         manifest,
         reason_code="invalid_classification_identity",
     )
-    if {entry[0] for entry in entries} != _CLASSIFICATION_PAYLOAD_NAMES:
+    entry_names = {entry[0] for entry in entries}
+    if len(entry_names) != len(_CLASSIFICATION_PAYLOAD_NAMES) or any(
+        name not in _CLASSIFICATION_PAYLOAD_NAMES for name in entry_names
+    ):
         _refuse(
             "invalid_classification_identity",
             "classification manifest does not contain the governed payload set",
@@ -1111,7 +1117,11 @@ def _validate_classification_bundle_identity(
             "accepted classification count does not match the verified bundle",
         )
     for record in accepted_records:
-        assert isinstance(record, Mapping)
+        if not isinstance(record, Mapping):
+            _refuse(
+                "invalid_classification_reconciliation",
+                "accepted classification record must be an object",
+            )
         citations = record.get("citation_reference_ids")
         if (
             record.get("review_complete") is not True
@@ -1143,13 +1153,22 @@ def _classification_count(value: object, *, label: str) -> int:
 
 
 def _classification_status_counts(value: object, *, label: str) -> dict[str, int]:
-    if not isinstance(value, Mapping) or set(value) != _CLASSIFICATION_MAPPING_STATUSES:
+    if not isinstance(value, Mapping):
+        _refuse(
+            "invalid_classification_reconciliation",
+            f"{label} does not contain the governed status partition",
+        )
+    status_counts = cast(Mapping[str, object], value)
+    status_names = set(status_counts)
+    if len(status_names) != len(_CLASSIFICATION_MAPPING_STATUSES) or any(
+        status not in _CLASSIFICATION_MAPPING_STATUSES for status in status_names
+    ):
         _refuse(
             "invalid_classification_reconciliation",
             f"{label} does not contain the governed status partition",
         )
     return {
-        status: _classification_count(value[status], label=f"{label}.{status}")
+        status: _classification_count(status_counts[status], label=f"{label}.{status}")
         for status in sorted(_CLASSIFICATION_MAPPING_STATUSES)
     }
 
@@ -1232,35 +1251,16 @@ def _validate_propagation_contract_identity(
     output_edge_contract = contract.get("output_edge_contract")
     map_contract = contract.get("map_contract")
     denominators = contract.get("denominators")
-    if not all(
-        isinstance(value, dict)
-        for value in (
-            sensitivity,
-            event_contract,
-            geography,
-            default,
-            scientific_claim,
-            spatial_calculation,
-            candidate_logic,
-            output_edge_contract,
-            map_contract,
-            denominators,
-        )
-    ):
-        _refuse(
-            "invalid_propagation_identity",
-            "propagation contract omits governed model sections",
-        )
-    assert isinstance(sensitivity, dict)
-    assert isinstance(event_contract, dict)
-    assert isinstance(geography, dict)
-    assert isinstance(default, dict)
-    assert isinstance(scientific_claim, dict)
-    assert isinstance(spatial_calculation, dict)
-    assert isinstance(candidate_logic, dict)
-    assert isinstance(output_edge_contract, dict)
-    assert isinstance(map_contract, dict)
-    assert isinstance(denominators, dict)
+    sensitivity = _required_contract_section(sensitivity)
+    event_contract = _required_contract_section(event_contract)
+    geography = _required_contract_section(geography)
+    default = _required_contract_section(default)
+    scientific_claim_section = _required_contract_section(scientific_claim)
+    spatial_calculation = _required_contract_section(spatial_calculation)
+    candidate_logic = _required_contract_section(candidate_logic)
+    output_edge_contract = _required_contract_section(output_edge_contract)
+    map_contract = _required_contract_section(map_contract)
+    denominators = _required_contract_section(denominators)
     spatial = default.get("spatial")
     temporal = default.get("temporal")
     required_metrics = sensitivity.get("required_metrics")
@@ -1281,24 +1281,56 @@ def _validate_propagation_contract_identity(
         f"{source}-{target}" for source in COUNTRY_CODES for target in COUNTRY_CODES
     ]
     scientific_boolean_fields = {
-        key for key, value in scientific_claim.items() if isinstance(value, bool)
+        key
+        for key, value in scientific_claim_section.items()
+        if isinstance(value, bool)
     }
-    if (
-        contract.get("contract_id") != "bijux-pollenomics.propagation-model"
-        or contract.get("contract_version") != propagation_contract_version
-        or contract.get("status") != "normative"
-        or scientific_claim.get("output_class") != "candidate_propagation"
-        or scientific_claim.get("preferred_label") != "candidate propagation link"
-        or scientific_claim.get("alternate_label")
-        != "spatiotemporal succession consistent with spread"
-        or scientific_claim.get("note")
-        != (
-            "An edge is a versioned exploratory relation between evidence events, "
-            "not a physical route or proof of a mechanism."
+    if contract.get("contract_id") != "bijux-pollenomics.propagation-model":
+        _refuse(
+            "invalid_propagation_identity",
+            "propagation contract does not match governed scientific semantics",
         )
-        or scientific_boolean_fields != _SCIENTIFIC_CLAIM_BOOLEAN_FIELDS
+    if contract.get("contract_version") != propagation_contract_version:
+        _refuse(
+            "invalid_propagation_identity",
+            "propagation contract does not match governed scientific semantics",
+        )
+    if contract.get("status") != "normative":
+        _refuse(
+            "invalid_propagation_identity",
+            "propagation contract does not match governed scientific semantics",
+        )
+    if scientific_claim_section.get("output_class") != "candidate_propagation":
+        _refuse(
+            "invalid_propagation_identity",
+            "propagation contract semantics do not match the implementation",
+        )
+    if scientific_claim_section.get("preferred_label") != "candidate propagation link":
+        _refuse(
+            "invalid_propagation_identity",
+            "propagation contract semantics do not match the implementation",
+        )
+    if (
+        scientific_claim_section.get("alternate_label")
+        != "spatiotemporal succession consistent with spread"
+    ):
+        _refuse(
+            "invalid_propagation_identity",
+            "propagation contract semantics do not match the implementation",
+        )
+    if scientific_claim_section.get("note") != (
+        "An edge is a versioned exploratory relation between evidence events, "
+        "not a physical route or proof of a mechanism."
+    ):
+        _refuse(
+            "invalid_propagation_identity",
+            "propagation contract semantics do not match the implementation",
+        )
+    if (
+        scientific_boolean_fields != set(_SCIENTIFIC_CLAIM_BOOLEAN_FIELDS)
         or any(
-            scientific_claim[field] is not False for field in scientific_boolean_fields
+            scientific_claim_section[field] is not False
+            for field in scientific_boolean_fields
         )
         or event_contract.get("allowed_evidence_domains") != list(EVIDENCE_DOMAINS)
         or event_contract.get("pollen_candidate_domain") != "pollen_context"
@@ -1451,6 +1483,15 @@ def _identity_manifest_entries(
     ):
         _refuse(reason_code, "identity manifest entries are not deterministic")
     return tuple(entries)
+
+
+def _required_contract_section(value: object) -> dict[str, Any]:
+    if not isinstance(value, dict):
+        _refuse(
+            "invalid_propagation_identity",
+            "propagation contract omits governed model sections",
+        )
+    return cast(dict[str, Any], value)
 
 
 def _read_identity_file(
@@ -1775,14 +1816,12 @@ def _payload_record_count(payload_bytes: bytes) -> int:
             "invalid_output_reconciliation",
             "every materialized payload must be a JSON object",
         )
-    assert isinstance(payload, dict)
     count = payload.get("record_count")
     if isinstance(count, bool) or not isinstance(count, int) or count < 0:
         _refuse(
             "invalid_output_reconciliation",
             "every materialized payload requires a non-negative record_count",
         )
-    assert isinstance(count, int)
     return count
 
 
@@ -1920,7 +1959,6 @@ def _is_sha256_digest(value: object) -> bool:
 def _required_text(value: object, *, field_name: str) -> str:
     if type(value) is not str or not value.strip():
         _refuse("invalid_build_identity", f"{field_name} must be non-empty")
-    assert isinstance(value, str)
     return value.strip()
 
 

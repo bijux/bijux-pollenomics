@@ -10,6 +10,7 @@ from pathlib import Path
 import re
 import shutil
 import tempfile
+from typing import cast
 
 __all__ = [
     "ClassificationAuditMaterializationResult",
@@ -298,7 +299,7 @@ def _validate_accounting_reconciliation(
             "invalid_accounting_reconciliation",
             "accounting requires a reconciliation object",
         )
-    assert isinstance(reconciliation, Mapping)
+    reconciliation = cast(Mapping[str, object], reconciliation)
     expected_counts = {
         "unique_observation_count": len(memberships),
         "observation_membership_count": len(memberships),
@@ -336,7 +337,7 @@ def _validate_accounting_reconciliation(
             "invalid_accounting_reconciliation",
             "accounting requires partition tables",
         )
-    assert isinstance(partitions, Mapping)
+    partitions = cast(Mapping[str, object], partitions)
     concept_status_counts = Counter(str(row["mapping_status"]) for row in concepts)
     observation_status_counts = Counter(
         str(row["mapping_status"]) for row in memberships
@@ -403,7 +404,7 @@ def _build_payloads(
             "invalid_accounting_schema",
             "classification accounting requires review metadata",
         )
-    assert isinstance(source_review, Mapping)
+    source_review = cast(Mapping[str, object], source_review)
     release_reason_codes: tuple[str, ...]
     if not accepted_rows:
         release_status = "refused"
@@ -735,15 +736,14 @@ def _payload_record_count(payload_bytes: bytes) -> int:
     payload: object = json.loads(payload_bytes)
     if not isinstance(payload, dict):
         _refuse("invalid_output_reconciliation", "audit payload must be an object")
-    assert isinstance(payload, dict)
+    payload = cast(dict[str, object], payload)
     count = payload.get("record_count")
     if isinstance(count, bool) or not isinstance(count, int) or count < 0:
         _refuse(
             "invalid_output_reconciliation",
             "audit payload requires a non-negative record_count",
         )
-    assert isinstance(count, int)
-    return count
+    return cast(int, count)
 
 
 def _publish_atomically(
@@ -854,7 +854,7 @@ def _mapping_sequence(
 ) -> tuple[Mapping[str, object], ...]:
     if not isinstance(value, Sequence) or isinstance(value, (str, bytes)):
         _refuse("invalid_accounting_schema", f"{field_name} must be an array")
-    assert isinstance(value, Sequence)
+    value = cast(Sequence[object], value)
     if not all(isinstance(row, Mapping) for row in value):
         _refuse("invalid_accounting_schema", f"{field_name} rows must be objects")
     return tuple(row for row in value if isinstance(row, Mapping))
@@ -863,8 +863,7 @@ def _mapping_sequence(
 def _sequence_values(value: object, *, field_name: str) -> tuple[object, ...]:
     if not isinstance(value, Sequence) or isinstance(value, (str, bytes)):
         _refuse("invalid_classification_record", f"{field_name} must be an array")
-    assert isinstance(value, Sequence)
-    return tuple(value)
+    return tuple(cast(Sequence[object], value))
 
 
 def _canonical_json_bytes(payload: object) -> bytes:
@@ -887,8 +886,7 @@ def _canonical_json_bytes(payload: object) -> bytes:
 def _required_text(value: object, *, field_name: str) -> str:
     if not isinstance(value, str) or not value.strip():
         _refuse("invalid_accounting_schema", f"{field_name} must be non-empty")
-    assert isinstance(value, str)
-    return value.strip()
+    return cast(str, value).strip()
 
 
 def _required_digest(value: object, *, field_name: str) -> str:

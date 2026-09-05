@@ -6,6 +6,7 @@ from dataclasses import dataclass
 import hashlib
 import json
 from math import isfinite
+from typing import cast
 
 from ..core.temporal_semantics import InvalidBpIntervalError, canonical_bp_interval
 from .propagation_network import EventValidationError, PhenomenonEvent
@@ -229,7 +230,7 @@ class _ClassificationAuthorityReceipt:
 
 _CLASSIFICATION_AUTHORITY = _ClassificationAuthorityReceipt(
     manifest_sha256=(
-        "0da8ba04e8a68058723d1eebe1ea49a3047968c47dfbbade581e355ef28ffe97"
+        "f09e5740c9b68232e3e6bfed069964f95abe2c9fc13251c94b6bdda7eadfda6f"
     ),
     source_family="neotoma",
     source_snapshot_id=(
@@ -245,7 +246,7 @@ _CLASSIFICATION_AUTHORITY = _ClassificationAuthorityReceipt(
     producer_id="bijux-pollenomics.neotoma-classification-audit",
     producer_version="1",
     producer_digest=(
-        "sha256:f0e5a830d412bfd34b4920cd3cf4a4ad21dcd6e1bb821f1e54c8eaa426a83bef"
+        "sha256:7bdba3d4c9d7cc6fbb154ce638ec538c54c72971062aa86afd9e942edc0852e8"
     ),
     accepted_mapping_count=0,
     accepted_mapping_sha256_by_concept=(),
@@ -442,6 +443,7 @@ def derive_classification_events(
         if reason is None and observation_id in duplicate_observation_ids:
             reason = "duplicate_source_observation"
         observation = observation_index.get(observation_id)
+        selected: tuple[Mapping[str, object], ...] = ()
         if reason is None and observation is None:
             reason = "missing_source_observation"
         mapping = mapping_index.get(concept_id or "")
@@ -456,33 +458,61 @@ def derive_classification_events(
                 context,
             )
         if reason is None:
-            assert observation is not None
-            site_id = _optional_text(observation.get("site_id"))
-            if site_id is None:
-                reason = "missing_site"
-            elif site_id in site_conflicts:
-                reason = "conflicting_site"
-            elif site_id not in site_index:
-                reason = "missing_site"
+            if observation is None:
+                reason = "missing_source_observation"
+            else:
+                site_id = _optional_text(observation.get("site_id"))
+                if site_id is None:
+                    reason = "missing_site"
+                elif site_id in site_conflicts:
+                    reason = "conflicting_site"
+                elif site_id not in site_index:
+                    reason = "missing_site"
         if reason is None:
-            assert observation is not None
-            source_record_id = _source_record_id(observation)
-            selected = chronology_index.get(source_record_id or "", ())
-            if source_record_id is None or not selected:
-                reason = "missing_selected_chronology"
+            if observation is None:
+                reason = "missing_source_observation"
+            else:
+                source_record_id = _source_record_id(observation)
+                selected = chronology_index.get(source_record_id or "", ())
+                if source_record_id is None or not selected:
+                    reason = "missing_selected_chronology"
+                elif len(selected) != 1:
+                    reason = "ambiguous_selected_chronology"
+        if reason is None:
+            if observation is None:
+                reason = "missing_source_observation"
+            elif mapping is None:
+                reason = "accepted_classification_mapping_missing"
             elif len(selected) != 1:
-                reason = "ambiguous_selected_chronology"
-        if reason is None:
-            assert observation is not None and mapping is not None
-            site = site_index[_required_text(observation.get("site_id"))]
-            chronology = selected[0]
-            reason = _source_refusal_reason(
-                membership, mapping, observation, site, chronology, context
-            )
+                reason = "missing_selected_chronology"
+            else:
+                site = site_index[_required_text(observation.get("site_id"))]
+                chronology = selected[0]
+                reason = _source_refusal_reason(
+                    membership, mapping, observation, site, chronology, context
+                )
         if reason is not None:
             refusals.append(_refusal(observation_id, concept_id, reason))
             continue
-        assert observation is not None and mapping is not None
+        if observation is None:
+            refusals.append(
+                _refusal(observation_id, concept_id, "missing_source_observation")
+            )
+            continue
+        if mapping is None:
+            refusals.append(
+                _refusal(
+                    observation_id,
+                    concept_id,
+                    "accepted_classification_mapping_missing",
+                )
+            )
+            continue
+        if len(selected) != 1:
+            refusals.append(
+                _refusal(observation_id, concept_id, "missing_selected_chronology")
+            )
+            continue
         site = site_index[_required_text(observation.get("site_id"))]
         chronology = selected[0]
         admitted.append(
@@ -948,7 +978,6 @@ def _mapping_is_authorized(
 def _valid_classification_authority_receipt(authority: object) -> bool:
     if type(authority) is not _ClassificationAuthorityReceipt:
         return False
-    assert isinstance(authority, _ClassificationAuthorityReceipt)
     required_text = (
         authority.source_family,
         authority.contract_version,
@@ -991,8 +1020,7 @@ def _valid_classification_authority_receipt(authority: object) -> bool:
 def _classification_authority_manifest_sha256() -> str:
     value = getattr(_CLASSIFICATION_AUTHORITY, "manifest_sha256", None)
     if _is_sha256_hex(value):
-        assert isinstance(value, str)
-        return value
+        return cast(str, value)
     return "invalid-classification-authority-receipt"
 
 

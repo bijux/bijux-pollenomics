@@ -335,7 +335,7 @@ def _governed_country_values(
 def _classification_country_values(
     root: Path, metric: str
 ) -> dict[str, _DerivedCount] | None:
-    bundle = "artifacts/execution-control/classification/neotoma-audit-f0e5a830"
+    bundle = "artifacts/execution-control/classification/neotoma-audit-7bdba3d4"
     document = _optional_json_object(root, f"{bundle}/observation_memberships.json")
     records = document.get("records") if document else None
     if not isinstance(records, list):
@@ -410,7 +410,7 @@ def _propagation_scope_counts(
     document = _optional_json_object(
         root,
         "artifacts/execution-control/propagation/"
-        "neotoma-pollen-release-refusal-89494287/"
+        "neotoma-pollen-release-refusal-f6ecd445/"
         "primary_scenario_reconciliation.json",
     )
     reconciliation = document.get("reconciliation") if document else None
