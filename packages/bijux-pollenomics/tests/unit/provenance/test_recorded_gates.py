@@ -101,11 +101,42 @@ def test_make_gate_inputs_and_timeout_match_product_specifications() -> None:
         if gate_id == "doc-counts":
             assert set(INPUT_PATHS) <= set(specification.input_paths)
 
+        for test_name in gate_module._GATE_TESTS[gate_id]:
+            test_path = (
+                repository_root
+                / "packages/bijux-pollenomics/tests/regression/test_docs_breadth.py"
+                if test_name.startswith("../regression/")
+                else repository_root
+                / "packages/bijux-pollenomics/tests/unit"
+                / test_name
+            )
+            assert test_path.exists(), test_path
+
     assert re.search(
         r"^POLLENOMICS_GATE_TIMEOUT_SECONDS = 900$",
         completed.stdout,
         flags=re.MULTILINE,
     )
+
+
+def test_gate_inputs_recursively_bind_owned_python_sources() -> None:
+    source_root = REPOSITORY_ROOT / "packages/bijux-pollenomics/src/bijux_pollenomics"
+    owned_roots = {
+        "science": ("analysis", "core", "evidence"),
+        "data": ("adna", "collection"),
+        "map": ("evidence", "reporting"),
+        "provenance": ("provenance",),
+        "doc-counts": ("governance", "reporting/review"),
+    }
+
+    for gate_id, relative_roots in owned_roots.items():
+        specification = build_product_gate_specification(REPOSITORY_ROOT, gate_id)
+        expected = {
+            path.relative_to(REPOSITORY_ROOT).as_posix()
+            for relative_root in relative_roots
+            for path in (source_root / relative_root).rglob("*.py")
+        }
+        assert expected <= set(specification.input_paths)
 
 
 def test_make_release_evidence_does_not_rerun_recorded_gates() -> None:
