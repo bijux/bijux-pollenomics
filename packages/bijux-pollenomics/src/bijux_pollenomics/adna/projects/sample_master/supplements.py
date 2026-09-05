@@ -3,9 +3,12 @@
 from __future__ import annotations
 
 from pathlib import Path
-from bijux_pollenomics.adna.sources.library import ADNA_SOURCE_LIBRARY_DIR
+
 from bijux_pollenomics.adna.sources.archive import AdnaArchiveProject
+from bijux_pollenomics.adna.sources.library import ADNA_SOURCE_LIBRARY_DIR
 from bijux_pollenomics.adna.species.definitions import AdnaSpeciesDefinition
+from bijux_pollenomics.adna.workflow.source_artifacts import read_source_artifact_text
+
 from .archive import (
     _build_archive_sample_accession_lookup,
     _project_scope_archive_sample_rows,
@@ -17,8 +20,8 @@ from .identity import (
     _taxon_alignment_status,
 )
 from .models import (
-    AdnaProjectSampleMasterRow,
     _ARCHIVE_PROJECT_SAMPLE_ACCESSIONS,
+    AdnaProjectSampleMasterRow,
 )
 from .tables import (
     _build_goat_canary_rows,
@@ -33,6 +36,7 @@ from .tables import (
     _read_xlsx_member_rows,
     _read_xlsx_rows,
 )
+from .tables.pig_panel import _build_pig_panel_rows
 
 
 def _project_specific_sample_rows(
@@ -62,9 +66,52 @@ def _project_specific_sample_rows(
         return _goat_canary_supplementary_sample_rows(output_root, species, project)
     if project.project_accession == "PRJNA1178732":
         return _cat_china_supplementary_sample_rows(output_root, species, project)
+    if project.project_accession == "PRJEB30282":
+        return (
+            *_project_scope_archive_sample_rows(output_root, species, project),
+            *_pig_supplementary_sample_rows(output_root, species, project),
+        )
     if project.project_accession in _ARCHIVE_PROJECT_SAMPLE_ACCESSIONS:
         return _project_scope_archive_sample_rows(output_root, species, project)
     return ()
+
+
+def _pig_supplementary_sample_rows(
+    output_root: Path,
+    species: AdnaSpeciesDefinition,
+    project: AdnaArchiveProject,
+) -> tuple[AdnaProjectSampleMasterRow, ...]:
+    paper_row = _paper_row_by_project(output_root, project.project_accession)
+    workbook_artifact = next(
+        (
+            artifact
+            for artifact in paper_row.expected_supplementary_artifacts
+            if artifact.endswith("pnas.1901169116.sd01.xlsx")
+        ),
+        None,
+    )
+    archive_source_path = (
+        f"{ADNA_SOURCE_LIBRARY_DIR}/projects/{project.project_accession}/"
+        "archive_metadata.html"
+    )
+    if workbook_artifact is None:
+        return ()
+    workbook_source_path = (
+        f"{ADNA_SOURCE_LIBRARY_DIR}/papers/10.1073-pnas.1901169116/"
+        "supplementary/pnas.1901169116.sd01.xlsx"
+    )
+    workbook_path = _resolve_data_relative_path(output_root, workbook_artifact)
+    archive_path = _resolve_data_relative_path(output_root, archive_source_path)
+    if not workbook_path.is_file() or not archive_path.is_file():
+        return ()
+    return _build_pig_panel_rows(
+        species=species,
+        project=project,
+        source_path=workbook_source_path,
+        rows=_read_xlsx_rows(workbook_path, sheet_name="Sheet1"),
+        archive_source_path=archive_source_path,
+        archive_text=read_source_artifact_text(archive_path),
+    )
 
 
 def _sheep_supplementary_sample_rows(
