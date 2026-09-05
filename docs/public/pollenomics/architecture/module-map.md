@@ -43,6 +43,9 @@ Within acquisition, `collection/contracts/` defines stable boundary shapes,
 separate execution planning from repository writes. `collection/sources/`,
 `collection/intake/`, and `collection/exports/` separate source interpretation,
 payload decoding, and source-owned output writing.
+`collection/sources/sead/catalog/site_inventory/` further separates table
+reading, relationship and vocabulary indexes, chronology and bibliography
+projection, and repository-row refresh behind one stable catalog facade.
 
 `evidence/sources/` owns validated readers for those governed source
 materializations, so publication code consumes evidence contracts without

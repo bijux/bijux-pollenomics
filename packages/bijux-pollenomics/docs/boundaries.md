@@ -60,6 +60,8 @@ with subtrees that answer different intake questions cleanly:
 
 - `contracts/`: stable data shapes, artifact names, and source-family capability rules
 - `catalog/`: source identity, provenance, support, replacement, and validation state
+- `sources/sead/catalog/site_inventory/`: admitted-table readers, source-key
+  relationships, chronology and bibliography projection, and site summaries
 - `workflow/`: orchestration, staging, and repository materialization
 - `sources/`: one subtree per external source family
 - `intake/`: workbook, archive, or payload decoding helpers

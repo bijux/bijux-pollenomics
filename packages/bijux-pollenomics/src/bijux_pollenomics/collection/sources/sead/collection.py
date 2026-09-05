@@ -62,7 +62,7 @@ from bijux_pollenomics.collection.sources.sead.acquisition.fetch import (
 from bijux_pollenomics.collection.sources.sead.catalog.inventory import (
     SeadSiteFetchResult,
 )
-from bijux_pollenomics.collection.sources.sead.catalog.fields import (
+from bijux_pollenomics.collection.sources.sead.catalog.site_inventory import (
     build_sead_site_rows_from_acquisition_tables,
 )
 from bijux_pollenomics.collection.sources.sead.evidence.normalization import (

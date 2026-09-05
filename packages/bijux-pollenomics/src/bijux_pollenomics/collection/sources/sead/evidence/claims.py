@@ -16,7 +16,7 @@ from bijux_pollenomics.collection.sources.sead.acquisition.admission import (
 from bijux_pollenomics.collection.sources.sead.acquisition.archive import (
     SEAD_LINKED_SOURCE_TABLES,
 )
-from bijux_pollenomics.collection.sources.sead.catalog.fields import (
+from bijux_pollenomics.collection.sources.sead.catalog.site_inventory import (
     build_sead_site_rows_from_acquisition_tables,
 )
 from bijux_pollenomics.collection.sources.sead.evidence.normalization import (

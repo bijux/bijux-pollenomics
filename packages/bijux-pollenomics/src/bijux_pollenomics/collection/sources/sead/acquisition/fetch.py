@@ -8,7 +8,7 @@ from bijux_pollenomics.collection.sources.sead.acquisition.client import (
     fetch_sead_rows,
     fetch_sead_rows_by_ids,
 )
-from bijux_pollenomics.collection.sources.sead.catalog.fields import (
+from bijux_pollenomics.collection.sources.sead.catalog.site_inventory import (
     merge_sead_intervals,
     parse_optional_int,
     populate_sead_site_inventory_fields,
