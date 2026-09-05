@@ -1,11 +1,10 @@
 from __future__ import annotations
 
-from pathlib import Path
 import tempfile
 import unittest
+from pathlib import Path
 
 import pytest
-
 from bijux_pollenomics.foundation import (
     build_repository_atlas_input_audit,
     build_repository_brutal_honesty_review,
@@ -135,6 +134,28 @@ class RepositoryTruthUnitTests(unittest.TestCase):
             "docs/report/animal_output_audit.json",
         )
         self.assertIn("publication_accounting", markdown)
+
+    def test_governance_artifact_review_reads_isolated_report_tree(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            data_root = root / "repository" / "data"
+            report_root = root / "evidence" / "reference-build"
+            data_root.mkdir(parents=True)
+            report_root.mkdir(parents=True)
+            (report_root / "animal_output_audit.json").write_text(
+                "{}", encoding="utf-8"
+            )
+
+            payload = build_repository_governance_artifact_review(
+                data_root=data_root,
+                report_root=report_root,
+            )
+
+        self.assertEqual(payload["summary"], {"keep": 0, "reframe": 0, "retire": 1})
+        self.assertEqual(
+            [row["artifact_path"] for row in payload["rows"]],
+            ["docs/report/animal_output_audit.json"],
+        )
 
     def test_claim_audit_passes_once_animal_review_freezes_broad_readiness(
         self,

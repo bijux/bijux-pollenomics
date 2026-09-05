@@ -7,44 +7,44 @@ from ..data_downloader.sources.raa import assess_raa_density_authority
 
 __all__ = [
     "build_repository_atlas_input_audit",
+    "build_repository_brutal_honesty_review",
     "build_repository_claim_audit",
     "build_repository_credibility_dashboard",
-    "build_repository_brutal_honesty_review",
     "build_repository_cross_domain_evidence_matrix",
-    "build_repository_extension_review",
-    "build_repository_final_release_refusal",
-    "build_repository_docs_scope_validation",
     "build_repository_docs_recovery_review",
     "build_repository_docs_restoration_ledger",
+    "build_repository_docs_scope_validation",
+    "build_repository_extension_review",
+    "build_repository_final_release_refusal",
     "build_repository_governance_artifact_review",
     "build_repository_output_sustainability_review",
     "build_repository_product_model",
     "build_repository_recovery_review",
+    "build_repository_scientific_progress_audit",
     "build_repository_source_acquisition_queue",
     "build_repository_source_ecosystem_review",
     "build_repository_source_explainer_audit",
     "build_repository_source_family_matrix",
-    "build_repository_scientific_progress_audit",
     "build_repository_truth_posture",
     "render_repository_atlas_input_audit_markdown",
+    "render_repository_brutal_honesty_review_markdown",
     "render_repository_claim_audit_markdown",
     "render_repository_credibility_dashboard_markdown",
-    "render_repository_brutal_honesty_review_markdown",
     "render_repository_cross_domain_evidence_matrix_markdown",
-    "render_repository_extension_review_markdown",
-    "render_repository_final_release_refusal_markdown",
-    "render_repository_docs_scope_validation_markdown",
     "render_repository_docs_recovery_review_markdown",
     "render_repository_docs_restoration_ledger_markdown",
+    "render_repository_docs_scope_validation_markdown",
+    "render_repository_extension_review_markdown",
+    "render_repository_final_release_refusal_markdown",
     "render_repository_governance_artifact_review_markdown",
     "render_repository_output_sustainability_review_markdown",
     "render_repository_product_model_markdown",
     "render_repository_recovery_review_markdown",
+    "render_repository_scientific_progress_audit_markdown",
     "render_repository_source_acquisition_queue_markdown",
     "render_repository_source_ecosystem_review_markdown",
     "render_repository_source_explainer_audit_markdown",
     "render_repository_source_family_matrix_markdown",
-    "render_repository_scientific_progress_audit_markdown",
     "render_repository_truth_posture_markdown",
 ]
 
@@ -319,7 +319,6 @@ def build_repository_governance_artifact_review(
     report_root: Path,
 ) -> dict[str, object]:
     """Review current aDNA governance artifacts by evidence value, not file presence."""
-    _ = data_root
     rows = [
         _artifact_review_row(
             "docs/report/animal_publication_release_gate.json",
@@ -376,8 +375,18 @@ def build_repository_governance_artifact_review(
             "This file counts shipped public surfaces but says little about evidence depth and should not lead the scientific story.",
         ),
     ]
-    repo_root = report_root.parents[1]
-    existing_rows = [row for row in rows if (repo_root / row["artifact_path"]).exists()]
+    repo_root = data_root.parent
+    published_report_prefix = Path("docs/report")
+
+    def artifact_exists(artifact_path: str) -> bool:
+        path = Path(artifact_path)
+        if path.is_relative_to(published_report_prefix):
+            return (report_root / path.relative_to(published_report_prefix)).exists()
+        return (repo_root / path).exists()
+
+    existing_rows = [
+        row for row in rows if artifact_exists(str(row["artifact_path"]))
+    ]
     summary = {
         "keep": sum(1 for row in existing_rows if row["action"] == "keep"),
         "reframe": sum(1 for row in existing_rows if row["action"] == "reframe"),
