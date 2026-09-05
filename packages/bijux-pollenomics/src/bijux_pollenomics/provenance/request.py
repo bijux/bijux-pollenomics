@@ -15,7 +15,7 @@ from ..collection.sources.sead.evidence.reader import (
     governed_sead_evidence_root,
     read_validated_sead_evidence_document,
 )
-from . import release_evidence as evidence
+import bijux_pollenomics.provenance.release_evidence as evidence
 
 __all__ = ["derive_release_evidence_request", "validate_release_evidence_request"]
 

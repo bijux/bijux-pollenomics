@@ -88,6 +88,11 @@ top-level test domains without an explicit production owner. When a durable
 domain needs a new facade module or an exceptional test owner, change the
 policy and its contract tests in the same reviewable unit.
 
+The companion dependency contract rejects imports that form a cycle during
+module initialization. Type-only imports and function-local deferred imports
+remain outside that graph because they do not participate in eager package
+startup.
+
 ## Select Proof By Changed Boundary
 
 | Changed surface | First proof | Expansion condition |

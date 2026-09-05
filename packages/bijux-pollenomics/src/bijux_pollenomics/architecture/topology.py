@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import ast
 from dataclasses import dataclass
+from importlib.util import resolve_name
 from pathlib import Path
 
 __all__ = [
@@ -164,6 +165,7 @@ def audit_repository_topology(
             "facade_module_leak",
             violations,
         )
+    _audit_relative_imports(source, violations)
 
     for test_path in sorted(tests.glob("test_*.py")):
         violations.append(
@@ -303,6 +305,54 @@ def _has_wildcard_import(path: Path) -> bool:
         and any(alias.name == "*" for alias in node.names)
         for node in ast.walk(module)
     )
+
+
+def _audit_relative_imports(
+    source_root: Path,
+    violations: list[TopologyViolation],
+) -> None:
+    module_paths = {
+        _module_name(source_root, path): path
+        for path in source_root.rglob("*.py")
+        if "__pycache__" not in path.parts
+    }
+    for module_name, path in sorted(module_paths.items()):
+        package_name = (
+            module_name
+            if path.name == "__init__.py"
+            else module_name.rpartition(".")[0]
+        )
+        syntax_tree = ast.parse(
+            path.read_text(encoding="utf-8"),
+            filename=path.as_posix(),
+        )
+        for node in ast.walk(syntax_tree):
+            if (
+                not isinstance(node, ast.ImportFrom)
+                or not node.level
+                or not node.module
+            ):
+                continue
+            try:
+                target = resolve_name("." * node.level + node.module, package_name)
+            except ImportError:
+                target = "." * node.level + node.module
+            if target in module_paths:
+                continue
+            violations.append(
+                TopologyViolation(
+                    "unresolved_relative_import",
+                    path.relative_to(source_root).as_posix(),
+                    f"line {node.lineno} resolves to missing module {target}",
+                )
+            )
+
+
+def _module_name(source_root: Path, path: Path) -> str:
+    relative_parts = list(path.relative_to(source_root).with_suffix("").parts)
+    if relative_parts[-1] == "__init__":
+        relative_parts.pop()
+    return ".".join((source_root.name, *relative_parts))
 
 
 def _display_path(path: Path) -> str:

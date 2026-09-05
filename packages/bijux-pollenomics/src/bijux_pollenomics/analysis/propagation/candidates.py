@@ -16,7 +16,7 @@ from ...core.temporal_semantics import (
 )
 
 if TYPE_CHECKING:
-    from ..reporting.models import LocalitySummary
+    from ...reporting.models import LocalitySummary
 
 __all__ = [
     "DEFAULT_PROPAGATION_SCENARIO",

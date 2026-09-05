@@ -56,6 +56,7 @@ def test_topology_audit_reports_all_structural_failure_classes(
     _write(source / "leaked.py", "")
     _write(source / "adna/__init__.py", "")
     _write(source / "adna/unowned.py", "")
+    _write(source / "adna/broken.py", "from ..missing.owner import thing\n")
     _write(source / "analysis/__init__.py", "")
     _write(source / "collection/__init__.py", "")
     _write(source / "shared/__init__.py", "")
@@ -77,6 +78,7 @@ def test_topology_audit_reports_all_structural_failure_classes(
         "missing_test_package_marker",
         "source_root_module_leak",
         "unmirrored_unit_test_domain",
+        "unresolved_relative_import",
         "wildcard_package_export",
     }
     with pytest.raises(ValueError, match="repository topology violations"):

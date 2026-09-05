@@ -589,7 +589,7 @@ def render_public_animal_output_honesty_markdown(payload: dict[str, object]) -> 
 
 def build_animal_atlas_candidate_accountability(data_root: Path) -> dict[str, object]:
     """Require every checked-in final atlas candidate row to keep full evidence anchors."""
-    from ..reporting.adna import build_tracked_animal_atlas_evidence_rows
+    from ...reporting.adna import build_tracked_animal_atlas_evidence_rows
 
     sample_lookup = _load_all_sample_rows_by_id(Path(data_root))
     rows = []
@@ -908,7 +908,7 @@ def _build_species_map_readiness_row(
 def _map_publication_accounting(
     data_root: Path,
 ) -> tuple[Counter[str], list[dict[str, object]]]:
-    from ..reporting.adna import build_tracked_animal_atlas_evidence_rows
+    from ...reporting.adna import build_tracked_animal_atlas_evidence_rows
 
     publication_rows = tuple(
         row.as_dict()
@@ -1033,7 +1033,7 @@ def _load_all_sample_rows_by_id(data_root: Path) -> dict[str, dict[str, object]]
 
 
 def _load_mapped_sample_ids_by_species(data_root: Path) -> dict[str, set[str]]:
-    from ..reporting.adna import build_tracked_animal_atlas_evidence_rows
+    from ...reporting.adna import build_tracked_animal_atlas_evidence_rows
 
     rows = build_tracked_animal_atlas_evidence_rows(Path(data_root))
     mapped: dict[str, set[str]] = {}

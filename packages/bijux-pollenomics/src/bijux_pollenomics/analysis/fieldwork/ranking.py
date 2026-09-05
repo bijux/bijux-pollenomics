@@ -30,7 +30,7 @@ __all__ = [
 ]
 
 if TYPE_CHECKING:
-    from ..reporting.models import LocalitySummary
+    from ...reporting.models import LocalitySummary
 
 
 @dataclass(frozen=True)

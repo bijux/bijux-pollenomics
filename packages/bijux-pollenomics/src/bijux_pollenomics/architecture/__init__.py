@@ -1,6 +1,11 @@
 """Repository structure, ownership, and public compatibility contracts."""
 
 from .compatibility import CompatibilityAliasContract, compatibility_alias_contract
+from .dependencies import (
+    ImportCycle,
+    assert_acyclic_package_imports,
+    find_package_import_cycles,
+)
 from .ownership import OwnershipMapEntry, build_ownership_map
 from .product import ProductScope, build_product_scope
 from .repository import (
@@ -26,6 +31,7 @@ __all__ = [
     "ArchitectureStage",
     "CompatibilityAliasContract",
     "CrossTreeSurfaceContract",
+    "ImportCycle",
     "OwnershipMapEntry",
     "PackageFacadePolicy",
     "PackageOwnershipContract",
@@ -36,6 +42,7 @@ __all__ = [
     "SurfaceMap",
     "TopologyViolation",
     "UnitTestDomainPolicy",
+    "assert_acyclic_package_imports",
     "assert_repository_topology",
     "audit_repository_topology",
     "build_ownership_map",
@@ -43,6 +50,7 @@ __all__ = [
     "build_repository_architecture_contract",
     "build_surface_map",
     "compatibility_alias_contract",
+    "find_package_import_cycles",
     "runtime_surface_contract",
     "repository_topology_policy",
 ]
