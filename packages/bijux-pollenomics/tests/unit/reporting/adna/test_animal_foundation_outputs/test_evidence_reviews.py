@@ -1,24 +1,53 @@
 from __future__ import annotations
 
-
 import pytest
 
 from bijux_pollenomics.reporting.adna.foundation_outputs.chronology import (
     build_animal_sample_chronology_review,
 )
 from bijux_pollenomics.reporting.adna.foundation_outputs.recovery import (
+    _mapped_sample_count,
     build_animal_intake_recovery_review,
     build_animal_sample_database_review,
 )
 from bijux_pollenomics.reporting.adna.foundation_outputs.review import (
     build_animal_point_evidence_review,
 )
+
 from .support import AnimalFoundationOutputsTestCase
 
 pytestmark = pytest.mark.generated_artifacts
 
 
 class AnimalFoundationEvidenceReviewTests(AnimalFoundationOutputsTestCase):
+    def test_mapped_sample_count_uses_distinct_source_identities(self) -> None:
+        payload = {
+            "rows": [
+                {
+                    "sample_record_ids": ["sample:1", "sample:2"],
+                },
+                {
+                    "sample_record_ids": ["sample:1"],
+                },
+            ]
+        }
+
+        self.assertEqual(_mapped_sample_count(payload), 2)
+
+        with self.assertRaisesRegex(ValueError, "sample_record_ids must be a list"):
+            _mapped_sample_count(
+                {
+                    "rows": [
+                        {
+                            "sample_record_ids": "sample:3",
+                            "sample_rows": [
+                                {"identity": {"stable_token": "must-not-fallback"}},
+                            ],
+                        }
+                    ]
+                }
+            )
+
     def test_sample_chronology_review_keeps_current_governed_rows_reader_visible(
         self,
     ) -> None:
@@ -32,6 +61,12 @@ class AnimalFoundationEvidenceReviewTests(AnimalFoundationOutputsTestCase):
         self.assertEqual(payload["normalization_counts"]["normalized_point"], 480)
         self.assertEqual(payload["normalization_counts"]["unresolved"], 126)
         self.assertEqual(payload["precision_counts"]["contextual_interval"], 485)
+        self.assertEqual(payload["comparability_counts"]["numeric_interval"], 748)
+        self.assertEqual(
+            payload["comparability_counts"]["numeric_interval_with_caveat"], 485
+        )
+        self.assertEqual(payload["comparability_counts"]["contextual_label_only"], 92)
+        self.assertEqual(payload["comparability_counts"]["unresolved"], 126)
         self.assertTrue(
             any(
                 row["project_accession"] == "PRJEB36540"
@@ -85,6 +120,8 @@ class AnimalFoundationEvidenceReviewTests(AnimalFoundationOutputsTestCase):
         self.assertTrue(payload["nordic_view_supported_now"])
         self.assertFalse(payload["region_agnostic_contract_ready"])
         self.assertEqual(payload["counts"]["published_atlas_point_count"], 233)
+        self.assertEqual(payload["counts"]["mapped_sample_count"], 554)
+        self.assertEqual(payload["counts"]["mapped_sample_share"], 0.3818)
         self.assertEqual(payload["counts"]["papers_with_archived_supplements"], 18)
         self.assertGreater(payload["counts"]["locality_conflict_row_count"], 0)
         self.assertGreater(payload["counts"]["locality_dictionary_row_count"], 0)

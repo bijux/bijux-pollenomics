@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+from dataclasses import replace
 from pathlib import Path
 from typing import cast
 
@@ -58,6 +59,40 @@ def test_provenance_preserves_bp_direction_and_nulls(
         unresolved["time_mean_bp"],
     ) == (None, None, None)
     assert unresolved["temporal_semantics"] == {"interval_convention": None}
+
+
+def test_comparability_requires_numeric_endpoints_and_preserves_bp_zero() -> None:
+    unresolved = replace(
+        rows_for_project("P2")[0],
+        chronology_text="approximately medieval",
+        chronology_strength="sample_owned_text_only",
+        chronology_evidence_class="archaeological_context_date",
+        chronology_precision_posture="sample_approximate_or_modeled",
+        chronology_normalization_status="text_only_unparsed",
+    )
+    bp_zero = replace(
+        unresolved,
+        chronology_text="0 BP",
+        chronology_normalization_status="normalized_point",
+        time_start_bp=0,
+        time_end_bp=0,
+        time_mean_bp=0,
+    )
+    whitespace_only = replace(unresolved, chronology_text="   ")
+
+    unresolved_semantics = audits._temporal_semantics_for_chronology_row(unresolved)
+    bp_zero_semantics = audits._temporal_semantics_for_chronology_row(bp_zero)
+    whitespace_semantics = audits._temporal_semantics_for_chronology_row(
+        whitespace_only
+    )
+
+    assert unresolved_semantics["comparability_posture"] == "contextual_label_only"
+    assert unresolved_semantics["time_start_bp"] is None
+    assert unresolved_semantics["time_end_bp"] is None
+    assert bp_zero_semantics["comparability_posture"] == "numeric_interval_with_caveat"
+    assert bp_zero_semantics["time_start_bp"] == 0
+    assert bp_zero_semantics["time_end_bp"] == 0
+    assert whitespace_semantics["comparability_posture"] == "unresolved"
 
 
 def test_completeness_and_gap_denominators_remain_explicit(

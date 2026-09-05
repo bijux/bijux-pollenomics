@@ -33,17 +33,18 @@ def _uncertainty_note_for(row: AdnaProjectSampleChronologyRow) -> str:
 def _temporal_semantics_for_chronology_row(
     row: AdnaProjectSampleChronologyRow,
 ) -> dict[str, object]:
-    if row.chronology_precision_posture in {
+    has_numeric_interval = row.time_start_bp is not None and row.time_end_bp is not None
+    if has_numeric_interval and row.chronology_precision_posture in {
         "sample_precise_point",
         "sample_precise_interval",
     }:
         comparability_posture = "numeric_interval"
-    elif row.chronology_precision_posture in {
+    elif has_numeric_interval and row.chronology_precision_posture in {
         "sample_approximate_or_modeled",
         "contextual_interval",
     }:
         comparability_posture = "numeric_interval_with_caveat"
-    elif row.chronology_precision_posture == "broad_period_only":
+    elif row.chronology_text.strip():
         comparability_posture = "contextual_label_only"
     else:
         comparability_posture = "unresolved"

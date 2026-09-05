@@ -1,0 +1,48 @@
+"""Canonical BP extrema for country species summaries."""
+
+from __future__ import annotations
+
+from bijux_pollenomics.reporting.adna.country_outputs.projection.species import (
+    build_species_rows,
+)
+
+
+def test_species_extrema_use_younger_to_older_bp_interval_direction() -> None:
+    partial = _locality("partial", younger_bp=1, older_bp=99_999)
+    partial.pop("time_start_bp")
+    rows = build_species_rows(
+        "Sweden",
+        [
+            _locality("recent", younger_bp=0, older_bp=100),
+            _locality("ancient", younger_bp=4944, older_bp=4961),
+            partial,
+            _locality("reversed", younger_bp=6000, older_bp=5000),
+            _locality("boolean", younger_bp=True, older_bp=True),
+        ],
+        [],
+    )
+
+    assert len(rows) == 1
+    assert rows[0]["oldest_signal_bp"] == 4961
+    assert rows[0]["youngest_signal_bp"] == 0
+
+
+def _locality(
+    locality: str,
+    *,
+    younger_bp: int,
+    older_bp: int,
+) -> dict[str, object]:
+    return {
+        "species_latin_name": "Equus caballus",
+        "species_common_name": "horse",
+        "animal_scope": "domesticated_core",
+        "project_accession": "PRJEB_TEST",
+        "country_assignment_confidence": "exact",
+        "coordinate_basis": "supplementary_table_coordinates",
+        "coordinate_confidence": "exact",
+        "time_start_bp": younger_bp,
+        "time_end_bp": older_bp,
+        "sample_count": 1,
+        "locality": locality,
+    }

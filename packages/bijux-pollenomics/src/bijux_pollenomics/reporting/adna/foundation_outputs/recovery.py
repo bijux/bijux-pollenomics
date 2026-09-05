@@ -1,8 +1,10 @@
 """Animal foundation recovery responsibilities."""
 
 from __future__ import annotations
-from typing import Any, cast
+
 from pathlib import Path
+from typing import Any, cast
+
 from ....adna.projects.evidence.chronology import (
     ADNA_CHRONOLOGY_NORMALIZATION_STATUSES,
     ADNA_CHRONOLOGY_PRECISION_POSTURES,
@@ -153,8 +155,9 @@ def build_animal_sample_database_review(
         + chronology_status_counts["normalized_point"]
     )
     point_row_count = int(point_payload["row_count"])
+    mapped_sample_count = _mapped_sample_count(point_payload)
     mapped_sample_share = (
-        round(point_row_count / len(sample_rows), 4) if sample_rows else 0.0
+        round(mapped_sample_count / len(sample_rows), 4) if sample_rows else 0.0
     )
 
     direct_links = {
@@ -262,6 +265,7 @@ def build_animal_sample_database_review(
             "chronology_row_count": len(chronology_rows),
             "coordinate_row_count": len(coordinate_rows),
             "published_atlas_point_count": point_payload["row_count"],
+            "mapped_sample_count": mapped_sample_count,
             "published_country_bundle_count": len(country_payloads),
             "mapped_sample_share": mapped_sample_share,
             "locality_conflict_row_count": len(locality_conflict_rows),
@@ -301,3 +305,36 @@ def build_animal_sample_database_review(
         "blockers": blockers,
         "direct_links": direct_links,
     }
+
+
+def _mapped_sample_count(point_payload: dict[str, Any]) -> int:
+    sample_ids: set[str] = set()
+    rows = point_payload.get("rows")
+    if not isinstance(rows, list):
+        raise ValueError("point payload rows must be a list")
+    for row in rows:
+        if not isinstance(row, dict):
+            raise ValueError("each point payload row must be an object")
+        if "sample_record_ids" in row:
+            sample_record_ids = row["sample_record_ids"]
+            if not isinstance(sample_record_ids, list):
+                raise ValueError("sample_record_ids must be a list")
+            for sample_id in sample_record_ids:
+                if not isinstance(sample_id, str) or not sample_id.strip():
+                    raise ValueError("sample_record_ids must contain non-empty strings")
+                sample_ids.add(sample_id.strip())
+            continue
+        sample_rows = row.get("sample_rows")
+        if not isinstance(sample_rows, list):
+            raise ValueError("sample_rows must be a list")
+        for sample_row in sample_rows:
+            if not isinstance(sample_row, dict):
+                raise ValueError("each mapped sample row must be an object")
+            identity = sample_row.get("identity")
+            if not isinstance(identity, dict):
+                raise ValueError("mapped sample identity must be an object")
+            stable_token = identity.get("stable_token")
+            if not isinstance(stable_token, str) or not stable_token.strip():
+                raise ValueError("mapped sample identity must contain a stable token")
+            sample_ids.add(stable_token.strip())
+    return len(sample_ids)

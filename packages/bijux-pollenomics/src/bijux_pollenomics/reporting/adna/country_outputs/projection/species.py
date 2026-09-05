@@ -58,15 +58,8 @@ def build_species_rows(
             for row in species_sample_rows
             if str(row.get("coordinate_provenance_path", "")).strip()
         )
-        oldest_values = [
-            _as_int(row["time_start_bp"])
-            for row in rows
-            if isinstance(row.get("time_start_bp"), int)
-        ]
-        youngest_values = [
-            _as_int(row["time_end_bp"])
-            for row in rows
-            if isinstance(row.get("time_end_bp"), int)
+        canonical_bp_pairs = [
+            pair for row in rows if (pair := _canonical_bp_pair(row)) is not None
         ]
         caution_bits = []
         if "regional_projection" in assignment_confidences:
@@ -100,8 +93,16 @@ def build_species_rows(
                 "coordinate_posture": summarize_confidence(
                     coordinate_bases | coordinate_confidences
                 ),
-                "oldest_signal_bp": max(oldest_values) if oldest_values else None,
-                "youngest_signal_bp": min(youngest_values) if youngest_values else None,
+                "oldest_signal_bp": (
+                    max(older_bp for _, older_bp in canonical_bp_pairs)
+                    if canonical_bp_pairs
+                    else None
+                ),
+                "youngest_signal_bp": (
+                    min(younger_bp for younger_bp, _ in canonical_bp_pairs)
+                    if canonical_bp_pairs
+                    else None
+                ),
                 "project_accessions": project_accessions,
                 "sample_row_count": len(species_sample_rows),
                 "exact_coordinate_sample_count": exact_coordinate_sample_count,
@@ -120,10 +121,26 @@ def build_species_rows(
         )
     return species_rows
 
+
 def summarize_confidence(values: set[str]) -> str:
     if len(values) == 1:
         return next(iter(values))
     return ";".join(sorted(values))
+
+
+def _canonical_bp_pair(row: dict[str, object]) -> tuple[int, int] | None:
+    younger_bp = row.get("time_start_bp")
+    older_bp = row.get("time_end_bp")
+    if (
+        isinstance(younger_bp, bool)
+        or not isinstance(younger_bp, int)
+        or isinstance(older_bp, bool)
+        or not isinstance(older_bp, int)
+        or younger_bp < 0
+        or younger_bp > older_bp
+    ):
+        return None
+    return younger_bp, older_bp
 
 
 def _as_int(value: object) -> int:
