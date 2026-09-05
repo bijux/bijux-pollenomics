@@ -7,10 +7,7 @@ from .coverage import (
     build_cross_species_coverage_dashboard,
     build_shipped_adna_product_audit,
 )
-from .map_readiness import (
-    _map_publication_key as _map_publication_key,
-    build_cross_species_map_readiness,
-)
+from .map_readiness import build_cross_species_map_readiness
 from .public_outputs import (
     build_public_animal_output_audit,
     build_public_animal_output_honesty,
