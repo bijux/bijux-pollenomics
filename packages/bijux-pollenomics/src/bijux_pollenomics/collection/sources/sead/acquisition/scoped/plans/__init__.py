@@ -1,0 +1,11 @@
+"""Declared SEAD acquisition table and relational join plans."""
+
+from .full_tables import SEAD_FULL_EVIDENCE_TABLE_PLANS
+from .joins import SEAD_FULL_EVIDENCE_JOIN_PLANS
+from .scoped import SEAD_SCOPED_TABLE_PLANS
+
+__all__ = [
+    "SEAD_FULL_EVIDENCE_JOIN_PLANS",
+    "SEAD_FULL_EVIDENCE_TABLE_PLANS",
+    "SEAD_SCOPED_TABLE_PLANS",
+]
