@@ -36,9 +36,11 @@ publication rules. Scientific behavior still belongs to the domain package
 that owns the decision.
 
 `command_line/` owns parsing, dispatch, and the durable command registry.
-Within acquisition, `collection/pipeline/`, `collection/sources/`,
-`collection/intake/`, and `collection/exports/` separate orchestration,
-source interpretation, payload decoding, and owned output writing.
+Within acquisition, `collection/contracts/` defines stable boundary shapes,
+`collection/catalog/` owns source identity and provenance, and
+`collection/pipeline/`, `collection/sources/`, `collection/intake/`, and
+`collection/exports/` separate orchestration, source interpretation, payload
+decoding, and owned output writing.
 
 Within analysis, `analysis/review/` owns candidate-site ranking reviews and
 their sensitivity evidence. Within publication, `reporting/bundles/` owns

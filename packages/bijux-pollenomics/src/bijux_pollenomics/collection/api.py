@@ -2,12 +2,12 @@
 
 from pathlib import Path
 
-from .collection_summary_schema import (
+from .contracts.summary import (
     validate_collection_summary_file,
     validate_collection_summary_payload,
 )
 from .collector import AVAILABLE_SOURCES, DataCollectionReport, collect_data
-from .models import (
+from .contracts.models import (
     ContextDataReport,
     DataCollectionSummary,
     SourceAcquisitionMetadata,
@@ -15,12 +15,12 @@ from .models import (
     SourceReplacementRule,
     SourceTraceabilityRecord,
 )
-from .source_hashes import SourceHashes, build_source_hashes
-from .source_identity import SOURCE_IDENTITIES, SourceIdentity
-from .source_provenance import build_source_provenance
-from .source_replacement_rules import build_source_replacement_rules
-from .source_support import SourceSupportStatus, build_source_support_matrix
-from .source_traceability import build_source_traceability_records
+from .catalog.hashes import SourceHashes, build_source_hashes
+from .catalog.identity import SOURCE_IDENTITIES, SourceIdentity
+from .catalog.provenance import build_source_provenance
+from .catalog.replacement import build_source_replacement_rules
+from .catalog.support import SourceSupportStatus, build_source_support_matrix
+from .catalog.traceability import build_source_traceability_records
 from .sources.aadr import AadrAnnoDownloadReport, download_aadr_anno_files
 
 __all__ = [

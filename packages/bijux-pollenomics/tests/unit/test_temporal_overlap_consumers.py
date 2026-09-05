@@ -14,7 +14,7 @@ from bijux_pollenomics.analysis.lake_evidence_richness import (
 from bijux_pollenomics.analysis.sweden_land_use_synthesis import (
     _intervals_overlap as synthesis_intervals_overlap,
 )
-from bijux_pollenomics.collection.models import ContextPointRecord
+from bijux_pollenomics.collection.contracts.models import ContextPointRecord
 from bijux_pollenomics.evidence.scientific_review import _locality_overlaps_point
 from bijux_pollenomics.reporting.adna.comparison_contracts import (
     build_animal_comparison_contract_payload,

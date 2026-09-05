@@ -22,7 +22,7 @@ from bijux_pollenomics.collection.landclim import (
     resolve_landclim_marquer_asset_urls,
     resolve_landclim_tabular_asset_urls,
 )
-from bijux_pollenomics.collection.models import ContextPointRecord
+from bijux_pollenomics.collection.contracts.models import ContextPointRecord
 from bijux_pollenomics.collection.sources.landclim import (
     build_landclim_spatiotemporal_review,
 )

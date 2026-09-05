@@ -2,8 +2,8 @@ from __future__ import annotations
 
 from datetime import date
 
-from .boundaries import NATURAL_EARTH_VERSION
-from .models import SourceAcquisitionMetadata
+from ..boundaries import NATURAL_EARTH_VERSION
+from ..contracts.models import SourceAcquisitionMetadata
 
 __all__ = ["build_source_metadata"]
 

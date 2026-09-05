@@ -10,7 +10,7 @@ from ....core.bp_time import (
 )
 from ....core.temporal_semantics import build_temporal_semantics
 from ....core.text import clean_optional_text
-from ...models import ContextPointRecord
+from ...contracts.models import ContextPointRecord
 from ...spatial import classify_country
 from .access import build_sead_site_access_model
 from .fetch import parse_optional_int

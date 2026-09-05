@@ -2,7 +2,7 @@ from __future__ import annotations
 
 from pathlib import Path
 
-from .models import SourceAcquisitionMetadata
+from ..contracts.models import SourceAcquisitionMetadata
 
 __all__ = ["validate_source_snapshot"]
 

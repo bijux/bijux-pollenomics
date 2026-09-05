@@ -6,7 +6,7 @@ import hashlib
 import json
 from pathlib import Path
 
-from .source_capabilities import (
+from .capabilities import (
     SEAD_ADMITTED_ACQUISITION_ADMISSION,
     build_source_capability_audit_payload,
     build_source_capability_contract_payload,
@@ -679,7 +679,7 @@ def _source_authority_state(
     output_root: Path, source_key: str
 ) -> _SourceAuthorityState:
     if source_key == "raa":
-        from .sources.raa.authority import assess_raa_density_authority
+        from ..sources.raa.authority import assess_raa_density_authority
 
         decision = assess_raa_density_authority(output_root)
         metrics: dict[str, int | None] = (
@@ -767,13 +767,13 @@ def _animal_adna_authority_state(output_root: Path) -> _SourceAuthorityState:
 
 
 def _boundary_authority_state(output_root: Path) -> _SourceAuthorityState:
-    from .boundaries import (
+    from ..boundaries import (
         BOUNDARY_CODES,
         NATURAL_EARTH_ADMIN0_URL,
         NATURAL_EARTH_TERMS_URL,
         NATURAL_EARTH_VERSION,
     )
-    from .sources.boundaries.store import load_country_boundaries
+    from ..sources.boundaries.store import load_country_boundaries
 
     family_root = output_root / "boundaries"
     normalized_path = family_root / "normalized" / "nordic_country_boundaries.geojson"

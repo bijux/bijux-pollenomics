@@ -3,9 +3,9 @@ from __future__ import annotations
 from dataclasses import dataclass
 from pathlib import Path
 
-from ..adna.paths import ADNA_SPECIES_DIR
-from .data_contracts import build_contract_artifact_paths
-from .data_layout import AVAILABLE_SOURCES
+from ...adna.paths import ADNA_SPECIES_DIR
+from ..data_layout import AVAILABLE_SOURCES
+from .repository import build_contract_artifact_paths
 
 __all__ = [
     "SourceLayoutContract",

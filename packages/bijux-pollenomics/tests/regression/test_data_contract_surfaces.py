@@ -9,7 +9,7 @@ import pytest
 from bijux_pollenomics.adna.governance_contracts import (
     validate_source_library_project_surfaces,
 )
-from bijux_pollenomics.collection.collection_summary_schema import (
+from bijux_pollenomics.collection.contracts.summary import (
     validate_collection_summary_file,
 )
 

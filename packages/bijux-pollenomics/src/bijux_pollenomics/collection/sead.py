@@ -9,7 +9,7 @@ from pathlib import Path
 import time
 
 from ..core.http import fetch_json
-from .contracts import (
+from .contracts.artifacts import (
     SEAD_POINT_CSV,
     SEAD_POINT_GEOJSON,
     SEAD_TEMPORAL_EVIDENCE_CSV,
@@ -19,7 +19,7 @@ from .exports.context_points import (
     write_context_points_csv,
     write_context_points_geojson,
 )
-from .models import ContextPointRecord
+from .contracts.models import ContextPointRecord
 from .shared import load_repository_country_boundaries
 from .sources.sead import api_client as sead_api_client
 from .sources.sead.acquisition import acquire_sead_table

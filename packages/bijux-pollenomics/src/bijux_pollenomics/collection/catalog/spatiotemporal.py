@@ -4,14 +4,14 @@ from dataclasses import asdict, dataclass
 import json
 from pathlib import Path
 
-from .boundaries import (
+from ..boundaries import (
     BOUNDARY_CODES,
     NATURAL_EARTH_ADMIN0_URL,
     NATURAL_EARTH_TERMS_URL,
     NATURAL_EARTH_VERSION,
 )
-from .sources.boundaries import load_country_boundaries
-from .sources.raa import assess_raa_density_authority
+from ..sources.boundaries import load_country_boundaries
+from ..sources.raa import assess_raa_density_authority
 
 __all__ = [
     "SourceSpatiotemporalPostureRecord",

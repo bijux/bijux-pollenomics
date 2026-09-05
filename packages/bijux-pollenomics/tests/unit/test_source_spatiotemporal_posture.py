@@ -4,7 +4,7 @@ import json
 from pathlib import Path
 import tempfile
 
-from bijux_pollenomics.collection.source_spatiotemporal_posture import (
+from bijux_pollenomics.collection.catalog.spatiotemporal import (
     build_source_spatiotemporal_posture_payload,
 )
 

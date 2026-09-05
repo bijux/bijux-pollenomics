@@ -3,7 +3,7 @@ from __future__ import annotations
 from dataclasses import asdict, dataclass
 from pathlib import Path
 
-from .source_capabilities import (
+from .capabilities import (
     SEAD_ADMITTED_ACQUISITION_ADMISSION,
     SEAD_NORMALIZED_EVIDENCE_EVENTS,
     SEAD_NORMALIZED_EVIDENCE_MANIFEST,

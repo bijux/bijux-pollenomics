@@ -5,7 +5,7 @@ from pathlib import Path
 import tempfile
 import unittest
 
-from bijux_pollenomics.collection.collection_summary_schema import (
+from bijux_pollenomics.collection.contracts.summary import (
     validate_collection_summary_file,
     validate_collection_summary_payload,
 )

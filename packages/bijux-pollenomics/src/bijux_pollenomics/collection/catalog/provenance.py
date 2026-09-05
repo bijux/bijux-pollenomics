@@ -2,8 +2,8 @@ from __future__ import annotations
 
 from pathlib import Path
 
-from .models import SourceAcquisitionMetadata, SourceProvenanceRecord
-from .source_identity import resolve_source_identity
+from ..contracts.models import SourceAcquisitionMetadata, SourceProvenanceRecord
+from .identity import resolve_source_identity
 
 __all__ = ["build_source_provenance"]
 

@@ -4,7 +4,7 @@ from dataclasses import replace
 
 from bijux_pollenomics.adna import AdnaChronology, AdnaCoordinate, AdnaLocalityIdentity
 from bijux_pollenomics.adna.models import AdnaLocalitySummary
-from bijux_pollenomics.collection.models import ContextPointRecord
+from bijux_pollenomics.collection.contracts.models import ContextPointRecord
 from bijux_pollenomics.evidence import (
     build_scientific_review_surface,
     render_scientific_review_surface_markdown,

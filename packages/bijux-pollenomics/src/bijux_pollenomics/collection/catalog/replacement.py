@@ -2,8 +2,8 @@ from __future__ import annotations
 
 from pathlib import Path
 
-from .models import SourceReplacementRule
-from .pipeline.staging import build_staging_output_dir
+from ..contracts.models import SourceReplacementRule
+from ..pipeline.staging import build_staging_output_dir
 
 __all__ = ["build_source_replacement_rules"]
 

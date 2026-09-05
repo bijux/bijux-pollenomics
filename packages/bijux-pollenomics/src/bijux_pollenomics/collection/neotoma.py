@@ -10,7 +10,7 @@ from pathlib import Path
 from ..core.files import write_json
 from ..core.http import fetch_json
 from ..core.text import clean_optional_text
-from .contracts import NEOTOMA_POINT_CSV, NEOTOMA_POINT_GEOJSON
+from .contracts.artifacts import NEOTOMA_POINT_CSV, NEOTOMA_POINT_GEOJSON
 from .exports.context_points import (
     write_context_points_csv,
     write_context_points_geojson,

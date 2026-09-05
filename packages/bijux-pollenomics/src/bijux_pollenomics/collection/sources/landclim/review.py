@@ -4,7 +4,7 @@ from datetime import date
 from pathlib import Path
 
 from ....core.files import write_json
-from ...models import ContextPointRecord
+from ...contracts.models import ContextPointRecord
 
 __all__ = [
     "build_landclim_spatiotemporal_review",

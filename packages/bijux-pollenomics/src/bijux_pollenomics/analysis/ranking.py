@@ -11,7 +11,7 @@ from ..core.temporal_semantics import (
     canonical_bp_interval,
     closed_bp_intervals_overlap,
 )
-from ..collection.models import ContextPointRecord
+from ..collection.contracts.models import ContextPointRecord
 from .site_candidates import (
     CandidateSiteContext,
     CandidateSiteScore,

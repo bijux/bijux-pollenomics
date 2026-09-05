@@ -15,7 +15,7 @@ from ....core.bp_time import (
 )
 from ....core.temporal_semantics import build_temporal_semantics
 from ....core.text import clean_optional_text
-from ...models import ContextPointRecord
+from ...contracts.models import ContextPointRecord
 from ...spatial import (
     CountryAttributionDecision,
     classify_country,

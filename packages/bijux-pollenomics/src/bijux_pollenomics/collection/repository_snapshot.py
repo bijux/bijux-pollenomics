@@ -5,7 +5,7 @@ from pathlib import Path
 
 from ..config import DEFAULT_AADR_VERSION
 from .data_layout import AVAILABLE_SOURCES, build_source_output_roots
-from .models import DataCollectionSummary
+from .contracts.models import DataCollectionSummary
 from .pipeline.collection_reports import (
     build_data_collection_summary,
     initialize_source_counts,
@@ -16,11 +16,11 @@ from .pipeline.contract_surface_writer import (
     write_source_family_state_matrix,
 )
 from .pipeline.summary_writer import write_collection_summary
-from .source_hashes import build_source_hashes
-from .source_metadata import build_source_metadata
-from .source_provenance import build_source_provenance
-from .source_replacement_rules import build_source_replacement_rules
-from .source_traceability import build_source_traceability_records
+from .catalog.hashes import build_source_hashes
+from .catalog.metadata import build_source_metadata
+from .catalog.provenance import build_source_provenance
+from .catalog.replacement import build_source_replacement_rules
+from .catalog.traceability import build_source_traceability_records
 
 __all__ = [
     "build_repository_collection_summary",

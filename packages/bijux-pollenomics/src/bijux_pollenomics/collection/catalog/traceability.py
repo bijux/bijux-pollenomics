@@ -1,7 +1,7 @@
 from __future__ import annotations
 
-from .models import SourceAcquisitionMetadata, SourceTraceabilityRecord
-from .source_identity import resolve_source_identity
+from ..contracts.models import SourceAcquisitionMetadata, SourceTraceabilityRecord
+from .identity import resolve_source_identity
 
 __all__ = ["build_source_traceability_records"]
 

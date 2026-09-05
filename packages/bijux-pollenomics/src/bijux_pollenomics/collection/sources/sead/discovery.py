@@ -13,7 +13,7 @@ from pathlib import Path
 from ....core.files import write_json
 from ....core.temporal_semantics import build_temporal_semantics
 from ...exports.context_points import write_context_points_geojson
-from ...models import ContextPointRecord
+from ...contracts.models import ContextPointRecord
 
 DISCOVERY_LAYER_KEY = "sweden-archaeology-site-discovery"
 DISCOVERY_LAYER_LABEL = "Sweden archaeology site discovery"

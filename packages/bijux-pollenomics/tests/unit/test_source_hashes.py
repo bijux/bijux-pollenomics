@@ -4,7 +4,7 @@ from pathlib import Path
 import tempfile
 import unittest
 
-from bijux_pollenomics.collection.source_hashes import build_source_hashes
+from bijux_pollenomics.collection.catalog.hashes import build_source_hashes
 
 
 class SourceHashesUnitTests(unittest.TestCase):

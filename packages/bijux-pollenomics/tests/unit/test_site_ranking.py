@@ -12,7 +12,7 @@ from bijux_pollenomics.analysis.ranking import (
     rank_localities,
     temporal_overlap,
 )
-from bijux_pollenomics.collection.models import ContextPointRecord
+from bijux_pollenomics.collection.contracts.models import ContextPointRecord
 
 
 def _locality(

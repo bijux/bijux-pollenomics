@@ -10,7 +10,7 @@ from pyproj import Transformer
 
 from ..core.files import write_json
 from ..core.http import fetch_text
-from .contracts import SVAR_LAKE_GEOJSON
+from .contracts.artifacts import SVAR_LAKE_GEOJSON
 
 SVAR_WFS_URL: Final[str] = "https://vattenwebb.smhi.se/svarwebb/svar.map"
 SVAR_TYPENAME: Final[str] = "lakes"

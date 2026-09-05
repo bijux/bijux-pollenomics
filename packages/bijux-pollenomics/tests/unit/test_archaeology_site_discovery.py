@@ -6,7 +6,7 @@ from pathlib import Path
 import tempfile
 import unittest
 
-from bijux_pollenomics.collection.models import ContextPointRecord
+from bijux_pollenomics.collection.contracts.models import ContextPointRecord
 from bijux_pollenomics.collection.sources.sead.discovery import (
     build_sweden_archaeology_site_discovery,
     write_sweden_archaeology_site_discovery,

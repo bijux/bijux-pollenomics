@@ -44,6 +44,8 @@ the runtime.
 
 Primary modules:
 
+- `bijux_pollenomics.collection.contracts`
+- `bijux_pollenomics.collection.catalog`
 - `bijux_pollenomics.collection.pipeline`
 - `bijux_pollenomics.collection.sources`
 - `bijux_pollenomics.collection.intake`
@@ -56,6 +58,8 @@ Primary modules:
 `collection` should read like the source-admission side of the runtime,
 with subtrees that answer different intake questions cleanly:
 
+- `contracts/`: stable data shapes, artifact names, and source-family capability rules
+- `catalog/`: source identity, provenance, support, replacement, and validation state
 - `pipeline/`: orchestration and collection-flow assembly
 - `sources/`: one subtree per external source family
 - `intake/`: workbook, archive, or payload decoding helpers

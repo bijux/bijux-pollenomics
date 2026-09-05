@@ -13,7 +13,7 @@ from bijux_pollenomics.adna import (
     normalize_explicit_bp_window,
     resolve_species_definition,
 )
-from bijux_pollenomics.collection.models import ContextPointRecord
+from bijux_pollenomics.collection.contracts.models import ContextPointRecord
 from bijux_pollenomics.evidence import build_scientific_review_surface
 
 

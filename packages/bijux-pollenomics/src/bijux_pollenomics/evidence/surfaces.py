@@ -8,7 +8,7 @@ from ..adna import (
     build_species_normalization_bundle,
     build_species_support_matrix,
 )
-from ..collection.models import ContextPointRecord
+from ..collection.contracts.models import ContextPointRecord
 from .models import (
     AtlasEvidenceCountryProfile,
     AtlasEvidenceLayer,

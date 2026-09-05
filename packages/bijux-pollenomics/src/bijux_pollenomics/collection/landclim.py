@@ -11,7 +11,7 @@ from ..config import NORDIC_BBOX
 from ..core.files import write_json
 from ..core.geojson import feature_list
 from ..core.http import fetch_binary
-from .contracts import (
+from .contracts.artifacts import (
     LANDCLIM_BIBLIOGRAPHY_JSON,
     LANDCLIM_GRID_GEOJSON,
     LANDCLIM_SITE_CSV,

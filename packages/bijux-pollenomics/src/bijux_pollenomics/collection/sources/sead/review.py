@@ -5,7 +5,7 @@ import json
 from pathlib import Path
 
 from ....core.files import write_json
-from ...models import ContextPointRecord
+from ...contracts.models import ContextPointRecord
 from .access import build_sead_site_access_model
 
 __all__ = [

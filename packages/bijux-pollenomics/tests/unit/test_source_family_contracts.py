@@ -7,8 +7,8 @@ from pathlib import Path
 import shutil
 import tempfile
 
-from bijux_pollenomics.collection import source_capabilities as capabilities_module
-from bijux_pollenomics.collection.source_capabilities import (
+from bijux_pollenomics.collection.contracts import capabilities as capabilities_module
+from bijux_pollenomics.collection.contracts.capabilities import (
     CAPABILITY_DIMENSIONS,
     NEOTOMA_CLASSIFICATION_EVIDENCE,
     NEOTOMA_PROPAGATION_EVIDENCE,
@@ -20,7 +20,7 @@ from bijux_pollenomics.collection.source_capabilities import (
     build_source_capability_audit_payload,
     build_source_capability_contract_payload,
 )
-from bijux_pollenomics.collection.source_family_contracts import (
+from bijux_pollenomics.collection.contracts.families import (
     build_source_family_contract_payload,
     build_source_family_contracts,
     build_source_family_state_matrix_payload,

@@ -15,7 +15,7 @@ from bijux_pollenomics.adna import (
     AdnaSampleIdentity,
     AdnaSampleRecord,
 )
-from bijux_pollenomics.collection.contracts import (
+from bijux_pollenomics.collection.contracts.artifacts import (
     BOUNDARY_COLLECTION,
     LANDCLIM_GRID_GEOJSON,
     LANDCLIM_TEMPORAL_GRID_GEOJSON,
@@ -25,7 +25,7 @@ from bijux_pollenomics.collection.exports import (
     write_context_points_csv,
     write_context_points_geojson,
 )
-from bijux_pollenomics.collection.models import ContextPointRecord
+from bijux_pollenomics.collection.contracts.models import ContextPointRecord
 from bijux_pollenomics.collection.neotoma import normalize_neotoma_rows
 from bijux_pollenomics.collection.sead import (
     collect_sead_data,

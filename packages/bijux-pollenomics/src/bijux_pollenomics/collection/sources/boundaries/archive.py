@@ -8,7 +8,7 @@ from pathlib import Path
 from ....core.files import write_json
 from ....core.geojson import CountryBoundaryCollection, feature_list
 from ....core.text import slugify
-from ...contracts import BOUNDARY_COLLECTION
+from ...contracts.artifacts import BOUNDARY_COLLECTION
 
 __all__ = [
     "BoundariesDataReport",

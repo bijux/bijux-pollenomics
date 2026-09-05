@@ -5,7 +5,7 @@ from __future__ import annotations
 from dataclasses import dataclass
 from pathlib import Path
 
-from .source_family_contracts import SourceFamilyStateRow
+from .families import SourceFamilyStateRow
 
 
 @dataclass(frozen=True)

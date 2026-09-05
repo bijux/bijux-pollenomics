@@ -4,7 +4,7 @@ from pathlib import Path
 import tempfile
 import unittest
 
-from bijux_pollenomics.collection.source_layout_contract import (
+from bijux_pollenomics.collection.contracts.layout import (
     build_source_layout_contract,
     validate_source_layout_contract,
 )

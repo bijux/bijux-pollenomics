@@ -6,7 +6,7 @@ import json
 from pathlib import Path
 
 from ...core.files import write_json
-from ..models import ContextPointRecord
+from ..contracts.models import ContextPointRecord
 
 
 def _normalize_csv_text(value: str) -> str:

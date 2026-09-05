@@ -6,7 +6,7 @@ from pathlib import Path
 import shutil
 
 from ...core.geojson import as_mapping
-from ...collection.contracts import (
+from ...collection.contracts.artifacts import (
     ATLAS_POINT_ARTIFACTS,
     BOUNDARY_COLLECTION,
     LANDCLIM_GRID_GEOJSON,

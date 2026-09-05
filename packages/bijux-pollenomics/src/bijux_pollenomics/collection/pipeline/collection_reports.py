@@ -3,8 +3,8 @@ from __future__ import annotations
 from datetime import date
 from pathlib import Path
 
-from ..data_contracts import build_contract_artifact_paths
-from ..models import (
+from ..contracts.repository import build_contract_artifact_paths
+from ..contracts.models import (
     DataCollectionReport,
     DataCollectionSummary,
     SourceAcquisitionMetadata,
@@ -12,7 +12,7 @@ from ..models import (
     SourceReplacementRule,
     SourceTraceabilityRecord,
 )
-from ..source_family_contracts import build_source_family_state_rows
+from ..contracts.families import build_source_family_state_rows
 
 __all__ = [
     "build_data_collection_report",
