@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import ast
+from collections.abc import Iterable
 from dataclasses import dataclass
 from importlib.util import resolve_name
 from pathlib import Path
@@ -38,6 +39,8 @@ class RepositoryTopologyPolicy:
 
     maximum_direct_modules: int
     maximum_direct_test_modules: int
+    maximum_source_module_lines: int
+    maximum_unit_test_module_lines: int
     forbidden_package_names: frozenset[str]
     source_root_files: tuple[str, ...]
     package_facades: tuple[PackageFacadePolicy, ...]
@@ -62,6 +65,8 @@ def repository_topology_policy() -> RepositoryTopologyPolicy:
     return RepositoryTopologyPolicy(
         maximum_direct_modules=10,
         maximum_direct_test_modules=10,
+        maximum_source_module_lines=720,
+        maximum_unit_test_module_lines=660,
         forbidden_package_names=frozenset(
             {
                 "common",
@@ -168,6 +173,13 @@ def audit_repository_topology(
             violations,
         )
     _audit_relative_imports(source, violations)
+    _audit_module_sizes(
+        source.rglob("*.py"),
+        source,
+        active_policy.maximum_source_module_lines,
+        "oversized_source_module",
+        violations,
+    )
 
     for test_path in sorted(tests.glob("test_*.py")):
         violations.append(
@@ -200,6 +212,14 @@ def audit_repository_topology(
                     ),
                 )
             )
+
+    _audit_module_sizes(
+        tests.rglob("*.py"),
+        tests,
+        active_policy.maximum_unit_test_module_lines,
+        "oversized_unit_test_module",
+        violations,
+    )
 
     tested_domains = {
         path.relative_to(tests).parts[0]
@@ -319,6 +339,28 @@ def _has_wildcard_import(path: Path) -> bool:
         and any(alias.name == "*" for alias in node.names)
         for node in ast.walk(module)
     )
+
+
+def _audit_module_sizes(
+    paths: Iterable[Path],
+    root: Path,
+    maximum_lines: int,
+    code: str,
+    violations: list[TopologyViolation],
+) -> None:
+    for path in sorted(paths):
+        if "__pycache__" in path.parts:
+            continue
+        line_count = len(path.read_text(encoding="utf-8").splitlines())
+        if line_count <= maximum_lines:
+            continue
+        violations.append(
+            TopologyViolation(
+                code,
+                path.relative_to(root).as_posix(),
+                f"{line_count} lines exceed the limit of {maximum_lines}",
+            )
+        )
 
 
 def _audit_relative_imports(
