@@ -22,7 +22,7 @@ POLLENOMICS_SCIENCE_TESTS := \
 	$(POLLENOMICS_TEST_ROOT)/unit/analysis/classification/test_classification_events \
 	$(POLLENOMICS_TEST_ROOT)/unit/analysis/classification/test_harmonization.py \
 	$(POLLENOMICS_TEST_ROOT)/unit/core/test_temporal_overlap_consumers.py \
-	$(POLLENOMICS_TEST_ROOT)/unit/analysis/fieldwork/evidence_richness/test_report \
+	$(POLLENOMICS_TEST_ROOT)/unit/analysis/fieldwork/evidence_richness \
 	$(POLLENOMICS_TEST_ROOT)/unit/analysis/propagation/test_propagation_evidence_domains.py \
 	$(POLLENOMICS_TEST_ROOT)/unit/evidence/test_scientific_review.py \
 	$(POLLENOMICS_TEST_ROOT)/unit/collection/catalog/spatiotemporal/test_posture.py \
