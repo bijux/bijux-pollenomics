@@ -52,7 +52,7 @@ POLLENOMICS_DATA_TESTS := \
 	$(POLLENOMICS_TEST_ROOT)/unit/collection/sources/sead/acquisition/test_full.py \
 	$(POLLENOMICS_TEST_ROOT)/unit/collection/sources/sead/acquisition/test_admission \
 	$(POLLENOMICS_TEST_ROOT)/unit/collection/sources/sead/evidence/test_claims.py \
-	$(POLLENOMICS_TEST_ROOT)/unit/collection/sources/sead/evidence/test_observations.py \
+	$(POLLENOMICS_TEST_ROOT)/unit/collection/sources/sead/evidence/test_observations \
 	$(POLLENOMICS_TEST_ROOT)/unit/collection/sources/sead/acquisition/test_scoped.py \
 	$(POLLENOMICS_TEST_ROOT)/unit/collection/sources/neotoma/test_neotoma_data.py \
 	$(POLLENOMICS_TEST_ROOT)/unit/collection/sources/neotoma/test_neotoma_lineage_review.py \

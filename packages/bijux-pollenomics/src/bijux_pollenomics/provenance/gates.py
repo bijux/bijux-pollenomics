@@ -101,7 +101,7 @@ _GATE_TESTS: dict[str, tuple[str, ...]] = {
         "collection/sources/sead/acquisition/test_full.py",
         "collection/sources/sead/acquisition/test_admission",
         "collection/sources/sead/evidence/test_claims.py",
-        "collection/sources/sead/evidence/test_observations.py",
+        "collection/sources/sead/evidence/test_observations",
         "collection/sources/sead/acquisition/test_scoped.py",
         "collection/sources/neotoma/test_neotoma_data.py",
         "collection/sources/neotoma/test_neotoma_lineage_review.py",
