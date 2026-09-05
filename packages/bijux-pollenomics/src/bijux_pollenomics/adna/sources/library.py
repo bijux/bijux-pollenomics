@@ -1744,14 +1744,14 @@ def materialize_source_library(output_root: Path) -> None:
         )
         write_text(paper_dir / "supplementary_manifest.csv", _render_csv(manifest_rows))
 
-    from ..projects.sample_chronology import (
+    from ..projects.evidence.chronology import (
         materialize_project_sample_chronology_library,
     )
-    from ..projects.sample_locality_evidence import (
+    from ..projects.evidence.localities import (
         materialize_project_sample_locality_evidence_library,
     )
     from ..projects.sample_master import materialize_sample_master_library
-    from ..projects.sample_sites import materialize_project_sample_site_library
+    from ..projects.registry.sites import materialize_project_sample_site_library
     from .inventory import materialize_source_inventory
 
     materialize_sample_master_library(output_root)

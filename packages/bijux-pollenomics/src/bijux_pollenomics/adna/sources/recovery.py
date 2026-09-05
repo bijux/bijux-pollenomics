@@ -4,13 +4,13 @@ from functools import lru_cache
 import json
 from pathlib import Path
 
-from ..projects.sample_chronology import (
+from ..projects.evidence.chronology import (
     build_date_evidence_gap_queue,
     build_project_sample_chronology_review_rows,
     build_sample_chronology_ambiguity_ledger,
     build_sample_chronology_conflict_ledger,
 )
-from ..projects.sample_locality_evidence import (
+from ..projects.evidence.localities import (
     build_project_locality_substitution_ledger,
     build_sample_locality_manual_curation_workflow_rows,
 )
@@ -18,7 +18,7 @@ from ..projects.sample_master import (
     build_cross_project_sample_master_completeness,
     build_sample_identity_ambiguity_ledger,
 )
-from ..projects.sample_sites import (
+from ..projects.registry.sites import (
     build_project_sample_site_review_rows,
     build_sample_site_manual_curation_queue,
 )

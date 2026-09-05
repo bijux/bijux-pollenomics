@@ -79,11 +79,11 @@ publish honestly.
 Primary modules:
 
 - `bijux_pollenomics.adna.projects.sample_master`
-- `bijux_pollenomics.adna.projects.sample_truth`
-- `bijux_pollenomics.adna.projects.sample_sites`
-- `bijux_pollenomics.adna.projects.sample_chronology`
-- `bijux_pollenomics.adna.projects.sample_locality_evidence`
-- `bijux_pollenomics.adna.projects.coordinate_provenance`
+- `bijux_pollenomics.adna.projects.registry.sample_truth`
+- `bijux_pollenomics.adna.projects.registry.sites`
+- `bijux_pollenomics.adna.projects.evidence.chronology`
+- `bijux_pollenomics.adna.projects.evidence.localities`
+- `bijux_pollenomics.adna.projects.evidence.coordinates`
 - `bijux_pollenomics.adna.workflow.normalization`
 - `bijux_pollenomics.adna.governance.audit_catalogs`
 
@@ -105,7 +105,8 @@ Primary modules:
 should separate responsibilities that answer different evidence questions:
 
 - `sources/`: source-library intake and acquisition-side recovery work
-- `projects/`: project- and sample-level evidence shaping
+- `projects/evidence/`: project chronology, coordinate, locality, and site claims
+- `projects/registry/`: project, sample, locality, and site identity registries
 - `species/`: species-aware runtime and curated species surfaces
 - `domain/`: scientific value objects and locality semantics
 - `governance/`: admission, curation, integrity, and review decisions

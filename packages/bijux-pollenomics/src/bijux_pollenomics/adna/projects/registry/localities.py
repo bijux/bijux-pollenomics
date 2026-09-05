@@ -3,11 +3,14 @@ from __future__ import annotations
 from dataclasses import dataclass
 from pathlib import Path
 
-from .coordinate_provenance import (
+from ....core.repository import repository_data_root
+from bijux_pollenomics.adna.projects.evidence.coordinates import (
     build_species_coordinate_provenance_rows,
     resolve_project_coordinate_provenance,
 )
-from .sample_sites import build_project_sample_site_rows
+from bijux_pollenomics.adna.projects.registry.sites import (
+    build_project_sample_site_rows,
+)
 
 __all__ = [
     "AdnaProjectLocalityLead",
@@ -194,4 +197,4 @@ def _normalize_text(value: str) -> str:
 
 
 def _default_data_root() -> Path:
-    return Path(__file__).resolve().parents[6] / "data"
+    return repository_data_root(__file__)

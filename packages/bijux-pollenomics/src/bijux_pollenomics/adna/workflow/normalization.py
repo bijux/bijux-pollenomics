@@ -11,6 +11,7 @@ from ...core.bp_time import (
     normalize_bp_interval,
     parse_bp_window_label,
 )
+from ...core.repository import repository_data_root
 from bijux_pollenomics.adna.governance.curation import build_species_curation_manifest
 from bijux_pollenomics.adna.workflow.manifests import (
     AdnaSpeciesManifest,
@@ -27,15 +28,15 @@ from bijux_pollenomics.adna.domain.models import (
     AdnaSiteEvidenceRecord,
 )
 from bijux_pollenomics.adna.workflow.paths import ADNA_SPECIES_DIR
-from ..projects.context import resolve_project_context
-from ..projects.coordinate_provenance import build_species_coordinate_provenance_rows
-from ..projects.localities import build_species_project_locality_leads
-from ..projects.sample_chronology import build_project_sample_chronology_rows
-from ..projects.sample_registry import (
+from ..projects.registry.context import resolve_project_context
+from ..projects.evidence.coordinates import build_species_coordinate_provenance_rows
+from ..projects.registry.localities import build_species_project_locality_leads
+from ..projects.evidence.chronology import build_project_sample_chronology_rows
+from ..projects.registry.samples import (
     AdnaCuratedSampleRow,
     build_species_curated_sample_rows,
 )
-from ..projects.site_evidence import build_species_site_evidence_rows
+from ..projects.evidence.sites import build_species_site_evidence_rows
 from ..sources.ena import (
     build_species_archive_projects,
     classify_archive_project_evidence,
@@ -816,7 +817,7 @@ def _sample_record_is_admissible(row: AdnaCuratedSampleRow) -> bool:
 
 
 def _default_data_root() -> Path:
-    return Path(__file__).resolve().parents[5] / "data"
+    return repository_data_root(__file__)
 
 
 def _locality_identity_token(

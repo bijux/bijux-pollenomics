@@ -30,7 +30,7 @@ from bijux_pollenomics.adna.workflow.normalization import (
     build_species_normalization_bundle,
 )
 from bijux_pollenomics.adna.workflow.paths import adna_final_root, adna_governance_root
-from ..projects.sample_truth import (
+from ..projects.registry.sample_truth import (
     build_animal_sample_aggregation_warnings,
     build_animal_sample_foundation_truth,
     build_animal_sample_product_contract,

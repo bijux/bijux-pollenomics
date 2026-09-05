@@ -42,10 +42,10 @@ POLLENOMICS_SCIENCE_INPUTS := \
 POLLENOMICS_DATA_TESTS := \
 	$(POLLENOMICS_TEST_ROOT)/unit/adna/workflow/test_adna_normalization.py \
 	$(POLLENOMICS_TEST_ROOT)/unit/adna/species/test_adna_catalogs.py \
-	$(POLLENOMICS_TEST_ROOT)/unit/adna/projects/test_adna_project_sample_locality_evidence.py \
+	$(POLLENOMICS_TEST_ROOT)/unit/adna/projects/evidence/test_localities.py \
 	$(POLLENOMICS_TEST_ROOT)/unit/adna/workflow/test_adna_runtime.py \
 	$(POLLENOMICS_TEST_ROOT)/unit/adna/projects/test_adna_sample_master.py \
-	$(POLLENOMICS_TEST_ROOT)/unit/adna/projects/test_adna_sample_truth.py \
+	$(POLLENOMICS_TEST_ROOT)/unit/adna/projects/registry/test_sample_truth.py \
 	$(POLLENOMICS_TEST_ROOT)/unit/adna/sources/test_adna_source_library.py \
 	$(POLLENOMICS_TEST_ROOT)/unit/adna/sources/test_adna_source_recovery.py \
 	$(POLLENOMICS_TEST_ROOT)/unit/adna/domain/test_adna_temporal_query.py \

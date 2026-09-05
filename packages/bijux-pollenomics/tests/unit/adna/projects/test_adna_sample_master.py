@@ -14,7 +14,7 @@ import unittest
 import pytest
 
 from bijux_pollenomics.adna.projects import sample_master as sample_master_module
-from bijux_pollenomics.adna.projects.archive_samples import (
+from bijux_pollenomics.adna.projects.registry.archive_samples import (
     read_archive_project_samples,
 )
 from bijux_pollenomics.adna.projects.sample_master import (

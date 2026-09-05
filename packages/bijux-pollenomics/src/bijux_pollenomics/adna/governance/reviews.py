@@ -13,7 +13,7 @@ from bijux_pollenomics.adna.workflow.manifests import (
     AdnaSpeciesManifest,
     build_species_manifest,
 )
-from ..projects.context import resolve_project_context
+from ..projects.registry.context import resolve_project_context
 from ..sources.ena import (
     build_species_archive_projects,
     classify_archive_project_evidence,

@@ -6,12 +6,14 @@ import re
 import shutil
 import subprocess  # nosec B404
 
-from ...core.files import write_json, write_text
+from ....core.files import write_json, write_text
 from bijux_pollenomics.adna.governance.audit_catalogs import render_csv_rows
-from ..sources.ena import build_archive_project_catalog
-from .coordinate_provenance import resolve_project_coordinate_provenance
-from .sample_master import build_project_sample_master_rows
-from .site_evidence import resolve_project_site_evidence
+from ...sources.ena import build_archive_project_catalog
+from bijux_pollenomics.adna.projects.evidence.coordinates import (
+    resolve_project_coordinate_provenance,
+)
+from ..sample_master import build_project_sample_master_rows
+from bijux_pollenomics.adna.projects.evidence.sites import resolve_project_site_evidence
 
 __all__ = [
     "ADNA_LOCALITY_RESOLUTION_STATUSES",

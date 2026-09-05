@@ -1,0 +1,1 @@
+"""Project registry unit tests."""

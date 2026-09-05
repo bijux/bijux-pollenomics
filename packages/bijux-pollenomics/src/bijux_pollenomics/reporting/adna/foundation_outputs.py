@@ -9,7 +9,7 @@ from ...adna.governance.audit_catalogs import (
     build_unresolved_site_ledger,
 )
 from ...adna.workflow.paths import adna_species_dir
-from ...adna.projects.sample_chronology import (
+from ...adna.projects.evidence.chronology import (
     ADNA_CHRONOLOGY_EVIDENCE_CLASSES,
     ADNA_CHRONOLOGY_NORMALIZATION_STATUSES,
     ADNA_CHRONOLOGY_PRECISION_POSTURES,
@@ -17,18 +17,18 @@ from ...adna.projects.sample_chronology import (
     build_sample_chronology_provenance_rows,
     build_sample_chronology_review_rows,
 )
-from ...adna.projects.sample_locality_evidence import (
+from ...adna.projects.evidence.localities import (
     build_project_locality_completeness_rows,
     build_project_locality_substitution_ledger,
     build_sample_locality_conflict_ledger,
     build_sample_locality_manual_curation_workflow_rows,
     build_site_name_normalization_dictionary_rows,
 )
-from ...adna.projects.sample_sites import (
+from ...adna.projects.registry.sites import (
     ADNA_LOCALITY_RESOLUTION_STATUSES,
     build_project_sample_site_rows,
 )
-from ...adna.projects.sample_truth import build_project_locality_count_drift
+from ...adna.projects.registry.sample_truth import build_project_locality_count_drift
 from ...adna.sources.ena import build_archive_project_catalog
 from ...adna.sources.library import (
     build_cross_project_source_audit,

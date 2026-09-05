@@ -21,8 +21,12 @@ from ..sources.library import (
     build_project_registry,
 )
 from ..species.definitions import resolve_species_definition
-from .archive_samples import read_archive_project_samples
-from .article_sample_evidence import resolve_article_sample_evidence
+from bijux_pollenomics.adna.projects.registry.archive_samples import (
+    read_archive_project_samples,
+)
+from bijux_pollenomics.adna.projects.evidence.article_samples import (
+    resolve_article_sample_evidence,
+)
 
 __all__ = [
     "ADNA_SAMPLE_EVIDENCE_STATUSES",

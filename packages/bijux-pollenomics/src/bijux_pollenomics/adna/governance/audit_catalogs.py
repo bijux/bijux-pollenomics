@@ -7,7 +7,10 @@ import json
 from pathlib import Path
 
 from bijux_pollenomics.adna.workflow.paths import adna_species_dir, adna_species_root
-from ..projects.context import build_species_freshness_rows, resolve_project_context
+from ..projects.registry.context import (
+    build_species_freshness_rows,
+    resolve_project_context,
+)
 from ..sources.ena import build_archive_project_catalog
 from ..species.tracked_species import TRACKED_ADNA_SPECIES
 
