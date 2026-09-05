@@ -3,7 +3,10 @@ from __future__ import annotations
 from collections.abc import Iterable, Mapping
 
 from bijux_pollenomics.collection.contracts.models import ContextPointRecord
-from bijux_pollenomics.collection.spatial import classify_country, point_in_bbox
+from bijux_pollenomics.collection.spatial import (
+    CountryAttributionDecision,
+    point_in_bbox,
+)
 from bijux_pollenomics.core.bp_time import midpoint_bp_year
 from bijux_pollenomics.core.text import clean_optional_text
 
@@ -15,7 +18,10 @@ from ..chronology import (
     neotoma_time_label,
 )
 from ..chronology.semantics import _build_neotoma_temporal_semantics
-from ..country import neotoma_site_representative_point
+from ..country import (
+    build_neotoma_context_country_decisions,
+    neotoma_site_representative_point,
+)
 from ..site_inventory.merging import (
     dataset_key,
     normalize_collection_units,
@@ -28,19 +34,36 @@ def normalize_neotoma_rows(
     rows: Iterable[dict[str, object]],
     bbox: tuple[float, float, float, float],
     country_boundaries: Mapping[str, Mapping[str, object]],
+    *,
+    country_decisions: Mapping[str, CountryAttributionDecision] | None = None,
+    raw_country_aliases: Mapping[str, str] | None = None,
 ) -> list[ContextPointRecord]:
     """Convert raw Neotoma rows into compact Nordic pollen site records."""
+    source_rows = tuple(rows)
+    resolved_decisions = country_decisions
+    if resolved_decisions is None:
+        resolved_decisions = build_neotoma_context_country_decisions(
+            source_rows,
+            country_boundaries,
+            raw_country_aliases=raw_country_aliases,
+        )
     records: list[ContextPointRecord] = []
-    for row in rows:
+    for row in source_rows:
         representative_point = neotoma_site_representative_point(row)
         if representative_point is None:
             continue
         longitude, latitude, geometry_type = representative_point
         if not point_in_bbox(longitude=longitude, latitude=latitude, bbox=bbox):
             continue
-        country = classify_country(longitude, latitude, country_boundaries)
-        if not country:
+        site_id = clean_optional_text(row.get("siteid"))
+        decision = resolved_decisions.get(site_id)
+        if (
+            decision is None
+            or decision.decision_status != "assigned"
+            or decision.derived_country is None
+        ):
             continue
+        country = decision.derived_country
 
         collection_units = normalize_collection_units(row.get("collectionunits"))
         datasets = [
@@ -101,7 +124,6 @@ def normalize_neotoma_rows(
             time_interval=time_interval,
             time_label=time_label,
         )
-        site_id = str(row.get("siteid", "")).strip()
         site_name = str(row.get("sitename", "")).strip() or f"Neotoma site {site_id}"
         source_url = f"https://apps.neotomadb.org/explorer/#/record/site/{site_id}"
         description = clean_optional_text(
@@ -114,6 +136,10 @@ def normalize_neotoma_rows(
             ("Category", "Pollen"),
             ("Source", "Neotoma"),
             ("Country", country),
+            ("Country decision", decision.decision_status),
+            ("Country method", decision.decision_method),
+            ("Boundary version", decision.boundary_version),
+            ("Boundary digest", decision.boundary_artifact_digest),
             ("Geometry", geometry_type),
             ("Collection units", str(collection_unit_count)),
             ("Datasets", str(dataset_count)),

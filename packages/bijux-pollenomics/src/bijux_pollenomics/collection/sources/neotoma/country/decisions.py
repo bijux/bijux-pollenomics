@@ -2,6 +2,8 @@ from __future__ import annotations
 
 from collections.abc import Iterable, Mapping
 from dataclasses import replace
+import hashlib
+import json
 import math
 
 from bijux_pollenomics.collection.spatial import (
@@ -11,6 +13,33 @@ from bijux_pollenomics.collection.spatial import (
 from bijux_pollenomics.core.text import clean_optional_text
 
 from .site_geometry import neotoma_site_representative_point
+
+_CONTENT_ADDRESSED_BOUNDARY_VERSION = "content-addressed-boundary-collection"
+
+
+def build_neotoma_context_country_decisions(
+    rows: Iterable[Mapping[str, object]],
+    country_boundaries: Mapping[str, Mapping[str, object]],
+    *,
+    raw_country_aliases: Mapping[str, str] | None = None,
+    proximity_tolerance: float = 0.15,
+) -> dict[str, CountryAttributionDecision]:
+    """Build governed map decisions from a content-addressed boundary collection."""
+    serialized_boundaries = json.dumps(
+        country_boundaries,
+        ensure_ascii=False,
+        separators=(",", ":"),
+        sort_keys=True,
+    ).encode("utf-8")
+    boundary_digest = hashlib.sha256(serialized_boundaries).hexdigest()
+    return build_neotoma_site_country_decisions(
+        rows,
+        country_boundaries,
+        boundary_artifact_digest=f"sha256:{boundary_digest}",
+        boundary_version=_CONTENT_ADDRESSED_BOUNDARY_VERSION,
+        raw_country_aliases=raw_country_aliases,
+        proximity_tolerance=proximity_tolerance,
+    )
 
 
 def build_neotoma_site_country_decisions(
