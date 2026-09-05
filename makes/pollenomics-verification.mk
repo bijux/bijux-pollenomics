@@ -39,7 +39,7 @@ POLLENOMICS_SCIENCE_INPUTS := \
 	$(POLLENOMICS_SCIENCE_TESTS)
 
 POLLENOMICS_DATA_TESTS := \
-	$(POLLENOMICS_TEST_ROOT)/unit/adna/workflow/test_adna_normalization.py \
+	$(POLLENOMICS_TEST_ROOT)/unit/adna/workflow/adna_normalization \
 	$(POLLENOMICS_TEST_ROOT)/unit/adna/governance/audit_catalogs \
 	$(POLLENOMICS_TEST_ROOT)/unit/adna/species/tracked_data \
 	$(POLLENOMICS_TEST_ROOT)/unit/adna/projects/evidence/test_localities.py \
@@ -53,7 +53,8 @@ POLLENOMICS_DATA_TESTS := \
 	$(POLLENOMICS_TEST_ROOT)/unit/collection/sources/sead/acquisition/test_admission \
 	$(POLLENOMICS_TEST_ROOT)/unit/collection/sources/sead/evidence/test_claims.py \
 	$(POLLENOMICS_TEST_ROOT)/unit/collection/sources/sead/evidence/test_observations \
-	$(POLLENOMICS_TEST_ROOT)/unit/collection/sources/sead/acquisition/test_scoped.py \
+	$(POLLENOMICS_TEST_ROOT)/unit/collection/sources/sead/acquisition/scoped/test_materialization.py \
+	$(POLLENOMICS_TEST_ROOT)/unit/collection/sources/sead/acquisition/scoped/test_refusal_boundaries.py \
 	$(POLLENOMICS_TEST_ROOT)/unit/collection/sources/neotoma \
 	$(POLLENOMICS_TEST_ROOT)/unit/collection/sources/landclim \
 	$(POLLENOMICS_TEST_ROOT)/unit/collection/sources/raa/test_raa_data.py \

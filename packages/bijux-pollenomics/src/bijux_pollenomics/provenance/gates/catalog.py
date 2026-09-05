@@ -21,7 +21,7 @@ _GATE_TESTS: dict[str, tuple[str, ...]] = {
         "analysis/propagation/network",
     ),
     "data": (
-        "adna/workflow/test_adna_normalization.py",
+        "adna/workflow/adna_normalization",
         "adna/governance/audit_catalogs",
         "adna/species/tracked_data",
         "adna/projects/evidence/test_localities.py",
@@ -35,7 +35,8 @@ _GATE_TESTS: dict[str, tuple[str, ...]] = {
         "collection/sources/sead/acquisition/test_admission",
         "collection/sources/sead/evidence/test_claims.py",
         "collection/sources/sead/evidence/test_observations",
-        "collection/sources/sead/acquisition/test_scoped.py",
+        "collection/sources/sead/acquisition/scoped/test_materialization.py",
+        "collection/sources/sead/acquisition/scoped/test_refusal_boundaries.py",
         "collection/sources/neotoma",
         "collection/sources/landclim",
         "collection/sources/raa/test_raa_data.py",
