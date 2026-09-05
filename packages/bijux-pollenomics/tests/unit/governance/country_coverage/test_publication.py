@@ -1,8 +1,6 @@
 """Country-coverage identity and fail-closed publication tests."""
 
 from __future__ import annotations
-
-from __future__ import annotations
 import hashlib
 import json
 from pathlib import Path
@@ -26,6 +24,32 @@ from .fixtures import (
     _build,
     _cell,
 )
+
+
+def test_producer_identity_binds_the_recursive_package_source_closure() -> None:
+    package_root = Path(country_coverage_service.__file__).resolve().parent
+    source_records = [
+        {
+            "path": path.relative_to(_REPOSITORY_ROOT).as_posix(),
+            "sha256": hashlib.sha256(path.read_bytes()).hexdigest(),
+        }
+        for path in sorted(package_root.rglob("*.py"))
+    ]
+
+    producer = country_coverage_service._producer_identity(_REPOSITORY_ROOT)
+
+    assert any("/evidence/" in record["path"] for record in source_records)
+    canonical_records = (
+        json.dumps(
+            source_records,
+            ensure_ascii=False,
+            allow_nan=False,
+            indent=2,
+            sort_keys=True,
+        )
+        + "\n"
+    ).encode("utf-8")
+    assert producer["sha256"] == hashlib.sha256(canonical_records).hexdigest()
 
 
 def test_input_bytes_are_read_once_for_identity_and_derivation(

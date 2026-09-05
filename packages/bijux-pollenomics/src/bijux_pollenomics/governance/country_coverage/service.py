@@ -188,7 +188,7 @@ def _producer_identity(repository_root: Path) -> dict[str, object]:
             "path": path.relative_to(repository_root).as_posix(),
             "sha256": _sha256(path.read_bytes()),
         }
-        for path in sorted(package_root.glob("*.py"))
+        for path in sorted(package_root.rglob("*.py"))
     ]
     return {
         "path": package_root.relative_to(repository_root).as_posix(),

@@ -1,8 +1,6 @@
 """Governed country-coverage test fixtures and mutation helpers."""
 
 from __future__ import annotations
-
-from __future__ import annotations
 from collections.abc import Callable, Mapping
 import json
 from pathlib import Path
