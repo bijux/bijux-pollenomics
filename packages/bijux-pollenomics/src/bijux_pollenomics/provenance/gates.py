@@ -93,7 +93,7 @@ _GATE_TESTS: dict[str, tuple[str, ...]] = {
         "adna/species/test_adna_catalogs.py",
         "adna/projects/evidence/test_localities.py",
         "adna/workflow/test_adna_runtime.py",
-        "adna/projects/test_adna_sample_master.py",
+        "adna/projects/sample_master",
         "adna/projects/registry/test_sample_truth.py",
         "adna/sources/library",
         "adna/sources/test_adna_source_recovery.py",

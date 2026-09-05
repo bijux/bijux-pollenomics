@@ -13,7 +13,16 @@ import unittest
 
 import pytest
 
-from bijux_pollenomics.adna.projects import sample_master as sample_master_module
+from bijux_pollenomics.adna.projects.sample_master.archive import (
+    _build_archive_sample_accession_lookup,
+    _project_scope_archive_sample_accessions,
+)
+from bijux_pollenomics.adna.projects.sample_master.identity import (
+    _cell_value,
+    _format_horse_age_text,
+    _merge_sample_row_group,
+)
+from bijux_pollenomics.adna.projects.sample_master.tables import _read_xlsx_rows
 from bijux_pollenomics.adna.projects.registry.archive_samples import (
     read_archive_project_samples,
 )
@@ -257,11 +266,11 @@ class AdnaSampleMasterUnitTests(unittest.TestCase):
             "supplementary/1-s2.0-S2666979X25003556-mmc3.xlsx"
         )
         self._assert_source_receipt_closes(cat_workbook, "PRJNA1178732")
-        cat_rows = sample_master_module._read_xlsx_rows(cat_workbook, sheet_name="A")
+        cat_rows = _read_xlsx_rows(cat_workbook, sheet_name="A")
         cat_headers = {value.strip(): index for index, value in enumerate(cat_rows[2])}
         for row in cat_rows[3:]:
-            label = sample_master_module._cell_value(row, cat_headers["Sample ID"])
-            name = sample_master_module._cell_value(row, cat_headers["Species"])
+            label = _cell_value(row, cat_headers["Sample ID"])
+            name = _cell_value(row, cat_headers["Species"])
             if label and name:
                 raw_expected[("PRJNA1178732", label)] = (
                     "",
@@ -471,8 +480,8 @@ class AdnaSampleMasterUnitTests(unittest.TestCase):
             taxon_alignment_status="project_species_mismatch",
         )
 
-        forward = sample_master_module._merge_sample_row_group([unreported, mismatch])
-        reverse = sample_master_module._merge_sample_row_group([mismatch, unreported])
+        forward = _merge_sample_row_group([unreported, mismatch])
+        reverse = _merge_sample_row_group([mismatch, unreported])
 
         self.assertEqual(forward.taxon_alignment_status, "project_species_mismatch")
         self.assertEqual(reverse.taxon_alignment_status, "project_species_mismatch")
@@ -481,11 +490,11 @@ class AdnaSampleMasterUnitTests(unittest.TestCase):
 
     def test_horse_age_text_keeps_range_labels_stable(self) -> None:
         self.assertEqual(
-            sample_master_module._format_horse_age_text("5500 - 5700"),
+            _format_horse_age_text("5500 - 5700"),
             "5500-5700 BP",
         )
         self.assertEqual(
-            sample_master_module._format_horse_age_text("2300"),
+            _format_horse_age_text("2300"),
             "2300 BP",
         )
 
@@ -548,11 +557,11 @@ class AdnaSampleMasterUnitTests(unittest.TestCase):
                     "SAMEA2\tftp://example.org/Beta_i1.fastq.gz\n"
                 )
 
-            accessions = sample_master_module._project_scope_archive_sample_accessions(
+            accessions = _project_scope_archive_sample_accessions(
                 output_root,
                 "PRJTEST",
             )
-            lookup = sample_master_module._build_archive_sample_accession_lookup(
+            lookup = _build_archive_sample_accession_lookup(
                 output_root,
                 "PRJTEST",
             )

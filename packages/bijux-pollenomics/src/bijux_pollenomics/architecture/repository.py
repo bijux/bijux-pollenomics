@@ -181,7 +181,7 @@ def build_repository_architecture_contract() -> RepositoryArchitectureContract:
             owner_module="bijux_pollenomics.adna.projects.sample_master",
             owner_path=(
                 "packages/bijux-pollenomics/src/"
-                "bijux_pollenomics/adna/projects/sample_master.py"
+                "bijux_pollenomics/adna/projects/sample_master"
             ),
             purpose="recover sample-owned rows, site claims, and chronology evidence",
             tracked_inputs=("source-library reviews", "archive manifests"),
