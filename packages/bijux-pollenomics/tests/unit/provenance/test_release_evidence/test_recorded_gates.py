@@ -13,7 +13,7 @@ from bijux_pollenomics.provenance import (
     validate_recorded_gate,
 )
 from bijux_pollenomics.provenance.gates import producer as gate_producer
-from .conftest import (
+from .support import (
     _artifacts,
     _build,
     _canonical_json,

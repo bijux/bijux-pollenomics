@@ -15,7 +15,7 @@ from bijux_pollenomics.provenance.release_evidence import artifacts as release_a
 from bijux_pollenomics.provenance.release_evidence import (
     repository as release_repository,
 )
-from .conftest import _artifacts, _build, _digest
+from .support import _artifacts, _build, _digest
 
 
 def test_producer_tree_digest_excludes_python_runtime_cache(tmp_path: Path) -> None:

@@ -8,7 +8,7 @@ from bijux_pollenomics.provenance import (
     CountReconciliation,
     ReleaseEvidenceError,
 )
-from .conftest import _artifacts, _build, _reconciliations, _rewrite_fixture_policy
+from .support import _artifacts, _build, _reconciliations, _rewrite_fixture_policy
 
 
 def test_null_counts_are_rejected_while_zero_is_valid(tmp_path: Path) -> None:

@@ -11,7 +11,7 @@ from bijux_pollenomics.provenance import (
     ReleaseEvidenceError,
     build_release_evidence_manifest,
 )
-from .conftest import COMMIT, _artifacts, _build, _digest, _reconciliations
+from .support import COMMIT, _artifacts, _build, _digest, _reconciliations
 
 
 def test_failed_required_gate_never_claims_release_ready(tmp_path: Path) -> None:

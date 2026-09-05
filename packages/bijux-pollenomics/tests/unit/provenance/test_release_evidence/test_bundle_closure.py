@@ -17,7 +17,7 @@ from bijux_pollenomics.provenance import (
 from bijux_pollenomics.provenance.release_evidence import bundles as release_bundles
 from bijux_pollenomics.provenance.release_evidence import models as release_models
 from bijux_pollenomics.provenance.release_evidence import policy as release_policy
-from .conftest import (
+from .support import (
     _artifacts,
     _build,
     _canonical_json,
