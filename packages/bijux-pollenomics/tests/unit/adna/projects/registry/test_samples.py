@@ -90,6 +90,36 @@ class AdnaSampleRegistryUnitTests(unittest.TestCase):
             all(row.latitude_text == row.longitude_text == "" for row in rows)
         )
 
+    def test_cat_samples_keep_sample_owned_time_taxonomy_and_coordinate_refusals(
+        self,
+    ) -> None:
+        rows = tuple(
+            row
+            for row in build_species_curated_sample_rows("cat")
+            if row.project_accession == "PRJEB81815"
+        )
+
+        self.assertEqual(len(rows), 87)
+        self.assertEqual(
+            Counter(row.inclusion_status for row in rows),
+            {"site_curated": 84, "sample_context_blocked": 3},
+        )
+        self.assertEqual(
+            sum(bool(row.latitude_text and row.longitude_text) for row in rows), 56
+        )
+        self.assertTrue(
+            all(
+                row.latitude_text == row.longitude_text == ""
+                for row in rows
+                if row.coordinate_basis == "withheld_sample_coordinate"
+            )
+        )
+        self.assertTrue(all(row.time_start_bp is None for row in rows))
+        self.assertTrue(all(row.time_end_bp is None for row in rows))
+        self.assertTrue(
+            all("transect" not in row.site_label.casefold() for row in rows)
+        )
+
     def test_locality_selection_keeps_one_project_context_and_refuses_ambiguity(
         self,
     ) -> None:

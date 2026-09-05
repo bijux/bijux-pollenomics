@@ -263,7 +263,7 @@ _PROJECT_SITE_EVIDENCE: dict[str, tuple[AdnaSiteEvidenceRecord, ...]] = {
             project_accession="PRJEB81815",
             species_latin_name="Felis catus",
             species_common_name="cat",
-            site_label="North Africa to Europe domestic cat dispersal transect",
+            site_label="North Africa to Europe cat population context",
             political_entity="North Africa and Europe",
             source_artifact_path="adna/governance/source_library/papers/10.1126-science.adt2642/article.html",
             source_artifact_kind="article_html_body_quote",
@@ -276,17 +276,13 @@ _PROJECT_SITE_EVIDENCE: dict[str, tuple[AdnaSiteEvidenceRecord, ...]] = {
             source_support_status="article_exact_quote",
             paper_doi="10.1126/science.adt2642",
             paper_url=_doi_url("10.1126/science.adt2642"),
-            coordinate_basis="inferred_region_centroid",
-            latitude_text="37.00",
-            longitude_text="15.00",
-            chronology_text="Holocene cat dispersal across North Africa and Europe",
-            time_start_bp=1200,
-            time_end_bp=4000,
-            dating_basis="archaeological_period",
-            domestication_context="domesticated_core",
+            coordinate_basis="unresolved_location_state",
+            chronology_text="Roman Imperial era and later dispersal context",
+            dating_basis="historical_attribution",
+            domestication_context="mixed_source_native_cat_taxa",
             interpretation_note=(
-                "This is a dispersal transect, not one excavated cat site, so the "
-                "current mapped point remains region-level."
+                "This article-level population statement is not a sample site, "
+                "coordinate, numeric chronology, or domestication classification."
             ),
         ),
     ),
@@ -475,6 +471,12 @@ def _direct_sample_site_rows(
         first = group[0]
         pig_site = pig_evidence.get(group_key)
         pig_chronology_bp = _pig_chronology_bp(first.chronology_text, pig_site)
+        chronology_values = {
+            row.chronology_text for row in group if row.chronology_text
+        }
+        site_chronology_text = (
+            next(iter(chronology_values)) if len(chronology_values) == 1 else ""
+        )
         rows.append(
             AdnaSiteEvidenceRecord(
                 project_accession=project_accession,
@@ -501,7 +503,7 @@ def _direct_sample_site_rows(
                 ),
                 latitude_text=first.latitude_text,
                 longitude_text=first.longitude_text,
-                chronology_text=first.chronology_text,
+                chronology_text=site_chronology_text,
                 time_start_bp=pig_chronology_bp,
                 time_end_bp=pig_chronology_bp,
                 dating_basis=(
@@ -510,9 +512,15 @@ def _direct_sample_site_rows(
                     else "unknown"
                 ),
                 comparator_context=False,
-                domestication_context="domesticated_core",
+                domestication_context=(
+                    "mixed_source_native_cat_taxa"
+                    if project_accession == "PRJEB81815"
+                    else "domesticated_core"
+                ),
                 interpretation_note=(
-                    "This locality is backed by direct sample rows recovered from the supplementary table."
+                    "This locality is backed by direct sample rows recovered from the "
+                    "supplementary table; chronology remains sample-owned when its "
+                    "records have different dates."
                     if pig_site is None
                     else (
                         "The supplementary row and primary supplement bind the sample to this "

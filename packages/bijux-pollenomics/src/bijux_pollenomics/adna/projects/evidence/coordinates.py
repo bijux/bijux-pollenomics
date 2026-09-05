@@ -267,13 +267,13 @@ _PROJECT_COORDINATE_PROVENANCE: dict[
             project_accession="PRJEB81815",
             species_latin_name="Felis catus",
             species_common_name="cat",
-            site_label="North Africa to Europe domestic cat dispersal transect",
-            original_place_text="North Africa to Europe domestic cat dispersal transect",
+            site_label="North Africa to Europe cat population context",
+            original_place_text="North Africa to Europe cat population context",
             resolved_place_text="North Africa to Europe dispersal extent",
             political_entity="North Africa and Europe",
             source_artifact_path="adna/governance/source_library/papers/10.1126-science.adt2642/article.html",
             source_locator="discussion text",
-            coordinate_basis="region_centroid_fallback",
+            coordinate_basis="unresolved_location_state",
             mapping_posture="refused_region_only",
             geocoding_method="manual_regional_extent_retention",
             geocoder_or_gazetteer="not applied because the current lead is a dispersal transect",
@@ -284,13 +284,17 @@ _PROJECT_COORDINATE_PROVENANCE: dict[
             coordinate_confidence="withheld",
             paper_doi="10.1126/science.adt2642",
             paper_url=_doi_url("10.1126/science.adt2642"),
-            chronology_text="Holocene cat dispersal across North Africa and Europe",
-            time_start_bp=1200,
-            time_end_bp=4000,
-            dating_basis="archaeological_period",
-            domestication_context="domesticated_core",
-            interpretation_note="Cat remains a broad dispersal signal, not a point-ready site lead.",
-            support_gap_note="The current cat row is explicitly transregional and therefore refused from point publication.",
+            chronology_text="Roman Imperial era and later dispersal context",
+            dating_basis="historical_attribution",
+            domestication_context="mixed_source_native_cat_taxa",
+            interpretation_note=(
+                "This article-level population statement is not a sample coordinate, "
+                "numeric chronology, or domestication classification."
+            ),
+            support_gap_note=(
+                "Sample coordinates must come from admitted supplementary rows; no "
+                "regional centroid is accepted."
+            ),
         ),
     ),
     "SRP073444": (
@@ -463,6 +467,10 @@ def _direct_sample_coordinate_rows(
         first = rows[0]
         pig_site = pig_evidence.get(group_key)
         pig_chronology_bp = _pig_chronology_bp(first.chronology_text, pig_site)
+        chronology_values = {row.chronology_text for row in rows if row.chronology_text}
+        site_chronology_text = (
+            next(iter(chronology_values)) if len(chronology_values) == 1 else ""
+        )
         records.append(
             AdnaCoordinateProvenanceRecord(
                 project_accession=project_accession,
@@ -513,7 +521,7 @@ def _direct_sample_coordinate_rows(
                 supplementary_source=(
                     "" if pig_site is None else pig_site.sample_site_source_url
                 ),
-                chronology_text=first.chronology_text,
+                chronology_text=site_chronology_text,
                 time_start_bp=pig_chronology_bp,
                 time_end_bp=pig_chronology_bp,
                 dating_basis=(
@@ -522,9 +530,15 @@ def _direct_sample_coordinate_rows(
                     else "unknown"
                 ),
                 comparator_context=False,
-                domestication_context="domesticated_core",
+                domestication_context=(
+                    "mixed_source_native_cat_taxa"
+                    if project_accession == "PRJEB81815"
+                    else "domesticated_core"
+                ),
                 interpretation_note=(
-                    "This locality is mapped from direct supplementary coordinates rather than a project-level geocode."
+                    "This locality is mapped from direct supplementary coordinates "
+                    "rather than a project-level geocode; chronology remains "
+                    "sample-owned when its records have different dates."
                     if pig_site is None
                     else (
                         "The primary supplement binds the sample to the named archaeological site; "

@@ -81,8 +81,9 @@ _PROJECT_CONTEXT: dict[str, AdnaProjectContext] = {
     "PRJEB81815": AdnaProjectContext(
         nordic_relevance="nordic_adjacent",
         nordic_relevance_reason=(
-            "The Europe-facing cat dispersal paper is relevant to northern dispersal "
-            "questions, but the current project summary does not justify a Nordic-mapped claim."
+            "The primary supplement resolves ancient and modern cat samples across "
+            "Europe and adjacent regions, but it contains no Nordic sample and does "
+            "not justify a Nordic-mapped claim."
         ),
         last_checked_on=_LAST_CHECKED_ON,
     ),

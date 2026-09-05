@@ -76,9 +76,7 @@ def _matching_site_row(
     master_row: AdnaProjectSampleMasterRow,
     site_rows: tuple[AdnaSiteEvidenceRecord, ...],
 ) -> AdnaSiteEvidenceRecord | None:
-    """Prefer each pig sample's site without changing legacy single-lead projects."""
-    if master_row.project_accession != "PRJEB30282":
-        return site_rows[0] if site_rows else None
+    """Resolve exact sample locality evidence and refuse multi-site fallbacks."""
     master_key = _normalized_place_key(
         master_row.locality_text, master_row.political_entity
     )
@@ -94,6 +92,13 @@ def _matching_site_row(
         ]
         if len(matches) == 1:
             return matches[0]
+        if len(matches) > 1:
+            raise ValueError(
+                "Multiple site-evidence rows match one sample locality: "
+                f"{master_row.project_accession} {master_row.repo_stable_sample_id}"
+            )
+    if len(site_rows) == 1:
+        return site_rows[0]
     return None
 
 
@@ -102,7 +107,10 @@ def _normalized_place_key(locality: str, political_entity: str) -> tuple[str, st
 
 
 def _normalize_place(value: str) -> str:
-    return "".join(character for character in value.casefold() if character.isalnum())
+    normalized = "".join(
+        character for character in value.casefold() if character.isalnum()
+    )
+    return "" if normalized in {"na", "notavailable", "unknown"} else normalized
 
 
 def _project_by_accession(project_accession: str) -> AdnaArchiveProject:

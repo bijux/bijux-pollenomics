@@ -141,6 +141,7 @@ def _paper_source_specs() -> dict[str, _PaperSourceSpec]:
             article_local_path=f"{ADNA_SOURCE_LIBRARY_DIR}/papers/10.1126-science.adt2642/article.html",
             article_kind="article_html",
             article_note="PMC full-text HTML is archived for the cat dispersal paper.",
+            supplement_required=True,
         ),
         "10.1073/pnas.1901169116": _PaperSourceSpec(
             doi="10.1073/pnas.1901169116",
@@ -249,7 +250,8 @@ def _paper_required(archive_status: str) -> bool:
 def _supplement_required(project: AdnaArchiveProject) -> bool:
     if project.paper_linkage is None or project.paper_linkage.doi is None:
         return False
-    return bool(_paper_source_spec(project.paper_linkage.doi).supplementary_assets)
+    spec = _paper_source_spec(project.paper_linkage.doi)
+    return spec.supplement_required or bool(spec.supplementary_assets)
 
 
 def _derive_ingestion_status(bundle: AdnaSourceBundleManifest) -> str:

@@ -95,6 +95,30 @@ class AdnaCoordinateProvenanceUnitTests(unittest.TestCase):
         self.assertTrue(all(row.time_start_bp is None for row in rows))
         self.assertTrue(all(row.time_end_bp is None for row in rows))
 
+    def test_cat_coordinate_provenance_only_publishes_admitted_sample_pairs(
+        self,
+    ) -> None:
+        rows = resolve_project_coordinate_provenance("PRJEB81815")
+
+        self.assertEqual(len(rows), 40)
+        self.assertTrue(all(row.mapping_posture == "mappable_point" for row in rows))
+        self.assertTrue(
+            all(
+                row.coordinate_basis == "supplementary_table_coordinates"
+                for row in rows
+            )
+        )
+        self.assertTrue(
+            all(
+                row.domestication_context == "mixed_source_native_cat_taxa"
+                for row in rows
+            )
+        )
+        self.assertTrue(all(row.latitude_text and row.longitude_text for row in rows))
+        self.assertTrue(
+            all("transect" not in row.site_label.casefold() for row in rows)
+        )
+
     def test_coordinate_provenance_constants_expose_supported_classes(self) -> None:
         self.assertIn("named_site_geocoding", ADNA_COORDINATE_PROVENANCE_CLASSES)
         self.assertIn("region_centroid_fallback", ADNA_COORDINATE_PROVENANCE_CLASSES)

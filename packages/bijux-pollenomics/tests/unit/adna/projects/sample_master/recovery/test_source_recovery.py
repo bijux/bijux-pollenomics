@@ -2,6 +2,8 @@
 
 from __future__ import annotations
 
+from collections import Counter
+
 import pytest
 
 from bijux_pollenomics.adna.projects.sample_master import (
@@ -177,8 +179,50 @@ class SourceRecoveryTests(SampleMasterRecoveryTestCase):
                     self.data_root, project_accession
                 )
                 self.assertEqual(len(rows), expected_count)
-                self.assertTrue(
-                    all(row.sample_identity_resolution == "final" for row in rows)
-                )
+                if project_accession == "PRJEB81815":
+                    self.assertEqual(
+                        Counter(row.sample_identity_resolution for row in rows),
+                        {"final": 84, "ambiguous": 3},
+                    )
+                else:
+                    self.assertTrue(
+                        all(row.sample_identity_resolution == "final" for row in rows)
+                    )
                 self.assertTrue(all(row.sample_lineage_path for row in rows))
                 self.assertTrue(all(row.sample_lineage_locator for row in rows))
+
+    def test_cat_panel_preserves_source_taxa_and_refuses_spatial_inference(
+        self,
+    ) -> None:
+        rows = build_project_sample_master_rows(self.data_root, "PRJEB81815")
+
+        self.assertEqual(
+            Counter(row.source_native_scientific_name for row in rows),
+            {
+                "Felis catus": 42,
+                "Felis silvestris silvestris": 38,
+                "Felis silvestris lybica": 7,
+            },
+        )
+        self.assertEqual(
+            Counter(row.chronology_precision_posture for row in rows),
+            {
+                "sample_approximate_or_modeled": 37,
+                "broad_period_only": 39,
+                "contextual_interval": 8,
+                "unresolved": 3,
+            },
+        )
+        self.assertEqual(
+            sum(bool(row.latitude_text and row.longitude_text) for row in rows), 56
+        )
+        self.assertTrue(
+            all(
+                row.latitude_text == row.longitude_text == ""
+                for row in rows
+                if row.chronology_dating_basis == "modern_sampling"
+            )
+        )
+        self.assertTrue(
+            all("transect" not in row.locality_text.casefold() for row in rows)
+        )

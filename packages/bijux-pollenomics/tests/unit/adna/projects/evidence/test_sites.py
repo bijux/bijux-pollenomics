@@ -62,6 +62,31 @@ class AdnaSiteEvidenceUnitTests(unittest.TestCase):
             )
         )
 
+    def test_cat_sites_do_not_flatten_distinct_sample_chronologies(self) -> None:
+        rows = resolve_project_site_evidence("PRJEB81815")
+
+        self.assertEqual(len(rows), 61)
+        self.assertTrue(
+            all(row.source_support_status == "supplementary_table_row" for row in rows)
+        )
+        self.assertTrue(
+            all(
+                row.domestication_context == "mixed_source_native_cat_taxa"
+                for row in rows
+            )
+        )
+        shared_date_site = next(
+            row for row in rows if row.site_label == "Haithabu, settlement area"
+        )
+        multi_date_site = next(
+            row for row in rows if row.site_label == "Roca vecchia (Melendugno, Lecce)"
+        )
+        self.assertEqual(shared_date_site.chronology_text, "900-1150 BP")
+        self.assertEqual(multi_date_site.chronology_text, "")
+        self.assertTrue(
+            all("transect" not in row.site_label.casefold() for row in rows)
+        )
+
     def test_cattle_site_evidence_marks_archive_backed_gap_explicitly(self) -> None:
         rows = resolve_project_site_evidence("PRJNA705960")
 

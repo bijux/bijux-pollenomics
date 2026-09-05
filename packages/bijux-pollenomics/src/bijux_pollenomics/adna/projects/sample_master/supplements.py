@@ -24,7 +24,6 @@ from .models import (
     AdnaProjectSampleMasterRow,
 )
 from .tables import (
-    _build_baltic_sheep_rows,
     _build_goat_canary_rows,
     _build_goat_imputation_rows,
     _build_goat_qinghai_rows,
@@ -36,6 +35,11 @@ from .tables import (
     _build_sheep_table_rows,
     _read_xlsx_member_rows,
     _read_xlsx_rows,
+)
+from .tables.baltic_sheep import _build_baltic_sheep_rows
+from .tables.european_cats import (
+    EUROPEAN_CAT_WORKBOOK_MEMBER,
+    _build_european_cat_rows,
 )
 from .tables.pig_panel import _build_pig_panel_rows, load_pig_site_coordinate_evidence
 
@@ -74,9 +78,73 @@ def _project_specific_sample_rows(
         )
     if project.project_accession == "PRJEB59481":
         return _baltic_sheep_supplementary_sample_rows(output_root, species, project)
+    if project.project_accession == "PRJEB81815":
+        return _european_cat_supplementary_sample_rows(output_root, species, project)
     if project.project_accession in _ARCHIVE_PROJECT_SAMPLE_ACCESSIONS:
         return _project_scope_archive_sample_rows(output_root, species, project)
     return ()
+
+
+def _european_cat_supplementary_sample_rows(
+    output_root: Path,
+    species: AdnaSpeciesDefinition,
+    project: AdnaArchiveProject,
+) -> tuple[AdnaProjectSampleMasterRow, ...]:
+    paper_row = _paper_row_by_project(output_root, project.project_accession)
+    workbook_bundle_artifact = next(
+        (
+            artifact
+            for artifact in paper_row.expected_supplementary_artifacts
+            if artifact.endswith("science.adt2642_tables s1_to_s8.zip")
+        ),
+        None,
+    )
+    if workbook_bundle_artifact is None:
+        return ()
+    archive_source_path = (
+        f"{ADNA_SOURCE_LIBRARY_DIR}/projects/{project.project_accession}/"
+        "archive_metadata.html.gz"
+    )
+    workbook_bundle_source_path = (
+        f"{ADNA_SOURCE_LIBRARY_DIR}/papers/10.1126-science.adt2642/"
+        "supplementary/science.adt2642_tables s1_to_s8.zip"
+    )
+    workbook_source_path = (
+        f"{workbook_bundle_source_path}#{EUROPEAN_CAT_WORKBOOK_MEMBER}"
+    )
+    archive_path = _resolve_data_relative_path(output_root, archive_source_path)
+    workbook_bundle_path = _resolve_data_relative_path(
+        output_root, workbook_bundle_artifact
+    )
+    if not archive_path.is_file() or not workbook_bundle_path.is_file():
+        return ()
+    return _build_european_cat_rows(
+        species=species,
+        project=project,
+        archive_source_path=archive_source_path,
+        archive_text=read_source_artifact_text(archive_path),
+        workbook_source_path=workbook_source_path,
+        table_s1_rows=_read_xlsx_member_rows(
+            workbook_bundle_path,
+            member_name=EUROPEAN_CAT_WORKBOOK_MEMBER,
+            sheet_name="Table_S1",
+        ),
+        table_s3_rows=_read_xlsx_member_rows(
+            workbook_bundle_path,
+            member_name=EUROPEAN_CAT_WORKBOOK_MEMBER,
+            sheet_name="Table_S3",
+        ),
+        table_s4_rows=_read_xlsx_member_rows(
+            workbook_bundle_path,
+            member_name=EUROPEAN_CAT_WORKBOOK_MEMBER,
+            sheet_name="Table_S4",
+        ),
+        table_s5_rows=_read_xlsx_member_rows(
+            workbook_bundle_path,
+            member_name=EUROPEAN_CAT_WORKBOOK_MEMBER,
+            sheet_name="Table_S5",
+        ),
+    )
 
 
 def _baltic_sheep_supplementary_sample_rows(

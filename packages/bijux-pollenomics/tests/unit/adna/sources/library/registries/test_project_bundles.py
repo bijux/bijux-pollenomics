@@ -24,3 +24,16 @@ class ProjectSourceBundleRegistryTests(unittest.TestCase):
         self.assertFalse(horse_bundle.supplement_required)
         self.assertIn("missing_local_paper_evidence", horse_bundle.blockers)
         self.assertNotIn("missing_local_supplementary_material", horse_bundle.blockers)
+
+    def test_cat_bundle_declares_its_primary_workbook_as_required(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            output_root = Path(tmp) / "data"
+            bundles = build_project_source_bundles(output_root)
+
+        cat_bundle = next(
+            item for item in bundles if item.project_accession == "PRJEB81815"
+        )
+        self.assertTrue(cat_bundle.paper_required)
+        self.assertTrue(cat_bundle.supplement_required)
+        self.assertIn("missing_local_paper_evidence", cat_bundle.blockers)
+        self.assertIn("missing_local_supplementary_material", cat_bundle.blockers)

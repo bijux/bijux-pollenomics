@@ -378,6 +378,14 @@ def _resolve_row_context(
             inclusion_note = (
                 f"{inclusion_note} Sample identity remains ambiguous across source surfaces."
             ).strip()
+        if project.project_accession == "PRJEB81815" and (
+            not master_row.latitude_text or not master_row.longitude_text
+        ):
+            # The cat supplement has explicit modern omissions and coordinate-order
+            # anomalies. Neither may inherit another sample's same-site coordinate.
+            latitude_text = ""
+            longitude_text = ""
+            coordinate_basis = "withheld_sample_coordinate"
     return (
         site_label,
         political_entity,

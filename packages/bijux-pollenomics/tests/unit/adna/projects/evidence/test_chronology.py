@@ -108,6 +108,59 @@ class AdnaProjectSampleChronologyUnitTests(unittest.TestCase):
 
         self.assertEqual(rows, ())
 
+    def test_cat_chronology_keeps_exact_intervals_and_refuses_identity_conflicts(
+        self,
+    ) -> None:
+        rows = build_project_sample_chronology_rows(self.data_root, "PRJEB81815")
+        unresolved = tuple(
+            row for row in rows if row.sample_identity_resolution == "ambiguous"
+        )
+
+        self.assertEqual(len(rows), 87)
+        self.assertEqual(
+            sum(
+                row.time_start_bp is not None and row.time_end_bp is not None
+                for row in rows
+            ),
+            45,
+        )
+        self.assertEqual(len(unresolved), 3)
+        self.assertTrue(
+            all(
+                row.chronology_normalization_status == "unresolved"
+                for row in unresolved
+            )
+        )
+        self.assertTrue(
+            all(row.time_start_bp is row.time_end_bp is None for row in unresolved)
+        )
+        contextual = next(
+            row for row in rows if row.preferred_sample_label == "HAIScat01"
+        )
+        self.assertEqual(
+            (contextual.time_start_bp, contextual.time_end_bp), (900, 1150)
+        )
+        self.assertEqual(
+            contextual.chronology_evidence_class, "archaeological_context_date"
+        )
+        self.assertEqual(contextual.chronology_precision_posture, "contextual_interval")
+
+    def test_multi_site_projects_never_borrow_the_first_site_chronology(self) -> None:
+        horse_rows = build_project_sample_chronology_rows(self.data_root, "PRJEB31613")
+        sheep_rows = build_project_sample_chronology_rows(self.data_root, "PRJEB36540")
+
+        horse = next(
+            row
+            for row in horse_rows
+            if row.preferred_sample_label == "Derkul_NB2_Neolithic"
+        )
+        sheep = next(row for row in sheep_rows if row.preferred_sample_label == "TEP02")
+        for row in (horse, sheep):
+            with self.subTest(sample=row.preferred_sample_label):
+                self.assertEqual(row.chronology_normalization_status, "unresolved")
+                self.assertIsNone(row.time_start_bp)
+                self.assertIsNone(row.time_end_bp)
+
     def test_chronology_review_audit_and_completeness_surfaces_stay_reader_visible(
         self,
     ) -> None:
@@ -129,11 +182,13 @@ class AdnaProjectSampleChronologyUnitTests(unittest.TestCase):
         self.assertEqual(sheep_review["sample_owned_interval_count"], 167)
         self.assertEqual(sheep_review["text_only_unparsed_count"], 13)
         self.assertEqual(audit["sample_row_count"], 1451)
-        self.assertEqual(audit["normalized_interval_count"], 405)
-        self.assertEqual(audit["normalized_point_count"], 482)
-        self.assertEqual(audit["unresolved_count"], 472)
-        self.assertEqual(audit["precision_counts"]["contextual_interval"], 137)
-        self.assertEqual(audit["precision_counts"]["sample_approximate_or_modeled"], 94)
+        self.assertEqual(audit["normalized_interval_count"], 353)
+        self.assertEqual(audit["normalized_point_count"], 474)
+        self.assertEqual(audit["unresolved_count"], 493)
+        self.assertEqual(audit["precision_counts"]["contextual_interval"], 40)
+        self.assertEqual(
+            audit["precision_counts"]["sample_approximate_or_modeled"], 131
+        )
         self.assertEqual(audit["precision_counts"]["sample_precise_interval"], 276)
         self.assertFalse(
             any(
@@ -147,15 +202,15 @@ class AdnaProjectSampleChronologyUnitTests(unittest.TestCase):
                 for row in ambiguity_rows
             )
         )
-        self.assertTrue(any(row["chronology_conflict_note"] for row in conflict_rows))
+        self.assertEqual(conflict_rows, ())
         self.assertEqual(
             precision_audit["precision_counts"]["sample_approximate_or_modeled"],
-            94,
+            131,
         )
         sheep_species = next(
             row for row in species_rows if row["species_latin_name"] == "Ovis aries"
         )
-        self.assertEqual(sheep_species["normalized_row_count"], 190)
+        self.assertEqual(sheep_species["normalized_row_count"], 180)
         baltic_sheep_project = next(
             row for row in project_rows if row["project_accession"] == "PRJEB59481"
         )
@@ -174,7 +229,7 @@ class AdnaProjectSampleChronologyUnitTests(unittest.TestCase):
         horse_species = next(
             row for row in species_rows if row["species_latin_name"] == "Equus caballus"
         )
-        self.assertEqual(horse_species["normalized_row_count"], 548)
+        self.assertEqual(horse_species["normalized_row_count"], 540)
         horse_dom2 = next(
             row for row in project_rows if row["project_accession"] == "PRJEB44430"
         )
