@@ -101,7 +101,7 @@ POLLENOMICS_DATA_INPUTS := \
 	$(POLLENOMICS_DATA_TESTS)
 
 POLLENOMICS_MAP_TESTS := \
-	$(POLLENOMICS_TEST_ROOT)/unit/reporting/atlas/test_map_evidence_projection.py \
+	$(POLLENOMICS_TEST_ROOT)/unit/reporting/map_document/evidence_projection \
 	$(POLLENOMICS_TEST_ROOT)/unit/reporting/atlas/test_map_publication.py \
 	$(POLLENOMICS_TEST_ROOT)/unit/reporting/atlas/test_static_atlas_assets.py \
 	$(POLLENOMICS_TEST_ROOT)/unit/reporting/atlas/test_publication_geography.py \
