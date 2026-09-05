@@ -37,6 +37,7 @@ class RepositoryTopologyPolicy:
     """Durable constraints that keep source and unit-test ownership legible."""
 
     maximum_direct_modules: int
+    maximum_direct_test_modules: int
     forbidden_package_names: frozenset[str]
     source_root_files: tuple[str, ...]
     package_facades: tuple[PackageFacadePolicy, ...]
@@ -60,6 +61,7 @@ def repository_topology_policy() -> RepositoryTopologyPolicy:
     """Return the checked-in ownership and package-density policy."""
     return RepositoryTopologyPolicy(
         maximum_direct_modules=10,
+        maximum_direct_test_modules=10,
         forbidden_package_names=frozenset(
             {
                 "common",
@@ -178,12 +180,24 @@ def audit_repository_topology(
 
     for directory in _test_directories(tests):
         relative = directory.relative_to(tests)
+        direct_test_modules = tuple(sorted(directory.glob("test_*.py")))
         if not (directory / "__init__.py").is_file():
             violations.append(
                 TopologyViolation(
                     "missing_test_package_marker",
                     relative.as_posix(),
                     "a unit-test directory must own __init__.py",
+                )
+            )
+        if len(direct_test_modules) > active_policy.maximum_direct_test_modules:
+            violations.append(
+                TopologyViolation(
+                    "crowded_test_package",
+                    relative.as_posix(),
+                    (
+                        f"{len(direct_test_modules)} direct test modules exceed the "
+                        f"limit of {active_policy.maximum_direct_test_modules}"
+                    ),
                 )
             )
 

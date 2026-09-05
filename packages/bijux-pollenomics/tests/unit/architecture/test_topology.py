@@ -24,6 +24,7 @@ def test_topology_policy_keeps_public_facades_narrow_and_packages_bounded() -> N
     policy = repository_topology_policy()
 
     assert policy.maximum_direct_modules == 10
+    assert policy.maximum_direct_test_modules == 10
     assert policy.forbidden_package_names == {
         "common",
         "foundation",
@@ -66,12 +67,17 @@ def test_topology_audit_reports_all_structural_failure_classes(
         _write(source / f"crowded/behavior_{index}.py", "")
     _write(tests / "test_flat.py", "")
     _write(tests / "orphan/test_behavior.py", "")
+    _write(tests / "adna/__init__.py", "")
+    _write(tests / "adna/crowded/__init__.py", "")
+    for index in range(11):
+        _write(tests / f"adna/crowded/test_behavior_{index}.py", "")
 
     violations = audit_repository_topology(source, tests)
 
     assert {violation.code for violation in violations} == {
         "ambiguous_package_name",
         "crowded_package",
+        "crowded_test_package",
         "facade_module_leak",
         "flat_unit_test",
         "missing_package_marker",
