@@ -146,7 +146,7 @@ _GATE_TESTS: dict[str, tuple[str, ...]] = {
         "governance/test_data_reference_docs.py",
         "collection/catalog/test_source_spatiotemporal_posture.py",
         "collection/workflow/materialization/test_repository_snapshot.py",
-        "governance/test_repository_truth.py",
+        "governance/repository_truth/test_assessments.py",
         "../regression/test_docs_breadth.py",
     ),
 }
@@ -231,6 +231,7 @@ _GATE_GLOBS: dict[str, tuple[str, ...]] = {
     "provenance": ("packages/bijux-pollenomics/src/bijux_pollenomics/provenance/*.py",),
     "doc-counts": (
         "packages/bijux-pollenomics/src/bijux_pollenomics/governance/*.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/governance/*/*.py",
         "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/review/*.py",
     ),
 }

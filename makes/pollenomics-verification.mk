@@ -137,7 +137,7 @@ POLLENOMICS_DOC_COUNT_TESTS := \
 	$(POLLENOMICS_TEST_ROOT)/unit/governance/test_data_reference_docs.py \
 	$(POLLENOMICS_TEST_ROOT)/unit/collection/catalog/test_source_spatiotemporal_posture.py \
 	$(POLLENOMICS_TEST_ROOT)/unit/collection/workflow/materialization/test_repository_snapshot.py \
-	$(POLLENOMICS_TEST_ROOT)/unit/governance/test_repository_truth.py \
+	$(POLLENOMICS_TEST_ROOT)/unit/governance/repository_truth/test_assessments.py \
 	$(POLLENOMICS_TEST_ROOT)/regression/test_docs_breadth.py
 POLLENOMICS_DOC_COUNT_INPUTS := \
 	$(POLLENOMICS_GATE_TRUST_INPUTS) \
@@ -167,6 +167,7 @@ POLLENOMICS_DOC_COUNT_INPUTS := \
 	data/source_spatiotemporal_posture_registry.json \
 	docs/public/pollenomics-data \
 	$(wildcard $(POLLENOMICS_SOURCE_ROOT)/governance/*.py) \
+	$(wildcard $(POLLENOMICS_SOURCE_ROOT)/governance/*/*.py) \
 	$(wildcard $(POLLENOMICS_SOURCE_ROOT)/reporting/review/*.py) \
 	$(POLLENOMICS_DOC_COUNT_TESTS)
 

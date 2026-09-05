@@ -116,7 +116,7 @@ def _build_repository_output_specs(
             information_role="root truth posture",
             coexistence_rule="coexists with deeper review surfaces and summarizes their shared release posture",
             docs_anchor="docs/report/maintenance/index.md",
-            test_anchor="packages/bijux-pollenomics/tests/unit/governance/test_repository_truth.py",
+            test_anchor="packages/bijux-pollenomics/tests/unit/governance/repository_truth/test_assessments.py",
         ),
         _repository_output_spec(
             stem="repository_product_model",
@@ -130,7 +130,7 @@ def _build_repository_output_specs(
             information_role="end-state product model",
             coexistence_rule="coexists with the runtime and data handbooks as the report-root statement of world-to-country product shape",
             docs_anchor="docs/public/pollenomics/foundation/publication-scope-model.md",
-            test_anchor="packages/bijux-pollenomics/tests/unit/governance/test_repository_truth.py",
+            test_anchor="packages/bijux-pollenomics/tests/unit/governance/repository_truth/test_assessments.py",
         ),
         _repository_output_spec(
             stem="repository_credibility_dashboard",
@@ -144,7 +144,7 @@ def _build_repository_output_specs(
             information_role="cross-domain credibility dashboard",
             coexistence_rule="coexists with detailed audits and compresses them into release-facing dimension scores",
             docs_anchor="docs/internal/pollenomics-dev/release-support.md",
-            test_anchor="packages/bijux-pollenomics/tests/unit/governance/test_repository_truth.py",
+            test_anchor="packages/bijux-pollenomics/tests/unit/governance/repository_truth/test_assessments.py",
         ),
         _repository_output_spec(
             stem="repository_recovery_review",
@@ -158,7 +158,7 @@ def _build_repository_output_specs(
             information_role="repository recovery review",
             coexistence_rule="coexists with truth posture and provides per-surface scoring rather than one summary sentence",
             docs_anchor="docs/report/maintenance/index.md",
-            test_anchor="packages/bijux-pollenomics/tests/unit/governance/test_repository_truth.py",
+            test_anchor="packages/bijux-pollenomics/tests/unit/governance/repository_truth/test_assessments.py",
         ),
         _repository_output_spec(
             stem="repository_output_sustainability_review",
@@ -172,7 +172,7 @@ def _build_repository_output_specs(
             information_role="generated-output sustainability review",
             coexistence_rule="coexists with the generated-output policy and names where the repository is still paying complexity tax",
             docs_anchor="docs/internal/pollenomics-dev/release-support.md",
-            test_anchor="packages/bijux-pollenomics/tests/unit/governance/test_repository_truth.py",
+            test_anchor="packages/bijux-pollenomics/tests/unit/governance/repository_truth/test_assessments.py",
         ),
         _repository_output_spec(
             stem="repository_extension_review",
@@ -186,7 +186,7 @@ def _build_repository_output_specs(
             information_role="extensibility and interpretability review",
             coexistence_rule="coexists with the country onboarding contract and checks whether new work improves global extensibility without making local reasoning worse",
             docs_anchor="docs/internal/pollenomics-dev/country-publication-onboarding.md",
-            test_anchor="packages/bijux-pollenomics/tests/unit/governance/test_repository_truth.py",
+            test_anchor="packages/bijux-pollenomics/tests/unit/governance/repository_truth/test_assessments.py",
         ),
         _repository_output_spec(
             stem="repository_source_family_matrix",
@@ -200,7 +200,7 @@ def _build_repository_output_specs(
             information_role="source-family coverage matrix",
             coexistence_rule="coexists with source explainers and the cross-domain matrix as the fastest source-family inventory view",
             docs_anchor="docs/report/maintenance/index.md",
-            test_anchor="packages/bijux-pollenomics/tests/unit/governance/test_repository_truth.py",
+            test_anchor="packages/bijux-pollenomics/tests/unit/governance/repository_truth/test_assessments.py",
         ),
         _repository_output_spec(
             stem="repository_source_explainer_audit",
@@ -214,7 +214,7 @@ def _build_repository_output_specs(
             information_role="source explainer audit",
             coexistence_rule="coexists with source-family coverage and guards the reader-facing handbook against cross-domain blind spots",
             docs_anchor="docs/report/maintenance/index.md",
-            test_anchor="packages/bijux-pollenomics/tests/unit/governance/test_repository_truth.py",
+            test_anchor="packages/bijux-pollenomics/tests/unit/governance/repository_truth/test_assessments.py",
         ),
         _repository_output_spec(
             stem="repository_source_ecosystem_review",
@@ -228,7 +228,7 @@ def _build_repository_output_specs(
             information_role="source ecosystem review",
             coexistence_rule="coexists with source-family and acquisition surfaces as the boundary between direct source ownership and wider interoperability networks",
             docs_anchor="docs/public/pollenomics-data/sources/palaeopen.md",
-            test_anchor="packages/bijux-pollenomics/tests/unit/governance/test_repository_truth.py",
+            test_anchor="packages/bijux-pollenomics/tests/unit/governance/repository_truth/test_assessments.py",
         ),
         _repository_output_spec(
             stem="repository_atlas_input_audit",
@@ -242,7 +242,7 @@ def _build_repository_output_specs(
             information_role="atlas input audit",
             coexistence_rule="coexists with cross-domain evidence review and keeps map-facing inputs accountable by source family",
             docs_anchor="docs/report/maintenance/index.md",
-            test_anchor="packages/bijux-pollenomics/tests/unit/governance/test_repository_truth.py",
+            test_anchor="packages/bijux-pollenomics/tests/unit/governance/repository_truth/test_assessments.py",
         ),
         _repository_output_spec(
             stem="repository_cross_domain_evidence_matrix",
@@ -256,7 +256,7 @@ def _build_repository_output_specs(
             information_role="cross-domain evidence matrix",
             coexistence_rule="coexists with source-family audits and explains how pollen, archaeology, boundary, fieldwork, and animal evidence differ in role",
             docs_anchor="docs/report/maintenance/index.md",
-            test_anchor="packages/bijux-pollenomics/tests/unit/governance/test_repository_truth.py",
+            test_anchor="packages/bijux-pollenomics/tests/unit/governance/repository_truth/test_assessments.py",
         ),
         _repository_output_spec(
             stem="repository_docs_restoration_ledger",
@@ -270,7 +270,7 @@ def _build_repository_output_specs(
             information_role="docs restoration ledger",
             coexistence_rule="coexists with scope validation and records how handbook breadth was restored or merged",
             docs_anchor="docs/report/maintenance/index.md",
-            test_anchor="packages/bijux-pollenomics/tests/unit/governance/test_repository_truth.py",
+            test_anchor="packages/bijux-pollenomics/tests/unit/governance/repository_truth/test_assessments.py",
         ),
         _repository_output_spec(
             stem="repository_docs_scope_validation",
@@ -284,7 +284,7 @@ def _build_repository_output_specs(
             information_role="docs breadth validation",
             coexistence_rule="coexists with docs recovery review and fails narrow rewrites before they harden",
             docs_anchor="docs/report/maintenance/index.md",
-            test_anchor="packages/bijux-pollenomics/tests/unit/governance/test_repository_truth.py",
+            test_anchor="packages/bijux-pollenomics/tests/unit/governance/repository_truth/test_assessments.py",
         ),
         _repository_output_spec(
             stem="repository_docs_recovery_review",
@@ -298,7 +298,7 @@ def _build_repository_output_specs(
             information_role="docs recovery review",
             coexistence_rule="coexists with docs restoration and scope validation as the maintainer-facing summary of docs integrity",
             docs_anchor="docs/report/maintenance/index.md",
-            test_anchor="packages/bijux-pollenomics/tests/unit/governance/test_repository_truth.py",
+            test_anchor="packages/bijux-pollenomics/tests/unit/governance/repository_truth/test_assessments.py",
         ),
         _repository_output_spec(
             stem="repository_source_acquisition_queue",
@@ -312,7 +312,7 @@ def _build_repository_output_specs(
             information_role="source acquisition queue",
             coexistence_rule="coexists with recovery and progress reviews as the explicit next-source pressure list",
             docs_anchor="docs/report/maintenance/index.md",
-            test_anchor="packages/bijux-pollenomics/tests/unit/governance/test_repository_truth.py",
+            test_anchor="packages/bijux-pollenomics/tests/unit/governance/repository_truth/test_assessments.py",
         ),
         _repository_output_spec(
             stem="repository_governance_artifact_review",
@@ -325,7 +325,7 @@ def _build_repository_output_specs(
             information_role="governance artifact review",
             coexistence_rule="coexists with output sustainability review and records which legacy report surfaces should be kept, reframed, or retired",
             docs_anchor="docs/report/maintenance/index.md",
-            test_anchor="packages/bijux-pollenomics/tests/unit/governance/test_repository_truth.py",
+            test_anchor="packages/bijux-pollenomics/tests/unit/governance/repository_truth/test_assessments.py",
         ),
         _repository_output_spec(
             stem="repository_claim_audit",
@@ -339,7 +339,7 @@ def _build_repository_output_specs(
             information_role="claim audit",
             coexistence_rule="coexists with release refusal and prevents broader public language from outrunning governed evidence",
             docs_anchor="docs/internal/pollenomics-dev/release-support.md",
-            test_anchor="packages/bijux-pollenomics/tests/unit/governance/test_repository_truth.py",
+            test_anchor="packages/bijux-pollenomics/tests/unit/governance/repository_truth/test_assessments.py",
         ),
         _repository_output_spec(
             stem="repository_brutal_honesty_review",
@@ -353,7 +353,7 @@ def _build_repository_output_specs(
             information_role="brutal honesty review",
             coexistence_rule="coexists with the credibility dashboard and compresses the harsher qualitative release questions into one recurring review",
             docs_anchor="docs/internal/pollenomics-dev/release-support.md",
-            test_anchor="packages/bijux-pollenomics/tests/unit/governance/test_repository_truth.py",
+            test_anchor="packages/bijux-pollenomics/tests/unit/governance/repository_truth/test_assessments.py",
         ),
         _repository_output_spec(
             stem="repository_final_release_refusal",
@@ -367,7 +367,7 @@ def _build_repository_output_specs(
             information_role="final release refusal",
             coexistence_rule="coexists with animal release gates and names the repository-wide reasons final release language is still refused",
             docs_anchor="docs/internal/pollenomics-dev/release-support.md",
-            test_anchor="packages/bijux-pollenomics/tests/unit/governance/test_repository_truth.py",
+            test_anchor="packages/bijux-pollenomics/tests/unit/governance/repository_truth/test_assessments.py",
         ),
         _repository_output_spec(
             stem="repository_scientific_progress_audit",
@@ -381,7 +381,7 @@ def _build_repository_output_specs(
             information_role="scientific progress audit",
             coexistence_rule="coexists with recovery reviews and rejects raw artifact growth as a progress story",
             docs_anchor="docs/report/maintenance/index.md",
-            test_anchor="packages/bijux-pollenomics/tests/unit/governance/test_repository_truth.py",
+            test_anchor="packages/bijux-pollenomics/tests/unit/governance/repository_truth/test_assessments.py",
         ),
         _repository_output_spec(
             stem="repository_sead_legibility_review",
@@ -473,7 +473,7 @@ def _build_repository_generated_output_policy(
             "root_location": "docs/report",
             "coexistence_rule": "coexists with the report portal and repository truth reviews as the rule that governs new root outputs",
             "docs_anchor": "docs/internal/pollenomics-dev/release-support.md",
-            "test_anchor": "packages/bijux-pollenomics/tests/unit/governance/test_repository_truth.py",
+            "test_anchor": "packages/bijux-pollenomics/tests/unit/governance/repository_truth/test_assessments.py",
         }
     )
     return {
