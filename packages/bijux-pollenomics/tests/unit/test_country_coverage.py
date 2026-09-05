@@ -1,15 +1,16 @@
 from __future__ import annotations
 
-import hashlib
-import json
-import tempfile
 from collections.abc import Callable, Mapping
 from copy import deepcopy
+import hashlib
+import json
 from pathlib import Path
+import tempfile
 from typing import cast
 
-import bijux_pollenomics.foundation.country_coverage as country_coverage_module
 import pytest
+
+import bijux_pollenomics.foundation.country_coverage as country_coverage_module
 from bijux_pollenomics.foundation.country_coverage import (
     CELL_SCHEMA_ID,
     COUNT_FIELDS,
@@ -1050,14 +1051,15 @@ def test_checked_ledger_and_atomic_writer_are_fixed_point() -> None:
     assert _LEDGER_PATH.read_bytes() == first_bytes
 
 
-def test_atomic_writer_refuses_output_outside_repository(tmp_path: Path) -> None:
+def test_atomic_writer_refuses_output_outside_repository() -> None:
     with pytest.raises(
         ValueError, match="country coverage output must remain inside the repository"
     ):
         write_country_dimension_coverage_ledger(
             _REPOSITORY_ROOT,
             cell_schema_path=_CELL_SCHEMA_PATH,
-            output_path=tmp_path / "country_dimension_coverage.json",
+            output_path=_REPOSITORY_ROOT.parent
+            / "country_dimension_coverage-outside.json",
         )
 
 

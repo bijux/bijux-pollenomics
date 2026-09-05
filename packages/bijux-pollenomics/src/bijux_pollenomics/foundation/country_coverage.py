@@ -2,15 +2,16 @@
 
 from __future__ import annotations
 
+from collections import Counter
+from collections.abc import Mapping
+from contextlib import suppress
 import hashlib
 import json
 import os
+from pathlib import Path
 import re
 import secrets
 import stat
-from collections import Counter
-from collections.abc import Mapping
-from pathlib import Path
 from typing import Any, Final, cast
 
 from ..core.geojson import CountryBoundaryCollection
@@ -410,10 +411,8 @@ def _write_atomic_no_follow(
         if temporary_descriptor >= 0:
             os.close(temporary_descriptor)
         if temporary_name is not None:
-            try:
+            with suppress(FileNotFoundError):
                 os.unlink(temporary_name, dir_fd=parent_descriptor)
-            except FileNotFoundError:
-                pass
         for parent, _, child, _ in reversed(opened_directories):
             os.close(child)
             if parent != root_descriptor and all(

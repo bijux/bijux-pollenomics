@@ -1,9 +1,13 @@
 from __future__ import annotations
 
-import json
 from dataclasses import replace
+import json
 
+from hypothesis import given, settings
+from hypothesis import strategies as st
+from pyproj import Geod
 import pytest
+
 from bijux_pollenomics.analysis import propagation_network as propagation_network_module
 from bijux_pollenomics.analysis.propagation_network import (
     COUNTRY_CODES,
@@ -24,9 +28,6 @@ from bijux_pollenomics.analysis.site_candidates import (
     CandidatePropagationScenario,
 )
 from bijux_pollenomics.core.geo_distance import wgs84_inverse_geodesic
-from hypothesis import given, settings
-from hypothesis import strategies as st
-from pyproj import Geod
 
 
 def _event(

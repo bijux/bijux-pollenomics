@@ -1,10 +1,10 @@
 from __future__ import annotations
 
-import hashlib
-import json
 from collections import Counter, defaultdict
 from collections.abc import Mapping, Sequence
 from dataclasses import dataclass
+import hashlib
+import json
 from math import isfinite
 
 from ..core.temporal_semantics import InvalidBpIntervalError, canonical_bp_interval
@@ -1337,8 +1337,7 @@ def _valid_coordinate_pair(latitude: object, longitude: object) -> bool:
 def _text_tuple(value: object) -> tuple[str, ...]:
     if not isinstance(value, (list, tuple)):
         raise TypeError("expected a list or tuple of identifiers")
-    values = tuple(sorted({_required_text(item) for item in value}))
-    return values
+    return tuple(sorted({_required_text(item) for item in value}))
 
 
 def _optional_text(value: object) -> str | None:

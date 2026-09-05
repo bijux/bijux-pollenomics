@@ -1,12 +1,13 @@
 from __future__ import annotations
 
+from dataclasses import replace
 import hashlib
 import json
-from dataclasses import replace
 from pathlib import Path
 from unittest.mock import patch
 
 import pytest
+
 from bijux_pollenomics.analysis import propagation_outputs as propagation_outputs_module
 from bijux_pollenomics.analysis.propagation_network import PhenomenonEvent
 from bijux_pollenomics.analysis.propagation_outputs import (

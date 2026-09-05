@@ -1,14 +1,14 @@
 from __future__ import annotations
 
-import hashlib
-import json
-import os
-import shutil
-import tempfile
 from collections import Counter
 from collections.abc import Mapping, Sequence
 from dataclasses import dataclass
+import hashlib
+import json
+import os
 from pathlib import Path
+import shutil
+import tempfile
 from typing import Any, NoReturn, cast
 
 from .propagation_network import (

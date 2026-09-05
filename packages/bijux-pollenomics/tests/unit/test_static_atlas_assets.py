@@ -2,11 +2,12 @@ from __future__ import annotations
 
 import hashlib
 import json
+from pathlib import Path
 import shutil
 import subprocess
-from pathlib import Path
 
 import pytest
+
 from bijux_pollenomics.core.geojson import JsonObject
 from bijux_pollenomics.reporting.bundles.paths import build_atlas_bundle_paths
 from bijux_pollenomics.reporting.geography import build_published_geography_plan
@@ -301,7 +302,7 @@ def test_static_map_document_is_small_relative_only_and_offline_loadable(
     assert "fetch(" not in html
     manifest_assets = assets.manifest["assets"]
     assert isinstance(manifest_assets, list)
-    for row, path in zip(manifest_assets, assets.asset_paths, strict=True):
+    for _row, path in zip(manifest_assets, assets.asset_paths, strict=True):
         expected_tag = f'<script src="./{path.name}"></script>'
         assert expected_tag not in html
         assert not Path(path.name).is_absolute()

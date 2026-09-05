@@ -1,8 +1,8 @@
 from __future__ import annotations
 
 import json
-import tempfile
 from pathlib import Path
+import tempfile
 
 from bijux_pollenomics.data_downloader.source_spatiotemporal_posture import (
     build_source_spatiotemporal_posture_payload,

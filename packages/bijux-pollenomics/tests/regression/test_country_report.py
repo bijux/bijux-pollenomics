@@ -1,15 +1,16 @@
 from __future__ import annotations
 
+from collections.abc import Collection
 import csv
 import json
-import tempfile
-import unittest
-from collections.abc import Collection
 from pathlib import Path
+import tempfile
 from typing import cast
+import unittest
 from unittest.mock import patch
 
 import pytest
+
 from bijux_pollenomics.reporting import (
     generate_country_report,
     generate_multi_country_map,
@@ -25,7 +26,6 @@ from bijux_pollenomics.reporting.rendering import (
     build_sample_geojson_feature,
     serialize_sample_record,
 )
-
 from tests.support.aadr import AADR_HEADER, write_anno_file
 
 pytestmark = pytest.mark.generated_artifacts
@@ -310,7 +310,7 @@ class CountryReportTests(unittest.TestCase):
                 "Lat.\tLong.\tPublication abbreviation\tYear first published\t"
                 "Full Date\tDate mean in BP\tDate standard deviation in BP\t"
                 "Data type\tMolecular Sex\n"
-                + "SE1\tSE1\tSweden_Group\tUppsala\tSweden\t59.8586\t17.6389\tPaperA\t2022\t500 BCE\t2450\t125\tHO\tF\n",
+                "SE1\tSE1\tSweden_Group\tUppsala\tSweden\t59.8586\t17.6389\tPaperA\t2022\t500 BCE\t2450\t125\tHO\tF\n",
                 encoding="utf-8",
             )
 

@@ -29,7 +29,7 @@ def test_root_tox_keeps_the_shared_env_families_and_drops_proteomics_only_ones()
     assert "openapi-drift-core" not in envlist
 
 
-def test_root_tox_installs_the_locked_workspace_without_ci_only_plugins() -> None:
+def test_root_tox_installs_the_locked_workspace_with_shared_ci_plugin() -> None:
     tox_config = _tox_config()
     tox_requirements = tox_config["tox"]["requires"]
     test_environment = tox_config["testenv"]
@@ -38,7 +38,7 @@ def test_root_tox_installs_the_locked_workspace_without_ci_only_plugins() -> Non
         tox_config["testenv:docs"],
     )
 
-    assert "tox-gh-actions" not in tox_requirements
+    assert "tox-gh-actions>=3.1,<4" in tox_requirements
     assert (
         "uv sync --frozen --all-packages --all-extras"
         in test_environment["commands_pre"]

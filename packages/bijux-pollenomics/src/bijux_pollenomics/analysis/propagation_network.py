@@ -1,10 +1,10 @@
 from __future__ import annotations
 
-import hashlib
-import json
 from collections import defaultdict
 from collections.abc import Iterable, Sequence
 from dataclasses import dataclass
+import hashlib
+import json
 from math import cos, floor, isfinite, radians
 
 from ..core.geo_distance import InvalidCoordinateError, wgs84_inverse_geodesic

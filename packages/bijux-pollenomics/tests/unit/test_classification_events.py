@@ -1,15 +1,19 @@
 from __future__ import annotations
 
-import hashlib
-import json
-import random
 from copy import deepcopy
 from dataclasses import replace
+import hashlib
+import json
 from pathlib import Path
+import random
 from typing import Any
 from unittest.mock import patch
 
+from hypothesis import given
+from hypothesis import strategies as st
+from jsonschema import Draft202012Validator  # type: ignore[import-untyped]
 import pytest
+
 from bijux_pollenomics.analysis import (
     classification_events as classification_events_module,
 )
@@ -18,9 +22,6 @@ from bijux_pollenomics.analysis.classification_events import (
     ClassificationEventDerivationResult,
     derive_classification_events,
 )
-from hypothesis import given
-from hypothesis import strategies as st
-from jsonschema import Draft202012Validator  # type: ignore[import-untyped]
 
 _REPOSITORY_ROOT = Path(__file__).resolve().parents[4]
 _EVENT_SCHEMA_PATH = (

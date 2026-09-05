@@ -1,11 +1,12 @@
 from __future__ import annotations
 
 import json
+from pathlib import Path
 import tempfile
 import unittest
-from pathlib import Path
 
 import pytest
+
 from bijux_pollenomics.adna import (
     build_animal_sample_aggregation_warnings,
     build_animal_sample_foundation_truth,

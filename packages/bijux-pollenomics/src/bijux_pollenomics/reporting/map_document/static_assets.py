@@ -1,13 +1,13 @@
 from __future__ import annotations
 
 import base64
+from collections.abc import Sequence
+from dataclasses import dataclass
 import hashlib
 import json
 import math
-import re
-from collections.abc import Sequence
-from dataclasses import dataclass
 from pathlib import Path
+import re
 from typing import Any
 
 from ...core.geojson import JsonObject
@@ -525,9 +525,7 @@ def _sorted_nested_indexes(
     rows: dict[str, dict[str, list[int]]],
 ) -> dict[str, dict[str, list[int]]]:
     return {
-        outer_key: {
-            inner_key: values for inner_key, values in sorted(inner_rows.items())
-        }
+        outer_key: dict(sorted(inner_rows.items()))
         for outer_key, inner_rows in sorted(rows.items())
     }
 
