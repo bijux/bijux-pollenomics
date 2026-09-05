@@ -2,7 +2,7 @@ from __future__ import annotations
 
 import unittest
 
-from bijux_pollenomics.collection.sources.neotoma.normalization import (
+from bijux_pollenomics.collection.sources.neotoma.site_inventory import (
     build_neotoma_site_rows_from_downloads,
 )
 from bijux_pollenomics.collection.sources.neotoma.relational import (

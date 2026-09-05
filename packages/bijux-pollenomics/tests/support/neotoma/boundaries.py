@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-from bijux_pollenomics.collection.sources.neotoma.normalization import (
+from bijux_pollenomics.collection.sources.neotoma.country import (
     build_neotoma_site_country_decisions,
 )
 from bijux_pollenomics.collection.spatial import CountryAttributionDecision

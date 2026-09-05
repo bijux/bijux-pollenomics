@@ -15,16 +15,16 @@ from .client import (
     neotoma_download_dataset_id,
     validate_neotoma_download_coverage,
 )
+from .context_points import normalize_neotoma_rows
 from .country import (
     build_neotoma_site_country_decisions,
     classify_neotoma_site_country,
     neotoma_site_raw_country,
 )
 from .materialization import materialize_neotoma_relational_snapshot
-from .normalization import (
+from .site_inventory import (
     build_neotoma_site_rows_from_downloads,
     build_neotoma_site_snapshot_rows,
-    normalize_neotoma_rows,
 )
 from .relational import build_neotoma_relational_snapshot
 from .review import (
