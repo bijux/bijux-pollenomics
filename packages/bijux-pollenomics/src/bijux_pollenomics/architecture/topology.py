@@ -220,6 +220,7 @@ def audit_repository_topology(
         "oversized_unit_test_module",
         violations,
     )
+    _audit_conftest_imports(tests, violations)
 
     tested_domains = {
         path.relative_to(tests).parts[0]
@@ -400,6 +401,40 @@ def _audit_relative_imports(
                     "unresolved_relative_import",
                     path.relative_to(source_root).as_posix(),
                     f"line {node.lineno} resolves to missing module {target}",
+                )
+            )
+
+
+def _audit_conftest_imports(
+    unit_test_root: Path,
+    violations: list[TopologyViolation],
+) -> None:
+    for path in sorted(unit_test_root.rglob("*.py")):
+        if "__pycache__" in path.parts or path.name == "conftest.py":
+            continue
+        syntax_tree = ast.parse(
+            path.read_text(encoding="utf-8"),
+            filename=path.as_posix(),
+        )
+        for node in ast.walk(syntax_tree):
+            imported_modules: tuple[str, ...] = ()
+            if isinstance(node, ast.ImportFrom) and node.module:
+                imported_modules = (node.module,)
+            elif isinstance(node, ast.Import):
+                imported_modules = tuple(alias.name for alias in node.names)
+            if not any(
+                module == "conftest" or module.endswith(".conftest")
+                for module in imported_modules
+            ):
+                continue
+            violations.append(
+                TopologyViolation(
+                    "conftest_import",
+                    path.relative_to(unit_test_root).as_posix(),
+                    (
+                        f"line {node.lineno} imports pytest discovery configuration; "
+                        "reusable test support must live in an explicit support module"
+                    ),
                 )
             )
 

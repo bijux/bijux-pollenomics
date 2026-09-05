@@ -72,7 +72,10 @@ def test_topology_audit_reports_all_structural_failure_classes(
     _write(tests / "orphan/test_behavior.py", "")
     _write(tests / "adna/__init__.py", "")
     _write(tests / "adna/crowded/__init__.py", "")
-    _write(tests / "adna/oversized/test_behavior.py", "\n" * 611)
+    _write(
+        tests / "adna/oversized/test_behavior.py",
+        "from tests.unit.adna.conftest import evidence_fixture\n" + "\n" * 611,
+    )
     for index in range(11):
         _write(tests / f"adna/crowded/test_behavior_{index}.py", "")
 
@@ -80,6 +83,7 @@ def test_topology_audit_reports_all_structural_failure_classes(
 
     assert {violation.code for violation in violations} == {
         "ambiguous_package_name",
+        "conftest_import",
         "crowded_package",
         "crowded_test_package",
         "facade_module_leak",
