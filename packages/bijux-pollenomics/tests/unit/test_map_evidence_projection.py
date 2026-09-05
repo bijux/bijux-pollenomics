@@ -1,5 +1,7 @@
 from __future__ import annotations
 
+import base64
+import gzip
 import hashlib
 import json
 from pathlib import Path
@@ -25,6 +27,68 @@ def _write_json(path: Path, value: object) -> bytes:
     payload = (json.dumps(value, sort_keys=True, separators=(",", ":")) + "\n").encode()
     path.write_bytes(payload)
     return payload
+
+
+def _decode_sead_claim_table(table: dict[str, object]) -> list[dict[str, object]]:
+    fields = cast(list[str], table["fields"])
+    dictionaries = cast(dict[str, list[object]], table["column_dictionaries"])
+    list_fields = set(cast(list[str], table["list_dictionary_fields"]))
+    list_dictionary = cast(list[str], table["list_value_dictionary"])
+    age_columns = cast(
+        dict[str, list[str]], table["source_age_value_columns_by_claim_type"]
+    )
+    inherited = cast(
+        dict[str, dict[str, str]],
+        table["source_age_value_inherited_fields_by_claim_type"],
+    )
+    age_dictionaries = cast(
+        dict[str, dict[str, list[object]]],
+        table["source_age_value_dictionaries_by_claim_type"],
+    )
+    relation_dictionary = cast(
+        list[list[list[str]]], table["source_relation_path_dictionary"]
+    )
+    common = cast(dict[str, object], table["common_fields"])
+    decoded: list[dict[str, object]] = []
+    for encoded in cast(list[list[object]], table["records"]):
+        row = dict(zip(fields, encoded, strict=True))
+        for field, dictionary in dictionaries.items():
+            row[field] = dictionary[cast(int, row[field])]
+        for field in list_fields:
+            row[field] = [
+                list_dictionary[index] for index in cast(list[int], row[field])
+            ]
+        claim_type = cast(str, row["claim_type"])
+        source_age_value: dict[str, object] = {}
+        for field, encoded_value in zip(
+            age_columns[claim_type],
+            cast(list[object], row["source_age_value"]),
+            strict=True,
+        ):
+            age_dictionary = age_dictionaries[claim_type].get(field)
+            source_age_value[field] = (
+                age_dictionary[cast(int, encoded_value)]
+                if age_dictionary is not None
+                else encoded_value
+            )
+        for source_field, claim_field in inherited[claim_type].items():
+            source_age_value[source_field] = row[claim_field]
+        row["source_age_value"] = source_age_value
+        relation_shape = relation_dictionary[cast(int, row["source_relation_path"])]
+        row["source_relation_path"] = [
+            {
+                "table": table_name,
+                "key": key,
+                "value": (
+                    common["source_site_id"]
+                    if value_field == "common_fields.source_site_id"
+                    else row[value_field]
+                ),
+            }
+            for table_name, key, value_field in relation_shape
+        ]
+        decoded.append({**common, **row})
+    return decoded
 
 
 def _neotoma_fixture(root: Path, monkeypatch: pytest.MonkeyPatch) -> None:
@@ -216,27 +280,94 @@ def _sead_fixture(root: Path) -> None:
     )
     claim = {
         "chronology_claim_id": "sead:site-2:dating_range:9",
+        "source_family": "sead",
         "source_site_id": "2",
+        "site_uuid": "site-2",
+        "country_code": "DK",
+        "latitude_dd": 55.0,
+        "longitude_dd": 10.0,
+        "country_assignment_method": "strict_boundary_containment",
         "source_table": "tbl_analysis_dating_ranges",
+        "source_record_id": "9",
         "source_native_record_id": "9",
         "subject_type": "analysis_entity",
         "subject_id": "90",
         "sample_group_id": 20,
         "physical_sample_id": 21,
         "analysis_entity_id": 90,
+        "analysis_value_id": 91,
         "dataset_id": 30,
         "claim_type": "dating_range",
         "source_age_type": "AD",
+        "source_age_value": {
+            "analysis_entity_id": 90,
+            "physical_sample_id": 21,
+            "sample_group_id": 20,
+            "dataset_id": 30,
+            "analysis_dating_range_id": 9,
+            "analysis_value_id": 91,
+            "age_type_id": 1,
+            "dating_uncertainty_id": None,
+            "age_type": "AD",
+            "age_type_description": "Anno Domini",
+            "low_value": 1850,
+            "high_value": None,
+            "low_qualifier": "",
+            "high_qualifier": "",
+            "low_is_uncertain": False,
+            "high_is_uncertain": False,
+            "uncertainty_label": "",
+            "uncertainty_description": "",
+            "time_start_bp": 100,
+            "time_end_bp": 100,
+        },
         "source_age_unit": "calendar_year",
         "calibration_status": "not_applicable",
         "younger_bp": 100,
         "older_bp": 100,
         "comparability_status": "comparable",
         "chronology_eligibility": "eligible",
+        "propagation_eligibility": "refused",
+        "propagation_reason_codes": ["observation_link_not_materialized"],
+        "publication_role": "chronology_display_only",
         "reason_codes": [],
         "transformation_id": "sead-calendar-year-to-cal-bp-1950-v1",
+        "original_interval_orientation": "point",
         "selection_status": "retained_unselected",
+        "selection_rule_version": "sead-retain-all-source-chronologies-v1",
+        "provenance_record_id": "sead-acquisition-manifest:fixture",
         "build_id": build_id,
+        "source_relation_path": [
+            {"table": "tbl_sites", "key": "site_id", "value": "2"},
+            {
+                "table": "tbl_sample_groups",
+                "key": "sample_group_id",
+                "value": 20,
+            },
+            {
+                "table": "tbl_physical_samples",
+                "key": "physical_sample_id",
+                "value": 21,
+            },
+            {
+                "table": "tbl_analysis_entities",
+                "key": "analysis_entity_id",
+                "value": 90,
+            },
+            {"table": "tbl_datasets", "key": "dataset_id", "value": 30},
+            {
+                "table": "tbl_analysis_values",
+                "key": "analysis_value_id",
+                "value": 91,
+            },
+            {
+                "table": "tbl_analysis_dating_ranges",
+                "key": "analysis_dating_range_id",
+                "value": "9",
+            },
+        ],
+        "schema_version": "sead-chronology-claim.v1",
+        "source_payload_sha256": "e" * 64,
         "acquisition_manifest_sha256": acquisition_manifest_sha256,
     }
     _write_json(
@@ -393,8 +524,64 @@ def test_projection_is_fixed_point_lossless_and_four_country_reconciled(
         "reason_code": "accepted_scientific_classification_not_available",
     }
     sead_tabs = cast(dict[str, object], details["sead:site:2"]["tabs"])
+    sead_chronology = cast(dict[str, object], sead_tabs["chronology"])
+    assert sead_chronology["chronology_claim_count"] == 1
+    assert sead_chronology["record_count"] == 1
+    assert sead_chronology["encoding"] == "sead-chronology-claim-table.v1"
+    decoded_claim = _decode_sead_claim_table(sead_chronology)[0]
+    assert decoded_claim["chronology_claim_id"] == "sead:site-2:dating_range:9"
+    assert decoded_claim["source_record_id"] == "9"
+    assert decoded_claim["source_native_record_id"] == "9"
+    assert decoded_claim["site_uuid"] == "site-2"
+    assert decoded_claim["source_age_type"] == "AD"
+    assert decoded_claim["source_age_unit"] == "calendar_year"
+    assert decoded_claim["source_age_value"] == {
+        "age_type": "AD",
+        "age_type_description": "Anno Domini",
+        "age_type_id": 1,
+        "analysis_dating_range_id": 9,
+        "analysis_entity_id": 90,
+        "analysis_value_id": 91,
+        "dataset_id": 30,
+        "dating_uncertainty_id": None,
+        "high_is_uncertain": False,
+        "high_qualifier": "",
+        "high_value": None,
+        "low_is_uncertain": False,
+        "low_qualifier": "",
+        "low_value": 1850,
+        "physical_sample_id": 21,
+        "sample_group_id": 20,
+        "time_end_bp": 100,
+        "time_start_bp": 100,
+        "uncertainty_description": "",
+        "uncertainty_label": "",
+    }
+    assert decoded_claim["younger_bp"] == decoded_claim["older_bp"] == 100
+    assert decoded_claim["original_interval_orientation"] == "point"
+    assert decoded_claim["propagation_eligibility"] == "refused"
+    assert decoded_claim["propagation_reason_codes"] == [
+        "observation_link_not_materialized"
+    ]
+    assert decoded_claim["selection_rule_version"] == (
+        "sead-retain-all-source-chronologies-v1"
+    )
+    assert decoded_claim["provenance_record_id"] == (
+        "sead-acquisition-manifest:fixture"
+    )
+    source_relation_path = cast(
+        list[dict[str, object]], decoded_claim["source_relation_path"]
+    )
+    assert source_relation_path[-1] == {
+        "table": "tbl_analysis_dating_ranges",
+        "key": "analysis_dating_range_id",
+        "value": "9",
+    }
+    assert decoded_claim["source_payload_sha256"] == "e" * 64
+    assert decoded_claim["build_id"] == "sha256:" + "c" * 64
     assert (
-        cast(dict[str, object], sead_tabs["chronology"])["chronology_claim_count"] == 1
+        decoded_claim["acquisition_manifest_sha256"]
+        == hashlib.sha256(b'{"status":"complete"}\n').hexdigest()
     )
     assert (
         cast(dict[str, object], sead_tabs["provenance"])["acquisition_release_status"]
@@ -412,6 +599,24 @@ def test_projection_refuses_changed_governed_surface_bytes(
     path.write_text(path.read_text() + " ", encoding="utf-8")
 
     with pytest.raises(ValueError, match="surface digest changed"):
+        build_map_evidence_projection(root, _projection_layers())
+
+
+def test_projection_refuses_sead_claim_lineage_that_disagrees_with_claim(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    root = tmp_path.absolute()
+    _neotoma_fixture(root, monkeypatch)
+    _sead_fixture(root)
+    path = root / "sead" / "normalized" / "chronology_claims.json"
+    payload = json.loads(path.read_text(encoding="utf-8"))
+    payload["claims"][0]["source_relation_path"][-1]["value"] = "forged"
+    _write_json(path, payload)
+
+    with pytest.raises(
+        ValueError,
+        match="chronology relation analysis_dating_range_id disagrees",
+    ):
         build_map_evidence_projection(root, _projection_layers())
 
 
@@ -454,7 +659,14 @@ def _payload(path: Path) -> dict[str, object]:
     text = path.read_text(encoding="utf-8")
     marker = "globalThis.__BIJUX_ATLAS_RAW_CHUNKS__.push("
     envelope = json.loads(text[text.index(marker) + len(marker) : -3])
-    return cast(dict[str, object], json.loads(envelope["payload_json"]))
+    payload_json = (
+        gzip.decompress(base64.b64decode(envelope["payload_gzip_base64"])).decode(
+            "utf-8"
+        )
+        if envelope.get("payload_encoding") == "gzip_base64"
+        else envelope["payload_json"]
+    )
+    return cast(dict[str, object], json.loads(payload_json))
 
 
 def test_high_volume_details_are_lazy_partitioned_and_exactly_indexed(

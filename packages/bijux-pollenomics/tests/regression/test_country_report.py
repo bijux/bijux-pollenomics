@@ -1,7 +1,10 @@
 from __future__ import annotations
 
+import base64
 from collections.abc import Collection
 import csv
+import gzip
+import hashlib
 import json
 from pathlib import Path
 import tempfile
@@ -11,6 +14,9 @@ from unittest.mock import patch
 
 import pytest
 
+from bijux_pollenomics.data_downloader.sources.neotoma.materialization import (
+    materialize_neotoma_relational_snapshot,
+)
 from bijux_pollenomics.reporting import (
     generate_country_report,
     generate_multi_country_map,
@@ -39,7 +45,13 @@ def read_static_atlas_payload_text(output_dir: Path, slug: str) -> str:
     for row in manifest["assets"]:
         script = (output_dir / row["path"]).read_text(encoding="utf-8")
         envelope = json.loads(script[script.index(".push(") + 6 : -3])
-        payloads.append(envelope["payload_json"])
+        payloads.append(
+            gzip.decompress(base64.b64decode(envelope["payload_gzip_base64"])).decode(
+                "utf-8"
+            )
+            if envelope.get("payload_encoding") == "gzip_base64"
+            else envelope["payload_json"]
+        )
     return "\n".join(payloads)
 
 
@@ -1229,12 +1241,7 @@ class CountryReportTests(unittest.TestCase):
                 layer_label="LandClim pollen sites",
                 category="Pollen sequence",
             )
-            self.write_geojson(
-                context_root / "neotoma" / "normalized" / "nordic_pollen_sites.geojson",
-                layer_key="neotoma-pollen",
-                layer_label="Neotoma pollen sites",
-                category="Pollen",
-            )
+            self.write_neotoma_context(context_root)
             self.write_tracked_animal_species(
                 context_root / "adna" / "species" / "ovis_aries",
                 latin_name="Ovis aries",
@@ -1263,15 +1270,7 @@ class CountryReportTests(unittest.TestCase):
                 paper_title="Ancient reindeer context",
                 paper_doi="10.1000/reindeer",
             )
-            self.write_geojson(
-                context_root
-                / "sead"
-                / "normalized"
-                / "nordic_environmental_sites.geojson",
-                layer_key="sead-sites",
-                layer_label="SEAD sites",
-                category="Environmental archaeology",
-            )
+            self.write_sead_context(context_root)
             archaeology_metadata = {
                 "layer_key": "raa-archaeology",
                 "layer_label": "RAÄ archaeology density",
@@ -1866,12 +1865,7 @@ class CountryReportTests(unittest.TestCase):
                     "NO1\tNO1\tNorway_Group\tOslo\tNorway\t59.9139\t10.7522\tPaperB\t2021\t600 BCE\t2550\tAG\tM",
                 ],
             )
-            self.write_geojson(
-                context_root / "neotoma" / "normalized" / "nordic_pollen_sites.geojson",
-                layer_key="neotoma-pollen",
-                layer_label="Neotoma pollen sites",
-                category="Pollen",
-            )
+            self.write_neotoma_context(context_root)
             self.write_tracked_animal_species(
                 context_root / "adna" / "species" / "ovis_aries",
                 latin_name="Ovis aries",
@@ -2095,7 +2089,8 @@ class CountryReportTests(unittest.TestCase):
                 "governed_metadata_foundation_not_reference_grade",
             )
             self.assertTrue(repository_claim_audit["overall_ok"])
-            self.assertFalse(release_gate["overall_ok"])
+            self.assertTrue(release_gate["overall_ok"])
+            self.assertFalse(release_gate["reference_grade_support_ready"])
             sheep_audit_row = next(
                 row
                 for row in animal_output_audit["species_rows"]
@@ -2270,7 +2265,13 @@ class CountryReportTests(unittest.TestCase):
         write_anno_file(path, rows, header=AADR_HEADER)
 
     def write_geojson(
-        self, path: Path, layer_key: str, layer_label: str, category: str
+        self,
+        path: Path,
+        layer_key: str,
+        layer_label: str,
+        category: str,
+        *,
+        record_id: str = "",
     ) -> None:
         path.parent.mkdir(parents=True, exist_ok=True)
         payload = {
@@ -2288,12 +2289,194 @@ class CountryReportTests(unittest.TestCase):
                         "subtitle": f"{layer_label} subtitle",
                         "description": "",
                         "source_url": "https://example.com",
+                        "record_id": record_id,
                         "popup_rows": [{"label": "Source", "value": layer_label}],
                     },
                 }
             ],
         }
         path.write_text(json.dumps(payload), encoding="utf-8")
+
+    def write_neotoma_context(self, context_root: Path) -> None:
+        self.write_geojson(
+            context_root / "neotoma" / "normalized" / "nordic_pollen_sites.geojson",
+            layer_key="neotoma-pollen",
+            layer_label="Neotoma pollen sites",
+            category="Pollen",
+            record_id="1",
+        )
+        surface_names = (
+            "collection_units",
+            "datasets",
+            "chronologies",
+            "chronology_controls",
+            "samples",
+            "age_claims",
+            "variables",
+            "observations",
+            "conflicts",
+            "orphans",
+        )
+        country_fields = (
+            "sites",
+            "collection_units",
+            "datasets",
+            "chronologies",
+            "chronology_controls",
+            "samples",
+            "age_claim_rows",
+            "observation_rows",
+        )
+        country_counts = {
+            country_code: dict.fromkeys(country_fields, 0)
+            for country_code in ("SE", "DK", "NO", "FI", "UNASSIGNED")
+        }
+        country_counts["SE"]["sites"] = 1
+        snapshot: dict[str, object] = {
+            "schema_version": "neotoma-relational-snapshot.v2",
+            "source_family": "neotoma",
+            "source_snapshot_id": "sha256:country-report-fixture",
+            "build_id": "country-report-fixture",
+            "sites": [
+                {
+                    "site_id": "neotoma:site:1",
+                    "source_site_id": 1,
+                    "country_code": "SE",
+                    "country_decision_status": "assigned",
+                    "country_propagation_eligible": True,
+                }
+            ],
+            **dict.fromkeys(surface_names, []),
+            "reconciliation": {
+                "normalized_row_counts": {
+                    surface_name: 1 if surface_name == "sites" else 0
+                    for surface_name in (
+                        "sites",
+                        "collection_units",
+                        "datasets",
+                        "chronologies",
+                        "chronology_controls",
+                        "samples",
+                        "age_claims",
+                        "variables",
+                        "observations",
+                    )
+                },
+                "conflict_count": 0,
+                "orphan_count": 0,
+                "country_counts": country_counts,
+                "country_attribution_counts": {
+                    "decision_statuses": {"assigned": 1},
+                    "final_country_codes": {"SE": 1},
+                    "propagation_eligibility": {"eligible": 1},
+                },
+            },
+        }
+        materialize_neotoma_relational_snapshot(
+            (context_root / "neotoma" / "relational").absolute(), snapshot
+        )
+
+    def write_sead_context(self, context_root: Path) -> None:
+        run_id = "country-report-fixture"
+        build_id = "sha256:" + "c" * 64
+        acquisition_root = context_root / "sead" / "raw" / "acquisitions" / run_id
+
+        def write_parent(relative_path: str, payload: object) -> tuple[int, str]:
+            path = acquisition_root / relative_path
+            path.parent.mkdir(parents=True, exist_ok=True)
+            content = (
+                json.dumps(payload, sort_keys=True, separators=(",", ":")) + "\n"
+            ).encode()
+            path.write_bytes(content)
+            return len(content), hashlib.sha256(content).hexdigest()
+
+        manifest_size, manifest_sha256 = write_parent(
+            "manifest.json", {"status": "complete"}
+        )
+        decisions_size, decisions_sha256 = write_parent(
+            "country-decisions.json",
+            {
+                "decisions": [
+                    {
+                        "site_id": 1,
+                        "governed_country_code": "SE",
+                        "decision": {"decision_status": "assigned"},
+                    }
+                ]
+            },
+        )
+        sites_size, sites_sha256 = write_parent(
+            "payloads/tbl_sites.json",
+            {"table": "tbl_sites", "rows": [{"site_id": 1}]},
+        )
+        copied_files = [
+            {
+                "path": relative_path,
+                "byte_count": byte_count,
+                "sha256": sha256,
+            }
+            for relative_path, byte_count, sha256 in (
+                ("manifest.json", manifest_size, manifest_sha256),
+                ("country-decisions.json", decisions_size, decisions_sha256),
+                ("payloads/tbl_sites.json", sites_size, sites_sha256),
+            )
+        ]
+        self.write_json(
+            acquisition_root / "admission.json",
+            {
+                "schema_version": "sead-acquisition-admission.v1",
+                "source_family": "sead",
+                "run_id": run_id,
+                "build_id": build_id,
+                "acquisition_manifest_sha256": manifest_sha256,
+                "acquisition_bundle_sha256": "sha256:" + "d" * 64,
+                "release_status": "refused",
+                "copied_files": copied_files,
+            },
+        )
+        self.write_json(
+            context_root / "sead" / "normalized" / "chronology_claims.json",
+            {
+                "schema_version": "sead-chronology-claim-bundle.v1",
+                "source_family": "sead",
+                "source_run_id": run_id,
+                "source_build_id": build_id,
+                "acquisition_manifest_sha256": manifest_sha256,
+                "acquisition_bundle_sha256": "sha256:" + "d" * 64,
+                "country_decisions_sha256": decisions_sha256,
+                "table_payload_sha256": {"tbl_sites": sites_sha256},
+                "claim_count": 0,
+                "claims": [],
+                "propagation_status": "refused",
+                "propagation_reason_code": "observation_relations_not_captured",
+            },
+        )
+        self.write_json(
+            context_root / "sead" / "normalized" / "nordic_environmental_sites.geojson",
+            {
+                "type": "FeatureCollection",
+                "features": [
+                    {
+                        "type": "Feature",
+                        "geometry": {
+                            "type": "Point",
+                            "coordinates": [17.0, 59.0],
+                        },
+                        "properties": {
+                            "source": "SEAD",
+                            "layer_key": "sead-sites",
+                            "layer_label": "SEAD sites",
+                            "category": "Environmental archaeology",
+                            "country": "Sweden",
+                            "record_id": "1",
+                            "name": "SEAD sites Record",
+                            "source_url": "https://example.com",
+                            "popup_rows": [{"label": "Source", "value": "SEAD"}],
+                        },
+                    }
+                ],
+            },
+        )
 
     def write_json(
         self, path: Path, payload: dict[str, object] | Collection[str]

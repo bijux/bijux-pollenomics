@@ -1851,6 +1851,9 @@ __STATIC_CHUNK_SCRIPT_TAGS__
           if (!/^[a-z0-9][a-z0-9.-]*[.]js$/.test(String(row.path || ''))) staticAtlasFailure(`${row.asset_key || 'unknown asset'} path is invalid`);
           if (!/^[a-f0-9]{64}$/.test(String(row.sha256 || '')) || !/^[a-f0-9]{64}$/.test(String(row.payload_sha256 || ''))) staticAtlasFailure(`${row.asset_key || 'unknown asset'} digest is invalid`);
           if (!/^sha256-[A-Za-z0-9+/]{43}=$/.test(String(row.integrity || ''))) staticAtlasFailure(`${row.asset_key || 'unknown asset'} integrity declaration is invalid`);
+          const payloadEncoding = row.payload_encoding || 'json';
+          if (!['json', 'gzip_base64'].includes(payloadEncoding)) staticAtlasFailure(`${row.asset_key || 'unknown asset'} payload encoding is invalid`);
+          if (payloadEncoding === 'gzip_base64' && row.domain !== 'details') staticAtlasFailure(`${row.asset_key || 'unknown asset'} compressed payload domain is invalid`);
         });
         const keys = STATIC_ATLAS_BOOTSTRAP.assets.map((row) => row.asset_key);
         if (new Set(keys).size !== keys.length) staticAtlasFailure('bootstrap asset identities are duplicated');
@@ -1885,10 +1888,31 @@ __STATIC_CHUNK_SCRIPT_TAGS__
         if (matches.length !== 1) staticAtlasFailure(`${row.asset_key} script did not register exactly once`);
         const envelope = matches[0];
         if (envelope.payload_sha256 !== row.payload_sha256) staticAtlasFailure(`${row.asset_key} declared payload digest mismatch`);
-        if (await staticAtlasSha256(envelope.payload_json) !== row.payload_sha256) staticAtlasFailure(`${row.asset_key} payload integrity mismatch`);
+        const payloadEncoding = row.payload_encoding || 'json';
+        if ((envelope.payload_encoding || 'json') !== payloadEncoding) staticAtlasFailure(`${row.asset_key} payload encoding mismatch`);
+        let payloadJson;
+        if (payloadEncoding === 'json') {
+          if (typeof envelope.payload_json !== 'string') staticAtlasFailure(`${row.asset_key} JSON payload is missing`);
+          payloadJson = envelope.payload_json;
+        } else if (payloadEncoding === 'gzip_base64') {
+          if (typeof envelope.payload_gzip_base64 !== 'string') staticAtlasFailure(`${row.asset_key} compressed payload is missing`);
+          if (typeof DecompressionStream === 'undefined' || typeof atob === 'undefined') staticAtlasFailure(`${row.asset_key} gzip decoding support is unavailable`);
+          try {
+            const binary = atob(envelope.payload_gzip_base64);
+            const compressed = Uint8Array.from(binary, (character) => character.charCodeAt(0));
+            const stream = new Blob([compressed]).stream().pipeThrough(new DecompressionStream('gzip'));
+            payloadJson = await new Response(stream).text();
+          } catch (error) {
+            staticAtlasFailure(`${row.asset_key} compressed payload is invalid`);
+          }
+        } else {
+          staticAtlasFailure(`${row.asset_key} payload encoding is unsupported`);
+        }
+        if (new TextEncoder().encode(payloadJson).byteLength > Number(STATIC_ATLAS_BOOTSTRAP.budgets.chunk_max_bytes)) staticAtlasFailure(`${row.asset_key} decoded payload exceeds its byte budget`);
+        if (await staticAtlasSha256(payloadJson) !== row.payload_sha256) staticAtlasFailure(`${row.asset_key} payload integrity mismatch`);
         let payload;
         try {
-          payload = JSON.parse(envelope.payload_json);
+          payload = JSON.parse(payloadJson);
         } catch (error) {
           staticAtlasFailure(`${row.asset_key} payload JSON is invalid`);
         }

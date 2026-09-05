@@ -1,5 +1,7 @@
 from __future__ import annotations
 
+import base64
+import gzip
 import hashlib
 import json
 from pathlib import Path
@@ -206,7 +208,13 @@ def _payload(path: Path) -> dict[str, object]:
     start = script.index(marker) + len(marker)
     assert script.endswith(");\n")
     envelope = json.loads(script[start:-3])
-    payload_json = envelope["payload_json"]
+    payload_json = (
+        gzip.decompress(base64.b64decode(envelope["payload_gzip_base64"])).decode(
+            "utf-8"
+        )
+        if envelope.get("payload_encoding") == "gzip_base64"
+        else envelope["payload_json"]
+    )
     assert isinstance(payload_json, str)
     assert (
         envelope["payload_sha256"]
@@ -342,6 +350,13 @@ def test_accepted_scientific_fixture_populates_truthful_atlas_domains(
     )
 
     assert first.manifest == second.manifest
+    asset_rows = first.manifest["assets"]
+    assert isinstance(asset_rows, list)
+    assert all(
+        row["payload_encoding"]
+        == ("gzip_base64" if row["domain"] == "details" else "json")
+        for row in asset_rows
+    )
     domains = first.manifest["domains"]
     assert isinstance(domains, dict)
     assert domains["classifications"] == {
@@ -380,6 +395,47 @@ def test_accepted_scientific_fixture_populates_truthful_atlas_domains(
     assert len({row["color"] for row in observed_signals}) == len(observed_signals)
     assert all(row["non_color_cue"] for row in observed_signals)
     assert payloads["atlas-edges-chunk.v1"]["records"][0]["cross_border"] is True
+
+
+def test_compressed_detail_chunk_round_trips_in_web_runtime(tmp_path: Path) -> None:
+    assets = write_static_atlas_assets(
+        tmp_path,
+        slug="nordic",
+        version="v66",
+        point_layers=_scientific_point_layers(),
+        polygon_layers=[],
+        detail_records=_detail_records(),
+        scientific_signals=_scientific_signals(),
+    )
+    rows = assets.manifest["assets"]
+    assert isinstance(rows, list)
+    detail_index = next(
+        index for index, row in enumerate(rows) if row["domain"] == "details"
+    )
+    detail_row = rows[detail_index]
+    assert detail_row["payload_encoding"] == "gzip_base64"
+    script = assets.asset_paths[detail_index].read_text(encoding="utf-8")
+    probe = (
+        script
+        + "\n(async()=>{const envelope=globalThis.__BIJUX_ATLAS_RAW_CHUNKS__[0];"
+        + "const binary=atob(envelope.payload_gzip_base64);"
+        + "const bytes=Uint8Array.from(binary,(character)=>character.charCodeAt(0));"
+        + "const stream=new Blob([bytes]).stream().pipeThrough(new DecompressionStream('gzip'));"
+        + "const text=await new Response(stream).text();"
+        + "const digest=Array.from(new Uint8Array(await crypto.subtle.digest('SHA-256',new TextEncoder().encode(text)))).map((value)=>value.toString(16).padStart(2,'0')).join('');"
+        + "const payload=JSON.parse(text);console.log(JSON.stringify({digest,record_id:payload.records[0].record_id}));"
+        + "})().catch((error)=>{console.error(error);process.exit(1)});"
+    )
+    node = shutil.which("node")
+    assert node is not None
+    result = subprocess.run(
+        [node, "-e", probe], check=True, capture_output=True, text=True
+    )
+    observed = json.loads(result.stdout)
+    assert observed == {
+        "digest": detail_row["payload_sha256"],
+        "record_id": "site:1",
+    }
 
 
 def test_scientific_fixture_refuses_unaccepted_or_unknown_signals(
@@ -552,6 +608,8 @@ def test_static_map_document_is_small_relative_only_and_offline_loadable(
     assert "staticAtlasLoadGeneration" in html
     assert "requiredStaticAtlasNodeAssets" in html
     assert "payload integrity mismatch" in html
+    assert "new DecompressionStream('gzip')" in html
+    assert "decoded payload exceeds its byte budget" in html
     assert "redeploy the HTML and hashed assets from the same build" in html
     assert "compatibility declaration mismatch" in html
     assert "path is invalid" in html

@@ -3,12 +3,14 @@ from __future__ import annotations
 import base64
 from collections.abc import Mapping, Sequence
 from dataclasses import dataclass
+import gzip
 import hashlib
 import json
 import math
 from pathlib import Path
 import re
 from typing import Any
+import zlib
 
 from ...core.geojson import JsonObject
 from .evidence import normalize_atlas_evidence, validate_feature_signal_references
@@ -211,10 +213,12 @@ def write_static_atlas_assets(
         payload = {**source_payload, "build_id": build_id, "asset_key": asset_key}
         payload_json = _canonical_json(payload)
         payload_sha256 = hashlib.sha256(payload_json.encode("utf-8")).hexdigest()
+        payload_encoding = "gzip_base64" if domain == "details" else "json"
         script_bytes = _chunk_script_bytes(
             asset_key=asset_key,
             payload_sha256=payload_sha256,
             payload_json=payload_json,
+            payload_encoding=payload_encoding,
         )
         digest = hashlib.sha256(script_bytes).hexdigest()
         filename = f"{slug}.atlas-{domain}.{sequence:04d}.{digest[:16]}.js"
@@ -229,6 +233,7 @@ def write_static_atlas_assets(
             "integrity": "sha256-"
             + base64.b64encode(hashlib.sha256(script_bytes).digest()).decode("ascii"),
             "payload_sha256": payload_sha256,
+            "payload_encoding": payload_encoding,
             "byte_count": len(script_bytes),
             "record_count": record_count,
             "initial_load": domain not in {"nodes", "details"},
@@ -402,6 +407,9 @@ def validate_static_atlas_assets(assets: StaticAtlasAssets) -> None:
             raise ValueError("static atlas asset domain is invalid")
         if row.get("initial_load") is not (domain not in {"nodes", "details"}):
             raise ValueError("static atlas initial-load declaration is invalid")
+        expected_payload_encoding = "gzip_base64" if domain == "details" else "json"
+        if row.get("payload_encoding") != expected_payload_encoding:
+            raise ValueError("static atlas payload encoding declaration is invalid")
         payload = path.read_bytes()
         byte_count = len(payload)
         total_bytes += byte_count
@@ -426,6 +434,7 @@ def validate_static_atlas_assets(assets: StaticAtlasAssets) -> None:
             payload,
             expected_asset_key=asset_key,
             expected_payload_sha256=payload_sha256,
+            expected_payload_encoding=expected_payload_encoding,
         )
     if total_bytes > ATLAS_STATIC_ASSETS_MAX_BYTES:
         raise ValueError("static atlas assets exceed their total byte budget")
@@ -771,19 +780,30 @@ def _finite_coordinate(value: object) -> float | None:
 
 
 def _chunk_script_bytes(
-    *, asset_key: str, payload_sha256: str, payload_json: str
+    *,
+    asset_key: str,
+    payload_sha256: str,
+    payload_json: str,
+    payload_encoding: str,
 ) -> bytes:
-    envelope = _canonical_json(
-        {
-            "asset_key": asset_key,
-            "payload_sha256": payload_sha256,
-            "payload_json": payload_json,
-        }
-    )
+    envelope: dict[str, object] = {
+        "asset_key": asset_key,
+        "payload_sha256": payload_sha256,
+        "payload_encoding": payload_encoding,
+    }
+    if payload_encoding == "json":
+        envelope["payload_json"] = payload_json
+    elif payload_encoding == "gzip_base64":
+        envelope["payload_gzip_base64"] = base64.b64encode(
+            gzip.compress(payload_json.encode("utf-8"), compresslevel=9, mtime=0)
+        ).decode("ascii")
+    else:
+        raise ValueError("static atlas payload encoding is unsupported")
+    envelope_json = _canonical_json(envelope)
     statement = (
         "globalThis.__BIJUX_ATLAS_RAW_CHUNKS__="
         "globalThis.__BIJUX_ATLAS_RAW_CHUNKS__||[];"
-        f"globalThis.__BIJUX_ATLAS_RAW_CHUNKS__.push({envelope});\n"
+        f"globalThis.__BIJUX_ATLAS_RAW_CHUNKS__.push({envelope_json});\n"
     )
     return statement.encode("utf-8")
 
@@ -793,6 +813,7 @@ def _decode_chunk_script(
     *,
     expected_asset_key: str,
     expected_payload_sha256: str,
+    expected_payload_encoding: str,
 ) -> dict[str, object]:
     prefix = (
         "globalThis.__BIJUX_ATLAS_RAW_CHUNKS__="
@@ -815,9 +836,23 @@ def _decode_chunk_script(
         raise ValueError("static atlas chunk envelope identity changed")
     if envelope.get("payload_sha256") != expected_payload_sha256:
         raise ValueError("static atlas chunk envelope digest changed")
-    payload_json = envelope.get("payload_json")
-    if not isinstance(payload_json, str):
-        raise ValueError("static atlas chunk payload is missing")
+    if envelope.get("payload_encoding") != expected_payload_encoding:
+        raise ValueError("static atlas chunk envelope encoding changed")
+    if expected_payload_encoding == "json":
+        payload_json = envelope.get("payload_json")
+        if not isinstance(payload_json, str):
+            raise ValueError("static atlas chunk JSON payload is missing")
+    elif expected_payload_encoding == "gzip_base64":
+        payload_gzip_base64 = envelope.get("payload_gzip_base64")
+        if not isinstance(payload_gzip_base64, str):
+            raise ValueError("static atlas compressed payload is missing")
+        try:
+            compressed = base64.b64decode(payload_gzip_base64, validate=True)
+            payload_json = gzip.decompress(compressed).decode("utf-8")
+        except (ValueError, OSError, EOFError, UnicodeDecodeError, zlib.error) as exc:
+            raise ValueError("static atlas compressed payload is invalid") from exc
+    else:
+        raise ValueError("static atlas chunk envelope encoding is unsupported")
     if (
         hashlib.sha256(payload_json.encode("utf-8")).hexdigest()
         != expected_payload_sha256
