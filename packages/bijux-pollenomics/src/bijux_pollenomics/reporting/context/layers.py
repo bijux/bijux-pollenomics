@@ -31,6 +31,7 @@ def build_context_layers(
     output_dir: Path,
     context_root: Path | None,
     geography_scope: GeographicScope | None = None,
+    published_output_dir: Path | None = None,
 ) -> tuple[list[dict[str, object]], list[dict[str, object]], list[tuple[str, str]]]:
     """Build embedded point layers and service-backed overlays for the shared map."""
     scope_key = "custom" if geography_scope is None else geography_scope.key
@@ -39,7 +40,10 @@ def build_context_layers(
     extra_artifacts: list[tuple[str, str]] = []
 
     fieldwork_layer = (
-        build_fieldwork_point_layer(output_dir)
+        build_fieldwork_point_layer(
+            output_dir,
+            published_output_dir=published_output_dir,
+        )
         if map_allows_fieldwork_layer(scope_key=scope_key)
         else None
     )

@@ -11,9 +11,18 @@ from .shared import (
 )
 
 
-def build_fieldwork_point_layer(output_dir: Path) -> dict[str, object] | None:
+def build_fieldwork_point_layer(
+    output_dir: Path,
+    *,
+    published_output_dir: Path | None = None,
+) -> dict[str, object] | None:
     """Build a checked-in fieldwork documentation layer when gallery media exists."""
-    docs_root = find_docs_root(output_dir)
+    published_output_dir = (
+        Path(published_output_dir)
+        if published_output_dir is not None
+        else output_dir
+    )
+    docs_root = find_docs_root(published_output_dir)
     if docs_root is None:
         return None
 
@@ -27,7 +36,7 @@ def build_fieldwork_point_layer(output_dir: Path) -> dict[str, object] | None:
             {
                 "kind": kind,
                 "label": label,
-                "url": relpath(media_path, output_dir).replace("\\", "/"),
+                "url": relpath(media_path, published_output_dir).replace("\\", "/"),
             }
         )
     if not media_links:

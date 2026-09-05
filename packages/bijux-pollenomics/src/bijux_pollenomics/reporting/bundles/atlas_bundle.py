@@ -1,7 +1,7 @@
 from __future__ import annotations
 
-from collections.abc import Callable, Iterable
 import json
+from collections.abc import Callable, Iterable
 from pathlib import Path
 
 from ...adna import AdnaLocalitySummary
@@ -82,6 +82,7 @@ def publish_multi_country_map_bundle(
         samples=all_samples,
         version=version,
         output_dir=staging_output_dir,
+        published_output_dir=report.output_dir,
         context_root=context_root,
         geography_scope=geography_scope,
     )
