@@ -84,15 +84,7 @@ def build_animal_publication_release_gate(
         str(row.get("master_id", "")).strip()
         for row in sample_rows
         if str(row.get("master_id", "")).strip() in blocked_sample_site_rows
-        and (
-            bool(str(row.get("locality", "")).strip())
-            or bool(
-                str(
-                    row.get("locality_identity", {}).get("locality_text", "")
-                ).strip()
-            )
-            or _sample_row_has_numeric_coordinates(row)
-        )
+        and (_has_text_value(row.get("locality")) or _sample_row_has_numeric_coordinates(row))
     ]
     blocked_atlas_rows = sorted(
         {
@@ -120,6 +112,7 @@ def build_animal_publication_release_gate(
                 str(sample_row.get("sample_record_id", "")).strip(), ""
             )
             in chronology_blocked_master_ids
+            and _sample_row_has_numeric_chronology(sample_row)
         }
     )
     blocked_atlas_chronology_rows = sorted(
@@ -132,6 +125,7 @@ def build_animal_publication_release_gate(
                 "",
             )
             in chronology_blocked_master_ids
+            and _sample_row_has_numeric_chronology(sample_row)
         }
     )
     substitution_blocked_country_rows = sorted(
@@ -233,7 +227,7 @@ def build_animal_publication_release_gate(
         _check_row(
             "unresolved_sample_chronology_does_not_publish_in_country_or_atlas_outputs",
             not (blocked_country_chronology_rows or blocked_atlas_chronology_rows),
-            "Published country and atlas outputs do not carry unresolved or conflicting sample chronology rows.",
+            "Published country and atlas outputs do not expose numeric chronology for unresolved or conflicting sample chronology rows.",
             blocked_country_chronology_rows + blocked_atlas_chronology_rows,
         ),
         _check_row(
@@ -297,6 +291,20 @@ def _sample_row_has_numeric_coordinates(row: dict[str, Any]) -> bool:
         return False
     return isinstance(coordinates.get("latitude"), (int, float)) and isinstance(
         coordinates.get("longitude"), (int, float)
+    )
+
+
+def _has_text_value(value: object) -> bool:
+    return isinstance(value, str) and bool(value.strip())
+
+
+def _sample_row_has_numeric_chronology(row: dict[str, Any]) -> bool:
+    chronology = row.get("chronology", row)
+    if not isinstance(chronology, dict):
+        return False
+    return any(
+        isinstance(chronology.get(field), (int, float))
+        for field in ("time_start_bp", "time_end_bp", "time_mean_bp")
     )
 
 

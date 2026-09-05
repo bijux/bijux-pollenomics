@@ -76,12 +76,14 @@ class AdnaNormalizationUnitTests(unittest.TestCase):
             for item in bundle.sample_records
             if item.project_accession == "PRJNA705960"
         )
-        self.assertEqual(
-            galician_sample.chronology.evidence_class, "archaeological_context_date"
-        )
-        self.assertEqual(
-            galician_sample.chronology.precision_posture, "contextual_interval"
-        )
+        self.assertEqual(galician_sample.inclusion_status, "sample_context_blocked")
+        self.assertEqual(galician_sample.chronology.evidence_class, "unresolved")
+        self.assertEqual(galician_sample.chronology.precision_posture, "unresolved")
+        self.assertIsNone(galician_sample.time_start_bp)
+        self.assertIsNone(galician_sample.time_end_bp)
+        self.assertIsNone(galician_sample.locality)
+        self.assertIsNone(galician_sample.coordinates.latitude)
+        self.assertIsNone(galician_sample.coordinates.longitude)
 
     def test_species_normalization_bundle_marks_reindeer_locality_as_comparator_context(
         self,
@@ -94,10 +96,15 @@ class AdnaNormalizationUnitTests(unittest.TestCase):
         )
 
         self.assertTrue(locality.nordic_inclusion)
-        self.assertIn("region or transect scale", locality.interpretation_note)
+        self.assertIn(
+            "No location evidence has been extracted", locality.interpretation_note
+        )
         sample = next(
             item
             for item in bundle.sample_records
             if item.project_accession == "PRJEB60484"
         )
-        self.assertEqual(sample.chronology.precision_posture, "contextual_interval")
+        self.assertEqual(sample.inclusion_status, "sample_context_blocked")
+        self.assertEqual(sample.chronology.precision_posture, "unresolved")
+        self.assertIsNone(sample.time_start_bp)
+        self.assertIsNone(sample.time_end_bp)

@@ -28,7 +28,8 @@ def build_project_locality_count_drift(
             locality_summary_count = sum(
                 1
                 for row in locality_rows
-                if project_accession
+                if str(row.get("locality", "")).strip()
+                and project_accession
                 in {
                     str(item).strip()
                     for item in cast(list[object], row.get("project_accessions", []))

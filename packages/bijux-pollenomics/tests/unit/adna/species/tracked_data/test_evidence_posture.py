@@ -44,12 +44,17 @@ def test_sample_rows_require_matching_coordinate_provenance_for_mapping(
         for sample in sample_payload["samples"]:
             assert sample["sample_identity_resolution"] == "final"
             assert sample["sample_evidence_status"] != "not_yet_recoverable"
-            assert sample["inclusion_status"] != "sample_context_blocked"
             provenance = provenance_by_accession.get(sample["project_accession"])
             coordinates = sample["coordinates"]
             has_coordinates = bool(
                 coordinates["latitude_text"] and coordinates["longitude_text"]
             )
+            if sample["inclusion_status"] == "sample_context_blocked":
+                assert not has_coordinates
+                assert sample["locality"] is None
+                assert sample["chronology"]["time_start_bp"] is None
+                assert sample["chronology"]["time_end_bp"] is None
+                continue
             if has_coordinates:
                 assert provenance is not None, species_root.name
                 assert provenance["mapping_posture"] == "mappable_point"
@@ -58,4 +63,4 @@ def test_sample_rows_require_matching_coordinate_provenance_for_mapping(
             if provenance and provenance["mapping_posture"] == "refused_region_only":
                 assert not has_coordinates
     assert admitted_sample_count == 1450
-    assert refused_sample_count == 39
+    assert refused_sample_count == 41

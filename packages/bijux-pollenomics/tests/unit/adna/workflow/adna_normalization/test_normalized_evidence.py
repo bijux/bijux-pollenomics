@@ -35,7 +35,7 @@ class AdnaNormalizationUnitTests(unittest.TestCase):
         ]
         samples = [sample for bundle in bundles for sample in bundle.sample_records]
 
-        self.assertEqual(len(samples), 1448)
+        self.assertEqual(len(samples), 1450)
         self.assertEqual(
             sum(
                 1
@@ -76,7 +76,7 @@ class AdnaNormalizationUnitTests(unittest.TestCase):
             for sample in samples
             if sample.inclusion_status == "sample_context_blocked"
         ]
-        self.assertEqual(len(blocked_context), 159)
+        self.assertEqual(len(blocked_context), 160)
         self.assertTrue(
             all(
                 sample.coordinates.latitude is None

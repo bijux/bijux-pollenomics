@@ -6,6 +6,7 @@ import tempfile
 import pytest
 
 from bijux_pollenomics.reporting.adna.foundation_outputs.release import (
+    _has_text_value,
     build_animal_publication_release_gate,
 )
 
@@ -15,6 +16,11 @@ pytestmark = pytest.mark.generated_artifacts
 
 
 class AnimalLocalityReleaseGateTests(AnimalFoundationOutputsTestCase):
+    def test_null_locality_is_not_published_text(self) -> None:
+        self.assertFalse(_has_text_value(None))
+        self.assertFalse(_has_text_value("  "))
+        self.assertTrue(_has_text_value("Sample-owned Site"))
+
     def test_release_gate_fails_when_project_locality_output_flattens_sample_sites(
         self,
     ) -> None:
@@ -68,6 +74,7 @@ class AnimalLocalityReleaseGateTests(AnimalFoundationOutputsTestCase):
                             "identity": {
                                 "stable_token": "ovis_aries:project-locality:prjtest"
                             },
+                            "locality": "Flattened Project Site",
                             "project_accessions": ["PRJTEST"],
                             "sample_namespace": "ovis_aries:project_locality",
                         }
@@ -154,12 +161,15 @@ class AnimalLocalityReleaseGateTests(AnimalFoundationOutputsTestCase):
                 normalized_root / "sample_records.json",
                 {
                     "samples": [
-                        sample_row(
-                            stable_token="ovis_aries:sample:blocked",
-                            locality_token="ovis_aries:locality:blocked",
-                            locality_text="Blocked Site",
-                            project_accession="PRJTEST",
-                        ),
+                        {
+                            **sample_row(
+                                stable_token="ovis_aries:sample:blocked",
+                                locality_token="ovis_aries:locality:blocked",
+                                locality_text="Blocked Site",
+                                project_accession="PRJTEST",
+                            ),
+                            "locality": "Blocked Site",
+                        },
                     ]
                 },
             )

@@ -26,7 +26,7 @@ class AdnaProjectSampleLocalityEvidenceUnitTests(unittest.TestCase):
     ) -> None:
         rows = build_project_sample_locality_evidence_rows(self.data_root, "PRJEB31613")
 
-        self.assertEqual(len(rows), 244)
+        self.assertEqual(len(rows), 245)
         uppsala = next(
             row
             for row in rows
@@ -77,12 +77,8 @@ class AdnaProjectSampleLocalityEvidenceUnitTests(unittest.TestCase):
         curation = build_sample_locality_manual_curation_workflow_rows(self.data_root)
         substitution = build_project_locality_substitution_ledger(self.data_root)
 
-        self.assertTrue(
-            any(
-                row["project_accession"] == "SRS1407451"
-                and row["conflicting_source_surface"] == "article_text"
-                for row in conflicts
-            )
+        self.assertFalse(
+            any(row["project_accession"] == "SRS1407451" for row in conflicts)
         )
         self.assertTrue(
             any(

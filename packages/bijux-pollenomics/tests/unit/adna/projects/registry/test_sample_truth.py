@@ -51,8 +51,12 @@ class AdnaSampleTruthUnitTests(unittest.TestCase):
         summary = payload["summary"]
         self.assertEqual(summary["tracked_species_count"], 10)
         self.assertEqual(summary["tracked_project_count"], 21)
-        self.assertEqual(summary["sample_row_count"], 1451)
-        self.assertEqual(summary["blocked_missing_location_detail_count"], 0)
+        self.assertEqual(summary["sample_row_count"], 1450)
+        self.assertEqual(summary["fully_grounded_count"], 527)
+        self.assertEqual(summary["partially_grounded_count"], 269)
+        self.assertEqual(summary["blocked_missing_metadata_count"], 11)
+        self.assertEqual(summary["blocked_missing_location_detail_count"], 149)
+        self.assertEqual(summary["blocked_weak_chronology_count"], 494)
         self.assertEqual(
             sum(
                 int(summary[field])
@@ -126,6 +130,7 @@ class AdnaSampleTruthUnitTests(unittest.TestCase):
                             "identity": {
                                 "stable_token": "ovis_aries:project-locality:prjtest",
                             },
+                            "locality": "Flattened Project Site",
                             "project_accessions": ["PRJTEST"],
                             "sample_namespace": "ovis_aries:project_locality",
                         }
@@ -154,7 +159,7 @@ class AdnaSampleTruthUnitTests(unittest.TestCase):
         self.assertEqual(
             payload["summary"],
             {
-                "total_sample_row_count": 1451,
+                "total_sample_row_count": 1450,
                 "project_accession_anchor_count": 0,
                 "accession_range_anchor_count": 0,
                 "sample_accession_anchor_count": 1,
