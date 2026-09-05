@@ -348,7 +348,7 @@ def run_recorded_gate(
             stderr_temporary.open("wb") as stderr_stream,
         ):
             try:
-                # The complete argv and executable were validated before this call.
+                # Exact shell-free argv; product-spec binding is validated separately.
                 completed = subprocess.run(  # nosec B603
                     command,
                     cwd=root,
