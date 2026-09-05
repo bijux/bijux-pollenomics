@@ -30,6 +30,8 @@ def test_coverage_dashboard_reports_shipped_and_missing_surfaces(
     assert horse_row["raw_source_snapshot_present"]
     assert horse_row["citation_manifest_present"]
     assert horse_row["country_output_count"] == 0
-    assert horse_row["atlas_layer_count"] == 0
+    assert horse_row["atlas_locality_count"] == 0
+    assert horse_row["mappable_coordinate_count"] == 208
+    assert horse_row["region_refused_coordinate_count"] == 0
     assert product_audit["species_with_source_snapshots"] == 10
     assert "Equus caballus" in product_audit["missing_public_outputs"]

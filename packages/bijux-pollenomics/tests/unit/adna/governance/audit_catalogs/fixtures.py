@@ -6,7 +6,7 @@ import json
 from pathlib import Path
 
 
-def write_world_summary(report_root: Path) -> None:
+def write_world_summary(report_root: Path, *, sheep_locality_count: int = 1) -> None:
     atlas_root = report_root / "world"
     atlas_root.mkdir(parents=True, exist_ok=True)
     (atlas_root / "README.md").write_text(
@@ -19,7 +19,7 @@ def write_world_summary(report_root: Path) -> None:
                     "latin_name": "Ovis aries",
                     "common_name": "sheep",
                     "animal_scope": "domesticated_core",
-                    "locality_count": 1,
+                    "locality_count": sheep_locality_count,
                 },
                 {
                     "latin_name": "Rangifer tarandus",

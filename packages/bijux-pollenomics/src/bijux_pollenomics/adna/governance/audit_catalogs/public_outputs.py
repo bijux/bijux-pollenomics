@@ -56,7 +56,7 @@ def build_public_animal_output_audit(
     else:
         accountability = build_animal_atlas_candidate_accountability(data_root)
     return {
-        "schema_version": "animal-output-audit.v1",
+        "schema_version": "animal-output-audit.v2",
         "report_root": str(report_root),
         "countries": list(countries),
         "atlas_bundle_present": (report_root / "world").is_dir(),

@@ -140,7 +140,7 @@ def _country_output_count(
     )
 
 
-def _atlas_layer_count(
+def _atlas_locality_count(
     atlas_root: Path,
     latin_name: str,
     common_name: str,

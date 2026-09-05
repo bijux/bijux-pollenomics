@@ -41,9 +41,9 @@ class CoverageRow(TypedDict):
     review_markdown_present: bool
     review_json_present: bool
     country_output_count: int
-    atlas_layer_count: int
-    map_ready_sample_count: int
-    region_refused_sample_count: int
+    atlas_locality_count: int
+    mappable_coordinate_count: int
+    region_refused_coordinate_count: int
     unresolved_sample_count: int
     nordic_unmapped_lead_count: int
 
@@ -60,7 +60,7 @@ class ShippedProductAudit(TypedDict):
     species_with_coordinate_provenance: int
     species_with_locality_artifacts: int
     species_with_country_outputs: int
-    species_with_atlas_layers: int
+    species_with_atlas_localities: int
     rows: list[CoverageRow]
     missing_public_outputs: list[str]
 

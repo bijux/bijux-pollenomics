@@ -9,7 +9,7 @@ from bijux_pollenomics.adna.sources.ena import build_archive_project_catalog
 from bijux_pollenomics.adna.species.tracked_species import TRACKED_ADNA_SPECIES
 from .contracts import CoverageDashboard, CoverageRow, ShippedProductAudit
 from .repository import (
-    _atlas_layer_count,
+    _atlas_locality_count,
     _count_sample_rows_by_mapping_posture,
     _country_output_count,
     _load_sample_rows,
@@ -30,7 +30,7 @@ def build_cross_species_coverage_dashboard(
         for species_name in TRACKED_ADNA_SPECIES
     ]
     return {
-        "schema_version": "adna-cross-species-coverage-dashboard.v1",
+        "schema_version": "adna-cross-species-coverage-dashboard.v2",
         "rows": rows,
     }
 
@@ -43,7 +43,7 @@ def build_shipped_adna_product_audit(
     dashboard = build_cross_species_coverage_dashboard(data_root, report_root)
     rows = dashboard["rows"]
     return {
-        "schema_version": "adna-shipped-product-audit.v1",
+        "schema_version": "adna-shipped-product-audit.v2",
         "tracked_species_count": len(rows),
         "species_with_source_snapshots": sum(
             1 for row in rows if row["raw_source_snapshot_present"]
@@ -57,14 +57,14 @@ def build_shipped_adna_product_audit(
         "species_with_country_outputs": sum(
             1 for row in rows if row["country_output_count"] > 0
         ),
-        "species_with_atlas_layers": sum(
-            1 for row in rows if row["atlas_layer_count"] > 0
+        "species_with_atlas_localities": sum(
+            1 for row in rows if row["atlas_locality_count"] > 0
         ),
         "rows": rows,
         "missing_public_outputs": [
             row["species_latin_name"]
             for row in rows
-            if row["country_output_count"] == 0 and row["atlas_layer_count"] == 0
+            if row["country_output_count"] == 0 and row["atlas_locality_count"] == 0
         ],
     }
 
@@ -89,7 +89,7 @@ def _build_species_coverage_row(
         species.latin_name,
         species.common_name,
     )
-    atlas_layer_count = _atlas_layer_count(
+    atlas_locality_count = _atlas_locality_count(
         report_root / "world",
         species.latin_name,
         species.common_name,
@@ -122,12 +122,12 @@ def _build_species_coverage_row(
             species_root / "review" / "species_review.json"
         ).is_file(),
         "country_output_count": country_output_count,
-        "atlas_layer_count": atlas_layer_count,
-        "map_ready_sample_count": _count_sample_rows_by_mapping_posture(
+        "atlas_locality_count": atlas_locality_count,
+        "mappable_coordinate_count": _count_sample_rows_by_mapping_posture(
             species_root,
             "mappable_point",
         ),
-        "region_refused_sample_count": _count_sample_rows_by_mapping_posture(
+        "region_refused_coordinate_count": _count_sample_rows_by_mapping_posture(
             species_root,
             "refused_region_only",
         ),

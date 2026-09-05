@@ -11,8 +11,8 @@ from .contracts import (
 def render_public_animal_output_audit_markdown(payload: PublicAnimalOutputAudit) -> str:
     """Render the shipped public animal-output audit as reader-facing markdown."""
     rows = payload["species_rows"]
-    atlas_layer_total = sum(int(row["atlas_layer_count"]) for row in rows)
-    country_output_total = sum(int(row["country_output_count"]) for row in rows)
+    atlas_locality_total = sum(row["atlas_locality_count"] for row in rows)
+    country_output_total = sum(row["country_output_count"] for row in rows)
     lines = [
         "# Animal output audit",
         "",
@@ -29,23 +29,23 @@ def render_public_animal_output_audit_markdown(payload: PublicAnimalOutputAudit)
         "",
         "## Species output counts",
         "",
-        "| Species | Atlas layers | Country outputs | Locality artifact shipped | Nordic lead count |",
+        "| Species | Atlas localities | Country outputs | Locality artifact shipped | Nordic lead count |",
         "| --- | ---: | ---: | --- | ---: |",
     ]
     for row in rows:
         lines.append(
-            f"| {row['species_latin_name']} | {row['atlas_layer_count']} | "
+            f"| {row['species_latin_name']} | {row['atlas_locality_count']} | "
             f"{row['country_output_count']} | "
             f"{str(row['normalized_locality_artifact_present']).lower()} | "
             f"{row['nordic_unmapped_lead_count']} |"
         )
     lines.append("")
-    if atlas_layer_total == 0 and country_output_total == 0:
+    if atlas_locality_total == 0 and country_output_total == 0:
         lines.extend(
             [
                 (
                     "The current public report tree still ships no mapped non-human animal atlas "
-                    "layers or country bundles. The species rows above stay zero until those "
+                    "localities or country bundles. The species rows above stay zero until those "
                     "artifacts become real tracked report outputs."
                 ),
                 "",
@@ -66,8 +66,8 @@ def render_public_animal_output_audit_markdown(payload: PublicAnimalOutputAudit)
         lines.extend(
             [
                 (
-                    f"The current public report tree ships `{atlas_layer_total}` mapped "
-                    "non-human animal atlas layer rows across the species table above, but "
+                    f"The current public report tree ships `{atlas_locality_total}` mapped "
+                    "non-human animal atlas localities across the species table above, but "
                     "country-bundle animal outputs remain zero until those narrower surfaces "
                     "become real tracked report outputs."
                 ),
@@ -78,8 +78,8 @@ def render_public_animal_output_audit_markdown(payload: PublicAnimalOutputAudit)
         lines.extend(
             [
                 (
-                    f"The current public report tree ships `{atlas_layer_total}` mapped "
-                    "non-human animal atlas layer rows and "
+                    f"The current public report tree ships `{atlas_locality_total}` mapped "
+                    "non-human animal atlas localities and "
                     f"`{country_output_total}` country-resolved animal output hits across the "
                     "species table above. Those counts still need to be read beside blocked and "
                     "unresolved sample totals rather than as a standalone readiness claim."
