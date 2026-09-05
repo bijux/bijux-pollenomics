@@ -8,7 +8,6 @@ import unittest
 import pytest
 
 from bijux_pollenomics.adna.projects.evidence.chronology import (
-    _resolve_chronology_source,
     build_cross_project_sample_chronology_audit,
     build_date_evidence_gap_queue,
     build_project_chronology_completeness_rows,
@@ -20,6 +19,9 @@ from bijux_pollenomics.adna.projects.evidence.chronology import (
     build_sample_chronology_provenance_rows,
     build_sample_chronology_review_rows,
     build_species_chronology_completeness_rows,
+)
+from bijux_pollenomics.adna.projects.evidence.chronology.resolution import (
+    _resolve_chronology_source,
 )
 
 CONFLICTING_CHRONOLOGY_CASES = (
