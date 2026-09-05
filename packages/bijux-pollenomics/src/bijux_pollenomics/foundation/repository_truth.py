@@ -680,7 +680,7 @@ def build_repository_source_explainer_audit(
             "output_family",
             "Normalized RAÄ outputs explainer",
             "docs/public/pollenomics-data/publications/raa-exports.md",
-            ["data/raa/normalized/", "Sweden-scoped"],
+            ["data/raa/normalized/", "Sweden-specific"],
             "restore the RAÄ output page so Swedish archaeology scope remains explicit",
         ),
         (
