@@ -94,35 +94,61 @@ _PROJECT_SITE_EVIDENCE: dict[str, tuple[AdnaSiteEvidenceRecord, ...]] = {
             project_accession="PRJEB59481",
             species_latin_name="Ovis aries",
             species_common_name="sheep",
-            site_label="Baltic Sea Region short-tailed sheep context",
-            political_entity="Baltic Sea Region",
-            source_artifact_path="adna/governance/source_library/papers/10.1093-gbe-evae114/crossref.json",
-            source_artifact_kind="crossref_title",
-            source_locator="title",
-            exact_source_text=(
-                "Ancient Sheep Genomes Reveal Four Millennia of North European "
-                "Short-Tailed Sheep in the Baltic Sea Region"
+            site_label="Kastelholm",
+            political_entity=None,
+            source_artifact_path=(
+                "adna/governance/source_library/papers/10.1093-gbe-evae114/"
+                "supplementary/SupplementaryTables_Revision2.xlsx"
             ),
-            source_support_status="title_only_support",
+            source_artifact_kind="supplementary_spreadsheet_row",
+            source_locator="STab 5 - Continuity AKAS!rows1-2",
+            exact_source_text=(
+                "Supplementary Table 5: Continuity results for AKAS | Kastelholm"
+            ),
+            source_support_status="supplementary_table_row",
             paper_doi="10.1093/gbe/evae114",
             paper_url=_doi_url("10.1093/gbe/evae114"),
-            coordinate_basis="inferred_region_centroid",
-            latitude_text="58.50",
-            longitude_text="22.50",
-            chronology_text="Four millennia of Baltic sheep history",
-            time_start_bp=0,
-            time_end_bp=4000,
-            dating_basis="archaeological_period",
+            coordinate_basis="unresolved_location_state",
+            dating_basis="unknown",
             domestication_context="domesticated_core",
             interpretation_note=(
-                "The current sheep lead is regional and Nordic-relevant, but the "
-                "local source archive still lacks a readable article or extracted "
-                "supplement table for a finer-grained site row."
+                "The primary supplement identifies Kastelholm and binds AKAS remains "
+                "to that site. It does not supply a coordinate or numeric sample date."
             ),
             support_gap_note=(
-                "The project is paper-pinned, but the local archive currently only "
-                "ships title metadata for this DOI rather than a readable article or "
-                "parsed supplementary table."
+                "Coordinate publication and numeric chronology remain refused until "
+                "sample-level primary evidence is available."
+            ),
+        ),
+        AdnaSiteEvidenceRecord(
+            project_accession="PRJEB59481",
+            species_latin_name="Ovis aries",
+            species_common_name="sheep",
+            site_label="Stora Förvar",
+            political_entity=None,
+            source_artifact_path=(
+                "adna/governance/source_library/papers/10.1093-gbe-evae114/"
+                "supplementary/SupplementaryTables_Revision2.xlsx"
+            ),
+            source_artifact_kind="supplementary_spreadsheet_row",
+            source_locator="STab 4 - Continuity ASTF!rows1-2",
+            exact_source_text=(
+                "Supplementary Table 4: Continuity results for ASTF | Stora Förvar"
+            ),
+            source_support_status="supplementary_table_row",
+            paper_doi="10.1093/gbe/evae114",
+            paper_url=_doi_url("10.1093/gbe/evae114"),
+            coordinate_basis="unresolved_location_state",
+            dating_basis="unknown",
+            domestication_context="domesticated_core",
+            interpretation_note=(
+                "The primary supplement identifies Stora Förvar and binds ASTF "
+                "remains to that site. It does not supply a coordinate or numeric "
+                "sample date."
+            ),
+            support_gap_note=(
+                "Coordinate publication and numeric chronology remain refused until "
+                "sample-level primary evidence is available."
             ),
         ),
     ),

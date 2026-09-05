@@ -35,7 +35,7 @@ class AdnaNormalizationUnitTests(unittest.TestCase):
         ]
         samples = [sample for bundle in bundles for sample in bundle.sample_records]
 
-        self.assertEqual(len(samples), 1451)
+        self.assertEqual(len(samples), 1450)
         self.assertEqual(
             sum(
                 1
@@ -43,7 +43,7 @@ class AdnaNormalizationUnitTests(unittest.TestCase):
                 for refusal in bundle.refusals
                 if refusal.record_kind == "sample_record"
             ),
-            38,
+            39,
         )
         camel = next(
             bundle

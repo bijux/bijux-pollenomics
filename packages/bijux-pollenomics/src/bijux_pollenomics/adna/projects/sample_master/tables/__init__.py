@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+from .baltic_sheep import _build_baltic_sheep_rows
 from .goat_canary import _build_goat_canary_rows
 from .goat_imputation import _build_goat_imputation_rows
 from .goat_qinghai import _build_goat_qinghai_rows
@@ -25,6 +26,7 @@ from .workbook import (
 )
 
 __all__ = (
+    "_build_baltic_sheep_rows",
     "_build_goat_canary_rows",
     "_build_goat_imputation_rows",
     "_build_goat_qinghai_rows",

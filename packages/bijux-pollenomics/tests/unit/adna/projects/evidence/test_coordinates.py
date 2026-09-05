@@ -73,8 +73,27 @@ class AdnaCoordinateProvenanceUnitTests(unittest.TestCase):
 
         self.assertEqual(
             [row.project_accession for row in rows],
-            ["PRJEB59481", "PRJEB22390"],
+            ["PRJEB59481", "PRJEB59481", "PRJEB22390"],
         )
+
+    def test_baltic_sheep_sites_remain_refused_without_source_coordinates(self) -> None:
+        rows = resolve_project_coordinate_provenance("PRJEB59481")
+
+        self.assertEqual(
+            {row.site_label for row in rows}, {"Kastelholm", "Stora Förvar"}
+        )
+        self.assertTrue(
+            all(row.mapping_posture == "refused_unresolved_location" for row in rows)
+        )
+        self.assertTrue(
+            all(row.coordinate_basis == "unresolved_location_state" for row in rows)
+        )
+        self.assertTrue(all(row.coordinate_confidence == "withheld" for row in rows))
+        self.assertTrue(
+            all(row.latitude_text == row.longitude_text == "" for row in rows)
+        )
+        self.assertTrue(all(row.time_start_bp is None for row in rows))
+        self.assertTrue(all(row.time_end_bp is None for row in rows))
 
     def test_coordinate_provenance_constants_expose_supported_classes(self) -> None:
         self.assertIn("named_site_geocoding", ADNA_COORDINATE_PROVENANCE_CLASSES)

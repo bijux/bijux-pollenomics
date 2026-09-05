@@ -45,30 +45,30 @@ class AdnaProjectSampleLocalityEvidenceUnitTests(unittest.TestCase):
 
         self.assertEqual(rows, ())
 
-    def test_context_only_sheep_project_locality_worksheet_keeps_broader_classes_visible(
+    def test_baltic_sheep_locality_worksheet_exposes_sample_owned_sites(
         self,
     ) -> None:
         rows = build_project_locality_worksheet_rows(self.data_root, "PRJEB59481")
 
-        self.assertEqual(len(rows), 3)
+        self.assertEqual(len(rows), 8)
         self.assertEqual(
             {row["source_surface"] for row in rows},
-            {"coordinate_resolution", "crossref_metadata"},
+            {"coordinate_resolution", "supplementary_table"},
         )
-        self.assertNotIn(
-            "sample_owned_locality", {row["source_claim_scope"] for row in rows}
-        )
+        sample_owned = {
+            row["resolved_locality_text"]: row["supporting_sample_count"]
+            for row in rows
+            if row["source_claim_scope"] == "sample_owned_locality"
+        }
+        self.assertEqual(sample_owned, {"Kastelholm": 2, "Stora Förvar": 3})
         self.assertTrue(
-            all(row["locality_class"] == "broader_locality" for row in rows)
-        )
-        self.assertTrue(
-            any(
-                row["source_claim_scope"] == "resolved_place_string"
-                and row["resolved_locality_text"]
-                == "Baltic Sea Region short-tailed sheep context"
+            all(
+                row["locality_class"] == "excavation_site"
                 for row in rows
+                if row["source_claim_scope"] == "sample_owned_locality"
             )
         )
+        self.assertFalse(any("Baltic Sea Region" in str(row) for row in rows))
 
     def test_conflict_curation_and_substitution_surfaces_flag_blocked_multi_sample_projects(
         self,

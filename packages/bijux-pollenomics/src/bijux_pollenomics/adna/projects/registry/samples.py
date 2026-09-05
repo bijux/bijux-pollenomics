@@ -142,16 +142,10 @@ def build_species_curated_sample_rows(
         )
         if master_rows:
             for master_row in master_rows:
-                lead = (
-                    _matching_locality_lead(
-                        leads,
-                        master_row.locality_text,
-                        master_row.political_entity,
-                    )
-                    if project.project_accession == "PRJEB30282"
-                    else leads[0]
-                    if leads
-                    else None
+                lead = _matching_locality_lead(
+                    leads,
+                    master_row.locality_text,
+                    master_row.political_entity,
                 )
                 (
                     site_label,
@@ -403,24 +397,43 @@ def _matching_locality_lead(
     locality_text: str,
     political_entity: str,
 ) -> AdnaProjectLocalityLead | None:
-    target = (_normalize_place(locality_text), _normalize_place(political_entity))
-    matches = []
-    for lead in leads:
-        key = (
-            _normalize_place(str(getattr(lead, "locality_text", ""))),
-            _normalize_place(str(getattr(lead, "political_entity", "") or "")),
-        )
-        if key == target:
-            matches.append(lead)
-    if len(matches) > 1:
-        raise ValueError("Multiple locality leads match the same sample locality")
-    if matches:
-        return matches[0]
-    return leads[0] if len(leads) == 1 else None
+    target_locality = _normalize_place(locality_text)
+    target_entity = _normalize_place(political_entity)
+    if target_entity == target_locality:
+        target_entity = ""
+    if not target_locality:
+        # One lead is unambiguous project context; multiple leads require an exact
+        # sample-owned locality so records cannot inherit an arbitrary first site.
+        return leads[0] if len(leads) == 1 else None
+
+    locality_matches = tuple(
+        lead
+        for lead in leads
+        if _normalize_place(lead.locality_text) == target_locality
+    )
+    if not locality_matches:
+        return None
+    if len(locality_matches) == 1:
+        lead = locality_matches[0]
+        lead_entity = _normalize_place(lead.political_entity)
+        if target_entity and lead_entity and target_entity != lead_entity:
+            return None
+        return lead
+    entity_matches = tuple(
+        lead
+        for lead in locality_matches
+        if _normalize_place(lead.political_entity) == target_entity
+    )
+    if len(entity_matches) == 1:
+        return entity_matches[0]
+    raise ValueError("Multiple locality leads match the same sample locality")
 
 
 def _normalize_place(value: str) -> str:
-    return "".join(character for character in value.casefold() if character.isalnum())
+    normalized = "".join(
+        character for character in value.casefold() if character.isalnum()
+    )
+    return "" if normalized in {"na", "notavailable", "unknown"} else normalized
 
 
 def _default_data_root() -> Path:

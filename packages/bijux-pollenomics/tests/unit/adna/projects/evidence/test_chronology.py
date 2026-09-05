@@ -129,10 +129,10 @@ class AdnaProjectSampleChronologyUnitTests(unittest.TestCase):
         self.assertEqual(sheep_review["sample_owned_interval_count"], 167)
         self.assertEqual(sheep_review["text_only_unparsed_count"], 13)
         self.assertEqual(audit["sample_row_count"], 1451)
-        self.assertEqual(audit["normalized_interval_count"], 410)
+        self.assertEqual(audit["normalized_interval_count"], 405)
         self.assertEqual(audit["normalized_point_count"], 482)
-        self.assertEqual(audit["unresolved_count"], 467)
-        self.assertEqual(audit["precision_counts"]["contextual_interval"], 142)
+        self.assertEqual(audit["unresolved_count"], 472)
+        self.assertEqual(audit["precision_counts"]["contextual_interval"], 137)
         self.assertEqual(audit["precision_counts"]["sample_approximate_or_modeled"], 94)
         self.assertEqual(audit["precision_counts"]["sample_precise_interval"], 276)
         self.assertFalse(
@@ -155,7 +155,12 @@ class AdnaProjectSampleChronologyUnitTests(unittest.TestCase):
         sheep_species = next(
             row for row in species_rows if row["species_latin_name"] == "Ovis aries"
         )
-        self.assertEqual(sheep_species["normalized_row_count"], 195)
+        self.assertEqual(sheep_species["normalized_row_count"], 190)
+        baltic_sheep_project = next(
+            row for row in project_rows if row["project_accession"] == "PRJEB59481"
+        )
+        self.assertEqual(baltic_sheep_project["normalized_row_count"], 0)
+        self.assertEqual(baltic_sheep_project["unresolved_count"], 5)
         camel_project = next(
             row
             for row in project_rows
@@ -178,6 +183,13 @@ class AdnaProjectSampleChronologyUnitTests(unittest.TestCase):
             any(
                 row["project_accession"] == "PRJNA705960"
                 and "project_context_dates_still_dominate" in row["gap_reasons"]
+                for row in gap_queue
+            )
+        )
+        self.assertTrue(
+            any(
+                row["project_accession"] == "PRJEB59481"
+                and "missing_sample_level_date_evidence" in row["gap_reasons"]
                 for row in gap_queue
             )
         )

@@ -99,30 +99,75 @@ _PROJECT_COORDINATE_PROVENANCE: dict[
             project_accession="PRJEB59481",
             species_latin_name="Ovis aries",
             species_common_name="sheep",
-            site_label="Baltic Sea Region short-tailed sheep context",
-            original_place_text="Baltic Sea Region short-tailed sheep context",
-            resolved_place_text="Baltic Sea Region",
-            political_entity="Baltic Sea Region",
-            source_artifact_path="adna/governance/source_library/papers/10.1093-gbe-evae114/crossref.json",
-            source_locator="title",
-            coordinate_basis="region_centroid_fallback",
-            mapping_posture="refused_region_only",
-            geocoding_method="manual_regional_extent_retention",
-            geocoder_or_gazetteer="not applied because the current lead is regional",
+            site_label="Kastelholm",
+            original_place_text="Kastelholm",
+            resolved_place_text="Kastelholm",
+            political_entity=None,
+            source_artifact_path=(
+                "adna/governance/source_library/papers/10.1093-gbe-evae114/"
+                "supplementary/SupplementaryTables_Revision2.xlsx"
+            ),
+            source_locator="STab 5 - Continuity AKAS!rows1-2",
+            coordinate_basis="unresolved_location_state",
+            mapping_posture="refused_unresolved_location",
+            geocoding_method="not_applied",
+            geocoder_or_gazetteer=(
+                "not applied because no primary coordinate evidence is admitted"
+            ),
             confidence_rationale=(
-                "The local source archive currently supports Baltic-region posture, "
-                "not one named sheep excavation site with defensible coordinates."
+                "The supplement proves the site name but supplies no coordinates; "
+                "a place-name geocode would not be specimen-findspot evidence."
             ),
             coordinate_confidence="withheld",
             paper_doi="10.1093/gbe/evae114",
             paper_url=_doi_url("10.1093/gbe/evae114"),
-            chronology_text="Four millennia of Baltic sheep history",
-            time_start_bp=0,
-            time_end_bp=4000,
-            dating_basis="archaeological_period",
+            dating_basis="unknown",
             domestication_context="domesticated_core",
-            interpretation_note="The sheep lead remains Nordic-relevant but not point-ready.",
-            support_gap_note="A readable local article or parsed supplement table is still missing for exact site extraction.",
+            interpretation_note=(
+                "Kastelholm is retained as source-backed site identity and withheld "
+                "from point mapping."
+            ),
+            support_gap_note=(
+                "A primary sample coordinate or governed site-coordinate source is "
+                "still required for point publication."
+            ),
+        ),
+        AdnaCoordinateProvenanceRecord(
+            project_accession="PRJEB59481",
+            species_latin_name="Ovis aries",
+            species_common_name="sheep",
+            site_label="Stora Förvar",
+            original_place_text="Stora Förvar",
+            resolved_place_text="Stora Förvar",
+            political_entity=None,
+            source_artifact_path=(
+                "adna/governance/source_library/papers/10.1093-gbe-evae114/"
+                "supplementary/SupplementaryTables_Revision2.xlsx"
+            ),
+            source_locator="STab 4 - Continuity ASTF!rows1-2",
+            coordinate_basis="unresolved_location_state",
+            mapping_posture="refused_unresolved_location",
+            geocoding_method="not_applied",
+            geocoder_or_gazetteer=(
+                "not applied because no primary coordinate evidence is admitted"
+            ),
+            confidence_rationale=(
+                "The supplement proves the site name but supplies no coordinates; "
+                "a place-name geocode would not be specimen-findspot evidence."
+            ),
+            coordinate_confidence="withheld",
+            paper_doi="10.1093/gbe/evae114",
+            paper_url=_doi_url("10.1093/gbe/evae114"),
+            dating_basis="unknown",
+            domestication_context="domesticated_core",
+            interpretation_note=(
+                "Stora Förvar is retained as source-backed site identity and withheld "
+                "from point mapping."
+            ),
+            support_gap_note=(
+                "A primary sample coordinate or governed site-coordinate source is "
+                "still required for point publication."
+            ),
         ),
     ),
     "PRJNA705960": (

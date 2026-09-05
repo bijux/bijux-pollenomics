@@ -4,8 +4,10 @@ from collections import Counter
 import unittest
 
 from bijux_pollenomics.adna.projects.registry.samples import (
+    _matching_locality_lead,
     build_species_curated_sample_rows,
 )
+from bijux_pollenomics.adna.projects.registry.localities import AdnaProjectLocalityLead
 
 
 class AdnaSampleRegistryUnitTests(unittest.TestCase):
@@ -63,6 +65,72 @@ class AdnaSampleRegistryUnitTests(unittest.TestCase):
         self.assertEqual(baltic.paper_doi, "10.1093/gbe/evae114")
         self.assertEqual(baltic.inclusion_status, "nordic_lead_site_curated")
         self.assertEqual(baltic.supplementary_source, "")
+
+    def test_baltic_sheep_samples_select_their_exact_locality_lead(self) -> None:
+        rows = tuple(
+            row
+            for row in build_species_curated_sample_rows("sheep")
+            if row.project_accession == "PRJEB59481"
+        )
+
+        self.assertEqual(len(rows), 5)
+        self.assertEqual(
+            {row.paper_native_sample_label: row.site_label for row in rows},
+            {
+                "AKAS001": "Kastelholm",
+                "AKAS002": "Kastelholm",
+                "ASTF001": "Stora Förvar",
+                "ASTF002": "Stora Förvar",
+                "ASTF003": "Stora Förvar",
+            },
+        )
+        self.assertTrue(all(row.time_start_bp is None for row in rows))
+        self.assertTrue(all(row.time_end_bp is None for row in rows))
+        self.assertTrue(
+            all(row.latitude_text == row.longitude_text == "" for row in rows)
+        )
+
+    def test_locality_selection_keeps_one_project_context_and_refuses_ambiguity(
+        self,
+    ) -> None:
+        locality_lead = AdnaProjectLocalityLead(
+            project_accession="example",
+            locality_text="Example Site",
+            political_entity="Denmark",
+            latitude_text="",
+            longitude_text="",
+            coordinate_basis="unresolved_location_state",
+            chronology_text="",
+            time_start_bp=None,
+            time_end_bp=None,
+            interpretation_note="source-backed site identity",
+        )
+
+        self.assertIsNone(
+            _matching_locality_lead((locality_lead,), "Different Site", "")
+        )
+        self.assertIs(
+            _matching_locality_lead((locality_lead,), "N/A", "N/A"), locality_lead
+        )
+        self.assertIsNone(
+            _matching_locality_lead((locality_lead,), "Example Site", "Sweden")
+        )
+        with self.assertRaisesRegex(ValueError, "Multiple locality leads"):
+            _matching_locality_lead((locality_lead, locality_lead), "Example Site", "")
+
+    def test_placeholder_locality_does_not_inherit_an_unrelated_project_lead(
+        self,
+    ) -> None:
+        connemara = next(
+            row
+            for row in build_species_curated_sample_rows("horse")
+            if row.paper_native_sample_label == "Connemara_0004A"
+        )
+
+        self.assertEqual(connemara.inclusion_status, "sample_context_blocked")
+        self.assertEqual(connemara.site_label, "N/A")
+        self.assertEqual(connemara.latitude_text, "")
+        self.assertEqual(connemara.longitude_text, "")
 
     def test_species_curated_sample_rows_mark_comparator_context_explicitly(
         self,

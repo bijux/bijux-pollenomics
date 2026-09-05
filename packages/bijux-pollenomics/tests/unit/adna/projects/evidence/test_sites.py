@@ -40,7 +40,26 @@ class AdnaSiteEvidenceUnitTests(unittest.TestCase):
 
         self.assertEqual(
             [row.project_accession for row in rows],
-            ["PRJEB59481", "PRJEB60484"],
+            ["PRJEB59481", "PRJEB59481", "PRJEB60484"],
+        )
+
+    def test_baltic_sheep_sites_are_sample_bound_without_invented_time(self) -> None:
+        rows = resolve_project_site_evidence("PRJEB59481")
+
+        self.assertEqual(
+            {row.site_label for row in rows}, {"Kastelholm", "Stora Förvar"}
+        )
+        self.assertTrue(
+            all(row.source_support_status == "supplementary_table_row" for row in rows)
+        )
+        self.assertTrue(all(row.time_start_bp is None for row in rows))
+        self.assertTrue(all(row.time_end_bp is None for row in rows))
+        self.assertTrue(all(row.chronology_text == "" for row in rows))
+        self.assertTrue(
+            all(
+                "SupplementaryTables_Revision2.xlsx" in row.source_artifact_path
+                for row in rows
+            )
         )
 
     def test_cattle_site_evidence_marks_archive_backed_gap_explicitly(self) -> None:

@@ -21,7 +21,7 @@ class AdnaNormalizationUnitTests(unittest.TestCase):
         refused_samples = [
             item for item in bundle.refusals if item.record_kind == "sample_record"
         ]
-        self.assertEqual(len(refused_samples), 4)
+        self.assertEqual(len(refused_samples), 5)
         self.assertTrue(
             all(
                 item.reason == "sample_evidence_not_yet_recoverable"

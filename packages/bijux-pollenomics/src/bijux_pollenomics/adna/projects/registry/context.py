@@ -40,8 +40,9 @@ _PROJECT_CONTEXT: dict[str, AdnaProjectContext] = {
     "PRJEB59481": AdnaProjectContext(
         nordic_relevance="nordic_relevant_unmapped",
         nordic_relevance_reason=(
-            "The Baltic Sea Region sheep dataset is Nordic-relevant, but the repository "
-            "still lacks shipped animal locality rows and atlas points for it."
+            "The Nordic-relevant primary supplement resolves the five Baltic sheep "
+            "samples to Kastelholm and Stora Förvar, but neither site has admitted "
+            "primary coordinates for atlas point publication."
         ),
         last_checked_on=_LAST_CHECKED_ON,
     ),
