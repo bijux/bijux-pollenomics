@@ -1,4 +1,4 @@
-"""Context-data workflow coverage grouped by responsibility."""
+"""Collection artifact input/output contract coverage."""
 
 from __future__ import annotations
 

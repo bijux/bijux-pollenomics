@@ -1,4 +1,4 @@
-"""Context-data workflow coverage grouped by responsibility."""
+"""External context-layer projection coverage."""
 
 from __future__ import annotations
 

@@ -1,4 +1,4 @@
-"""Context-data workflow coverage grouped by responsibility."""
+"""SEAD collection materialization coverage."""
 
 from __future__ import annotations
 
