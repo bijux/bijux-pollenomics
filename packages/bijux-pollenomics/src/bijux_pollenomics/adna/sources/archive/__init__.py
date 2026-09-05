@@ -1,0 +1,1 @@
+"""Governed archive-source contracts."""
