@@ -19,6 +19,10 @@ class EnaFileReportTests(unittest.TestCase):
         self.assertIn("run_accession", url)
         self.assertNotIn("analysis_accession", url)
 
+    def test_url_rejects_invalid_accession(self) -> None:
+        with self.assertRaisesRegex(ValueError, "Invalid ENA selector"):
+            build_ena_filereport_url("PRJEB22390&format=json")
+
     def test_parser_filters_by_sample(self) -> None:
         query = AdnaEnaQuery(
             projects=("PRJEB22390",),
@@ -54,6 +58,59 @@ class EnaFileReportTests(unittest.TestCase):
                 "study_accession\trun_accession\nPRJEB22390\tERR1\n",
                 query=query,
             )
+
+    def test_parser_rejects_duplicate_or_blank_required_columns(self) -> None:
+        query = AdnaEnaQuery(projects=("PRJEB22390",), samples=(), extra_accessions=())
+        with self.assertRaisesRegex(ValueError, "duplicate columns: run_accession"):
+            parse_ena_filereport_tsv(
+                "study_accession\tsample_accession\texperiment_accession\t"
+                "run_accession\trun_accession\nPRJEB22390\tSAMEA1\tERX1\tERR1\tERR1\n",
+                query=query,
+            )
+        with self.assertRaisesRegex(ValueError, "blank required values: run_accession"):
+            parse_ena_filereport_tsv(
+                "study_accession\tsample_accession\texperiment_accession\t"
+                "run_accession\nPRJEB22390\tSAMEA1\tERX1\t\n",
+                query=query,
+            )
+
+    def test_parser_rejects_negative_counts_and_fastq_cardinality_mismatch(
+        self,
+    ) -> None:
+        query = AdnaEnaQuery(projects=("PRJEB22390",), samples=(), extra_accessions=())
+        header = (
+            "study_accession\tsample_accession\texperiment_accession\trun_accession\t"
+            "base_count\tfastq_bytes\tfastq_ftp\n"
+        )
+        with self.assertRaisesRegex(ValueError, "negative base_count value -1"):
+            parse_ena_filereport_tsv(
+                header + "PRJEB22390\tSAMEA1\tERX1\tERR1\t-1\t42\ta.fastq.gz\n",
+                query=query,
+            )
+        with self.assertRaisesRegex(ValueError, "2 fastq byte values for 1 FASTQ"):
+            parse_ena_filereport_tsv(
+                header + "PRJEB22390\tSAMEA1\tERX1\tERR1\t1\t42;43\ta.fastq.gz\n",
+                query=query,
+            )
+
+    def test_parser_excludes_rows_outside_project_and_sample_selectors(self) -> None:
+        query = AdnaEnaQuery(
+            projects=("PRJEB22390",),
+            samples=("SAMEA1",),
+            extra_accessions=(),
+        )
+        header = (
+            "study_accession\tsample_accession\texperiment_accession\trun_accession\n"
+        )
+        rows = parse_ena_filereport_tsv(
+            header
+            + "PRJEB99999\tSAMEA1\tERX1\tERR1\n"
+            + "PRJEB22390\tSAMEA2\tERX2\tERR2\n"
+            + "PRJEB22390\tSAMEA1\tERX3\tERR3\n",
+            query=query,
+        )
+
+        self.assertEqual([row.run_accession for row in rows], ["ERR3"])
 
 
 if __name__ == "__main__":

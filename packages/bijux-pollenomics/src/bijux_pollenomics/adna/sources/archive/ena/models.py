@@ -42,6 +42,22 @@ class AdnaEnaQuery:
             return True
         return sample_accession in sample_filter
 
+    def record_allowed(self, *accessions: str | None) -> bool:
+        """Return whether one response row belongs to the requested selectors."""
+        row_accessions = {value for value in accessions if value is not None}
+        extra_filter = set(_normalize_values(self.extra_accessions))
+        if extra_filter & row_accessions:
+            return True
+
+        project_filter = set(_normalize_values(self.projects))
+        if project_filter and not project_filter.intersection(row_accessions):
+            return False
+
+        sample_filter = set(_normalize_values(self.samples))
+        if sample_filter and not sample_filter.intersection(row_accessions):
+            return False
+        return bool(project_filter or sample_filter)
+
 
 @dataclass(frozen=True)
 class AdnaEnaRecord:

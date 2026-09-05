@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-from .models import ADNA_ENA_RESULT_KINDS, AdnaEnaQuery, AdnaEnaRecord
+from .models import AdnaEnaQuery, AdnaEnaRecord
 
 
 _ENA_API_BASE = "https://www.ebi.ac.uk/ena/portal/api/filereport"
@@ -8,8 +8,12 @@ _ENA_API_BASE = "https://www.ebi.ac.uk/ena/portal/api/filereport"
 
 def build_ena_filereport_url(accession: str, result_kind: str = "read_run") -> str:
     """Build the canonical ENA filereport URL for one accession."""
-    if result_kind not in ADNA_ENA_RESULT_KINDS:
-        raise ValueError(f"Unsupported ENA result kind: {result_kind}")
+    AdnaEnaQuery(
+        projects=(accession,),
+        samples=(),
+        extra_accessions=(),
+        result_kind=result_kind,
+    ).validate()
     fields = ",".join(_filereport_fields(result_kind))
     return (
         f"{_ENA_API_BASE}?accession={accession}&result={result_kind}&fields={fields}"
@@ -39,16 +43,36 @@ def parse_ena_filereport_tsv(
                 f"ENA filereport row {line_number} has {len(values)} columns, expected {len(headers)}"
             )
         row = dict(zip(headers, values, strict=True))
+        _validate_required_values(row, query.result_kind, line_number)
+        study_accession = _opt_field(row.get("study_accession", ""))
         sample_accession = _opt_field(row.get("sample_accession", ""))
-        if sample_accession is not None and not query.sample_allowed(sample_accession):
+        experiment_accession = _opt_field(row.get("experiment_accession", ""))
+        run_accession = _opt_field(row.get("run_accession", ""))
+        analysis_accession = _opt_field(row.get("analysis_accession", ""))
+        if not query.record_allowed(
+            study_accession,
+            sample_accession,
+            experiment_accession,
+            run_accession,
+            analysis_accession,
+        ):
             continue
+        fastq_bytes = _parse_int_list(
+            row.get("fastq_bytes", ""), "fastq_bytes", line_number
+        )
+        fastq_ftp = _split_field(row.get("fastq_ftp", ""))
+        if fastq_bytes and len(fastq_bytes) != len(fastq_ftp):
+            raise ValueError(
+                f"ENA filereport row {line_number} has {len(fastq_bytes)} "
+                f"fastq byte values for {len(fastq_ftp)} FASTQ files"
+            )
         rows.append(
             AdnaEnaRecord(
-                study_accession=_opt_field(row.get("study_accession", "")),
+                study_accession=study_accession,
                 sample_accession=sample_accession,
-                experiment_accession=_opt_field(row.get("experiment_accession", "")),
-                run_accession=_opt_field(row.get("run_accession", "")),
-                analysis_accession=_opt_field(row.get("analysis_accession", "")),
+                experiment_accession=experiment_accession,
+                run_accession=run_accession,
+                analysis_accession=analysis_accession,
                 analysis_type=_opt_field(row.get("analysis_type", "")),
                 tax_id=_opt_field(row.get("tax_id", "")),
                 scientific_name=_opt_field(row.get("scientific_name", "")),
@@ -62,10 +86,8 @@ def parse_ena_filereport_tsv(
                 read_count=_parse_optional_int(
                     row.get("read_count", ""), "read_count", line_number
                 ),
-                fastq_bytes=_parse_int_list(
-                    row.get("fastq_bytes", ""), "fastq_bytes", line_number
-                ),
-                fastq_ftp=_split_field(row.get("fastq_ftp", "")),
+                fastq_bytes=fastq_bytes,
+                fastq_ftp=fastq_ftp,
                 submitted_ftp=_split_field(row.get("submitted_ftp", "")),
                 sra_ftp=_split_field(row.get("sra_ftp", "")),
                 bam_ftp=_split_field(row.get("bam_ftp", "")),
@@ -124,10 +146,25 @@ def _required_headers(result_kind: str) -> tuple[str, ...]:
 
 
 def _validate_headers(headers: list[str], result_kind: str) -> None:
+    duplicates = sorted({name for name in headers if headers.count(name) > 1})
+    if duplicates:
+        names = ", ".join(duplicates)
+        raise ValueError(f"ENA filereport payload has duplicate columns: {names}")
     missing = [name for name in _required_headers(result_kind) if name not in headers]
     if missing:
         names = ", ".join(missing)
         raise ValueError(f"ENA filereport payload is missing required columns: {names}")
+
+
+def _validate_required_values(
+    row: dict[str, str], result_kind: str, line_number: int
+) -> None:
+    blank = [name for name in _required_headers(result_kind) if not row[name].strip()]
+    if blank:
+        names = ", ".join(blank)
+        raise ValueError(
+            f"ENA filereport row {line_number} has blank required values: {names}"
+        )
 
 
 def _opt_field(value: str) -> str | None:
@@ -142,11 +179,16 @@ def _parse_optional_int(value: str, field_name: str, line_number: int) -> int | 
     if normalized is None:
         return None
     try:
-        return int(normalized)
+        parsed = int(normalized)
     except ValueError as error:
         raise ValueError(
             f"ENA filereport row {line_number} has invalid {field_name} value {normalized!r}: {error}"
         ) from error
+    if parsed < 0:
+        raise ValueError(
+            f"ENA filereport row {line_number} has negative {field_name} value {parsed}"
+        )
+    return parsed
 
 
 def _parse_int_list(value: str, field_name: str, line_number: int) -> tuple[int, ...]:
@@ -156,11 +198,16 @@ def _parse_int_list(value: str, field_name: str, line_number: int) -> tuple[int,
         if not normalized:
             continue
         try:
-            out.append(int(normalized))
+            parsed = int(normalized)
         except ValueError as error:
             raise ValueError(
                 f"ENA filereport row {line_number} has invalid {field_name} value {normalized!r}: {error}"
             ) from error
+        if parsed < 0:
+            raise ValueError(
+                f"ENA filereport row {line_number} has negative {field_name} value {parsed}"
+            )
+        out.append(parsed)
     return tuple(out)
 
 
