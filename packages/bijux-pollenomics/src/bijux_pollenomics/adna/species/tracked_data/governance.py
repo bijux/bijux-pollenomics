@@ -14,7 +14,6 @@ from bijux_pollenomics.adna.governance.audit_catalogs import (
     build_unresolved_site_ledger,
     render_coordinate_caveat_surface_markdown,
     render_coordinate_confidence_scale_markdown,
-    render_csv_rows,
 )
 from bijux_pollenomics.adna.projects.registry.sample_truth import (
     build_animal_sample_aggregation_warnings,
@@ -27,6 +26,7 @@ from bijux_pollenomics.adna.projects.registry.sample_truth import (
 from bijux_pollenomics.adna.workflow.paths import adna_governance_root
 from bijux_pollenomics.core.files import write_json, write_text
 from bijux_pollenomics.core.records import require_record_rows
+from bijux_pollenomics.core.tabular import render_csv_rows
 
 
 def _materialize_cross_species_adna_artifacts(output_root: Path) -> None:

@@ -7,11 +7,11 @@ from pathlib import Path
 from bijux_pollenomics.adna.governance.audit_catalogs import (
     build_animal_atlas_candidate_accountability,
     render_animal_atlas_candidate_accountability_markdown,
-    render_csv_rows,
 )
 from bijux_pollenomics.adna.workflow.paths import adna_final_root
 from bijux_pollenomics.core.files import write_json, write_text
 from bijux_pollenomics.core.records import require_record_rows
+from bijux_pollenomics.core.tabular import render_csv_rows
 
 from .atlas_evidence_rows import build_tracked_animal_atlas_evidence_rows
 from .country_outputs import build_country_animal_output_bundle

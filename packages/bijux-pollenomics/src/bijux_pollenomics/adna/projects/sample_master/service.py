@@ -144,7 +144,7 @@ def build_sample_identity_ambiguity_ledger(
 
 def materialize_sample_master_library(output_root: Path) -> None:
     from ....core.files import write_json, write_text
-    from bijux_pollenomics.adna.governance.audit_catalogs import render_csv_rows
+    from ....core.tabular import render_csv_rows
 
     output_root = Path(output_root)
     source_root = output_root / "adna" / "governance" / "source_library"

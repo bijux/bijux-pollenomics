@@ -1,12 +1,11 @@
 from __future__ import annotations
 
 from collections import Counter
-import csv
-import io
 import json
 from pathlib import Path
 
 from bijux_pollenomics.adna.workflow.paths import adna_species_dir, adna_species_root
+from bijux_pollenomics.core.tabular import render_csv_rows
 from ..projects.registry.context import (
     build_species_freshness_rows,
     resolve_project_context,
@@ -772,19 +771,6 @@ def render_coordinate_caveat_surface_markdown(payload: dict[str, object]) -> str
     return "\n".join(lines)
 
 
-def render_csv_rows(rows: tuple[dict[str, object], ...]) -> str:
-    """Render homogeneous dict rows as CSV."""
-    if not rows:
-        return ""
-    fieldnames = tuple(rows[0].keys())
-    buffer = io.StringIO()
-    writer = csv.DictWriter(buffer, fieldnames=fieldnames, lineterminator="\n")
-    writer.writeheader()
-    for row in rows:
-        writer.writerow({key: _csv_value(value) for key, value in row.items()})
-    return buffer.getvalue()
-
-
 def _build_species_coverage_row(
     *,
     data_root: Path,
@@ -1141,11 +1127,3 @@ def _atlas_layer_count(
                     if str(row.get("latin_name", "")).strip() == latin_name:
                         return int(row.get("locality_count", 0) or 0)
     return _species_output_count(atlas_root, latin_name, common_name)
-
-
-def _csv_value(value: object) -> object:
-    if isinstance(value, (list, tuple)):
-        return ";".join(str(item) for item in value)
-    if isinstance(value, bool):
-        return str(value).lower()
-    return value
