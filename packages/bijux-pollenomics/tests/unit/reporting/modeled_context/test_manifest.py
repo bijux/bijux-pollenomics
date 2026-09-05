@@ -17,7 +17,16 @@ from bijux_pollenomics.reporting.modeled_context.contracts import (
     PANGAEA_DATASET_DOI,
     PANGAEA_WINDOWS_PRESENT_TO_OLDEST,
 )
+from bijux_pollenomics.reporting.modeled_context.metric_families import (
+    PANGAEA_METRIC_KEYS,
+)
 from tests.support.repository import REPOSITORY_ROOT
+
+
+def _metric_values() -> dict[str, float]:
+    values = dict.fromkeys(PANGAEA_METRIC_KEYS, 1.0)
+    values.update({"ET": 6.0, "ST": 4.0, "OL": 3.0})
+    return values
 
 
 def _complete_layer() -> dict[str, object]:
@@ -43,8 +52,10 @@ def _complete_layer() -> dict[str, object]:
                                 "numeric_interval_with_caveat"
                             ),
                             "bibliography_reference_keys": ["githumbi-et-al-2022"],
-                            "reconstruction_values": {"OL": 37.5},
-                            "standard_errors": {"OL": 2.25},
+                            "reconstruction_values": _metric_values(),
+                            "standard_errors": {
+                                key: 2.25 for key in PANGAEA_METRIC_KEYS
+                            },
                         },
                     }
                 )
@@ -82,6 +93,14 @@ def test_complete_inventory_builds_exact_oldest_to_present_contract() -> None:
     assert manifest["interpolation_allowed"] is False
     assert manifest["dataset_doi"] == PANGAEA_DATASET_DOI
     assert manifest["method_doi"] == GITHUMBI_METHOD_DOI
+    assert manifest["default_metric_family_key"] == "source_land_cover_types"
+    assert manifest["metric_key"] == "OL"
+    assert manifest["metric_family_count"] == 3
+    assert manifest["metric_count"] == 47
+    assert manifest["estimate_standard_error_pair_count"] == 88_125
+    assert manifest["land_cover_pft_reconciliation_count"] == 5_625
+    families = cast(list[dict[str, object]], manifest["metric_families"])
+    assert [family["metric_count"] for family in families] == [31, 13, 3]
     palette = cast(list[dict[str, object]], manifest["palette"])
     assert [entry["label"] for entry in palette] == [
         "0–20%",
@@ -101,11 +120,12 @@ def test_missing_dataset_is_explicitly_unavailable() -> None:
     manifest = build_modeled_context_manifest([])
 
     assert manifest == {
-        "schema_version": "modeled-context-manifest.v1",
+        "schema_version": "modeled-context-manifest.v2",
         "status": "unavailable",
         "reason_code": "pangaea_937075_temporal_grid_not_available",
         "evidence_role": "context_only",
         "propagation_use_allowed": False,
+        "metric_families": [],
         "windows_oldest_to_present": [],
     }
 
@@ -180,6 +200,33 @@ def test_incomplete_country_window_inventory_fails_closed() -> None:
         build_modeled_context_manifest([layer])
 
 
+@pytest.mark.parametrize("value_group", ["reconstruction_values", "standard_errors"])
+def test_every_metric_requires_a_matching_estimate_and_error_key(
+    value_group: str,
+) -> None:
+    layer = _complete_layer()
+    row = _first_properties(layer)
+    cast(dict[str, object], row[value_group]).pop("Picea")
+
+    with pytest.raises(
+        ModeledContextContractError,
+        match="metric keys/order differ from the source header",
+    ):
+        build_modeled_context_manifest([layer])
+
+
+def test_land_cover_totals_must_reconcile_to_source_pft_codes() -> None:
+    layer = _complete_layer()
+    row = _first_properties(layer)
+    cast(dict[str, object], row["reconstruction_values"])["ISTS"] = 2.0
+
+    with pytest.raises(
+        ModeledContextContractError,
+        match="ST does not reconcile to source PFT codes",
+    ):
+        build_modeled_context_manifest([layer])
+
+
 def test_repository_pangaea_surface_matches_presentation_contract() -> None:
     source_path = (
         REPOSITORY_ROOT
@@ -192,4 +239,7 @@ def test_repository_pangaea_surface_matches_presentation_contract() -> None:
 
     assert manifest["status"] == "available"
     assert manifest["feature_count"] == 1875
+    assert manifest["metric_count"] == 47
+    assert manifest["estimate_standard_error_pair_count"] == 88_125
+    assert manifest["land_cover_pft_reconciliation_count"] == 5_625
     assert len(manifest["windows_oldest_to_present"]) == 25

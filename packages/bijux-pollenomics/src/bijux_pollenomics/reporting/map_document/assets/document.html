@@ -1624,21 +1624,25 @@
                 <summary class="control-group-head">
                   <div>
                     <span class="control-group-label">Modeled context</span>
-                    <h3>Open Land Reconstruction</h3>
+                    <h3>REVEALS Metric Reconstruction</h3>
                   </div>
                   <span id="modeled-context-summary" class="control-group-summary">PANGAEA 937075</span>
                 </summary>
                 <div class="control-group-body">
-                  <div class="search-meta">Discrete REVEALS estimates from PANGAEA 937075. This is modeled environmental context, not an observed pollen event, propagation path, or continuous interpolation.</div>
+                  <div class="search-meta">Discrete REVEALS estimates from PANGAEA 937075. Exact taxa, source PFT codes, and source land-cover types remain separate. This is modeled environmental context, not an observed pollen event, propagation path, or continuous interpolation.</div>
+                  <label class="field-label" for="modeled-context-family"><span>Metric family</span><span>source-evidenced</span></label>
+                  <select id="modeled-context-family" class="search-input" aria-label="Select a PANGAEA 937075 metric family"></select>
+                  <label class="field-label" for="modeled-context-metric"><span>Published metric</span><span>percentage cover</span></label>
+                  <select id="modeled-context-metric" class="search-input" aria-label="Select a PANGAEA 937075 published metric"></select>
                   <label class="field-label" for="modeled-context-window"><span>Published source window</span><span>oldest → present</span></label>
-                  <select id="modeled-context-window" class="search-input" aria-label="Select a PANGAEA 937075 modeled open-land window"></select>
+                  <select id="modeled-context-window" class="search-input" aria-label="Select a PANGAEA 937075 modeled source window"></select>
                   <div class="inline-actions">
-                    <button id="modeled-context-toggle" class="inline-button" type="button" aria-pressed="false">Show open-land model</button>
+                    <button id="modeled-context-toggle" class="inline-button" type="button" aria-pressed="false">Show modeled metric</button>
                     <button id="modeled-context-playback" class="inline-button" type="button" aria-pressed="false" disabled>Play 25 source windows</button>
                     <button id="modeled-context-download" class="inline-button" type="button" disabled>Download visible frame</button>
                   </div>
                   <div id="modeled-context-state" class="search-meta" aria-live="polite">Context mode is off.</div>
-                  <div id="modeled-context-legend" class="legend-list" aria-label="Open-land percentage-cover scale" hidden></div>
+                  <div id="modeled-context-legend" class="legend-list" aria-label="Modeled percentage-cover scale" hidden></div>
                   <div class="search-meta"><a href="https://doi.org/10.1594/PANGAEA.937075" target="_blank" rel="noreferrer">PANGAEA 937075</a> · <a href="https://doi.org/10.5194/essd-14-1581-2022" target="_blank" rel="noreferrer">Githumbi et al. (2022)</a> · context only · propagation use: false</div>
                 </div>
               </details>
@@ -2228,6 +2232,8 @@ __STATIC_CHUNK_SCRIPT_TAGS__
       const timeRecordCount = document.getElementById('time-record-count');
       const modeledContextControls = document.getElementById('modeled-context-controls');
       const modeledContextSummary = document.getElementById('modeled-context-summary');
+      const modeledContextFamily = document.getElementById('modeled-context-family');
+      const modeledContextMetric = document.getElementById('modeled-context-metric');
       const modeledContextWindow = document.getElementById('modeled-context-window');
       const modeledContextToggle = document.getElementById('modeled-context-toggle');
       const modeledContextPlayback = document.getElementById('modeled-context-playback');
@@ -2274,6 +2280,8 @@ __STATIC_CHUNK_SCRIPT_TAGS__
           timeStart: params.get('time_start'),
           timeInterval: params.get('time_interval'),
           modeledContext: params.get('modeled_context'),
+          modeledFamily: params.get('modeled_family'),
+          modeledMetric: params.get('modeled_metric'),
           density: params.get('density'),
           basemap: params.get('basemap'),
           panel: params.get('panel'),
@@ -2416,15 +2424,35 @@ __STATIC_CHUNK_SCRIPT_TAGS__
       }
       const initialState = parseHashState();
       const MODELED_CONTEXT_WINDOWS = Object.freeze([...(MODELED_CONTEXT.windows_oldest_to_present || [])]);
+      const MODELED_CONTEXT_FAMILIES = Object.freeze([...(MODELED_CONTEXT.metric_families || [])]);
+      function modeledContextFamilyByKey(key) {
+        return MODELED_CONTEXT_FAMILIES.find((family) => family.key === key) || null;
+      }
+      const defaultModeledContextFamily = modeledContextFamilyByKey(MODELED_CONTEXT.default_metric_family_key) || MODELED_CONTEXT_FAMILIES[0] || null;
+      const initialModeledContextFamily = modeledContextFamilyByKey(initialState.modeledFamily) || defaultModeledContextFamily;
+      let modeledContextFamilyKey = initialModeledContextFamily ? initialModeledContextFamily.key : '';
+      let modeledContextMetricKey = initialModeledContextFamily && initialModeledContextFamily.metrics.some((metric) => metric.key === initialState.modeledMetric)
+        ? initialState.modeledMetric
+        : (initialModeledContextFamily ? initialModeledContextFamily.default_metric_key : '');
       let modeledContextActive = false;
       let modeledContextWindowIndex = 0;
       let modeledContextPlaybackTimer = null;
       let modeledContextPreviousTime = null;
       function modeledContextAvailable() {
-        return MODELED_CONTEXT.status === 'available' && MODELED_CONTEXT_WINDOWS.length === 25;
+        return MODELED_CONTEXT.status === 'available'
+          && MODELED_CONTEXT_WINDOWS.length === 25
+          && MODELED_CONTEXT_FAMILIES.length === 3
+          && currentModeledContextMetric() !== null;
       }
       function currentModeledContextWindow() {
         return MODELED_CONTEXT_WINDOWS[modeledContextWindowIndex] || null;
+      }
+      function currentModeledContextFamily() {
+        return modeledContextFamilyByKey(modeledContextFamilyKey);
+      }
+      function currentModeledContextMetric() {
+        const family = currentModeledContextFamily();
+        return family ? family.metrics.find((metric) => metric.key === modeledContextMetricKey) || null : null;
       }
       function isModeledContextFeature(layer, properties) {
         return Boolean(
@@ -2442,16 +2470,16 @@ __STATIC_CHUNK_SCRIPT_TAGS__
         const number = Number(value);
         return Number.isFinite(number) ? number : null;
       }
-      function modeledContextOpenLand(properties) {
+      function modeledContextEstimate(properties) {
         const values = properties && properties.reconstruction_values;
         return values && typeof values === 'object'
-          ? modeledContextNumber(values[MODELED_CONTEXT.metric_key])
+          ? modeledContextNumber(values[modeledContextMetricKey])
           : null;
       }
       function modeledContextStandardError(properties) {
         const values = properties && properties.standard_errors;
         return values && typeof values === 'object'
-          ? modeledContextNumber(values[MODELED_CONTEXT.metric_key])
+          ? modeledContextNumber(values[modeledContextMetricKey])
           : null;
       }
       function modeledContextFillColor(value) {
@@ -2528,6 +2556,8 @@ __STATIC_CHUNK_SCRIPT_TAGS__
       }
       function modeledContextFrameGeoJson() {
         const sourceWindow = currentModeledContextWindow();
+        const metricFamily = currentModeledContextFamily();
+        const metric = currentModeledContextMetric();
         const features = modeledContextFrameFeatures();
         const countryCounts = {};
         features.forEach((feature) => {
@@ -2542,9 +2572,16 @@ __STATIC_CHUNK_SCRIPT_TAGS__
             dataset_doi: MODELED_CONTEXT.dataset_doi,
             method_citation: MODELED_CONTEXT.method_citation,
             method_doi: MODELED_CONTEXT.method_doi,
-            metric_key: MODELED_CONTEXT.metric_key,
-            metric_label: MODELED_CONTEXT.metric_label,
+            metric_family_key: metricFamily.key,
+            metric_family_label: metricFamily.label,
+            metric_key: metric.key,
+            metric_label: metric.label,
+            metric_source_label: metric.source_label,
+            metric_definition: metric.definition,
             value_unit: MODELED_CONTEXT.value_unit,
+            metric_count_denominator: MODELED_CONTEXT.metric_count,
+            estimate_standard_error_pair_count_denominator: MODELED_CONTEXT.estimate_standard_error_pair_count,
+            land_cover_pft_reconciliation_count_denominator: MODELED_CONTEXT.land_cover_pft_reconciliation_count,
             source_window: sourceWindow,
             country_counts: Object.fromEntries(Object.entries(countryCounts).sort()),
             evidence_role: 'context_only',
@@ -2558,12 +2595,13 @@ __STATIC_CHUNK_SCRIPT_TAGS__
         if (!modeledContextActive) return;
         const payload = modeledContextFrameGeoJson();
         const sourceWindow = currentModeledContextWindow();
-        const slug = String(sourceWindow.label).toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+        const windowSlug = String(sourceWindow.label).toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+        const metricSlug = String(modeledContextMetricKey).toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
         const blob = new Blob([`${JSON.stringify(payload, null, 2)}\n`], { type: 'application/geo+json' });
         const url = URL.createObjectURL(blob);
         const link = document.createElement('a');
         link.href = url;
-        link.download = `pangaea-937075-open-land-${slug}.geojson`;
+        link.download = `pangaea-937075-${metricSlug}-${windowSlug}.geojson`;
         document.body.appendChild(link);
         link.click();
         link.remove();
@@ -2573,19 +2611,23 @@ __STATIC_CHUNK_SCRIPT_TAGS__
         const available = modeledContextAvailable();
         modeledContextControls.hidden = !available;
         if (!available) return;
+        const metricFamily = currentModeledContextFamily();
+        const metric = currentModeledContextMetric();
+        modeledContextFamily.innerHTML = MODELED_CONTEXT_FAMILIES.map((family) => `<option value="${escapeHtml(family.key)}" ${family.key === modeledContextFamilyKey ? 'selected' : ''}>${escapeHtml(family.label)} · ${family.metric_count} metrics</option>`).join('');
+        modeledContextMetric.innerHTML = metricFamily.metrics.map((candidate) => `<option value="${escapeHtml(candidate.key)}" ${candidate.key === modeledContextMetricKey ? 'selected' : ''}>${escapeHtml(candidate.source_label)} · ${escapeHtml(candidate.key)}</option>`).join('');
         modeledContextWindow.innerHTML = MODELED_CONTEXT_WINDOWS.map((sourceWindow, index) => `<option value="${index}" ${index === modeledContextWindowIndex ? 'selected' : ''}>${escapeHtml(sourceWindow.label)} · ${sourceWindow.feature_count} cells</option>`).join('');
         modeledContextToggle.setAttribute('aria-pressed', String(modeledContextActive));
-        modeledContextToggle.textContent = modeledContextActive ? 'Hide open-land model' : 'Show open-land model';
+        modeledContextToggle.textContent = modeledContextActive ? 'Hide modeled metric' : 'Show modeled metric';
         modeledContextPlayback.disabled = !modeledContextActive;
         modeledContextDownload.disabled = !modeledContextActive || modeledContextFrameFeatures().length === 0;
         const sourceWindow = currentModeledContextWindow();
-        modeledContextSummary.textContent = modeledContextActive && sourceWindow ? sourceWindow.label : 'PANGAEA 937075';
+        modeledContextSummary.textContent = modeledContextActive && sourceWindow ? `${metric.key} · ${sourceWindow.label}` : `PANGAEA 937075 · ${metric.key}`;
         modeledContextState.textContent = modeledContextActive && sourceWindow
-          ? `${modeledContextFrameFeatures().length} visible cells · OL percentage cover with source standard error · context only · no interpolation or propagation`
-          : 'Context mode is off. Select Show open-land model to inspect exact published windows.';
+          ? `${modeledContextFrameFeatures().length} visible cells · ${metric.source_label} (${metric.key}) percentage cover with source standard error · ${MODELED_CONTEXT.metric_count} source metrics reconciled · context only · no interpolation or propagation`
+          : 'Context mode is off. Select Show modeled metric to inspect exact published windows.';
         modeledContextLegend.hidden = !modeledContextActive;
         modeledContextLegend.innerHTML = modeledContextActive && sourceWindow
-          ? `<div class="legend-group-label">${escapeHtml(sourceWindow.label)} · OL (${escapeHtml(MODELED_CONTEXT.value_unit)})</div>${(MODELED_CONTEXT.palette || []).map((entry) => `<div class="legend-item legend-item--compact"><span class="legend-swatch" style="background:${escapeHtml(entry.color)};border-color:#334155;"></span><span>${escapeHtml(entry.label)}</span></div>`).join('')}`
+          ? `<div class="legend-group-label">${escapeHtml(sourceWindow.label)} · ${escapeHtml(metric.source_label)} (${escapeHtml(metric.key)}) · ${escapeHtml(MODELED_CONTEXT.value_unit)}</div>${(MODELED_CONTEXT.palette || []).map((entry) => `<div class="legend-item legend-item--compact"><span class="legend-swatch" style="background:${escapeHtml(entry.color)};border-color:#334155;"></span><span>${escapeHtml(entry.label)}</span></div>`).join('')}`
           : '';
       }
       let activeCountries = normalizedSetFromList(initialState.countries, COUNTRIES, DEFAULT_COUNTRIES);
@@ -2923,6 +2965,8 @@ __STATIC_CHUNK_SCRIPT_TAGS__
         const modeledWindow = currentModeledContextWindow();
         if (modeledContextActive && modeledWindow) {
           params.set('modeled_context', modeledWindow.label);
+          params.set('modeled_family', modeledContextFamilyKey);
+          params.set('modeled_metric', modeledContextMetricKey);
         } else {
           if (TIME_HAS_DATA && timeStartBp !== DEFAULT_TIME_START_BP) params.set('time_start', String(timeStartBp));
           if (TIME_HAS_DATA && timeIntervalYears !== DEFAULT_TIME_INTERVAL_YEARS) params.set('time_interval', String(timeIntervalYears));
@@ -3521,11 +3565,12 @@ __STATIC_CHUNK_SCRIPT_TAGS__
       function polygonPopupHtml(layer, properties) {
         const rows = Array.isArray(properties.popup_rows) ? properties.popup_rows : [];
         const rowHtml = availablePopupRows(rows).map((row) => `<div><strong>${escapeHtml(row.label || '')}</strong> ${escapeHtml(row.value)}</div>`).join('');
-        const isOpenLandModel = isModeledContextFeature(layer, properties);
-        const openLandValue = modeledContextOpenLand(properties);
+        const isPublishedModel = isModeledContextFeature(layer, properties);
+        const metric = currentModeledContextMetric();
+        const estimate = modeledContextEstimate(properties);
         const standardError = modeledContextStandardError(properties);
-        const modeledRows = isOpenLandModel
-          ? `<div><strong>Open land (OL)</strong> ${openLandValue === null ? 'Unavailable' : `${escapeHtml(openLandValue.toFixed(2))}%`}</div><div><strong>Source standard error</strong> ${standardError === null ? 'Unavailable' : `${escapeHtml(standardError.toFixed(2))} percentage points`}</div><div><strong>Evidence role</strong> Context only; not a pollen observation or propagation input</div><div><strong>Interpolation</strong> Not allowed between published windows</div><div><strong>Method</strong> <a href="${escapeHtml(MODELED_CONTEXT.method_doi)}" target="_blank" rel="noreferrer">${escapeHtml(MODELED_CONTEXT.method_citation)}</a></div><div><strong>Quality class</strong> ${escapeHtml(properties.quality_class || 'Unavailable in normalized row')}</div>`
+        const modeledRows = isPublishedModel && metric
+          ? `<div><strong>Selected source metric</strong> ${escapeHtml(metric.source_label)} (${escapeHtml(metric.key)})</div><div><strong>Estimate</strong> ${estimate === null ? 'Unavailable' : `${escapeHtml(estimate.toFixed(2))}%`}</div><div><strong>Source standard error</strong> ${standardError === null ? 'Unavailable' : `${escapeHtml(standardError.toFixed(2))} percentage points`}</div><div><strong>Metric definition</strong> ${escapeHtml(metric.definition || 'Unavailable in the companion source mapping table')}</div><div><strong>Evidence role</strong> Context only; not a pollen observation or propagation input</div><div><strong>Interpolation</strong> Not allowed between published windows</div><div><strong>Method</strong> <a href="${escapeHtml(MODELED_CONTEXT.method_doi)}" target="_blank" rel="noreferrer">${escapeHtml(MODELED_CONTEXT.method_citation)}</a></div><div><strong>Quality class</strong> ${escapeHtml(properties.quality_class || 'Unavailable in normalized row')}</div>`
           : '';
         return `<div class="popup-grid"><div><strong>Layer</strong> ${escapeHtml(layer.label)}</div><div><strong>Name</strong> ${escapeHtml(properties.name || '')}</div><div><strong>Type</strong> ${escapeHtml(properties.category || properties.geometry_type || '')}</div>${rowHtml}${modeledRows}${properties.source_url ? `<div><strong>Source</strong> <a href="${escapeHtml(properties.source_url)}" target="_blank" rel="noreferrer">Open</a></div>` : ''}</div>`;
       }
@@ -3863,7 +3908,7 @@ __STATIC_CHUNK_SCRIPT_TAGS__
               style(feature) {
                 const properties = feature && feature.properties ? feature.properties : {};
                 if (modeledContextActive && isModeledContextFeature(layer, properties)) {
-                  return { color: '#334155', weight: 0.9, fillColor: modeledContextFillColor(modeledContextOpenLand(properties)), fillOpacity: 0.72, opacity: 0.88 };
+                  return { color: '#334155', weight: 0.9, fillColor: modeledContextFillColor(modeledContextEstimate(properties)), fillOpacity: 0.72, opacity: 0.88 };
                 }
                 return { color: layer.style.stroke, weight: 1.1, fillColor: layer.style.fill || 'rgba(100, 116, 139, 0.14)', fillOpacity: 0.28, opacity: 0.85 };
               },
@@ -4159,6 +4204,19 @@ __STATIC_CHUNK_SCRIPT_TAGS__
       timeIntervalSlider.addEventListener('input', () => { stopTimePlayback(); deactivateModeledContext(); timeIntervalYears = clampTimeInterval(timeIntervalSlider.value); renderMapState(); });
       timePlaybackToggle.addEventListener('click', () => {
         if (timePlaybackTimer === null) startTimePlayback(); else stopTimePlayback();
+      });
+      modeledContextFamily.addEventListener('change', () => {
+        const family = modeledContextFamilyByKey(modeledContextFamily.value);
+        if (!family) return;
+        modeledContextFamilyKey = family.key;
+        modeledContextMetricKey = family.default_metric_key;
+        renderMapState();
+      });
+      modeledContextMetric.addEventListener('change', () => {
+        const family = currentModeledContextFamily();
+        if (!family || !family.metrics.some((metric) => metric.key === modeledContextMetric.value)) return;
+        modeledContextMetricKey = modeledContextMetric.value;
+        renderMapState();
       });
       modeledContextToggle.addEventListener('click', () => {
         if (modeledContextActive) {
