@@ -2,10 +2,10 @@
 
 from __future__ import annotations
 
+import json
 from collections.abc import Mapping
 from dataclasses import dataclass
 from itertools import product
-import json
 from pathlib import Path
 from typing import cast
 
@@ -410,7 +410,7 @@ def _propagation_scope_counts(
     document = _optional_json_object(
         root,
         "artifacts/execution-control/propagation/"
-        "neotoma-pollen-release-refusal-87ac6d28/"
+        "neotoma-pollen-release-refusal-89494287/"
         "primary_scenario_reconciliation.json",
     )
     reconciliation = document.get("reconciliation") if document else None
