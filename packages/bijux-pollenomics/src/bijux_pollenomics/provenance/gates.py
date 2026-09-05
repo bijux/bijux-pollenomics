@@ -142,7 +142,7 @@ _GATE_TESTS: dict[str, tuple[str, ...]] = {
         "provenance/test_pollenomics_gate_runner.py",
     ),
     "doc-counts": (
-        "governance/test_country_coverage.py",
+        "governance/country_coverage",
         "governance/test_data_reference_docs.py",
         "collection/catalog/test_source_spatiotemporal_posture.py",
         "collection/workflow/materialization/test_repository_snapshot.py",

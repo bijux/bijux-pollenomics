@@ -133,7 +133,7 @@ POLLENOMICS_PROVENANCE_INPUTS := \
 	$(POLLENOMICS_PROVENANCE_TESTS)
 
 POLLENOMICS_DOC_COUNT_TESTS := \
-	$(POLLENOMICS_TEST_ROOT)/unit/governance/test_country_coverage.py \
+	$(POLLENOMICS_TEST_ROOT)/unit/governance/country_coverage \
 	$(POLLENOMICS_TEST_ROOT)/unit/governance/test_data_reference_docs.py \
 	$(POLLENOMICS_TEST_ROOT)/unit/collection/catalog/test_source_spatiotemporal_posture.py \
 	$(POLLENOMICS_TEST_ROOT)/unit/collection/workflow/materialization/test_repository_snapshot.py \
