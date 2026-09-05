@@ -1,7 +1,11 @@
 from __future__ import annotations
 
+from collections import Counter
+import hashlib
+import json
 import unittest
 
+from bijux_pollenomics.adna.sources import ena
 from bijux_pollenomics.adna import (
     AdnaEnaQuery,
     build_archive_project_catalog,
@@ -9,10 +13,69 @@ from bijux_pollenomics.adna import (
     build_species_archive_projects,
     classify_archive_project_evidence,
     parse_ena_filereport_tsv,
+    resolve_archive_source_snapshot,
 )
 
 
 class AdnaEnaUnitTests(unittest.TestCase):
+    def test_legacy_archive_surface_and_catalog_bytes_are_pinned(self) -> None:
+        self.assertEqual(
+            ena.__all__,
+            [
+                "ADNA_ACCESSION_SCOPES",
+                "ADNA_ACCESS_POLICIES",
+                "ADNA_DOMESTICATION_SCOPES",
+                "ADNA_ENA_RESULT_KINDS",
+                "ADNA_PROJECT_EVIDENCE_STRENGTHS",
+                "AdnaArchiveProject",
+                "AdnaEnaQuery",
+                "AdnaEnaRecord",
+                "AdnaPaperLinkage",
+                "build_archive_project_catalog",
+                "build_ena_filereport_url",
+                "build_species_archive_projects",
+                "classify_archive_project_evidence",
+                "parse_ena_filereport_tsv",
+            ],
+        )
+        payload = [row.as_dict() for row in build_archive_project_catalog()]
+        canonical = json.dumps(payload, sort_keys=True, separators=(",", ":")).encode()
+
+        self.assertEqual(len(canonical), 46_489)
+        self.assertEqual(
+            hashlib.sha256(canonical).hexdigest(),
+            "fe2d370f55c904a74f907763a1ea712eaac3e513aebc1def411fdf3860a0ee49",
+        )
+
+    def test_archive_catalog_has_unique_accessions_and_expected_species_counts(
+        self,
+    ) -> None:
+        catalog = build_archive_project_catalog()
+        accessions = [row.project_accession for row in catalog]
+
+        self.assertEqual(len(catalog), 40)
+        self.assertEqual(len(accessions), len(set(accessions)))
+        self.assertEqual(
+            Counter(row.species_latin_name for row in catalog),
+            {
+                "Equus caballus": 8,
+                "Ovis aries": 6,
+                "Sus scrofa domesticus": 4,
+                "Bos taurus": 3,
+                "Capra hircus": 3,
+                "Felis catus": 2,
+                "Canis lupus familiaris": 3,
+                "Camelus dromedarius": 2,
+                "Equus asinus": 5,
+                "Rangifer tarandus": 4,
+            },
+        )
+        for project in catalog:
+            self.assertEqual(
+                resolve_archive_source_snapshot(project).project_accession,
+                project.project_accession,
+            )
+
     def test_build_ena_filereport_url_uses_expected_read_run_fields(self) -> None:
         url = build_ena_filereport_url("PRJEB22390", "read_run")
 
