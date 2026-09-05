@@ -1,0 +1,1 @@
+"""Source-library materialization verification."""
