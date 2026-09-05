@@ -445,7 +445,7 @@ def _sead_chronology_claim_values(
 def _classification_country_values(
     root: Path, metric: str
 ) -> dict[str, _DerivedCount] | None:
-    bundle = "artifacts/execution-control/classification/neotoma-audit-7bdba3d4"
+    bundle = "artifacts/execution-control/classification/neotoma-audit-dde3936c"
     document = _optional_json_object(root, f"{bundle}/observation_memberships.json")
     records = document.get("records") if document else None
     if not isinstance(records, list):
