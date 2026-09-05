@@ -3,6 +3,7 @@ POLLENOMICS_VERIFICATION_PYTEST := $(abspath $(ROOT_CHECK_VENV))/bin/pytest
 POLLENOMICS_SOURCE_ROOT := packages/bijux-pollenomics/src/bijux_pollenomics
 POLLENOMICS_TEST_ROOT := packages/bijux-pollenomics/tests
 POLLENOMICS_GATE_ARTIFACTS := artifacts/execution-control/gates
+POLLENOMICS_SEAD_GOVERNED_RUN := sead-full-evidence-39bfff6a-ce80714e
 POLLENOMICS_RELEASE_CANDIDATE_ID ?= $(shell git rev-parse HEAD 2>/dev/null)
 POLLENOMICS_RELEASE_EVIDENCE_DIRECTORY ?= artifacts/execution-control/release-evidence/$(POLLENOMICS_RELEASE_CANDIDATE_ID)
 POLLENOMICS_RELEASE_EVIDENCE_REQUEST ?= $(POLLENOMICS_RELEASE_EVIDENCE_DIRECTORY)/request.json
@@ -40,14 +41,20 @@ POLLENOMICS_SCIENCE_INPUTS := \
 POLLENOMICS_DATA_TESTS := \
 	$(POLLENOMICS_TEST_ROOT)/unit/test_adna_normalization.py \
 	$(POLLENOMICS_TEST_ROOT)/unit/test_adna_catalogs.py \
+	$(POLLENOMICS_TEST_ROOT)/unit/test_adna_project_sample_locality_evidence.py \
 	$(POLLENOMICS_TEST_ROOT)/unit/test_adna_runtime.py \
+	$(POLLENOMICS_TEST_ROOT)/unit/test_adna_sample_master.py \
 	$(POLLENOMICS_TEST_ROOT)/unit/test_adna_sample_truth.py \
 	$(POLLENOMICS_TEST_ROOT)/unit/test_adna_source_library.py \
+	$(POLLENOMICS_TEST_ROOT)/unit/test_adna_source_recovery.py \
 	$(POLLENOMICS_TEST_ROOT)/unit/test_adna_temporal_query.py \
 	$(POLLENOMICS_TEST_ROOT)/unit/test_sead_acquisition.py \
 	$(POLLENOMICS_TEST_ROOT)/unit/test_sead_acquisition_admission.py \
+	$(POLLENOMICS_TEST_ROOT)/unit/test_sead_claim_bundle.py \
+	$(POLLENOMICS_TEST_ROOT)/unit/test_sead_observation_acquisition.py \
 	$(POLLENOMICS_TEST_ROOT)/unit/test_sead_scoped_acquisition.py \
 	$(POLLENOMICS_TEST_ROOT)/unit/test_neotoma_data.py \
+	$(POLLENOMICS_TEST_ROOT)/unit/test_neotoma_lineage_review.py \
 	$(POLLENOMICS_TEST_ROOT)/unit/test_neotoma_relational.py \
 	$(POLLENOMICS_TEST_ROOT)/unit/test_neotoma_materialization.py \
 	$(POLLENOMICS_TEST_ROOT)/unit/test_neotoma_production.py \
@@ -57,9 +64,11 @@ POLLENOMICS_DATA_TESTS := \
 	$(POLLENOMICS_TEST_ROOT)/unit/test_raa_authority.py \
 	$(POLLENOMICS_TEST_ROOT)/unit/test_svar_data.py \
 	$(POLLENOMICS_TEST_ROOT)/unit/test_boundaries.py \
+	$(POLLENOMICS_TEST_ROOT)/unit/test_boundary_country_review.py \
 	$(POLLENOMICS_TEST_ROOT)/unit/test_data_contract_surfaces.py \
 	$(POLLENOMICS_TEST_ROOT)/unit/test_data_layout.py \
 	$(POLLENOMICS_TEST_ROOT)/unit/test_source_identity.py \
+	$(POLLENOMICS_TEST_ROOT)/unit/test_source_family_contracts.py \
 	$(POLLENOMICS_TEST_ROOT)/unit/test_source_layout_contract.py \
 	$(POLLENOMICS_TEST_ROOT)/unit/test_source_provenance.py \
 	$(POLLENOMICS_TEST_ROOT)/unit/test_source_traceability.py \
@@ -90,6 +99,7 @@ POLLENOMICS_DATA_INPUTS := \
 	$(POLLENOMICS_DATA_TESTS)
 
 POLLENOMICS_MAP_TESTS := \
+	$(POLLENOMICS_TEST_ROOT)/unit/test_map_evidence_projection.py \
 	$(POLLENOMICS_TEST_ROOT)/unit/test_map_publication.py \
 	$(POLLENOMICS_TEST_ROOT)/unit/test_static_atlas_assets.py \
 	$(POLLENOMICS_TEST_ROOT)/unit/test_publication_geography.py \
@@ -136,9 +146,11 @@ POLLENOMICS_DOC_COUNT_INPUTS := \
 	data/boundaries/normalized/nordic_country_boundaries.geojson \
 	data/landclim/normalized/nordic_pollen_site_sequences.geojson \
 	data/neotoma/relational/reconciliation.json \
-	data/sead/raw/acquisitions/sead-live-d1fd2058913372eda1c12e526e0eb7c8a6cec415e9f9e9b5b92b8896597b35ac/admission.json \
-	data/sead/raw/acquisitions/sead-live-d1fd2058913372eda1c12e526e0eb7c8a6cec415e9f9e9b5b92b8896597b35ac/country-decisions.json \
-	data/sead/raw/acquisitions/sead-live-d1fd2058913372eda1c12e526e0eb7c8a6cec415e9f9e9b5b92b8896597b35ac/payloads/tbl_sites.json \
+	data/sead/normalized/acquisitions/$(POLLENOMICS_SEAD_GOVERNED_RUN)/evidence_materialization_manifest.json \
+	data/sead/normalized/nordic_environmental_sites.geojson \
+	data/sead/raw/acquisitions/$(POLLENOMICS_SEAD_GOVERNED_RUN)/admission.json \
+	data/sead/raw/acquisitions/$(POLLENOMICS_SEAD_GOVERNED_RUN)/country-decisions.json \
+	data/sead/raw/acquisitions/$(POLLENOMICS_SEAD_GOVERNED_RUN)/payloads/tbl_sites.json \
 	docs/report/regions/nordic/nordic_pollen_site_sequences.geojson \
 	docs/report/regions/nordic/nordic_pollen_sites.geojson \
 	docs/report/countries/sweden/sweden_aadr_v66_summary.json \
