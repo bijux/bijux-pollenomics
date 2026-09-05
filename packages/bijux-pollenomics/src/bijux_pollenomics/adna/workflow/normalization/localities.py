@@ -128,7 +128,12 @@ def build_species_project_locality_records(
             fallback_text=lead.chronology_text,
             fallback_start_bp=lead.time_start_bp,
             fallback_end_bp=lead.time_end_bp,
-            dating_basis=project.chronology_basis or project.dating_basis or "unknown",
+            dating_basis=_locality_dating_basis(
+                matched_sample_rows,
+                fallback=(
+                    project.chronology_basis or project.dating_basis or "unknown"
+                ),
+            ),
         )
         identity = AdnaLocalityIdentity(
             namespace=f"{species.slug}:project_locality",
@@ -217,3 +222,22 @@ def build_species_project_locality_records(
     )
     refusals.sort(key=lambda item: item.source_token)
     return tuple(locality_records), tuple(refusals)
+
+
+def _locality_dating_basis(
+    sample_rows: list[AdnaCuratedSampleRow],
+    *,
+    fallback: str,
+) -> str:
+    admitted_bases = {
+        row.dating_basis.strip()
+        for row in sample_rows
+        if row.time_start_bp is not None
+        and row.time_end_bp is not None
+        and row.dating_basis.strip() not in {"", "unknown"}
+    }
+    if len(admitted_bases) == 1:
+        return next(iter(admitted_bases))
+    if len(admitted_bases) > 1:
+        return fallback if fallback.startswith("mixed_") else "mixed_dating_basis"
+    return fallback

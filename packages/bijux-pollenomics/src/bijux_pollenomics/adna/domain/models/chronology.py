@@ -4,7 +4,11 @@ from __future__ import annotations
 
 from dataclasses import dataclass
 
-from ....core.temporal_semantics import build_temporal_semantics
+from ....core.temporal_semantics import (
+    InvalidBpIntervalError,
+    build_temporal_semantics,
+    canonical_bp_interval,
+)
 
 
 @dataclass(frozen=True)
@@ -62,19 +66,45 @@ class AdnaChronology:
         comparison_note: str = "",
     ) -> dict[str, object]:
         """Expose one shared temporal semantics payload for direct-evidence chronology."""
-        comparability_posture = "unresolved"
-        if self.precision_posture in {
+        numeric_postures = {
             "sample_precise_point",
             "sample_precise_interval",
-        }:
-            comparability_posture = "numeric_interval"
-        elif self.precision_posture in {
+        }
+        caveated_numeric_postures = {
             "sample_approximate_or_modeled",
             "contextual_interval",
-        }:
+        }
+        try:
+            interval = canonical_bp_interval(self.time_start_bp, self.time_end_bp)
+        except InvalidBpIntervalError:
+            interval = None
+
+        has_numeric_interval = interval is not None
+        comparability_posture = "unresolved"
+        if has_numeric_interval and self.precision_posture in numeric_postures:
+            comparability_posture = "numeric_interval"
+        elif (
+            has_numeric_interval and self.precision_posture in caveated_numeric_postures
+        ):
             comparability_posture = "numeric_interval_with_caveat"
-        elif self.precision_posture == "broad_period_only":
+        elif self.original_text.strip():
             comparability_posture = "contextual_label_only"
+
+        time_start_bp = (
+            self.time_start_bp if "numeric_interval" in comparability_posture else None
+        )
+        time_end_bp = (
+            self.time_end_bp if "numeric_interval" in comparability_posture else None
+        )
+        time_mean_bp = (
+            self.time_mean_bp
+            if "numeric_interval" in comparability_posture
+            and self.time_mean_bp is not None
+            and self.time_start_bp is not None
+            and self.time_end_bp is not None
+            and self.time_start_bp <= self.time_mean_bp <= self.time_end_bp
+            else None
+        )
         resolved_note = comparison_note.strip()
         if not resolved_note:
             if comparability_posture == "numeric_interval":
@@ -90,9 +120,9 @@ class AdnaChronology:
             evidence_class=self.evidence_class,
             precision_posture=self.precision_posture,
             comparability_posture=comparability_posture,
-            time_start_bp=self.time_start_bp,
-            time_end_bp=self.time_end_bp,
-            time_mean_bp=self.time_mean_bp,
+            time_start_bp=time_start_bp,
+            time_end_bp=time_end_bp,
+            time_mean_bp=time_mean_bp,
             summary_label=self.original_text,
             comparison_note=resolved_note,
             provenance_path=provenance_path,

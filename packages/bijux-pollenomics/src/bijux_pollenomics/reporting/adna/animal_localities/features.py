@@ -43,6 +43,14 @@ def _build_point_feature(
         {"label": "Publication year", "value": row.publication_year},
         {"label": "Journal", "value": row.journal_title},
         {"label": "Chronology", "value": row.chronology.original_text},
+        {
+            "label": "Chronology evidence class",
+            "value": row.chronology.evidence_class.replace("_", " "),
+        },
+        {
+            "label": "Chronology precision posture",
+            "value": row.chronology.precision_posture.replace("_", " "),
+        },
         {"label": "Temporal window", "value": temporal_window_label},
         {
             "label": "Temporal comparison posture",

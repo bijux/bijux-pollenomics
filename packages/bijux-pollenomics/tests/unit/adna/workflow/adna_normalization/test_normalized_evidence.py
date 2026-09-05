@@ -82,3 +82,41 @@ class AdnaNormalizationUnitTests(unittest.TestCase):
             self.assertEqual(payload["evidence_domain"], "animal_ancient_dna")
             self.assertFalse(payload["pollen_eligible"])
             self.assertFalse(payload["pollen_propagation_eligible"])
+
+    def test_pig_site_localities_preserve_admitted_archaeological_basis(self) -> None:
+        bundle = build_species_normalization_bundle("pig")
+        pig_sites = {
+            locality.locality: locality
+            for locality in bundle.locality_records
+            if locality.project_accessions == ("PRJEB30282",)
+        }
+
+        self.assertEqual(set(pig_sites), {"Bundsø", "Trelleborg"})
+        self.assertEqual(
+            {
+                name: (
+                    locality.time_start_bp,
+                    locality.time_end_bp,
+                    locality.dating_basis,
+                    locality.chronology.evidence_class,
+                    locality.chronology.precision_posture,
+                )
+                for name, locality in pig_sites.items()
+            },
+            {
+                "Bundsø": (
+                    4700,
+                    4700,
+                    "archaeological_context",
+                    "archaeological_context_date",
+                    "sample_approximate_or_modeled",
+                ),
+                "Trelleborg": (
+                    1000,
+                    1000,
+                    "archaeological_context",
+                    "archaeological_context_date",
+                    "sample_approximate_or_modeled",
+                ),
+            },
+        )

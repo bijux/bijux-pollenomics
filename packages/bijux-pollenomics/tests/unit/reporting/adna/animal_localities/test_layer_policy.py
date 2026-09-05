@@ -1,5 +1,11 @@
-"""Animal atlas layer-role and styling policy tests."""
+"""Animal atlas layer-role, chronology, and styling policy tests."""
 
+from __future__ import annotations
+
+from pathlib import Path
+from typing import cast
+
+from bijux_pollenomics.core.repository import repository_data_root
 from bijux_pollenomics.reporting.adna import animal_localities
 
 
@@ -28,3 +34,71 @@ def test_species_style_and_alpha_fallbacks_are_stable() -> None:
     }
     assert animal_localities._alpha("#15803d", 0.1) == "rgba(21, 128, 61, 0.10)"
     assert animal_localities._alpha("invalid", 0.1) == "invalid"
+
+
+def test_real_animal_layers_retain_caveated_time_without_inventing_radiocarbon(
+    tmp_path: Path,
+) -> None:
+    bundle = animal_localities.build_tracked_animal_atlas_bundle(
+        data_root=repository_data_root(__file__),
+        output_dir=tmp_path,
+        atlas_slug="chronology-contract",
+    )
+    layers = {str(layer["species_latin_name"]): layer for layer in bundle.point_layers}
+    pig_layer = layers["Sus scrofa domesticus"]
+    pig_features = cast(list[dict[str, object]], pig_layer["features"])
+
+    assert pig_layer["applies_time_filter"] is True
+    assert {
+        str(feature["title"]): (
+            feature["time_start_bp"],
+            feature["time_end_bp"],
+            cast(dict[str, object], feature["temporal_semantics"])[
+                "comparability_posture"
+            ],
+        )
+        for feature in pig_features
+    } == {
+        "Bundsø": (4700, 4700, "numeric_interval_with_caveat"),
+        "Trelleborg": (1000, 1000, "numeric_interval_with_caveat"),
+    }
+    assert {
+        min(cast(int, feature["time_start_bp"]) for feature in pig_features),
+        max(cast(int, feature["time_end_bp"]) for feature in pig_features),
+    } == {1000, 4700}
+
+    all_features = [
+        feature
+        for layer in bundle.point_layers
+        for feature in cast(list[dict[str, object]], layer["features"])
+    ]
+    numeric_caveated = [
+        feature
+        for feature in all_features
+        if cast(dict[str, object], feature["temporal_semantics"])[
+            "comparability_posture"
+        ]
+        == "numeric_interval_with_caveat"
+    ]
+    untimed = [
+        feature
+        for feature in all_features
+        if feature["time_start_bp"] is None and feature["time_end_bp"] is None
+    ]
+
+    assert len(numeric_caveated) == 6
+    assert all(feature["time_start_bp"] is not None for feature in numeric_caveated)
+    assert len(untimed) == 21
+    assert {
+        cast(dict[str, object], feature["temporal_semantics"])["comparability_posture"]
+        for feature in untimed
+    } == {"contextual_label_only"}
+
+    for feature in pig_features:
+        popup = {
+            str(item["label"]): str(item["value"])
+            for item in cast(list[dict[str, object]], feature["popup_rows"])
+        }
+        assert popup["Chronology evidence class"] == "archaeological context date"
+        assert popup["Chronology precision posture"] == "sample approximate or modeled"
+        assert "radiocarbon" not in " ".join(popup.values()).casefold()
