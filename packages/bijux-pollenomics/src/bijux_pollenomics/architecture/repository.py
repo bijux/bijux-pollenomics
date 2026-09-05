@@ -132,8 +132,8 @@ def build_repository_architecture_contract() -> RepositoryArchitectureContract:
         ),
         ArchitectureStage(
             stage_key="evidence_review",
-            owner_module="bijux_pollenomics.foundation",
-            owner_path="packages/bijux-pollenomics/src/bijux_pollenomics/foundation",
+            owner_module="bijux_pollenomics.governance",
+            owner_path="packages/bijux-pollenomics/src/bijux_pollenomics/governance",
             purpose="publish repository-truth, release, and ranking review surfaces",
             tracked_inputs=("data/adna/species", "docs/report"),
             tracked_outputs=("docs/report/*review*", "docs/report/*audit*"),
@@ -269,7 +269,7 @@ def build_repository_architecture_contract() -> RepositoryArchitectureContract:
             repository_path="docs/report/",
             owner_modules=(
                 "bijux_pollenomics.reporting",
-                "bijux_pollenomics.foundation",
+                "bijux_pollenomics.governance",
             ),
             purpose="governed public outputs, review surfaces, and release-facing artifacts",
         ),
@@ -277,7 +277,7 @@ def build_repository_architecture_contract() -> RepositoryArchitectureContract:
             surface_key="reader_explanation_state",
             repository_path="docs/",
             owner_modules=(
-                "bijux_pollenomics.foundation",
+                "bijux_pollenomics.governance",
                 "bijux_pollenomics_dev.docs",
             ),
             purpose="handbook explanations that interpret the tracked code and data surfaces",
@@ -290,8 +290,7 @@ def build_repository_architecture_contract() -> RepositoryArchitectureContract:
         cross_tree_surfaces=cross_tree_surfaces,
         allowed_broad_boundaries={
             "core": "low-level shared primitives such as files, text, geojson, and HTTP",
-            "foundation": (
-                "repository truth, release posture, architecture contracts, and ownership maps"
-            ),
+            "architecture": "repository topology, ownership, and surface contracts",
+            "governance": "repository truth, country coverage, and release posture",
         },
     )

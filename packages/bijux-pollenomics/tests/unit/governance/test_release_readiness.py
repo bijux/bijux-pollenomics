@@ -2,7 +2,7 @@ from __future__ import annotations
 
 import unittest
 
-from bijux_pollenomics.foundation import (
+from bijux_pollenomics.governance import (
     build_release_bar,
     build_release_readiness_report,
 )

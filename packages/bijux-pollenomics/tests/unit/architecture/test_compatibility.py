@@ -2,7 +2,7 @@ from __future__ import annotations
 
 import unittest
 
-from bijux_pollenomics.foundation import compatibility_alias_contract
+from bijux_pollenomics.architecture import compatibility_alias_contract
 
 
 class CompatibilityAliasContractUnitTests(unittest.TestCase):

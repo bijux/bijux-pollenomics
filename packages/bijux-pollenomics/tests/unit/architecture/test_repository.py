@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-from bijux_pollenomics.foundation import build_repository_architecture_contract
+from bijux_pollenomics.architecture import build_repository_architecture_contract
 
 
 def test_repository_architecture_contract_exposes_lifecycle_and_package_split() -> None:
@@ -42,4 +42,8 @@ def test_repository_architecture_contract_connects_code_data_and_docs_roots() ->
         "public_publication_state": "docs/report/",
         "reader_explanation_state": "docs/",
     }
-    assert set(contract.allowed_broad_boundaries) == {"core", "foundation"}
+    assert set(contract.allowed_broad_boundaries) == {
+        "architecture",
+        "core",
+        "governance",
+    }

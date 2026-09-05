@@ -5,7 +5,7 @@ import re
 
 import pytest
 
-from bijux_pollenomics.foundation import build_repository_architecture_contract
+from bijux_pollenomics.architecture import build_repository_architecture_contract
 
 REPO_ROOT = Path(__file__).resolve().parents[4]
 RUNTIME_SRC = REPO_ROOT / "packages" / "bijux-pollenomics" / "src" / "bijux_pollenomics"
@@ -148,10 +148,10 @@ def test_adna_domain_does_not_import_publication_or_rendering_policy_modules() -
 
 
 def test_release_readiness_gate_stays_outside_adna_domain() -> None:
-    release_gate = (RUNTIME_SRC / "foundation" / "release_readiness.py").read_text(
+    release_gate = (RUNTIME_SRC / "governance" / "release_readiness.py").read_text(
         encoding="utf-8"
     )
-    release_bar = (RUNTIME_SRC / "foundation" / "release_bar.py").read_text(
+    release_bar = (RUNTIME_SRC / "governance" / "release_bar.py").read_text(
         encoding="utf-8"
     )
     adna_modules = "\n".join(

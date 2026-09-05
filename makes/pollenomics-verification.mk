@@ -107,7 +107,7 @@ POLLENOMICS_MAP_TESTS := \
 	$(POLLENOMICS_TEST_ROOT)/unit/test_report_portal.py \
 	$(POLLENOMICS_TEST_ROOT)/unit/test_evidence_surface.py \
 	$(POLLENOMICS_TEST_ROOT)/unit/test_propagation_outputs.py \
-	$(POLLENOMICS_TEST_ROOT)/unit/test_public_artifact_language.py
+	$(POLLENOMICS_TEST_ROOT)/unit/governance/test_public_artifact_language.py
 POLLENOMICS_MAP_INPUTS := \
 	$(POLLENOMICS_GATE_TRUST_INPUTS) \
 	configs/pytest.ini \
@@ -131,11 +131,11 @@ POLLENOMICS_PROVENANCE_INPUTS := \
 	$(POLLENOMICS_PROVENANCE_TESTS)
 
 POLLENOMICS_DOC_COUNT_TESTS := \
-	$(POLLENOMICS_TEST_ROOT)/unit/test_country_coverage.py \
+	$(POLLENOMICS_TEST_ROOT)/unit/governance/test_country_coverage.py \
 	$(POLLENOMICS_TEST_ROOT)/unit/test_data_reference_docs.py \
 	$(POLLENOMICS_TEST_ROOT)/unit/test_source_spatiotemporal_posture.py \
 	$(POLLENOMICS_TEST_ROOT)/unit/test_repository_snapshot.py \
-	$(POLLENOMICS_TEST_ROOT)/unit/test_repository_truth.py \
+	$(POLLENOMICS_TEST_ROOT)/unit/governance/test_repository_truth.py \
 	$(POLLENOMICS_TEST_ROOT)/regression/test_docs_breadth.py
 POLLENOMICS_DOC_COUNT_INPUTS := \
 	$(POLLENOMICS_GATE_TRUST_INPUTS) \
@@ -164,7 +164,7 @@ POLLENOMICS_DOC_COUNT_INPUTS := \
 	data/source_family_evidence_stage_matrix.json \
 	data/source_spatiotemporal_posture_registry.json \
 	docs/public/pollenomics-data \
-	$(wildcard $(POLLENOMICS_SOURCE_ROOT)/foundation/*.py) \
+	$(wildcard $(POLLENOMICS_SOURCE_ROOT)/governance/*.py) \
 	$(wildcard $(POLLENOMICS_SOURCE_ROOT)/reporting/review/*.py) \
 	$(POLLENOMICS_DOC_COUNT_TESTS)
 

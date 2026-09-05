@@ -6,7 +6,7 @@ import unittest
 
 import pytest
 
-from bijux_pollenomics.foundation import (
+from bijux_pollenomics.governance import (
     build_repository_atlas_input_audit,
     build_repository_brutal_honesty_review,
     build_repository_claim_audit,
@@ -55,7 +55,7 @@ pytestmark = pytest.mark.generated_artifacts
 
 class RepositoryTruthUnitTests(unittest.TestCase):
     def setUp(self) -> None:
-        self.repo_root = Path(__file__).resolve().parents[4]
+        self.repo_root = Path(__file__).resolve().parents[5]
         self.data_root = self.repo_root / "data"
         self.docs_root = self.repo_root / "docs"
         self.report_root = self.docs_root / "report"

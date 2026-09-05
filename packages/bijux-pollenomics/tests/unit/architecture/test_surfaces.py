@@ -2,7 +2,7 @@ from __future__ import annotations
 
 import unittest
 
-from bijux_pollenomics.foundation import SurfaceMap, build_surface_map
+from bijux_pollenomics.architecture import SurfaceMap, build_surface_map
 
 
 class SurfaceMapUnitTests(unittest.TestCase):

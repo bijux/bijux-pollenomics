@@ -20,7 +20,7 @@ import time
 
 from defusedxml import ElementTree as ET  # type: ignore[import-untyped]
 
-from ..foundation.country_coverage import INPUT_PATHS as _COUNTRY_COVERAGE_INPUT_PATHS
+from ..governance.country_coverage import INPUT_PATHS as _COUNTRY_COVERAGE_INPUT_PATHS
 from .release_evidence import ReleaseEvidenceError, hash_repository_object
 
 __all__ = [
@@ -228,7 +228,7 @@ _GATE_GLOBS: dict[str, tuple[str, ...]] = {
     ),
     "provenance": ("packages/bijux-pollenomics/src/bijux_pollenomics/provenance/*.py",),
     "doc-counts": (
-        "packages/bijux-pollenomics/src/bijux_pollenomics/foundation/*.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/governance/*.py",
         "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/review/*.py",
     ),
 }

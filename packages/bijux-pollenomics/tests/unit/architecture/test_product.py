@@ -2,7 +2,7 @@ from __future__ import annotations
 
 import unittest
 
-from bijux_pollenomics.foundation import ProductScope, build_product_scope
+from bijux_pollenomics.architecture import ProductScope, build_product_scope
 
 
 class ProductScopeUnitTests(unittest.TestCase):

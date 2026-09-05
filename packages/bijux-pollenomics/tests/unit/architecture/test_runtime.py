@@ -2,7 +2,7 @@ from __future__ import annotations
 
 import unittest
 
-from bijux_pollenomics.foundation import runtime_surface_contract
+from bijux_pollenomics.architecture import runtime_surface_contract
 
 
 class RuntimeSurfaceContractUnitTests(unittest.TestCase):

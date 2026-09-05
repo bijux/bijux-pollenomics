@@ -231,7 +231,7 @@
       "id": "documentation-counts-and-claims",
       "paths": [
         "docs/**",
-        "packages/bijux-pollenomics/src/bijux_pollenomics/foundation/repository_truth.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/governance/repository_truth.py",
         "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/review/**"
       ],
       "gates": [

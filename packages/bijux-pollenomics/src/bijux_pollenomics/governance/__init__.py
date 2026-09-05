@@ -1,21 +1,10 @@
-"""Repository truth, ownership, and release-governance public surface."""
+"""Repository truth, coverage, publication language, and release governance."""
 
-from .alias import CompatibilityAliasContract, compatibility_alias_contract
-from .architecture import (
-    ArchitectureStage,
-    CrossTreeSurfaceContract,
-    PackageOwnershipContract,
-    RepositoryArchitectureContract,
-    build_repository_architecture_contract,
-)
-from .contracts import RuntimeSurfaceContract, runtime_surface_contract
 from .country_coverage import (
     CountryCoverageError,
     build_country_dimension_coverage_ledger,
     write_country_dimension_coverage_ledger,
 )
-from .ownership_map import OwnershipMapEntry, build_ownership_map
-from .product_scope import ProductScope, build_product_scope
 from .public_artifact_language import (
     DISALLOWED_PUBLIC_ARTIFACT_TOKENS,
     PUBLIC_INFORMATION_ROLE_MEANINGS,
@@ -70,31 +59,18 @@ from .repository_truth import (
     render_repository_source_family_matrix_markdown,
     render_repository_truth_posture_markdown,
 )
-from .surface_map import SurfaceMap, build_surface_map
 
 __all__ = [
     "DISALLOWED_PUBLIC_ARTIFACT_TOKENS",
     "PUBLIC_INFORMATION_ROLE_MEANINGS",
-    "ArchitectureStage",
-    "CompatibilityAliasContract",
     "CountryCoverageError",
-    "CrossTreeSurfaceContract",
-    "OwnershipMapEntry",
-    "PackageOwnershipContract",
     "PollenomicsReleaseBar",
-    "ProductScope",
     "PublicArtifactLanguageFinding",
     "ReleaseReadinessReport",
-    "RepositoryArchitectureContract",
-    "RuntimeSurfaceContract",
-    "SurfaceMap",
     "audit_public_artifact_inventory",
     "build_country_dimension_coverage_ledger",
-    "build_ownership_map",
-    "build_product_scope",
     "build_release_bar",
     "build_release_readiness_report",
-    "build_repository_architecture_contract",
     "build_repository_atlas_input_audit",
     "build_repository_brutal_honesty_review",
     "build_repository_claim_audit",
@@ -115,8 +91,6 @@ __all__ = [
     "build_repository_source_explainer_audit",
     "build_repository_source_family_matrix",
     "build_repository_truth_posture",
-    "build_surface_map",
-    "compatibility_alias_contract",
     "extract_markdown_heading",
     "infer_public_information_role",
     "render_repository_atlas_input_audit_markdown",
@@ -139,7 +113,6 @@ __all__ = [
     "render_repository_source_explainer_audit_markdown",
     "render_repository_source_family_matrix_markdown",
     "render_repository_truth_posture_markdown",
-    "runtime_surface_contract",
     "split_public_artifact_stem",
     "validate_public_artifact_stem",
     "write_country_dimension_coverage_ledger",

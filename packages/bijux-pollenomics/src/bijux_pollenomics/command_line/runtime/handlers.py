@@ -17,6 +17,11 @@ from ...adna.api import (
     build_species_support_matrix,
 )
 from ...adna.species.tracked_species import TRACKED_ADNA_SPECIES
+from ...architecture import (
+    build_ownership_map,
+    build_product_scope,
+    build_surface_map,
+)
 from ...data_downloader import (
     build_source_support_matrix,
     collect_data,
@@ -25,13 +30,7 @@ from ...data_downloader import (
 from ...data_downloader.repository_snapshot import (
     materialize_repository_collection_snapshot,
 )
-from ...foundation import (
-    build_ownership_map,
-    build_product_scope,
-    build_release_bar,
-    build_release_readiness_report,
-    build_surface_map,
-)
+from ...governance import build_release_bar, build_release_readiness_report
 from ...reporting import (
     generate_country_report,
     generate_multi_country_map,

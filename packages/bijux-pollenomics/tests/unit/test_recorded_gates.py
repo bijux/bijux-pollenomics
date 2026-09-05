@@ -10,7 +10,7 @@ import sys
 
 import pytest
 
-from bijux_pollenomics.foundation.country_coverage import INPUT_PATHS
+from bijux_pollenomics.governance.country_coverage import INPUT_PATHS
 from bijux_pollenomics.provenance import gates as gate_module
 from bijux_pollenomics.provenance.gates import (
     build_product_gate_specification,

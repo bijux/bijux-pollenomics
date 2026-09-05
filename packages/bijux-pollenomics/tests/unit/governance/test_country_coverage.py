@@ -13,8 +13,8 @@ import pytest
 from bijux_pollenomics.data_downloader.sources.sead.evidence_reader import (
     SEAD_GOVERNED_EVIDENCE_RUN_ID,
 )
-import bijux_pollenomics.foundation.country_coverage as country_coverage_module
-from bijux_pollenomics.foundation.country_coverage import (
+import bijux_pollenomics.governance.country_coverage as country_coverage_module
+from bijux_pollenomics.governance.country_coverage import (
     CELL_SCHEMA_ID,
     COUNT_FIELDS,
     COUNTRIES,
@@ -26,7 +26,7 @@ from bijux_pollenomics.foundation.country_coverage import (
 
 _READ_BYTES = Path.read_bytes
 
-_REPOSITORY_ROOT = Path(__file__).resolve().parents[4]
+_REPOSITORY_ROOT = Path(__file__).resolve().parents[5]
 _CELL_SCHEMA_PATH = (
     _REPOSITORY_ROOT.parent
     / "bijux-pollenomics-execution-control/contracts/country-coverage.schema.json"
@@ -1175,8 +1175,8 @@ def test_atomic_writer_creates_approved_nested_artifact_destination(
         ".git/country-coverage.json",
         "pyproject.toml",
         "data/unrelated-country-output.json",
-        "packages/bijux-pollenomics/src/bijux_pollenomics/foundation/country_coverage.py",
-        "packages/bijux-pollenomics/tests/unit/test_country_coverage.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/governance/country_coverage.py",
+        "packages/bijux-pollenomics/tests/unit/governance/test_country_coverage.py",
         "artifacts/unrelated-country-output.json",
     ),
 )

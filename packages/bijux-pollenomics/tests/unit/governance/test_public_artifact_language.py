@@ -5,7 +5,7 @@ import unittest
 
 import pytest
 
-from bijux_pollenomics.foundation import (
+from bijux_pollenomics.governance import (
     DISALLOWED_PUBLIC_ARTIFACT_TOKENS,
     PUBLIC_INFORMATION_ROLE_MEANINGS,
     audit_public_artifact_inventory,
@@ -18,7 +18,7 @@ pytestmark = pytest.mark.generated_artifacts
 
 class PublicArtifactLanguageUnitTests(unittest.TestCase):
     def setUp(self) -> None:
-        self.repo_root = Path(__file__).resolve().parents[4]
+        self.repo_root = Path(__file__).resolve().parents[5]
 
     def test_role_taxonomy_and_disallowed_tokens_stay_explicit(self) -> None:
         self.assertIn("review", PUBLIC_INFORMATION_ROLE_MEANINGS)

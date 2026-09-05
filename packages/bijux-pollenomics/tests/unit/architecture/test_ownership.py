@@ -2,7 +2,7 @@ from __future__ import annotations
 
 import unittest
 
-from bijux_pollenomics.foundation import OwnershipMapEntry, build_ownership_map
+from bijux_pollenomics.architecture import OwnershipMapEntry, build_ownership_map
 
 
 class OwnershipMapUnitTests(unittest.TestCase):
