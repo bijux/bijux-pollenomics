@@ -1,22 +1,18 @@
-"""aDNA source registry and materialization tests."""
+"""Materialized source-library registry publication behavior."""
 
 from __future__ import annotations
 
-from __future__ import annotations
 import io
 import json
 from pathlib import Path
 import tempfile
+from typing import cast
 import unittest
 import zipfile
-from bijux_pollenomics.adna.workflow.source_artifacts import (
-    read_source_artifact_text,
-)
-from bijux_pollenomics.adna.sources import library as source_library_module
+
 from bijux_pollenomics.adna.sources.library import (
     build_paper_registry,
     build_project_registry,
-    build_project_source_bundles,
     build_source_artifact_index,
     build_source_intake_audit,
     build_source_intake_release_guard,
@@ -26,28 +22,10 @@ from bijux_pollenomics.adna.sources.library import (
     materialize_source_library,
     refresh_source_library,
 )
+from bijux_pollenomics.adna.workflow.source_artifacts import read_source_artifact_text
 
 
 class SourceRegistryMaterializationTests(unittest.TestCase):
-    def test_download_url_rejects_non_http_scheme(self) -> None:
-        with self.assertRaisesRegex(ValueError, "Unsupported URL for network fetch"):
-            source_library_module._download_url("file:///tmp/source.pdf")
-
-    def test_project_source_bundles_flag_missing_local_sources_before_refresh(
-        self,
-    ) -> None:
-        with tempfile.TemporaryDirectory() as tmp:
-            output_root = Path(tmp) / "data"
-            bundles = build_project_source_bundles(output_root)
-
-        horse_bundle = next(
-            item for item in bundles if item.project_accession == "PRJEB22390"
-        )
-        self.assertTrue(horse_bundle.paper_required)
-        self.assertFalse(horse_bundle.supplement_required)
-        self.assertIn("missing_local_paper_evidence", horse_bundle.blockers)
-        self.assertNotIn("missing_local_supplementary_material", horse_bundle.blockers)
-
     def test_refresh_and_materialize_source_library_publish_master_registries(
         self,
     ) -> None:
@@ -591,7 +569,9 @@ class SourceRegistryMaterializationTests(unittest.TestCase):
             )
             self.assertEqual(article_artifact.content_encoding, "gzip")
             self.assertTrue(str(article_artifact.storage_path).endswith(".html.gz"))
-            self.assertGreater(storage_audit["compressed_html_artifact_count"], 0)
+            self.assertGreater(
+                cast(int, storage_audit["compressed_html_artifact_count"]), 0
+            )
             self.assertEqual(storage_audit["uncompressed_html_artifact_count"], 0)
 
             bundle_path = (
