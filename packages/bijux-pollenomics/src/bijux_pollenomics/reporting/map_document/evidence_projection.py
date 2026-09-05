@@ -14,9 +14,16 @@ from ...core.geojson import JsonObject
 from ...data_downloader.sources.neotoma.materialization import (
     validate_neotoma_relational_materialization,
 )
+from ...data_downloader.sources.sead.evidence_reader import (
+    SEAD_GOVERNED_ADMISSION_SHA256,
+    SEAD_GOVERNED_EVIDENCE_MANIFEST_SHA256,
+    SEAD_GOVERNED_EVIDENCE_RUN_ID,
+    governed_sead_evidence_root,
+    read_validated_sead_evidence_documents,
+)
 from .evidence import DETAIL_TAB_KEYS
 
-PROJECTION_SCHEMA_VERSION: Final = "atlas-evidence-projection.v1"
+PROJECTION_SCHEMA_VERSION: Final = "atlas-evidence-projection.v2"
 _NEOTOMA_LAYER_KEY: Final = "neotoma-pollen"
 _SEAD_LAYER_KEYS: Final = frozenset(
     {
@@ -62,6 +69,9 @@ _SEAD_CLAIM_FIELDS: Final = (
     "transformation_id",
     "selection_status",
     "selection_rule_version",
+    "observation_link_status",
+    "observation_relation_id",
+    "linked_source_native_observation_count",
     "source_relation_path",
     "source_payload_sha256",
 )
@@ -94,10 +104,126 @@ _SEAD_DICTIONARY_FIELDS: Final = frozenset(
         "transformation_id",
         "selection_status",
         "selection_rule_version",
+        "observation_link_status",
     }
 )
 _SEAD_LIST_DICTIONARY_FIELDS: Final = frozenset(
     {"propagation_reason_codes", "reason_codes"}
+)
+_SEAD_EVIDENCE_DOCUMENTS: Final = (
+    "chronology_claims.json",
+    "source_native_observations.json",
+    "observation_relation_index.json",
+    "evidence_events.json",
+)
+_SEAD_OBSERVATION_FIELDS: Final = (
+    "observation_id",
+    "source_table",
+    "source_record_id",
+    "entity_relation_id",
+    "analysis_entity_id",
+    "physical_sample_id",
+    "sample_group_id",
+    "dataset_id",
+    "source_value",
+    "source_value_field",
+    "source_value_state",
+    "source_unit_id",
+    "unit_status",
+    "value_semantics_id",
+    "dataset_semantics_id",
+    "dataset_semantics_status",
+    "taxon_relation_id",
+    "taxon_status",
+    "dimension_relation_ids",
+    "dimension_status",
+    "chronology_link_status",
+    "chronology_claim_count",
+    "chronology_eligible_claim_count",
+    "event_eligibility",
+    "event_refusal_reason_codes",
+    "source_payload_sha256",
+)
+_SEAD_OBSERVATION_DICTIONARY_FIELDS: Final = frozenset(
+    {
+        "source_table",
+        "source_value_field",
+        "source_value_state",
+        "unit_status",
+        "dataset_semantics_status",
+        "taxon_status",
+        "dimension_status",
+        "chronology_link_status",
+        "event_eligibility",
+    }
+)
+_SEAD_OBSERVATION_LIST_DICTIONARY_FIELDS: Final = frozenset(
+    {"event_refusal_reason_codes"}
+)
+_SEAD_ENTITY_FIELDS: Final = (
+    "entity_relation_id",
+    "analysis_entity_id",
+    "physical_sample_id",
+    "sample_group_id",
+    "dataset_id",
+    "chronology_claim_ids",
+    "eligible_chronology_claim_ids",
+)
+_SEAD_TAXON_FIELDS: Final = (
+    "taxon_relation_id",
+    "taxon_id",
+    "species",
+    "genus_name",
+    "family_name",
+    "order_name",
+    "author_name",
+    "source_ecocodes",
+    "derived_classification_status",
+)
+_SEAD_DIMENSION_FIELDS: Final = (
+    "dimension_relation_id",
+    "owner_kind",
+    "owner_id",
+    "source_table",
+    "source_record_id",
+    "dimension_semantics_id",
+    "dimension_value",
+    "qualifier_id",
+    "unit_status",
+)
+_SEAD_DIMENSION_SEMANTIC_FIELDS: Final = (
+    "dimension_semantics_id",
+    "dimension_id",
+    "dimension_name",
+    "dimension_abbrev",
+    "dimension_description",
+    "source_unit_id",
+    "unit_name",
+    "unit_abbrev",
+    "unit_description",
+    "unit_status",
+)
+_SEAD_DATASET_SEMANTIC_FIELDS: Final = (
+    "dataset_semantics_id",
+    "dataset_id",
+    "dataset_uuid",
+    "dataset_name",
+    "data_type_id",
+    "data_type_name",
+    "data_type_group_name",
+)
+_SEAD_VALUE_SEMANTIC_FIELDS: Final = (
+    "value_semantics_id",
+    "value_class_id",
+    "value_class_name",
+    "value_class_description",
+    "value_type_id",
+    "value_type_name",
+    "base_type",
+    "source_unit_id",
+    "unit_name",
+    "unit_abbrev",
+    "unit_description",
 )
 _SEAD_SOURCE_AGE_INHERITED_FIELDS: Final = {
     "analysis_entity_id": "analysis_entity_id",
@@ -508,26 +634,43 @@ def _project_sead(
     context_root: Path,
     layers: Sequence[MutableMapping[str, object]],
 ) -> tuple[list[dict[str, object]], dict[str, object]]:
-    claims_path = context_root / "sead" / "normalized" / "chronology_claims.json"
-    claims_bundle = _read_json_object(claims_path, "SEAD chronology claim bundle")
-    if claims_bundle.get("schema_version") != "sead-chronology-claim-bundle.v1":
-        raise ValueError("SEAD chronology claim bundle schema is unsupported")
-    if claims_bundle.get("source_family") != "sead":
-        raise ValueError("SEAD chronology claim bundle source family changed")
+    evidence_root = governed_sead_evidence_root(context_root)
+    documents = read_validated_sead_evidence_documents(
+        evidence_root,
+        _SEAD_EVIDENCE_DOCUMENTS,
+        expected_run_id=SEAD_GOVERNED_EVIDENCE_RUN_ID,
+        expected_manifest_sha256=SEAD_GOVERNED_EVIDENCE_MANIFEST_SHA256,
+    )
+    claims_bundle = documents["chronology_claims.json"]
+    observations_bundle = documents["source_native_observations.json"]
+    relation_index = documents["observation_relation_index.json"]
+    events_bundle = documents["evidence_events.json"]
+    _validate_sead_evidence_headers(
+        claims_bundle, observations_bundle, relation_index, events_bundle
+    )
     run_id = _required_text(claims_bundle.get("source_run_id"), "SEAD source run ID")
     acquisition_root = context_root / "sead" / "raw" / "acquisitions" / run_id
     admission = _validate_sead_claim_parents(acquisition_root, claims_bundle)
+    evidence_manifest = _read_json_object(
+        evidence_root / "evidence_materialization_manifest.json",
+        "SEAD evidence materialization manifest",
+    )
+    file_set_sha256 = _required_text(
+        evidence_manifest.get("file_set_sha256"), "SEAD evidence file-set SHA-256"
+    )
+    admission_sha256 = hashlib.sha256(
+        _read_regular_bytes(acquisition_root / "admission.json", "SEAD admission")
+    ).hexdigest()
+    if admission_sha256 != SEAD_GOVERNED_ADMISSION_SHA256:
+        raise ValueError("SEAD governed admission digest changed")
 
-    raw_claims = claims_bundle.get("claims")
-    if not isinstance(raw_claims, list) or any(
-        not isinstance(row, Mapping) for row in raw_claims
-    ):
-        raise ValueError("SEAD chronology claims must be object rows")
+    raw_claims = _object_rows(claims_bundle, "claims", "SEAD chronology claims")
     if claims_bundle.get("claim_count") != len(raw_claims):
         raise ValueError("SEAD chronology claim count does not reconcile")
     claims_by_site: dict[str, list[Mapping[str, object]]] = defaultdict(list)
     claim_ids: set[str] = set()
-    for row in cast(list[Mapping[str, object]], raw_claims):
+    claim_country_counts: Counter[str] = Counter()
+    for row in raw_claims:
         claim_id = _required_text(
             row.get("chronology_claim_id"), "SEAD chronology claim ID"
         )
@@ -542,6 +685,247 @@ def _project_sead(
         ):
             raise ValueError("SEAD claim acquisition identity changed")
         claims_by_site[site_id].append(row)
+        claim_country_counts[
+            _required_text(row.get("country_code"), "SEAD claim country")
+        ] += 1
+    if dict(sorted(claim_country_counts.items())) != claims_bundle.get(
+        "country_counts"
+    ):
+        raise ValueError("SEAD claim country counts do not reconcile")
+
+    entity_rows = _object_rows(
+        relation_index, "entity_relations", "SEAD entity relations"
+    )
+    taxon_rows = _object_rows(relation_index, "taxon_relations", "SEAD taxa")
+    dimension_rows = _object_rows(
+        relation_index, "dimension_relations", "SEAD dimension relations"
+    )
+    dimension_semantic_rows = _object_rows(
+        relation_index, "dimension_semantics", "SEAD dimension semantics"
+    )
+    dataset_semantic_rows = _object_rows(
+        relation_index, "dataset_semantics", "SEAD dataset semantics"
+    )
+    value_semantic_rows = _object_rows(
+        relation_index, "value_semantics", "SEAD value semantics"
+    )
+    entity_by_id = _unique_rows(
+        entity_rows, "entity_relation_id", "SEAD entity relations"
+    )
+    taxon_by_id = _unique_rows(taxon_rows, "taxon_relation_id", "SEAD taxa")
+    dimension_by_id = _unique_rows(
+        dimension_rows, "dimension_relation_id", "SEAD dimension relations"
+    )
+    dimension_semantic_by_id = _unique_rows(
+        dimension_semantic_rows,
+        "dimension_semantics_id",
+        "SEAD dimension semantics",
+    )
+    dataset_semantic_by_id = _unique_rows(
+        dataset_semantic_rows, "dataset_semantics_id", "SEAD dataset semantics"
+    )
+    value_semantic_by_id = _unique_rows(
+        value_semantic_rows, "value_semantics_id", "SEAD value semantics"
+    )
+    site_by_analysis_entity = _site_by_entity_owner(
+        entity_rows, owner_field="analysis_entity_id"
+    )
+    site_by_physical_sample = _site_by_entity_owner(
+        entity_rows, owner_field="physical_sample_id"
+    )
+    site_by_sample_group = _site_by_entity_owner(
+        entity_rows, owner_field="sample_group_id"
+    )
+    _reconcile_sead_relation_denominators(
+        relation_index,
+        entity_rows=entity_rows,
+        taxon_rows=taxon_rows,
+        dimension_rows=dimension_rows,
+        dimension_semantic_rows=dimension_semantic_rows,
+        dataset_semantic_rows=dataset_semantic_rows,
+        value_semantic_rows=value_semantic_rows,
+    )
+    refusal_rows = _object_rows(events_bundle, "refusals", "SEAD event refusals")
+    refusal_by_observation = _unique_rows(
+        refusal_rows, "observation_id", "SEAD event refusals"
+    )
+    if (
+        events_bundle.get("events") != []
+        or events_bundle.get("eligible_event_count") != 0
+    ):
+        raise ValueError("SEAD evidence unexpectedly contains eligible events")
+    if events_bundle.get("refused_event_count") != len(refusal_rows):
+        raise ValueError("SEAD event refusal count does not reconcile")
+
+    observations = _object_rows(
+        observations_bundle, "observations", "SEAD observations"
+    )
+    if observations_bundle.get("observation_count") != len(observations):
+        raise ValueError("SEAD observation count does not reconcile")
+    if events_bundle.get("observation_denominator") != len(observations):
+        raise ValueError("SEAD event denominator does not reconcile")
+    for field, expected in (
+        ("chronology_claim_count", len(raw_claims)),
+        ("observation_count", len(observations)),
+        ("eligible_event_count", 0),
+        ("refused_event_count", len(refusal_rows)),
+    ):
+        if evidence_manifest.get(field) != expected:
+            raise ValueError(f"SEAD evidence manifest {field} does not reconcile")
+    observations_by_site: dict[str, list[list[object]]] = defaultdict(list)
+    entities_by_site: dict[str, dict[str, list[object]]] = defaultdict(dict)
+    taxon_ids_by_site: dict[str, set[str]] = defaultdict(set)
+    dimension_ids_by_site: dict[str, set[str]] = defaultdict(set)
+    dataset_semantic_ids_by_site: dict[str, set[str]] = defaultdict(set)
+    value_semantic_ids_by_site: dict[str, set[str]] = defaultdict(set)
+    observation_ids: set[str] = set()
+    referenced_taxon_ids: set[str] = set()
+    referenced_dimension_ids: set[str] = set()
+    referenced_dataset_semantic_ids: set[str] = set()
+    referenced_value_semantic_ids: set[str] = set()
+    observation_count_by_entity: Counter[str] = Counter()
+    observation_country_counts: Counter[str] = Counter()
+    observation_table_counts: Counter[str] = Counter()
+    refusal_reason_counts: Counter[str] = Counter()
+    for observation in observations:
+        if observation.get("build_id") != observations_bundle.get("build_id"):
+            raise ValueError("SEAD observation build identity changed")
+        if observation.get("acquisition_manifest_sha256") != observations_bundle.get(
+            "acquisition_manifest_sha256"
+        ):
+            raise ValueError("SEAD observation acquisition identity changed")
+        compact, site_id, references = _compact_sead_observation(
+            observation,
+            entity_by_id=entity_by_id,
+            refusal_by_observation=refusal_by_observation,
+            taxon_by_id=taxon_by_id,
+            dimension_by_id=dimension_by_id,
+            dataset_semantic_by_id=dataset_semantic_by_id,
+            value_semantic_by_id=value_semantic_by_id,
+        )
+        observation_id = cast(str, compact[0])
+        if observation_id in observation_ids:
+            raise ValueError(f"SEAD observation ID is duplicated: {observation_id}")
+        observation_ids.add(observation_id)
+        observations_by_site[site_id].append(compact)
+        entity_id = cast(str, compact[3])
+        observation_count_by_entity[entity_id] += 1
+        observation_country_counts[
+            _required_text(observation.get("country_code"), "SEAD observation country")
+        ] += 1
+        observation_table_counts[
+            _required_text(observation.get("source_table"), "SEAD observation table")
+        ] += 1
+        refusal_reason_counts.update(
+            cast(
+                list[str],
+                compact[_SEAD_OBSERVATION_FIELDS.index("event_refusal_reason_codes")],
+            )
+        )
+        entities_by_site[site_id][entity_id] = _compact_sead_entity(
+            entity_by_id[entity_id]
+        )
+        taxon_id, dimension_ids, dataset_id, value_id = references
+        if taxon_id is not None:
+            taxon_ids_by_site[site_id].add(taxon_id)
+            referenced_taxon_ids.add(taxon_id)
+        dimension_ids_by_site[site_id].update(dimension_ids)
+        referenced_dimension_ids.update(dimension_ids)
+        if dataset_id is not None:
+            dataset_semantic_ids_by_site[site_id].add(dataset_id)
+            referenced_dataset_semantic_ids.add(dataset_id)
+        if value_id is not None:
+            value_semantic_ids_by_site[site_id].add(value_id)
+            referenced_value_semantic_ids.add(value_id)
+    dimension_owner_sites = {
+        "analysis_entity": site_by_analysis_entity,
+        "physical_sample": site_by_physical_sample,
+        "sample_group": site_by_sample_group,
+    }
+    for dimension_id, dimension in dimension_by_id.items():
+        owner_kind = _required_text(
+            dimension.get("owner_kind"), "SEAD dimension owner kind"
+        )
+        owner_sites = dimension_owner_sites.get(owner_kind)
+        if owner_sites is None:
+            raise ValueError(f"SEAD dimension owner kind is unsupported: {owner_kind}")
+        owner_id = _identifier_text(
+            dimension.get("owner_id"), "SEAD dimension owner ID"
+        )
+        owner_site_id = owner_sites.get(owner_id)
+        if owner_site_id is None:
+            raise ValueError("SEAD dimension owner has no governed site relation")
+        dimension_ids_by_site[owner_site_id].add(dimension_id)
+        referenced_dimension_ids.add(dimension_id)
+    if observation_ids != set(refusal_by_observation):
+        raise ValueError("SEAD observations and event refusals do not reconcile")
+    for label, actual, declared in (
+        (
+            "country counts",
+            observation_country_counts,
+            observations_bundle.get("country_counts"),
+        ),
+        (
+            "observation table counts",
+            observation_table_counts,
+            observations_bundle.get("observation_table_counts"),
+        ),
+        (
+            "event refusal reason counts",
+            refusal_reason_counts,
+            events_bundle.get("refusal_reason_counts"),
+        ),
+        (
+            "event country observation counts",
+            observation_country_counts,
+            events_bundle.get("country_observation_counts"),
+        ),
+    ):
+        declared_counts = _mapping(declared, f"SEAD {label}")
+        nonzero_declared = {
+            str(key): value for key, value in declared_counts.items() if value != 0
+        }
+        if dict(sorted(actual.items())) != nonzero_declared:
+            raise ValueError(f"SEAD {label} do not reconcile")
+    eligible_country_counts = _mapping(
+        events_bundle.get("country_eligible_event_counts"),
+        "SEAD eligible event country counts",
+    )
+    if set(eligible_country_counts) != set(observation_country_counts) or any(
+        count != 0 for count in eligible_country_counts.values()
+    ):
+        raise ValueError("SEAD eligible event country counts do not reconcile")
+    for claim in raw_claims:
+        relation_id = _required_text(
+            claim.get("observation_relation_id"),
+            "SEAD claim observation relation ID",
+        )
+        entity = entity_by_id.get(relation_id)
+        if entity is None:
+            raise ValueError("SEAD claim references unknown observation relation")
+        if _identifier_text(entity.get("site_id"), "SEAD claim relation site") != (
+            _required_text(claim.get("source_site_id"), "SEAD claim site")
+        ):
+            raise ValueError("SEAD claim observation relation crosses sites")
+        if (
+            claim.get("linked_source_native_observation_count")
+            != (observation_count_by_entity[relation_id])
+        ):
+            raise ValueError("SEAD claim observation count does not reconcile")
+        chronology = _mapping(entity.get("chronology_link"), "SEAD entity chronology")
+        entity_claim_ids = chronology.get("claim_ids")
+        if (
+            not isinstance(entity_claim_ids, list)
+            or claim.get("chronology_claim_id") not in entity_claim_ids
+        ):
+            raise ValueError("SEAD claim is absent from its entity chronology relation")
+    for dimension_id in referenced_dimension_ids:
+        semantics_id = _required_text(
+            dimension_by_id[dimension_id].get("dimension_semantics_id"),
+            "SEAD dimension semantics ID",
+        )
+        if semantics_id not in dimension_semantic_by_id:
+            raise ValueError("SEAD dimension relation references unknown semantics")
 
     site_artifact_path = (
         context_root / "sead" / "normalized" / "nordic_environmental_sites.geojson"
@@ -606,6 +990,12 @@ def _project_sead(
         raise ValueError(
             f"SEAD claims reference unknown admitted sites: {unknown_claim_sites[:5]}"
         )
+    unknown_observation_sites = sorted(set(observations_by_site) - set(sites))
+    if unknown_observation_sites:
+        raise ValueError(
+            "SEAD observations reference unknown admitted sites: "
+            f"{unknown_observation_sites[:5]}"
+        )
 
     feature_site_ids: set[str] = set()
     feature_count = 0
@@ -622,6 +1012,11 @@ def _project_sead(
             _set_feature_record_id(feature, f"sead:site:{source_site_id}")
             feature_site_ids.add(source_site_id)
             feature_count += 1
+    if feature_site_ids != set(sites):
+        missing = sorted(set(sites) - feature_site_ids, key=_numeric_text_key)
+        raise ValueError(
+            f"SEAD atlas does not expose every governed site: {missing[:5]}"
+        )
 
     records: list[dict[str, object]] = []
     for source_site_id in sorted(feature_site_ids, key=_numeric_text_key):
@@ -647,6 +1042,48 @@ def _project_sead(
         physical_sample_ids = _non_null_unique(site_claims, "physical_sample_id")
         analysis_entity_ids = _non_null_unique(site_claims, "analysis_entity_id")
         dataset_ids = _non_null_unique(site_claims, "dataset_id")
+        site_observations = sorted(
+            observations_by_site[source_site_id], key=lambda row: str(row[0])
+        )
+        site_entities = [
+            entities_by_site[source_site_id][entity_id]
+            for entity_id in sorted(entities_by_site[source_site_id])
+        ]
+        site_taxa = [
+            _compact_sead_taxon(taxon_by_id[relation_id])
+            for relation_id in sorted(taxon_ids_by_site[source_site_id])
+        ]
+        site_dimensions = [
+            _compact_sead_dimension(dimension_by_id[relation_id])
+            for relation_id in sorted(dimension_ids_by_site[source_site_id])
+        ]
+        site_dimension_semantic_ids = {
+            _required_text(
+                dimension_by_id[relation_id].get("dimension_semantics_id"),
+                "SEAD dimension semantics ID",
+            )
+            for relation_id in dimension_ids_by_site[source_site_id]
+        }
+        site_dimension_semantics = [
+            _compact_sead_dimension_semantics(dimension_semantic_by_id[semantic_id])
+            for semantic_id in sorted(site_dimension_semantic_ids)
+        ]
+        site_dataset_semantics = [
+            _compact_sead_dataset_semantics(dataset_semantic_by_id[semantic_id])
+            for semantic_id in sorted(dataset_semantic_ids_by_site[source_site_id])
+        ]
+        site_value_semantics = [
+            _compact_sead_value_semantics(value_semantic_by_id[semantic_id])
+            for semantic_id in sorted(value_semantic_ids_by_site[source_site_id])
+        ]
+        site_refusal_reason_counts = Counter(
+            reason
+            for row in site_observations
+            for reason in cast(
+                list[str],
+                row[_SEAD_OBSERVATION_FIELDS.index("event_refusal_reason_codes")],
+            )
+        )
         record_id = f"sead:site:{source_site_id}"
         records.append(
             {
@@ -662,16 +1099,15 @@ def _project_sead(
                     },
                     "samples": (
                         {
-                            "coverage_posture": "chronology_linked_claim_rows_only",
-                            "sample_group_ids": sample_group_ids,
-                            "physical_sample_ids": physical_sample_ids,
-                            "analysis_entity_ids": analysis_entity_ids,
-                            "dataset_ids": dataset_ids,
+                            **_row_table(_SEAD_ENTITY_FIELDS, site_entities),
+                            "coverage_posture": "all_source_native_observation_entities",
+                            "chronology_linked_sample_group_ids": sample_group_ids,
+                            "chronology_linked_physical_sample_ids": physical_sample_ids,
+                            "chronology_linked_analysis_entity_ids": analysis_entity_ids,
+                            "chronology_linked_dataset_ids": dataset_ids,
                         }
-                        if site_claims
-                        else _unavailable(
-                            "sead_chronology_linked_sample_records_not_available"
-                        )
+                        if site_entities or site_claims
+                        else _unavailable("sead_site_sample_records_not_available")
                     ),
                     "chronology": (
                         {
@@ -694,10 +1130,42 @@ def _project_sead(
                         if site_claims
                         else _unavailable("sead_site_numeric_chronology_not_available")
                     ),
-                    "pollen_composition": _unavailable(
-                        "sead_observation_relations_not_captured"
+                    "pollen_composition": (
+                        {
+                            **_sead_observation_table(site_observations),
+                            "taxa": _row_table(_SEAD_TAXON_FIELDS, site_taxa),
+                            "dimensions": _row_table(
+                                _SEAD_DIMENSION_FIELDS, site_dimensions
+                            ),
+                            "dimension_semantics": _row_table(
+                                _SEAD_DIMENSION_SEMANTIC_FIELDS,
+                                site_dimension_semantics,
+                            ),
+                            "dataset_semantics": _row_table(
+                                _SEAD_DATASET_SEMANTIC_FIELDS,
+                                site_dataset_semantics,
+                            ),
+                            "value_semantics": _row_table(
+                                _SEAD_VALUE_SEMANTIC_FIELDS, site_value_semantics
+                            ),
+                            "aggregation_posture": "source rows retained without cross-unit summing",
+                            "evidence_posture": "complete source-native observations; tab name does not imply pollen classification",
+                            "source_value_posture": "source null, zero, false, and text zero remain distinct",
+                            "classification_status": "not_accepted",
+                        }
+                        if site_observations or site_dimensions
+                        else _unavailable("sead_site_observations_not_available")
                     ),
-                    "relation": dict(_UNAVAILABLE_RELATION),
+                    "relation": {
+                        "status": "refused",
+                        "reason_code": "source_classification_not_accepted",
+                        "eligible_event_count": 0,
+                        "refused_observation_count": len(site_observations),
+                        "refusal_reason_counts": dict(
+                            sorted(site_refusal_reason_counts.items())
+                        ),
+                        "scientific_posture": "observation succession is not proof of migration or causation",
+                    },
                     "classification": dict(_UNAVAILABLE_CLASSIFICATION),
                     "provenance": {
                         "source_run_id": run_id,
@@ -705,7 +1173,14 @@ def _project_sead(
                         "acquisition_manifest_sha256": claims_bundle.get(
                             "acquisition_manifest_sha256"
                         ),
-                        "claim_bundle_path": "data/sead/normalized/chronology_claims.json",
+                        "evidence_bundle_path": (
+                            f"data/sead/normalized/acquisitions/{run_id}"
+                        ),
+                        "evidence_file_set_sha256": file_set_sha256,
+                        "claim_locator_contract": "chronology_claims.json#chronology_claim_id={chronology_claim_id}",
+                        "observation_locator_contract": "source_native_observations.json#observation_id={observation_id}",
+                        "relation_locator_contract": "observation_relation_index.json#{relation_id}",
+                        "event_refusal_locator_contract": "evidence_events.json#observation_id={observation_id}",
                         "record_locator": f"tbl_sites#site_id={source_site_id}",
                         "acquisition_release_status": admission.get("release_status"),
                         "propagation_status": claims_bundle.get("propagation_status"),
@@ -738,19 +1213,51 @@ def _project_sead(
         "projected_site_count": len(records),
         "unprojected_source_site_count": len(sites) - len(records),
         "source_claim_denominator": len(raw_claims),
+        "source_observation_denominator": len(observations),
+        "source_taxon_relation_denominator": len(taxon_rows),
+        "source_dimension_relation_denominator": len(dimension_rows),
+        "source_event_refusal_denominator": len(refusal_rows),
         "projected_site_claim_count": sum(
             len(claims_by_site[site_id]) for site_id in feature_site_ids
         ),
+        "projected_site_observation_count": sum(
+            len(observations_by_site[site_id]) for site_id in feature_site_ids
+        ),
+        "projected_unique_taxon_relation_count": len(referenced_taxon_ids),
+        "projected_dimension_relation_count": len(referenced_dimension_ids),
+        "unprojected_dimension_relation_count": len(dimension_rows)
+        - len(referenced_dimension_ids),
+        "projected_unique_dataset_semantic_count": len(referenced_dataset_semantic_ids),
+        "projected_unique_value_semantic_count": len(referenced_value_semantic_ids),
+        "eligible_event_count": 0,
+        "claim_country_counts": dict(sorted(claim_country_counts.items())),
+        "observation_country_counts": dict(sorted(observation_country_counts.items())),
+        "eligible_event_country_counts": dict(sorted(eligible_country_counts.items())),
+        "propagation_status": "refused",
+        "propagation_reason_code": "source_classification_not_accepted",
         "detail_row_counts": {
             "chronology_claims": sum(
                 len(claims_by_site[site_id]) for site_id in feature_site_ids
-            )
+            ),
+            "observations": sum(
+                len(observations_by_site[site_id]) for site_id in feature_site_ids
+            ),
+            "dimension_relations": len(referenced_dimension_ids),
+            "taxon_relations_unique": len(referenced_taxon_ids),
+            "event_refusals": len(refusal_rows),
         },
-        "detail_row_denominators": {"chronology_claims": len(raw_claims)},
+        "detail_row_denominators": {
+            "chronology_claims": len(raw_claims),
+            "observations": len(observations),
+            "dimension_relations": len(dimension_rows),
+            "taxon_relations_unique": len(taxon_rows),
+            "event_refusals": len(refusal_rows),
+        },
         "source_run_id": run_id,
         "build_id": claims_bundle.get("source_build_id"),
         "acquisition_manifest_sha256": claims_bundle.get("acquisition_manifest_sha256"),
         "acquisition_release_status": admission.get("release_status"),
+        "evidence_file_set_sha256": file_set_sha256,
         "country_site_counts": dict(
             sorted(
                 Counter(
@@ -769,6 +1276,383 @@ def _project_sead(
             )
         ),
     }
+
+
+def _validate_sead_evidence_headers(
+    claims: Mapping[str, object],
+    observations: Mapping[str, object],
+    relations: Mapping[str, object],
+    events: Mapping[str, object],
+) -> None:
+    documents = (
+        (claims, "sead-chronology-claim-bundle.v1", "source_build_id"),
+        (observations, "sead-source-native-evidence-bundle.v1", "build_id"),
+        (relations, "sead-evidence-relation-index.v1", "build_id"),
+        (events, "sead-evidence-event-bundle.v1", "build_id"),
+    )
+    run_id = claims.get("source_run_id")
+    build_id = claims.get("source_build_id")
+    acquisition_digest = claims.get("acquisition_manifest_sha256")
+    for document, schema, build_field in documents:
+        if document.get("schema_version") != schema:
+            raise ValueError(f"SEAD evidence schema is unsupported: {schema}")
+        if document.get("source_family") != "sead":
+            raise ValueError("SEAD evidence source family changed")
+        if document.get("source_run_id") != run_id:
+            raise ValueError("SEAD evidence source run identities diverge")
+        if document.get(build_field) != build_id:
+            raise ValueError("SEAD evidence build identities diverge")
+        if document.get("acquisition_manifest_sha256") != acquisition_digest:
+            raise ValueError("SEAD evidence acquisition identities diverge")
+    if (
+        claims.get("propagation_status") != "refused"
+        or claims.get("propagation_reason_code") != "source_classification_not_accepted"
+    ):
+        raise ValueError("SEAD propagation refusal posture changed")
+
+
+def _object_rows(
+    document: Mapping[str, object], field: str, label: str
+) -> list[Mapping[str, object]]:
+    rows = document.get(field)
+    if not isinstance(rows, list) or any(not isinstance(row, Mapping) for row in rows):
+        raise ValueError(f"{label} must be object rows")
+    return cast(list[Mapping[str, object]], rows)
+
+
+def _reconcile_sead_relation_denominators(
+    relation_index: Mapping[str, object],
+    *,
+    entity_rows: Sequence[Mapping[str, object]],
+    taxon_rows: Sequence[Mapping[str, object]],
+    dimension_rows: Sequence[Mapping[str, object]],
+    dimension_semantic_rows: Sequence[Mapping[str, object]],
+    dataset_semantic_rows: Sequence[Mapping[str, object]],
+    value_semantic_rows: Sequence[Mapping[str, object]],
+) -> None:
+    for field, rows in (
+        ("entity_relation_count", entity_rows),
+        ("taxon_relation_count", taxon_rows),
+        ("dimension_relation_count", dimension_rows),
+        ("dimension_semantic_count", dimension_semantic_rows),
+        ("dataset_semantic_count", dataset_semantic_rows),
+        ("value_semantic_count", value_semantic_rows),
+    ):
+        if relation_index.get(field) != len(rows):
+            raise ValueError(f"SEAD {field} does not reconcile")
+
+
+def _site_by_entity_owner(
+    entity_rows: Sequence[Mapping[str, object]], *, owner_field: str
+) -> dict[str, str]:
+    sites_by_owner: dict[str, str] = {}
+    for entity in entity_rows:
+        owner_value = entity.get(owner_field)
+        if owner_value is None:
+            continue
+        owner_id = _identifier_text(owner_value, f"SEAD {owner_field}")
+        site_id = _identifier_text(entity.get("site_id"), "SEAD entity site ID")
+        existing = sites_by_owner.setdefault(owner_id, site_id)
+        if existing != site_id:
+            raise ValueError(f"SEAD {owner_field} crosses governed sites")
+    return sites_by_owner
+
+
+def _compact_sead_observation(
+    observation: Mapping[str, object],
+    *,
+    entity_by_id: Mapping[str, Mapping[str, object]],
+    refusal_by_observation: Mapping[str, Mapping[str, object]],
+    taxon_by_id: Mapping[str, Mapping[str, object]],
+    dimension_by_id: Mapping[str, Mapping[str, object]],
+    dataset_semantic_by_id: Mapping[str, Mapping[str, object]],
+    value_semantic_by_id: Mapping[str, Mapping[str, object]],
+) -> tuple[
+    list[object],
+    str,
+    tuple[str | None, tuple[str, ...], str | None, str | None],
+]:
+    observation_id = _required_text(
+        observation.get("observation_id"), "SEAD observation ID"
+    )
+    if observation.get("source_family") != "sead":
+        raise ValueError("SEAD observation source family changed")
+    entity_id = _required_text(
+        observation.get("entity_relation_id"), "SEAD observation entity relation"
+    )
+    entity = entity_by_id.get(entity_id)
+    if entity is None:
+        raise ValueError("SEAD observation references unknown entity relation")
+    site_id = _identifier_text(entity.get("site_id"), "SEAD entity site ID")
+    if observation.get("country_code") != entity.get("country_code"):
+        raise ValueError("SEAD observation country disagrees with entity relation")
+    source_value = observation.get("source_value")
+    source_value_state = _required_text(
+        observation.get("source_value_state"), "SEAD observation value state"
+    )
+    if (source_value is None) is not (source_value_state == "source_null"):
+        raise ValueError("SEAD source null and value state disagree")
+
+    chronology = _mapping(
+        observation.get("chronology_link"), "SEAD observation chronology link"
+    )
+    entity_chronology = _mapping(
+        entity.get("chronology_link"), "SEAD entity chronology link"
+    )
+    claim_ids = entity_chronology.get("claim_ids")
+    eligible_claim_ids = entity_chronology.get("eligible_claim_ids")
+    if not isinstance(claim_ids, list) or not isinstance(eligible_claim_ids, list):
+        raise ValueError("SEAD entity chronology IDs must be lists")
+    if chronology.get("claim_count") != len(claim_ids) or chronology.get(
+        "eligible_claim_count"
+    ) != len(eligible_claim_ids):
+        raise ValueError("SEAD observation chronology counts do not reconcile")
+    if chronology.get("entity_relation_id") != entity_id:
+        raise ValueError("SEAD observation chronology relation changed")
+
+    refusal = refusal_by_observation.get(observation_id)
+    if refusal is None or refusal.get("status") != "refused":
+        raise ValueError("SEAD observation lacks its event refusal")
+    refusal_reasons = observation.get("event_refusal_reason_codes")
+    if not isinstance(refusal_reasons, list) or any(
+        not isinstance(reason, str) or not reason for reason in refusal_reasons
+    ):
+        raise ValueError("SEAD event refusal reasons must be text rows")
+    if refusal.get("reason_codes") != refusal_reasons:
+        raise ValueError("SEAD observation and event refusal reasons differ")
+    if "source_classification_not_accepted" not in refusal_reasons:
+        raise ValueError("SEAD event refusal lacks classification reason")
+    if observation.get("event_eligibility") != "refused":
+        raise ValueError("SEAD observation event eligibility changed")
+
+    semantics = _mapping(
+        observation.get("source_semantics"), "SEAD observation semantics"
+    )
+    dataset_id_value = semantics.get("dataset_semantics_id")
+    dataset_id = (
+        None
+        if dataset_id_value is None
+        else _required_text(dataset_id_value, "SEAD dataset semantics ID")
+    )
+    dataset_status = _required_text(
+        semantics.get("dataset_semantics_status"), "SEAD dataset semantics status"
+    )
+    if (dataset_id is None) is not (dataset_status == "not_exposed_by_relation"):
+        raise ValueError("SEAD dataset semantics identity and status disagree")
+    if dataset_id is not None and dataset_id not in dataset_semantic_by_id:
+        raise ValueError("SEAD observation references unknown dataset semantics")
+    value_id_value = semantics.get("value_semantics_id")
+    value_id = (
+        None
+        if value_id_value is None
+        else _required_text(value_id_value, "SEAD value semantics ID")
+    )
+    if value_id is not None and value_id not in value_semantic_by_id:
+        raise ValueError("SEAD observation references unknown value semantics")
+    taxon_id_value = observation.get("taxon_relation_id")
+    taxon_id = (
+        None
+        if taxon_id_value is None
+        else _required_text(taxon_id_value, "SEAD taxon relation ID")
+    )
+    if taxon_id is not None and taxon_id not in taxon_by_id:
+        raise ValueError("SEAD observation references unknown taxon relation")
+    raw_dimension_ids = observation.get("dimension_relation_ids")
+    if not isinstance(raw_dimension_ids, list) or any(
+        not isinstance(value, str) or not value for value in raw_dimension_ids
+    ):
+        raise ValueError("SEAD observation dimension relation IDs must be text rows")
+    dimension_ids = tuple(cast(list[str], raw_dimension_ids))
+    if len(dimension_ids) != len(set(dimension_ids)):
+        raise ValueError("SEAD observation dimension relations are duplicated")
+    if any(dimension_id not in dimension_by_id for dimension_id in dimension_ids):
+        raise ValueError("SEAD observation references unknown dimension relation")
+
+    compact = [
+        observation_id,
+        observation.get("source_table"),
+        observation.get("source_record_id"),
+        entity_id,
+        entity.get("analysis_entity_id"),
+        entity.get("physical_sample_id"),
+        entity.get("sample_group_id"),
+        entity.get("dataset_id"),
+        source_value,
+        observation.get("source_value_field"),
+        source_value_state,
+        semantics.get("source_unit_id"),
+        semantics.get("unit_status"),
+        value_id,
+        dataset_id,
+        dataset_status,
+        taxon_id,
+        observation.get("taxon_status"),
+        list(dimension_ids),
+        observation.get("dimension_status"),
+        chronology.get("status"),
+        chronology.get("claim_count"),
+        chronology.get("eligible_claim_count"),
+        observation.get("event_eligibility"),
+        refusal_reasons,
+        observation.get("source_payload_sha256"),
+    ]
+    return compact, site_id, (taxon_id, dimension_ids, dataset_id, value_id)
+
+
+def _sead_observation_table(rows: Sequence[Sequence[object]]) -> dict[str, object]:
+    field_indexes = {
+        field: index for index, field in enumerate(_SEAD_OBSERVATION_FIELDS)
+    }
+    dictionaries: dict[str, list[str]] = {}
+    dictionary_indexes: dict[str, dict[str, int]] = {}
+    for field in sorted(_SEAD_OBSERVATION_DICTIONARY_FIELDS):
+        index = field_indexes[field]
+        values = sorted(
+            {_required_text(row[index], f"SEAD observation {field}") for row in rows}
+        )
+        dictionaries[field] = values
+        dictionary_indexes[field] = {
+            value: value_index for value_index, value in enumerate(values)
+        }
+    list_values = sorted(
+        {
+            value
+            for field in _SEAD_OBSERVATION_LIST_DICTIONARY_FIELDS
+            for row in rows
+            for value in cast(list[str], row[field_indexes[field]])
+        }
+    )
+    list_value_indexes = {
+        value: value_index for value_index, value in enumerate(list_values)
+    }
+    encoded_rows: list[list[object]] = []
+    for row in rows:
+        if len(row) != len(_SEAD_OBSERVATION_FIELDS):
+            raise ValueError("SEAD compact observation fields changed")
+        encoded = list(row)
+        for field, indexes in dictionary_indexes.items():
+            index = field_indexes[field]
+            encoded[index] = indexes[cast(str, encoded[index])]
+        for field in _SEAD_OBSERVATION_LIST_DICTIONARY_FIELDS:
+            index = field_indexes[field]
+            encoded[index] = [
+                list_value_indexes[value] for value in cast(list[str], encoded[index])
+            ]
+        encoded_rows.append(encoded)
+    return {
+        "record_count": len(encoded_rows),
+        "fields": list(_SEAD_OBSERVATION_FIELDS),
+        "records": encoded_rows,
+        "encoding": "sead-source-native-observation-table.v1",
+        "column_dictionaries": dictionaries,
+        "list_dictionary_fields": sorted(_SEAD_OBSERVATION_LIST_DICTIONARY_FIELDS),
+        "list_value_dictionary": list_values,
+    }
+
+
+def _compact_sead_entity(row: Mapping[str, object]) -> list[object]:
+    chronology = _mapping(row.get("chronology_link"), "SEAD entity chronology")
+    return [
+        row.get("entity_relation_id"),
+        row.get("analysis_entity_id"),
+        row.get("physical_sample_id"),
+        row.get("sample_group_id"),
+        row.get("dataset_id"),
+        chronology.get("claim_ids"),
+        chronology.get("eligible_claim_ids"),
+    ]
+
+
+def _compact_sead_taxon(row: Mapping[str, object]) -> list[object]:
+    taxon = _mapping(row.get("taxon"), "SEAD native taxon")
+    genus = _optional_mapping(row.get("genus"), "SEAD native taxon genus")
+    family = _optional_mapping(row.get("family"), "SEAD native taxon family")
+    order = _optional_mapping(row.get("order"), "SEAD native taxon order")
+    author = _optional_mapping(row.get("author"), "SEAD native taxon author")
+    return [
+        row.get("taxon_relation_id"),
+        row.get("taxon_id"),
+        taxon.get("species"),
+        genus.get("genus_name"),
+        family.get("family_name"),
+        order.get("order_name"),
+        author.get("author_name"),
+        row.get("source_ecocodes"),
+        row.get("derived_classification_status"),
+    ]
+
+
+def _compact_sead_dimension(row: Mapping[str, object]) -> list[object]:
+    source_row = _mapping(row.get("source_row"), "SEAD dimension source row")
+    return [
+        row.get("dimension_relation_id"),
+        row.get("owner_kind"),
+        row.get("owner_id"),
+        row.get("source_table"),
+        row.get("source_record_id"),
+        row.get("dimension_semantics_id"),
+        source_row.get("dimension_value"),
+        source_row.get("qualifier_id"),
+        row.get("unit_status"),
+    ]
+
+
+def _compact_sead_dimension_semantics(row: Mapping[str, object]) -> list[object]:
+    dimension = _mapping(row.get("source_dimension"), "SEAD dimension semantics")
+    unit = _mapping(row.get("source_unit"), "SEAD dimension unit")
+    return [
+        row.get("dimension_semantics_id"),
+        row.get("dimension_id"),
+        dimension.get("dimension_name"),
+        dimension.get("dimension_abbrev"),
+        dimension.get("dimension_description"),
+        row.get("source_unit_id"),
+        unit.get("unit_name"),
+        unit.get("unit_abbrev"),
+        unit.get("description"),
+        row.get("unit_status"),
+    ]
+
+
+def _compact_sead_dataset_semantics(row: Mapping[str, object]) -> list[object]:
+    dataset = _mapping(row.get("dataset"), "SEAD dataset semantics")
+    data_type = _mapping(row.get("source_data_type"), "SEAD source data type")
+    group = _mapping(row.get("source_data_type_group"), "SEAD source data type group")
+    return [
+        row.get("dataset_semantics_id"),
+        dataset.get("dataset_id"),
+        dataset.get("dataset_uuid"),
+        dataset.get("dataset_name"),
+        dataset.get("data_type_id"),
+        data_type.get("data_type_name"),
+        group.get("data_type_group_name"),
+    ]
+
+
+def _compact_sead_value_semantics(row: Mapping[str, object]) -> list[object]:
+    value_class = _mapping(row.get("value_class"), "SEAD value class")
+    value_type = _mapping(row.get("source_value_type"), "SEAD value type")
+    raw_unit = row.get("source_unit")
+    unit = raw_unit if isinstance(raw_unit, Mapping) else {}
+    return [
+        row.get("value_semantics_id"),
+        value_class.get("value_class_id"),
+        value_class.get("name"),
+        value_class.get("description"),
+        value_type.get("value_type_id"),
+        value_type.get("name"),
+        value_type.get("base_type"),
+        unit.get("unit_id"),
+        unit.get("unit_name"),
+        unit.get("unit_abbrev"),
+        unit.get("description"),
+    ]
+
+
+def _optional_mapping(value: object, label: str) -> Mapping[str, object]:
+    if value is None:
+        return {}
+    return _mapping(value, label)
 
 
 def _sead_claim_table(rows: Sequence[Mapping[str, object]]) -> dict[str, object]:

@@ -1062,6 +1062,56 @@ MAP_DOCUMENT_TEMPLATE = """
         gap: 10px;
       }
       .focus-detail-key { color: var(--muted); font-weight: 700; }
+      .focus-detail-table-wrap {
+        min-width: 0;
+        overflow-x: auto;
+        border: 1px solid rgba(20, 33, 61, 0.10);
+        border-radius: 10px;
+        background: rgba(255, 255, 255, 0.66);
+      }
+      .focus-detail-table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 11px;
+        white-space: nowrap;
+      }
+      .focus-detail-table th,
+      .focus-detail-table td {
+        padding: 6px 8px;
+        border-bottom: 1px solid rgba(20, 33, 61, 0.08);
+        text-align: left;
+        vertical-align: top;
+      }
+      .focus-detail-table th {
+        position: sticky;
+        top: 0;
+        background: #f7f9fc;
+        color: var(--muted);
+        font-weight: 800;
+      }
+      .focus-detail-table td { max-width: 360px; white-space: normal; }
+      .focus-detail-table-meta {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 10px;
+        margin: 2px 0 6px;
+        color: var(--muted);
+        font-size: 11px;
+        font-weight: 700;
+      }
+      .focus-detail-table-actions { display: inline-flex; gap: 6px; }
+      .focus-detail-table-actions button {
+        padding: 4px 7px;
+        border: 1px solid rgba(20, 33, 61, 0.14);
+        border-radius: 7px;
+        background: #fff;
+        color: var(--ink-soft);
+        font: inherit;
+        cursor: pointer;
+      }
+      .focus-detail-table-actions button:disabled { cursor: default; opacity: 0.45; }
+      .focus-detail-null { color: var(--muted); font-style: italic; }
       .scientific-cue {
         display: inline-flex;
         align-items: center;
@@ -2297,6 +2347,8 @@ __STATIC_CHUNK_SCRIPT_TAGS__
       let legendCollapsed = initialState.legend === 'collapsed';
       let focusState = null;
       let activeFocusTab = 'overview';
+      const DETAIL_TABLE_PAGE_SIZE = 25;
+      const detailTablePages = new Map();
       let staticAtlasLoadGeneration = 0;
       function staticAtlasLayerForRow(row) {
         return ALL_LAYERS.find((layer) => layer.key === row.layer_key) || null;
@@ -2602,6 +2654,7 @@ __STATIC_CHUNK_SCRIPT_TAGS__
       function setFocusState(nextState) {
         focusState = nextState;
         activeFocusTab = 'overview';
+        detailTablePages.clear();
         if (focusState && focusState.kind === 'point' && Number.isInteger(focusState.visiblePointIndex)) {
           highlightPointEntry(visiblePointEntries[focusState.visiblePointIndex] || null);
         } else {
@@ -2640,15 +2693,132 @@ __STATIC_CHUNK_SCRIPT_TAGS__
         const recordId = String(feature.record_id || '');
         return detailTabsForRecordId(recordId);
       }
-      function renderDetailValue(value) {
+      function detailTableShape(value) {
+        return value && typeof value === 'object'
+          && Number.isInteger(value.record_count)
+          && Array.isArray(value.fields)
+          && Array.isArray(value.records);
+      }
+      function detailTableText(value) {
+        if (value === null) return 'null (source null)';
+        if (value === undefined || value === '') return 'Unavailable';
+        if (typeof value === 'object') return JSON.stringify(value);
+        return String(value);
+      }
+      function decodedDictionaryValue(table, field, value) {
+        const dictionary = table.column_dictionaries?.[field];
+        if (!dictionary) return value;
+        if (!Array.isArray(dictionary) || !Number.isInteger(value) || value < 0 || value >= dictionary.length) {
+          throw new Error(`invalid dictionary index for ${field}`);
+        }
+        return dictionary[value];
+      }
+      function decodedListDictionaryValue(table, field, value) {
+        if (!Array.isArray(table.list_dictionary_fields) || !table.list_dictionary_fields.includes(field)) return value;
+        if (!Array.isArray(value) || !Array.isArray(table.list_value_dictionary)) throw new Error(`invalid list dictionary for ${field}`);
+        return value.map((index) => {
+          if (!Number.isInteger(index) || index < 0 || index >= table.list_value_dictionary.length) throw new Error(`invalid list dictionary index for ${field}`);
+          return table.list_value_dictionary[index];
+        });
+      }
+      function decodedSeadClaimAge(table, row) {
+        const claimType = row.claim_type;
+        const columns = table.source_age_value_columns_by_claim_type?.[claimType];
+        const inherited = table.source_age_value_inherited_fields_by_claim_type?.[claimType];
+        const dictionaries = table.source_age_value_dictionaries_by_claim_type?.[claimType] || {};
+        if (!Array.isArray(columns) || !inherited || typeof inherited !== 'object' || !Array.isArray(row.source_age_value) || columns.length !== row.source_age_value.length) {
+          throw new Error('invalid SEAD claim source age encoding');
+        }
+        const decoded = {};
+        columns.forEach((field, index) => {
+          const dictionary = dictionaries[field];
+          const encoded = row.source_age_value[index];
+          if (dictionary) {
+            if (!Array.isArray(dictionary) || !Number.isInteger(encoded) || encoded < 0 || encoded >= dictionary.length) throw new Error(`invalid source age dictionary index for ${field}`);
+            decoded[field] = dictionary[encoded];
+          } else {
+            decoded[field] = encoded;
+          }
+        });
+        Object.entries(inherited).forEach(([sourceField, claimField]) => {
+          decoded[sourceField] = row[claimField];
+        });
+        return decoded;
+      }
+      function decodedSeadClaimRelation(table, row) {
+        if (!Number.isInteger(row.source_relation_path) || !Array.isArray(table.source_relation_path_dictionary)) throw new Error('invalid SEAD claim relation encoding');
+        const shape = table.source_relation_path_dictionary[row.source_relation_path];
+        if (!Array.isArray(shape)) throw new Error('invalid SEAD claim relation dictionary index');
+        return shape.map((entry) => {
+          if (!Array.isArray(entry) || entry.length !== 3) throw new Error('invalid SEAD claim relation tuple');
+          const [sourceTable, key, valueField] = entry;
+          const value = valueField === 'common_fields.source_site_id'
+            ? table.common_fields?.source_site_id
+            : row[valueField];
+          return { table: sourceTable, key, value };
+        });
+      }
+      function decodeDetailTableRow(table, encodedRow) {
+        if (!Array.isArray(encodedRow) || encodedRow.length !== table.fields.length) throw new Error('encoded detail row width changed');
+        const row = Object.fromEntries(table.fields.map((field, index) => [
+          field,
+          decodedListDictionaryValue(table, field, decodedDictionaryValue(table, field, encodedRow[index])),
+        ]));
+        Object.entries(table.identifier_prefixes || {}).forEach(([field, prefix]) => {
+          if (!Object.prototype.hasOwnProperty.call(row, field) || typeof prefix !== 'string') throw new Error('invalid detail identifier prefix');
+          if (row[field] !== null) row[field] = `${prefix}${row[field]}`;
+        });
+        if (table.encoding === 'sead-chronology-claim-table.v1') {
+          row.source_age_value = decodedSeadClaimAge(table, row);
+          row.source_relation_path = decodedSeadClaimRelation(table, row);
+          return { ...(table.common_fields || {}), ...row };
+        }
+        if (table.encoding && table.encoding !== 'sead-source-native-observation-table.v1') throw new Error(`unsupported detail table encoding: ${table.encoding}`);
+        return row;
+      }
+      const DETAIL_TABLE_INTERNAL_KEYS = new Set([
+        'record_count', 'fields', 'records', 'encoding', 'common_fields',
+        'column_dictionaries', 'list_dictionary_fields', 'list_value_dictionary',
+        'identifier_prefixes', 'source_age_value_columns_by_claim_type',
+        'source_age_value_inherited_fields_by_claim_type',
+        'source_age_value_dictionaries_by_claim_type',
+        'source_relation_path_dictionary', 'source_relation_path_value_semantics',
+      ]);
+      function renderDetailObjectEntries(value, valuePath, excludedKeys = new Set()) {
+        return Object.entries(value).filter(([key]) => !excludedKeys.has(key)).map(([key, item]) => `<div class="focus-detail-row"><span class="focus-detail-key">${escapeHtml(key.replaceAll('_', ' '))}</span>${detailTableShape(item) ? `<div>${renderDetailTable(item, `${valuePath}.${key}`)}</div>` : `<span>${escapeHtml(detailTableText(item))}</span>`}</div>`).join('');
+      }
+      function renderDetailTable(table, tablePath) {
+        try {
+          if (!detailTableShape(table) || table.record_count !== table.records.length || table.fields.some((field) => typeof field !== 'string')) throw new Error('detail table accounting changed');
+          const fields = table.encoding === 'sead-chronology-claim-table.v1'
+            ? [...Object.keys(table.common_fields || {}), ...table.fields]
+            : table.fields;
+          const total = table.records.length;
+          const pageCount = Math.max(1, Math.ceil(total / DETAIL_TABLE_PAGE_SIZE));
+          const page = Math.min(Math.max(0, detailTablePages.get(tablePath) || 0), pageCount - 1);
+          const start = page * DETAIL_TABLE_PAGE_SIZE;
+          const end = Math.min(total, start + DETAIL_TABLE_PAGE_SIZE);
+          const rows = table.records.slice(start, end).map((row) => decodeDetailTableRow(table, row));
+          const heading = fields.map((field) => `<th scope="col">${escapeHtml(field.replaceAll('_', ' '))}</th>`).join('');
+          const body = rows.map((row) => `<tr>${fields.map((field) => `<td class="${row[field] === null ? 'focus-detail-null' : ''}">${escapeHtml(detailTableText(row[field]))}</td>`).join('')}</tr>`).join('');
+          const shown = total ? `${start + 1}–${end}` : '0';
+          const escapedPath = escapeHtml(tablePath);
+          const supplements = renderDetailObjectEntries(table, tablePath, DETAIL_TABLE_INTERNAL_KEYS);
+          return `<div class="focus-detail-table-meta"><span>Showing ${shown} of ${total}</span><span class="focus-detail-table-actions"><button type="button" data-detail-table-page="${escapedPath}" data-page-direction="previous" ${page === 0 ? 'disabled' : ''}>Previous</button><button type="button" data-detail-table-page="${escapedPath}" data-page-direction="next" ${page + 1 >= pageCount ? 'disabled' : ''}>Next</button></span></div><div class="focus-detail-table-wrap"><table class="focus-detail-table"><thead><tr>${heading}</tr></thead><tbody>${body}</tbody></table></div>${supplements}`;
+        } catch (error) {
+          return '<div class="scientific-status">Unavailable: encoded_detail_table_invalid</div>';
+        }
+      }
+      function renderDetailValue(value, valuePath = 'detail') {
         if (value === null || value === undefined || value === '') return '<span>Unavailable</span>';
+        if (detailTableShape(value)) return renderDetailTable(value, valuePath);
         if (Array.isArray(value)) {
           if (!value.length) return '<span>No governed rows available.</span>';
-          return value.map((item) => `<div class="focus-detail-row"><span class="focus-detail-key">Record</span><span>${escapeHtml(typeof item === 'object' ? JSON.stringify(item) : String(item))}</span></div>`).join('');
+          return `<span>${escapeHtml(JSON.stringify(value))}</span>`;
         }
         if (typeof value === 'object') {
           if (value.status === 'unavailable') return `<div class="scientific-status">Unavailable: ${escapeHtml(value.reason_code || 'evidence_not_available')}</div>`;
-          return Object.entries(value).map(([key, item]) => `<div class="focus-detail-row"><span class="focus-detail-key">${escapeHtml(key.replaceAll('_', ' '))}</span><span>${escapeHtml(typeof item === 'object' ? JSON.stringify(item) : String(item))}</span></div>`).join('');
+          return renderDetailObjectEntries(value, valuePath);
         }
         return `<span>${escapeHtml(String(value))}</span>`;
       }
@@ -2656,11 +2826,20 @@ __STATIC_CHUNK_SCRIPT_TAGS__
         const tabs = focusState && focusState.detailTabs ? focusState.detailTabs : unavailableDetailTabs('record_level_evidence_not_available');
         if (!Object.prototype.hasOwnProperty.call(tabs, activeFocusTab)) activeFocusTab = 'overview';
         focusTabs.innerHTML = DETAIL_TAB_DEFINITIONS.map(([key, label]) => `<button class="focus-tab" type="button" role="tab" data-focus-tab="${key}" aria-selected="${String(activeFocusTab === key)}">${escapeHtml(label)}</button>`).join('');
-        focusDetail.innerHTML = renderDetailValue(tabs[activeFocusTab]);
+        focusDetail.innerHTML = renderDetailValue(tabs[activeFocusTab], activeFocusTab);
         focusDetail.dataset.detailStatus = tabs[activeFocusTab] && tabs[activeFocusTab].status === 'unavailable' ? 'unavailable' : 'available';
         focusTabs.querySelectorAll('[data-focus-tab]').forEach((button) => {
           button.addEventListener('click', () => {
             activeFocusTab = button.dataset.focusTab;
+            renderFocusDetail();
+          });
+        });
+        focusDetail.querySelectorAll('[data-detail-table-page]').forEach((button) => {
+          button.addEventListener('click', () => {
+            const tablePath = button.dataset.detailTablePage;
+            if (!tablePath) return;
+            const direction = button.dataset.pageDirection === 'previous' ? -1 : 1;
+            detailTablePages.set(tablePath, Math.max(0, (detailTablePages.get(tablePath) || 0) + direction));
             renderFocusDetail();
           });
         });
