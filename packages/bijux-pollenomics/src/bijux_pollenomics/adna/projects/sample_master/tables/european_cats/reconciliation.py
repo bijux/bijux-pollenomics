@@ -399,7 +399,7 @@ def _ancient_row(
     coordinate_admitted = cat_id not in _COORDINATE_ORDER_ANOMALY_IDS
     return EuropeanCatReconciliationRow(
         archive_native_sample_id=archive_row.sample_accession,
-        archive_native_experiment_id=archive_row.experiment_accession,
+        archive_native_experiment_id="",
         archive_submitted_basename=submitted_basename,
         source_native_tax_id=archive_row.tax_id,
         source_native_scientific_name=archive_row.scientific_name,
@@ -459,7 +459,7 @@ def _modern_row(
 ) -> EuropeanCatReconciliationRow:
     return EuropeanCatReconciliationRow(
         archive_native_sample_id=archive_row.sample_accession,
-        archive_native_experiment_id=archive_row.experiment_accession,
+        archive_native_experiment_id="",
         archive_submitted_basename=submitted_basename,
         source_native_tax_id=archive_row.tax_id,
         source_native_scientific_name=archive_row.scientific_name,
@@ -499,7 +499,7 @@ def _unresolved_row(archive_row: _ArchiveRow) -> EuropeanCatReconciliationRow:
     )
     return EuropeanCatReconciliationRow(
         archive_native_sample_id=archive_row.sample_accession,
-        archive_native_experiment_id=archive_row.experiment_accession,
+        archive_native_experiment_id="",
         archive_submitted_basename=basename,
         source_native_tax_id=archive_row.tax_id,
         source_native_scientific_name=archive_row.scientific_name,

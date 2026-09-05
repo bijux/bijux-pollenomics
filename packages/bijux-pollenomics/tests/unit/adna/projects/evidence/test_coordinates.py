@@ -50,6 +50,16 @@ class AdnaCoordinateProvenanceUnitTests(unittest.TestCase):
         self.assertEqual(row.resolved_place_text, "Wadi Halfa")
         self.assertEqual(row.geocoding_method, "manual_named_place_resolution")
         self.assertIn("Wadi Halfa", row.geocoder_or_gazetteer)
+        self.assertEqual(row.chronology_text, "Late Pleistocene")
+        self.assertIsNone(row.time_start_bp)
+        self.assertIsNone(row.time_end_bp)
+
+    def test_region_context_provenance_does_not_invent_sample_time(self) -> None:
+        for accession in ("PRJNA705960", "SRS1407451", "PRJEB60484"):
+            row = resolve_project_coordinate_provenance(accession)[0]
+            self.assertNotEqual(row.mapping_posture, "mappable_point")
+            self.assertIsNone(row.time_start_bp)
+            self.assertIsNone(row.time_end_bp)
 
     def test_resolve_project_coordinate_provenance_prefers_direct_horse_coordinates(
         self,

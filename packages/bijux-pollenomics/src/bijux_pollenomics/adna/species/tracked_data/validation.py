@@ -13,7 +13,6 @@ def _validate_tracked_sample_admission(bundle: AdnaSpeciesNormalizationBundle) -
         for record in bundle.sample_records
         if record.sample_evidence_status not in RECOVERED_SAMPLE_EVIDENCE_STATUSES
         or record.sample_identity_resolution != "final"
-        or record.inclusion_status == "sample_context_blocked"
     )
     if violations:
         raise ValueError(

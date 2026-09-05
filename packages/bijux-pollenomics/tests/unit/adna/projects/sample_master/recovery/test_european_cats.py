@@ -123,6 +123,7 @@ def test_reconciliation_closes_archive_and_workbook_denominators() -> None:
         ("463207", "Felis silvestris silvestris"): 38,
         ("61377", "Felis silvestris lybica"): 7,
     }
+    assert all(not row.archive_native_experiment_id for row in rows)
 
 
 def test_ancient_rows_preserve_sample_owned_geography_and_chronology() -> None:

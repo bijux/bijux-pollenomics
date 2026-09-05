@@ -92,8 +92,30 @@ class AdnaSiteEvidenceUnitTests(unittest.TestCase):
 
         self.assertEqual(rows[0].source_support_status, "archive_description_quote")
         self.assertIn("Galicia", rows[0].exact_source_text)
+        self.assertEqual(rows[0].coordinate_basis, "unresolved_location_state")
+        self.assertEqual(rows[0].latitude_text, "")
+        self.assertEqual(rows[0].longitude_text, "")
+        self.assertIsNone(rows[0].time_start_bp)
+        self.assertIsNone(rows[0].time_end_bp)
         self.assertIn("No local primary paper", rows[0].support_gap_note)
         self.assertIn("progenitor", rows[0].interpretation_note)
+
+    def test_context_sources_do_not_gain_unsupported_coordinates_or_numeric_time(
+        self,
+    ) -> None:
+        for accession in ("SRS1407451", "PRJEB60484", "SRP073444"):
+            row = resolve_project_site_evidence(accession)[0]
+            self.assertEqual(row.coordinate_basis, "unresolved_location_state")
+            self.assertEqual(row.latitude_text, "")
+            self.assertEqual(row.longitude_text, "")
+            self.assertIsNone(row.time_start_bp)
+            self.assertIsNone(row.time_end_bp)
+
+        camel = resolve_project_site_evidence("SRP073444")[0]
+        self.assertEqual(
+            camel.site_label, "Site 1040 near Wadi Halfa dromedary context"
+        )
+        self.assertEqual(camel.chronology_text, "Late Pleistocene")
 
     def test_comparator_site_evidence_rows_stay_marked_as_comparators(self) -> None:
         reindeer = resolve_project_site_evidence("PRJEB60484")[0]

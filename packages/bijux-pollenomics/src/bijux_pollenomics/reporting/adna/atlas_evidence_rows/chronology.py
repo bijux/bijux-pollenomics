@@ -24,10 +24,7 @@ def _parse_chronology(payload: object) -> AdnaChronology:
 
 def _atlas_public_chronology(chronology: AdnaChronology) -> AdnaChronology:
     temporal_semantics = chronology.as_temporal_semantics(source_family="animal_adna")
-    if temporal_semantics["comparability_posture"] in {
-        "numeric_interval",
-        "numeric_interval_with_caveat",
-    }:
+    if temporal_semantics["comparability_posture"] == "numeric_interval":
         return chronology
     return AdnaChronology(
         original_text=chronology.original_text,

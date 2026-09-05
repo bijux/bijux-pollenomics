@@ -164,7 +164,7 @@ def _matching_locality_row(
         raise ValueError("Multiple site evidence rows match the same sample locality")
     if matches:
         return matches[0]
-    return rows[0] if len(rows) == 1 else None
+    return None
 
 
 def _normalize_text(value: str) -> str:

@@ -72,20 +72,37 @@ def build_animal_publication_release_gate(
         }
         and str(row.get("repo_stable_sample_id", "")).strip()
     }
-    blocked_exact_site_rows = [
-        str(row.get("identity", {}).get("stable_token", "")).strip()
-        for row in _load_all_sample_rows(data_root)
+    sample_rows = _load_all_sample_rows(data_root)
+    sample_master_ids = {
+        str(row.get("identity", {}).get("stable_token", "")).strip(): str(
+            row.get("master_id", "")
+        ).strip()
+        for row in sample_rows
         if str(row.get("identity", {}).get("stable_token", "")).strip()
-        in blocked_sample_site_rows
-        and ":sample-site:"
-        in str(row.get("locality_identity", {}).get("stable_token", ""))
+    }
+    blocked_exact_site_rows = [
+        str(row.get("master_id", "")).strip()
+        for row in sample_rows
+        if str(row.get("master_id", "")).strip() in blocked_sample_site_rows
+        and (
+            bool(str(row.get("locality", "")).strip())
+            or bool(
+                str(
+                    row.get("locality_identity", {}).get("locality_text", "")
+                ).strip()
+            )
+            or _sample_row_has_numeric_coordinates(row)
+        )
     ]
     blocked_atlas_rows = sorted(
         {
             str(point.get("feature_id", "")).strip()
             for point in point_payload["rows"]
             for sample_row in point.get("sample_rows", [])
-            if str(sample_row.get("identity", {}).get("stable_token", "")).strip()
+            if sample_master_ids.get(
+                str(sample_row.get("identity", {}).get("stable_token", "")).strip(),
+                "",
+            )
             in blocked_sample_site_rows
         }
     )
@@ -93,13 +110,6 @@ def build_animal_publication_release_gate(
         str(row.get("repo_stable_sample_id", "")).strip(): row
         for row in chronology_rows
         if _chronology_row_blocks_publication(row)
-    }
-    sample_master_ids = {
-        str(row.get("identity", {}).get("stable_token", "")).strip(): str(
-            row.get("master_id", "")
-        ).strip()
-        for row in _load_all_sample_rows(data_root)
-        if str(row.get("identity", {}).get("stable_token", "")).strip()
     }
     blocked_country_chronology_rows = sorted(
         {
@@ -273,7 +283,21 @@ def build_animal_publication_release_gate(
 def _chronology_row_blocks_publication(row: dict[str, Any]) -> bool:
     status = str(row.get("chronology_normalization_status", "")).strip()
     precision_posture = str(row.get("chronology_precision_posture", "")).strip()
-    return status == "unresolved" or precision_posture == "unresolved"
+    conflict_note = str(row.get("chronology_conflict_note", "")).strip()
+    return (
+        status == "unresolved"
+        or precision_posture == "unresolved"
+        or bool(conflict_note)
+    )
+
+
+def _sample_row_has_numeric_coordinates(row: dict[str, Any]) -> bool:
+    coordinates = row.get("coordinates", {})
+    if not isinstance(coordinates, dict):
+        return False
+    return isinstance(coordinates.get("latitude"), (int, float)) and isinstance(
+        coordinates.get("longitude"), (int, float)
+    )
 
 
 def _public_chronology_window_exposed(payload: dict[str, Any]) -> bool:

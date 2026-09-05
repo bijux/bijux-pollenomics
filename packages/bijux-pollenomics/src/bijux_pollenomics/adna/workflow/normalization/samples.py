@@ -281,11 +281,10 @@ RECOVERED_SAMPLE_EVIDENCE_STATUSES = frozenset(
 
 
 def _sample_record_is_admissible(row: AdnaCuratedSampleRow) -> bool:
-    """Admit only recovered, final sample identities to normalized evidence."""
+    """Admit recovered identities without requiring resolved site context."""
     return (
         row.sample_evidence_status in RECOVERED_SAMPLE_EVIDENCE_STATUSES
         and row.sample_identity_resolution == "final"
-        and row.inclusion_status != "sample_context_blocked"
     )
 
 

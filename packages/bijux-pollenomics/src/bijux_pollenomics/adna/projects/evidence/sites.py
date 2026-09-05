@@ -168,13 +168,9 @@ _PROJECT_SITE_EVIDENCE: dict[str, tuple[AdnaSiteEvidenceRecord, ...]] = {
                 "of the mitochondrial genome and phylogenetic analysis."
             ),
             source_support_status="archive_description_quote",
-            coordinate_basis="site_level_localities",
-            latitude_text="42.75",
-            longitude_text="-8.75",
-            chronology_text="Neolithic to later Galician cattle sequence",
-            time_start_bp=1500,
-            time_end_bp=7000,
-            dating_basis="archaeological_period",
+            coordinate_basis="unresolved_location_state",
+            chronology_text="Different ages across different Galician mountain caves",
+            dating_basis="unknown",
             domestication_context="domesticated_core_with_progenitor_boundary",
             interpretation_note=(
                 "The current shipped cattle lead is archive-backed rather than "
@@ -238,13 +234,9 @@ _PROJECT_SITE_EVIDENCE: dict[str, tuple[AdnaSiteEvidenceRecord, ...]] = {
             source_support_status="article_exact_quote",
             paper_doi="10.1038/ncomms16082",
             paper_url=_doi_url("10.1038/ncomms16082"),
-            coordinate_basis="inferred_region_centroid",
-            latitude_text="50.00",
-            longitude_text="10.00",
-            chronology_text="Ancient European dog genomic context",
-            time_start_bp=4500,
-            time_end_bp=7000,
-            dating_basis="archaeological_period",
+            coordinate_basis="unresolved_location_state",
+            chronology_text="End Neolithic period in Central Europe",
+            dating_basis="relative_period",
             domestication_context="domesticated_core",
             interpretation_note=(
                 "The paper gives exact site names, but the shipped point remains a "
@@ -291,8 +283,8 @@ _PROJECT_SITE_EVIDENCE: dict[str, tuple[AdnaSiteEvidenceRecord, ...]] = {
             project_accession="SRP073444",
             species_latin_name="Camelus dromedarius",
             species_common_name="camel",
-            site_label="Arabian Peninsula and Levant dromedary context",
-            political_entity="Arabian Peninsula and Levant",
+            site_label="Site 1040 near Wadi Halfa dromedary context",
+            political_entity="Sudan",
             source_artifact_path="adna/governance/source_library/papers/10.1111-1755-0998.12551/article.html",
             source_artifact_kind="article_html_body_quote",
             source_locator="abstract and introduction",
@@ -304,22 +296,17 @@ _PROJECT_SITE_EVIDENCE: dict[str, tuple[AdnaSiteEvidenceRecord, ...]] = {
             source_support_status="article_exact_quote",
             paper_doi="10.1111/1755-0998.12551",
             paper_url=_doi_url("10.1111/1755-0998.12551"),
-            coordinate_basis="inferred_region_centroid",
-            latitude_text="25.00",
-            longitude_text="45.00",
-            chronology_text="Historical and archaeological dromedary range context",
-            time_start_bp=1400,
-            time_end_bp=3000,
-            dating_basis="historical_attribution",
+            coordinate_basis="unresolved_location_state",
+            chronology_text="Late Pleistocene",
+            dating_basis="relative_period",
             domestication_context="non_nordic_domestication_context",
             interpretation_note=(
-                "The paper names an exact Wadi Halfa specimen, but the current "
-                "repository still publishes camel only as broad non-Nordic context "
-                "rather than a precise atlas-grade point."
+                "The paper names Site 1040 near Wadi Halfa but supplies neither an "
+                "excavation coordinate nor a numeric sample chronology in this quote."
             ),
             support_gap_note=(
-                "The shipped point is still a broad contextual centroid even though "
-                "the paper names Site 1040 near Wadi Halfa."
+                "Coordinate publication requires the separately governed named-place "
+                "resolution; Late Pleistocene remains relative-period context only."
             ),
         ),
     ),
@@ -342,13 +329,9 @@ _PROJECT_SITE_EVIDENCE: dict[str, tuple[AdnaSiteEvidenceRecord, ...]] = {
             source_support_status="archive_description_quote",
             paper_doi="10.1038/s41598-024-54296-2",
             paper_url=_doi_url("10.1038/s41598-024-54296-2"),
-            coordinate_basis="site_level_localities",
-            latitude_text="78.22",
-            longitude_text="15.65",
-            chronology_text="Ancient Arctic archipelago reindeer context",
-            time_start_bp=500,
-            time_end_bp=2500,
-            dating_basis="archaeological_period",
+            coordinate_basis="unresolved_location_state",
+            chronology_text="17th to 20th centuries harvest-induced bottleneck",
+            dating_basis="population_history_context",
             comparator_context=True,
             domestication_context="comparator_context",
             interpretation_note=(

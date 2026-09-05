@@ -39,17 +39,16 @@ class AdnaProjectSampleSitesUnitTests(unittest.TestCase):
         self.assertEqual(first.country_name, "Turkey")
         self.assertEqual(first.region_name, "Bursa Province")
 
-    def test_region_scale_projects_stay_visible_as_weak_sample_site_rows(self) -> None:
+    def test_region_scale_context_does_not_become_sample_site_assignment(self) -> None:
         rows = build_project_sample_site_rows(self.data_root, "SRS1407451")
 
         self.assertTrue(rows)
         self.assertTrue(
-            all(row.locality_resolution_status == "region_only" for row in rows)
+            all(row.locality_resolution_status == "unresolved" for row in rows)
         )
         self.assertTrue(
             all(
-                "broad contextual centroid" in row.review_note.lower()
-                or "region" in row.review_note.lower()
+                "no location evidence" in row.review_note.lower()
                 for row in rows
             )
         )
@@ -105,7 +104,7 @@ class AdnaProjectSampleSitesUnitTests(unittest.TestCase):
         self.assertTrue(
             any(
                 row["project_accession"] == "SRS1407451"
-                and row["locality_resolution_status"] == "region_only"
+                and row["locality_resolution_status"] == "unresolved"
                 for row in ambiguity_rows
             )
         )

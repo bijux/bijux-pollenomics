@@ -108,6 +108,18 @@ class AdnaProjectSampleChronologyUnitTests(unittest.TestCase):
 
         self.assertEqual(rows, ())
 
+    def test_project_context_does_not_become_biological_sample_chronology(
+        self,
+    ) -> None:
+        for accession in ("PRJNA705960", "PRJEB60484", "SRS1407451"):
+            rows = build_project_sample_chronology_rows(self.data_root, accession)
+            self.assertTrue(rows)
+            self.assertTrue(
+                all(row.chronology_strength == "unresolved" for row in rows)
+            )
+            self.assertTrue(all(row.time_start_bp is None for row in rows))
+            self.assertTrue(all(row.time_end_bp is None for row in rows))
+
     def test_cat_chronology_keeps_exact_intervals_and_refuses_identity_conflicts(
         self,
     ) -> None:
@@ -182,10 +194,10 @@ class AdnaProjectSampleChronologyUnitTests(unittest.TestCase):
         self.assertEqual(sheep_review["sample_owned_interval_count"], 167)
         self.assertEqual(sheep_review["text_only_unparsed_count"], 13)
         self.assertEqual(audit["sample_row_count"], 1451)
-        self.assertEqual(audit["normalized_interval_count"], 353)
+        self.assertEqual(audit["normalized_interval_count"], 321)
         self.assertEqual(audit["normalized_point_count"], 474)
-        self.assertEqual(audit["unresolved_count"], 493)
-        self.assertEqual(audit["precision_counts"]["contextual_interval"], 40)
+        self.assertEqual(audit["unresolved_count"], 525)
+        self.assertEqual(audit["precision_counts"]["contextual_interval"], 8)
         self.assertEqual(
             audit["precision_counts"]["sample_approximate_or_modeled"], 131
         )
@@ -237,7 +249,11 @@ class AdnaProjectSampleChronologyUnitTests(unittest.TestCase):
         self.assertTrue(
             any(
                 row["project_accession"] == "PRJNA705960"
-                and "project_context_dates_still_dominate" in row["gap_reasons"]
+                and row["gap_reasons"]
+                == [
+                    "no_sample_owned_chronology_recovered",
+                    "missing_sample_level_date_evidence",
+                ]
                 for row in gap_queue
             )
         )

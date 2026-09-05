@@ -410,9 +410,7 @@ def _matching_locality_lead(
     if target_entity == target_locality:
         target_entity = ""
     if not target_locality:
-        # One lead is unambiguous project context; multiple leads require an exact
-        # sample-owned locality so records cannot inherit an arbitrary first site.
-        return leads[0] if len(leads) == 1 else None
+        return None
 
     locality_matches = tuple(
         lead

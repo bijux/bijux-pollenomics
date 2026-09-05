@@ -15,8 +15,6 @@ from bijux_pollenomics.reporting.adna.atlas_evidence_rows import (
     [
         ("sample_precise_point", "numeric_interval"),
         ("sample_precise_interval", "numeric_interval"),
-        ("sample_approximate_or_modeled", "numeric_interval_with_caveat"),
-        ("contextual_interval", "numeric_interval_with_caveat"),
     ],
 )
 def test_complete_canonical_interval_is_retained_for_numeric_posture(
@@ -63,6 +61,8 @@ def test_zero_bp_point_is_not_confused_with_missing_chronology() -> None:
         (4700, None, "sample_precise_interval"),
         (4700, 1000, "sample_approximate_or_modeled"),
         (-1, 1000, "sample_precise_interval"),
+        (1000, 4700, "sample_approximate_or_modeled"),
+        (1000, 4700, "contextual_interval"),
         (1000, 4700, "broad_period_only"),
         (1000, 4700, "unresolved"),
     ],

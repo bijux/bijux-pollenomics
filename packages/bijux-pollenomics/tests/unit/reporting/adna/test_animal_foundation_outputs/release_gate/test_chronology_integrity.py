@@ -6,6 +6,7 @@ import tempfile
 import pytest
 
 from bijux_pollenomics.reporting.adna.foundation_outputs.release import (
+    _chronology_row_blocks_publication,
     build_animal_publication_release_gate,
 )
 
@@ -15,6 +16,17 @@ pytestmark = pytest.mark.generated_artifacts
 
 
 class AnimalChronologyReleaseGateTests(AnimalFoundationOutputsTestCase):
+    def test_conflicting_sample_chronology_blocks_publication(self) -> None:
+        self.assertTrue(
+            _chronology_row_blocks_publication(
+                {
+                    "chronology_normalization_status": "normalized_interval",
+                    "chronology_precision_posture": "sample_precise_interval",
+                    "chronology_conflict_note": "sample and site intervals disagree",
+                }
+            )
+        )
+
     def test_release_gate_fails_when_unresolved_sample_chronology_reaches_country_and_atlas_outputs(
         self,
     ) -> None:

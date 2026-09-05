@@ -156,7 +156,7 @@ class AnimalLocalityReleaseGateTests(AnimalFoundationOutputsTestCase):
                     "samples": [
                         sample_row(
                             stable_token="ovis_aries:sample:blocked",
-                            locality_token="ovis_aries:sample-site:blocked",
+                            locality_token="ovis_aries:locality:blocked",
                             locality_text="Blocked Site",
                             project_accession="PRJTEST",
                         ),

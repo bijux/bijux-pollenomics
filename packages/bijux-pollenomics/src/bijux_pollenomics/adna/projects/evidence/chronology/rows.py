@@ -97,8 +97,6 @@ def _matching_site_row(
                 "Multiple site-evidence rows match one sample locality: "
                 f"{master_row.project_accession} {master_row.repo_stable_sample_id}"
             )
-    if len(site_rows) == 1:
-        return site_rows[0]
     return None
 
 

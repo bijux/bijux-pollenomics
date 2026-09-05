@@ -120,7 +120,7 @@ class AdnaSampleRegistryUnitTests(unittest.TestCase):
             all("transect" not in row.site_label.casefold() for row in rows)
         )
 
-    def test_locality_selection_keeps_one_project_context_and_refuses_ambiguity(
+    def test_locality_selection_requires_sample_owned_place_identity(
         self,
     ) -> None:
         locality_lead = AdnaProjectLocalityLead(
@@ -139,8 +139,8 @@ class AdnaSampleRegistryUnitTests(unittest.TestCase):
         self.assertIsNone(
             _matching_locality_lead((locality_lead,), "Different Site", "")
         )
-        self.assertIs(
-            _matching_locality_lead((locality_lead,), "N/A", "N/A"), locality_lead
+        self.assertIsNone(
+            _matching_locality_lead((locality_lead,), "N/A", "N/A")
         )
         self.assertIsNone(
             _matching_locality_lead((locality_lead,), "Example Site", "Sweden")
@@ -176,8 +176,8 @@ class AdnaSampleRegistryUnitTests(unittest.TestCase):
 
         self.assertEqual(donkey.sample_basis, "project_accession_anchor")
         self.assertEqual(donkey.inclusion_status, "comparator_site_curated")
-        self.assertEqual(reindeer.inclusion_status, "comparator_site_curated")
-        self.assertIn("comparator", reindeer.inclusion_note.casefold())
+        self.assertEqual(reindeer.inclusion_status, "sample_context_blocked")
+        self.assertIn("site and chronology extraction", reindeer.inclusion_note)
 
 
 if __name__ == "__main__":
