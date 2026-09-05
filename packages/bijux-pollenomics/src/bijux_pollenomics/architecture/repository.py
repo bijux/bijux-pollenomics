@@ -194,7 +194,7 @@ def build_repository_architecture_contract() -> RepositoryArchitectureContract:
             owner_module="bijux_pollenomics.adna.workflow.normalization",
             owner_path=(
                 "packages/bijux-pollenomics/src/"
-                "bijux_pollenomics/adna/workflow/normalization.py"
+                "bijux_pollenomics/adna/workflow/normalization"
             ),
             purpose="materialize species-owned normalized sample and locality records",
             tracked_inputs=("sample-owned evidence rows",),
