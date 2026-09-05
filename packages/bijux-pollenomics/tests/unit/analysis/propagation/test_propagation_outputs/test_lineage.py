@@ -11,7 +11,7 @@ from bijux_pollenomics.analysis.propagation.outputs import (
     manifest as propagation_manifest,
 )
 from bijux_pollenomics.analysis.propagation.outputs import models as propagation_models
-from .conftest import (
+from .support import (
     _PROPAGATION_CONTRACT_DIGEST,
     _PROPAGATION_CONTRACT_VERSION,
     _PROPAGATION_PRODUCER_ID,

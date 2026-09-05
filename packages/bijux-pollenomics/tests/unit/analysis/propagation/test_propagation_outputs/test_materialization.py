@@ -5,7 +5,7 @@ from dataclasses import replace
 import hashlib
 import json
 from pathlib import Path
-from .conftest import (
+from .support import (
     _PROPAGATION_CONTRACT_DIGEST,
     _PROPAGATION_CONTRACT_VERSION,
     _PROPAGATION_PRODUCER_ID,

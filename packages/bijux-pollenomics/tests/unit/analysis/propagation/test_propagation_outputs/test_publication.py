@@ -7,7 +7,7 @@ import pytest
 from bijux_pollenomics.analysis.propagation.outputs import (
     PropagationOutputRefusalError,
 )
-from .conftest import (
+from .support import (
     _REPOSITORY_ROOT,
     _classification_bundle,
     _event,
