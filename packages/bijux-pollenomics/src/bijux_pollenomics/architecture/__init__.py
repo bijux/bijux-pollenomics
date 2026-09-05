@@ -12,21 +12,37 @@ from .repository import (
 )
 from .runtime import RuntimeSurfaceContract, runtime_surface_contract
 from .surfaces import SurfaceMap, build_surface_map
+from .topology import (
+    PackageFacadePolicy,
+    RepositoryTopologyPolicy,
+    TopologyViolation,
+    UnitTestDomainPolicy,
+    assert_repository_topology,
+    audit_repository_topology,
+    repository_topology_policy,
+)
 
 __all__ = [
     "ArchitectureStage",
     "CompatibilityAliasContract",
     "CrossTreeSurfaceContract",
     "OwnershipMapEntry",
+    "PackageFacadePolicy",
     "PackageOwnershipContract",
     "ProductScope",
     "RepositoryArchitectureContract",
+    "RepositoryTopologyPolicy",
     "RuntimeSurfaceContract",
     "SurfaceMap",
+    "TopologyViolation",
+    "UnitTestDomainPolicy",
+    "assert_repository_topology",
+    "audit_repository_topology",
     "build_ownership_map",
     "build_product_scope",
     "build_repository_architecture_contract",
     "build_surface_map",
     "compatibility_alias_contract",
     "runtime_surface_contract",
+    "repository_topology_policy",
 ]
