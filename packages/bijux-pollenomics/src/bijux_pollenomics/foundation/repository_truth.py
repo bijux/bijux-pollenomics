@@ -384,9 +384,7 @@ def build_repository_governance_artifact_review(
             return (report_root / path.relative_to(published_report_prefix)).exists()
         return (repo_root / path).exists()
 
-    existing_rows = [
-        row for row in rows if artifact_exists(str(row["artifact_path"]))
-    ]
+    existing_rows = [row for row in rows if artifact_exists(str(row["artifact_path"]))]
     summary = {
         "keep": sum(1 for row in existing_rows if row["action"] == "keep"),
         "reframe": sum(1 for row in existing_rows if row["action"] == "reframe"),

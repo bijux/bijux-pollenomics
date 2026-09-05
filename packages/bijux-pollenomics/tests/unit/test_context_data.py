@@ -1217,9 +1217,7 @@ class ContextDataTests(unittest.TestCase):
                 ).regional_scopes[-1],
             )
 
-        fieldwork_features = cast(
-            list[dict[str, object]], point_layers[1]["features"]
-        )
+        fieldwork_features = cast(list[dict[str, object]], point_layers[1]["features"])
         media_links = cast(
             list[dict[str, object]], fieldwork_features[0]["media_links"]
         )

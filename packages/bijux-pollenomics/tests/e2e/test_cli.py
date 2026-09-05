@@ -3,12 +3,12 @@ from __future__ import annotations
 import contextlib
 import io
 import os
-from pathlib import Path
 import subprocess
 import sys
 import tempfile
-from types import SimpleNamespace
 import unittest
+from pathlib import Path
+from types import SimpleNamespace
 from unittest.mock import patch
 
 from bijux_pollenomics import __version__
@@ -19,6 +19,7 @@ from bijux_pollenomics.config import (
     DEFAULT_ATLAS_TITLE,
     DEFAULT_PUBLISHED_COUNTRIES,
 )
+
 from tests.support.aadr import AADR_HEADER
 
 REPO_ROOT = Path(__file__).resolve().parents[2]
@@ -161,13 +162,8 @@ class CliTests(unittest.TestCase):
             root = Path(tmp) / "data" / "aadr" / DEFAULT_AADR_VERSION / "ho"
             root.mkdir(parents=True, exist_ok=True)
             (root / f"{DEFAULT_AADR_VERSION}_HO_public.anno").write_text(
-                "\n".join(
-                    [
-                        AADR_HEADER,
-                        "SE1\tSE1\tSweden_Group\tUppsala\tSweden\t59.8586\t17.6389\tPaperA\t2022\t500 BCE\t2450\tHO\tF",
-                    ]
-                )
-                + "\n",
+                f"{AADR_HEADER}\n"
+                "SE1\tSE1\tSweden_Group\tUppsala\tSweden\t59.8586\t17.6389\tPaperA\t2022\t500 BCE\t2450\tHO\tF\n",
                 encoding="utf-8",
             )
 
@@ -206,6 +202,7 @@ class CliTests(unittest.TestCase):
             title=DEFAULT_ATLAS_TITLE,
             slug=DEFAULT_ATLAS_SLUG,
             context_root=Path(tmp) / "data",
+            published_output_root=None,
         )
         self.assertIn("Wrote published report bundles for Sweden", stdout.getvalue())
 
@@ -214,13 +211,8 @@ class CliTests(unittest.TestCase):
             root = Path(tmp) / "data" / "aadr" / DEFAULT_AADR_VERSION / "ho"
             root.mkdir(parents=True, exist_ok=True)
             (root / f"{DEFAULT_AADR_VERSION}_HO_public.anno").write_text(
-                "\n".join(
-                    [
-                        AADR_HEADER,
-                        "SE1\tSE1\tSweden_Group\tUppsala\tSweden\t59.8586\t17.6389\tPaperA\t2022\t500 BCE\t2450\tHO\tF",
-                    ]
-                )
-                + "\n",
+                f"{AADR_HEADER}\n"
+                "SE1\tSE1\tSweden_Group\tUppsala\tSweden\t59.8586\t17.6389\tPaperA\t2022\t500 BCE\t2450\tHO\tF\n",
                 encoding="utf-8",
             )
 
@@ -266,14 +258,9 @@ class CliTests(unittest.TestCase):
             root = Path(tmp) / "data" / "aadr" / DEFAULT_AADR_VERSION / "ho"
             root.mkdir(parents=True, exist_ok=True)
             (root / f"{DEFAULT_AADR_VERSION}_HO_public.anno").write_text(
-                "\n".join(
-                    [
-                        AADR_HEADER,
-                        "SE1\tSE1\tSweden_Group\tUppsala\tSweden\t59.8586\t17.6389\tPaperA\t2022\t500 BCE\t2450\tHO\tF",
-                        "NO1\tNO1\tNorway_Group\tOslo\tNorway\t59.9139\t10.7522\tPaperB\t2021\t600 BCE\t2550\tHO\tM",
-                    ]
-                )
-                + "\n",
+                f"{AADR_HEADER}\n"
+                "SE1\tSE1\tSweden_Group\tUppsala\tSweden\t59.8586\t17.6389\tPaperA\t2022\t500 BCE\t2450\tHO\tF\n"
+                "NO1\tNO1\tNorway_Group\tOslo\tNorway\t59.9139\t10.7522\tPaperB\t2021\t600 BCE\t2550\tHO\tM\n",
                 encoding="utf-8",
             )
 

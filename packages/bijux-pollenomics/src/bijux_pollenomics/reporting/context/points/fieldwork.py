@@ -18,9 +18,7 @@ def build_fieldwork_point_layer(
 ) -> dict[str, object] | None:
     """Build a checked-in fieldwork documentation layer when gallery media exists."""
     published_output_dir = (
-        Path(published_output_dir)
-        if published_output_dir is not None
-        else output_dir
+        Path(published_output_dir) if published_output_dir is not None else output_dir
     )
     docs_root = find_docs_root(published_output_dir)
     if docs_root is None:
