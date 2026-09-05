@@ -1525,7 +1525,9 @@ def _publish_source_captures(
         stored_path = write_source_artifact_bytes(pending.logical_path, pending.payload)
         metadata = {
             **pending.metadata,
+            "content_sha256": hashlib.sha256(pending.payload).hexdigest(),
             "storage_byte_size": stored_path.stat().st_size,
+            "storage_sha256": hashlib.sha256(stored_path.read_bytes()).hexdigest(),
             "storage_path": str(stored_path.relative_to(output_root)),
             "content_encoding": "gzip" if stored_path.suffix == ".gz" else None,
         }

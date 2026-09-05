@@ -69,7 +69,7 @@ class AnimalFoundationOutputsUnitTests(unittest.TestCase):
         )
 
         self.assertEqual(payload["schema_version"], "animal-cross-surface-drift.v1")
-        self.assertEqual(len(payload["rows"]), 7)
+        self.assertEqual(len(payload["rows"]), 9)
         self.assertFalse(payload["drift_detected"])
 
     def test_scientific_caveat_ledger_groups_current_weak_points(self) -> None:
@@ -133,11 +133,11 @@ class AnimalFoundationOutputsUnitTests(unittest.TestCase):
         self.assertEqual(
             payload["schema_version"], "animal-sample-chronology-review.v1"
         )
-        self.assertEqual(payload["row_count"], 868)
-        self.assertEqual(payload["normalization_counts"]["normalized_interval"], 303)
-        self.assertEqual(payload["normalization_counts"]["normalized_point"], 478)
-        self.assertEqual(payload["normalization_counts"]["unresolved"], 0)
-        self.assertEqual(payload["precision_counts"]["contextual_interval"], 50)
+        self.assertEqual(payload["row_count"], 1451)
+        self.assertEqual(payload["normalization_counts"]["normalized_interval"], 753)
+        self.assertEqual(payload["normalization_counts"]["normalized_point"], 480)
+        self.assertEqual(payload["normalization_counts"]["unresolved"], 126)
+        self.assertEqual(payload["precision_counts"]["contextual_interval"], 485)
         self.assertTrue(
             any(
                 row["project_accession"] == "PRJEB36540"
@@ -157,7 +157,8 @@ class AnimalFoundationOutputsUnitTests(unittest.TestCase):
             "sample_recovery_still_partial_and_project_gaps_explicit",
         )
         self.assertGreater(payload["stage_review"]["blocked_projects"], 0)
-        self.assertGreater(
+        self.assertTrue(payload["release_guard"]["passing"])
+        self.assertEqual(
             payload["release_guard"]["implausibly_low_recovery_project_count"], 0
         )
         self.assertIn("source_recovery_progress", payload["direct_links"])
@@ -197,7 +198,7 @@ class AnimalFoundationOutputsUnitTests(unittest.TestCase):
             payload["locality_completeness_counts"]["exact_site_evidence_count"],
             0,
         )
-        self.assertIn(
+        self.assertNotIn(
             "project_recovery_release_guard_still_failing",
             payload["posture_findings"],
         )
@@ -738,7 +739,7 @@ class AnimalFoundationOutputsUnitTests(unittest.TestCase):
                 review_payload["public_posture"],
                 "governed_metadata_foundation_not_reference_grade",
             )
-            self.assertEqual(chronology_payload["row_count"], 868)
+            self.assertEqual(chronology_payload["row_count"], 1451)
             self.assertGreater(
                 intake_recovery_payload["stage_review"]["blocked_projects"],
                 0,

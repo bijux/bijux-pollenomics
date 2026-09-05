@@ -3,15 +3,15 @@
   "rows": [
     {
       "species_latin_name": "Bos taurus",
-      "recovered_sample_row_count": 11,
+      "recovered_sample_row_count": 132,
       "normalized_row_count": 11,
       "exact_sample_date_count": 0,
       "modeled_or_approximate_sample_date_count": 0,
       "contextual_date_count": 11,
       "broad_label_count": 0,
       "text_only_unparsed_count": 0,
-      "unresolved_count": 0,
-      "chronology_completeness_ratio": 1.0
+      "unresolved_count": 121,
+      "chronology_completeness_ratio": 0.0833
     },
     {
       "species_latin_name": "Camelus dromedarius",
@@ -62,16 +62,28 @@
       "chronology_completeness_ratio": 1.0
     },
     {
-      "species_latin_name": "Ovis aries",
-      "recovered_sample_row_count": 190,
-      "normalized_row_count": 190,
-      "exact_sample_date_count": 167,
-      "modeled_or_approximate_sample_date_count": 13,
-      "contextual_date_count": 10,
+      "species_latin_name": "Felis catus",
+      "recovered_sample_row_count": 109,
+      "normalized_row_count": 109,
+      "exact_sample_date_count": 17,
+      "modeled_or_approximate_sample_date_count": 5,
+      "contextual_date_count": 87,
       "broad_label_count": 0,
-      "text_only_unparsed_count": 13,
+      "text_only_unparsed_count": 5,
       "unresolved_count": 0,
       "chronology_completeness_ratio": 1.0
+    },
+    {
+      "species_latin_name": "Ovis aries",
+      "recovered_sample_row_count": 200,
+      "normalized_row_count": 195,
+      "exact_sample_date_count": 167,
+      "modeled_or_approximate_sample_date_count": 13,
+      "contextual_date_count": 15,
+      "broad_label_count": 0,
+      "text_only_unparsed_count": 13,
+      "unresolved_count": 5,
+      "chronology_completeness_ratio": 0.975
     },
     {
       "species_latin_name": "Rangifer tarandus",
@@ -80,6 +92,18 @@
       "exact_sample_date_count": 0,
       "modeled_or_approximate_sample_date_count": 0,
       "contextual_date_count": 20,
+      "broad_label_count": 0,
+      "text_only_unparsed_count": 0,
+      "unresolved_count": 0,
+      "chronology_completeness_ratio": 1.0
+    },
+    {
+      "species_latin_name": "Sus scrofa domesticus",
+      "recovered_sample_row_count": 343,
+      "normalized_row_count": 343,
+      "exact_sample_date_count": 0,
+      "modeled_or_approximate_sample_date_count": 0,
+      "contextual_date_count": 343,
       "broad_label_count": 0,
       "text_only_unparsed_count": 0,
       "unresolved_count": 0,

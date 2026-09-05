@@ -7,5 +7,7 @@
   "project_accession": "PRJNA705960",
   "storage_byte_size": 808,
   "storage_path": "adna/governance/source_library/projects/PRJNA705960/archive_metadata.html.gz",
-  "content_encoding": "gzip"
+  "content_encoding": "gzip",
+  "content_sha256": "d7918701812ac839f1cac8616050c0c30a3dfc3cd2d13a95b6fd46f7f22351a8",
+  "storage_sha256": "8ed410e6f0087bed960f68b96b9443ff10cf596e9cde831f5c2a6a4db6bd8d11"
 }

@@ -1,13 +1,13 @@
 # Sample chronology normalization audit
 
-- Sample rows: `868`
-- Normalized intervals: `303`
-- Normalized points: `478`
-- Text-only rows: `87`
-- Unresolved rows: `0`
+- Sample rows: `1451`
+- Normalized intervals: `753`
+- Normalized points: `480`
+- Text-only rows: `92`
+- Unresolved rows: `126`
 - Direct radiocarbon rows: `732`
 - Modeled sample-date rows: `0`
-- Archaeological-context rows: `30`
+- Archaeological-context rows: `378`
 - Broad period rows: `0`
 
 ## Projects requiring manual chronology review
@@ -17,8 +17,12 @@
 - `PRJEB31613`
 - `PRJEB19970`
 - `PRJEB36540`
+- `PRJEB41594`
+- `PRJEB31621`
+- `PRJEB75467`
 - `PRJEB90141`
 - `PRJEB90261`
+- `PRJNA1178732`
 - `KX379528-KX379529`
 - `KU605068-KU605080`
 
@@ -33,23 +37,23 @@
 | PRJEB10854 | 0 | 0 | 0 | 0 | 0 | 0 |
 | PRJEB9799 | 0 | 0 | 0 | 0 | 0 | 0 |
 | PRJEB36540 | 190 | 165 | 12 | 13 | 0 | 161 |
-| PRJEB41594 | 0 | 0 | 0 | 0 | 0 | 0 |
-| PRJEB59481 | 0 | 0 | 0 | 0 | 0 | 0 |
+| PRJEB41594 | 5 | 0 | 0 | 0 | 5 | 0 |
+| PRJEB59481 | 5 | 5 | 0 | 0 | 0 | 0 |
 | PRJEB61808 | 0 | 0 | 0 | 0 | 0 | 0 |
 | PRJEB69690 | 0 | 0 | 0 | 0 | 0 | 0 |
 | PRJEB81145 | 0 | 0 | 0 | 0 | 0 | 0 |
-| PRJEB30282 | 0 | 0 | 0 | 0 | 0 | 0 |
+| PRJEB30282 | 343 | 343 | 0 | 0 | 0 | 0 |
 | PRJNA788987 | 0 | 0 | 0 | 0 | 0 | 0 |
 | PRJNA878488 | 0 | 0 | 0 | 0 | 0 | 0 |
 | PRJNA421430 | 0 | 0 | 0 | 0 | 0 | 0 |
-| PRJEB31621 | 0 | 0 | 0 | 0 | 0 | 0 |
-| PRJEB75467 | 0 | 0 | 0 | 0 | 0 | 0 |
+| PRJEB31621 | 77 | 0 | 0 | 0 | 77 | 0 |
+| PRJEB75467 | 44 | 0 | 0 | 0 | 44 | 0 |
 | PRJNA705960 | 11 | 11 | 0 | 0 | 0 | 0 |
 | PRJEB90141 | 4 | 4 | 0 | 0 | 0 | 3 |
 | PRJEB90261 | 73 | 0 | 0 | 73 | 0 | 72 |
 | PRJNA1328209 | 5 | 5 | 0 | 0 | 0 | 0 |
-| PRJEB81815 | 0 | 0 | 0 | 0 | 0 | 0 |
-| PRJNA1178732 | 0 | 0 | 0 | 0 | 0 | 0 |
+| PRJEB81815 | 87 | 87 | 0 | 0 | 0 | 0 |
+| PRJNA1178732 | 22 | 15 | 2 | 5 | 0 | 21 |
 | SRS1407451 | 1 | 1 | 0 | 0 | 0 | 0 |
 | SRS1407453 | 1 | 1 | 0 | 0 | 0 | 0 |
 | KX379528-KX379529 | 2 | 2 | 0 | 0 | 0 | 1 |

@@ -5,6 +5,247 @@
     {
       "identity": {
         "namespace": "bos_taurus:project_locality",
+        "stable_token": "bos_taurus:locality:prjeb31621:unresolved",
+        "locality_text": "",
+        "political_entity": "",
+        "source_anchor_tokens": [
+          "PRJEB31621",
+          "",
+          ""
+        ]
+      },
+      "species_latin_name": "Bos taurus",
+      "species_common_name": "cattle",
+      "source_family": "ENA",
+      "source_releases": [
+        "PRJEB31621"
+      ],
+      "record_modalities": [
+        "archive_reads"
+      ],
+      "review_strengths": [
+        "primary_paper_pinned"
+      ],
+      "provenance_qualities": [
+        "primary_paper_pinned"
+      ],
+      "locality": "",
+      "coordinates": {
+        "latitude": null,
+        "longitude": null,
+        "latitude_text": "",
+        "longitude_text": "",
+        "confidence": "unknown"
+      },
+      "sample_count": 77,
+      "sample_ids": [
+        "prjeb31621:samea5577008",
+        "prjeb31621:samea5577009",
+        "prjeb31621:samea5577010",
+        "prjeb31621:samea5577011",
+        "prjeb31621:samea5577012",
+        "prjeb31621:samea5577149",
+        "prjeb31621:samea5577150",
+        "prjeb31621:samea5577151",
+        "prjeb31621:samea5577153",
+        "prjeb31621:samea5577154",
+        "prjeb31621:samea5577344",
+        "prjeb31621:samea5577345",
+        "prjeb31621:samea5577346",
+        "prjeb31621:samea5577347",
+        "prjeb31621:samea5577348",
+        "prjeb31621:samea5577349",
+        "prjeb31621:samea5577350",
+        "prjeb31621:samea5577351",
+        "prjeb31621:samea5577352",
+        "prjeb31621:samea5577353",
+        "prjeb31621:samea5577354",
+        "prjeb31621:samea5577355",
+        "prjeb31621:samea5577356",
+        "prjeb31621:samea5577357",
+        "prjeb31621:samea5577358",
+        "prjeb31621:samea5577359",
+        "prjeb31621:samea5577360",
+        "prjeb31621:samea5577361",
+        "prjeb31621:samea5577362",
+        "prjeb31621:samea5577363",
+        "prjeb31621:samea5577364",
+        "prjeb31621:samea5577365",
+        "prjeb31621:samea5577366",
+        "prjeb31621:samea5577367",
+        "prjeb31621:samea5577368",
+        "prjeb31621:samea5577369",
+        "prjeb31621:samea5577370",
+        "prjeb31621:samea5577371",
+        "prjeb31621:samea5577372",
+        "prjeb31621:samea5577373",
+        "prjeb31621:samea5577374",
+        "prjeb31621:samea5577375",
+        "prjeb31621:samea5577376",
+        "prjeb31621:samea5577377",
+        "prjeb31621:samea5577378",
+        "prjeb31621:samea5577379",
+        "prjeb31621:samea5577380",
+        "prjeb31621:samea5577381",
+        "prjeb31621:samea5577382",
+        "prjeb31621:samea5577383",
+        "prjeb31621:samea5577384",
+        "prjeb31621:samea5577385",
+        "prjeb31621:samea5577386",
+        "prjeb31621:samea5577387",
+        "prjeb31621:samea5577388",
+        "prjeb31621:samea5577389",
+        "prjeb31621:samea5577390",
+        "prjeb31621:samea5577391",
+        "prjeb31621:samea5577392",
+        "prjeb31621:samea5577393",
+        "prjeb31621:samea5577394",
+        "prjeb31621:samea5577395",
+        "prjeb31621:samea5577396",
+        "prjeb31621:samea5577397",
+        "prjeb31621:samea5577398",
+        "prjeb31621:samea5577399",
+        "prjeb31621:samea5577400",
+        "prjeb31621:samea5577401",
+        "prjeb31621:samea5577402",
+        "prjeb31621:samea5577403",
+        "prjeb31621:samea5577404",
+        "prjeb31621:samea5577405",
+        "prjeb31621:samea5577406",
+        "prjeb31621:samea5577407",
+        "prjeb31621:samea5577408",
+        "prjeb31621:samea5577409",
+        "prjeb31621:samea5605818"
+      ],
+      "datasets": [
+        "bos_taurus:project:PRJEB31621"
+      ],
+      "chronology": {
+        "original_text": "",
+        "time_start_bp": null,
+        "time_end_bp": null,
+        "time_mean_bp": null,
+        "date_stddev_bp": "",
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+        "evidence_class": "unresolved",
+        "precision_posture": "unresolved"
+      },
+      "sample_namespace": "bos_taurus:sample_locality",
+      "project_accessions": [
+        "PRJEB31621"
+      ],
+      "original_location_text": "",
+      "nordic_inclusion": false,
+      "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
+      "interpretation_note": "No location evidence has been extracted yet for this recovered sample row."
+    },
+    {
+      "identity": {
+        "namespace": "bos_taurus:project_locality",
+        "stable_token": "bos_taurus:locality:prjeb75467:unresolved",
+        "locality_text": "",
+        "political_entity": "",
+        "source_anchor_tokens": [
+          "PRJEB75467",
+          "",
+          ""
+        ]
+      },
+      "species_latin_name": "Bos taurus",
+      "species_common_name": "cattle",
+      "source_family": "ENA",
+      "source_releases": [
+        "PRJEB75467"
+      ],
+      "record_modalities": [
+        "archive_reads"
+      ],
+      "review_strengths": [
+        "primary_paper_pinned"
+      ],
+      "provenance_qualities": [
+        "primary_paper_pinned"
+      ],
+      "locality": "",
+      "coordinates": {
+        "latitude": null,
+        "longitude": null,
+        "latitude_text": "",
+        "longitude_text": "",
+        "confidence": "unknown"
+      },
+      "sample_count": 44,
+      "sample_ids": [
+        "prjeb75467:samea115574404",
+        "prjeb75467:samea115574405",
+        "prjeb75467:samea115574406",
+        "prjeb75467:samea115574407",
+        "prjeb75467:samea115574408",
+        "prjeb75467:samea115574409",
+        "prjeb75467:samea115574411",
+        "prjeb75467:samea115574412",
+        "prjeb75467:samea115574415",
+        "prjeb75467:samea115574416",
+        "prjeb75467:samea115574417",
+        "prjeb75467:samea115574418",
+        "prjeb75467:samea115574419",
+        "prjeb75467:samea115574420",
+        "prjeb75467:samea115574421",
+        "prjeb75467:samea115574422",
+        "prjeb75467:samea115574423",
+        "prjeb75467:samea115574424",
+        "prjeb75467:samea115574426",
+        "prjeb75467:samea115574428",
+        "prjeb75467:samea115574429",
+        "prjeb75467:samea115574430",
+        "prjeb75467:samea115574432",
+        "prjeb75467:samea115574433",
+        "prjeb75467:samea115574434",
+        "prjeb75467:samea115574435",
+        "prjeb75467:samea115574436",
+        "prjeb75467:samea115574437",
+        "prjeb75467:samea115574440",
+        "prjeb75467:samea115574441",
+        "prjeb75467:samea115574442",
+        "prjeb75467:samea115574443",
+        "prjeb75467:samea115574444",
+        "prjeb75467:samea115574445",
+        "prjeb75467:samea115574446",
+        "prjeb75467:samea115574447",
+        "prjeb75467:samea115574448",
+        "prjeb75467:samea115574449",
+        "prjeb75467:samea115574450",
+        "prjeb75467:samea115574452",
+        "prjeb75467:samea115574454",
+        "prjeb75467:samea115574455",
+        "prjeb75467:samea115574456",
+        "prjeb75467:samea115574457"
+      ],
+      "datasets": [
+        "bos_taurus:project:PRJEB75467"
+      ],
+      "chronology": {
+        "original_text": "",
+        "time_start_bp": null,
+        "time_end_bp": null,
+        "time_mean_bp": null,
+        "date_stddev_bp": "",
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+        "evidence_class": "unresolved",
+        "precision_posture": "unresolved"
+      },
+      "sample_namespace": "bos_taurus:sample_locality",
+      "project_accessions": [
+        "PRJEB75467"
+      ],
+      "original_location_text": "",
+      "nordic_inclusion": false,
+      "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
+      "interpretation_note": "No location evidence has been extracted yet for this recovered sample row."
+    },
+    {
+      "identity": {
+        "namespace": "bos_taurus:project_locality",
         "stable_token": "bos_taurus:locality:prjna705960:galicianmountaincavecattlecontext:galiciaspain",
         "locality_text": "Galician mountain cave cattle context",
         "political_entity": "Galicia, Spain",

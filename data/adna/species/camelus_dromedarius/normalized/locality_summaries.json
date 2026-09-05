@@ -590,9 +590,28 @@
         "longitude_text": "31.371316",
         "confidence": "approximate"
       },
-      "sample_count": 1,
+      "sample_count": 20,
       "sample_ids": [
-        "SRP073444"
+        "srp073444:experiment:srx1711539",
+        "srp073444:experiment:srx1711540",
+        "srp073444:experiment:srx1711541",
+        "srp073444:experiment:srx1711542",
+        "srp073444:experiment:srx1711543",
+        "srp073444:experiment:srx1711544",
+        "srp073444:experiment:srx1711545",
+        "srp073444:experiment:srx1711546",
+        "srp073444:experiment:srx1711547",
+        "srp073444:experiment:srx1711548",
+        "srp073444:experiment:srx1711549",
+        "srp073444:experiment:srx1711550",
+        "srp073444:experiment:srx1711551",
+        "srp073444:experiment:srx1711552",
+        "srp073444:experiment:srx1711553",
+        "srp073444:experiment:srx1711554",
+        "srp073444:experiment:srx1711555",
+        "srp073444:experiment:srx1711556",
+        "srp073444:experiment:srx1711557",
+        "srp073444:experiment:srx1711558"
       ],
       "datasets": [
         "camelus_dromedarius:project:SRP073444"

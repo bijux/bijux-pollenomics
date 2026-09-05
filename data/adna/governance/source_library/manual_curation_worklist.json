@@ -1,12 +1,82 @@
 {
   "schema_version": "animal-manual-curation-worklist.v1",
-  "row_count": 11,
+  "row_count": 29,
   "counts": {
-    "chronology_recovery": 5,
-    "locality_string_resolution": 3,
-    "site_resolution": 3
+    "chronology_recovery": 11,
+    "locality_string_resolution": 9,
+    "site_resolution": 9
   },
   "rows": [
+    {
+      "project_accession": "PRJEB31621",
+      "species_latin_name": "Bos taurus",
+      "work_unit_type": "chronology_recovery",
+      "work_unit_state": "pending_source_recovery",
+      "open_item_count": 154,
+      "rationale": "no_sample_owned_chronology_recovered; missing_sample_level_date_evidence",
+      "downstream_impact": "blocks chronology honesty and publication precision",
+      "recommended_source_surfaces": [
+        "data/adna/governance/source_library/projects/PRJEB31621/sample_chronology.json",
+        "data/adna/governance/source_library/projects/PRJEB31621/intake_dossier.json"
+      ]
+    },
+    {
+      "project_accession": "PRJEB31621",
+      "species_latin_name": "Bos taurus",
+      "work_unit_type": "locality_string_resolution",
+      "work_unit_state": "pending_manual_curation",
+      "open_item_count": 77,
+      "rationale": "unresolved",
+      "downstream_impact": "blocks coordinate derivation and exact locality publication",
+      "recommended_source_surfaces": [
+        "tracked_source_artifact"
+      ]
+    },
+    {
+      "project_accession": "PRJEB31621",
+      "species_latin_name": "Bos taurus",
+      "work_unit_type": "site_resolution",
+      "work_unit_state": "pending_manual_curation",
+      "open_item_count": 77,
+      "rationale": "recovered_sample_rows_still_lack_any_location_claim",
+      "downstream_impact": "blocks exact site, coordinate, and publication recovery",
+      "recommended_source_surfaces": []
+    },
+    {
+      "project_accession": "PRJEB75467",
+      "species_latin_name": "Bos taurus",
+      "work_unit_type": "chronology_recovery",
+      "work_unit_state": "pending_source_recovery",
+      "open_item_count": 88,
+      "rationale": "no_sample_owned_chronology_recovered; missing_sample_level_date_evidence",
+      "downstream_impact": "blocks chronology honesty and publication precision",
+      "recommended_source_surfaces": [
+        "data/adna/governance/source_library/projects/PRJEB75467/sample_chronology.json",
+        "data/adna/governance/source_library/projects/PRJEB75467/intake_dossier.json"
+      ]
+    },
+    {
+      "project_accession": "PRJEB75467",
+      "species_latin_name": "Bos taurus",
+      "work_unit_type": "locality_string_resolution",
+      "work_unit_state": "pending_manual_curation",
+      "open_item_count": 44,
+      "rationale": "unresolved",
+      "downstream_impact": "blocks coordinate derivation and exact locality publication",
+      "recommended_source_surfaces": [
+        "tracked_source_artifact"
+      ]
+    },
+    {
+      "project_accession": "PRJEB75467",
+      "species_latin_name": "Bos taurus",
+      "work_unit_type": "site_resolution",
+      "work_unit_state": "pending_manual_curation",
+      "open_item_count": 44,
+      "rationale": "recovered_sample_rows_still_lack_any_location_claim",
+      "downstream_impact": "blocks exact site, coordinate, and publication recovery",
+      "recommended_source_surfaces": []
+    },
     {
       "project_accession": "PRJNA705960",
       "species_latin_name": "Bos taurus",
@@ -93,6 +163,42 @@
       ]
     },
     {
+      "project_accession": "PRJEB81815",
+      "species_latin_name": "Felis catus",
+      "work_unit_type": "chronology_recovery",
+      "work_unit_state": "pending_source_recovery",
+      "open_item_count": 87,
+      "rationale": "no_sample_owned_chronology_recovered; project_context_dates_still_dominate",
+      "downstream_impact": "blocks chronology honesty and publication precision",
+      "recommended_source_surfaces": [
+        "data/adna/governance/source_library/projects/PRJEB81815/sample_chronology.json",
+        "data/adna/governance/source_library/projects/PRJEB81815/intake_dossier.json"
+      ]
+    },
+    {
+      "project_accession": "PRJEB81815",
+      "species_latin_name": "Felis catus",
+      "work_unit_type": "locality_string_resolution",
+      "work_unit_state": "pending_manual_curation",
+      "open_item_count": 87,
+      "rationale": "region_only",
+      "downstream_impact": "blocks coordinate derivation and exact locality publication",
+      "recommended_source_surfaces": [
+        "article_text",
+        "coordinate_resolution"
+      ]
+    },
+    {
+      "project_accession": "PRJEB81815",
+      "species_latin_name": "Felis catus",
+      "work_unit_type": "site_resolution",
+      "work_unit_state": "pending_manual_curation",
+      "open_item_count": 87,
+      "rationale": "region_only_rows_require_finer_location_evidence",
+      "downstream_impact": "blocks exact site, coordinate, and publication recovery",
+      "recommended_source_surfaces": []
+    },
+    {
       "project_accession": "PRJEB36540",
       "species_latin_name": "Ovis aries",
       "work_unit_type": "chronology_recovery",
@@ -104,6 +210,77 @@
         "data/adna/governance/source_library/projects/PRJEB36540/sample_chronology.json",
         "data/adna/governance/source_library/projects/PRJEB36540/intake_dossier.json"
       ]
+    },
+    {
+      "project_accession": "PRJEB41594",
+      "species_latin_name": "Ovis aries",
+      "work_unit_type": "chronology_recovery",
+      "work_unit_state": "pending_source_recovery",
+      "open_item_count": 10,
+      "rationale": "no_sample_owned_chronology_recovered; missing_sample_level_date_evidence",
+      "downstream_impact": "blocks chronology honesty and publication precision",
+      "recommended_source_surfaces": [
+        "data/adna/governance/source_library/projects/PRJEB41594/sample_chronology.json",
+        "data/adna/governance/source_library/projects/PRJEB41594/intake_dossier.json"
+      ]
+    },
+    {
+      "project_accession": "PRJEB41594",
+      "species_latin_name": "Ovis aries",
+      "work_unit_type": "locality_string_resolution",
+      "work_unit_state": "pending_manual_curation",
+      "open_item_count": 5,
+      "rationale": "unresolved",
+      "downstream_impact": "blocks coordinate derivation and exact locality publication",
+      "recommended_source_surfaces": [
+        "tracked_source_artifact"
+      ]
+    },
+    {
+      "project_accession": "PRJEB41594",
+      "species_latin_name": "Ovis aries",
+      "work_unit_type": "site_resolution",
+      "work_unit_state": "pending_manual_curation",
+      "open_item_count": 5,
+      "rationale": "recovered_sample_rows_still_lack_any_location_claim",
+      "downstream_impact": "blocks exact site, coordinate, and publication recovery",
+      "recommended_source_surfaces": []
+    },
+    {
+      "project_accession": "PRJEB59481",
+      "species_latin_name": "Ovis aries",
+      "work_unit_type": "chronology_recovery",
+      "work_unit_state": "pending_source_recovery",
+      "open_item_count": 5,
+      "rationale": "no_sample_owned_chronology_recovered; project_context_dates_still_dominate",
+      "downstream_impact": "blocks chronology honesty and publication precision",
+      "recommended_source_surfaces": [
+        "data/adna/governance/source_library/projects/PRJEB59481/sample_chronology.json",
+        "data/adna/governance/source_library/projects/PRJEB59481/intake_dossier.json"
+      ]
+    },
+    {
+      "project_accession": "PRJEB59481",
+      "species_latin_name": "Ovis aries",
+      "work_unit_type": "locality_string_resolution",
+      "work_unit_state": "pending_manual_curation",
+      "open_item_count": 5,
+      "rationale": "region_only",
+      "downstream_impact": "blocks coordinate derivation and exact locality publication",
+      "recommended_source_surfaces": [
+        "coordinate_resolution",
+        "crossref_metadata"
+      ]
+    },
+    {
+      "project_accession": "PRJEB59481",
+      "species_latin_name": "Ovis aries",
+      "work_unit_type": "site_resolution",
+      "work_unit_state": "pending_manual_curation",
+      "open_item_count": 5,
+      "rationale": "region_only_rows_require_finer_location_evidence",
+      "downstream_impact": "blocks exact site, coordinate, and publication recovery",
+      "recommended_source_surfaces": []
     },
     {
       "project_accession": "PRJEB60484",
@@ -137,6 +314,42 @@
       "work_unit_type": "site_resolution",
       "work_unit_state": "pending_manual_curation",
       "open_item_count": 20,
+      "rationale": "region_only_rows_require_finer_location_evidence",
+      "downstream_impact": "blocks exact site, coordinate, and publication recovery",
+      "recommended_source_surfaces": []
+    },
+    {
+      "project_accession": "PRJEB30282",
+      "species_latin_name": "Sus scrofa domesticus",
+      "work_unit_type": "chronology_recovery",
+      "work_unit_state": "pending_source_recovery",
+      "open_item_count": 343,
+      "rationale": "no_sample_owned_chronology_recovered; project_context_dates_still_dominate",
+      "downstream_impact": "blocks chronology honesty and publication precision",
+      "recommended_source_surfaces": [
+        "data/adna/governance/source_library/projects/PRJEB30282/sample_chronology.json",
+        "data/adna/governance/source_library/projects/PRJEB30282/intake_dossier.json"
+      ]
+    },
+    {
+      "project_accession": "PRJEB30282",
+      "species_latin_name": "Sus scrofa domesticus",
+      "work_unit_type": "locality_string_resolution",
+      "work_unit_state": "pending_manual_curation",
+      "open_item_count": 343,
+      "rationale": "region_only",
+      "downstream_impact": "blocks coordinate derivation and exact locality publication",
+      "recommended_source_surfaces": [
+        "article_text",
+        "coordinate_resolution"
+      ]
+    },
+    {
+      "project_accession": "PRJEB30282",
+      "species_latin_name": "Sus scrofa domesticus",
+      "work_unit_type": "site_resolution",
+      "work_unit_state": "pending_manual_curation",
+      "open_item_count": 343,
       "rationale": "region_only_rows_require_finer_location_evidence",
       "downstream_impact": "blocks exact site, coordinate, and publication recovery",
       "recommended_source_surfaces": []

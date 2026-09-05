@@ -6,6 +6,12 @@ import hashlib
 import json
 from pathlib import Path
 
+from .source_capabilities import (
+    SEAD_ADMITTED_ACQUISITION_ADMISSION,
+    build_source_capability_audit_payload,
+    build_source_capability_contract_payload,
+)
+
 __all__ = [
     "SourceFamilyContract",
     "SourceFamilyLayerContract",
@@ -176,8 +182,13 @@ def build_source_family_contracts() -> tuple[SourceFamilyContract, ...]:
                 layer_key="raw",
                 repository_path="data/sead/raw",
                 required=True,
-                purpose="tracked SEAD site inventory and source payload capture",
-                example_artifacts=("data/sead/raw/nordic_sites.json",),
+                purpose="admitted SEAD acquisition and exact site payload capture",
+                example_artifacts=(
+                    SEAD_ADMITTED_ACQUISITION_ADMISSION,
+                    SEAD_ADMITTED_ACQUISITION_ADMISSION.replace(
+                        "admission.json", "payloads/tbl_sites.json"
+                    ),
+                ),
             ),
             normalized_layer=SourceFamilyLayerContract(
                 layer_key="normalized",
@@ -284,7 +295,14 @@ def build_source_family_contracts() -> tuple[SourceFamilyContract, ...]:
                 repository_path="data/boundaries/review",
                 required=True,
                 purpose="source-specific review of geometry coverage and framing limits",
-                example_artifacts=("data/boundaries/review/framing_review.json",),
+                example_artifacts=(
+                    "data/boundaries/review/boundary_review.json",
+                    "data/boundaries/review/manifest.json",
+                    "data/boundaries/review/country-decisions/animal_adna.json",
+                    "data/boundaries/review/country-decisions/landclim.json",
+                    "data/boundaries/review/country-decisions/neotoma.json",
+                    "data/boundaries/review/country-decisions/sead.json",
+                ),
             ),
             published_layer=SourceFamilyLayerContract(
                 layer_key="published",
@@ -458,6 +476,7 @@ def build_source_family_contract_payload() -> dict[str, object]:
         "schema_version": "source-family-contracts.v1",
         "row_count": len(rows),
         "rows": rows,
+        "capability_contract": build_source_capability_contract_payload(),
     }
 
 
@@ -531,14 +550,21 @@ def build_source_family_state_matrix_payload(
     counts: Mapping[str, int],
 ) -> dict[str, object]:
     """Build a machine-readable evidence-stage matrix across tracked source families."""
-    rows = [
-        asdict(row)
-        for row in build_source_family_state_rows(output_root, counts=counts)
-    ]
+    state_rows = build_source_family_state_rows(output_root, counts=counts)
+    rows = [asdict(row) for row in state_rows]
     return {
         "schema_version": "source-family-evidence-stage-matrix.v2",
         "row_count": len(rows),
         "rows": rows,
+        "capability_materialization_audit": build_source_capability_audit_payload(
+            output_root,
+            coverage_metrics_by_source={
+                row.source_key: row.coverage_metrics for row in state_rows
+            },
+            source_blockers={
+                row.source_key: row.blocking_reasons for row in state_rows
+            },
+        ),
     }
 
 
@@ -676,7 +702,68 @@ def _source_authority_state(
         return _boundary_authority_state(output_root)
     if source_key == "svar":
         return _svar_authority_state(output_root)
+    if source_key == "animal_adna":
+        return _animal_adna_authority_state(output_root)
     return _SourceAuthorityState(status="not_required", reason_codes=())
+
+
+def _animal_adna_authority_state(output_root: Path) -> _SourceAuthorityState:
+    guard_path = (
+        output_root
+        / "adna"
+        / "governance"
+        / "source_library"
+        / "source_recovery_release_guard.json"
+    )
+    review_path = (
+        output_root / "adna" / "governance" / "animal_source_scientific_review.json"
+    )
+    reasons: list[str] = []
+    try:
+        guard = _load_json_object(guard_path)
+        if guard.get("schema_version") != "animal-source-recovery-release-guard.v1":
+            reasons.append("missing_or_invalid_animal_source_recovery_guard")
+        elif guard.get("passing") is not True:
+            reasons.append("animal_source_recovery_guard_failed")
+    except (OSError, UnicodeDecodeError, json.JSONDecodeError, ValueError):
+        reasons.append("missing_or_invalid_animal_source_recovery_guard")
+
+    experiment_only_count = 0
+    for sample_master_path in output_root.glob(
+        "adna/governance/source_library/projects/*/sample_master.json"
+    ):
+        try:
+            sample_master = _load_json_object(sample_master_path)
+        except (OSError, UnicodeDecodeError, json.JSONDecodeError, ValueError):
+            continue
+        rows = sample_master.get("rows")
+        if isinstance(rows, list):
+            experiment_only_count += sum(
+                1
+                for row in rows
+                if isinstance(row, dict)
+                and row.get("source_native_identity_kind")
+                == "sequencing_experiment_accession"
+            )
+    if experiment_only_count:
+        reasons.append("experiment_to_biological_sample_mapping_unavailable")
+
+    try:
+        review = _load_json_object(review_path)
+        review_accepted = (
+            review.get("schema_version") == "animal-source-scientific-review.v1"
+            and review.get("release_status") == "accepted"
+            and isinstance(review.get("reviewer_id"), str)
+            and bool(str(review["reviewer_id"]).strip())
+        )
+    except (OSError, UnicodeDecodeError, json.JSONDecodeError, ValueError):
+        review_accepted = False
+    if not review_accepted:
+        reasons.append("qualified_animal_source_review_missing")
+    return _SourceAuthorityState(
+        status="admitted" if not reasons else "review_required",
+        reason_codes=tuple(reasons),
+    )
 
 
 def _boundary_authority_state(output_root: Path) -> _SourceAuthorityState:
@@ -722,16 +809,28 @@ def _boundary_authority_state(output_root: Path) -> _SourceAuthorityState:
             governed_metrics={"boundary_country_count": None},
         )
 
-    review_path = family_root / "review" / "framing_review.json"
+    review_path = family_root / "review" / "boundary_review.json"
     review_accepted = False
     try:
         review = _load_json_object(review_path)
+        boundary_authority = _object(review.get("boundary_authority"))
+        countries = review.get("countries")
         review_accepted = (
-            review.get("release_status") == "accepted"
-            and isinstance(review.get("reviewer_id"), str)
-            and bool(str(review["reviewer_id"]).strip())
-            and review.get("boundary_version") == NATURAL_EARTH_VERSION
-            and review.get("boundary_artifact_sha256") == actual_digest
+            review.get("schema_version") == "nordic-boundary-review.v1"
+            and review.get("machine_validation_status") == "passed"
+            and review.get("qualified_review_status") == "accepted"
+            and review.get("release_status") == "accepted"
+            and boundary_authority.get("version") == NATURAL_EARTH_VERSION
+            and boundary_authority.get("normalized_artifact_sha256") == actual_digest
+            and isinstance(countries, list)
+            and len(countries) == len(BOUNDARY_CODES)
+            and all(
+                isinstance(country, Mapping)
+                and country.get("qualified_review_status") == "accepted"
+                and isinstance(country.get("qualified_reviewer"), str)
+                and bool(str(country["qualified_reviewer"]).strip())
+                for country in countries
+            )
         )
     except (OSError, UnicodeDecodeError, json.JSONDecodeError, ValueError):
         pass

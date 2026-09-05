@@ -1,7 +1,10 @@
 from __future__ import annotations
 
 from collections import Counter
+from dataclasses import replace
 import gzip
+import hashlib
+import json
 from pathlib import Path
 import tempfile
 import unittest
@@ -9,11 +12,22 @@ import unittest
 import pytest
 
 from bijux_pollenomics.adna.projects import sample_master as sample_master_module
+from bijux_pollenomics.adna.projects.archive_samples import (
+    read_archive_project_samples,
+)
 from bijux_pollenomics.adna.projects.sample_master import (
     build_cross_project_sample_master_completeness,
     build_project_sample_master,
     build_project_sample_master_rows,
     build_sample_identity_ambiguity_ledger,
+)
+from bijux_pollenomics.adna.source_artifact_storage import (
+    read_source_artifact_bytes,
+    resolve_source_artifact_path,
+)
+from bijux_pollenomics.adna.sources.ena import build_archive_project_catalog
+from bijux_pollenomics.adna.species.tracked_data import (
+    build_species_normalization_bundle,
 )
 
 pytestmark = pytest.mark.generated_artifacts
@@ -168,6 +182,301 @@ class AdnaSampleMasterUnitTests(unittest.TestCase):
         self.assertEqual(reindeer_anchor.sample_evidence_status, "archive_native")
         self.assertTrue(reindeer_anchor.archive_native_sample_id.startswith("SAMEA"))
 
+    def test_locally_captured_archive_projects_publish_native_sample_rows(
+        self,
+    ) -> None:
+        expected_counts = {
+            "PRJEB30282": 343,
+            "PRJEB31621": 77,
+            "PRJEB41594": 5,
+            "PRJEB59481": 5,
+            "PRJEB75467": 44,
+            "PRJEB81815": 87,
+        }
+
+        for project_accession, expected_count in expected_counts.items():
+            with self.subTest(project_accession=project_accession):
+                rows = build_project_sample_master_rows(
+                    self.data_root, project_accession
+                )
+                self.assertEqual(len(rows), expected_count)
+                self.assertTrue(
+                    all(row.sample_identity_resolution == "final" for row in rows)
+                )
+                self.assertTrue(all(row.sample_lineage_path for row in rows))
+                self.assertTrue(all(row.sample_lineage_locator for row in rows))
+
+    def test_recovery_target_raw_identity_taxonomy_and_receipts_close_exactly(
+        self,
+    ) -> None:
+        archive_projects = (
+            "PRJEB30282",
+            "PRJEB31621",
+            "PRJEB41594",
+            "PRJEB59481",
+            "PRJEB60484",
+            "PRJEB75467",
+            "PRJEB81815",
+            "PRJNA705960",
+            "SRP073444",
+        )
+        catalog = build_archive_project_catalog()
+        catalog_species = {
+            row.project_accession: row.species_latin_name for row in catalog
+        }
+        raw_expected: dict[tuple[str, str], tuple[str, str, str, str, str, str]] = {}
+        for project_accession in archive_projects:
+            logical_path = (
+                self.data_root
+                / "adna/governance/source_library/projects"
+                / project_accession
+                / "archive_metadata.html"
+            )
+            self._assert_source_receipt_closes(logical_path, project_accession)
+            configured_species = catalog_species[project_accession]
+            for raw_row in read_archive_project_samples(logical_path):
+                names = " | ".join(raw_row.source_native_scientific_names)
+                source_identity = (
+                    raw_row.archive_native_sample_id
+                    or raw_row.archive_native_experiment_id
+                )
+                raw_expected[(project_accession, source_identity)] = (
+                    raw_row.archive_native_sample_id,
+                    raw_row.archive_native_experiment_id,
+                    raw_row.source_native_identity_kind,
+                    " | ".join(raw_row.source_native_tax_ids),
+                    names,
+                    _expected_taxon_alignment(configured_species, names),
+                )
+
+        cat_workbook = (
+            self.data_root
+            / "adna/governance/source_library/papers/10.1016-j.xgen.2025.101099/"
+            "supplementary/1-s2.0-S2666979X25003556-mmc3.xlsx"
+        )
+        self._assert_source_receipt_closes(cat_workbook, "PRJNA1178732")
+        cat_rows = sample_master_module._read_xlsx_rows(cat_workbook, sheet_name="A")
+        cat_headers = {value.strip(): index for index, value in enumerate(cat_rows[2])}
+        for row in cat_rows[3:]:
+            label = sample_master_module._cell_value(row, cat_headers["Sample ID"])
+            name = sample_master_module._cell_value(row, cat_headers["Species"])
+            if label and name:
+                raw_expected[("PRJNA1178732", label)] = (
+                    "",
+                    "",
+                    "biological_sample",
+                    "",
+                    name,
+                    _expected_taxon_alignment("Felis catus", name),
+                )
+
+        target_projects = (*archive_projects, "PRJNA1178732")
+        master_rows = [
+            row
+            for project_accession in target_projects
+            for row in build_project_sample_master_rows(
+                self.data_root, project_accession
+            )
+        ]
+        master_by_source_identity = {
+            (
+                row.project_accession,
+                row.archive_native_sample_id
+                or row.archive_native_experiment_id
+                or row.supplementary_table_sample_label,
+            ): row
+            for row in master_rows
+        }
+        self.assertEqual(len(raw_expected), 634)
+        self.assertEqual(set(master_by_source_identity), set(raw_expected))
+        for source_identity, expected_taxonomy in raw_expected.items():
+            row = master_by_source_identity[source_identity]
+            self.assertEqual(
+                (
+                    row.archive_native_sample_id,
+                    row.archive_native_experiment_id,
+                    row.source_native_identity_kind,
+                    row.source_native_tax_id,
+                    row.source_native_scientific_name,
+                    row.taxon_alignment_status,
+                ),
+                expected_taxonomy,
+                source_identity,
+            )
+
+        bundles = tuple(
+            build_species_normalization_bundle(species)
+            for species in (
+                "horse",
+                "pig",
+                "sheep",
+                "cattle",
+                "goat",
+                "dog",
+                "cat",
+                "camel",
+                "reindeer",
+                "donkey",
+            )
+        )
+        normalized_rows = [row for bundle in bundles for row in bundle.sample_records]
+        stable_tokens = [row.identity.stable_token for row in normalized_rows]
+        normalized_by_master = {
+            (row.project_accession, row.master_id): row for row in normalized_rows
+        }
+        self.assertEqual(len(stable_tokens), 1451)
+        self.assertEqual(len(set(stable_tokens)), 1451)
+        self.assertEqual(len(normalized_by_master), 1451)
+        all_master_rows = [
+            row
+            for project in catalog
+            for row in build_project_sample_master_rows(
+                self.data_root, project.project_accession
+            )
+        ]
+        admitted_master_by_identity = {
+            (row.project_accession, row.repo_stable_sample_id): row
+            for row in all_master_rows
+            if row.sample_identity_resolution == "final"
+            and row.sample_evidence_status != "experiment_level_only"
+        }
+        self.assertEqual(len(all_master_rows), 1471)
+        self.assertEqual(len(admitted_master_by_identity), 1451)
+        self.assertEqual(set(normalized_by_master), set(admitted_master_by_identity))
+        for key, master_row in admitted_master_by_identity.items():
+            normalized = normalized_by_master[key]
+            self.assertEqual(
+                (
+                    normalized.source_native_tax_id,
+                    normalized.source_native_scientific_name,
+                    normalized.taxon_alignment_status,
+                ),
+                (
+                    master_row.source_native_tax_id,
+                    master_row.source_native_scientific_name,
+                    master_row.taxon_alignment_status,
+                ),
+                key,
+            )
+
+    def _assert_source_receipt_closes(
+        self,
+        logical_path: Path,
+        project_accession: str,
+    ) -> None:
+        receipt_path = logical_path.with_suffix(logical_path.suffix + ".metadata.json")
+        receipt = json.loads(receipt_path.read_text(encoding="utf-8"))
+        logical_payload = read_source_artifact_bytes(logical_path)
+        stored_path = resolve_source_artifact_path(logical_path)
+        stored_payload = stored_path.read_bytes()
+        receipt_projects = (
+            receipt["project_accession"]
+            if "project_accession" in receipt
+            else receipt["project_accessions"]
+        )
+        expected_projects: str | list[str] = (
+            project_accession if "project_accession" in receipt else [project_accession]
+        )
+        self.assertEqual(receipt_projects, expected_projects)
+        self.assertEqual(receipt["byte_size"], len(logical_payload))
+        self.assertEqual(
+            receipt["content_sha256"], hashlib.sha256(logical_payload).hexdigest()
+        )
+        self.assertEqual(receipt["storage_byte_size"], len(stored_payload))
+        self.assertEqual(
+            receipt["storage_sha256"], hashlib.sha256(stored_payload).hexdigest()
+        )
+        bundle_path = (
+            self.data_root
+            / "adna/governance/source_library/projects"
+            / project_accession
+            / "bundle_manifest.json"
+        )
+        bundle = json.loads(bundle_path.read_text(encoding="utf-8"))
+        self.assertIn(
+            str(logical_path.relative_to(self.data_root)),
+            bundle["local_artifact_paths"],
+        )
+
+    def test_archive_taxonomy_is_preserved_without_project_species_coercion(
+        self,
+    ) -> None:
+        cattle_rows = build_project_sample_master_rows(self.data_root, "PRJEB31621")
+        sheep_rows = build_project_sample_master_rows(self.data_root, "PRJEB41594")
+
+        aurochs = next(
+            row
+            for row in cattle_rows
+            if row.source_native_scientific_name == "Bos primigenius"
+        )
+        self.assertEqual(aurochs.species_latin_name, "Bos taurus")
+        self.assertEqual(aurochs.source_native_tax_id, "9909")
+        self.assertEqual(aurochs.taxon_alignment_status, "project_species_mismatch")
+        self.assertIn("Bos primigenius", aurochs.sample_lineage_excerpt)
+
+        goat = next(
+            row
+            for row in sheep_rows
+            if row.source_native_scientific_name == "Capra hircus"
+        )
+        self.assertEqual(goat.source_native_tax_id, "9925")
+        self.assertEqual(goat.taxon_alignment_status, "project_species_mismatch")
+
+    def test_cat_supplement_preserves_sample_sites_dates_and_native_taxa(self) -> None:
+        rows = build_project_sample_master_rows(self.data_root, "PRJNA1178732")
+
+        self.assertEqual(len(rows), 22)
+        domestic = next(row for row in rows if row.preferred_sample_label == "FS1")
+        leopard = next(row for row in rows if row.preferred_sample_label == "FS8")
+        self.assertEqual(domestic.locality_text, "Xitucheng City")
+        self.assertEqual(domestic.political_entity, "China")
+        self.assertEqual(domestic.chronology_text, "1115 - 1234 CE")
+        self.assertEqual(domestic.source_native_scientific_name, "Felis catus")
+        self.assertEqual(domestic.taxon_alignment_status, "project_species_match")
+        self.assertEqual(
+            leopard.source_native_scientific_name, "Prionailurus bengalensis"
+        )
+        self.assertEqual(leopard.taxon_alignment_status, "project_species_mismatch")
+
+    def test_ncbi_sra_capture_preserves_experiment_accessions_and_labels(self) -> None:
+        rows = build_project_sample_master_rows(self.data_root, "SRP073444")
+
+        self.assertEqual(len(rows), 20)
+        palm = next(
+            row for row in rows if row.archive_native_experiment_id == "SRX1711558"
+        )
+        self.assertEqual(palm.archive_native_sample_id, "")
+        self.assertEqual(palm.preferred_sample_label, "Palm143_II")
+        self.assertEqual(palm.sample_lineage_locator, "experiment_accession:SRX1711558")
+        self.assertEqual(
+            palm.source_native_identity_kind, "sequencing_experiment_accession"
+        )
+        self.assertEqual(palm.sample_evidence_status, "experiment_level_only")
+        self.assertEqual(palm.sample_identity_resolution, "provisional")
+        self.assertIn("not a biological sample", palm.sample_ambiguity_note)
+        self.assertEqual(palm.taxon_alignment_status, "not_reported")
+
+    def test_merged_taxon_alignment_is_order_independent(self) -> None:
+        base = build_project_sample_master_rows(self.data_root, "KU605068-KU605080")[0]
+        unreported = replace(
+            base,
+            source_native_scientific_name="",
+            taxon_alignment_status="not_reported",
+        )
+        mismatch = replace(
+            base,
+            source_native_scientific_name="Bos taurus",
+            taxon_alignment_status="project_species_mismatch",
+        )
+
+        forward = sample_master_module._merge_sample_row_group([unreported, mismatch])
+        reverse = sample_master_module._merge_sample_row_group([mismatch, unreported])
+
+        self.assertEqual(forward.taxon_alignment_status, "project_species_mismatch")
+        self.assertEqual(reverse.taxon_alignment_status, "project_species_mismatch")
+        self.assertEqual(forward.source_native_scientific_name, "Bos taurus")
+        self.assertEqual(reverse.source_native_scientific_name, "Bos taurus")
+
     def test_horse_age_text_keeps_range_labels_stable(self) -> None:
         self.assertEqual(
             sample_master_module._format_horse_age_text("5500 - 5700"),
@@ -249,6 +558,17 @@ class AdnaSampleMasterUnitTests(unittest.TestCase):
         self.assertEqual(accessions, ("SAMEA1", "SAMEA2"))
         self.assertEqual(lookup["alpha"], "SAMEA1")
         self.assertEqual(lookup["beta"], "SAMEA2")
+
+
+def _expected_taxon_alignment(configured_species: str, source_names: str) -> str:
+    names = tuple(name.strip() for name in source_names.split(" | ") if name.strip())
+    if not names:
+        return "not_reported"
+    if len(names) > 1:
+        return "archive_taxon_conflict"
+    if names[0].casefold() == configured_species.casefold():
+        return "project_species_match"
+    return "project_species_mismatch"
 
 
 if __name__ == "__main__":

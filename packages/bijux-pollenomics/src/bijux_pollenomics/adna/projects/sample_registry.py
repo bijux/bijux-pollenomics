@@ -55,6 +55,11 @@ class AdnaCuratedSampleRow:
     sample_lineage_excerpt: str
     sample_identity_resolution: str
     sample_ambiguity_note: str
+    source_native_tax_id: str
+    source_native_scientific_name: str
+    taxon_alignment_status: str
+    archive_native_experiment_id: str = ""
+    source_native_identity_kind: str = "biological_sample"
 
     def as_dict(self) -> dict[str, object]:
         return {
@@ -94,6 +99,11 @@ class AdnaCuratedSampleRow:
             "sample_lineage_excerpt": self.sample_lineage_excerpt,
             "sample_identity_resolution": self.sample_identity_resolution,
             "sample_ambiguity_note": self.sample_ambiguity_note,
+            "source_native_tax_id": self.source_native_tax_id,
+            "source_native_scientific_name": self.source_native_scientific_name,
+            "taxon_alignment_status": self.taxon_alignment_status,
+            "archive_native_experiment_id": self.archive_native_experiment_id,
+            "source_native_identity_kind": self.source_native_identity_kind,
         }
 
 
@@ -192,6 +202,17 @@ def build_species_curated_sample_rows(
                         sample_lineage_excerpt=master_row.sample_lineage_excerpt,
                         sample_identity_resolution=master_row.sample_identity_resolution,
                         sample_ambiguity_note=master_row.sample_ambiguity_note,
+                        source_native_tax_id=master_row.source_native_tax_id,
+                        source_native_scientific_name=(
+                            master_row.source_native_scientific_name
+                        ),
+                        taxon_alignment_status=master_row.taxon_alignment_status,
+                        archive_native_experiment_id=(
+                            master_row.archive_native_experiment_id
+                        ),
+                        source_native_identity_kind=(
+                            master_row.source_native_identity_kind
+                        ),
                     )
                 )
             continue
@@ -257,6 +278,9 @@ def build_species_curated_sample_rows(
                 sample_lineage_excerpt="",
                 sample_identity_resolution="provisional",
                 sample_ambiguity_note="No recoverable project sample-master row is published yet for this project.",
+                source_native_tax_id="",
+                source_native_scientific_name="",
+                taxon_alignment_status="not_reported",
             )
         )
     rows.sort(key=lambda item: (item.project_accession, item.stable_sample_id))

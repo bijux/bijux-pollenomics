@@ -41,6 +41,20 @@ def build_animal_sample_product_contract() -> dict[str, object]:
                 "meaning": "archive project or accession family anchor for the sample",
             },
             {
+                "field": "source_native_identity_kind",
+                "meaning": (
+                    "whether the source identity is a biological sample; sequencing "
+                    "experiments without an authoritative sample mapping are refused"
+                ),
+            },
+            {
+                "field": "archive_native_sample_id",
+                "meaning": (
+                    "archive biological-sample accession only; experiment accessions "
+                    "must never populate this field"
+                ),
+            },
+            {
                 "field": "paper_doi_or_paper_url",
                 "meaning": "primary publication anchor for the sample claim",
             },

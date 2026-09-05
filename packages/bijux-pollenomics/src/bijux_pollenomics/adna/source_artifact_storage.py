@@ -14,6 +14,7 @@ __all__ = [
     "migrate_html_source_artifacts",
     "read_source_artifact_bytes",
     "read_source_artifact_text",
+    "refresh_source_artifact_receipt",
     "resolve_source_artifact_path",
     "source_artifact_exists",
     "write_source_artifact_bytes",
@@ -157,19 +158,34 @@ def migrate_html_source_artifact(path: Path, *, output_root: Path) -> Path:
             logical_path, payload, compress_html=True
         )
     if metadata_path.is_file():
-        metadata = json.loads(metadata_path.read_text(encoding="utf-8"))
-        if isinstance(metadata, dict):
-            metadata["byte_size"] = len(payload)
-            metadata["storage_byte_size"] = stored_path.stat().st_size
-            metadata["storage_path"] = str(stored_path.relative_to(output_root))
-            metadata["content_encoding"] = (
-                "gzip" if stored_path.suffix == ".gz" else None
-            )
-            metadata_path.write_text(
-                json.dumps(metadata, indent=2),
-                encoding="utf-8",
-            )
+        refresh_source_artifact_receipt(logical_path, output_root=output_root)
     return stored_path
+
+
+def refresh_source_artifact_receipt(path: Path, *, output_root: Path) -> Path:
+    """Bind a source receipt to both logical content and exact stored bytes."""
+    logical_path = Path(path)
+    output_root = Path(output_root)
+    metadata_path = logical_path.with_suffix(logical_path.suffix + ".metadata.json")
+    if not metadata_path.is_file():
+        raise FileNotFoundError(metadata_path)
+    payload = read_source_artifact_bytes(logical_path)
+    stored_path = resolve_source_artifact_path(logical_path)
+    stored_payload = stored_path.read_bytes()
+    metadata = json.loads(metadata_path.read_text(encoding="utf-8"))
+    if not isinstance(metadata, dict):
+        raise ValueError(f"Source artifact receipt must be an object: {metadata_path}")
+    metadata["byte_size"] = len(payload)
+    metadata["content_sha256"] = hashlib.sha256(payload).hexdigest()
+    metadata["storage_byte_size"] = len(stored_payload)
+    metadata["storage_sha256"] = hashlib.sha256(stored_payload).hexdigest()
+    metadata["storage_path"] = str(stored_path.relative_to(output_root))
+    metadata["content_encoding"] = "gzip" if stored_path.suffix == ".gz" else None
+    _atomic_replace_bytes(
+        metadata_path,
+        json.dumps(metadata, indent=2).encode("utf-8"),
+    )
+    return metadata_path
 
 
 def migrate_html_source_artifacts(

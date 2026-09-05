@@ -106,6 +106,8 @@ def build_project_sample_site_rows(
 
     rows: list[AdnaProjectSampleSiteRow] = []
     for master_row in master_rows:
+        if master_row.source_native_identity_kind == "sequencing_experiment_accession":
+            continue
         locality_text = master_row.locality_text.strip()
         chronology_text = master_row.chronology_text.strip()
         if locality_text:

@@ -34,7 +34,12 @@
       "political_entity": "Burgos",
       "latitude_text": "42.285299999999999",
       "longitude_text": "-3.8334999999999999",
-      "chronology_text": "86-237 cal CE (sample)"
+      "chronology_text": "86-237 cal CE (sample)",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample"
     },
     {
       "species_latin_name": "Capra hircus",
@@ -56,7 +61,12 @@
       "political_entity": "La Gomera",
       "latitude_text": "28.085573",
       "longitude_text": "-17.149227",
-      "chronology_text": "7th - 8th centuries CE (SU2)"
+      "chronology_text": "7th - 8th centuries CE (SU2)",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample"
     },
     {
       "species_latin_name": "Capra hircus",
@@ -78,7 +88,12 @@
       "political_entity": "La Gomera",
       "latitude_text": "28.085573",
       "longitude_text": "-17.149227",
-      "chronology_text": "8th - 9th centuries CE (SU6)"
+      "chronology_text": "8th - 9th centuries CE (SU6)",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample"
     },
     {
       "species_latin_name": "Capra hircus",
@@ -100,7 +115,12 @@
       "political_entity": "La Gomera",
       "latitude_text": "28.085573",
       "longitude_text": "-17.149227",
-      "chronology_text": "1st - 2nd centuries CE (SU10)"
+      "chronology_text": "1st - 2nd centuries CE (SU10)",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample"
     },
     {
       "species_latin_name": "Capra hircus",
@@ -122,7 +142,12 @@
       "political_entity": "La Gomera",
       "latitude_text": "28.174384",
       "longitude_text": "-17.323678999999998",
-      "chronology_text": "15th century CE (SU6)"
+      "chronology_text": "15th century CE (SU6)",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample"
     },
     {
       "species_latin_name": "Capra hircus",
@@ -144,7 +169,12 @@
       "political_entity": "La Gomera",
       "latitude_text": "28.178343999999999",
       "longitude_text": "-17.193563999999999",
-      "chronology_text": "10th - 11th centuries CE (site)"
+      "chronology_text": "10th - 11th centuries CE (site)",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample"
     },
     {
       "species_latin_name": "Capra hircus",
@@ -166,7 +196,12 @@
       "political_entity": "La Gomera",
       "latitude_text": "28.178343999999999",
       "longitude_text": "-17.193563999999999",
-      "chronology_text": "11th century CE (SU6; lev1)"
+      "chronology_text": "11th century CE (SU6; lev1)",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample"
     },
     {
       "species_latin_name": "Capra hircus",
@@ -188,7 +223,12 @@
       "political_entity": "La Gomera",
       "latitude_text": "28.178343999999999",
       "longitude_text": "-17.193563999999999",
-      "chronology_text": "11th century CE (SU4; lev1)"
+      "chronology_text": "11th century CE (SU4; lev1)",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample"
     },
     {
       "species_latin_name": "Capra hircus",
@@ -210,7 +250,12 @@
       "political_entity": "La Gomera",
       "latitude_text": "28.178343999999999",
       "longitude_text": "-17.193563999999999",
-      "chronology_text": "11th century CE (SU6; lev1)"
+      "chronology_text": "11th century CE (SU6; lev1)",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample"
     },
     {
       "species_latin_name": "Capra hircus",
@@ -232,7 +277,12 @@
       "political_entity": "La Gomera",
       "latitude_text": "28.178343999999999",
       "longitude_text": "-17.193563999999999",
-      "chronology_text": "10th - 11th centuries CE (SU6; lev3)"
+      "chronology_text": "10th - 11th centuries CE (SU6; lev3)",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample"
     },
     {
       "species_latin_name": "Capra hircus",
@@ -254,7 +304,12 @@
       "political_entity": "Fuerteventura",
       "latitude_text": "28.637195999999999",
       "longitude_text": "-13.899853999999999",
-      "chronology_text": "6th - 12th centuries CE (site)"
+      "chronology_text": "6th - 12th centuries CE (site)",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample"
     },
     {
       "species_latin_name": "Capra hircus",
@@ -276,7 +331,12 @@
       "political_entity": "Fuerteventura",
       "latitude_text": "28.637195999999999",
       "longitude_text": "-13.899853999999999",
-      "chronology_text": "6th - 12th centuries CE (site)"
+      "chronology_text": "6th - 12th centuries CE (site)",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample"
     },
     {
       "species_latin_name": "Capra hircus",
@@ -298,7 +358,12 @@
       "political_entity": "Fuerteventura",
       "latitude_text": "28.637195999999999",
       "longitude_text": "-13.899853999999999",
-      "chronology_text": "6th - 12th centuries CE (site)"
+      "chronology_text": "6th - 12th centuries CE (site)",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample"
     },
     {
       "species_latin_name": "Capra hircus",
@@ -320,7 +385,12 @@
       "political_entity": "Fuerteventura",
       "latitude_text": "28.637195999999999",
       "longitude_text": "-13.899853999999999",
-      "chronology_text": "6th - 12th centuries CE (site)"
+      "chronology_text": "6th - 12th centuries CE (site)",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample"
     },
     {
       "species_latin_name": "Capra hircus",
@@ -342,7 +412,12 @@
       "political_entity": "Fuerteventura",
       "latitude_text": "28.637195999999999",
       "longitude_text": "-13.899853999999999",
-      "chronology_text": "6th - 12th centuries CE (site)"
+      "chronology_text": "6th - 12th centuries CE (site)",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample"
     },
     {
       "species_latin_name": "Capra hircus",
@@ -364,7 +439,12 @@
       "political_entity": "Fuerteventura",
       "latitude_text": "28.637195999999999",
       "longitude_text": "-13.899853999999999",
-      "chronology_text": "6th - 12th centuries CE (site)"
+      "chronology_text": "6th - 12th centuries CE (site)",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample"
     },
     {
       "species_latin_name": "Capra hircus",
@@ -386,7 +466,12 @@
       "political_entity": "Fuerteventura",
       "latitude_text": "28.637195999999999",
       "longitude_text": "-13.899853999999999",
-      "chronology_text": "6th - 12th centuries CE (site)"
+      "chronology_text": "6th - 12th centuries CE (site)",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample"
     },
     {
       "species_latin_name": "Capra hircus",
@@ -408,7 +493,12 @@
       "political_entity": "Fuerteventura",
       "latitude_text": "28.637195999999999",
       "longitude_text": "-13.899853999999999",
-      "chronology_text": "6th - 12th centuries CE (site)"
+      "chronology_text": "6th - 12th centuries CE (site)",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample"
     },
     {
       "species_latin_name": "Capra hircus",
@@ -430,7 +520,12 @@
       "political_entity": "Fuerteventura",
       "latitude_text": "28.637195999999999",
       "longitude_text": "-13.899853999999999",
-      "chronology_text": "6th - 12th centuries CE (site)"
+      "chronology_text": "6th - 12th centuries CE (site)",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample"
     },
     {
       "species_latin_name": "Capra hircus",
@@ -452,7 +547,12 @@
       "political_entity": "Fuerteventura",
       "latitude_text": "28.637195999999999",
       "longitude_text": "-13.899853999999999",
-      "chronology_text": "6th - 12th centuries CE (site)"
+      "chronology_text": "6th - 12th centuries CE (site)",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample"
     },
     {
       "species_latin_name": "Capra hircus",
@@ -474,7 +574,12 @@
       "political_entity": "Fuerteventura",
       "latitude_text": "28.637195999999999",
       "longitude_text": "-13.899853999999999",
-      "chronology_text": "6th - 12th centuries CE (site)"
+      "chronology_text": "6th - 12th centuries CE (site)",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample"
     },
     {
       "species_latin_name": "Capra hircus",
@@ -496,7 +601,12 @@
       "political_entity": "Fuerteventura",
       "latitude_text": "28.637195999999999",
       "longitude_text": "-13.899853999999999",
-      "chronology_text": "6th - 12th centuries CE (site)"
+      "chronology_text": "6th - 12th centuries CE (site)",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample"
     },
     {
       "species_latin_name": "Capra hircus",
@@ -518,7 +628,12 @@
       "political_entity": "Fuerteventura",
       "latitude_text": "28.637195999999999",
       "longitude_text": "-13.899853999999999",
-      "chronology_text": "6th - 12th centuries CE (site)"
+      "chronology_text": "6th - 12th centuries CE (site)",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample"
     },
     {
       "species_latin_name": "Capra hircus",
@@ -540,7 +655,12 @@
       "political_entity": "Lobos",
       "latitude_text": "28.741962000000001",
       "longitude_text": "-13.825055000000001",
-      "chronology_text": "1st century BCE - 3rd century CE (site)"
+      "chronology_text": "1st century BCE - 3rd century CE (site)",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample"
     },
     {
       "species_latin_name": "Capra hircus",
@@ -562,7 +682,12 @@
       "political_entity": "Lobos",
       "latitude_text": "28.741962000000001",
       "longitude_text": "-13.825055000000001",
-      "chronology_text": "1st century BCE - 3rd century CE (site)"
+      "chronology_text": "1st century BCE - 3rd century CE (site)",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample"
     },
     {
       "species_latin_name": "Capra hircus",
@@ -584,7 +709,12 @@
       "political_entity": "Lobos",
       "latitude_text": "28.741962000000001",
       "longitude_text": "-13.825055000000001",
-      "chronology_text": "1st century BCE - 3rd century CE (site)"
+      "chronology_text": "1st century BCE - 3rd century CE (site)",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample"
     },
     {
       "species_latin_name": "Capra hircus",
@@ -606,7 +736,12 @@
       "political_entity": "Lobos",
       "latitude_text": "28.741962000000001",
       "longitude_text": "-13.825055000000001",
-      "chronology_text": "1st century BCE - 3rd century CE (site)"
+      "chronology_text": "1st century BCE - 3rd century CE (site)",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample"
     },
     {
       "species_latin_name": "Capra hircus",
@@ -628,7 +763,12 @@
       "political_entity": "Lobos",
       "latitude_text": "28.741962000000001",
       "longitude_text": "-13.825055000000001",
-      "chronology_text": "1st century BCE - 3rd century CE (site)"
+      "chronology_text": "1st century BCE - 3rd century CE (site)",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample"
     },
     {
       "species_latin_name": "Capra hircus",
@@ -650,7 +790,12 @@
       "political_entity": "Lobos",
       "latitude_text": "28.741962000000001",
       "longitude_text": "-13.825055000000001",
-      "chronology_text": "1st century BCE - 3rd century CE (site)"
+      "chronology_text": "1st century BCE - 3rd century CE (site)",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample"
     },
     {
       "species_latin_name": "Capra hircus",
@@ -672,7 +817,12 @@
       "political_entity": "Lobos",
       "latitude_text": "28.741962000000001",
       "longitude_text": "-13.825055000000001",
-      "chronology_text": "1st century BCE - 3rd century CE (site)"
+      "chronology_text": "1st century BCE - 3rd century CE (site)",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample"
     },
     {
       "species_latin_name": "Capra hircus",
@@ -694,7 +844,12 @@
       "political_entity": "Lobos",
       "latitude_text": "28.741962000000001",
       "longitude_text": "-13.825055000000001",
-      "chronology_text": "1st century BCE - 3rd century CE (site)"
+      "chronology_text": "1st century BCE - 3rd century CE (site)",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample"
     },
     {
       "species_latin_name": "Capra hircus",
@@ -716,7 +871,12 @@
       "political_entity": "Lobos",
       "latitude_text": "28.741962000000001",
       "longitude_text": "-13.825055000000001",
-      "chronology_text": "1st century BCE - 3rd century CE (site)"
+      "chronology_text": "1st century BCE - 3rd century CE (site)",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample"
     },
     {
       "species_latin_name": "Capra hircus",
@@ -738,7 +898,12 @@
       "political_entity": "Lobos",
       "latitude_text": "28.741962000000001",
       "longitude_text": "-13.825055000000001",
-      "chronology_text": "1st century BCE - 3rd century CE (site)"
+      "chronology_text": "1st century BCE - 3rd century CE (site)",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample"
     },
     {
       "species_latin_name": "Capra hircus",
@@ -760,7 +925,12 @@
       "political_entity": "Lobos",
       "latitude_text": "28.741962000000001",
       "longitude_text": "-13.825055000000001",
-      "chronology_text": "1st century BCE - 3rd century CE (site)"
+      "chronology_text": "1st century BCE - 3rd century CE (site)",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample"
     },
     {
       "species_latin_name": "Capra hircus",
@@ -782,7 +952,12 @@
       "political_entity": "Lobos",
       "latitude_text": "28.741962000000001",
       "longitude_text": "-13.825055000000001",
-      "chronology_text": "1st century BCE - 3rd century CE (site)"
+      "chronology_text": "1st century BCE - 3rd century CE (site)",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample"
     },
     {
       "species_latin_name": "Capra hircus",
@@ -804,7 +979,12 @@
       "political_entity": "Lobos",
       "latitude_text": "28.741962000000001",
       "longitude_text": "-13.825055000000001",
-      "chronology_text": "1st century BCE - 3rd century CE (site)"
+      "chronology_text": "1st century BCE - 3rd century CE (site)",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample"
     },
     {
       "species_latin_name": "Capra hircus",
@@ -826,7 +1006,12 @@
       "political_entity": "Lobos",
       "latitude_text": "28.741962000000001",
       "longitude_text": "-13.825055000000001",
-      "chronology_text": "1st century BCE - 3rd century CE (site)"
+      "chronology_text": "1st century BCE - 3rd century CE (site)",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample"
     },
     {
       "species_latin_name": "Capra hircus",
@@ -848,7 +1033,12 @@
       "political_entity": "Lobos",
       "latitude_text": "28.741962000000001",
       "longitude_text": "-13.825055000000001",
-      "chronology_text": "1st century BCE - 3rd century CE (site)"
+      "chronology_text": "1st century BCE - 3rd century CE (site)",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample"
     },
     {
       "species_latin_name": "Capra hircus",
@@ -870,7 +1060,12 @@
       "political_entity": "Lobos",
       "latitude_text": "28.741962000000001",
       "longitude_text": "-13.825055000000001",
-      "chronology_text": "1st century BCE - 3rd century CE (site)"
+      "chronology_text": "1st century BCE - 3rd century CE (site)",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample"
     },
     {
       "species_latin_name": "Capra hircus",
@@ -892,7 +1087,12 @@
       "political_entity": "Gran Canaria",
       "latitude_text": "27.881289408640399",
       "longitude_text": "-15.527314352842801",
-      "chronology_text": "7th - 8th centuries CE (SU8)"
+      "chronology_text": "7th - 8th centuries CE (SU8)",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample"
     },
     {
       "species_latin_name": "Capra hircus",
@@ -914,7 +1114,12 @@
       "political_entity": "Gran Canaria",
       "latitude_text": "28.101313749999999",
       "longitude_text": "-15.4148534",
-      "chronology_text": "17th - 18th centuries CE (R3; SU72)"
+      "chronology_text": "17th - 18th centuries CE (R3; SU72)",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample"
     },
     {
       "species_latin_name": "Capra hircus",
@@ -936,7 +1141,12 @@
       "political_entity": "Gran Canaria",
       "latitude_text": "28.101313749999999",
       "longitude_text": "-15.4148534",
-      "chronology_text": "15th - 16th centuries CE (R3; SU84)"
+      "chronology_text": "15th - 16th centuries CE (R3; SU84)",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample"
     },
     {
       "species_latin_name": "Capra hircus",
@@ -958,7 +1168,12 @@
       "political_entity": "Gran Canaria",
       "latitude_text": "28.101313749999999",
       "longitude_text": "-15.4148534",
-      "chronology_text": "15th - 16th centuries CE (R1; SU86)"
+      "chronology_text": "15th - 16th centuries CE (R1; SU86)",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample"
     },
     {
       "species_latin_name": "Capra hircus",
@@ -980,7 +1195,12 @@
       "political_entity": "Tenerife",
       "latitude_text": "28.4071",
       "longitude_text": "-16.5061",
-      "chronology_text": "7th - 11th centuries CE (SU2)"
+      "chronology_text": "7th - 11th centuries CE (SU2)",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample"
     },
     {
       "species_latin_name": "Capra hircus",
@@ -1002,7 +1222,12 @@
       "political_entity": "Lobos",
       "latitude_text": "28.741962000000001",
       "longitude_text": "-13.825055000000001",
-      "chronology_text": "1st century BCE - 3rd century CE (site)"
+      "chronology_text": "1st century BCE - 3rd century CE (site)",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample"
     },
     {
       "species_latin_name": "Capra hircus",
@@ -1024,7 +1249,12 @@
       "political_entity": "Gran Canaria",
       "latitude_text": "27.963740999999999",
       "longitude_text": "-15.381411999999999",
-      "chronology_text": "11th - 12th centuries CE (SUII)"
+      "chronology_text": "11th - 12th centuries CE (SUII)",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample"
     },
     {
       "species_latin_name": "Capra hircus",
@@ -1046,7 +1276,12 @@
       "political_entity": "El Hierro",
       "latitude_text": "27.640201000000001",
       "longitude_text": "-17.989809000000001",
-      "chronology_text": "3rd - 4th centuries CE (SU110)"
+      "chronology_text": "3rd - 4th centuries CE (SU110)",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample"
     },
     {
       "species_latin_name": "Capra hircus",
@@ -1068,7 +1303,12 @@
       "political_entity": "Lanzarote",
       "latitude_text": "29.078037999999999",
       "longitude_text": "-13.596783",
-      "chronology_text": "11th - 12th centuries (SU3)"
+      "chronology_text": "11th - 12th centuries (SU3)",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample"
     },
     {
       "species_latin_name": "Capra hircus",
@@ -1090,7 +1330,12 @@
       "political_entity": "La Palma",
       "latitude_text": "28.787616",
       "longitude_text": "-17.765601",
-      "chronology_text": "11th - 12th centuries CE (SU104)"
+      "chronology_text": "11th - 12th centuries CE (SU104)",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample"
     },
     {
       "species_latin_name": "Capra hircus",
@@ -1112,7 +1357,12 @@
       "political_entity": "El Hierro",
       "latitude_text": "27.640201000000001",
       "longitude_text": "-17.989809000000001",
-      "chronology_text": "6th -7th centuies CE (SU1)"
+      "chronology_text": "6th -7th centuies CE (SU1)",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample"
     },
     {
       "species_latin_name": "Capra hircus",
@@ -1134,7 +1384,12 @@
       "political_entity": "Gran Canaria",
       "latitude_text": "28.151167000000001",
       "longitude_text": "-15.696242",
-      "chronology_text": "12th - 13th centuries CE (Zone 1; SU2)"
+      "chronology_text": "12th - 13th centuries CE (Zone 1; SU2)",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample"
     },
     {
       "species_latin_name": "Capra hircus",
@@ -1156,7 +1411,12 @@
       "political_entity": "Fuerteventura",
       "latitude_text": "28.408760999999998",
       "longitude_text": "-14.125189000000001",
-      "chronology_text": "11th - 12th centuries (A; SU11)"
+      "chronology_text": "11th - 12th centuries (A; SU11)",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample"
     },
     {
       "species_latin_name": "Capra hircus",
@@ -1178,7 +1438,12 @@
       "political_entity": "Fuerteventura",
       "latitude_text": "28.408760999999998",
       "longitude_text": "-14.125189000000001",
-      "chronology_text": "11th - 12th centuries (A; SU12)"
+      "chronology_text": "11th - 12th centuries (A; SU12)",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample"
     },
     {
       "species_latin_name": "Capra hircus",
@@ -1200,7 +1465,12 @@
       "political_entity": "Fuerteventura",
       "latitude_text": "28.408760999999998",
       "longitude_text": "-14.125189000000001",
-      "chronology_text": "8th - 9th centuries (B; SU7)"
+      "chronology_text": "8th - 9th centuries (B; SU7)",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample"
     },
     {
       "species_latin_name": "Capra hircus",
@@ -1222,7 +1492,12 @@
       "political_entity": "Fuerteventura",
       "latitude_text": "28.665572999999998",
       "longitude_text": "-14.008963",
-      "chronology_text": "5th - 6th centuries (C; SU12)"
+      "chronology_text": "5th - 6th centuries (C; SU12)",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample"
     },
     {
       "species_latin_name": "Capra hircus",
@@ -1244,7 +1519,12 @@
       "political_entity": "Tenerife",
       "latitude_text": "28.084199999999999",
       "longitude_text": "-16.5289",
-      "chronology_text": "15th century CE (SU3)"
+      "chronology_text": "15th century CE (SU3)",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample"
     },
     {
       "species_latin_name": "Capra hircus",
@@ -1266,7 +1546,12 @@
       "political_entity": "Gran Canaria",
       "latitude_text": "28.002673999999999",
       "longitude_text": "-15.813492",
-      "chronology_text": "13th - 14th centuries CE (SU13)"
+      "chronology_text": "13th - 14th centuries CE (SU13)",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample"
     },
     {
       "species_latin_name": "Capra hircus",
@@ -1288,7 +1573,12 @@
       "political_entity": "Gran Canaria",
       "latitude_text": "28.002673999999999",
       "longitude_text": "-15.813492",
-      "chronology_text": "13th - 14th centuries CE (SU13)"
+      "chronology_text": "13th - 14th centuries CE (SU13)",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample"
     },
     {
       "species_latin_name": "Capra hircus",
@@ -1310,7 +1600,12 @@
       "political_entity": "La Palma",
       "latitude_text": "28.552054999999999",
       "longitude_text": "-17.812253999999999",
-      "chronology_text": "15th - 17th centuries CE (site)"
+      "chronology_text": "15th - 17th centuries CE (site)",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample"
     },
     {
       "species_latin_name": "Capra hircus",
@@ -1332,7 +1627,12 @@
       "political_entity": "La Palma",
       "latitude_text": "28.578600000000002",
       "longitude_text": "-17.776199999999999",
-      "chronology_text": "11th - 12th centuries CE (SU17-18)"
+      "chronology_text": "11th - 12th centuries CE (SU17-18)",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample"
     },
     {
       "species_latin_name": "Capra hircus",
@@ -1354,7 +1654,12 @@
       "political_entity": "La Palma",
       "latitude_text": "28.792400000000001",
       "longitude_text": "-17.976500000000001",
-      "chronology_text": "6th - 8th centuries CE (SU15)"
+      "chronology_text": "6th - 8th centuries CE (SU15)",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample"
     },
     {
       "species_latin_name": "Capra hircus",
@@ -1376,7 +1681,12 @@
       "political_entity": "El Hierro",
       "latitude_text": "27.640201000000001",
       "longitude_text": "-17.989809000000001",
-      "chronology_text": "3rd - 4th centuries CE (SU109)"
+      "chronology_text": "3rd - 4th centuries CE (SU109)",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample"
     },
     {
       "species_latin_name": "Capra hircus",
@@ -1398,7 +1708,12 @@
       "political_entity": "Gran Canaria",
       "latitude_text": "28.151167000000001",
       "longitude_text": "-15.696242",
-      "chronology_text": "12th - 13th centuries CE (Zone 1; SU2)"
+      "chronology_text": "12th - 13th centuries CE (Zone 1; SU2)",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample"
     },
     {
       "species_latin_name": "Capra hircus",
@@ -1420,7 +1735,12 @@
       "political_entity": "Gran Canaria",
       "latitude_text": "28.151167000000001",
       "longitude_text": "-15.696242",
-      "chronology_text": "7th - 9th centuries CE (Zone 2; SU1006)"
+      "chronology_text": "7th - 9th centuries CE (Zone 2; SU1006)",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample"
     },
     {
       "species_latin_name": "Capra hircus",
@@ -1442,7 +1762,12 @@
       "political_entity": "Gran Canaria",
       "latitude_text": "28.151167000000001",
       "longitude_text": "-15.696242",
-      "chronology_text": "12th - 13th centuries CE (Zone 1; SU5)"
+      "chronology_text": "12th - 13th centuries CE (Zone 1; SU5)",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample"
     },
     {
       "species_latin_name": "Capra hircus",
@@ -1464,7 +1789,12 @@
       "political_entity": "Gran Canaria",
       "latitude_text": "28.151167000000001",
       "longitude_text": "-15.696242",
-      "chronology_text": "12th - 13th centuries CE (Zone 1; SU5)"
+      "chronology_text": "12th - 13th centuries CE (Zone 1; SU5)",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample"
     },
     {
       "species_latin_name": "Capra hircus",
@@ -1486,7 +1816,12 @@
       "political_entity": "Gran Canaria",
       "latitude_text": "28.151167000000001",
       "longitude_text": "-15.696242",
-      "chronology_text": "12th - 13th centuries CE (Zone 1; SU2)"
+      "chronology_text": "12th - 13th centuries CE (Zone 1; SU2)",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample"
     },
     {
       "species_latin_name": "Capra hircus",
@@ -1508,7 +1843,12 @@
       "political_entity": "Fuerteventura",
       "latitude_text": "28.665572999999998",
       "longitude_text": "-14.008963",
-      "chronology_text": "5th - 6th centuries (C; SU5)"
+      "chronology_text": "5th - 6th centuries (C; SU5)",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample"
     },
     {
       "species_latin_name": "Capra hircus",
@@ -1530,7 +1870,12 @@
       "political_entity": "Fuerteventura",
       "latitude_text": "28.665572999999998",
       "longitude_text": "-14.008963",
-      "chronology_text": "5th - 6th centuries (C; SU10)"
+      "chronology_text": "5th - 6th centuries (C; SU10)",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample"
     },
     {
       "species_latin_name": "Capra hircus",
@@ -1552,7 +1897,12 @@
       "political_entity": "Tenerife",
       "latitude_text": "28.422000000000001",
       "longitude_text": "-16.313300000000002",
-      "chronology_text": "13th - 14th centuries CE (SU8)"
+      "chronology_text": "13th - 14th centuries CE (SU8)",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample"
     },
     {
       "species_latin_name": "Capra hircus",
@@ -1574,7 +1924,12 @@
       "political_entity": "La Palma",
       "latitude_text": "28.787616",
       "longitude_text": "-17.765601",
-      "chronology_text": "12th - 13th centuries CE (SU3)"
+      "chronology_text": "12th - 13th centuries CE (SU3)",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample"
     },
     {
       "species_latin_name": "Capra hircus",
@@ -1596,7 +1951,12 @@
       "political_entity": "La Palma",
       "latitude_text": "28.787616",
       "longitude_text": "-17.765601",
-      "chronology_text": "17th - 18th centuries CE (SU201)"
+      "chronology_text": "17th - 18th centuries CE (SU201)",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample"
     },
     {
       "species_latin_name": "Capra hircus",
@@ -1618,7 +1978,12 @@
       "political_entity": "Fuerteventura",
       "latitude_text": "27.408760999999998",
       "longitude_text": "-15.125189000000001",
-      "chronology_text": "11th - 12th centuries (A; SU15)"
+      "chronology_text": "11th - 12th centuries (A; SU15)",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample"
     }
   ]
 }

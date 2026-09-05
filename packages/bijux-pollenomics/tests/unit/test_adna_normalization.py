@@ -19,6 +19,21 @@ pytestmark = pytest.mark.generated_artifacts
 
 
 class AdnaNormalizationUnitTests(unittest.TestCase):
+    def test_source_native_taxonomy_survives_normalization(self) -> None:
+        cattle = build_species_normalization_bundle("cattle")
+        aurochs = next(
+            row
+            for row in cattle.sample_records
+            if row.source_native_scientific_name == "Bos primigenius"
+        )
+
+        self.assertEqual(aurochs.source_native_tax_id, "9909")
+        self.assertEqual(aurochs.species_latin_name, "Bos taurus")
+        self.assertEqual(aurochs.taxon_alignment_status, "project_species_mismatch")
+        self.assertEqual(
+            aurochs.as_dict()["source_native_scientific_name"], "Bos primigenius"
+        )
+
     def test_species_normalization_bundle_builds_project_and_study_summaries_for_horse(
         self,
     ) -> None:
@@ -172,7 +187,7 @@ class AdnaNormalizationUnitTests(unittest.TestCase):
         ]
         samples = [sample for bundle in bundles for sample in bundle.sample_records]
 
-        self.assertEqual(len(samples), 868)
+        self.assertEqual(len(samples), 1451)
         self.assertEqual(
             sum(
                 1
@@ -180,7 +195,24 @@ class AdnaNormalizationUnitTests(unittest.TestCase):
                 for refusal in bundle.refusals
                 if refusal.record_kind == "sample_record"
             ),
-            26,
+            38,
+        )
+        camel = next(
+            bundle
+            for bundle in bundles
+            if bundle.species.latin_name == "Camelus dromedarius"
+        )
+        experiment_refusals = [
+            refusal
+            for refusal in camel.refusals
+            if refusal.reason == "experiment_to_biological_sample_mapping_unavailable"
+        ]
+        self.assertEqual(len(experiment_refusals), 20)
+        self.assertTrue(
+            all(
+                "sequencing experiment" in refusal.detail
+                for refusal in experiment_refusals
+            )
         )
         self.assertTrue(
             all(sample.sample_identity_resolution == "final" for sample in samples)

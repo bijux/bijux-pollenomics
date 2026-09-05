@@ -138,10 +138,21 @@ def build_project_locality_worksheet_rows(
         ].append(packet)
     for packets in grouped_packets.values():
         first = packets[0]
+        source_path = str(first["location_evidence_artifact_path"])
+        source_kind = str(first["location_evidence_artifact_kind"])
+        source_surface = _source_surface_for_context(source_path, source_kind)
+        resolution_status = str(first["locality_resolution_status"])
+        claim_scope = (
+            "sample_owned_locality"
+            if resolution_status == "direct_sample_site"
+            else "sample_group_locality"
+            if resolution_status == "sample_group_site"
+            else "project_context_site"
+        )
         key = (
-            "supplementary_table",
+            source_surface,
             str(first["assigned_locality_text"]),
-            str(first["location_evidence_artifact_path"]),
+            source_path,
             str(first["location_evidence_locator"]),
         )
         if key in seen:
@@ -151,8 +162,8 @@ def build_project_locality_worksheet_rows(
             {
                 "project_accession": first["project_accession"],
                 "species_latin_name": first["species_latin_name"],
-                "source_surface": "supplementary_table",
-                "source_claim_scope": "sample_owned_locality",
+                "source_surface": source_surface,
+                "source_claim_scope": claim_scope,
                 "supporting_sample_count": len(packets),
                 "original_locality_text": first["assigned_locality_text"],
                 "resolved_locality_text": first["normalized_display_spelling"],

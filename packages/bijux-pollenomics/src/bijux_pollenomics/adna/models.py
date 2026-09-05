@@ -238,6 +238,11 @@ class AdnaSampleRecord:
     sample_lineage_excerpt: str = ""
     sample_identity_resolution: str = ""
     sample_ambiguity_note: str = ""
+    source_native_tax_id: str = ""
+    source_native_scientific_name: str = ""
+    taxon_alignment_status: str = "not_reported"
+    archive_native_experiment_id: str = ""
+    source_native_identity_kind: str = "biological_sample"
 
     @property
     def genetic_id(self) -> str:
@@ -357,6 +362,11 @@ class AdnaSampleRecord:
             "sample_lineage_excerpt": self.sample_lineage_excerpt,
             "sample_identity_resolution": self.sample_identity_resolution,
             "sample_ambiguity_note": self.sample_ambiguity_note,
+            "source_native_tax_id": self.source_native_tax_id,
+            "source_native_scientific_name": self.source_native_scientific_name,
+            "taxon_alignment_status": self.taxon_alignment_status,
+            "archive_native_experiment_id": self.archive_native_experiment_id,
+            "source_native_identity_kind": self.source_native_identity_kind,
         }
 
 

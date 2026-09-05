@@ -37,6 +37,13 @@ class AdnaProjectSampleLocalityEvidenceUnitTests(unittest.TestCase):
         self.assertEqual(uppsala["evidence_source_surface"], "supplementary_table")
         self.assertEqual(uppsala["coordinate_confidence"], "exact")
 
+    def test_experiment_only_archive_evidence_does_not_become_locality_packets(
+        self,
+    ) -> None:
+        rows = build_project_sample_locality_evidence_rows(self.data_root, "SRP073444")
+
+        self.assertEqual(rows, ())
+
     def test_context_only_sheep_project_locality_worksheet_keeps_broader_classes_visible(
         self,
     ) -> None:
@@ -46,6 +53,9 @@ class AdnaProjectSampleLocalityEvidenceUnitTests(unittest.TestCase):
         self.assertEqual(
             {row["source_surface"] for row in rows},
             {"coordinate_resolution", "crossref_metadata"},
+        )
+        self.assertNotIn(
+            "sample_owned_locality", {row["source_claim_scope"] for row in rows}
         )
         self.assertTrue(
             all(row["locality_class"] == "broader_locality" for row in rows)

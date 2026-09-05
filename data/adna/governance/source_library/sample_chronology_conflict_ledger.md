@@ -1,6 +1,6 @@
 # Sample chronology conflict ledger
 
-- Conflicting rows: `776`
+- Conflicting rows: `797`
 
 | Project accession | Sample id | Evidence class | Precision posture | Chronology | Conflict note |
 | --- | --- | --- | --- | --- | --- |
@@ -775,6 +775,27 @@
 | PRJEB90261 | prjeb90261:pgull-2228 | historical_or_recent_date | sample_approximate_or_modeled | 12th - 13th centuries CE (SU3) | Sample-owned chronology text disagrees with the project-level chronology wording. |
 | PRJEB90261 | prjeb90261:pgull-2230 | historical_or_recent_date | sample_approximate_or_modeled | 17th - 18th centuries CE (SU201) | Sample-owned chronology text disagrees with the project-level chronology wording. |
 | PRJEB90261 | prjeb90261:pgull-2235 | historical_or_recent_date | sample_approximate_or_modeled | 11th - 12th centuries (A; SU15) | Sample-owned chronology text disagrees with the project-level chronology wording. |
+| PRJNA1178732 | prjna1178732:fs1 | historical_or_recent_date | sample_precise_interval | 1115 - 1234 CE | Sample-owned chronology text disagrees with the project-level chronology wording. |
+| PRJNA1178732 | prjna1178732:fs10 | historical_or_recent_date | sample_precise_point | 1200 BCE | Sample-owned chronology text disagrees with the project-level chronology wording. |
+| PRJNA1178732 | prjna1178732:fs12 | historical_or_recent_date | sample_approximate_or_modeled | 706 - 883 cal. CE | Sample-owned chronology text disagrees with the project-level chronology wording. |
+| PRJNA1178732 | prjna1178732:fs13 | historical_or_recent_date | sample_approximate_or_modeled | 168 - 48 cal. BCE | Sample-owned chronology text disagrees with the project-level chronology wording. |
+| PRJNA1178732 | prjna1178732:fs14 | historical_or_recent_date | sample_precise_interval | ~3500 - 1800 BCE | Sample-owned chronology text disagrees with the project-level chronology wording. |
+| PRJNA1178732 | prjna1178732:fs15 | historical_or_recent_date | sample_precise_interval | 4000 - 2700 BCE | Sample-owned chronology text disagrees with the project-level chronology wording. |
+| PRJNA1178732 | prjna1178732:fs16 | historical_or_recent_date | sample_approximate_or_modeled | 1413 - 1480 cal. CE | Sample-owned chronology text disagrees with the project-level chronology wording. |
+| PRJNA1178732 | prjna1178732:fs17 | historical_or_recent_date | sample_approximate_or_modeled | 1797 - 1944 cal. CE | Sample-owned chronology text disagrees with the project-level chronology wording. |
+| PRJNA1178732 | prjna1178732:fs18 | historical_or_recent_date | sample_precise_interval | 618 - 970 CE | Sample-owned chronology text disagrees with the project-level chronology wording. |
+| PRJNA1178732 | prjna1178732:fs19 | historical_or_recent_date | sample_precise_interval | 25 - 220 CE | Sample-owned chronology text disagrees with the project-level chronology wording. |
+| PRJNA1178732 | prjna1178732:fs2 | historical_or_recent_date | sample_precise_interval | 1115 - 1234 CE | Sample-owned chronology text disagrees with the project-level chronology wording. |
+| PRJNA1178732 | prjna1178732:fs20 | historical_or_recent_date | sample_precise_interval | 960 - 1368 CE | Sample-owned chronology text disagrees with the project-level chronology wording. |
+| PRJNA1178732 | prjna1178732:fs21 | historical_or_recent_date | sample_precise_interval | 960 - 1368 CE | Sample-owned chronology text disagrees with the project-level chronology wording. |
+| PRJNA1178732 | prjna1178732:fs22 | historical_or_recent_date | sample_precise_interval | 960 - 1368 CE | Sample-owned chronology text disagrees with the project-level chronology wording. |
+| PRJNA1178732 | prjna1178732:fs23 | historical_or_recent_date | sample_precise_interval | 960 - 1368 CE | Sample-owned chronology text disagrees with the project-level chronology wording. |
+| PRJNA1178732 | prjna1178732:fs3 | historical_or_recent_date | sample_precise_interval | 1115 - 1234 CE | Sample-owned chronology text disagrees with the project-level chronology wording. |
+| PRJNA1178732 | prjna1178732:fs4 | historical_or_recent_date | sample_precise_interval | 1115 - 1234 CE | Sample-owned chronology text disagrees with the project-level chronology wording. |
+| PRJNA1178732 | prjna1178732:fs5 | historical_or_recent_date | sample_precise_interval | 1115 - 1234 CE | Sample-owned chronology text disagrees with the project-level chronology wording. |
+| PRJNA1178732 | prjna1178732:fs6 | historical_or_recent_date | sample_precise_interval | 960 - 1127 CE | Sample-owned chronology text disagrees with the project-level chronology wording. |
+| PRJNA1178732 | prjna1178732:fs7 | historical_or_recent_date | sample_precise_point | 1800 BCE | Sample-owned chronology text disagrees with the project-level chronology wording. |
+| PRJNA1178732 | prjna1178732:fs8 | historical_or_recent_date | sample_precise_interval | 3000 - 221 BCE | Sample-owned chronology text disagrees with the project-level chronology wording. |
 | KX379528-KX379529 | kx379528-kx379529:kx379529 | direct_radiocarbon_date | sample_precise_interval | 5223-5040 BCE | Sample-owned chronology disagrees with the project-level chronology interval. |
 | KU605068-KU605080 | ku605068-ku605080:ku605068 | historical_or_recent_date | sample_precise_interval | 1650-2050 BP | Sample-owned chronology disagrees with the project-level chronology interval. |
 | KU605068-KU605080 | ku605068-ku605080:ku605069 | historical_or_recent_date | sample_precise_interval | 1650-2050 BP | Sample-owned chronology disagrees with the project-level chronology interval. |

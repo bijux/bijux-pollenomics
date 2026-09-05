@@ -3,7 +3,12 @@ Equus caballus,horse,PRJEB19970,14,0,13,0,0,1,4,4,false,supplementary_table_samp
 Equus caballus,horse,PRJEB22390,42,0,42,0,0,0,27,27,false,supplementary_table_sample_label_anchor
 Equus caballus,horse,PRJEB31613,244,244,0,0,0,0,95,95,false,supplementary_table_sample_label_anchor
 Equus caballus,horse,PRJEB44430,248,248,0,0,0,0,114,114,false,supplementary_table_sample_label_anchor
+Sus scrofa domesticus,pig,PRJEB30282,343,0,343,0,0,0,1,1,false,archive_project_sample_accession_anchor
 Ovis aries,sheep,PRJEB36540,190,0,177,0,0,13,6,6,false,supplementary_table_sample_label_anchor
+Ovis aries,sheep,PRJEB41594,5,0,0,0,0,5,1,1,false,archive_project_sample_accession_anchor
+Ovis aries,sheep,PRJEB59481,5,0,5,0,0,0,1,1,false,archive_project_sample_accession_anchor
+Bos taurus,cattle,PRJEB31621,77,0,0,0,0,77,1,1,false,archive_project_sample_accession_anchor
+Bos taurus,cattle,PRJEB75467,44,0,0,0,0,44,1,1,false,archive_project_sample_accession_anchor
 Bos taurus,cattle,PRJNA705960,11,0,0,11,0,0,1,1,false,archive_project_sample_accession_anchor
 Capra hircus,goat,PRJEB90141,4,4,0,0,0,0,4,4,false,supplementary_table_sample_label_anchor
 Capra hircus,goat,PRJEB90261,73,0,0,0,0,73,22,22,false,supplementary_table_sample_label_anchor
@@ -11,5 +16,7 @@ Capra hircus,goat,PRJNA1328209,5,5,0,0,0,0,1,1,false,supplementary_table_sample_
 Canis lupus familiaris,dog,KX379528-KX379529,2,0,2,0,0,0,2,2,false,primary_article_accession_mapping
 Canis lupus familiaris,dog,SRS1407451,1,0,1,0,0,0,1,1,false,sample_accession_anchor
 Canis lupus familiaris,dog,SRS1407453,1,0,1,0,0,0,1,1,false,primary_article_accession_mapping
+Felis catus,cat,PRJEB81815,87,0,87,0,0,0,1,1,false,archive_project_sample_accession_anchor
+Felis catus,cat,PRJNA1178732,22,0,17,0,0,5,14,14,false,supplementary_table_sample_label_anchor
 Camelus dromedarius,dromedary camel,KU605068-KU605080,13,0,13,0,0,0,9,9,false,primary_article_accession_mapping
 Rangifer tarandus,reindeer,PRJEB60484,20,0,20,0,0,0,1,1,false,archive_project_sample_accession_anchor

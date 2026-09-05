@@ -704,11 +704,11 @@ def render_source_recovery_release_guard_markdown(payload: dict[str, object]) ->
         "",
         f"- Passing: `{str(payload['passing']).lower()}`",
         f"- Implausibly low recovery projects: `{payload['implausibly_low_recovery_project_count']}`",
-        "",
     ]
     if payload["failing_projects"]:
         lines.extend(
             [
+                "",
                 "| Project | Species | Gap status | Reason |",
                 "| --- | --- | --- | --- |",
             ]

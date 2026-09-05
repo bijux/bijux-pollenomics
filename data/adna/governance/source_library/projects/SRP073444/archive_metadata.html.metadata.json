@@ -7,5 +7,7 @@
   "project_accession": "SRP073444",
   "storage_byte_size": 16220,
   "storage_path": "adna/governance/source_library/projects/SRP073444/archive_metadata.html.gz",
-  "content_encoding": "gzip"
+  "content_encoding": "gzip",
+  "content_sha256": "7dfd6a5d3c761307b54f47868a731b463732ac9fdd8533cf13e956c78c130d70",
+  "storage_sha256": "a173a52daf955ef12fa99963b87ef4fd5bd0afaf86f5cd39735e90f2db2eefcc"
 }

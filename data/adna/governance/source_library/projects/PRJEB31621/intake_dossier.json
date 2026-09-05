@@ -10,32 +10,30 @@
     "project_admission": "complete",
     "paper_capture": "complete",
     "supplement_capture": "not_required",
-    "sample_identity_recovery": "in_progress",
-    "site_recovery": "blocked",
-    "chronology_recovery": "blocked",
+    "sample_identity_recovery": "complete",
+    "site_recovery": "in_progress",
+    "chronology_recovery": "in_progress",
     "coordinate_derivation": "blocked",
     "publication_readiness": "blocked"
   },
   "blocking_stages": [
-    "site_recovery",
-    "chronology_recovery",
     "coordinate_derivation",
     "publication_readiness"
   ],
-  "next_required_stage": "sample_identity_recovery",
+  "next_required_stage": "site_recovery",
   "publication_readiness_status": "blocked",
   "expected_sample_count": null,
   "expected_sample_count_status": "not_yet_curated",
   "expected_sample_count_provenance": "No trustworthy expected sample count is published yet because the current archive or paper capture is still too weak.",
   "expected_sample_count_artifact_path": "data/adna/governance/source_library/projects/PRJEB31621/archive_metadata.html",
   "minimum_expected_sample_count": 1,
-  "recovered_sample_count": 0,
-  "final_sample_count": 0,
+  "recovered_sample_count": 77,
+  "final_sample_count": 77,
   "unresolved_sample_count": null,
-  "minimum_gap_count": 1,
-  "recovery_gap_status": "extractable_sources_but_no_governed_samples",
-  "implausibly_low_recovery": true,
-  "implausibly_low_recovery_reason": "Readable paper or supplementary capture exists, but the governed sample master still publishes zero recovered rows.",
+  "minimum_gap_count": 0,
+  "recovery_gap_status": "minimum_expected_floor_met",
+  "implausibly_low_recovery": false,
+  "implausibly_low_recovery_reason": "",
   "known_assets": [
     "adna/governance/source_library/papers/10.1126-science.aav1002/supplementary/aav1002_verdugo_sm.pdf",
     "adna/governance/source_library/papers/10.1126-science.aav1002/article.html",
@@ -48,22 +46,64 @@
     "data/adna/governance/source_library/projects/PRJEB31621/sample_locality_evidence.json"
   ],
   "missing_assets": [
-    "No final governed sample rows are published yet."
+    "Some recovered sample rows still lack a defensible site assignment.",
+    "Some recovered sample rows still lack sample-level chronology."
   ],
   "expected_contributions": [
     "sample_identities",
-    "taxonomic_context"
+    "taxonomic_context",
+    "site_evidence",
+    "coordinate_candidates",
+    "sample_chronology"
   ],
   "expected_contribution_surfaces": [
     "data/adna/governance/source_library/projects/PRJEB31621/archive_metadata.html",
     "data/adna/governance/source_library/papers/10.1126-science.aav1002/article.html",
     "adna/governance/source_library/papers/10.1126-science.aav1002/supplementary/aav1002_verdugo_sm.pdf"
   ],
-  "contradictory_evidence": [],
+  "contradictory_evidence": [
+    "Locality substitution review still blocks publication because project-level geography would flatten distinct sample evidence."
+  ],
   "inferred_claims": [],
-  "manual_curation_work_units": [],
+  "manual_curation_work_units": [
+    {
+      "project_accession": "PRJEB31621",
+      "species_latin_name": "Bos taurus",
+      "work_unit_type": "chronology_recovery",
+      "work_unit_state": "pending_source_recovery",
+      "open_item_count": 154,
+      "rationale": "no_sample_owned_chronology_recovered; missing_sample_level_date_evidence",
+      "downstream_impact": "blocks chronology honesty and publication precision",
+      "recommended_source_surfaces": [
+        "data/adna/governance/source_library/projects/PRJEB31621/sample_chronology.json",
+        "data/adna/governance/source_library/projects/PRJEB31621/intake_dossier.json"
+      ]
+    },
+    {
+      "project_accession": "PRJEB31621",
+      "species_latin_name": "Bos taurus",
+      "work_unit_type": "locality_string_resolution",
+      "work_unit_state": "pending_manual_curation",
+      "open_item_count": 77,
+      "rationale": "unresolved",
+      "downstream_impact": "blocks coordinate derivation and exact locality publication",
+      "recommended_source_surfaces": [
+        "tracked_source_artifact"
+      ]
+    },
+    {
+      "project_accession": "PRJEB31621",
+      "species_latin_name": "Bos taurus",
+      "work_unit_type": "site_resolution",
+      "work_unit_state": "pending_manual_curation",
+      "open_item_count": 77,
+      "rationale": "recovered_sample_rows_still_lack_any_location_claim",
+      "downstream_impact": "blocks exact site, coordinate, and publication recovery",
+      "recommended_source_surfaces": []
+    }
+  ],
   "major_deficit_reasons": [
-    "implausibly_low_sample_recovery",
-    "sample_recovery_gap"
+    "site_assignment_gap",
+    "chronology_gap"
   ]
 }

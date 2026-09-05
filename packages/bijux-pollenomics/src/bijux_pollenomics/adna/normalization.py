@@ -574,17 +574,22 @@ def _build_sample_records(
 
     for row in build_species_curated_sample_rows(species_name):
         if not _sample_record_is_admissible(row):
+            experiment_only = row.sample_evidence_status == "experiment_level_only"
             refusals.append(
                 AdnaNormalizationRefusal(
                     schema_version="adna-normalization-refusal.v1",
                     species_latin_name=species.latin_name,
                     source_token=(f"{row.project_accession}:{row.stable_sample_id}"),
                     record_kind="sample_record",
-                    reason="sample_evidence_not_yet_recoverable",
+                    reason=(
+                        "experiment_to_biological_sample_mapping_unavailable"
+                        if experiment_only
+                        else "sample_evidence_not_yet_recoverable"
+                    ),
                     detail=(
-                        "Source-native project/sample accounting remains available, "
-                        "but this placeholder is refused from normalized sample "
-                        "artifacts because it is not recovered evidence: "
+                        "Source-native identity evidence remains available, but this "
+                        f"{'sequencing experiment' if experiment_only else 'placeholder'} "
+                        "is refused from normalized biological-sample artifacts: "
                         f"inclusion_status={row.inclusion_status}; "
                         f"sample_evidence_status={row.sample_evidence_status}; "
                         f"sample_identity_resolution={row.sample_identity_resolution}."
@@ -780,6 +785,11 @@ def _build_sample_records(
                 sample_lineage_excerpt=row.sample_lineage_excerpt,
                 sample_identity_resolution=row.sample_identity_resolution,
                 sample_ambiguity_note=row.sample_ambiguity_note,
+                source_native_tax_id=row.source_native_tax_id,
+                source_native_scientific_name=row.source_native_scientific_name,
+                taxon_alignment_status=row.taxon_alignment_status,
+                archive_native_experiment_id=row.archive_native_experiment_id,
+                source_native_identity_kind=row.source_native_identity_kind,
             )
         )
 

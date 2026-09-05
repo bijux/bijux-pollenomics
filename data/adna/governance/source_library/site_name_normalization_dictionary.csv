@@ -1,15 +1,15 @@
 project_accession,species_latin_name,normalized_display_spelling,geocoding_safe_token,original_source_spellings,alternative_spellings,source_surfaces,locality_classes
-KU605068-KU605080,Camelus dromedarius,Austria,austria,Austria,,supplementary_table,excavation_site
-KU605068-KU605080,Camelus dromedarius,Dubai,dubai,Dubai,,supplementary_table,excavation_site
-KU605068-KU605080,Camelus dromedarius,Kenya,kenya,Kenya,,supplementary_table,excavation_site
-KU605068-KU605080,Camelus dromedarius,Pakistan,pakistan,Pakistan,,supplementary_table,excavation_site
-KU605068-KU605080,Camelus dromedarius,Palmyra,palmyra,Palmyra,,supplementary_table,excavation_site
-KU605068-KU605080,Camelus dromedarius,Qatar-Jordan border,qatarjordanborder,Qatar-Jordan border,,supplementary_table,excavation_site
-KU605068-KU605080,Camelus dromedarius,Sagalassos,sagalassos,Sagalassos,,supplementary_table,excavation_site
-KU605068-KU605080,Camelus dromedarius,Saudi Arabia,saudiarabia,Saudi Arabia,,supplementary_table,excavation_site
-KU605068-KU605080,Camelus dromedarius,Sudan,sudan,Sudan,,supplementary_table,excavation_site
-KX379528-KX379529,Canis lupus familiaris,Cherry Tree Cave,cherrytreecave,Cherry Tree Cave,,supplementary_table,excavation_site
-KX379528-KX379529,Canis lupus familiaris,Herxheim,herxheim,Herxheim,,supplementary_table,excavation_site
+KU605068-KU605080,Camelus dromedarius,Austria,austria,Austria,,archive_metadata,excavation_site
+KU605068-KU605080,Camelus dromedarius,Dubai,dubai,Dubai,,archive_metadata,excavation_site
+KU605068-KU605080,Camelus dromedarius,Kenya,kenya,Kenya,,archive_metadata,excavation_site
+KU605068-KU605080,Camelus dromedarius,Pakistan,pakistan,Pakistan,,archive_metadata,excavation_site
+KU605068-KU605080,Camelus dromedarius,Palmyra,palmyra,Palmyra,,archive_metadata,excavation_site
+KU605068-KU605080,Camelus dromedarius,Qatar-Jordan border,qatarjordanborder,Qatar-Jordan border,,archive_metadata,excavation_site
+KU605068-KU605080,Camelus dromedarius,Sagalassos,sagalassos,Sagalassos,,archive_metadata,excavation_site
+KU605068-KU605080,Camelus dromedarius,Saudi Arabia,saudiarabia,Saudi Arabia,,archive_metadata,excavation_site
+KU605068-KU605080,Camelus dromedarius,Sudan,sudan,Sudan,,archive_metadata,excavation_site
+KX379528-KX379529,Canis lupus familiaris,Cherry Tree Cave,cherrytreecave,Cherry Tree Cave,,archive_metadata,excavation_site
+KX379528-KX379529,Canis lupus familiaris,Herxheim,herxheim,Herxheim,,archive_metadata,excavation_site
 PRJEB19970,Equus caballus,Arzhan I,arzhani,Arzhan I,,supplementary_table,excavation_site
 PRJEB19970,Equus caballus,Berel',berel,Berel',,supplementary_table,excavation_site
 PRJEB19970,Equus caballus,N/A,na,N/A,,supplementary_table,excavation_site
@@ -263,7 +263,7 @@ PRJEB44430,Equus caballus,Černý Vůl,černývůl,Černý Vůl,,supplementary_t
 PRJEB52849,Equus asinus,Africa to Europe and Asia donkey spread context,africatoeuropeandasiadonkeyspreadcontext,Africa to Europe and Asia donkey spread context,,archive_metadata,broader_locality
 PRJEB52849,Equus asinus,North African donkey domestication and spread transect,northafricandonkeydomesticationandspreadtransect,North Africa and Levant dispersal extent;North African donkey domestication and spread transect,North Africa and Levant dispersal extent,archive_metadata;coordinate_resolution,broader_locality
 PRJEB59481,Ovis aries,Baltic Sea Region short-tailed sheep context,balticsearegionshorttailedsheepcontext,Baltic Sea Region;Baltic Sea Region short-tailed sheep context,Baltic Sea Region,coordinate_resolution;crossref_metadata,broader_locality
-PRJEB60484,Rangifer tarandus,Svalbard ancient reindeer context,svalbardancientreindeercontext,Svalbard ancient reindeer context;Svalbard archipelago,Svalbard archipelago,archive_metadata;coordinate_resolution;supplementary_table,broader_locality
+PRJEB60484,Rangifer tarandus,Svalbard ancient reindeer context,svalbardancientreindeercontext,Svalbard ancient reindeer context;Svalbard archipelago,Svalbard archipelago,archive_metadata;coordinate_resolution,broader_locality
 PRJEB60484,Rangifer tarandus,Svalbard archipelago reindeer context,svalbardarchipelagoreindeercontext,Svalbard archipelago reindeer context,,archive_metadata,broader_locality
 PRJEB81815,Felis catus,North Africa to Europe domestic cat dispersal transect,northafricatoeuropedomesticcatdispersaltransect,North Africa to Europe dispersal extent;North Africa to Europe domestic cat dispersal transect,North Africa to Europe dispersal extent,article_text;coordinate_resolution,broader_locality
 PRJEB90141,Capra hircus,Acemhöyük,acemhöyük,Acemhöyük,,supplementary_table,excavation_site
@@ -292,13 +292,27 @@ PRJEB90261,Capra hircus,Los Riscos de Ifara,losriscosdeifara,Los Riscos de Ifara
 PRJEB90261,Capra hircus,Playa Chica,playachica,Playa Chica,,supplementary_table,excavation_site
 PRJEB90261,Capra hircus,Punta del Mallorquín,puntadelmallorquín,Punta del Mallorquín,,supplementary_table,excavation_site
 PRJEB90261,Capra hircus,Tigalate,tigalate,Tigalate,,supplementary_table,excavation_site
+PRJNA1178732,Felis catus,Han Chang'an City,hanchangancity,Han Chang'an City,,supplementary_table,excavation_site
+PRJNA1178732,Felis catus,Huoshiliang,huoshiliang,Huoshiliang,,supplementary_table,excavation_site
+PRJNA1178732,Felis catus,Laoniupo,laoniupo,Laoniupo,,supplementary_table,excavation_site
+PRJNA1178732,Felis catus,Puyang Song Tomb,puyangsongtomb,Puyang Song Tomb,,supplementary_table,excavation_site
+PRJNA1178732,Felis catus,Quanhucun,quanhucun,Quanhucun,,supplementary_table,excavation_site
+PRJNA1178732,Felis catus,Shaliangzi,shaliangzi,Shaliangzi,,supplementary_table,excavation_site
+PRJNA1178732,Felis catus,Tongwan City,tongwancity,Tongwan City,,supplementary_table,excavation_site
+PRJNA1178732,Felis catus,Wuzhuangguoliang,wuzhuangguoliang,Wuzhuangguoliang,,supplementary_table,excavation_site
+PRJNA1178732,Felis catus,Xinjie,xinjie,Xinjie,,supplementary_table,excavation_site
+PRJNA1178732,Felis catus,Xinxiang Song Tomb,xinxiangsongtomb,Xinxiang Song Tomb,,supplementary_table,excavation_site
+PRJNA1178732,Felis catus,Xitucheng City,xituchengcity,Xitucheng City,,supplementary_table,excavation_site
+PRJNA1178732,Felis catus,Yangling,yangling,Yangling,,supplementary_table,excavation_site
+PRJNA1178732,Felis catus,Zheng and Han City,zhengandhancity,Zheng and Han City,,supplementary_table,excavation_site
+PRJNA1178732,Felis catus,Zhengzhoushang City,zhengzhoushangcity,Zhengzhoushang City,,supplementary_table,excavation_site
 PRJNA1328209,Capra hircus,Lake Qinghai Basin,lakeqinghaibasin,Lake Qinghai Basin;Lake Qinghai basin,Lake Qinghai basin,article_text;supplementary_table,broader_locality
 PRJNA1328209,Capra hircus,Lake Qinghai Basin ancient goat context,lakeqinghaibasinancientgoatcontext,"Lake Qinghai Basin ancient goat context;Lake Qinghai Basin, Qinghai-Xizang Plateau","Lake Qinghai Basin, Qinghai-Xizang Plateau",article_text;coordinate_resolution,broader_locality
 PRJNA705960,Bos taurus,different mountain caves in Galicia,differentmountaincavesingalicia,different mountain caves in Galicia,,archive_metadata,broader_locality
-PRJNA705960,Bos taurus,Galician mountain cave cattle context,galicianmountaincavecattlecontext,"Galicia, Spain;Galician mountain cave cattle context","Galicia, Spain",archive_metadata;coordinate_resolution;supplementary_table,broader_locality
+PRJNA705960,Bos taurus,Galician mountain cave cattle context,galicianmountaincavecattlecontext,"Galicia, Spain;Galician mountain cave cattle context","Galicia, Spain",archive_metadata;coordinate_resolution,broader_locality
 SRP073444,Camelus dromedarius,Arabian Peninsula and Levant dromedary context,arabianpeninsulaandlevantdromedarycontext,Arabian Peninsula and Levant dromedary context,,article_text,broader_locality
 SRP073444,Camelus dromedarius,Site 1040 near Wadi Halfa,site1040nearwadihalfa,Site 1040 near Wadi Halfa,,article_text,country
 SRP073444,Camelus dromedarius,Site 1040 near Wadi Halfa dromedary context,site1040nearwadihalfadromedarycontext,Wadi Halfa,Wadi Halfa,coordinate_resolution,country
-SRS1407451,Canis lupus familiaris,Ancient European dog CTC sample context,ancienteuropeandogctcsamplecontext,Ancient European dog CTC sample context;Central Europe multi-site dog context,Central Europe multi-site dog context,article_text;coordinate_resolution;supplementary_table,broader_locality
+SRS1407451,Canis lupus familiaris,Ancient European dog CTC sample context,ancienteuropeandogctcsamplecontext,Ancient European dog CTC sample context;Central Europe multi-site dog context,Central Europe multi-site dog context,article_text;coordinate_resolution,broader_locality
 SRS1407451,Canis lupus familiaris,Herxheim and Cherry Tree Cave ancient dog contexts,herxheimandcherrytreecaveancientdogcontexts,Herxheim and Cherry Tree Cave ancient dog contexts,,article_text,broader_locality
-SRS1407453,Canis lupus familiaris,Herxheim,herxheim,Herxheim,,supplementary_table,excavation_site
+SRS1407453,Canis lupus familiaris,Herxheim,herxheim,Herxheim,,archive_metadata,excavation_site

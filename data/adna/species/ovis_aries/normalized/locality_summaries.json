@@ -555,6 +555,71 @@
     {
       "identity": {
         "namespace": "ovis_aries:project_locality",
+        "stable_token": "ovis_aries:locality:prjeb41594:unresolved",
+        "locality_text": "",
+        "political_entity": "",
+        "source_anchor_tokens": [
+          "PRJEB41594",
+          "",
+          ""
+        ]
+      },
+      "species_latin_name": "Ovis aries",
+      "species_common_name": "sheep",
+      "source_family": "ENA",
+      "source_releases": [
+        "PRJEB41594"
+      ],
+      "record_modalities": [
+        "archive_reads"
+      ],
+      "review_strengths": [
+        "primary_paper_pinned"
+      ],
+      "provenance_qualities": [
+        "primary_paper_pinned"
+      ],
+      "locality": "",
+      "coordinates": {
+        "latitude": null,
+        "longitude": null,
+        "latitude_text": "",
+        "longitude_text": "",
+        "confidence": "unknown"
+      },
+      "sample_count": 5,
+      "sample_ids": [
+        "prjeb41594:samea8022720",
+        "prjeb41594:samea8022721",
+        "prjeb41594:samea8022722",
+        "prjeb41594:samea8022723",
+        "prjeb41594:samea8022724"
+      ],
+      "datasets": [
+        "ovis_aries:project:PRJEB41594"
+      ],
+      "chronology": {
+        "original_text": "",
+        "time_start_bp": null,
+        "time_end_bp": null,
+        "time_mean_bp": null,
+        "date_stddev_bp": "",
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+        "evidence_class": "unresolved",
+        "precision_posture": "unresolved"
+      },
+      "sample_namespace": "ovis_aries:sample_locality",
+      "project_accessions": [
+        "PRJEB41594"
+      ],
+      "original_location_text": "",
+      "nordic_inclusion": false,
+      "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
+      "interpretation_note": "No location evidence has been extracted yet for this recovered sample row."
+    },
+    {
+      "identity": {
+        "namespace": "ovis_aries:project_locality",
         "stable_token": "ovis_aries:locality:prjeb59481:balticsearegionshorttailedsheepcontext:balticsearegion",
         "locality_text": "Baltic Sea Region short-tailed sheep context",
         "political_entity": "Baltic Sea Region",
@@ -587,21 +652,25 @@
         "longitude_text": "",
         "confidence": "withheld"
       },
-      "sample_count": 1,
+      "sample_count": 5,
       "sample_ids": [
-        "PRJEB59481"
+        "prjeb59481:samea112960291",
+        "prjeb59481:samea112960292",
+        "prjeb59481:samea112960293",
+        "prjeb59481:samea112960294",
+        "prjeb59481:samea112960295"
       ],
       "datasets": [
         "ovis_aries:project:PRJEB59481"
       ],
       "chronology": {
-        "original_text": "Four millennia of Baltic sheep history",
+        "original_text": "0-4000 BP",
         "time_start_bp": 0,
         "time_end_bp": 4000,
         "time_mean_bp": 2000,
         "date_stddev_bp": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-        "evidence_class": "direct_radiocarbon_date",
+        "evidence_class": "archaeological_context_date",
         "precision_posture": "contextual_interval"
       },
       "sample_namespace": "ovis_aries:sample_locality",
@@ -611,7 +680,7 @@
       "original_location_text": "Baltic Sea Region short-tailed sheep context",
       "nordic_inclusion": true,
       "nordic_inclusion_reason": "This locality is retained for Nordic publication because the Baltic Sea Region bundle is explicitly assigned into Nordic country outputs.",
-      "interpretation_note": "The sheep lead remains Nordic-relevant but not point-ready."
+      "interpretation_note": "Current evidence stays at region or transect scale and must not masquerade as exact sample-site truth."
     }
   ]
 }

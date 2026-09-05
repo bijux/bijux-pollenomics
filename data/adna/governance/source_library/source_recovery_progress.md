@@ -1,23 +1,23 @@
 # Source recovery progress
 
 - Tracked projects: `40`
-- Sample identity rows present: `14`
-- Defensible site rows present: `11`
-- Sample-owned chronology present: `14`
+- Sample identity rows present: `21`
+- Defensible site rows present: `12`
+- Sample-owned chronology present: `18`
 - Mappable coordinate projects: `7`
-- Ready for publication review: `11`
+- Ready for publication review: `12`
 
 ## Sample Evidence Depth
 
 - sample identity only: `0`
-- sample with site: `87`
-- sample with site and chronology: `280`
+- sample with site: `218`
+- sample with site and chronology: `732`
 - sample with site chronology and coordinates: `501`
 
 | Project | Species | Completed stages | Required stages | Recovery depth score |
 | --- | --- | ---: | ---: | ---: |
-| `PRJEB31621` | `Bos taurus` | `2` | `7` | `0.2857` |
-| `PRJEB75467` | `Bos taurus` | `2` | `7` | `0.2857` |
+| `PRJEB31621` | `Bos taurus` | `3` | `7` | `0.4286` |
+| `PRJEB75467` | `Bos taurus` | `3` | `7` | `0.4286` |
 | `PRJNA705960` | `Bos taurus` | `3` | `7` | `0.4286` |
 | `KU605068-KU605080` | `Camelus dromedarius` | `6` | `7` | `0.8571` |
 | `SRP073444` | `Camelus dromedarius` | `2` | `7` | `0.2857` |
@@ -40,11 +40,11 @@
 | `PRJEB56293` | `Equus caballus` | `1` | `7` | `0.1429` |
 | `PRJEB7537` | `Equus caballus` | `1` | `7` | `0.1429` |
 | `PRJEB9799` | `Equus caballus` | `1` | `1` | `1.0` |
-| `PRJEB81815` | `Felis catus` | `2` | `7` | `0.2857` |
-| `PRJNA1178732` | `Felis catus` | `2` | `7` | `0.2857` |
+| `PRJEB81815` | `Felis catus` | `4` | `7` | `0.5714` |
+| `PRJNA1178732` | `Felis catus` | `6` | `7` | `0.8571` |
 | `PRJEB36540` | `Ovis aries` | `7` | `8` | `0.875` |
-| `PRJEB41594` | `Ovis aries` | `2` | `7` | `0.2857` |
-| `PRJEB59481` | `Ovis aries` | `2` | `7` | `0.2857` |
+| `PRJEB41594` | `Ovis aries` | `3` | `7` | `0.4286` |
+| `PRJEB59481` | `Ovis aries` | `4` | `7` | `0.5714` |
 | `PRJEB61808` | `Ovis aries` | `1` | `7` | `0.1429` |
 | `PRJEB69690` | `Ovis aries` | `1` | `7` | `0.1429` |
 | `PRJEB81145` | `Ovis aries` | `1` | `7` | `0.1429` |
@@ -52,7 +52,7 @@
 | `PRJEB60484` | `Rangifer tarandus` | `4` | `7` | `0.5714` |
 | `PRJEB61721` | `Rangifer tarandus` | `1` | `1` | `1.0` |
 | `PRJNA634908` | `Rangifer tarandus` | `1` | `1` | `1.0` |
-| `PRJEB30282` | `Sus scrofa domesticus` | `2` | `7` | `0.2857` |
+| `PRJEB30282` | `Sus scrofa domesticus` | `4` | `7` | `0.5714` |
 | `PRJNA421430` | `Sus scrofa domesticus` | `1` | `1` | `1.0` |
 | `PRJNA788987` | `Sus scrofa domesticus` | `1` | `7` | `0.1429` |
 | `PRJNA878488` | `Sus scrofa domesticus` | `1` | `7` | `0.1429` |

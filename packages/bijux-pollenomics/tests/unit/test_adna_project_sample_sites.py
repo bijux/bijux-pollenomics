@@ -77,6 +77,13 @@ class AdnaProjectSampleSitesUnitTests(unittest.TestCase):
         self.assertEqual(uppsala.coordinate_confidence, "exact")
         self.assertEqual(uppsala.chronology_text, "1217-1417 BP")
 
+    def test_experiment_only_archive_evidence_does_not_become_sample_sites(
+        self,
+    ) -> None:
+        rows = build_project_sample_site_rows(self.data_root, "SRP073444")
+
+        self.assertEqual(rows, ())
+
     def test_review_rows_ambiguity_ledger_and_manual_queue_stay_reader_visible(
         self,
     ) -> None:

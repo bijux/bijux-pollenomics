@@ -1230,12 +1230,12 @@ def build_animal_publication_release_gate(
             ],
         ),
         _check_row(
-            "project_recovery_guard_still_blocks_overclaim",
-            not bool(intake_recovery_payload["release_guard"]["passing"]),
-            "The intake recovery guard still blocks stronger publication claims until project-level under-recovery is brought under control.",
+            "project_recovery_guard_passes",
+            bool(intake_recovery_payload["release_guard"]["passing"]),
+            "The intake recovery guard confirms that no tracked project remains implausibly under-recovered; separate scientific-review and completeness blockers remain independently enforced.",
             []
-            if not bool(intake_recovery_payload["release_guard"]["passing"])
-            else ["project_recovery_guard_not_visible"],
+            if bool(intake_recovery_payload["release_guard"]["passing"])
+            else ["project_recovery_release_guard_still_failing"],
         ),
         _check_row(
             "project_locality_outputs_do_not_flatten_sample_site_disagreement",

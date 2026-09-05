@@ -15,6 +15,7 @@ from ...core.temporal_semantics import (
 )
 from ..models import CountryReport
 from .atlas_evidence_rows import build_tracked_animal_atlas_evidence_rows
+from .comparison_contracts import govern_animal_comparison_payload
 
 __all__ = ["publish_public_animal_reporting_outputs"]
 
@@ -31,11 +32,13 @@ def publish_public_animal_reporting_outputs(
     country_payloads = _load_country_payloads(country_reports, country_output_dirs)
     coverage_payload = _build_country_species_coverage(country_payloads)
     honesty_payload = build_public_animal_output_honesty(Path(data_root), output_root)
-    human_overlap_payload = _build_animal_human_chronology_overlap(
-        country_payloads, country_reports
+    human_overlap_payload = govern_animal_comparison_payload(
+        _build_animal_human_chronology_overlap(country_payloads, country_reports),
+        contract_id="animal-human-chronology-overlap",
     )
-    pollen_overlap_payload = _build_animal_pollen_chronology_overlap(
-        country_payloads, atlas_output_dir
+    pollen_overlap_payload = govern_animal_comparison_payload(
+        _build_animal_pollen_chronology_overlap(country_payloads, atlas_output_dir),
+        contract_id="animal-pollen-chronology-overlap",
     )
     first_appearance_payload = _build_first_appearance_by_country(country_payloads)
     atlas_readiness_payload = _build_animal_atlas_readiness(
@@ -373,6 +376,9 @@ def _build_first_appearance_by_country(
     country_payloads: list[dict[str, object]],
 ) -> dict[str, object]:
     rows: list[dict[str, object]] = []
+    input_locality_count = 0
+    dated_locality_count = 0
+    undated_locality_count = 0
     for payload in country_payloads:
         country = str(payload.get("country", ""))
         localities = payload.get("localities", [])
@@ -384,14 +390,24 @@ def _build_first_appearance_by_country(
                 continue
             grouped.setdefault(str(row["species_latin_name"]), []).append(row)
         for species_name, species_rows in sorted(grouped.items()):
-            oldest_row = max(species_rows, key=_first_signal_bp)
+            input_locality_count += len(species_rows)
+            dated_rows = [
+                (row, first_signal)
+                for row in species_rows
+                if (first_signal := _first_signal_bp(row)) is not None
+            ]
+            dated_locality_count += len(dated_rows)
+            undated_locality_count += len(species_rows) - len(dated_rows)
+            if not dated_rows:
+                continue
+            oldest_row, first_signal_bp = max(dated_rows, key=lambda item: item[1])
             rows.append(
                 {
                     "country": country,
                     "species_latin_name": species_name,
                     "species_common_name": str(oldest_row["species_common_name"]),
                     "animal_scope": str(oldest_row["animal_scope"]),
-                    "first_signal_bp": _first_signal_bp(oldest_row),
+                    "first_signal_bp": first_signal_bp,
                     "time_label": str(oldest_row["time_label"]),
                     "project_accession": str(oldest_row["project_accession"]),
                     "locality": str(oldest_row["locality"]),
@@ -409,6 +425,14 @@ def _build_first_appearance_by_country(
     )
     return {
         "schema_version": "animal-first-appearance-by-country.v1",
+        "reconciliation": {
+            "input_locality_count": input_locality_count,
+            "dated_locality_count": dated_locality_count,
+            "undated_locality_count": undated_locality_count,
+            "refusal_reason_counts": {
+                "chronology_unavailable": undated_locality_count,
+            },
+        },
         "rows": rows,
     }
 
@@ -438,7 +462,7 @@ def _build_farming_history_scenario(
     non_support: list[str] = []
 
     if first_rows:
-        earliest = first_rows[0]
+        earliest = max(first_rows, key=lambda row: int(row["first_signal_bp"]))
         support.append(
             f"The current Nordic publication surface can now name one first animal signal: "
             f"`{earliest['species_latin_name']}` in `{earliest['country']}` with a tracked "
@@ -842,7 +866,7 @@ def _overlap_status(
     return "no_context_rows"
 
 
-def _first_signal_bp(row: dict[str, object]) -> int:
+def _first_signal_bp(row: dict[str, object]) -> int | None:
     candidates = [
         value
         for value in (
@@ -852,7 +876,7 @@ def _first_signal_bp(row: dict[str, object]) -> int:
         )
         if value is not None
     ]
-    return max(candidates) if candidates else 0
+    return max(candidates) if candidates else None
 
 
 def _optional_int(value: object) -> int | None:
@@ -914,6 +938,8 @@ def _render_human_overlap_markdown(payload: dict[str, object]) -> str:
     lines = [
         "# Animal versus human chronology overlap",
         "",
+        _comparison_disposition_line(payload),
+        "",
         "| Country | Species | Human localities | Overlapping | Non-overlapping | Non-comparable | Status |",
         "| --- | --- | ---: | ---: | ---: | ---: | --- |",
     ]
@@ -936,6 +962,8 @@ def _render_pollen_overlap_markdown(payload: dict[str, object]) -> str:
     lines = [
         "# Animal versus pollen chronology overlap",
         "",
+        _comparison_disposition_line(payload),
+        "",
         "| Country | Species | Pollen records | Overlapping | Non-overlapping | Non-comparable | Status |",
         "| --- | --- | ---: | ---: | ---: | ---: | --- |",
     ]
@@ -951,6 +979,22 @@ def _render_pollen_overlap_markdown(payload: dict[str, object]) -> str:
             )
     lines.append("")
     return "\n".join(lines)
+
+
+def _comparison_disposition_line(payload: dict[str, object]) -> str:
+    contract = payload.get("comparison_contract")
+    disposition = payload.get("comparison_disposition")
+    if not isinstance(contract, dict) or not isinstance(disposition, dict):
+        raise ValueError("comparison payload is missing its governing contract")
+    return (
+        f"- Contract: `{contract['contract_id']}@{contract['contract_version']}`; "
+        f"status: `{disposition['status']}`; right-record comparison denominator: "
+        f"`{disposition['right_record_comparison_denominator']}`; comparable "
+        "right-record comparison denominator: "
+        f"`{disposition['comparable_right_record_comparison_denominator']}`; this "
+        "exploratory comparison requires "
+        "qualified scientific review and cannot establish migration or causation."
+    )
 
 
 def _render_first_appearance_markdown(payload: dict[str, object]) -> str:

@@ -33,6 +33,8 @@ class AdnaSampleTruthUnitTests(unittest.TestCase):
         self.assertIn("identity.stable_token", required_fields)
         self.assertIn("species_latin_name", required_fields)
         self.assertIn("project_accession", required_fields)
+        self.assertIn("source_native_identity_kind", required_fields)
+        self.assertIn("archive_native_sample_id", required_fields)
         self.assertIn("chronology.original_text", required_fields)
         self.assertIn("coordinates.confidence", required_fields)
         self.assertIn("inclusion_status", required_fields)
@@ -46,8 +48,8 @@ class AdnaSampleTruthUnitTests(unittest.TestCase):
         self.assertEqual(payload["schema_version"], "animal-sample-foundation-truth.v1")
         summary = payload["summary"]
         self.assertEqual(summary["tracked_species_count"], 10)
-        self.assertEqual(summary["tracked_project_count"], 14)
-        self.assertEqual(summary["sample_row_count"], 868)
+        self.assertEqual(summary["tracked_project_count"], 21)
+        self.assertEqual(summary["sample_row_count"], 1451)
         self.assertEqual(summary["blocked_missing_location_detail_count"], 0)
         self.assertEqual(
             sum(
@@ -67,7 +69,7 @@ class AdnaSampleTruthUnitTests(unittest.TestCase):
             for row in payload["species_rows"]
             if row["species_latin_name"] == "Ovis aries"
         )
-        self.assertEqual(sheep_row["sample_row_count"], 190)
+        self.assertEqual(sheep_row["sample_row_count"], 200)
         self.assertEqual(
             sheep_row["reported_curated_sample_count"],
             sheep_row["sample_row_count"],
@@ -150,7 +152,7 @@ class AdnaSampleTruthUnitTests(unittest.TestCase):
         self.assertEqual(
             payload["summary"],
             {
-                "total_sample_row_count": 868,
+                "total_sample_row_count": 1451,
                 "project_accession_anchor_count": 0,
                 "accession_range_anchor_count": 0,
                 "sample_accession_anchor_count": 1,

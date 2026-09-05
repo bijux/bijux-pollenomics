@@ -25,6 +25,14 @@ def test_posture_registry_refuses_missing_source_authority_without_zero_claims()
 
     rows = _rows_by_source(payload)
     assert payload["schema_version"] == "source-spatiotemporal-posture-registry.v2"
+    assert all(
+        row["capability_and_materialization_are_independent"] is True
+        for row in rows.values()
+    )
+    assert all(
+        row["capability_contract_path"] == "data/source_family_contracts.json"
+        for row in rows.values()
+    )
     assert rows["raa"]["availability_status"] == "refused"
     assert rows["raa"]["record_count"] is None
     assert rows["raa"]["detail_metrics"] == {

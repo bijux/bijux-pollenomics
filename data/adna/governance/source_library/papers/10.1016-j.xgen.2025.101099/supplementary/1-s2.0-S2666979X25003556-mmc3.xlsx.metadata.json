@@ -9,5 +9,10 @@
     "PRJNA1178732"
   ],
   "artifact_label": "curated supplementary asset 1-s2.0-S2666979X25003556-mmc3.xlsx",
-  "source_note": "Recovered from the local DOI-keyed supplement stash and copied into the governed source library."
+  "source_note": "Recovered from the local DOI-keyed supplement stash and copied into the governed source library.",
+  "content_sha256": "c4b042517528c3e4f99e40aca6df9713acb7e55f3cf5b3eca299b92908b55505",
+  "storage_byte_size": 35396,
+  "storage_sha256": "c4b042517528c3e4f99e40aca6df9713acb7e55f3cf5b3eca299b92908b55505",
+  "storage_path": "adna/governance/source_library/papers/10.1016-j.xgen.2025.101099/supplementary/1-s2.0-S2666979X25003556-mmc3.xlsx",
+  "content_encoding": null
 }

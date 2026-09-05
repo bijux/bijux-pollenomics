@@ -2,6 +2,66 @@
   "schema_version": "animal-date-evidence-gap-queue.v1",
   "rows": [
     {
+      "project_accession": "PRJEB31621",
+      "species_latin_name": "Bos taurus",
+      "recovered_sample_row_count": 77,
+      "sample_owned_date_row_count": 0,
+      "exact_sample_date_count": 0,
+      "modeled_or_approximate_sample_date_count": 0,
+      "contextual_date_count": 0,
+      "broad_label_count": 0,
+      "missing_date_count": 77,
+      "gap_reasons": [
+        "no_sample_owned_chronology_recovered",
+        "missing_sample_level_date_evidence"
+      ]
+    },
+    {
+      "project_accession": "PRJEB75467",
+      "species_latin_name": "Bos taurus",
+      "recovered_sample_row_count": 44,
+      "sample_owned_date_row_count": 0,
+      "exact_sample_date_count": 0,
+      "modeled_or_approximate_sample_date_count": 0,
+      "contextual_date_count": 0,
+      "broad_label_count": 0,
+      "missing_date_count": 44,
+      "gap_reasons": [
+        "no_sample_owned_chronology_recovered",
+        "missing_sample_level_date_evidence"
+      ]
+    },
+    {
+      "project_accession": "PRJEB41594",
+      "species_latin_name": "Ovis aries",
+      "recovered_sample_row_count": 5,
+      "sample_owned_date_row_count": 0,
+      "exact_sample_date_count": 0,
+      "modeled_or_approximate_sample_date_count": 0,
+      "contextual_date_count": 0,
+      "broad_label_count": 0,
+      "missing_date_count": 5,
+      "gap_reasons": [
+        "no_sample_owned_chronology_recovered",
+        "missing_sample_level_date_evidence"
+      ]
+    },
+    {
+      "project_accession": "PRJEB30282",
+      "species_latin_name": "Sus scrofa domesticus",
+      "recovered_sample_row_count": 343,
+      "sample_owned_date_row_count": 0,
+      "exact_sample_date_count": 0,
+      "modeled_or_approximate_sample_date_count": 0,
+      "contextual_date_count": 343,
+      "broad_label_count": 0,
+      "missing_date_count": 0,
+      "gap_reasons": [
+        "no_sample_owned_chronology_recovered",
+        "project_context_dates_still_dominate"
+      ]
+    },
+    {
       "project_accession": "PRJEB31613",
       "species_latin_name": "Equus caballus",
       "recovered_sample_row_count": 244,
@@ -26,6 +86,21 @@
       "gap_reasons": []
     },
     {
+      "project_accession": "PRJEB59481",
+      "species_latin_name": "Ovis aries",
+      "recovered_sample_row_count": 5,
+      "sample_owned_date_row_count": 0,
+      "exact_sample_date_count": 0,
+      "modeled_or_approximate_sample_date_count": 0,
+      "contextual_date_count": 5,
+      "broad_label_count": 0,
+      "missing_date_count": 0,
+      "gap_reasons": [
+        "no_sample_owned_chronology_recovered",
+        "project_context_dates_still_dominate"
+      ]
+    },
+    {
       "project_accession": "PRJEB60484",
       "species_latin_name": "Rangifer tarandus",
       "recovered_sample_row_count": 20,
@@ -33,6 +108,21 @@
       "exact_sample_date_count": 0,
       "modeled_or_approximate_sample_date_count": 0,
       "contextual_date_count": 20,
+      "broad_label_count": 0,
+      "missing_date_count": 0,
+      "gap_reasons": [
+        "no_sample_owned_chronology_recovered",
+        "project_context_dates_still_dominate"
+      ]
+    },
+    {
+      "project_accession": "PRJEB81815",
+      "species_latin_name": "Felis catus",
+      "recovered_sample_row_count": 87,
+      "sample_owned_date_row_count": 0,
+      "exact_sample_date_count": 0,
+      "modeled_or_approximate_sample_date_count": 0,
+      "contextual_date_count": 87,
       "broad_label_count": 0,
       "missing_date_count": 0,
       "gap_reasons": [

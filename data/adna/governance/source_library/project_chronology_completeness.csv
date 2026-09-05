@@ -8,23 +8,23 @@ PRJEB7537,Equus caballus,0,0,0,0,0,0,0,0,0.0
 PRJEB10854,Equus caballus,0,0,0,0,0,0,0,0,0.0
 PRJEB9799,Equus caballus,0,0,0,0,0,0,0,0,0.0
 PRJEB36540,Ovis aries,190,190,167,13,10,0,13,0,1.0
-PRJEB41594,Ovis aries,0,0,0,0,0,0,0,0,0.0
-PRJEB59481,Ovis aries,0,0,0,0,0,0,0,0,0.0
+PRJEB41594,Ovis aries,5,0,0,0,0,0,0,5,0.0
+PRJEB59481,Ovis aries,5,5,0,0,5,0,0,0,1.0
 PRJEB61808,Ovis aries,0,0,0,0,0,0,0,0,0.0
 PRJEB69690,Ovis aries,0,0,0,0,0,0,0,0,0.0
 PRJEB81145,Ovis aries,0,0,0,0,0,0,0,0,0.0
-PRJEB30282,Sus scrofa domesticus,0,0,0,0,0,0,0,0,0.0
+PRJEB30282,Sus scrofa domesticus,343,343,0,0,343,0,0,0,1.0
 PRJNA788987,Sus scrofa domesticus,0,0,0,0,0,0,0,0,0.0
 PRJNA878488,Sus scrofa domesticus,0,0,0,0,0,0,0,0,0.0
 PRJNA421430,Sus scrofa domesticus,0,0,0,0,0,0,0,0,0.0
-PRJEB31621,Bos taurus,0,0,0,0,0,0,0,0,0.0
-PRJEB75467,Bos taurus,0,0,0,0,0,0,0,0,0.0
+PRJEB31621,Bos taurus,77,0,0,0,0,0,0,77,0.0
+PRJEB75467,Bos taurus,44,0,0,0,0,0,0,44,0.0
 PRJNA705960,Bos taurus,11,11,0,0,11,0,0,0,1.0
 PRJEB90141,Capra hircus,4,4,4,0,0,0,0,0,1.0
 PRJEB90261,Capra hircus,73,73,0,73,0,0,73,0,1.0
 PRJNA1328209,Capra hircus,5,5,5,0,0,0,0,0,1.0
-PRJEB81815,Felis catus,0,0,0,0,0,0,0,0,0.0
-PRJNA1178732,Felis catus,0,0,0,0,0,0,0,0,0.0
+PRJEB81815,Felis catus,87,87,0,0,87,0,0,0,1.0
+PRJNA1178732,Felis catus,22,22,17,5,0,0,5,0,1.0
 SRS1407451,Canis lupus familiaris,1,1,0,0,1,0,0,0,1.0
 SRS1407453,Canis lupus familiaris,1,1,1,0,0,0,0,0,1.0
 KX379528-KX379529,Canis lupus familiaris,2,2,2,0,0,0,0,0,1.0

@@ -2,13 +2,13 @@
   "schema_version": "animal-sample-foundation-truth.v1",
   "summary": {
     "tracked_species_count": 10,
-    "tracked_project_count": 14,
-    "sample_row_count": 868,
+    "tracked_project_count": 21,
+    "sample_row_count": 1451,
     "fully_grounded_count": 501,
-    "partially_grounded_count": 269,
+    "partially_grounded_count": 721,
     "blocked_missing_metadata_count": 11,
     "blocked_missing_location_detail_count": 0,
-    "blocked_weak_chronology_count": 87
+    "blocked_weak_chronology_count": 218
   },
   "species_rows": [
     {
@@ -27,40 +27,40 @@
     {
       "species_latin_name": "Sus scrofa domesticus",
       "species_common_name": "pig",
-      "sample_row_count": 0,
+      "sample_row_count": 343,
       "fully_grounded_count": 0,
-      "partially_grounded_count": 0,
+      "partially_grounded_count": 343,
       "blocked_missing_metadata_count": 0,
       "blocked_missing_location_detail_count": 0,
       "blocked_weak_chronology_count": 0,
-      "project_count": 0,
-      "reported_curated_sample_count": 0,
+      "project_count": 1,
+      "reported_curated_sample_count": 343,
       "uses_project_level_sample_anchor": false
     },
     {
       "species_latin_name": "Ovis aries",
       "species_common_name": "sheep",
-      "sample_row_count": 190,
+      "sample_row_count": 200,
       "fully_grounded_count": 0,
-      "partially_grounded_count": 177,
+      "partially_grounded_count": 182,
       "blocked_missing_metadata_count": 0,
       "blocked_missing_location_detail_count": 0,
-      "blocked_weak_chronology_count": 13,
-      "project_count": 1,
-      "reported_curated_sample_count": 190,
+      "blocked_weak_chronology_count": 18,
+      "project_count": 3,
+      "reported_curated_sample_count": 200,
       "uses_project_level_sample_anchor": false
     },
     {
       "species_latin_name": "Bos taurus",
       "species_common_name": "cattle",
-      "sample_row_count": 11,
+      "sample_row_count": 132,
       "fully_grounded_count": 0,
       "partially_grounded_count": 0,
       "blocked_missing_metadata_count": 11,
       "blocked_missing_location_detail_count": 0,
-      "blocked_weak_chronology_count": 0,
-      "project_count": 1,
-      "reported_curated_sample_count": 11,
+      "blocked_weak_chronology_count": 121,
+      "project_count": 3,
+      "reported_curated_sample_count": 132,
       "uses_project_level_sample_anchor": false
     },
     {
@@ -92,14 +92,14 @@
     {
       "species_latin_name": "Felis catus",
       "species_common_name": "cat",
-      "sample_row_count": 0,
+      "sample_row_count": 109,
       "fully_grounded_count": 0,
-      "partially_grounded_count": 0,
+      "partially_grounded_count": 104,
       "blocked_missing_metadata_count": 0,
       "blocked_missing_location_detail_count": 0,
-      "blocked_weak_chronology_count": 0,
-      "project_count": 0,
-      "reported_curated_sample_count": 0,
+      "blocked_weak_chronology_count": 5,
+      "project_count": 2,
+      "reported_curated_sample_count": 109,
       "uses_project_level_sample_anchor": false
     },
     {
@@ -212,6 +212,23 @@
       ]
     },
     {
+      "species_latin_name": "Sus scrofa domesticus",
+      "species_common_name": "pig",
+      "project_accession": "PRJEB30282",
+      "sample_row_count": 343,
+      "fully_grounded_count": 0,
+      "partially_grounded_count": 343,
+      "blocked_missing_metadata_count": 0,
+      "blocked_missing_location_detail_count": 0,
+      "blocked_weak_chronology_count": 0,
+      "sample_backed_site_count": 1,
+      "project_locality_summary_count": 1,
+      "uses_project_level_sample_anchor": false,
+      "sample_basis_values": [
+        "archive_project_sample_accession_anchor"
+      ]
+    },
+    {
       "species_latin_name": "Ovis aries",
       "species_common_name": "sheep",
       "project_accession": "PRJEB36540",
@@ -226,6 +243,74 @@
       "uses_project_level_sample_anchor": false,
       "sample_basis_values": [
         "supplementary_table_sample_label_anchor"
+      ]
+    },
+    {
+      "species_latin_name": "Ovis aries",
+      "species_common_name": "sheep",
+      "project_accession": "PRJEB41594",
+      "sample_row_count": 5,
+      "fully_grounded_count": 0,
+      "partially_grounded_count": 0,
+      "blocked_missing_metadata_count": 0,
+      "blocked_missing_location_detail_count": 0,
+      "blocked_weak_chronology_count": 5,
+      "sample_backed_site_count": 1,
+      "project_locality_summary_count": 1,
+      "uses_project_level_sample_anchor": false,
+      "sample_basis_values": [
+        "archive_project_sample_accession_anchor"
+      ]
+    },
+    {
+      "species_latin_name": "Ovis aries",
+      "species_common_name": "sheep",
+      "project_accession": "PRJEB59481",
+      "sample_row_count": 5,
+      "fully_grounded_count": 0,
+      "partially_grounded_count": 5,
+      "blocked_missing_metadata_count": 0,
+      "blocked_missing_location_detail_count": 0,
+      "blocked_weak_chronology_count": 0,
+      "sample_backed_site_count": 1,
+      "project_locality_summary_count": 1,
+      "uses_project_level_sample_anchor": false,
+      "sample_basis_values": [
+        "archive_project_sample_accession_anchor"
+      ]
+    },
+    {
+      "species_latin_name": "Bos taurus",
+      "species_common_name": "cattle",
+      "project_accession": "PRJEB31621",
+      "sample_row_count": 77,
+      "fully_grounded_count": 0,
+      "partially_grounded_count": 0,
+      "blocked_missing_metadata_count": 0,
+      "blocked_missing_location_detail_count": 0,
+      "blocked_weak_chronology_count": 77,
+      "sample_backed_site_count": 1,
+      "project_locality_summary_count": 1,
+      "uses_project_level_sample_anchor": false,
+      "sample_basis_values": [
+        "archive_project_sample_accession_anchor"
+      ]
+    },
+    {
+      "species_latin_name": "Bos taurus",
+      "species_common_name": "cattle",
+      "project_accession": "PRJEB75467",
+      "sample_row_count": 44,
+      "fully_grounded_count": 0,
+      "partially_grounded_count": 0,
+      "blocked_missing_metadata_count": 0,
+      "blocked_missing_location_detail_count": 0,
+      "blocked_weak_chronology_count": 44,
+      "sample_backed_site_count": 1,
+      "project_locality_summary_count": 1,
+      "uses_project_level_sample_anchor": false,
+      "sample_basis_values": [
+        "archive_project_sample_accession_anchor"
       ]
     },
     {
@@ -345,6 +430,40 @@
       "uses_project_level_sample_anchor": false,
       "sample_basis_values": [
         "primary_article_accession_mapping"
+      ]
+    },
+    {
+      "species_latin_name": "Felis catus",
+      "species_common_name": "cat",
+      "project_accession": "PRJEB81815",
+      "sample_row_count": 87,
+      "fully_grounded_count": 0,
+      "partially_grounded_count": 87,
+      "blocked_missing_metadata_count": 0,
+      "blocked_missing_location_detail_count": 0,
+      "blocked_weak_chronology_count": 0,
+      "sample_backed_site_count": 1,
+      "project_locality_summary_count": 1,
+      "uses_project_level_sample_anchor": false,
+      "sample_basis_values": [
+        "archive_project_sample_accession_anchor"
+      ]
+    },
+    {
+      "species_latin_name": "Felis catus",
+      "species_common_name": "cat",
+      "project_accession": "PRJNA1178732",
+      "sample_row_count": 22,
+      "fully_grounded_count": 0,
+      "partially_grounded_count": 17,
+      "blocked_missing_metadata_count": 0,
+      "blocked_missing_location_detail_count": 0,
+      "blocked_weak_chronology_count": 5,
+      "sample_backed_site_count": 14,
+      "project_locality_summary_count": 14,
+      "uses_project_level_sample_anchor": false,
+      "sample_basis_values": [
+        "supplementary_table_sample_label_anchor"
       ]
     },
     {

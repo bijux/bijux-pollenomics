@@ -37,15 +37,101 @@
         "longitude_text": "",
         "confidence": "withheld"
       },
-      "sample_count": 1,
+      "sample_count": 87,
       "sample_ids": [
-        "PRJEB81815"
+        "prjeb81815:samea120246515",
+        "prjeb81815:samea120246516",
+        "prjeb81815:samea120246517",
+        "prjeb81815:samea120246518",
+        "prjeb81815:samea120246519",
+        "prjeb81815:samea120246520",
+        "prjeb81815:samea120246521",
+        "prjeb81815:samea120246522",
+        "prjeb81815:samea120246523",
+        "prjeb81815:samea120246524",
+        "prjeb81815:samea120246525",
+        "prjeb81815:samea120246526",
+        "prjeb81815:samea120246527",
+        "prjeb81815:samea120246528",
+        "prjeb81815:samea120246529",
+        "prjeb81815:samea120246530",
+        "prjeb81815:samea120246531",
+        "prjeb81815:samea120246532",
+        "prjeb81815:samea120246533",
+        "prjeb81815:samea120246534",
+        "prjeb81815:samea120246535",
+        "prjeb81815:samea120246536",
+        "prjeb81815:samea120246537",
+        "prjeb81815:samea120246538",
+        "prjeb81815:samea120246539",
+        "prjeb81815:samea120246540",
+        "prjeb81815:samea120246541",
+        "prjeb81815:samea120246542",
+        "prjeb81815:samea120246543",
+        "prjeb81815:samea120246544",
+        "prjeb81815:samea120246545",
+        "prjeb81815:samea120246546",
+        "prjeb81815:samea120246547",
+        "prjeb81815:samea120246548",
+        "prjeb81815:samea120246549",
+        "prjeb81815:samea120246550",
+        "prjeb81815:samea120246551",
+        "prjeb81815:samea120246552",
+        "prjeb81815:samea120246553",
+        "prjeb81815:samea120246554",
+        "prjeb81815:samea120246555",
+        "prjeb81815:samea120246556",
+        "prjeb81815:samea120246557",
+        "prjeb81815:samea120246558",
+        "prjeb81815:samea120246559",
+        "prjeb81815:samea120246560",
+        "prjeb81815:samea120246561",
+        "prjeb81815:samea120246562",
+        "prjeb81815:samea120246563",
+        "prjeb81815:samea120246564",
+        "prjeb81815:samea120246565",
+        "prjeb81815:samea120246566",
+        "prjeb81815:samea120246567",
+        "prjeb81815:samea120246568",
+        "prjeb81815:samea120246569",
+        "prjeb81815:samea120246570",
+        "prjeb81815:samea120246571",
+        "prjeb81815:samea120246572",
+        "prjeb81815:samea120246573",
+        "prjeb81815:samea120246574",
+        "prjeb81815:samea120246575",
+        "prjeb81815:samea120246576",
+        "prjeb81815:samea120246577",
+        "prjeb81815:samea120246578",
+        "prjeb81815:samea120246579",
+        "prjeb81815:samea120246580",
+        "prjeb81815:samea120246581",
+        "prjeb81815:samea120246582",
+        "prjeb81815:samea120246583",
+        "prjeb81815:samea120246584",
+        "prjeb81815:samea120246585",
+        "prjeb81815:samea120246586",
+        "prjeb81815:samea120246587",
+        "prjeb81815:samea120246588",
+        "prjeb81815:samea120246589",
+        "prjeb81815:samea120246590",
+        "prjeb81815:samea120246591",
+        "prjeb81815:samea120246592",
+        "prjeb81815:samea120246593",
+        "prjeb81815:samea120246594",
+        "prjeb81815:samea120246595",
+        "prjeb81815:samea120246596",
+        "prjeb81815:samea120246597",
+        "prjeb81815:samea120246598",
+        "prjeb81815:samea120246599",
+        "prjeb81815:samea120246600",
+        "prjeb81815:samea120246601"
       ],
       "datasets": [
         "felis_catus:project:PRJEB81815"
       ],
       "chronology": {
-        "original_text": "Holocene cat dispersal across North Africa and Europe",
+        "original_text": "1200-4000 BP",
         "time_start_bp": 1200,
         "time_end_bp": 4000,
         "time_mean_bp": 2600,
@@ -61,7 +147,869 @@
       "original_location_text": "North Africa to Europe domestic cat dispersal transect",
       "nordic_inclusion": false,
       "nordic_inclusion_reason": "The Europe-facing cat dispersal paper is relevant to northern dispersal questions, but the current project summary does not justify a Nordic-mapped claim.",
-      "interpretation_note": "Cat remains a broad dispersal signal, not a point-ready site lead."
+      "interpretation_note": "Current evidence stays at region or transect scale and must not masquerade as exact sample-site truth."
+    },
+    {
+      "identity": {
+        "namespace": "felis_catus:project_locality",
+        "stable_token": "felis_catus:locality:prjna1178732:hanchangancity:china",
+        "locality_text": "Han Chang'an City",
+        "political_entity": "China",
+        "source_anchor_tokens": [
+          "PRJNA1178732",
+          "",
+          ""
+        ]
+      },
+      "species_latin_name": "Felis catus",
+      "species_common_name": "cat",
+      "source_family": "BioProject",
+      "source_releases": [
+        "PRJNA1178732"
+      ],
+      "record_modalities": [
+        "archive_reads"
+      ],
+      "review_strengths": [
+        "primary_paper_pinned"
+      ],
+      "provenance_qualities": [
+        "primary_paper_pinned"
+      ],
+      "locality": "Han Chang'an City",
+      "coordinates": {
+        "latitude": null,
+        "longitude": null,
+        "latitude_text": "",
+        "longitude_text": "",
+        "confidence": "unknown"
+      },
+      "sample_count": 1,
+      "sample_ids": [
+        "prjna1178732:fs24"
+      ],
+      "datasets": [
+        "felis_catus:project:PRJNA1178732"
+      ],
+      "chronology": {
+        "original_text": "44 cal. BCE - 76 cal. CE",
+        "time_start_bp": null,
+        "time_end_bp": null,
+        "time_mean_bp": null,
+        "date_stddev_bp": "",
+        "dating_basis": "historical_and_archaeological_context",
+        "evidence_class": "historical_or_recent_date",
+        "precision_posture": "sample_approximate_or_modeled"
+      },
+      "sample_namespace": "felis_catus:sample_locality",
+      "project_accessions": [
+        "PRJNA1178732"
+      ],
+      "original_location_text": "Han Chang'an City",
+      "nordic_inclusion": false,
+      "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
+    },
+    {
+      "identity": {
+        "namespace": "felis_catus:project_locality",
+        "stable_token": "felis_catus:locality:prjna1178732:huoshiliang:china",
+        "locality_text": "Huoshiliang",
+        "political_entity": "China",
+        "source_anchor_tokens": [
+          "PRJNA1178732",
+          "",
+          ""
+        ]
+      },
+      "species_latin_name": "Felis catus",
+      "species_common_name": "cat",
+      "source_family": "BioProject",
+      "source_releases": [
+        "PRJNA1178732"
+      ],
+      "record_modalities": [
+        "archive_reads"
+      ],
+      "review_strengths": [
+        "primary_paper_pinned"
+      ],
+      "provenance_qualities": [
+        "primary_paper_pinned"
+      ],
+      "locality": "Huoshiliang",
+      "coordinates": {
+        "latitude": null,
+        "longitude": null,
+        "latitude_text": "",
+        "longitude_text": "",
+        "confidence": "unknown"
+      },
+      "sample_count": 1,
+      "sample_ids": [
+        "prjna1178732:fs7"
+      ],
+      "datasets": [
+        "felis_catus:project:PRJNA1178732"
+      ],
+      "chronology": {
+        "original_text": "3749 BP",
+        "time_start_bp": 3749,
+        "time_end_bp": 3749,
+        "time_mean_bp": 3749,
+        "date_stddev_bp": "",
+        "dating_basis": "historical_and_archaeological_context",
+        "evidence_class": "historical_or_recent_date",
+        "precision_posture": "sample_precise_point"
+      },
+      "sample_namespace": "felis_catus:sample_locality",
+      "project_accessions": [
+        "PRJNA1178732"
+      ],
+      "original_location_text": "Huoshiliang",
+      "nordic_inclusion": false,
+      "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
+    },
+    {
+      "identity": {
+        "namespace": "felis_catus:project_locality",
+        "stable_token": "felis_catus:locality:prjna1178732:laoniupo:china",
+        "locality_text": "Laoniupo",
+        "political_entity": "China",
+        "source_anchor_tokens": [
+          "PRJNA1178732",
+          "",
+          ""
+        ]
+      },
+      "species_latin_name": "Felis catus",
+      "species_common_name": "cat",
+      "source_family": "BioProject",
+      "source_releases": [
+        "PRJNA1178732"
+      ],
+      "record_modalities": [
+        "archive_reads"
+      ],
+      "review_strengths": [
+        "primary_paper_pinned"
+      ],
+      "provenance_qualities": [
+        "primary_paper_pinned"
+      ],
+      "locality": "Laoniupo",
+      "coordinates": {
+        "latitude": null,
+        "longitude": null,
+        "latitude_text": "",
+        "longitude_text": "",
+        "confidence": "unknown"
+      },
+      "sample_count": 1,
+      "sample_ids": [
+        "prjna1178732:fs10"
+      ],
+      "datasets": [
+        "felis_catus:project:PRJNA1178732"
+      ],
+      "chronology": {
+        "original_text": "3149 BP",
+        "time_start_bp": 3149,
+        "time_end_bp": 3149,
+        "time_mean_bp": 3149,
+        "date_stddev_bp": "",
+        "dating_basis": "historical_and_archaeological_context",
+        "evidence_class": "historical_or_recent_date",
+        "precision_posture": "sample_precise_point"
+      },
+      "sample_namespace": "felis_catus:sample_locality",
+      "project_accessions": [
+        "PRJNA1178732"
+      ],
+      "original_location_text": "Laoniupo",
+      "nordic_inclusion": false,
+      "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
+    },
+    {
+      "identity": {
+        "namespace": "felis_catus:project_locality",
+        "stable_token": "felis_catus:locality:prjna1178732:puyangsongtomb:china",
+        "locality_text": "Puyang Song Tomb",
+        "political_entity": "China",
+        "source_anchor_tokens": [
+          "PRJNA1178732",
+          "",
+          ""
+        ]
+      },
+      "species_latin_name": "Felis catus",
+      "species_common_name": "cat",
+      "source_family": "BioProject",
+      "source_releases": [
+        "PRJNA1178732"
+      ],
+      "record_modalities": [
+        "archive_reads"
+      ],
+      "review_strengths": [
+        "primary_paper_pinned"
+      ],
+      "provenance_qualities": [
+        "primary_paper_pinned"
+      ],
+      "locality": "Puyang Song Tomb",
+      "coordinates": {
+        "latitude": null,
+        "longitude": null,
+        "latitude_text": "",
+        "longitude_text": "",
+        "confidence": "unknown"
+      },
+      "sample_count": 1,
+      "sample_ids": [
+        "prjna1178732:fs18"
+      ],
+      "datasets": [
+        "felis_catus:project:PRJNA1178732"
+      ],
+      "chronology": {
+        "original_text": "980-1332 BP",
+        "time_start_bp": 980,
+        "time_end_bp": 1332,
+        "time_mean_bp": 1156,
+        "date_stddev_bp": "",
+        "dating_basis": "historical_and_archaeological_context",
+        "evidence_class": "historical_or_recent_date",
+        "precision_posture": "sample_precise_interval"
+      },
+      "sample_namespace": "felis_catus:sample_locality",
+      "project_accessions": [
+        "PRJNA1178732"
+      ],
+      "original_location_text": "Puyang Song Tomb",
+      "nordic_inclusion": false,
+      "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
+    },
+    {
+      "identity": {
+        "namespace": "felis_catus:project_locality",
+        "stable_token": "felis_catus:locality:prjna1178732:quanhucun:china",
+        "locality_text": "Quanhucun",
+        "political_entity": "China",
+        "source_anchor_tokens": [
+          "PRJNA1178732",
+          "",
+          ""
+        ]
+      },
+      "species_latin_name": "Felis catus",
+      "species_common_name": "cat",
+      "source_family": "BioProject",
+      "source_releases": [
+        "PRJNA1178732"
+      ],
+      "record_modalities": [
+        "archive_reads"
+      ],
+      "review_strengths": [
+        "primary_paper_pinned"
+      ],
+      "provenance_qualities": [
+        "primary_paper_pinned"
+      ],
+      "locality": "Quanhucun",
+      "coordinates": {
+        "latitude": null,
+        "longitude": null,
+        "latitude_text": "",
+        "longitude_text": "",
+        "confidence": "unknown"
+      },
+      "sample_count": 1,
+      "sample_ids": [
+        "prjna1178732:fs15"
+      ],
+      "datasets": [
+        "felis_catus:project:PRJNA1178732"
+      ],
+      "chronology": {
+        "original_text": "4649-5949 BP",
+        "time_start_bp": 4649,
+        "time_end_bp": 5949,
+        "time_mean_bp": 5299,
+        "date_stddev_bp": "",
+        "dating_basis": "historical_and_archaeological_context",
+        "evidence_class": "historical_or_recent_date",
+        "precision_posture": "sample_precise_interval"
+      },
+      "sample_namespace": "felis_catus:sample_locality",
+      "project_accessions": [
+        "PRJNA1178732"
+      ],
+      "original_location_text": "Quanhucun",
+      "nordic_inclusion": false,
+      "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
+    },
+    {
+      "identity": {
+        "namespace": "felis_catus:project_locality",
+        "stable_token": "felis_catus:locality:prjna1178732:shaliangzi:china",
+        "locality_text": "Shaliangzi",
+        "political_entity": "China",
+        "source_anchor_tokens": [
+          "PRJNA1178732",
+          "",
+          ""
+        ]
+      },
+      "species_latin_name": "Felis catus",
+      "species_common_name": "cat",
+      "source_family": "BioProject",
+      "source_releases": [
+        "PRJNA1178732"
+      ],
+      "record_modalities": [
+        "archive_reads"
+      ],
+      "review_strengths": [
+        "primary_paper_pinned"
+      ],
+      "provenance_qualities": [
+        "primary_paper_pinned"
+      ],
+      "locality": "Shaliangzi",
+      "coordinates": {
+        "latitude": null,
+        "longitude": null,
+        "latitude_text": "",
+        "longitude_text": "",
+        "confidence": "unknown"
+      },
+      "sample_count": 1,
+      "sample_ids": [
+        "prjna1178732:fs17"
+      ],
+      "datasets": [
+        "felis_catus:project:PRJNA1178732"
+      ],
+      "chronology": {
+        "original_text": "1797 - 1944 cal. CE",
+        "time_start_bp": null,
+        "time_end_bp": null,
+        "time_mean_bp": null,
+        "date_stddev_bp": "",
+        "dating_basis": "historical_and_archaeological_context",
+        "evidence_class": "historical_or_recent_date",
+        "precision_posture": "sample_approximate_or_modeled"
+      },
+      "sample_namespace": "felis_catus:sample_locality",
+      "project_accessions": [
+        "PRJNA1178732"
+      ],
+      "original_location_text": "Shaliangzi",
+      "nordic_inclusion": false,
+      "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
+    },
+    {
+      "identity": {
+        "namespace": "felis_catus:project_locality",
+        "stable_token": "felis_catus:locality:prjna1178732:tongwancity:china",
+        "locality_text": "Tongwan City",
+        "political_entity": "China",
+        "source_anchor_tokens": [
+          "PRJNA1178732",
+          "",
+          ""
+        ]
+      },
+      "species_latin_name": "Felis catus",
+      "species_common_name": "cat",
+      "source_family": "BioProject",
+      "source_releases": [
+        "PRJNA1178732"
+      ],
+      "record_modalities": [
+        "archive_reads"
+      ],
+      "review_strengths": [
+        "primary_paper_pinned"
+      ],
+      "provenance_qualities": [
+        "primary_paper_pinned"
+      ],
+      "locality": "Tongwan City",
+      "coordinates": {
+        "latitude": null,
+        "longitude": null,
+        "latitude_text": "",
+        "longitude_text": "",
+        "confidence": "unknown"
+      },
+      "sample_count": 1,
+      "sample_ids": [
+        "prjna1178732:fs12"
+      ],
+      "datasets": [
+        "felis_catus:project:PRJNA1178732"
+      ],
+      "chronology": {
+        "original_text": "706 - 883 cal. CE",
+        "time_start_bp": null,
+        "time_end_bp": null,
+        "time_mean_bp": null,
+        "date_stddev_bp": "",
+        "dating_basis": "historical_and_archaeological_context",
+        "evidence_class": "historical_or_recent_date",
+        "precision_posture": "sample_approximate_or_modeled"
+      },
+      "sample_namespace": "felis_catus:sample_locality",
+      "project_accessions": [
+        "PRJNA1178732"
+      ],
+      "original_location_text": "Tongwan City",
+      "nordic_inclusion": false,
+      "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
+    },
+    {
+      "identity": {
+        "namespace": "felis_catus:project_locality",
+        "stable_token": "felis_catus:locality:prjna1178732:wuzhuangguoliang:china",
+        "locality_text": "Wuzhuangguoliang",
+        "political_entity": "China",
+        "source_anchor_tokens": [
+          "PRJNA1178732",
+          "",
+          ""
+        ]
+      },
+      "species_latin_name": "Felis catus",
+      "species_common_name": "cat",
+      "source_family": "BioProject",
+      "source_releases": [
+        "PRJNA1178732"
+      ],
+      "record_modalities": [
+        "archive_reads"
+      ],
+      "review_strengths": [
+        "primary_paper_pinned"
+      ],
+      "provenance_qualities": [
+        "primary_paper_pinned"
+      ],
+      "locality": "Wuzhuangguoliang",
+      "coordinates": {
+        "latitude": null,
+        "longitude": null,
+        "latitude_text": "",
+        "longitude_text": "",
+        "confidence": "unknown"
+      },
+      "sample_count": 1,
+      "sample_ids": [
+        "prjna1178732:fs8"
+      ],
+      "datasets": [
+        "felis_catus:project:PRJNA1178732"
+      ],
+      "chronology": {
+        "original_text": "2170-4949 BP",
+        "time_start_bp": 2170,
+        "time_end_bp": 4949,
+        "time_mean_bp": 3560,
+        "date_stddev_bp": "",
+        "dating_basis": "historical_and_archaeological_context",
+        "evidence_class": "historical_or_recent_date",
+        "precision_posture": "sample_precise_interval"
+      },
+      "sample_namespace": "felis_catus:sample_locality",
+      "project_accessions": [
+        "PRJNA1178732"
+      ],
+      "original_location_text": "Wuzhuangguoliang",
+      "nordic_inclusion": false,
+      "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
+    },
+    {
+      "identity": {
+        "namespace": "felis_catus:project_locality",
+        "stable_token": "felis_catus:locality:prjna1178732:xinjie:china",
+        "locality_text": "Xinjie",
+        "political_entity": "China",
+        "source_anchor_tokens": [
+          "PRJNA1178732",
+          "",
+          ""
+        ]
+      },
+      "species_latin_name": "Felis catus",
+      "species_common_name": "cat",
+      "source_family": "BioProject",
+      "source_releases": [
+        "PRJNA1178732"
+      ],
+      "record_modalities": [
+        "archive_reads"
+      ],
+      "review_strengths": [
+        "primary_paper_pinned"
+      ],
+      "provenance_qualities": [
+        "primary_paper_pinned"
+      ],
+      "locality": "Xinjie",
+      "coordinates": {
+        "latitude": null,
+        "longitude": null,
+        "latitude_text": "",
+        "longitude_text": "",
+        "confidence": "unknown"
+      },
+      "sample_count": 1,
+      "sample_ids": [
+        "prjna1178732:fs14"
+      ],
+      "datasets": [
+        "felis_catus:project:PRJNA1178732"
+      ],
+      "chronology": {
+        "original_text": "3749-5449 BP",
+        "time_start_bp": 3749,
+        "time_end_bp": 5449,
+        "time_mean_bp": 4599,
+        "date_stddev_bp": "",
+        "dating_basis": "historical_and_archaeological_context",
+        "evidence_class": "historical_or_recent_date",
+        "precision_posture": "sample_precise_interval"
+      },
+      "sample_namespace": "felis_catus:sample_locality",
+      "project_accessions": [
+        "PRJNA1178732"
+      ],
+      "original_location_text": "Xinjie",
+      "nordic_inclusion": false,
+      "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
+    },
+    {
+      "identity": {
+        "namespace": "felis_catus:project_locality",
+        "stable_token": "felis_catus:locality:prjna1178732:xinxiangsongtomb:china",
+        "locality_text": "Xinxiang Song Tomb",
+        "political_entity": "China",
+        "source_anchor_tokens": [
+          "PRJNA1178732",
+          "",
+          ""
+        ]
+      },
+      "species_latin_name": "Felis catus",
+      "species_common_name": "cat",
+      "source_family": "BioProject",
+      "source_releases": [
+        "PRJNA1178732"
+      ],
+      "record_modalities": [
+        "archive_reads"
+      ],
+      "review_strengths": [
+        "primary_paper_pinned"
+      ],
+      "provenance_qualities": [
+        "primary_paper_pinned"
+      ],
+      "locality": "Xinxiang Song Tomb",
+      "coordinates": {
+        "latitude": null,
+        "longitude": null,
+        "latitude_text": "",
+        "longitude_text": "",
+        "confidence": "unknown"
+      },
+      "sample_count": 1,
+      "sample_ids": [
+        "prjna1178732:fs6"
+      ],
+      "datasets": [
+        "felis_catus:project:PRJNA1178732"
+      ],
+      "chronology": {
+        "original_text": "823-990 BP",
+        "time_start_bp": 823,
+        "time_end_bp": 990,
+        "time_mean_bp": 906,
+        "date_stddev_bp": "",
+        "dating_basis": "historical_and_archaeological_context",
+        "evidence_class": "historical_or_recent_date",
+        "precision_posture": "sample_precise_interval"
+      },
+      "sample_namespace": "felis_catus:sample_locality",
+      "project_accessions": [
+        "PRJNA1178732"
+      ],
+      "original_location_text": "Xinxiang Song Tomb",
+      "nordic_inclusion": false,
+      "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
+    },
+    {
+      "identity": {
+        "namespace": "felis_catus:project_locality",
+        "stable_token": "felis_catus:locality:prjna1178732:xituchengcity:china",
+        "locality_text": "Xitucheng City",
+        "political_entity": "China",
+        "source_anchor_tokens": [
+          "PRJNA1178732",
+          "",
+          ""
+        ]
+      },
+      "species_latin_name": "Felis catus",
+      "species_common_name": "cat",
+      "source_family": "BioProject",
+      "source_releases": [
+        "PRJNA1178732"
+      ],
+      "record_modalities": [
+        "archive_reads"
+      ],
+      "review_strengths": [
+        "primary_paper_pinned"
+      ],
+      "provenance_qualities": [
+        "primary_paper_pinned"
+      ],
+      "locality": "Xitucheng City",
+      "coordinates": {
+        "latitude": null,
+        "longitude": null,
+        "latitude_text": "",
+        "longitude_text": "",
+        "confidence": "unknown"
+      },
+      "sample_count": 5,
+      "sample_ids": [
+        "prjna1178732:fs1",
+        "prjna1178732:fs2",
+        "prjna1178732:fs3",
+        "prjna1178732:fs4",
+        "prjna1178732:fs5"
+      ],
+      "datasets": [
+        "felis_catus:project:PRJNA1178732"
+      ],
+      "chronology": {
+        "original_text": "716-835 BP",
+        "time_start_bp": 716,
+        "time_end_bp": 835,
+        "time_mean_bp": 776,
+        "date_stddev_bp": "",
+        "dating_basis": "historical_and_archaeological_context",
+        "evidence_class": "historical_or_recent_date",
+        "precision_posture": "sample_precise_interval"
+      },
+      "sample_namespace": "felis_catus:sample_locality",
+      "project_accessions": [
+        "PRJNA1178732"
+      ],
+      "original_location_text": "Xitucheng City",
+      "nordic_inclusion": false,
+      "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
+    },
+    {
+      "identity": {
+        "namespace": "felis_catus:project_locality",
+        "stable_token": "felis_catus:locality:prjna1178732:yangling:china",
+        "locality_text": "Yangling",
+        "political_entity": "China",
+        "source_anchor_tokens": [
+          "PRJNA1178732",
+          "",
+          ""
+        ]
+      },
+      "species_latin_name": "Felis catus",
+      "species_common_name": "cat",
+      "source_family": "BioProject",
+      "source_releases": [
+        "PRJNA1178732"
+      ],
+      "record_modalities": [
+        "archive_reads"
+      ],
+      "review_strengths": [
+        "primary_paper_pinned"
+      ],
+      "provenance_qualities": [
+        "primary_paper_pinned"
+      ],
+      "locality": "Yangling",
+      "coordinates": {
+        "latitude": null,
+        "longitude": null,
+        "latitude_text": "",
+        "longitude_text": "",
+        "confidence": "unknown"
+      },
+      "sample_count": 1,
+      "sample_ids": [
+        "prjna1178732:fs13"
+      ],
+      "datasets": [
+        "felis_catus:project:PRJNA1178732"
+      ],
+      "chronology": {
+        "original_text": "168 - 48 cal. BCE",
+        "time_start_bp": null,
+        "time_end_bp": null,
+        "time_mean_bp": null,
+        "date_stddev_bp": "",
+        "dating_basis": "historical_and_archaeological_context",
+        "evidence_class": "historical_or_recent_date",
+        "precision_posture": "sample_approximate_or_modeled"
+      },
+      "sample_namespace": "felis_catus:sample_locality",
+      "project_accessions": [
+        "PRJNA1178732"
+      ],
+      "original_location_text": "Yangling",
+      "nordic_inclusion": false,
+      "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
+    },
+    {
+      "identity": {
+        "namespace": "felis_catus:project_locality",
+        "stable_token": "felis_catus:locality:prjna1178732:zhengandhancity:china",
+        "locality_text": "Zheng and Han City",
+        "political_entity": "China",
+        "source_anchor_tokens": [
+          "PRJNA1178732",
+          "",
+          ""
+        ]
+      },
+      "species_latin_name": "Felis catus",
+      "species_common_name": "cat",
+      "source_family": "BioProject",
+      "source_releases": [
+        "PRJNA1178732"
+      ],
+      "record_modalities": [
+        "archive_reads"
+      ],
+      "review_strengths": [
+        "primary_paper_pinned"
+      ],
+      "provenance_qualities": [
+        "primary_paper_pinned"
+      ],
+      "locality": "Zheng and Han City",
+      "coordinates": {
+        "latitude": null,
+        "longitude": null,
+        "latitude_text": "",
+        "longitude_text": "",
+        "confidence": "unknown"
+      },
+      "sample_count": 5,
+      "sample_ids": [
+        "prjna1178732:fs19",
+        "prjna1178732:fs20",
+        "prjna1178732:fs21",
+        "prjna1178732:fs22",
+        "prjna1178732:fs23"
+      ],
+      "datasets": [
+        "felis_catus:project:PRJNA1178732"
+      ],
+      "chronology": {
+        "original_text": "582-1925 BP",
+        "time_start_bp": 582,
+        "time_end_bp": 1925,
+        "time_mean_bp": 1254,
+        "date_stddev_bp": "",
+        "dating_basis": "historical_and_archaeological_context",
+        "evidence_class": "historical_or_recent_date",
+        "precision_posture": "sample_precise_interval"
+      },
+      "sample_namespace": "felis_catus:sample_locality",
+      "project_accessions": [
+        "PRJNA1178732"
+      ],
+      "original_location_text": "Zheng and Han City",
+      "nordic_inclusion": false,
+      "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
+    },
+    {
+      "identity": {
+        "namespace": "felis_catus:project_locality",
+        "stable_token": "felis_catus:locality:prjna1178732:zhengzhoushangcity:china",
+        "locality_text": "Zhengzhoushang City",
+        "political_entity": "China",
+        "source_anchor_tokens": [
+          "PRJNA1178732",
+          "",
+          ""
+        ]
+      },
+      "species_latin_name": "Felis catus",
+      "species_common_name": "cat",
+      "source_family": "BioProject",
+      "source_releases": [
+        "PRJNA1178732"
+      ],
+      "record_modalities": [
+        "archive_reads"
+      ],
+      "review_strengths": [
+        "primary_paper_pinned"
+      ],
+      "provenance_qualities": [
+        "primary_paper_pinned"
+      ],
+      "locality": "Zhengzhoushang City",
+      "coordinates": {
+        "latitude": null,
+        "longitude": null,
+        "latitude_text": "",
+        "longitude_text": "",
+        "confidence": "unknown"
+      },
+      "sample_count": 1,
+      "sample_ids": [
+        "prjna1178732:fs16"
+      ],
+      "datasets": [
+        "felis_catus:project:PRJNA1178732"
+      ],
+      "chronology": {
+        "original_text": "1413 - 1480 cal. CE",
+        "time_start_bp": null,
+        "time_end_bp": null,
+        "time_mean_bp": null,
+        "date_stddev_bp": "",
+        "dating_basis": "historical_and_archaeological_context",
+        "evidence_class": "historical_or_recent_date",
+        "precision_posture": "sample_approximate_or_modeled"
+      },
+      "sample_namespace": "felis_catus:sample_locality",
+      "project_accessions": [
+        "PRJNA1178732"
+      ],
+      "original_location_text": "Zhengzhoushang City",
+      "nordic_inclusion": false,
+      "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
     }
   ]
 }

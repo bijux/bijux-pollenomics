@@ -10,13 +10,14 @@
     "project_admission": "complete",
     "paper_capture": "complete",
     "supplement_capture": "not_required",
-    "sample_identity_recovery": "in_progress",
+    "sample_identity_recovery": "blocked",
     "site_recovery": "blocked",
     "chronology_recovery": "blocked",
     "coordinate_derivation": "blocked",
     "publication_readiness": "blocked"
   },
   "blocking_stages": [
+    "sample_identity_recovery",
     "site_recovery",
     "chronology_recovery",
     "coordinate_derivation",
@@ -33,9 +34,9 @@
   "final_sample_count": 0,
   "unresolved_sample_count": null,
   "minimum_gap_count": 1,
-  "recovery_gap_status": "extractable_sources_but_no_governed_samples",
-  "implausibly_low_recovery": true,
-  "implausibly_low_recovery_reason": "Readable paper or supplementary capture exists, but the governed sample master still publishes zero recovered rows.",
+  "recovery_gap_status": "paper_or_capture_gap_blocks_estimate",
+  "implausibly_low_recovery": false,
+  "implausibly_low_recovery_reason": "",
   "known_assets": [
     "adna/governance/source_library/papers/10.1111-1755-0998.12551/article.html",
     "adna/governance/source_library/papers/10.1111-1755-0998.12551/crossref.json",
@@ -62,7 +63,6 @@
   "inferred_claims": [],
   "manual_curation_work_units": [],
   "major_deficit_reasons": [
-    "implausibly_low_sample_recovery",
     "sample_recovery_gap"
   ]
 }

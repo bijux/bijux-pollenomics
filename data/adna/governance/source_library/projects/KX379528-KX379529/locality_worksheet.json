@@ -7,7 +7,7 @@
     {
       "project_accession": "KX379528-KX379529",
       "species_latin_name": "Canis lupus familiaris",
-      "source_surface": "supplementary_table",
+      "source_surface": "archive_metadata",
       "source_claim_scope": "sample_owned_locality",
       "supporting_sample_count": 1,
       "original_locality_text": "Cherry Tree Cave",
@@ -27,7 +27,7 @@
     {
       "project_accession": "KX379528-KX379529",
       "species_latin_name": "Canis lupus familiaris",
-      "source_surface": "supplementary_table",
+      "source_surface": "archive_metadata",
       "source_claim_scope": "sample_owned_locality",
       "supporting_sample_count": 1,
       "original_locality_text": "Herxheim",

@@ -34,7 +34,12 @@
       "political_entity": "Germany",
       "latitude_text": "",
       "longitude_text": "",
-      "chronology_text": "2900-2632 BCE"
+      "chronology_text": "2900-2632 BCE",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample"
     },
     {
       "species_latin_name": "Canis lupus familiaris",
@@ -56,7 +61,12 @@
       "political_entity": "Germany",
       "latitude_text": "",
       "longitude_text": "",
-      "chronology_text": "5223-5040 BCE"
+      "chronology_text": "5223-5040 BCE",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample"
     }
   ]
 }

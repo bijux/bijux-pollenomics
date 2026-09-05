@@ -11,7 +11,7 @@
       ],
       "alternative_spellings": [],
       "source_surfaces": [
-        "supplementary_table"
+        "archive_metadata"
       ],
       "locality_classes": [
         "excavation_site"
@@ -27,7 +27,7 @@
       ],
       "alternative_spellings": [],
       "source_surfaces": [
-        "supplementary_table"
+        "archive_metadata"
       ],
       "locality_classes": [
         "excavation_site"
@@ -43,7 +43,7 @@
       ],
       "alternative_spellings": [],
       "source_surfaces": [
-        "supplementary_table"
+        "archive_metadata"
       ],
       "locality_classes": [
         "excavation_site"
@@ -59,7 +59,7 @@
       ],
       "alternative_spellings": [],
       "source_surfaces": [
-        "supplementary_table"
+        "archive_metadata"
       ],
       "locality_classes": [
         "excavation_site"
@@ -75,7 +75,7 @@
       ],
       "alternative_spellings": [],
       "source_surfaces": [
-        "supplementary_table"
+        "archive_metadata"
       ],
       "locality_classes": [
         "excavation_site"
@@ -91,7 +91,7 @@
       ],
       "alternative_spellings": [],
       "source_surfaces": [
-        "supplementary_table"
+        "archive_metadata"
       ],
       "locality_classes": [
         "excavation_site"
@@ -107,7 +107,7 @@
       ],
       "alternative_spellings": [],
       "source_surfaces": [
-        "supplementary_table"
+        "archive_metadata"
       ],
       "locality_classes": [
         "excavation_site"
@@ -123,7 +123,7 @@
       ],
       "alternative_spellings": [],
       "source_surfaces": [
-        "supplementary_table"
+        "archive_metadata"
       ],
       "locality_classes": [
         "excavation_site"
@@ -139,7 +139,7 @@
       ],
       "alternative_spellings": [],
       "source_surfaces": [
-        "supplementary_table"
+        "archive_metadata"
       ],
       "locality_classes": [
         "excavation_site"
@@ -155,7 +155,7 @@
       ],
       "alternative_spellings": [],
       "source_surfaces": [
-        "supplementary_table"
+        "archive_metadata"
       ],
       "locality_classes": [
         "excavation_site"
@@ -171,7 +171,7 @@
       ],
       "alternative_spellings": [],
       "source_surfaces": [
-        "supplementary_table"
+        "archive_metadata"
       ],
       "locality_classes": [
         "excavation_site"
@@ -4253,8 +4253,7 @@
       ],
       "source_surfaces": [
         "archive_metadata",
-        "coordinate_resolution",
-        "supplementary_table"
+        "coordinate_resolution"
       ],
       "locality_classes": [
         "broader_locality"
@@ -4713,6 +4712,230 @@
       ]
     },
     {
+      "project_accession": "PRJNA1178732",
+      "species_latin_name": "Felis catus",
+      "normalized_display_spelling": "Han Chang'an City",
+      "geocoding_safe_token": "hanchangancity",
+      "original_source_spellings": [
+        "Han Chang'an City"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJNA1178732",
+      "species_latin_name": "Felis catus",
+      "normalized_display_spelling": "Huoshiliang",
+      "geocoding_safe_token": "huoshiliang",
+      "original_source_spellings": [
+        "Huoshiliang"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJNA1178732",
+      "species_latin_name": "Felis catus",
+      "normalized_display_spelling": "Laoniupo",
+      "geocoding_safe_token": "laoniupo",
+      "original_source_spellings": [
+        "Laoniupo"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJNA1178732",
+      "species_latin_name": "Felis catus",
+      "normalized_display_spelling": "Puyang Song Tomb",
+      "geocoding_safe_token": "puyangsongtomb",
+      "original_source_spellings": [
+        "Puyang Song Tomb"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJNA1178732",
+      "species_latin_name": "Felis catus",
+      "normalized_display_spelling": "Quanhucun",
+      "geocoding_safe_token": "quanhucun",
+      "original_source_spellings": [
+        "Quanhucun"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJNA1178732",
+      "species_latin_name": "Felis catus",
+      "normalized_display_spelling": "Shaliangzi",
+      "geocoding_safe_token": "shaliangzi",
+      "original_source_spellings": [
+        "Shaliangzi"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJNA1178732",
+      "species_latin_name": "Felis catus",
+      "normalized_display_spelling": "Tongwan City",
+      "geocoding_safe_token": "tongwancity",
+      "original_source_spellings": [
+        "Tongwan City"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJNA1178732",
+      "species_latin_name": "Felis catus",
+      "normalized_display_spelling": "Wuzhuangguoliang",
+      "geocoding_safe_token": "wuzhuangguoliang",
+      "original_source_spellings": [
+        "Wuzhuangguoliang"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJNA1178732",
+      "species_latin_name": "Felis catus",
+      "normalized_display_spelling": "Xinjie",
+      "geocoding_safe_token": "xinjie",
+      "original_source_spellings": [
+        "Xinjie"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJNA1178732",
+      "species_latin_name": "Felis catus",
+      "normalized_display_spelling": "Xinxiang Song Tomb",
+      "geocoding_safe_token": "xinxiangsongtomb",
+      "original_source_spellings": [
+        "Xinxiang Song Tomb"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJNA1178732",
+      "species_latin_name": "Felis catus",
+      "normalized_display_spelling": "Xitucheng City",
+      "geocoding_safe_token": "xituchengcity",
+      "original_source_spellings": [
+        "Xitucheng City"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJNA1178732",
+      "species_latin_name": "Felis catus",
+      "normalized_display_spelling": "Yangling",
+      "geocoding_safe_token": "yangling",
+      "original_source_spellings": [
+        "Yangling"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJNA1178732",
+      "species_latin_name": "Felis catus",
+      "normalized_display_spelling": "Zheng and Han City",
+      "geocoding_safe_token": "zhengandhancity",
+      "original_source_spellings": [
+        "Zheng and Han City"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJNA1178732",
+      "species_latin_name": "Felis catus",
+      "normalized_display_spelling": "Zhengzhoushang City",
+      "geocoding_safe_token": "zhengzhoushangcity",
+      "original_source_spellings": [
+        "Zhengzhoushang City"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
       "project_accession": "PRJNA1328209",
       "species_latin_name": "Capra hircus",
       "normalized_display_spelling": "Lake Qinghai Basin",
@@ -4782,8 +5005,7 @@
       ],
       "source_surfaces": [
         "archive_metadata",
-        "coordinate_resolution",
-        "supplementary_table"
+        "coordinate_resolution"
       ],
       "locality_classes": [
         "broader_locality"
@@ -4853,8 +5075,7 @@
       ],
       "source_surfaces": [
         "article_text",
-        "coordinate_resolution",
-        "supplementary_table"
+        "coordinate_resolution"
       ],
       "locality_classes": [
         "broader_locality"
@@ -4886,7 +5107,7 @@
       ],
       "alternative_spellings": [],
       "source_surfaces": [
-        "supplementary_table"
+        "archive_metadata"
       ],
       "locality_classes": [
         "excavation_site"

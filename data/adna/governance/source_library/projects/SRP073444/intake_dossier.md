@@ -10,14 +10,14 @@
 - Minimum expected sample count: `1`
 - Final recovered sample rows: `0`
 - Minimum recovery gap: `1`
-- Implausibly low recovery: `true`
+- Implausibly low recovery: `false`
 
 ## Stage Statuses
 
 - `project_admission`: `complete`
 - `paper_capture`: `complete`
 - `supplement_capture`: `not_required`
-- `sample_identity_recovery`: `in_progress`
+- `sample_identity_recovery`: `blocked`
 - `site_recovery`: `blocked`
 - `chronology_recovery`: `blocked`
 - `coordinate_derivation`: `blocked`

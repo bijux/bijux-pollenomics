@@ -362,8 +362,8 @@ class AdnaCatalogUnitTests(unittest.TestCase):
                         and provenance["mapping_posture"] == "refused_region_only"
                     ):
                         self.assertFalse(has_coordinates)
-            self.assertEqual(admitted_sample_count, 868)
-            self.assertEqual(refused_sample_count, 26)
+            self.assertEqual(admitted_sample_count, 1451)
+            self.assertEqual(refused_sample_count, 38)
 
 
 if __name__ == "__main__":

@@ -21,6 +21,7 @@ from ..sources.library import (
     build_project_registry,
 )
 from ..species.definitions import resolve_species_definition
+from .archive_samples import read_archive_project_samples
 from .article_sample_evidence import resolve_article_sample_evidence
 
 __all__ = [
@@ -41,6 +42,7 @@ ADNA_SAMPLE_EVIDENCE_STATUSES = (
     "appendix_extracted",
     "pdf_text_extracted",
     "archive_native",
+    "experiment_level_only",
     "manual_curation_required",
     "not_yet_recoverable",
 )
@@ -53,6 +55,17 @@ _XLSX_NS = {
     "a": "http://schemas.openxmlformats.org/spreadsheetml/2006/main",
     "r": "http://schemas.openxmlformats.org/officeDocument/2006/relationships",
     "p": "http://schemas.openxmlformats.org/package/2006/relationships",
+}
+_ARCHIVE_PROJECT_SAMPLE_ACCESSIONS = {
+    "PRJEB30282",
+    "PRJEB31621",
+    "PRJEB41594",
+    "PRJEB59481",
+    "PRJEB60484",
+    "PRJEB75467",
+    "PRJEB81815",
+    "PRJNA705960",
+    "SRP073444",
 }
 
 
@@ -78,6 +91,11 @@ class AdnaProjectSampleMasterRow:
     latitude_text: str
     longitude_text: str
     chronology_text: str
+    source_native_tax_id: str = ""
+    source_native_scientific_name: str = ""
+    taxon_alignment_status: str = "not_reported"
+    archive_native_experiment_id: str = ""
+    source_native_identity_kind: str = "biological_sample"
 
     def as_dict(self) -> dict[str, object]:
         return {
@@ -101,6 +119,11 @@ class AdnaProjectSampleMasterRow:
             "latitude_text": self.latitude_text,
             "longitude_text": self.longitude_text,
             "chronology_text": self.chronology_text,
+            "source_native_tax_id": self.source_native_tax_id,
+            "source_native_scientific_name": self.source_native_scientific_name,
+            "taxon_alignment_status": self.taxon_alignment_status,
+            "archive_native_experiment_id": self.archive_native_experiment_id,
+            "source_native_identity_kind": self.source_native_identity_kind,
         }
 
 
@@ -180,6 +203,11 @@ def build_project_sample_master(
             )
         )
     rows = build_project_sample_master_rows(output_root, project_accession)
+    recovered_sample_count = sum(
+        1
+        for row in rows
+        if row.source_native_identity_kind != "sequencing_experiment_accession"
+    )
     final_sample_count = sum(
         1 for row in rows if row.sample_identity_resolution == "final"
     )
@@ -199,7 +227,7 @@ def build_project_sample_master(
         expected_sample_count_status=project_row.expected_sample_count_status,
         expected_sample_count_provenance=project_row.expected_sample_count_provenance,
         expected_sample_count_artifact_path=project_row.expected_sample_count_artifact_path,
-        recovered_sample_count=len(rows),
+        recovered_sample_count=recovered_sample_count,
         unresolved_sample_count=unresolved_sample_count,
         final_sample_count=final_sample_count,
         ambiguity_row_count=sum(
@@ -341,6 +369,9 @@ def _empty_sample_master_row(master: AdnaProjectSampleMaster) -> dict[str, objec
         "latitude_text": "",
         "longitude_text": "",
         "chronology_text": "",
+        "source_native_tax_id": "",
+        "source_native_scientific_name": "",
+        "taxon_alignment_status": "not_reported",
     }
 
 
@@ -468,7 +499,9 @@ def _project_specific_sample_rows(
         return _goat_imputation_supplementary_sample_rows(output_root, species, project)
     if project.project_accession == "PRJEB90261":
         return _goat_canary_supplementary_sample_rows(output_root, species, project)
-    if project.project_accession in {"PRJNA705960", "PRJEB60484"}:
+    if project.project_accession == "PRJNA1178732":
+        return _cat_china_supplementary_sample_rows(output_root, species, project)
+    if project.project_accession in _ARCHIVE_PROJECT_SAMPLE_ACCESSIONS:
         return _project_scope_archive_sample_rows(output_root, species, project)
     return ()
 
@@ -745,42 +778,168 @@ def _goat_canary_supplementary_sample_rows(
     )
 
 
+def _cat_china_supplementary_sample_rows(
+    output_root: Path,
+    species: object,
+    project: object,
+) -> tuple[AdnaProjectSampleMasterRow, ...]:
+    paper_row = _paper_row_by_project(output_root, project.project_accession)
+    workbook_path = next(
+        (
+            _resolve_data_relative_path(output_root, artifact)
+            for artifact in paper_row.expected_supplementary_artifacts
+            if artifact.endswith("1-s2.0-S2666979X25003556-mmc3.xlsx")
+        ),
+        None,
+    )
+    if workbook_path is None or not workbook_path.is_file():
+        return ()
+    source_path = (
+        f"{ADNA_SOURCE_LIBRARY_DIR}/papers/10.1016-j.xgen.2025.101099/"
+        "supplementary/1-s2.0-S2666979X25003556-mmc3.xlsx"
+    )
+    rows = _read_xlsx_rows(workbook_path, sheet_name="A")
+    if len(rows) < 4:
+        return ()
+    header_map = {
+        value.strip(): index for index, value in enumerate(rows[2]) if value.strip()
+    }
+    required_headers = {"Sample ID", "Site", "Country", "Age*", "Species"}
+    if not required_headers.issubset(header_map):
+        return ()
+
+    built_rows = []
+    for row_number, row in enumerate(rows[3:], start=4):
+        sample_label = _cell_value(row, header_map["Sample ID"])
+        source_taxon = _cell_value(row, header_map["Species"])
+        if not sample_label or not source_taxon:
+            continue
+        built_rows.append(
+            AdnaProjectSampleMasterRow(
+                species_latin_name=species.latin_name,
+                species_common_name=species.common_name,
+                project_accession=project.project_accession,
+                repo_stable_sample_id=(
+                    f"{project.project_accession}:{sample_label}".casefold()
+                ),
+                archive_native_sample_id="",
+                paper_native_sample_label="",
+                supplementary_table_sample_label=sample_label,
+                preferred_sample_label=sample_label,
+                sample_basis="supplementary_table_sample_label_anchor",
+                sample_evidence_status="direct_table_extracted",
+                sample_lineage_path=source_path,
+                sample_lineage_locator=f"A!row{row_number}",
+                sample_lineage_excerpt=" | ".join(value for value in row if value)[
+                    :300
+                ],
+                sample_identity_resolution="final",
+                sample_ambiguity_note="",
+                locality_text=_cell_value(row, header_map["Site"]),
+                political_entity=_cell_value(row, header_map["Country"]),
+                latitude_text="",
+                longitude_text="",
+                chronology_text=_cell_value(row, header_map["Age*"]),
+                source_native_scientific_name=source_taxon,
+                taxon_alignment_status=_taxon_alignment_status(
+                    configured_species=species.latin_name,
+                    source_native_scientific_names=(source_taxon,),
+                ),
+            )
+        )
+    return tuple(built_rows)
+
+
 def _project_scope_archive_sample_rows(
     output_root: Path,
     species: object,
     project: object,
 ) -> tuple[AdnaProjectSampleMasterRow, ...]:
-    sample_accessions = _project_scope_archive_sample_accessions(
-        output_root, project.project_accession
+    archive_path = _resolve_data_relative_path(
+        Path(output_root),
+        f"adna/governance/source_library/projects/{project.project_accession}/archive_metadata.html",
     )
-    return tuple(
-        AdnaProjectSampleMasterRow(
-            species_latin_name=species.latin_name,
-            species_common_name=species.common_name,
-            project_accession=project.project_accession,
-            repo_stable_sample_id=f"{project.project_accession}:{sample_accession}".casefold(),
-            archive_native_sample_id=sample_accession,
-            paper_native_sample_label="",
-            supplementary_table_sample_label="",
-            preferred_sample_label=sample_accession,
-            sample_basis="archive_project_sample_accession_anchor",
-            sample_evidence_status="archive_native",
-            sample_lineage_path=f"{ADNA_SOURCE_LIBRARY_DIR}/projects/{project.project_accession}/archive_metadata.html",
-            sample_lineage_locator=f"sample_accession:{sample_accession}",
-            sample_lineage_excerpt=(
-                "Archive metadata preserves a distinct project-owned sample accession, but "
-                "no richer sample-owned chronology row has been extracted yet."
-            ),
-            sample_identity_resolution="final",
-            sample_ambiguity_note="",
-            locality_text="",
-            political_entity="",
-            latitude_text="",
-            longitude_text="",
-            chronology_text="",
+    if not archive_path.is_file():
+        return ()
+    archive_samples = read_archive_project_samples(archive_path)
+    rows = []
+    for sample in archive_samples:
+        experiment_only = (
+            sample.source_native_identity_kind == "sequencing_experiment_accession"
         )
-        for sample_accession in sample_accessions
-    )
+        source_identity = (
+            sample.archive_native_experiment_id
+            if experiment_only
+            else sample.archive_native_sample_id
+        )
+        rows.append(
+            AdnaProjectSampleMasterRow(
+                species_latin_name=species.latin_name,
+                species_common_name=species.common_name,
+                project_accession=project.project_accession,
+                repo_stable_sample_id=(
+                    f"{project.project_accession}:"
+                    f"{'experiment:' if experiment_only else ''}{source_identity}"
+                ).casefold(),
+                archive_native_sample_id=sample.archive_native_sample_id,
+                paper_native_sample_label=sample.source_native_sample_label,
+                supplementary_table_sample_label="",
+                preferred_sample_label=(
+                    sample.source_native_sample_label or source_identity
+                ),
+                sample_basis=(
+                    "archive_project_experiment_anchor"
+                    if experiment_only
+                    else "archive_project_sample_accession_anchor"
+                ),
+                sample_evidence_status=(
+                    "experiment_level_only" if experiment_only else "archive_native"
+                ),
+                sample_lineage_path=f"{ADNA_SOURCE_LIBRARY_DIR}/projects/{project.project_accession}/archive_metadata.html",
+                sample_lineage_locator=sample.source_locator,
+                sample_lineage_excerpt=sample.source_excerpt,
+                sample_identity_resolution="provisional"
+                if experiment_only
+                else "final",
+                sample_ambiguity_note=(
+                    "The cached NCBI result identifies a sequencing experiment, not a "
+                    "biological sample; no authoritative experiment-to-BioSample mapping "
+                    "is present in the admitted capture."
+                    if experiment_only
+                    else ""
+                ),
+                locality_text="",
+                political_entity="",
+                latitude_text="",
+                longitude_text="",
+                chronology_text="",
+                source_native_tax_id=" | ".join(sample.source_native_tax_ids),
+                source_native_scientific_name=" | ".join(
+                    sample.source_native_scientific_names
+                ),
+                taxon_alignment_status=_taxon_alignment_status(
+                    configured_species=species.latin_name,
+                    source_native_scientific_names=sample.source_native_scientific_names,
+                ),
+                archive_native_experiment_id=sample.archive_native_experiment_id,
+                source_native_identity_kind=sample.source_native_identity_kind,
+            )
+        )
+    return tuple(rows)
+
+
+def _taxon_alignment_status(
+    *,
+    configured_species: str,
+    source_native_scientific_names: tuple[str, ...],
+) -> str:
+    if not source_native_scientific_names:
+        return "not_reported"
+    if len(source_native_scientific_names) > 1:
+        return "archive_taxon_conflict"
+    if source_native_scientific_names[0].casefold() == configured_species.casefold():
+        return "project_species_match"
+    return "project_species_mismatch"
 
 
 def _build_sheep_table_rows(
@@ -1482,26 +1641,10 @@ def _project_scope_archive_sample_accessions(
     )
     if not archive_path.is_file():
         return ()
-    rows = read_source_artifact_text(
-        archive_path,
-        encoding="utf-8",
-        errors="ignore",
-    ).splitlines()
-    if not rows:
-        return ()
-    header = rows[0].split("\t")
-    try:
-        sample_index = header.index("sample_accession")
-    except ValueError:
-        return ()
-    sample_accessions = {
-        fields[sample_index].strip()
-        for line in rows[1:]
-        if (fields := line.split("\t"))
-        and len(fields) > sample_index
-        and fields[sample_index].strip()
-    }
-    return tuple(sorted(sample_accessions))
+    return tuple(
+        row.archive_native_sample_id
+        for row in read_archive_project_samples(archive_path)
+    )
 
 
 def _build_archive_sample_accession_lookup(
@@ -1593,6 +1736,7 @@ def _deduplicate_sample_rows(
 def _sample_identity_key(row: AdnaProjectSampleMasterRow) -> str:
     for candidate in (
         row.archive_native_sample_id,
+        row.archive_native_experiment_id,
         row.paper_native_sample_label,
         row.supplementary_table_sample_label,
         row.preferred_sample_label,
@@ -1620,6 +1764,14 @@ def _merge_sample_row_group(
     if len(locality_values) > 1 or len(chronology_values) > 1:
         resolution = "ambiguous"
         ambiguity_note = "Multiple source rows appear to reference the same sample label but disagree on locality or chronology fields."
+    source_native_scientific_names = tuple(
+        dict.fromkeys(
+            name.strip()
+            for row in group
+            for name in row.source_native_scientific_name.split(" || ")
+            if name.strip()
+        )
+    )
     return AdnaProjectSampleMasterRow(
         species_latin_name=first.species_latin_name,
         species_common_name=first.species_common_name,
@@ -1655,6 +1807,22 @@ def _merge_sample_row_group(
         latitude_text=_first_non_empty(*(row.latitude_text for row in group)),
         longitude_text=_first_non_empty(*(row.longitude_text for row in group)),
         chronology_text=_first_non_empty(*(row.chronology_text for row in group)),
+        source_native_tax_id=_join_distinct(
+            *(row.source_native_tax_id for row in group)
+        ),
+        source_native_scientific_name=_join_distinct(
+            *(row.source_native_scientific_name for row in group)
+        ),
+        taxon_alignment_status=_taxon_alignment_status(
+            configured_species=first.species_latin_name,
+            source_native_scientific_names=source_native_scientific_names,
+        ),
+        archive_native_experiment_id=_first_non_empty(
+            *(row.archive_native_experiment_id for row in group)
+        ),
+        source_native_identity_kind=_first_non_empty(
+            *(row.source_native_identity_kind for row in group)
+        ),
     )
 
 

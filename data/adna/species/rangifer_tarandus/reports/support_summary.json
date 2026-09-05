@@ -357,9 +357,14 @@
         "sample_evidence_status": "archive_native",
         "sample_lineage_path": "data/adna/governance/source_library/projects/PRJEB60484/archive_metadata.html",
         "sample_lineage_locator": "sample_accession:SAMEA112757323",
-        "sample_lineage_excerpt": "Archive metadata preserves a distinct project-owned sample accession, but no richer sample-owned chronology row has been extracted yet.",
+        "sample_lineage_excerpt": "ENA archive metadata identifies sample SAMEA112757323 as Rangifer tarandus platyrhynchus (tax_id 3082113).",
         "sample_identity_resolution": "final",
-        "sample_ambiguity_note": ""
+        "sample_ambiguity_note": "",
+        "source_native_tax_id": "3082113",
+        "source_native_scientific_name": "Rangifer tarandus platyrhynchus",
+        "taxon_alignment_status": "project_species_mismatch",
+        "archive_native_experiment_id": "",
+        "source_native_identity_kind": "biological_sample_accession"
       },
       {
         "identity": {
@@ -438,9 +443,14 @@
         "sample_evidence_status": "archive_native",
         "sample_lineage_path": "data/adna/governance/source_library/projects/PRJEB60484/archive_metadata.html",
         "sample_lineage_locator": "sample_accession:SAMEA112757324",
-        "sample_lineage_excerpt": "Archive metadata preserves a distinct project-owned sample accession, but no richer sample-owned chronology row has been extracted yet.",
+        "sample_lineage_excerpt": "ENA archive metadata identifies sample SAMEA112757324 as Rangifer tarandus platyrhynchus (tax_id 3082113).",
         "sample_identity_resolution": "final",
-        "sample_ambiguity_note": ""
+        "sample_ambiguity_note": "",
+        "source_native_tax_id": "3082113",
+        "source_native_scientific_name": "Rangifer tarandus platyrhynchus",
+        "taxon_alignment_status": "project_species_mismatch",
+        "archive_native_experiment_id": "",
+        "source_native_identity_kind": "biological_sample_accession"
       },
       {
         "identity": {
@@ -519,9 +529,14 @@
         "sample_evidence_status": "archive_native",
         "sample_lineage_path": "data/adna/governance/source_library/projects/PRJEB60484/archive_metadata.html",
         "sample_lineage_locator": "sample_accession:SAMEA112757325",
-        "sample_lineage_excerpt": "Archive metadata preserves a distinct project-owned sample accession, but no richer sample-owned chronology row has been extracted yet.",
+        "sample_lineage_excerpt": "ENA archive metadata identifies sample SAMEA112757325 as Rangifer tarandus platyrhynchus (tax_id 3082113).",
         "sample_identity_resolution": "final",
-        "sample_ambiguity_note": ""
+        "sample_ambiguity_note": "",
+        "source_native_tax_id": "3082113",
+        "source_native_scientific_name": "Rangifer tarandus platyrhynchus",
+        "taxon_alignment_status": "project_species_mismatch",
+        "archive_native_experiment_id": "",
+        "source_native_identity_kind": "biological_sample_accession"
       },
       {
         "identity": {
@@ -600,9 +615,14 @@
         "sample_evidence_status": "archive_native",
         "sample_lineage_path": "data/adna/governance/source_library/projects/PRJEB60484/archive_metadata.html",
         "sample_lineage_locator": "sample_accession:SAMEA112757326",
-        "sample_lineage_excerpt": "Archive metadata preserves a distinct project-owned sample accession, but no richer sample-owned chronology row has been extracted yet.",
+        "sample_lineage_excerpt": "ENA archive metadata identifies sample SAMEA112757326 as Rangifer tarandus platyrhynchus (tax_id 3082113).",
         "sample_identity_resolution": "final",
-        "sample_ambiguity_note": ""
+        "sample_ambiguity_note": "",
+        "source_native_tax_id": "3082113",
+        "source_native_scientific_name": "Rangifer tarandus platyrhynchus",
+        "taxon_alignment_status": "project_species_mismatch",
+        "archive_native_experiment_id": "",
+        "source_native_identity_kind": "biological_sample_accession"
       },
       {
         "identity": {
@@ -681,9 +701,14 @@
         "sample_evidence_status": "archive_native",
         "sample_lineage_path": "data/adna/governance/source_library/projects/PRJEB60484/archive_metadata.html",
         "sample_lineage_locator": "sample_accession:SAMEA112757327",
-        "sample_lineage_excerpt": "Archive metadata preserves a distinct project-owned sample accession, but no richer sample-owned chronology row has been extracted yet.",
+        "sample_lineage_excerpt": "ENA archive metadata identifies sample SAMEA112757327 as Rangifer tarandus platyrhynchus (tax_id 3082113).",
         "sample_identity_resolution": "final",
-        "sample_ambiguity_note": ""
+        "sample_ambiguity_note": "",
+        "source_native_tax_id": "3082113",
+        "source_native_scientific_name": "Rangifer tarandus platyrhynchus",
+        "taxon_alignment_status": "project_species_mismatch",
+        "archive_native_experiment_id": "",
+        "source_native_identity_kind": "biological_sample_accession"
       },
       {
         "identity": {
@@ -762,9 +787,14 @@
         "sample_evidence_status": "archive_native",
         "sample_lineage_path": "data/adna/governance/source_library/projects/PRJEB60484/archive_metadata.html",
         "sample_lineage_locator": "sample_accession:SAMEA112757328",
-        "sample_lineage_excerpt": "Archive metadata preserves a distinct project-owned sample accession, but no richer sample-owned chronology row has been extracted yet.",
+        "sample_lineage_excerpt": "ENA archive metadata identifies sample SAMEA112757328 as Rangifer tarandus platyrhynchus (tax_id 3082113).",
         "sample_identity_resolution": "final",
-        "sample_ambiguity_note": ""
+        "sample_ambiguity_note": "",
+        "source_native_tax_id": "3082113",
+        "source_native_scientific_name": "Rangifer tarandus platyrhynchus",
+        "taxon_alignment_status": "project_species_mismatch",
+        "archive_native_experiment_id": "",
+        "source_native_identity_kind": "biological_sample_accession"
       },
       {
         "identity": {
@@ -843,9 +873,14 @@
         "sample_evidence_status": "archive_native",
         "sample_lineage_path": "data/adna/governance/source_library/projects/PRJEB60484/archive_metadata.html",
         "sample_lineage_locator": "sample_accession:SAMEA112757329",
-        "sample_lineage_excerpt": "Archive metadata preserves a distinct project-owned sample accession, but no richer sample-owned chronology row has been extracted yet.",
+        "sample_lineage_excerpt": "ENA archive metadata identifies sample SAMEA112757329 as Rangifer tarandus platyrhynchus (tax_id 3082113).",
         "sample_identity_resolution": "final",
-        "sample_ambiguity_note": ""
+        "sample_ambiguity_note": "",
+        "source_native_tax_id": "3082113",
+        "source_native_scientific_name": "Rangifer tarandus platyrhynchus",
+        "taxon_alignment_status": "project_species_mismatch",
+        "archive_native_experiment_id": "",
+        "source_native_identity_kind": "biological_sample_accession"
       },
       {
         "identity": {
@@ -924,9 +959,14 @@
         "sample_evidence_status": "archive_native",
         "sample_lineage_path": "data/adna/governance/source_library/projects/PRJEB60484/archive_metadata.html",
         "sample_lineage_locator": "sample_accession:SAMEA112757330",
-        "sample_lineage_excerpt": "Archive metadata preserves a distinct project-owned sample accession, but no richer sample-owned chronology row has been extracted yet.",
+        "sample_lineage_excerpt": "ENA archive metadata identifies sample SAMEA112757330 as Rangifer tarandus platyrhynchus (tax_id 3082113).",
         "sample_identity_resolution": "final",
-        "sample_ambiguity_note": ""
+        "sample_ambiguity_note": "",
+        "source_native_tax_id": "3082113",
+        "source_native_scientific_name": "Rangifer tarandus platyrhynchus",
+        "taxon_alignment_status": "project_species_mismatch",
+        "archive_native_experiment_id": "",
+        "source_native_identity_kind": "biological_sample_accession"
       },
       {
         "identity": {
@@ -1005,9 +1045,14 @@
         "sample_evidence_status": "archive_native",
         "sample_lineage_path": "data/adna/governance/source_library/projects/PRJEB60484/archive_metadata.html",
         "sample_lineage_locator": "sample_accession:SAMEA112757331",
-        "sample_lineage_excerpt": "Archive metadata preserves a distinct project-owned sample accession, but no richer sample-owned chronology row has been extracted yet.",
+        "sample_lineage_excerpt": "ENA archive metadata identifies sample SAMEA112757331 as Rangifer tarandus platyrhynchus (tax_id 3082113).",
         "sample_identity_resolution": "final",
-        "sample_ambiguity_note": ""
+        "sample_ambiguity_note": "",
+        "source_native_tax_id": "3082113",
+        "source_native_scientific_name": "Rangifer tarandus platyrhynchus",
+        "taxon_alignment_status": "project_species_mismatch",
+        "archive_native_experiment_id": "",
+        "source_native_identity_kind": "biological_sample_accession"
       },
       {
         "identity": {
@@ -1086,9 +1131,14 @@
         "sample_evidence_status": "archive_native",
         "sample_lineage_path": "data/adna/governance/source_library/projects/PRJEB60484/archive_metadata.html",
         "sample_lineage_locator": "sample_accession:SAMEA112757332",
-        "sample_lineage_excerpt": "Archive metadata preserves a distinct project-owned sample accession, but no richer sample-owned chronology row has been extracted yet.",
+        "sample_lineage_excerpt": "ENA archive metadata identifies sample SAMEA112757332 as Rangifer tarandus platyrhynchus (tax_id 3082113).",
         "sample_identity_resolution": "final",
-        "sample_ambiguity_note": ""
+        "sample_ambiguity_note": "",
+        "source_native_tax_id": "3082113",
+        "source_native_scientific_name": "Rangifer tarandus platyrhynchus",
+        "taxon_alignment_status": "project_species_mismatch",
+        "archive_native_experiment_id": "",
+        "source_native_identity_kind": "biological_sample_accession"
       },
       {
         "identity": {
@@ -1167,9 +1217,14 @@
         "sample_evidence_status": "archive_native",
         "sample_lineage_path": "data/adna/governance/source_library/projects/PRJEB60484/archive_metadata.html",
         "sample_lineage_locator": "sample_accession:SAMEA112757333",
-        "sample_lineage_excerpt": "Archive metadata preserves a distinct project-owned sample accession, but no richer sample-owned chronology row has been extracted yet.",
+        "sample_lineage_excerpt": "ENA archive metadata identifies sample SAMEA112757333 as Rangifer tarandus platyrhynchus (tax_id 3082113).",
         "sample_identity_resolution": "final",
-        "sample_ambiguity_note": ""
+        "sample_ambiguity_note": "",
+        "source_native_tax_id": "3082113",
+        "source_native_scientific_name": "Rangifer tarandus platyrhynchus",
+        "taxon_alignment_status": "project_species_mismatch",
+        "archive_native_experiment_id": "",
+        "source_native_identity_kind": "biological_sample_accession"
       },
       {
         "identity": {
@@ -1248,9 +1303,14 @@
         "sample_evidence_status": "archive_native",
         "sample_lineage_path": "data/adna/governance/source_library/projects/PRJEB60484/archive_metadata.html",
         "sample_lineage_locator": "sample_accession:SAMEA112757334",
-        "sample_lineage_excerpt": "Archive metadata preserves a distinct project-owned sample accession, but no richer sample-owned chronology row has been extracted yet.",
+        "sample_lineage_excerpt": "ENA archive metadata identifies sample SAMEA112757334 as Rangifer tarandus platyrhynchus (tax_id 3082113).",
         "sample_identity_resolution": "final",
-        "sample_ambiguity_note": ""
+        "sample_ambiguity_note": "",
+        "source_native_tax_id": "3082113",
+        "source_native_scientific_name": "Rangifer tarandus platyrhynchus",
+        "taxon_alignment_status": "project_species_mismatch",
+        "archive_native_experiment_id": "",
+        "source_native_identity_kind": "biological_sample_accession"
       },
       {
         "identity": {
@@ -1329,9 +1389,14 @@
         "sample_evidence_status": "archive_native",
         "sample_lineage_path": "data/adna/governance/source_library/projects/PRJEB60484/archive_metadata.html",
         "sample_lineage_locator": "sample_accession:SAMEA112757335",
-        "sample_lineage_excerpt": "Archive metadata preserves a distinct project-owned sample accession, but no richer sample-owned chronology row has been extracted yet.",
+        "sample_lineage_excerpt": "ENA archive metadata identifies sample SAMEA112757335 as Rangifer tarandus platyrhynchus (tax_id 3082113).",
         "sample_identity_resolution": "final",
-        "sample_ambiguity_note": ""
+        "sample_ambiguity_note": "",
+        "source_native_tax_id": "3082113",
+        "source_native_scientific_name": "Rangifer tarandus platyrhynchus",
+        "taxon_alignment_status": "project_species_mismatch",
+        "archive_native_experiment_id": "",
+        "source_native_identity_kind": "biological_sample_accession"
       },
       {
         "identity": {
@@ -1410,9 +1475,14 @@
         "sample_evidence_status": "archive_native",
         "sample_lineage_path": "data/adna/governance/source_library/projects/PRJEB60484/archive_metadata.html",
         "sample_lineage_locator": "sample_accession:SAMEA112757336",
-        "sample_lineage_excerpt": "Archive metadata preserves a distinct project-owned sample accession, but no richer sample-owned chronology row has been extracted yet.",
+        "sample_lineage_excerpt": "ENA archive metadata identifies sample SAMEA112757336 as Rangifer tarandus platyrhynchus (tax_id 3082113).",
         "sample_identity_resolution": "final",
-        "sample_ambiguity_note": ""
+        "sample_ambiguity_note": "",
+        "source_native_tax_id": "3082113",
+        "source_native_scientific_name": "Rangifer tarandus platyrhynchus",
+        "taxon_alignment_status": "project_species_mismatch",
+        "archive_native_experiment_id": "",
+        "source_native_identity_kind": "biological_sample_accession"
       },
       {
         "identity": {
@@ -1491,9 +1561,14 @@
         "sample_evidence_status": "archive_native",
         "sample_lineage_path": "data/adna/governance/source_library/projects/PRJEB60484/archive_metadata.html",
         "sample_lineage_locator": "sample_accession:SAMEA112757337",
-        "sample_lineage_excerpt": "Archive metadata preserves a distinct project-owned sample accession, but no richer sample-owned chronology row has been extracted yet.",
+        "sample_lineage_excerpt": "ENA archive metadata identifies sample SAMEA112757337 as Rangifer tarandus platyrhynchus (tax_id 3082113).",
         "sample_identity_resolution": "final",
-        "sample_ambiguity_note": ""
+        "sample_ambiguity_note": "",
+        "source_native_tax_id": "3082113",
+        "source_native_scientific_name": "Rangifer tarandus platyrhynchus",
+        "taxon_alignment_status": "project_species_mismatch",
+        "archive_native_experiment_id": "",
+        "source_native_identity_kind": "biological_sample_accession"
       },
       {
         "identity": {
@@ -1572,9 +1647,14 @@
         "sample_evidence_status": "archive_native",
         "sample_lineage_path": "data/adna/governance/source_library/projects/PRJEB60484/archive_metadata.html",
         "sample_lineage_locator": "sample_accession:SAMEA112757338",
-        "sample_lineage_excerpt": "Archive metadata preserves a distinct project-owned sample accession, but no richer sample-owned chronology row has been extracted yet.",
+        "sample_lineage_excerpt": "ENA archive metadata identifies sample SAMEA112757338 as Rangifer tarandus platyrhynchus (tax_id 3082113).",
         "sample_identity_resolution": "final",
-        "sample_ambiguity_note": ""
+        "sample_ambiguity_note": "",
+        "source_native_tax_id": "3082113",
+        "source_native_scientific_name": "Rangifer tarandus platyrhynchus",
+        "taxon_alignment_status": "project_species_mismatch",
+        "archive_native_experiment_id": "",
+        "source_native_identity_kind": "biological_sample_accession"
       },
       {
         "identity": {
@@ -1653,9 +1733,14 @@
         "sample_evidence_status": "archive_native",
         "sample_lineage_path": "data/adna/governance/source_library/projects/PRJEB60484/archive_metadata.html",
         "sample_lineage_locator": "sample_accession:SAMEA112757339",
-        "sample_lineage_excerpt": "Archive metadata preserves a distinct project-owned sample accession, but no richer sample-owned chronology row has been extracted yet.",
+        "sample_lineage_excerpt": "ENA archive metadata identifies sample SAMEA112757339 as Rangifer tarandus platyrhynchus (tax_id 3082113).",
         "sample_identity_resolution": "final",
-        "sample_ambiguity_note": ""
+        "sample_ambiguity_note": "",
+        "source_native_tax_id": "3082113",
+        "source_native_scientific_name": "Rangifer tarandus platyrhynchus",
+        "taxon_alignment_status": "project_species_mismatch",
+        "archive_native_experiment_id": "",
+        "source_native_identity_kind": "biological_sample_accession"
       },
       {
         "identity": {
@@ -1734,9 +1819,14 @@
         "sample_evidence_status": "archive_native",
         "sample_lineage_path": "data/adna/governance/source_library/projects/PRJEB60484/archive_metadata.html",
         "sample_lineage_locator": "sample_accession:SAMEA112757340",
-        "sample_lineage_excerpt": "Archive metadata preserves a distinct project-owned sample accession, but no richer sample-owned chronology row has been extracted yet.",
+        "sample_lineage_excerpt": "ENA archive metadata identifies sample SAMEA112757340 as Rangifer tarandus platyrhynchus (tax_id 3082113).",
         "sample_identity_resolution": "final",
-        "sample_ambiguity_note": ""
+        "sample_ambiguity_note": "",
+        "source_native_tax_id": "3082113",
+        "source_native_scientific_name": "Rangifer tarandus platyrhynchus",
+        "taxon_alignment_status": "project_species_mismatch",
+        "archive_native_experiment_id": "",
+        "source_native_identity_kind": "biological_sample_accession"
       },
       {
         "identity": {
@@ -1815,9 +1905,14 @@
         "sample_evidence_status": "archive_native",
         "sample_lineage_path": "data/adna/governance/source_library/projects/PRJEB60484/archive_metadata.html",
         "sample_lineage_locator": "sample_accession:SAMEA114857470",
-        "sample_lineage_excerpt": "Archive metadata preserves a distinct project-owned sample accession, but no richer sample-owned chronology row has been extracted yet.",
+        "sample_lineage_excerpt": "ENA archive metadata identifies sample SAMEA114857470 as Rangifer tarandus (tax_id 9870).",
         "sample_identity_resolution": "final",
-        "sample_ambiguity_note": ""
+        "sample_ambiguity_note": "",
+        "source_native_tax_id": "9870",
+        "source_native_scientific_name": "Rangifer tarandus",
+        "taxon_alignment_status": "project_species_match",
+        "archive_native_experiment_id": "",
+        "source_native_identity_kind": "biological_sample_accession"
       },
       {
         "identity": {
@@ -1896,9 +1991,14 @@
         "sample_evidence_status": "archive_native",
         "sample_lineage_path": "data/adna/governance/source_library/projects/PRJEB60484/archive_metadata.html",
         "sample_lineage_locator": "sample_accession:SAMEA114857471",
-        "sample_lineage_excerpt": "Archive metadata preserves a distinct project-owned sample accession, but no richer sample-owned chronology row has been extracted yet.",
+        "sample_lineage_excerpt": "ENA archive metadata identifies sample SAMEA114857471 as Rangifer tarandus (tax_id 9870).",
         "sample_identity_resolution": "final",
-        "sample_ambiguity_note": ""
+        "sample_ambiguity_note": "",
+        "source_native_tax_id": "9870",
+        "source_native_scientific_name": "Rangifer tarandus",
+        "taxon_alignment_status": "project_species_match",
+        "archive_native_experiment_id": "",
+        "source_native_identity_kind": "biological_sample_accession"
       }
     ],
     "coordinate_provenance_records": [
@@ -2440,7 +2540,7 @@
         "source_token": "PRJEB57293:PRJEB57293",
         "record_kind": "sample_record",
         "reason": "sample_evidence_not_yet_recoverable",
-        "detail": "Source-native project/sample accounting remains available, but this placeholder is refused from normalized sample artifacts because it is not recovered evidence: inclusion_status=sample_context_blocked; sample_evidence_status=not_yet_recoverable; sample_identity_resolution=provisional."
+        "detail": "Source-native identity evidence remains available, but this placeholder is refused from normalized biological-sample artifacts: inclusion_status=sample_context_blocked; sample_evidence_status=not_yet_recoverable; sample_identity_resolution=provisional."
       },
       {
         "schema_version": "adna-normalization-refusal.v1",
@@ -2448,7 +2548,7 @@
         "source_token": "PRJEB61721:PRJEB61721",
         "record_kind": "sample_record",
         "reason": "sample_evidence_not_yet_recoverable",
-        "detail": "Source-native project/sample accounting remains available, but this placeholder is refused from normalized sample artifacts because it is not recovered evidence: inclusion_status=sample_context_blocked; sample_evidence_status=not_yet_recoverable; sample_identity_resolution=provisional."
+        "detail": "Source-native identity evidence remains available, but this placeholder is refused from normalized biological-sample artifacts: inclusion_status=sample_context_blocked; sample_evidence_status=not_yet_recoverable; sample_identity_resolution=provisional."
       },
       {
         "schema_version": "adna-normalization-refusal.v1",
@@ -2456,7 +2556,7 @@
         "source_token": "PRJNA634908:PRJNA634908",
         "record_kind": "sample_record",
         "reason": "sample_evidence_not_yet_recoverable",
-        "detail": "Source-native project/sample accounting remains available, but this placeholder is refused from normalized sample artifacts because it is not recovered evidence: inclusion_status=sample_context_blocked; sample_evidence_status=not_yet_recoverable; sample_identity_resolution=provisional."
+        "detail": "Source-native identity evidence remains available, but this placeholder is refused from normalized biological-sample artifacts: inclusion_status=sample_context_blocked; sample_evidence_status=not_yet_recoverable; sample_identity_resolution=provisional."
       },
       {
         "schema_version": "adna-normalization-refusal.v1",

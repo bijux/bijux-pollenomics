@@ -40,7 +40,6 @@
       "coordinate_blocked_count": 0,
       "publication_readiness_status": "blocked",
       "major_deficit_reasons": [
-        "implausibly_low_sample_recovery",
         "sample_recovery_gap"
       ]
     }

@@ -138,6 +138,8 @@ def build_project_sample_chronology_rows(
     rows: list[AdnaProjectSampleChronologyRow] = []
 
     for master_row in master_rows:
+        if master_row.source_native_identity_kind == "sequencing_experiment_accession":
+            continue
         source = _resolve_chronology_source(
             master_row=master_row,
             site_row=site_row,

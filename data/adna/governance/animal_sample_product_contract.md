@@ -9,6 +9,8 @@
 | identity.stable_token | stable sample identifier inside the repository |
 | species_latin_name | species assignment carried by the sample row |
 | project_accession | archive project or accession family anchor for the sample |
+| source_native_identity_kind | whether the source identity is a biological sample; sequencing experiments without an authoritative sample mapping are refused |
+| archive_native_sample_id | archive biological-sample accession only; experiment accessions must never populate this field |
 | paper_doi_or_paper_url | primary publication anchor for the sample claim |
 | supplementary_source_or_supporting_source_url | supporting file or source artifact behind location or sample detail |
 | locality_identity.locality_text | site or locality label attached to the sample |

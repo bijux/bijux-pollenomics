@@ -3,9 +3,9 @@
   "row_count": 40,
   "summary": {
     "complete_projects": 6,
-    "blocked_projects": 23,
+    "blocked_projects": 22,
     "in_progress_projects": 0,
-    "ready_for_publication_review": 11
+    "ready_for_publication_review": 12
   },
   "stage_totals": {
     "project_admission": {
@@ -27,32 +27,32 @@
       "not_required": 39
     },
     "sample_identity_recovery": {
-      "complete": 14,
-      "blocked": 0,
-      "in_progress": 20,
+      "complete": 21,
+      "blocked": 1,
+      "in_progress": 12,
       "not_required": 6
     },
     "site_recovery": {
-      "complete": 11,
-      "blocked": 20,
-      "in_progress": 3,
+      "complete": 12,
+      "blocked": 13,
+      "in_progress": 9,
       "not_required": 6
     },
     "chronology_recovery": {
-      "complete": 14,
-      "blocked": 20,
-      "in_progress": 0,
+      "complete": 18,
+      "blocked": 13,
+      "in_progress": 3,
       "not_required": 6
     },
     "coordinate_derivation": {
       "complete": 6,
-      "blocked": 23,
-      "in_progress": 5,
+      "blocked": 22,
+      "in_progress": 6,
       "not_required": 6
     },
     "publication_readiness": {
-      "complete": 11,
-      "blocked": 23,
+      "complete": 12,
+      "blocked": 22,
       "in_progress": 0,
       "not_required": 6
     }
@@ -65,32 +65,35 @@
       "archive_status": "paper_pinned_core",
       "evidence_strength": "primary_paper_pinned",
       "inventory_disposition": "tracked_intake_candidate",
-      "evidence_acquisition_state": "repository_supplement_captured_needs_extraction",
+      "evidence_acquisition_state": "sample_tables_published",
       "expected_sample_count": null,
       "expected_sample_count_status": "not_yet_curated",
       "expected_sample_count_provenance": "No trustworthy expected sample count is published yet because the current archive or paper capture is still too weak.",
       "expected_sample_count_artifact_path": "data/adna/governance/source_library/projects/PRJEB31621/archive_metadata.html",
       "minimum_expected_sample_count": 1,
-      "recovered_sample_count": 0,
-      "final_sample_count": 0,
+      "recovered_sample_count": 77,
+      "final_sample_count": 77,
       "unresolved_sample_count": null,
-      "minimum_gap_count": 1,
+      "minimum_gap_count": 0,
       "sample_identifier_status": "manual_curation_required",
-      "sample_table_extraction_status": "published_empty",
+      "sample_table_extraction_status": "project_sample_master_published",
       "paper_download_status": "archived",
       "supplement_download_status": "archived",
-      "lacking_defensible_site_assignment_count": 0,
+      "lacking_defensible_site_assignment_count": 77,
       "named_place_inferred_count": 0,
       "sample_group_site_count": 0,
-      "missing_chronology_count": 0,
+      "missing_chronology_count": 77,
       "chronology_conflict_count": 0,
-      "chronology_ambiguity_count": 0,
+      "chronology_ambiguity_count": 77,
       "mappable_coordinate_count": 0,
       "coordinate_blocked_count": 0,
-      "publication_blocked_by_locality_substitution": false,
+      "publication_blocked_by_locality_substitution": true,
       "expected_contributions": [
         "sample_identities",
-        "taxonomic_context"
+        "taxonomic_context",
+        "site_evidence",
+        "coordinate_candidates",
+        "sample_chronology"
       ],
       "expected_contribution_surfaces": [
         "data/adna/governance/source_library/projects/PRJEB31621/archive_metadata.html",
@@ -101,27 +104,25 @@
         "project_admission": "complete",
         "paper_capture": "complete",
         "supplement_capture": "not_required",
-        "sample_identity_recovery": "in_progress",
-        "site_recovery": "blocked",
-        "chronology_recovery": "blocked",
+        "sample_identity_recovery": "complete",
+        "site_recovery": "in_progress",
+        "chronology_recovery": "in_progress",
         "coordinate_derivation": "blocked",
         "publication_readiness": "blocked"
       },
       "blocking_stages": [
-        "site_recovery",
-        "chronology_recovery",
         "coordinate_derivation",
         "publication_readiness"
       ],
-      "next_required_stage": "sample_identity_recovery",
+      "next_required_stage": "site_recovery",
       "publication_readiness_status": "blocked",
       "overall_recovery_status": "blocked_projects",
-      "completed_stage_count": 2,
+      "completed_stage_count": 3,
       "required_stage_count": 7,
-      "recovery_depth_score": 0.2857,
-      "recovery_gap_status": "extractable_sources_but_no_governed_samples",
-      "implausibly_low_recovery": true,
-      "implausibly_low_recovery_reason": "Readable paper or supplementary capture exists, but the governed sample master still publishes zero recovered rows.",
+      "recovery_depth_score": 0.4286,
+      "recovery_gap_status": "minimum_expected_floor_met",
+      "implausibly_low_recovery": false,
+      "implausibly_low_recovery_reason": "",
       "known_assets": [
         "adna/governance/source_library/papers/10.1126-science.aav1002/supplementary/aav1002_verdugo_sm.pdf",
         "adna/governance/source_library/papers/10.1126-science.aav1002/article.html",
@@ -134,11 +135,12 @@
         "data/adna/governance/source_library/projects/PRJEB31621/sample_locality_evidence.json"
       ],
       "missing_assets": [
-        "No final governed sample rows are published yet."
+        "Some recovered sample rows still lack a defensible site assignment.",
+        "Some recovered sample rows still lack sample-level chronology."
       ],
       "major_deficit_reasons": [
-        "implausibly_low_sample_recovery",
-        "sample_recovery_gap"
+        "site_assignment_gap",
+        "chronology_gap"
       ]
     },
     {
@@ -148,32 +150,35 @@
       "archive_status": "paper_pinned_core",
       "evidence_strength": "primary_paper_pinned",
       "inventory_disposition": "tracked_intake_candidate",
-      "evidence_acquisition_state": "repository_supplement_captured_needs_extraction",
+      "evidence_acquisition_state": "sample_tables_published",
       "expected_sample_count": null,
       "expected_sample_count_status": "not_yet_curated",
       "expected_sample_count_provenance": "The project is paper-pinned, but the expected sample count still needs to be recovered from the listed article or supplementary targets.",
       "expected_sample_count_artifact_path": "",
       "minimum_expected_sample_count": 1,
-      "recovered_sample_count": 0,
-      "final_sample_count": 0,
+      "recovered_sample_count": 44,
+      "final_sample_count": 44,
       "unresolved_sample_count": null,
-      "minimum_gap_count": 1,
+      "minimum_gap_count": 0,
       "sample_identifier_status": "paper_or_supplement_targets_curated",
-      "sample_table_extraction_status": "published_empty",
+      "sample_table_extraction_status": "project_sample_master_published",
       "paper_download_status": "archived",
       "supplement_download_status": "archived",
-      "lacking_defensible_site_assignment_count": 0,
+      "lacking_defensible_site_assignment_count": 44,
       "named_place_inferred_count": 0,
       "sample_group_site_count": 0,
-      "missing_chronology_count": 0,
+      "missing_chronology_count": 44,
       "chronology_conflict_count": 0,
-      "chronology_ambiguity_count": 0,
+      "chronology_ambiguity_count": 44,
       "mappable_coordinate_count": 0,
       "coordinate_blocked_count": 0,
-      "publication_blocked_by_locality_substitution": false,
+      "publication_blocked_by_locality_substitution": true,
       "expected_contributions": [
         "sample_identities",
-        "taxonomic_context"
+        "taxonomic_context",
+        "site_evidence",
+        "coordinate_candidates",
+        "sample_chronology"
       ],
       "expected_contribution_surfaces": [
         "data/adna/governance/source_library/projects/PRJEB75467/archive_metadata.html",
@@ -187,27 +192,25 @@
         "project_admission": "complete",
         "paper_capture": "complete",
         "supplement_capture": "not_required",
-        "sample_identity_recovery": "in_progress",
-        "site_recovery": "blocked",
-        "chronology_recovery": "blocked",
+        "sample_identity_recovery": "complete",
+        "site_recovery": "in_progress",
+        "chronology_recovery": "in_progress",
         "coordinate_derivation": "blocked",
         "publication_readiness": "blocked"
       },
       "blocking_stages": [
-        "site_recovery",
-        "chronology_recovery",
         "coordinate_derivation",
         "publication_readiness"
       ],
-      "next_required_stage": "sample_identity_recovery",
+      "next_required_stage": "site_recovery",
       "publication_readiness_status": "blocked",
       "overall_recovery_status": "blocked_projects",
-      "completed_stage_count": 2,
+      "completed_stage_count": 3,
       "required_stage_count": 7,
-      "recovery_depth_score": 0.2857,
-      "recovery_gap_status": "extractable_sources_but_no_governed_samples",
-      "implausibly_low_recovery": true,
-      "implausibly_low_recovery_reason": "Readable paper or supplementary capture exists, but the governed sample master still publishes zero recovered rows.",
+      "recovery_depth_score": 0.4286,
+      "recovery_gap_status": "minimum_expected_floor_met",
+      "implausibly_low_recovery": false,
+      "implausibly_low_recovery_reason": "",
       "known_assets": [
         "adna/governance/source_library/papers/10.1038-s41586-024-08112-6/supplementary/41586_2024_8112_MOESM1_ESM.pdf",
         "adna/governance/source_library/papers/10.1038-s41586-024-08112-6/supplementary/41586_2024_8112_MOESM2_ESM.pdf",
@@ -222,11 +225,12 @@
         "data/adna/governance/source_library/projects/PRJEB75467/sample_locality_evidence.json"
       ],
       "missing_assets": [
-        "No final governed sample rows are published yet."
+        "Some recovered sample rows still lack a defensible site assignment.",
+        "Some recovered sample rows still lack sample-level chronology."
       ],
       "major_deficit_reasons": [
-        "implausibly_low_sample_recovery",
-        "sample_recovery_gap"
+        "site_assignment_gap",
+        "chronology_gap"
       ]
     },
     {
@@ -387,7 +391,7 @@
       "archive_status": "paper_pinned_core",
       "evidence_strength": "primary_paper_pinned",
       "inventory_disposition": "tracked_intake_candidate",
-      "evidence_acquisition_state": "repository_supplement_captured_needs_extraction",
+      "evidence_acquisition_state": "sample_tables_published",
       "expected_sample_count": null,
       "expected_sample_count_status": "not_yet_curated",
       "expected_sample_count_provenance": "The project is paper-pinned, but the expected sample count still needs to be recovered from the listed article or supplementary targets.",
@@ -398,7 +402,7 @@
       "unresolved_sample_count": null,
       "minimum_gap_count": 1,
       "sample_identifier_status": "paper_or_supplement_targets_curated",
-      "sample_table_extraction_status": "published_empty",
+      "sample_table_extraction_status": "project_sample_master_published",
       "paper_download_status": "archived",
       "supplement_download_status": "archived",
       "lacking_defensible_site_assignment_count": 0,
@@ -423,13 +427,14 @@
         "project_admission": "complete",
         "paper_capture": "complete",
         "supplement_capture": "not_required",
-        "sample_identity_recovery": "in_progress",
+        "sample_identity_recovery": "blocked",
         "site_recovery": "blocked",
         "chronology_recovery": "blocked",
         "coordinate_derivation": "blocked",
         "publication_readiness": "blocked"
       },
       "blocking_stages": [
+        "sample_identity_recovery",
         "site_recovery",
         "chronology_recovery",
         "coordinate_derivation",
@@ -441,9 +446,9 @@
       "completed_stage_count": 2,
       "required_stage_count": 7,
       "recovery_depth_score": 0.2857,
-      "recovery_gap_status": "extractable_sources_but_no_governed_samples",
-      "implausibly_low_recovery": true,
-      "implausibly_low_recovery_reason": "Readable paper or supplementary capture exists, but the governed sample master still publishes zero recovered rows.",
+      "recovery_gap_status": "paper_or_capture_gap_blocks_estimate",
+      "implausibly_low_recovery": false,
+      "implausibly_low_recovery_reason": "",
       "known_assets": [
         "adna/governance/source_library/papers/10.1111-1755-0998.12551/article.html",
         "adna/governance/source_library/papers/10.1111-1755-0998.12551/crossref.json",
@@ -458,7 +463,6 @@
         "No final governed sample rows are published yet."
       ],
       "major_deficit_reasons": [
-        "implausibly_low_sample_recovery",
         "sample_recovery_gap"
       ]
     },
@@ -1933,32 +1937,34 @@
       "archive_status": "paper_pinned_core",
       "evidence_strength": "primary_paper_pinned",
       "inventory_disposition": "tracked_intake_candidate",
-      "evidence_acquisition_state": "repository_supplement_captured_needs_extraction",
+      "evidence_acquisition_state": "sample_tables_published",
       "expected_sample_count": null,
       "expected_sample_count_status": "not_yet_curated",
       "expected_sample_count_provenance": "The project is paper-pinned, but the expected sample count still needs to be recovered from the listed article or supplementary targets.",
       "expected_sample_count_artifact_path": "",
       "minimum_expected_sample_count": 1,
-      "recovered_sample_count": 0,
-      "final_sample_count": 0,
+      "recovered_sample_count": 87,
+      "final_sample_count": 87,
       "unresolved_sample_count": null,
-      "minimum_gap_count": 1,
+      "minimum_gap_count": 0,
       "sample_identifier_status": "paper_or_supplement_targets_curated",
-      "sample_table_extraction_status": "published_empty",
+      "sample_table_extraction_status": "project_sample_master_published",
       "paper_download_status": "archived",
       "supplement_download_status": "archived",
-      "lacking_defensible_site_assignment_count": 0,
+      "lacking_defensible_site_assignment_count": 87,
       "named_place_inferred_count": 0,
       "sample_group_site_count": 0,
       "missing_chronology_count": 0,
       "chronology_conflict_count": 0,
-      "chronology_ambiguity_count": 0,
+      "chronology_ambiguity_count": 87,
       "mappable_coordinate_count": 0,
-      "coordinate_blocked_count": 1,
-      "publication_blocked_by_locality_substitution": false,
+      "coordinate_blocked_count": 88,
+      "publication_blocked_by_locality_substitution": true,
       "expected_contributions": [
         "sample_identities",
-        "taxonomic_context"
+        "taxonomic_context",
+        "site_evidence",
+        "coordinate_candidates"
       ],
       "expected_contribution_surfaces": [
         "data/adna/governance/source_library/projects/PRJEB81815/archive_metadata.html",
@@ -1971,27 +1977,25 @@
         "project_admission": "complete",
         "paper_capture": "complete",
         "supplement_capture": "not_required",
-        "sample_identity_recovery": "in_progress",
-        "site_recovery": "blocked",
-        "chronology_recovery": "blocked",
+        "sample_identity_recovery": "complete",
+        "site_recovery": "in_progress",
+        "chronology_recovery": "complete",
         "coordinate_derivation": "blocked",
         "publication_readiness": "blocked"
       },
       "blocking_stages": [
-        "site_recovery",
-        "chronology_recovery",
         "coordinate_derivation",
         "publication_readiness"
       ],
-      "next_required_stage": "sample_identity_recovery",
+      "next_required_stage": "site_recovery",
       "publication_readiness_status": "blocked",
       "overall_recovery_status": "blocked_projects",
-      "completed_stage_count": 2,
+      "completed_stage_count": 4,
       "required_stage_count": 7,
-      "recovery_depth_score": 0.2857,
-      "recovery_gap_status": "extractable_sources_but_no_governed_samples",
-      "implausibly_low_recovery": true,
-      "implausibly_low_recovery_reason": "Readable paper or supplementary capture exists, but the governed sample master still publishes zero recovered rows.",
+      "recovery_depth_score": 0.5714,
+      "recovery_gap_status": "minimum_expected_floor_met",
+      "implausibly_low_recovery": false,
+      "implausibly_low_recovery_reason": "",
       "known_assets": [
         "adna/governance/source_library/papers/10.1126-science.adt2642/article.html",
         "adna/governance/source_library/papers/10.1126-science.adt2642/crossref.json",
@@ -2005,11 +2009,10 @@
         "data/adna/governance/source_library/projects/PRJEB81815/sample_locality_evidence.json"
       ],
       "missing_assets": [
-        "No final governed sample rows are published yet."
+        "Some recovered sample rows still lack a defensible site assignment."
       ],
       "major_deficit_reasons": [
-        "implausibly_low_sample_recovery",
-        "sample_recovery_gap",
+        "site_assignment_gap",
         "coordinate_precision_gap"
       ]
     },
@@ -2020,26 +2023,26 @@
       "archive_status": "paper_pinned_core",
       "evidence_strength": "primary_paper_pinned",
       "inventory_disposition": "tracked_intake_candidate",
-      "evidence_acquisition_state": "repository_supplement_captured_needs_extraction",
+      "evidence_acquisition_state": "sample_tables_published",
       "expected_sample_count": null,
       "expected_sample_count_status": "not_yet_curated",
       "expected_sample_count_provenance": "The project is paper-pinned, but the expected sample count still needs to be recovered from the listed article or supplementary targets.",
       "expected_sample_count_artifact_path": "",
       "minimum_expected_sample_count": 1,
-      "recovered_sample_count": 0,
-      "final_sample_count": 0,
+      "recovered_sample_count": 22,
+      "final_sample_count": 22,
       "unresolved_sample_count": null,
-      "minimum_gap_count": 1,
+      "minimum_gap_count": 0,
       "sample_identifier_status": "paper_or_supplement_targets_curated",
-      "sample_table_extraction_status": "published_empty",
+      "sample_table_extraction_status": "project_sample_master_published",
       "paper_download_status": "archived",
       "supplement_download_status": "archived",
       "lacking_defensible_site_assignment_count": 0,
       "named_place_inferred_count": 0,
       "sample_group_site_count": 0,
       "missing_chronology_count": 0,
-      "chronology_conflict_count": 0,
-      "chronology_ambiguity_count": 0,
+      "chronology_conflict_count": 21,
+      "chronology_ambiguity_count": 22,
       "mappable_coordinate_count": 0,
       "coordinate_blocked_count": 0,
       "publication_blocked_by_locality_substitution": false,
@@ -2063,27 +2066,22 @@
         "project_admission": "complete",
         "paper_capture": "complete",
         "supplement_capture": "not_required",
-        "sample_identity_recovery": "in_progress",
-        "site_recovery": "blocked",
-        "chronology_recovery": "blocked",
-        "coordinate_derivation": "blocked",
-        "publication_readiness": "blocked"
+        "sample_identity_recovery": "complete",
+        "site_recovery": "complete",
+        "chronology_recovery": "complete",
+        "coordinate_derivation": "in_progress",
+        "publication_readiness": "complete"
       },
-      "blocking_stages": [
-        "site_recovery",
-        "chronology_recovery",
-        "coordinate_derivation",
-        "publication_readiness"
-      ],
-      "next_required_stage": "sample_identity_recovery",
-      "publication_readiness_status": "blocked",
-      "overall_recovery_status": "blocked_projects",
-      "completed_stage_count": 2,
+      "blocking_stages": [],
+      "next_required_stage": "coordinate_derivation",
+      "publication_readiness_status": "complete",
+      "overall_recovery_status": "ready_for_publication_review",
+      "completed_stage_count": 6,
       "required_stage_count": 7,
-      "recovery_depth_score": 0.2857,
-      "recovery_gap_status": "extractable_sources_but_no_governed_samples",
-      "implausibly_low_recovery": true,
-      "implausibly_low_recovery_reason": "Readable paper or supplementary capture exists, but the governed sample master still publishes zero recovered rows.",
+      "recovery_depth_score": 0.8571,
+      "recovery_gap_status": "minimum_expected_floor_met",
+      "implausibly_low_recovery": false,
+      "implausibly_low_recovery_reason": "",
       "known_assets": [
         "adna/governance/source_library/papers/10.1016-j.xgen.2025.101099/supplementary/1-s2.0-S2666979X25003556-mmc1.pdf",
         "adna/governance/source_library/papers/10.1016-j.xgen.2025.101099/supplementary/1-s2.0-S2666979X25003556-mmc2.pdf",
@@ -2101,13 +2099,8 @@
         "data/adna/governance/source_library/projects/PRJNA1178732/sample_chronology.json",
         "data/adna/governance/source_library/projects/PRJNA1178732/sample_locality_evidence.json"
       ],
-      "missing_assets": [
-        "No final governed sample rows are published yet."
-      ],
-      "major_deficit_reasons": [
-        "implausibly_low_sample_recovery",
-        "sample_recovery_gap"
-      ]
+      "missing_assets": [],
+      "major_deficit_reasons": []
     },
     {
       "project_accession": "PRJEB36540",
@@ -2196,32 +2189,35 @@
       "archive_status": "paper_pinned_core",
       "evidence_strength": "primary_paper_pinned",
       "inventory_disposition": "tracked_intake_candidate",
-      "evidence_acquisition_state": "repository_supplement_captured_needs_extraction",
+      "evidence_acquisition_state": "sample_tables_published",
       "expected_sample_count": null,
       "expected_sample_count_status": "not_yet_curated",
       "expected_sample_count_provenance": "The project is paper-pinned, but the expected sample count still needs to be recovered from the listed article or supplementary targets.",
       "expected_sample_count_artifact_path": "",
       "minimum_expected_sample_count": 1,
-      "recovered_sample_count": 0,
-      "final_sample_count": 0,
+      "recovered_sample_count": 5,
+      "final_sample_count": 5,
       "unresolved_sample_count": null,
-      "minimum_gap_count": 1,
+      "minimum_gap_count": 0,
       "sample_identifier_status": "paper_or_supplement_targets_curated",
-      "sample_table_extraction_status": "published_empty",
+      "sample_table_extraction_status": "project_sample_master_published",
       "paper_download_status": "archived",
       "supplement_download_status": "archived",
-      "lacking_defensible_site_assignment_count": 0,
+      "lacking_defensible_site_assignment_count": 5,
       "named_place_inferred_count": 0,
       "sample_group_site_count": 0,
-      "missing_chronology_count": 0,
+      "missing_chronology_count": 5,
       "chronology_conflict_count": 0,
-      "chronology_ambiguity_count": 0,
+      "chronology_ambiguity_count": 5,
       "mappable_coordinate_count": 0,
       "coordinate_blocked_count": 0,
-      "publication_blocked_by_locality_substitution": false,
+      "publication_blocked_by_locality_substitution": true,
       "expected_contributions": [
         "sample_identities",
-        "taxonomic_context"
+        "taxonomic_context",
+        "site_evidence",
+        "coordinate_candidates",
+        "sample_chronology"
       ],
       "expected_contribution_surfaces": [
         "data/adna/governance/source_library/projects/PRJEB41594/archive_metadata.html",
@@ -2235,27 +2231,25 @@
         "project_admission": "complete",
         "paper_capture": "complete",
         "supplement_capture": "not_required",
-        "sample_identity_recovery": "in_progress",
-        "site_recovery": "blocked",
-        "chronology_recovery": "blocked",
+        "sample_identity_recovery": "complete",
+        "site_recovery": "in_progress",
+        "chronology_recovery": "in_progress",
         "coordinate_derivation": "blocked",
         "publication_readiness": "blocked"
       },
       "blocking_stages": [
-        "site_recovery",
-        "chronology_recovery",
         "coordinate_derivation",
         "publication_readiness"
       ],
-      "next_required_stage": "sample_identity_recovery",
+      "next_required_stage": "site_recovery",
       "publication_readiness_status": "blocked",
       "overall_recovery_status": "blocked_projects",
-      "completed_stage_count": 2,
+      "completed_stage_count": 3,
       "required_stage_count": 7,
-      "recovery_depth_score": 0.2857,
-      "recovery_gap_status": "extractable_sources_but_no_governed_samples",
-      "implausibly_low_recovery": true,
-      "implausibly_low_recovery_reason": "Readable paper or supplementary capture exists, but the governed sample master still publishes zero recovered rows.",
+      "recovery_depth_score": 0.4286,
+      "recovery_gap_status": "minimum_expected_floor_met",
+      "implausibly_low_recovery": false,
+      "implausibly_low_recovery_reason": "",
       "known_assets": [
         "adna/governance/source_library/papers/10.1038-s41562-021-01083-y/supplementary/41562_2021_1083_MOESM1_ESM.pdf",
         "adna/governance/source_library/papers/10.1038-s41562-021-01083-y/supplementary/41562_2021_1083_MOESM2_ESM.pdf",
@@ -2270,11 +2264,12 @@
         "data/adna/governance/source_library/projects/PRJEB41594/sample_locality_evidence.json"
       ],
       "missing_assets": [
-        "No final governed sample rows are published yet."
+        "Some recovered sample rows still lack a defensible site assignment.",
+        "Some recovered sample rows still lack sample-level chronology."
       ],
       "major_deficit_reasons": [
-        "implausibly_low_sample_recovery",
-        "sample_recovery_gap"
+        "site_assignment_gap",
+        "chronology_gap"
       ]
     },
     {
@@ -2284,32 +2279,34 @@
       "archive_status": "paper_pinned_core",
       "evidence_strength": "primary_paper_pinned",
       "inventory_disposition": "tracked_intake_candidate",
-      "evidence_acquisition_state": "repository_supplement_captured_needs_extraction",
+      "evidence_acquisition_state": "sample_tables_published",
       "expected_sample_count": null,
       "expected_sample_count_status": "not_yet_curated",
       "expected_sample_count_provenance": "The project is paper-pinned, but the expected sample count still needs to be recovered from the listed article or supplementary targets.",
       "expected_sample_count_artifact_path": "",
       "minimum_expected_sample_count": 1,
-      "recovered_sample_count": 0,
-      "final_sample_count": 0,
+      "recovered_sample_count": 5,
+      "final_sample_count": 5,
       "unresolved_sample_count": null,
-      "minimum_gap_count": 1,
+      "minimum_gap_count": 0,
       "sample_identifier_status": "paper_or_supplement_targets_curated",
-      "sample_table_extraction_status": "published_empty",
+      "sample_table_extraction_status": "project_sample_master_published",
       "paper_download_status": "archived",
       "supplement_download_status": "archived",
-      "lacking_defensible_site_assignment_count": 0,
+      "lacking_defensible_site_assignment_count": 5,
       "named_place_inferred_count": 0,
       "sample_group_site_count": 0,
       "missing_chronology_count": 0,
       "chronology_conflict_count": 0,
-      "chronology_ambiguity_count": 0,
+      "chronology_ambiguity_count": 5,
       "mappable_coordinate_count": 0,
-      "coordinate_blocked_count": 1,
-      "publication_blocked_by_locality_substitution": false,
+      "coordinate_blocked_count": 6,
+      "publication_blocked_by_locality_substitution": true,
       "expected_contributions": [
         "sample_identities",
-        "taxonomic_context"
+        "taxonomic_context",
+        "site_evidence",
+        "coordinate_candidates"
       ],
       "expected_contribution_surfaces": [
         "data/adna/governance/source_library/projects/PRJEB59481/archive_metadata.html",
@@ -2321,27 +2318,25 @@
         "project_admission": "complete",
         "paper_capture": "complete",
         "supplement_capture": "not_required",
-        "sample_identity_recovery": "in_progress",
-        "site_recovery": "blocked",
-        "chronology_recovery": "blocked",
+        "sample_identity_recovery": "complete",
+        "site_recovery": "in_progress",
+        "chronology_recovery": "complete",
         "coordinate_derivation": "blocked",
         "publication_readiness": "blocked"
       },
       "blocking_stages": [
-        "site_recovery",
-        "chronology_recovery",
         "coordinate_derivation",
         "publication_readiness"
       ],
-      "next_required_stage": "sample_identity_recovery",
+      "next_required_stage": "site_recovery",
       "publication_readiness_status": "blocked",
       "overall_recovery_status": "blocked_projects",
-      "completed_stage_count": 2,
+      "completed_stage_count": 4,
       "required_stage_count": 7,
-      "recovery_depth_score": 0.2857,
-      "recovery_gap_status": "extractable_sources_but_no_governed_samples",
-      "implausibly_low_recovery": true,
-      "implausibly_low_recovery_reason": "Readable paper or supplementary capture exists, but the governed sample master still publishes zero recovered rows.",
+      "recovery_depth_score": 0.5714,
+      "recovery_gap_status": "minimum_expected_floor_met",
+      "implausibly_low_recovery": false,
+      "implausibly_low_recovery_reason": "",
       "known_assets": [
         "adna/governance/source_library/papers/10.1093-gbe-evae114/supplementary/Supplementary Figures Baltic Sheep.pdf",
         "adna/governance/source_library/papers/10.1093-gbe-evae114/supplementary/SupplementaryTables_Revision2.xlsx",
@@ -2353,11 +2348,10 @@
         "data/adna/governance/source_library/projects/PRJEB59481/sample_locality_evidence.json"
       ],
       "missing_assets": [
-        "No final governed sample rows are published yet."
+        "Some recovered sample rows still lack a defensible site assignment."
       ],
       "major_deficit_reasons": [
-        "implausibly_low_sample_recovery",
-        "sample_recovery_gap",
+        "site_assignment_gap",
         "coordinate_precision_gap"
       ]
     },
@@ -2876,32 +2870,34 @@
       "archive_status": "paper_pinned_core",
       "evidence_strength": "primary_paper_pinned",
       "inventory_disposition": "tracked_intake_candidate",
-      "evidence_acquisition_state": "repository_supplement_captured_needs_extraction",
+      "evidence_acquisition_state": "sample_tables_published",
       "expected_sample_count": null,
       "expected_sample_count_status": "not_yet_curated",
       "expected_sample_count_provenance": "The project is paper-pinned, but the expected sample count still needs to be recovered from the listed article or supplementary targets.",
       "expected_sample_count_artifact_path": "",
       "minimum_expected_sample_count": 1,
-      "recovered_sample_count": 0,
-      "final_sample_count": 0,
+      "recovered_sample_count": 343,
+      "final_sample_count": 343,
       "unresolved_sample_count": null,
-      "minimum_gap_count": 1,
+      "minimum_gap_count": 0,
       "sample_identifier_status": "paper_or_supplement_targets_curated",
-      "sample_table_extraction_status": "published_empty",
+      "sample_table_extraction_status": "project_sample_master_published",
       "paper_download_status": "archived",
       "supplement_download_status": "archived",
-      "lacking_defensible_site_assignment_count": 0,
+      "lacking_defensible_site_assignment_count": 343,
       "named_place_inferred_count": 0,
       "sample_group_site_count": 0,
       "missing_chronology_count": 0,
       "chronology_conflict_count": 0,
-      "chronology_ambiguity_count": 0,
+      "chronology_ambiguity_count": 343,
       "mappable_coordinate_count": 0,
-      "coordinate_blocked_count": 1,
-      "publication_blocked_by_locality_substitution": false,
+      "coordinate_blocked_count": 344,
+      "publication_blocked_by_locality_substitution": true,
       "expected_contributions": [
         "sample_identities",
-        "taxonomic_context"
+        "taxonomic_context",
+        "site_evidence",
+        "coordinate_candidates"
       ],
       "expected_contribution_surfaces": [
         "data/adna/governance/source_library/projects/PRJEB30282/archive_metadata.html",
@@ -2914,27 +2910,25 @@
         "project_admission": "complete",
         "paper_capture": "complete",
         "supplement_capture": "not_required",
-        "sample_identity_recovery": "in_progress",
-        "site_recovery": "blocked",
-        "chronology_recovery": "blocked",
+        "sample_identity_recovery": "complete",
+        "site_recovery": "in_progress",
+        "chronology_recovery": "complete",
         "coordinate_derivation": "blocked",
         "publication_readiness": "blocked"
       },
       "blocking_stages": [
-        "site_recovery",
-        "chronology_recovery",
         "coordinate_derivation",
         "publication_readiness"
       ],
-      "next_required_stage": "sample_identity_recovery",
+      "next_required_stage": "site_recovery",
       "publication_readiness_status": "blocked",
       "overall_recovery_status": "blocked_projects",
-      "completed_stage_count": 2,
+      "completed_stage_count": 4,
       "required_stage_count": 7,
-      "recovery_depth_score": 0.2857,
-      "recovery_gap_status": "extractable_sources_but_no_governed_samples",
-      "implausibly_low_recovery": true,
-      "implausibly_low_recovery_reason": "Readable paper or supplementary capture exists, but the governed sample master still publishes zero recovered rows.",
+      "recovery_depth_score": 0.5714,
+      "recovery_gap_status": "minimum_expected_floor_met",
+      "implausibly_low_recovery": false,
+      "implausibly_low_recovery_reason": "",
       "known_assets": [
         "adna/governance/source_library/papers/10.1073-pnas.1901169116/article.html",
         "adna/governance/source_library/papers/10.1073-pnas.1901169116/crossref.json",
@@ -2948,11 +2942,10 @@
         "data/adna/governance/source_library/projects/PRJEB30282/sample_locality_evidence.json"
       ],
       "missing_assets": [
-        "No final governed sample rows are published yet."
+        "Some recovered sample rows still lack a defensible site assignment."
       ],
       "major_deficit_reasons": [
-        "implausibly_low_sample_recovery",
-        "sample_recovery_gap",
+        "site_assignment_gap",
         "coordinate_precision_gap"
       ]
     },

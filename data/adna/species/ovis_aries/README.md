@@ -22,7 +22,7 @@ flowchart LR
 - Product role: `domesticated_core`
 - Dataset bucket: `archive_verified_needs_paper_pinning`
 - Curation class: `paper_pinned_core`
-- Curated sample rows: `190`
+- Curated sample rows: `200`
 - Curated projects: `3`
 - Curated site rows: `7`
 - Direct-coordinate rows: `0`
@@ -30,9 +30,9 @@ flowchart LR
 - Unresolved sample rows: `0`
 - Mapped Nordic rows: `1`
 - Tracked intake projects: `6`
-- Projects with sample recovery gaps: `2`
-- Projects with site-recovery gaps: `0`
-- Projects with chronology gaps: `0`
+- Projects with sample recovery gaps: `0`
+- Projects with site-recovery gaps: `2`
+- Projects with chronology gaps: `1`
 - Projects blocked before publication review: `5`
 - Pending projects: `3`
 - Rejected projects: `0`

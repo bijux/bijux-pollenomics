@@ -14,7 +14,7 @@
       "source_token": "PRJEB43564:PRJEB43564",
       "record_kind": "sample_record",
       "reason": "sample_evidence_not_yet_recoverable",
-      "detail": "Source-native project/sample accounting remains available, but this placeholder is refused from normalized sample artifacts because it is not recovered evidence: inclusion_status=sample_context_blocked; sample_evidence_status=not_yet_recoverable; sample_identity_resolution=provisional."
+      "detail": "Source-native identity evidence remains available, but this placeholder is refused from normalized biological-sample artifacts: inclusion_status=sample_context_blocked; sample_evidence_status=not_yet_recoverable; sample_identity_resolution=provisional."
     },
     {
       "schema_version": "adna-normalization-refusal.v1",
@@ -22,7 +22,7 @@
       "source_token": "PRJEB50952:PRJEB50952",
       "record_kind": "sample_record",
       "reason": "sample_evidence_not_yet_recoverable",
-      "detail": "Source-native project/sample accounting remains available, but this placeholder is refused from normalized sample artifacts because it is not recovered evidence: inclusion_status=sample_context_blocked; sample_evidence_status=not_yet_recoverable; sample_identity_resolution=provisional."
+      "detail": "Source-native identity evidence remains available, but this placeholder is refused from normalized biological-sample artifacts: inclusion_status=sample_context_blocked; sample_evidence_status=not_yet_recoverable; sample_identity_resolution=provisional."
     },
     {
       "schema_version": "adna-normalization-refusal.v1",
@@ -30,7 +30,7 @@
       "source_token": "PRJEB52590:PRJEB52590",
       "record_kind": "sample_record",
       "reason": "sample_evidence_not_yet_recoverable",
-      "detail": "Source-native project/sample accounting remains available, but this placeholder is refused from normalized sample artifacts because it is not recovered evidence: inclusion_status=sample_context_blocked; sample_evidence_status=not_yet_recoverable; sample_identity_resolution=provisional."
+      "detail": "Source-native identity evidence remains available, but this placeholder is refused from normalized biological-sample artifacts: inclusion_status=sample_context_blocked; sample_evidence_status=not_yet_recoverable; sample_identity_resolution=provisional."
     },
     {
       "schema_version": "adna-normalization-refusal.v1",
@@ -38,7 +38,7 @@
       "source_token": "PRJEB52849:PRJEB52849",
       "record_kind": "sample_record",
       "reason": "sample_evidence_not_yet_recoverable",
-      "detail": "Source-native project/sample accounting remains available, but this placeholder is refused from normalized sample artifacts because it is not recovered evidence: inclusion_status=comparator_site_curated; sample_evidence_status=not_yet_recoverable; sample_identity_resolution=provisional."
+      "detail": "Source-native identity evidence remains available, but this placeholder is refused from normalized biological-sample artifacts: inclusion_status=comparator_site_curated; sample_evidence_status=not_yet_recoverable; sample_identity_resolution=provisional."
     },
     {
       "schema_version": "adna-normalization-refusal.v1",
@@ -46,7 +46,7 @@
       "source_token": "PRJEB55549:PRJEB55549",
       "record_kind": "sample_record",
       "reason": "sample_evidence_not_yet_recoverable",
-      "detail": "Source-native project/sample accounting remains available, but this placeholder is refused from normalized sample artifacts because it is not recovered evidence: inclusion_status=sample_context_blocked; sample_evidence_status=not_yet_recoverable; sample_identity_resolution=provisional."
+      "detail": "Source-native identity evidence remains available, but this placeholder is refused from normalized biological-sample artifacts: inclusion_status=sample_context_blocked; sample_evidence_status=not_yet_recoverable; sample_identity_resolution=provisional."
     }
   ]
 }

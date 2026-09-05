@@ -11,6 +11,42 @@
       "blocked_sample_count": 0
     },
     {
+      "project_accession": "PRJEB30282",
+      "species_latin_name": "Sus scrofa domesticus",
+      "publication_blocked": true,
+      "reason": "project_level_locality_row_cannot_stand_in_for_all_samples",
+      "distinct_sample_owned_locality_count": 0,
+      "project_context_row_count": 3,
+      "blocked_sample_count": 343
+    },
+    {
+      "project_accession": "PRJEB31621",
+      "species_latin_name": "Bos taurus",
+      "publication_blocked": true,
+      "reason": "project_level_locality_row_cannot_stand_in_for_all_samples",
+      "distinct_sample_owned_locality_count": 0,
+      "project_context_row_count": 1,
+      "blocked_sample_count": 77
+    },
+    {
+      "project_accession": "PRJEB41594",
+      "species_latin_name": "Ovis aries",
+      "publication_blocked": true,
+      "reason": "project_level_locality_row_cannot_stand_in_for_all_samples",
+      "distinct_sample_owned_locality_count": 0,
+      "project_context_row_count": 1,
+      "blocked_sample_count": 5
+    },
+    {
+      "project_accession": "PRJEB59481",
+      "species_latin_name": "Ovis aries",
+      "publication_blocked": true,
+      "reason": "project_level_locality_row_cannot_stand_in_for_all_samples",
+      "distinct_sample_owned_locality_count": 0,
+      "project_context_row_count": 3,
+      "blocked_sample_count": 5
+    },
+    {
       "project_accession": "PRJEB60484",
       "species_latin_name": "Rangifer tarandus",
       "publication_blocked": true,
@@ -18,6 +54,24 @@
       "distinct_sample_owned_locality_count": 0,
       "project_context_row_count": 3,
       "blocked_sample_count": 20
+    },
+    {
+      "project_accession": "PRJEB75467",
+      "species_latin_name": "Bos taurus",
+      "publication_blocked": true,
+      "reason": "project_level_locality_row_cannot_stand_in_for_all_samples",
+      "distinct_sample_owned_locality_count": 0,
+      "project_context_row_count": 1,
+      "blocked_sample_count": 44
+    },
+    {
+      "project_accession": "PRJEB81815",
+      "species_latin_name": "Felis catus",
+      "publication_blocked": true,
+      "reason": "project_level_locality_row_cannot_stand_in_for_all_samples",
+      "distinct_sample_owned_locality_count": 0,
+      "project_context_row_count": 3,
+      "blocked_sample_count": 87
     },
     {
       "project_accession": "PRJNA1328209",

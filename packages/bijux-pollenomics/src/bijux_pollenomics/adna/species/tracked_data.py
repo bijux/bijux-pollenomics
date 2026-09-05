@@ -493,6 +493,8 @@ def _render_sample_records_csv(bundle: object) -> str:
         "sample_evidence_status",
         "sample_identity_resolution",
         "archive_native_sample_id",
+        "archive_native_experiment_id",
+        "source_native_identity_kind",
         "paper_native_sample_label",
         "supplementary_table_sample_label",
         "sample_lineage_path",
@@ -541,6 +543,8 @@ def _render_sample_records_csv(bundle: object) -> str:
                 "sample_evidence_status": sample.sample_evidence_status,
                 "sample_identity_resolution": sample.sample_identity_resolution,
                 "archive_native_sample_id": sample.archive_native_sample_id,
+                "archive_native_experiment_id": sample.archive_native_experiment_id,
+                "source_native_identity_kind": sample.source_native_identity_kind,
                 "paper_native_sample_label": sample.paper_native_sample_label,
                 "supplementary_table_sample_label": sample.supplementary_table_sample_label,
                 "sample_lineage_path": sample.sample_lineage_path,
@@ -1064,7 +1068,7 @@ def _render_support_summary_markdown(output_root: Path, species_name: str) -> st
         + (
             "\n".join(f"- `{reason}`" for reason in review.blocking_reasons)
             if review.blocking_reasons
-            else "- none\n"
+            else "- none"
         )
         + "\n"
     )

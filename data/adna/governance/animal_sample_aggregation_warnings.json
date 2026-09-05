@@ -1,7 +1,7 @@
 {
   "schema_version": "animal-sample-aggregation-warnings.v1",
   "summary": {
-    "total_sample_row_count": 868,
+    "total_sample_row_count": 1451,
     "project_accession_anchor_count": 0,
     "accession_range_anchor_count": 0,
     "sample_accession_anchor_count": 1,

@@ -16,6 +16,7 @@ from bijux_pollenomics.adna.sources.recovery import (
     build_source_recovery_progress,
     build_source_recovery_release_guard,
     build_species_project_deficit_ledger,
+    render_source_recovery_release_guard_markdown,
 )
 
 pytestmark = pytest.mark.generated_artifacts
@@ -47,7 +48,7 @@ class AdnaSourceRecoveryUnitTests(unittest.TestCase):
             {"complete", "blocked", "not_required"},
         )
 
-    def test_expected_sample_yield_review_and_release_guard_surface_thin_recovery(
+    def test_expected_sample_yield_review_and_release_guard_accept_recovered_sources(
         self,
     ) -> None:
         payload = build_project_expected_sample_yield_review(self.data_root)
@@ -57,12 +58,23 @@ class AdnaSourceRecoveryUnitTests(unittest.TestCase):
             payload["schema_version"],
             "animal-project-expected-sample-yield-review.v1",
         )
-        self.assertGreater(
+        self.assertEqual(
             payload["counts"]["projects_with_implausibly_low_recovery"],
             0,
         )
-        self.assertFalse(guard["passing"])
-        self.assertGreater(guard["implausibly_low_recovery_project_count"], 0)
+        self.assertTrue(guard["passing"])
+        self.assertEqual(guard["implausibly_low_recovery_project_count"], 0)
+        markdown = render_source_recovery_release_guard_markdown(guard)
+        self.assertTrue(markdown.endswith("\n"))
+        self.assertFalse(markdown.endswith("\n\n"))
+
+        srp = next(
+            row for row in payload["rows"] if row["project_accession"] == "SRP073444"
+        )
+        self.assertEqual(srp["recovered_sample_count"], 0)
+        self.assertEqual(srp["final_sample_count"], 0)
+        self.assertEqual(srp["stage_statuses"]["sample_identity_recovery"], "blocked")
+        self.assertIn("sample_recovery_gap", srp["major_deficit_reasons"])
 
     def test_paper_species_and_manual_work_surfaces_stay_actionable(self) -> None:
         paper_payload = build_paper_expected_sample_yield_review(self.data_root)
@@ -105,6 +117,19 @@ class AdnaSourceRecoveryUnitTests(unittest.TestCase):
         self.assertIn("stage_statuses", payload)
         self.assertIn("expected_contribution_surfaces", payload)
         self.assertIn("major_deficit_reasons", payload)
+
+    def test_generated_markdown_has_one_terminal_newline(self) -> None:
+        paths = (
+            self.data_root
+            / "adna/governance/source_library/source_recovery_release_guard.md",
+            self.data_root
+            / "adna/species/camelus_dromedarius/reports/support_summary.md",
+            self.data_root / "adna/species/felis_catus/reports/support_summary.md",
+        )
+        for path in paths:
+            content = path.read_text(encoding="utf-8")
+            self.assertTrue(content.endswith("\n"), path)
+            self.assertFalse(content.endswith("\n\n"), path)
 
 
 if __name__ == "__main__":

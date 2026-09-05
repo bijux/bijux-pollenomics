@@ -7,5 +7,7 @@
   "project_accession": "PRJEB31621",
   "storage_byte_size": 14596,
   "storage_path": "adna/governance/source_library/projects/PRJEB31621/archive_metadata.html.gz",
-  "content_encoding": "gzip"
+  "content_encoding": "gzip",
+  "content_sha256": "3fa7867b615e14cb5333e8c70d8df3329084a932ebd29d65fd00502d95781ced",
+  "storage_sha256": "6f958dbaf61775f20e5acf59fe3a3616ab6ec3ef9ac9b8399a00e1e9e82a6487"
 }

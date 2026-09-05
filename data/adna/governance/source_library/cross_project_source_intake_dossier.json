@@ -2,8 +2,8 @@
   "schema_version": "adna-source-inventory.v1",
   "row_count": 40,
   "counts": {
-    "projects_with_site_expectation": 8,
-    "projects_with_chronology_expectation": 8,
+    "projects_with_site_expectation": 1,
+    "projects_with_chronology_expectation": 1,
     "projects_with_identifier_expectation": 27
   },
   "rows": [
@@ -12,13 +12,10 @@
       "species_latin_name": "Bos taurus",
       "paper_doi": "10.1126/science.aav1002",
       "inventory_disposition": "tracked_intake_candidate",
-      "evidence_acquisition_state": "repository_supplement_captured_needs_extraction",
+      "evidence_acquisition_state": "sample_tables_published",
       "expected_contributions": [
         "sample_identifiers",
-        "taxonomic_context",
-        "site_names",
-        "coordinate_resolution_candidate",
-        "chronology"
+        "taxonomic_context"
       ],
       "expected_sample_count_status": "not_yet_curated",
       "sample_identifier_status": "manual_curation_required",
@@ -33,13 +30,10 @@
       "species_latin_name": "Bos taurus",
       "paper_doi": "10.1038/s41586-024-08112-6",
       "inventory_disposition": "tracked_intake_candidate",
-      "evidence_acquisition_state": "repository_supplement_captured_needs_extraction",
+      "evidence_acquisition_state": "sample_tables_published",
       "expected_contributions": [
         "sample_identifiers",
-        "taxonomic_context",
-        "site_names",
-        "coordinate_resolution_candidate",
-        "chronology"
+        "taxonomic_context"
       ],
       "expected_sample_count_status": "not_yet_curated",
       "sample_identifier_status": "paper_or_supplement_targets_curated",
@@ -86,7 +80,7 @@
       "species_latin_name": "Camelus dromedarius",
       "paper_doi": "10.1111/1755-0998.12551",
       "inventory_disposition": "tracked_intake_candidate",
-      "evidence_acquisition_state": "repository_supplement_captured_needs_extraction",
+      "evidence_acquisition_state": "sample_tables_published",
       "expected_contributions": [
         "sample_identifiers",
         "taxonomic_context",
@@ -417,13 +411,10 @@
       "species_latin_name": "Felis catus",
       "paper_doi": "10.1126/science.adt2642",
       "inventory_disposition": "tracked_intake_candidate",
-      "evidence_acquisition_state": "repository_supplement_captured_needs_extraction",
+      "evidence_acquisition_state": "sample_tables_published",
       "expected_contributions": [
         "sample_identifiers",
-        "taxonomic_context",
-        "site_names",
-        "coordinate_resolution_candidate",
-        "chronology"
+        "taxonomic_context"
       ],
       "expected_sample_count_status": "not_yet_curated",
       "sample_identifier_status": "paper_or_supplement_targets_curated",
@@ -438,13 +429,10 @@
       "species_latin_name": "Felis catus",
       "paper_doi": "10.1016/j.xgen.2025.101099",
       "inventory_disposition": "tracked_intake_candidate",
-      "evidence_acquisition_state": "repository_supplement_captured_needs_extraction",
+      "evidence_acquisition_state": "sample_tables_published",
       "expected_contributions": [
         "sample_identifiers",
-        "taxonomic_context",
-        "site_names",
-        "coordinate_resolution_candidate",
-        "chronology"
+        "taxonomic_context"
       ],
       "expected_sample_count_status": "not_yet_curated",
       "sample_identifier_status": "paper_or_supplement_targets_curated",
@@ -477,13 +465,10 @@
       "species_latin_name": "Ovis aries",
       "paper_doi": "10.1038/s41562-021-01083-y",
       "inventory_disposition": "tracked_intake_candidate",
-      "evidence_acquisition_state": "repository_supplement_captured_needs_extraction",
+      "evidence_acquisition_state": "sample_tables_published",
       "expected_contributions": [
         "sample_identifiers",
-        "taxonomic_context",
-        "site_names",
-        "coordinate_resolution_candidate",
-        "chronology"
+        "taxonomic_context"
       ],
       "expected_sample_count_status": "not_yet_curated",
       "sample_identifier_status": "paper_or_supplement_targets_curated",
@@ -498,13 +483,10 @@
       "species_latin_name": "Ovis aries",
       "paper_doi": "10.1093/gbe/evae114",
       "inventory_disposition": "tracked_intake_candidate",
-      "evidence_acquisition_state": "repository_supplement_captured_needs_extraction",
+      "evidence_acquisition_state": "sample_tables_published",
       "expected_contributions": [
         "sample_identifiers",
-        "taxonomic_context",
-        "site_names",
-        "coordinate_resolution_candidate",
-        "chronology"
+        "taxonomic_context"
       ],
       "expected_sample_count_status": "not_yet_curated",
       "sample_identifier_status": "paper_or_supplement_targets_curated",
@@ -627,13 +609,10 @@
       "species_latin_name": "Sus scrofa domesticus",
       "paper_doi": "10.1073/pnas.1901169116",
       "inventory_disposition": "tracked_intake_candidate",
-      "evidence_acquisition_state": "repository_supplement_captured_needs_extraction",
+      "evidence_acquisition_state": "sample_tables_published",
       "expected_contributions": [
         "sample_identifiers",
-        "taxonomic_context",
-        "site_names",
-        "coordinate_resolution_candidate",
-        "chronology"
+        "taxonomic_context"
       ],
       "expected_sample_count_status": "not_yet_curated",
       "sample_identifier_status": "paper_or_supplement_targets_curated",
