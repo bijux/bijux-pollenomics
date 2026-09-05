@@ -108,7 +108,7 @@ POLLENOMICS_MAP_TESTS := \
 	$(POLLENOMICS_TEST_ROOT)/unit/reporting/portal/test_reporting_artifacts.py \
 	$(POLLENOMICS_TEST_ROOT)/unit/reporting/portal/test_report_portal.py \
 	$(POLLENOMICS_TEST_ROOT)/unit/evidence/test_evidence_surface.py \
-	$(POLLENOMICS_TEST_ROOT)/unit/analysis/propagation/test_propagation_outputs.py \
+	$(POLLENOMICS_TEST_ROOT)/unit/analysis/propagation/test_propagation_outputs \
 	$(POLLENOMICS_TEST_ROOT)/unit/governance/test_public_artifact_language.py
 POLLENOMICS_MAP_INPUTS := \
 	$(POLLENOMICS_GATE_TRUST_INPUTS) \

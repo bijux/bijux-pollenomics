@@ -8,7 +8,6 @@ from hypothesis import strategies as st
 from pyproj import Geod
 import pytest
 
-from bijux_pollenomics.analysis.propagation import network as propagation_network_module
 from bijux_pollenomics.analysis.propagation.network import (
     COUNTRY_CODES,
     PROPAGATION_SENSITIVITY_SCENARIOS,
@@ -22,6 +21,9 @@ from bijux_pollenomics.analysis.propagation.network import (
     generate_propagation_network,
     generate_propagation_network_exhaustive,
     run_propagation_sensitivity,
+)
+from bijux_pollenomics.analysis.propagation.network.codec import (
+    _event_manifest_digest,
 )
 from bijux_pollenomics.analysis.propagation.candidates import (
     DEFAULT_PROPAGATION_SCENARIO,
@@ -114,9 +116,7 @@ def test_publication_schema_excludes_internal_identity_fields() -> None:
     changed = replace(baseline, measurement_semantics_id="abundance.v1")
 
     assert baseline.as_dict() == changed.as_dict()
-    assert propagation_network_module._event_manifest_digest(
-        (baseline,)
-    ) != propagation_network_module._event_manifest_digest((changed,))
+    assert _event_manifest_digest((baseline,)) != _event_manifest_digest((changed,))
 
 
 @pytest.mark.parametrize(

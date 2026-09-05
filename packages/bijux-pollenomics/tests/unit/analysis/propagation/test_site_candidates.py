@@ -14,12 +14,12 @@ from bijux_pollenomics.analysis.propagation.candidates import (
     DEFAULT_PROPAGATION_SCENARIO,
     CandidatePairRefusalError,
     CandidateSiteContext,
-    _windows_overlap,
     assess_candidate_propagation,
     classify_candidate_propagation,
     resolve_ranking_profile,
     score_candidate_site,
 )
+from bijux_pollenomics.analysis.propagation.candidates.scoring import _windows_overlap
 from bijux_pollenomics.core.temporal_semantics import canonical_bp_interval
 
 

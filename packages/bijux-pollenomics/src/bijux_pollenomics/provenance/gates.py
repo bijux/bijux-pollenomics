@@ -132,7 +132,7 @@ _GATE_TESTS: dict[str, tuple[str, ...]] = {
         "reporting/portal/test_reporting_artifacts.py",
         "reporting/portal/test_report_portal.py",
         "evidence/test_evidence_surface.py",
-        "analysis/propagation/test_propagation_outputs.py",
+        "analysis/propagation/test_propagation_outputs",
         "governance/test_public_artifact_language.py",
     ),
     "provenance": (

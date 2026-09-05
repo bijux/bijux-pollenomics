@@ -222,6 +222,23 @@ def _reconciliations(
     root: Path, policy: _ReleaseEvidencePolicy
 ) -> tuple[evidence.CountReconciliation, ...]:
     rows: list[evidence.CountReconciliation] = []
+    propagation_manifest_path = next(
+        (
+            artifact.path
+            for artifact in policy.required_artifacts
+            if artifact.identity == "propagation"
+        ),
+        None,
+    )
+    propagation_reconciliation_path = (
+        str(
+            Path(propagation_manifest_path).with_name(
+                "primary_scenario_reconciliation.json"
+            )
+        )
+        if propagation_manifest_path is not None
+        else None
+    )
     for requirement in policy.required_reconciliations:
         stem = f"{requirement.source}.{requirement.entity}"
         if requirement.dimension == "country":
@@ -249,7 +266,11 @@ def _reconciliations(
             )
             rows.extend(partitions)
             continue
-        scope_partitions = _propagation_scope_counts(root, requirement)
+        scope_partitions = _propagation_scope_counts(
+            root,
+            requirement,
+            reconciliation_path=propagation_reconciliation_path,
+        )
         if scope_partitions is None:
             scope_partitions = []
             scope_keys = tuple(key for key, _values in requirement.scope_values)
@@ -492,16 +513,17 @@ def _partition_posture(
 
 
 def _propagation_scope_counts(
-    root: Path, requirement: _RequiredReconciliation
+    root: Path,
+    requirement: _RequiredReconciliation,
+    *,
+    reconciliation_path: str | None,
 ) -> list[evidence.CountReconciliation] | None:
-    if requirement.derivation_adapter != "propagation_primary_reconciliation":
+    if (
+        requirement.derivation_adapter != "propagation_primary_reconciliation"
+        or reconciliation_path is None
+    ):
         return None
-    document = _optional_json_object(
-        root,
-        "artifacts/execution-control/propagation/"
-        "neotoma-pollen-release-refusal-f6ecd445/"
-        "primary_scenario_reconciliation.json",
-    )
+    document = _optional_json_object(root, reconciliation_path)
     reconciliation = document.get("reconciliation") if document else None
     if not isinstance(reconciliation, Mapping):
         return None
